@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: danlep
 ms.openlocfilehash: 06872eefd0d500a22214109ad5055dd236b5a6ac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60608124"
 ---
 # <a name="run-containerized-tasks-with-restart-policies"></a>Exécuter des tâches conteneurisées avec des stratégies de redémarrage
@@ -46,7 +46,7 @@ az container create \
 
 ## <a name="run-to-completion-example"></a>Exemple d’exécution jusqu’à achèvement
 
-Pour afficher la stratégie de redémarrage en action, créez une instance de conteneur à partir de Microsoft [aci-wordcount] [ aci-wordcount-image] de l’image, puis spécifiez le `OnFailure` stratégie de redémarrage. Cet exemple de conteneur exécute un script Python qui, par défaut, analyse le texte de [Hamlet](http://shakespeare.mit.edu/hamlet/full.html) de Shakespeare, écrit les 10 mots les plus fréquents dans STDOUT, puis se termine.
+Pour voir la stratégie de redémarrage à l’œuvre, créez une instance de conteneur à partir de l’image Microsoft [aci-wordcount][aci-wordcount-image], puis spécifiez la stratégie de redémarrage `OnFailure`. Cet exemple de conteneur exécute un script Python qui, par défaut, analyse le texte de [Hamlet](http://shakespeare.mit.edu/hamlet/full.html) de Shakespeare, écrit les 10 mots les plus fréquents dans STDOUT, puis se termine.
 
 Exécutez l’exemple de conteneur avec la commande [az container create][az-container-create] suivante :
 
@@ -95,7 +95,7 @@ Cet exemple montre la sortie du script envoyé à STDOUT. Toutefois, il est poss
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Les scénarios basés sur des tâches, comme un jeu de données volumineux avec plusieurs conteneurs, de traitement par lots peuvent tirer parti de personnalisé [variables d’environnement](container-instances-environment-variables.md) ou [lignes de commande](container-instances-start-command.md) lors de l’exécution.
+Les scénarios basés sur des tâches, telles que le traitement par lots d’un jeu de données volumineux avec plusieurs conteneurs, peuvent tirer parti de l’utilisation de [lignes de commande](container-instances-start-command.md) ou de [variables d’environnement](container-instances-environment-variables.md) personnalisées au moment de l’exécution.
 
 Pour plus d’informations sur la conservation de la sortie de vos conteneurs qui s’exécutent jusqu’à achèvement, consultez [Montage d’un partage de fichiers Azure avec Azure Container Instances](container-instances-mounting-azure-files-volume.md).
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
 ms.openlocfilehash: 3c22aab20a9260bfd21869f0b327211e2f3d8894
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62109574"
 ---
 # <a name="how-to-use-apache-cordova-client-library-for-azure-mobile-apps"></a>Comment utiliser la bibliothèque cliente Apache Cordova pour Azure Mobile Apps
@@ -106,7 +106,7 @@ Suivez ces instructions pour ajouter vos paramètres régionaux à la configurat
              "https://localhost:3000"
          ],
 
-    Remplacez les URL par les URL de votre service.  Exemples `http://localhost:3000` (pour le service d’exemple Node.js), ou `http://localhost:4400` (pour le service Ripple).  Il s’agit seulement d’exemples d’URL. Votre situation, y compris pour les services mentionnés dans les exemples, peut être différente.
+    Remplacez les URL par les URL de votre service.  Par exemple, `http://localhost:3000` (pour l’exemple de service Node.js) ou `http://localhost:4400` (pour le service Ripple).  Il s’agit seulement d’exemples d’URL. Votre situation, y compris pour les services mentionnés dans les exemples, peut être différente.
 8. Cliquez sur le bouton **Lecture/Écriture** dans le coin supérieur droit de l’écran.
 9. Cliquez sur le bouton vert **PUT** .
 

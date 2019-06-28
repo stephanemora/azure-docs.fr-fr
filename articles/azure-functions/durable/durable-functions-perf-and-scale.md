@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: azfuncdf
 ms.openlocfilehash: e6ae4cc527ae0828f530ab7f3904d2b3c64c910b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60733236"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Performances et mise à l’échelle dans Fonctions durables (Azure Functions)
@@ -49,18 +49,18 @@ Il existe plusieurs *files d’attente de contrôle* par hub de tâches dans Fon
 
 Les files d’attente de contrôle contiennent différents types de message couvrant le cycle de vie de l’orchestration, tels que des [messages de contrôle d’orchestrateurs](durable-functions-instance-management.md), des messages de *réponse* de fonctions d’activité et des messages de minuteurs. Au maximum, 32 messages seront enlevés d’une file d’attente de contrôle lors d’une seule interrogation. Ces messages contiennent des données de charge utile ainsi que des métadonnées, et notamment l’instance d’orchestration de destination. Si plusieurs messages enlevés de la file d’attente sont prévus pour la même instance d’orchestration, ils seront traités en tant que lot.
 
-### <a name="queue-polling"></a>Interrogation de file d’attente
+### <a name="queue-polling"></a>Interrogation de file d'attente
 
-L’extension tâche durable implémente un algorithme exponentiel et aléatoire temporisation pour réduire l’effet d’inactivité-file d’attente d’interrogation sur les coûts de stockage. Lorsqu’un message est trouvé, le runtime recherche immédiatement un autre message ; Quand aucun message n’est trouvé, il attend pendant une période de temps avant de réessayer. Après plusieurs échecs de tentatives pour obtenir un message de file d’attente, le temps d’attente continue d’augmenter jusqu'à ce qu’il atteigne le délai d’attente maximal par défaut est 30 secondes.
+L’extension Tâche durable implémente un algorithme d’interruption exponentiel et aléatoire pour réduire l’effet de l’interrogation de file d’attente inactive sur les coûts de transactions de stockage. Quand un message est détecté, le runtime vérifie s’il existe un autre message ; si aucun message n’est détecté, il attend quelques secondes avant de réessayer. Après plusieurs échecs de tentatives d’obtention d’un message de file d’attente, le temps d’attente continue à augmenter jusqu’à ce qu’il atteigne le délai d’attente maximal par défaut (30 secondes).
 
-Le délai d’interrogation maximal est configurable via la `maxQueuePollingInterval` propriété dans le [fichier host.json](../functions-host-json.md#durabletask). Affectation d’une valeur plus élevée peut entraîner une latence de traitement des messages plus élevé. Latences supérieures peuvent être attendus uniquement après les périodes d’inactivité. Affectation d’une valeur inférieure peut entraîner des coûts de stockage plus élevés en raison de transactions de stockage.
+Le délai maximal d’interrogation est configurable via la propriété `maxQueuePollingInterval` dans le [fichier host.json](../functions-host-json.md#durabletask). Une valeur plus élevée peut entraîner une plus grande latence lors du traitement des messages. Les latences plus élevées ne devraient survenir qu'après des périodes d'inactivité. Une valeur plus faible peut entraîner une augmentation des coûts de stockage en raison d’un nombre plus important de transactions de stockage.
 
 > [!NOTE]
-> Lors de l’exécution dans les plans de consommation Azure Functions et Premium, le [contrôleur de mise à l’échelle Azure Functions](../functions-scale.md#how-the-consumption-and-premium-plans-work) interroge chaque file d’attente de contrôle et d’élément de travail une fois toutes les 10 secondes. Cette interrogation supplémentaire est nécessaire pour déterminer le moment d’activation d’instances d’application de fonction et de prendre des décisions de mise à l’échelle. Au moment de la rédaction de, cette deuxième intervalle 10 est constant et ne peut pas être configuré.
+> Lorsqu’il est exécuté dans les plans Consommation et Premium d’Azure Functions, le [contrôleur de mise à l'échelle Azure Functions](../functions-scale.md#how-the-consumption-and-premium-plans-work) interrogera chaque contrôle et chaque file d'attente des éléments de travail toutes les 10 secondes. Cette interrogation supplémentaire est nécessaire pour déterminer quand activer les instances d'application de fonction et pour prendre des décisions de mise à l'échelle. Au moment d’écrire ces lignes, cet intervalle de 10 secondes est constant et ne peut pas être configuré.
 
 ## <a name="storage-account-selection"></a>Sélection du compte de stockage
 
-Les files d’attente, les tables et les objets BLOB utilisés par les fonctions durables est créés dans un compte de stockage Azure configuré. Le compte à utiliser peut être spécifié à l’aide du paramètre `durableTask/azureStorageConnectionStringName` dans le fichier **host.json**.
+Les files d’attente, les tables et les objets blob utilisés par Durable Functions sont créés dans un compte de stockage Azure configuré. Le compte à utiliser peut être spécifié à l’aide du paramètre `durableTask/azureStorageConnectionStringName` dans le fichier **host.json**.
 
 ### <a name="functions-1x"></a>Functions 1.x
 

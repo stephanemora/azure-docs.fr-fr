@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/14/2019
 ms.author: ramamill
 ms.openlocfilehash: 35c317c4b73e9a22e3b0d6192abcfc2a596066b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60598266"
 ---
 # <a name="automate-mobility-service-installation-with-system-center-configuration-manager"></a>Automatisation de l’installation du service Mobilité à l’aide de System Center Configuration Manager
@@ -24,9 +24,9 @@ Cet article fournit un exemple de l’utilisation de System Center Configuration
 
 Cet article utilise System Center Configuration Manager 2012 R2 pour illustrer l’activité de déploiement. Nous partons du principe que vous utilisez la version **9.9.4510.1** ou supérieure du service Mobilité.
 
-Alternativement, vous pouvez automatiser l’installation du Service mobilité avec [Azure Automation DSC](vmware-azure-mobility-deploy-automation-dsc.md).
+Vous pouvez aussi automatiser l’installation du service Mobilité avec [Azure Automation DSC](vmware-azure-mobility-deploy-automation-dsc.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 1. Un outil de déploiement de logiciels tel que Configuration Manager qui est déjà déployé dans votre environnement.
 2. Vous devez créer deux [regroupements d’appareils](https://technet.microsoft.com/library/gg682169.aspx), un pour tous les **serveurs Windows** et l’autre pour tous les **serveurs Linux** que vous souhaitez protéger à l’aide de Site Recovery.
@@ -210,7 +210,7 @@ IF NOT %ERRORLEVEL% EQU 0 (
 > [!TIP]
 > Pour éviter les redémarrages inutiles, planifiez l’installation du package pendant votre fenêtre de maintenance mensuelle ou votre fenêtre de mises à jour logicielles.
 
-Vous pouvez surveiller la progression du déploiement à l’aide de la console Configuration Manager. Accédez à **Surveillance** > **Déploiements** > *[nom de votre package]*.
+Vous pouvez surveiller la progression du déploiement à l’aide de la console Configuration Manager. Accédez à **Surveillance** > **Déploiements** >  *[nom de votre package]* .
 
   ![Capture d’écran de l’option de Configuration Manager pour contrôler les déploiements](./media/vmware-azure-mobility-install-configuration-mgr/report.PNG)
 

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: alkohli
 ms.openlocfilehash: 8dd55032c933cdc31b848addfdac991550376dcf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60729226"
 ---
 # <a name="data-transfer-for-large-datasets-with-moderate-to-high-network-bandwidth"></a>Transférer des jeux de données volumineux avec une bande passante réseau modérée à élevée
@@ -68,8 +68,8 @@ Si vous utilisez le transfert de données hors connexion, reportez-vous au table
 |    Type de données                        |    Objets blob Azure                  |    Objets blob Azure<br>Azure Files                    |    Objets blob Azure<br>Azure Files            |    Objets blob Azure<br>Azure Files          |
 |    Facteur de forme                      |    5 disques SSD par commande             |    1 x appareil de 50 lb de taille bureau par commande    |    1 x gros appareil d’environ 500 lb par commande    |    Jusqu’à 10 disques HDD/SSD par commande        |
 |    Temps d’installation initial               |    Faible <br>(15 minutes)            |    Faible à modéré <br> (< 30 minutes)               |    Modéré<br>(1 à 2 heures)               |    Modéré à difficile<br>(variable) |
-|    Envoyer des données vers Azure               |    Oui                          |    OUI                                           |    OUI                                   |    Oui                                 |
-|    Exporter des données à partir d’Azure           |    Non                            |    Non                                             |    Non                                     |    Oui                                 |
+|    Envoyer des données vers Azure               |    OUI                          |    OUI                                           |    OUI                                   |    OUI                                 |
+|    Exporter des données à partir d’Azure           |    Non                           |    Non                                            |    Non                                    |    OUI                                 |
 |    Chiffrement                       |    AES 128 bits                  |    AES 256 bits                                   |    AES 256 bits                           |    AES 128 bits                         |
 |    Matériel                         |     Fourni par Microsoft          |    Fourni par Microsoft                            |    Fourni par Microsoft                    |    Fourni par le client                   |
 |    interface réseau                |    USB 3.1/SATA                 |    RJ45, SFP+                                   |    RJ45, QSFP+                           |    SATA II/SATA III                    |
@@ -83,13 +83,13 @@ Si vous utilisez le transfert de données en ligne, reportez-vous au tableau de 
 
 ### <a name="high-network-bandwidth"></a>Bande passante réseau élevée
 
-|                                     |    Outils AzCopy, <br>Azure PowerShell, <br>Azure CLI             |    API REST Stockage Azure, Kits de développement logiciel (SDK)                   |    Passerelle de zone de données ou d’arêtes de zone de données          |    Azure Data Factory                                            |
+|                                     |    Outils AzCopy, <br>Azure PowerShell, <br>Azure CLI             |    API REST Stockage Azure, Kits de développement logiciel (SDK)                   |    Data Box Gateway ou Data Box Edge          |    Azure Data Factory                                            |
 |-------------------------------------|------------------------------------|----------------------------------------------|----------------------------------|-----------------------------------------------------------------------|
 |    Type de données                  |    Blobs, Fichiers et Tables Azure    |    Blobs, Fichiers et Tables Azure    |    Blob et Fichiers Azure                           |   Prend en charge plus de 70 connecteurs de données pour les formats et les magasins de données    |
 |    Facteur de forme                |    Outils de ligne de commande                        |    Interface de programmation                    |    Microsoft fournit un appareil virtuel <br>ou physique     |    Service sur le portail Azure                                            |
 |    Installation ponctuelle initiale     |    Facile               |    Modéré                       |    Facile (< 30 minutes) à modérée (1 à 2 heures)            |    Exigeante                                                          |
-|    Prétraitement des données              |    Non                                         |    Non                                         |    Oui (avec computing en périphérie)                               |    Oui                                                                |
-|    Transfert à partir d'autres clouds       |    Non                                         |    Non                                         |    Non                                                     |    Oui                                                                |
+|    Prétraitement des données              |    Non                                        |    Non                                        |    Oui (avec computing en périphérie)                               |    OUI                                                                |
+|    Transfert à partir d'autres clouds       |    Non                                        |    Non                                        |    Non                                                    |    OUI                                                                |
 |    Type d’utilisateur                        |    Professionnel de l'informatique ou développeur                                       |    Dev                                       |    Professionnel de l'informatique                                                |    Professionnel de l'informatique                                                             |
 |    Tarifs                          |    Gratuit, des frais de sortie de données s'appliquent         |    Gratuit, des frais de sortie de données s'appliquent         |    [Tarification](https://azure.microsoft.com/pricing/details/storage/databox/edge/)                                               |    [Tarification](https://azure.microsoft.com/pricing/details/data-factory/)                                                            |
 

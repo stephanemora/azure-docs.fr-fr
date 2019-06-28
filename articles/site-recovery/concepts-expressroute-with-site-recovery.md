@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 4/18/2019
 ms.author: mayg
 ms.openlocfilehash: bf4cce8a224db81b8db7fae6a69b8b578bb3d47a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60772305"
 ---
 # <a name="azure-expressroute-with-azure-site-recovery"></a>Azure ExpressRoute avec Azure Site Recovery
@@ -38,16 +38,16 @@ Pour en savoir plus et comparer les domaines de routage ExpressRoute, [voir ici]
 
 Azure Site Recovery permet une récupération d’urgence et une migration sur Azure de [machines virtuelles Hyper-V](hyper-v-azure-architecture.md), de [machines virtuelles VMware](vmware-azure-architecture.md) et de [serveurs physiques](physical-azure-architecture.md) locaux. Pour tous les scénarios de réplication de service local sur Azure, les données sont envoyées à un compte de stockage Azure et stockées sur celui-ci. Lors d’une réplication, vous ne payez aucuns frais de machine virtuelle. Quand vous exécutez un basculement vers Azure, Site Recovery crée automatiquement des machines virtuelles Azure IaaS.
 
-Azure Site Recovery réplique les données sur un compte de stockage Azure, via un point de terminaison public. Pour utiliser ExpressRoute pour la réplication Site Recovery, vous pouvez utiliser [l’homologation publique](../expressroute/expressroute-circuit-peerings.md#publicpeering) (déconseillé pour de nouvelles créations) ou [l’homologation Microsoft](../expressroute/expressroute-circuit-peerings.md#microsoftpeering). L’homologation Microsoft est le domaine de routage recommandé pour la réplication. Vérifiez que les [exigences réseau](vmware-azure-configuration-server-requirements.md#network-requirements) sont également remplies pour la réplication. Après que des machines virtuelles ou des serveurs ont basculé vers un réseau virtuel Azure, vous pouvez y accéder à l’aide d’une [homologation privée](../expressroute/expressroute-circuit-peerings.md#privatepeering). La réplication n’est pas pris en charge via une homologation privée.
+Azure Site Recovery réplique les données sur un compte de stockage Azure, via un point de terminaison public. Pour utiliser ExpressRoute afin d’effectuer une réplication Site Recovery, vous pouvez utiliser une [homologation publique](../expressroute/expressroute-circuit-peerings.md#publicpeering) (dépréciée pour les créations) ou une [homologation Microsoft](../expressroute/expressroute-circuit-peerings.md#microsoftpeering). L’homologation Microsoft est le domaine de routage recommandé pour la réplication. Vérifiez que les [exigences réseau](vmware-azure-configuration-server-requirements.md#network-requirements) sont également remplies pour la réplication. Après que des machines virtuelles ou des serveurs ont basculé vers un réseau virtuel Azure, vous pouvez y accéder à l’aide d’une [homologation privée](../expressroute/expressroute-circuit-peerings.md#privatepeering). La réplication n’est pas pris en charge via une homologation privée.
 
-Dans le cas où vous utilisez un proxy en local et que vous souhaitez utiliser ExpressRoute pour le trafic de réplication, vous devez configurer la liste de contournement Proxy sur le serveur de Configuration et les serveurs de processus. Pour ce faire, procédez comme suit :
+Si vous utilisez un proxy en local et que vous souhaitez utiliser ExpressRoute pour le trafic de réplication, vous devez configurer la liste de contournement Proxy sur le serveur de configuration et les serveurs de traitement. Pour ce faire, procédez comme suit :
 
-- Télécharger l’outil PsExec [ici](https://aka.ms/PsExec) pour accéder aux contexte utilisateur du système.
-- Ouvrez Internet Explorer dans le contexte utilisateur du système en exécutant la ligne de commande psexec - opérations de mappage suivantes -i « %programfiles%\Internet Explorer\iexplore.exe »
+- Téléchargez l’outil PsExec [ici](https://aka.ms/PsExec) pour accéder au contexte de l’utilisateur système.
+- Ouvrez Internet Explorer dans le contexte de l’utilisateur système en exécutant la ligne de commande suivante : psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"
 - Ajouter des paramètres de proxy dans Internet Explorer
 - Dans la liste de contournement, ajoutez l’URL de stockage Azure *. blob.core.windows.net
 
-Cela garantira la circulation du trafic de réplication uniquement via ExpressRoute tandis que la communication peut passer par proxy.
+Seule la circulation du trafic de réplication peut alors s’écouler via ExpressRoute tandis que la communication peut passer par proxy.
 
 Le scénario combiné est représenté dans le diagramme suivant : ![De local à Azure avec ExpressRoute](./media/concepts-expressroute-with-site-recovery/site-recovery-with-expressroute.png)
 
@@ -65,4 +65,4 @@ Vous pouvez répliquer des machines virtuelles Azure vers n’importe quelle ré
 - En savoir plus sur les [circuits ExpressRoute](../expressroute/expressroute-circuit-peerings.md).
 - En savoir plus sur les [domaines de routage ExpressRoute](../expressroute/expressroute-circuit-peerings.md#peeringcompare).
 - En savoir plus sur les [emplacements ExpressRoute](../expressroute/expressroute-locations.md).
-- En savoir plus sur la récupération d’urgence de [machines virtuelles Azure avec ExpressRoute](azure-vm-disaster-recovery-with-expressroute.md).
+- En savoir plus sur la récupération d’urgence des [machines virtuelles Azure via ExpressRoute](azure-vm-disaster-recovery-with-expressroute.md).

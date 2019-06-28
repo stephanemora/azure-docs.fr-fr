@@ -12,10 +12,10 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: 68378c87e18df874059579445352b8fd1b2b6c13
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62105578"
 ---
 # <a name="exchange-messages-in-the-cloud-with-azure-service-bus-and-azure-logic-apps"></a>Échanger des messages dans le cloud avec Azure Service Bus et Azure Logic Apps
@@ -31,7 +31,7 @@ Avec Azure Logic Apps et le connecteur Azure Service Bus, vous pouvez créer des
 
 Vous pouvez utiliser des déclencheurs afin d’obtenir des réponses de Service Bus et mettre la sortie à la disposition d’autres actions dans vos applications logiques. Vous pouvez également faire en sorte que d’autres actions utilisent la sortie d’actions Service Bus. Si vous ne connaissez pas Service Bus et Logic Apps, consultez [Qu’est-ce qu’Azure Service Bus ?](../service-bus-messaging/service-bus-messaging-overview.md) et [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>. 
 
@@ -74,12 +74,12 @@ Vérifiez que votre application logique dispose des autorisations pour accéder 
 
 1. Pour ajouter un *déclencheur* à une application logique vide, dans la zone de recherche, entrez « Azure Service Bus » comme filtre. Dans la liste des déclencheurs, sélectionnez le déclencheur souhaité. 
 
-   Par exemple, pour déclencher votre application logique lorsqu’un nouvel élément est envoyé à une file d’attente Service Bus, sélectionnez ce déclencheur : **Lorsqu’un message est reçu dans une file d’attente (saisie semi-auto)**
+   Par exemple, pour déclencher votre application logique quand un nouvel élément est envoyé à une file d’attente Service Bus, sélectionnez le déclencheur suivant : **Quand une file d’attente reçoit un message (saisie semi-automatique)**
 
    ![Sélectionner un déclencheur Service Bus](./media/connectors-create-api-azure-service-bus/select-service-bus-trigger.png)
 
    > [!NOTE]
-   > Certains déclencheurs peuvent renvoyer un ou plusieurs messages, comme le déclencheur **Lorsqu’un ou plusieurs messages arrivent dans une file d’attente (saisie semi-automatique)**. Lorsque ces déclencheurs sont activés, ils retournent entre un et le nombre de messages spécifiés par la propriété **Nombre maximal de messages** du déclencheur.
+   > Certains déclencheurs peuvent renvoyer un ou plusieurs messages, comme le déclencheur **Lorsqu’un ou plusieurs messages arrivent dans une file d’attente (saisie semi-automatique)** . Lorsque ces déclencheurs sont activés, ils retournent entre un et le nombre de messages spécifiés par la propriété **Nombre maximal de messages** du déclencheur.
 
    Tous les déclencheurs Service Bus sont des déclencheurs *d’interrogation longue*, ce qui signifie que lorsqu’un déclencheur est activé, celui-ci traite tous les messages puis attend 30 secondes le temps qu’un plus grand nombre de messages s’affichent dans la file d’attente ou la rubrique d’abonnement. 
    Si aucun message n’apparaît au bout de 30 secondes, l’exécution du déclencheur est ignorée. 
@@ -90,7 +90,7 @@ Vérifiez que votre application logique dispose des autorisations pour accéder 
    1. Sous la dernière étape où vous souhaitez ajouter une action, choisissez **Nouvelle étape**. 
 
       Pour ajouter une action entre des étapes, placez votre pointeur au-dessus de la flèche qui les sépare. 
-      Cliquez sur le signe plus (**+**) qui s’affiche, puis sélectionnez **Ajouter une action**.
+      Cliquez sur le signe plus ( **+** ) qui s’affiche, puis sélectionnez **Ajouter une action**.
 
    1. Dans la zone de recherche, entrez « Azure Service Bus » en tant que filtre. 
    Dans la liste des actions, sélectionnez l’action souhaitée. 
@@ -118,14 +118,14 @@ Vérifiez que votre application logique dispose des autorisations pour accéder 
 
 1. Fournissez les informations nécessaires pour le déclencheur ou l’action. Pour cet exemple, suivez les étapes correspondantes pour votre déclencheur ou action : 
 
-   * **Pour le déclencheur exemple**: Définir l’intervalle d’interrogation et la fréquence de vérification de la file d’attente.
+   * **Pour l’exemple de déclencheur** : définissez l’intervalle d’interrogation et la fréquence de vérification de la file d’attente.
 
      ![Définir l’intervalle d'interrogation](./media/connectors-create-api-azure-service-bus/service-bus-trigger-details.png)
 
      Lorsque vous avez terminé, continuez la création du workflow de votre application logique en ajoutant les actions que vous souhaitez. Par exemple, vous pouvez ajouter une action qui envoie un e-mail lorsqu’un nouveau message arrive.
      Lorsque votre déclencheur vérifie la file d’attente et trouve un nouveau message, l’application logique exécute les actions que vous avez sélectionnées pour le message trouvé.
 
-   * **Pour l’action de l’exemple**: Entrez le contenu du message et tous les autres détails. 
+   * **Pour l’exemple d’action** : entrez le contenu du message et tous les autres détails. 
 
      ![Fournir les détails et le contenu du message](./media/connectors-create-api-azure-service-bus/service-bus-send-message-details.png)
 

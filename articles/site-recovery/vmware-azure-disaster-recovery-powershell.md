@@ -8,10 +8,10 @@ ms.date: 04/08/2019
 ms.topic: conceptual
 ms.author: sutalasi
 ms.openlocfilehash: 5490149f199c2d7887716ceae3f035527ad33961
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66170048"
 ---
 # <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>Configurer la reprise d’activité des machines virtuelles VMware sur Azure avec PowerShell
@@ -26,27 +26,27 @@ Vous allez apprendre à effectuer les actions suivantes :
 > - Configurer la réplication, y compris une stratégie de réplication. Ajouter un serveur vCenter et détecter des machines virtuelles.
 > - Ajouter un serveur vCenter et effectuer des opérations de détection
 > - Créer des comptes de stockage pour conserver les données de réplication, et répliquer les machines virtuelles.
-> - Effectuer un basculement. Configurer les paramètres de basculement, effectuer des paramètres pour la réplication des machines virtuelles.
+> - Effectuer un basculement. Configurer les paramètres de basculement pour la réplication des machines virtuelles.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer :
 
 - Assurez-vous que vous comprenez [l’architecture et les composants du scénario](vmware-azure-architecture.md).
 - Vérifiez les [exigences de prise en charge](site-recovery-support-matrix-to-azure.md) pour tous les composants.
-- Vous avez Azure PowerShell `Az` module. Si vous devez installer ou mettre à niveau Azure PowerShell, consultez le [guide sur l’installation et la configuration d’Azure PowerShell](/powershell/azure/install-az-ps).
+- Vous devez disposer du module Azure PowerShell `Az`. Si vous devez installer ou mettre à niveau Azure PowerShell, consultez le [guide sur l’installation et la configuration d’Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## <a name="log-into-azure"></a>Se connecter à Azure
 
-Connectez-vous à votre abonnement Azure à l’aide de l’applet de commande Connect-AzAccount :
+Connectez-vous à votre abonnement Azure à l’aide de la cmdlet Connect-Azccount :
 
 ```azurepowershell
 Connect-AzAccount
 ```
-Sélectionnez l’abonnement Azure vers lequel répliquer vos machines virtuelles VMware. Utilisez l’applet de commande Get-AzSubscription pour obtenir la liste des abonnements Azure auxquels que vous avez accès à. Sélectionnez l’abonnement Azure à utiliser à l’aide de l’applet de commande Select-AzSubscription.
+Sélectionnez l’abonnement Azure vers lequel répliquer vos machines virtuelles VMware. Utilisez la cmdlet Get-AzSubscription pour obtenir la liste des abonnements Azure auxquels vous avez accès. Sélectionnez l’abonnement Azure à utiliser à l’aide de la cmdlet Select-AzSubscription.
 
 ```azurepowershell
 Select-AzSubscription -SubscriptionName "ASR Test Subscription"
@@ -105,7 +105,7 @@ Select-AzSubscription -SubscriptionName "ASR Test Subscription"
 Définissez le contexte d’archivage à l’aide de la cmdlet Set-ASRVaultContext. Ensuite, les opérations suivantes d’Azure Site Recovery dans la session PowerShell sont effectuées dans le contexte du coffre sélectionné.
 
 > [!TIP]
-> Le module Azure Site Recovery PowerShell (module Az.RecoveryServices) est fourni avec des alias faciles à utiliser pour la plupart des applets de commande. Les applets de commande dans le module prennent la forme  *\<opération >-**AzRecoveryServicesAsr**\<objet >* et possèdent des alias équivalents qui prennent la forme  *\< Opération >-**ASR**\<objet >*. Cet article utilise les alias de cmdlet afin de faciliter la lecture.
+> Le module Azure Site Recovery PowerShell (module Az.RecoveryServices) est fourni avec des alias faciles à utiliser pour la plupart des cmdlets. Les cmdlets du module prennent le format *\<Opération>-**AzRecoveryServicesAsr**\<Objet>* et possèdent des alias équivalents, au format *\<Opération>-**ASR**\<Objet>* . Cet article utilise les alias de cmdlet afin de faciliter la lecture.
 
 Dans l’exemple ci-dessous, les détails du coffre obtenus via la variable $vault servent à spécifier le contexte d’archivage pour la session PowerShell.
 
@@ -118,7 +118,7 @@ Dans l’exemple ci-dessous, les détails du coffre obtenus via la variable $vau
    VMwareDRToAzurePs VMwareDRToAzurePs Microsoft.RecoveryServices vaults
    ```
 
-Comme alternative à l’applet de commande Set-ASRVaultContext, un peut également utiliser l’applet de commande Import-AzRecoveryServicesAsrVaultSettingsFile pour définir le contexte du coffre. Spécifiez le chemin d’accès où le fichier de clé de l’inscription de coffre se trouve en tant que le paramètre - path à l’applet de commande Import-AzRecoveryServicesAsrVaultSettingsFile. Par exemple : 
+Au lieu de la cmdlet Set-ASRVaultContext, vous pouvez utiliser la cmdlet Import-AzRecoveryServicesAsrVaultSettingsFile pour définir le contexte d’archivage. Spécifiez le chemin d’accès du fichier de clé d’inscription du coffre en tant que paramètre -path de la cmdlet Import-AzRecoveryServicesAsrVaultSettingsFile. Par exemple :
 
    ```azurepowershell
    Get-AzRecoveryServicesVaultSettingsFile -SiteRecovery -Vault $Vault -Path "C:\Work\"
@@ -339,7 +339,7 @@ Vous aurez besoin des détails suivants pour protéger une machine virtuelle dé
 
 * Élément protégeable à répliquer.
 * Compte de stockage vers lequel répliquer la machine virtuelle. En outre, un stockage de journal est nécessaire pour protéger les machines virtuelles sur un compte de stockage Premium.
-* Serveur de traitement à utiliser pour la réplication. La liste des serveurs de traitement disponibles a été récupérée et enregistrée dans les variables ***$ProcessServers[0]*** *(ScaleOut-ProcessServer)* et ***$ProcessServers[1]*** *(ConfigurationServer)*.
+* Serveur de traitement à utiliser pour la réplication. La liste des serveurs de traitement disponibles a été récupérée et enregistrée dans les variables ***$ProcessServers[0]*** *(ScaleOut-ProcessServer)* et ***$ProcessServers[1]*** *(ConfigurationServer)* .
 * Compte à utiliser pour installer (push) le logiciel du service Mobilité sur les machines. La liste des comptes disponibles a été récupérée et stockée dans la variable ***$AccountHandles***.
 * Mappage de conteneur de protection pour la stratégie de réplication à utiliser pour la réplication.
 * Groupe de ressources dans lequel les machines virtuelles doivent être créées lors du basculement.
@@ -351,8 +351,8 @@ Maintenant, répliquez les machines virtuelles suivantes à l’aide des paramè
 |Machine virtuelle  |Serveur de traitement        |Compte de stockage              |Compte de stockage de journal  |Stratégie           |Compte pour l’installation du service Mobilité|Groupe de ressources cible  | Réseau virtuel cible  |Sous-réseau cible  |
 |-----------------|----------------------|-----------------------------|---------------------|-----------------|-----------------------------------------|-----------------------|-------------------------|---------------|
 |Win2K12VM1       |ScaleOut-ProcessServer|premiumstorageaccount1       |logstorageaccount1   |ReplicationPolicy|WindowsAccount                           |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |
-|CentOSVM1       |ConfigurationServer   |replicationstdstorageaccount1| S.O.                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |   
-|CentOSVM2       |ConfigurationServer   |replicationstdstorageaccount1| S.O.                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |   
+|CentOSVM1       |ConfigurationServer   |replicationstdstorageaccount1| N/A                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |   
+|CentOSVM2       |ConfigurationServer   |replicationstdstorageaccount1| N/A                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |   
 
 
 ```azurepowershell
@@ -490,4 +490,4 @@ Errors           : {}
 2. Après le basculement, vous pouvez valider cette opération et configurer la réplication inverse depuis Azure vers le site VMware local.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Découvrez comment automatiser davantage de tâches à l’aide de la [référence Azure Site Recovery PowerShell](https://docs.microsoft.com/powershell/module/Az.RecoveryServices).
+Découvrez comment automatiser plusieurs tâches à l’aide de la [référence Azure Site Recovery PowerShell](https://docs.microsoft.com/powershell/module/Az.RecoveryServices).

@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: e7dcdb960fbd9196aca8b667269a4c6e5a1fb8f9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60794973"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>Niveaux de zoom et grille mosaïque
-Azure Maps utilisent le système de coordonnées de projection Spherical Mercator (EPSG : 3857).
+Azure Maps utilise le système de coordonnées de projection Spherical Mercator (EPSG : 3857).
 
-Le monde est divisé en mosaïques carrées. Azure maps dote les vignettes raster et vectoriels pour 23 niveaux de zoom, numérotés de 0 à 22. Au niveau de zoom 0, le monde entier tient dans une seule mosaïque :
+Le monde est divisé en mosaïques carrées. Azure Maps fournit des mosaïques Raster et Vecteur pour 23 niveaux de zoom, numérotés de 0 à 22. Au niveau de zoom 0, le monde entier tient dans une seule mosaïque :
 
 ![Mosaïque du monde](./media/zoom-levels-and-tile-grid/world0.png)
 
@@ -28,9 +28,9 @@ Le niveau de zoom 1 utilise quatre mosaïques pour afficher le monde : un carré
 
 ![Mosaïque du monde en bas à gauche](media/zoom-levels-and-tile-grid/world1b.png)     ![Mosaïque du monde en bas à droite](media/zoom-levels-and-tile-grid/world1d.png) 
 
-Chaque niveau de zoom supplémentaires divise en quatre les mosaïques du précédent, créant une grille de 2<sup>zoom</sup> x 2<sup>zoom</sup>. Le niveau de zoom 22 est une grille de 2<sup>22</sup> x 2<sup>22</sup> ou de 4 194 304 x 4 194 304 mosaïques (17 592 186 044 416 mosaïques au total).
+Chaque niveau de zoom supplémentaire divise en quatre les mosaïques du niveau précédent, en créant une grille de 2<sup>zoom</sup> x 2<sup>zoom</sup>. Le niveau de zoom 22 est une grille de 2<sup>22</sup> x 2<sup>22</sup> ou de 4 194 304 x 4 194 304 mosaïques (17 592 186 044 416 mosaïques au total).
 
-Les contrôles de carte interactive Azure Maps pour le web et la prise en charge Android zoom 25 niveaux de zoom niveaux, numérotés de 0 à 24. Même si les données de route seront uniquement disponibles aux niveaux de zoom dans lorsque les vignettes sont disponibles.
+Les contrôles de la carte interactive Azure Maps pour le web et Android prennent en charge 25 niveaux de zoom, numérotés de 0 à 24. Toutefois, les données de route seront disponibles uniquement aux niveaux de zoom avant quand les mosaïques sont disponibles.
 
 Le tableau suivant fournit la liste complète de valeurs pour les niveaux de zoom :
 
@@ -41,8 +41,8 @@ Le tableau suivant fournit la liste complète de valeurs pour les niveaux de zoo
 |2|39135.8|10018764.8|
 |3|19567.9|5009382.4|
 |4|9783.9|2504678.4|
-|5.|4892|1252352|
-|6.|2446|626176|
+|5\.|4892|1252352|
+|6\.|2446|626176|
 |7|1223|313088|
 |8|611.5|156544|
 |9|305.7|78259.2|
@@ -59,16 +59,16 @@ Le tableau suivant fournit la liste complète de valeurs pour les niveaux de zoo
 |20|0.15|38.2|
 |21|0,075|19.1|
 |22|0,0375|9,55|
-|23|0.01875|4.775|
-|24|0.009375|2.3875|
+|23|0,01875|4,775|
+|24|0,009375|2,3875|
 
 Les mosaïques sont appelées selon le niveau de zoom et les coordonnées x et y correspondant à la position de la mosaïque sur la grille pour ce niveau de zoom.
 
-Lorsque vous déterminez le niveau de zoom à utiliser, n’oubliez pas de que chaque emplacement correspond à une position fixe sur sa vignette. Cela signifie que le nombre de mosaïques nécessaires pour afficher l’étendue donnée d’un territoire dépend du placement spécifique de la grille de zoom dans le monde. Par exemple, si deux points sont éloignés l’un de l’autre de 900 mètres, trois mosaïques *peuvent* suffire pour afficher un itinéraire entre eux au niveau de zoom 17. Toutefois, si le point occidental se trouve à droite de sa mosaïque et que le point oriental se trouve à gauche, on obtient quatre mosaïques :
+Quand vous déterminez le niveau de zoom à utiliser, n’oubliez pas que chaque emplacement correspond à une position fixe sur sa mosaïque. Cela signifie que le nombre de mosaïques nécessaires pour afficher l’étendue donnée d’un territoire dépend du placement spécifique de la grille de zoom dans le monde. Par exemple, si deux points sont éloignés l’un de l’autre de 900 mètres, trois mosaïques *peuvent* suffire pour afficher un itinéraire entre eux au niveau de zoom 17. Toutefois, si le point occidental se trouve à droite de sa mosaïque et que le point oriental se trouve à gauche, on obtient quatre mosaïques :
 
 ![Échelle de démonstration du zoom](media/zoom-levels-and-tile-grid/zoomdemo_scaled.png) 
 
-Lorsque le niveau de zoom est déterminé, les valeurs x et y peuvent être calculées. La vignette en haut à gauche dans chaque grille de zoom est x = 0, y = 0 ; la vignette en bas à droite correspond à x = 2<sup>zoom -1</sup>, y = 2<sup>zoom-1</sup>.
+Lorsque le niveau de zoom est déterminé, les valeurs x et y peuvent être calculées. La mosaïque en haut à gauche de chaque grille de zoom correspond à x=0, y=0 ; la mosaïque en bas à droite correspond à x=2<sup>zoom -1</sup>, y=2<sup>zoom-1</sup>.
 
 La grille de zoom pour le niveau de zoom 1 est proposée ici :
 

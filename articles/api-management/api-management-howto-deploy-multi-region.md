@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 04/04/2019
 ms.author: apimpm
 ms.openlocfilehash: d22da92355616c208c7616b4b0e8c26b7f9e7006
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60658153"
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Comment déployer une instance de service Gestion des API Azure dans plusieurs régions Azure
 
 La Gestion des API Azure prend en charge le déploiement sur plusieurs régions, ce qui permet aux éditeurs d’API de ne distribuer qu’un seul service de Gestion des API Azure sur un nombre de régions Azure au choix. Ceci permet de réduire la latence de la demande telle qu’elle est perçue par les utilisateurs distribués de l’API. La disponibilité du service est également améliorée si une région est mise hors connexion.
 
-Un nouveau service de Gestion des API Azure contient initialement une seule [unité][unit] dans une seule région Azure, la Région primaire. D’autres régions peuvent être facilement ajoutées via le portail Azure. Un serveur de passerelle de gestion des API est déployé dans chaque région et le trafic d’appel est routé vers la passerelle la plus proche en termes de latence. Si une région est déconnectée, le trafic est automatiquement redirigé vers la passerelle suivante la plus proche.
+Un nouveau service de Gestion des API Azure contient initialement une seule [unité][unit] dans une seule région Azure, la Région primaire. D’autres régions peuvent être facilement ajoutées via le portail Azure. Un serveur de passerelle du service Gestion des API est déployé sur chaque région et le trafic d’appel est routé vers la passerelle la plus proche en termes de latence. Si une région est déconnectée, le trafic est automatiquement redirigé vers la passerelle suivante la plus proche.
 
 > [!NOTE]
 > La Gestion des API Azure réplique uniquement le composant de la passerelle API dans les différentes régions. Le composant du service de gestion est hébergé uniquement dans la région primaire. En cas de panne dans la région primaire, il est impossible d’appliquer les modifications de configuration sur une instance de service de Gestion des API Azure, y compris pour les paramètres et les mises à jour de stratégies.
@@ -107,16 +107,16 @@ Pour tirer pleinement parti de la distribution géographique de votre système, 
     ```
 
 > [!TIP]
-> Vous pouvez également des serveurs frontaux vos services back-end avec [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), diriger les appels d’API à Traffic Manager et il permettent de résoudre le routage automatiquement.
+> Vous pouvez également proposer des services back-end avec [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), diriger les appels d’API vers Traffic Manager et le laisser résoudre le routage automatiquement.
 
-## <a name="custom-routing"> </a>Utiliser le routage personnalisé à des passerelles régionales de gestion des API
+## <a name="custom-routing"> </a>Utiliser le routage personnalisé vers des passerelles régionales du service Gestion des API
 
-Gestion des API achemine les demandes vers un régionales *passerelle* selon [la plus faible latence](../traffic-manager/traffic-manager-routing-methods.md#performance). Bien qu’il n’est pas possible de remplacer ce paramètre dans la gestion des API, vous pouvez utiliser votre propre Traffic Manager avec des règles de routage personnalisés.
+Le service Gestion des API route les demandes vers une *passerelle* régionale selon la [plus faible latence](../traffic-manager/traffic-manager-routing-methods.md#performance). Même s’il n’est pas possible de remplacer ce paramètre dans le service Gestion des API, vous pouvez utiliser votre propre Traffic Manager avec des règles de routage personnalisées.
 
-1. Créer votre propre [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/).
-1. Si vous utilisez un domaine personnalisé, [utilisez-le avec Traffic Manager](../traffic-manager/traffic-manager-point-internet-domain.md) plutôt qu’au service de gestion des API.
-1. [Configurer les points de terminaison régionales de gestion des API dans Traffic Manager](../traffic-manager/traffic-manager-manage-endpoints.md). Les points de terminaison régionales suivent le modèle de l’URL de `https://<service-name>-<region>-01.regional.azure-api.net`, par exemple `https://contoso-westus2-01.regional.azure-api.net`.
-1. [Configurer les points de terminaison régional état gestion des API dans Traffic Manager](../traffic-manager/traffic-manager-monitoring.md). Les points de terminaison régional d’état suivent le modèle de l’URL de `https://<service-name>-<region>-01.regional.azure-api.net/status-0123456789abcdef`, par exemple `https://contoso-westus2-01.regional.azure-api.net/status-0123456789abcdef`.
+1. Créez votre propre [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/).
+1. Si vous utilisez un domaine personnalisé, [utilisez-le avec Traffic Manager](../traffic-manager/traffic-manager-point-internet-domain.md) plutôt qu’avec le service Gestion des API.
+1. [Configurez les points de terminaison régionaux du service Gestion des API dans Traffic Manager](../traffic-manager/traffic-manager-manage-endpoints.md). Les points de terminaison régionaux suivent le modèle d’URL `https://<service-name>-<region>-01.regional.azure-api.net`, par exemple `https://contoso-westus2-01.regional.azure-api.net`.
+1. [Configurez les points de terminaison d’état régionaux du service Gestion des API dans Traffic Manager](../traffic-manager/traffic-manager-monitoring.md). Les points de terminaison d’état régionaux suivent le modèle d’URL `https://<service-name>-<region>-01.regional.azure-api.net/status-0123456789abcdef`, par exemple `https://contoso-westus2-01.regional.azure-api.net/status-0123456789abcdef`.
 1. Spécifiez [la méthode de routage](../traffic-manager/traffic-manager-routing-methods.md) de Traffic Manager.
 
 

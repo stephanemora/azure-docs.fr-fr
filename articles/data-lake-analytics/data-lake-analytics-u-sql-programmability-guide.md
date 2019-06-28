@@ -10,10 +10,10 @@ ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: conceptual
 ms.date: 06/30/2017
 ms.openlocfilehash: d1b230b40d1f880787334ebfd39e704e3a650baa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60811602"
 ---
 # <a name="u-sql-programmability-guide"></a>Guide de programmabilité U-SQL
@@ -133,7 +133,7 @@ Comme mentionné précédemment, U-SQL exécute le code dans un format 64 bits 
 
 Chaque DLL d’assembly ou fichier de ressources chargé, comme un runtime différent, un assembly natif ou un fichier de configuration peut être de 400 Mo maximum. La taille totale des ressources déployées, via l’instruction DEPLOY RESOURCE ou via des références aux assemblys et leurs fichiers supplémentaires, ne peut pas dépasser 3 Go.
 
-Enfin, notez que chaque base de données U-SQL ne peut contenir qu’une seule version d’un assembly donné. Par exemple, si vous avez besoin des versions 7 et 8 de la bibliothèque NewtonSoft Json.NET, vous devez les enregistrer dans deux bases de données. En outre, chaque script ne peut faire référence qu’à une seule version d’une DLL d’assembly donnée. À cet égard, U-SQL suit la sémantique de gestion et de contrôle de version d’assembly C#.
+Enfin, notez que chaque base de données U-SQL ne peut contenir qu’une seule version d’un assembly donné. Par exemple, si vous avez besoin à la fois des versions 7 et 8 de la bibliothèque NewtonSoft Json.NET, vous devez les enregistrer dans deux bases de données distinctes. En outre, chaque script ne peut faire référence qu’à une seule version d’une DLL d’assembly donnée. À cet égard, U-SQL suit la sémantique de gestion et de contrôle de version d’assembly C#.
 
 ## <a name="use-user-defined-functions-udf"></a>Utiliser les fonctions définies par l’utilisateur : Fonctions définies par l'utilisateur
 Les fonctions U-SQL définies par l’utilisateur (ou UDF) sont des routines de programmation qui acceptent des paramètres, effectuent une action (telle qu’un calcul complexe) et retournent le résultat de celle-ci en tant que valeur. La valeur de retour d’une fonction définie par l’utilisateur ne peut être qu’une valeur scalaire unique. Une fonction définie par l’utilisateur U-SQL peut être appelée dans un script U-SQL de base comme toute autre fonction scalaire C#.
@@ -949,7 +949,7 @@ public abstract class IAggregate<T1, T2, TResult> : IAggregate
 * T2 : deuxième paramètre pour la routine accumulate
 * TResult : type de retour de la routine terminate
 
-Par exemple : 
+Par exemple :
 
 ```
 public class GuidAggregate : IAggregate<string, int, int>
@@ -1220,7 +1220,7 @@ OUTPUT @rs0 TO @output_file USING Outputters.Text();
 Le générateur de sortie défini par l’utilisateur est un autre UDO U-SQL qui vous permet d’étendre les fonctionnalités U-SQL intégrées. Comme pour l’extracteur, il existe plusieurs générateurs de sortie intégrés.
 
 * *Outputters.Text()*  : écrit des données dans des fichiers texte délimités d’encodages différents.
-* *Outputters.csv ()*: écrit des données dans des fichiers de valeurs séparées par des virgules (CSV) d’encodages différents.
+* *Outputters.csv ()* : écrit des données dans des fichiers de valeurs séparées par des virgules (CSV) d’encodages différents.
 * *Outputters.Tsv()*  : écrit des données dans des fichiers de valeur séparées par des tabulations (TSV) d’encodages différents.
 
 Un générateur de sortie personnalisé vous permet d’écrire des données dans un format défini personnalisé. Cela peut être utile pour les tâches suivantes :

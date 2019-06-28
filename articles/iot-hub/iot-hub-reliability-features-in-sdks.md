@@ -8,10 +8,10 @@ ms.date: 07/07/2018
 ms.topic: article
 ms.service: iot-hub
 ms.openlocfilehash: 9180c27e64f26c05e6e16007b74f9aa8a98bcfe5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61440299"
 ---
 # <a name="manage-connectivity-and-reliable-messaging-by-using-azure-iot-hub-device-sdks"></a>Gérer la connectivité et la messagerie fiable à l’aide des kits SDK d’appareil Azure IoT Hub
@@ -36,7 +36,7 @@ Les détails d’implémentation peuvent varier selon le langage. Pour plus d’
 
 ## <a name="designing-for-resiliency"></a>Conception pour la résilience
 
-Les appareils IoT s’appuient souvent sur des connexions réseau non continues ou instables telles que des connexions GSM ou satellite. Des erreurs peuvent se produire quand les appareils interagissent avec les services cloud à cause d’une disponibilité intermittente des services et d’erreurs d’infrastructure ou temporaires. Une application qui s’exécute sur un appareil doit gérer les mécanismes de connexion, reconnexion et la logique de nouvelle tentative pour envoyer et recevoir des messages. De plus, les exigences de stratégie de nouvelles tentatives dépendent fortement du scénario IoT, du contexte et des fonctionnalités de l’appareil.
+Les appareils IoT s’appuient souvent sur des connexions réseau non continues ou instables telles que des connexions GSM ou satellite. Des erreurs peuvent se produire quand les appareils interagissent avec les services cloud à cause d’une disponibilité intermittente des services et d’erreurs d’infrastructure ou temporaires. Une application qui s’exécute sur un appareil doit gérer les mécanismes de connexion et de reconnexion ainsi que la logique de nouvelle tentative pour l’envoi et la réception de messages. De plus, les exigences de stratégie de nouvelles tentatives dépendent fortement du scénario IoT, du contexte et des fonctionnalités de l’appareil.
 
 Les kits SDK d’appareil Azure IoT Hub ont pour but de simplifier la connexion et la communication de cloud-à-appareil et d’appareil-à-cloud. Ces kits fournissent un moyen fiable de se connecter à Azure IoT Hub et un ensemble complet d’options pour envoyer et recevoir des messages. Les développeurs peuvent également modifier l’implémentation existante pour personnaliser une meilleure stratégie de nouvelles tentatives pour un scénario donné.
 
@@ -44,7 +44,7 @@ Les fonctionnalités SDK pertinentes qui prennent en charge la connectivité et 
 
 ## <a name="connection-and-retry"></a>Connexion et nouvelle tentative
 
-Cette section donne une vue d’ensemble des modèles de reconnexion et de nouvelles tentatives disponibles lors de la gestion des connexions. Elle détaille les conseils d’implémentation pour l’utilisation d’une stratégie de nouvelles tentatives différente dans votre application d’appareil et répertorie les API appropriées des kits SDK d’appareil.
+Cette section fournit une vue d’ensemble des modèles de reconnexion et de nouvelle tentative disponibles lors de la gestion des connexions. Elle détaille les conseils d’implémentation pour l’utilisation d’une stratégie de nouvelles tentatives différente dans votre application d’appareil et répertorie les API appropriées des kits SDK d’appareil.
 
 ### <a name="error-patterns"></a>Modèles d’erreur
 
@@ -83,7 +83,7 @@ Les kits SDK fournissent trois stratégies de nouvelles tentatives :
 
 ### <a name="retry-policy-apis"></a>API de stratégie de nouvelles tentatives
 
-   | Kit SDK  | Méthode SetRetryPolicy | Implémentations de stratégie | Conseils d’implémentation |
+   | Kit SDK | Méthode SetRetryPolicy | Implémentations de stratégie | Conseils d’implémentation |
    |-----|----------------------|--|--|
    |  C/Python/iOS  | [IOTHUB_CLIENT_RESULT IoTHubClient_SetRetryPolicy](https://github.com/Azure/azure-iot-sdk-c/blob/2018-05-04/iothub_client/inc/iothub_client.h#L188)        | **Par défaut** : [IOTHUB_CLIENT_RETRY_EXPONENTIAL_BACKOFF](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/connection_and_messaging_reliability.md#connection-retry-policies)<BR>**Personnalisée :** utiliser la stratégie [retryPolicy](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/connection_and_messaging_reliability.md#connection-retry-policies) disponible<BR>**Aucune nouvelle tentative :** [IOTHUB_CLIENT_RETRY_NONE](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/connection_and_messaging_reliability.md#connection-retry-policies)  | [Implémentation de C/Python/iOS](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/connection_and_messaging_reliability.md#)  |
    | Java| [SetRetryPolicy](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.deviceclientconfig.setretrypolicy?view=azure-java-stable)        | **Par défaut** : [classe ExponentialBackoffWithJitter](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/src/main/java/com/microsoft/azure/sdk/iot/device/transport/NoRetry.java)<BR>**Personnalisée :** implémenter l’[interface RetryPolicy](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/src/main/java/com/microsoft/azure/sdk/iot/device/transport/RetryPolicy.java)<BR>**Aucune nouvelle tentative :** [classe NoRetry](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/src/main/java/com/microsoft/azure/sdk/iot/device/transport/NoRetry.java)  | [Implémentation Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/devdoc/requirement_docs/com/microsoft/azure/iothub/retryPolicy.md) |

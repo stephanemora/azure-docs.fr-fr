@@ -8,10 +8,10 @@ ms.topic: article
 ms.service: azure
 ms.assetid: 58a0ca9d-86d2-469a-9714-3b8320c33cf5
 ms.openlocfilehash: d98d0637c6d520193b11f4267c59016772ef063a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60809732"
 ---
 # <a name="azure-role-based-access-control-rbac-to-control-access-rights-to-create-and-manage-support-requests"></a>Contrôle d’accès en fonction du rôle (RBAC) Azure pour contrôler les droits d’accès en vue de créer et de gérer des demandes de support
@@ -20,7 +20,7 @@ Le [contrôle d’accès en fonction du rôle (RBAC)](https://docs.microsoft.com
 La création de demandes de support dans le portail Azure, [portal.azure.com](https://portal.azure.com), utilise le modèle RBAC d’Azure pour définir qui peut créer et gérer les demandes de support.
 L’accès est octroyé en attribuant le rôle RBAC approprié aux utilisateurs, groupes et applications, dans une étendue donnée, qui peut correspondre à un abonnement, un groupe de ressources ou une ressource.
 
-Prenons un exemple : En tant que propriétaire d’un groupe de ressources avec des autorisations de lecture pour l’abonnement, vous pouvez gérer toutes les ressources sous le groupe de ressources, telles que les sites Web, les machines virtuelles et les sous-réseaux.
+Prenons un exemple : en tant que propriétaire d’un groupe de ressources avec des autorisations de lecture dans l’étendue de l’abonnement, vous pouvez gérer toutes les ressources du groupe de ressources, telles que les sites web, les machines virtuelles et les sous-réseaux.
 Toutefois, lorsque vous essayez de créer une demande de support par rapport à la ressource de machine virtuelle, vous rencontrez l’erreur suivante :
 
 ![Erreur relative à l’abonnement](./media/create-manage-support-requests-using-access-control/subscription-error.png)

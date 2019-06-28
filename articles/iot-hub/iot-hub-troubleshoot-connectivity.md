@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: jlian
 ms.openlocfilehash: a107689796c58b17c445e7a9cf7c6f0402ef6005
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61440124"
 ---
 # <a name="detect-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Détecter et résoudre les problèmes de déconnexion avec Azure IoT Hub
@@ -45,7 +45,7 @@ Pour plus d’informations, consultez l’article [Surveiller l’intégrité d�
 
 ### <a name="set-up-alerts-for-the-connected-devices-count-metric"></a>Configurer des alertes pour la métrique du nombre d’_appareils connectés_
 
-Pour obtenir des alertes lorsque les appareils se déconnectent, configurer des alertes sur le **appareils (version préliminaire) connectés** métrique.
+Pour recevoir des alertes quand des appareils se déconnectent, configurez des alertes sur la métrique **Appareils connectés (préversion)** .
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 
@@ -53,17 +53,17 @@ Pour obtenir des alertes lorsque les appareils se déconnectent, configurer des 
 
 3. Sélectionnez **Alertes**.
 
-4. Sélectionnez **nouvelle règle d’alerte**.
+4. Sélectionnez **Nouvelle règle d’alerte**.
 
-5. Sélectionnez **ajouter une condition**, puis sélectionnez « Connecté les appareils (version préliminaire) ».
+5. Sélectionnez **Ajouter une condition**, puis sélectionnez « Appareils connectés (préversion) ».
 
-6. Terminer la configuration de votre seuils désirés et options d’alerte par les invites suivantes.
+6. Terminez la configuration de vos options d’alerte et vos seuils souhaités en suivant les invites.
 
 Pour plus d’informations, consultez l’article [Que sont les alertes classiques dans Microsoft Azure ?](../azure-monitor/platform/alerts-overview.md).
 
 ## <a name="resolve-connectivity-errors"></a>Résoudre les erreurs de connectivité
 
-Lorsque vous activez les alertes et les journaux de diagnostic relatifs aux appareils connectés, vous recevez des alertes quand des erreurs se produisent. Cette section décrit comment résoudre les problèmes courants lorsque vous recevez une alerte. Les étapes suivantes supposent que vous avez configuré des journaux de Azure Monitor pour vos journaux de diagnostic.
+Lorsque vous activez les alertes et les journaux de diagnostic relatifs aux appareils connectés, vous recevez des alertes quand des erreurs se produisent. Cette section décrit comment résoudre les problèmes courants lorsque vous recevez une alerte. Pour exécuter la procédure ci-après, vous devez avoir configuré les journaux Azure Monitor pour vos journaux de diagnostic.
 
 1. Accédez à votre espace de travail pour **Log Analytics** dans le portail Azure.
 

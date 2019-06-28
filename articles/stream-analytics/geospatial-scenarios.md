@@ -1,6 +1,6 @@
 ---
-title: Scénarios d’agrégation gardiennage virtuel et géospatiales avec Azure Stream Analytique
-description: Cet article décrit comment utiliser Azure Stream Analytique pour l’agrégation gardiennage virtuel et géospatiales.
+title: Scénarios de geofencing et d’agrégation géospatiale avec Azure Stream Analytics
+description: Cet article explique comment utiliser Azure Stream Analytics pour le geofencing et l’agrégation géospatiale.
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
@@ -8,51 +8,51 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.openlocfilehash: cc301855e4cdcb8eb687e753835577399cfe72b0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60789545"
 ---
-# <a name="geofencing-and-geospatial-aggregation-scenarios-with-azure-stream-analytics"></a>Scénarios d’agrégation gardiennage virtuel et géospatiales avec Azure Stream Analytique
+# <a name="geofencing-and-geospatial-aggregation-scenarios-with-azure-stream-analytics"></a>Scénarios de geofencing et d’agrégation géospatiale avec Azure Stream Analytics
 
-Avec des fonctions géospatiales intégrées, vous pouvez utiliser Azure Stream Analytique pour générer des applications pour des scénarios tels que la gestion de flotte, puisse surfer sur le partage, les voitures connectées et suivi des ressources.
+Avec ses fonctions géospatiales intégrées, Azure Stream Analytics vous permet de créer des applications destinées à des scénarios de gestion de flottes, de covoiturage, de voitures connectées, de suivi de ressources, etc.
 
 ## <a name="geofencing"></a>Geofencing
 
-Azure Stream Analytique prend en charge les calculs de géorepérage en temps réel à faible latence dans le cloud et sur le runtime IoT Edge.
+Azure Stream Analytics prend en charge les calculs de geofencing en temps réel et à faible latence dans le cloud et sur le runtime IoT Edge.
 
-### <a name="geofencing-scenario"></a>Scénario de gardiennage virtuel
+### <a name="geofencing-scenario"></a>Scénarios de geofencing
 
-Une société de fabrication doit suivre les ressources sur leurs bâtiments. Ils équipé de chaque appareil avec un système GPS et que vous souhaitez recevoir des notifications si un périphérique quitte une certaine zone.
+Une entreprise de fabrication a besoin d’assurer le suivi des ressources dans ses bâtiments. Elle a équipé chaque appareil d’un système GPS et souhaite recevoir une notification si un appareil quitte une zone déterminée.
 
-Les données de référence utilisées dans cet exemple contient les informations de la clôture virtuelle seulement avoir pour les bâtiments et les appareils qui sont autorisés dans chacun des bâtiments. N’oubliez pas que les données de référence peut être statiques ou lentes de modification. Données de référence statiques sont utilisées pour ce scénario. Un flux de données continue d’émettre l’ID d’appareil et sa position actuelle.
+Parmi les données de référence utilisées dans cet exemple figurent des informations de limites géographiques (ou « geofence ») pour les bâtiments et les appareils autorisés dans chaque bâtiment. Rappelez-vous que les données de référence peuvent être statiques ou à évolution lente. Les données de référence utilisées dans ce scénario sont de type statique. Un flux de données émet en continu l’ID des appareils et leur position du moment.
 
-### <a name="define-geofences-in-reference-data"></a>Définir les clôtures virtuelles dans les données de référence
+### <a name="define-geofences-in-reference-data"></a>Définir des limites géographiques dans les données de référence
 
-Une clôture virtuelle seulement avoir peut être définie à l’aide d’un objet GeoJSON. Pour les tâches avec la version 1.2 et versions ultérieures de la compatibilité, clôtures virtuelles peuvent également être définis à l’aide de texte WKT (WKT) en tant que `NVARCHAR(MAX)`. WKT est un Consortium OGC (Open Geospatial) standard qui est utilisé pour représenter les données spatiales dans un format texte.
+Il est possible de définir des limites géographiques (« geofence ») à l’aide d’un objet GeoJSON. Pour les tâches effectuées avec la version de compatibilité 1.2 et supérieure, les limites géographiques peuvent aussi être définies en utilisant WKT (Well Known Text) comme `NVARCHAR(MAX)`. WKT est un standard de l’Open Geospatial Consortium (OGC) qui sert à représenter les données spatiales dans un format texte.
 
-Les fonctions géospatiales intégrées peuvent utiliser clôtures virtuelles définies pour déterminer si un élément est dans ou hors d’un polygone de la clôture virtuelle seulement avoir spécifique.
+Les fonctions géospatiales intégrées peuvent utiliser des limites géographiques définies pour déterminer si un élément se trouve à l’intérieur ou à l’extérieur des limites géographiques d’un polygone particulier.
 
-Le tableau suivant est un exemple de données de référence de clôture virtuelle seulement avoir qui pourraient être stockées dans le stockage blob Azure ou une table SQL Azure. Chaque site est représenté par un polygone géographique, et chaque appareil est associé à un ID de site autorisé.
+Le tableau suivant est un exemple de données de référence de limites géographiques qui pourraient être stockées dans le stockage Blob Azure ou une table Azure SQL. Chaque site est représenté par un polygone géospatial, et chaque appareil est associé à un ID de site autorisé.
 
-|SiteID|SiteName|Limite géographique|AllowedDeviceID|
+|SiteID|SiteName|Geofence|AllowedDeviceID|
 |------|--------|--------|---------------|
-|1|« Redmond Building 41 »|« POLYGONE ((-122.1337357922017 47.63782998329432,-122.13373042778369 47.637634793257305,-122.13346757130023 47.637642022530954,-122.13348902897235 47.637508280806806,-122.13361777500506 47.637508280806806,-122.13361241058703 47.63732393354484,-122.13265754417773 47.63730947490855,-122.13266290859576 47.637519124743164,-122.13302232460376 47.637515510097955,-122.13301696018573 47.63764925180358,-122.13272728161212 47.63764925180358,-122.13274873928424 47.63784082716388,-122.13373579220172 47.63782998329432)) »|"B"|
-|2|« Building Redmond 40 »|« POLYGONE ((-122.1336154507967 47.6366745947009,-122.13361008637867 47.636483015064535,-122.13349206918201 47.636479400347675,-122.13349743360004 47.63636372927573,-122.13372810357532 47.63636372927573,-122.13373346799335 47.63617576323771,-122.13263912671528 47.63616491902258,-122.13264985555134 47.63635649982525,-122.13304682248554 47.636367344000604,-122.13305218690357 47.63650831807564,-122.13276250832996 47.636497473929516,-122.13277323716602 47.63668543881025,-122.1336154507967 47.6366745947009)) »|« A »|
-|3|« Building Redmond 22 »|« POLYGONE ((-122.13611660248233 47.63758544698554,-122.13635263687564 47.6374083293018,-122.13622389084293 47.63733603619712,-122.13622389084293 47.63717699101473,-122.13581619507266 47.63692757827657,-122.13559625393344 47.637046862778135,-122.13569281345798 47.637144458985965,-122.13570890671207 47.637314348246214,-122.13611660248233 47.63758544698554)) »|« C »|
+|1|« Redmond Building 41 »|« POLYGON((-122.1337357922017 47.63782998329432,-122.13373042778369 47.637634793257305,-122.13346757130023 47.637642022530954,-122.13348902897235 47.637508280806806,-122.13361777500506 47.637508280806806,-122.13361241058703 47.63732393354484,-122.13265754417773 47.63730947490855,-122.13266290859576 47.637519124743164,-122.13302232460376 47.637515510097955,-122.13301696018573 47.63764925180358,-122.13272728161212 47.63764925180358,-122.13274873928424 47.63784082716388,-122.13373579220172 47.63782998329432)) »|« B »|
+|2|« Redmond Building 40 »|« POLYGON((-122.1336154507967 47.6366745947009,-122.13361008637867 47.636483015064535,-122.13349206918201 47.636479400347675,-122.13349743360004 47.63636372927573,-122.13372810357532 47.63636372927573,-122.13373346799335 47.63617576323771,-122.13263912671528 47.63616491902258,-122.13264985555134 47.63635649982525,-122.13304682248554 47.636367344000604,-122.13305218690357 47.63650831807564,-122.13276250832996 47.636497473929516,-122.13277323716602 47.63668543881025,-122.1336154507967 47.6366745947009)) »|« A »|
+|3|« Redmond Building 22 »|« POLYGON((-122.13611660248233 47.63758544698554,-122.13635263687564 47.6374083293018,-122.13622389084293 47.63733603619712,-122.13622389084293 47.63717699101473,-122.13581619507266 47.63692757827657,-122.13559625393344 47.637046862778135,-122.13569281345798 47.637144458985965,-122.13570890671207 47.637314348246214,-122.13611660248233 47.63758544698554)) »|« C »|
 
-### <a name="generate-alerts-with-geofence"></a>Générer des alertes avec clôture virtuelle seulement avoir
+### <a name="generate-alerts-with-geofence"></a>Générer des alertes avec les limites géographiques
 
-Les appareils peuvent émettre leurs ID et l’emplacement chaque minute via un flux nommé `DeviceStreamInput`. Le tableau suivant est un flux d’entrée.
+Les appareils peuvent émettre leur ID et leur emplacement toutes les minutes via un flux nommé `DeviceStreamInput`. Le tableau suivant est un flux d’entrée.
 
-|ID d'appareil|GeoPosition|
+|DeviceID|GeoPosition|
 |--------|-----------|
 |« A »|« POINT(-122.13292341559497 47.636318374032726) »|
-|"B"|« POINT(-122.13338475554553 47.63743531308874) »|
+|« B »|« POINT(-122.13338475554553 47.63743531308874) »|
 |« C »|« POINT(-122.13354001095752 47.63627622505007) »|
 
-Vous pouvez écrire une requête qui joint le flux de l’appareil avec les données de référence de clôture virtuelle seulement avoir et génère une alerte chaque fois qu’un appareil est en dehors d’un bâtiment autorisé.
+Vous pouvez écrire une requête qui établit une jonction entre le flux d’appareils et les données de référence de limites géographiques et qui génère une alerte chaque fois qu’un appareil est à l’extérieur d’un bâtiment autorisé.
 
 ```SQL
 SELECT DeviceStreamInput.DeviceID, SiteReferenceInput.SiteID, SiteReferenceInput.SiteName 
@@ -63,50 +63,50 @@ ON st_within(DeviceStreamInput.GeoPosition, SiteReferenceInput.Geofence) = 0
 WHERE DeviceStreamInput.DeviceID = SiteReferenceInput.AllowedDeviceID
 ```
 
-L’illustration suivante représente la clôture virtuelle. Vous pouvez voir où les périphériques se conformément à l’entrée de données de flux de données.
+L’image suivante représente les limites géographiques. Vous pouvez voir où se trouvent les appareils en fonction de l’entrée de données de flux.
 
-![Clôture virtuelle de génération](./media/geospatial-scenarios/building-geofences.png)
+![Limites géographiques des bâtiments](./media/geospatial-scenarios/building-geofences.png)
 
-APPAREIL « C » se trouve à l’intérieur de la création d’ID 2, ce qui n’est pas autorisée en fonction des données de référence. Cet appareil doit se trouver à l’intérieur de la création d’ID 3. Exécution de ce travail génère une alerte pour cette violation spécifique.
+L’appareil « C » se trouve à l’intérieur du bâtiment numéro 2, ce qui n’est pas autorisé d’après les données de référence. Cet appareil devrait se trouver à l’intérieur du bâtiment numéro 3. L’exécution de cette tâche génère une alerte pour cette violation spécifique.
 
-### <a name="site-with-multiple-allowed-devices"></a>Site avec plusieurs périphériques autorisés
+### <a name="site-with-multiple-allowed-devices"></a>Site avec plusieurs appareils autorisés
 
-Si un site autorise plusieurs appareils, un tableau d’ID de périphérique peut être défini dans `AllowedDeviceID` et une fonction définie par l’utilisateur peut être utilisée sur le `WHERE` clause pour vérifier si l’ID de périphérique de flux de données correspond à n’importe quel ID de périphérique dans cette liste. Pour plus d’informations, consultez le [UDF Javascript](stream-analytics-javascript-user-defined-functions.md) didacticiel pour les travaux de cloud et le [ C# UDF](stream-analytics-edge-csharp-udf.md) didacticiel pour les tâches de périphérie.
+Si un site autorise plusieurs appareils, un tableau d’ID d’appareil peut être défini dans `AllowedDeviceID` et une fonction définie par l’utilisateur peut être utilisée dans la clause `WHERE` pour vérifier si un ID d’appareil du flux correspond à un ID d’appareil de cette liste. Pour plus d’informations, consultez le tutoriel [Fonctions Javascript définies par l’utilisateur](stream-analytics-javascript-user-defined-functions.md) pour les tâches cloud et le tutoriel [Fonctions C# définies par l’utilisateur](stream-analytics-edge-csharp-udf.md) pour les tâches Edge.
 
-## <a name="geospatial-aggregation"></a>Agrégation de géospatiales
+## <a name="geospatial-aggregation"></a>Agrégation géospatiale
 
-Azure Stream Analytique prend en charge l’agrégation de géographique en temps réel à faible latence dans le cloud et sur le runtime IoT Edge.
+Azure Stream Analytics prend en charge l’agrégation géospatiale en temps réel et à faible latence dans le cloud et sur le runtime IoT Edge.
 
-### <a name="geospatial-aggregation-scenario"></a>Scénario de l’agrégation géospatiales
+### <a name="geospatial-aggregation-scenario"></a>Scénario d’agrégation géospatiale
 
-Une société de cab souhaite créer une application en temps réel pour guider leurs pilotes cab recherchez tour vers les zones des villes connaît actuellement supérieure à la demande.
+Une société de taxis souhaite créer une application en temps réel pour guider leurs chauffeurs dans la recherche de courses dans les zones des villes où la demande est la plus forte.
 
-La société stocke des régions logiques de la ville en tant que données de référence. Chaque région est définie par un regionid est, RegionName et clôture virtuelle seulement avoir.
+La société stocke les régions logiques des villes comme données de référence. Chaque région est définie par les attributs RegionID, RegionName et Geofence.
 
-### <a name="define-the-geofences"></a>Définir la clôture virtuelle
+### <a name="define-the-geofences"></a>Définir les limites géographiques
 
-Le tableau suivant est un exemple de données de référence de clôture virtuelle seulement avoir qui pourraient être stockées dans le stockage blob Azure ou une table SQL Azure. Toutes les régions sont représentée par un polygone géographique, qui est utilisé pour mettre en corrélation avec les demandes provenant de diffusion en continu de données.
+Le tableau suivant est un exemple de données de référence de limites géographiques qui pourraient être stockées dans le stockage Blob Azure ou une table Azure SQL. Toutes les régions sont représentées par un polygone géographique, qui sert à la mise en corrélation avec les demandes en provenance des données de streaming.
 
-Ces polygones de référence uniquement et ne représentent pas les séparations logiques ou physiques réels de ville.
+Ces polygones servent uniquement de référence et ne visent pas à séparer la ville de façon logique ou physique.
 
-|RegionID|RegionName|Limite géographique|
+|RegionID|RegionName|Geofence|
 |--------|----------|--------|
-|1|"SoHo"|« POLYGONE ((-74.00279525078275 40.72833625216264,-74.00547745979765 40.721929158663244,-74.00125029839018 40.71893680218994,-73.9957785919998 40.72521409075776,-73.9972377137039 40.72557184584898,-74.00279525078275 40.72833625216264) )"|
-|2|« Chinatown »|« POLYGONE ((-73.99712367114876 40.71281582267133,-73.9901070123658 40.71336881907936,-73.99023575839851 40.71452359088633,-73.98976368961189 40.71554823078944,-73.99551434573982 40.717337246783735,-73.99480624255989 40.718491949759304,-73.99652285632942 40.719109951574,-73.99776740131233 40.7168005470334,-73.99903340396736 40.71727219249899,-74.00193018970344 40.71938642421256,-74.00409741458748 40.71688186545551,-74.00051398334358 40.71517415773184,-74.0004281526551 40.714377212470005,-73.99849696216438 40.713450141693166,-73.99748845157478 40.71405192594819,-73.99712367114876 40.71281582267133)) »|
-|3|« Tribeca »|« POLYGONE ((-74.01091641815208 40.72583120006787,-74.01338405044578 40.71436586362705,-74.01370591552757 40.713617702123415,-74.00862044723533 40.711308107057235,-74.00194711120628 40.7194238654018,-74.01091641815208 40.72583120006787)) »|
+|1|« SoHo »|« POLYGON((-74.00279525078275 40.72833625216264,-74.00547745979765 40.721929158663244,-74.00125029839018 40.71893680218994,-73.9957785919998 40.72521409075776,-73.9972377137039 40.72557184584898,-74.00279525078275 40.72833625216264)) »|
+|2|« Chinatown »|« POLYGON((-73.99712367114876 40.71281582267133,-73.9901070123658 40.71336881907936,-73.99023575839851 40.71452359088633,-73.98976368961189 40.71554823078944,-73.99551434573982 40.717337246783735,-73.99480624255989 40.718491949759304,-73.99652285632942 40.719109951574,-73.99776740131233 40.7168005470334,-73.99903340396736 40.71727219249899,-74.00193018970344 40.71938642421256,-74.00409741458748 40.71688186545551,-74.00051398334358 40.71517415773184,-74.0004281526551 40.714377212470005,-73.99849696216438 40.713450141693166,-73.99748845157478 40.71405192594819,-73.99712367114876 40.71281582267133)) »|
+|3|« Tribeca »|« POLYGON((-74.01091641815208 40.72583120006787,-74.01338405044578 40.71436586362705,-74.01370591552757 40.713617702123415,-74.00862044723533 40.711308107057235,-74.00194711120628 40.7194238654018,-74.01091641815208 40.72583120006787)) »|
 
 ### <a name="aggregate-data-over-a-window-of-time"></a>Agréger des données sur une fenêtre de temps
 
-Le tableau suivant contient des données de diffusion en continu de « trajets ».
+Le tableau suivant contient des données de streaming de « courses ».
 
 |UserID|FromLocation|ToLocation|TripRequestedTime|
 |------|------------|----------|-----------------|
-|« A »|« POINT(-74.00726861389182 40.71610611981975) »|« POINT(-73.98615095917779 40.703107386025835) »|"2019-03-12T07:00:00Z"|
-|"B"|« POINT(-74.00249841021645 40.723827238895666) »|« POINT(-74.01160699942085 40.71378884930115) »|"2019-03-12T07:01:00Z"|
-|« C »|« POINT(-73.99680120565864 40.716439898624024) »|« POINT(-73.98289663412544 40.72582343969828) »|"2019-03-12T07:02:00Z"|
-|"D"|« POINT(-74.00741090068288 40.71615626755086) »|« POINT(-73.97999843120539 40.73477895807408) »|"2019-03-12T07:03:00Z"|
+|« A »|« POINT(-74.00726861389182 40.71610611981975) »|« POINT(-73.98615095917779 40.703107386025835) »|« 2019-03-12T07:00:00Z »|
+|« B »|« POINT(-74.00249841021645 40.723827238895666) »|« POINT(-74.01160699942085 40.71378884930115) »|« 2019-03-12T07:01:00Z »|
+|« C »|« POINT(-73.99680120565864 40.716439898624024) »|« POINT(-73.98289663412544 40.72582343969828) »|« 2019-03-12T07:02:00Z »|
+|« D »|« POINT(-74.00741090068288 40.71615626755086) »|« POINT(-73.97999843120539 40.73477895807408) »|« 2019-03-12T07:03:00Z »|
 
-La requête suivante joint le flux de l’appareil avec les données de référence de clôture virtuelle seulement avoir et calcule le nombre de demandes par région sur une période de 15 minutes toutes les minutes.
+La requête suivante établit une jonction entre le flux d’appareils et les données de référence de limites géographiques et calcule le nombre de demandes par région sur une fenêtre de temps de 15 minutes toutes les minutes.
 
 ```SQL
 SELECT count(*) as NumberOfRequests, RegionsRefDataInput.RegionName 
@@ -116,14 +116,14 @@ ON st_within(UserRequestStreamDataInput.FromLocation, RegionsRefDataInput.Geofen
 GROUP BY RegionsRefDataInput.RegionName, hoppingwindow(minute, 1, 15)
 ```
 
-Cette requête génère un nombre de requêtes pour toutes les minutes au cours des 15 dernières minutes par chaque région au sein de la ville. Ces informations peuvent être affichées facilement par tableau de bord Power BI ou diffusées à tous les pilotes en tant que messages de texte SMS grâce à l’intégration avec des services comme Azure functions.
+Cette requête génère un nombre de demandes toutes les minutes pour les 15 dernières minutes et pour chaque région de la ville. Ces informations peuvent être facilement affichées dans le tableau de bord Power BI ou diffusées à tous les chauffeurs par SMS via une intégration avec des services comme Azure Functions.
 
-L’image ci-dessous illustre la sortie de la requête au tableau de bord Power BI. 
+L’image ci-dessous illustre la sortie de la requête dans le tableau de bord Power BI. 
 
-![Sortie du résultat sur le tableau de bord Power BI](./media/geospatial-scenarios/power-bi-output.png)
+![Sortie du résultat dans le tableau de bord Power BI](./media/geospatial-scenarios/power-bi-output.png)
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Introduction aux fonctions géospatiales de Stream Analytique](stream-analytics-geospatial-functions.md)
-* [Fonctions géospatiales (Azure Stream Analytique)](https://docs.microsoft.com/stream-analytics-query/geospatial-functions)
+* [Présentation des fonctions géospatiales Stream Analytics](stream-analytics-geospatial-functions.md)
+* [Fonctions géospatiales (Azure Stream Analytics)](https://docs.microsoft.com/stream-analytics-query/geospatial-functions)

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 11/17/2017
 ms.author: cynthn
 ms.openlocfilehash: 4ef0c09d2d2ea2ed06708342ab45abcaf149c23e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61075878"
 ---
 # <a name="download-the-template-for-a-vm"></a>Télécharger le modèle d’une machine virtuelle
@@ -29,7 +29,7 @@ Lorsque vous créez une machine virtuelle dans Azure à l’aide du portail ou d
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Dans le menu de gauche, sélectionnez **Machines virtuelles**.
 3. Sélectionnez la machine virtuelle dans la liste.
-4. Sélectionnez **exporter le modèle**.
+4. Sélectionnez **Exporter le modèle**.
 5. Sélectionnez **Télécharger** depuis le menu en haut et enregistrez le fichier .zip sur votre ordinateur local.
 6. Ouvrez le fichier .zip et extrayez les fichiers dans un dossier. Le fichier .zip contient :
    

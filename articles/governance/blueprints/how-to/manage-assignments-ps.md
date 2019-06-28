@@ -1,6 +1,6 @@
 ---
-title: Comment gérer les affectations avec PowerShell
-description: Découvrez comment gérer les affectations de plan avec le module PowerShell de plans Azure officielle, Az.Blueprint.
+title: Guide pratique pour gérer les affectations avec PowerShell
+description: Découvrez comment gérer les affectations de blueprints avec le module PowerShell Azure Blueprint, Az.Blueprint.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/14/2019
@@ -8,30 +8,30 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.openlocfilehash: d8eacffe4b792eda5d81051f6aa65caa3292c896
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60682830"
 ---
-# <a name="how-to-manage-assignments-with-powershell"></a>Comment gérer les affectations avec PowerShell
+# <a name="how-to-manage-assignments-with-powershell"></a>Guide pratique pour gérer les affectations avec PowerShell
 
-Une affectation de plan peut être gérée à l’aide de la **Az.Blueprint** module Azure PowerShell. Le module prend en charge l’extraction, de création, de la mise à jour et de suppression des affectations. Le module peut également extraire des détails sur les définitions de plan existant. Cet article explique comment installer le module et l’utiliser.
+Une affectation de blueprint peut être gérée avec le module PowerShell **Az.Blueprint**. Le module prend en charge l’extraction, la création, la mise à jour et la suppression des affectations. Le module peut également extraire des détails sur les définitions de blueprints existants. Cet article explique comment installer le module et comment l’utiliser.
 
 ## <a name="add-the-azblueprint-module"></a>Ajouter le module Az.Blueprint
 
-Pour activer Azure PowerShell pour gérer les affectations de plan, le module doit être ajouté. Vous pouvez utiliser ce module avec PowerShell installé localement, avec [Azure Cloud Shell](https://shell.azure.com) ou avec l’[image Docker Azure PowerShell](https://hub.docker.com/r/azuresdk/azure-powershell/).
+Pour permettre à Azure PowerShell de gérer les affectations de blueprints, vous devez ajouter le module. Vous pouvez utiliser ce module avec PowerShell installé localement, avec [Azure Cloud Shell](https://shell.azure.com) ou avec l’[image Docker Azure PowerShell](https://hub.docker.com/r/azuresdk/azure-powershell/).
 
 ### <a name="base-requirements"></a>Configuration de base requise
 
-Le module de plans d’Azure nécessite les logiciels suivants :
+Le module Azure Blueprint nécessite les logiciels suivants :
 
-- Azure PowerShell 1.5.0 ou une version ultérieure. S’il n’est pas installé, suivez [ces instructions](/powershell/azure/install-az-ps).
+- Azure PowerShell 1.5.0 ou ultérieur. S’il n’est pas installé, suivez [ces instructions](/powershell/azure/install-az-ps).
 - PowerShellGet 2.0.1 ou une version ultérieure. S’il n’est pas installé ou mis à jour, suivez [ces instructions](/powershell/gallery/installing-psget).
 
 ### <a name="install-the-module"></a>Installer le module
 
-Le module de plans pour PowerShell est **Az.Blueprint**.
+Le module Blueprints pour PowerShell est **Az.Blueprint**.
 
 1. À partir d’une invite PowerShell **d’administration**, exécutez la commande suivante :
 
@@ -50,12 +50,12 @@ Le module de plans pour PowerShell est **Az.Blueprint**.
    Get-Command -Module 'Az.Blueprint' -CommandType 'Cmdlet'
    ```
 
-## <a name="get-blueprint-definitions"></a>Obtenir les définitions de plan
+## <a name="get-blueprint-definitions"></a>Gérer les définitions de blueprint
 
-La première étape pour travailler avec une affectation est bien souvent une référence à une définition de plan.
-Le `Get-AzBlueprint` applet de commande Obtient une ou plusieurs définitions de plan. L’applet de commande peut obtenir les définitions de plan à partir d’un groupe d’administration avec `-ManagementGroupId {mgId}` ou un abonnement avec `-SubscriptionId {subId}`. Le **nom** paramètre Obtient une définition de plan, mais doit être utilisé avec **ManagementGroupId** ou **SubscriptionId**. **Version** peut être utilisé avec **nom** pour être plus explicite sur la définition de plan qui est retournée. Au lieu de **Version**, le commutateur `-LatestPublished` extrait le plus récemment les version publiée.
+La première étape pour utiliser une affectation est souvent d’obtenir une référence à une définition de blueprint.
+L’applet de commande `Get-AzBlueprint` obtient une ou plusieurs définitions de blueprint. L’applet de commande peut obtenir les définitions de blueprint auprès d’un groupe d’administration avec `-ManagementGroupId {mgId}` ou un abonnement avec `-SubscriptionId {subId}`. Le paramètre **Name** obtient une définition de blueprint, mais doit être utilisé avec **ManagementGroupId** ou **SubscriptionId**. Vous pouvez utiliser **Version** avec **Name** pour être plus explicite sur la définition de blueprint à retourner. Au lieu de **Version**, le commutateur `-LatestPublished` extrait la dernière version publiée.
 
-L’exemple suivant utilise `Get-AzBlueprint` pour obtenir toutes les versions d’une définition de plan nommé « 101-plans-definition-subscription » à partir d’un abonnement spécifique représenté sous la forme `{subId}`:
+L’exemple suivant utilise `Get-AzBlueprint` pour obtenir toutes les versions d’une définition de blueprint nommée « 101-blueprints-definition-subscription » auprès d’un abonnement spécifique représenté par `{subId}` :
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -67,7 +67,7 @@ $blueprints = Get-AzBlueprint -SubscriptionId '{subId}' -Name '101-blueprints-de
 $blueprints
 ```
 
-L’exemple de sortie pour une définition de plan avec plusieurs versions ressemble à ceci :
+L’exemple de sortie pour une définition de blueprint avec plusieurs versions se présente comme ceci :
 
 ```output
 Name                 : 101-blueprints-definition-subscription
@@ -82,7 +82,7 @@ Parameters           : {storageAccount_storageAccountType, storageAccount_locati
 ResourceGroups       : ResourceGroup
 ```
 
-Le [blueprint paramètres](../concepts/parameters.md#blueprint-parameters) sur le plan en définition peut être développée pour fournir plus d’informations.
+Les [paramètres de blueprint](../concepts/parameters.md#blueprint-parameters) sur la définition de blueprint peuvent être développés pour fournir plus d’informations.
 
 ```azurepowershell-interactive
 $blueprints.Parameters
@@ -97,11 +97,11 @@ allowedlocations_listOfAllowedLocations                Microsoft.Azure.Commands.
 [Usergrouporapplicationname]:Reader_RoleAssignmentName Microsoft.Azure.Commands.Blueprint.Models.PSParameterDefinition
 ```
 
-## <a name="get-blueprint-assignments"></a>Obtenir l’attribution de plan
+## <a name="get-blueprint-assignments"></a>Obtenir des affectations de blueprint
 
-Si la plan attribution existe déjà, vous pouvez obtenir une référence à celle-ci avec le `Get-AzBlueprintAssignment` applet de commande. L’applet de commande prend **SubscriptionId** et **nom** en tant que paramètres facultatifs. Si **SubscriptionId** n’est pas spécifié, le contexte de l’abonnement actuel est utilisé.
+Si l’affectation de blueprint existe déjà, vous pouvez obtenir une référence à celle-ci avec l’applet de commande `Get-AzBlueprintAssignment`. L’applet de commande prend **SubscriptionId** et **Name** comme paramètres facultatifs. Si **SubscriptionId** n’est pas spécifié, le contexte de l’abonnement actuel est utilisé.
 
-L’exemple suivant utilise `Get-AzBlueprintAssignment` pour obtenir une affectation de plan unique nommée « Affectation-verrou-resource-groups » à partir d’un abonnement spécifique représenté sous la forme `{subId}`:
+L’exemple suivant utilise `Get-AzBlueprintAssignment` pour obtenir une affectation de blueprint unique nommée « Assignment-lock-resource-groups » auprès d’un abonnement spécifique représenté par `{subId}` :
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -113,7 +113,7 @@ $blueprintAssignment = Get-AzBlueprintAssignment -SubscriptionId '{subId}' -Name
 $blueprintAssignment
 ```
 
-L’exemple de sortie pour une affectation de plan se présente comme suit :
+L’exemple de sortie pour une affectation de blueprint se présente comme ceci :
 
 ```output
 Name              : Assignment-lock-resource-groups
@@ -127,47 +127,47 @@ Parameters        :
 ResourceGroups    : ResourceGroup
 ```
 
-## <a name="create-blueprint-assignments"></a>Créer des attributions de plan
+## <a name="create-blueprint-assignments"></a>Créer des affectations de blueprint
 
-Si l’affectation de plan n’existe pas encore, vous pouvez le créer avec le `New-AzBlueprintAssignment` applet de commande. Cette applet de commande utilise les paramètres suivants :
+Si l’affectation de blueprint n’existe pas encore, vous pouvez la créer avec l’applet de commande `New-AzBlueprintAssignment`. Cette applet de commande utilise les paramètres suivants :
 
-- **Name** [required]
-  - Spécifie le nom de l’affectation de plan
-  - Doit être unique et n’existe pas déjà dans **SubscriptionId**
-- **Blueprint** [required]
-  - Spécifie la définition de plan à affecter
+- **Name** [obligatoire]
+  - Spécifie le nom de l’affectation de blueprint
+  - Doit être unique et ne pas déjà exister dans **SubscriptionId**
+- **Blueprint** [obligatoire]
+  - Spécifie la définition de blueprint à affecter
   - Utilisez `Get-AzBlueprint` pour obtenir l’objet de référence
-- **Emplacement** [requis]
-  - Spécifie la région pour l’attribué par le système géré identité et abonnement objet de déploiement doit être créé dans
-- **Abonnement** (facultatif)
-  - Spécifie l’abonnement de sur que l’attribution est déployée
-  - Si ne pas fournie, valeur par défaut est le contexte actuel de l’abonnement
-- **Verrou** (facultatif)
-  - Définit le [blueprint verrouillage de ressources](../concepts/resource-locking.md) à utiliser pour les ressources déployées
+- **Location** [obligatoire]
+  - Spécifie la région où créer l’identité managée et l’objet de déploiement d’abonnement affectés par le système.
+- **Subscription** (facultatif)
+  - Spécifie l’abonnement sur lequel l’affectation est déployée
+  - S’il n’est pas spécifié, sa valeur par défaut est le contexte actuel de l’abonnement
+- **Lock** (facultatif)
+  - Définit le [verrouillage de ressources de blueprint](../concepts/resource-locking.md) à utiliser pour les ressources déployées
   - Options prises en charge : _None_, _AllResourcesReadOnly_, _AllResourcesDoNotDelete_
-  - Si ne pas fournie, valeur par défaut est _None_
-- **SystemAssignedIdentity** (optional)
-  - Sélectionnez pour créer une identité gérée attribué par le système pour l’attribution et de déployer les ressources
-  - Valeur par défaut pour le jeu de paramètres « identité »
+  - S’il n’est pas spécifié, sa valeur par défaut est _None_
+- **SystemAssignedIdentity** (facultatif)
+  - Sélectionnez cette option pour créer une identité managée affectée par le système pour l’affectation et pour déployer les ressources
+  - Option par défaut pour l’ensemble de paramètres « identity »
   - Ne peut pas être utilisé avec **UserAssignedIdentity**
-- **UserAssignedIdentity** (optional)
-  - Spécifie l’identité gérée affectée à l’utilisateur à utiliser pour l’attribution et à déployer les ressources
-  - Partie de l’ensemble de paramètres « identité »
+- **UserAssignedIdentity** (facultatif)
+  - Spécifie l’identité managée affectée par l’utilisateur, à utiliser pour l’affectation et pour déployer les ressources
+  - Fait partie de l’ensemble de paramètres « identity »
   - Ne peut pas être utilisé avec **SystemAssignedIdentity**
-- **Paramètre** (facultatif)
-  - Un [table de hachage](/powershell/module/microsoft.powershell.core/about/about_hash_tables) de paires clé/valeur pour le paramètre [paramètres dynamiques](../concepts/parameters.md#dynamic-parameters) sur l’affectation de plan
-  - Par défaut pour un paramètre dynamique est la **defaultValue** dans la définition
-  - Si un paramètre n’est pas fourni et n’a aucun **defaultValue**, le paramètre n’est pas facultatif
+- **Parameter** (facultatif)
+  - Une [table de hachage](/powershell/module/microsoft.powershell.core/about/about_hash_tables) de paires clé/valeur pour la définition de [paramètres dynamiques](../concepts/parameters.md#dynamic-parameters) sur l’affectation de blueprint
+  - La valeur par défaut pour un paramètre dynamique est **defaultValue** dans la définition
+  - Si un paramètre n’est pas spécifié et n’a pas de **defaultValue**, le paramètre n’est pas facultatif
 
     > [!NOTE]
-    > **Paramètre** ne prend pas en charge secureStrings.
+    > **Parameter** ne prend pas en charge secureStrings.
 
 - **ResourceGroupParameter** (facultatif)
-  - Un [table de hachage](/powershell/module/microsoft.powershell.core/about/about_hash_tables) d’artefacts de groupe de ressources
-  - Chaque espace réservé d’artefact de ressource groupe aura une paires clé/valeur pour définir dynamiquement **nom** et/ou **emplacement** sur cet artefact de groupe de ressources
-  - Si un paramètre de groupe de ressources n’est pas fourni et qu’il n’a aucun **defaultValue**, le paramètre de groupe de ressources n’est pas facultatif
+  - Une [table de hachage](/powershell/module/microsoft.powershell.core/about/about_hash_tables) d’artefacts de groupe de ressources
+  - Chaque espace réservé d’artefact de groupe de ressources aura une paires clé/valeur pour définir dynamiquement **Name** et/ou **Location** sur cet artefact de groupe de ressources
+  - Si un paramètre de groupe de ressources n’est pas spécifié et n’a pas de **defaultValue**, le paramètre de groupe de ressources n’est pas facultatif
 
-L’exemple suivant crée une nouvelle attribution de la version « 1.1 » de la définition de plan de « mon plan » récupérée avec `Get-AzBlueprint`, définit l’emplacement d’objet identity et l’affectation managé à 'westus2', verrouille les ressources avec  _AllResourcesReadOnly_et définit les tables de hachage pour les deux **paramètre** et **ResourceGroupParameter** sur un abonnement spécifique représenté sous la forme `{subId}`:
+L’exemple suivant crée une nouvelle affectation de la version « 1.1 » de la définition de blueprint « my-blueprint » extraite avec `Get-AzBlueprint`, définit l’identité managée et l’emplacement de l’objet d’affectation sur « westus2 », verrouille les ressources avec  _AllResourcesReadOnly_, et définit les tables de hachage pour **Parameter** et **ResourceGroupParameter** sur un abonnement spécifique représenté par `{subId}` :
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -188,7 +188,7 @@ $bpAssignment = New-AzBlueprintAssignment -Name 'my-blueprint-assignment' -Bluep
     -Parameter $bpParameters -ResourceGroupParameter $bpRGParameters
 ```
 
-L’exemple de sortie pour la création d’une affectation de plan se présente comme suit :
+L’exemple de sortie pour la création d’une affectation de blueprint se présente comme ceci :
 
 ```output
 Name              : my-blueprint-assignment
@@ -202,50 +202,50 @@ Parameters        : {storageAccount_storageAccountType}
 ResourceGroups    : ResourceGroup
 ```
 
-## <a name="update-blueprint-assignments"></a>Attribution de plan de mise à jour
+## <a name="update-blueprint-assignments"></a>Mettre à jour des affectations de blueprint
 
-Il est parfois nécessaire mettre à jour d’une affectation de plan qui a déjà été créée. Le `Set-AzBlueprintAssignment` applet de commande gère cette action. L’applet de commande utilise une grande partie des mêmes paramètres que le `New-AzBlueprintAssignment` applet de commande ne, ce qui permet de tout ce qui a été défini sur l’attribution de mise à jour. Les exceptions à ce sont les _nom_, _Blueprint_, et _SubscriptionId_. Seules les valeurs fournies sont mises à jour.
+Il est parfois nécessaire de mettre à jour d’une affectation de blueprint qui a déjà été créée. L’applet de commande `Set-AzBlueprintAssignment` gère cette action. L’applet de commande prend en grande partie les mêmes paramètres que `New-AzBlueprintAssignment`, ce qui permet la mise à jour de tout ce qui a été défini sur l’affectation. Les exceptions à ceci sont _Name_, _Blueprint_ et _SubscriptionId_. Seules les valeurs fournies sont mises à jour.
 
-Pour comprendre ce qui se passe lors de la mise à jour d’une affectation de plan, consultez [règles de mise à jour des affectations de](./update-existing-assignments.md#rules-for-updating-assignments).
+Pour comprendre ce qui se passe lors de la mise à jour d’une affectation de blueprint, consultez [Règles de mise à jour des affectations](./update-existing-assignments.md#rules-for-updating-assignments).
 
-- **Name** [required]
-  - Spécifie le nom de l’affectation de plan pour mettre à jour
-  - Utilisé pour localiser l’attribution de mise à jour, ne pas pour modifier l’affectation
-- **Blueprint** [required]
-  - Spécifie la définition de plan de l’affectation de plan
+- **Name** [obligatoire]
+  - Spécifie le nom de l’affectation de blueprint à mettre à jour
+  - Utilisé pour localiser l’affectation à mettre à jour, pas pour modifier l’affectation
+- **Blueprint** [obligatoire]
+  - Spécifie la définition de blueprint de l’affectation de blueprint
   - Utilisez `Get-AzBlueprint` pour obtenir l’objet de référence
-  - Utilisé pour localiser l’attribution de mise à jour, ne pas pour modifier l’affectation
-- **Emplacement** (facultatif)
-  - Spécifie la région pour l’attribué par le système géré identité et abonnement objet de déploiement doit être créé dans
-- **Abonnement** (facultatif)
-  - Spécifie l’abonnement de sur que l’attribution est déployée
-  - Si ne pas fournie, valeur par défaut est le contexte actuel de l’abonnement
-  - Utilisé pour localiser l’attribution de mise à jour, ne pas pour modifier l’affectation
-- **Verrou** (facultatif)
-  - Définit le [blueprint verrouillage de ressources](../concepts/resource-locking.md) à utiliser pour les ressources déployées
+  - Utilisé pour localiser l’affectation à mettre à jour, pas pour modifier l’affectation
+- **Location** (facultatif)
+  - Spécifie la région où créer l’identité managée et l’objet de déploiement d’abonnement affectés par le système.
+- **Subscription** (facultatif)
+  - Spécifie l’abonnement sur lequel l’affectation est déployée
+  - S’il n’est pas spécifié, sa valeur par défaut est le contexte actuel de l’abonnement
+  - Utilisé pour localiser l’affectation à mettre à jour, pas pour modifier l’affectation
+- **Lock** (facultatif)
+  - Définit le [verrouillage de ressources de blueprint](../concepts/resource-locking.md) à utiliser pour les ressources déployées
   - Options prises en charge : _None_, _AllResourcesReadOnly_, _AllResourcesDoNotDelete_
-- **SystemAssignedIdentity** (optional)
-  - Sélectionnez pour créer une identité gérée attribué par le système pour l’attribution et de déployer les ressources
-  - Valeur par défaut pour le jeu de paramètres « identité »
+- **SystemAssignedIdentity** (facultatif)
+  - Sélectionnez cette option pour créer une identité managée affectée par le système pour l’affectation et pour déployer les ressources
+  - Option par défaut pour l’ensemble de paramètres « identity »
   - Ne peut pas être utilisé avec **UserAssignedIdentity**
-- **UserAssignedIdentity** (optional)
-  - Spécifie l’identité gérée affectée à l’utilisateur à utiliser pour l’attribution et à déployer les ressources
-  - Partie de l’ensemble de paramètres « identité »
+- **UserAssignedIdentity** (facultatif)
+  - Spécifie l’identité managée affectée par l’utilisateur, à utiliser pour l’affectation et pour déployer les ressources
+  - Fait partie de l’ensemble de paramètres « identity »
   - Ne peut pas être utilisé avec **SystemAssignedIdentity**
-- **Paramètre** (facultatif)
-  - Un [table de hachage](/powershell/module/microsoft.powershell.core/about/about_hash_tables) de paires clé/valeur pour le paramètre [paramètres dynamiques](../concepts/parameters.md#dynamic-parameters) sur l’affectation de plan
-  - Par défaut pour un paramètre dynamique est la **defaultValue** dans la définition
-  - Si un paramètre n’est pas fourni et n’a aucun **defaultValue**, le paramètre n’est pas facultatif
+- **Parameter** (facultatif)
+  - Une [table de hachage](/powershell/module/microsoft.powershell.core/about/about_hash_tables) de paires clé/valeur pour la définition de [paramètres dynamiques](../concepts/parameters.md#dynamic-parameters) sur l’affectation de blueprint
+  - La valeur par défaut pour un paramètre dynamique est **defaultValue** dans la définition
+  - Si un paramètre n’est pas spécifié et n’a pas de **defaultValue**, le paramètre n’est pas facultatif
 
     > [!NOTE]
-    > **Paramètre** ne prend pas en charge secureStrings.
+    > **Parameter** ne prend pas en charge secureStrings.
 
 - **ResourceGroupParameter** (facultatif)
-  - Un [table de hachage](/powershell/module/microsoft.powershell.core/about/about_hash_tables) d’artefacts de groupe de ressources
-  - Chaque espace réservé d’artefact de ressource groupe aura une paires clé/valeur pour définir dynamiquement **nom** et/ou **emplacement** sur cet artefact de groupe de ressources
-  - Si un paramètre de groupe de ressources n’est pas fourni et qu’il n’a aucun **defaultValue**, le paramètre de groupe de ressources n’est pas facultatif
+  - Une [table de hachage](/powershell/module/microsoft.powershell.core/about/about_hash_tables) d’artefacts de groupe de ressources
+  - Chaque espace réservé d’artefact de groupe de ressources aura une paires clé/valeur pour définir dynamiquement **Name** et/ou **Location** sur cet artefact de groupe de ressources
+  - Si un paramètre de groupe de ressources n’est pas spécifié et n’a pas de **defaultValue**, le paramètre de groupe de ressources n’est pas facultatif
 
-L’exemple suivant met à jour l’attribution de la version « 1.1 » de la définition de plan de « mon plan » récupérée avec `Get-AzBlueprint` en modifiant le mode de verrouillage :
+L’exemple suivant met à jour l’affectation de la version « 1.1 » de la définition de blueprint « my-blueprint » extraite avec `Get-AzBlueprint` en changeant le mode de verrouillage :
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -258,7 +258,7 @@ $bpAssignment = Set-AzBlueprintAssignment -Name 'my-blueprint-assignment' -Bluep
     -SubscriptionId '{subId}' -Lock AllResourcesDoNotDelete
 ```
 
-L’exemple de sortie pour la création d’une affectation de plan se présente comme suit :
+L’exemple de sortie pour la création d’une affectation de blueprint se présente comme ceci :
 
 ```output
 Name              : my-blueprint-assignment
@@ -272,11 +272,11 @@ Parameters        : {storageAccount_storageAccountType}
 ResourceGroups    : ResourceGroup
 ```
 
-## <a name="remove-blueprint-assignments"></a>Supprimer l’attribution de plan
+## <a name="remove-blueprint-assignments"></a>Supprimer des affectations de blueprint
 
-Lorsqu’il est temps pour une affectation de plan à supprimer, le `Remove-AzBlueprintAssignment` applet de commande gère cette action. L’applet de commande prend soit **nom** ou **InputObject** pour spécifier quel plan attribution à supprimer. **ID d’abonnement** est _requis_ et doit être fourni dans tous les cas.
+Quand le moment est venu de supprimer une affectation de blueprint, l’applet de commande `Remove-AzBlueprintAssignment` gère cette action. L’applet de commande prend **Name** ou **InputObject** pour spécifier l’affectation de blueprint à supprimer. **SubscriptionId** est _obligatoire_ et doit être spécifié dans tous les cas.
 
-L’exemple suivant extrait une affectation de plan existant avec `Get-AzBlueprintAssignment` , puis le supprime de l’abonnement spécifique représenté sous la forme `{subId}`:
+L’exemple suivant extrait une affectation de blueprint existante avec `Get-AzBlueprintAssignment`, puis la supprime de l’abonnement spécifique représenté par `{subId}` :
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -290,7 +290,7 @@ Remove-AzBlueprintAssignment -InputObject $blueprintAssignment -SubscriptionId '
 
 ## <a name="end-to-end-code-example"></a>Exemple de code de bout en bout
 
-Rassemble toutes les étapes, l’exemple suivant obtient la définition de plan, puis crée, met à jour et supprime une affectation de plan dans l’abonnement spécifique représenté sous la forme `{subId}`:
+Rassemblant toutes les étapes, l’exemple suivant obtient la définition de blueprint, puis crée, met à jour et supprime une affectation de blueprint dans l’abonnement spécifique représenté par `{subId}` :
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell

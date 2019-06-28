@@ -11,10 +11,10 @@ ms.author: garye
 ms.custom: seodc18
 ms.date: 03/04/2019
 ms.openlocfilehash: e29e4713cb01fcf894e09631ecca91ff07587751
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60751629"
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>Infographie téléchargeable : principes de base de l’apprentissage automatique avec exemples d’algorithmes
@@ -23,7 +23,7 @@ Téléchargez cette vue d’ensemble infographique présentant de manière simpl
 
 ## <a name="popular-algorithms-in-machine-learning-studio"></a>Algorithmes populaires disponibles dans Machine Learning Studio
 
-[Azure Machine Learning Studio](https://studio.azureml.net/) est fourni avec un grand nombre de bibliothèques d’algorithmes pour vos analyses prédictives. Cette infographie identifie les quatre familles les plus courantes d’algorithmes - régression, détection d’anomalie, clustering et classification - et fournit des liens vers des exemples fonctionnels dans les [Azure AI Gallery](https://gallery.azure.ai/). La galerie contient des exemples d'expérience et des didacticiels montrant comment ces algorithmes peuvent être appliqués à de nombreuses solutions réelles.
+[Azure Machine Learning Studio](https://studio.azureml.net/) est fourni avec un grand nombre de bibliothèques d’algorithmes pour vos analyses prédictives. Cette infographie identifie les quatre familles les plus courantes d’algorithmes (régression, détection d’anomalie, clustering et classification) et fournit des liens vers des exemples opérationnels dans [Azure AI Gallery](https://gallery.azure.ai/). La galerie contient des exemples d'expérience et des didacticiels montrant comment ces algorithmes peuvent être appliqués à de nombreuses solutions réelles.
 
 ## <a name="download-the-infographic-with-algorithm-examples"></a>Téléchargez la vue infographique avec des exemples d’algorithmes
 

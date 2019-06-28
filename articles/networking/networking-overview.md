@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: jdial
 ms.openlocfilehash: 02db9f2b8cb2ec71d23ad077b90eeacb905d2a16
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60565794"
 ---
 # <a name="azure-networking"></a>Mise en réseau Azure
@@ -136,7 +136,7 @@ Azure crée des tables de routage qui permettent aux ressources connectées à u
 
 Azure fournit les outils suivants pour surveiller et gérer la mise en réseau :
 - **Journaux d’activité :** Toutes les ressources Azure ont des journaux d’activité qui fournissent des informations sur les opérations qui ont lieu, l’état des opérations et la personne qui a lancé l’opération. Pour en savoir plus sur les journaux d’activité, lisez l’article [Présentation des journaux d’activité](../azure-monitor/platform/activity-logs-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
-- **Journaux de diagnostic :** Les événements périodiques et spontanés sont créés par les ressources réseau et enregistrés dans les comptes de stockage Azure envoyé à un concentrateur d’événements Azure, ou envoyé dans les journaux d’Azure Monitor. Les journaux de diagnostic fournissent des informations sur l’intégrité d’une ressource. Les journaux de diagnostic sont fournis pour l’équilibrage de charge (sur Internet), les groupes de sécurité réseau, les itinéraires et Application Gateway. Pour en savoir plus sur les journaux de diagnostic, consultez l’article [Présentation des journaux de diagnostic](../azure-monitor/platform/diagnostic-logs-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
+- **Journaux de diagnostic :** Les événements périodiques et spontanés sont créés par les ressources réseau et journalisés dans les comptes de stockage Azure, puis envoyés à une instance Azure Event Hub ou aux journaux Azure Monitor. Les journaux de diagnostic fournissent des informations sur l’intégrité d’une ressource. Les journaux de diagnostic sont fournis pour l’équilibrage de charge (sur Internet), les groupes de sécurité réseau, les itinéraires et Application Gateway. Pour en savoir plus sur les journaux de diagnostic, consultez l’article [Présentation des journaux de diagnostic](../azure-monitor/platform/diagnostic-logs-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
 - **Métriques :** Les métriques sont des mesures et des compteurs de performances collectés sur une période de temps donnée. Elles peuvent être utilisées pour déclencher des alertes basées sur des seuils. Les métriques sont actuellement disponibles pour Application Gateway. Pour en savoir plus sur les métriques, consultez l’article [Présentation des métriques](../monitoring-and-diagnostics/monitoring-overview-metrics.md?toc=%2fazure%2fnetworking%2ftoc.json).
 - **Résolution des problèmes :** Des informations de dépannage sont accessibles directement dans le portail Azure. Les informations vous aident à diagnostiquer les problèmes courants avec ExpressRoute, passerelle VPN, Application Gateway, journaux d’activité de sécurité réseau, itinéraires, DNS, équilibrage de charge et Traffic Manager.
 - **Contrôle d’accès en fonction du rôle (RBAC) :** Contrôlez qui peut créer et gérer les ressources réseau avec le contrôle d’accès en fonction du rôle (RBAC). Pour plus d’informations sur le contrôle d’accès en fonction du rôle, consultez l’article [Prise en main du contrôle d’accès en fonction du rôle](../role-based-access-control/overview.md?toc=%2fazure%2fnetworking%2ftoc.json). 

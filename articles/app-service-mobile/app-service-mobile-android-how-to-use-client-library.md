@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/07/2019
 ms.author: crdun
 ms.openlocfilehash: 45b5ac0c9b3535e5cc5efdc6827d694b41e0b8dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60859390"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Comment utiliser le Kit de développement logiciel (SDK) Azure Mobile Apps pour Android
@@ -53,7 +53,7 @@ Si vous décidez de ne pas suivre le didacticiel de démarrage rapide, effectuez
 
 Modifiez les deux fichiers **build.gradle** :
 
-1. Ajoutez ce code à la *projet* niveau **build.gradle** fichier :
+1. ajoutez ce code au fichier de niveau *projet* **build.gradle** :
 
     ```gradle
     buildscript {
@@ -108,7 +108,7 @@ MobileServiceClient mClient = new MobileServiceClient(
 
 Le client nécessite aussi un accès à l’activité ou au contexte (le paramètre `this` dans l’exemple).  La construction de MobileServiceClient doit se produire dans la méthode `onCreate()` de l’activité référencée dans le fichier `AndroidManifest.xml`.
 
-Nous vous recommandons d’extraire la communication du serveur dans sa propre classe (modèle singleton).  Dans ce cas, vous devez transmettre l’activité dans le constructeur pour configurer correctement le service.  Par exemple : 
+Nous vous recommandons d’extraire la communication du serveur dans sa propre classe (modèle singleton).  Dans ce cas, vous devez transmettre l’activité dans le constructeur pour configurer correctement le service.  Par exemple :
 
 ```java
 package com.example.appname.services;
@@ -207,7 +207,7 @@ Une table de serveur principal Azure Mobile Apps définit cinq champs spéciaux,
 * `byte[] version`: généralement représentée sous forme de chaîne, la version est également définie par le serveur.
 * `boolean deleted`: indique que l'enregistrement a été supprimé mais pas encore vidé.  N’utilisez pas `deleted` en tant que propriété dans votre classe.
 
-Le champ `id` est obligatoire.  Les champs `updatedAt` et `version` sont utilisés pour la synchronisation hors connexion (pour la synchronisation incrémentielle et la résolution des conflits, respectivement).  Le champ `createdAt` est un champ de référence et n’est pas utilisé par le client.  Les noms sont des noms « à travers le câble » des propriétés et ne sont pas réglables.  Toutefois, vous pouvez créer un mappage entre votre objet et les noms « à travers le câble » à l’aide de la bibliothèque [gson][3].  Par exemple : 
+Le champ `id` est obligatoire.  Les champs `updatedAt` et `version` sont utilisés pour la synchronisation hors connexion (pour la synchronisation incrémentielle et la résolution des conflits, respectivement).  Le champ `createdAt` est un champ de référence et n’est pas utilisé par le client.  Les noms sont des noms « à travers le câble » des propriétés et ne sont pas réglables.  Toutefois, vous pouvez créer un mappage entre votre objet et les noms « à travers le câble » à l’aide de la bibliothèque [gson][3].  Par exemple :
 
 ```java
 package com.example.zumoappname;
@@ -456,7 +456,7 @@ Une demande pour tous les enregistrements à l’aide de cette méthode crée un
 
 ### <a name="chaining"></a>Procédure : Concaténer les méthodes de requête
 
-Les méthodes utilisées dans les requêtes de tables de backend peuvent être concaténées. La concaténation des méthodes de requêtes vous permet de sélectionner des colonnes spécifiques de lignes filtrées, qui sont triées et paginées. Vous pouvez créer des filtres logiques complexes.  Chaque méthode de requête retourne un objet de requête. Pour mettre fin à la série de méthodes et exécuter la requête, appelez la méthode **execute** . Par exemple : 
+Les méthodes utilisées dans les requêtes de tables de backend peuvent être concaténées. La concaténation des méthodes de requêtes vous permet de sélectionner des colonnes spécifiques de lignes filtrées, qui sont triées et paginées. Vous pouvez créer des filtres logiques complexes.  Chaque méthode de requête retourne un objet de requête. Pour mettre fin à la série de méthodes et exécuter la requête, appelez la méthode **execute** . Par exemple :
 
 ```java
 List<ToDoItem> results = mToDoTable
@@ -487,7 +487,7 @@ La liaison des données nécessite trois composants :
 * la mise en page à l’écran ;
 * l’adaptateur qui lie ces deux éléments.
 
-Dans notre exemple de code, nous renvoyons les données de la table SQL Azure Mobile Apps **ToDoItem** dans un tableau. Cette activité est un cas de figure très courant pour les applications de données.  Les requêtes de base de données renvoient souvent une suite de lignes que le client récupère dans une liste ou un tableau. Dans cet exemple, le tableau est la source des données.  Ce code spécifie une mise en page à l'écran qui définit la façon dont les données sont affichées sur l'appareil.  Les deux sont liés par un adaptateur, qui, dans ce code, est une extension de la classe **ArrayAdapter&lt;ToDoItem&gt;**.
+Dans notre exemple de code, nous renvoyons les données de la table SQL Azure Mobile Apps **ToDoItem** dans un tableau. Cette activité est un cas de figure très courant pour les applications de données.  Les requêtes de base de données renvoient souvent une suite de lignes que le client récupère dans une liste ou un tableau. Dans cet exemple, le tableau est la source des données.  Ce code spécifie une mise en page à l'écran qui définit la façon dont les données sont affichées sur l'appareil.  Les deux sont liés par un adaptateur, qui, dans ce code, est une extension de la classe **ArrayAdapter&lt;ToDoItem&gt;** .
 
 #### <a name="layout"></a>Définir la mise en page
 
@@ -519,14 +519,14 @@ Dans le code précédent, l'attribut *listitem* spécifie l'ID de la mise en pag
 ```
 
 #### <a name="adapter"></a>Définir l’adaptateur
-Comme la source de données de notre vue est un tableau **ToDoItem**, nous créons une sous-classe de notre adaptateur à partir de la classe **ArrayAdapter&lt;ToDoItem&gt;**. Cette sous-classe produit une vue pour chaque élément **ToDoItem** utilisant la mise en page **row_list_to_do**.  Dans notre code, nous définissons la classe suivante, qui est une extension de la classe **ArrayAdapter&lt;E&gt;**  :
+Comme la source de données de notre vue est un tableau **ToDoItem**, nous créons une sous-classe de notre adaptateur à partir de la classe **ArrayAdapter&lt;ToDoItem&gt;** . Cette sous-classe produit une vue pour chaque élément **ToDoItem** utilisant la mise en page **row_list_to_do**.  Dans notre code, nous définissons la classe suivante, qui est une extension de la classe **ArrayAdapter&lt;E&gt;**  :
 
 ```java
 public class ToDoItemAdapter extends ArrayAdapter<ToDoItem> {
 }
 ```
 
-Ignorez la méthode **getView** de l'adaptateur. Par exemple : 
+Ignorez la méthode **getView** de l'adaptateur. Par exemple :
 
 ```java
     @Override
@@ -1112,7 +1112,7 @@ Vous pouvez utiliser la bibliothèque d’authentification Active Directory (ADA
     * Remplacez **INSERT-AUTHORITY-HERE** par le nom du client dans lequel vous avez approvisionné votre application. Le format doit être https://login.microsoftonline.com/contoso.onmicrosoft.com.
     * Remplacez **INSERT-RESOURCE-ID-HERE** par l’ID client du serveur principal de votre application mobile. Vous pouvez obtenir l’ID client sur le portail, sous l’onglet **Avancé** du menu **Paramètres Azure Active Directory**.
     * Remplacez **INSERT-CLIENT-ID-HERE** par l’ID client que vous avez copié depuis l’application cliente native.
-    * Remplacez **INSERT-REDIRECT-URI-HERE** par le point de terminaison */.auth/login/done* de votre site, en utilisant le modèle HTTPS. Cette valeur doit être similaire à *https://contoso.azurewebsites.net/.auth/login/done*.
+    * Remplacez **INSERT-REDIRECT-URI-HERE** par le point de terminaison */.auth/login/done* de votre site, en utilisant le modèle HTTPS. Cette valeur doit être similaire à *https://contoso.azurewebsites.net/.auth/login/done* .
 
 ```java
 private AuthenticationContext mContext;

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 29377492b90f366227ca7bedf85890b7734ea25f
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62118413"
 ---
 # <a name="configuring-and-using-service-affinity-in-service-fabric"></a>Configuration et utilisation de l’affinité de service dans Service Fabric
@@ -71,7 +71,7 @@ Actuellement, Cluster Resource Manager ne peut pas modéliser les chaînes de re
 
 <center>
 
-![Chaînes et. étoiles dans le contexte des relations d’affinité][Image2]
+![Chaînes et étoiles dans le contexte des relations d’affinité][Image2]
 </center>
 
 Notez également que les relations d’affinité sont aujourd’hui directionnelles par défaut. Cela signifie que la règle d’affinité implique que l’enfant se trouve au même endroit que le parent. Elle ne garantit pas que le parent se trouve au même endroit que l’enfant. Par conséquent, s’il existe une violation d’affinité et que, pour corriger la violation, il n’est pas possible pour une raison quelconque de déplacer l’enfant vers le nœud du parent, le parent n’est pas déplacé vers le nœud de l’enfant, même si le déplacement du parent vers le nœud de l’enfant aurait corrigé la violation. La définition du paramètre de configuration [MoveParentToFixAffinityViolation](service-fabric-cluster-fabric-settings.md) sur true supprime la directionalité. Il est également important de noter que la relation d’affinité ne peut pas être idéale ou instantanément appliquée car différents services ont différents cycles de vie et peuvent échouer et se déplacer indépendamment. Par exemple, supposons que le parent bascule soudainement vers un autre nœud suite à un plantage. Cluster Resource Manager et Failover Manager gèrent d’abord le basculement puisque le maintien, la cohérence et la disponible des services restent la priorité. Une fois le basculement terminé, la relation d’affinité est brisée, mais Cluster Resource Manager pense que tout fonctionne correctement, jusqu’à ce qu’il remarque que l’enfant ne se trouve pas avec le parent. Ces types de vérifications sont effectuées régulièrement. Vous trouverez plus d’informations sur la façon dont Cluster Resource Manager évalue les contraintes dans [cet article](service-fabric-cluster-resource-manager-management-integration.md#constraint-types), et [celui-ci](service-fabric-cluster-resource-manager-balancing.md) explique comment configurer la cadence à laquelle ces contraintes sont évaluées.   

@@ -12,15 +12,15 @@ ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 37cdac16a51a30bdaf1ba0266bab7fdd1f2990f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60368321"
 ---
 # <a name="detecting-image-types-with-computer-vision"></a>Détection des types d’images avec Vision par ordinateur
 
-Avec le [Image analyser](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API, de vision par ordinateur permet d’analyser le type de contenu d’images, qui indique si une image est une image clipart ou un dessin au trait.
+Avec l’API [Analyze Image](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), Vision par ordinateur analyse le type de contenu des images, indiquant si une image est de type clipart ou un dessin au trait.
 
 ## <a name="detecting-clip-art"></a>Détection des images clipart
 
@@ -115,4 +115,4 @@ Les réponses JSON suivantes illustrent ce que Vision par ordinateur renvoie si 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez le [Image analyser](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) documentation pour savoir comment détecter les types d’images de référence.
+Consultez la documentation de référence [Analyser une image](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) pour savoir comment détecter les types d’images.

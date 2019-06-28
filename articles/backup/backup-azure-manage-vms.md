@@ -1,6 +1,6 @@
 ---
-title: Gérer et surveiller les sauvegardes de machines virtuelles Azure à l’aide du service sauvegarde Azure
-description: Découvrez comment gérer et surveiller les sauvegardes de machines virtuelles Azure à l’aide du service Azure Backup.
+title: Gérer et superviser les sauvegardes de machine virtuelle Azure à l’aide du service Sauvegarde Azure
+description: Découvrez comment gérer et superviser les sauvegardes de machine virtuelle Azure à l’aide du service Sauvegarde Azure.
 services: backup
 author: sogup
 manager: vijayts
@@ -9,150 +9,150 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: sogup
 ms.openlocfilehash: aa953440f03137f3359276bc9e06cb0c73f0ab4a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61219088"
 ---
 # <a name="manage-azure-vm-backups"></a>Gérer les sauvegardes de machines virtuelles Azure
 
-Cet article décrit comment gérer des machines virtuelles (VM) qui sont sauvegardés à l’aide de la [service Azure Backup](backup-overview.md). Cet article récapitule également les informations de sauvegarde que vous pouvez trouver sur le tableau de bord du coffre.
+Cet article explique comment gérer des machines virtuelles qui sont sauvegardées à l’aide du [service Sauvegarde Azure](backup-overview.md). De plus, cet article récapitule les informations de sauvegarde que vous pouvez trouver sur le tableau de bord du coffre.
 
 
-Dans le portail Azure, le tableau de bord du coffre Recovery Services fournit l’accès pour le coffre d’informations, y compris :
+Dans le portail Azure, le tableau de bord du coffre Recovery Services permet d’accéder à des informations sur le coffre, notamment :
 
 * La sauvegarde la plus récente, c’est-à-dire le dernier point de restauration.
 * La stratégie de sauvegarde.
 * La taille totale de tous les instantanés de sauvegarde.
 * Le nombre de machines virtuelles qui sont activées pour les sauvegardes.
 
-Vous pouvez gérer les sauvegardes à l’aide du tableau de bord et en accédant à des machines virtuelles individuelles. Pour commencer les sauvegardes de machines, ouvrez le coffre sur le tableau de bord.
+Vous pouvez gérer les sauvegardes à l’aide du tableau de bord et en accédant aux machines virtuelles individuelles. Pour commencer les sauvegardes des machines, ouvrez le coffre sur le tableau de bord.
 
-![Affichage de tableau de bord complète avec curseur](./media/backup-azure-manage-vms/bottom-slider.png)
+![Vue complète du tableau de bord avec curseur](./media/backup-azure-manage-vms/bottom-slider.png)
 
 ## <a name="view-vms-on-the-dashboard"></a>Afficher les machines virtuelles sur le tableau de bord
 
 Pour afficher les machines virtuelles sur le tableau de bord du coffre :
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
-2. Dans le menu Hub, sélectionnez **Parcourir**. Dans la liste des ressources, tapez **Recovery Services**. Lorsque vous tapez, la liste est filtrée en fonction de votre entrée. Sélectionnez **Coffres Recovery Services**.
+2. Dans le menu hub, sélectionnez **Parcourir**. Dans la liste des ressources, tapez **Recovery Services**. Quand vous écrivez, au fur et à mesure de votre saisie, la liste est filtrée. Sélectionnez **Coffres Recovery Services**.
 
     ![Créer un coffre Recovery Services](./media/backup-azure-manage-vms/browse-to-rs-vaults.png)
 
-3. Simplicité d’utilisation, cliquez sur le coffre et sélectionnez **épingler au tableau de bord**.
+3. Pour faire simple, cliquez avec le bouton droit sur le coffre, puis sélectionnez **Épingler au tableau de bord**.
 4. Ouvrez le tableau de bord du coffre.
 
-    ![Ouvrez le tableau de bord coffre et le panneau Paramètres](./media/backup-azure-manage-vms/full-view-rs-vault.png)
+    ![Ouvrir le tableau de bord du coffre et le panneau Paramètres](./media/backup-azure-manage-vms/full-view-rs-vault.png)
 
-5. Sur le **éléments de sauvegarde** vignette, sélectionnez **Machines virtuelles**.
+5. Sur la vignette **Éléments de sauvegarde**, sélectionnez **Machines virtuelles Azure**.
 
-    ![Ouvrez la vignette d’éléments de sauvegarde](./media/backup-azure-manage-vms/contoso-vault-1606.png)
+    ![Ouvrir la vignette Éléments de sauvegarde](./media/backup-azure-manage-vms/contoso-vault-1606.png)
 
-6. Sur le **éléments de sauvegarde** panneau, vous pouvez afficher la liste des machines virtuelles protégées. Dans cet exemple, le coffre protège une machine virtuelle : demobackup.  
+6. Dans le panneau  **Éléments de sauvegarde**, vous pouvez voir la liste des machines virtuelles protégées. Dans cet exemple, le coffre protège une machine virtuelle : demobackup.  
 
-    ![Afficher le panneau éléments de sauvegarde](./media/backup-azure-manage-vms/backup-items-blade-select-item.png)
+    ![Afficher le panneau Éléments de sauvegarde](./media/backup-azure-manage-vms/backup-items-blade-select-item.png)
 
-7. À partir du tableau de bord de l’élément coffre, modifier les stratégies de sauvegarde, exécuter un arrêt de sauvegarde, à la demande ou reprendre la protection des machines virtuelles, supprimer les données de sauvegarde, afficher les points de restauration et exécuter une restauration.
+7. À partir du tableau de bord de l’élément de coffre, modifiez les stratégies de sauvegarde, exécutez une sauvegarde à la demande, arrêtez ou redémarrez la protection des machines virtuelles, supprimez des données de sauvegarde, affichez les points de restauration et exécutez une restauration.
 
-    ![Le tableau de bord d’éléments de sauvegarde et le panneau Paramètres](./media/backup-azure-manage-vms/item-dashboard-settings.png)
+    ![Tableau de bord Éléments de sauvegarde et panneau Paramètres](./media/backup-azure-manage-vms/item-dashboard-settings.png)
 
 ## <a name="manage-backup-policy-for-a-vm"></a>Gérer la stratégie de sauvegarde pour une machine virtuelle
 
 Pour gérer une stratégie de sauvegarde :
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/). Ouvrez le tableau de bord du coffre.
-2. Sur le **éléments de sauvegarde** vignette, sélectionnez **Machines virtuelles**.
+2. Sur la vignette **Éléments de sauvegarde**, sélectionnez **Machines virtuelles Azure**.
 
-    ![Ouvrez la vignette d’éléments de sauvegarde](./media/backup-azure-manage-vms/contoso-vault-1606.png)
+    ![Ouvrir la vignette Éléments de sauvegarde](./media/backup-azure-manage-vms/contoso-vault-1606.png)
 
-3. Sur le **éléments de sauvegarde** panneau, vous pouvez afficher la liste des machines virtuelles protégées et le dernier état de la sauvegarde avec la dernière heure de points de restauration.
+3. Dans le panneau   **Éléments de sauvegarde**, vous pouvez voir la liste des machines virtuelles protégées et l’état de la dernière sauvegarde ainsi que l’heure des derniers points de restauration.
 
-    ![Afficher le panneau éléments de sauvegarde](./media/backup-azure-manage-vms/backup-items-blade-select-item.png)
+    ![Afficher le panneau Éléments de sauvegarde](./media/backup-azure-manage-vms/backup-items-blade-select-item.png)
 
-4. À partir du tableau de bord de l’élément coffre, vous pouvez sélectionner une stratégie de sauvegarde.
+4. À partir du tableau de bord de l’élément de coffre, vous pouvez sélectionner une stratégie de sauvegarde.
 
-   * Pour basculer des stratégies, sélectionnez une autre stratégie, puis sélectionnez **enregistrer**. La nouvelle stratégie est appliquée immédiatement au coffre.
+   * Pour changer de stratégie, sélectionnez une stratégie différente, puis sélectionnez **Enregistrer**. La nouvelle stratégie est appliquée immédiatement au coffre.
 
      ![Choisir une stratégie de sauvegarde](./media/backup-azure-manage-vms/backup-policy-create-new.png)
 
 ## <a name="run-an-on-demand-backup"></a>Exécuter une sauvegarde à la demande
-Vous pouvez exécuter une sauvegarde à la demande d’une machine virtuelle une fois que vous configurez sa protection. N’oubliez pas ces détails :
+Vous pouvez exécuter une sauvegarde à la demande d’une machine virtuelle une fois que vous avez configuré sa protection. Gardez à l’esprit les détails ci-après :
 
-- Si la sauvegarde initiale est en attente, et à la demande crée une copie complète de la machine virtuelle dans le coffre Recovery Services.
-- Si la sauvegarde initiale est terminée, une sauvegarde à la demande envoyer seulement les modifications à partir de l’instantané précédent dans le coffre Recovery Services. Autrement dit, les sauvegardes ultérieures sont toujours incrémentielles.
-- La durée de rétention pour une sauvegarde à la demande est la valeur de rétention que vous spécifiez lorsque vous déclenchez la sauvegarde.
+- Si la sauvegarde initiale est en attente, la sauvegarde à la demande crée une copie complète de la machine virtuelle dans le coffre Recovery Services.
+- Si la sauvegarde initiale est terminée, une sauvegarde à la demande envoie au coffre Recovery Services uniquement les modifications par rapport à l’instantané précédent. Autrement dit, les sauvegardes ultérieures sont toujours incrémentielles.
+- La plage de conservation pour une sauvegarde à la demande correspond à la valeur de conservation que vous spécifiez quand vous déclenchez la sauvegarde.
 
 Pour déclencher une sauvegarde à la demande :
 
-1. Sur le [tableau de bord](#view-vms-on-the-dashboard), sous **élément protégé**, sélectionnez **élément de sauvegarde**.
+1. Sur le [tableau de bord de l’élément de coffre](#view-vms-on-the-dashboard), sous **Élément protégé**, sélectionnez **Sauvegarder maintenant**.
 
-    ![L’option maintenant de sauvegarde](./media/backup-azure-manage-vms/backup-now-button.png)
+    ![Option Sauvegarder maintenant](./media/backup-azure-manage-vms/backup-now-button.png)
 
-2. À partir de **Type de gestion de sauvegarde**, sélectionnez **Machine virtuelle Azure**. Le **l’élément de sauvegarde (Machine virtuelle de Azure)** panneau s’affiche.
-3. Sélectionnez une machine virtuelle et sélectionnez **sauvegarder maintenant** pour créer une sauvegarde à la demande. Le **sauvegarder maintenant** panneau s’affiche.
-4. Dans le **conserver sauvegarde jusqu'à ce que** champ, spécifiez une date de la sauvegarde doivent être conservées.
+2. À partir de **Type de gestion des sauvegardes**, sélectionnez **Machine virtuelle Azure**. Le panneau **Élément de sauvegarde (Machine virtuelle Azure)** apparaît.
+3. Sélectionnez une machine virtuelle, puis sélectionnez **Sauvegarder maintenant** pour créer une sauvegarde à la demande. Le panneau **Sauvegarder maintenant** apparaît.
+4. Dans le champ **Conserver la sauvegarde jusqu’au**, spécifiez une date pour la sauvegarde à conserver.
 
-    ![Le calendrier sauvegarder maintenant](./media/backup-azure-manage-vms/backup-now-check.png)
+    ![Calendrier Sauvegarder maintenant](./media/backup-azure-manage-vms/backup-now-check.png)
 
 5. Sélectionnez **OK** pour exécuter le travail de sauvegarde.
 
-Pour suivre la progression du travail, sur le tableau de bord du coffre, sélectionnez le **travaux de sauvegarde** vignette.
+Pour suivre la progression du travail, sur le tableau de bord du coffre, sélectionnez la vignette **Travaux de sauvegarde**.
 
 ## <a name="stop-protecting-a-vm"></a>Arrêter la protection d’une machine virtuelle
 
 Il existe deux façons d’arrêter la protection d’une machine virtuelle :
 
 - Arrêter tous les travaux de sauvegarde à venir et supprimer tous les points de récupération. Dans ce cas, vous ne pourrez pas restaurer la machine virtuelle.
-- Arrêter toutes les futures tâches de sauvegarde et de conserver les points de récupération. Bien que vous devez payer conserver les points de récupération dans le coffre, vous serez en mesure de restaurer la machine virtuelle si nécessaire. Pour plus d’informations, consultez [tarification d’Azure Backup](https://azure.microsoft.com/pricing/details/backup/).
+- Arrêter tous les travaux de sauvegarde à venir et conserver les points de récupération. Bien que vous deviez payer pour conserver les points de récupération dans le coffre, vous pouvez restaurer la machine virtuelle si nécessaire. Pour plus d’informations, consultez [Tarification Sauvegarde Azure](https://azure.microsoft.com/pricing/details/backup/).
 
 >[!NOTE]
->Si vous supprimez une source de données sans avoir à arrêter les sauvegardes, les nouvelles sauvegardes échouera. Anciens points de récupération va expirer conformément à la stratégie, mais un dernier point de récupération est toujours conservé jusqu'à ce que vous arrêtez les sauvegardes et supprimez les données.
+>Si vous supprimez une source de données sans arrêter les sauvegardes, les nouvelles sauvegardes sont vouées à l’échec. Les anciens points de récupération expirent conformément à la stratégie, mais un dernier point de récupération est conservé jusqu’à ce que vous arrêtiez les sauvegardes et supprimiez les données.
 >
 
-Arrêter la protection pour une machine virtuelle :
+Pour arrêter la protection d’une machine virtuelle :
 
-1. Sur le [tableau de bord de l’élément du coffre](#view-vms-on-the-dashboard), sélectionnez **arrêter la sauvegarde**.
-2. Choisissez s’il faut conserver ou supprimer les données de sauvegarde et confirmez votre sélection en fonction des besoins. Ajouter un commentaire si vous le souhaitez. Si vous n’êtes pas sûr du nom de l’élément, survolez le point d’exclamation pour afficher le nom.
+1. Sur le [tableau de bord de l’élément de coffre](#view-vms-on-the-dashboard), sélectionnez **Arrêter la sauvegarde**.
+2. Indiquez si vous souhaitez conserver ou supprimer les données de sauvegarde et confirmez votre choix si nécessaire. Ajoutez un commentaire si vous le souhaitez. Si vous n’êtes pas sûr du nom de l’élément, survolez le point d’exclamation pour en afficher le nom.
 
     ![Arrêter la protection](./media/backup-azure-manage-vms/retain-or-delete-option.png)
 
-     Une notification vous informe que les travaux de sauvegarde ont été arrêtés.
+     Une notification vous informe que les travaux de sauvegarde ont été interrompus.
 
 ## <a name="resume-protection-of-a-vm"></a>Reprendre la protection d’une machine virtuelle
 
-Si vous conservez les données de sauvegarde lorsque vous arrêtez la machine virtuelle, vous pouvez réactiver ultérieurement la protection. Si vous supprimez les données de sauvegarde, vous ne pouvez pas reprendre la protection.
+Si vous conservez les données de sauvegarde quand vous arrêtez la machine virtuelle, vous pouvez reprendre la protection ultérieurement. Si vous supprimez les données de sauvegarde, vous ne pouvez pas reprendre la protection.
 
 Pour reprendre la protection d’une machine virtuelle :
 
-1. Sur le [tableau de bord de l’élément du coffre](#view-vms-on-the-dashboard), sélectionnez **reprendre la sauvegarde**.
+1. Sur le [tableau de bord de l’élément de coffre](#view-vms-on-the-dashboard), sélectionnez **Reprendre la sauvegarde**.
 
-2. Suivez les étapes de [gérer les stratégies de sauvegarde](#manage-backup-policy-for-a-vm) pour attribuer la stratégie pour la machine virtuelle. Vous n’avez pas besoin de choisir une stratégie de protection initiale de la machine virtuelle.
+2. Suivez les étapes de la section [Modifier les stratégies de sauvegarde](#manage-backup-policy-for-a-vm) pour affecter la stratégie de la machine virtuelle. Vous n’avez pas besoin de choisir la stratégie de protection initiale de la machine virtuelle.
 3. Après avoir appliqué la stratégie de sauvegarde à la machine virtuelle, vous voyez le message suivant :
 
-    ![Message indiquant une machine virtuelle protégée](./media/backup-azure-manage-vms/success-message.png)
+    ![Message indiquant que la protection d’une machine virtuelle a réussi](./media/backup-azure-manage-vms/success-message.png)
 
 ## <a name="delete-backup-data"></a>Supprimer les données de sauvegarde
 
-Vous pouvez supprimer les données de sauvegarde d’une machine virtuelle pendant le **arrêter la sauvegarde** travail ou une fois le travail de sauvegarde terminée. Avant de supprimer les données de sauvegarde, n’oubliez pas ces détails :
+Vous pouvez supprimer les données de sauvegarde d’une machine virtuelle pendant le travail **Arrêter la sauvegarde** ou une fois le travail de sauvegarde terminé. Avant de supprimer les données de sauvegarde, gardez à l’esprit les détails ci-après :
 
 - Il peut être judicieux d’attendre plusieurs jours ou semaines avant de supprimer les points de récupération.
-- Contrairement au processus de restauration des points de récupération, lorsque vous supprimez des données de sauvegarde, vous ne pouvez pas choisir des points de récupération spécifique à supprimer. Si vous supprimez vos données de sauvegarde, vous supprimez tous les points de récupération associées.
+- Contrairement au processus de restauration des points de récupération, quand vous supprimez des données de sauvegarde, vous ne pouvez pas choisir des points de récupération spécifiques à supprimer. Si vous supprimez vos données de sauvegarde, vous supprimez tous les points de récupération associés.
 
 Une fois que vous arrêtez ou désactivez le travail de sauvegarde de la machine virtuelle, vous pouvez supprimer les données de sauvegarde :
 
 
-1. Sur le [tableau de bord](#view-vms-on-the-dashboard), sélectionnez **supprimer les données de sauvegarde**.
+1. Sur le [tableau de bord de l’élément de coffre](#view-vms-on-the-dashboard), sélectionnez **Supprimer les données de sauvegarde**.
 
-    ![Sélectionnez Supprimer la sauvegarde](./media/backup-azure-manage-vms/delete-backup-buttom.png)
+    ![Sélectionner l’option de suppression de la sauvegarde](./media/backup-azure-manage-vms/delete-backup-buttom.png)
 
-1. Tapez le nom de l’élément de sauvegarde pour confirmer que vous souhaitez supprimer les points de récupération.
+1. Tapez le nom de l’élément de sauvegarde pour confirmer la suppression des points de récupération.
 
     ![Confirmer que vous souhaitez supprimer les points de récupération](./media/backup-azure-manage-vms/item-verification-box.png)
 
-1. Pour supprimer les données de sauvegarde pour l’élément, sélectionnez **supprimer**. Un message de notification vous informe que les données de sauvegarde a été supprimées.
+1. Pour supprimer les données de sauvegarde relatives à l’élément, sélectionnez **Supprimer**. Un message de notification vous informe que les données de sauvegarde ont été supprimées.
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Découvrez comment [sauvegarder des machines virtuelles Azure à partir des paramètres de la machine virtuelle](backup-azure-vms-first-look-arm.md).
+- Découvrez comment [sauvegarder une machine virtuelle Azure à partir des paramètres de celle-ci](backup-azure-vms-first-look-arm.md).
 - Découvrez comment [restaurer des machines virtuelles](backup-azure-arm-restore-vms.md).
-- Découvrez comment [surveiller les sauvegardes de machines virtuelles Azure](backup-azure-monitor-vms.md).
+- Découvrez comment [superviser des sauvegardes de machines virtuelles Azure](backup-azure-monitor-vms.md).

@@ -15,20 +15,20 @@ ms.workload: NA
 ms.date: 6/10/2018
 ms.author: aljo, subramar
 ms.openlocfilehash: b8012cbdad02995c3fc98a3ea1fa02a3a08bd2dc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60870874"
 ---
 # <a name="service-fabric-azure-files-volume-driver-preview"></a>Pilote de volume Azure Files pour Service Fabric (version préliminaire)
 Le plug-in de volume Azure Files est un [plug-in de volume Docker](https://docs.docker.com/engine/extend/plugins_volume/) qui fournit des volumes basés sur [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) pour les conteneurs Docker. Ce plug-in de volume Docker est fourni sous la forme d’une application Service Fabric qui peut être déployée sur des clusters Service Fabric. Il vise à fournir des volumes basés sur Azure Files aux autres applications de conteneur Service Fabric qui sont déployées sur le cluster.
 
 > [!NOTE]
-> Version 6.4.571.9590 du plug-in de volume Azure Files est une version préliminaire est disponible avec ce document. En tant que version préliminaire, son utilisation dans les environnements de production n’est **pas** prise en charge.
+> La version 6.4.571.9590 du plug-in de volume Azure Files est une préversion qui est disponible avec ce document. En tant que version préliminaire, son utilisation dans les environnements de production n’est **pas** prise en charge.
 >
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 * La version Windows du plug-in de volume Azure Files fonctionne sur [Windows Server version 1709](https://docs.microsoft.com/windows-server/get-started/whats-new-in-windows-server-1709), [Windows 10 version 1709](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1709) ou des systèmes d’exploitation plus récents uniquement. La version Linux du plug-in de volume Azure Files fonctionne sur toutes les versions de système d’exploitation prises en charge par Service Fabric.
 
 * Le plug-in du volume Azure Files fonctionne uniquement sur Service Fabric version 6.2 ou version plus récente.
@@ -99,7 +99,7 @@ L’application Service Fabric qui fournit les volumes pour vos conteneurs peut 
     sfctl application provision --application-type-build-path [ApplicationPackagePath]
     ```
 
-4. Créer l’application Dans la commande pour créer l’application ci-dessous, notez le paramètre d’application **ListenPort**. Cette valeur spécifiée pour ce paramètre d’application est le port sur lequel le plug-in de volume Azure Files écoute les requêtes du démon Docker. Il est important de s’assurer que le port fourni pour la correspondance de l’application le VolumePluginPorts dans le manifeste de cluster et qu’il n’est pas en conflit avec un autre port que le cluster ou vos applications utilisent.
+4. Créer l’application Dans la commande pour créer l’application ci-dessous, notez le paramètre d’application **ListenPort**. Cette valeur spécifiée pour ce paramètre d’application est le port sur lequel le plug-in de volume Azure Files écoute les requêtes du démon Docker. Il est important de s’assurer que le port fourni pour l’application correspond à VolumePluginPorts dans le manifeste de cluster, et qu’il n’est pas en conflit avec un autre port utilisé par le cluster ou vos applications.
 
     ```powershell
     New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.4.571.9590 -ApplicationParameter @{ListenPort='19100'}

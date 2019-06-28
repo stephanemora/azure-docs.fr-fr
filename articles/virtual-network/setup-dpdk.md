@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 07/27/2018
 ms.author: labattul
 ms.openlocfilehash: c5cb840035c5d0d5694982324c7237c58001e689
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60731598"
 ---
 # <a name="set-up-dpdk-in-a-linux-virtual-machine"></a>Configurer DPDK dans une machine virtuelle Linux
@@ -33,7 +33,7 @@ DPDK peut s’exécuter sur des machines virtuelles Azure prenant en charge plus
 
 ## <a name="benefit"></a>Avantage
 
-**Nombre supérieur de paquets par seconde (PPS)**: En contournant le noyau et le contrôle de prise de paquets dans l’espace utilisateur réduit le nombre de cycles en éliminant les changements de contexte. Il améliore également le nombre de paquets traités à la seconde dans les machines virtuelles Linux Azure.
+**Nombre supérieur de paquets par seconde (PPS)**  : le contournement du noyau et la prise de contrôle des paquets dans l’espace utilisateur ont pour effet de réduire le nombre de cycles du fait de l’élimination des changements de contexte. Il améliore également le nombre de paquets traités à la seconde dans les machines virtuelles Linux Azure.
 
 
 ## <a name="supported-operating-systems"></a>Systèmes d’exploitation pris en charge
@@ -56,7 +56,7 @@ Pour toute version du noyau Linux non répertoriée, voir [Correctifs pour la cr
 
 Toutes les régions Azure prennent en charge DPDK.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 La mise en réseau accélérée doit être activée sur une machine virtuelle Linux. La machine virtuelle doit disposer d’au moins deux interfaces réseau, dont une pour la gestion. Découvrez comment [créer une machine virtuelle Linux en ayant activé la mise en réseau accélérée](create-vm-accelerated-networking-cli.md).
 
@@ -133,7 +133,7 @@ Après le redémarrage, exécutez une fois les commandes suivantes :
      > [!NOTE]
      > Il existe un moyen de modifier le fichier grub de sorte que les HugePages soient réservées au démarrage en suivant les [instructions](https://dpdk.org/doc/guides/linux_gsg/sys_reqs.html#use-of-hugepages-in-the-linux-environment) relatives à DPDK. Les instructions figurent au bas de la page. Lorsque vous utilisez une machine virtuelle Linux Azure, modifiez plutôt les fichiers sous **/etc/config/grub.d** de sorte que les HugePages soient réservées à tous les redémarrages.
 
-2. Adresses MAC & IP : Utilisez `ifconfig –a` pour afficher l’adresse IP et MAC des interfaces réseau. Les interface réseau *VF* et *NETVSC* ont la même adresse MAC, mais seule l’interface réseau *NETVSC* possède une adresse IP. Les interfaces VF s’exécutent en tant qu’interfaces subordonnées des interfaces NETVSC.
+2. Adresses MAC et IP : utilisez `ifconfig –a` pour afficher l’adresse MAC et IP des interfaces réseau. Les interface réseau *VF* et *NETVSC* ont la même adresse MAC, mais seule l’interface réseau *NETVSC* possède une adresse IP. Les interfaces VF s’exécutent en tant qu’interfaces subordonnées des interfaces NETVSC.
 
 3. Adresses PCI
 
@@ -152,7 +152,7 @@ Si vous exécutez une application DPDK sur le PMD de prévention de défaillance
 
 Pour exécuter testpmd en mode racine, utilisez `sudo` avant la commande *testpmd*.
 
-### <a name="basic-sanity-check-failsafe-adapter-initialization"></a>De base : Contrôle de validité, l’initialisation de l’adaptateur de prévention de défaillance
+### <a name="basic-sanity-check-failsafe-adapter-initialization"></a>De base : contrôle d’intégrité, initialisation d’adaptateur fiable (failsafe)
 
 1. Exécutez les commandes suivantes pour démarrer une application testpmd à port unique :
 
@@ -180,7 +180,7 @@ Pour exécuter testpmd en mode racine, utilisez `sudo` avant la commande *testpm
 
 Les commandes précédentes démarrent *testpmd* en mode interactif, ce qui est recommandé, pour tester des commandes testpmd.
 
-### <a name="basic-single-sendersingle-receiver"></a>De base : Récepteur d’un seul expéditeur unique
+### <a name="basic-single-sendersingle-receiver"></a>De base : expéditeur unique/destinataire unique
 
 Les commandes suivantes impriment régulièrement des statistiques relatives au nombre de paquets par seconde :
 
@@ -216,7 +216,7 @@ Les commandes suivantes impriment régulièrement des statistiques relatives au 
 
 Si vous exécutez les commandes précédentes sur une machine virtuelle, modifiez *IP_SRC_ADDR* et *IP_DST_ADDR* dans `app/test-pmd/txonly.c` pour faire correspondre l’adresse IP effective des machines virtuelles avant de procéder à la compilation. Sinon, les paquets seront abandonnés avant de parvenir au destinataire.
 
-### <a name="advanced-single-sendersingle-forwarder"></a>Avancé : Redirecteur d’expéditeur unique/unique
+### <a name="advanced-single-sendersingle-forwarder"></a>Avancé : expéditeur unique/redirecteur unique
 Les commandes suivantes impriment régulièrement des statistiques relatives au nombre de paquets par seconde :
 
 1. Du côté de TX, exécutez la commande suivante :

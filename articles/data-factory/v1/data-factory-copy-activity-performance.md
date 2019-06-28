@@ -14,15 +14,15 @@ ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: ec8c58e4ced0d8df958e242b9c1671aeed8c2ee6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60488226"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guide sur les performances et le réglage de l’activité de copie
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version 1](data-factory-copy-activity-performance.md)
 > * [Version 2 (version actuelle)](../copy-activity-performance.md)
 
@@ -49,7 +49,7 @@ Cet article aborde les points suivants :
 
 ## <a name="performance-reference"></a>Performances de référence
 
-À titre de référence, le tableau ci-dessous décrit la valeur de débit de copie en Mo/s pour les paires de source et de récepteur données à partir de tests internes. À des fins de comparaison, il montre également comment les différents paramètres [d’unités de déplacement des données cloud](#cloud-data-movement-units) ou [d’évolutivité de la passerelle de gestion des données](data-factory-data-management-gateway-high-availability-scalability.md) (plusieurs nœuds de passerelle) peuvent améliorer les performances de copie.
+À titre de référence, le tableau ci-dessous décrit la valeur de débit de copie en Mbits/s pour les paires de source et de récepteur données à partir de tests internes. À des fins de comparaison, il montre également comment les différents paramètres [d’unités de déplacement des données cloud](#cloud-data-movement-units) ou [d’évolutivité de la passerelle de gestion des données](data-factory-data-management-gateway-high-availability-scalability.md) (plusieurs nœuds de passerelle) peuvent améliorer les performances de copie.
 
 ![Matrice des performances](./media/data-factory-copy-activity-performance/CopyPerfRef.png)
 
@@ -209,8 +209,8 @@ Configurez le paramètre **enableStaging** sur l’activité de copie pour spéc
 | Propriété | Description | Valeur par défaut | Requis |
 | --- | --- | --- | --- |
 | **enableStaging** |Indiquez si vous souhaitez copier les données via un magasin de données intermédiaire. |False |Non |
-| **linkedServiceName** |Spécifiez le nom d’un service lié [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) ou [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) faisant référence à l’instance de stockage que vous utilisez comme banque de données intermédiaire. <br/><br/>  Vous ne pouvez pas utiliser le stockage avec une signature d’accès partagé pour charger les données dans SQL Data Warehouse via PolyBase. Vous pouvez l’utiliser dans tous les autres scénarios. |N/A |Oui, quand **enableStaging** est défini sur TRUE |
-| **path** |Spécifiez le chemin du stockage Blob où vous souhaitez placer les données intermédiaires. Si vous ne renseignez pas le chemin d’accès, le service crée un conteneur pour stocker les données temporaires. <br/><br/>  Ne spécifiez un chemin d’accès que si vous utilisez le stockage avec une signature d’accès partagé, ou si vous avez besoin de données temporaires dans un emplacement spécifique. |N/A |Non |
+| **linkedServiceName** |Spécifiez le nom d’un service lié [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) ou [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) faisant référence à l’instance de stockage que vous utilisez comme banque de données intermédiaire. <br/><br/> Vous ne pouvez pas utiliser le stockage avec une signature d’accès partagé pour charger les données dans SQL Data Warehouse via PolyBase. Vous pouvez l’utiliser dans tous les autres scénarios. |N/A |Oui, quand **enableStaging** est défini sur TRUE |
+| **path** |Spécifiez le chemin du stockage Blob où vous souhaitez placer les données intermédiaires. Si vous ne renseignez pas le chemin d’accès, le service crée un conteneur pour stocker les données temporaires. <br/><br/> Ne spécifiez un chemin d’accès que si vous utilisez le stockage avec une signature d’accès partagé, ou si vous avez besoin de données temporaires dans un emplacement spécifique. |N/A |Non |
 | **enableCompression** |Spécifie si les données doivent être compressées avant d’être copiées vers la destination. Ce paramètre réduit le volume de données transférées. |False |Non |
 
 Voici un exemple de définition de l’activité de copie avec les propriétés qui sont décrites dans le tableau précédent :
@@ -370,7 +370,7 @@ Faites attention au nombre de jeux de données et d’activités de copie néces
 ## <a name="sample-scenario-copy-from-an-on-premises-sql-server-to-blob-storage"></a>Exemple de scénario : copie depuis un SQL Server local vers le stockage Blob
 **Scénario** : un pipeline est conçu pour copier des données d’un serveur SQL Server local vers un stockage Blob au format CSV. Pour accélérer la copie des travaux, les fichiers CSV doivent être compressés au format bzip2.
 
-**Test et analyse** : le débit de l’activité de copie est inférieur à 2 Mo/s, ce qui est beaucoup plus lent que le test d’évaluation des performances.
+**Test et analyse** : le débit de l’activité de copie est inférieur à 2 Mbits/s, ce qui est beaucoup plus lent que le test d’évaluation des performances.
 
 **Analyse des performances et réglage** : pour résoudre le problème de performances, nous allons tout d’abord examiner la manière dont les données sont traitées et déplacées.
 
@@ -389,9 +389,9 @@ Un ou plusieurs des facteurs suivants peuvent entraîner un goulot d’étrangle
   * **LAN** : la passerelle est éloignée de l’ordinateur SQL Server et dispose d’une connexion à faible bande passante.
   * **Passerelle** : la passerelle a atteint ses limites de charge pour effectuer les opérations suivantes :
     * **Sérialisation** : la sérialisation du flux de données au format CSV présente un débit lent.
-    * **Compression** : vous avez choisi un codec de compression lent (par exemple, bzip2, c’est-à-dire 2,8 Mo/s avec Core i7).
+    * **Compression** : vous avez choisi un codec de compression lent (par exemple, bzip2, c’est-à-dire 2,8 Mbits/s avec Core i7).
   * **WAN** : la bande passante entre le réseau d’entreprise et vos services Azure est faible (par exemple, T1 = 1 544 Kbits/s ; T2 = 6 312 Kbits/s).
-* **Récepteur** : le stockage Blob a un faible débit. (Ce scénario est peu probable car son contrat SLA garantit un minimum de 60 Mo/s.)
+* **Récepteur** : le stockage Blob a un faible débit. (Ce scénario est peu probable car son contrat SLA garantit un minimum de 60 Mbits/s.)
 
 Dans ce cas, la compression de données bzip2 pourrait ralentir l’ensemble du pipeline. Un basculement vers le codec de compression gzip peut résoudre ce goulot d’étranglement.
 
@@ -414,7 +414,7 @@ Dans ce cas, la compression de données bzip2 pourrait ralentir l’ensemble du 
 
 ![Scénario 3](./media/data-factory-copy-activity-performance/scenario-3.png)
 
-## <a name="reference"></a>Référence
+## <a name="reference"></a>Informations de référence
 Voici des références relatives à la surveillance et au réglage des performances pour quelques banques de données prises en charge :
 
 * Stockage Azure (le Stockage Blob et le Stockage Table) : [Objectifs d’évolutivité du Stockage Azure](../../storage/common/storage-scalability-targets.md) et [Liste de contrôle des performances et de l’évolutivité du Stockage Azure](../../storage/common/storage-performance-checklist.md)

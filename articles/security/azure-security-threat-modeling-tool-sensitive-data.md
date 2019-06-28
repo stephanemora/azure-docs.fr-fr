@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: 27028903daeaf62a25584300944538341a861c80
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60610562"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Infrastructure de sécurité : Données sensibles | Atténuation des risques 
@@ -26,7 +26,7 @@ ms.locfileid: "60610562"
 | --------------- | ------- |
 | **Délimitation d’approbation machine** | <ul><li>[S’assurer que les fichiers binaires sont masqués s’ils contiennent des informations sensibles](#binaries-info)</li><li>[Utiliser le système de fichiers EFS pour protéger les données confidentielles spécifiques de l’utilisateur](#efs-user)</li><li>[S’assurer que les données sensibles stockées par l’application sur le système de fichiers sont chiffrées](#filesystem)</li></ul> | 
 | **Application Web** | <ul><li>[S’assurer que le contenu sensible n’est pas mis en cache dans le navigateur](#cache-browser)</li><li>[Chiffrer les sections des fichiers de configuration de l’application web qui contiennent des données sensibles](#encrypt-data)</li><li>[Désactiver explicitement l’attribut HTML de saisie semi-automatique dans les formulaires et les entrées sensibles](#autocomplete-input)</li><li>[S’assurer que les données sensibles affichées sur l’écran de l’utilisateur sont masquées](#data-mask)</li></ul> | 
-| **Base de données** | <ul><li>[Implémenter le masquage des données dynamiques pour limiter l’exposition de données sensibles aux utilisateurs non privilégiés](#dynamic-users)</li><li>[S’assurer que les mots de passe sont stockés dans un format de hachage salé](#salted-hash)</li><li>[Assurez-vous que les données sensibles dans les colonnes de la base de données sont chiffrées.](#db-encrypted)</li><li>[S’assurer que le chiffrement au niveau de la base de données est activé](#tde-enabled)</li><li>[S’assurer que les sauvegardes de base de données sont chiffrées](#backup)</li></ul> | 
+| **Base de données** | <ul><li>[Implémenter le masquage des données dynamiques pour limiter l’exposition de données sensibles aux utilisateurs non privilégiés](#dynamic-users)</li><li>[S’assurer que les mots de passe sont stockés dans un format de hachage salé](#salted-hash)</li><li>[S’assurer que les données sensibles des colonnes de la base de données sont chiffrées](#db-encrypted)</li><li>[S’assurer que le chiffrement au niveau de la base de données est activé](#tde-enabled)</li><li>[S’assurer que les sauvegardes de base de données sont chiffrées](#backup)</li></ul> | 
 | **API Web** | <ul><li>[S’assurer que les données sensibles concernant l’API Web ne sont pas stockées dans le navigateur](#api-browser)</li></ul> | 
 | Azure Document DB | <ul><li>[Chiffrer les données sensibles stockées dans Azure Cosmos DB](#encrypt-docdb)</li></ul> | 
 | **Délimitation d’approbation de machine virtuelle Azure IaaS** | <ul><li>[Utiliser Azure Disk Encryption pour chiffrer les disques utilisés par les machines virtuelles](#disk-vm)</li></ul> | 
@@ -34,7 +34,7 @@ ms.locfileid: "60610562"
 | **Dynamics CRM** | <ul><li>[Effectuer la modélisation de sécurité et utiliser les divisions/équipes si nécessaire](#modeling-teams)</li><li>[Réduire l’accès pour partager la fonctionnalité sur les entités critiques](#entities)</li><li>[Former les utilisateurs aux risques liés à la fonctionnalité de partage Dynamics CRM et aux bonnes pratiques de sécurité](#good-practices)</li><li>[Inclure une règle de normes de développement interdisant l’affichage des détails de configuration dans la gestion des exceptions](#exception-mgmt)</li></ul> | 
 | **Stockage Azure** | <ul><li>[Utiliser Azure Storage Service Encryption pour les données au repos (version préliminaire)](#sse-preview)</li><li>[Utiliser le chiffrement côté client pour stocker les données sensibles dans le stockage Azure](#client-storage)</li></ul> | 
 | **Client mobile** | <ul><li>[Chiffrer les données sensibles ou personnelles écrites dans le stockage local des téléphones](#pii-phones)</li><li>[Masquer les fichiers binaires générés avant la diffusion auprès des utilisateurs finaux](#binaries-end)</li></ul> | 
-| **WCF** | <ul><li>[Définir la valeur clientCredentialType sur certificat ou Windows](#cert)</li><li>[Le mode de sécurité WCF n’est pas activé](#security)</li></ul> | 
+| **WCF** | <ul><li>[Définir la valeur clientCredentialType sur Certificat ou Windows](#cert)</li><li>[Le mode de sécurité WCF n’est pas activé](#security)</li></ul> | 
 
 ## <a id="binaries-info"></a>S’assurer que les fichiers binaires sont masqués s’ils contiennent des informations sensibles
 

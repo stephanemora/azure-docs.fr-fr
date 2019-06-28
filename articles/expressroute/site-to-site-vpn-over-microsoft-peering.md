@@ -9,10 +9,10 @@ ms.date: 02/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: f35ed65b25d469b524e7174affecb45ad7c4735c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66115735"
 ---
 # <a name="configure-a-site-to-site-vpn-over-expressroute-microsoft-peering"></a>Configurer un réseau VPN de site à site via l’appairage Microsoft ExpressRoute
@@ -91,7 +91,7 @@ Cet exemple utilise une commande IOS-XE Cisco. Dans cet exemple, une instance vi
 show ip bgp vpnv4 vrf 10 summary
 ```
 
-La sortie partielle ci-dessous montre que 68 préfixes ont été reçus du voisin \*. 243.229.34 avec l’ASN 12076 (MSEE) :
+La sortie partielle ci-dessous montre que 68 préfixes ont été reçus du voisin \*.243.229.34 avec l’ASN 12076 (MSEE) :
 
 ```
 ...

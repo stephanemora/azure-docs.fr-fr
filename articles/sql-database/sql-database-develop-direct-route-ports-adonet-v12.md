@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 04/03/2019
 ms.openlocfilehash: ddb115370c62371e769ef98e0031f7e0379bafbf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61075493"
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>Ports au-delà de 1433 pour ADO.NET 4.5
@@ -43,11 +43,11 @@ La séquence est la suivante :
 
 1. ADO.NET 4.5 (ou version ultérieure) initie une brève interaction avec le cloud Azure et reçoit un numéro de port identifié de manière dynamique.
 
-   * Le numéro de port identifié de manière dynamique est dans la plage 11000-11999.
+   * Le numéro de port identifié de manière dynamique appartient à la plage 11000-11999.
 2. ADO.NET se connecte ensuite au serveur SQL Database directement, sans passer par un intergiciel.
 3. Les requêtes sont envoyées directement à la base de données et les résultats sont retournés directement au client.
 
-Vérifiez que les plages de ports 11000-11999 sur votre ordinateur client Azure sont restent disponibles pour les interactions du client ADO.NET 4.5 avec SQL Database.
+Vérifiez que les plages de ports 11000-11999 sur votre ordinateur client Azure restent disponibles pour les interactions du client ADO.NET 4.5 avec SQL Database.
 
 * En particulier, les ports dans la plage doivent être libres de tout autre bloqueur sortant.
 * Sur votre machine virtuelle Azure, le **Pare-feu Windows avec fonctions avancées de sécurité** contrôle les paramètres des ports.
@@ -84,6 +84,6 @@ Cette section clarifie les monikers qui font référence aux versions du produit
 * [Liste des versions du protocole TDS](http://www.freetds.org/userguide/tdshistory.htm)
 * [Vue d’ensemble du développement de base de données SQL](sql-database-develop-overview.md)
 * [Pare-feu Azure SQL Database](sql-database-firewall-configure.md)
-* [Guide pratique : Configuration des paramètres du pare-feu sur SQL Database](sql-database-configure-firewall-settings.md)
+* [Guide pratique pour Configuration des paramètres du pare-feu sur SQL Database](sql-database-configure-firewall-settings.md)
 
 

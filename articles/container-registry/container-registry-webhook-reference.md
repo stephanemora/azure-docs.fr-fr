@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 03/05/2019
 ms.author: danlep
 ms.openlocfilehash: 4c0845b9cf5194ecbd0ab813997e17e070840f44
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61331339"
 ---
 # <a name="azure-container-registry-webhook-reference"></a>Référence de webhook Azure Container Registry
 
-Vous pouvez [configurer des webhooks](container-registry-webhook.md) pour votre registre de conteneurs qui génèrent des événements lorsque certaines actions sont effectuées. Par exemple, activer des webhooks qui sont déclenchées lorsqu’une image conteneur ou un graphique Helm est placée dans un Registre, ou supprimé. Lorsqu’un webhook est déclenché, Azure Container Registry envoie une requête HTTP ou HTTPS contenant des informations sur l’événement à un point de terminaison que vous spécifiez. Votre point de terminaison peut ensuite traiter le webhook et agir en conséquence.
+Vous pouvez [configurer des webhooks](container-registry-webhook.md) pour votre registre de conteneurs qui génèrent des événements lorsque certaines actions sont effectuées. Par exemple, activer des webhooks qui sont déclenchés quand une image conteneur ou un graphique Helm est envoyé vers un Registre, ou supprimé. Lorsqu’un webhook est déclenché, Azure Container Registry envoie une requête HTTP ou HTTPS contenant des informations sur l’événement à un point de terminaison que vous spécifiez. Votre point de terminaison peut ensuite traiter le webhook et agir en conséquence.
 
 Les sections suivantes détaillent le schéma de requêtes de webhook générées par des événements pris en charge. Les sections de l’événement contient le schéma de charge utile pour le type d’événement, une charge utile de requête par exemple, et un ou plusieurs exemples de commandes qui peuvent déclencher le webhook.
 
@@ -42,33 +42,33 @@ Webhook déclenché lorsqu’une image conteneur est envoyée vers un référent
 
 |Élément|Type|Description|
 |-------------|----------|-----------|
-|`id`|String|ID de l’événement de webhook.|
-|`timestamp`|DateTime|Heure à laquelle l’événement de webhook a été déclenché.|
-|`action`|String|Action qui a déclenché l’événement de webhook.|
+|`id`|Chaîne|ID de l’événement de webhook.|
+|`timestamp`|Datetime|Heure à laquelle l’événement de webhook a été déclenché.|
+|`action`|Chaîne|Action qui a déclenché l’événement de webhook.|
 |[cible](#target)|Type complexe|Cible de l’événement qui a déclenché l’événement de webhook.|
 |[requête](#request)|Type complexe|Requête qui a généré l’événement de webhook.|
 
-### <a name="target"></a>target
+### <a name="target"></a>cible
 
 |Élément|Type|Description|
 |------------------|----------|-----------|
-|`mediaType`|String|Type MIME de l’objet référencé.|
+|`mediaType`|Chaîne|Type MIME de l’objet référencé.|
 |`size`|Int32|Nombre d’octets du contenu. Identique au champ Longueur.|
-|`digest`|String|Résumé du contenu, tel que défini par la spécification d’API du Registre V2 HTTP.|
+|`digest`|Chaîne|Résumé du contenu, tel que défini par la spécification d’API du Registre V2 HTTP.|
 |`length`|Int32|Nombre d’octets du contenu. Identique au champ Taille.|
-|`repository`|String|Nom du référentiel.|
-|`tag`|String|Nom de la balise d’image.|
+|`repository`|Chaîne|Nom du référentiel.|
+|`tag`|Chaîne|Nom de la balise d’image.|
 
-### <a name="request"></a>request
+### <a name="request"></a>requête
 
 |Élément|Type|Description|
 |------------------|----------|-----------|
-|`id`|String|ID de la requête qui a initié l’événement.|
-|`host`|String|Nom d’hôte accessible de l’extérieur de l’instance du registre, tel que spécifié par l’en-tête d’hôte HTTP sur les requêtes entrantes.|
-|`method`|String|Méthode de requête qui a généré l’événement.|
-|`useragent`|String|En-tête d’agent utilisateur de la requête.|
+|`id`|Chaîne|ID de la requête qui a initié l’événement.|
+|`host`|Chaîne|Nom d’hôte accessible de l’extérieur de l’instance du registre, tel que spécifié par l’en-tête d’hôte HTTP sur les requêtes entrantes.|
+|`method`|Chaîne|Méthode de requête qui a généré l’événement.|
+|`useragent`|Chaîne|En-tête d’agent utilisateur de la requête.|
 
-### <a name="payload-example-image-push-event"></a>Exemple de charge utile : événement de push image
+### <a name="payload-example-image-push-event"></a>Exemple de charge utile : événement push d’image
 
 ```JSON
 {
@@ -92,36 +92,36 @@ Webhook déclenché lorsqu’une image conteneur est envoyée vers un référent
 }
 ```
 
-Exemple [Docker CLI](https://docs.docker.com/engine/reference/commandline/cli/) commande qui déclenche l’image **push** webhook d’événement :
+Exemple de commande [Docker CLI](https://docs.docker.com/engine/reference/commandline/cli/) qui déclenche le webhook d’événement **push** d’image :
 
 ```bash
 docker push myregistry.azurecr.io/hello-world:v1
 ```
 
-## <a name="chart-push-event"></a>Événement de push de graphique
+## <a name="chart-push-event"></a>Événement push de graphique
 
-Webhook déclenché lorsqu’un graphique Helm est envoyé vers un référentiel.
+Webhook déclenché quand un graphique Helm est envoyé vers un référentiel.
 
-### <a name="chart-push-event-payload"></a>Charge utile d’événement graphique push
+### <a name="chart-push-event-payload"></a>Charge utile d’événement push de graphique
 
 |Élément|Type|Description|
 |-------------|----------|-----------|
-|`id`|String|ID de l’événement de webhook.|
-|`timestamp`|DateTime|Heure à laquelle l’événement de webhook a été déclenché.|
-|`action`|String|Action qui a déclenché l’événement de webhook.|
+|`id`|Chaîne|ID de l’événement de webhook.|
+|`timestamp`|Datetime|Heure à laquelle l’événement de webhook a été déclenché.|
+|`action`|Chaîne|Action qui a déclenché l’événement de webhook.|
 |[cible](#helm_target)|Type complexe|Cible de l’événement qui a déclenché l’événement de webhook.|
 
-### <a name="helm_target"></a>target
+### <a name="helm_target"></a>cible
 
 |Élément|Type|Description|
 |------------------|----------|-----------|
-|`mediaType`|String|Type MIME de l’objet référencé.|
+|`mediaType`|Chaîne|Type MIME de l’objet référencé.|
 |`size`|Int32|Nombre d’octets du contenu.|
-|`digest`|String|Résumé du contenu, tel que défini par la spécification d’API du Registre V2 HTTP.|
-|`repository`|String|Nom du référentiel.|
-|`tag`|String|Nom de balise du graphique.|
-|`name`|String|Le nom du graphique.|
-|`version`|String|La version graphique.|
+|`digest`|Chaîne|Résumé du contenu, tel que défini par la spécification d’API du Registre V2 HTTP.|
+|`repository`|Chaîne|Nom du référentiel.|
+|`tag`|Chaîne|Nom de balise du graphique.|
+|`name`|Chaîne|Nom du graphique.|
+|`version`|Chaîne|Version du graphique.|
 
 ### <a name="payload-example-chart-push-event"></a>Exemple de charge utile : événement push de graphique
 
@@ -142,7 +142,7 @@ Webhook déclenché lorsqu’un graphique Helm est envoyé vers un référentiel
 }
 ```
 
-Exemple [Azure CLI](/cli/azure/acr) commande déclenche la **chart_push** webhook d’événement :
+Exemple de commande [Azure CLI](/cli/azure/acr) qui déclenche le webhook d’événement **chart_push** :
 
 ```azurecli
 az acr helm push wordpress-5.4.0.tgz --name MyRegistry
@@ -150,15 +150,15 @@ az acr helm push wordpress-5.4.0.tgz --name MyRegistry
 
 ## <a name="delete-event"></a>Supprimer un événement
 
-Webhook déclenché lorsqu’un référentiel d’images ou le manifeste est supprimé. Non déclenché lorsqu’une balise est supprimée.
+Webhook déclenché quand un référentiel d’image sou un manifeste est supprimé. Non déclenché lorsqu’une balise est supprimée.
 
 ### <a name="delete-event-payload"></a>Charge utile d’événement de suppression
 
 |Élément|Type|Description|
 |-------------|----------|-----------|
-|`id`|String|ID de l’événement de webhook.|
-|`timestamp`|DateTime|Heure à laquelle l’événement de webhook a été déclenché.|
-|`action`|String|Action qui a déclenché l’événement de webhook.|
+|`id`|Chaîne|ID de l’événement de webhook.|
+|`timestamp`|Datetime|Heure à laquelle l’événement de webhook a été déclenché.|
+|`action`|Chaîne|Action qui a déclenché l’événement de webhook.|
 |[cible](#delete_target)|Type complexe|Cible de l’événement qui a déclenché l’événement de webhook.|
 |[requête](#delete_request)|Type complexe|Requête qui a généré l’événement de webhook.|
 
@@ -166,18 +166,18 @@ Webhook déclenché lorsqu’un référentiel d’images ou le manifeste est sup
 
 |Élément|Type|Description|
 |------------------|----------|-----------|
-|`mediaType`|String|Type MIME de l’objet référencé.|
-|`digest`|String|Résumé du contenu, tel que défini par la spécification d’API du Registre V2 HTTP.|
-|`repository`|String|Nom du référentiel.|
+|`mediaType`|Chaîne|Type MIME de l’objet référencé.|
+|`digest`|Chaîne|Résumé du contenu, tel que défini par la spécification d’API du Registre V2 HTTP.|
+|`repository`|Chaîne|Nom du référentiel.|
 
 ### <a name="delete_request"></a> requête
 
 |Élément|Type|Description|
 |------------------|----------|-----------|
-|`id`|String|ID de la requête qui a initié l’événement.|
-|`host`|String|Nom d’hôte accessible de l’extérieur de l’instance du registre, tel que spécifié par l’en-tête d’hôte HTTP sur les requêtes entrantes.|
-|`method`|String|Méthode de requête qui a généré l’événement.|
-|`useragent`|String|En-tête d’agent utilisateur de la requête.|
+|`id`|Chaîne|ID de la requête qui a initié l’événement.|
+|`host`|Chaîne|Nom d’hôte accessible de l’extérieur de l’instance du registre, tel que spécifié par l’en-tête d’hôte HTTP sur les requêtes entrantes.|
+|`method`|Chaîne|Méthode de requête qui a généré l’événement.|
+|`useragent`|Chaîne|En-tête d’agent utilisateur de la requête.|
 
 ### <a name="payload-example-image-delete-event"></a>Exemple de charge utile : événement de suppression d’image
 
@@ -212,28 +212,28 @@ az acr repository delete --name MyRegistry --image MyRepository:MyTag
 
 ## <a name="chart-delete-event"></a>Événement de suppression de graphique
 
-Webhook déclenché lorsqu’un graphique Helm ou dépôt est supprimé. 
+Webhook déclenché quand un graphique Helm ou un référentiel est supprimé. 
 
-### <a name="chart-delete-event-payload"></a>Charge utile d’événement graphique delete
+### <a name="chart-delete-event-payload"></a>Charge utile d’événement de suppression de graphique
 
 |Élément|Type|Description|
 |-------------|----------|-----------|
-|`id`|String|ID de l’événement de webhook.|
-|`timestamp`|DateTime|Heure à laquelle l’événement de webhook a été déclenché.|
-|`action`|String|Action qui a déclenché l’événement de webhook.|
+|`id`|Chaîne|ID de l’événement de webhook.|
+|`timestamp`|Datetime|Heure à laquelle l’événement de webhook a été déclenché.|
+|`action`|Chaîne|Action qui a déclenché l’événement de webhook.|
 |[cible](#chart_delete_target)|Type complexe|Cible de l’événement qui a déclenché l’événement de webhook.|
 
 ### <a name="chart_delete_target"></a> cible
 
 |Élément|Type|Description|
 |------------------|----------|-----------|
-|`mediaType`|String|Type MIME de l’objet référencé.|
+|`mediaType`|Chaîne|Type MIME de l’objet référencé.|
 |`size`|Int32|Nombre d’octets du contenu.|
-|`digest`|String|Résumé du contenu, tel que défini par la spécification d’API du Registre V2 HTTP.|
-|`repository`|String|Nom du référentiel.|
-|`tag`|String|Nom de balise du graphique.|
-|`name`|String|Le nom du graphique.|
-|`version`|String|La version graphique.|
+|`digest`|Chaîne|Résumé du contenu, tel que défini par la spécification d’API du Registre V2 HTTP.|
+|`repository`|Chaîne|Nom du référentiel.|
+|`tag`|Chaîne|Nom de balise du graphique.|
+|`name`|Chaîne|Nom du graphique.|
+|`version`|Chaîne|Version du graphique.|
 
 ### <a name="payload-example-chart-delete-event"></a>Exemple de charge utile : événement de suppression de graphique
 
@@ -254,7 +254,7 @@ Webhook déclenché lorsqu’un graphique Helm ou dépôt est supprimé.
 }
 ```
 
-Exemple [Azure CLI](/cli/azure/acr) commande déclenche la **chart_delete** webhook d’événement :
+Exemple de commande [Azure CLI](/cli/azure/acr) qui déclenche le webhook d’événement **chart_delete** :
 
 ```azurecli
 az acr helm delete wordpress --version 5.4.0 --name MyRegistry

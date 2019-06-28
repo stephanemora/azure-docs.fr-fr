@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: bced6a9e6c59dc32657dbabef986e29e0447b28b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60947200"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Rapport d’estimation de coût du planificateur de déploiement Azure Site Recovery 
@@ -56,7 +56,7 @@ La première section indique le coût global de récupération d’urgence par c
 
 **Réseau** : coût d’ExpressRoute et du VPN site à site pour les besoins de la reprise d’activité. 
 
-**Licence Site Recovery Azure**: coût de la licence Site Recovery pour toutes les machines virtuelles compatibles. Si vous avez saisi manuellement une machine virtuelle dans la table d’analyse des coûts détaillée, le coût de la licence Site Recovery est également inclus pour cette machine virtuelle.
+**Licence Azure Site Recovery** : coût de la licence Site Recovery pour toutes les machines virtuelles compatibles. Si vous avez saisi manuellement une machine virtuelle dans la table d’analyse des coûts détaillée, le coût de la licence Site Recovery est également inclus pour cette machine virtuelle.
 
 ### <a name="overall-dr-costs-by-states"></a>Coûts de récupération d’urgence globaux par état
 Le coût total de la récupération d’urgence est catégorisé selon deux états différents, la réplication et le test de récupération d’urgence.
@@ -125,7 +125,7 @@ Pour ajouter manuellement des machines virtuelles :
 
     i. **Azure Hybrid Use Benefit**
 
-1. Vous pouvez appliquer la même valeur à toutes les machines virtuelles du tableau en cliquant sur le bouton **Apply to all** (Appliquer à tous) pour le **nombre de tests de récupération d’urgence en un an**, la **durée de chaque test de récupération d’urgence (en jours)**, la **redondance des données** et **Azure Hybrid Use Benefit**.
+1. Vous pouvez appliquer la même valeur à toutes les machines virtuelles du tableau en cliquant sur le bouton **Apply to all** (Appliquer à tous) pour le **nombre de tests de récupération d’urgence en un an**, la **durée de chaque test de récupération d’urgence (en jours)** , la **redondance des données** et **Azure Hybrid Use Benefit**.
 
 1. Cliquez sur **Re-calculate cost** (Recalculer le coût) pour mettre à jour le coût.
 
@@ -157,7 +157,7 @@ Pour ajouter manuellement des machines virtuelles :
 
 **Coût total de la simulation de reprise d’activité (moyenne)**  : coût de la capacité de calcul et du stockage pour les simulations de reprise d’activité.
 
-**Coût de licence Azure Site Recovery**: coût de la licence Site Recovery.
+**Coût de la licence Azure Site Recovery** : coût de la licence Site Recovery.
 
 ## <a name="supported-target-regions"></a>Régions cibles prises en charge
 Le planificateur de déploiement Site Recovery fournit une estimation de coût pour les régions Azure suivantes. Si votre région n’est pas répertoriée ici, vous pouvez utiliser la région, parmi les suivantes, dont la tarification se rapproche le plus de celle de votre région :

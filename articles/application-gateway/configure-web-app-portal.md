@@ -1,6 +1,6 @@
 ---
-title: Gérer le trafic vers les applications mutualisées tels que App service web apps avec Azure Application Gateway - portail
-description: Cet article fournit des conseils sur la configuration des applications Azure App service web en tant que membres dans le pool principal sur une passerelle d’application nouvelle ou existante.
+title: Gérer le trafic vers les applications multilocataires comme les applications web App Service avec Azure Application Gateway - Portail
+description: Cet article fournit de l’aide sur la configuration des applications web Azure App Service en tant que membres du pool de back-ends sur une passerelle d’application nouvelle ou existante.
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
@@ -8,67 +8,67 @@ ms.topic: article
 ms.date: 3/11/2019
 ms.author: absha
 ms.openlocfilehash: 4dae04c14f9132c54dcc0575ccb2841a4742a626
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60831187"
 ---
 # <a name="configure-app-service-with-application-gateway"></a>Configurer App Service avec Application Gateway
 
-Application gateway vous permet d’avoir une application de service Azure application Web ou d’autres services de l’architecture mutualisées comme un membre du pool back-end. 
+Application Gateway vous permet d’avoir une application web Azure App Service ou tout autre service multilocataire en tant que membre du pool de back-ends. 
 
 Dans cet article, vous apprendrez comment :
 
 > [!div class="checklist"]
 >
-> - Créer un pool principal et lui ajouter un Service d’application
-> - Créer des paramètres HTTP et la sonde personnalisée avec des commutateurs « Hostname choisir » activés
+> - Créer un pool de back-ends et y ajouter un service d’application
+> - Créer des paramètres HTTP et une sonde personnalisée en activant les commutateurs de choix de nom d’hôte
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-- Passerelle d’application : Si vous n’avez pas une passerelle d’application existante, consultez Comment [créer une passerelle d’application](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)
-- Service d’application : Si vous n’avez pas un service d’application existant, consultez [documentation du service d’application](https://docs.microsoft.com/azure/app-service/).
+- Passerelle d’application : Si vous n’avez pas de passerelle d’application, consultez les informations permettant de [créer une passerelle d’application](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)
+- Service d’application : Si vous n’avez pas encore de service d’application, consultez la [documentation relative à App Service](https://docs.microsoft.com/azure/app-service/).
 
-## <a name="add-app-service-as-backend-pool"></a>Ajouter un service d’application en tant que pool principal
+## <a name="add-app-service-as-backend-pool"></a>Ajouter un service d’application comme pool de back-ends
 
-1. Dans le portail Azure, ouvrez la vue de la configuration de passerelle d’application pour vous.
+1. Dans le portail Azure, ouvrez la vue de configuration de votre passerelle d’application.
 
-2. Sous **pools principaux**, cliquez sur **ajouter** pour créer un nouveau pool principal.
+2. Sous **Pools principaux**, cliquez sur **Ajouter** pour créer un pool de back-ends.
 
-3. Indiquez un nom approprié au pool principal. 
+3. Indiquez un nom approprié pour le pool de back-ends. 
 
-4. Sous **cibles**, cliquez sur la liste déroulante et choisissez **App Services** comme option.
+4. Sous **Cibles**, cliquez sur la liste déroulante, puis choisissez l’option **App Services**.
 
-5. Une liste déroulante ci-dessous immédiatement la **cibles** liste déroulante s’affiche, qui contient une liste de vos Services d’application. Dans cette liste déroulante, choisissez le Service d’application que vous souhaitez ajouter en tant que membre du pool principal et cliquez sur Ajouter.
+5. Un menu déroulant situé immédiatement sous le menu déroulant **Cibles** s’affiche avec une liste de vos services d’application. Dans cette liste déroulante, choisissez le service d’application à ajouter comme membre du pool de back-ends, puis cliquez sur Ajouter.
 
-   ![Principal de service d’application](./media/configure-web-app-portal/backendpool.png)
+   ![Service d’application comme back-end](./media/configure-web-app-portal/backendpool.png)
 
-## <a name="create-http-settings-for-app-service"></a>Créer des paramètres HTTP pour App service
+## <a name="create-http-settings-for-app-service"></a>Créer les paramètres HTTP du service d’application
 
-1. Sous **paramètres HTTP**, cliquez sur **ajouter** pour créer un nouveau paramètre HTTP.
+1. Sous **Paramètres HTTP**, cliquez sur **Ajouter** pour créer un paramètre HTTP.
 
-2. Entrez un nom pour le paramètre HTTP et que vous pouvez activer ou désactiver l’affinité des cookies en fonction selon vos besoins.
+2. Entrez un nom pour le paramètre HTTP, puis activez ou désactivez l’affinité basée sur les cookies selon vos besoins.
 
-3. Choisissez le protocole HTTP ou HTTPS, conformément à votre cas d’utilisation. 
+3. Choisissez le protocole HTTP ou HTTPS selon le cas d’usage. 
 
-4. Cochez la case **utilisation pour App Service** et Active le **créer une sonde avec le nom d’hôte de choix à partir de l’adresse du serveur principal** et **nom d’hôte de choix à partir de l’adresse du serveur principal** options. Cette option sera également créer une sonde automatiquement avec le commutateur est activé et l’associer à ce paramètre HTTP.
+4. Cochez la case **Utiliser pour App Service** pour activer les options **Créer une sonde avec un nom d’hôte choisi à partir d’une adresse backend** et **Choisir un nom d’hôte à partir d’une adresse backend**. Cette option permet également de créer automatiquement une sonde avec le commutateur activé, et de l’associer à ce paramètre HTTP.
 
 5. Cliquez sur **OK** pour créer le paramètre HTTP.
 
-   ![HTTP-setting1](./media/configure-web-app-portal/http-setting1.png)
+   ![Paramètre-HTTP1](./media/configure-web-app-portal/http-setting1.png)
 
-   ![HTTP-setting2](./media/configure-web-app-portal/http-setting2.png)
+   ![Paramètre-HTTP2](./media/configure-web-app-portal/http-setting2.png)
 
-## <a name="create-rule-to-tie-the-listener-backend-pool-and-http-setting"></a>Créer la règle pour lier l’écouteur, le Pool principal et le paramètre HTTP
+## <a name="create-rule-to-tie-the-listener-backend-pool-and-http-setting"></a>Créer une règle pour lier l’écouteur, le pool de back-ends et le paramètre HTTP
 
-1. Sous **règles**, cliquez sur **base** pour créer une nouvelle règle de base.
+1. Sous **Règles**, cliquez sur **De base** pour créer une règle De base.
 
-2. Indiquez un nom approprié et sélectionnez le port d’écoute qui acceptera les demandes entrantes pour le service d’application.
+2. Indiquez un nom approprié, puis sélectionnez l’écouteur qui doit accepter les requêtes entrantes pour le service d’application.
 
-3. Dans le **pool principal** liste déroulante, choisissez le serveur principal du pool que vous avez créé ci-dessus.
+3. Dans la liste déroulante **Pool de back-ends**, choisissez le pool que vous avez créé.
 
-4. Dans le **paramètre HTTP** liste déroulante, choisissez la configuration que vous avez créé ci-dessus de HTTP.
+4. Dans la liste déroulante **Paramètre HTTP**, choisissez le paramètre HTTP que vous avez créé.
 
 5. Cliquez sur **OK** pour enregistrer cette règle.
 
@@ -82,6 +82,6 @@ Une façon de restreindre l’accès à vos applications web consiste à utilise
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur le service d’application et d’autres prises en charge de l’architecture mutualisée avec application gateway, consultez [prise en charge de service mutualisé avec application gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-app-overview).
+Pour en savoir plus sur App Service et sur la prise en charge multilocataire avec Application Gateway, consultez [Prise en charge de service multilocataire avec Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-app-overview).
 
-Dans le cas où la réponse à partir de votre service d’application redirige vers l’URL du service de l’application, consultez Comment [résoudre les problèmes de la redirection vers le problème d’URL du service de l’application](https://docs.microsoft.com/azure/application-gateway/troubleshoot-app-service-redirection-app-service-url).
+Si la réponse de votre service d’application est redirigée vers l’URL du service d’application, consultez les informations relatives à la [résolution des problèmes de redirection vers l’URL du service d’application](https://docs.microsoft.com/azure/application-gateway/troubleshoot-app-service-redirection-app-service-url).

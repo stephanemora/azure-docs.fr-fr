@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 10/23/2018
 ms.author: srrengar
 ms.openlocfilehash: 402e3dfe018c94ef068caf918b38aaad00064a49
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62118372"
 ---
 # <a name="service-fabric-linux-cluster-events-in-syslog"></a>événements de cluster Linux Service Fabric dans Syslog
@@ -27,7 +27,7 @@ Service Fabric expose un ensemble d’événements de plateforme pour vous infor
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="introduction"></a>Présentation
+## <a name="introduction"></a>Introduction
 
 Dans la version 6.4, SyslogConsumer a été introduit pour envoyer les événements de la plateforme Service Fabric au Syslog pour les clusters Linux. Une fois activés, les événements sont automatiquement dirigés vers Syslog, qui peut être collecté et envoyé par l’agent Log Analytics.
 
@@ -95,8 +95,8 @@ Voici les modifications apportées
     }
 ```
 
-## <a name="azure-monitor-logs-integration"></a>Intégration des journaux de Azure Monitor
-Vous pouvez lire ces événements Syslog dans un outil de surveillance tels que les journaux d’Azure Monitor. Vous pouvez créer un espace de travail Log Analytics à l’aide de la place de marché Azure en utilisant ces [instructions].(../azure-monitor/learn/quick-create-workspace.md). Vous devez également ajouter l’agent Log Analytics à votre cluster pour collecter et envoyer ces données à l’espace de travail. Il s’agit du même agent utilisé pour collecter les compteurs de performances. 
+## <a name="azure-monitor-logs-integration"></a>Intégration de Journaux Azure Monitor
+Vous pouvez lire ces événements Syslog dans un outil de supervision, tel que Journaux Azure Monitor. Vous pouvez créer un espace de travail Log Analytics à l’aide de la place de marché Azure en utilisant ces [instructions].(../azure-monitor/learn/quick-create-workspace.md). Vous devez également ajouter l’agent Log Analytics à votre cluster pour collecter et envoyer ces données à l’espace de travail. Il s’agit du même agent utilisé pour collecter les compteurs de performances. 
 
 1. Accédez au panneau `Advanced Settings`
 
@@ -121,7 +121,7 @@ Vous pouvez lire ces événements Syslog dans un outil de surveillance tels que 
 L’exemple ci-dessus vient d’un événement NodeDown. Vous pouvez consulter la liste complète des événements [ici](service-fabric-diagnostics-event-generation-operational.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Déployez l’agent Log Analytics](service-fabric-diagnostics-oms-agent.md) sur vos nœuds pour collecter les compteurs de performances, ainsi que les statistiques et les journaux Docker de vos conteneurs
-* Familiarisez-vous avec les [journal des requêtes et recherches](../log-analytics/log-analytics-log-searches.md) fonctionnalités offertes dans le cadre des journaux d’Azure Monitor
-* [Utiliser le Concepteur de vue pour créer des vues personnalisées dans les journaux Azure Monitor](../log-analytics/log-analytics-view-designer.md)
-* Référence pour savoir comment [Azure Monitor enregistre l’intégration avec Syslog](../log-analytics/log-analytics-data-sources-syslog.md).
+* [Déployez l’agent Log Analytics](service-fabric-diagnostics-oms-agent.md) sur vos nœuds pour collecter les compteurs de performances, ainsi que les statistiques et les journaux d’activité Docker de vos conteneurs
+* Familiarisez-vous avec les fonctionnalités de [requête et de recherche dans les journaux](../log-analytics/log-analytics-log-searches.md) proposées par Journaux Azure Monitor
+* [Utilisez le Concepteur de vues pour créer des vues personnalisées dans Journaux Azure Monitor](../log-analytics/log-analytics-view-designer.md)
+* Informations de référence pour en savoir plus sur [l’intégration de Journaux Azure Monitor à Syslog](../log-analytics/log-analytics-data-sources-syslog.md).

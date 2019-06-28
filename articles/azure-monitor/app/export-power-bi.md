@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
 ms.openlocfilehash: a57393918992019844e2ff4ccc13d671f0b90ed5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60900231"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Alimentation de Power BI à partir d’Application Insights
@@ -42,7 +42,7 @@ Installez [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 ### <a name="export-an-analytics-query"></a>Exporter une requête Analytics
 1. [Ouvrez Analytics et écrivez votre requête](../../azure-monitor/log-query/get-started-portal.md).
 2. Testez et affinez la requête jusqu'à ce que vous soyez satisfait des résultats. Vérifiez que la requête s’exécute correctement dans Analytics avant de l’exporter.
-3. Dans le menu **Exporter**, choisissez **Power BI (M)**. Enregistrez le fichier texte.
+3. Dans le menu **Exporter**, choisissez **Power BI (M)** . Enregistrez le fichier texte.
    
     ![Capture d’écran d’Analytics, avec le menu Exporter mis en surbrillance](./media/export-power-bi/analytics-export-power-bi.png)
 4. Dans Power BI Desktop, sélectionnez **Obtenir des données** > **Requête vide**. Ensuite, dans l’éditeur de requête, sous **Afficher**, sélectionnez **Éditeur avancé**.
@@ -105,8 +105,8 @@ Si la réduction du jeu de données provenant de la requête Analytics ne vous c
 
 1. Créez une [clé API](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
 2. Mettez à jour le script Power BI M que vous avez exporté d’Analytics en remplaçant l’URL Azure Resource Manager par l’API Application Insights.
-   * Remplacez **https :\//management.azure.com/subscriptions/...**
-   * avec, **https :\//api.applicationinsights.io/beta/apps/...**
+   * Remplacez **https:\//management.azure.com/subscriptions/...**
+   * par **https:\//api.applicationinsights.io/beta/apps/...**
 3. Enfin, mettez à jour les informations d’identification de base et utilisez votre clé API.
 
 **Script existant**

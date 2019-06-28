@@ -1,5 +1,5 @@
 ---
-title: 'Microsoft Genomics : Comment signaler une demande de support | Microsoft Docs'
+title: 'Microsoft Genomics : Guide pratique pour soumettre une demande de support | Microsoft Docs'
 titleSuffix: Azure
 description: Cette vue d’ensemble décrit comment soumettre une demande de support pour contacter Microsoft Genomics. Cela peut être utile si vous ne parvenez pas à résoudre votre problème à l’aide du guide de résolution des problèmes ou de la FAQ.
 keywords: dépannage, erreur, débogage, support
@@ -11,10 +11,10 @@ ms.service: genomics
 ms.topic: article
 ms.date: 05/23/2018
 ms.openlocfilehash: ed37d42d8ec1692cc5edb62b68536803f47205f5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60721245"
 ---
 # <a name="how-to-contact-microsoft-genomics-for-support"></a>Comment contacter Microsoft Genomics pour une demande de support

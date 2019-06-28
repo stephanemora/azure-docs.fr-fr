@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 03/23/2018
 ms.author: aljo
 ms.openlocfilehash: 4cc2d6355a0147c33048f1c2c27a3648b9223db4
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62110921"
 ---
 # <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>Connexion distante à une instance de groupe de machines virtuelles identiques ou à un nœud de cluster
@@ -28,7 +28,7 @@ Pour rechercher une adresse IP et un port permettant de se connecter à distance
 
 1. Obtenez les règles NAT de trafic entrant pour le protocole RDP (Remote Desktop Protocol).
 
-    En général, chaque type de nœud défini dans votre cluster a sa propre adresse IP virtuelle et un équilibreur de charge dédié. Par défaut, l’équilibrage de charge pour un type de nœud est nommé avec le format suivant : *LB-{nom de cluster}-{type de nœud}*; par exemple, *mycluster-LB-FrontEnd*. 
+    En général, chaque type de nœud défini dans votre cluster a sa propre adresse IP virtuelle et un équilibreur de charge dédié. Par défaut, l’équilibreur de charge pour un type de nœud est nommé avec le format suivant : *LB-{nom de cluster}-{type de nœud}* ; par exemple, *LB-mycluster-FrontEnd*. 
     
     Dans la page de votre équilibreur de charge dans le portail Azure, sélectionnez **Paramètres** > **Règles NAT de trafic entrant** : 
 

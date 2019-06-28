@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
 ms.openlocfilehash: fcea5e4e6bb108f1a8d8036e51a5dae8a9e6431b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60711014"
 ---
 # <a name="azure-vm-guest-os-firewall-is-misconfigured"></a>Le pare-feu du système d'exploitation invité de la machine virtuelle Azure est mal configuré
@@ -98,7 +98,7 @@ Dans l’instance d’accès à la console série, vous pouvez interroger l’é
 
 ### <a name="offline-mitigations"></a>Atténuations hors connexion
 
-1.  Pour activer ou désactiver des règles de pare-feu, reportez-vous à [activer ou désactiver une règle de pare-feu sur un système d’exploitation invité de Azure VM](enable-disable-firewall-rule-guest-os.md).
+1.  Pour activer ou désactiver des règles de pare-feu, consultez [Activer ou désactiver une règle de pare-feu sur le système d’exploitation invité d’une machine virtuelle Azure](enable-disable-firewall-rule-guest-os.md).
 
 2.  Vérifiez si vous êtes dans le [scénario de blocage du trafic entrant par le pare-feu du système d’exploitation invité](guest-os-firewall-blocking-inbound-traffic.md).
 

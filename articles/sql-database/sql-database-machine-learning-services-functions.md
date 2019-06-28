@@ -1,7 +1,7 @@
 ---
 title: Écrire des fonctions R avancées
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
-description: Découvrez comment écrire une fonction R pour le calcul de statistiques avancée dans la base de données SQL Azure à l’aide des Services Machine Learning (version préliminaire).
+description: Découvrez comment écrire une fonction R pour un calcul statistique avancé dans Azure SQL Database à l’aide de Machine Learning Services (préversion).
 services: sql-database
 ms.service: sql-database
 ms.subservice: machine-learning
@@ -14,19 +14,19 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
 ms.openlocfilehash: 939798d5d9eb2843d7bbbbe74680342e4ce6ce95
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60702450"
 ---
-# <a name="write-advanced-r-functions-in-azure-sql-database-using-machine-learning-services-preview"></a>Écrire des fonctions avancées de R dans la base de données SQL Azure à l’aide des Services Machine Learning (version préliminaire)
+# <a name="write-advanced-r-functions-in-azure-sql-database-using-machine-learning-services-preview"></a>Écrire des fonctions R avancées dans Azure SQL Database avec Machine Learning Services (préversion)
 
-Cet article décrit comment incorporer R mathématique et fonctions utilitaires dans une instance SQL de procédure stockée. Fonctions statistiques avancées qui sont difficiles à implémenter dans T-SQL peuvent être effectuées dans R avec uniquement une seule ligne de code.
+Cet article décrit comment incorporer des fonctions mathématiques et utilitaires R dans une procédure stockée SQL. Les fonctions statistiques avancées difficiles à implémenter en T-SQL peuvent être créées en R avec une seule ligne de code.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 - Si vous n’avez pas d’abonnement Azure, [créez un compte](https://azure.microsoft.com/free/) avant de commencer.
 
@@ -36,15 +36,15 @@ Cet article décrit comment incorporer R mathématique et fonctions utilitaires 
 
 ## <a name="create-a-stored-procedure-to-generate-random-numbers"></a>Créer une procédure stockée pour générer des nombres aléatoires
 
-Par souci de simplicité, nous allons utiliser le R `stats` package qui a installé et chargé par défaut avec la base de données SQL Azure à l’aide des Services Machine Learning (version préliminaire). Le package contient des centaines de fonctions pour des tâches statistiques courantes, nous citerons entre le `rnorm` (fonction). Cette fonction génère un nombre spécifié de nombres aléatoires à l’aide de la distribution normale, étant donné un écart type et moyen.
+Par souci de simplicité, nous allons utiliser le package `stats` R installé et chargé par défaut avec Azure SQL Database à l’aide de Machine Learning Services (préversion). Le package contient des centaines de fonctions pour des tâches statistiques courantes, notamment la fonction `rnorm`. Cette fonction génère un nombre spécifié de nombres aléatoires à l’aide de la distribution normale, étant donné un écart type et des moyennes.
 
-Par exemple, le code R suivant retourne 100 nombres sur une moyenne de 50, compte tenu d’un écart type égal à 3.
+Par exemple, le code R suivant retourne 100 nombres sur une moyenne de 50, compte tenu d’un écart type de 3.
 
 ```R
 as.data.frame(rnorm(100, mean = 50, sd = 3));
 ```
 
-Pour appeler cette ligne de R à partir de T-SQL, exécutez `sp_execute_external_script` et ajoutez la fonction R dans le paramètre de script R, comme ceci :
+Pour appeler cette ligne de code R à partir de T-SQL, exécutez `sp_execute_external_script` et ajoutez la fonction R dans le paramètre de script R, comme ceci :
 
 ```sql
 EXECUTE sp_execute_external_script @language = N'R'
@@ -55,9 +55,9 @@ OutputDataSet <- as.data.frame(rnorm(100, mean = 50, sd =3));
 WITH RESULT SETS(([Density] FLOAT NOT NULL));
 ```
 
-Que se passe-t-il si vous souhaitez rendre plus simple de générer un ensemble de nombres aléatoires différent ?
+Que se passe-t-il si vous voulez simplifier la génération d’un autre ensemble de nombres alétaoires ?
 
-C’est facile lorsqu’elles sont combinées avec SQL. Vous définissez une procédure stockée qui obtienne les arguments de l’utilisateur, puis passer ces arguments dans le script R en tant que variables.
+Rien de plus facile avec une combinaison avec SQL. Vous définissez une procédure stockée qui obtient les arguments par le biais de l’utilisateur, puis vous passez ces arguments dans le script R en tant que variables.
 
 ```sql
 CREATE PROCEDURE MyRNorm (
@@ -78,13 +78,13 @@ OutputDataSet <- as.data.frame(rnorm(mynumbers, mymean, mysd));
 WITH RESULT SETS(([Density] FLOAT NOT NULL));
 ```
 
-- La première ligne définit chacun des paramètres d’entrée SQL qui sont requis lorsque la procédure stockée est exécutée.
+- La première ligne définit chacun des paramètres d’entrée SQL exigés quand la procédure stockée est exécutée.
 
 - La ligne commençant par `@params` définit toutes les variables utilisées par le code R et les types de données SQL correspondants.
 
 - Les lignes qui suivent immédiatement mappent les noms de paramètres SQL aux noms de variables R correspondants.
 
-Maintenant que vous avez inclus la fonction R dans une procédure stockée, vous pouvez facilement appeler la fonction et passer des valeurs différentes, comme suit :
+Maintenant que vous avez wrappé la fonction R dans une procédure stockée, vous pouvez facilement l’appeler et passer des valeurs différentes, comme ceci :
 
 ```sql
 EXECUTE MyRNorm @param1 = 100
@@ -92,11 +92,11 @@ EXECUTE MyRNorm @param1 = 100
     , @param3 = 3
 ```
 
-## <a name="use-r-utility-functions-for-troubleshooting"></a>Utiliser des fonctions utilitaires R pour le dépannage
+## <a name="use-r-utility-functions-for-troubleshooting"></a>Utiliser des fonctions utilitaires R à des fins de résolution des problèmes
 
-Le `utils` package, installé par défaut, fournit une variété de fonctions utilitaires pour examiner l’environnement R actuel. Ces fonctions peuvent être utiles si vous constatez des différences dans la manière dont votre code R effectue dans SQL et dans les environnements extérieurs. Par exemple, vous pouvez utiliser le R `memory.limit()` fonction pour obtenir la mémoire de l’environnement R actuel.
+Le package `utils`, installé par défaut, fournit une variété de fonctions utilitaires pour examiner l’environnement R actuel. Ces fonctions peuvent s’avérer utiles si vous constatez des différences dans la manière dont votre code R se comporte dans SQL et dans des environnements extérieurs. Par exemple, vous pouvez utiliser la fonction `memory.limit()` R pour obtenir la mémoire de l’environnement R actuel.
 
-Étant donné que le `utils` package est installé mais pas chargé par défaut, vous devez utiliser le `library()` fonction permettant de charger en premier lieu.
+Étant donné que le package `utils` est installé mais pas chargé par défaut, vous devez utiliser la fonction `library()` pour le charger dans un premier temps.
 
 ```sql
 EXECUTE sp_execute_external_script @language = N'R'
@@ -110,4 +110,4 @@ WITH RESULT SETS(([Col1] INT NOT NULL));
 ```
 
 > [!TIP]
-> Beaucoup d’utilisateurs souhaitent utiliser les fonctions de minutage système dans R, tel que `system.time` et `proc.time`, pour capturer l’heure utilisée par les processus R et analyser les problèmes de performances.
+> De nombreux utilisateurs aiment utiliser les fonctions de minutage système dans R, comme `system.time` et `proc.time`, pour capturer l’heure utilisée par les processus R et analyser les problèmes de performances.

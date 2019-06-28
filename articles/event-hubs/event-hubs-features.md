@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: e7f292db06d4da9206aabd14a68e6acde867f92d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60822034"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Fonctionnalités et terminologie dans Azure Event Hubs
@@ -33,7 +33,7 @@ Un espace de noms Event Hubs fournit un conteneur d’étendue unique, référen
 
 [Cette fonctionnalité](event-hubs-for-kafka-ecosystem-overview.md) fournit un point de terminaison qui permet aux clients de communiquer avec Event Hubs à l'aide du protocole Kafka. Cette intégration fournit aux clients un point de terminaison Kafka. Cela permet aux clients de configurer leurs applications Kafka existantes pour communiquer avec Event Hubs, offrant ainsi une alternative à l'exécution de leurs propres clusters Kafka. Event Hubs pour Apache Kafka prend en charge le protocole Kafka 1.0 et versions ultérieures. 
 
-Avec cette intégration, vous n’avez pas besoin exécuter des clusters Kafka ou les gérer avec Zookeeper. Cela vous permet également d'utiliser certaines des fonctionnalités les plus exigeantes d'Event Hubs, comme la Capture, l'Augmentation automatique et la Géo-reprise d'activité après sinistre.
+Avec cette intégration, vous n’avez pas besoin d’exécuter des clusters Kafka ni de les gérer avec Zookeeper. Cela vous permet également d'utiliser certaines des fonctionnalités les plus exigeantes d'Event Hubs, comme la Capture, l'Augmentation automatique et la Géo-reprise d'activité après sinistre.
 
 Cette intégration permet aussi à des applications comme Mirror Maker ou à une infrastructure comme Kafka Connect de fonctionner sans cluster en utilisant uniquement des modifications de configuration. 
 
@@ -79,7 +79,7 @@ Event Hubs conserve les données pendant une durée de rétention configurée, q
 
 Le nombre de partitions est spécifié lors de la création du concentrateur d’événements. Il doit être compris entre 2 et 32. Le nombre de partitions n’est pas modifiable. Lorsque vous le définissez, tenez compte de la mise à l’échelle sur le long terme. Les partitions constituent un mécanisme d’organisation des données. Elles sont liées au degré de parallélisme en aval requis lors de la consommation des applications. Le choix du nombre de partitions dans un concentrateur d’événements est directement lié au nombre de lecteurs simultanés que vous prévoyez d’avoir. Si vous souhaitez augmenter le nombre de partitions au-delà de 32, contactez l’équipe Azure Event Hubs.
 
-Les partitions sont identifiables et peuvent recevoir des données directement, mais envoyer directement à une partition n’est pas recommandé. Au lieu de cela, vous pouvez utiliser des constructions de niveau supérieur présentées dans le [Éditeur d’événements](#event-publishers) et sections de capacité. 
+Les partitions sont identifiables et peuvent recevoir des données directement, mais envoyer directement à une partition n’est pas recommandé. Au lieu de cela, vous pouvez utiliser des constructions de niveau supérieur présentées dans les sections [Éditeurs d’événements](#event-publishers) et Capacité. 
 
 Une séquence de données d’événement est incluse dans les partitions. Elle comprend le corps de chaque événement, un conteneur de propriétés défini par l’utilisateur et diverses métadonnées, telles que son décalage dans la partition et son numéro dans la séquence de flux.
 
@@ -154,13 +154,13 @@ Il vous incombe de gérer le décalage.
 
 ## <a name="scaling-with-event-hubs"></a>Mise à l’échelle avec Event Hubs
 
-Il existe deux facteurs qui influencent la mise à l’échelle avec Event Hubs.
+Deux facteurs influencent la mise à l’échelle avec Event Hubs.
 *   Unités de débit
 *   Partitions
 
 ### <a name="throughput-units"></a>Unités de débit
 
-La capacité de débit des concentrateurs d’événements est contrôlée par les *unités de débit*. Les unités de débit sont des unités de capacité achetées préalablement. Un débit unique vous permet de :
+La capacité de débit des concentrateurs d’événements est contrôlée par les *unités de débit*. Les unités de débit sont des unités de capacité achetées préalablement. Un débit unique vous permet de disposer des capacités suivantes :
 
 * Entrée : jusqu’à 1 Mo par seconde ou 1 000 événements par seconde, selon ce qui se produit en premier.
 * Sortie : jusqu’à 2 Mo par seconde ou 4 096 événements par seconde.
@@ -171,11 +171,11 @@ Les unités de débit sont achetées à l’avance et facturées à l’heure. U
 
 ### <a name="partitions"></a>Partitions
 
-Les partitions vous permettent une mise à l’échelle de votre traitement en aval. En raison du modèle de consommateur partitionné offrant des concentrateurs d’événements avec partitions, vous pouvez effectuer une mise à l'échelle du traitement de vos événements au même moment. Un concentrateur d’événements peut contenir jusqu'à 32 partitions.
+Les partitions vous permettent de mettre à l’échelle en fonction du traitement en aval. En raison du modèle de consommateur partitionné offert par Event Hubs avec les partitions, vous pouvez effectuer un scale-out pendant le traitement simultané de vos événements. Un hub d’événements peut avoir jusqu’à 32 partitions.
 
-Nous vous recommandons d’équilibrer les partitions et les unités de débit de 1:1 pour obtenir un dimensionnement optimal. Une partition unique a une garantie entrant et sortant de jusqu'à 1 unité de débit. Même si vous êtes en mesure d’atteindre un débit plus élevé sur une partition, la performance n’est pas garanti. C’est pourquoi nous vous recommandons fortement de que le nombre de partitions dans un concentrateur d’événements soit supérieur ou égal au nombre d’unités de débit.
+Nous vous recommandons d’équilibrer 1:1 les partitions et les unités de débit pour obtenir un dimensionnement optimal. Une partition unique offre une garantie d’entrée et de sortie pouvant aller jusqu’à 1 unité de débit. Bien que vous puissiez atteindre un débit plus élevé sur une partition, les performances ne sont pas garanties. C’est pourquoi nous vous recommandons vivement de faire en sorte que le nombre de partitions dans un hub d’événements soit supérieur ou égal au nombre d’unités de débit.
 
-Étant donné le débit total que vous prévoyez d’avoir besoin, vous connaissez le nombre d’unités de débit que vous avez besoin et le nombre minimal de partitions, mais le nombre de partitions devez vous avoir ? Choisissez le nombre de partitions basées sur le parallélisme en aval que vous voulez effectuer, ainsi que vos besoins en débit futures. Il n’existe aucun frais pour le nombre de partitions que vous avez au sein d’un concentrateur d’événements.
+Étant donné le débit total dont vous prévoyez d’avoir besoin, vous connaissez le nombre d’unités de débit nécessaires et le nombre minimal de partitions, mais combien de partitions devez-vous avoir ? Choisissez le nombre de partitions en fonction du parallélisme en aval que vous souhaitez atteindre, ainsi que de vos besoins futurs en matière de débit. Il n’y a aucun frais lié au nombre de partitions que vous avez au sein d’un hub d’événements.
 
 Pour obtenir des informations de tarification détaillées des concentrateurs d’événements, consultez [Tarification des concentrateurs d’événements](https://azure.microsoft.com/pricing/details/event-hubs/).
 

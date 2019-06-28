@@ -2,17 +2,16 @@
 title: 'Concepts : stockage dans AKS (Azure Kubernetes Service)'
 description: Découvrez le stockage dans AKS (Azure Kubernetes Service), notamment les volumes, les volumes persistants, les classes de stockage et les revendications
 services: container-service
-author: rockboyfor
+author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-origin.date: 03/01/2019
-ms.date: 04/08/2019
-ms.author: v-yeche
+ms.date: 03/01/2019
+ms.author: iainfou
 ms.openlocfilehash: cce38eb12d803c0640d9ee774dbc6c98ab5db219
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60466827"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>Options de stockage pour les applications dans AKS (Azure Kubernetes Service)
@@ -122,7 +121,7 @@ spec:
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour les recommandations associées, consultez [meilleures pratiques pour le stockage et les sauvegardes dans ACS][operator-best-practices-storage].
+Pour connaître les bonnes pratiques associées, consultez [Bonnes pratiques relatives au stockage et aux sauvegardes dans AKS][operator-best-practices-storage].
 
 Pour voir comment créer des volumes dynamiques et statiques qui utilisent des disques Azure ou Azure Files, consultez les articles de procédures suivants :
 

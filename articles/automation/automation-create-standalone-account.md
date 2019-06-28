@@ -10,15 +10,15 @@ ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: cdffc339bee1f5456e4eeb619e566b1f9c34b143
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61076764"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Création d’un compte Azure Automation autonome
 
-Cet article vous montre comment créer un compte Azure Automation dans le portail Azure. Vous pouvez utiliser le compte Automation du portail pour évaluer et d’en savoir plus sur Automation sans recourir à des solutions de gestions supplémentaires ou de l’intégration avec les journaux Azure Monitor. Vous pouvez ajouter ces solutions de gestion ou intégrer des journaux Azure Monitor pour l’analyse avancée des travaux de runbook à tout moment à l’avenir.
+Cet article vous montre comment créer un compte Azure Automation dans le portail Azure. Vous pouvez utiliser le compte Automation du portail pour évaluer Automation et vous familiariser avec la solution sans recourir à des solutions de gestion supplémentaires ou à une intégration aux journaux Azure Monitor. Ajoutez ces solutions de gestion ou intégrez-les aux journaux Azure Monitor pour prendre en charge une supervision avancée des tâches de runbook ultérieurement.
 
 Avec un compte Automation, vous pouvez authentifier des runbooks en gérant des ressources dans Azure Resource Manager ou dans le modèle de déploiement classique. Un compte Automation peut gérer les ressources sur toutes les régions et abonnements pour un locataire donné.
 

@@ -15,14 +15,14 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
 ms.openlocfilehash: ed57d72d32ba82a37036c9af77590bd4e93db8d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60610510"
 ---
 # <a name="introduction-to-azure-security"></a>Présentation d’Azure Security
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 Nous savons que la sécurité est la priorité dans le cloud et combien il est important que vous trouviez des informations précises et à jour sur la sécurité Azure. L’une des meilleures raisons d’utiliser Azure pour vos applications et services est de tirer parti de sa large gamme de fonctionnalités et outils de sécurité. Ces outils et fonctionnalités permettent de créer des solutions sécurisées sur la plateforme Azure sécurisée. Microsoft Azure assure la confidentialité, l’intégrité et la disponibilité des données client, tout en permettant la gestion transparente des responsabilités.
 
 Le présent livre blanc « Présentation d’Azure Security » propose une vue complète des fonctions de sécurité de Microsoft Azure pour vous aider à mieux comprendre la collection des contrôles de sécurité implémentés dans Microsoft Azure, en prenant en compte les perspectives opérationnelles de Microsoft et celles du client.
@@ -75,7 +75,7 @@ Les fonctionnalités intégrées sont organisées en six (6) zones fonctionnelle
 Cette section contient des informations supplémentaires sur les fonctionnalités clés des opérations de sécurité et des informations de synthèse sur ces fonctionnalités.
 
 ### <a name="security-and-audit-dashboard"></a>Tableau de bord Security and Audit
-La [solution Security and Audit](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) offre une vue détaillée de la sécurité informatique de votre organisation. Elle fournit des [requêtes de recherche](https://blogs.technet.microsoft.com/msoms/2016/01/21/easy-microsoft-operations-management-suite-search-queries/) intégrées pour détecter les problèmes importants qui requièrent votre attention. Le [Security and Audit](https://technet.microsoft.com/library/mt484091.aspx) tableau de bord est l’écran d’accueil pour tous les éléments relatifs à la sécurité dans les journaux Azure Monitor. Il fournit un aperçu global de l’état de sécurité de vos ordinateurs. Il vous permet également de voir tous les événements des dernières 24 heures, des 7 derniers jours ou de n’importe quel intervalle de temps personnalisé.
+La [solution Security and Audit](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) offre une vue détaillée de la sécurité informatique de votre organisation. Elle fournit des [requêtes de recherche](https://blogs.technet.microsoft.com/msoms/2016/01/21/easy-microsoft-operations-management-suite-search-queries/) intégrées pour détecter les problèmes importants qui requièrent votre attention. Le tableau de bord [Security and Audit](https://technet.microsoft.com/library/mt484091.aspx) est l’écran d’accueil pour tout ce qui se rapporte à la sécurité dans Journaux Azure Monitor. Il fournit un aperçu global de l’état de sécurité de vos ordinateurs. Il vous permet également de voir tous les événements des dernières 24 heures, des 7 derniers jours ou de n’importe quel intervalle de temps personnalisé.
 
 En outre, vous pouvez configurer Security & Compliance pour [effectuer automatiquement des actions spécifiques](https://blogs.technet.microsoft.com/robdavies/2016/04/20/simple-look-at-oms-alert-remediation-with-runbooks-part-1/) lorsqu’un événement particulier est détecté.
 
@@ -95,9 +95,9 @@ En cas d’incidents, d’échecs ou de problèmes de performances, vous pouvez 
 [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) offre des services de visualisation, requête, routage, alertes, mise à l’échelle automatique et automatisation pour les données de l’infrastructure Azure ([journal d’activité](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)) et pour chaque ressource Azure ([journaux de diagnostic](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)). Vous pouvez utiliser Azure Monitor pour vous alerter sur les événements liés à la sécurité qui sont générés dans les journaux d’activité Azure.
 
 ### <a name="azure-monitor-logs"></a>Journaux d’activité Azure Monitor
-[Journaux d’analyse Azure](https://azure.microsoft.com/documentation/services/log-analytics/) – fournit une solution de gestion informatique sur site et de cloud infrastructure tierce (comme AWS) en plus de ressources Azure. Données d’Azure Monitor peuvent être acheminées directement dans les journaux Azure Monitor afin de voir les métriques et journaux pour l’ensemble de votre environnement au même endroit.
+[Journaux Azure Monitor](https://azure.microsoft.com/documentation/services/log-analytics/) fournit une solution de gestion informatique aussi bien pour les infrastructures en local que pour les solutions tierces basées sur le cloud (comme AWS) en plus des ressources Azure. Les données issues d’Azure Monitor peuvent être acheminées directement dans Journaux Azure Monitor, afin que vous puissiez voir les métriques et les journaux pour l’ensemble de votre environnement en un seul endroit.
 
-Journaux d’Azure Monitor peuvent être un outil utile dans l’analyse de la sécurité d’investigation informatique et autres, comme l’outil vous permet de rechercher rapidement de grandes quantités d’entrées liées à la sécurité avec une approche de type requête flexible. En outre, en local [journaux pare-feu et proxy peuvent être exportés dans Azure et mis à disposition pour l’analyse à l’aide des journaux Azure Monitor.](https://docs.microsoft.com/azure/log-analytics/log-analytics-proxy-firewall)
+La solution Journaux Azure Monitor peut se révéler un outil utile dans l’analyse d’investigation et dans les autres analyses de la sécurité, car il vous permet d’effectuer rapidement des recherches dans de grandes quantités d’entrées liées à la sécurité, avec une approche de type requête flexible. Par ailleurs, des [journaux de pare-feu et proxy locaux peuvent être exportés dans Azure, et mis à disposition pour analyse avec Journaux Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-proxy-firewall).
 
 ### <a name="azure-advisor"></a>Azure Advisor
 [Azure Advisor](https://docs.microsoft.com/azure/advisor/) est un conseiller personnalisé basé dans le cloud qui vous aide à optimiser vos déploiements Azure. Il analyse les données de télémétrie d’utilisation et la configuration de vos ressources. Il recommande ensuite des solutions pour améliorer les [performances](https://docs.microsoft.com/azure/advisor/advisor-performance-recommendations), la [sécurité](https://docs.microsoft.com/azure/advisor/advisor-security-recommendations) et la [haute disponibilité](https://docs.microsoft.com/azure/advisor/advisor-high-availability-recommendations) de vos ressources tout en [réduisant vos dépenses Azure globales](https://docs.microsoft.com/azure/advisor/advisor-cost-recommendations). Azure Advisor fournit des recommandations en termes de sécurité, qui peuvent améliorer sensiblement votre sécurité globale pour les solutions que vous déployez dans Azure. Ces recommandations sont tirées de l’analyse de la sécurité effectuée par [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro).
@@ -287,7 +287,7 @@ Vous pouvez gérer la liste des serveurs DNS utilisés dans un réseau virtuel �
 
 ### <a name="azure-dns"></a>Azure DNS
 Le [système DNS (Domain Name System)](https://technet.microsoft.com/library/bb629410.aspx) se charge de traduire (ou résoudre) un nom de site web ou de service en une adresse IP. [DNS Azure](https://docs.microsoft.com/azure/dns/dns-overview) est un service d’hébergement pour les domaines DNS qui offre une résolution de noms à l’aide de l’infrastructure Microsoft Azure. En hébergeant vos domaines dans Azure, vous pouvez gérer vos enregistrements DNS avec les mêmes informations d’identification, les mêmes API, les mêmes outils et la même facturation que vos autres services Azure. DNS prend en charge la notion de disponibilité dans la triade relative à la sécurité : confidentialité, intégrité et disponibilité.
-### <a name="azure-monitor-logs-nsgs"></a>Azure Monitor enregistre les groupes de sécurité réseau
+### <a name="azure-monitor-logs-nsgs"></a>Groupe de sécurité réseau de Journaux Azure Monitor
 Vous pouvez activer les catégories de journaux de diagnostic suivantes pour les groupes de sécurité réseau :
 -   Événement : Contient les entrées pour lesquelles des règles de groupe de sécurité réseau sont appliquées aux machines virtuelles et aux rôles d’instance en fonction de l’adresse MAC. L’état de ces règles est collecté toutes les 60 secondes.
 

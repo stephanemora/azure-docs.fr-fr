@@ -1,6 +1,6 @@
 ---
-title: Journaux d’analyse d’événements Azure Service Fabric avec Azure Monitor | Microsoft Docs
-description: Découvrez comment visualiser et analyser des événements à l’aide des journaux Azure Monitor pour la surveillance et diagnostic de clusters Azure Service Fabric.
+title: Analyse d’événements Azure Service Fabric avec les journaux Azure Monitor | Microsoft Docs
+description: Découvrez l’analyse et la visualisation d’événements à l’aide des journaux Azure Monitor pour la surveillance et le diagnostic de clusters Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: srrengar
@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 02/21/2019
 ms.author: srrengar
 ms.openlocfilehash: ba4923edbc59f0e6650fda1a71e1c4f79b884cf2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60393406"
 ---
-# <a name="event-analysis-and-visualization-with-azure-monitor-logs"></a>Analyse des événements et visualisation avec les journaux d’Azure Monitor
- Les journaux Azure Monitor collectent et analysent les données de télémétrie des applications et services hébergés dans le cloud, et fournissent des outils d’analyse pour vous aider à maximiser leur disponibilité et leurs performances. Cet article décrit comment exécuter des requêtes dans les journaux d’Azure Monitor pour obtenir des informations détaillées et résoudre les problèmes de ce qui se passe dans votre cluster. Les questions courantes suivantes sont traitées :
+# <a name="event-analysis-and-visualization-with-azure-monitor-logs"></a>Analyse et visualisation d’événements avec les journaux Azure Monitor
+ Les journaux Azure Monitor collectent et analysent les données de télémétrie des applications et services hébergés dans le cloud, et fournissent des outils d’analyse pour vous aider à maximiser leur disponibilité et leurs performances. Cet article explique comment exécuter des requêtes dans les journaux Azure Monitor pour obtenir des informations détaillées et résoudre les problèmes qui surviennent dans votre cluster. Les questions courantes suivantes sont traitées :
 
 * Comment résoudre les problèmes d’intégrité ?
 * Comment savoir quand un nœud tombe en panne ?
@@ -30,20 +30,20 @@ ms.locfileid: "60393406"
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="overview-of-the-log-analytics-workspace"></a>Vue d’ensemble de l’espace de travail Analytique de journal
+## <a name="overview-of-the-log-analytics-workspace"></a>Vue d’ensemble de l’espace de travail Log Analytics
 
 >[!NOTE] 
 >Même si le stockage des diagnostics est activé par défaut au moment de la création du cluster, vous devez configurer l’espace de travail Log Analytics de façon à ce qu’il lise les données du stockage des diagnostics.
 
-Azure Monitor enregistre les données de collecte de ressources gérées, notamment une table de stockage Azure ou d’un agent et les conserve dans un référentiel central. Les données peuvent ensuite être utilisées pour l’analyse, l’alerte et la visualisation, ou une nouvelle exportation. Azure Monitor enregistre les événements prend en charge, les données de performances ou toute autre donnée personnalisée. Découvrez [étapes pour configurer l’extension de diagnostics pour regrouper les événements](service-fabric-diagnostics-event-aggregation-wad.md) et [étapes de création d’un espace de travail Analytique de journal qui lit les événements dans le stockage](service-fabric-diagnostics-oms-setup.md) s’assurer que les données sont transférées dans Azure Monitor journaux.
+Les journaux Azure Monitor collectent des données à partir de ressources gérées, notamment un agent ou une table de stockage Azure, et les conservent dans un référentiel central. Les données peuvent ensuite être utilisées pour l’analyse, l’alerte et la visualisation, ou une nouvelle exportation. Les journaux Azure Monitor prennent en charge les événements, les données de performances ou toute autre donnée personnalisée. Consultez [étapes de configuration de l’extension de diagnostics pour regrouper des événements](service-fabric-diagnostics-event-aggregation-wad.md) et [étapes de création d’un espace de travail Log Analytics pour lire les événements dans le stockage](service-fabric-diagnostics-oms-setup.md) pour vous assurer que les données circulent dans les journaux Azure Monitor.
 
-Une fois que les données sont reçues par les journaux d’Azure Monitor, Azure dispose de plusieurs *Solutions de surveillance* qui sont des solutions préconfigurées ou des tableaux de bord opérationnels pour surveiller les données entrantes, personnalisées pour plusieurs scénarios. Ces solutions incluent une solution *Service Fabric Analytics* et une solution *Conteneurs*, qui sont les deux solutions les plus appropriées pour les diagnostics et le suivi lors de l’utilisation des clusters Service Fabric. Cet article décrit comment utiliser la solution Service Fabric Analytics, qui est créée avec l’espace de travail.
+Après réception des données par les journaux Azure Monitor, Azure dispose de plusieurs *Solutions de supervision*, à savoir des solutions prépackagées ou des tableaux de bord opérationnels qui effectuent un monitoring des données entrantes suivant différents scénarios. Ces solutions incluent une solution *Service Fabric Analytics* et une solution *Conteneurs*, qui sont les deux solutions les plus appropriées pour les diagnostics et le suivi lors de l’utilisation des clusters Service Fabric. Cet article décrit comment utiliser la solution Service Fabric Analytics, qui est créée avec l’espace de travail.
 
 ## <a name="access-the-service-fabric-analytics-solution"></a>Accéder à la solution Service Fabric Analytics dans le portail
 
-Dans le [Azure Portal](https://portal.azure.com), accédez au groupe de ressources dans lequel vous avez créé la solution Service Fabric Analytique.
+Dans le [portail Microsoft Azure](https://portal.azure.com), accédez au groupe de ressources dans lequel vous avez créé la solution Service Fabric Analytics.
 
-Sélectionnez la ressource **ServiceFabric\<nameOfOMSWorkspace\>**.
+Sélectionnez la ressource **ServiceFabric\<nameOfOMSWorkspace\>** .
 
 Dans `Summary`, des vignettes de type graphe s’affichent pour chacune des solutions activées, y compris pour Service Fabric. Cliquez sur le graphique **Service Fabric** pour accéder à la solution Service Fabric Analytics.
 
@@ -112,7 +112,7 @@ Le langage de requête Kusto est puissant. Une autre requête précieuse que vou
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour activer la surveillance de l’infrastructure, par exemple, les compteurs de performances, rendez-vous sur [Ajout de l’agent Log Analytics](service-fabric-diagnostics-oms-agent.md). L’agent collecte des compteurs de performances et les ajoute à votre espace de travail existant.
-* Pour les clusters en local, les journaux Azure Monitor propose une passerelle (Proxy de transfert HTTP) qui peut être utilisée pour envoyer des données dans les journaux d’Azure Monitor. En savoir plus à ce sujet dans [connexion des ordinateurs sans accès à Internet pour les journaux Azure Monitor à l’aide de la passerelle d’Analytique de journal](../azure-monitor/platform/gateway.md).
+* Pour les clusters locaux, les journaux Azure Monitor proposent une passerelle (proxy de transfert HTTP) qui peut être utilisée pour envoyer des données aux journaux Azure Monitor. Pour plus d’informations à ce sujet, consultez [Connexion d’ordinateurs aux journaux Azure Monitor sans accès Internet à l’aide de la passerelle Log Analytics](../azure-monitor/platform/gateway.md).
 * Configurez l’[alerte automatisée](../log-analytics/log-analytics-alerts.md) afin de faciliter la détection et les diagnostics.
 * Familiarisez-vous avec les fonctionnalités de [requêtes et recherches dans les journaux](../log-analytics/log-analytics-log-searches.md) proposées par les journaux Azure Monitor.
-* Obtenir une présentation plus détaillée des journaux Azure Monitor et ce qu’il propose, lisez [What ' s journaux Azure Monitor ?](../operations-management-suite/operations-management-suite-overview.md).
+* Pour obtenir une présentation plus détaillée des journaux Azure Monitor et de ce qu’ils proposent, lisez [Présentation des journaux Azure Monitor](../operations-management-suite/operations-management-suite-overview.md).

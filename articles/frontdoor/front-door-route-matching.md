@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: eec99bde0ea73a99a9dc1345f938b821a95a7c05
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60736279"
 ---
 # <a name="how-front-door-matches-requests-to-a-routing-rule"></a>Comment une porte d’entrée fait correspondre les demandes à une règle de routage
@@ -29,7 +29,7 @@ La configuration d’une règle de routage de porte d’entrée est constituée 
 Les propriétés suivantes déterminent si la demande entrante correspond à la règle de routage (ou côté gauche) :
 
 * **Protocoles HTTP** (HTTP/HTTPS)
-* **Hôtes** (par exemple, www\.foo.com, \*. bar.com)
+* **Hôtes** (par exemple www\.foo.com, \*.bar.com)
 * **Chemins d’accès** (par exemple, /\*, /users/\*, /file.gif)
 
 Ces propriétés sont développées en interne de telle sorte que chaque combinaison Protocole/Hôte/Chemin d’accès constitue une correspondance potentielle.
@@ -71,7 +71,7 @@ Après avoir identifié l’hôte frontend spécifique et filtré les règles de
 
 1. Recherche d’une règle de routage ayant une correspondance exacte dans le chemin.
 2. Si aucune correspondance exacte n’est trouvée dans le chemin, recherche de règles de routage avec un chemin générique qui correspond.
-3. Si aucune règle de routage n’est trouvées avec un chemin d’accès correspondant, puis rejeter la demande et retourne un code 400 : Erreur de demande de réponse HTTP incorrecte.
+3. Si aucune règle de routage n’est trouvée avec un chemin correspondant, la demande est rejetée et une réponse HTTP 400 : Demande incorrecte est retournée.
 
 >[!NOTE]
 > Les chemins sans caractère générique sont considérés comme des correspondances parfaites. Même si le chemin se termine par une barre oblique, il est quand même considéré comme tel.

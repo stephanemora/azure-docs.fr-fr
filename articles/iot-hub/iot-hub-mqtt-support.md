@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: rezas
 ms.openlocfilehash: 1a0b6cf8ce272733c259283fdec9c215ac2b0fd8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61442560"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Communication avec votre IoT Hub à l’aide du protocole MQTT
@@ -30,14 +30,14 @@ Toutes les communications des appareils avec IoT Hub doivent être sécurisées 
 
 ## <a name="connecting-to-iot-hub"></a>Connexion à IoT Hub
 
-Un appareil peut utiliser le protocole MQTT pour se connecter à un IoT hub en utilisant l’une des options suivantes.
+Un appareil peut utiliser le protocole MQTT pour se connecter à un hub IoT en utilisant une des options suivantes.
 
-* Bibliothèques dans le [kits de développement logiciel Azure IoT](https://github.com/Azure/azure-iot-sdks).
-* Le protocole MQTT directement.
+* Bibliothèques des [SDK Azure IoT](https://github.com/Azure/azure-iot-sdks).
+* Protocole MQTT directement.
 
 ## <a name="using-the-device-sdks"></a>Utilisation des Kits device SDK
 
-[Kits Device SDK](https://github.com/Azure/azure-iot-sdks) qui prennent en charge le protocole MQTT sont disponibles pour Java, Node.js, C, C#et Python. Les Kits device SDK utilisent la chaîne de connexion IoT Hub standard pour établir une connexion à un IoT Hub. Pour utiliser le protocole MQTT, le paramètre de protocole du client doit être défini sur **MQTT**. Par défaut, les Kits device SDK se connectent à un IoT Hub avec l’indicateur **CleanSession** défini sur **0**, et utilisent **QoS 1** pour l’échange de messages avec l’IoT Hub.
+Les [SDK d’appareil](https://github.com/Azure/azure-iot-sdks) qui prennent en charge le protocole MQTT sont disponibles pour Java, Node.js, C, C# et Python. Les Kits device SDK utilisent la chaîne de connexion IoT Hub standard pour établir une connexion à un IoT Hub. Pour utiliser le protocole MQTT, le paramètre de protocole du client doit être défini sur **MQTT**. Par défaut, les Kits device SDK se connectent à un IoT Hub avec l’indicateur **CleanSession** défini sur **0**, et utilisent **QoS 1** pour l’échange de messages avec l’IoT Hub.
 
 Quand un appareil est connecté à un hub IoT, les SDK d’appareils fournissent des méthodes qui permettent à l’appareil d’échanger des messages avec un hub IoT.
 
@@ -53,17 +53,17 @@ Le tableau suivant contient des liens vers des exemples de code pour chaque lang
 
 ### <a name="migrating-a-device-app-from-amqp-to-mqtt"></a>Migration d’une application d’appareil d’AMQP vers MQTT
 
-Si vous utilisez le [device SDK](https://github.com/Azure/azure-iot-sdks), passage du protocole AMQP au protocole MQTT nécessite de modifier le paramètre de protocole dans l’initialisation du client comme indiqué précédemment.
+Si vous utilisez les [SDK d’appareil](https://github.com/Azure/azure-iot-sdks), le passage du protocole AMQP au protocole MQTT nécessite de modifier le paramètre de protocole dans l’initialisation du client comme indiqué précédemment.
 
 Lors de cette opération, vérifiez les éléments suivants :
 
 * AMQP retourne des erreurs pour nombreuses conditions, tandis que MQTT met fin à la connexion. Par conséquent, votre logique de gestion des exceptions peut nécessiter certaines modifications.
 
-* MQTT ne prend pas en charge la *rejeter* opérations lors de la réception [messages cloud-à-appareil](iot-hub-devguide-messaging.md). Si votre application back-end doit recevoir une réponse de l’application d’appareil, envisagez d’utiliser [méthodes directes](iot-hub-devguide-direct-methods.md).
+* MQTT ne prend pas en charge les opérations *reject* lors de la réception de [messages cloud-à-appareil](iot-hub-devguide-messaging.md). Si votre application de back-end doit recevoir une réponse de l’application pour appareil, envisagez d’utiliser des [méthodes directes](iot-hub-devguide-direct-methods.md).
 
 ## <a name="using-the-mqtt-protocol-directly-as-a-device"></a>Utilisation directe du protocole MQTT (en tant qu’appareil)
 
-Si un appareil ne peut pas utiliser les Kits device SDK, il peut toujours se connecter aux points de terminaison d’appareil publics à l’aide du protocole MQTT sur le port 8883. Dans le **CONNECT** paquet, l’appareil doit utiliser les valeurs suivantes :
+Si un appareil ne peut pas utiliser les Kits device SDK, il peut toujours se connecter aux points de terminaison d’appareil publics à l’aide du protocole MQTT sur le port 8883. Dans le paquet **CONNECT**, l’appareil doit utiliser les valeurs suivantes :
 
 * Pour le champ **ClientId**, utilisez le **deviceId**.
 
@@ -78,11 +78,11 @@ Si un appareil ne peut pas utiliser les Kits device SDK, il peut toujours se con
   `SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}`
 
   > [!NOTE]
-  > Si vous utilisez l’authentification par certificat X.509, les mots de passe de jeton SAS ne sont pas obligatoires. Pour plus d’informations, consultez [configurer la sécurité X.509 dans votre Azure IoT Hub](iot-hub-security-x509-get-started.md)
+  > Si vous utilisez l’authentification par certificat X.509, les mots de passe de jeton SAS ne sont pas obligatoires. Pour plus d’informations, consultez [Configurer la sécurité X.509 dans Azure IoT Hub](iot-hub-security-x509-get-started.md)
 
-  Pour plus d’informations sur la façon de générer des jetons SAP, consultez la section consacrée aux appareils [des jetons de sécurité à l’aide de IoT Hub](iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app).
+  Pour plus d’informations sur la génération de jetons de signature d’accès partagé, consultez la section consacrée aux appareils de [Utilisation de jetons de sécurité IoT Hub](iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app).
 
-  Lors du test, vous pouvez également utiliser l’inter-plateformes [Azure IoT Tools pour Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) ou [Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) outil pour générer rapidement un jeton SAP que vous pouvez copier et coller dans votre propre code :
+  Lors du test, vous pouvez également utiliser les [Outils IoT Azure pour Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) multiplateforme ou l’outil [Explorateur d’appareils](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) afin de générer rapidement un jeton de signature d’accès partagé que vous pouvez copier et coller dans votre propre code :
 
 Pour les Outils IoT Azure :
 
@@ -136,9 +136,9 @@ La connexion à IoT Hub via MQTT à l’aide d’une identité de module est sim
 
 Pour utiliser le protocole MQTT directement, votre client *doit* se connecter via le protocole TLS/SSL. Sans cette étape, des erreurs de connexion se produiront.
 
-Afin d’établir une connexion TLS, vous devrez peut-être télécharger et référencer le certificat racine Baltimore DigiCert. Ce certificat est celui utilisé par Azure pour sécuriser la connexion. Vous pouvez trouver ce certificat dans le [Azure-iot-sdk-c](https://github.com/Azure/azure-iot-sdk-c/blob/master/certs/certs.c) référentiel. Vous trouverez plus d’informations sur ces certificats sur [site Web de Digicert](https://www.digicert.com/digicert-root-certificates.htm).
+Afin d’établir une connexion TLS, vous devrez peut-être télécharger et référencer le certificat racine Baltimore DigiCert. Ce certificat est celui utilisé par Azure pour sécuriser la connexion. Il se trouve dans le dépôt [Azure-iot-sdk-c](https://github.com/Azure/azure-iot-sdk-c/blob/master/certs/certs.c). Pour plus d’informations sur ces certificats, consultez le [site web de Digicert](https://www.digicert.com/digicert-root-certificates.htm).
 
-Un exemple montrant comment implémenter cela à l’aide de la version de Python de la [bibliothèque Paho MQTT](https://pypi.python.org/pypi/paho-mqtt) par la Fondation Eclipse peut se présenter comme suit.
+Voici un exemple d’implémentation de cette connexion utilisant la version de Python de la [bibliothèque Paho MQTT](https://pypi.python.org/pypi/paho-mqtt) fournie par la fondation Eclipse.
 
 Tout d’abord, installez la bibliothèque Paho à partir de votre environnement de ligne de commande :
 
@@ -191,14 +191,14 @@ client.loop_forever()
 
 ### <a name="sending-device-to-cloud-messages"></a>Envoi de messages appareil-à-cloud
 
-Après avoir correctement établi une connexion, un appareil peut envoyer des messages à IoT Hub en utilisant `devices/{device_id}/messages/events/` ou `devices/{device_id}/messages/events/{property_bag}` en tant que **Nom de la rubrique**. L’élément `{property_bag}` permet à l’appareil d’envoyer des messages avec des propriétés supplémentaires dans un format codé URL. Par exemple : 
+Après avoir correctement établi une connexion, un appareil peut envoyer des messages à IoT Hub en utilisant `devices/{device_id}/messages/events/` ou `devices/{device_id}/messages/events/{property_bag}` en tant que **Nom de la rubrique**. L’élément `{property_bag}` permet à l’appareil d’envoyer des messages avec des propriétés supplémentaires dans un format codé URL. Par exemple :
 
 ```text
 RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-encoded(<PropertyName2>)=RFC 2396-encoded(<PropertyValue2>)…
 ```
 
 > [!NOTE]
-> Cela `{property_bag}` élément utilise le même encodage que les chaînes de requête dans le protocole HTTPS.
+> Cet élément `{property_bag}` utilise le même encodage que celui des chaînes de requête dans le protocole HTTPS.
 
 Voici une liste de comportements spécifiques à l’implémentation d’IoT Hub :
 
@@ -208,7 +208,7 @@ Voici une liste de comportements spécifiques à l’implémentation d’IoT Hub
 
 * IoT Hub ne prend en charge qu’une seule connexion MQTT active par appareil. Toute nouvelle connexion MQTT au nom du même ID d’appareil entraîne l’interruption de la connexion existante par IoT Hub.
 
-Pour plus d’informations, consultez [guide du développeur de messages](iot-hub-devguide-messaging.md).
+Pour plus d’informations, consultez le [Guide du développeur - Messages](iot-hub-devguide-messaging.md).
 
 ### <a name="receiving-cloud-to-device-messages"></a>Réception de messages cloud-à-appareil
 
@@ -216,7 +216,7 @@ Pour recevoir des messages d’IoT Hub, l’appareil doit s’abonner en utilisa
 
 L’appareil ne reçoit aucun message d’IoT Hub tant qu’il ne s’est pas abonné à son point de terminaison spécifique d’appareil, représenté par le filtre de rubrique `devices/{device_id}/messages/devicebound/#`. Une fois qu’un abonnement a été établi, l’appareil reçoit les messages cloud-à-appareil qui lui ont été envoyés après l’abonnement. Si l’appareil se connecte avec l’indicateur **CleanSession** défini sur **0**, l’abonnement est rendu persistant entre les différentes sessions. Dans ce cas, la prochaine fois que l’appareil se connecte avec **CleanSession 0**, il reçoit les messages en attente qui lui ont été envoyés quand il était déconnecté. Si l’appareil utilise l’indicateur **CleanSession** défini sur **1**, il ne reçoit pas les messages à partir d’IoT Hub jusqu’à ce qu’il s’abonne à son point de terminaison d’appareil.
 
-IoT Hub remet les messages avec le **Nom de la rubrique** `devices/{device_id}/messages/devicebound/`, ou `devices/{device_id}/messages/devicebound/{property_bag}` quand il y a des propriétés de message. `{property_bag}` contient des paires clé/valeur codées URL de propriétés de message. Seules les propriétés d’application et les propriétés système définissables par l’utilisateur (comme **messageId** ou **correlationId**) sont incluses dans le jeu de propriétés. Les noms de propriété système ont le préfixe **$**, tandis que les noms de propriété d’application ne sont précédés d’aucun préfixe.
+IoT Hub remet les messages avec le **Nom de la rubrique** `devices/{device_id}/messages/devicebound/`, ou `devices/{device_id}/messages/devicebound/{property_bag}` quand il y a des propriétés de message. `{property_bag}` contient des paires clé/valeur codées URL de propriétés de message. Seules les propriétés d’application et les propriétés système définissables par l’utilisateur (comme **messageId** ou **correlationId**) sont incluses dans le jeu de propriétés. Les noms de propriété système ont le préfixe **$** , tandis que les noms de propriété d’application ne sont précédés d’aucun préfixe.
 
 Quand une application d’appareil s’abonne à une rubrique avec **QoS 2**, IoT Hub accorde le niveau QoS 1 maximal dans le paquet **SUBACK**. Après cela, IoT Hub remet les messages à l’appareil à l’aide de QoS 1.
 
@@ -224,7 +224,7 @@ Quand une application d’appareil s’abonne à une rubrique avec **QoS 2**, Io
 
 Tout d’abord, un appareil s’abonne à `$iothub/twin/res/#` pour recevoir les réponses de l’opération. Ensuite, il envoie un message vide à la rubrique `$iothub/twin/GET/?$rid={request id}`, avec une valeur propagée pour **l’ID de la requête**. Le service envoie alors un message de réponse contenant les données de jumeau d’appareil sur la rubrique `$iothub/twin/res/{status}/?$rid={request id}`, en utilisant le même **ID de requête** que la requête.
 
-ID de demande peut être toute valeur valide pour une valeur de propriété de message, tel que défini [guide du développeur de messages IoT Hub](iot-hub-devguide-messaging.md), et l’état est validé comme entier.
+L’ID de la requête peut avoir n’importe quelle valeur valide pour une propriété de message, conformément au [Guide du développeur - Messages IoT Hub](iot-hub-devguide-messaging.md), et l’état est validé comme entier.
 
 Le corps de la réponse contient la section des propriétés du jumeau d’appareil, comme illustré dans l’exemple de réponse suivant :
 
@@ -247,10 +247,10 @@ Les codes d’état possibles sont :
 |Statut | Description |
 | ----- | ----------- |
 | 204 | Réussite (aucun contenu n’est retourné) |
-| 429 | Trop de demandes (limité, comme par) [limitation d’IoT Hub](iot-hub-devguide-quotas-throttling.md) |
+| 429 | Trop de demandes (limité), selon la [Limitation d’IoT Hub](iot-hub-devguide-quotas-throttling.md) |
 | 5** | Erreurs de serveur |
 
-Pour plus d’informations, consultez [guide du développeur de jumeaux d’appareil](iot-hub-devguide-device-twins.md).
+Pour plus d’informations, consultez le [Guide du développeur - Jumeaux d’appareil](iot-hub-devguide-device-twins.md).
 
 ### <a name="update-device-twins-reported-properties"></a>Mettre à jour les propriétés signalées du jumeau d’appareil
 
@@ -264,7 +264,7 @@ La séquence suivante décrit comment un appareil met à jour les propriétés d
 
 3. Le service envoie ensuite un message de réponse qui contient la nouvelle valeur ETag de la collection de propriétés déclarées dans la rubrique `$iothub/twin/res/{status}/?$rid={request id}`. Ce message de réponse utilise le même **ID de requête** que la requête.
 
-Le corps du message de requête contient un document JSON qui contient de nouvelles valeurs pour les propriétés signalées. Chaque membre du document JSON met à jour ou ajoute le membre correspondant dans le document du jumeau d’appareil. Un membre défini sur `null` supprime le membre de l’objet conteneur. Par exemple : 
+Le corps du message de requête contient un document JSON qui contient de nouvelles valeurs pour les propriétés signalées. Chaque membre du document JSON met à jour ou ajoute le membre correspondant dans le document du jumeau d’appareil. Un membre défini sur `null` supprime le membre de l’objet conteneur. Par exemple :
 
 ```json
 {
@@ -279,7 +279,7 @@ Les codes d’état possibles sont :
 | ----- | ----------- |
 | 200 | Succès |
 | 400 | Demande incorrecte. JSON incorrect |
-| 429 | Trop de demandes (limité, comme par) [limitation d’IoT Hub](iot-hub-devguide-quotas-throttling.md) |
+| 429 | Trop de demandes (limité), selon la [Limitation d’IoT Hub](iot-hub-devguide-quotas-throttling.md) |
 | 5** | Erreurs de serveur |
 
 L’extrait de code python ci-dessous illustre le processus de mise à jour des propriétés signalées du jumeau via MQTT (à l’aide du client Paho MQTT) :
@@ -297,11 +297,11 @@ client.publish("$iothub/twin/PATCH/properties/reported/?$rid=" + rid, twin_repor
 
 En cas de réussite de l’opération de mise à jour des propriétés signalées du jumeau ci-dessus, le message de la publication à partir d’IoT Hub comprend la rubrique suivante : `$iothub/twin/res/204/?$rid=1&$version=6`, où `204` est le code d’état indiquant la réussite, `$rid=1` correspond à l’ID de demande fourni par l’appareil dans le code et `$version` désigne la version de la section des propriétés signalées des jumeaux d’appareil après la mise à jour.
 
-Pour plus d’informations, consultez [guide du développeur de jumeaux d’appareil](iot-hub-devguide-device-twins.md).
+Pour plus d’informations, consultez le [Guide du développeur - Jumeaux d’appareil](iot-hub-devguide-device-twins.md).
 
 ### <a name="receiving-desired-properties-update-notifications"></a>Réception de notifications de mise à jour des propriétés souhaitées
 
-Lorsqu’un appareil est connecté, IoT Hub envoie des notifications à la rubrique `$iothub/twin/PATCH/properties/desired/?$version={new version}`, qui contient le contenu de la mise à jour effectuée par le serveur principal de la solution. Par exemple : 
+Lorsqu’un appareil est connecté, IoT Hub envoie des notifications à la rubrique `$iothub/twin/PATCH/properties/desired/?$version={new version}`, qui contient le contenu de la mise à jour effectuée par le serveur principal de la solution. Par exemple :
 
 ```json
 {
@@ -314,9 +314,9 @@ Lorsqu’un appareil est connecté, IoT Hub envoie des notifications à la rubri
 Comme pour les mises à jour de propriétés, les valeurs `null` signifient que le membre de l’objet JSON est en cours de suppression. Notez également que `$version` indique la nouvelle version de la section des propriétés souhaitées du jumeau.
 
 > [!IMPORTANT]
-> IoT Hub génère des notifications de modification uniquement lorsque les appareils sont connectés. Veillez à implémenter le [flux de reconnexion d’appareil](iot-hub-devguide-device-twins.md#device-reconnection-flow) pour conserver les synchronisation entre IoT Hub et l’application d’appareil des propriétés souhaitées.
+> IoT Hub génère des notifications de modification uniquement lorsque les appareils sont connectés. Veillez à implémenter le [flux de reconnexion des appareils](iot-hub-devguide-device-twins.md#device-reconnection-flow) pour maintenir la synchronisation des propriétés souhaitées entre IoT Hub et l’application pour appareil.
 
-Pour plus d’informations, consultez [guide du développeur de jumeaux d’appareil](iot-hub-devguide-device-twins.md).
+Pour plus d’informations, consultez le [Guide du développeur - Jumeaux d’appareil](iot-hub-devguide-device-twins.md).
 
 ### <a name="respond-to-a-direct-method"></a>Répondre à une méthode directe
 
@@ -324,22 +324,22 @@ Tout d’abord, un appareil doit s’abonner à `$iothub/methods/POST/#`. IoT Hu
 
 Pour répondre, l’appareil envoie un message avec un corps vide ou JSON valide à la rubrique `$iothub/methods/res/{status}/?$rid={request id}`. Dans ce message, **request ID** doit correspondre à celui du message de requête, et **status** doit être un entier.
 
-Pour plus d’informations, consultez [guide du développeur de la méthode directes](iot-hub-devguide-direct-methods.md).
+Pour plus d’informations, consultez le [Guide du développeur - Méthode directe](iot-hub-devguide-direct-methods.md).
 
 ### <a name="additional-considerations"></a>Considérations supplémentaires
 
-Pour finir, si vous avez besoin personnaliser le comportement du protocole MQTT côté cloud, vous devez examiner le [passerelle de protocole Azure IoT](iot-hub-protocol-gateway.md). Ce logiciel vous permet de déployer une passerelle de protocole personnalisé à hautes performances qui communique directement avec IoT Hub. La passerelle de protocole Azure IoT vous permet de personnaliser le protocole de l’appareil pour prendre en charge des déploiements MQTT de type « brownfield » ou autres protocoles personnalisés. Toutefois, cette approche nécessite l’exécution et l’utilisation d’une passerelle de protocole personnalisée.
+Enfin, si vous avez besoin de personnaliser le comportement du protocole MQTT côté cloud, examinez la [passerelle de protocole Azure IoT](iot-hub-protocol-gateway.md). Ce logiciel vous permet de déployer une passerelle de protocole personnalisé à hautes performances qui communique directement avec IoT Hub. La passerelle de protocole Azure IoT vous permet de personnaliser le protocole de l’appareil pour prendre en charge des déploiements MQTT de type « brownfield » ou autres protocoles personnalisés. Toutefois, cette approche nécessite l’exécution et l’utilisation d’une passerelle de protocole personnalisée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur le protocole MQTT, consultez le [documentation de MQTT](https://mqtt.org/documentation).
+Pour plus d’informations sur le protocole MQTT, consultez la [documentation de MQTT](https://mqtt.org/documentation).
 
 Pour en savoir plus sur la planification de votre déploiement IoT Hub, consultez :
 
 * [Catalogue d’appareils certifiés Azure pour l’IoT](https://catalog.azureiotsolutions.com/)
-* [Prise en charge des protocoles supplémentaires](iot-hub-protocol-gateway.md)
+* [Prendre en charge des protocoles supplémentaires](iot-hub-protocol-gateway.md)
 * [Comparer à Event Hubs](iot-hub-compare-event-hubs.md)
-* [Mise à l’échelle, haute disponibilité et récupération d’urgence](iot-hub-scaling.md)
+* [Mise à l’échelle, haute disponibilité et reprise d’activité](iot-hub-scaling.md)
 
 Pour explorer davantage les capacités de IoT Hub, consultez :
 

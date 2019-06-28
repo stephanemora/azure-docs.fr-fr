@@ -1,6 +1,6 @@
 ---
-title: Activer des environnements de plusieurs machines virtuelles dans Azure Lab Services | Microsoft Docs
-description: Découvrez comment créer un environnement avec plusieurs machines virtuelles à l’intérieur d’une machine virtuelle dans un laboratoire de salle de classe de Azure Lab Services.
+title: Activer des environnements avec plusieurs machines virtuelles dans Azure Lab Services | Microsoft Docs
+description: Découvrez comment créer un environnement avec plusieurs machines virtuelles à l’intérieur d’un modèle de machine virtuelle dans un labo de salle de classe d’Azure Lab Services.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -14,35 +14,35 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: spelluru
 ms.openlocfilehash: 6faf32232c42f863bff52fdfb3c0714aee8e9b88
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60702418"
 ---
-# <a name="create-an-environment-with-multiple-vms-inside-a-template-vm-of-a-classroom-lab"></a>Créer un environnement avec plusieurs machines virtuelles à l’intérieur d’un modèle de machine virtuelle d’un laboratoire de salle de classe
-Actuellement Azure Lab Services vous permet de configurer une machine virtuelle dans un laboratoire et proposer une seule copie pour chacun de vos utilisateurs. Mais si vous êtes un professeur enseigne une classe de l’informatique sur la façon de configurer des pare-feu ou des serveurs, vous devrez peut-être fournir chacune de vos élèves avec un environnement dans lequel plusieurs ordinateurs virtuels peuvent communiquer entre eux sur un réseau.
+# <a name="create-an-environment-with-multiple-vms-inside-a-template-vm-of-a-classroom-lab"></a>Créer un environnement avec plusieurs machines virtuelles dans un modèle de machine virtuelle d’un labo de salle de classe
+Actuellement, Azure Lab Services vous permet de configurer un seul modèle de machine virtuelle dans un labo et de rendre disponible une seule copie pour chacun de vos utilisateurs. Cependant, si vous êtes professeur apprenant à une classe d’informatique comment configurer des pare-feu ou des serveurs, il peut être nécessaire de fournir à chacun de vos étudiants un environnement où plusieurs machines virtuelles peuvent communiquer entre elles sur un réseau.
 
-Virtualisation imbriquée vous permet de créer un environnement de plusieurs machines virtuelles au sein de la machine virtuelle d’un laboratoire. Publication du modèle fournit à chaque utilisateur dans le laboratoire avec un ordinateur virtuel configuré avec plusieurs machines virtuelles qu’il contient.
+La virtualisation imbriquée vous permet de créer un environnement avec plusieurs machines virtuelles au sein de la machine virtuelle d’un modèle de labo. La publication du modèle fournit à chaque utilisateur du labo une machine virtuelle configurée avec plusieurs machines virtuelles en son sein.
 
-## <a name="what-is-nested-virtualization"></a>Quelle est la virtualisation imbriquée ?
-Virtualisation imbriquée vous permet de créer des machines virtuelles au sein d’une machine virtuelle. La virtualisation imbriquée est effectuée via Hyper-V et est uniquement disponible sur les machines virtuelles Windows.
+## <a name="what-is-nested-virtualization"></a>Qu’est-ce que la virtualisation imbriquée ?
+La virtualisation imbriquée vous permet de créer des machines virtuelles au sein d’une machine virtuelle. La virtualisation imbriquée est effectuée via Hyper-V et elle est disponible seulement sur les machines virtuelles Windows.
 
-Pour plus d’informations sur la virtualisation imbriquée, consultez les articles suivants :
+Pour plus d’informations sur la visualisation imbriquée, consultez les articles suivants :
 
 - [Virtualisation imbriquée dans Azure](https://azure.microsoft.com/blog/nested-virtualization-in-azure/)
-- [Comment activer la virtualisation imbriquée dans une machine virtuelle Azure](../../virtual-machines/windows/nested-virtualization.md)
+- [Guide pratique pour activer la virtualisation imbriquée dans une machine virtuelle Azure](../../virtual-machines/windows/nested-virtualization.md)
 
 ## <a name="use-nested-virtualization-in-azure-lab-services"></a>Utiliser la virtualisation imbriquée dans Azure Lab Services
 Les étapes importantes sont :
 
-1. Créer un **grand** taille **Windows** machine de modèle pour le laboratoire. 
-2. Se connecter à celui-ci et [activer la virtualisation imbriquée](../../virtual-machines/windows/nested-virtualization.md).
+1. Créez un modèle de machine **Windows** de **grande** taille pour le labo. 
+2. Connectez-vous à cette machine et [activez la virtualisation imbriquée](../../virtual-machines/windows/nested-virtualization.md).
 
 
-La procédure suivante vous donne les étapes détaillées : 
+La procédure suivante vous indique les étapes détaillées : 
 
-1. Créez un compte de laboratoire si vous n’en avez pas déjà. Pour obtenir des instructions, consultez [didacticiel : Configurer un compte de laboratoire avec Azure Lab Services](tutorial-setup-lab-account.md).
+1. Créez un compte de labo si vous n’en avez pas encore. Pour obtenir des instructions, consultez [Tutoriel : Configurer un compte de labo avec Azure Lab Services](tutorial-setup-lab-account.md).
 2. Accédez au [site web Azure Lab Services](https://labs.azure.com). 
 3. Sélectionnez **Se connecter** et entrez vos informations d’identification. Azure Lab Services prend en charge les comptes professionnels et les comptes Microsoft. 
 4. Dans la fenêtre **New Lab** (Nouveau laboratoire), effectuez les actions suivantes : 
@@ -52,8 +52,8 @@ La procédure suivante vous donne les étapes détaillées :
 
         ![Créer un laboratoire de classe](../media/tutorial-setup-classroom-lab/new-lab-window.png)
 4. Sur la page **Select virtual machine specifications** (sélectionner les spécifications de machine virtuelle), procédez aux étapes suivantes :
-    1. Sélectionnez **grande** pour la taille des machines virtuelles (VM) doit être créé dans le laboratoire. Actuellement, uniquement la grande taille prend en charge la virtualisation imbriquée.
-    2. Choisissez une image de machine virtuelle est un **image de Windows**. Virtualisation imbriquée est disponible uniquement sur les ordinateurs Windows. 
+    1. Sélectionnez **Grande** pour la taille des machines virtuelles à créer dans le labo. Actuellement, seule la taille Grande prend en charge la virtualisation imbriquée.
+    2. Choisissez une image de machine virtuelle qui soit une **image Windows**. La virtualisation imbriquée est disponible seulement sur les machines Windows. 
     3. Sélectionnez **Suivant**.
 
         ![Définir les spécifications de VM](../media/how-to-enable-multi-vm-environment/large-windows-vm.png)    
@@ -72,12 +72,12 @@ La procédure suivante vous donne les étapes détaillées :
 7. Une fois la configuration du modèle terminée, la page suivante s’affiche : 
 
     ![Page Configurer le modèle une fois terminé](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
-8. Sur le **configurer modèle** page, sélectionnez **Connect** pour se connecter au modèle de machine virtuelle pour configurer la virtualisation imbriquée. Vous pouvez également configurer ultérieurement après avoir terminé les étapes décrites dans cet Assistant. 
-9. À l’intérieur de la machine virtuelle du modèle, configurez la virtualisation imbriquée et configurer un réseau virtuel avec plusieurs machines virtuelles. Pour obtenir des instructions détaillées, consultez [comment activer la virtualisation imbriquée dans une machine virtuelle Azure](../../virtual-machines/windows/nested-virtualization.md). Voici un bref résumé des étapes : 
-    1. Activer la fonctionnalité Hyper-V sur l’ordinateur virtuel de modèle.
-    2. Configurer un réseau virtuel interne avec une connectivité internet pour les machines virtuelles imbriquées
-    3. Créer des machines virtuelles via le Gestionnaire Hyper-V
-    4. Affecter une adresse IP aux machines virtuelles
+8. Dans la page **Configurer le modèle**, sélectionnez **Se connecter** pour vous connecter au modèle de machine virtuelle pour configurer la virtualisation imbriquée. Vous pouvez également la configurer ultérieurement après avoir terminé les étapes décrites dans cet Assistant. 
+9. Dans le modèle de machine virtuelle, configurez la virtualisation imbriquée et configurez un réseau virtuel avec plusieurs machines virtuelles. Pour obtenir des instructions pas à pas, consultez [Guide pratique pour activer la virtualisation imbriquée dans une machine virtuelle Azure](../../virtual-machines/windows/nested-virtualization.md). Voici un résumé rapide des étapes : 
+    1. Activez la fonctionnalité Hyper-V sur le modèle de machine virtuelle.
+    2. Configurez un réseau virtuel interne avec une connectivité Internet pour les machines virtuelles imbriquées.
+    3. Créez des machines virtuelles via le Gestionnaire Hyper-V.
+    4. Affectez une adresse IP aux machines virtuelles.
 10. Sélectionnez **Suivant** sur la page du modèle. 
 11. Sur la page **Publier le modèle**, effectuez les actions suivantes. 
     1. Pour publier le modèle immédiatement, sélectionnez **Publier**.  
@@ -100,4 +100,4 @@ La procédure suivante vous donne les étapes détaillées :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-À présent, chaque utilisateur obtient une seule machine virtuelle qui comprend un environnement de plusieurs machines virtuelles qu’il contient. Pour savoir comment ajouter des utilisateurs au laboratoire et de leur envoyer le lien d’inscription, consultez l’article suivant : [Ajouter des utilisateurs au laboratoire](tutorial-setup-classroom-lab.md#add-users-to-the-lab).
+À présent, chaque utilisateur obtient une seule machine virtuelle qui comprend un environnement avec plusieurs machines virtuelles en son sein. Pour découvrir comment ajouter des utilisateurs au labo et leur envoyer un lien d’inscription, consultez l’article suivant : [Ajouter des utilisateurs au labo](tutorial-setup-classroom-lab.md#add-users-to-the-lab).

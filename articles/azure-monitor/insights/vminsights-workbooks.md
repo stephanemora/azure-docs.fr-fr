@@ -1,6 +1,6 @@
 ---
-title: Créez des rapports interactifs avec des classeurs Azure Monitor | Microsoft Docs
-description: Simplifier complexe reporting avec des classeurs paramétrables prédéfinis et personnalisés pour Azure Monitor pour les machines virtuelles.
+title: Créer des rapports interactifs avec des classeurs Azure Monitor | Microsoft Docs
+description: Simplifier la création de rapports complexes grâce à des classeurs paramétrés prédéfinis et personnalisés pour Azure Monitor pour machines virtuelles.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -14,42 +14,42 @@ ms.workload: infrastructure-services
 ms.date: 04/05/2019
 ms.author: magoedte
 ms.openlocfilehash: 90c236347380bb5d5e51db56d0f431d2659a7258
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61387156"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Créer des rapports interactifs avec les classeurs Azure Monitor
 
-Classeurs combinent du texte, [enregistrer des requêtes](../log-query/query-language.md), mesures et des paramètres dans des rapports interactifs efficaces. Les classeurs sont modifiables par tous les membres de l’équipe ayant accès aux mêmes ressources Azure.
+Les classeurs regroupent du texte, des  [requêtes de journal](../log-query/query-language.md), des métriques et des paramètres sous la forme de rapports interactifs complets. Les classeurs sont modifiables par tous les membres de l’équipe ayant accès aux mêmes ressources Azure.
 
-Les classeurs sont utiles pour les scénarios tels que :
+Les classeurs sont utiles pour les scénarios tels que les suivants :
 
-* Explorer l’utilisation de votre machine virtuelle lorsque vous ne connaissez pas les mesures d’intérêt à l’avance : L’utilisation du processeur, espace disque, mémoire, les dépendances de réseau, etc. Contrairement à d’autres outils d’analyse de l’utilisation, les classeurs vous permettent de combiner plusieurs types de visualisations et d’analyses, ce qui les rend très utiles pour ce type d’exploration sous forme libre.
-* Expliquer à votre équipe comment une machine virtuelle approvisionnée récemment s’exécute, en affichant les métriques pour les compteurs de clés et autres événements du journal.
-* Partager les résultats d’une expérience de redimensionnement de votre machine virtuelle avec d’autres membres de votre équipe. Vous pouvez expliquer les objectifs de l’expérience avec le texte, puis afficher les requêtes de métrique et analytique chaque utilisation permettant d’évaluer l’expérience, ainsi que d’effacer des légendes pour que chaque mesure se situe au-dessus ou au-dessous-cibles.
-* Création de rapports l’impact d’une panne sur l’utilisation de votre machine virtuelle, combinant des données, explication du texte et une présentation des étapes suivantes afin d’éviter les pannes à l’avenir.
+* Explorer l’utilisation de votre machine virtuelle quand vous ne connaissez pas à l’avance les métriques intéressantes : utilisation du processeur, espace disque, mémoire, dépendances réseau, etc. Contrairement à d’autres outils d’analyse de l’utilisation, les classeurs vous permettent de combiner plusieurs types de visualisations et d’analyses, ce qui les rend très utiles pour ce type d’exploration sous forme libre.
+* Expliquer à votre équipe le fonctionnement d’une machine virtuelle provisionnée récemment, en affichant les métriques des compteurs clés et d’autres événements de journal.
+* Partager les résultats d’une expérimentation de redimensionnement de votre machine virtuelle avec d’autres membres de votre équipe. Vous pouvez expliquer les objectifs de l’expérimentation avec du texte, puis montrer chaque métrique d’utilisation et des requêtes analytiques utilisées pour évaluer l’expérimentation, en vous aidant de légendes claires indiquant si chaque métrique se situe au-dessus ou en dessous de la cible.
+* Créer des rapports relatifs à l’impact d’une panne sur l’utilisation de votre machine virtuelle, en combinant des données, une explication du texte et une présentation des étapes suivantes pour éviter à l’avenir d’éventuelles interruptions.
 
-Azure Monitor pour les machines virtuelles inclut plusieurs classeurs pour vous aider à démarrer, et le tableau suivant résume l’ensemble.
+Azure Monitor pour machines virtuelles inclut plusieurs classeurs pour vous aider à commencer. Le tableau suivant les récapitule.
 
 | Classeur | Description | Étendue |
 |----------|-------------|-------|
-| Performances | Fournit une version personnalisable de notre liste des meilleurs N et la vue graphiques dans un classeur unique qui tire parti de tous les compteurs de performances d’Analytique de journal que vous avez activés.| À l’échelle |
-| Compteurs de performances | Affichage d’un graphique Top N sur un large ensemble de compteurs de performance. | À l’échelle |
-| connexions | Connexions fournit une vue détaillée des connexions entrantes et sortantes à partir de vos machines virtuelles surveillés. | À l’échelle |
-| Ports actifs | Fournit une liste des processus qui ont liés aux ports sur les machines virtuelles surveillés et leur activité dans la période choisie. | À l’échelle |
-| Ouvrir des ports | Fournit le nombre de ports ouverts sur vos machines virtuelles analysés et les détails sur ces ouvrir des ports. | À l’échelle |
-| Connexions ayant échoué | Afficher le nombre de connexions qui ont échoué sur vos machines virtuelles analysés, la tendance à l’échec, et si le pourcentage d’échecs augmente au fil du temps. | À l’échelle |
-| Sécurité et audit | Une analyse de votre trafic TCP/IP qui signale sur connexions globales, connexions malveillantes, où les points de terminaison IP se trouvent dans le monde entier.  Pour activer toutes les fonctionnalités, vous devez activer la détection de la sécurité. | À l’échelle |
-| Trafic TCP | Un rapport de classement pour vos machines virtuelles surveillés et leur réseau envoyé et reçu de total du trafic dans une grille et affiché sous la forme d’une courbe de tendance. | À l’échelle |
-| Comparaison du trafic | Cette classeurs permet de comparer les tendances du trafic réseau pour une seule machine ou un groupe de machines. | À l’échelle |
-| Performances | Fournit une version personnalisable de notre affichage des performances qui tire parti de tous les compteurs de performances d’Analytique de journal que vous avez activés. | Machine virtuelle unique | 
-| connexions | Connexions fournit une vue détaillée des connexions entrantes et sortantes de votre machine virtuelle. | Machine virtuelle unique |
+| Performances | Fournit une version personnalisable de notre Liste des N premiers et la vue Graphiques dans un classeur unique qui exploite tous les compteurs de performances Log Analytics que vous avez activés.| À grande échelle |
+| Compteurs de performances | Vue de graphique N premiers sur un vaste ensemble de compteurs de performances. | À grande échelle |
+| connexions | Le classeur Connexions fournit une vue détaillée des connexions entrantes et sortantes de vos machines virtuelles supervisées. | À grande échelle |
+| Ports actifs | Fournit une liste des processus qui sont liés aux ports sur les machines virtuelles supervisées et à leur activité dans la plage de temps choisie. | À grande échelle |
+| Ouvrir des ports | Fournit le nombre de ports ouverts sur vos machines virtuelles supervisées et les détails concernant ces ports. | À grande échelle |
+| Connexions ayant échoué | Permet d’afficher le nombre de connexions ayant échoué sur vos machines virtuelles supervisées, la tendance des échecs et si le pourcentage d’échecs augmente au fil du temps. | À grande échelle |
+| Sécurité et audit | Analyse de votre trafic TCP/IP qui génère des rapports sur les connexions globales et les connexions malveillantes, où les points de terminaison IP se trouvent partout dans le monde entier.  Pour activer toutes les fonctionnalités, vous devez activer la Détection de la sécurité. | À grande échelle |
+| Trafic TCP | Rapport classé concernant vos machines virtuelles supervisées et leur trafic réseau envoyé, reçu et total dans une grille et affiché sous forme de courbe de tendance. | À grande échelle |
+| Comparaison du trafic | Ce classeur vous permet de comparer les tendances du trafic réseau pour une seule machine ou un groupe de machines. | À grande échelle |
+| Performances | Fournit une version personnalisable de notre vue Performances qui exploite tous les compteurs de performances Log Analytics que vous avez activés. | Machine virtuelle unique | 
+| connexions | Le classeur Connexions fournit une vue détaillée des connexions entrantes et sortantes de vos machines virtuelles. | Machine virtuelle unique |
  
 ## <a name="starting-with-a-template-or-saved-workbook"></a>Commencer avec un classeur enregistré ou un modèle
 
-Un classeur est composé de sections comprenant des graphiques, des tableaux, du texte et des commandes de saisie modifiables de manière indépendante. Pour mieux comprendre les classeurs, nous allons commencer par ouvrir un modèle et explique comment créer un classeur personnalisé. 
+Un classeur est composé de sections comprenant des graphiques, des tableaux, du texte et des commandes de saisie modifiables de manière indépendante. Pour mieux comprendre les classeurs, commençons par ouvrir un modèle et décrivons la procédure à suivre pour créer un classeur personnalisé. 
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 
@@ -57,29 +57,29 @@ Un classeur est composé de sections comprenant des graphiques, des tableaux, du
 
 3. Sélectionnez une machine virtuelle dans la liste.
 
-4. Sur la page de la machine virtuelle, dans la section **Surveillance**, sélectionnez **Insights (préversion)**.
+4. Sur la page de la machine virtuelle, dans la section **Surveillance**, sélectionnez **Insights (préversion)** .
 
-5. Dans la page d’informations de machine virtuelle, sélectionnez **performances** ou **Maps** onglet, puis sélectionnez **classeurs View** à partir du lien sur la page. 
+5. Dans la page Insights de machine virtuelle, sélectionnez l’onglet **Performances** ou **Cartes**, puis sélectionnez **Voir les classeurs** à partir du lien affiché sur la page. 
 
     ![Capture d’écran de navigation jusqu’aux classeurs](media/vminsights-workbooks/workbook-option-01.png)
 
-6. Dans la liste déroulante, sélectionnez **accéder à la galerie** à partir du bas de la liste.
+6. Dans la liste déroulante, sélectionnez **Accéder à la galerie** en bas de la liste.
 
-    ![Capture d’écran de liste déroulante de classeur](media/vminsights-workbooks/workbook-dropdown-gallery-01.png)
+    ![Capture d’écran de la liste déroulante des classeurs](media/vminsights-workbooks/workbook-dropdown-gallery-01.png)
 
-    Il lance la galerie de classeur avec un nombre de classeurs prédéfinis pour vous aider à commencer.
+    La galerie de classeurs, qui contient plusieurs classeurs prédéfinis pour vous aider à commencer, est alors lancée.
 
 7. Nous allons commencer par le **modèle par défaut** qui se trouve sous le titre **Démarrage rapide**.
 
     ![Capture d’écran de la galerie de classeurs](media/vminsights-workbooks/workbook-gallery-01.png)
 
-## <a name="editing-workbook-sections"></a>Modification des sections de classeur
+## <a name="editing-workbook-sections"></a>Modification de sections de classeur
 
-Les classeurs présentent deux modes : le **mode d’édition** et le **mode lecture**. Une fois le classeur de modèle par défaut est lancé tout d’abord, il s’ouvre dans **mode d’édition**. Il affiche tout le contenu du classeur, y compris les étapes et les paramètres qui sont masquées dans le cas contraire. Le **mode lecture** présente une vue de rapport simplifiée. Mode de lecture vous permet de soustraire la complexité qui a été placé dans la création d’un rapport tout en conservant les mécanismes sous-jacents seulement quelques clics lorsque nécessaire pour la modification.
+Les classeurs présentent deux modes : le **mode d’édition** et le **mode lecture**. Quand le modèle de classeur par défaut est lancé pour la première fois, il s’ouvre en **mode édition**. Tout le contenu du classeur s’affiche, notamment les étapes et les paramètres qui sont généralement masqués. Le **mode lecture** présente une vue de rapport simplifiée. Le mode lecture vous permet de masquer les éléments complexes de création du rapport, tout en accédant en quelques clics aux paramètres et mécanismes sous-jacents si vous avez besoin de les modifier.
 
-![Azure Monitor pour les contrôles d’édition de section de classeurs de machines virtuelles](media/vminsights-workbooks/workbook-new-workbook-editor-01.png)
+![Contrôles d’édition de la section Classeurs d’Azure Monitor pour machines virtuelles](media/vminsights-workbooks/workbook-new-workbook-editor-01.png)
 
-1. Lorsque vous avez terminé une section, cliquez sur **modifications terminées** dans l’angle inférieur gauche de la section.
+1. Quand vous avez fini de modifier une section, cliquez sur **Fin de l’édition** en bas à gauche de la section.
 
 2. Pour créer un doublon de section, cliquez sur l’icône **Cloner cette section**. La création de sections en double est une bonne façon d’itérer sur une requête sans perdre les itérations précédentes.
 
@@ -101,41 +101,41 @@ Pour ajouter une section de requête à votre classeur, utilisez le bouton **Ajo
 
 Les sections de requête sont extrêmement flexibles et peuvent être utilisées pour répondre à des questions telles que :
 
-* Comment était mon utilisation du processeur au cours de la même période qu’une augmentation du trafic réseau ?
-* Quelle était la tendance dans l’espace disque disponible au cours du mois dernier ?
-* Échecs de connexion réseau combien prions sincèrement ma machine virtuelle sur les deux dernières semaines ? 
+* Comment était mon utilisation du processeur au cours d’une période d’augmentation du trafic réseau ?
+* Quelle était la tendance concernant l’espace disque disponible au cours du mois dernier ?
+* Combien d’échecs de connexion réseau ma machine virtuelle a rencontrés au cours des deux dernières semaines ? 
 
-Vous aussi ne sont pas uniquement limité à interroger à partir du contexte de la machine virtuelle vous lancé le classeur à partir de. Vous pouvez interroger sur plusieurs machines virtuelles, ainsi que les espaces de travail Analytique de journal, tant que vous avez l’autorisation d’accès à ces ressources.
+Vous pouvez également formuler des requêtes concernant d’autres machines virtuelles que celle à partir de laquelle vous avez lancé le classeur. Vous pouvez lancer des requêtes sur plusieurs machines virtuelles, ainsi que sur des espaces de travail Log Analytics, à condition de disposer d’une autorisation d’accès à ces ressources.
 
-Pour inclure des données à partir d’autres espaces de travail Analytique de journal ou à partir d’une application Application Insights spécifique en utilisant la **espace de travail** identificateur. Pour en savoir plus sur les requêtes d’inter-ressources, reportez-vous à la [des conseils officiels](../log-query/cross-workspace-query.md).
+Pour inclure des données d’autres espaces de travail Log Analytics ou d’une application Application Insights spécifique, utilisez l’identificateur de l’**espace de travail**. Pour en savoir plus sur les requêtes inter-ressources, reportez-vous aux [instructions officielles](../log-query/cross-workspace-query.md).
 
 ### <a name="advanced-analytic-query-settings"></a>Paramètres de requête analytique avancés
 
-Chaque section a ses propres paramètres avancés, qui sont accessibles via les paramètres ![contrôles d’édition de la section Workbooks](media/vminsights-workbooks/006-settings.png) icône située à droite de la **ajouter des paramètres** bouton.
+Chaque section a ses propres paramètres avancés, accessibles par le biais de l’icône ![Contrôles d’édition de la section Classeurs](media/vminsights-workbooks/006-settings.png) des paramètres située à droite du bouton **Ajouter des paramètres**.
 
-![Azure Monitor pour les contrôles d’édition de section de classeurs de machines virtuelles](media/vminsights-workbooks/007-settings-expanded.png)
+![Contrôles d’édition de la section Classeurs d’Azure Monitor pour machines virtuelles](media/vminsights-workbooks/007-settings-expanded.png)
 
 |         |          |
 | ---------------- |:-----|
-| **Largeur personnalisée**    | Met un élément à une taille arbitraire, donc vous pouvez insérer le nombre d’éléments sur une seule ligne, ce qui vous permet de mieux organiser vos tables et graphiques dans des rapports interactifs efficaces.  |
-| **Visible sous conditions** | Spécifiez cette option pour masquer les étapes selon un paramètre en mode lecture. |
-| **Exporter un paramètre**| Autoriser une ligne sélectionnée dans la grille ou un graphique à provoquer des étapes ultérieures à modifier des valeurs ou deviennent visibles.  |
-| **Afficher la requête en mode lecture** | Affiche la requête au-dessus du graphique ou de la table même en mode lecture.
-| **Afficher le bouton Ouvrir dans Analytics en mode lecture** | Ajoute l’icône bleue Analytique à l’angle droit du graphique pour autoriser l’accès d’un clic.|
+| **Largeur personnalisée**    | Personnalise la taille d’un élément afin de faire tenir un grand nombre d’éléments sur une seule ligne. Vous pouvez ainsi mieux organiser vos tableaux et graphiques pour créer des rapports interactifs complets.  |
+| **Visible sous conditions** | Spécifiez cette option pour masquer les étapes en fonction d’une valeur de paramètre en mode lecture. |
+| **Exporter un paramètre**| Permet de sélectionner une ligne dans le tableau ou le graphique pour faire en sorte que des valeurs soient modifiées ou deviennent visibles.  |
+| **Afficher la requête en mode lecture** | Affiche la requête au-dessus du graphique ou du tableau même en mode lecture.
+| **Afficher le bouton Ouvrir dans Analytics en mode lecture** | Ajoute l’icône bleue Analytics dans le coin droit du graphique pour vous permettre d’y accéder en un seul clic.|
 
 La plupart de ces paramètres sont relativement intuitifs, mais pour comprendre comment fonctionne l’option **Exporter un paramètre**, il est préférable d’examiner un classeur qui utilise cette fonctionnalité.
 
-Un des classeurs prédéfinis - **le trafic TCP**, fournit des informations sur les métriques de connexion à partir d’une machine virtuelle.
+L’un des classeurs prédéfini, **Trafic TCP**, fournit des informations sur les métriques de connexion d’une machine virtuelle.
 
-La première section du classeur est basée sur les données de requête de journal. La deuxième section est également basée sur les données de requête de journal, mais en sélectionnant une ligne dans la première table sera mise à jour interactive le contenu des graphiques :
+La première section du classeur est basée sur les données de requête de journal. La deuxième section est également basée sur les données de requête de journal, mais la sélection d’une ligne dans le premier tableau met à jour de façon interactive le contenu des graphiques :
 
-![Azure Monitor pour les contrôles d’édition de section de classeurs de machines virtuelles](media/vminsights-workbooks/008-workbook-tcp-traffic.png)
+![Contrôles d’édition de la section Classeurs d’Azure Monitor pour machines virtuelles](media/vminsights-workbooks/008-workbook-tcp-traffic.png)
 
-Le comportement est possible via l’utilisation de la **lorsqu’un élément est sélectionné, un paramètre d’exportation** les paramètres avancés, qui sont activées dans la requête de journal de la table.
+Ce comportement est possible grâce à l’utilisation des paramètres avancés **Quand un élément est sélectionné, exporter un paramètre**, qui sont activés dans la requête de journal du tableau.
 
-![Azure Monitor pour les contrôles d’édition de section de classeurs de machines virtuelles](media/vminsights-workbooks/009-settings-export.png)
+![Contrôles d’édition de la section Classeurs d’Azure Monitor pour machines virtuelles](media/vminsights-workbooks/009-settings-export.png)
 
-La deuxième requête de journal utilise ensuite les valeurs exportées lorsqu’une ligne est sélectionnée pour créer un ensemble de valeurs qui sont ensuite utilisés par l’en-tête de section et les graphiques. Si aucune ligne n’est sélectionnée, elle masque l’en-tête de section et les graphiques. 
+La deuxième requête de journal utilise alors les valeurs exportées quand une ligne est sélectionnée pour créer un ensemble de valeurs qui sont ensuite utilisés par l’en-tête de section et les graphiques. Si aucune ligne n’est sélectionnée, elle masque l’en-tête de section et les graphiques. 
 
 Par exemple, le paramètre masqué dans la deuxième section utilise la référence suivante à partir de la ligne sélectionnée dans la grille :
 
@@ -148,56 +148,56 @@ VMConnection
 
 ## <a name="adding-metrics-sections"></a>Ajout de sections de métriques
 
-Les sections de métriques vous offrent un accès complet pour intégrer des données de métriques Azure Monitor dans vos rapports interactifs. Dans Azure Monitor pour les machines virtuelles, les classeurs prédéfinis contient généralement des données de requête analytique plutôt que des données de mesure.  Vous pouvez choisir créer des classeurs avec des données de mesure, ce qui vous permet de tirer pleinement parti de la meilleure des deux fonctionnalités toutes au même endroit. Vous avez également la possibilité d’extraire des données de métriques à partir des ressources de l’ensemble des abonnements auxquels vous avez accès.
+Les sections de métriques vous offrent un accès complet pour intégrer des données de métriques Azure Monitor dans vos rapports interactifs. Dans Azure Monitor pour machines virtuelles, les classeurs prédéfinis contiennent généralement des données de requête analytique plutôt que des données métriques.  Vous pouvez décider de créer des classeurs avec des données de métriques, ce qui vous permet de combiner les avantages des deux fonctionnalités dans un emplacement unique. Vous avez également la possibilité d’extraire des données de métriques à partir des ressources de l’ensemble des abonnements auxquels vous avez accès.
 
-Voici un exemple de données de machine virtuelle en cours d’extraction dans un classeur pour fournir une visualisation de la grille des performances du processeur :
+Voici un exemple de données de machine virtuelle extraites dans un classeur en vue d’afficher les performances du processeur sous forme de grille :
 
-![Azure Monitor pour les contrôles d’édition de section de classeurs de machines virtuelles](media/vminsights-workbooks/010-metrics-grid.png)
+![Contrôles d’édition de la section Classeurs d’Azure Monitor pour machines virtuelles](media/vminsights-workbooks/010-metrics-grid.png)
 
 ## <a name="adding-parameter-sections"></a>Ajout de sections de paramètres
 
 Les paramètres de classeur vous permettent de modifier les valeurs dans le classeur sans avoir à modifier manuellement les sections de requête ou de texte. Davantage de personnes peuvent ainsi utiliser ce type de rapports basés sur des classeurs, car il n’est pas nécessaire de comprendre le langage de requête analytique sous-jacent.
 
-Pour remplacer la valeur d’un paramètre dans les sections de requête, de texte ou de paramètre, le nom du paramètre doit être saisi entre accolades, par exemple ``{parameterName}``. Les noms de paramètre sont limités à des règles similaires en tant qu’identificateurs de JavaScript, des caractères alphabétiques ou des traits de soulignement, suivis par des caractères alphanumériques ou des traits de soulignement. Par exemple, **a1** est autorisé, mais pas **1a**.
+Pour remplacer la valeur d’un paramètre dans les sections de requête, de texte ou de paramètre, le nom du paramètre doit être saisi entre accolades, par exemple ``{parameterName}``. Les noms de paramètre doivent respecter des règles similaires à celles des identificateurs JavaScript (des caractères alphabétiques ou des traits de soulignement, suivis par des caractères alphanumériques ou des traits de soulignement). Par exemple, **a1** est autorisé, mais pas **1a**.
 
-Les paramètres sont linéaires et appliqués aux différentes étapes du classeur, en partant du haut.  Les paramètres déclarés ultérieurement dans un classeur peuvent remplacer les paramètres qui ont été déclarées précédemment. Cela permet également de paramètres qui utilisent des requêtes pour accéder aux valeurs de paramètres définis précédemment. Au sein d’une étape de paramètre, les paramètres sont également linéaires et appliqués de gauche à droite, les paramètres de droite pouvant dépendre d’un paramètre déclaré antérieurement au sein de cette même étape.
+Les paramètres sont linéaires et appliqués aux différentes étapes du classeur, en partant du haut.  Des paramètres déclarés ultérieurement dans un classeur peuvent remplacer les paramètres déclarés précédemment. Cela permet également aux paramètres qui utilisent des requêtes d’accéder aux valeurs de paramètres définis précédemment. Au sein d’une étape de paramètre, les paramètres sont également linéaires et appliqués de gauche à droite, les paramètres de droite pouvant dépendre d’un paramètre déclaré antérieurement au sein de cette même étape.
  
-Il existe quatre types de paramètres, qui sont actuellement prises en charge :
+Quatre types de paramètres différents sont actuellement pris en charge :
 
 |                  |      |
 | ---------------- |:-----|
-| **Text**    | Permet à l’utilisateur modifier une zone de texte, et vous pouvez éventuellement fournir une requête pour remplir la valeur par défaut. |
+| **Text**    | Permet à l’utilisateur de modifier une zone de texte. Vous pouvez éventuellement fournir une requête pour renseigner la valeur par défaut. |
 | **Liste déroulante** | Permet à l’utilisateur de choisir parmi un ensemble de valeurs. |
-| **Sélecteur d’intervalle de temps**| Permet à l’utilisateur à choisir parmi un ensemble prédéfini de valeurs de plage de temps, ou sélectionner dans une plage horaire personnalisée.|
-| **Sélecteur de ressource** | Permet à l’utilisateur à choisir parmi les ressources sélectionnées pour le classeur.|
+| **Sélecteur d’intervalle de temps**| Permet à l’utilisateur de choisir parmi un ensemble prédéfini de valeurs d’intervalle de temps, ou de sélectionner un élément à partir d’un intervalle de temps personnalisé.|
+| **Sélecteur de ressource** | Permet à l’utilisateur de choisir parmi les ressources sélectionnées pour le classeur.|
 
 ### <a name="using-a-text-parameter"></a>Utilisation d’un paramètre de texte
 
-La valeur d’un utilisateur tape dans la zone de texte est remplacé directement dans la requête, sans séquence d’échappement ni mise entre guillemets. Si la valeur dont vous avez besoin est une chaîne, le paramètre doit être saisi entre guillemets dans la requête (par exemple **‘{paramètre}’**).
+La valeur qu’un utilisateur entre dans la zone de texte est directement remplacée dans la requête, sans caractère d’échappement ni guillemets. Si la valeur dont vous avez besoin est une chaîne, le paramètre doit être saisi entre guillemets dans la requête (par exemple **‘{paramètre}’** ).
 
-Le paramètre de texte autorise une valeur dans une zone de texte à utiliser n’importe où. Cela peut être un nom de tableau, un nom de colonne, un nom de fonction, un opérateur, etc.  Le type de paramètre de texte a un paramètre **obtenir la valeur par défaut à partir de la requête d’analytique**, ce qui permet au créateur du classeur utiliser une requête pour remplir la valeur par défaut pour cette zone de texte.
+Le paramètre de texte que la valeur entrée dans une zone de texte soit utilisée n’importe où. Cela peut être un nom de tableau, un nom de colonne, un nom de fonction, un opérateur, etc.  Le type de paramètre texte dispose d’un paramètre **Obtenir la valeur par défaut à partir d’une requête Analytics** qui permet au créateur du classeur d’utiliser une requête pour renseigner la valeur par défaut de cette zone de texte.
 
-Lorsque vous utilisez la valeur par défaut à partir d’une requête de journal, uniquement la première valeur de la première ligne (ligne 0, la colonne 0) est utilisée comme valeur par défaut. Par conséquent, il est recommandé de limiter votre requête afin qu’elle renvoie une seule ligne et une seule colonne. Toutes les autres données retournées par la requête sont ignorées. 
+Quand vous utilisez la valeur par défaut obtenue à partir d’une requête de journal, seule la première valeur de la première ligne (ligne 0, colonne 0) est utilisée comme valeur par défaut. Par conséquent, il est recommandé de limiter votre requête afin qu’elle renvoie une seule ligne et une seule colonne. Toutes les autres données retournées par la requête sont ignorées. 
 
 La valeur retournée par la requête est remplacée directement sans espace ni guillemets. Si la requête ne retourne aucune ligne, le résultat du paramètre est une chaîne vide (si le paramètre n’est pas obligatoire) ou une chaîne non définie (si le paramètre est obligatoire).
 
-### <a name="using-a-drop-down"></a>À l’aide d’une liste déroulante.
+### <a name="using-a-drop-down"></a>Utilisation d’une liste déroulante
 
-Le type de paramètre de liste déroulante vous permet de créer un contrôle de liste déroulante, ce qui permet la sélection d’une ou plusieurs valeurs.
+Le type de paramètre liste déroulante vous permet de créer un contrôle de liste déroulante pour pouvoir sélectionner une ou plusieurs valeurs.
 
-La liste déroulante est remplie par une requête de journal ou un JSON. Si la requête retourne une colonne, les valeurs dans cette colonne sont la valeur et l’étiquette dans le contrôle de liste déroulante. Si la requête retourne deux colonnes, la première colonne est la valeur, et la deuxième colonne est le libellé qui apparaît dans la liste déroulante. Si la requête retourne trois colonnes, la troisième colonne est utilisée pour indiquer la sélection par défaut dans cette liste déroulante. Cette colonne peut être de n’importe quel type, mais le plus simple est d’utiliser des valeurs booléennes ou numériques, où 0 correspond à false et 1 à true.
+La liste déroulante est remplie par une requête de journal ou JSON. Si la requête retourne une colonne, les valeurs de cette colonne correspondent à la fois à la valeur et à l’étiquette figurant dans le contrôle de liste déroulante. Si la requête retourne deux colonnes, la première colonne correspond à la valeur, et la deuxième colonne à l’étiquette affichée dans la liste déroulante. Si la requête retourne trois colonnes, la troisième colonne est utilisée pour indiquer la sélection par défaut dans cette liste déroulante. Cette colonne peut être de n’importe quel type, mais le plus simple est d’utiliser des valeurs booléennes ou numériques, où 0 correspond à false et 1 à true.
 
-Si la colonne est de type chaîne, la chaîne null/vide est considérée comme fausse (false), et toute autre valeur est considérée comme vraie (true). Pour une sélection unique listes déroulantes, la première valeur avec une valeur true est utilisée en tant que la sélection par défaut.  Pour plusieurs sélection listes déroulantes, toutes les valeurs avec une valeur true sont utilisées en tant que le jeu sélectionné par défaut. Les éléments dans la liste déroulante s’affichent dans l’ordre qui la requête a retourné des lignes. 
+Si la colonne est de type chaîne, la chaîne null/vide est considérée comme fausse (false), et toute autre valeur est considérée comme vraie (true). Pour les listes déroulantes à sélection unique, la première valeur ayant la valeur true est utilisée comme sélection par défaut.  Pour les listes déroulantes à sélection multiple, toutes les valeurs ayant la valeur true forment le jeu de valeurs sélectionné par défaut. Les éléments de la liste déroulante s’affichent dans l’ordre où la requête a retourné les lignes. 
 
-Examinons les paramètres présents dans le rapport vue d’ensemble de connexions. Cliquez sur le symbole de modification en regard **Direction**.
+Examinons les paramètres présents dans le rapport Vue d’ensemble des connexions. Cliquez sur le symbole de modification en regard de **Direction**.
 
-![Azure Monitor pour les contrôles d’édition de section de classeurs de machines virtuelles](media/vminsights-workbooks/011-workbook-using-dropdown.png)
+![Contrôles d’édition de la section Classeurs d’Azure Monitor pour machines virtuelles](media/vminsights-workbooks/011-workbook-using-dropdown.png)
 
-Cette action lance la **modifier le paramètre** élément de menu.
+Cette action lance l’élément de menu **Modifier le paramètre**.
 
-![Azure Monitor pour les contrôles d’édition de section de classeurs de machines virtuelles](media/vminsights-workbooks/012-workbook-edit-parameter.png)
+![Contrôles d’édition de la section Classeurs d’Azure Monitor pour machines virtuelles](media/vminsights-workbooks/012-workbook-edit-parameter.png)
 
-Le code JSON vous permet de générer une table arbitraire remplie avec le contenu. Par exemple, le code JSON suivant génère deux valeurs dans la liste déroulante :
+Le code JSON vous permet de générer une table arbitraire contenant des données. Par exemple, le code JSON suivant génère deux valeurs dans la liste déroulante :
 
 ```
 [
@@ -206,7 +206,7 @@ Le code JSON vous permet de générer une table arbitraire remplie avec le conte
 ]
 ```
 
-Un exemple plus applicable utilise une liste déroulante pour choisir parmi un ensemble de compteurs de performances par nom :
+Vous pouvez également utiliser une liste déroulante pour sélectionner un ensemble de compteurs de performances par nom :
 
 ```
 Perf
@@ -217,9 +217,9 @@ Perf
 
 La requête affiche les résultats comme suit :
 
-![Liste déroulante de compteur de performances](media/vminsights-workbooks/013-workbook-edit-parameter-perf-counters.png)
+![Liste déroulante de compteurs de performances](media/vminsights-workbooks/013-workbook-edit-parameter-perf-counters.png)
 
-Listes déroulantes sont incroyablement puissants outils de personnalisation et création de rapports interactifs.
+Les listes déroulantes sont des outils incroyablement efficaces pour créer et personnaliser des rapports interactifs.
 
 ### <a name="time-range-parameters"></a>Paramètres d’intervalle de temps
 
@@ -229,13 +229,13 @@ Les types de paramètre intervalle de temps ont 15 plages par défaut qui vont d
 
 ### <a name="resource-picker"></a>Sélecteur de ressource
 
-Le type de paramètre de sélecteur de ressource vous donne la possibilité de limiter ou d’étendre votre rapport à certains types de ressources. Un exemple de classeur prédéfini qui s’appuie sur le type de sélecteur de ressource est la **performances** classeur.
+Le type de paramètre de sélecteur de ressource vous donne la possibilité de limiter ou d’étendre votre rapport à certains types de ressources. Le classeur **Performances** est un exemple de classeur prédéfini qui utilise le type de sélecteur de ressource.
 
-![Liste déroulante des espaces de travail](media/vminsights-workbooks/014-workbook-edit-parameter-workspaces.png)
+![Liste déroulante d’espaces de travail](media/vminsights-workbooks/014-workbook-edit-parameter-workspaces.png)
 
 ## <a name="saving-and-sharing-workbooks-with-your-team"></a>Enregistrer et partager des classeurs avec votre équipe
 
-Les classeurs sont enregistrés dans un espace de travail Analytique de journal ou une ressource de machine virtuelle, selon la façon dont vous accéder à la galerie de classeurs. Le classeur peut être enregistré dans le **Mes rapports** section est privée ou dans le **rapports partagés** section qui est accessible à tous les utilisateurs ayant accès à la ressource. Pour afficher tous les classeurs de la ressource, cliquez sur le bouton **Ouvrir** dans la barre d’action.
+Les classeurs sont enregistrés dans un espace de travail Log Analytics ou une ressource de machine virtuelle, selon la façon dont vous accédez à la galerie de classeurs. Le classeur peut être sont enregistré dans la section **Mes rapports** qui est privée ou dans la section **Rapports partagés** qui est accessible à tous les utilisateurs ayant accès à la ressource. Pour afficher tous les classeurs de la ressource, cliquez sur le bouton **Ouvrir** dans la barre d’action.
 
 Pour partager un classeur qui se trouve actuellement dans **Mes rapports** :
 
@@ -252,4 +252,4 @@ Pour épingler un lien à un classeur dans un tableau de bord Azure :
 3. Cliquez sur **Épingler au tableau de bord**.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour savoir comment utiliser la fonctionnalité de contrôle d’intégrité, consultez [afficher l’intégrité de machine virtuelle Azure](vminsights-health.md), ou pour afficher les dépendances des applications découvertes, consultez [vue Azure Monitor pour le mappage des machines virtuelles](vminsights-maps.md). 
+Pour savoir comment utiliser la fonctionnalité d’intégrité, consultez [Afficher l’intégrité d’une machine virtuelle Azure](vminsights-health.md) ou pour afficher les dépendances d’application détectées, consultez [Comprendre la fonctionnalité de mappage d’Azure Monitor pour machines virtuelles](vminsights-maps.md). 

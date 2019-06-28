@@ -10,10 +10,10 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: f449449c542ce6ac04daa58ff37a3577f0d75aee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61221850"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Intégration continue et déploiement continu dans Azure IoT Edge
@@ -25,7 +25,7 @@ Dans cet article, vous allez apprendre à utiliser les tâches Azure IoT Edge in
 ![Diagramme - Branches CI et CD pour le développement et la production](./media/how-to-ci-cd/cd.png)
 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Référentiel Azure Repos. Si vous n’en avez pas, vous pouvez [créer un référentiel Git dans votre projet](https://docs.microsoft.com/azure/devops/repos/git/create-new-repo?view=vsts&tabs=new-nav).
 * Solution IoT Edge validée et envoyée (push) vers votre référentiel. Si vous souhaitez créer un exemple de solution pour tester cet article, suivez la procédure décrite dans [Développer et déboguer des modules dans Visual Studio Code](how-to-vs-code-develop-module.md) ou [Développer et déboguer des modules C# dans Visual Studio](how-to-visual-studio-develop-csharp-module.md).
@@ -47,7 +47,7 @@ Dans cette section, vous créez un pipeline de build. Configurez le pipeline de 
 >
 >Pour plus d’informations, consultez [Créer un pipeline de build](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav#create-a-build-pipeline).
 
-1. Connectez-vous à votre organisation d’Azure DevOps (**https :\//dev.azure.com/{your organisation} /**) et ouvrez le projet qui contient votre référentiel de la solution IoT Edge.
+1. Connectez-vous à votre organisation Azure DevOps (**https:\//dev.azure.com/{votre organisation}/** ), puis ouvrez le projet contenant votre référentiel de solutions IoT Edge.
 
    Pour cet article, nous avons créé un référentiel appelé **IoTEdgeRepo**. Ce référentiel contient **IoTEdgeSolution** qui dispose du code d'un module nommé **filtermodule**. 
 
@@ -77,7 +77,7 @@ Dans cette section, vous créez un pipeline de build. Configurez le pipeline de 
     
      ![Configurer le pool d’agents de build](./media/how-to-ci-cd/configure-env.png)
 
-5. Votre pipeline est préconfiguré avec un travail appelé **Travail d'agent 1**. Sélectionnez le signe plus (**+**) pour ajouter trois tâches au travail : **Azure IoT Edge** deux fois, et **Publier des artefacts de build** une fois. (Placez le curseur sur le nom de chaque tâche pour afficher le bouton **Ajouter**.)
+5. Votre pipeline est préconfiguré avec un travail appelé **Travail d'agent 1**. Sélectionnez le signe plus ( **+** ) pour ajouter trois tâches au travail : **Azure IoT Edge** deux fois, et **Publier des artefacts de build** une fois. (Placez le curseur sur le nom de chaque tâche pour afficher le bouton **Ajouter**.)
 
    ![Ajouter une tâche Azure IoT Edge](./media/how-to-ci-cd/add-iot-edge-task.png)
 
@@ -89,7 +89,7 @@ Dans cette section, vous créez un pipeline de build. Configurez le pipeline de 
 
    * **Nom complet** : Acceptez la valeur par défaut **Azure IoT Edge - Générer des images de module**.
    * **Action** : Acceptez la valeur par défaut **Générer des images de module**. 
-   * **fichier .template.json** : Sélectionnez les points de suspension (**...** ) et accédez au fichier **deployment.template.json** du référentiel contenant votre solution IoT Edge. 
+   * **fichier .template.json** : Sélectionnez les points de suspension ( **...** ) et accédez au fichier **deployment.template.json** du référentiel contenant votre solution IoT Edge. 
    * **Plateforme par défaut** : Sélectionnez la plateforme appropriée pour vos modules en fonction de votre appareil IoT Edge cible. 
    * **Variables de sortie** : Les variables de sortie incluent un nom de référence que vous pouvez utiliser pour configurer le chemin d’accès où votre fichier deployment.json sera généré. Définissez le nom de référence de manière à vous en souvenir, par exemple, **edge**. 
 
@@ -98,7 +98,7 @@ Dans cette section, vous créez un pipeline de build. Configurez le pipeline de 
    * **Nom d'affichage** : Le nom d’affichage est automatiquement mis à jour lorsque le champ d’action change. 
    * **Action** : Utilisez la liste déroulante pour sélectionner **Envoyer (push) des images de module**. 
    * **Type de registre de conteneurs** : Sélectionnez le type de registre de conteneurs que vous utilisez pour stocker vos images de module. Le formulaire change selon le type de registre que vous sélectionnez. Si vous choisissez **Azure Container Registry**, utilisez les listes déroulantes pour sélectionner l’abonnement Azure et le nom de votre registre de conteneurs. Si vous choisissez **Registre de conteneurs générique**, sélectionnez **Nouveau** pour créer une connexion de service de registre. 
-   * **fichier .template.json** : Sélectionnez les points de suspension (**...** ) et accédez au fichier **deployment.template.json** du référentiel contenant votre solution IoT Edge. 
+   * **fichier .template.json** : Sélectionnez les points de suspension ( **...** ) et accédez au fichier **deployment.template.json** du référentiel contenant votre solution IoT Edge. 
    * **Plateforme par défaut** : Sélectionnez la même plateforme que pour vos images de module générées.
 
    Si vous avez plusieurs registres de conteneurs pour héberger vos images de modules, vous devez dupliquer cette tâche, sélectionner un autre registre de conteneurs et utiliser **Bypass module(s)** (Ignorer les modules) dans les paramètres avancés pour ignorer les images qui ne concernent pas ce registre spécifique.
@@ -152,7 +152,7 @@ Créez un pipeline et configurez sa première phase pour les déploiements d'ass
 
 8. Dans la phase AQ, vous devez voir un **Travail d'agent** par défaut. Vous pouvez configurer les détails relatifs au travail de l'agent, mais la tâche de déploiement est indépendante de la plateforme, ce qui signifie que vous pouvez utiliser **Hosted VS2017** (VS2017 hébergé) ou **Hosted Ubuntu 1604** (Ubuntu 1604 hébergé) dans le **Pool d’agents** (ou tout autre agent géré par vous-même). 
 
-9. Cliquez sur le signe plus (**+**) pour ajouter une tâche. Recherchez et ajoutez **Azure IoT Edge**. 
+9. Cliquez sur le signe plus ( **+** ) pour ajouter une tâche. Recherchez et ajoutez **Azure IoT Edge**. 
 
     ![Ajouter des tâches AQ (assurance qualité)](./media/how-to-ci-cd/add-task-qa.png)
 

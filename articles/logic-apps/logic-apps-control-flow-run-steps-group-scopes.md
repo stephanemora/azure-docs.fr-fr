@@ -11,10 +11,10 @@ ms.reviewer: klam, LADocs
 ms.date: 10/03/2018
 ms.topic: article
 ms.openlocfilehash: 48fb2d14cd4cf99510fff88b25b9ae45814a92a8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60685407"
 ---
 # <a name="run-actions-based-on-group-status-with-scopes-in-azure-logic-apps"></a>Exécuter des actions de workflow en fonction de l’état du groupe avec des étendues dans Azure Logic Apps
@@ -27,7 +27,7 @@ Par exemple, voici une application logique de haut niveau qui utilise une étend
 
 ![Configurer le déclencheur « Planification - Périodicité »](./media/logic-apps-control-flow-run-steps-group-scopes/scope-high-level.png)
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre l’exemple de cet article, vous avez besoin de ces éléments :
 
@@ -54,7 +54,7 @@ Vous pouvez enregistrer votre application logique à tout moment, par conséquen
 
 1. Si ce n’est pas déjà fait, connectez-vous au <a href="https://portal.azure.com" target="_blank">portail Azure</a>. Créez une application logique vide.
 
-1. Ajouter le **planification - récurrence** déclencheur avec ces paramètres : **Intervalle** = « 1 » et **fréquence** = « Minute »
+1. Ajoutez le déclencheur **Planification - Périodicité** avec ces paramètres : **Intervalle** = « 1 » et **Fréquence** = « Minute »
 
    ![Configurer le déclencheur « Planification - Périodicité »](./media/logic-apps-control-flow-run-steps-group-scopes/recurrence.png)
 
@@ -92,7 +92,7 @@ Vous pouvez enregistrer votre application logique à tout moment, par conséquen
 1. [Ajoutez une condition](../logic-apps/logic-apps-control-flow-conditional-statement.md) qui vérifie si le temps de trajet actuel dépasse une durée spécifiée. 
    Pour cet exemple, suivez ces étapes :
 
-   1. Renommez la condition avec cette description : **Si le temps du trafic est supérieur à l’heure spécifiée**
+   1. Renommez la condition avec cette description : **Si le temps de trafic est supérieur à la durée spécifiée**
 
    1. Dans la colonne de gauche, cliquez à l’intérieur de la zone **Choisir une valeur** pour afficher la liste de contenu dynamique. Dans cette liste, sélectionnez le champ **Travel Duration Traffic** (Trafic correspondant à la durée du trajet), qui est exprimé en secondes. 
 
@@ -100,7 +100,7 @@ Vous pouvez enregistrer votre application logique à tout moment, par conséquen
 
    1. Dans la zone du milieu, sélectionnez cet opérateur : **est supérieur à**.
 
-   1. Dans la colonne de droite, entrez cette valeur de comparaison, ce qui est en secondes et correspond à 10 minutes : **600**
+   1. Dans la colonne la plus à droite, entrez cette valeur de comparaison, équivalente à 10 minutes en secondes : **600**
 
       Une fois que vous avez terminé, votre condition ressemble à cet exemple :
 
@@ -125,7 +125,7 @@ Vous pouvez enregistrer votre application logique à tout moment, par conséquen
 
    1. Dans la liste de contenu dynamique, choisissez **Expression**.
 
-   1. Recherchez et sélectionnez la fonction **div()**. 
+   1. Recherchez et sélectionnez la fonction **div()** . 
       Placez votre curseur dans les parenthèses de la fonction.
 
    1. Alors que votre curseur se trouve dans les parenthèses de la fonction, choisissez **Contenu dynamique** pour afficher la liste de contenu dynamique. 
@@ -147,11 +147,11 @@ Vous pouvez enregistrer votre application logique à tout moment, par conséquen
    1. Une fois que vous avez terminé, sélectionnez **OK**.
 
    <!-- markdownlint-disable MD038 -->
-   1. Une fois que l’expression correspond, ajoutez ce texte avec un espace de début : ``` minutes```
+   1. Une fois que l’expression est résolue, ajoutez ce texte avec un espace de début : ``` minutes```
   
        Votre champ **Corps** ressemble maintenant à cet exemple :
 
-       ![Champ « Corps » terminé](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-4.png)
+       ![Champ « Corps » final](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-4.png)
    <!-- markdownlint-enable MD038 -->
 
 1. Enregistrez votre application logique.
@@ -165,7 +165,7 @@ Ensuite, ajoutez une étendue afin que vous puissiez regrouper des actions spéc
 1. Ajoutez une étendue à l’emplacement du flux de travail que vous souhaitez. Par exemple, pour ajouter une étendue entre des étapes existantes dans le workflow de l’application logique, effectuez les étapes suivantes : 
 
    1. Déplacez votre pointeur sur la flèche où vous souhaitez ajouter l’étendue. 
-   Choisissez le **signe plus** (**+**) > **Ajouter une action**.
+   Choisissez le **signe plus** ( **+** ) > **Ajouter une action**.
 
       ![Ajouter une étendue](./media/logic-apps-control-flow-run-steps-group-scopes/add-scope.png)
 

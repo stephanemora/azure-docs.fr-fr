@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2019
 ms.author: kumud
 ms.openlocfilehash: 66777ec314e95d81a4be57082f06ef16dc170186
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60516548"
 ---
 # <a name="configure-dhcpv6-for-linux-vms"></a>Configurer DHCPv6 pour les machines virtuelles Linux
@@ -54,9 +54,9 @@ Ce document vous explique comment activer DHCPv6 pour que votre machine virtuell
     ```bash
     sudo ifdown eth0 && sudo ifup eth0
     ```
-À compter de Ubuntu 17.10, le mécanisme de configuration de réseau par défaut est [NETPLAN]( https://netplan.io).  Au moment de l’installation / d’instanciation, NETPLAN lit la configuration du réseau à partir des fichiers de configuration YAML à cet emplacement : / {lib,etc,run}/netplan/*.yaml.
+À compter d’Ubuntu 17.10, [NETPLAN]( https://netplan.io) est le mécanisme de configuration de réseau par défaut.  Au moment de l’installation/instanciation, NETPLAN lit la configuration du réseau dans les fichiers de configuration YAML situés à cet emplacement : /{lib,etc,run}/netplan/*.yaml.
 
-Veuillez inclure un *dhcp6:true* instruction pour chaque interface ethernet dans votre configuration.  Par exemple : 
+Vous devez ajouter une instruction *dhcp6:true* pour chaque interface Ethernet dans votre configuration.  Par exemple :
   
         network:
           version: 2
@@ -64,7 +64,7 @@ Veuillez inclure un *dhcp6:true* instruction pour chaque interface ethernet dans
             eno1:
               dhcp6: true
 
-Pendant l’initialisation anticipée, le netplan « réseau convertisseur » écrit la configuration sur / l’exécuter pour transmettre contrôle des appareils vers le démon de mise en réseau spécifié pour les informations de référence sur NETPLAN, reportez-vous à la section https://netplan.io/reference.
+Pendant le démarrage anticipé, le NETPLAN « network renderer » écrit la configuration dans /run afin de passer le contrôle des appareils au démon réseau spécifié. Pour obtenir des informations de référence sur NETPLAN, consultez https://netplan.io/reference.
  
 ## <a name="debian"></a>Debian
 

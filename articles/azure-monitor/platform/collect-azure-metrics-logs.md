@@ -1,6 +1,6 @@
 ---
-title: Collecter les journaux de service Azure et des métriques dans l’espace de travail Analytique de journal | Microsoft Docs
-description: Configurer les diagnostics sur des ressources Azure pour écrire des journaux et métriques pour l’espace de travail Analytique de journal dans Azure Monitor.
+title: Collecte des journaux d’activité et des métriques des services Azure dans l’espace de travail Log Analytics | Microsoft Docs
+description: Configurez des diagnostics sur les ressources Azure pour écrire des journaux d’activité et des métriques dans l’espace de travail Log Analytics d’Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.openlocfilehash: d086b6f844deb06d98edec8d8ec0f5670d84f066
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66129719"
 ---
-# <a name="collect-azure-service-logs-and-metrics-into-log-analytics-workspace-in-azure-monitor"></a>Collecter les journaux de service Azure et des métriques dans l’espace de travail Analytique de journal dans Azure Monitor
+# <a name="collect-azure-service-logs-and-metrics-into-log-analytics-workspace-in-azure-monitor"></a>Collecte des journaux d’activité et des métriques des services Azure dans l’espace de travail Log Analytics d’Azure Monitor
 
 Il existe quatre façons différentes de collecter des journaux d’activité et des métriques pour les services Azure :
 
-1. Diagnostics Azure directement dans l’espace de travail Analytique de journal dans Azure Monitor (*Diagnostics* dans le tableau suivant)
-2. Diagnostics Azure vers le stockage Azure pour l’espace de travail Analytique de journal dans Azure Monitor (*stockage* dans le tableau suivant)
+1. Diagnostics Azure directement dans l’espace de travail Log Analytics d’Azure Monitor (*Diagnostics* dans le tableau suivant)
+2. Diagnostics Azure dans le stockage Azure de l’espace de travail Log Analytics d’Azure Monitor (*Stockage* dans le tableau suivant)
 3. Connecteurs pour les services Azure (*Connecteurs* dans le tableau suivant)
-4. Des scripts pour collecter puis publier des données dans l’espace de travail Analytique de journal dans Azure Monitor (vide dans le tableau suivant et pour les services qui ne sont pas répertoriés)
+4. Scripts pour collecter puis publier les données dans l’espace de travail Log Analytics d’Azure Monitor (cellules vides dans le tableau suivant et pour les services qui ne sont pas répertoriés)
 
 
 | de diffusion en continu                 | Type de ressource                           | Journaux d’activité        | Mesures     | Solution |
@@ -64,12 +64,12 @@ Il existe quatre façons différentes de collecter des journaux d’activité et
 >
 
 ## <a name="azure-diagnostics-direct-to-log-analytics"></a>Diagnostics Azure directement dans Log Analytics
-De nombreuses ressources Azure sont en mesure d’écrire des journaux de diagnostic et métriques directement à un espace de travail Analytique de journal dans Azure Monitor, et c’est le meilleur moyen de collecter les données pour l’analyse. Lorsque vous utilisez les diagnostics Azure, les données sont écrites immédiatement dans l’espace de travail, et il est inutile d’écrire tout d’abord les données vers le stockage.
+De nombreuses ressources Azure sont en mesure d’écrire des journaux de diagnostic et métriques directement dans l’espace de travail Log Analytics d’Azure Monitor. Il s’agit du moyen recommandé pour collecter les données à analyser. Lorsque vous utilisez les diagnostics Azure, les données sont écrites immédiatement dans l’espace de travail, et il est inutile d’écrire d’abord les données dans le stockage.
 
-Les ressources Azure qui prennent en charge [Azure monitor](../../azure-monitor/overview.md) peuvent envoyer leurs journaux et métriques directement à un espace de travail Analytique de journal.
+Mes ressources Azure qui prennent en charge [Azure Monitor](../../azure-monitor/overview.md) peuvent envoyer leurs journaux d’activité et métriques directement vers un espace de travail Log Analytics.
 
 > [!NOTE]
-> Envoi de plusieurs métriques multidimensionnelles à un espace de travail Analytique de journal via les paramètres de diagnostic n’est pas pris en charge actuellement. Les métriques à plusieurs dimensions sont exportées en tant que métriques dimensionnelles uniques aplaties, puis agrégées dans les valeurs de la dimension.
+> L’envoi de métriques multidimensionnels à l’espace de travail Log Analytics au moyen des paramètres de diagnostic n’est pas pris en charge actuellement. Les métriques à plusieurs dimensions sont exportées en tant que métriques dimensionnelles uniques aplaties, puis agrégées dans les valeurs de la dimension.
 >
 > *Par exemple* : Le métrique « Messages entrants » dans un hub d’événements peut être examiné et représenté sur un niveau par file d’attente. Toutefois, lors de l’exportation via les paramètres de diagnostic, la métrique est représentée sous la forme de tous les messages entrants, dans toutes les files d’attente de l’Event Hub.
 >
@@ -125,9 +125,9 @@ Pour activer les diagnostics sur une ressource lors de sa création, et envoyer 
 
 ## <a name="azure-diagnostics-to-storage-then-to-log-analytics"></a>Diagnostics Azure vers stockage, puis vers Log Analytics
 
-Pour la collecte des journaux sur certaines ressources, il est possible envoyer les journaux vers le stockage Azure, puis configurer l’espace de travail Analytique de journal pour lire les journaux à partir du stockage.
+Pour la collecte des journaux d’activité sur certaines ressources, il est possible d’envoyer les journaux d’activité vers le Stockage Azure, puis de configurer l’espace de travail Log Analytics pour lire les journaux d’activité depuis le stockage.
 
-Azure Monitor peut utiliser cette approche pour collecter des diagnostics à partir du stockage Azure pour les journaux et les ressources suivantes :
+Azure Monitor peut utiliser cette approche pour collecter des diagnostics à partir du stockage Azure pour les journaux d’activité et les ressources qui suivent :
 
 | Ressource | Journaux d’activité |
 | --- | --- |
@@ -136,26 +136,26 @@ Azure Monitor peut utiliser cette approche pour collecter des diagnostics à par
 | Rôles web <br> Rôles de travail |Syslog Linux <br> Événement Windows <br> Journal IIS <br> ETWEvent Windows |
 
 > [!NOTE]
-> Vous sont facturés des données Azure normaux pour stockage et les transactions lorsque vous envoyez des diagnostics pour un compte de stockage et lorsque l’espace de travail Analytique de journal lit les données à partir de votre compte de stockage.
+> Vous êtes facturé aux tarifs de données Azure normaux pour le stockage et les transactions lorsque vous envoyez des diagnostics à un compte de stockage et lorsque l’espace de travail Log Analytics lit les données de votre compte de stockage.
 >
 >
 
-Consultez [utilisez stockage blob pour IIS et la table de stockage pour les événements](azure-storage-iis-table.md) pour en savoir plus sur la façon dont Azure Monitor peut collecter ces journaux.
+Consultez la page [Utiliser un Stockage Blob pour IIS et un Stockage Table pour les événements](azure-storage-iis-table.md) pour en savoir plus sur la façon dont Azure Monitor peut collecter ces journaux d’activité.
 
 ## <a name="connectors-for-azure-services"></a>Connecteurs pour les services Azure
 
-Il existe un connecteur pour Application Insights, ce qui permet aux données collectées par Application Insights à envoyer à un espace de travail Analytique de journal.
+Il existe un connecteur pour Application Insights qui permet aux données collectées par Application Insights d’être envoyées vers un espace de travail Log Analytics.
 
 En savoir plus sur le [connecteur Application Insights](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/).
 
-## <a name="scripts-to-collect-and-post-data-to-log-analytics-workspace"></a>Scripts pour collecter et publier des données sur l’espace de travail Analytique de journal
+## <a name="scripts-to-collect-and-post-data-to-log-analytics-workspace"></a>Scripts pour collecter et publier des données sur l’espace de travail Log Analytics
 
-Pour les services Azure qui ne fournissent pas un moyen direct d’envoyer des journaux et les mesures à un espace de travail Analytique de journal, vous pouvez utiliser un script d’automatisation d’Azure pour collecter les journaux et les métriques. Le script peut alors envoyer les données à l’espace de travail à l’aide de la [API du collecteur de données](../../azure-monitor/platform/data-collector-api.md)
+Pour les services Azure qui ne fournissent pas de moyen direct d’envoyer les journaux d’activité et métriques vers l’espace de travail Log Analytics, vous pouvez utiliser un script Azure Automation pour les collecter. Le script peut alors envoyer les données vers l’espace de travail à l’aide de [l’API de collecte de données](../../azure-monitor/platform/data-collector-api.md)
 
-La galerie de modèles Azure a [exemples d’utilisation d’Azure Automation](https://azure.microsoft.com/resources/templates/?term=OMS) pour collecter des données à partir des services et l’envoyer à Azure Monitor.
+La galerie de modèles Azure propose des [exemples d’utilisation d’Azure Automation](https://azure.microsoft.com/resources/templates/?term=OMS) pour collecter des données à partir des services et les envoyer à Azure Monitor.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Utiliser un Stockage Blob pour IIS et un Stockage Table pour les événements](azure-storage-iis-table.md) afin de lire les journaux pour les services Azure qui écrivent des diagnostics dans Stockage Table ou les journaux IIS écrits dans le Stockage Blob.
+* [Utiliser un Stockage Blob pour IIS et un Stockage Table pour les événements](azure-storage-iis-table.md) afin de lire les journaux d’activité pour les services Azure qui écrivent des diagnostics dans Stockage Table ou les journaux d’activité IIS écrits dans le Stockage Blob.
 * [Activer les solutions](../../azure-monitor/insights/solutions.md) pour fournir des informations sur les données.
 * [Utiliser les requêtes de recherche](../../azure-monitor/log-query/log-query-overview.md) pour analyser les données.

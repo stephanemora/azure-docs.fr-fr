@@ -1,5 +1,5 @@
 ---
-title: Comment utiliser un package NuGet personnalisé de flux dans les espaces de développement Azure
+title: Guide pratique pour utiliser un flux NuGet personnalisé dans Azure Dev Spaces
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
@@ -11,10 +11,10 @@ description: Utilisez un flux NuGet personnalisé pour accéder à des packages 
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, conteneurs
 manager: ghogen
 ms.openlocfilehash: 1a000e378a9b8ecfb09d778fd6444e3f24b3df7b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60686453"
 ---
 #  <a name="use-a-custom-nuget-feed-in-an-azure-dev-space"></a>Utiliser un flux NuGet personnalisé dans un espace Azure Dev Spaces

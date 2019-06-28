@@ -16,10 +16,10 @@ ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
 ms.openlocfilehash: cc2a0177525013736445db5fd1befa478dc9b9b8
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62106911"
 ---
 # <a name="troubleshoot-cloud-service-deployment-problems"></a>Résoudre les problèmes de déploiement de service cloud
@@ -36,14 +36,14 @@ Vous trouverez le volet **Propriétés** comme suit :
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="problem-i-cannot-access-my-website-but-my-deployment-is-started-and-all-role-instances-are-ready"></a>Problème : Je ne parviens pas à accéder à mon site Web, mais mon déploiement est démarré et toutes les instances de rôle sont prêtes
+## <a name="problem-i-cannot-access-my-website-but-my-deployment-is-started-and-all-role-instances-are-ready"></a>Problème : Je ne peux pas accéder à mon site web bien que mon déploiement soit démarré et que toutes les instances de rôle soient prêtes
 Le lien URL du site web affiché dans le portail n’inclut pas le port. Le port par défaut pour les sites web est 80. Si votre application est configurée pour s’exécuter dans un autre port, vous devez ajouter le numéro de port approprié à l’URL lorsque vous accédez au site web.
 
 1. Dans le portail Azure, cliquez sur le déploiement de votre service cloud.
 2. Dans le volet **Propriétés** du portail Azure, vérifiez les ports des instances de rôle (sous **Points de terminaison d’entrée**).
 3. Si le port n’est pas le port 80, ajoutez la valeur de port correcte à l’URL lorsque vous accédez à l’application. Pour spécifier un port non défini par défaut, tapez l’URL, suivie de deux-points (:) et du numéro de port sans espaces.
 
-## <a name="problem-my-role-instances-recycled-without-me-doing-anything"></a>Problème : Mes instances de rôle sont recyclées sans rien faire
+## <a name="problem-my-role-instances-recycled-without-me-doing-anything"></a>Problème : Mes instances de rôle sont recyclées sans action de ma part
 Une réparation de service se produit automatiquement lorsque Azure détecte des nœuds problématiques et déplace donc les instances de rôle vers de nouveaux nœuds. Le cas échéant, il est possible que vos instances de rôle se recyclent automatiquement. Pour savoir si une réparation de service a eu lieu :
 
 1. Dans le portail Azure, cliquez sur le déploiement de votre service cloud.
@@ -52,7 +52,7 @@ Une réparation de service se produit automatiquement lorsque Azure détecte des
 Les rôles sont recyclés également environ une fois par mois pendant les mises à jour du système d’exploitation hôte et du système d’exploitation invité.  
 Pour plus d’informations, consultez le billet de blog [Redémarrages d’instances de rôles pour cause de mises à niveau du système d’exploitation](https://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx)
 
-## <a name="problem-i-cannot-do-a-vip-swap-and-receive-an-error"></a>Problème : Je ne parviens pas à effectuer un échange d’adresses IP virtuelles et recevez une erreur
+## <a name="problem-i-cannot-do-a-vip-swap-and-receive-an-error"></a>Problème : Impossible d’effectuer un échange d’adresses IP virtuelles, une erreur s’affiche
 Un échange d’adresses IP virtuelles n’est pas autorisé si une mise à jour de déploiement est en cours. Les mises à jour de déploiement peuvent se produire automatiquement dans les situations suivantes :
 
 * Un nouveau système d’exploitation invité est disponible et votre installation est configurée pour les mises à jour automatiques.
@@ -65,7 +65,7 @@ Pour savoir si une mise à jour automatique vous empêche d’effectuer un écha
 3. Répétez les étapes 1 et 2 pour le déploiement en production.
 4. Si une mise à jour automatique est en cours, attendez qu’elle se termine avant d’essayer d’effectuer l’échange d’adresses IP virtuelles.
 
-## <a name="problem-a-role-instance-is-looping-between-started-initializing-busy-and-stopped"></a>Problème : Une instance de rôle est exécutée en boucle entre démarré, initialisation, occupé et arrêté
+## <a name="problem-a-role-instance-is-looping-between-started-initializing-busy-and-stopped"></a>Problème : Une instance de rôle est exécutée en boucle entre Démarrée, Initialisation, Occupée et Arrêtée
 Cette condition peut indiquer un problème lié à votre code d’application, package ou fichier de configuration. Dans ce cas, vous devez être en mesure de voir l’état changer à des intervalles de quelques minutes, et le portail Azure peut indiquer des états tels que **Recyclage**, **Occupé** ou **Initialisation**. Cela indique qu’il existe un problème au niveau de l’application qui empêche l’exécution de l’instance de rôle.
 
 Pour plus d’informations sur la résolution de ce problème, consultez les billets de blog [Données de diagnostic de calcul PaaS Azure](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx) et [Problèmes courants provoquant le recyclage des rôles](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md).

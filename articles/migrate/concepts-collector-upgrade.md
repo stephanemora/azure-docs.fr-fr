@@ -8,25 +8,25 @@ ms.date: 03/29/2019
 ms.author: hamusa
 services: azure-migrate
 ms.openlocfilehash: 7cd44318716200d665ece9ffecc45225bdfb85eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60685917"
 ---
-# <a name="collector-appliance-updates"></a>Mises à jour du collecteur
+# <a name="collector-appliance-updates"></a>Mises à jour de l’appliance Collector
 
 Cet article résume les informations de mise à niveau pour l’appliance Collector dans [Azure Migrate](migrate-overview.md).
 
 Azure Migrate Collector est une appliance légère qui permet de découvrir un environnement vCenter local dans le cadre d’une évaluation avant la migration vers Azure. [Plus d’informations](concepts-collector.md)
 
-## <a name="how-to-upgrade-the-appliance"></a>Comment mettre à niveau de l’appliance
+## <a name="how-to-upgrade-the-appliance"></a>Comment mettre à niveau l’appliance
 
 Vous pouvez mettre à niveau le collecteur vers la version la plus récente sans retélécharger le fichier OVA.
 
-1. Fermez toutes les fenêtres de navigateur et les ouvrent les fichiers/dossiers dans l’appliance.
-2. Téléchargez le dernier package de mise à niveau à partir de la liste des mises à jour mentionnées dans cet article.
-3. Pour vous assurer que le package téléchargé est sécurisé, ouvrez la fenêtre de commande d’administrateur et exécutez la commande suivante pour générer le hachage du fichier ZIP. Le hachage généré doit correspondre au hachage mentionné pour la version spécifique :
+1. Fermez toutes les fenêtres de navigateur et tous les fichiers/dossiers ouverts dans l’appliance.
+2. Téléchargez le package de mise à niveau le plus récent dans la liste des mises à jour mentionnées ci-dessous dans cet article.
+3. Pour vous assurer que le package téléchargé est sécurisé, ouvrez la fenêtre de commande administrateur et exécutez la commande suivante pour générer le hachage du fichier ZIP. Le hachage généré doit correspondre au hachage mentionné pour la version spécifique :
 
     ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
 
@@ -39,11 +39,11 @@ Vous pouvez mettre à niveau le collecteur vers la version la plus récente sans
 
 ### <a name="continuous-discovery-upgrade-versions"></a>Découverte continue : versions de mise à niveau
 
-#### <a name="version-101014-released-on-03292019"></a>Version 1.0.10.14 (publié le 29/03/2019)
+#### <a name="version-101014-released-on-03292019"></a>Version 1.0.10.14 (publiée le 29/03/2019)
 
-Contient plusieurs améliorations de l’interface utilisateur.
+Contient quelques améliorations de l’interface utilisateur.
 
-Valeurs pour la mise à niveau de hachage [1.0.10.14 du package](https://aka.ms/migrate/col/upgrade_10_14)
+Valeurs de hachage pour le [package de mise à niveau 1.0.10.14](https://aka.ms/migrate/col/upgrade_10_14)
 
 **Algorithme** | **Valeur de hachage**
 --- | ---
@@ -51,11 +51,11 @@ MD5 | 846b1eb29ef2806bcf388d10519d78e6
 SHA1 | 6243239fa49c6b3f5305f77e9fd4426a392d33a0
 SHA256 | fb058205c945a83cc4a31842b9377428ff79b08247f3fb8bb4ff30c125aa47ad
 
-#### <a name="version-101012-released-on-03132019"></a>Version 1.0.10.12 (publié le 13/03/2019)
+#### <a name="version-101012-released-on-03132019"></a>Version 1.0.10.12 (publiée le 13/03/2019)
 
-Contient des correctifs pour les problèmes dans la sélection d’Azure cloud dans l’appliance.
+Contient des correctifs pour les problèmes de sélection du cloud Azure dans l’appliance.
 
-Valeurs pour la mise à niveau de hachage [1.0.10.12 du package](https://aka.ms/migrate/col/upgrade_10_12)
+Valeurs de hachage pour le [package de mise à niveau 1.0.10.12](https://aka.ms/migrate/col/upgrade_10_12)
 
 **Algorithme** | **Valeur de hachage**
 --- | ---

@@ -1,5 +1,5 @@
 ---
-title: 'Azure Databricks : Questions courantes et aide'
+title: 'Azure Databricks : Aide et questions courantes'
 description: Obtenez des réponses aux questions courantes et des informations de dépannage sur Azure Databricks.
 services: azure-databricks
 author: mamccrea
@@ -10,10 +10,10 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.openlocfilehash: 3bcc511ec6ad8a246c2b1b3a33eb59043a45830e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60784705"
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>Forum aux Questions sur Azure Databricks
@@ -44,7 +44,7 @@ Vous trouverez ci-après certains problèmes éventuellement rencontrés avec Da
 
 #### <a name="error-message"></a>Message d’erreur
 
-« Cet abonnement n’est pas inscrit pour utiliser l’espace de noms « Microsoft.Databricks ». Consultez https://aka.ms/rps-not-found pour découvrir comment enregistrer les abonnements. (Code : MissingSubscriptionRegistration) »
+« Cet abonnement n’est pas inscrit pour utiliser l’espace de noms « Microsoft.Databricks ». Consultez https://aka.ms/rps-not-found pour découvrir comment enregistrer les abonnements. (Code : MissingSubscriptionRegistration)
 
 #### <a name="solution"></a>Solution
 
@@ -88,18 +88,18 @@ Si vous n’avez pas créé l’espace de travail et que vous êtes ajouté en t
 
 #### <a name="error-message"></a>Message d’erreur
 
-« Échec du lancement du fournisseur de cloud : Une erreur de fournisseur de cloud s’est produite lors de la configuration du cluster. Pour plus d’informations, consultez le guide relatif à Databricks. Code d’erreur Azure : PublicIPCountLimitReached. Message d’erreur Azure : Impossible de créer plus de 60 adresses IP publiques pour cet abonnement dans cette région. »
+« Échec du lancement du fournisseur de cloud : une erreur de fournisseur de cloud s’est produite lors de la configuration du cluster. Pour plus d’informations, consultez le guide relatif à Databricks. Code d’erreur Azure : PublicIPCountLimitReached. Message d’erreur Azure : impossible de créer plus de 60 adresses IP publiques pour cet abonnement dans cette région. »
 
 #### <a name="solution"></a>Solution
 
-Les clusters Databricks utilisent une adresse IP publique par nœud. Si votre abonnement a déjà utilisé toutes ses adresses IP publiques, vous devez [demander à augmenter le quota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request). Choisissez **Quota** en tant que le **Type de problème**, et **mise en réseau : ARM** en tant que le **Type de Quota**. Dans **Détails**, demandez une augmentation du quota d’adresses IP publiques. Par exemple, si votre limite est actuellement de 60 et que vous souhaitez créer un cluster de 100 nœuds, demandez une augmentation de cette limite à 160.
+Les clusters Databricks utilisent une adresse IP publique par nœud. Si votre abonnement a déjà utilisé toutes ses adresses IP publiques, vous devez [demander à augmenter le quota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request). Sélectionnez **Quota** en tant que **Type de problème** et **Réseau : ARM** en tant que **Type de quota**. Dans **Détails**, demandez une augmentation du quota d’adresses IP publiques. Par exemple, si votre limite est actuellement de 60 et que vous souhaitez créer un cluster de 100 nœuds, demandez une augmentation de cette limite à 160.
 
-### <a name="issue-a-second-type-of-cloud-provider-launch-failure-while-setting-up-the-cluster-missingsubscriptionregistration"></a>Problème : Un deuxième type d’échec du lancement du fournisseur cloud lors de la configuration du cluster (MissingSubscriptionRegistration)
+### <a name="issue-a-second-type-of-cloud-provider-launch-failure-while-setting-up-the-cluster-missingsubscriptionregistration"></a>Problème : Un second type d’échec du lancement du fournisseur de cloud lors de la configuration du cluster (MissingSubscriptionRegistration)
 
 #### <a name="error-message"></a>Message d’erreur
 
-« Échec du lancement du fournisseur de cloud : Une erreur de fournisseur de cloud s’est produite lors de la configuration du cluster. Pour plus d’informations, consultez le guide relatif à Databricks.
-Code d’erreur Azure : Message d’erreur MissingSubscriptionRegistration Azure : L'abonnement n'est pas inscrit pour utiliser l'espace de noms « Microsoft.Compute ». Consultez https://aka.ms/rps-not-found pour découvrir comment enregistrer les abonnements."
+« Échec du lancement du fournisseur de cloud : une erreur de fournisseur de cloud s’est produite lors de la configuration du cluster. Pour plus d’informations, consultez le guide relatif à Databricks.
+Code d’erreur Azure : MissingSubscriptionRegistration Message d’erreur Azure : L’abonnement n’est pas inscrit pour utiliser l’espace de noms « Microsoft.Compute ». Consultez https://aka.ms/rps-not-found pour découvrir comment enregistrer les abonnements."
 
 #### <a name="solution"></a>Solution
 
@@ -109,7 +109,7 @@ Code d’erreur Azure : Message d’erreur MissingSubscriptionRegistration Azur
 
 Pour obtenir des instructions plus détaillées, consultez [Fournisseurs et types de ressources](../azure-resource-manager/resource-manager-supported-services.md).
 
-### <a name="issue-azure-databricks-needs-permissions-to-access-resources-in-your-organization-that-only-an-admin-can-grant"></a>Problème : Azure Databricks a besoin d’accéder aux ressources de votre organisation uniquement un administrateur peut accorder des autorisations.
+### <a name="issue-azure-databricks-needs-permissions-to-access-resources-in-your-organization-that-only-an-admin-can-grant"></a>Problème : Pour accéder aux ressources de votre organisation, Azure Databricks a besoin d’autorisations que seul un administrateur peut accorder.
 
 #### <a name="background"></a>Arrière-plan
 
@@ -121,6 +121,6 @@ Connectez-vous au portail Azure en tant qu’administrateur. Pour Azure Active D
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Démarrage rapide : Prise en main Azure Databricks](quickstart-create-databricks-workspace-portal.md)
+- [Démarrage rapide : Bien démarrer avec Azure Databricks](quickstart-create-databricks-workspace-portal.md)
 - [Présentation d’Azure Databricks](what-is-azure-databricks.md)
 

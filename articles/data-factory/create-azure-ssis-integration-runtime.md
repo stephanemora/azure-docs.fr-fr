@@ -13,10 +13,10 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
 ms.openlocfilehash: d30ec0765627ec173f0027e49f44cb77f6b26ac6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66155193"
 ---
 # <a name="create-azure-ssis-integration-runtime-in-azure-data-factory"></a>Créer un Azure-SSIS Integration Runtime dans Azure Data Factory
@@ -29,7 +29,7 @@ Le [Tutoriel : Déployer des packages SSIS sur Azure](tutorial-create-azure-ssi
 
 - Le cas échéant, utilisez l’authentification Azure Active Directory (AAD) avec l’identité managée pour que votre service ADF se connecte au serveur de base de données. Comme prérequis, vous devrez ajouter l’identité managée pour votre service ADF en tant qu’utilisateur de base de données autonome capable de créer SSISDB dans votre serveur Azure SQL Database/Managed Instance. Pour cela, consultez [Activer l’authentification AAD pour Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/enable-aad-authentication-azure-ssis-ir).
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Cet article présente différentes façons de provisionner Azure-SSIS IR :
 
@@ -41,7 +41,7 @@ Quand vous créez un IR Azure-SSIS, le service ADF se connecte à votre serveur 
 
 Quand vous provisionnez Azure-SSIS IR, les composants Azure Feature Pack pour SSIS et Access Redistributable sont également installés. Ces composants fournissent la connectivité aux fichiers Excel/Access et à diverses sources de données Azure, en plus des sources de données prises en charge par les composants intégrés. Vous pouvez également installer des composants supplémentaires. Pour plus d’informations, consultez [Custom setup for the Azure-SSIS integration runtime](how-to-configure-azure-ssis-ir-custom-setup.md) (Configuration personnalisée du runtime d’intégration Azure-SSIS).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -51,7 +51,7 @@ Quand vous provisionnez Azure-SSIS IR, les composants Azure Feature Pack pour SS
 
     Vérifiez que votre serveur Azure SQL Database/Managed Instance n’a pas déjà une base de données SSIDB. Le provisionnement d’Azure-SSIS IR ne prend pas en charge l’utilisation d’une base de données SSISDB existante.
 
-- **Réseau virtuel Azure Resource Manager (facultatif)**. Vous devez disposer d’un réseau virtuel Azure Resource Manager si au moins l’une des conditions suivantes est remplie :
+- **Réseau virtuel Azure Resource Manager (facultatif)** . Vous devez disposer d’un réseau virtuel Azure Resource Manager si au moins l’une des conditions suivantes est remplie :
 
   - Vous hébergez SSISDB dans Azure SQL Database avec des points de terminaison de service de réseau virtuel ou Managed Instance à l’intérieur d’un réseau virtuel.
   - Vous souhaitez vous connecter à des banques de données locales à partir de packages SSIS en cours d’exécution sur votre Azure-SSIS IR.
@@ -262,9 +262,9 @@ $SSISDBServerAdminPassword = "[your server admin password for SQL authentication
 $SSISDBPricingTier = "[Basic|S0|S1|S2|S3|S4|S6|S7|S9|S12|P1|P2|P4|P6|P11|P15|…|ELASTIC_POOL(name = <elastic_pool_name>) for Azure SQL Database or leave it empty for Managed Instance]"
 ```
 
-### <a name="sign-in-and-select-subscription"></a>Connectez-vous et sélectionnez l’abonnement
+### <a name="sign-in-and-select-subscription"></a>Se connecter et sélectionner un abonnement
 
-Ajoutez le code suivant au script pour se connecter et sélectionnez votre abonnement Azure :
+Ajoutez le code suivant au script pour vous connecter et sélectionner votre abonnement Azure :
 
 ```powershell
 Connect-AzAccount
@@ -602,7 +602,7 @@ Dans cette section, vous utilisez le modèle Azure Resource Manager pour créer 
     }
     ```
 
-2. Pour déployer le modèle Azure Resource Manager, exécutez la commande New-AzResourceGroupDeployment comme indiqué dans l’exemple suivant, où ADFTutorialResourceGroup est le nom de votre groupe de ressources et ADFTutorialARM.json est le fichier qui contient la définition JSON pour votre fabrique de données et une IR Azure-SSIS.
+2. Pour déployer le modèle Azure Resource Manager, exécutez la commande New-AzResourceGroupDeployment comme indiqué dans l’exemple suivant, où ADFTutorialResourceGroup est le nom de votre groupe de ressources et ADFTutorialARM.json est le fichier qui contient la définition JSON de votre fabrique de données et d’Azure-SSIS Integration Runtime.
 
     ```powershell
     New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json
@@ -610,7 +610,7 @@ Dans cette section, vous utilisez le modèle Azure Resource Manager pour créer 
 
     Cette commande crée votre fabrique de données et un runtime d’intégration Azure-SSIS dans cette fabrique, mais elle ne démarre pas le runtime d’intégration.
 
-3. Pour démarrer votre IR Azure-SSIS, exécutez les commandes de démarrage-AzDataFactoryV2IntegrationRuntime :
+3. Pour démarrer Azure-SSIS Runtime Integration, exécutez la commande Start-AzDataFactoryV2IntegrationRuntime :
 
     ```powershell
     Start-AzDataFactoryV2IntegrationRuntime -ResourceGroupName "<Resource Group Name>" `
@@ -621,7 +621,7 @@ Dans cette section, vous utilisez le modèle Azure Resource Manager pour créer 
 
 ## <a name="deploy-ssis-packages"></a>Déployer des packages SSIS
 
-Utilisez maintenant SQL Server Data Tools (SSDT) ou SQL Server Management Studio (SSMS) pour déployer vos packages SSIS dans Azure. Connectez-vous à votre serveur de base de données qui héberge le catalogue SSIS (SSISDB). Le nom du serveur de base de données est au format suivant : &lt;nom_de_serveur_Azure_SQL_Database&gt;.database.windows.net ou &lt;Nom_Managed_Instance.préfixe_DNS&gt;.database.windows.net. Consultez l’article [Déployer des packages](/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages#deploy-packages-to-integration-services-server) pour obtenir des instructions.
+Utilisez maintenant SQL Server Data Tools (SSDT) ou SQL Server Management Studio (SSMS) pour déployer vos packages SSIS dans Azure. Connectez-vous à votre serveur de base de données qui héberge le catalogue SSIS (SSISDB). Le nom du serveur de base de données est au format suivant : &lt;nom de serveur Azure SQL Database&gt;.database.windows.net ou &lt;Nom Managed Instance.préfixe_DNS&gt;.database.windows.net. Consultez l’article [Déployer des packages](/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages#deploy-packages-to-integration-services-server) pour obtenir des instructions.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

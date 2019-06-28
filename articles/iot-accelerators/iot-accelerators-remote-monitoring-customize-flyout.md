@@ -1,19 +1,18 @@
 ---
-title: Ajouter un lanceur à la surveillance à distance solution UI - Azure | Microsoft Docs
+title: Ajouter un menu volant à l’interface utilisateur de la solution de supervision à distance - Azure | Microsoft Docs
 description: Cet article vous montre comment ajouter un nouveau menu volant dans une page de l’interface utilisateur web de l’accélérateur de solution de supervision à distance.
 author: dominicbetts
 manager: timlt
-ms.author: v-yiso
+ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-origin.date: 10/05/2018
-ms.date: 11/26/2018
+ms.date: 10/05/2018
 ms.topic: conceptual
 ms.openlocfilehash: ccb1a7ff6abbc68f42c7632a8ba7a392b2c48794
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61447112"
 ---
 # <a name="add-a-custom-flyout-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Ajouter un menu volant personnalisé à l’interface utilisateur web de l’accélérateur de solution de supervision à distance
@@ -25,7 +24,7 @@ Cet article vous montre comment ajouter un nouveau menu volant dans une page de 
 
 L’exemple de menu volant de cet article s’affiche dans la page avec la grille que le guide pratique [Ajouter une grille personnalisée à l’interface utilisateur web de l’accélérateur de solution de supervision à distance](iot-accelerators-remote-monitoring-customize-grid.md) vous montre comment ajouter.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer les étapes de ce guide pratique, vous devez avoir installé les logiciels suivants sur votre machine de développement locale :
 
@@ -50,11 +49,11 @@ Pour vous aider à démarrer, le dossier **src/walkthrough/components/pages/page
 
 **exampleFlyout.container.js**
 
-
+[!code-javascript[Example flyout container](~/remote-monitoring-webui/src/walkthrough/components/pages/pageWithFlyout/flyouts/exampleFlyout/exampleFlyout.container.js?name=flyoutcontainer "Example flyout container")]
 
 **exampleFlyout.js**
 
-
+[!code-javascript[Example flyout](~/remote-monitoring-webui/src/walkthrough/components/pages/pageWithFlyout/flyouts/exampleFlyout/exampleFlyout.js?name=flyout "Example flyout")]
 
 Copiez le dossier **src/walkthrough/components/pages/pageWithFlyout/flyouts** dans le dossier **src/components/pages/example**.
 

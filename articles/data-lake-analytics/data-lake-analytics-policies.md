@@ -10,10 +10,10 @@ ms.assetid: 0a6102d1-7554-4df2-b487-4dae9a7287b6
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.openlocfilehash: 64095f6706bb978cd33b8fe7833fe4e65fc3b0f8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60813431"
 ---
 # <a name="manage-azure-data-lake-analytics-using-policies"></a>Gérer Azure Data Lake Analytics à l’aide de stratégies
@@ -68,8 +68,8 @@ Avec les stratégies au niveau du travail, vous pouvez contrôler les unités An
 
 Data Lake Analytics inclut deux stratégies que vous pouvez définir au niveau du travail :
 
-* **Limite d’unités Analytics par travail**: Les utilisateurs peuvent uniquement soumettre des travaux de ce nombre d’unités au. Par défaut, cette limite est identique à la limite maximale d’unités Analytics du compte.
-* **Priorité** : Les utilisateurs peuvent uniquement soumettre des travaux qui ont une priorité inférieure ou égale à cette valeur. Un nombre plus élevé indique une priorité plus faible. Par défaut, cette limite est définie sur 1, qui est la priorité la plus élevée.
+* **Limite d’unités Analytique par travail** : les utilisateurs peuvent uniquement soumettre des travaux dont le nombre maximal d’unités Analytique est inférieur ou égal à cette valeur. Par défaut, cette limite est identique à la limite maximale d’unités Analytique du compte.
+* **Priorité** : les utilisateurs peuvent uniquement soumettre les travaux dont la priorité est inférieure ou égale à cette valeur. Un nombre plus élevé indique une priorité plus faible. Par défaut, cette limite est définie sur 1, qui est la priorité la plus élevée.
 
 Chaque compte contient une stratégie par défaut. La stratégie par défaut s’applique à tous les utilisateurs du compte. Vous pouvez définir des stratégies supplémentaires pour des utilisateurs et des groupes spécifiques. 
 
@@ -82,10 +82,10 @@ Chaque compte contient une stratégie par défaut. La stratégie par défaut s�
 1. Dans le portail Azure, accédez à votre compte Data Lake Analytics.
 2. Cliquez sur **Propriétés**.
 3. Sous **Limites d’envoi de tâches**, cliquez sur le bouton **Ajouter une stratégie**. Puis, sélectionnez ou saisissez les paramètres suivants :
-    1. **Nom de la stratégie de calcul**: Entrez un nom de stratégie, pour vous rappeler que l’objectif de la stratégie.
-    2. **Sélectionner utilisateur ou groupe**: Sélectionnez l’utilisateur ou le groupe qu'auquel s’applique cette stratégie.
-    3. **Définir la limite d’unités AU travail**: Définir la limite d’unités Analytics qui s’applique à l’utilisateur ou groupe sélectionné.
-    4. **Définir la limite de priorité**: Définir la limite de priorité s’applique à l’utilisateur ou groupe sélectionné.
+    1. **Nom de la stratégie de calcul** : entrez un nom de stratégie, pour vous rappeler de l’objectif de la stratégie.
+    2. **Sélectionner un utilisateur ou un groupe** : sélectionnez l’utilisateur ou le groupe auquel la stratégie s’applique.
+    3. **Définir la limite d’unités Analytique du travail** : définissez la limite d’unités Analytique qui s’applique à l’utilisateur ou au groupe sélectionné.
+    4. **Définir la limite de priorité** : définissez la limite de priorité qui s’applique à l’utilisateur ou au groupe sélectionné.
 
 4. Cliquez sur **OK**.
 

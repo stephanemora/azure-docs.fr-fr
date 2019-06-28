@@ -10,10 +10,10 @@ ms.date: 04/17/2017
 ms.author: rasquill
 ms.custom: mvc
 ms.openlocfilehash: f1b3c08cce2cb33feab899ea082fc6fb40225182
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61458025"
 ---
 # <a name="deprecated-canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>(DÉPRÉCIÉ) Contrôler la validité de microservices de mise en production avec Vamp sur un cluster DC/OS Azure Container Service
@@ -44,7 +44,7 @@ Le [contrôle de la validité des mises en production](https://martinfowler.com/
 
 ## <a name="set-up-vamp"></a>Configurer Vamp
 
-Maintenant que vous avez un cluster DC/OS en cours d’exécution, vous pouvez installer Vamp à partir de l’interface utilisateur DC/OS (http :\//localhost:80). 
+À présent que vous avez un cluster de contrôleur de domaine/système d’exploitation opérationnel, vous pouvez installer Vamp à partir de l’interface utilisateur du contrôleur de domaine/système d’exploitation (http:\//localhost:80). 
 
 ![IU DC/OS](./media/container-service-dcos-vamp-canary-release/01_set_up_vamp.png)
 

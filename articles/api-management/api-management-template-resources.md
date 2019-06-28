@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 ms.openlocfilehash: 673dcbeb630899eebc328cd4fae16f7fe8f47a55
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60557883"
 ---
 # <a name="azure-api-management-template-resources"></a>Ressources du modèle Gestion des API Azure
@@ -49,24 +49,24 @@ Les options de localisation suivantes sont prises en charge :
 
 | Paramètres régionaux    | Langage               |
 |-----------|------------------------|
-| « en »      | « Anglais »              |
-| « cs »      | "Čeština"              |
-| « de »      | « Allemand »              |
-| « es »      | « Espagnol »              |
-| « fr »      | "Français"             |
+| « en »      | « English »              |
+| « cs »      | « Čeština »              |
+| « de »      | « Deutsch »              |
+| « es »      | « Español »              |
+| « fr »      | « Français »             |
 | « hu »      | « Magyar »               |
 | « it »      | « Italiano »             |
-| « ja-JP »   | "日本語"                |
-| « ko »      | "한국어"                |
+| « ja-JP »   | « 日本語 »                |
+| « ko »      | « 한국어 »                |
 | « nl »      | « Nederlands »           |
 | « pl »      | « Polski »               |
-| « pt-br »   | "Português (Brasil)"   |
-| "pt-pt"   | "Português (Portugal)" |
-| « ru »      | "Русский"              |
-| "sv"      | "Svenska"              |
-| « tr »      | "Türkçe"               |
-| « zh-hans » | "中文(简体)"           |
-| « zh-hant » | "中文(繁體)"           |
+| « pt-br »   | « Português (Brasil) »   |
+| « pt-pt »   | « Português (Portugal) » |
+| « ru »      | « Русский »              |
+| « sv »      | « Svenska »              |
+| « tr »      | « Türkçe »               |
+| « zh-hans » | « 中文(简体) »           |
+| « zh-hant » | « 中文(繁體) »           |
 
  Reportez-vous aux tableaux suivants pour connaître les ressources de chaînes utilisables dans vos modèles sur le portail des développeurs. Utilisez le nom de la table comme préfixe des ressources de chaînes dans ce tableau.  
   
@@ -112,13 +112,13 @@ Les options de localisation suivantes sont prises en charge :
   
 ###  <a name="ApisStrings"></a> ApisStrings  
   
-|Nom|Text|  
+|Nom|Texte|  
 |----------|----------|  
 |PageTitleApis|API|  
   
 ###  <a name="AppDetailsStrings"></a> AppDetailsStrings  
   
-|Nom|Text|  
+|Nom|Texte|  
 |----------|----------|  
 |WebApplicationsDetailsTitle|Aperçu de l’application.|  
 |WebApplicationsRequirementsHeader|Configuration requise|  
@@ -127,7 +127,7 @@ Les options de localisation suivantes sont prises en charge :
   
 ###  <a name="ApplicationListStrings"></a> ApplicationListStrings  
   
-|Nom|Text|  
+|Nom|Texte|  
 |----------|----------|  
 |WebDevelopersAppDeleteConfirmation|Voulez-vous vraiment supprimer l’application ?|  
 |WebDevelopersAppNotPublished|Non publié.|  
@@ -143,13 +143,13 @@ Les options de localisation suivantes sont prises en charge :
   
 ###  <a name="AppStrings"></a> AppStrings  
   
-|Nom|Text|  
+|Nom|Texte|  
 |----------|----------|  
 |WebApplicationsHeader|APPLICATIONS|  
   
 ###  <a name="CommonResources"></a> CommonResources  
   
-|Nom|Text|  
+|Nom|Texte|  
 |----------|----------|  
 |NoItemsToDisplay|Aucun résultat trouvé.|  
 |GeneralExceptionMessage|Il y a un problème. Il peut s’agir d’un dysfonctionnement temporaire ou d’un bogue. Réessayez.|  
@@ -160,7 +160,7 @@ Les options de localisation suivantes sont prises en charge :
   
 ###  <a name="CommonStrings"></a> CommonStrings  
   
-|Nom|Text|  
+|Nom|Texte|  
 |----------|----------|  
 |ButtonLabelCancel|Annuler|  
 |ButtonLabelSave|Enregistrer|  
@@ -184,7 +184,7 @@ Les options de localisation suivantes sont prises en charge :
   
 ###  <a name="Documentation"></a> Documentation  
   
-|Nom|Text|  
+|Nom|Texte|  
 |----------|----------|  
 |WebDocumentationInvalidHeaderErrorMessage|En-tête non valide « {0} »|  
 |WebDocumentationInvalidRequestErrorMessage|URL de demande non valide.|  
@@ -332,7 +332,7 @@ Les options de localisation suivantes sont prises en charge :
   
 ###  <a name="ErrorPageStrings"></a> ErrorPageStrings  
   
-|Nom|Text|  
+|Nom|Texte|  
 |----------|----------|  
 |LinkLabelBack|Retour|  
 |LinkLabelHomePage|page d'accueil|  
@@ -350,7 +350,7 @@ Les options de localisation suivantes sont prises en charge :
   
 ###  <a name="IssuesStrings"></a> IssuesStrings  
   
-|Nom|Text|  
+|Nom|Texte|  
 |----------|----------|  
 |WebIssuesIndexTitle|Problèmes|  
 |WebIssuesNoActiveSubscriptions|Vous ne disposez d’aucun abonnement actif. Vous devez vous abonner à un produit pour signaler un problème.|  
@@ -361,7 +361,7 @@ Les options de localisation suivantes sont prises en charge :
   
 ###  <a name="NotFoundStrings"></a> NotFoundStrings  
   
-|Nom|Text|  
+|Nom|Texte|  
 |----------|----------|  
 |LinkLabelHomePage|page d'accueil|  
 |LinkLabelSendUsEmail|Envoyez-nous un e-mail.|  
@@ -376,7 +376,7 @@ Les options de localisation suivantes sont prises en charge :
   
 ###  <a name="ProductDetailsStrings"></a> ProductDetailsStrings  
   
-|Nom|Text|  
+|Nom|Texte|  
 |----------|----------|  
 |WebProductsAgreement|En m’abonnant au produit {0}, j’accepte les `<a data-toggle='modal' href='#legal-terms'\>Terms of Use</a\>`.|  
 |WebProductsLegalTermsLink|Conditions d’utilisation|  
@@ -398,13 +398,13 @@ Les options de localisation suivantes sont prises en charge :
   
 ###  <a name="ProductsStrings"></a> ProductsStrings  
   
-|Nom|Text|  
+|Nom|Texte|  
 |----------|----------|  
 |PageTitleProducts|Produits|  
   
 ###  <a name="ProviderInfoStrings"></a> ProviderInfoStrings  
   
-|Nom|Text|  
+|Nom|Texte|  
 |----------|----------|  
 |TextboxExternalIdentitiesDisabled|La connexion est désactivée par les administrateurs pour l’instant.|  
 |TextboxExternalIdentitiesSigninInvitation|Vous pouvez également vous connecter avec|  
@@ -412,7 +412,7 @@ Les options de localisation suivantes sont prises en charge :
   
 ###  <a name="SigninResources"></a> SigninResources  
   
-|Nom|Text|  
+|Nom|Texte|  
 |----------|----------|  
 |PrincipalNotFound|Principal introuvable ou signature non valide.|  
 |ErrorSsoAuthenticationFailed|Échec de l’authentification SSO.|  
@@ -508,7 +508,7 @@ Les options de localisation suivantes sont prises en charge :
   
 ###  <a name="SigninStrings"></a> SigninStrings  
   
-|Nom|Text|  
+|Nom|Texte|  
 |----------|----------|  
 |WebAuthenticationForgotPassword|Vous avez oublié votre mot de passe ?|  
 |WebAuthenticationIfAdministrator|Si vous êtes un administrateur, vous devez vous connecter `<a href="{0}"\>here</a\>`.|  
@@ -520,7 +520,7 @@ Les options de localisation suivantes sont prises en charge :
   
 ###  <a name="SignupStrings"></a> SignupStrings  
   
-|Nom|Text|  
+|Nom|Texte|  
 |----------|----------|  
 |PageTitleSignup|Inscription|  
 |WebAuthenticationAlreadyAMember|Déjà membre ?|  
@@ -530,7 +530,7 @@ Les options de localisation suivantes sont prises en charge :
   
 ###  <a name="SubscriptionListStrings"></a> SubscriptionListStrings  
   
-|Nom|Text|  
+|Nom|Texte|  
 |----------|----------|  
 |SubscriptionCancelConfirmation|Voulez-vous vraiment annuler cet abonnement ?|  
 |SubscriptionRenewConfirmation|Voulez-vous vraiment renouveler cet abonnement ?|  
@@ -553,7 +553,7 @@ Les options de localisation suivantes sont prises en charge :
   
 ###  <a name="SubscriptionStrings"></a> SubscriptionStrings  
   
-|Nom|Text|  
+|Nom|Texte|  
 |----------|----------|  
 |SectionHeadingCloseAccount|Vous souhaitez fermer votre compte ?|  
 |PageTitleDeveloperProfile|Profil|  
@@ -564,14 +564,14 @@ Les options de localisation suivantes sont prises en charge :
   
 ###  <a name="UpdateProfileStrings"></a> UpdateProfileStrings  
   
-|Nom|Text|  
+|Nom|Texte|  
 |----------|----------|  
 |ButtonLabelUpdateProfile|Mettre à jour le profil|  
 |PageTitleUpdateProfile|Mettre à jour les informations du compte|  
   
 ###  <a name="UserProfile"></a> UserProfile  
   
-|Nom|Text|  
+|Nom|Texte|  
 |----------|----------|  
 |ButtonLabelChangeAccountInfo|Modifier les informations du compte|  
 |ButtonLabelChangePassword|Modifier le mot de passe|  

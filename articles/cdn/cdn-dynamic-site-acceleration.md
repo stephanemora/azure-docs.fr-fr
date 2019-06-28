@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: magattus
 ms.openlocfilehash: 6bd1d24cdece91265a7355678ea2bc0b0f9e3910
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60768014"
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>Accélération de site dynamique via Azure CDN
@@ -27,7 +27,7 @@ Avec l’explosion des médias sociaux, du e-commerce et du web hyper-personnali
 
 La fonctionnalité de réseau de distribution de contenu (CDN) standard permet de rapprocher le cache de fichiers des utilisateurs finaux afin d’accélérer la distribution des fichiers statiques. Toutefois, avec des applications web dynamiques, la mise en cache de ce contenu dans des emplacements de périmètre n’est pas possible, car le serveur génère le contenu en réponse au comportement de l’utilisateur. L’accélération de la distribution d’un tel contenu est plus complexe que la mise en cache de périmètre traditionnelle, et nécessite une solution de bout en bout qui règle finement chaque élément avec le chemin d’accès aux données entier, du début jusqu’à la distribution. Grâce à l’optimisation de l’accélération de site dynamique (DSA) d’Azure CDN, le niveau de performance des pages web comprenant du contenu dynamique est sensiblement amélioré.
 
-Les fonctionnalités **Azure CDN d’Akamai** et **Azure CDN de Verizon** offrent une fonction d’optimisation d’accélération de site dynamique au moyen du menu **Optimisé pour** durant la création du point de terminaison. Accélération de site dynamique à partir de Microsoft est proposée via [Azure porte Service](https://docs.microsoft.com/azure/frontdoor/front-door-overview).
+Les fonctionnalités **Azure CDN d’Akamai** et **Azure CDN de Verizon** offrent une fonction d’optimisation d’accélération de site dynamique au moyen du menu **Optimisé pour** durant la création du point de terminaison. L’accélération de site dynamique à partir de Microsoft est proposée par le biais d’[Azure Front Door Service](https://docs.microsoft.com/azure/frontdoor/front-door-overview).
 
 > [!Important]
 > Pour les profils **CDN Azure fournis par Akamai**, vous êtes autorisé à modifier l’optimisation d’un point de terminaison CDN après sa création.

@@ -13,10 +13,10 @@ ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 1e1bc92c684bf6ddbb7dc4ff0f882ad61ddeb27e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61075810"
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Restaurer une base de données Azure SQL ou basculer vers une base de données secondaire
@@ -34,11 +34,11 @@ Pour en savoir plus sur les scénarios de continuité d’activité et les fonct
 > Si vous utilisez des bases de données ou des pools Premium ou Critiques pour l’entreprise redondants interzone, sachez que le processus de récupération est automatisé et que le reste de ce document ne vous sera d’aucune utilité.
 
 > [!NOTE]
-> Les bases de données primaire et secondaire doivent offrir le même niveau de service. Il est également recommandé que la base de données secondaire est créé avec la même taille de calcul (dtu ou VCORE) en tant que le réplica principal. Pour plus d’informations, consultez [la mise à niveau ou rétrogradation en tant que base de données primaire](sql-database-active-geo-replication.md#upgrading-or-downgrading-a-primary-database).
+> Les bases de données primaire et secondaire doivent offrir le même niveau de service. Il est également vivement recommandé de créer la base de données secondaire avec la même taille de calcul (DTU ou vCores) que la base de données primaire. Pour plus d’informations, consultez [Mise à niveau ou rétrogradation d’une base de données primaire](sql-database-active-geo-replication.md#upgrading-or-downgrading-a-primary-database).
 
 > [!NOTE]
 > Utilisez un ou plusieurs groupes de basculement pour gérer le basculement de plusieurs bases de données.
-> Si vous ajoutez une relation de géoréplication existante au groupe de basculement, vérifiez que la base de données géosecondaire est configurée avec le même niveau de service et la même taille de calcul que la base de données primaire. Pour plus d’informations, consultez [utiliser des groupes de basculement automatique pour permettre un basculement transparent et coordonné de plusieurs bases de données](sql-database-auto-failover-group.md).
+> Si vous ajoutez une relation de géoréplication existante au groupe de basculement, vérifiez que la base de données géosecondaire est configurée avec le même niveau de service et la même taille de calcul que la base de données primaire. Pour plus d’informations, consultez [Utiliser des groupes de basculement automatique pour permettre le basculement transparent et coordonné de plusieurs bases de données](sql-database-auto-failover-group.md).
 
 ## <a name="prepare-for-the-event-of-an-outage"></a>Préparation à une panne
 

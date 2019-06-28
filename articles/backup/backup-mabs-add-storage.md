@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: adigan
 ms.openlocfilehash: 621d071f98701ff3a949f4172fef1d13819d7192
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60813123"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Ajouter du stockage à un serveur de sauvegarde Azure
@@ -75,7 +75,7 @@ Avec un stockage prenant en compte les charges de travail, vous pouvez sélectio
 
 ### <a name="update-dpmdiskstorage"></a>Update-DPMDiskStorage
 
-Vous pouvez configurer le stockage prenant en charge les charges de travail à l’aide de l’applet de commande PowerShell Update-DPMDiskStorage, ce qui met à jour les propriétés d’un volume dans le pool de stockage sur un serveur de sauvegarde Azure. 
+Vous pouvez configurer un stockage prenant en compte les charges de travail à l’aide de l’applet de commande PowerShell Update-DPMDiskStorage, ce qui a pour effet de mettre à jour les propriétés d’un volume dans le pool de stockage sur un serveur de sauvegarde Azure. 
 
 Syntaxe :
 

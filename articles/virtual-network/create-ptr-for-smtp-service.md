@@ -13,15 +13,15 @@ ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 203c3c5f371af7de891f0949a35378294bb50a0e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60713637"
 ---
 # <a name="configure-reverse-lookup-zones-for-an-smtp-banner-check"></a>Configurer des zones de recherche inversée pour une vérification de bannière SMTP
 
-Cet article décrit comment utiliser une zone de recherche inversée dans Azure DNS et de créer un enregistrement DNS inversé (PTR) pour la vérification de bannière SMTP.
+Cet article décrit comment utiliser une zone de recherche inversée dans Azure DNS et créer un enregistrement DNS inversé (PTR) pour une vérification de bannière SMTP.
 
 ## <a name="symptom"></a>Symptôme
 

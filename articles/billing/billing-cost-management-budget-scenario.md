@@ -16,10 +16,10 @@ ms.workload: billing
 ms.date: 03/13/2019
 ms.author: erikre
 ms.openlocfilehash: 4bf76ac0bdd59764815f18a40a3e243d7cf9d920
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60617118"
 ---
 # <a name="manage-costs-with-azure-budgets"></a>Gérer les coûts avec Azure Budgets
@@ -289,7 +289,7 @@ Vous en avez terminé avec la création et la sélection de tous les composants 
 
 ## <a name="create-the-azure-budget"></a>Créer le budget Azure
 
-Vous pouvez créer un budget dans le portail Azure en utilisant le [fonctionnalité de Budget](../cost-management/tutorial-acm-create-budgets.md) dans Cost Management. Ou bien, vous pouvez créer un budget à l’aide des API REST, les applets de commande Powershell, ou utiliser l’interface CLI. La procédure suivante utilise l’API REST. Avant d’appeler l’API REST, vous devez vous procurer un jeton d’autorisation. Pour créer un jeton d’autorisation, vous pouvez utiliser le projet [ARMClient](https://github.com/projectkudu/ARMClient). Avec **ARMClient**, vous vous authentifiez à Azure Resource Manager et obtenez un jeton pour appeler les API.
+Vous pouvez créer un budget dans le portail Azure en utilisant la [fonctionnalité Budget](../cost-management/tutorial-acm-create-budgets.md) dans Cost Management. Ou bien, vous pouvez créer un budget à l’aide d’API REST, d’applets de commande PowerShell ou de l’interface CLI. La procédure suivante utilise l’API REST. Avant d’appeler l’API REST, vous devez vous procurer un jeton d’autorisation. Pour créer un jeton d’autorisation, vous pouvez utiliser le projet [ARMClient](https://github.com/projectkudu/ARMClient). Avec **ARMClient**, vous vous authentifiez à Azure Resource Manager et obtenez un jeton pour appeler les API.
 
 ### <a name="create-an-authentication-token"></a>Créer un jeton d’authentification
 
@@ -328,7 +328,7 @@ Vous pouvez créer un budget dans le portail Azure en utilisant le [fonctionnali
 8.  Définissez **Value** (Valeur) sur le jeton qui a été créé à l’aide du projet ArmClient à la fin de la dernière section.
 9.  Sélectionnez l’onglet **Body** (Corps) dans Postman.
 10. Sélectionnez la case d’option **raw** (brut).
-11. Dans la zone de texte, collez la toutefois ci-dessous un exemple de définition de budget, vous devez remplacer le **subscriptionid**, **nom de budget**, et **actiongroupname** paramètres avec votre ID d’abonnement, un nom unique pour votre budget et le nom de groupe d’actions que vous avez créé dans l’URL et le corps de la demande :
+11. Dans la zone de texte, collez l’exemple de définition de budget ci-dessous ; par contre, vous devez remplacer les paramètres de **subscriptionid**, **budgetname** et **actiongroupname** par votre ID d’abonnement, un nom unique pour votre budget et le nom du groupe d’actions que vous avez créé à la fois dans l’URL et dans le corps de la demande :
 
     ```
         {

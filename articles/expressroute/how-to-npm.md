@@ -9,10 +9,10 @@ ms.date: 01/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: 180075f13be2cc2507a78e3d10a67a49a0c0cb12
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60840170"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Configurer Network Performance Monitor pour ExpressRoute
@@ -60,7 +60,7 @@ Créez un espace de travail dans l’abonnement où les réseaux virtuels sont l
 
    ![portail](./media/how-to-npm/3.png)<br><br>
 2. En bas de la page **Network Performance Monitor**, cliquez sur **Créer** pour ouvrir la page **Network Performance Monitor - Créer une solution**. Cliquez sur **Espace de travail Log Analytics - Sélectionner un espace de travail** pour ouvrir la page Espaces de travail. Cliquez sur **+ Créer un espace de travail** pour ouvrir la page Espaces de travail.
-3. Sur le **espace de travail Analytique de journal** page, sélectionnez **créer un nouveau**, puis configurez les paramètres suivants :
+3. Dans la page **Espace de travail Log Analytics**, sélectionnez **Créer**, puis configurez les paramètres suivants :
 
    * Espace de travail Log Analytics : entrez un nom pour votre espace de travail.
    * Abonnement : si vous possédez plusieurs abonnements, choisissez celui que vous souhaitez associer au nouvel espace de travail.
@@ -100,7 +100,7 @@ Nous vous recommandons d’installer au moins deux agents de chaque côté de la
 2. Sur la page d’**accueil**, cliquez sur **Suivant**.
 3. Sur la page **Termes du contrat de licence**, lisez les conditions de licence, puis cliquez sur **J’accepte**.
 4. Sur la page **Dossier de destination**, modifiez ou conservez le dossier d’installation par défaut, puis cliquez sur **Suivant**.
-5. Sur le **Options d’installation de l’Agent** page, vous pouvez choisir de connecter l’agent pour les journaux Azure Monitor ou Operations Manager. Ou bien, vous pouvez ne rien choisir si vous souhaitez configurer l’agent ultérieurement. Une fois vos sélections effectuées, cliquez sur **Suivant**.
+5. Dans la page **Options d’installation de l’agent**, vous pouvez choisir de connecter l’agent aux journaux Azure Monitor ou à Operations Manager. Ou bien, vous pouvez ne rien choisir si vous souhaitez configurer l’agent ultérieurement. Une fois vos sélections effectuées, cliquez sur **Suivant**.
 
    * Si vous choisissez de vous connecter à **Azure Log Analytics**, collez **l’ID de l’espace de travail** et la **Clé de l’espace de travail** (clé primaire) que vous avez copiés dans le bloc-notes de la section précédente. Cliquez ensuite sur **Suivant**.
 
@@ -113,7 +113,7 @@ Nous vous recommandons d’installer au moins deux agents de chaque côté de la
      ![Compte](./media/how-to-npm/10.png)
 6. Dans la page **Prêt pour l’installation**, passez en revue vos choix, puis cliquez sur **Installer**.
 7. Dans la page **Configuration effectuée**, cliquez sur **Terminer**.
-8. Lorsque vous avez terminé, Microsoft Monitoring Agent apparaît dans le Panneau de configuration. Vous pouvez contrôler votre configuration et vérifiez que l’agent est connecté aux journaux d’Azure Monitor. Quand il est connecté, l’agent affiche un message indiquant : **Microsoft Monitoring Agent s’est connecté au service Microsoft Operations Management Suite**.
+8. Lorsque vous avez terminé, Microsoft Monitoring Agent apparaît dans le Panneau de configuration. Vous pouvez y contrôler votre configuration et vérifier que l’agent est bien connecté aux journaux Azure Monitor. Quand il est connecté, l’agent affiche un message indiquant : **Microsoft Monitoring Agent s’est connecté au service Microsoft Operations Management Suite**.
 
 9. Répétez cette procédure pour chaque réseau virtuel dont vous voulez effectuer la surveillance.
 
@@ -137,7 +137,7 @@ Vous pouvez facilement vérifier si vos agents communiquent.
 1. Sur un serveur avec l’agent de surveillance, ouvrez le **Panneau de configuration**.
 2. Ouvrez **Microsoft Monitoring Agent**.
 3. Cliquez sur l’onglet **Azure Log Analytics**.
-4. Dans le **état** colonne, vous devez voir que l’agent est correctement connecté aux journaux d’Azure Monitor.
+4. Dans la colonne **État**, vous devez voir que l’agent est correctement connecté aux journaux Azure Monitor.
 
    ![status](./media/how-to-npm/12.png)
 
@@ -206,7 +206,7 @@ Pour l’appairage Microsoft, cliquez sur la ou les connexions d’appairage Mic
 
 1. Cochez la case **Surveiller cet appairage**. 
 2. (Facultatif) Vous pouvez modifier le point de terminaison de service Microsoft cible. Par défaut, NPM choisit un point de terminaison de service Microsoft comme cible. NPM surveille la connectivité entre vos serveurs locaux et ce point de terminaison cible via ExpressRoute. 
-    * Pour modifier ce point de terminaison cible, cliquez sur le lien **(modifier)** sous **Cible :**, puis sélectionnez un autre point de terminaison de service Microsoft cible dans la liste des URL.
+    * Pour modifier ce point de terminaison cible, cliquez sur le lien **(modifier)** sous **Cible :** , puis sélectionnez un autre point de terminaison de service Microsoft cible dans la liste des URL.
       ![modifier la cible](./media/how-to-npm/edit_target.png)<br>
 
     * Vous pouvez utiliser une URL ou une adresse IP personnalisée. Cette option est particulièrement utile si vous utilisez l’appairage Microsoft pour établir une connexion aux services Azure PaaS, par exemple Stockage Azure, les bases de données SQL et les sites web proposés sur des adresses IP publiques. Pour ce faire, cliquez sur le lien **(Utiliser une URL ou adresse IP personnalisée à la place)** en bas de la liste d’URL, puis entrez le point de terminaison public de votre service PaaS Azure qui est connecté via l’appairage Microsoft ExpressRoute.

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: 65dd47ab21ca4b1c50e0f17b73e7bc4eae8a96e8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60725735"
 ---
 # <a name="reliable-actors-state-management"></a>Gestion des états de Reliable Actors
@@ -29,9 +29,9 @@ Toutes les instances Reliable Actors sont considérées comme des instances *ave
 
 Même si les acteurs sont considérés comme des services avec état, cela ne signifie pas qu’ils doivent stocker l’état de manière fiable. Les acteurs peuvent choisir le niveau de persistance et de réplication de l’état en fonction de leurs exigences en matière de stockage de données :
 
-* **L’état persistant**: État est conservé sur disque et est répliqué sur au moins trois réplicas. L’état persistant est l’option de stockage d’état la plus fiable, où l’état peut persister après une panne complète du cluster.
-* **État volatil**: État est répliqué sur au moins trois réplicas et conservé uniquement en mémoire. L’état volatile garantit une résilience contre les défaillances de nœud et d’acteur, ainsi que pendant les mises à niveau et l’équilibrage des ressources. Toutefois, l’état n’est pas conservé sur le disque. Si tous les réplicas sont perdus en même temps, l’état est également perdu.
-* **État non persistant**: État n’est pas répliqué ou écrit sur disque, utilisez uniquement pour les acteurs qui n’avez pas besoin de conserver un état fiable.
+* **État persistant** : l’état est conservé sur le disque et répliqué sur au moins trois réplicas. L’état persistant est l’option de stockage d’état la plus fiable, où l’état peut persister après une panne complète du cluster.
+* **État volatil** : l’état est répliqué sur au moins trois réplicas et conservé uniquement en mémoire. L’état volatile garantit une résilience contre les défaillances de nœud et d’acteur, ainsi que pendant les mises à niveau et l’équilibrage des ressources. Toutefois, l’état n’est pas conservé sur le disque. Si tous les réplicas sont perdus en même temps, l’état est également perdu.
+* **État non persistant** : l’état n’est ni répliqué, ni écrit sur le disque. Utilisez-le uniquement pour les acteurs qui n’ont pas besoin de conserver un état fiable.
 
 Chaque niveau de persistance représente simplement une autre configuration du *fournisseur d’état* et de la *réplication* de votre service. Le fournisseur d’état (le composant Reliable Service conçu pour stocker l’état) détermine si l’état sera ou non écrit sur le disque. La réplication varie selon le nombre de réplicas avec lesquels est déployé un service. De la même manière que Reliable Services, le fournisseur d’état et le nombre de réplicas peuvent facilement être définis manuellement. L’infrastructure d’acteurs fournit un attribut, qui, lorsqu’il est utilisé sur un acteur, sélectionne automatiquement un fournisseur d’état par défaut et génère automatiquement des paramètres pour le nombre de réplicas afin d’obtenir un de ces trois paramètres de persistance. L’attribut StatePersistence n’est pas hérité par la classe dérivée, chaque type d’acteur doit fournir son niveau de StatePersistence.
 

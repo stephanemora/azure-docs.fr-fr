@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 03/16/2018
 ms.author: vturecek
 ms.openlocfilehash: b6ca4810d86bb3c8413f0a740ac4483a848b8e10
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60726330"
 ---
 # <a name="getting-started-with-reliable-actors"></a>Prise en main de Reliable Actors
@@ -28,7 +28,7 @@ ms.locfileid: "60726330"
 
 Cet article décrit la création et le débogage d'une simple application Reliable Actors dans Visual Studio. Pour plus d’informations sur Reliable Actors, consultez l’article [Présentation du modèle Reliable Actors de Service Fabric](service-fabric-reliable-actors-introduction.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer, assurez-vous d’avoir configuré l’environnement de développement Service Fabric, y compris Visual Studio, sur votre ordinateur. Pour plus de détails, voir [Configuration de l’environnement de développement](service-fabric-get-started.md).
 
@@ -38,7 +38,7 @@ Lancez Visual Studio 2015 ou version ultérieure en tant qu’administrateur, pu
 
 ![Outils Service Fabric pour Visual Studio - nouveau projet][1]
 
-Dans la boîte de dialogue suivante, choisissez **Service d’acteur** sous **.NET Core 2.0** et entrez un nom pour le service.
+Dans la boîte de dialogue suivante, choisissez **Service d’acteur** sous **.NET Core 2.0** et nommez le service.
 
 ![Modèles de projets Service Fabric][5]
 
@@ -50,11 +50,11 @@ Le projet créé affiche la structure suivante :
 
 La solution inclut trois projets :
 
-* **Le projet d’application (MyApplication)**. Ce projet regroupe tous les services pour le déploiement. Il contient *ApplicationManifest.xml* et les scripts PowerShell pour gérer l’application.
+* **Le projet d’application (MyApplication)** . Ce projet regroupe tous les services pour le déploiement. Il contient *ApplicationManifest.xml* et les scripts PowerShell pour gérer l’application.
 
-* **Le projet d’interface (HelloWorld.Interfaces)**. Ce projet contient la définition d'interface de l'acteur. Les interfaces d'acteur peuvent être définies dans n'importe quel projet avec n'importe quel nom.  L'interface définit le contrat d'acteur qui est partagé par l'implémentation de l'acteur et les clients appelant l'acteur.  Comme les projets client peuvent en dépendre, il est généralement logique de le définir dans un assembly distinct de l'implémentation de l'acteur.
+* **Le projet d’interface (HelloWorld.Interfaces)** . Ce projet contient la définition d'interface de l'acteur. Les interfaces d'acteur peuvent être définies dans n'importe quel projet avec n'importe quel nom.  L'interface définit le contrat d'acteur qui est partagé par l'implémentation de l'acteur et les clients appelant l'acteur.  Comme les projets client peuvent en dépendre, il est généralement logique de le définir dans un assembly distinct de l'implémentation de l'acteur.
 
-* **Le projet de service de l’acteur (HelloWorld)**. Ce projet définit le service Service Fabric qui va héberger l'acteur. Il contient l’implémentation de l’acteur *HelloWorld.cs*. Une implémentation de l’acteur est une classe qui dérive d’un type de base `Actor` et implémente les interfaces définies dans le projet *MyActor.Interfaces*. Une classe d’acteur doit également implémenter un constructeur qui accepte une `ActorService` instance et un `ActorId` et les transmet à la classe de base `Actor`.
+* **Le projet de service de l’acteur (HelloWorld)** . Ce projet définit le service Service Fabric qui va héberger l'acteur. Il contient l’implémentation de l’acteur *HelloWorld.cs*. Une implémentation de l’acteur est une classe qui dérive d’un type de base `Actor` et implémente les interfaces définies dans le projet *MyActor.Interfaces*. Une classe d’acteur doit également implémenter un constructeur qui accepte une `ActorService` instance et un `ActorId` et les transmet à la classe de base `Actor`.
     
     Ce projet contient également *Program.cs*, qui inscrit les classes d'acteur auprès du runtime Service Fabric en utilisant `ActorRuntime.RegisterActorAsync<T>()`. La classe `HelloWorld` est déjà inscrite. Toute implémentation d'acteur supplémentaire ajoutée au projet doit également être inscrite dans la méthode `Main()`.
 
@@ -95,9 +95,9 @@ Appuyez sur **Ctrl-Maj-B** pour construire le projet et vérifier que tous les �
 
 Créez une application de console simple pour appeler le service d'acteur.
 
-1. Cliquez avec le bouton droit sur la solution dans l'Explorateur de solutions > **Ajouter** > **Nouveau projet...**.
+1. Cliquez avec le bouton droit sur la solution dans l'Explorateur de solutions > **Ajouter** > **Nouveau projet...** .
 
-2. Dans les types de projet **.NET Core**, choisissez **Console App (.NET Core)**.  Nommez le projet *ActorClient*.
+2. Dans les types de projet **.NET Core**, choisissez **Console App (.NET Core)** .  Nommez le projet *ActorClient*.
     
     ![Boîte de dialogue Ajouter un nouveau projet][6]    
     
@@ -116,7 +116,7 @@ Créez une application de console simple pour appeler le service d'acteur.
 
     Le package NuGet et toutes ses dépendances sont installés dans le projet ActorClient.
 
-5. Le projet client nécessite également une référence au projet d'interfaces.  Dans le projet ActorClient, cliquez avec le bouton droit sur **Dépendances**, puis cliquez sur **Ajouter une référence...**.  Sélectionnez **Projets > Solution** (le cas échéant), puis cochez la case **HelloWorld.Interfaces**.  Cliquez sur **OK**.
+5. Le projet client nécessite également une référence au projet d'interfaces.  Dans le projet ActorClient, cliquez avec le bouton droit sur **Dépendances**, puis cliquez sur **Ajouter une référence...** .  Sélectionnez **Projets > Solution** (le cas échéant), puis cochez la case **HelloWorld.Interfaces**.  Cliquez sur **OK**.
     
     ![Boîte de dialogue Ajouter une référence][7]
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/24/2018
 ms.author: magoedte
 ms.openlocfilehash: f7bbde98c6ef35021cc03b2646193d3601ca1cff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60495109"
 ---
 # <a name="monitor-active-directory-replication-status-with-azure-monitor"></a>Surveiller l’état de la réplication Active Directory avec Azure Monitor
@@ -44,7 +44,7 @@ Si vous ne souhaitez pas connecter directement un de vos contrôleurs de domaine
 3. Sur cet ordinateur, définissez la clé de Registre suivante :<br>Clé : **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName>\Solutions\ADReplication**<br>Valeur : **IsTarget**<br>Données de la valeur : **true**
 
    > [!NOTE]
-   > Ces modifications ne prennent pas effet tant que vous redémarrez le service Microsoft Monitoring Agent (HealthService.exe).
+   > Ces changements ne prennent effet qu’une fois que vous avez redémarré le service Microsoft Monitoring Agent (HealthService.exe).
    > ### <a name="install-solution"></a>Installer la solution
    > Suivez la procédure décrite dans [Installer une solution de supervision ](solutions.md#install-a-monitoring-solution) pour ajouter la solution **Active Directory Replication Status** (État de la réplication Active Directory) à votre espace de travail Log Analytics. Aucune configuration supplémentaire n’est requise.
 

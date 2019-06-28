@@ -15,10 +15,10 @@ ms.reviewer: vanto
 manager: craigg
 ms.date: 04/08/2019
 ms.openlocfilehash: 6ada2a5e505bfe37f4f9a956570d8b6f38f55e55
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60702771"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Prendre en main l’audit d’Azure SQL Database Managed Instance
@@ -26,7 +26,7 @@ ms.locfileid: "60702771"
 [L’audit Managed Instance](sql-database-managed-instance.md) suit les événements de base de données et les écrit dans un journal d’audit dans votre compte de stockage Azure. Par ailleurs, l’audit :
 
 - peut vous aider à respecter une conformité réglementaire, à comprendre l’activité de la base de données ainsi qu’à découvrir des discordances et anomalies susceptibles d’indiquer des problèmes pour l’entreprise ou des violations de la sécurité ;
-- permet et facilite le respect de normes de conformité, même s’il ne garantit pas cette conformité. Pour plus d’informations sur Azure de programmes de la conformité aux normes de cette prise en charge, consultez le [centre de confidentialité Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) où vous trouverez la liste actualisée des certifications de conformité de base de données SQL.
+- permet et facilite le respect de normes de conformité, même s’il ne garantit pas cette conformité. Pour plus d’informations sur les programmes Azure qui prennent en charge la conformité aux normes, consultez le [Centre de confidentialité Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) où vous trouverez la liste actualisée des certifications de conformité SQL Database.
 
 ## <a name="set-up-auditing-for-your-server-to-azure-storage"></a>Configurer l’audit de votre serveur sur Stockage Azure
 
@@ -135,7 +135,7 @@ La section suivante décrit la configuration de l’audit à l’aide de votre i
 
      1. Sélectionnez un abonnement, un compte de stockage et un conteneur d’objets blob dans les menus déroulants, ou cliquez sur **Créer** pour créer votre propre conteneur. Une fois terminé, cliquez sur **OK** :
 
-        ![Sélectionnez l’abonnement Azure, compte de stockage et conteneur d’objets blob](./media/sql-managed-instance-auditing/13_mi_SSMS_select_subscription_account_container.png)
+        ![Sélectionner un abonnement, un compte de stockage et un conteneur d’objets blob Azure](./media/sql-managed-instance-auditing/13_mi_SSMS_select_subscription_account_container.png)
 
      1. Cliquez sur **OK** dans la boîte de dialogue Créer un audit.
 
@@ -154,13 +154,13 @@ La section suivante décrit la configuration de l’audit à l’aide de votre i
 
 Pour toute information supplémentaire :
 
-- [Audit des différences entre les bases de données uniques, pools élastiques et instances gérées dans Azure SQL Database et les bases de données dans SQL Server](#auditing-differences-between-databases-in-azure-sql-database-and-databases-in-sql-server)
+- [Audit des différences entre les bases de données uniques, pools élastiques et instances managées dans Azure SQL Database et les bases de données dans SQL Server](#auditing-differences-between-databases-in-azure-sql-database-and-databases-in-sql-server)
 - [CREATE SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
 - [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 
-## <a name="set-up-auditing-for-your-server-to-event-hub-or-azure-monitor-logs"></a>Configurer l’audit pour votre serveur dans les journaux d’Event Hub ou Azure Monitor
+## <a name="set-up-auditing-for-your-server-to-event-hub-or-azure-monitor-logs"></a>Configurer l’audit de votre serveur sur Event Hub ou des journaux Azure Monitor
 
-Journaux d’audit à partir d’une instance gérée peuvent être envoyés à Event Hubs ou journaux Azure Monitor. Cette section décrit comment configurer cela :
+Les journaux d’audit d’une instance gérée peuvent être envoyés à Event Hubs ou aux journaux Azure Monitor. Cette section décrit comment configurer cela :
 
 1. Accédez dans le [portail Azure](https://portal.azure.com/) à l’instance gérée.
 
@@ -170,7 +170,7 @@ Journaux d’audit à partir d’une instance gérée peuvent être envoyés à 
 
 4. Sélectionnez **SQLSecurityAuditEvents** dans la liste des journaux d’activité.
 
-5. Sélectionnez une destination pour les événements d’audit - Hub d’événements, journaux d’Azure Monitor ou les deux. Configurez les paramètres requis (par exemple, espace de travail Log Analytics) pour chaque cible.
+5. Sélectionnez une destination pour les événements d’audit : Event Hub, journaux Azure Monitor ou les deux. Configurez les paramètres requis (par exemple, espace de travail Log Analytics) pour chaque cible.
 
 6. Cliquez sur **Enregistrer**.
 
@@ -190,7 +190,7 @@ Journaux d’audit à partir d’une instance gérée peuvent être envoyés à 
    - [CREATE SERVER AUDIT SPECIFICATION (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
    - [CREATE DATABASE AUDIT SPECIFICATION (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
 
-10. Activer l’audit du serveur créé à l’étape 8 :
+10. Activez l’audit du serveur créé à l’étape 8 :
  
     ```SQL
     ALTER SERVER AUDIT [<your_audit_name>] WITH (STATE=ON);
@@ -213,11 +213,11 @@ Plusieurs méthodes vous permettent d’afficher des journaux d’activité d’
 
 Pour utiliser les données des journaux d’audit à partir d’un hub d’événements, vous devez configurer un flux de données destiné à consommer les événements et à les écrire dans une cible. Pour plus d’informations, voir la Documentation concernant Azure Event Hubs.
 
-### <a name="consume-and-analyze-logs-stored-in-azure-monitor-logs"></a>Consommer et d’analyser les journaux stockés dans les journaux Azure Monitor
+### <a name="consume-and-analyze-logs-stored-in-azure-monitor-logs"></a>Consommer et analyser les journaux stockés dans les journaux Azure Monitor
 
-Si les journaux d’audit sont écrits dans les journaux d’Azure Monitor, ils sont disponibles dans l’espace de travail Analytique de journal, où vous pouvez exécuter des recherches avancées sur les données d’audit. En tant que point de départ, accédez à l’espace de travail Analytique de journal et sous *général* section cliquez *journaux* et entrez une requête simple, tel que : `search "SQLSecurityAuditEvents"` pour afficher l’audit des journaux.  
+Si les journaux d’audit sont écrits dans des journaux Azure Monitor, ils sont disponibles dans l’espace de travail Log Analytics où vous pouvez exécuter des recherches avancées sur les données d’audit. Pour commencer, accédez à l’espace de travail Log Analytics, puis, dans la section *Général*, cliquez sur *Journaux* et entrez une requête simple comme `search "SQLSecurityAuditEvents"` pour afficher les journaux d’audit.  
 
-Journaux d’Azure Monitor vous donne des informations opérationnelles en temps réel à l’aide de la recherche intégrée et des tableaux de bord personnalisés permettant d’analyser facilement des millions d’enregistrements toutes vos charges de travail et serveurs. Pour plus d’informations utiles sur le langage de recherche de journaux Azure Monitor et les commandes, consultez [Azure Monitor enregistre la référence de recherche](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
+Les journaux Azure Monitor vous donnent des insights opérationnels en temps réel à l’aide d’une recherche intégrée et de tableaux de bord personnalisés permettant d’analyser facilement des millions d’enregistrements dans l’ensemble de vos charges de travail et serveurs. Pour plus d’informations utiles sur le langage et les commandes de recherche des journaux Azure Monitor, consultez [Informations de référence sur la recherche dans les journaux Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -234,7 +234,7 @@ L’audit XEvent d’une instance gérée prend en charge les cibles de Stockage
 Les principales différences de syntaxe `CREATE AUDIT` pour l’audit du Stockage Blob Azure sont :
 
 - Une nouvelle syntaxe `TO URL` est fournie et vous permet de spécifier l’URL du conteneur du Stockage Blob Azure où les fichiers `.xel` sont placés.
-- Une nouvelle syntaxe `TO EXTERNAL MONITOR` est fournie pour activer les cibles de journaux même Hub et Azure Monitor.
+- Une nouvelle syntaxe `TO EXTERNAL MONITOR` est fournie pour activer les cibles Event Hub et des journaux Azure Monitor.
 - La syntaxe `TO FILE` **n’est pas prise en charge**, car SQL Database ne peut pas accéder aux partages de fichiers Windows.
 - L’option d’arrêt n’est **pas prise en charge**.
 - La valeur 0 du paramètre `queue_delay` n’est **pas prise en charge**.
@@ -242,7 +242,7 @@ Les principales différences de syntaxe `CREATE AUDIT` pour l’audit du Stockag
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour obtenir la liste complète des méthodes de consommation du journal d’audit, reportez-vous à l’article [Bien démarrer avec l’audit de bases de données SQL](sql-database-auditing.md).
-- Pour plus d’informations sur Azure de programmes de la conformité aux normes de cette prise en charge, consultez le [centre de confidentialité Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) où vous trouverez la liste actualisée des certifications de conformité de base de données SQL.
+- Pour plus d’informations sur les programmes Azure qui prennent en charge la conformité aux normes, consultez le [Centre de confidentialité Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) où vous trouverez la liste actualisée des certifications de conformité SQL Database.
 
 <!--Image references-->
 

@@ -1,6 +1,6 @@
 ---
-title: Définitions de schéma alerte courants pour les Runbooks de fonctions/Automation applications/Azure/logique de Webhooks
-description: Comprendre les définitions de schéma alerte courants pour les Runbooks de fonctions/Automation applications/Azure/logique de Webhooks
+title: Définitions de schéma d’alerte commun pour les webhooks/applications logiques/fonctions Azure/runbooks automation
+description: Compréhension des définitions de schéma d’alerte commun pour les webhooks/applications logiques/fonctions Azure/runbooks automation
 author: anantr
 services: azure-monitor
 ms.service: azure-monitor
@@ -9,23 +9,23 @@ ms.date: 03/14/2019
 ms.author: anantr
 ms.component: alerts
 ms.openlocfilehash: e29a1f5d1e258ab66540010dc12f9326b8fd57a2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60775744"
 ---
 # <a name="common-alert-schema-definitions"></a>Définitions de schéma d’alerte courant
 
-Cet article décrit le [des définitions d’alerte de schéma communes](https://aka.ms/commonAlertSchemaDocs) pour les Runbooks de fonctions/Automation/logique de Webhooks applications/Azure. 
+Cet article décrit les [définitions de schéma d’alerte commun](https://aka.ms/commonAlertSchemaDocs) pour les webhooks/applications logiques/fonctions Azure/runbooks automation. 
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
-N’importe quelle instance d’alerte décrit **la ressource qui a été affectée** et **la cause de l’alerte**, et ces instances sont décrites dans le schéma commun dans les sections suivantes :
-* **Essentials**: Un ensemble de **standardisé champs**, parmi tous les types d’alerte, qui décrivent **quelle ressource** l’alerte est définie sur avec common alerte des métadonnées supplémentaires (par exemple, gravité ou la description). 
-* **Contexte de l’alerte**: Un ensemble de champs qui décrivent le **cause de l’alerte**, avec des champs qui varient **selon le type d’alerte**. Par exemple, une alerte de métrique aurait des champs tels que le nom de la mesure et la valeur métrique dans le contexte de l’alerte, tandis qu’une alerte de journal d’activité aurait plus d’informations sur l’événement qui a généré l’alerte. 
+Toute instance d’alerte décrit **la ressource qui a été affectée** et **la cause de l’alerte** ; ces instances sont décrites dans le schéma commun dans les sections suivantes :
+* **Informations de base** : ensemble de **champs standardisés**, commun à tous les types d’alerte, qui décrivent **quelle ressource** est concernée par l’alerte ainsi que des métadonnées d’alerte courantes supplémentaires (par exemple, la gravité ou un description). 
+* **Contexte de l’alerte** : ensemble de champs qui décrivent la **cause de l’alerte**, et qui varient **selon le type d’alerte**. Par exemple, une alerte de métrique aurait des champs tels que le nom de la métrique et la valeur de la métrique dans le contexte de l’alerte, tandis qu’une alerte de journal d’activité aurait des informations sur l’événement à l’origine de l’alerte. 
 
-##### <a name="sample-alert-payload"></a>Exemple de charge utile alerte
+##### <a name="sample-alert-payload"></a>Exemple de charge utile d’alerte
 ```json
 {
   "schemaId": "azureMonitorCommonAlertSchema",
@@ -74,23 +74,23 @@ N’importe quelle instance d’alerte décrit **la ressource qui a été affect
 }
 ```
 
-## <a name="essentials-fields"></a>Champs « Essentials »
+## <a name="essentials-fields"></a>Champs des informations de base (« essentials »)
 
 | Champ | Description|
 |:---|:---|
 | alertId | GUID qui identifie de façon unique l’instance d’alerte. |
 | alertRule | Nom de la règle d’alerte qui a généré l’instance d’alerte. |
 | Severity | Gravité de l’alerte. Valeurs possibles : Sev0, Sev1, Sev2, Sev3, Sev4 |
-| signalType | Identifie le signal sur lequel la règle d’alerte a été définie. Valeurs possibles : Métrique, Log, journal d’activité |
-| monitorCondition | Lorsqu’une alerte se déclenche, condition d’analyse de l’alerte est définie sur « Déclenché ». Lorsque la condition d’erreur sous-jacente qui a provoqué l’alerte soit déclenchée efface, la condition du moniteur est définie sur « Résolu ».   |
-| monitoringService | Le service de surveillance ou la solution qui a généré l’alerte. Les champs pour le contexte d’alerte sont dictés par le service de surveillance. |
-| alertTargetIds | Liste des cibles de tous les ID ARM affectées d’une alerte. Pour une alerte de journal définie sur un espace de travail Analytique de journal ou d’une instance d’Application Insights, il est l’espace de travail/application respectif. |
-| originAlertId | ID de l’instance d’alerte en tant que généré par le service de surveillance génère. |
-| firedDateTime | Date heure de déclenche lorsque l’instance d’alerte au format UTC |
-| resolvedDateTime | Heure de la date de quand la condition du moniteur pour l’instance d’alerte est définie sur « Résolu » au format UTC. Actuellement applicable uniquement aux alertes de métrique.|
-| description | Description tel que défini dans la règle d’alerte |
-|essentialsVersion| Numéro de version de la section essentials.|
-|alertContextVersion | Numéro de version pour la section alertContext |
+| signalType | Identifie le signal sur lequel la règle d’alerte a été définie. Valeurs possibles : Metric, Log, Activity Log |
+| monitorCondition | Quand une alerte se déclenche, la condition de supervision de l’alerte est définie sur « Fired ». Quand la condition sous-jacente qui provoque le déclenchement de l’alerte disparaît, la condition de supervision de l’alerte est définie sur « Resolved ».   |
+| monitoringService | La solution ou le service de supervision qui a généré l’alerte. Les champs du contexte de l’alerte dépendent du service de supervision. |
+| alertTargetIds | Liste des ID ARM de toutes les cibles affectées d’une alerte. Pour une alerte de journal définie sur un espace de travail Log Analytics ou une instance Application Insights, il s’agit de l’espace de travail ou de l’application respectif. |
+| originAlertId | ID de l’instance d’alerte tel que généré par le service de supervision. |
+| firedDateTime | Date et heure, au format UTC, du déclenchement de l’instance d’alerte |
+| resolvedDateTime | Date et heure, au format UTC, auxquelles la condition de supervision pour l’instance d’alerte est définie sur « Resolved ». Applicable uniquement aux alertes de métrique.|
+| description | Description telle que défini dans la règle d’alerte |
+|essentialsVersion| Numéro de version de la section « essentials ».|
+|alertContextVersion | Numéro de version de la section alertContext |
 
 ##### <a name="sample-values"></a>Exemples de valeurs
 ```json
@@ -114,11 +114,11 @@ N’importe quelle instance d’alerte décrit **la ressource qui a été affect
 }
 ```
 
-## <a name="alert-context-fields"></a>Champs de contexte de l’alerte
+## <a name="alert-context-fields"></a>Champs du contexte de l’alerte (alertContext)
 
 ### <a name="metric-alerts"></a>Alertes de métrique
 
-#### <a name="monitoringservice--platform"></a>monitoringService = 'Platform'
+#### <a name="monitoringservice--platform"></a>monitoringService : Platform
 
 ##### <a name="sample-values"></a>Exemples de valeurs
 ```json
@@ -154,9 +154,9 @@ N’importe quelle instance d’alerte décrit **la ressource qui a été affect
 ### <a name="log-alerts"></a>Alertes de journal
 
 > [!NOTE]
-> Si vous utilisez l’option JSON personnalisée pour vos alertes de journal existant, la personnalisation n’est pas conservée dans le schéma commun.
+> Si vous utilisez l’option JSON personnalisée pour vos alertes de journal existantes, la personnalisation n’est pas conservée dans le schéma commun.
 
-#### <a name="monitoringservice--log-analytics"></a>monitoringService = 'Log Analytics'
+#### <a name="monitoringservice--log-analytics"></a>monitoringService : Log Analytics
 
 ##### <a name="sample-values"></a>Exemples de valeurs
 ```json
@@ -180,7 +180,7 @@ N’importe quelle instance d’alerte décrit **la ressource qui a été affect
 }
 ```
 
-#### <a name="monitoringservice--application-insights"></a>monitoringService = 'Application Insights'
+#### <a name="monitoringservice--application-insights"></a>monitoringService : Application Insights
 
 ##### <a name="sample-values"></a>Exemples de valeurs
 ```json
@@ -202,7 +202,7 @@ N’importe quelle instance d’alerte décrit **la ressource qui a été affect
 
 ### <a name="activity-log-alerts"></a>Alertes de journal d’activité
 
-#### <a name="monitoringservice--activity-log---administrative"></a>monitoringService = 'Activity Log - Administrative'
+#### <a name="monitoringservice--activity-log---administrative"></a>monitoringService : Activity Log - Administrative
 
 ##### <a name="sample-values"></a>Exemples de valeurs
 ```json
@@ -231,6 +231,6 @@ N’importe quelle instance d’alerte décrit **la ressource qui a été affect
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [En savoir plus sur le schéma d’alerte courantes](https://aka.ms/commonAlertSchemaDocs)
+- [Découvrez-en plus sur le schéma d’alerte commun](https://aka.ms/commonAlertSchemaDocs)
 
 

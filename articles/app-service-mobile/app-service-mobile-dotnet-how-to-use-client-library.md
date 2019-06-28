@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 09/24/2018
 ms.author: crdun
 ms.openlocfilehash: 8f014f1cb40e1a629d1989f00805fc91015a3ae9
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62119301"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Utilisation du client géré pour Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 Ce guide vous montre comment mettre en place des scénarios courants à l’aide de la bibliothèque cliente gérée pour Azure App Service Mobile Apps pour les applications Windows et Xamarin. Si vous débutez avec Mobile Apps, suivez le didacticiel [Démarrage rapide avec Azure Mobile Apps][1]. Dans ce guide, nous nous concentrons sur le Kit de développement logiciel (SDK) géré côté client. Pour plus d’informations sur les Kits de développement logiciel (SDK) côté serveur pour Mobile Apps, consultez la documentation du [SDK .NET Server][2] ou du [SDK Node.js Server][3].
 
 ## <a name="reference-documentation"></a>Documentation de référence
@@ -68,7 +68,7 @@ Pour savoir comment créer des tables dans votre backend Mobile Apps, consultez 
 Utilisez l’une des méthodes suivantes pour installer le package du Kit de développement logiciel (SDK) client géré pour Mobile Apps à partir de [NuGet][9] :
 
 * **Visual Studio** Cliquez avec le bouton droit sur votre projet, puis cliquez sur **Gérer les packages NuGet**, recherchez le package `Microsoft.Azure.Mobile.Client` et cliquez sur **Installer**.
-* **Xamarin Studio** avec le bouton droit de votre projet, cliquez sur **ajouter** > **ajouter des Packages NuGet**, recherchez le `Microsoft.Azure.Mobile.Client` du package, puis cliquez sur **ajouter un Package** .
+* **Xamarin Studio** Cliquez avec le bouton droit sur votre projet, cliquez sur **Ajouter**>**Ajouter des packages NuGet**, recherchez le package `Microsoft.Azure.Mobile.Client`, puis cliquez sur **Ajouter un package**.
 
 Dans votre fichier d’activité principal, pensez à ajouter l’instruction **using** suivante :
 
@@ -378,7 +378,7 @@ Plusieurs clients peuvent écrire à un même moment des modifications dans un m
 
 Mobile Apps prend en charge le contrôle d'accès concurrentiel optimiste en suivant les modifications apportées à chaque élément à l'aide de la colonne de la propriété système `version` définie pour chaque table de votre serveur principal Mobile Apps. Chaque fois qu’un enregistrement est mis à jour, Mobile Apps attribue une nouvelle valeur à la propriété `version` de cet enregistrement. À chaque demande de mise à jour, la propriété `version` de l'enregistrement inclus dans la demande est comparée à celle de l'enregistrement basé sur le serveur. Si la version transmise avec la demande ne correspond pas à celle du serveur principal, la bibliothèque cliente déclenche une exception `MobileServicePreconditionFailedException<T>` . Le type inclus avec l’exception est l’enregistrement du backend contenant la version serveur de l’enregistrement. À partir de cette information, l’application peut décider ou non d’exécuter à nouveau la requête de mise à jour avec la valeur `version` correcte du serveur principal pour valider les modifications.
 
-Pour activer l’accès concurrentiel optimiste, l’application définit une colonne sur la classe table de la propriété système `version` . Par exemple : 
+Pour activer l’accès concurrentiel optimiste, l’application définit une colonne sur la classe table de la propriété système `version` . Par exemple :
 
 ```csharp
 public class TodoItem
@@ -517,7 +517,7 @@ Si vous définissez sur une valeur `PageSize` égale ou supérieure à 100 sur l
 ## <a name="#offlinesync"></a>Utilisation de tables hors connexion
 Les tables hors connexion utilisent une banque de données SQLite locale pour stocker les données pour une utilisation en mode hors connexion.  Toutes les opérations de table sont effectuées sur la banque de données SQLite locale au lieu de la banque de données du serveur distant.  Pour créer une table hors connexion, préparez tout d’abord votre projet :
 
-1. Dans Visual Studio, cliquez sur la solution > **Gérer les packages NuGet pour la solution...**, puis recherchez et installez le package NuGet **Microsoft.Azure.Mobile.Client.SQLiteStore** pour tous les projets dans la solution.
+1. Dans Visual Studio, cliquez sur la solution > **Gérer les packages NuGet pour la solution...** , puis recherchez et installez le package NuGet **Microsoft.Azure.Mobile.Client.SQLiteStore** pour tous les projets dans la solution.
 2. (Facultatif) Pour prendre en charge des appareils Windows, installez l’un des packages runtime SQLite suivants :
 
    * **Runtime Windows 8.1 :** Installez [SQLite pour Windows 8.1][3].
@@ -616,7 +616,7 @@ var result = await client.InvokeApiAsync<MarkAllResult>("completeAll", System.Ne
 Il s’agit d’un appel de méthode typé pour lequel le type de renvoi **MarkAllResult** doit être défini. Les méthodes typées et non typées sont toutes deux prises en charge.
 
 La méthode InvokeApiAsync() ajoute « /api/ » à l’API que vous souhaitez appeler, sauf si l’API commence par « / ».
-Par exemple : 
+Par exemple :
 
 * `InvokeApiAsync("completeAll",...)` appelle /api/completeAll sur le serveur principal
 * `InvokeApiAsync("/.auth/me",...)` appelle /.auth/me sur le serveur principal
@@ -657,7 +657,7 @@ Vous pouvez utiliser la bibliothèque d’authentification Active Directory (ADA
    * Remplacez **INSERT-AUTHORITY-HERE** par le nom du client dans lequel vous avez approvisionné votre application. Le format doit être https://login.microsoftonline.com/contoso.onmicrosoft.com. Cette valeur peut être copiée depuis l’onglet Domaine de votre Azure Active Directory dans le [Portail Azure].
    * Remplacez **INSERT-RESOURCE-ID-HERE** par l’ID client du serveur principal de votre application mobile. Vous pouvez obtenir l’ID client sur le portail, sous l’onglet **Avancé** du menu **Paramètres Azure Active Directory**.
    * Remplacez **INSERT-CLIENT-ID-HERE** par l’ID client que vous avez copié depuis l’application cliente native.
-   * Remplacez **INSERT-REDIRECT-URI-HERE** par le point de terminaison */.auth/login/done* de votre site, en utilisant le modèle HTTPS. Cette valeur doit être similaire à *https://contoso.azurewebsites.net/.auth/login/done*.
+   * Remplacez **INSERT-REDIRECT-URI-HERE** par le point de terminaison */.auth/login/done* de votre site, en utilisant le modèle HTTPS. Cette valeur doit être similaire à *https://contoso.azurewebsites.net/.auth/login/done* .
 
      Voici le code nécessaire pour chaque plateforme :
 
@@ -904,12 +904,12 @@ Si vous déployez vers WNS, alors vous DEVEZ [obtenir un SID de package Microsof
 La requête de balises à partir du client n’est pas prise en charge.  Les requêtes de balises sont supprimées de manière silencieuse à partir de l’inscription.
 Si vous souhaitez inscrire votre appareil avec des balises, créez une API personnalisée qui utilise l’API Notification Hubs pour effectuer l’inscription de votre part.  Appelez l'API personnalisée au lieu de la méthode `RegisterNativeAsync()`.
 
-### <a name="package-sid"></a>Guide pratique : Obtention d’un SID de package Microsoft Store
+### <a name="package-sid"></a>Procédure : Obtention d’un SID de package Microsoft Store
 Un SID de package est nécessaire pour l’activation des notifications Push dans les applications Microsoft Store.  Pour recevoir un SID de package, enregistrez votre application auprès du Microsoft Store.
 
 Pour obtenir cette valeur :
 
-1. Dans l’Explorateur de solutions de Visual Studio, cliquez avec le bouton droit sur le projet d’application Microsoft Store, puis cliquez sur **Store** > **Associer l’application au Windows Store...**.
+1. Dans l’Explorateur de solutions de Visual Studio, cliquez avec le bouton droit sur le projet d’application Microsoft Store, puis cliquez sur **Store** > **Associer l’application au Windows Store...** .
 2. Dans l'Assistant, cliquez sur **Suivant**, connectez-vous à votre compte Microsoft, saisissez un nom pour votre application dans **Réserver un nouveau nom d'application**, puis cliquez sur **Réserver**.
 3. Une fois l’inscription de l’application effectuée, sélectionnez son nom, cliquez sur **Suivant**, puis sur **Associer**.
 4. Connectez-vous au [Centre de développement Windows] à l’aide de votre compte Microsoft. Sous **Mes applications**, cliquez sur l’inscription de l’application que vous venez de créer.

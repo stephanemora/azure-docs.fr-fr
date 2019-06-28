@@ -17,10 +17,10 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: c8f2dba8ff30ceae4085d96640623a01b6784b1e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60822339"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Configurer les journaux de diagnostic pour un Event Hub Azure.
@@ -48,7 +48,7 @@ Les journaux de diagnostic sont désactivés par défaut. Pour activer les journ
 
     ![Modifier l’état des journaux de diagnostic](./media/event-hubs-diagnostic-logs/image3.png)
 
-5.  Définir la cible d’archivage que vous le souhaitez. par exemple, un compte de stockage, un concentrateur d’événements ou Azure Monitor enregistre.
+5.  Définissez la cible d’archivage de votre choix, par exemple un compte de stockage, un hub d’événements ou les journaux Azure Monitor.
 
 6.  Enregistrez les nouveaux paramètres de diagnostic.
 
@@ -60,8 +60,8 @@ Pour plus d’informations sur la configuration des diagnostics, consultez la [v
 
 Event Hubs capture les journaux de diagnostic pour deux catégories :
 
-* **Journaux d’archivage** : journaux liés aux archives Event Hubs, en particulier aux erreurs d’archivage.
-* **Journaux des opérations** : informations relatives à ce qui se passe pendant les opérations Event Hubs, en particulier le type d’opération tel que la création d’un hub d’événements, les ressources utilisées et l’état de l’opération.
+* **Journaux d’activité d’archivage** : journaux d’activité liés aux archives Event Hubs, en particulier aux erreurs d’archivage.
+* **Journaux d’activité des opérations** : informations relatives à ce qui se passe pendant les opérations Event Hubs, en particulier le type d’opération tel que la création d’un hub d’événements, les ressources utilisées et l’état de l’opération.
 
 ## <a name="diagnostic-logs-schema"></a>Schéma des journaux de diagnostic
 

@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 3/26/2018
 ms.author: victorh
 ms.openlocfilehash: 10bc4e4c440e5495afd820f588270b7990108b68
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66135330"
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Créer une passerelle d’application avec des règles d’acheminement par chemin d’accès à l’aide du portail Azure
@@ -61,7 +61,7 @@ Un réseau virtuel est nécessaire pour la communication entre les ressources qu
    - *myAGSubnet* : pour le nom du sous-réseau.
    - *10.0.0.0/24* : pour l’espace d’adressage du sous-réseau.
 
-     ![Créer un réseau virtuel](./media/application-gateway-create-url-route-portal/application-gateway-vnet.png)
+     ![Création d’un réseau virtuel](./media/application-gateway-create-url-route-portal/application-gateway-vnet.png)
 
 6. Cliquez sur **OK** pour créer le réseau virtuel et le sous-réseau.
 7. Cliquez sur **Choisir une adresse IP publique**, cliquez sur **Créer nouveau**, puis entrez le nom de l’adresse IP publique. Dans cet exemple, l’adresse IP publique est nommée *myAGPublicIPAddress*. Acceptez les valeurs par défaut pour les autres paramètres, puis cliquez sur **OK**.
@@ -143,8 +143,8 @@ Dans cet exemple, vous créez trois machines virtuelles à utiliser en tant que 
 
 1. Cliquez sur **Règles**, puis sur **Path-based** (Basé sur le chemin).
 2. Entrez *rule2* pour le nom.
-3. Entrez *Images* pour le nom du premier chemin. Entrez */images/*\* pour le chemin d’accès. Sélectionnez **imagesBackendPool** pour le pool principal.
-4. Entrez *Video* pour le nom du second chemin. Entrez */video/*\* pour le chemin d’accès. Sélectionnez **videoBackendPool** pour le pool principal.
+3. Entrez *Images* pour le nom du premier chemin. Entrez */images/* \* pour le chemin d’accès. Sélectionnez **imagesBackendPool** pour le pool principal.
+4. Entrez *Video* pour le nom du second chemin. Entrez */video/* \* pour le chemin d’accès. Sélectionnez **videoBackendPool** pour le pool principal.
 
     ![Créer une règle basée sur le chemin](./media/application-gateway-create-url-route-portal/application-gateway-route-rule.png)
 
@@ -156,7 +156,7 @@ Dans cet exemple, vous créez trois machines virtuelles à utiliser en tant que 
 
     ![Enregistrer l’adresse IP publique de la passerelle d’application](./media/application-gateway-create-url-route-portal/application-gateway-record-ag-address.png)
 
-2. Copiez l’adresse IP publique, puis collez-la dans la barre d’adresses de votre navigateur. Par exemple, http :\//40.121.222.19.
+2. Copiez l’adresse IP publique, puis collez-la dans la barre d’adresses de votre navigateur. Par exemple, http:\//40.121.222.19.
 
     ![Tester l’URL de base dans la passerelle d’application](./media/application-gateway-create-url-route-portal/application-gateway-iistest.png)
 

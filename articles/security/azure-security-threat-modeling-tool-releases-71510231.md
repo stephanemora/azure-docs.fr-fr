@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/15/2019
 ms.author: jegeib
 ms.openlocfilehash: 6f7699ece97be1941ef5235b92f2c76b3bed140e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60610601"
 ---
 # <a name="threat-modeling-tool-update-release-71510231---1112018"></a>Mise à jour de Threat Modeling Tool version 7.1.51023.1 - 01/11/2018
@@ -38,7 +38,7 @@ ms.locfileid: "60610601"
 - Systèmes d'exploitation pris en charge
   - Microsoft Windows 10
 - Version .NET obligatoire
-  - .NET 3.5.2
+  - .Net 3.5.2
 - Conditions supplémentaires
   - Une connexion Internet est nécessaire pour recevoir les mises à jour de l’outil ainsi que les modèles.
 

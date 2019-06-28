@@ -1,5 +1,5 @@
 ---
-title: Se connecter à stockage blob Azure - Azure Logic Apps
+title: Se connecter au Stockage Blob Azure - Azure Logic Apps
 description: Créer et gérer des objets Blob dans Stockage Azure avec Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/21/2018
 tags: connectors
 ms.openlocfilehash: ea3e97db9ec560306788943d92a7670025f38bdc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60958584"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-with-azure-logic-apps"></a>Créer et gérer des objets Blob dans Stockage Blob Azure avec Azure Logic Apps
@@ -33,7 +33,7 @@ Supposons que vous disposez d’un outil qui est mis à jour sur un site web Azu
 Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md) et [Démarrage rapide : Créer votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 Pour obtenir des informations techniques spécifiques aux connecteurs, consultez la <a href="https://docs.microsoft.com/connectors/azureblobconnector/" target="blank">référence du connecteur Stockage Blob Azure</a>.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>.
 
@@ -53,7 +53,7 @@ Cet exemple montre comment vous pouvez démarrer un flux de travail d’applicat
 
 2. Dans la zone de recherche, saisissez le filtre « blob azure ». Dans la liste des déclencheurs, sélectionnez le déclencheur souhaité.
 
-   Cet exemple utilise ce déclencheur : **Stockage Blob Azure - lorsqu’un objet blob est ajouté ou modifié (propriétés uniquement)**
+   Cet exemple utilise ce déclencheur : **Stockage Blob Azure - Quand un blob est ajouté ou modifié (propriétés uniquement)**
 
    ![Sélectionner le déclencheur](./media/connectors-create-api-azureblobstorage/azure-blob-trigger.png)
 
@@ -86,11 +86,11 @@ Dans Azure Logic Apps, une [action](../logic-apps/logic-apps-overview.md#logic-a
    ![Ajouter une action](./media/connectors-create-api-azureblobstorage/add-action.png) 
 
    Pour ajouter une action entre des étapes, déplacez votre souris sur la flèche de connexion. 
-   Cliquez sur le signe plus (**+**) qui s’affiche, puis choisissez **Ajouter une action**.
+   Cliquez sur le signe plus ( **+** ) qui s’affiche, puis choisissez **Ajouter une action**.
 
 3. Dans la zone de recherche, saisissez le filtre « blob azure ». Dans la liste des actions, sélectionnez l’action souhaitée.
 
-   Cet exemple utilise cette action : **Stockage d’objets Blob Azure - obtenir le contenu de blob**
+   Cet exemple utilise cette action : **Stockage Blob Azure - Obtenir le contenu de l’objet blob**
 
    ![Action select](./media/connectors-create-api-azureblobstorage/azure-blob-action.png) 
 
@@ -119,7 +119,7 @@ Cet exemple obtient uniquement le contenu d’un objet Blob. Pour afficher le co
 
 ## <a name="connector-reference"></a>Référence de connecteur
 
-Pour plus d’informations techniques, telles que des déclencheurs, actions et limites, comme décrit par l’API Open du connecteur (anciennement Swagger), consultez le [page de référence du connecteur](/connectors/azureblobconnector/).
+Pour plus d’informations techniques, telles que les déclencheurs, actions et limites, comme décrit dans le fichier Open API (anciennement Swagger) du connecteur, consultez la [page de référence du connecteur](/connectors/azureblobconnector/).
 
 ## <a name="get-support"></a>Obtenir de l’aide
 

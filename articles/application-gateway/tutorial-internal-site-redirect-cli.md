@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.openlocfilehash: 186d0bb9161d70d9e458d25dc1b9cbe518bb790e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66133547"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-the-azure-cli"></a>Créer une passerelle d’application avec redirection interne à l’aide d’Azure CLI
 
-Vous pouvez utiliser l’interface CLI Azure pour configurer une [redirection du trafic web](application-gateway-multi-site-overview.md) lors de la création d’une [passerelle d’application](application-gateway-introduction.md). Dans ce didacticiel, vous créez un pool backend à l’aide d’un groupe de machines virtuelles identiques. Vous configurez ensuite des écouteurs et des règles en fonction de domaines qui vous appartiennent pour vérifier que le trafic web arrive au pool approprié. Ce didacticiel part du principe que vous possédez plusieurs domaines, utilise les exemples de *www\.contoso.com* et *www\.contoso.org*.
+Vous pouvez utiliser l’interface CLI Azure pour configurer une [redirection du trafic web](application-gateway-multi-site-overview.md) lors de la création d’une [passerelle d’application](application-gateway-introduction.md). Dans ce didacticiel, vous créez un pool backend à l’aide d’un groupe de machines virtuelles identiques. Vous configurez ensuite des écouteurs et des règles en fonction de domaines qui vous appartiennent pour vérifier que le trafic web arrive au pool approprié. Ce tutoriel, qui part du principe que vous possédez plusieurs domaines, utilise *www\.contoso.com* et *www\.contoso.org* en guise d’exemples.
 
 Dans cet article, vous apprendrez comment :
 
@@ -101,7 +101,7 @@ La création de la passerelle d’application peut prendre plusieurs minutes. Un
 
 ## <a name="add-listeners-and-rules"></a>Ajouter des écouteurs et des règles 
 
-Un écouteur est requis pour permettre à la passerelle d’application d’acheminer le trafic de manière appropriée vers le pool principal. Ce didacticiel vous montre comment créer deux écouteurs pour vos deux domaines. Dans cet exemple, les écouteurs sont créés pour les domaines *www\.contoso.com* et *www\.contoso.org*.
+Un écouteur est requis pour permettre à la passerelle d’application d’acheminer le trafic de manière appropriée vers le pool principal. Ce didacticiel vous montre comment créer deux écouteurs pour vos deux domaines. Dans cet exemple, des écouteurs sont créés pour les domaines *www\.contoso.com* et *www\.contoso.org*.
 
 Ajoutez les écouteurs backend nécessaires pour acheminer le trafic à l’aide de la commande [az network application-gateway http-listener create](/cli/azure/network/application-gateway).
 
@@ -124,7 +124,7 @@ az network application-gateway http-listener create \
 
 ### <a name="add-the-redirection-configuration"></a>Ajouter la configuration de redirection
 
-Ajouter la configuration de redirection qui envoie le trafic à partir de *www\.consoto.org* vers l’écouteur pour *www\.contoso.com* dans la passerelle d’application à l’aide de [créer az network application-gateway redirect-config](/cli/azure/network/application-gateway/redirect-config).
+Ajoutez la configuration de redirection qui envoie le trafic de *www\.consoto.org* à l’écouteur pour *www\.contoso.com* dans la passerelle d’application à l’aide de la commande [az network application-gateway redirect-config create](/cli/azure/network/application-gateway/redirect-config).
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \
@@ -213,7 +213,7 @@ Entrez votre nom de domaine dans la barre d’adresse de votre navigateur. Par e
 
 ![Tester le site contoso dans la passerelle d’application](./media/tutorial-internal-site-redirect-cli/application-gateway-nginxtest.png)
 
-Modifier l’adresse de votre autre domaine, par exemple http://www.contoso.org et vous devez voir que le trafic a été redirigé vers l’écouteur pour www\.contoso.com.
+Remplacez l’adresse par celle de votre autre domaine, par exemple http://www.contoso.org. Vous devriez alors remarquer que le trafic est redirigé vers l’écouteur pour www\. contoso.com.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

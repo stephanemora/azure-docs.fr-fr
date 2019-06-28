@@ -9,10 +9,10 @@ ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 11/22/2017
 ms.openlocfilehash: 6c234ad6756f4e65e172bf0ffc0ae5a1d35d109b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60814067"
 ---
 # <a name="develop-u-sql-with-python-r-and-c-for-azure-data-lake-analytics-in-visual-studio-code"></a>Développer U-SQL avec Python, R et C# pour Azure Data Lake Analytics dans Visual Studio Code
@@ -58,7 +58,7 @@ Inscrivez les assemblys d’extensions R et Python pour votre compte ADL.
         USING Outputters.Csv();
     ```
     
-3. Avec le bouton droit à un fichier de script, puis sélectionnez **ADL : Générer les Python fichier Code-Behind**. 
+3. Cliquez avec le bouton droit sur un fichier de script, puis sélectionner **ADL: Generate Python Code Behind File**. 
 4. Le fichier **xxx.usql.py** est généré dans votre dossier de travail. Écrivez votre code dans un fichier Python. Voici un exemple de code.
 
     ```Python
@@ -115,7 +115,7 @@ Inscrivez les assemblys d’extensions R et Python pour votre compte ADL.
     TO @OutputFilePredictions
     USING Outputters.Tsv();
     ```
-3. Avec le bouton droit dans **USQL** de fichiers, puis sélectionnez **ADL : Générer R fichier Code-Behind**. 
+3. Cliquez avec le bouton droit dans le fichier **USQL**, puis sélectionner **ADL: Generate R Code Behind File**. 
 4. Le fichier **xxx.usql.r** est généré dans votre dossier de travail. Écrivez votre code dans le fichier R. Voici un exemple de code.
 
     ```R
@@ -125,7 +125,7 @@ Inscrivez les assemblys d’extensions R et Python pour votre compte ADL.
 5. Cliquez avec le bouton droit sur le fichier **USQL**. Vous pouvez cliquer sur **Compile Script** (Compiler le script) ou sur **Submit Job** (Soumettre le travail) pour un travail en cours d’exécution.
 
 ## <a name="develop-c-file"></a>Développer un fichier C#
-Un fichier code-behind est un fichier C# associé à un script U-SQL. Vous pouvez définir un script dédié à UDO, UDA, UDT et UDF dans le fichier code-behind. UDO, UDA, UDT et UDF peuvent être utilisés directement dans le script sans inscription préalable de l’assembly. Le fichier code-behind est placé dans le même dossier que le fichier de script U-SQL correspondant. Si le script est nommé xxx.usql, le fichier code-behind est nommé xxx.usql.cs. Si vous supprimez manuellement le fichier code-behind, la fonctionnalité code-behind est désactivée pour le script U-SQL associé. Pour plus d’informations sur l’écriture de code client pour le script U-SQL, consultez [écriture et à l’aide de Code personnalisé dans U-SQL : Fonctions définies par l’utilisateur]( https://blogs.msdn.microsoft.com/visualstudio/2015/10/28/writing-and-using-custom-code-in-u-sql-user-defined-functions/).
+Un fichier code-behind est un fichier C# associé à un script U-SQL. Vous pouvez définir un script dédié à UDO, UDA, UDT et UDF dans le fichier code-behind. UDO, UDA, UDT et UDF peuvent être utilisés directement dans le script sans inscription préalable de l’assembly. Le fichier code-behind est placé dans le même dossier que le fichier de script U-SQL correspondant. Si le script est nommé xxx.usql, le fichier code-behind est nommé xxx.usql.cs. Si vous supprimez manuellement le fichier code-behind, la fonctionnalité code-behind est désactivée pour le script U-SQL associé. Pour plus d’informations sur l’écriture de code client pour le script U-SQL, consultez [Écriture et utilisation de code personnalisé dans U-SQL : Fonctions définies par l’utilisateur]( https://blogs.msdn.microsoft.com/visualstudio/2015/10/28/writing-and-using-custom-code-in-u-sql-user-defined-functions/).
 
 1. Cliquez sur le **Nouveau fichier** dans votre espace de travail.
 2. Écrivez votre code dans le fichier U-SQL. Voici un exemple de code.
@@ -157,7 +157,7 @@ Un fichier code-behind est un fichier C# associé à un script U-SQL. Vous pouve
         TO @"/output/SearchLogtest.txt" 
         USING Outputters.Tsv();
     ```
-3. Avec le bouton droit dans **USQL** de fichiers, puis sélectionnez **ADL : Générer CS fichier Code-Behind**. 
+3. Cliquez avec le bouton droit dans le fichier **USQL**, puis sélectionner **ADL: Generate CS Code Behind File**. 
 4. Le fichier **xxx.usql.cs** est généré dans votre dossier de travail. Écrivez votre code dans le fichier CS. Voici un exemple de code.
 
     ```CS

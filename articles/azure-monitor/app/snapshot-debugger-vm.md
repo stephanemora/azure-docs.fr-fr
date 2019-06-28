@@ -1,6 +1,6 @@
 ---
-title: Activer le débogueur de capture instantanée pour les applications .NET dans Azure Service Fabric, Service Cloud et Machines virtuelles | Microsoft Docs
-description: Activer le débogueur de capture instantanée pour les applications .NET dans Azure Service Fabric, Service Cloud et Machines virtuelles
+title: Activer le Débogueur de capture instantanée pour les applications .NET dans Azure Service Fabric, le service cloud et les machines virtuelles | Microsoft Docs
+description: Activer le Débogueur de capture instantanée pour les applications .NET dans Azure Service Fabric, le service cloud et les machines virtuelles
 services: application-insights
 documentationcenter: ''
 author: brahmnes
@@ -13,15 +13,15 @@ ms.reviewer: mbullwin
 ms.date: 03/07/2019
 ms.author: brahmnes
 ms.openlocfilehash: ac937ddb1bcaed6813a0de4d631f820eff01e26f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60783498"
 ---
-# <a name="enable-snapshot-debugger-for-net-apps-in-azure-service-fabric-cloud-service-and-virtual-machines"></a>Activer le débogueur de capture instantanée pour les applications .NET dans Azure Service Fabric, Service Cloud et Machines virtuelles
+# <a name="enable-snapshot-debugger-for-net-apps-in-azure-service-fabric-cloud-service-and-virtual-machines"></a>Activer le Débogueur de capture instantanée pour les applications .NET dans Azure Service Fabric, le service cloud et les machines virtuelles
 
-Si votre ASP.NET ou un ASP.NET core application est exécuté dans Azure App Service, les instructions ci-dessous peuvent également être utilisées. À moins que votre application nécessite une configuration personnalisée de débogueur de capture instantanée, il est vivement recommandé à [autorisez le débogueur de capture instantanée dans la page du portail Application Insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json). Si votre application s’exécute dans Azure Service Fabric, Service Cloud, Machines virtuelles, ou sur des machines locales, vous devraient utiliser les instructions suivantes. 
+Si votre application ASP.NET ou ASP.NET Core est exécutée dans Azure App Service, les instructions ci-dessous peuvent également être utilisées. Il est vivement recommandé d’[activer le Débogueur de capture instantanée par le biais de la page du portail Application Insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json), sauf si votre application nécessite une configuration de Débogueur de capture instantanée personnalisée. Si votre application s’exécute dans Azure Service Fabric, le service cloud, des machines virtuelles ou des machines locales, vous devez utiliser les instructions suivantes. 
     
 ## <a name="configure-snapshot-collection-for-aspnet-applications"></a>Configurer la collecte de captures instantanées pour les applications ASP.NET
 
@@ -29,7 +29,7 @@ Si votre ASP.NET ou un ASP.NET core application est exécuté dans Azure App Ser
 
 2. Incluez le package NuGet [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) dans votre application.
 
-3. Si nécessaire, personnaliser la configuration du débogueur de capture instantanée ajoutée à [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). La configuration du débogueur de capture instantanée par défaut est pratiquement vide et tous les paramètres sont facultatifs. Voici un exemple d’une configuration équivalente à la configuration par défaut :
+3. Si nécessaire, personnalisez la configuration du Débogueur de capture instantanée ajoutée à [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). La configuration du Débogueur de capture instantanée par défaut est pratiquement vide et tous les paramètres sont facultatifs. Voici un exemple illustrant une configuration équivalente à la configuration par défaut :
 
     ```xml
     <TelemetryProcessors>
@@ -123,7 +123,7 @@ Si votre ASP.NET ou un ASP.NET core application est exécuté dans Azure App Ser
    }
    ```
 
-4. Si nécessaire, personnaliser la configuration du débogueur de capture instantanée en ajoutant une section SnapshotCollectorConfiguration au fichier appsettings.json. Tous les paramètres dans la configuration du débogueur de capture instantanée sont facultatifs. Voici un exemple d’une configuration équivalente à la configuration par défaut :
+4. Si nécessaire, personnalisez la configuration du Débogueur de capture instantanée en ajoutant une section SnapshotCollectorConfiguration au fichier appsettings.json. Tous les paramètres de la configuration du Débogueur de capture instantanée sont facultatifs. Voici un exemple illustrant une configuration équivalente à la configuration par défaut :
 
    ```json
    {
@@ -171,6 +171,6 @@ Si votre ASP.NET ou un ASP.NET core application est exécuté dans Azure App Ser
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Générer le trafic vers votre application qui peut déclencher une exception. Puis, attendez 10 à 15 minutes pour les captures instantanées à envoyer à l’instance Application Insights.
-- Consultez [instantanés](snapshot-debugger.md?toc=/azure/azure-monitor/toc.json) dans le portail Azure.
-- Pour faciliter le dépannage des problèmes de Profiler, consultez [résolution des problèmes du débogueur de capture instantanée](snapshot-debugger-troubleshoot.md?toc=/azure/azure-monitor/toc.json).
+- Générez du trafic vers votre application pouvant déclencher une exception. Attendez ensuite 10 à 15 minutes le temps que des captures instantanées soient envoyées à l’instance Application Insights.
+- Consultez [Captures instantanées](snapshot-debugger.md?toc=/azure/azure-monitor/toc.json) dans le portail Azure.
+- Pour obtenir de l’aide sur la résolution des problèmes liés à Profiler, consultez [Résolution des problèmes liés au Débogueur de capture instantanée](snapshot-debugger-troubleshoot.md?toc=/azure/azure-monitor/toc.json).

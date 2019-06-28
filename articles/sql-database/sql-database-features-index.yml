@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Base de données SQL Azure - fonctionnalités
+title: Azure SQL Database - Fonctionnalités
 metadata:
   document_id: 36d89c48-3646-380e-34a0-ae3ac62e2641
-  title: Base de données SQL Azure - fonctionnalités
+  title: Azure SQL Database - Fonctionnalités
   meta.description: Learn about the features in Azure SQL Database.
   services: sql-database
   author: jovanpop-msft
@@ -17,34 +17,34 @@ metadata:
 sections:
   - items:
       - type: paragraph
-        text: Base de données SQL Azure est supérieure à un moteur de base de données relationnelle classique qui vous permet d’interroger des données à l’aide du langage SQL. Fonctionnalités de base de données dans Azure SQL Database permettent d’effectuer les opérations plus puissantes et implémenter des scénarios avancés.
+        text: 'Azure SQL Database est bien plus qu’un moteur de base de données relationnelle classique qui vous permet d’interroger des données à l’aide du langage SQL. En effet, les fonctionnalités de base de données dans Azure SQL Database vous permettent d’effectuer des opérations plus complexes et d’implémenter des scénarios avancés.'
       - type: list
         style: cards
         className: cardsM
         columns: 3
         items:
-          - title: Technologies in-memory
+          - title: Technologies en mémoire
             href: /azure/sql-database/sql-database-in-memory
-            html: <p>Implémenter des applications hautes performances à l’aide de technologies en mémoire.</p>
+            html: <p>Implémentez des applications à haut niveau de performance à l’aide de technologies en mémoire.</p>
           - title: Fonctionnalités multimodèles
             href: /azure/sql-database/sql-database-multi-model-features
-            html: '<p>En savoir plus sur le graphique, JSON, XML, des fonctionnalités spatiales dans la base de données SQL Azure.</p>'
+            html: '<p>Découvrez les fonctionnalités Graph, JSON, XML et Spatial dans Azure SQL Database.</p>'
           - title: Réplication transactionnelle
             href: /azure/sql-database/sql-database-managed-instance-transactional-replication
-            html: <p>Répliquez vos données entre les tables de base de données SQL Azure et SQL Server.</p>
+            html: <p>Répliquez vos données entre des tables Azure SQL Database et SQL Server.</p>
           - title: Synchronisation des données
             href: /azure/sql-database/sql-database-sync-data
-            html: <p>Synchroniser les données entre plusieurs bases de données SQL et les instances de SQL Server.</p>
+            html: <p>Synchronisez les données entre plusieurs bases de données SQL et instances SQL Server.</p>
           - title: Automatisation de travaux
             href: /azure/sql-database/sql-database-job-automation-overview
-            html: <p>Planifier des tâches répétitives à l’aide de travaux SQL Agent et élastique.</p>
+            html: <p>Planifiez des tâches répétitives à l’aide de l’agent SQL et de travaux élastiques.</p>
           - title: Tables temporelles
             href: /azure/sql-database/sql-database-temporal-tables
-            html: <p>Suivre et analyser l’historique complet des modifications dans vos données.</p>
+            html: <p>Suivez et analysez l’historique complet des modifications dans vos données.</p>
   - title: Autres ressources
     items:
       - type: list
         style: ordered
         items:
-          - html: En savoir plus sur la <a href="/azure/sql-database/sql-database-features">fonctionnalités de la base de données des différences entre SQL Server et SQL Azure</a>.
-          - html: Découvrez comment utiliser ces fonctionnalités dans <a href="/azure/sql-database/sql-database-howto">Howto guides</a>.
+          - html: Découvrez-en plus sur les <a href="/azure/sql-database/sql-database-features">différences entre les fonctionnalités SQL Server et Azure SQL Database</a>.
+          - html: Apprenez à utiliser ces fonctionnalités dans les <a href="/azure/sql-database/sql-database-howto">guides pratiques</a>.

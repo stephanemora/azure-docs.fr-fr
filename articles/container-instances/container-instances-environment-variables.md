@@ -8,19 +8,19 @@ ms.topic: article
 ms.date: 04/17/2019
 ms.author: danlep
 ms.openlocfilehash: 4a4b19338d96094f28b4f4bedd8042723f67f10a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66149145"
 ---
-# <a name="set-environment-variables-in-container-instances"></a>Définir des variables d’environnement dans les instances de conteneur
+# <a name="set-environment-variables-in-container-instances"></a>Définir des variables d’environnement dans des instances de conteneur
 
 Définir des variables d’environnement dans vos instances de conteneur vous permet de fournir une configuration dynamique de l’application ou du script exécuté par le conteneur. Cela revient à définir l’argument de ligne de commande `--env` sur `docker run`. 
 
-Pour définir des variables d’environnement dans un conteneur, spécifiez-les au moment de créer l’instance de conteneur. Cet article présente des exemples de définition des variables d’environnement lorsque vous démarrez un conteneur avec la [Azure CLI](#azure-cli-example), [Azure PowerShell](#azure-powershell-example)et le [Azure portal](#azure-portal-example). 
+Pour définir des variables d’environnement dans un conteneur, spécifiez-les au moment de créer l’instance de conteneur. Cet article présente des exemples de définition des variables d’environnement lorsque vous démarrez un conteneur avec [Azure CLI](#azure-cli-example), [Azure PowerShell](#azure-powershell-example)et le [Portail Azure](#azure-portal-example). 
 
-Par exemple, si vous exécutez Microsoft [aci-wordcount] [ aci-wordcount] image de conteneur, vous pouvez modifier son comportement en spécifiant les variables d’environnement suivantes :
+Par exemple, si vous exécutez l’image conteneur [microsoft/aci-wordcount][aci-wordcount], vous pouvez modifier son comportement en spécifiant les variables d’environnement suivantes :
 
 *NumWords* : Nombre de mots envoyés à STDOUT.
 
@@ -32,7 +32,7 @@ Si vous devez transmettre des secrets en tant que variables d’environnement, A
 
 ## <a name="azure-cli-example"></a>Exemple Azure CLI
 
-Pour afficher la sortie par défaut de la [aci-wordcount] [ aci-wordcount] conteneur, exécutez tout d’abord avec ce [créer de conteneur az] [ az-container-create] commande (non variables d’environnement spécifiées) :
+Pour afficher la sortie par défaut du conteneur [aci-wordcount][aci-wordcount], exécutez-le d’abord avec la commande [az container create][az-container-create] (aucune variable d’environnement spécifiée) :
 
 ```azurecli-interactive
 az container create \
@@ -87,7 +87,7 @@ azureuser@Azure:~$ az container logs --resource-group myResourceGroup --name myc
 
 La définition de variables d’environnement dans PowerShell est similaire à celle effectuée dans l’interface CLI, à ceci près qu’elle utilise l’argument de ligne de commande `-EnvironmentVariable`.
 
-Tout d’abord, lancez le [aci-wordcount] [ aci-wordcount] conteneur dans sa configuration par défaut avec ce [New-AzContainerGroup] [ new-Azcontainergroup] commande :
+Tout d’abord, lancez le conteneur [aci-wordcount][aci-wordcount] avec sa configuration par défaut, à l’aide de cette commande [New-AzContainerGroup][new-Azcontainergroup] :
 
 ```azurepowershell-interactive
 New-AzContainerGroup `
@@ -96,7 +96,7 @@ New-AzContainerGroup `
     -Image mcr.microsoft.com/azuredocs/aci-wordcount:latest
 ```
 
-Exécutez maintenant la commande suivante [New-AzContainerGroup] [ new-Azcontainergroup] commande. Celle-ci spécifie les variables d’environnement *NumWords* et *MinLength* après le remplissage de la variable tableau `envVars` :
+Ensuite, exécutez la commande [New-AzContainerGroup][new-Azcontainergroup]. Celle-ci spécifie les variables d’environnement *NumWords* et *MinLength* après le remplissage de la variable tableau `envVars` :
 
 ```azurepowershell-interactive
 $envVars = @{'NumWords'='5';'MinLength'='8'}
@@ -108,7 +108,7 @@ New-AzContainerGroup `
     -EnvironmentVariable $envVars
 ```
 
-Une fois que l’état de ces deux conteneurs est *Terminated* (utilisez [Get-AzContainerInstanceLog] [ azure-instance-log] pour vérifier l’état), extraire leurs journaux avec le [ Get-AzContainerInstanceLog] [ azure-instance-log] commande.
+Lorsque l’état de ces deux conteneurs est *Terminé* (utilisez [Get-AzContainerInstanceLog][azure-instance-log] pour vérifier l’état), récupérez leurs journaux d’activité à l’aide de la commande [Get-AzContainerInstanceLog][azure-instance-log].
 
 ```azurepowershell-interactive
 Get-AzContainerInstanceLog -ResourceGroupName myResourceGroup -ContainerGroupName mycontainer1
@@ -143,15 +143,15 @@ Azure:\
 
 ## <a name="azure-portal-example"></a>Exemple du portail Azure
 
-Pour définir les variables d’environnement lorsque vous démarrez un conteneur dans le portail Azure, indiquez-les dans la **avancé** page lorsque vous créez le conteneur.
+Pour définir des variables d’environnement lorsque vous démarrez un conteneur dans le Portail Azure, spécifiez-les dans la page **Avancé** lors de la création du conteneur.
 
-1. Sur le **avancé** , définissez le **stratégie de redémarrage** à *en cas d’échec*
-2. Sous **variables d’environnement**, entrez `NumWords` avec la valeur `5` pour la première variable, puis entrez `MinLength` avec la valeur `8` pour la deuxième variable. 
-1. Sélectionnez **révision + créer** pour vérifier, puis déployer le conteneur.
+1. Sur la page **Avancé**, définissez la **Stratégie de redémarrage** sur *En cas d’échec*
+2. Sous **Variables d’environnement**, entrez `NumWords` avec la valeur `5` pour la première variable, puis entrez `MinLength` avec la valeur `8` pour la deuxième variable. 
+1. Sélectionnez **Vérifier + créer** pour vérifier puis déployer le conteneur.
 
 ![Page du portail montrant le bouton d’activation et les zones de texte des variables d’environnement][portal-env-vars-01]
 
-Pour afficher les journaux du conteneur, sous **paramètres** sélectionnez **conteneurs**, puis **journaux**. Comme pour la sortie des sections CLI et PowerShell précédentes, vous voyez que le comportement du script a été modifié par les variables d’environnement. Seuls cinq mots sont affichés, chacun avec une longueur minimale de huit caractères.
+Pour afficher les journaux d’activité du conteneur, sous **Paramètres**, sélectionnez **Conteneurs**, puis **Journaux d’activité**. Comme pour la sortie des sections CLI et PowerShell précédentes, vous voyez que le comportement du script a été modifié par les variables d’environnement. Seuls cinq mots sont affichés, chacun avec une longueur minimale de huit caractères.
 
 ![Sortie du journal du conteneur dans le portail][portal-env-vars-02]
 
@@ -240,7 +240,7 @@ my-secret-value
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Les scénarios basés sur des tâches, telles que le traitement par lots d’un jeu de données volumineux avec plusieurs conteneurs, peuvent bénéficier de l’utilisation de variables d’environnement personnalisées lors de l’exécution. Pour plus d’informations sur l’exécution des conteneurs basés sur des tâches, consultez [exécuter des tâches en conteneur avec les stratégies de redémarrage](container-instances-restart-policy.md).
+Les scénarios basés sur des tâches, telles que le traitement par lots d’un jeu de données volumineux avec plusieurs conteneurs, peuvent bénéficier de l’utilisation de variables d’environnement personnalisées lors de l’exécution. Pour plus d’informations sur l’exécution des conteneurs basés sur des tâches, consultez [Exécuter des tâches conteneurisées avec des stratégies de redémarrage](container-instances-restart-policy.md).
 
 <!-- IMAGES -->
 [portal-env-vars-01]: ./media/container-instances-environment-variables/portal-env-vars-01.png

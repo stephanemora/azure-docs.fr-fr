@@ -10,10 +10,10 @@ ms.date: 12/04/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 1cbf91af4e91f41fff30a7edfa869d07a21b881e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61226967"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Sortie et messages de Runbook dans Azure Automation
@@ -221,7 +221,7 @@ La capture d’écran précédente illustre le fait que lorsque vous activez la 
    ![Page Journalisation et suivi de la création graphique](media/automation-runbook-output-and-messages/logging-and-tracing-settings-blade.png)
 
 ### <a name="microsoft-azure-monitor-logs"></a>Journaux Microsoft Azure Monitor
-Automation peut envoyer un état de tâche du runbook et des flux de tâches à votre espace de travail Log Analytics. Avec les journaux d’Azure Monitor, vous pouvez,
+Automation peut envoyer un état de tâche du runbook et des flux de tâches à votre espace de travail Log Analytics. Avec les journaux Azure Monitor, vous pouvez :
 
 * Obtenir des informations sur vos travaux Automation 
 * Déclencher un e-mail ou une alerte basé(e) sur le statut de votre travail de runbook (par exemple, échec ou état suspendu) 
@@ -229,7 +229,7 @@ Automation peut envoyer un état de tâche du runbook et des flux de tâches à 
 * Mettre en corrélation des travaux sur différents comptes Automation 
 * Visualiser l’historique de vos travaux dans le temps    
 
-Pour plus d’informations sur la façon de configurer l’intégration avec les journaux Azure Monitor pour collecter, mettre en corrélation et agir sur les données de travail, consultez [transférer l’état du travail et flux de travail d’Automation dans les journaux d’Azure Monitor](automation-manage-send-joblogs-log-analytics.md).
+Pour savoir comment configurer l’intégration aux journaux Azure Monitor dans le but de collecter, de mettre en corrélation et de modifier des données de travail, consultez [Transférer l’état d’un travail et des flux de travail d’Automation vers les journaux Azure Monitor](automation-manage-send-joblogs-log-analytics.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour en savoir plus sur l’exécution d’un runbook, la manière de surveiller des tâches de runbook et d’autres détails techniques, consultez [Suivre une tâche de runbook](automation-runbook-execution.md)

@@ -16,15 +16,15 @@ ms.date: 10/16/2018
 ms.author: glenga;msangapu;david.ebbo;suwatch;pbatum;naren.soni;
 ms.custom: seodec18
 ms.openlocfilehash: 0f2053e978b7c890f4e175515ed54f69694950c6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60833473"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Exécuter des tâches en arrière-plan avec WebJobs dans Azure App Service
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 WebJobs est une fonctionnalité de [Microsoft Azure App Service](https://docs.microsoft.com/azure/app-service/) qui vous permet d’exécuter un programme ou un script dans un même contexte, en tant qu’application web, application API ou application mobile. L’utilisation des tâches web n’entraîne aucun coût supplémentaire.
 
 > [!IMPORTANT]
@@ -182,7 +182,7 @@ Vous pouvez entrer une [expression CRON](../azure-functions/functions-bindings-t
 }
 ```
 
-Pour plus d’informations, consultez [planification d’une tâche Web déclenchée](webjobs-dotnet-deploy-vs.md#scheduling-a-triggered-webjob).
+Pour en savoir plus, consultez [Planification d’un WebJob déclenché](webjobs-dotnet-deploy-vs.md#scheduling-a-triggered-webjob).
 
 ## <a name="ViewJobHistory"></a> Affichage de l’historique des tâches
 

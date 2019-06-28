@@ -1,7 +1,7 @@
 ---
 title: Mettre à niveau votre service QnA Maker - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: Partager ou mettre à niveau vos services QnA Maker afin de gérer les ressources mieux.
+description: Partagez ou mettez à niveau vos services QnA Maker afin de mieux gérer les ressources.
 services: cognitive-services
 author: tulasim88
 manager: nitinme
@@ -11,20 +11,20 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: tulasim
 ms.openlocfilehash: cb38fdcfa8cbbfa0b90141c2de2280ff1ef08c3b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61372255"
 ---
 # <a name="share-or-upgrade-your-qna-maker-service"></a>Partager ou mettre à niveau votre service QnA Maker
-Partager ou mettre à niveau vos services QnA Maker afin de gérer les ressources mieux. 
+Partagez ou mettez à niveau vos services QnA Maker afin de mieux gérer les ressources. 
 
 Vous pouvez choisir de mettre à niveau des composants individuels de la pile QnA Maker après la création initiale. Consultez les détails des composants dépendants et la sélection de références SKU [ici](https://aka.ms/qnamaker-docs-capacity).
 
 ## <a name="share-existing-services-with-qna-maker"></a>Partager des services existants avec QnA Maker
 
-QnA Maker crée plusieurs ressources Azure. Afin de réduire la gestion et tirer parti de coût de partage, utilisez le tableau suivant pour comprendre ce que vous pouvez et ne peuvent pas partager :
+QnA Maker crée plusieurs ressources Azure. Pour alléger la gestion et profiter du partage des coûts, utilisez le tableau suivant pour comprendre ce que vous pouvez et ne pouvez pas partager :
 
 |de diffusion en continu|Partager|
 |--|--|

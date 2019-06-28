@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 05/02/2018
 ms.author: jomolesk
 ms.openlocfilehash: fa10ff14bf893c268d6b6b1a0d181d11a3f27dc4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60586297"
 ---
 # <a name="azure-security-and-compliance-blueprint-analytics-for-fedramp"></a>Blueprint de sécurité et de conformité Azure : Analytique pour FedRAMP
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 [FedRAMP (Federal Risk and Authorization Management Program)](https://www.fedramp.gov/) est un programme déployé à l’échelle de l’administration américaine, visant à rationaliser l’approche en matière d’évaluation de la sécurité, d’autorisation et de surveillance continue des services et produits cloud. Ce document Azure Blueprint Security and Compliance vous fournit des instructions pour proposer une architecture d’analyse Microsoft Azure permettant d’implémenter un sous-ensemble de contrôles FedRAMP High. Cette solution fournit des instructions pour le déploiement et la configuration des ressources Azure pour une architecture de référence commune, illustrant diverses façons dont les clients peuvent satisfaire à des exigences de conformité et de sécurité spécifiques, et sert de base aux clients souhaitant générer et configurer leurs propres solutions d’analyse dans Azure.
 
@@ -73,24 +73,24 @@ La section suivante décrit en détail les éléments de développement et d’i
 
 ![texte de remplacement](images/fedramp-analytics-components.png?raw=true "Diagramme d’analytique des composants FedRAMP")
 
-**Azure Functions** : [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) sont des solutions pour l’exécution de petits morceaux de code dans le cloud via la plupart des langages de programmation. Les fonctions de cette solution s’intègrent avec Stockage Azure pour extraire automatiquement les données des clients dans le cloud, facilitant ainsi l’intégration à d’autres services Azure. Les fonctions, très évolutives, sont facturées uniquement lorsqu’elles sont exécutées.
+**Azure Functions** : [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) regroupe des solutions pour l’exécution de petits segments de code dans le cloud en utilisant la plupart des langages de programmation. Les fonctions de cette solution s’intègrent avec Stockage Azure pour extraire automatiquement les données des clients dans le cloud, facilitant ainsi l’intégration à d’autres services Azure. Les fonctions, très évolutives, sont facturées uniquement lorsqu’elles sont exécutées.
 
-**Azure Analysis Service**: [Azure Analysis Service](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview) fournit la modélisation de données d’entreprise et l’intégration avec les services de plateforme de données Azure. Azure Analysis Service accélère la navigation dans de gros volumes de données en combinant les données provenant de plusieurs sources dans un seul modèle de données.
+**Azure Analysis Services** : [Azure Analysis Service](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview) fournit une modélisation des données d’entreprise et une intégration aux services de plateforme de données Azure. Azure Analysis Service accélère la navigation dans de gros volumes de données en combinant les données provenant de plusieurs sources dans un seul modèle de données.
 
-**Power BI** : [Power BI](https://docs.microsoft.com/power-bi/service-azure-and-power-bi) fournit analytique et création de rapports pour les clients tentant d’extraire une meilleure perception en dehors de leurs efforts de traitement des données.
+**Power BI** : [Power BI](https://docs.microsoft.com/power-bi/service-azure-and-power-bi) fournit des fonctions d’analytique et de création de rapports aux clients qui souhaitent tirer le meilleur parti de leurs efforts de traitement des données.
 
 ### <a name="networking"></a>Mise en réseau
-**Groupes de sécurité réseau** : [Groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) sont configurés pour gérer le trafic dirigé ressources déployées et aux services. Les groupes de sécurité réseau sont définis selon un schéma de refus par défaut et autorisent uniquement le trafic figurant dans la liste de contrôle d’accès (ACL) préconfigurée.
+**Groupes de sécurité réseau** : les [NSG](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) sont configurés pour gérer le trafic dirigé vers les services et les ressources déployés. Les groupes de sécurité réseau sont définis selon un schéma de refus par défaut et autorisent uniquement le trafic figurant dans la liste de contrôle d’accès (ACL) préconfigurée.
 
 Chaque groupe de sécurité réseau a des ports et protocoles spécifiques ouverts afin que la solution puisse fonctionner correctement et en toute sécurité. En outre, les configurations suivantes sont activées pour chaque groupe de sécurité réseau :
   - Les [événements et journaux de diagnostic](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log) sont activés et stockés dans un compte de stockage.
-  - [Journaux d’analyse Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics) est connecté aux journaux de diagnostic du groupe de sécurité réseau.
+  - La solution [Journaux Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics) est connectée aux journaux de diagnostic du groupe de sécurité réseau.
 
 ### <a name="data-at-rest"></a>Données au repos
 L’architecture protège les données au repos à l’aide d’un chiffrement, d’un audit de base de données et d’autres mesures.
 
 La **réplication des données** d’Azure Government offre deux options de [réplication des données](https://docs.microsoft.com/azure/storage/common/storage-redundancy) :
- - Le paramètre par défaut pour la réplication des données est le **stockage géo-redondant (GRS)**, qui stocke de manière asynchrone les données du client dans un autre centre de données, situé hors de la région primaire. Cela garantit la récupération des données en cas de perte totale du centre de données principal.
+ - Le paramètre par défaut pour la réplication des données est le **stockage géo-redondant (GRS)** , qui stocke de manière asynchrone les données du client dans un autre centre de données, situé hors de la région primaire. Cela garantit la récupération des données en cas de perte totale du centre de données principal.
  - Le **stockage localement redondant (LRS)** peut également être configuré via le compte de stockage Azure. Le LRS réplique les données au sein d’une unité d’échelle de stockage, qui est hébergée dans la même région que celle dans laquelle le client crée son compte. Toutes les données sont répliquées simultanément, garantissant ainsi qu’aucune donnée de sauvegarde n’est perdue en cas de panne d’une unité d’échelle de stockage principale.
 
 **Stockage Azure** Pour répondre aux exigences en matière de données chiffrées au repos, tous les services déployés dans cette architecture de référence tirent parti de [Stockage Azure](https://azure.microsoft.com/services/storage/), qui stocke les données avec [Storage Service Encryption](https://docs.microsoft.com/azure/storage/storage-service-encryption).
@@ -108,12 +108,12 @@ La **réplication des données** d’Azure Government offre deux options de [ré
 -   Le [masquage de données dynamiques SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) peut être effectué après le déploiement de l’architecture de référence. Les clients doivent ajuster les paramètres de masquage de données dynamiques pour respecter leur schéma de base de données.
 
 ### <a name="logging-and-audit"></a>Journalisation et audit
-[Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-get-started) génère un affichage de toutes les données de surveillance, y compris les journaux d’activité, les métriques et les données de diagnostic, ce qui permet aux clients de créer une image complète de l’intégrité du système.  
-[Journaux d’analyse Azure](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) fournit une journalisation complète de l’activité système et utilisateur, ainsi que l’intégrité du système. Ce service collecte et analyse les données générées par les ressources des environnements Azure et locaux.
+[Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-get-started) génère un affichage de toutes les données de supervision, y compris les journaux d’activité, les métriques et les données de diagnostic, ce qui permet aux clients de créer une image complète de l’intégrité du système.  
+[Journaux Azure Monitor](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) assure une journalisation complète de l’activité du système et des utilisateurs, ainsi que de l’intégrité du système. Ce service collecte et analyse les données générées par les ressources des environnements Azure et locaux.
 - **Journaux d’activité** : les [journaux d’activité](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) fournissent des insights sur les opérations ayant été effectuées sur les ressources d’un abonnement.
-- **Journaux de diagnostic** : les [journaux de diagnostic](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) incluent l’ensemble des journaux générés par chaque ressource. Ces journaux d’activité incluent les journaux des événements système Windows, ainsi que les journaux d’activité du service Stockage Blob Azure, des tables et des files d’attente.
-- **Journaux du pare-feu** : Application Gateway fournit des journaux de diagnostic et d’accès complets. Les journaux d’activité de pare-feu sont disponibles pour les ressources Application Gateway pour lesquelles WAF est activé.
-- **Archivage des journaux** : tous les journaux de diagnostic sont archivés dans un compte de stockage Azure centralisé et chiffré, et sont conservés pendant une période prédéfinie de deux jours. Ces journaux se connecter aux journaux d’Azure Monitor pour traitement, de stockage et les rapports de tableau de bord.
+- **Journaux de diagnostic** : les [journaux de diagnostic](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) incluent l’ensemble des journaux d’activité générés par chaque ressource. Ces journaux d’activité incluent les journaux des événements système Windows, ainsi que les journaux d’activité du service Stockage Blob Azure, des tables et des files d’attente.
+- **Journaux d’activité du pare-feu** : Application Gateway fournit des journaux de diagnostic et d’accès complets. Les journaux d’activité de pare-feu sont disponibles pour les ressources Application Gateway pour lesquelles WAF est activé.
+- **Archivage des journaux** : tous les journaux de diagnostic sont archivés dans un compte de stockage Azure centralisé et chiffré, et sont conservés pendant une période prédéfinie de deux jours. Ces journaux se connectent à Journaux Azure Monitor à des fins de traitement, de stockage et de génération de rapports de tableau de bord.
 
 En outre, cette architecture intègre également les solutions de supervision suivantes :
 -   [Azure Automation](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker) : la solution Azure Automation stocke, exécute et gère les runbooks.
@@ -140,11 +140,11 @@ Il convient de configurer [ExpressRoute](https://docs.microsoft.com/azure/expres
 [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) joue un rôle essentiel dans la gestion du déploiement et de la configuration des accès des membres du personnel qui interagissent avec l’environnement. Une instance Windows Server Active Directory existante peut être intégrée à AAD en [quatre clics](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-get-started-express). Les clients peuvent également associer l’infrastructure (contrôleurs de domaine) Active Directory déployée à un service AAD existant en définissant cette infrastructure comme sous-domaine d’une forêt AAD.
 
 ### <a name="additional-services"></a>Services supplémentaires
-#### <a name="iaas---vm-considerations"></a>IaaS - considérations relatives à la machine virtuelle
-Cette solution PaaS n’intègre pas toutes les machines virtuelles Azure IaaS. Un client peut créer une machine virtuelle Azure pour exécuter la plupart de ces services PaaS. Dans ce cas, les fonctionnalités spécifiques et des services pour la continuité d’activité et les journaux d’Azure Monitor pourrait être utilisés :
+#### <a name="iaas---vm-considerations"></a>Iaas - Considérations relatives à la machine virtuelle
+Cette solution PaaS n’intègre pas toutes les machines virtuelles Azure IaaS. Un client peut créer une machine virtuelle Azure pour exécuter la plupart de ces services PaaS. Dans ce cas, il est possible de tirer profit de fonctionnalités et de services spécifiques pour la continuité d’activité et les journaux Azure Monitor :
 
 ##### <a name="business-continuity"></a>Continuité de l’activité
-- **Haute disponibilité** : Charges de travail serveur sont regroupés dans un [à haute disponibilité](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) afin de garantir une haute disponibilité des machines virtuelles dans Azure. Au moins une machine virtuelle est disponible pendant un événement de maintenance planifié ou non, ce qui est conforme au contrat de niveau de service Azure garantissant une disponibilité de 99,95 %.
+- **Haute disponibilité** : les charges de travail serveur sont regroupées dans un [groupe à haute disponibilité](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) pour garantir la très grande disponibilité des machines virtuelles dans Azure. Au moins une machine virtuelle est disponible pendant un événement de maintenance planifié ou non, ce qui est conforme au contrat de niveau de service Azure garantissant une disponibilité de 99,95 %.
 
 - **Coffre Recovery Services** : le [coffre Recovery Services](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview) héberge les données de sauvegarde et protège toutes les configurations des machines virtuelles Azure dans cette architecture. Grâce au coffre Recovery Services, les clients peuvent restaurer des fichiers et dossiers d’une machine virtuelle IaaS sans avoir à restaurer l’intégralité de celle-ci, ce qui permet d’accélérer les temps de restauration.
 

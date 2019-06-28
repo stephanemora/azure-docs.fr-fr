@@ -14,14 +14,14 @@ ms.author: abnarain
 manager: craigg
 robots: noindex
 ms.openlocfilehash: 5835c37363c7e9d2dd3253c08ab97f17852725f5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61248145"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transformer des données en exécutant des scripts U-SQL sur Azure Data Lake Analytics 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version 1](data-factory-usql-activity.md)
 > * [Version 2 (version actuelle)](../transform-data-using-data-lake-analytics.md)
 
@@ -48,9 +48,9 @@ Le tableau suivant décrit les propriétés génériques utilisées dans la déf
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| **type** |La propriété de type doit être définie sur : **AzureDataLakeAnalytics**. |Oui |
-| **accountName** |Nom du compte du service Analytique Azure Data Lake. |Oui |
-| **dataLakeAnalyticsUri** |URI du service Analytique Azure Data Lake. |Non  |
+| **type** |La propriété de type doit être définie sur : **AzureDataLakeAnalytics**. |OUI |
+| **accountName** |Nom du compte du service Analytique Azure Data Lake. |OUI |
+| **dataLakeAnalyticsUri** |URI du service Analytique Azure Data Lake. |Non |
 | **subscriptionId** |ID d’abonnement Azure |Non (si non spécifié, l’abonnement de la fabrique de données est utilisé). |
 | **resourceGroupName** |Nom du groupe de ressources Azure |Non (si non spécifié, le groupe de ressources de la fabrique de données est utilisé). |
 
@@ -64,9 +64,9 @@ Utilisez l’authentification par principal de service en spécifiant les propri
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| **servicePrincipalId** | Spécifiez l’ID client de l’application. | Oui |
-| **servicePrincipalKey** | Spécifiez la clé de l’application. | Oui |
-| **client** | Spécifiez les informations de locataire (nom de domaine ou ID de locataire) dans lesquels se trouve votre application. Vous pouvez le récupérer en pointant la souris dans le coin supérieur droit du portail Azure. | Oui |
+| **servicePrincipalId** | Spécifiez l’ID client de l’application. | OUI |
+| **servicePrincipalKey** | Spécifiez la clé de l’application. | OUI |
+| **client** | Spécifiez les informations de locataire (nom de domaine ou ID de locataire) dans lesquels se trouve votre application. Vous pouvez le récupérer en pointant la souris dans le coin supérieur droit du portail Azure. | OUI |
 
 **Exemple : Authentification d’un principal de service**
 ```json
@@ -92,8 +92,8 @@ Vous pouvez également utiliser l’authentification par informations d’identi
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| **authorization** | Cliquez sur le bouton **Autoriser** dans Data Factory Editor et saisissez vos informations d’identification, ce qui affecte l’URL d’autorisation générée automatiquement à cette propriété. | Oui |
-| **sessionId** | ID de session OAuth issu de la session d’autorisation OAuth. Chaque ID de session est unique et ne peut être utilisé qu’une seule fois. Ce paramètre est généré automatiquement lorsque vous utilisez Data Factory Editor. | Oui |
+| **authorization** | Cliquez sur le bouton **Autoriser** dans Data Factory Editor et saisissez vos informations d’identification, ce qui affecte l’URL d’autorisation générée automatiquement à cette propriété. | OUI |
+| **sessionId** | ID de session OAuth issu de la session d’autorisation OAuth. Chaque ID de session est unique et ne peut être utilisé qu’une seule fois. Ce paramètre est généré automatiquement lorsque vous utilisez Data Factory Editor. | OUI |
 
 **Exemple : Authentification des informations d’identification utilisateur**
 ```json
@@ -208,16 +208,16 @@ Le tableau suivant indique les noms et les descriptions des propriétés qui son
 
 | Propriété            | Description                              | Obligatoire                                 |
 | :------------------ | :--------------------------------------- | :--------------------------------------- |
-| Type                | La propriété de type doit être définie sur **DataLakeAnalyticsU-SQL**. | Oui                                      |
-| linkedServiceName   | Référence au Azure Data Lake Analytics enregistré en tant que service lié dans Data Factory | Oui                                      |
+| Type                | La propriété de type doit être définie sur **DataLakeAnalyticsU-SQL**. | OUI                                      |
+| linkedServiceName   | Référence au Azure Data Lake Analytics enregistré en tant que service lié dans Data Factory | OUI                                      |
 | scriptPath          | Chemin d'accès au dossier qui contient le script SQL-U. Le nom de fichier respecte la casse. | Non (si vous utilisez le script)                   |
 | scriptLinkedService | Service lié qui lie le stockage qui contient le script à la fabrique de données | Non (si vous utilisez le script)                   |
 | script              | Spécifiez un script en ligne au lieu de spécifier scriptPath et scriptLinkedService. Par exemple : `"script": "CREATE DATABASE test"`. | Non (si vous utilisez scriptPath et scriptLinkedService) |
-| degreeOfParallelism | Le nombre maximal de nœuds utilisés simultanément pour exécuter le travail. | Non                                        |
-| priority            | Détermine les travaux parmi tous ceux qui sont en file d'attente qui doivent être sélectionnés pour s'exécuter en premier. Plus le numéro est faible, plus la priorité est élevée. | Non                                        |
-| parameters          | Paramètres du script U-SQL          | Non                                        |
-| runtimeVersion      | Version du runtime du moteur U-SQL à utiliser | Non                                        |
-| compilationMode     | <p>Mode de compilation d’U-SQL. Doit avoir l’une des valeurs suivantes :</p> <ul><li>**Semantic :** exécuter uniquement les vérifications sémantiques et les contrôles d’intégrité nécessaires.</li><li>**Full :** effectuer la compilation complète, notamment la vérification de la syntaxe, l’optimisation, la génération de code, et ainsi de suite.</li><li>**SingleBox :** effectuer la compilation complète, avec le paramètre TargetType défini sur SingleBox.</li></ul><p>Si vous ne spécifiez pas de valeur pour cette propriété, le serveur détermine le mode de compilation optimal. </p> | Non                                        |
+| degreeOfParallelism | Le nombre maximal de nœuds utilisés simultanément pour exécuter le travail. | Non                                       |
+| priority            | Détermine les travaux parmi tous ceux qui sont en file d'attente qui doivent être sélectionnés pour s'exécuter en premier. Plus le numéro est faible, plus la priorité est élevée. | Non                                       |
+| parameters          | Paramètres du script U-SQL          | Non                                       |
+| runtimeVersion      | Version du runtime du moteur U-SQL à utiliser | Non                                       |
+| compilationMode     | <p>Mode de compilation d’U-SQL. Doit avoir l’une des valeurs suivantes :</p> <ul><li>**Semantic :** exécuter uniquement les vérifications sémantiques et les contrôles d’intégrité nécessaires.</li><li>**Full :** effectuer la compilation complète, notamment la vérification de la syntaxe, l’optimisation, la génération de code, et ainsi de suite.</li><li>**SingleBox :** effectuer la compilation complète, avec le paramètre TargetType défini sur SingleBox.</li></ul><p>Si vous ne spécifiez pas de valeur pour cette propriété, le serveur détermine le mode de compilation optimal. </p> | Non                                       |
 
 Vous trouverez la définition du script dans la section [Définition du script SearchLogProcessing.txt](#sample-u-sql-script) . 
 
@@ -317,7 +317,7 @@ OUTPUT @rs1
       USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
 ```
 
-Les valeurs de  **\@dans** et  **\@out** paramètres dans le script U-SQL sont passées dynamiquement par ADF à l’aide de la section « parameters ». Consultez la section « parameters » dans la définition du pipeline.
+Les valeurs des paramètres **\@in** et **\@out** dans le script U-SQL sont passées dynamiquement par ADF en utilisant la section « parameters ». Consultez la section « parameters » dans la définition du pipeline.
 
 Vous pouvez aussi spécifier d’autres propriétés comme degreeOfParallelism et priority dans votre définition de pipeline pour les travaux qui s’exécutent au niveau du service Azure Data Lake Analytics.
 
@@ -331,7 +331,7 @@ Dans l’exemple de définition de pipeline, des valeurs codées en dur sont aff
 }
 ```
 
-Il est possible d’utiliser des paramètres dynamiques à la place. Par exemple :  
+Il est possible d’utiliser des paramètres dynamiques à la place. Par exemple : 
 
 ```json
 "parameters": {

@@ -1,5 +1,5 @@
 ---
-title: Surveiller des applications logiques avec les journaux d’Azure Monitor - Azure Logic Apps | Microsoft Docs
+title: Superviser les applications logiques avec les journaux Azure Monitor - Azure Logic Apps | Microsoft Docs
 description: Obtenez des insights et des données de débogage vous permettant de diagnostiquer et de résoudre les problèmes des exécutions de votre application logique avec Azure Log Analytics.
 services: logic-apps
 ms.service: logic-apps
@@ -10,24 +10,24 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
 ms.openlocfilehash: 3f890e6cabd757fdd38374befaaccd1a10c9bd96
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62106208"
 ---
 # <a name="monitor-logic-apps-with-azure-monitor-logs"></a>Superviser les applications logiques avec les journaux d’activité Azure Monitor
 
-Pour surveiller et obtenir des informations de débogage plus détaillées sur vos applications logiques, activez [Azure Monitor enregistre](../log-analytics/log-analytics-overview.md) lorsque vous créez votre application logique. Journaux d’Azure Monitor fournit des diagnostics de journalisation et de surveillance pour vos applications logiques lorsque vous installez la solution Logic Apps Management dans le portail Azure. Cette solution fournit également des informations agrégées sur les exécutions de l’application logique avec certains détails spécifiques comme l’état, la durée d’exécution, l’état de la nouvelle soumission et les ID de corrélation. Cet article explique comment activer les journaux Azure Monitor afin que vous pouvez afficher les événements du runtime et les données de votre application logique s’exécute.
+Pour superviser vos applications logiques et obtenir des informations de débogage plus détaillées à leur sujet, activez les [journaux Azure Monitor](../log-analytics/log-analytics-overview.md) quand vous créez les applications logiques. Les journaux Azure Monitor assurent la journalisation des diagnostics et la supervision des applications logiques quand la solution Logic Apps Management est installée dans le portail Azure. Cette solution fournit également des informations agrégées sur les exécutions de l’application logique avec certains détails spécifiques comme l’état, la durée d’exécution, l’état de la nouvelle soumission et les ID de corrélation. Cet article montre comment activer les journaux Azure Monitor pour voir les données et événements d’exécution associés aux exécutions de l’application logique.
 
-Pour activer les journaux Azure Monitor pour les applications logiques existantes, suivez ces étapes pour [activer la journalisation des diagnostics et envoyer les données de runtime d’application logique dans les journaux d’Azure Monitor](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
+Si vous souhaitez activer les journaux Azure Monitor sur une application logique existante, effectuez ces étapes pour [activer la journalisation des diagnostics et envoyer aux journaux Azure Monitor les données d’exécution de l’application logique](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
 > [!NOTE]
 > Cette page expliquait auparavant comment effectuer ces tâches avec Microsoft Operations Management Suite (OMS) ; dans la mesure où celui-ci sera [mis hors service en janvier 2019](../azure-monitor/platform/oms-portal-transition.md), ces étapes sont remplacées par Azure Log Analytics. 
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer, il vous faut un espace de travail Log Analytics. Découvrez [comment créer un espace de travail Log Analytics](../azure-monitor/learn/quick-create-workspace.md). 
 
@@ -58,7 +58,7 @@ Avant de commencer, il vous faut un espace de travail Log Analytics. Découvrez 
 
 ## <a name="install-logic-apps-management-solution"></a>Installer la solution Logic Apps Management
 
-Si vous avez déjà activé Azure Monitor connecté lorsque vous avez créé votre application logique, ignorez cette étape. En effet, vous disposez déjà de la solution Logic Apps Management.
+Si vous avez déjà activé les journaux Azure Monitor lors de la création de votre application logique, ignorez cette étape. En effet, vous disposez déjà de la solution Logic Apps Management.
 
 1. Dans le [portail Azure](https://portal.azure.com), sélectionnez **Tous les services**. Dans la zone de recherche, entrez « Log Analytics », puis sélectionnez **Log Analytics**.
 
@@ -151,9 +151,9 @@ Après l’exécution de votre application logique, vous pouvez afficher l’ét
 
      ![Affichage des actions et des détails relatifs à une exécution d’application logique](media/logic-apps-monitor-your-logic-apps-oms/log-search-page.png)
      
-     Dans la page d’analytique de journal, vous pouvez mettre à jour des requêtes et afficher les résultats de la table. Cette requête utilise le [langage de requête Kusto](https://aka.ms/LogAnalyticsLanguageReference), que vous pouvez modifier si vous souhaitez afficher des résultats différents. 
+     Dans la page d’analytique des journaux, vous pouvez mettre à jour des requêtes et voir les résultats dans un tableau. Cette requête utilise le [langage de requête Kusto](https://aka.ms/LogAnalyticsLanguageReference), que vous pouvez modifier si vous souhaitez afficher des résultats différents. 
 
-     ![analytique de journal - affichage des requêtes](media/logic-apps-monitor-your-logic-apps-oms/query.png)
+     ![Analytique des journaux - Vue de la requête](media/logic-apps-monitor-your-logic-apps-oms/query.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

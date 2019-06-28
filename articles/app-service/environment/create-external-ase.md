@@ -15,10 +15,10 @@ ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: eef13c5a4e3757b0eafd77c0915717175c2dbd8c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60769036"
 ---
 # <a name="create-an-external-app-service-environment"></a>Créer un environnement App Service externe
@@ -26,7 +26,7 @@ ms.locfileid: "60769036"
 Un environnement Azure App Service est un déploiement d’Azure App Service dans un sous-réseau de réseau virtuel Azure.
 
 > [!NOTE]
-> Chaque environnement App Service a une IP virtuelle (VIP), qui peut être utilisé pour contacter l’environnement App Service.
+> Chaque instance d’App Service Environment a une adresse IP virtuelle qui peut être utilisée pour contacter App Service Environment.
 
 Il existe deux façons de déployer un environnement App Service (ASE, App Service Environment) :
 

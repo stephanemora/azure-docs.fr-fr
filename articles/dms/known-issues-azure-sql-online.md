@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 04/09/2019
 ms.openlocfilehash: 00ed2f20884c3cd8f49307bd726f14f3007f884f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60534423"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-db"></a>Problèmes connus/limitations de migration dans le cadre des migrations en ligne vers Azure SQL DB
@@ -23,7 +23,7 @@ ms.locfileid: "60534423"
 Le présent article décrit les problèmes connus et limitations associés aux migrations en ligne de SQL Server vers Azure SQL Database.
 
 > [!IMPORTANT]
-> Avec les migrations en ligne de SQL Server pour la base de données SQL Azure, migration de types de données SQL_variant n’est pas pris en charge.
+> Avec les migrations en ligne de SQL Server pour la base de données SQL Azure, la migration de types de données SQL_variant n’est pas pris en charge.
 
 ### <a name="migration-of-temporal-tables-not-supported"></a>Migration des tables temporelles non prise en charge
 
@@ -97,7 +97,7 @@ SELECT max(DATALENGTH(ColumnName)) as LEN from TableName
 
 **Solution de contournement**
 
-Si vous avez une colonne LOB qui est supérieure à 32 Ko, contactez l’équipe d’ingénierie à [poser de Migrations de base de données Azure](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
+Si vous disposez d’une colonne LOB de plus de 32 Ko, contactez l’équipe d’ingénierie en cliquant ici : [Demander à l’équipe de migration de base de données Azure](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
 
 ### <a name="issues-with-timestamp-columns"></a>Problèmes avec les colonnes timestamp
 
@@ -107,13 +107,13 @@ DMS ne fait pas migrer la valeur timestamp source. En fait, DMS génère une nou
 
 **Solution de contournement**
 
-Si vous avez besoin de DMS pour migrer la valeur d’horodatage exact stockée dans la table source, contactez l’équipe d’ingénierie à [poser de Migrations de base de données Azure](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
+Si vous souhaitez que DMS fasse migrer la valeur timestamp exacte stockée dans la table source, contactez l’équipe d’ingénierie pour [Poser des questions sur les migrations de base de données Azure](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
 
-### <a name="data-migration-errors-dont-provide-additional-details-on-the-database-detailed-status-blade"></a>Erreurs de migration de données ne fournissent des détails supplémentaires sur le panneau d’état détaillé de base de données.
+### <a name="data-migration-errors-dont-provide-additional-details-on-the-database-detailed-status-blade"></a>Les erreurs de migration de données ne fournissent pas de détails supplémentaires sur le panneau d’état détaillé des bases de données.
 
 **Symptôme**
 
-Lorsque vous rencontrez des échecs de migration dans l’affichage d’état détails bases de données, sélectionnez le **les erreurs de migration de données** lien sur le ruban supérieur ne peut pas fournir des détails supplémentaires spécifiques pour les échecs de migration.
+Lorsque des échecs de migration apparaissent dans l’affichage d’état détaillé des bases de données et que vous sélectionnez le lien **Erreurs de migration des données** dans le ruban supérieur, vous n’obtenez pas de détails supplémentaires spécifiques aux échecs de migration.
 
 ![exemple d’absence de détails concernant des erreurs de migration des données](media/known-issues-azure-sql-online/dms-data-migration-errors-no-details.png)
 

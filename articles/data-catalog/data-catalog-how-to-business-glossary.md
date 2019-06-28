@@ -7,15 +7,15 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 04/05/2019
 ms.openlocfilehash: 649a842c8c8890713bda938c8e11740c5c8be7aa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61001887"
 ---
 # <a name="set-up-the-business-glossary-for-governed-tagging"></a>Configurer le glossaire métier pour un balisage géré
 
-## <a name="introduction"></a>Présentation
+## <a name="introduction"></a>Introduction
 
 Azure Data Catalog autorise la détection de sources de données pour que vous puissiez découvrir et comprendre facilement les sources de données dont vous avez besoin pour effectuer des analyses et prendre des décisions. Ces fonctionnalités se révèlent tout particulièrement utiles lorsque vous pouvez trouver et comprendre le plus large éventail de sources de données disponibles.
 
@@ -32,7 +32,7 @@ Le glossaire métier de Data Catalog permet aux organisations de rassembler les 
 
 ## <a name="glossary-availability-and-privileges"></a>Disponibilité du glossaire et privilèges
 
-Le glossaire métier est disponible uniquement dans l’édition Standard d’Azure Data Catalog. L’édition gratuite de Data Catalog n’inclut pas un glossaire et il ne fournit des fonctionnalités de balisage géré.
+Le glossaire métier est disponible uniquement dans l’édition Standard d’Azure Data Catalog. L’édition gratuite de Data Catalog n’inclut pas de glossaire et ne fournit aucune fonctionnalité de balisage géré.
 
 Le glossaire métier est accessible via l’option **Glossaire** du menu de navigation du portail Data Catalog.  
 
@@ -55,7 +55,7 @@ Les administrateurs de Data Catalog et les administrateurs de glossaire peuvent 
 
 Le glossaire métier de Data Catalog permet aux organisations de construire son vocabulaire métier comme une hiérarchie de termes et de créer une classification de termes qui représente mieux la taxonomie de son entreprise.
 
-Un terme doit être unique à un niveau donné de la hiérarchie. Noms en double ne sont pas autorisés. Il n’existe aucune limite quant au nombre de niveaux dont est constituée une hiérarchie, mais celle-ci sera plus facile à cerner si elle n’en comporte pas plus de trois.
+Un terme doit être unique à un niveau donné de la hiérarchie. Les noms en double ne sont pas autorisés. Il n’existe aucune limite quant au nombre de niveaux dont est constituée une hiérarchie, mais celle-ci sera plus facile à cerner si elle n’en comporte pas plus de trois.
 
 L’utilisation de hiérarchies dans le glossaire métier est facultative. Le fait de laisser le champ Terme parent vide pour des termes du glossaire a pour effet de créer une liste de termes plate (non hiérarchisée) dans le glossaire.  
 

@@ -1,6 +1,6 @@
 ---
 title: Ajouter la surveillance et les diagnostics à une machine virtuelle Azure | Microsoft Docs
-description: Utilisez un modèle Azure Resource Manager pour créer une machine virtuelle Windows avec l’extension diagnostics Azure.
+description: Utilisez un modèle Azure Resource Manager pour créer une machine virtuelle Windows avec l’extension Diagnostics Azure.
 services: virtual-machines-windows
 documentationcenter: ''
 author: sbtron
@@ -17,10 +17,10 @@ ms.date: 05/31/2017
 ms.author: saurabh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 00b4a145da9104cab410c5a07f6d7ec5ded5c45d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60800018"
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Utiliser la surveillance et les diagnostics avec une machine virtuelle Windows et des modèles Azure Resource Manager
@@ -63,7 +63,7 @@ Pour une simple machine virtuelle basée sur Resource Manager, ajoutez la config
 ]
 ```
 
-Une autre convention commune est d’ajouter la configuration de l’extension au nœud de ressources racine du modèle au lieu de la définir sous le nœud de ressources de la machine virtuelle. Avec cette approche, vous devez spécifier explicitement une relation hiérarchique entre l’extension et la machine virtuelle avec les valeurs de *nom* et de *type*. Par exemple :  
+Une autre convention commune est d’ajouter la configuration de l’extension au nœud de ressources racine du modèle au lieu de la définir sous le nœud de ressources de la machine virtuelle. Avec cette approche, vous devez spécifier explicitement une relation hiérarchique entre l’extension et la machine virtuelle avec les valeurs de *nom* et de *type*. Par exemple : 
 
 ```json
 "name": "[concat(variables('vmName'),'Microsoft.Insights.VMDiagnosticsSettings')]",

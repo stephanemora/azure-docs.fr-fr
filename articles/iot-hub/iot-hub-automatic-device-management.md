@@ -1,6 +1,6 @@
 ---
-title: Gestion automatique des appareils à grande échelle avec Azure IoT Hub | Microsoft Docs
-description: La gestion automatique des appareils Azure IoT Hub permet d’attribuer une configuration à plusieurs appareils IoT
+title: Gestion automatique des appareils à grande échelle Azure IoT Hub | Microsoft Docs
+description: Utiliser la gestion automatique des appareils Azure IoT Hub pour affecter une configuration à plusieurs appareils IoT
 author: ChrisGMsft
 manager: bruz
 ms.service: iot-hub
@@ -9,27 +9,27 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: chrisgre
 ms.openlocfilehash: 598bf82e375f472b2f723c3462ba7ba7b4d25fbe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61333645"
 ---
-# <a name="automatic-iot-device-management-at-scale-using-the-azure-portal"></a>Gestion automatique des appareils IoT à grande échelle à l’aide du portail Azure
+# <a name="automatic-iot-device-management-at-scale-using-the-azure-portal"></a>Gestion automatique des appareils IoT à grande échelle avec le portail Azure
 
 [!INCLUDE [iot-edge-how-to-deploy-monitor-selector](../../includes/iot-hub-auto-device-config-selector.md)]
 
-Gestion automatique des appareils dans Azure IoT Hub automatise une grande partie des tâches répétitives et complexes de la gestion de périphérique grand flottes. Avec la gestion automatique des appareils, vous pouvez cibler un ensemble de périphériques en fonction de leurs propriétés, définir une configuration souhaitée et puis laisser à IoT Hub de mettre à jour les appareils lorsqu’elles arriveront dans l’étendue. Cette mise à jour est effectuée à l’aide un _configuration automatique d’unité_, qui vous permet de vous Résumez la saisie semi-automatique et de conformité, de fusion de handle et de conflits et déployer des configurations dans une approche progressive.
+La gestion automatique des appareils dans Azure IoT Hub automatise une grande partie des tâches répétitives et complexes liées à la gestion de grandes flottes d’appareils. Avec la gestion automatique des appareils, vous pouvez cibler un ensemble d’appareils en fonction de leurs propriétés, définir la configuration souhaitée et laisser IoT Hub mettre à jour les appareils quand ils se trouvent dans l’étendue. Cette opération est effectuée à l’aide d’une _configuration d’appareil automatique_, qui vous permet de récapituler les données d’achèvement et de conformité, de gérer la fusion et les conflits, et de déployer les configurations de façon progressive.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-Fonctionnement de la gestion automatique des appareils en mettant à jour d’un ensemble de représentations d’appareil avec les propriétés souhaitées et en signalant un résumé qui repose sur le jumeau d’appareil des propriétés signalées.  Il introduit une nouvelle classe et un document JSON appelé un *Configuration* qui comprend trois parties :
+La gestion automatique des appareils fonctionne en mettant à jour un ensemble de jumeaux d’appareil avec les propriétés souhaitées et en communiquant un rapport récapitulatif basé sur les propriétés signalées du jumeau d’appareil.  Cette approche introduit un nouveau document de classe JSON appelé *Configuration* qui comprend trois parties :
 
 * La **condition cible** définit l’étendue des jumeaux d’appareil à mettre à jour. La condition cible est spécifiée en tant que requête sur les balises de jumeaux d’appareil et/ou sur les propriétés signalées.
 
 * Le **contenu cible** définit les propriétés souhaitées à ajouter ou à mettre à jour dans les jumeaux d’appareil ciblés. Le contenu inclut un chemin de la section des propriétés souhaitées à changer.
 
-* Les **métriques** définissent les nombres récapitulatifs des différents états de configuration tels que **Réussite**, **En cours** et **Erreur**. Les métriques personnalisées sont spécifiées en tant que requêtes sur les propriétés signalées du jumeau d’appareil.  Les métriques système sont les mesures par défaut qui mesurent l’état de mise à jour de représentations, telles que le nombre de représentations d’appareils qui sont ciblés et le nombre de représentations de qui ont été correctement mis à jour. 
+* Les **métriques** définissent les nombres récapitulatifs des différents états de configuration tels que **Réussite**, **En cours** et **Erreur**. Les métriques personnalisées sont spécifiées en tant que requêtes sur les propriétés signalées du jumeau d’appareil.  Les métriques système sont des métriques par défaut qui mesurent l’état de la mise à jour des jumeaux, comme le nombre de jumeaux d’appareil qui sont ciblés et le nombre de jumeaux qui ont été correctement mis à jour. 
 
 ## <a name="implement-device-twins-to-configure-devices"></a>Implémenter des jumeaux d’appareil pour configurer des appareils
 
@@ -37,7 +37,7 @@ Les configurations d’appareil automatiques nécessitent l’utilisation de jum
 
 ## <a name="identify-devices-using-tags"></a>Identifier les appareils à l’aide de balises
 
-Avant de créer une configuration, vous devez spécifier les périphériques que vous souhaitez affecter. Azure IoT Hub identifie les appareils à l’aide de balises dans le jumeau d’appareil. Chaque appareil peut avoir plusieurs balises, et vous pouvez les définir comme bon vous semble pour votre solution. Par exemple, si vous gérez des appareils dans différents emplacements, ajoutez les balises suivantes à une représentation d’appareil :
+Avant de pouvoir créer une configuration, vous devez spécifier les appareils concernés. Azure IoT Hub identifie les appareils à l’aide de balises dans le jumeau d’appareil. Chaque appareil peut avoir plusieurs balises, et vous pouvez les définir comme bon vous semble pour votre solution. Par exemple, si vous gérez des appareils à différents emplacements, ajoutez les étiquettes suivantes à un jumeau d’appareil :
 
 ```json
 "tags": {
@@ -82,13 +82,13 @@ Vous pouvez ajouter des paramètres en sélectionnant **Ajouter un paramètre de
 
 ### <a name="specify-metrics-optional"></a>Spécifier les métriques (facultatif)
 
-Métriques fournissent un résumé des nombres de divers états auxquels un appareil peut rapporter après avoir appliqué le contenu de la configuration. Par exemple, vous pouvez créer une métrique pour les modifications de paramètres en attente, une métrique pour les erreurs et une métrique pour les modifications de paramètres réussies.
+Les métriques fournissent des nombres récapitulatifs des différents états qu’un appareil peut signaler après l’application d’un contenu de configuration. Par exemple, vous pouvez créer une métrique pour les modifications de paramètres en attente, une métrique pour les erreurs et une métrique pour les modifications de paramètres réussies.
 
 1. Entrez un nom pour **Nom de métrique**.
 
 2. Entrez une requête pour **Critères de la métrique**.  La requête est basée sur les propriétés signalées du jumeau d’appareil.  La métrique représente le nombre de lignes retournées par la requête.
 
-Par exemple : 
+Par exemple :
 
 ```sql
 SELECT deviceId FROM devices 
@@ -200,7 +200,7 @@ Quand vous supprimez une configuration, tous les jumeaux d’appareil prennent l
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez appris à configurer et surveiller des appareils IoT à grande échelle. Suivez ces liens pour en savoir plus sur la gestion de Azure IoT Hub :
+Dans cet article, vous avez découvert comment configurer et superviser des appareils IoT à grande échelle. Suivez ces liens pour en savoir plus sur la gestion de Azure IoT Hub :
 
 * [Gestion de vos identités d’appareil IoT Hub en bloc](iot-hub-bulk-identity-mgmt.md)
 * [Métriques d’IoT Hub](iot-hub-metrics.md)

@@ -15,16 +15,16 @@ ms.date: 06/12/2018
 ms.author: magattus
 ms.custom: mvc
 ms.openlocfilehash: 296f1df9175f4595274a57ed936282abb73da18b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60679554"
 ---
 # <a name="create-an-azure-cdn-endpoint"></a>Créer un point de terminaison CDN Azure
-Cet article décrit tous les paramètres de création d’un point de terminaison [Azure Content Delivery Network (CDN)](cdn-overview.md) dans un profil CDN existant. Après avoir créé un profil et un point de terminaison, vous pouvez commencer à distribuer du contenu à vos clients. Pour un démarrage rapide sur la création d’un profil et un point de terminaison, consultez [Guide de démarrage rapide : Créer un point de terminaison et un profil de réseau de distribution de contenu Azure](cdn-create-new-endpoint.md).
+Cet article décrit tous les paramètres de création d’un point de terminaison [Azure Content Delivery Network (CDN)](cdn-overview.md) dans un profil CDN existant. Après avoir créé un profil et un point de terminaison, vous pouvez commencer à distribuer du contenu à vos clients. Pour créer rapidement un profil et un point de terminaison, consultez [Démarrage rapide : Créer un point de terminaison et un profil de réseau de distribution de contenu Azure](cdn-create-new-endpoint.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Avant de créer un point de terminaison CDN, vous devez avoir créé au moins un profil CDN, qui peut contenir un ou plusieurs points de terminaison CDN. Vous pouvez utiliser plusieurs profils pour organiser vos points de terminaison CDN par domaine Internet, application web ou d’autres critères. La tarification CDN s’applique au niveau du profil CDN. Vous devez donc créer plusieurs profils CDN si vous souhaitez utiliser plusieurs niveaux tarifaires Azure CDN. Pour créer un profil CDN, consultez [Créer un profil CDN](cdn-create-new-endpoint.md#create-a-new-cdn-profile).
 
 ## <a name="log-in-to-the-azure-portal"></a>Se connecter au portail Azure.
@@ -44,7 +44,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com) avec votre compte Az
    
     ![Page Ajouter un point de terminaison](./media/cdn-create-endpoint-how-to/cdn-add-endpoint-page.png)
 
-3. Comme **Nom**, entrez un nom unique pour le nouveau point de terminaison CDN. Ce nom est utilisé pour accéder à vos ressources mises en cache au niveau du domaine  _\<nom_point_de_terminaison >_. azureedge.net.
+3. Comme **Nom**, entrez un nom unique pour le nouveau point de terminaison CDN. Ce nom sert à accéder à vos ressources en cache au niveau du domaine _\<nom_point_de_terminaison>_ .azureedge.net.
 
 4. Pour **Type d’origine**, choisissez l’un des types d’origine suivants : 
    - **Stockage** pour Stockage Azure
@@ -62,7 +62,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com) avec votre compte Az
    > Certains types d’origine, tels que Azure Storage et Web Apps, nécessitent l’en-tête de l’hôte pour correspondre au domaine de l’origine. À moins d’avoir une origine nécessitant un en-tête d’hôte différent de son domaine, vous devriez laisser la valeur par défaut.
    > 
     
-8. Pour **Protocole** et **Port de l’origine**, spécifiez les protocoles et les ports utilisés pour accéder à vos ressources au niveau du serveur d’origine. Vous devez sélectionner au moins un protocole (HTTP ou HTTPS). Utiliser le domaine fourni par le CDN (_\<nom_point_de_terminaison >_. azureedge.net) pour accéder au contenu HTTPS. 
+8. Pour **Protocole** et **Port de l’origine**, spécifiez les protocoles et les ports utilisés pour accéder à vos ressources au niveau du serveur d’origine. Vous devez sélectionner au moins un protocole (HTTP ou HTTPS). Utilisez le domaine fourni par CDN ( _\<nom_point_de_terminaison>_ .azureedge.net) pour accéder au contenu HTTPS. 
    
    > [!NOTE]
    > La valeur **Port de l’origine** ne concerne que le port utilisé par le point de terminaison pour récupérer des informations à partir du serveur d’origine. Le point de terminaison est uniquement disponible pour les clients sur les ports HTTP et HTTPS par défaut (80 et 443), quel que soit la valeur **port d’origine**.  

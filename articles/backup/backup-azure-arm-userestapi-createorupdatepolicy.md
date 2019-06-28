@@ -1,5 +1,5 @@
 ---
-title: 'Sauvegarde Azure : Créer des stratégies de sauvegarde à l’aide de l’API REST'
+title: 'Sauvegarde Azure : créer des stratégies de sauvegarde à l’aide de l’API REST'
 description: Gérer les stratégies de sauvegarde (planification et rétention) à l’aide de l’API REST
 services: backup
 author: pvrk
@@ -11,10 +11,10 @@ ms.date: 08/21/2018
 ms.author: pullabhk
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
 ms.openlocfilehash: 657a777da0e984a145c1c617a6194bf4ef56306e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60648803"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>Créer des stratégies de sauvegarde Azure Recovery Services à l’aide de l’API REST
@@ -30,8 +30,8 @@ Les étapes de création d’une stratégie de sauvegarde pour un coffre Azure R
   - Partage de fichiers Azure
 - Une stratégie peut être attribuée à de nombreuses ressources. Une stratégie de sauvegarde de machine virtuelle Azure peut être utilisée pour protéger plusieurs machines virtuelles Azure.
 - Une stratégie est constituée de deux composants
-  - Planification : Quand effectuer la sauvegarde
-  - Rétention : Pour la durée pendant laquelle chaque sauvegarde doit être conservée.
+  - Planification : quand effectuer la sauvegarde
+  - Conservation : la durée de conservation de chaque sauvegarde.
 - La planification peut être définie comme « quotidienne » ou « hebdomadaire » avec un point de temps spécifique.
 - La rétention peut être définie pour les points de sauvegarde « quotidienne », « hebdomadaire », « mensuelle », « annuelle ».
 - « hebdomadaire » fait référence à une sauvegarde un jour donné de la semaine, « mensuelle » fait référence à une sauvegarde un jour donné du mois et « année » fait référence à une sauvegarde un jour donné de l’année.

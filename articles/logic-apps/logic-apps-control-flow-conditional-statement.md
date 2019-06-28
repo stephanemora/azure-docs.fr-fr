@@ -10,10 +10,10 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 10/09/2018
 ms.openlocfilehash: 9ee484971e217b0ca4dd7ad855e9e6dc3313e5d4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60684758"
 ---
 # <a name="create-conditional-statements-that-control-workflow-actions-in-azure-logic-apps"></a>Créer des instructions conditionnelles qui contrôlent des actions de workflow dans Azure Logic Apps
@@ -25,7 +25,7 @@ Par exemple, supposons que vous disposez d’une application logique qui envoie 
 > [!TIP]
 > Pour exécuter différentes étapes en fonction de diverses valeurs spécifiques, utilisez plutôt une [*instruction switch*](../logic-apps/logic-apps-control-flow-switch-statement.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [vous inscrire pour obtenir un compte Azure gratuitement](https://azure.microsoft.com/free/).
 
@@ -39,13 +39,13 @@ Par exemple, supposons que vous disposez d’une application logique qui envoie 
 
 1. Ajoutez une condition à l’emplacement souhaité. 
 
-   Pour ajouter une condition entre des étapes existantes, déplacez le pointeur sur la flèche où vous voulez ajouter la condition. Cliquez sur le **signe plus** (**+**) qui s’affiche, puis choisissez **Ajouter une action**. Par exemple : 
+   Pour ajouter une condition entre des étapes existantes, déplacez le pointeur sur la flèche où vous voulez ajouter la condition. Cliquez sur le **signe plus** ( **+** ) qui s’affiche, puis choisissez **Ajouter une action**. Par exemple :
 
    ![Ajouter une action entre des étapes](./media/logic-apps-control-flow-conditional-statement/add-action.png)
 
    Quand vous souhaitez ajouter une condition à la fin de votre flux de travail, accédez au bas de votre application logique et sélectionnez **Nouvelle étape** > **Ajouter une action**.
 
-1. Dans la zone de recherche, entrez « condition » comme filtre. Sélectionnez cette action : **Condition - contrôle**
+1. Dans la zone de recherche, entrez « condition » comme filtre. Sélectionnez cette action : **Condition - Contrôle**
 
    ![Ajouter une condition](./media/logic-apps-control-flow-conditional-statement/add-condition.png)
 
@@ -72,7 +72,7 @@ Par exemple, supposons que vous disposez d’une application logique qui envoie 
    Pour ajouter un groupe avec des sous‑conditions, choisissez **Ajouter** > **Ajouter un groupe**. 
    Pour regrouper des lignes existantes, sélectionnez les cases à cocher pour les lignes, cliquez sur le bouton points de suspension (...) pour n’importe quelle ligne, puis choisissez **Créer le groupe**.
 
-1. Sous **If true** et **If false**, ajoutez les étapes à effectuer si la condition est remplie ou non. Par exemple : 
+1. Sous **If true** et **If false**, ajoutez les étapes à effectuer si la condition est remplie ou non. Par exemple :
 
    ![Condition avec les chemins « If true » et « If false »](./media/logic-apps-control-flow-conditional-statement/condition-yes-no-path.png)
 

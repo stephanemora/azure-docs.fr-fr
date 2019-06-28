@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: kraigb
 ms.openlocfilehash: b8c21b908ca9162a7e44c7af1e222babc6ee1eb7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60631957"
 ---
 # <a name="your-profile-and-user-id-for-azure-notebooks"></a>Profil et identifiant utilisateur pour Azure Notebooks
@@ -46,7 +46,7 @@ Une commande **Configurer l’identifiant utilisateur** s’affiche également �
 
 Vous pouvez également modifier votre identifiant utilisateur à tout moment sur votre page de profil.
 
-Un ID d’utilisateur doit être composé d’entre quatre et seize des lettres, des chiffres et des traits d’union. Aucun autre caractère n’est autorisé. Par ailleurs, l’identifiant utilisateur ne peut ni commencer ou se terminer par un trait d’union ni comporter plusieurs traits d’union à la suite. Étant donné que les ID utilisateur sont uniques sur tous les comptes Azure Notebooks, vous pouvez voir le message, « ID d’utilisateur est déjà en cours d’utilisation. » (Le message apparaît également si vous essayez d’utiliser une marque déposée de Microsoft en tant qu’un ID utilisateur.) Dans ce cas, choisissez un ID d’utilisateur différent.
+Un identifiant utilisateur doit contenir entre quatre et seize lettres, chiffres et traits d’union. Aucun autre caractère n’est autorisé. Par ailleurs, l’identifiant utilisateur ne peut ni commencer ou se terminer par un trait d’union ni comporter plusieurs traits d’union à la suite. Étant donné que les identifiants utilisateur sont uniques pour tous les comptes Azure Notebooks, le message « Identifiant utilisateur déjà utilisé » est susceptible de s’afficher. (Le message s’affiche également si vous essayez d’utiliser une marque déposée Microsoft comme identifiant utilisateur.) Dans ces cas de figure, choisissez un identifiant utilisateur différent.
 
 > [!Important]
 > Toute modification de l’identifiant invalide les URL partagées avec le précédent identifiant. Vous pouvez revenir à l’identifiant précédent pour revalider les liens. Toutefois, il est possible qu’un autre utilisateur revendique entre-temps l’identifiant inutilisé.

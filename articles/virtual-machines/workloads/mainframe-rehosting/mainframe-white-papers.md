@@ -1,6 +1,6 @@
 ---
-title: Livres blancs sur Azure sur les rubriques de macroordinateur à l’aide de Machines virtuelles Azure et stockage Azure
-description: Obtenez des ressources sur la migration mainframe, réhébergement et le déplacement de systèmes IBM Z vers Microsoft Azure.
+title: Livres blancs Azure relatifs à l’utilisation de mainframes avec les machines virtuelles Azure et le Stockage Azure
+description: Procurez-vous des ressources sur la migration des mainframes, le réhébergement et le déplacement des systèmes IBM Z dans Microsoft Azure.
 services: multiple
 documentationcenter: ''
 author: njray
@@ -9,44 +9,44 @@ ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: 29665639e90f729f5506a0a12241bb04fd88e69c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60859322"
 ---
-# <a name="azure-white-papers-about-mainframe-topics"></a>Livres blancs sur Azure sur des sujets de macroordinateur
+# <a name="azure-white-papers-about-mainframe-topics"></a>Livres blancs Azure relatifs aux mainframes
 
-Obtenez des ressources sur la migration mainframe, réhébergement et le déplacement de systèmes IBM Z vers Microsoft Azure.
+Procurez-vous des ressources sur la migration des mainframes, le réhébergement et le déplacement des systèmes IBM Z dans Microsoft Azure.
 
-### <a name="demystifying-mainframe-to-azure-migrationhttpsazuremicrosoftcomresourcesdemystifying-mainframe-to-azure-migration"></a>[Démystification de macroordinateur pour la migration vers Azure](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/)
+### <a name="demystifying-mainframe-to-azure-migrationhttpsazuremicrosoftcomresourcesdemystifying-mainframe-to-azure-migration"></a>[Démystifier la migration d’un mainframe vers Azure](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/)
 
-Azure offre une alternative de macroordinateur capable de fournir des fonctionnalités et des fonctionnalités équivalentes. Ce document, par Larry Mead de l’équipe AzureCAT, traite des principaux composants macroordinateur IBM z/OS et les équivalents Azure. Il fournit également une feuille de route pour le démarrage de la conversation avec les décideurs informatiques qui s’abonner à des philosophies de macroordinateur obsolètes.
+Azure offre une alternative aux mainframes capable de fournir des fonctions et des fonctionnalités équivalentes. Dans ce document, Larry Mead de l’équipe AzureCAT évoque les principaux composants mainframe IBM z/OS et les équivalents Azure. Il fournit également une feuille de route pour entamer le dialogue avec les décideurs informatiques qui adhèrent à des philosophies mainframe dépassées.
 
-### <a name="move-mainframe-compute-and-storage-to-azurehttpsazuremicrosoftcomresourcesmove-mainframe-compute-and-storage-to-azure"></a>[Déplacer le calcul de macroordinateur et de stockage vers Azure](https://azure.microsoft.com/resources/move-mainframe-compute-and-storage-to-azure/)
+### <a name="move-mainframe-compute-and-storage-to-azurehttpsazuremicrosoftcomresourcesmove-mainframe-compute-and-storage-to-azure"></a>[Déplacer le calcul mainframe et le stockage dans Azure](https://azure.microsoft.com/resources/move-mainframe-compute-and-storage-to-azure/)
 
-Pour exécuter des charges de travail mainframe sur Microsoft Azure, vous devez savoir comment les fonctionnalités du macroordinateur par rapport à Azure. Basé sur un macroordinateur de z14 IBM, ce guide en Larry Mead de AzureCAT explore comment obtenir des résultats comparables sur Azure. Les ressources de calcul et de stockage hautement évolutifs sur Azure offrent des avantages immédiats aux entreprises exécutant des charges de travail de macroordinateur.
+Pour exécuter des charges de travail mainframe dans Microsoft Azure, vous devez pouvoir établir une comparaison entre les fonctionnalités de votre mainframe et celles d’Azure. À partir d’un ordinateur mainframe IBM z14, Larry Mead de l’équipe AzureCAT cherche à voir comment obtenir des résultats comparables dans Azure. Les ressources de calcul et de stockage hautement scalables d’Azure procurent des avantages immédiats aux organisations qui exécutent des charges de travail mainframe.
 
-### <a name="microsoft-azure-government-cloud-for-mainframe-applicationshttpsazuremicrosoftcomresourcesmicrosoft-azure-government-cloud-for-mainframe-applications"></a>[Microsoft Azure Government cloud pour applications mainframe](https://azure.microsoft.com/resources/microsoft-azure-government-cloud-for-mainframe-applications/)
+### <a name="microsoft-azure-government-cloud-for-mainframe-applicationshttpsazuremicrosoftcomresourcesmicrosoft-azure-government-cloud-for-mainframe-applications"></a>[Cloud Microsoft Azure Government pour applications mainframe](https://azure.microsoft.com/resources/microsoft-azure-government-cloud-for-mainframe-applications/)
 
-Planification d’une migration d’applications est le moment idéal pour ajouter la valeur et l’agilité à même de charges de travail mainframe bien établie. Dans ce guide rapide, Larry Mead de AzureCAT montre comment les agences gouvernementales américaines et leurs partenaires peuvent utiliser Azure Government pour les applications de macroordinateur, et la migration ne peut pas être aussi difficile que vous pensez. Azure Government offre les avantages d’un macroordinateur dans un environnement plus économique et agile. En outre, Azure Government gagné une autorisation provisoire de fonctionnement (P-ATO) pour FedRAMP ayant un Impact élevé.
+La planification d’une migration d’applications est le moment idéal pour apporter une valeur ajoutée et de l’agilité à des charges de travail mainframe bien établies. Dans ce guide rapide, Larry Mead de l’équipe AzureCAT montre comment des agences gouvernementales des États-Unis et leurs partenaires utilisent Azure Government pour les applications mainframe (et la migration n’est peut-être pas aussi difficile que vous le pensez). Azure Government offre les avantages d’un ordinateur mainframe dans un environnement plus économique et plus agile. Par ailleurs, Azure Government s’est vu accorder une autorisation provisoire d’opérer (P-ATO) à un niveau d’impact élevé selon FedRAMP.
 
 ### <a name="deploy-ibm-db2-purescale-on-azurehttpsazuremicrosoftcomresourcesdeploy-ibm-db2-purescale-on-azure"></a>[Déployer IBM DB2 pureScale sur Azure](https://azure.microsoft.com/resources/deploy-ibm-db2-purescale-on-azure/)
 
-Profitez de notre expérience avec une entreprise qui a récemment réhébergés son environnement IBM DB2 sur Azure. Ce guide a été écrit par les membres de l’équipe AzureCAT et DMJ qui ont été effectuées : Larry Mead, Benjamin Guinebertière, Alessandro Vozza et Jonathon Frost. Ils décrivent les étapes qu’ils prenaient pendant cette migration. Leurs conclusions ont été revues par les membres de l’équipe de pureScale IBM Db2. Scripts d’installation, disponibles sur GitHub, sont basées sur l’architecture de l’équipe a utilisé un classique moyennes charge de travail OLTP.
+Tirez des enseignements de notre expérience avec une entreprise qui a récemment réhébergé son environnement IBM DB2 dans Azure. Ce guide a été rédigé par des membres de l’équipe AzureCAT et DMJ qui ont pris part à ce projet : Larry Mead, Benjamin Guinebertière, Alessandro Vozza et Jonathon Frost. Ils décrivent les étapes qui ont jalonné cette migration. Leurs conclusions ont été examinées par des membres de l’équipe IBM Db2 pureScale. Les scripts d’installation, disponibles sur GitHub, sont basés sur l’architecture que l’équipe a utilisée pour une charge de travail OLTP type de taille moyenne.
 
 ### <a name="install-tmaxsoft-openframe-on-azurehttpsazuremicrosoftcomresourcesinstall-tmaxsoft-openframe-on-azure"></a>[Installer TmaxSoft OpenFrame sur Azure](https://azure.microsoft.com/resources/install-tmaxsoft-openframe-on-azure/)
 
-Modernisez votre infrastructure à l’échelle du cloud. TmaxSoft OpenFrame rend plus facile élever vos ressources de macroordinateur existantes et les déplacer vers Azure. Dans cet article, Steve Read (AzureCAT) et Manoj Aerroju (TmaxSoft) expliquent comment configurer un environnement OpenFrame approprié pour le développement, de démonstrations, de test et de charges de travail de production.
+Modernisez votre infrastructure à l’échelle du cloud. TmaxSoft OpenFrame vous permet de prendre facilement vos ressources mainframe existantes et de les déplacer vers Azure. Dans ce document, Steve Read (AzureCAT) et Manoj Aerroju (TmaxSoft) expliquent comment configurer un environnement OpenFrame adapté aux charges de travail de développement, de démonstration, de test et de production.
 
-### <a name="ibm-mainframe-to-microsoft-azure-reference-architecturehttpswwwastadiacomwhitepaperibm-mainframe-to-microsoft-azure"></a>[Macroordinateur IBM à l’architecture de référence Microsoft Azure](https://www.astadia.com/whitepaper/ibm-mainframe-to-microsoft-azure)
+### <a name="ibm-mainframe-to-microsoft-azure-reference-architecturehttpswwwastadiacomwhitepaperibm-mainframe-to-microsoft-azure"></a>[Architecture de référence Mainframe IBM vers Microsoft Azure](https://www.astadia.com/whitepaper/ibm-mainframe-to-microsoft-azure)
 
-Ce livre blanc reflète Qu'astadia 's plus de 25 années d’expertise de modernisation de plateforme de macroordinateur. Elles expliquent les avantages et les défis des efforts de modernisation. Ce guide fournit une vue d’ensemble de macroordinateur IBM et une architecture de référence de macroordinateur à Azure d’IBM. Il fournit également un coup de œil à la méthodologie de réussite Astadia.
+Ce livre blanc illustre l’expertise qu’a acquise Astadia en plus de 25 ans dans le domaine de la modernisation de plateformes mainframe. Les auteurs exposent les avantages et les défis de la modernisation. Ce guide offre une vue d’ensemble du mainframe IBM et d’une architecture de référence Mainframe IBM vers Azure. Par ailleurs, il décrit brièvement la méthodologie à succès d’Astadia.
 
-### <a name="deploying-mainframe-applications-to-microsoft-azurehttpswwwmicrofocuscommediawhite-paperdeployingmainframeapplicationstomicrosoftazurewppdf"></a>[Déploiement d’applications mainframe vers Microsoft Azure](https://www.microfocus.com/media/white-paper/deploying_mainframe_applications_to_microsoft_azure_wp.pdf)
+### <a name="deploying-mainframe-applications-to-microsoft-azurehttpswwwmicrofocuscommediawhite-paperdeployingmainframeapplicationstomicrosoftazurewppdf"></a>[Déploiement d’applications mainframe dans Microsoft Azure](https://www.microfocus.com/media/white-paper/deploying_mainframe_applications_to_microsoft_azure_wp.pdf)
 
-Solutions à partir de Micro Focus vous permet de libérer des contraintes du macroordinateur propriétaires matérielles et logicielles. Dans ce guide, Micro Focus explique comment déployer votre COBOL et le PL / j’applications qui s’exécutent dans des gros ordinateurs IBM vers le cloud à la place.
+Les solutions de Micro Focus vous libèrent des contraintes liées au matériel et aux logiciels propriétaires des mainframes. Dans ce guide, Micro Focus vous explique comment déployer vos applications COBOL et PL/I qui s’exécutent dans des ordinateurs mainframe IBM vers le cloud.
 
-### <a name="breathe-new-life-into-mainframeshttpswwwinfosyscommodernizationpagesbreathe-new-life-mainframesaspx"></a>[Nouveau souffle à macroordinateurs](https://www.infosys.com/modernization/Pages/breathe-new-life-mainframes.aspx)
+### <a name="breathe-new-life-into-mainframeshttpswwwinfosyscommodernizationpagesbreathe-new-life-mainframesaspx"></a>[Donner un nouvel élan aux ordinateurs mainframe](https://www.infosys.com/modernization/Pages/breathe-new-life-mainframes.aspx)
 
- Les grands systèmes sont plus en plus difficiles pour les entreprises à gérer. Ce livre blanc par Infosys et Microsoft met en évidence la stratégie gagnante pour migration mainframe réussie. Cas d’utilisation et exemples illustrent les options.
+ Pour les entreprises, il est de plus en plus difficile d’assurer la maintenance des ordinateurs mainframe. Ce livre blanc d’Infosys et Microsoft expose la stratégie gagnante pour une migration réussie des ordinateurs mainframe. Les différentes options sont illustrées à travers des cas d’usage et des exemples.

@@ -13,10 +13,10 @@ ms.reviewer: genemi
 manager: craigg
 ms.date: 02/07/2019
 ms.openlocfilehash: efb6d932e616ada6b8dfff637af469c16fc2f293
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60723406"
 ---
 # <a name="sql-database-application-development-overview"></a>Vue d’ensemble du développement de base de données SQL
@@ -33,7 +33,7 @@ Vous pouvez utiliser différents [langages de programmation et plateformes](sql-
 
 Vous pouvez tirer parti des outils open source comme [cheetah](https://github.com/wunderlist/cheetah), [sql-cli](https://www.npmjs.com/package/sql-cli) et [VS Code](https://code.visualstudio.com/). En outre, Azure SQL Database fonctionne avec des outils Microsoft, tels que [Visual Studio](https://www.visualstudio.com/downloads/) et [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx). Le Portail Azure, PowerShell et les API REST peuvent également contribuer à accroître votre productivité.
 
-## <a name="authentication"></a>Authentification
+## <a name="authentication"></a>Authentication
 
 L’accès à Azure SQL Database est protégé par des connexions et des pare-feu. Azure SQL Database prend en charge les utilisateurs et les connexions de l’authentification SQL Server, ainsi que les utilisateurs et les connexions de [l’authentification Azure Active Directory (AAD)](sql-database-aad-authentication.md). Les connexions AAD ne sont disponibles que dans Managed Instance. 
 
@@ -55,10 +55,10 @@ Pour plus d’informations sur la préparation aux événements de maintenance p
 
 ## <a name="network-considerations"></a>Considérations relatives au réseau
 
-- Assurez-vous que le pare-feu de l’ordinateur qui héberge votre programme client autorise les communications TCP sortantes sur le port 1433.  Plus d’informations : [Règles de pare-feu Azure SQL Database et SQL Data Warehouse](sql-database-configure-firewall-settings.md).
+- Assurez-vous que le pare-feu de l’ordinateur qui héberge votre programme client autorise les communications TCP sortantes sur le port 1433.  Plus d’informations : [Configurer un pare-feu Azure SQL Database](sql-database-configure-firewall-settings.md).
 - Si votre programme client se connecte à la base de données SQL pendant que votre client s’exécute sur une machine virtuelle Azure, vous devez ouvrir certaines plages de ports sur la machine virtuelle. Plus d’informations : [Ports au-delà de 1433 pour ADO .NET 4.5 et SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md).
 - Parfois, les connexions clientes à Azure SQL Database ignorent le proxy et interagissent directement avec la base de données. Les ports autres que le port 1433 deviennent importants. Pour plus d’informations, consultez [Architecture de connectivité d’Azure SQL Database](sql-database-connectivity-architecture.md) et [Ports au-delà de 1433 pour ADO.NET 4.5 et SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md).
-- Pour la configuration réseau pour une instance gérée, consultez [configuration réseau pour les instances gérées](sql-database-howto-managed-instance.md#network-configuration).
+- Pour la configuration réseau d’une instance gérée, consultez [Configuration réseau des instances gérées](sql-database-howto-managed-instance.md#network-configuration).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

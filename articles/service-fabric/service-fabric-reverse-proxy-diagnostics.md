@@ -14,10 +14,10 @@ ms.workload: required
 ms.date: 08/08/2017
 ms.author: kavyako
 ms.openlocfilehash: c9c8c649208cff95f4ee515d39cc8cca3e2c64bf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60726840"
 ---
 # <a name="monitor-and-diagnose-request-processing-at-the-reverse-proxy"></a>Surveiller et diagnostiquer le traitement de requêtes au niveau du proxy inverse
@@ -37,12 +37,12 @@ Voici quelques exemples sur la façon d’interpréter les journaux d’activit�
 
     La charge utile comprend :
 
-   * **traceId**: Ce GUID peut être utilisé pour mettre en corrélation de tous les événements correspondant à une seule requête. Dans les deux événements ci-dessous, traceId = **2f87b722-e254-4ac2-a802-fd315c1a0271**, ce qui implique qu’ils appartiennent à la même requête.
-   * **requestUrl**: L’URL (URL de proxy inverse) à laquelle la demande a été envoyée.
-   * **verbe**: Verbe HTTP.
-   * **remoteAddress**: Adresse du client qui envoie la demande.
-   * **resolvedServiceUrl**: URL du point de terminaison de service à laquelle la demande entrante a été résolue. 
-   * **errorDetails**: Informations supplémentaires sur l’échec.
+   * **traceId** : ce GUID peut servir à mettre en corrélation tous les événements correspondant à une requête unique. Dans les deux événements ci-dessous, traceId = **2f87b722-e254-4ac2-a802-fd315c1a0271**, ce qui implique qu’ils appartiennent à la même requête.
+   * **requestUrl** : l’URL (URL du proxy inverse) à laquelle la requête a été envoyée.
+   * **verb** : verbe HTTP.
+   * **remoteAddress** : adresse du client qui envoie la requête.
+   * **resolvedServiceUrl** : URL du point de terminaison de service sur laquelle la requête entrante a été résolue. 
+   * **errorDetails** : informations complémentaires sur l’échec.
 
      ```
      {
@@ -85,8 +85,8 @@ Voici quelques exemples sur la façon d’interpréter les journaux d’activit�
     
     Voici un exemple d’événement où le proxy inverse retourne le code 404, car il n’est pas parvenu à trouver le point de terminaison de service correspondant.
     Les entrées de charge utile intéressantes ici sont :
-   * **processRequestPhase**: Indique la phase au cours de traitement de requête lorsque la défaillance s’est produite, ***TryGetEndpoint*** ex : pendant la tentative d’extraction du point de terminaison de service pour transférer. 
-   * **errorDetails**: Répertorie les critères de recherche de point de terminaison. Ici, vous pouvez voir que listenerName a spécifié = **FrontEndListener** alors que la liste de points de terminaison de réplica ne contient qu’un écouteur portant le nom **OldListener**.
+   * **processRequestPhase** : indique la phase au cours du traitement de requêtes pendant laquelle la défaillance s’est produite, ***TryGetEndpoint***, c’est-à-dire pendant la tentative d’extraction du point de terminaison de service pour transférer. 
+   * **errorDetails** : liste les critères de recherche du point de terminaison. Ici, vous pouvez voir que listenerName a spécifié = **FrontEndListener** alors que la liste de points de terminaison de réplica ne contient qu’un écouteur portant le nom **OldListener**.
     
      ```
      {
@@ -104,7 +104,7 @@ Voici quelques exemples sur la façon d’interpréter les journaux d’activit�
      }
      }
      ```
-     Un autre exemple où le proxy inverse peut renvoyer l’erreur 404 introuvable est : Paramètre de configuration ApplicationGateway\Http **SecureOnlyMode** est défini sur true avec le proxy inverse écoutant **HTTPS**, toutefois, tous les points de terminaison de réplica sont non sécurisés (à l’écoute sur HTTP).
+     Un autre exemple dans lequel le proxy inverse peut retourner l’erreur 404 Introuvable est le suivant : le paramètre de configuration ApplicationGateway\Http **SecureOnlyMode** est défini sur true avec le proxy inverse écoutant sur **HTTPS** ; toutefois, aucun point de terminaison de réplica n’est sécurisé (à l’écoute sur HTTP).
      Le proxy inverse retourne l’erreur 404, car il ne peut pas trouver de point de terminaison à l’écoute sur HTTPS pour transmettre la requête. L’analyse des paramètres dans la charge utile de l’événement permet d’identifier le problème :
     
      ```
@@ -198,7 +198,7 @@ Voici quelques exemples sur la façon d’interpréter les journaux d’activit�
 > Les événements liés au traitement de la requête websocket ne sont pas consignés pour le moment. Ils seront ajoutés dans la prochaine mise en production.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Agrégation et collecte d’événements à l’aide de Windows Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md) pour activer la collecte des journaux dans les clusters Azure.
+* [Agrégation et collecte d’événements à l’aide de Diagnostics Azure pour Windows](service-fabric-diagnostics-event-aggregation-wad.md) pour activer la collecte des journaux dans les clusters Azure.
 * Pour afficher les événements Service Fabric dans Visual Studio, consultez [Surveiller et diagnostiquer localement](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
 * Reportez-vous à [Configure reverse proxy to connect to secure services](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample#configure-reverse-proxy-to-connect-to-secure-services) (Configurer le proxy inverse pour se connecter à des services sécurisés) pour obtenir des exemples de modèles Azure Resource Manager illustrant la configuration du proxy inverse sécurisé avec les différentes options de validation de certificat de service.
 * Consultez [Proxy inverse Service Fabric](service-fabric-reverseproxy.md) pour en savoir plus.

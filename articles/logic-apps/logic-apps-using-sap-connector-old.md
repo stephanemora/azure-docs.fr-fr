@@ -11,16 +11,16 @@ ms.reviewer: klam, divswa, LADocs
 ms.suite: integration
 tags: connectors
 ms.openlocfilehash: d677c0eae9c92f90783ed4ebd95a528b34c872ec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60847406"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Se connecter aux systèmes SAP à partir d’Azure Logic Apps
 
 > [!NOTE]
-> Ce connecteur SAP est planifié pour l’abandon. Veuillez utiliser ou migrer vers le [plus récente et plus avancé connecteur SAP](./logic-apps-using-sap-connector.md). 
+> Ce connecteur SAP va être déprécié. Utilisez ou migrez vers le [connecteur SAP plus avancé le plus récent](./logic-apps-using-sap-connector.md). 
 
 Cet article explique comment accéder à vos ressources SAP à partir d’une application logique en utilisant les connecteurs du serveur d’applications SAP et du serveur de messagerie SAP. De cette façon, vous pouvez automatiser les tâches, les processus et les flux de travail qui gèrent vos données et ressources SAP en créant des applications logiques.
 
@@ -32,7 +32,7 @@ Les connecteurs SAP actuels disposent d’actions, mais pas de déclencheurs. Ce
 
 Si vous n’avez pas encore d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre cet article, vous avez besoin de ces éléments :
 

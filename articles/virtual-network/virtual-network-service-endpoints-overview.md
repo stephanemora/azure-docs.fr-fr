@@ -14,10 +14,10 @@ ms.date: 08/15/2018
 ms.author: sumeet.mittal
 ms.custom: ''
 ms.openlocfilehash: 73621c3bbab7f0c49feacab29e1e5de1792b80e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61032571"
 ---
 # <a name="virtual-network-service-endpoints"></a>Points de terminaison de service de réseau virtuel
@@ -42,7 +42,7 @@ Cette fonctionnalité est disponible pour les services et régions Azure suivant
 
 **Préversion publique**
 
-- **[Registre de conteneurs Azure](../container-registry/container-registry-vnet.md)**: Afficher un aperçu disponible dans toutes les régions Azure où Azure Container Registry est disponible.
+- **[Azure Container Registry](../container-registry/container-registry-vnet.md)**  : préversion disponible dans toutes les régions Azure où Azure Container Registry est disponible.
 
 Pour obtenir les notifications les plus récentes, vérifiez la page [Mises à jour du réseau virtuel Microsoft Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 
@@ -132,7 +132,7 @@ L’utilisation de points de terminaison de service n’engendre pas de frais su
 
 Il n’existe aucune limite sur le nombre total de points de terminaison de service dans un réseau virtuel.
 
-Certains services Azure, tels que les comptes de stockage Azure, peuvent appliquer des limites sur le nombre de sous-réseaux utilisés pour la sécurisation de la ressource. Pour en savoir plus, reportez-vous à la documentation pour les différents services dans [Étapes suivantes](#next-steps).
+Certains services Azure, comme Comptes Stockage Azure, peuvent appliquer des limites sur le nombre de sous-réseaux utilisés pour sécuriser la ressource. Pour en savoir plus, reportez-vous à la documentation pour les différents services dans [Étapes suivantes](#next-steps).
 
 ## <a name="virtual-network-service-endpoint-policies"></a>Stratégies de points de terminaison de service de réseau virtuel 
 

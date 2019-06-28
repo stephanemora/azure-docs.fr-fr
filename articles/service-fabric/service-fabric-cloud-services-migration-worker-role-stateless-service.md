@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: 10fb44b0e76282ad78e7687beaa2e50e819e5cd9
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62109999"
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Guide de conversion des rôles web et de travail en services sans état Service Fabric
@@ -41,10 +41,10 @@ Comme pour le rôle de travail, un rôle web représente également une charge d
 
 | **Application** | **Pris en charge** | **Chemin de migration** |
 | --- | --- | --- |
-| Formulaires web ASP.NET |Non  |Convertir en ASP.NET Core 1 MVC |
+| Formulaires web ASP.NET |Non |Convertir en ASP.NET Core 1 MVC |
 | ASP.NET MVC |Avec migration |Mettre à niveau vers ASP.NET Core 1 MVC |
 | API Web ASP.NET |Avec migration |Utiliser un serveur auto-hébergé ou ASP.NET Core 1 |
-| ASP.NET Core 1 |Oui |N/A |
+| ASP.NET Core 1 |OUI |N/A |
 
 ## <a name="entry-point-api-and-lifecycle"></a>API de point d’entrée et cycle de vie
 Les points d’entrée des API de rôle de travail et de Service Fabric sont semblables : 
@@ -110,8 +110,8 @@ Les deux disposent d’un remplacement « Exécuter » principal où commencer
 
 Il existe plusieurs différences majeures entre le cycle de vie et la durée de vie des rôles de travail et des services Service Fabric :
 
-* **Cycle de vie :** La plus grande différence est qu’un rôle de travail est une machine virtuelle et par conséquent, son cycle de vie est liée à la machine virtuelle, ce qui inclut les événements lorsque la machine virtuelle démarre et s’arrête. Le cycle de vie des services Service Fabric est distinct du cycle de vie de la machine virtuelle. Il n’inclut donc pas d’événements lorsque l’ordinateur ou la machine virtuelle hôte démarre et s’arrête, dans la mesure où ils ne sont pas liés.
-* **Durée de vie :** Une instance de rôle de travail est recyclées quand la `Run` issues de la méthode. La méthode `RunAsync` dans un service Service Fabric peut cependant s’exécuter jusqu’à la fin et l’instance de service continuera de s’exécuter. 
+* **Cycle de vie :** la plus grande différence est qu’un rôle de travail est une machine virtuelle. Son cycle de vie est donc lié à la machine virtuelle, ce qui inclut les événements de démarrage et d’arrêt de la machine virtuelle. Le cycle de vie des services Service Fabric est distinct du cycle de vie de la machine virtuelle. Il n’inclut donc pas d’événements lorsque l’ordinateur ou la machine virtuelle hôte démarre et s’arrête, dans la mesure où ils ne sont pas liés.
+* **Durée de vie :** les instances de rôle de travail sont recyclées quand la méthode `Run` se ferme. La méthode `RunAsync` dans un service Service Fabric peut cependant s’exécuter jusqu’à la fin et l’instance de service continuera de s’exécuter. 
 
 Service Fabric fournit un point d’entrée de configuration de la communication en option pour les services qui écoutent les requêtes des clients. RunAsync et le point d’entrée de communication constituent tous deux des remplacements en option dans les services Service Fabric. Votre service peut choisir d’écouter les requêtes des clients, d’exécuter uniquement une boucle de traitement, ou les deux. C’est pourquoi la méthode RunAsync peut se fermer sans redémarrer l’instance de service : elle peut continuer à écouter les requêtes des clients.
 

@@ -18,10 +18,10 @@ ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: gokuma
 ms.openlocfilehash: 6e8883870cc0f035df5122e91449f04203836218
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60516857"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Science des données avec une image Data Science Virtual Machine Linux sur Azure
@@ -423,7 +423,7 @@ L’une des fonctionnalités intéressantes de Rattle est sa capacité à exécu
 Une fois que vous avez terminé la création de modèles, sélectionnez l’onglet **Journal** pour afficher le code R exécuté par Rattle pendant votre session. Vous pouvez sélectionner le bouton **Exporter** pour l’enregistrer.
 
 > [!NOTE]
-> Il existe un bogue dans la version actuelle de Rattle. Pour modifier le script ou l’utiliser pour répéter les étapes ultérieurement, vous devez insérer un caractère # devant *exporter ce journal...*  dans le texte du journal.
+> Il existe un bogue dans la version actuelle de Rattle. Pour modifier le script ou l’utiliser afin de répéter les étapes ultérieurement, vous devez insérer un symbole dièse (#) devant l’option *Exporter ce journal…* dans le texte du journal.
 >
 >
 

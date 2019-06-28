@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
 ms.openlocfilehash: 20fa8945f01a3431d2fd78d545c43d6215c83f56
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66110297"
 ---
 # <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>Analyse des performances avec l’extension Diagnostics Azure pour Windows
@@ -206,4 +206,4 @@ Voici un exemple de configuration avec le compteur pour le *Temps total du proce
 ## <a name="next-steps"></a>Étapes suivantes
 * Collectez d’autres compteurs de performances pour votre cluster. Consultez [Mesures de performances](service-fabric-diagnostics-event-generation-perf.md) pour obtenir la liste des compteurs à collecter.
 * [Utilisez les fonctionnalités de surveillance et de diagnostics avec une machine virtuelle Windows et des modèles Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md) pour apporter des modifications à votre `WadCfg` (y compris pour la configuration de comptes de stockage supplémentaires vers lesquels envoyer des données de diagnostics).
-* Visitez le [WadCfg Générateur](https://azure.github.io/azure-diagnostics-tools/config-builder/) pour créer un modèle à partir de zéro et assurez-vous que votre syntaxe est correcte. () https://azure.github.io/azure-diagnostics-tools/config-builder/) pour créer un modèle à partir de zéro et assurez-vous que votre syntaxe est correcte.
+* Visitez le [générateur WadCfg](https://azure.github.io/azure-diagnostics-tools/config-builder/) pour créer un modèle à partir de zéro et assurez-vous que la syntaxe est correcte. Visitez https://azure.github.io/azure-diagnostics-tools/config-builder/) pour créer un modèle à partir de zéro et assurez-vous que la syntaxe est correcte.

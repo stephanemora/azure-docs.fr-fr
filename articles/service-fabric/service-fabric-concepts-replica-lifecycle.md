@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 01/10/2018
 ms.author: aprameyr
 ms.openlocfilehash: 7f8638365b40395a5dd82457c40e5c15209ba1a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60882388"
 ---
 # <a name="replicas-and-instances"></a>Réplicas et instances 
@@ -63,11 +63,11 @@ Un réplica InBuild est un réplica qui est créé ou préparé en vue de rejoin
 
 Si le nœud ou l’hôte d’application d’un réplica InBuild tombe en panne, son état passe à hors service.
 
-   - **Réplicas Primary InBuild**: Les réplicas Primary InBuild sont les premiers réplicas d’une partition. Ce réplica se produit généralement à la création de la partition. Les réplicas Principal InBuild apparaissent également lorsque tous les réplicas d’une partition redémarrent ou sont abandonnés.
+   - **Réplicas Primary InBuild** : les réplicas Primary InBuild sont les premiers réplicas d’une partition. Ce réplica se produit généralement à la création de la partition. Les réplicas Principal InBuild apparaissent également lorsque tous les réplicas d’une partition redémarrent ou sont abandonnés.
 
-   - **Réplicas IdleSecondary InBuild**: Ceux-ci sont nouveaux réplicas créés par Cluster Resource Manager, ou les réplicas existants qui s’est arrêté et doivent être ajoutés dans le jeu. Ces réplicas sont amorcés ou générés par le réplica principal avant de pouvoir rejoindre le jeu de réplicas en tant que réplicas ActiveSecondary et ainsi participer à l’accusé de réception quorum d’opérations.
+   - **Réplicas IdleSecondary InBuild** : il s’agit de réplicas créés par Cluster Resource Manager, ou de réplicas existants qui ont été mis hors service et qui doivent être rajoutés au jeu. Ces réplicas sont amorcés ou générés par le réplica principal avant de pouvoir rejoindre le jeu de réplicas en tant que réplicas ActiveSecondary et ainsi participer à l’accusé de réception quorum d’opérations.
 
-   - **Réplicas ActiveSecondary InBuild**: Cet état est observé dans certaines requêtes. Il s’agit d’une optimisation où le jeu de réplicas ne change pas, mais où la création d’un réplica est nécessaire. Le réplica lui-même suit les transitions de l’état normal de la machine (comme décrit dans la section sur les rôles du réplica).
+   - **Réplicas ActiveSecondary InBuild** : Cet état est observé dans certaines requêtes. Il s’agit d’une optimisation où le jeu de réplicas ne change pas, mais où la création d’un réplica est nécessaire. Le réplica lui-même suit les transitions de l’état normal de la machine (comme décrit dans la section sur les rôles du réplica).
 
 ### <a name="ready-rd"></a>Ready (RD)
 Un réplica Ready est un réplica qui participe à la réplication et à l’accusé de réception quorum d’opérations. L’état prêt s’applique aux réplicas principaux et secondaires actifs.
@@ -77,9 +77,9 @@ Si le nœud ou l’hôte d’application d’un réplica prêt tombe en panne, s
 ### <a name="closing-cl"></a>Closing (CL)
 Un réplica passe à l’état de fermeture dans les scénarios suivants :
 
-- **Arrêt du code pour le réplica**: Fabric de service peut être amené à arrêter l’exécution du code pour un réplica. Cet arrêt peut avoir diverses causes. Par exemple, il peut se produire en raison d’une application, structure ou mise à niveau d’infrastructure, ou en raison d’une défaillance signalée par le réplica. Quand la fermeture du réplica est terminée, il passe à l’état hors service. L’état persistant associé à ce réplica stocké sur le disque n’est pas nettoyé.
+- **Arrêt du code pour le réplica** : Service Fabric peut être amené à mettre fin à l’exécution du code pour un réplica. Cet arrêt peut avoir diverses causes. Par exemple, il peut se produire en raison d’une application, structure ou mise à niveau d’infrastructure, ou en raison d’une défaillance signalée par le réplica. Quand la fermeture du réplica est terminée, il passe à l’état hors service. L’état persistant associé à ce réplica stocké sur le disque n’est pas nettoyé.
 
-- **Suppression du réplica à partir du cluster**: Service Fabric devrez peut-être supprimer l’état persistant et arrêter l’exécution du code pour un réplica. La cause de cet arrêt peut être multiple, par exemple, un équilibrage de charge.
+- **Suppression du réplica du cluster** : Service Fabric peut être amené à supprimer l’état persistant et à arrêter l’exécution du code d’un réplica. La cause de cet arrêt peut être multiple, par exemple, un équilibrage de charge.
 
 ### <a name="dropped-dd"></a>Dropped (DD)
 Dans l’état abandonné, l’instance n’est plus exécutée sur le nœud. Il n’existe également plus d’état sur le nœud. À ce stade, Service Fabric conserve les métadonnées relatives à cette instance, qui sont au final également supprimées.
@@ -116,26 +116,26 @@ Le rôle de réplica ne s’applique pas dans l’état en attente.
 ## <a name="replica-role"></a>Rôle du réplica 
 Le rôle du réplica détermine sa fonction dans le jeu de réplicas :
 
-- **Principal (P)**: Il y a un serveur principal dans le jeu de réplicas qui est chargé d’effectuer la lecture et d’écriture. 
-- **ActiveSecondary (S)**: Il s’agit de réplicas qui reçoivent des mises à jour de l’état du site principal, les appliquent, puis envoyer les accusés de réception. Il existe plusieurs réplicas secondaires actifs dans le jeu de réplicas. Leur nombre détermine le nombre de défaillances que le service peut supporter.
-- **IdleSecondary (I)**: Ces réplicas sont générés par le réplica principal. Ils reçoivent l’état du réplica principal avant d’être promus vers le rôle de secondaire active. 
-- **None (N)**: Ces réplicas n’ont pas une responsabilité dans le jeu de réplicas.
-- **Unknown (U)**: C’est le rôle initial d’un réplica avant il reçoit les **ChangeRole** appel d’API de Service Fabric.
+- **Primary (P)**  : il existe un principal dans le jeu de réplicas qui est chargé d’effectuer les opérations de lecture et d’écriture. 
+- **ActiveSecondary (S)**  : ce sont les réplicas qui reçoivent des mises à jour d’état du réplica principal, les appliquent, puis retournent des accusés de réception. Il existe plusieurs réplicas secondaires actifs dans le jeu de réplicas. Leur nombre détermine le nombre de défaillances que le service peut supporter.
+- **IdleSecondary (I)**  : ces réplicas sont générés par le réplica principal. Ils reçoivent l’état du réplica principal avant d’être promus vers le rôle de secondaire active. 
+- **None (N)**  : ces réplicas n’ont pas de responsabilité dans le jeu de réplicas.
+- **Unknown (U)**  : c’est le rôle initial d’un réplica, avant de recevoir un appel de l’API **ChangeRole** depuis Service Fabric.
 
 Le diagramme suivant illustre les transitions du rôle de réplica et donne quelques exemples de scénarios dans lesquels celles-ci peuvent se produire :
 
 ![Rôle du réplica](./media/service-fabric-concepts-replica-lifecycle/role.png)
 
-- U -&GT; P : Création d’un nouveau réplica principal.
-- U -> I: Création d’un réplica inactif.
-- U -&GT; N : Suppression d’un réplica en attente.
-- I -&GT; S : Promotion de l’inactivité secondaire pour la base de données secondaire active, afin que ses accusés de réception contribuent au quorum.
-- I -&GT; P : Promotion d’inactif secondaire à principal. Ce cas de figure peut se produire sous certaines reconfigurations spéciales, lorsque le réplica secondaire inactif est le candidat approprié pour devenir réplica principal.
-- I -&GT; N : Suppression du réplica secondaire inactif.
-- S -&GT; P : Promotion de la base secondaire active dans la région primaire. Le basculement du principal peut en être la cause, ou un déplacement du principal initié par Cluster Resource Manager. Par exemple, une mise à niveau d’application ou un équilibrage de charge peut en être la cause.
-- S -&GT; N : Suppression du réplica secondaire active.
-- P -&GT; S : Rétrogradation du réplica principal. Un déplacement du principal initié par Cluster Resource Manager peut en être à l’origine. Par exemple, une mise à niveau d’application ou un équilibrage de charge peut en être la cause.
-- P -&GT; N : Suppression du réplica principal.
+- U -> P : création d’un réplica principal.
+- U -> I : création d’un réplica inactif.
+- U -> N : suppression d’un réplica en attente.
+- I -> S : promotion du réplica secondaire inactif au rôle de secondaire actif, afin que ses accusés de réception contribuent au quorum.
+- I -> P : promotion du rôle d’inactif secondaire à celui de principal. Ce cas de figure peut se produire sous certaines reconfigurations spéciales, lorsque le réplica secondaire inactif est le candidat approprié pour devenir réplica principal.
+- I -> N : suppression du réplica secondaire inactif.
+- S -> P : promotion du réplica secondaire actif au rôle de réplica principal. Le basculement du principal peut en être la cause, ou un déplacement du principal initié par Cluster Resource Manager. Par exemple, une mise à niveau d’application ou un équilibrage de charge peut en être la cause.
+- S -> N : suppression du réplica secondaire actif.
+- P -> S : rétrogradation du réplica principal. Un déplacement du principal initié par Cluster Resource Manager peut en être à l’origine. Par exemple, une mise à niveau d’application ou un équilibrage de charge peut en être la cause.
+- P -> N : suppression du réplica principal.
 
 > [!NOTE]
 > Les modèles de programmation de niveau supérieur, tels que [Reliable Actors](service-fabric-reliable-actors-introduction.md) et [Reliable Services](service-fabric-reliable-services-introduction.md), empêchent le développeur de voir le concept de rôle de réplica. Dans Actors, la notion de rôle est superflue. Dans Services, elle est en grande partie simplifiée pour la plupart des scénarios.

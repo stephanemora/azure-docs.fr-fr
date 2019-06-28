@@ -1,7 +1,7 @@
 ---
-title: Configuration d’Azure Application Insights pour analyse les modèles ML
+title: Configurer Azure Application Insights pour superviser des modèles ML
 titleSuffix: Azure Machine Learning service
-description: Surveiller les services web déployés avec le service Azure Machine Learning à l’aide d’Azure Application Insights
+description: Superviser les services web déployés avec le service Azure Machine Learning dans Azure Application Insights
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,10 +12,10 @@ author: marthalc
 ms.date: 04/02/2019
 ms.custom: seoapril2019
 ms.openlocfilehash: 2e481a388d8cbd6baf66b95c74449396b2e70f7d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60820229"
 ---
 # <a name="monitor-your-azure-machine-learning-models-with-application-insights"></a>Superviser vos modèles Azure Machine Learning avec Application Insights
@@ -28,7 +28,7 @@ Dans cet article, vous allez apprendre à configurer Application Insights pour v
 [En savoir plus sur Application Insights](../../azure-monitor/app/app-insights-overview.md) 
 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning service](https://aka.ms/AMLFree) dès aujourd’hui.
 
@@ -36,7 +36,7 @@ Dans cet article, vous allez apprendre à configurer Application Insights pour v
 * Un modèle de machine learning entraîné à déployer sur Azure Kubernetes Service (AKS) ou Azure Container Instances (ACI). Si vous n’en avez pas, consultez le tutoriel [Entraîner un modèle de classification d’images](tutorial-train-models-with-aml.md).
 
 
-## <a name="use-sdk-to-configure"></a>Utilisez le Kit de développement logiciel pour configurer 
+## <a name="use-sdk-to-configure"></a>Utiliser le SDK pour la configuration 
 
 ### <a name="update-a-deployed-service"></a>Mettre à jour un service déployé
 1. Recherchez le service dans votre espace de travail. La valeur de `ws` correspond au nom de votre espace de travail.
@@ -77,7 +77,7 @@ Pour désactiver Application Insights, utilisez le code suivant :
 <service_name>.update(enable_app_insights=False)
 ```
     
-## <a name="use-portal-to-configure"></a>Utiliser le portail pour configurer
+## <a name="use-portal-to-configure"></a>Utiliser le portail pour la configuration
 
 Vous pouvez activer et désactiver Application Insights dans le portail Azure.
 
@@ -138,4 +138,4 @@ Le notebook [how-to-use-azureml/deployment/enable-app-insights-in-production-ser
 ## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez aussi collecter des données sur vos modèles en production. Lisez l’article [Collecter des données pour des modèles en production](how-to-enable-data-collection.md). 
 
-Lisez également [Azure Monitor pour les conteneurs](https://docs.microsoft.com/azure/monitoring/monitoring-container-insights-overview?toc=%2fazure%2fmonitoring%2ftoc.json).
+Lisez également [Azure Monitor pour conteneurs](https://docs.microsoft.com/azure/monitoring/monitoring-container-insights-overview?toc=%2fazure%2fmonitoring%2ftoc.json).

@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Création dans Unity avec Azure ancres Spatial
+title: Création dans Unity avec Azure Spatial Anchors
 metadata:
   document_id: null
-  title: Vue d’ensemble de Spatial ancres Unity Azure | Microsoft Docs
+  title: Vue d’ensemble d’Unity avec Azure Spatial Anchors | Microsoft Docs
   meta.description: Learn how Azure Spatial Anchors can be used within Unity Apps.
   services: azure-spatial-anchors
   author: rgarcia
@@ -18,7 +18,7 @@ sections:
   - title: null
     items:
       - type: paragraph
-        text: "Les développeurs peuvent choisir d’Unity pour créer et déployer des applications de réalité mixte qui utilisent des ancres spatiale d’Azure. Les plateformes suivantes sont prises en charge\_:"
+        text: "Les développeurs peuvent choisir Unity pour créer et déployer des applications de réalité mixte qui utilisent Azure Spatial Anchors. Les plateformes suivantes sont prises en charge\_:"
       - type: list
         style: icon48
         items:

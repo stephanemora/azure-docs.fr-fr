@@ -9,10 +9,10 @@ ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 03/01/2017
 ms.openlocfilehash: 14908225e78b79cb748e712ae23643ddde4a4242
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60813467"
 ---
 # <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Exécuter et tester U-SQL à l’aide du Kit de développement logiciel (SDK) Azure Data Lake U-SQL
@@ -223,7 +223,7 @@ Voici un exemple d’utilisation :
 
 Les interfaces de programmation se trouvent toutes dans LocalRunHelper.exe. Vous pouvez les utiliser pour intégrer les fonctionnalités du kit SDK U-SQL, et l’infrastructure de test C# pour mettre à l’échelle votre test local du script SQL-U. Dans cet article, je vais utiliser le projet de test unitaire C# standard pour montrer comment utiliser ces interfaces afin de tester un script U-SQL.
 
-### <a name="step-1-create-c-unit-test-project-and-configuration"></a>Étape 1 : Créer C# configuration et un projet de test unitaire
+### <a name="step-1-create-c-unit-test-project-and-configuration"></a>Étape 1 : Créer une configuration et un projet de test unitaire C#
 
 - Créez un projet de test unitaire C# dans Fichier > Nouveau > Projet > Visual C# > Test > Projet de test unitaire.
 - Ajoutez LocalRunHelper.exe comme référence du projet. LocalRunHelper.exe se trouve dans \build\runtime\LocalRunHelper.exe, dans le package NuGet.
@@ -340,26 +340,26 @@ public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 
 |Propriété|Type|Description|
 |--------|----|-----------|
-|AlgebraPath|string|Chemin d’accès du fichier d’algèbre (le fichier d’algèbre est un des résultats de la compilation)|
-|CodeBehindReferences|string|Si le script a des références code-behind supplémentaires, spécifiez les chemins d’accès séparés par « ; »|
-|CppSdkDir|string|Répertoire CppSDK|
-|CurrentDir|string|Répertoire actif|
-|DataRoot|string|Chemin d’accès de la racine de données|
-|DebuggerMailPath|string|Chemin d’accès du port d’insertion/éjection du débogueur|
+|AlgebraPath|chaîne|Chemin d’accès du fichier d’algèbre (le fichier d’algèbre est un des résultats de la compilation)|
+|CodeBehindReferences|chaîne|Si le script a des références code-behind supplémentaires, spécifiez les chemins d’accès séparés par « ; »|
+|CppSdkDir|chaîne|Répertoire CppSDK|
+|CurrentDir|chaîne|Répertoire actif|
+|DataRoot|chaîne|Chemin d’accès de la racine de données|
+|DebuggerMailPath|chaîne|Chemin d’accès du port d’insertion/éjection du débogueur|
 |GenerateUdoRedirect|bool|Si vous souhaitez générer une configuration de remplacement de redirection de chargement d’assembly|
 |HasCodeBehind|bool|Si le script a du code-behind|
-|InputDir|string|Répertoire des données d’entrée|
-|MessagePath|string|Chemin d’accès du fichier de vidage des messages|
-|OutputDir|string|Répertoire des données de sortie|
+|InputDir|chaîne|Répertoire des données d’entrée|
+|MessagePath|chaîne|Chemin d’accès du fichier de vidage des messages|
+|OutputDir|chaîne|Répertoire des données de sortie|
 |Parallélisme|int|Parallélisme pour exécuter l’algèbre|
 |ParentPid|int|PID du parent que le service surveille pour quitter, donner la valeur 0 ou une valeur négative pour ignorer|
-|ResultPath|string|Chemin d’accès du fichier de vidage des résultats|
-|RuntimeDir|string|Répertoire du runtime|
-|ScriptPath|string|Emplacement du script|
+|ResultPath|chaîne|Chemin d’accès du fichier de vidage des résultats|
+|RuntimeDir|chaîne|Répertoire du runtime|
+|ScriptPath|chaîne|Emplacement du script|
 |Shallow|bool|Compilation superficielle ou non|
-|TempDir|string|Répertoire Temp|
-|UseDataBase|string|Spécifiez la base de données à utiliser pour l’inscription des assemblys temporaires du code-behind, MASTER par défaut|
-|WorkDir|string|Répertoire de travail favori|
+|TempDir|chaîne|Répertoire Temp|
+|UseDataBase|chaîne|Spécifiez la base de données à utiliser pour l’inscription des assemblys temporaires du code-behind, MASTER par défaut|
+|WorkDir|chaîne|Répertoire de travail favori|
 
 
 **Méthode**
@@ -375,11 +375,11 @@ public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 ## <a name="faq-about-common-issue"></a>FAQ sur les problèmes courants
 
 ### <a name="error-1"></a>Erreur 1 :
-E_CSC_SYSTEM_INTERNAL : Erreur interne ! Impossible de charger le fichier ou l’assembly « ScopeEngineManaged.dll » ou une de ses dépendances. Le module spécifié est introuvable.
+E_CSC_SYSTEM_INTERNAL: Erreur interne ! Impossible de charger le fichier ou l’assembly « ScopeEngineManaged.dll » ou une de ses dépendances. Le module spécifié est introuvable.
 
 Vérifiez les éléments suivants :
 
-- Assurez-vous que vous avez un environnement x64. La plateforme cible de génération et de l’environnement de test doit être x64, reportez-vous à **étape 1 : Créer C# configuration et un projet de test unitaire** ci-dessus.
+- Assurez-vous que vous avez un environnement x64. La plateforme cible de build et de l’environnement de test doit être x64. Consultez la section **Étape 1 : Créer une configuration et un projet de test unitaire C#** ci-dessus.
 - Vérifiez que vous avez copié tous les fichiers de dépendance sous NugetPackage\build\runtime\ dans le répertoire de travail du projet.
 
 

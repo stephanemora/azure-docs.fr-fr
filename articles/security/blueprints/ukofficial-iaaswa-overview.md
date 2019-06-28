@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: 13ea2b68027c81bca7b43cef62cf7039aa0ea8dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60609498"
 ---
 # <a name="azure-security-and-compliance-blueprint---three-tier-iaas-web-application-for-uk-official"></a>Azure Blueprint Sécurité et conformité : application web IaaS à trois niveaux pour UK OFFICIAL
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
  Cet article fournit des conseils, ainsi que des scripts d’automatisation, pour la création d’une architecture web à trois couches Microsoft Azure, adaptée à la gestion de nombreuses charges de travail classées « OFFICIAL » par le gouvernement britannique.
 
@@ -25,7 +25,7 @@ ms.locfileid: "60609498"
 
  Le NCSC recommande aux clients d’utiliser ses principes de sécurité cloud dans le but d’évaluer les propriétés de sécurité du service, et de mieux comprendre la répartition des responsabilités entre le client et le fournisseur. Nous avons fourni des informations sur chacun de ces principes pour vous aider à comprendre la répartition des responsabilités.
 
- Cette architecture et les modèles Azure Resource Manager correspondants sont accompagnés du livre blanc de Microsoft concernant [les 14 contrôles de sécurité du cloud à l’aide de Microsoft Azure au Royaume-Uni](https://gallery.technet.microsoft.com/14-Cloud-Security-Controls-670292c1). Comment les services Azure de catalogues de ce document s’aligner avec le Royaume-Uni NCSC 14 principes de sécurité Cloud, ce qui permet aux organisations de fast track leur capacité à répondre à leurs obligations de conformité à l’aide des services cloud dans le monde entier et au Royaume-Uni sur Microsoft Azure cloud.
+ Cette architecture et les modèles Azure Resource Manager correspondants sont accompagnés du livre blanc de Microsoft concernant [les 14 contrôles de sécurité du cloud à l’aide de Microsoft Azure au Royaume-Uni](https://gallery.technet.microsoft.com/14-Cloud-Security-Controls-670292c1). Ce livre blanc explique comment chacun des services Azure s’aligne sur les 14 principes de sécurité cloud du NCSC (Royaume-Uni), permettant ainsi aux organisations de répondre plus rapidement à leurs obligations de conformité, en utilisant les services cloud de Microsoft Azure dans le monde entier et au Royaume-Uni.
 
  Ce modèle déploie l’infrastructure de la charge de travail. Le code de l’application, ainsi que les logiciels de prise en charge de couche Métier et de couche Données, doivent être installés et configurés. Des instructions détaillées sur le déploiement sont disponibles [ici](https://aka.ms/ukwebappblueprintrepo).
 
@@ -172,11 +172,11 @@ Ces réseaux virtuels sont toujours gérés comme des ressources distinctes. Tou
 
 **Journaux d’activité** : configurez les [journaux d’activité Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) pour fournir un insight des opérations qui ont été effectuées sur les ressources de votre abonnement.
 
-**Journaux de diagnostic** : les [journaux de diagnostic](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) correspondent à l’ensemble des journaux émis par une ressource. Ces journaux d’activité incluent les journaux des événements système Windows, ainsi que les journaux d’activité des objets blob, des tables et des files d’attente.
+**Journaux de diagnostic** : les [journaux de diagnostic](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) correspondent à l’ensemble des journaux d’activité émis par une ressource. Ces journaux d’activité incluent les journaux des événements système Windows, ainsi que les journaux d’activité des objets blob, des tables et des files d’attente.
 
-**Journaux du pare-feu** : Application Gateway fournit des journaux de diagnostic et d’accès complets. Les journaux d’activité de pare-feu sont disponibles pour les ressources de passerelle d’application avec WAF activé.
+**Journaux d’activité du pare-feu** : Application Gateway fournit des journaux de diagnostic et d’accès complets. Les journaux d’activité de pare-feu sont disponibles pour les ressources de passerelle d’application avec WAF activé.
 
-**Archivage des journaux** : Stockage de données de journal peut être configuré pour écrire dans un compte de stockage Azure centralisé pour archivage et pendant une période de rétention définie. Les journaux peuvent être traitées à l’aide des journaux Azure Monitor ou par un système SIEM tiers.
+**Archivage des journaux** : le stockage des données des journaux peut être configuré pour écrire dans un compte de stockage Azure centralisé à des fins d’archivage et pendant une période de conservation définie. Les journaux peuvent être traités avec Journaux Azure Monitor, ou par un système SIEM tiers.
 
 ### <a name="identity"></a>Identité
 
@@ -208,7 +208,7 @@ Les clients peuvent également envisager d’utiliser un [modèle administratif 
 
 **Restrictions de contrôle d’accès** : utilisez le [contrôle d’accès en fonction du rôle](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) (RBAC) pour gérer les ressources de votre application à l’aide de [rôles personnalisés](https://docs.microsoft.com/azure/role-based-access-control/custom-roles). Le contrôle RBAC peut être utilisé pour restreindre les opérations que DevOps peut effectuer sur chaque couche. Lorsque vous accordez des autorisations, utilisez le [principe des privilèges minimum](https://msdn.microsoft.com/library/hdb58b2f(v=vs.110).aspx#Anchor_1). Journalisez toutes les opérations d’administration et réalisez des audits réguliers pour vérifier qu’aucune modification de configuration n’est prévue.
 
-**Accès à Internet** : Cette architecture de référence utilise [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) comme équilibreur de charge et de la passerelle accessible sur internet. Certains clients peuvent également envisager d’utiliser des appliances virtuelles réseau tierces pour d’autres couches de réseau, en guise d’alternative à [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction).
+**Accès à Internet** : cette architecture de référence utilise [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) comme passerelle Internet et équilibreur de charge. Certains clients peuvent également envisager d’utiliser des appliances virtuelles réseau tierces pour d’autres couches de réseau, en guise d’alternative à [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction).
 
 **Azure Security Center** : [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) fournit une vue centralisée de l’état de la sécurité des ressources dans l’abonnement et fournit des recommandations qui aident à empêcher la compromission des ressources. Il peut également être utilisé pour appliquer des stratégies plus granulaires. Par exemple, les stratégies peuvent être appliquées à certains groupes de ressources, ce qui permet à l’entreprise d’adapter sa posture face aux risques. Il est recommandé aux clients d’activer Azure Security Center dans leur abonnement Azure.
 
@@ -226,7 +226,7 @@ En outre, le Cloud Security Alliance (CSA) a publié une matrice de contrôle cl
 
 ## <a name="deploy-the-solution"></a>Déployer la solution
 
-Il existe deux méthodes pour déployer cette automatisation de plan. La première méthode utilise un script PowerShell, tandis que la deuxième méthode utilise le portail Azure pour déployer l’architecture de référence. Des instructions détaillées sur le déploiement sont disponibles [ici](https://aka.ms/ukofficial-iaaswa-repo).
+Il existe deux méthodes pour déployer cette automatisation de plan. La première méthode utilise un script PowerShell, alors que la deuxième utilise le portail Azure pour déployer l’architecture de référence. Des instructions détaillées sur le déploiement sont disponibles [ici](https://aka.ms/ukofficial-iaaswa-repo).
 
 ## <a name="disclaimer"></a>Clause d'exclusion de responsabilité
 

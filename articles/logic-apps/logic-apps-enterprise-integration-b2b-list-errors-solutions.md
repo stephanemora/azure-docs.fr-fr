@@ -10,10 +10,10 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 06/02/2017
 ms.openlocfilehash: f0591b47ce7ba6837f300088c856c0098fb66710
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60998813"
 ---
 # <a name="b2b-errors-and-solutions-for-azure-logic-apps"></a>Erreurs et solutions B2B pour Azure Logic Apps
@@ -34,7 +34,7 @@ Cet article vous aide à comprendre les erreurs qui peuvent se produire dans le 
 
 |   |   | 
 |---|---|
-| Description de l’erreur | Aucun accord trouvé avec les identités : 'AS2Identity'::'Partner1' and'AS2Identity'::'Partner3' | 
+| Description de l’erreur | Aucun contrat trouvé avec les identités : 'AS2Identity'::'Partner1' et 'AS2Identity'::'Partner3' | 
 | Action requise | En-tête AS2-From ou AS2-To non valide configuré pour l’accord. </br>Corriger les en-têtes « AS2-From » ou « AS2-To » du message AS2 ou l’accord pour faire correspondre les ID AS2 des en-têtes du message AS2 avec les configurations de l’accord. |
 |   |   |     
 
@@ -64,7 +64,7 @@ Cet article vous aide à comprendre les erreurs qui peuvent se produire dans le 
 | Action requise | Ajoutez @base64ToBinary au message AS2 avant de l’envoyer au partenaire. |
 |||
 
-Par exemple : 
+Par exemple :
 
 ```json
 "HTTP": {
@@ -84,7 +84,7 @@ Par exemple :
 | Action requise | Ajoutez @base64ToBinary à la MDN avant de l’envoyer au partenaire. | 
 |||
 
-Par exemple : 
+Par exemple :
 
 ```json
 "Response": {
@@ -145,7 +145,7 @@ Par exemple :
 
 |   |   | 
 |---|---|
-| Description de l’erreur | Modèle non valide. Impossible de traiter les expressions de langage de modèle dans l’action 'Flat_File_Decoding' entrées à la ligne « 1 » et la colonne « 1902 » : ' Requis la propriété « content » attend une valeur, mais a reçu null. Chemin d’accès « . ». |
+| Description de l’erreur | Modèle non valide. Impossible de traiter les expressions de langage de gabarit dans les entrées d’action ’Flat_File_Decoding’ à la ligne « 1 » et à la colonne « 1902 » : la propriété « content » requise attend une valeur, mais a reçu null. Chemin d’accès « . ». |
 | Action requise | Cette erreur indique que le message d’entrée ne contient pas de corps. |
 |   |   | 
 

@@ -10,10 +10,10 @@ ms.assetid: bcd0b01e-1755-4112-8e8a-a5cabdca4df2
 ms.topic: conceptual
 ms.date: 11/30/2017
 ms.openlocfilehash: 5417f66696191cebadc2af9c6d634419a0eb8e5b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60615386"
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>Débogage de code C# défini par l’utilisateur pour des travaux U-SQL ayant échoué
@@ -28,7 +28,7 @@ La vidéo suivante montre la fonctionnalité Débogage d'échec du vertex dans A
 >
 
 > [!IMPORTANT]
-> Visual Studio requiert les deux mises à jour suivantes pour utiliser cette fonctionnalité : [Microsoft Visual C++ 2015 Redistributable Update 3](https://www.microsoft.com/en-us/download/details.aspx?id=53840) et [Runtime C universel pour Windows](https://www.microsoft.com/download/details.aspx?id=50410).
+> Visual Studio nécessite les deux mises à jour suivantes pour utiliser cette fonctionnalité : [Microsoft Visual C++ 2015 Redistributable Update 3](https://www.microsoft.com/en-us/download/details.aspx?id=53840) et [Runtime C Windows universel](https://www.microsoft.com/download/details.aspx?id=50410).
 >
 
 ## <a name="download-failed-vertex-to-local-machine"></a>Télécharger le vertex ayant échoué sur l’ordinateur local
@@ -80,7 +80,7 @@ Si le code utilisateur n’est pas inclus dans le fichier code-behind, ou si vou
 
 2. Récupérez le chemin du dossier du projet pour le projet **FailedVertexDebugHost**. 
 
-3. Cliquez avec le bouton droit sur le **projet du code source de l’assembly ajouté > Propriétés**, sélectionnez l’onglet **Générer** à gauche, puis collez le chemin copié finissant par \bin\debug en tant que **Sortie > Chemin de sortie**. Le chemin d’accès de la sortie finale est comme `<DataLakeTemp path>\fd91dd21-776e-4729-a78b-81ad85a4fba6\loiu0t1y.mfo\FailedVertexDebug\FailedVertexDebugHost\bin\Debug\`.
+3. Cliquez avec le bouton droit sur le **projet du code source de l’assembly ajouté > Propriétés**, sélectionnez l’onglet **Générer** à gauche, puis collez le chemin copié finissant par \bin\debug en tant que **Sortie > Chemin de sortie**. Le chemin de sortie final ressemble à `<DataLakeTemp path>\fd91dd21-776e-4729-a78b-81ad85a4fba6\loiu0t1y.mfo\FailedVertexDebug\FailedVertexDebugHost\bin\Debug\`.
 
     ![Chemin d’accès de pdb de définition de débogage U-SQL Azure Data Lake Analytics](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-set-pdb-path.png)
 

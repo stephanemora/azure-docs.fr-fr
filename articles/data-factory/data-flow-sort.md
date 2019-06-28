@@ -1,6 +1,6 @@
 ---
-title: Azure Data Factory mappage de Transformation de tri de flux de données
-description: Mappage de Transformation de tri des données de fabrique de données Azure
+title: Transformation du tri des flux de données de mappage d’Azure Data Factory
+description: Transformation du tri des données de mappage d’Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.openlocfilehash: d0482d1081c16dc89e7371c4c33de9b2bb4e4c2e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61348261"
 ---
-# <a name="azure-data-factory-data-flow-sort-transformations"></a>Transformations de tri du flux de données Azure Data Factory
+# <a name="azure-data-factory-data-flow-sort-transformations"></a>Transformations du tri des flux de données d’Azure Data Factory
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -35,4 +35,4 @@ Le Data Flow ADF est exécuté sur des clusters Spark de big data avec les donn�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après le tri, il pouvez que vous souhaitez utiliser le [Transformation d’agrégation](data-flow-aggregate.md)
+Après le tri, vous souhaiterez peut-être utiliser la [transformation d’agrégation](data-flow-aggregate.md)

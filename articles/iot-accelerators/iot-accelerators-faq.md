@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
 ms.openlocfilehash: b2f08e811217572e09a254e9ab3306ab954b14b5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61447951"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>Questions fréquentes (FAQ) sur les accélérateurs de solution IoT
@@ -24,7 +24,7 @@ Consultez également les [questions fréquentes sur la solution préconfigurée 
 Le code source est stocké dans les référentiels GitHub suivants :
 
 * [Accélérateur de solution de surveillance à distance (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet)
-* [Accélérateur de solution de surveillance à distance (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java)
+* [Accélérateur de solution de supervision à distance (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java)
 * [Accélérateur de solution de maintenance prédictive](https://github.com/Azure/azure-iot-predictive-maintenance)
 * [Accélérateur de solution Usine connectée](https://github.com/Azure/azure-iot-connected-factory)
 
@@ -71,9 +71,9 @@ La version précédente de l’accélérateur de solution de supervision à dist
 
 Oui, la nouvelle solution de surveillance à distance est disponible dans les mêmes zones géographiques.
 
-### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-solution-accelerator-in-azureiotsolutionscom"></a>Quelle est la différence entre la suppression d’un groupe de ressources dans le portail Azure et de cliquer sur ce bouton sur un accélérateur de solution dans azureiotsolutions.com ?
+### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-solution-accelerator-in-azureiotsolutionscom"></a>Quelle est la différence entre supprimer un groupe de ressources dans le portail Azure et cliquer sur Supprimer pour un accélérateur de solution dans azureiotsolutions.com ?
 
-* Si vous supprimez l’accélérateur de solution dans [azureiotsolutions.com](https://www.azureiotsolutions.com/), vous supprimez toutes les ressources qui ont été déployées lorsque vous avez créé l’accélérateur de solution. Si vous avez ajouté des ressources supplémentaires au groupe de ressources, elles sont également supprimées.
+* Si vous supprimez l’accélérateur de solution dans [azureiotsolutions.com](https://www.azureiotsolutions.com/), vous supprimez toutes les ressources qui ont été déployées lors de la création de cet accélérateur. Si vous avez ajouté des ressources supplémentaires au groupe de ressources, elles sont également supprimées.
 * Si vous supprimez le groupe de ressources sur le [portail Azure](https://portal.azure.com), vous supprimez uniquement les ressources de ce groupe de ressources. Vous devez également supprimer l’application Azure Active Directory associée à l’accélérateur de solution.
 
 ### <a name="can-i-continue-to-leverage-my-existing-investments-in-azure-iot-solution-accelerators"></a>Puis-je continuer à tirer parti de mes investissements existants dans les accélérateurs de solution Azure IoT ?
@@ -107,7 +107,7 @@ Consultez le billet de blog d’Eric Golpe, [Procédure pas à pas pour la suppr
 
 Vous pouvez également explorer certaines des autres fonctionnalités des accélérateurs de solution IoT :
 
-* [Explorer les fonctionnalités de l’accélérateur de solution de surveillance à distance](quickstart-remote-monitoring-deploy.md)
+* [Explorer les fonctionnalités de l’accélérateur de solution de supervision à distance](quickstart-remote-monitoring-deploy.md)
 * [Présentation de l’accélérateur de solution de maintenance prédictive](iot-accelerators-predictive-overview.md)
 * [Déployer l’accélérateur de solution Usine connectée](quickstart-connected-factory-deploy.md)
 * [Sécurisation de l’Internet des objets de bout en bout](/azure/iot-fundamentals/iot-security-ground-up)

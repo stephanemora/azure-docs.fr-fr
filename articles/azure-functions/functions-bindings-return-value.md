@@ -1,6 +1,6 @@
 ---
-title: À l’aide de la valeur de retour d’une fonction Azure
-description: Apprenez à gérer les valeurs de retour pour Azure Functions
+title: Utilisation d’une valeur de retour dans Azure Functions
+description: Découvrez comment gérer les valeurs de retour pour Azure Functions.
 services: functions
 documentationcenter: na
 author: craigshoemaker
@@ -8,24 +8,23 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-origin.date: 01/14/2019
-ms.date: 03/04/2019
-ms.author: v-junlch
+ms.date: 01/14/2019
+ms.author: cshoe
 ms.openlocfilehash: 4ccfe192eaea94cb9b199bd3c6f0bdacf1685519
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61437716"
 ---
-# <a name="using-the-azure-function-return-value"></a>À l’aide de la valeur de retour de fonction Azure
+# <a name="using-the-azure-function-return-value"></a>Utilisation de la valeur de retour Azure Functions
 
-Cet article explique comment des valeurs de retour à l’intérieur d’une fonction.
+Cet article explique comment fonctionnent les valeurs de retour dans une fonction.
 
-Dans les langages qui ont une valeur de retour, vous pouvez lier une fonction [liaison de sortie](./functions-triggers-bindings.md#binding-direction) à la valeur de retour :
+Dans les langages qui proposent une valeur de retour, vous pouvez lier une [liaison de sortie](./functions-triggers-bindings.md#binding-direction) de fonction à la valeur de retour :
 
-- Dans une bibliothèque de classes C#, appliquez l’attribut de liaison de sortie à la valeur de retour de la méthode.
-- Dans d’autres langages, définissez la propriété `name` dans *function.json* sur `$return`.
+* Dans une bibliothèque de classes C#, appliquez l’attribut de liaison de sortie à la valeur de retour de la méthode.
+* Dans d’autres langages, définissez la propriété `name` dans *function.json* sur `$return`.
 
 S’il existe plusieurs liaisons de sortie, utilisez la valeur de retour pour un seul d’entre eux.
 
@@ -33,11 +32,11 @@ En C# et dans les scripts C#, les autres méthodes pour envoyer des données à 
 
 Consultez l’exemple spécifique à un langage montrant l’utilisation de la valeur de retour :
 
-- [C#](#c-example)
-- [Script C# (.csx)](#c-script-example)
-- [F#](#f-example)
-- [JavaScript](#javascript-example)
-- [Python](#python-example)
+* [C#](#c-example)
+* [Script C# (.csx)](#c-script-example)
+* [F#](#f-example)
+* [JavaScript](#javascript-example)
+* [Python](#python-example)
 
 ## <a name="c-example"></a>Exemple en code C#
 
@@ -169,5 +168,4 @@ def main(input: azure.functions.InputStream) -> str:
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Gérer les erreurs de liaison d’Azure Functions](./functions-bindings-errors.md)
-
+> [Gérer les erreurs liées aux liaisons Azure Functions](./functions-bindings-errors.md)

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 74fe4f7c4c231f80c7555f39f840a85baae310e9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60809379"
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>Équilibrage de votre cluster Service Fabric
@@ -85,7 +85,7 @@ via ClusterConfig.json pour les déploiements autonomes ou Template.json pour le
 
 Par exemple, lorsque des nœuds échouent, ils se produisent simultanément dans des domaines d’erreur entiers. Tous ces échecs sont capturés à la prochaine mise à jour de l’état après *PLBRefreshGap*. Les corrections sont déterminées lorsque les prochaines opérations de placement, de contrôle des contraintes et d’équilibrage sont exécutées. Par défaut, Cluster Resource Manager n’analyse pas les modifications qui ont eu lieu sur plusieurs heures dans le cluster et n’essaie pas de les traiter toutes en même temps. En effet, cela entraînerait des pics d’activité momentanés.
 
-Cluster Resource Manager a également besoin d’informations supplémentaires pour déterminer si le cluster est déséquilibré. Pour ce faire, nous avons deux autres éléments de configuration : *BalancingThresholds* et *ActivityThresholds*.
+Cluster Resource Manager a également besoin d’informations supplémentaires pour déterminer si le cluster est déséquilibré. Nous disposons pour cela de deux autres éléments de configuration : les *seuils d’équilibrage* et les *seuils d’activité*.
 
 ## <a name="balancing-thresholds"></a>Seuils d’équilibrage
 Un seuil d’équilibrage est le principal contrôle utilisé pour déclencher le rééquilibrage. Le seuil d’équilibrage pour une métrique est un _ratio_. Si la charge d’une mesure sur le nœud le plus chargé, divisée par la quantité de charge sur le nœud le moins chargé, dépasse la valeur *BalancingThreshold* de cette mesure, le cluster est considéré comme déséquilibré. L’équilibrage est alors déclenché lorsque Cluster Resource Manager effectue sa vérification suivante. Le minuteur *MinLoadBalancingInterval* détermine la fréquence à laquelle Cluster Resource Manager doit vérifier si un rééquilibrage est nécessaire. Cette vérification ne signifie pas que quelque chose se produit. 
@@ -132,7 +132,7 @@ Dans l’exemple du bas, la charge maximale sur un nœud est égale à 10 et la 
 
 <center>
 
-![Actions d’exemple de seuil d’équilibrage][Image2]
+![Actions de l’exemple de seuil d’équilibrage][Image2]
 </center>
 
 > [!NOTE]
@@ -194,11 +194,11 @@ Occasionnellement pourtant, un service qui n’était pas déséquilibré lui-m�
 - Service3 signale les mesures Metric3 et Metric4.
 - Service4 signale la mesure Metric99. 
 
-Vous voyez certainement où nous allons ici : Il existe une chaîne ! Nous n’avons pas vraiment quatre services indépendants, mais plutôt trois services qui sont liés et un qui est indépendant.
+Vous voyez certainement où je veux en venir : il s’agit d’une chaîne ! Nous n’avons pas vraiment quatre services indépendants, mais plutôt trois services qui sont liés et un qui est indépendant.
 
 <center>
 
-![Équilibrage des Services en même temps][Image4]
+![Équilibrage de plusieurs services en même temps][Image4]
 </center>
 
 En raison de cette chaîne, il est donc possible qu’un déséquilibre dans les mesures 1 à 4 provoque le déplacement de réplicas ou d’instances appartenant aux services 1 à 3. Nous savons également qu’un déséquilibre de la mesure Metric1, Metric2 ou Metric3 ne peut pas provoquer de déplacements pour le service Service4. Cela n’aurait aucun intérêt, puisque le déplacement de réplicas ou d’instances appartenant au service Service4 n’a pas la moindre incidence sur l’équilibre de la mesure Metric1, Metric2 ou Metric3.
@@ -207,7 +207,7 @@ Cluster Resource Manager identifie automatiquement les services associés. Ajout
 
 <center>
 
-![Équilibrage des Services en même temps][Image5]
+![Équilibrage de plusieurs services en même temps][Image5]
 </center>
 
 ## <a name="next-steps"></a>Étapes suivantes

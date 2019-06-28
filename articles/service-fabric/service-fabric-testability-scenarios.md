@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/07/2017
 ms.author: motanv
 ms.openlocfilehash: d12c5097d4ba5e0ccfe0e2b2cbc8ccd758c32d98
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60865009"
 ---
 # <a name="testability-scenarios"></a>Scénarios de testabilité
@@ -49,11 +49,11 @@ Par exemple, supposons qu’un test soit défini pour s’exécuter une heure, a
 Dans sa forme actuelle, le moteur de génération d’erreurs du test chaos introduit uniquement des erreurs non critiques. Cela signifie qu’en l’absence d’erreurs externes, aucune perte de données ni de quorum ne survient.
 
 ### <a name="important-configuration-options"></a>Options de configuration importantes
-* **TimeToRun** : Temps total que le test s’exécutera avant de terminer avec succès. Si la validation échoue, le test se termine plus tôt.
-* **MaxClusterStabilizationTimeout** : Quantité maximale de délai d’attente pour le cluster avant l’échec du test. Les contrôles consistent à vérifier que l’intégrité du cluster est acceptable, que la taille cible du jeu de réplicas est atteinte pour l’ensemble des partitions et qu’aucun réplica InBuild n’existe.
-* **MaxConcurrentFaults** : Nombre maximal d’erreurs simultanées introduites dans chaque itération. Plus le nombre est élevé, plus le test est efficace. Vous obtiendrez des combinaisons plus complexes de basculement et de transition. Le test garantit qu’aucune perte de quorum ou de données ne sera à déplorer en l’absence d’erreurs externes, quel que soit le niveau de la configuration.
-* **EnableMoveReplicaFaults** : Active ou désactive les erreurs provoquant le déplacement des réplicas primaires ou secondaires. Ces erreurs sont désactivées par défaut.
-* **WaitTimeBetweenIterations** : Délai d’attente entre les itérations, c'est-à-dire après une séquence d’erreurs et la validation correspondante.
+* **TimeToRun** : durée totale du test jusqu’à sa réussite. Si la validation échoue, le test se termine plus tôt.
+* **MaxClusterStabilizationTimeout** : délai maximal nécessaire à la restauration de l’intégrité du cluster, préalablement à l’échec du test. Les contrôles consistent à vérifier que l’intégrité du cluster est acceptable, que la taille cible du jeu de réplicas est atteinte pour l’ensemble des partitions et qu’aucun réplica InBuild n’existe.
+* **MaxConcurrentFaults** : nombre maximal d’erreurs simultanées introduites dans chaque itération. Plus le nombre est élevé, plus le test est efficace. Vous obtiendrez des combinaisons plus complexes de basculement et de transition. Le test garantit qu’aucune perte de quorum ou de données ne sera à déplorer en l’absence d’erreurs externes, quel que soit le niveau de la configuration.
+* **EnableMoveReplicaFaults** : active ou désactive les erreurs provoquant le déplacement des réplicas principaux ou secondaires. Ces erreurs sont désactivées par défaut.
+* **WaitTimeBetweenIterations** : délai d’attente entre les itérations, c’est-à-dire après une séquence d’erreurs et la validation correspondante.
 
 ### <a name="how-to-run-the-chaos-test"></a>Procédure d’exécution du test chaos
 Exemple de code C#
@@ -160,10 +160,10 @@ Le scénario de test de basculement est une version du test chaos qui cible une
 Le test de basculement introduit une erreur déterminée, avant d’exécuter une validation du service afin d’évaluer sa stabilité. Le test de basculement incorpore une erreur à la fois, contrairement au test chaos, qui en introduit plusieurs simultanément. Si la partition ne se stabilise pas dans le délai configuré après chacune des erreurs, le test est considéré comme échoué. Le test introduit uniquement des erreurs non critiques. Cela signifie qu’en l’absence de défaillances externes, aucune perte de données ni de quorum ne survient.
 
 ### <a name="important-configuration-options"></a>Options de configuration importantes
-* **PartitionSelector**: Objet de sélecteur qui spécifie la partition devant être ciblé.
-* **TimeToRun** : Temps total que le test s’exécutera avant la fin.
-* **MaxServiceStabilizationTimeout**: Quantité maximale de délai d’attente pour le cluster avant l’échec du test. Les contrôles consistent à vérifier que l’intégrité du service est acceptable, que la taille cible du jeu de réplicas est atteinte pour l’ensemble des partitions et qu’aucun réplica InBuild n’existe.
-* **WaitTimeBetweenFaults** : Délai d’attente entre chaque cycle d’erreur et de validation.
+* **PartitionSelector** : objet de sélecteur qui spécifie la partition à cibler.
+* **TimeToRun** : durée totale d’exécution du test.
+* **MaxServiceStabilizationTimeout** : délai maximal nécessaire à la restauration de l’intégrité du cluster, préalablement à l’échec du test. Les contrôles consistent à vérifier que l’intégrité du service est acceptable, que la taille cible du jeu de réplicas est atteinte pour l’ensemble des partitions et qu’aucun réplica InBuild n’existe.
+* **WaitTimeBetweenFaults** : délai d’attente avant chaque erreur et cycle de validation.
 
 ### <a name="how-to-run-the-failover-test"></a>Procédure d’exécution du test de basculement
 **C#**

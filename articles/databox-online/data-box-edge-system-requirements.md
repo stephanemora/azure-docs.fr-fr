@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 90c60d586d505ca0c9bd787c37e137f7a38ee1f7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60756543"
 ---
-# <a name="azure-data-box-edge-system-requirements"></a>Configuration requise Edge de zone de données Azure
+# <a name="azure-data-box-edge-system-requirements"></a>Configuration système Azure Data Box Edge
 
 Cet article décrit la configuration système importante pour votre solution Microsoft Azure Data Box Edge et pour les clients se connectant à Azure Data Box Edge. Nous vous recommandons de lire attentivement les informations suivantes avant de déployer votre solution Data Box Edge. Reportez-vous aussi souvent que nécessaire à ces informations pendant le déploiement, et après, pour son fonctionnement.
 
@@ -60,7 +60,7 @@ Utilisez le tableau suivant pour configurer les ports des serveurs hébergeant l
 
 | N° de port | Entrant ou sortant | Étendue de ports | Obligatoire | Assistance |
 |----------|-----------|------------|----------|----------|
-| TCP 443 (HTTPS)| Sortie       | WAN        | Oui      | Sortie ouverte pour le déploiement de IoT Edge. Cette configuration est requise en cas d’utilisation de scripts manuels ou du service Azure IoT Device Provisioning.|
+| TCP 443 (HTTPS)| Sortie       | WAN        | OUI      | Sortie ouverte pour le déploiement de IoT Edge. Cette configuration est requise en cas d’utilisation de scripts manuels ou du service Azure IoT Device Provisioning.|
 
 Pour plus d'informations, consultez [Règles de configuration du pare-feu et des ports pour le déploiement d’IoT Edge](https://docs.microsoft.com/azure/iot-edge/troubleshoot).
 
@@ -82,7 +82,7 @@ Dans la plupart des cas, nous vous recommandons de définir librement les règle
 
 | Modèle d’URL                      | Composant ou fonctionnalité                     |   
 |----------------------------------|---------------------------------------------|
-| https :\//mcr.microsoft.com<br></br>https://\*.cdn.mscr.io | Registre de conteneurs Microsoft (obligatoire)               |
+| https:\//mcr.microsoft.com<br></br>https://\*.cdn.mscr.io | Registre de conteneurs Microsoft (obligatoire)               |
 | https://\*.azurecr.io                     | Registres de conteneurs personnels et tiers (facultatif) | 
 | https://\*.azure-devices.net              | Accès IoT Hub (obligatoire)                             | 
 
@@ -94,7 +94,7 @@ Dans la plupart des cas, nous vous recommandons de définir librement les règle
 
 | Modèle d’URL                      | Composant ou fonctionnalité                     |  
 |----------------------------------|---------------------------------------------|
-| https :\//mcr.microsoft.com<br></br>https://\*.cdn.mscr.com | Registre de conteneurs Microsoft (obligatoire)               |
+| https:\//mcr.microsoft.com<br></br>https://\*.cdn.mscr.com | Registre de conteneurs Microsoft (obligatoire)               |
 | https://\*.azure-devices.us              | Accès IoT Hub (obligatoire)           |
 | https://\*.azurecr.us                    | Registres de conteneurs personnels et tiers (facultatif) | 
 
@@ -102,35 +102,35 @@ Dans la plupart des cas, nous vous recommandons de définir librement les règle
 
 [!INCLUDE [Internet bandwidth](../../includes/data-box-edge-gateway-internet-bandwidth.md)]
 
-## <a name="compute-sizing-considerations"></a>Considérations sur le dimensionnement de calcul
+## <a name="compute-sizing-considerations"></a>Considérations relatives au dimensionnement de la capacité de calcul
 
-Utilisez votre expérience lors du développement et test de votre solution afin de garantir la capacité est suffisante sur votre appareil Edge de zone de données et vous obtenez des performances optimales de votre appareil.
+Utilisez votre expérience lors du développement et des tests de votre solution afin de vous assurer que votre appareil Data Box Edge dispose d’une capacité suffisante et que vous en tirez des performances optimales.
 
-Tenez compte des facteurs sont les suivantes :
+Tenez compte des facteurs suivants :
 
-- **Caractéristiques de l’objet conteneur** -réfléchir à ce qui suit.
+- **Caractéristiques de l’objet conteneur**. Posez-vous les questions suivantes :
 
-    - Nombre de conteneurs se trouvent dans votre charge de travail ? Vous pourriez avoir un grand nombre de conteneurs légers et quelques gourmandes en ressources.
-    - Quelles sont les ressources allouées à ces conteneurs et quelles sont les ressources qu’ils consomment ?
-    - Le nombre de couches partager vos conteneurs ?
-    - Existe-t-il des conteneurs inutilisés ? Un conteneur arrêté occupe toujours d’espace disque.
-    - Langue dans laquelle vos conteneurs sont écrits ?
-- **Taille des données traitées** -la quantité de données vos conteneurs traitera ? Ces données consomme d’espace disque ou les données sont traitées dans la mémoire ?
-- **Performance attendue** -quelles sont les caractéristiques de performances souhaité de votre solution ? 
+    - Combien de conteneurs votre charge de travail compte-t-elle ? Vous pourriez avoir un grand nombre de conteneurs légers ou seulement quelques-uns gourmands en ressources.
+    - Quelles sont les ressources allouées à ces conteneurs, et quelles sont les ressources qu’ils consomment ?
+    - Combien de couches vos conteneurs partagent-ils ?
+    - Existe-t-il des conteneurs inutilisés ? Un conteneur arrêté occupe toujours de l’espace disque.
+    - En quels langage vos conteneurs sont-ils écrits ?
+- **Taille des données traitées**. Quelle quantité de données vos conteneurs traiteront-ils ? Ces données consommeront-elles de l’espace disque, ou seront-elles traitées en mémoire ?
+- **Performances attendues**. Quelles sont les caractéristiques de performances souhaitées de votre solution ? 
 
 Pour comprendre et affiner les performances de votre solution, vous pouvez utiliser :
 
-- Les mesures de calcul disponibles dans le portail Azure. Accédez à votre ressource de données boîte Edge, puis à **analyse > mesures**. Examinez le **Edge de calcul - utilisation de la mémoire** et **Edge de calcul - Pourcentage d’UC** pour comprendre les ressources disponibles et comment les ressources sont bien utilisés.
-- Les commandes d’analyse disponibles via l’interface PowerShell de l’appareil comme :
+- Les métriques de calcul disponibles dans le portail Azure. Accédez à votre ressource Data Box Edge, puis à **Supervision > Métriques**. Examinez les valeurs **Computing en périphérie - Utilisation de la mémoire** et **Computing en périphérie - Pourcentage du processeur** pour comprendre les ressources disponibles et comment elles sont utilisées.
+- Les commandes de supervision disponibles par le biais de l’interface PowerShell de l’appareil comme :
 
-    - `dkr` statistiques pour obtenir un flux en direct du ou des conteneurs de statistiques d’utilisation de ressources. La commande prend en charge du processeur, utilisation de la mémoire, limite de mémoire et les mesures d’e/s de réseau.
-    - `dkr system df` Pour obtenir des informations concernant la quantité d’espace disque utilisé. 
-    - `dkr image [prune]` Pour nettoyer les images inutilisées et libérer de l’espace.
-    - `dkr ps --size` Pour afficher la taille approximative d’un conteneur en cours d’exécution. 
+    - Les statistiques `dkr` pour obtenir un flux en direct des statistiques d’utilisation des ressources de conteneurs. La commande prend en charge le processeur, l’utilisation de la mémoire, la limite de mémoire et les métriques d’E/S réseau.
+    - `dkr system df` pour obtenir des informations concernant la quantité d’espace disque utilisée. 
+    - `dkr image [prune]` pour nettoyer les images inutilisées et libérer de l’espace.
+    - `dkr ps --size` pour afficher la taille approximative d’un conteneur en cours d’exécution. 
 
-    Pour plus d’informations sur les commandes disponibles, accédez à [surveiller et résoudre les problèmes de modules de calcul](data-box-edge-connect-powershell-interface.md#monitor-and-troubleshoot-compute-modules).
+    Pour plus d’informations sur les commandes disponibles, accédez à [Superviser et dépanner des modules de computing en périphérie](data-box-edge-connect-powershell-interface.md#monitor-and-troubleshoot-compute-modules).
 
-Enfin, assurez-vous que valider votre solution sur votre jeu de données et de quantifier les performances sur les bords de zone de données avant de le déployer en production.
+Pour finir, veillez à valider votre solution sur votre jeu de données et à quantifier les performances sur Data Box Edge avant le déploiement en production.
 
 
 ## <a name="next-step"></a>Étape suivante

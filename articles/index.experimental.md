@@ -3,12 +3,12 @@ layout: HubPage
 hide_bc: true
 title: Documentation Microsoft Azure
 description: Découvrez comment créer et gérer des applications performantes à l’aide des services cloud Microsoft Azure. Accédez à la documentation associée, à des exemples de code, à des didacticiels et bien plus encore.
-ms.openlocfilehash: 936200f304a1c2f923797b3664e4b2ecd9799e65
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 1d45b815b9becae6f6f8e8e3ea17dd0c7cb9245f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54425676"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67033616"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -3318,7 +3318,7 @@ ms.locfileid: "54425676"
                                                     <a href="/powershell/azure/get-started-azureps">Prise en main</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/powershell/azure/azurerm/install-azurerm-ps">Télécharger PowerShell</a>
+                                                    <a href="/powershell/azure/install-Az-ps">Télécharger Azure PowerShell</a>
                                                 </p>
                                                 <p>
                                                     <a href="/powershell/azure/overview">Référence</a>

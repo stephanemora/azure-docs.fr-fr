@@ -10,10 +10,10 @@ ms.date: 11/05/2018
 ms.author: danlep
 ms.custom: mvc
 ms.openlocfilehash: 365264d40554f45533e2ddf0aeb9d85f3e8f8d2d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60564019"
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Monter un partage de fichiers Azure dans Azure Container Instances
@@ -83,7 +83,7 @@ La valeur `--dns-name-label` doit être unique au sein de la région Azure dans 
 
 ## <a name="manage-files-in-mounted-volume"></a>Gérer les fichiers dans le volume monté
 
-Une fois que le démarrage du conteneur, vous pouvez utiliser l’application web simple déployée via Microsoft [aci-hellofiles] [ aci-hellofiles] image pour créer des petits fichiers texte dans le partage de fichiers Azure sur le chemin de montage que vous avez spécifié. Obtenir un nom de domaine complet de l’application web (FQDN) avec la commande [afficher de conteneur az] [ az-container-show] :
+Après le démarrage du conteneur, vous pouvez utiliser l’application web simple déployée par le biais de l’image Microsoft [aci-hellofiles][aci-hellofiles] pour créer de petits fichiers texte dans le partage de fichiers Azure sur le chemin de montage que vous avez spécifié. Obtenir un nom de domaine complet de l’application web (FQDN) avec la commande [afficher de conteneur az] [ az-container-show] :
 
 ```azurecli-interactive
 az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles --query ipAddress.fqdn

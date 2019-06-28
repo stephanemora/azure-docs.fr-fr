@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
 ms.openlocfilehash: 9b6c0715cb85e245aba94adfb8b33d0d07ece9a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60880438"
 ---
 # <a name="tutorial-push-notifications-to-specific-users-using-azure-notification-hubs"></a>Didacticiel : notifications Push vers des utilisateurs spécifiques à l’aide d’Azure Notification Hubs
@@ -38,7 +38,7 @@ Dans ce tutoriel, vous effectuez les étapes suivantes :
 > * Modification de votre application iOS
 > * Test de l’application
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Ce didacticiel repose sur l'hypothèse que vous avez créé et configuré votre hub de notification comme décrit dans [Prise en main de Notification Hubs (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md). Ce didacticiel est également un prérequis pour le didacticiel sur les [notifications Push sécurisées (iOS)](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md) .
 Si vous souhaitez utiliser Mobile Apps comme service principal, voir l’article [Mobile Apps concernant la prise en main des notifications Push](../app-service-mobile/app-service-mobile-ios-get-started-push.md).
@@ -54,7 +54,7 @@ Si vous souhaitez utiliser Mobile Apps comme service principal, voir l’article
 
 2. Dans le fichier `Main.storyboard`, ajoutez les composants indiqués dans la capture d’écran de la bibliothèque d’objets.
 
-    ![Modifier la table de montage séquentiel dans le Générateur d’interface Xcode][1]
+    ![Modifier la table de montage séquentiel dans le générateur d’interface Xcode][1]
 
    * **Nom d’utilisateur** : champ UITextField avec du texte d’espace réservé, *Entrer le nom d’utilisateur*, juste en dessous de l’étiquette des résultats d’envoi et entre les marges gauche et droite, en dessous de l’étiquette des résultats d’envoi.
    * **Mot de passe** : champ UITextField avec du texte d’espace réservé, *Entrer le mot de passe*, juste en dessous du champ de texte du nom d’utilisateur et entre les marges gauche et droite, en dessous du champ de texte du nom d’utilisateur. Cochez l'option **Sécuriser l'entrée de texte** dans l'inspecteur d'attributs sous *Touche Retour*.

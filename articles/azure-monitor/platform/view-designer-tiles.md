@@ -1,6 +1,6 @@
 ---
-title: Un guide de référence pour les vignettes du Concepteur de vues dans Azure Monitor | Microsoft Docs
-description: En utilisant le Concepteur de vues dans Azure Monitor, vous pouvez créer des vues personnalisées qui sont affichés dans le portail Azure et contiennent une variété de visualisations de données dans l’espace de travail Analytique de journal. Cet article est un guide de référence pour les paramètres des vignettes disponibles dans vos vues personnalisées.
+title: Guide de référence des vignettes du Concepteur de vues dans Azure Monitor | Microsoft Docs
+description: Grâce au Concepteur de vues d’Azure Monitor, vous pouvez créer des vues personnalisées affichées dans le portail Azure qui contiennent différentes visualisations sur les données dans l’espace de travail Log Analytics. Cet article est un guide de référence pour les paramètres des vignettes disponibles dans vos vues personnalisées.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -14,14 +14,14 @@ ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: bwren
 ms.openlocfilehash: 9c0283081bd7245b1b886ed82ba03130a7a3bf2c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61341742"
 ---
-# <a name="reference-guide-to-view-designer-tiles-in-azure-monitor"></a>Guide de référence des vignettes du Concepteur de vue dans Azure Monitor
-En utilisant le Concepteur de vues dans Azure Monitor, vous pouvez créer une variété de vues personnalisées dans le portail Azure qui peut vous aider à visualiser les données dans votre espace de travail Analytique de journal. Cet article est un guide de référence pour les paramètres des vignettes disponibles dans vos vues personnalisées.
+# <a name="reference-guide-to-view-designer-tiles-in-azure-monitor"></a>Guide de référence des vignettes du Concepteur de vues dans Azure Monitor
+Grâce au Concepteur de vues d’Azure Monitor, vous pouvez créer plusieurs vues personnalisées dans le portail Azure qui peuvent vous aider à visualiser les données dans votre espace de travail Log Analytics. Cet article est un guide de référence pour les paramètres des vignettes disponibles dans vos vues personnalisées.
 
 Pour plus d’informations sur le Concepteur de vues, consultez :
 
@@ -43,7 +43,7 @@ Les vignettes du Concepteur de vues disponibles sont décrites dans le tableau s
 Les sections suivantes décrivent les types de vignettes et leurs propriétés en détail.
 
 > [!NOTE]
-> Vignettes dans les vues sont basées sur [enregistrer des requêtes](../log-query/log-query-overview.md) dans votre espace de travail Analytique de journal. Ils ne prennent pas en charge [entre les requêtes de ressources](../log-query/cross-workspace-query.md) pour récupérer des données d’Application Insights.
+> Les vignettes dans les vues sont basées sur des [requêtes de journal](../log-query/log-query-overview.md) dans votre espace de travail Log Analytics. Elles ne prennent pas en charge les [requêtes inter-ressources](../log-query/cross-workspace-query.md) pour récupérer des données d’Application Insights.
 
 ## <a name="number-tile"></a>Vignette Nombre
 La vignette **Nombre** affiche à la fois le nombre d’enregistrements retournés par une requête de journal et une étiquette.
@@ -56,10 +56,10 @@ La vignette **Nombre** affiche à la fois le nombre d’enregistrements retourn�
 | Description |Texte affiché sous le nom de la vignette. |
 | **Vignette** | |
 | Légende |Texte affiché sous la valeur. |
-| Interroger |Requête exécutée. Le nombre d’enregistrements retournés par la requête est affiché. |
+| Requête |Requête exécutée. Le nombre d’enregistrements retournés par la requête est affiché. |
 | **Avancée** |**&gt; Vérification du flux de données** |
 | activé |Sélectionnez ce lien si la vérification du flux de données doit être activée pour la vignette. Cette approche fournit un autre message si les données ne sont pas disponibles. Normalement, vous adoptez cette approche pour fournir un message entre l’installation de la vue et le moment où les données deviennent disponibles. |
-| Interroger |Requête exécutée pour déterminer si les données sont disponibles pour la vue. Si la requête ne retourne aucun résultat, un message s’affiche à la place de la valeur de la requête principale. |
+| Requête |Requête exécutée pour déterminer si les données sont disponibles pour la vue. Si la requête ne retourne aucun résultat, un message s’affiche à la place de la valeur de la requête principale. |
 | Message |Message affiché si la requête de vérification du flux de données ne retourne aucune donnée. Si vous ne fournissez aucun message, un message d’état *Exécution de l’évaluation* s’affiche. |
 
 
@@ -74,13 +74,13 @@ Cette vignette affiche le nombre d’enregistrements retournés par deux requêt
 | Description |Texte affiché sous le nom de la vignette. |
 | **Première vignette** | |
 | Légende |Texte affiché sous la valeur. |
-| Interroger |Requête exécutée. Le nombre d’enregistrements retournés par la requête est affiché. |
+| Requête |Requête exécutée. Le nombre d’enregistrements retournés par la requête est affiché. |
 | **Deuxième vignette** | |
 | Légende |Texte affiché sous la valeur. |
-| Interroger |Requête exécutée. Le nombre d’enregistrements retournés par la requête est affiché. |
+| Requête |Requête exécutée. Le nombre d’enregistrements retournés par la requête est affiché. |
 | **Avancée** |**&gt; Vérification du flux de données** |
 | activé |Sélectionnez ce lien si la vérification du flux de données doit être activée pour la vignette. Cette approche fournit un autre message si les données ne sont pas disponibles. Normalement, vous adoptez cette approche pour fournir un message entre l’installation de la vue et le moment où les données deviennent disponibles. |
-| Interroger |Requête exécutée pour déterminer si les données sont disponibles pour la vue. Si la requête ne retourne aucun résultat, un message s’affiche à la place de la valeur de la requête principale. |
+| Requête |Requête exécutée pour déterminer si les données sont disponibles pour la vue. Si la requête ne retourne aucun résultat, un message s’affiche à la place de la valeur de la requête principale. |
 | Message |Message affiché si la requête de vérification du flux de données ne retourne aucune donnée. Si vous ne fournissez aucun message, un message d’état *Exécution de l’évaluation* s’affiche. |
 
 
@@ -94,9 +94,9 @@ La vignette **Anneau** affiche un nombre unique qui résume une colonne de valeu
 | Nom |Texte affiché en haut de la vignette. |
 | Description |Texte affiché sous le nom de la vignette. |
 | **Anneau** | |
-| Interroger |Requête exécutée pour l’anneau. La première propriété est une valeur de texte et la seconde une valeur numérique. Cette requête utilise habituellement le mot clé *measure* pour synthétiser les résultats. |
+| Requête |Requête exécutée pour l’anneau. La première propriété est une valeur de texte et la seconde une valeur numérique. Cette requête utilise habituellement le mot clé *measure* pour synthétiser les résultats. |
 | **Anneau** |**&gt; Centrer** |
-| Text |Texte affiché sous la valeur à l’intérieur de l’anneau. |
+| Texte |Texte affiché sous la valeur à l’intérieur de l’anneau. |
 | Opération |Opération effectuée sur la valeur de propriété afin de la résumer en une valeur unique.<ul><li>Somme : additionner les valeurs de tous les enregistrements avec la valeur de propriété.</li><li>Pourcentage : pourcentage des valeurs additionnées des enregistrements avec la valeur de propriété, comparé aux valeurs additionnées de tous les enregistrements.</li></ul> |
 | Valeurs de résultat utilisées dans l’opération relative au centre |Vous pouvez sélectionner le signe plus (+) pour ajouter une ou plusieurs valeurs. Les résultats de la requête sont alors limités aux enregistrements dont vous avez spécifié les valeurs de propriété. Si aucune valeur n’est ajoutée, tous les enregistrements sont inclus dans la requête. |
 | **Anneau** |**&gt; Options supplémentaires** |
@@ -104,7 +104,7 @@ La vignette **Anneau** affiche un nombre unique qui résume une colonne de valeu
 | Mappage avancé des couleurs |Affiche une couleur qui représente des valeurs de propriété spécifiques. Si la valeur spécifiée figure parmi les trois premières, l’autre couleur s’affiche au lieu de la couleur standard. Si la propriété ne figure pas parmi les trois premières, la couleur ne s’affiche pas. |
 | **Avancée** |**&gt; Vérification du flux de données** |
 | activé |Sélectionnez ce lien si la vérification du flux de données doit être activée pour la vignette. Cette approche fournit un autre message si les données ne sont pas disponibles. Normalement, vous adoptez cette approche pour fournir un message entre l’installation de la vue et le moment où les données deviennent disponibles. |
-| Interroger |Requête exécutée pour déterminer si les données sont disponibles pour la vue. Si la requête ne retourne aucun résultat, un message s’affiche à la place de la valeur de la requête principale. |
+| Requête |Requête exécutée pour déterminer si les données sont disponibles pour la vue. Si la requête ne retourne aucun résultat, un message s’affiche à la place de la valeur de la requête principale. |
 | Message |Message affiché si la requête de vérification du flux de données ne retourne aucune donnée. Si vous ne fournissez aucun message, un message d’état *Exécution de l’évaluation* s’affiche. |
 
 
@@ -118,14 +118,14 @@ Cette vignette est un graphique en courbes qui affiche plusieurs séries à part
 | Nom |Texte affiché en haut de la vignette. |
 | Description |Texte affiché sous le nom de la vignette. |
 | **Graphique en courbes** | |
-| Interroger |Requête exécutée pour le graphique en courbes. La première propriété est une valeur de texte et la seconde une valeur numérique. Cette requête utilise habituellement le mot clé *measure* pour synthétiser les résultats. Si la requête utilise le mot clé *interval*, l’axe des abscisses (X) utilise cet intervalle de temps. Si la requête n’utilise pas le mot clé *interval*, l’axe des abscisses utilise des intervalles d’une heure. |
+| Requête |Requête exécutée pour le graphique en courbes. La première propriété est une valeur de texte et la seconde une valeur numérique. Cette requête utilise habituellement le mot clé *measure* pour synthétiser les résultats. Si la requête utilise le mot clé *interval*, l’axe des abscisses (X) utilise cet intervalle de temps. Si la requête n’utilise pas le mot clé *interval*, l’axe des abscisses utilise des intervalles d’une heure. |
 | **Graphique en courbes** |**> Axe Y** |
 | Utiliser l’échelle logarithmique |Sélectionnez ce lien pour utiliser une échelle logarithmique pour l’axe des ordonnées (Y). |
 | Units |Spécifiez les unités à utiliser pour exprimer les valeurs retournées par la requête. Ces informations sont utilisées pour afficher sur le graphique des étiquettes indiquant les types de valeurs et, le cas échéant, pour convertir des valeurs. Le **Type d’unité** spécifie la catégorie de l’unité et définit les valeurs de **Type d’unité en cours** disponibles. Si vous sélectionnez une valeur dans **Convertir en**, les valeurs numériques sont converties du type **Unité actuelle** dans le type **Convertir en**. |
 | Étiquette personnalisée |Texte affiché pour l’axe Y en regard de l’étiquette du type d’*Unité*. Si aucune étiquette n’est spécifiée, seul le type d’*Unité* est affiché. |
 | **Avancée** |**&gt; Vérification du flux de données** |
 | activé |Sélectionnez ce lien si la vérification du flux de données doit être activée pour la vignette. Cette approche fournit un autre message si les données ne sont pas disponibles. Normalement, vous adoptez cette approche pour fournir un message entre l’installation de la vue et le moment où les données deviennent disponibles. |
-| Interroger |Requête exécutée pour déterminer si les données sont disponibles pour la vue. Si la requête ne retourne aucun résultat, un message s’affiche à la place de la valeur de la requête principale. |
+| Requête |Requête exécutée pour déterminer si les données sont disponibles pour la vue. Si la requête ne retourne aucun résultat, un message s’affiche à la place de la valeur de la requête principale. |
 | Message |Message affiché si la requête de vérification du flux de données ne retourne aucune donnée. Si vous ne fournissez aucun message, un message d’état *Exécution de l’évaluation* s’affiche. |
 
 
@@ -139,7 +139,7 @@ Cette vignette contient à la fois un graphique en courbes avec plusieurs série
 | Nom |Texte affiché en haut de la vignette. |
 | Description |Texte affiché sous le nom de la vignette. |
 | **Graphique en courbes** | |
-| Interroger |Requête exécutée pour le graphique en courbes. La première propriété est une valeur de texte et la seconde une valeur numérique. Cette requête utilise habituellement le mot clé *measure* pour synthétiser les résultats. Si la requête utilise le mot clé *interval*, l’axe des abscisses (X) utilise cet intervalle de temps. Si la requête n’utilise pas le mot clé *interval*, l’axe des abscisses utilise des intervalles d’une heure. |
+| Requête |Requête exécutée pour le graphique en courbes. La première propriété est une valeur de texte et la seconde une valeur numérique. Cette requête utilise habituellement le mot clé *measure* pour synthétiser les résultats. Si la requête utilise le mot clé *interval*, l’axe des abscisses (X) utilise cet intervalle de temps. Si la requête n’utilise pas le mot clé *interval*, l’axe des abscisses utilise des intervalles d’une heure. |
 | **Graphique en courbes** |**&gt; Légende** |
 | Titre de la légende | Texte affiché au-dessus de la valeur de la légende. |
 | Nom de la série |Valeur de propriété de série à utiliser comme valeur de la légende. Si aucune série n’est fournie, tous les enregistrements de la requête sont utilisés. |
@@ -150,7 +150,7 @@ Cette vignette contient à la fois un graphique en courbes avec plusieurs série
 | Étiquette personnalisée |Texte affiché pour l’axe Y en regard de l’étiquette du type d’*Unité*. Si aucune étiquette n’est spécifiée, seul le type d’*Unité* est affiché. |
 | **Avancée** |**&gt; Vérification du flux de données** |
 | activé |Sélectionnez ce lien si la vérification du flux de données doit être activée pour la vignette. Cette approche fournit un autre message si les données ne sont pas disponibles. Normalement, vous adoptez cette approche pour fournir un message entre l’installation de la vue et le moment où les données deviennent disponibles. |
-| Interroger |Requête exécutée pour déterminer si les données sont disponibles pour la vue. Si la requête ne retourne aucun résultat, un message s’affiche à la place de la valeur de la requête principale. |
+| Requête |Requête exécutée pour déterminer si les données sont disponibles pour la vue. Si la requête ne retourne aucun résultat, un message s’affiche à la place de la valeur de la requête principale. |
 | Message |Message affiché si la requête de vérification du flux de données ne retourne aucune donnée. Si vous ne fournissez aucun message, un message d’état *Exécution de l’évaluation* s’affiche. |
 
 
@@ -175,10 +175,10 @@ La vignette **Deux chronologies** affiche les résultats de deux requêtes de jo
 | Opération |Opération effectuée sur la valeur de propriété afin de la résumer en une valeur unique pour la légende.<ul><li>Moyenne : moyenne des valeurs de tous les enregistrements.</li><li>Nombre : nombre d’enregistrements renvoyés par la requête.</li><li>Dernier exemple : valeur du dernier intervalle inclus dans le graphique.</li><li>Max : valeur maximale des intervalles inclus dans le graphique. |
 | **Avancée** |**&gt; Vérification du flux de données** |
 | activé |Sélectionnez ce lien si la vérification du flux de données doit être activée pour la vignette. Cette approche fournit un autre message si les données ne sont pas disponibles. Normalement, vous adoptez cette approche pour fournir un message entre l’installation de la vue et le moment où les données deviennent disponibles. |
-| Interroger |Requête exécutée pour déterminer si les données sont disponibles pour la vue. Si la requête ne retourne aucun résultat, un message s’affiche à la place de la valeur de la requête principale. |
+| Requête |Requête exécutée pour déterminer si les données sont disponibles pour la vue. Si la requête ne retourne aucun résultat, un message s’affiche à la place de la valeur de la requête principale. |
 | Message |Message affiché si la requête de vérification du flux de données ne retourne aucune donnée. Si vous ne fournissez aucun message, un message d’état *Exécution de l’évaluation* s’affiche. |
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-* En savoir plus sur [enregistrer des requêtes](../log-query/log-query-overview.md) pour prendre en charge les requêtes dans les vignettes.
+* Découvrez-en plus sur les [requêtes de journal](../log-query/log-query-overview.md) pour prendre en charge les requêtes dans des vignettes.
 * Ajouter des [composants de visualisation](view-designer-parts.md) à votre vue personnalisée.

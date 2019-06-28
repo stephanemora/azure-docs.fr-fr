@@ -1,6 +1,6 @@
 ---
 title: Activité d’obtention des métadonnées dans Azure Data Factory | Microsoft Docs
-description: Découvrez comment vous pouvez utiliser l’activité d’obtention d’un pipeline Data Factory.
+description: Découvrez comment utiliser l’activité GetMetadata dans un pipeline Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: jingwang
 ms.openlocfilehash: 78f63b4f46fe5479d4d0fd5849ad80536d8a137c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61346850"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Activité d’obtention des métadonnées dans Azure Data Factory
@@ -47,7 +47,7 @@ L’activité GetMetadata sélectionne un jeu de données comme entrée requise,
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
 | Amazon S3 | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
 | Google Cloud Storage | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
-| objet blob Azure | √/√ | √/√ | √ | x/x | √/√* | √ | √ | √ | √ | √/√ |
+| Objets blob Azure | √/√ | √/√ | √ | x/x | √/√* | √ | √ | √ | √ | √/√ |
 | Azure Data Lake Storage Gen1 | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | Azure Data Lake Storage Gen2 | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | Stockage Fichier Azure | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
@@ -55,7 +55,7 @@ L’activité GetMetadata sélectionne un jeu de données comme entrée requise,
 | SFTP | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | FTP | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 
-- Pour Amazon S3 et Google Sloud Storage, le `lastModified` s’applique aux compartiments et la clé mais pas virtuel dossier ; et le `exists` s’applique aux compartiments et clé mais pas préfixe ou un dossier virtuel.
+- Pour Amazon S3 et Google Sloud Storage, `lastModified` s’applique à un compartiment et à une clé, mais pas à un dossier virtuel ; `exists` s’applique à un compartiment et à une clé, mais pas à un préfixe ou à un dossier virtuel.
 - Pour Azure Stockage Blob, `lastModified` s’applique à un conteneur et à un objet blob, mais pas à un dossier virtuel.
 
 **Base de données relationnelle :**
@@ -133,8 +133,8 @@ Actuellement, l’activité GetMetadata peut extraire les types d’informations
 
 Propriété | Description | Obligatoire
 -------- | ----------- | --------
-fieldList | Répertorie les types d’informations de métadonnées requis. Consultez les détails dans la section [Options de métadonnées](#metadata-options) sur les métadonnées prises en charge. | Oui 
-dataset | Jeu de données de référence à partir duquel l’activité de métadonnées doit être récupérée par l’activité d’obtention des métadonnées. Consultez la section [Fonctionnalités prises en charge](#supported-capabilities) sur les connecteurs pris en charge et reportez-vous à la rubrique des connecteurs pour plus d’informations sur la syntaxe de jeu de données. | Oui
+fieldList | Répertorie les types d’informations de métadonnées requis. Consultez les détails dans la section [Options de métadonnées](#metadata-options) sur les métadonnées prises en charge. | OUI 
+dataset | Jeu de données de référence à partir duquel l’activité de métadonnées doit être récupérée par l’activité d’obtention des métadonnées. Consultez la section [Fonctionnalités prises en charge](#supported-capabilities) sur les connecteurs pris en charge et reportez-vous à la rubrique des connecteurs pour plus d’informations sur la syntaxe de jeu de données. | OUI
 
 ## <a name="sample-output"></a>Exemple de sortie
 

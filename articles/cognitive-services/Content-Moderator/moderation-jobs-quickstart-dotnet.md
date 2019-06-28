@@ -1,7 +1,7 @@
 ---
-title: Utiliser des travaux de modération à l’aide de .NET - Content Moderator
+title: Utiliser des travaux de modération à l’aide de .NET - Content Moderator
 titlesuffix: Azure Cognitive Services
-description: Utilisez le SDK de .NET de modérateur de contenu pour lancer des travaux de modération de contenu de bout en bout pour le contenu d’image ou text dans Azure Content Moderator.
+description: Utilisez le SDK .NET Content Moderator pour initier des travaux de modération du contenu de bout en bout pour le contenu d’image ou de texte dans Azure Content Moderator.
 services: cognitive-services
 author: sanjeev3
 manager: nitinme
@@ -11,24 +11,24 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: sajagtap
 ms.openlocfilehash: 24d5483cf3b418cada3c5b7f03eedbff13cc36d6
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62113866"
 ---
 # <a name="define-and-use-moderation-jobs-net"></a>Définir et utiliser des travaux de modération (.NET)
 
-Un travail de modération sert un type de wrapper pour la fonctionnalité de modération du contenu, les workflows et les révisions. Ce guide fournit des informations et des exemples de code pour vous aider à commencer à utiliser le [contenu modérateur SDK pour .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) à :
+Un travail de modération est un type de wrapper permettant d’obtenir une modération du contenu, des flux de travail et des révisions. Ce guide fournit des informations et des exemples de code qui vont vous aider à prendre en main le [kit de développement logiciel (SDK) Content Moderator pour .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) afin d’effectuer les opérations suivantes :
 
 - Lancez une tâche de modération pour analyser et créer des révisions pour des modérateurs humains
 - Obtenir l’état de la révision en attente
 - Suivre et obtenir l’état final de la révision
 - Envoyer les résultats de la révision à l’URL de rappel
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-- Connectez-vous ou créez un compte sur le modérateur de contenu [outil de révision](https://contentmoderator.cognitive.microsoft.com/) site.
+- Connectez-vous ou créez un compte sur le site de l’[outil de révision](https://contentmoderator.cognitive.microsoft.com/) de Content Moderator.
 
 ## <a name="ensure-your-api-key-can-call-the-review-api-for-review-creation"></a>Vérifier que votre clé API peut appeler l’API de révision pour la création de révisions
 

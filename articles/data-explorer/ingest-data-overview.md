@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.openlocfilehash: 891d2acc42f8d6f03976f0553e2e3127bc6d16f7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60759324"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Ingestion des données dans l’Explorateur de données Azure
@@ -52,7 +52,7 @@ Azure Data Explorer prend actuellement en charge ce qui suit :
 
 ### <a name="ingestion-using-integration-services"></a>Ingestion à l'aide des services d'intégration
 
-* Azure Data Factory (ADF), un service d’intégration de données entièrement géré pour les charges de travail dans Azure, pour copier des données vers et à partir de l’Explorateur de données Azure à l’aide [magasins de données et formats pris en charge](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats). Pour plus d’informations, consultez [copier des données à partir d’Azure Data Factory à l’Explorateur de données Azure](/azure/data-explorer/data-factory-load-data).
+* Azure Data Factory (ADF), service d’intégration de données entièrement géré pour les charges de travail analytiques dans Azure, permettant de copier des données vers et à partir d’Azure Data Explorer à l’aide de [formats et de magasins de données pris en charge](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats). Pour plus d’informations, consultez [Copier des données d’Azure Data Factory vers Azure Data Explorer](/azure/data-explorer/data-factory-load-data).
 
 ### <a name="programmatic-ingestion"></a>Ingestion par programmation
 
@@ -80,7 +80,7 @@ Kusto propose des SDK client qui peuvent être utilisés pour ingérer et interr
 
 * Ingestion des données directement dans le moteur de l’Explorateur de données Azure (approche la plus appropriée pour l’exploration et le prototypage) :
 
-  * **Inline ingestion**: commande de contrôle (.ingest inline) contenant des données sur bande est destiné à des fins de tests ad hoc.
+  * **Ingestion inline** : commande de contrôle (.ingest inline) contenant des données intrabande et destinée aux tests ad hoc.
 
   * **Ingestion à partir de requête** : commande de contrôle (.set, .set-or-append, .set-or-replace) qui pointe vers des résultats de requête et qui sert à générer des rapports ou de petites tables temporaires.
 

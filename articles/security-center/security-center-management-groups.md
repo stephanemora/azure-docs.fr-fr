@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/19/2018
 ms.author: rkarlin
 ms.openlocfilehash: 7e26dc37c5c4f85e3db634bd961bf9308e418a03
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66147971"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Gagner en visibilité au niveau locataire dans Azure Security Center
@@ -101,7 +101,7 @@ Pour faire gagner en visibilité à tous les abonnements, les administrateurs de
 
     ![Capture d’écran Détails des groupes d'administration](./media/security-center-management-groups/management-group-details.PNG)
  
-1. Cliquez sur **Contrôle d’accès (IAM)**, puis **Attributions de rôles**.
+1. Cliquez sur **Contrôle d’accès (IAM)** , puis **Attributions de rôles**.
 
 1. Cliquez sur **Ajouter une attribution de rôle**.
 
@@ -145,16 +145,16 @@ Une fois que vous disposez d’un accès élevé, ouvrez ou actualisez Azure Sec
 1. Connectez-vous au [Portail Azure](https://portal.azure.com). 
 2. Veillez à sélectionner tous les abonnements dans le sélecteur d’abonnements que vous souhaitez afficher dans Security Center.
 
-    ![Capture d’écran de sélecteur abonnement](./media/security-center-management-groups/subscription-selector.png)
+    ![Capture d’écran du sélecteur d’abonnements](./media/security-center-management-groups/subscription-selector.png)
 
 1. Sélectionnez **Tous les services** sous le menu principal d’Azure, puis sélectionnez **Security Center**.
 2. Dans la **Vue d’ensemble**, se trouve un graphique des abonnements couverts.
 
-    ![Capture d’écran de graphique de couverture abonnement](./media/security-center-management-groups/security-center-subscription-coverage.png)
+    ![Capture d’écran du graphique des abonnements couverts](./media/security-center-management-groups/security-center-subscription-coverage.png)
 
 3. Cliquez sur **Couverture** pour voir la liste des abonnements couverts. 
 
-    ![Capture d’écran de liste de couverture abonnement](./media/security-center-management-groups/security-center-coverage.png)
+    ![Capture d’écran de la liste des abonnements couverts](./media/security-center-management-groups/security-center-coverage.png)
 
 ### <a name="remove-elevated-access"></a>Supprimer l’accès élevé 
 Une fois que les rôles RBAC ont été attribués aux utilisateurs, l’administrateur de locataires doit se supprimer du rôle d’administrateur des accès utilisateur.

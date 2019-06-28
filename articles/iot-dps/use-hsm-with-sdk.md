@@ -10,17 +10,17 @@ services: iot-dps
 manager: arjmands
 ms.custom: mvc
 ms.openlocfilehash: af59ccc6d14dce49d06e178aac3ecafc29bd982c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61248128"
 ---
 # <a name="how-to-use-different-attestation-mechanisms-with-device-provisioning-service-client-sdk-for-c"></a>Utiliser différents mécanismes d’attestation avec le Kit de développement logiciel (SDK) Device Provisioning Service Client pour C
 
-Cet article explique comment utiliser différents [mécanismes d’attestation](concepts-security.md#attestation-mechanism) avec le Kit de développement logiciel (SDK) Device Provisioning Service Client pour C. Vous pouvez choisir d’utiliser un appareil physique ou un simulateur. Le service d’approvisionnement prend en charge l’authentification pour deux types de mécanismes d’attestation : X.509 et Module de plateforme sécurisée (TPM).
+Cet article explique comment utiliser différents [mécanismes d’attestation](concepts-security.md#attestation-mechanism) avec le Kit de développement logiciel (SDK) Device Provisioning Service Client pour C. Vous pouvez choisir d’utiliser un appareil physique ou un simulateur. Le service de provisionnement prend en charge l’authentification pour deux types de mécanismes d’attestation : X.509 et Module de plateforme sécurisée (TPM).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Préparez votre environnement de développement en suivant la section intitulée « Préparer l’environnement de développement » du guide [Créer et approvisionner un appareil TPM simulé à l’aide du kit de développement logiciel C de périphérique pour le service IoT Hub Device Provisioning](./quick-create-simulated-device.md).
 
@@ -28,9 +28,9 @@ Préparez votre environnement de développement en suivant la section intitulée
 
 En tant que fabricant d’appareils, vous devez d’abord choisir un mécanisme d’attestation basé sur l’un des types pris en charge. Actuellement, le [Kit de développement logiciel (SDK) Device Provisioning Service Client pour C](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client) prend en charge les mécanismes d’attestation suivants : 
 
-- [Trusted Platform Module (TPM)](https://en.wikipedia.org/wiki/Trusted_Platform_Module): Le module TPM est une norme établie pour la plupart des plateformes d’appareils Windows, ainsi que pour quelques appareils Linux/Ubuntu. En tant que fabricant d’appareils, vous pouvez choisir ce mécanisme d’attestation si l’un de ces systèmes d’exploitation s’exécute sur vos appareils et si vous recherchez une norme établie. Avec les processeurs TPM, vous pouvez uniquement inscrire chaque appareil individuellement auprès du service Device Provisioning. À des fins de développement, vous pouvez utiliser le simulateur TPM sur votre machine de développement Windows ou Linux.
+- [Module de plateforme sécurisée (TPM)](https://en.wikipedia.org/wiki/Trusted_Platform_Module) : Le module TPM est une norme établie pour la plupart des plateformes d’appareils Windows, ainsi que pour quelques appareils Linux/Ubuntu. En tant que fabricant d’appareils, vous pouvez choisir ce mécanisme d’attestation si l’un de ces systèmes d’exploitation s’exécute sur vos appareils et si vous recherchez une norme établie. Avec les processeurs TPM, vous pouvez uniquement inscrire chaque appareil individuellement auprès du service Device Provisioning. À des fins de développement, vous pouvez utiliser le simulateur TPM sur votre machine de développement Windows ou Linux.
 
-- [X.509](https://cryptography.io/en/latest/x509/) : Certificats X.509 peuvent être stockées dans des processeurs relativement plus récents appelés [Modules de sécurité matériel (HSM)](concepts-security.md#hardware-security-module). Microsoft continue de travailler sur des processeurs RIoT ou DICE, qui implémentent les certificats X.509. Avec les processeurs X.509, vous pouvez effectuer une inscription d’appareils en bloc dans le portail. En outre, certains systèmes non-Windows, comme embedOS, sont pris en charge. À des fins de développement, le SDK client du service Device Provisioning prend en charge un simulateur d’appareil X.509. 
+- [X.509](https://cryptography.io/en/latest/x509/) : Les certificats X.509 peuvent être stockés dans des processeurs relativement plus récents appelés [Modules de sécurité matériels (HSM)](concepts-security.md#hardware-security-module). Microsoft continue de travailler sur des processeurs RIoT ou DICE, qui implémentent les certificats X.509. Avec les processeurs X.509, vous pouvez effectuer une inscription d’appareils en bloc dans le portail. En outre, certains systèmes non-Windows, comme embedOS, sont pris en charge. À des fins de développement, le SDK client du service Device Provisioning prend en charge un simulateur d’appareil X.509. 
 
 Pour plus d’informations, consultez les [concepts de sécurité](concepts-security.md) et les [concepts d’approvisionnement automatique](/azure/iot-dps/concepts-auto-provisioning) du service IoT Hub Device Provisioning.
 
@@ -149,8 +149,8 @@ Si vous utilisez TPM, suivez les instructions de [« Créer et approvisionner un
       ./azure-iot-sdk-c/dps_client/tools/x509_device_provision/x509_device_provision.exe
       ```
 2. Connectez-vous au portail Azure, cliquez sur le bouton **Toutes les ressources** dans le menu de gauche et ouvrez votre instance Device Provisioning Service.
-   - X **.** Inscription individuelle 509 : Dans le panneau service d’approvisionnement résumé, sélectionnez **gérer les inscriptions**. Sélectionnez l’onglet **Inscriptions individuelles** et cliquez sur le bouton **Ajouter** dans la partie supérieure. Sélectionnez **X**.**509** en tant que *mécanisme* d’attestation d’identité, chargez le certificat de nœud terminal comme requis par le panneau. Cela fait, cliquez sur le bouton **Enregistrer**. 
-   - X **.** Inscription de groupe 509 : Dans le panneau service d’approvisionnement résumé, sélectionnez **gérer les inscriptions**. Sélectionnez l’onglet **Inscriptions de groupe** et cliquez sur le bouton **Ajouter** dans la partie supérieure. Sélectionnez **X**.**509** en tant que *mécanisme* d’attestation d’identité, entrez un nom de groupe et un nom de certification, chargez le certificat d’autorité de certification/intermédiaire comme requis par le panneau. Cela fait, cliquez sur le bouton **Enregistrer**. 
+   - Inscription individuelle X **.** 509 : Dans le panneau de récapitulatif du service Device Provisioning, sélectionnez **Gérer les inscriptions**. Sélectionnez l’onglet **Inscriptions individuelles** et cliquez sur le bouton **Ajouter** dans la partie supérieure. Sélectionnez **X**.**509** en tant que *mécanisme* d’attestation d’identité, chargez le certificat de nœud terminal comme requis par le panneau. Cela fait, cliquez sur le bouton **Enregistrer**. 
+   - Inscription de groupe X **.** 509 : Dans le panneau de récapitulatif du service de provisionnement, sélectionnez **Gérer les inscriptions**. Sélectionnez l’onglet **Inscriptions de groupe** et cliquez sur le bouton **Ajouter** dans la partie supérieure. Sélectionnez **X**.**509** en tant que *mécanisme* d’attestation d’identité, entrez un nom de groupe et un nom de certification, chargez le certificat d’autorité de certification/intermédiaire comme requis par le panneau. Cela fait, cliquez sur le bouton **Enregistrer**. 
 
 ## <a name="enable-authentication-for-devices-using-a-custom-attestation-mechanism-optional"></a>Activer l’authentification pour les appareils à l’aide d’un mécanisme d’attestation personnalisé (facultatif)
 

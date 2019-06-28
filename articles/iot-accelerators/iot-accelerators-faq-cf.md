@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
 ms.openlocfilehash: ed429d923cad2c715621990c146d4cf3a23e7bca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61447928"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Questions fréquentes sur l’accélérateur de solution d’usine connectée
@@ -23,7 +23,7 @@ Voir aussi les [questions fréquentes (FAQ)](iot-accelerators-faq.md) d’ordre 
 
 Le code source est stocké dans le dépôt GitHub suivant :
 
-* [Accélérateur de solution Usine connectée](https://github.com/Azure/azure-iot-connected-factory)
+* [Accélérateur de solution d’usine connectée](https://github.com/Azure/azure-iot-connected-factory)
 
 ### <a name="what-is-opc-ua"></a>Qu’est-ce que l’UA OPC ?
 
@@ -76,7 +76,7 @@ Si vous avez déployé la solution à partir de www.azureiotsolutions.com, vous 
 1. Pour identifier les conteneurs actifs, exécutez `docker ps`.
 1. Pour arrêter tous les conteneurs de simulation, exécutez `./stopsimulation`.
 1. Pour démarrer tous les conteneurs de simulation :
-    * Exportez une variable shell sous le nom **IOTHUB_CONNECTIONSTRING**. Utilisez la valeur du paramètre **IotHubOwnerConnectionString** du fichier `<name of your deployment>.config.user`. Par exemple : 
+    * Exportez une variable shell sous le nom **IOTHUB_CONNECTIONSTRING**. Utilisez la valeur du paramètre **IotHubOwnerConnectionString** du fichier `<name of your deployment>.config.user`. Par exemple :
 
         ```sh
         export IOTHUB_CONNECTIONSTRING="HostName={yourdeployment}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={your key}"
@@ -192,7 +192,7 @@ Pour envoyer des données de télémétrie à la solution d’usine connectée �
 
 ### <a name="next-steps"></a>Étapes suivantes
 
-Vous pouvez également explorer certaines des autres fonctionnalités des accélérateurs de solution IoT :
+Vous pouvez également explorer certaines des autres fonctionnalités et capacités des accélérateurs de solution IoT :
 
 * [Présentation de l’accélérateur de solution de maintenance prédictive](iot-accelerators-predictive-overview.md)
 * [Déployer l’accélérateur de solution Usine connectée](quickstart-connected-factory-deploy.md)

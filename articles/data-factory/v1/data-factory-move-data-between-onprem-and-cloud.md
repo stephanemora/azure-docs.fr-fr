@@ -14,10 +14,10 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 4eb881992b7e40e0a9d67bd2cee94f1f09958e9e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60825983"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données
@@ -280,7 +280,7 @@ Dans cette étape, vous allez créer des jeux de données d’entrée et de sort
    * Le paramètre **folderPath** est défini sur **adftutorial/outfromonpremdf**, où « outfromonpremdf » est le dossier dans le conteneur adftutorial. S’il n’existe pas déjà, créez le conteneur **adftutorial** .
    * **availability** est défini sur **hourly** (**frequency** a la valeur **hour** et **interval** est défini sur **1**).  Le service Data Factory génère une tranche de données de sortie toutes les heures dans la table **emp** de la base de données Azure SQL.
 
-   Si vous ne spécifiez pas un **fileName** pour un **table de sortie**, les fichiers générés dans le **folderPath** sont nommés selon le format suivant : `Data.<Guid>.txt` (par exemple : : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
+   Si vous ne spécifiez pas **fileName** pour une **table de sortie**, les fichiers générés dans **folderPath** sont nommés au format suivant : `Data.<Guid>.txt` (par exemple Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
    Pour affecter une valeur à **folderPath** et **fileName** de manière dynamique en fonction de l’heure de **SliceStart**, utilisez la propriété partitionedBy. Dans l’exemple suivant, folderPath utilise les valeurs Year, Month et Day à partir de SliceStart (heure de début de la partie en cours de traitement), alors que fileName utilise la valeur Hour à partir de SliceStart. Par exemple, si une partie est produite pour 2014-10-20T08:00:00, la valeur folderName est wikidatagateway/wikisampledataout/2014/10/20, alors que la valeur de fileName est 08.csv.
 
@@ -359,7 +359,7 @@ Dans cette étape, vous créez un **pipeline** avec une **activité Copier l’a
 
    * Dans la section des activités, toutes les activités ont le **type** **Copy**.
    * **L’entrée** de l’activité est définie sur **EmpOnPremSQLTable** et la **sortie** de l’activité, sur **OutputBlobTable**.
-   * Dans le **typeProperties** section, **SqlSource** est spécifié comme le **type de source** et **BlobSink** est spécifié comme le **type de récepteur**.
+   * Dans la section **typeProperties**, **SqlSource** est spécifié en tant que **Type de source** et **BlobSink** en tant que **Type de récepteur**.
    * La requête SQL `select * from emp` est spécifiée pour la propriété **sqlReaderQuery** de **SqlSource**.
 
    Les dates/heures de début et de fin doivent toutes deux être au [format ISO](https://en.wikipedia.org/wiki/ISO_8601). Par exemple :  2014-10-14T16:32:41Z. L’heure de fin ( **end** ) est facultative, mais nous allons l’utiliser dans ce didacticiel.

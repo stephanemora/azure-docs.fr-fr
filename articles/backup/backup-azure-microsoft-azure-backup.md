@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: kasinh
 ms.openlocfilehash: 26f25a0dcbeef0d5b7456d42caaca392c3ca6a1a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62098860"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installer et mettre à niveau Azure Backup Server
@@ -29,7 +29,7 @@ Cet article décrit la préparation de votre environnement à la sauvegarde des 
 >
 >
 
-Les serveurs Microsoft Azure Backup Server déployés dans une machine virtuelle Azure peuvent sauvegarder des machines virtuelles dans Azure, mais ils doivent être dans le même domaine pour que l’opération de sauvegarde puisse s’effectuer. Le processus de sauvegarde d’une machine virtuelle Azure reste identique à la sauvegarde des machines virtuelles en local, toutefois déployer MABS dans Azure présente certaines limitations. Pour plus d’informations sur ces limitations, consultez [DPM comme machine virtuelle Azure](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites)
+Les serveurs Microsoft Azure Backup Server déployés dans une machine virtuelle Azure peuvent sauvegarder des machines virtuelles dans Azure, mais ils doivent être dans le même domaine pour que l’opération de sauvegarde puisse s’effectuer. Le processus de sauvegarde d’une machine virtuelle Azure reste identique à la sauvegarde d’une machine virtuelle en local, mais le déploiement de Microsoft Azure Backup Server dans Azure présente certaines limitations. Pour plus d’informations sur ces limitations, consultez [DPM comme machine virtuelle Azure](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites)
 
 > [!NOTE]
 > Azure comporte deux modèles de déploiement pour la création et l’utilisation de ressources : [Resource Manager et classique](../azure-resource-manager/resource-manager-deployment-model.md). Cet article fournit les informations et les procédures relatives à la restauration des machines virtuelles déployées à l’aide du modèle Resource Manager.
@@ -113,11 +113,11 @@ Pour modifier le paramètre de réplication du stockage :
 
     ![Backup-goals-default-opened](./media/backup-azure-microsoft-azure-backup/getting-started.png)
 
-5. Dans le panneau **Objectif de sauvegarde** du menu **Où s’exécute votre charge de travail ?**, sélectionnez **Local**.
+5. Dans le panneau **Objectif de sauvegarde** du menu **Où s’exécute votre charge de travail ?** , sélectionnez **Local**.
 
     ![en local et charges de travail comme objectifs](./media/backup-azure-microsoft-azure-backup/backup-goals-azure-backup-server.png)
 
-    À partir du menu déroulant **Que souhaitez-vous sauvegarder ?**, sélectionnez les charges de travail que vous souhaitez protéger à l’aide du serveur de sauvegarde Azure, puis cliquez sur **OK**.
+    À partir du menu déroulant **Que souhaitez-vous sauvegarder ?** , sélectionnez les charges de travail que vous souhaitez protéger à l’aide du serveur de sauvegarde Azure, puis cliquez sur **OK**.
 
     L’Assistant **Mise en route de la sauvegarde** modifie l’option de **préparation de l’infrastructure** pour sauvegarder les charges de travail sur Azure.
 
@@ -264,9 +264,9 @@ Voici les étapes à suivre si vous devez déplacer MABS vers un nouveau serveur
 
     Exemple de chemin : C:\windows\system32>cd "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\" 
 
-11. Sauvegarde Azure, exécutez DPMSYNC-SYNC
+11. Vers la sauvegarde Azure, exécutez DPMSYNC -SYNC
 
-    Si vous avez ajouté les nouveaux disques au pool de stockage DPM au lieu de déplacer les anciens, puis exécutez DPMSYNC - Reallocatereplica.
+    Si vous avez ajouté de nouveaux disques au pool de stockage DPM au lieu de déplacer les anciens, exécutez DPMSYNC -Reallocatereplica
 
 ## <a name="network-connectivity"></a>Connectivité réseau
 Pour que le produit fonctionne correctement, Azure Backup Server exige la connectivité au service Azure Backup. Pour vérifier que la machine est bien connectée à Azure, utilisez l’applet de commande ```Get-DPMCloudConnection``` dans la console Azure Backup Server PowerShell. Si le résultat de l’applet de commande est TRUE, la connectivité existe. Dans le cas contraire, la connectivité n’existe pas.

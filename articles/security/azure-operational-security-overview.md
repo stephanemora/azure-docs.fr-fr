@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/30/2018
 ms.author: tomsh
 ms.openlocfilehash: 38054d6ee3799296887726954ef1f096945aeaeb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60586847"
 ---
 # <a name="azure-operational-security-overview"></a>Vue d’ensemble d’Azure Operational Security
@@ -29,13 +29,13 @@ ms.locfileid: "60586847"
 
 Une équipe des opérations informatiques est chargée de gérer l’infrastructure du centre de données, les applications et les données, ainsi que la stabilité et la sécurité de ces systèmes. Toutefois, l’obtention d’informations de sécurité dans des environnements informatiques de plus en plus complexes requiert souvent de la part des organisations qu’elles bricolent et rassemblent les données de plusieurs systèmes de sécurité et de gestion.
 
-[Journaux Microsoft Azure Monitor](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) est une solution de gestion de l’informatique en nuage qui permet de gérer et de protéger votre réseau local et d’infrastructure cloud. Ses fonctionnalités principales sont fournies par les services suivants qui s’exécutent dans Azure. Azure comporte plusieurs services qui vous aident à gérer et protéger votre infrastructure locale et cloud. Chaque service propose une fonction de gestion spécifique. Vous pouvez combiner des services pour obtenir différents scénarios d’administration. 
+[Journaux Microsoft Azure Monitor](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) est une solution de gestion informatique basée sur le cloud qui vous permet de gérer et protéger votre infrastructure locale et dans le cloud. Ses fonctionnalités principales sont fournies par les services suivants qui s’exécutent dans Azure. Azure comporte plusieurs services qui vous aident à gérer et protéger votre infrastructure locale et cloud. Chaque service propose une fonction de gestion spécifique. Vous pouvez combiner des services pour obtenir différents scénarios d’administration. 
 
 ### <a name="azure-monitor"></a>Azure Monitor
 
 [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) collecte des données à partir de sources managées dans des banques de données centrales. Ces données peuvent inclure des événements, des données de performance ou des données personnalisées fournies par l’API. Une fois collectées, les données sont disponibles pour les fonctions d’alerte, d’analyse et d’exportation. 
 
-Vous pouvez consolide rles données provenant de différentes sources, et combiner celles de vos services Azure à celles de votre environnement local. Journaux d’analyse Azure sépare également clairement la collecte des données à partir de l’action effectuée sur ces données, afin que toutes les actions sont disponibles pour tous les types de données.
+Vous pouvez consolide rles données provenant de différentes sources, et combiner celles de vos services Azure à celles de votre environnement local. La solution Journaux Azure Monitor dissocie clairement la collecte des données, de l’action exécutée sur celles-ci, afin que toutes les actions soient disponibles pour tous les types de données.
 
 ### <a name="automation"></a>Automatisation
 
@@ -72,7 +72,7 @@ Azure AD inclut également une suite complète de [fonctionnalités de gestion d
 - [Audit détaillé](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs)
 - [Surveillance et alerte de sécurité](https://docs.microsoft.com/azure/operations-management-suite/oms-security-responding-alerts)
 
-Avec Azure Active Directory, toutes les applications que vous publiez pour vos partenaires et clients (professionnels et particuliers) ont les mêmes fonctionnalités de gestion des identités et des accès.  Vous êtes ainsi en mesure de réduire de manière significative vos coûts opérationnels.
+Avec Azure Active Directory, toutes les applications que vous publiez pour vos partenaires et clients (professionnels et particuliers) ont les mêmes fonctionnalités de gestion des identités et des accès. Vous êtes ainsi en mesure de réduire de manière significative vos coûts opérationnels.
 
 ## <a name="azure-security-center"></a>Azure Security Center
 
@@ -93,7 +93,7 @@ Security Center évalue la configuration de vos ressources pour identifier les v
 >[!Note]
 >Pour plus d’informations sur les rôles et les actions autorisées dans Security Center, consultez [Permissions in Azure Security Center (Autorisations dans Azure Security Center)](https://docs.microsoft.com/azure/security-center/security-center-permissions).
 
-Security Center utilise Microsoft Monitoring Agent. Il s’agit du même agent qui utilise le service Azure Monitor. Les données collectées par cet agent sont stockées dans un [espace de travail](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access) Log Analytics associé à votre abonnement Azure ou dans un nouvel espace de travail, selon l’emplacement géographique de la machine virtuelle.
+Security Center utilise Microsoft Monitoring Agent. Il s’agit du même agent que celui utilisé par le service Azure Monitor. Les données collectées par cet agent sont stockées dans un [espace de travail](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access) Log Analytics associé à votre abonnement Azure ou dans un nouvel espace de travail, selon l’emplacement géographique de la machine virtuelle.
 
 ## <a name="azure-monitor"></a>Azure Monitor
 
@@ -123,7 +123,7 @@ Azure Monitor vous fournit des données de télémétrie qui vous offrent une vi
 
 ### <a name="azure-diagnostics"></a>Diagnostics Azure
 
-Azure Diagnostics autorise la collecte de données de diagnostic sur une application déployée. Vous pouvez utiliser l’extension Diagnostics de différentes sources. Les sources actuellement prises en charge sont les [rôles de service cloud Azure](https://docs.microsoft.com/azure/vs-azure-tools-configure-roles-for-cloud-service), les [machines virtuelles Azure](https://docs.microsoft.com/azure/vs-azure-tools-configure-roles-for-cloud-service) exécutant Microsoft Windows et [Azure Service Fabric](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics).
+Diagnostics Azure autorise la collecte de données de diagnostic sur une application déployée. Vous pouvez utiliser l’extension Diagnostics de différentes sources. Les sources actuellement prises en charge sont les [rôles de service cloud Azure](https://docs.microsoft.com/azure/vs-azure-tools-configure-roles-for-cloud-service), les [machines virtuelles Azure](https://docs.microsoft.com/azure/vs-azure-tools-configure-roles-for-cloud-service) exécutant Microsoft Windows et [Azure Service Fabric](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics).
 
 ## <a name="azure-network-watcher"></a>Azure Network Watcher
 

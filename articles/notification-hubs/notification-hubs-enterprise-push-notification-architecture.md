@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
 ms.openlocfilehash: 938801148b175456553865b54d59271021811401
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60873342"
 ---
 # <a name="enterprise-push-architectural-guidance"></a>Guide architectural des notifications Push d’entreprise
 
 Les entreprises se tournent aujourd’hui progressivement vers la création d’applications mobiles pour leurs clients (externes) ou leurs collaborateurs (internes). Ils disposent de systèmes principaux, qu’il s’agisse de grands systèmes ou de certaines applications métiers, qui doivent être intégrés à l’architecture de l’application mobile. Ce guide vous présente comment réussir au mieux cette intégration, en recommandant des solutions possibles pour les scénarios habituels.
 
-Une exigence fréquente est l’envoi de notifications Push aux utilisateurs via leurs applications mobiles, lorsqu’un événement se produit dans les systèmes principaux. par exemple, un client d’une banque disposant de l’application bancaire sur un iPhone souhaite être averti lorsqu’un débit est effectué au-dessus d’un certain montant à partir du compte ou un scénario intranet où un employé du service financier disposant d’une application d’approbation du budget sur un Windows Phone souhaite  pour être averti lorsque la demande d’approbation est reçue.
+Une exigence fréquente est l’envoi de notifications Push aux utilisateurs via leurs applications mobiles, lorsqu’un événement se produit dans les systèmes principaux. Par exemple, un client d’une banque disposant d’une application bancaire sur un iPhone souhaite être averti lorsque son compte est débité d’un montant supérieur à un seuil défini ou un scénario intranet dans lequel un employé du service financier disposant d’une application d’approbation du budget sur un téléphone Windows Phone souhaite être averti lorsqu’il reçoit une demande d’approbation.
 
 Le traitement des comptes bancaires ou des approbations est généralement effectué dans un système principal, qui doit envoyer une notification Push à l’utilisateur. Il peut y avoir plusieurs systèmes principaux qui doivent tous générer le même genre de logique afin d’envoyer une notification Push lorsqu’un événement la déclenche. Ici, la complexité réside dans l’intégration de plusieurs systèmes principaux avec un système Push unique où les utilisateurs peuvent être abonnés à différentes notifications et même peut-être à plusieurs applications mobiles, par exemple dans le cas d’applications mobiles intranet où une application mobile peut recevoir des notifications à partir de plusieurs systèmes principaux. Les systèmes principaux n’ont pas besoin de connaître une technologie ou une sémantique Push. Une solution courante a donc généralement été d’introduire un composant qui interroge les systèmes principaux pour tout événement vous intéressant et qui est chargé d’envoyer les messages Push au client.
 
@@ -56,7 +56,7 @@ L'élément clé de ce diagramme architectural est Azure Service Bus, qui fourni
 
 ## <a name="sample"></a>Exemple
 
-### <a name="prerequisites"></a>Conditions préalables
+### <a name="prerequisites"></a>Prérequis
 
 Complétez les tutoriels suivants pour vous familiariser avec les concepts et les étapes habituelles de création et de configuration :
 
@@ -265,7 +265,7 @@ L'exemple de code complet est disponible dans la page [Exemples de Notification 
 ### <a name="running-the-sample"></a>Exécution de l’exemple
 
 1. Assurez-vous que votre WebJob est exécuté avec succès et planifié pour s’exécuter en continu.
-2. Exécutez le **EnterprisePushMobileApp**, qui démarre l’application du Windows Store.
+2. Exécutez **EnterprisePushMobileApp**, qui démarre l’application Windows Store.
 3. Exécutez l’application console **EnterprisePushBackendSystem** qui simule le serveur principal métier et envoie des messages. Vous devez voir apparaître des notifications toast similaires à l’image suivante :
 
     ![][5]

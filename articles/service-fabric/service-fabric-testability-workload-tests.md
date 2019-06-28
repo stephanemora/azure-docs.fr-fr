@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/15/2017
 ms.author: anmola
 ms.openlocfilehash: ceb6ad1a6a1182d78c473b8b0387c365eb660065
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60865270"
 ---
 # <a name="simulate-failures-during-service-workloads"></a>Simuler des défaillances au cours des charges de travail de services
@@ -27,12 +27,12 @@ Grâce aux scénarios de testabilité dans Azure Service Fabric, les développeu
 ## <a name="sample-custom-scenario"></a>Exemple de scénario personnalisé
 Ce test présente un scénario où la charge de travail est entrelacée avec des [défaillances avec et sans perte de données](service-fabric-testability-actions.md#graceful-vs-ungraceful-fault-actions). Pour optimiser les résultats, les erreurs doivent être provoquées au milieu des opérations ou du calcul du service.
 
-Nous allons étudier un exemple d’un service qui expose les quatre charges de travail : A, B, C et D. Chacun correspond à un ensemble de flux de travail et peut être calcul, stockage ou une combinaison. Par souci de simplicité, nous allons extraire les charges de travail dans notre exemple. Les différentes erreurs exécutées dans cet exemple sont :
+Nous allons étudier l’exemple d’un service qui expose quatre charges de travail : A, B, C et D. Chacune correspond à un ensemble de workflows, et peut être une capacité de calcul, du stockage ou une combinaison. Par souci de simplicité, nous allons extraire les charges de travail dans notre exemple. Les différentes erreurs exécutées dans cet exemple sont :
 
-* RestartNode : Erreur avec perte de données pour simuler un redémarrage de l’ordinateur.
-* RestartDeployedCodePackage: Erreur avec perte de données pour simuler le processus hôte de service se bloque.
-* RemoveReplica : Erreur sans perte de données pour simuler la suppression de réplicas.
-* MovePrimary : Erreur sans perte de données pour simuler des déplacements de réplicas déclenchés par l’équilibreur de charge Service Fabric.
+* RestartNode : erreur avec perte de données pour simuler un redémarrage de machine.
+* RestartDeployedCodePackage : erreur avec perte de données pour simuler des incidents du processus hôte de service.
+* RemoveReplica : erreur sans perte de données pour simuler la suppression de réplicas.
+* MovePrimary : erreur sans perte de données pour simuler des déplacements de réplicas déclenchés par l’équilibreur de charge Service Fabric.
 
 ```csharp
 // Add a reference to System.Fabric.Testability.dll and System.Fabric.dll.

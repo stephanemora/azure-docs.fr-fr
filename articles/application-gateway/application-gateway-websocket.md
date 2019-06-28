@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 03/18/2019
 ms.openlocfilehash: 54c34690e678f07d6309a1877b0ca5d0a0b274f5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60831235"
 ---
 # <a name="overview-of-websocket-support-in-application-gateway"></a>Vue d’ensemble de la prise en charge de WebSocket dans Application Gateway
@@ -22,17 +22,17 @@ Le protocole WebSocket, standardisé dans la [RFC6455](https://tools.ietf.org/ht
 
 Vous pouvez continuer d’utiliser un élément écouteur HTTP standard sur le port 80 ou 443 pour recevoir le trafic WebSocket. Le trafic WebSocket est ensuite dirigé vers le serveur principal compatible WebSocket à l’aide du pool principal approprié tel que spécifié dans les règles Application Gateway. Le serveur principal doit répondre aux sondes de la passerelle Application Gateway, qui sont décrites dans la section [Vue d’ensemble de la sonde d’intégrité](application-gateway-probe-overview.md) . Les sondes d’intégrité d’Application Gateway n’utilisent que les protocoles HTTP/HTTPS. Chaque serveur principal doit répondre aux sondes HTTP de la passerelle Application Gateway pour acheminer le trafic WebSocket au serveur.
 
-Il est utilisé dans les applications qui bénéficient de communication rapide et en temps réel, telles que la conversation, tableau de bord et applications de jeu.
+Son utilisation profite aux applications qui tirent parti d’une communication rapide et en temps réel, par exemple les applications de conversation, de tableau de bord et de jeu.
 
-## <a name="how-does-websocket-work"></a>Comment fonctionne le WebSocket
+## <a name="how-does-websocket-work"></a>Comment fonctionne WebSocket
 
-Pour établir une connexion WebSocket, une négociation basée sur HTTP spécifique est échangée entre le client et le serveur. En cas de réussite, le protocole de couche d’application est « mis à niveau » à partir de HTTP vers WebSockets, à l’aide de la connexion TCP précédemment établie. Une fois que cela se produit, HTTP est complètement hors de l’image ; données peuvent être envoyées ou reçus par le biais du protocole WebSocket par les deux points de terminaison, jusqu'à ce que la connexion WebSocket est fermée. 
+Pour établir une connexion WebSocket, une liaison HTTP spécifique est établie entre le client et le serveur. En cas de réussite, le protocole de la couche Application est « mis à niveau » de HTTP vers WebSockets, à l’aide de la connexion TCP établie. Une fois que cela s’est produit, le protocole HTTP disparaît du paysage. Les données peuvent être envoyées ou reçues aux deux points de terminaison via le protocole WebSocket, jusqu’à la fermeture de la connexion WebSocket. 
 
 ![addcert](./media/application-gateway-websocket/websocket.png)
 
 ### <a name="listener-configuration-element"></a>Élément de configuration d’écouteur
 
-Un écouteur HTTP permet de prendre en charge le trafic WebSocket. Voici un extrait d’un élément HttpListeners provenant d’un exemple de fichier de modèle. Vous auriez besoin d’écouteurs HTTP et HTTPS pour prendre en charge WebSocket et sécuriser le trafic WebSocket. De même que vous pouvez utiliser le portail ou Azure PowerShell pour créer une passerelle d’application avec des écouteurs sur le port 80/443 pour prendre en charge le trafic WebSocket.
+Un écouteur HTTP permet de prendre en charge le trafic WebSocket. Voici un extrait d’un élément HttpListeners provenant d’un exemple de fichier de modèle. Vous auriez besoin d’écouteurs HTTP et HTTPS pour prendre en charge WebSocket et sécuriser le trafic WebSocket. De même, vous pouvez utiliser le portail ou Azure PowerShell pour créer une passerelle d’application avec des écouteurs sur le port 80/443 afin de prendre en charge le trafic WebSocket.
 
 ```json
 "httpListeners": [

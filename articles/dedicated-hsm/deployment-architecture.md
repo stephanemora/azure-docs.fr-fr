@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: barclayn
 ms.openlocfilehash: f078df7677e771d131f15056ac4a54a58a3134bd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60912265"
 ---
-# <a name="azure-dedicated-hsm-deployment-architecture"></a>Architecture de déploiement Azure HSM dédié
+# <a name="azure-dedicated-hsm-deployment-architecture"></a>Architecture de déploiement Azure Dedicated HSM
 
 Un HSM dédié Azure permet le stockage de clés de chiffrement dans Azure. Il satisfait à des exigences de sécurité strictes. Les clients tireront un bénéfice de l’utilisation du HSM dédié Azure s’ils :
 

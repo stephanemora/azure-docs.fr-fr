@@ -10,10 +10,10 @@ ms.date: 04/04/2017
 ms.author: iainfou
 ms.custom: mvc
 ms.openlocfilehash: 16c16c0217a796ffbb57e10430f90cb4a7660ac6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61468224"
 ---
 # <a name="deprecated-manage-an-azure-container-service-dcos-cluster-through-the-marathon-web-ui"></a>(DÉCONSEILLÉ) Gérer un cluster de contrôleur de domaine/système d’exploitation Azure Container Service via l’interface utilisateur web Marathon
@@ -25,7 +25,7 @@ DC/OS offre un environnement de déploiement et de mise à l’échelle des char
 Bien qu’il existe des frameworks pour de nombreuses charges de travail courantes, ce document décrit comment commencer à déployer des conteneurs avec Marathon. 
 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Avant d’étudier ces exemples, vous devez avoir un cluster DC/OS configuré dans Azure Container Service. Vous devez également disposer d’une connectivité à distance à ce cluster. Pour plus d’informations sur ces éléments, voir les articles suivants :
 
 * [Déploiement d’un cluster Azure Container Service](container-service-deployment.md)
@@ -36,12 +36,12 @@ Avant d’étudier ces exemples, vous devez avoir un cluster DC/OS configuré da
 >
 
 ## <a name="explore-the-dcos-ui"></a>Exploration de l’interface utilisateur de DC/OS
-Avec un tunnel SSH (Secure Shell) [établie](../container-service-connect.md), accédez à http : \/ /localhost /. Cela charge l’interface utilisateur web de DC/OS et affiche des informations sur le cluster, notamment les ressources utilisées, les agents actifs, et les services en cours d’exécution.
+[Créez](../container-service-connect.md) un tunnel SSH (Secure Shell), puis accédez à http:\//localhost/. Cela charge l’interface utilisateur web de DC/OS et affiche des informations sur le cluster, notamment les ressources utilisées, les agents actifs, et les services en cours d’exécution.
 
 ![IU DC/OS](./media/container-service-mesos-marathon-ui/dcos2.png)
 
 ## <a name="explore-the-marathon-ui"></a>Découverte de l’interface utilisateur Marathon
-Pour afficher l’interface utilisateur Marathon, accédez à http : \/ /localhost/marathon. À partir de cet écran, vous pouvez démarrer un nouveau conteneur ou une autre application sur le cluster DC/OS d’Azure Container Service. Vous pouvez également voir des informations sur les conteneurs et les applications en cours d’exécution.  
+Pour voir l’interface utilisateur Marathon, accédez à http:\//localhost/marathon. À partir de cet écran, vous pouvez démarrer un nouveau conteneur ou une autre application sur le cluster DC/OS d’Azure Container Service. Vous pouvez également voir des informations sur les conteneurs et les applications en cours d’exécution.  
 
 ![IU Marathon](./media/container-service-mesos-marathon-ui/dcos3.png)
 
@@ -85,7 +85,7 @@ Sur la page principale de Marathon, vous pouvez voir l’état du déploiement d
 
 ![Interface utilisateur de la page principale de Marathon : état du déploiement du conteneur](./media/container-service-mesos-marathon-ui/dcos7.png)
 
-Lorsque vous basculez vers le contrôleur de domaine/système d’exploitation de l’interface utilisateur web (http :\//localhost/), vous voyez qu’une tâche (dans ce cas, un conteneur formaté par Docker) est en cours d’exécution sur le cluster DC/OS.
+Quand vous reviendrez à l’interface utilisateur web de DC/OS (http:\//localhost/), vous verrez qu’une tâche (en l’occurrence un conteneur formaté par Docker) est en cours d’exécution sur le cluster DC/OS.
 
 ![IU web DC/OS : tâche en cours d’exécution sur le cluster](./media/container-service-mesos-marathon-ui/dcos8.png)
 

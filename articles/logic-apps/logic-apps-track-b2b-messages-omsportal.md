@@ -1,5 +1,5 @@
 ---
-title: Suivre des messages B2B avec des journaux Azure Monitor - Azure Logic Apps | Microsoft Docs
+title: Suivre les messages B2B avec les journaux Azure Monitor - Azure Logic Apps | Microsoft Docs
 description: Suivre la communication B2B pour des comptes d’intégration et pour Azure Logic Apps avec Azure Log Analytics
 services: logic-apps
 ms.service: logic-apps
@@ -10,15 +10,15 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
 ms.openlocfilehash: 8cf5d9f3ee1503769a2ec199847175899bcd86bf
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62120124"
 ---
 # <a name="track-b2b-messages-with-azure-monitor-logs"></a>Suivre les messages B2B avec les journaux d’activité Azure Monitor
 
-Après avoir configuré la communication B2B entre les partenaires commerciaux dans votre compte d’intégration, les partenaires peuvent échanger des messages avec les protocoles comme AS2, X12 et EDIFACT. Pour vérifier que ces messages sont traités correctement, vous pouvez suivre ces messages avec [Azure Monitor enregistre](../log-analytics/log-analytics-overview.md). Par exemple, vous pouvez utiliser ces fonctionnalités de suivi basées sur le web pour suivre des messages :
+Après avoir configuré la communication B2B entre les partenaires commerciaux dans votre compte d’intégration, les partenaires peuvent échanger des messages avec les protocoles comme AS2, X12 et EDIFACT. Pour vérifier que ces messages sont traités correctement, vous pouvez effectuer leur suivi avec les [journaux Azure Monitor](../log-analytics/log-analytics-overview.md). Par exemple, vous pouvez utiliser ces fonctionnalités de suivi basées sur le web pour suivre des messages :
 
 * Nombre et état des messages
 * État des accusés de réception
@@ -31,19 +31,19 @@ Après avoir configuré la communication B2B entre les partenaires commerciaux d
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Une application logique configurée avec une journalisation des diagnostics. Découvrez comment [créer une application logique](quickstart-create-first-logic-app-workflow.md) et comment [configurer la journalisation pour cette application logique](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
 * Un compte d’intégration configuré avec une surveillance et une journalisation. Découvrez comment [créer un compte d’intégration](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) et comment [configurer une surveillance et une journalisation pour ce compte](../logic-apps/logic-apps-monitor-b2b-message.md).
 
-* Si vous n’avez pas déjà fait, [publier les données de diagnostics dans Azure Monitor journaux](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+* Si ce n’est déjà fait, [publiez les données de diagnostic dans les journaux Azure Monitor](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
 * Une fois les exigences précédentes remplies, vous avez également besoin d’un espace de travail Log Analytics, que vous utilisez pour le suivi des communications B2B via Log Analytics. Si vous n’avez pas d’espace de travail Log Analytics, découvrez [comment créer un espace de travail Log Analytics](../azure-monitor/learn/quick-create-workspace.md).
 
 ## <a name="install-logic-apps-b2b-solution"></a>Installation de la solution Logic Apps B2B
 
-Vous pouvez avoir des journaux d’Azure Monitor suivre des messages B2B pour votre application logique, avant d’ajouter le **Logic Apps B2B** solution dans les journaux d’Azure Monitor. En savoir plus sur [Ajout de solutions dans les journaux d’Azure Monitor](../azure-monitor/learn/quick-create-workspace.md).
+Pour suivre les messages B2B liés à votre application logique avec les journaux Azure Monitor, vous devez ajouter la solution **Logic Apps B2B** aux journaux Azure Monitor. Découvrez-en plus sur l’[ajout de solutions aux journaux Azure Monitor](../azure-monitor/learn/quick-create-workspace.md).
 
 1. Dans le [portail Azure](https://portal.azure.com), sélectionnez **Tous les services**. Dans la zone de recherche, entrez « Log Analytics », puis sélectionnez **Log Analytics**.
 
@@ -130,7 +130,7 @@ Une fois les messages B2B traités, vous pouvez afficher l’état et les détai
    * Pour rechercher des résultats avec des requêtes prédéfinies, sélectionnez **Favoris**.
 
    * Découvrez comment [Générer des requêtes en ajoutant des filtres](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md). 
-   Ou en savoir plus sur [comment rechercher des données avec des recherches de journal dans les journaux Azure Monitor](../log-analytics/log-analytics-log-searches.md).
+   Ou apprenez-en davantage sur la manière de [rechercher des données dans les journaux Azure Monitor à l’aide de la fonctionnalité Recherche dans les journaux](../log-analytics/log-analytics-log-searches.md).
 
    * Pour modifier une requête dans la zone de recherche, mettez à jour la requête avec les colonnes et valeurs que vous souhaitez utiliser comme filtres.
 
@@ -239,7 +239,7 @@ Voici les formats de noms pour chaque dossier et fichier de message EDIFACT tél
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Interroger des messages B2B dans les journaux Azure Monitor](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
+* [Rechercher des messages B2B dans les journaux Azure Monitor](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
 * [Schémas de suivi AS2](../logic-apps/logic-apps-track-integration-account-as2-tracking-schemas.md)
 * [Schémas de suivi X12](../logic-apps/logic-apps-track-integration-account-x12-tracking-schema.md)
 * [Schémas de suivi personnalisé](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md)

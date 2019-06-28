@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
 ms.openlocfilehash: f684a9d7bca77a8aa3aa60f5079dda0ce3b58a1c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60587333"
 ---
 # <a name="azure-network-security"></a>Azure Network Security
@@ -284,9 +284,9 @@ Un groupe de sécurité réseau intègre certaines règles vous devez connaître
 
 -   **Autoriser l’ensemble du trafic au sein d’un réseau virtuel spécifique :** Toutes les machines virtuelles d’un même réseau Azure Virtual Network peuvent communiquer entre elles.
 
--   **Autoriser l’équilibrage de charge Azure pour le trafic entrant :** cette règle autorise le trafic entre une adresse source et une adresse de destination pour Azure Load Balancer.
+-   **Autoriser l’équilibrage de charge Azure pour le trafic entrant :**  cette règle autorise le trafic entre une adresse source et une adresse de destination pour Azure Load Balancer.
 
--   **Refuser l’ensemble du trafic entrant :** cette règle bloque tout le trafic Internet que vous avez explicitement autorisé.
+-   **Refuser l’ensemble du trafic entrant :**  cette règle bloque tout le trafic Internet que vous avez explicitement autorisé.
 
 -   **Autoriser l’ensemble du trafic sortant vers Internet :** Cette règle permet aux machines virtuelles de se connecter à Internet. Si vous ne voulez pas autoriser ces connexions, vous devez créer une règle pour bloquer ces connexions ou appliquer le tunneling forcé.
 
@@ -393,7 +393,7 @@ Par ailleurs, le pare-feu WAF Application Gateway vous aide à surveiller les ap
 
 Ce journal au format JSON est directement intégré au compte de stockage du client. Vous bénéficiez d’un contrôle total sur ces journaux d’activité et pouvez appliquer vos propres stratégies de rétention.
 
-Vous pouvez aussi ingérer ces journaux d’activité dans votre propre système analytique via l’[intégration des journaux d’activité Azure](https://aka.ms/AzLog). Journaux WAF étant également intégrés à [Azure Monitor enregistre](../log-analytics/log-analytics-overview.md) afin de pouvoir utiliser les journaux Azure Monitor pour exécuter des requêtes précises et sophistiquées.
+Vous pouvez aussi ingérer ces journaux d’activité dans votre propre système analytique via l’[intégration des journaux d’activité Azure](https://aka.ms/AzLog). Les journaux WAF étant également intégrés à [Journaux Azure Monitor](../log-analytics/log-analytics-overview.md), vous pouvez donc utiliser Journaux Azure Monitor pour exécuter des requêtes précises avancées.
 
 #### <a name="azure-web-application-firewall-waf"></a>Pare-feu d’applications web (WAF) Azure
 
@@ -555,7 +555,7 @@ Obtient les règles de sécurité effectives et appliquées à une machine virtu
 
  Les journaux de flux des groupes de sécurité réseau vous permettent de capturer les journaux d’activité relatifs au trafic autorisé ou refusé par les règles de sécurité des groupes. Le flux est défini par des informations de tuple à 5 éléments : adresse IP source, adresse IP de destination, port source, port de destination et protocole.
 
-Les [journaux des flux de groupe de sécurité réseau](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview) désignent une fonctionnalité de Network Watcher qui vous permet de visualiser des informations sur le trafic IP d’entrée et de sortie par le biais d’un groupe de sécurité réseau.
+Les [journaux d’activité des flux de groupe de sécurité réseau](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview) désignent une fonctionnalité de Network Watcher qui vous permet de visualiser des informations sur le trafic IP d’entrée et de sortie par le biais d’un groupe de sécurité réseau.
 
 #### <a name="virtual-network-gateway-and-connection-troubleshooting"></a>Résolution des problèmes de passerelle de réseau virtuel et de connexion
 
@@ -597,7 +597,7 @@ Les métriques sont des indicateurs et des compteurs de performances collectés 
 
 #### <a name="diagnostic-logs"></a>Journaux de diagnostic
 
-Les événements périodiques et spontanés sont créés par les ressources réseau et enregistrés dans les comptes de stockage, envoyés à un concentrateur d’événements ou journaux Azure Monitor. Ces journaux d’activité fournissent des informations sur l’intégrité d’une ressource. Ces journaux peuvent être affichés dans les outils tels que les journaux de Power BI et Azure Monitor. Pour savoir comment afficher les journaux de diagnostic, consultez [Azure Monitor enregistre](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics).
+Les événements périodiques et spontanés sont créés par les ressources réseau et journalisés dans les comptes de stockage, envoyés à un hub d’événements ou aux journaux Azure Monitor. Ces journaux d’activité fournissent des informations sur l’intégrité d’une ressource. Vous pouvez voir ces journaux dans des outils, tels que Power BI et Journaux Azure Monitor. Pour savoir comment afficher les journaux de diagnostic, consultez [Journaux Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics).
 
 Les journaux de diagnostic sont disponibles pour [l’équilibrage de charge](https://docs.microsoft.com/azure/load-balancer/load-balancer-monitor-log), [les groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log), les itinéraires, et [Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics).
 
@@ -605,9 +605,9 @@ Network Watcher permet d’afficher les journaux de diagnostic. Cet affichage co
 
 ### <a name="azure-monitor-logs"></a>Journaux d’activité Azure Monitor
 
-[Journaux d’analyse Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) est un service dans Azure qui surveille votre cloud locales et dans des environnements pour maintenir leur disponibilité et leurs performances. Il collecte les données générées par les ressources de votre cloud et de vos environnements locaux et d’autres outils d’analyse pour fournir une analyse sur plusieurs sources.
+[Journaux Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) est un service Azure qui supervise vos environnements cloud et locaux tout en assurant leur disponibilité et leurs performances. Il collecte les données générées par les ressources de votre cloud et de vos environnements locaux et d’autres outils d’analyse pour fournir une analyse sur plusieurs sources.
 
-Journaux d’Azure Monitor propose les solutions suivantes pour la surveillance de vos réseaux :
+Journaux Azure Monitor propose les solutions suivantes pour la supervision de vos réseaux :
 
 -   Analyseur de performances réseau (NPM)
 
@@ -627,7 +627,7 @@ Elle est utilisée pour contrôler la connectivité entre :
 -   les sous-réseaux hébergeant différents niveaux d’une application multiniveau.
 
 
-#### <a name="azure-application-gateway-analytics-in-azure-monitor-logs"></a>Analytique de passerelle d’application Azure dans les journaux Azure Monitor
+#### <a name="azure-application-gateway-analytics-in-azure-monitor-logs"></a>Azure Application Gateway Analytics dans Journaux Azure Monitor
 
 Les journaux d’activité pris en charge pour les passerelles d’application sont les suivants :
 
@@ -641,7 +641,7 @@ Les métriques prises en charge pour les passerelles d’application sont les su
 
 -   Débit sur 5 minutes
 
-#### <a name="azure-network-security-group-analytics-in-azure-monitor-logs"></a>Analytique de groupe de sécurité réseau Azure dans les journaux Azure Monitor
+#### <a name="azure-network-security-group-analytics-in-azure-monitor-logs"></a>Azure Network Security Group Analytics dans Journaux Azure Monitor
 
 Les journaux d’activité suivants sont pris en charge pour les [groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log) :
 
@@ -652,7 +652,7 @@ Les journaux d’activité suivants sont pris en charge pour les [groupes de sé
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur la sécurité, lisez nos rubriques détaillées sur la sécurité :
 
--   [Journaux d’analyse Azure pour les groupes de sécurité réseau (NSG)](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)
+-   [Journaux Azure Monitor pour les groupes de sécurité réseau (NSG)](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)
 
 -   [Les innovations en matière de réseau qui bouleversent le cloud](https://azure.microsoft.com/blog/networking-innovations-that-drive-the-cloud-disruption/)
 

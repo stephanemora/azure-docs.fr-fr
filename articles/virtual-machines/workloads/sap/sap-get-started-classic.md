@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 10/04/2016
 ms.author: sedusch
 ms.openlocfilehash: e4c4afefe7a4746f2d8138bde7fea152f228a8bc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60648874"
 ---
 # <a name="using-sap-on-linux-virtual-machines-in-azure"></a>Utilisation de SAP sur des machines virtuelles Linux dans Azure
@@ -33,7 +33,7 @@ Avec Microsoft Azure Virtual Machines, Microsoft propose une plateforme IaaS (In
 ## <a name="sap-netweaver-on-azure-suse-linux-virtual-machines"></a>SAP NetWeaver sur les machines virtuelles Azure SUSE Linux
 Titre : Test de SAP NetWeaver sur les machines virtuelles Microsoft Azure SUSE Linux
 
-Résumé : Il n’existe aucune prise en charge SAP officielle pour l’exécution de SAP NetWeaver sur machines virtuelles Linux Azure à ce stade. Néanmoins, les clients peuvent effectuer des tests ou envisager d’exécuter une version de démonstration de SAP ou des systèmes d’apprentissage sur les machines virtuelles Linux Azure, tant qu’il n’est pas nécessaire de contacter le service d’assistance SAP. Cet article doit vous aider à configurer les machines virtuelles Azure SUSE Linux pour l’exécution de SAP et donne quelques conseils de base afin d’éviter les pièges potentiels courants.
+Résumé : à ce stade, il n’existe aucune prise en charge SAP officielle pour l’exécution de SAP NetWeaver sur les machines virtuelles Linux Azure. Néanmoins, les clients peuvent effectuer des tests ou envisager d’exécuter une version de démonstration de SAP ou des systèmes d’apprentissage sur les machines virtuelles Linux Azure, tant qu’il n’est pas nécessaire de contacter le service d’assistance SAP. Cet article doit vous aider à configurer les machines virtuelles Azure SUSE Linux pour l’exécution de SAP et donne quelques conseils de base afin d’éviter les pièges potentiels courants.
 
 Date de mise à jour : Décembre 2015
 

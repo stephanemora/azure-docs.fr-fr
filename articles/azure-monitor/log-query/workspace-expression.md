@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: bwren
 ms.openlocfilehash: b4bc652d54150b72cc64898464b3511a860bf011
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60785674"
 ---
 # <a name="workspace-expression-in-azure-monitor-log-query"></a>Expression workspace() dans la requête de journal Azure Monitor
@@ -71,6 +71,6 @@ union
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Consultez le [expression de l’application](app-expression.md) pour faire référence à une Application application Insights.
+- Consultez l’article relatif à l’[expression app](app-expression.md) pour en savoir plus sur la façon de faire référence à une application Application Insights.
 - Découvrez-en plus sur le stockage des [données Azure Monitor](log-query-overview.md).
 - Accédez à la documentation complète sur le [langage de requête Kusto](/azure/kusto/query/).

@@ -10,10 +10,10 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 05/20/2018
 ms.openlocfilehash: 5a2935d559a967151c5bdc01c4b0806fe52179b4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60629712"
 ---
 # <a name="troubleshoot-an-abnormal-recurring-job"></a>Résoudre des problèmes liés à une tâche périodique anormale
@@ -27,7 +27,7 @@ Les tâches périodiques partagent généralement la même logique de requête e
 
 **La vue des tâches associées** dans Azure Data Lake Tools pour Visual Studio vous permet d’accélérer la résolution des problèmes dans les deux cas.
 
-## <a name="step-1-find-recurring-jobs-and-open-related-job-view"></a>Étape 1 : Rechercher les tâches périodiques et ouvrir l’affichage tâches associées
+## <a name="step-1-find-recurring-jobs-and-open-related-job-view"></a>Étape 1 : Rechercher les tâches périodiques et ouvrir la vue des tâches associées
 
 Pour utiliser l’affichage Tâches associées afin de résoudre un problème lié à une tâche périodique, vous devez tout d’abord rechercher la tâche périodique dans Visual Studio, puis ouvrir l’affichage Tâches associées.
 
@@ -37,7 +37,7 @@ Dans **Outils** > **Data Lake** > **Affichage Tâches**, vous pouvez coller l’
 
 ![Lien Afficher les tâches associées dans Data Lake Analytics Tools](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/view-related-job.png)
  
-### <a name="case-2-you-have-the-pipeline-for-the-recurring-job-but-not-the-url"></a>Cas 2 : Vous disposez du pipeline pour la tâche périodique, mais pas l’URL
+### <a name="case-2-you-have-the-pipeline-for-the-recurring-job-but-not-the-url"></a>Cas 2 : Vous disposez du pipeline pour la tâche périodique, mais pas de l’URL
 
 Dans Visual Studio, vous pouvez ouvrir le navigateur de pipeline dans Explorateur de serveurs > votre compte Azure Data Lake Analytics > **Pipelines**. (Si vous ne trouvez pas ce nœud dans l’Explorateur de serveurs, [téléchargez la dernière version du plug-in](https://aka.ms/adltoolsvs).) 
 

@@ -1,19 +1,19 @@
 ---
-title: Créer des applications en temps réel avec Azure Functions et de Service Azure SignalR
-description: Vue d’ensemble de l’utilisation de Service Azure SignalR dans les applications sans serveur.
+title: Compiler des applications en temps réel avec Azure Functions et Azure SignalR
+description: Vue d’ensemble de l’utilisation d’Azure SignalR Service dans les applications serverless.
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: zhshang
 ms.openlocfilehash: c06203cfd7537dd4c9bc35c75a3f21d12bf64d26
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61401872"
 ---
-# <a name="build-real-time-apps-with-azure-functions-and-azure-signalr-service"></a>Créer des applications en temps réel avec Azure Functions et de Service Azure SignalR
+# <a name="build-real-time-apps-with-azure-functions-and-azure-signalr-service"></a>Compiler des applications en temps réel avec Azure Functions et Azure SignalR
 
 Étant donné qu’Azure SignalR Service et Azure Functions sont des services entièrement gérés et hautement évolutifs qui vous permettent de vous concentrer sur la génération d’applications au lieu de la gestion d’infrastructure, il est courant de les utiliser ensemble pour fournir des communications en temps réel dans un environnement [serverless](https://azure.microsoft.com/solutions/serverless/).
 
@@ -63,9 +63,9 @@ Le service SignalR vous permet de diffuser des messages auprès de tous les clie
 
 Dans cet article, vous avez obtenu une vue d’ensemble de l’utilisation d’Azure Functions avec le service SignalR pour permettre un large éventail de scénarios de messagerie serverless en temps réel.
 
-Pour plus d’informations sur l’utilisation d’Azure Functions et SignalR Service ensemble, lisez le guide suivant.
+Pour plus d’informations sur l’utilisation d’Azure Functions et de SignalR Service ensemble, lisez le guide suivant.
 
-* [Développement de fonctions Azure et la configuration avec le SignalR Service](signalr-concept-serverless-development-config.md)
+* [Développement et configuration Azure Functions avec SignalR Service](signalr-concept-serverless-development-config.md)
 
 Suivez l’un de ces guides de démarrage rapide pour en savoir plus.
 

@@ -1,6 +1,6 @@
 ---
-title: Monter en charge un cluster de l’Explorateur de données Azure
-description: Cet article décrit les étapes pour monter en charge et de mettre à l’échelle dans un cluster de l’Explorateur de données Azure basée sur la modification de la demande.
+title: Effectuer un scale-out d’un cluster Azure Data Explorer
+description: Cet article décrit les étapes à suivre pour augmenter et diminuer la taille d’un cluster Azure Data Explorer en fonction des fluctuations de la demande.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
@@ -8,35 +8,35 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/05/2019
 ms.openlocfilehash: 24bbddd28943adc929fbaea456eeae8165db290c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60758646"
 ---
 # <a name="manage-cluster-scale-out-to-accommodate-changing-demand"></a>Gérer la montée en charge du cluster pour prendre en compte les fluctuations de la demande
 
-Dimensionner un cluster de manière appropriée est essentiel pour les performances de l’Explorateur de données Azure. Mais, à la demande sur un cluster ne peut pas être prédite avec précision absolue. Une taille de cluster statiques pouvant conduire à une sous-utilisation ou de surexploitation, qui ne convient.
+Dimensionner un cluster de manière appropriée est essentiel pour les performances de l’Explorateur de données Azure. Mais la demande sur un cluster n’est pas prévisible avec une précision absolue. Une taille de cluster statique peut conduire à une sous-utilisation ou à une surutilisation, ce qui n’est idéal dans aucun cas.
 
-La meilleure approche consiste à *mettre à l’échelle* un cluster, en ajoutant et en supprimant de la capacité en fonction des fluctuations de la demande. Il existe deux flux de travail pour la mise à l’échelle : monter en puissance et montée en puissance. Cet article explique le flux de travail scale-out.
+La meilleure approche consiste à *mettre à l’échelle* un cluster, en ajoutant et en supprimant de la capacité en fonction des fluctuations de la demande. Il existe deux workflows de mise à l’échelle : la montée en puissance (scale-up) et la montée en charge (scale-out). Cet article explique le flux de travail scale-out.
 
-Cet article explique comment gérer le cluster montée en puissance, également appelé mise à l’échelle. À l’échelle automatique vous permet de faire évoluer le nombre d’instances automatiquement en fonction des planifications et des règles prédéfinies. Spécifiez vos paramètres de mise à l’échelle de votre cluster dans le portail Azure, comme décrit dans cet article.
+Il montre comment gérer le scale-out d’un cluster, également appelé mise à l’échelle automatique. La mise à l’échelle automatique vous permet de mettre à l’échelle le nombre d’instances automatiquement en fonction de planifications et de règles prédéfinies. Spécifiez les paramètres de mise à l’échelle automatique de votre cluster dans le portail Azure, comme décrit dans cet article.
 
-## <a name="steps-to-configure-autoscale"></a>Étapes pour configurer la mise à l’échelle
+## <a name="steps-to-configure-autoscale"></a>Étapes pour configurer la mise à l’échelle automatique
 
-Dans le portail Azure, accédez à votre ressource de cluster de l’Explorateur de données. Sous le **paramètres** titre, sélectionnez **monter en charge**. Sur le **configurer** onglet, sélectionnez **activer la mise à l’échelle**.
+Dans le portail Azure, accédez à votre ressource de cluster Data Explorer. Sous l’en-tête **Paramètres**, sélectionnez **Monter en charge**. Sous l’onglet **Configurer**, sélectionnez **Activer la mise à l’échelle automatique**.
 
    ![Activer la mise à l’échelle automatique](media/manage-cluster-scaling/enable-autoscale.png)
 
-Le graphisme suivant illustre le flux des prochaines étapes. Voir détails ci-dessous le graphique.
+Le graphisme suivant illustre le flux des prochaines étapes. Voir les détails sous le graphique.
 
-1. Dans le **nom du paramètre de mise à l’échelle** zone, fournissez un nom, tel que *Scale-out : utilisation de cache*. 
+1. Dans la zone **Nom du paramètre de mise à l’échelle automatique**, indiquez un nom, par exemple *Scale-out : utilisation de cache*. 
 
    ![Règle de mise à l’échelle](media/manage-cluster-scaling/scale-rule.png)
 
-2. Pour **en mode de mise à l’échelle**, sélectionnez **mise à l’échelle selon une mesure**. Ce mode fournit une évolutivité dynamique. Vous pouvez également sélectionner **mise à l’échelle à un nombre d’instances spécifique**.
+2. Pour **Mode de mise à l’échelle**, sélectionnez **Mettre à l’échelle selon une mesure**. Ce mode fournit une mise à l’échelle dynamique. Vous pouvez également sélectionner **Mettre à l’échelle à un nombre d’instances spécifique**.
 
-3. Sélectionnez **+ ajouter une règle**.
+3. Sélectionnez **+ Ajouter une règle**.
 
 4. Dans la section **Règle de mise à l’échelle** à droite, entrez des valeurs pour chaque paramètre.
 
@@ -48,7 +48,7 @@ Le graphisme suivant illustre le flux des prochaines étapes. Voir détails ci-d
     | **Nom de la métrique** | Sélectionnez la métrique sur laquelle vous voulez baser l’opération de mise à l’échelle, comme **Utilisation du cache**. |
     | **Statistiques de fragment de temps** | Choisissez entre **Moyenne**, **Minimum**, **Maximum** et **Somme**. |
     | **Opérateur** | Choisissez l’option appropriée, par exemple **Supérieur ou égal à**. |
-    | **Seuil** | Choisissez une valeur appropriée. Par exemple, pour l’utilisation du cache, 80 pour cent est un bon point de départ. |
+    | **Seuil** | Choisissez une valeur appropriée. Par exemple, pour l’utilisation du cache, 80 pour cent est un bon point de départ. |
     | **Durée (en minutes)** | Choisissez une durée appropriée pendant laquelle le système effectue des recherches lors du calcul de métriques. Commencez avec la valeur par défaut, 10 minutes. |
     |  |  |
 
@@ -74,12 +74,12 @@ Le graphisme suivant illustre le flux des prochaines étapes. Voir détails ci-d
 
 7. Sélectionnez **Enregistrer**.
 
-Vous venez de configurer une opération de montée en charge pour votre cluster de l’Explorateur de données Azure. Ajoutez une autre règle pour une opération de diminution de la taille. Cette configuration permet à votre cluster à l’échelle dynamiquement en fonction de mesures que vous spécifiez.
+Vous venez de configurer une opération de montée en charge pour votre cluster de l’Explorateur de données Azure. Ajoutez une autre règle pour une opération de diminution de la taille. Cette configuration permet à votre cluster d’être mis à l’échelle dynamiquement en fonction des métriques que vous spécifiez.
 
-Vous pouvez également [gérer monter en puissance cluster](manage-cluster-scale-up.md) pour le dimensionnement approprié d’un cluster.
+Vous pouvez également [gérer le scale-up de cluster](manage-cluster-scale-up.md) pour le bon dimensionnement d’un cluster.
 
-Si vous avez besoin d’aide sur les problèmes de mise à l’échelle le cluster, [ouvrir une demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) dans le portail Azure.
+Si vous avez besoin d’aide pour résoudre des problèmes de mise à l’échelle de clusters, [ouvrez une demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) dans le portail Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Surveiller les performances, l’intégrité et l’utilisation avec des mesures Explorateur de données Azure](using-metrics.md)
+[Superviser les performances, l’intégrité et l’utilisation d’Azure Data Explorer avec des métriques](using-metrics.md)

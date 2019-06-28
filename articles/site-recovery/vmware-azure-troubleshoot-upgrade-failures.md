@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 02/05/2019
 ms.author: v-doglov
 ms.openlocfilehash: fc50be2a960784895947f3f154a0251f41716fc7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60565699"
 ---
 # <a name="troubleshoot-microsoft-azure-site-recovery-provider-upgrade-failures"></a>Résoudre les problèmes de mise à niveau du fournisseur Microsoft Azure Site Recovery
@@ -42,9 +42,9 @@ Suivez les étapes ci-dessous pour effectuer la mise à niveau :
 
 1. Retournez dans le dossier où vous avez téléchargé le programme d’installation unifiée et exécutez MicrosoftAzureSiteRecoveryUnifiedSetup.exe pour terminer la mise à niveau. 
 
-## <a name="upgrade-failure-due-to-the-3rd-party-folder-being-renamed"></a>Échec de mise à niveau, car le dossier 3 rd-party renommé
+## <a name="upgrade-failure-due-to-the-3rd-party-folder-being-renamed"></a>Échec de la mise à niveau : le dossier tiers a été renommé
 
-Pour la mise à niveau réussisse, le dossier 3 rd-party ne doit pas être renommé.
+Pour que la mise à niveau réussisse, le dossier tiers ne doit pas être renommé.
 
 Résolution du problème :
 

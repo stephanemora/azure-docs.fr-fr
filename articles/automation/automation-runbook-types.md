@@ -10,10 +10,10 @@ ms.date: 03/05/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 7a3990366814beda83852fc7c07c896445388c23
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60737157"
 ---
 # <a name="azure-automation-runbook-types"></a>Types de Runbooks Azure Automation
@@ -45,7 +45,7 @@ Azure Automation prend en charge plusieurs types de Runbook qui sont brièvemen
 * Impossible de modifier le Runbook en dehors du portail Azure.
 * Peut nécessiter une activité de code contenant le code PowerShell pour exécuter une logique complexe.
 * Impossible d'afficher ou de modifier directement le code PowerShell créé par le workflow graphique. Vous pouvez afficher le code créé dans toute activité de code.
-* Ne peut pas être exécuté sur un Runbook Worker hybride de Linux
+* Ne peut pas être exécuté sur un runbook Worker hybride Linux
 
 ## <a name="powershell-runbooks"></a>Runbooks PowerShell
 
@@ -55,7 +55,7 @@ Les Runbooks PowerShell sont basés sur Windows PowerShell.  Vous modifiez direc
 
 * Implémentez tout type de la logique complexe avec le code PowerShell sans la complexité supplémentaire liée au workflow PowerShell.
 * Le Runbook démarre plus rapidement que les Runbooks de workflow PowerShell dans la mesure où il n'a pas besoin d'être compilé avant l'exécution.
-* Peut être exécuté dans Azure ou sur Linux et Windows des runbooks Workers hybrides
+* Peut être exécuté dans Azure, ou sur des runbooks Worker hybrides Linux et Windows
 
 ### <a name="limitations"></a>Limites
 
@@ -69,7 +69,7 @@ Les Runbooks PowerShell sont basés sur Windows PowerShell.  Vous modifiez direc
 Voici les problèmes connus actuels rencontrés avec les Runbooks PowerShell.
 
 * Les Runbooks PowerShell ne peuvent pas récupérer une [ressource variable](automation-variables.md) non chiffrée avec une valeur null.
-* Les runbooks PowerShell ne peuvent pas récupérer une [ressource variable](automation-variables.md) dont le nom contient le symbole *~*.
+* Les runbooks PowerShell ne peuvent pas récupérer une [ressource variable](automation-variables.md) dont le nom contient le symbole *~* .
 * Get-Process dans une boucle d’un Runbook PowerShell peut se bloquer après environ 80 itérations.
 * Un runbook PowerShell peut échouer s’il tente d'écrire une grande quantité de données à la fois dans le flux de sortie.   Vous pouvez généralement contourner ce problème en exportant uniquement les informations dont vous avez besoin lorsque vous travaillez avec des objets volumineux.  Par exemple, au lieu d’exporter un contenu de type *Get-Process*, vous pouvez exporter uniquement les champs requis avec *Get-Process | Select ProcessName, CPU*.
 
@@ -90,7 +90,7 @@ Les Runbooks de workflow PowerShell sont des Runbooks texte basés sur un [workf
 * Un Runbook doit pouvoir gérer la complexité supplémentaire liée au workflow PowerShell, notamment les [objets désérialisés](automation-powershell-workflow.md#code-changes).
 * Un Runbook prend plus de temps à démarrer que les Runbooks PowerShell car il doit être compilé avant l'exécution.
 * Les runbooks PowerShell peuvent uniquement être inclus en tant que runbooks enfants à l'aide de l'applet de commande Start-AzureAutomationRunbook, ce qui crée un travail.
-* Ne peut pas être exécuté sur un Runbook Worker hybride de Linux
+* Ne peut pas être exécuté sur un runbook Worker hybride Linux
 
 ## <a name="python-runbooks"></a>Runbooks Python
 
@@ -99,7 +99,7 @@ Compilation de runbooks Python sous Python 2.  Vous pouvez modifier directement 
 ### <a name="advantages"></a>Avantages
 
 * Utilisez les bibliothèques Python robustes.
-* Peut être exécuté dans Azure ou sur les deux Workers hybrides de Linux. Runbooks Workers hybrides de Windows sont prises en charge avec [Python 2.7](https://www.python.org/downloads/release/latest/python2) installé.
+* Peut être exécuté dans Azure, ou sur des runbooks Worker hybrides Linux. Les runbooks Worker hybrides Windows sont pris en charge si [Python 2.7](https://www.python.org/downloads/release/latest/python2) est installé.
 
 ### <a name="limitations"></a>Limites
 

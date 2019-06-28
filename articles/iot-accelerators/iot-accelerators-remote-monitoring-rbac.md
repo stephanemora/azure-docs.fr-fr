@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
 ms.openlocfilehash: 9accb41cdb4d780bf137d6872cca022226f902e6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61443097"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Configurer les contrôles d’accès en fonction du rôle dans l’accélérateur de solution de supervision à distance
@@ -21,26 +21,26 @@ Cet article fournit des informations sur la façon de configurer les contrôles 
 
 ## <a name="default-settings"></a>Paramètres par défaut
 
-Lorsque vous déployez la solution de surveillance à distance pour la première fois, il existe deux rôles : **Administrateur** et **en lecture seule**.
+Quand vous déployez la solution de supervision à distance pour la première fois, il existe deux rôles : **Administrateur** et **Lecture seule**.
 
 Tout utilisateur ayant le rôle **administrateur** bénéficie d’un accès total à la solution, avec les autorisations suivantes ci-dessous. Un utilisateur ayant le rôle **lecture seule** a uniquement accès pour afficher la solution.
 
 | Autorisation            | Admin | Lecture seule |
 |----------------       |-------|-----------|
-| Afficher la solution         | Oui   | Oui       |
-| Mettre à jour des alarmes         | Oui   | Non         |
-| Supprimer des alarmes         | Oui   | Non         |
-| Créer des appareils        | Oui   | Non         |
-| Mettre à jour des appareils        | Oui   | Non         |
-| Supprimer des appareils        | Oui   | Non         |
-| Créer des groupes d’appareils  | Oui   | Non         |
-| Mettre à jour des groupes d’appareils  | Oui   | Non         |
-| Supprimer des groupes d’appareils  | Oui   | Non         |
-| Création de règles          | Oui   | Non         |
-| Mettre à jour des règles          | Oui   | Non         |
-| Supprimer des règles          | Oui   | Non         |
-| Créer des travaux           | Oui   | Non         |
-| Mettre à jour la gestion SIM | Oui   | Non         |
+| Afficher la solution         | OUI   | OUI       |
+| Mettre à jour des alarmes         | OUI   | Non        |
+| Supprimer des alarmes         | OUI   | Non        |
+| Créer des appareils        | OUI   | Non        |
+| Mettre à jour des appareils        | OUI   | Non        |
+| Supprimer des appareils        | OUI   | Non        |
+| Créer des groupes d’appareils  | OUI   | Non        |
+| Mettre à jour des groupes d’appareils  | OUI   | Non        |
+| Supprimer des groupes d’appareils  | OUI   | Non        |
+| Création de règles          | OUI   | Non        |
+| Mettre à jour des règles          | OUI   | Non        |
+| Supprimer des règles          | OUI   | Non        |
+| Créer des travaux           | OUI   | Non        |
+| Mettre à jour la gestion SIM | OUI   | Non        |
 
 Par défaut, l’utilisateur qui a déployé la solution se voit automatiquement assigner le rôle **administrateur** et est propriétaire de l’application Azure Active Directory. En tant que propriétaire de l’application, vous pouvez assigner des rôles à d’autres utilisateurs par le biais du portail Azure. Si vous souhaitez qu’un autre utilisateur assigne des rôles dans la solution, il doit également être défini en tant que propriétaire de l’application dans le Portail Azure.
 

@@ -15,15 +15,15 @@ ms.workload: TBD
 ms.date: 05/21/2018
 ms.author: vidarmsft
 ms.openlocfilehash: c5ffe3ec2ec3cb06297df6be4ba7021f692633bf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60630682"
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>Vue d’ensemble de la solution StorSimple Data Manager
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Microsoft Azure StorSimple utilise le stockage cloud pour étendre la solution locale, et hiérarchise automatiquement les données sur le stockage local et le cloud. Les données sont stockées dans le cloud dans un format dédupliqué et compressé, de façon à maximiser l’efficacité et à réduire les coûts. Étant au format StorSimple, elles ne sont pas directement utilisables par d’autres applications cloud.
 
@@ -50,7 +50,7 @@ StorSimple Data Manager est disponible dans les sept régions suivantes :
  - Asie Sud-Est
  - USA Est
  - USA Ouest
- - États-Unis de l'Ouest 2
+ - USA Ouest 2
  - USA Centre-Ouest
  - Europe Nord
  - Europe Ouest
@@ -68,9 +68,9 @@ Nous vous recommandons :
  - que votre compte de stockage source (associé à votre appareil StorSimple) se trouve dans la même région Azure que votre compte de stockage cible (où vous souhaitez placer les données au format natif) ;
  - de placer votre service Data Manager et la définition de la tâche dans la région qui contient le compte de stockage StorSimple. Si ce n’est pas possible, placez Data Manager dans la région Azure le plus proche, puis créez la définition de la tâche dans la même région que votre compte de stockage StorSimple. 
 
-    Si votre compte de stockage StorSimple n’est pas dans les 26 régions qui prennent en charge la création de définitions de travail, nous vous recommandons de ne pas exécuter StorSimple Data Manager que vous voyez des latences et des éventuels frais d’acheminement.
+    Si votre compte de stockage StorSimple ne se trouve pas dans l’une des 26 régions qui prennent en charge la création de définitions de tâches, nous vous recommandons de ne pas exécuter StorSimple Data Manager, car vous observerez des latences importantes et d’éventuels frais de sortie.
     
-Microsoft s’efforce de vous assurer que les services Azure sont toujours disponibles dans toutes les régions. Toutefois, les interruptions de service non planifiée peuvent se produire sur de courtes périodes dans une région donnée. Dans ce cas, vous pouvez afficher une définition de gestionnaire de données et de travail dans une région qui n’est pas affectée par la panne et exécuter la tâche de transformation. Vous pouvez rencontrer une latence supplémentaire dans un tel scénario, mais cela peut être votre stratégie de récupération dans les rares cas d’une panne régionale.
+Microsoft s’efforce de faire en sorte que les services Azure soient toujours disponibles dans toutes les régions. Cependant, de brèves interruptions de service inopinées peuvent se produire dans une région donnée. En pareil cas, vous pouvez établir un gestionnaire de données et une définition de tâche dans une région qui n’est pas affectée par l’interruption et exécuter la tâche de transformation. Si ce scénario vous expose à une latence supplémentaire, il peut s’agir néanmoins de votre stratégie de récupération dans les rares cas où une interruption régionale se produit.
 
 ## <a name="security-considerations"></a>Considérations relatives à la sécurité
 

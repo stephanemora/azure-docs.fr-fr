@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 12/7/2018
 ms.author: victorh
 ms.openlocfilehash: 17eef2fc2608ca4ccbabff8179cd63798d275582
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62101455"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-portal"></a>Créer une passerelle d’application avec redirection de HTTP vers HTTPS à l’aide du portail Azure
@@ -31,7 +31,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Ce didacticiel requiert le module Azure PowerShell version 1.0.0 ou ultérieure pour créer un certificat et installez IIS. Exécutez `Get-Module -ListAvailable Az` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps). Pour exécuter les commandes de ce didacticiel, vous devez également exécuter `Login-AzAccount` pour créer une connexion avec Azure.
+Pour créer un certificat et installer IIS, ce tutoriel requiert le module Azure PowerShell version 1.0.0 ou ultérieure. Exécutez `Get-Module -ListAvailable Az` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps). Pour exécuter les commandes de ce didacticiel, vous devez également exécuter `Login-AzAccount` pour créer une connexion avec Azure.
 
 ## <a name="create-a-self-signed-certificate"></a>Créer un certificat auto-signé
 
@@ -140,7 +140,7 @@ Dans cet exemple, vous créez un groupe de machines virtuelles identiques pour f
 6. Pour l’image de disque du système d’exploitation, ** vérifiez que **Windows Server 2016 Datacenter** est sélectionné.
 7. Pour le **Groupe de ressources**, sélectionnez **myResourceGroupAG**.
 8. Pour le **Nom d’utilisateur**, saisissez *azureuser*.
-9. Pour le **mot de passe**, saisissez *Azure123456!*, puis confirmez le mot de passe.
+9. Pour le **mot de passe**, saisissez *Azure123456!* , puis confirmez le mot de passe.
 10. Pour le **nombre d’instances**, vérifiez la valeur est définie sur **2**.
 11. Pour la **taille de l’instance**, sélectionnez **D2s_v3**.
 12. Dans la section **Mise en réseau**, vérifiez que le paramètre **Choisir les options d’équilibrage de charge** est défini sur **Passerelle d’application**.
@@ -156,7 +156,7 @@ L’IU du portail du groupe de machines virtuelles identiques crée un nouveau p
 2. Sélectionnez **myAppGateway**.
 3. Sélectionnez **Pools principaux**.
 4. Sélectionnez **myAppGatewaymyvmss**.
-5. Sélectionnez **Remove all targets from backend pool (Supprimer toutes les cibles du pool principal)**.
+5. Sélectionnez **Remove all targets from backend pool (Supprimer toutes les cibles du pool principal)** .
 6. Sélectionnez **Enregistrer**.
 7. Une fois ce processus terminé, sélectionnez le pool principal **myAppGatewaymyvmss**, puis **Supprimer**. Ensuite, cliquez sur **OK** pour confirmer.
 8. Sélectionnez **appGatewayBackendPool**.

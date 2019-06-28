@@ -13,15 +13,15 @@ ms.reviewer: billgib, sstein
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 6332555c1a176a06004ddfeee513844ad5875c30
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61484452"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Modèles de location de base de données SaaS multi-locataire
 
-Cet article décrit les différents modèles d’architecture mutualisée disponibles pour une application de SaaS mutualisée.
+Cet article décrit les différents modèles de location disponibles pour une application SaaS multilocataire.
 
 Quand vous concevez une application SaaS multi-locataire, vous devez choisir avec soin le modèle de location qui répond le mieux aux besoins de votre application.  Un modèle de location détermine la façon dont les données de chaque locataire sont mappées au stockage.  Le modèle de location que vous choisissez a un impact sur la conception et la gestion des applications.  Le fait de passer à un autre modèle par la suite peut parfois s’avérer coûteux.
 
@@ -33,8 +33,8 @@ En échange du loyer, chaque client reçoit l’accès aux composants de votre a
 
 Le terme *modèle de location* fait référence à la façon dont sont organisées les données stockées des locataires :
 
-- *Monolocation :*&nbsp; Chaque base de données stocke les données d’un seul locataire.
-- *Multilocation :*&nbsp; Chaque base de données stocke les données de plusieurs locataires distincts (avec des mécanismes de protection de la confidentialité des données).
+- *Monolocation :* &nbsp; Chaque base de données stocke les données d’un seul locataire.
+- *Multilocation :* &nbsp; Chaque base de données stocke les données de plusieurs locataires distincts (avec des mécanismes de protection de la confidentialité des données).
 - Des modèles de location hybrides sont également disponibles.
 
 ## <a name="b-how-to-choose-the-appropriate-tenancy-model"></a>B. Comment choisir le modèle de location approprié
@@ -47,9 +47,9 @@ En général, le modèle de location n’affecte pas le fonctionnement d’une a
     - Stockage dans l’agrégat.
     - Charge de travail.
 
-- **Isolation des locataires :**&nbsp; Niveau de performance et isolation des données (impact de la charge de travail d’un locataire sur les autres).
+- **Isolation des locataires :** &nbsp; Niveau de performance et isolation des données (impact de la charge de travail d’un locataire sur les autres).
 
-- **Coût par locataire :**&nbsp; Coûts des bases de données.
+- **Coût par locataire :** &nbsp; Coûts des bases de données.
 
 - **Complexité du développement :**
     - Changements apportés au schéma.
@@ -61,7 +61,7 @@ En général, le modèle de location n’affecte pas le fonctionnement d’une a
     - Restauration d’un locataire.
     - Récupération d’urgence.
 
-- **Possibilités de personnalisation :**&nbsp; Facilité de prise en charge des personnalisations de schéma propres au locataire ou à la classe du locataire.
+- **Possibilités de personnalisation :** &nbsp; Facilité de prise en charge des personnalisations de schéma propres au locataire ou à la classe du locataire.
 
 La discussion sur la location est axée sur la couche *Données*.  Mais réfléchissons un instant à la couche *Application*.  La couche Application est traitée comme une entité monolithique.  Si vous divisez l’application en plusieurs composants, le modèle de location que vous avez choisi peut être amené à changer.  Vous pouvez traiter certains composants différemment des autres sur le plan de la location et de la plateforme/technologie de stockage utilisées.
 
@@ -99,7 +99,7 @@ Quand des bases de données sont déployées dans le même groupe de ressources,
 
 ![Conception d’une application multi-locataire avec une base de données par locataire, à l’aide d’un pool élastique.][image-mt-app-db-per-tenant-pool-153p]
 
-Azure SQL Database fournit les outils nécessaires pour configurer, surveiller et gérer le partage.  Des mesures de performances au niveau du pool et le niveau de la base de données sont disponibles dans le portail Azure et via les journaux Azure Monitor.  Les métriques peuvent donner d’excellents insights sur les performances agrégées et celles spécifiques au locataire.  Vous pouvez déplacer les bases de données individuelles entre pools pour fournir des ressources réservées à un locataire spécifique.  Ces outils vous permettent de garantir un bon niveau de performance de façon rentable.
+Azure SQL Database fournit les outils nécessaires pour configurer, surveiller et gérer le partage.  Les métriques de performances au niveau du pool et de la base de données sont disponibles dans le portail Azure et par le biais des journaux Azure Monitor.  Les métriques peuvent donner d’excellents insights sur les performances agrégées et celles spécifiques au locataire.  Vous pouvez déplacer les bases de données individuelles entre pools pour fournir des ressources réservées à un locataire spécifique.  Ces outils vous permettent de garantir un bon niveau de performance de façon rentable.
 
 #### <a name="operations-scale-for-database-per-tenant"></a>Mise à l’échelle des opérations pour le modèle de base de données par locataire
 
@@ -126,9 +126,9 @@ Un autre modèle disponible consiste à stocker plusieurs locataires dans une ba
 
 #### <a name="tenant-isolation-is-sacrificed"></a>L’isolation des locataires est pénalisée
 
-*Données :*&nbsp; Une base de données multi-locataire nuit nécessairement à l’isolation des locataires.  Les données de plusieurs locataires sont stockées ensemble dans une base de données.  Pendant le développement, vérifiez que les requêtes n’exposent jamais les données de plusieurs locataires.  SQL Database prend en charge la [sécurité au niveau des lignes][docu-sql-svr-db-row-level-security-947w], ce qui permet de limiter l’étendue des données retournées par une requête à un seul locataire.
+*Données :* &nbsp; Une base de données multi-locataire nuit nécessairement à l’isolation des locataires.  Les données de plusieurs locataires sont stockées ensemble dans une base de données.  Pendant le développement, vérifiez que les requêtes n’exposent jamais les données de plusieurs locataires.  SQL Database prend en charge la [sécurité au niveau des lignes][docu-sql-svr-db-row-level-security-947w], ce qui permet de limiter l’étendue des données retournées par une requête à un seul locataire.
 
-*Traitement :*&nbsp; Une base de données multi-locataire partage les ressources de calcul et de stockage entre tous ses locataires.  Vous pouvez surveiller la base de données dans son ensemble pour vérifier que ses performances sont acceptables.  Toutefois, le système Azure n’intègre aucun outil permettant de surveiller ou de gérer l’utilisation de ces ressources par un locataire individuel.  La base de données multi-locataire accroît donc le risque de rencontre de voisins bruyants, où la charge de travail d’un locataire hyperactif a un impact sur les performances des autres locataires dans la même base de données.  La mise en place d’une surveillance supplémentaire au niveau de l’application peut permettre de surveiller les performances au niveau du locataire.
+*Traitement :* &nbsp; Une base de données multi-locataire partage les ressources de calcul et de stockage entre tous ses locataires.  Vous pouvez surveiller la base de données dans son ensemble pour vérifier que ses performances sont acceptables.  Toutefois, le système Azure n’intègre aucun outil permettant de surveiller ou de gérer l’utilisation de ces ressources par un locataire individuel.  La base de données multi-locataire accroît donc le risque de rencontre de voisins bruyants, où la charge de travail d’un locataire hyperactif a un impact sur les performances des autres locataires dans la même base de données.  La mise en place d’une surveillance supplémentaire au niveau de l’application peut permettre de surveiller les performances au niveau du locataire.
 
 #### <a name="lower-cost"></a>Coûts réduits
 

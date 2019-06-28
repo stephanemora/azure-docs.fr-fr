@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 8e8b493881662483e66dd835d1cc68a471b18454
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60545518"
 ---
 # <a name="azure-media-services-telemetry"></a>Télémétrie Azure Media Services  
 
 
 > [!NOTE]
-> Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consultez également [conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md)
+> Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consultez aussi [Conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md)
 
 Azure Media Services (AMS) vous permet d’accéder aux données de télémétrie/mesure pour ses services. La version actuelle de AMS vous permet de collecter les données de télémétrie pour les entités en temps réel **Channel**, **StreamingEndpoint** et **Archive**. 
 
@@ -172,7 +172,7 @@ L’utilisation moyenne bande passante est la moyenne des octets envoyés sur un
 ### <a name="how-to-define-streaming-unit-count"></a>Comment définir le nombre d’unités de diffusion en continu ?
 
 Le nombre d’unités de diffusion en continu peut être défini comme le débit maximal à partir des points de terminaison de streaming du service divisé par le débit maximal d’un point de terminaison. Le débit utilisable maximal d’un point de terminaison est de 160 Mbits/s.
-Par exemple, supposons que le débit maximal du service d’un client est de 40 Mo/s (la valeur maximale d’octets envoyés sur un intervalle de temps). Le nombre d’unités de diffusion en continu est égal à (40 Mo/s) x (8 bits/octet) /(160 Mo/s) = 2 unités de diffusion en continu.
+Par exemple, supposons que le débit maximal du service d’un client est de 40 Mbits/s (la valeur maximale d’octets envoyés sur un intervalle de temps). Le nombre d’unités de diffusion en continu est égal à (40 Mbits/s) x (8 bits/octet) /(160 Mbits/s) = 2 unités de diffusion en continu.
 
 ### <a name="how-to-find-average-requestssecond"></a>Comment trouver des demandes/seconde moyennes ?
 

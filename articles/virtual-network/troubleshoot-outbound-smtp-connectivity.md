@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 11/20/2018
 ms.author: genli
 ms.openlocfilehash: 385163d791bff0c02a05ee1b27afd82c3afd0ac3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61401917"
 ---
 # <a name="troubleshoot-outbound-smtp-connectivity-issues-in-azure"></a>Résoudre les problèmes de connectivité SMTP sortante dans Azure
@@ -36,7 +36,7 @@ Pour les utilisateurs Contrat Entreprise Azure, il n’y a aucune modification d
 ## <a name="pay-as-you-go"></a>Pay-As-You-Go
 Si vous vous êtes inscrit avant le 15 novembre 2017 aux offres d’abonnement Paiement à l’utilisation ou Microsoft Partner Network, il n’y aura aucune modification de la capacité technique à essayer la remise d’e-mails sortants. Vous pourrez toujours essayer la remise d’e-mails sortants à partir de machines virtuelles Azure directement depuis ces abonnements à des fournisseurs de messagerie externes sans aucune restriction de la plateforme Azure. Là encore, il n’est pas garanti que les fournisseurs de messagerie accepteront les e-mails entrants de n’importe quel utilisateur donné, et les utilisateurs devront travailler directement avec les fournisseurs de messagerie pour résoudre les problèmes de remise de message ou de filtrage du courrier indésirable qui impliquent des fournisseurs spécifiques.
 
-Pour les abonnements Paiement à l’utilisation ou Microsoft Partner Network créés après le 15 novembre 2017, des restrictions techniques bloquent les e-mails envoyés directement depuis les machines virtuelles appartenant à ces abonnements. Si vous voulez disposer de la capacité à envoyer des e-mails directement depuis des machines virtuelles Azure vers des fournisseurs de messagerie externes (sans utiliser des relais SMTP authentifiés), vous pouvez effectuer une requête pour retirer la restriction. Les requêtes seront étudiées et acceptées par Microsoft. Elles ne seront accordées qu’après des vérifications antifraude supplémentaires. Pour effectuer une requête, ouvrez une demande de support en utilisant le type de problème suivant : **Technique** > **réseau virtuel** > **connectivité** > **ne peut pas envoyer de courrier électronique (SMTP/Port 25)**. N’oubliez pas d’ajouter plus d’informations sur la raison pour laquelle votre déploiement doit envoyer des e-mails directement aux fournisseurs de messagerie au lieu d’utiliser un relais authentifié.
+Pour les abonnements Paiement à l’utilisation ou Microsoft Partner Network créés après le 15 novembre 2017, des restrictions techniques bloquent les e-mails envoyés directement depuis les machines virtuelles appartenant à ces abonnements. Si vous voulez disposer de la capacité à envoyer des e-mails directement depuis des machines virtuelles Azure vers des fournisseurs de messagerie externes (sans utiliser des relais SMTP authentifiés), vous pouvez effectuer une requête pour retirer la restriction. Les requêtes seront étudiées et acceptées par Microsoft. Elles ne seront accordées qu’après des vérifications antifraude supplémentaires. Pour effectuer une requête, ouvrez un cas de support en utilisant le type de problème suivant : **Technique** > **Réseau virtuel** > **Connectivité** > **Impossible d’envoyer un e-mail (SMTP/Port 25)** . N’oubliez pas d’ajouter plus d’informations sur la raison pour laquelle votre déploiement doit envoyer des e-mails directement aux fournisseurs de messagerie au lieu d’utiliser un relais authentifié.
 
 Lorsqu’un abonnement Paiement à l’utilisation ou Microsoft Partner Network est exempté, les machines virtuelles au sein de cet abonnement uniquement seront exclues à l’avenir.
 

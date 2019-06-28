@@ -15,10 +15,10 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fa820d6c140251fce6b09110e65b45005b53afcc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60289538"
 ---
 # <a name="activate-my-azure-ad-roles-in-pim"></a>Activer mes rôles Azure AD dans PIM
@@ -27,11 +27,11 @@ Le service Azure Active Directory (Azure AD) Privileged Identity Management (PIM
 
 Si vous êtes éligible à un rôle d’administrateur, vous pouvez activer ce rôle quand vous devez effectuer des actions privilégiées. Par exemple, si vous gérez occasionnellement des fonctionnalités d’Office 365, les administrateurs de rôle privilégié de votre organisation peuvent ne pas vous attribuer le rôle d’administrateur général permanent, étant donné que ce rôle affecte également les autres services. Au lieu de cela, ils peuvent vous attribuer des rôles Azure AD tels qu’administrateur Exchange Online. Vous pouvez faire une demande pour activer ce rôle lorsque vous avez besoin de ses privilèges. Vous aurez ainsi le contrôle d’administrateur pendant une période prédéterminée.
 
-Cet article est destiné aux administrateurs qui doivent activer leur rôle d’Azure AD dans PIM.
+Cet article s’adresse aux administrateurs qui ont besoin d’activer leur rôle Azure AD dans PIM.
 
 ## <a name="activate-a-role"></a>Activer un rôle
 
-Lorsque vous avez besoin pour un rôle Azure AD, vous pouvez demander une activation à l’aide de la **mes rôles** option de navigation dans PIM.
+Lorsque vous avez besoin d’endosser un rôle Azure AD, vous pouvez demander une activation à l’aide de l’option de navigation **Mes rôles** dans PIM.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
@@ -39,13 +39,13 @@ Lorsque vous avez besoin pour un rôle Azure AD, vous pouvez demander une activa
 
 1. Cliquez sur **Rôles Azure AD**.
 
-1. Cliquez sur **mes rôles** pour afficher la liste de vos éligibles rôles Azure AD.
+1. Cliquez sur **Mes rôles** pour afficher la liste de vos rôles Azure AD éligibles.
 
-    ![Rôles d’Azure AD - mes rôles](./media/pim-how-to-activate-role/directory-roles-my-roles.png)
+    ![Rôles Azure AD - Mes rôles](./media/pim-how-to-activate-role/directory-roles-my-roles.png)
 
 1. Recherchez un rôle à activer.
 
-    ![Rôles d’Azure AD - ma liste de rôles](./media/pim-how-to-activate-role/directory-roles-my-roles-activate.png)
+    ![Rôles Azure AD - Ma liste de rôles](./media/pim-how-to-activate-role/directory-roles-my-roles-activate.png)
 
 1. Cliquez sur **Activer** pour ouvrir le volet où se trouvent les informations d’activation du rôle.
 
@@ -71,11 +71,11 @@ Lorsque vous avez besoin pour un rôle Azure AD, vous pouvez demander une activa
 
 1. Cliquez sur **Activer**.
 
-    Si le rôle ne nécessite pas d’approbation, un **l’état d’Activation** volet apparaît qui affiche l’état de l’activation.
+    Si le rôle ne nécessite pas d’approbation, un volet **État d’activation** s’affiche. Il présente l’état de l’activation.
 
-    ![État d'activation](./media/pim-how-to-activate-role/activation-status.png)
+    ![État d’activation](./media/pim-how-to-activate-role/activation-status.png)
 
-    Une fois toutes les étapes sont terminées, cliquez sur le **se déconnecter** lien pour vous déconnecter du portail Azure. Lorsque vous vous connectez dans le portail, vous pouvez maintenant utiliser le rôle.
+    Une fois toutes les étapes terminées, cliquez sur le lien **Se déconnecter** pour vous déconnecter du portail Azure. Vous pouvez maintenant utiliser le rôle lors de votre prochaine connexion.
 
     Si [l’activation du rôle nécessite une approbation](./azure-ad-pim-approval-workflow.md), une notification s’affiche dans le coin supérieur droit de votre navigateur pour vous informer que la demande est en attente d’approbation.
 
@@ -91,7 +91,7 @@ Vous pouvez afficher l’état de vos demandes d’activation en attente.
 
 1. Cliquez sur **Mes demandes** pour afficher la liste de vos demandes.
 
-    ![Rôles d’Azure AD - mes demandes](./media/pim-how-to-activate-role/directory-roles-my-requests.png)
+    ![Rôles Azure AD - Mes requêtes](./media/pim-how-to-activate-role/directory-roles-my-requests.png)
 
 ## <a name="deactivate-a-role"></a>Désactiver un rôle
 
@@ -121,7 +121,7 @@ Si vous n’avez pas besoin de l’activation d’un rôle nécessitant une appr
 
 1. Pour le rôle que vous souhaitez annuler, cliquez sur le bouton **Annuler**.
 
-    Lorsque vous cliquez sur Annuler, la demande sera annulée. Pour réactiver le rôle, vous devez envoyer une nouvelle demande d’activation.
+    Lorsque vous cliquez sur Annuler, la requête est annulée. Pour réactiver le rôle, vous devez envoyer une nouvelle demande d’activation.
 
    ![Annuler une demande en attente](./media/pim-how-to-activate-role/directory-role-cancel.png)
 
@@ -129,7 +129,7 @@ Si vous n’avez pas besoin de l’activation d’un rôle nécessitant une appr
 
 ### <a name="permissions-not-granted-after-activating-a-role"></a>Autorisations non accordées après l’activation d’un rôle
 
-Quand vous activez un rôle dans PIM, 10 minutes au moins sont nécessaires avant de pouvoir accéder au portail d’administration souhaité ou d’exécuter des fonctions au sein d’une charge de travail d’administration spécifique. Une fois l’activation terminée, déconnectez-vous du portail Azure et se reconnecter pour commencer à utiliser le rôle qui vient d’être activé.
+Quand vous activez un rôle dans PIM, 10 minutes au moins sont nécessaires avant de pouvoir accéder au portail d’administration souhaité ou d’exécuter des fonctions au sein d’une charge de travail d’administration spécifique. Une fois l’activation terminée, déconnectez-vous du portail Azure et reconnectez-vous pour commencer à utiliser le rôle qui vient d’être activé.
 
 Pour des étapes de dépannage supplémentaires, consultez [Résolution des problèmes des autorisations élevées](https://social.technet.microsoft.com/wiki/contents/articles/37568.troubleshooting-elevated-permissions-with-azure-ad-privileged-identity-management.aspx).
 

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 12/06/2017
 ms.author: aljo
 ms.openlocfilehash: d95d2802398a61b948ff6c59fb3eab0e1ddddbc5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66147459"
 ---
 # <a name="open-ports-for-a-service-fabric-cluster"></a>Ouvrir des ports pour un cluster Service Fabric
@@ -61,7 +61,7 @@ az network lb rule create --backend-port 40000 --frontend-port 39999 --protocol 
 
 La commande Azure CLI dispose de quelques paramètres décrits dans le tableau suivant :
 
-| Paramètre | Description  |
+| Paramètre | Description |
 | --------- | ----------- |
 | `--backend-port`  | Le port que l’application Service Fabric écoute. |
 | `--frontend-port` | Le port que l’équilibreur de charge expose aux connexions externes. |
@@ -111,4 +111,4 @@ En ce qui concerne la commande `New-AzLoadBalancerRuleConfig`, le `-FrontendPort
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur [mise en réseau dans Service Fabric](service-fabric-patterns-networking.md).rvice-fabric-modèles-networking.md).
+En savoir plus sur la [mise en réseau dans Service Fabric](service-fabric-patterns-networking.md).

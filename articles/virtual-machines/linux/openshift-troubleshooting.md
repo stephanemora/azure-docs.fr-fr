@@ -16,19 +16,19 @@ ms.workload: infrastructure
 ms.date: 04/19/2019
 ms.author: haroldw
 ms.openlocfilehash: af6746e7246b8783e5bdbef34cf1b57427aa7ebb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60771275"
 ---
 # <a name="troubleshoot-openshift-deployment-in-azure"></a>Résoudre les problèmes de déploiement d’OpenShift dans Azure
 
 Si le cluster OpenShift ne se déploie pas correctement, le portail Azure retourne une sortie d’erreur. La sortie peut être compliquée à lire, ce qui rend difficile l’identification du problème. Examinez rapidement cette sortie pour rechercher le code de sortie 3, 4 ou 5. Ces trois codes de sortie ont les significations suivantes :
 
-- Code de sortie 3 : Votre nom d’utilisateur abonnement Red Hat / mot de passe ou ID d’organisation / clé d’Activation est incorrecte
-- Code de sortie 4 : Votre ID de Pool Red Hat est incorrect ou aucun droit n’est disponible
-- Code de sortie 5 : Impossible d’approvisionner le Volume de Pool dynamique Docker
+- Code de sortie 3 : le nom d’utilisateur/mot de passe ou l’ID d’organisation/clé d’activation de votre abonnement Red Hat sont incorrects
+- Code de sortie 4 : votre ID de pool Red Hat est incorrect ou aucun droit n’est disponible
+- Code de sortie 5 : impossible de provisionner le volume de pool dynamique Docker
 
 Pour tous les autres codes de sortie, vous pouvez afficher les fichiers journaux correspondants en vous connectant aux hôtes via SSH.
 
@@ -44,7 +44,7 @@ Pour tous les autres codes de sortie, vous pouvez afficher les fichiers journaux
 
 Les fichiers journaux (stderr et stdout) pour les scripts de préparation d’hôte se trouvent dans `/var/lib/waagent/custom-script/download/0` sur tous les hôtes. Si une erreur s’est produite durant la préparation de l’hôte, consultez ces fichiers journaux pour identifier l’erreur.
 
-Si les scripts de préparation a été correctement exécutée, puis les fichiers journaux dans le `/var/lib/waagent/custom-script/download/1` répertoire de l’hôte de playbook ansible sera doivent être examinés. Si l’erreur s’est produite pendant l’installation d’OpenShift, elle est enregistrée dans le fichier stdout. Consultez ce fichier avant de contacter le support pour demander de l’aide.
+Si les scripts de préparation se sont exécutés correctement, examinez les fichiers journaux qui se trouvent dans le répertoire `/var/lib/waagent/custom-script/download/1` sur l’hôte de playbook Ansible. Si l’erreur s’est produite pendant l’installation d’OpenShift, elle est enregistrée dans le fichier stdout. Consultez ce fichier avant de contacter le support pour demander de l’aide.
 
 Exemple de sortie
 
@@ -93,11 +93,11 @@ Les erreurs les plus courantes lors de l’installation sont les suivantes :
 
 ### <a name="private-key-has-a-passphrase"></a>La clé privée a une phrase secrète
 
-Vous verrez une erreur indiquant que l’autorisation a été refusée pour ssh. SSH à l’hôte de playbook ansible pour vérifier une phrase secrète sur la clé privée.
+Une erreur s’affiche indiquant que l’autorisation a été refusée pour ssh. Établissez une connexion ssh à l’hôte de playbook Ansible pour vérifier si la clé privée comporte une phrase secrète.
 
 ### <a name="key-vault-secret-with-private-key-wasnt-created-correctly"></a>Le secret de coffre de clés avec la clé privée n’a pas été créé correctement
 
-La clé privée est copiée dans l’hôte de playbook ansible - ~/.ssh/id_rsa. Vérifiez que ce fichier est correct. Testez-le en ouvrant une session SSH sur l’un des nœuds du cluster à partir de l’hôte de playbook Ansible.
+La clé privée est copiée dans l’hôte de playbook Ansible - ~/.ssh/id_rsa. Vérifiez que ce fichier est correct. Testez-le en ouvrant une session SSH sur l’un des nœuds du cluster à partir de l’hôte de playbook Ansible.
 
 ### <a name="service-principal-credentials-were-entered-incorrectly"></a>Les informations d’identification du principal de service n’ont pas été entrées correctement
 
@@ -119,5 +119,5 @@ az group update -g <openshift resource group> --set tags.sptest=test
 
 Pour obtenir plus d’informations sur certaines erreurs, vous pouvez également utiliser les commandes suivantes :
 
-1. état de systemctl \<service >
+1. systemctl status \<service>
 2. journalctl -xe

@@ -10,10 +10,10 @@ ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: cc07aa9c1b2c540c33949a8c591bd98f91b04666
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60738857"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Déployer un Runbook Worker hybride Linux
@@ -62,7 +62,7 @@ Avant de continuer, notez l’espace de travail Log Analytics lié à votre comp
 
 1. Activez la solution **Automation Hybrid Worker** dans Azure en utilisant l’une des méthodes suivantes :
 
-   * Ajouter le **Automation Hybrid Worker** solution à votre abonnement à l’aide de la procédure sur [ajouter Azure Monitor enregistre des solutions dans votre espace de travail](../log-analytics/log-analytics-add-solutions.md).
+   * Ajoutez la solution **Automation Hybrid Worker** à votre abonnement à l’aide de la procédure décrite dans la rubrique [Ajouter des solutions de journaux Azure Monitor à votre espace de travail](../log-analytics/log-analytics-add-solutions.md).
    * Exécutez l’applet de commande suivante :
 
         ```azurepowershell-interactive
@@ -86,11 +86,11 @@ Avant de continuer, notez l’espace de travail Log Analytics lié à votre comp
 1. Une fois la commande exécutée, la page **Groupes de travail hybrides** du portail Azure affiche le nouveau groupe et le nombre de membres. S’il s’agit d’un groupe existant, le nombre de membres est incrémenté. Vous pouvez sélectionner le groupe dans la liste de la page **Groupes de Workers hybrides** et sélectionner la vignette **Workers hybrides**. La page **Workers hybrides** affiche chaque membre du groupe listé.
 
 > [!NOTE]
-> Si vous utilisez l’extension de machine virtuelle Azure Monitor pour Linux pour une machine virtuelle Azure, nous recommandons définir `autoUpgradeMinorVersion` avec la valeur false en tant qu’automatiquement la mise à niveau des versions peut provoquer des problèmes Runbook Worker hybride. Pour savoir comment mettre à niveau de l’extension manuellement, consultez [déploiement d’Azure CLI ](../virtual-machines/extensions/oms-linux.md#azure-cli-deployment).
+> Si vous utilisez l’extension de machine virtuelle Azure Monitor pour Linux sur une machine virtuelle Azure, nous vous recommandons de définir `autoUpgradeMinorVersion` sur la valeur false, car la mise à niveau automatique des versions peut provoquer des problèmes au niveau du runbook Worker hybride. Pour savoir comment mettre à niveau l’extension manuellement, consultez [Déploiement d’Azure CLI](../virtual-machines/extensions/oms-linux.md#azure-cli-deployment).
 
 ## <a name="turning-off-signature-validation"></a>Désactivation de la validation de signature
 
-Par défaut, les Runbooks Workers hybrides Linux nécessitent la validation de signature. Si vous exécutez un Runbook non signé sur un Worker, une erreur d’échec de la validation de la signature s’affiche. Pour désactiver la validation de la signature, exécutez la commande suivante. Remplacez le deuxième paramètre par votre espace de travail d’analytique de journal ID.
+Par défaut, les Runbooks Workers hybrides Linux nécessitent la validation de signature. Si vous exécutez un Runbook non signé sur un Worker, une erreur d’échec de la validation de la signature s’affiche. Pour désactiver la validation de la signature, exécutez la commande suivante. Remplacez le deuxième paramètre par votre ID d’espace de travail Log Analytics.
 
  ```bash
  sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --false <LogAnalyticsworkspaceId>

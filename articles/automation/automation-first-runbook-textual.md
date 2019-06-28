@@ -11,10 +11,10 @@ ms.date: 09/24/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 1697f479cf013f2ef94dd5a8a2fc637d72e6e18a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60739955"
 ---
 # <a name="my-first-powershell-workflow-runbook"></a>Mon premier runbook PowerShell Workflow
@@ -27,13 +27,13 @@ ms.locfileid: "60739955"
 
 Ce didacticiel décrit la création d’un [Runbook PowerShell Workflow](automation-runbook-types.md#powershell-workflow-runbooks) dans Azure Automation. Vous commencez avec un simple runbook que vous testez et publiez tout en expliquant comment suivre l’état du travail du runbook. Vous modifiez ensuite le runbook pour gérer les ressources Azure, en démarrant dans ce cas une machine virtuelle Azure. Enfin, vous le rendrez plus robuste en lui ajoutant des paramètres.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 * Abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [activer vos avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou créer [un compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [compte Automation](automation-offering-get-started.md) pour le stockage du Runbook et l’authentification auprès des ressources Azure.  Ce compte doit avoir l’autorisation de démarrer et d’arrêter la machine virtuelle.
-* Une machine virtuelle Azure. vous arrêtez et démarrez cette machine afin qu’il ne doit pas être une machine virtuelle de production.
+* Une machine virtuelle Azure. Comme elle va être arrêtée et relancée, ce ne doit pas être une machine virtuelle de production.
 
 ## <a name="step-1---create-new-runbook"></a>Étape 1 - Création d’un Runbook
 
@@ -61,7 +61,7 @@ Vous pouvez soit taper du code directement dans le Runbook, soit sélectionner d
    }
    ```
 
-1. Tapez *Write-Output « Hello World. »*  entre les accolades.
+1. Tapez *Write-Output « Hello World. »* entre les accolades.
 
    ```powershell-interactive
    Workflow MyFirstRunbook-Workflow
@@ -77,10 +77,10 @@ Vous pouvez soit taper du code directement dans le Runbook, soit sélectionner d
 Avant de publier le runbook pour le rendre disponible en production, vous voulez le tester pour vous assurer qu’il fonctionne correctement. Lorsque vous testez un Runbook, vous exécutez sa version **Brouillon** et affichez sa sortie de manière interactive.
 
 1. Cliquez sur **Volet de test** pour ouvrir le volet de test.
-1. Cliquez sur **Démarrer** pour démarrer le test. Cette option doit être la seule option est activée.
+1. Cliquez sur **Démarrer** pour démarrer le test. Cette option doit être la seule activée.
 1. Une [tâche de Runbook](automation-runbook-execution.md) est créée et son état apparaît.
 
-   L’état du travail démarrera en tant que *en file d’attente* indiquant qu’il attend d’un runbook worker dans le cloud devienne disponible. Il passe à *En cours de démarrage* lorsqu’un Worker sélectionne la tâche, puis à *En cours d’exécution* lorsque le runbook se lance.  
+   L’état initial de la tâche est *Mis en file d’attente* pour indiquer que la tâche attend qu’un runbook Worker du cloud devienne disponible. Il passe à *En cours de démarrage* lorsqu’un Worker sélectionne la tâche, puis à *En cours d’exécution* lorsque le runbook se lance.  
 
 1. Lorsque la tâche du Runbook est terminée, sa sortie s'affiche. Dans votre cas, *Hello World* devrait apparaître.
 
@@ -90,7 +90,7 @@ Avant de publier le runbook pour le rendre disponible en production, vous voulez
 
 ## <a name="step-4---publish-and-start-the-runbook"></a>Étape 4 : Publication et démarrage du Runbook
 
-Le runbook que vous avez créé est toujours en mode brouillon. Vous devez le publier avant de pouvoir l’exécuter en production. Lorsque vous publiez un Runbook, vous écrasez la version publiée existante par la version brouillon. Dans votre cas, vous n’avez pas encore de version publiée car vous venez de créer le runbook.
+Le runbook que vous avez créé est toujours en mode brouillon. Vous devez le publier pour pouvoir l’exécuter en production. Lorsque vous publiez un Runbook, vous écrasez la version publiée existante par la version brouillon. Dans votre cas, vous n’avez pas encore de version publiée car vous venez de créer le runbook.
 
 1. Cliquez sur **Publier** pour publier le Runbook, puis sur **Oui** quand vous y êtes invité.
 1. Si vous faites maintenant défiler la page vers la gauche pour visualiser le runbook sur la page **Runbooks**, celle-ci affiche **l’État de création** **Publié**.
@@ -110,20 +110,20 @@ Le runbook que vous avez créé est toujours en mode brouillon. Vous devez le pu
    ![Résumé des tâches](media/automation-first-runbook-textual/job-pane-status-blade-outputtile.png)  
 
 1. Fermez le volet Sortie.
-1. Cliquez sur **Tous les journaux d’activité** pour ouvrir le volet Flux de la tâche du Runbook. Vous devez voir *Hello World* dans la sortie stream, mais cette vue peut afficher les autres flux pour un travail de runbook telles que le mode détaillé et erreur si le runbook consigne ces.
+1. Cliquez sur **Tous les journaux d’activité** pour ouvrir le volet Flux de la tâche du Runbook. Vous devez uniquement voir le message *Hello World* dans le flux de sortie. Toutefois, d’autres flux peuvent s’afficher pour une tâche de runbook, notamment Mode détaillé et Erreur, si le runbook y écrit des données.
 
    ![Résumé des tâches](media/automation-first-runbook-textual/job-pane-status-blade-alllogstile.png)
 
-1. Fermez la page de flux de données et de la page tâche pour revenir à la page MyFirstRunbook.
-1. Cliquez sur **travaux** pour ouvrir la page des tâches pour ce runbook. Cette page liste toutes les tâches créées par ce runbook. Vous devez voir un seul travail, car vous n’avez exécuté le travail qu’une seule fois.
+1. Fermez la page Flux et la page Tâche pour revenir à la page MyFirstRunbook.
+1. Cliquez sur **Tâches** pour ouvrir la page Tâches de ce runbook. Cette page liste toutes les tâches créées par ce runbook. Vous devez voir un seul travail, car vous n’avez exécuté le travail qu’une seule fois.
 
    ![Tâches](media/automation-first-runbook-textual/runbook-control-job-tile.png)
 
-1. Vous pouvez cliquer sur cette tâche pour ouvrir la page de travail que vous avez consulté au démarrage du runbook. Cette action permet de revenir en arrière et d’afficher les détails d’une tâche créée pour un runbook donné.
+1. Vous pouvez cliquer sur cette tâche pour ouvrir la même page Tâche que vous avez consultée au démarrage du runbook. Cette action permet de revenir en arrière et d’afficher les détails d’une tâche créée pour un runbook donné.
 
 ## <a name="step-5---add-authentication-to-manage-azure-resources"></a>Étape 5 : Ajout d’une authentification pour gérer les ressources Azure
 
-Vous avez testé et publié votre runbook, mais jusqu’à présent, il ne fait rien d’utile. Vous souhaitez qu’il gère les ressources Azure. Il ne le sauront pas cependant, sauf si vous avez été authentifié à l’aide des informations d’identification mentionnées dans le [conditions préalables](#prerequisites). Vous utilisez pour cela l’applet de commande **Connect-AzureRmAccount**.
+Vous avez testé et publié votre runbook, mais jusqu’à présent, il ne fait rien d’utile. Vous souhaitez qu’il gère les ressources Azure. Toutefois, il ne peut le faire que si vous le configurez pour qu’il s’authentifie à l’aide des informations d’identification mentionnées dans les [prérequis](#prerequisites). Vous utilisez pour cela l’applet de commande **Connect-AzureRmAccount**.
 
 1. Ouvrez l’éditeur textuel en cliquant sur **Modifier** dans le volet MyFirstRunbook-Workflow.
 2. La ligne **Write-Output** ne vous est plus utile. Vous pouvez donc la supprimer.
@@ -148,13 +148,13 @@ Vous avez testé et publié votre runbook, mais jusqu’à présent, il ne fait 
 > Il est possible que vous deviez [mettre à jour vos modules](automation-update-azure-modules.md), même si vous venez de créer un compte Automation.
 
 1. Cliquez sur le volet de **Test** afin de tester le runbook.
-1. Cliquez sur **Démarrer** pour démarrer le test. Une fois terminé, la sortie générée semblable à celle illustrée ci-dessous devrait afficher les informations de base sur votre compte. Cette action confirme que les informations d’identification sont valide.
+1. Cliquez sur **Démarrer** pour démarrer le test. Une fois terminé, la sortie générée semblable à celle illustrée ci-dessous devrait afficher les informations de base sur votre compte. Cette action confirme la validité des informations d’identification.
 
    ![Authentifier](media/automation-first-runbook-textual/runbook-auth-output.png)
 
 ## <a name="step-6---add-code-to-start-a-virtual-machine"></a>Étape 6 - Ajouter du code pour démarrer une machine virtuelle
 
-À présent que votre runbook s’authentifie auprès de votre abonnement Azure, vous pouvez gérer les ressources. Vous ajoutez une commande pour démarrer une machine virtuelle. Vous pouvez choisir n’importe quelle machine virtuelle dans votre abonnement Azure, et pour l’instant, vous êtes coder ce nom dans le runbook. Si vous gérez des ressources entre plusieurs abonnements, vous devez utiliser le **- AzureRmContext** paramètre avec [Get-AzureRmContext](/powershell/module/azurerm.profile/get-azurermcontext).
+À présent que votre runbook s’authentifie auprès de votre abonnement Azure, vous pouvez gérer les ressources. Vous ajoutez une commande pour démarrer une machine virtuelle. Vous pouvez choisir n’importe quelle machine virtuelle de votre abonnement Azure. Pour l’instant, vous allez coder ce nom en dur dans le runbook. Si vous gérez des ressources associées à plusieurs abonnements, utilisez le paramètre **-AzureRmContext** avec [Get-AzureRmContext](/powershell/module/azurerm.profile/get-azurermcontext).
 
 1. Après *Connect-AzureRmAccount*, tapez *Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'NameofResourceGroup'* en fournissant le nom et le nom de groupe de ressources de la machine virtuelle à démarrer.  
 

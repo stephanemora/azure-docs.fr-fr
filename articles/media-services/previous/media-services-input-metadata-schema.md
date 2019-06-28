@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: fa4487b07f130947ac5da2a5dbae6776b06acbe7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61463767"
 ---
 # <a name="input-metadata"></a>Métadonnées d'entrée 
@@ -50,7 +50,7 @@ Consultez l’exemple XML à la fin de cet article : [Exemple XML](media-service
 ### <a name="attributes"></a>Attributs
 | Nom | type | Description |
 | --- | --- | --- |
-| **Name**<br /><br /> Obligatoire |**xs:string** |Nom du fichier de ressource. |
+| **Nom**<br /><br /> Obligatoire |**xs:string** |Nom du fichier de ressource. |
 | **Taille**<br /><br /> Obligatoire |**xs:long** |Taille du fichier de ressource en octets. |
 | **Durée**<br /><br /> Obligatoire |**xs:duration** |Durée de lecture du contenu. Exemple : Duration="PT25M37.757S". |
 | **NumberOfStreams**<br /><br /> Obligatoire |**xs:int** |Nombre de flux dans le fichier de ressource. |
@@ -70,7 +70,7 @@ Consultez l’exemple XML à la fin de cet article : [Exemple XML](media-service
 | **Programmes**<br /><br /> minOccurs="0" | |Collection de tous les [éléments Programs](media-services-input-metadata-schema.md#Programs) lorsque le fichier de ressource est au format MPEG-TS. |
 | **VideoTracks**<br /><br /> minOccurs="0" | |Chaque élément AssetFile physique peut contenir zéro, une ou plusieurs pistes vidéo entrelacées dans un format de conteneur approprié. Cet élément contient une collection de tous les [éléments VideoTracks](media-services-input-metadata-schema.md#VideoTracks) qui font partie du fichier de ressource. |
 | **AudioTracks**<br /><br /> minOccurs="0" | |Chaque élément AssetFile physique peut contenir zéro ou plusieurs pistes audio entrelacées dans un format de conteneur approprié. Cet élément contient une collection de tous les [éléments AudioTracks](media-services-input-metadata-schema.md#AudioTracks) qui font partie du fichier de ressource. |
-| **Métadonnées**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[MetadataType](media-services-input-metadata-schema.md#MetadataType) |Les métadonnées du fichier de ressource représentées sous la forme de chaînes clé/valeur. Par exemple : <br /><br /> **&lt;Metadata key="language" value="eng" /&gt;** |
+| **Métadonnées**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[MetadataType](media-services-input-metadata-schema.md#MetadataType) |Les métadonnées du fichier de ressource représentées sous la forme de chaînes clé/valeur. Par exemple :<br /><br /> **&lt;Metadata key="language" value="eng" /&gt;** |
 
 ## <a name="TrackType"></a> TrackType
 Consultez l’exemple XML à la fin de cet article : [Exemple XML](media-services-input-metadata-schema.md#xml).  
@@ -179,7 +179,7 @@ Consultez l’exemple XML à la fin de cet article : [Exemple XML](media-service
 | **Lyrics**<br /><br /> Obligatoire |**xs:int** |Définissez cet attribut sur 1 pour indiquer que cette piste contient des paroles. |
 | **Karaoke**<br /><br /> Obligatoire |**xs:int** |Définissez cet attribut sur 1 pour indiquer qu’il s’agit d’une piste de karaoké (musique de fond, sans voix). |
 | **Forced**<br /><br /> Obligatoire |**xs:int** |Définissez cet attribut sur 1 pour indiquer qu’il s’agit la présentation forcée. |
-| **HearingImpaired**<br /><br /> Obligatoire |**xs:int** |Définissez cet attribut sur 1 pour indiquer que cette piste est destinée aux personnes malentendantes. |
+| **HearingImpaired**<br /><br /> Obligatoire |**xs:int** |Définissez cet attribut sur 1 pour indiquer que cette piste est destinée aux personnes malentendantes. |
 | **VisualImpaired**<br /><br /> Obligatoire |**xs:int** |Définissez cet attribut sur 1 pour indiquer que cette piste est destinée aux personnes malvoyantes. |
 | **CleanEffects**<br /><br /> Obligatoire |**xs: int** |Définissez cet attribut sur 1 pour indiquer que cette piste comporte des effets propres. |
 | **AttachedPic**<br /><br /> Obligatoire |**xs: int** |Définissez cet attribut sur 1 pour indiquer que cette piste contient des images. |

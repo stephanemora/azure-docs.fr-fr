@@ -1,6 +1,6 @@
 ---
-title: Version préliminaire de Windows Virtual Desktop hôte pool l’équilibrage de charge méthodes - Azure
-description: Pool équilibrage de charge méthodes hôtes pour un environnement Windows virtuel Desktop Preview.
+title: Méthodes d’équilibrage de charge des pools d’hôtes de la préversion de Windows Virtual Desktop - Azure
+description: Méthodes d’équilibrage de charge des pools d’hôtes pour un environnement de la préversion de Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,34 +8,34 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
 ms.openlocfilehash: 8b18224339654c067d8ab9b543fa49a9c7d55ddd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60870521"
 ---
 # <a name="host-pool-load-balancing-methods"></a>Méthodes d’équilibrage de charge des pools d’hôtes
 
-Windows Virtual Desktop Preview prend en charge deux méthodes d’équilibrage de charge. Chaque méthode détermine quel hôte de session hébergera une session utilisateur lorsqu’ils se connectent à une ressource dans un pool de l’hôte.
+La préversion de Windows Virtual Desktop prend en charge deux méthodes d’équilibrage de charge. Chaque méthode détermine quel hôte de session hébergera une session utilisateur lors de la connexion à une ressource d’un pool d’hôtes.
 
-Les méthodes d’équilibrage de charge suivantes sont disponibles dans un bureau virtuel Windows :
+Les méthodes d’équilibrage de charge suivantes sont disponibles dans Windows Virtual Desktop :
 
-- L’équilibrage de charge de prioritaire vous permet distribuer uniformément les sessions utilisateur dans les hôtes de session dans un pool de l’hôte.
-- L’équilibrage de charge de la profondeur en premier permet de saturer un hôte de session avec les sessions utilisateur dans un pool de l’hôte. Une fois que la première session atteint son seuil de limite de session, l’équilibreur de charge dirige les nouvelles connexions utilisateur à l’hôte de session suivante dans le pool de l’hôte jusqu'à ce qu’il atteigne sa limite et ainsi de suite.
+- L’équilibrage de charge de largeur permet de distribuer uniformément les sessions utilisateur sur les hôtes de session d’un pool d’hôtes.
+- L’équilibrage de charge de profondeur permet de saturer un hôte de session avec les sessions utilisateur d’un pool d’hôtes. Dès que la première session a atteint son seuil limite de sessions, l’équilibreur de charge dirige les nouvelles connexions utilisateur vers l’hôte de session suivant du pool d’hôtes jusqu’à ce qu’il atteigne sa limite et ainsi de suite.
 
-Chaque pool de l’hôte ne pouvez configurer qu’un seul type d’équilibrage de charge spécifique. Toutefois, l’équilibrage de charge méthodes ont les comportements suivants, peu importe les hébergent pool elles se trouvent dans :
+Chaque pool d’hôtes ne peut configurer qu’un seul type d’équilibrage de charge qui lui est propre. Toutefois, les deux méthodes d’équilibrage de charge partagent les comportements suivants quel que soit le pool d’hôtes dans lequel elles se trouvent :
 
-- Si un utilisateur dispose d’une session dans le pool de l’hôte est déjà et se reconnecte à cette session, l’équilibreur de charge avec succès redirigera les à l’hôte de session et leur session existante. Ce comportement s’applique même si la propriété AllowNewConnections de l’hôte de session est définie sur False.
-- Si un utilisateur ne dispose déjà d’une session dans le pool de l’hôte, l’équilibreur de charge ne sont pas envisager des hôtes de session dont la propriété AllowNewConnections est définie sur False lors de l’équilibrage de charge.
+- Si un utilisateur dispose déjà d’une session dans le pool d’hôtes et se reconnecte à cette session, l’équilibreur de charge le redirige avec succès vers l’hôte de session avec sa session existante. Ce comportement s’applique même si la propriété AllowNewConnections de l’hôte de session est définie sur False.
+- Si un utilisateur ne dispose pas encore de session dans le pool d’hôtes, l’équilibreur de charge ne tient pas compte des hôtes de session dont la propriété AllowNewConnections est définie sur False lors de l’équilibrage de charge.
 
-## <a name="breadth-first-load-balancing-method"></a>Méthode d’équilibrage de charge prioritaire
+## <a name="breadth-first-load-balancing-method"></a>Méthode d’équilibrage de charge de largeur
 
-La méthode d’équilibrage de charge prioritaire vous permet de distribuer les connexions utilisateur afin d’optimiser ce scénario. Cette méthode est idéale pour les organisations qui souhaitent offrir la meilleure expérience pour les utilisateurs qui se connectent à leur environnement de bureau virtuel mis en pool.
+La méthode d’équilibrage de charge de largeur permet de distribuer les connexions utilisateur afin d’optimiser ce scénario. Cette méthode est idéale pour les organisations qui souhaitent offrir la meilleure expérience qui soit aux utilisateurs se connectant à leur environnement de bureau virtuel mis en pool.
 
-La méthode prioritaire interroge d’abord les hôtes de session qui autorise les nouvelles connexions. La méthode sélectionne ensuite l’hôte de session avec le plus petit nombre de sessions. S’il existe un lien, la méthode sélectionne le premier hôte de session dans la requête.
+La méthode de largeur interroge d’abord les hôtes de session qui autorise les nouvelles connexions. La méthode sélectionne ensuite l’hôte de session ayant le plus petit nombre de sessions. S’il existe un lien, la méthode sélectionne le premier hôte de session de la requête.
 
 ## <a name="depth-first-load-balancing-method"></a>Méthode d’équilibrage de charge de profondeur
 
-La méthode d’équilibrage de charge de profondeur en premier vous permet de saturer un hôte de session à la fois pour optimiser pour ce scénario. Cette méthode est idéale pour les organisations abordables désireuses d’un contrôle plus précis sur le nombre de machines virtuelles qu’ils ont allouée pour un pool de l’hôte.
+La méthode d’équilibrage de charge de profondeur permet de saturer un hôte de session à la fois en vue d’une optimisation pour ce scénario. Cette méthode est idéale pour les organisations attentives aux coûts désireuses d’un contrôle plus précis du nombre de machines virtuelles qu’elles ont allouées pour un pool d’hôtes.
 
-La méthode de profondeur interroge d’abord les hôtes de session qui autorise de nouvelles connexions et n’ont pas effectué au-delà de cette limite maximale de la session. La méthode sélectionne ensuite l’hôte de session avec un plus grand nombre de sessions. S’il existe un lien, la méthode sélectionne le premier hôte de session dans la requête.
+La méthode de profondeur commence par interroger les hôtes de session qui autorisent de nouvelles connexions et n’ont pas dépassé leur limite maximale de nombre de sessions. La méthode sélectionne ensuite l’hôte de session ayant le plus grand nombre de sessions. S’il existe un lien, la méthode sélectionne le premier hôte de session de la requête.

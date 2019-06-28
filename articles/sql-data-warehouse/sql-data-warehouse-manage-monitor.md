@@ -2,20 +2,19 @@
 title: Surveiller votre charge de travail à l’aide de vues de gestion dynamique | Microsoft Docs
 description: Comment surveiller votre charge de travail à l'aide de vues de gestion dynamique
 services: sql-data-warehouse
-author: WenJason
-manager: digimobile
+author: ronortloff
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-origin.date: 04/12/2019
-ms.date: 04/29/2019
-ms.author: v-jay
+ms.date: 04/12/2019
+ms.author: rortloff
 ms.reviewer: igorstan
 ms.openlocfilehash: ff1f613dfdfb5c43b727bcc9c7f7a1f0afca0975
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60748767"
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>Surveiller votre charge de travail à l'aide de vues de gestion dynamique
@@ -69,9 +68,9 @@ WHERE   [label] = 'My Query';
 
 Dans les résultats de requête précédents, **notez l’ID de la requête** que vous souhaitez examiner.
 
-Les requêtes dans le **Suspended** état peut être en file d’attente en raison d’un grand nombre de requêtes en cours d’exécution actives. Ces requêtes apparaissent également dans le [sys.dm_pdw_waits](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql) requête de type UserConcurrencyResourceType. Pour plus d’informations sur les limites de simultanéité, consultez [Niveaux de performances](performance-tiers.md) ou [Classes de ressources pour la gestion des charges de travail](resource-classes-for-workload-management.md). Les requêtes peuvent également attendre d’autres raisons, par exemple des verrouillages d’objets.  Si votre requête est en attente d’une ressource, consultez [Examen des requêtes en attente de ressources][Investigating queries waiting for resources] plus loin dans cet article.
+Les requêtes dont l’état est **Interrompu** peuvent être mises en file d’attente en raison d’un grand nombre de requêtes actives en cours d’exécution. Ces requêtes apparaissent également dans la requête [sys.dm_pdw_waits](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql) de type UserConcurrencyResourceType. Pour plus d’informations sur les limites de simultanéité, consultez [Niveaux de performances](performance-tiers.md) ou [Classes de ressources pour la gestion des charges de travail](resource-classes-for-workload-management.md). Les requêtes peuvent également attendre d’autres raisons, par exemple des verrouillages d’objets.  Si votre requête est en attente d’une ressource, consultez [Examen des requêtes en attente de ressources][Investigating queries waiting for resources] plus loin dans cet article.
 
-Pour simplifier la recherche d’une requête dans le [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) table, utilisez [étiquette] [ LABEL] pour affecter un commentaire à votre requête qui peut être recherché dans le sys.dm_pdw_exec_ afficher les demandes.
+Pour simplifier la recherche d’une requête dans la table [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql), utilisez [LABEL][LABEL] pour affecter un commentaire à votre requête qui peut être recherché dans la vue sys.dm_pdw_exec_requests.
 
 ```sql
 -- Query with Label
@@ -171,10 +170,10 @@ ORDER BY waits.object_name, waits.object_type, waits.state;
 Si la requête attend activement des ressources provenant d'une autre requête, l'état affichera **AcquireResources**.  Si la requête possède toutes les ressources requises, l'état sera **Granted**.
 
 ## <a name="monitor-tempdb"></a>Surveiller tempdb
-Tempdb est utilisé pour stocker les résultats intermédiaires pendant l’exécution de requête. Une utilisation élevée de la base de données tempdb peut conduire à ralentir les performances de requête. Chaque nœud dans Azure SQL Data Warehouse a environ 1 To d’espace brutes pour tempdb. Vous trouverez ci-dessous des conseils pour la surveillance de l’utilisation de tempdb et pour réduire l’utilisation de tempdb dans vos requêtes. 
+Tempdb est utilisé pour stocker des résultats intermédiaires pendant l’exécution des requêtes. Une utilisation intensive de la base de données tempdb peut ralentir les performances des requêtes. Chaque nœud dans Azure SQL Data Warehouse dispose d’environ 1 To d’espace brut pour tempdb. Voici des conseils à suivre pour superviser l’utilisation de tempdb et la réduire dans vos requêtes. 
 
-### <a name="monitoring-tempdb-with-views"></a>Tempdb avec des vues de surveillance
-Pour surveiller l’utilisation de tempdb, tout d’abord installer le [microsoft.vw_sql_requests](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/solutions/monitoring/scripts/views/microsoft.vw_sql_requests.sql) afficher à partir de la [Microsoft Toolkit pour SQL Data Warehouse](https://github.com/Microsoft/sql-data-warehouse-samples/tree/master/solutions/monitoring). Vous pouvez ensuite exécuter la requête suivante pour afficher l’utilisation de tempdb par nœud pour toutes les requêtes exécutées :
+### <a name="monitoring-tempdb-with-views"></a>Supervision de tempdb avec des vues
+Pour superviser l’utilisation de tempdb, commencez par installer la vue [microsoft.vw_sql_requests](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/solutions/monitoring/scripts/views/microsoft.vw_sql_requests.sql) à partir de [Microsoft Toolkit for SQL Data Warehouse](https://github.com/Microsoft/sql-data-warehouse-samples/tree/master/solutions/monitoring). Vous pouvez alors exécuter la requête suivante pour voir l’utilisation de tempdb par nœud pour toutes les requêtes exécutées :
 
 ```sql
 -- Monitor tempdb
@@ -206,9 +205,9 @@ WHERE DB_NAME(ssu.database_id) = 'tempdb'
 ORDER BY sr.request_id;
 ```
 
-Si vous avez une requête qui consomme une grande quantité de mémoire ou ont reçu un message d’erreur lié à l’allocation de tempdb, il est souvent en raison d’un très grand [CREATE TABLE AS SELECT (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) ou [INSERT SELECT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) instruction en cours d’exécution qui échoue dans l’opération de déplacement des données finales. Cela peut généralement être identifiée comme une opération ShuffleMove dans le plan de requête distribuée juste avant la dernière instruction INSERT SELECT.
+Si vous avez une requête qui consomme une grande quantité de mémoire ou si vous avez reçu un message d’erreur à propos de l’allocation de tempdb, le problème vient souvent d’une instruction [CREATE TABLE AS SELECT (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) ou [INSERT SELECT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) très lourde en cours d’exécution qui échoue pendant l’opération de déplacement des données finale. Vous pouvez généralement identifier ce problème dans une opération ShuffleMove dans le plan de requête distribuée juste avant la dernière instruction INSERT SELECT.
 
-L’atténuation plus courante consiste à diviser l’instruction CTAS ou INSERT SELECT en plusieurs instructions load pour le volume de données ne dépasse pas 1 To par limite de tempdb de nœud. Vous pouvez également monter votre cluster vers une plus grande taille qui répartit la taille de tempdb sur plus de nœuds en réduisant la tempdb sur chaque nœud. 
+Pour atténuer ce problème, vous pouvez diviser l’instruction CTAS ou INSERT SELECT en plusieurs instructions de chargement de sorte que le volume des données ne dépasse pas la limite de tempdb définie à 1 To par nœud. Vous pouvez également mettre à l’échelle votre cluster vers une taille plus grande qui répartit la taille de tempdb sur plus de nœuds en la réduisant sur chaque nœud individuel. 
 
 ## <a name="monitor-memory"></a>Surveiller la mémoire
 
@@ -283,5 +282,3 @@ Pour plus d’informations sur les vues de gestion dynamique, consultez [Vues sy
 [DBCC PDW_SHOWEXECUTIONPLAN]: https://msdn.microsoft.com/library/mt204017.aspx
 [DBCC PDW_SHOWSPACEUSED]: https://msdn.microsoft.com/library/mt204028.aspx
 [LABEL]: https://msdn.microsoft.com/library/ms190322.aspx
-
-<!-- Update_Description: update meta properties, wording update -->

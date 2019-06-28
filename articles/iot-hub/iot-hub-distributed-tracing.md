@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
 ms.openlocfilehash: 302c382a7e19e9dcc4c979d31ddc0768655a1465
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60400784"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Suivre les messages appareil-à-cloud Azure IoT avec le traçage distribué (préversion)
@@ -30,7 +30,7 @@ L’activation du traçage distribué pour IoT Hub vous permet de :
 
 Dans cet article, vous allez utiliser [Azure IoT device SDK pour le langage C](./iot-hub-device-sdk-c-intro.md) avec le traçage distribué. La prise en charge du traçage distribué par les autres SDK est en cours.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 - Pour le moment, la préversion du traçage distribué est uniquement prise en charge par les hubs IoT créés dans les régions suivantes :
 
@@ -172,12 +172,12 @@ Ces instructions concernent la création de l’exemple sur un système Windows
 
 ### <a name="workaround-for-third-party-clients"></a>Solution de contournement pour les clients tiers
 
-Il a **pas trivial** pour afficher un aperçu de la fonctionnalité de traçage distribué sans utiliser le Kit de développement logiciel C. Par conséquent, cette approche n’est pas recommandée.
+Il **n’est pas simple** d’afficher un aperçu de la fonctionnalité de traçage distribué sans utiliser le Kit de développement logiciel (SDK) C. Par conséquent, cette approche n’est pas recommandée.
 
-Tout d’abord, vous devez implémenter toutes les primitives de protocole IoT Hub dans vos messages en suivant le guide de développement [créer et lire les messages IoT Hub](iot-hub-devguide-messages-construct.md). Ensuite, modifiez les propriétés de protocole dans les messages MQTT/AMQP pour ajouter `tracestate` comme **propriété système**. Plus précisément :
+Tout d’abord, vous devez implémenter toutes les primitives de protocole IoT Hub dans vos messages en suivant le guide de développement [Créer et lire des messages IoT Hub](iot-hub-devguide-messages-construct.md). Ensuite, modifiez les propriétés de protocole dans les messages MQTT/AMQP pour ajouter `tracestate` en tant que **propriété système**. Plus précisément :
 
-* Pour MQTT, ajoutez `%24.tracestate=timestamp%3d1539243209` à la rubrique de message, où `1539243209` doit être remplacé par l’heure de création du message dans le format d’horodatage unix. Par exemple, reportez-vous à l’implémentation [dans le Kit de développement logiciel C](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/iothubtransport_mqtt_common.c#L761)
-* Pour AMQP, ajoutez `key("tracestate")` et `value("timestamp=1539243209")` comme annotation du message. Pour une implémentation de référence, consultez [ici](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/uamqp_messaging.c#L527).
+* Pour MQTT, ajoutez `%24.tracestate=timestamp%3d1539243209` à la rubrique du message, où `1539243209` doit être remplacé par l’heure de création du message dans le format d’horodatage unix. Pour consulter un exemple, reportez-vous à l’implémentation [dans le Kit de développement logiciel (SDK) C](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/iothubtransport_mqtt_common.c#L761)
+* Pour AMQP, ajoutez `key("tracestate")` et `value("timestamp=1539243209")` en tant qu’annotation de message. Pour consulter une implémentation de référence, reportez-vous [ici](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/uamqp_messaging.c#L527).
 
 Pour contrôler le pourcentage de messages contenant cette propriété, implémentez une logique qui écoute les événements initiés par le cloud, tels que les mises à jour des jumeaux.
 
@@ -191,7 +191,7 @@ Pour modifier le pourcentage de messages devant être suivis à partir du cloud,
 
 1. Cliquez sur votre appareil.
 
-1. Recherchez **Activer le traçage distribué (préversion)**, puis sélectionnez **Activer**.
+1. Recherchez **Activer le traçage distribué (préversion)** , puis sélectionnez **Activer**.
 
     ![Activer le traçage distribué dans le portail Azure](./media/iot-hub-distributed-tracing/azure-portal.png)
 
@@ -242,8 +242,8 @@ Pour mettre à jour la configuration d’échantillonnage du traçage distribué
 
 | Nom de l'élément | Obligatoire | Type | Description |
 |-----------------|----------|---------|-----------------------------------------------------|
-| `sampling_mode` | Oui | Entier  | Deux valeurs de mode sont prises en charge pour activer et désactiver l’échantillonnage. `1` signifie Activé et `2` signifie Désactivé. |
-| `sampling_rate` | Oui | Entier  | Cette valeur est un pourcentage. Seules les valeurs de `0` à `100` (inclus) sont autorisées.  |
+| `sampling_mode` | OUI | Entier | Deux valeurs de mode sont prises en charge pour activer et désactiver l’échantillonnage. `1` signifie Activé et `2` signifie Désactivé. |
+| `sampling_rate` | OUI | Entier | Cette valeur est un pourcentage. Seules les valeurs de `0` à `100` (inclus) sont autorisées.  |
 
 ## <a name="query-and-visualize"></a>Interroger et visualiser
 

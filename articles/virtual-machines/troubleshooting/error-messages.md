@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 5/22/2017
 ms.author: xujing
 ms.openlocfilehash: 5945be210812a6cbc24c9a3bb12414be5212be17
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60711201"
 ---
 # <a name="understand-common-error-messages-when-you-manage-virtual-machines-in-azure"></a>Présentation des messages d’erreur courants lors de la gestion des machines virtuelles dans Azure
@@ -99,8 +99,8 @@ Cette section répertorie les messages d’erreur pouvant apparaître lors de la
 |  InvalidParameter  |  Le mot de passe fourni doit comprendre entre {0} et {1} caractères et doit satisfaire au moins {2} des exigences suivantes en termes de complexité de mot de passe : <ol><li> Contient une majuscule.</li><li>Contient une minuscule.</li><li>Contient un chiffre.</li><li>Contient un caractère spécial.</li></ol>  |
 |  InvalidParameter  |  Le nom d’utilisateur spécifié pour l’administrateur n’est pas autorisé.  |
 |  InvalidParameter  |  Impossible d’attacher un disque de système d’exploitation existant si la machine virtuelle est créée à partir d’une image de plateforme ou d’utilisateur.  |
-|  InvalidParameter  |  Le nom de conteneur {0} n’est pas valide. Les noms de conteneur doivent comporter 3 à 63 caractères, lesquels ne peuvent être que des caractères alphanumériques minuscules et un tiret. Trait d’union doit être précédé et suivi par un caractère alphanumérique.  |
-|  InvalidParameter  |  Le nom de conteneur {0} dans l’URL {1} n’est pas valide. Les noms de conteneur doivent comporter 3 à 63 caractères, lesquels ne peuvent être que des caractères alphanumériques minuscules et un tiret. Trait d’union doit être précédé et suivi par un caractère alphanumérique.  |
+|  InvalidParameter  |  Le nom de conteneur {0} n’est pas valide. Les noms de conteneur doivent comporter 3 à 63 caractères, lesquels ne peuvent être que des caractères alphanumériques minuscules et un tiret. Le tiret doit être précédé et suivi d’un caractère alphanumérique.  |
+|  InvalidParameter  |  Le nom de conteneur {0} dans l’URL {1} n’est pas valide. Les noms de conteneur doivent comporter 3 à 63 caractères, lesquels ne peuvent être que des caractères alphanumériques minuscules et un tiret. Le tiret doit être précédé et suivi d’un caractère alphanumérique.  |
 |  InvalidParameter  |  Le nom de l’objet blob indiqué dans l’URL {0} contient une barre oblique. Pour le moment, ce n’est pas pris en charge pour les disques.  |
 |  InvalidParameter  |  L’URI {0} ne semble pas être un URI d’objet blob correct.  |
 |  InvalidParameter  |  Un disque nommé « {0} » utilise déjà le même LUN : {1}.  |

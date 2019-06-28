@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 8/24/2018
 ms.author: pkc
 ms.openlocfilehash: a931de8be07d41cf4daab63aa7691973ee158452
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60545059"
 ---
 # <a name="azure-service-fabric-support-options"></a>Options de support d’Azure Service Fabric
@@ -35,9 +35,9 @@ Pour en savoir plus :
 - [Support Premier Microsoft](https://support.microsoft.com/en-us/premier).
 
 > [!Note]
-> Clusters s’exécutant sur un niveau de fiabilité bronze permettent d’exécuter des charges de travail de test uniquement. Si vous rencontrez des problèmes avec un cluster en cours d’exécution sur la fiabilité bronze, l’équipe de support Microsoft vous aide à atténuer le problème, mais il n’effectuera pas une analyse de Cause racine. Reportez-vous à [les caractéristiques de fiabilité du cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster) pour plus d’informations.
+> Les clusters s’exécutant sur un niveau de fiabilité bronze permettent uniquement d’exécuter des charges de travail de test. Si vous rencontrez des problèmes avec un cluster en cours d’exécution sur la fiabilité bronze, l’équipe du support technique de Microsoft vous aidera à atténuer le problème, mais elle n’effectuera pas d’analyse de la cause racine. Pour plus d’informations, reportez-vous à [Caractéristiques de fiabilité du cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster).
 >
-> Pour plus d’informations sur ce qui est nécessaire pour un cluster prêt pour la production, reportez-vous à la [liste de contrôle de production readiness](https://docs.microsoft.com/azure/service-fabric/service-fabric-production-readiness-checklist).
+> Pour de plus amples renseignements sur les conditions exigées lors de la mise en service d’un cluster en production, reportez-vous à la [check-list de préparation à la production](https://docs.microsoft.com/azure/service-fabric/service-fabric-production-readiness-checklist).
 
 <a id="getlivesitesupportonprem"></a>
 

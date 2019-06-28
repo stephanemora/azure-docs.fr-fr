@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: e9b1cc8b66be36a0a77118f4de672c9411433ba5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60743653"
 ---
 # <a name="introducing-the-service-fabric-cluster-resource-manager"></a>Présentation de Service Fabric Cluster Resource Manager
@@ -54,7 +54,7 @@ Bien que certaines de ces stratégies présentent un intérêt, Service Fabric C
 Étant donné que Cluster Resource Manager est responsable du déplacement des services, il contient un ensemble de fonctionnalités différentes par rapport à ce que vous trouveriez dans un équilibrage de charge réseau. Les équilibreurs de charge réseau acheminent le trafic réseau à des services déjà présents, même si leur emplacement n’est pas idéal pour l’exécution du service proprement dit. Service Fabric Cluster Resource Manager utilise des stratégies très différentes pour s’assurer que les ressources dans le cluster sont utilisées efficacement.
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Pour plus d’informations sur le flux de l’architecture et les informations dans Cluster Resource Manager, consultez [cet article](service-fabric-cluster-resource-manager-architecture.md)
+- Pour plus d’informations sur l’architecture et le flux d’informations dans Cluster Resource Manager, consultez [cet article](service-fabric-cluster-resource-manager-architecture.md)
 - Cluster Resource Manager comporte de nombreuses options permettant de décrire le cluster. Pour en savoir plus sur ces mesures, consultez cet article sur la [description d’un cluster Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md).
 - Pour plus d’informations sur la configuration des services, consultez la rubrique [En savoir plus sur la configuration des services](service-fabric-cluster-resource-manager-configure-services.md)
 - Les métriques représentent la façon dont Service Fabric Cluster Resource Manager gère la consommation et la capacité du cluster. Pour en savoir plus sur ces mesures et la façon de les configurer, consultez [cet article](service-fabric-cluster-resource-manager-metrics.md)

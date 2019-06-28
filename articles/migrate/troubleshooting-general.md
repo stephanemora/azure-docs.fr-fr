@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: raynew
 ms.openlocfilehash: dff3c96cf3ac8eea7c1160ee1834cc70390c0333
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60533257"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Résoudre les problèmes d’Azure Migrate
@@ -80,7 +80,7 @@ Si vous ne pouvez pas exporter le rapport d’évaluation à partir du portail, 
 
 4. Une fois le rapport téléchargé, utilisez Excel pour parcourir le dossier téléchargé et ouvrez le fichier dans Excel pour le consulter.
 
-### <a name="performance-data-for-cpu-memory-and-disks-is-showing-up-as-zeroes"></a>Données de performances pour le processeur, mémoire et disques ne s’affichent sous forme de zéros
+### <a name="performance-data-for-cpu-memory-and-disks-is-showing-up-as-zeroes"></a>Les données de performances pour le processeur, la mémoire et les disques s’affichent sous forme de zéros
 
 Azure Migrate profile en continu l’environnement local pour collecter des données sur les performances des machines virtuelles locales. Si vous venez de démarrer la détection de votre environnement, attendez au moins un jour le temps de collecter suffisamment de données de performances. Si vous créez une évaluation sans respecter ce délai d’un jour, les métriques de performances s’afficheront sous forme de zéros. Après un jour de collecte, vous pouvez créer une évaluation ou mettre à jour l’évaluation existante à l’aide de l’option « Recalculer » disponible dans le rapport d’évaluation.
 
@@ -102,9 +102,9 @@ Vous pouvez accéder à la section **Bases** de la page **Vue d’ensemble** du 
    - Cliquez sur Fichier > Déployer un modèle OVF > Parcourir. Recherchez le fichier OVA et terminez le déploiement.
 4. Si le déploiement échoue toujours, contactez le support Azure Migrate.
 
-### <a name="unable-to-select-the-azure-cloud-in-the-appliance-fails-with-error-azure-cloud-selection-failed"></a>Impossible de sélectionner le Azure cloud dans l’appliance, échoue avec l’erreur « Échec de la sélection en nuage Azure »
+### <a name="unable-to-select-the-azure-cloud-in-the-appliance-fails-with-error-azure-cloud-selection-failed"></a>Impossible de sélectionner cloud Azure dans l’appliance, cette opération échoue avec l’erreur « La sélection du cloud Azure a échoué »
 
-Il s’agit d’un problème connu et un correctif est disponible pour le problème. Téléchargez le [dernière mise à niveau des bits](https://docs.microsoft.com/azure/migrate/concepts-collector-upgrade#continuous-discovery-upgrade-versions) pour l’appliance et la mise à jour de l’appliance à appliquer le correctif.
+Il s’agit d’un problème connu et un correctif est disponible pour le résoudre. Téléchargez la [dernière mise à niveau](https://docs.microsoft.com/azure/migrate/concepts-collector-upgrade#continuous-discovery-upgrade-versions) de l’appliance, puis mettez à jour l’appliance pour appliquer le correctif.
 
 ### <a name="collector-is-not-able-to-connect-to-the-internet"></a>Le collecteur ne parvient pas à se connecter à Internet
 
@@ -167,27 +167,27 @@ Ce problème peut être lié à l’installation de VMware PowerCLI. Suivez les 
 
    e. Double-cliquez sur le raccourci sur le Bureau « Run collector (Exécuter le collecteur) » pour démarrer l’application de collecteur. L’application de collecteur doit automatiquement télécharger et installer la version requise de PowerCLI.
 
-3. Si la méthode ci-dessus ne résout pas le problème, suivez les étapes une à c ci-dessus, puis installez manuellement PowerCLI dans l’appliance en procédant comme suit :
+3. Si la méthode ci-dessus ne résout pas le problème, suivez les étapes A à C de la procédure précédente, puis installez manuellement PowerCLI dans l’appliance en procédant comme suit :
 
-   a. Nettoyer PowerCLI incomplète de tous les fichiers d’installation en suivant les étapes #a à #c à l’étape #2 ci-dessus.
+   a. Nettoyez tous les fichiers d’installation PowerCLI incomplets en suivant les étapes #a à #c dans la procédure #2 précédente.
 
-   b. Cliquez sur Démarrer > Exécuter > Open PowerShell(x86) Windows en mode administrateur
+   b. Cliquez sur Démarrer > Exécuter > Ouvrir Windows PowerShell(x86) en mode administrateur
 
-   c. Exécutez la commande suivante :  Install-Module « VMWare.VimAutomation.Core » - RequiredVersion « 6.5.2.6234650 » (type « A » lorsqu’il demande confirmation)
+   c. Exécutez la commande suivante :  Install-Module "VMWare.VimAutomation.Core" -RequiredVersion "6.5.2.6234650" (tapez « A » lorsque l’invite vous demande de confirmer)
 
    d. Redémarrez le service « Azure Migrate Collector » dans le Gestionnaire de services Windows (ouvrez « Exécuter » et tapez « services.msc » pour ouvrir le Gestionnaire de services Windows). Cliquez avec le bouton droit sur le service Azure Migrate Collector et cliquez sur Démarrer.
 
    e. Double-cliquez sur le raccourci sur le Bureau « Run collector (Exécuter le collecteur) » pour démarrer l’application de collecteur. L’application de collecteur doit automatiquement télécharger et installer la version requise de PowerCLI.
 
-4. Si vous ne parvenez pas à télécharger le module dans l’appliance en raison de problèmes de pare-feu, téléchargez et installez le module dans un ordinateur qui a accès à internet en procédant comme suit :
+4. Si des problèmes de pare-feu vous empêchent de télécharger le module dans l’appliance, veuillez télécharger et installer le module dans un ordinateur qui a accès à Internet en procédant comme suit :
 
-    a. Nettoyer PowerCLI incomplète de tous les fichiers d’installation en suivant les étapes #a à #c à l’étape #2 ci-dessus.
+    a. Nettoyez tous les fichiers d’installation PowerCLI incomplets en suivant les étapes #a à #c dans la procédure #2 précédente.
 
-    b. Cliquez sur Démarrer > Exécuter > Open PowerShell(x86) Windows en mode administrateur
+    b. Cliquez sur Démarrer > Exécuter > Ouvrir Windows PowerShell(x86) en mode administrateur
 
-    c. Exécutez la commande suivante :  Install-Module « VMWare.VimAutomation.Core » - RequiredVersion « 6.5.2.6234650 » (type « A » lorsqu’il demande confirmation)
+    c. Exécutez la commande suivante :  Install-Module "VMWare.VimAutomation.Core" -RequiredVersion "6.5.2.6234650" (tapez « A » lorsque l’invite vous demande de confirmer)
 
-    d. Copiez tous les modules commençant par « VMware » à partir de « C:\Program Files (x86) \WindowsPowerShell\Modules » au même emplacement sur la machine virtuelle collector.
+    d. Copiez et collez tous les modules commençant par « VMware » à partir de « C:\Program Files (x86)\WindowsPowerShell\Modules » dans le même emplacement sur la machine virtuelle du collecteur.
 
     e. Redémarrez le service « Azure Migrate Collector » dans le Gestionnaire de services Windows (ouvrez « Exécuter » et tapez « services.msc » pour ouvrir le Gestionnaire de services Windows). Cliquez avec le bouton droit sur le service Azure Migrate Collector et cliquez sur Démarrer.
 
@@ -247,14 +247,14 @@ La liste des systèmes d’exploitation Windows pris en charge par l’agent de 
 La liste des systèmes d’exploitation Linux pris en charge par l’agent de dépendances est disponible [ici](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
 
 ### <a name="i-am-unable-to-visualize-dependencies-in-azure-migrate-for-more-than-one-hour-duration"></a>Je n’arrive pas à visualiser des dépendances dans Azure Migrate pour une durée supérieure à une heure ?
-Azure Migrate vous permet de visualiser des dépendances pour une durée maximale d’une heure. Même si Azure Migrate vous permet de revenir en arrière dans l’historique jusqu’à une date spécifique sur une période d’un mois, la durée maximale pour laquelle vous pouvez visualiser des dépendances est 1 heure. Par exemple, vous pouvez utiliser la fonctionnalité de durée dans la carte des dépendances pour voir les dépendances d’hier, mais uniquement pour une fenêtre d’une heure. Toutefois, vous pouvez utiliser les journaux Azure Monitor pour [interroger les données de dépendance](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) pendant une durée plus longue.
+Azure Migrate vous permet de visualiser des dépendances pour une durée maximale d’une heure. Même si Azure Migrate vous permet de revenir en arrière dans l’historique jusqu’à une date spécifique sur une période d’un mois, la durée maximale pour laquelle vous pouvez visualiser des dépendances est 1 heure. Par exemple, vous pouvez utiliser la fonctionnalité de durée dans la carte des dépendances pour voir les dépendances d’hier, mais uniquement pour une fenêtre d’une heure. Vous pouvez aussi utiliser les journaux d’activité Azure Monitor pour [interroger les données de dépendance](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) sur une plus longue durée.
 
 ### <a name="i-am-unable-to-visualize-dependencies-for-groups-with-more-than-10-vms"></a>Je n’arrive pas à visualiser les dépendances de groupes ayant plus de 10 machines virtuelles ?
 Vous pouvez [visualiser les dépendances de groupes](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) ayant 10 machines virtuelles maximum. Si vous avez ce type de groupe, nous vous recommandons de diviser le groupe en groupes plus petits pour visualiser les dépendances.
 
 ### <a name="i-installed-agents-and-used-the-dependency-visualization-to-create-groups-now-post-failover-the-machines-show-install-agent-action-instead-of-view-dependencies"></a>J’ai installé des agents et utilisé la visualisation des dépendances pour créer des groupes. Maintenant, après le basculement, les machines affichent l’action « Installer l’agent » au lieu de « Afficher les dépendances ».
 * Après un basculement planifié ou non planifié, les machines sur site sont désactivées et les machines équivalentes sont lancées dans Azure. Ces machines acquièrent une adresse MAC différente. Elles peuvent acquérir une adresse IP différente selon que l'utilisateur a choisi de conserver ou non l'adresse IP sur site. Si les adresses MAC et IP diffèrent, Azure Migrate n'associe pas les machines sur site avec les données de dépendance Service Map et demande à l'utilisateur d'installer des agents au lieu d'afficher les dépendances.
-* Après un basculement de test, les machines sur site restent activées comme prévu. Les machines équivalentes lancées dans Azure acquièrent une adresse MAC différente et peuvent acquérir une adresse IP différente. À moins que les blocs utilisateur sortants Azure Monitor enregistre le trafic provenant de ces machines, Azure Migrate n’associe pas les machines sur site avec les données de dépendance Service Map et demande à l’utilisateur pour installer des agents au lieu d’afficher les dépendances.
+* Après un basculement de test, les machines sur site restent activées comme prévu. Les machines équivalentes lancées dans Azure acquièrent une adresse MAC différente et peuvent acquérir une adresse IP différente. À moins que l’utilisateur ne bloque le trafic des journaux Azure Monitor provenant de ces machines, Azure Migrate n’associe pas les machines locales aux données de dépendance Service Map et demande à l’utilisateur d’installer des agents au lieu d’afficher les dépendances.
 
 ## <a name="troubleshoot-azure-readiness-issues"></a>Résoudre les problèmes de disponibilité Azure
 
@@ -286,7 +286,7 @@ Impossible de déterminer l'adéquation pour un ou plusieurs adaptateurs réseau
 
 ## <a name="collect-logs"></a>Collecter les journaux d’activité
 
-**Comment collecter des journaux sur la machine virtuelle du collecteur ?**
+**Comment collecter des journaux d’activité sur la machine virtuelle du collecteur ?**
 
 La journalisation est activée par défaut. Les journaux d’activité se trouvent dans les emplacements suivants :
 
@@ -299,7 +299,7 @@ Pour collecter le suivi d'événements pour Windows, procédez comme suit :
 1. Sur la machine virtuelle du collecteur, ouvrez une fenêtre de commande PowerShell.
 2. Exécutez **Get-EventLog -LogName Application | export-csv eventlog.csv**.
 
-**Comment collecter les journaux du trafic réseau du portail ?**
+**Comment collecter les journaux d’activité du trafic réseau du portail ?**
 
 1. Ouvrez le navigateur et connectez-vous [au portail](https://portal.azure.com).
 2. Appuyez sur F12 pour démarrer les outils de développement. Si nécessaire, désactivez le paramètre **Effacer les entrées lors de la navigation**.

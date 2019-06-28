@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: anroth
 ms.openlocfilehash: 85abc4a50710629d3485d05115698e59a93fc96e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60995614"
 ---
 # <a name="limits-and-quotas"></a>Limites et quotas
@@ -30,8 +30,8 @@ Le nombre d’images d’apprentissage par projet et le nombre de balises par pr
 |Prédictions/mois|10 000 |Illimité|
 |Balises/projet|50|500|
 |Itérations |10|10|
-|Min étiqueté images par balise, Classification (50 + recommandé) |5.|5.|
-|Min étiqueté images par balise, détection d’objets (50 + recommandé)|15|15|
+|Nombre minimal d’images étiquetées par balise, classification (recommandation : plus de 50) |5\.|5\.|
+|Nombre minimal d’images étiquetées par balise, détection d’objets (recommandation : plus de 50)|15|15|
 |Durée de stockage des images de prédiction|30 jours|30 jours|
 |Opérations de [prédiction](https://go.microsoft.com/fwlink/?linkid=865445) avec stockage (transactions par seconde)|2|10|
 |Opérations de [prédiction](https://go.microsoft.com/fwlink/?linkid=865445) sans stockage (transactions par seconde)|2|20|

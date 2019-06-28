@@ -102,7 +102,7 @@ L’extrait JSON suivant montre le schéma de la section des paramètres de l’
 | ---- | ---- | ---- |
 | apiVersion | 01-10-2018 | date |
 | publisher | Microsoft.Powershell.DSC | string |
-| Type | DSC | string |
+| type | DSC | string |
 | typeHandlerVersion | 2.77 | int |
 
 ### <a name="settings-property-values"></a>Valeurs de la propriété Settings

@@ -9,100 +9,100 @@ ms.date: 03/18/2019
 ms.topic: conceptual
 manager: peterpr
 ms.openlocfilehash: ec7033719316bb186408ea78f6dabac43c383491
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60519359"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Créer et exécuter un travail dans votre application Azure IoT Central
 
-Vous pouvez utiliser Microsoft Azure IoT Central pour gérer vos appareils connectés à grande échelle à l’aide de travaux. Tâches vous permettent d’effectuer des mises à jour des propriétés de l’appareil, les paramètres et les commandes en bloc. Cet article vous guide tout au long de la prise en main à l’aide de travaux dans votre propre application.
+Vous pouvez utiliser Microsoft Azure IoT Central pour gérer vos appareils connectés à grande échelle à l’aide de travaux. Les travaux vous permettent d’effectuer des mises à jour en bloc sur les propriétés, les paramètres et les commandes des appareils. Cet article vous initie à l’utilisation de travaux dans votre propre application.
 
 ## <a name="create-and-run-a-job"></a>Créer et exécuter un travail
 
-Cette section vous montre comment créer et exécuter un travail. Il vous montre comment augmenter la vitesse de ventilateur pour plusieurs distributeurs réfrigérés.
+Cette section vous montre comment créer et exécuter un travail. Il vous montre comment augmenter la vitesse du ventilateur pour plusieurs distributeurs réfrigérés.
 
 1. Accédez à Travaux à partir du volet de navigation.
 
-1. Sélectionnez **+ nouveau** pour créer une nouvelle tâche.
+1. Sélectionnez **+ Nouveau** pour créer un travail.
 
     ![Créer un travail](./media/howto-run-a-job/createnewjob.png)
 
-1. Entrez un nom et une description pour identifier la tâche que vous créez.
+1. Entrez un nom et une description pour identifier le travail que vous créez.
 
-1. Sélectionnez l’ensemble de l’appareil que vous souhaitez appliquer à votre travail. Une fois que la valeur en sélectionnant l’appareil, consultez la partie droite remplir avec les appareils dans l’ensemble de l’appareil. Si vous sélectionnez un ensemble de périphériques rompue, aucun appareil n’affiche et vous voyez un message que votre ensemble de l’appareil est rompue.
+1. Sélectionnez l’ensemble d’appareils auquel vous voulez appliquer votre travail. Les appareils appartenant à cet ensemble d’appareils apparaissent alors sur le côté droit. Si vous sélectionnez un ensemble d’appareils incomplet, aucun appareil n’apparaît et vous voyez un message indiquant que votre ensemble d’appareils est incomplet.
 
-1. Ensuite, choisissez le type de travail à définir (un paramètre, la propriété ou la commande). Sélectionnez **+** en regard du type de travail sélectionné et ajoutez vos opérations.
+1. Ensuite, choisissez le type de travail à définir (un paramètre, une propriété ou une commande). Sélectionnez **+** en regard du type de travail sélectionné et ajoutez vos opérations.
 
     ![Configurer le travail](./media/howto-run-a-job/configurejob.png)
 
-1. Sur le côté droit, choisissez les appareils que vous souhaitez exécuter le travail. En sélectionnant la case à cocher top, tous les appareils sont sélectionnés dans l’ensemble de l’ensemble de l’appareil. En sélectionnant la case à cocher près de **nom**, tous les appareils sur la page actuelle sont sélectionnés.
+1. Sur le côté droit, choisissez les appareils sur lesquels vous voulez exécuter le travail. Si vous cochez la case du haut, tous les appareils de l’ensemble d’appareils sont sélectionnés. Si vous cochez la case en regard de **Nom**, tous les appareils présents sur la page actuelle sont sélectionnés.
 
-1. Après avoir sélectionné vos appareils, choisissez **exécuter** ou **enregistrer**. Le travail apparaît maintenant sur votre main **travaux** page. Sur cette vue, vous pouvez voir votre travail en cours d’exécution et l’historique de n’importe quel précédemment exécuter des tâches. Votre travail en cours d’exécution apparaît toujours en haut de la liste. Votre travail enregistré peut être ouvert à nouveau à tout moment pour continuer à modifier ou à exécuter.
+1. Après avoir sélectionné vos appareils, choisissez **Exécuter** ou **Enregistrer**. Le travail apparaît maintenant dans la page **Travaux** principale. Dans cette vue, vous pouvez voir le travail en cours d’exécution et l’historique des travaux déjà exécutés. Le travail en cours d’exécution apparaît toujours en haut de la liste. Votre travail enregistré peut être ouvert à nouveau à tout moment pour être modifié ou exécuté.
 
     ![Afficher le travail](./media/howto-run-a-job/viewjob.png)
 
     > [!NOTE]
-    > Vous pouvez afficher l’historique de vos travaux exécutés précédemment pendant 30 jours.
+    > Vous pouvez voir l’historique des derniers travaux exécutés sur une période maximale de 30 jours.
 
-1. Pour obtenir une vue d’ensemble de votre travail, sélectionnez la tâche à afficher dans la liste. Cette vue d’ensemble contient les détails du travail, les appareils et les valeurs d’état de périphérique. Cette vue d’ensemble, vous pouvez également sélectionner **détails du travail de téléchargement** pour télécharger un fichier .csv des détails de votre travail, y compris les appareils et leurs valeurs d’état. Ces informations peuvent être utiles pour le dépannage.
+1. Pour obtenir une vue d’ensemble de votre travail, sélectionnez le travail à afficher dans la liste. Cette vue d’ensemble contient les détails du travail, ainsi que les noms et les états des appareils. Dans cette vue d’ensemble, vous pouvez également sélectionner **Détails du travail de téléchargement** pour télécharger un fichier .csv des détails de votre travail, notamment les appareils et les valeurs de leur état. Ces informations peuvent être utiles pour le dépannage.
 
     ![Afficher l’état de l’appareil](./media/howto-run-a-job/downloaddetails.png)
 
 ### <a name="stop-a-running-job"></a>Arrêter un travail en cours d’exécution
 
-Pour arrêter une tâche en cours d’exécution, sélectionnez-la et choisissez **arrêter** sur le panneau de configuration. Les changements d’état de travail afin de refléter que la tâche est arrêtée.
+Pour arrêter un travail en cours d’exécution, sélectionnez-la et choisissez **Arrêter** sur le panneau. L’état du travail change pour indiquer qu’il est arrêté.
 
    ![Arrêter une tâche](./media/howto-run-a-job/stopjob.png)
 
 ### <a name="run-a-stopped-job"></a>Exécuter une tâche arrêtée
 
-Pour exécuter une tâche qui est actuellement arrêtée, sélectionnez le travail arrêté. Choisissez **exécuter** sur le panneau de configuration. Les changements d’état de travail pour refléter le travail s’exécute désormais à nouveau.
+Pour exécuter un travail qui est actuellement arrêté, sélectionnez-le. Choisissez **Exécuter** sur le panneau. L’état du travail change pour indiquer qu’il est à nouveau en cours d’exécution.
 
    ![Tâche reprise](./media/howto-run-a-job/resumejob.png)
 
-## <a name="copy-a-job"></a>Une tâche de copie
+## <a name="copy-a-job"></a>Copier un travail
 
-Pour copier un travail existant que vous avez créé, sélectionnez-le dans la page principale de travaux et sélectionnez **copie**. Une nouvelle copie de la configuration du travail s’ouvre pour vous permettre de modifier. Vous pouvez enregistrer ou d’exécuter la nouvelle tâche. Si des modifications ont été apportées dans votre jeu de périphérique sélectionné, ils sont reflétés dans ce travail copié, vous pouvez modifier.
+Pour copier un travail existant que vous avez créé, sélectionnez-le dans la page principale des travaux et sélectionnez **Copier**. Une nouvelle copie de la configuration du travail s’ouvre pour vous permettre de la modifier. Vous pouvez enregistrer ou d’exécuter le nouveau travail. Si des modifications ont été apportées à votre ensemble d’appareils sélectionné, elles sont reflétées dans ce travail copié que vous pouvez modifier.
 
-   ![travail de copie](./media/howto-run-a-job/copyjob.png)
+   ![Copier un travail](./media/howto-run-a-job/copyjob.png)
 
 ## <a name="view-the-job-status"></a>Afficher l’état d’un travail
 
-Après la création d’un travail, le **état** mises à jour de la colonne avec le dernier message d’état du travail. Le tableau suivant répertorie les valeurs d’état possibles :
+Une fois qu’un travail a été créé, la colonne **État** est mise à jour avec le dernier message d’état du travail. Le tableau suivant liste les valeurs d’état possibles :
 
 | Message d’état       | Signification de l’état                                          |
 | -------------------- | ------------------------------------------------------- |
 | Completed            | Ce travail a été exécuté sur tous les appareils.              |
 | Échec               | Ce travail a échoué et n’a pas été entièrement exécuté sur les appareils.  |
-| Pending              | Ce travail n’a pas encore commencé l’exécution sur les appareils.         |
+| Pending              | Ce travail n’a pas encore commencé à s’exécuter sur les appareils.         |
 | Exécution              | Ce travail est en cours d’exécution sur les appareils.             |
 | Arrêté              | Ce travail a été arrêté manuellement par un utilisateur.           |
 
-Le message d’état est suivi d’une vue d’ensemble des appareils dans le travail. Le tableau suivant répertorie les valeurs d’état possibles de l’appareil :
+Le message d’état est suivi d’une vue d’ensemble des appareils au sein du travail. Le tableau suivant liste les valeurs d’état possibles des appareils :
 
 | Message d’état       | Signification de l’état                                                     |
 | -------------------- | ------------------------------------------------------------------ |
-| Succeeded            | Le nombre d’appareils qui la tâche exécutée avec succès sur.       |
-| Échec               | Le nombre d’appareils qui la tâche a échoué à s’exécuter sur.       |
+| Succeeded            | Nombre d’appareils sur lesquels le travail s’est exécuté correctement.       |
+| Échec               | Nombre d’appareils sur lesquels l’exécution du travail a échoué.       |
 
 ### <a name="view-the-device-status"></a>Afficher l’état des appareils
 
-Pour afficher l’état du travail et tous les périphériques affectés, sélectionnez la tâche. Pour télécharger un fichier .csv qui contient les détails du travail, y compris la liste des appareils et leurs valeurs d’état, sélectionnez **télécharger les détails d’une tâche**. En regard de chaque nom de l’appareil, vous constatez l’un des messages d’état suivants :
+Pour voir l’état du travail et tous les appareils affectés, sélectionnez le travail. Pour télécharger un fichier .csv des détails de votre travail, avec la liste des appareils et les valeurs de leur état, sélectionnez **Détails du travail de téléchargement**. En regard du nom de chaque appareil, vous voyez un des messages d’état suivants :
 
 | Message d’état       | Signification de l’état                                                                |
 | -------------------- | ----------------------------------------------------------------------------- |
 | Completed            | Le travail a été exécuté sur cet appareil.                                     |
-| Échec               | Le travail n’a pas pu être exécuté sur cet appareil. Le message d’erreur affiche plus d’informations.  |
-| Pending              | Le travail n’a pas encore été exécutée sur cet appareil.                                   |
+| Échec               | Le travail n’a pas pu être exécuté sur cet appareil. Le message d’erreur montre plus d’informations.  |
+| Pending              | Le travail n’a pas encore été exécuté sur cet appareil.                                   |
 
 > [!NOTE]
-> Si un appareil a été supprimé, vous ne pouvez pas sélectionner l’appareil et il s’affiche comme étant supprimé avec l’ID de périphérique.
+> Si un appareil a été supprimé, vous ne pouvez pas le sélectionner et il apparaît comme étant supprimé avec mention de son ID.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez appris à créer des tâches dans votre application Azure IoT Central, voici quelques étapes suivantes :
+Maintenant que vous avez découvert comment créer des travaux dans votre application Azure IoT Central, voici les étapes suivantes :
 
 - [Utiliser des ensembles d’appareils](howto-use-device-sets.md)
 - [Gestion de vos appareils](howto-manage-devices.md)

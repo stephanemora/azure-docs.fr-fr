@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
 ms.openlocfilehash: 5299437dea18510fa5f85ee27240c8afc434d125
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61477261"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Forum aux questions (FAQ) relatives à l’exécution de SQL Server sur les machines virtuelles Windows dans Azure
@@ -50,13 +50,13 @@ Cet article fournit des réponses à certaines des questions les plus courantes 
    Oui. Azure gère uniquement une image par version majeure et édition. Par exemple, quand un nouveau Service Pack SQL Server est publié, Azure ajoute une nouvelle image à la galerie pour ce Service Pack. L’image SQL Server pour le Service Pack précédent est immédiatement supprimée du portail Azure. Toutefois, elle est toujours disponible pour le provisionnement à partir de PowerShell pour les trois prochains mois. Après trois mois, l’image du Service Pack précédent n’est plus disponible. Cette stratégie de suppression s’applique également si une version SQL Server n’est plus prise en charge quand elle atteint la fin de son cycle de vie.
 
 
-1. **Il est possible de déployer une image plus anciennes de SQL Server qui n’est pas visible dans le portail Azure ?**
+1. **Est-il possible de déployer une image plus ancienne de SQL Server qui ne se trouve pas sur le portail Azure ?**
 
    Oui, en utilisant PowerShell. Pour plus d’informations sur le déploiement de machines virtuelles SQL Server à l’aide de PowerShell, consultez [Guide pratique pour provisionner des machines virtuelles SQL Server à l’aide d’Azure PowerShell](virtual-machines-windows-ps-sql-create.md).
 
 1. **Puis-je créer une image de disque dur virtuel à partir d’une machine virtuelle SQL Server ?**
 
-   Oui, mais il existe quelques considérations à prendre en compte. Si vous déployez ce disque dur virtuel sur une machine virtuelle dans Azure, vous n’obtenez pas la section de Configuration SQL Server dans le portail. Vous devez alors gérer les options de configuration SQL Server via PowerShell. En outre, vous serez facturé en fonction du taux de la machine virtuelle SQL sur laquelle votre image était basée à l’origine. Ceci s’applique même si vous supprimez SQL Server à partir du disque dur virtuel avant le déploiement. 
+   Oui, mais il existe quelques considérations à prendre en compte. Si vous déployez ce disque dur virtuel sur une nouvelle machine virtuelle dans Azure, la section Configuration de SQL Server ne s’affiche pas sur le portail. Vous devez alors gérer les options de configuration SQL Server via PowerShell. En outre, vous serez facturé en fonction du taux de la machine virtuelle SQL sur laquelle votre image était basée à l’origine. Ceci s’applique même si vous supprimez SQL Server à partir du disque dur virtuel avant le déploiement. 
 
 1. **Est-il possible de définir des configurations non affichées dans la galerie de machines virtuelles (par exemple, Windows 2008 R2 + SQL Server 2012) ?**
 
@@ -82,7 +82,7 @@ Cet article fournit des réponses à certaines des questions les plus courantes 
 
 1. **Dois-je payer une licence SQL Server sur une machine virtuelle Azure si elle est utilisée uniquement pour le mode veille ou le basculement ?**
 
-   Si vous disposez de Software Assurance et utilisez License Mobility comme décrit dans [FAQ sur les licences Virtual Machine](https://azure.microsoft.com/pricing/licensing-faq/), vous n’avez pas à payer pour une instance SQL Server participant en tant que réplica secondaire passif dans un déploiement haute disponibilité de la licence. Dans le cas contraire, vous devez payer une licence.
+   Si vous disposez de la Software Assurance et utilisez la mobilité de licence comme décrit dans les [FAQ concernant les licences des machines virtuelles](https://azure.microsoft.com/pricing/licensing-faq/), vous n’avez pas à payer de licence pour une instance SQL Server qui participe à un déploiement de haute disponibilité en tant que réplica secondaire passif. Dans le cas contraire, vous devez payer une licence.
 
 1. **Puis-je modifier une machine virtuelle pour utiliser ma propre licence SQL Server si elle a été créée à partir de l’une des images de la galerie avec paiement à l’utilisation ?**
 
@@ -111,11 +111,11 @@ Cet article fournit des réponses à certaines des questions les plus courantes 
  
    Oui. Tous les clients peuvent s’inscrire auprès du nouveau fournisseur de ressources de machine virtuelle SQL. Toutefois, seuls les clients avec l’avantage Software Assurance peuvent activer [Azure Hybrid Benefit (AHB)](https://azure.microsoft.com/pricing/hybrid-benefit/) (ou BYOL) sur une machine virtuelle SQL Server. 
 
-1. **Que se passe-t-il pour les _Microsoft.SqlVirtualMachine_ ressource si la ressource de machine virtuelle est déplacée ou supprimée ?** 
+1. **Que se passe-t-il pour la ressource _Microsoft.SqlVirtualMachine_ si la ressource de machine virtuelle est déplacée ou supprimée ?** 
 
    Quand la ressource Microsoft.Compute/VirtualMachine est supprimée ou déplacée, la ressource Microsoft.SqlVirtualMachine associée est alors notifiée pour répliquer l’opération de façon asynchrone.
 
-1. **Que se passe-t-il à la machine virtuelle si le _Microsoft.SqlVirtualMachine_ ressource est supprimée ?**
+1. **Que se passe-t-il pour la machine virtuelle si la ressource _Microsoft.SqlVirtualMachine_ est supprimée ?**
 
     La ressource Microsoft.Compute/VirtualMachine n’est pas impactée quand la ressource Microsoft.SqlVirtualMachine est supprimée. Toutefois, les changements de licence rétablissent par défaut la source d’image d’origine. 
 
@@ -127,19 +127,19 @@ Cet article fournit des réponses à certaines des questions les plus courantes 
 
 1. **Puis-je installer une seconde instance SQL Server sur la même machine virtuelle ? Puis-je modifier les fonctionnalités installées de l’instance par défaut ?**
 
-   Oui. Le support d’installation de SQL Server se trouve dans un dossier sur le lecteur **C** . Exécutez **Setup.exe** à partir de cet emplacement pour ajouter de nouvelles instances SQL Server ou pour modifier d’autres fonctionnalités SQL Server installées sur la machine. Notez que certaines fonctionnalités, telles que la sauvegarde automatisée, les correctifs automatiques et Azure Key Vault Integration fonctionnent uniquement sur l’instance par défaut ou instance une commande nommée qui a été configuré correctement (voir la Question 3). 
+   Oui. Le support d’installation de SQL Server se trouve dans un dossier sur le lecteur **C** . Exécutez **Setup.exe** à partir de cet emplacement pour ajouter de nouvelles instances SQL Server ou pour modifier d’autres fonctionnalités SQL Server installées sur la machine. Notez que certaines fonctionnalités comme la sauvegarde automatisée, la mise à jour corrective automatisée et Azure Key Vault Integration s’exécutent uniquement sur l’instance par défaut ou sur une instance nommée qui a été correctement configurée (voir la question 3). 
 
 1. **Puis-je désinstaller l’instance SQL Server par défaut ?**
 
-   Oui, mais il existe quelques considérations à prendre en compte. Comme indiqué dans la réponse précédente, il existe des fonctionnalités qui reposent sur le [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md).  Si vous désinstallez l’instance par défaut sans supprimer l’extension IaaS également, l’extension continue à chercher et peut générer des erreurs du journal des événements. Ces erreurs peuvent avoir deux sources : **Gestion des informations d’identification Microsoft SQL Server** et **Agent IaaS Microsoft SQL Server**. L’une des erreurs peut se présenter comme suit :
+   Oui, mais il existe quelques considérations à prendre en compte. Comme indiqué dans la réponse précédente, certaines fonctionnalités reposent sur l’[extension de l’agent IaaS SQL Server](virtual-machines-windows-sql-server-agent-extension.md).  Si vous désinstallez l’instance par défaut sans supprimer aussi l’extension IaaS, celle-ci continue de la rechercher et peut générer des erreurs dans le journal des événements. Ces erreurs peuvent avoir deux sources : **Gestion des informations d’identification Microsoft SQL Server** et **Agent IaaS Microsoft SQL Server**. L’une des erreurs peut se présenter comme suit :
 
       Une erreur liée au réseau ou propre à une instance s’est produite lors de l’établissement d’une connexion à SQL Server. Le serveur est introuvable ou inaccessible.
 
    Si vous décidez de désinstaller l’instance par défaut, vous devez également désinstaller [l’extension de l’agent IaaS SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
 
-1. **Puis-je utiliser une instance nommée de SQL Server avec l’extension IaaS**?
+1. **Puis-je utiliser une instance nommée de SQL Server avec l’extension IaaS** ?
    
-   Oui, si l’instance nommée est la seule instance sur le serveur SQL Server, et si l’instance par défaut d’origine a été [désinstallé correctement](../sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md#installation). S’il n’existe aucune instance par défaut et il existe plusieurs instances nommées sur une seule machine virtuelle de SQL Server, l’extension IaaS échoue à installer. 
+   Oui, si l’instance nommée est la seule instance sur SQL Server et si l’instance par défaut d’origine a été [désinstallé correctement](../sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md#installation). En l’absence d’instance par défaut et si plusieurs instances nommées sont présentes sur une même machine virtuelle SQL Server, l’extension IaaS échoue à l’installation. 
 
 1. **Puis-je supprimer complètement SQL Server d’une machine virtuelle SQL ?**
 
@@ -147,9 +147,9 @@ Cet article fournit des réponses à certaines des questions les plus courantes 
    
 ## <a name="updating-and-patching"></a>Mise à jour et mise à jour corrective
 
-1. **Comment modifier pour une nouvelle version/édition de SQL Server dans une machine virtuelle Azure ?**
+1. **Comment passer à une nouvelle version/édition de SQL Server dans une machine virtuelle Azure ?**
 
-   Les clients avec Software Assurance peuvent sur place les mises à niveau de leur SQL Server s’exécutant sur une machine virtuelle Azure à l’aide du support d’installation dans le portail de gestion des licences de Volume. Cependant, actuellement, il n’existe aucun moyen de modifier l’édition d’une instance de SQL Server. Créer une nouvelle machine virtuelle Azure avec l’édition de SQL Server souhaitée, puis migrez vos bases de données vers le nouveau serveur à l’aide de la norme [techniques de migration de données](virtual-machines-windows-migrate-sql.md).
+   Les clients avec Software Assurance peuvent effectuer des mises à niveau sur place de la version/édition de SQL Server dont ils disposent sur une machine virtuelle Azure en utilisant le support d’installation qui se trouve sur le portail de gestion des licences en volume. Cependant, il n’existe pour l’heure aucun moyen de changer l’édition d’une instance de SQL Server. Créez une machine virtuelle Azure avec l’édition de SQL Server souhaitée, puis migrez vos bases de données vers le nouveau serveur en employant les [techniques de migration de données](virtual-machines-windows-migrate-sql.md) standard.
 
 1. **Comment les mises à jour et les service packs sont-ils appliqués sur une machine virtuelle SQL Server ?**
 
@@ -172,9 +172,9 @@ Cet article fournit des réponses à certaines des questions les plus courantes 
 
     Téléchargez et installez les outils SQL Data à partir de [Microsoft SQL Server Data Tools - Business Intelligence pour Visual Studio 2013 ](https://www.microsoft.com/en-us/download/details.aspx?id=42313).
 
-1. **Sont des transactions distribuées avec MSDTC pris en charge sur les machines virtuelles SQL Server ?**
+1. **Les transactions distribuées avec MSDTC sont-elles prises en charge sur les machines virtuelles SQL Server ?**
    
-    Oui. DTC local est pris en charge pour SQL Server 2016 SP2 et supérieure. Toutefois, les applications doivent être testées lors de l’utilisation des groupes de disponibilité Always On, en tant que transactions en cours lors d’un basculement échoue et doit être retentée. DTC en cluster est disponible à partir de Windows Server 2019. 
+    Oui. Le DTC local est pris en charge pour SQL Server 2016 SP2 et versions ultérieures. Cependant, les applications utilisant des groupes de disponibilité AlwaysOn doivent être testées, car les transactions en cours au moment d’un basculement échouent et doivent être relancées. Le DTC en cluster est disponible à partir de Windows Server 2019. 
 
 ## <a name="resources"></a>Ressources
 

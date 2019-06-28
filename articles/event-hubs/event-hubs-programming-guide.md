@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: 29814cb8aef09a8ead30d6daa615554dd55135dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60764364"
 ---
 # <a name="programming-guide-for-azure-event-hubs"></a>Guide de programmation pour Azure Event Hubs
@@ -58,7 +58,7 @@ Vous envoyez des événements à un Event Hub en créant une instance [EventHubC
 
 ## <a name="event-serialization"></a>Sérialisation d'événement
 
-La classe [EventData][] comporte [deux constructeurs surchargés](/dotnet/api/microsoft.azure.eventhubs.eventdata.-ctor) qui utilisent un grand nombre de paramètres, des octets ou un tableau d’octets, qui représentent la charge utile des données d’événement. Lorsque vous utilisez JSON avec [EventData][], vous pouvez utiliser **Encoding.UTF8.GetBytes()** pour récupérer le tableau d'octets d'une chaîne encodée JSON. Par exemple : 
+La classe [EventData][] comporte [deux constructeurs surchargés](/dotnet/api/microsoft.azure.eventhubs.eventdata.-ctor) qui utilisent un grand nombre de paramètres, des octets ou un tableau d’octets, qui représentent la charge utile des données d’événement. Lorsque vous utilisez JSON avec [EventData][], vous pouvez utiliser **Encoding.UTF8.GetBytes()** pour récupérer le tableau d'octets d'une chaîne encodée JSON. Par exemple :
 
 ```csharp
 for (var i = 0; i < numMessagesToSend; i++)
@@ -107,10 +107,10 @@ Pour utiliser la classe [EventProcessorHost][], vous pouvez implémenter [IEvent
 * [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync)
 * [ProcessErrorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processerrorasync)
 
-Pour commencer le traitement des événements, vous devez instancier [EventProcessorHost][]en fournissant les paramètres appropriés pour votre concentrateur d'événements. Par exemple : 
+Pour commencer le traitement des événements, vous devez instancier [EventProcessorHost][]en fournissant les paramètres appropriés pour votre concentrateur d'événements. Par exemple :
 
 > [!NOTE]
-> EventProcessorHost et ses classes connexes sont mentionnées dans le **Microsoft.Azure.EventHubs.Processor** package. Ajoutez le package à votre projet Visual Studio en suivant les instructions dans [cet article](event-hubs-dotnet-framework-getstarted-send.md#add-the-event-hubs-nuget-package) ou en émettant la commande suivante dans le [Console du Gestionnaire de Package](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) fenêtre :`Install-Package Microsoft.Azure.EventHubs.Processor`.
+> EventProcessorHost et ses classes connexes sont mentionnées dans le package **Microsoft.Azure.EventHubs.Processor**. Ajoutez le package à votre projet Visual Studio en suivant les instructions fournies dans [cet article](event-hubs-dotnet-framework-getstarted-send.md#add-the-event-hubs-nuget-package) ou en émettant la commande suivante dans la fenêtre [Console du Gestionnaire de Package](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) :`Install-Package Microsoft.Azure.EventHubs.Processor`.
 
 ```csharp
 var eventProcessorHost = new EventProcessorHost(

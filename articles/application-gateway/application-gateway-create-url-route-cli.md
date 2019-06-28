@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.openlocfilehash: 061156a455664a5a3f0b4c4497d24f4e8ff6eea7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66135663"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-routing-rules-using-the-azure-cli"></a>Créer une passerelle d’application avec des règles d’acheminement par chemin d’accès URL à l’aide d’Azure CLI
@@ -232,11 +232,11 @@ az network public-ip show \
 
 ![Tester l’URL de base dans la passerelle d’application](./media/application-gateway-create-url-route-cli/application-gateway-nginx.png)
 
-Remplacez l’URL par `http://<ip-address>:8080/video/test.html` à la fin de l’URL de base et vous devriez voir quelque chose comme dans l’exemple suivant :
+Modifiez l’URL `http://<ip-address>:8080/video/test.html` à la fin de l’URL de base. Voici ce qui apparaît :
 
 ![Tester l’URL images dans la passerelle d’application](./media/application-gateway-create-url-route-cli/application-gateway-nginx-images.png)
 
-Remplacez l’URL par `http://<ip-address>:8080/video/test.html` et vous devez voir quelque chose comme l’exemple suivant.
+Modifiez l’URL `http://<ip-address>:8080/video/test.html` à la fin de l’URL de base. Voici ce qui apparaît :
 
 ![Tester l’URL vidéo dans la passerelle d’application](./media/application-gateway-create-url-route-cli/application-gateway-nginx-video.png)
 

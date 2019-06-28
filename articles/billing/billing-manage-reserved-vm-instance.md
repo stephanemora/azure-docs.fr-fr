@@ -13,36 +13,36 @@ ms.workload: na
 ms.date: 04/13/2019
 ms.author: banders
 ms.openlocfilehash: 9a5b200ffb9441b90875c7764786004ff5f1e8a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66127142"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Gérer les réservations pour les ressources Azure
 
-Une fois que vous achetez une réservation pour Azure, vous devrez peut-être appliquer cette réservation à un autre abonnement, modifier qui peut gérer la réservation, ou modifier l’étendue de la réservation. Vous pouvez également diviser une réservation en deux pour appliquer certaines des instances que vous avez achetées à un autre abonnement.
+Après avoir acheté une réservation Azure, il se peut que vous deviez l’appliquer à un autre abonnement, modifier la personne autorisée à la gérer, ou en modifier l’étendue. Vous pouvez également diviser une réservation en deux pour appliquer certaines des instances que vous avez achetées à un autre abonnement.
 
 Si vous avez acheté Azure Reserved Virtual Machine Instances, vous pouvez modifier le paramètre d’optimisation de la réservation. La remise sur la réservation peut s’appliquer à des machines virtuelles de la même série, ou vous pouvez réserver de la capacité du centre de données pour une taille de machine virtuelle spécifique.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="reservation-order-and-reservation"></a>Réservation et l’ordre de réservation
+## <a name="reservation-order-and-reservation"></a>Ordre de réservation et réservation
 
-Lorsque vous achetez d’une réservation, deux objets sont créés : **Ordre de réservation** et **réservation**.
+Lorsque vous achetez une réservation, deux objets sont créés : l’**ordre de réservation** et la **réservation**.
 
-Au moment de l’achat, un ordre de réservation a une réservation sous celui-ci. Créent des actions telles que le fractionnement, fusion, remboursement partiel ou exchange nouvelles réservations sous la **de réservation**.
+Au moment de l’achat, un ordre de réservation contient une réservation. Les actions telles que le fractionnement, la fusion, le remboursement partiel ou l’échange créent de nouvelles réservations dans l’**ordre de réservation**.
 
-Pour afficher une commande de réservation, accédez à **réservations** > sélectionnez la réservation, puis cliquez sur le **ID de commande de réservation**.
+Pour afficher un ordre de réservation, accédez à la section **Réservations**, sélectionnez la réservation, puis cliquez sur l’**ID d’ordre de réservation**.
 
-![Exemple de détails de commande de réservation indiquant l’ID de commande de réservation ](./media/billing-manage-reserved-vm-instance/reservation-order-details.png)
+![Exemple de détails d’ordre de réservation indiquant l’ID d’ordre de réservation ](./media/billing-manage-reserved-vm-instance/reservation-order-details.png)
 
 Une réservation hérite des autorisations de son ordre de réservation.
 
 ## <a name="change-the-reservation-scope"></a>Modifier l’étendue de réservation
 
- Votre remise de réservation s’applique aux machines virtuelles, bases de données SQL, Azure Cosmos DB ou autres ressources qui correspondent à votre réservation et l’exécutent dans l’étendue de réservation. Le contexte de facturation dépend de l’abonnement utilisé pour acheter la réservation.
+ Votre remise de réservation s’applique aux machines virtuelles, aux bases de données SQL, à Azure Cosmos DB ou à d’autres ressources qui correspondent à votre réservation et qui s’exécutent dans les limites de l’étendue de la réservation. Le contexte de facturation dépend de l’abonnement utilisé pour acheter la réservation.
 
 Pour mettre à jour l’étendue d’une réservation :
 
@@ -58,11 +58,11 @@ L’étendue s’applique uniquement aux abonnements MS-AZR-0003P ou MS-AZR-0023
 
 ## <a name="add-or-change-users-who-can-manage-a-reservation"></a>Ajouter ou modifier les utilisateurs qui peuvent gérer une réservation
 
-Vous pouvez déléguer la gestion de la réservation en ajoutant des utilisateurs aux rôles sur l’ordre de réservation ou la réservation. Par défaut, la personne qui place l’ordre de réservation et l’administrateur de compte ont le rôle de propriétaire sur l’ordre de réservation et la réservation.
+Vous pouvez déléguer la gestion des réservations en ajoutant des utilisateurs aux rôles de l’ordre de réservation ou de la réservation. Par défaut, la personne qui a acheté l’ordre de réservation et l’administrateur de compte disposent tous les deux du rôle de propriétaire sur la réservation et l’ordre de réservation.
 
-Vous pouvez gérer l’accès aux commandes de réservations et les réservations indépendamment des abonnements qui bénéficient de la remise de réservation. Lorsque vous accordez des autorisations pour gérer une demande de réservation ou la réservation, il ne les autorisez à gérer l’abonnement. De même, si vous accordez des autorisations pour gérer un abonnement dans l’étendue de la réservation, il ne donne pas les droits pour gérer l’ordre de réservation ou la réservation.
+Vous pouvez gérer l’accès aux ordres de réservations et réservations, indépendamment des abonnements qui bénéficient de la remise de réservation. Lorsque vous accordez des autorisations de gestion pour une réservation ou un ordre de réservation, cela ne veut pas dire que vous octroyez des autorisations pour la gestion de l’abonnement. De même, si vous accordez des autorisations de gestion d’un abonnement dans les limites de l’étendue de la réservation, vous n’octroyez aucun droit permettant de gérer la réservation ou l’ordre de réservation.
 
-Pour effectuer un échange ou un remboursement, l’utilisateur doit avoir accès à l’ordre de réservation. Lorsqu’il accorde une personne, il convient d’accorder des autorisations à l’ordre de réservation, pas la réservation.
+Pour effectuer un échange ou un remboursement, l’utilisateur doit avoir accès à l’ordre de réservation. Lorsque vous accordez des autorisations à une personne, il convient d’accorder des autorisations pour l’ordre de réservation, pas la réservation.
 
 
 Pour déléguer la gestion de l’accès à une réservation :
@@ -70,7 +70,7 @@ Pour déléguer la gestion de l’accès à une réservation :
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Sélectionnez **Tous les services** > **Réservation** pour afficher la liste des réservations auxquelles vous avez accès.
 3. Sélectionnez la réservation pour laquelle vous souhaitez déléguer l’accès à d’autres utilisateurs.
-4. Sélectionnez **Contrôle d’accès (IAM)**.
+4. Sélectionnez **Contrôle d’accès (IAM)** .
 5. Sélectionnez **Ajouter une attribution de rôle** > **Rôle** > **Propriétaire**. Ou si vous souhaitez accorder un accès limité, sélectionnez un autre rôle.
 6. Tapez l’adresse e-mail de l’utilisateur à ajouter comme propriétaire.
 7. Sélectionnez l’utilisateur, puis **Enregistrer**.
@@ -134,26 +134,26 @@ Pour mettre à jour le paramètre d’optimisation de la réservation :
 
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
 
-Si vous avez des questions ou besoin d’aide, [créer une demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).
+Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur les réservations Azure, consultez les articles suivants :
 
-- [Quelles sont les réservations pour Azure ?](billing-save-compute-costs-reservations.md)
+- [Qu’est-ce qu’une réservation Azure ?](billing-save-compute-costs-reservations.md)
 
-Acheter un plan de service :
+Acheter un plan de service :
 - [Prépayer des machines virtuelles avec des instances de machines virtuelles réservées Azure](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Prépayer des ressources de calcul SQL Database avec une capacité réservée Azure SQL Database](../sql-database/sql-database-reserved-capacity.md)
 - [Prépayer des ressources Azure Cosmos DB avec une capacité réservée Azure Cosmos DB](../cosmos-db/cosmos-db-reserved-capacity.md)
 
-Acheter un plan de logiciels :
-- [Prépayer les abonnements de logiciels de Red Hat à partir des réservations d’Azure](../virtual-machines/linux/prepay-rhel-software-charges.md)
+Acheter un abonnement logiciel :
+- [Prépayer des abonnements logiciels Red Hat dans Azure Reservations](../virtual-machines/linux/prepay-rhel-software-charges.md)
 - [Prépayer des logiciels SUSE avec des réservations Azure](../virtual-machines/linux/prepay-suse-software-charges.md)
 
-Comprendre l’utilisation et remise :
+Comprendre la remise et l’utilisation :
 - [Comprendre comment la remise sur réservation de machine virtuelle est appliquée](billing-understand-vm-reservation-charges.md)
-- [Comprendre comment la remise de plan de logiciels de Red Hat Enterprise Linux est appliquée](../billing/billing-understand-rhel-reservation-charges.md)
+- [Comprendre comment la remise sur abonnement logiciel Red Hat Enterprise Linux est appliquée](../billing/billing-understand-rhel-reservation-charges.md)
 - [Comprendre comment la remise sur offre logicielle SUSE Linux Enterprise est appliquée](../billing/billing-understand-suse-reservation-charges.md)
 - [Comprendre comment les autres remises sur réservation sont appliquées](billing-understand-reservation-charges.md)
 - [Comprendre l’utilisation d’une réservation pour votre abonnement avec paiement à l’utilisation](billing-understand-reserved-instance-usage.md)

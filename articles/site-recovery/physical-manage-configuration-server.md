@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
 ms.openlocfilehash: 10bec01a3b90776c8dd8c32a74ba7754264da131
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62119724"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Gérer le serveur de configuration pour la reprise après sinistre d’un serveur physique
@@ -20,7 +20,7 @@ Vous configurez un serveur de configuration local quand vous utilisez le service
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Le tableau répertorie les prérequis du déploiement d'une machine de serveur de configuration locale.
 
@@ -71,7 +71,7 @@ La dernière version du fichier d’installation du serveur configuration est di
      ![Pare-feu](./media/physical-manage-configuration-server/combined-wiz4.png)
 6. Dans **Vérification de la configuration requise**, le programme d’installation procède à une vérification afin de garantir le bon déroulement de l’installation. Si un avertissement s’affiche à propos de la **vérification de la synchronisation globale**, vérifiez que l’heure de l’horloge système (paramètres **Date et heure**) est identique à celle du fuseau horaire.
 
-    ![Conditions préalables](./media/physical-manage-configuration-server/combined-wiz5.png)
+    ![Prérequis](./media/physical-manage-configuration-server/combined-wiz5.png)
 7. Dans **Configuration MySQL**, créez des informations d’identification pour vous connecter à l’instance de serveur MySQL installée.
 
     ![MySQL](./media/physical-manage-configuration-server/combined-wiz6.png)
@@ -79,7 +79,7 @@ La dernière version du fichier d’installation du serveur configuration est di
 9. Dans **Emplacement d’installation**, sélectionnez l’emplacement où vous voulez installer les fichiers binaires et stocker le cache. Le lecteur sélectionné doit présenter au moins 5 Go d’espace disque disponible. Toutefois, nous vous recommandons d’utiliser un lecteur de cache présentant au moins 600 Go d’espace disponible.
 
     ![Emplacement d’installation](./media/physical-manage-configuration-server/combined-wiz8.png)
-10. Dans **sélection du réseau**, sélectionnez d’abord la carte réseau par le serveur de processus intégré pour l’installation push et la découverte du service mobilité sur les machines sources, puis sélectionnez la carte réseau qui utilise le serveur Configuration pour la connectivité avec Azure. Le port 9443 est le port utilisé par défaut pour envoyer et recevoir le trafic de réplication, mais vous pouvez le modifier en fonction des exigences de votre environnement. Outre le port 9443, nous ouvrons également le port 443, qui est utilisé par un serveur web pour orchestrer les opérations de réplication. N’utilisez pas le port 443 pour envoyer ou recevoir le trafic de réplication.
+10. Dans **Sélection du réseau**, commencez par sélectionner la carte réseau que le serveur de processus intégré utilise pour l’installation push du service Mobilité sur les machines sources, puis sélectionnez la carte réseau que le serveur de configuration utilise pour la connectivité avec Azure. Le port 9443 est le port utilisé par défaut pour envoyer et recevoir le trafic de réplication, mais vous pouvez le modifier en fonction des exigences de votre environnement. Outre le port 9443, nous ouvrons également le port 443, qui est utilisé par un serveur web pour orchestrer les opérations de réplication. N’utilisez pas le port 443 pour envoyer ou recevoir le trafic de réplication.
 
     ![Sélection du réseau](./media/physical-manage-configuration-server/combined-wiz9.png)
 
@@ -152,7 +152,7 @@ Vous pouvez modifier les paramètres de proxy pour la machine du serveur de conf
 
 1. Connectez-vous au serveur de configuration.
 2. Lancez l’exécutable cspsconfigtool.exe à l’aide du raccourci sur votre bureau.
-3. Cliquez sur l’onglet **Vault Registration (Inscription du coffre)**.
+3. Cliquez sur l’onglet **Vault Registration (Inscription du coffre)** .
 4. Téléchargez un nouveau fichier d’inscription du coffre à partir du portail et indiquez-le comme entrée de l’outil.
 
    ![register-configuration-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
@@ -173,7 +173,7 @@ Vous pouvez modifier les paramètres de proxy pour la machine du serveur de conf
 ## <a name="reregister-a-configuration-server-with-the-same-vault"></a>Réinscrire un serveur de configuration auprès du même coffre
 1. Connectez-vous à votre serveur de configuration.
 2. Lancez l’exécutable cspsconfigtool.exe à l’aide du raccourci sur votre bureau.
-3. Cliquez sur l’onglet **Vault Registration (Inscription du coffre)**.
+3. Cliquez sur l’onglet **Vault Registration (Inscription du coffre)** .
 4. Téléchargez un nouveau fichier d’inscription à partir du portail et indiquez-le comme entrée de l’outil.
       ![register-configuration-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
 5. Indiquez les détails du serveur proxy, puis cliquez sur le bouton **Inscrire**.  
@@ -203,7 +203,7 @@ Vous pouvez modifier les paramètres de proxy pour la machine du serveur de conf
     net stop dra
     ```
 3. Lancez l’exécutable cspsconfigtool.exe à l’aide du raccourci sur votre bureau.
-4. Cliquez sur l’onglet **Vault Registration (Inscription du coffre)**.
+4. Cliquez sur l’onglet **Vault Registration (Inscription du coffre)** .
 5. Téléchargez un nouveau fichier d’inscription à partir du portail et indiquez-le comme entrée de l’outil.
 6. Indiquez les détails du serveur proxy, puis cliquez sur le bouton **Inscrire**.  
 7. Ouvrez une fenêtre de commandes PowerShell administrateur.
@@ -217,7 +217,7 @@ Vous pouvez modifier les paramètres de proxy pour la machine du serveur de conf
 
 ## <a name="upgrade-a-configuration-server"></a>Mettre à niveau un serveur de configuration
 
-Vous exécutez des correctifs cumulatifs pour mettre à jour le serveur de configuration. Les mises à jour peuvent être appliquées jusqu’aux versions N-4. Par exemple : 
+Vous exécutez des correctifs cumulatifs pour mettre à jour le serveur de configuration. Les mises à jour peuvent être appliquées jusqu’aux versions N-4. Par exemple :
 
 - Si vous exécutez la version 9.7, 9.8, 9.9 ou 9.10, vous pouvez mettre à niveau directement vers la version 9.11.
 - Si vous exécutez la version 9.6 ou une version antérieure, et souhaitez mettre à niveau vers la version 9.11, vous devez tout d’abord mettre à niveau vers la version 9.7. avant d’effectuer la mise à niveau vers 9.11.
@@ -288,7 +288,7 @@ Mettez à niveau le serveur comme suit :
     `Remove-AzSiteRecoveryFabric -Fabric $Fabric [-Force]`
 
 > [!NOTE]
-> Le **-forcer** option dans le Remove-AzSiteRecoveryFabric peut être utilisée pour forcer la suppression du serveur de Configuration.
+> L’option **-Force** dans Remove-AzSiteRecoveryFabric peut être utilisée pour forcer la suppression du serveur de configuration.
 
 ## <a name="renew-ssl-certificates"></a>Renouveler les certificats SSL
 Le serveur de configuration possède un serveur web intégré, qui orchestre les activités du service Mobilité, des serveurs de processus et des serveurs maîtres cibles connectés à celui-ci. Le serveur web utilise un certificat SSL pour authentifier les clients. Le certificat expire au bout de trois ans et peut être renouvelé à tout moment.

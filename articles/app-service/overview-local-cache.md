@@ -18,10 +18,10 @@ ms.date: 03/04/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 1d6e233509b50f0b03678f2e62267169d02133a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60839032"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Présentation du cache local d’Azure App Service
@@ -35,7 +35,7 @@ Le contenu Azure App Service est stocké sur Stockage Azure est exposé de mani�
 * Le contenu est partagé entre plusieurs instances de machine virtuelle de l’application.
 * Le contenu est durable et peut être modifié en exécutant des applications.
 * Les fichiers journaux et les fichiers de données de diagnostic sont disponibles sous le même dossier de contenu partagé.
-* La publication d’un nouveau contenu met directement à jour le dossier de contenu, Vous pouvez afficher immédiatement le même contenu par le biais du site Web SCM et l’application (en général, certaines technologies comme ASP.NET, lancent un redémarrage de l’application sur des modifications de fichier pour obtenir le contenu le plus récent).
+* La publication d’un nouveau contenu met directement à jour le dossier de contenu, que vous pouvez consulter tout de suite via le site web SCM et l’application en cours d’exécution (pour obtenir le contenu le plus récent, certaines technologies, comme ASP.NET, lancent généralement un redémarrage de l’application quand des changements sont apportés aux fichiers).
 
 Tandis que de nombreuses applications utilisent une seule ou la totalité de ces fonctionnalités, certaines autres ont uniquement besoin d’un magasin de contenu en lecture seule très performant à partir duquel elles peuvent s’exécuter avec une haute disponibilité. Ces applications peuvent tirer profit d’une instance de machine virtuelle sur un cache local spécifique.
 

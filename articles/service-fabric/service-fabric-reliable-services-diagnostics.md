@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 8/24/2018
 ms.author: dekapur
 ms.openlocfilehash: f49176f944aa2abfa1d355ce0bd207d1b544c275
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60772956"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Fonctionnalité de diagnostic pour Reliable Services avec état
@@ -36,7 +36,7 @@ Le nom EventSource de la classe StatefulServiceBase de Reliable Services avec é
 | StatefulRunAsyncCancellation |2 |Informations |Émis lorsque la tâche de service RunAsync est annulée |
 | StatefulRunAsyncCompletion |3 |Informations |Émis lorsque la tâche de service RunAsync est terminée |
 | StatefulRunAsyncSlowCancellation |4 |Avertissement |Émis lorsque la tâche de service RunAsync prend trop de temps pour terminer l'annulation |
-| StatefulRunAsyncFailure |5. |Error |Émis lorsque la tâche de service RunAsync renvoie une exception |
+| StatefulRunAsyncFailure |5\. |Error |Émis lorsque la tâche de service RunAsync renvoie une exception |
 
 ## <a name="interpret-events"></a>Interprétation des événements
 Les événements StatefulRunAsyncInvocation, StatefulRunAsyncCompletion et StatefulRunAsyncCancellation sont utiles à l’enregistreur du service pour comprendre le cycle de vie d’un service, ainsi que le minutage lorsqu’un service démarre, est annulé ou se termine. Cette information peut être utile lors du débogage de problèmes du service ou pour comprendre le cycle de vie du service.
@@ -106,7 +106,7 @@ Le runtime Reliable Services émet les événements suivants dans la catégorie 
 | --- | --- |
 | Opérations BeginTransaction/s | Nombre de nouvelles transactions d’écriture créées par seconde.|
 | Opérations de transaction/s | Nombre d’opérations d’ajout/de mise à jour/de suppression effectuée sur des collections fiables par seconde.|
-| Octets du journal vidés/s | Nombre d'octets vidés sur le disque chaque seconde par le réplicateur transactionnel |
+| Octets du journal vidé/s | Nombre d'octets vidés sur le disque chaque seconde par le réplicateur transactionnel |
 | Opérations limitées/s | Nombre d'opérations rejetées chaque seconde par le réplicateur transactionnel en raison de la limitation. |
 | Avg. Transaction en ms/validation | Latence de validation moyenne par transaction en millisecondes |
 | Avg. Latence de vidage (ms) | Durée moyenne des opérations de vidage disque initiées par le réplicateur transactionnel en millisecondes |

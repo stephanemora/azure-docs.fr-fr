@@ -10,10 +10,10 @@ ms.service: automation
 ms.subservice: update-management
 manager: carmonm
 ms.openlocfilehash: 864fe70d7702680f21234a1a15c02515b19f770b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60597700"
 ---
 # <a name="understand-the-windows-agent-check-results-in-update-management"></a>Comprendre les résultats de la vérification de l’agent Windows dans Update Management
@@ -27,7 +27,7 @@ Voici les trois états de préparation possibles d’une machine :
 * **Non configurée** : l’agent de mise à jour est introuvable ou n’a pas terminé son intégration.
 
 > [!NOTE]
-> Il peut y avoir un léger délai entre ce que montre le portail Azure et l’état actuel de l’ordinateur.
+> L’état actuel de la machine peut s’afficher avec un certain retard sur le portail Azure.
 
 ## <a name="start-the-troubleshooter"></a>Démarrer l’utilitaire de résolution des problèmes
 

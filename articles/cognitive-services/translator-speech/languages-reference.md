@@ -12,10 +12,10 @@ ms.date: 05/18/2018
 ms.author: v-jansko
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 7498ba08b9ce7b6aae10f38a393eb8cba37f3f4e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60827899"
 ---
 # <a name="translator-speech-api-languages"></a>API de traduction de conversation Translator Speech : Languages
@@ -65,7 +65,7 @@ Les valeurs fournies avec chaque propriété sont les suivantes.
 La valeur associée à la propriété de reconnaissance vocale, `speech`, est un dictionnaire de paires clé-valeur. Chaque clé identifie une langue prise en charge pour la reconnaissance vocale. La clé est l’identificateur que le client transmet à l’API. La valeur associée à la clé est un objet dont les propriétés sont les suivantes :
 
 * `name`: nom d’affichage de la langue.
-* `language`: balise de la langue écrite associée. Voir « Transaction texte » ci-dessous.
+* `language`: balise de la langue écrite associée. Voir « Traduction de texte » ci-dessous.
 Voici un exemple :
 
 ```
@@ -134,16 +134,16 @@ Langagues { speech (object, optional), text (object, optional), tts (object, opt
 
 |En-tête|Description|Type|
 :--|:--|:--|
-X-RequestId|Valeur générée par le serveur pour identifier la demande, et utilisée à des fins de dépannage.|string|
+X-RequestId|Valeur générée par le serveur pour identifier la demande, et utilisée à des fins de dépannage.|chaîne|
 
 ### <a name="parameters"></a>parameters
 
 |Paramètre|Description|Type de paramètre|Type de données|
 |:--|:--|:--|:--|
-|api-version    |Version de l’API demandée par le client. Valeurs autorisées : `1.0`.|query|string|
-|scope  |Ensemble des langues ou voix prises en charge pour renvoyer au client. Ce paramètre est spécifié sous forme de liste de mots clés séparés par des virgules. Les mots clés suivants sont disponibles :<ul><li>`speech`: fournit l’ensemble des langues prises en charge pour la transcription de la parole.</li><li>`tts`: fournit l’ensemble des voix prises en charge pour la conversion de texte en parole.</li><li>`text`: fournit l’ensemble des langues prises en charge pour la traduction de texte.</li></ul>Si une valeur n’est pas spécifiée, la valeur par défaut de `scope` est `text`.|query|string|
-|X-ClientTraceId    |GUID généré par le client utilisé pour suivre une requête. Pour faciliter la résolution des problèmes, les clients doivent fournir une nouvelle valeur avec chaque demande, et la journaliser.|en-tête|string|
-|Accept-Language    |Certains des champs dans la réponse sont des noms de langue ou de région. Utilisez ce paramètre pour définir la langue dans laquelle les noms sont renvoyés. La langue est spécifiée en fournissant une balise de langue BCP 47 bien formée. Sélectionnez une balise dans la liste des identificateurs de langue renvoyée avec l’étendue `text`. Pour les langues non prises en charge, les noms sont fournis en anglais.<br/>Par exemple, utilisez la valeur `fr` pour demander des noms en français, ou la valeur `zh-Hant` pour demander des noms en chinois traditionnel.|en-tête|string|
+|api-version    |Version de l’API demandée par le client. Valeurs autorisées : `1.0`.|query|chaîne|
+|scope  |Ensemble des langues ou voix prises en charge pour renvoyer au client. Ce paramètre est spécifié sous forme de liste de mots clés séparés par des virgules. Les mots clés suivants sont disponibles :<ul><li>`speech`: fournit l’ensemble des langues prises en charge pour la transcription de la parole.</li><li>`tts`: fournit l’ensemble des voix prises en charge pour la conversion de texte en parole.</li><li>`text`: fournit l’ensemble des langues prises en charge pour la traduction de texte.</li></ul>Si une valeur n’est pas spécifiée, la valeur par défaut de `scope` est `text`.|query|chaîne|
+|X-ClientTraceId    |GUID généré par le client utilisé pour suivre une requête. Pour faciliter la résolution des problèmes, les clients doivent fournir une nouvelle valeur avec chaque demande, et la journaliser.|en-tête|chaîne|
+|Accept-Language    |Certains des champs dans la réponse sont des noms de langue ou de région. Utilisez ce paramètre pour définir la langue dans laquelle les noms sont renvoyés. La langue est spécifiée en fournissant une balise de langue BCP 47 bien formée. Sélectionnez une balise dans la liste des identificateurs de langue renvoyée avec l’étendue `text`. Pour les langues non prises en charge, les noms sont fournis en anglais.<br/>Par exemple, utilisez la valeur `fr` pour demander des noms en français, ou la valeur `zh-Hant` pour demander des noms en chinois traditionnel.|en-tête|chaîne|
 
 ### <a name="response-messages"></a>Messages de réponse
 

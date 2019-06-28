@@ -1,6 +1,6 @@
 ---
-title: Étapes de post-migration optimisation lors de l’utilisation des API d’Azure Cosmos DB pour MongoDB
-description: Ce document fournit les techniques d’optimisation d’après la migration à partir de MongoDB à Azure Cosmos DB APi pour Mongodb.
+title: Étapes d’optimisation post-migration lors de l’utilisation de l’API Azure Cosmos DB pour MongoDB
+description: Ce document fournit les techniques d’optimisation post-migration de MongoDB vers l’API Azure Cosmos DB pour Mongo DB.
 author: roaror
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
@@ -8,62 +8,62 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: roaror
 ms.openlocfilehash: c0c761fef481a1fdaa027f1329e9a4e72d62985a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61331208"
 ---
-# <a name="post-migration-optimization-steps-when-using-azure-cosmos-dbs-api-for-mongodb"></a>Étapes de post-migration optimisation lors de l’utilisation des API d’Azure Cosmos DB pour MongoDB 
+# <a name="post-migration-optimization-steps-when-using-azure-cosmos-dbs-api-for-mongodb"></a>Étapes d’optimisation post-migration lors de l’utilisation de l’API Azure Cosmos DB pour MongoDB 
 
-Après avoir migré les données stockées dans la base de données MongoDB vers l’API Azure Cosmos DB pour MongoDB, vous pouvez vous connecter à Azure Cosmos DB et gérer les données. Ce guide fournit les étapes que vous devez envisager après la migration. Consultez le [migrer MongoDB à Azure Cosmos DB : API pour MongoDB didacticiel](../dms/tutorial-mongodb-cosmos-db.md) pour connaître les étapes de migration.
+Après avoir migré les données stockées dans la base de données MongoDB vers l’API Azure Cosmos DB pour MongoDB, vous pouvez vous connecter à Azure Cosmos DB et gérer les données. Ce guide fournit les étapes que vous pouvez effectuer après la migration. Pour connaître les étapes de migration, consultez le tutoriel [Migrer MongoDB vers l’API Azure Cosmos DB pour MongoDB](../dms/tutorial-mongodb-cosmos-db.md).
 
 Dans ce guide, vous allez apprendre à :
-- [Connecter votre application](#connect-account)
+- [Vous connecter à votre application](#connect-account)
 - [Optimiser la stratégie d’indexation](#indexing)
-- [Configurer la distribution mondiale pour les API d’Azure Cosmos DB pour MongoDB](#distribute-data)
+- [Configurer la distribution mondiale à l’aide de l’API Azure Cosmos DB pour MongoDB](#distribute-data)
 - [Définir le niveau de cohérence](#consistency)
 
 > [!NOTE]
-> L’étape post-migration uniquement obligatoire de votre niveau d’application change la chaîne de connexion dans votre application pour pointer vers votre nouveau compte Azure Cosmos DB. Toutes les autres étapes de migration sont recommandées des optimisations.
+> La seule étape post-migration obligatoire au niveau de votre application consiste à changer la chaîne de connexion dans votre application pour qu’elle pointe vers votre nouveau compte Azure Cosmos DB. Toutes les autres étapes de migration sont des optimisations recommandées.
 >
 
-## <a id="connect-account"></a>Connecter votre application 
+## <a id="connect-account"></a>Se connecter à votre application 
 
-1. Dans une nouvelle fenêtre de connexion dans le [portail Azure](https://www.portal.azure.com/)
-2. À partir de la [portail Azure](https://www.portal.azure.com/), dans le volet gauche ouvert le **toutes les ressources** menu et recherchez le compte Azure Cosmos DB à laquelle vous avez migré vos données.
-3. Ouvrez le **chaîne de connexion** panneau. Le volet droit contient toutes les informations dont vous avez besoin pour vous connecter à votre compte.
-4. Utilisez les informations de connexion dans la configuration de votre application (ou d’autres emplacements pertinents) afin de refléter le d’Azure Cosmos DB API pour la connexion de MongoDB dans votre application. 
-![Chaîne de connexion](./media/mongodb-post-migration/connection-string.png)
+1. Dans une nouvelle fenêtre, connectez-vous au [portail Azure](https://www.portal.azure.com/).
+2. Dans le [portail Azure](https://www.portal.azure.com/), dans le volet gauche, ouvrez le menu **Toutes les ressources** et recherchez le compte Azure Cosmos DB vers lequel vous avez migré vos données.
+3. Ouvrez le panneau **Chaîne de connexion**. Le volet droit contient toutes les informations dont vous avez besoin pour vous connecter à votre compte.
+4. Utilisez les informations de connexion dans la configuration de votre application (ou d’autres emplacements pertinents) afin de refléter la connexion de l’API Azure Cosmos DB pour MongoDB dans votre application. 
+![Chaîne-de-connexion](./media/mongodb-post-migration/connection-string.png)
 
-Pour plus d’informations, consultez le [connecter une application MongoDB à Azure Cosmos DB](connect-mongodb-account.md) page.
+Pour plus d’informations, consultez la page [Connecter une application MongoDB à Azure Cosmos DB](connect-mongodb-account.md).
 
 ## <a id="indexing"></a>Optimiser la stratégie d’indexation
 
-Tous les champs de données sont automatiquement indexés par défaut, lors de la migration de données à Azure Cosmos DB. Dans de nombreux cas, cette valeur par défaut de stratégie d’indexation est acceptable. En général, la suppression d’index optimise les requêtes d’écriture et avoir la valeur par défaut (par exemple, l’indexation automatique) de la stratégie d’indexation optimise les demandes de lecture.
+Tous les champs de données sont automatiquement indexés par défaut, lors de la migration de données vers Azure Cosmos DB. Dans de nombreux cas, cette stratégie d’indexation par défaut est acceptable. En général, la suppression des index optimise les requêtes d’écriture, et l’application de la stratégie d’indexation par défaut (autrement dit, l’indexation automatique) optimise les requêtes de lecture.
 
-Pour plus d’informations sur l’indexation, consultez [l’indexation de données dans l’API d’Azure Cosmos DB pour MongoDB](mongodb-indexing.md) ainsi que le [l’indexation dans Azure Cosmos DB](index-overview.md) articles.
+Pour plus d’informations sur l’indexation, consultez [Indexation de données dans l’API Azure Cosmos DB pour MongoDB](mongodb-indexing.md) et les articles sur l’[indexation dans Azure Cosmos DB](index-overview.md).
 
-## <a id="distribute-data"></a>Distribuer globalement vos données
+## <a id="distribute-data"></a>Distribuer vos données dans le monde
 
-Azure Cosmos DB est disponible dans toutes les [régions Azure](https://azure.microsoft.com/regions/#services) dans le monde entier. Après avoir sélectionné le niveau de cohérence par défaut pour votre compte Azure Cosmos DB, vous pouvez associer une ou plusieurs régions Azure (selon vos besoins de la distribution mondiale). Pour une haute disponibilité et continuité d’activité, nous recommandons toujours en cours d’exécution dans les régions au moins 2. Vous pouvez consulter les conseils pour [optimiser le coût des déploiements dans plusieurs régions dans Azure Cosmos DB](optimize-cost-regions.md).
+Azure Cosmos DB est disponible dans toutes les [régions Azure](https://azure.microsoft.com/regions/#services) à travers le monde. Après avoir sélectionné le niveau de cohérence par défaut pour votre compte Azure Cosmos DB, vous pouvez associer une ou plusieurs régions Azure (en fonction de vos besoins de distribution mondiale). Pour une haute disponibilité et une continuité d’activité, nous recommandons toujours une exécution dans au moins deux régions. Vous pouvez consulter les conseils d’[optimisation du coût des déploiements dans plusieurs régions dans Azure Cosmos DB](optimize-cost-regions.md).
 
-Pour distribuer globalement vos données, consultez [distribuer des données dans le monde entier sur les API d’Azure Cosmos DB pour MongoDB](tutorial-global-distribution-mongodb.md). 
+Pour distribuer vos données à l’échelle mondiale, consultez [Distribuer des données dans le monde entier sur l’API Azure Cosmos DB pour MongoDB](tutorial-global-distribution-mongodb.md). 
 
 ## <a id="consistency"></a>Définir le niveau de cohérence
-Azure Cosmos DB offre bien défini de 5 [niveaux de cohérence](consistency-levels.md). Pour en savoir plus sur le mappage entre les niveaux de cohérence MongoDB et Azure Cosmos DB, lire [niveaux de cohérence et des API Azure Cosmos DB](consistency-levels-across-apis.md). Le niveau de cohérence par défaut est le niveau de cohérence de session. Modification du niveau de cohérence est facultative et vous pouvez l’optimiser pour votre application. Pour modifier le niveau de cohérence à l’aide du portail Azure :
+Azure Cosmos DB offre cinq [niveaux de cohérence](consistency-levels.md) bien définis. Pour en savoir plus sur les correspondances entre les niveaux de cohérence MongoDB et Azure Cosmos DB, consultez [Niveaux de cohérence et API Azure Cosmos DB](consistency-levels-across-apis.md). Le niveau de cohérence par défaut est le niveau de cohérence de la session. Le changement du niveau de cohérence est facultatif, et vous pouvez l’optimiser pour votre application. Pour changer le niveau de cohérence à l’aide du portail Azure :
 
-1. Accédez à la **cohérence par défaut** panneau, sous paramètres.
+1. Accédez au panneau **Cohérence par défaut** sous Paramètres.
 2. Sélectionnez votre [niveau de cohérence](consistency-levels.md)
 
-La plupart des utilisateurs laisser leur niveau de cohérence sur le paramètre de cohérence de session par défaut. Toutefois, il existe [compromis de performances et disponibilité pour différents niveaux de cohérence](consistency-levels-tradeoffs.md). 
+La plupart des utilisateurs laissent le niveau de cohérence sur le paramètre de cohérence de session par défaut. Toutefois, il existe des [compromis entre disponibilité et performances pour différents niveaux de cohérence](consistency-levels-tradeoffs.md). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Connecter une application MongoDB à Azure Cosmos DB](connect-mongodb-account.md)
-* [Se connecter au compte Azure Cosmos DB à l’aide de Studio 3 t](mongodb-mongochef.md)
-* [Comment distribuer globalement des lectures à l’aide des API d’Azure Cosmos DB pour MongoDB](mongodb-readpreference.md)
-* [Faire expirer les données avec l’API d’Azure Cosmos DB pour MongoDB](mongodb-time-to-live.md)
+* [Se connecter à un compte Azure Cosmos DB à l’aide de Studio 3T](mongodb-mongochef.md)
+* [Guide pratique pour distribuer à l’échelle mondiale des lectures par l’intermédiaire de l’API Azure Cosmos DB pour MongoDB](mongodb-readpreference.md)
+* [Faire expirer des données avec l’API Azure Cosmos DB pour MongoDB](mongodb-time-to-live.md)
 * [Niveaux de cohérence dans Azure Cosmos DB](consistency-levels.md)
 * [Indexation dans Azure Cosmos DB](index-overview.md)
 * [Unités de requête dans Azure Cosmos DB](request-units.md)

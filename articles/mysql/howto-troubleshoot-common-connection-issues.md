@@ -8,10 +8,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/09/2018
 ms.openlocfilehash: faf378a81a6db24acc676bed82fe495cfb108612
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61421840"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mysql"></a>Résoudre les problèmes de connexion à la base de données Azure Database pour MySQL
@@ -48,7 +48,7 @@ Si l’application échoue de façon permanente à se connecter à la base de do
 
 * Configuration du pare-feu côté serveur : assurez-vous que le pare-feu côté serveur d’Azure Database pour MySQL est configuré pour autoriser les connexions côté client, y compris les serveurs proxy et les passerelles.
 * Configuration du pare-feu côté client : le pare-feu côté client doit autoriser les connexions à votre serveur de base de données. Les adresses IP et les ports du serveur auxquels vous ne pouvez pas vous connecter doivent être autorisés ainsi que les noms d’application telles que MySQL sur certains pare-feu.
-* Erreur utilisateur : Vous avez peut-être mal tapé des paramètres de connexion, telles que le nom du serveur dans la chaîne de connexion ou l’absence d’un  *\@nom_serveur* suffixe dans le nom d’utilisateur.
+* Erreur utilisateur : il se peut que vous ayez fait une erreur lors de la saisie des paramètres de connexion, comme le nom du serveur dans la chaîne de connexion ou le suffixe *\@servername* manquant dans le nom de l’utilisateur.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Étapes permettant résoudre les problèmes de connectivité persistants
 

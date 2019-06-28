@@ -1,6 +1,6 @@
 ---
-title: Modèles et expressions de liaison de fonctions azure
-description: Apprenez à créer des expressions de liaison Azure Functions différents en fonction des modèles courants.
+title: Expressions et modèles de liaisons Azure Functions
+description: Découvrez comment créer différentes expressions de liaison Azure Functions d’après des modèles courants.
 services: functions
 documentationcenter: na
 author: craigshoemaker
@@ -8,19 +8,18 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-origin.date: 02/18/2019
-ms.date: 03/20/2019
-ms.author: v-junlch
+ms.date: 02/18/2019
+ms.author: cshoe
 ms.openlocfilehash: 0c1dbbae5e4be965f195b5ea4fc88b1bc5fb4f87
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61437869"
 ---
-# <a name="azure-functions-binding-expression-patterns"></a>Les modèles d’expression de liaison d’Azure Functions
+# <a name="azure-functions-binding-expression-patterns"></a>Modèles d’expressions de liaison Azure Functions
 
-Une des fonctionnalités plus puissantes de [déclencheurs et liaisons](./functions-triggers-bindings.md) est *expressions de liaison*. Dans le fichier *function.json* ainsi que dans les paramètres et le code de la fonction, vous pouvez utiliser des expressions qui sont remplacées par des valeurs provenant de diverses sources.
+Les *expressions de liaison* sont l’une des fonctionnalités les plus puissantes des [déclencheurs et liaisons](./functions-triggers-bindings.md). Dans le fichier *function.json* ainsi que dans les paramètres et le code de la fonction, vous pouvez utiliser des expressions qui sont remplacées par des valeurs provenant de diverses sources.
 
 La plupart des expressions sont identifiées par les accolades qui les entourent. Par exemple, dans une fonction de déclencheur de file d’attente, `{queueTrigger}` correspond au texte du message de file d’attente. Si la propriété `path` pour une liaison de sortie d’objet blob est `container/{queueTrigger}` et que la fonction est déclenchée par un message de file d’attente `HelloWorld`, alors un objet blob nommé `HelloWorld` est créé.
 
@@ -73,7 +72,7 @@ public static void Run(
 }
 ```
 
-## <a name="trigger-file-name"></a>Nom de fichier de déclencheur
+## <a name="trigger-file-name"></a>Nom du fichier de déclencheur
 
 Le `path` pour un objet blob de déclencheur peut être un modèle qui vous permet de faire référence au nom de l’objet blob de déclenchement dans d’autres liaisons et codes de fonction. Le modèle peut également inclure des critères de filtre qui indiquent les objets blob qui peuvent déclencher un appel de fonction.
 
@@ -313,6 +312,4 @@ Avec C# et d’autres langages .NET, vous pouvez utiliser un schéma de liaison 
 
 ## <a name="next-steps"></a>Étapes suivantes
 > [!div class="nextstepaction"]
-> [À l’aide de la valeur de retour de fonction Azure](./functions-bindings-return-value.md)
-
-<!-- Update_Description: link update -->
+> [Utilisation de la valeur de retour Azure Functions](./functions-bindings-return-value.md)

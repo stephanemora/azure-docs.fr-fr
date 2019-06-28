@@ -1,7 +1,7 @@
 ---
 title: Créer un équilibreur de charge interne - Modèle Azure
 titlesuffix: Azure Load Balancer
-description: 'Découvrez comment créer un équilibreur de charge interne à l’aide d’un modèle dans Resource Manager '
+description: Découvrez comment créer un équilibreur de charge interne à l’aide d’un modèle dans Resource Manager
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
 ms.openlocfilehash: 339183dabf67abb43d6fc99bbe5258a39f12b14a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66122282"
 ---
 # <a name="create-an-internal-load-balancer-using-a-template"></a>Créer un équilibrage de charge interne à l’aide d’un modèle
@@ -45,7 +45,7 @@ Pour déployer le modèle téléchargé à l’aide de PowerShell, suivez les é
 1. Si vous n'avez jamais utilisé Azure PowerShell, consultez la page [Installation et configuration d'Azure PowerShell](/powershell/azure/overview) et suivez les instructions jusqu'à la fin pour vous connecter à Azure et sélectionner votre abonnement.
 2. Téléchargez le fichier de paramètres sur votre disque local.
 3. Modifiez et enregistrez le fichier.
-4. Exécutez le **New-AzResourceGroupDeployment** applet de commande pour créer un groupe de ressources à l’aide du modèle.
+4. Pour créer un groupe de ressources à l’aide du modèle, exécutez la cmdlet **New-AzResourceGroupDeployment**.
 
     ```azurepowershell-interactive
     New-AzResourceGroupDeployment -Name TestRG -Location westus `

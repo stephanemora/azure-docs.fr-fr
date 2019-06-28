@@ -9,10 +9,10 @@ ms.date: 11/01/2018
 ms.topic: article
 manager: carmonm
 ms.openlocfilehash: 7932d057a348957d369ba325044055ac8dfe3428
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62119892"
 ---
 # <a name="monitoring-runbooks-with-metric-alerts"></a>Surveillance de runbooks avec des alertes de métriques
@@ -38,7 +38,7 @@ Dans le portail Azure, accédez à votre compte Automation. Sous **Supervision**
    Si vous souhaitez créer une alerte pour un état ou un runbook qui ne figurent pas dans la liste déroulante, cliquez sur le signe **\+** en regard de la dimension. Cette action ouvre une boîte de dialogue vous permettant d’entrer une valeur personnalisée non émise récemment pour cette dimension. Si vous entrez une valeur de propriété inexistante, votre alerte ne se déclenchera pas.
 
    > [!NOTE]
-   > Si vous n’appliquez pas un nom pour le **RunbookName** dimension, l’absence de tous les runbooks qui répondent aux critères de l’état, qui inclut des runbooks du système masqué, vous recevez une alerte.
+   > Lorsque vous n’appliquez pas de nom à la dimension **RunbookName**, si des runbooks répondent aux critères d’état (cela comprend les runbooks système masqués), vous recevez une alerte.
 
 3. Sous **Logique d’alerte**, définissez la condition et le seuil de votre alerte. Un aperçu de la condition que vous avez définie s’affiche en dessous.
 

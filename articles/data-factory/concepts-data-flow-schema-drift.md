@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
 ms.openlocfilehash: aadab68185347dc0a12e0802f675efe13ecea545
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61262110"
 ---
 # <a name="mapping-data-flow-schema-drift"></a>Dérive de schéma de mappage de flux de données
@@ -26,7 +26,7 @@ Afin de vous protéger contre la dérive de schéma, il est important de dispose
 * Définir des paramètres de transformation qui peuvent fonctionner avec des modèles de données et non avec des champs et des valeurs codés en dur
 * Définir des expressions qui comprennent les modèles pour correspondre aux champs entrants, au lieu d’utiliser des champs nommés
 
-## <a name="how-to-implement-schema-drift"></a>Comment implémenter une dérive du schéma
+## <a name="how-to-implement-schema-drift"></a>Comment implémenter une dérive de schéma
 
 * Choisissez « Allow Schema Drift » (« Autoriser la dérive de schéma ») dans votre transformation de la source
 
@@ -69,8 +69,8 @@ Vous pouvez tester cela avec l’exemple Data Flow « Taxi Demo » d’Azure D
 
 ## <a name="access-new-columns-downstream"></a>Accéder aux nouvelles colonnes en aval
 
-Lorsque vous générez de nouvelles colonnes avec le modèle de colonne, vous pouvez accéder à ces nouvelles colonnes plus loin dans vos transformations du flux de données à l’aide de la fonction d’expression « byName ».
+Quand vous générez de nouvelles colonnes avec des modèles de colonnes, vous pouvez y accéder plus loin dans vos transformations de flux de données à l’aide de la fonction d’expression « byName ».
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans le [langage d’Expression de flux de données](data-flow-expression-functions.md) vous trouverez des fonctionnalités supplémentaires pour les modèles de colonne et une dérive du schéma, y compris « byName » et « byPosition ».
+Dans le [langage d’expression de flux de données](data-flow-expression-functions.md), vous trouverez des fonctionnalités supplémentaires pour les modèles de colonnes et la dérive de schéma, notamment « byName » et « byPosition ».

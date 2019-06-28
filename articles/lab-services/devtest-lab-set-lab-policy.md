@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: aa0ffbd69e73ddbef72e0eabf79f2736079c3d23
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60636429"
 ---
 # <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>Gérer toutes les stratégies d’un laboratoire dans Azure DevTest Labs
@@ -91,7 +91,7 @@ En tant que propriétaire d’un laboratoire, vous pouvez configurer une planifi
 
 1. Sur la page d’accueil de votre laboratoire, sélectionnez **Configuration et stratégies**.
 2. Sélectionnez **Stratégie d'arrêt automatique** dans la section **Planifications** du menu de gauche.
-3. Sélectionnez l'une des options. Les sections suivantes vous donnent plus de détails sur ces options : La stratégie définie s’applique uniquement aux nouvelles machines virtuelles créées dans le laboratoire et pas aux machines virtuelles déjà existants. 
+3. Sélectionnez l'une des options. Les sections suivantes vous donnent plus de détails sur ces options : La stratégie définie s’applique seulement aux nouvelles machines virtuelles créées dans le labo et pas aux machines virtuelles déjà existantes. 
 
     ![Options de stratégie d'arrêt automatique](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-options.png)
 

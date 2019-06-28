@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 11/29/2017
 ms.openlocfilehash: c46f22fb5c906aaffa48f39a0c643ca2a48573f9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60867020"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio"></a>Interpréter les résultats de modèle dans Azure Machine Learning Studio
@@ -56,7 +56,7 @@ Un exemple de problème de classification double classe est la classification de
 
 ![Capture d’écran de l’expérience iris](./media/interpret-model-results/1.png)
 
- Figure 1. Expérience d’un problème de classification double classe iris
+Figure 1. Expérience d’un problème de classification double classe iris
 
 Une expérience a été réalisée pour résoudre ce problème, comme mentionnée dans la Figure 1. Un modèle d'arbre de décision augmentée, double classe a été formé et noté. Vous pouvez dès à présent visualiser les résultats de prédiction du module [Noter le modèle][score-model] en cliquant sur le port de sortie du module [Noter le modèle][score-model], puis sur **Visualiser** dans le menu qui s’affiche.
 
@@ -111,7 +111,7 @@ Lorsque vous visualisez les résultats du module [Noter le modèle][score-model]
 
 ![Résultats Noter le modèle](./media/interpret-model-results/7.png)
 
- Figure 7. Visualisation du résultat de modèle de notation dans la classification multiclasse
+Figure 7. Visualisation du résultat de modèle de notation dans la classification multiclasse
 
 **Interprétation du résultat**
 

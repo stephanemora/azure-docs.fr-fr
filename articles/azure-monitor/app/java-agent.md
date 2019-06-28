@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: mbullwin
 ms.openlocfilehash: ce5f7ab1e6751a9ce68aa2d9c466a112c9cac182
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60900606"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Surveiller les dépendances, les exceptions interceptées et les temps d’exécution des méthodes dans les applications web Java
@@ -93,19 +93,19 @@ Par défaut, `reportExecutionTime` est défini sur true, et `reportCaughtExcepti
 
 `java -javaagent:/path/to/agent.jar -jar path/to/TestApp.jar`
 
-Pour Azure App Services procédez comme suit :
+Pour Azure App Services, procédez comme suit :
 
 * Cliquez sur Paramètres > Paramètres de l’application
 * Sous Paramètres de l’application, ajoutez une nouvelle paire clé/valeur :
 
-Clé : `JAVA_OPTS` Valeur : `-javaagent:D:/home/site/wwwroot/applicationinsights-agent-2.3.1-SNAPSHOT.jar`
+Clé : Valeur `JAVA_OPTS` : `-javaagent:D:/home/site/wwwroot/applicationinsights-agent-2.3.1-SNAPSHOT.jar`
 
-Pour la dernière version de l’agent Java vérifier les versions [ici](https://github.com/Microsoft/ApplicationInsights-Java/releases
+Pour connaître la dernière version de l’agent Java, vérifiez les versions [ici](https://github.com/Microsoft/ApplicationInsights-Java/releases
 ). 
 
-L’agent doit être empaqueté en tant que ressource dans votre projet de sorte qu’elle se termine dans D:/home/site/wwwroot/répertoire. Vous pouvez vérifier que votre agent est dans le répertoire App Service en accédant à **outils de développement** > **outils avancés** > **Console de débogage**et en examinant le contenu du répertoire du site.    
+L’agent doit être empaqueté sous forme de ressource dans votre projet de sorte qu’il se retrouve dans le répertoire D:/home/site/wwwroot/. Vous pouvez vérifier que votre agent se trouve dans le répertoire App Service en accédant à **Outils de développement** > **Outils avancés** > **Console de débogage**, puis en examinant le contenu du répertoire du site.    
 
-* Enregistrer les paramètres et redémarrez votre application. (Ces étapes s’appliquent uniquement aux Services d’application en cours d’exécution sur Windows.)
+* Enregistrez les paramètres, puis redémarrez votre application. (Ces étapes s’appliquent uniquement à App Services s’exécutant sur Windows.)
 
 > [!NOTE]
 > Le fichier AI-agent.XML et le fichier jar de l’agent doivent se trouver dans le même dossier. Ils sont souvent placés ensemble dans le dossier `/resources` du projet.  

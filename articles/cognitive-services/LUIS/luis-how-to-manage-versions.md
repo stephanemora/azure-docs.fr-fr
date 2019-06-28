@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 04/16/2019
 ms.author: diberry
 ms.openlocfilehash: f919651cf39d1f2c48fca87da935e49e3affa79f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60198868"
 ---
 # <a name="use-versions-to-edit-and-test-without-impacting-staging-or-production-apps"></a>Utiliser les versions pour modifier et tester sans impact sur les applications intermédiaires et de production
@@ -24,7 +24,7 @@ Les versions vous permettent de générer et de publier différents modèles. Un
 
 Pour utiliser des versions, ouvrez votre application en sélectionnant son nom dans la page **My Apps** (Mes applications), sélectionnez **Manage** (Gérer) dans la barre supérieure, puis **Versions** dans le volet de navigation gauche. 
 
-La liste des versions montre quelles versions sont publiées, où ils sont publiés, et quelle version est actuellement active. 
+La liste des versions montre quelles versions sont publiées, où elles sont publiées et quelle version est actuellement active. 
 
 [![Section gérer, page versions](./media/luis-how-to-manage-versions/versions-import.png "Section gérer, page versions")](./media/luis-how-to-manage-versions/versions-import.png#lightbox)
 
@@ -51,7 +51,7 @@ Sélectionnez une version dans la liste, puis sélectionnez **Make Active** (Act
 
 1. Sélectionnez **Import version** (Importer une version) dans la barre d’outils. 
 
-2. Dans la fenêtre contextuelle **Import new version (Importer une nouvelle version)**, entrez le nouveau nom de version à dix caractères. Vous n’avez qu’à définir un ID de version si la version dans le fichier JSON existe déjà dans l’application.
+2. Dans la fenêtre contextuelle **Import new version (Importer une nouvelle version)** , entrez le nouveau nom de version à dix caractères. Vous n’avez qu’à définir un ID de version si la version dans le fichier JSON existe déjà dans l’application.
 
     ![Section gérer, page versions, importation d’une nouvelle version](./media/luis-how-to-manage-versions/versions-import-pop-up.png)
 
@@ -59,7 +59,7 @@ Sélectionnez une version dans la liste, puis sélectionnez **Make Active** (Act
 
 ### <a name="import-errors"></a>Erreurs d’importation
 
-* Erreurs du Générateur de jetons : Si vous obtenez un **erreur de générateur de jetons** lors de l’importation, vous essayez d’importer une version qui utilise un autre [Générateur de jetons](luis-language-support.md#custom-tokenizer-versions) que l’application utilise actuellement. Pour résoudre ce problème, consultez [migration entre les versions du Générateur de jetons](luis-language-support.md#migrating-between-tokenizer-versions).
+* Erreurs de générateur de jetons : Si vous obtenez une **erreur de générateur de jetons** lors de l'importation, vous essayez d'importer une version qui utilise un [générateur de jetons](luis-language-support.md#custom-tokenizer-versions) différent de celui actuellement utilisé par l'application. Pour résoudre ce problème, consultez [Changer de version du générateur de jetons](luis-language-support.md#migrating-between-tokenizer-versions).
 
 <a name = "export-version"></a>
 
@@ -67,5 +67,5 @@ Sélectionnez une version dans la liste, puis sélectionnez **Make Active** (Act
 
 * Pour **supprimer** une version, sélectionnez une version dans la liste, puis sélectionnez **Delete** (Supprimer) dans la barre d’outils. Sélectionnez **OK**. 
 * Pour **renommer** une version, sélectionnez une version dans la liste, puis sélectionnez **Rename** (Renommer) dans la barre d’outils. Entrez le nouveau nom, puis sélectionnez **Done** (Terminé). 
-* Pour **exporter** une version, sélectionnez une version dans la liste, puis sélectionnez **Export app** (Exporter l’application) dans la barre d’outils. Choisissez JSON à exporter pour la sauvegarde, choisissez **exporter pour conteneur** à [utiliser cette application dans un conteneur de LUIS](luis-container-howto.md).  
+* Pour **exporter** une version, sélectionnez une version dans la liste, puis sélectionnez **Export app** (Exporter l’application) dans la barre d’outils. Choisissez JSON pour exporter en vue d’une sauvegarde, ou **Export for container** (Exporter pour conteneur) pour [utiliser cette application dans un conteneur LUIS](luis-container-howto.md).  
 

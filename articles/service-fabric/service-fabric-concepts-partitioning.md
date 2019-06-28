@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/30/2017
 ms.author: atsenthi
 ms.openlocfilehash: 833d87dab59890b9903ea8eecf2334d7dd1c7436
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60711894"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Partitionnement des services fiables Service Fabric
@@ -59,7 +59,7 @@ Avant d’implémenter un service, vous devez toujours envisager la stratégie d
 
 Une bonne approche consiste à réfléchir de prime abord à la structure de l’état qui doit être partitionné.
 
-Prenons un exemple simple : Si vous deviez créer un service pour une interrogation à l’échelle de la région, vous pouvez créer une partition pour chaque ville dans la région. Puis, vous pouvez stocker les votes pour chaque personne dans une ville dans la partition correspondant à cette ville. La figure 3 présente une liste de personnes associées au nom de la ville dans laquelle elles résident.
+Prenons un exemple simple : Si vous devez créer un service pour un sondage à l’échelle d’une région, vous pouvez créer une partition pour chaque ville de la région. Puis, vous pouvez stocker les votes pour chaque personne dans une ville dans la partition correspondant à cette ville. La figure 3 présente une liste de personnes associées au nom de la ville dans laquelle elles résident.
 
 ![Partition simple](./media/service-fabric-concepts-partitioning/cities.png)
 

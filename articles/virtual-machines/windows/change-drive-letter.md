@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 01/02/2018
 ms.author: cynthn
 ms.openlocfilehash: cfd46d5e9750a81d89ed6d3a79bcc9bffdc3d0dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60844197"
 ---
 # <a name="use-the-d-drive-as-a-data-drive-on-a-windows-vm"></a>Utilisation du lecteur D comme lecteur de données sur une machine virtuelle Windows
@@ -64,5 +64,5 @@ Tout d'abord, vous devrez attacher le disque de données à la machine virtuelle
 9. Redémarrez la machine virtuelle.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Vous pouvez augmenter le stockage disponible pour votre machine virtuelle en [y attacher un disque de données supplémentaires](attach-managed-disk-portal.md).
+* Vous pouvez augmenter l’espace de stockage disponible pour votre machine virtuelle en y [attachant un disque de données supplémentaire](attach-managed-disk-portal.md).
 

@@ -3,17 +3,16 @@ title: Importer un package Edge dans la solution de supervision à distance - Az
 description: Cet article décrit comment importer un package IoT Edge dans l’accélérateur de solution de supervision à distance
 author: dominicbetts
 manager: timlt
-ms.author: v-yiso
+ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-origin.date: 10/10/2018
-ms.date: 12/17/2018
+ms.date: 10/10/2018
 ms.topic: conceptual
 ms.openlocfilehash: 34222f396ed3c43932371aa9f64a459bb2a5dd0e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61442937"
 ---
 # <a name="import-an-iot-edge-package-into-your-remote-monitoring-solution-accelerator"></a>Importer un package IoT Edge dans votre accélérateur de solution de supervision à distance
@@ -30,11 +29,11 @@ Un développeur crée et teste un manifeste de déploiement dans un environnemen
 
 Utilisez le portail Azure pour exporter le manifeste de déploiement à partir de votre environnement de développement :
 
-1. Dans le portail Azure, accédez au hub IoT que vous utilisez pour développer et tester vos appareils IoT Edge. Cliquez sur **IoT Edge** , puis **déploiements IoT Edge**: ![IoT Edge](media/iot-accelerators-remote-monitoring-import-edge-package/iotedge.png)
+1. Dans le portail Azure, accédez au hub IoT que vous utilisez pour développer et tester vos appareils IoT Edge. Cliquez sur **IoT Edge**, puis sur **Déploiements IoT Edge** : ![IoT Edge](media/iot-accelerators-remote-monitoring-import-edge-package/iotedge.png)
 
-1. Cliquez sur le déploiement avec la configuration de déploiement que vous souhaitez utiliser. Le **détails du déploiement** page affiche : ![Détails du déploiement IoT Edge](media/iot-accelerators-remote-monitoring-import-edge-package/deploymentdetails.png)
+1. Cliquez sur le déploiement avec la configuration de déploiement que vous souhaitez utiliser. La page **Détails du déploiement** s’affiche : ![Détails du déploiement IoT Edge](media/iot-accelerators-remote-monitoring-import-edge-package/deploymentdetails.png)
 
-1. Cliquez sur **manifeste télécharger IoT Edge**:  ![Télécharger le manifeste de déploiement](media/iot-accelerators-remote-monitoring-import-edge-package/download.png)
+1. Cliquez sur **Télécharger le manifeste IoT Edge** :  ![Télécharger le manifeste de déploiement](media/iot-accelerators-remote-monitoring-import-edge-package/download.png)
 
 1. Enregistrez le fichier JSON comme un fichier local appelé **deploymentmanifest.json**.
 
@@ -46,7 +45,7 @@ Suivez les étapes ci-dessous pour importer un manifeste de déploiement Edge so
 
 1. Accédez à la page **Packages** dans l’interface utilisateur web de la supervision à distance :  ![Page Packages](media/iot-accelerators-remote-monitoring-import-edge-package/packagespage.png)
 
-1. Cliquez sur **+ nouveau Package**, choisissez **Edge manifeste** comme type de package, cliquez sur **Parcourir** pour sélectionner le **deploymentmanifest.json** fichier vous avez enregistré dans la section précédente :  ![Sélectionner un manifeste](media/iot-accelerators-remote-monitoring-import-edge-package/selectmanifest.png)
+1. Cliquez sur **+ Nouveau package**, choisissez **Manifeste Edge** comme type de package, puis cliquez sur **Parcourir** pour sélectionner le fichier **deploymentmanifest.json** que vous avez enregistré dans la section précédente :  ![Sélectionner un manifeste](media/iot-accelerators-remote-monitoring-import-edge-package/selectmanifest.png)
 
 1. Cliquez sur **Charger** pour ajouter le package à votre solution de supervision à distance :  ![Package chargé](media/iot-accelerators-remote-monitoring-import-edge-package/uploadedpackage.png)
 

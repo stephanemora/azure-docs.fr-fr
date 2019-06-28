@@ -7,10 +7,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.openlocfilehash: df9cfb0c0e36f54c8b1fbee4def552c78e9d42c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61269111"
 ---
 # <a name="mapping-data-flow-expression-builder"></a>Générateur d’expressions de la fonctionnalité de mappage de Data Flow
@@ -50,7 +50,7 @@ Ajoutez des commentaires à vos expressions en utilisant une seule ligne et un s
 
 ## <a name="regular-expressions"></a>Expressions régulières
 
-Le langage d’expressions de flux de données d’Azure Data Factory ([documentation de référence complète ici](https://aka.ms/dataflowexpressions)) active des fonctions qui incluent une syntaxe d’expression régulière. Lorsque vous utilisez des fonctions d’expressions régulières, le Générateur d’expressions va tenter d’interpréter une barre oblique inverse (\\) comme une séquence de caractères d’échappement. Lorsque vous utilisez des barres obliques inverses dans votre expression régulière, soit placer l’expression régulière entière en cycles (\`) ou utilisez une double barre oblique inverse.
+Le langage d’expressions de flux de données d’Azure Data Factory ([documentation de référence complète ici](https://aka.ms/dataflowexpressions)) active des fonctions qui incluent une syntaxe d’expression régulière. Quand vous utilisez des fonctions d’expression régulière, le Générateur d’expressions tente d’interpréter une barre oblique inverse (\\) comme une séquence de caractères d’échappement. Quand vous utilisez des barres obliques inverses dans une expression régulière, placez l’expression régulière entière entre des écarts (\`) ou utilisez une barre oblique inverse double.
 
 Exemple d’utilisation d’écarts
 
@@ -64,7 +64,7 @@ ou de barre oblique double
 regex_replace('100 and 200', '(\\d+)', 'digits')
 ```
 
-## <a name="addressing-array-indexes"></a>Adressage des index de tableau
+## <a name="addressing-array-indexes"></a>Adressage d’index de tableau
 
 Avec des fonctions d’expression qui retournent des tableaux, utilisez des crochets [] pour adresser des index spécifiques qui retournent un objet tableau. Le tableau est de base 1.
 
@@ -72,9 +72,9 @@ Avec des fonctions d’expression qui retournent des tableaux, utilisez des croc
 
 ## <a name="handling-names-with-special-characters"></a>Gestion des noms avec des caractères spéciaux
 
-Lorsque vous avez des noms de colonnes qui comportent des espaces ou des caractères spéciaux, placez ce nom entre accolades.
+Quand vous avez des noms de colonnes qui comportent des espaces ou des caractères spéciaux, placez ces noms entre accolades.
 * ```{[dbo].this_is my complex name$$$}```
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Commencez à créer des expressions de transformation de données](data-flow-expression-functions.md)
+[Commencer à créer des expressions de transformation de données](data-flow-expression-functions.md)

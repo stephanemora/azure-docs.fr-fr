@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.reviewer: trbye
 ms.date: 02/20/2019
 ms.openlocfilehash: 0d75b983ad6d3b6256852335dc523b481bbe046f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60819272"
 ---
 # <a name="enable-logging-in-azure-machine-learning-service"></a>Activer la journalisation dans Azure Machine Learning service
@@ -27,7 +27,7 @@ Le kit de développement logiciel (SDK) Python Azure Machine Learning permet d�
 > * Modèles déployés
 > * Paramètres `logging` Python
 
-[Créer un espace de travail du service Azure Machine Learning](setup-create-workspace.md). Utilisez le [guide](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) pour plus d’informations du Kit de développement logiciel.
+[Créer un espace de travail pour Azure Machine Learning service](setup-create-workspace.md). Pour plus d’informations sur le SDK, consultez ce [guide](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 
 ## <a name="training-models-and-compute-target-logging"></a>Journalisation des modèles d’apprentissage et des cibles de calcul
 
@@ -41,7 +41,7 @@ run = exp.start_logging()
 run.log("test-val", 10)
 ```
 
-Consultez la documentation de référence pour le [exécuter](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py) classe pour les fonctions de journalisation supplémentaire.
+Pour découvrir d’autres fonctions de journalisation, consultez la documentation de référence de la classe [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py).
 
 Pour activer la journalisation locale de l’état de l’application pendant la progression de l’apprentissage, utilisez le paramètre `show_output`. La journalisation détaillée permet d’afficher les détails du processus d’apprentissage, ainsi que des informations sur les éventuelles cibles de calcul ou ressources à distance. Utilisez le code suivant pour activer la journalisation lors de la soumission de l’expérience.
 

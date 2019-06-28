@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: victorh
 ms.openlocfilehash: 7ff6db5acb150207f975931155386a308c48888b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66134097"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Création d’une passerelle d’application à l’aide du modèle Azure Resource Manager
@@ -55,7 +55,7 @@ Vous pouvez télécharger le modèle Azure Resource Manager existant pour créer
 1. Ouvrez le fichier que vous avez enregistré et consultez le contenu sous **parameters** à la ligne
 1. Les paramètres du modèle Azure Resource Manager fournissent un espace réservé pour les valeurs à remplir lors du déploiement.
 
-   | Paramètre | Description  |
+   | Paramètre | Description |
    | --- | --- |
    | **subnetPrefix** |Bloc CIDR du sous-réseau de la passerelle Application Gateway. |
    | **applicationGatewaySize** | Taille de la passerelle Application Gateway.  Le pare-feu d’applications web autorise uniquement les tailles moyenne et grande. |
@@ -148,7 +148,7 @@ Si vous n’avez jamais utilisé Azure PowerShell, consultez : [Installation et
     New-AzResourceGroup -Name AppgatewayRG -Location "West US"
     ```
 
-1. Exécutez le **New-AzResourceGroupDeployment** applet de commande pour déployer le nouveau réseau virtuel à l’aide du modèle précédent et le paramètre fichiers que vous avez téléchargés et modifiés.
+1. Exécutez la cmdlet **New-AzResourceGroupDeployment** pour déployer le nouveau réseau virtuel à l’aide du modèle précédent et des fichiers de paramètres que vous avez téléchargés et modifiés.
     
     ```powershell
     New-AzResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
@@ -167,9 +167,9 @@ Pour déployer le modèle Azure Resource Manager que vous avez téléchargé à 
     az group create --location westus --name appgatewayRG
     ```
     
-    **-n (ou --name)**. Nom du nouveau groupe de ressources. Pour notre scénario, il s’agit de *appgatewayRG*.
+    **-n (ou --name)** . Nom du nouveau groupe de ressources. Pour notre scénario, il s’agit de *appgatewayRG*.
     
-    **-l (ou --location)**. Région Azure où le nouveau groupe de ressources est créé. Pour notre scénario, il s’agit de *westus*.
+    **-l (ou --location)** . Région Azure où le nouveau groupe de ressources est créé. Pour notre scénario, il s’agit de *westus*.
 
 1. Exécutez l’applet de commande `az group deployment create` pour déployer le nouveau réseau virtuel à l’aide du modèle et des fichiers de paramètres que vous avez téléchargés et modifiés lors de l’étape précédente. La liste affichée après le résultat présente les différents paramètres utilisés.
 

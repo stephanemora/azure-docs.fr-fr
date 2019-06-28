@@ -1,6 +1,6 @@
 ---
-title: Interroger un conteneur Docker SQL Server Linux dans un réseau virtuel à partir d’un bloc-notes Azure Databricks
-description: Cet article décrit comment déployer Azure Databricks à votre réseau virtuel, également appelé l’injection de réseau virtuel.
+title: Interroger un conteneur Docker SQL Server Linux dans un réseau virtuel à partir d’un notebook Azure Databricks
+description: Cet article explique comment déployer Azure Databricks sur votre réseau virtuel, opération également appelée injection de réseau virtuel.
 services: azure-databricks
 author: mamccrea
 ms.author: mamccrea
@@ -9,97 +9,97 @@ ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.openlocfilehash: 345e07fac30f4ad0c8e9918cb8a1ff0fb8aeb811
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60770637"
 ---
-# <a name="tutorial-query-a-sql-server-linux-docker-container-in-a-virtual-network-from-an-azure-databricks-notebook"></a>Didacticiel : Interroger un conteneur Docker SQL Server Linux dans un réseau virtuel à partir d’un bloc-notes Azure Databricks
+# <a name="tutorial-query-a-sql-server-linux-docker-container-in-a-virtual-network-from-an-azure-databricks-notebook"></a>Didacticiel : Interroger un conteneur Docker SQL Server Linux dans un réseau virtuel à partir d’un notebook Azure Databricks
 
-Ce didacticiel vous apprend à intégrer Azure Databricks avec un conteneur Docker SQL Server Linux dans un réseau virtuel. 
+Ce tutoriel vous montre comment intégrer Azure Databricks à un conteneur Docker SQL Server Linux sur un réseau virtuel. 
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
-> * Déployer un espace de travail Azure Databricks à un réseau virtuel
-> * Installer une machine virtuelle Linux dans un réseau public
+> * Déployer un espace de travail Azure Databricks sur un réseau virtuel
+> * Installer une machine virtuelle Linux sur un réseau public
 > * Installation de Docker
-> * Installer Microsoft SQL Server sur le conteneur de docker Linux
-> * Interroger le serveur SQL à l’aide de JDBC à partir d’une instance Databricks notebook
+> * Installer Microsoft SQL Server sur Linux dans un conteneur Docker
+> * Interroger SQL Server à l’aide de JDBC à partir d’un notebook Databricks
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-* Créer un [espace de travail Databricks dans un réseau virtuel](quickstart-create-databricks-workspace-vnet-injection.md).
+* Créez un [espace de travail Databricks sur un réseau virtuel](quickstart-create-databricks-workspace-vnet-injection.md).
 
-* Installer [Ubuntu pour Windows](https://www.microsoft.com/p/ubuntu/9nblggh4msv6?activetab=pivot:overviewtab).
+* Installez [Ubuntu pour Windows](https://www.microsoft.com/p/ubuntu/9nblggh4msv6?activetab=pivot:overviewtab).
 
 * Téléchargez [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017).
 
 ## <a name="create-a-linux-virtual-machine"></a>Créer une machine virtuelle Linux
 
-1. Dans le portail Azure, sélectionnez l’icône de **Machines virtuelles**. Ensuite, sélectionnez **+ ajouter**.
+1. Dans le portail Azure, sélectionnez l’icône **Machines virtuelles**. Sélectionnez ensuite **+ Ajouter**.
 
-    ![Ajouter la nouvelle machine virtuelle Azure](./media/vnet-injection-sql-server/add-virtual-machine.png)
+    ![Ajouter une machine virtuelle Azure](./media/vnet-injection-sql-server/add-virtual-machine.png)
 
-2. Sur le **notions de base** onglet, cliquez sur Ubuntu Server 16.04 LTS. Modifier la taille de machine virtuelle à B1ms, ce qui a un processeurs virtuels et 2 Go de RAM. La configuration minimale requise pour un conteneur Docker Linux SQL Server est de 2 Go. Choisissez un administrateur de nom d’utilisateur et mot de passe.
+2. Sous l’onglet **De base**, sélectionnez Ubuntu Server 16.04 LTS. Définissez la taille de la machine virtuelle sur B1ms, qui fournit un processeur virtuel et 2 Go de RAM. La valeur minimale pour un conteneur Docker Linux SQL Server est de 2 Go. Choisissez un nom d’utilisateur et un mot de passe administrateur.
 
-    ![Onglet Basics de la nouvelle configuration de machine virtuelle](./media/vnet-injection-sql-server/create-virtual-machine-basics.png)
+    ![Onglet De base de la configuration de la nouvelle machine virtuelle](./media/vnet-injection-sql-server/create-virtual-machine-basics.png)
 
-3. Accédez à la **mise en réseau** onglet. Choisissez le réseau virtuel et le sous-réseau public qui inclut votre cluster Azure Databricks. Sélectionnez **révision + créer**, puis **créer** pour déployer la machine virtuelle.
+3. Accédez à l’onglet **Réseau**. Choisissez le réseau virtuel et le sous-réseau public où se trouve votre cluster Azure Databricks. Sélectionnez **Vérifier + créer**, puis **Créer** pour déployer la machine virtuelle.
 
-    ![Onglet mise en réseau de configuration d’ordinateur virtuel](./media/vnet-injection-sql-server/create-virtual-machine-networking.png)
+    ![Onglet Réseau de la configuration de la nouvelle machine virtuelle](./media/vnet-injection-sql-server/create-virtual-machine-networking.png)
 
-4. Lorsque le déploiement est terminé, accédez à la machine virtuelle. Notez l’adresse IP publique et du réseau/sous-réseau virtuel dans le **vue d’ensemble**. Sélectionnez le **adresse IP publique**
+4. Lorsque le déploiement est terminé, accédez à la machine virtuelle. Notez l’adresse IP publique et le réseau/sous-réseau virtuel qui figurent dans la **Vue d’ensemble**. Sélectionnez **Adresse IP publique**.
 
     ![Vue d’ensemble de la machine virtuelle](./media/vnet-injection-sql-server/virtual-machine-overview.png)
 
-5. Modifier le **attribution** à **statique** et entrez un **nom DNS**. Sélectionnez **enregistrer**et redémarrez la machine virtuelle.
+5. Définissez **Attribution** sur **Statique** et entrez une **étiquette de nom DNS**. Sélectionnez **Enregistrer**, puis redémarrez la machine virtuelle.
 
-    ![Configuration d’adresse IP publique](./media/vnet-injection-sql-server/virtual-machine-staticip.png)
+    ![Configuration de l’adresse IP publique](./media/vnet-injection-sql-server/virtual-machine-staticip.png)
 
-6. Sélectionnez le **mise en réseau** onglet sous **paramètres**. Notez que le groupe de sécurité réseau qui a été créé pendant le déploiement d’Azure Databricks est associé à la machine virtuelle. Sélectionnez **ajouter une règle de port entrant**.
+6. Sélectionnez l’onglet **Réseau** situé sous **Paramètres**. Notez que le groupe de sécurité réseau qui a été créé pendant le déploiement d’Azure Databricks est associé à la machine virtuelle. Sélectionnez **Ajouter une règle de port d’entrée**.
 
-7. Ajouter une règle pour ouvrir le port 22 pour SSH. Utilisez les paramètres suivants :
+7. Ajoutez une règle afin d’ouvrir le port 22 pour le SSH. Utilisez les paramètres suivants :
     
     |Paramètre|Valeur suggérée|Description|
     |-------|---------------|-----------|
-    |Source|Adresses IP|Adresses IP Spécifie que le trafic entrant à partir d’une source spécifique, adresse IP sera autorisée ou refusée par cette règle.|
-    |Adresses IP sources|< votre adresse ip publique\>|Entrez le votre adresse IP publique. Vous pouvez trouver votre adresse IP publique en vous rendant sur [bing.com](https://www.bing.com/) et en recherchant **« mon adresse IP »**.|
-    |Plages de ports source|*|Autoriser le trafic à partir de n’importe quel port.|
-    |Destination|Adresses IP|Adresses IP Spécifie que le trafic sortant d’une source spécifique, adresse IP sera autorisée ou refusée par cette règle.|
-    |Adresses IP de destination|< votre adresse ip publique de machine virtuelle\>|Entrez l’adresse IP de votre machine virtuelle. Vous pouvez le trouver sur le **vue d’ensemble** page de votre machine virtuelle.|
-    |Plages de ports de destination|22|Ouvrir le port 22 pour SSH.|
-    |Priorité|290|Donnez à la règle de priorité.|
+    |Source|Adresses IP|Spécifie que le trafic entrant provenant d’une adresse IP de source spécifique est autorisé ou refusé par cette règle.|
+    |Adresses IP sources|<votre adresse IP publique\>|Entrez votre adresse IP publique. Pour connaître votre adresse IP publique, accédez à [bing.com](https://www.bing.com/), puis lancez une recherche sur **"my IP"** .|
+    |Plages de ports source|*|Autorise le trafic de tous les ports.|
+    |Destination|Adresses IP|Spécifie que le trafic sortant vers une adresse IP de source spécifique est autorisé ou refusé par cette règle.|
+    |Adresses IP de destination|<adresse IP publique de votre machine virtuelle\>|Entrez l’adresse IP publique de votre machine virtuelle. Celle-ci se trouve dans la page **Vue d’ensemble** de votre machine virtuelle.|
+    |Plages de ports de destination|22|Ouvrez le port 22 pour le SSH.|
+    |Priorité|290|Attribuez une priorité à la règle.|
     |Nom|ssh-databricks-tutorial-vm|Nommez la règle.|
 
 
-    ![Ajouter une règle de sécurité de trafic entrant pour le port 22](./media/vnet-injection-sql-server/open-port.png)
+    ![Ajouter une règle de sécurité de trafic entrant pour le port 22](./media/vnet-injection-sql-server/open-port.png)
 
-8. Ajouter une règle pour ouvrir le port 1433 pour SQL avec les paramètres suivants :
+8. Ajoutez une règle afin d’ouvrir le port 1433 pour SQL à l’aide des paramètres suivants :
 
     |Paramètre|Valeur suggérée|Description|
     |-------|---------------|-----------|
-    |Source|Adresses IP|Adresses IP Spécifie que le trafic entrant à partir d’une source spécifique, adresse IP sera autorisée ou refusée par cette règle.|
-    |Adresses IP sources|10.179.0.0/16|Entrez la plage d’adresses pour votre réseau virtuel.|
-    |Plages de ports source|*|Autoriser le trafic à partir de n’importe quel port.|
-    |Destination|Adresses IP|Adresses IP Spécifie que le trafic sortant d’une source spécifique, adresse IP sera autorisée ou refusée par cette règle.|
-    |Adresses IP de destination|< votre adresse ip publique de machine virtuelle\>|Entrez l’adresse IP de votre machine virtuelle. Vous pouvez le trouver sur le **vue d’ensemble** page de votre machine virtuelle.|
-    |Plages de ports de destination|1433|Ouvrir le port 22 pour SQL Server.|
-    |Priorité|300|Donnez à la règle de priorité.|
+    |Source|Adresses IP|Spécifie que le trafic entrant provenant d’une adresse IP de source spécifique est autorisé ou refusé par cette règle.|
+    |Adresses IP sources|10.179.0.0/16|Entrez la plage d’adresses de votre réseau virtuel.|
+    |Plages de ports source|*|Autorise le trafic de tous les ports.|
+    |Destination|Adresses IP|Spécifie que le trafic sortant vers une adresse IP de source spécifique est autorisé ou refusé par cette règle.|
+    |Adresses IP de destination|<adresse IP publique de votre machine virtuelle\>|Entrez l’adresse IP publique de votre machine virtuelle. Celle-ci se trouve dans la page **Vue d’ensemble** de votre machine virtuelle.|
+    |Plages de ports de destination|1433|Ouvrez le port 22 pour SQL Server.|
+    |Priorité|300|Attribuez une priorité à la règle.|
     |Nom|sql-databricks-tutorial-vm|Nommez la règle.|
 
-    ![Ajouter une règle de sécurité de trafic entrant pour le port 1433](./media/vnet-injection-sql-server/open-port2.png)
+    ![Ajouter une règle de sécurité de trafic entrant pour le port 1433](./media/vnet-injection-sql-server/open-port2.png)
 
-## <a name="run-sql-server-in-a-docker-container"></a>Exécutez SQL Server dans un conteneur Docker
+## <a name="run-sql-server-in-a-docker-container"></a>Exécuter SQL Server dans un conteneur Docker
 
-1. Ouvrez [Ubuntu pour Windows](https://www.microsoft.com/p/ubuntu/9nblggh4msv6?activetab=pivot:overviewtab), ou tout autre outil qui vous permettra d’utiliser SSH à la machine virtuelle. Accédez à votre machine virtuelle dans le portail Azure et sélectionnez **Connect** pour obtenir la commande SSH que vous devez vous connecter.
+1. Ouvrez [Ubuntu pour Windows](https://www.microsoft.com/p/ubuntu/9nblggh4msv6?activetab=pivot:overviewtab), ou tout autre outil qui vous permettra d’utiliser SSH dans la machine virtuelle. Dans le portail Azure, accédez à votre machine virtuelle, puis sélectionnez **Se connecter** pour obtenir la commande SSH dont vous avez besoin pour vous connecter.
 
     ![Connexion à la machine virtuelle](./media/vnet-injection-sql-server/vm-ssh-connect.png)
 
-2. Entrez la commande dans votre terminal Ubuntu et le mot de passe administrateur que vous avez créé lors de la configuration de la machine virtuelle.
+2. Entrez la commande dans votre terminal Ubuntu, puis entrez le mot de passe administrateur que vous avez créé lors de la configuration de la machine virtuelle.
 
-    ![Ubuntu terminal SSH connectez-vous](./media/vnet-injection-sql-server/vm-login-terminal.png)
+    ![Terminal Ubuntu - Connexion SSH](./media/vnet-injection-sql-server/vm-login-terminal.png)
 
 3. Utilisez la commande suivante pour installer Docker sur la machine virtuelle.
 
@@ -107,7 +107,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
     sudo apt-get install docker.io
     ```
 
-    Vérifier l’installation de Docker avec la commande suivante :
+    Vérifiez l’installation de Docker avec la commande suivante :
 
     ```bash
     sudo docker --version
@@ -139,11 +139,11 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 ## <a name="create-a-sql-database"></a>Créer une base de données SQL
 
-1. Ouvrez SQL Server Management Studio et connectez-vous au serveur à l’aide du nom du serveur et l’authentification SQL. Le nom d’utilisateur de connexion est **SA** et le mot de passe est le mot de passe défini dans la commande Docker. Le mot de passe dans l’exemple de commande `Password1234`.
+1. Ouvrez SQL Server Management Studio et connectez-vous au serveur à l’aide du nom du serveur et de l’authentification SQL. Le nom d’utilisateur de connexion est **SA** et le mot de passe est celui qui est défini dans la commande Docker. Le mot de passe de l’exemple de commande est `Password1234`.
 
     ![Se connecter à SQL Server à l’aide de SQL Server Management Studio](./media/vnet-injection-sql-server/ssms-login.png)
 
-2. Une fois que vous avez correctement connecté, sélectionnez **nouvelle requête** et entrez l’extrait de code suivant pour créer une base de données, une table et insérer des enregistrements dans la table.
+2. Une fois connecté, sélectionnez **Nouvelle requête**, puis entrez l’extrait de code suivant pour créer une base de données, une table et insérer des enregistrements dans la table.
 
     ```SQL
     CREATE DATABASE MYDB;
@@ -159,27 +159,27 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
     ![Requête pour créer une base de données SQL Server](./media/vnet-injection-sql-server/create-database.png)
 
-## <a name="query-sql-server-from-azure-databricks"></a>Requête SQL Server à partir d’Azure Databricks
+## <a name="query-sql-server-from-azure-databricks"></a>Requête SQL Server provenant d’Azure Databricks
 
-1. Accédez à votre espace de travail Azure Databricks et vérifiez que vous avez créé un cluster dans le cadre des conditions préalables. Ensuite, sélectionnez **créer un bloc-notes**. Nommez le bloc-notes, sélectionnez *Python* comme langage, puis sélectionnez le cluster que vous avez créé.
+1. Accédez à votre espace de travail Azure Databricks et vérifiez que vous avez créé un cluster dans le cadre des prérequis. Ensuite, sélectionnez **Créer un notebook**. Nommez le notebook, sélectionnez *Python* comme langage, puis sélectionnez le cluster que vous avez créé.
 
-    ![Nouveaux paramètres de bloc-notes Databricks](./media/vnet-injection-sql-server/create-notebook.png)
+    ![Paramètres du nouveau notebook Databricks](./media/vnet-injection-sql-server/create-notebook.png)
 
-2. Utilisez la commande suivante à la commande ping l’adresse IP interne de la machine virtuelle SQL Server. Cette commande ping doit réussir. Si ce n’est pas le cas, vérifiez que le conteneur est en cours d’exécution et passez en revue la configuration de groupe de sécurité réseau.
+2. Utilisez la commande suivante afin d’effectuer un test ping pour l’adresse IP interne de la machine virtuelle SQL Server. Le test ping doit réussir. Si ce n’est pas le cas, vérifiez que le conteneur est bien en cours d’exécution, puis vérifiez la configuration du groupe de sécurité réseau.
 
     ```python
     %sh
     ping 10.179.64.4
     ```
 
-    Vous pouvez également utiliser la commande nslookup pour passer en revue.
+    Vous pouvez également utiliser la commande nslookup pour cette vérification.
 
     ```python
     %sh
     nslookup databricks-tutorial-vm.westus2.cloudapp.azure.com
     ```
 
-3. Une fois que vous avez ping avec succès le serveur SQL Server, vous pouvez interroger la base de données et les tables. Exécuter du code python suivant :
+3. Lorsque le test ping du serveur SQL Server a réussi, vous pouvez interroger la base de données et les tables. Exécutez le code Python suivant :
 
     ```python
     jdbcHostname = "10.179.64.4"
@@ -203,6 +203,6 @@ Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, l’esp
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Passez à l’article suivant pour apprendre à extraire, transformer et charger des données à l’aide d’Azure Databricks.
+Passez à l’article suivant pour savoir comment extraire, transformer et charger des données à l’aide d’Azure Databricks.
 > [!div class="nextstepaction"]
 > [Tutoriel : Extraire, transformer et charger des données à l'aide d'Azure Databricks](databricks-extract-load-sql-data-warehouse.md)

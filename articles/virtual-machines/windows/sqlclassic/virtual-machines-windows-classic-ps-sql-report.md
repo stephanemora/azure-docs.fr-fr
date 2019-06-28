@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: maghan
 ms.openlocfilehash: 6339b49d0bc9c635457f305dad7b1a075327a1dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60609800"
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>Utiliser PowerShell pour créer une machine virtuelle Azure avec un serveur de rapports en mode natif
@@ -120,11 +120,11 @@ Un certificat auto-signé a été créé sur la machine virtuelle lors de son ap
    
    1. Dans le portail Azure, sélectionnez la machine virtuelle, puis cliquez sur Connecter. Selon la configuration de votre navigateur, vous pouvez être invité à enregistrer un fichier .rdp pour la connexion à la machine virtuelle.
       
-       ![se connecter à une machine virtuelle azure](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif)  Utilisez le nom de machine virtuelle, le nom d’utilisateur et le mot de passe que vous avez configurés lors de la création de la machine virtuelle. 
+       ![se connecter à une machine virtuelle azure](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) Utilisez le nom de machine virtuelle, le nom d’utilisateur et le mot de passe que vous avez configurés lors de la création de la machine virtuelle. 
       
        Par exemple, dans l’illustration suivante, le nom de la machine virtuelle est **ssrsnativecloud** et le nom d’utilisateur **testuser**.
       
-       ![connexion inclut le nom de la machine virtuelle](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
+       ![le nom de connexion inclut le nom de la machine virtuelle](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
    2. Exécutez mmc.exe. Pour plus d’informations, consultez [Procédure : Afficher les certificats avec le composant logiciel enfichable MMC](https://msdn.microsoft.com/library/ms788967.aspx).
    3. Dans le menu **Fichier** de l’application console, ajoutez le composant logiciel enfichable **Certificats**, sélectionnez **Compte d’ordinateur** lorsque vous y êtes invité, puis cliquez sur **Suivant**.
    4. Sélectionnez l’**Ordinateur local** à gérer, puis cliquez sur **Terminer**.
@@ -156,11 +156,11 @@ Pour utiliser le script Windows PowerShell afin de configurer le serveur de rapp
 
 1. Dans le portail Azure, sélectionnez la machine virtuelle, puis cliquez sur Connecter. Selon la configuration de votre navigateur, vous pouvez être invité à enregistrer un fichier .rdp pour la connexion à la machine virtuelle.
    
-    ![se connecter à une machine virtuelle azure](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif)  Utilisez le nom de machine virtuelle, le nom d’utilisateur et le mot de passe que vous avez configurés lors de la création de la machine virtuelle. 
+    ![se connecter à une machine virtuelle azure](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) Utilisez le nom de machine virtuelle, le nom d’utilisateur et le mot de passe que vous avez configurés lors de la création de la machine virtuelle. 
    
     Par exemple, dans l’illustration suivante, le nom de la machine virtuelle est **ssrsnativecloud** et le nom d’utilisateur **testuser**.
    
-    ![connexion inclut le nom de la machine virtuelle](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
+    ![le nom de connexion inclut le nom de la machine virtuelle](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
 2. Sur la machine virtuelle, ouvrez **Windows PowerShell ISE** avec des privilèges administratifs. L’environnement d’écriture de scripts intégré PowerShell est installé par défaut sur Windows Server 2012. Nous vous recommandons d’utiliser l’environnement d’écriture de scripts intégré plutôt qu’une fenêtre Windows PowerShell standard afin de pouvoir coller le script dans l’environnement d’écriture de scripts intégré, le modifier, puis l’exécuter.
 3. Dans Windows PowerShell ISE, cliquez sur le menu **Affichage**, puis sur **Afficher le volet de script**.
 4. Copiez le script suivant et collez-le dans le volet de script Windows PowerShell ISE.
@@ -290,11 +290,11 @@ Pour utiliser Windows PowerShell afin de configurer le serveur de rapports, proc
 
 1. Dans le portail Azure, sélectionnez la machine virtuelle, puis cliquez sur Connecter. Selon la configuration de votre navigateur, vous pouvez être invité à enregistrer un fichier .rdp pour la connexion à la machine virtuelle.
    
-    ![se connecter à une machine virtuelle azure](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif)  Utilisez le nom de machine virtuelle, le nom d’utilisateur et le mot de passe que vous avez configurés lors de la création de la machine virtuelle. 
+    ![se connecter à une machine virtuelle azure](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) Utilisez le nom de machine virtuelle, le nom d’utilisateur et le mot de passe que vous avez configurés lors de la création de la machine virtuelle. 
    
     Par exemple, dans l’illustration suivante, le nom de la machine virtuelle est **ssrsnativecloud** et le nom d’utilisateur **testuser**.
    
-    ![connexion inclut le nom de la machine virtuelle](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
+    ![le nom de connexion inclut le nom de la machine virtuelle](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
 2. Sur la machine virtuelle, ouvrez **Windows PowerShell ISE** avec des privilèges administratifs. L’environnement d’écriture de scripts intégré PowerShell est installé par défaut sur Windows Server 2012. Nous vous recommandons d’utiliser l’environnement d’écriture de scripts intégré plutôt qu’une fenêtre Windows PowerShell standard afin de pouvoir coller le script dans l’environnement d’écriture de scripts intégré, le modifier, puis l’exécuter.
 3. Pour activer les scripts en cours d’exécution, exécutez la commande Windows PowerShell suivante :
    
@@ -564,7 +564,7 @@ Pour vérifier que les fonctions de base du serveur de rapports fonctionnent, ou
         https://ssrsnativecloud.cloudapp.net/ReportServer
 
 ## <a name="create-users-and-assign-roles"></a>Créer des utilisateurs et attribuer des rôles
-Une fois le serveur de rapports configuré et vérifié, il est courant d’effectuer la tâche administrative consistant à créer un ou plusieurs utilisateurs et à affecter des utilisateurs aux rôles Reporting Services. Pour plus d’informations, consultez les rubriques suivantes : 
+Une fois le serveur de rapports configuré et vérifié, il est courant d’effectuer la tâche administrative consistant à créer un ou plusieurs utilisateurs et à affecter des utilisateurs aux rôles Reporting Services. Pour plus d’informations, consultez les rubriques suivantes :
 
 * [Créer un compte d’utilisateur local](https://technet.microsoft.com/library/cc770642.aspx)
 * [Accorder à un utilisateur l’accès à un serveur de rapports (Gestionnaire de rapports)](https://msdn.microsoft.com/library/ms156034.aspx)
@@ -582,7 +582,7 @@ Le tableau suivant résume certaines des options disponibles pour publier des ra
      Pour plus d’informations, consultez [Installation, désinstallation et prise en charge du Générateur de rapports](https://technet.microsoft.com/library/dd207038.aspx).
 * **SQL Server Data Tools : machine virtuelle** :  Si vous avez créé la machine virtuelle à l’aide de SQL Server 2012, SQL Server Data Tools est installé sur la machine virtuelle et peut être utilisé pour créer des **Projets de serveur de rapports** et des rapports sur la machine virtuelle. SQL Server Data Tools peut publier les rapports vers le serveur de rapports sur la machine virtuelle.
   
-    Si vous avez créé la machine virtuelle à l’aide de SQL Server 2014, vous pouvez installer SQL Server Data Tools - Business Intelligence pour Visual Studio. Pour plus d’informations, consultez les rubriques suivantes : 
+    Si vous avez créé la machine virtuelle à l’aide de SQL Server 2014, vous pouvez installer SQL Server Data Tools - Business Intelligence pour Visual Studio. Pour plus d’informations, consultez les rubriques suivantes :
   
   * [Microsoft SQL Server Data Tools - Business Intelligence pour Visual Studio 2013](https://www.microsoft.com/download/details.aspx?id=42313)
   * [Microsoft SQL Server Data Tools - Business Intelligence pour Visual Studio 2012](https://www.microsoft.com/download/details.aspx?id=36843)

@@ -1,6 +1,6 @@
 ---
-title: Gérer l’agent de mobilité sur les serveurs de récupération d’urgence des machines virtuelles VMware et physiques avec Azure Site Recovery | Microsoft Docs
-description: Gérer l’agent du Service mobilité pour la récupération d’urgence de machines virtuelles VMware et des serveurs physiques vers Azure à l’aide du service Azure Site Recovery.
+title: Gérer l’agent Mobilité sur les serveurs pour la récupération d'urgence des serveurs physiques et des machines virtuelles VMware à l'aide d'Azure Site Recovery | Microsoft Docs
+description: Gérez l'agent du service Mobilité pour la récupération d'urgence des serveurs physiques et des machines virtuelles VMware sur Azure à l’aide du service Azure Site Recovery.
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
 ms.openlocfilehash: 69b8e1c533747d1bade69949911ea43f299f49e9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66117320"
 ---
-# <a name="manage-mobility-agent-on-protected-machines"></a>Gérer l’agent de mobilité sur les ordinateurs protégés
+# <a name="manage-mobility-agent-on-protected-machines"></a>Gérer l’agent Mobilité sur les ordinateurs protégés
 
-Permet de paramétrer l’agent de mobilité sur votre serveur lorsque vous utilisez Azure Site Recovery pour la récupération d’urgence de machines virtuelles VMware et des serveurs physiques vers Azure. Agent de mobilité coordonne la communication entre votre ordinateur protégé, la configuration serveur de processus de serveur/montée en puissance et gère la réplication des données. Cet article résume les tâches courantes de gestion d’agent de mobilité après son déploiement.
+Quand vous utilisez Azure Site Recovery pour la récupération d'urgence de machines virtuelles VMware et de serveurs physiques sur Azure, vous devez configurer l’agent de mobilité sur votre serveur. L’agent de mobilité coordonne la communication entre votre ordinateur protégé, le serveur de configuration/serveur de traitement scale-out et gère la réplication des données. Cet article récapitule les tâches courantes de gestion de l’agent de mobilité après son déploiement.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="update-mobility-service-from-azure-portal"></a>Mettre à jour le service mobilité à partir du portail Azure
+## <a name="update-mobility-service-from-azure-portal"></a>Mettre à jour le service de mobilité à partir du portail Azure
 
 1. Avant de commencer, veillez à ce que le serveur de configuration, les serveurs de processus de scale-out et les serveurs cibles maîtres qui font partie de votre déploiement soient mis à jour avant de procéder à la mise à jour du service Mobilité sur les machines protégées.
 2. Sur le portail, ouvrez le coffre > **Éléments répliqués**.
@@ -35,19 +35,19 @@ Permet de paramétrer l’agent de mobilité sur votre serveur lorsque vous util
 
 5. La tâche Mettre à jour le service Mobilité est alors lancée pour chacune des machines sélectionnées.
 
-## <a name="update-mobility-service-through-powershell-script-on-windows-server"></a>Mettre à jour de service de mobilité via le script powershell sur le serveur de Windows
+## <a name="update-mobility-service-through-powershell-script-on-windows-server"></a>Mettre à jour le service de mobilité via le script powershell sur le serveur Windows
 
-Utilisez le script pour mettre à niveau de service de mobilité sur un serveur via l’applet de commande power shell suivant
+Utiliser le script suivant pour mettre à niveau le service de mobilité sur un serveur via la cmdlet power shell
 
 ```azurepowershell
 Update-AzRecoveryServicesAsrMobilityService -ReplicationProtectedItem $rpi -Account $fabric.fabricSpecificDetails.RunAsAccounts[0]
 ```
 
-## <a name="update-account-used-for-push-installation-of-mobility-service"></a>Mettre à jour le compte utilisé pour l’installation push du service mobilité
+## <a name="update-account-used-for-push-installation-of-mobility-service"></a>Mettre à jour le compte utilisé pour l’installation Push du service Mobilité
 
 Au moment du déploiement de Site Recovery, pour activer l’installation Push du service Mobilité, vous avez spécifié un compte que le serveur de processus Site Recovery utilise afin d'accéder aux machines et installer le service lorsque de la réplication est activée pour la machine. Pour mettre à jour les informations d’identification de ce compte, suivez [ces instructions](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation).
 
-## <a name="uninstall-mobility-service"></a>Désinstaller le service mobilité
+## <a name="uninstall-mobility-service"></a>Désinstaller le service Mobilité
 
 ### <a name="on-a-windows-machine"></a>Sur une machine Windows
 

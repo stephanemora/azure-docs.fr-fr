@@ -15,10 +15,10 @@ ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: ebced83346a7b130598e4a5f49a72d51ffd18e4f
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62118771"
 ---
 # <a name="create-custom-roles-for-azure-resources-using-azure-cli"></a>Créer des rôles personnalisés pour les ressources Azure à l’aide d’Azure CLI
@@ -27,7 +27,7 @@ Si les [rôles intégrés pour les ressources Azure](built-in-roles.md) ne répo
 
 Pour obtenir un tutoriel pas à pas sur la création d’un rôle personnalisé, consultez [Tutoriel : Créer un rôle personnalisé pour les ressources Azure à l’aide d’Azure CLI](tutorial-custom-role-cli.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour créer des rôles personnalisés, vous avez besoin des éléments suivants :
 
@@ -63,15 +63,15 @@ az role definition list --output json | jq '.[] | if .roleType == "CustomRole" t
 ...
 ```
 
-## <a name="list-a-custom-role-definition"></a>Liste d’une définition de rôle personnalisé
+## <a name="list-a-custom-role-definition"></a>Lister une définition de rôle personnalisé
 
-Pour répertorier une définition de rôle personnalisé, utilisez [liste des définitions de rôle az](/cli/azure/role/definition#az-role-definition-list). Il s’agit de la même commande que vous utiliseriez pour un rôle intégré.
+Pour lister une définition de rôle personnalisé, utilisez [az role definition list](/cli/azure/role/definition#az-role-definition-list). Il s’agit de la même commande que vous utiliseriez pour un rôle intégré.
 
 ```azurecli
 az role definition list --name <role_name>
 ```
 
-L’exemple suivant liste les *opérateur de Machine virtuelle* définition de rôle :
+L’exemple suivant liste la définition de rôle *Opérateur de machine virtuelle* :
 
 ```azurecli
 az role definition list --name "Virtual Machine Operator"
@@ -113,7 +113,7 @@ az role definition list --name "Virtual Machine Operator"
 ]
 ```
 
-L’exemple suivant répertorie uniquement les actions de la *opérateur de Machine virtuelle* rôle :
+L’exemple suivant liste seulement les actions du rôle *Opérateur de machine virtuelle* :
 
 ```azurecli
 az role definition list --name "Virtual Machine Operator" --output json | jq '.[] | .permissions[0].actions'

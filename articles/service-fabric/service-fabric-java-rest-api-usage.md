@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/27/2017
 ms.author: rapatchi
 ms.openlocfilehash: 97bba87331965b0f7ce20ec2ee089e0e18f72457
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60720278"
 ---
 # <a name="azure-service-fabric-java-client-apis"></a>API du client Java Azure Service Fabric
@@ -126,11 +126,11 @@ Suivez les étapes indiquées ci-dessous pour générer le code client Java Serv
 Pour chaque API, vous trouverez quatre surcharges d’implémentation. S’il existe des paramètres facultatifs, vous trouverez quatre variantes supplémentaires, dont ces paramètres facultatifs. Prenons comme exemple l’API ``removeReplica``.
  1. **public void removeReplica(String nodeName, UUID partitionId, String replicaId, Boolean forceRemove, Long timeout)**
     * Il s’agit de la variante synchrone de l’appel d’API removeReplica
- 2. **public ServiceFuture\<Void > removeReplicaAsync (chaîne nodeName, UUID partitionId, replicaId de chaîne, booléen forceRemove, Long délai d’attente, ServiceCallback finale\<Void > serviceCallback)**
+ 2. **public ServiceFuture\<Void> removeReplicaAsync(String nodeName, UUID partitionId, String replicaId, Boolean forceRemove, Long timeout, final ServiceCallback\<Void> serviceCallback)**
     * Cette variante de l’appel d’API peut être utilisée si vous souhaitez employer une programmation asynchrone basée sur le futur et utiliser des rappels
- 3. **Observable publique\<Void > removeReplicaAsync (chaîne nodeName, UUID partitionId, replicaId de chaîne)**
+ 3. **public Observable\<Void> removeReplicaAsync(String nodeName, UUID partitionId, String replicaId)**
     * Cette variante de l’appel d’API peut être utilisée si vous souhaitez employer une programmation asynchrone réactive
- 4. **Observable publique\<ServiceResponse\<Void >> removeReplicaWithServiceResponseAsync (chaîne nodeName, UUID partitionId, replicaId de chaîne)**
+ 4. **public Observable\<ServiceResponse\<Void>> removeReplicaWithServiceResponseAsync(String nodeName, UUID partitionId, String replicaId)**
     * Cette variante de l’appel d’API peut être utilisée si vous souhaitez employer une programmation asynchrone réactive et traiter la réponse REST RAW
 
 ## <a name="next-steps"></a>Étapes suivantes

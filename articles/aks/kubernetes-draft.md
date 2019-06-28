@@ -2,17 +2,16 @@
 title: Utiliser Draft avec AKS et Azure Container Registry
 description: Utiliser Draft avec AKS et Azure Container Registry
 services: container-service
-author: rockboyfor
+author: zr-msft
 ms.service: container-service
 ms.topic: article
-origin.date: 08/15/2018
-ms.date: 04/08/2019
-ms.author: v-yeche
+ms.date: 08/15/2018
+ms.author: zarhoads
 ms.openlocfilehash: 462cfd6ec0a6b25f85dda0245dd4f5feed7cb712
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60465142"
 ---
 # <a name="use-draft-with-azure-kubernetes-service-aks"></a>Utiliser Draft avec Azure Kubernetes Service (AKS)
@@ -21,7 +20,7 @@ Draft est un outil open source qui permet d’empaqueter et de déployer des con
 
 Cet article vous montre comment utiliser Draft avec un cluster Kubernetes AKS.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Les étapes détaillées dans cet article supposent que vous avez créé un cluster AKS et que vous avez établi une connexion `kubectl` avec le cluster. Si vous avez besoin de ces éléments, consultez le [guide de démarrage rapide d’ACS][aks-quickstart].
 
@@ -77,7 +76,7 @@ Maintenant qu’il existe une relation d’approbation entre AKS et ACR, vous de
 1. Définissez la valeur de *Registre* de configuration Draft. Dans les commandes suivantes, remplacez `<acrName>` par le nom de votre registre ACR :
 
     ```console
-    draft config set registry <acrName>.azurecr.cn
+    draft config set registry <acrName>.azurecr.io
     ```
 
 1. Connectez-vous au registre ACR en exécutant [az acr login][az-acr-login] :
@@ -145,7 +144,7 @@ Connect to java:4567 on localhost:49804
 [java]: >> Listening on 0.0.0.0:4567
 ```
 
-Pour accéder à votre application, ouvrez un navigateur web à l’adresse et le port spécifié dans le `draft connect` de sortie, tels que `http://localhost:49804`. 
+Pour accéder à votre application, ouvrez un navigateur web avec l’adresse et le port spécifiés dans la sortie `draft connect`, tels que `http://localhost:49804`. 
 
 ![Exemple d’application Java en cours d’exécution avec Draft](media/kubernetes-draft/sample-app.png)
 
@@ -271,4 +270,4 @@ Pour plus d’informations sur l'utilisation de Draft, consultez la documentatio
 [aks-helm]: ./kubernetes-helm.md
 [kubernetes-ingress]: ./ingress-basic.md
 [aks-quickstart]: ./kubernetes-walkthrough.md
-[az-acr-login]: https://docs.azure.cn/zh-cn/cli/acr?view=azure-cli-latest#az-acr-login
+[az-acr-login]: /cli/azure/acr#az-acr-login

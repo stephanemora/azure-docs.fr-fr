@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
 ms.openlocfilehash: 34dad39e3784dd0bc73e3be108d6b31d4f479a1e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60543142"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>Migration de ressources IaaS d’un environnement Classic vers Azure Resource Manager à l’aide de l’interface de ligne de commande Azure
@@ -48,7 +48,7 @@ Voici quelques bonnes pratiques recommandées lorsque vous évaluez la migration
 > 
 > 
 
-## <a name="step-2-set-your-subscription-and-register-the-provider"></a>Étape 2 : Définissez votre abonnement et inscrire le fournisseur
+## <a name="step-2-set-your-subscription-and-register-the-provider"></a>Étape 2 : Étape 2 : Définition de votre abonnement et inscription du fournisseur
 Pour les scénarios de migration, vous devez configurer votre environnement à la fois pour l’environnement Classic et pour Resource Manager. [Installez l’interface de ligne de commande Azure](../../cli-install-nodejs.md) et [sélectionnez votre abonnement](/cli/azure/authenticate-azure-cli).
 
 Connectez-vous à votre compte.
@@ -96,7 +96,7 @@ Une fois que vous avez procédé à la vérification de cette étape, vous pouve
     azure config mode asm
 
 
-## <a name="step-4-option-1---migrate-virtual-machines-in-a-cloud-service"></a>Étape 4 : Option 1 : migrer des machines virtuelles dans un service cloud
+## <a name="step-4-option-1---migrate-virtual-machines-in-a-cloud-service"></a>Étape 4 : Option 1 – Migration de machines virtuelles dans un service cloud
 Obtenez la liste des services cloud à l’aide de la commande suivante, puis choisissez le service cloud que vous voulez migrer. Notez que vous obtiendrez un message d’erreur si les machines virtuelles du service cloud sont dans un réseau virtuel ou si elles ont des rôles Web/de travail.
 
     azure service list
@@ -135,7 +135,7 @@ Si la configuration préparée semble correcte, vous pouvez continuer et valider
 
 
 
-## <a name="step-4-option-2----migrate-virtual-machines-in-a-virtual-network"></a>Étape 4 : Option 2 - migration de machines virtuelles dans un réseau virtuel
+## <a name="step-4-option-2----migrate-virtual-machines-in-a-virtual-network"></a>Étape 4 : Option 2 – Migration de machines virtuelles dans un réseau virtuel
 Sélectionnez le réseau virtuel dont vous souhaitez effectuer la migration. Sachez que, si le réseau virtuel contient des rôles Web/de travail ou des machines virtuelles avec des configurations non prises en charge, vous obtiendrez un message d’erreur pour la validation.
 
 Récupérez tous les réseaux virtuels de l’abonnement à l’aide de la commande suivante.
@@ -146,7 +146,7 @@ Vous obtenez un résultat semblable à ce qui suit :
 
 ![Capture d’écran de la ligne de commande avec le nom de réseau virtuel entier en surbrillance.](../media/virtual-machines-linux-cli-migration-classic-resource-manager/vnet.png)
 
-Dans l’exemple ci-dessus, **virtualNetworkName** est le nom complet **« Group classicubuntu16 classicubuntu16 »**.
+Dans l’exemple ci-dessus, **virtualNetworkName** est le nom complet **« Group classicubuntu16 classicubuntu16 »** .
 
 Vérifiez d’abord que vous pouvez migrer le réseau virtuel à l’aide de la commande suivante :
 

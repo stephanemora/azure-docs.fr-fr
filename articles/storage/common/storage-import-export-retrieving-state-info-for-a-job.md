@@ -9,10 +9,10 @@ ms.date: 12/16/2016
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 1a878b5a9f0502ff9acd411359895d7431fb76f4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61478650"
 ---
 # <a name="retrieving-state-information-for-an-importexport-job"></a>Récupération des informations d’état d’un travail Import/Export
@@ -45,7 +45,7 @@ Le tableau suivant décrit chacun des états par lesquels un travail peut passer
 |`Completed`|Une fois que tous les disques ont été renvoyés au client, si le travail s’est terminé sans erreur, son état est défini sur `Completed`. Le travail est automatiquement supprimé au bout de 90 jours dans l’état `Completed`.|
 |`Closed`|Une fois que tous les disques ont été renvoyés au client, si des erreurs sont survenues pendant le traitement du travail, son état est défini sur `Closed`. Le travail est automatiquement supprimé au bout de 90 jours dans l’état `Closed`.|
 
-Vous pouvez annuler un travail uniquement lorsqu’il est défini sur certains états. Un travail annulé ignore l’étape de copie de données, mais sinon il suit les transitions d’état même en tant que tâche qui n’a pas été annulé.
+Vous pouvez annuler un travail uniquement lorsqu’il est défini sur certains états. Un travail annulé ignore l’étape de copie des données, mais il passe quand même par toutes les étapes d’un travail qui n’a pas été annulé.
 
 Le tableau suivant décrit les erreurs qui peuvent se produire pour chaque état, ainsi que leur effet sur le travail lorsqu’elles se produisent.
 

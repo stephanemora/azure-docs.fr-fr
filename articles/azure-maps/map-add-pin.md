@@ -10,18 +10,18 @@ services: azure-maps
 manager: ''
 ms.custom: codepen
 ms.openlocfilehash: 2580f1177bf9e6e3a92934f88a5d8ab51894e8d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60771666"
 ---
 # <a name="add-a-symbol-layer-to-a-map"></a>Ajouter une couche de symboles à une carte
 
-Cet article vous montre comment afficher des données de point sur une carte, à partir d’une source de données telle qu’une couche de symboles. Couches de symbole sont rendus à l’aide de WebGL et prend en charge beaucoup plus grande jeux de points que les marqueurs HTML, mais ne prennent pas en charge les éléments CSS et HTML traditionnelles pour le style.  
+Cet article vous montre comment afficher des données de point sur une carte, à partir d’une source de données telle qu’une couche de symboles. Les couches de symboles sont affichées à l’aide de WebGL. Elles prennent en charge des ensembles de points beaucoup plus grands que les marqueurs HTML, mais elles ne prennent pas en charge les éléments de style CSS et HTML traditionnels.  
 
 > [!TIP]
-> Les couches de symboles par défaut affichent les coordonnées de toutes les données géométriques d’une source de données. Pour limiter la couche, telle qu’elle s’affiche uniquement des point geometry fonctionnalités ensemble la `filter` propriété de la couche pour `['==', ['geometry-type'], 'Point']` ou `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` si vous souhaitez inclure également les fonctionnalités MultiPoint.
+> Les couches de symboles par défaut affichent les coordonnées de toutes les données géométriques d’une source de données. Pour limiter la couche afin qu’elle n’affiche que les fonctionnalités de géométrie de point, définissez la propriété `filter` de la couche sur `['==', ['geometry-type'], 'Point']` ou `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` si vous voulez également inclure les fonctionnalités MultiPoint.
 
 ## <a name="add-a-symbol-layer"></a>Ajouter un calque de symboles
 
@@ -34,14 +34,14 @@ Dans le deuxième bloc de code, un objet source de données est créé à l’ai
 
 Le troisième bloc de code crée un [écouteur d’événements](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) et met à jour les coordonnées du point à chaque clic de souris, par l’intermédiaire de la méthode [setCoordinates](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) de la classe shape.
 
-Une [couche de symboles](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) utilise du texte ou des icônes pour afficher les données basées sur le point, qui sont wrappées dans la [source de données](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) en tant que symboles sur la carte.  La source de données, l’écouteur d’événements de clic et la couche de symbole sont créés et ajoutés à la carte dans le `ready` [écouteur d’événements](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) (fonction) pour garantir le point est affiché après la carte chargée et prête à être accessibles.
+Une [couche de symboles](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) utilise du texte ou des icônes pour afficher les données basées sur le point, qui sont wrappées dans la [source de données](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) en tant que symboles sur la carte.  La source de données, le détecteur d’événements Click et la couche de symboles sont créés et ajoutés à la carte dans la fonction de [détecteur d’événements](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) `ready` pour garantir que le point s’affiche une fois la carte chargée et accessible.
 
 > [!TIP]
-> Par défaut, pour des performances, les couches de symbole optimiser le rendu de symboles en masquant les symboles qui se chevauchent. Comme vous effectuez un zoom dans les symboles masqués deviennent visibles. Pour désactiver cette fonctionnalité et afficher tous les symboles en permanence, définissez la `allowOverlap` propriété de la `iconOptions` options `true`.
+> Par défaut, pour améliorer les performances, les couches de symboles optimisent le rendu des symboles en masquant les symboles qui se chevauchent. Quand vous effectuez un zoom avant, les symboles masqués deviennent visibles. Pour désactiver cette fonctionnalité et afficher tous les symboles en permanence, définissez la propriété `allowOverlap` des options `iconOptions` sur `true`.
 
 ## <a name="add-a-custom-icon-to-a-symbol-layer"></a>Ajouter une icône personnalisée à une couche de symboles
 
-Les couches de symboles sont affichées à l’aide de WebGL. Toutes les ressources, telles que les images d’icône, doivent donc être chargées dans le contexte de WebGL. Cet exemple montre comment ajouter une icône personnalisée pour les ressources de la carte et l’utiliser pour restituer les données de point avec un symbole personnalisé sur la carte. La propriété `textField` de la couche de symboles nécessite une expression. Dans ce cas, nous voulons restituer la propriété de la température, mais dans la mesure où il s’agit d’un nombre, il doit être converti en une chaîne. En outre, nous voulons le « ° F » doivent lui être ajoutées. Une expression peut être utilisée pour cela ; `['concat', ['to-string', ['get', 'temperature']], '°F']`. 
+Les couches de symboles sont affichées à l’aide de WebGL. Toutes les ressources, telles que les images d’icône, doivent donc être chargées dans le contexte de WebGL. Cet exemple montre comment ajouter une icône personnalisée dans les ressources de la carte, puis l’utiliser pour afficher les données de point avec un symbole personnalisé sur la carte. La propriété `textField` de la couche de symboles nécessite une expression. Dans le cas présent, nous voulons afficher la propriété de température, mais étant donné qu’il s’agit d’un nombre, elle doit être convertie en chaîne. De plus, nous voulons lui ajouter « °F ». Pour ce faire, une expression peut être utilisée : `['concat', ['to-string', ['get', 'temperature']], '°F']`. 
 
 <br/>
 

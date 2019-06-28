@@ -1,6 +1,6 @@
 ---
 title: Advanced Threat Protection - Azure SQL Database | Microsoft Docs
-description: Advanced Threat Protection détecte les activités de base de données anormales indiquant des menaces de sécurité potentielles dans la base de données SQL Azure.
+description: Advanced Threat Protection détecte les activités de base de données anormales qui indiquent la présence potentielle de menaces de sécurité dans Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -13,30 +13,30 @@ ms.reviewer: vanto, carlrab
 manager: craigg
 ms.date: 03/31/2019
 ms.openlocfilehash: 710a94c919f4262c3f572f28d03c79b77e658287
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60614595"
 ---
 # <a name="advanced-threat-protection-for-azure-sql-database"></a>Advanced Threat Protection pour Azure SQL Database
 
-Advanced Threat Protection pour [base de données SQL Azure](sql-database-technical-overview.md) et [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) détecte les activités anormales indiquant des tentatives inhabituelles ou potentiellement dangereuses visant à accéder ou à exploiter les bases de données.
+Advanced Threat Protection pour [Azure SQL Database](sql-database-technical-overview.md) et [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) détecte les activités anormales indiquant des tentatives d’accès ou d’exploitation inhabituelles et potentiellement dangereuses des bases de données.
 
-Advanced Threat Protection fait partie de la [fonctions avancées de sécurité des données](sql-database-advanced-data-security.md) (ADS) offre, qui est un package unifié incluant des fonctionnalités de sécurité avancées SQL. Advanced Threat Protection peuvent être accessibles et gérée via un portail central des annonces de SQL.
+Advanced Threat Protection fait partie de l’offre [Advanced Data Security](sql-database-advanced-data-security.md) (ADS) qui est un package unifié de fonctionnalités de sécurité SQL avancées. Advanced Threat Protection est accessible et gérable par le biais du portail SQL ADS central.
 
 > [!NOTE]
 > Cette rubrique s’applique à un serveur SQL Azure et aux bases de données SQL Database et SQL Data Warehouse créées sur le serveur SQL Azure. Par souci de simplicité, la base de données SQL est utilisée pour faire référence à SQL Database et SQL Data Warehouse.
 
-## <a name="what-is-advanced-threat-protection"></a>Nouveautés d’Advanced Threat Protection
+## <a name="what-is-advanced-threat-protection"></a>Présentation d’Advanced Threat Protection
 
- Advanced Threat Protection fournit une nouvelle couche de sécurité, ce qui permet aux clients de détecter et répondre aux menaces potentielles qu’elles se présentent en générant des alertes de sécurité sur les activités anormales. Les utilisateurs reçoivent une alerte en cas d’activités de base de données suspectes, de vulnérabilités potentielles, d’attaques par injection de code SQL et de modèles d’accès et de requêtes anormaux à la base de données. Advanced Threat Protection intègre les alertes avec [Azure Security Center](https://azure.microsoft.com/services/security-center/), qui incluent des détails sur les activités suspectes et recommandent l’action sur la façon d’examiner et atténuer la menace. Advanced Threat Protection facile à gérer les menaces potentielles à la base de données sans avoir à être un expert en sécurité ou gérer des systèmes de surveillance de sécurité avancée.
+ Advanced Threat Protection fournit une nouvelle couche de sécurité qui permet aux clients de détecter des menaces potentielles et d’y réagir en temps réel en déclenchant des alertes de sécurité en lien avec des activités anormales. Les utilisateurs reçoivent une alerte en cas d’activités de base de données suspectes, de vulnérabilités potentielles, d’attaques par injection de code SQL et de modèles d’accès et de requêtes anormaux à la base de données. Advanced Threat Protection intègre des alertes à [Azure Security Center](https://azure.microsoft.com/services/security-center/), qui incluent des détails sur les activités suspectes et recommandent l’action à entreprendre pour analyser et prévenir la menace. Advanced Threat Protection vous permet de réagir facilement aux menaces potentielles visant la base de données sans devenir un expert en sécurité ni gérer des systèmes avancés de supervision de la sécurité.
 
 Pour une expérience d’analyse complète, il est recommandé d’activer [SQL Database Auditing](sql-database-auditing.md), qui écrit les événements de la base de données dans un journal d’audit sur votre compte de stockage Azure.  
 
 ## <a name="advanced-threat-protection-alerts"></a>Alertes Azure ATP
 
-Advanced Threat Protection pour Azure SQL Database détecte les activités anormales indiquant des tentatives inhabituelles ou potentiellement dangereuses visant à accéder ou à exploiter les bases de données et il peut déclencher les alertes suivantes :
+Advanced Threat Protection pour Azure SQL Database détecte les activités anormales indiquant des tentatives d’accès ou d’exploitation inhabituelles et potentiellement dangereuses des bases de données et peut déclencher les alertes suivantes :
 
 - **Vulnérabilité par injection de code SQL** : cette alerte est déclenchée quand une application génère une instruction SQL défectueuse dans la base de données. Cette alerte peut éventuellement indiquer une vulnérabilité aux attaques par injection de code SQL. Deux raisons possibles expliquent la génération d’une instruction défectueuse :
 
@@ -65,21 +65,21 @@ Vous recevez une notification par e-mail quand des activités anormales sont dé
 
    ![Alerte spécifique](./media/sql-database-threat-detection/specific_alert.png)
 
-## <a name="explore-advanced-threat-protection-alerts-for-your-database-in-the-azure-portal"></a>Explorez les alertes-Protection avancée contre les menaces pour votre base de données dans le portail Azure
+## <a name="explore-advanced-threat-protection-alerts-for-your-database-in-the-azure-portal"></a>Explorer les alertes Advanced Threat Protection pour votre base de données dans le portail Azure
 
-Advanced Threat Protection intègre ses alertes avec [centre de sécurité Azure](https://azure.microsoft.com/services/security-center/). Les vignettes dynamiques SQL-Protection avancée contre les menaces au sein de la base de données et les panneaux de publicités de SQL dans le portail Azure suivre l’état des menaces actives.
+Advanced Threat Protection intègre ses alertes dans [Azure Security Center](https://azure.microsoft.com/services/security-center/). Des vignettes Advanced Threat Protection SQL dans les panneaux de base de données et SQL ADS au sein du portail Azure effectuent le suivi de l’état des menaces actives.
 
-Cliquez sur **alerte d’Advanced Threat Protection** pour lancer le centre de sécurité Azure alertes page et obtenir une vue d’ensemble des menaces SQL actives détectées sur l’entrepôt de données ou de la base de données.
+Cliquez sur **Alerte Advanced Threat Protection** pour ouvrir la page des alertes Azure Security Center et obtenir une vue d’ensemble de toutes les menaces SQL actives détectées dans la base de données ou l’entrepôt de données.
 
-   ![Alerte de Protection contre les menaces avancée](./media/sql-database-threat-detection/threat_detection_alert.png)
+   ![Alerte Advanced Threat Protection](./media/sql-database-threat-detection/threat_detection_alert.png)
 
-   ![Advanced Threat Protection alert2](./media/sql-database-threat-detection/threat_detection_alert_atp.png)
+   ![Alerte2 Advanced Threat Protection](./media/sql-database-threat-detection/threat_detection_alert_atp.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur [avancées de Protection contre les menaces dans les bases de données uniques et bureaux](sql-database-threat-detection.md).
-- En savoir plus sur [Advanced Threat Protection dans l’instance managée](sql-database-managed-instance-threat-detection.md).
-- En savoir plus sur [fonctions avancées de sécurité des données](sql-database-advanced-data-security.md).
+- Découvrez-en plus sur [Advanced Threat Protection dans les bases de données uniques et mises en pool](sql-database-threat-detection.md).
+- Découvrez-en plus sur [Advanced Threat Protection dans une instance gérée](sql-database-managed-instance-threat-detection.md).
+- Découvrez-en plus sur [Advanced Data Security](sql-database-advanced-data-security.md).
 - En savoir plus sur [Audit Azure SQL Database](sql-database-auditing.md)
 - En savoir plus sur [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
 - Pour plus d'informations sur la tarification, consultez la [page de tarification SQL Database](https://azure.microsoft.com/pricing/details/sql-database/)  

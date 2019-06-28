@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: christoc;xpouyat;juliako
 ms.openlocfilehash: d227e3618c138e6661cc4be7caa2b9a3ba1af3f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61241107"
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>Didacticiels de workflows avancés Media Encoder Premium
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 Ce document contient des procédures pas à pas qui montrent comment personnaliser les workflows avec **Workflow Designer**. Les fichiers de workflow sont disponibles [ici](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/PremiumEncoderWorkflowSamples).  
 
 ## <a name="toc"></a>Table des matières
@@ -760,7 +760,7 @@ Nous avons utilisé pour cela des opérations normales de manipulation de chaîn
 
 *Consignation de la liste de séquences obtenue*
 
-Effectuez une série de tests pour voir la manière dont les flux vidéo et audio ont été découpés. Lorsque vous effectuerez plusieurs séries de tests avec des valeurs différentes pour les points de découpage, vous remarquerez que ceux ne seront pas pris en compte ! Ceci s’explique par le fait que le concepteur, contrairement à l’exécution Azure, n’écrase PAS le fichier XML de liste de séquences à chaque exécution. Cela signifie que seulement la première fois que vous avez défini les points d’entrée /, entraîne le xml à transformer, toutes les autres fois, notre clause de garde (si (`clipListXML.indexOf("<trim>") == -1`)) empêchera le workflow à partir de l’ajout d’un autre élément de découpage lorsqu’il est déjà présent.
+Effectuez une série de tests pour voir la manière dont les flux vidéo et audio ont été découpés. Lorsque vous effectuerez plusieurs séries de tests avec des valeurs différentes pour les points de découpage, vous remarquerez que ceux ne seront pas pris en compte ! Ceci s’explique par le fait que le concepteur, contrairement à l’exécution Azure, n’écrase PAS le fichier XML de liste de séquences à chaque exécution. Autrement dit, le fichier XML ne sera transformé que la première fois où vous définissez les points d’entrée et de sortie. Toutes les autres fois, la clause de garde (if(`clipListXML.indexOf("<trim>") == -1`)) empêchera le workflow d’ajouter un élément de découpage si un autre est déjà présent.
 
 Pour faciliter le test en local de notre workflow, le mieux est d’ajouter du code d’entretien qui vérifie la présence préalable d’un élément de découpage. Si tel est le cas, nous pouvons supprimer cet élément avant de modifier le fichier XML avec les nouvelles valeurs. Au lieu d’utiliser de simples manipulations de chaînes, il est probablement plus prudent de procéder à une analyse du modèle d’objet XML réel.
 

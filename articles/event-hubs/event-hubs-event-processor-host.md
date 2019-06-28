@@ -15,10 +15,10 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: 26f0abb48ba268f79167ed5d00e4f96d8b5e5998
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60821870"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-event-processor-host"></a>Recevoir des événements d’Azure Event Hubs avec l’hôte de processeur d’événements
@@ -83,7 +83,7 @@ public class SimpleEventProcessor : IEventProcessor
 
 Ensuite, créez une instance [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost). Selon la surcharge, lorsque vous créez l’instance [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) dans le constructeur, les paramètres suivants sont utilisés :
 
-- **hostName :** nom de chaque instance de consommateur. Chaque instance de **EventProcessorHost** doit avoir une valeur unique pour cette variable dans un groupe de consommateurs, afin de ne pas coder en dur cette valeur.
+- **hostName :** nom de chaque instance de consommateur. Chaque instance d’**EventProcessorHost** doit avoir une valeur unique pour cette variable dans un groupe de consommateurs ; veillez donc à ne pas coder cette valeur en dur.
 - **eventHubPath :** Nom du hub d’événements.
 - **consumerGroupName :** Event Hubs utilise **$Default** comme nom du groupe de consommateurs par défaut, mais il est conseillé de créer un groupe de consommateurs pour votre aspect spécifique du traitement.
 - **eventHubConnectionString :** chaîne de connexion au hub d’événements, qui peut être récupérée à partir du Portail Azure. Cette chaîne de connexion doit disposer d’autorisations d’**écoute** sur le hub d’événements.
@@ -125,7 +125,7 @@ Ici, chaque hôte acquiert la possession d’une partition pour une certaine dur
 
 Chaque appel à [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) offre une collection d’événements. Il vous incombe de gérer ces événements. Si vous souhaitez vous assurer que l’hôte du processeur traite chaque message au moins une fois, vous devez écrire votre propre code de nouvelle tentative. Méfiez-vous cependant des messages empoisonnés.
 
-Il est recommandé de procéder relativement vite. Autrement dit, de faire aussi peu de traitement que possible. Pour cela, utilisez des groupes de consommateurs. Si vous avez besoin écrire dans le stockage et certaines routage, il est préférable d’utiliser les deux groupes de consommateurs et d’avoir deux [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) implémentations exécutent séparément.
+Il est recommandé de procéder relativement vite. Autrement dit, de faire aussi peu de traitement que possible. Pour cela, utilisez des groupes de consommateurs. Si vous avez besoin d’écrire dans le stockage et de procéder à un routage, mieux vaut utiliser deux groupes de consommateurs et avoir deux implémentations [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) qui s’exécutent séparément.
 
 À un moment donné pendant le traitement, vous souhaiterez peut-être effectuer le suivi de ce que vous avez lu et accompli. Cela est essentiel si vous devez redémarrer la lecture, afin de ne pas revenir au début du flux de données. [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) simplifie ce suivi à l’aide de *points de contrôle*. Un point de contrôle est un emplacement (ou un décalage) d’une partition donnée au sein d’un groupe de consommateurs, où vous êtes satisfait du traitement des messages. La création d’un point de contrôle dans **EventProcessorHost** nécessite d’appeler la méthode [CheckpointAsync](/dotnet/api/microsoft.azure.eventhubs.processor.partitioncontext.checkpointasync) sur l’objet [PartitionContext](/dotnet/api/microsoft.azure.eventhubs.processor.partitioncontext). Cette opération s’effectue dans la méthode [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync), mais également dans [CloseAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.closeasync).
 
@@ -141,7 +141,7 @@ Par défaut, [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processo
 
 ## <a name="shut-down-gracefully"></a>Arrêt correct
 
-Enfin, [EventProcessorHost.UnregisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.unregistereventprocessorasync) permet un arrêt normal de tous les lecteurs de partition et doit toujours être appelé lorsque vous arrêtez une instance de [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost). Dans le cas contraire, cela peut provoquer des retards lors du démarrage d’autres instances de **EventProcessorHost** en raison de l’expiration du bail et de conflits d’époque. Gestion de l’époque est abordée en détail dans le [époque](#epoch) section de l’article. 
+Enfin, [EventProcessorHost.UnregisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.unregistereventprocessorasync) permet un arrêt normal de tous les lecteurs de partition et doit toujours être appelé lorsque vous arrêtez une instance de [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost). Dans le cas contraire, cela peut provoquer des retards lors du démarrage d’autres instances de **EventProcessorHost** en raison de l’expiration du bail et de conflits d’époque. La gestion de l’époque est abordée en détail dans la section [Époque](#epoch) de cet article. 
 
 ## <a name="lease-management"></a>Gestion de bail
 L’inscription d’une classe de processeur d’événements avec une instance EventProcessorHost entraîne le démarrage du traitement des événements. L’instance d’hôte obtient des baux sur certaines partitions d’Event Hub, probablement en en récupérant certaines à partir d’autres instances d’hôte, d’une manière qui converge vers une répartition uniforme des partitions dans toutes les instances d’hôte. Pour chaque partition allouée par bail, l’instance d’hôte crée une instance de la classe de processeur d’événements fournie, puis reçoit les événements de cette partition et les transmet à l’instance du processeur d’événements. Lorsque d’autres instances sont ajoutées et d’autres baux sont récupérés, EventProcessorHost finit par équilibrer la charge entre tous les consommateurs.
@@ -162,28 +162,28 @@ En outre, une surcharge de [RegisterEventProcessorAsync](/dotnet/api/microsoft.a
 
 ## <a name="epoch"></a>Époque
 
-Voici le fonctionnement de l’époque de réception :
+Voici le fonctionnement de la réception d’époque :
 
-### <a name="with-epoch"></a>Avec l’époque
-Époque est un identificateur unique (valeur de l’époque) que le service utilise, pour appliquer la propriété partition/bail. Vous créez un récepteur d’époque à l’aide de la [CreateEpochReceiver](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createepochreceiver?view=azure-dotnet) (méthode). Cette méthode crée un récepteur d’époque. Le destinataire est créé pour une partition de concentrateur d’événement spécifique dans le groupe de consommateurs spécifié.
+### <a name="with-epoch"></a>Avec époque
+L’époque est un identificateur unique (valeur d’époque) utilisé par le service pour appliquer la propriété de partition/bail. Vous créez un récepteur basé sur une époque à l’aide de la méthode [CreateEpochReceiver](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createepochreceiver?view=azure-dotnet). Cette méthode crée un récepteur basé sur une époque. Le récepteur est créé pour une partition de hub d’événements spécifique dans le groupe de consommateurs spécifié.
 
-La fonctionnalité de l’époque fournit aux utilisateurs la possibilité de vous assurer qu’il n'est qu’un seul récepteur sur un groupe de consommateurs à tout moment dans le temps, avec les règles suivantes :
+La fonctionnalité d’époque permet aux utilisateurs de s’assurer qu’il n’existe qu’un seul récepteur sur un groupe de consommateurs à tout moment dans le temps, avec les règles suivantes :
 
-- S’il n’existe aucun destinataire existant sur un groupe de consommateurs, l’utilisateur peut créer un récepteur avec n’importe quelle valeur de l’époque.
-- S’il existe un récepteur avec un e1 de valeur époque et d’un destinataire est créé avec un e2 de valeur époque où e1 < = e2, le récepteur avec e1 est automatiquement déconnecté, récepteur avec e2 est créé avec succès.
-- S’il existe un récepteur avec un e1 de valeur époque et d’un destinataire est créé avec un e2 de valeur époque où e1 > e2, puis la création d’e2 avec échoue avec l’erreur : Il existe déjà un récepteur avec époque e1.
+- S’il n’y a aucun récepteur existant sur un groupe de consommateurs, l’utilisateur peut créer un récepteur avec n’importe quelle valeur d’époque.
+- S’il existe un récepteur avec une valeur d’époque e1 et qu’un récepteur est créé avec une valeur d’époque e2, où e1 <= e2, le récepteur avec e1 est automatiquement déconnecté et le récepteur avec e2 est créé avec succès.
+- S’il existe un récepteur avec une valeur d’époque e1 et qu’un récepteur est créé avec une valeur d’époque e2, où e1 > e2, la création d’e2 échoue avec une erreur signalant qu’il existe déjà un récepteur avec l’époque e1.
 
-### <a name="no-epoch"></a>Aucun époque
-Vous créez un récepteur non-Windows époque, à l’aide de la [CreateReceiver](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createreceiver?view=azure-dotnet) (méthode). 
+### <a name="no-epoch"></a>Sans époque
+Vous créez un récepteur non basé sur une époque à l’aide de la méthode [CreateReceiver](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createreceiver?view=azure-dotnet). 
 
-Il existe certains scénarios dans le flux de traitement où les utilisateurs souhaitent créer plusieurs récepteurs sur un groupe de consommateurs unique. Pour prendre en charge ces scénarios, nous devons la possibilité de créer un récepteur sans époque et dans ce cas, nous autorisons jusqu'à 5 destinataires simultanés sur le groupe de consommateurs.
+Il existe certains scénarios de flux de traitement où les utilisateurs souhaitent créer plusieurs récepteurs sur un même groupe de consommateurs. Pour prendre en charge ces scénarios, nous pouvons créer un récepteur sans époque ; dans ce cas, nous autorisons jusqu’à cinq récepteurs simultanés sur le groupe de consommateurs.
 
-### <a name="mixed-mode"></a>En Mode mixte
-Nous ne recommandons pas l’utilisation des applications où vous créez un récepteur avec époque et puis basculez vers non-époque ou vice versa sur le même groupe de consommateurs. Toutefois, lorsque ce comportement survient, le service gère à l’aide des règles suivantes :
+### <a name="mixed-mode"></a>Mode mixte
+Nous déconseillons les cas d’usage où vous créez un récepteur avec époque puis basculez vers un récepteur sans époque (ou inversement) sur le même groupe de consommateurs. Toutefois, quand ce comportement se présente, le service le gère en appliquant les règles suivantes :
 
-- S’il existe déjà, un récepteur créé avec une époque e1 et reçoive activement les événements et d’un destinataire est créé avec aucun époque, la création du nouveau récepteur échoue. Destinataires de l’époque ont toujours priorité dans le système.
-- S’il existait un récepteur créé avec une époque e1 déjà et a été déconnecté, et un destinataire est créé avec aucun époque sur un nouveau MessagingFactory, la création du nouveau récepteur réussit. Il existe un inconvénient ici que notre système détecte la déconnexion « récepteur » après environ 10 minutes.
-- S’il existe un ou plusieurs destinataires créés avec aucun époque, et un destinataire est créé avec l’époque e1, sont déconnectés de tous les récepteurs de l’ancien.
+- Si un récepteur a déjà été créé avec une époque e1 et reçoit activement des événements, et qu’un nouveau récepteur est créé sans époque, la création du nouveau récepteur échoue. Les récepteurs avec époque sont toujours prioritaires dans le système.
+- S’il existait déjà un récepteur avec une époque e1 qu’il a été déconnecté, et qu’un récepteur est créé sans époque sur un nouveau MessagingFactory, la création du nouveau récepteur réussit. Il existe ici un inconvénient : notre système détectera la « déconnexion du récepteur » après environ 10 minutes.
+- Si un ou plusieurs récepteurs ont été créés sans époque, et qu’un destinataire est créé avec l’époque e1, tous les anciens récepteurs sont déconnectés.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

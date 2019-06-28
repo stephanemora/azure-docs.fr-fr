@@ -9,17 +9,17 @@ ms.topic: article
 ms.date: 04/14/2019
 ms.author: ramamill
 ms.openlocfilehash: 075f86b24e2915d9689db8097889a830bade74c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60723424"
 ---
 # <a name="set-up-the-source-environment-for-vmware-to-azure-replication"></a>Configurer l’environnement source pour la réplication VMware vers Azure
 
 Cet article décrit la procédure de configuration de votre environnement local de manière à répliquer des machines virtuelles VMware vers Azure. Il comprend des étapes pour la sélection de votre scénario de réplication, la configuration d’un ordinateur local en tant que le serveur de configuration Site Recovery et la détection automatique des machines virtuelles locales. 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Cet article suppose que vous avez déjà effectué les opérations suivantes :
 
@@ -41,7 +41,7 @@ Vous pouvez configurer le serveur de configuration comme une machine virtuelle V
 
 1. Prenez connaissance des [conditions préalables](vmware-azure-deploy-configuration-server.md#prerequisites) pour le déploiement du serveur de configuration.
 2. [Vérifiez les chiffres de capacité](vmware-azure-deploy-configuration-server.md#capacity-planning) pour le déploiement.
-3. [Téléchargez](vmware-azure-deploy-configuration-server.md#download-the-template) et [importez](vmware-azure-deploy-configuration-server.md#import-the-template-in-vmware) le modèle OVA pour configurer une machine virtuelle VMware locale qui exécute le serveur de configuration. La licence fournie avec le modèle est une licence d’évaluation et est valide pendant 180 jours. Après cette période, client doit activer les fenêtres avec une licence approvisionnée.
+3. [Téléchargez](vmware-azure-deploy-configuration-server.md#download-the-template) et [importez](vmware-azure-deploy-configuration-server.md#import-the-template-in-vmware) le modèle OVA pour configurer une machine virtuelle VMware locale qui exécute le serveur de configuration. La licence fournie avec le modèle est une licence d’évaluation valide pendant 180 jours. Passée cette période, le client devra activer les fenêtres avec une licence payante.
 4. Activez la machine virtuelle VMware et [inscrivez-la](vmware-azure-deploy-configuration-server.md#register-the-configuration-server-with-azure-site-recovery-services) dans le coffre Recovery Services.
 
 ## <a name="azure-site-recovery-folder-exclusions-from-antivirus-program"></a>Exclusions de dossiers Azure Site Recovery du programme antivirus

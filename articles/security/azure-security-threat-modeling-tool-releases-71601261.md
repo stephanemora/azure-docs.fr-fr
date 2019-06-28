@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: jegeib
 ms.openlocfilehash: c96b924294286be57de90dae7e6534b5ed9306ea
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60586224"
 ---
 # <a name="threat-modeling-tool-update-release-71601261---1292019"></a>Mise à jour de Threat Modeling Tool version 7.1.60126.1 - 29/01/2019
 
 La version 7.1.60126.1 de Microsoft Threat Modeling Tool a été publiée le 29 janvier 2019 et contient les modifications suivantes :
 
-- La version minimale requise de .NET a été augmentée à [.NET 4.7.1](https://go.microsoft.com/fwlink/?LinkId=863262).
+- La version minimale obligatoire de .NET est maintenant [.NET 4.7.1](https://go.microsoft.com/fwlink/?LinkId=863262).
 - La version minimale requise de Windows est maintenant la [Mise à jour anniversaire Windows 10](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97) en raison de la dépendance de .NET.
 - Une fonctionnalité d’activation/de désactivation de validation de modèle a été ajoutée au menu Options de l’outil.
 - Plusieurs liens des propriétés des menaces ont été mis à jour.
@@ -47,7 +47,7 @@ L'option permettant d'activer ou de désactiver la validation du modèle se trou
 - Systèmes d'exploitation pris en charge
   - [Mise à jour anniversaire Windows 10](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97) ou version ultérieure
 - Version .NET obligatoire
-  - [.NET 4.7.1](https://go.microsoft.com/fwlink/?LinkId=863262) ou version ultérieure
+  - [.NET 4.7.1](https://go.microsoft.com/fwlink/?LinkId=863262) ou version ultérieure
 - Conditions supplémentaires
   - Une connexion Internet est nécessaire pour recevoir les mises à jour de l’outil ainsi que les modèles.
 

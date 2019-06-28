@@ -9,10 +9,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
 ms.openlocfilehash: 7c5241b9df23bb0334a39f2c684fd1bdff40b4c2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61004039"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Forum Aux Questions Azure Data Catalog
@@ -27,10 +27,10 @@ Data Catalog résout les problèmes de découverte des sources de données et d
 ## <a name="what-are-its-target-audiences"></a>Quel est le public cible ?
 Data Catalog est conçu pour les utilisateurs, techniciens ou non, notamment :
 
-* Les développeurs de données et aux professionnels BI et analytique : Personnes qui sont chargés de produire des données et analytique du contenu d’autres utiliseront.
-* Gestionnaires de données : Personnes qui disposent de connaissances sur les données, ce que cela signifie et comment elle est destinée à être utilisée.
-* Consommateurs de données : Les personnes qui doivent être en mesure de découvrir facilement, comprendre et se connecter aux données dont ils ont besoin pour effectuer leur travail, à l’aide de l’outil de leur choix.
-* Centre informatique : Personnes qui ont besoin de rendre des centaines de sources de données détectables par les utilisateurs professionnels, et qui ont besoin de superviser l’utilisation de données et par qui.
+* Les développeurs de données et les professionnels de l’analytique et du décisionnel : personnes chargées de produire des données et du contenu d’analytique que d’autres utiliseront.
+* Les gestionnaires de données : personnes qui disposent de connaissances sur les données, ce qu’elles signifient et comment elles sont censées être utilisées.
+* Les consommateurs de données : personnes qui doivent être en mesure de découvrir, de comprendre et de se connecter facilement aux données dont elles ont besoin pour effectuer leur travail à l’aide de l’outil de leur choix.
+* L’équipe informatique centrale : personnes qui doivent rendre détectables des centaines de sources de données pour les utilisateurs professionnels et qui ont besoin de superviser l’utilisation des données et les personnes utilisant ces données.
 
 ## <a name="what-is-its-availability-by-region"></a>Quelle est la disponibilité du service par région ?
 Les services Data Catalog sont actuellement disponibles dans les centres de données suivants :

@@ -1,6 +1,6 @@
 ---
-title: Importer des ordinateurs virtuels à partir d’un autre laboratoire dans Azure DevTest Labs | Microsoft Docs
-description: Découvrez comment importer des machines virtuelles à partir d’un autre laboratoire dans le laboratoire en cours.
+title: Importer des machines virtuelles depuis un autre labo dans Azure DevTest Labs | Microsoft Docs
+description: Découvrez comment importer des machines virtuelles depuis un autre labo dans le labo actuel.
 services: devtest-lab, lab-services
 documentationcenter: na
 author: spelluru
@@ -13,44 +13,44 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: spelluru
 ms.openlocfilehash: ca6ed58cfabb5027830828812c4820c1b586875c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61322849"
 ---
-# <a name="import-virtual-machines-from-another-lab-in-azure-devtest-labs"></a>Importer des ordinateurs virtuels à partir d’un autre laboratoire dans Azure DevTest Labs
-Cet article fournit des informations sur comment importer des machines virtuelles à partir d’un autre laboratoire dans votre laboratoire.
+# <a name="import-virtual-machines-from-another-lab-in-azure-devtest-labs"></a>Importer des machines virtuelles depuis un autre labo dans Azure DevTest Labs
+Cet article fournit des informations sur la façon d’importer des machines virtuelles depuis un autre labo dans votre labo.
 
 ## <a name="scenarios"></a>Scénarios
-Voici quelques scénarios où vous devez importer des machines virtuelles à partir d’un laboratoire dans un autre laboratoire :
+Voici quelques scénarios où vous avez besoin d’importer des machines virtuelles depuis un labo dans un autre labo :
 
-- Une personne de l’équipe correspond à un déplacement vers un autre groupe au sein de l’entreprise et souhaite prendre le poste de travail de développeur à dev/test de la nouvelle équipe.
-- Le groupe a atteint un [quota au niveau de l’abonnement](../azure-subscription-service-limits.md) et souhaite diviser les équipes en quelques abonnements
-- Déplace de la société pour Express Route (ou certaines autres nouvelle topologie réseau) et l’équipe souhaite déplacer les ordinateurs virtuels à utiliser cette nouvelle infrastructure
+- Une personne de l’équipe passe à un autre groupe au sein de l’entreprise et veut apporter le poste de travail de développement aux DevTest Labs de la nouvelle équipe.
+- Le groupe a atteint un [quota au niveau de l’abonnement](../azure-subscription-service-limits.md) et veut diviser les équipes en plusieurs abonnements.
+- L’entreprise passe à Express Route (ou à une autre topologie réseau) et l’équipe veut déplacer les machines virtuelles afin d’utiliser cette nouvelle infrastructure.
 
 ## <a name="solution-and-constraints"></a>Solution et contraintes
-Cette fonctionnalité vous permet d’importer des machines virtuelles dans un laboratoire (source) dans un autre laboratoire (destination). Vous pouvez éventuellement donner un nouveau nom pour la machine virtuelle de destination dans le processus. Le processus d’importation inclut toutes les dépendances telles que les disques, les planifications, les paramètres réseau et ainsi de suite.
+Cette fonctionnalité vous permet d’importer des machines virtuelles depuis un labo (source) dans un autre labo (destination). Vous pouvez donner un nouveau nom pour la machine virtuelle de destination dans le processus. Le processus d’importation inclut toutes les dépendances, comme les disques, les planifications, les paramètres réseau, etc.
 
-Le processus de prendre un certain temps et est affecté par les facteurs suivants :
+Le processus prend un certain temps et est impacté par les facteurs suivants :
 
-- Nombre ou la taille des disques attachés à la machine source (dans la mesure où il s’agit d’une opération de copie et pas une opération de déplacement)
-- Distance vers la destination (par exemple, est des États-Unis à Asie du Sud-est).
+- Nombre/taille des disques attachés à la machine source (car il s’agit d’une opération de copie et non pas d’une opération de déplacement)
+- Distance à la destination (par exemple, de la région USA Est vers la région Asie Sud-est).
 
-Une fois que le processus est terminé, la Machine virtuelle source reste arrêt et la nouvelle un est en cours d’exécution dans le laboratoire de destination.
+Une fois le processus terminé, la machine virtuelle source reste arrêtée et la nouvelle est en cours d’exécution dans le labo de destination.
 
-Il existe deux contraintes de clé à connaître lors de la planification importer des machines virtuelles à partir d’un laboratoire dans à un autre laboratoire :
+Vous devez avoir deux contraintes principales en tête quand vous planifiez l’importation de machines virtuelles depuis un labo vers un autre labo :
 
-- Les importations de Machine virtuelle sur les abonnements et les régions sont prises en charge, mais les abonnements doivent être associés au même locataire Azure Active Directory.
-- Machines virtuelles ne doit pas être dans un état exigible dans le laboratoire de la source.
-- Vous êtes le propriétaire de la machine virtuelle dans le laboratoire de la source et le propriétaire du laboratoire dans le laboratoire de destination.
-- Actuellement, cette fonctionnalité est prise en charge uniquement par le biais de Powershell et API REST.
+- Les importations de machines virtuelles entre des abonnements et entre des régions sont prises en charge, mais les abonnements doivent être associés au même locataire Azure Active Directory.
+- Les machines virtuelles ne doivent pas être dans un état revendicable dans le labo source.
+- Vous êtes propriétaire de la machine virtuelle dans le labo source et propriétaire du labo dans le labo de destination.
+- Actuellement, cette fonctionnalité est prise en charge seulement via Powershell et l’API REST.
 
 ## <a name="use-powershell"></a>Utiliser PowerShell
-Téléchargez le fichier ImportVirtualMachines.ps1 à partir de la [GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImportVirtualMachines). Vous pouvez utiliser le script pour importer une seule machine virtuelle ou toutes les machines virtuelles dans le laboratoire de source dans le laboratoire de destination.
+Téléchargez le fichier ImportVirtualMachines.ps1 depuis [GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImportVirtualMachines). Vous pouvez utiliser le script pour importer une seule machine virtuelle ou toutes les machines virtuelles du labo source dans le labo de destination.
 
 ### <a name="use-powershell-to-import-a-single-vm"></a>Utiliser PowerShell pour importer une seule machine virtuelle
-L’exécution de ce script powershell nécessite l’identifiant de la machine virtuelle source et l’atelier de destination et si vous le souhaitez en fournissant un nouveau nom à utiliser pour l’ordinateur de destination :
+L’exécution de ce script PowerShell nécessite l’identification de la machine virtuelle source et du labo de destination, et vous pouvez aussi spécifier un nouveau nom à utiliser pour la machine de destination :
 
 ```powershell
 ./ImportVirtualMachines.ps1 -SourceSubscriptionId "<ID of the subscription that contains the source lab>" `
@@ -61,8 +61,8 @@ L’exécution de ce script powershell nécessite l’identifiant de la machine 
                             -DestinationVirtualMachineName "<Optional: specify a new name for the imported VM in the destination lab>"
 ```
 
-### <a name="use-powershell-to-import-all-vms-in-the-source-lab"></a>Utiliser PowerShell pour importer toutes les machines virtuelles dans le laboratoire de source
-Si l’ordinateur virtuel Source n’est pas spécifié, le script importe automatiquement toutes les machines virtuelles dans les DevTest Labs.  Par exemple : 
+### <a name="use-powershell-to-import-all-vms-in-the-source-lab"></a>Utiliser PowerShell pour importer toutes les machines virtuelles du labo source
+Si la machine virtuelle source n’est pas spécifiée, le script importe automatiquement toutes les machines virtuelles dans les DevTest Labs.  Par exemple :
 
 ```powershell
 ./ImportVirtualMachines.ps1 -SourceSubscriptionId "<ID of the subscription that contains the source lab>" `
@@ -71,8 +71,8 @@ Si l’ordinateur virtuel Source n’est pas spécifié, le script importe autom
                             -DestinationDevTestLabName "<Name of the destination lab>"
 ```
 
-## <a name="use-http-rest-to-import-a-vm"></a>HTTP REST permet d’importer une machine virtuelle
-L’appel REST est simple. Vous donner suffisamment d’informations pour identifier les ressources source et de destination. N’oubliez pas que l’opération s’effectue sur la ressource de laboratoire de destination.
+## <a name="use-http-rest-to-import-a-vm"></a>Utiliser HTTP REST pour importer une machine virtuelle
+L’appel REST est simple. Vous donnez suffisamment d’informations pour identifier les ressources sources et de destination. Rappelez-vous que l’opération s’effectue sur la ressource du labo de destination.
 
 ```REST
 POST https://management.azure.com/subscriptions/<DestinationSubscriptionID>/resourceGroups/<DestinationResourceGroup>/providers/Microsoft.DevTestLab/labs/<DestinationLab>/ImportVirtualMachine?api-version=2017-04-26-preview

@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.openlocfilehash: 935635c474190413545d1a2731c367a691bfa56d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61363154"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Comprendre le registre des identités dans votre IoT Hub
@@ -153,7 +153,7 @@ moduleId | ID du module |
 operationTimestamp | Horodatage ISO8601 de l’opération |
 iothub-message-schema | moduleLifecycleNotification |
 
-Corps : Cette section est au format JSON et représente le double de l’identité de module créé. Par exemple,
+Corps : Cette section est au format JSON et représente le jumeau de l’identité de module créé. Par exemple,
 
 ```json
 {

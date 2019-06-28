@@ -11,10 +11,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: robinsh
 ms.openlocfilehash: ffc2e5fb588ce6861f5df6cefdf810c1a015c043
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61441012"
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning"></a>Prévision météo utilisant les données de capteur de votre IoT Hub dans Azure Machine Learning
@@ -41,7 +41,7 @@ Vous apprenez à utiliser Azure Machine Learning pour effectuer des prévisions 
 
 ## <a name="what-you-need"></a>Ce dont vous avez besoin
 
-- Terminer la [simulateur en ligne Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md) didacticiel ou un des didacticiels appareil ; par exemple, [Raspberry Pi avec node.js](iot-hub-raspberry-pi-kit-node-get-started.md). Ces couvrent les exigences suivantes :
+- Effectuez le tutoriel [Simulateur en ligne Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md) ou un des tutoriels sur l’appareil, par exemple [Raspberry Pi avec node.js](iot-hub-raspberry-pi-kit-node-get-started.md). Il s’agit des exigences suivantes :
   - Un abonnement Azure actif.
   - Une instance Azure IoT Hub associée à votre abonnement.
   - Une application cliente qui envoie des messages à votre instance Azure IoT Hub.
@@ -97,7 +97,7 @@ Vous apprenez à utiliser Azure Machine Learning pour effectuer des prévisions 
 1. Sous **Topologie du travail**, cliquez sur **Entrées**.
 1. Dans le volet **Entrées**, cliquez sur **Ajouter**, puis saisissez les informations suivantes :
 
-   **Alias d’entrée** : L’alias unique pour l’entrée.
+   **Alias d’entrée** : Alias unique pour l’entrée.
 
    **Source** : sélectionnez **Hub IoT**.
 
@@ -114,13 +114,13 @@ Vous apprenez à utiliser Azure Machine Learning pour effectuer des prévisions 
 
    **Alias de sortie** : alias unique de la sortie.
 
-   **Récepteur** : Sélectionnez **stockage d’objets Blob**.
+   **Récepteur** : Sélectionnez **Stockage Blob**.
 
-   **Compte de stockage** : Le compte de stockage pour votre stockage d’objets blob. Vous pouvez utiliser un compte de stockage existant ou en créer un nouveau.
+   **Compte de stockage** : Compte de stockage pour votre stockage d’objets blob. Vous pouvez utiliser un compte de stockage existant ou en créer un nouveau.
 
-   **Conteneur** : Le conteneur dans lequel l’objet blob est enregistré. Vous pouvez créer un conteneur ou utiliser un conteneur existant.
+   **Conteneur** : Conteneur où l’objet blob est enregistré. Vous pouvez créer un conteneur ou utiliser un conteneur existant.
 
-   **Format de sérialisation d’événement**: Sélectionnez **CSV**.
+   **Format de sérialisation de l’événement** : Sélectionnez **CSV**.
 
    ![Ajouter une sortie à un travail Stream Analytics dans Azure](media/iot-hub-weather-forecast-machine-learning/9_add-output-stream-analytics-job-azure.png)
 
@@ -131,15 +131,15 @@ Vous apprenez à utiliser Azure Machine Learning pour effectuer des prévisions 
 1. Sous **Topologie du travail**, cliquez sur **Fonctions** > **Ajouter**.
 1. Entrez les informations suivantes :
 
-   **Alias de la fonction**: Entrez `machinelearning`.
+   **Alias de fonction** : Entrez `machinelearning`.
 
-   **Type de fonction**: Sélectionnez **Azure ML**.
+   **Type de fonction** : Sélectionnez **Azure ML**.
 
-   **Option d'importation** : Sélectionnez **importer à partir d’un autre abonnement**.
+   **Option d'importation** : Sélectionnez **Importer à partir d’un autre abonnement**.
 
-   **URL** : Entrez l’URL du SERVICE WEB que vous avez notée à partir du classeur Excel.
+   **URL** : Entrez l’URL DU SERVICE WEB que vous avez notée à partir du classeur Excel.
 
-   **Clé** : Entrez la clé d’accès que vous avez notée à partir du classeur Excel.
+   **Clé** : Entrez la CLÉ D’ACCÈS que vous avez notée à partir du classeur Excel.
 
    ![Ajouter une requête à un travail Stream Analytics dans Azure](media/iot-hub-weather-forecast-machine-learning/10_add-function-stream-analytics-job-azure.png)
 

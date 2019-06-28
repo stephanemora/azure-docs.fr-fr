@@ -9,10 +9,10 @@ ms.assetid: cf5633d4-bc43-444e-90fc-f90fbd0b7935
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.openlocfilehash: 7fd88383e909ebd6be64c22721b813946e37179e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60616493"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Accès aux journaux de diagnostic d’Azure Data Lake Analytics
@@ -33,7 +33,7 @@ La journalisation de diagnostic vous permet de collecter les pistes d’audit d�
 
 3. Dans __Paramètres de diagnostic__, entrez un __Nom__ pour cette configuration de journalisation, puis sélectionnez les options de journalisation.
 
-    ![Activer les diagnostics pour collecter des journaux d’audit et de requêtes](./media/data-lake-analytics-diagnostic-logs/enable-diagnostic-logs.png "Activer les journaux de diagnostic")
+    ![Activer les diagnostics pour collecter des journaux d’activité d’audit et de requêtes](./media/data-lake-analytics-diagnostic-logs/enable-diagnostic-logs.png "Activer les journaux de diagnostic")
 
    * Vous pouvez choisir de stocker/traiter les données de trois manières différentes.
 
@@ -41,8 +41,8 @@ La journalisation de diagnostic vous permet de collecter les pistes d’audit d�
 
      * Sélectionnez **Stream to an Event hub (Transmettre à un Event Hub)** pour transmettre les données journalisées à un Event Hub Azure. Utilisez cette option si vous disposez d’un pipeline de traitement en aval qui analyse les journaux d’activité entrants en temps réel. Si vous sélectionnez cette option, vous devez fournir les informations relatives au Event Hub Azure que vous souhaitez utiliser.
 
-     * Sélectionnez __envoyer à Log Analytique__ pour envoyer les données au service Azure Monitor. Utilisez cette option si vous souhaitez utiliser des journaux Azure Monitor pour collecter et analyser les journaux.
-   * Spécifiez si vous souhaitez obtenir des journaux d’audit ou des journaux d’activité de demande ou les deux.  Un journal des requêtes capture chaque demande d’API. Un journal d’audit enregistre toutes les opérations qui sont déclenchées par cette demande d’API.
+     * Sélectionnez __Envoyer à Log Analytics__ pour envoyer les données au service Azure Monitor. Utilisez cette option si vous souhaitez utiliser les journaux Azure Monitor pour recueillir et analyser les journaux.
+   * Spécifiez si vous souhaitez obtenir des journaux d’audit ou des journaux de demande ou les deux.  Un journal des requêtes capture chaque demande d’API. Un journal d’audit enregistre toutes les opérations qui sont déclenchées par cette demande d’API.
 
    * Pour __Archiver dans un compte de stockage__, spécifiez le nombre de jours pendant lesquels conserver les données.
 
@@ -128,7 +128,7 @@ Voici un exemple d’entrée dans le journal de demande au format JSON. Chaque o
 | Nom | type | Description |
 | --- | --- | --- |
 | time |Chaîne |L’horodatage (heure UTC) du journal. |
-| ResourceId |Chaîne |L’identificateur de la ressource sur laquelle l’opération a eu lieu. |
+| resourceId |Chaîne |L’identificateur de la ressource sur laquelle l’opération a eu lieu. |
 | category |Chaîne |La catégorie du journal. Par exemple, **Demandes**. |
 | operationName |Chaîne |Le nom de l’opération qui est journalisée. Par exemple, GetAggregatedJobHistory. |
 | resultType |Chaîne |L’état de l’opération. Par exemple, 200. |
@@ -180,7 +180,7 @@ Voici un exemple d’entrée dans le journal d’audit au format JSON. Chaque ob
 | Nom | type | Description |
 | --- | --- | --- |
 | time |Chaîne |L’horodatage (heure UTC) du journal. |
-| ResourceId |Chaîne |L’identificateur de la ressource sur laquelle l’opération a eu lieu. |
+| resourceId |Chaîne |L’identificateur de la ressource sur laquelle l’opération a eu lieu. |
 | category |Chaîne |La catégorie du journal. Par exemple, **Audit**. |
 | operationName |Chaîne |Le nom de l’opération qui est journalisée. Par exemple, JobSubmitted. |
 | resultType |Chaîne |Un sous-état de l’état de la tâche (operationName). |

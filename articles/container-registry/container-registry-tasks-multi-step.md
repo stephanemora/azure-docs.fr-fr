@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: danlep
 ms.openlocfilehash: ac0e4e9019a35d3fdb35c0b7af9cb1289f4bceeb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60829580"
 ---
 # <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>Exécuter des tâches de compilation, de test et de correction multiétapes dans les tâches ACR
@@ -47,9 +47,9 @@ Les tâches multiétapes conviennent aux scénarios similaires à la logique sui
 
 Dans ACR Tasks, une tâche multiétapes est définie comme une série d’étapes dans un fichier YAML. Chaque étape peut spécifier des dépendances en fonction de la réussite d’une ou de plusieurs étapes précédentes. Les types d’étape de tâches suivants sont disponibles :
 
-* [`build`](container-registry-tasks-reference-yaml.md#build) : Créer une ou plusieurs images de conteneur à l’aide de familier `docker build` syntaxe, en série ou en parallèle.
-* [`push`](container-registry-tasks-reference-yaml.md#push) : Envoyer des images intégrées à un Registre de conteneurs. Les registres privés comme Azure Container Registry sont pris en charge, de même que le hub Docker public.
-* [`cmd`](container-registry-tasks-reference-yaml.md#cmd) : Exécuter un conteneur, tel qu’il puisse fonctionner en tant que fonction dans le contexte de la tâche en cours d’exécution. Vous pouvez transférer des paramètres au conteneur `[ENTRYPOINT]`, et spécifier des propriétés comme env, detach, et d’autres paramètres `docker run` usuels. Le type d’étape `cmd` permet d’effectuer des tests unitaires et fonctionnels en exécutant les conteneurs en simultané.
+* [`build`](container-registry-tasks-reference-yaml.md#build) : compiler une ou plusieurs images conteneur à l’aide de la syntaxe `docker build` usuelle, en série ou en parallèle.
+* [`push`](container-registry-tasks-reference-yaml.md#push) : envoyer les images compilées dans un registre de conteneurs. Les registres privés comme Azure Container Registry sont pris en charge, de même que le hub Docker public.
+* [`cmd`](container-registry-tasks-reference-yaml.md#cmd) : exécuter un conteneur afin qu’il fonctionne comme une fonction dans le cadre de la tâche en cours d’exécution. Vous pouvez transférer des paramètres au conteneur `[ENTRYPOINT]`, et spécifier des propriétés comme env, detach, et d’autres paramètres `docker run` usuels. Le type d’étape `cmd` permet d’effectuer des tests unitaires et fonctionnels en exécutant les conteneurs en simultané.
 
 Les extraits de code suivants illustrent la combinaison de ses types d’étape de tâche. Les tâches en plusieurs étapes peuvent être aussi simples que la construction d’une image unique à partir d’un Dockerfile et son transfert dans votre registre, avec un fichier YAML similaire :
 

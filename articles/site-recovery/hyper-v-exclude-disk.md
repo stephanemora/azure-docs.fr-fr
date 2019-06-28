@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/19/2019
 ms.author: mayg
 ms.openlocfilehash: f86ded99ef5280a4e6929c39a9fd323d1b61f6f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60773891"
 ---
 # <a name="exclude-disks-from-replication"></a>Exclure les disques de la réplication
@@ -22,7 +22,7 @@ Cet article décrit comment exclure des disques de la réplication. Cette exclus
 
 **Fonctionnalité** | **VMware vers Azure** | **Hyper-V vers Azure** | **Azure vers Azure**| **Hyper-V vers Hyper-V** 
 --|--|--|--|--
-Exclure le disque | OUI | Oui | Non  | Non 
+Exclure le disque | OUI | OUI | Non | Non
 
 ## <a name="why-exclude-disks-from-replication"></a>Pourquoi exclure des disques de la réplication ?
 L’exclusion de disques de la réplication se révèle souvent nécessaire pour les raisons suivantes :
@@ -73,7 +73,7 @@ Les disques sur la machine virtuelle source sont les suivants :
 DB-Disk0-OS | DISK0 | C:\ | Disque de système d’exploitation
 DB-Disk1| Disk1 | D:\ | Base de données système SQL et base de données utilisateur 1
 DB-Disk2 (disque exclu de la protection) | Disk2 | E:\ | Fichiers temporaires
-DB-Disk3 (disque exclu de la protection) | Disk3 | F:\ | Base de données tempdb SQL (chemin du dossier (F:\MSSQL\Data\) <br /> <br />Notez le chemin d’accès de dossier avant le basculement.
+DB-Disk3 (disque exclu de la protection) | Disk3 | F:\ | Base de données tempdb SQL (chemin du dossier (F:\MSSQL\Data\) <br /> <br />Notez le chemin du dossier avant le basculement.
 DB-Disk4 | Disk4 |G:\ |Base de données utilisateur 2
 
 Étant donné que l’évolution des données sur deux disques de la machine virtuelle est temporaire, lorsque vous protégez la machine virtuelle SalesDB, excluez les disques Disk2 et Disk3 de la réplication. Azure Site Recovery ne répliquera pas ces disques. Lors du basculement, ces disques ne seront pas présents sur la machine virtuelle de basculement sur Azure.
@@ -83,7 +83,7 @@ Les disques sur la machine virtuelle Azure après le basculement sont les suivan
 **Numéro du disque du système d’exploitation invité** | **Lettre de lecteur** | **Type de données sur le disque**
 --- | --- | ---
 DISK0 | C:\ | Disque de système d’exploitation
-Disk1 | E:\ | Stockage temporaire<br /> <br />Azure ajoute ce disque et attribue la première lettre de lecteur disponible.
+Disk1 | E:\ | Stockage temporaire<br /> <br />Azure ajoute ce disque et lui attribue la première lettre de lecteur disponible.
 Disk2 | D:\ | Base de données système SQL et base de données utilisateur 1
 Disk3 | G:\ | Base de données utilisateur 2
 
@@ -147,7 +147,7 @@ Dans l’exemple précédent, les disques de la machine virtuelle Azure sont con
 **Numéro du disque du système d’exploitation invité** | **Lettre de lecteur** | **Type de données sur le disque**
 --- | --- | ---
 DISK0 | C:\ | Disque de système d’exploitation
-Disk1 | E:\ | Stockage temporaire<br /> <br />Azure ajoute ce disque et attribue la première lettre de lecteur disponible.
+Disk1 | E:\ | Stockage temporaire<br /> <br />Azure ajoute ce disque et lui attribue la première lettre de lecteur disponible.
 Disk2 | D:\ | Base de données système SQL et base de données utilisateur 1
 Disk3 | G:\ | Base de données utilisateur 2
 

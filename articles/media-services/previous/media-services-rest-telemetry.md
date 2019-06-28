@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 9c654c65577c44b1773ff98cb1206beeb5206ba4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60761775"
 ---
 # <a name="configuring-azure-media-services-telemetry-with-rest"></a>Configuration de la télémétrie Azure Media Services avec REST
@@ -34,7 +34,7 @@ Les étapes décrites dans cette rubrique sont les suivantes :
 - Obtention des points de terminaison de notification
 - Création d’un point de terminaison de notification pour la surveillance. 
 
-    Pour créer un point de terminaison de Notification, définissez EndPointType sur AzureTable (2) et EndpointAddress définie sur la table de stockage (par exemple, https :\//telemetryvalidationstore.table.core.windows.net/).
+    Pour créer un point de terminaison de notification, définissez EndPointType sur AzureTable (2) et endPointAddress sur la table de stockage (par exemple, https:\//telemetryvalidationstore.table.core.windows.net/).
   
 - Obtenir les configurations de surveillance
 
@@ -126,7 +126,7 @@ Les étapes décrites dans cette rubrique sont les suivantes :
     }
 
 > [!NOTE]
-> N’oubliez pas de modifier le « https :\//telemetryvalidationstore.table.core.windows.net « valeur à votre compte de stockage.
+> N’oubliez pas de remplacer la valeur « https:\//telemetryvalidationstore.table.core.windows.net » par votre compte de stockage.
 
 ### <a name="response"></a>response
 

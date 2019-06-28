@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 03/25/2019
 ms.author: genli
 ms.openlocfilehash: 0a12cbabc28640283f5a28eb7a83c7d7717e0882
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60921204"
 ---
 # <a name="reset-remote-desktop-services-or-its-administrator-password-in-a-windows-vm"></a>Réinitialiser les Services Bureau à distance ou le mot de passe administrateur associé dans une machine virtuelle Windows
@@ -45,7 +45,7 @@ Commencez par vous connecter au [Portail Azure](https://portal.azure.com), puis,
 
 ### <a name="reset-the-remote-desktop-services-configuration"></a>**Réinitialiser la configuration des Services Bureau à distance**
 
-Ce processus sera activer le service Bureau à distance dans la machine virtuelle et créer une règle de pare-feu pour le port de protocole RDP par défaut 3389.
+Ce processus a pour effet d’activer le service Bureau à distance dans la machine virtuelle et de créer une règle de pare-feu pour le port RDP par défaut (3389).
 
 1. Sélectionnez votre machine virtuelle Windows, puis **Réinitialiser le mot de passe** sous **Support + dépannage**. La fenêtre **Réinitialiser le mot de passe** s’affiche. 
 

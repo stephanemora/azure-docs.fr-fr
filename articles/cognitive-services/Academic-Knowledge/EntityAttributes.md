@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
 ms.openlocfilehash: 485775660ecfdf2291365ab98c9188295ea2cbde
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61340177"
 ---
 # <a name="entity-attributes"></a>Attributs d’entité
 
-Le graphique académique est composé de 7 types d’entité. Toutes les entités aura un ID d’entité et un type d’entité.
+Le graphique académique est composé de 7 types d’entité. Toutes les entités se verront attribuer un ID d’entité et un type d'entité.
 
 ## <a name="common-entity-attributes"></a>Attributs d’entité courants
 Nom    |Description                |Type       | Opérations
@@ -35,6 +35,6 @@ Nom                                                            |value
 [Journal](JournalEntityAttributes.md)                           |2
 [Séries de conférences](JournalEntityAttributes.md)                 |3
 [Instance de conférence](ConferenceInstanceEntityAttributes.md)    |4
-[Affiliation](AffiliationEntityAttributes.md)                   |5.
-[Champ d’étude](FieldsOfStudyEntityAttributes.md)                      |6.
+[Affiliation](AffiliationEntityAttributes.md)                   |5\.
+[Champ d’étude](FieldsOfStudyEntityAttributes.md)                      |6\.
 

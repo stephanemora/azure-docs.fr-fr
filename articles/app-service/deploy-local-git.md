@@ -15,10 +15,10 @@ ms.date: 06/05/2018
 ms.author: dariagrigoriu;cephalin
 ms.custom: seodec18
 ms.openlocfilehash: b879036dcd79901cb634fa197932e833cb22d12a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65956066"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Déploiement Git local vers Azure App Service
@@ -27,7 +27,7 @@ Ce guide de procédures vous montre comment déployer votre code sur [Azure App 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre les étapes décrites dans ce guide de procédures :
 
@@ -114,14 +114,14 @@ Dans le volet de navigation de gauche de la page de votre application, cliquez s
 
 ![](media/app-service-deploy-local-git/portal-enable.png)
 
-Cliquez sur **Azure Pipelines (aperçu)** > **continuer**.
+Cliquez sur **Azure Pipelines (préversion)**  > **Continuer**.
 
 ![](media/app-service-deploy-local-git/pipeline-builds.png)
 
-Dans le **configurer** page, configurez une nouvelle organisation d’Azure DevOps ou spécifiez une organisation existante. Lorsque vous avez terminé, cliquez sur **Continuer**.
+Dans la page **Configurer**, configurez une nouvelle organisation Azure DevOps ou spécifiez une organisation existante. Lorsque vous avez terminé, cliquez sur **Continuer**.
 
 > [!NOTE]
-> Si vous souhaitez utiliser une organisation Azure DevOps existante qui n’est pas répertoriée, vous devez [lier l’organisation Azure DevOps Services à votre abonnement Azure](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
+> Si vous souhaitez utiliser une organisation Azure DevOps existante non répertoriée, vous devez [lier l’organisation Azure DevOps Services à votre abonnement Azure](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
 
 En fonction de la [tarification](https://azure.microsoft.com/pricing/details/app-service/plans/) de votre plan App Service, il peut arriver qu’une page proposant un **déploiement intermédiaire** s’affiche. Choisissez si vous voulez activer des emplacements de déploiement, puis cliquez sur **Continuer**.
 
@@ -172,7 +172,7 @@ Voici les erreurs ou les problèmes couramment rencontrés lors de l’utilisati
 
 **Cause** : Cette erreur peut se produire si vous ne spécifiez pas de branche pendant l’opération `git push`, ou si vous n’avez pas défini la valeur `push.default` dans `.gitconfig`.
 
-**Résolution** : Réexécutez `git push`, en spécifiant la branche maîtresse. Exemple :
+**Résolution** : Réexécutez `git push`, en spécifiant la branche maîtresse. Par exemple :
 
 ```bash
 git push azure master
@@ -183,7 +183,7 @@ git push azure master
 
 **Cause** : Cette erreur peut se produire si vous tentez d’effectuer une opération Push sur une autre branche que la branche maîtresse sur le dépôt distant « azure ».
 
-**Résolution** : Réexécutez `git push`, en spécifiant la branche maîtresse. Exemple :
+**Résolution** : Réexécutez `git push`, en spécifiant la branche maîtresse. Par exemple :
 
 ```bash
 git push azure master

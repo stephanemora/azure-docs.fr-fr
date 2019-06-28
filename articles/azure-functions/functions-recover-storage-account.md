@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
 ms.openlocfilehash: 6057fa52cd2f1e9b9fd525723f96ab66983fb5d4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61020296"
 ---
 # <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>Comment résoudre les messages « functions runtime is unreachable »
@@ -66,7 +66,7 @@ Dans l’étape précédente, si vous ne disposiez pas d’une chaîne de connex
 ### <a name="guidance"></a>Assistance
 
 * N’activez pas le « paramètre d’emplacement » pour ces paramètres. Lorsque vous échangez les emplacements de déploiement, la fonction s’interrompt.
-* Ne modifiez pas ces paramètres dans le cadre de déploiements automatisés.
+* Ne modifiez pas ces paramètres lors de déploiements automatisés.
 * Ces paramètres doivent être fournis et valides au moment de la création. Un déploiement automatisé sans ces paramètres rend l’application non fonctionnelle et ce, même si les paramètres sont ajoutés après coup.
 
 ## <a name="storage-account-credentials-invalid"></a>Informations d’identification du compte de stockage invalides
@@ -93,11 +93,11 @@ Si vous avez configuré un quota d’exécution quotidien, votre Function App se
 Maintenant que votre Function App est de nouveau opérationnelle, examinons les démarrages rapides et références développeur pour être à nouveau opérationnel !
 
 * [Créer votre première fonction Azure](functions-create-first-azure-function.md)  
-   vous permet de créer votre première fonction à l’aide du démarrage rapide d’Azure Functions. 
+  vous permet de créer votre première fonction à l’aide du démarrage rapide d’Azure Functions. 
 * [Informations de référence pour les développeurs sur Azure Functions](functions-reference.md)  
-   fournit des informations techniques supplémentaires sur l’exécution d’Azure Functions, ainsi qu’une référence pour le codage de fonctions et la définition des déclencheurs et des liaisons.
+  fournit des informations techniques supplémentaires sur l’exécution d’Azure Functions, ainsi qu’une référence pour le codage de fonctions et la définition des déclencheurs et des liaisons.
 * [Test d’Azure Functions](functions-test-a-function.md)  
-   décrit plusieurs outils et techniques permettant de tester vos fonctions.
+  décrit plusieurs outils et techniques permettant de tester vos fonctions.
 * [Comment mettre à l’échelle Azure Functions](functions-scale.md)  
   Présente les plans de service disponibles pour Azure Functions, dont le plan d’hébergement de consommation, et explique comment choisir le plan adapté à vos besoins. 
 * [En savoir plus sur Azure App Service](../app-service/overview.md)  

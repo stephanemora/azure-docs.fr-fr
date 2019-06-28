@@ -10,10 +10,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 12/19/2018
 ms.author: liydu
 ms.openlocfilehash: df7e7b426a8c85c8051d7f588c706a6f8811e183
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60518699"
 ---
 # <a name="use-iot-devkit-az3166-with-azure-functions-and-cognitive-services-to-make-a-language-translator"></a>Utiliser le DevKit IoT AZ3166 avec Azure Functions et Cognitive Services pour créer un traducteur
@@ -54,7 +54,7 @@ Pour effectuer les étapes de ce didacticiel, commencez par exécuter les tâche
 
    Notez le nom de l’appareil Azure IoT Hub que vous avez créé.
 
-1. Ouvrez `Functions\DevKitTranslatorFunction.cs` et mettre à jour les lignes de code suivantes avec le nom de l’appareil et la clé de Service de reconnaissance vocale vous avez notée.
+1. Ouvrez `Functions\DevKitTranslatorFunction.cs` et mettez à jour les lignes de code suivantes avec le nom d’appareil et la clé du service Speech dont vous avez pris note.
    ```csharp
    // Subscription Key of Speech Service
    const string speechSubscriptionKey = "";

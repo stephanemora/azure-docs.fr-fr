@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
 ms.openlocfilehash: 50d0ed644b5afa744e8bce478199079fd4fb7432
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60878946"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Bonnes pratiques d’utilisation d’Azure Data Lake Storage Gen1
@@ -45,7 +45,7 @@ Les principaux de service Azure Active Directory sont en général utilisés par
 
 ### <a name="enable-the-data-lake-storage-gen1-firewall-with-azure-service-access"></a>Activer le pare-feu Data Lake Storage Gen1 avec accès au service Azure
 
-Data Lake Storage Gen1 prend en charge l’option d’activation d’un pare-feu et de limitation d’accès aux services Azure seulement, ce qui est recommandé pour un vecteur d’attaque réduit en cas d’intrusion extérieure. Le pare-feu peut être activé sur le compte Data Lake Storage Gen1 dans le portail Azure via les options **Pare-feu** > **Activer le pare-feu (ON)** > **Autoriser l’accès aux services Azure**.
+Data Lake Storage Gen1 prend en charge l’option d’activation d’un pare-feu et de limitation d’accès aux services Azure seulement, ce qui est recommandé pour un vecteur d’attaque réduit en cas d’intrusion extérieure. Le pare-feu peut être activé sur le compte Data Lake Storage Gen1 dans le portail Azure via les options **Pare-feu** > **Activer le pare-feu (ON)**  > **Autoriser l’accès aux services Azure**.
 
 ![Paramètres du pare-feu dans Data Lake Storage Gen1](./media/data-lake-store-best-practices/data-lake-store-firewall-setting.png "Paramètres du pare-feu dans Data Lake Storage Gen1")
 
@@ -101,10 +101,10 @@ Vous trouverez ci-dessous les trois options les plus recommandées pour orchestr
 |  |Distcp  |Azure Data Factory  |AdlCopy  |
 |---------|---------|---------|---------|
 |**Limites de mise à l’échelle**     | Délimitée par des nœuds de travail        | Limitée par des unités de déplacement de données cloud max        | Délimitée par des unités Analytics        |
-|**Prend en charge la copie des valeurs delta**     |   Oui      | Non          | Non          |
-|**Orchestration intégrée**     |  NON (utiliser Oozie Airflow ou les tâches Cron)       | Oui        | NON (utiliser Azure Automation ou le Planificateur de tâches Windows)         |
+|**Prend en charge la copie des valeurs delta**     |   OUI      | Non         | Non         |
+|**Orchestration intégrée**     |  NON (utiliser Oozie Airflow ou les tâches Cron)       | OUI        | NON (utiliser Azure Automation ou le Planificateur de tâches Windows)         |
 |**Systèmes de fichiers pris en charge**     | ADL, HDFS, WASB, S3, GS, CFS        |Nombreux, voir [Connecteurs](../data-factory/connector-azure-blob-storage.md).         | ADL vers ADL, WASB vers ADL (même région uniquement)        |
-|**Système d’exploitation pris en charge**     |N’importe quel système d’exploitation prenant en charge Hadoop         | S.O.          | Windows 10         |
+|**Système d’exploitation pris en charge**     |N’importe quel système d’exploitation prenant en charge Hadoop         | N/A          | Windows 10         |
 
 ### <a name="use-distcp-for-data-movement-between-two-locations"></a>Utiliser Distcp pour déplacer des données entre deux emplacements
 
@@ -130,9 +130,9 @@ Data Lake Storage Gen1 fournit une fonction d’audit et des journaux de diagnos
 
 ### <a name="export-data-lake-storage-gen1-diagnostics"></a>Exporter des diagnostics Data Lake Storage Gen1
 
-L’une des méthodes les plus rapides pour accéder aux journaux consultables à partir de Data Lake Storage Gen1 consiste à activer la copie des journaux de transaction vers **Log Analytics** sous le panneau **Diagnostics** du compte Data Lake Storage Gen1. Cela fournit une accès immédiat aux journaux entrants avec des filtres de temps et de contenus, ainsi que des options d’alerte (message électronique/webhook) qui se déclenchent toutes les 15 minutes. Pour plus d’instructions, consultez [Accès aux journaux de diagnostic d’Azure Data Lake Storage Gen1](data-lake-store-diagnostic-logs.md).
+L’une des méthodes les plus rapides pour accéder aux journaux d’activité consultables à partir de Data Lake Storage Gen1 consiste à activer la copie des journaux d’activité de transaction vers **Log Analytics** sous le panneau **Diagnostics** du compte Data Lake Storage Gen1. Cela fournit une accès immédiat aux journaux d’activité entrants avec des filtres de temps et de contenus, ainsi que des options d’alerte (message électronique/webhook) qui se déclenchent toutes les 15 minutes. Pour plus d’instructions, consultez [Accès aux journaux de diagnostic d’Azure Data Lake Storage Gen1](data-lake-store-diagnostic-logs.md).
 
-Pour plus d’alertes en temps réel et plus de contrôles sur le lieu d’arrivée des journaux, pensez à exporter les journaux vers Azure EventHub, où le contenu peut être analysé individuellement ou sur une fenêtre de temps pour soumettre des notifications en temps réel à une file d’attente. Une application différente telle qu’une [application logique](../connectors/connectors-create-api-azure-event-hubs.md) peut alors utiliser et communiquer les alertes au canal approprié, et soumettre des mesures pour surveiller des outils comme NewRelic, Datadog ou AppDynamics. Aussi, si vous utilisez un outil tiers comme ElasticSearch, vous pouvez exporter les journaux vers le stockage d’objets blob et utiliser le [plugin Azure Logstash](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-input-azureblob) pour utiliser les données dans votre pile ElasticSearch, Kibana et Logstash (ELK).
+Pour plus d’alertes en temps réel et plus de contrôles sur le lieu d’arrivée des journaux d’activité, pensez à exporter les journaux d’activité vers Azure EventHub, où le contenu peut être analysé individuellement ou sur une fenêtre de temps pour soumettre des notifications en temps réel à une file d’attente. Une application différente telle qu’une [application logique](../connectors/connectors-create-api-azure-event-hubs.md) peut alors utiliser et communiquer les alertes au canal approprié, et soumettre des mesures pour surveiller des outils comme NewRelic, Datadog ou AppDynamics. Aussi, si vous utilisez un outil tiers comme ElasticSearch, vous pouvez exporter les journaux d’activité vers le stockage d’objets blob et utiliser le [plugin Azure Logstash](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-input-azureblob) pour utiliser les données dans votre pile ElasticSearch, Kibana et Logstash (ELK).
 
 ### <a name="turn-on-debug-level-logging-in-hdinsight"></a>Activer la journalisation de niveau de débogage dans HDInsight
 
@@ -140,7 +140,7 @@ Si l’envoi de journaux Azure Data Lake Storage Gen1 n’est pas activé, Azure
 
     log4j.logger.com.microsoft.azure.datalake.store=DEBUG
 
-Une fois la propriété définie et les nœuds redémarrés, les diagnostics Data Lake Storage Gen1 sont écrits dans les journaux YARN sur les nœuds (/tmp/\<utilisateur\>/yarn.log) et les informations importantes comme les erreurs ou les limites (code d’erreur HTTP 429) peuvent être analysées. Ces mêmes informations peuvent aussi être surveillées dans les journaux Azure Monitor ou, là où sont envoyés les journaux dans le [Diagnostics](data-lake-store-diagnostic-logs.md) panneau du compte Data Lake Storage Gen1. Il est recommandé de disposer d’au moins un journal côté client activé ou d’utiliser l’option d’envoi de journaux avec Data Lake Storage Gen1 pour une visibilité opérationnelle et un débogage simplifié.
+Une fois la propriété définie et les nœuds redémarrés, les diagnostics Data Lake Storage Gen1 sont écrits dans les journaux d’activité YARN sur les nœuds (/tmp/\<utilisateur\>/yarn.log) et les informations importantes comme les erreurs ou les limites (code d’erreur HTTP 429) peuvent être analysées. Ces mêmes informations peuvent aussi être supervisées dans les journaux Azure Monitor ou n’importe quel emplacement où sont envoyés les journaux dans le panneau [Diagnostics](data-lake-store-diagnostic-logs.md) du compte Data Lake Storage Gen1. Il est recommandé de disposer d’au moins un journal côté client activé ou d’utiliser l’option d’envoi de journaux avec Data Lake Storage Gen1 pour une visibilité opérationnelle et un débogage simplifié.
 
 ### <a name="run-synthetic-transactions"></a>Exécuter des transactions synthétiques
 

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 6e041e41372c72c6792c1fb4a1fbdc3bbe475b21
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60844393"
 ---
 # <a name="defragmentation-of-metrics-and-load-in-service-fabric"></a>Défragmentation des mesures et de la charge dans Service Fabric
@@ -42,7 +42,7 @@ Le diagramme suivant offre une représentation visuelle de deux clusters, l’un
 
 <center>
 
-![Comparaison de Clusters équilibré et défragmenté][Image1]
+![Comparaison entre clusters équilibrés et défragmentés][Image1]
 </center>
 
 Dans le cas équilibré, tenez compte du nombre de mouvements qui seraient nécessaires pour placer un des plus grands objets de service. Dans le cluster défragmenté, la charge de travail volumineuse peut être placée sur les nœuds 4 ou 5 sans avoir à attendre le déplacement d’autres services.

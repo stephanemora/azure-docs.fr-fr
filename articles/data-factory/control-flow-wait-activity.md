@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.date: 01/12/2018
 ms.author: shlo
 ms.openlocfilehash: 66d79bc1597cd8f3c7e01eb8227eb7c91ba04d1d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60764749"
 ---
-# <a name="execute-wait-activity-in-azure-data-factory"></a>Exécution d’activité wait dans Azure Data Factory
+# <a name="execute-wait-activity-in-azure-data-factory"></a>Exécuter l’activité Wait dans Azure Data Factory
 Quand vous utilisez une activité Wait dans un pipeline, celui-ci attend pendant la période spécifiée avant de poursuivre l’exécution des activités suivantes. 
 
 ## <a name="syntax"></a>Syntaxe
@@ -39,9 +39,9 @@ Quand vous utilisez une activité Wait dans un pipeline, celui-ci attend pendant
 
 Propriété | Description | Valeurs autorisées | Obligatoire
 -------- | ----------- | -------------- | --------
-Nom | Nom de l’activité `Wait`. | Chaîne | Oui
-Type | Doit être défini sur **Wait**. | Chaîne | Oui
-waitTimeInSeconds | Nombre de secondes pendant lesquelles le pipeline attend avant de poursuivre le traitement. | Entier  | Oui
+Nom | Nom de l’activité `Wait`. | Chaîne | OUI
+Type | Doit être défini sur **Wait**. | Chaîne | OUI
+waitTimeInSeconds | Nombre de secondes pendant lesquelles le pipeline attend avant de poursuivre le traitement. | Entier | OUI
 
 ## <a name="example"></a>Exemples
 

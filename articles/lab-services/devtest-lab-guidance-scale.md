@@ -14,10 +14,10 @@ ms.date: 02/11/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: 25a088686c739c53feadd6354baf75f3147bdc33
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60561487"
 ---
 # <a name="scale-up-your-azure-devtest-labs-infrastructure"></a>Scale up de votre infrastructure Azure DevTest Labs
@@ -46,7 +46,7 @@ Nous allons mettre en avant les avantages de chaque approche.
 Souvent, cette approche n’est pas facile à gérer pour une grande entreprise. Toutefois, la limitation du nombre d’abonnements offre les avantages suivants :
 
 - **Prévisibilité** des coûts pour l’entreprise.  La budgétisation est beaucoup plus facile avec un seul abonnement, car toutes les ressources se trouvent dans un seul pool. Cette approche simplifie la prise de décision concernant le moment de mettre en place des mesures de contrôle des coût au cours du cycle de facturation.
-- **La facilité de gestion** de machines virtuelles, artefacts, les formules, configuration du réseau, autorisations, stratégies, etc. est plus facile, car les mises à jour sont nécessaires uniquement dans un seul abonnement par opposition à effectuer des mises à jour sur plusieurs abonnements.
+- **La gestion** des machines virtuelles, des artefacts, des formules, de la configuration réseau, des autorisations, des stratégies, etc., est plus facile, car les mises à jour ne sont nécessaires que dans un seul abonnement et non pas dans plusieurs.
 - **La mise en réseau** demande un effort beaucoup moins important s’agissant d’un abonnement unique pour les entreprises où la connectivité locale est obligatoire. Il est nécessaire de disposer de réseaux virtuels de connexions sur plusieurs abonnements (modèle hub-and-spoke), ce qui implique des abonnements supplémentaires, et donc plus de configuration, de gestion, d’espaces d’adressage IP, etc.
 - **La collaboration entre équipes** est plus facile lorsque tout le monde travaille avec le même abonnement : par exemple, il est plus facile de réaffecter une machine virtuelle à un collègue, de partager des ressources avec l’équipe, etc.
 

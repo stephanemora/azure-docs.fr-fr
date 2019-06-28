@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 09/14/2018
 ms.author: aschhab
 ms.openlocfilehash: f5ce8a237bc2ba7fe15acfcd6afa0edcda7ef713
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60589662"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Meilleures pratiques relatives aux améliorations de performances à l’aide de la messagerie Service Bus
@@ -84,7 +84,7 @@ Le traitement par lot côté client permet à un client de file d’attente ou d
 
 Par défaut, un client utilise un intervalle 20 ms entre les lots. Vous pouvez modifier l’intervalle de traitement par lots en définissant la propriété [BatchFlushInterval][BatchFlushInterval] avant de créer la structure de messagerie. Ce paramètre affecte tous les clients créés par cette structure.
 
-Pour désactiver le traitement par lot, définissez la propriété [BatchFlushInterval][BatchFlushInterval] sur **TimeSpan.Zero**. Par exemple : 
+Pour désactiver le traitement par lot, définissez la propriété [BatchFlushInterval][BatchFlushInterval] sur **TimeSpan.Zero**. Par exemple :
 
 ```csharp
 MessagingFactorySettings mfs = new MessagingFactorySettings();
@@ -96,9 +96,9 @@ MessagingFactory messagingFactory = MessagingFactory.Create(namespaceUri, mfs);
 Le traitement par lot n’affecte pas le nombre d’opérations de messagerie facturables et est disponible uniquement pour le protocole client Service Bus utilisant la bibliothèque [Microsoft.ServiceBus.Messaging](https://www.nuget.org/packages/WindowsAzure.ServiceBus/). Le protocole HTTP ne prend pas en charge le traitement par lot.
 
 > [!NOTE]
-> Paramètre BatchFlushInterval garantit que le traitement par lot est implicite du point de vue de l’application. par exemple, l’application SendAsync() et CompleteAsync() appelle et ne met pas les appels de lot spécifiques.
+> La définition de BatchFlushInterval garantit que le traitement par lot est implicite du point de vue de l’application. Autrement dit, l’application effectue des appels SendAsync() et CompleteAsync() et n’effectue pas d’appels Batch spécifiques.
 >
-> Le traitement par lots du côté client EXPLICIT peut être implémentée en utilisant le sous - appel de méthode 
+> Le traitement par lot explicite du côté client peut être implémenté en utilisant la méthode d’appel ci-dessous : 
 > ```csharp
 > Task SendBatchAsync (IEnumerable<BrokeredMessage> messages);
 > ```
@@ -113,7 +113,7 @@ Pour augmenter le débit d’une file d’attente, d’une rubrique ou d’un ab
 
 Les opérations de stockage supplémentaires qui se produisent pendant cet intervalle sont ajoutées au lot. L’accès au dispositif de stockage par lot affecte seulement les opérations **d’envoi** et **complètes** ; les opérations de réception ne sont pas affectées. L’accès au dispositif de stockage est une propriété d’entité. Le traitement par lot se produit sur toutes les entités qui permettent l’accès au stockage par lot.
 
-Lorsque vous créez une file d’attente, une rubrique ou un abonnement, l’accès au stockage par lot est activé par défaut. Pour désactiver l’accès au stockage par lot, définissez la propriété [EnableBatchedOperations][EnableBatchedOperations] sur **false** avant de créer l’entité. Par exemple : 
+Lorsque vous créez une file d’attente, une rubrique ou un abonnement, l’accès au stockage par lot est activé par défaut. Pour désactiver l’accès au stockage par lot, définissez la propriété [EnableBatchedOperations][EnableBatchedOperations] sur **false** avant de créer l’entité. Par exemple :
 
 ```csharp
 QueueDescription qd = new QueueDescription();
@@ -137,18 +137,18 @@ La propriété (TTL) de durée de vie d’un message est vérifiée par le serve
 
 La lecture anticipée n’affecte pas le nombre d’opérations de messagerie facturables et est disponible uniquement pour le protocole client Service Bus. Le protocole HTTP ne prend pas en charge la lecture anticipée. La lecture anticipée est disponible pour les opérations de réception synchrones et asynchrones.
 
-## <a name="prefetching-and-receivebatch"></a>La lecture anticipée et ReceiveBatch
+## <a name="prefetching-and-receivebatch"></a>Prérécupération et ReceiveBatch
 
-Tandis que les concepts de la lecture anticipée de plusieurs messages ensemble ont une sémantique similaire au traitement des messages dans un lot (ReceiveBatch), il existe quelques différences mineures qui doivent être conservés à l’esprit quand vous tirez parti de ces éléments.
+Même si les concepts liés à la prérécupération de plusieurs messages ensemble présentent une sémantique similaire au traitement des messages dans un lot (ReceiveBatch), il existe quelques différences mineures qui doivent être gardées à l’esprit lorsque vous tirez parti simultanément de ces éléments.
 
-La prérécupération est une configuration (ou le mode) sur le client (QueueClient et SubscriptionClient) et ReceiveBatch est une opération (ce qui a une sémantique requête-réponse).
+La prérécupération est une configuration (ou un mode) sur le client (QueueClient et SubscriptionClient) tandis que ReceiveBatch est une opération (qui possède une sémantique requête-réponse).
 
-Lors de l’utilisation de ces éléments, envisagez les cas suivants :
+Lors de l’utilisation conjointe de ces éléments, envisagez les cas suivants :
 
-* La prérécupération doit être supérieur ou égal au nombre de messages que vous attendez à recevoir de ReceiveBatch.
-* Lecture anticipée peut être jusqu'à n/3 par le nombre de messages traités par seconde, où n est la durée de verrouillage par défaut.
+* Le nombre de prérécupérations doit être supérieur ou égal au nombre de messages que vous vous attendez à recevoir de ReceiveBatch.
+* Le nombre de prérécupérations peut aller jusqu’à n/3 fois le nombre de messages traités par seconde, sachant que n est la durée de verrouillage par défaut.
 
-Il existe quelques problèmes avec ayant un gourmand approche (par exemple, en conservant le nombre de lectures anticipées très élevé), car cela implique que le message est verrouillé à un destinataire particulier. La recommandation consiste à essayer d’out Prérécupérer des valeurs entre les seuils mentionnés ci-dessus et empirique identifier ce que peut contenir.
+Quelques difficultés surviennent lors d’une approche gourmande (par exemple, en conservant le nombre de prérécupérations très élevé), car cela implique le verrouillage du message sur un récepteur particulier. La recommandation à suivre est d’essayer des valeurs de prérécupération entre les seuils mentionnés ci-dessus et d’identifier empiriquement ce qui convient.
 
 ## <a name="multiple-queues"></a>Files d’attente multiples
 

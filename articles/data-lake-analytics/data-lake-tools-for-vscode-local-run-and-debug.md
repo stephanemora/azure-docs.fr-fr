@@ -10,10 +10,10 @@ ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.topic: conceptual
 ms.date: 07/14/2017
 ms.openlocfilehash: 765bcaab0f91e097be827bfa6e8f505ef5330d57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60814247"
 ---
 # <a name="run-u-sql-and-debug-locally-in-visual-studio-code"></a>Exécuter U-SQL et déboguer localement dans Visual Studio Code
@@ -23,7 +23,7 @@ Seules les installations Windows d’Azure Data Lake Tools pour Visual Studio pr
 
 ## <a name="set-up-the-u-sql-local-run-environment"></a>Configurer l’environnement d’exécution locale U-SQL
 
-1. Sélectionnez Ctrl + Maj + P pour ouvrir la palette de commandes, puis entrez **ADL : Télécharger exécuter le Package Local** pour télécharger les packages.  
+1. Sélectionnez Ctrl+Maj+P pour ouvrir la palette de commandes, puis entrez **ADL: Download Local Run Package** pour télécharger les packages.  
 
    ![Télécharger les packages ADL LocalRun Dependency](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/downloadtheadllocalrunpackage.png)
 
@@ -45,16 +45,16 @@ Seules les installations Windows d’Azure Data Lake Tools pour Visual Studio pr
 
 
 ## <a name="start-the-local-run-service-and-submit-the-u-sql-job-to-a-local-account"></a>Démarrer le service d’exécution locale et envoyer le travail U-SQL à un compte local 
-Pour l’utilisateur de la première fois, utilisez **ADL : Télécharger exécuter le Package Local** pour télécharger les packages d’exécution locale, si vous n’avez pas [configurer d’environnement d’exécution locale U-SQL](#set-up-the-u-sql-local-run-environment).
+S’il s’agit de votre première utilisation, entrez  **ADL: Download Local Run Package** pour télécharger les packages d’exécution locale si vous n’avez pas [configuré d’environnement d’exécution locale U-SQL](#set-up-the-u-sql-local-run-environment).
 
-1. Sélectionnez Ctrl + Maj + P pour ouvrir la palette de commandes, puis entrez **ADL : Démarrer le Service d’exécution locale**.   
+1. Sélectionnez Ctrl+Maj+P pour ouvrir la palette de commandes, puis entrez **ADL: Start Local Run Service**.   
 2. Sélectionnez **Accepter** pour accepter les termes du contrat de licence du logiciel Microsoft pour la première fois. 
 
    ![Accepter les termes du contrat de licence du logiciel Microsoft](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/AcceptEULA.png)   
 3. La console cmd s’ouvre. Les nouveaux utilisateurs doivent entrer **3**, puis rechercher le chemin de dossier local pour l’entrée et la sortie des données. Pour les autres options, vous pouvez utiliser les valeurs par défaut. 
 
    ![Data Lake Tools pour Visual Studio Code - cmd exécution locale](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/data-lake-tools-for-vscode-local-run-cmd.png)
-4. Sélectionnez Ctrl + Maj + P pour ouvrir la palette de commandes, entrez **ADL : Soumettre**, puis sélectionnez **Local** pour envoyer le travail à votre compte local.
+4. Sélectionnez Ctrl+Maj+P pour ouvrir la palette de commandes, entrez **ADL: Submit Job**, puis sélectionnez **Local** pour envoyer le travail à votre compte local.
 
    ![Data Lake Tools pour Visual Studio Code - Sélectionner Local](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/data-lake-tools-for-vscode-select-local.png)
 5. Après avoir envoyé le travail, vous pouvez afficher les détails de l’envoi. Pour afficher les détails de l’envoi, sélectionnez **jobUrl** dans la fenêtre **Sortie**. Vous pouvez également afficher l’état de l’envoi du travail à partir de la console cmd. Entrez **7** dans la console cmd si vous souhaitez connaître plus de détails sur le travail.
@@ -66,19 +66,19 @@ Pour l’utilisateur de la première fois, utilisez **ADL : Télécharger exé
 ## <a name="start-a-local-debug-for-the-u-sql-job"></a>Démarrer un débogage local pour le travail U-SQL  
 S’il s’agit de votre première utilisation :
 
-1. Utilisez **ADL : Télécharger exécuter le Package Local** pour télécharger les packages d’exécution locale, si vous n’avez pas [configurer d’environnement d’exécution locale U-SQL](#set-up-the-u-sql-local-run-environment).
-2. Installer le SDK .NET Core 2.0 comme suggéré dans la boîte de message, le cas contraire.
+1. Entrez  **ADL: Download Local Run Package** pour télécharger les packages d’exécution locale si vous n’avez pas [configuré d’environnement d’exécution locale U-SQL](#set-up-the-u-sql-local-run-environment).
+2. Installez le kit .NET Core SDK 2.0 comme suggéré dans la boîte de message, s’il n’est pas encore installé.
  
   ![rappel d’installation Dotnet](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/remind-install-dotnet.png)
-3. Installer C# pour Visual Studio Code comme suggéré dans la boîte de message si ne pas installé. Cliquez sur **installer** pour continuer, puis redémarrez VSCode.
+3. Installez C# pour Visual Studio Code comme suggéré dans la boîte de message, s’il n’est pas encore installé. Cliquez sur  **Installer** pour continuer, puis redémarrez VSCode.
 
     ![Rappel concernant l’installation de C#](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/install-csharp.png)
 
 Suivez les étapes ci-dessous pour effectuer le débogage local :
   
-1. Sélectionnez Ctrl + Maj + P pour ouvrir la palette de commandes, puis entrez **ADL : Démarrer le Service d’exécution locale**. La console cmd s’ouvre. Vérifiez que la valeur **DataRoot** est définie.
+1. Sélectionnez Ctrl+Maj+P pour ouvrir la palette de commandes, puis entrez **ADL: Start Local Run Service**. La console cmd s’ouvre. Vérifiez que la valeur **DataRoot** est définie.
 2. Définissez un point d’arrêt dans votre code C# code-behind.
-3. Éditeur de script, avec le bouton droit et sélectionnez **ADL : Débogage local**.
+3. De retour dans l’Éditeur de script, cliquez avec le bouton droit et sélectionnez **ADL: Local Debug**.
     
    ![Data Lake Tools pour Visual Studio Code - Résultat débogage local](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/data-lake-tools-for-vscode-local-debug-result.png)
 

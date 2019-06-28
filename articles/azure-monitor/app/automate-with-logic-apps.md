@@ -12,15 +12,15 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: mbullwin
 ms.openlocfilehash: 61215adc2aee5cef3693d119bf0efb36526d748b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60904350"
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>Automatiser les processus Application Insights en utilisant Logic Apps
 
-Vous devez exécuter à plusieurs reprises les mêmes requêtes sur vos données de télémétrie pour vérifier le bon fonctionnement de votre service ? Cherchez-vous à automatiser ces requêtes pour rechercher les tendances et les anomalies, puis générer vos propres flux de travail autour d’elles ? Le connecteur Azure Application Insights pour Logic Apps est l’outil adapté à cet effet.
+Vous devez exécuter à plusieurs reprises les mêmes requêtes sur vos données de télémétrie pour vérifier le bon fonctionnement de votre service ? Cherchez-vous à automatiser ces requêtes pour rechercher les tendances et les anomalies, puis générer vos propres flux de travail autour d’elles ? Le connecteur Azure Application Insights pour Logic Apps est l’outil qu’il vous faut pour atteindre cet objectif.
 
 Avec cette intégration, vous pouvez automatiser de nombreux processus sans écrire la moindre ligne de code. Vous pouvez créer une application logique avec le connecteur Application Insights pour automatiser rapidement tous les processus Application Insights. 
 
@@ -41,16 +41,16 @@ Dans ce didacticiel, vous allez apprendre à créer une application logique qui 
 
     ![Fenêtre Concepteur d’application logique](./media/automate-with-logic-apps/2logicappdesigner.png)
 
-1. Dans le **intervalle** , tapez **1** , puis,**fréquence** boîte, sélectionnez **jour**.
+1. Dans la zone **Intervalle**, sélectionnez **1**, puis, dans la zone **Fréquence**, sélectionnez **Jour**.
 
     ![Fenêtre « Récurrence » du Concepteur d’application logique](./media/automate-with-logic-apps/3recurrence.png)
 
 ### <a name="step-3-add-an-application-insights-action"></a>Étape 3 : Ajouter une action Application Insights
-1. Cliquez sur **nouvelle étape**.
+1. Cliquez sur **Nouvelle étape**.
 
 1. Dans la zone de recherche **Choisir une action**, tapez **Azure Application Insights**.
 
-1. Sous **Actions**, cliquez sur **Azure Application Insights - requête de visualiser une Analytique**.
+1. Sous **Actions**, cliquez sur **Azure Application Insights - Visualiser la requête Analytics**.
 
     ![Fenêtre de « Choisir une action » du Concepteur d’application logique](./media/automate-with-logic-apps/4visualize.png)
 
@@ -90,7 +90,7 @@ Lorsque vous créez vos propres requêtes, vérifiez qu’elles fonctionnent cor
 
 ### <a name="step-6-configure-the-logic-app-to-send-email"></a>Étape 6 : Configurer l’application logique pour envoyer un e-mail
 
-1. Cliquez sur **nouvelle étape**.
+1. Cliquez sur **Nouvelle étape**.
 
 1. Dans la zone de recherche, tapez **Office 365 Outlook**.
 
@@ -106,7 +106,7 @@ Lorsque vous créez vos propres requêtes, vérifiez qu’elles fonctionnent cor
 
    c. Cliquez n’importe où dans la zone **Corps**, puis, dans le menu de contenu dynamique qui s’ouvre sur la droite, sélectionnez **Corps**.
     
-   d. Cliquez sur le **ajouter un nouveau paramètre** vers le bas et sélectionnez HTML et des pièces jointes.
+   d. Cliquez sur la liste déroulante **Ajouter un nouveau paramètre**, puis sélectionnez Pièces jointes et Est au format HTML.
 
       ![Configuration d’Office 365 Outlook](./media/automate-with-logic-apps/10emailbody.png)
 

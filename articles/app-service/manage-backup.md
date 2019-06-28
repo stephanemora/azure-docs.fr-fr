@@ -16,10 +16,10 @@ ms.date: 07/06/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 7e697329e83b530157e490b04f5155d28d243bb6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61271706"
 ---
 # <a name="back-up-your-app-in-azure"></a>Sauvegarde de votre application dans Azure
@@ -123,7 +123,7 @@ Parfois, vous ne souhaitez pas sauvegarder tout le contenu de votre application.
 Les sauvegardes partielles vous permettent de choisir exactement les fichiers à sauvegarder.
 
 > [!NOTE]
-> Bases de données individuelles dans la sauvegarde peuvent être maximale de 4 Go, mais la taille totale maximale de la sauvegarde est de 10 Go
+> Les bases de données individuelles de la sauvegarde peuvent atteindre 4 Go au maximum. Toutefois, la taille totale maximale de la sauvegarde est de 10 Go
 
 ### <a name="exclude-files-from-your-backup"></a>Exclusion de fichiers de votre sauvegarde
 Supposons que vous avez une application qui contient des fichiers journaux et des images statiques créés à un moment donné et qui ne seront jamais modifiés. Dans ce cas, vous pouvez exclure ces fichiers et dossiers du stockage lors de vos sauvegardes futures. Pour exclure des fichiers et dossiers de vos sauvegardes, créez un fichier `_backup.filter` dans le dossier `D:\home\site\wwwroot` de votre application. Spécifiez la liste des fichiers et dossiers à exclure de ce fichier. 

@@ -15,17 +15,17 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.openlocfilehash: 5d3525952ec09474d60618c4f99138cef1fce57a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61417033"
 ---
 # <a name="deploy-storsimple-virtual-array--set-up-as-an-iscsi-server-via-azure-portal"></a>Déploiement de StorSimple Virtual Array - Configuration d’un serveur iSCSI via le portail Azure
 
 ![flux du processus d'installation iscsi](./media/storsimple-virtual-array-deploy3-iscsi-setup/iscsi4.png)
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Ce didacticiel de déploiement s’applique à l’instance Microsoft Azure StorSimple Virtual Array. Ce didacticiel explique comment effectuer la configuration initiale, inscrire votre serveur iSCSI StorSimple, finaliser l’installation de l’appareil, puis créer, monter, initialiser et formater des volumes sur votre instance StorSimple Virtual Array configurée en tant que serveur iSCSI. 
 
@@ -88,7 +88,7 @@ Utilisez la procédure détaillée ci-dessous pour configurer votre solution Sto
       > Si vous joignez votre serveur iSCSI à un domaine, assurez-vous que votre tableau virtuel est dans sa propre unité organisationnelle (UO) pour Microsoft Azure Active Directory et qu’aucun objet de stratégie de groupe (GPO) ne lui est appliqué.
       > 
       > 
-   4. Une boîte de dialogue s’affiche. Entrez vos informations d'identification de domaine au format spécifié. Cliquez sur l’icône de coche  ![icône en forme de coche](./media/storsimple-virtual-array-deploy3-iscsi-setup/image15.png). Les informations d'identification de domaine seront vérifiées. Un message d'erreur apparaît si les informations d'identification sont incorrectes.
+   4. Une boîte de dialogue s’affiche. Entrez vos informations d'identification de domaine au format spécifié. Cliquez sur l’icône de coche ![icône en forme de coche](./media/storsimple-virtual-array-deploy3-iscsi-setup/image15.png). Les informations d'identification de domaine seront vérifiées. Un message d'erreur apparaît si les informations d'identification sont incorrectes.
       
        ![credentials](./media/storsimple-virtual-array-deploy3-iscsi-setup/image8.png)
    5. Cliquez sur **Appliquer**. Cette opération appliquera et validera les paramètres de l’appareil.
@@ -98,7 +98,7 @@ Utilisez la procédure détaillée ci-dessous pour configurer votre solution Sto
    
     Dans la page **Proxy web** :
    
-   1. Fournir le **URL du proxy Web** au format suivant : *http :\//host-IP adresse* ou *: port numéro*. Notez que les URL HTTPS ne sont pas prises en charge.
+   1. Indiquez l’**URL du proxy web** au format suivant : *http:\//adresse IP-hôte* ou *nom de domaine complet:numéro de port*. Notez que les URL HTTPS ne sont pas prises en charge.
    2. Définissez **Authentification** sur le paramètre **De base** ou **Aucune**.
    3. Si vous utilisez une authentification, vous devez également fournir un **nom d’utilisateur** et un **mot de passe**.
    4. Cliquez sur **Appliquer**. Cette opération validera et appliquera les paramètres de proxy web configurés.

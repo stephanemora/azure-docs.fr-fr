@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/14/2018
 ms.author: aljo
 ms.openlocfilehash: 6d67fa4af031480fda4a91f7356bff69830a654c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60711485"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Scénarios de sécurité d’un cluster Service Fabric
@@ -112,7 +112,7 @@ Le certificat doit répondre aux exigences suivantes :
 
 Voici quelques autres points importants à prendre en compte :
 
-* Le champ **Objet** peut avoir plusieurs valeurs. Chaque valeur est préfixée par une initialisation pour indiquer le type valeur. En règle générale, l’initialisation est **CN** (pour *nom commun*) ; par exemple, **CN = www\.contoso.com**. 
+* Le champ **Objet** peut avoir plusieurs valeurs. Chaque valeur est préfixée par une initialisation pour indiquer le type valeur. En règle générale, l’initialisation est **CN** (pour *common name* (nom commun)), par exemple, **CN = www\.contoso.com**. 
 * Le champ **Objet** peut être vide. 
 * Si le champ facultatif **Autre nom de l’objet** est renseigné, il doit contenir à la fois le nom commun du certificat et une entrée par autre nom d’objet. Ces noms sont entrés sous forme de valeurs de **Nom DNS**. Pour savoir comment générer des certificats ayant des noms SAN, consultez [Comment ajouter un autre nom d’objet à un certificat LDAP sécurisé](https://support.microsoft.com/kb/931351).
 * La valeur du champ **Rôles prévus** du certificat doit inclure une valeur appropriée, comme **Authentification serveur** ou **Authentification client**.

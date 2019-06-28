@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: 7d881454eb857080f1178f228a1f7bec36cae178
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60610708"
 ---
-# <a name="security-frame-exception-management--mitigations"></a>Infrastructure de sécurité : Gestion des exceptions | Solutions d’atténuation 
+# <a name="security-frame-exception-management--mitigations"></a>Infrastructure de sécurité : gestion des exceptions | Atténuation des risques 
 | Produit/Service | Article |
 | --------------- | ------- |
 | **WCF** | <ul><li>[WCF - Ne pas inclure le nœud serviceDebug dans le fichier de configuration](#servicedebug)</li><li>[WCF - Ne pas inclure le nœud serviceMetadata dans le fichier de configuration](#servicemetadata)</li></ul> |
-| **API Web** | <ul><li>[Vérifier que la gestion des exceptions correcte sont effectuée dans l’API Web ASP.NET](#exception)</li></ul> |
-| **Application Web** | <ul><li>[N’exposez pas les détails de sécurité dans les messages d’erreur](#messages)</li><li>[Implémenter des erreurs par défaut page de gestion des](#default)</li><li>[Définir la méthode de déploiement sur Vente au détail dans IIS](#deployment)</li><li>[Les exceptions doivent échouer en toute sécurité](#fail)</li></ul> |
+| **API Web** | <ul><li>[Vérifier que la gestion des exceptions appropriée est effectuée dans l’API web ASP.NET](#exception)</li></ul> |
+| **Application Web** | <ul><li>[Ne pas exposer les détails de sécurité dans les messages d’erreur](#messages)</li><li>[Implémenter la page de gestion des erreurs par défaut](#default)</li><li>[Définir la méthode de déploiement sur Vente au détail dans IIS](#deployment)</li><li>[Les exceptions doivent échouer en toute sécurité](#fail)</li></ul> |
 
 ## <a id="servicedebug"></a>WCF - Ne pas inclure le nœud serviceDebug dans le fichier de configuration
 
@@ -179,7 +179,7 @@ public HttpResponseMessage PostProduct(Product item)
 }
 ```
 
-Vérifiez les liens dans la section Références pour plus d’informations sur la gestion exceptionnelle et validation de modèle dans l’API Web ASP.NET 
+Vérifiez les liens dans la section Références pour plus d’informations sur la gestion exceptionnelle et la validation de modèle dans l’API web ASP.NET 
 
 ## <a id="messages"></a>Ne pas exposer les détails de sécurité dans les messages d’erreur
 
@@ -201,7 +201,7 @@ Vérifiez les liens dans la section Références pour plus d’informations sur 
 | **Technologies applicables** | Générique |
 | **Attributs**              | N/A  |
 | **Informations de référence**              | [Modifier la boîte de dialogue des paramètres des pages d’erreur ASP.NET](https://technet.microsoft.com/library/dd569096(WS.10).aspx) |
-| **Étapes** | <p>Lorsqu’une application ASP.NET échoue et provoque une erreur serveur interne HTTP/1.x 500, ou que la configuration d’une fonctionnalité (comme le filtrage des demandes) empêche l’affichage d’une page, un message d’erreur est généré. Les administrateurs peuvent choisir si l’application doit afficher ou non un message convivial pour le client, un message d’erreur détaillé au client ou un message d’erreur détaillé à l’hôte local uniquement. La balise `<customErrors>` dans le fichier web.config comporte trois modes :</p><ul><li>**On :** Spécifie que les erreurs personnalisées sont activées. Si aucun attribut defaultRedirect n’est spécifié, les utilisateurs voient une erreur générique. Les erreurs personnalisées sont présentées aux clients distants et à l’hôte local</li><li>**Désactivé :** Spécifie que les erreurs personnalisées sont désactivées. Les erreurs ASP.NET détaillées sont présentées aux clients distants et à l’hôte local</li><li>**RemoteOnly :** Spécifie que les erreurs personnalisées sont visibles uniquement pour les clients distants, et que les erreurs ASP.NET sont visibles à l’hôte local. Il s’agit de la valeur par défaut</li></ul><p>Ouvrez le fichier `web.config` pour l’application/le site et vérifiez que la balise est définie sur `<customErrors mode="RemoteOnly" />` ou `<customErrors mode="On" />`.</p>|
+| **Étapes** | <p>Lorsqu’une application ASP.NET échoue et provoque une erreur serveur interne HTTP/1.x 500, ou que la configuration d’une fonctionnalité (comme le filtrage des demandes) empêche l’affichage d’une page, un message d’erreur est généré. Les administrateurs peuvent choisir si l’application doit afficher ou non un message convivial pour le client, un message d’erreur détaillé au client ou un message d’erreur détaillé à l’hôte local uniquement. La balise `<customErrors>` dans le fichier web.config comporte trois modes :</p><ul><li>**On :** spécifie que les erreurs personnalisées sont activées. Si aucun attribut defaultRedirect n’est spécifié, les utilisateurs voient une erreur générique. Les erreurs personnalisées sont présentées aux clients distants et à l’hôte local</li><li>**Off :** spécifie que les erreurs personnalisées sont désactivées. Les erreurs ASP.NET détaillées sont présentées aux clients distants et à l’hôte local</li><li>**RemoteOnly :** spécifie que les erreurs personnalisées sont visibles uniquement pour les clients distants, et que les erreurs ASP.NET sont visibles pour l’hôte local. Il s’agit de la valeur par défaut</li></ul><p>Ouvrez le fichier `web.config` pour l’application/le site et vérifiez que la balise est définie sur `<customErrors mode="RemoteOnly" />` ou `<customErrors mode="On" />`.</p>|
 
 ## <a id="deployment"></a>Définir la méthode de déploiement sur Vente au détail dans IIS
 

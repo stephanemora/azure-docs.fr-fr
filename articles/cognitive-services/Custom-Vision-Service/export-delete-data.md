@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: pafarley
 ms.openlocfilehash: e662e61a9df45cf3d57d5698337a26b7b8fc55a3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60605472"
 ---
 # <a name="export-or-delete-user-data-in-custom-vision"></a>Exporter ou supprimer des données utilisateur dans Custom Vision
 
-Vision personnalisée collecte les données utilisateur pour le service de fonctionner, mais les clients ont un contrôle total sur l’affichage, l’exportation et la suppression de leurs données à l’aide de la Vision personnalisée [formation API](https://go.microsoft.com/fwlink/?linkid=865446).
+Custom Vision collecte les données utilisateur pour faire fonctionner le service, mais les clients disposent d'un contrôle total sur l'affichage, l'exportation et la suppression de leurs données grâce aux [API Training](https://go.microsoft.com/fwlink/?linkid=865446) de Custom Vision.
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
-Pour savoir comment exporter et supprimer des données utilisateur dans Vision personnalisée, consultez le tableau suivant.
+Pour savoir comment exporter et supprimer des données utilisateur dans Custom Vision, consultez le tableau suivant.
 
 | Données | Opération d’exportation | Opération de suppression |
 | ---- | ---------------- | ---------------- |

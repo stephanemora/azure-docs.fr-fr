@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: danlep
 ms.openlocfilehash: 728a2f8cf61bbe0691350b9de45a5fab6b90cadb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60563067"
 ---
 # <a name="use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry"></a>Utiliser une identité managée Azure pour s’authentifier auprès d’un registre de conteneurs Azure 
@@ -126,7 +126,7 @@ userID=$(az identity show --resource-group myResourceGroup --name myACRId --quer
 spID=$(az identity show --resource-group myResourceGroup --name myACRId --query principalId --output tsv)
 ```
 
-Étant donné que vous avez besoin d’ID de l’identité dans une étape ultérieure lorsque vous vous connectez à l’interface CLI à partir de votre machine virtuelle, afficher la valeur :
+Vous aurez besoin de l’ID de l’identité quand vous vous connecterez à l’interface CLI à partir de votre machine virtuelle. Affichez sa valeur :
 
 ```bash
 echo $userID
@@ -164,13 +164,13 @@ az role assignment create --assignee $spID --scope $resourceID --role acrpull
 
 Établissez une connexion SSH avec la machine virtuelle Docker configurée avec l’identité. Exécutez les commandes Azure CLI suivantes, avec l’interface Azure CLI installée sur la machine virtuelle.
 
-Tout d’abord, authentifier à l’interface CLI Azure avec [connexion de az][az-login], à l’aide de l’identité que vous avez configuré sur la machine virtuelle. Remplacez `<userID>` par l’ID de l’identité que vous avez récupéré à l’étape précédente. 
+Tout d’abord, authentifiez-vous auprès d’Azure CLI avec la commande [az login][az-login] et de l’identité configurée sur la machine virtuelle. Remplacez `<userID>` par l’ID de l’identité que vous avez récupéré à l’étape précédente. 
 
 ```azurecli
 az login --identity --username <userID>
 ```
 
-Puis, s’authentifier auprès du Registre avec [compte de connexion az acr][az-acr-login]. L’interface CLI utilise alors le jeton Active Directory créé à l’exécution de `az login` pour authentifier en toute transparence votre session auprès du registre de conteneurs. (Selon la configuration de votre machine virtuelle, vous devrez peut-être exécuter cette commande et les commandes docker avec `sudo`.)
+Ensuite, authentifiez-vous auprès du registre avec la commande [az acr login][az-acr-login]. L’interface CLI utilise alors le jeton Active Directory créé à l’exécution de `az login` pour authentifier en toute transparence votre session auprès du registre de conteneurs. (Selon la configuration de votre machine virtuelle, vous devrez peut-être exécuter cette commande et les commandes docker avec `sudo`.)
 
 ```azurecli
 az acr login --name myContainerRegistry
@@ -216,13 +216,13 @@ az role assignment create --assignee $spID --scope $resourceID --role acrpull
 
 Établissez une connexion SSH avec la machine virtuelle Docker configurée avec l’identité. Exécutez les commandes Azure CLI suivantes, avec l’interface Azure CLI installée sur la machine virtuelle.
 
-Tout d’abord, authentifier l’interface CLI Azure avec [connexion de az][az-login], à l’aide de l’identité attribué par le système sur la machine virtuelle.
+Tout d’abord, authentifiez-vous auprès d’Azure CLI avec la commande [az login][az-login] et de l’identité affectée par le système sur la machine virtuelle.
 
 ```azurecli
 az login --identity
 ```
 
-Puis, s’authentifier auprès du Registre avec [compte de connexion az acr][az-acr-login]. L’interface CLI utilise alors le jeton Active Directory créé à l’exécution de `az login` pour authentifier en toute transparence votre session auprès du registre de conteneurs. (Selon la configuration de votre machine virtuelle, vous devrez peut-être exécuter cette commande et les commandes docker avec `sudo`.)
+Ensuite, authentifiez-vous auprès du registre avec la commande [az acr login][az-acr-login]. L’interface CLI utilise alors le jeton Active Directory créé à l’exécution de `az login` pour authentifier en toute transparence votre session auprès du registre de conteneurs. (Selon la configuration de votre machine virtuelle, vous devrez peut-être exécuter cette commande et les commandes docker avec `sudo`.)
 
 ```azurecli
 az acr login --name myContainerRegistry

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
 ms.openlocfilehash: 1f20818f0b899eede9fff05d71e98c8bffb94b0a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62101937"
 ---
 # <a name="set-up-public-ip-addresses-after-failover"></a>Configurer des adresses IP publiques après un basculement
@@ -44,7 +44,7 @@ La configuration est la suivante :
 Azure Traffic Manager permet le routage au niveau du DNS entre les points de terminaison, et vous aide à [avoir un objectif de délai de récupération plus court](../site-recovery/concepts-traffic-manager-with-site-recovery.md#recovery-time-objective-rto-considerations) dans un scénario de reprise d’activité. 
 
 En savoir plus sur les scénarios de basculement avec Traffic Manager :
-1. [Local vers Azure basculement](../site-recovery/concepts-traffic-manager-with-site-recovery.md#on-premises-to-azure-failover) avec Traffic Manager 
+1. [Basculement de l’environnement local vers Azure](../site-recovery/concepts-traffic-manager-with-site-recovery.md#on-premises-to-azure-failover) avec Traffic Manager 
 2. [Basculement d’Azure vers Azure](../site-recovery/concepts-traffic-manager-with-site-recovery.md#azure-to-azure-failover) avec Traffic Manager 
 
 La configuration est la suivante :

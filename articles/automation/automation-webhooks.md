@@ -10,21 +10,21 @@ ms.date: 03/19/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 153bb0304102906f7be64ae55dd0e0f6bb8d7146
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61304564"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Démarrage d’un runbook Azure Automation avec un webhook
 
-Un *webhook* vous permet de démarrer un Runbook dans Azure Automation via une simple requête HTTP. Ainsi, les services externes tels que Azure DevOps Services, GitHub, les journaux Azure Monitor ou des applications personnalisées pour démarrer des runbooks sans avoir à implémenter une solution complète à l’aide de l’API d’automatisation Azure.  
+Un *webhook* vous permet de démarrer un Runbook dans Azure Automation via une simple requête HTTP. Les services externes, tels que Azure DevOps Services, GitHub, les journaux Azure Monitor ou les applications personnalisées, peuvent ainsi démarrer les runbooks sans avoir à implémenter une solution complète à l’aide de l’API Azure Automation.  
 ![WebhooksOverview](media/automation-webhooks/webhook-overview-image.png)
 
 Vous pouvez comparer les webhooks à d'autres méthodes de démarrage d'un Runbook dans [Démarrage d'un Runbook dans Azure Automation](automation-starting-a-runbook.md)
 
 > [!NOTE]
-> À l’aide d’un webhook pour démarrer un runbook Python n’est pas pris en charge.
+> L’utilisation d’un webhook pour démarrer un runbook Python n’est pas prise en charge.
 
 ## <a name="details-of-a-webhook"></a>Détails d'un webhook
 
@@ -110,7 +110,7 @@ http://<Webhook Server>/token?=<Token Value>
 
 Le client reçoit l'un des codes de réponse suivants à la requête POST.
 
-| Code | Text | Description |
+| Code | Texte | Description |
 |:--- |:--- |:--- |
 | 202 |Acceptée |La requête a été acceptée et le Runbook a été mis en file d'attente avec succès. |
 | 400 |Demande incorrecte |La requête a été refusée pour l'une des raisons suivantes : <ul> <li>Le webhook a expiré.</li> <li>Le webhook est désactivé.</li> <li>Le jeton de l’URL n’est pas valide.</li>  </ul> |

@@ -15,10 +15,10 @@ ms.date: 01/31/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 252c84bce2b70f6931593fe9410abe6cc146b5bb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60679049"
 ---
 # <a name="onboarding-requirements"></a>Conditions d’intégration
@@ -33,7 +33,7 @@ Cette liste indique la configuration requise pour l’exécution de SAP HANA sur
 
 **Connectivité réseau**
 
-- ExpressRoute entre le système local et Azure : pour connecter votre centre de données local à Azure, assurez-vous de commander au moins une connexion de 1 Gbit/s auprès de votre ISP. La connectivité entre les unités de grande instance HANA et Azure utilise également la technologie ExpressRoute. Cette connexion ExpressRoute entre les unités de grande instance HANA et Azure est incluse dans le prix des unités de grande instance HANA ; ce prix comprend également tous les frais d'entrée et de sortie de données de ce circuit ExpressRoute spécifique. Par conséquent, en tant que client, vous ne rencontrez pas de frais supplémentaires au-delà de votre lien ExpressRoute entre en local et Azure.
+- ExpressRoute entre le système local et Azure : pour connecter votre centre de données local à Azure, assurez-vous de commander au moins une connexion de 1 Gbit/s auprès de votre ISP. La connectivité entre les unités de grande instance HANA et Azure utilise également la technologie ExpressRoute. Cette connexion ExpressRoute entre les unités de grande instance HANA et Azure est incluse dans le prix des unités de grande instance HANA ; ce prix comprend également tous les frais d'entrée et de sortie de données de ce circuit ExpressRoute spécifique. En tant que client, aucuns frais supplémentaires ne vous sont donc facturés au-delà de votre lien ExpressRoute entre votre système local et Azure.
 
 **Système d’exploitation**
 

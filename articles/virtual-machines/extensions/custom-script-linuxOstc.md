@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: danis
 ms.openlocfilehash: fe3803b7dc75ab13831a5e42d4b1a96f5aa894e5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60800308"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>Utiliser l’extension de script personnalisé Azure Version 1 avec des machines virtuelles Linux
@@ -122,14 +122,14 @@ Ces éléments doivent être traités comme des données sensibles et spécifié
 | Nom | Valeur/Exemple | Type de données |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.OSTCExtensions | string |
-| type | CustomScriptForLinux | string |
+| publisher | Microsoft.OSTCExtensions | chaîne |
+| Type | CustomScriptForLinux | chaîne |
 | typeHandlerVersion | 1.5 | int |
 | fileUris (p. ex.) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
-| commandToExecute (p. ex.) | python MyPythonScript.py \<my-param1\> | string |
-| enableInternalDNSCheck | true | boolean |
-| storageAccountName (p. ex.) | examplestorageacct | string |
-| storageAccountKey (p. ex.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
+| commandToExecute (p. ex.) | python MyPythonScript.py \<my-param1\> | chaîne |
+| enableInternalDNSCheck | true | booléenne |
+| storageAccountName (p. ex.) | examplestorageacct | chaîne |
+| storageAccountKey (p. ex.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | chaîne |
 
 ### <a name="property-value-details"></a>Détails des valeurs de propriété
 
@@ -296,7 +296,7 @@ Points à noter :
 
 1. La commande Enable correspond au début de l’exécution de la commande.
 1. La commande Download se rapporte au téléchargement du package d’extension CustomScript à partir d’Azure, et non aux fichiers de script spécifiés dans fileUris.
-1. Vous pouvez également voir le fichier journal qui il écrit à `/var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.5.2.2/extension.log`
+1. Vous pouvez aussi voir dans quel fichier il est écrit, `/var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.5.2.2/extension.log`
 
 L’étape suivante consiste à rechercher le fichier journal, selon le format suivant :
 
@@ -304,7 +304,7 @@ L’étape suivante consiste à rechercher le fichier journal, selon le format s
 /var/log/azure/<extension-name>/<version>/extension.log file.
 ```
 
-Vous devez rechercher une exécution individuelle, il doit ressembler à :
+Vous devez rechercher l’exécution individuelle, qui doit se présenter ainsi :
 
 ```text
 2018/04/26 15:29:46 [Microsoft.OSTCExtensions.CustomScriptForLinux-1.5.2.2] Enable,transitioning,0,Launching the script...

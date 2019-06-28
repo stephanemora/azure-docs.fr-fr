@@ -4,14 +4,13 @@ description: Cet article fournit des informations sur la personnalisation des r�
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-origin.date: 02/22/2019
-ms.date: 03/11/2019
-ms.author: v-junlch
+ms.date: 2/22/2019
+ms.author: victorh
 ms.openlocfilehash: f96395a54f66b787878faeee057f02818f956ade
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60831450"
 ---
 # <a name="customize-web-application-firewall-rules-through-powershell"></a>Personnaliser les règles de pare-feu d’applications web par le biais de PowerShell
@@ -94,16 +93,16 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 
 ## <a name="mandatory-rules"></a>Règles obligatoires
 
-La liste suivante contient des conditions qui entraînent le WAF bloquer la demande en mode de prévention (en Mode de détection ils sont enregistrés en tant qu’exceptions). Il ne peut pas être configurées ou désactivés :
+La liste suivante contient les conditions qui amènent la solution WAF à bloquer la requête en mode de prévention (en mode de détection, les requêtes sont journalisées en tant qu’exceptions). Elles ne peuvent pas être configurées ni désactivées :
 
-* Échec d’analyser le corps de la requête entraîne la demande est bloquée, à moins que l’inspection du corps est mis sous tension (XML, JSON, les données de formulaire)
-* Longueur de données de corps (avec aucun fichier) de la demande est supérieure à la limite configurée
-* Demande de corps (y compris les fichiers) est supérieure à la limite
-* Une erreur interne s’est produite dans le moteur de WAF
+* L’échec d’analyse du corps de la requête entraîne le blocage de cette dernière, sauf si l’inspection du corps est désactivée (XML, JSON, données de formulaire)
+* La longueur des données du corps de la requête (sans fichiers) est supérieure à la limite configurée
+* Le corps de la requête (avec fichiers) est supérieur à la limite
+* Une erreur interne s’est produite dans le moteur WAF
 
-CRS 3.x spécifiques :
+Propre à CRS 3.x :
 
-* Trafic entrant de seuil du score dépassé d’anomalie
+* Le score des anomalies entrantes a dépassé le seuil
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -113,5 +112,3 @@ Après avoir configuré vos règles désactivées, vous pouvez apprendre à affi
 [1]: ./media/application-gateway-customize-waf-rules-portal/figure1.png
 [2]: ./media/application-gateway-customize-waf-rules-portal/figure2.png
 [3]: ./media/application-gateway-customize-waf-rules-portal/figure3.png
-
-<!-- Update_Description: code update -->

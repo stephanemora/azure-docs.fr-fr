@@ -9,10 +9,10 @@ ms.date: 12/13/2018
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: ee2917c64843c8ab137e0122d63a328d6c19fedb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61478570"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Service Azure Import/Export : Questions fréquentes (FAQ) 
@@ -88,16 +88,16 @@ Vous pouvez expédier des disques au centre de données Azure en faisant appel �
 - Un numéro de compte DHL en Asie et en Australie
 
 > [!NOTE]
-> Les centres de données en Inde nécessitent une lettre de la déclaration de votre en-tête (remise challan) pour renvoyer les lecteurs. Pour réorganiser la passe de l’entrée requise, vous devez également réserver le prélèvement avec votre opérateur sélectionné et partager ses informations avec le centre de données.
+> Les centres de données en Inde exigent une lettre de déclaration sur papier à en-tête au nom de votre organisation (bon de livraison connu sous le nom de « challan ») pour le renvoi des disques. Pour obtenir le laissez-passer obligatoire, vous devez aussi organiser l’enlèvement avec le transporteur choisi et partager les détails avec le centre de données.
 
 ### <a name="are-there-any-restrictions-with-shipping-my-drive-internationally"></a>Existe-t-il des restrictions concernant l’expédition de mon disque à l’étranger ?
 Notez que le support physique que vous expédiez devra peut-être franchir des frontières. Vous êtes responsable de l'application des lois applicables lorsque vous importez et/ou exportez vos données et supports physiques. Avant d'expédier le support physique, demandez à vos conseillers juridiques de vérifier que vos supports multimédias et données peuvent être envoyés légalement vers le centre de données identifié. Cela vous assurera d'atteindre Microsoft dans les délais.
 
-### <a name="are-there-any-special-requirements-for-delivering-my-disks-to-a-datacenter"></a>Existe-t-il des exigences spéciales pour la remise de mes disques à un centre de données ?
+### <a name="are-there-any-special-requirements-for-delivering-my-disks-to-a-datacenter"></a>Y a-t-il des exigences particulières à respecter pour l’envoi de disques à un centre de données ?
 
-Les exigences varient selon les restrictions de centre de données Azure spécifique.
-- Il existe plusieurs sites, qui nécessitent un centre de données Microsoft numéro d’ID de trafic entrant à être écrits sur le paquet pour des raisons de sécurité. Avant d’expédier vos lecteurs ou les disques au centre de données, contactez Azure DataBox opérations (adbops@microsoft.com) pour obtenir le nombre. Sans ce nombre, le package est rejeté.
-- Les centres de données en Inde nécessitent les détails personnels du pilote, telles que la carte d’ID de secteur public ou non de preuve. (par exemple, panoramique, AADHAR, DL), nom, de contacts et la voiture plaque numéro pour obtenir une entrée, passez la porte. Pour éviter les retards de livraison, informer votre opérateur ces exigences.
+Certains centres de données Azure ont des restrictions spécifiques.
+- Sur certains sites, le numéro d’identification entrant du centre de données Microsoft doit figurer sur le colis pour des raisons de sécurité. Avant d’expédier vos lecteurs ou disques au centre de données, contactez l’équipe des opérations Azure DataBox (adbops@microsoft.com) pour obtenir ce numéro. Sans ce numéro, le colis sera refusé.
+- En Inde, les centres de données exigent les détails personnels du chauffeur, comme le numéro de la carte d’identité ou d’un autre document d’identité (par exemple, PAN, AADHAR, DL), le nom, les coordonnées et le numéro de plaque d’immatriculation du véhicule. Ces informations font office de laissez-passer. Pour éviter tout retard de livraison, portez ces exigences à la connaissance de votre transporteur.
 
 
 ### <a name="when-creating-a-job-the-shipping-address-is-a-location-that-is-different-from-my-storage-account-location-what-should-i-do"></a>Au moment de créer une tâche, l’adresse de livraison ne correspond pas à l’emplacement associé à mon compte de stockage. Que dois-je faire ?
@@ -138,7 +138,7 @@ Non. L’outil WAImportExport est compatible uniquement avec les systèmes d’e
 ### <a name="what-is-the-maximum-block-blob-and-page-blob-size-supported-by-azure-importexport"></a>Quelle est la taille maximale des objets blob de blocs et des objets blob de pages prise en charge par Azure Import/Export ?
 
 La taille maximale des objets blob de blocs est d’environ 4,768 To ou 5 000 000 Mo.
-Taille du Blob de Page maximale est de 8 To.
+La taille maximale des objets blob de pages est de 8 To.
 
 
 ### <a name="does-azure-importexport-support-aes-256-encryption"></a>Azure Import/Export prend-il en charge le chiffrement AES-256 ?

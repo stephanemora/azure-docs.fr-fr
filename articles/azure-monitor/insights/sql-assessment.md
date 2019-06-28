@@ -1,6 +1,6 @@
 ---
-title: Optimiser votre environnement SQL Server avec Azure Monitor | Microsoft Docs
-description: Avec Azure Monitor, vous pouvez utiliser la solution SQL Health Check pour évaluer les risques et l’intégrité de vos environnements selon un intervalle régulier.
+title: Optimiser votre environnement SQL Server avec Azure Monitor | Microsoft Docs
+description: Avec Azure Monitor, la solution SQL Health Check permet d’évaluer les risques et l’intégrité de vos environnements à intervalles réguliers.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -14,13 +14,13 @@ ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: magoedte
 ms.openlocfilehash: 94b23bc29c3c986e6a0cd74e0805b5d47ce35849
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62120621"
 ---
-# <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-azure-monitor"></a>Optimiser votre environnement SQL avec la solution SQL Server Health Check dans Azure Monitor
+# <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-azure-monitor"></a>Optimiser votre environnement SQL avec la solution SQL Server Health Check dans Azure Monitor
 
 ![Symbole SQL Health Check](./media/sql-assessment/sql-assessment-symbol.png)
 
@@ -38,7 +38,7 @@ Une fois la solution ajoutée et l’évaluation terminée, le récapitulatif de
 
 ![image du tableau de bord SQL Health Check](./media/sql-assessment/sql-healthcheck-dashboard-01.png)
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * La solution SQL Health Check nécessite l’installation d’une version prise en charge de .NET Framework 4 sur chaque ordinateur sur lequel est installé Microsoft Monitoring Agent (MMA).  L’agent MMA est utilisé par System Center 2016 Operations Manager et Operations Manager 2012 R2, ainsi qu’Azure Monitor.  
 * La solution prend en charge SQL Server 2012, 2014 et 2016.
@@ -49,15 +49,15 @@ Une fois la solution ajoutée et l’évaluation terminée, le récapitulatif de
   >
   >
 
-Pour effectuer le contrôle d’intégrité par rapport à vos serveurs SQL Server, ils nécessitent un agent et la connectivité à Azure Monitor en utilisant l’une des méthodes prises en charge suivantes :
+Pour que vous puissiez contrôler l’intégrité de vos serveurs SQL Server, ces derniers ont besoin d’un agent et d’une connectivité à Azure Monitor faisant appel à l’une des méthodes prises en charge suivantes :
 
 1. Installez [Microsoft Monitoring Agent (MMA)](../../azure-monitor/platform/agent-windows.md) si le serveur n’est pas déjà surveillé par System Center 2016 - Operations Manager ou Operations Manager 2012 R2.
-2. S’il est surveillé avec System Center 2016 - Operations Manager ou Operations Manager 2012 R2 et le groupe d’administration n’est pas intégré avec Azure Monitor, le serveur peut être multirésident avec Analytique de journal à collecter des données et les transférer au service et toujours être analysé par Operations Manager.  
+2. S’il est supervisé avec System Center 2016 - Operations Manager ou Operations Manager 2012 R2 et que le groupe d’administration n’est pas intégré à Azure Monitor, le serveur peut être multirésident avec Log Analytics pour collecter des données et les transférer au service, tout en étant supervisé par Operations Manager.  
 3. Sinon, si votre groupe d’administration Operations Manager est intégré au service, vous devez ajouter des contrôleurs de domaine pour la collecte de données par le service en suivant la procédure décrite dans [Ajout d’ordinateurs gérés par des agents](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-azure-monitor) après avoir activé la solution dans votre espace de travail.  
 
-L’agent sur votre serveur SQL Server collecte les données et les rapports à un groupe d’administration Operations Manager transfère à son serveur de gestion attribué et puis sont envoyées directement à partir d’un serveur d’administration pour Azure Monitor.  Les données ne sont pas écrites dans les bases de données Operations Manager.  
+L’agent présent sur votre serveur SQL Server et rattaché à un groupe d’administration Operations Manager collecte les données et les transfère au serveur d’administration qui lui a été assigné. Ensuite, ce dernier les envoie directement à Azure Monitor.  Les données ne sont pas écrites dans les bases de données Operations Manager.  
 
-Si le serveur SQL Server est surveillé par Operations Manager, vous devez configurer un compte d’identification Operations Manager. Consultez [comptes Operations Manager exécuter en tant que pour Azure Monitor](#operations-manager-run-as-accounts-for-log-analytics) ci-dessous pour plus d’informations.
+Si le serveur SQL Server est surveillé par Operations Manager, vous devez configurer un compte d’identification Operations Manager. Pour plus d’informations, consultez la rubrique [Comptes d’identification Operations Manager pour Azure Monitor](#operations-manager-run-as-accounts-for-log-analytics) ci-dessous.
 
 ## <a name="sql-health-check-data-collection-details"></a>Détails de la collecte des données SQL Health Check
 SQL Health Check collecte les données provenant des sources suivantes à l’aide de l’agent que vous avez activé :
@@ -157,14 +157,14 @@ Pas nécessairement. Les recommandations sont basées sur les connaissances et l
 Chaque recommandation inclut une justification de son importance. Servez-vous de cette explication pour évaluer si la mise en œuvre de la recommandation est importante pour vous, en fonction de la nature de vos services informatiques et des besoins de votre organisation.
 
 ## <a name="use-health-check-focus-area-recommendations"></a>Utilisation des recommandations des domaines Health Check
-Avant de pouvoir utiliser une solution d’évaluation dans Azure Monitor, vous devez disposer de la solution est installée.  Après son installation, vous pouvez afficher le résumé des recommandations à l’aide de la vignette SQL Health Check sur la **vue d’ensemble** page pour Azure Monitor dans le portail Azure.
+Avant de pouvoir utiliser une solution d’évaluation dans Azure Monitor, vous devez avoir installé cette solution.  Une fois qu’elle est installée, vous pouvez afficher un récapitulatif des recommandations à l’aide de la vignette SQL Health Check située sur la page **Vue d’ensemble** d’Azure Monitor dans le portail Azure.
 
 Consultez le résumé des évaluations de conformité pour votre infrastructure, puis explorez les recommandations.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Pour afficher les recommandations relatives à un domaine et prendre des mesures correctives
 1. Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com).
 2. Dans le portail Azure, cliquez sur **Plus de services** dans l’angle inférieur gauche. Dans la liste des ressources, tapez **Moniteur**. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Moniteur**.
-3. Dans le **Insights** section du menu, sélectionnez **plus**.  
+3. Dans la section **Insights** du menu, sélectionnez **Plus**.  
 4. Dans la page **Vue d’ensemble**, cliquez sur la vignette **SQL Health Check**.
 5. Dans la page **Health Check**, passez en revue les informations récapitulatives dans l’un des panneaux du domaine concerné, puis cliquez sur l’un d’entre eux pour afficher les recommandations correspondantes.
 6. Les pages relatives au domaine répertorient les recommandations prioritaires pour votre environnement. Cliquez sur une recommandation sous **Objets affectés** pour en afficher les détails et comprendre pourquoi elle apparaît.<br><br> ![image des recommandations SQL Health Check](./media/sql-assessment/sql-healthcheck-dashboard-02.png)<br>
@@ -174,13 +174,13 @@ Consultez le résumé des évaluations de conformité pour votre infrastructure,
 Si vous souhaitez ignorer certaines recommandations, vous pouvez créer un fichier texte qui permettra à Azure Monitor de les empêcher d’apparaître dans les résultats de l’évaluation.
 
 ### <a name="to-identify-recommendations-that-you-will-ignore"></a>Pour identifier les recommandations que vous ignorerez
-1. Dans le menu Azure Monitor, cliquez sur **journaux**.
+1. Dans le menu Azure Monitor, cliquez sur **Journaux**.
 2. Utilisez la requête suivante pour répertorier les recommandations qui ont échoué pour les ordinateurs de votre environnement.
 
     ```
     SQLAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation
     ```
-    Voici une capture d’écran montrant la requête de journal :<br><br> ![recommandations ayant échoué](./media/sql-assessment/sql-assess-failed-recommendations.png)<br>
+    Voici une capture d’écran de la requête de journal :<br><br> ![recommandations ayant échoué](./media/sql-assessment/sql-assess-failed-recommendations.png)<br>
 
 3. Choisissez les recommandations que vous souhaitez ignorer. Vous utiliserez les valeurs RecommendationId dans la procédure suivante.
 
@@ -251,4 +251,4 @@ Si vous souhaitez ignorer certaines recommandations, vous pouvez créer un fichi
 * Oui, consultez la section [Ignorer les recommandations](#ignore-recommendations) ci-dessus.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Enregistrer des requêtes](../log-query/log-query-overview.md) pour apprendre à analyser les données SQL Health Check détaillées et des recommandations.
+* [Requêtes de journal](../log-query/log-query-overview.md) pour savoir comment analyser les recommandations et données détaillées SQL Health Check.

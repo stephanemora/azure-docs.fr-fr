@@ -11,10 +11,10 @@ ms.date: 03/08/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: d5820c927b88eba37eaf092dfd4b209180bfc8eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60565432"
 ---
 # <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Administration des services pour Azure Search dans le portail Azure
@@ -60,7 +60,7 @@ En termes d’informations générales relatives à votre service, vous pouvez o
 <a id="sub-5"></a>
 
 ## <a name="monitor-resource-usage"></a>surveiller l’utilisation des ressources ;
-Sur le tableau de bord, l’analyse des ressources se limite aux informations affichées dans le tableau de bord des services et à quelques mesures que vous pouvez obtenir en interrogeant le service. Dans la section Utilisation du tableau de bord des services, vous pouvez déterminer rapidement si les niveaux des ressources de partition sont adaptés à votre application. Vous pouvez approvisionner des ressources externes, telles que la surveillance Azure, si vous souhaitez capturer et conserver les événements enregistrés. Pour plus d’informations, consultez [surveillance Azure Search](search-monitor-usage.md).
+Sur le tableau de bord, l’analyse des ressources se limite aux informations affichées dans le tableau de bord des services et à quelques mesures que vous pouvez obtenir en interrogeant le service. Dans la section Utilisation du tableau de bord des services, vous pouvez déterminer rapidement si les niveaux des ressources de partition sont adaptés à votre application. Vous pouvez provisionner des ressources externes, telles que la supervision Azure, si vous souhaitez capturer et conserver les événements enregistrés. Pour plus d’informations, consultez [Supervision de la Recherche Azure](search-monitor-usage.md).
 
 L’API REST Search Service vous permet d’obtenir le nombre de documents et d’index par programmation : 
 

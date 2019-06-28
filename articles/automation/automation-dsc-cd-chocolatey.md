@@ -10,10 +10,10 @@ ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: b53cb65ec99637dadb16ed9d97c495571be956d7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61073895"
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>Exemple d’utilisation : déploiement continu sur des machines virtuelles à l’aide d’Automation State Configuration et Chocolatey
@@ -51,7 +51,7 @@ Un modèle Resource Manager se distingue par sa capacité à installer une exten
 ## <a name="quick-trip-around-the-diagram"></a>Tour d’horizon rapide du diagramme
 
 Commençons par le point de départ : vous écrivez votre code, vous le générez, vous le testez, puis vous créez un package d’installation.
-Chocolatey peut gérer différents types de packages d’installation, tels que MSI, MSU ou ZIP. Et vous disposez de toute la puissance de PowerShell pour effectuer l’installation si les fonctionnalités natives de Chocolatey ne sont pas tout à fait adaptées. Placez le package dans un emplacement accessible, un référentiel de packages. Cet exemple utilise un dossier public dans un compte de stockage d’objets blob Azure, mais vous pouvez utiliser n’importe quel emplacement. Chocolatey fonctionne en mode natif avec des serveurs NuGet et quelques autres serveurs pour la gestion des métadonnées de packages. [Cet article](https://github.com/chocolatey/choco/wiki/How-To-Host-Feed) en décrit les options. Cet exemple utilise NuGet. Un Nuspec désigne les métadonnées concernant vos packages. Les Nuspec sont « compilés » dans NuPkg et stockés sur un serveur NuGet. Lorsque votre configuration demande un package par son nom et fait référence à un serveur NuGet, la ressource DSC Chocolatey (qui réside désormais sur la machine virtuelle) extrait le package et l’installe à votre place. Vous pouvez également demander une version spécifique d’un package.
+Chocolatey peut gérer différents types de packages d’installation, tels que MSI, MSU ou ZIP. Et vous disposez de toute la puissance de PowerShell pour effectuer l’installation si les fonctionnalités natives de Chocolatey ne sont pas tout à fait adaptées. Placez le package dans un endroit facilement accessible, tel qu’un référentiel de packages. Cet exemple utilise un dossier public dans un compte de stockage d’objets blob Azure, mais vous pouvez utiliser n’importe quel emplacement. Chocolatey fonctionne en mode natif avec des serveurs NuGet et quelques autres serveurs pour la gestion des métadonnées de packages. [Cet article](https://github.com/chocolatey/choco/wiki/How-To-Host-Feed) en décrit les options. Cet exemple utilise NuGet. Un Nuspec désigne les métadonnées concernant vos packages. Les Nuspec sont « compilés » dans NuPkg et stockés sur un serveur NuGet. Lorsque votre configuration demande un package par son nom et fait référence à un serveur NuGet, la ressource DSC Chocolatey (qui réside désormais sur la machine virtuelle) extrait le package et l’installe à votre place. Vous pouvez également demander une version spécifique d’un package.
 
 Dans la partie inférieure gauche de l’image, vous verrez un modèle Azure Resource Manager. Dans cet exemple, l’extension de machine virtuelle enregistre la machine virtuelle auprès du serveur Pull Azure Automation State Configuration (autrement dit, un serveur d’extraction) en tant que nœud. La configuration est stockée dans le serveur d’extraction.
 En fait, elle est stockée à deux reprises : une première fois en tant que texte brut et une deuxième fois compilée dans un fichier MOF (pour ceux qui s’y connaissent). Dans le portail, la structure MOF est une « configuration de nœud » (et non une simple « configuration »). Il s’agit de l’artefact qui est associé à un nœud afin que le nœud connaisse sa configuration. Les détails ci-dessous montrent comment affecter la configuration de nœud au nœud.
@@ -180,7 +180,7 @@ Ces étapes génèrent une nouvelle configuration de nœud nommée « ISVBoxCon
 Pour chaque package que vous placez dans le référentiel de packages, vous avez besoin d’un nuspec descriptif.
 Ce nuspec doit être compilé et stocké sur votre serveur NuGet. Cette opération est décrite [ici](https://docs.nuget.org/create/creating-and-publishing-a-package). Vous pouvez utiliser MyGet.org comme serveur NuGet. Bien que ce service soit payant, ils proposent gratuitement une référence SKU pour débutants. Rendez-vous sur NuGet.org pour obtenir des instructions sur l’installation de votre propre serveur NuGet pour vos packages privés.
 
-## <a name="step-6-tying-it-all-together"></a>Étape 6 : Exemple complet
+## <a name="step-6-tying-it-all-together"></a>Étape 6 : Exemple complet
 
 Chaque fois qu'une version passe l'assurance qualité et est approuvée pour le déploiement, le package est créé, nuspec et nupkg sont mis à jour et déployés sur le serveur NuGet. En outre, la configuration (étape 4 ci-dessus) doit être mise à jour pour correspondre au nouveau numéro de version. Elle doit être envoyée au serveur d’extraction puis compilée.
 À ce stade, les machines virtuelles qui dépendent de cette configuration doivent extraire la mise à jour et l'installer. Chacune de ces mises à jour est simple et ne nécessite qu’une ou deux lignes PowerShell. Dans le cas d’Azure DevOps, certaines d’entre elles sont encapsulées dans les tâches de génération et peuvent être chaînées dans une build. Cet [article](https://www.visualstudio.com/docs/alm-devops-feature-index#continuous-delivery) fournit plus de détails. Ce [référentiel GitHub](https://github.com/Microsoft/vso-agent-tasks) détaille les différentes tâches de génération disponibles.

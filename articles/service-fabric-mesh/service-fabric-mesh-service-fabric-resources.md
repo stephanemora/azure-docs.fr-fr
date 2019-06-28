@@ -16,10 +16,10 @@ ms.date: 10/23/2018
 ms.author: vturecek
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 3cee0ada75c4ea265c7e9c598408eb6b01477d6c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60810737"
 ---
 # <a name="introduction-to-service-fabric-resource-model"></a>Présentation du modèle de ressource Azure Service Fabric
@@ -84,7 +84,7 @@ Votre code d’application reste portable, même en dehors de Service Fabric mes
 
 ## <a name="packaging-and-deployment"></a>Empaquetage et déploiement
 
-Suivant le modèle de ressource, les applications Service Fabric Mesh sont empaquetées en tant que conteneurs Docker.  Service Fabric Mesh est un environnement multilocataire partagé et les conteneurs vous offrent un niveau élevé d’isolation.  Ces applications sont décrites au format JSON ou YAML (qui est ensuite converti en JSON). Lorsque vous déployez une application de maillage pour Azure Service Fabric maillage, le code JSON utilisé pour décrire l’application est un modèle Azure Resource Manager. Les ressources sont mappées aux ressources Azure.  Lorsque vous déployez une application de maillage pour un cluster Service Fabric (autonome ou hébergé par Azure), le code JSON utilisé pour décrire l’application est un format similaire à un modèle Azure Resource Manager.  Une fois déployées, les applications Mesh peuvent être gérées via des interfaces HTTP ou Azure CLI. 
+Suivant le modèle de ressource, les applications Service Fabric Mesh sont empaquetées en tant que conteneurs Docker.  Service Fabric Mesh est un environnement multilocataire partagé et les conteneurs vous offrent un niveau élevé d’isolation.  Ces applications sont décrites au format JSON ou YAML (qui est ensuite converti en JSON). Lorsque vous déployez une application Mesh sur Azure Service Fabric Mesh, le code JSON utilisé pour décrire l’application est un modèle Azure Resource Manager. Les ressources sont mappées aux ressources Azure.  Lorsque vous déployez une application Mesh sur un cluster Service Fabric (autonome ou hébergé par Azure), le code JSON utilisé pour décrire l’application est un format similaire à un modèle Azure Resource Manager.  Une fois déployées, les applications Mesh peuvent être gérées via des interfaces HTTP ou Azure CLI. 
 
 
 ## <a name="next-steps"></a>Étapes suivantes 

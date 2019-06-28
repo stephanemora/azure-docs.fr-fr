@@ -17,10 +17,10 @@ ms.date: 10/17/2016
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 1defa08b0eb9ede2adec3b7ac12c873522dd6c37
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60800217"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Présentation et utilisation de l’agent Linux Azure
@@ -108,12 +108,12 @@ Consultez la documentation dans le [référentiel de l’agent Linux Azure sur G
 
 ## <a name="command-line-options"></a>Options de ligne de commande
 ### <a name="flags"></a>Indicateurs
-* verbose : Augmente le détail de la commande spécifiée
-* force : Ignore la confirmation interactive pour certaines commandes
+* verbose : accroît le niveau de détail de la commande spécifiée.
+* force : ignore la confirmation interactive de certaines commandes.
 
 ### <a name="commands"></a>Commandes
-* Aide : Répertorie les commandes prises en charge et les indicateurs.
-* Annuler le déploiement : Tente de nettoyer le système et pour le réapprovisionnement. L’opération suivante supprime :
+* help : liste les commandes et les indicateurs pris en charge.
+* deprovision : essaie de nettoyer le système et de le préparer pour un nouveau provisionnement. L’opération suivante supprime :
   
   * toutes les clés de l'hôte SSH (si Provisioning.RegenerateSshHostKeyPair a la valeur « y » dans le fichier de configuration) ;
   * la configuration de Nameserver dans /etc/resolv.conf ;
@@ -126,11 +126,11 @@ Consultez la documentation dans le [référentiel de l’agent Linux Azure sur G
 > 
 > 
 
-* deprovision + user : Effectue tous les éléments dans - deprovision (ci-dessus) et également supprime le dernier compte d’utilisateur approvisionné (obtenu à partir de /var/lib/waagent) et les données associées. Ce paramètre est utilisé pour déprovisionner une image qui a été précédemment provisionnée sur Azure, afin qu’elle soit capturée et réutilisée.
-* Version : Affiche la version de waagent
-* serialconsole : Configure GRUB pour marquer ttyS0 (premier port série) en tant que console de démarrage. Les journaux d’activité de démarrage du noyau sont ainsi envoyés au port série et sont prêts à être débogués.
-* démon : Exécute waagent en tant que démon pour gérer l’interaction avec la plateforme. Cet argument est spécifié à waagent dans le script waagent init.
-* Démarrer : Exécute waagent en tant qu’un processus en arrière-plan
+* deprovision+user : effectue tout ce qui est décrit dans -deprovision (ci-dessus) et supprime aussi le dernier compte d’utilisateur provisionné (obtenu à partir de /var/lib/waagent) et les données associées. Ce paramètre est utilisé pour déprovisionner une image qui a été précédemment provisionnée sur Azure, afin qu’elle soit capturée et réutilisée.
+* version : affiche la version de waagent.
+* serialconsole : configure GRUB pour marquer ttyS0 (premier port série) en tant que console de démarrage. Les journaux d’activité de démarrage du noyau sont ainsi envoyés au port série et sont prêts à être débogués.
+* daemon : exécute waagent en tant que démon afin de gérer l’interaction avec la plateforme. Cet argument est spécifié à waagent dans le script waagent init.
+* start : exécute waagent en arrière-plan.
 
 ## <a name="configuration"></a>Configuration
 Un fichier de configuration (/etc/waagent.conf) contrôle les actions de waagent. Voici un exemple de fichier de configuration :
@@ -344,6 +344,6 @@ Les images cloud Ubuntu utilisent [cloud-init](https://launchpad.net/ubuntu/+sou
 
 * Pour plus d’informations, consultez les ressources suivantes pour configurer le point de montage du disque de ressources et l’espace d’échange sur les images cloud Ubuntu durant le provisionnement :
   
-  * [Ubuntu Wiki : Configurer des Partitions d’échange](https://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
+  * [Wiki Ubuntu : configurer les partitions d’échange](https://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
   * [Injection de données personnalisées dans une machine virtuelle Azure](../windows/classic/inject-custom-data.md)
 

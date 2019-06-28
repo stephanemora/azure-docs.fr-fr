@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 3/20/2019
 ms.author: mayg
 ms.openlocfilehash: cbea6785239c70a3cdb229d0811497f051224238
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61472490"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Analyser le rapport du Planificateur de déploiement Azure Site Recovery pour la récupération d’urgence VMware sur Azure
@@ -43,7 +43,7 @@ La feuille de calcul du résumé local fournit une vue d’ensemble de l’envir
 ## <a name="recommendations"></a>Recommandations
 
 >[!Note]
->Lors de la réplication directement vers des disques gérés, ignorer la recommandation pour le nombre de comptes de stockage.
+>Lors de la réplication directe vers des disques managés, ignorez la recommandation du nombre de comptes de stockage.
 
 La feuille de recommandations de VMware pour le rapport Azure présente les détails suivants selon le RPO sélectionné :
 
@@ -160,7 +160,7 @@ Vous pouvez vous trouver dans une situation dans laquelle vous ne pouvez pas con
 ## <a name="vm-storage-placement"></a>VM-storage placement
 
 >[!Note]
->Lors de la réplication directement vers des disques gérés, vous n’avez pas besoin à vous soucier de nombre de comptes de stockage. Pour le stockage, utilisez uniquement la recommandation sur le type de stockage (Standard ou Premium). Le même type s’applique aux disques gérés.
+>Lors de la réplication directe vers des disques managés, vous n’avez pas besoin de vous soucier du nombre de comptes de stockage. Pour le stockage, utilisez uniquement la recommandation du type (Standard ou Premium). Le même type s’applique aux disques managés.
 
 ![VM-storage placement](media/site-recovery-vmware-deployment-planner-analyze-report/vm-storage-placement-v2a.png)
 
@@ -183,7 +183,7 @@ Vous pouvez vous trouver dans une situation dans laquelle vous ne pouvez pas con
 
 **Nom de la machine virtuelle** : nom de la machine virtuelle ou adresse IP utilisés dans VMListFile quand un rapport est généré. Cette colonne répertorie également les disques (VMDK) qui sont attachés aux machines virtuelles. Pour distinguer les machines virtuelles vCenter avec des noms ou des adresses IP en double, les noms incluent le nom de l’hôte ESXi. L’hôte ESXi répertorié est celui dans lequel la machine virtuelle a été placée lors de la détection de l’outil pendant le profilage.
 
-**Compatibilité de la machine virtuelle** : les valeurs sont **Oui** et **Oui**\*. **Oui**\* : pour les instances dans lesquelles la machine virtuelle est adaptée aux [disques SSD Premium](../virtual-machines/windows/disks-types.md). Ici l’activité élevée profilée ou le disque d’E/S par seconde se classe dans la catégorie P20 ou P30, mais la taille du disque entraîne classification inférieure à P10 ou P20. Le compte de stockage décide du type de disque de stockage Premium sur lequel mapper un disque, en fonction de sa taille. Par exemple : 
+**Compatibilité de la machine virtuelle** : les valeurs sont **Oui** et **Oui**\*. **Oui**\* : pour les instances dans lesquelles la machine virtuelle est adaptée aux [disques SSD Premium](../virtual-machines/windows/disks-types.md). Ici l’activité élevée profilée ou le disque d’E/S par seconde se classe dans la catégorie P20 ou P30, mais la taille du disque entraîne classification inférieure à P10 ou P20. Le compte de stockage décide du type de disque de stockage Premium sur lequel mapper un disque, en fonction de sa taille. Par exemple :
 * < 128 Go : disque P10.
 * 128 Go à 256 Go : disque P15
 * 256 Go à 512 Go : disque P20.
@@ -279,7 +279,7 @@ Disque Premium P10 ou P15 | 8 Ko  | 2 Mo/s | 168 Go par disque
 Disque Premium P10 ou P15 | 16 Ko | 4 Mo/s |  336 Go par disque
 Disque Premium P10 ou P15 | 32 Ko ou plus | 8 Mo/s | 672 Go par disque
 Disque Premium P20 ou P30 ou P40 ou P50 | 8 Ko    | 5 Mo/s | 421 Go par disque
-Disque Premium P20 ou P30 ou P40 ou P50 | 16 Ko ou plus | 20 Mo/s | 1684 Go par disque
+Disque Premium P20 ou P30 ou P40 ou P50 | 16 Ko ou plus | 20 Mo/s | 1 684 Go par disque
 
 **Activité de données sources** | **Limite maximale**
 ---|---

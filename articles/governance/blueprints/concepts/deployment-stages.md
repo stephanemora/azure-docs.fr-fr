@@ -1,6 +1,6 @@
 ---
 title: Phases du déploiement d’un blueprint
-description: Découvrez les étapes que les services du programme Azure Blueprint traverse lors d’un déploiement.
+description: Découvrez les étapes parcourues par les services Azure Blueprints lors d’un déploiement.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/14/2019
@@ -8,55 +8,55 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.openlocfilehash: d7000813b51fb9c9aae9a21cbded3ae0028e83f4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60684690"
 ---
 # <a name="stages-of-a-blueprint-deployment"></a>Phases du déploiement d’un blueprint
 
-Quand un plan est déployé, une série d’actions est effectuée par le service de plans d’Azure pour déployer les ressources définies dans le plan. Cet article fournit des détails sur ce que chaque étape implique.
+Quand un blueprint est déployé, une série d’actions sont effectuées par le service Azure Blueprints pour déployer les ressources définies dans le blueprint. Cet article fournit des détails sur ce que chaque étape implique.
 
-Déploiement de solution Blueprint est déclenché en assignant un plan à un abonnement ou [une attribution existante de la mise à jour](../how-to/update-existing-assignments.md). Lors du déploiement, les plans prend les étapes générales suivantes :
+Le déploiement de blueprint est déclenché en affectant un blueprint à un abonnement ou en [mettant à jour une affectation existante](../how-to/update-existing-assignments.md). Lors du déploiement, Blueprints effectue les grandes étapes suivantes :
 
 > [!div class="checklist"]
-> - Plans d’accorder des droits de propriétaire
-> - L’objet d’affectation de plan est créé.
-> - Facultatif - plans crée **attribué par le système** identité gérée
-> - L’identité gérée déploie des artefacts de plan
-> - Plan de service et **attribué par le système** identité gérée droits sont révoqués
+> - Droits de propriétaire accordés à Blueprints
+> - L’objet d’affectation de blueprint est créé.
+> - Facultatif - Blueprints crée une identité managée **affectée par le système**
+> - L’identité managée déploie les artefacts du blueprint
+> - Les droits du service Blueprints et de l’identité managée **affectée par le système** sont révoqués
 
-## <a name="blueprints-granted-owner-rights"></a>Plans d’accorder des droits de propriétaire
+## <a name="blueprints-granted-owner-rights"></a>Droits de propriétaire accordés à Blueprints
 
-Le principal du service de plans d’Azure dispose de droits de propriétaire sur l’abonnement attribué ou les abonnements. Le rôle accordé permet de plans créer et révoquez ultérieurement, le [attribué par le système d’identité gérée](../../../active-directory/managed-identities-azure-resources/overview.md).
+Le principal du service Azure Blueprints dispose de droits de propriétaire sur le ou les abonnements affectés. Le rôle accordé permet à Blueprints de créer et ultérieurement de révoquer l’[identité managée affectée par le système](../../../active-directory/managed-identities-azure-resources/overview.md).
 
-Les droits sont accordés automatiquement si l’affectation est effectuée via le portail. Toutefois, si l’affectation est effectuée via l’API REST, l’octroi de droits doit être avec une API distincte appeler. L’ID d’application Azure Blueprint est `f71766dc-90d9-4b7d-bd9d-4499c4331c3f`, mais le principal du service varie selon le client. Utilisez [API Graph Azure Active Directory](../../../active-directory/develop/active-directory-graph-api.md) et le point de terminaison REST [principaux du service](/graph/api/resources/serviceprincipal) pour obtenir le principal du service. Accordez ensuite les plans Azure le _propriétaire_ rôle via le [Portal](../../../role-based-access-control/role-assignments-portal.md), [Azure CLI](../../../role-based-access-control/role-assignments-cli.md), [Azure PowerShell](../../../role-based-access-control/role-assignments-powershell.md), [REST API](../../../role-based-access-control/role-assignments-rest.md), ou un [modèle Resource Manager](../../../role-based-access-control/role-assignments-template.md).
+Les droits sont accordés automatiquement si l’affectation est effectuée via le portail. Cependant, si l’affectation est effectuée via l’API REST, l’octroi des droits doit être fait avec un appel d’API distinct. L’ID d’application d’Azure Blueprints est `f71766dc-90d9-4b7d-bd9d-4499c4331c3f`, mais le principal du service varie en fonction du locataire. Utilisez l’[API Graph d’Azure Active Directory](../../../active-directory/develop/active-directory-graph-api.md) et le point de terminaison REST [servicePrincipals](/graph/api/resources/serviceprincipal) pour obtenir le principal du service. Ensuite, accordez à Azure Blueprints le rôle _Propriétaire_ via le [portail](../../../role-based-access-control/role-assignments-portal.md), [Azure CLI](../../../role-based-access-control/role-assignments-cli.md), [Azure PowerShell](../../../role-based-access-control/role-assignments-powershell.md), l’[API REST](../../../role-based-access-control/role-assignments-rest.md) ou un [modèle Resource Manager](../../../role-based-access-control/role-assignments-template.md).
 
-Le service de plans ne déployer directement les ressources.
+Le service Blueprints ne déploie pas directement les ressources.
 
-## <a name="the-blueprint-assignment-object-is-created"></a>L’objet d’affectation de plan est créé.
+## <a name="the-blueprint-assignment-object-is-created"></a>L’objet d’affectation de blueprint est créé.
 
-Un utilisateur, un groupe ou un principal de service affecte un plan à un abonnement. L’objet d’attribution existe au niveau de l’abonnement où le plan a été attribué. Ressources créées par le déploiement ne sont pas effectuées dans le contexte de l’entité de déploiement.
+Un utilisateur, un groupe ou un principal du service affecte un blueprint à un abonnement. L’objet d’affectation existe au niveau de l’abonnement où le blueprint a été affecté. Les ressources créées par le déploiement ne le sont pas dans le contexte de l’entité de déploiement.
 
-Lors de la création de l’affectation de plan, le type de [identité gérée](../../../active-directory/managed-identities-azure-resources/overview.md) est sélectionné. La valeur par défaut est un **attribué par le système** identité gérée. Un **affectée à l’utilisateur** identité gérée peut être choisie. Lorsque vous utilisez un **affectée à l’utilisateur** gérés d’identité, il doit être défini et avant la création de l’affectation de plan des autorisations accordée.
+Lors de la création de l’affectation de blueprint, le type d’[identité managée](../../../active-directory/managed-identities-azure-resources/overview.md) est sélectionné. L’option par défaut est une identité managée **affectée par le système**. Vous pouvez choisir une identité managée **affectée par l’utilisateur**. Lors de l’utilisation d’une identité managée **affectée par l’utilisateur**, elle doit être définie et recevoir les autorisations avant la création de l’affectation de blueprint.
 
-## <a name="optional---blueprints-creates-system-assigned-managed-identity"></a>Facultatif - plans crée attribué par le système d’identité gérée
+## <a name="optional---blueprints-creates-system-assigned-managed-identity"></a>Facultatif - Blueprints crée une identité managée affectée par le système
 
-Lorsque [attribué par le système d’identité gérée](../../../active-directory/managed-identities-azure-resources/overview.md) est sélectionné lors de l’attribution, plans crée l’identité et accorde l’identité gérée la [propriétaire](../../../role-based-access-control/built-in-roles.md#owner) rôle. Si un [attribution existante est mise à niveau](../how-to/update-existing-assignments.md), plans utilise l’identité gérée créée précédemment.
+Quand [identité managée affectée par le système](../../../active-directory/managed-identities-azure-resources/overview.md) est sélectionnée lors de l’affectation, Blueprints crée l’identité et accorde à l’identité managée le rôle de [propriétaire](../../../role-based-access-control/built-in-roles.md#owner). Si une [affectation existante est mise à niveau](../how-to/update-existing-assignments.md), Blueprints utilise l’identité managée créée précédemment.
 
-L’identité gérée liée à l’affectation de plan est utilisée pour déployer ou de redéployer les ressources définies dans le plan. Cette conception évite les affectations par inadvertance interférer entre eux.
-Cette conception prend également en charge la [verrouillage de ressources](./resource-locking.md) fonctionnalité en contrôlant la sécurité de chaque ressource déployée à partir du modèle.
+L’identité managée liée à l’affectation de blueprint est utilisée pour déployer ou redéployer les ressources définies dans le blueprint. Cette conception évite que les affectations interfèrent entre elles par inadvertance.
+Cette conception prend également en charge la fonctionnalité de [verrouillage de ressources](./resource-locking.md) en contrôlant la sécurité de chaque ressource déployée à partir du blueprint.
 
-## <a name="the-managed-identity-deploys-blueprint-artifacts"></a>L’identité gérée déploie des artefacts de plan
+## <a name="the-managed-identity-deploys-blueprint-artifacts"></a>L’identité managée déploie les artefacts du blueprint
 
-L’identité gérée déclenche ensuite les déploiements Resource Manager des artefacts dans le plan dans le texte défini [ordre de classement](./sequencing-order.md). L’ordre peut être ajustée pour garantir des artefacts dépendants sur les autres artefacts sont déployés dans le bon ordre.
+L’identité managée déclenche ensuite les déploiements Resource Manager des artefacts au sein du blueprint dans l’[ordre de séquentiel](./sequencing-order.md) défini. L’ordre peut être ajusté pour garantir que les artefacts dépendants d’autres artefacts sont déployés dans le bon ordre.
 
-Un échec de l’accès par un déploiement est souvent le résultat du niveau d’accès accordé à l’identité gérée. Le service de plans gère le cycle de vie de sécurité de la **attribué par le système** identité gérée. Toutefois, l’utilisateur est chargé de gérer les droits et le cycle de vie d’un **affectée à l’utilisateur** identité gérée.
+Un échec d’accès par un déploiement est souvent le résultat du niveau d’accès accordé à l’identité managée. Le service Blueprints gère le cycle de vie de la sécurité de l’**identité managée affectée par le système**. Cependant, l’utilisateur est chargé de gérer les droits et le cycle de vie d’une identité managée **affectée par l’utilisateur**.
 
-## <a name="blueprint-service-and-system-assigned-managed-identity-rights-are-revoked"></a>Service de plan et les droits d’attribué par le système d’identité gérée sont révoqués.
+## <a name="blueprint-service-and-system-assigned-managed-identity-rights-are-revoked"></a>Les droits du service Blueprints et de l’identité managée affectée par le système sont révoqués
 
-Une fois que les déploiements terminés, plans révoque les droits de le **attribué par le système** identité gérée à partir de l’abonnement. Ensuite, le service de plans révoque ses droits de l’abonnement. Suppression des droits empêche des plans de devenir un propriétaire permanent sur un abonnement.
+Une fois les déploiements terminés, Blueprints révoque les droits de l’identité managée **affectée par le système** pour l’abonnement. Ensuite, le service Blueprints révoque ses propres droits pour l’abonnement. La suppression des droits empêche Blueprints de devenir propriétaire permanent sur un abonnement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -13,10 +13,10 @@ ms.reviewer: jrasnik
 manager: craigg
 ms.date: 12/19/2018
 ms.openlocfilehash: d09adbfa7cb2782d710ef3116cbd7bc68ee247b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61417581"
 ---
 # <a name="performance-recommendations-for-sql-database"></a>Recommandations relatives aux performances pour SQL Database
@@ -79,7 +79,7 @@ La recommandation « Résoudre les problèmes de schéma » s’affiche lorsque 
 
 | Code d’erreur SQL | Message |
 | --- | --- |
-| 201 |La procédure ou fonction '*’ attend le paramètre ’*', qui n’a pas été fourni. |
+| 201 |La procédure ou fonction ' *’ attend le paramètre ’* ', qui n’a pas été fourni. |
 | 207 |Nom de colonne non valide '*'. |
 | 208 |Nom d'objet non valide ’*’. |
 | 213 |Le nom de la colonne ou le nombre de valeurs fournies ne correspond pas à la définition de la table. |
@@ -88,7 +88,7 @@ La recommandation « Résoudre les problèmes de schéma » s’affiche lorsque 
 
 ## <a name="custom-applications"></a>Applications personnalisées
 
-Les développeurs peuvent envisager de développer des applications personnalisées à l’aide des recommandations relatives aux performances de base de données SQL Azure. Toutes les recommandations répertoriées dans le portail pour une base de données est accessible via [Get-AzSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserecommendedaction) API.
+Les développeurs peuvent envisager de développer des applications personnalisées à l’aide des recommandations relatives aux performances pour Azure SQL Database. Toutes les recommandations listées dans le portail pour une base de données sont accessibles par le biais de l’API [Get-AzSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserecommendedaction).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Surveillez vos recommandations et continuez à les appliquer pour affiner les performances. Les charges de travail d’une base de données sont dynamiques et évoluent en permanence. SQL Database Advisor analyse en continu le niveau de performance de votre base de données et fournit des recommandations susceptibles d’améliorer ce niveau. 

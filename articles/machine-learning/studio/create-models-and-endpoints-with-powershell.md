@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/04/2017
 ms.openlocfilehash: a191a7adc2c43337b663fc44a8ef40df9d8ffef4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60773689"
 ---
 # <a name="use-powershell-to-create-studio-models-and-web-service-endpoints-from-one-experiment"></a>Utiliser PowerShell pour créer de nombreux modèles et points de terminaison de service web à partir d’une expérience
@@ -44,7 +44,7 @@ Utilisez l’exemple [d’expérience de formation](https://gallery.azure.ai/Exp
 
 L’expérience utilise un module **Import Data** pour importer le jeu de données de formation *customer001.csv* à partir d’un compte de stockage Azure. Supposez que vous avez recueilli des jeux de données de formation à partir de tous les emplacements de location de vélos et que vous les avez stockés dans le même emplacement de stockage d’objets blob avec des noms de fichiers allant de *rentalloc001.csv* à *rentalloc10.csv*.
 
-![Module lecteur importe des données à partir d’un objet blob Azure](./media/create-models-and-endpoints-with-powershell/reader-module.png)
+![Le module lecteur importe des données à partir d’un objet blob Azure](./media/create-models-and-endpoints-with-powershell/reader-module.png)
 
 Notez qu’un module **Web Service Output** a été ajouté au module **Train Model**.
 Quand cette expérience est déployée comme service web, le point de terminaison associé à cette sortie retourne le modèle formé au format de fichier .ilearner.
@@ -52,7 +52,7 @@ Quand cette expérience est déployée comme service web, le point de terminaiso
 Notez également que vous configurez un paramètre de service web qui définit l’URL utilisée par le module **Import Data**. Cela vous permet d’utiliser le paramètre pour spécifier des jeux de données de formation individuels visant à former le modèle pour chaque emplacement.
 Il existe d’autres façons de procéder. Vous pouvez utiliser une requête SQL avec un paramètre de service web pour obtenir des données à partir d’une base de données SQL Azure. Vous pouvez également utiliser un module **Web Service Input** pour transmettre un jeu de données au service web.
 
-![Un module de modèle formé est dirigé vers un module de sortie du service Web](./media/create-models-and-endpoints-with-powershell/web-service-output.png)
+![Un module de modèle entraîné est transmis à un module de sortie du service web](./media/create-models-and-endpoints-with-powershell/web-service-output.png)
 
 Exécutons maintenant cette expérience de formation à l’aide de la valeur par défaut *rental001.csv* comme jeu de données de formation. Si vous affichez la sortie du module **Evaluate** (cliquez sur la sortie et sélectionnez **Visualize**), vous constatez que vous obtenez une performance correcte de *AUC* = 0,91. À ce stade, vous êtes prêts à déployer un service web à partir de cette expérience de formation.
 
@@ -89,7 +89,7 @@ Ensuite, nous allons exécuter la commande PowerShell suivante :
 
 Vous avez maintenant créé 10 points de terminaison, qui contiennent tous le même modèle formé sur *customer001.csv*. Vous pouvez les afficher dans le portail Azure.
 
-![Afficher la liste des modèles formés dans le portail](./media/create-models-and-endpoints-with-powershell/created-endpoints.png)
+![Afficher la liste des modèles entraînés dans le portail](./media/create-models-and-endpoints-with-powershell/created-endpoints.png)
 
 ## <a name="update-the-endpoints-to-use-separate-training-datasets-using-powershell"></a>Mettre à jour les points de terminaison pour utiliser des jeux de données de formation distincts à l’aide de PowerShell
 L’étape suivante consiste à mettre à jour les points de terminaison avec des modèles formés de manière unique d’après les données individuelles de chaque client. Mais tout d’abord, vous devez générer ces modèles à partir du service web **Bike Rental Training**. Revenons au service web **Bike Rental Training** . Vous devez appeler son point de terminaison BES 10 fois avec 10 jeux de données de formation différents pour générer 10 modèles différents. Pour cela, utilisez l’applet de commande PowerShell **InovkeAmlWebServiceBESEndpoint**.

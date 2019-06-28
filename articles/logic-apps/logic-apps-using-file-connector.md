@@ -10,10 +10,10 @@ ms.reviewer: klam, estfan, LADocs
 ms.topic: article
 ms.date: 01/13/2019
 ms.openlocfilehash: a933824e9553ee7f638da495b46ebed19e04169d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60846704"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Se connecter aux systèmes de fichiers locaux avec Azure Logic Apps
@@ -26,7 +26,7 @@ Avec le connecteur de système de fichiers et Azure Logic Apps, vous pouvez cré
 
 Cet article vous explique comment vous connecter à un système de fichiers local, conformément à la description faite dans cet exemple de scénario : copier un fichier chargé dans Dropbox vers un partage de fichiers, puis envoyer un e-mail. Pour vous connecter en toute sécurité et d’accéder aux systèmes locaux, les applications logiques utilisent la [passerelle de données locale](../logic-apps/logic-apps-gateway-connection.md). Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre l'exemple, vous devez disposer de ce qui suit :
 
@@ -34,9 +34,9 @@ Pour suivre l'exemple, vous devez disposer de ce qui suit :
 
 * Pour pouvoir connecter les applications logiques à des systèmes locaux tels que votre serveur de système de fichiers, vous devez [installer et configurer une passerelle de données locale](../logic-apps/logic-apps-gateway-install.md). De cette façon, vous pouvez spécifier que votre installation de passerelle soit utilisée lorsque vous créez la connexion du système de fichiers depuis votre application logique.
 
-* Un [compte Dropbox](https://www.dropbox.com/), laquelle vous pouvez vous inscrire gratuitement. Vos informations d’identification de compte sont nécessaires pour créer une connexion entre votre application logique et votre compte Dropbox. 
+* Un [compte Dropbox](https://www.dropbox.com/), que vous pouvez obtenir gratuitement. Vos informations d’identification de compte sont nécessaires pour établir une connexion entre votre application logique et votre compte Dropbox. 
 
-* Accès à l’ordinateur hébergeant le système de fichiers que vous souhaitez utiliser. Par exemple, si vous installez la passerelle de données sur le même ordinateur que votre système de fichiers, vous devez les informations d’identification de compte pour cet ordinateur. 
+* Un accès à l’ordinateur qui héberge le système de fichiers que vous souhaitez utiliser. Par exemple, si vous installez la passerelle de données sur le même ordinateur que votre système de fichiers, vous avez besoin des informations d'identification du compte pour cet ordinateur. 
 
 * Un compte de messagerie d'un fournisseur pris en charge par Azure Logic Apps, comme Office 365 Outlook, Outlook.com ou Gmail. Pour les autres fournisseurs, [passez en revue la liste des connecteurs ici](https://docs.microsoft.com/connectors/). Cette application logique utilise un compte Office 365 Outlook. Si vous utilisez un autre compte de messagerie, les étapes générales sont identiques, mais votre interface utilisateur peut-être légèrement différente. 
 
@@ -70,12 +70,12 @@ Pour suivre l'exemple, vous devez disposer de ce qui suit :
 
    | Propriété | Obligatoire | Value | Description | 
    | -------- | -------- | ----- | ----------- | 
-   | **Nom de connexion** | Oui | <*connection-name*> | Le nom souhaité pour votre connexion | 
-   | **Dossier racine** | Oui | <*root-folder-name*> | Dossier racine de votre système de fichiers, par exemple, si vous avez installé votre passerelle de données locale, comme un dossier local sur l'ordinateur où la passerelle de données locale est installée, ou le dossier d'un partage réseau auquel l'ordinateur peut accéder. <p>Par exemple : `\\PublicShare\\DropboxFiles` <p>Le dossier racine est le dossier parent principal qui est utilisé pour les chemins relatifs de toutes les actions liées aux fichiers. | 
-   | **Type d'authentification** | Non  | <*auth-type*> | Type d’authentification utilisé par votre système de fichiers, par exemple, **Windows** | 
-   | **Nom d’utilisateur** | Oui | <*domaine*>\\<*nom d’utilisateur*> | Nom d'utilisateur de l'ordinateur qui héberge votre système de fichiers | 
-   | **Mot de passe** | Oui | <*your-password*> | Mot de passe de l'ordinateur qui héberge votre système de fichiers | 
-   | **gateway** | Oui | <*installed-gateway-name*> | Le nom de la passerelle que vous avez installée précédemment | 
+   | **Nom de connexion** | OUI | <*connection-name*> | Le nom souhaité pour votre connexion | 
+   | **Dossier racine** | OUI | <*root-folder-name*> | Dossier racine de votre système de fichiers, par exemple, si vous avez installé votre passerelle de données locale, comme un dossier local sur l'ordinateur où la passerelle de données locale est installée, ou le dossier d'un partage réseau auquel l'ordinateur peut accéder. <p>Par exemple : `\\PublicShare\\DropboxFiles` <p>Le dossier racine est le dossier parent principal qui est utilisé pour les chemins relatifs de toutes les actions liées aux fichiers. | 
+   | **Type d'authentification** | Non | <*auth-type*> | Type d’authentification utilisé par votre système de fichiers, par exemple, **Windows** | 
+   | **Nom d’utilisateur** | OUI | <*domaine*>\\<*nom d’utilisateur*> | Nom d'utilisateur de l'ordinateur qui héberge votre système de fichiers | 
+   | **Mot de passe** | OUI | <*your-password*> | Mot de passe de l'ordinateur qui héberge votre système de fichiers | 
+   | **gateway** | OUI | <*installed-gateway-name*> | Le nom de la passerelle que vous avez installée précédemment | 
    ||| 
 
 1. Lorsque vous êtes prêt, choisissez **Créer**.

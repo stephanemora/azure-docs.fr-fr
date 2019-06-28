@@ -9,17 +9,17 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
 ms.openlocfilehash: ea96b2b996ea79efacdcda50c6370f25e26e0aa2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61447010"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Déployer l’accélérateur de solution de supervision à distance à l’aide de l’interface CLI
 
-Ce guide pratique montre comment déployer l’accélérateur de solution de supervision à distance. Vous déployez la solution à l’aide de l’interface CLI. Vous pouvez également déployer la solution à l’aide de l’interface utilisateur basée sur le web à azureiotsolutions.com, pour en savoir plus sur cette option, consultez la [déployer l’accélérateur de solution de surveillance à distance](quickstart-remote-monitoring-deploy.md) Guide de démarrage rapide.
+Ce guide pratique montre comment déployer l’accélérateur de solution de supervision à distance. Vous déployez la solution à l’aide de l’interface CLI. Vous pouvez également déployer la solution avec l’interface utilisateur basée sur le web sur azureiotsolutions.com. Pour découvrir cette option, consultez le guide de démarrage rapide [Déployer l’accélérateur de solution de supervision à distance](quickstart-remote-monitoring-deploy.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour déployer l’accélérateur de solution de supervision à distance, vous avez besoin d’un abonnement Azure actif.
 
@@ -62,7 +62,7 @@ Cette section récapitule les principales différences entre les déploiements d
 
 ### <a name="basic"></a>De base
 
-Vous pouvez effectuer un déploiement de base à partir de [azureiotsolutions.com](https://www.azureiotsolutions.com/Accelerators) ou à l’aide de l’interface CLI.
+Vous pouvez effectuer un déploiement de base à partir de [azureiotsolutions.com](https://www.azureiotsolutions.com/Accelerators) ou avec l’interface CLI.
 
 Le déploiement de base est destiné à présenter la solution. Pour réduire les coûts, tous les microservices sont déployés dans une seule machine virtuelle. Ce déploiement n’utilise pas d’architecture prête pour la production.
 
@@ -83,7 +83,7 @@ Un déploiement de base crée les services suivants dans votre abonnement Azure�
 
 ### <a name="standard"></a>standard
 
-Vous pouvez effectuer un déploiement standard uniquement à l’aide de l’interface CLI.
+Vous pouvez effectuer un déploiement standard seulement avec l’interface CLI.
 
 Un déploiement standard est un déploiement prêt pour la production, qu’un développeur peut personnaliser et étendre. Utilisez l’option de déploiement standard quand vous êtes prêt à personnaliser une architecture prête pour la production, créée pour la mise à l’échelle et l’extensibilité. Les microservices d’application sont générés en tant que conteneurs Docker et déployés à l’aide d’Azure Kubernetes Service. L’orchestrateur Kubernetes déploie, met à l’échelle et gère les microservices.
 
@@ -94,7 +94,7 @@ Un déploiement standard crée les services suivants dans votre abonnement Azure
 | 1     | [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service)| Utilisez un service d’orchestration de conteneurs Kubernetes entièrement managé (3 agents par défaut).|
 | 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                     | Niveau Standard S2 | Gestion des appareils, commande et contrôle |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)                 | standard        | Stockage des données de configuration et de télémétrie d’appareil comme les règles, les alertes et les messages |
-| 5.     | [Comptes de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)    | standard        | 4 pour le stockage de machine virtuelle et 1 pour les points de contrôle streaming |
+| 5\.     | [Comptes de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)    | standard        | 4 pour le stockage de machine virtuelle et 1 pour les points de contrôle streaming |
 | 1     | [App Service](https://azure.microsoft.com/services/app-service/web/)             | S1 Standard     | Application Gateway via SSL |
 | 1     | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)        |                 | Gestion des identités d’utilisateur et de la sécurité |
 | 1     | [Azure Maps](https://azure.microsoft.com/services/azure-maps/)        | standard                | Affichage des emplacements de ressources |

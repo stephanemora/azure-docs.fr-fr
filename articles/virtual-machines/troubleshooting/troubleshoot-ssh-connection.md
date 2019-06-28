@@ -16,10 +16,10 @@ ms.topic: troubleshooting
 ms.date: 05/30/2017
 ms.author: genli
 ms.openlocfilehash: 81e00c4a3b9490a05667d58952f7bdf8945bacdb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61405252"
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Dépannage d’une connexion SSH à une machine virtuelle Linux Azure défaillante, qui génère une erreur ou qui est refusée
@@ -49,7 +49,7 @@ Si vous cherchez des procédures de dépannage plus détaillées et des explicat
 Vous pouvez réinitialiser les informations d’identification ou la configuration SSH avec l’une des méthodes suivantes :
 
 * [Portail Azure](#use-the-azure-portal) : utile si vous devez rapidement réinitialiser la configuration SSH ou la clé SSH et que vous n’avez pas installé les outils Azure.
-* [Console série de machine virtuelle Azure](https://aka.ms/serialconsolelinux) -la console série de machine virtuelle fonctionnera quel que soit la configuration SSH et vous fournira une console interactive à votre machine virtuelle. En fait, situations « ne peut pas SSH » sont spécifiquement ce que la console série a été conçu pour aider à résoudre. Plus de détails ci-dessous.
+* [Console série de machine virtuelle Azure](https://aka.ms/serialconsolelinux) : la console série de machine virtuelle fonctionne quelle que soit la configuration SSH et fournit une console interactive à votre machine virtuelle. De fait, la console série a été spécialement conçue pour éviter les problèmes de connexion SSH. Vous trouverez plus de détails ci-dessous.
 * [Azure CLI](#use-the-azure-cli) : Si vous êtes déjà sur la ligne de commande, réinitialisez rapidement la configuration SSH ou les informations d’identification. Si vous utilisez une machine virtuelle classique, vous pouvez utiliser l’[interface de ligne de commande Azure classique](#use-the-azure-classic-cli).
 * [L’extension VMAccessForLinux Azure](#use-the-vmaccess-extension) : création et réutilisation de fichiers de définition json pour réinitialiser la configuration SSH ou les informations d’identification utilisateur.
 
@@ -78,22 +78,22 @@ Utilisez la [vérification des flux IP](../../network-watcher/network-watcher-ch
 
 Utilisez la fonction [Tronçon suivant](../../network-watcher/network-watcher-check-next-hop-portal.md) de Network Watcher pour confirmer qu’un itinéraire n’empêche pas le trafic d’être routé vers ou à partir d’une machine virtuelle. Vous pouvez également examiner les itinéraires effectifs pour voir tous les itinéraires effectifs pour une interface réseau. Pour plus d’informations, consultez [Utilisation d’itinéraires effectifs pour résoudre des problèmes de flux de trafic de machine virtuelle](../../virtual-network/diagnose-network-routing-problem.md).
 
-## <a name="use-the-azure-vm-serial-console"></a>Utilisez la Console série de machine virtuelle Azure
-Le [Console série de machine virtuelle Azure](./serial-console-linux.md) fournit l’accès à une console basée sur le texte pour les machines virtuelles Linux. Vous pouvez utiliser la console pour résoudre les problèmes de votre connexion SSH dans un shell interactif. Vérifiez que vous avez rempli le [conditions préalables](./serial-console-linux.md#prerequisites) pour l’utilisation de la Console série et essayez les commandes ci-dessous pour en savoir plus dépanner votre connectivité SSH.
+## <a name="use-the-azure-vm-serial-console"></a>Utiliser la console série de machine virtuelle Azure
+La [console série de machine virtuelle Azure](./serial-console-linux.md) donne accès à une console texte pour les machines virtuelles Linux. Elle vous permet de résoudre les problèmes liés à votre connexion SSH dans un shell interactif. Après avoir vérifiez que vous respectez les [prérequis](./serial-console-linux.md#prerequisites) pour l’utilisation de la console série, essayez les commandes ci-dessous pour un dépannage plus poussé de votre connectivité SSH.
 
-### <a name="check-that-ssh-is-running"></a>Vérifiez que SSH est en cours d’exécution
-Vous pouvez utiliser la commande suivante pour vérifier si SSH est en cours d’exécution sur votre machine virtuelle :
+### <a name="check-that-ssh-is-running"></a>Vérifier que SSH est opérationnel
+Vous pouvez utiliser la commande suivante pour vérifier que SSH fonctionne sur votre machine virtuelle :
 ```
 $ ps -aux | grep ssh
 ```
-S’il existe de sortie, SSH est en cours d’exécution.
+Si vous obtenez une sortie, c’est que SSH est opérationnel.
 
-### <a name="check-which-port-ssh-is-running-on"></a>Vérifier le port SSH est en cours d’exécution
-Vous pouvez utiliser la commande suivante pour vérifier le port SSH est en cours d’exécution :
+### <a name="check-which-port-ssh-is-running-on"></a>Vérifier le port sur lequel SSH s’exécute
+Vous pouvez utiliser la commande suivante pour vérifier sur quel port SSH s’exécute :
 ```
 $ sudo grep Port /etc/ssh/sshd_config
 ```
-Votre résultat ressemblera à :
+La sortie que vous obtenez se présente comme suit :
 ```
 Port 22
 ```

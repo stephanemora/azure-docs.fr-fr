@@ -9,10 +9,10 @@ ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: a57085fa37efd56a46b740d8cbc4278dc53cf39f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60683187"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Présentation du cycle de vie d’un blueprint Azure
@@ -34,7 +34,7 @@ Pour bien comprendre ce qu’est un blueprint et quelles sont les phases de son 
 
 Quand vous créez un blueprint, vous y ajoutez des artefacts, vous l’enregistrez dans un groupe d’administration ou un abonnement, et vous spécifiez un nom unique et une version unique. Le blueprint est à présent en mode **Brouillon** et ne peut pas encore être affecté. Pendant qu’il est en mode **Brouillon**, il peut continuer d’être mis à jour et modifié.
 
-Un blueprint en mode **Brouillon** qui n’a jamais été publié affiche une icône dans la page **Définitions de blueprint** qui est différente de ceux qui ont été **publiés**. Le **Version la plus récente** s’affiche en tant que **Draft** pour ces jamais publié plans.
+Un blueprint en mode **Brouillon** qui n’a jamais été publié affiche une icône dans la page **Définitions de blueprint** qui est différente de ceux qui ont été **publiés**. Le champ **Dernière version** indique **Brouillon** pour les blueprints qui n’ont jamais été publiés.
 
 Vous créez et modifiez un blueprint avec le [portail Azure](../create-blueprint-portal.md#create-a-blueprint) ou l’[API REST](../create-blueprint-rest-api.md#create-a-blueprint).
 
@@ -69,11 +69,11 @@ Chaque version d’un blueprint est un objet unique qui peut être **publié** i
 
 1. Sélectionnez **Tous les services** dans le volet gauche. Recherchez et sélectionnez **Blueprints**.
 
-1. Sélectionnez **Blueprint définitions** à partir de la page sur la gauche et l’utilisation du filtre options pour localiser le plan que vous souhaitez supprimer une version de. Cliquez dessus pour ouvrir la page de modification.
+1. Sélectionnez **Définitions de blueprint** dans la page de gauche et utilisez les options de filtre pour trouver le blueprint dont vous souhaitez supprimer une version. Cliquez dessus pour ouvrir la page de modification.
 
 1. Cliquez sur l’onglet **Versions publiées** et recherchez la version que vous souhaitez supprimer.
 
-1. Avec le bouton droit sur la version à supprimer, puis sélectionnez **supprimer cette version**.
+1. Cliquez avec le bouton droit sur la version à supprimer, puis sélectionnez **Supprimer cette version**.
 
 ## <a name="deleting-the-blueprint"></a>Suppression du blueprint
 

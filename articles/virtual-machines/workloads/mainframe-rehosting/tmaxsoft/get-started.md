@@ -1,44 +1,44 @@
 ---
-title: Prise en main TmaxSoft OpenFrame sur des Machines virtuelles Azure
-description: Ré-héberger votre IBM z/OS mainframe les charges de travail à l’aide de TmaxSoft OpenFrame environnement sur Machines virtuelles (VM).
+title: Bien démarrer avec TmaxSoft OpenFrame dans les machines virtuelles Azure
+description: Réhébergez vos charges de travail mainframe IBM z/OS en utilisant l’environnement TmaxSoft OpenFrame dans les machines virtuelles Azure.
 author: njray
 ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 ms.openlocfilehash: 408e0166e52af9efd3d4c64f1b29bddcfc1cca4c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61485397"
 ---
-# <a name="get-started-with-tmaxsoft-openframe-on-azure"></a>Prise en main TmaxSoft OpenFrame sur Azure
+# <a name="get-started-with-tmaxsoft-openframe-on-azure"></a>Bien démarrer avec TmaxSoft OpenFrame sur Azure
 
-Prendre de vos ressources de macroordinateur existantes et déplacez-les dans Microsoft Azure à l’aide TmaxSoft OpenFrame. Cette solution réhébergement populaires crée un environnement d’émulation sur Azure, ce qui vous permet de migrer rapidement des applications. Aucune remise en forme n’est nécessaire.
+Déplacez vos ressources mainframe existantes dans Microsoft Azure à l’aide de TmaxSoft OpenFrame. Cette solution de réhébergement à succès crée un environnement d’émulation dans Azure, ce qui vous permet de migrer rapidement les applications. Aucun reformatage n’est nécessaire.
 
 ## <a name="openframe-rehosting-environment"></a>Environnement de réhébergement OpenFrame
 
-Configurer un environnement de OpenFrame sur Azure pour le développement, de démonstrations, de test ou de charges de travail de production. Comme le montre l’illustration suivante, OpenFrame comprend plusieurs composants de l’environnement d’émulation mainframe sur Azure. Par exemple, services en ligne OpenFrame remplacement le macroordinateur intergiciel (middleware) tels que IBM CICS Customer Information contrôle système (). OpenFrame Batch, avec son composant TJES, remplace travail entrée sous-système (JES du macroordinateur IBM). 
+Configurez un environnement OpenFrame dans Azure pour des charges de travail de développement, de démonstration, de test ou de production. Comme le montre la figure suivante, OpenFrame comporte plusieurs composants qui créent l’environnement d’émulation mainframe dans Azure. Par exemple, les services en ligne OpenFrame remplacent l’intergiciel (middleware) mainframe comme IBM Customer Information Control System (CICS). Avec son composant TJES, OpenFrame Batch remplace le sous-système d’entrée de travail (JES) du mainframe IBM. 
 
 ![Processus de réhébergement OpenFrame](media/openframe-01.png)
 
 > [!NOTE]
-> Pour exécuter l’environnement OpenFrame sur Azure, vous devez disposer d’une licence de produit valide ou d’une licence d’essai à partir de TmaxSoft.
+> Pour exécuter l’environnement OpenFrame dans Azure, vous devez disposer d’une licence produit valide ou d’une licence d’essai fournie par TmaxSoft.
 
 ## <a name="openframe-components"></a>Composants OpenFrame
 
-Les composants suivants font partie de l’environnement OpenFrame sur Azure :
+Les composants suivants font partie de l’environnement OpenFrame dans Azure :
 
-- **Outils de migration** notamment OFMiner, une solution qui analyse les ressources de macroordinateurs et avant de les migre vers Azure.
-- **Compilateurs**, y compris OFCOBOL, un compilateur qui interprète les programmes de COBOL du macroordinateur. OFPLI, qui interprète PL du macroordinateur / je programmes ; et OFASM, un compilateur qui interprète les programmes d’assembleur du macroordinateur.
-- **Front-end** composants, y compris la Solution d’utilisateur de Java Enterprise (JEUS), un serveur d’applications web qui est certifié pour Java Enterprise Edition 6.OFGW et le composant passerelle OpenFrame qui fournit un écouteur 3270.
-- **Application** environnement. Base de OpenFrame est l’intergiciel (middleware) qui gère l’ensemble du système. OpenFrame Server Type C (OSC) remplace le macroordinateur intergiciel (middleware) et IBM CICS.
-- **Base de données relationnelle**, telles que Tibero (indiqué), base de données Oracle, Microsoft SQL Server, IBM Db2 ou MySQL. Les applications OpenFrame utilisent protocole de la connectivité ODBC (Open Database) pour communiquer avec la base de données.
-- **Sécurité** via TACF, un module de service qui contrôle l’accès utilisateur aux systèmes et aux ressources. 
-- **OFManager** est une solution qui fournit des fonctions de gestion et d’opération du OpenFrame dans l’environnement web.
+- **Outils de migration**, dont OFMiner, solution qui analyse les ressources mainframe avant de les migrer vers Azure.
+- **Compilateurs**, dont OFCOBOL, compilateur qui interprète les programmes COBOL du mainframe ; OFPLI, qui interprète les programmes PL/I du mainframe ; et OFASM, compilateur qui interprète les programmes assembleurs du mainframe.
+- Composants **front-end**, dont JEUS (Java Enterprise User Solution), serveur d’application web certifié pour Java Enterprise Edition 6.OFGW et le composant passerelle OpenFrame qui fournit un écouteur 3270.
+- Environnement d’**application**. OpenFrame Base est l’intergiciel (middleware) qui gère l’ensemble du système. OpenFrame Server Type C (OSC) remplace l’intergiciel (middleware) du mainframe et IBM CICS.
+- **Base de données relationnelle**, comme Tibero (présentée ici), Oracle Database, Microsoft SQL Server, IBM Db2 ou MySQL. Les applications OpenFrame utilisent le protocole ODBC (Open Database Connectivity) pour communiquer avec la base de données.
+- La **sécurité** via TACF, module de service qui contrôle l’accès utilisateur aux systèmes et aux ressources. 
+- **OFManager** est une solution qui fournit les fonctions d’exploitation et de gestion d’OpenFrame dans l’environnement web.
 
-![Architecture de OpenFrame](media/openframe-02.png)
+![Architecture OpenFrame](media/openframe-02.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

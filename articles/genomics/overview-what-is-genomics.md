@@ -10,17 +10,17 @@ ms.service: genomics
 ms.topic: article
 ms.date: 12/07/2017
 ms.openlocfilehash: 1b52f47d692cf2fb2925ebb2a9882b9c79c29a87
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60780894"
 ---
 # <a name="what-is-microsoft-genomics"></a>Qu’est-ce que Microsoft Genomics ?
 Microsoft Genomics offre l’implémentation cloud de Burrows-Wheeler Aligner (BWA) et de Genome Analysis Toolkit (GATK) pour une analyse secondaire. Le service est certifié ISO et conforme aux réglementations HIPAA et offre une prévisibilité des prix pour vos besoins de séquençage du génome. Découvrez comment utiliser le service Microsoft Genomics et l’intégration avec notre API en lisant nos procédures de démarrage rapide, didacticiels et documentations.
 
 ## <a name="support-your-most-demanding-sequencing-needs"></a>Prise en charge de vos besoins en séquençage les plus exigeants
-Au lieu de gérer vos propres centres de données, tirez parti de l’échelle et de l’expérience de Microsoft en matière d’exécution de charges de travail ayant une échelle de plusieurs exaoctets. Notre implémentation cloud de BWA-GATK concorde fortement avec le pipeline des meilleures pratiques du Broad Institute.
+Au lieu de gérer vos propres centres de données, tirez parti de l’échelle et de l’expérience de Microsoft en matière d’exécution de charges de travail ayant une échelle de plusieurs exaoctets. Notre implémentation cloud de BWA-GATK concorde fortement avec le pipeline des bonnes pratiques du Broad Institute.
 
 
 ## <a name="keep-your-business-running"></a>Votre activité ne s’arrête jamais
@@ -34,6 +34,6 @@ Le service Microsoft Genomics est certifié ISO 27001, ISO 27018, ISO 9001 et co
 ## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous avez lu une introduction à Microsoft Genomics, vous êtes prêt pour :
 - Consultez la page de tarification pour des comparaisons de coûts et des calculatrices. [Tarification](https://azure.microsoft.com/pricing/details/genomics/)
-- Commencez par exécuter votre premier workflow via le service Microsoft Genomics. [Exécuter un workflow via le service Microsoft Genomics](quickstart-run-genomics-workflow-portal.md)
+- Commencez par exécuter votre premier workflow via le service Microsoft Genomics. [Exécuter un workflow par le biais du service Microsoft Genomics](quickstart-run-genomics-workflow-portal.md)
 - Envoyer vos propres données pour traitement par le service Microsoft Genomics : [FASTQ couplé](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [Plusieurs FASTQ ou BAM](quickstart-input-multiple.md) 
 

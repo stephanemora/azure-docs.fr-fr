@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
 ms.openlocfilehash: 596ac871067886ee3124c0f21beb35cb3b8fe1ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60888980"
 ---
 # <a name="using-azure-resource-manager-support-with-azure-load-balancer"></a>Utilisation de la prise en charge d’Azure Resource Manager pour l’équilibrage de charge Azure
@@ -30,15 +30,15 @@ Avec Azure Resource Manager, Azure Load Balancer contient les ressources enfants
 
 * Configuration d’une adresse IP frontend : un équilibreur de charge peut inclure une ou plusieurs adresses IP frontend, également appelées « adresses IP virtuelles ». Ces adresses IP servent d'entrée pour le trafic.
 * Pool d’adresses backend : il s’agit des adresses IP associées à la carte d’interface réseau (NIC) des machines virtuelles vers lesquelles la charge est distribuée.
-* Règles d’équilibrage de charge : une propriété de règle mappe une adresse IP frontale donnée et la combinaison de port à un ensemble d’adresses IP de serveur principal et la combinaison port. Un même équilibreur de charge peut avoir plusieurs règles d’équilibrage de charge. Chaque règle est une combinaison d’une adresse IP frontale et port et back-end IP et port associés aux machines virtuelles.
+* Règles d’équilibrage de charge : une propriété de règle mappe une paire adresse IP/port frontend à une combinaison d’adresses IP/port backend. Un même équilibreur de charge peut avoir plusieurs règles d’équilibrage de charge. Chaque règle correspond à la combinaison d’une paire adresse IP/port frontend et d’une paire adresse IP/port backend associées aux machines virtuelles.
 * Sondes : les sondes vous permettent d'effectuer le suivi de l'intégrité des instances de machine virtuelle. En cas d’échec d’une sonde d’intégrité, l’instance de machine virtuelle est automatiquement mise hors service.
-* Les règles NAT entrantes : NAT règles définissant le trafic entrant transitant par l’adresse IP frontale et distribué à l’adresse IP de serveur principal.
+* Règles NAT de trafic entrant : règles NAT définissant le trafic entrant qui transite via l’adresse IP frontend et est distribué à l’adresse IP backend.
 
 ![](./media/load-balancer-arm/load-balancer-arm.png)
 
 ## <a name="quickstart-templates"></a>Modèles de démarrage rapide
 
-Azure Resource Manager vous permet d’approvisionner vos applications à l'aide d'un modèle déclaratif. Dans un modèle unique, vous pouvez déployer plusieurs services avec leurs dépendances. Le même modèle vous permet de déployer plusieurs fois votre application à chaque phase du cycle de vie de l’application.
+Azure Resource Manager vous permet d’approvisionner vos applications à l'aide d'un modèle déclaratif. Dans un modèle unique, vous pouvez déployer plusieurs services ainsi que leurs dépendances. Le même modèle vous permet de déployer plusieurs fois votre application à chaque phase du cycle de vie de l’application.
 
 Les modèles peuvent inclure des définitions de machines virtuelles, de réseaux virtuels, de groupes à haute disponibilité, d’interfaces réseau (NIC), de comptes de stockage, d’équilibreurs de charge, de groupes de sécurité réseau et d’adresses IP publiques. Avec des modèles, vous pouvez créer tout ce dont vous avez besoin pour une application complexe. Le contrôle de version et la collaboration du fichier de modèle peuvent être vérifiés dans le système de gestion de contenu.
 

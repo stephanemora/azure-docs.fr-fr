@@ -11,10 +11,10 @@ ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
 ms.openlocfilehash: 7fa72ad62d7d11c795422a203d13a4dd45484c19
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60896037"
 ---
 # <a name="using-the-azure-blockchain-workbench-rest-api"></a>Utilisation de l’API REST Azure Blockchain Workbench
@@ -210,8 +210,8 @@ Content-type: application/json
 
 Une fois qu’un utilisateur a décidé d’approfondir un contrat, le client blockchain peut lui présenter les actions utilisateur disponibles en fonction de l’état du contrat. Dans cet exemple, l’utilisateur recherche toutes les actions disponibles pour un nouveau contrat intelligent créé :
 
-* Modifier : Permet à l’utilisateur de modifier la description et le prix d’une ressource.
-* Terminer : Permet à l’utilisateur à la fin du contrat de l’élément multimédia.
+* Modifier : permet à l’utilisateur de modifier la description et le prix d’une ressource.
+* Terminer : permet à l’utilisateur de mettre fin au contrat de la ressource.
 
 Utilisez [l’API Contract Action GET](/rest/api/azure-blockchain-workbench/contractsv2/contractactionget) :
 
@@ -277,8 +277,8 @@ Content-type: application/json
 
 Un utilisateur peut ensuite décider d’intervenir pour l’instance de contrat intelligent spécifiée. Dans ce cas, imaginons qu’un utilisateur souhaite modifier la description et le prix d’une ressource pour ce qui suit :
 
-* Description : « Ma voiture mis à jour »
-* Tarif : 54321
+* Description : « My updated car »
+* Prix : 54321
 
 Utilisez [l’API Contract Action POST](/rest/api/azure-blockchain-workbench/contractsv2/contractactionpost) :
 

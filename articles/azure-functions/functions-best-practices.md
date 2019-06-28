@@ -10,15 +10,14 @@ ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-origin.date: 10/16/2017
-ms.date: 03/25/2019
-ms.author: v-junlch
+ms.date: 10/16/2017
+ms.author: glenga
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 30b187676f0c1fb03b7124d93b3991b0e32d61ae
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62104664"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Optimisation des performances et de la fiabilité d’Azure Functions
@@ -85,7 +84,7 @@ Les fonctions d’une application de fonction partagent des ressources. Par exem
 
 Soyez attentif à ce que vous chargez dans vos applications de fonction en production. La mémoire moyenne est calculée pour chaque fonction au sein de l’application.
 
-Si vous avez un assembly partagé est référencé dans plusieurs fonctions .NET, placez-le dans un dossier partagé commun. Référencez l’assembly avec une instruction similaire à l’exemple suivant si des scripts C# (.csx) sont utilisés : 
+Si un assembly partagé est référencé dans plusieurs fonctions .NET, placez-le dans un dossier partagé commun. Référencez l’assembly avec une instruction similaire à l’exemple suivant si des scripts C# (.csx) sont utilisés : 
 
     #r "..\Shared\MyAssembly.dll". 
 
@@ -123,5 +122,3 @@ Pour plus d’informations, consultez les ressources suivantes :
 
 * [Guide pratique pour gérer les connexions dans Azure Functions](manage-connections.md)
 * [Bonnes pratiques Azure App Service](../app-service/app-service-best-practices.md)
-
-<!-- Update_Description: wording update -->

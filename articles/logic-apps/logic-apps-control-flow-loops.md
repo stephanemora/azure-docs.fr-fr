@@ -11,22 +11,22 @@ manager: jeconnoc
 ms.date: 01/05/2019
 ms.topic: article
 ms.openlocfilehash: 339d4270dc1803879607663e9e2db4a86591ec76
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60683959"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Créer des boucles qui répètent des actions de workflow ou des tableaux de processus dans Azure Logic Apps
 
 Pour traiter un tableau dans votre application logique, vous pouvez créer une [boucle « Foreach »](#foreach-loop). Cette boucle répète une ou plusieurs actions sur chaque élément du tableau. Pour connaître les limites applicables au nombre d’éléments de tableau que des boucles « Foreach » peuvent traiter, consultez [Limites et configurations](../logic-apps/logic-apps-limits-and-config.md). 
 
-Pour répéter des actions jusqu’à ce qu’une condition soit remplie ou qu’un état change, vous pouvez créer une [boucle « Until »](#until-loop). Tout d’abord votre application logique s’exécute toutes les actions à l’intérieur de la boucle et vérifie ensuite la condition ou l’état. Si la condition est remplie, la boucle s’arrête. Dans le cas contraire, la boucle se répète. Pour connaître les limites applicables au nombre de boucles « Until » dans une exécution d’application logique, consultez [Limites et configurations](../logic-apps/logic-apps-limits-and-config.md). 
+Pour répéter des actions jusqu’à ce qu’une condition soit remplie ou qu’un état change, vous pouvez créer une [boucle « Until »](#until-loop). Votre application logique exécute d’abord toutes les actions dans la boucle, puis elle vérifie la condition ou l’état. Si la condition est remplie, la boucle s’arrête. Dans le cas contraire, la boucle se répète. Pour connaître les limites applicables au nombre de boucles « Until » dans une exécution d’application logique, consultez [Limites et configurations](../logic-apps/logic-apps-limits-and-config.md). 
 
 > [!TIP]
 > Si vous disposez d’un déclencheur qui reçoit un tableau et souhaite exécuter un workflow pour chaque élément du tableau, vous pouvez *dégrouper* ce tableau avec le déclencheur de propriété [**SplitOn**](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [vous inscrire pour obtenir un compte Azure gratuitement](https://azure.microsoft.com/free/). 
 
@@ -54,7 +54,7 @@ Cet exemple d’application logique envoie un résumé quotidien pour le flux RS
 2. Entre le déclencheur RSS et l’action Envoyer un courrier électronique, ajoutez une bouche « Foreach ». 
 
    1. Pour ajouter une boucle entre des étapes, placez votre pointeur au-dessus de la flèche qui les sépare. 
-   Choisissez le **signe plus** (**+**) qui s’affiche, puis sélectionnez **Ajouter une action**.
+   Choisissez le **signe plus** ( **+** ) qui s’affiche, puis sélectionnez **Ajouter une action**.
 
       ![Sélectionner « Ajouter une action »](media/logic-apps-control-flow-loops/add-for-each-loop.png)
 
@@ -126,7 +126,7 @@ Si vous travaillez en mode code pour votre application logique, vous pouvez déf
 
 Par défaut, les cycles dans une boucle « Foreach » s’exécutent en parallèle. Pour exécuter chaque cycle de manière séquentielle, définissez l’option **Sequential** de la boucle. Les boucles « Foreach » doivent s’exécuter séquentiellement quand vous avez des boucles imbriquées ou des variables à l’intérieur de boucles où vous attendez des résultats prévisibles. 
 
-1. En haut à droite de la boucle, choisissez **Ellipses** (**...**) > **Paramètres**.
+1. En haut à droite de la boucle, choisissez **Ellipses** ( **...** ) > **Paramètres**.
 
    ![Dans la boucle « Foreach », choisissez « ... » > « Paramètres »](media/logic-apps-control-flow-loops/for-each-loop-settings.png)
 
@@ -154,7 +154,7 @@ Si vous travaillez avec la définition JSON de votre application logique, vous p
 
 ## <a name="until-loop"></a>Boucle « Until »
   
-Pour exécuter et répéter des actions jusqu'à ce qu’une condition obtient remplie ou modifie un état, placez ces actions dans une boucle « Until ». Tout d’abord votre application logique s’exécute toutes les actions à l’intérieur de la boucle et vérifie ensuite la condition ou l’état. Si la condition est remplie, la boucle s’arrête. Dans le cas contraire, la boucle se répète.
+Pour exécuter et répéter des actions jusqu’à ce qu’une condition soit remplie ou qu’un état change, placez ces actions dans une boucle « Until ». Votre application logique exécute d’abord toutes les actions dans la boucle, puis elle vérifie la condition ou l’état. Si la condition est remplie, la boucle s’arrête. Dans le cas contraire, la boucle se répète.
 
 Voici quelques scénarios courants dans lesquels vous pouvez utiliser une boucle « Until » :
 
@@ -195,8 +195,8 @@ Voici quelques scénarios courants dans lesquels vous pouvez utiliser une boucle
 
    | Propriété | Valeur | Description |
    | -------- | ----- | ----------- |
-   | **Name** | Limite | Nom de votre variable | 
-   | **Type** | Entier  | Type de données de votre variable | 
+   | **Nom** | Limite | Nom de votre variable | 
+   | **Type** | Entier | Type de données de votre variable | 
    | **Valeur** | 0 | Valeur de départ de votre variable | 
    |||| 
 
@@ -236,7 +236,7 @@ Voici quelques scénarios courants dans lesquels vous pouvez utiliser une boucle
 
       | Propriété | Valeur | Description |
       | -------- | ----- | ----------- | 
-      | **To** | *\<email-address\@domain>* | Adresse e-mail du destinataire. Pour effectuer le test, utilisez votre propre adresse e-mail. | 
+      | **To** | *\<adresse e-mail\@domaine>* | Adresse e-mail du destinataire. Pour effectuer le test, utilisez votre propre adresse e-mail. | 
       | **Objet** | La valeur actuelle de la variable « Limite » est **Limite** | Spécifiez l’objet du message électronique. Pour cet exemple, assurez-vous d’inclure la variable **Limite**. | 
       | **Corps** | <*email-content*> | Spécifiez le contenu du message électronique à envoyer. Pour cet exemple, écrivez ce que vous voulez. | 
       |||| 

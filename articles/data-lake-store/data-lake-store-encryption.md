@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: yagupta
 ms.openlocfilehash: a009f212bd8baaa353d602dc6090aeeccddd4936
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60878392"
 ---
 # <a name="encryption-of-data-in-azure-data-lake-storage-gen1"></a>Chiffrement des données dans Azure Data Lake Storage Gen1
@@ -21,8 +21,8 @@ Le chiffrement dans Azure Data Lake Storage Gen1 vous permet de protéger vos do
 
 Data Lake Storage Gen1 prend en charge le chiffrement des données au repos et en transit. Pour les données au repos, Data Lake Storage Gen1 s’appuie sur un chiffrement transparent « activé par défaut ». Voici, plus en détails, ce que ces termes signifient :
 
-* **Sur par défaut**: Lorsque vous créez un nouveau compte Data Lake Storage Gen1, le paramètre par défaut active le chiffrement. Ainsi, les données stockées dans Data Lake Storage Gen1 sont toujours chiffrées avant d’être stockées sur un support permanent. Ce comportement s’applique à toutes les données et ne peut pas être modifié après la création d’un compte.
-* **Transparent**: Data Lake Storage Gen1 automatiquement chiffre les données avant le stockage permanent et déchiffre les données avant la récupération. Ce chiffrement est configuré et géré par un administrateur au niveau du compte Data Lake Storage Gen1. Aucune modification n’est apportée aux API d’accès aux données. En raison de ce chiffrement, aucune modification n’est donc requise dans les applications et services qui interagissent avec Data Lake Storage Gen1.
+* **Activé par défaut** : quand vous créez un compte Data Lake Storage Gen1, le paramètre par défaut active le chiffrement. Ainsi, les données stockées dans Data Lake Storage Gen1 sont toujours chiffrées avant d’être stockées sur un support permanent. Ce comportement s’applique à toutes les données et ne peut pas être modifié après la création d’un compte.
+* **Transparent** : Data Lake Storage Gen1 chiffre automatiquement les données avant leur stockage permanent et les déchiffre avant leur récupération. Ce chiffrement est configuré et géré par un administrateur au niveau du compte Data Lake Storage Gen1. Aucune modification n’est apportée aux API d’accès aux données. En raison de ce chiffrement, aucune modification n’est donc requise dans les applications et services qui interagissent avec Data Lake Storage Gen1.
 
 De même, les données en transit (ou données en mouvement) sont toujours chiffrées dans Data Lake Storage Gen1. Outre le chiffrement des données avant le stockage sur un support permanent, les données sont également toujours sécurisées en transit à l’aide du protocole HTTPS. HTTPS est le seul protocole pris en charge pour les interfaces REST Data Lake Storage Gen1. Le diagramme suivant illustre le mode de chiffrement des données dans Data Lake Storage Gen1 :
 
@@ -56,11 +56,11 @@ Voici une brève comparaison des fonctionnalités fournies par les deux modes de
 | --- | --- | --- |
 |Comment les données sont stockées ?|Toujours chiffrées avant d’être stockées.|Toujours chiffrées avant d’être stockées.|
 |Où est stockée la clé de chiffrement principale ?|Key Vault|Key Vault|
-|Des clés de chiffrement sont-elles stockées en dehors de Key Vault ? |Non |Non |
+|Des clés de chiffrement sont-elles stockées en dehors de Key Vault ? |Non|Non|
 |La MEK peut-elle être récupérée dans Key Vault ?|Non. Une fois la MEK stockée dans Key Vault, elle peut uniquement être utilisée pour le chiffrement et le déchiffrement.|Non. Une fois la MEK stockée dans Key Vault, elle peut uniquement être utilisée pour le chiffrement et le déchiffrement.|
 |Qui possède l’instance Key Vault et la MEK ?|Le service Data Lake Storage Gen1|Vous possédez l’instance Key Vault, qui appartient à votre propre abonnement Azure. La MEK dans Key Vault peut être gérée par logiciel ou matériel.|
-|Pouvez-vous révoquer l’accès à la MEK pour le service Data Lake Storage Gen1 ?|Non |Oui. Vous pouvez gérer des listes de contrôle d’accès sur Key Vault et supprimer des entrées de contrôle d’accès au niveau de l’identité de service pour le service Data Lake Storage Gen1.|
-|Pouvez-vous supprimer définitivement la MEK ?|Non |Oui. Si le client supprime la MEK de Key Vault, les données du compte Data Lake Storage Gen1 ne peuvent être déchiffrées par personne, ni même par le service Data Lake Storage Gen1. <br><br> Si vous avez explicitement sauvegardé la MEK avant de la supprimer de Key Vault, elle peut être restaurée et les données peuvent ensuite être récupérées. Toutefois, si vous n’avez pas sauvegardé la MEK avant de la supprimer de Key Vault, les données du compte Data Lake Storage Gen1 ne pourront plus jamais être déchiffrées par la suite.|
+|Pouvez-vous révoquer l’accès à la MEK pour le service Data Lake Storage Gen1 ?|Non|Oui. Vous pouvez gérer des listes de contrôle d’accès sur Key Vault et supprimer des entrées de contrôle d’accès au niveau de l’identité de service pour le service Data Lake Storage Gen1.|
+|Pouvez-vous supprimer définitivement la MEK ?|Non|Oui. Si le client supprime la MEK de Key Vault, les données du compte Data Lake Storage Gen1 ne peuvent être déchiffrées par personne, ni même par le service Data Lake Storage Gen1. <br><br> Si vous avez explicitement sauvegardé la MEK avant de la supprimer de Key Vault, elle peut être restaurée et les données peuvent ensuite être récupérées. Toutefois, si vous n’avez pas sauvegardé la MEK avant de la supprimer de Key Vault, les données du compte Data Lake Storage Gen1 ne pourront plus jamais être déchiffrées par la suite.|
 
 
 Hormis la différence entre l’utilisateur qui gère la MEK et l’instance Key Vault dans lequel elle se trouve, les autres éléments de conception sont les mêmes pour les deux modes.
@@ -107,7 +107,7 @@ Le schéma suivant illustre ces concepts :
 
 Lorsque vous utilisez des clés gérées par le client, vous pouvez effectuer une rotation de la MEK. Pour savoir comment configurer un compte Data Lake Storage Gen1 avec des clés gérées par le client, voir [Prise en main](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
 
-### <a name="prerequisites"></a>Conditions préalables
+### <a name="prerequisites"></a>Prérequis
 
 Au moment où vous avez configuré le compte Data Lake Storage Gen1, vous avez choisi d’utiliser vos propres clés. Cette option ne peut pas être modifiée une fois le compte créé. Les étapes ci-dessous supposent que vous utilisez des clés gérées par le client (c’est-à-dire que vous avez choisi vos propres clés dans Key Vault).
 

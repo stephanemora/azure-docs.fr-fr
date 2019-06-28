@@ -1,6 +1,6 @@
 ---
-title: Exécuter plusieurs actions à partir d’une règle d’Azure IoT Central | Microsoft Docs
-description: Exécuter plusieurs actions à partir d’une seule règle IoT Central et créer des groupes d’actions que vous pouvez exécuter à partir de plusieurs règles réutilisables.
+title: Exécuter plusieurs actions à partir d’une règle Azure IoT Central | Microsoft Docs
+description: Exécutez plusieurs actions à partir d’une même règle IoT Central et créez des groupes d’actions réutilisables que vous pouvez exécuter à partir de plusieurs règles.
 services: iot-central
 author: dominicbetts
 ms.author: dobett
@@ -9,22 +9,22 @@ ms.topic: conceptual
 ms.service: iot-central
 manager: philmea
 ms.openlocfilehash: 857d747fa691d1ec2b386d5931a7edea08b7e609
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60517219"
 ---
-# <a name="group-multiple-actions-to-run-from-one-or-more-rules"></a>Plusieurs actions à exécuter à partir d’une ou plusieurs règles de groupe
+# <a name="group-multiple-actions-to-run-from-one-or-more-rules"></a>Regrouper plusieurs actions à exécuter à partir d’une ou plusieurs règles
 
-*Cet article s’applique aux générateurs et aux administrateurs.*
+*Cet article s’applique aux créateurs et aux administrateurs.*
 
-Dans Azure IoT Central, vous créez des règles pour exécuter des actions lorsqu’une condition est remplie. Règles sont basées sur la télémétrie d’appareil ou des événements. Par exemple, vous pouvez avertir un opérateur lorsque la température dans un appareil dépasse un seuil. Cet article décrit comment utiliser [Azure Monitor](../azure-monitor/overview.md) *groupes d’actions* pour associer plusieurs actions à une règle de IoT Central. Vous pouvez joindre un groupe d’actions à plusieurs règles. Un [groupe d’actions](../azure-monitor/platform/action-groups.md) est une collection de préférences de notification définie par le propriétaire d’un abonnement Azure.
+Dans Azure IoT Central, vous créez des règles pour exécuter des actions quand une condition est satisfaite. Les règles sont basées sur la télémétrie des appareils ou sur des événements. Par exemple, vous pouvez avertir un opérateur quand la température dans un appareil dépasse un certain seuil. Cet article décrit comment utiliser des *groupes d’actions* [Azure Monitor](../azure-monitor/overview.md) pour attacher plusieurs actions à une règle IoT Central. Vous pouvez attacher un groupe d’actions à plusieurs règles. Un [groupe d’actions](../azure-monitor/platform/action-groups.md) est une collection de préférences de notification définies par le propriétaire d’un abonnement Azure.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 - Application avec paiement à l'utilisation
-- Un compte et abonnement Azure pour créer et gérer des groupes d’actions Azure Monitor
+- Un compte et un abonnement Azure pour créer et gérer des groupes d’actions Azure Monitor
 
 ## <a name="create-action-groups"></a>Créer des groupes d’actions
 
@@ -32,43 +32,43 @@ Vous pouvez [créer et gérer des groupes d’actions dans le portail Azure](../
 
 Un groupe d’actions peut :
 
-- Envoyer des notifications par exemple, un e-mail, SMS, ou passer un appel vocal.
-- Exécuter une action telle que l’appel d’un webhook.
+- Envoyer des notifications, comme un e-mail, un SMS, ou passer un appel vocal.
+- Exécuter une action, comme appeler un webhook.
 
-La capture d’écran suivante montre un groupe d’actions qui envoie des e-mails et des notifications par SMS et appelle un webhook :
+La capture d’écran suivante montre un groupe d’actions qui envoie des notifications par e-mail et par SMS, et qui appelle un webhook :
 
 ![Groupe d’actions](media/howto-use-action-groups/actiongroup.png)
 
-Pour utiliser un groupe d’actions dans une règle de IoT Central, le groupe d’actions doit être dans le même abonnement Azure en tant que l’application IoT Central.
+Pour utiliser un groupe d’actions dans une règle IoT Central, le groupe d’actions doit être dans le même abonnement Azure que l’application IoT Central.
 
 ## <a name="use-an-action-group"></a>Utiliser un groupe d’actions
 
-Pour utiliser un groupe d’actions dans votre application IoT Central, tout d’abord créer une règle de télémétrie ou d’événement. Lorsque vous ajoutez une action à la règle, sélectionnez **groupes d’actions Azure Monitor**:
+Pour utiliser un groupe d’actions dans votre application IoT Central, créez d’abord une règle de télémétrie ou d’événement. Quand vous ajoutez une action à la règle, sélectionnez **Groupes d’actions Azure Monitor** :
 
 ![Choisir une action](media/howto-use-action-groups/chooseaction.png)
 
-Choisissez un groupe d’actions à partir de votre abonnement Azure :
+Choisissez un groupe d’actions dans votre abonnement Azure :
 
-![Choisissez le groupe d’actions](media/howto-use-action-groups/chooseactiongroup.png)
+![Choisir un groupe d’actions](media/howto-use-action-groups/chooseactiongroup.png)
 
-Sélectionnez **Enregistrer**. Le groupe d’actions apparaît maintenant dans la liste des actions à exécuter lorsque la règle est déclenchée :
+Sélectionnez **Enregistrer**. Le groupe d’actions apparaît maintenant dans la liste des actions à exécuter quand la règle est déclenchée :
 
-![Enregistrer le groupe d’actions](media/howto-use-action-groups/savedactiongroup.png)
+![Groupe d’actions enregistré](media/howto-use-action-groups/savedactiongroup.png)
 
-Le tableau suivant récapitule les informations envoyées pour les types d’actions prises en charge :
+Le tableau suivant récapitule les informations envoyées aux types d’actions pris en charge :
 
 | Type d’action | Format de sortie |
 | ----------- | -------------- |
-| Email       | Modèle de message électronique standard IoT Central |
-| sms         | Alerte Azure IoT Central : ${applicationName} - « ${ruleName} » déclenchée sur « ${deviceName} » à ${triggerDate}, ${triggerTime} |
-| Voix       | Alerte I.O.T Central Azure : règle de « ${ruleName} » déclenchée sur l’appareil « ${deviceName} » à ${triggerDate}, ${triggerTime}, de l’application ${applicationName} |
-| webhook     | { "schemaId" : « AzureIoTCentralRuleWebhook », « données » : {[charge utile du webhook régulière](#payload)}} |
+| Email       | Modèle d’e-mail standard IoT Central |
+| sms         | Alerte Azure IoT Central : ${nom_application} - « ${nom_règle} » déclenchée sur « ${nom_appareil} » le ${date_déclenchement} ${date_déclenchement} |
+| Voix       | Alerte Azure I.O.T Central : règle « ${nom_règle} » déclenchée sur l’appareil « ${nom_appareil} » le ${date_déclenchement} ${date_déclenchement}, dans l’application ${nom_application} |
+| webhook     | { « schemaId » : « AzureIoTCentralRuleWebhook », « données » : {[charge utile de webhook régulier](#payload)} } |
 
-Le texte suivant est un exemple de message SMS à partir d’un groupe d’actions :
+Le texte suivant est un exemple de message SMS provenant d’un groupe d’actions :
 
 `iotcentral: Azure IoT Central alert: Sample Contoso 22xu4spxjve - "Low pressure alert" triggered on "Refrigerator 2" at March 20, 2019 10:12 UTC`
 
-<a id="payload"></a> Le JSON suivant illustre une exemple webhook action de charge utile :
+<a id="payload"></a> Le JSON suivant montre une exemple de charge utile d’actions de webhook :
 
 ```json
 {
@@ -111,4 +111,4 @@ Le texte suivant est un exemple de message SMS à partir d’un groupe d’actio
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez appris comment utiliser des groupes d’actions avec des règles, l’étape suivante suggérée consiste à apprendre comment [gérer vos appareils](howto-manage-devices.md).
+Maintenant que vous avez découvert comment utiliser des groupes d’actions avec des règles, l’étape suivante suggérée est de découvrir comment [gérer vos appareils](howto-manage-devices.md).

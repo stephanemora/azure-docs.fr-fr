@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
 ms.openlocfilehash: 8e705a4430f6ccee847dc7d41ef80456a6dc4ea5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66155129"
 ---
 # <a name="encrypt-credentials-for-on-premises-data-stores-in-azure-data-factory"></a>Chiffrer des informations d’identification pour vos magasins de données locaux dans Azure Data Factory
@@ -24,7 +24,7 @@ Vous pouvez chiffrer et stocker des informations d’identification pour vos mag
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Vous passez un fichier de définition JSON avec des informations d’identification à l’ <br/>[**Nouvelle AzDataFactoryV2LinkedServiceEncryptedCredential** ](/powershell/module/az.datafactory/New-AzDataFactoryV2LinkedServiceEncryptedCredential) applet de commande pour générer un fichier de définition de JSON de sortie avec les informations d’identification chiffrées. Ensuite, utilisez la définition JSON mise à jour pour créer les services liés.
+Vous passez un fichier de définition JSON avec des informations d’identification à l’ <br/>applet de commande [**New-AzDataFactoryV2LinkedServiceEncryptedCredential**](/powershell/module/az.datafactory/New-AzDataFactoryV2LinkedServiceEncryptedCredential) pour générer un fichier de définition JSON de sortie avec les informations d’identification chiffrées. Ensuite, utilisez la définition JSON mise à jour pour créer les services liés.
 
 ## <a name="author-sql-server-linked-service"></a>Rédiger un service lié SQL Server
 Créez un fichier JSON nommé **StorageLinkedService.json** dans n’importe quel dossier avec le contenu suivant :  
@@ -50,8 +50,8 @@ Remplacez `<servername>`, `<databasename>`, `<username>`, et `<password>` par de
 }
 ```
 
-## <a name="encrypt-credentials"></a>Chiffrer les informations d'identification
-Pour chiffrer les données sensibles de la charge utile JSON sur un runtime d’intégration auto-hébergé local, exécutez **New-AzDataFactoryV2LinkedServiceEncryptedCredential**et passez la charge utile JSON. Cette applet de commande garantit le chiffrement des informations d’identification à l’aide de DPAPI et leur stockage local sur le nœud de runtime d’intégration auto-hébergé. La charge utile de sortie contenant la référence chiffrée pour les informations d’identification peut être redirigée vers un autre fichier JSON (dans ce cas, « encryptedLinkedService.json »).
+## <a name="encrypt-credentials"></a>Chiffrer des informations d’identification
+Pour chiffrer les données sensibles de la charge utile JSON sur un runtime d’intégration auto-hébergé local, exécutez **New-AzDataFactoryV2LinkedServiceEncryptedCredential** et passez la charge utile JSON. Cette applet de commande garantit le chiffrement des informations d’identification à l’aide de DPAPI et leur stockage local sur le nœud de runtime d’intégration auto-hébergé. La charge utile de sortie contenant la référence chiffrée aux informations d’identification peut être redirigée vers un autre fichier JSON (dans ce cas, le fichier encryptedLinkedService.json).
 
 ```powershell
 New-AzDataFactoryV2LinkedServiceEncryptedCredential -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "SqlServerLinkedService" -DefinitionFile ".\SQLServerLinkedService.json" > encryptedSQLServerLinkedService.json

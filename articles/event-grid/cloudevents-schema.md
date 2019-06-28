@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: babanisa
 ms.openlocfilehash: 0195ce82396a7b05335242a38a2881e1b2d1afb3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61436594"
 ---
 # <a name="use-cloudevents-schema-with-event-grid"></a>Utiliser le schéma CloudEvents avec Event Grid
@@ -64,14 +64,14 @@ CloudEvents v0.1 dispose des propriétés suivantes :
 
 | CloudEvents        | Type     | Exemple de valeur JSON             | Description                                                        | Mappage Event Grid
 |--------------------|----------|--------------------------------|--------------------------------------------------------------------|-------------------------
-| eventType          | String   | "com.example.someevent"          | Type d’occurrence qui s’est produit                                   | eventType
-| eventTypeVersion   | String   | "1.0"                            | Version d’eventType (facultatif)                            | dataVersion
-| cloudEventsVersion | String   | "0.1"                            | Version de la spécification CloudEvents qu’utilise l’événement        | *transmise*
+| eventType          | Chaîne   | "com.example.someevent"          | Type d’occurrence qui s’est produit                                   | eventType
+| eventTypeVersion   | Chaîne   | "1.0"                            | Version d’eventType (facultatif)                            | dataVersion
+| cloudEventsVersion | Chaîne   | "0.1"                            | Version de la spécification CloudEvents qu’utilise l’événement        | *transmise*
 | source             | URI      | "/mycontext"                     | Décrit le producteur de l’événement                                       | topic#subject
-| eventID            | String   | "1234-1234-1234"                 | ID de l’événement                                                    | id
+| eventID            | Chaîne   | "1234-1234-1234"                 | ID de l’événement                                                    | id
 | eventTime          | Timestamp| "2018-04-05T17:31:00Z"           | Horodatage qui indique quand l’événement s’est produit (facultatif)                    | eventTime
-| schemaURL          | URI      | « https :\//myschema.com »           | Lien vers le schéma auquel adhère l’attribut de données (facultatif) | *non utilisée*
-| contentType        | String   | "application/json"               | Décrit le format d’encodage des données (facultatif)                       | *non utilisée*
+| schemaURL          | URI      | "https:\//myschema.com"           | Lien vers le schéma auquel adhère l’attribut de données (facultatif) | *non utilisée*
+| contentType        | Chaîne   | "application/json"               | Décrit le format d’encodage des données (facultatif)                       | *non utilisée*
 | extensions         | Mappage      | { "extA": "vA", "extB", "vB" }  | Toutes métadonnées supplémentaires (facultatif)                                 | *non utilisée*
 | données               | Object   | { "objA": "vA", "objB", "vB" }  | Charge utile d’événement (facultatif)                                       | données
 

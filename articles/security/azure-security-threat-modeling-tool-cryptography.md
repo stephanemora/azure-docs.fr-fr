@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: 608792d8389a87bad3521d3a48947b20dd036d67
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62121204"
 ---
 # <a name="security-frame-cryptography--mitigations"></a>Infrastructure de sécurité : chiffrement | Atténuation des risques 
@@ -229,7 +229,7 @@ Comme vous pouvez le constater, la clé primaire de l’appareil n’est pas pr�
 | **Phase SDL**               | Déploiement |  
 | **Technologies applicables** | Générique |
 | **Attributs**              | N/A  |
-| **Informations de référence**              | [Identityserver - clés, Signatures et chiffrement](https://identityserver.github.io/Documentation/docsv2/configuration/crypto.html) |
+| **Informations de référence**              | [IdentityServer - Clés, signatures et chiffrement](https://identityserver.github.io/Documentation/docsv2/configuration/crypto.html) |
 | **Étapes** | Garantissez que les clés de signature sont annulées lors de l’utilisation d’IdentityServer. Le lien dans la section Références explique comment cela doit être planifié sans entraîner de pannes pour les applications reposant sur IdentityServer. |
 
 ## <a id="client-server"></a>Garantir qu’un ID de client et une clé secrète client forts en termes de chiffrement sont utilisés dans IdentityServer

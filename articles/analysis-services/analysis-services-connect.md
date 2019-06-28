@@ -9,10 +9,10 @@ ms.date: 03/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 9a8863189ee9cb63d86b157c0bbebb6fd16116b0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61027972"
 ---
 # <a name="connecting-to-servers"></a>Connexion aux serveurs
@@ -41,7 +41,7 @@ Dans **Portail Azure** > Serveur > **Présentation** > **Nom du serveur**, copie
 ![Obtenir le nom du serveur dans Azure](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
 
 > [!NOTE]
-> Le protocole pour la région est des États-Unis 2 est **aspaaseastus2**.
+> Le protocole de la région USA Est 2 est **aspaaseastus2**.
 
 ## <a name="connection-string"></a>Chaîne de connexion
 

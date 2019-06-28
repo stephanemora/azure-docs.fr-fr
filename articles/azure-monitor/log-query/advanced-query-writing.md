@@ -1,5 +1,5 @@
 ---
-title: Requêtes dans Azure Monitor avancées | Microsoft Docs
+title: Requêtes avancées dans Azure Monitor | Microsoft Docs
 description: Cet article fournit un tutoriel qui explique comment écrire des requêtes dans Azure Monitor à l’aide du portail Analytics.
 services: log-analytics
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: bwren
 ms.openlocfilehash: 65713ed9c2d0635e776a7a7e5f205b6d55438ed4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60589586"
 ---
 # <a name="writing-advanced-queries-in-azure-monitor"></a>Écriture de requêtes avancées dans Azure Monitor
 
 > [!NOTE]
-> Vous devez effectuer [prise en main Azure Monitor Log Analytique](get-started-portal.md) et [prise en main des requêtes](get-started-queries.md) avant la fin de cette leçon.
+> Vous devez suivre [Bien démarrer avec Azure Monitor Log Analytics](get-started-portal.md) et [Bien démarrer avec les requêtes](get-started-queries.md) avant d’effectuer cette leçon.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -76,7 +76,7 @@ Event
 ```
 
 ## <a name="print"></a>Print
-`print` retourne une table avec une seule colonne et une seule ligne, qui affiche le résultat d’un calcul. Cela est souvent utilisé dans les cas où vous avez besoin d’un calcul simple. Par exemple, pour trouver l’heure actuelle en PST et ajouter une colonne avec EST :
+`print` retourne une table avec une seule colonne et une seule ligne, qui affiche le résultat d’un calcul. Cette commande est souvent utilisée dans les cas où vous avez besoin d’un calcul simple. Par exemple, pour trouver l’heure actuelle en PST et ajouter une colonne avec EST :
 
 ```Kusto
 print nowPst = now()-8h

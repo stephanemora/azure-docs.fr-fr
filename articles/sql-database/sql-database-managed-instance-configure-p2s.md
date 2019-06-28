@@ -13,27 +13,27 @@ ms.reviewer: sstein, carlrab, bonova, jovanpop
 manager: craigg
 ms.date: 03/13/2019
 ms.openlocfilehash: 9ca9506ad9ca826349b2815e504e9ba8bf976faa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60702025"
 ---
 # <a name="quickstart-configure-a-point-to-site-connection-to-an-azure-sql-database-managed-instance-from-on-premises"></a>Démarrage rapide : Configurer une connexion point à site à Azure SQL Database Managed Instance à partir d’un emplacement local
 
 Ce guide de démarrage rapide vous montre comment vous connecter à Azure SQL Database Managed Instance à l’aide de [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) à partir d’un ordinateur client local via une connexion point à site. Pour plus d’informations sur les connexions point à site, consultez l’article [À propos des VPN point à site](../vpn-gateway/point-to-site-about.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Dans ce guide de démarrage rapide :
 
 - Utilise les ressources créées dans [Créer une instance gérée](sql-database-managed-instance-get-started.md) comme point de départ.
-- Requiert PowerShell 5.1 et AZ PowerShell 1.4.0 ou version ultérieure sur votre ordinateur de client local. Au besoin, consultez les instructions d’[installation du module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps#install-the-azure-powershell-module).
+- PowerShell 5.1 et Azure PowerShell 1.4.0 ou ultérieur doivent être installés sur votre ordinateur client local. Au besoin, consultez les instructions d’[installation du module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps#install-the-azure-powershell-module).
 - La version la plus récente de [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) doit être installée sur votre ordinateur client local.
 
 ## <a name="attach-a-vpn-gateway-to-your-managed-instance-virtual-network"></a>Attacher une passerelle VPN à votre réseau virtuel Managed Instance
 
-1. Ouvrez PowerShell sur votre ordinateur de client local.
+1. Ouvrez PowerShell sur votre ordinateur client local.
 
 2. Copiez ce script PowerShell. Ce script attache une passerelle VPN au réseau virtuel Managed Instance que vous avez créé dans le guide de démarrage rapide [Créer une instance gérée](sql-database-managed-instance-get-started.md). Ce script effectue les opérations suivantes :
 
@@ -56,14 +56,14 @@ Dans ce guide de démarrage rapide :
      ```
 
      > [!IMPORTANT]
-     > Pour utiliser le module Azure PowerShell Resource Manager plutôt que le module Az, utilisez l’applet de commande suivante : `attachVPNGateway.ps1` plutôt que `attachVPNGatewayAz.ps1` applet de commande.
+     > Pour utiliser le module Azure PowerShell Resource Manager plutôt que le module Az, utilisez l’applet de commande suivante `attachVPNGateway.ps1` plutôt que l’applet de commande `attachVPNGatewayAz.ps1`.
 
 3. Collez le script dans votre fenêtre PowerShell et indiquez les paramètres obligatoires. Les valeurs des paramètres `<subscriptionId>`, `<resourceGroup>` et `<virtualNetworkName>` doivent correspondre à celles que vous avez utilisées dans le guide de démarrage rapide [Créer une instance gérée](sql-database-managed-instance-get-started.md). Pour le paramètre `<certificateNamePrefix>`, vous pouvez saisir la chaîne de votre choix.
 
 4. Exécutez le script PowerShell.
 
 > [!IMPORTANT]
-> Ne continuez pas jusqu'à ce que le script PowerShell terminé.
+> Ne continuez pas tant que le script PowerShell n’est pas terminé.
 
 ## <a name="create-a-vpn-connection-to-your-managed-instance"></a>Créer une connexion VPN à votre instance Managed Instance
 
@@ -72,17 +72,17 @@ Dans ce guide de démarrage rapide :
 3. Sélectionnez **Configuration de point à site**, puis **Télécharger le client VPN**.
 
     ![Téléchargement du client VPN](./media/sql-database-managed-instance-configure-p2s/download-vpn-client.png)  
-4. Sur votre ordinateur client local, extrayez les fichiers à partir du fichier zip, puis ouvrez le dossier avec les fichiers extraits.
-5. Ouvrez le «**WindowsAmd64** dossier et ouvrez le **VpnClientSetupAmd64.exe** fichier.
+4. Sur votre ordinateur client local, décompressez le fichier zip, puis ouvrez le dossier contenant les fichiers extraits.
+5. Ouvrez le dossier `**WindowsAmd64** et le fichier **VpnClientSetupAmd64.exe**.
 6. Si le message **Windows a protégé votre ordinateur** apparaît, cliquez sur **Informations complémentaires**, puis sur **Exécuter quand même**.
 
     ![Installer le client VPN](./media/sql-database-managed-instance-configure-p2s/vpn-client-defender.png)\
-7. Dans la boîte de dialogue contrôle de compte d’utilisateur, cliquez sur **Oui** pour continuer.
-8. Dans la boîte de dialogue faisant référence à votre réseau virtuel, sélectionnez **Oui** pour installer le Client VPN pour votre réseau virtuel.
+7. Dans la boîte de dialogue du contrôle de compte d’utilisateur, cliquez sur **Oui** pour continuer.
+8. Dans la boîte de dialogue de votre réseau virtuel, sélectionnez **Oui** pour installer le client VPN qui lui correspond.
 
 ## <a name="connect-to-the-vpn-connection"></a>Établir la connexion VPN
 
-1. Accédez à **VPN** dans **réseau & Internet** sur votre ordinateur de client sur site et sélectionnez votre réseau virtuel Managed Instance pour établir une connexion à ce réseau virtuel. Dans l’image suivante, le réseau virtuel est nommé **MyNewVNet**.
+1. Accédez à **VPN** dans **Réseau et Internet** sur votre ordinateur client local et sélectionnez votre réseau virtuel Managed Instance pour établir une connexion à ce réseau virtuel. Dans l’image suivante, le réseau virtuel est nommé **MyNewVNet**.
 
     ![Connexion VPN](./media/sql-database-managed-instance-configure-p2s/vpn-connection.png)  
 2. Sélectionnez **Connecter**.

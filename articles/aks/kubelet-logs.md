@@ -1,25 +1,24 @@
 ---
 title: Consulter les journaux d’activité kubelet dans Azure Kubernetes Service (AKS)
-description: Découvrez comment afficher des informations de dépannage dans les journaux de kubelet à partir des nœuds Azure Kubernetes Service (AKS)
+description: Découvrez comment afficher des informations de dépannage dans les journaux kubelet à partir des nœuds du service AKS (Azure Kubernetes Service)
 services: container-service
-author: rockboyfor
+author: iainfoulds
 ms.service: container-service
 ms.topic: article
-origin.date: 03/05/2019
-ms.date: 04/08/2019
-ms.author: v-yeche
+ms.date: 03/05/2019
+ms.author: iainfou
 ms.openlocfilehash: b381145fef7e6fb399fac3387ab01fdc9a51b154
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60465017"
 ---
 # <a name="get-kubelet-logs-from-azure-kubernetes-service-aks-cluster-nodes"></a>Accéder aux journaux d’activité kubelet à partir de nœuds serveur Azure Kubernetes Service (AKS)
 
-Dans le cadre de l’utilisation d’un cluster AKS, vous devrez peut-être consulter les journaux pour résoudre un problème. Intégré au portail Azure est la possibilité d’afficher les journaux de la [AKS maître composants] [ aks-master-logs] ou [conteneurs dans un cluster AKS][azure-container-logs]. Parfois, vous devrez peut-être obtenir *kubelet* journaux à partir d’un nœud AKS pour des fins de dépannage.
+Dans le cadre de l’utilisation d’un cluster AKS, vous devrez peut-être consulter les journaux pour résoudre un problème. La possibilité d’afficher les journaux pour les [composants maîtres AKS][aks-master-logs] ou [conteneurs dans un cluster AKS][azure-container-logs] est intégrée au portail Azure. Il vous arrive parfois de devoir récupérer les journaux *kubelet* à partir d’un nœud AKS à des fins de dépannage.
 
-Cet article vous montre comment vous pouvez utiliser `journalctl` pour afficher le *kubelet* ouvre une session sur un nœud AKS.
+Cet article vous montre comment vous pouvez utiliser `journalctl` pour afficher les journaux *kubelet* sur un nœud AKS.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 

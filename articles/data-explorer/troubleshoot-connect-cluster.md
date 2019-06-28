@@ -1,6 +1,6 @@
 ---
-title: Résoudre les échecs de connexion de cluster de l’Explorateur de données Azure
-description: Cet article décrit les étapes de dépannage pour la connexion à un cluster dans l’Explorateur de données Azure.
+title: Résoudre les échecs de connexion de cluster Azure Data Explorer
+description: Cet article décrit la procédure de résolution des problèmes pour la connexion à un cluster dans Azure Data Explorer.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: c71af799f614e9cd28221d79634666cbc3b2c987
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60827034"
 ---
 # <a name="troubleshoot-failure-to-connect-to-a-cluster-in-azure-data-explorer"></a>Résolution de problèmes : Échec de connexion à un cluster dans l’Explorateur de données Azure

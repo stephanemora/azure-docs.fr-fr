@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 11/08/2018
 ms.author: alkohli
 ms.openlocfilehash: b8e9f12a549f71971c2da3b9865f6a74dad58f61
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60630136"
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>Bonnes pratiques liées à StorSimple Virtual Array
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 Microsoft Azure StorSimple Virtual Array est une solution de stockage intégrée qui gère les tâches de stockage entre un appareil virtuel local exécuté dans un hyperviseur et le stockage cloud Microsoft Azure. StorSimple Virtual Array représente une alternative efficace et économique à la baie de stockage physique de la gamme 8000. La baie virtuelle peut s’exécuter sur votre infrastructure de l’hyperviseur, prend en charge les protocoles SMB et iSCSI, et est adaptée aux scénarios de bureaux distants. Pour plus d’informations sur les solutions StorSimple, consultez [Vue d’ensemble de Microsoft Azure StorSimple](https://www.microsoft.com/en-us/server-cloud/products/storsimple/overview.aspx).
 
 Cet article aborde les bonnes pratiques à implémenter au cours de l’installation initiale, du déploiement et de la gestion de la baie virtuelle StorSimple Virtual Array. Ces bonnes pratiques fournissent des instructions validées pour l’installation et la gestion de votre baie virtuelle. Cet article est destiné aux administrateurs informatiques qui déploient et gèrent les baies virtuelles dans leurs centres de données.
@@ -75,9 +75,9 @@ Tout d’abord, pour chaque partage/volume hiérarchisé, la réservation locale
 * d’une réservation locale de 120 Go (pour un partage/volume hiérarchisé de 1 To) ;
 * de 330 Go pour le volume ou le partage épinglé localement (en ajoutant 10 % de réservation locale à la taille approvisionnée de 300 Go) ;
 
-L’espace total requis jusqu’au niveau local est : 240 GO + 120 GO + 330 GO = 690 GO.
+À ce stade, l’espace total requis au niveau local est de : 240 Go + 120 Go + 330 Go = 690 Go.
 
-Deuxièmement, nous avons besoin d’au moins autant d’espace au niveau local que la réservation unique la plus grande. Ce montant supplémentaire est utilisé au cas où il serait nécessaire d’effectuer une restauration à partir d’un instantané cloud. Dans cet exemple, la plus grande réservation locale est de 330 Go (y compris la réservation pour le système de fichiers), donc vous devez qui l’ajouter aux 690 Go : 690 GO + 330 GO = 1 020 GO.
+Deuxièmement, nous avons besoin d’au moins autant d’espace au niveau local que la réservation unique la plus grande. Ce montant supplémentaire est utilisé au cas où il serait nécessaire d’effectuer une restauration à partir d’un instantané cloud. Dans cet exemple, la plus grande réservation locale étant de 330 Go (avec la réservation pour le système de fichiers), vous devez l’ajouter aux 690 Go : 690 Go + 330 Go = 1 020 Go.
 Si nous avons effectué des restaurations supplémentaires ultérieures, nous pouvons toujours libérer l’espace utilisé pour l’opération de restauration précédente.
 
 Troisièmement, nous avons besoin de 15 % de votre espace local total jusqu’ici pour stocker les instantanés locaux, si bien que 85 % de celui-ci est disponible. Dans cet exemple, cela représente environ 1 020 Go = 0,85&ast;To du disque de données configuré. Par conséquent, le disque de données configuré aurait une taille de (1 020&ast;(1/0,85)) = 1 200 Go = 1,20 To ~ 1,25 To (en arrondissant au quartile le plus proche)
@@ -99,7 +99,7 @@ En tenant compte des 12 % de réservation de l’espace local pour les partages/
 * d’une réservation locale de 240 Go (pour un partage/volume hiérarchisé de 2 To) ;
 * de 330 Go pour le volume ou le partage épinglé localement (en ajoutant 10 % de réservation locale à l’espace approvisionné de 300 Go)
 
-Espace total requis au niveau local est : 240 GO + 330 GO = 570 GO
+L’espace total requis au niveau local est de : 240 Go + 330 Go = 570 Go
 
 L’espace local minimal requis pour la restauration est de 330 Go.
 

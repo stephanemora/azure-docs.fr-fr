@@ -15,14 +15,14 @@ ms.workload: TBD
 ms.date: 06/06/2017
 ms.author: v-sharos
 ms.openlocfilehash: a2f8e75578e396085e7d80f43c1180e158967061
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60633287"
 ---
 # <a name="install-and-configure-the-storsimple-adapter-for-sharepoint"></a>Installation et configuration de StorSimple Adapter for SharePoint
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 StorSimple Adapter for SharePoint est un composant qui vous permet de fournir un stockage Microsoft Azure StorSimple flexible et une protection des données aux batteries de serveurs SharePoint. Vous pouvez utiliser l’adaptateur pour déplacer le contenu d’un objet Binary Large Object (BLOB) des bases de données de contenu SQL Server vers le dispositif de stockage cloud hybride Microsoft Azure StorSimple.
 
 StorSimple Adapter for SharePoint fonctionne comme un fournisseur Remote BLOB Storage (RBS) et utilise la fonctionnalité SQL Server Remote BLOB Storage pour stocker le contenu SharePoint non structuré (sous la forme d’objets blob) sur un serveur de fichiers appuyé par un appareil StorSimple.
@@ -226,9 +226,9 @@ Avant de désinstaller le logiciel StorSimple Adapter pour SharePoint, vous deve
 4. Sur la page **Configuration de l'adaptateur StorSimple**, cliquez sur le bouton **Désactiver** sous chaque base de données de contenu que vous souhaitez supprimer du stockage d'objets BLOB externe. 
 5. Supprimez les objets de SharePoint et téléchargez-les à nouveau.
 
-Vous pouvez également utiliser Microsoft `RBS Migrate()` applet de commande PowerShell inclus avec SharePoint. Pour plus d'informations, consultez [Migration du contenu vers ou à partir de RBS](https://technet.microsoft.com/library/ff628255.aspx).
+Vous pouvez aussi utiliser l’applet de commande Microsoft `RBS Migrate()` PowerShell fournie avec SharePoint. Pour plus d'informations, consultez [Migration du contenu vers ou à partir de RBS](https://technet.microsoft.com/library/ff628255.aspx).
 
-Après avoir déplacé les objets BLOB vers la base de données de contenu, accédez à l’étape suivante : [Désinstaller l’adaptateur](#uninstall-the-adapter).
+Après avoir redéplacé les objets BLOB vers la base de données de contenu, passez à l'étape suivante : [Désinstaller l’adaptateur](#uninstall-the-adapter).
 
 ### <a name="uninstall-the-adapter"></a>Désinstallation de l'adaptateur
 Après avoir déplacé les objets BLOB vers les bases de données de contenu SQL Server, utilisez l'une des options suivantes pour désinstaller StorSimple Adapter pour SharePoint.

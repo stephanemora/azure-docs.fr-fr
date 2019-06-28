@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 9/24/2018
 ms.author: victorh
 ms.openlocfilehash: c129c394f3d694b832722287027c1f9e58028a33
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61065850"
 ---
 # <a name="azure-firewall-logs"></a>Journaux d’activité de Pare-feu Azure
@@ -26,7 +26,7 @@ Vous pouvez accéder à certains de ces journaux d’activité via le portail. L
 
 * **Journal de règles d’application**
 
-   Le journal des applications est enregistré dans un compte de stockage, diffusés aux hubs d’événements et/ou envoyés aux journaux d’Azure Monitor uniquement si vous l’avez activé pour chaque pare-feu Azure. Chaque nouvelle connexion qui correspond à l’une de vos règles d’application configurées entraîne un journal pour la connexion acceptée/refusée. Les données sont consignées au format JSON, comme indiqué dans l’exemple suivant :
+   Le journal de règles d’application est enregistré dans un compte de stockage, transmis en continu au service Event Hubs et/ou envoyé vers les journaux Azure Monitor uniquement si vous l’avez activé pour chaque Pare-feu Azure. Chaque nouvelle connexion qui correspond à l’une de vos règles d’application configurées entraîne un journal pour la connexion acceptée/refusée. Les données sont consignées au format JSON, comme indiqué dans l’exemple suivant :
 
    ```
    Category: application rule logs.
@@ -49,7 +49,7 @@ Vous pouvez accéder à certains de ces journaux d’activité via le portail. L
 
 * **Journal de règles de réseau**
 
-   Le journal de règle de réseau est enregistré dans un compte de stockage, diffusés aux hubs d’événements et/ou envoyés aux journaux d’Azure Monitor uniquement si vous l’avez activé pour chaque pare-feu Azure. Chaque nouvelle connexion qui correspond à l’une de vos règles de réseau configurées entraîne un journal pour la connexion acceptée/refusée. Les données sont consignées au format JSON, comme indiqué dans l’exemple suivant :
+   Le journal de règles de réseau est enregistré dans un compte de stockage, transmis en continu au service Event Hubs et/ou envoyé vers les journaux Azure Monitor uniquement si vous l’avez activé pour chaque Pare-feu Azure. Chaque nouvelle connexion qui correspond à l’une de vos règles de réseau configurées entraîne un journal pour la connexion acceptée/refusée. Les données sont consignées au format JSON, comme indiqué dans l’exemple suivant :
 
    ```
    Category: network rule logs.
@@ -75,7 +75,7 @@ Pour stocker vos journaux d’activité, vous disposez de trois options :
 
 * **Compte de stockage** : les comptes de stockage conviennent parfaitement aux journaux d’activité quand ils sont stockés pour une durée plus longue et consultés quand cela est nécessaire.
 * **Hubs d’événements** : les hubs d’événements constituent une excellente solution pour l’intégration à d’autres outils SEIM (Security Information and Event Management) afin de recevoir des alertes sur vos ressources.
-* **Journaux Azure Monitor** : Les journaux d’activité Azure Monitor conviennent parfaitement pour la supervision en temps réel générale de votre application ou la recherche de tendances.
+* **Journaux d’activité Azure Monitor** : Les journaux d’activité Azure Monitor conviennent parfaitement pour la supervision en temps réel générale de votre application ou la recherche de tendances.
 
 ## <a name="activity-logs"></a>Journaux d’activité
 
@@ -86,4 +86,4 @@ Pour stocker vos journaux d’activité, vous disposez de trois options :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour savoir comment surveiller les journaux de pare-feu d’Azure et les mesures, consultez [didacticiel : Surveiller les journaux d’activité de pare-feu Azure](tutorial-diagnostics.md).
+Pour savoir comment superviser les métriques et les journaux de Pare-feu Azure, consultez le [Tutoriel : Surveiller les journaux d’activité de pare-feu Azure](tutorial-diagnostics.md).

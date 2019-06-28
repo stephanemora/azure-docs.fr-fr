@@ -1,19 +1,18 @@
 ---
-title: Ajouter un service à la surveillance à distance solution de l’interface utilisateur - Azure | Microsoft Docs
+title: Ajouter un service à l’interface utilisateur de la solution de supervision à distance - Azure | Microsoft Docs
 description: Cet article vous montre comment ajouter un nouveau service à l’interface utilisateur web de l’accélérateur de solution de supervision à distance.
 author: dominicbetts
 manager: timlt
-ms.author: v-yiso
+ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-origin.date: 10/02/2018
-ms.date: 11/26/2018
+ms.date: 10/02/2018
 ms.topic: conceptual
 ms.openlocfilehash: e44aa8ade512a6005959e795cb1d4ad861da1338
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61447044"
 ---
 # <a name="add-a-custom-service-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Ajouter un service personnalisé à l’interface utilisateur web de l’accélérateur de la solution de supervision à distance
@@ -27,7 +26,7 @@ L’exemple de service de cet article fournit les données d’une grille que l�
 
 Dans une application React, un service interagit généralement avec un service back-end. Les exemples de l’accélérateur de solution de supervision à distance comptent des services qui interagissent avec le responsable du hub IoT et les microservices de configuration.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer les étapes de ce guide pratique, vous devez avoir installé les logiciels suivants sur votre machine de développement locale :
 
@@ -48,13 +47,13 @@ Pour vous aider à démarrer, le dossier **src/walkthrough/services** contient l
 
 **exampleService.js**
 
-
+[!code-javascript[Example service](~/remote-monitoring-webui/src/walkthrough/services/exampleService.js?name=service "Example service")]
 
 Pour en savoir plus sur la façon dont les services sont implémentés, consultez [The introduction to Reactive Programming you've been missing](https://gist.github.com/staltz/868e7e9bc2a7b8c1f754).
 
 **model/exampleModels.js**
 
-
+[!code-javascript[Example model](~/remote-monitoring-webui/src/walkthrough/services/models/exampleModels.js?name=models "Example model")]
 
 Copiez **exampleService.js** dans le dossier **src/services**, puis copiez **exampleModels.js** dans le dossier **src/services/models**.
 
@@ -76,7 +75,7 @@ Pour vous aider à démarrer, le dossier **src/walkthrough/store/reducers** cont
 
 **exampleReducer.js**
 
-
+[!code-javascript[Example reducer](~/remote-monitoring-webui/src/walkthrough/store/reducers/exampleReducer.js?name=reducer "Example reducer")]
 
 Copiez **exampleReducer.js** dans le dossier **src/store/reducers**.
 

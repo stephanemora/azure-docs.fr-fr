@@ -10,10 +10,10 @@ ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 5f9cd5edfb360da507320306314e67ac61503132
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60738474"
 ---
 # <a name="managing-azure-automation-data"></a>Gestion des données Azure Automation
@@ -39,7 +39,7 @@ Le tableau suivant récapitule la stratégie de rétention pour les différentes
 
 La stratégie de rétention s’applique à tous les utilisateurs et ne peut actuellement pas être personnalisée.
 
-Toutefois, si vous souhaitez conserver les données pendant une longue période de temps, vous pouvez transférer les runbook journaux de tâches pour les journaux Azure Monitor.  Pour plus d’informations, consultez [transférer des données de travail Azure Automation dans les journaux d’Azure Monitor](automation-manage-send-joblogs-log-analytics.md).   
+Toutefois, si vous souhaitez conserver les données pendant une période plus longue, vous pouvez transférer les journaux des runbooks vers les journaux Azure Monitor.  Pour plus d’informations, consultez [Transférer des données de travaux Azure Automation vers les journaux Azure Monitor](automation-manage-send-joblogs-log-analytics.md).   
 
 ## <a name="backing-up-azure-automation"></a>Sauvegarde d’Azure Automation
 Lorsque vous supprimez un compte Automation dans Microsoft Azure, tous les objets du compte sont supprimés, notamment les Runbooks, les modules, les configurations, les paramètres, les tâches et les éléments multimédia. Il est impossible de récupérer les objets une fois que le compte a été supprimé.  Vous pouvez utiliser les informations suivantes pour sauvegarder le contenu de votre compte Automation avant de le supprimer. 

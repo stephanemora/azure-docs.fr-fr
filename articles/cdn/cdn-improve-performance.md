@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/28/2018
 ms.author: magattus
 ms.openlocfilehash: afe959e80b339db5112fa97fd79d0528390e3954
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60636960"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Compression des fichiers dans Azure CDN pour améliorer les performances
@@ -101,9 +101,9 @@ Les niveaux Standard et Premium de CDN fournissent les mêmes fonctionnalités, 
 ### <a name="azure-cdn-standard-from-microsoft-profiles"></a>Profils CDN Azure Standard fourni par Microsoft
 
 Pour les profils du **CDN Azure Standard fourni par Microsoft**, seuls les fichiers éligibles sont compressés. Pour être éligible pour la compression, un fichier doit :
-- Être d’un type MIME qui a été [configuré pour la compression](#enabling-compression).
-- Être supérieure à 1 Ko
-- Être inférieur à 8 Mo
+- Être d’un type MIME [configuré pour la compression](#enabling-compression).
+- Être supérieur à 1 Ko
+- Être inférieur à 8 Mo
 
 Ces profils prennent en charge les encodages de compression suivants :
 - gzip (GNU zip)
@@ -117,7 +117,7 @@ Lorsqu’une demande liée à un composant spécifie la compression gzip et que 
 
 Pour les profils **CDN Azure Standard fourni par Verizon** et **CDN Azure Premium fourni par Verizon**, seuls les fichiers éligibles sont compressés. Pour être éligible pour la compression, un fichier doit :
 - Être supérieur à 128 octets
-- Être inférieur à 3 Mo
+- Être inférieur à 3 Mo
 
 Ces profils prennent en charge les encodages de compression suivants :
 - gzip (GNU zip)

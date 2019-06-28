@@ -15,15 +15,15 @@ ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: dfc2d8d763a1eb64a37af73e03992f2d948a6856
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61481865"
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Création et gestion d’un package de prise en charge pour la gamme StorSimple 8000
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Un package de support StorSimple est un mécanisme facile à utiliser qui collecte tous les journaux d’activité appropriés afin d’aider le support Microsoft à résoudre tout problème lié à votre appareil StorSimple. Les fichiers journaux d’activité collectés sont chiffrés et compressés.
 
@@ -31,7 +31,7 @@ Ce didacticiel inclut des instructions détaillées pour créer et gérer le pac
 
 ## <a name="create-a-support-package"></a>Création d’un package de prise en charge
 
-Dans certains cas, vous devez créer manuellement le package de support via Windows PowerShell pour StorSimple. Par exemple : 
+Dans certains cas, vous devez créer manuellement le package de support via Windows PowerShell pour StorSimple. Par exemple :
 
 * Si vous devez supprimer des informations sensibles de vos fichiers journaux avant de le partager avec le support Microsoft.
 * Si vous rencontrez des difficultés à charger le package en raison de problèmes de connectivité.
@@ -121,7 +121,7 @@ Pour modifier un package de support avant de le télécharger sur le site de sup
         Supply values for the following parameters:EncryptionPassphrase: ****
 9. Notez la nouvelle phrase secrète afin de pouvoir la partager avec le support technique de Microsoft si nécessaire.
 
-### <a name="example-editing-files-in-a-support-package-on-a-password-protected-share"></a>Exemple : Modification de fichiers dans un package de prise en charge sur un partage protégé par mot de passe
+### <a name="example-editing-files-in-a-support-package-on-a-password-protected-share"></a>Exemple : Modification de fichiers dans un package de support sur un partage protégé par mot de passe
 
 L’exemple suivant illustre comment déchiffrer, modifier et re-chiffrer un package de support.
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 3/14/2019
 ms.author: mayg
 ms.openlocfilehash: 8a36a80903a47bb4163666baf86ed8dac13a00de
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61471127"
 ---
 # <a name="review-the-cost-estimation-report-in-the-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Consulter le rapport d’estimation des coûts dans le planificateur de déploiement Site Recovery pour la reprise d’activité de VMware sur Azure
@@ -19,12 +19,12 @@ ms.locfileid: "61471127"
 Le rapport du planificateur de déploiement fournit le résumé de l’estimation des coûts dans les feuilles [Recommandations](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations) et l’analyse des coûts détaillée dans la feuille Estimation du coût. Une analyse des coûts détaillée par machine virtuelle est proposée. 
 
 >[!Note]
->La version actuelle de l’outil Deployment planner ne fournit pas estimation des coûts pour les machines virtuelles de réplication vers des disques gérés.
->* Les estimations de coût de récupération d’urgence Drill sont les mêmes pour les comptes de stockage et des disques gérés, lors de la « Utilisation de disques gérés » paramètre est défini sur « Oui » sur le panneau de « Calcul et réseau ».
->* Pour obtenir une estimation de coût annuel approximatif pour la réplication, vérifiez les paramètres suivants temporaires sur **l’Estimation des coûts** feuille :
->    * Définir le paramètre « Durée de coût » dans **paramètres** table « Year »
->    * Dans **Detailed analyse des coûts** de table, la valeur de la colonne « Nombre d’extractions de la récupération d’urgence dans une année » 12 et « chaque durée de récupération d’urgence (jours) » à 30 
->    * Le coût de réplication sera similaire au coût renseigné dans le coût de stockage de colonne « R », par exemple,-récupération d’urgence par an **coût de récupération d’urgence par an** sous-section.
+>L’actuelle version de l’outil Planificateur de déploiement ne fournit pas d’estimation de coûts pour les machines virtuelles en cours de réplication sur Disques managés.
+>* Les estimations de coût d’un test de récupération d’urgence sont les mêmes pour les comptes de stockage et des disques managés, lorsque le paramètre « Utiliser des disques managés » est défini sur « Oui » dans le panneau « Calcul et réseau ».
+>* Vous obtenez une estimation annuelle indicative pour la réplication en procédant à la définition des paramètres temporaires suivants dans la feuille **Estimation des coûts** :
+>    * Définissez le paramètre « Période de coût » sur « Année » dans la table **Paramètres**
+>    * Dans la table **Analyse du coût détaillée**, définissez la valeur de la colonne « Nombre de tests de récupération d’urgence en un an » sur 12, et la valeur de « Durée de chaque test de récupération d’urgence (en jours) » sur 30 
+>    * Le coût de réplication sera similaire au coût renseigné dans la colonne « R », c’est-à-dire au coût de stockage - test de récupération d’urgence par an qui est affiché à la sous-section **Coût de test de récupération d’urgence par an**.
 
 ### <a name="cost-estimation-summary"></a>Résumé de l’estimation des coûts 
 Le graphique affiche la vue Résumé du coût estimé de la récupération d’urgence totale (DR) pour Azure de votre région cible choisie et avec la devise que vous avez spécifiée pour la génération du rapport.
@@ -164,7 +164,7 @@ Le Planificateur de déploiement Azure Site Recovery peut générer le rapport d
 |IDR|Roupie indonésienne (Rp)||INR|Roupie indienne (₹)||JPY|Yen japonais (¥)|
 |KRW|Won coréen (₩)||MXN|Peso mexicain (MXN$)||MYR|Ringgit malais (RM$)|
 |NOK|Couronne norvégienne (kr)||NZD|Dollar néo-zélandais ($)||RUB|Rouble russe (руб)|
-|SAR|Saudi Riyal (SR)||SEK|Couronne suédoise (kr)||TWD|Dollar taiwanais (NT$)|
+|SAR|Riyal saoudien (SR)||SEK|Couronne suédoise (kr)||TWD|Dollar taiwanais (NT$)|
 |TRY|Lire turque (TL)||USD| Dollar américain ($)||ZAR|Rand sud-africain (R)|
 
 ## <a name="next-steps"></a>Étapes suivantes

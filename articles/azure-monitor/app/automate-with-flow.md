@@ -12,15 +12,15 @@ ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: mbullwin
 ms.openlocfilehash: 15299be83758c157bf3bc7d9fb27b50763b9148e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60903549"
 ---
 # <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>Automatiser les processus Azure Application Insights avec le connecteur pour Microsoft Flow
 
-Vous devez exécuter à plusieurs reprises les mêmes requêtes sur vos données de télémétrie pour vérifier le bon fonctionnement de votre service ? Cherchez-vous à automatiser ces requêtes pour rechercher les tendances et les anomalies, puis générer vos propres flux de travail autour d’elles ? Le connecteur Azure Application Insights pour Microsoft Flow est l’outil adapté à ces fins.
+Vous devez exécuter à plusieurs reprises les mêmes requêtes sur vos données de télémétrie pour vérifier le bon fonctionnement de votre service ? Cherchez-vous à automatiser ces requêtes pour rechercher les tendances et les anomalies, puis générer vos propres flux de travail autour d’elles ? Le connecteur Azure Application Insights pour Microsoft Flow est l’outil qu’il vous faut pour atteindre ces objectifs.
 
 Avec cette intégration, vous pouvez désormais automatiser de nombreux processus sans écrire la moindre ligne de code. Après avoir créé un flux à l’aide d’une action Application Insights, le flux exécute automatiquement votre requête Application Insights Analytics. 
 
@@ -34,26 +34,26 @@ Dans ce didacticiel, vous allez apprendre à créer un flux qui utilise l’algo
 
 ### <a name="step-1-create-a-flow"></a>Étape 1 : Créer un flux
 1. Connectez-vous à [Microsoft Flow](https://flow.microsoft.com), puis sélectionnez **Mes flux**.
-2. Cliquez sur **New** puis **créer entièrement**.
+2. Cliquez sur **Nouveau**, puis sur **Créer entièrement**.
 
-    ![Créer un flux entièrement](./media/automate-with-flow/1createflow.png)
+    ![Créer entièrement un flux](./media/automate-with-flow/1createflow.png)
 
 ### <a name="step-2-create-a-trigger-for-your-flow"></a>Étape 2 : Créer un déclencheur pour votre flux
-1. Dans la Build-onglet sélectionnez **planification**, puis sélectionnez **planification - récurrence**.
+1. Sous l’onglet Intégré, sélectionnez **Planifier**, puis **Planification - Récurrence**.
 
-    ![Sélectionnez le planifier sous build](./media/automate-with-flow/2schedule.png)
+    ![Sélectionner une planification sous Intégré](./media/automate-with-flow/2schedule.png)
 
-1. Dans le **intervalle** , entrez **1**, puis, dans le **fréquence** boîte, sélectionnez **jour**.
-2. Cliquez sur **nouvelle étape**
+1. Dans la zone **Intervalle**, entrez **1**, puis dans la zone **Fréquence**, sélectionnez **Jour**.
+2. Cliquez sur **Nouvelle étape**.
 
-    ![Configurer la périodicité de planification à l’entrée de fréquence et l’intervalle](./media/automate-with-flow/3schedulerecurrence.png)
+    ![Configurer la périodicité de la planification en entrant une fréquence et un intervalle](./media/automate-with-flow/3schedulerecurrence.png)
 
 
 ### <a name="step-3-add-an-application-insights-action"></a>Étape 3 : Ajouter une action Application Insights
 1. Recherchez **Azure Application Insights**.
-2. Cliquez sur **Azure Application Insights - requête de visualiser une Analytique**.
+2. Cliquez sur **Azure Application Insights - Visualiser la requête Analytics**.
  
-    ![Choisir une action : Requête Analytique de visualiser des Insights d’Application Azure](./media/automate-with-flow/4visualize.png)
+    ![Choisir une action : Azure Application Insights - Visualiser la requête Analytics](./media/automate-with-flow/4visualize.png)
 
 ### <a name="step-4-connect-to-an-application-insights-resource"></a>Étape 4 : Se connecter à une ressource Application Insights
 
@@ -72,7 +72,7 @@ Cet exemple de requête sélectionne les requêtes ayant échoué au cours du de
 
 Lorsque vous créez vos propres requêtes, vérifiez qu’elles fonctionnent correctement dans Analytics avant de les ajouter à votre flux.
 
-- Ajoutez la requête Analytique suivante, puis sélectionnez le type de graphique de tableau HTML. Puis sélectionnez **nouvelle étape**.
+- Ajoutez la requête Analytics suivante, puis sélectionnez le type de graphique de tableau HTML. Sélectionnez ensuite **Nouvelle étape**.
 
     ```
     requests
@@ -117,9 +117,9 @@ Lorsque vous créez vos propres requêtes, vérifiez qu’elles fonctionnent cor
     ![Fenêtre de configuration d’e-mail Office 365](./media/automate-with-flow/11emailattachment.png)
 
 ### <a name="step-7-save-and-test-your-flow"></a>Étape 7 : Enregistrer et tester votre flux
-- Dans le **le nom du flux** zone, ajouter un nom pour votre flux, puis cliquez sur **enregistrer**.
+- Dans la zone **Nom du flux**, ajoutez un nom pour votre flux, puis cliquez sur **Enregistrer**.
 
-    ![Flux de nommer et enregistrer](./media/automate-with-flow/12nameflow.png)
+    ![Nommer le flux et enregistrer](./media/automate-with-flow/12nameflow.png)
 
 Vous pouvez attendre que le déclencheur exécute cette action ou vous pouvez exécuter immédiatement le flux en [exécutant le déclencheur à la demande](https://flow.microsoft.com/blog/run-now-and-six-more-services/).
 

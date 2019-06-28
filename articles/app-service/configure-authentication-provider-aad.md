@@ -16,16 +16,16 @@ ms.date: 02/20/2019
 ms.author: mahender
 ms.custom: seodec18
 ms.openlocfilehash: d687e770fae6c32ee351a597e12d1aca6094e5cb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60851373"
 ---
 # <a name="configure-your-app-service-app-to-use-azure-active-directory-sign-in"></a>Configurer votre application App Service pour utiliser une connexion Azure Active Directory
 
 > [!NOTE]
-> À ce stade, AAD V2 (y compris MSAL) n’est pas pris en charge pour Azure App Services et Azure Functions. Veuillez consultez-la régulièrement.
+> À l’heure actuelle, AAD V2 (notamment MSAL) n’est pas pris en charge pour Azure App Services et Azure Functions. Revenez plus tard pour suivre l’évolution de la situation.
 >
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -55,10 +55,10 @@ Vous pouvez également fournir manuellement des paramètres de configuration. Il
 4. Au bout de quelques secondes, vous devez voir apparaître la nouvelle inscription d’application que vous venez de créer.
 5. Une fois l'inscription de l’application ajoutée, cliquez sur le nom de l’inscription d’application, cliquez sur **Paramètres** en haut, puis cliquez sur **Propriétés** 
 6. Dans la zone **URI d’ID d’application**, collez l’URI de l’application (celui de l’étape 1). Dans la zone **URL de la page d’accueil**, collez l’URL de l’application (celle de l’étape 1), puis cliquez sur **Enregistrer**
-7. Cliquez maintenant sur le **URL de réponse**, modifier le **URL de réponse**, collez l’URL de l’Application (à l’étape 1), puis ajoutez-le à la fin de l’URL, */.auth/login/aad/callback* (pour exemple, `https://contoso.azurewebsites.net/.auth/login/aad/callback`). Cliquez sur **Enregistrer**.
+7. Cliquez maintenant sur **URL de réponse**, modifiez l’**URL de réponse**, collez l’URL d’application (de l’étape 1), puis ajoutez à la fin de l’URL, */.auth/login/aad/callback* (par exemple `https://contoso.azurewebsites.net/.auth/login/aad/callback`). Cliquez sur **Enregistrer**.
 
    > [!NOTE]
-   > Vous pouvez utiliser la même inscription d’application pour plusieurs domaines en ajoutant supplémentaires **URL de réponse**. Veillez à modéliser chaque instance du Service de l’application avec sa propre inscription, par conséquent, il a ses propres autorisations et le consentement. Également envisager d’utiliser des inscriptions d’application distinct pour les emplacements de site distinct. Sert à éviter les autorisations qui est partagées entre les environnements, afin qu’un bogue dans le nouveau code que vous testez n’affecte pas la production.
+   > Vous pouvez utiliser la même inscription d’application pour plusieurs domaines en ajoutant des **URL de réponse** supplémentaires. Veillez à modéliser chaque instance d’App Service avec sa propre inscription. Ainsi, elle a ses propres autorisations et son propre consentement. Pensez également à utiliser des inscriptions d’applications distinctes pour des emplacements de site distincts. Cela permet d’éviter le partage des autorisations entre environnements. Ainsi, en cas de bogue dans le nouveau code que vous testez, l’environnement de production n’est pas affecté.
     
 8. À ce stade, copiez **l’ID d’application** pour l’application. Gardez-le pour une utilisation ultérieure. Vous en aurez besoin pour configurer votre application App Service.
 9. Fermez la page **Application inscrite**. Dans la page **Inscriptions d’applications**, cliquez en haut sur le bouton **Points de terminaison**, puis copiez l’URL **WS-FEDERATION SIGN-ON ENDPOINT**, mais supprimez la fin `/wsfed` de l’URL. Le résultat final doit ressembler à `https://login.microsoftonline.com/00000000-0000-0000-0000-000000000000`. Le nom de domaine peut être différent dans le cas d’un cloud souverain. Il servira ultérieurement d’URL émettrice de certificat.
@@ -79,7 +79,7 @@ Vous pouvez inscrire des clients natifs, ce qui offre un contrôle accru du mapp
 1. Accédez à **Azure Active Directory** dans le [portail Azure].
 2. Dans le volet de navigation de gauche, sélectionnez **Inscriptions des applications**. Cliquez sur **Nouvelle inscription d'application** dans la partie supérieure.
 4. Dans la page **Créer**, entrez un **Nom** pour l'inscription de votre application. Sélectionnez **Native** comme **type d'application**.
-5. Dans la zone **URI de redirection**, entrez le point de terminaison */.auth/login/done* de votre site à l’aide du modèle HTTPS. Cette valeur doit être similaire à *https://contoso.azurewebsites.net/.auth/login/done*. Si vous créez une application Windows, utilisez plutôt le [SID de package](../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#package-sid) en tant qu’URI.
+5. Dans la zone **URI de redirection**, entrez le point de terminaison */.auth/login/done* de votre site à l’aide du modèle HTTPS. Cette valeur doit être similaire à *https://contoso.azurewebsites.net/.auth/login/done* . Si vous créez une application Windows, utilisez plutôt le [SID de package](../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#package-sid) en tant qu’URI.
 5. Cliquez sur **Créer**.
 6. Une fois l'inscription de l'application ajoutée, sélectionnez-la pour l'ouvrir. Recherchez l’**ID de l'application** et notez-en la valeur.
 7. Cliquez sur **Tous les paramètres** > **Autorisations requises** > **Ajouter** > **Sélectionner une API**.

@@ -15,14 +15,14 @@ ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: b367b6e7126a442dc68646ff52a29c955f50b798
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60631167"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8100-device"></a>Déballer, monter en rack et câbler votre appareil StorSimple 8100
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 Votre appareil Microsoft Azure StorSimple 8100 doit être monté en rack sur un boîtier unique. Ce didacticiel explique comment déballer, monter en rack et brancher les câbles de votre appareil StorSimple 8100 avant de configurer et de déployer l’appareil StorSimple.
 
 ## <a name="unpack-your-storsimple-8100-device"></a>Déballage de votre appareil StorSimple 8100
@@ -52,7 +52,7 @@ Ensuite, procédez comme suit pour déballer votre appareil.
    |   2 |Polystyrène de protection inférieur |
    |   3 |Appareil |
    |   4 |Polystyrène de protection supérieur |
-   |   5. |Carton contenant les accessoires |
+   |   5\. |Carton contenant les accessoires |
 3. Une fois le carton déballé, vous devez disposer des éléments suivants :
    
    * 1 appareil dans son boîtier
@@ -128,7 +128,7 @@ Un ensemble de rails de montage compatible avec l’armoire à rack de 19 pouce
    |   2 |Ouverture carrée pour vis du poteau avant du rack |
    |   3 |Ergots de positionnement avant du rail gauche |
    |   4 |Vis de serrage |
-   |   5. |Ergots de positionnement arrière du rail gauche |
+   |   5\. |Ergots de positionnement arrière du rail gauche |
 
 ### <a name="mounting-the-device-in-the-rack"></a>Montage de l’appareil dans le rack
 À l’aide des rails du rack qui viennent d’être installés, procédez comme suit pour monter l’appareil dans le rack.
@@ -157,7 +157,7 @@ L’étape suivante consiste à brancher l’alimentation, le réseau et l’acc
 ## <a name="cable-your-storsimple-8100-device"></a>Branchement des câbles de votre appareil StorSimple 8100
 Les procédures suivantes expliquent comment brancher les câbles d’alimentation, de réseau et d’accès en série sur votre appareil StorSimple 8100.
 
-### <a name="prerequisites"></a>Conditions préalables
+### <a name="prerequisites"></a>Prérequis
 Avant de commencer le câblage de votre appareil, vous devez disposer des éléments suivants :
 
 * Votre appareil de stockage, complètement déballé et monté en rack.
@@ -192,7 +192,7 @@ Pour prendre en charge ce basculement de contrôleur redondant, vous devez branc
    | --- | --- |
    |   0/1/4/5 |Interfaces réseau de 1 Gigabit Ethernet |
    |   2/3 |Interfaces réseau de 10 Gigabit Ethernet |
-   |   6. |Ports série |
+   |   6\. |Ports série |
 2. Consultez le schéma suivant pour le branchement des câbles réseau. (La configuration réseau minimale est indiquée par des lignes bleues pleines. La configuration supplémentaire requise pour une disponibilité et des performances élevées est représentée par des lignes en pointillés.)
 
     ![Câble réseau de votre appareil 2U](./media/storsimple-8100-hardware-installation/HCSCableYour2UDeviceforNetwork.png)
@@ -236,11 +236,11 @@ Procédez comme suit pour brancher les câbles de port série de votre appareil.
 2. Identifiez le contrôleur actif sur le fond de panier de votre appareil. Un voyant bleu clignotant indique que le contrôleur est actif.
 3. Utilisez les câbles série fournis (si nécessaire, le convertisseur USB de série pour votre ordinateur portable) et connectez votre console ou votre ordinateur (avec émulation de terminal vers l’appareil) au port série du contrôleur actif.
 4. Installez les pilotes USB de série (fournis avec l’appareil) sur votre ordinateur.
-5. Configurez la connexion série comme suit : 115 200 bauds, 8 bits de données, 1 bit d’arrêt, aucune parité et flux de contrôlent défini sur None.
+5. Configurez la connexion série comme suit : 115 200 bauds, 8 bits de données, 1 bit d’arrêt, Aucune parité et Contrôle de flux défini sur Aucun.
 6. Vérifiez que la connexion fonctionne en appuyant sur Entrée sur la console. Un menu de la console série doit apparaître.
 
 > [!NOTE]
-> **Gestion des pannes**: Lorsque l’appareil est installé dans un centre de données distant ou dans une salle informatique avec un accès limité, assurez-vous que les connexions série aux deux contrôleurs sont toujours connectées à un commutateur de console série ou d’un équipement similaire. Cela permet de commander à distance hors bande et de prendre en charge les opérations en cas d’interruptions du réseau ou en cas de défaillance inattendue.
+> **Gestion en service réduit** : quand l’appareil est installé dans un centre de données distant ou dans une salle informatique avec un accès limité, vérifiez que les connexions série aux deux contrôleurs sont toujours connectées à un commutateur de console série ou à un équipement similaire. Cela permet de commander à distance hors bande et de prendre en charge les opérations en cas d’interruptions du réseau ou en cas de défaillance inattendue.
 > 
 > 
 

@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: barclayn
 ms.openlocfilehash: 042ecabe38969a6a26c27622b8c3d25193b3e7c2
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62118026"
 ---
 # <a name="azure-dedicated-hsm-networking"></a>Mise en réseau du module Azure HSM dédié
@@ -60,7 +60,7 @@ Un réseau privé virtuel point à site est la forme la plus simple d’une conn
 
 ### <a name="site-to-site-vpn"></a>VPN de site à site
 
-Un réseau privé virtuel de site à site garantit une communication sécurisée entre des modules HSM dédiés basés sur Azure et votre environnement informatique local. Une raison à cela pose une fonctionnalité de sauvegarde pour le module de sécurité matériel en local et avoir besoin d’une connexion entre les deux pour la sauvegarde en cours d’exécution.
+Un réseau privé virtuel de site à site garantit une communication sécurisée entre des modules HSM dédiés basés sur Azure et votre environnement informatique local. Avec cette configuration, vous disposez d’une solution de sauvegarde pour le module HSM sur site et d’une connexion entre ces deux éléments afin de lancer la sauvegarde.
 
 ## <a name="connecting-virtual-networks"></a>Connexion de réseaux virtuels
 

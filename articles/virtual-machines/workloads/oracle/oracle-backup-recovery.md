@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
 ms.openlocfilehash: c41f13a6437f69121d3bbb387c96d8e13f2be0b3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60566814"
 ---
 # <a name="back-up-and-recover-an-oracle-database-12c-database-on-an-azure-linux-virtual-machine"></a>Sauvegarder et récupérer une base de données de la base de données Oracle Database 12c sur une machine virtuelle Linux Azure
@@ -30,7 +30,7 @@ Avant de commencer, vérifiez qu’Azure CLI est installé. Pour plus d’inform
 
 ## <a name="prepare-the-environment"></a>Préparer l’environnement
 
-### <a name="step-1-prerequisites"></a>Étape 1 : Conditions préalables
+### <a name="step-1-prerequisites"></a>Étape 1 : Prérequis
 
 *   Pour effectuer le processus de sauvegarde et de récupération, vous devez créer une machine virtuelle Linux avec une instance installée d’Oracle Database 12c. L’image de la Place de marché que vous utilisez pour créer la machine virtuelle se nomme *Oracle:Oracle-Database-Ee:12.1.0.2:latest*.
 
@@ -45,7 +45,7 @@ Avant de commencer, vérifiez qu’Azure CLI est installé. Pour plus d’inform
     ssh <publicIpAddress>
     ```
 
-### <a name="step-3-prepare-the-database"></a>Étape 3 : Préparer la base de données
+### <a name="step-3-prepare-the-database"></a>Étape 3 : Préparation de la base de données
 
 1.  Cette étape suppose que vous disposiez d’une instance Oracle (cdb1) s’exécutant sur une machine virtuelle nommée *myVM*.
 
@@ -133,7 +133,7 @@ Avant de commencer, vérifiez qu’Azure CLI est installé. Pour plus d’inform
     RMAN> backup database plus archivelog;
     ```
 
-### <a name="step-4-application-consistent-backup-for-linux-vms"></a>Étape 4 : Sauvegarde cohérente des applications pour les machines virtuelles Linux
+### <a name="step-4-application-consistent-backup-for-linux-vms"></a>Étape 4 : Sauvegarde cohérente avec les applications pour les machines virtuelles Linux
 
 La sauvegarde cohérente avec les applications est une nouvelle fonctionnalité de Sauvegarde Azure. Vous pouvez créer et sélectionner des scripts à exécuter avant et après l’instantané de la machine virtuelle (pré-instantané et post-instantané).
 
@@ -266,7 +266,7 @@ La sauvegarde cohérente avec les applications est une nouvelle fonctionnalité 
 Pour plus d’informations, consultez [Sauvegarde cohérente avec les applications pour les machines virtuelles Linux](https://azure.microsoft.com/blog/announcing-application-consistent-backup-for-linux-vms-using-azure-backup/).
 
 
-### <a name="step-5-use-azure-recovery-services-vaults-to-back-up-the-vm"></a>Étape 5 : Utiliser Azure Recovery Services coffres pour sauvegarder la machine virtuelle
+### <a name="step-5-use-azure-recovery-services-vaults-to-back-up-the-vm"></a>Étape 5 : Utilisation de coffres Azure Recovery Services pour sauvegarder la machine virtuelle
 
 1.  Dans le portail Azure, recherchez des **coffres Recovery Services**.
 
@@ -303,11 +303,11 @@ Pour plus d’informations, consultez [Sauvegarde cohérente avec les applicatio
 
     ![Page de détails myVault d’Archivages de Recovery Services](./media/oracle-backup-recovery/recovery_service_08.png)
 
-9.  Sur le côté droit du panneau **Éléments de sauvegarde (Machine virtuelle Azure)**, cliquez sur le bouton de sélection (**…**), puis sur **Sauvegarder maintenant**.
+9.  Sur le côté droit du panneau **Éléments de sauvegarde (Machine virtuelle Azure)** , cliquez sur le bouton de sélection ( **…** ), puis sur **Sauvegarder maintenant**.
 
     ![Commande Sauvegarder maintenant des coffres Recovery Services](./media/oracle-backup-recovery/recovery_service_09.png)
 
-10. Cliquez sur le bouton **Sauvegarder**. Attendez que le processus de sauvegarde se termine. Ensuite, accédez à [étape 6 : Supprimer les fichiers de base de données](#step-6-remove-the-database-files).
+10. Cliquez sur le bouton **Sauvegarder**. Attendez que le processus de sauvegarde se termine. Ensuite, passez à l’[Étape 6 : Suppression des fichiers de base de données](#step-6-remove-the-database-files).
 
     Pour afficher l’état du travail de sauvegarde, cliquez sur **Travaux**.
 
@@ -319,7 +319,7 @@ Pour plus d’informations, consultez [Sauvegarde cohérente avec les applicatio
 
 11. Pour une sauvegarde cohérente avec les applications, résolvez les éventuelles erreurs présentes dans le fichier journal. Le fichier journal se trouve sous /var/log/azure/Microsoft.Azure.RecoveryServices.VMSnapshotLinux/1.0.9114.0.
 
-### <a name="step-6-remove-the-database-files"></a>Étape 6 : Supprimer les fichiers de base de données 
+### <a name="step-6-remove-the-database-files"></a>Étape 6 : Suppression des fichiers de base de données 
 Plus loin dans cet article, vous allez apprendre à tester le processus de récupération. Avant de tester le processus de récupération, vous devez supprimer les fichiers de base de données.
 
 1.  Supprimez les fichiers d’espace de table et de sauvegarde :
@@ -351,11 +351,11 @@ Pour restaurer les fichiers supprimés, procédez comme suit :
 
     ![Nombre d’éléments de sauvegarde de machine virtuelle Azure des coffres Recovery Services](./media/oracle-backup-recovery/recovery_service_13.png)
 
-3. Dans le panneau **myvm1**, cliquez sur **Récupération de fichier (aperçu)**.
+3. Dans le panneau **myvm1**, cliquez sur **Récupération de fichier (aperçu)** .
 
     ![Capture d’écran de la page de récupération de fichiers des coffres Recovery Services](./media/oracle-backup-recovery/recovery_service_14.png)
 
-4. Dans le volet **Récupération de fichier (aperçu)**, cliquez sur **Télécharger le script**. Ensuite, enregistrez le fichier de téléchargement (.sh) dans un dossier sur l’ordinateur client.
+4. Dans le volet **Récupération de fichier (aperçu)** , cliquez sur **Télécharger le script**. Ensuite, enregistrez le fichier de téléchargement (.sh) dans un dossier sur l’ordinateur client.
 
     ![Options d’enregistrement de fichier de script téléchargé](./media/oracle-backup-recovery/recovery_service_15.png)
 
@@ -452,13 +452,13 @@ Pour restaurer les fichiers supprimés, procédez comme suit :
 
 Au lieu de restaurer les fichiers supprimés des coffres Recovery Services, vous pouvez restaurer la machine virtuelle dans son intégralité.
 
-### <a name="step-1-delete-myvm"></a>Étape 1 : Supprimer myVM
+### <a name="step-1-delete-myvm"></a>Étape 1 : Suppression de myVM
 
 *   Dans le portail Azure, accédez au coffre **myVM1**, puis sélectionnez **Supprimer**.
 
     ![Commande Supprimer du coffre](./media/oracle-backup-recovery/recover_vm_01.png)
 
-### <a name="step-2-recover-the-vm"></a>Étape 2 : Récupérer la machine virtuelle
+### <a name="step-2-recover-the-vm"></a>Étape 2 : Récupération de la machine virtuelle
 
 1.  Accédez à **Archivages de Recovery Services**, puis sélectionnez **myVault**.
 
@@ -468,11 +468,11 @@ Au lieu de restaurer les fichiers supprimés des coffres Recovery Services, vous
 
     ![Éléments de sauvegarde myVault](./media/oracle-backup-recovery/recover_vm_03.png)
 
-3.  Dans le panneau **Éléments de sauvegarde (Machine virtuelle Azure)**, sélectionnez **myvm1**.
+3.  Dans le panneau **Éléments de sauvegarde (Machine virtuelle Azure)** , sélectionnez **myvm1**.
 
     ![Page de récupération de machine virtuelle](./media/oracle-backup-recovery/recover_vm_04.png)
 
-4.  Dans le panneau **myvm1**, cliquez sur le bouton de sélection (**…**), puis sur **Restaurer la machine virtuelle**.
+4.  Dans le panneau **myvm1**, cliquez sur le bouton de sélection ( **…** ), puis sur **Restaurer la machine virtuelle**.
 
     ![Commande Restaurer la machine virtuelle](./media/oracle-backup-recovery/recover_vm_05.png)
 
@@ -496,7 +496,7 @@ Au lieu de restaurer les fichiers supprimés des coffres Recovery Services, vous
 
     ![État du processus de restauration](./media/oracle-backup-recovery/recover_vm_09.png)
 
-### <a name="step-3-set-the-public-ip-address"></a>Étape 3 : Définir l’adresse IP publique
+### <a name="step-3-set-the-public-ip-address"></a>Étape 3 : Définition de l’adresse IP publique
 Une fois la machine virtuelle restaurée, définissez l’adresse IP publique.
 
 1.  Dans la zone de recherche, tapez **adresse IP publique**.
@@ -527,7 +527,7 @@ Une fois la machine virtuelle restaurée, définissez l’adresse IP publique.
     ssh <publicIpAddress>
     ```
 
-### <a name="step-5-test-whether-the-database-is-accessible"></a>Étape 5 : Vérifier si la base de données est accessible
+### <a name="step-5-test-whether-the-database-is-accessible"></a>Étape 5 : Test de l’accessibilité de la base de données
 *   Pour tester l’accessibilité, utilisez le script suivant :
 
     ```bash 
@@ -537,9 +537,9 @@ Une fois la machine virtuelle restaurée, définissez l’adresse IP publique.
     ```
 
     > [!IMPORTANT]
-    > Si la base de données **démarrage** commande génère une erreur, pour récupérer la base de données, consultez [étape 6 : Utilisez RMAN pour récupérer la base de données](#step-6-optional-use-rman-to-recover-the-database).
+    > Si la commande **startup** de la base de données génère une erreur, pour récupérer la base de données, consultez [Étape 6 : Utilisation de RMAN pour récupérer la base de données](#step-6-optional-use-rman-to-recover-the-database).
 
-### <a name="step-6-optional-use-rman-to-recover-the-database"></a>Étape 6 : (Facultatif) Utilisation de RMAN pour récupérer la base de données
+### <a name="step-6-optional-use-rman-to-recover-the-database"></a>Étape 6 : (Facultatif) Utilisation de RMAN pour récupérer la base de données
 *   Pour récupérer la base de données, utilisez le script suivant :
 
     ```bash

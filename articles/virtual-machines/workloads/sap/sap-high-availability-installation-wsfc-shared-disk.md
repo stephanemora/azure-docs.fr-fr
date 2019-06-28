@@ -18,10 +18,10 @@ ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 1229b7f9e2a430a663a3e78bb457c03cf4a4a590
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60714421"
 ---
 # <a name="install-sap-netweaver-ha-on-a-windows-failover-cluster-and-shared-disk-for-an-sap-ascsscs-instance-in-azure"></a>Installer la haute disponibilité SAP NetWeaver sur un cluster de basculement Windows et un disque partagé pour une instance SAP ASCS/SCS dans Azure
@@ -149,7 +149,7 @@ ms.locfileid: "60714421"
 
 Cet article explique comment installer et configurer un système SAP à haute disponibilité dans Azure à l’aide d’un cluster de basculement Windows Server et d’un disque partagé de cluster pour le clustering d’une instance SAP ASCS/SCS.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer l’installation, consultez ces documents :
 
@@ -389,9 +389,9 @@ Vous pouvez facilement tester et surveiller le basculement et la réplication de
 
 Le groupe de clusters SAP PR1 s’exécute sur le nœud de cluster A, par exemple sur pr1-ascs-0. Affectez le lecteur de disque partagé S, qui fait partie du groupe de clusters SAP PR1, au nœud de cluster A. L’instance ASCS/SCS utilise aussi le lecteur de disque S. 
 
-![Figure 6 : Gestionnaire du cluster de basculement : SAP \<SID\> groupe de cluster est en cours d’exécution sur le nœud de cluster A][sap-ha-guide-figure-5000]
+![Figure 6 : Gestionnaire du cluster de basculement : Le groupe de cluster SAP \<SID\> s’exécute sur le nœud de cluster A][sap-ha-guide-figure-5000]
 
-_**Figure 6 :** Gestionnaire du cluster de basculement : SAP \<SID\> groupe de cluster est en cours d’exécution sur le nœud de cluster A_
+_**Figure 6 :** Gestionnaire du cluster de basculement : Le groupe de cluster SAP \<SID\> s’exécute sur le nœud de cluster A_
 
 Dans l’outil de configuration et de gestion de SIOS DataKeeper, vous pouvez constater que les données du disque partagé sont répliquées de manière synchrone à partir du lecteur du volume source S sur le nœud de cluster A vers le lecteur du volume cible S sur le nœud de cluster B. Par exemple, il est répliqué de pr1-ascs-0 [10.0.0.40] vers pr1-ascs-1 [10.0.0.41].
 
@@ -418,9 +418,9 @@ _**Figure 7 :** Dans SIOS DataKeeper, répliquer le volume local du nœud de c
 
    Après le basculement, le groupe de clusters SAP \<SID\> s’exécute sur le nœud de cluster B. Par exemple, il s’exécute sur pr1-ascs-1.
 
-   ![Figure 8 : Dans Gestionnaire du Cluster basculement SAP \<SID\> groupe de cluster est en cours d’exécution sur le nœud de cluster B][sap-ha-guide-figure-5002]
+   ![Figure 8 : Dans le Gestionnaire du cluster de basculement, le groupe de cluster SAP \<SID\> s’exécute sur le nœud de cluster B][sap-ha-guide-figure-5002]
 
-   _**Figure 8**: Dans Gestionnaire du Cluster basculement SAP \<SID\> groupe de cluster est en cours d’exécution sur le nœud de cluster B_
+   _**Figure 8** : Dans le Gestionnaire du cluster de basculement, le groupe de cluster SAP \<SID\> s’exécute sur le nœud de cluster B_
 
    Le disque partagé est maintenant monté sur le nœud de cluster B. SIOS DataKeeper réplique les données du lecteur du volume source S sur le nœud de cluster B vers le lecteur du volume cible sur le nœud de cluster A. Par exemple, il est répliqué de pr1-ascs-1 [10.0.0.41] vers pr1-ascs-0 [10.0.0.40].
 

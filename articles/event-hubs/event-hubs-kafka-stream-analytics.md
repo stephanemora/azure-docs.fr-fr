@@ -14,10 +14,10 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: spelluru
 ms.openlocfilehash: b6bba4ed45530ba66a1adde274022a80091cd199
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60747993"
 ---
 # <a name="process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Processus Apache Kafka pour les événements Event Hubs à l’aide de Stream Analytics 
@@ -30,7 +30,7 @@ Cet article décrit comment diffuser des données dans des hubs d’événements
 Vous n’avez pas besoin de changer vos clients de protocole ou d’exécuter vos propres clusters quand vous utilisez le point de terminaison Kafka exposé par un hub d’événements. Azure Event Hubs prend en charge [Apache Kafka version 1.0.](https://kafka.apache.org/10/documentation.html) et versions ultérieures. 
 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce démarrage rapide, vérifiez que vous avez :
 
@@ -133,7 +133,7 @@ La requête dans le travail Stream Analytics parcourt les données sans effectue
 
 ### <a name="configure-job-input"></a>Configurer les entrées du travail
 
-1. Dans le message de notification, sélectionnez **accéder à la ressource** pour voir les **travail d’Analytique de Stream** page. 
+1. Dans le message de notification, sélectionnez **Atteindre la ressource** pour voir la page **Travail Stream Analytics**. 
 2. Sélectionnez **Entrées** dans la section **TOPOLOGIE DU TRAVAIL** dans le menu de gauche.
 3. Sélectionnez **Ajouter une entrée de flux**, puis sélectionnez **Hub d’événements**. 
 
@@ -170,7 +170,7 @@ Lorsque vous disposez d’un travail Stream Analytics configuré pour lire un fl
 3. Remplacez `[YourInputAlias]` par l’alias d’entrée que vous avez créé précédemment. 
 4. Sélectionnez **Enregistrer** dans la barre d’outils. 
 
-    ![Interroger](./media/event-hubs-kafka-stream-analytics/query.png)
+    ![Requête](./media/event-hubs-kafka-stream-analytics/query.png)
 
 
 ### <a name="run-the-stream-analytics-job"></a>Exécuter la tâche Stream Analytics

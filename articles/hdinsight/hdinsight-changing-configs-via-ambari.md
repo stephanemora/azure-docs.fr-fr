@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: hrasheed
 ms.openlocfilehash: f0db36fa380d0d1bb7f2b581c4bf8fa1abfaadaf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60698822"
 ---
 # <a name="use-apache-ambari-to-optimize-hdinsight-cluster-configurations"></a>Utiliser Apache Ambari pour optimiser les configurations de cluster HDInsight
@@ -39,11 +39,11 @@ La taille du tas Java NameNode dépend de nombreux facteurs tels que la charge d
 
 Pour modifier la taille du tas Java NameNode :
 
-1. Sélectionnez **HDFS (HDFS)** dans la barre latérale Services (Services) et accédez à l’onglet **Configs (Configurations)**.
+1. Sélectionnez **HDFS (HDFS)** dans la barre latérale Services (Services) et accédez à l’onglet **Configs (Configurations)** .
 
     ![Configuration HDFS](./media/hdinsight-changing-configs-via-ambari/hdfs-config.png)
 
-1. Recherchez le paramètre **NameNode Java heap size (Taille du tas Java NameNode)**. Vous pouvez également utiliser la zone de texte **Filter (Filtrer)** pour saisir et trouver un paramètre. Sélectionnez l’icône de **crayon** en regard du nom de paramètre.
+1. Recherchez le paramètre **NameNode Java heap size (Taille du tas Java NameNode)** . Vous pouvez également utiliser la zone de texte **Filter (Filtrer)** pour saisir et trouver un paramètre. Sélectionnez l’icône de **crayon** en regard du nom de paramètre.
 
     ![Taille du tas Java NameNode](./media/hdinsight-changing-configs-via-ambari/java-heap-size.png)
 
@@ -51,7 +51,7 @@ Pour modifier la taille du tas Java NameNode :
 
     ![Modifier la taille du tas Java NameNode](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edit.png)
 
-1. La taille du tas NameNode Java passe à 1 Go de 2 Go.
+1. La taille du tas Java NameNode passe de 2 Go à 1 Go.
 
     ![Taille du tas Java NodeName modifiée](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edited.png)
 
@@ -64,7 +64,7 @@ Pour modifier la taille du tas Java NameNode :
 Les sections suivantes décrivent les options de configuration qui permettent d’optimiser les performances globales d’Apache Hive.
 
 1. Pour modifier les paramètres de configuration de Hive, sélectionnez **Hive (Hive)** dans la barre latérale Services (Services).
-1. Accédez à l’onglet **Configs (Configurations)**.
+1. Accédez à l’onglet **Configs (Configurations)** .
 
 ### <a name="set-the-hive-execution-engine"></a>Définir le moteur d’exécution de Hive
 
@@ -125,7 +125,7 @@ Une requête Hive s’exécute en une ou plusieurs étapes. Si des étapes indé
 
 1.  Pour activer l’exécution de requête en parallèle, accédez à l’onglet **Configs (Configuration)** de Hive et recherchez la propriété `hive.exec.parallel`. La valeur par défaut est false. Remplacez-la par true, puis appuyez sur **Entrée** pour enregistrer la valeur.
  
-1.  Pour limiter le nombre de travaux à exécuter en parallèle, modifiez le `hive.exec.parallel.thread.number` propriété. La valeur par défaut est 8.
+1.  Pour limiter le nombre de travaux à exécuter en parallèle, modifiez la propriété `hive.exec.parallel.thread.number`. La valeur par défaut est 8.
 
     ![Exécution en parallèle dans Hive](./media/hdinsight-changing-configs-via-ambari/hive-exec-parallel.png)
 
@@ -144,7 +144,7 @@ Hive traite les données ligne par ligne. La vectorisation permet à Hive de tra
 
 Par défaut, Hive suit un ensemble de règles pour trouver le plan d’exécution optimal d’une requête. L’optimisation des coûts (CBO) évalue plusieurs plans d’exécution, attribue un coût à chaque plan, puis détermine le plan le moins coûteux pour exécuter une requête.
 
-Pour activer CBO, accédez à l’onglet **Configs (Configurations)** de Hive, recherchez `parameter hive.cbo.enable`, puis réglez le bouton bascule sur **On (Activé)**.
+Pour activer CBO, accédez à l’onglet **Configs (Configurations)** de Hive, recherchez `parameter hive.cbo.enable`, puis réglez le bouton bascule sur **On (Activé)** .
 
 ![Configuration de CBO](./media/hdinsight-changing-configs-via-ambari/cbo.png)
 
@@ -178,10 +178,10 @@ Les types de compression disponibles sont :
 
 | Format | Outil | Algorithme | Extension de fichier | Fractionnable ? |
 | -- | -- | -- | -- | -- |
-| Gzip | Gzip | DEFLATE | .gz | Non  |
-| Bzip2 | Bzip2 | Bzip2 |.bz2 | Oui |
+| Gzip | Gzip | DEFLATE | .gz | Non |
+| Bzip2 | Bzip2 | Bzip2 |.bz2 | OUI |
 | LZO | Lzop | LZO | .lzo | Oui, si indexé |
-| Snappy | N/A | Snappy | Snappy | Non  |
+| Snappy | N/A | Snappy | Snappy | Non |
 
 En règle générale, il est important d’avoir une méthode de compression fractionnable. Sinon, le nombre de mappeurs créés est très faible. Si les données d’entrée sont textuelles, `bzip2` est la meilleure option. Pour le format ORC, l’option de compression la plus rapide est Snappy.
 
@@ -196,9 +196,9 @@ En règle générale, il est important d’avoir une méthode de compression fra
 
 1. Pour ajouter un paramètre personnalisé :
 
-    a. Accédez à l’onglet **Configs (Configuration)** de Hive et sélectionnez l’onglet **Advanced (Avancé)**.
+    a. Accédez à l’onglet **Configs (Configuration)** de Hive et sélectionnez l’onglet **Advanced (Avancé)** .
 
-    b. Dans l’onglet **Advanced (Avancé)**, recherchez et développez le panneau **Custom hive-site (hive-site personnalisé)**.
+    b. Dans l’onglet **Advanced (Avancé)** , recherchez et développez le panneau **Custom hive-site (hive-site personnalisé)** .
 
     c. Cliquez sur le lien **Add Property (Ajouter une propriété)** en bas du volet Custom hive-site (hive-site personnalisé).
 
@@ -239,7 +239,7 @@ Hive permet de créer des partitions dynamiques lors de l’insertion d’enregi
 
 1. Pour que Hive crée des partitions dynamiques, la valeur du paramètre `hive.exec.dynamic.partition` doit être true (valeur par défaut).
 
-1. Sélectionnez le mode de partition dynamique *strict (strict)*. Dans ce mode, au moins une partition doit être statique. Cela bloque les requêtes sans filtre de partition dans la clause WHERE. Autrement dit, le mode *strict* bloque les requêtes qui analysent toutes les partitions. Accédez à l’onglet **Configs (Configurations)** de Hive, puis réglez `hive.exec.dynamic.partition.mode` sur **strict (strict)**. La valeur par défaut est **nonstrict (non strict)**.
+1. Sélectionnez le mode de partition dynamique *strict (strict)* . Dans ce mode, au moins une partition doit être statique. Cela bloque les requêtes sans filtre de partition dans la clause WHERE. Autrement dit, le mode *strict* bloque les requêtes qui analysent toutes les partitions. Accédez à l’onglet **Configs (Configurations)** de Hive, puis réglez `hive.exec.dynamic.partition.mode` sur **strict (strict)** . La valeur par défaut est **nonstrict (non strict)** .
  
 1. Pour limiter le nombre de partitions dynamiques à créer, modifiez le paramètre `hive.exec.max.dynamic.partitions`. La valeur par défaut est 5000.
  
@@ -282,7 +282,7 @@ Recommandations supplémentaires pour optimiser le moteur d’exécution Hive :
 | Paramètre | Recommandé | Valeur par défaut dans HDInsight |
 | -- | -- | -- |
 | `hive.mapjoin.hybridgrace.hashtable` | True = plus sûr, plus lent ; false = plus rapide | false |
-| `tez.am.resource.memory.mb` | Limite supérieure de 4 Go pour la plupart des | Réglée automatiquement |
+| `tez.am.resource.memory.mb` | Limite supérieure de 4 Go pour la plupart | Réglée automatiquement |
 | `tez.session.am.dag.submit.timeout.secs` | 300+ | 300 |
 | `tez.am.container.idle.release-timeout-min.millis` | 20000+ | 10000 |
 | `tez.am.container.idle.release-timeout-max.millis` | 40000+ | 20000 |
@@ -291,11 +291,11 @@ Recommandations supplémentaires pour optimiser le moteur d’exécution Hive :
 
 Vous pouvez modifier les propriétés [d’Apache Pig](https://pig.apache.org/) dans l’interface utilisateur web d’Ambari pour paramétrer les requêtes Pig. La modification directe des propriétés de Pig dans Ambari modifie les propriétés de Pig dans le fichier `/etc/pig/2.4.2.0-258.0/pig.properties`.
 
-1. Pour modifier les propriétés de Pig, accédez à l’onglet **Configs (Configurations)** de Pig, puis développez le volet **Advanced pig-properties (Propriétés avancées de Pig)**.
+1. Pour modifier les propriétés de Pig, accédez à l’onglet **Configs (Configurations)** de Pig, puis développez le volet **Advanced pig-properties (Propriétés avancées de Pig)** .
 
 1. Recherchez la propriété concernée, supprimez sa mise en commentaire et modifiez sa valeur.
 
-1. Sélectionnez **enregistrer** sur le côté droit de la fenêtre pour enregistrer la nouvelle valeur. Certaines propriétés peuvent nécessiter un redémarrage du service.
+1. Sélectionnez **Enregistrer** en haut à droite de la fenêtre pour enregistrer la nouvelle valeur. Certaines propriétés peuvent nécessiter un redémarrage du service.
 
     ![Propriétés avancées de Pig](./media/hdinsight-changing-configs-via-ambari/advanced-pig-properties.png)
  
@@ -306,7 +306,7 @@ Vous pouvez modifier les propriétés [d’Apache Pig](https://pig.apache.org/) 
 
 Deux moteurs d’exécution sont disponibles pour exécuter des scripts Pig : MapReduce et Tez. Tez est un moteur optimisé, beaucoup plus rapide que MapReduce.
 
-1. Pour changer de moteur d’exécution, dans le volet **Advanced pig-properties (Propriétés avancées de Pig)**, recherchez la propriété `exectype`.
+1. Pour changer de moteur d’exécution, dans le volet **Advanced pig-properties (Propriétés avancées de Pig)** , recherchez la propriété `exectype`.
 
 1. La valeur par défaut est **MapReduce**. Remplacez-la par **Tez**.
 
@@ -384,11 +384,11 @@ Les configurations suivantes sont importantes pour améliorer les performances d
 
 Le cache de blocs est le cache de lecture. Sa taille est contrôlée par le paramètre `hfile.block.cache.size`. La valeur par défaut est de 0,4, soit 40 % de la mémoire totale du serveur de la région. Plus la taille du cache de blocs est importante, plus les lectures aléatoires sont rapides.
 
-1. Pour modifier ce paramètre, accédez à l’onglet **Settings (Paramètres)** dans l’onglet **Configs (Configurations)** de HBase, puis recherchez **% of RegionServer Allocated to Read Buffers (% du serveur de région alloué aux mémoires tampons de lecture)**.
+1. Pour modifier ce paramètre, accédez à l’onglet **Settings (Paramètres)** dans l’onglet **Configs (Configurations)** de HBase, puis recherchez **% of RegionServer Allocated to Read Buffers (% du serveur de région alloué aux mémoires tampons de lecture)** .
 
     ![Taille du cache de blocs de HBase](./media/hdinsight-changing-configs-via-ambari/hbase-block-cache-size.png)
  
-1. Pour modifier la valeur, sélectionnez l’icône **Edit (Modifier)**.
+1. Pour modifier la valeur, sélectionnez l’icône **Edit (Modifier)** .
 
 
 #### <a name="memstore-size"></a>Taille de memstore

@@ -9,17 +9,17 @@ services: iot-accelerators
 ms.date: 10/09/2018
 ms.topic: conceptual
 ms.openlocfilehash: d34ac159a216c5c77214b4c8b799a233c3671235
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61447353"
 ---
 # <a name="add-an-iot-edge-device-to-your-remote-monitoring-solution-accelerator"></a>Ajouter un appareil IoT Edge à votre accélérateur de solution de supervision à distance
 
 Pour ajouter un appareil [IoT Edge](../iot-edge/about-iot-edge.md) à votre accélérateur de solution, effectuez les deux étapes suivantes :
 
-1. Ajouter l’appareil de périphérie sur le **Device Explorer** page dans la surveillance à distance solution accelerator interface utilisateur web.
+1. Ajoutez l’appareil Edge dans la page **Explorateur d’appareils** de l’interface utilisateur web de l’accélérateur de solution de supervision à distance.
 1. Installez le runtime IoT Edge sur votre appareil Edge.
 
 ## <a name="add-the-iot-edge-device"></a>Ajouter l’appareil IoT Edge
@@ -38,7 +38,7 @@ Il est également possible d’inscrire un appareil IoT Edge directement auprès
 - [Inscrire un nouvel appareil Azure IoT Edge avec Azure CLI](../iot-edge/how-to-register-device-cli.md)
 - [Inscrire un nouvel appareil Azure IoT Edge à partir de Visual Studio Code](../iot-edge/how-to-register-device-vscode.md)
 
-Lorsque vous inscrivez un appareil directement avec IoT hub dans l’accélérateur de solution de surveillance à distance, il est répertorié dans le **Device Explorer** page dans l’interface utilisateur web.
+Quand vous inscrivez un appareil directement auprès du hub IoT dans l’accélérateur de solution de supervision à distance, l’appareil est listé dans la page **Explorateur d’appareils** de l’interface utilisateur web.
 
 ## <a name="install-the-iot-edge-runtime"></a>Installer le runtime IoT Edge
 

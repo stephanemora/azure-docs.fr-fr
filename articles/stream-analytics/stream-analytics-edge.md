@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 4/2/2019
 ms.custom: seodec18
 ms.openlocfilehash: 4ecea8864a565997b8df119d870e7efee8448143
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60803974"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>Azure Stream Analytics sur IoT Edge
@@ -61,7 +61,7 @@ Vous pouvez suivre [ce didacticiel pas à pas](https://docs.microsoft.com/azure/
 Un conteneur de stockage est nécessaire pour exporter la requête ASA compilée et la configuration de tâche. Il est utilisé pour configurer l’image ASA Docker avec votre requête spécifique. 
 1. Suivez ces [instructions](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) pour créer un compte de stockage à partir du portail Azure. Vous pouvez conserver toutes les options par défaut pour utiliser ce compte avec ASA.
 2. Dans le compte de stockage nouvellement créé, créez un conteneur de stockage d’objets blob :
-    1. Cliquez sur **BLOB**, puis  **+ Conteneur »**. 
+    1. Cliquez sur **BLOB**, puis  **+ Conteneur »** . 
     2. Entrez un nom et conservez le conteneur en tant que **Privé**.
 
 #### <a name="create-an-asa-edge-job"></a>Créer une tâche ASA Edge
@@ -144,7 +144,7 @@ Cet exemple définit les itinéraires suivants :
 
 ## <a name="technical-information"></a>Informations techniques
 ### <a name="current-limitations-for-iot-edge-jobs-compared-to-cloud-jobs"></a>Limitations actuelles pour les tâches IoT Edge par rapport aux tâches cloud
-L’objectif est d’obtenir la parité entre les tâches IoT Edge et les tâches cloud. La plupart des fonctionnalités de langage de requête SQL sont prises en charge, ce qui permet d’exécuter la même logique dans le cloud et IoT Edge.
+L’objectif est d’obtenir la parité entre les tâches IoT Edge et les tâches cloud. La plupart des fonctionnalités du langage de requête SQL sont prises en charge, ce qui permet d’exécuter la même logique dans le cloud et IoT Edge.
 Cependant, les fonctionnalités suivantes ne sont pas encore prises en charge pour les tâches de périphérie :
 * Fonctions définies par l’utilisateur en JavaScript. Des fonctions définies par l’utilisateur sont disponibles en [C# pour les tâches IoT Edge](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-edge-csharp-udf) (préversion).
 * Agrégats définis par l’utilisateur – (UDA).

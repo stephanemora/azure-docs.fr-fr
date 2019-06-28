@@ -18,10 +18,10 @@ ms.date: 01/21/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 37f5040585681a53743fb3426b7f7ffac36de51c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60936220"
 ---
 # <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>Scénarios et architecture de haute disponibilité pour SAP NetWeaver
@@ -250,7 +250,7 @@ La haute disponibilité SAP dans Azure peut être divisée en trois types :
 
 * **Haute disponibilité de l’application SAP** : 
 
-    Pour obtenir une haute disponibilité du système SAP complet, vous devez protéger tous les composants critiques du système SAP. Par exemple : 
+    Pour obtenir une haute disponibilité du système SAP complet, vous devez protéger tous les composants critiques du système SAP. Par exemple :
     * Serveurs d’applications SAP redondants.
     * Composants uniques. Un composant à point de défaillance unique (SPOF) tel qu’une instance SAP ASCS/SCS ou un système de gestion de base de données (SGBD) en est un exemple.
 
@@ -268,7 +268,7 @@ La base de calcul est de 30 jours par mois, ou 43 200 minutes. Par exemple, un t
 
 (Service de disponibilité #1/100) * (Service de disponibilité #2/100) * (Service de disponibilité #3/100) \*…
 
-Par exemple : 
+Par exemple :
 
 (99,95/100) * (99,9/100) * (99,9/100) = 0,9975, soit une disponibilité globale de 99,75 %.
 
@@ -335,7 +335,7 @@ Pour plus d’informations sur cette approche, consultez [Utiliser le redémarra
 
 ## <a name="baed0eb3-c662-4405-b114-24c10a62954e"></a> Haute disponibilité des applications SAP sur Azure IaaS
 
-Pour obtenir une haute disponibilité du système SAP complet, vous devez protéger tous les composants critiques du système SAP. Par exemple : 
+Pour obtenir une haute disponibilité du système SAP complet, vous devez protéger tous les composants critiques du système SAP. Par exemple :
   * Serveurs d’applications SAP redondants.
   * Composants uniques. Un composant à point de défaillance unique (SPOF) tel qu’une instance SAP ASCS/SCS ou un système de gestion de base de données (SGBD) en est un exemple.
 
@@ -369,7 +369,7 @@ Le nombre de domaines de mise à jour et d’erreur pouvant être utilisé par u
 Si vous déployez plusieurs instances de serveurs d’applications SAP dans leurs machines virtuelles dédiées, en supposant que nous avons cinq domaines de mise à jour, nous obtenons l’image suivante. Le nombre maximum réel de domaines de mise à jour et d’erreur au sein d’un groupe à haute disponibilité peut changer à l’avenir :
 
 ![Figure 2 : Haute disponibilité des serveurs d’applications SAP dans un groupe à haute disponibilité Azure][planning-guide-figure-3000]
-_**Figure 2 :** Haute disponibilité des serveurs d’applications SAP dans un groupe à haute disponibilité Azure_
+ _**Figure 2 :** Haute disponibilité des serveurs d’applications SAP dans un groupe à haute disponibilité Azure_
 
 Pour plus d’informations, consultez [Gérer la disponibilité des machines virtuelles Windows dans Azure][azure-virtual-machines-manage-availability].
 
@@ -396,7 +396,7 @@ Vous pouvez utiliser une solution WSFC pour protéger l’instance SAP ASCS/SCS.
 
 > ![Linux][Logo_Linux] Linux
 > 
-> Pour plus d’informations sur le clustering de l’instance SAP ASCS/SCS à l’aide de l’infrastructure de cluster SLES, consultez [Haute disponibilité pour SAP NetWeaver sur les machines virtuelles Azure sur SUSE Linux Enterprise Server pour les applications SAP][sap-suse-ascs-ha]. Pour une autre architecture de haute disponibilité sur SLES, qui ne nécessite pas hautement disponibles NFS consultez [guide de haute disponibilité pour SAP NetWeaver sur SUSE Linux Enterprise Server avec Azure Files de NetApp pour les applications SAP] [ sap-suse-ascs-ha-anf].
+> Pour plus d’informations sur le clustering de l’instance SAP ASCS/SCS à l’aide de l’infrastructure de cluster SLES, consultez [Haute disponibilité pour SAP NetWeaver sur les machines virtuelles Azure sur SUSE Linux Enterprise Server pour les applications SAP][sap-suse-ascs-ha]. Pour connaître une autre architecture HA sur SLES ne nécessitant pas de système NFS à haute disponibilité, consultez le [Guide de haute disponibilité pour SAP NetWeaver sur SUSE Linux Enterprise Server avec Azure NetApp Files pour les applications SAP][sap-suse-ascs-ha-anf].
 
 Pour plus d’informations sur le clustering de l’instance SAP ASCS/SCS à l’aide du framework de cluster Red Hat, consultez [Haute disponibilité des machines virtuelles Azure pour SAP NetWeaver sur Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel)
 

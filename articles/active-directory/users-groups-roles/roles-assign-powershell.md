@@ -1,6 +1,6 @@
 ---
-title: Attribuer et supprimer une attribution de rôles d’administrateur avec Azure PowerShell - Azure Active Directory | Microsoft Docs
-description: Pour ceux qui gèrent fréquemment des attributions de rôles, vous pouvez désormais gérer les membres d’un rôle d’administrateur Azure AD avec Azure PowerShell.
+title: Attribuer et supprimer l’attribution des rôles d’administrateur avec Azure PowerShell - Azure Active Directory | Microsoft Docs
+description: Si vous gérez fréquemment des affectations de rôles, sachez que vous pouvez maintenant gérer les membres d’un rôle d’administrateur Azure AD avec Azure PowerShell.
 services: active-directory
 author: curtand
 manager: mtillman
@@ -14,15 +14,15 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f6877c3e547d625cf58129a546dae798b37a24ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60469092"
 ---
-# <a name="assign-azure-active-directory-admin-roles-using-powershell"></a>Affecter des rôles d’administrateur Azure Active Directory à l’aide de PowerShell
+# <a name="assign-azure-active-directory-admin-roles-using-powershell"></a>Attribuer des rôles à l’administrateur Azure Active Directory à l’aide de PowerShell
 
-Vous pouvez automatiser la façon dont vous affectez des rôles aux comptes d’utilisateur à l’aide d’Azure PowerShell. Cet article utilise le [Azure Active Directory PowerShell Version 2](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#directory_roles) module.
+Vous pouvez automatiser l’attribution des rôles aux comptes utilisateurs en utilisant Azure PowerShell. Cet article utilise le module [Azure Active Directory PowerShell Version 2](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#directory_roles).
 
 ## <a name="prepare-powershell"></a>Préparer PowerShell
 
@@ -50,11 +50,11 @@ Vous pouvez désormais utiliser les applets de commande dans le module. Pour obt
 
 ## <a name="permissions-required"></a>Autorisations requises
 
-Se connecter à votre client Azure AD à l’aide d’un compte d’administrateur général pour attribuer ou supprimer des rôles.
+Connectez-vous à votre locataire Azure AD à l’aide d’un compte administrateur d’entreprise pour attribuer ou supprimer des rôles.
 
 ## <a name="assign-a-single-role"></a>Attribuer un rôle unique
 
-Pour affecter un rôle, vous devez d’abord obtenir son nom d’affichage et le nom du rôle que vous attribuez. Une fois le nom complet du compte et le nom du rôle, utilisez les applets de commande suivantes pour attribuer le rôle à l’utilisateur.
+Pour attribuer un rôle, vous devez d’abord obtenir son nom d’affichage et le nom du rôle que vous attribuez. Lorsque vous les avez, utilisez les cmdlets suivantes pour attribuer le rôle à l’utilisateur.
 
 ``` PowerShell
 # Fetch user to assign to role
@@ -82,7 +82,7 @@ Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId | Get-AzureADUser
 
 ## <a name="assign-a-role-to-a-service-principal"></a>Attribuer un rôle à un principal de service
 
-Exemple d’affectation d’un principal de service à un rôle.
+Exemple d’attribution d’un principal de service à un rôle.
 
 ```powershell
 # Fetch a service principal to assign to role
@@ -103,7 +103,7 @@ Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId | Get-AzureADServicePrin
 
 ## <a name="multiple-role-assignments"></a>Attributions de rôles multiples
 
-Exemples d’affectation et de suppression de plusieurs rôles à la fois.
+Exemples d’attribution et de suppression de plusieurs rôles à la fois.
 
 ```powershell
 #File name
@@ -141,7 +141,7 @@ for ($i=2; $i -le $count; $i++)
 
 ## <a name="remove-a-role-assignment"></a>Supprimer une attribution de rôle
 
-Cet exemple supprime une attribution de rôle pour l’utilisateur spécifié.
+Dans cet exemple, nous supprimons une attribution de rôle pour l’utilisateur spécifié.
 
 ```powershell
 # Fetch user to assign to role

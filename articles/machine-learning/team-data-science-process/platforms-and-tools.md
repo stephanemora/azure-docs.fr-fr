@@ -11,10 +11,10 @@ ms.date: 09/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 31c6c1258b6d20eb2d2802cf23244cb59df682c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61428658"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Plateformes et outils pour les projets de science des données
@@ -44,7 +44,7 @@ L’instance DSVM fournie sur Windows et Linux par Microsoft contient des outils
 - Power BI Desktop pour Windows
 - SQL Server 2016 Developer Edition sur Windows / Postgres sur Linux
 
-Il inclut également **outils ML et AI** comme xgboost, mxnet et Vowpal Wabbit.
+Il inclut également des **outils ML et AI** comme xgboost, mxnet et Vowpal Wabbit.
 
 La machine virtuelle DSVM est disponible sur les systèmes d’exploitation **Windows** et **CentOS Linux**. Déterminez la taille de votre machine virtuelle DSVM (nombre de cœurs de processeur et quantité de mémoire) en fonction des exigences des projets de science des données que vous prévoyez d’exécuter sur cette instance. 
 

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
 ms.openlocfilehash: ed000dc4be1ae45382d688d4a596ec745c69d0bb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60711152"
 ---
 # <a name="role-based-access-control-for-service-fabric-clients"></a>Contrôle d’accès en fonction du rôle pour les clients de Service Fabric
@@ -52,9 +52,9 @@ Le type de contrôle d'accès administrateur a un accès complet à toutes les A
 * **RecoverSystemPartitions**: récupération des partitions d’un service système                             
 
 ### <a name="cluster-operations"></a>Opérations de cluster
-* **ProvisionFabric**: Approvisionnement du manifeste de cluster et/ou MSI                             
+* **ProvisionFabric** : provisionnement du manifeste de cluster et/ou de MSI                             
 * **UpgradeFabric**: démarrage des mises à niveau du cluster                             
-* **UnprovisionFabric**: Du manifeste de cluster et/ou MSI                         
+* **UnprovisionFabric** : déprovisionnement du manifeste de cluster et/ou de MSI                         
 * **MoveNextFabricUpgradeDomain**: reprise des mises à niveau du cluster avec un domaine de mise à jour explicite                             
 * **ReportFabricUpgradeHealth**: reprise des mises à niveau du cluster avec la progression de la mise à niveau actuelle                             
 * **StartInfrastructureTask**: démarrage des tâches d’infrastructure                             

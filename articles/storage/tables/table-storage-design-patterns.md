@@ -2,18 +2,17 @@
 title: Modèles de conception de table de stockage Azure | Microsoft Docs
 description: Utilisez des modèles pour les solutions de service de Table Azure.
 services: storage
-author: WenJason
+author: tamram
 ms.service: storage
 ms.topic: article
-origin.date: 04/08/2019
-ms.date: 04/22/2019
-ms.author: v-jay
+ms.date: 04/08/2019
+ms.author: tamram
 ms.subservice: tables
 ms.openlocfilehash: a428abd95f955a16d03c4ab86f05644f6db65da5
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62101425"
 ---
 # <a name="table-design-patterns"></a>Modèles de conception de table
@@ -264,7 +263,7 @@ Dans une base de données relationnelle, vous normalisez généralement des donn
 ![Entité de service et entité d’employé](media/storage-table-design-guide/storage-table-design-IMAGE16.png)
 
 ### <a name="solution"></a>Solution
-Au lieu de stocker les données dans les deux entités distinctes, dénormalisez les données et conservez une copie des détails du responsable dans l’entité du service. Par exemple :   
+Au lieu de stocker les données dans les deux entités distinctes, dénormalisez les données et conservez une copie des détails du responsable dans l’entité du service. Par exemple :  
 
 ![Entité de service](media/storage-table-design-guide/storage-table-design-IMAGE17.png)
 
@@ -349,7 +348,7 @@ Vous pouvez récupérer la valeur de date-heure en utilisant le code suivant :
 
 La requête de table ressemble à ceci :  
 
-`https://myaccount.table.core.chinacloudapi.cn/EmployeeExpense(PartitionKey='empid')?$top=10`  
+`https://myaccount.table.core.windows.net/EmployeeExpense(PartitionKey='empid')?$top=10`  
 
 ### <a name="issues-and-considerations"></a>Problèmes et considérations
 Prenez en compte les points suivants lorsque vous choisissez comment implémenter ce modèle :  
@@ -590,7 +589,7 @@ var employees = query.Execute();
 
 Notez comment la requête spécifie à la fois une **RowKey** et une **PartitionKey** pour garantir des performances optimales.  
 
-L’exemple de code suivant montre les fonctionnalités équivalentes sans utiliser la syntaxe LINQ :  
+L’exemple de code suivant montre des fonctionnalités équivalentes sans utiliser la syntaxe LINQ :  
 
 ```csharp
 TableQuery<EmployeeEntity> employeeQuery = 

@@ -17,10 +17,10 @@ ms.date: 11/02/2018
 ms.author: banders
 ms.custom: seodec18
 ms.openlocfilehash: 8c2843840790d1e0dbfd4a789775c6c7ceb51a54
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60918521"
 ---
 # <a name="manage-access-to-billing-information-for-azure"></a>Gérer l’accès aux informations de facturation pour Azure
@@ -45,7 +45,7 @@ Ces rôles ont accès aux informations de facturation dans le [portail Azure](ht
 
 ### <a name="opt-in"></a> Autoriser les utilisateurs à télécharger des factures
 
-Une fois que vous affectez les rôles appropriés aux membres de votre équipe, l’administrateur de compte devez activer l’accès à télécharger des factures dans le portail Azure. Les factures antérieures à décembre 2016 ne sont accessibles qu’à l’administrateur de compte.
+Une fois les rôles appropriés attribués aux membres de votre équipe, l’administrateur de compte doit activé l’accès pour permettre le téléchargement de factures dans le portail Azure. Les factures antérieures à décembre 2016 ne sont accessibles qu’à l’administrateur de compte.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 1. En tant qu’administrateur de compte, sélectionnez votre abonnement dans le [panneau Abonnements](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) du portail Azure.
@@ -71,7 +71,7 @@ La fonctionnalité Lecteur de facturation est en préversion et ne prend pas enc
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 1. Sélectionnez votre abonnement dans le [panneau Abonnements](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) du portail Azure.
 
-1. Sélectionnez **Contrôle d’accès (IAM)**.
+1. Sélectionnez **Contrôle d’accès (IAM)** .
 1. Sélectionnez **Attributions de rôles** afin d’afficher toutes les attributions de rôles pour cet abonnement.
 1. Sélectionnez **Ajouter une attribution de rôle**.
 1. Dans la liste déroulante **Rôle**, choisissez **Lecteur de facturation**.
@@ -106,4 +106,4 @@ L’administrateur de compte est le propriétaire légal de l’abonnement. Par 
 
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
 
-Si vous avez des questions ou besoin d’aide, [créer une demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).
+Si vous avez des questions ou besoin d’aide, créez une [demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).

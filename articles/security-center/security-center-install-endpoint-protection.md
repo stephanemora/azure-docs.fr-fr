@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/28/2019
 ms.author: rkarlin
 ms.openlocfilehash: 882d4e0592b74e8af30ff5bf110a41e403c3bf7d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60906472"
 ---
 # <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>Gérer les problèmes de protection du point de terminaison avec Azure Security Center
@@ -47,7 +47,7 @@ Dans cet exemple, nous utilisons **Calcul**.  Nous allons examiner comment insta
 
 ## <a name="install-antimalware-on-azure-vms"></a>Installer des logiciels anti-programme malveillant sur des machines virtuelles Azure
 
-1. Sélectionnez **Compute et applications** dans le menu principal de Security Center ou **vue d’ensemble**.
+1. Sélectionnez **Compute et applications** dans le menu principal de Security Center, ou **Vue d’ensemble**.
 
    ![Sélectionner Calcul][1]
 
@@ -60,7 +60,7 @@ Dans cet exemple, nous utilisons **Calcul**.  Nous allons examiner comment insta
    - Installed endpoint protection providers (Fournisseurs de protection du point de terminaison installé) : répertorie les différents fournisseurs identifiés par Security Center.
    - Installed endpoint protection health state (État d’intégrité de protection du point de terminaison installé) : affiche l’état d’intégrité des machines virtuelles et des ordinateurs ayant une solution de protection du point de terminaison installée. Le graphique montre le nombre de machines virtuelles et d’ordinateurs sains et le nombre de machines virtuelles et d’ordinateurs ayant une protection insuffisante.
    - Programmes malveillants détectés : affiche le nombre de machines virtuelles et d’ordinateurs pour lesquels Security Center a détecté un programme malveillant.
-   - Ordinateurs attaqués – indique le nombre de machines virtuelles et les ordinateurs où Security Center signale des attaques par des logiciels malveillants.
+   - Ordinateurs attaqués : affiche le nombre de machines virtuelles et d’ordinateurs pour lesquels Security Center signale des attaques par des programmes malveillants.
 
    Une liste des problèmes de protection du point de terminaison se trouve dans la partie inférieure du tableau de bord. Elle comprend les informations suivantes :  
 
@@ -84,13 +84,13 @@ Dans cet exemple, nous utilisons **Calcul**.  Nous allons examiner comment insta
 
    ![Sélectionner Endpoint protection not installed on non-Azure computers (Protection du point de terminaison non installée sur des ordinateurs autres qu’Azure)][4]
 
-2. Dans **Endpoint protection not installed on non-Azure computers** (Protection du point de terminaison non installée sur des ordinateurs autres qu’Azure), sélectionnez un espace de travail. Une requête de recherche de journaux Azure Monitor filtrée à l’espace de travail s’ouvre et répertorie les ordinateurs sans logiciel anti-programme malveillant. Sélectionnez un ordinateur dans la liste pour plus d’informations.
+2. Dans **Endpoint protection not installed on non-Azure computers** (Protection du point de terminaison non installée sur des ordinateurs autres qu’Azure), sélectionnez un espace de travail. Une requête de recherche Journaux Azure Monitor filtrée sur l’espace de travail s’ouvre et liste les ordinateurs n’ayant pas de logiciel anti-programme malveillant installé. Sélectionnez un ordinateur dans la liste pour plus d’informations.
 
-   ![Recherche de journaux de Azure Monitor][5]
+   ![Recherche Journaux Azure Monitor][5]
 
 Un autre résultat de recherche s’ouvre avec les informations filtrées uniquement pour cet ordinateur.
 
-  ![Recherche de journaux de Azure Monitor][6]
+  ![Recherche Journaux Azure Monitor][6]
 
 > [!NOTE]
 > Nous recommandons l’approvisionnement de la protection du point de terminaison pour toutes les machines virtuelles Windows, afin d’identifier et de supprimer les virus, les logiciels espions et autres logiciels malveillants.

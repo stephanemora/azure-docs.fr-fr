@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
 ms.openlocfilehash: e9fd818990c8a985a77c2e7eeea19bf63c440e4e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61347665"
 ---
 # <a name="copy-data-from-teradata-using-azure-data-factory"></a>Copier des données à partir de Teradata à l’aide d’Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version 1](v1/data-factory-onprem-teradata-connector.md)
 > * [Version actuelle](connector-teradata.md)
 
@@ -35,7 +35,7 @@ Plus précisément, ce connecteur Teradata prend en charge :
 - Teradata **version 12 et ultérieures**
 - Copie des données avec l’authentification **De base** ou **Windows**.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour utiliser ce connecteur Teradata, vous devez :
 
@@ -54,12 +54,12 @@ Les propriétés suivantes sont prises en charge pour le service lié Teradata 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type doit être définie sur : **Teradata** | Oui |
-| server | Nom du serveur Teradata. | Oui |
-| authenticationType | Type d'authentification utilisé pour se connecter à la base de données Teradata.<br/>Les valeurs autorisées sont les suivantes : **Basic** et **Windows**. | Oui |
-| username | Spécifiez le nom d’utilisateur associé à la connexion à la base de données Teradata. | Oui |
+| type | La propriété type doit être définie sur : **Teradata** | OUI |
+| serveur | Nom du serveur Teradata. | OUI |
+| authenticationType | Type d'authentification utilisé pour se connecter à la base de données Teradata.<br/>Les valeurs autorisées sont les suivantes : **Basic** et **Windows**. | OUI |
+| username | Spécifiez le nom d’utilisateur associé à la connexion à la base de données Teradata. | OUI |
 | password | Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
-| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Un Runtime d’intégration autohébergé est nécessaire comme indiqué dans [Prérequis](#prerequisites). |Oui |
+| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Un Runtime d’intégration autohébergé est nécessaire comme indiqué dans [Prérequis](#prerequisites). |OUI |
 
 **Exemple :**
 
@@ -93,7 +93,7 @@ Pour copier des données à partir de Teradata, affectez la valeur **RelationalT
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type du jeu de données doit être définie sur : **RelationalTable** | Oui |
+| Type | La propriété type du jeu de données doit être définie sur : **RelationalTable** | OUI |
 | tableName | Nom de la table dans la base de données Teradata. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple :**
@@ -122,7 +122,7 @@ Pour copier des données à partir de Teradata, définissez **RelationalSource**
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type de la source d’activité de copie doit être définie sur : **RelationalSource** | Oui |
+| Type | La propriété type de la source d’activité de copie doit être définie sur : **RelationalSource** | OUI |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM MyTable"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**
@@ -167,13 +167,13 @@ Lors de la copie des données à partir de Teradata, les mappages suivants sont 
 | Blob |Byte[] |
 | Byte |Byte[] |
 | ByteInt |Int16 |
-| Char |String |
-| Clob |String |
-| Date |DateTime |
+| Char |Chaîne |
+| Clob |Chaîne |
+| Date |Datetime |
 | Decimal |Decimal |
 | Double |Double |
-| Graphic |String |
-| Entier  |Int32 |
+| Graphic |Chaîne |
+| Entier |Int32 |
 | Interval Day |TimeSpan |
 | Interval Day To Hour |TimeSpan |
 | Interval Day To Minute |TimeSpan |
@@ -183,25 +183,25 @@ Lors de la copie des données à partir de Teradata, les mappages suivants sont 
 | Interval Hour To Second |TimeSpan |
 | Interval Minute |TimeSpan |
 | Interval Minute To Second |TimeSpan |
-| Interval Month |String |
+| Interval Month |Chaîne |
 | Interval Second |TimeSpan |
-| Interval Year |String |
-| Interval Year To Month |String |
+| Interval Year |Chaîne |
+| Interval Year To Month |Chaîne |
 | Number |Double |
-| Period(Date) |String |
-| Period(Time) |String |
-| Period(Time With Time Zone) |String |
-| Period(Timestamp) |String |
-| Period(Timestamp With Time Zone) |String |
+| Period(Date) |Chaîne |
+| Period(Time) |Chaîne |
+| Period(Time With Time Zone) |Chaîne |
+| Period(Timestamp) |Chaîne |
+| Period(Timestamp With Time Zone) |Chaîne |
 | SmallInt |Int16 |
-| Time |TimeSpan |
-| Time With Time Zone |String |
-| Timestamp |DateTime |
+| Temps |TimeSpan |
+| Time With Time Zone |Chaîne |
+| Timestamp |Datetime |
 | Timestamp With Time Zone |DateTimeOffset |
 | VarByte |Byte[] |
-| VarChar |String |
-| VarGraphic |String |
-| Xml |String |
+| VarChar |Chaîne |
+| VarGraphic |Chaîne |
+| Xml |Chaîne |
 
 
 ## <a name="next-steps"></a>Étapes suivantes

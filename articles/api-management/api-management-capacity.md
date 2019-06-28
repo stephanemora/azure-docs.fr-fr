@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 06/18/2018
 ms.author: apimpm
 ms.openlocfilehash: fe77361c4c9bed9310f8443ed4ff37faf7ea53a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60658308"
 ---
 # <a name="capacity-of-an-azure-api-management-instance"></a>Capacité d’une instance du service Gestion des API Azure
@@ -24,7 +24,7 @@ La **capacité** est la [métrique Azure Monitor](api-management-howto-use-azure
 
 Cet article explique ce à quoi correspond la **capacité**, ainsi que son comportement. Il décrit comment accéder aux métriques de **capacité** dans le Portail Azure et vous informe quand le moment est venu de procéder à une mise à l’échelle ou à une mise à niveau de votre instance du service Gestion des API.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre les étapes décrites dans cet article, vous devez avoir :
 
@@ -69,7 +69,7 @@ La **capacité** peut également augmenter par intermittence ou être supérieur
 ![Métrique de capacité](./media/api-management-capacity/capacity-metric.png)  
 
 1. Dans le [portail Azure](https://portal.azure.com/), accédez à votre instance APIM.
-2. Sélectionnez **Métriques (préversion)**.
+2. Sélectionnez **Métriques (préversion)** .
 3. Dans la section de couleur violette, sélectionnez la métrique **Capacité** parmi les métriques disponibles et conservez la valeur d’agrégation **Moy** par défaut.
 
     > [!TIP]
@@ -78,7 +78,7 @@ La **capacité** peut également augmenter par intermittence ou être supérieur
 4. Dans la section de couleur verte, sélectionnez **Emplacement** pour fractionner la métrique par dimension.
 5. Choisissez une plage horaire dans la barre supérieure de la section.
 
-    Vous pouvez définir une alerte Métrique vous permettant de savoir à quel moment un événement inattendu survient. Par exemple, obtenir des notifications lorsque votre instance APIM a été supérieure à sa capacité maximale attendue pendant plus de 20 minutes.
+    Vous pouvez définir une alerte Métrique vous permettant de savoir à quel moment un événement inattendu survient. Par exemple, recevez des notifications quand votre instance APIM dépasse sa capacité maximale attendue pendant plus de 20 minutes.
 
     >[!TIP]
     > Vous pouvez configurer des alertes pour déterminer quand votre service n’a plus assez de capacité ou utiliser la fonctionnalité de mise à l’échelle automatique d’Azure Monitor pour ajouter automatiquement une unité du service Gestion des API Azure. L’opération de mise à l’échelle peut prendre environ 30 minutes, vous devez donc prévoir vos règles en conséquence.  

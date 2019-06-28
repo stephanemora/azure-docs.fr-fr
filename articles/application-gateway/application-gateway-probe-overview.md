@@ -6,14 +6,13 @@ author: vhorne
 manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
-origin.date: 08/06/2018
-ms.date: 04/16/2019
-ms.author: v-junlch
+ms.date: 8/6/2018
+ms.author: victorh
 ms.openlocfilehash: d0c425bcb9961fde9fb319991148c18c6a9ff57b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66135216"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Vue d’ensemble de l’analyse d’intégrité Application Gateway
@@ -30,13 +29,13 @@ En plus d’utiliser la surveillance par sonde d’intégrité par défaut, vous
 
 Une passerelle d’application configure automatiquement une sonde d’intégrité par défaut lorsque vous ne définissez pas de configuration de sonde personnalisée. Le comportement d’analyse par défaut consiste à lancer une requête HTTP aux adresses IP configurées pour le pool principal. En ce qui concerne les sondes par défaut, si les paramètres HTTP du serveur principal sont configurés pour HTTPS, la sonde utilise également HTTPS pour tester l’intégrité des serveurs principaux.
 
-Exemple : Vous configurez votre passerelle d’application de manière à utiliser les serveurs principaux A, B et C, qui recevront le trafic réseau HTTP sur le port 80. Les contrôles de défaillance par défaut testent les trois serveurs toutes les 30 secondes pour obtenir une réponse HTTP correcte. Le [code d’état](https://msdn.microsoft.com/library/aa287675.aspx) d’une réponse HTTP correcte est compris entre 200 et 399.
+Par exemple :  Vous configurez votre passerelle d’application de manière à utiliser les serveurs principaux A, B et C, qui recevront le trafic réseau HTTP sur le port 80. Les contrôles de défaillance par défaut testent les trois serveurs toutes les 30 secondes pour obtenir une réponse HTTP correcte. Le [code d’état](https://msdn.microsoft.com/library/aa287675.aspx) d’une réponse HTTP correcte est compris entre 200 et 399.
 
 Si l’analyse de la sonde par défaut échoue pour le serveur A, la passerelle d’application le retire de son pool principal et le trafic réseau cesse de passer par ce serveur. La sonde par défaut continue de contrôler le serveur A toutes les 30 secondes. Dès que le serveur A répond avec succès à une requête de la sonde d’intégrité par défaut, il est réintroduit dans le pool principal en tant que serveur intègre et le trafic vers celui-ci reprend.
 
 ### <a name="probe-matching"></a>Correspondance des sondes
 
-Par défaut, une réponse HTTP (S) avec le code d’état compris entre 200 et 399 est considéré comme saine. Les sondes d’intégrité personnalisées prennent également en charge deux critères de correspondance. Les critères de correspondance peuvent être utilisés pour éventuellement modifier l’interprétation par défaut de ce qui constitue une réponse intègre.
+Par défaut, une réponse HTTP(S) avec un code d’état compris entre 200 et 399 est considérée comme intègre. Les sondes d’intégrité personnalisées prennent également en charge deux critères de correspondance. Les critères de correspondance peuvent être utilisés pour éventuellement modifier l’interprétation par défaut de ce qui constitue une réponse intègre.
 
 Les éléments suivants sont des critères de correspondance : 
 
@@ -45,7 +44,7 @@ Les éléments suivants sont des critères de correspondance :
 
 Les critères de correspondance peuvent être spécifiés à l’aide de la cmdlet `New-AzApplicationGatewayProbeHealthResponseMatch`.
 
-Exemple :
+Par exemple :
 
 ```azurepowershell
 $match = New-AzApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399
@@ -55,17 +54,17 @@ Une fois les critères de correspondance spécifiés, ils peuvent être joints �
 
 ### <a name="default-health-probe-settings"></a>Paramètres de sonde d’intégrité par défaut
 
-| Propriétés de la sonde | Valeur | Description  |
+| Propriétés de la sonde | Valeur | Description |
 | --- | --- | --- |
-| URL de la sonde |http://127.0.0.1:\<port\>/ |Chemin d'accès de l'URL |
-| Interval |30 |Durée de l’attente, en secondes, avant l’envoi de la sonde d’intégrité suivante.|
+| URL de sonde |http://127.0.0.1:\<port\>/ |Chemin d'accès de l'URL |
+| Intervalle |30 |Durée de l’attente, en secondes, avant l’envoi de la sonde d’intégrité suivante.|
 | Délai d’attente |30 |Durée de l’attente, en secondes, de la passerelle d’application pour une réponse de la sonde avant que la sonde ne soit déclarée comme défectueuse. Si une sonde renvoie un état intègre, le serveur principal correspondant est immédiatement marqué comme étant intègre.|
-| Seuil de défaillance sur le plan de l'intégrité |3 |Détermine le nombre de sondes à envoyer en cas d’échec de la sonde d’intégrité standard. Ces sondes d’intégrité supplémentaires sont envoyées de façon rapprochée pour déterminer rapidement l’intégrité du serveur principal et ne tiennent pas compte de l’intervalle d’analyse. Le serveur principal est marqué comme étant défectueux après que le nombre d’échecs consécutifs a atteint le seuil de défaillance. |
+| Seuil de défaillance sur le plan de l’intégrité |3 |Détermine le nombre de sondes à envoyer en cas d’échec de la sonde d’intégrité standard. Ces sondes d’intégrité supplémentaires sont envoyées de façon rapprochée pour déterminer rapidement l’intégrité du serveur principal et ne tiennent pas compte de l’intervalle d’analyse. Le serveur principal est marqué comme étant défectueux après que le nombre d’échecs consécutifs a atteint le seuil de défaillance. |
 
 > [!NOTE]
 > Le port est le même que celui utilisé par les paramètres HTTP du serveur principal.
 
-La sonde par défaut examine uniquement http :\//127.0.0.1 :\<port\> pour déterminer l’état d’intégrité. Si vous devez configurer la sonde d’intégrité de sorte qu’elle accède à une URL personnalisée ou modifier d’autres paramètres, vous devez utiliser des sondes personnalisées.
+La sonde par défaut examine uniquement http:\//127.0.0.1:\<port\> pour déterminer l’état d’intégrité. Si vous devez configurer la sonde d’intégrité de sorte qu’elle accède à une URL personnalisée ou modifier d’autres paramètres, vous devez utiliser des sondes personnalisées.
 
 ### <a name="probe-intervals"></a>Intervalles d'analyse
 
@@ -81,15 +80,15 @@ Les sondes personnalisées vous permettent d’avoir un contrôle plus précis d
 
 Le tableau suivant fournit des définitions pour les propriétés d’une sonde d’intégrité personnalisée.
 
-| Propriétés de la sonde | Description  |
+| Propriétés de la sonde | Description |
 | --- | --- |
 | Nom |Nom de la sonde. Ce nom est utilisé pour désigner la sonde dans les paramètres HTTP du serveur principal. |
-| Protocol |Protocole utilisé pour envoyer la sonde. La sonde utilise le protocole défini dans les paramètres HTTP du serveur principal |
+| Protocole |Protocole utilisé pour envoyer la sonde. La sonde utilise le protocole défini dans les paramètres HTTP du serveur principal |
 | Host |Nom d’hôte pour l’envoi de la sonde. S’applique uniquement lorsque plusieurs sites sont configurés sur Application Gateway, sinon utilisez '127.0.0.1'. Cette valeur est différente du nom d’hôte de la machine virtuelle. |
 | path |Chemin relatif de la sonde. Le chemin valide commence par « / ». |
-| Interval |Intervalle d’analyse en secondes. Cette valeur est l’intervalle de temps qui s’écoule entre deux analyses consécutives. |
+| Intervalle |Intervalle d’analyse en secondes. Cette valeur est l’intervalle de temps qui s’écoule entre deux analyses consécutives. |
 | Délai d’attente |Délai d’expiration de l’analyse en secondes. Si aucune réponse valide n’est reçue dans le délai imparti, la sonde est marquée comme étant en échec.  |
-| Seuil de défaillance sur le plan de l'intégrité |Nombre de tentatives d’analyse Le serveur principal est marqué comme étant défectueux après que le nombre d’échecs consécutifs a atteint le seuil de défaillance. |
+| Seuil de défaillance sur le plan de l’intégrité |Nombre de tentatives d’analyse Le serveur principal est marqué comme étant défectueux après que le nombre d’échecs consécutifs a atteint le seuil de défaillance. |
 
 > [!IMPORTANT]
 > Si Application Gateway est configuré pour un seul site, le nom d’hôte par défaut doit être spécifié sous la forme « 127.0.0.1 », sauf s’il est configuré d’une autre manière dans la sonde personnalisée.
@@ -105,5 +104,3 @@ En outre, la connectivité Internet sortante ne peut pas être bloquée, et le t
 Après vous être familiarisé avec l’analyse d’intégrité Application Gateway, vous pouvez configurer une [sonde d’intégrité personnalisée](application-gateway-create-probe-portal.md) dans le portail Azure ou une [sonde d’intégrité personnalisée](application-gateway-create-probe-ps.md) à l’aide de PowerShell et du modèle de déploiement Azure Resource Manager.
 
 [1]: ./media/application-gateway-probe-overview/appgatewayprobe.png
-
-<!-- Update_Description: wording update -->

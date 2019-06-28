@@ -15,16 +15,16 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
 ms.openlocfilehash: ef8acf1c3c9211168ebacc8d62647f6789c745a2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60630562"
 ---
 # <a name="use-storsimple-monitoring-indicators-to-manage-your-device"></a>Utiliser les indicateurs de suivi StorSimple pour gérer votre appareil
 
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 Votre appareil StorSimple comprend des diodes électroluminescentes (LED) et des alarmes que vous pouvez utiliser pour analyser l’état général de l’appareil StorSimple. Vous trouverez les indicateurs d’analyse sur les composants matériels du boîtier principal de l’appareil et sur le boîtier EBOD. Les indicateurs d’analyse peuvent être des LED ou des alarmes sonores.
 
 Les LED peuvent prendre trois états pour indiquer l’état d’un module : vert, clignotant en alternance du vert au rouge-orange ou rouge-orange.  
@@ -203,7 +203,7 @@ Le tableau suivant décrit les différents états d’alarme.
 | État d’alarme | Action | Action avec bouton muet enfoncé |
 | --- | --- | --- |
 | S0 |Mode normal : silencieux |Deux bips sonores |
-| S1 |Mode panne : 1 seconde allumé/1 seconde éteint |Transition vers S2 ou S3 (voir remarques) |
+| S1 |Mode panne : 1 seconde allumé/1 seconde éteint |Transition vers S2 ou S3 (voir remarques) |
 | S2 |Mode rappel : signal sonore par intermittence |Aucun |
 | S3 |Mode muet : silencieux |Aucun |
 | S4 |Mode erreur/panne critique : signal sonore continu |Non disponible : le mode muet est désactivé |

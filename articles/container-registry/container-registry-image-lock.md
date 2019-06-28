@@ -1,6 +1,6 @@
 ---
 title: Verrouiller une image dans Azure Container Registry
-description: Définir des attributs pour un référentiel ou une image de conteneur donc il ne peut pas être supprimé ou remplacé dans un Registre de conteneurs Azure.
+description: Définissez des attributs pour une image conteneur ou un référentiel afin qu’il ne puisse pas être supprimé ou remplacé dans un registre de conteneurs Azure.
 services: container-registry
 author: dlepow
 ms.service: container-registry
@@ -8,36 +8,36 @@ ms.topic: article
 ms.date: 02/19/2019
 ms.author: danlep
 ms.openlocfilehash: ebbfaba158e7ddb669111f097eb1adde2373aa6c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60828645"
 ---
-# <a name="lock-a-container-image-in-an-azure-container-registry"></a>Verrouiller une image de conteneur dans un Registre de conteneurs Azure
+# <a name="lock-a-container-image-in-an-azure-container-registry"></a>Verrouiller une image dans un registre de conteneurs Azure
 
-Dans un Registre de conteneurs Azure, vous pouvez verrouiller une version de l’image ou un référentiel afin qu’il ne peut pas être supprimé ou mis à jour. Pour verrouiller une image ou un référentiel, mettre à jour ses attributs à l’aide de la commande CLI Azure [mise à jour du référentiel az acr][az-acr-repository-update]. 
+Dans un registre de conteneurs Azure, vous pouvez verrouiller une version d’image ou un référentiel afin qu’il ne puisse pas être supprimé ou mis à jour. Pour verrouiller une image ou un référentiel, mettez à jour ses attributs à l’aide de la commande Azure CLI [az acr repository update][az-acr-repository-update]. 
 
-Cet article suppose que vous exécutez Azure CLI dans Azure Cloud Shell ou localement (version 2.0.55 ou ultérieure recommandée). Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installer Azure CLI 2.0][azure-cli].
+Cet article nécessite que vous exécutiez Azure CLI dans Azure Cloud Shell ou localement (version 2.0.55 ou ultérieure recommandée). Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installer Azure CLI 2.0][azure-cli].
 
 ## <a name="scenarios"></a>Scénarios
 
-Par défaut, une image avec balises dans Azure Container Registry est *mutable*, de sorte que disposant des autorisations appropriées, vous pouvez à plusieurs reprises mettre à jour et envoyer une image avec la même balise à un Registre. Images de conteneur peuvent également être [supprimé](container-registry-delete.md) en fonction des besoins. Ce comportement est utile lorsque vous développez des images et que vous devez conserver une taille de votre Registre.
+Par défaut, une image avec balise dans Azure Container Registry est *mutable*. Ainsi, avec les autorisations appropriées vous pouvez mettre à jour et envoyer de manière répétée une image avec la même balise vers un registre. Les images conteneur peuvent également être [supprimées](container-registry-delete.md) en fonction des besoins. Ce comportement est utile quand vous développez des images et que vous devez conserver une certaine taille de registre.
 
-Toutefois, lorsque vous déployez une image de conteneur en production, vous devrez peut-être un *immuable* image de conteneur. Une image immuable est celle qui ne peut pas supprimer ou de remplacer accidentellement. Utilisez le [mise à jour du référentiel az acr] [ az-acr-repository-update] commande pour définir les attributs du référentiel afin de pouvoir :
+En revanche, quand vous déployez une image conteneur en production vous aurez peut-être besoin d’une image conteneur *immuable*. Une image immuable est une image qui ne peut pas être supprimée ou remplacée accidentellement. Utilisez la commande [az acr repository update][az-acr-repository-update] pour définir les attributs du référentiel afin de pouvoir :
 
-* Verrouiller une version de l’image ou intégralité du dépôt
+* Verrouiller une version d’image ou un référentiel entier.
 
-* Protéger une version de l’image ou le référentiel à partir de la suppression, mais autorise les mises à jour
+* Protéger une version d’image ou un référentiel contre la suppression, mais autoriser les mises à jour.
 
-* Empêcher les opérations de lecture (pull) sur une version de l’image ou intégralité du dépôt
+* Empêcher les opérations de lecture (pull) sur une version d’image ou un référentiel entier.
 
-Consultez les sections suivantes pour obtenir des exemples.
+Pour obtenir des exemples, consultez les sections suivantes.
 
 ## <a name="lock-an-image-or-repository"></a>Verrouiller une image ou un référentiel 
 
-### <a name="show-the-current-repository-attributes"></a>Afficher les attributs de référentiel actuel
-Pour afficher les attributs actuels d’un référentiel, exécutez la commande suivante [show de référentiel az acr] [ az-acr-repository-show] commande :
+### <a name="show-the-current-repository-attributes"></a>Afficher les attributs actuels d’un référentiel
+Pour afficher les attributs actuels d’un référentiel, exécutez la commande [az acr repository show][az-acr-repository-show] suivante :
 
 ```azurecli
 az acr repository show \
@@ -45,8 +45,8 @@ az acr repository show \
     --output jsonc
 ```
 
-### <a name="show-the-current-image-attributes"></a>Afficher les attributs d’image actuelle
-Pour afficher les attributs en cours d’une balise, exécutez la commande suivante [show de référentiel az acr] [ az-acr-repository-show] commande :
+### <a name="show-the-current-image-attributes"></a>Afficher les attributs actuels d’une image
+Pour afficher les attributs actuels d’une balise, exécutez la commande [az acr repository show][az-acr-repository-show] suivante :
 
 ```azurecli
 az acr repository show \
@@ -56,7 +56,7 @@ az acr repository show \
 
 ### <a name="lock-an-image-by-tag"></a>Verrouiller une image par balise
 
-Pour verrouiller le *monréf / myimage:tag* dans l’image *myregistry*, exécutez la commande suivante [mise à jour du référentiel az acr] [ az-acr-repository-update] commande :
+Pour verrouiller l’image *myrepo/myimage:tag* dans *myregistry*, exécutez la commande [az acr repository update][az-acr-repository-update] suivante :
 
 ```azurecli
 az acr repository update \
@@ -64,9 +64,9 @@ az acr repository update \
     --write-enabled false
 ```
 
-### <a name="lock-an-image-by-manifest-digest"></a>Verrouiller une image par manifeste digest
+### <a name="lock-an-image-by-manifest-digest"></a>Verrouiller une image par code de hachage du manifeste
 
-Pour verrouiller un *monréf/myimage* image identifiée par le manifeste digest (hachage SHA-256, représenté sous la forme `sha256:...`), exécutez la commande suivante. (Pour connaître le manifeste digest associé à un ou plusieurs balises d’image, exécutez le [az acr référentiel show-manifestes] [ az-acr-repository-show-manifests] commande.)
+Pour verrouiller une image *myrepo/myimage* identifiée par le code de hachage du manifeste (hachage SHA-256, représenté sous la forme `sha256:...`), exécutez la commande suivante. (Pour connaître le code de hachage du manifeste associé à une ou plusieurs balises d’image, exécutez la commande [az acr repository show-manifests][az-acr-repository-show-manifests].)
 
 ```azurecli
 az acr repository update \
@@ -76,7 +76,7 @@ az acr repository update \
 
 ### <a name="lock-a-repository"></a>Verrouiller un référentiel
 
-Pour verrouiller le *monréf/myimage* référentiel et toutes les images qu’il contient, exécutez la commande suivante :
+Pour verrouiller le référentiel *myrepo/myimage* et toutes les images qu’il contient, exécutez la commande suivante :
 
 ```azurecli
 az acr repository update \
@@ -84,11 +84,11 @@ az acr repository update \
     --write-enabled false
 ```
 
-## <a name="protect-an-image-or-repository-from-deletion"></a>Protéger une image ou un référentiel à partir de la suppression
+## <a name="protect-an-image-or-repository-from-deletion"></a>Protéger une image ou un référentiel contre la suppression
 
-### <a name="protect-an-image-from-deletion"></a>Protéger une image d’une suppression
+### <a name="protect-an-image-from-deletion"></a>Protéger une image contre la suppression
 
-Pour permettre la *monréf / myimage:tag* image à être mis à jour mais pas supprimé, exécutez la commande suivante :
+Pour autoriser la mise à jour de l’image *myrepo/myimage:tag* tout en empêchant sa suppression, exécutez la commande suivante :
 
 ```azurecli
 az acr repository update \
@@ -96,9 +96,9 @@ az acr repository update \
     --delete-enabled false --write-enabled true
 ```
 
-### <a name="protect-a-repository-from-deletion"></a>Protéger un référentiel de la suppression
+### <a name="protect-a-repository-from-deletion"></a>Protéger un référentiel contre la suppression
 
-La commande suivante définit le *monréf/myimage* référentiel afin qu’il ne peut pas être supprimé. Des images individuelles peuvent toujours être mis à jour ou supprimés.
+La commande suivante configure le référentiel *myrepo/myimage* afin qu’il ne puisse pas être supprimé. Les différentes images peuvent toujours être mises à jour ou supprimées.
 
 ```azurecli
 az acr repository update \
@@ -106,9 +106,9 @@ az acr repository update \
     --delete-enabled false --write-enabled true
 ```
 
-## <a name="prevent-read-operations-on-an-image-or-repository"></a>Empêcher les opérations de lecture sur une image ou d’un référentiel
+## <a name="prevent-read-operations-on-an-image-or-repository"></a>Empêcher les opérations de lecture sur une image ou un référentiel
 
-Pour empêcher les opérations de lecture (pull) sur le *monréf / myimage:tag* image, exécutez la commande suivante :
+Pour empêcher les opérations de lecture (pull) sur l’image *myrepo/myimage:tag*, exécutez la commande suivante :
 
 ```azurecli
 az acr repository update \
@@ -116,7 +116,7 @@ az acr repository update \
     --read-enabled false
 ```
 
-Pour empêcher les opérations de lecture sur toutes les images dans le *monréf/myimage* référentiel, exécutez la commande suivante :
+Pour empêcher les opérations de lecture sur toutes les images dans le référentiel *myrepo/myimage*, exécutez la commande suivante :
 
 ```azurecli
 az acr repository update \
@@ -126,7 +126,7 @@ az acr repository update \
 
 ## <a name="unlock-an-image-or-repository"></a>Déverrouiller une image ou un référentiel
 
-Pour restaurer le comportement par défaut de la *monréf / myimage:tag* de l’image afin qu’il peut être supprimé et mis à jour, exécutez la commande suivante :
+Pour restaurer le comportement par défaut de l’image *myrepo/myimage:tag* afin qu’elle puisse être supprimée et mise à jour, exécutez la commande suivante :
 
 ```azurecli
 az acr repository update \
@@ -134,7 +134,7 @@ az acr repository update \
     --delete-enabled true --write-enabled true
 ```
 
-Pour restaurer le comportement par défaut de la *monréf/myimage* référentiel et toutes les images afin qu’ils peuvent être supprimés et mis à jour, exécutent la commande suivante :
+Pour restaurer le comportement par défaut du référentiel et de toutes les images *myrepo/myimage* afin qu’ils puissent être supprimés et mis à jour, exécutez la commande suivante :
 
 ```azurecli
 az acr repository update \
@@ -144,11 +144,11 @@ az acr repository update \
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez appris à l’aide de la [mise à jour du référentiel az acr] [ az-acr-repository-update] commande pour empêcher la suppression ou la mise à jour des versions d’image dans un référentiel. Pour définir des attributs supplémentaires, consultez le [mise à jour du référentiel az acr] [ az-acr-repository-update] référence de la commande.
+Dans cet article, vous avez appris à utiliser la commande [az acr repository update][az-acr-repository-update] pour empêcher la suppression ou la mise à jour des versions d’images dans un référentiel. Pour définir des attributs supplémentaires, consultez la référence de la commande [az acr repository update][az-acr-repository-update].
 
-Pour afficher les attributs définie pour une version de l’image ou le référentiel, utilisez le [show de référentiel az acr] [ az-acr-repository-show] commande.
+Pour afficher les attributs définis pour une version d’image ou un référentiel, utilisez la commande [az acr repository show][az-acr-repository-show].
 
-Pour plus d’informations sur les opérations de suppression, consultez [supprimer des images de conteneur dans Azure Container Registry][container-registry-delete].
+Pour plus d’informations sur les opérations de suppression, consultez [Supprimer des images conteneur dans Azure Container Registry][container-registry-delete].
 
 <!-- LINKS - Internal -->
 [az-acr-repository-update]: /cli/azure/acr/repository#az-acr-repository-update
