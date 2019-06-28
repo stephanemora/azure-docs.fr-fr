@@ -15,31 +15,31 @@ ms.topic: article
 ms.date: 03/07/2019
 ms.author: spelluru
 ms.openlocfilehash: f761af3a5a3f08e4da89d8869aea5d666ecd69d0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60868250"
 ---
 # <a name="track-costs-associated-with-a-lab-in-azure-devtest-labs"></a>Suivre les coûts associés à un laboratoire dans Azure DevTest Labs
-Cet article fournit des informations sur la façon de suivre le coût de votre laboratoire. Il vous montre comment afficher l’estimation des coûts trent pour le mois calendaire actuel pour le laboratoire. L’article vous montre également comment afficher le coût month-to-date par ressource dans le laboratoire.
+Cet article fournit des informations sur la façon de suivre le coût de votre laboratoire. Il vous montre comment afficher la tendance des coûts estimés du laboratoire pour le mois en cours. L’article vous montre également comment afficher le coût du mois en cours par ressource du laboratoire.
 
-## <a name="view-the-monthly-estimated-lab-cost-trend"></a>Afficher les tendances de coût estimé de laboratoire mensuelles 
-Dans cette section, vous allez apprendre à utiliser le **tendance des coûts mensuels estimés** graphique pour afficher estimé coût-to-date le mois calendaire en cours et le coût projeté de la fin du mois pour le mois calendaire actuel. Vous allez également apprendre à gérer les coûts de laboratoire en définissant des seuils et des dépenses cibles qui, lorsque atteints, déclenchent dev/pour signaler les résultats pour vous.
+## <a name="view-the-monthly-estimated-lab-cost-trend"></a>Afficher les tendances de coût mensuelles estimées du laboratoire 
+Dans cette section, découvrez comment utiliser le graphique **Tendance des coûts mensuels estimés** pour afficher le coût estimé jusqu’à la date actuelle ainsi que le coût projeté pour la fin du mois en cours. Vous apprenez également comment gérer les coûts de laboratoire en définissant des seuils et des dépenses cibles qui, une fois atteints, déclenchent la génération de résultats par DevTest Labs.
 
 Pour afficher le graphique Tendance des coûts mensuels estimés, procédez comme suit : 
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Sélectionnez **Tous les services**, puis **DevTest Labs** dans la liste.
 3. Dans la liste de laboratoires, sélectionnez votre laboratoire.  
-4. Sélectionnez **Configuration et stratégies** sur le menu de gauche.  
-4. Sélectionnez **tendance des coûts** dans le **suivi des coûts** section dans le menu de gauche. La capture d’écran suivante montre un exemple de graphique de coûts. 
+4. Sélectionnez **Configuration et stratégies** dans le menu de gauche.  
+4. Sélectionnez **Tendance des coûts** dans la section **Suivi des coûts** du menu de gauche. La capture d'écran suivante montre un exemple de graphique de coûts. 
    
     ![Graphique de coûts](./media/devtest-lab-configure-cost-management/graph.png)
 
     La valeur **Coût estimé** est le coût estimé à ce jour pour le mois calendaire en cours. Le **Coût projeté** est le coût estimé pour le mois calendaire entier, calculé à l’aide du coût du laboratoire lors des cinq derniers jours.
 
-    Les montants des coûts sont arrondis à l’entier supérieur. Par exemple :  
+    Les montants des coûts sont arrondis à l’entier supérieur. Par exemple : 
 
    * 5,01 est arrondi à 6 
    * 5,50 est arrondi à 6
@@ -47,7 +47,7 @@ Pour afficher le graphique Tendance des coûts mensuels estimés, procédez comm
 
      Comme indiqué au-dessus du graphique, les coûts que vous voyez par défaut dans le graphique sont les coûts *estimés* avec les tarifs de l’offre [Paiement à l'utilisation](https://azure.microsoft.com/offers/ms-azr-0003p/). Vous pouvez également définir vos propres dépenses cibles à afficher dans les graphiques en [gérant les coûts cibles de votre laboratoire](#managing-cost-targets-for-your-lab).
 
-     Les coûts suivants sont *pas* inclus dans le calcul des coûts :
+     Les coûts suivants ne sont *pas* inclus dans le calcul des coûts :
 
    * Les abonnements CSP et Dreamspark ne sont pas pris en charge. En effet, Azure DevTest Labs utilise les [API de facturation Azure](../billing/billing-usage-rate-card-overview.md) pour calculer les coûts de laboratoire, et celles-ci ne prennent pas en charge les abonnements CSP et Dreamspark.
    * Les tarifs de votre offre. Actuellement, vous ne pouvez pas utiliser les tarifs de l’offre (affichés sous votre abonnement) que vous avez négociés avec Microsoft ou les partenaires Microsoft. Seuls les tarifs du paiement à l'utilisation sont disponibles.
@@ -58,21 +58,21 @@ Pour afficher le graphique Tendance des coûts mensuels estimés, procédez comm
 ### <a name="managing-cost-targets-for-your-lab"></a>Gestion des coûts cibles de votre laboratoire
 DevTest Labs vous aide à mieux gérer les coûts de votre laboratoire en définissant des dépenses cibles que vous pouvez ensuite afficher dans le graphique de tendance du coût estimé par mois. DevTest Labs peut également vous envoyer une notification quand le seuil ou les dépenses cibles spécifiés sont atteints. 
 
-1. Sur le **tendance des coûts** page, sélectionnez **gérer la cible**.
+1. À la page **Tendance des coûts**, sélectionnez **Gérer la cible**.
 
     ![Bouton Gérer la cible](./media/devtest-lab-configure-cost-management/cost-trend-manage-target.png)
-2. Sur le **gérer la cible** , spécifiez les dépenses cibles et des seuils. Vous pouvez également indiquer si chaque seuil sélectionné doit figurer sur le graphique de tendance du coût ou être communiqué via une notification Webhook.
+2. À la page **Gérer la cible**, spécifiez les dépenses cibles et des seuils. Vous pouvez également indiquer si chaque seuil sélectionné doit figurer sur le graphique de tendance du coût ou être communiqué via une notification Webhook.
 
     ![Volet Gérer la cible](./media/devtest-lab-configure-cost-management/cost-trend-manage-target-pane.png)
 
    - Sélectionnez la période de temps durant laquelle vos coûts cibles doivent être suivis.
       - **Tous les mois** : le suivi des coûts cibles est effectué mensuellement.
-      - **Fixe**: coûts cibles sont suivies pour la plage de dates que vous spécifiez dans les dates de début et de fin. En règle générale, ces valeurs représentent la durée pendant laquelle votre projet est planifié pour s’exécuter.
-   - Spécifiez un **coût cible**. Par exemple, le montant prévu à dépenser pour ce laboratoire dans la période de temps que vous avez défini.
+      - **Fixe** : le suivi des coûts cibles est effectué dans la plage de dates que vous spécifiez dans les champs des dates de début et de fin. Généralement, ces valeurs représentent la durée d’exécution prévue de votre projet.
+   - Spécifiez un **coût cible**. Par exemple, le montant que vous prévoyez de dépenser pour ce laboratoire dans la période de temps que vous avez définie.
    - Sélectionnez l’option appropriée pour activer ou désactiver un seuil à rapporter (par incréments de 25 %), jusqu’à 125 % du **coût cible** spécifié.
-      - **Notifier**: Quand ce seuil est atteint, vous êtes averti par une URL webhook que vous spécifiez.
-      - **Tracer sur le graphique**: Quand ce seuil est atteint, les résultats sont tracées sur le graphique de tendance de coût que vous pouvez afficher, comme décrit dans l’affichage du graphique de tendance des coûts mensuels estimés.
-   - Si vous choisissez l’option **Notifier** pour l’envoi d’une notification quand le seuil est atteint, vous devez spécifier une URL Webhook. Dans la zone Intégrations des coûts, sélectionnez **Cliquez ici pour ajouter une intégration**. Entrez un **URL du Webhook** dans le volet Configurer la notification, puis sélectionnez **OK**.
+      - **Informer** : quand ce seuil est atteint, vous êtes informé par une URL webhook que vous avez spécifiée.
+      - **Tracer sur le graphique** : quand ce seuil est atteint, les résultats sont tracés sur le graphique de tendance du coût que vous pouvez afficher, comme décrit dans Affichage du graphique de tendance du coût estimé mensuel.
+   - Si vous choisissez l’option **Notifier** pour l’envoi d’une notification quand le seuil est atteint, vous devez spécifier une URL Webhook. Dans la zone Intégrations des coûts, sélectionnez **Cliquez ici pour ajouter une intégration**. Entrez une **URL Webhook** dans le volet Configurer la notification, puis sélectionnez **OK**.
 
        ![Volet Configurer la notification](./media/devtest-lab-configure-cost-management/configure-notification.png)
 
@@ -82,20 +82,20 @@ DevTest Labs vous aide à mieux gérer les coûts de votre laboratoire en défin
 
        Pour plus d’informations sur les webhooks, consultez [Créer une fonction Azure d’API ou de webhook](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
 
-## <a name="view-cost-by-resource"></a>Afficher les coûts par ressource 
-La fonctionnalité de tendance de coût mensuel dans labs vous permet de voir combien vous avez dépensé dans le mois calendaire actuel. Il montre également la projection de la dépense jusqu'à la fin du mois, en fonction de vos dépenses au cours des sept derniers jours. Dès le départ pour vous aider à comprendre pourquoi les dépenses dans le laboratoire respecte les seuils vous pouvez utiliser la **coût par ressource** fonctionnalité qui vous montre le coût month-to-date **par ressource** dans une table.
+## <a name="view-cost-by-resource"></a>Afficher le coût par ressource 
+La fonctionnalité de tendance de coût mensuel des laboratoires permet de voir combien vous avez dépensé pendant le mois en cours. Elle montre également la projection des dépenses jusqu'à la fin du mois sur la base de vos dépenses au cours des sept derniers jours. Pour vous aider à comprendre dès le départ pourquoi les dépenses du laboratoire atteignent des seuils, vous pouvez utiliser la fonctionnalité **coût par ressource**, qui vous montre le coût mensuel jusqu’à la date actuelle **par ressource** dans une table.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Sélectionnez **Tous les services**, puis **DevTest Labs** dans la liste.
 3. Sélectionnez le laboratoire souhaité dans la liste des laboratoires.  
-4. Sélectionnez **Configuration et stratégies** sur le menu de gauche.
-5. Sélectionnez **coût par ressource** dans le **suivi des coûts** section dans le menu de gauche. Vous consultez les coûts associés à chaque ressource associée à un laboratoire. 
+4. Sélectionnez **Configuration et stratégies** dans le menu de gauche.
+5. Sélectionnez **Coût par ressource** dans la section **Suivi des coûts** du menu de gauche. Vous voyez les coûts associés à chaque ressource liée à un laboratoire. 
 
     ![Coût par ressource](./media/devtest-lab-configure-cost-management/cost-by-resource.png)
 
-Cette fonctionnalité vous aide à identifier facilement les ressources dont le prix est le plus afin que vous puissiez prendre des mesures pour réduire les dépenses de laboratoire. Par exemple, le coût d’une machine virtuelle est basé sur la taille de la machine virtuelle. Plus la taille de la machine virtuelle, plus est le coût. Vous pouvez trouver facilement la taille d’une machine virtuelle et le propriétaire, afin que vous pouvez communiquer avec le propriétaire de la machine virtuelle pour comprendre pourquoi cette taille de machine virtuelle est nécessaire et s’il existe un risque de réduire la taille.
+Cette fonctionnalité aide à identifier facilement les ressources les plus onéreuses, donc à prendre des mesures pour réduire les dépenses de laboratoire. Par exemple, le coût d’une machine virtuelle est basé sur sa taille. Plus la machine virtuelle est grande, plus elle coûte cher. Vous pouvez facilement trouver la taille d’une machine virtuelle et son propriétaire, puis vous adresser à lui pour comprendre pourquoi il a besoin d’une machine virtuelle de cette taille et s’il est possible de la réduire.
 
-[Stratégie d’arrêt automatique](devtest-lab-get-started-with-lab-policies.md#set-auto-shutdown) vous aide à réduire le coût en arrêtant les machines virtuelles de laboratoire à un moment précis de la journée. Toutefois, un utilisateur de laboratoire peut refuser de la stratégie d’arrêt, ce qui augmente le coût d’exécution de la machine virtuelle. Vous pouvez sélectionner une machine virtuelle dans le tableau pour voir si elle a été choisi à la sortie de la stratégie d’arrêt automatique. Si tel est le cas, vous pouvez communiquer avec le propriétaire de la machine virtuelle pour rechercher la raison pour laquelle la machine virtuelle a été choisi à la sortie de la stratégie.
+Une [stratégie d’arrêt automatique](devtest-lab-get-started-with-lab-policies.md#set-auto-shutdown) aide à réduire le coût en arrêtant les machines virtuelles du laboratoire à une heure précise de la journée. Toutefois, un utilisateur de laboratoire peut refuser de la stratégie d’arrêt, ce qui augmente le coût d’exécution de la machine virtuelle. Vous pouvez sélectionner une machine virtuelle dans le tableau pour voir si elle a été exclue de la stratégie d’arrêt automatique. Le cas échéant, vous pouvez communiquer avec son propriétaire afin de savoir pourquoi la machine virtuelle a été exclue de la stratégie.
  
 ## <a name="next-steps"></a>Étapes suivantes
 Voici quelques possibilités d’opérations pour la suite :

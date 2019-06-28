@@ -15,10 +15,10 @@ ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 690f41e941f2d1db8fc92d225a54d07570299222
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60478009"
 ---
 # <a name="set-up-smt-server-for-suse-linux"></a>Configuration de serveur SMT pour SUSE Linux
@@ -84,7 +84,7 @@ Vous pouvez également utiliser l’outil YAST pour installer les packages smt. 
 ![Capture d’écran de SMT dans YAST](./media/hana-installation/image5_smt_in_yast.PNG)
 
 
-Acceptez la sélection pour l’installation sur smtserver. Une fois l’installation terminée, accédez à la configuration du serveur SMT. Entrez les informations d'identification de votre organisation que vous avez récupérées précédemment à partir du SUSE Customer Center. Entrez également le nom d’hôte de votre machine virtuelle Azure en tant qu’URL du serveur SMT. Dans cette démonstration, il l’https :\//smtserver.
+Acceptez la sélection pour l’installation sur smtserver. Une fois l’installation terminée, accédez à la configuration du serveur SMT. Entrez les informations d'identification de votre organisation que vous avez récupérées précédemment à partir du SUSE Customer Center. Entrez également le nom d’hôte de votre machine virtuelle Azure en tant qu’URL du serveur SMT. Cette démonstration utilise https:\//smtserver.
 
 ![Capture d’écran d’une configuration de serveur SMT](./media/hana-installation/image6_configuration_of_smtserver1.png)
 

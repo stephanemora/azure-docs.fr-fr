@@ -1,6 +1,6 @@
 ---
-title: Ajouter des utilisateurs individuellement sous licence aux licences par groupe - Azure Active Directory | Microsoft Docs
-description: Comment migrer à partir de licences utilisateur individuelles pour le groupe de gestion des licences à l’aide d’Azure Active Directory
+title: Ajouter des utilisateurs individuels sous licence vers une licence basée sur le groupe - Azure Active Directory | Microsoft Docs
+description: Comment migrer de licences utilisateur individuelles vers des licences basées sur le groupe avec Azure Active Directory
 services: active-directory
 keywords: Gestion des licences Azure AD
 documentationcenter: ''
@@ -17,15 +17,15 @@ ms.reviewer: sumitp
 ms.custom: seohack1;it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 333f0ae0153073b57740446ecf47e36a1f9ce590
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65192453"
 ---
-# <a name="how-to-migrate-users-with-individual-licenses-to-groups-for-licensing"></a>Comment migrer les utilisateurs disposant de licences individuelles à des groupes pour les licences
+# <a name="how-to-migrate-users-with-individual-licenses-to-groups-for-licensing"></a>Comment migrer des utilisateurs disposant de licences individuelles vers des groupes pour la gestion des licences
 
-Vous pouvez disposer de licences existantes déployées pour les utilisateurs dans les organisations par le biais d’une « attribution directe », autrement dit utiliser des scripts PowerShell ou d’autres outils pour attribuer des licences utilisateur individuelles. Avant de commencer à l’aide de gestion des licences par groupe pour gérer les licences de votre organisation, vous pouvez utiliser ce plan de migration pour remplacer en toute transparence les solutions existantes avec la gestion des licences par groupe.
+Vous pouvez disposer de licences existantes déployées pour les utilisateurs dans les organisations par le biais d’une « attribution directe », autrement dit utiliser des scripts PowerShell ou d’autres outils pour attribuer des licences utilisateur individuelles. Avant de commencer à utiliser une licence basée sur le groupe pour gérer les licences de votre organisation, vous pouvez utiliser ce plan de migration afin de remplacer en toute transparence les solutions existantes par une licence basée le groupe.
 
 La chose la plus importante à retenir est que vous devez éviter toute situation dans laquelle la migration vers une licence basée sur le groupe amène les utilisateurs à perdre de manière temporaire les licences qui leur sont actuellement attribuées. Tous les processus susceptibles d’entraîner le retrait de licences doivent être évités afin d’éliminer le risque pour les utilisateurs de perdre l’accès aux services et à leurs données.
 
@@ -79,7 +79,7 @@ Voici ce à quoi le processus de migration peut ressembler :
 
 4. Après avoir confirmé l’équivalence des licences directes et des licences de groupe, vous pouvez commencer à supprimer les licences directes des utilisateurs. Vous pouvez tester cette procédure en supprimant ces licences pour des utilisateurs individuels sur le portail, puis exécuter des scripts d’automatisation afin de les supprimer en bloc. Voici l’exemple d’un même utilisateur dont les licences directes ont été supprimées par le biais du portail. L’état de licence reste inchangé, mais les attributions directes n’apparaissent plus.
 
-   ![Vérifiez que les licences directes ont été supprimés](./media/licensing-groups-migrate-users/direct-licenses-removed.png)
+   ![confirmer que les licences directes ont été supprimées](./media/licensing-groups-migrate-users/direct-licenses-removed.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

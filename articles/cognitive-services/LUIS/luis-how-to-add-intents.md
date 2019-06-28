@@ -12,10 +12,10 @@ ms.date: 04/01/2019
 ms.author: diberry
 ms.service: cognitive-services
 ms.openlocfilehash: 0c42ab44ba317888b982ba7c72f78be4ca73d93c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65148159"
 ---
 # <a name="add-intents-to-determine-user-intention-of-utterances"></a>Ajouter des intentions pour déterminer l’intention de l’utilisateur des énoncés
@@ -44,29 +44,29 @@ Les exemples d’énoncés sont des exemples de texte de questions ou de command
 
 <a name="#intent-prediction-discrepancy-errors"></a>
 
-## <a name="intent-prediction-errors"></a>Erreurs de prédiction Intent 
+## <a name="intent-prediction-errors"></a>Erreurs de prédiction de l’intention 
 
-Un énoncé de l’exemple dans une intention peut-être une erreur intentionnelle de prédiction entre l’intention de l’énoncé de l’exemple en cours et l’intention de prédiction déterminé au cours de formation. 
+Il peut arriver qu’un exemple d’énoncé comporte une erreur de prédiction entre l’intention dans laquelle il se trouve et l’intention de prédiction déterminée au cours de l’apprentissage. 
 
-Pour rechercher des erreurs de prédiction d’énoncé et corrigez-les, utilisez le **filtre** l’option **évaluation** options de Incorrect et Unclear combinées avec le **vue** option de **Vue détaillée**. 
+Pour trouver et corriger les erreurs de prédiction d’énoncés, utilisez les options **Évaluation** Incorrect et Unclear de l’option **Filtre** avec l’option **Vue** **Vue détaillée**. 
 
-![Pour rechercher des erreurs de prédiction d’énoncé et corrigez-les, utilisez l’option de filtre.](./media/luis-how-to-add-intents/find-intent-prediction-errors.png)
+![Pour trouver et corriger les erreurs de prédiction d’énoncés, utilisez l’option Filtre.](./media/luis-how-to-add-intents/find-intent-prediction-errors.png)
 
-Lorsque les filtres et la vue sont appliquées et il existe des énoncés d’exemple avec des erreurs, l’exemple de liste énoncé montre énoncés et les problèmes.
+Une fois les filtres et la vue appliqués, les exemples d’énoncés comportant des erreurs apparaissent dans la liste avec les problèmes associés.
 
-![! [Lorsque les filtres et la vue sont appliqués, et il existe des énoncés d’exemple avec des erreurs, l’exemple de liste énoncé affiche énoncés et les problèmes.] (. / media/luis-how-to-add-intents/find-errors-in-utterances.png)](./media/luis-how-to-add-intents/find-errors-in-utterances.png#lightbox)
+![![Une fois les filtres et la vue appliqués, les exemples d’énoncés comportant des erreurs apparaissent dans la liste avec les problèmes associés.](./media/luis-how-to-add-intents/find-errors-in-utterances.png)](./media/luis-how-to-add-intents/find-errors-in-utterances.png#lightbox)
 
-Chaque ligne affiche le score de prédiction de la formation en cours pour l’énoncé d’exemple, le score du rival le plus proche, est la différence entre ces deux scores. 
+Chaque ligne indique le score de prédiction de l’apprentissage en cours de l’exemple d’énoncé, le score du rival le plus proche et l’évaluation, à savoir la différence entre ces deux scores. 
 
-### <a name="fixing-intents"></a>Résolution des intentions
+### <a name="fixing-intents"></a>Corriger les intentions
 
-Pour savoir comment corriger les erreurs de l’intention de prédiction, utilisez le [tableau de bord Résumé](luis-how-to-use-dashboard.md). Le tableau de bord résumé fournit une analyse pour l’apprentissage de dernière de la version active et offre des suggestions supérieures pour corriger votre modèle.  
+Pour savoir comment corriger les erreurs d’intention de prédiction, utilisez le [Tableau de bord Résumé](luis-how-to-use-dashboard.md). Il comporte une analyse du dernier apprentissage de la version active et propose les meilleures suggestions de correction du modèle.  
 
 ## <a name="add-a-custom-entity"></a>Ajouter une entité personnalisée
 
 Une fois qu’un énoncé a été ajouté à une intention, vous pouvez sélectionner du texte dans l’énoncé pour créer une entité personnalisée. Une entité personnalisée est un moyen de marquer du texte pour l’extraction, avec l’intention correcte. 
 
-Consultez [ajouter une entité à énoncé](luis-how-to-add-example-utterances.md) pour en savoir plus.
+Pour plus d’informations, voir [Ajouter une entité à un énoncé](luis-how-to-add-example-utterances.md).
 
 ## <a name="entity-prediction-discrepancy-errors"></a>Erreurs de différence de prédiction d’entité 
 
@@ -82,7 +82,7 @@ Pour plus d’informations, consultez [Entité prédéfinie](luis-how-to-add-ent
 
 ## <a name="using-the-contextual-toolbar"></a>Utilisation de la barre d’outils contextuelle
 
-Lorsqu’un ou plusieurs énoncés exemple sont sélectionnés dans la liste, en cochant la case à gauche de l’énoncé, la barre d’outils au-dessus de la liste énoncé vous permet d’effectuer les actions suivantes :
+Quand un ou plusieurs exemples d’énoncés sont sélectionnés dans la liste (case à gauche cochée), la barre d’outils qui se trouve au-dessus de la liste d’énoncés permet d’effectuer les actions suivantes :
 
 * Réaffecter l’intention : déplacer des énoncés vers une autre intention
 * Supprimer des énoncés

@@ -12,10 +12,10 @@ author: gauravmalhot
 ms.author: gamal
 manager: craigg
 ms.openlocfilehash: 4bd38991b2452bdda65a7647f844dcc17fdfb125
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60786932"
 ---
 # <a name="templates"></a>Modèles
@@ -30,7 +30,7 @@ Vous pouvez commencer à créer un pipeline Data Factory à partir d’un modèl
 
     ![Ouvrir la galerie de modèles sur la page Vue d’ensemble](media/solution-templates-introduction/templates-intro-image1.png)
 
-1.  Dans l’onglet Auteur de l’Explorateur de ressources, sélectionnez **+**, puis **Pipeline à partir du modèle** pour ouvrir la galerie de modèles.
+1.  Dans l’onglet Auteur de l’Explorateur de ressources, sélectionnez **+** , puis **Pipeline à partir du modèle** pour ouvrir la galerie de modèles.
 
     ![Ouvrir la galerie de modèles dans l’onglet Auteur](media/solution-templates-introduction/templates-intro-image2.png)
 
@@ -40,13 +40,13 @@ Vous pouvez commencer à créer un pipeline Data Factory à partir d’un modèl
 
 ### <a name="out-of-the-box-data-factory-templates"></a>Modèles Data Factory prêts à l’emploi
 
-Data Factory utilise des modèles Azure Resource Manager pour enregistrer des modèles de pipelines Data Factory. Vous pouvez voir tous les modèles Resource Manager, ainsi que le fichier manifest utilisé pour mieux des modèles de Data Factory boîte, dans le [officiel référentiel GitHub d’Azure Data Factory](https://github.com/Azure/Azure-DataFactory/tree/master/templates). Voici quelques exemples de modèles prédéfinis fournis par Microsoft :
+Data Factory utilise des modèles Azure Resource Manager pour enregistrer des modèles de pipelines Data Factory. Tous les modèles Resource Manager, ainsi que le fichier manifeste utilisé pour les modèles Data Factory prêts à l’emploi, se trouvent dans le [référentiel GitHub officiel d’Azure Data Factory](https://github.com/Azure/Azure-DataFactory/tree/master/templates). Voici quelques exemples de modèles prédéfinis fournis par Microsoft :
 
 -   Modèles de copie :
 
     -   [Copie en bloc à partir d’une base de données](solution-template-bulk-copy-with-control-table.md)
     
-    -   [Copier les nouveaux fichiers par LastModifiedDate & gt](solution-template-copy-new-files-lastmodifieddate.md)
+    -   [Copier les nouveaux fichiers par LastModifiedDate](solution-template-copy-new-files-lastmodifieddate.md)
 
     -   [Copie de plusieurs conteneurs de fichiers entre différents magasins basés sur des fichiers](solution-template-copy-files-multiple-containers.md)
 

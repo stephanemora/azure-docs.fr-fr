@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/04/2017
 ms.author: tomsh
 ms.openlocfilehash: c5b5f80a43530fe6d0b90e65c3aef89a815157e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60610885"
 ---
 # <a name="azure-service-fabric-security-overview"></a>Vue d’ensemble de la sécurité Azure Service Fabric
@@ -87,7 +87,7 @@ Le flux de travail de la surveillance et des diagnostics se compose de trois ét
 
 2.  **Agrégation d’événements** : Les événements générés doivent être collectés et agrégés pour pouvoir être affichés. En général, nous recommandons d’utiliser [Diagnostics Azure](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-wad) (similaire à la collecte de journaux basée sur un agent) ou [EventFlow](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-eventflow) (collecte de journaux in-process).
 
-3.  **Analyse** : Les événements doivent être visualisés et accessibles dans un certain format pour pouvoir être analysés et affichés. Il existe plusieurs plateformes pour l’analyse et la visualisation des données de surveillance et de diagnostics. Nous vous recommandons de [Azure Monitor enregistre](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-oms) et [Azure Application Insights](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights) , car ils s’intègrent bien Service Fabric.
+3.  **Analyse** : Les événements doivent être visualisés et accessibles dans un certain format pour pouvoir être analysés et affichés. Il existe plusieurs plateformes pour l’analyse et la visualisation des données de surveillance et de diagnostics. Nous recommandons [journaux Azure Monitor](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-oms) et [Azure Application Insights](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights) car ils s’intègrent bien avec Service Fabric.
 
 Vous pouvez également utiliser [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview) pour surveiller un grand nombre des ressources Azure sur lesquelles repose un cluster Service Fabric.
 

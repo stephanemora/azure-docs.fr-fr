@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/08/2018
 ms.author: subramar
 ms.openlocfilehash: 9a93c0993ee45e72b11b023982dfbbe8c6528272
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60614398"
 ---
 # <a name="application-upgrade-parameters"></a>Paramètres de mise à niveau d'application
@@ -94,7 +94,7 @@ Les mises à niveau de l’application Service Fabric à l’aide de l’interfa
 
 | Paramètre | Description |
 | --- | --- |
-| application-id  |ID de l’application en cours de mise à niveau. <br> Il s’agit généralement du nom complet de l’application, sans « fabric ». Schéma d’URI. À compter de la version 6.0, les noms hiérarchiques sont délimités par le caractère « \~ ». Par exemple, si le nom de l’application est « fabric : / myapp/app1 », l’identité de l’application serait ' myapp\~app1 » dans 6.0 et supérieures et « mon_app/app1 » dans les versions précédentes.|
+| application-id  |ID de l’application en cours de mise à niveau. <br> Il s’agit généralement du nom complet de l’application, sans « fabric ». Schéma d’URI. À compter de la version 6.0, les noms hiérarchiques sont délimités par le caractère « \~ ». Par exemple, si l’application est nommée « fabric/myapp/app1 », son identité est « myapp\~app1 » dans les versions 6.0 et ultérieures, et « myapp/app1 » dans les versions précédentes.|
 application-version |Version du type d'application ciblée par la mise à niveau.|
 parameters  |Liste JSON des remplacements de paramètres d’application à appliquer lors de la création de l’application.|
 

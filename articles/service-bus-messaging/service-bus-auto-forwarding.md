@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 86fa7f62230c0ae0530b67ff2384942c876083d4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64686134"
 ---
 # <a name="chaining-service-bus-entities-with-autoforwarding"></a>Chaînage des entités Service Bus avec transfert automatique
@@ -49,7 +49,7 @@ Si Alice part en vacances, sa file d’attente personnelle, et non la rubrique E
 
 > [!NOTE]
 > Lorsque le transfert automatique est configuré, la valeur pour AutoDeleteOnIdle sur la destination est automatiquement définie sur la valeur maximale du type de données.
-> Cela vise à garantir qu’il y a toujours une destination pour transférer le message à.
+> Cela vise à garantir qu’il y a toujours une destination pour les transferts de messages.
 
 ## <a name="autoforwarding-considerations"></a>Considérations relatives au transfert automatique
 

@@ -1,6 +1,6 @@
 ---
-title: Données distribuées dans Azure Database pour PostgreSQL – très grande échelle (Citus) (version préliminaire)
-description: Les tables et partitions distribuées dans le groupe de serveurs.
+title: Données distribuées dans Azure Database pour PostgreSQL - Hyperscale (Citus) (préversion)
+description: Tables et partitions distribuées dans le groupe de serveurs.
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
@@ -8,49 +8,49 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.openlocfilehash: 9020ee690d93a1b477471fac4a482a909fca5935
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65077334"
 ---
-# <a name="distributed-data-in-azure-database-for-postgresql--hyperscale-citus-preview"></a>Données distribuées dans Azure Database pour PostgreSQL – très grande échelle (Citus) (version préliminaire)
+# <a name="distributed-data-in-azure-database-for-postgresql--hyperscale-citus-preview"></a>Données distribuées dans Azure Database pour PostgreSQL - Hyperscale (Citus) (préversion)
 
-Cet article décrit les types de trois tables de très grande échelle (Citus).
-Il montre comment distribuées tables sont stockées sous forme de partitions et la manière de partitions sont placées sur les nœuds.
+Cet article décrit les types de trois tables dans Hyperscale (Citus).
+Il montre comment les tables distribuées sont stockées sous forme de partitions et la manière dont les partitions sont placées sur les nœuds.
 
 ## <a name="table-types"></a>Types de tables
 
-Il existe trois types de tables dans un groupe de serveurs de très grande échelle, chacun est utilisé à des fins différentes.
+Il existe trois types de tables dans un groupe de serveurs Hyperscale, et chacun est utilisé à des fins différentes.
 
-### <a name="type-1-distributed-tables"></a>Type 1 : tables distribuées
+### <a name="type-1-distributed-tables"></a>Type 1 : tables distribuées
 
-Le premier type et la plus courante est *distribuée* tables. Elles semblent être des tables normales aux instructions SQL, mais horizontalement *partitionnée* entre les nœuds de travail. Cela signifie que les lignes de la table sont stockées sur différents nœuds dans les tables de fragment appelés *partitions*.
+Le premier type (le plus courant) est la table *distribuée*. Elle ressemble à une table normale pour les instructions SQL, mais elle est *partitionnée* horizontalement dans les nœuds worker. Cela signifie que les lignes de la table sont stockées sur des nœuds différents dans les tables de fragments appelées *partitions*.
 
-Hyperscale s’exécute pas uniquement à SQL, mais les instructions DDL tout au long d’un cluster, par conséquent, modification du schéma d’une table distribuée se répercute pour mettre à jour les partitions de tous les la table sur les workers.
+Hyperscale exécute non seulement des instructions SQL, mais aussi des instructions DDL dans un cluster. Par conséquent, la modification du schéma d’une table distribuée se répercute pour mettre à jour toutes les partitions de la table sur les workers.
 
 #### <a name="distribution-column"></a>Colonne de distribution
 
-Hyperscale utilise le partitionnement algorithmique pour affecter des lignes à des partitions. L’affectation est effectuée de façon déterministe en fonction sur la valeur d’une colonne de table appelée la *colonne de distribution.* L’administrateur de cluster doit désigner cette colonne lors de la distribution d’une table.
+Hyperscale utilise le partitionnement algorithmique pour affecter des lignes à des partitions. L’affectation est effectuée de façon déterministe en fonction de la valeur d’une colonne de table appelée *colonne de distribution.* L’administrateur de cluster doit désigner cette colonne lors de la distribution d’une table.
 Il est important pour les performances et les fonctionnalités de faire le bon choix.
 
-### <a name="type-2-reference-tables"></a>Type 2 : tables de référence
+### <a name="type-2-reference-tables"></a>Type 2 : tables de référence
 
-Une table de référence est un type de table distribuée dont le contenu entier est concentré dans une seule partition. La partition est répliquée sur chaque processus de travail, afin que les requêtes sur n’importe quel employé peuvent accéder localement, les informations de référence sans la surcharge du réseau de demander des lignes à partir d’un autre nœud. Tables de référence n’ont aucune colonne de distribution, car il n’est pas nécessaire de distinguer des partitions distinctes par ligne.
+Une table de référence est un type de table distribuée dont l’intégralité du contenu est concentré dans une seule partition. La partition est répliquée sur chaque worker, afin que les requêtes sur n’importe quel worker puissent accéder localement aux informations de référence, sans surcharger le réseau en demandant des lignes d’un autre nœud. Les tables de référence n’ont pas de colonne de distribution, car il n’est pas nécessaire de distinguer des partitions différentes par ligne.
 
-Tables de référence sont généralement petits et servent à stocker des données qui s’appliquent aux requêtes en cours d’exécution sur n’importe quel nœud de travail. Par exemple, énumérées valeurs telles que les statuts de commande ou les catégories de produits.
+Les tables de référence sont généralement petites et servent à stocker des données qui s’appliquent aux requêtes en cours d’exécution sur n’importe quel nœud worker. Par exemple, des valeurs énumérées telles que les états de commande ou les catégories de produits.
 
-### <a name="type-3-local-tables"></a>Type 3 : tables locales
+### <a name="type-3-local-tables"></a>Type 3 : tables locales
 
-Lorsque vous utilisez Hyperscale, le nœud coordinateur à que vous vous connectez est une base de données PostgreSQL normale. Vous pouvez créer des tables ordinaires sur le coordinateur et choisissez de ne pas partition les.
+Lorsque vous utilisez Hyperscale, le nœud coordinateur auquel vous vous connectez est une base de données PostgreSQL normale. Vous pouvez créer des tables ordinaires sur le coordinateur et choisir de ne pas les partitionner.
 
-Un bon candidat pour les tables locales serait petites tables d’administration qui ne font pas partie des requêtes de jointure. Par exemple, une table d’utilisateurs pour l’authentification et de connexion de l’application.
+Les petites tables d’administration qui ne font pas partie de requêtes de jointure font d’excellentes tables locales. Par exemple, une table d’utilisateurs pour l’authentification et la connexion à l’application.
 
 ## <a name="shards"></a>Partitions
 
-La section précédente décrits tables distribués sont stockés en tant que partitions sur les nœuds worker. Cette section Obtient de façon plus précise les détails techniques.
+La section précédente décrivait la façon dont les tables distribuées sont stockées en tant que partitions sur les nœuds worker. Cette section approfondit les détails techniques.
 
-Le `pg_dist_shard` table de métadonnées sur le coordinateur contient une ligne pour chaque partition de chaque table distribuée dans le système. La ligne correspond à un ID de partition avec une plage d’entiers dans un espace de hachage (shardminvalue, shardmaxvalue) :
+La table de métadonnées `pg_dist_shard` sur le coordinateur contient une ligne pour chaque partition de chaque table distribuée dans le système. La ligne correspond à un ID de partition avec une plage d’entiers dans un espace de hachage (shardminvalue, shardmaxvalue) :
 
 ```sql
 SELECT * from pg_dist_shard;
@@ -63,13 +63,13 @@ SELECT * from pg_dist_shard;
  (4 rows)
 ```
 
-Si le nœud coordinateur souhaite déterminer quelle partition conserve une ligne de `github_events`, il hache la valeur de la colonne de distribution dans la ligne et vérifie quelle partition\'plage de s contient la valeur de hachage. (Les plages sont définies afin que l’image de la fonction de hachage est leur union disjointe.)
+Si le nœud coordinateur souhaite déterminer quelle partition héberge une ligne de `github_events`, il hache la valeur de la colonne de distribution dans la ligne et vérifie quelle plage de la partition contient la valeur de hachage. (Les plages sont définies de sorte que l’image de la fonction de hachage soit leur union disjointe.)
 
-### <a name="shard-placements"></a>Placement de partition
+### <a name="shard-placements"></a>Placements de partition
 
-Supposons que cette partition 102027 est associée à la ligne en question. La ligne sera être lues ou écrite dans une table appelée `github_events_102027` dans un des travailleurs. Travail qui ? Qui est déterminé entièrement par les tables de métadonnées, et le mappage de partition et le travail est connu en tant que la partition *placement*.
+Supposons que la partition 102027 est associée à la ligne en question. La ligne sera lue ou écrite dans une table appelée `github_events_102027` dans un des workers. Quel worker ? Cela est déterminé entièrement par les tables de métadonnées, et le mappage de partition avec le worker est connu sous le nom de *placement* de partition.
 
-Le nœud coordinateur réécrit les requêtes en fragments qui font référence à des tables spécifiques telles que `github_events_102027`, et exécute ces fragments sur les workers appropriés. Voici un exemple d’une requête à exécuter en arrière-plan pour rechercher le nœud contenant la partition ID 102027.
+Le nœud coordinateur réécrit les requêtes en fragments qui font référence à des tables spécifiques, telles que `github_events_102027`, et exécute ces fragments sur les workers appropriés. Voici un exemple d’une requête exécutée en arrière-plan pour rechercher le nœud contenant l’ID de partition 102027.
 
 ```sql
 SELECT
@@ -90,4 +90,4 @@ WHERE shardid = 102027;
     └─────────┴───────────┴──────────┘
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Apprenez à [choisir une colonne de distribution](concepts-hyperscale-choose-distribution-column.md) pour les tables distribuées
+- Apprendre à [choisir une colonne de distribution](concepts-hyperscale-choose-distribution-column.md) pour les tables distribuées

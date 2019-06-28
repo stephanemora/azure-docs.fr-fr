@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: pabutler
 ms.openlocfilehash: 0219d7e8a94dd6710c553f2133442867e39f6870
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935541"
 ---
 # <a name="prerequisites-for-application-curation"></a>Conditions préalables pour la collecte de l’application
@@ -36,5 +36,5 @@ Actuellement, les partenaires doivent démontrer que ces exigences sont remplies
 - Modèles (code et tests)
 - Contenu marketing
 
-Pour plus d’informations sur les exigences techniques et de processus, consultez [valider des applications pour Finance and Operations](https://docs.microsoft.com/dynamics365/operations/dev-itpro/lcs-solutions/app-validation-lcs-solutions).  En outre, si vous ne le n'avez pas déjà fait, passez en revue la [Office 365, Dynamics 365, PowerApps et Power BI offrent Guide de publication](../appsource-offer-publishing-guide.md).
+Pour plus d’informations sur les exigences techniques et de processus, consultez [Validate applications for Finance and Operations](https://docs.microsoft.com/dynamics365/operations/dev-itpro/lcs-solutions/app-validation-lcs-solutions) (Valider des applications pour Finance and Operations).  De plus, si vous ne l’avez pas déjà fait, passez en revue le [Guide de publication des offres Office 365, Dynamics 365, PowerApps et Power BI](../appsource-offer-publishing-guide.md).
 

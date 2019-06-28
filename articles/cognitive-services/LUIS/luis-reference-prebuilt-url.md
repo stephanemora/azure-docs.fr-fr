@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
 ms.openlocfilehash: d59020eb45f7dcced5ea8da04b3b908def34fb70
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65072241"
 ---
 # <a name="url-prebuilt-entity-for-a-luis-app"></a>Entité prédéfinie URL pour une application LUIS
@@ -26,7 +26,7 @@ L’entité URL est gérée à partir du dépôt GitHub [Recognizers-text](https
 
 ## <a name="resolution-for-prebuilt-url-entity"></a>Résolution pour une entité prédéfinie URL
 
-### <a name="api-version-2x"></a>Version de l’API 2.x
+### <a name="api-version-2x"></a>API version 2.x
 
 L’exemple suivant montre la résolution de l’entité **builtin.url**.
 
@@ -54,9 +54,9 @@ L’exemple suivant montre la résolution de l’entité **builtin.url**.
 }
 ```
 
-### <a name="preview-api-version-3x"></a>Version d’évaluation API 3.x
+### <a name="preview-api-version-3x"></a>API 3.x en préversion
 
-Le code JSON suivant est avec la `verbose` paramètre défini sur `false`:
+Le code JSON suivant a le paramètre `verbose` défini sur `false` :
 
 ```json
 {
@@ -78,7 +78,7 @@ Le code JSON suivant est avec la `verbose` paramètre défini sur `false`:
 }
 ```
 
-Le code JSON suivant est avec la `verbose` paramètre défini sur `true`:
+Le code JSON suivant a le paramètre `verbose` défini sur `true` :
 
 ```json
 {

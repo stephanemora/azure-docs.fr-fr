@@ -12,10 +12,10 @@ ms.date: 05/08/2019
 ms.author: tulasim
 ms.custom: seodec18
 ms.openlocfilehash: 2c596b49d5587b07fe75cefde72e897478dc3dc8
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65472100"
 ---
 # <a name="test-your-knowledge-base-interactively-in-qna-maker"></a>Tester votre base de connaissances de manière interactive dans QnA Maker
@@ -63,7 +63,7 @@ Vous pouvez ajouter des formes alternatives d’une question à une réponse don
 
 Vous pouvez ajouter une nouvelle réponse si les réponses existantes qui ont été mises en correspondance sont incorrectes ou si la réponse n’existe pas dans la base de connaissances (aucune bonne correspondance trouvée dans la base de connaissances). 
 
-En bas de la liste de réponses, utilisez la zone de texte pour entrer une nouvelle réponse, et appuyez sur ENTRÉE pour l’ajouter. 
+En bas de la liste de réponses, utilisez la zone de texte pour entrer une nouvelle réponse, et appuyez sur Entrée pour l’ajouter. 
 
 Sélectionnez **Enregistrer et former** pour conserver cette réponse. Une nouvelle paire question/réponse a maintenant été ajoutée à votre base de connaissances. 
 
@@ -72,9 +72,9 @@ Sélectionnez **Enregistrer et former** pour conserver cette réponse. Une nouve
 
 ## <a name="test-the-published-knowledge-base"></a>Tester la base de connaissances publiée
 
-Vous pouvez tester la version publiée de la base de connaissances dans le volet de test. Une fois que vous avez publié la base de connaissances, sélectionnez le **Ko publié** zone et d’envoyer une requête pour obtenir des résultats à partir de la base de connaissances publiée.
+Vous pouvez tester la version publiée de la base de connaissances dans le volet de test. Une fois que vous avez publié la base de connaissances, sélectionnez la zone **Base de connaissances publiée** et envoyez une requête pour obtenir des résultats à partir de la base de connaissances publiée.
 
-![Tester par rapport à une base de connaissances publié](../media/qnamaker-how-to-test-kb/test-against-published-kb.png)
+![Tester par rapport à une base de connaissances publiée](../media/qnamaker-how-to-test-kb/test-against-published-kb.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

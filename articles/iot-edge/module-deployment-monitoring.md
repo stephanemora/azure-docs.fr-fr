@@ -10,10 +10,10 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: 376ee74732daf526b31129fa8c93cbaa32350eae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60318204"
 ---
 # <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>Comprendre les déploiements automatiques IoT Edge pour un seul ou de nombreux appareils
@@ -62,7 +62,7 @@ Si l’image du module est stockée dans un registre de conteneurs privé, l’a
 
 ### <a name="target-condition"></a>Condition cible
 
-La condition cible est évaluée en permanence tout au long de la durée de vie du déploiement. Les nouveaux appareils qui répondent aux exigences sont inclus ; tous les appareils existants qui n’y satisfont plus sont supprimés. Le déploiement est réactivé si le service détecte une modification de la condition cible. 
+La condition cible est évaluée en permanence sur toute la durée de vie du déploiement. Les nouveaux appareils qui répondent aux exigences sont inclus ; tous les appareils existants qui n’y satisfont plus sont supprimés. Le déploiement est réactivé si le service détecte une modification de la condition cible. 
 
 Prenons l’exemple d’un déploiement A comportant la condition cible tags.environment = 'prod'. Au lancement du déploiement, il y a 10 appareils de production. Les modules sont correctement installés sur ces 10 appareils. L’état de l’Agent IoT Edge affiche 10 appareils au total, 10 réponses correctes, 0 échecs de réponse et 0 réponses en attente. On ajoute maintenant cinq appareils avec tags.environment = 'prod'. Le service détecte la modification, et l’état de l’Agent IoT Edge devient : 15 appareils au total, 10 réponses correctes, 0 échecs de réponses et 5 réponses en attente quand il tente de déployer les cinq nouveaux appareils.
 

@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: 1c1198733fb56303d328ee97152442d25dbe945a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60343475"
 ---
 # <a name="git-repositories-with-samples-for-azure-event-hubs"></a>Référentiels Git avec des exemples pour Azure Event Hubs 
@@ -50,7 +50,7 @@ Vous trouverez des exemples Event Hubs sur [GitHub](https://github.com/Azure/azu
 Vous trouverez des exemples Python pour Azure Event Hubs dans le dépôt GitHub [azure-event-hubs-python](https://github.com/Azure/azure-event-hubs-python/tree/master/examples).
 
 ## <a name="nodejs-samples"></a>Exemples relatifs à Node.js
-Vous pouvez trouver des exemples de Node.js pour Azure Event Hubs dans le [azure sdk pour js](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs/samples) référentiel GitHub.
+Vous trouverez des exemples Node.js pour Azure Event Hubs dans le dépôt GitHub [azure-sdk-for-js](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs/samples).
 
 ## <a name="go-samples"></a>Exemples Go
 Vous trouverez des exemples Go pour Azure Event Hubs dans le dépôt GitHub [azure-event-hubs-go](https://github.com/Azure/azure-event-hubs-go/tree/master/_examples).

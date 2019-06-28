@@ -1,6 +1,6 @@
 ---
-title: Analyser les données de série chronologique à l’aide de l’Explorateur de données Azure
-description: Découvrez comment analyser les données de série chronologique dans le cloud à l’aide de l’Explorateur de données Azure.
+title: Analyser les données de série chronologique avec Azure Data Explorer
+description: Découvrez comment analyser des données de série chronologique dans le cloud avec Azure Data Explorer.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/07/2019
 ms.openlocfilehash: 7415e13a445a73af197362c6cfbd3a865a2fea02
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65604054"
 ---
 # <a name="time-series-analysis-in-azure-data-explorer"></a>Analyse des séries chronologiques dans Azure Data Explorer
@@ -34,7 +34,7 @@ La table ainsi obtenue contient une colonne de type timestamp, trois colonnes de
 
 |   |   |   |   |   |
 | --- | --- | --- | --- | --- |
-|   | Horodateur | BrowserVer | OsVer | Pays ou région |
+|   | TimeStamp | BrowserVer | OsVer | Pays/région |
 |   | 2016-08-25 09:12:35.4020000 | Chrome 51.0 | Windows 7 | Royaume-Uni |
 |   | 2016-08-25 09:12:41.1120000 | Chrome 52.0 | Windows 10 |   |
 |   | 2016-08-25 09:12:46.2300000 | Chrome 52.0 | Windows 7 | Royaume-Uni |
@@ -42,7 +42,7 @@ La table ainsi obtenue contient une colonne de type timestamp, trois colonnes de
 |   | 2016-08-25 09:12:46.5570000 | Chrome 52.0 | Windows 10 | République de Lituanie |
 |   | 2016-08-25 09:12:47.0470000 | Chrome 52.0 | Windows 8.1 | Inde |
 |   | 2016-08-25 09:12:51.3600000 | Chrome 52.0 | Windows 10 | Royaume-Uni |
-|   | 2016-08-25 09:12:51.6930000 | Chrome 52.0 | Windows 7 | Pays-Bas |
+|   | 2016-08-25 09:12:51.6930000 | Chrome 52.0 | Windows 7 | Pays-bas |
 |   | 2016-08-25 09:12:56.4240000 | Chrome 52.0 | Windows 10 | Royaume-Uni |
 |   | 2016-08-25 09:13:08.7230000 | Chrome 52.0 | Windows 10 | Inde |
 
@@ -180,7 +180,7 @@ demo_many_series1
 
 |   |   |   |   |   |   |
 | --- | --- | --- | --- | --- | --- |
-|   | TIMESTAMP | Loc | anonOp | BdD | DataRead |
+|   | TIMESTAMP | Loc | anonOp | DB | DataRead |
 |   | 2016-09-11 21:00:00.0000000 | Loc 9 | 5117853934049630089 | 262 | 0 |
 |   | 2016-09-11 21:00:00.0000000 | Loc 9 | 5117853934049630089 | 241 | 0 |
 |   | 2016-09-11 21:00:00.0000000 | Loc 9 | -865998331941149874 | 262 | 279862 |
@@ -253,7 +253,7 @@ demo_many_series1
 
 |   |   |   |   |   |
 | --- | --- | --- | --- | --- |
-|   | Loc | Op | BdD | slope |
+|   | Loc | Op | DB | slope |
 |   | Loc 15 | 37 | 1151 | -102743.910227889 |
 |   | Loc 13 | 37 | 1249 | -86303.2334644601 |
 
@@ -263,5 +263,5 @@ Ces fonctionnalités avancées combinées avec la rapidité des performances d�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* En savoir plus sur [temps de détection des anomalies de série et les prévisions](/azure/data-explorer/anomaly-detection) dans l’Explorateur de données Azure.
-* En savoir plus sur [d’apprentissage fonctionnalités](/azure/data-explorer/machine-learning-clustering) dans l’Explorateur de données Azure.
+* En savoir plus sur la [Détection d’anomalies et la prévision pour la série chronologique](/azure/data-explorer/anomaly-detection) dans Azure Data Explorer.
+* Découvrez les [fonctionnalités d’apprentissage automatique](/azure/data-explorer/machine-learning-clustering) dans Azure Data Explorer.

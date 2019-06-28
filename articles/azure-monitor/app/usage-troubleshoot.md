@@ -14,10 +14,10 @@ ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
 ms.openlocfilehash: eabc47c2acb33d8c6ee03477b5e8c7783edebbb7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60371850"
 ---
 # <a name="troubleshoot-user-behavior-analytics-tools-in-application-insights"></a>Résoudre les problèmes des outils d’analytique du comportement des utilisateurs dans Application Insights
@@ -39,7 +39,7 @@ Les outils d’analytique du comportement des utilisateurs ne prennent actuellem
 ## <a name="naming-events"></a>Nommage d’événements
 **Mon application a des milliers de noms d’affichages de page et d’événements personnalisés différents. Il est difficile de les distinguer, et les outils d’analytique du comportement des utilisateurs finissent souvent par ne plus donner de réponse. Comment puis-je résoudre ces problèmes de nommage ?**
 
-Les noms des affichages de page et des événements personnalisés sont utilisés par les outils d’analytique du comportement des utilisateurs. C’est pourquoi il est crucial de nommer correctement les événements pour obtenir des valeurs exploitables de ces outils. L’objectif est d’un équilibre entre avoir trop peu noms très génériques (« bouton ») et avoir trop de noms très spécifiques ("clic sur le bouton Modifier sur http :\//www.contoso.com/index »).
+Les noms des affichages de page et des événements personnalisés sont utilisés par les outils d’analytique du comportement des utilisateurs. C’est pourquoi il est crucial de nommer correctement les événements pour obtenir des valeurs exploitables de ces outils. L’objectif est de rechercher un juste milieu entre utiliser trop peu de noms très génériques (« bouton sur lequel un clic a été effectué ») et utiliser trop de noms très spécifiques (« bouton d’édition sur lequel un clic a été effectué sur http:\//www.contoso.com/index").
 
 Pour modifier les noms d’affichages de page ou d’événements personnalisés envoyés par votre application, vous devez modifier le code source de l’application, puis redéployer cette dernière. **Toutes les données de télémétrie dans Application Insights sont stockées pendant 90 jours, et elles ne peuvent pas être supprimées**. Par conséquent, le renommage d’événements ne prendra entièrement effet qu’après 90 jours. Durant les 90 jours suivant le renommage, les anciens et les nouveaux noms d’événements apparaîtront dans vos données de télémétrie. Veillez donc à gérer correctement les requêtes et à en informer vos équipes en conséquence.
 

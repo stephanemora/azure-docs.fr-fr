@@ -1,6 +1,6 @@
 ---
-title: Visite du portail partenaire Cloud Azure | Place de marché Azure
-description: Vue d’ensemble de l’expérience utilisateur du portail Cloud Partner pour Azure Marketplace.
+title: Visite guidée du portail Microsoft Cloud Partner | Place de marché Azure
+description: Vue d'ensemble de l’expérience utilisateur du portail Cloud Partner pour la Place de marché Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: pabutler
 ms.openlocfilehash: b0bf7af9b81025202c2fffa2a264982c9986e10b
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64943400"
 ---
 # <a name="cloud-partner-portal-tour"></a>Visite guidée du portail Microsoft Cloud Partner
@@ -19,7 +19,7 @@ ms.locfileid: "64943400"
 Cet article est une introduction au [portail Microsoft Cloud Partner](https://cloudpartner.azure.com) : il présente son contenu, ses mécanismes de navigation et ses fonctionnalités.   À partir de ce portail, les partenaires inscrits peuvent créer des offres et gérer les offres existantes pour la [Place de marché Azure](https://azuremarketplace.microsoft.com) et la [Place de marché AppSource](https://azuremarketplace.microsoft.com).  Le portail Microsoft Cloud Partner est uniquement accessible aux partenaires inscrits. Pour plus d’informations, consultez [Devenir un éditeur sur la Place de marché dans le cloud](https://docs.microsoft.com/azure/marketplace/become-publisher).
 
 [![Portail Cloud Partner affichant la page Profil](./media/portal-window_001a.png)](./media/portal-window_001b.png#lightbox)
-<br/>   (*Cliquez sur l’image pour l’agrandir.*)
+<br/>   (*Cliquez sur l’image pour l’agrandir.* )
 
 
 ## <a name="section-contents"></a>Contenu de la section

@@ -1,5 +1,5 @@
 ---
-title: Se connecter à Dynamics 365 - Azure Logic Apps
+title: Se connecter à Dynamics 365 – Azure Logic Apps
 description: Créer et gérer des enregistrements avec les API REST de base de Dynamics 365 (en ligne) et Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 08/18/2018
 tags: connectors
 ms.openlocfilehash: b81efba0ce860bea5fd68dd99ce52980e6816b7e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60313641"
 ---
 # <a name="manage-dynamics-365-records-with-azure-logic-apps"></a>Gérer les enregistrements Dynamics 365 avec Azure Logic Apps
@@ -24,7 +24,7 @@ Avec Azure Logic Apps et le connecteur Dynamics 365, vous pouvez créer des flu
 Cet article vous explique comment générer une application logique qui crée une tâche dans Dynamics 365 quand un enregistrement de prospect est créé dans Dynamics 365.
 Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>.
 
@@ -42,7 +42,7 @@ Tout d’abord, ajoutez un déclencheur Dynamics 365 qui se déclenche quand un
 
 1. Dans le [portail Azure](https://portal.azure.com), ouvrez votre application logique vide dans le concepteur d’application logique, si elle n’est pas déjà ouverte.
 
-1. Dans la zone de recherche, entrez le filtre « Dynamics 365 ». Pour cet exemple, sous la liste des déclencheurs, sélectionnez ce déclencheur : **Lorsqu’un enregistrement est créé**
+1. Dans la zone de recherche, entrez le filtre « Dynamics 365 ». Pour cet exemple, dans la liste des déclencheurs, sélectionnez ce déclencheur : **Lorsqu’un enregistrement est créé**
 
    ![Sélectionner le déclencheur](./media/connectors-create-api-crmonline/select-dynamics-365-trigger.png)
 
@@ -52,10 +52,10 @@ Tout d’abord, ajoutez un déclencheur Dynamics 365 qui se déclenche quand un
 
    | Propriété | Obligatoire | Description |
    |----------|----------|-------------|
-   | **Nom de l’organisation** | Oui | Nom de l’instance de Dynamics 365 de votre organisation à superviser, par exemple, « Contoso » |
-   | **Nom de l’entité** | Oui | Nom de l’entité à superviser, par exemple, « Leads » (Prospects) | 
-   | **Fréquence** | Oui | Unité de temps, avec intervalles, à utiliser pour vérifier l’existence de mises à jour pour le déclencheur |
-   | **Intervalle** | Oui | Nombre de secondes, de minutes, d’heures, de jours, de semaines ou de mois qui doivent s’écouler avant la recherche suivante |
+   | **Nom de l’organisation** | OUI | Nom de l’instance de Dynamics 365 de votre organisation à superviser, par exemple, « Contoso » |
+   | **Nom de l’entité** | OUI | Nom de l’entité à superviser, par exemple, « Leads » (Prospects) | 
+   | **Fréquence** | OUI | Unité de temps, avec intervalles, à utiliser pour vérifier l’existence de mises à jour pour le déclencheur |
+   | **Intervalle** | OUI | Nombre de secondes, de minutes, d’heures, de jours, de semaines ou de mois qui doivent s’écouler avant la recherche suivante |
    ||| 
 
    ![Détails du déclencheur](./media/connectors-create-api-crmonline/trigger-details.png)
@@ -74,13 +74,13 @@ Ajoutez maintenant l’action Dynamics 365 qui crée un enregistrement de tâch
 
    | Propriété | Obligatoire | Description |
    |----------|----------|-------------|
-   | **Nom de l’organisation** | Oui | Instance de Dynamics 365 où vous souhaitez créer l’enregistrement ; bien que cette instance puisse différer de l’instance de votre déclencheur, elle porte le nom « Contoso » dans cet exemple. |
-   | **Nom de l’entité** | Oui | Entité où vous souhaitez créer l’enregistrement, par exemple, « Tasks » (Tâches) |
+   | **Nom de l’organisation** | OUI | Instance de Dynamics 365 où vous souhaitez créer l’enregistrement ; bien que cette instance puisse différer de l’instance de votre déclencheur, elle porte le nom « Contoso » dans cet exemple. |
+   | **Nom de l’entité** | OUI | Entité où vous souhaitez créer l’enregistrement, par exemple, « Tasks » (Tâches) |
    | | |
 
    ![Détails de l’action](./media/connectors-create-api-crmonline/action-details.png)
 
-1. Quand la zone **Objet** s’affiche dans votre action, cliquez dans cette zone afin qu’apparaisse la liste des contenus dynamiques.**** Dans cette liste, sélectionnez les valeurs de champ à inclure dans l’enregistrement de tâche associé à l’enregistrement du nouveau prospect :
+1. Quand la zone **Objet** s’affiche dans votre action, cliquez dans cette zone afin qu’apparaisse la liste des contenus dynamiques. Dans cette liste, sélectionnez les valeurs de champ à inclure dans l’enregistrement de tâche associé à l’enregistrement du nouveau prospect :
 
    | Champ | Description |
    |-------|-------------|
@@ -122,9 +122,9 @@ Ce tableau décrit certains des types de champs et les types de données requis 
 
 | Type de champ | Type de données requis | Description | 
 |------------|--------------------|-------------|
-| Champs de texte | Ligne de texte unique | Ces champs de texte nécessitent une seule ligne de texte ou du contenu dynamique qui a le type texte. <p><p>*Champs de l’exemple*: **Description** et **catégorie** | 
-| Champs de type entier | Nombre entier | Certains champs nécessitent un entier ou un contenu dynamique qui a le type entier. <p><p>*Champs de l’exemple*: **Pourcentage d’achèvement** et **durée** | 
-| Champs de date | Date et heure | Certains champs nécessitent une date au format mm/jj/aaaa ou un contenu dynamique qui a le type date. <p><p>*Champs de l’exemple*: **Créé sur**, **Date de début**, **début réel**, **fin réelle**, et **Date d’échéance** | 
+| Champs de texte | Ligne de texte unique | Ces champs de texte nécessitent une seule ligne de texte ou du contenu dynamique qui a le type texte. <p><p>*Champs de l’exemple* : **Description** et **Catégorie** | 
+| Champs de type entier | Nombre entier | Certains champs nécessitent un entier ou un contenu dynamique qui a le type entier. <p><p>*Exemples de champs* : **Pourcentage d’achèvement** et **Durée** | 
+| Champs de date | Date et heure | Certains champs nécessitent une date au format mm/jj/aaaa ou un contenu dynamique qui a le type date. <p><p>*Exemples de champs* : **Créé le**, **Date de début**, **Début réel**, **Fin réelle** et **Date d’échéance** | 
 | Champs nécessitant à la fois un ID d’enregistrement et un type de recherche | Clé primaire | Certains champs qui font référence à un autre enregistrement d’entité nécessitent un ID d’enregistrement et un type de recherche. | 
 ||||
 
@@ -187,7 +187,7 @@ Pour plus d’informations sur la résolution des problèmes relatifs aux applic
 
 ## <a name="connector-reference"></a>Référence de connecteur
 
-Pour plus d’informations techniques, telles que des déclencheurs, actions et limites, comme décrit par OpenAPI du connecteur (anciennement Swagger), consultez le [page de référence du connecteur](/connectors/dynamicscrmonline/).
+Pour plus d'informations techniques, notamment sur les déclencheurs, les actions et les limites, comme décrit dans le fichier OpenAPI (anciennement Swagger) du connecteur, consultez la [page de référence du connecteur](/connectors/dynamicscrmonline/).
 
 ## <a name="get-support"></a>Obtenir de l’aide
 

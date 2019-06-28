@@ -1,5 +1,5 @@
 ---
-title: Effacer le cache de jeton à l’aide de la bibliothèque d’authentification Microsoft pour .NET - Azure
+title: Effacer le cache de jeton à l’aide de la bibliothèque d’authentification Microsoft pour .NET – Azure
 description: Découvrez comment effacer le cache de jeton à l’aide de la bibliothèque d’authentification Microsoft pour .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
@@ -18,17 +18,17 @@ ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c6763c6b2b1f9b4de7d8669a50a4979a7aac00c7
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65544120"
 ---
 # <a name="clear-the-token-cache-using-msalnet"></a>Effacer le cache de jeton à l’aide de MSAL.NET
 
-Lorsque vous [acquérir un jeton d’accès](msal-acquire-cache-tokens.md) à l’aide de Microsoft Authentication Library pour .NET (MSAL.NET), le jeton est mis en cache. Lorsque l’application a besoin d’un jeton, elle doit tout d’abord appeler la `AcquireTokenSilent` méthode pour vérifier si un jeton acceptable est dans le cache. 
+Lorsque vous [acquérez un jeton d’accès](msal-acquire-cache-tokens.md) à l’aide de la bibliothèque d’authentification Microsoft pour .NET (MSAL.NET), le jeton est mis en cache. Lorsque l’application a besoin d’un jeton, elle doit tout d’abord appeler la méthode `AcquireTokenSilent` pour vérifier si un jeton acceptable est dans le cache. 
 
-Effacement du cache est obtenue en supprimant les comptes à partir du cache. Le cookie de session qui se trouve dans le navigateur n’est quant à lui pas supprimé.  L’exemple suivant instancie une application cliente publique Obtient les comptes pour l’application et supprime les comptes.
+L’effacement du cache est effectué en supprimant les comptes du cache. Le cookie de session qui se trouve dans le navigateur n’est quant à lui pas supprimé.  L’exemple suivant instancie une application cliente publique, obtient les comptes de l’application et supprime les comptes.
 
 ```csharp
 private readonly IPublicClientApplication _app;
@@ -50,4 +50,4 @@ while (accounts.Any())
 
 ```
 
-Pour en savoir plus sur l’acquisition et la mise en cache des jetons, consultez [acquérir un jeton d’accès](msal-acquire-cache-tokens.md).
+Pour en savoir plus sur l’acquisition et la mise en cache des jetons, consultez [Acquérir un jeton d’accès](msal-acquire-cache-tokens.md).

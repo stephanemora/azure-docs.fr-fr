@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 4b75b2cbd629204e7edbf1196eec9b03cb7a6736
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64943157"
 ---
 <a name="web-analytics"></a>Web Analytics
@@ -43,7 +43,7 @@ Il y a deux façons de générer votre propre campagne.
 
 Par exemple, vous pouvez utiliser : <https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign>
 
-1. (Avancé) : Utilisez une de notre ID de campagne pris en charge, générique dans l’URL. Nous voulons nous accommoder de balises ref supplémentaires que vous devez utiliser, c’est pourquoi nous soutenons la convention de reconnaissance automatique de ces balises supplémentaires :
+1. (Avancé) : utilisez l’un de nos identifiants de campagne génériques pris en charge dans l’URL. Nous voulons nous accommoder de balises ref supplémentaires que vous devez utiliser, c’est pourquoi nous soutenons la convention de reconnaissance automatique de ces balises supplémentaires :
     
     1. **utm\_campaign**
     2. **utm\_source**
@@ -54,7 +54,7 @@ Par exemple, vous pouvez utiliser : <https://appsource.microsoft.com/product/dy
 
 Vous pouvez choisir d’avoir une combinaison de plusieurs de ces identifiants de campagne afin d’identifier plusieurs sources de trafic pour la campagne, telles que l’origine du client (e-mail, blog, source de réseaux sociaux, etc.).
 
-Par exemple : 
+Par exemple :
 
 1. Référenceur de newsletter :  <https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign&src=newsletter>
 2. Référenceur LinkedIn :  <https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign&src=LinkedIn>
@@ -63,7 +63,7 @@ Par exemple :
 
 Il peut y exister un scénario où vos campagnes possèdent une page intermédiaire vers laquelle vous dirigez le trafic et qui procède ensuite à la redirection des clients sur la place de marché. Il est important de passer par vos identifiants de campagne initiaux dans l’URL finale que vous envoyez à la place de marché.
 
-Voici un exemple : 
+Voici un exemple :
 
 1. Un employé du marketing achète des publicités à Google afin d’orienter le trafic vers la page d\'accueil de la société <https://contoso.com>. Cette page d’accueil possède un lien \"essayer mon produit\" qui pointe vers <https://appsource.com>.
 2. Un utilisateur clique sur la publicité et accède à la page d\'accueil de sa société.
@@ -71,7 +71,7 @@ Voici un exemple :
     2.  URL de la page d’accueil = <https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName>
 3. L’utilisateur clique sur le lien \"essayer mon produit\" et accède à AppSource.
     1. URL de référence =  <https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName>
-    2. URL de la Page d’accueil (**vérifiez que l’URL comporte utm\_campaign et utm\_source**, dans le format suivant) = [ https://appsource.microsoft.com/en-us/product/dynamics-365/contoso.offername? **utm\_campaign=MyCampaignAdName&utm\_source=MySourceAdName**](https://appsource.microsoft.com/en-us/product/dynamics-365/contoso.offername?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName)
+    2. URL de la Page d’accueil (**vérifiez que l’URL comporte utm\_campaign et utm\_source**, dans le format suivant) = [ https://appsource.microsoft.com/en-us/product/dynamics-365/contoso.offername? **utm\_ campaign=MyCampaignAdName&utm\_ source=MySourceAdName**](https://appsource.microsoft.com/en-us/product/dynamics-365/contoso.offername?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName)
 
 <a name="how-to-evaluate-the-success-of-a-campaign"></a>Comment évaluer la réussite d’une campagne
 -----------------------------------------

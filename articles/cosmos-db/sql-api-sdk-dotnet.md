@@ -9,10 +9,10 @@ ms.topic: reference
 ms.date: 03/09/2018
 ms.author: sngun
 ms.openlocfilehash: 3c420882b734883039ec95d609c155617359fa25
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65510717"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Kit de développement logiciel .NET Azure Cosmos DB pour l’API SQL : Téléchargement et notes de publication
@@ -50,21 +50,21 @@ ms.locfileid: "65510717"
 
 ### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
 
-* Version de System.Net.Http du Kit de développement correspond à celui défini dans le package NuGet
+* La version System.Net.Http du Kit de développement logiciel (SDK) correspond à celle définie dans le package NuGet.
 * Augmentation de taille de précision décimale pour les requêtes LINQ.
 * Ajout de nouvelles classes CompositePath, CompositePathSortOrder, SpatialSpec, SpatialType et PartitionKeyDefinitionVersion
-* TimeToLivePropertyPath ajouté à la collection DocumentCollection
+* Ajout de TimeToLivePropertyPath à DocumentCollection
 * Ajout de CompositeIndexes et SpatialIndexes à IndexPolicy
-* Version ajoutée à PartitionKeyDefinition
-* None pour PartitionKey ajoutée
+* Ajout de Version à PartitionKeyDefinition
+* Ajout de None à PartitionKey
 
 ### <a name="a-name230230"></a><a name="2.3.0"/>2.3.0
 
- * Ajouté IdleTcpConnectionTimeout, OpenTcpConnectionTimeout, MaxRequestsPerTcpConnection et MaxTcpConnectionsPerEndpoint à ConnectionPolicy.
+ * Ajout de IdleTcpConnectionTimeout, OpenTcpConnectionTimeout, MaxRequestsPerTcpConnection et MaxTcpConnectionsPerEndpoint à ConnectionPolicy.
 
 ### <a name="a-name223223"></a><a name="2.2.3"/>2.2.3
 
-* Améliorations des Diagnostics
+* Amélioration des diagnostics
 
 ### <a name="a-name222222"></a><a name="2.2.2"/>2.2.2
 
@@ -373,11 +373,11 @@ Toute requête envoyée à Azure Cosmos DB à l’aide d’un Kit de développem
 
 <br/>
 
-| Version | Date de mise en production | Date de suppression |
+| Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
-| [2.4.0](#2.4.0) |05 mai 2019 |--- |
-| [2.3.0](#2.3.0) |04 avril 2019 |--- |
-| [2.2.3](#2.2.3) |11 février 2019 |--- |
+| [2.4.0](#2.4.0) |5 mai 2019 |--- |
+| [2.3.0](#2.3.0) |4 avril 2019 |--- |
+| [2.2.3](#2.2.3) |11 février 2019 |--- |
 | [2.2.2](#2.2.2) |06 février 2019 |--- |
 | [2.2.1](#2.2.1) |24 décembre 2018 |--- |
 | [2.2.0](#2.2.0) |7 décembre 2018 |--- |

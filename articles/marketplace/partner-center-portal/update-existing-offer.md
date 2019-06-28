@@ -1,6 +1,6 @@
 ---
-title: Mise à jour une offre de la place de marché commerciale existante
-description: Comment mettre à jour une offre de la place de marché Commercial existante, y compris la modification, suppression d’un brouillon, l’annulation d’une demande de publication, arrêter la vente d’une offre ou un plan et la synchronisation des audiences privés.
+title: Mettre à jour une offre de Place de marché commerciale existante
+description: Comment mettre à jour une offre de Place de marché commerciale existante, notamment la modification, la suppression d’un brouillon, l’annulation d’une demande de publication, l’arrêt de la vente d’une offre ou d’un plan et la synchronisation des audiences privées.
 author: mattwojo
 manager: evansma
 ms.author: mattwoj
@@ -8,96 +8,96 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.openlocfilehash: 22490599b6f7a8d87c546cd84ca2fc6fbb2bfa3c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65806160"
 ---
-# <a name="update-an-existing-offer-in-the-commercial-marketplace"></a>Mise à jour une offre existante dans la place de marché Commercial
+# <a name="update-an-existing-offer-in-the-commercial-marketplace"></a>Mettre à jour une offre existante dans la Place de marché commerciale existante
 
-Vous pouvez afficher vos offres existantes sur le **offre** onglet de la [portail place de marché Commercial](https://partner.microsoft.com/dashboard/commercial-marketplace/offers) dans Partner Center.
+Vous pouvez afficher vos offres existantes dans l’onglet **Offres** du [portail de la Place de marché Commercial](https://partner.microsoft.com/dashboard/commercial-marketplace/offers) dans l’Espace partenaires.
 
-Pour mettre à jour une offre existante qui est actuellement disponible dans la place de marché : 
+Pour mettre à jour une offre existante actuellement activée dans la Place de marché : 
 
-1. Sélectionnez le nom de l’offre que vous souhaitez mettre à jour. L’état de l’offre peut être répertorié en tant que **Live**, **publication en cours d’exécution**, **Draft**, **Attention nécessitée**, ou **ne pas en cours vendu dans la place de marché** (si vous avez précédemment choisi d’arrêter l’offre de vente). Une fois sélectionné, le **offrent la vue d’ensemble** page de cette offre s’ouvre.
-2. Sélectionnez **mettre à jour** à partir de la carte de vue d’ensemble, ou l’élément de menu à partir de la navigation de gauche de la zone que vous souhaitez mettre à jour. Vous pouvez mettre à jour le **offrent le programme d’installation**, **propriétés**, **offrent annonce**, **aperçu**, **configuration technique** , **Présentation du plan**, ou **testez**. 
-3. Apportez vos modifications, puis sélectionnez **enregistrer**. Répétez ce processus jusqu'à ce que toutes vos modifications sont terminées.
+1. Sélectionnez le nom de l’offre à mettre à jour. L’état de l’offre peut être répertorié comme suit : **Activé**, **Publication en cours d’exécution**, **Brouillon**, **Attention requise** ou **Pas vendu dans la Place de marché** (si vous avez précédemment choisi d’arrêter de vendre l’offre). Une fois sélectionnée, la page **Vue d’ensemble de l’offre** de cette offre s’ouvre.
+2. Sélectionnez **Mettre à jour** pour la zone que vous souhaitez mettre à jour dans la carte de vue d’ensemble ou dans l’élément de menu dans le volet de navigation gauche. Vous souhaitez peut-être mettre à jour la **Configuration de l’offre**, **Propriétés**, **Liste de l’offre**, **Préversion**, **Configuration technique**, **Vue d’ensemble du plan** ou **Test drive**. 
+3. Apportez vos modifications, puis sélectionnez **Enregistrer**. Répétez ce processus jusqu'à ce que toutes vos modifications soient terminées.
 
-## <a name="review-and-publish-an-updated-offer"></a>Passez en revue et publier une offre de mise à jour
+## <a name="review-and-publish-an-updated-offer"></a>Passer en revue et publier une offre mise à jour
 
-Lorsque vous êtes prêt à publier votre offre de mise à jour, sélectionnez **publier** à partir de n’importe quelle page. Le **révision et publier** page s’ouvre. Dans cette page, vous pouvez :
+Lorsque vous êtes prêt à publier votre offre mise à jour, sélectionnez **Publier** à partir de n’importe quelle page. La page **Passer en revue et publier** s’ouvre. Dans cette page, vous pouvez :
 
 
-- Consultez l’état d’achèvement des sections de l’offre que vous mis à jour : 
-    - **Modifications non publiées**: La section a été mis à jour et est terminée. Toutes les données requises a été fourni et aucune erreur n’est introduite dans les mises à jour.
-    - **Caractère incomplet** : Les mises à jour apportées à la section introduit les erreurs qui doivent être corrigées ou nécessite plus d’informations doit être fourni.
-- Fournir des informations supplémentaires à l’équipe de test de certification pour vous assurer que test s’effectue sans heurts.
-- Soumettre l’offre de mise à jour pour la publication en sélectionnant **envoyer**.  Nous vous enverrons un courriel lorsqu’une version préliminaire de l’offre de mise à jour est disponible pour examiner et déconnexion.
+- Consulter l’état d’achèvement des sections de l’offre que vous avez mise à jour : 
+    - **Modifications non publiées** : la section a été mise à jour et est complète. Toutes les données requises ont été fournies et aucune erreur ne s’est glissée dans les mises à jour.
+    - **Caractère incomplet** : les mises à jour de la section ont entraîné des erreurs qui doivent être corrigées, ou qui nécessitent plus d’informations.
+- Fournissez des informations supplémentaires à l’équipe de test de certification pour garantir un bon déroulement des tests.
+- Envoyez l’offre mise à jour pour publication en sélectionnant **Envoyer**.  Nous vous enverrons un courriel lorsqu’une préversion de l’offre mise à jour sera disponible pour examen et approbation.
 
-**IMPORTANT** : Vous devez passer en revue la version d’évaluation offre, une fois qu’il est disponible, sélectionnez **Go-live** pour publier votre offre de mise à jour à votre public ciblé (public ou privé).
+**IMPORTANT** : Vous devez examiner votre préversion de l’offre une fois qu’elle est disponible et sélectionnez **Publier** pour publier votre offre mise à jour à l’attention de votre audience ciblée (publique ou privée).
 
 ## <a name="update-a-plan-within-an-existing-offer"></a>Mettre à jour un plan au sein d’une offre existante
 
-Pour apporter des modifications à un plan au sein d’une offre existante que vous avez déjà publié :
+Pour apporter des modifications à un plan au sein d’une offre existante que vous avez déjà publiée :
 
-- Avec le **offrent la vue d’ensemble** page ouvert pour votre offre existante, choisissez le plan que vous souhaitez modifier. Si le plan n’est pas accessible depuis le **vue d’ensemble du Plan** liste, sélectionnez **voir tous les plans**.
-- Vous pouvez choisir de sélectionner le plan **nom**, **modèle de tarification**, ou **disponibilité**. *Actuellement plans sont uniquement disponibles en anglais (États-Unis)*.
-- Sélectionnez **enregistrer** après avoir apporté les modifications nécessaires pour le nom du plan, la description, la tarification ou disponibilité de l’audience. 
-- Sélectionnez **publier** une fois que vous êtes prêt à publier vos mises à jour. Le **[révision et publier](#review-and-publish-an-updated-offer)** page s’ouvre et fournir un état d’achèvement pour vos mises à jour. 
+- Avec la page **Vue d’ensemble de l’offre** ouverte pour votre offre existante, choisissez le plan que vous souhaitez modifier. Si le plan n’est pas accessible à partir de la liste **Vue d’ensemble du plan**, sélectionnez **Voir tous les plans**.
+- Vous pouvez choisir de sélectionner le plan **Nom**, **Modèle de tarification** ou **Disponibilité**. *Actuellement, les plans sont disponibles uniquement en anglais (États-Unis)* .
+- Sélectionnez **Enregistrer** après avoir apporté les modifications nécessaires au nom du plan, à la description, à la tarification ou à la disponibilité pour l’audience. 
+- Sélectionnez **Publier** une fois que vous êtes prêt à publier vos mises à jour. La page **[Examiner et publier](#review-and-publish-an-updated-offer)** s’ouvre et fournit un état d’achèvement pour vos mises à jour. 
 
-## <a name="delete-a-draft-offer"></a>Supprimer une offre de brouillon
+## <a name="delete-a-draft-offer"></a>Supprimer un brouillon d’offre
 
-Vous pouvez supprimer une offre de brouillon (celui qui n’a pas été publié) en sélectionnant **supprimer le brouillon** à partir de la **offrent la vue d’ensemble** page. Cette option sera disponible pour vous si vous avez précédemment publié l’offre.
+Vous pouvez supprimer un brouillon d’offre (qui n’a pas été publié) en sélectionnant **Supprimer le brouillon** à partir de la page **Vue d’ensemble de l’offre**. Cette option ne sera pas disponible pour vous si vous avez publié l’offre précédemment.
 
-Après avoir confirmé que vous souhaitez supprimer l’offre de brouillon, l’offre ne sera plus visible ou accessible dans le centre partenaires et la **toutes les offres** page s’ouvre.
+Après avoir confirmé que vous souhaitez supprimer le brouillon d’offre, cette dernière ne sera plus ni visible ni accessible dans l’Espace partenaires et la page **Toutes les offres** s’ouvrira.
 
 ## <a name="delete-a-draft-plan"></a>Supprimer un plan de projet
 
-Pour supprimer un plan qui n’a pas été publié, sélectionnez **supprimer le brouillon** à partir de la **vue d’ensemble du Plan** page. Cette option ne sera pas disponible pour vous si vous avez précédemment publié l’offre.
+Pour supprimer un plan qui n’a pas été publié, sélectionnez **Supprimer le brouillon** à partir de la page **Vue d’ensemble du plan**. Cette option ne sera pas disponible pour vous si vous avez publié l’offre précédemment.
 
-Après avoir confirmé que vous souhaitez supprimer le plan de projet, le plan ne sera plus visible ou accessible dans partenaires.
+Après avoir confirmé que vous souhaitez supprimer le brouillon de plan, ce dernier ne sera plus ni visible ni accessible dans l’Espace partenaires.
 
 ## <a name="cancel-publishing"></a>Annuler la publication
 
-Pour annuler une offre avec la **publication en cours d’exécution** état :
+Pour annuler une offre avec l’état **Publication en cours d’exécution** :
 
-- Sélectionnez le nom de l’offre pour ouvrir le **offrent la vue d’ensemble** page. 
-- Sélectionnez **annuler la publication** à partir de l’angle supérieur droit de la page.
-- Confirmez que vous souhaitez arrêter l’offre à partir de la publication. 
+- Sélectionnez le nom de l’offre pour ouvrir la page **Vue d’ensemble de l’offre**. 
+- Sélectionnez **Annuler la publication** à partir de l’angle supérieur droit de la page.
+- Confirmez que vous souhaitez arrêter la publication de l’offre. 
 
-Si vous souhaitez publier l’offre à une date ultérieure, vous devez recommencer le processus de publication.
+Si vous souhaitez publier l’offre ultérieurement, vous devrez redémarrer le processus de publication.
 
 > [!NOTE]
-> Vous pouvez arrêter une offre à partir de la publication uniquement si l’offre n’a pas progressé encore à l’étape de validation serveur de publication. Après avoir sélectionné **lancés** vous n’avez pas la possibilité d’annuler publier plus.
+> Vous ne pouvez arrêter la publication d’une offre que si elle n’a pas encore atteint l’étape d’approbation du serveur de publication. Après avoir sélectionné **Publier**, vous n’avez plus la possibilité d’annuler la publication.
 
-## <a name="stop-selling-an-offer-or-plan"></a>Arrêter la vente d’une offre ou un plan
+## <a name="stop-selling-an-offer-or-plan"></a>Arrêter la vente d’une offre ou d’un plan
 
-Pour arrêter une offre de vente, une fois que vous l’avez déjà publié, sélectionnez **de vendre des** à partir de la **offrent la vue d’ensemble** page. Pour arrêter un plan de vente, sélectionnez **de vendre des** à partir de la **vue d’ensemble du Plan** page. (L’option pour arrêter un plan de vente est disponible uniquement si vous avez plusieurs plans dans l’offre. Vous pouvez choisir d’arrêter la vente d’un seul plan sans affecter les autres plans au sein de votre offre.)
+Pour arrêter la vente d’une offre déjà publiée, sélectionnez **Arrêter la vente** à partir de la page **Vue d’ensemble de l’offre**. Pour arrêter de vendre un plan, sélectionnez **Arrêter la vente** à partir de la page **Vue d’ensemble du plan**. (L’option d’arrêt d’un plan est uniquement disponible si l’offre contient plus d’un plan. Vous pouvez choisir d’arrêter la vente d’un seul plan sans affecter les autres plans au sein de votre offre.)
 
-Après avoir confirmé que vous souhaitez arrêter l’offre ou un plan de vente, quelques heures, il ne sera plus visible dans la place de marché et aucun nouveau client ne permettre le télécharger. 
+Quelques heures après que vous aurez confirmé que vous souhaitez arrêter de vendre l’offre ou le plan, ils ne seront plus visibles dans la Place de marché et les nouveaux clients ne pourront pas les télécharger. 
 
-Tous les clients ayant acquis précédemment, l’offre ou un plan peuvent toujours utiliser. Ils peuvent le télécharger à nouveau, mais n’obtiendra pas les mises à jour si vous mettez à jour et republiez l’offre ou envisagez à une date ultérieure. 
+Les clients ayant déjà acquis l’offre ou le plan peuvent continuer à les utiliser. Ils peuvent les télécharger à nouveau, mais ne recevront pas de mises à jour si vous mettez à jour et publiez à nouveau l’offre ou le plan ultérieurement. 
 
-Une fois votre demande d’arrêt de l’offre de vente est terminée, vous verrez toujours il dans le portail de la place de marché Commercial sur les partenaires. Pour supprimer le brouillon, sélectionnez **supprimer le brouillon** à partir de le le **offrent la vue d’ensemble** ou **présentation du Plan** page. 
+Une fois votre demande d’arrêt de vente de l’offre/du plan effectuée, vous continuez à les voir dans le portail Place de marché commerciale de l’Espace partenaires. Pour supprimer le brouillon, sélectionnez **Supprimer le brouillon** à partir de la page **Vue d’ensemble de l’offre** ou **Vue d’ensemble du plan**. 
 
-Si vous décidez de répertorier ou vendre cette offre ou nouveau plan, suivez les instructions pour [mettre à jour une offre existante](#update-an-existing-offer-in-the-commercial-marketplace). N’oubliez pas que vous deviez **publier** l’offre ou un plan après avoir apporté toutes les modifications.
+Si vous décidez de répertorier ou de vendre à nouveau cette offre ou ce plan, suivez les instructions pour [mettre à jour une offre existante](#update-an-existing-offer-in-the-commercial-marketplace). N’oubliez pas que vous devrez **publier** à nouveau l’offre ou le plan après y avoir apporté des modifications.
 
 ## <a name="remove-offers-from-existing-customers"></a>Supprimer des offres de clients existants
 
-Pour supprimer des offres à partir de clients existants, [enregistrer une demande de prise en charge](https://support.microsoft.com/supportforbusiness/productselection?sapId=48734891-ee9a-5d77-bf29-82bf8d8111ff). Sélectionnez votre type d’offre spécifique de la **type de problème** liste, puis sélectionnez **suppression d’une offre publiée** dans le **catégorie** liste. Envoyez la demande. L’équipe de support vous guidera tout au long du processus de suppression d’offre.
+Pour supprimer des offres de clients existants, [enregistrez une demande de support](https://support.microsoft.com/supportforbusiness/productselection?sapId=48734891-ee9a-5d77-bf29-82bf8d8111ff). Sélectionnez votre type d’offre spécifique dans la liste **Problem type**, puis sélectionnez **Remove a published offer** (Supprimer une offre publiée) dans la liste **Category**. Envoyez la demande. L’équipe de support vous guidera tout au long du processus de suppression de l’offre.
 
-## <a name="sync-private-plan-audiences"></a>Audiences de plan privé de synchronisation
+## <a name="sync-private-plan-audiences"></a>Synchroniser les audiences de plan privées
 
-Si votre offre inclut un ou plusieurs plans sont configurés pour être uniquement disponible pour un public limité privé, il est possible de mettre à jour uniquement le public qui peut accéder à ce plan privé sans avoir à publier d’autres modifications à l’offre. 
+Si votre offre inclut un ou plusieurs plans configurés pour être uniquement disponibles pour une audience privée limitée, il est possible de mettre à jour uniquement l’audience pouvant accéder à ce plan privé sans publier d’autres modifications de l’offre. 
 
-Pour mettre à jour et synchroniser l’audience privé pour vos plans :
+Pour mettre à jour et synchroniser l’audience privée pour votre ou vos plans :
 
-- Modifier le public dans un ou plusieurs plans privés à l’aide de la + **ajouter ID** ou **importer les clients (csv)** bouton, puis enregistrez les modifications.
-- Sélectionnez **synchroniser audience privé** à partir de la **présentation du Plan** page.
+- Modifiez l’audience dans un ou plusieurs plans privés à l’aide du bouton + **Ajouter ID** ou **Importer les clients (csv)** , puis enregistrez les modifications.
+- Sélectionnez **Synchroniser l’audience privé** à partir de la page **Vue d’ensemble du plan**.
 
-**Synchroniser l’audience privé** publiera uniquement les modifications apportées à votre public tant privée, sans avoir à publier les autres mises à jour apportées à l’offre de brouillon.
+**Synchroniser l’audience privé** publiera uniquement les modifications apportées à votre audience privée, sans publier d’autres mises à jour éventuellement apportées au brouillon de l’offre.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Vérifier l’état de publication de votre offre place de marché Commercial](./publishing-status.md)
+- [Vérifier l’état de publication de votre offre de Place de marché commerciale](./publishing-status.md)

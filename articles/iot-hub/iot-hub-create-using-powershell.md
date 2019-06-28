@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: robinsh
 ms.openlocfilehash: fd376728a1ebdf769c7f2ae76d61a60703e13711
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66146601"
 ---
-# <a name="create-an-iot-hub-using-the-new-aziothub-cmdlet"></a>Créer un IoT hub à l’aide de l’applet de commande New-AzIotHub
+# <a name="create-an-iot-hub-using-the-new-aziothub-cmdlet"></a>Créez un IoT Hub à l’aide de la cmdlet New-AzIotHub
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
-## <a name="introduction"></a>Présentation
+## <a name="introduction"></a>Introduction
 
 Vous pouvez utiliser les cmdlets Azure PowerShell pour créer et gérer des IoT Hubs Azure. Ce didacticiel vous montre comment créer un IoT Hub à l’aide de PowerShell.
 
@@ -42,7 +42,7 @@ Login-AzAccount
 
 Vous avez besoin d’un groupe de ressources pour déployer un IoT Hub. Vous pouvez utiliser un groupe de ressources existant ou en créer un.
 
-Pour créer un groupe de ressources pour votre IoT hub, utilisez le [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.Resources/New-azResourceGroup) commande. Cet exemple crée un groupe de ressources appelé **MyIoTRG1** dans la région **USA Est** :
+Pour créer un groupe de ressources pour votre hub IoT, utilisez la commande [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.Resources/New-azResourceGroup). Cet exemple crée un groupe de ressources appelé **MyIoTRG1** dans la région **USA Est** :
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name MyIoTRG1 -Location "East US"
@@ -50,7 +50,7 @@ New-AzResourceGroup -Name MyIoTRG1 -Location "East US"
 
 ## <a name="create-an-iot-hub"></a>Créer un hub IoT
 
-Pour créer un IoT hub dans le groupe de ressources que vous avez créé à l’étape précédente, utilisez le [New-AzIotHub](https://docs.microsoft.com/powershell/module/az.IotHub/New-azIotHub) commande. Cet exemple crée un hub **S1** appelé **MyTestIoTHub** dans la région **USA Est** :
+Pour créer un hub IoT dans le groupe de ressources que vous avez créé à l’étape précédente, utilisez la commande [New-AzIotHub](https://docs.microsoft.com/powershell/module/az.IotHub/New-azIotHub). Cet exemple crée un hub **S1** appelé **MyTestIoTHub** dans la région **USA Est** :
 
 ```azurepowershell-interactive
 New-AzIotHub `
@@ -64,7 +64,7 @@ Le nom du hub IoT doit être globalement unique.
 
 [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 
-Vous pouvez répertorier tous les hubs IoT dans votre abonnement à l’aide de la [Get-AzIotHub](https://docs.microsoft.com/powershell/module/az.IotHub/Get-azIotHub) commande :
+Vous pouvez afficher tous les hubs IoT de votre abonnement à l’aide de la commande [Get-AzIotHub](https://docs.microsoft.com/powershell/module/az.IotHub/Get-azIotHub) :
 
 ```azurepowershell-interactive
 Get-AzIotHub
@@ -72,7 +72,7 @@ Get-AzIotHub
 
 Cet exemple montre le hub IoT Standard S1 que vous avez créé à l’étape précédente.
 
-Vous pouvez supprimer le hub IoT à l’aide du [Remove-AzIotHub](https://docs.microsoft.com/powershell/module/az.iothub/remove-aziothub) commande :
+Vous pouvez supprimer le hub IoT à l’aide de la commande [Remove-AzIotHub](https://docs.microsoft.com/powershell/module/az.iothub/remove-aziothub) :
 
 ```azurepowershell-interactive
 Remove-AzIotHub `
@@ -80,7 +80,7 @@ Remove-AzIotHub `
     -Name MyTestIoTHub
 ```
 
-Ou bien, vous pouvez supprimer un groupe de ressources et toutes les ressources qu’il contient à l’aide de la [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.Resources/Remove-azResourceGroup) commande :
+Vous pouvez également supprimer un groupe de ressources et toutes les ressources qu’il contient à l’aide de la commande [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.Resources/Remove-azResourceGroup) :
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name MyIoTRG1

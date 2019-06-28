@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.openlocfilehash: 6f3f06ff54fc76416ba63f4f09835897d546f8dc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61349743"
 ---
-# <a name="azure-data-factory-window-transformation"></a>Transformation de fenêtre Azure Data Factory
+# <a name="azure-data-factory-window-transformation"></a>Transformation de la fenêtre Azure Data Factory
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -39,7 +39,7 @@ Le curseur de la fenêtre a deux valeurs à définir : les valeurs avant la lig
 
 ![Options de fenêtre](media/data-flow/windows6.png "fenêtres 6")
 
-## <a name="window-columns"></a>Colonnes de la fenêtre
+## <a name="window-columns"></a>Colonnes de fenêtres
 Enfin, utilisez le Générateur d’expressions pour définir les agrégations que vous souhaitez utiliser avec les fenêtres de données, telles que RANK, COUNT, MIN, MAX, DENSE RANK, LEAD, LAG, etc.
 
 ![Options de fenêtre](media/data-flow/windows7.png "fenêtres 7")
@@ -48,4 +48,4 @@ La liste complète d’agrégation et de fonctions analytiques disponibles que v
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous cherchez une agrégation group by simple, utilisez la [transformation d’agrégation](data-flow-aggregate.md)
+Si vous recherchez une agrégation simple groupe par groupe, utilisez la [transformation Agrégat](data-flow-aggregate.md)

@@ -11,22 +11,22 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: sajagtap
 ms.openlocfilehash: 153d42bf4ce4322536d6837be3058d1f9bfb49a2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60607200"
 ---
-# <a name="create-human-reviews-net"></a>Créer des révisions humain (.NET)
+# <a name="create-human-reviews-net"></a>Créer des révisions humaines (.NET)
 
-Révisions stocker et affichent le contenu pour les modérateurs humains à évaluer. Lorsqu’un utilisateur termine une revue, les résultats sont envoyés à un point de terminaison de rappel spécifié. Ce guide fournit des informations et des exemples de code pour vous aider à commencer à utiliser le [contenu modérateur SDK pour .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) à :
+Les révisions stockent et affichent le contenu que les modérateurs humains vont évaluer. Lorsqu’un utilisateur termine une révision, les résultats sont envoyés à un point de terminaison de rappel spécifié. Ce guide fournit des informations et des exemples de code qui vont vous aider à prendre en main le [kit de développement logiciel (SDK) Content Moderator pour .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) afin d’effectuer les opérations suivantes :
 
 - Créer un ensemble de révisions pour les modérateurs humains
 - Obtenir le statut de révisions existantes pour les modérateurs humains
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-- Connectez-vous ou créez un compte sur le modérateur de contenu [outil de révision](https://contentmoderator.cognitive.microsoft.com/) site.
+- Connectez-vous ou créez un compte sur le site de l’[outil de révision](https://contentmoderator.cognitive.microsoft.com/) de Content Moderator.
 
 ## <a name="ensure-your-api-key-can-call-the-review-api-for-review-creation"></a>Vérifier que votre clé API peut appeler l’API de révision pour la création de révisions
 
@@ -159,7 +159,7 @@ Ajoutez la classe suivante à la classe **Program**. Utilisez cette classe pour 
 >
 > Une clé de niveau gratuit a une limite de fréquence d’une demande par seconde (RSP).
 
-#### <a name="add-the-following-constants-to-the-program-class-in-programcs"></a>Ajoutez les constantes suivantes à la **programme** classe dans le fichier Program.cs
+#### <a name="add-the-following-constants-to-the-program-class-in-programcs"></a>Ajoutez les constantes suivantes à la classe **Program** dans Program.cs
 
 ```csharp
 /// <summary>
@@ -181,7 +181,7 @@ Ajoutez la classe suivante à la classe **Program**. Utilisez cette classe pour 
     private const string OutputFile = "OutputLog.txt";
 ```
 
-#### <a name="add-the-following-constants-and-static-fields-to-the-program-class-in-programcs"></a>Ajoutez les constantes suivantes et les champs statiques pour le **programme** classe dans le fichier Program.cs
+#### <a name="add-the-following-constants-and-static-fields-to-the-program-class-in-programcs"></a>Ajoutez les constantes et champs statiques suivants à la classe **Program** dans Program.cs
 
 Mettez à jour ces valeurs pour contenir des informations spécifiques à votre abonnement et équipe.
 
@@ -238,7 +238,7 @@ private const string MetadataKey = "sc";
 private const string MetadataValue = "true";
 ```
 
-#### <a name="add-the-following-static-fields-to-the-program-class-in-programcs"></a>Ajoutez les champs statiques suivantes à la **programme** classe dans le fichier Program.cs
+#### <a name="add-the-following-static-fields-to-the-program-class-in-programcs"></a>Ajoutez les champs statiques suivants à la classe **Program** dans Program.cs
 
 Utilisez ces champs pour suivre l’état de l'application.
 
@@ -382,7 +382,7 @@ Ajoutez la méthode suivante à la classe **Program**.
 
 Ajoutez le code suivant à la méthode **Main**.
 
-Ce code simule de nombreuses opérations que vous effectuez lorsque vous définissez ou gérez une liste, ainsi que lorsque vous utilisez une liste pour faire des captures d’images. Les fonctionnalités de journalisation vous permettent de vous permet de voir les objets de réponse générés par les appels de kit de développement logiciel pour le service de contenu mModerator.
+Ce code simule de nombreuses opérations que vous effectuez lorsque vous définissez ou gérez une liste, ainsi que lorsque vous utilisez une liste pour faire des captures d’images. Les fonctionnalités de journalisation vous permettent de consulter les objets de réponse générés par les appels du kit de développement logiciel vers le service Content Moderator.
 
 ```csharp
 using (TextWriter outputWriter = new StreamWriter(OutputFile, false))
@@ -536,4 +536,4 @@ Vous verrez une réponse semblable à celle-ci :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Obtenir le [contenu du SDK .NET de modérateur](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) et téléchargez le [solution Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) pour cette source et les autres Démarrages rapides de Content Moderator pour .NET, prenez en main votre intégration.
+Obtenez le [kit de développement logiciel (SDK) Content Moderator pour .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) et téléchargez la [solution Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) pour ce guide de démarrage rapide et d’autres guides de démarrage rapide Content Moderator pour .NET, puis commencez votre intégration.

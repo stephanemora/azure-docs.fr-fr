@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 5b23a5e93dcbb9c13243240bda760a16d108d731
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938453"
 ---
 <a name="what-is-test-drive"></a>Qu'est-ce qu'une version d'évaluation ?
@@ -47,9 +47,9 @@ Et voici comment se présente une offre qui a besoin de temps pour se déployer�
 
 Quelle que soit la complexité votre application, votre version d'évaluation Microsoft vous permet de lui donner vie pour la présenter au client. Nous vous proposons actuellement trois types de versions d'évaluation en fonction du type de produit, du scénario et de la place de marché où vous vous trouvez.
 
-- **[Azure Resource Manager](./azure-resource-manager-test-drive.md)**: Une version d’évaluation Azure ARM est un modèle de déploiement contenant toutes les ressources Azure qui constituent une solution générée par l’éditeur. Les produits adaptés à ce scénario sont ceux qui utilisent uniquement des ressources Azure.
-- **[Application logique](./logic-app-test-drive.md)**: Une version d’évaluation d’application logique est un modèle de déploiement est destiné à englober toutes les architectures de solution complexe. Les applications Dynamics et les produits personnalisés doivent tous utiliser ce type de version d'évaluation.
-- **Power BI** : Un essai Power BI est simplement un lien incorporé à un tableau de bord personnalisé créé. Tous les produits dotés d'un visuel Power BI interactif doivent utiliser ce type de version d'évaluation.
+- **[Azure Resource Manager](./azure-resource-manager-test-drive.md)** : Une version d’évaluation Azure ARM est un modèle de déploiement contenant toutes les ressources Azure qui constituent une solution générée par l’éditeur. Les produits adaptés à ce scénario sont ceux qui utilisent uniquement des ressources Azure.
+- **[Application logique](./logic-app-test-drive.md)** : Une version d’évaluation d’application logique est un modèle de déploiement conçu pour englober toutes les architectures de solutions complexes. Les applications Dynamics et les produits personnalisés doivent tous utiliser ce type de version d'évaluation.
+- **Power BI** : Une version d’évaluation Power BI est un lien incorporé vers un tableau de bord personnalisé. Tous les produits dotés d'un visuel Power BI interactif doivent utiliser ce type de version d'évaluation.
     Il vous suffit de charger votre URL Power BI incorporée.
 
 <a name="what-goes-on-in-the-background"></a>Que se passe-t-il en arrière-plan ?

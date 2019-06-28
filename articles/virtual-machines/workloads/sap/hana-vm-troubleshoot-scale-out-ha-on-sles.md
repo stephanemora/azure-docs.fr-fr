@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
 ms.openlocfilehash: 4483a7f53e084be5f245840829f4c9c95648b1af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60477049"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>Vérifier et corriger la configuration SAP HANA scale-out à haute disponibilité sur SLES 12 SP3 
@@ -473,7 +473,7 @@ Une fois que tout est correctement configuré, vous pouvez exécuter la commande
 systemctl status pacemaker
 </code></pre>
 
-La partie supérieure de la sortie doit se présenter comme suit. Il est important que l’état après **Active** soit affiché comme **loaded** et **active (running)**. L’état après **Loaded** doit apparaître comme **enabled**.
+La partie supérieure de la sortie doit se présenter comme suit. Il est important que l’état après **Active** soit affiché comme **loaded** et **active (running)** . L’état après **Loaded** doit apparaître comme **enabled**.
 
 <pre><code>
   pacemaker.service - Pacemaker High Availability Cluster Manager
@@ -964,7 +964,7 @@ Cet exemple illustre les contraintes d’emplacement causées par une migration 
 ![Contraintes de liste Hawk](media/hana-vm-scale-out-HA-troubleshooting/hawk-2.png)
 
 
-Vous pouvez également charger la sortie **hb_report** dans Hawk sous **Historique**, illustrée comme suit. Consultez hb_report pour collecter des fichiers journaux : 
+Vous pouvez également charger la sortie **hb_report** dans Hawk sous **Historique**, illustrée comme suit. Consultez hb_report pour collecter les fichiers journaux : 
 
 ![Sortie hb_report chargée dans Hawk](media/hana-vm-scale-out-HA-troubleshooting/hawk-3.png)
 

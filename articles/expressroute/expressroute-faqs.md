@@ -9,10 +9,10 @@ ms.date: 06/06/2019
 ms.author: jaredro
 ms.custom: seodec18
 ms.openlocfilehash: adffb18272d10c579f8b28bef055813b1074a237
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66754747"
 ---
 # <a name="expressroute-faq"></a>Forum Aux Questions ExpressRoute
@@ -43,7 +43,7 @@ Non. Vous pouvez acheter une connexion VPN de n’importe quelle vitesse chez vo
 
 ### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-the-ability-to-burst-up-to-higher-speeds-if-necessary"></a>Si j’achète un circuit ExpressRoute présentant une bande passante donnée, puis-je augmenter sa vitesse en cas de nécessité ?
 
-Oui. La configuration des circuits ExpressRoute vous permet d’augmenter jusqu’à deux fois la limite de la bande passante obtenue sans frais supplémentaire. Consultez votre fournisseur de services pour savoir si cette capacité est prise en charge. Cela n’est pas pour une période prolongée et n’est pas garanti. 
+Oui. La configuration des circuits ExpressRoute vous permet d’augmenter jusqu’à deux fois la limite de la bande passante obtenue sans frais supplémentaire. Consultez votre fournisseur de services pour savoir si cette capacité est prise en charge. Ça n’est pas valable pour une période prolongée et n’est pas garanti. 
 
 ### <a name="can-i-use-the-same-private-network-connection-with-virtual-network-and-other-azure-services-simultaneously"></a>Puis-je utiliser la même connexion réseau privée avec un réseau virtuel et d’autres services Azure simultanément ?
 
@@ -80,7 +80,7 @@ ExpressRoute prend en charge [trois domaines de routage](expressroute-circuit-pe
 
 * [Office 365](https://aka.ms/ExpressRouteOffice365)
 * Dynamics 365 
-* Power BI - disponible via une Communauté régionale Azure, consultez [ici](https://docs.microsoft.com/power-bi/service-admin-where-is-my-tenant-located) pour savoir comment déterminer la région de votre client Power BI. 
+* Power BI : disponible via une communauté régionale Azure, voir [ici](https://docs.microsoft.com/power-bi/service-admin-where-is-my-tenant-located) pour savoir comment déterminer la région de votre locataire Power BI. 
 * Azure Active Directory
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (communauté Services globaux Azure)
 * La plupart des services Azure sont pris en charge. Vérifiez directement auprès du service que vous souhaitez utiliser s’il est pris en charge.<br><br>**Les services suivants ne sont pas pris en charge** :
@@ -119,13 +119,13 @@ Oui. Chaque circuit ExpressRoute dispose d’une paire redondante de connexions 
 
 Vous ne perdez pas votre connectivité si une des connexions croisées échoue. Une connexion redondante est disponible pour gérer la charge de votre réseau et fournir une haute disponibilité de votre circuit ExpressRoute. Vous pouvez également créer un circuit dans un autre emplacement d’homologation pour bénéficier de la résilience au niveau du circuit.
 
-### <a name="how-do-i-implement-redundancy-on-private-peering"></a>Comment implémenter la redondance sur l’homologation privée ?
+### <a name="how-do-i-implement-redundancy-on-private-peering"></a>Comment implémenter la redondance sur le peering privé ?
 
-Plusieurs circuits ExpressRoute à partir de différents emplacements d’homologation peuvent être connectés au même réseau virtuel pour fournir à haute disponibilité dans le cas qu’un même circuit n’est plus disponible. Vous pouvez ensuite [affecter des poids plus élevés](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-assign-a-high-weight-to-local-connection) à la connexion locale à favoriser les préférez un circuit spécifique. Il est fortement recommandé que les clients configurer au moins deux circuits ExpressRoute pour éviter les points de défaillance uniques. 
+Plusieurs circuits ExpressRoute à partir de différents emplacements de peering peuvent être connectés au même réseau virtuel pour fournir une haute disponibilité si un circuit n’est plus disponible. Vous pouvez ensuite [attribuer des poids plus élevés](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-assign-a-high-weight-to-local-connection) à la connexion locale pour favoriser un circuit spécifique. Il est fortement recommandé que les clients configurent au moins deux circuits ExpressRoute pour éviter les points de défaillance uniques. 
 
-### <a name="how-i-do-implement-redundancy-on-microsoft-peering"></a>Comment implémenter la redondance sur l’homologation Microsoft ?
+### <a name="how-i-do-implement-redundancy-on-microsoft-peering"></a>Comment implémenter la redondance sur le peering Microsoft ?
 
-Il est vivement recommandé lorsque les clients utilisent l’homologation pour accéder à des services publics Azure tels que stockage Azure ou SQL Azure, ainsi que les clients qui utilisent l’homologation Microsoft pour Office 365 qu’elles implémentent plusieurs circuits dans différentes homologation Microsoft emplacements pour éviter les points uniques de faiure. Les clients peuvent soit publier le même préfixe sur les deux circuits et utiliser [préfixation AS PATH](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending) ou publier des préfixes différents pour déterminer le chemin d’accès du système local.
+Il est vivement recommandé aux clients qui utilisent le peering Microsoft pour accéder à des services publics Azure tels que stockage Azure ou Azure SQL, ainsi qu’aux clients qui utilisent le peering Microsoft pour Office 365, d’implémenter plusieurs circuits à différents emplacements de peering pour éviter des points de défaillance uniques. Les clients peuvent soit publier le même préfixe sur les deux circuits et utiliser la [préfixation AS PATH](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending), soit publier différents préfixes pour déterminer le chemin d’accès à partir du système local.
 
 ### <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>Comment garantir une haute disponibilité sur un réseau virtuel connecté à ExpressRoute ?
 
@@ -154,7 +154,7 @@ Si votre fournisseur de services propose ExpressRoute sur les deux sites, vous p
 
 ### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-metro-can-i-link-them-to-the-same-virtual-network"></a>Puis-je avoir plusieurs circuits ExpressRoute dans le même métro ? Puis-je les lier au même réseau virtuel ?
 
-Oui. Vous pouvez avoir plusieurs circuits ExpressRoute, avec des fournisseurs de services identiques ou différents. Si le métro a plusieurs emplacements d’homologation ExpressRoute et que les circuits sont créés à différents emplacements d’homologation, vous pouvez les lier au même réseau virtuel. Si les circuits sont créés au même emplacement d’homologation, vous pouvez lier jusqu'à 4 circuits au même réseau virtuel.
+Oui. Vous pouvez avoir plusieurs circuits ExpressRoute, avec des fournisseurs de services identiques ou différents. Si le métro a plusieurs emplacements d’homologation ExpressRoute et que les circuits sont créés à différents emplacements d’homologation, vous pouvez les lier au même réseau virtuel. Si les circuits sont créés au même emplacement de peering, vous pouvez lier jusqu’à 4 circuits sur le même réseau virtuel.
 
 ### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>Comment connecter mes réseaux virtuels à un circuit ExpressRoute ?
 
@@ -192,7 +192,7 @@ Non. Dans une perspective de routage, l’ensemble des réseaux virtuels liés a
 
 ### <a name="can-i-have-one-virtual-network-connected-to-more-than-one-expressroute-circuit"></a>Puis-je avoir un seul réseau virtuel connecté à plusieurs circuits ExpressRoute ?
 
-Oui. Vous pouvez lier un seul réseau virtuel avec jusqu'à quatre circuits ExpressRoute dans des emplacements homologation identiques ou différents. 
+Oui. Vous pouvez lier un réseau virtuel avec quatre circuits ExpressRoute au maximum, au même emplacement de peering ou à des emplacements différents. 
 
 ### <a name="can-i-access-the-internet-from-my-virtual-networks-connected-to-expressroute-circuits"></a>Puis-je accéder à Internet à partir de mes réseaux virtuels connectés à des circuits ExpressRoute ?
 
@@ -222,7 +222,7 @@ Oui. Nous acceptons jusqu’à 4 000 préfixes d’itinéraires pour une homolo
 
 ### <a name="are-there-restrictions-on-ip-ranges-i-can-advertise-over-the-bgp-session"></a>Existe-t-il des restrictions de plages d’adresses IP que je peux publier sur la session BGP ?
 
-Nous n’acceptons pas les préfixes privés (RFC1918) pour la session BGP d’homologation Microsoft. Nous acceptons n’importe quelle taille de préfixe (jusqu'à /32) sur Microsoft et l’homologation privée.
+Nous n’acceptons pas les préfixes privés (RFC1918) pour la session BGP d’homologation Microsoft. Nous acceptons n’importe quelle taille de préfixe (jusqu'à /32) sur Microsoft et sur le peering privé.
 
 ### <a name="what-happens-if-i-exceed-the-bgp-limits"></a>Que se passe-t-il si je dépasse les limites du protocole BGP ?
 
@@ -286,25 +286,25 @@ Consultez la page de [tarification](https://azure.microsoft.com/pricing/details/
 
 Oui. Les frais d’ExpressRoute Premium s’ajoutent aux frais de circuit ExpressRoute et aux frais du fournisseur de connectivité.
 
-## <a name="expressroute-local"></a>ExpressRoute Local
-### <a name="what-is-expressroute-local"></a>Qu’est ExpressRoute Local ?
-ExpressRoute Local est un circuit de référence (SKU) de ExpressRoute disponible sur [ExpressRoute Direct](expressroute-erdirect-about.md). Une fonctionnalité clé de variable locale est qu’un circuit Local à un circuit ExpressRoute emplacement d’homologation vous donne l’accès uniquement à une ou deux régions Azure dans ou près le même métro. En revanche, un circuit Standard vous donne accès à toutes les régions Azure dans une zone géopolitique et un circuit de Premium pour toutes les régions Azure dans le monde entier. 
+## <a name="expressroute-local"></a>Emplacements ExpressRoute Local
+### <a name="what-is-expressroute-local"></a>Présentation d’ExpressRoute Local
+ExpressRoute Local est une référence SKU de circuit ExpressRoute disponible sur [ExpressRoute Direct](expressroute-erdirect-about.md). Une fonctionnalité clé de Local est qu’un circuit Local à un emplacement de peering ExpressRoute vous donne accès uniquement à une ou deux régions Azure au sein ou à proximité du même metro. En revanche, un circuit Standard vous donne accès à toutes les régions Azure dans une zone géopolitique, et un circuit Premium à toutes les régions Azure du monde. 
 
-### <a name="what-are-the-benefits-of-expressroute-local"></a>Quels sont les avantages de variable locale ExpressRoute ?
-Bien que vous avez besoin de payer le transfert de données de sortie pour votre circuit Standard ou Premium ExpressRoute, vous ne payez pas transfert de données de sortie séparément pour votre circuit ExpressRoute Local. En d’autres termes, le prix de variable locale ExpressRoute inclut les frais de transfert de données. ExpressRoute Local est une solution plus économique si vous avez des quantités massives de données à transférer et de faire passer vos données via une connexion privée à un emplacement d’homologation ExpressRoute près de votre groupe de régions Azure. 
+### <a name="what-are-the-benefits-of-expressroute-local"></a>Quels sont les avantages d’ExpressRoute Local ?
+Alors que vous devez payer le transfert de données de sortie pour votre circuit ExpressRoute Standard ou Premium, vous ne payez pas de transfert de données de sortie séparément pour votre circuit ExpressRoute Local. En d’autres termes, le prix d’ExpressRoute Local inclut les frais de transfert de données. ExpressRoute Local est une solution plus économique si vous avez des quantités massives de données à transférer, et vous pouvez faire amener vos données à un emplacement de peering ExpressRoute proche de vos régions Azure souhaitées via une connexion privée. 
 
-### <a name="what-features-are-available-and-what-are-not-on-expressroute-local"></a>Quelles sont les fonctionnalités disponibles et ce qui ne sont pas sur l’ordinateur Local d’ExpressRoute ?
-Par rapport à un circuit ExpressRoute Standard, un circuit Local a le même ensemble de fonctionnalités à l’exception :
+### <a name="what-features-are-available-and-what-are-not-on-expressroute-local"></a>Quelles sont les fonctionnalités respectivement disponibles et non disponibles sur ExpressRoute Local ?
+Par rapport à un circuit ExpressRoute Standard, un circuit Local a le même ensemble de fonctionnalités à l’exception des suivantes :
 * Étendue de l’accès à des régions Azure comme décrit ci-dessus
-* Portée mondiale ExpressRoute n’est pas disponible sur l’ordinateur Local
+* ExpressRoute Global Reach n’est pas disponible sur Local
 
-ExpressRoute Local possède aussi les mêmes limites sur les ressources (par exemple, le nombre de réseaux virtuels par circuit) Standard. 
+ExpressRoute Local a les mêmes limites de ressources (par exemple, le nombre de réseaux virtuels par circuit) que Standard. 
 
 ### <a name="how-to-configure-expressroute-local"></a>Comment configurer ExpressRoute Local ? 
-ExpressRoute Local est uniquement disponible sur ExpressRoute Direct. Vous devez tout d’abord configurer votre port Direct d’ExpressRoute. Une fois que votre port Direct est créé, vous pouvez créer un circuit Local suivant les instructions [ici](expressroute-howto-erdirect.md).
+ExpressRoute Local est disponible uniquement sur ExpressRoute Direct. Vous devez donc tout d’abord configurer votre port ExpressRoute Direct. Une fois que votre port Direct est créé, vous pouvez créer un circuit Local en suivant les instructions données [ici](expressroute-howto-erdirect.md).
 
-### <a name="where-is-expressroute-local-available-and-which-azure-regions-is-each-peering-location-mapped-to"></a>Chaque emplacement d’homologation est mappé à où vous trouverez ExpressRoute Local et dans quelles régions Azure ?
-ExpressRoute Local est disponible pour les emplacements d’homologation où une ou deux régions Azure trouvent à proximité. Il n’est pas disponible dans un emplacement d’homologation où il n’existe aucune région Azure dans l’état ou province ou pays. Veuillez consulter les mappages exactes sur [la page emplacements](expressroute-locations-providers.md).  
+### <a name="where-is-expressroute-local-available-and-which-azure-regions-is-each-peering-location-mapped-to"></a>Où ExpressRoute Local est-il disponible et à quelles régions Azure chaque emplacement de peering est-il mappé ?
+ExpressRoute Local est disponible aux emplacements de peering proches d’une ou de deux régions Azure. Il n’est pas disponible à un emplacement de peering situé dans un état, une province ou un pays où il n’y a pas de région Azure. Consultez les mappages exacts à [la page Emplacements](expressroute-locations-providers.md).  
 
 ## <a name="expressroute-for-office-365"></a>ExpressRoute pour Office 365
 
@@ -377,6 +377,6 @@ Votre circuit existant continuera à publier des préfixes pour Office 365 et Dy
 
 [!INCLUDE [ExpressRoute Direct](../../includes/expressroute-direct-faq-include.md)]
 
-## <a name="globalreach"></a>Portée mondiale
+## <a name="globalreach"></a>Global Reach
 
 [!INCLUDE [Global Reach](../../includes/expressroute-global-reach-faq-include.md)]

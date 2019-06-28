@@ -17,22 +17,22 @@ ms.date: 07/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 83319118c778d89749b1eb5d5fd792a5200c19c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60836032"
 ---
 # <a name="sap-maxdb-livecache-and-content-server-deployment-on-azure-vms"></a>Déploiement Content Server, liveCache et SAP MaxDB sur les machines virtuelles Azure
 
-[767598]:https://launchpad.support.sap.com/#/notes/767598
+[767598]: https://launchpad.support.sap.com/#/notes/767598
 [773830]:https://launchpad.support.sap.com/#/notes/773830
-[826037]:https://launchpad.support.sap.com/#/notes/826037
+[826037]: https://launchpad.support.sap.com/#/notes/826037
 [965908]:https://launchpad.support.sap.com/#/notes/965908
 [1031096]:https://launchpad.support.sap.com/#/notes/1031096
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
-[1139904]:https://launchpad.support.sap.com/#/notes/1139904
-[1173395]:https://launchpad.support.sap.com/#/notes/1173395
+[1139904]: https://launchpad.support.sap.com/#/notes/1139904
+[1173395]: https://launchpad.support.sap.com/#/notes/1173395
 [1245200]:https://launchpad.support.sap.com/#/notes/1245200
 [1409604]:https://launchpad.support.sap.com/#/notes/1409604
 [1558958]:https://launchpad.support.sap.com/#/notes/1558958
@@ -42,7 +42,7 @@ ms.locfileid: "60836032"
 [1597355]:https://launchpad.support.sap.com/#/notes/1597355
 [1605680]:https://launchpad.support.sap.com/#/notes/1605680
 [1619720]:https://launchpad.support.sap.com/#/notes/1619720
-[1619726]:https://launchpad.support.sap.com/#/notes/1619726
+[1619726]: https://launchpad.support.sap.com/#/notes/1619726
 [1619967]:https://launchpad.support.sap.com/#/notes/1619967
 [1750510]:https://launchpad.support.sap.com/#/notes/1750510
 [1752266]:https://launchpad.support.sap.com/#/notes/1752266
@@ -55,7 +55,7 @@ ms.locfileid: "60836032"
 [1882376]:https://launchpad.support.sap.com/#/notes/1882376
 [1909114]:https://launchpad.support.sap.com/#/notes/1909114
 [1922555]:https://launchpad.support.sap.com/#/notes/1922555
-[1928533]:https://launchpad.support.sap.com/#/notes/1928533
+[1928533]: https://launchpad.support.sap.com/#/notes/1928533
 [1941500]:https://launchpad.support.sap.com/#/notes/1941500
 [1956005]:https://launchpad.support.sap.com/#/notes/1956005
 [1973241]:https://launchpad.support.sap.com/#/notes/1973241
@@ -339,7 +339,7 @@ Les meilleures pratiques de stockage Azure pour SAP MaxDB suivent les suggestion
 
 En bref, voici que vous avez à faire :
 
-* Si vous utilisez des comptes de stockage Azure, définissez le compte de stockage Azure qui contient les volumes de données et de journaux SAP MaxDB (fichiers journaux et de données) sur **Stockage localement redondant (LRS)**, comme indiqué dans [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) (Facteurs à prendre en compte pour le déploiement SGBD des machines virtuelles Azure pour la charge de travail SAP).
+* Si vous utilisez des comptes de stockage Azure, définissez le compte de stockage Azure qui contient les volumes de données et de journaux SAP MaxDB (fichiers journaux et de données) sur **Stockage localement redondant (LRS)** , comme indiqué dans [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) (Facteurs à prendre en compte pour le déploiement SGBD des machines virtuelles Azure pour la charge de travail SAP).
 * Séparez le chemin d’accès d’E/S pour les volumes de données SAP MaxDB (fichiers de données) du chemin d’accès d’E/S pour les volumes de journaux (fichiers journaux). Cela signifie que les volumes de données SAP MaxDB (fichiers de données) doivent être installés sur un lecteur logique et que les volumes de journaux SAP MaxDB (fichiers journaux) doivent être installés sur un autre lecteur logique.
 * Définissez le type de mise en cache approprié pour chaque disque, selon que vous l’utilisez pour des volumes de données ou de journaux SAP MaxDB (fichiers journaux et de données), et que vous utilisez le Stockage Standard Azure ou le Stockage Premium Azure, comme décrit dans [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) (Facteurs à prendre en compte pour le déploiement SGBD des machines virtuelles Azure pour la charge de travail SAP).
 * Tant que le quota actuel d’E/S par seconde par disque satisfait aux exigences, il est possible de stocker tous les volumes de données sur un seul disque monté, et également de stocker tous les volumes de journaux de bases de données sur un autre disque unique monté.
@@ -439,7 +439,7 @@ Pour découvrir la version de Windows prise en charge pour SAP Content Server su
 Il est vivement recommandé d’utiliser la version la plus récente de Microsoft Windows Server.
 
 ### <a name="sap-content-server-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Instructions de configuration SAP Content Server pour les installations SAP sur des machines virtuelles Azure
-#### <a name="storage-configuration-for-content-server-in-azure"></a>Configuration du stockage pour le serveur de contenu dans Azure
+#### <a name="storage-configuration-for-content-server-in-azure"></a>Configuration du stockage pour Content Server dans Azure
 Si vous configurez SAP Content Server pour stocker des fichiers dans la base de données SAP MaxDB, l’ensemble des recommandations en matière de meilleures pratiques de stockage Azure mentionnées pour SAP MaxDB dans ce document sont également valides pour le scénario SAP Content Server. 
 
 Si vous configurez SAP Content Server pour stocker les fichiers dans le système de fichiers, il est recommandé d’utiliser un lecteur logique dédié. L’utilisation des espaces de stockage Windows vous permet d’augmenter également la taille du disque logique et le débit d’E/S par seconde, comme décrit dans [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) (Facteurs à prendre en compte pour le déploiement SGBD des machines virtuelles Azure pour la charge de travail SAP). 

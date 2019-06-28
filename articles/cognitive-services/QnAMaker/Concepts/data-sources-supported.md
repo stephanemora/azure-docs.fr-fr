@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: tulasim
 ms.openlocfilehash: 8fcc3ea8340a8645a1983eebb4a619904f884a19
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61379447"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Sources de données pour le contenu QnA Maker
@@ -32,11 +32,11 @@ Le tableau ci-dessous récapitule les types de contenu et formats de fichiers pr
 
 ## <a name="data-source-locations"></a>Emplacements des sources de données
 
-La plupart des emplacements de sources de données nécessaire fournir une URL publique ou aux fichiers qui ne nécessitent pas d’authentification. 
+La plupart des emplacements de sources de données doivent fournir des URL ou des fichiers publics, ce qui ne requiert pas d’authentification. 
 
-[Emplacements de source de données SharePoint](../How-to/add-sharepoint-datasources.md) sont autorisés à fournir des fichiers authentifiés. Ressources SharePoint doivent être des fichiers, pas les pages web. 
+Les [emplacements de sources de données SharePoint](../How-to/add-sharepoint-datasources.md) sont autorisés à fournir des fichiers authentifiés. Les ressources SharePoint doivent être des fichiers, pas des pages web. 
 
-Si vous avez un fichier authentifié ou URL, une autre option consiste à télécharger le fichier à partir du site authentifié sur votre ordinateur local, puis ajoutez le fichier à partir de votre ordinateur à la base de connaissances. 
+Si vous avez un fichier ou une URL authentifiés, une autre option consiste à télécharger le fichier sur votre ordinateur local à partir du site authentifié, puis à ajouter le fichier à la base de connaissances à partir de votre ordinateur local. 
 
 ## <a name="faq-urls"></a>URL de FAQ
 

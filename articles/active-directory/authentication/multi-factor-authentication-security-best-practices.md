@@ -1,5 +1,5 @@
 ---
-title: Conseils de sécurité pour Azure multi-Factor Authentication - Azure Active Directory
+title: Conseils de sécurité pour Azure Multi-Factor Authentication - Azure Active Directory
 description: Ce document propose des conseils pour l’utilisation de l’authentification multifacteur Azure avec des comptes Azure
 services: multi-factor-authentication
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 436b7899b1a9d4f9cab1ca2581ff9b5b162de8ac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60357967"
 ---
 # <a name="security-guidance-for-using-azure-multi-factor-authentication-with-azure-ad-accounts"></a>Conseils de sécurité pour l’utilisation de l’authentification multifacteur Azure avec des comptes Azure AD
@@ -31,7 +31,7 @@ Il existe deux façons d’[activer l’authentification Azure MFA pour tous vos
 
 ### <a name="licenses"></a>Licences
 
-![Appliquer des licences aux utilisateurs, d’activer, de notifier](./media/multi-factor-authentication-security-best-practices/ems.png)
+![Appliquer des licences aux utilisateurs, activer, notifier](./media/multi-factor-authentication-security-best-practices/ems.png)
 
 Si vous avez des licences Azure AD Premium ou Enterprise Mobility + Security, vous disposez déjà de l’authentification MFA. Votre organisation n’a pas besoin d’étendre la fonctionnalité de vérification en deux étapes à tous les utilisateurs. Vous devez uniquement attribuer une licence à un utilisateur. Ensuite, vous pouvez activer l’authentification MFA.
 
@@ -43,7 +43,7 @@ Durant la configuration de Multi-Factor Authentication, prenez en compte les con
 
 ### <a name="multi-factor-auth-provider"></a>Fournisseur d’authentification multi facteurs
 
-![Fournisseur d’authentification multifacteur](./media/multi-factor-authentication-security-best-practices/authprovider.png)
+![Fournisseurs d’authentification multifacteur](./media/multi-factor-authentication-security-best-practices/authprovider.png)
 
 Si vous n’avez pas de licences qui incluent Azure MFA, vous pouvez [créer un fournisseur d’authentification MFA](concept-mfa-authprovider.md).
 
@@ -68,7 +68,7 @@ Dans la mesure où la plupart des utilisateurs sont habitués à utiliser unique
 
 Si votre entreprise a décidé de se servir de sa propre infrastructure pour activer l’authentification MFA, vous devez [déployer un serveur Azure Multi-Factor Authentication localement](howto-mfaserver-deploy.md). Les composants serveur de l’authentification MFA figurent dans le diagramme suivant :
 
-![Les composants de serveur MFA par défaut](./media/multi-factor-authentication-security-best-practices/server.png) \*ne pas installé par défaut \** installé, mais pas activé par défaut
+![Les composants de serveur MFA par défaut](./media/multi-factor-authentication-security-best-practices/server.png) \*Ne sont pas installés par défaut\* *Installés, mais non activés par défaut
 
 Le serveur Microsoft Azure Multi-Factor Authentication peut sécuriser les ressources de cloud et les ressources locales par fédération. Vous devez disposer d’AD FS et le fédérer avec votre locataire Azure AD.
 Durant la configuration du serveur Multi-Factor Authentication, tenez compte des détails suivants :

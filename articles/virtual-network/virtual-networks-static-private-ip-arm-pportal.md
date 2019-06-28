@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: kumud
 ms.openlocfilehash: 31aeab946b9ad740e2f56eb1ecaafd3e76cc42b3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64723791"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal"></a>Configurer des adresses IP privées pour une machine virtuelle à l’aide du portail Azure
@@ -65,7 +65,7 @@ Pour créer une machine virtuelle nommée *DNS01* dans le sous-réseau *FrontEnd
    
     -**Compte de stockage**: *vnetstorage*
    
-   * **Réseau** : *TestVNet*
+   * **Réseau** : *TestVNet*
    * **Sous-réseau** : *FrontEnd*
      
      ![Volet Choisir une taille](./media/virtual-networks-static-ip-arm-pportal/figure05.png)     

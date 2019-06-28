@@ -16,10 +16,10 @@ ms.date: 07/11/2017
 ms.author: celested
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f8787008b396c2dd8ce1c006a40fee1e32e8100d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60442062"
 ---
 # <a name="problem-configuring-password-single-sign-on-for-a-non-gallery-application"></a>Problème de configuration de l’authentification unique avec mot de passe pour une application non issue de la galerie
@@ -142,7 +142,7 @@ Si vous rencontrez l’un de ces problèmes, vérifiez les points suivants :
 
 -   Tentez une nouvelle fois d’exécuter le processus de capture manuelle en veillant à ce que les marqueurs rouges soient sur les champs appropriés.
 
--   Si le processus de capture manuelle semble cesser de répondre, ou la page de connexion ne réagit pas (cas 3 ci-dessus), essayez à nouveau le processus de capture manuelle. Mais cette fois, à la fin du processus, appuyez sur le bouton **F12** pour ouvrir la console de développement de votre navigateur. Ouvrez la **console** et saisissez **window.location="&lt;entrez l’URL de connexion que vous avez spécifiée lors de la configuration de l’application&gt;"**, puis appuyez sur **Entrée**. Cette manipulation force une redirection de page qui met fin au processus de capture et stocke les champs qui ont été capturés.
+-   Si le processus de capture manuelle semble avoir arrêté de répondre ou que la page de connexion ne réagit pas (cas 3 ci-dessus), tentez de réexécuter le processus de capture manuelle. Mais cette fois, à la fin du processus, appuyez sur le bouton **F12** pour ouvrir la console de développement de votre navigateur. Ouvrez la **console** et saisissez **window.location="&lt;entrez l’URL de connexion que vous avez spécifiée lors de la configuration de l’application&gt;"** , puis appuyez sur **Entrée**. Cette manipulation force une redirection de page qui met fin au processus de capture et stocke les champs qui ont été capturés.
 
 Si aucune de ces approches ne fonctionne pour vous, le support technique peut vous aider. Ouvrez une demande de support et fournissez des informations sur les méthodes utilisées pour résoudre le problème, ainsi que les informations collectées dans les sections [Comment afficher les détails d’une notification du portail](#i-cannot-manually-detect-sign-in-fields-for-my-application) et [Comment obtenir de l’aide en envoyant les détails de la notification à un ingénieur du support technique](#how-to-get-help-by-sending-notification-details-to-a-support-engineer) (le cas échéant).
 
@@ -226,7 +226,7 @@ Vous trouverez ci-dessous plus d’informations sur la signification de chaque n
 
 -   **UPN** : utilisateur qui a effectué l’opération
 
-    -   Exemple – **tperkins\@f128.info**
+    -   Exemple : **tperkins\@f128.info**
 
 -   **ID de locataire** : ID unique du locataire dont l’utilisateur ayant effectué l’opération était membre
 

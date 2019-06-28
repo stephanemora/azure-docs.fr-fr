@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 4/26/2019
 ms.author: kumud,steveesp, mareat
 ms.openlocfilehash: 9d74e53c754367ecfa63642514db93354fcadf25
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65153732"
 ---
 # <a name="virtual-machine-network-bandwidth"></a>Bande passante réseau des machines virtuelles
@@ -35,37 +35,37 @@ Les machines virtuelles Azure doivent être associées à une interface réseau 
 
 ## <a name="expected-network-throughput"></a>Débit réseau attendu
 
-Le débit sortant attendu et le nombre d’interfaces réseau prises en charge par chaque taille de machine virtuelle sont détaillés dans les spécifications des tailles de machine virtuelle Azure [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) et [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Sélectionnez un type, comme le type d’usage général, puis choisissez une série de tailles dans la page qui en résulte, par exemple « Dv2-series ». Chaque série comporte une table, dont la dernière colonne, intitulée **Nombre max de cartes réseau/Performance réseau attendue (Mbits/s)**, détaille les spécifications de mise en réseau. 
+Le débit sortant attendu et le nombre d’interfaces réseau prises en charge par chaque taille de machine virtuelle sont détaillés dans les spécifications des tailles de machine virtuelle Azure [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) et [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Sélectionnez un type, comme le type d’usage général, puis choisissez une série de tailles dans la page qui en résulte, par exemple « Dv2-series ». Chaque série comporte une table, dont la dernière colonne, intitulée **Nombre max de cartes réseau/Performance réseau attendue (Mbits/s)** , détaille les spécifications de mise en réseau. 
 
 Cette limite de débit s’applique à la machine virtuelle. Le débit n’est pas affecté par les facteurs suivants :
-- **Nombre d’interfaces réseau**: La limite de bande passante est cumulative de tout le trafic sortant à partir de la machine virtuelle.
-- **Mise en réseau accélérée**: Toutefois, la fonctionnalité peut être utile pour atteindre la limite publiée, elle ne modifie pas la limite.
-- **Destination du trafic**: Toutes les destinations sont pris en compte la limite de sortie.
-- **Protocole** : Tout le trafic sortant sur tous les protocoles est comptabilisée dans la limite.
+- **Nombre d'interfaces réseau** : La limite de bande passante inclut l’ensemble du trafic sortant en provenance de la machine virtuelle.
+- **Mise en réseau accélérée** : bien que cette fonctionnalité puisse être utile pour atteindre la limite publiée, elle ne modifie pas cette limite.
+- **Destination du trafic** : toutes les destinations s’inscrivent dans la limite de sortie.
+- **Protocole** : L’intégralité du trafic sortant, sur l’ensemble des protocoles, s’inscrit dans la limite.
 
 ## <a name="network-flow-limits"></a>Limites de flux de réseau
 
-En plus de bande passante, le nombre de connexions de réseau présents sur une machine virtuelle à un moment donné peut affecter ses performances réseau. La pile de mise en réseau Azure gère l’état pour chaque direction d’une connexion TCP/UDP dans des structures de données appelée « flux ». Une connexion TCP/UDP par défaut aura 2 flux créés, un pour le trafic entrant et l’autre pour la direction sortante. 
+En plus de la bande passante, le nombre de connexions réseau présentes sur une machine virtuelle à un moment donné peut affecter ses performances réseau. La pile de mise en réseau Azure maintient l’état pour chaque direction d’une connexion TCP/UDP dans des structures de données appelées « flux ». Dans une connexion TCP/UDP par défaut, 2 flux seront créés, un pour la direction entrante et l’autre pour la direction sortante. 
 
-Transfert de données entre les points de terminaison nécessite la création de plusieurs flux en plus de ceux qui effectuent le transfert de données. Certains exemples sont des flux créés pour la résolution DNS et les flux créés pour les sondes d’intégrité équilibreur de charge. Notez que le réseau virtuels appliances virtuelles telles que les passerelles, les proxys, les pare-feu, consultez également les flux en cours de création pour les connexions arrêté au niveau de l’appliance et provenant de l’appliance. 
+Le transfert de données entre les points de terminaison nécessite la création de plusieurs flux en plus de ceux qui assurent le transfert de données. Certains exemples sont des flux créés pour une résolution DNS et des flux créés pour des sondes d’intégrité de l’équilibreur de charge. Notez également que les appliances réseau virtuelles (NVA) telles que les passerelles, les proxys et les pare-feu verront la création de flux pour des connexions arrêtées au niveau de l’appliance et en provenant. 
 
-![Nombre de flux pour les conversations TCP via une appliance de transfert](media/virtual-machine-network-throughput/flow-count-through-network-virtual-appliance.png)
+![Nombre de flux pour la conversation TCP via une appliance de transfert](media/virtual-machine-network-throughput/flow-count-through-network-virtual-appliance.png)
 
-## <a name="flow-limits-and-recommendations"></a>Limites de flux et des recommandations
+## <a name="flow-limits-and-recommendations"></a>Limites de flux et recommandations
 
-Aujourd'hui, la pile de mise en réseau Azure prend en charge 250K réseau total flux avec des performances optimales pour les machines virtuelles avec plus de 8 cœurs de processeur et de 100 k total des flux avec des performances optimales pour les machines virtuelles avec moins de 8 cœurs de processeur. Au-delà de ce réseau limite les performances se dégradent normalement pour des flux supplémentaires jusqu'à une limite inconditionnelle de 1 million nombre total de flux, 500 K entrant et 500 K sortant, après les flux supplémentaires sont supprimées.
+Aujourd'hui, la pile de mise en réseau Azure prend en charge 250 000 flux de réseau au total, avec un bon niveau de performance pour les machines virtuelles ayant plus de 8 cœurs d’UC et 100 000 flux au total, avec un bon niveau de performance pour les machines virtuelles ayant moins de 8 cœurs d’UC. Au-delà de cette limite, le niveau de performance du réseau se dégrade normalement en cas de flux supplémentaires jusqu’à une limite inconditionnelle de 1 million de flux au total, à savoir respectivement 500 000 d’entrée et de sortie, après quoi les flux supplémentaires sont supprimés.
 
-||Machines virtuelles avec < 8 cœurs de processeur|Machines virtuelles avec des cœurs de processeur 8 +|
+||Machines virtuelles avec < 8 cœurs d’UC|Machines virtuelles avec plus de 8 cœurs d’UC|
 |---|---|---|
-|<b>Bonnes performances</b>|Flux de 100 Ko |Flux de 250K|
-|<b>Dégradation des performances</b>|Au-dessus de 100k transite|Supérieure à 250K transite|
-|<b>Limite de flux</b>|Flux de 1M|Flux de 1M|
+|<b>Bon niveau de performance</b>|100 000 flux |250 000 flux|
+|<b>Performances dégradées</b>|Plus de 100 000 flux|Plus de 250 000 flux|
+|<b>Limite de flux</b>|1 million de flux|1 million de flux|
 
-Métriques sont disponibles dans [Azure Monitor](../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines) pour suivre le nombre de flux de réseau et le taux de création de flux sur vos instances de machine virtuelle ou VMSS.
+Des métriques permettant de suivre le nombre de flux réseau et le taux de création des flux sur votre machine virtuelle ou sur des instances de VMSS sont disponibles dans [Azure Monitor](../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines).
 
 ![azure-monitor-flow-metrics.png](media/virtual-machine-network-throughput/azure-monitor-flow-metrics.png)
 
-Taux d’établissement et la fin de connexion peuvent également affecter les performances du réseau en tant que connexion établissement et la fin partages processeur avec des routines de traitement de paquet. Nous vous recommandons d’évaluer charges de travail sur les modèles de trafic attendue et de mise à l’échelle les charges de travail de manière appropriée pour correspondre à vos besoins en performances. 
+Le taux d’établissement et de fin de connexions peut également affecter le niveau de performance réseau, car l’établissement et la fin des connexions partagent l’UC avec les routines de traitement de paquets. Nous vous recommandons d’évaluer les charges de travail pour les modèles de trafic attendus et de monter en charge de manière appropriée en fonction de vos besoins en matière de niveau de performance. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

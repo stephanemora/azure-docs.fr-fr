@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: genli
 ms.openlocfilehash: f01dfe78d5d5e322258b0ee98cec314f9afe33c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60329727"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Résolution des problèmes liés à l’état détérioré d’Azure Traffic Manager
@@ -47,7 +47,7 @@ Pour résoudre un problème d’échec d’analyse, vous avez besoin d’un outi
 
 En outre, vous pouvez utiliser l’onglet réseau des outils de débogage F12 dans Internet Explorer pour afficher les réponses HTTP.
 
-Pour cet exemple, nous voulons voir la réponse à partir de l’URL de la sonde : http :\//watestsdp2008r2.cloudapp.net:80/Probe. L’exemple PowerShell suivant illustre le problème.
+Pour cet exemple, voulons voir la réponse de l’URL de notre sonde : http:\//watestsdp2008r2.cloudapp.net:80/Probe. L’exemple PowerShell suivant illustre le problème.
 
 ```powershell
 Invoke-WebRequest 'http://watestsdp2008r2.cloudapp.net/Probe' -MaximumRedirection 0 -ErrorAction SilentlyContinue | Select-Object StatusCode,StatusDescription

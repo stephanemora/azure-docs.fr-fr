@@ -8,14 +8,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-origin.date: 06/11/2018
-ms.date: 04/01/2019
-ms.author: v-biyu
+ms.date: 06/11/2018
+ms.author: panosper
 ms.openlocfilehash: 29ec50a1d2e0aebb1aeb73b38c662f4a18624754
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60539058"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Forum aux questions sur la reconnaissance vocale
@@ -34,7 +33,7 @@ Si vous ne trouvez pas de réponses à vos questions dans ce FAQ, consultez les 
 
 **Q : Dois-je toujours générer un modèle vocal personnalisé ?**
 
-**R** : Non. Si votre application utilise un langage générique, quotidien, vous n’avez pas besoin de personnaliser un modèle. Si elle est utilisée dans un environnement dénué ou presque de bruit de fond, ce n’est pas davantage nécessaire.
+**R** :  Non. Si votre application utilise un langage générique, quotidien, vous n’avez pas besoin de personnaliser un modèle. Si elle est utilisée dans un environnement dénué ou presque de bruit de fond, ce n’est pas davantage nécessaire.
 
 Vous pouvez déployer des modèles de référence et personnalisés dans le portail, puis exécuter des tests de précision sur ceux-ci. Vous pouvez utiliser cette fonctionnalité pour mesurer la précision d’un modèle de référence par rapport à celle d’un modèle personnalisé.
 
@@ -64,7 +63,7 @@ L’ancien et le nouveau jeux de données doivent être combinés dans un seul f
 
 **R** : Les déploiements ne sont PAS mis à jour automatiquement.
 
-Si vous avez adapté et déployé un modèle de référence V1.0, ce déploiement reste en l’état. Les clients peuvent mettre hors service le modèle déployé, ré-adapter à l’aide de la version la plus récente de la ligne de base et déployez de nouveau.
+Si vous avez adapté et déployé un modèle de référence V1.0, ce déploiement reste en l’état. Les clients peuvent désactiver le modèle déployé, le réadapter à l’aide de la version plus récente du modèle de référence, puis redéployer leur nouveau modèle.
 
 **Q : Que faire si j’ai besoin pour mon modèle déployé d’une concurrence plus élevée que ce que propose le portail ?**
 
@@ -94,7 +93,7 @@ Si vous rencontrez des problèmes de confidentialité qui vous empêchent d’ut
 
 **Q : Puis-je zipper mes fichiers texte afin de charger des fichiers plus volumineux ?** 
 
-**R** : Non. Seuls des fichiers texte non compressés sont actuellement autorisés.
+**R** :  Non. Seuls des fichiers texte non compressés sont actuellement autorisés.
 
 **Q : Le rapport relatif aux données indique que des énoncés ont échoué. Quel est le problème ?**
 

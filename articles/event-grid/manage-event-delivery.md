@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/06/2019
 ms.author: spelluru
 ms.openlocfilehash: a1b49fd3a2a85377a56c92aefd1b0056f91895b1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66119563"
 ---
 # <a name="dead-letter-and-retry-policies"></a>Stratégies de lettres mortes et de nouvelles tentatives
@@ -25,7 +25,7 @@ Quand vous créez un abonnement aux événements, vous pouvez personnaliser les 
 Pour définir un emplacement de lettres mortes, vous avez besoin d’un compte de stockage. Ce dernier sert à contenir les événements qui ne peuvent pas être remis à un point de terminaison. Les exemples reçoivent l'ID de ressource d'un compte de stockage existant. Ils créent un abonnement aux événements qui utilise un conteneur de ce compte de stockage pour le point de terminaison des lettres mortes.
 
 > [!NOTE]
-> Créer un compte de stockage et un conteneur d’objets blob dans le stockage avant d’exécuter des commandes dans cet article.
+> Créez un compte de stockage et un conteneur d’objets blob dans le stockage avant d’exécuter les commandes de cet article.
 
 ### <a name="azure-cli"></a>Azure CLI
 

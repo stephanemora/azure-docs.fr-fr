@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: sutalasi
 ms.openlocfilehash: 7e2f5c344a0fb632956ab5d5b951ee69cff528ec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60363550"
 ---
 # <a name="test-results-for-hyper-v-replication-to-a-secondary-site"></a>Résultats des tests de la réplication Hyper-V vers un site secondaire
@@ -108,7 +108,7 @@ Les résultats indiquent clairement que la solution Site Recovery, utilisée ave
 
 | Serveur | RAM | Modèle | Processeur | Nombre de processeurs | Carte d’interface réseau | Logiciel |
 | --- | --- | --- | --- | --- | --- | --- |
-| Serveurs Hyper-V en cluster :  <br />ESTLAB-HOST11<br />ESTLAB-HOST12<br />ESTLAB-HOST13<br />ESTLAB-HOST14<br />ESTLAB-HOST25 |128 - ESTLAB-HOST25 : 256 |Dell™ PowerEdge™ R820 |Processeur Intel(R) Xeon(R) E5-4620 0 \@ 2,20 GHz |4 |1 Gbit/s x 4 |Windows Server Datacenter 2012 R2 (x 64) + rôle Hyper-V |
+| Serveurs Hyper-V en cluster : <br />ESTLAB-HOST11<br />ESTLAB-HOST12<br />ESTLAB-HOST13<br />ESTLAB-HOST14<br />ESTLAB-HOST25 |128 - ESTLAB-HOST25 : 256 |Dell™ PowerEdge™ R820 |Processeur Intel(R) Xeon(R) E5-4620 0 \@ 2,20 GHz |4 |1 Gbit/s x 4 |Windows Server Datacenter 2012 R2 (x 64) + rôle Hyper-V |
 | Serveur VMM |2 | | |2 |1 Gbit/s |Windows Server Database 2012 R2 (x 64) + rôle VMM 2012 R2 |
 
 ### <a name="secondary-site"></a>Site secondaire
@@ -120,7 +120,7 @@ Les résultats indiquent clairement que la solution Site Recovery, utilisée ave
 
 | Serveur | RAM | Modèle | Processeur | Nombre de processeurs | Carte d’interface réseau | Logiciel |
 | --- | --- | --- | --- | --- | --- | --- |
-| Serveurs Hyper-V en cluster :  <br />ESTLAB-HOST07<br />ESTLAB-HOST08<br />ESTLAB-HOST09<br />ESTLAB-HOST10 |96 |Dell™ PowerEdge™ R720 |Processeur Intel(R) Xeon(R) E5-2630 0 \@ 2,30 GHz |2 |1 Gbit/s x 4 |Windows Server Datacenter 2012 R2 (x 64) + rôle Hyper-V |
+| Serveurs Hyper-V en cluster : <br />ESTLAB-HOST07<br />ESTLAB-HOST08<br />ESTLAB-HOST09<br />ESTLAB-HOST10 |96 |Dell™ PowerEdge™ R720 |Processeur Intel(R) Xeon(R) E5-2630 0 \@ 2,30 GHz |2 |1 Gbit/s x 4 |Windows Server Datacenter 2012 R2 (x 64) + rôle Hyper-V |
 | ESTLAB-HOST17 |128 |Dell™ PowerEdge™ R820 |Processeur Intel(R) Xeon(R) E5-4620 0 \@ 2,20 GHz |4 | |Windows Server Datacenter 2012 R2 (x 64) + rôle Hyper-V |
 | ESTLAB-HOST24 |256 |Dell™ PowerEdge™ R820 |Processeur Intel(R) Xeon(R) E5-4620 0 \@ 2,20 GHz |2 | |Windows Server Datacenter 2012 R2 (x 64) + rôle Hyper-V |
 | Serveur VMM |2 | | |2 |1 Gbit/s |Windows Server Database 2012 R2 (x 64) + rôle VMM 2012 R2 |
@@ -150,8 +150,8 @@ Les résultats indiquent clairement que la solution Site Recovery, utilisée ave
 | SQL Server |51 |1 |4 |167 |10 |
 | Microsoft Exchange Server |71 |1 |4 |552 |10 |
 | Serveur de fichiers |50 |1 |2 |552 |22 |
-| VDI |149 |0,5 |1 |80 |6. |
-| Serveur web |149 |0,5 |1 |80 |6. |
+| VDI |149 |0,5 |1 |80 |6\. |
+| Serveur web |149 |0,5 |1 |80 |6\. |
 | TOTAL |470 | | |96,83 To |4 108 |
 
 ### <a name="site-recovery-settings"></a>Paramètres de Site Recovery
@@ -175,10 +175,10 @@ Ce tableau récapitule les mesures de performances et les compteurs utilisés lo
 | UC |\Processor(_Total)\% temps processeur |
 | Mémoire disponible |\Memory\Available MBytes |
 | E/S par seconde |\PhysicalDisk(_Total)\Disk Transfers/sec |
-| Nombre d’opérations d’E/S par seconde en lecture de la VM |Dispositif de stockage virtuel \Hyper-V (\<VHD >) \Read opérations/s |
-| Nombre d’opérations d’E/S par seconde en écriture de la VM |Dispositif de stockage virtuel \Hyper-V (\<VHD >) \Write opérations/S |
-| Débit de lecture des VM |Dispositif de stockage virtuel \Hyper-V (\<VHD >) \Read octets/s |
-| Débit d’écriture des VM |Dispositif de stockage virtuel \Hyper-V (\<VHD >) \Write octets/s |
+| Nombre d’opérations d’E/S par seconde en lecture de la VM |\Hyper-V Virtual Storage Device(\<VHD>)\Nombre d’opérations de lecture/sec |
+| Nombre d’opérations d’E/S par seconde en écriture de la VM |\Hyper-V Virtual Storage Device(\<VHD>)\Nombre d’opérations d’écriture/sec |
+| Débit de lecture des VM |\Hyper-V Virtual Storage Device(\<VHD>)\Octets lus/sec |
+| Débit d’écriture des VM |\Hyper-V Virtual Storage Device(\<VHD>)\Octets écrits/sec |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

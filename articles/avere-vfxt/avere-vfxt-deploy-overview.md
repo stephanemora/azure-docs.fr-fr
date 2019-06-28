@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: v-erkell
 ms.openlocfilehash: 88305e5d877f5bc3cc7ebb116f69b0f49f162b79
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60409910"
 ---
 # <a name="avere-vfxt-for-azure---deployment-overview"></a>Avere vFXT pour Azure - Vue d’ensemble du déploiement
@@ -44,11 +44,11 @@ Voici une vue d’ensemble des étapes à suivre.
 
      Le contrôleur de cluster est une machine virtuelle simple qui réside dans le même réseau virtuel que le cluster Avere vFXT et dispose du logiciel personnalisé requis pour créer et gérer le cluster. Le contrôleur crée les nœuds vFXT et forme le cluster. Il fournit également une interface de ligne de commande pour gérer le cluster pendant toute sa durée de vie.
 
-     Si vous créez un nouveau réseau virtuel lors du déploiement, votre contrôleur aura une adresse IP publique. Cela signifie que le contrôleur peut servir d’ordinateur hôte saut pour la connexion au cluster à partir d’à l’extérieur du réseau virtuel.
+     Si vous créez un réseau virtuel lors du déploiement, votre contrôleur aura une adresse IP publique. Cela signifie que le contrôleur peut servir d’ordinateur hôte de saut pour la connexion au cluster depuis l’extérieur du réseau virtuel.
 
    * Création de machines virtuelles de nœud de cluster
 
-   * Configuration du nœud de cluster pour former un cluster, les machines virtuelles
+   * Configuration des machines virtuelles de nœud de cluster pour former le cluster
 
    * Création facultative d'un nouveau conteneur d'objets blob avec configuration en tant que stockage back-end pour le cluster
 

@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.openlocfilehash: d1704220a13b6d6b5a48b7167d7912a38057127d
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65466510"
 ---
 # <a name="set-up-a-device-template"></a>Configurer un modèle d’appareil
@@ -44,13 +44,13 @@ Par exemple, un concepteur peut créer un modèle d’appareil pour un ventilate
 
 1. Accédez à la page **Modèles d’appareil**.
 
-2. Pour créer un modèle, commencez par sélectionner **+ nouveau**.
+2. Pour créer un modèle, commencez par sélectionner **+Nouveau**.
 
-3. Pour démarrer rapidement, choisissez parmi les modèles prédéfinis existants. Sinon, sélectionnez **personnalisé**, entrez un nom, puis cliquez sur **créer** pour générer votre propre modèle à partir de zéro.
+3. Pour démarrer rapidement, choisissez parmi les modèles prédéfinis existants. Sinon, sélectionnez **Personnalisé**, entrez un nom, puis cliquez sur **Créer** pour créer votre propre modèle en partant de zéro.
 
-   ![Bibliothèque de modèles de périphérique](./media/howto-set-up-template/newtemplate.png)
+   ![Bibliothèque des modèles d’appareils](./media/howto-set-up-template/newtemplate.png)
 
-4. Lorsque vous créez un modèle personnalisé, vous voyez la **détails de l’appareil** page de votre nouveau modèle d’appareil. IoT Central crée automatiquement un appareil simulé quand vous créez un modèle d’appareil. Un appareil simulé vous permet de tester le comportement de votre application avant de connecter un appareil physique.
+4. Lorsque vous créez un modèle personnalisé, vous voyez la page **Détails de l’appareil** de votre nouveau modèle d’appareil. IoT Central crée automatiquement un appareil simulé quand vous créez un modèle d’appareil. Un appareil simulé vous permet de tester le comportement de votre application avant de connecter un appareil physique.
 
 Les sections suivantes décrivent chacun des onglets de la page **Modèle d’appareil**.
 
@@ -64,13 +64,13 @@ Les mesures sont les données qui proviennent de votre appareil. Vous pouvez ajo
 
 ### <a name="create-a-telemetry-measurement"></a>Créer une mesure de télémétrie
 
-Pour ajouter une nouvelle mesure de télémétrie, sélectionnez **+ nouvelle mesure**, choisissez **télémétrie** en tant que la mesure tapez, puis entrez les détails sur le formulaire.
+Pour ajouter une nouvelle mesure de télémétrie, sélectionnez **+ Nouvelle mesure**, choisissez **Télémétrie** comme type de mesure, puis entrez les détails dans le formulaire.
 
 > [!NOTE]
 > Les noms de champs du modèle d’appareil doivent correspondre aux noms de propriétés du code d’appareil correspondant, pour que les données de télémétrie soient affichées dans l’application quand un appareil physique y est connecté. Vous devrez faire de même lorsque vous configurerez les paramètres, les propriétés de l’appareil et les commandes dans les sections qui suivent.
-.png, par exemple, vous pouvez ajouter une nouvelle mesure de télémétrie de température :
+.png Par exemple, vous pouvez ajouter une nouvelle mesure de télémétrie de température :
 
-| Nom complet         | Nom du champ    |  Unités    | Min   |Max|
+| Nom d’affichage        | Nom du champ    |  Units    | Min   |max|
 | --------------------| ------------- |-----------|-------|---|
 | Température         | temp          |  degC     |  0    |100|
 
@@ -78,20 +78,20 @@ Pour ajouter une nouvelle mesure de télémétrie, sélectionnez **+ nouvelle me
 
 Après avoir sélectionné **Enregistrer**, la mesure **Température** figure dans la liste des mesures. Au bout de quelques instants, vous voyez la visualisation des données de température de l’appareil simulé.
 
-Lors de l’affichage des données de télémétrie, vous pouvez choisir parmi les options d’agrégation suivantes : Moyenne, Minimum, Maximum, Sum et Count. **Moyenne** est sélectionné en tant que l’agrégation par défaut sur le graphique. 
+Lors de l’affichage des données de télémétrie, vous pouvez choisir parmi les options d’agrégation suivantes : Moyenne, Minimum, Maximum, Somme et Nombre. **Moyenne** est sélectionnée en tant qu’agrégation par défaut sur le graphique. 
 
 > [!NOTE]
 > La mesure de télémétrie est représentée par un nombre à virgule flottante.
 
 ### <a name="create-an-event-measurement"></a>Créer une mesure d’événement
 
-Pour ajouter une nouvelle mesure de l’événement, sélectionnez **+ nouvelle mesure** et sélectionnez **événement** en tant que le type de mesure. Entrez les détails dans le formulaire **Créer un événement**.
+Pour ajouter une nouvelle mesure d’événement, sélectionnez **+ Nouvelle mesure** et sélectionnez **Événement** comme type de mesure. Entrez les détails dans le formulaire **Créer un événement**.
 
 Indiquez les détails de l’événement dans les champs **Nom d’affichage**, **Nom du champ** et **Gravité**. Vous pouvez choisir un des trois niveaux de gravité disponibles : **Erreur**, **Avertissement** et **Information**.
 
 Par exemple, vous pouvez ajouter un nouvel événement **Erreur du moteur du ventilateur**.
 
-| Nom complet         | Nom du champ    |  Gravité par défaut |
+| Nom d’affichage        | Nom du champ    |  Gravité par défaut |
 | --------------------| ------------- |-----------|
 | Erreur du moteur du ventilateur     | fanmotorerror |  Error    |
 
@@ -99,7 +99,7 @@ Par exemple, vous pouvez ajouter un nouvel événement **Erreur du moteur du ven
 
 Après avoir sélectionné **Enregistrer**, la mesure **Erreur du moteur du ventilateur** figure dans la liste des mesures. Au bout de quelques instants, vous voyez la visualisation des données d’événement de l’appareil simulé.
 
-Pour afficher plus de détails sur un événement, sélectionnez l’icône d’événement sur le graphique :
+Pour afficher des détails supplémentaires sur un événement, sélectionnez l’icône de l’événement sur le graphique :
 
 ![Détails sur l’événement « Erreur du moteur du ventilateur »](./media/howto-set-up-template/eventmeasurementsdetail.png)
 
@@ -108,13 +108,13 @@ Pour afficher plus de détails sur un événement, sélectionnez l’icône d’
 
 ### <a name="create-a-state-measurement"></a>Créer une mesure d’état
 
-Pour ajouter une nouvelle mesure d’état, sélectionnez le **+ nouvelle mesure** bouton et sélectionnez **état** en tant que le type de mesure. Entrez les détails dans le formulaire **Créer un état**.
+Pour ajouter une nouvelle mesure d’état, sélectionnez le bouton **+ Nouvelle mesure** et sélectionnez **État** comme type de mesure. Entrez les détails dans le formulaire **Créer un état**.
 
 Indiquez les détails de l’état dans les champs **Nom d’affichage**, **Nom du champ** et **Valeurs**. Chaque valeur peut aussi être assortie d’un nom d’affichage qui sera utilisé quand la valeur s’affichera dans les graphiques et les tableaux.
 
 Par exemple, vous pouvez ajouter un nouvel état **Mode du ventilateur**, dont les deux valeurs possibles que peut envoyer l’appareil sont **En fonctionnement** et **Arrêté**.
 
-| Nom complet  | Nom du champ    |  Valeur 1   | Nom complet  | Valeur 2    |Nom complet   | 
+| Nom d’affichage | Nom du champ    |  Valeur 1   | Nom d’affichage | Valeur 2    |Nom d’affichage  | 
 | -------------| ------------- |----------- | -------------| -----------| -------------|
 | Mode du ventilateur     | fanmode       |  1         | En fonctionnement    |     0      | Arrêté      |
 
@@ -122,7 +122,7 @@ Par exemple, vous pouvez ajouter un nouvel état **Mode du ventilateur**, dont l
 
 Après avoir sélectionné **Enregistrer**, la mesure d’état **Mode du ventilateur** figure dans la liste des mesures. Au bout de quelques instants, vous voyez la visualisation des données d’état de l’appareil simulé.
 
-Si l’appareil envoie un trop grand nombre de points de données sur une courte période, la mesure d’état s’affiche avec un visuel différent. Sélectionnez le graphique pour afficher tous les points de données dans le délai imparti dans l’ordre chronologique. Vous pouvez également réduire l’intervalle de temps pour voir la mesure tracée sur le graphique.
+Si l’appareil envoie un trop grand nombre de points de données sur une courte période, la mesure d’état s’affiche avec un visuel différent. Sélectionnez le graphique pour voir tous les points de données de cette période par ordre chronologique. Vous pouvez également réduire l’intervalle de temps pour voir la mesure tracée sur le graphique.
 
 > [!NOTE]
 > Le type de données de la mesure d’état est « chaîne ».
@@ -139,9 +139,9 @@ Les paramètres peuvent avoir un parmi trois états. L’appareil signale ces é
 
 - **Erreur** : l'appareil a renvoyé une erreur.
 
-Par exemple, vous pouvez ajouter un nouveau paramètre de vitesse de ventilateur en sélectionnant **paramètres** et en entrant dans le nouveau **nombre** paramètre :
+Par exemple, vous pouvez ajouter un nouveau paramètre de vitesse du ventilateur en sélectionnant **Paramètres** et en entrant le nouveau paramètre **Nombre** :
 
-| Nom complet   | Nom du champ    |  Unités  | Décimales |Initial|
+| Nom d’affichage  | Nom du champ    |  Units  | Décimales |Initial|
 | --------------| ------------- |---------| ---------|---- |
 | Vitesse du ventilateur     | fanSpeed      | TR/MIN     | 2        | 0   |
 
@@ -160,7 +160,7 @@ Il existe deux catégories de propriété :
 
 Par exemple, vous pouvez ajouter la date du dernier entretien de l’appareil en tant que nouvelle propriété **Date** (une propriété d’application) sous l’onglet **Propriétés** :
 
-| Nom complet   | Nom du champ | Valeur initiale   |
+| Nom d’affichage  | Nom du champ | Valeur initiale   |
 | --------------| -----------|-----------------|
 | Dernière utilisation      | lastServiced        | 29/01/2019     |
 
@@ -189,7 +189,7 @@ Vous pouvez créer une propriété d’emplacement sous forme de propriété d�
 
 3. Configurez les champs **Nom d’affichage**, **Nom du champ** et éventuellement **Valeur initiale** pour l’emplacement.
 
-    | Nom complet   | Nom du champ | Valeur initiale |
+    | Nom d’affichage  | Nom du champ | Valeur initiale |
     | --------------| -----------|---------| 
     | Adresse de l’installation | installAddress | Microsoft, 1 Microsoft Way, Redmond, WA 98052   |
 
@@ -211,7 +211,7 @@ Vous pouvez créer une propriété d’emplacement sous forme de propriété d�
 
 3. Configurez le nom d’affichage et le nom du champ, puis sélectionnez **Emplacement** comme type de données :
 
-    | Nom complet   | Nom du champ | Type de données |
+    | Nom d’affichage  | Nom du champ | Type de données |
     | --------------| -----------|-----------|
     | Emplacement de l’appareil | deviceLocation | location  |
 
@@ -232,9 +232,9 @@ En quoi une commande est-elle différente d’un paramètre ?
 
 * **Commande** : les commandes vous permettent d'exécuter instantanément une commande sur l'appareil à distance à partir d'IoT Central. Si aucun appareil n’est connecté, la commande expire et échoue. Tel peut être le cas si vous souhaitez redémarrer un appareil.
 
-Par exemple, vous pouvez ajouter un nouveau **Echo** commande en sélectionnant le **commandes** onglet, puis en sélectionnant **+ nouvelle commande**et en entrant les nouveaux détails de commande :
+Par exemple, vous pouvez ajouter une nouvelle commande **Echo** en sélectionnant l’onglet **Commandes**, puis en sélectionnant **+ Nouvelle commande** et en entrant les détails de la nouvelle commande :
 
-| Nom complet   | Nom du champ | Délai par défaut | Type de données |
+| Nom d’affichage  | Nom du champ | Délai d’expiration par défaut | Type de données |
 | --------------| -----------|---------------- | --------- |
 | Commande echo  | echo       |  30             | text      |
 
@@ -280,5 +280,5 @@ Maintenant que vous avez appris à configurer un modèle d’appareil dans votre
 
 > [!div class="nextstepaction"]
 > [Créer une nouvelle version de modèle d’appareil](howto-version-devicetemplate.md)
-> [connecter un appareil IoT DevKit MXChip à votre application Azure IoT Central](howto-connect-devkit.md)
-> [connecter une application de client générique à votre Azure Application IoT Central (Node.js)](howto-connect-nodejs.md)
+> [Connecter un appareil IoT DevKit MXChip à votre application Azure IoT Central](howto-connect-devkit.md)
+> [Connecter une application cliente générique à votre application Azure IoT Central (Node.js)](howto-connect-nodejs.md)

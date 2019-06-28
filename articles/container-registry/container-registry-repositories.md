@@ -9,21 +9,21 @@ ms.topic: article
 ms.date: 01/05/2018
 ms.author: cristyg
 ms.openlocfilehash: 685c978ff206e75d770918f2528a826ad522b706
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60427093"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64710189"
 ---
 # <a name="view-container-registry-repositories-in-the-azure-portal"></a>Affichage des référentiels Container Registry dans le portail Azure
 
 Un référentiel Azure Container Registry vous permet de stocker des images de conteneur Docker. En stockant les images dans des référentiels, vous pouvez stocker des groupes d’images (ou une version de ces images) au sein d’environnements isolés. Vous pouvez spécifier ces référentiels lorsque vous envoyez des images à votre Registre via une transmission de type push, et afficher leur contenu dans le portail Azure.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-* **Registre de conteneurs**: Créer un Registre de conteneurs dans votre abonnement Azure. Par exemple, utilisez le [portail Azure](container-registry-get-started-portal.md) ou [Azure CLI](container-registry-get-started-azure-cli.md).
-* **Interface CLI docker**: Installer [Docker] [ docker-install] sur votre ordinateur local, ce qui vous fournit l’interface de ligne de commande de Docker.
-* **Image de conteneur**: Envoyer une image dans votre Registre de conteneurs. Pour savoir comment envoyer des images via une transmission de type push et en extraire, voir [Envoyer et extraire une image](container-registry-get-started-docker-cli.md).
+* **Container Registry** (Registre de conteneurs) : créez un Registre de conteneurs dans votre abonnement Azure. Par exemple, utilisez le [portail Azure](container-registry-get-started-portal.md) ou [Azure CLI](container-registry-get-started-azure-cli.md).
+* **Docker CLI** (Interface de ligne de commande Docker) : installez [Docker][docker-install] sur votre ordinateur local, ce qui vous fournit l’interface de ligne de commande Docker.
+* **Container image (Image du conteneur)**  : envoyez une image vers votre registre de conteneurs. Pour savoir comment envoyer des images via une transmission de type push et en extraire, voir [Envoyer et extraire une image](container-registry-get-started-docker-cli.md).
 
 ## <a name="view-repositories-in-azure-portal"></a>Affichage des référentiels dans le portail Azure
 

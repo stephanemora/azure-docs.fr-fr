@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 4/1/2019
 ms.author: victorh
 ms.openlocfilehash: 7ee92a7508918635849caafab4632bbba81ee628
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60193757"
 ---
 # <a name="integrate-azure-firewall-with-azure-standard-load-balancer"></a>Intégrer un pare-feu Azure avec Azure Standard Load Balancer
 
 Vous pouvez intégrer un pare-feu Azure à un réseau virtuel avec Azure Standard Load Balancer (public ou interne). 
 
-La conception préconisée consiste à intégrer un équilibreur de charge interne à votre pare-feu Azure, car il s’agit d’une conception beaucoup plus simple. Vous pouvez utiliser un équilibreur de charge public si vous avez pas encore déployé et que vous souhaitez conserver dans la place. Toutefois, vous devez être conscient d’un problème de routage asymétrique qui peut interrompre la fonctionnalité avec le scénario d’équilibreur de charge public.
+La conception préconisée consiste à intégrer un équilibreur de charge interne à votre pare-feu Azure, car il s’agit d’une conception beaucoup plus simple. Vous pouvez utiliser un équilibreur de charge public si vous en avez déjà un de déployé et que vous souhaitez le conserver. Toutefois, vous devez être conscient d’un problème de routage asymétrique qui peut interrompre la fonctionnalité avec le scénario d’équilibreur de charge public.
 
 Pour plus d’informations sur Azure Load Balancer, consultez [Qu’est-ce qu’Azure Load Balancer ?](../load-balancer/load-balancer-overview.md).
 

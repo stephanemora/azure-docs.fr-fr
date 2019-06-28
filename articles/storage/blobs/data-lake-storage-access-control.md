@@ -10,38 +10,38 @@ ms.date: 04/23/2019
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.openlocfilehash: 72a72e385217178cb6afee237cc3a3e5c5d1248b
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66751642"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Contrôle d’accès dans Azure Data Lake Storage Gen2
 
-Azure Data Lake Storage Gen2 implémente un modèle de contrôle d’accès qui prend en charge le contrôle d’accès en fonction du rôle Azure (RBAC) et de listes de contrôle d’accès POSIX (ACL). Cet article présente les notions de base du modèle de contrôle d’accès pour Data Lake Storage Gen2.
+Azure Data Lake Storage Gen2 implémente un modèle de contrôle d’accès qui prend en charge le contrôle d’accès en fonction du rôle (RBAC) Azure et les listes de contrôle d’accès (ACL) POSIX. Cet article présente les notions de base du modèle de contrôle d’accès pour Data Lake Storage Gen2.
 
 <a id="azure-role-based-access-control-rbac" />
 
 ## <a name="role-based-access-control"></a>Contrôle d’accès en fonction du rôle
 
-RBAC utilise les attributions de rôles appliquer efficacement les jeux d’autorisations *principaux de sécurité*. Un *principal de sécurité* est un objet qui représente un utilisateur, un groupe, un principal de service ou une identité gérée qui est définie dans Azure Active Directory (AD) qui demande l’accès aux ressources Azure.
+Le contrôle RBAC utilise les attributions de rôles pour appliquer efficacement des jeux d’autorisations aux *principaux de sécurité*. Un *principal de sécurité* est un objet qui représente un utilisateur, un groupe, un principal de service ou une identité managée défini dans Azure Active Directory (AD) qui demande l’accès à des ressources Azure.
 
-En règle générale, ces ressources Azure sont limitées aux ressources de niveau supérieur (par exemple : Comptes de stockage Azure). Dans le cas de stockage Azure et, par conséquent, le stockage Azure Data Lake Gen2, ce mécanisme a été étendu à la ressource (système de fichiers) du conteneur.
+En règle générale, ces ressources Azure sont limitées aux ressources de niveau supérieur (par exemple : les comptes de stockage Azure). Avec le Stockage Azure, et par conséquent Azure Data Lake Storage Gen2, ce mécanisme a été étendu à la ressource de conteneur (système de fichiers).
 
-Pour savoir comment affecter des rôles aux entités de sécurité dans l’étendue de votre compte de stockage, consultez [accorder l’accès aux données blob et file d’attente Azure avec RBAC dans le portail Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Pour savoir comment affecter des rôles aux entités de sécurité dans l’étendue de votre compte de stockage, consultez [Accorder l’accès aux données blob et file d’attente Azure avec le contrôle RBAC dans le Portail Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ### <a name="the-impact-of-role-assignments-on-file-and-directory-level-access-control-lists"></a>L’impact des affectations de rôle sur les listes de contrôle d’accès au niveau fichier et répertoire
 
-À l’aide d’affectations de rôle RBAC est un mécanisme puissant pour contrôler les autorisations d’accès, mais il est un mécanisme très grossièrement plus précise par rapport aux ACL. La granularité la plus fine que gère la fonction RBAC se trouve au niveau du système de fichiers, et cela sera évalué en priorité par rapport aux ACL. Par conséquent, si vous attribuez un rôle à un principal de sécurité dans l’étendue d’un système de fichiers, cette entité de sécurité a le niveau d’autorisation associé à ce rôle pour tous les répertoires et fichiers dans ce système de fichiers, indépendamment des attributions d’ACL.
+Même si l’affectation de rôle RBAC est un mécanisme puissant pour contrôler les autorisations d’accès, il s’agit d’un mécanisme grossier par rapport aux listes de contrôle d’accès. La granularité la plus fine que gère la fonction RBAC se trouve au niveau du système de fichiers, et cela sera évalué en priorité par rapport aux ACL. Par conséquent, si vous attribuez un rôle à un principal de sécurité dans l’étendue d’un système de fichiers, ce principal de sécurité a le niveau d’autorisation associé à ce rôle pour TOUS les répertoires et fichiers de ce système de fichiers, indépendamment des attributions d’ACL.
 
-Lorsqu’un principal de sécurité est autorisations RBAC données via un [rôle intégré](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues), ou via un rôle personnalisé, ces autorisations sont évaluées en premier lors de l’autorisation d’une demande. Si l’opération demandée n’est autorisée par les attributions de RBAC de l’entité de sécurité, l’autorisation est immédiatement résolu et aucune supplémentaire ACL vérifications sont effectuées. Vous pouvez également, si l’entité de sécurité n’a pas d’une affectation RBAC ou opération de la demande ne correspond pas à l’autorisation, vérifier des listes ACL est effectuées pour déterminer si l’entité de sécurité est autorisée à effectuer l’opération demandée.
+Quand un principal de service reçoit des autorisations RBAC d’accès aux données via un [rôle prédéfini](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues), ou via un rôle personnalisé, ces autorisations sont évaluées en premier lors de l’autorisation d’une demande. Si l’opération demandée est autorisée par les attributions RBAC du principal de sécurité, l’autorisation est immédiatement résolue et aucune vérification supplémentaire n’est réalisée au niveau des ACL. Si le principal de sécurité n’a pas de rôle RBAC attribué ou si l’exécution de la demande ne correspond pas à l’autorisation accordée, des vérifications ACL sont effectuées pour déterminer si le principal de sécurité est autorisé à exécuter l’opération demandée.
 
 > [!NOTE]
-> Si l’entité de sécurité a reçu l’attribution de rôle intégré propriétaire des données de stockage Blob, le principal de sécurité est considéré comme un *super utilisateur* et disposent d’un accès complet à toutes les opérations de mutation, y compris le paramètre est le propriétaire d’un répertoire ou fichier ainsi que les ACL pour les répertoires et fichiers pour lesquels ils ne sont pas le propriétaire. L’accès de super utilisateur constitue la seule manière autorisée de modifier le propriétaire d’une ressource.
+> Si l’attribution de rôle intégré Propriétaire des données de Stockage Blob est affectée au principal de sécurité, le principal de sécurité est considéré comme un *super utilisateur* et il bénéficie d’un accès complet à toutes les opérations de mutation, notamment la définition du propriétaire d’un répertoire ou d’un fichier ainsi que des ACL pour les répertoires et fichiers dont ils ne sont pas propriétaires. L’accès de super utilisateur constitue la seule manière autorisée de modifier le propriétaire d’une ressource.
 
-## <a name="shared-key-and-shared-access-signature-sas-authentication"></a>Authentification de clé partagée et de la Signature d’accès partagé (SAP)
+## <a name="shared-key-and-shared-access-signature-sas-authentication"></a>Authentification avec une clé partagée et une signature d’accès partagé (SAP)
 
-Azure Data Lake Storage Gen2 prend en charge les méthodes de la clé partagée et SAS pour l’authentification. Une caractéristique de ces méthodes d’authentification est qu’aucune identité n’est associée à l’appelant et par conséquent autorisation basée sur les autorisations du principal de sécurité ne peut pas être effectuée.
+Azure Data Lake Storage Gen2 prend en charge les méthodes d’authentification par clé partagée et par SAP. Une caractéristique de ces méthodes d’authentification est qu’aucune identité n’est associée à l’appelant. Par conséquent, aucune permission basée sur une autorisation de principal de sécurité ne peut être accordée.
 
 Dans le cas des clés partagées, l’appelant bénéficie effectivement d’un accès de super utilisateur, autrement dit d’un accès complet à toutes les opérations sur toutes les ressources, y compris la définition du propriétaire et la modification des ACL.
 
@@ -49,31 +49,31 @@ Les jetons SAP incluent les autorisations accordées dans le jeton. Les autorisa
 
 ## <a name="access-control-lists-on-files-and-directories"></a>Listes de contrôle d’accès sur les fichiers et répertoires
 
-Vous pouvez associer une entité de sécurité à un niveau d’accès pour les fichiers et répertoires. Ces associations sont capturées dans un *liste de contrôle d’accès (ACL)* . Chaque fichier et répertoire dans votre compte de stockage a une liste de contrôle d’accès.
+Vous pouvez associer un principal de sécurité à un niveau d’accès pour les fichiers et répertoires. Ces associations sont capturées dans une *liste de contrôle d’accès (ACL)* . Chaque fichier et répertoire de votre compte de stockage a une liste de contrôle d’accès.
 
-Si un rôle est attribué à un principal de sécurité au niveau de compte de stockage, vous pouvez utiliser des listes de contrôle d’accès à accorder à que ce principal de sécurité un accès élevé aux répertoires et fichiers spécifiques.
+Si vous attribuez un rôle à un principal de sécurité au niveau du compte de stockage, vous pouvez utiliser des listes de contrôle d’accès pour accorder à ce principal de sécurité un accès élevé à des répertoires et fichiers spécifiques.
 
-Vous ne pouvez pas utiliser les listes de contrôle d’accès pour fournir un niveau d’accès qui est inférieur à un niveau accordé par une attribution de rôle. Par exemple, si vous assignez le [contributeur aux données stockage Blob](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) répertorie de rôle à une entité, vous ne pouvez pas utiliser le contrôle d’accès de sécurité pour empêcher l’écriture dans un répertoire de ce principal de sécurité.
+Vous ne pouvez pas utiliser les listes de contrôle d’accès pour fournir un niveau d’accès inférieur à un niveau accordé par une attribution de rôle. Par exemple, si vous assignez le rôle [Contributeur des données de Stockage Blob](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) à un principal de sécurité, vous ne pouvez pas utiliser les listes de contrôle d’accès pour empêcher ce principal de sécurité d’écrire dans un répertoire.
 
 ### <a name="set-file-and-directory-level-permissions-by-using-access-control-lists"></a>Définir des autorisations au niveau fichier et répertoire à l’aide de listes de contrôle d’accès
 
-Pour définir des autorisations au niveau des fichiers et de répertoires, consultez les articles suivants :
+Pour définir des autorisations au niveau des fichiers et des répertoires, consultez l’un des articles suivants :
 
-|Si vous souhaitez utiliser cet outil :    |Consultez cet article :    |
+|Si vous souhaitez utiliser cet outil :    |Lisez l’article :    |
 |--------|-----------|
-|Azure Storage Explorer    |[Définir des autorisations au niveau de fichiers et de répertoires à l'aide de l'Explorateur Stockage Azure avec Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-how-to-set-permissions-storage-explorer)|
-|API REST    |[Chemin d’accès - mise à jour](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update)|
+|Explorateur de stockage Azure    |[Définir des autorisations au niveau de fichiers et de répertoires à l'aide de l'Explorateur Stockage Azure avec Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-how-to-set-permissions-storage-explorer)|
+|API REST    |[Chemin d’accès – Mise à jour](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update)|
 
 > [!IMPORTANT]
-> Si l’entité de sécurité est un *service* principal, il est important d’utiliser l’ID d’objet du principal du service et pas l’ID d’objet de l’inscription d’application connexes. Pour accéder l’ID d’objet du principal du service, ouvrez l’interface CLI Azure, puis utiliser cette commande : `az ad sp show --id <Your App ID> --query objectId`. Veillez à remplacer le `<Your App ID>` espace réservé avec l’ID d’application de l’inscription de votre application.
+> Si le principal de sécurité est un principal de *service*, il est important d’utiliser l’ID d’objet du principal du service et non l’ID d’objet de l’inscription d’application connexes. Pour obtenir l’ID d’objet du principal du service, ouvrez l’interface Azure CLI, puis utilisez cette commande : `az ad sp show --id <Your App ID> --query objectId`. Veillez à remplacer l’espace réservé `<Your App ID>` par l’ID d’application de l’inscription de votre application.
 
-### <a name="types-of-access-control-lists"></a>Types de listes de contrôle d’accès
+### <a name="types-of-access-control-lists"></a>Types de listes de contrôle d'accès
 
-Il existe deux types de listes de contrôle d’accès : *ACL d’accès* et *ACL par défaut*.
+Il existe deux types de listes de contrôle d’accès : les *ACL d’accès* et les *ACL par défaut*.
 
 Les ACL d’accès contrôlent l’accès à un objet. Les fichiers et les répertoires ont tous des ACL d’accès.
 
-ACL par défaut est des modèles d’ACL associé à un répertoire qui déterminent l’accès (ACL) pour tous les éléments enfants qui sont créés sous ce répertoire. Les fichiers n’ont pas d’ACL par défaut.
+Les ACL par défaut sont des modèles d’ACL associés à un répertoire, qui déterminent les ACL d’accès pour tous les éléments enfants créés dans ce répertoire. Les fichiers n’ont pas d’ACL par défaut.
 
 Les ACL d’accès et les ACL par défaut ont la même structure.
 
@@ -91,7 +91,7 @@ Les autorisations sur un objet de système de fichiers sont **Lecture**, **Écri
 | **Exécution (X)** | Cela ne signifie rien dans le contexte de Data Lake Storage Gen2 | Requise pour parcourir les éléments enfants d’un répertoire |
 
 > [!NOTE]
-> Si vous accordez des autorisations à l’aide uniquement les ACL (aucun RBAC), pour accorder une lecture de principal de service ou d’un accès en écriture à un fichier, vous devez donner le principal du service **Execute** autorisations pour le système de fichiers et chaque dossier dans le hiérarchie de dossiers qui mènent au fichier.
+> Si vous accordez des autorisations à l’aide uniquement d’ACL (aucun RBAC), pour accorder un accès en lecture ou en écriture sur un fichier à un principal de service, vous devez donner au principal du service les autorisations **Exécuter** sur le système de fichiers et sur chaque dossier de la hiérarchie de dossiers qui mène au fichier.
 
 #### <a name="short-forms-for-permissions"></a>Formes abrégées des autorisations
 
@@ -100,7 +100,7 @@ Les autorisations sur un objet de système de fichiers sont **Lecture**, **Écri
 | Forme numérique | Forme abrégée |      Signification     |
 |--------------|------------|------------------------|
 | 7            | `RWX`        | Lecture + Écriture + Exécution |
-| 5.            | `R-X`        | Lecture + Exécution         |
+| 5\.            | `R-X`        | Lecture + Exécution         |
 | 4            | `R--`        | Lire                   |
 | 0            | `---`        | | Aucune autorisation         |
 
@@ -110,7 +110,7 @@ Dans le modèle POSIX utilisé par Data Lake Storage Gen2, les autorisations d�
 
 ### <a name="common-scenarios-related-to-permissions"></a>Scénarios courants liés aux autorisations
 
-Le tableau suivant répertorie quelques scénarios courants pour vous aider à comprendre quelles autorisations sont nécessaires pour effectuer certaines opérations sur un compte de stockage.
+Le tableau suivant répertorie quelques scénarios courants pour vous aider à comprendre les autorisations nécessaires pour effectuer certaines opérations sur un compte de stockage.
 
 |    Opération             |    /    | Oregon/ | Portland/ | Data.txt     |
 |--------------------------|---------|----------|-----------|--------------|
@@ -134,10 +134,10 @@ Chaque fichier et répertoire dispose d’autorisations distinctes pour ces iden
 - Les utilisateurs nommés
 - Les groupes nommés
 - Les principaux de service nommés
-- Nommé identités gérées
+- Identités managées nommées
 - Tous les autres utilisateurs
 
-Les identités des utilisateurs et des groupes sont des identités Azure Active Directory (Azure AD). C’est le cas sauf indication contraire, un *utilisateur*, dans le contexte de Data Lake Storage Gen2, peut faire référence à un utilisateur Azure AD, identité du principal, managée ou groupe de sécurité de service.
+Les identités des utilisateurs et des groupes sont des identités Azure Active Directory (Azure AD). Sauf mention contraire, dans le contexte de Data Lake Storage Gen2, un *utilisateur* peut désigner un utilisateur, un principal de service, une identité managée ou un groupe de sécurité Azure AD.
 
 #### <a name="the-owning-user"></a>L’utilisateur propriétaire
 
@@ -151,11 +151,11 @@ L’utilisateur qui a créé l’élément est automatiquement l’utilisateur p
 
 #### <a name="the-owning-group"></a>Le groupe propriétaire
 
-Dans les ACL POSIX, chaque utilisateur est associé à un *groupe principal*. Par exemple, l’utilisateur « Alice » peut appartenir au groupe « finance ». Alice peut appartenir à plusieurs groupes, mais un groupe est toujours désigné comme son groupe principal. Dans POSIX, lorsqu’Alice crée un fichier, son groupe principal est défini comme groupe propriétaire de ce fichier (en l’occurrence, « finance »). Sinon, le groupe propriétaire se comporte comme pour les autorisations assignées à d’autres utilisateurs/groupes.
+Dans les ACL POSIX, chaque utilisateur est associé à un *groupe principal*. Par exemple, l’utilisateur « Alice » peut appartenir au groupe « Finance ». Alice peut appartenir à plusieurs groupes, mais un groupe est toujours désigné comme son groupe principal. Dans POSIX, lorsqu’Alice crée un fichier, son groupe principal est défini comme groupe propriétaire de ce fichier (en l’occurrence, « finance »). Sinon, le groupe propriétaire se comporte comme pour les autorisations assignées à d’autres utilisateurs/groupes.
 
 ##### <a name="assigning-the-owning-group-for-a-new-file-or-directory"></a>Affectation du groupe propriétaire pour un nouveau fichier ou répertoire
 
-* **Cas n° 1** : Répertoire racine "/". Ce répertoire est créé lors de la création d’un système de fichiers Data Lake Storage Gen2. Dans ce cas, le groupe propriétaire est celui de l’utilisateur qui a créé le système de fichiers si l’opération est réalisée avec OAuth. Si le système de fichiers est créé à l’aide de la clé partagée, une SAP de compte ou une SAP de Service, le propriétaire et le groupe propriétaire sont définis sur **$superuser**.
+* **Cas n° 1** : Répertoire racine "/". Ce répertoire est créé lors de la création d’un système de fichiers Data Lake Storage Gen2. Dans ce cas, le groupe propriétaire est celui de l’utilisateur qui a créé le système de fichiers si l’opération est réalisée avec OAuth. Si le système de fichiers est créé à l’aide d’une clé partagée, d’une SAP de compte ou d’une SAP de service, le propriétaire et le groupe propriétaire sont définis sur **$superuser**.
 * **Cas 2** (tous les autres cas) : lorsqu’un nouvel élément est créé, le groupe propriétaire est copié à partir du répertoire parent.
 
 ##### <a name="changing-the-owning-group"></a>Modification du groupe propriétaire
@@ -165,11 +165,11 @@ Le groupe propriétaire peut être modifié par :
 * l’utilisateur propriétaire, si l’utilisateur propriétaire est également membre du groupe cible.
 
 > [!NOTE]
-> Le groupe propriétaire ne peut pas modifier les ACL d’un fichier ou d’un répertoire.  Alors que le groupe propriétaire est défini à l’utilisateur qui a créé le compte dans le cas le répertoire racine, **cas 1** ci-dessus, un seul compte d’utilisateur n’est pas valide pour accorder des autorisations via le groupe propriétaire. Si applicable, vous pouvez assigner cette autorisation à un groupe d’utilisateurs valide.
+> Le groupe propriétaire ne peut pas modifier les ACL d’un fichier ou d’un répertoire.  Alors que le groupe d’appartenance est défini sur l’utilisateur qui a créé le compte dans le cas du répertoire racine, **Cas 1** ci-dessus, un seul compte d’utilisateur n’est pas valide pour accorder des autorisations via le groupe d’appartenance. Si applicable, vous pouvez assigner cette autorisation à un groupe d’utilisateurs valide.
 
 ### <a name="access-check-algorithm"></a>Algorithme de vérification des accès
 
-Le pseudo-code suivant représente l’algorithme de vérification d’accès pour les comptes de stockage.
+Le pseudocode suivant représente l’algorithme de vérification des accès pour les comptes de stockage.
 
 ```
 def access_check( user, desired_perms, path ) : 
@@ -225,7 +225,7 @@ Comme illustré dans l’algorithme de vérification des accès, le masque limit
 
 Le sticky bit est une fonctionnalité avancée d’un système de fichiers POSIX. Dans le contexte de Data Lake Storage Gen2, il est peu probable que le sticky bit soit nécessaire. En résumé, si le sticky bit est activé sur un répertoire, un élément enfant peut uniquement être supprimé ou renommé par l’utilisateur propriétaire de l’élément enfant.
 
-Le sticky bit n’est pas affiché dans le portail Azure.
+Le sticky bit n’est pas affiché dans le Portail Azure.
 
 ### <a name="default-permissions-on-new-files-and-directories"></a>Autorisations par défaut sur les nouveaux fichiers et répertoires
 
@@ -270,7 +270,7 @@ def set_default_acls_for_new_child(parent, child):
 
 ### <a name="do-i-have-to-enable-support-for-acls"></a>Dois-je activer la prise en charge des ACL ?
 
-Non. Contrôle d’accès via les ACL est activé pour un compte de stockage tant que le Namespace (HNS hiérarchique) fonctionnalité est activée.
+Non. Le contrôle d’accès via ACL est activé pour un compte de stockage tant que la fonctionnalité d’espace de noms hiérarchique est activée.
 
 Si cette fonctionnalité est désactivée, les règles d’autorisation Azure RBAC s’appliquent toujours.
 
@@ -306,16 +306,16 @@ L’utilisateur propriétaire peut modifier les autorisations du fichier pour s�
 
 Un GUID s’affiche si l’entrée représente un utilisateur et que ce dernier n’existe plus dans Azure AD. Cela se produit généralement lorsque l’utilisateur a quitté l’entreprise ou que son compte a été supprimé dans Azure AD. En outre, les principaux de service et les groupes de sécurité ne sont identifiés par aucun UPN. Par conséquent, ils sont représentés par leur attribut OID (un GUID).
 
-### <a name="how-do-i-set-acls-correctly-for-a-service-principal"></a>Comment définir ACL correctement pour un service principal ?
+### <a name="how-do-i-set-acls-correctly-for-a-service-principal"></a>Comment définir correctement les ACL pour un principal de service ?
 
-Lorsque vous définissez des ACL pour les principaux de service, il est important d’utiliser l’ID d’objet (OID) de la *principal du service* pour l’inscription d’application que vous avez créé. Il est important de noter que les applications inscrites ont un principal de service distinct dans spécifique au locataire Azure AD. Applications inscrites ont un OID qui est visible dans le portail Azure, mais la *principal du service* a un autre OID (différent).
+Lorsque vous définissez des ACL pour des principaux de service, il est important d’utiliser l’ID d’objet (OID) du *principal du service* pour l’inscription d’application que vous avez créée. Il est important de noter que les applications inscrites ont un principal de service distinct dans le locataire Azure AD spécifique. Les applications inscrites ont un OID qui est visible dans le Portail Azure, mais le *principal du service* a un autre OID (différent).
 
-Pour obtenir l’OID du principal du service qui correspond à une inscription d’application, vous pouvez utiliser la `az ad sp show` commande. Spécifiez l’ID d’Application comme paramètre. Voici un exemple sur l’obtention de l’OID du principal du service qui correspond à une inscription d’application avec l’ID d’application = 18218b12-1895-43e9-ad80-6e8fc1ea88ce. Dans Azure CLI, exécutez la commande suivante :
+Pour obtenir l’OID du principal du service qui correspond à une inscription d’application, vous pouvez utiliser la commande `az ad sp show`. Spécifiez l’ID d’application comme paramètre. Voici un exemple sur l’obtention de l’OID du principal du service qui correspond à une inscription d’application avec l’ID d’application = 18218b12-1895-43e9-ad80-6e8fc1ea88ce. Dans Azure CLI, exécutez la commande suivante :
 
 `az ad sp show --id 18218b12-1895-43e9-ad80-6e8fc1ea88ce --query objectId
 <<OID will be displayed>>`
 
-Si vous avez l’OID correct pour le principal du service, accédez à l’Explorateur de stockage **gérer l’accès** page pour ajouter l’OID et attribuer des autorisations appropriées pour l’OID. Veillez à sélectionner **enregistrer**.
+Si vous avez le bon OID pour le principal du service, accédez à la page **Gérer l’accès** de l’Explorateur Stockage pour ajouter l’OID et attribuer des autorisations appropriées pour l’OID. Veillez à sélectionner **Enregistrer**.
 
 ### <a name="does-data-lake-storage-gen2-support-inheritance-of-acls"></a>Data Lake Storage Gen2 prend-il en charge l’héritage des ACL ?
 

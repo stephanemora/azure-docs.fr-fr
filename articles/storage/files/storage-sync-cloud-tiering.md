@@ -9,10 +9,10 @@ ms.date: 09/21/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 1851e9b2bb5ff86583228136dee977001cf0a3fd
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64714950"
 ---
 # <a name="cloud-tiering-overview"></a>Vue d’ensemble de la hiérarchisation cloud
@@ -26,7 +26,7 @@ Quand un utilisateur ouvre un fichier hiérarchisé, Azure File Sync rappelle le
 Azure File Sync ne prend pas en charge la hiérarchisation de fichiers d’une taille inférieure à 64 Kio, car la surcharge de performances qu’entraîneraient la hiérarchisation et le rappel de tels petits fichiers l’emporterait sur les économies d’espace.
 
  > [!Important]  
- > Pour rappeler des fichiers qui ont été hiérarchisés, la bande passante réseau doit être au moins 1 Mbit/s. Si la bande passante réseau est inférieure à 1 Mbit/s, les fichiers peuvent échouer rappeler avec une erreur de délai d’attente.
+ > Pour rappeler les fichiers qui ont été hiérarchisés, la bande passante réseau doit être d'au moins 1 Mbps. Si la bande passante du réseau est inférieure à 1 Mbps, les fichiers peuvent ne pas se rappeler avec une erreur de délai d'attente.
 
 ## <a name="cloud-tiering-faq"></a>FAQ sur la hiérarchisation cloud
 

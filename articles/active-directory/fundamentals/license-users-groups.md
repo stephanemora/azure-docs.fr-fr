@@ -15,10 +15,10 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1e7a3f80067adb3093bd27e34a45b3afd72b4993
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60247644"
 ---
 # <a name="assign-or-remove-licenses-using-the-azure-active-directory-portal"></a>Assigner ou supprimer des licences à l’aide du portail Azure Active Directory
@@ -47,7 +47,7 @@ Vous pouvez afficher les produits disponibles, y compris les licences individuel
 
     La page **Licences** s’affiche.
 
-    ![Page des licences, avec le nombre de produits achetés et les licences attribuées](media/license-users-groups/license-details-blade.png)
+    ![Page Licences, indiquant le nombre de produits achetés et de licences affectées](media/license-users-groups/license-details-blade.png)
     
 3. Sélectionnez le lien **Produits achetés** pour afficher la page **Produits** et les informations **Assigné**, **Disponible**, et **Arrive bientôt à expiration** pour chaque édition spécifique du produit.
 
@@ -76,7 +76,7 @@ Assurez-vous que toutes les personnes devant utiliser un service Azure AD sous l
 
 4. Sélectionnez **Options d’affectation**. Assurez-vous que les options de licence appropriées sont activées, puis sélectionnez **OK**.
 
-    ![Page d’options de licence, avec toutes les options disponibles dans l’édition](media/license-users-groups/license-option-blade-assignments.png)
+    ![Page d’options de licence, affichant toutes les options disponibles dans l’édition](media/license-users-groups/license-option-blade-assignments.png)
 
     La page **Affecter une licence** s’actualise pour indiquer qu’un utilisateur est sélectionné et que les attributions sont configurées.
 
@@ -102,7 +102,7 @@ Assurez-vous que toutes les personnes devant utiliser un service Azure AD sous l
 
 4. Sélectionnez **Options d’affectation**. Assurez-vous que les options de licence appropriées sont activées, puis sélectionnez **OK**.
 
-    ![Page d’options de licence, avec toutes les options disponibles dans l’édition](media/license-users-groups/license-option-blade-group-assignments.png)
+    ![Page d’options de licence, affichant toutes les options disponibles dans l’édition](media/license-users-groups/license-option-blade-group-assignments.png)
 
     La page **Affecter une licence** s’actualise pour indiquer qu’un utilisateur est sélectionné et que les attributions sont configurées.
 

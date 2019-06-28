@@ -16,10 +16,10 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dd753ca4994975302a0bc6fede61964f80196d7c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60472081"
 ---
 # <a name="change-static-group-membership-to-dynamic-in-azure-active-directory"></a>Changer l’appartenance au groupe statique en dynamique dans Azure Active Directory
@@ -33,7 +33,7 @@ Vous pouvez changer l’appartenance à un groupe de statique en dynamique (ou v
 
 ## <a name="change-the-membership-type-for-a-group"></a>Changer le type d’appartenance pour un groupe
 
-1. Se connecter à la [centre d’administration Azure AD](https://aad.portal.azure.com) avec un compte qui est un administrateur global ou un administrateur de l’utilisateur dans votre locataire.
+1. Connectez-vous au [centre d’administration Azure AD](https://aad.portal.azure.com) en utilisant un compte d’administrateur d’entreprise ou en tant qu’administrateur utilisateur dans votre locataire.
 2. Sélectionnez **Groupes**.
 3. Depuis la liste **Tous les groupes**, ouvrez le groupe que vous souhaitez modifier.
 4. Sélectionner **Propriétés**.

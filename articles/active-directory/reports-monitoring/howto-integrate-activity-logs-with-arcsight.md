@@ -1,6 +1,6 @@
 ---
-title: Apprendre à intégrer des journaux Azure Active Directory à ArcSight, à l’aide d’Azure Monitor | Microsoft Docs
-description: Découvrez comment intégrer des journaux Azure Active Directory avec ArcSight, à l’aide d’Azure Monitor
+title: Comment intégrer des journaux d’activité Azure Active Directory à ArcSight à l’aide d’Azure Monitor | Microsoft Docs
+description: Découvrez comment intégrer des journaux d’activité Azure Active Directory à ArcSight à l’aide d’Azure Monitor
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -18,19 +18,19 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 08a265637274f396497da37706391bf44e0c9107
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60437020"
 ---
-# <a name="integrate-azure-active-directory-logs-with-arcsight-using-azure-monitor"></a>Intégrer des journaux Azure Active Directory avec ArcSight, à l’aide d’Azure Monitor
+# <a name="integrate-azure-active-directory-logs-with-arcsight-using-azure-monitor"></a>Intégrer des journaux d’activité Azure Active Directory à ArcSight à l’aide d’Azure Monitor
 
 [Micro Focus ArcSight](https://software.microfocus.com/products/siem-security-information-event-management/overview) est une solution SIEM (Security Information and Event Management) qui vous permet de détecter les menaces de sécurité dans votre plateforme et d’y remédier. Vous pouvez désormais acheminer les journaux d’activité Azure Active Directory (Azure AD) vers ArcSight avec Azure Monitor à l’aide du connecteur ArcSight pour Azure AD. Cette fonctionnalité vous permet de surveiller votre locataire et de détecter les éléments en compromettant la sécurité à l’aide d’ArcSight.  
 
 Dans cet article, vous allez apprendre à router les journaux d’activité Azure AD vers ArcSight à l’aide d’Azure Monitor. 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour utiliser cette fonctionnalité, vous avez besoin des éléments suivants :
 * Un hub d’événements Azure contenant les journaux d’activité d’Azure AD. Découvrez comment [diffuser en continu vos journaux d’activité sur un hub d’événements](quickstart-azure-monitor-stream-logs-to-event-hub.md). 

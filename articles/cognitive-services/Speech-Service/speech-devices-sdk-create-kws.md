@@ -12,10 +12,10 @@ ms.date: 05/02/2019
 ms.author: erhopf
 ms.custom: seodec18
 ms.openlocfilehash: 2280af4bf37fdb3cd12482da855f979a9180f0ec
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65020543"
 ---
 # <a name="create-a-custom-wake-word-by-using-the-speech-service"></a>Créer un mot déclencheur personnalisé à l’aide du service Speech
@@ -47,26 +47,26 @@ Vous devez respecter les consignes suivantes lors du choix d’un mot déclenche
 
 ## <a name="create-your-wake-word"></a>Créer votre mot déclencheur
 
-Avant de pouvoir utiliser un mot de mise en éveil personnalisé avec votre appareil, vous devrez créer un mot de mise en éveil avec le service de génération Microsoft personnalisé éveil par Word. Après avoir fourni un mot de mise en éveil, le service génère un fichier que vous déployez sur votre kit de développement pour activer le mot de mise en éveil sur votre appareil.
+Avant de pouvoir utiliser un mot déclencheur personnalisé avec votre appareil, vous devez en créer un avec le service de génération de mot déclencheur personnalisé de Microsoft. Une fois que vous avez fourni un mot déclencheur, le service génère un fichier que vous déployez sur votre kit de développement pour activer le mot déclencheur sur votre appareil.
 
-1. Accédez à la [Custom Speech Service portail](https://aka.ms/sdsdk-speechportal) et **connectez-vous** ou si vous n’avez pas un abonnement vocale choisissez [ **créer un abonnement**](https://go.microsoft.com/fwlink/?linkid=2086754)
+1. Accédez au [portail du service Speech personnalisé](https://aka.ms/sdsdk-speechportal) et **connectez-vous**, ou, si vous n’avez pas d’abonnement vocal, choisissez [**Créer un abonnement**](https://go.microsoft.com/fwlink/?linkid=2086754)
 
-    ![Le portail de Service vocal personnalisé](media/speech-devices-sdk/wake-word-4.png)
+    ![Le portail du service Speech personnalisé](media/speech-devices-sdk/wake-word-4.png)
 
-1. À la [personnalisé Wake Word](https://aka.ms/sdsdk-wakewordportal) page, tapez le mot de la mise en éveil de votre choix, puis cliquez sur **ajouter mise en éveil mot**. Nous avons certaines [instructions](#choose-an-effective-wake-word) pour aider à choisir un mot clé effectif. Nous prenons uniquement en charge linguistique en-US.
+1. À la page du [mot déclencheur personnalisé](https://aka.ms/sdsdk-wakewordportal), tapez le mot déclencheur de votre choix, puis cliquez sur **Ajouter un mot déclencheur**. Nous avons des [instructions](#choose-an-effective-wake-word) pour vous aider à choisir un mot clé efficace. Seule la langue en-US est prise en charge pour le moment.
 
     ![Entrez votre mot déclencheur](media/speech-devices-sdk/wake-word-5.png)
 
-1. Trois des prononciations de votre mot de mise en éveil seront créées. Vous pouvez choisir tous les prononciations voulue. Puis sélectionnez **Submit** pour générer le mot de la mise en éveil. Si vous souhaitez modifier le mot de la mise en éveil Veuillez supprimer l’existant tout d’abord, lorsque vous pointez sur la ligne de prononciation l’icône de suppression s’affiche.
+1. Trois prononciations possibles de votre mot déclencheur sont créées. Vous pouvez choisir toutes les prononciations que vous voulez. Puis sélectionnez **Envoyer** pour générer le mot déclencheur. Si vous souhaitez modifier le mot déclencheur, supprimez d’abord le mot existant : l’icône de suppression apparaît lorsque vous pointez sur la ligne de prononciation.
 
-    ![Passez en revue votre mot de mise en éveil](media/speech-devices-sdk/wake-word-6.png)
+    ![Vérifiez votre mot déclencheur](media/speech-devices-sdk/wake-word-6.png)
 
-1. Il peut prendre jusqu'à une minute pour le modèle doit être généré. Vous devrez télécharger le fichier.
+1. La création du modèle peut prendre jusqu'à une minute. Vous êtes alors invité à télécharger le fichier.
 
-    ![Téléchargez votre mot de mise en éveil](media/speech-devices-sdk/wake-word-7.png)
+    ![Téléchargez votre mot déclencheur](media/speech-devices-sdk/wake-word-7.png)
 
-1. Enregistrez le fichier .zip sur votre ordinateur. Vous avez besoin de ce fichier pour déployer votre mot de mise en éveil personnalisé dans le kit de développement.
+1. Enregistrez le fichier .zip sur votre ordinateur. Vous aurez besoin de ce fichier pour déployer votre mot déclencheur personnalisé dans le kit de développement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Tester votre mot de mise en éveil personnalisé avec [vocale appareils SDK Quickstart](https://aka.ms/sdsdk-quickstart).
+Tester votre mot de mise en éveil personnalisé avec le [kit de développement logiciel (SDK) de démarrage rapide Speech](https://aka.ms/sdsdk-quickstart).

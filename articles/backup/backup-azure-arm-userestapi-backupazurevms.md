@@ -1,5 +1,5 @@
 ---
-title: 'Sauvegarde Azure : Sauvegarder des machines virtuelles Azure à l’aide de l’API REST'
+title: 'Sauvegarde Azure : Sauvegarder des machines virtuelles Azure avec l’API REST'
 description: Gérer les opérations de sauvegarde des machines virtuelles Azure avec une API REST
 services: backup
 author: pvrk
@@ -11,10 +11,10 @@ ms.date: 08/03/2018
 ms.author: pullabhk
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
 ms.openlocfilehash: 8a47d3cf346d7961e9f8b1c4fa615a2faa6b1da0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60646762"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Sauvegarder une machine virtuelle Azure à l’aide de la sauvegarde Azure via une API REST
@@ -393,7 +393,7 @@ Comme le travail de sauvegarde est une opération longue, il doit être suivi co
 
 ### <a name="changing-the-policy-of-protection"></a>Changement de la stratégie de protection
 
-Pour changer la stratégie avec laquelle la machine virtuelle est protégée, vous pouvez utiliser le même format que pour l’[activation de la protection](#enabling-protection-for-the-azure-vm). Il vous suffit d’indiquer le nouvel ID de stratégie dans [le corps de la demande](#example-request-body) et d’envoyer la demande. Pour, par exemple : Pour modifier la stratégie de testVM à partir de 'DefaultPolicy' à 'ProdPolicy', fournissez l’id de « ProdPolicy » dans le corps de la demande.
+Pour changer la stratégie avec laquelle la machine virtuelle est protégée, vous pouvez utiliser le même format que pour l’[activation de la protection](#enabling-protection-for-the-azure-vm). Il vous suffit d’indiquer le nouvel ID de stratégie dans [le corps de la demande](#example-request-body) et d’envoyer la demande. Par exemple : Pour remplacer la stratégie « DefaultPolicy » de testVM par « ProdPolicy », indiquez l’ID « ProdPolicy » dans le corps de la requête.
 
 ```http
 {
@@ -443,7 +443,7 @@ DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-00000
 
 L’opération *DELETE* sur la protection est une [opération asynchrone](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). ce qui signifie qu’elle crée une autre opération qui doit faire l’objet d’un suivi distinct.
 
-Elle retourne deux réponses : 202 (accepté) lors de la création d’une autre opération, puis 204 (NoContent) lorsque cette opération est terminée.
+Elle retourne deux réponses : 202 (Accepté) lors de la création d’une autre opération, puis 204 (Pas de contenu) quand cette opération est terminée.
 
 |Nom  |type  |Description  |
 |---------|---------|---------|

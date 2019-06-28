@@ -12,10 +12,10 @@ ms.date: 05/10/2019
 ms.author: tulasim
 ms.custom: seodec18
 ms.openlocfilehash: c9add80b7494ae2a8e671967a96dc5d3c7307f51
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65541617"
 ---
 # <a name="edit-a-knowledge-base-in-qna-maker"></a>Modifier une base de connaissances dans QnA Maker
@@ -54,7 +54,7 @@ QnA Maker vous permet de gérer le contenu de votre base de connaissances en fou
 
 ## <a name="add-a-qna-pair"></a>Ajouter une paire QnA
 
-Sur le **paramètres** page, sélectionnez **QnA ajouter paire** pour ajouter une nouvelle ligne à la table de base de connaissances.
+Sur la page **Paramètres**, sélectionnez **Add QnA pair** (Ajouter une paire QnA) pour ajouter une nouvelle ligne à la table de base de connaissances.
 
 ![Ajouter une paire QnA](../media/qnamaker-how-to-edit-kb/add-qnapair.png)
 
@@ -72,7 +72,7 @@ Ajoutez des questions alternatives à une paire QnA existante pour améliorer la
 
 ## <a name="add-metadata"></a>Ajouter des métadonnées
 
-Ajouter des paires de métadonnées en sélectionnant d’abord **afficher les options**, puis en sélectionnant **affichent les métadonnées**. Cette opération affiche la colonne de métadonnées. Ensuite, sélectionnez le **+** pour ajouter une paire de métadonnées. Cette paire se compose d’une clé et une valeur.
+Ajoutez des paires de métadonnées en sélectionnant d’abord **Afficher les options**, puis en sélectionnant **Afficher les métadonnées**. Cette opération affiche la colonne de métadonnées. Ensuite, sélectionnez le signe **+** pour ajouter une paire de métadonnées. Cette paire se compose d’une clé et une valeur.
 
 ![Ajouter des métadonnées](../media/qnamaker-how-to-edit-kb/add-metadata.png)
 

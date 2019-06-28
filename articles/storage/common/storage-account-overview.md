@@ -9,15 +9,15 @@ ms.date: 06/07/2019
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 00b94174debf915fac3ae5fb37f382c0dc46abfb
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66754992"
 ---
 # <a name="azure-storage-account-overview"></a>Vue d’ensemble des comptes de stockage Azure
 
-Un compte de stockage Azure contient tous vos objets de données de stockage Azure : objets blob, fichiers, files d’attente, tables et disques. Le compte de stockage fournit un espace de noms unique pour vos données de stockage Azure qui sont accessibles à partir de n’importe où dans le monde via HTTP ou HTTPS. Données de votre compte de stockage Azure soient durable et hautement disponible, sécurisé et hautement évolutif.
+Un compte de stockage Azure contient tous vos objets de données de stockage Azure : objets blob, fichiers, files d’attente, tables et disques. Le compte de stockage fournit pour vos données de stockage Azure un espace de noms unique, accessible de n’importe où dans le monde via HTTP ou HTTPS. Les données dans votre compte de stockage Azure sont durables et hautement disponibles, sécurisées et massivement évolutives.
 
 Pour plus d’informations sur la création d’un compte de stockage Azure, consultez [Créer un compte de stockage](storage-quickstart-create-account.md).
 
@@ -60,17 +60,17 @@ Même si les comptes de stockage universels v2 sont recommandés dans la plupart
 
 * Vous utilisez une version de l’ [API REST des services de stockage](https://msdn.microsoft.com/library/azure/dd894041.aspx) antérieure à celle du 14/02/2014 ou une bibliothèque cliente avec une version inférieure à 4.x, et vous ne pouvez pas mettre à niveau votre application.
 
-### <a name="block-blob-storage-accounts"></a>Comptes de stockage blob de bloc
+### <a name="block-blob-storage-accounts"></a>Comptes de stockage d’objets blob de blocs
 
-Un compte de stockage des objets blob de bloc est un compte de stockage spécialisé pour stocker les données de l’objet non structurées en tant qu’objets BLOB de blocs. Ce compte de stockage tapez des objets BLOB de blocs prend en charge et ajoutez les objets BLOB, mais pas objets BLOB de pages, tables ou files d’attente.
+Un compte de stockage d’objets blob de blocs est un compte de stockage spécialisé qui stocke les données d’objets non structurées sous la forme d’objets blob de blocs. Ce type de compte de stockage prend en charge le stockage des objets blob de blocs et des objets blob d’ajout, mais pas des objets blob de pages, des tables ou des files d'attente.
 
-Comparé à usage général v2 et comptes de stockage blob, comptes de stockage blob de bloc fournissent une latence faible et cohérente et taux de transaction supérieurs.
+Par comparaison avec des comptes à usage général v2 et de stockage d’objets blob, les comptes de stockage d’objet blob de blocs fournissent une latence faible et cohérente et des taux de transactions plus élevés.
 
-Comptes de stockage blob de bloc ne pas prennent en charge la hiérarchisation pour chaud, froid ou archive des niveaux d’accès.
+Les comptes de stockage d’objets blob de blocs ne prennent actuellement pas en charge la hiérarchisation en niveau d’accès chaud, froid ou archive.
 
-### <a name="filestorage-preview-storage-accounts"></a>Comptes de stockage FileStorage (version préliminaire)
+### <a name="filestorage-preview-storage-accounts"></a>Compte de stockage FileStorage (préversion)
 
-Un compte de stockage FileStorage est un compte de stockage spécialisée utilisé pour stocker et de créer des partages de fichiers premium. Les comptes de stockage FileStorage offrent des caractéristiques de performances d’unique dédié tel que l’e/s de rupture. Pour plus d’informations sur ces caractéristiques, consultez le [niveaux de performances de partage de fichier](../files/storage-files-planning.md#file-share-performance-tiers) section des fichiers de guide de planification.
+Un compte de stockage FileStorage est un compte de stockage spécialisée utilisé pour stocker et créer des partages de fichiers premium. Les comptes de stockage FileStorage offrent des caractéristiques de performances dédiées uniques, telles que l’éclatement d’IOPS de rupture. Pour plus d’informations sur ces caractéristiques, consultez la section [Niveaux de performances de partage de fichiers](../files/storage-files-planning.md#file-share-performance-tiers) du guide de planification des fichiers.
 
 ## <a name="naming-storage-accounts"></a>Nommage des comptes de stockage
 
@@ -86,9 +86,9 @@ Les comptes de stockage universels peuvent être configurés avec l’un des niv
 * Un niveau de performances Standard pour le stockage des objets blob, des fichiers, des tables, des files d’attente et des disques de machine virtuelle Azure
 * Un niveau de performance Premium pour le stockage des disques de machine virtuelle non gérés uniquement
 
-Comptes de stockage blob de bloc fournissent un niveau de performances premium pour le stockage d’objets BLOB de blocs et objets BLOB d’ajout.
+Les comptes de stockage d’objet blob de blocs fournissent un niveau de performances premium pour stocker des objets blob de blocs et ajouter des objets blob.
 
-Les comptes de stockage FileStorage (version préliminaire) fournissent un niveau de performances premium pour les partages de fichiers Azure.
+Les comptes de stockage FileStorage (préversion) fournissent un niveau de performances premium pour les partages de fichiers Azure.
 
 ## <a name="access-tiers-for-block-blob-data"></a>Niveaux d’accès pour les données d’objets blob de blocs
 
@@ -96,11 +96,11 @@ Le stockage Azure propose différentes options permettant d’accéder aux donn�
 
 Les niveaux d’accès disponibles sont les suivants :
 
-* Le niveau d’accès **Chaud**, qui est optimisé pour les accès fréquents aux objets du compte de stockage. Accès aux données au niveau chaud est plus économique, tandis que les coûts de stockage sont plus élevés. Par défaut, les nouveaux comptes de stockage sont créés au niveau Chaud.
-* Le niveau d’accès **Froid**, qui est optimisé pour le stockage d’une grande quantité de données rarement sollicitées et stockées depuis au moins 30 jours. Stockage des données à froid est plus rentable, mais l’accès à ces données peut être plus coûteux que l’accès aux données au niveau chaud.
-* Le niveau **Archive**, qui est disponible uniquement pour chaque objet blob de blocs. Le niveau archive est optimisé pour les données qui peuvent tolérer plusieurs heures de latence de récupération et resteront dans le niveau Archive pendant au moins 180 jours. Le niveau Archive est l’option de stockage la plus économique. Toutefois, l’accès à ces données peut être un peu plus onéreux que celui du niveau Chaud ou Froid.
+* Le niveau d’accès **Chaud**, qui est optimisé pour les accès fréquents aux objets du compte de stockage. L’accès aux données de niveau Chaud est le plus économique. Les coûts de stockage sont toutefois plus élevés. Par défaut, les nouveaux comptes de stockage sont créés au niveau Chaud.
+* Le niveau d’accès **Froid**, qui est optimisé pour le stockage d’une grande quantité de données rarement sollicitées et stockées depuis au moins 30 jours. Le stockage des données au niveau Froid est plus économique. Toutefois, l’accès à ces données peut être plus onéreux que celui du niveau chaud.
+* Le niveau **Archive**, qui est disponible uniquement pour chaque objet blob de blocs. Le niveau d’archive est optimisé pour les données qui peuvent tolérer plusieurs heures de latence de récupération et qui restent dans le niveau Archive pendant au moins 180 jours. Le niveau Archive est l’option de stockage la plus économique. Toutefois, l’accès à ces données peut être un peu plus onéreux que celui du niveau Chaud ou Froid.
 
-En cas de changement de votre modèle d’utilisation des données, vous pouvez basculer d’un niveau d’accès à l’autre à tout moment. Pour plus d’informations sur les niveaux d’accès, consultez [stockage Blob Azure : chaud, froid et archive les niveaux d’accès](../blobs/storage-blob-storage-tiers.md).
+En cas de changement de votre modèle d’utilisation des données, vous pouvez basculer d’un niveau d’accès à l’autre à tout moment. Pour plus d’informations sur les niveaux d’accès, consultez [Stockage d’objets blob Azure : niveaux d’accès chaud, froid et archive](../blobs/storage-blob-storage-tiers.md).
 
 > [!IMPORTANT]
 > Le changement du niveau d’accès pour un compte de stockage ou un objet blob existant peut entraîner des frais supplémentaires. Pour plus d’informations, consultez la section [Facturation du compte de stockage](#storage-account-billing).
@@ -127,7 +127,7 @@ Par exemple, si le nom de votre compte de stockage universel est *mystorageaccou
 * Azure Files : http://*mystorageaccount*.file.core.windows.net
 
 > [!NOTE]
-> Objet blob de blocs et des comptes de stockage d’objets blob exposent le seul point de terminaison de service blob.
+> Les comptes d’objets blob de blocs et de stockage d’objets blob exposent uniquement le point de terminaison de service blob.
 
 L’URL permettant d’accéder à un objet dans un compte de stockage est formée par l’ajout de l’emplacement de l’objet dans le compte de stockage au point de terminaison. Par exemple, une adresse d’objet blob peut avoir ce format : http://*moncomptedestockage*.blob.core.windows.net/*monconteneur*/*monobjetblob*.
 
@@ -141,7 +141,7 @@ Chaque requête envoyée à votre compte de stockage doit en avoir l’autorisat
 
 Vous pouvez accorder l’accès aux données de votre compte de stockage à l’aide de l’une des méthodes suivantes :
 
-- **Azure Active Directory :** Utilisez les informations d’identification Azure Active Directory (Azure AD) pour authentifier un utilisateur, groupe ou autres informations d’identification pour accéder aux données blob et file d’attente. Si l’authentification d’une identité réussit, Azure AD retourne un jeton qui doit être utilisé pour autoriser la requête dans le stockage Blob ou File d’attente d’Azure. Pour plus d’informations, consultez [Authentifier l’accès au Stockage Azure à l’aide d’Azure Active Directory](storage-auth-aad.md).
+- **Azure Active Directory :** Utilisez les informations d’identification Azure Active Directory (Azure AD) afin d’authentifier un utilisateur, un groupe ou une autre identité, pour l’accès aux données d’objets blob et de files d’attente. Si l’authentification d’une identité réussit, Azure AD retourne un jeton qui doit être utilisé pour autoriser la requête dans le stockage Blob ou File d’attente d’Azure. Pour plus d’informations, consultez [Authentifier l’accès au Stockage Azure à l’aide d’Azure Active Directory](storage-auth-aad.md).
 - **Autorisation par clé partagée :** Utilisez la clé d’accès de votre compte de stockage pour construire une chaîne de connexion que votre application utilisera lors de l’exécution afin d’accéder au stockage Azure. Les valeurs de la chaîne de connexion sont utilisées pour construire l’en-tête *d’autorisation* qui est passé au stockage Azure. Pour plus d’informations, consultez [Configuration des chaînes de connexion Stockage Azure](storage-configure-connection-string.md).
 - **Signature d’accès partagé :** Utilisez une signature d’accès partagé pour déléguer l’accès aux ressources de votre compte de stockage, si vous n’utilisez pas l’authentification Azure AD. Une signature d’accès partagé est un jeton qui encapsule toutes les informations nécessaires à l’autorisation d’une requête envoyée au stockage Azure via l’URL. Dans le cadre de la signature d’accès partagé, vous pouvez spécifier la ressource de stockage, les autorisations accordées et l’intervalle pendant lequel les autorisations sont valides. Pour plus d’informations, consultez la page [Utiliser des signatures d’accès partagé (SAP)](storage-dotnet-shared-access-signature-part-1.md).
 
@@ -185,6 +185,6 @@ Vous pouvez également utiliser ce service pour transférer des données de Stoc
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour savoir comment créer un compte de stockage Azure à usage général, consultez [créer un compte de stockage](storage-quickstart-create-account.md).
-* Pour savoir comment créer un compte de stockage des objets blob de bloc, consultez [créer un compte de stockage des objets blob de bloc](../blobs/storage-blob-create-account-block-blob.md).
+* Pour apprendre à créer un compte de stockage Azure à usage général, consultez [Créer un compte de stockage](storage-quickstart-create-account.md).
+* Pour apprendre à créer un compte de stockage d’objets blob de blocs, consultez [Créer un compte de stockage d’objets blob de blocs](../blobs/storage-blob-create-account-block-blob.md).
 * Pour gérer ou supprimer un compte de stockage existant, consultez [Gérer des comptes de stockage Azure](storage-account-manage.md).

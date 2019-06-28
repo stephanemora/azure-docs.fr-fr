@@ -10,10 +10,10 @@ ms.date: 09/20/2018
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: 1230a9bcea01ef394a6299c50b8d5537850cfee5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60527310"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Versions et historique des schémas de configuration de l’extension Diagnostics Azure
@@ -29,7 +29,7 @@ Cette page est un index des versions de schémas d’extension Diagnostics Azure
 >
 > Cette page vous concerne uniquement si vous utilisez l’un de ces services.
 
-L’extension Azure Diagnostics est utilisée avec d’autres produits de diagnostic Microsoft comme Azure Monitor, qui inclut l’Application Insights et Analytique de journal. Pour plus d’informations, voir [Vue d’ensemble des outils d’analyse Microsoft](../../azure-monitor/overview.md).
+L’extension Diagnostics Azure est utilisée avec d’autres produits de diagnostic Microsoft comme Azure Monitor, qui comprend Application Insights et Log Analytics. Pour plus d’informations, voir [Vue d’ensemble des outils d’analyse Microsoft](../../azure-monitor/overview.md).
 
 ## <a name="azure-sdk-and-diagnostics-versions-shipping-chart"></a>Graphique des versions d’Azure Diagnostics et SDK  
 

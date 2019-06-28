@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 10/30/2018
 ms.openlocfilehash: 27a873fac8bf2b53ee06780b8a348eaaa5c94e97
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60334187"
 ---
 # <a name="best-practices-for-managing-u-sql-assemblies-in-a-cicd-pipeline"></a>Bonnes pratiques pour gérer les assemblys U-SQL dans un pipeline CI/CD
@@ -58,7 +58,7 @@ Suivez ces étapes pour créer des projets et ajouter des références.
 
 7. Ajoutez des **dépendances gérées** et des **fichiers supplémentaires**, le cas échéant. Lorsque vous ajoutez des fichiers supplémentaires, l'outil utilise le chemin d'accès relatif pour garantir que les assemblys seront trouvés aussi bien sur votre ordinateur local qu'ultérieurement sur l'ordinateur de build.
 
-**\@_DeployTempDirectory** dans l’éditeur de fenêtre en bas est une variable prédéfinie qui pointe de l’outil dans le dossier de sortie de génération. Dans le dossier de sortie de build, chaque assembly a un sous-dossier portant son nom. Toutes les DLL et tous les fichiers supplémentaires se trouvent dans ce sous-dossier.
+**\@_DeployTempDirectory** en bas de la fenêtre de l’éditeur est une variable prédéfinie qui pointe l’outil vers le dossier de sortie de build. Dans le dossier de sortie de build, chaque assembly a un sous-dossier portant son nom. Toutes les DLL et tous les fichiers supplémentaires se trouvent dans ce sous-dossier.
 
 ## <a name="build-a-u-sql-database-project"></a>Générer un projet de base de données U-SQL
 

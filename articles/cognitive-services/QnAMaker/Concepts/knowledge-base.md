@@ -12,10 +12,10 @@ ms.date: 03/04/2019
 ms.author: tulasim
 ms.custom: seodec18
 ms.openlocfilehash: 02111ac90fe97ddaddbd41ad42410e7e76f1c405
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61379258"
 ---
 # <a name="what-is-a-qna-maker-knowledge-base"></a>Qu’est-ce qu’une base de connaissances QnA Maker ?
@@ -28,7 +28,7 @@ Une base de connaissances QnA Maker est composée d’un ensemble de paires de q
 * **Réponses** : une réponse est la réponse retournée quand une requête de l’utilisateur est mise en correspondance avec la question associée.  
 * **Métadonnées** : les métadonnées sont des étiquettes associées à une paire QnA. Elles sont représentées sous forme de paires clé-valeur. Les balises de métadonnées servent à filtrer les paires QnA et à limiter le jeu sur lequel la mise en correspondance de requête est effectuée.
 
-Une seule entité QnA, représentée par un ID numérique de QnA, a plusieurs variantes d’une question (autres questions), toutes mappées à une réponse unique. En outre, chaque paire de ce type peut avoir plusieurs champs de métadonnées associés : une clé et une valeur.
+Une seule entité QnA, représentée par un ID numérique de QnA, a plusieurs variantes d’une question (autres questions), toutes mappées à une réponse unique. De plus, chaque paire de ce type peut avoir plusieurs champs de métadonnées associés : une clé et une valeur.
 
 ![ID de base de connaissances QnA Maker](../media/qnamaker-concepts-knowledgebase/knowledgebase.png) 
 
@@ -36,7 +36,7 @@ Une seule entité QnA, représentée par un ID numérique de QnA, a plusieurs va
 
 Quand vous ingérez du contenu riche dans une base de connaissances, QnA Maker tente de le convertir en Markdown. Pour comprendre les formats Markdown compréhensibles par la plupart des clients de conversation, consultez [ce](https://aka.ms/qnamaker-docs-markdown-support) blog.
 
-Les champs de métadonnées sont composés de paires clé-valeur séparées par un signe deux-points **(Product:Shredder)**. La clé et la valeur doivent être uniquement du texte. La clé de métadonnées ne doit pas contenir d’espace. Métadonnées prend en charge qu’une seule valeur par clé.
+Les champs de métadonnées sont composés de paires clé-valeur séparées par un signe deux-points **(Product:Shredder)** . La clé et la valeur doivent être uniquement du texte. La clé de métadonnées ne doit pas contenir d’espace. Les métadonnées ne prennent en charge qu’une seule valeur par clé.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

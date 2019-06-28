@@ -19,10 +19,10 @@ author: billmath
 ms.custom: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8bd46bb820c7127c4fa6105fcc0be73bb66024c6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60245708"
 ---
 # <a name="manage-ad-fs-trust-with-azure-ad-using-azure-ad-connect"></a>Gérer l’approbation AD FS avec Azure AD à l’aide d’Azure AD Connect
@@ -105,7 +105,7 @@ Azure AD Connect vérifie que l’approbation Azure AD est toujours configurée 
 
 La version Azure AD Connect 1.1.873.0 ou les versions ultérieures sauvegardent les paramètres d’approbation Azure AD chaque fois que ces derniers font l’objet d’une mise à jour. Les paramètres d’approbation Azure AD sont sauvegardés à l’emplacement **%ProgramData%\AADConnect\ADFS**. Le nom de fichier présente le format AadTrust-&lt;date&gt;-&lt;heure&gt;.txt ; par exemple : AadTrust-20180710-150216.txt
 
-![Une capture d’écran d’exemple sauvegarder de confiance Azure AD](./media/how-to-connect-azure-ad-trust/backup.png)
+![Capture d’écran d’exemple de sauvegarde d’approbation Azure AD](./media/how-to-connect-azure-ad-trust/backup.png)
 
 Vous pouvez restaurer les règles de transformation d’émission à l’aide de la procédure recommandée ci-après.
 

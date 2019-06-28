@@ -1,5 +1,5 @@
 ---
-title: Récupération offre des API | Place de marché Azure
+title: API de récupération des offres | Place de marché Azure
 description: API récupère une liste récapitulative des offres d’un espace de noms du serveur de publication.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 67109c3605ea96123ff41cb88d5ac328a09991e6
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935327"
 ---
 <a name="retrieve-offers"></a>Récupération des offres
@@ -25,7 +25,7 @@ Récupère une liste récapitulative des offres sous un espace de noms du serveu
 <a name="uri-parameters"></a>Paramètres URI
 --------------
 
-| **Name**         |  **Description**                         |  **Type de données** |
+| **Nom**         |  **Description**                         |  **Type de données** |
 | -------------    |  ------------------------------------    |  -----------   |
 |  publisherId     | Identificateur du serveur de publication, par exemple `contoso` |   Chaîne    |
 |  api-version     | Dernière version de l’API                    |    Date        |
@@ -35,7 +35,7 @@ Récupère une liste récapitulative des offres sous un espace de noms du serveu
 <a name="header"></a>En-tête
 ------
 
-|  **Name**        |         **Valeur**       |
+|  **Nom**        |         **Valeur**       |
 |  --------------- |       ----------------  |
 |  Content-Type    | `application/json`      |
 |  Authorization   | `Bearer YOUR_TOKEN`     |
@@ -66,7 +66,7 @@ Récupère une liste récapitulative des offres sous un espace de noms du serveu
 
 ### <a name="response-body-properties"></a>Propriétés du corps de réponse
 
-|  **Name**       |       **Description**                                                                                                  |
+|  **Nom**       |       **Description**                                                                                                  |
 |  -------------  |      --------------------------------------------------------------------------------------------------------------    |
 |  offerTypeId    | Identifie le type d’offre                                                                                           |
 |  publisherId    | L’identificateur qui identifie de façon unique ce serveur de publication                                                                      |
@@ -91,7 +91,7 @@ Récupère une liste récapitulative des offres sous un espace de noms du serveu
 
 ### <a name="offer-status"></a>État de l’offre
 
-|  **Name**                    | **Description**                                  |
+|  **Nom**                    | **Description**                                  |
 |  ------------------------    | -----------------------------------------------  |
 |  NeverPublished              | L’offre n’a jamais été publiée.                  |
 |  NotStarted                  | L’offre est nouvelle, mais n’a pas démarré.                 |

@@ -12,10 +12,10 @@ ms.date: 05/13/2019
 ms.author: tulasim
 ms.custom: seodec18
 ms.openlocfilehash: 239633950e4672693e3684345749f9c46f01c037
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65605660"
 ---
 # <a name="create-a-qna-maker-service"></a>Créer un service QnA Maker
@@ -24,11 +24,11 @@ Avant de pouvoir créer des bases de connaissances QnA Maker, vous devez tout d�
 
 ## <a name="create-a-new-service"></a>Créer un service
 
-Cette procédure permet de déployer certaines ressources Azure. Ensemble, ces ressources gèrent le contenu de la base de connaissances et fournissent des fonctionnalités de réponse aux questions via un point de terminaison.
+Cette procédure déploie plusieurs ressources Azure. Ensemble, ces ressources gèrent le contenu de la base de connaissances et fournissent des fonctionnalités de réponse aux questions via un point de terminaison.
 
-1. Connectez-vous au portail Azure et [créer une API QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) ressource.
+1. Connectez-vous au portail Azure et [créez une ressource QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker).
 
-1. Sélectionnez **créer** après avoir lu les termes et conditions.
+1. Sélectionnez **Créer** après avoir lu les conditions générales.
 
     ![Créer un nouveau service QnA Maker](../media/qnamaker-how-to-setup-service/create-new-resource-button.png)
 
@@ -38,9 +38,9 @@ Cette procédure permet de déployer certaines ressources Azure. Ensemble, ces r
 
     * Renseignez le **Nom** avec un nom unique pour identifier ce service QnA Maker. Ce nom identifie également le point de terminaison QnA Maker auquel vos bases de connaissances seront associées.
     * Choisissez **l’abonnement** dans lequel la ressource QnA Maker sera déployée.
-    * Sélectionnez le **niveau tarifaire** pour les services de gestion de QnA Maker (portail et API de gestion). Consultez [ici](https://aka.ms/qnamaker-pricing) plus d’informations sur la tarification des références SKU.
-    * Créez un nouveau **Groupe de ressources** (recommandé) ou utilisez un groupe de ressources existant dans lequel déployer cette ressource QnA Maker. QnA Maker crée plusieurs ressources Azure ; Lorsque vous créez un groupe de ressources contenant ces ressources, vous pouvez facilement rechercher, gérer et supprimer ces ressources par le nom de groupe de ressources.
-    * Sélectionnez un **emplacement du groupe de ressources**.
+    * Sélectionnez le **Niveau tarifaire** pour les services d’administration de QnA Maker (portail et API de gestion). Consultez [ici](https://aka.ms/qnamaker-pricing) plus d’informations sur la tarification des références SKU.
+    * Créez un nouveau **Groupe de ressources** (recommandé) ou utilisez un groupe de ressources existant dans lequel déployer cette ressource QnA Maker. QnA Maker crée plusieurs ressources Azure ; lorsque vous créez un groupe de ressources pour conserver ces ressources, vous pouvez facilement les rechercher, les gérer et les supprimer par le biais du nom du groupe de ressources.
+    * Sélectionnez un **Emplacement du groupe de ressources**.
     * Choisissez le **Niveau tarifaire de recherche** du service Recherche Azure. Si l’option de niveau Gratuit est grisée, cela signifie que vous disposez déjà d’un niveau Recherche Azure Gratuit déployé dans votre abonnement. Dans ce cas, vous devrez commencer par le niveau De base de la Recherche Azure. Consultez les détails sur la tarification de la Recherche Azure [ici](https://azure.microsoft.com/pricing/details/search/).
     * Choisissez **l’emplacement de recherche** où vous souhaitez que les données de Recherche Azure soient déployées. Les restrictions relatives à l’emplacement de stockage des données client indiquent l’emplacement que vous choisissez pour la Recherche Azure.
     * Attribuez un nom à votre App Service dans **Nom de l’application**.
@@ -52,9 +52,9 @@ Cette procédure permet de déployer certaines ressources Azure. Ensemble, ces r
 
     * Choisissez si vous souhaitez activer **Application Insights** ou non. Si **Application Insights** est activé, QnA Maker collecte les données de télémétrie sur le trafic, les journaux d’activité de conversation et les erreurs.
     * Choisissez **l’emplacement d’Application Insights** où la ressource Application Insights sera déployée.
-    * Pour les mesures d’économies de coût, vous pouvez [partager](upgrade-qnamaker-service.md?#share-existing-services-with-qna-maker) certains, mais pas toutes les ressources Azure créés pour QnA Maker. 
+    * Pour réduire vos coûts, vous pouvez [partager](upgrade-qnamaker-service.md?#share-existing-services-with-qna-maker) certaines des ressources Azure créées pour QnA Maker, mais pas toutes. 
 
-1. Une fois que tous les champs sont validés, vous pouvez sélectionner **créer** pour démarrer le déploiement de ces services dans votre abonnement. L’exécution de cette opération nécessite quelques minutes.
+1. Une fois que tous les champs sont validés, vous pouvez sélectionner **Créer** pour commencer le déploiement de ces services dans votre abonnement. L’exécution de cette opération nécessite quelques minutes.
 
 1. Une fois le déploiement terminé, vous verrez les ressources suivantes créées dans votre abonnement.
 
@@ -62,7 +62,7 @@ Cette procédure permet de déployer certaines ressources Azure. Ensemble, ces r
 
 ## <a name="region-of-management-service"></a>Région du service de gestion
 
-Le service de gestion de QnA Maker, utilisé uniquement pour le portail & pour le traitement de données initial, est disponible uniquement dans l’ouest des États-Unis. Les données client sont stockées dans ce service de l’ouest des États-Unis.
+Le service de gestion de QnA Maker, utilisé uniquement pour le portail et pour le traitement de données initial, est disponible uniquement aux USA Ouest. Il n’y a pas de stockage de données de clients dans ce service aux USA Ouest.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

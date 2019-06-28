@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
 ms.openlocfilehash: b8239688000f0ce32ca2c2be054b1443bbb698b5
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65069132"
 ---
 # <a name="age-prebuilt-entity-for-a-luis-app"></a>Entité prédéfinie age pour une application LUIS
@@ -26,7 +26,7 @@ L’entité age est gérée à partir du dépôt GitHub [Recognizers-text](https
 
 ## <a name="resolution-for-prebuilt-age-entity"></a>Résolution pour une entité prédéfinie age
 
-### <a name="api-version-2x"></a>Version de l’API 2.x
+### <a name="api-version-2x"></a>API version 2.x
 
 L’exemple suivant montre la résolution de l’entité **builtin.age**.
 
@@ -52,9 +52,9 @@ L’exemple suivant montre la résolution de l’entité **builtin.age**.
 }
 ```
 
-### <a name="preview-api-version-3x"></a>Version d’évaluation API 3.x
+### <a name="preview-api-version-3x"></a>API 3.x en préversion
 
-Le code JSON suivant est avec la `verbose` paramètre défini sur `false`:
+Le code JSON suivant a le paramètre `verbose` défini sur `false` :
 
 ```json
 {
@@ -79,7 +79,7 @@ Le code JSON suivant est avec la `verbose` paramètre défini sur `false`:
 }
 ```
 
-Le code JSON suivant est avec la `verbose` paramètre défini sur `true`:
+Le code JSON suivant a le paramètre `verbose` défini sur `true` :
 
 ```json
 {

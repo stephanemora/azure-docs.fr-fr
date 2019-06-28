@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 04/08/2019
 ms.openlocfilehash: 36b1fb96ac1dd89375588a65063ce729f6ac825d
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65794386"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>Qu’est-ce qu’une base de données Azure SQL Database unique
@@ -30,7 +30,7 @@ L’option de déploiement d’une base de données unique crée dans Azure SQL 
 
 ## <a name="dynamic-scalability"></a>Évolutivité dynamique
 
-Vous pouvez créer votre première application sur une petite base de données unique à faible coût dans la couche de calcul sans serveur (version préliminaire) ou une taille de petite instance de calcul dans le niveau calcul provisionné. Vous modifiez le [calcul ou couche de service](sql-database-single-database-scale.md) manuellement ou par programme à tout moment pour répondre aux besoins de votre solution. Vous pouvez ajuster les performances sans perturber le fonctionnement de votre application, ni l’expérience de vos clients. L’évolutivité dynamique permet à votre base de données de répondre en toute transparence aux besoins en ressources qui évoluent sans cesse et de payer uniquement les ressources dont vous avez besoin, lorsque vous en avez besoin.
+Vous pouvez créer votre première application sur une petite base de données unique à faible coût dans la couche de calcul serverless (version préliminaire) ou une petite taille de calcul dans le niveau de calcul provisionné. Vous pouvez modifier le [niveau de calcul ou de service](sql-database-single-database-scale.md) manuellement ou programmatiquement à tout moment pour répondre aux besoins de votre solution. Vous pouvez ajuster les performances sans perturber le fonctionnement de votre application, ni l’expérience de vos clients. L’évolutivité dynamique permet à votre base de données de répondre en toute transparence aux besoins en ressources qui évoluent sans cesse et de payer uniquement les ressources dont vous avez besoin, lorsque vous en avez besoin.
 
 ## <a name="single-databases-and-elastic-pools"></a>Bases de données uniques et pools élastiques
 
@@ -42,7 +42,7 @@ Vous utilisez les outils intégrés de [surveillance](sql-database-performance.m
 
 ## <a name="availability-capabilities"></a>Fonctionnalités de disponibilité
 
-Bases de données uniques, les pools élastiques et des instances gérées fournissent de nombreuses caractéristiques de disponibilité. Pour plus d’informations, consultez [Caractéristiques de disponibilité](sql-database-technical-overview.md#availability-capabilities).
+Les bases de données uniques, les pools élastiques et les instances gérées fournissent un grand nombre de caractéristiques de disponibilité. Pour plus d’informations, consultez [Caractéristiques de disponibilité](sql-database-technical-overview.md#availability-capabilities).
 
 ## <a name="transact-sql-differences"></a>Différences Transact-SQL
 
@@ -56,7 +56,7 @@ Pour plus d’informations, voir [Résolution des différences de Transact-SQL d
 SQL Database fournit toute une gamme de [fonctionnalités intégrées de sécurité et conformité](sql-database-security-overview.md) pour que votre application réponde aux différentes exigences de conformité et de sécurité.
 
 > [!IMPORTANT]
-> Base de données SQL Azure (toutes les options de déploiement), a été certifié par rapport à un nombre de normes de conformité. Pour plus d’informations, consultez le [Microsoft Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) où vous trouverez la liste actualisée des certifications de conformité de base de données SQL.
+> La base de données Azure SQL Database (toutes les options de déploiement) a été certifiée par rapport à plusieurs normes de conformité. Pour en savoir plus, accédez au [Centre de confidentialité Microsoft Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942), qui inclut la liste la plus à jour des certifications de conformité de SQL Database.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

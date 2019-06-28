@@ -17,10 +17,10 @@ ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 0c12c75bd5c357613d55e04aed67c0cc901135e6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60835514"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Déploiement SGBD de machines virtuelles SQL Server Azure pour SAP NetWeaver
@@ -28,7 +28,7 @@ ms.locfileid: "60835514"
 [767598]:https://launchpad.support.sap.com/#/notes/767598
 [773830]:https://launchpad.support.sap.com/#/notes/773830
 [826037]:https://launchpad.support.sap.com/#/notes/826037
-[965908]:https://launchpad.support.sap.com/#/notes/965908
+[965908]: https://launchpad.support.sap.com/#/notes/965908
 [1031096]:https://launchpad.support.sap.com/#/notes/1031096
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
 [1139904]:https://launchpad.support.sap.com/#/notes/1139904
@@ -50,12 +50,12 @@ ms.locfileid: "60835514"
 [1757928]:https://launchpad.support.sap.com/#/notes/1757928
 [1758182]:https://launchpad.support.sap.com/#/notes/1758182
 [1758496]:https://launchpad.support.sap.com/#/notes/1758496
-[1772688]:https://launchpad.support.sap.com/#/notes/1772688
+[1772688]: https://launchpad.support.sap.com/#/notes/1772688
 [1814258]:https://launchpad.support.sap.com/#/notes/1814258
 [1882376]:https://launchpad.support.sap.com/#/notes/1882376
 [1909114]:https://launchpad.support.sap.com/#/notes/1909114
 [1922555]:https://launchpad.support.sap.com/#/notes/1922555
-[1928533]:https://launchpad.support.sap.com/#/notes/1928533
+[1928533]: https://launchpad.support.sap.com/#/notes/1928533
 [1941500]:https://launchpad.support.sap.com/#/notes/1941500
 [1956005]:https://launchpad.support.sap.com/#/notes/1956005
 [1973241]:https://launchpad.support.sap.com/#/notes/1973241
@@ -408,7 +408,7 @@ Vous disposez de plusieurs solutions pour effectuer des sauvegardes « manuelles
 2.  SQL Server 2012 CU4 et les versions ultérieures permettent de sauvegarder les bases de données vers une URL de stockage Azure.
 3.  Sauvegardes sous forme d’instantanés de fichier pour les fichiers de base de données dans le stockage Blob Azure. Cette méthode fonctionne uniquement si vos fichiers journaux et fichiers de données SQL Server sont situés dans le stockage blob Azure.
 
-La première méthode est connue et appliqués dans de nombreux cas dans le monde local ainsi. Néanmoins, avec cette méthode, il vous incombe de trouver une solution pour l’emplacement de sauvegarde à plus long terme. Puisque vous ne souhaitez pas conserver vos sauvegardes pendant 30 jours ou plus dans le stockage Azure attaché localement, vous devez utiliser les services de sauvegarde Azure ou un autre outil de sauvegarde/récupération tiers qui inclut la gestion de la rétention de vos sauvegardes ainsi que la gestion de leur accès. Vous pouvez également créer un serveur de fichiers volumineux dans Azure à l’aide des espaces de stockage Windows.
+La première méthode est bien connue et appliquée également dans de nombreux cas dans le monde réel. Néanmoins, avec cette méthode, il vous incombe de trouver une solution pour l’emplacement de sauvegarde à plus long terme. Puisque vous ne souhaitez pas conserver vos sauvegardes pendant 30 jours ou plus dans le stockage Azure attaché localement, vous devez utiliser les services de sauvegarde Azure ou un autre outil de sauvegarde/récupération tiers qui inclut la gestion de la rétention de vos sauvegardes ainsi que la gestion de leur accès. Vous pouvez également créer un serveur de fichiers volumineux dans Azure à l’aide des espaces de stockage Windows.
 
 La seconde méthode est décrite de façon plus détaillée dans l’article [Sauvegarde SQL Server vers une URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sql-server-2017). Cette fonctionnalité varie en fonction des versions de SQL Server. En conséquence, vous devez consulter la documentation correspondant à votre version SQL Server. Il est important de noter que cet article répertorie un grand nombre de restrictions. Vous pouvez effectuer la sauvegarde dans :
 
@@ -476,8 +476,8 @@ L’une des méthodes permettant d’assurer la haute disponibilité est la copi
 La fonctionnalité de copie des journaux de transaction de SQL Server a été rarement utilisée dans Azure pour atteindre la haute disponibilité dans une région Azure. Toutefois, dans les scénarios suivants, les clients SAP utilisaient la copie des journaux de transaction avec succès conjointement avec Azure :
 
 - Scénarios de récupération d’urgence d’une région Azure dans une autre région Azure.
-- Configuration de récupération d’urgence en local dans une région Azure
-- Prolongées des scénarios en local vers Azure. Dans ces cas, la copie des journaux de transaction est utilisée pour synchroniser le nouveau déploiement de SGBD dans Azure avec le système de production en cours en local. Au moment du basculement, la production est arrêtée, et il convient de vérifier que les dernières sauvegardes des journaux de transactions ont été transférées vers le déploiement SGBD Azure. Le déploiement SGBD Azure est ouvert pour la production.  
+- Configuration de la reprise d’activité après sinistre à partir d’un environnement local dans une région Azure.
+- Scénarios de basculement à partir d’un environnement local vers Azure. Dans ces cas, la copie des journaux de transaction est utilisée pour synchroniser le nouveau déploiement de SGBD dans Azure avec le système de production en cours en local. Au moment du basculement, la production est arrêtée, et il convient de vérifier que les dernières sauvegardes des journaux de transactions ont été transférées vers le déploiement SGBD Azure. Le déploiement SGBD Azure est ouvert pour la production.  
 
 
 
@@ -524,13 +524,13 @@ Plusieurs clients utilisent SQL Server [Transparent Data Encryption (TDE)](https
 ### <a name="applying-sql-server-tde"></a>Application de SQL Server TDE
 Dans les cas où vous effectuez une migration hétérogène à partir d’un autre système SGBD, qui s’exécute localement, vers Windows/SQL Server exécuté dans Azure, vous devez créer votre base de données cible vide dans SQL Server à l’avance. À l’étape suivante, vous devez appliquer la fonctionnalité SQL Server TDE tout en utilisant votre système de production en local. La raison pour laquelle vous souhaitez effectuer cette procédure dans cette séquence est que le processus de chiffrement de la base de données vide peut prendre beaucoup de temps. Les processus d’importation SAP importent ensuite les données dans la base de données chiffrée pendant la phase de temps d’arrêt. Le traitement de l’importation dans une base de données chiffrée a un impact sur le temps plus faible que le chiffrement de la base de données après la phase d’exportation au cours du temps d’arrêt. Des expériences ont été négatives lors de la tentative d’application du chiffrement TDE avec charge de travail SAP exécutée sur la base de données. Il est donc recommandé de traiter le déploiement de TDE en tant qu’activité devant être effectuée sans charge de travail SAP sur la base de données particulière.
 
-Dans les cas où vous déplacez des bases de données SQL Server SAP en local dans Azure, il est recommandé de tester sur l’infrastructure, vous pouvez obtenir le chiffrement appliqué plus rapide. Pour ce faire, gardez à l’esprit les points suivants :
+Dans les cas où vous déplacez des bases de données SQL Server SAP d’un environnement local vers Azure, il est recommandé de vérifier sur quelle infrastructure vous pouvez obtenir le plus rapidement le chiffrement appliqué. Pour ce faire, gardez à l’esprit les points suivants :
 
 - Vous ne pouvez pas définir le nombre de threads utilisés pour appliquer le chiffrement de données à la base de données. Le nombre de threads dépend principalement du nombre de volumes de disque sur lesquels les fichiers journaux et les fichiers de données SQL Server sont distribués. Cela signifie que plus les volumes sont distincts (lettres de lecteur), plus les threads sont engagés en parallèle pour effectuer le chiffrement. Une telle configuration est en légère contradiction avec la suggestion de configuration de disque indiquée plus haut, préconisant la création d’un ou de quelques espaces de stockage pour les fichiers de base de données SQL Server sur des machines virtuelles Azure. Une configuration comprenant un petit nombre de volumes conduirait à un petit nombre de threads exécutant le chiffrement. Un chiffrement à un thread lit les étendues de 64 Ko, les chiffre, puis écrit un enregistrement dans le fichier journal de transactions, ce qui indique que l’étendue a été chiffrée. Par conséquent, la charge sur le journal des transactions est modérée.
-- Dans les versions antérieures de SQL Server, la compression de sauvegarde n’était plus efficace lorsque vous aviez chiffré votre base de données SQL Server. Ce comportement peut développer rencontré un problème lors de votre plan pour chiffrer votre SQL Server de base de données sur site et de copier une sauvegarde dans Azure pour restaurer la base de données dans Azure. La compression de sauvegarde de SQL Server permet généralement d’obtenir un taux de compression de facteur 4.
+- Dans les versions antérieures de SQL Server, la compression de sauvegarde n’était plus efficace lorsque vous aviez chiffré votre base de données SQL Server. Ce comportement pouvait se transformer en problème si vous envisagiez de chiffrer votre base de données SQL Server en local, puis de copier une sauvegarde dans Azure pour restaurer la base de données dans Azure. La compression de sauvegarde de SQL Server permet généralement d’obtenir un taux de compression de facteur 4.
 - SQL Server 2016 introduit de nouvelles fonctionnalités qui permettent de compresser des bases de données chiffrées de manière efficace. Pour plus d’informations, consultez [ce blog](https://blogs.msdn.microsoft.com/sqlcat/2016/06/20/sqlsweet16-episode-1-backup-compression-for-tde-enabled-databases/).
  
-Traitement de l’application de chiffrement transparent des données sans aucune à faible charge de travail SAP uniquement, vous devez tester dans votre configuration spécifique pour déterminer si une meilleure pour appliquer le chiffrement transparent des données à votre SAP de base de données sur site ou à le faire dans Azure. Dans Azure, vous avez certainement plus de flexibilité en termes d’infrastructure de surapprovisionnement et réduisez l’infrastructure après l’application du chiffrement TDE.
+Lors de l’application du chiffrement TDE avec pas ou peu de charge de travail SAP uniquement, vous devez procéder à des tests dans votre configuration spécifique pour déterminer s’il est plus approprié d’appliquer le chiffrement TDE à votre base de données SAP en local ou de le faire dans Azure. Dans Azure, vous avez certainement plus de flexibilité en termes d’infrastructure de surapprovisionnement et réduisez l’infrastructure après l’application du chiffrement TDE.
 
 ### <a name="using-azure-key-vault"></a>Utilisation d’Azure Key Vault
 Azure propose le service [Key Vault](https://azure.microsoft.com/services/key-vault/) pour stocker les clés de chiffrement. Parallèlement, SQL Server propose un connecteur pour tirer parti d’Azure Key Vault comme magasin pour les certificats TDE.

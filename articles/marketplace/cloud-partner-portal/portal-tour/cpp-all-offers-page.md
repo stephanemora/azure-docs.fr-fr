@@ -1,6 +1,6 @@
 ---
-title: Tous les page de l’offre pour Azure Marketplace
-description: Vue d’ensemble de tous les propose une page dans le portail Cloud Partner pour Azure Marketplace.
+title: Page Toutes les offres pour la Place de marché Azure
+description: Vue d'ensemble de la page Toutes les offres sur le Portail Cloud Partner pour la Place de marché Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: pabutler
 ms.openlocfilehash: d674cc154dd46704051c3c75ca2589dfd7a9ca4c
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942122"
 ---
 # <a name="all-offers-page"></a>Page Toutes les offres
