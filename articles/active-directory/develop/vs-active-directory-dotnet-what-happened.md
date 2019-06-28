@@ -14,10 +14,10 @@ ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1e40a1fd72adf353d5c4d856544482cb7bd68f43
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65413984"
 ---
 # <a name="what-happened-to-my-mvc-project-visual-studio-azure-active-directory-connected-service"></a>Qu'est-il arrivé à mon projet MVC (service connecté Azure Active Directory Visual Studio) ?
@@ -34,7 +34,7 @@ Pour plus d’informations sur l’utilisation du service connecté, consultez l
 
 Affecte les références *.NET du fichier projet et `packages.config` (références NuGet).
 
-| Type | Référence |
+| Type | Informations de référence |
 | --- | --- |
 | .NET ; NuGet | Microsoft.IdentityModel.Protocol.Extensions |
 | .NET ; NuGet | Microsoft.Owin |
@@ -49,7 +49,7 @@ Affecte les références *.NET du fichier projet et `packages.config` (référen
 
 Références supplémentaires si l’option **Lire les données d’annuaire** est sélectionnée :
 
-| Type | Référence |
+| Type | Informations de référence |
 | --- | --- |
 | .NET ; NuGet | EntityFramework |
 | .NET        | EntityFramework.SqlServer (Visual Studio 2015 uniquement) |
@@ -63,7 +63,7 @@ Références supplémentaires si l’option **Lire les données d’annuaire** e
 
 Les références suivantes sont supprimées (projets ASP.NET 4 uniquement, comme dans Visual Studio 2015) :
 
-| Type | Référence |
+| Type | Informations de référence |
 | --- | --- |
 | .NET ; NuGet | Microsoft.AspNet.Identity.Core |
 | .NET ; NuGet | Microsoft.AspNet.Identity.EntityFramework |
@@ -145,7 +145,7 @@ Modifications supplémentaires si l’option **Lire les données d’annuaire** 
 
 ### <a name="file-backup-visual-studio-2015"></a>Sauvegarde de fichiers (Visual Studio 2015)
 
-Lors de l’ajout du service connecté, Visual Studio 2015 sauvegarde les fichiers modifiés et supprimés. Tous les fichiers affectés sont enregistrés dans le dossier `Backup/AzureAD`. Visual Studio 2017 et versions ultérieur ne crée pas de sauvegardes.
+Lors de l’ajout du service connecté, Visual Studio 2015 sauvegarde les fichiers modifiés et supprimés. Tous les fichiers affectés sont enregistrés dans le dossier `Backup/AzureAD`. Visual Studio 2017 et les versions ultérieures ne créent pas de sauvegardes.
 
 - `Startup.cs`
 - `App_Start\IdentityConfig.cs`

@@ -1,5 +1,5 @@
 ---
-title: La durée pendant laquelle Azure AD ne stocke pas les données de rapports ? | Microsoft Docs
+title: Pendant combien de temps les données de rapport sont-elles conservées par Azure AD ? | Microsoft Docs
 description: Découvrez la durée pendant laquelle Azure stocke les différents types de données de rapport.
 services: active-directory
 documentationcenter: ''
@@ -18,13 +18,13 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 41fa12c9d79d14a6602d995ed93b5d1a23be8a4d
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65781040"
 ---
-# <a name="how-long-does-azure-ad-store-reporting-data"></a>La durée pendant laquelle Azure AD ne stocke pas les données de rapports ?
+# <a name="how-long-does-azure-ad-store-reporting-data"></a>Pendant combien de temps les données de rapport sont-elles conservées par Azure AD ?
 
 Dans cet article, vous allez en savoir plus sur les stratégies de rétention des données pour les différents rapports d’activité dans Azure Active Directory. 
 
@@ -69,7 +69,7 @@ Pour les signaux de sécurité, le processus de collection démarre lorsque vous
 | Rapport                 | Azure AD Gratuit | Azure AD Standard | Azure AD Premium P1 | Azure AD Premium P2 |
 | :--                    | :--           | :--            | :--                 | :--                 |
 | Journaux d’audit             | 7 jours        |  7 jours        | 30 jours             | 30 jours             |
-| Connexions               | N/A           |  S.O.           | 30 jours             | 30 jours             |
+| Connexions               | N/A           |  N/A           | 30 jours             | 30 jours             |
 | Utilisation d’Azure MFA        | 30 jours       |  30 jours       | 30 jours             | 30 jours             |
 
 Vous pouvez conserver les données d'activité d'audit et de connexion au-delà de la période de conservation par défaut décrite ci-dessus en les acheminant vers un compte de stockage Azure à l'aide d'Azure Monitor. Pour plus d’informations, consultez [Archiver des journaux d’activité Azure AD sur un compte de stockage Azure](quickstart-azure-monitor-route-logs-to-storage-account.md).

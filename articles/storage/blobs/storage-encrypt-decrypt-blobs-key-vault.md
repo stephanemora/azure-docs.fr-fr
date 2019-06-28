@@ -10,24 +10,24 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
 ms.openlocfilehash: d7c740133911689c6d3f8e29c2cb20aa8873f0c7
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65788011"
 ---
 # <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>Didacticiel : Chiffrement et déchiffrement d'objets blob dans le service Stockage Microsoft Azure à l'aide d'Azure Key Vault
 
-## <a name="introduction"></a>Présentation
+## <a name="introduction"></a>Introduction
 Ce didacticiel décrit comment utiliser le chiffrement de stockage côté client avec Azure Key Vault. Il vous explique comment chiffrer et déchiffrer un objet blob dans une application console à l'aide de ces technologies.
 
-**Durée estimée :** 20 minutes
+**Durée estimée :** 20 minutes
 
 Pour plus d’informations générales sur Azure Key Vault, consultez la page [Présentation d’Azure Key Vault](../../key-vault/key-vault-whatis.md).
 
 Pour plus d’informations générales sur le chiffrement côté client du Stockage Azure, consultez [Chiffrement côté client et Azure Key Vault pour Microsoft Azure Storage](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
@@ -48,7 +48,7 @@ Voici une brève description du fonctionnement du chiffrement côté client :
 
 ## <a name="set-up-your-azure-key-vault"></a>Configurer votre coffre de clés Azure
 
-Pour poursuivre ce didacticiel, vous devez effectuer les étapes suivantes, qui sont décrites dans le didacticiel [Guide de démarrage rapide : Définir et récupérer un secret dans Azure Key Vault à l’aide d’une application web .NET](../../key-vault/quick-create-net.md):
+Pour continuer avec ce didacticiel, vous devez effectuer les étapes suivantes qui sont décrites dans le didacticiel [Démarrage rapide : définir et récupérer un secret depuis Azure Key Vault à l’aide d’une application web .NET](../../key-vault/quick-create-net.md) :
 
 * Création d’un coffre de clés
 * Ajout d’une clé ou d’un secret au coffre de clés
@@ -123,7 +123,7 @@ private async static Task<string> GetToken(string authority, string resource, st
 
 ## <a name="access-storage-and-key-vault-in-your-program"></a>Accéder à Storage et à Key Vault dans votre programme
 
-Dans la méthode Main(), ajoutez le code suivant.
+Ajoutez le code suivant à la méthode Main().
 
 ```csharp
 // This is standard code to interact with Blob storage.
@@ -151,7 +151,7 @@ KeyVaultKeyResolver cloudResolver = new KeyVaultKeyResolver(GetToken);
 > 
 > 
 
-## <a name="encrypt-blob-and-upload"></a>Chiffrement et téléchargement d’objets blob 
+## <a name="encrypt-blob-and-upload"></a>Chiffrement et téléchargement d’objets blob
 
 Ajoutez le code suivant pour chiffrer un objet blob et le télécharger sur votre compte de stockage Azure. La méthode **ResolveKeyAsync** utilisée renvoie un IKey.
 

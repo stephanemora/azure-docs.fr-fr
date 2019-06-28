@@ -1,7 +1,7 @@
 ---
-title: 'Régression linéaire : Référence de module'
+title: 'Régression linéaire : référence sur le module'
 titleSuffix: Azure Machine Learning service
-description: Découvrez comment utiliser le module de régression linéaire dans le service Azure Machine Learning pour créer un modèle de régression linéaire pour une utilisation dans une expérience.
+description: Découvrez comment utiliser le module Régression linéaire dans Azure Machine Learning service pour créer un modèle de régression linéaire à utiliser dans une expérience.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,137 +11,137 @@ ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: 040f726a703d34a95bae7d5b7cdd766655c62a4e
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65029714"
 ---
-# <a name="linear-regression-module"></a>Module de régression linéaire
-Cet article décrit un module de l’interface visuelle (version préliminaire) pour le service Azure Machine Learning.
+# <a name="linear-regression-module"></a>Module Régression linéaire
+Cet article décrit un module de l’interface visuelle (en préversion) pour Azure Machine Learning service.
 
-Utilisez ce module pour créer un modèle de régression linéaire pour une utilisation dans une expérience.  Régression linéaire tente d’établir une relation linéaire entre une ou plusieurs variables indépendantes et un résultat numérique ou la variable dépendante. 
+Ce module permet de créer un modèle de régression linéaire utilisable dans une expérience.  Une régression linéaire tente d’établir une relation linéaire entre une ou plusieurs variables indépendantes et un résultat numérique ou une variable dépendante. 
 
-Vous utilisez ce module pour définir une méthode de régression linéaire et puis de former un modèle à l’aide d’un jeu de données étiqueté. Le modèle formé peut ensuite être utilisé pour effectuer des prédictions.
+Ce module vous permet de définir une méthode de régression linéaire, puis d’effectuer l’apprentissage d’un modèle à l’aide d’un jeu de données étiqueté. Le modèle ainsi formé permet ensuite d’effectuer des prédictions.
 
 ## <a name="about-linear-regression"></a>À propos de la régression linéaire
 
-Régression linéaire est une méthode statistique courantes, ce qui a été adoptée dans machine learning et améliorée avec de nombreuses nouvelles méthodes pour le montage de la ligne de mesurer l’erreur. Dans le sens le plus simple, fait référence à la prédiction d’une cible numérique. Régression linéaire est toujours un bon choix lorsque vous souhaitez un modèle simple pour une tâche prédictive de base. Également, régression linéaire a tendance à fonctionner correctement sur les grands éparses jeux de données sans la complexité.
+La régression linéaire est une méthode statistique courante qui a été largement adoptée dans le domaine de l’apprentissage automatique, puis améliorée avec de nombreuses nouvelles méthodes d’ajustement de ligne de régression et de mesure des erreurs. Au sens le plus simple, la régression fait référence à la prédiction d’une cible numérique. La régression linéaire constitue toujours un bon choix lorsque vous souhaitez disposer d’un modèle simple pour une tâche prédictive de base. La régression linéaire tend également à bien fonctionner avec des jeux de données éparses et de grande dimension peu complexes.
 
-Azure Machine Learning prend en charge une variété de modèles de régression, en plus de régression linéaire. Toutefois, le terme « régression » peut être interprété faiblement et certains types de régression fourni dans d’autres outils ne sont pas pris en charge.
+Azure Machine Learning prend en charge divers modèles de régression, en plus de la régression linéaire. Cependant, le terme « régression » peut être interprété dans un sens général, et certains types de régressions fournis par d’autres outils ne sont pas pris en charge.
 
-+ Le problème de régression classique implique une seule variable indépendante et une variable dépendante. Il s’agit *régression simple*.  Ce module prend en charge la régression simple.
++ La régression classique implique une variable indépendante et une variable dépendante. C’est ce qu’on appelle une *régression simple*.  Ce module prend en charge la régression simple.
 
-+ *Régression linéaire multiple* implique deux ou plusieurs variables indépendantes qui contribuent à une seule variable dépendante. Problèmes dans lequel plusieurs entrées sont utilisées pour prédire un résultat numérique unique sont également appelés *régression linéaire MULTIVARIABLE*.
++ Une *régression linéaire multiple* implique au moins deux variables indépendantes qui contribuent à déterminer une seule variable dépendante. Lorsque plusieurs entrées sont utilisées pour prédire un résultat numérique unique, on parle également de *régression linéaire multivariée ou multidimensionnelle*.
 
-    Le **régression linéaire** module peut résoudre ces problèmes, comme la plupart des autres modules de régression.
+    Le module **Régression linéaire** peut résoudre ces problèmes, à l’instar de la plupart des autres modules de régression.
 
-+ *Régression à plusieurs étiquettes* est la tâche de prédiction de plusieurs variables dépendantes dans un modèle unique. Par exemple, dans la régression logistique à plusieurs étiquettes, un échantillon peut être attribué à plusieurs étiquettes différentes. (Cela est différent de la tâche de prédiction de plusieurs niveaux au sein d’une variable de classe unique).
++ Une *régression à plusieurs étiquettes* est la tâche de prédiction de plusieurs variables dépendantes à l’intérieur d’un modèle unique. Par exemple, dans une régression logistique à plusieurs étiquettes, un échantillon peut être attribué à plusieurs étiquettes différentes (ce qui diffère de la tâche de prédiction de plusieurs niveaux au sein d’une variable de classe unique).
 
-    Ce type de régression n’est pas pris en charge dans Azure Machine Learning. Pour prédire plusieurs variables, créer un apprenant distinct pour chaque sortie que vous souhaitez prédire.
+    Ce type de régression n’est pas pris en charge dans Azure Machine Learning. Pour prédire plusieurs variables, créez un apprenant distinct pour chaque sortie que vous souhaitez prédire.
 
-Pendant des années statisticiens ont développé des méthodes de régression de plus en plus avancées. Cela est vrai même pour la régression linéaire. Ce module prend en charge deux méthodes pour mesurer l’erreur et la régression : méthode des moindres carrés ordinaires et descente de gradient.
+Pendant des années, les statisticiens ont développé des méthodes de régression de plus en plus sophistiquées. Cela vaut également pour la régression linéaire. Ce module prend en charge deux méthodes pour mesurer les erreurs et ajuster la ligne de régression : la méthode des moindres carrés ordinaires et la méthode de descente de gradient.
 
-- **Descente de gradient** est une méthode qui réduit la quantité d’erreurs à chaque étape du processus de formation de modèle. Il existe de nombreuses variations de descente de gradient et son optimisation pour divers problèmes de formation a été largement étudiée. Si vous choisissez cette option pour **méthode Solution**, vous pouvez définir un grand nombre de paramètres pour contrôler la taille d’étape, taux d’apprentissage et ainsi de suite. Cette option prend également en charge l’utilisation d’un balayage de paramètre intégré.
+- La méthode de **descente de gradient** minimise la quantité d’erreurs à chaque étape du processus d’apprentissage du modèle. Il existe de nombreuses variantes de la méthode de descente de gradient, et son optimisation pour diverses problématiques d’apprentissage a été largement étudiée. Si vous choisissez cette option comme **méthode de solution**, vous pouvez définir une série de paramètres pour contrôler la taille d’étape, le taux d’apprentissage et ainsi de suite. Cette option prend également en charge l’utilisation d’un balayage de paramètre intégré.
 
-- **Moindres carrés ordinaires** est une des techniques plus couramment utilisés dans une régression linéaire. Par exemple, les moindres carrés est la méthode qui est utilisée dans l’utilitaire d’analyse pour Microsoft Excel.
+- La méthode des **moindres carrés ordinaires** est l’une des techniques les plus couramment utilisées en matière de régression linéaire. Elle l’est, par exemple, dans les outils d’analyse pour Microsoft Excel.
 
-    Moindres carrés ordinaires fait référence à la fonction de perte, qui calcule l’erreur comme la somme du carré de la distance à partir de la valeur réelle et la ligne prédite et ajuste le modèle en minimisant l’erreur quadratique. Cette méthode suppose une forte relation linéaire entre les entrées et la variable dépendante.
+    La méthode des moindres carrés ordinaires fait référence à la fonction de perte, qui quantifie une erreur en calculant la somme du carré de l’écart entre la valeur réelle et la ligne prédite, puis ajuste le modèle en réduisant au minimum l’erreur quadratique. Cette méthode suppose une forte relation linéaire entre les entrées et la variable dépendante.
 
-## <a name="configure-linear-regression"></a>Configurer la régression linéaire
+## <a name="configure-linear-regression"></a>Configurer une régression linéaire
 
-Ce module prend en charge deux méthodes pour l’ajustement d’un modèle de régression, avec différentes options :
+Ce module prend en charge deux méthodes d’ajustement d’un modèle de régression, avec différentes options :
 
-+ [Créer un modèle de régression à l’aide de descente de gradient en ligne](#bkmk_GradientDescent)
++ [Créer un modèle de régression utilisant la descente de gradient en ligne](#bkmk_GradientDescent)
 
-    Descente de gradient est une meilleure fonction de perte pour les modèles qui sont plus complexes ou qui ont des données d’apprentissage trop peu étant données le nombre de variables.
-
-
-
-+ [Ajuster un modèle de régression à l’aide des moindres carrés ordinaires](#bkmk_OrdinaryLeastSquares)
-
-    Pour les petits jeux de données, il est préférable de sélectionner les moindres carrés ordinaires. Cela doit donner des résultats similaires à Excel.
-
-## <a name="bkmk_OrdinaryLeastSquares"></a> Créer un modèle de régression à l’aide des moindres carrés ordinaires
-
-1. Ajouter le **modèle de régression linéaire** module à votre expérience dans l’interface.
-
-    Vous trouverez ce module dans le **Machine Learning** catégorie. Développez **initialiser le modèle**, développez **régression**, puis faites glisser le **modèle de régression linéaire** module à votre expérience.
-
-2. Dans le **propriétés** volet, dans le **méthode Solution** liste déroulante, sélectionnez **moindres carrés ordinaires**. Cette option spécifie la méthode de calcul utilisée pour rechercher la ligne de régression.
-
-3. Dans **poids de régularisation L2**, tapez la valeur à utiliser en tant que le poids de régularisation L2. Nous vous recommandons d’utiliser une valeur différente de zéro pour éviter le surajustement.
-
-     Pour en savoir plus sur les effets de la régularisation ajustement du modèle, consultez cet article : [Régularisations L1 et L2 pour l’apprentissage](https://msdn.microsoft.com/magazine/dn904675.aspx)
-
-4. Sélectionnez l’option **terme intercept de Include**, si vous souhaitez afficher le terme pour l’interception.
-
-    Désélectionnez cette option si vous n’avez pas besoin de consulter la formule de régression.
-
-5. Pour **valeur initiale de nombre aléatoire**, vous pouvez éventuellement taper une valeur pour amorcer le Générateur de nombres aléatoires utilisé par le modèle.
-
-    À l’aide d’une valeur de départ est utile si vous souhaitez conserver les mêmes résultats entre les différentes exécutions de la même expérience. Sinon, la valeur par défaut est d’utiliser une valeur de l’horloge système.
+    La descente de gradient est une meilleure fonction de perte pour les modèles plus complexes, ou qui ont trop eu de données d’apprentissage compte tenu du nombre de variables.
 
 
-7. Ajouter le [former le modèle](./train-model.md) module à votre expérience, connectez un jeu de données étiqueté.
+
++ [Ajuster un modèle de régression utilisant les moindres carrés ordinaires](#bkmk_OrdinaryLeastSquares)
+
+    Pour les jeux de données de petite taille, il est préférable de sélectionner la méthode des moindres carrés ordinaires. Elle devrait donner produire des résultats similaires à ceux obtenus dans Excel.
+
+## <a name="bkmk_OrdinaryLeastSquares"></a> Créer un modèle de régression utilisant les moindres carrés ordinaires
+
+1. Ajoutez le module **Linear Regression Model** (Modèle de régression linéaire) à votre expérience dans l’interface.
+
+    Ce module figure dans la catégorie **Machine Learning**. Développez **Initialize Model** (Initialiser un modèle), développez **Regression** (Régression), puis faites glisser le module **Linear Regression Model** (Modèle de régression linéaire) vers votre expérience.
+
+2. Dans le volet **Properties** (Propriétés), dans la liste déroulante **Solution method** (Méthode de la solution), sélectionnez **Ordinary Least Squares** (Moindres carrés ordinaires). Cette option spécifie la méthode de calcul utilisée pour déterminer la ligne de régression.
+
+3. Dans **L2 regularization weight** (Pondération de régularisation L2), tapez la valeur à utiliser en tant que pondération pour la régularisation L2. Nous vous recommandons d’utiliser une valeur différente de zéro pour éviter tout surajustement.
+
+     Pour en savoir plus sur l’incidence de la régularisation sur l’ajustement du modèle, voir cet article : [Régularisations L1 et L2 pour l’apprentissage automatique](https://msdn.microsoft.com/magazine/dn904675.aspx)
+
+4. Activez l’option **Include intercept term** (Inclure un terme d’interception) si vous souhaitez afficher le terme de l’interception.
+
+    Désactivez cette option si vous n’avez pas besoin de réviser la formule de régression.
+
+5. Pour **Random number seed** (Valeur initiale aléatoire), vous pouvez taper une valeur pour amorcer le générateur de nombres aléatoires que le modèle utilise.
+
+    L’utilisation d’une valeur de départ est utile si vous souhaitez conserver les mêmes résultats entre les différentes exécutions de la même expérience. Autrement, par défaut, une valeur de l’horloge système est utilisée.
+
+
+7. Ajoutez le module [Train Model](./train-model.md) (Entraîner le modèle) à votre expérience, puis connectez un jeu de données étiqueté.
 
 8. Exécutez l’expérience.
 
 ## <a name="results-for-ordinary-least-squares-model"></a>Résultats de modèle de moindres carrés ordinaires
 
-Une fois la formation terminée :
+Une fois l’apprentissage terminé :
 
-+ Pour afficher les paramètres du modèle, avec le bouton droit de la sortie de formateur, puis sélectionnez **visualiser**.
++ Pour afficher les paramètres du modèle, cliquez avec le bouton droit sur la sortie du formateur, puis sélectionnez **Visualize** (Visualiser).
 
-+ Pour effectuer des prédictions, connectez le modèle formé à la [noter le modèle](./score-model.md) module, ainsi que d’un jeu de données de nouvelles valeurs. 
++ Pour effectuer des prédictions, connectez le modèle formé au module [Score Model](./score-model.md) (Noter le modèle), ainsi qu’un jeu de données de nouvelles valeurs. 
 
 
-## <a name="bkmk_GradientDescent"></a> Créer un modèle de régression à l’aide de descente de gradient en ligne
+## <a name="bkmk_GradientDescent"></a> Créer un modèle de régression utilisant la descente de gradient en ligne
 
-1. Ajouter le **modèle de régression linéaire** module à votre expérience dans l’interface.
+1. Ajoutez le module **Linear Regression Model** (Modèle de régression linéaire) à votre expérience dans l’interface.
 
-    Vous trouverez ce module dans le **Machine Learning** catégorie. Développez **initialiser le modèle**, développez **régression**et faites glisser le **modèle de régression linéaire** module à votre expérience
+    Ce module figure dans la catégorie **Machine Learning**. Développez **Initialize Model** (Initialiser un modèle), développez **Regression** (Régression), puis faites glisser le module **Linear Regression Model** (Modèle de régression linéaire) vers votre expérience
 
-2. Dans le **propriétés** volet, dans le **méthode Solution** liste déroulante, choisissez **gradient en ligne** en tant que la méthode de calcul utilisée pour rechercher la ligne de régression.
+2. Dans le volet **Properties** (Propriétés), dans la liste déroulante **Solution method** (Méthode de la solution), sélectionnez **Online Gradient Descent** (Descente de gradient en ligne) comme méthode de calcul pour déterminer la ligne de régression.
 
-3. Pour **créer un mode d’entraînement**, indiquer si vous souhaitez former le modèle avec un ensemble prédéfini de paramètres, ou si vous souhaitez optimiser le modèle à l’aide d’un balayage de paramètre.
+3. Pour **Create trainer mode** (créer un mode d’apprentissage), indiquer si vous souhaitez effectuer l’apprentissage du modèle avec un ensemble prédéfini de paramètres, ou si vous souhaitez optimiser le modèle à l’aide d’un balayage de paramètre.
 
-    + **L’unique paramètre**: Si vous savez comment vous souhaitez configurer le réseau de régression linéaire, vous pouvez fournir un ensemble spécifique de valeurs comme arguments.
+    + **Paramètre unique** : si vous savez comment vous voulez configurer le réseau de régression linéaire, vous pouvez fournir un ensemble spécifique de valeurs en tant qu’arguments.
 
    
-4. Pour **taux d’apprentissage**, spécifiez le taux d’apprentissage initial pour l’optimiseur de descente de gradient stochastique.
+4. Pour **Learning rate** (Taux d’apprentissage), spécifiez le taux d’apprentissage initial pour l’optimiseur de descente de gradient stochastique.
 
-5. Pour **nombre d’époques de formation**, une valeur qui indique le nombre de fois où l’algorithme doit effectuer une itération à travers des exemples de type. Pour les jeux de données avec un petit nombre d’exemples, ce nombre doit être suffisant volumineux pour atteindre la convergence.
+5. Pour **Number of training epochs** (Nombre de cycles de formation), tapez une valeur indiquant le nombre d’itérations de l’algorithme sur les exemples. Pour les jeux de données comportant un petit nombre d’exemples, ce nombre doit être suffisamment important pour atteindre la convergence.
 
-6. **Normaliser les fonctionnalités**: Si vous avez déjà normalisées les données numériques utilisées pour former le modèle, vous pouvez désélectionner cette option. Par défaut, le module normalise toutes les entrées numériques à une plage comprise entre 0 et 1.
+6. **Normaliser les fonctionnalités** : si vous avez déjà normalisé les données numériques utilisées pour l’apprentissage du modèle, vous pouvez désactiver cette option. Par défaut, le module normalise toutes les entrées numériques en les ramenant à une plage comprise entre 0 et 1.
 
     > [!NOTE]
     > 
-    > N’oubliez pas d’appliquer la même méthode de normalisation aux nouvelles données utilisées pour l’évaluation.
+    > N’oubliez pas d’appliquer la même méthode de normalisation aux nouvelles données utilisées pour la notation.
 
-7. Dans **poids de régularisation L2**, tapez la valeur à utiliser en tant que le poids de régularisation L2. Nous vous recommandons d’utiliser une valeur différente de zéro pour éviter le surajustement.
+7. Dans **L2 regularization weight** (Pondération de régularisation L2), tapez la valeur à utiliser en tant que pondération pour la régularisation L2. Nous vous recommandons d’utiliser une valeur différente de zéro pour éviter tout surajustement.
 
-    Pour en savoir plus sur les effets de la régularisation ajustement du modèle, consultez cet article : [Régularisations L1 et L2 pour l’apprentissage](https://msdn.microsoft.com/magazine/dn904675.aspx)
-
-
-9. Sélectionnez l’option **taux d’apprentissage diminution**si vous voulez que le taux d’apprentissage à décroître la progression des itérations.  
-
-10. Pour **valeur initiale de nombre aléatoire**, vous pouvez éventuellement taper une valeur pour amorcer le Générateur de nombres aléatoires utilisé par le modèle. À l’aide d’une valeur de départ est utile si vous souhaitez conserver les mêmes résultats entre les différentes exécutions de la même expérience.
+    Pour en savoir plus sur l’incidence de la régularisation sur l’ajustement du modèle, voir cet article : [Régularisations L1 et L2 pour l’apprentissage automatique](https://msdn.microsoft.com/magazine/dn904675.aspx)
 
 
-12. Ajouter un jeu de données étiquetée et d’un des modules de formation.
+9. Sélectionnez l’option **Decrease learning rate** (Réduire le taux d’apprentissage) si vous voulez que le taux d’apprentissage décroisse à mesure que les itérations progressent.  
 
-    Si vous n’utilisez pas un balayage de paramètre, utilisez le [former le modèle](train-model.md) module.
+10. Pour **Random number seed** (Valeur initiale aléatoire), vous pouvez taper une valeur pour amorcer le générateur de nombres aléatoires que le modèle utilise. L’utilisation d’une valeur de départ est utile si vous souhaitez conserver les mêmes résultats entre les différentes exécutions de la même expérience.
+
+
+12. Ajoutez un jeu de données étiqueté et l’un des modules d’apprentissage.
+
+    Si vous n’utilisez pas de balayage de paramètre, utilisez le module [Train Model](train-model.md) (Entraîner le modèle).
 
 13. Exécutez l’expérience.
 
-## <a name="results-for-online-gradient-descent"></a>Résultats de descente de gradient en ligne
+## <a name="results-for-online-gradient-descent"></a>Résultats pour la descente de gradient en ligne
 
-Une fois la formation terminée :
+Une fois l’apprentissage terminé :
 
-+ Pour effectuer des prédictions, connectez le modèle formé à la [noter le modèle](./score-model.md) module, ainsi que de nouvelles données d’entrée.
++ Pour effectuer des prédictions, connectez le modèle formé au module [Score Model](./score-model.md) (Noter le modèle), ainsi que de nouvelles données d’entrée.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez le [ensemble de modules disponibles](module-reference.md) au service Azure Machine Learning. 
+Voir l’[ensemble de modules disponibles](module-reference.md) pour Azure Machine Learning service. 

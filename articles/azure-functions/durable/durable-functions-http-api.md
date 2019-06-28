@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 2f0b01601dfb28b2b6b8ee8ca53398ec3dccb803
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65787283"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>API HTTP dans Fonctions durables (Azure Functions)
@@ -44,7 +44,7 @@ La classe [DurableOrchestrationClient](https://azure.github.io/azure-functions-d
 
 Ces exemples de fonctions produisent les données de réponse JSON suivantes. Le type de données de tous les champs est `string`.
 
-| Champ                   |Description                            |
+| Champ                   |Description                           |
 |-------------------------|--------------------------------------|
 | **`id`**                |L’ID de l’instance d’orchestration. |
 | **`statusQueryGetUri`** |L’URL de l’état de l’instance d’orchestration. |
@@ -90,7 +90,7 @@ Ce protocole permet de coordonner les processus à long terme avec des clients o
 
 Toutes les API HTTP implémentées par l’extension utilisent les paramètres suivants. Le type de données de tous les paramètres est `string`.
 
-| Paramètre        | Type de paramètre  | Description  |
+| Paramètre        | Type de paramètre  | Description |
 |------------------|-----------------|-------------|
 | **`taskHub`**    | Chaîne de requête    | Le nom du [hub de tâches](durable-functions-task-hubs.md). S’il n’est pas spécifié, le nom de hub de tâches de l’application de fonction en cours est supposé. |
 | **`connection`** | Chaîne de requête    | Le **nom** de la chaîne de connexion du compte de stockage. Si elle n’est pas spécifiée, la chaîne de connexion par défaut pour l’application de la fonction est supposée. |
@@ -106,7 +106,7 @@ Obtient l'état d'une instance d’orchestration spécifiée.
 
 #### <a name="request"></a>Requête
 
-Pour la version 1.x du runtime Functions, la demande est mis en forme comme suit (plusieurs lignes sont affichées par souci de clarté) :
+Pour la version 1.x du runtime Functions, la demande est mise en forme comme suit (plusieurs lignes sont affichées par souci de clarté) :
 
 ```http
 GET /admin/extensions/DurableTaskExtension/instances/{instanceId}
@@ -118,7 +118,7 @@ GET /admin/extensions/DurableTaskExtension/instances/{instanceId}
     &showInput=[true|false]
 ```
 
-En version 2.x du runtime Functions, le format d’URL comporte les mêmes paramètres, mais avec un préfixe légèrement différent :
+En version 2.x du runtime Functions, le format d’URL comporte les mêmes paramètres, mais présente un préfixe légèrement différent :
 
 ```http
 GET /runtime/webhooks/durabletask/instances/{instanceId}
@@ -132,14 +132,14 @@ GET /runtime/webhooks/durabletask/instances/{instanceId}
 
 Les paramètres de requête pour cette API incluent l’ensemble par défaut mentionné précédemment, ainsi que les paramètres uniques suivants :
 
-| Champ                   | Type de paramètre  | Description  |
+| Champ                   | Type de paramètre  | Description |
 |-------------------------|-----------------|-------------|
 | **`instanceId`**        | URL             | L’ID de l’instance d’orchestration. |
-| **`showInput`**         | Chaîne de requête    | Paramètre facultatif. Si la valeur `false`, la fonction d’entrée ne figurera pas dans la charge utile de réponse.|
+| **`showInput`**         | Chaîne de requête    | Paramètre facultatif. Si la valeur est définie sur `false`, la fonction n’est pas incluse dans la charge utile de la réponse.|
 | **`showHistory`**       | Chaîne de requête    | Paramètre facultatif. Si la valeur est définie sur `true`, l’historique d’exécution de l’orchestration est inclus dans la charge utile de réponse.|
-| **`showHistoryOutput`** | Chaîne de requête    | Paramètre facultatif. Si la valeur `true`, la fonction génère seront inclus dans l’historique d’exécution de l’orchestration.|
-| **`createdTimeFrom`**   | Chaîne de requête    | Paramètre facultatif. Si spécifié, filtre la liste des instances retournées qui ont été créés pendant ou après l’horodatage ISO8601 donné.|
-| **`createdTimeTo`**     | Chaîne de requête    | Paramètre facultatif. Si spécifié, filtre la liste des instances retournées qui ont été créés ou avant l’horodatage ISO8601 donné.|
+| **`showHistoryOutput`** | Chaîne de requête    | Paramètre facultatif. Si la valeur est définie sur `true`, les sorties de la fonction sont incluses dans l’historique d’exécution de l’orchestration.|
+| **`createdTimeFrom`**   | Chaîne de requête    | Paramètre facultatif. Lorsqu’il est spécifié, filtre la liste des instances retournées qui ont été créées pendant ou après l’horodatage ISO8601 donné.|
+| **`createdTimeTo`**     | Chaîne de requête    | Paramètre facultatif. Lorsqu’il est spécifié, filtre la liste des instances retournées qui ont été créées pendant ou avant l’horodatage ISO8601 donné.|
 | **`runtimeStatus`**     | Chaîne de requête    | Paramètre facultatif. Lorsqu’il est spécifié, filtre la liste des instances retournées selon leur état d’exécution. Pour obtenir la liste des valeurs d’état d’exécution possibles, consultez la rubrique [Interrogation des instances](durable-functions-instance-management.md). |
 
 #### <a name="response"></a>response
@@ -154,14 +154,14 @@ Plusieurs valeurs de code d’état possibles peuvent être retournées.
 
 La charge utile de réponse pour les cas **HTTP 200** et **HTTP 202** est un objet JSON avec les champs suivants :
 
-| Champ                 | Type de données | Description  |
+| Champ                 | Type de données | Description |
 |-----------------------|-----------|-------------|
-| **`runtimeStatus`**   | string    | L’état d’exécution de l’instance. Les valeurs sont *Running*, *Pending*, *Failed*, *Canceled*, *Terminated*, *Completed*. |
+| **`runtimeStatus`**   | chaîne    | L’état d’exécution de l’instance. Les valeurs sont *Running*, *Pending*, *Failed*, *Canceled*, *Terminated*, *Completed*. |
 | **`input`**           | JSON      | Les données JSON utilisées pour initialiser l’instance. Ce champ est `null` si le paramètre de chaîne de requête `showInput` est défini sur `false`.|
 | **`customStatus`**    | JSON      | Données JSON utilisées pour l’état d’orchestration personnalisé. Ce champ est `null` s’il n’est pas défini. |
 | **`output`**          | JSON      | La sortie JSON de l’instance. Ce champ est `null` si l’instance n’est pas dans un état terminé. |
-| **`createdTime`**     | string    | Heure à laquelle l’instance a été créée. Utilise la notation étendue ISO 8601. |
-| **`lastUpdatedTime`** | string    | Heure du dernier état persistant de l’instance. Utilise la notation étendue ISO 8601. |
+| **`createdTime`**     | chaîne    | Heure à laquelle l’instance a été créée. Utilise la notation étendue ISO 8601. |
+| **`lastUpdatedTime`** | chaîne    | Heure du dernier état persistant de l’instance. Utilise la notation étendue ISO 8601. |
 | **`historyEvents`**   | JSON      | Tableau JSON contenant l’historique d’exécution de l’orchestration. Ce champ est `null`, sauf si le paramètre de chaîne de requête `showHistory` a la valeur `true`. |
 
 Voici un exemple de charge utile de réponse incluant l’historique et les sorties de l’activité d’exécution d’orchestration (mis en forme pour une meilleure lisibilité) :
@@ -223,14 +223,14 @@ La réponse **HTTP 202** inclut également un en-tête de réponse **Location** 
 
 ### <a name="get-all-instances-status"></a>Obtenir l’état de toutes les instances
 
-Vous pouvez également interroger l’état de toutes les instances en supprimant le `instanceId` à partir de la demande « Obtenir l’état de l’instance ». Dans ce cas, les paramètres de base sont le mêmes que le « état d’instance Get ». Paramètres de chaîne de requête pour le filtrage sont également prises en charge.
+Vous pouvez également interroger l’état de toutes les instances en supprimant l’élément `instanceId` de la demande « Obtenir l’état de l’instance ». Dans le cas présent, les paramètres de base sont les mêmes que ceux de « Obtenir l’état de l’instance ». Les paramètres de chaîne de requête dédiés au filtrage sont également pris en charge.
 
 Une chose à retenir est que `connection` et `code` sont facultatifs. Si vous disposez de l’authentification anonyme sur la fonction, le paramètre code n’est nécessaire.
-Si vous ne souhaitez pas utiliser une chaîne de connexion de stockage différent autre que définie dans le paramètre d’application AzureWebJobsStorage, vous pouvez ignorer en toute sécurité le paramètre de chaîne de requête de connexion.
+Si vous ne souhaitez pas utiliser une autre chaîne de connexion de stockage que celle définie dans le paramètre d’application AzureWebJobsStorage, vous pouvez ignorer en toute sécurité le paramètre de chaîne de requête de connexion.
 
 #### <a name="request"></a>Requête
 
-Pour la version 1.x du runtime Functions, la demande est mis en forme comme suit (plusieurs lignes sont affichées par souci de clarté) :
+Pour la version 1.x du runtime Functions, la demande est mise en forme comme suit (plusieurs lignes sont affichées par souci de clarté) :
 
 ```http
 GET /admin/extensions/DurableTaskExtension/instances
@@ -244,7 +244,7 @@ GET /admin/extensions/DurableTaskExtension/instances
     &top={integer}
 ```
 
-En version 2.x du runtime Functions, le format d’URL comporte les mêmes paramètres, mais avec un préfixe légèrement différent :
+En version 2.x du runtime Functions, le format d’URL comporte les mêmes paramètres, mais présente un préfixe légèrement différent :
 
 ```http
 GET /runtime/webhooks/durableTask/instances?
@@ -260,16 +260,16 @@ GET /runtime/webhooks/durableTask/instances?
 
 Les paramètres de requête pour cette API incluent l’ensemble par défaut mentionné précédemment, ainsi que les paramètres uniques suivants :
 
-| Champ                   | Type de paramètre  | Description  |
+| Champ                   | Type de paramètre  | Description |
 |-------------------------|-----------------|-------------|
 | **`instanceId`**        | URL             | L’ID de l’instance d’orchestration. |
-| **`showInput`**         | Chaîne de requête    | Paramètre facultatif. Si la valeur `false`, la fonction d’entrée ne figurera pas dans la charge utile de réponse.|
+| **`showInput`**         | Chaîne de requête    | Paramètre facultatif. Si la valeur est définie sur `false`, la fonction n’est pas incluse dans la charge utile de la réponse.|
 | **`showHistory`**       | Chaîne de requête    | Paramètre facultatif. Si la valeur est définie sur `true`, l’historique d’exécution de l’orchestration est inclus dans la charge utile de réponse.|
-| **`showHistoryOutput`** | Chaîne de requête    | Paramètre facultatif. Si la valeur `true`, la fonction génère seront inclus dans l’historique d’exécution de l’orchestration.|
-| **`createdTimeFrom`**   | Chaîne de requête    | Paramètre facultatif. Si spécifié, filtre la liste des instances retournées qui ont été créés pendant ou après l’horodatage ISO8601 donné.|
-| **`createdTimeTo`**     | Chaîne de requête    | Paramètre facultatif. Si spécifié, filtre la liste des instances retournées qui ont été créés ou avant l’horodatage ISO8601 donné.|
+| **`showHistoryOutput`** | Chaîne de requête    | Paramètre facultatif. Si la valeur est définie sur `true`, les sorties de la fonction sont incluses dans l’historique d’exécution de l’orchestration.|
+| **`createdTimeFrom`**   | Chaîne de requête    | Paramètre facultatif. Lorsqu’il est spécifié, filtre la liste des instances retournées qui ont été créées pendant ou après l’horodatage ISO8601 donné.|
+| **`createdTimeTo`**     | Chaîne de requête    | Paramètre facultatif. Lorsqu’il est spécifié, filtre la liste des instances retournées qui ont été créées pendant ou avant l’horodatage ISO8601 donné.|
 | **`runtimeStatus`**     | Chaîne de requête    | Paramètre facultatif. Lorsqu’il est spécifié, filtre la liste des instances retournées selon leur état d’exécution. Pour obtenir la liste des valeurs d’état d’exécution possibles, consultez la rubrique [Interrogation des instances](durable-functions-instance-management.md). |
-| **`top`**               | Chaîne de requête    | Paramètre facultatif. Si spécifié, limite le nombre d’instances retourné par la requête. |
+| **`top`**               | Chaîne de requête    | Paramètre facultatif. Lorsqu’il est spécifié, limite le nombre d’instances retournées par la requête. |
 
 #### <a name="response"></a>response
 
@@ -328,17 +328,17 @@ Voici un exemple de charges utiles de réponse incluant l’état de l’orchest
 > Cette opération peut être très gourmande en E/S pour le stockage Azure s’il y a un grand nombre de lignes dans la table d’instances. Vous trouverez plus d’informations sur la table d’instances dans la documentation [Performances et mise à l’échelle dans Fonctions durables (Azure Functions)](durable-functions-perf-and-scale.md#instances-table).
 >
 
-Si plus de résultats existent, un jeton de continuation est renvoyé dans l’en-tête de réponse.  Le nom de l’en-tête est `x-ms-continuation-token`.
+Si vous obtenez plus de résultats, un jeton de continuation est retourné dans l’en-tête de réponse.  Le nom de l’en-tête est `x-ms-continuation-token`.
 
-Si vous définissez la valeur du jeton de continuation dans l’en-tête de demande suivant, vous pouvez obtenir la page suivante de résultats. Ce nom de l’en-tête de demande est également `x-ms-continuation-token`.
+Si vous définissez la valeur du jeton de continuation dans l’en-tête de la demande suivante, vous pouvez obtenir la page de résultats suivante. Cet en-tête de demande est également nommé `x-ms-continuation-token`.
 
-### <a name="purge-single-instance-history"></a>Purger l’historique d’une instance unique
+### <a name="purge-single-instance-history"></a>Vider l’historique d’une instance unique
 
-Supprime l’historique et les artefacts associés pour une instance d’orchestration spécifiée.
+Supprime l’historique et les artefacts associés d’une instance d’orchestration spécifiée.
 
 #### <a name="request"></a>Requête
 
-Pour la version 1.x du runtime Functions, la demande est mis en forme comme suit (plusieurs lignes sont affichées par souci de clarté) :
+Pour la version 1.x du runtime Functions, la demande est mise en forme comme suit (plusieurs lignes sont affichées par souci de clarté) :
 
 ```http
 DELETE /admin/extensions/DurableTaskExtension/instances/{instanceId}
@@ -347,7 +347,7 @@ DELETE /admin/extensions/DurableTaskExtension/instances/{instanceId}
     &code={systemKey}
 ```
 
-En version 2.x du runtime Functions, le format d’URL comporte les mêmes paramètres, mais avec un préfixe légèrement différent :
+En version 2.x du runtime Functions, le format d’URL comporte les mêmes paramètres, mais présente un préfixe légèrement différent :
 
 ```http
 DELETE /runtime/webhooks/durabletask/instances/{instanceId}
@@ -358,22 +358,22 @@ DELETE /runtime/webhooks/durabletask/instances/{instanceId}
 
 Les paramètres de requête pour cette API incluent l’ensemble par défaut mentionné précédemment, ainsi que les paramètres uniques suivants :
 
-| Champ             | Type de paramètre  | Description  |
+| Champ             | Type de paramètre  | Description |
 |-------------------|-----------------|-------------|
 | **`instanceId`**  | URL             | L’ID de l’instance d’orchestration. |
 
 #### <a name="response"></a>response
 
-Les valeurs de code d’état HTTP suivants peuvent être retournées.
+Les valeurs de code d’état HTTP peuvent être également être retournées.
 
-* **HTTP 200 (OK)** : L’historique de l’instance a été vidé avec succès.
+* **HTTP 200 (OK)** : L’historique d’instance a été vidé avec succès.
 * **HTTP 404 (introuvable)** : L’instance spécifiée n’existe pas.
 
-La charge utile de réponse pour le **HTTP 200** cas est un objet JSON avec le champ suivant :
+La charge utile de réponse pour le cas **HTTP 200** est un objet JSON présentant le champ suivant :
 
-| Champ                  | Type de données | Description  |
+| Champ                  | Type de données | Description |
 |------------------------|-----------|-------------|
-| **`instancesDeleted`** | integer   | Le nombre d’instances supprimées. Dans le cas d’une instance unique, cette valeur doit toujours être `1`. |
+| **`instancesDeleted`** | integer   | Nombre d’instances supprimées. Dans le cas d’une instance unique, cette valeur doit toujours être `1`. |
 
 Voici un exemple de charge utile de réponse (mis en forme pour une meilleure lisibilité) :
 
@@ -383,13 +383,13 @@ Voici un exemple de charge utile de réponse (mis en forme pour une meilleure li
 }
 ```
 
-### <a name="purge-multiple-instance-history"></a>Vider l’historique des instances multiples
+### <a name="purge-multiple-instance-history"></a>Vider l’historique de plusieurs instances
 
-Vous pouvez également supprimer l’historique et les artefacts associés pour plusieurs instances au sein d’un hub de tâches en supprimant le `{instanceId}` à partir de la demande « Vider l’historique de l’instance unique ». Pour purger sélectivement l’historique d’instance, utilisez les mêmes filtres décrits dans la demande « Obtenir l’état de toutes les instances ».
+Vous pouvez également supprimer l’historique et les artefacts associés de plusieurs instances au sein d’un hub de tâches en supprimant `{instanceId}` de la demande « Vider l’historique d’une instance unique ». Pour vider l’historique de certaines instances spécifiques, utilisez les mêmes filtres que ceux décrits dans la demande « Obtenir l’état de toutes les instances ».
 
 #### <a name="request"></a>Requête
 
-Pour la version 1.x du runtime Functions, la demande est mis en forme comme suit (plusieurs lignes sont affichées par souci de clarté) :
+Pour la version 1.x du runtime Functions, la demande est mise en forme comme suit (plusieurs lignes sont affichées par souci de clarté) :
 
 ```http
 DELETE /admin/extensions/DurableTaskExtension/instances
@@ -401,7 +401,7 @@ DELETE /admin/extensions/DurableTaskExtension/instances
     &runtimeStatus={runtimeStatus1,runtimeStatus2,...}
 ```
 
-En version 2.x du runtime Functions, le format d’URL comporte les mêmes paramètres, mais avec un préfixe légèrement différent :
+En version 2.x du runtime Functions, le format d’URL comporte les mêmes paramètres, mais présente un préfixe légèrement différent :
 
 ```http
 DELETE /runtime/webhooks/durabletask/instances
@@ -415,27 +415,27 @@ DELETE /runtime/webhooks/durabletask/instances
 
 Les paramètres de requête pour cette API incluent l’ensemble par défaut mentionné précédemment, ainsi que les paramètres uniques suivants :
 
-| Champ                 | Type de paramètre  | Description  |
+| Champ                 | Type de paramètre  | Description |
 |-----------------------|-----------------|-------------|
-| **`createdTimeFrom`** | Chaîne de requête    | Filtre la liste des instances purgés qui ont été créés pendant ou après l’horodatage ISO8601 donné.|
-| **`createdTimeTo`**   | Chaîne de requête    | Paramètre facultatif. Si spécifié, filtre la liste des instances purgés qui ont été créés ou avant l’horodatage ISO8601 donné.|
-| **`runtimeStatus`**   | Chaîne de requête    | Paramètre facultatif. Si spécifié, filtres de la liste des instances purgés selon leur état de runtime. Pour obtenir la liste des valeurs d’état d’exécution possibles, consultez la rubrique [Interrogation des instances](durable-functions-instance-management.md). |
+| **`createdTimeFrom`** | Chaîne de requête    | Filtre la liste des instances vidées qui ont été créées pendant ou après l’horodatage ISO8601 donné.|
+| **`createdTimeTo`**   | Chaîne de requête    | Paramètre facultatif. Lorsqu’il est spécifié, filtre la liste des instances vidées qui ont été créées pendant ou avant l’horodatage ISO8601 donné.|
+| **`runtimeStatus`**   | Chaîne de requête    | Paramètre facultatif. Lorsqu’il est spécifié, filtre la liste des instances vidées selon l’état de leur runtime. Pour obtenir la liste des valeurs d’état d’exécution possibles, consultez la rubrique [Interrogation des instances](durable-functions-instance-management.md). |
 
 > [!NOTE]
-> Cette opération peut être très coûteuse en termes d’e/s de stockage Azure s’il existe beaucoup de lignes dans les Instances et/ou l’historique des tables. Vous trouverez plus d’informations sur ces tables dans le [performances et mise à l’échelle dans fonctions durables (Azure Functions)](durable-functions-perf-and-scale.md#instances-table) documentation.
+> Cette opération peut être très gourmande en E/S pour le stockage Azure s’il y a un grand nombre de lignes dans les instances et/ou les tables d’historique. Vous trouverez plus d’informations sur ces tables dans la documentation [Performances et diminution de la taille des instances dans Durable Functions (Azure Functions)](durable-functions-perf-and-scale.md#instances-table).
 
 #### <a name="response"></a>response
 
-Les valeurs de code d’état HTTP suivants peuvent être retournées.
+Les valeurs de code d’état HTTP peuvent être également être retournées.
 
-* **HTTP 200 (OK)** : L’historique de l’instance a été vidé avec succès.
-* **HTTP 404 (introuvable)** : Aucune instance a été trouvée qui correspond à l’expression de filtre.
+* **HTTP 200 (OK)** : L’historique d’instance a été vidé avec succès.
+* **HTTP 404 (introuvable)** : Aucune instance correspondant à l’expression de filtre n’a été trouvée.
 
-La charge utile de réponse pour le **HTTP 200** cas est un objet JSON avec le champ suivant :
+La charge utile de réponse pour le cas **HTTP 200** est un objet JSON présentant le champ suivant :
 
-| Champ                   | Type de données | Description  |
+| Champ                   | Type de données | Description |
 |-------------------------|-----------|-------------|
-| **`instancesDeleted`**  | integer   | Le nombre d’instances supprimées. |
+| **`instancesDeleted`**  | integer   | Nombre d’instances supprimées. |
 
 Voici un exemple de charge utile de réponse (mis en forme pour une meilleure lisibilité) :
 
@@ -451,7 +451,7 @@ Envoie un message de notification d’événement à une instance d’orchestrat
 
 #### <a name="request"></a>Requête
 
-Pour la version 1.x du runtime Functions, la demande est mis en forme comme suit (plusieurs lignes sont affichées par souci de clarté) :
+Pour la version 1.x du runtime Functions, la demande est mise en forme comme suit (plusieurs lignes sont affichées par souci de clarté) :
 
 ```http
 POST /admin/extensions/DurableTaskExtension/instances/{instanceId}/raiseEvent/{eventName}
@@ -460,7 +460,7 @@ POST /admin/extensions/DurableTaskExtension/instances/{instanceId}/raiseEvent/{e
     &code={systemKey}
 ```
 
-En version 2.x du runtime Functions, le format d’URL comporte les mêmes paramètres, mais avec un préfixe légèrement différent :
+En version 2.x du runtime Functions, le format d’URL comporte les mêmes paramètres, mais présente un préfixe légèrement différent :
 
 ```http
 POST /runtime/webhooks/durabletask/instances/{instanceId}/raiseEvent/{eventName}
@@ -471,7 +471,7 @@ POST /runtime/webhooks/durabletask/instances/{instanceId}/raiseEvent/{eventName}
 
 Les paramètres de requête pour cette API incluent l’ensemble par défaut mentionné précédemment, ainsi que les paramètres uniques suivants :
 
-| Champ             | Type de paramètre  | Description  |
+| Champ             | Type de paramètre  | Description |
 |-------------------|-----------------|-------------|
 | **`instanceId`**  | URL             | L’ID de l’instance d’orchestration. |
 | **`eventName`**   | URL             | Le nom de l’événement que l’instance d’orchestration cible attend. |
@@ -504,7 +504,7 @@ Arrête une instance d’orchestration en cours d’exécution.
 
 #### <a name="request"></a>Requête
 
-Pour la version 1.x du runtime Functions, la demande est mis en forme comme suit (plusieurs lignes sont affichées par souci de clarté) :
+Pour la version 1.x du runtime Functions, la demande est mise en forme comme suit (plusieurs lignes sont affichées par souci de clarté) :
 
 ```http
 POST /admin/extensions/DurableTaskExtension/instances/{instanceId}/terminate
@@ -514,7 +514,7 @@ POST /admin/extensions/DurableTaskExtension/instances/{instanceId}/terminate
     &reason={text}
 ```
 
-En version 2.x du runtime Functions, le format d’URL comporte les mêmes paramètres, mais avec un préfixe légèrement différent :
+En version 2.x du runtime Functions, le format d’URL comporte les mêmes paramètres, mais présente un préfixe légèrement différent :
 
 ```http
 POST /runtime/webhooks/durabletask/instances/{instanceId}/terminate
@@ -526,7 +526,7 @@ POST /runtime/webhooks/durabletask/instances/{instanceId}/terminate
 
 Les paramètres de la demande pour cette API incluent l’ensemble par défaut mentionné précédemment, ainsi que le paramètre unique suivant.
 
-| Champ             | Type de paramètre  | Description  |
+| Champ             | Type de paramètre  | Description |
 |-------------------|-----------------|-------------|
 | **`instanceId`**  | URL             | L’ID de l’instance d’orchestration. |
 | **`reason`**      | Chaîne de requête    | facultatif. Motif d’arrêt de l’instance d’orchestration. |
@@ -553,7 +553,7 @@ Restaure une instance d’orchestration ayant échoué dans un état en cours d�
 
 ### <a name="request"></a>Requête
 
-Pour la version 1.x du runtime Functions, la demande est mis en forme comme suit (plusieurs lignes sont affichées par souci de clarté) :
+Pour la version 1.x du runtime Functions, la demande est mise en forme comme suit (plusieurs lignes sont affichées par souci de clarté) :
 
 ```http
 POST /admin/extensions/DurableTaskExtension/instances/{instanceId}/rewind
@@ -563,7 +563,7 @@ POST /admin/extensions/DurableTaskExtension/instances/{instanceId}/rewind
     &reason={text}
 ```
 
-En version 2.x du runtime Functions, le format d’URL comporte les mêmes paramètres, mais avec un préfixe légèrement différent :
+En version 2.x du runtime Functions, le format d’URL comporte les mêmes paramètres, mais présente un préfixe légèrement différent :
 
 ```http
 POST /runtime/webhooks/durabletask/instances/{instanceId}/rewind
@@ -575,7 +575,7 @@ POST /runtime/webhooks/durabletask/instances/{instanceId}/rewind
 
 Les paramètres de la demande pour cette API incluent l’ensemble par défaut mentionné précédemment, ainsi que le paramètre unique suivant.
 
-| Champ             | Type de paramètre  | Description  |
+| Champ             | Type de paramètre  | Description |
 |-------------------|-----------------|-------------|
 | **`instanceId`**  | URL             | L’ID de l’instance d’orchestration. |
 | **`reason`**      | Chaîne de requête    | facultatif. Motif de rembobinage de l’instance d’orchestration. |

@@ -10,15 +10,15 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.openlocfilehash: 5a28d69ae5ba9f3b7eeb28b6824ad9a458832bb3
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65153630"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Surveillance d'un compte de stockage dans le portail Azure
 
-[Azure Storage Analytics](storage-analytics.md) fournit des métriques pour tous les services de stockage et des journaux pour les objets Blob, les files d’attente et les tables. Vous pouvez utiliser le [portail Azure](https://portal.azure.com) pour configurer les métriques et les journaux d’activité enregistrés pour votre compte, et configurer des graphiques qui fournissent des représentations visuelles de vos données de métrique.
+[Azure Storage Analytics](storage-analytics.md) fournit des métriques pour tous les services de stockage et des journaux d’activité pour les objets Blob, les files d’attente et les tables. Vous pouvez utiliser le [portail Azure](https://portal.azure.com) pour configurer les métriques et les journaux d’activité enregistrés pour votre compte, et configurer des graphiques qui fournissent des représentations visuelles de vos données de métrique.
 
 > [!NOTE]
 > L’analyse des données de surveillance dans le portail Azure occasionne des frais. Pour plus d’informations, consultez [Storage Analytics](storage-analytics.md).
@@ -42,7 +42,7 @@ ms.locfileid: "65153630"
    Pour définir la stratégie de rétention de données, déplacez le curseur **Rétention (en jours)** ou entrez le nombre de jours durant lesquels les données sont conservées (de 1 à 365 jours). La valeur par défaut pour les nouveaux comptes de stockage est de sept jours. Si vous ne souhaitez pas définir de stratégie de rétention, entrez 0. Dans ce cas, il vous appartient de supprimer ou non les données de surveillance.
 
    > [!WARNING]
-   > Vous êtes facturé lorsque vous supprimez manuellement les données de métrique. Les données analytiques obsolètes (antérieures à votre stratégie de rétention des données) sont supprimées par le système sans frais. Nous vous recommandons de définir une stratégie de rétention en fonction de la durée de conservation que vous souhaitez appliquer aux données d’analyse de votre compte. Consultez [de facturation des métriques de stockage](storage-analytics-metrics.md#billing-on-storage-metrics) pour plus d’informations.
+   > Vous êtes facturé lorsque vous supprimez manuellement les données de métrique. Les données analytiques obsolètes (antérieures à votre stratégie de rétention des données) sont supprimées par le système sans frais. Nous vous recommandons de définir une stratégie de rétention en fonction de la durée de conservation que vous souhaitez appliquer aux données d’analyse de votre compte. Pour plus d’informations, consultez la page [Facturation sur les métriques de stockage](storage-analytics-metrics.md#billing-on-storage-metrics).
    >
 
 1. Une fois la configuration de la surveillance terminée, sélectionnez **Enregistrer**.
@@ -94,7 +94,7 @@ Les métriques que vous avez sélectionnées dans **Diagnostics** déterminent l
 
 Vous pouvez créer des alertes pour vous avertir lorsque les seuils sont atteints pour les métriques des ressources de stockage.
 
-1. Pour ouvrir le **panneau Règles d’alerte**, faites défiler jusqu’à la section **SURVEILLANCE** du **panneau Menu** et sélectionnez **Alertes (classiques)**.
+1. Pour ouvrir le **panneau Règles d’alerte**, faites défiler jusqu’à la section **SURVEILLANCE** du **panneau Menu** et sélectionnez **Alertes (classiques)** .
 2. Sélectionnez **Ajouter une alerte métrique (classique)** pour ouvrir le panneau **Ajouter une règle d’alerte**
 3. Entrez un **Nom** et une **Description** pour votre nouvelle règle d’alerte.
 4. Sélectionnez la **métrique** pour laquelle vous souhaitez ajouter une alerte, une **condition** d’alerte et un **seuil**. Le type d’unité de seuil change en fonction de la métrique choisie. Par exemple, « count » est le type d’unité pour *ContainerCount*, tandis que l’unité pour la métrique *PercentNetworkError* est un pourcentage.
@@ -139,7 +139,7 @@ Vous pouvez demander au Stockage Azure d’enregistrer les journaux de diagnosti
 
 Les journaux de diagnostic sont enregistrés dans un conteneur d’objets blob nommé *$logs* dans votre compte de stockage. Vous pouvez afficher les données du journal à l’aide d’un explorateur de stockage, comme [Microsoft Storage Explorer](https://storageexplorer.com) ou par programme à l’aide de la bibliothèque cliente de stockage ou de PowerShell.
 
-Pour plus d’informations sur l’accès au conteneur $logs, consultez [journalisation du stockage analytique](storage-analytics-logging.md).
+Pour plus d’informations sur l’accès au conteneur $logs, consultez la page [Journalisation Storage Analytics](storage-analytics-logging.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

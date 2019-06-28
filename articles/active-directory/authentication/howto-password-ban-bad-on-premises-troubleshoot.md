@@ -1,6 +1,6 @@
 ---
-title: Résolution des problèmes de protection de mot de passe Azure AD - Azure Active Directory
-description: Comprendre la protection de mot de passe du Azure AD courants dépannage
+title: Résolution des problèmes de protection par mot de passe dans Azure AD – Azure Active Directory
+description: Comprendre la résolution de problèmes courants de protection par mot de passe Azure AD
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -12,81 +12,81 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 108ead982529d2ac6549cceffd9d2177ab6456bf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60414764"
 ---
 # <a name="azure-ad-password-protection-troubleshooting"></a>Résolution de problèmes de protection par mot de passe Azure AD
 
 Après déploiement de la protection par mot de passe Azure AD, il peut s’avérer nécessaire de résoudre des problèmes. Cet article entre dans les détails pour vous aider à comprendre certaines étapes de la résolution des problèmes courants.
 
-## <a name="the-dc-agent-cannot-locate-a-proxy-in-the-directory"></a>L’agent du contrôleur de domaine ne peut pas localiser un proxy dans le répertoire
+## <a name="the-dc-agent-cannot-locate-a-proxy-in-the-directory"></a>L’agent du contrôleur de domaine ne peut pas localiser un proxy dans l’annuaire
 
-Le symptôme principal de ce problème est 30017 événements dans le journal des événements des administrateur de l’agent de contrôleur de domaine.
+Ce problème se traduit principalement par la présence d’événements 30017 dans le journal des événements d’administration de l’agent du contrôleur de domaine.
 
-La cause habituelle de ce problème est qu’un proxy n’a pas encore été enregistré. Si un proxy a été inscrit, il peut y avoir certains délai en raison de la latence de réplication AD jusqu'à ce qu’un agent contrôleur de domaine particulier est en mesure de voir ce proxy.
+La cause habituelle de ce problème est qu’un proxy n’a pas encore été inscrit. Si un proxy a été inscrit, en raison de la latence de réplication d’AD, un certain délai peut s’écouler avant qu’un agent du contrôleur de domaine particulier soit en mesure de voir ce proxy.
 
-## <a name="the-dc-agent-is-not-able-to-communicate-with-a-proxy"></a>L’agent du contrôleur de domaine n’est pas en mesure de communiquer avec un proxy
+## <a name="the-dc-agent-is-not-able-to-communicate-with-a-proxy"></a>L’agent du contrôleur de domaine ne peut pas communiquer avec un proxy
 
-Le symptôme principal de ce problème est 30018 événements dans le journal des événements des administrateur de l’agent de contrôleur de domaine. Cela peut avoir plusieurs causes :
+Ce problème se traduit principalement par la présence d’événements 30018 dans le journal des événements d’administration de l’agent du contrôleur de domaine. Cela peut avoir plusieurs causes :
 
-1. L’agent du contrôleur de domaine se trouve dans une partie isolée du réseau qui n’autorise pas de connectivité réseau vers le proxy(s) inscrits. Ce problème peut être par conséquent expected\benign tant que les autres agents du contrôleur de domaine peuvent communiquer avec le proxy(s) afin de télécharger des stratégies de mot de passe à partir d’Azure, qui sera ensuite être obtenue par le contrôleur de domaine isolé par le biais de la réplication des fichiers de stratégie dans le partage sysvol.
+1. L’agent du contrôleur de domaine se trouve dans une partie isolée du réseau qui n’autorise pas de connectivité réseau au(x) proxy(s) inscrit(s). Ce problème peut donc être attendu\bénin tant que d’autres agents du contrôleur de domaine peuvent communiquer avec le(s) proxy(s) afin de télécharger à partir d’Azure les stratégies de mot de passe qui seront ensuite obtenues par le contrôleur de domaine isolé via une réplication des fichiers de stratégie dans le partage sysvol.
 
-1. L’ordinateur hôte proxy bloque l’accès au point de terminaison RPC endpoint mapper (port 135)
+1. L’ordinateur hôte proxy bloque l’accès au point de terminaison du mappeur de point de terminaison RPC (port 135).
 
-   Le programme d’installation du Proxy de Protection de mot de passe Azure AD crée automatiquement une règle de trafic entrant de pare-feu de Windows qui autorise l’accès au port 135. Si cette règle est ultérieurement supprimée ou désactivée, agents de contrôleur de domaine ne pourront pas communiquer avec le service de Proxy. Si le pare-feu de Windows intégré a été désactivé à la place d’un autre produit de pare-feu, vous devez configurer ce pare-feu pour autoriser l’accès au port 135.
+   Le programme d’installation du proxy de protection par mot de passe Azure AD crée automatiquement une règle de trafic entrant du Pare-feu Windows, qui autorise l’accès au port 135. En cas de suppression ou de désactivation de cette règle par la suite, les agents du contrôleur de domaine ne peuvent plus communiquer avec le service proxy. Si le Pare-feu Windows intégré a été désactivé à la place d’un autre produit de pare-feu, vous devez configurer ce pare-feu pour autoriser l’accès au port 135.
 
-1. L’ordinateur hôte proxy bloque l’accès au point de terminaison RPC (dynamique ou statique) écoutés par le service de Proxy
+1. L’ordinateur hôte proxy bloque l’accès au point de terminaison RPC (dynamique ou statique) qu’écoute le service proxy.
 
-   Le programme d’installation du Proxy de Protection de mot de passe Azure AD crée automatiquement un pare-feu Windows règle de trafic entrant qui autorise l’accès à des ports entrants écoutés par le service de Proxy de Protection de mot de passe Azure AD. Si cette règle est ultérieurement supprimée ou désactivée, agents de contrôleur de domaine ne pourront pas communiquer avec le service de Proxy. Si le pare-feu de Windows intégré a été désactivé à la place d’un autre produit de pare-feu, vous devez configurer que le pare-feu pour autoriser l’accès à des ports entrants écoutés par le service de Proxy de Protection de mot de passe Azure AD. Cette configuration peut être rendue plus spécifique si le service de Proxy a été configuré pour écouter sur un port RPC statique (à l’aide de la `Set-AzureADPasswordProtectionProxyConfiguration` applet de commande).
+   Le programme d’installation du proxy de protection par mot de passe Azure AD crée automatiquement une règle de trafic entrant du Pare-feu Windows, qui autorise l’accès à tout port entrant qu’écoute le service proxy de protection par mot de passe Azure AD. En cas de suppression ou de désactivation de cette règle par la suite, les agents du contrôleur de domaine ne peuvent plus communiquer avec le service proxy. Si le Pare-feu Windows intégré a été désactivé à la place d’un autre produit de pare-feu, vous devez configurer ce pare-feu pour autoriser l’accès à tout port entrant qu’écoute le service proxy de protection par mot de passe Azure AD. Cette configuration peut être rendue plus spécifique si le service proxy a été configuré pour écouter un port RPC statique spécifique (à l’aide de l’applet de commande `Set-AzureADPasswordProtectionProxyConfiguration`).
 
-## <a name="the-proxy-service-can-receive-calls-from-dc-agents-in-the-domain-but-is-unable-to-communicate-with-azure"></a>Le service de Proxy peut recevoir des appels provenant des agents de contrôleur de domaine dans le domaine, mais ne peut pas communiquer avec Azure
+## <a name="the-proxy-service-can-receive-calls-from-dc-agents-in-the-domain-but-is-unable-to-communicate-with-azure"></a>Le service proxy peut recevoir des appels provenant d’agents du contrôleur de domaine dans le domaine, mais ne peut pas communiquer avec Azure
 
-1. Vérifiez l’ordinateur proxy dispose d’une connectivité aux points de terminaison répertoriés dans le [exigences relatives au déploiement](howto-password-ban-bad-on-premises-deploy.md).
+1. Vérifiez que l’ordinateur proxy dispose d’une connectivité aux points de terminaison répertoriés dans les [conditions requises pour le déploiement](howto-password-ban-bad-on-premises-deploy.md).
 
-1. Vérifiez que la forêt et le proxy tous les serveurs sont enregistrés dans le même locataire Azure.
+1. Assurez-vous que la forêt et tous les serveurs proxy sont inscrits auprès du même locataire Azure.
 
-   Vous pouvez le vérifier en exécutant la `Get-AzureADPasswordProtectionProxy` et `Get-AzureADPasswordProtectionDCAgent` applets de commande PowerShell, puis comparer les `AzureTenant` propriété de chaque élément retourné. Pour fonctionner correctement ces doivent être identique au sein d’une forêt, dans tous les agents du contrôleur de domaine et serveurs proxy.
+   Vous pouvez le vérifier en exécutant les applets de commande PowerShell `Get-AzureADPasswordProtectionProxy` et `Get-AzureADPasswordProtectionDCAgent`, puis en comparant la propriété `AzureTenant` de chaque élément retourné. Pour que tout fonctionne correctement, les propriétés doivent être identiques au sein d’une forêt, dans l’ensemble des agents du contrôleur de domaine et des serveurs proxy.
 
-   Si une condition d’incompatibilité d’inscription client Azure n’existe pas, cela peut être réparée en exécutant la `Register-AzureADPasswordProtectionProxy` et/ou `Register-AzureADPasswordProtectionForest` applets de commande PowerShell selon les besoins, en veillant à utiliser les informations d’identification à partir du même client Azure pour toutes les inscriptions.
+   S’il n’existe pas de condition d’incompatibilité d’inscription du locataire Azure, cela peut être réparé en exécutant les applets de commande PowerShell `Register-AzureADPasswordProtectionProxy` ou `Register-AzureADPasswordProtectionForest` selon le besoin, en veillant à utiliser les informations d’identification du même locataire Azure pour toutes les inscriptions.
 
-## <a name="the-dc-agent-is-unable-to-encrypt-or-decrypt-password-policy-files-and-other-state"></a>L’agent du contrôleur de domaine ne peut pas chiffrer ou déchiffrer des fichiers de stratégie de mot de passe et l’autre état
+## <a name="the-dc-agent-is-unable-to-encrypt-or-decrypt-password-policy-files-and-other-state"></a>L’agent du contrôleur de domaine ne peut pas chiffrer ou déchiffrer des fichiers de stratégie de mot de passe
 
-Ce problème peut se manifester avec un large éventail de problèmes, mais a généralement une cause courante de la racine.
+Ce problème peut se manifester au travers de divers symptômes, mais a généralement toujours la même cause racine.
 
-Protection de mot de passe AD Azure a une dépendance critique sur les fonctionnalités de chiffrement et déchiffrement fournie par le Service de Distribution de clés de Microsoft, qui est disponible sur les contrôleurs de domaine exécutant Windows Server 2012 et versions ultérieures. Le service KDS doit être activé et opérationnel sur tous les Windows Server 2012 et versions ultérieures contrôleurs de domaine dans un domaine.
+La protection par mot de passe Azure AD dépend de manière critique des fonctionnalités de chiffrement et de déchiffrement fournies par le service de distribution de clés Microsoft, disponible sur les contrôleurs de domaine exécutant Windows Server 2012 et versions ultérieures. Le service de distribution de clés doit être activé et opérationnel sur tous les contrôleurs de domaine Windows Server 2012 et versions ultérieures au sein d’un domaine.
 
-Par défaut le KDS mode de démarrage du service service est configuré en tant que manuel (début du déclencheur). Cette configuration signifie que la première fois qu’un client essaie d’utiliser le service, il est démarré à la demande. Ce mode de démarrage du service par défaut est acceptable pour la Protection de mot de passe Azure AD fonctionne.
+Par défaut, le mode de démarrage du service de distribution de clés est Manuel (Déclencher le démarrage). Cette configuration a pour effet que, la première fois qu’un client essaie d’utiliser le service, celui-ci est démarré à la demande. Ce mode de démarrage par défaut du service permet que la protection par mot de passe Azure AD fonctionne.
 
-Si le mode de démarrage du service KDS a été configuré sur désactivé, cette configuration doit être corrigée avant de la Protection de mot de passe Azure AD fonctionnent correctement.
+Si le mode de démarrage du service de distribution de clés est désactivé, cette configuration doit être corrigée pour que la protection par mot de passe Azure AD fonctionne correctement.
 
-Un test simple pour ce problème consiste à démarrer manuellement le service KDS, soit via la console MMC de gestion de Service, ou à l’aide d’autres outils de gestion de service (par exemple, exécuter « net start opérations » à partir d’une console de l’invite de commandes). Le service KDS est censé démarrer correctement et à rester en cours d’exécution.
+Un test simple en lien avec ce problème consiste à démarrer manuellement le service de distribution de clés, soit via la console MMC de management des services, ou à l’aide d’autres outils de gestion des services (par exemple, en tapant la commande « net start kdssvc » dans une console d’invite de commande). Le service de distribution de clés est censé démarrer correctement et continuer à s’exécuter.
 
-La cause racine la plus courante pour le service KDS l’impossibilité de démarrer est que l’objet de contrôleur de domaine Active Directory se trouve en dehors de l’unité d’organisation des contrôleurs de domaine par défaut. Cette configuration n’est pas pris en charge par le service KDS et n’est pas une limitation imposée par la Protection de mot de passe Azure AD. La solution pour cette condition consiste à déplacer l’objet de contrôleur de domaine vers un emplacement sous l’unité d’organisation des contrôleurs de domaine par défaut.
+La cause racine la plus courante de l’incapacité du service de distribution de clés à démarrer est que l’objet contrôleur de domaine Active Directory se trouve en dehors de l’unité d’organisation Contrôleurs de domaine par défaut. Cette configuration n’est pas pris en charge par le service de distribution de clés et ne constitue pas une limitation imposée par la protection par mot de passe Azure AD. La solution pour corriger cette situation consiste à déplacer l’objet contrôleur de domaine vers un emplacement situé sous l’unité d’organisation Contrôleurs de domaine par défaut.
 
-## <a name="weak-passwords-are-being-accepted-but-should-not-be"></a>Mots de passe faibles sont acceptées mais ne doivent pas être
+## <a name="weak-passwords-are-being-accepted-but-should-not-be"></a>Les mots de passe faibles sont acceptés alors qu’ils ne devraient pas l’être
 
 Ce problème peut avoir plusieurs causes.
 
-1. Agents de votre contrôleur de domaine ne peut pas télécharger une stratégie ou ne peut pas déchiffrer les stratégies existantes. Recherchez les causes possibles dans les rubriques ci-dessus.
+1. Les agents de votre contrôleur de domaine ne peuvent pas télécharger une stratégie ou déchiffrer des stratégies existantes. Recherchez les causes possibles dans les rubriques ci-dessus.
 
-1. Le mode d’application de la stratégie de mot de passe est toujours défini sur Audit. Si cette configuration est en vigueur, le reconfigurer à appliquer à l’aide du portail de la Protection de mot de passe Azure AD. Consultez [activer le mot de passe](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
+1. Le mode d’application de la stratégie de mot de passe est toujours défini sur Audit. Si c’est le cas, reconfigurez-le pour l’appliquer via le portail de protection par mot de passe Azure AD. Voir [Activer la protection par mot de passe](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
 
-1. La stratégie de mot de passe a été désactivée. Si cette configuration est en vigueur, le reconfigurer activée à l’aide du portail de la Protection de mot de passe Azure AD. Consultez [activer le mot de passe](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
+1. La stratégie de mot de passe a été désactivée. Si c’est le cas, reconfigurez-le pour l’activer via le portail de protection par mot de passe Azure AD. Voir [Activer la protection par mot de passe](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
 
-1. Vous n’avez pas installé le logiciel de l’agent du contrôleur de domaine sur tous les contrôleurs de domaine dans le domaine. Dans ce cas, il est difficile de s’assurer que les clients Windows distants ciblent un contrôleur de domaine particulier pendant une opération de modification de mot de passe. Si vous avez pensez que vous avez ciblé avec succès un contrôleur de domaine particulier où est installé le logiciel de l’agent du contrôleur de domaine, vous pouvez vérifier en se contente de vérifier le journal des événements DC agent admin : quel que soit le résultat, il y aura au moins un événement pour documenter le résultat du mot de passe validation. S’il n’existe aucun événement présente pour l’utilisateur dont le mot de passe, puis la modification de mot de passe a été probablement traitée par un autre contrôleur de domaine.
+1. Vous n’avez pas installé le logiciel de l’agent du contrôleur de domaine sur tous les contrôleurs de domaine dans le domaine. Dans ce cas, il est difficile de s’assurer que les clients Windows distants ciblent un contrôleur de domaine particulier pendant une opération de modification de mot de passe. Si vous pensez avoir ciblé avec succès un contrôleur de domaine particulier sur lequel le logiciel de l’agent du contrôleur de domaine est installé, vous pouvez examiner attentivement le journal des événements d’administration de l’agent du contrôleur de domaine. Quel que soit le résultat, il y aura au moins un événement pour expliquer le résultat du processus de validation du mot de passe. En l’absence d’événement en relation avec l’utilisateur dont le mot de passe a changé, la modification du mot de passe a probablement été traitée par un autre contrôleur de domaine.
 
-   Comme un autre test, essayez les mots de passe setting\changing connecté directement à un contrôleur de domaine dans lequel est installé le logiciel de l’agent du contrôleur de domaine. Cette technique n’est pas recommandée pour les domaines Active Directory de production.
+   Un autre test consiste à essayer de définir ou modifier les mots de passe pendant que vous êtes connecté directement à un contrôleur de domaine sur lequel le logiciel de l’agent du contrôleur de domaine est installé. Cette technique n’est pas recommandée pour les domaines Active Directory de production.
 
-   Déploiement incrémentiel du logiciel agent contrôleur de domaine est pris en charge soumis à ces limitations, Microsoft recommande que le logiciel de l’agent du contrôleur de domaine est installé sur tous les contrôleurs de domaine dans un domaine dès que possible.
+   Bien qu’un déploiement incrémentiel du logiciel de l’agent du contrôleur de domaine soit pris en charge dans le respect de ces limitations, Microsoft recommande vivement d’installer au plus tôt le logiciel de l’agent du contrôleur de domaine sur tous les contrôleurs de domaine au sein d’un domaine.
 
-1. L’algorithme de validation de mot de passe peut réellement fonctionner comme prévu. Consultez [comment les mots de passe sont évaluées](concept-password-ban-bad.md#how-are-passwords-evaluated).
+1. En définitive, l’algorithme de validation de mot de passe fonctionne peut-être comme prévu. Voir [Comment les mots de passe sont évalués](concept-password-ban-bad.md#how-are-passwords-evaluated).
 
 ## <a name="directory-services-repair-mode"></a>Mode de réparation des services d'annuaire
 
-Si le contrôleur de domaine est démarré en Mode de réparation des Services de répertoire, le service de l’agent du contrôleur de domaine détecte cette condition et entraîne tous les validation de mot de passe ou les activités de l’application doit être désactivée, quelle que soit la configuration de stratégie actuellement active.
+Si le contrôleur de domaine est démarré en mode de réparation des services d’annuaire, le service d’agent du contrôleur de domaine le détecte, ce qui a pour effet de désactiver toutes les activités de validation ou d’application du mot de passe, quelle que soit la configuration de la stratégie active.
 
 ## <a name="emergency-remediation"></a>Correction d’urgence
 
@@ -102,7 +102,7 @@ Une fois que la rétrogradation a réussi et que le contrôleur de domaine a ét
 
 ## <a name="removal"></a>Suppression
 
-S’il est décidé de désinstaller le logiciel de protection de mot de passe Azure AD et un nettoyage tout état le (s) et la forêt, cette tâche peut être accomplie en procédant comme suit :
+Si vous décidez de désinstaller le logiciel de protection par mot de passe Azure AD et de nettoyer tout état associé des domaines et de la forêt, vous pouvez accomplir cette tâche en procédant comme suit :
 
 > [!IMPORTANT]
 > Il est important d’effectuer ces étapes dans l’ordre. Si une instance du service Proxy reste en cours d’exécution, elle recrée périodiquement son objet serviceConnectionPoint. Si une instance du service d’agent DC reste en cours d’exécution, elle recrée périodiquement son objet serviceConnectionPoint et l’état sysvol.
@@ -121,7 +121,7 @@ S’il est décidé de désinstaller le logiciel de protection de mot de passe A
 
    Les objets trouvés via la commande `Get-ADObject` peuvent ensuite être dirigés vers `Remove-ADObject` ou supprimés manuellement.
 
-4. Supprimez manuellement tous les points de connexion d’agent DC dans chaque contexte de nommage de domaine. Il existe peut-être un ces objets par le contrôleur de domaine dans la forêt, selon la portée d’application le logiciel a été déployé. Vous pouvez détecter l’emplacement de cet objet avec la commande PowerShell Active Directory suivante :
+4. Supprimez manuellement tous les points de connexion d’agent DC dans chaque contexte de nommage de domaine. Il peut exister un de ces objets par contrôleur de domaine dans la forêt, selon la portée du déploiement du logiciel. Vous pouvez détecter l’emplacement de cet objet avec la commande PowerShell Active Directory suivante :
 
    ```powershell
    $scp = "serviceConnectionPoint"

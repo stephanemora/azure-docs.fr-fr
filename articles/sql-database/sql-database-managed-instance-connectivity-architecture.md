@@ -1,6 +1,6 @@
 ---
-title: Architecture de connectivité pour une instance gérée dans la base de données SQL Azure | Microsoft Docs
-description: En savoir plus sur Azure SQL Database managed instance communication et architecture de connectivité, ainsi que la manière dont les composants de dirigent le trafic vers l’instance gérée.
+title: Architecture de connectivité pour une instance gérée dans Azure SQL Database | Microsoft Docs
+description: Découvrez l’architecture de connectivité et la communication d’instance gérée d’Azure SQL Database ainsi que la façon dont les composants redirigent le trafic vers l’instance gérée.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -13,91 +13,91 @@ ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 04/16/2019
 ms.openlocfilehash: dbb5ee122e715aeaa66d786f02966beedd2447c3
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65522334"
 ---
-# <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Architecture de connectivité pour une instance gérée dans la base de données SQL Azure
+# <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Architecture de connectivité pour une instance gérée dans Azure SQL Database
 
-Cet article explique la communication au sein d’une instance managée de base de données SQL Azure. Elle décrit également l’architecture de connectivité et la façon dont les composants de dirigent le trafic vers l’instance gérée.  
+Cet article explique le fonctionnement de la communication dans une instance gérée Azure SQL Database. Il décrit également l’architecture de connectivité et la façon dont les composants redirigent le trafic vers l’instance gérée.  
 
-L’instance gérée de la base de données SQL est placé dans le réseau virtuel Azure et le sous-réseau dédié pour les instances gérées. Ce déploiement fournit :
+L’instance gérée SQL Database se trouve à l’intérieur du réseau virtuel Azure et du sous-réseau dédié aux instances gérées. Ce déploiement offre :
 
 - Une adresse IP privée sécurisée.
-- La possibilité de connecter un réseau local à une instance gérée.
-- La capacité à connecter une instance gérée sur un serveur lié ou un autre en local magasin de données.
-- La possibilité de connecter une instance gérée aux ressources Azure.
+- La capacité de connecter un réseau local à une instance gérée.
+- La capacité de connecter une instance gérée à un serveur lié ou un autre magasin de données local.
+- La capacité de connecter une instance gérée à des ressources Azure.
 
 ## <a name="communication-overview"></a>Vue d’ensemble des communications
 
-Le diagramme suivant montre les entités qui se connectent à une instance gérée. Il montre également les ressources qui doivent communiquer avec l’instance gérée. Le processus de communication en bas du diagramme représente les applications des clients et des outils qui se connectent à l’instance gérée en tant que sources de données.  
+Le diagramme suivant représente les entités connectées à une instance gérée. Il montre également les ressources qui doivent communiquer avec l’instance gérée. Le processus de communication situé dans la partie inférieure du diagramme représente les applications et les outils des clients qui se connectent à l’instance gérée en tant que source de données.  
 
-![Entités dans l’architecture de connectivité](./media/managed-instance-connectivity-architecture/connectivityarch001.png)
+![Entités de l’architecture de connectivité](./media/managed-instance-connectivity-architecture/connectivityarch001.png)
 
-Une instance gérée est une plateforme en tant qu’une offre de service (PaaS). Microsoft utilise des agents automatisés (gestion, déploiement et la maintenance) pour gérer ce service basé sur les flux de données de télémétrie. Étant donné que Microsoft est responsable de la gestion, les clients ne peut pas accéder aux ordinateurs du cluster virtuel instance gérée via protocole RDP (Remote Desktop).
+Une instance gérée est une offre de platform as a service (PaaS). Microsoft utilise des agents automatisés (gestion, déploiement et maintenance) pour gérer ce service basé sur les flux de données de télémétrie. Microsoft est responsable de la gestion, c’est pourquoi les clients ne peuvent pas accéder aux machines du cluster virtuel de l’instance gérée à l’aide du protocole RDP (Remote Desktop Protocol).
 
-Certaines opérations lancées par les utilisateurs finaux ou les applications peuvent nécessiter de SQL Server managed instances pour interagir avec la plateforme. Un cas est la création d’une base de données d’instance gérée. Cette ressource est exposée via le portail Azure, PowerShell, Azure CLI et l’API REST.
+Certaines opérations de SQL Server lancées par les applications ou les utilisateurs finaux peuvent nécessiter l’interaction des instances gérées avec la plateforme. C’est notamment le cas de la création d’une base de données d’instance gérée. Cette ressource est exposée via le portail Azure, PowerShell, Azure CLI et l’API REST.
 
-Instances managées dépendent des services Azure tels que le stockage Azure pour les sauvegardes, Azure Event Hubs pour les données de télémétrie, Azure Active Directory pour l’authentification, Azure Key Vault pour Transparent Data Encryption (TDE) et deux services de plateforme Azure qui fournissent fonctionnalités de sécurité et de prise en charge. Les instances gérées établit des connexions à ces services.
+Les instances gérées dépendent des services Azure, notamment le stockage Azure pour les sauvegardes, Azure Event Hubs pour les données de télémétrie, Azure Active Directory pour l’authentification, Azure Key Vault pour le TDE (Transparent Data Encryption) et quelques services de plateforme Azure qui fournissent fonctionnalités de sécurité et de prise en charge. Les instances gérées établissent des connexions à ces services.
 
-Toutes les communications sont chiffrées et signés à l’aide de certificats. Pour vérifier la fiabilité des correspondants, managé instances vérifier en permanence ces certificats par le biais des listes de révocation de certificats. Si les certificats sont révoqués, l’instance gérée ferme les connexions pour protéger les données.
+Toutes les communications sont chiffrées et signées avec des certificats. Pour s’assurer de la fiabilité des parties communicantes, les instances gérées vérifient en permanence ces certificats à l’aide de listes de révocation de certificat. Si les certificats sont révoqués, l’instance gérée ferme les connexions pour protéger les données.
 
 ## <a name="high-level-connectivity-architecture"></a>Architecture de la connectivité globale
 
-À un niveau élevé, une instance gérée est un ensemble de composants de service. Ces composants sont hébergés sur un ensemble dédié de machines virtuelles isolés qui s’exécutent au sein du sous-réseau de réseau virtuel du client. Ces ordinateurs forment un cluster virtuel.
+À un niveau élevé, une instance gérée est un ensemble de composants de service. Ces composants sont hébergés sur un ensemble dédié de machines virtuelles isolées qui s’exécutent au sein du sous-réseau de réseau virtuel du client. Ces machines forment un cluster virtuel.
 
-Un cluster virtuel peut héberger plusieurs instances gérées. Si nécessaire, le cluster se développe automatiquement ou les contrats lorsque le client change le nombre d’instances approvisionnés dans le sous-réseau.
+Un cluster virtuel peut héberger plusieurs instances gérées. Le cas échéant, le cluster est automatiquement étendu ou réduit lorsque le client change le nombre d’instances approvisionnées dans le sous-réseau.
 
-Les applications client peuvent se connecter à des instances gérées et peuvent interroger et mettre à jour des bases de données à l’intérieur du réseau virtuel, un réseau virtuel homologué, ou un réseau connecté par VPN ou Azure ExpressRoute. Ce réseau doit utiliser un point de terminaison et une adresse IP privée.  
+Les applications client peuvent se connecter à des instances gérées ainsi qu’interroger et mettre à jour des bases de données à l’intérieur du réseau virtuel, du réseau virtuel appairé ou du réseau connecté grâce à un VPN ou Azure ExpressRoute. Ce réseau doit utiliser un point de terminaison et une adresse IP privée.  
 
-![Diagramme d’architecture de connectivité](./media/managed-instance-connectivity-architecture/connectivityarch002.png)
+![Diagramme de l’architecture de connectivité](./media/managed-instance-connectivity-architecture/connectivityarch002.png)
 
-Services de gestion et le déploiement Microsoft s’exécutent en dehors du réseau virtuel. Une instance gérée et les services de Microsoft se connectent via les points de terminaison qui ont des adresses IP publiques. Quand une instance gérée crée une connexion sortante, côté réception permet de traduction d’adresses réseau (NAT) le ressemble connexion provient cette adresse IP publique.
+Les services de gestion et de déploiement Microsoft s’exécutent en dehors du réseau virtuel. Une instance gérée et les services Microsoft se connectent via des points de terminaison disposant d’adresses IP publiques. Quand une instance gérée crée une connexion sortante, du côté de la réception, elle semble provenir de cette adresse IP publique en raison de la traduction d’adresses réseau (NAT).
 
-Le trafic de gestion transite par réseau virtuel du client. Cela signifie que les éléments de l’infrastructure du réseau virtuel peuvent endommager le trafic de gestion en rendant l’instance échouent et la rendre indisponible.
+Le trafic de gestion transite via le réseau virtuel du client. Cela signifie que les éléments de l’infrastructure du réseau virtuel peuvent nuire au trafic de gestion en provoquant un échec de l’instance, ce qui la rend indisponible.
 
 > [!IMPORTANT]
-> Pour améliorer l’expérience et la disponibilité des services, Microsoft applique une stratégie intentionnelle de réseau sur les éléments d’infrastructure de réseau virtuel Azure. La stratégie peut affecter le fonctionnement de l’instance gérée. Ce mécanisme de plateforme communique en toute transparence la configuration réseau requise pour les utilisateurs. Objectif principal de la stratégie est afin d’éviter une mauvaise configuration du réseau et pour assurer le fonctionnement de l’instance managée normale. Lorsque vous supprimez une instance gérée, la stratégie d’intention de réseau est également supprimée.
+> Pour améliorer l’expérience client et la disponibilité du service, Microsoft applique une stratégie d’intention de réseau sur les éléments de l’infrastructure de réseau virtuel Azure. Celle-ci peut affecter le fonctionnement de l’instance gérée. Ce mécanisme de plateforme transmet les exigences réseau aux utilisateurs de manière transparente. L’objectif principal de la stratégie est d’éviter une mauvaise configuration du réseau et de veiller au bon fonctionnement de l’instance managée. Lorsque vous supprimez une instance gérée, la stratégie d’intention de réseau est également supprimée.
 
 ## <a name="virtual-cluster-connectivity-architecture"></a>Architecture de la connectivité du cluster virtuel
 
-Prenons plus en détail dans l’architecture de connectivité pour les instances gérées. Le diagramme suivant montre l’organisation conceptuelle du cluster virtuel.
+Examinons plus en détail l’architecture de connectivité des instances gérées. Le diagramme suivant montre l’organisation conceptuelle du cluster virtuel.
 
 ![Architecture de connectivité du cluster virtuel](./media/managed-instance-connectivity-architecture/connectivityarch003.png)
 
-Les clients se connectent à une instance gérée à l’aide d’un nom d’hôte qui se présente sous la forme `<mi_name>.<dns_zone>.database.windows.net`. Ce nom d’hôte correspond à une adresse IP privée, bien qu’il est inscrit dans une zone de nom (DNS) de domaine public et peut être résolu publiquement. Le `zone-id` est généré automatiquement lorsque vous créez le cluster. Si un nouveau cluster héberge une instance gérée secondaire, il partage son ID de zone avec le cluster principal. Pour plus d’informations, consultez [utiliser des groupes de basculement automatique pour permettre un basculement transparent et coordonné de plusieurs bases de données](sql-database-auto-failover-group.md##enabling-geo-replication-between-managed-instances-and-their-vnets).
+Les clients se connectent à une instance gérée en utilisant le nom d’hôte qui a la forme suivante : `<mi_name>.<dns_zone>.database.windows.net`. Ce nom d’hôte se résout en une adresse IP privée, bien qu’elle soit inscrite dans une zone DNS (Domain Name System) publique et puisse être résolue publiquement. L’identifiant `zone-id` est généré automatiquement lorsque vous créez le cluster. Si un nouveau cluster héberge une instance gérée secondaire, il partage son ID de zone avec le cluster principal. Pour plus d’informations, consultez [Utiliser des groupes de basculement automatique pour permettre le basculement transparent et coordonné de plusieurs bases de données](sql-database-auto-failover-group.md##enabling-geo-replication-between-managed-instances-and-their-vnets).
 
-Cette adresse IP privée appartient à l’équilibreur de charge interne de l’instance gérée. L’équilibreur de charge dirige le trafic vers passerelle de l’instance gérée. Plusieurs instances gérées pouvant s’exécuter à l’intérieur du même cluster, la passerelle utilise le nom d’hôte de l’instance gérée à rediriger le trafic vers le service de moteur SQL correct.
+Cette adresse IP privée appartient à l’équilibreur de charge interne de l’instance gérée. Il redirige le trafic vers la passerelle de l’instance gérée. Comme plusieurs instances managées peuvent s’exécuter à l’intérieur du même cluster, la passerelle utilise le nom d’hôte de l’instance gérée pour rediriger le trafic vers le service du moteur SQL approprié.
 
-Les services de gestion et le déploiement se connectent à une instance gérée à l’aide un [point de terminaison de gestion](#management-endpoint) équilibreur de charge est mappé à un externe. Le trafic est acheminé vers les nœuds uniquement si elle est reçue sur un ensemble prédéfini de ports qui utilisent uniquement les composants de gestion de l’instance gérée. Un pare-feu intégré sur les nœuds est configuré pour autoriser le trafic uniquement à partir de plages d’adresses IP de Microsoft. Certificats authentifient mutuellement toutes les communications entre les composants de gestion et le plan de gestion.
+Les services de gestion et de déploiement se connectent à une instance gérée en utilisant un [point de terminaison de gestion](#management-endpoint) qui est mappé à un équilibreur de charge externe. Le trafic est routé vers les nœuds seulement s’il est reçu sur un ensemble de ports prédéfinis utilisés exclusivement par les composants de gestion de l’instance gérée. Un pare-feu intégré sur les nœuds est configuré de manière à autoriser le trafic provenant uniquement des plages d’adresses IP de Microsoft. Tous les certificats authentifient mutuellement les communications entre les composants de gestion et le plan de gestion.
 
 ## <a name="management-endpoint"></a>Point de terminaison de gestion
 
-Microsoft gère l’instance gérée à l’aide d’un point de terminaison de gestion. Ce point de terminaison est à l’intérieur du cluster virtuel de l’instance. Le point de terminaison de gestion est protégé par un pare-feu intégré au niveau du réseau. Sur le niveau de l’application, il est protégé par la vérification de mutuelle des certificats. Pour rechercher l’adresse du point de terminaison, consultez [déterminer l’adresse du point de terminaison gestion](sql-database-managed-instance-find-management-endpoint-ip-address.md).
+Microsoft gère l’instance gérée à l’aide d’un point de terminaison de gestion. Ce point de terminaison est situé à l’intérieur du cluster virtuel de l’instance. Le point de terminaison de gestion est protégé par un pare-feu intégré au niveau du réseau. Au niveau de l’application, il est protégé par la vérification de certificat mutuelle. Pour trouver l’adresse IP du point de terminaison, consultez [Déterminer l’adresse IP du point de terminaison de gestion](sql-database-managed-instance-find-management-endpoint-ip-address.md).
 
-Lorsque connexions commencent à l’intérieur de l’instance gérée (comme avec les sauvegardes et les journaux d’audit), le trafic s’affiche pour démarrer à partir de l’adresse IP du point de terminaison gestion. Vous pouvez limiter l’accès aux services publics à partir d’une instance gérée en définissant des règles de pare-feu pour autoriser uniquement les adresse IP de l’instance gérée. Pour plus d’informations, consultez [Vérifiez le pare-feu intégré de l’instance gérée](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
+Lorsque les connexions sont initiées à l’intérieur de l’instance gérée (à l’instar des sauvegardes et des journaux d’audit), le trafic semble démarrer à partir de l’adresse IP publique du point de terminaison de gestion. Vous pouvez limiter l’accès aux services publics à partir d’une instance gérée en définissant des règles de pare-feu destinées à autoriser uniquement l’adresse IP d’instance gérée. Pour plus d’informations, consultez [Vérifier le pare-feu intégré de l’instance gérée](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
 
 > [!NOTE]
-> Le trafic qui accède à des services Azure qui se trouvent dans la région de l’instance managée est optimisé et pour cette raison pas transformée à managed instance management point de terminaison adresse IP. C’est pourquoi si vous devez utiliser des règles de pare-feu basé sur IP, plus souvent pour le stockage, service doit être dans une autre région à partir de l’instance gérée.
+> Le trafic acheminé vers les services Azure situés dans la région de l’instance managée est optimisé. C’est pourquoi il ne bénéficie pas d’une traduction d’adresses réseau vers l’adresse IP publique du point de terminaison de gestion de l’instance gérée. Pour cette même raison, si vous devez utiliser des règles de pare-feu basées sur l’adresse IP, ce qui est souvent nécessaire pour le stockage, le service devra se trouver dans une région différente de celle de l’instance gérée.
 
 ## <a name="network-requirements"></a>Configuration requise pour le réseau
 
-Déployer une instance gérée dans un sous-réseau dédié à l’intérieur du réseau virtuel. Le sous-réseau doit avoir les caractéristiques suivantes :
+Déployer une instance gérée dans un sous-réseau dédié à l’intérieur du réseau virtuel. Le sous-réseau doit disposer des caractéristiques suivantes :
 
-- **Sous-réseau dédié :** Sous-réseau de l’instance managée ne peut pas contenir n’importe quel autre service cloud qui est associé, et il ne peut pas être un sous-réseau de passerelle. Le sous-réseau ne peut pas contenir n’importe quelle ressource, mais l’instance gérée, et vous ne pouvez pas ajouter ultérieurement d’autres types de ressources dans le sous-réseau.
-- **Groupe de sécurité réseau :** Un groupe de sécurité réseau associé avec le réseau virtuel doit définir [règles de sécurité entrantes](#mandatory-inbound-security-rules) et [règles de sécurité sortantes](#mandatory-outbound-security-rules) avant toute autre règle. Vous pouvez utiliser un groupe de sécurité réseau pour contrôler l’accès au point de terminaison de données de l’instance gérée en filtrant le trafic sur le port 1433 et ports 11000-11999 lors de l’instance managée est configuré pour rediriger les connexions.
-- **Table d’itinéraire défini (UDR) utilisateur :** Une table d’UDR associé avec le réseau virtuel doit inclure spécifique [entrées](#user-defined-routes).
-- **Aucun point de terminaison de service :** Aucun point de terminaison de service ne doit être associé à sous-réseau de l’instance gérée. Assurez-vous que l’option de points de terminaison de service est désactivée lorsque vous créez le réseau virtuel.
-- **Suffisamment d’adresses IP :** Le sous-réseau de l’instance managée doit avoir au moins 16 adresses IP. La valeur minimale recommandée est de 32 adresses IP. Pour plus d’informations, consultez [déterminer la taille du sous-réseau pour les instances gérées](sql-database-managed-instance-determine-size-vnet-subnet.md). Vous pouvez déployer des instances gérées dans [le réseau existant](sql-database-managed-instance-configure-vnet-subnet.md) après avoir configuré les satisfaire [la configuration réseau requise pour les instances gérées](#network-requirements). Sinon, créez un [nouveau réseau et sous-réseau](sql-database-managed-instance-create-vnet-subnet.md).
+- **Sous-réseau dédié :** le sous-réseau d’instance gérée ne doit contenir aucun autre service cloud qui lui est associé et ne doit pas être un sous-réseau de passerelle. L’instance gérée est la seule ressource que le sous-réseau doit contenir et vous ne pouvez pas ajouter d’autres types de ressources au sous-réseau ultérieurement.
+- **Groupe de sécurité réseau :** un groupe de sécurité réseau associé au réseau virtuel doit définir en premier lieu des [règles de sécurité entrantes](#mandatory-inbound-security-rules) et des [règles de sécurité sortantes](#mandatory-outbound-security-rules). Vous pouvez utiliser un groupe de sécurité réseau pour contrôler l’accès au point de terminaison de données de l’instance gérée en filtrant le trafic sur les ports 1433 et 11000 à 11999 lorsque l’instance gérée est configurée pour rediriger les connexions.
+- **Table d’itinéraire défini par l’utilisateur (UDR) :** une table d’UDR associée au réseau virtuel doit comprendre des [entrées](#user-defined-routes) spécifiques.
+- **Aucun point de terminaison de service :** aucun point de terminaison de service ne doit être associé au sous-réseau de l’instance gérée. Vérifiez que l’option Points de terminaison de service est désactivée quand vous créez le réseau virtuel.
+- **Nombre d’adresses IP suffisant :** le sous-réseau de l’instance gérée doit disposer d’au moins 16 adresses IP. Il est recommandé d’avoir au moins 32 adresses IP. Pour plus d’informations, consultez [Déterminer la taille du sous-réseau pour les instances gérées](sql-database-managed-instance-determine-size-vnet-subnet.md). Vous pouvez déployer des instances gérées dans [le réseau existant](sql-database-managed-instance-configure-vnet-subnet.md) une fois que vous l’avez configuré de manière à satisfaire les [exigences réseau pour les instances gérées](#network-requirements). Sinon, créez un [nouveau réseau et sous-réseau](sql-database-managed-instance-create-vnet-subnet.md).
 
 > [!IMPORTANT]
-> Vous ne pouvez pas déployer une nouvelle instance managée si le sous-réseau de destination ne dispose pas de ces caractéristiques. Lorsque vous créez une instance gérée, une stratégie intentionnelle de réseau est appliquée sur le sous-réseau pour empêcher les modifications non conformes au programme d’installation de mise en réseau. Une fois que la dernière instance est supprimée à partir du sous-réseau, la stratégie d’intention de réseau est également supprimée.
+> Vous ne pouvez pas déployer une nouvelle instance managée si le sous-réseau de destination ne présente pas ces caractéristiques. Lorsqu’une instance gérée est créée, une stratégie d’intention réseau est appliquée au sous-réseau afin d’empêcher toute modification non conforme de la configuration réseau. Lorsque la dernière instance restante est supprimée du sous-réseau, la stratégie d’intention réseau est également supprimée.
 
 ### <a name="mandatory-inbound-security-rules"></a>Règles de sécurité du trafic entrant obligatoires
 
-| Nom       |Port                        |Protocol|Source           |Destination|Action|
+| Nom       |Port                        |Protocole|Source           |Destination|Action|
 |------------|----------------------------|--------|-----------------|-----------|------|
 |gestion  |9000, 9003, 1438, 1440, 1452|TCP     |Quelconque              |SOUS-RÉSEAU MI  |AUTORISER |
 |mi_subnet   |Quelconque                         |Quelconque     |SOUS-RÉSEAU MI        |SOUS-RÉSEAU MI  |AUTORISER |
@@ -105,24 +105,24 @@ Déployer une instance gérée dans un sous-réseau dédié à l’intérieur du
 
 ### <a name="mandatory-outbound-security-rules"></a>Règles de sécurité du trafic sortant obligatoires
 
-| Nom       |Port          |Protocol|Source           |Destination|Action|
+| Nom       |Port          |Protocole|Source           |Destination|Action|
 |------------|--------------|--------|-----------------|-----------|------|
 |gestion  |80, 443, 12000|TCP     |SOUS-RÉSEAU MI        |AzureCloud |AUTORISER |
 |mi_subnet   |Quelconque           |Quelconque     |SOUS-RÉSEAU MI        |SOUS-RÉSEAU MI  |AUTORISER |
 
 > [!IMPORTANT]
-> Vérifiez qu’il n'existe qu’une seule règle de trafic entrant pour les ports 9000, 9003, 1438, 1440, 1452 et une règle de trafic sortant pour les ports 80, 443, 12000. Managed Instance approvisionnement via Azure Resource Manager déploiements échouent si les règles entrantes et sortantes sont configurés séparément pour chaque port. Si ces ports sont dans des règles distinctes, le déploiement échoue avec le code d’erreur `VnetSubnetConflictWithIntendedPolicy`
+> Vérifiez qu’il n’existe qu’une seule règle de trafic entrant pour les ports 9000, 9003, 1438, 1440, 1452 et une règle de trafic sortant pour les ports 80, 443, 12000. L’approvisionnement des instances gérées via les déploiements Azure Resource Manager échouera si les règles de trafic entrant et sortant sont configurées individuellement sur chaque port. Si ces ports sont inclus dans des règles distinctes, le déploiement échouera et afficher le code d’erreur `VnetSubnetConflictWithIntendedPolicy`.
 
-\* MI sous-réseau fait référence à la plage d’adresses IP pour le sous-réseau dans le formulaire 10.x.x.x/y. Vous pouvez trouver ces informations dans le portail Azure, dans les propriétés du sous-réseau.
+\* SOUS-RÉSEAU MI fait référence à la plage d’adresses IP du sous-réseau sous la forme 10.x.x.x/y. Ces informations sont disponibles sur le portail Azure, dans les propriétés du sous-réseau.
 
 > [!IMPORTANT]
-> Bien que les règles de sécurité de trafic entrant requise autorisent le trafic à partir de _tout_ de code source sur les ports 9000, 9003, 1438, 1440 et 1452, ces ports sont protégés par un pare-feu intégré. Pour plus d’informations, consultez [déterminer l’adresse de point de terminaison de gestion](sql-database-managed-instance-find-management-endpoint-ip-address.md).
+> Bien que les règles de sécurité de trafic entrant obligatoires autorisent le trafic à partir de _n’importe quelle_ source sur les ports 9000, 9003, 1438, 1440 et 1452, ces derniers sont protégés par un pare-feu intégré. Pour plus d’informations, consultez [Déterminer l’adresse du point de terminaison de gestion](sql-database-managed-instance-find-management-endpoint-ip-address.md).
 > [!NOTE]
-> Si vous utilisez la réplication transactionnelle dans une instance gérée, et si vous utilisez une base de données d’instance comme un serveur de publication ou un serveur de distribution, ouvrez le port 445 (TCP sortant) dans les règles de sécurité du sous-réseau. Ce port autorise l’accès au partage de fichiers Azure.
+> Si vous utilisez la réplication transactionnelle dans une instance gérée et une base de données d’instance en tant que serveur de publication ou de distribution, ouvrez le port 445 (TCP sortant) dans les règles de sécurité du sous-réseau. Ce port autorise l’accès au partage de fichiers Azure.
 
 ### <a name="user-defined-routes"></a>itinéraires définis par l’utilisateur
 
-|Nom|Préfixe d'adresse|Tronçon suivant|
+|Nom|Préfixe de l’adresse|Tronçon suivant|
 |----|--------------|-------|
 |subnet_to_vnetlocal|SOUS-RÉSEAU MI|Réseau virtuel|
 |mi-13-64-11-nexthop-internet|13.64.0.0/11|Internet|
@@ -226,17 +226,17 @@ Déployer une instance gérée dans un sous-réseau dédié à l’intérieur du
 |mi-216-220-208-20-nexthop-internet|216.220.208.0/20|Internet|
 ||||
 
-En outre, vous pouvez ajouter des entrées à la table de routage pour acheminer le trafic qui a des plages d’adresses IP privées en local en tant que destination via la passerelle de réseau virtuel ou d’une appliance de réseau virtuel (NVA).
+En outre, vous pouvez utiliser la passerelle de réseau virtuel ou une appliance de réseau virtuel (NVA) pour ajouter des entrées à la table d’itinéraires pour acheminer le trafic disposant de plages d’adresses IP privées locales en tant que destination.
 
-Si le réseau virtuel comprend un DNS personnalisé, le serveur DNS personnalisé doit être en mesure de résoudre les noms d’hôte en \*. core.windows.net zone. À l’aide des fonctionnalités supplémentaires telles que l’authentification Azure AD peut nécessiter la résolution de noms de domaine complets supplémentaires. Pour plus d’informations, consultez [configurer un DNS personnalisé](sql-database-managed-instance-custom-dns.md).
+Si le réseau virtuel comprend un DNS personnalisé, le serveur DNS personnalisé doit pouvoir résoudre les noms d’hôte dans la zone \*.core.windows.net. Des résolutions de FQDN additionnels peuvent être nécessaires si vous utilisez des fonctionnalités supplémentaires comme Azure AD Authentication. Pour plus d’informations, consultez [Configurer un système DNS personnalisé](sql-database-managed-instance-custom-dns.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour une vue d’ensemble, consultez [fonctions avancées de sécurité des données de la base de données SQL](sql-database-managed-instance.md).
-- Découvrez comment [configurer un réseau virtuel Azure](sql-database-managed-instance-create-vnet-subnet.md) ou un [réseau virtuel Azure existant](sql-database-managed-instance-configure-vnet-subnet.md) où vous pouvez déployer les instances gérées.
-- [Calculer la taille du sous-réseau](sql-database-managed-instance-determine-size-vnet-subnet.md) où vous souhaitez déployer les instances gérées.
-- Découvrez comment créer une instance managée :
+- Pour obtenir une vue d’ensemble, consultez  [Advanced Data Security pour SQL Database](sql-database-managed-instance.md).
+- Découvrez comment [configurer un nouveau réseau virtuel Azure](sql-database-managed-instance-create-vnet-subnet.md) ou un [réseau virtuel Azure existant](sql-database-managed-instance-configure-vnet-subnet.md) sur lequel vous pouvez déployer des instances gérées.
+- [Calculez la taille du sous-réseau](sql-database-managed-instance-determine-size-vnet-subnet.md) sur lequel vous souhaitez déployer les instances gérées.
+- Découvrez comment créer une instance gérée :
   - À partir du [portail Azure](sql-database-managed-instance-get-started.md).
-  - À l’aide de [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md).
-  - À l’aide de [un modèle Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/).
-  - À l’aide de [un modèle Azure Resource Manager (à l’aide du serveur de rebond, avec SSMS inclus)](https://portal.azure.com/). 
+  - En utilisant [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md).
+  - En utilisant [un modèle Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/).
+  - En utilisant [un modèle Azure Resource Manager (à l’aide de JumpBox, avec SSMS inclus)](https://portal.azure.com/). 

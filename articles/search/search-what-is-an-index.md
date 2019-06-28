@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: seodec2018
 ms.openlocfilehash: 462a99ffab8038f34b1ffd038ce5c8e8ec9a8565
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65024439"
 ---
 # <a name="create-a-basic-index-in-azure-search"></a>Créer un index de base dans la Recherche Azure
@@ -46,7 +46,7 @@ Avant de parvenir à une conception d’index satisfaisante, il convient d’eff
 
 6. Continuez d’utiliser le code pour itérer sur votre conception.  
 
-Étant donné que les structures physiques sont créés dans le service, [supprimer et de recréer les index](search-howto-reindex.md) est nécessaire chaque fois que vous apportez des modifications matérielles à une définition de champ existante. Cela signifie que pendant le développement, vous devez prévoir des regénérations fréquentes. Vous pouvez envisager de travailler sur une partie de vos données pour regénérer plus rapidement. 
+Comme les structures physiques sont créées dans le service, il est nécessaire de [supprimer et de recréer les index](search-howto-reindex.md) chaque fois que vous apportez des modifications importantes à une définition de champ existante. Cela signifie que pendant le développement, vous devez prévoir des regénérations fréquentes. Vous pouvez envisager de travailler sur une partie de vos données pour regénérer plus rapidement. 
 
 Pour une conception itérative, il est recommandé de privilégier une approche basée sur le code plutôt que sur le portail. Si vous utilisez le portail pour définir un index, vous devrez remplir la définition de l’index à chaque regénération. Sinon, les outils tels que [Postman et l’API REST](search-fiddler.md) s’avèrent utiles pour tester la preuve de concept aux phases initiales d’un projet de développement. Vous pouvez apporter des modifications incrémentielles à une définition d’index dans un corps de demande, puis envoyer la demande à votre service pour recréer un index en utilisant un schéma mis à jour.
 
@@ -54,7 +54,7 @@ Pour une conception itérative, il est recommandé de privilégier une approche 
 
 Schématiquement, un index Recherche Azure se compose des éléments suivants. 
 
-La [*collection de champs*](#fields-collection) correspond généralement à la majeure partie de l’index, dans laquelle chaque champ est nommé, tapé et pourvu de comportements autorisés qui déterminent son utilisation. D’autres éléments incluent [générateurs de suggestions](#suggesters), [profils de score](#scoring-profiles), [analyseurs](#analyzers) avec les composants pour prendre en charge la personnalisation, [CORS](#cors) et [clé de chiffrement](#encryption-key) options.
+La [*collection de champs*](#fields-collection) correspond généralement à la majeure partie de l’index, dans laquelle chaque champ est nommé, tapé et pourvu de comportements autorisés qui déterminent son utilisation. Il existe d’autres éléments, comme les [suggesteurs](#suggesters), les [profils de score](#scoring-profiles), les [analyseurs](#analyzers) avec les composants pour prendre en charge la personnalisation et les options [CORS](#cors) et [clé de chiffrement](#encryption-key).
 
 ```json
 {
@@ -175,7 +175,7 @@ Pour plus d’informations sur les attributs d’index du service Recherche Azur
 
 Les attributs que vous sélectionnez ont un impact sur le stockage. La capture d’écran suivante illustre les caractéristiques du stockage d’index résultant des différentes combinaisons d’attributs.
 
-L’index est basé sur le [intégrés immobilier exemple](search-get-started-portal.md) source de données, vous pouvez indexer et de requête dans le portail. Bien que les schémas de l’index ne soient pas montrés, vous pouvez en déduire les attributs d’après le nom de l’index. Par exemple, pour l’index *realestate-searchable*, seul l’attribut **searchable** est sélectionné ; pour l’index *realestate-retrievable*, seul l’index **retrievable** est sélectionné, et ainsi de suite.
+L’index est basé sur la source de données de l’[l’exemple intégré real estate](search-get-started-portal.md), que vous pouvez indexer et interroger sur le portail. Bien que les schémas de l’index ne soient pas montrés, vous pouvez en déduire les attributs d’après le nom de l’index. Par exemple, pour l’index *realestate-searchable*, seul l’attribut **searchable** est sélectionné ; pour l’index *realestate-retrievable*, seul l’index **retrievable** est sélectionné, et ainsi de suite.
 
 ![Taille d’index en fonction de la sélection d’attributs](./media/search-what-is-an-index/realestate-index-size.png "Taille d’index en fonction de la sélection d’attributs")
 
@@ -215,7 +215,7 @@ Les options suivantes peuvent être définies pour CORS :
 
 ## <a name="encryption-key"></a>Clé de chiffrement
 
-Bien que tous les index de recherche Azure sont chiffrées par défaut à l’aide de clés gérées par Microsoft, les index peuvent être configurés pour être chiffré avec **clés gérées par le client** dans Key Vault. Pour plus d’informations, consultez [gérer les clés de chiffrement dans Azure Search](search-security-manage-encryption-keys.md).
+Si tous les index de recherche Azure sont chiffrés par défaut à l’aide de clés gérées par Microsoft, il est possible de configurer les index pour qu’ils soient chiffrés avec **clés gérées par le client** dans Key Vault. Pour plus d’informations, voir [Gérer les clés de chiffrement dans Recherche Azure](search-security-manage-encryption-keys.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
