@@ -67,7 +67,7 @@ L’activité IfCondition fournit les mêmes fonctionnalités qu’une instructi
 Propriété | Description | Valeurs autorisées | Obligatoire
 -------- | ----------- | -------------- | --------
 name | Nom de l’activité de condition « if ». | String | OUI
-type | Doit avoir la valeur **IfCondition** | String | OUI
+Type | Doit avoir la valeur **IfCondition** | String | OUI
 expression | Expression qui doit retourner true ou false | Expression avec un résultat de type booléen | OUI
 ifTrueActivities | Ensemble d’activités qui sont exécutées quand l’expression retourne `true`. | Array | OUI
 ifFalseActivities | Ensemble d’activités qui sont exécutées quand l’expression retourne `false`. | Array | OUI

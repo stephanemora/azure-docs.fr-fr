@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/11/2016
 ms.author: alkohli
 ms.openlocfilehash: dbab2aaab2c12bef07748f54e5864d042f1c982a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60302478"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-jobs-for-the-storsimple-virtual-array"></a>Utiliser le service StorSimple Device Manager pour afficher les tâches du StorSimple Virtual Array
@@ -59,7 +59,7 @@ Pour afficher les détails d’une tâche, procédez comme suit.
 #### <a name="job-failures-when-the-virtual-machine-is-paused-in-the-hypervisor"></a>Échec des tâches lorsque la machine virtuelle est en pause dans l'hyperviseur
 Lorsqu’une tâche est en cours sur votre StorSimple Virtual Array et que l’appareil (machine virtuelle approvisionnée dans l’hyperviseur) est en pause pendant plus de 15 minutes, la tâche échoue. Ceci en raison du fait que l’heure de votre StorSimple Virtual Array est désynchronisée avec l'heure de Microsoft Azure. 
 
-Vous voyez l’erreur suivante : « Heure de votre appareil est désynchronisée avec l’heure de Microsoft Azure en plus de 15 minutes. Ensure that the hypervisor and the device times are synchronized with an NTP server. Verify that there are no connectivity issues. To troubleshoot connectivity issues, run diagnostic tests from the local web UI of your virtual device. » (L’heure de votre appareil est désynchronisée de plus de 15 minutes par rapport à l’heure de Microsoft Azure. Assurez-vous que l’heure de l’hyperviseur et l’heure de l’appareil sont synchronisées à l’aide d’un serveur NTP. Vérifiez qu’il n’existe aucun problème de connectivité. Pour résoudre les problèmes de connectivité, exécutez des tests de diagnostic à partir de l’interface utilisateur web locale de votre appareil virtuel.)
+Vous voyez l’erreur suivante : « Your device time is out of sync with the Microsoft Azure time by more than 15 minutes. Ensure that the hypervisor and the device times are synchronized with an NTP server. Verify that there are no connectivity issues. To troubleshoot connectivity issues, run diagnostic tests from the local web UI of your virtual device. » (L’heure de votre appareil est désynchronisée de plus de 15 minutes par rapport à l’heure de Microsoft Azure. Assurez-vous que l’heure de l’hyperviseur et l’heure de l’appareil sont synchronisées à l’aide d’un serveur NTP. Vérifiez qu’il n’existe aucun problème de connectivité. Pour résoudre les problèmes de connectivité, exécutez des tests de diagnostic à partir de l’interface utilisateur web locale de votre appareil virtuel.)
 
 Cet échec concerne les tâches de sauvegarde, de restauration, de mise à jour et de basculement. Si votre machine virtuelle est provisionnée dans Hyper-V, elle finit par synchroniser son heure avec celle de votre hyperviseur. Une fois que ce sera le cas, vous pourrez redémarrer votre tâche.
 

@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 04/05/2019
 ms.openlocfilehash: a6f2cf1dcee6a85376c8d767e57c504b6b246e5d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60580457"
 ---
 # <a name="azure-data-catalog-terminology"></a>Terminologie d’Azure Data Catalog
@@ -23,7 +23,7 @@ Azure Data Catalog est un référentiel de métadonnées de cloud dans lequel 
 
 ## <a name="data-source"></a>Source de données
 
-Une source de données est un système ou un conteneur qui gère des ressources de données. Exemples incluent des bases de données SQL Server, les bases de données Oracle, les bases de données SQL Server Analysis Services (tabulaires ou multidimensionnels) et les serveurs SQL Server Reporting Services.
+Une source de données est un système ou un conteneur qui gère des ressources de données. Exemples : les bases de données SQL Server, les bases de données Oracle, les bases de données SQL Server Analysis Services (tabulaires ou multidimensionnelles) et les serveurs SQL Server Reporting Services.
 
 ## <a name="data-asset"></a>Ressource de données
 
@@ -50,7 +50,7 @@ Des métadonnées descriptives d'une ressource de données peuvent inclure des i
 * L'URL d'un outil de gestion des identités et des accès (comme Microsoft Identity Manager) qui peut être utilisé pour accéder à la source de données.
 * Une entrée de texte libre qui décrit la façon dont les utilisateurs peuvent accéder à la source de données.
 
-## <a name="preview"></a>VERSION PRÉLIMINAIRE
+## <a name="preview"></a>PRÉVERSION
 
 Une version préliminaire d’Azure Data Catalog est un instantané de maximum 20 enregistrements qui peuvent être extraits de la source de données pendant l'inscription et stockés dans le catalogue avec les métadonnées de ressources de données. La version préliminaire peut permettre aux utilisateurs, qui découvrent une ressource de données, de mieux comprendre son fonctionnement et son rôle. En d'autres termes, les exemples de données peuvent être plus utiles que les noms de colonnes et les types de données.
 Les versions préliminaires sont uniquement prises en charge par les tables et les vues et doivent être explicitement sélectionnées par l'utilisateur pendant l'inscription.
@@ -65,9 +65,9 @@ Un profil de données d’Azure Data Catalog est un instantané de métadonné
 
 ## <a name="user-perspective"></a>Point de vue de l’utilisateur
 
-Dans Azure Data Catalog, tout utilisateur peut fournir des métadonnées descriptives pour une ressource de données inscrite. Chaque utilisateur dispose d’un point de vue différent sur les données et son utilisation. L'administrateur responsable d'un serveur peut, par exemple, fournir les détails de son contrat de niveau de service (SLA) ou de sa sauvegarde Windows ; un administrateur de données peut fournir des liens vers la documentation des processus d’entreprise que les données prennent en charge ; et un analyste peut fournir aux autres analystes une description des informations les plus pertinentes, qui peuvent être utiles aux utilisateurs qui ont besoin de découvrir et de comprendre les données.
+Dans Azure Data Catalog, tout utilisateur peut fournir des métadonnées descriptives pour une ressource de données inscrite. Chaque utilisateur dispose d'un point de vue différent sur les données et leur utilisation. L'administrateur responsable d'un serveur peut, par exemple, fournir les détails de son contrat de niveau de service (SLA) ou de sa sauvegarde Windows ; un administrateur de données peut fournir des liens vers la documentation des processus d’entreprise que les données prennent en charge ; et un analyste peut fournir aux autres analystes une description des informations les plus pertinentes, qui peuvent être utiles aux utilisateurs qui ont besoin de découvrir et de comprendre les données.
 
-Chacune de ces perspectives est précieuse par nature, et avec Azure Data Catalog, chaque utilisateur peut fournir les informations qui sont explicites, tandis que tous les utilisateurs peuvent utiliser ces informations pour comprendre les données et son objectif.
+Chacun de ces points de vue possède une valeur intrinsèque. Grâce à Azure Data Catalog, chaque utilisateur peut fournir les informations qui les plus pertinentes pour lui, tandis que tous les utilisateurs peuvent utiliser ces informations pour comprendre les données et leur objectif.
 
 ## <a name="expert"></a>Expert
 
@@ -75,7 +75,7 @@ Un expert est un utilisateur qui a été identifié comme une personne pouvant a
 
 ## <a name="owner"></a>Propriétaire
 
-Un propriétaire est un utilisateur qui dispose de privilèges supplémentaires pour assurer la gestion d'une ressource de données d’Azure Data Catalog. Les utilisateurs peuvent s’approprier des ressources de données inscrites et les propriétaires peuvent ajouter d'autres utilisateurs en tant que copropriétaires. Pour plus d’informations, consultez [comment gérer les ressources de données](data-catalog-how-to-manage.md)  
+Un propriétaire est un utilisateur qui dispose de privilèges supplémentaires pour assurer la gestion d'une ressource de données d’Azure Data Catalog. Les utilisateurs peuvent s’approprier des ressources de données inscrites et les propriétaires peuvent ajouter d'autres utilisateurs en tant que copropriétaires. Pour plus d'informations, consultez [Gestion des ressources de données](data-catalog-how-to-manage.md)  
 
 > [!NOTE]
 > La propriété et la gestion sont uniquement disponibles dans l'édition Standard d’Azure Data Catalog.
@@ -86,4 +86,4 @@ L'inscription représente le fait d’extraire des métadonnées de ressources d
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Démarrage rapide : Créer un catalogue Azure Data Catalog](data-catalog-get-started.md) 
+[Démarrage rapide : Créer un catalogue Azure Data Catalog](data-catalog-get-started.md) 

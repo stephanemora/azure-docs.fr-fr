@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 907abe3b09f9999b30703281f7e4ff286e2bae14
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60242354"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Authentification unique transparente Azure Active Directory : Présentation technique approfondie
@@ -39,12 +39,12 @@ Cette section est composée de trois parties :
 
 L’authentification unique transparente s’active via Azure AD Connect comme indiqué [ici](how-to-connect-sso-quick-start.md). Voici ce qu’il se passe pendant l’activation de la fonctionnalité :
 
-- Un compte d’ordinateur (`AZUREADSSOACC`) est créé dans votre réseau local Active Directory (AD) dans chaque forêt AD que vous synchronisez avec Azure AD (à l’aide d’Azure AD Connect).
-- En outre, un nombre de noms de principaux de service Kerberos (SPN) est créé pour être utilisé pendant le processus de connexion Azure AD.
-- La clé de déchiffrement Kerberos du compte d’ordinateur est partagée en toute sécurité avec Azure AD. S’il existe plusieurs forêts Active Directory, chaque compte d’ordinateur aura sa propre clé de déchiffrement Kerberos unique.
+- Un compte d’ordinateur (`AZUREADSSOACC`) est créé dans votre Active Directory (AD) local dans chaque forêt AD que vous synchronisez sur Azure AD (à l’aide d’Azure AD Connect).
+- Par ailleurs, des noms de principaux du service Kerberos (SPN) sont créés pour être utilisés pendant le processus de connexion à Azure AD.
+- La clé de déchiffrement Kerberos du compte d’ordinateur est partagée en toute sécurité avec Azure AD. S’il existe plusieurs forêts Active Directory, chaque compte d’ordinateur a sa propre clé de déchiffrement Kerberos unique.
 
 >[!IMPORTANT]
-> Le `AZUREADSSOACC` compte d’ordinateur doit être fortement protégé pour des raisons de sécurité. Seuls les administrateurs de domaine doit être en mesure de gérer le compte d’ordinateur. Vérifiez que la délégation Kerberos sur le compte d’ordinateur est désactivée et qu’aucun autre compte dans Active Directory ne dispose des autorisations de délégation le `AZUREADSSOACC` compte d’ordinateur... Store le compte d’ordinateur dans une unité d’organisation (UO) où ils sont protégés contre les suppressions accidentelles et seuls les administrateurs de domaine ont accès. La clé de déchiffrement Kerberos sur le compte d’ordinateur doit également être traitée comme sensible. Il est fortement recommandé que vous [substituiez la clé de déchiffrement Kerberos](how-to-connect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account) du `AZUREADSSOACC` compte d’ordinateur au moins tous les 30 jours.
+> Pour des raisons de sécurité, le compte d’ordinateur `AZUREADSSOACC` doit être fortement protégé. Seuls des administrateurs de domaine doivent être en mesure de gérer le compte d’ordinateur. Vérifiez que la délégation Kerberos sur le compte d’ordinateur est désactivée et qu’aucun autre compte dans Active Directory ne dispose d’autorisations de délégation sur le compte d’ordinateur `AZUREADSSOACC`. Stockez le compte d’ordinateur dans une unité d’organisation (UO) où il sera protégé contre les suppressions accidentelles et à laquelle seuls des administrateurs de domaine ont accès. La clé de déchiffrement Kerberos sur le compte d’ordinateur doit également être traitée comme sensible. Il est fortement recommandé que vous [substituiez la clé de déchiffrement Kerberos](how-to-connect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account) du `AZUREADSSOACC` compte d’ordinateur au moins tous les 30 jours.
 
 Une fois la configuration terminée, l’authentification unique transparente fonctionne de la même façon que n’importe quelle autre connexion utilisant l’authentification Windows intégrée (IWA).
 
@@ -52,7 +52,7 @@ Une fois la configuration terminée, l’authentification unique transparente fo
 
 Le flux de connexion dans un navigateur web est le suivant :
 
-1. Un utilisateur tente d’accéder à une application web (par exemple, Outlook Web App - https://outlook.office365.com/owa/)) à partir d’un appareil d’entreprise joint à un domaine du réseau de l’entreprise.
+1. Un utilisateur tente d’accéder à une application web (par exemple, Outlook Web App - https://outlook.office365.com/owa/) ) à partir d’un appareil d’entreprise joint à un domaine du réseau de l’entreprise.
 2. Si l’utilisateur n’est pas déjà connecté, il est redirigé vers la page de connexion Azure AD.
 3. L’utilisateur tape son nom d’utilisateur dans la page de connexion Azure AD.
 
@@ -96,6 +96,6 @@ Le schéma suivant illustre tous les composants et les étapes impliquées dans 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [**Démarrage rapide**](how-to-connect-sso-quick-start.md) : mettez en service l’authentification unique transparente Azure AD.
-- [**Questions fréquentes (FAQ)**](how-to-connect-sso-faq.md) : réponses aux questions fréquentes.
+- [**Questions fréquentes (FAQ)** ](how-to-connect-sso-faq.md) : réponses aux questions fréquentes.
 - [**Résolution des problèmes**](tshoot-connect-sso.md) : découvrez comment résoudre les problèmes courants susceptibles de survenir avec cette fonctionnalité.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) : pour le dépôt de nouvelles demandes de fonctionnalités.

@@ -1,6 +1,6 @@
 ---
-title: Ajouter une couche de symbole pour Android est mappé dans Azure Maps | Microsoft Docs
-description: Comment ajouter des symboles à un mappage à l’aide du Kit de développement logiciel Android d’Azure Maps
+title: Ajouter une couche de symboles à des cartes Android dans Azure Maps | Microsoft Docs
+description: Comment ajouter des symboles à une carte à l’aide de l’Android SDK Azure Maps
 author: walsehgal
 ms.author: v-musehg
 ms.date: 04/26/2019
@@ -9,25 +9,25 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: add6e23d023753e217c102dc946837a71a64c781
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64871076"
 ---
-# <a name="add-a-symbol-layer-to-a-map-using-azure-maps-android-sdk"></a>Ajouter une couche de symbole à un mappage à l’aide du Kit de développement logiciel Android d’Azure Maps
+# <a name="add-a-symbol-layer-to-a-map-using-azure-maps-android-sdk"></a>Ajouter une couche de symboles à une carte à l’aide de l’Android SDK Azure Maps
 
-Cet article vous montre comment restituer les données de point à partir d’une source de données en tant que symbole couche sur une carte à l’aide d’Azure Maps Android SDK.
+Cet article montre comment restituer des données de points à partir d’une source de données sous la forme d’une couche de symboles sur une carte à l’aide de l’Android SDK Azure Maps.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-Pour complètement, effectuez les étapes dans cet article, vous devez installer [Azure Maps du Kit Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) charger une carte.
+Pour suivre les étapes décrites dans cet article, vous devez installer l’[Android SDK Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) afin de charger une carte.
 
 ## <a name="add-a-symbol-layer"></a>Ajouter un calque de symboles
 
-Pour ajouter un marqueur sur la carte à l’aide de la couche de symbole, suivez les étapes ci-dessous :
+Pour ajouter un repère sur la carte à l’aide de la couche de symboles, procédez comme suit :
 
-1. Modifier **res** > **disposition** > **activity_main.xml** afin d’obtenir le code XML suivant :
+1. Modifiez le fichier **res** > **layout** > **activity_main.xml** afin qu’il ressemble au code XML suivant :
     
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -50,7 +50,7 @@ Pour ajouter un marqueur sur la carte à l’aide de la couche de symbole, suive
     </FrameLayout>
     ```
 
-2. Copier l’extrait de code suivant dans le **onCreate()** méthode de votre `MainActivity.java` classe.
+2. Copiez l’extrait de code suivant dans la méthode **onCreate()** de votre classe `MainActivity.java`.
 
     ```Java
     mapControl.onReady(map -> {
@@ -72,9 +72,9 @@ Pour ajouter un marqueur sur la carte à l’aide de la couche de symbole, suive
     
     ```
     
-    L’extrait de code ci-dessus obtient d’abord un Azure Maps carte contrôle instance en utilisant la **onReady()** méthode de rappel. Il crée ensuite un objet de source de données à l’aide du **DataSource** classe et l’ajoute à la carte. Il ajoute ensuite un **fonctionnalité** contenant une géométrie de Point à celui-ci. Une image de marqueur rouge est alors définie comme icône pour le symbole. Un **couche de symbole** utilise le texte ou des icônes pour restituer les données en fonction des points encapsulées dans la source de données comme symbole sur la carte. Une couche de symbole est ensuite créée et la source de données est passée à restituer et est ensuite ajoutée à des couches de la carte.
+    L’extrait de code ci-dessus commence par obtenir une instance de contrôle de carte Azure Maps en utilisant la méthode de rappel **onReady()** . Il crée ensuite un objet source de données à l’aide de la classe **DataSource**, puis l’ajoute à la carte. Puis il y ajoute une **fonctionnalité** contenant une géométrie de point. Une image de repère rouge est définie comme icône pour le symbole. Une **couche de symboles** utilise du texte ou des icônes pour restituer des données basées sur des point qui sont encapsulées dans la source de données en tant que symboles sur la carte. Une couche de symboles est créée à laquelle la source de données est transmise à des fins de restitution, qui vient s’ajouter aux couches de la carte.
     
-    Après avoir ajouté l’extrait de code ci-dessus, votre `MainActivity.java` doit ressembler à celle ci-dessous :
+    Après avoir ajouté l’extrait de code ci-dessus, votre `MainActivity.java` devrait ressembler à celui ci-dessous :
     
     ```Java
     package com.example.myapplication;
@@ -166,16 +166,16 @@ Pour ajouter un marqueur sur la carte à l’aide de la couche de symbole, suive
     }
     ```
     
-À ce stade, si vous exécutez votre application vous devez voir un marqueur sur la carte, comme illustré ici :
+À ce stade, si vous exécutez votre application, vous devriez voir un repère sur la carte, comme illustré ici :
 
 <center>
 
-![Code confidentiel de carte Android](./media/how-to-add-symbol-to-android-map/android-map-pin.png)</center>
+![Épingle sur une carte Android](./media/how-to-add-symbol-to-android-map/android-map-pin.png)</center>
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour ajouter davantage d’éléments à votre mappage, consultez :
+Pour ajouter des éléments à votre carte, voir :
 
 > [!div class="nextstepaction"]
-> [Ajouter des formes à un mappage d’Android](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map)
+> [Ajouter des formes à une carte Android](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map)

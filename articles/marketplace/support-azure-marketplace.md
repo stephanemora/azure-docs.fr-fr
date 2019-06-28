@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
 ms.openlocfilehash: 496fef7cfd93004e77a710942cffabbf23d6b29a
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64937698"
 ---
 # <a name="support-for-the-marketplace"></a>Prise en charge de la Place de marché  
@@ -22,7 +22,7 @@ En outre, vous pouvez obtenir une réponse à la plupart de vos questions via le
 
 ## <a name="onboarding"></a>Mise en route
 
-Ouvrir un ticket auprès de Microsoft [prise en charge du serveur de publication de la place de marché](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&forceorigin=esmc&ccsid=636595105151894820) pour les problèmes d’intégration et de mise en route ou avec Microsoft [support partenaire](https://partner.microsoft.com/support) si vous avez des questions sur Microsoft Partner Network.
+Ouvrez un ticket auprès du [support dédié aux éditeurs de la Place de marché](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&forceorigin=esmc&ccsid=636595105151894820) Microsoft pour les problèmes d'intégration et de mise en route, ou auprès du [support dédié aux partenaires](https://partner.microsoft.com/support) Microsoft si vous avez des questions sur Microsoft Partner Network.
 
 ## <a name="cloud-partner-portal"></a>Portail des partenaires cloud  
 

@@ -1,5 +1,5 @@
 ---
-title: Approfondissement - Azure Active Directory de réinitialisation de mot de passe libre-service
+title: Analyse approfondie de la réinitialisation de mot de passe en libre-service – Azure Active Directory
 description: Comment fonctionne la réinitialisation de mot de passe en libre-service ?
 services: active-directory
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 47a6f475b5f1152850ec918b196883c6974f4d95
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60415609"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Fonctionnement : Réinitialisation de mot de passe en libre-service Azure AD
@@ -59,7 +59,7 @@ Lisez les étapes suivantes pour en savoir plus sur la logique sous-jacente à l
 
 ## <a name="authentication-methods"></a>Méthodes d’authentification
 
-Si SSPR est activé, vous devez sélectionner au moins l’une des options suivantes pour les méthodes d’authentification. Ces options sont parfois appelées « portails ». Il est vivement recommandé que **choisir au moins deux méthodes d’authentification** afin que les utilisateurs disposent de davantage de flexibilité au le cas où une des méthodes nécessaires ne serait pas accessible. Vous trouverez des détails supplémentaires sur les méthodes répertoriées ci-dessous dans l’article [quelles sont les méthodes d’authentification ?](concept-authentication-methods.md).
+Si SSPR est activé, vous devez sélectionner au moins l’une des options suivantes pour les méthodes d’authentification. Ces options sont parfois appelées « portails ». Il est vivement recommandé que **choisir au moins deux méthodes d’authentification** afin que les utilisateurs disposent de davantage de flexibilité au le cas où une des méthodes nécessaires ne serait pas accessible. Vous trouverez plus d’informations sur les méthodes énoncées ci-dessous dans l’article [Que sont les méthodes d’authentification ?](concept-authentication-methods.md).
 
 * Notification d’application mobile (préversion)
 * Code d'application mobile (préversion)
@@ -71,7 +71,7 @@ Si SSPR est activé, vous devez sélectionner au moins l’une des options suiva
 Les utilisateurs peuvent uniquement réinitialiser leur mot de passe s’ils ont des données présentes dans les méthodes d’authentification que l’administrateur a activées.
 
 > [!IMPORTANT]
-> À compter de mars de 2019 les options d’appel téléphonique ne sera pas disponible aux utilisateurs MFA et SSPR dans les locataires gratuit/essai Azure AD. Les messages SMS ne sont pas affectées par cette modification. Appel téléphonique continueront à être disponibles pour les utilisateurs dans payé des locataires Azure AD. Cette modification affecte uniquement les locataires gratuit/essai Azure AD.
+> Depuis mars 2019, les options d’appel téléphonique ne sont plus disponibles pour les utilisateurs MFA et SSPR dans des locataires Azure AD gratuits ou à l’essai. Cette modification n’affecte pas les messages SMS. Les appels téléphoniques continueront à être disponibles pour les utilisateurs de locataires Azure AD payants. Cette modification affecte uniquement les locataires Azure AD gratuits ou à l’essai.
 
 > [!WARNING]
 > Les rôles d’administrateur Azure auxquels sont assignés des comptes seront nécessaires pour utiliser les méthodes définies dans la section [Différences en matière de stratégie de réinitialisation par l’administrateur](concept-sspr-policy.md#administrator-reset-policy-differences).
@@ -140,7 +140,7 @@ Quand l’obligation d’inscription est désactivée, les utilisateurs peuvent 
 
 ### <a name="set-the-number-of-days-before-users-are-asked-to-reconfirm-their-authentication-information"></a>Définir le nombre de jours avant que les utilisateurs ne soient invités à reconfirmer leurs informations d’authentification
 
-Cette option détermine la période de temps entre la configuration et la reconfirmation des informations d’authentification, et n’est disponible que si vous activez l’option **Obliger les utilisateurs à s’inscrire durant la connexion ?**.
+Cette option détermine la période de temps entre la configuration et la reconfirmation des informations d’authentification, et n’est disponible que si vous activez l’option **Obliger les utilisateurs à s’inscrire durant la connexion ?** .
 
 Les valeurs valides sont comprises entre 0 et 730 jours, « 0 » signifiant que les utilisateurs ne sont jamais invités à reconfirmer leurs informations d’authentification.
 
@@ -160,7 +160,7 @@ Exemple : quatre administrateurs font partie d’un environnement. L’administ
 
 Si vous installez, configurez et activez Azure AD Connect, vous disposez des options supplémentaires suivantes pour les intégrations locales. Si ces options sont grisées, la réécriture n’a pas été correctement configurée. Pour plus d’informations, consultez [Configuration de la réécriture du mot de passe](howto-sspr-writeback.md).
 
-![Validation de l’écriture différée de mot de passe est activée et l’utilisation][Writeback]
+![La validation de la réécriture du mot de passe est activée et opérationnelle][Writeback]
 
 Cette page fournit un état rapide du client de réécriture local. L’un des messages suivants s’affiche en fonction de la configuration actuelle :
 

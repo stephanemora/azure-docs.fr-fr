@@ -1,6 +1,6 @@
 ---
 title: Schéma d’événements Azure Event Grid Container Registry
-description: Décrit les propriétés qui sont fournies pour les événements de Registre de conteneurs avec Azure Event Grid
+description: Décrit les propriétés qui sont fournies pour les événements Container Registry avec Azure Event Grid
 services: event-grid
 author: spelluru
 manager: timlt
@@ -9,10 +9,10 @@ ms.topic: reference
 ms.date: 03/12/2019
 ms.author: spelluru
 ms.openlocfilehash: c5998ff428c4b6f4c1f7a4087c6ccb27d93773eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60345462"
 ---
 # <a name="azure-event-grid-event-schema-for-container-registry"></a>Schéma d’événement Azure Event Grid pour Container Registry
@@ -21,14 +21,14 @@ Cet article fournit les propriétés et le schéma des événements Container Re
 
 ## <a name="available-event-types"></a>Types d’événement disponibles
 
-Azure Container Registry émet des types d’événements suivants :
+Azure Container Registry émet les types d’événements suivants :
 
 | Type d'événement | Description |
 | ---------- | ----------- |
 | Microsoft.ContainerRegistry.ImagePushed | Déclenché lorsqu’une image est envoyée. |
 | Microsoft.ContainerRegistry.ImageDeleted | Déclenché lorsqu’une image est supprimée. |
-| Microsoft.ContainerRegistry.ChartPushed | Déclenché lorsqu’un graphique Helm est envoyé. |
-| Microsoft.ContainerRegistry.ChartDeleted | Déclenché lorsqu’un graphique Helm est supprimé. |
+| Microsoft.ContainerRegistry.ChartPushed | Déclenché lors de l’envoi d’un chart Helm. |
+| Microsoft.ContainerRegistry.ChartDeleted | Déclenché lors de la suppression d’un chart Helm. |
 
 ## <a name="example-event"></a>Exemple d’événement
 
@@ -95,7 +95,7 @@ Le schéma de l’événement de suppression d’une image est similaire :
 }]
 ```
 
-Le schéma pour un graphique envoyé l’événement est similaire au schéma pour un événement poussé mis en image, mais il n’inclut pas un objet de requête :
+Le schéma pour un événement de chart envoyé est similaire au schéma pour un événement d’image envoyé, mais il n’inclut pas d’objet de demande :
 
 ```json
 [{
@@ -123,7 +123,7 @@ Le schéma pour un graphique envoyé l’événement est similaire au schéma po
 }]
 ```
 
-Le schéma pour un événement de graphique supprimée est similaire au schéma pour un événement deleted mis en image, mais il n’inclut pas un objet de requête :
+Le schéma pour un événement de chart supprimé est similaire au schéma pour un événement d’image supprimée, mais il n’inclut pas d’objet de demande :
 
 ```json
 [{
@@ -157,12 +157,12 @@ Un événement contient les données générales suivantes :
 
 | Propriété | Type | Description |
 | -------- | ---- | ----------- |
-| topic | string | Chemin d’accès complet à la source de l’événement. Ce champ n’est pas modifiable. Event Grid fournit cette valeur. |
+| rubrique | string | Chemin d’accès complet à la source de l’événement. Ce champ n’est pas modifiable. Event Grid fournit cette valeur. |
 | subject | string | Chemin de l’objet de l’événement, défini par le serveur de publication. |
 | eventType | string | Un des types d’événements inscrits pour cette source d’événement. |
 | eventTime | string | L’heure à quelle l’événement est généré selon l’heure UTC du fournisseur. |
 | id | string | Identificateur unique de l’événement. |
-| data | objet | Données d’événement de stockage Blob. |
+| données | objet | Données d’événement de stockage Blob. |
 | dataVersion | string | Version du schéma de l’objet de données. Le serveur de publication définit la version du schéma. |
 | metadataVersion | string | Version du schéma des métadonnées d’événement. Event Grid définit le schéma des propriétés de niveau supérieur. Event Grid fournit cette valeur. |
 
@@ -173,7 +173,7 @@ L’objet de données comporte les propriétés suivantes :
 | id | string | ID de l’événement. |
 | timestamp | string | Heure à laquelle l’événement s’est produit. |
 | action | string | Action qui englobe l’événement fourni. |
-| target | objet | Cible de l’événement. |
+| cible | objet | Cible de l’événement. |
 | request | objet | Requête ayant généré l’événement. |
 
 L’objet cible comporte les propriétés suivantes :
@@ -186,8 +186,8 @@ L’objet cible comporte les propriétés suivantes :
 | length | integer | Nombre d’octets du contenu. Identique au champ Taille. |
 | repository | string | Nom du référentiel. |
 | tag | string | Nom de la balise. |
-| name | string | Le nom du graphique. |
-| version | string | La version graphique. |
+| Nom | string | Nom du chart. |
+| version | string | Version du chart. |
 
 L’objet de requête comporte les propriétés suivantes :
 

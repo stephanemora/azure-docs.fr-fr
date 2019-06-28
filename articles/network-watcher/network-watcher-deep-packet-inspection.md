@@ -41,7 +41,7 @@ Dans ce scénario, vous allez :
 
 Dans ce scénario, nous expliquons comment afficher la durée initiale des boucles d’une conversation de protocole TCP entre deux points de terminaison.
 
-Lorsqu’une connexion TCP est établie, les trois premiers paquets envoyés via la connexion suivent un modèle dit de « connexion en trois temps ». En examinant les deux premiers paquets envoyés via cette connexion, une demande initiale du client et une réponse du serveur, nous pouvons calculer la latence lors de l’établissement de cette connexion. Cette latence correspond à la durée des boucles. Pour plus d’informations sur le protocole TCP et la connexion en trois temps, reportez-vous à la ressource suivante : https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip
+Lorsqu’une connexion TCP est établie, les trois premiers paquets envoyés via la connexion suivent un modèle dit de « connexion en trois temps ». En examinant les deux premiers paquets envoyés via cette connexion, une demande initiale du client et une réponse du serveur, nous pouvons calculer la latence lors de l’établissement de cette connexion. Cette latence correspond à la durée des boucles. Pour plus d’informations sur le protocole TCP et la connexion en trois temps, reportez-vous à la ressource suivante : [https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip](https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip )
 
 ### <a name="step-1"></a>Étape 1
 

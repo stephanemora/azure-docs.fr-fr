@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 09/21/2016
 ms.author: alkohli
 ms.openlocfilehash: 8303195f0f3228ee145cbba9e322ea4e5e4c1264
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60302532"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64726969"
 ---
 # <a name="supported-hardware-for-the-10-gbe-network-interfaces-on-your-storsimple-device"></a>Matériel pris en charge pour les interfaces réseau 10 GbE sur votre appareil StorSimple
 ## <a name="overview"></a>Vue d'ensemble
@@ -58,7 +58,7 @@ Cette section contient la liste des appareils qui ont été déployés sur site 
 | Version de système d’exploitation du commutateur |JunOS 12.3R9.4 |
 | Modèle de panneau |Ports intégrés (PIC 0) |
 | Marque du transmetteur |Juniper |
-| Modèle de transmetteur |Numéro de référence 740-021308  <br></br>  Numéro de référence 740-030658 |
+| Modèle de transmetteur |Numéro de référence 740-021308 <br></br> Numéro de référence 740-030658 |
 | Version du microprogramme du transmetteur |Rev 01 Version 0.0 (indiqué) |
 | Modèle de câble |Câbles de liaison duplex LC/LC 50/125µ, OM3, LSZH |
 | Modèle StorSimple |8600 |

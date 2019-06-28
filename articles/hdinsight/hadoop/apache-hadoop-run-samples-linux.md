@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: hrasheed
 ms.openlocfilehash: f0251e3926c569b45ebebcd18b98df5af4564443
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64706666"
 ---
 # <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>Exécuter les exemples MapReduce inclus dans HDInsight
@@ -22,9 +22,9 @@ ms.locfileid: "64706666"
 
 Découvrez comment exécuter les exemples MapReduce inclus à Apache Hadoop dans HDInsight.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-* Un cluster Apache Hadoop sur HDInsight. Consultez [prise en main HDInsight sous Linux](./apache-hadoop-linux-tutorial-get-started.md).
+* Un cluster Apache Hadoop sur HDInsight. Consultez [Bien démarrer avec HDInsight sur Linux](./apache-hadoop-linux-tutorial-get-started.md).
 
 * Un client SSH. Pour plus d’informations, consultez [Se connecter à HDInsight (Apache Hadoop) à l’aide de SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -87,7 +87,7 @@ Découvrez comment exécuter les exemples MapReduce inclus à Apache Hadoop dan
 
     Ce message indique que vous pouvez fournir plusieurs chemins d’accès d’entrée pour les documents sources. Le chemin d’accès final correspond à l’emplacement de stockage de la sortie (nombre de mots dans les documents sources).
 
-4. Pour compter tous les mots dans le de Leonardo da Vinci, qui sont fournis comme exemples de données avec votre cluster, utilisez ce qui suit :
+4. Pour compter tous les mots figurant dans les carnets de Léonard de Vinci qui sont fournis comme exemples de données avec votre cluster, utilisez les éléments suivants :
 
     ```bash
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/davinciwordcount
@@ -163,11 +163,11 @@ yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar 
 
 La valeur retournée par cette commande doit être semblable à **3,14159155000000000000**. Pour référence, voici les 10 chiffres de Pi après la virgule : 3,1415926535.
 
-## <a name="10-gb-graysort-example"></a>Exemple de programme GraySort 10 Go
+## <a name="10-gb-graysort-example"></a>Exemple GraySort de 10 Go
 
 GraySort est un tri de benchmark. La mesure est le taux de tri (To/minute) obtenu lors du tri de très grandes quantités de données, en général au minimum 100 To.
 
-Cet exemple utilise seulement 10 Go de données afin de pouvoir être exécuté relativement rapidement. Il utilise les applications MapReduce développées par Owen O'Malley et Arun Murthy. Ces applications ont remporté le benchmark de tri de téraoctets de (« Daytona ») à usage général annuel en 2009, avec un taux de 0,578 to/min (100 To en 173 minutes). Pour plus d’informations sur cette offre et autres benchmarks de tri, consultez la [Benchmark de tri](https://sortbenchmark.org/) site.
+Cet exemple utilise seulement 10 Go de données afin de pouvoir être exécuté relativement rapidement. Il utilise les applications MapReduce développées par Owen O'Malley et Arun Murthy. Ces applications ont remporté en 2009 le benchmark du tri de téraoctets (« Daytona ») annuel universel général avec un taux de 0,578 To/min (100 To en 173 minutes). Pour plus d'informations à ce sujet et sur d'autres benchmarks de tri, consultez le site [Sort Benchmark](https://sortbenchmark.org/).
 
 Cet exemple utilise trois ensembles de programmes MapReduce :
 

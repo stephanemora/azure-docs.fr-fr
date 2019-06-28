@@ -1,6 +1,6 @@
 ---
-title: Restreindre le contenu Azure CDN par pays/région | Microsoft Docs
-description: Découvrez comment restreindre l’accès par pays/région à votre contenu Azure CDN à l’aide de la fonctionnalité de filtrage géographique.
+title: Limiter l’accès à votre contenu CDN Azure par pays/région | Microsoft Docs
+description: Découvrez comment limiter l’accès à votre contenu CDN Azure par pays/région, par le biais de la fonctionnalité de filtrage géographique.
 services: cdn
 documentationcenter: ''
 author: mdgattuso
@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 06/19/2018
 ms.author: magattus
 ms.openlocfilehash: 083d8f66a73471548c812e27325e1ec69ad5c45c
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64869583"
 ---
-# <a name="restrict-azure-cdn-content-by-countryregion"></a>Restreindre le contenu Azure CDN par pays/région
+# <a name="restrict-azure-cdn-content-by-countryregion"></a>Limiter l’accès à votre contenu CDN Azure par pays/région
 
-## <a name="overview"></a>Présentation
-Par défaut, lorsqu’un utilisateur demande du contenu, ce dernier est fourni, quel que soit l’emplacement d’où vient la demande. Toutefois, dans certains cas, vous souhaiterez limiter l’accès à votre contenu par pays/région. Avec le *géofiltrage* fonctionnalité, vous pouvez créer des règles sur les chemins d’accès spécifiques sur votre point de terminaison CDN afin d’autoriser ou bloquer le contenu dans les pays/régions sélectionnés.
+## <a name="overview"></a>Vue d'ensemble
+Par défaut, lorsqu’un utilisateur demande du contenu, ce dernier est fourni, quel que soit l’emplacement d’où vient la demande. Cependant, dans certains cas, vous souhaiterez limiter l’accès à votre contenu par pays/région. Avec la fonction de *filtrage géographique*, vous pouvez créer des règles sur les chemins d’accès spécifiques de votre point de terminaison CDN pour autoriser ou bloquer le contenu dans certains pays/régions.
 
 > [!IMPORTANT]
 > Les profils **CDN Azure Standard fourni par Microsoft** ne prennent pas en charge le filtrage géographique basé sur le chemin d’accès.
@@ -46,26 +46,26 @@ Vous pouvez appliquer le filtrage géographique pour tous vos fichiers avec une 
 
 Par exemple, tous les filtres de chemin d’accès au répertoire suivants sont valides :   
 */*                                 
-*/Photos/*     
-*/Photos/Strasbourg/*     
+*/Photos/*      
+*/Photos/Strasbourg/*      
 */Photos/Strasbourg/city.png*
 
 ### <a name="define-the-type-of-action"></a>Définir le type d’action
 
 À partir de la liste **ACTION**, sélectionnez **Autoriser** ou **Bloquer** : 
 
-- **Autoriser**: Seuls les utilisateurs des pays/régions spécifiées peuvent accéder aux ressources demandées à partir du chemin d’accès récursif.
+- **Autoriser** : l’accès aux ressources demandées à partir de ce chemin d’accès récursif est autorisé aux seuls utilisateurs des pays et régions spécifiés.
 
-- **Bloc**: Accès sont refusés aux utilisateurs dans les pays/régions spécifiées pour les ressources demandées à partir du chemin d’accès récursif. Si aucune autre option de filtrage des pays/région n’ont été configurées pour cet emplacement, puis tous les autres utilisateurs pourront accéder.
+- **Bloquer** : l’accès aux ressources demandées à partir de ce chemin d’accès récursif est refusé aux utilisateurs des pays et régions spécifiés. Si aucune autre option de filtrage par pays/région n’a été configurée pour cet emplacement, tous les autres utilisateurs sont autorisés à y accéder.
 
 Par exemple, une règle de filtrage géographique pour le blocage du chemin d’accès */Photos/Strasbourg/* filtre les fichiers suivants :     
 *http:\//\<endpoint>.azureedge.net/Photos/Strasbourg/1000.jpg*
 *http:\//\<endpoint>.azureedge.net/Photos/Strasbourg/Cathedral/1000.jpg*
 
 ### <a name="define-the-countriesregions"></a>Définir les pays/régions
-À partir de la **CODES de pays** , sélectionnez les pays/régions que vous souhaitez bloquer ou autoriser pour le chemin d’accès. 
+Dans la liste **CODES DE PAYS**, sélectionnez les pays/régions pour lesquels vous souhaitez bloquer ou autoriser le chemin d’accès. 
 
-Une fois que vous avez terminé de sélectionner les pays/régions, sélectionnez **enregistrer** pour activer la nouvelle règle de filtrage géographique. 
+Une fois que vous avez fini de sélectionner les pays/régions, sélectionnez **Enregistrer** pour activer la nouvelle règle de filtrage géographique. 
 
 ![Règles de filtrage géographique](./media/cdn-filtering/cdn-geo-filtering-rules.png)
 
@@ -89,14 +89,14 @@ Pour les profils **Azure CDN Premium de Verizon**, l’interface utilisateur de 
 
     La page **Étape 2 :** s’affiche. 
 
-5. Sélectionnez un ou plusieurs pays/régions dans la liste, puis sélectionnez **Terminer** pour activer la règle. 
+5. Sélectionnez un ou plusieurs pays ou une ou plusieurs régions dans la liste, puis sélectionnez **Terminer** pour activer la règle. 
     
     La nouvelle règle apparaît dans la table de la page **Filtrage par pays**.
 
     ![Règles de filtrage géographique](./media/cdn-filtering/cdn-geo-filtering-premium-rules.png)
 
 ### <a name="clean-up-resources"></a>Supprimer des ressources
-Dans la table de règles du filtrage de pays/région, sélectionnez l’icône en regard d’une règle pour le supprimer ou l’icône de modification pour le modifier.
+Dans la table de règles de filtrage par pays/région, sélectionnez l’icône de suppression en regard d’une règle pour la supprimer, ou l’icône de modification pour la modifier.
 
 ## <a name="considerations"></a>Considérations
 * Les modifications apportées à la configuration du filtrage géographique ne sont pas appliquées immédiatement :
@@ -108,7 +108,7 @@ Dans la table de règles du filtrage de pays/région, sélectionnez l’icône e
 
 * La configuration du filtrage géographique associée au chemin d’accès relatif est appliquée de manière récursive à ce chemin d’accès.
 
-* Il ne peut y avoir qu’une seule règle appliquée à un même chemin d’accès relatif. Autrement dit, vous ne peut pas créer plusieurs filtres de pays/région qui pointent vers le même chemin d’accès relatif. Toutefois, étant donné que les filtres de pays/région sont récursifs, un dossier peut avoir plusieurs filtres de pays/région. En d’autres termes, un filtre de différents pays/région peut être affecté à un sous-dossier d’un dossier déjà configuré.
+* Il ne peut y avoir qu’une seule règle appliquée à un même chemin d’accès relatif. Autrement dit, il n’est pas possible de créer plusieurs filtres de pays/région qui pointent vers le même chemin d’accès relatif. Toutefois, comme les filtres appliqués par pays/région sont récursifs, un dossier peut inclure plusieurs filtres. En d’autres termes, un filtre par pays/région différent peut être attribué à un sous-dossier d’un dossier déjà configuré.
 
-* La fonctionnalité de filtrage géographique utilise des codes de pays pour définir les pays/régions à partir de laquelle une demande est autorisée ou bloquée pour un répertoire sécurisé. Bien que les profils Akamai et Verizon prennent en charge de nombreux codes de pays communs, il existe quelques différences. Pour en savoir plus, voir [Codes de pays Azure CDN](/previous-versions/azure/mt761717(v=azure.100)). 
+* La fonctionnalité de filtrage géographique utilise des codes pour définir les pays et régions à partir desquels une demande est autorisée ou bloquée pour un répertoire sécurisé. Bien que les profils Akamai et Verizon prennent en charge de nombreux codes de pays communs, il existe quelques différences. Pour en savoir plus, voir [Codes de pays Azure CDN](/previous-versions/azure/mt761717(v=azure.100)). 
 

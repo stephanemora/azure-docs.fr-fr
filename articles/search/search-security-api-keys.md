@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.openlocfilehash: f12d7f1a7dfcaf80df9a71a0bfc598d72db63a2e
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65024410"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-search-service"></a>Créer et gérer des clés API pour un service Recherche Azure
@@ -47,48 +47,48 @@ Vous pouvez obtenir les clés d’accès dans le portail ou via l’[API REST de
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Répertoriez les [services de recherche](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) pour votre abonnement.
-3. Sélectionnez le service et dans la page Vue d’ensemble, cliquez sur **paramètres** >**clés** pour afficher les clés d’administration et de requête.
+3. Sélectionnez le service, puis sur la page de présentation, cliquez sur **Paramètres** >**Clés** pour afficher les clés d'administration et de requête.
 
    ![Page du portail, section Paramètres\Clés](media/search-security-overview/settings-keys.png)
 
 ## <a name="create-query-keys"></a>Créer des clés de requête
 
-Clés de requête sont utilisés pour l’accès en lecture seule à des documents dans un index pour les opérations ciblant une collection de documents. Requêtes de recherche, de filtrage et de suggestion sont toutes les opérations qui prennent une clé de requête. Toute opération en lecture seule qui renvoie les définitions de données ou un objet, par exemple, un index définition ou l’indexeur, le système nécessite une clé d’administration.
+Les clés de requête sont utilisées pour l'accès en lecture seule aux documents au sein d'un index pour les opérations ciblant une collection de documents. Les requêtes de recherche, de filtrage et de suggestion sont toutes des opérations qui utilisent une clé de requête. Toute opération en lecture seule qui renvoie des données système ou des définitions d'objet, comme une définition d'index ou un statut d'indexation, nécessite une clé d'administration.
 
-Restriction des accès et des opérations dans les applications clientes est essentiel à protéger les ressources de recherche sur votre service. Toujours utiliser une clé de requête plutôt que d’une clé d’administration pour toute requête d’origine à partir d’une application cliente.
+Il est essentiel de restreindre l'accès et les opérations dans les applications clientes afin de protéger les ressources de recherche de votre service. Utilisez toujours une clé de requête plutôt qu'une clé d'administration pour toutes les requêtes provenant d'une application cliente.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Répertoriez les [services de recherche](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) pour votre abonnement.
-3. Sélectionnez le service et dans la page Vue d’ensemble, cliquez sur **paramètres** >**clés**.
-4. Cliquez sur **gérer les clés de requête**.
-5. Utiliser la clé de requête déjà générée pour votre service, ou créer de nouvelles clés de requête jusqu'à 50. La clé de requête par défaut n’est pas nommée, mais les clés de requête supplémentaires peuvent être nommés pour la facilité de gestion.
+3. Sélectionnez le service, puis sur la page de présentation, cliquez sur **Paramètres** >**Clés**.
+4. Cliquez sur **Gérer les clés de requête**.
+5. Utilisez la clé de requête déjà générée pour votre service, ou créez jusqu'à 50 nouvelles clés de requête. La clé de requête par défaut n'est pas nommée, mais des clés de requête supplémentaires peuvent être nommées pour faciliter la gestion.
 
    ![Créer ou utiliser une clé de requête](media/search-security-overview/create-query-key.png) 
 
 > [!Note]
-> Vous trouverez un exemple de code illustrant l’utilisation de la clé de requête dans [interroger un index Azure Search dans C# ](search-query-dotnet.md).
+> Vous trouverez un exemple de code illustrant l'utilisation de la clé de requête dans [Interroger un index Recherche Azure en C#](search-query-dotnet.md).
 
 <a name="regenerate-admin-keys"></a>
 
 ## <a name="regenerate-admin-keys"></a>Régénération des clés d’administration
 
-Deux clés d’administration sont créés pour chaque service afin que vous pouvez faire pivoter une clé primaire, à l’aide de la clé secondaire pour la continuité d’activité.
+Deux clés d'administration sont créées pour chaque service. Vous pouvez ainsi remplacer la clé primaire par la clé secondaire pour assurer la continuité de vos activités.
 
 1. Dans la page **Paramètres** >**Clés**, copiez la clé secondaire.
 2. Pour toutes les applications, mettez à jour les paramètres de la clé API afin d’utiliser la clé secondaire.
 3. Régénérez la clé principale.
 4. Mettez à jour toutes les applications pour qu’elles utilisent la nouvelle clé principale.
 
-Si vous régénérez par inadvertance les deux clés en même temps, toutes les demandes de client à l’aide de ces clés échoue avec HTTP 403 Interdit. Toutefois, contenu n’est pas supprimé et que vous n’êtes pas définitivement verrouillé. 
+Si, par inadvertance, vous régénérez les deux clés en même temps, toutes les requêtes de client utilisant ces clés échoueront (HTTP 403 Refusé). Toutefois, le contenu ne sera pas supprimé et vous ne subirez pas de verrouillage permanent. 
 
-Vous pouvez toujours accéder au service via le portail ou de la couche de gestion ([API REST](https://docs.microsoft.com/rest/api/searchmanagement/), [PowerShell](https://docs.microsoft.com/azure/search/search-manage-powershell), ou Azure Resource Manager). Fonctions de gestion sont opérationnel via un ID d’abonnement pas un service clé api et sont donc toujours disponibles, même si vos clés d’api ne sont pas. 
+Vous pouvez toujours accéder au service via le portail ou la couche de gestion ([REST API](https://docs.microsoft.com/rest/api/searchmanagement/), [PowerShell](https://docs.microsoft.com/azure/search/search-manage-powershell) ou Azure Resource Manager). Les fonctions de gestion reposent sur un ID d'abonnement et non sur une clé API de service. Elles restent donc disponibles même si vos clés API ne le sont pas. 
 
-Une fois que vous créez de nouvelles clés via la couche de portail ou de gestion, l’accès est restauré à votre contenu (index, indexeurs, sources de données, les cartes de synonymes) une fois que vous avez les nouvelles clés et fournir ces clés sur les demandes.
+Après avoir créé de nouvelles clés via le portail ou la couche de gestion, l'accès à votre contenu (index, indexeurs, sources de données, cartes de synonymes) est restauré dès que vous disposez des nouvelles clés et que vous les fournissez sur les requêtes.
 
 ## <a name="secure-api-keys"></a>Sécuriser les clés API
 La sécurité des clés est assurée en limitant l’accès via le portail ou des interfaces Resource Manager (PowerShell ou interface de ligne de commande). Comme indiqué, les administrateurs des abonnements peuvent afficher et régénérer toutes les clés API. Par précaution, passez en revue les affectations de rôle pour comprendre qui a accès aux clés Admin.
 
-+ Dans le tableau de bord de service, cliquez sur **Contrôle d’accès (IAM)**, puis sur l’onglet **Attributions de rôles** pour afficher les affectations de rôle pour votre service.
++ Dans le tableau de bord de service, cliquez sur **Contrôle d’accès (IAM)** , puis sur l’onglet **Attributions de rôles** pour afficher les affectations de rôle pour votre service.
 
 Les membres ayant les rôles suivants peuvent afficher et régénérer les clés : Propriétaire, collaborateur, [contributeur de Search Service](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#search-service-contributor)
 

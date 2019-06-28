@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
 ms.openlocfilehash: 0f6ee8729cbed9cb8baf3668f7b1a332bc5eddc1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60538134"
 ---
 # <a name="get-started-with-the-request-and-response-components"></a>Familiarisation avec les composants de requête et de réponse
@@ -37,7 +37,7 @@ Pour commencer à utiliser les actions de requête et de réponse dans une appli
 Un déclencheur est un événement qui peut être utilisé pour lancer le flux de travail défini dans une application logique. 
 [En savoir plus sur les déclencheurs](../connectors/apis-list.md).
 
-Voici un exemple de séquence de la configuration d’une requête HTTP dans le Concepteur d’application logique.
+Voici un exemple de séquence de configuration d’une requête HTTP dans le concepteur d’application logique.
 
 1. Ajoutez le déclencheur **Requête quand une demande HTTP est reçue** à votre application logique. Vous pouvez éventuellement fournir un schéma JSON (à l’aide d’un outil tel que [JSONSchema.net](https://jsonschema.net)) pour le corps de texte de la requête. Ainsi, le concepteur peut générer des jetons pour les propriétés dans la requête HTTP.
 2. Ajoutez une autre action afin d’enregistrer l’application logique.

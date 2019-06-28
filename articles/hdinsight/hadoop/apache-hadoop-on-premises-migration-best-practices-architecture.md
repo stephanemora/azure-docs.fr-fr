@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
 ms.openlocfilehash: d1f2b79ff3ae33adb0b6e3ce5a6d96ad38fb1562
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64693121"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---architecture-best-practices"></a>Migrer des clusters Apache Hadoop locaux vers Azure HDInsight - bonnes pratiques concernant l’architecture
@@ -104,7 +104,7 @@ Certaines des meilleures pratiques applicables aux metastores Hive dans HDInsigh
 - Ne partagez pas le metastore créé pour une version de cluster HDInsight avec les clusters d’une autre version. Différentes versions d’Hive utilisent différents schémas. Par exemple, il est impossible de partager un metastore avec des clusters Hive 1.2 et 2.1.
 - Sauvegardez régulièrement le metastore personnalisé.
 - Conservez le metastore et le cluster HDInsight dans la même région.
-- Surveiller le metastore pour les performances et la disponibilité à l’aide des outils de surveillance de base de données SQL Azure, tels que le portail Azure ou des journaux Azure Monitor.
+- Surveillez les performances et la disponibilité du metastore à l'aide des outils de surveillance d'Azure SQL Database, comme le portail Azure ou les journaux Azure Monitor.
 - Exécutez la commande **ANALYZE TABLE** afin de générer des statistiques pour les tables et les colonnes. Par exemple : `ANALYZE TABLE [table_name] COMPUTE STATISTICS`.
 
 ## <a name="best-practices-for-different-workloads"></a>Bonnes pratiques applicables aux différentes charges de travail

@@ -13,10 +13,10 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
 ms.openlocfilehash: cfa9d6a1a287281bec91facf04c73506db81f84a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64711556"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Personnalisation l’installation du runtime d’intégration Azure-SSIS
@@ -40,7 +40,7 @@ Vous pouvez installer des composants libres, ou sans licence, et des composants 
 
 -   Actuellement, le partage administratif n’est pas pris en charge sur l’IR Azure-SSIS.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -66,7 +66,7 @@ Pour personnaliser votre IR Azure-SSIS, vous avez besoin de ce qui suit :
 
 1. Téléchargez, installez et lancez [l’Explorateur Stockage Azure](https://storageexplorer.com/).
 
-   1. Sous **(Local et attaché)**, sélectionnez avec le bouton droit **Comptes de stockage**, puis sélectionnez **Se connecter au stockage Azure**.
+   1. Sous **(Local et attaché)** , sélectionnez avec le bouton droit **Comptes de stockage**, puis sélectionnez **Se connecter au stockage Azure**.
 
       ![Se connecter au Stockage Azure](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image1.png)
 
@@ -82,7 +82,7 @@ Pour personnaliser votre IR Azure-SSIS, vous avez besoin de ce qui suit :
 
       ![Création d’un conteneur d’objets blob](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image4.png)
 
-   1. Sélectionnez le nouveau conteneur et chargez votre script d’installation personnalisée et ses fichiers associés. Veillez à charger `main.cmd` au niveau supérieur de votre conteneur, pas dans un dossier. Vérifiez également que votre conteneur contient uniquement les fichiers d’installation personnalisée nécessaires afin que leur téléchargement ultérieur sur votre runtime d’intégration Azure-SSIS ne prenne pas beaucoup de temps. Le délai maximal pour le programme d’installation personnalisé est actuellement fixée à 45 minutes avant qu’il n’expire et cela inclut l’heure pour télécharger tous les fichiers à partir de votre conteneur et les installer sur IR Azure-SSIS. Si une période plus longue est nécessaire, veuillez soumettre un ticket de support.
+   1. Sélectionnez le nouveau conteneur et chargez votre script d’installation personnalisée et ses fichiers associés. Veillez à charger `main.cmd` au niveau supérieur de votre conteneur, pas dans un dossier. Vérifiez également que votre conteneur contient uniquement les fichiers d’installation personnalisée nécessaires afin que leur téléchargement ultérieur sur votre runtime d’intégration Azure-SSIS ne prenne pas beaucoup de temps. Le délai maximal pour le programme d’installation personnalisé est actuellement fixé à 45 minutes avant sont expiration, ce qui inclut le temps nécessaire au téléchargement de tous les fichiers de votre conteneur et leur installation Azure-SSIS IR. Si une période plus longue est nécessaire, veuillez envoyer un ticket de support.
 
       ![Chargez des fichiers vers le conteneur d’objets blob](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image5.png)
 
@@ -105,7 +105,7 @@ Pour personnaliser votre IR Azure-SSIS, vous avez besoin de ce qui suit :
 
       ![Entrez la signature d’accès partagé.](media/tutorial-create-azure-ssis-runtime-portal/advanced-settings.png)
 
-      Lorsque vous approvisionnez ou reconfigurez votre IR Azure-SSIS avec PowerShell, avant de commencer votre IR Azure-SSIS, exécutez l’applet de commande `Set-AzDataFactoryV2IntegrationRuntime` avec l’URI de SAP de votre conteneur comme valeur pour le nouveau paramètre `SetupScriptContainerSasUri`. Par exemple : 
+      Lorsque vous approvisionnez ou reconfigurez votre IR Azure-SSIS avec PowerShell, avant de commencer votre IR Azure-SSIS, exécutez l’applet de commande `Set-AzDataFactoryV2IntegrationRuntime` avec l’URI de SAP de votre conteneur comme valeur pour le nouveau paramètre `SetupScriptContainerSasUri`. Par exemple :
 
       ```powershell
       Set-AzDataFactoryV2IntegrationRuntime -DataFactoryName $MyDataFactoryName `
@@ -122,7 +122,7 @@ Pour personnaliser votre IR Azure-SSIS, vous avez besoin de ce qui suit :
 
 1. Pour voir d’autres exemples d’installation personnalisée, connectez-vous au conteneur de préversion publique avec l’Explorateur de stockage Azure.
 
-   a.  Sous **(Locale et attaché)**, cliquez avec le bouton droit sur **Comptes de stockage**, sélectionnez **Se connecter au stockage Azure**, **Utiliser une chaîne de connexion ou un URI de signature d’accès partagé**, puis **Suivant**.
+   a.  Sous **(Locale et attaché)** , cliquez avec le bouton droit sur **Comptes de stockage**, sélectionnez **Se connecter au stockage Azure**, **Utiliser une chaîne de connexion ou un URI de signature d’accès partagé**, puis **Suivant**.
 
       ![Se connecter au stockage Azure avec la signature d’accès partagé](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image9.png)
 

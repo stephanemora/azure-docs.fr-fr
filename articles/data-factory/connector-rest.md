@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: jingwang
 ms.openlocfilehash: ee47f464c59bd9deed98671f19cfcc6d2c3c1b39
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60546639"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Copier des données d’un point de terminaison REST à l’aide d’Azure Data Factory
@@ -55,11 +55,11 @@ Les propriétés prises en charge pour le service lié REST sont les suivantes 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | Le **type** propriété doit être définie sur **RestService**. | Oui |
-| url | URL de base du service REST. | Oui |
-| enableServerCertificateValidation | Indique s’il faut ou non valider le certificat SSL côté serveur lors de la connexion au point de terminaison. | Non <br /> (la valeur par défaut est **true**) |
-| authenticationType | Type d’authentification utilisé pour se connecter au service REST. Les valeurs autorisées sont **Anonyme**, **De base**, **AadServicePrincipal** et **ManagedServiceIdentity**. Pour d’autres propriétés et exemples, voir les sections correspondantes ci-dessous. | Oui |
-| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion au magasin de données. Vous pouvez utiliser Azure Integration Runtime ou un runtime d’intégration auto-hébergé si votre banque de données se trouve sur un réseau privé. À défaut de spécification, cette propriété utilise Azure Integration Runtime par défaut. |Non  |
+| Type | La propriété **type** doit être définie sur **RestService**. | OUI |
+| url | URL de base du service REST. | OUI |
+| enableServerCertificateValidation | Indique s’il faut ou non valider le certificat SSL côté serveur lors de la connexion au point de terminaison. | Non<br /> (la valeur par défaut est **true**) |
+| authenticationType | Type d’authentification utilisé pour se connecter au service REST. Les valeurs autorisées sont **Anonyme**, **De base**, **AadServicePrincipal** et **ManagedServiceIdentity**. Pour d’autres propriétés et exemples, voir les sections correspondantes ci-dessous. | OUI |
+| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion au magasin de données. Vous pouvez utiliser Azure Integration Runtime ou un runtime d’intégration auto-hébergé si votre banque de données se trouve sur un réseau privé. À défaut de spécification, cette propriété utilise Azure Integration Runtime par défaut. |Non |
 
 ### <a name="use-basic-authentication"></a>Utiliser une authentification de base
 
@@ -67,8 +67,8 @@ Définissez la propriété **authenticationType** sur **De base**. Outre les pro
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| userName | Nom d’utilisateur à utiliser pour accéder au point de terminaison REST. | Oui |
-| password | Mot de passe de l’utilisateur (valeur **userName**). Vous pouvez marquer ce champ en tant que type **SecureString** pour le stocker de manière sécurisée dans Data Factory. Vous pouvez également [référencer un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
+| userName | Nom d’utilisateur à utiliser pour accéder au point de terminaison REST. | OUI |
+| password | Mot de passe de l’utilisateur (valeur **userName**). Vous pouvez marquer ce champ en tant que type **SecureString** pour le stocker de manière sécurisée dans Data Factory. Vous pouvez également [référencer un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
 
 **Exemple**
 
@@ -100,10 +100,10 @@ Définissez la propriété **authenticationType** sur **AadServicePrincipal**. O
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| servicePrincipalId | Spécifiez l’ID de l’application Azure Active Directory. | Oui |
-| servicePrincipalKey | Spécifiez la clé de l’application Azure Active Directory. Marquez ce champ en tant que **SecureString** afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
-| tenant | Spécifiez les informations de locataire (nom de domaine ou ID de locataire) dans lesquels se trouve votre application. Récupérez-le en pointant la souris dans le coin supérieur droit du Portail Azure. | Oui |
-| aadResourceId | Spécifiez la ressource AAD pour laquelle vous demandez une autorisation, par exemple, `https://management.core.windows.net`.| Oui |
+| servicePrincipalId | Spécifiez l’ID de l’application Azure Active Directory. | OUI |
+| servicePrincipalKey | Spécifiez la clé de l’application Azure Active Directory. Marquez ce champ en tant que **SecureString** afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
+| locataire | Spécifiez les informations de locataire (nom de domaine ou ID de locataire) dans lesquels se trouve votre application. Récupérez-le en pointant la souris dans le coin supérieur droit du Portail Azure. | OUI |
+| aadResourceId | Spécifiez la ressource AAD pour laquelle vous demandez une autorisation, par exemple, `https://management.core.windows.net`.| OUI |
 
 **Exemple**
 
@@ -137,7 +137,7 @@ Définissez la propriété **authenticationType** sur **ManagedServiceIdentity**
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| aadResourceId | Spécifiez la ressource AAD pour laquelle vous demandez une autorisation, par exemple, `https://management.core.windows.net`.| Oui |
+| aadResourceId | Spécifiez la ressource AAD pour laquelle vous demandez une autorisation, par exemple, `https://management.core.windows.net`.| OUI |
 
 **Exemple**
 
@@ -169,12 +169,12 @@ Pour copier des données à partir de REST, les propriétés suivantes sont pris
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété **type** du jeu de données doit être définie sur **RestResource**. | Oui |
-| relativeUrl | URL relative de la ressource qui contient les données. Quand cette propriété n’est pas spécifiée, seule l’URL indiquée dans la définition du service lié est utilisée. | Non  |
-| requestMethod | Méthode HTTP. Les valeurs autorisées sont **Get** (par défaut) et **Post**. | Non  |
-| additionalHeaders | En-têtes de requête HTTP supplémentaires. | Non  |
-| requestBody | Corps de la requête HTTP. | Non  |
-| paginationRules | Règles de pagination pour composer des requêtes de page suivantes. Pour plus de détails, voir la section [Prise en charge la pagination](#pagination-support). | Non  |
+| Type | La propriété **type** du jeu de données doit être définie sur **RestResource**. | OUI |
+| relativeUrl | URL relative de la ressource qui contient les données. Quand cette propriété n’est pas spécifiée, seule l’URL indiquée dans la définition du service lié est utilisée. | Non |
+| requestMethod | Méthode HTTP. Les valeurs autorisées sont **Get** (par défaut) et **Post**. | Non |
+| additionalHeaders | En-têtes de requête HTTP supplémentaires. | Non |
+| RequestBody | Corps de la requête HTTP. | Non |
+| paginationRules | Règles de pagination pour composer des requêtes de page suivantes. Pour plus de détails, voir la section [Prise en charge la pagination](#pagination-support). | Non |
 
 **Exemple 1 : Utilisation de la méthode Get avec la pagination**
 
@@ -232,9 +232,9 @@ Les propriétés prises en charge dans la section **source** de l’activité de
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété **type** de la source d’activité de copie doit être définie sur **RestSource**. | Oui |
-| httpRequestTimeout | Délai d’expiration (valeur **TimeSpan**) pour l’obtention d’une réponse par la requête HTTP. Cette valeur correspond au délai d’expiration pour l’obtention d’une réponse, et non au délai d’expiration pour la lecture des données de la réponse. La valeur par défaut est **00:01:40**.  | Non  |
-| requestInterval | Durée d’attente avant d’envoyer la requête de page suivante. La valeur par défaut est **00:00:01** |  Non  |
+| Type | La propriété **type** de la source d’activité de copie doit être définie sur **RestSource**. | OUI |
+| httpRequestTimeout | Délai d’expiration (valeur **TimeSpan**) pour l’obtention d’une réponse par la requête HTTP. Cette valeur correspond au délai d’expiration pour l’obtention d’une réponse, et non au délai d’expiration pour la lecture des données de la réponse. La valeur par défaut est **00:01:40**.  | Non |
+| requestInterval | Durée d’attente avant d’envoyer la requête de page suivante. La valeur par défaut est **00:00:01** |  Non |
 
 **Exemple**
 
@@ -274,8 +274,8 @@ Normalement, l’API REST limite sa taille de charge utile de réponse par requ�
 
 Ce connecteur REST générique prend en charge les modèles de pagination suivants : 
 
-* URL absolue ou relative de la prochaine demande = valeur de propriété dans le corps de la réponse
-* URL absolue ou relative de la prochaine demande = valeur d’en-tête dans les en-têtes de réponse en cours
+* URL absolue ou relative de la requête suivante = valeur de propriété dans le corps de la réponse en cours
+* URL absolue ou relative de la requête suivante = valeur d’en-tête dans les en-têtes de la réponse en cours
 * Paramètre de requête de la demande suivante = valeur de propriété dans le corps de la réponse en cours
 * Paramètre de requête de la demande suivante = valeur d’en-tête dans les en-têtes de la réponse en cours
 * En-tête de la requête suivante = valeur de propriété dans le corps de la réponse en cours
@@ -287,7 +287,7 @@ Les **règles de pagination** sont définies en tant que dictionnaire dans un je
 
 | Clé | Description |
 |:--- |:--- |
-| AbsoluteUrl | Indique l’URL pour l’émission de la requête suivante. Il peut être **URL absolue ou relative URL**. |
+| AbsoluteUrl | Indique l’URL pour l’émission de la requête suivante. Il peut s’agit d’une **URL absolue ou relative**. |
 | QueryParameters.*request_query_parameter* OU QueryParameters[’request_query_parameter’] | « request_query_parameter » est défini par l’utilisateur et fait référence à un nom de paramètre de requête dans l’URL de la requête HTTP suivante. |
 | Headers.*request_header* OR Headers[’request_header’] | « request_header » est défini par l’utilisateur et fait référence à un nom d’en-tête dans la requête HTTP suivante. |
 

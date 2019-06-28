@@ -1,5 +1,5 @@
 ---
-title: Module IoT Edge Azure références (SKU) | Place de marché Azure
+title: Références SKU de modules Azure IoT Edge | Place de marché Azure
 description: Créez des références SKU pour un module IoT Edge.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pabutler
 ms.openlocfilehash: bf8957c315909785112dea947f2e2e0f7b26349f
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942187"
 ---
 # <a name="iot-edge-module-skus-tab"></a>Onglet Références de modules IoT Edge
@@ -35,7 +35,7 @@ L’onglet **Références** est actualisé et affiche les champs que vous modifi
 
 |  **Champ**       |     **Description**                                                          |
 |  ---------       |     ---------------                                                          |
-| **ID DE RÉFÉRENCE (SKU)\***       | Identificateur de cette référence SKU. Ce nom compte au maximum 50 caractères (minuscules, caractères alphanumériques ou tirets), mais ne peut pas se terminer par un tiret. **Remarque :** Vous ne pouvez pas modifier ce nom une fois publiée de l’offre de. Le nom est visible publiquement dans les URL de produit. |
+| **ID de SKU\***       | Identificateur de cette référence SKU. Ce nom compte au maximum 50 caractères (minuscules, caractères alphanumériques ou tirets), mais ne peut pas se terminer par un tiret. **Remarque :** ce nom ne peut pas être modifié une fois l’offre publiée. Le nom est visible publiquement dans les URL de produit. |
 |  |  |
 
 
@@ -99,16 +99,16 @@ Vous pouvez cibler plusieurs plateformes et fournir plusieurs versions via les b
 
 ![Images de module IoT Edge](./media/iot-edge-module-skus-tab-acr.png)
 
-Le tableau suivant décrit l’objectif, contenu et la mise en forme des champs pour les sections **détails du dépôt Image** et **Version de l’Image**.  Les champs obligatoires sont indiqués par un astérisque (*).
+Le tableau suivant décrit l’objectif, le contenu et la mise en forme des champs des sections **Détails du référentiel d’image** et **Version de l’Image**.  Les champs obligatoires sont indiqués par un astérisque (*).
 
 
 |  **Champ**       |     **Description**                                                          |
 |  ---------       |     ---------------                                                          |
 |  |  ***Image Repository Details*** (Détails sur le référentiel d’images)    |
-| **ID d’abonnement\***        | ID d’abonnement Azure de votre Azure Container Registry.|
-| **nom de groupe de ressources\***      | Nom du groupe de ressources de votre Azure Container Registry.|
-| **Nom du Registre\***  | Nom de votre registre Azure Container Registry. Copiez uniquement le nom de registre, PAS le nom du serveur de connexion (par exemple, sans `azurecr.io`.) |
-| **Nom du référentiel\***  | Le nom du référentiel de votre Azure Container Registry qui contient votre module IoT Edge. **Remarque :** Une fois que le nom est défini, il ne peut pas être modifié ultérieurement. Utilisez un nom unique pour vous assurer qu’aucune autre offre dans votre compte ne porte le même. |
+| **ID de l’abonnement\***        | ID d’abonnement Azure de votre Azure Container Registry.|
+| **Nom du groupe de ressources\***      | Nom du groupe de ressources de votre Azure Container Registry.|
+| **Nom du registre\***  | Nom de votre registre Azure Container Registry. Copiez uniquement le nom de registre, PAS le nom du serveur de connexion (par exemple, sans `azurecr.io`.) |
+| **Nom du référentiel\***  | Le nom du référentiel de votre Azure Container Registry qui contient votre module IoT Edge. **Remarque :** une fois le nom défini, il ne peut pas être modifié ultérieurement. Utilisez un nom unique pour vous assurer qu’aucune autre offre dans votre compte ne porte le même. |
 | **Nom d’utilisateur\*** | Nom d’utilisateur associé à votre Azure Container Registry (nom d’utilisateur administrateur). |
 | **Mot de passe\*** | Mot de passe associé à votre Azure Container Registry. |
 |    |  ***Version de l’image***   |
@@ -116,7 +116,7 @@ Le tableau suivant décrit l’objectif, contenu et la mise en forme des champs 
 |  |  |
 
 
-### <a name="help-your-customers-launch-by-using-default-settings"></a>Aidez vos clients à lancer en utilisant les paramètres par défaut
+### <a name="help-your-customers-launch-by-using-default-settings"></a>Permettre à vos clients de se lancer à l’aide des paramètres par défaut
 
 Définissez les paramètres les plus courants pour déployer votre module IoT Edge. Optimisez les déploiements des clients en les autorisant à lancer votre module IoT Edge prêt à l’emploi avec ces valeurs par défaut.
 

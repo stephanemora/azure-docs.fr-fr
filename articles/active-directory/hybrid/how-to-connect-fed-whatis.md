@@ -12,16 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 10/09/2018
-ms.date: 03/15/2019
+ms.date: 10/09/2018
 ms.subservice: hybrid
-ms.author: v-junlch
+ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 67ae5d2661371c256f753d05eb496d2cd53a0017
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60350488"
 ---
 # <a name="azure-ad-connect-and-federation"></a>Fédération avec Azure AD Connect
@@ -37,7 +36,7 @@ Cette rubrique présente les fonctions associées à la fédération pour Azure 
 | **Installation d’AD FS avec Azure AD Connect** | |
 | [Composants requis](how-to-connect-install-custom.md#ad-fs-configuration-pre-requisites) |Consultez les conditions préalables à l’installation d’AD FS via Azure AD Connect |
 | [Configurer une batterie de serveurs AD FS](how-to-connect-install-custom.md#configuring-federation-with-ad-fs) |Installation d’une nouvelle batterie de serveurs AD FS avec Azure AD Connect |
-| [Fédérer avec Azure AD à l’aide des ID de connexion alternatif](how-to-connect-fed-management.md#alternateid) | Configurer la fédération à l’aide d’un ID de connexion de substitution  |
+| [Fédérer avec Azure AD à l’aide d’un ID de connexion de substitution](how-to-connect-fed-management.md#alternateid) | Configurer la fédération à l’aide d’un ID de connexion de substitution  |
 | **Modifier la configuration AD FS** | |
 | [Réparation de l’approbation](how-to-connect-fed-management.md#repairthetrust) |Rétablissement de l’approbation actuelle entre AD FS et Office 365/Azure au niveau local. |
 | [Ajouter un nouveau serveur AD FS](how-to-connect-fed-management.md#addadfsserver) |Extension d’une batterie de serveurs AD FS avec l’ajout d’un serveur AD FS après l’installation initiale |
@@ -56,5 +55,3 @@ Cette rubrique présente les fonctions associées à la fédération pour Azure 
 * [Fédérer deux Azure AD avec un seul AD FS](how-to-connect-fed-single-adfs-multitenant-federation.md)
 * [Déploiement des services AD FS dans Azure](how-to-connect-fed-azure-adfs.md)
 * [Déploiement des services AD FS haute disponibilité par-delà les frontières dans Azure avec Azure Traffic Manager](../active-directory-adfs-in-azure-with-azure-traffic-manager.md)
-
-<!-- Update_Description: update metedata properties -->

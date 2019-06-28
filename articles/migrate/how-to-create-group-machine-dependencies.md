@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 12/05/2018
 ms.author: raynew
 ms.openlocfilehash: af47678b19209936aed86c132a8a3f400c3a7e8f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60596810"
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>Grouper des machines à l’aide du mappage de dépendances de machine
@@ -21,7 +21,7 @@ Cet article explique comment créer un groupe de machines pour l’évaluation [
 > La fonctionnalité de visualisation de dépendance n’est pas disponible dans Azure Government.
 
 ## <a name="prepare-for-dependency-visualization"></a>Préparer la visualisation des dépendances
-Azure Migrate s’appuie sur la solution Service Map dans les journaux Azure Monitor pour permettre la visualisation des dépendances des machines.
+Azure Migrate s'appuie sur la solution Service Map des journaux d'activité Azure Monitor pour la visualisation des dépendances des machines.
 
 ### <a name="associate-a-log-analytics-workspace"></a>Associer un espace de travail Log Analytics
 Pour tirer parti de la visualisation des dépendances, vous pouvez associer un espace de travail Log Analytics, nouveau ou existant, à un projet Azure Migrate. Vous ne pouvez créer ou attacher un espace de travail que dans l’abonnement où le projet de migration est créé.
@@ -60,7 +60,7 @@ Pour installer l’agent sur une machine Windows :
 4. Dans **Options d’installation de l’agent**, sélectionnez **Azure Log Analytics** > **Suivant**.
 5. Cliquez sur **Ajouter** pour ajouter un nouvel espace de travail Log Analytics. Collez l’ID et la clé de l’espace de travail que vous avez copiés sur le portail. Cliquez sur **Suivant**.
 
-Vous pouvez installer l’agent à partir de la ligne de commande ou à l’aide d’une méthode automatisée telle que System Center Configuration Manager. [En savoir plus](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) sur l’utilisation de ces méthodes pour installer l’agent MMA.
+Vous pouvez installer l'agent à partir de la ligne de commande ou à l'aide d'une méthode automatisée telle que System Center Configuration Manager. [En savoir plus](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) sur l’utilisation de ces méthodes pour installer l’agent MMA.
 
 #### <a name="install-the-agent-on-a-linux-machine"></a>Installer l’agent sur une machine Linux
 
@@ -106,7 +106,7 @@ Apprenez-en davantage sur la prise en charge de l’agent de dépendances pour l
 4. Vous pouvez examiner les dépendances pour différentes durées en cliquant sur la durée dans l’étiquette de l’intervalle de temps. Par défaut, il est fixé à une heure. Vous pouvez le modifier ou spécifier une date de début, une date de fin et une durée.
 
    > [!NOTE]
-   >    Actuellement, l’interface utilisateur de visualisation des dépendances ne prend pas en charge la sélection d’un intervalle de temps supérieur à une heure. Utiliser Azure Monitor enregistre dans [interroger les données de dépendance](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) pendant une durée plus longue.
+   >    Actuellement, l’interface utilisateur de visualisation des dépendances ne prend pas en charge la sélection d’un intervalle de temps supérieur à une heure. Utilisez les journaux d'activité Azure Monitor pour [interroger les données de dépendance](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) sur une plus longue durée.
 
 5. Quand vous avez identifié des machines dépendantes à grouper, utilisez la commande Ctrl+clic pour les sélectionner sur le mappage, puis cliquez sur **Grouper les machines**.
 6. Spécifiez un nom de groupe. Vérifiez que les machines dépendantes sont découvertes par Azure Migrate.
@@ -119,27 +119,27 @@ Apprenez-en davantage sur la prise en charge de l’agent de dépendances pour l
 
 Une fois le groupe créé, nous vous recommandons d’installer les agents sur toutes les machines du groupe et d’affiner le groupe en visualisant la dépendance de l’ensemble du groupe.
 
-## <a name="query-dependency-data-from-azure-monitor-logs"></a>Interroger des données de dépendance à partir des journaux d’Azure Monitor
+## <a name="query-dependency-data-from-azure-monitor-logs"></a>Interroger les données de dépendance à partir des journaux d'activité Azure Monitor
 
-Les données de dépendance capturées par la carte de Service soient disponibles pour l’interrogation dans l’espace de travail Analytique de journal associé à votre projet Azure Migrate. [En savoir plus](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) sur les tables de données de carte de Service pour interroger dans Azure Monitor enregistre. 
+Les données de dépendance capturées par Service Map peuvent être interrogées dans l'espace de travail Log Analytics associé à votre projet Azure Migrate. [Découvrez-en plus](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) sur les tables de données Service Map à interroger dans les journaux d'activité Azure Monitor. 
 
 Pour exécuter des requêtes Kusto :
 
 1. Après avoir installé les agents, accédez au portail et cliquez sur **Vue d’ensemble**.
 2. Dans **Vue d’ensemble**, accédez à la section **Essentials** du projet et cliquez sur le nom de l’espace de travail fourni en regard de **Espace de travail OMS**.
 3. Sur la page de l’espace de travail Log Analytics, cliquez sur **Général** > **Journaux d’activité**.
-4. Écrivez votre requête pour collecter des données de dépendance à l’aide des journaux Azure Monitor. Rechercher des exemples de requêtes dans la section suivante.
+4. Rédigez votre requête pour recueillir des données de dépendance à l'aide des journaux d'activité Azure Monitor. Accédez à des exemples de requêtes dans la section suivante.
 5. Exécutez votre requête en cliquant sur Exécuter. 
 
-[En savoir plus](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) sur la façon d’écrire des requêtes de Kusto. 
+[Découvrez-en plus](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) sur la rédaction de requêtes Kusto. 
 
-### <a name="sample-azure-monitor-logs-queries"></a>Exemple Azure Monitor enregistre les requêtes
+### <a name="sample-azure-monitor-logs-queries"></a>Exemples d'interrogation des journaux d'activité Azure Monitor
 
-Voici des exemples de requêtes que vous pouvez utiliser pour extraire des données de dépendance. Vous pouvez modifier les requêtes pour extraire vos points de données par défaut. Une liste exhaustive des champs dans les enregistrements de données de dépendance est disponible [ici](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records). Rechercher des exemples de requêtes plus [ici](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches).
+Voici des exemples de requêtes que vous pouvez utiliser pour extraire des données de dépendance. Vous pouvez modifier les requêtes pour extraire les points de données de votre choix. Une liste exhaustive des champs des enregistrements de données de dépendance est disponible [ici](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records). Accédez à d'autres exemples de requêtes [ici](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches).
 
 #### <a name="summarize-inbound-connections-on-a-set-of-machines"></a>Résumer les connexions entrantes sur un ensemble de machines
 
-Notez que les enregistrements dans la table pour les métriques de connexion, VMConnection, ne représentent pas les connexions réseau physiques individuels. Plusieurs connexions réseau physiques sont regroupées dans une connexion logique. [En savoir plus](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#connections) sur la connexion de réseau physique comment les données sont agrégées en un seul enregistrement logique dans VMConnection. 
+Notez que les enregistrements de la table des métriques de connexion, VMConnection, ne représentent pas les connexions réseau physiques individuelles. Différentes connexions réseau physiques sont regroupées au sein d'une connexion logique. [Découvrez-en plus](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#connections) sur la manière dont les données de connexion réseau physique sont agrégées au sein d'un même enregistrement logique dans VMConnection. 
 
 ```
 // the machines of interest
@@ -155,7 +155,7 @@ VMConnection
 | summarize sum(LinksEstablished) by Computer, Direction, SourceIp, DestinationIp, DestinationPort
 ```
 
-#### <a name="summarize-volume-of-data-sent-and-received-on-inbound-connections-between-a-set-of-machines"></a>Résumer le volume de données envoyées et reçues sur les connexions entrantes entre un ensemble d’ordinateurs
+#### <a name="summarize-volume-of-data-sent-and-received-on-inbound-connections-between-a-set-of-machines"></a>Résumer le volume de données envoyées et reçues sur les connexions entrantes entre un ensemble de machines
 
 ```
 // the machines of interest

@@ -16,10 +16,10 @@ ms.date: 11/28/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 2e2502e35b3720ddbfe5950b89e2388de378f2ba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60583639"
 ---
 # <a name="configure-a-gateway-resource-to-route-requests"></a>Configurer une ressource Passerelle pour router les demandes
@@ -228,8 +228,8 @@ Voici à quoi ressemble une configuration complète d’une ressource Passerelle
 ```
 
 Cette passerelle est configurée pour une application Linux, "meshAppLinux", qui se compose d’au moins deux services, "helloWorldService" et "counterService", qui écoute sur le port 80. En fonction de la structure de l’URL de la demande entrante, elle route la demande vers l’un de ces services. 
-* «\<IPAddress > : 80/helloWorld/\<demande\>« entraînerait une demande est dirigée vers le « helloWorldListener » dans le helloWorldService. 
-* «\<IPAddress > : 80/compteur/\<demande\>« entraînerait une demande est dirigée vers le « counterListener » dans le counterService. 
+* "\<IPAddress>: 80/helloWorld/\<requête\>" dirigerait une requête vers le "helloWorldListener" du helloWorldService. 
+* "\<IPAddress>: 80/counter/\<requête\>" dirigerait une requête vers le "counterListener" du counterService. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Déployer l’[exemple d’entrée](https://github.com/Azure-Samples/service-fabric-mesh/tree/2018-09-01-preview/templates/ingress) pour voir les passerelles en action

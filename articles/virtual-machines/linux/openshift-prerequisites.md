@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 04/19/2019
 ms.author: haroldw
 ms.openlocfilehash: d8a9b82e51c837af6343ddf851545d02299aa527
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61473883"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-in-azure"></a>Prérequis courants pour déployer OpenShift dans Azure
@@ -28,15 +28,15 @@ Cet article décrit les prérequis courants pour déployer OpenShift Container P
 
 L’installation d’OpenShift utilise des playbooks Ansible. Ansible utilise Secure Shell (SSH) pour se connecter à tous les hôtes de cluster pour effectuer les étapes d’installation.
 
-Lorsque ansible effectue la connexion SSH aux hôtes distants, il ne peut pas entrer un mot de passe. Pour cette raison, aucun mot de passe (phrase secrète) ne doit être associé à la clé privée, sous peine de provoquer l’échec du déploiement.
+Quand Ansible établit la connexion SSH avec les hôtes distants, il ne peut pas entrer de mot de passe. Pour cette raison, aucun mot de passe (phrase secrète) ne doit être associé à la clé privée, sous peine de provoquer l’échec du déploiement.
 
-Puisque les machines virtuelles sont déployées via des modèles Azure Resource Manager, la même clé publique est utilisée pour accéder à l’ensemble des machines virtuelles. La clé privée correspondante doit être sur la machine virtuelle qui s’exécute tous les playbooks. Pour effectuer cette action en toute sécurité, Azure key vault est utilisé pour transmettre la clé privée dans la machine virtuelle.
+Puisque les machines virtuelles sont déployées via des modèles Azure Resource Manager, la même clé publique est utilisée pour accéder à l’ensemble des machines virtuelles. La clé privée correspondante doit se trouver dans la machine virtuelle qui exécute aussi tous les playbooks. Pour effectuer cette action en toute sécurité, un coffre de clés Azure est utilisé afin de transmettre la clé privée à la machine virtuelle.
 
-Si un stockage persistant est nécessaire pour les conteneurs, alors des volumes persistants sont nécessaires. OpenShift prend en charge les disques durs virtuels (VHD) Azure pour les volumes persistants, mais Azure doit d’abord être configuré en tant que le fournisseur de cloud.
+Si un stockage persistant est nécessaire pour les conteneurs, alors des volumes persistants sont nécessaires. OpenShift prend en charge les disques durs virtuels (VHD) Azure pour les volumes persistants, mais Azure doit d'abord être configuré en tant que fournisseur de cloud.
 
 Dans ce modèle, OpenShift :
 
-- Crée un objet de disque dur virtuel dans un compte de stockage Azure ou un disque géré.
+- Crée un objet VHD sur un compte Stockage Azure ou un disque managé.
 - Monte le disque dur virtuel (VHD) sur une machine virtuelle et formate le volume.
 - Monte le volume sur le pod.
 
@@ -99,7 +99,7 @@ az keyvault secret set --vault-name keyvault --name keysecret --file ~/.ssh/open
 ```
 
 ## <a name="create-a-service-principal"></a>Créer un principal du service 
-OpenShift communique avec Azure à l’aide d’un nom d’utilisateur et d’un mot de passe ou d’un principal de service. Un principal de service Azure est une identité de sécurité que vous pouvez utiliser avec des applications, des services et des outils d’automatisation comme OpenShift. Vous contrôlez et vous définissez les opérations que le principal du service est autorisé à effectuer dans Azure. Il est préférable de limiter les autorisations de principal du service à certains groupes de ressources, plutôt que l’ensemble de l’abonnement.
+OpenShift communique avec Azure à l’aide d’un nom d’utilisateur et d’un mot de passe ou d’un principal de service. Un principal de service Azure est une identité de sécurité que vous pouvez utiliser avec des applications, des services et des outils d’automatisation comme OpenShift. Vous contrôlez et vous définissez les opérations que le principal du service est autorisé à effectuer dans Azure. Il est préférable d'étendre les autorisations du principal du service à des groupes de ressources spécifiques plutôt qu'à l'ensemble de l'abonnement.
 
 Créez un principal de service avec la commande [az ad sp create-for-rbac](/cli/azure/ad/sp) et affichez les informations d’identification requises par OpenShift.
 
@@ -136,28 +136,28 @@ Prenez note de la propriété appId renvoyée par la commande :
 
 Pour plus d’informations sur les principaux de service, consultez [Créer un principal du service avec Azure CLI](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest).
 
-## <a name="prerequisites-applicable-only-to-resource-manager-template"></a>Conditions préalables applicables uniquement aux modèles Resource Manager
+## <a name="prerequisites-applicable-only-to-resource-manager-template"></a>Conditions préalables uniquement applicables aux modèles Resource Manager
 
-Secrets doit être créé pour la clé privée SSH (**sshPrivateKey**), clé secrète client Azure AD (**aadClientSecret**), mot de passe administrateur OpenShift (**openshiftPassword** ) et la clé de mot de passe ou l’activation du Gestionnaire d’abonnements Red Hat (**rhsmPasswordOrActivationKey**).  En outre, si les certificats SSL personnalisés sont utilisés, puis six secrets supplémentaires seront doivent être créés - **routingcafile**, **routingcertfile**, **routingkeyfile**, **mastercafile**, **mastercertfile**, et **masterkeyfile**.  Ces paramètres seront expliqués plus en détail.
+Des secrets doivent être créés pour la clé privée SSH (**sshPrivateKey**), la clé secrète client Azure AD (**aadClientSecret**), le mot de passe de l'administrateur OpenShift (**openshiftPassword**), et le mot de passe ou la clé d'activation du Gestionnaire d'abonnements Red Hat (**rhsmPasswordOrActivationKey**).  De plus, si des certificats SSL personnalisés sont utilisés, six secrets supplémentaires devront être créés : **routingcafile**, **routingcertfile**, **routingkeyfile**, **mastercafile**, **mastercertfile** et **masterkeyfile**.  Ces paramètres seront décrits en détail.
 
-Le modèle fait référence à des noms de secrets spécifiques par conséquent, vous **doit** utilisez les noms en gras répertoriés ci-dessus (respecte la casse).
+Le modèle fait référence à des noms de secret spécifiques. Par conséquent, vous **devez** utiliser les noms en gras répertoriés ci-dessus (en respectant la casse).
 
 ### <a name="custom-certificates"></a>Certificats personnalisés
 
-Par défaut, le modèle déploie un cluster OpenShift à l’aide de certificats auto-signés pour la console web OpenShift et le domaine de routage. Si vous souhaitez utiliser des certificats SSL personnalisés, définissez 'routingCertType' à 'personnalisé' et 'masterCertType' à 'personnalisé'.  Vous devez les fichiers d’autorité de certification, certificat et la clé .pem format pour les certificats.  Il est possible d’utiliser des certificats personnalisés pour un, mais pas l’autre.
+Par défaut, le modèle déploie un cluster OpenShift en utilisant des certificats auto-signés pour la console web OpenShift et le domaine de routage. Si vous souhaitez utiliser des certificats SSL personnalisés, définissez 'routingCertType' sur 'custom' et 'masterCertType' sur 'custom'.  Vous aurez besoin des fichiers CA, Cert et Key au format .pem pour les certificats.  Il est possible d'utiliser des certificats personnalisés pour l'un mais pas pour l'autre.
 
-Vous devez stocker ces fichiers dans les secrets de coffre de clés.  Utilisez le même coffre de clés que celui utilisé pour la clé privée.  Au lieu d’exiger 6 entrées supplémentaires pour les noms de secret, le modèle est codé en dur à utiliser les noms de secrets spécifiques pour chacun des fichiers de certificat SSL.  Store les données de certificat en utilisant les informations dans le tableau suivant.
+Vous devrez stocker ces fichiers dans des secrets du coffre de clés Key Vault.  Utilisez le même coffre que celui utilisé pour la clé privée.  Plutôt que d'exiger 6 entrées supplémentaires pour les noms secrets, le modèle est codé en dur afin d'utiliser des noms secrets spécifiques pour chacun des fichiers de certificat SSL.  Stockez les données de certificat à l'aide des informations du tableau suivant.
 
 | Nom du secret      | Fichier de certificat   |
 |------------------|--------------------|
-| mastercafile     | fichiers d’autorité de certification principale     |
-| mastercertfile   | fichier de certificat maître   |
-| masterkeyfile    | fichier de clé principale    |
-| routingcafile    | fichier de l’autorité de certification routage    |
-| routingcertfile  | routage du fichier de certificat  |
-| routingkeyfile   | fichier de clé de routage   |
+| mastercafile     | fichier d'autorité de certification (CA) principal     |
+| mastercertfile   | fichier de certificat (CERT) principal   |
+| masterkeyfile    | fichier de clé (Key) principal    |
+| routingcafile    | fichier d'autorité de certification (CA) de routage    |
+| routingcertfile  | fichier de certificat (CERT) de routage  |
+| routingkeyfile   | fichier de clé (Key) de routage   |
 
-Créer les secrets à l’aide de l’interface CLI. Voici un exemple.
+Créez les secrets à l’aide de l'interface de ligne de commande Azure (Azure CLI). Voici un exemple :
 
 ```bash
 az keyvault secret set --vault-name KeyVaultName -n mastercafile --file ~/certificates/masterca.pem
@@ -173,4 +173,4 @@ Cet article a abordé les thèmes suivants :
 Ensuite, déployez un cluster OpenShift :
 
 - [Déployer OpenShift Container Platform](./openshift-container-platform.md)
-- [Déployer OpenShift Container Platform autogérées place de marché offre](./openshift-marketplace-self-managed.md)
+- [Déployer un cluster OpenShift Container Platform autogéré à l'aide de l'offre de la Place de marché](./openshift-marketplace-self-managed.md)

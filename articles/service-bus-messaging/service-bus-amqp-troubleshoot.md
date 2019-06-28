@@ -1,6 +1,6 @@
 ---
-title: Résoudre les erreurs d’AMQP dans Azure Service Bus | Microsoft Docs
-description: Fournit une liste d’erreurs AMQP vous pouvez recevoir à l’aide d’Azure Service Bus et provoquer de ces erreurs.
+title: Résoudre des erreurs AMQP dans Azure Service Bus | Microsoft Docs
+description: Fournit une liste des erreurs AMQP qui peuvent s’afficher lors de l’utilisation d’Azure Service Bus, ainsi que la cause de ces erreurs.
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
@@ -15,31 +15,31 @@ ms.workload: na
 ms.date: 04/03/2019
 ms.author: aschhab
 ms.openlocfilehash: 85d24a9e7c753ec5dba80c4f259dd3fb51d9c14b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60402783"
 ---
-# <a name="amqp-errors-in-azure-service-bus"></a>Erreurs d’AMQP dans Azure Service Bus
-Cet article fournit certaines des erreurs que s’affiche à l’utilisation d’AMQP avec Azure Service Bus. Ils sont tous les comportements standards du service. Vous pouvez les éviter en effectuant des appels d’envoi/réception sur le/lien de connexion, ce qui recrée automatiquement le lien de connexion /.
+# <a name="amqp-errors-in-azure-service-bus"></a>Erreurs AMQP dans Azure Service Bus
+Cet article énumère certaines des erreurs qui s’affichent lors de l’utilisation d’AMQP avec Azure Service Bus. Il s’agit de comportements standard du service. Vous pouvez les éviter en établissant des appels d’envoi ou de réception sur la connexion/liaison, ce qui a pour effet de recréer celles-ci automatiquement.
 
-## <a name="link-is-closed"></a>Lien est fermé. 
-Vous voyez l’erreur suivante lors de la connexion AMQP et un lien sont actives, mais aucun appel (par exemple, envoi ou réception) sont établies en utilisant le lien pendant 10 minutes. Par conséquent, le lien est fermé. La connexion est toujours ouverte.
+## <a name="link-is-closed"></a>La liaison est fermée 
+L’erreur suivante s’affiche lorsque la connexion et la liaison AMQP sont actives mais qu’aucun appel (d’envoi ou de réception) n’est établi à l’aide de la liaison pendant 10 minutes. La liaison est alors fermée. Mais la connexion est toujours ouverte.
 
 ```
 amqp:link:detach-forced:The link 'G2:7223832:user.tenant0.cud_00000000000-0000-0000-0000-00000000000000' is force detached by the broker due to errors occurred in publisher(link164614). Detach origin: AmqpMessagePublisher.IdleTimerExpired: Idle timeout: 00:10:00. TrackingId:00000000000000000000000000000000000000_G2_B3, SystemTracker:mynamespace:Topic:MyTopic, Timestamp:2/16/2018 11:10:40 PM
 ```
 
-## <a name="connection-is-closed"></a>Connexion est fermée.
-Vous voyez l’erreur suivante sur la connexion AMQP lorsque tous les liens dans la connexion ont été fermés, car il y a aucune activité (inactif) et un nouveau lien n’a pas été créé en 5 minutes.
+## <a name="connection-is-closed"></a>La connexion est fermée
+L’erreur suivante s’affiche sur la connexion AMQP lorsque toutes les liaisons de celle-ci ont été fermées parce qu’il n’y a eu aucune activité et qu’aucun nouveau lien n’a été créé en l’espace de 5 minutes.
 
 ```
 Error{condition=amqp:connection:forced, description='The connection was inactive for more than the allowed 300000 milliseconds and is closed by container 'LinkTracker'. TrackingId:00000000000000000000000000000000000_G21, SystemTracker:gateway5, Timestamp:2019-03-06T17:32:00', info=null}
 ```
 
-## <a name="link-is-not-created"></a>Lien n’est pas créé. 
-Vous voyez cette erreur quand une nouvelle connexion AMQP est créée, mais un lien n’est pas créé dans la minute de la création de la connexion AMQP.
+## <a name="link-is-not-created"></a>La liaison n’est pas créée 
+Cette erreur s’affiche quand une nouvelle connexion AMQP est créée, mais qu’aucune liaison n’est créée dans la minute suivant la création de la connexion AMQP.
 
 ```
 Error{condition=amqp:connection:forced, description='The connection was inactive for more than the allowed 60000 milliseconds and is closed by container 'LinkTracker'. TrackingId:0000000000000000000000000000000000000_G21, SystemTracker:gateway5, Timestamp:2019-03-06T18:41:51', info=null}

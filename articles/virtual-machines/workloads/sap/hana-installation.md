@@ -1,6 +1,6 @@
 ---
 title: Installation de SAP HANA sur SAP HANA sur Azure (grandes instances) | Microsoft Docs
-description: Comment installer SAP HANA sur SAP HANA sur Azure (grandes Instances).
+description: Comment installer SAP HANA sur SAP HANA sur Azure (grandes instances).
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermanndms
@@ -15,10 +15,10 @@ ms.date: 03/05/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 96acb2e7af797f2777cc751417f50eb21faa46da
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60202931"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Guide pratique d’installation et de configuration de SAP HANA (grandes instances) sur Azure
@@ -28,7 +28,7 @@ Avant de lire cet article, familiarisez-vous avec les [termes courants concernan
 L’installation de SAP HANA est de votre responsabilité. Vous pouvez démarrer l’installation d’un nouveau système SAP HANA sur le serveur Azure (grandes instances) une fois que vous avez établi la connectivité entre vos réseaux virtuels Azure et les unités de grandes instances HANA. 
 
 > [!Note]
-> Stratégie de SAP, l’installation de SAP HANA doit être effectuée par une personne qui a passé l’examen Certified SAP Technology Associate, l’examen de certification SAP HANA Installation, ou qui est un intégrateur système certifié SAP (SI).
+> Conformément à la stratégie de SAP, l’installation de SAP HANA doit être effectuée par une personne qui a passé la certification Certified SAP Technology Associate – SAP HANA Installation, ou par un intégrateur système certifié SAP.
 
 Avant d'installer HANA 2.0, consultez la [note de support #2235581 relative à SAP HANA : systèmes d'exploitation pris en charge](https://launchpad.support.sap.com/#/notes/2235581/E) afin de vous assurer que le système d'exploitation utilisé est pris en charge par la version de SAP HANA que vous installez. Le nombre de systèmes d’exploitation pris en charge par HANA 2.0 est plus limité que celui des systèmes pris en charge par HANA 1.0. 
 
@@ -50,7 +50,7 @@ Après avoir reçu l’unité de grandes instances HANA, puis établi l’accès
 
 L’unité de grandes instances HANA peut se connecter à cette instance SMT. (Pour plus d’informations, consultez la [configuration du serveur SMT pour SUSE Linux](hana-setup-smt.md).) Sinon, l’enregistrement de votre système d’exploitation Red Hat doit se faire avec le gestionnaire d’abonnements Red Hat auquel vous devez vous connecter. Pour plus d’informations, consultez les remarques de la rubrique [Qu’est-ce que SAP HANA sur Azure (grandes instances) ?](https://docs.microsoft.com/azure/virtual-machines/linux/sap-hana-overview-architecture?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 
-Cette étape est nécessaire pour le système d’exploitation, ce qui est la responsabilité du client de mise à jour corrective. Pour SUSE, vous trouverez la documentation sur l’installation et la configuration SMT sur cette page relative à l’[installation de SMT](https://www.suse.com/documentation/sles-12/book_smt/data/smt_installation.html).
+Cette étape est nécessaire pour l’application de correctifs au système d’exploitation, qui incombe au client. Pour SUSE, vous trouverez la documentation sur l’installation et la configuration SMT sur cette page relative à l’[installation de SMT](https://www.suse.com/documentation/sles-12/book_smt/data/smt_installation.html).
 
 La **deuxième étape** consiste à rechercher les nouveaux correctifs applicables à la version spécifique du système d’exploitation. Vérifiez que le niveau de correctif de grande instance HANA est à jour. Il peut arriver que les derniers correctifs ne soient pas inclus. Après réception d’une unité de grandes Instances HANA, il est obligatoire de vérifier si des correctifs doivent être appliqués.
 
@@ -106,7 +106,7 @@ Les notes de support SAP suivantes concernent l’implémentation de SAP HANA su
 - [Note de support SAP #171356 - Logiciels SAP sur Linux :  Informations générales](https://launchpad.support.sap.com/#/notes/1984787)
 - [Note de support SAP #1391070 relative aux solutions Linux UUID](https://launchpad.support.sap.com/#/notes/1391070)
 
-[Red Hat Enterprise Linux pour SAP HANA](https://www.redhat.com/en/resources/red-hat-enterprise-linux-sap-hana) est une autre offre permettant l’exécution de SAP HANA sur les grandes instances HANA. RHEL 6.7 et 7.2 sont disponibles. Notez que contrairement aux machines virtuelles Azure natives où seuls RHEL 7.2 et les versions plus récentes sont pris en charge, les grandes Instances HANA prennent en charge RHEL 6.7 également. Toutefois, nous vous recommandons d’utiliser une version 7.x de RHEL.
+[Red Hat Enterprise Linux pour SAP HANA](https://www.redhat.com/en/resources/red-hat-enterprise-linux-sap-hana) est une autre offre permettant l’exécution de SAP HANA sur les grandes instances HANA. RHEL 6.7 et 7.2 sont disponibles. Notez que, contrairement aux machines virtuelles Azure natives, où seuls RHEL 7.2 et les versions plus récentes sont pris en charge, les grandes instances HANA prennent également en charge RHEL 6.7. Toutefois, nous vous recommandons d’utiliser une version 7.x de RHEL.
 
 Voici d’autres liens SAP utiles relatifs à Red Hat :
 - [Site de SAP HANA sur Red Hat Linux](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+Red+Hat).
@@ -152,7 +152,7 @@ Les conventions d’affectation de noms des volumes de stockage sont répertori�
 | Utilisation du stockage | Nom du montage | Nom du volume | 
 | --- | --- | ---|
 | Données HANA | /hana/data/SID/mnt0000\<m> | Adresse IP du stockage:/hana_data_SID_mnt00001_tenant_vol |
-| Journal HANA | /Hana/log/SID/mnt0000\<m > | Adresse IP du stockage:/hana_log_SID_mnt00001_tenant_vol |
+| Journal HANA | /hana/log/SID/mnt0000\<m> | Adresse IP du stockage:/hana_log_SID_mnt00001_tenant_vol |
 | Sauvegarde de fichier journal HANA | HANA/log/backups | Adresse IP du stockage:/hana_log_backups_SID_mnt00001_tenant_vol |
 | HANA partagé | /Hana/Shared/SID | Adresse IP du stockage:/hana_shared_SID_mnt00001_tenant_vol/shared |
 | /usr/sap | /usr/SAP/SID | Adresse IP du stockage:/hana_shared_SID_mnt00001_tenant_vol/usr_sap |
@@ -202,15 +202,15 @@ Pour les versions de SAP HANA 1.0 jusqu’à SPS12, ces paramètres peuvent êt
 
 Vous pouvez également configurer les paramètres après l’installation de la base de données SAP HANA via le framework hdbparam. 
 
-Le stockage utilisé dans les grandes Instances HANA a une limite de taille de fichier. Le [limite de taille est de 16 To](https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-vsmg%2FGUID-AA1419CF-50AB-41FF-A73C-C401741C847C.html) par fichier. Contrairement aux limitations de taille de fichier dans les systèmes de fichiers EXT3, HANA ne reconnaît pas implicitement de la limite de stockage appliquée par le stockage de grandes Instances HANA. Par conséquent HANA ne crée pas automatiquement un nouveau fichier de données lorsque la limite de taille de 16 To est atteinte. Comme HANA tente d’étendre le fichier au-delà de 16 To, HANA signale les erreurs et le serveur d’index seront bloque à la fin.
+Le stockage utilisé dans les grandes Instances HANA limite la taille des fichiers. La [limite de taille est de 16 To](https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-vsmg%2FGUID-AA1419CF-50AB-41FF-A73C-C401741C847C.html) par fichier. Contrairement aux limitations de taille de fichier dans les systèmes de fichiers EXT3, HANA ne reconnaît pas implicitement la limite de stockage appliquée par le stockage sur de grandes Instances HANA. Par conséquent, HANA ne crée pas automatiquement un nouveau fichier de données lorsque la limite de taille de 16 To est atteinte. Quand HANA tente d’étendre le fichier au-delà de 16 To, il signale des erreurs et le serveur d’index se bloque à la fin.
 
 > [!IMPORTANT]
-> Afin d’empêcher HANA essaie de croissance des fichiers de données au-delà de la limite de taille de fichier de 16 To de stockage de grande Instance HANA, vous devez définir les paramètres suivants dans le fichier de configuration de SAP HANA global.ini
+> Afin d’empêcher HANA d’essayer d’augmenter la taille des fichiers de données au-delà de la limite de 16 To imposée par le stockage sur une grande Instance HANA, vous devez définir les paramètres suivants dans le fichier de configuration global.ini de SAP HANA.
 > 
 > - datavolume_striping=true
 > - datavolume_striping_size_gb = 15000
-> - Voir aussi SAP note [#2400005](https://launchpad.support.sap.com/#/notes/2400005)
-> - N’oubliez pas de la note SAP [#2631285](https://launchpad.support.sap.com/#/notes/2631285)
+> - Voir aussi la note SAP [#2400005](https://launchpad.support.sap.com/#/notes/2400005)
+> - N’oubliez pas la note SAP [#2631285](https://launchpad.support.sap.com/#/notes/2631285)
 
 
 L’utilisation du framework hdbparam est déconseillée avec SAP HANA 2.0. Il faut donc définir les paramètres à l’aide de commandes SQL. Pour plus d'informations, consultez la [note SAP #2399079 : Élimination de hdbparam dans HANA 2](https://launchpad.support.sap.com/#/notes/2399079).
