@@ -25,7 +25,7 @@ Les fonctions suivantes sont prises en charge :
 - [parameters](#parameters)
 - [resourceGroup](#resourcegroup)
 - [resourceGroups](#resourcegroups)
-- [abonnement](#subscription)
+- [subscription](#subscription)
 
 ## <a name="artifacts"></a>artifacts
 
@@ -151,7 +151,7 @@ Retourne une valeur de paramètre de blueprint. Le nom du paramètre spécifié 
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| nom_paramètre |OUI |chaîne |Nom du paramètre à retourner. |
+| parameterName |OUI |chaîne |Nom du paramètre à retourner. |
 
 ### <a name="return-value"></a>Valeur de retour
 

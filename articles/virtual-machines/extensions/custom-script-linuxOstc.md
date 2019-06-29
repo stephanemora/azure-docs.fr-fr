@@ -123,11 +123,11 @@ Ces éléments doivent être traités comme des données sensibles et spécifié
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.OSTCExtensions | chaîne |
-| Type | CustomScriptForLinux | chaîne |
+| type | CustomScriptForLinux | chaîne |
 | typeHandlerVersion | 1.5 | int |
 | fileUris (p. ex.) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
 | commandToExecute (p. ex.) | python MyPythonScript.py \<my-param1\> | chaîne |
-| enableInternalDNSCheck | true | booléenne |
+| enableInternalDNSCheck | true | boolean |
 | storageAccountName (p. ex.) | examplestorageacct | chaîne |
 | storageAccountKey (p. ex.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | chaîne |
 

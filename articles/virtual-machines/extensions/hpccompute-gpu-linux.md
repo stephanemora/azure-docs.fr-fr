@@ -75,7 +75,7 @@ Le JSON suivant illustre le schéma pour l’extension.
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.HpcCompute | string |
-| Type | NvidiaGpuDriverLinux | string |
+| type | NvidiaGpuDriverLinux | string |
 | typeHandlerVersion | 1.2 | int |
 
 ### <a name="settings"></a>Paramètres
@@ -84,9 +84,9 @@ Tous les paramètres sont facultatifs. Le comportement par défaut consiste à n
 
 | Nom | Description | Valeur par défaut | Valeurs valides | Type de données |
 | ---- | ---- | ---- | ---- | ---- |
-| updateOS | Mettre à jour le noyau, même si cela n’est pas requis pour l’installation du pilote | false | true, false | booléenne |
+| updateOS | Mettre à jour le noyau, même si cela n’est pas requis pour l’installation du pilote | false | true, false | boolean |
 | driverVersion | NV : version du pilote GRID<br> NC/ND : version du kit de ressources CUDA. Les derniers pilotes pour le kit de ressources CUDA choisi sont installés automatiquement. | le plus récent | GRILLE : "418.70", "410.92", "410.71", "390.75", "390.57", "390.42"<br> CUDA : "10.0.130", "9.2.88", "9.1.85" | string |
-| installCUDA | Installer le kit de ressources CUDA. S’applique uniquement aux machines virtuelles de la série NC/ND. | true | true, false | booléenne |
+| installCUDA | Installer le kit de ressources CUDA. S’applique uniquement aux machines virtuelles de la série NC/ND. | true | true, false | boolean |
 
 
 ## <a name="deployment"></a>Déploiement

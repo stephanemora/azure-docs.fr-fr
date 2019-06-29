@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/22/2019
 ms.author: curtand
 ms.custom: include file
-ms.openlocfilehash: 067280cdad85f59106bce5ff214e2fa9eddf3b71
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e6e1014ac20ef70f21344ec6ece5627eccb7ba66
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67133417"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67148417"
 ---
 Présentation des contraintes d’utilisation et autres limites de service pour le service Azure Active Directory (Azure AD).
 
@@ -29,4 +29,4 @@ Présentation des contraintes d’utilisation et autres limites de service pour 
 | Volet d'accès |<ul><li>Le nombre d’applications visibles dans le volet d’accès n’est pas limité par utilisateur. Cela s’applique aux licences utilisateur d’Azure AD Premium ou d’Enterprise Mobility Suite.</li><li>10 vignettes d’application maximum sont visibles dans le volet d’accès pour chaque utilisateur. Cette limite s’applique aux licences utilisateur de l’édition gratuite ou de l’édition Azure AD de base d’Azure Active Directory. Exemples de vignettes d’application : Box, Salesforce ou Dropbox. Cette limite ne s’applique pas aux comptes Administrateur.</li></ul> |
 | Rapports | 1 000 lignes au maximum peuvent être affichées ou téléchargées dans un rapport. Toutes les données supplémentaires sont tronquées. |
 | Unités administratives | Un objet peut faire partie de 30 unités administratives maximum. |
-| Rôles et autorisations d'administrateur | <ul><li>Un groupe ne peut pas être ajouté en tant que [propriétaire](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#object-ownership).</li><li>Un groupe ne peut pas être affecté à un [rôle](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/directory-assign-admin-roles).</li><li>La capacité des utilisateurs à lire les informations d’annuaire des autres utilisateurs ne peut pas être limitée en dehors du commutateur à l’échelle du locataire pour désactiver l’accès de tous les utilisateurs non administrateurs à toutes les informations de répertoire (non recommandé). Pour plus d’informations sur les autorisations par défaut, cliquez [ici](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#to-restrict-the-default-permissions-for-member-users).</li><li>Il peut s’écouler jusqu'à 15 minutes ou bien falloir une déconnexion/connexion pour que les ajouts et révocations de l’appartenance au rôle d’administrateur prennent effet.</li></ul> |
+| Rôles et autorisations d'administrateur | <ul><li>Un groupe ne peut pas être ajouté en tant que [propriétaire](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#object-ownership).</li><li>Un groupe ne peut pas être affecté à un [rôle](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles).</li><li>La capacité des utilisateurs à lire les informations d’annuaire des autres utilisateurs ne peut pas être limitée en dehors du commutateur à l’échelle du locataire pour désactiver l’accès de tous les utilisateurs non administrateurs à toutes les informations de répertoire (non recommandé). Pour plus d’informations sur les autorisations par défaut, cliquez [ici](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#to-restrict-the-default-permissions-for-member-users).</li><li>Il peut s’écouler jusqu'à 15 minutes ou bien falloir une déconnexion/connexion pour que les ajouts et révocations de l’appartenance au rôle d’administrateur prennent effet.</li></ul> |
