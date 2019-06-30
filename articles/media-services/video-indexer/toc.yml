@@ -1,6 +1,6 @@
 - name: Documentation relative à Video Indexer
   href: ./index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: Qu’est-ce que Video Indexer ?
       href: video-indexer-overview.md
@@ -14,14 +14,17 @@
     - name: Utiliser l’API Video Indexer
       href: video-indexer-use-apis.md
 - name: Concepts
-  href: video-indexer-concepts.md
   items:
+    - name: Vue d'ensemble
+      href: video-indexer-concepts.md
     - name: Comparer les présélections Video Indexer et Media Services
       href: compare-video-indexer-with-media-services-presets.md
     - name: Gérer plusieurs locataires
       href: manage-multiple-tenants.md
     - name: Personnalisation de modèles de contenu
       items:
+        - name: Vue d'ensemble
+          href: customize-content-models-overview.md
         - name: Marques
           href: customize-brands-model-overview.md
         - name: Langage
@@ -86,3 +89,5 @@
       href: faq.md
     - name: Conformité
       href: 'https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942'
+    - name: Notes de publication
+      href: release-notes.md

@@ -5,15 +5,15 @@ metadata:
   title: Documentation relative à QnA Maker - Microsoft Cognitive Services | Microsoft Docs
   description: Découvrez le service QnA Maker et le fonctionnement des bases de connaissances de ce service avec vos questions et réponses.
   services: cognitive-services
-  author: tulasim88
-  manager: cgronlun
+  author: diberry
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: qna-maker
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 12/18/2018
-  ms.author: tulasim
+  ms.author: diberry
 abstract:
   description: 'QnA Maker est un service d’API cloud qui crée une couche de questions-réponses conversationnelle sur vos données. QnA Maker vous permet de mettre en place un service de questions-réponses à partir de votre contenu semi-structuré, comme des documents de questions fréquentes (FAQ), des URL et des manuels de produit. Le service QnA Maker répond aux questions en langage naturel de vos utilisateurs en les faisant correspondre avec la meilleure réponse possible à partir des entités QnA de votre base de connaissances.'
   aside:

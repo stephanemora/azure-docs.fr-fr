@@ -1,6 +1,6 @@
 - name: Azure Internet of Things
   href: index.md
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: Introduction
       href: iot-introduction.md
@@ -8,11 +8,13 @@
       href: iot-services-and-technologies.md
 - name: Sécurité
   items:
-    - name: Architecture de la sécurité
-      href: iot-security-architecture.md
-    - name: Meilleures pratiques en matière de sécurité
-      href: iot-security-best-practices.md
-    - name: Déploiement sécurisé
-      href: iot-security-deployment.md
+    - name: Recommandations
+      href: security-recommendations.md
     - name: Tout savoir sur la sécurité
       href: iot-security-ground-up.md
+    - name: Meilleures pratiques en matière de sécurité
+      href: iot-security-best-practices.md
+    - name: Architecture de la sécurité
+      href: iot-security-architecture.md
+    - name: Déploiement sécurisé
+      href: iot-security-deployment.md

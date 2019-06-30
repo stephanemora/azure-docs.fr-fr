@@ -14,9 +14,6 @@
       href: apache-hadoop-linux-tutorial-get-started.md
 - name: Tutoriels
   items:
-    - name: Effectuer des opérations ETL
-      href: ../hdinsight-analyze-flight-delay-data-linux.md
-      maintainContext: true
     - name: Créer des clusters à la demande
       href: ../hdinsight-hadoop-create-linux-clusters-adf.md
       maintainContext: true
@@ -141,6 +138,10 @@
         - name: Outils pour VSCode
           href: ../hdinsight-for-vscode.md
           maintainContext: true
+        - name: Outils pour IntelliJ
+          href: ../spark/apache-spark-intellij-tool-plugin.md
+        - name: Outils pour Eclipse
+          href: ../spark/apache-spark-eclipse-tool-plugin.md
         - name: Data Lake Tools avec bac à sable (sandbox) Hortonworks
           href: ../hdinsight-hadoop-emulator-visual-studio.md
           maintainContext: true
@@ -186,9 +187,6 @@
           maintainContext: true
         - name: Développer des actions de script
           href: ../hdinsight-hadoop-script-actions-linux.md
-          maintainContext: true
-        - name: Installer et utiliser Presto
-          href: ../hdinsight-hadoop-install-presto.md
           maintainContext: true
         - name: Ajouter des bibliothèques Apache Hive
           href: ../hdinsight-hadoop-add-hive-libraries.md
@@ -467,15 +465,11 @@
     - name: Modèle Resource Manager
       displayName: 'resource manager template, arm template, resource manager group'
       href: /azure/templates/microsoft.hdinsight/allversions
-- name: Rubriques connexes
-  items:
-    - name: Clusters Windows
-      items:
-        - name: Migrer des solutions .NET vers des clusters Linux
-          href: ../hdinsight-hadoop-migrate-dotnet-to-linux.md
-          maintainContext: true
 - name: Ressources
   items:
+    - name: Migrer des solutions .NET vers des clusters Linux
+      href: ../hdinsight-hadoop-migrate-dotnet-to-linux.md
+      maintainContext: true
     - name: Notes de publication
       items:
         - name: Notes de publication actuelles

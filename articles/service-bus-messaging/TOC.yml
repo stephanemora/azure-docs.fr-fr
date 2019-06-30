@@ -17,8 +17,10 @@
               href: service-bus-quickstart-portal.md
             - name: Azure PowerShell
               href: service-bus-quickstart-powershell.md
-            - name: Azure CLI
+            - name: D’Azure CLI
               href: service-bus-quickstart-cli.md
+            - name: "Modèle Azure\_Resource\_Manager"
+              href: service-bus-resource-manager-namespace-queue.md
         - name: Envoyer et recevoir des messages
           items:
             - name: .NET
@@ -40,7 +42,11 @@
     - name: Rubriques et abonnements Service Bus
       items:
         - name: Créer des rubriques et des abonnements
-          href: service-bus-quickstart-topics-subscriptions-portal.md
+          items:
+            - name: Portail Azure
+              href: service-bus-quickstart-topics-subscriptions-portal.md
+            - name: "Modèle Azure\_Resource\_Manager"
+              href: service-bus-resource-manager-namespace-topic.md
         - name: Publier et s’abonner à des messages
           items:
             - name: .NET
@@ -187,10 +193,6 @@
           items:
             - name: Créer un espace de noms
               href: service-bus-resource-manager-namespace.md
-            - name: Créer un espace de noms et une file d’attente
-              href: service-bus-resource-manager-namespace-queue.md
-            - name: Créer des espaces de noms avec des rubriques et des abonnements
-              href: service-bus-resource-manager-namespace-topic.md
             - name: Créer une règle d’autorisation pour les espaces de noms et les files d’attente
               href: service-bus-resource-manager-namespace-auth-rule.md
             - name: 'Créer des espaces de noms avec des rubriques, des abonnements et des règles'

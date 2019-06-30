@@ -5,8 +5,8 @@ metadata:
   title: Documentation sur Azure AD Domain Services
   description: Découvrez comment utiliser Active Directory Domain Services pour joindre des machines virtuelles Azure à un domaine sans l’aide de contrôleurs de domaine. Des didacticiels et d’autres documents vous montrent comment gérer des ordinateurs virtuels à l’aide de stratégies de groupe.
   keywords: 'Azure AD, Azure, jonction de domaine, stratégie de groupe, LDAP, Kerberos, contrôleur de domaine, contrôleur de domaine, lift-and-shift'
-  author: MikeStephens-MS
-  ms.author: mstephen
+  author: iainfoulds
+  ms.author: iainfou
   manager: daveba
   ms.date: 05/22/2019
   ms.topic: landing-page

@@ -5,14 +5,14 @@ metadata:
   title: 'Documentation de l’API de traduction de texte Translator Text - Démarrages rapides, tutoriels, informations de référence de l’API - Azure Cognitive Services | Microsoft Docs'
   description: Découvrez comment utiliser l’API de traduction de texte Translator Text pour traduire du texte dans plusieurs langues.
   services: cognitive-services
-  author: v-pawal
+  author: swmachan
   manager: Chris.Wendt
   ms.service: cognitive-services
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 06/04/2019
-  ms.author: v-jansko
+  ms.author: swmachan
 abstract:
   description: 'L’API de traduction de texte Translator Text est un service de traduction automatique basé sur le cloud que vous pouvez utiliser pour traduire du texte en temps quasi réel via un simple appel d’API REST. L’API utilise les technologies modernes de traduction automatique neuronale et propose des technologies de traduction automatique statistique. Custom Translator est une extension de l’API de traduction de texte Translator Text qui permet de créer des systèmes de traduction neuronaux. Le système de traduction personnalisé peut être utilisé pour traduire du texte avec l’API de traduction de texte Translator Text ou les <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/">Services Voix de Microsoft</a>. Pour obtenir la liste des langues prises en charge pour la traduction automatique neuronale et pour la traduction automatique statistique, consultez <a href="languages.md">Langues prises en charge</a>.'
 sections:
