@@ -223,6 +223,14 @@
             - name: Avec REST
               displayName: 'encode, encoding, custom, transform'
               href: custom-preset-rest-howto.md
+        - name: Sous-clip d’une vidéo
+          items:
+            - name: Avec .NET
+              href: subclip-video-dotnet-howto.md
+              displayName: 'subclipping, clip, edit, trim, clipping'
+            - name: Avec REST
+              href: subclip-video-rest-howto.md
+              displayName: 'subclipping, clip, edit, trim, clipping'
     - name: Utiliser Event Grid
       items:
         - name: Surveiller les événements - Portail
@@ -261,7 +269,7 @@
       displayName: schema
     - name: REST
       href: 'https://aka.ms/ams-v3-rest-ref'
-    - name: Azure CLI
+    - name: D’Azure CLI
       href: 'https://aka.ms/ams-v3-cli-ref'
     - name: Kits SDK
       items:
@@ -298,7 +306,7 @@
       href: 'https://aka.ms/ams-v3-rest-sdk'
     - name: Kits de développement logiciel/outils
       items:
-        - name: Azure CLI
+        - name: D’Azure CLI
           href: 'https://aka.ms/ams-v3-cli'
         - name: .NET
           href: 'https://aka.ms/ams-v3-dotnet-sdk'

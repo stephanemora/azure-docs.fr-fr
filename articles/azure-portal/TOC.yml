@@ -1,6 +1,6 @@
 - name: Documentation du portail Azure
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: À propos du portail Azure
       href: azure-portal-overview.md
@@ -30,6 +30,8 @@
   items:
     - name: Raccourcis clavier
       href: azure-portal-keyboard-shortcuts.md
+    - name: Mettre sur liste fiable les URL du portail Azure
+      href: azure-portal-safelist-urls.md
     - name: Structure des tableaux de bord Azure
       href: azure-portal-dashboards-structure.md
 - name: Ressources

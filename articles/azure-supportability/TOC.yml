@@ -5,19 +5,22 @@
 - name: Droits d’accès pour la création et la gestion des demandes de support
   href: create-manage-support-requests-using-access-control.md
 - name: Demandes d’augmentation de quota
-  href: resource-manager-core-quotas-request.md
   items:
-    - name: Augmentation de la limite des processeurs virtuels de séries de machines virtuelles
-      href: per-vm-quota-requests.md
-    - name: Augmentation de la limite totale régionale des processeurs virtuels
-      href: regional-quota-requests.md
-    - name: Augmentation de la limite réseau
-      href: networking-quota-requests.md
+    - name: Demandes d’augmentation de quota du modèle de déploiement Resource Manager
+      items:
+        - name: Augmentation de la limite des processeurs virtuels de séries de machines virtuelles
+          href: per-vm-quota-requests.md
+        - name: Augmentation de la limite totale régionale des processeurs virtuels
+          href: regional-quota-requests.md
+        - name: Augmentation de la limite réseau
+          href: networking-quota-requests.md
+    - name: Demandes d’augmentation de quota du modèle de déploiement classique
+      href: classic-deployment-model-quota-increase-requests.md
 - name: Résolution des problèmes d’abonnement de région ou de référence SKU
   href: sku-series-unavailable.md
 - name: Informations de référence
   items:
-    - name: Azure CLI
+    - name: D’Azure CLI
       href: /cli/azure
     - name: Azure PowerShell
       href: /powershell/azure

@@ -9,17 +9,17 @@ metadata:
   ms.author: mamccrea
   ms.service: stream-analytics
   ms.topic: landing-page
-  ms.date: 05/08/2019
+  ms.date: 06/21/2019
 abstract:
-  description: 'Stream Analytics est un moteur de traitement d’événements serverless complètement managé qui vous permet d’analyser les flux de données d’applications et d’appareils IoT en temps réel. Découvrez comment utiliser Azure Stream Analytics avec nos guides de démarrage rapide, nos tutoriels et nos exemples.'
+  description: 'Stream Analytics est un service PaaS complètement managé qui vous permet d’analyser et de traiter des flux très changeants de données d’appareils IoT, d’applications, de parcours, etc. en temps réel et de déclencher des alertes et des actions si nécessaire. Découvrez comment utiliser Azure Stream Analytics avec nos guides de démarrage rapide, nos tutoriels et nos exemples.'
   aside:
     image:
       alt: null
       height: 110
       src: ./media/index/streaming-analytics-thumbnail.png
       width: 250
-    title: 'Analytique en temps réel et machine learning avec Azure Stream Analytics. (1:15:05)'
-    href: 'https://myignite.techcommunity.microsoft.com/sessions/65358?source=sessions#ignite-html-anchor'
+    title: 'Du cloud à la périphérie intelligente - Prenez des décisions en temps réel avec Azure Stream Analytics. (1:02:11)'
+    href: 'https://azure.microsoft.com/resources/videos/build-2019-from-cloud-to-the-intelligent-edge-drive-real-time-decisions-with-azure-stream-analytics/'
     width: 250
 sections:
   - title: "Démarrages en 5\_minutes"

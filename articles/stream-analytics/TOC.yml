@@ -88,7 +88,7 @@
           href: stream-analytics-test-query.md
         - name: Afficher les résultats dans un tableau de bord
           href: stream-analytics-power-bi-dashboard.md
-        - name: Nettoyer un travail
+        - name: Arrêter ou supprimer une tâche
           href: stream-analytics-clean-up-your-job.md
         - name: Associer les travaux à des fins de fiabilité
           href: stream-analytics-job-reliability.md

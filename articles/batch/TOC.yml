@@ -27,6 +27,8 @@
       href: tutorial-rendering-batchexplorer-blender.md
     - name: Simulation parallèle R
       href: tutorial-r-doazureparallel.md
+    - name: OCR avec Batch et Azure Functions
+      href: tutorial-batch-functions.md
 - name: Exemples
   items:
     - name: Exemples de code
@@ -35,7 +37,7 @@
           href: 'https://azure.microsoft.com/resources/samples/?service=batch'
         - name: Référentiel d’exemples Batch
           href: 'https://github.com/Azure/azure-batch-samples'
-    - name: Azure CLI
+    - name: D’Azure CLI
       href: cli-samples.md
 - name: Concepts
   items:
@@ -162,7 +164,7 @@
       href: ../data-factory/transform-data-using-dotnet-custom-activity.md?toc=%2fazure%2fbatch%2ftoc.json
 - name: Informations de référence
   items:
-    - name: Azure CLI
+    - name: D’Azure CLI
       href: /cli/azure/batch
     - name: Azure PowerShell
       href: /powershell/module/az.batch
