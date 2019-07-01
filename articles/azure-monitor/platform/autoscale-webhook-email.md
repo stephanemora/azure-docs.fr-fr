@@ -66,7 +66,7 @@ Lorsque vous utilisez l’API REST ou le modèle Resource Manager, incluez l’�
 | sendToSubscriptionAdministrator |Oui |la valeur doit être « true » ou « false » |
 | sendToSubscriptionCoAdministrators |Oui |la valeur doit être « true » ou « false » |
 | customEmails |Oui |la valeur peut être null ou un tableau de chaînes d’e-mails |
-| Webhooks |Oui |la valeur peut être null ou un Uri valide |
+| webhooks |Oui |la valeur peut être null ou un Uri valide |
 | serviceUri |Oui |un URI https valide |
 | properties |Oui |la valeur doit être vide {} ou peut contenir des paires clé-valeur |
 
@@ -110,10 +110,10 @@ Lorsque la notification de mise à l’échelle automatique est générée, les 
 | context |Oui |Le contexte de l’action de mise à l’échelle automatique |
 | timestamp |Oui |Horodatage du déclenchement de l’action de mise à l’échelle automatique. |
 | id |OUI |ID Resource Manager du paramètre de mise à l’échelle automatique |
-| Nom |OUI |Le nom du paramètre de mise à l’échelle automatique |
-| détails |OUI |Explication de l’action exécutée par le service de mise à l’échelle automatique et de la modification du nombre d’instances |
+| name |OUI |Le nom du paramètre de mise à l’échelle automatique |
+| details |OUI |Explication de l’action exécutée par le service de mise à l’échelle automatique et de la modification du nombre d’instances |
 | subscriptionId |OUI |ID d’abonnement de la ressource cible mise à l’échelle |
-| nom_groupe_ressources |OUI |Nom de groupe de ressources de la ressource cible mise à l’échelle |
+| resourceGroupName |OUI |Nom de groupe de ressources de la ressource cible mise à l’échelle |
 | resourceName |OUI |Nom de la ressource cible mise à l’échelle |
 | resourceType |OUI |Trois valeurs sont prises en charge : « microsoft.classiccompute/domainnames/slots/roles » - Rôles de service cloud, « microsoft.compute/virtualmachinescalesets » - Jeux de mise à l’échelle de machine virtuelle et « Microsoft.Web/serverfarms » - Application Web |
 | resourceId |OUI |ID Resource Manager de la ressource cible mise à l’échelle |
