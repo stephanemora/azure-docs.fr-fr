@@ -4,12 +4,12 @@ ms.author: diberry
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/16/2019
-ms.openlocfilehash: 05961f8dd2788179a15e6bfe094484cf4770067b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: bfda8b83f1bedf11151ba89b58c95347aa35839a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66124341"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052046"
 ---
 Les requêtes sur le conteneur sont facturées au niveau tarifaire de la ressource Azure utilisée pour `<ApiKey>`.
 
@@ -21,12 +21,12 @@ Le conteneur a besoin des valeurs d’arguments de facturation pour s’exécute
 
 ### <a name="billing-arguments"></a>Arguments de facturation
 
-Des valeurs valides doivent spécifier les trois options suivantes pour que la commande `docker run` démarre le conteneur.
+Pour que la commande `docker run` démarre le conteneur, des valeurs valides doivent spécifier les trois options suivantes :
 
 | Option | Description |
 |--------|-------------|
-| `ApiKey` | Clé API de la ressource Cognitive Services utilisée pour le suivi des informations de facturation.<br/>La valeur de cette option doit être définie sur une clé API pour la ressource approvisionnée spécifiée dans `Billing`. |
+| `ApiKey` | Clé API de la ressource Cognitive Services utilisée pour le suivi des informations de facturation.<br/>La valeur de cette option doit être définie sur une clé API pour la ressource provisionnée spécifiée dans `Billing`. |
 | `Billing` | Point de terminaison de la ressource Cognitive Services utilisé pour le suivi des informations de facturation.<br/>La valeur de cette option doit être définie sur l’URI de point de terminaison d’une ressource Azure provisionnée.|
-| `Eula` | Indique que vous avez accepté la licence pour le conteneur.<br/>La valeur de cette option doit être `accept`. |
+| `Eula` | Indique que vous avez accepté la licence pour le conteneur.<br/>La valeur de cette option doit être définie sur **accepter**. |
 
 

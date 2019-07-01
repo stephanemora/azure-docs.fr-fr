@@ -1,5 +1,5 @@
 ---
-title: Devenir éditeur sur les vitrines de la place de marché | Place de marché Azure
+title: Devenir éditeur dans les vitrines de la Place de marché | Place de marché Azure
 description: Cet article décrit comment devenir un éditeur dans la Place de marché.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: ellacroi
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
 ms.openlocfilehash: 5e691dde92ac05b653cdafb22db9276c7a566008
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66258953"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Devenir un éditeur sur la Place de marché dans le cloud
@@ -24,9 +24,9 @@ Cet article traite de l’inscription en tant qu’éditeur sur la place de marc
 |:--- |:--- |:--- |:--- |  
 | 1 | S’inscrire au Microsoft Partner Network | 15 min | [S’inscrire au Microsoft Partner Network](https://docs.microsoft.com/azure/marketplace/become-publisher#1-register-in-microsoft-partner-network) |  
 | 2 | Créer un compte Microsoft <ul>(requis pour les offres de transaction de la Place de marché Azure ; recommandé pour les autres)</ul> | 15 min | [Créer un ID Microsoft](https://docs.microsoft.com/azure/marketplace/become-publisher#2-create-a-microsoft-account) |  
-| 3 | Créer un compte espace partenaires | 15 min | [Créer un compte espace partenaires](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) |  
+| 3 | Créer un compte Espace partenaires | 15 min | [Créer un compte Espace partenaires](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) |  
 | 4 |  Se connecter au Portail Cloud Partner | 1 à 3 jours | [Se connecter au Portail Cloud Partner](https://docs.microsoft.com/azure/marketplace/become-publisher#4-sign-into-cloud-partner-portal) |  
-| 5. | S’inscrire dans le Centre de développement Microsoft (pour les offres de transaction de la Place de marché Azure) | 5 à 10 jours | [S’inscrire dans le centre de développement](https://docs.microsoft.com/azure/marketplace/become-publisher#5-register-in-dev-center-for-transact-publishing-option-only) |  
+| 5\. | S’inscrire dans le Centre de développement Microsoft (pour les offres de transaction de la Place de marché Azure) | 5 à 10 jours | [S’inscrire dans le centre de développement](https://docs.microsoft.com/azure/marketplace/become-publisher#5-register-in-dev-center-for-transact-publishing-option-only) |  
 
 
 ## <a name="1-register-in-microsoft-partner-network"></a>1. S’inscrire au Microsoft Partner Network  
@@ -39,13 +39,13 @@ Une fois inscrit, enregistrez l’ID Microsoft Partner Network de votre organisa
 *   Découvrez les avantages de [Microsoft Partner Network](https://partner.microsoft.com/commercial).
 *   Si votre organisation dispose d’un abonnement existant, vous joindrez votre organisation lors de l’inscription. Si vous utilisez l’[Espace partenaires](https://partnercenter.microsoft.com/partner/home), vous pourrez voir l’ID dans votre compte d’Espace partenaires. Si vous utilisez [Partner Membership Center (PMC)](https://partners.microsoft.com/partnerprogram/PartnerMembershipCenter.aspx), vous pourrez le voir dans votre compte Partner Membership Center. 
 
-Ouvrir un ticket auprès de Microsoft [support partenaire](https://partner.microsoft.com/support) pour les problèmes avec l’inscription MPN.
+Ouvrez un ticket auprès du [support pour les partenaires](https://partner.microsoft.com/support) Microsoft pour tout problème relatif à l’inscription MPN.
 
 ---
 
 ## <a name="2-create-a-microsoft-account"></a>2. Créer un compte Microsoft  
 | 15 mn |  
-Compte Microsoft, par exemple,  *\@outlook.com ou \@live.com*, est utilisé pour accéder à nombreux services et appareils de Microsoft. Il est obligatoire pour les offres de transaction de la Place de marché Azure et nous recommandons son utilisation à tous les éditeurs cloud. Pour plus d’informations sur les avantages et les utilisations d’un compte Microsoft, [visitez cette page](https://account.microsoft.com/account/). Vous utiliserez un compte Microsoft personnel pour accéder au portail Cloud Partner, la plateforme de publication que vous utiliserez pour créer et gérer vos offres sur la place de marché. 
+Un compte Microsoft, par exemple *\@outlook.com ou \@live.com*, est utilisé pour accéder à nombreux services et appareils Microsoft. Il est obligatoire pour les offres de transaction de la Place de marché Azure et nous recommandons son utilisation à tous les éditeurs cloud. Pour plus d’informations sur les avantages et les utilisations d’un compte Microsoft, [visitez cette page](https://account.microsoft.com/account/). Vous utiliserez un compte Microsoft personnel pour accéder au portail Cloud Partner, la plateforme de publication que vous utiliserez pour créer et gérer vos offres sur la place de marché. 
 
 [! IMPORTANT] Notez qu’un compte Microsoft associé à votre e-mail professionnel ne vous autorise pas à accéder à ce portail.
 
@@ -59,10 +59,10 @@ Compte Microsoft, par exemple,  *\@outlook.com ou \@live.com*, est utilisé pour
 
 ---
 
-## <a name="3-create-a-partner-center-account"></a>3. Créer un compte espace partenaires  
+## <a name="3-create-a-partner-center-account"></a>3. Créer un compte Espace partenaires  
 | 15 mn |  
 
-Dès que vous aurez [soumis votre solution](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) sur la Place de marché, notre équipe d’intégration vous contactera pour accompagner votre expérience de publication. Consultez Comment [créer un compte espace partenaires](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) pour plus d’informations.
+Dès que vous aurez [soumis votre solution](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) sur la Place de marché, notre équipe d’intégration vous contactera pour accompagner votre expérience de publication. Pour plus d’informations, consultez [Créer un compte Espace partenaires](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account).
 
 <!---
 Complete this brief [registration form](https://azuremarketplace.microsoft.com/sell/signup) to become a marketplace publisher. The information submitted on this form will be used to create a publisher account in the Cloud Partner Portal which will allow you to create, publish, and manage marketplace offers.
@@ -95,10 +95,10 @@ La personne procédant à l’inscription au [Centre de développement](https://
 *   Pour obtenir un compte du [Centre de développement](https://developer.microsoft.com/store/register), [démarrez ici le processus d’inscription](https://developer.microsoft.com/store/register).
 *   Pour plus d’informations sur la création d’un compte Microsoft, consultez la section *Créer un compte Microsoft*.
  
-Une fois que vous avez terminé la [centre de développement](https://developer.microsoft.com/store/register) l’enregistrement, liez votre profil de partenaire de Cloud avec votre [centre de développement](https://developer.microsoft.com/store/register) compte ([consultez détaillé les étapes ici](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-manage-publisher-profile)). Cette étape doit être effectuée avant de publier votre offre de transaction. 
+Une fois l’inscription au [Centre de développement](https://developer.microsoft.com/store/register) terminée, liez votre profil Cloud Partner à votre compte du [Centre de développement](https://developer.microsoft.com/store/register) (voir la [procédure détaillée ici](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-manage-publisher-profile)). Cette étape doit être effectuée avant de publier votre offre de transaction. 
 
 >[!Note]
->Pour ne pas avoir à payer les frais d’inscription de 99 $ au Centre de développement, complétez le [formulaire d’inscription à la Place de marché](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) et vous recevrez votre code promotionnel par e-mail. Consultez Comment [créer un compte espace partenaires](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) pour plus d’informations.
+>Pour ne pas avoir à payer les frais d’inscription de 99 $ au Centre de développement, complétez le [formulaire d’inscription à la Place de marché](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) et vous recevrez votre code promotionnel par e-mail. Pour plus d’informations, consultez [Créer un compte Espace partenaires](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account).
 
 >[!Important]
 >Avant de créer un compte du Centre de développement Microsoft, vérifiez que votre organisation n’a pas déjà un compte de Centre de développement, afin d’éviter des doublons de comptes. Pour plus d’informations, consultez la section [S’inscrire dans le centre de développement](https://docs.microsoft.com/azure/marketplace/register-dev-center).
