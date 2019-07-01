@@ -55,7 +55,7 @@ Les déclencheurs ont les éléments principaux suivants, bien que certains soie
 | <*trigger-name*> | String | Nom du déclencheur | 
 | <*trigger-type*> | String | Type de déclencheur, tel que « Http » ou « ApiConnection » | 
 | <*trigger-inputs*> | Objet JSON | Entrées qui définissent le comportement du déclencheur | 
-| <*time-unit*> | String | Unité de temps qui décrit la fréquence d’activation du déclencheur : « Second », « Minute », « Hour », « Day", », « Week », « Month » | 
+| <*time-unit*> | String | Unité de temps qui décrit la fréquence d’activation du déclencheur : "Second", "Minute", "Hour", "Day", "Week", "Month" | 
 | <*number-of-time-units*> | Entier | Valeur qui spécifie la fréquence d’activation du déclencheur, qui correspond au nombre d’unités de temps à attendre avant que le déclencheur soit activé à nouveau <p>Les intervalles minimaux et maximaux sont les suivants : <p>- Mois : 1-16 mois </br>Jour : 1-500 jours </br>- Heure : 1-12 000 heures </br>- Minute : 1-72 000 minutes </br>- Seconde : 1-9 999 999 secondes<p>Par exemple, si l’intervalle est défini sur 6 et la fréquence sur « Month », la périodicité est tous les six mois. | 
 |||| 
 
@@ -136,7 +136,7 @@ Ce déclencheur vérifie ou *interroge* un point de terminaison à l’aide d’
 | <*connection-name*> | String | Nom de la connexion à l’API managée utilisée par le workflow | 
 | <*method-type*> | String | Méthode HTTP pour communiquer avec l’API managée : « GET », « PUT », « POST », « PATCH », « DELETE » | 
 | <*api-operation*> | String | Opération d’API à appeler | 
-| <*time-unit*> | String | Unité de temps qui décrit la fréquence d’activation du déclencheur : « Second », « Minute », « Hour », « Day", », « Week », « Month » | 
+| <*time-unit*> | String | Unité de temps qui décrit la fréquence d’activation du déclencheur : "Second", "Minute", "Hour", "Day", "Week", "Month" | 
 | <*number-of-time-units*> | Entier | Valeur qui spécifie la fréquence d’activation du déclencheur, qui correspond au nombre d’unités de temps à attendre avant que le déclencheur soit activé à nouveau <p>Les intervalles minimaux et maximaux sont les suivants : <p>- Mois : 1-16 mois </br>Jour : 1-500 jours </br>- Heure : 1-12 000 heures </br>- Minute : 1-72 000 minutes </br>- Seconde : 1-9 999 999 secondes<p>Par exemple, si l’intervalle est défini sur 6 et la fréquence sur « Month », la périodicité est tous les six mois. | 
 |||| 
 
@@ -307,7 +307,7 @@ Ce déclencheur vérifie ou interroge le point de terminaison spécifié d’apr
 |-------|------|-------------| 
 | <*method-type*> | String | Méthode HTTP à utiliser pour interroger le point de terminaison spécifié : « GET », « PUT », « POST », « PATCH », « DELETE » | 
 | <*endpoint-URL*> | String | URL HTTP ou HTTPS pour interroger le point de terminaison <p>Taille de chaîne maximale : 2 Ko | 
-| <*time-unit*> | String | Unité de temps qui décrit la fréquence d’activation du déclencheur : « Second », « Minute », « Hour », « Day", », « Week », « Month » | 
+| <*time-unit*> | String | Unité de temps qui décrit la fréquence d’activation du déclencheur : "Second", "Minute", "Hour", "Day", "Week", "Month" | 
 | <*number-of-time-units*> | Entier | Valeur qui spécifie la fréquence d’activation du déclencheur, qui correspond au nombre d’unités de temps à attendre avant que le déclencheur soit activé à nouveau <p>Les intervalles minimaux et maximaux sont les suivants : <p>- Mois : 1-16 mois </br>Jour : 1-500 jours </br>- Heure : 1-12 000 heures </br>- Minute : 1-72 000 minutes </br>- Seconde : 1-9 999 999 secondes<p>Par exemple, si l’intervalle est défini sur 6 et la fréquence sur « Month », la périodicité est tous les six mois. | 
 |||| 
 
@@ -496,7 +496,7 @@ Ce déclencheur s’active en fonction de la planification de périodicité que 
 
 | Valeur | Type | Description | 
 |-------|------|-------------| 
-| <*time-unit*> | String | Unité de temps qui décrit la fréquence d’activation du déclencheur : « Second », « Minute », « Hour », « Day", », « Week », « Month » | 
+| <*time-unit*> | String | Unité de temps qui décrit la fréquence d’activation du déclencheur : "Second", "Minute", "Hour", "Day", "Week", "Month" | 
 | <*number-of-time-units*> | Entier | Valeur qui spécifie la fréquence d’activation du déclencheur, qui correspond au nombre d’unités de temps à attendre avant que le déclencheur soit activé à nouveau <p>Les intervalles minimaux et maximaux sont les suivants : <p>- Mois : 1-16 mois </br>Jour : 1-500 jours </br>- Heure : 1-12 000 heures </br>- Minute : 1-72 000 minutes </br>- Seconde : 1-9 999 999 secondes<p>Par exemple, si l’intervalle est défini sur 6 et la fréquence sur « Month », la périodicité est tous les six mois. | 
 |||| 
 
@@ -1818,7 +1818,7 @@ Cette action interrompt l’exécution du workflow pendant l’intervalle spéci
 | Valeur | Type | Description | 
 |-------|------|-------------| 
 | <*number-of-units*> | Entier | Pour l’action **Delay**, il s’agit du nombre d’unités pendant lesquelles attendre | 
-| <*interval*> | String | Pour l’action **Delay**, il s’agit de l’intervalle d’attente : « Second », « Minute », « Hour », « Day", », « Week », « Month » | 
+| <*interval*> | String | Pour l’action **Delay**, il s’agit de l’intervalle d’attente : "Second", "Minute", "Hour", "Day", "Week", "Month" | 
 | <*date-time-stamp*> | String | Pour l’action **Delay**, il s’agit de la date et de l’heure de reprise de l’exécution. Cette valeur doit utiliser le [format date/heure UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time). | 
 |||| 
 
