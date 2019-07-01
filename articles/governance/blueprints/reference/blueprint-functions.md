@@ -37,7 +37,7 @@ Retourne un objet de propriétés rempli avec ces sorties d’artefacts de bluep
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| artifactName |OUI |chaîne |Nom d’un artefact de blueprint. |
+| artifactName |OUI |string |Nom d’un artefact de blueprint. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -109,11 +109,11 @@ Voici quelques exemples de récupération de données de l’exemple _myTemplate
 
 | Expression | Type | Valeur |
 |:---|:---|:---|
-|`[artifacts("myTemplateArtifact").outputs.myArray]` | Tableau | \["première", "deuxième"\] |
-|`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | Chaîne | "première" |
-|`[artifacts("myTemplateArtifact").outputs.myString]` | Chaîne | "ma valeur de chaîne" |
+|`[artifacts("myTemplateArtifact").outputs.myArray]` | Array | \["première", "deuxième"\] |
+|`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | String | "première" |
+|`[artifacts("myTemplateArtifact").outputs.myString]` | String | "ma valeur de chaîne" |
 |`[artifacts("myTemplateArtifact").outputs.myObject]` | Object | { "ma propriété": "ma valeur", "autre propriété": true } |
-|`[artifacts("myTemplateArtifact").outputs.myObject.myProperty]` | Chaîne | "ma valeur" |
+|`[artifacts("myTemplateArtifact").outputs.myObject.myProperty]` | String | "ma valeur" |
 |`[artifacts("myTemplateArtifact").outputs.myObject.anotherProperty]` | Bool | True |
 
 ## <a name="concat"></a>concat
@@ -126,8 +126,8 @@ Combine plusieurs valeurs de chaîne et renvoie la chaîne concaténée.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| string1 |OUI |chaîne |La première valeur pour la concaténation. |
-| arguments supplémentaires |Non |chaîne |Valeurs supplémentaires en ordre séquentiel pour la concaténation |
+| string1 |OUI |string |La première valeur pour la concaténation. |
+| arguments supplémentaires |Non |string |Valeurs supplémentaires en ordre séquentiel pour la concaténation |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -151,7 +151,7 @@ Retourne une valeur de paramètre de blueprint. Le nom du paramètre spécifié 
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| parameterName |OUI |chaîne |Nom du paramètre à retourner. |
+| parameterName |OUI |string |Nom du paramètre à retourner. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -272,7 +272,7 @@ Retourne un objet représentant l’artefact de groupe de ressources spécifié.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| placeholderName |OUI |chaîne |Nom de l’espace réservé de l’artefact de groupe de ressources à retourner. |
+| placeholderName |OUI |string |Nom de l’espace réservé de l’artefact de groupe de ressources à retourner. |
 
 ### <a name="return-value"></a>Valeur de retour
 
