@@ -564,6 +564,8 @@
                       href: insights/container-insights-enable-new-cluster.md
                     - name: Activer pour un cluster existant
                       href: insights/container-insights-enable-existing-clusters.md
+                    - name: Correspondances de régions
+                      href: insights/container-insights-region-mapping.md
                 - name: Analyser
                   href: insights/container-insights-analyze.md
                 - name: Configurer les paramètres de collection de l’agent

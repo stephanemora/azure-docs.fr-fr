@@ -195,6 +195,8 @@
           href: search-indexer-field-mappings.md
         - name: Se connecter à des machines virtuelles SQL Server
           href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
+        - name: Superviser les indexeurs
+          href: search-howto-monitor-indexers.md
         - name: Résolution des problèmes courants
           href: search-indexer-troubleshooting.md
     - name: Enrichir avec l’intelligence artificielle

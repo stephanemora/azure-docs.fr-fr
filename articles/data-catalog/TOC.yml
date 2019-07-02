@@ -1,6 +1,6 @@
 - name: Documentation Data Catalog
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: Présentation de Data Catalog
       href: overview.md
@@ -58,8 +58,6 @@
       href: 'https://azure.microsoft.com/resources/samples/?service=data-catalog'
     - name: REST
       href: /rest/api/datacatalog/
-    - name: Modèle Resource Manager
-      href: /azure/templates/microsoft.datacatalog/catalogs
     - name: Informations de référence sur la syntaxe de recherche
       href: /rest/api/datacatalog/data-catalog-search-syntax-reference
     - name: Concepts liés au développement

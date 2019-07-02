@@ -8,7 +8,7 @@
 - name: Démarrages rapides
   expanded: true
   items:
-    - name: Détecter des anomalies dans vos données
+    - name: API REST
       items:
         - name: 'Utilisation de C#'
           href: quickstarts/detect-data-anomalies-csharp.md
@@ -16,6 +16,12 @@
           href: quickstarts/detect-data-anomalies-java.md
         - name: Utilisation de Python
           href: quickstarts/detect-data-anomalies-python.md
+    - name: Kit SDK
+      items:
+        - name: 'Utilisation de C#'
+          href: quickstarts/detect-data-anomalies-csharp-sdk.md
+        - name: Utilisation de Python
+          href: quickstarts/detect-data-anomalies-python-sdk.md
 - name: Tutoriels
   items:
     - name: Visualiser les anomalies en lot avec Power BI
