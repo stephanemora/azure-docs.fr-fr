@@ -21,7 +21,7 @@
       href: create-custom-provider.md
 - name: Exemples
   items:
-    - name: Azure CLI
+    - name: D’Azure CLI
       href: cli-samples.md
     - name: Azure PowerShell
       href: powershell-samples.md
@@ -29,10 +29,18 @@
       href: sample-projects.md
 - name: Concepts
   items:
-    - name: Fournisseurs personnalisés
+    - name: Fournisseurs de ressources personnalisées Azure
       href: custom-providers-overview.md
+    - name: Afficher un artefact de définition
+      href: concepts-view-definition.md
 - name: Guides pratiques
   items:
+    - name: Fournisseurs de ressources personnalisées
+      items:
+        - name: Ajouter des actions personnalisées dans Azure
+          href: custom-providers-action-endpoint-how-to.md
+        - name: Ajouter des ressources personnalisées dans Azure
+          href: custom-providers-resources-endpoint-how-to.md
     - name: Éditeurs
       items:
         - name: Créer l’interface du portail
@@ -57,7 +65,13 @@
           href: approve-just-in-time-access.md
 - name: Informations de référence
   items:
-    - name: Azure CLI
+    - name: Fournisseurs de ressources personnalisées
+      items:
+        - name: Informations de référence sur les proxys de ressources personnalisées
+          href: custom-providers-proxy-resource-endpoint-reference.md
+        - name: Informations de référence sur les caches de ressources personnalisées
+          href: custom-providers-proxy-cache-resource-endpoint-reference.md
+    - name: D’Azure CLI
       href: /cli/azure/managedapp
     - name: PowerShell
       href: /powershell/module/az.resources

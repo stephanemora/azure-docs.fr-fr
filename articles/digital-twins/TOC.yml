@@ -66,6 +66,8 @@
           href: how-to-navigate-apis.md
         - name: Modèles de requête courants
           href: how-to-query-common-apis.md
+    - name: Inscrire votre application avec un compte AAD existant
+      href: how-to-use-legacy-aad.md
 - name: Informations de référence
   items:
     - name: Bibliothèque de client de fonctions définies par l’utilisateur

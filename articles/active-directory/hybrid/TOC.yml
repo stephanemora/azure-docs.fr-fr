@@ -22,6 +22,8 @@
       items:
         - name: Gestion gouvernée par le cloud pour les charges de travail locales
           href: cloud-governed-management-for-on-premises.md
+        - name: Créer une base d’identité solide en quatre étapes
+          href: four-steps.md
     - name: Azure AD Connect et Connect Health
       items:
         - name: Présentation d’Azure AD Connect et Connect Health
@@ -68,6 +70,8 @@
       items:
         - name: "Qu’est-ce que la synchronisation d’Azure AD Connect\_?"
           href: how-to-connect-sync-whatis.md
+        - name: Compte de service Azure ADSync
+          href: concept-adsync-service-account.md
         - name: Fonctionnalités de la synchronisation d’Azure AD Connect
           href: how-to-connect-syncservice-features.md
         - name: Qu’est-ce que le gestionnaire de service de synchronisation d'Azure AD Connect ?

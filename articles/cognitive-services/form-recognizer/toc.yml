@@ -17,6 +17,8 @@
               href: quickstarts/python-train-extract.md
 - name: Guides pratiques
   items:
+    - name: Créer un jeu de données d’entraînement
+      href: build-training-data-set.md
     - name: Utiliser des conteneurs
       items:
         - name: Installer et exécuter des conteneurs

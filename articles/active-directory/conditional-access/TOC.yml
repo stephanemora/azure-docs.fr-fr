@@ -19,6 +19,8 @@
 - name: Concepts
   expanded: false
   items:
+    - name: Adoption de l’accès conditionnel
+      href: howto-conditional-access-adoption-kit.md
     - name: Stratégies de protection de la base de référence
       href: concept-baseline-protection.md
     - name: Conditions

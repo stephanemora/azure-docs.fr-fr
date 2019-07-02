@@ -43,6 +43,11 @@ sections:
             image:
               src: ../media/index/i_get-started.svg
             title: Installer et exécuter des conteneurs
+          - href: /azure/cognitive-services/form-recognizer/build-training-data-set
+            html: <p>Créez un jeu de données optimisé pour entraîner un modèle personnalisé.</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: Créer un jeu de données d’entraînement
   - title: "Démarrages en 5\_minutes"
     items:
       - type: paragraph

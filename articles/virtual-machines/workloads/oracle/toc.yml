@@ -26,6 +26,10 @@
       href: oracle-backup-recovery.md
     - name: Options de reprise d’activité après sinistre Oracle
       href: oracle-disaster-recovery.md
+- name: Guides pratiques
+  items:
+    - name: Interconnecter Azure et OCI - Préversion
+      href: configure-azure-oci-networking.md
 - name: Ressources
   items:
     - name: Feuille de route Azure

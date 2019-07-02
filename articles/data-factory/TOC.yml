@@ -548,8 +548,6 @@
           href: configure-bcdr-azure-ssis-integration-runtime.md
         - name: Nettoyer les journaux d’activité SSISDB avec les travaux de base de données élastique
           href: how-to-clean-up-ssisdb-logs-with-elastic-jobs.md
-        - name: Résolution des problèmes d’exécution de package dans Azure-SSIS IR
-          href: ssis-integration-runtime-ssis-activity-faq.md
     - name: Créer des déclencheurs
       items:
         - name: Créer un déclencheur basé sur des événements
@@ -572,6 +570,12 @@
           href: solution-template-delta-copy-with-control-table.md
         - name: Transformer des données avec Databricks
           href: solution-template-databricks-notebook.md
+    - name: Guide de résolution des problèmes
+      items:
+        - name: Résolution des problèmes d’activité
+          href: data-factory-troubleshoot-guide.md
+        - name: Résolution des problèmes d’exécution de package dans Azure-SSIS IR
+          href: ssis-integration-runtime-ssis-activity-faq.md
 - name: Informations de référence
   items:
     - name: .NET

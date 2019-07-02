@@ -53,7 +53,7 @@
       href: tutorial-secure-web-server.md
 - name: Exemples
   items:
-    - name: Azure CLI
+    - name: D’Azure CLI
       href: cli-samples.md
     - name: Azure PowerShell
       href: powershell-samples.md
@@ -274,13 +274,13 @@
           items:
             - name: Vue d'ensemble
               href: image-builder-overview.md
-            - name: Utiliser l’interface de ligne de commande 2.0
+            - name: "Utiliser l’interface de ligne de commande Microsoft\_Azure"
               href: image-builder.md
             - name: Référence de modèle
               href: image-builder-json.md
-            - name: Utiliser des galeries
+            - name: Créer pour des galeries d’images
               href: image-builder-gallery.md
-            - name: Mettre à jour une version d’image
+            - name: Mettre à jour une image existante
               href: image-builder-gallery-update-image-version.md
             - name: Résolution des problèmes
               href: 'https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md'
@@ -431,7 +431,7 @@
       items:
         - name: Ajouter un disque
           items:
-            - name: Azure CLI
+            - name: D’Azure CLI
               href: add-disk.md
             - name: Portail Azure
               href: attach-disk-portal.md

@@ -58,6 +58,12 @@
       href: cross-network-connectivity.md
     - name: Attributs de sécurité courants Azure
       href: expressroute-security-attributes.md
+    - name: Conception pour une haute disponibilité
+      href: designing-for-high-availability-with-expressroute.md
+    - name: Conception pour une reprise d’activité après sinistre
+      items:
+        - name: Homologation privée
+          href: designing-for-disaster-recovery-with-expressroute-privatepeering.md
 - name: Guides pratiques
   items:
     - name: Créer et modifier un circuit

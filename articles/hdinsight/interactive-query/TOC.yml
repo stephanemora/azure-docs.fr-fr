@@ -6,10 +6,15 @@
       href: ./apache-interactive-query-get-started.md
       maintainContext: true
 - name: Démarrages rapides
+  expanded: true
   items:
     - name: Exécuter des requêtes Apache Hive - Apache Zeppelin
       href: ./hdinsight-connect-hive-zeppelin.md
-- name: Prise en main
+- name: Tutoriels
+  items:
+    - name: Analyser des données avec Interactive Query
+      href: ./interactive-query-tutorial-analyze-flight-data.md
+- name: Concepts
   items:
     - name: Installer des applications HDInsight
       href: ../hdinsight-apps-install-applications.md
@@ -104,9 +109,6 @@
           maintainContext: true
         - name: Analyser les tweets stockés
           href: ../hdinsight-analyze-twitter-data-linux.md
-          maintainContext: true
-        - name: Analyser les données sur les retards de vol
-          href: ../hdinsight-analyze-flight-delay-data-linux.md
           maintainContext: true
     - name: Étendre des clusters
       items:
@@ -246,9 +248,6 @@
         - name: Mise à jour corrective du système d’exploitation pour le cluster HDInsight
           href: ../hdinsight-os-patching.md
           maintainContext: true
-        - name: "Migrer des charges de travail Hive vers HDInsight\_4.0"
-          href: apache-hive-migrate-workloads.md
-          maintainContext: true
     - name: Résolution des problèmes
       href: ../hdinsight-troubleshoot-guide.md
       maintainContext: true
@@ -334,6 +333,11 @@
         - name: Surveiller les performances du cluster
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
+- name: Procédures
+  items:
+    - name: "Migrer des charges de travail Hive vers HDInsight\_4.0"
+      href: apache-hive-migrate-workloads.md
+      maintainContext: true
 - name: Informations de référence
   items:
     - name: Exemples de code

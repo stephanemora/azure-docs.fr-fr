@@ -1,0 +1,41 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentation Azure FXT Edge Filer
+metadata:
+  title: Documentation Azure FXT Edge Filer
+  description: Utilisez Azure FXT Edge Filer comme couche de mise en cache pour les tâches de calcul haute performance (HPC) gourmandes en lecture
+  author: ekpgh
+  ms.service: fxt-edge-filer
+  ms.topic: landing-page
+  ms.date: 06/20/2019
+  ms.author: v-erkell
+abstract:
+  description: 'Le cache de stockage hybride Azure FXT Edge Filer est un système matériel/logiciel hybride qui accélère l’accès aux données pour les workflows de calcul haute performance (HPC) gourmands en lecture et basés sur les fichiers. Un cluster d’au moins trois appareils Azure FXT Edge Filer peut accélérer les performances de stockage des systèmes NAS locaux (NetApp ou Dell EMC Isilon), le stockage cloud, ou une combinaison des solutions.'
+sections:
+  - title: Didacticiels pas à pas
+    items:
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="fxt-install">Installer le matériel Azure FXT Edge Filer</a>
+          - html: <a href="fxt-network-power">Établir des connexions réseau pour Azure FXT Edge Filer</a>
+          - html: <a href="fxt-node-password">Définir des mots de passe racines sur les nœuds matériels</a>
+          - html: <a href="fxt-cluster-create">Créer le cluster de cache de stockage hybride</a>
+          - html: <a href="fxt-add-nodes">Ajouter des nœuds de cluster</a>
+          - html: <a href="fxt-add-storage">Ajouter du stockage back-end et configurer un espace de noms virtuel</a>
+          - html: <a href="fxt-configure-network">Configurer les paramètres réseau du cluster</a>
+  - title: Guides pratiques
+    items:
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="fxt-mount-clients">Connecter des clients au cluster Azure FXT Edge Filer</a>
+          - html: <a href="fxt-monitor">Superviser Azure FXT Edge Filer</a>
+          - html: <a href="fxt-power-off">Mettre hors tension un nœud matériel de façon sécurisée</a>
+  - title: Ressources
+    items:
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="fxt-specs">Spécifications matérielles</a>
+          - html: <a href="fxt-additional-doc">Documentation complémentaire</a>

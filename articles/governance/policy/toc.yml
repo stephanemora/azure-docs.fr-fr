@@ -1,6 +1,6 @@
 - name: Documentation Azure Policy
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: Présentation de la stratégie Azure
       displayName: 'rbac, assign, initiative, parameters, count'
@@ -97,7 +97,7 @@
             - name: Extensions de machine virtuelle non autorisées
               displayName: deny
               href: samples/not-allowed-vm-extension.md
-        - name: 'Groupes identiques de machines virtuelles '
+        - name: Groupes identiques de machines virtuelles
           items:
             - name: Auditer lorsque la machine virtuelle n’utilise pas de disque managé
               displayName: audit
@@ -260,6 +260,9 @@
     - name: Comprendre les effets de Policy
       displayName: 'order, evaluation'
       href: ./concepts/effects.md
+    - name: Azure Policy pour Kubernetes
+      displayName: 'aks, rego, k8s, opa, open policy agent, gatekeeper'
+      href: ./concepts/rego-for-aks.md
     - name: Auditer les machines virtuelles avec la configuration invité
       displayName: 'provider, tools, definition'
       href: ./concepts/guest-configuration.md
@@ -285,7 +288,7 @@
       href: ../../azure-monitor/insights/vminsights-enable-at-scale-policy.md?toc=/azure/governance/policy/toc.json
 - name: Informations de référence
   items:
-    - name: Azure CLI
+    - name: D’Azure CLI
       href: /cli/azure/policy
     - name: Azure PowerShell
       items:
