@@ -25,6 +25,8 @@
       href: billing-understand-your-invoice.md
     - name: Conditions de facturation expliquées - contrat client Microsoft uniquement
       href: billing-mca-understand-your-invoice.md
+    - name: Comment payer votre facture - contrat client Microsoft uniquement
+      href: billing-how-to-pay-bill.md
     - name: Comptes de facturation d’un contrat client Microsoft
       href: billing-mca-overview.md
 - name: Gérer les coûts
@@ -79,7 +81,7 @@
               href: billing-understand-suse-reservation-charges.md
         - name: Coûts des logiciels non inclus
           href: billing-reserved-instance-windows-software-costs.md
-        - name: Utilisation du paiement à l’utilisation
+        - name: Utilisation pour les abonnements individuels
           href: billing-understand-reserved-instance-usage.md
         - name: Utilisation pour l’Entreprise
           href: billing-understand-reserved-instance-usage-ea.md

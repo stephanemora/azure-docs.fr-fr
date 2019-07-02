@@ -16,17 +16,11 @@
         - name: Enrichir avec l’intelligence artificielle (recherche cognitive)
           href: cognitive-search-quickstart-blob.md
     - name: 'C#'
-      items:
-        - name: 1 - Créer un index
-          href: search-create-index-dotnet.md
-        - name: 2 - Charger les données
-          href: search-import-data-dotnet.md
-        - name: 3 – Rechercher dans un index
-          href: search-query-dotnet.md
+      href: search-get-started-dotnet.md
     - name: postman
-      href: search-fiddler.md
+      href: search-get-started-postman.md
     - name: PowerShell
-      href: search-create-index-rest-api.md
+      href: search-get-started-powershell.md
     - name: Python
       href: search-get-started-python.md
 - name: Tutoriels
@@ -39,10 +33,16 @@
           href: tutorial-csharp-paging.md
         - name: 3 - Ajouter type-ahead
           href: tutorial-csharp-type-ahead-and-suggestions.md
+        - name: 4 - Ajouter des facettes
+          href: tutorial-csharp-facets.md
+        - name: 5 - Ajouter un classement des résultats
+          href: tutorial-csharp-orders.md
     - name: Indexer une base de données Azure SQL
       href: search-indexer-tutorial.md
     - name: Indexer des objets blob Azure JSON
       href: search-semi-structured-data.md
+    - name: Indexer plusieurs sources de données Azure
+      href: tutorial-multiple-data-sources.md
     - name: Enrichir avec l’intelligence artificielle (recherche cognitive)
       items:
         - name: 'C#'
@@ -277,7 +277,7 @@
           href: search-traffic-analytics.md
 - name: Informations de référence
   items:
-    - name: Azure CLI
+    - name: D’Azure CLI
       href: 'https://docs.microsoft.com/cli/azure/search?view=azure-cli-latest'
     - name: Azure PowerShell
       href: /powershell/module/az.search

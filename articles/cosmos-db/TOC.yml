@@ -72,7 +72,7 @@
       href: sql-api-python-samples.md
     - name: PowerShell
       href: powershell-samples-sql.md
-    - name: Azure CLI
+    - name: D’Azure CLI
       href: cli-samples.md
     - name: Azure Resource Manager
       href: resource-manager-samples.md
@@ -121,6 +121,69 @@
         - name: Approvisionner le débit sur les conteneurs et les bases de données
           displayName: 'request units, RUs, RU, limits, database throughput, shared throughput, container throughput'
           href: set-throughput.md
+    - name: Informations de référence sur les requêtes SQL
+      items:
+        - name: Prise en main
+          displayName: 'sql query, query basics'
+          href: sql-query-getting-started.md
+        - name: Clauses
+          items:
+            - name: SELECT
+              displayName: 'select, select clause'
+              href: sql-query-select.md
+            - name: FROM
+              displayName: 'from, from clause'
+              href: sql-query-from.md
+            - name: WHERE
+              displayName: 'where, where clause'
+              href: sql-query-where.md
+            - name: ORDER BY
+              displayName: 'order by, order by clause'
+              href: sql-query-order-by.md
+            - name: OFFSET LIMIT
+              displayName: offset limit
+              href: sql-query-offset-limit.md
+        - name: Sous-requête
+          displayName: 'subquery, exists'
+          href: sql-query-subquery.md
+        - name: Jointures
+          displayName: join
+          href: sql-query-join.md
+        - name: Alias
+          displayName: 'alias, aliasing'
+          href: sql-query-aliasing.md
+        - name: Tableaux et objets
+          displayName: 'object and array creation, object and array'
+          href: sql-query-object-array.md
+        - name: Mots clés
+          displayName: 'keywords, distinct, between, in, top'
+          href: sql-query-keywords.md
+        - name: Operators
+          displayName: 'operators, operator, logical operators, equality, comparison'
+          href: sql-query-operators.md
+        - name: Expressions scalaires
+          displayName: 'scalar expressions, scalar'
+          href: sql-query-scalar-expressions.md
+        - name: Fonctions
+          items:
+            - name: Fonctions définies par l’utilisateur
+              displayName: 'functions, udf'
+              href: sql-query-udfs.md
+            - name: Agrégats
+              displayName: 'functions, aggregate'
+              href: sql-query-aggregates.md
+            - name: Fonctions système
+              displayName: 'functions, system functions, built-in functions'
+              href: sql-query-system-functions.md
+        - name: Requête paramétrable
+          displayName: 'parameterized query, parameterized, parameter, parameters'
+          href: sql-query-parameterized-queries.md
+        - name: LINQ to SQL
+          displayName: 'linq, .NET'
+          href: sql-query-linq-to-sql.md
+        - name: Exécution de requêtes SQL
+          displayName: 'query performance, query execution'
+          href: sql-query-execution.md
     - name: Utiliser un compte Azure Cosmos
       href: account-overview.md
     - name: Conteneurs et éléments
@@ -128,12 +191,6 @@
         - name: 'Utiliser des bases de données, des conteneurs et des éléments'
           displayName: 'collection, document'
           href: databases-containers-items.md
-        - name: Référence sur le langage SQL
-          displayName: 'collection, document'
-          href: sql-api-query-reference.md
-        - name: Exemples de requêtes SQL
-          displayName: 'collection, document, order by, where, top, value, aggregate, between, scalar, join, count, contains'
-          href: how-to-sql-query.md
         - name: Données de document de modèle
           displayName: document
           href: modeling-data.md
@@ -351,6 +408,8 @@
               href: connect-mongodb-account.md
             - name: Se connecter via Studio 3T
               href: mongodb-mongochef.md
+            - name: Se connecter à l’aide de Compass
+              href: mongodb-compass.md
             - name: Connexion à l’aide de Robomongo
               href: mongodb-robomongo.md
             - name: Se connecter via Mongoose
@@ -548,9 +607,6 @@
           href: how-to-manage-indexing-policy.md
         - name: Définir des clés uniques
           href: how-to-define-unique-keys.md
-        - name: Exemples de sous-requêtes SQL
-          displayName: 'subquery, exists'
-          href: how-to-sql-subquery.md
     - name: Bonnes pratiques
       items:
         - name: Conseils sur les performances
@@ -712,7 +768,9 @@
     - name: Fournisseur de ressources REST
       href: /rest/api/cosmos-db-resource-provider/
     - name: Modèle Resource Manager
-      href: /templates/microsoft.documentdb/allversions
+      href: /azure/templates/microsoft.documentdb/allversions
+    - name: Notes de publication de l’émulateur
+      href: local-emulator-release-notes.md
 - name: Ressources
   items:
     - name: Développer vos compétences avec Microsoft Learn

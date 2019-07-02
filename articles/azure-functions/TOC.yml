@@ -45,6 +45,8 @@
           href: functions-add-output-binding-storage-queue-python.md
         - name: Stockage - portail
           href: functions-integrate-storage-queue-output-binding.md
+        - name: Stockage - Visual Studio Code
+          href: functions-add-output-binding-storage-queue-vs-code.md
 - name: Tutoriels
   items:
     - name: Fonctions avec Logic Apps
@@ -69,7 +71,7 @@
       href: 'https://www.serverlesslibrary.net/'
     - name: Exemples Azure
       href: 'https://azure.microsoft.com/resources/samples/?service=functions'
-    - name: Azure CLI
+    - name: D’Azure CLI
       href: functions-cli-samples.md
 - name: Concepts
   items:
@@ -136,6 +138,8 @@
           href: functions-test-a-function.md
         - name: Développer et déboguer localement
           href: functions-develop-local.md
+        - name: Développement Visual Studio Code
+          href: functions-develop-vs-code.md
         - name: Développement Visual Studio
           href: functions-develop-vs.md
         - name: Développement d’outils de base
@@ -282,13 +286,10 @@
           href: functions-bindings-timer.md
         - name: Twilio
           href: functions-bindings-twilio.md
-    - name: référence de host.json
+    - name: "Informations de référence sur host.json\_2.x"
       href: functions-host-json.md
-      items:
-        - name: Functions 2.x
-          href: functions-host-json.md
-        - name: Functions 1.x
-          href: functions-host-json-v1.md
+    - name: "Informations de référence sur host.json\_1.x"
+      href: functions-host-json-v1.md
     - name: Questions fréquentes (FAQ) sur les réseaux
       href: functions-networking-faq.md
     - name: Référence OpenAPI

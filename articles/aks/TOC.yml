@@ -19,6 +19,8 @@
     - name: Développer des applications
       expanded: true
       items:
+        - name: Utiliser Draft
+          href: kubernetes-draft.md
         - name: Utiliser Java (VS Code et CLI)
           href: ../dev-spaces/quickstart-java.md
           maintainContext: true
@@ -64,7 +66,7 @@
       href: concepts-scale.md
     - name: Bonnes pratiques
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           href: best-practices.md
         - name: Pour les opérateurs du cluster
           items:
@@ -153,6 +155,8 @@
               href: configure-azure-cni.md
         - name: Créer un équilibrage de charge interne
           href: internal-lb.md
+        - name: Utiliser un équilibreur de charge standard (préversion)
+          href: load-balancer-standard.md
         - name: Utiliser une adresse IP statique
           href: static-ip.md
         - name: Entrée
@@ -187,6 +191,8 @@
           href: use-pod-security-policies.md
         - name: Définir les plages IP autorisées du serveur d’API (préversion)
           href: api-server-authorized-ip-ranges.md
+        - name: Contrôler les déploiements avec Azure Policy (préversion)
+          href: ../governance/policy/concepts/rego-for-aks.md?toc=/azure/aks/toc.json
         - name: Mettre à jour les informations d’identification du principal de service de cluster
           href: update-credentials.md
         - name: Limiter et contrôler le trafic sortant du cluster (préversion)
@@ -280,8 +286,6 @@
                   maintainContext: true
         - name: Exécuter des applications avec Helm
           href: kubernetes-helm.md
-        - name: Développer des applications avec Draft
-          href: kubernetes-draft.md
         - name: Utiliser Open Service Broker pour Azure
           href: integrate-azure.md
         - name: Utiliser l’API Cosmos DB pour MongoDB avec OSBA

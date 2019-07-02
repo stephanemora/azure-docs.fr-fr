@@ -300,8 +300,10 @@
           href: luis-reference-prebuilt-keyphrase.md
         - name: Entité Number
           href: luis-reference-prebuilt-number.md
-        - name: Entité Ordinal
+        - name: Entité ordinal
           href: luis-reference-prebuilt-ordinal.md
+        - name: Entité Ordinal V2
+          href: luis-reference-prebuilt-ordinal-v2.md
         - name: Entité percentage
           href: luis-reference-prebuilt-percentage.md
         - name: Entité personName

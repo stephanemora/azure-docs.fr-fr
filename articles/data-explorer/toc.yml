@@ -2,7 +2,7 @@
   href: index.yml
 - name: Vue d'ensemble
   items:
-    - name: Qu’est-ce que l'Explorateur de données ?
+    - name: "Qu’est-ce que l’Explorateur de données Azure\_?"
       href: data-explorer-overview.md
 - name: Démarrages rapides
   expanded: true
@@ -15,8 +15,6 @@
       items:
         - name: Interface utilisateur web
           href: web-query-data.md
-        - name: Python
-          href: python-query-data.md
 - name: Tutoriels
   items:
     - name: Ingérer les données sans utiliser de code
@@ -34,7 +32,7 @@
   items:
     - name: Créer un cluster et une base de données
       items:
-        - name: Azure CLI
+        - name: D’Azure CLI
           href: create-cluster-database-cli.md
         - name: PowerShell
           href: create-cluster-database-powershell.md
@@ -68,12 +66,18 @@
       items:
         - name: Rédiger des requêtes
           href: write-queries.md
-        - name: Analyse des séries chronologiques
-          href: time-series-analysis.md
-        - name: Détection d’anomalies et prévision
-          href: anomaly-detection.md
-        - name: Apprentissage automatique
-          href: machine-learning-clustering.md
+        - name: Interroger des données dans Azure Data Lake
+          href: data-lake-query-data.md
+        - name: Python
+          href: python-query-data.md
+        - name: Analyse des séries chronologiques et machine learning
+          items:
+            - name: Analyse des séries chronologiques
+              href: time-series-analysis.md
+            - name: Détection d’anomalies et prévision
+              href: anomaly-detection.md
+            - name: Apprentissage automatique
+              href: machine-learning-clustering.md
     - name: Visualiser les données
       items:
         - name: Power BI
