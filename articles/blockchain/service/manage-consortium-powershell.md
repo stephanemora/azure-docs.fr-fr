@@ -145,7 +145,7 @@ Utilisez cette applet de commande pour obtenir des détails sur le membre ou la 
 
 | Paramètre | Description | Obligatoire |
 |-----------|-------------|:--------:|
-| Nom | Le nom du membre Blockchain Service que vous souhaitez récupérer les détails sur. Lorsqu’un nom est entré, il retourne les détails du membre. Si un nom est omis, elle retourne une liste de tous les membres du consortium. | Non |
+| Name | Le nom du membre Blockchain Service que vous souhaitez récupérer les détails sur. Lorsqu’un nom est entré, il retourne les détails du membre. Si un nom est omis, elle retourne une liste de tous les membres du consortium. | Non |
 | Members | Objet de membres obtenu à partir de l’importation-ConsortiumManagementContracts | Oui |
 | Web3Client | Objet Web3Client obtenu à partir de New-Web3Connection | Oui |
 
@@ -174,7 +174,7 @@ Utilisez cette applet de commande pour supprimer un membre de la fonctionnalité
 
 | Paramètre | Description | Obligatoire |
 |-----------|-------------|:--------:|
-| Nom | Nom de membre à supprimer | Oui |
+| Name | Nom de membre à supprimer | Oui |
 | Members | Objet de membres obtenu à partir de l’importation-ConsortiumManagementContracts | Oui |
 | Web3Account | Objet Web3Account obtenu à partir de l’importation-Web3Account | Oui |
 | Web3Client | Objet Web3Client obtenu à partir de New-Web3Connection | Oui |
@@ -196,7 +196,7 @@ Les administrateurs de consortium peuvent définir **DisplayName** et **rôle** 
 
 | Paramètre | Description | Obligatoire |
 |-----------|-------------|:--------:|
-| Nom | Nom du membre blockchain | Oui |
+| Name | Nom du membre blockchain | Oui |
 | DisplayName | Nouveau nom d’affichage | Non |
 | AccountAddress | Adresse du compte | Non |
 | Members | Objet de membres obtenu à partir de l’importation-ConsortiumManagementContracts | Oui |
@@ -223,7 +223,7 @@ Utilisez cette applet de commande pour inviter de nouveaux membres pour le conso
 | Paramètre | Description | Obligatoire |
 |-----------|-------------|:--------:|
 | SubscriptionId | ID d’abonnement Azure du membre à inviter | Oui |
-| Rôle | Le rôle consortium. Valeurs peuvent être administrateur ou utilisateur. ADMIN est le rôle d’administrateur consortium. UTILISATEUR est le rôle de membre consortium. | Oui |
+| Role | Le rôle consortium. Valeurs peuvent être administrateur ou utilisateur. ADMIN est le rôle d’administrateur consortium. UTILISATEUR est le rôle de membre consortium. | Oui |
 | Members | Objet de membres obtenu à partir de l’importation-ConsortiumManagementContracts | Oui |
 | Web3Account | Objet Web3Account obtenu à partir de l’importation-Web3Account | Oui |
 | Web3Client | Objet Web3Client obtenu à partir de New-Web3Connection | Oui |
@@ -290,7 +290,7 @@ Utilisez cette applet de commande pour définir le **rôle** une invitation exis
 | Paramètre | Description | Obligatoire |
 |-----------|-------------|:--------:|
 | SubscriptionId | ID d’abonnement Azure du membre à inviter | Oui |
-| Rôle | Nouveau rôle consortium invitation. Les valeurs peuvent être **utilisateur** ou **administrateur**. | Oui |
+| Role | Nouveau rôle consortium invitation. Les valeurs peuvent être **utilisateur** ou **administrateur**. | Oui |
 | Members |  Objet de membres obtenu à partir de l’importation-ConsortiumManagementContracts | Oui |
 | Web3Account | Objet Web3Account obtenu à partir de l’importation-Web3Account | Oui |
 | Web3Client | Objet Web3Client obtenu à partir de New-Web3Connection | Oui |
