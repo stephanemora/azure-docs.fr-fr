@@ -62,7 +62,7 @@
         - name: Utiliser des ensembles d’appareils
           href: howto-use-device-sets.md
         - name: Modèle d’appareil de version
-          href: howto-version-devicetemplate.md
+          href: howto-version-device-template.md
     - name: Supervision et analytique
       items:
         - name: Créer une règle de télémétrie
@@ -105,6 +105,8 @@
           href: howto-prepare-images.md
         - name: Configurer le tableau de bord de l’application
           href: howto-configure-homepage.md
+        - name: Utiliser des vignettes de tableau de bord
+          href: howto-use-tiles.md
         - name: Personnaliser l’interface utilisateur de l’application
           href: howto-customize-ui.md
         - name: Utiliser des modèles d’application

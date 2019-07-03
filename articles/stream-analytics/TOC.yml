@@ -36,6 +36,8 @@
   items:
     - name: Choisir une technologie d’analytique de streaming
       href: streaming-technologies.md
+    - name: Choisir un outil de développement de travail
+      href: feature-comparison.md
     - name: Types d’entrée pour un travail
       items:
         - name: Vue d’ensemble des entrées
