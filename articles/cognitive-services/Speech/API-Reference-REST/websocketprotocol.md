@@ -152,7 +152,7 @@ Les en-têtes suivants sont requis pour tous les messages provenant du client.
 
 | En-tête | Valeur |
 |----|----|
-| path | Chemin du message, tel que spécifié dans ce document |
+| Path | Chemin du message, tel que spécifié dans ce document |
 | X-RequestId | UUID au format « sans tirets » |
 | X-Timestamp | Horodatage de l’horloge UTC cliente au format ISO 8601 |
 
@@ -181,7 +181,7 @@ Les clients *doivent* envoyer un message `speech.config` dès qu’ils ont étab
 
 | Nom de l’en-tête | Valeur |
 |----|----|
-| path | `speech.config` |
+| Path | `speech.config` |
 | X-Timestamp | Horodatage de l’horloge UTC cliente au format ISO 8601 |
 | Content-Type | application/json; charset=utf-8 |
 
@@ -252,8 +252,8 @@ Les en-têtes suivants sont requis pour tous les messages `audio`.
 
 | En-tête         |  Valeur     |
 | ------------- | ---------------- |
-| path | `audio` |
-| X-RequestId | UUID au format « sans tirets » |
+| Path | `audio` |
+| X-RequestId | UUID au format "no-dash" |
 | X-Timestamp | Horodatage de l’horloge UTC cliente au format ISO 8601 |
 | Content-Type | Type de contenu audio. Le type doit être *audio/x-wav* (PCM) ou *audio/silk* (SILK). |
 
