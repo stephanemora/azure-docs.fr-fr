@@ -8,7 +8,7 @@ metadata:
   author: cherylmc
   ms.service: Bastion
   ms.topic: landing-page
-  ms.date: 06/13/2019
+  ms.date: 07/02/2019
   ms.author: cherylmc
 abstract:
   description: 'Découvrez comment utiliser Azure Bastion pour se connecter à une machine virtuelle. Configurez une connectivité RDP/SSH sécurisée et fluide à vos machines virtuelles directement dans le portail Azure via SSL. Lorsque vous vous connectez via Azure Bastion, vos machines virtuelles n’ont pas besoin d’une adresse IP publique.'
@@ -33,11 +33,3 @@ sections:
           - html: <a href="/azure/bastion/bastion-connect-vm-ssh">Se connecter à une machine virtuelle Windows</a>
           - html: <a href="/azure/bastion/bastion-connect-vm-rdp">Se connecter à une machine virtuelle Linux</a>
           - html: <a href="/azure/bastion/bastion-faq">Lire les questions fréquentes (FAQ) sur Azure Bastion</a>
-  - title: Informations de référence
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: REST
-            html: "<p><a href=\"https://msdn.microsoft.com/library/azure/mt586720\">Référence d’API\_REST</a></p>"
