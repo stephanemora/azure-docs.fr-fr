@@ -49,7 +49,7 @@ Une application blockchain contient des métadonnées de configuration, des work
 
 Pour obtenir un exemple, consultez l’[exemple de fichier de configuration](#configuration-file-example).
 
-## <a name="workflows"></a>Flux de travail
+## <a name="workflows"></a>Workflows
 
 La logique métier d’une application peut être modélisée comme une machine à états dans laquelle la réalisation d’une action entraîne le transfert du flux de logique métier d’un état à un autre. Un workflow est une collection de ces états et actions. Chaque workflow se compose d’un ou plusieurs contrats intelligents, qui représentent la logique métier dans les fichiers de code. Un contrat exécutable est une instance de workflow.
 
