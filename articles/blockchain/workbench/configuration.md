@@ -45,7 +45,7 @@ Une application blockchain contient des métadonnées de configuration, des work
 | DisplayName | Nom d’affichage convivial de l’application. | OUI |
 | Description | Description de l’application. | Non |
 | ApplicationRoles | Collection d’[ApplicationRoles](#application-roles). Rôles utilisateur autorisés à agir ou à participer au sein de l’application.  | OUI |
-| Flux de travail | Collection de [Workflows](#workflows). Chaque workflow agit comme une machine à états pour contrôler le flux de la logique métier. | OUI |
+| Workflows | Collection de [Workflows](#workflows). Chaque workflow agit comme une machine à états pour contrôler le flux de la logique métier. | OUI |
 
 Pour obtenir un exemple, consultez l’[exemple de fichier de configuration](#configuration-file-example).
 
