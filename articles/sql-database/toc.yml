@@ -8,6 +8,8 @@
       href: sql-database-paas-vs-sql-server-iaas.md
     - name: Notes de publication
       href: sql-database-release-notes.md
+    - name: Mises à jour de la migration IP de passerelle
+      href: sql-database-gateway-migration.md
 - name: Démarrages rapides
   expanded: true
   items:
@@ -125,7 +127,7 @@
   items:
     - name: Exemples de code
       href: 'https://azure.microsoft.com/resources/samples/?service=sql-database'
-    - name: Azure CLI
+    - name: D’Azure CLI
       href: sql-database-cli-samples.md
     - name: Azure PowerShell
       href: sql-database-powershell-samples.md
