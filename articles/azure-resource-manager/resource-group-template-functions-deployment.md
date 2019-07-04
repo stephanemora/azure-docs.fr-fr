@@ -1,23 +1,17 @@
 ---
 title: Fonctions de modèle Azure Resource Manager - déploiement| Microsoft Docs
 description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour récupérer des informations de déploiement.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-ms.assetid: ''
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 01/03/2019
 ms.author: tomfitz
-ms.openlocfilehash: c5bd40741ec0fe047f98b4b4431819d90e188385
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9cf81058d79d474a4d61195850636e428a1dbd0d
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66128668"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206469"
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>Fonctions de déploiement pour les modèles Azure Resource Manager 
 

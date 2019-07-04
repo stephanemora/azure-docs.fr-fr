@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: johnkem
 ms.subservice: alerts
-ms.openlocfilehash: 63f59d59712d851f9bb7ace27335fe665a598f9f
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.openlocfilehash: c91c1badaa4b1bc055859d700857cfd4d062babd
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66477922"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491511"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhook des alertes du journal d’activité Azure
 Dans le cadre de la définition d’un groupe d’actions, vous pouvez configurer des points de terminaison Webhook pour qu’ils reçoivent des notifications d’alerte du journal d’activité. Grâce aux Webhooks, vous pouvez acheminer ces notifications vers d’autres systèmes à des fins de post-traitement ou d’exécution d’actions personnalisées. Cet article montre également à quoi ressemble la charge utile d’une requête HTTP POST pour un webhook.
@@ -23,7 +23,7 @@ Pour plus d’informations sur les alertes du journal d’activité, découvrez 
 Pour plus d’informations sur les groupes d’actions, découvrez comment [créer des groupes d’actions](../../azure-monitor/platform/action-groups.md).
 
 > [!NOTE]
-> Vous pouvez également utiliser le [schéma alerte commun](https://aka.ms/commonAlertSchemaDocs), qui offre l’avantage de générer un seul extensible et unifiée charge utile et alerte toutes les alertes des services dans Azure Monitor, pour les intégrations de votre webhook. [En savoir plus sur les définitions de schéma alerte courants.](https://aka.ms/commonAlertSchemaDefinitions)
+> Vous pouvez également utiliser le [schéma d’alerte commun](https://aka.ms/commonAlertSchemaDocs), qui offre l’avantage de générer une seule charge utile d’alerte extensible et unifiée sur tous les services d’alerte dans Azure Monitor, pour les intégrations de votre webhook. [En savoir plus sur les définitions de schéma d’alerte commun.](https://aka.ms/commonAlertSchemaDefinitions)
 
 
 ## <a name="authenticate-the-webhook"></a>Authentifier le Webhook
@@ -33,6 +33,7 @@ Le Webhook peut éventuellement utiliser l’autorisation par jeton à des fins 
 La charge utile JSON contenue dans l’opération POST varie en fonction de champ data.context.activityLog.eventSource de la charge utile.
 
 ### <a name="common"></a>Courant
+
 ```json
 {
     "schemaId": "Microsoft.Insights/activityLogs",
@@ -59,7 +60,9 @@ La charge utile JSON contenue dans l’opération POST varie en fonction de cham
     }
 }
 ```
+
 ### <a name="administrative"></a>Administratif
+
 ```json
 {
     "schemaId": "Microsoft.Insights/activityLogs",
@@ -84,9 +87,96 @@ La charge utile JSON contenue dans l’opération POST varie en fonction de cham
         "properties": {}
     }
 }
-
 ```
+
+### <a name="security"></a>Sécurité
+
+```json
+{
+    "schemaId":"Microsoft.Insights/activityLogs",
+    "data":{"status":"Activated",
+        "context":{
+            "activityLog":{
+                "channels":"Operation",
+                "correlationId":"2518408115673929999",
+                "description":"Failed SSH brute force attack. Failed brute force attacks were detected from the following attackers: [\"IP Address: 01.02.03.04\"].  Attackers were trying to access the host with the following user names: [\"root\"].",
+                "eventSource":"Security",
+                "eventTimestamp":"2017-06-25T19:00:32.607+00:00",
+                "eventDataId":"Sec-07f2-4d74-aaf0-03d2f53d5a33",
+                "level":"Informational",
+                "operationName":"Microsoft.Security/locations/alerts/activate/action",
+                "operationId":"Sec-07f2-4d74-aaf0-03d2f53d5a33",
+                "properties":{
+                    "attackers":"[\"IP Address: 01.02.03.04\"]",
+                    "numberOfFailedAuthenticationAttemptsToHost":"456",
+                    "accountsUsedOnFailedSignInToHostAttempts":"[\"root\"]",
+                    "wasSSHSessionInitiated":"No","endTimeUTC":"06/25/2017 19:59:39",
+                    "actionTaken":"Detected",
+                    "resourceType":"Virtual Machine",
+                    "severity":"Medium",
+                    "compromisedEntity":"LinuxVM1",
+                    "remediationSteps":"[In case this is an Azure virtual machine, add the source IP to NSG block list for 24 hours (see https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/)]",
+                    "attackedResourceType":"Virtual Machine"
+                },
+                "resourceId":"/subscriptions/12345-5645-123a-9867-123b45a6789/resourceGroups/contoso/providers/Microsoft.Security/locations/centralus/alerts/Sec-07f2-4d74-aaf0-03d2f53d5a33",
+                "resourceGroupName":"contoso",
+                "resourceProviderName":"Microsoft.Security",
+                "status":"Active",
+                "subscriptionId":"12345-5645-123a-9867-123b45a6789",
+                "submissionTimestamp":"2017-06-25T20:23:04.9743772+00:00",
+                "resourceType":"MICROSOFT.SECURITY/LOCATIONS/ALERTS"
+            }
+        },
+        "properties":{}
+    }
+}
+```
+
+### <a name="recommendation"></a>Recommandation
+
+```json
+{
+    "schemaId":"Microsoft.Insights/activityLogs",
+    "data":{
+        "status":"Activated",
+        "context":{
+            "activityLog":{
+                "channels":"Operation",
+                "claims":"{\"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress\":\"Microsoft.Advisor\"}",
+                "caller":"Microsoft.Advisor",
+                "correlationId":"123b4c54-11bb-3d65-89f1-0678da7891bd",
+                "description":"A new recommendation is available.",
+                "eventSource":"Recommendation",
+                "eventTimestamp":"2017-06-29T13:52:33.2742943+00:00",
+                "httpRequest":"{\"clientIpAddress\":\"0.0.0.0\"}",
+                "eventDataId":"1bf234ef-e45f-4567-8bba-fb9b0ee1dbcb",
+                "level":"Informational",
+                "operationName":"Microsoft.Advisor/recommendations/available/action",
+                "properties":{
+                    "recommendationSchemaVersion":"1.0",
+                    "recommendationCategory":"HighAvailability",
+                    "recommendationImpact":"Medium",
+                    "recommendationName":"Enable Soft Delete to protect your blob data",
+                    "recommendationResourceLink":"https://portal.azure.com/#blade/Microsoft_Azure_Expert/RecommendationListBlade/recommendationTypeId/12dbf883-5e4b-4f56-7da8-123b45c4b6e6",
+                    "recommendationType":"12dbf883-5e4b-4f56-7da8-123b45c4b6e6"
+                },
+                "resourceId":"/subscriptions/12345-5645-123a-9867-123b45a6789/resourceGroups/contoso/providers/microsoft.storage/storageaccounts/contosoStore",
+                "resourceGroupName":"CONTOSO",
+                "resourceProviderName":"MICROSOFT.STORAGE",
+                "status":"Active",
+                "subStatus":"",
+                "subscriptionId":"12345-5645-123a-9867-123b45a6789",
+                "submissionTimestamp":"2017-06-29T13:52:33.2742943+00:00",
+                "resourceType":"MICROSOFT.STORAGE/STORAGEACCOUNTS"
+            }
+        },
+        "properties":{}
+    }
+}
+```
+
 ### <a name="servicehealth"></a>ServiceHealth
+
 ```json
 {
     "schemaId": "Microsoft.Insights/activityLogs",
@@ -128,7 +218,10 @@ La charge utile JSON contenue dans l’opération POST varie en fonction de cham
 }
 ```
 
+Pour obtenir des informations spécifiques au sujet des schémas des alertes du journal d’activité sur les notifications d’intégrité du service, consultez la page [Notifications d’intégrité du service](../../azure-monitor/platform/service-notifications.md). En outre, découvrez comment [configurer des notifications de Webhook relatives à l’intégrité du service avec vos solutions existantes de gestion des problèmes](../../service-health/service-health-alert-webhook-guide.md).
+
 ### <a name="resourcehealth"></a>ResourceHealth
+
 ```json
 {
     "schemaId": "Microsoft.Insights/activityLogs",
@@ -165,23 +258,19 @@ La charge utile JSON contenue dans l’opération POST varie en fonction de cham
 }
 ```
 
-Pour obtenir des informations spécifiques au sujet des schémas des alertes du journal d’activité sur les notifications d’intégrité du service, consultez la page [Notifications d’intégrité du service](../../azure-monitor/platform/service-notifications.md). En outre, découvrez comment [configurer des notifications de Webhook relatives à l’intégrité du service avec vos solutions existantes de gestion des problèmes](../../service-health/service-health-alert-webhook-guide.md).
-
-Pour obtenir des informations spécifiques au sujet des schémas de toutes les autres alertes du journal d’activité, consultez la page [Vue d’ensemble du journal d’activité Azure](../../azure-monitor/platform/activity-logs-overview.md).
-
 | Nom de l'élément | Description |
 | --- | --- |
 | status |Utilisé pour les alertes de métrique. Toujours défini sur « activé » pour les alertes du journal d’activité. |
 | context |Contexte de l’événement. |
 | resourceProviderName |Fournisseur de la ressource affectée. |
 | conditionType |Toujours défini sur « Event ». |
-| name |Nom de la règle d’alerte. |
+| Nom |Nom de la règle d’alerte. |
 | id |ID de ressource de l’alerte. |
 | description |Description de l’alerte définie à la création de l’alerte. |
 | subscriptionId |ID d’abonnement Azure. |
 | timestamp |Heure à laquelle l’événement a été généré par le service Azure qui a traité la demande. |
-| ResourceId |ID de ressource de la ressource affectée. |
-| nom_groupe_ressources |Nom du groupe de ressources de la ressource affectée. |
+| resourceId |ID de ressource de la ressource affectée. |
+| resourceGroupName |Nom du groupe de ressources de la ressource affectée. |
 | properties |Ensemble de paires `<Key, Value>` (c’est-à-dire, `Dictionary<String, String>`) incluant des détails sur l’événement. |
 | événement |Élément contenant des métadonnées relatives à l’événement. |
 | autorisation |Propriétés de contrôle d’accès en fonction du rôle de l’événement. Il s’agit généralement de l’action, du rôle et de l’étendue. |
@@ -198,6 +287,8 @@ Pour obtenir des informations spécifiques au sujet des schémas de toutes les a
 | properties |Les propriétés de l’événement. |
 | status |Chaîne. État de l’opération. Les valeurs courantes sont : Started, In Progress, Succeeded, Failed, Active et Resolved. |
 | subStatus |Inclut généralement le code d’état HTTP de l’appel REST correspondant. Peut également inclure d’autres chaînes décrivant un sous-état. Les valeurs de sous-état courantes incluent OK (Code d’état HTTP : 200), Créé (code d’état HTTP : 201), Accepté (code d’état HTTP : 202, Aucun contenu (code d’état HTTP : 204, Requête incorrecte (code d’état HTTP : 400, Introuvable (code d’état HTTP : 404), Conflit (code d’état HTTP : 409), Erreur interne du serveur (code d’état HTTP : 500), Service indisponible (code d’état HTTP : 503) et Dépassement de délai de la passerelle (code d’état HTTP : 504). |
+
+Pour obtenir des informations spécifiques au sujet des schémas de toutes les autres alertes du journal d’activité, consultez la page [Vue d’ensemble du journal d’activité Azure](../../azure-monitor/platform/activity-logs-overview.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [En savoir plus sur le journal d’activité](../../azure-monitor/platform/activity-logs-overview.md).

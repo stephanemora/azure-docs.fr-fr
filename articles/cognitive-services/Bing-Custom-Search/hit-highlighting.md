@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: maheshb
-ms.openlocfilehash: bf87db232484a8ba4fa1e3b8e4de921f152e2345
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 42b30b14e561fd3851a41701d2ecb8d98d5a02ed
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62110116"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445563"
 ---
 # <a name="using-decoration-markers-to-highlight-text"></a>Utilisation de marqueurs d’ornement pour mettre en surbrillance un texte
 
@@ -56,7 +56,7 @@ Si `textDecorations` est **true**, Bing peut inclure les marqueurs suivants dans
 |U+E018|\<sup&gt;|Marque le début du contenu en exposant
 |U+E019|\</sup&gt;|Marque la fin du contenu en exposant
 
-L’exemple suivant illustre une réponse `Computation` contenant des marqueurs de type indice pour un terme de requête log(2). Le champ `expression` contient les marqueurs uniquement si textDecoration est **true**.
+L’exemple suivant illustre une réponse `Computation` contenant des marqueurs de type indice pour un terme de requête log(2). Le champ `expression` contient les marqueurs uniquement si `textDecoration` est **true**.
 
 ![marqueurs de calcul](./media/bing-markers-computation.PNG) 
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: magoedte
-ms.openlocfilehash: 27db27d79a05f24461e63242c0395cfd81315432
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 22802950c68dc5a3cf0df8ee26ff38ccb937b551
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60782767"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295516"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Gérer les données du journal et les espaces de travail dans Azure Monitor
 Azure Monitor stocke les données de journal d’activité dans un espace de travail Log Analytics, qui n’est autre qu’un conteneur de données et d’informations de configuration. Pour gérer l'accès aux données de journal, vous accomplissez diverses tâches administratives liées aux espaces de travail. Vous ou d’autres membres de votre organisation pouvez utiliser plusieurs espaces de travail pour gérer différents ensembles de données provenant de tout ou partie de votre infrastructure informatique.
@@ -278,7 +278,7 @@ Consultez [RBAC au niveau table](#table-level-rbac) ci-après si vous souhaitez 
 ## <a name="table-level-rbac"></a>RBAC au niveau table
 Le **RBAC au niveau table** vous permet de fournir un contrôle plus précis sur les données dans un espace de travail Log Analytics en plus des autres autorisations. Avec ce contrôle, vous pouvez définir des types de données spécifiques qui sont accessibles uniquement à un ensemble spécifique d’utilisateurs.
 
-Vous implémentez le contrôle d’accès au niveau table avec des [rôles personnalisés Azure](../../role-based-access-control/custom-roles.md) pour accorder ou refuser l’accès à des [tables](../log-query/log-query-overview.md#how-azure-monitor-log-data-is-organized) spécifiques dans l’espace de travail. Ces rôles sont appliqués aux espaces de travail dont le [mode de contrôle d’accès](#access-control-mode) est centré sur l’espace de travail ou centré sur la ressource, quel que soit le [mode d’accès](#access-modes) de l’utilisateur.
+Vous implémentez le contrôle d’accès au niveau table avec des [rôles personnalisés Azure](../../role-based-access-control/custom-roles.md) pour accorder ou refuser l’accès à des [tables](../log-query/logs-structure.md) spécifiques dans l’espace de travail. Ces rôles sont appliqués aux espaces de travail dont le [mode de contrôle d’accès](#access-control-mode) est centré sur l’espace de travail ou centré sur la ressource, quel que soit le [mode d’accès](#access-modes) de l’utilisateur.
 
 Créez un [rôle personnalisé](../../role-based-access-control/custom-roles.md) avec les actions suivantes pour définir le contrôle d’accès à une table.
 

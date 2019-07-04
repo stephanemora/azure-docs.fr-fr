@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 4f3fb624f5e6137c9edb0be97adc16d8c808ebd9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f60a41c48b3e78b860dca0e93d399420900dbd46
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65523067"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485437"
 ---
 # <a name="how-to-index-json-blobs-using-azure-search-blob-indexer"></a>Comment indexer des objets Blob JSON avec l’indexeur d’objets Blob Recherche Azure
 Cet article explique comment configurer un [indexeur](search-indexer-overview.md) d’objets Blob Recherche Azure pour extraire le contenu structuré de documents JSON dans Stockage Blob Azure et pouvoir le rechercher dans Recherche Azure. Ce flux de travail crée un index Recherche Azure et le charge avec le texte existant extrait d’objets Blob JSON. 
@@ -118,7 +118,7 @@ Vous pouvez utiliser l’API REST pour indexer des objets Blob JSON en suivant u
 
 Vous pouvez consulter l’[exemple de code REST](#rest-example) à la fin de cette section qui montre comment créer les trois objets. Cette section fournit également des détails sur les [modes d’analyse JSON](#parsing-modes), les [objets Blob uniques](#parsing-single-blobs), les [tableaux JSON](#parsing-arrays) et les [tableaux imbriqués](#nested-json-arrays).
 
-Pour l’indexation JSON basée sur le code, utilisez [Postman](search-fiddler.md) et l’API REST pour créer ces objets :
+Pour l’indexation JSON basée sur le code, utilisez [Postman](search-get-started-postman.md) et l’API REST pour créer ces objets :
 
 + [index](https://docs.microsoft.com/rest/api/searchservice/create-index)
 + [source de données](https://docs.microsoft.com/rest/api/searchservice/create-data-source)
@@ -136,7 +136,7 @@ Les objets Blob JSON dans Stockage Blob Azure se composent généralement d’un
 
 ### <a name="1---assemble-inputs-for-the-request"></a>1 - Assembler des entrées pour la requête
 
-Pour chaque requête, vous devez fournir le nom du service et la clé d’administration pour Recherche Azure (dans l’en-tête POST), ainsi que le nom du compte de stockage et la clé pour le stockage d’objets Blob. Vous pouvez utiliser [Postman](search-fiddler.md) pour envoyer des requêtes HTTP à Recherche Azure.
+Pour chaque requête, vous devez fournir le nom du service et la clé d’administration pour Recherche Azure (dans l’en-tête POST), ainsi que le nom du compte de stockage et la clé pour le stockage d’objets Blob. Vous pouvez utiliser [Postman](search-get-started-postman.md) pour envoyer des requêtes HTTP à Recherche Azure.
 
 Copiez les quatre valeurs suivantes dans le bloc-notes pour pouvoir les coller dans une requête :
 

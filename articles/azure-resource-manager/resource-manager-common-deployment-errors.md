@@ -1,26 +1,19 @@
 ---
 title: Résolution des erreurs courantes lors du déploiement Azure | Microsoft Docs
 description: Décrit comment résoudre les erreurs courantes lors du déploiement de ressources sur Azure à l’aide d’Azure Resource Manager.
-services: azure-resource-manager
-documentationcenter: ''
 tags: top-support-issue
 author: tfitzmac
-manager: timlt
-editor: tysonn
 keywords: erreur de déploiement, déploiement Azure, déployer dans azure
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 02/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: f6ebeb1d9953311ad1cb85d8ab33c83d5e92d687
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fea7f77b1f4bcace23ad9164354c4f42e868869f
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66128569"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206337"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Résolution des erreurs courantes dans des déploiements Azure avec Azure Resource Manager
 
@@ -169,7 +162,7 @@ Ou examinez la réponse avec :
 
 Ces informations peuvent vous aider à déterminer si une valeur dans le modèle n’est pas définie correctement.
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>D’Azure CLI
 
 Actuellement, Azure CLI ne prend pas en charge l’activation de la journalisation du débogage, mais vous pouvez récupérer la journalisation du débogage.
 

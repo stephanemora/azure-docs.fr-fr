@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.openlocfilehash: a4c601e81390efa3bb53a6f07225bb6e939bc9bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1ec4e9cbfd1d70c128f530bd996793a49c8a7d00
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64726445"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484136"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Créer des applications Java pour Apache HBase
 
@@ -34,9 +34,6 @@ La procédure décrite dans ce document utilise [Apache Maven](https://maven.apa
 * Si vous utilisez PowerShell, vous avez besoin du [module AZ](https://docs.microsoft.com/powershell/azure/overview).
 
 * Un éditeur de texte Cet article utilise Microsoft Notepad.
-
-> [!IMPORTANT]  
-> Les cmdlets Azure PowerShell [Get-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster) et [Get-AzHDInsightJobOutput](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightjoboutput) ne fonctionnent pas actuellement lorsque le [transfert sécurisé](../../storage/common/storage-require-secure-transfer.md) est activé sur le compte de stockage.
 
 ## <a name="test-environment"></a>Environnement de test
 L’environnement utilisé pour cet article était un ordinateur exécutant Windows 10.  Les commandes ont été exécutées dans une invite de commandes, et les différents fichiers ont été modifiés avec le bloc-notes. Modifiez en conséquence pour votre environnement.

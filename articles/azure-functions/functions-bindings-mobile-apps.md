@@ -4,19 +4,19 @@ description: Découvrez comment utiliser des liaisons Azure Mobile Apps dans Azu
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: azure functions, fonctions, traitement des événements, calcul dynamique, architecture sans serveur
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 5fd220f15f363c1987f1576009519e4b2feae6b9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 965ec88b39336e71d2779da4b7cd31b9c26e28be
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61438123"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67480362"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Liaisons Mobile Apps pour Azure Functions 
 
@@ -163,7 +163,7 @@ Dans les fonctions JavaScript, l’enregistrement est passé à l’objet `conte
 
 Dans les fonctions C# et F#, toutes les modifications apportées à l’enregistrement d’entrée (paramètre d’entrée) sont automatiquement renvoyées à la table une fois que la fonction s’est correctement terminée. Vous ne pouvez pas modifier un enregistrement dans les fonctions JavaScript.
 
-## <a name="output"></a>Sortie
+## <a name="output"></a>Output
 
 Utilisez la liaison de sortie Mobile Apps pour écrire un nouvel enregistrement dans une table Mobile Apps.  
 

@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: cf9c56fa2ba75dc5b5ad4af59d111a0124f1a9df
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: ff3dde8ac95b678866ba6f5216ba23357b067765
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39057325"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203553"
 ---
 # <a name="debug-your-apis-using-request-tracing"></a>Déboguer vos API à l’aide du suivi des demandes
 
@@ -34,18 +34,19 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 
-+ Suivez le guide de démarrage rapide suivant : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
-+ Suivez également le didacticiel suivant : [Importer et publier votre première API](import-and-publish.md).
++ Apprenez la [terminologie relative à Gestion des API Azure](api-management-terminology.md).
++ Suivez ce guide de démarrage rapide : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
++ Effectuez également toutes les étapes du tutoriel suivant : [Importer et publier votre première API](import-and-publish.md).
 
 ## <a name="trace-a-call"></a>Suivre un appel
 
+![Suivi API](media/api-management-howto-api-inspector/06-DebugYourAPIs-01-TraceCall.png)
+
 1. Sélectionnez **API**.
 2. Cliquez sur **API de conférence de démonstration** dans votre liste d’API.
-3. Sélectionnez l’opération **GetSpeakers**.
-4. Basculez vers l’onglet **Test**.
+3. Basculez vers l’onglet **Test**.
+4. Sélectionnez l’opération **GetSpeakers**.
 5. Veillez à inclure un en-tête HTTP nommé **Ocp-Apim-Trace** dont la valeur est définie sur **true**.
-
-    ![En-tête de suivi d’API](media/api-management-howto-api-inspector/api-management-tracing-header.png)
 
     > [!NOTE]
     > Si Ocp-Apim-Subscription-Key n’est pas rempli automatiquement, vous pouvez le récupérer en accédant au portail des développeurs et en exposant les clés sur la page de profil.
@@ -57,9 +58,9 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
     La section **Entrant** contient la demande d’origine reçue par le service Gestion des API de la part de l’appelant et toutes les stratégies appliquées à la demande, y compris les stratégies rate-limit et set-header que nous avons ajoutées à l’étape 2.
 
     La section **Principal** affiche les demandes envoyées par le service Gestion des API au backend d’API et la réponse qu’il a reçue.
-    
+
     La section **Sortant** présente toutes les stratégies appliquées à la réponse avant son envoi à l’appelant.
- 
+
     > [!TIP]
     > Chaque étape indique également le temps écoulé depuis la réception de la demande par le service Gestion des API.
 

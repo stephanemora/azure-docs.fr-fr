@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 6838f4db240a0712eece7a97bc2cfe99efb87215
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 130ab6ee8e59b157d1fbdd8769f14814445dea18
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61429672"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67202756"
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>Scénarios d’analyses avancées dans Azure Machine Learning
 Cet article présente les divers exemples de sources de données et les scénarios cibles qui peuvent être gérés par le processus [TDSP (Team Data Science Process)](overview.md). Le processus TDSP fournit une approche systématique permettant aux équipes de collaborer à la création d’applications intelligentes. Les scénarios présentés ici illustrent les options disponibles dans le flux de travail de traitement basées sur les caractéristiques des données, les emplacements sources et les référentiels cibles dans Azure.
@@ -239,7 +239,7 @@ Pour répliquer l’ensemble de la base de données SQL Server dans votre machi
 1. Flux d’expérience Azure Machine Learning simple commençant par le jeu de données téléchargé.
 
 ## <a name="decisiontree"></a>Arbre de décision pour le choix du scénario
-- - -
+---
 Le schéma suivant résume les scénarios décrits ci-dessus et les processus de science des données ainsi que les choix technologiques effectués qui vous guident vers chacun des scénarios détaillés. Notez que le traitement des données, l’exploration, la conception de fonctionnalités et l’échantillonnage peuvent survenir dans un(e) ou plusieurs méthodes/environnements (dans l’environnement source, l’environnement intermédiaire et/ou l’environnement cible) et peuvent s’effectuer de manière itérative en fonction des besoins. Le schéma illustre uniquement les flux possibles et ne fournit pas d’énumération exhaustive.
 
 ![Exemples de scénarios de procédure pas à pas pour le processus DS][8]

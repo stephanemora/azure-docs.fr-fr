@@ -2,19 +2,19 @@
 title: Qu’est-ce qu’un score BLEU ? - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: BLEU est une mesure des différences entre une traduction automatique et une ou plusieurs traductions de référence créées par l’homme pour une même phrase source. L’algorithme BLEU compare les phrases consécutives de la traduction automatique avec les phrases consécutives qu’il trouve dans la traduction de référence, et il compte le nombre de correspondances de manière pondérée.
-author: rajdeep-in
+author: swmachan
 manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/21/2019
-ms.author: v-pawal
-ms.openlocfilehash: 08be79dde62a1d624fa59816cf855e702245b622
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: swmachan
+ms.openlocfilehash: a77fd1a84c1ffc18a1e0c74000c72db5cdbb00e1
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66385164"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447376"
 ---
 # <a name="what-is-a-bleu-score"></a>Qu’est-ce qu’un score BLEU ?
 

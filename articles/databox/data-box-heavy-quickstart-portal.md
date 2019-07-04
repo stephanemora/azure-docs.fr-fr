@@ -8,12 +8,12 @@ ms.subservice: heavy
 ms.topic: quickstart
 ms.date: 06/04/2019
 ms.author: alkohli
-ms.openlocfilehash: 930da7367b3f5d7e20617afedef007efea97c51a
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 3467b25c085fb86d4aed3918d5446d118f76ffb8
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515938"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446732"
 ---
 # <a name="quickstart-deploy-azure-data-box-heavy-using-the-azure-portal"></a>Démarrage rapide : Déployer Azure Data Box Heavy à l’aide du portail Azure
 
@@ -57,7 +57,7 @@ Avant de commencer, assurez-vous que :
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
-Connectez-vous au portail Azure sur [http://portal.azure.com](http://portal.azure.com).
+Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="order"></a>Ordre
 
@@ -95,7 +95,7 @@ Cette étape prend environ 10 à 15 minutes.
 
 Cette étape prend environ 5 à 7 minutes.
 
-1. Pour obtenir le mot de passe du support, accédez à **Général > Détails du support** dans le [portail Azure](http://portal.azure.com). Le même mot de passe même est utilisé pour les deux nœuds de l’appareil.
+1. Pour obtenir le mot de passe du support, accédez à **Général > Détails du support** dans le [portail Azure](https://portal.azure.com). Le même mot de passe même est utilisé pour les deux nœuds de l’appareil.
 2. Assignez une adresse IP statique 192.168.100.5 et le sous-réseau 255.255.255.0 à la carte Ethernet de l’ordinateur que vous utilisez pour vous connecter à Data Box Heavy. Accédez à l’interface utilisateur web locale de l’appareil à l’adresse `https://192.168.100.10`. Une fois l’appareil sous tension, la connexion peut prendre jusqu'à 5 minutes.
 3. Connectez-vous avec le mot de passe à partir du portail Azure. Une erreur vous signale un problème avec le certificat de sécurité du site web. Suivez les instructions spécifiques au navigateur pour afficher la page web.
 4. Par défaut, les paramètres réseau des interfaces (à l’exception de MGMT) sont configurés en mode DHCP. Si nécessaire, vous pouvez configurer ces interfaces en mode statique et fournir une adresse IP.

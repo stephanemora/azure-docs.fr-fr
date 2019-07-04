@@ -2,22 +2,22 @@
 title: fichier à inclure (flux d’appareil)
 description: Fichier Include
 services: iot-hub
-author: rezas
+author: robinsh
 ms.service: iot-hub
 ms.topic: include
 ms.date: 01/15/2019
-ms.author: rezas
+ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 155e36bf4198eb18f5505483ea13a287f88a5022
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: 46ab75f161692dd048c19698af7027d0e0622b37
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66733277"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446017"
 ---
 Si vous envisagez de passer à l’article recommandé suivant, vous pouvez conserver et réutiliser les ressources déjà créées.
 
-Sinon, vous pouvez supprimer les ressources Azure créées dans cet article pour éviter des frais. 
+Sinon, vous pouvez supprimer les ressources Azure créées dans cet article pour éviter des frais.
 
 > [!IMPORTANT]
 > La suppression d’un groupe de ressources est irréversible. Le groupe de ressources et toutes les ressources qu’il contient sont supprimés définitivement. Veillez à ne pas supprimer accidentellement les mauvaises ressources ou le mauvais groupe de ressources. Si vous avez créé le hub IoT à l’intérieur d’un groupe de ressources existant qui contient des ressources que vous souhaitez conserver, supprimez uniquement la ressource du hub IoT, plutôt que le groupe de ressources.
@@ -27,7 +27,7 @@ Pour supprimer un groupe de ressources par nom :
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com), puis sélectionnez **Groupes de ressources**.
 
-1. Dans la zone **Filtrer par nom**, entrez le nom du groupe de ressources contenant votre hub IoT. 
+1. Dans la zone **Filtrer par nom**, entrez le nom du groupe de ressources contenant votre hub IoT.
 
 1. Dans la liste des résultats, à droite de votre groupe de ressources, sélectionnez les points de suspension ( **...** ), puis **Supprimer le groupe de ressources**.
 

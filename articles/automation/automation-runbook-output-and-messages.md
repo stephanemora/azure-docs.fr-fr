@@ -4,17 +4,17 @@ description: Décrit comment créer et récupérer la sortie et les messages d�
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 12/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1cbf91af4e91f41fff30a7edfa869d07a21b881e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 27dd9888d83e01ea522b2532fc1d65284f2fe8d1
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61226967"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476920"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Sortie et messages de Runbook dans Azure Automation
 La plupart des Runbooks Azure Automation ont une certaine forme de sortie. Cette sortie peut être un message d’erreur destiné à l’utilisateur ou un objet complexe que vous souhaitez utiliser avec un autre Runbook. Windows PowerShell fournit [plusieurs flux](/powershell/module/microsoft.powershell.core/about/about_redirection) pour l’envoi d’une sortie à partir d’un script ou d’un flux de travail. Azure Automation fonctionne différemment avec chaque flux. Vous devez suivre les meilleures pratiques d’utilisation lorsque vous créez un Runbook.
@@ -23,7 +23,7 @@ Le tableau suivant fournit une brève description de chacun des flux et de leur 
 
 | Stream | Description | Publié | Test |
 |:--- |:--- |:--- |:--- |
-| Sortie |Objets destinés à être consommés par d’autres Runbooks. |Consignation dans l’historique des tâches. |Affichage dans le volet de sortie du test. |
+| Output |Objets destinés à être consommés par d’autres Runbooks. |Consignation dans l’historique des tâches. |Affichage dans le volet de sortie du test. |
 | Avertissement |Message d’avertissement destiné à l’utilisateur. |Consignation dans l’historique des tâches. |Affichage dans le volet de sortie du test. |
 | Error |Message d’erreur destiné à l’utilisateur. Contrairement à une exception, le Runbook se poursuit après un message d’erreur par défaut. |Consignation dans l’historique des tâches. |Affichage dans le volet de sortie du test. |
 | Détaillé |Messages fournissant des informations générales ou de débogage. |Consignation dans l’historique des tâches uniquement si la journalisation documentée est activée pour le Runbook. |Affichage dans le volet de sortie du test uniquement si la préférence $VerbosePreference a la valeur Continue dans le Runbook. |

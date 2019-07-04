@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: shlo
-ms.openlocfilehash: e96e462709ab0c715c831bd10c628869d5c617fe
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 722d77bf27e3cd7eb921b09e0a1d4732a5b5f874
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60319229"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514417"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Déclencher des alertes et surveiller les fabriques de données avec Azure Monitor
 Les applications cloud sont complexes, et se composent de nombreux éléments mobiles. L’analyse fournit des données visant à garantir que votre application reste opérationnelle et soit exécutée en toute intégrité. Elle vous permet également de parer à des problèmes potentiels ou de résoudre des problèmes déjà survenus. En outre, vous pouvez utiliser les données d’analyse pour obtenir des informations détaillées sur votre application. Ces connaissances peuvent vous aider à améliorer les performances ou la facilité de gestion de l’application, ou à automatiser des actions qui exigeraient normalement une intervention manuelle.
@@ -112,7 +112,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | journaux d’activité| Type complexe| Nom d’une catégorie de journal de diagnostic pour un type de ressource. Pour obtenir la liste des catégories de journal de diagnostic pour une ressource, commencez par effectuer une opération d’obtention (GET) des paramètres de diagnostic. |
 | category| Chaîne| Tableau de catégories de journal et leurs stratégies de rétention. |
 | timeGrain | Chaîne | Granularité des métriques capturées au format de durée ISO 8601. Elle doit être de PT1M (une minute).|
-| Activé| Boolean | Indique si la collection de cette métrique ou catégorie de journal est activée pour cette ressource.|
+| enabled| Boolean | Indique si la collection de cette métrique ou catégorie de journal est activée pour cette ressource.|
 | retentionPolicy| Type complexe| Décrit la stratégie de rétention pour une métrique ou une catégorie de journal. Utilisé pour l’option de compte de stockage uniquement.|
 | days| Int| Nombre de jours durant lesquels les métriques ou les journaux d’activité sont conservés. La valeur 0 indique que les journaux d’activité sont conservés indéfiniment. Utilisé pour l’option de compte de stockage uniquement. |
 
@@ -387,7 +387,7 @@ ADFV2 émet les métriques suivantes :
 
 | **Mesure**           | **Nom d’affichage de la métrique**         | **Unité** | **Type d’agrégation** | **Description**                                       |
 |----------------------|---------------------------------|----------|----------------------|-------------------------------------------------------|
-| PipelineSucceededRun | Métriques d’exécutions de pipeline ayant abouti | Nombre    | Total                | Nombre total d’exécutions de pipeline ayant abouti en une minute |
+| PipelineSucceededRuns | Métriques d’exécutions de pipeline ayant abouti | Nombre    | Total                | Nombre total d’exécutions de pipeline ayant abouti en une minute |
 | PipelineFailedRuns   | Métriques d’exécutions de pipeline ayant échoué    | Nombre    | Total                | Nombre total d’exécutions de pipeline ayant échoué en une minute    |
 | ActivitySucceededRuns | Métriques d’exécutions d’activité ayant abouti | Nombre    | Total                | Nombre total d’exécutions d’activité ayant abouti en une minute  |
 | ActivityFailedRuns   | Métriques d’exécutions d’activité ayant échoué    | Nombre    | Total                | Nombre total d’exécutions d’activité ayant échoué en une minute     |

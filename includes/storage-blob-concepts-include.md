@@ -9,11 +9,11 @@ ms.date: 11/18/2018
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 8a85a21d47733bb031ea8ca16f776ea8c2df6da2
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66158674"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176744"
 ---
 Le stockage Blob Azure est la solution de stockage d’objet de Microsoft pour le cloud. Le stockage Blob est optimisé pour stocker de grandes quantités de données non structurées. Les données non structurées sont des données qui n’obéissent pas à un modèle ou une définition de données en particulier, comme des données texte ou binaires.
 

@@ -1,25 +1,17 @@
 ---
 title: Fonctions de modèle Azure Resource Manager - numérique| Microsoft Docs
 description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour travailler avec des nombres.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
-ms.assetid: ''
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: 5ed3a0a57dad61a5fe783790eba4cb89ce19c660
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f63ce16369fd1ff58d5368b43c3c730008e63d9a
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66128651"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206413"
 ---
 # <a name="numeric-functions-for-azure-resource-manager-templates"></a>Fonctions numériques pour les modèles Azure Resource Manager
 
@@ -120,7 +112,7 @@ Retourne l’index d’une boucle d’itération.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| loopName | Non | chaîne | Nom de la boucle pour l’obtention de l’itération. |
+| loopName | Non | string | Nom de la boucle pour l’obtention de l’itération. |
 | Offset |Non |int |Le nombre à ajouter à la valeur d’itération de base zéro. |
 
 ### <a name="remarks"></a>Remarques

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: 345f492c5b2c754cbbcfa150561ee06b5a4154a5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ede0538e90e9f35797546f34bfed757c2727b194
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64718691"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508880"
 ---
 # <a name="run-apache-sqoop-jobs-in-hdinsight-with-curl"></a>Exécuter des tâches Apache Sqoop dans HDInsight avec Curl
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -115,4 +115,4 @@ Pour d’autres articles HDInsight impliquant curl :
 * [Créer des clusters Apache Hadoop à l’aide de l’API REST Azure](../hdinsight-hadoop-create-linux-clusters-curl-rest.md)
 * [Exécuter des requêtes Apache Hive avec Apache Hadoop dans HDInsight à l’aide de REST](apache-hadoop-use-hive-curl.md)
 * [Exécuter des tâches MapReduce avec Apache Hadoop sur HDInsight à l’aide de REST](apache-hadoop-use-mapreduce-curl.md)
-* [Exécuter des tâches Apache Pig avec Apache Hadoop sur HDInsight à l’aide de cURL](apache-hadoop-use-pig-curl.md)
+

@@ -2,27 +2,21 @@
 title: Référence des paramètres d’itinérance Windows 10 | Microsoft Docs
 description: Liste complète de tous les paramètres destinés à l’itinérance ou à la sauvegarde dans Windows 10.
 services: active-directory
-keywords: Enterprise State Roaming, Cloud windows
-documentationcenter: ''
+ms.service: active-directory
+ms.subservice: devices
+ms.topic: troubleshooting
+ms.date: 06/28/2019
+ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-editor: curtand
-ms.subservice: devices
-ms.assetid: 17cffc3e-2928-4235-91f7-a685bd6bdcbf
-ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/30/2019
-ms.author: joflore
+ms.reviewer: na
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6c80ee5d2a4d72be131c6a781cf793d1981e780
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9489228b6ba81ae8d09e0f6880634532d0c836c6
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60353258"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67481808"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Référence des paramètres d’itinérance Windows 10
 Voici une liste complète de tous les paramètres destinés à l’itinérance ou à la sauvegarde dans Windows 10. 
@@ -184,4 +178,3 @@ Version minimale du système d’exploitation prise en charge : Windows Creators
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour une vue d’ensemble, consultez [Vue d’ensemble d’Enterprise State Roaming](enterprise-state-roaming-overview.md).
-

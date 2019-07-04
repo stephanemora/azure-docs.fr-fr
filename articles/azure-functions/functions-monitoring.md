@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: glenga
-ms.openlocfilehash: fecf6759dd7b277dda10fa2656e6ae9407490370
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 581b7cc09089b5f48938bc9677eca6b9dc3731d3
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64922961"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442292"
 ---
 # <a name="monitor-azure-functions"></a>Surveiller l’exécution des fonctions Azure
 
@@ -624,7 +624,11 @@ Cela permet de connecter votre application au service de diffusion en continu de
 
 ![Afficher la diffusion de journaux d’activité en continu dans le portail](./media/functions-monitoring/streaming-logs-window.png)
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="visual-studio-code"></a>Visual Studio Code
+
+[!INCLUDE [functions-enable-log-stream-vs-code](../../includes/functions-enable-log-stream-vs-code.md)]
+
+### <a name="azure-cli"></a>D’Azure CLI
 
 Vous pouvez activer les journaux de diffusion en continu en utilisant [Azure CLI](/cli/azure/install-azure-cli). Utilisez les commandes suivantes pour vous connecter, choisir votre abonnement et diffuser en continu les fichiers journaux :
 

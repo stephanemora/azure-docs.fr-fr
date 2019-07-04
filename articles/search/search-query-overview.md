@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 95f5dde12ad9e34a0a04c988a816538ac30e01e6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 422e9209609eac19b7952557674c99789d9f6088
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65595981"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485186"
 ---
 # <a name="how-to-compose-a-query-in-azure-search"></a>Rédiger une requête dans Recherche Azure
 
@@ -29,7 +29,7 @@ Le tableau suivant liste les API et les approches basées sur des outils pour en
 | Méthodologie | Description |
 |-------------|-------------|
 | [Navigateur de recherche (portail)](search-explorer.md) | Fournit une barre de recherche et des options pour les sélections d’index et de version d’API. Les résultats sont retournés sous forme de documents JSON. <br/>[En savoir plus.](search-get-started-portal.md#query-index) | 
-| [Postman ou Fiddler](search-fiddler.md) | Les outils de test web constituent un excellent choix pour formuler des appels REST. L’API REST prend en charge toutes les opérations possibles dans Recherche Azure. Dans cet article, découvrez comment configurer un en-tête et un corps de requête HTTP pour l’envoi de requêtes à Recherche Azure.  |
+| [Postman ou Fiddler](search-get-started-postman.md) | Les outils de test web constituent un excellent choix pour formuler des appels REST. L’API REST prend en charge toutes les opérations possibles dans Recherche Azure. Dans cet article, découvrez comment configurer un en-tête et un corps de requête HTTP pour l’envoi de requêtes à Recherche Azure.  |
 | [SearchIndexClient (.NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | Client que vous pouvez utiliser pour interroger un index Recherche Azure.  <br/>[En savoir plus.](search-howto-dotnet-sdk.md#core-scenarios)  |
 | [Rechercher des documents (API REST)](https://docs.microsoft.com/rest/api/searchservice/search-documents) | Méthodes GET ou POST sur un index, avec paramètres de requête pour une entrée supplémentaire.  |
 

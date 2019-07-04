@@ -9,12 +9,12 @@ services: iot-hub
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/03/2019
-ms.openlocfilehash: a3f72c2a55acfc53d7d8a07bd10250c6ed6102ea
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 03a0f285b2e8c74070a30bfbaac50e9bd9c58f65
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59006903"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051482"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-ios"></a>Démarrage rapide : Envoyer des données de télémétrie à partir d’un appareil vers un hub IoT (iOS)
 
@@ -141,9 +141,3 @@ Pour savoir comment contrôler votre appareil simulé à partir d’une applicat
 
 > [!div class="nextstepaction"]
 > [Démarrage rapide : Contrôler un appareil connecté à un hub IoT](quickstart-control-device-node.md)
-
-<!-- Links -->
-[lnk-process-d2c-tutorial]: tutorial-routing.md
-[lnk-device-management]: iot-hub-node-node-device-management-get-started.md
-[lnk-iot-edge]: ../iot-edge/tutorial-simulate-device-linux.md
-[lnk-connect-device]: https://azure.microsoft.com/develop/iot/

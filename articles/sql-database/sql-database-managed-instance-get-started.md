@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 05/07/2019
-ms.openlocfilehash: f54cea75e6f7866f1be41d3b0f82393af2235a0a
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 27439758c9e2b909bb7179b69c7aade81429f502
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65949871"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070491"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Démarrage rapide : Créer une instance managée Azure SQL Database
 
@@ -73,7 +73,7 @@ Les étapes suivantes détaillent la création d’une instance managée.
 11. Sélectionnez **Déploiement en cours** pour ouvrir la fenêtre de l’instance managée et superviser de façon plus approfondie la progression du déploiement. 
 
 > [!IMPORTANT]
-> Pour la première instance dans un sous-réseau, la durée de déploiement est généralement plus importante que pour les instances ultérieures. N’annulez pas l’opération de déploiement car elle dure plus longtemps que prévu. La création de la deuxième instance managée dans le sous-réseau ne prend que quelques minutes.
+> Pour la première instance dans un sous-réseau, la durée de déploiement est généralement plus importante que pour les instances ultérieures. N’annulez pas l’opération de déploiement car elle dure plus longtemps que prévu.
 
 ## <a name="review-resources-and-retrieve-your-fully-qualified-server-name"></a>Passer en revue les ressources et récupérer le nom complet du serveur
 

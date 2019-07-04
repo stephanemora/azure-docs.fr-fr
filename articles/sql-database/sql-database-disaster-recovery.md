@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 1e1bc92c684bf6ddbb7dc4ff0f882ad61ddeb27e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/21/2019
+ms.openlocfilehash: 00fa1128df03befda8b15be2d7f2c527f65f9973
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61075810"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341073"
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Restaurer une base de données Azure SQL ou basculer vers une base de données secondaire
 
@@ -34,7 +34,7 @@ Pour en savoir plus sur les scénarios de continuité d’activité et les fonct
 > Si vous utilisez des bases de données ou des pools Premium ou Critiques pour l’entreprise redondants interzone, sachez que le processus de récupération est automatisé et que le reste de ce document ne vous sera d’aucune utilité.
 
 > [!NOTE]
-> Les bases de données primaire et secondaire doivent offrir le même niveau de service. Il est également vivement recommandé de créer la base de données secondaire avec la même taille de calcul (DTU ou vCores) que la base de données primaire. Pour plus d’informations, consultez [Mise à niveau ou rétrogradation d’une base de données primaire](sql-database-active-geo-replication.md#upgrading-or-downgrading-a-primary-database).
+> Les bases de données primaire et secondaire doivent offrir le même niveau de service. Il est également vivement recommandé de créer la base de données secondaire avec la même taille de calcul (DTU ou vCores) que la base de données primaire. Pour plus d’informations, consultez [Mise à niveau ou rétrogradation d’une base de données primaire](sql-database-active-geo-replication.md#upgrading-or-downgrading-primary-database).
 
 > [!NOTE]
 > Utilisez un ou plusieurs groupes de basculement pour gérer le basculement de plusieurs bases de données.

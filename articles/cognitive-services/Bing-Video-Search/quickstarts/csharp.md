@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 01/31/2019
+ms.date: 06/19/2019
 ms.author: aahi
-ms.openlocfilehash: ea265ab876dffbb4140d8bbc48123eceaadfe34d
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 06f01875b6173c2b1188c2179b9bc4b3f67c714c
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65798450"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275890"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-c"></a>Démarrage rapide : Rechercher des vidéos à l’aide de l’API REST Recherche de vidéos Bing et C#
 
@@ -24,7 +24,7 @@ Utilisez ce guide de démarrage rapide pour effectuer votre premier appel à l�
 Le code source de cet exemple est disponible sur [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingVideoSearchv7.cs) avec une gestion des erreurs, des fonctionnalités et des annotations de code supplémentaires.
 
 ## <a name="prerequisites"></a>Prérequis
-* N'importe quelle édition de [Visual Studio 2017 ou version ultérieure](https://www.visualstudio.com/downloads/).
+* N’importe quelle édition de [Visual Studio 2017 ou ultérieure](https://www.visualstudio.com/downloads/).
 * Le framework [Json.NET](https://www.newtonsoft.com/json), disponible sous forme de package NuGet.
 * Si vous utilisez Linux/MacOS, cette application peut être exécutée à l’aide de [Mono](https://www.mono-project.com/).
 

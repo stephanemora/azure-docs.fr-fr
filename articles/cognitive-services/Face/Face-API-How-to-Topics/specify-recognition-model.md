@@ -10,12 +10,12 @@ ms.component: face-api
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: longl
-ms.openlocfilehash: 88b0ac853c64e1e32a2d1c429bdf8655158f030d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e8d5c416183a7d475a46c5e538577069612baf8e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65411484"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449003"
 ---
 # <a name="specify-a-face-recognition-model"></a>Spécifier un modèle de reconnaissance faciale
 
@@ -53,7 +53,7 @@ Si vous n’attribuez aucune valeur, la version du modèle par défaut (_recogni
 
 ```csharp
 string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
-var faces = await faceServiceClient.Face.DetectWithUrlAsync(imageUrl, true, true, recognitionModel: "recognition_02", returnRecognitionModel: true);
+var faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, true, true, recognitionModel: "recognition_02", returnRecognitionModel: true);
 ```
 
 ## <a name="identify-faces-with-specified-model"></a>Identifier des visages avec le modèle spécifié
@@ -67,7 +67,7 @@ Consultez l'exemple de code suivant pour la bibliothèque cliente .NET.
 ```csharp
 // Create an empty PersonGroup with "recognition_02" model
 string personGroupId = "mypersongroupid";
-await faceServiceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", recognitionModel: "recognition_02");
+await faceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", recognitionModel: "recognition_02");
 ```
 
 Dans ce code, un objet **PersonGroup** avec l’ID `mypersongroupid` est créé, et il est configuré pour utiliser le modèle _recognition_02_ afin d’extraire les traits du visage.
@@ -83,7 +83,7 @@ Vous pouvez également spécifier un modèle de reconnaissance pour la recherche
 Consultez l'exemple de code suivant pour la bibliothèque cliente .NET.
 
 ```csharp
-await faceServiceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_02");
+await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_02");
 ```
 
 Ce code crée une liste de visages appelée `My face collection`, en utilisant le modèle _recognition_02_ pour l’extraction des traits de visage. Lorsque vous recherchez dans cette liste des visages similaires à un nouveau visage détecté, ce visage doit avoir été détecté ([Face - Detect]) en utilisant le modèle _recognition_02_. Comme dans la section précédente, le modèle doit être cohérent.

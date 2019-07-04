@@ -7,12 +7,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: bcc66a73e3d7986b177b13eb309ad664a006b960
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6878d3b4fc8648db540d016389747eceb45d936a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62118584"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67436173"
 ---
 # <a name="using-azure-batch-with-render-farm-managers"></a>Utilisation d’Azure Batch avec des gestionnaires de groupe de rendus
 
@@ -23,7 +23,7 @@ Azure fournit la prise en charge intégrée ou des modules complémentaires pour
 Les gestionnaires de rendus suivants sont pris en charge :
 
 * [PipelineFX Qube!](https://www.pipelinefx.com/)
-* [Royal Render](http://www.royalrender.de/)
+* [Royal Render](https://www.royalrender.de/)
 * [Thinkbox Deadline](https://deadline.thinkboxsoftware.com/)
 
 ## <a name="using-azure-with-pipelinefx-qube"></a>Utilisation d’Azure avec PipelineFX Qube
@@ -32,7 +32,7 @@ Les scripts et instructions permettant d’utiliser des machines virtuelles du p
 
 ## <a name="using-azure-with-royal-render"></a>Utilisation d’Azure avec Royal Render
 
-Azure et Azure Batch sont intégrés dans Royal Render, ce qui vous permet d’étendre un groupe de rendus avec des machines virtuelles Azure. Pour obtenir un résumé, consultez les [fichiers d’aide](http://www.royalrender.de/help8/index.html?Cloudrendering.html).
+Azure et Azure Batch sont intégrés dans Royal Render, ce qui vous permet d’étendre un groupe de rendus avec des machines virtuelles Azure. Pour obtenir un résumé, consultez les [fichiers d’aide](https://www.royalrender.de/help8/index.html?Cloudrendering.html).
 
 Pour obtenir un exemple d’un client Royal Render utilisant l’intégration d’Azure, consultez le [témoignage client de Jellyfish Pictures](https://customers.microsoft.com/story/jellyfishpictures).
 

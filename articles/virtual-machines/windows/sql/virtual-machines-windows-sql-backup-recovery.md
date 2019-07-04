@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
-ms.openlocfilehash: ab239d0546508d74874c6b6be03f6afc06b08fa7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5c02daef31b29e9a95ddfdedea497604ad0777aa
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60563413"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442640"
 ---
 # <a name="backup-and-restore-for-sql-server-in-azure-virtual-machines"></a>Sauvegarde et restauration de SQL Server dans les machines virtuelles Azure
 
@@ -35,7 +35,7 @@ Le tableau suivant contient des informations sur les différentes options de sau
 | Stratégie | Versions de SQL | Description |
 |---|---|---|
 | [Sauvegarde automatisée](#automated) | 2014<br/> 2016<br/> 2017 | La sauvegarde automatisée vous permet de planifier des sauvegardes régulières pour toutes les bases de données d’une machine virtuelle SQL Server. Les sauvegardes sont stockées dans Stockage Azure pendant 30 jours maximum. Depuis SQL Server 2016, Sauvegarde automatisée v2 offre des options supplémentaires telles que la configuration d’une planification manuelle et la fréquence des sauvegardes complètes et des sauvegardes de fichiers journaux. |
-| [Sauvegarde Azure pour machines virtuelles SQL](#azbackup) | 2012<br/> 2014<br/> 2016<br/> 2017 | Sauvegarde Azure contient une fonctionnalité de sauvegarde Entreprise pour SQL Server exécuté sur des machines virtuelles Azure. Avec ce service, vous pouvez gérer de manière centralisée les sauvegardes de plusieurs serveurs et de milliers de bases de données. Les bases de données peuvent être restaurées à un point spécifique dans le temps dans le portail. Ce service propose une stratégie de rétention personnalisable qui peut conserver des sauvegardes pendant des années. Cette fonctionnalité est actuellement disponible en préversion publique. |
+| [Sauvegarde Azure pour machines virtuelles SQL](#azbackup) | 2008<br/> 2012<br/> 2014<br/> 2016<br/> 2017 | Sauvegarde Azure contient une fonctionnalité de sauvegarde Entreprise pour SQL Server exécuté sur des machines virtuelles Azure. Avec ce service, vous pouvez gérer de manière centralisée les sauvegardes de plusieurs serveurs et de milliers de bases de données. Les bases de données peuvent être restaurées à un point spécifique dans le temps dans le portail. Ce service propose une stratégie de rétention personnalisable qui peut conserver des sauvegardes pendant des années. |
 | [Sauvegarde manuelle](#manual) | Tous | En fonction de votre version de SQL Server, il existe différentes techniques permettant de sauvegarder et de restaurer manuellement SQL Server s’exécutant sur une machine virtuelle Azure. Dans ce scénario, vous êtes chargé du mode de sauvegarde de vos bases de données ainsi que de l’emplacement et la gestion du stockage de ces sauvegardes. |
 
 Les sections suivantes décrivent plus en détail chacune de ces options. La dernière section de cet article contient un résumé sous la forme d’une matrice des fonctionnalités.
