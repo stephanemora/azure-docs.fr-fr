@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 04/25/2019
 ms.author: kgremban
 ms.openlocfilehash: 485a76cb91e5146f59e6be592ffd9cbba68e585a
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66146710"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177180"
 ---
 ## <a name="create-a-container-registry"></a>Créer un registre de conteneur
 
@@ -28,7 +28,7 @@ Si vous ne disposez pas d’un registre de conteneurs, suivez ces étapes pour e
    | Nom du registre | Fournissez un nom unique. |
    | Abonnement | Sélectionnez un abonnement dans la liste déroulante. |
    | Groupe de ressources | Nous vous recommandons d’utiliser le même groupe de ressources pour toutes les ressources de test que vous créez dans le cadre des démarrages rapides et didacticiels IoT Edge. Par exemple, utilisez **IoTEdgeResources**. |
-   | Lieu | Choisissez un emplacement proche de vous. |
+   | Location | Choisissez un emplacement proche de vous. |
    | Utilisateur administrateur | Définissez ce champ sur **Activer**. |
    | SKU | Sélectionnez **De base**. |
 

@@ -6,14 +6,14 @@ author: dcurwin
 manager: ''
 ms.service: backup
 ms.topic: tutorial
-ms.date: 05/22/2019
+ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: bfe48fb1bf6a361ce79d0ddc5281a6380a5367e4
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.openlocfilehash: 5fbbd2cf999ab8ba3183879bd9b417353aa5edd0
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66016114"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203493"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Sauvegarder des bases de données SQL Server sur des machines virtuelles Azure
 
@@ -33,7 +33,7 @@ Cet article vous explique comment sauvegarder dans un coffre Recovery Services d
 Pour pouvoir sauvegarder votre base de données SQL Server, vérifiez les conditions suivantes :
 
 1. Identifiez ou [créez](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) un coffre Recovery Services dans la même région ou avec les mêmes paramètres régionaux que la machine virtuelle qui héberge l’instance SQL Server.
-2. [Vérifiez les autorisations de la machine virtuelle](backup-azure-sql-database.md#fix-sql-sysadmin-permissions) qui sont nécessaires pour sauvegarder les bases de données SQL.
+2. [Vérifiez les autorisations de la machine virtuelle](backup-azure-sql-database.md#set-vm-permissions) qui sont nécessaires pour sauvegarder les bases de données SQL.
 3. Vérifiez que la machine virtuelle dispose d’une [connectivité réseau](backup-sql-server-database-azure-vms.md#establish-network-connectivity).
 4. Vérifiez que les bases de données SQL Server sont nommées conformément aux [instructions de nommage](#verify-database-naming-guidelines-for-azure-backup) pour la sauvegarde Azure.
 5. Vérifiez que vous n’avez aucune autre solution de sauvegarde activée pour la base de données. Désactivez tous les autres sauvegardes SQL Server avant de configurer ce scénario. Vous pouvez activer la Sauvegarde Azure pour une machine virtuelle Azure en même temps que la Sauvegarde Azure pour une base de données SQL Server s’exécutant sur la machine virtuelle, sans aucun conflit.
@@ -61,7 +61,7 @@ La sauvegarde Azure effectue un certain nombre de choses lorsque vous configurez
 - Lors de la découverte des bases de données sur la machine virtuelle, la Sauvegarde Azure crée le compte **NT SERVICE\AzureWLBackupPluginSvc**. Ce compte est utilisé pour la sauvegarde et la restauration, il doit disposer d’autorisations sysadmin SQL.
 - La sauvegarde Azure utilise le compte **NT AUTHORITY\SYSTEM** pour la détection et l’interrogation des bases de données. Ce compte doit donc être une connexion publique sur SQL.
 
-Si vous n’avez pas créé la machine virtuelle SQL Server à partir de la Place de marché Azure, vous pouvez recevoir une erreur **UserErrorSQLNoSysadminMembership**. Si cela se produit, [suivez ces instructions](backup-azure-sql-database.md#fix-sql-sysadmin-permissions).
+Si vous n’avez pas créé la machine virtuelle SQL Server à partir de la Place de marché Azure, vous pouvez recevoir une erreur **UserErrorSQLNoSysadminMembership**. Si cela se produit, [suivez ces instructions](backup-azure-sql-database.md#set-vm-permissions).
 
 ### <a name="verify-database-naming-guidelines-for-azure-backup"></a>Vérifier les instructions de nommage des bases de données pour la sauvegarde Azure
 
@@ -114,7 +114,7 @@ Détectez les bases de données en cours d’exécution sur la machine virtuelle
     - La sauvegarde Azure crée le compte de service **NT Service\AzureWLBackupPluginSvc** sur la machine virtuelle.
       - Toutes les opérations de sauvegarde et de restauration utilisent le compte de service.
       - **NT Service\AzureWLBackupPluginSvc** nécessite des autorisations d’administrateur système SQL. **SqlIaaSExtension** est installé sur toutes les machines virtuelles SQL Server créées dans la Place de marché Azure. L’extension **AzureBackupWindowsWorkload** utilise l’extension **SQLIaaSExtension** pour obtenir automatiquement les autorisations requises.
-    - Si vous n’avez pas créé la machine virtuelle à partir de la Place de marché, **SqlIaaSExtension** n’est pas installé sur la machine virtuelle, et l’opération de découverte échoue avec le message d’erreur **UserErrorSQLNoSysAdminMembership**. Suivez les [instructions](backup-azure-sql-database.md#fix-sql-sysadmin-permissions) pour résoudre ce problème.
+    - Si vous n’avez pas créé la machine virtuelle à partir de la Place de marché, **SqlIaaSExtension** n’est pas installé sur la machine virtuelle, et l’opération de découverte échoue avec le message d’erreur **UserErrorSQLNoSysAdminMembership**. Suivez les [instructions](backup-azure-sql-database.md#set-vm-permissions) pour résoudre ce problème.
 
         ![Sélectionner la machine virtuelle et la base de données](./media/backup-azure-sql-database/registration-errors.png)
 

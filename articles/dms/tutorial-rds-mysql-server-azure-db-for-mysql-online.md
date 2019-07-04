@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 05/08/2019
-ms.openlocfilehash: e971fd160a43be088f6d3c4a9fb6fddc7dd769b0
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 09b90f4b53750b94c0ecee7290d6b5405c984ff9
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415670"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154872"
 ---
 # <a name="tutorial-migrate-rds-mysql-to-azure-database-for-mysql-online-using-dms"></a>Didacticiel : Migrer RDS MySQL vers Azure Database pour MySQL en ligne à l’aide de DMS
 
@@ -54,8 +54,8 @@ Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
 
 * Téléchargez et installez l’exemple de base de données [MySQL **Employés**](https://dev.mysql.com/doc/employee/en/employees-installation.html).
 * Créez une instance d’[Azure Database pour MySQL](https://docs.microsoft.com/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal).
-* Créez un réseau virtuel Azure (VNet) pour Azure Database Migration Service à l’aide du modèle de déploiement Azure Resource Manager qui fournit une connectivité de site à site à vos serveurs sources locaux via [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou un [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Pour plus d’informations sur la création d’un réseau virtuel, consultez la [documentation sur le réseau virtuel](https://docs.microsoft.com/azure/virtual-network/), en particulier les articles sur le démarrage rapide, qui fournissent des informations pas à pas.
-* Vérifiez que les règles du groupe de sécurité réseau de votre réseau virtuel ne bloquent pas les ports de communication entrants suivants d’Azure Database Migration Service : 443, 53, 9354, 445 et 12000. Pour plus d’informations sur le filtrage du trafic de groupe de sécurité réseau de réseau virtuel Azure, voir l’article sur le [filtrage de trafic réseau avec des groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+* Créez un réseau virtuel Azure (VNet) pour le service Azure Database Migration Service à l’aide du modèle de déploiement Azure Resource Manager, qui fournit une connectivité de site à site à vos serveurs sources locaux via [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou un [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Pour plus d’informations sur la création d’un réseau virtuel, consultez la [documentation sur le réseau virtuel](https://docs.microsoft.com/azure/virtual-network/), en particulier les articles sur le démarrage rapide, qui fournissent des informations pas à pas.
+* Vérifiez que les règles du groupe de sécurité réseau de votre réseau virtuel ne bloquent pas les ports de communication entrants suivants d’Azure Database Migration Service : 443, 53, 9354, 445 et 12000. Pour plus d’informations sur le filtrage du trafic de groupe de sécurité réseau de réseau virtuel Azure, consultez l’article [Filtrer le trafic réseau avec les groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 * Configurez votre [pare-feu Windows pour accéder au moteur de base de données](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 * Ouvrez votre pare-feu Windows pour permettre à Azure Database Migration Service d’accéder au serveur MySQL source. Par défaut, il s’agit du port TCP 3306.
 * Lorsque vous utilisez une appliance de pare-feu devant vos bases de données sources, vous devrez peut-être ajouter des règles de pare-feu pour permettre à Azure Database Migration Service d’accéder aux bases de données sources pour la migration.
@@ -116,13 +116,13 @@ Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
         WHERE
           KCU.CONSTRAINT_NAME = RC.CONSTRAINT_NAME
           AND KCU.REFERENCED_TABLE_SCHEMA = RC.UNIQUE_CONSTRAINT_SCHEMA
-      AND KCU.REFERENCED_TABLE_SCHEMA = ['SchemaName') Queries
+      AND KCU.REFERENCED_TABLE_SCHEMA = ('SchemaName') Queries
       GROUP BY SchemaName;
     ```
 
 4. Exécutez le script drop foreign key (qui est la deuxième colonne) dans le résultat de la requête pour supprimer la clé étrangère.
 
-5. Si vous avez un déclencheur (d’insertion ou de mise à jour) dans les données, il appliquera l’intégrité des données dans la cible avant de répliquer les données de la source. Nous vous suggérons de désactiver les déclencheurs dans toutes les tables *côté cible* pendant la migration, puis d’activer les déclencheurs une fois la migration terminée.
+5. Si vous avez un déclencheur (d’insertion ou de mise à jour) dans les données, il appliquera l’intégrité des données dans la cible avant de répliquer les données de la source. Nous vous recommandons de désactiver les déclencheurs dans toutes les tables *côté cible* pendant la migration, puis d’activer les déclencheurs une fois la migration terminée.
 
     Pour désactiver les déclencheurs dans la base de données cible :
 
@@ -167,7 +167,7 @@ Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
 
     Pour plus d’informations sur la création d’un réseau virtuel dans le portail Azure, voir l’article [Créer un réseau virtuel au moyen du portail Azure](https://aka.ms/DMSVnet).
 
-6. Sélectionnez un niveau tarifaire. Pour cette migration en ligne, veillez à sélectionner le niveau Premium : niveau tarifaire 4vCores.
+6. Sélectionnez un niveau tarifaire. Pour cette migration en ligne, sélectionnez le niveau tarifaire Premium : 4vCores.
 
     ![Configurer des paramètres d’instance Azure Database Migration Service](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/dms-settings3.png)
 
@@ -195,7 +195,7 @@ Une fois le service créé, recherchez-le dans le portail Azure, ouvrez-le, puis
     ![Créer un projet Azure Database Migration Service](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/dms-create-project6.png)
 
     > [!NOTE]
-    > Une autre possibilité consiste à choisir **Create project only** (Créer uniquement le projet) pour créer le projet de migration à ce stade et exécuter la migration ultérieurement.
+    > Une autre possibilité consiste à choisir **Créer un projet uniquement** pour créer le projet de migration à ce stade et exécuter la migration ultérieurement.
 
 6. Sélectionnez **Enregistrer**.
 
@@ -236,23 +236,23 @@ Une fois le service créé, recherchez-le dans le portail Azure, ouvrez-le, puis
 
 1. Dans l’écran d’activité de migration, sélectionnez **Actualiser** pour mettre à jour l’affichage jusqu’à ce que le champ **État** de la migration prenne la valeur **En cours d’exécution**.
 
-    ![État de l’activité – En cours d’exécution](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/dms-activity-status4.png)
+    ![État de l’activité – en cours d’exécution](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/dms-activity-status4.png)
 
 2. Sous **NOM DE LA BASE DE DONNÉES**, sélectionnez une base de données spécifique pour obtenir l’état de migration des opérations **Full data load** (Charge complète des données) et **Incremental data sync** (Synchronisation incrémentielle des données).
 
-    L’opération **Full data load** (Charge complète des données) affiche l’état initial de la migration de la charge, tandis que l’opération **Incremental data sync** (Synchronisation incrémentielle des données) indique l’état de capture des changements de données (CDC).
+    L’opération **Full data load** (Charge complète des données) affiche l’état initial de migration de la charge, tandis que l’opération **Incremental data sync** (Synchronisation incrémentielle des données) indique l’état de capture des changements de données (CDC).
 
     ![Écran d’inventaire – charge complète des données](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/dms-inventory-full-load.png)
 
-    ![Écran de l’inventaire – synchronisation incrémentielle des données](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/dms-inventory-incremental.png)
+    ![Écran d’inventaire – synchronisation incrémentielle des données](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/dms-inventory-incremental.png)
 
 ## <a name="perform-migration-cutover"></a>Effectuer le basculement de la migration
 
-Une fois le chargement complet initial effectué, les bases de données sont marquées à l’aide de la mention **Prêt pour le basculement**.
+Une fois le chargement complet initial effectué, les bases de données sont marquées de la mention **Ready to Cutover** (Prêt pour le basculement).
 
 1. Lorsque vous êtes prêt à effectuer la migration de base de données, sélectionnez **Démarrer le basculement**.
 
-    ![Commencer le basculement](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/dms-inventory-start-cutover.png)
+    ![Démarrer le basculement](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/dms-inventory-start-cutover.png)
 
 2. Veillez à arrêter toutes les transactions entrantes pour la base de données source ; attendez que le compteur **Changements en attente** indique la valeur **0**.
 3. Sélectionnez **Confirmer**, puis **Appliquer**.

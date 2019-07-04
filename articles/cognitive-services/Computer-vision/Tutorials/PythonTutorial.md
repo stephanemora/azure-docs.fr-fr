@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Effectuer des opérations sur les images - Python'
+title: 'Didacticiel : Effectuer des opérations sur les images - Python'
 titlesuffix: Azure Cognitive Services
 description: Découvrez comment utiliser l’API Vision par ordinateur avec Python à l’aide de bloc-notes Jupyter. Visualisez vos résultats à l’aide de bibliothèques populaires.
 services: cognitive-services
@@ -11,14 +11,14 @@ ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: b55b1fdf3b93d3865bdb115e43ff8583af61b45d
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: b5333557355aa816245b5086836eac980d90540a
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56326423"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341481"
 ---
-# <a name="tutorial-computer-vision-api-python"></a>Tutoriel : API Vision par ordinateur avec Python
+# <a name="tutorial-computer-vision-api-python"></a>Didacticiel : API Vision par ordinateur avec Python
 
 Ce didacticiel vous montre comment utiliser l’API Vision par ordinateur dans Python et comment visualiser vos résultats à l’aide de bibliothèques populaires. Vous allez utiliser Jupyter pour exécuter le didacticiel. Pour savoir comment prendre en main les notebooks Jupyter interactifs, consultez la [documentation Jupyter](https://jupyter.readthedocs.io/en/latest/index.html).
 
@@ -45,9 +45,10 @@ Vous devez également vous assurer que le champ `_region` correspond à la régi
 
 ```python
 # Variables
-_region = 'westcentralus' #Here you enter the region of your subscription
-_url = 'https://{}.api.cognitive.microsoft.com/vision/v2.0/analyze'.format(_region)
-_key = None #Here you have to paste your primary key
+_region = 'westcentralus'  # Here you enter the region of your subscription
+_url = 'https://{}.api.cognitive.microsoft.com/vision/v2.0/analyze'.format(
+    _region)
+_key = None  # Here you have to paste your primary key
 _maxNumRetries = 10
 ```
 

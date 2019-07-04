@@ -12,16 +12,16 @@ ms.topic: sample
 ms.date: 07/04/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 790d095cfb1b59aed1b9014fc474f9ad6e1b3328
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 19fd73dff045d6d784dd70d1f3ad539a22faf413
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66131300"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075463"
 ---
 # <a name="map-a-custom-domain-to-a-function-app"></a>Mapper un domaine personnalisé à une Function App
 
-Cet exemple de script crée une application de fonction dans un plan App Service, puis la mappe à un domaine personnalisé que vous indiquez. Quand votre application de fonction est hébergée dans un [plan Premium](../functions-scale.md#premium-plan-public-preview) ou un [plan App Service](../functions-scale.md#app-service-plan), vous pouvez mapper un domaine personnalisé à l’aide d’un enregistrement CNAME ou d’un enregistrement A. Pour les applications de fonction dans un [plan Consommation](../functions-scale.md#consumption-plan), seule l’option CNAME est prise en charge. Cet exemple crée un plan App Service et requiert le mappage d’un enregistrement A au domaine. 
+Cet exemple de script crée une application de fonction dans un plan App Service, puis la mappe à un domaine personnalisé que vous indiquez. Quand votre application de fonction est hébergée dans un [plan Premium](../functions-scale.md#premium-plan) ou un [plan App Service](../functions-scale.md#app-service-plan), vous pouvez mapper un domaine personnalisé à l’aide d’un enregistrement CNAME ou d’un enregistrement A. Pour les applications de fonction dans un [plan Consommation](../functions-scale.md#consumption-plan), seule l’option CNAME est prise en charge. Cet exemple crée un plan App Service et requiert le mappage d’un enregistrement A au domaine. 
 
 Pour exécuter cet exemple de script, vous devez avoir déjà configuré un enregistrement A dans votre domaine personnalisé qui pointe vers le nom de domaine par défaut de votre application web. Pour plus d’informations, consultez [Map custom domain instructions for Azure App Service](https://aka.ms/appservicecustomdns) (Mapper des instructions de domaine personnalisé pour Azure App Service). 
 
