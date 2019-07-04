@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 12/10/2018
 ms.author: genemi
 ms.openlocfilehash: e30651cb0ed7d74082163a92acbc428c21018255
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66167218"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177141"
 ---
 ## <a name="c-program-example"></a>Exemple de programme C#
 
@@ -37,7 +37,7 @@ Ensuite, le diagramme affiche la relation entre les deux tables. Les valeurs pr�
 
 Logiquement, le programme C# est un fichier .cs qui est physiquement divisé en plusieurs blocs de code, ce qui rend chaque bloc plus facile à interpréter. Pour compiler et exécuter le programme, effectuez les étapes suivantes :
 
-1. Créez un projet C# dans Visual Studio. Le type de projet doit être une *Console*, située sous **Modèles** > **Visual C#** > **Windows Desktop** > **Application console (.NET Framework)**.
+1. Créez un projet C# dans Visual Studio. Le type de projet doit être une *Console*, située sous **Modèles** > **Visual C#**  > **Windows Desktop** > **Application console (.NET Framework)** .
 
 1. Dans le fichier *Program.cs*, remplacez les lignes de code de démarrage par les étapes suivantes :
 

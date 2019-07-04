@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/28/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: c664e73b39ad48a860661cfd9141ee74df203f3e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3e4549a21ec32f1a2c1c869c3b2e0bd8c2e4204e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67116688"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446561"
 ---
 ## <a name="generate-the-certificate-signing-request-file"></a>Générer le fichier de demande de signature de certificat
 
@@ -49,9 +49,9 @@ Pour envoyer des notifications Push vers une application iOS, inscrivez votre a
 
 1. Mettez à jour les trois valeurs suivantes pour votre nouvelle application, puis sélectionnez **Continue** :
 
-   * **Name** : tapez un nom descriptif pour votre application dans la zone **Name** de la section **App ID Description**.
+   * **Nom** : tapez un nom descriptif pour votre application dans la zone **Name** de la section **App ID Description**.
 
-   * **Bundle Identifier** : dans la section **Explicit App ID**, entrez une valeur **Bundle Identifier** au format `<Organization Identifier>.<Product Name>` comme indiqué dans le [Guide de distribution d’application](https://help.apple.com/xcode/mac/current/#/dev91fe7130a). Les valeurs *Organization Identifier* et *Product Name* doivent correspondre à l’identificateur d’organisation et au nom de produit que vous utiliserez pour créer le projet Xcode. Dans la capture d’écran ci-dessous, la valeur *NotificationHubs* est utilisée comme identificateur d’organisation, tandis que la valeur *GetStarted* correspond au nom du produit. Vérifiez que la valeur **Bundle Identifier** correspond à celle de votre projet Xcode, afin que Xcode utilise le profil de publication correct.
+   * **Identificateur d’offres groupées** : dans la section **Explicit App ID**, entrez une valeur **Bundle Identifier** au format `<Organization Identifier>.<Product Name>` comme indiqué dans le [Guide de distribution d’application](https://help.apple.com/xcode/mac/current/#/dev91fe7130a). Les valeurs *Organization Identifier* et *Product Name* doivent correspondre à l’identificateur d’organisation et au nom de produit que vous utiliserez pour créer le projet Xcode. Dans la capture d’écran ci-dessous, la valeur *NotificationHubs* est utilisée comme identificateur d’organisation, tandis que la valeur *GetStarted* correspond au nom du produit. Vérifiez que la valeur **Bundle Identifier** correspond à celle de votre projet Xcode, afin que Xcode utilise le profil de publication correct.
 
    * **Notifications Push** : cochez l’option **Notifications Push** dans la section **App Services**.
 
@@ -59,13 +59,13 @@ Pour envoyer des notifications Push vers une application iOS, inscrivez votre a
 
      L’ID de votre application est généré et vous êtes invité à confirmer les informations. Sélectionnez **Register** pour confirmer le nouvel ID d’application.
 
-     Une fois que vous avez sélectionné **Register**, le message **Registration complete** s’affiche, comme indiqué dans l’image suivante. Sélectionnez **Done**.
+     Une fois que vous avez sélectionné **Register**, le message **Registration complete** s’affiche, comme indiqué dans l’image suivante. Sélectionnez **Terminé**.
 
      ![Inscription d’ID d’application terminée affichant les droits](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-registration-complete.png)
 
 1. Dans le centre de développement, sous **App IDs**, recherchez l’ID de l’application que vous avez créée et sélectionnez la ligne correspondante.
 
-    ![Liste d’ID d’applications](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-ios-appids2.png)
+    ![Liste d’ID d’application](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-ios-appids2.png)
 
     Sélectionnez l’ID d’application pour afficher les détails de l’application, puis sélectionnez le bouton **Edit** en bas.
 
@@ -117,7 +117,7 @@ Pour envoyer des notifications Push vers une application iOS, inscrivez votre a
 
 1. Dans le [portail de provisionnement iOS](https://go.microsoft.com/fwlink/p/?LinkId=272456), sélectionnez **Provisioning Profiles**, **All**, puis sélectionnez **+** pour créer un profil. L’Assistant **Add iOS Provisioning Profile** apparaît.
 
-    ![Liste de profils de provisionnement](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-provisioning-profile.png)
+    ![Liste du profil d'approvisionnement](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-provisioning-profile.png)
 
 1. Sélectionnez **iOS App Development** sous **Development** en tant que type de profil de provisionnement, puis sélectionnez **Continue**.
 
@@ -135,9 +135,9 @@ Pour envoyer des notifications Push vers une application iOS, inscrivez votre a
 
 1. Pour finir, sélectionnez un nom pour le profil dans **Profile Name**, puis sélectionnez **Generate**.
 
-    ![Choisir un nom de profil de provisionnement](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-name-profile.png)
+    ![Choisir un nom du profil d'approvisionnement](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-name-profile.png)
 
-1. Quand le nouveau profil de provisionnement est créé, choisissez de le télécharger et de l’installer sur votre ordinateur de développement Xcode. Ensuite, sélectionnez **Done**.
+1. Quand le nouveau profil de provisionnement est créé, choisissez de le télécharger et de l’installer sur votre ordinateur de développement Xcode. Ensuite, sélectionnez **Terminé**.
 
     ![Télécharger le profil d’approvisionnement](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-profile-ready.png)
 
