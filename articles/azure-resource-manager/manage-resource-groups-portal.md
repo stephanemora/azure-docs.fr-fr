@@ -5,18 +5,15 @@ services: azure-resource-manager,azure-portal
 documentationcenter: ''
 author: mumian
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: jgao
-ms.openlocfilehash: 559c1874c119eabef2c35a954961c1e669df3c06
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bc3c1a05c64edea260bd177dd7eaefc003db5310
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65507224"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296288"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Gérer les groupes de ressources Azure Resource Manager à l’aide du Portail Azure
 
@@ -83,7 +80,7 @@ Pour plus d’informations sur l’ordre dans lequel Azure Resource Manager supp
 
 ## <a name="deploy-resources-to-a-resource-group"></a>Déployer des ressources sur un groupe de ressources
 
-Lorsque vous avez créé un modèle Resource Manager, vous pouvez utiliser le Portail Azure pour déployer vos ressources Azure. Pour la création d’un modèle, consultez [Démarrage rapide : Créer et déployer des modèles Azure Resource Manager à l’aide du portail Azure](./resource-manager-quickstart-create-templates-use-the-portal.md). Pour le déploiement d’un modèle à l’aide du portail, consultez [Déployer des ressources à l’aide de modèles Resource Manager et du Portail Azure](resource-group-template-deploy-portal.md).
+Lorsque vous avez créé un modèle Resource Manager, vous pouvez utiliser le Portail Azure pour déployer vos ressources Azure. Pour la création d’un modèle, voir [Démarrage rapide : Créer et déployer des modèles Azure Resource Manager à l’aide du portail Azure](./resource-manager-quickstart-create-templates-use-the-portal.md). Pour le déploiement d’un modèle à l’aide du portail, consultez [Déployer des ressources à l’aide de modèles Resource Manager et du Portail Azure](resource-group-template-deploy-portal.md).
 
 ## <a name="move-to-another-resource-group-or-subscription"></a>Déplacer vers un autre groupe de ressources ou abonnement
 
@@ -104,27 +101,19 @@ Pour plus d’informations, consultez [Verrouiller les ressources pour empêcher
 
 ## <a name="tag-resource-groups"></a>Baliser des groupes de ressources
 
-Vous pouvez appliquer des balises à des groupes de ressources pour organiser logiquement vos ressources. Pour plus d’informations, consultez [Organisation des ressources Azure à l’aide d’étiquettes](./resource-group-using-tags.md#portal).
+Vous pouvez appliquer des balises à des groupes de ressources pour organiser logiquement vos ressources. Pour plus d'informations, consultez [Organisation des ressources Azure à l'aide d'étiquettes](./resource-group-using-tags.md#portal).
 
 ## <a name="export-resource-groups-to-templates"></a>Exporter des groupes de ressources dans des modèles
 
 Pour plus d’informations sur l’exportation de modèles, consultez [Single and multi-resource export to template - Portal](export-template-portal.md) (Exportation de ressource unique ou multiple dans un modèle - Portail).
 
-### <a name="fix-export-issues"></a>Résoudre les problèmes d’exportation
-
-Tous les types de ressources prennent en charge la fonction de modèle d’exportation. Vous rencontrerez des problèmes d’exportation uniquement lors de l’exportation à partir d’un groupe de ressources et non à partir de votre historique de déploiement. Si votre dernier déploiement représente précisément l’état actuel du groupe de ressources, vous devez exporter le modèle à partir de l’historique de déploiement, plutôt que depuis le groupe de ressources. Procédez à une exportation à partir d’un groupe de ressources lorsque vous avez apporté des modifications au groupe de ressources qui ne sont pas définies dans un modèle unique.
-
-Pour contourner ces problèmes d’exportation, ajoutez manuellement les ressources manquantes à votre modèle. Le message d’erreur inclut les types de ressources qui ne peuvent pas être exportés. Recherchez le type de ressource dans [Référence de modèle](/azure/templates/). Par exemple, pour ajouter manuellement une passerelle de réseau virtuel, consultez [Référence de modèle Microsoft.Network/virtualNetworkGateways](/azure/templates/microsoft.network/virtualnetworkgateways). La référence de modèle vous donne le JSON permettant d’ajouter la ressource à votre modèle.
-
-Une fois le format JSON obtenu pour la ressource, vous devez récupérer les valeurs de la ressource. Vous pouvez voir les valeurs de la ressource à l’aide de l’opération dGET de l’API REST pour le type de ressource. Par exemple, pour obtenir les valeurs de votre passerelle de réseau virtuel, consultez [Passerelles de réseau virtuel - Obtenir](/rest/api/network-gateway/virtualnetworkgateways/get).
-
-## <a name="manage-access-to-resource-groups"></a>Gérer l’accès aux groupes de ressources
+## <a name="manage-access-to-resource-groups"></a>Gérer l'accès aux groupes de ressources
 
 Le [contrôle d’accès en fonction du rôle (RBAC)](../role-based-access-control/overview.md) est la façon dont vous gérez l’accès aux ressources dans Azure. Pour plus d’informations, consultez [Gérer l’accès à l’aide de RBAC et du portail Azure](../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour découvrir Azure Resource Manager, consultez [Vue d’ensemble d’Azure Resource Manager](./resource-group-overview.md).
-- Pour découvrir la syntaxe des modèles Resource Manager, consultez [Comprendre la structure et la syntaxe des modèles Azure Resource Manager](./resource-group-authoring-templates.md).
-- Pour savoir comment développer des modèles, consultez les [tutoriels pas à pas](/azure/azure-resource-manager/).
-- Pour voir les schémas liés aux modèles Azure Resource Manager, consultez [Informations de référence sur les modèles](/azure/templates/).
+- Pour vous familiariser avec Azure Resource Manager, consultez [Vue d’ensemble d’Azure Resource Manager](./resource-group-overview.md).
+- Pour vous familiariser avec la syntaxe des modèles Resource Manager, consultez [Comprendre la structure et la syntaxe des modèles Azure Resource Manager](./resource-group-authoring-templates.md).
+- Pour apprendre à développer des modèles, consultez les [tutoriels pas à pas](/azure/azure-resource-manager/).
+- Pour accéder aux schémas liés aux modèles Azure Resource Manager, consultez [Informations de référence sur les modèles](/azure/templates/).

@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 6/6/2019
 ms.author: tomfitz
-ms.openlocfilehash: 314b28edbd5770186d96fb2a2b203f26ff27bda0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9ab8fbd8fa0453ca6c89f3e7ad91bea95b0b9096
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752358"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67332000"
 ---
 # <a name="move-operation-support-for-resources"></a>Prise en charge de l’opération de déplacement pour les ressources
 Cet article indique si un type de ressource Azure donné prend en charge l’opération de déplacement. Même si un type de ressource prend en charge l’opération de déplacement, il peut exister des conditions qui empêchent la ressource d’être déplacée. Pour plus d’informations sur les conditions qui affectent les opérations de déplacement, consultez [Déplacer des ressources vers un nouveau groupe de ressources ou un nouvel abonnement](resource-group-move-resources.md).
@@ -564,8 +564,8 @@ Pour obtenir les mêmes données qu'un fichier de valeurs séparées par des vir
 | expressroutecrossconnections | Non | Non |
 | expressroutegateways | Non | Non |
 | expressrouteports | Non | Non |
-| frontdoors | OUI | OUI |
-| frontdoorwebapplicationfirewallpolicies | OUI | OUI |
+| frontdoors | Non | Non |
+| frontdoorwebapplicationfirewallpolicies | Non | Non |
 | loadbalancers | OUI | OUI |
 | localnetworkgateways | OUI | OUI |
 | natgateways | OUI | OUI |

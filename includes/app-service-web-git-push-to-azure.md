@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/03/2016
 ms.author: cephalin
 ms.openlocfilehash: 61490df8305f353493588982886ef3c9ed0df50e
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66138245"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177740"
 ---
 ## <a name="push-to-azure-from-git"></a>Effectuer une transmission de type push vers Azure à partir de Git
 

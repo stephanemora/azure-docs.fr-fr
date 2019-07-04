@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: reference
 ms.date: 08/15/2018
-ms.openlocfilehash: 506076e2d9b171e1ec1ff604519cbbfbe4339e87
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f5e2af7a7118eaa95e43049b3594ffd584aad4cc
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66733069"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203075"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps-and-microsoft-flow"></a>Référence de fonctions du langage de définition de flux de travail dans Azure Logic Apps et Microsoft Flow
 
@@ -93,7 +93,7 @@ Les fonctions de chaîne sont uniquement utilisables sur des chaînes.
 | [substring](../logic-apps/workflow-definition-language-functions-reference.md#substring) | Renvoyer les caractères d’une chaîne, en commençant à partir de la position spécifiée. |
 | [toLower](../logic-apps/workflow-definition-language-functions-reference.md#toLower) | Retourne une chaîne en minuscules. |
 | [toUpper](../logic-apps/workflow-definition-language-functions-reference.md#toUpper) | Retourne une chaîne en majuscules. |
-| [découper](../logic-apps/workflow-definition-language-functions-reference.md#trim) | Supprime les espaces blancs de début et de fin d’une chaîne et retourne la chaîne mise à jour. |
+| [trim](../logic-apps/workflow-definition-language-functions-reference.md#trim) | Supprime les espaces blancs de début et de fin d’une chaîne et retourne la chaîne mise à jour. |
 |||
 
 <a name="collection-functions"></a>
@@ -126,15 +126,15 @@ Pour obtenir des informations complètes sur chaque fonction, consultez la [list
 
 | Fonction de comparaison logique | Tâche |
 | --------------------------- | ---- |
-| [et](../logic-apps/workflow-definition-language-functions-reference.md#and) | Vérifie si toutes les expressions sont vraies. |
+| [and](../logic-apps/workflow-definition-language-functions-reference.md#and) | Vérifie si toutes les expressions sont vraies. |
 | [equals](../logic-apps/workflow-definition-language-functions-reference.md#equals) | Vérifier si les deux valeurs sont équivalentes. |
 | [greater](../logic-apps/workflow-definition-language-functions-reference.md#greater) | Vérifie si la première valeur est supérieure à la seconde. |
 | [greaterOrEquals](../logic-apps/workflow-definition-language-functions-reference.md#greaterOrEquals) | Vérifie si la première valeur est supérieure ou égale à la seconde. |
-| [si](../logic-apps/workflow-definition-language-functions-reference.md#if) | Vérifie si une expression est vraie ou fausse. En fonction du résultat, retourne une valeur spécifiée. |
+| [if](../logic-apps/workflow-definition-language-functions-reference.md#if) | Vérifie si une expression est vraie ou fausse. En fonction du résultat, retourne une valeur spécifiée. |
 | [less](../logic-apps/workflow-definition-language-functions-reference.md#less) | Vérifie si la première valeur est inférieure à la seconde. |
 | [lessOrEquals](../logic-apps/workflow-definition-language-functions-reference.md#lessOrEquals) | Vérifie si la première valeur est inférieure ou égale à la seconde. |
-| [non](../logic-apps/workflow-definition-language-functions-reference.md#not) | Vérifie si une expression est fausse. |
-| [ou](../logic-apps/workflow-definition-language-functions-reference.md#or) | Vérifie si au moins une expression est vraie. |
+| [not](../logic-apps/workflow-definition-language-functions-reference.md#not) | Vérifie si une expression est fausse. |
+| [or](../logic-apps/workflow-definition-language-functions-reference.md#or) | Vérifie si au moins une expression est vraie. |
 |||
 
 <a name="conversion-functions"></a>
@@ -820,7 +820,7 @@ array('<value>')
 
 | Valeur de retour | Type | Description |
 | ------------ | ---- | ----------- |
-| [<*valeur*>] | Tableau | Tableau qui contient l’entrée spécifiée unique |
+| [<*valeur*>] | Array | Tableau qui contient l’entrée spécifiée unique |
 ||||
 
 *Exemple*
@@ -1298,7 +1298,7 @@ createArray('<object1>', '<object2>', ...)
 
 | Valeur de retour | Type | Description |
 | ------------ | ---- | ----------- |
-| [<*object1*>, <*object2*>...] | Tableau | Tableau créé à partir de tous les éléments d’entrée |
+| [<*object1*>, <*object2*>...] | Array | Tableau créé à partir de tous les éléments d’entrée |
 ||||
 
 *Exemple*
@@ -1891,7 +1891,7 @@ formDataMultiValues('<actionName>', '<key>')
 
 | Valeur de retour | Type | Description |
 | ------------ | ---- | ----------- |
-| [<*array-with-key-values*>] | Tableau | Tableau contenant toutes les valeurs qui correspondent à la clé spécifiée |
+| [<*array-with-key-values*>] | Array | Tableau contenant toutes les valeurs qui correspondent à la clé spécifiée |
 ||||
 
 *Exemple*
@@ -2485,7 +2485,7 @@ join([<collection>], '<delimiter>')
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*collection*> | OUI | Tableau | Tableau qui comporte les éléments à joindre |
+| <*collection*> | OUI | Array | Tableau qui comporte les éléments à joindre |
 | <*delimiter*> | OUI | Chaîne | Séparateur affiché entre chaque caractère de la chaîne obtenue |
 |||||
 
@@ -3038,7 +3038,7 @@ range(<startIndex>, <count>)
 
 | Valeur de retour | Type | Description |
 | ------------ | ---- | ----------- |
-| [<*range-result*>] | Tableau | Tableau dont les entiers commencent à partir de l’index spécifié |
+| [<*range-result*>] | Array | Tableau dont les entiers commencent à partir de l’index spécifié |
 ||||
 
 *Exemple*
@@ -3156,13 +3156,13 @@ skip([<collection>], <count>)
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*collection*> | OUI | Tableau | Collection dont vous voulez supprimer des éléments |
+| <*collection*> | OUI | Array | Collection dont vous voulez supprimer des éléments |
 | <*count*> | OUI | Entier | Entier positif correspondant au nombre d’éléments à supprimer au début |
 |||||
 
 | Valeur de retour | Type | Description |
 | ------------ | ---- | ----------- |
-| [<*updated-collection*>] | Tableau | Collection mise à jour à l’issue de la suppression des éléments spécifiés |
+| [<*updated-collection*>] | Array | Collection mise à jour à l’issue de la suppression des éléments spécifiés |
 ||||
 
 *Exemple*
@@ -3193,7 +3193,7 @@ split('<text>', '<delimiter>')
 
 | Valeur de retour | Type | Description |
 | ------------ | ---- | ----------- |
-| [<*substring1*>,<*substring2*>,...] | Tableau | Un tableau qui contient les sous-chaînes extraites de la chaîne d’origine, séparées par des virgules |
+| [<*substring1*>,<*substring2*>,...] | Array | Un tableau qui contient les sous-chaînes extraites de la chaîne d’origine, séparées par des virgules |
 ||||
 
 *Exemple*
@@ -3344,7 +3344,7 @@ Et retourne ce résultat : `false`
 
 <a name="string"></a>
 
-### <a name="string"></a>chaîne
+### <a name="string"></a>string
 
 Retourne la version de type chaîne d’une valeur.
 
@@ -3663,7 +3663,7 @@ triggerFormDataMultiValues('<key>')
 
 | Valeur de retour | Type | Description |
 | ------------ | ---- | ----------- |
-| [<*array-with-key-values*>] | Tableau | Tableau contenant toutes les valeurs qui correspondent à la clé spécifiée |
+| [<*array-with-key-values*>] | Array | Tableau contenant toutes les valeurs qui correspondent à la clé spécifiée |
 ||||
 
 *Exemple*
@@ -3746,7 +3746,7 @@ triggerOutputs()
 
 <a name="trim"></a>
 
-### <a name="trim"></a>découper
+### <a name="trim"></a>trim
 
 Supprime les espaces blancs de début et de fin d’une chaîne et retourne la chaîne mise à jour.
 
@@ -4260,7 +4260,7 @@ xpath('<xml>', '<xpath>')
 | ------------ | ---- | ----------- |
 | <*xml-node*> | XML | Nœud XML lorsqu’un seul nœud correspond à l’expression XPath spécifiée |
 | <*value*> | Quelconque | Valeur d’un nœud XML lorsqu’un seul nœud correspond à l’expression XPath spécifiée |
-| [<*xml-node1*>, <*xml-node2*>...] </br>-ou- </br>[<*value1*>, <*value2*>...] | Tableau | Tableau contenant des nœuds ou valeurs XML qui correspondent à l’expression XPath spécifiée |
+| [<*xml-node1*>, <*xml-node2*>...] </br>-ou- </br>[<*value1*>, <*value2*>...] | Array | Tableau contenant des nœuds ou valeurs XML qui correspondent à l’expression XPath spécifiée |
 ||||
 
 *Exemple 1*
@@ -4303,7 +4303,7 @@ Pour cet exemple, les deux expressions recherchent des nœuds qui correspondent 
 
 * *Expression 2*
 
-  `xpath(xml(body('Http')), '/*[local-name=()=\"file\"] and namespace-uri()=\"http://contoso.com\"/*[local-name()]=\"location\" and namespace-uri()=\"\"]')`
+  `xpath(xml(body('Http')), '/*[local-name()=\"file\" and namespace-uri()=\"http://contoso.com\"]/*[local-name()=\"location\"]')`
 
 Voici les arguments :
 
@@ -4317,9 +4317,9 @@ Voici les arguments :
 
   * `/*[name()=\"file\"]/*[name()=\"location\"]`
 
-  * `/*[local-name=()=\"file\"] and namespace-uri()=\"http://contoso.com\"/*[local-name()]=\"location\" and namespace-uri()=\"\"]`
+  * `/*[local-name()=\"file\" and namespace-uri()=\"http://contoso.com\"]/*[local-name()=\"location\"]`
 
-Voici le nœud obtenu qui correspond au nœud `<location></location` :
+Voici le nœud obtenu qui correspond au nœud `<location></location>` :
 
 ```xml
 <location xmlns="https://contoso.com">Paris</location>

@@ -7,12 +7,12 @@ ms.service: governance
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: dacoulte
-ms.openlocfilehash: f94cec7919edc6cf6ebb6618d38b8591feb1278b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d68e7d9ec3b60b93f0050250d7e7d718db7aa5b8
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60683232"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67488477"
 ---
 # <a name="overview-of-management-services-in-azure"></a>Vue d’ensemble des services de gestion dans Azure
 
@@ -48,7 +48,7 @@ Gérez la sécurité de vos ressources et de vos données. Un programme de sécu
 
 ## <a name="protect"></a>Protéger
 
-La protection consiste à garder vos applications et données disponibles, même en cas de pannes hors de votre contrôle. La protection dans Azure est fournie par deux services. [Sauvegarde Azure](../backup/backup-introduction-to-azure-backup.md) permet la sauvegarde et la récupération de vos données, dans le cloud ou localement. [Azure Site Recovery](../site-recovery/site-recovery-overview.md) fournit une continuité d’activité et une reprise d’activité immédiate après sinistre.
+La protection consiste à garder vos applications et données disponibles, même en cas de pannes hors de votre contrôle. La protection dans Azure est fournie par deux services. [Sauvegarde Azure](../backup/backup-introduction-to-azure-backup.md) permet la sauvegarde et la récupération de vos données, dans le cloud ou en local. [Azure Site Recovery](../site-recovery/site-recovery-overview.md) fournit une continuité d’activité et une reprise d’activité immédiate après sinistre.
 
 ## <a name="migrate"></a>Migrer
 

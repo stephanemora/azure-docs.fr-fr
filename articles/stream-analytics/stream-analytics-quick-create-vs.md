@@ -4,16 +4,15 @@ description: Ce démarrage rapide vous explique comment créer une tâche Stream
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 12/20/2018
+ms.date: 06/11/2019
 ms.topic: quickstart
 ms.service: stream-analytics
-ms.custom: mvc
-ms.openlocfilehash: 9f62cd132e9aa969a804cd48d552baf9719a0eb6
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: bd27495266918063c65bf4648b3453e25767e293
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66302997"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076198"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-stream-analytics-tools-for-visual-studio"></a>Démarrage rapide : Créer un travail Stream Analytics à l’aide d’Azure Stream Analytics Tools pour Visual Studio
 
@@ -130,7 +129,7 @@ Notez les éléments inclus dans un projet Azure Stream Analytics.
 
    |**Paramètre**  |**Valeur suggérée**  |**Description**   |
    |---------|---------|---------|
-   |Alias de sortie  |  Sortie   |  Saisissez un nom pour identifier la sortie du travail.   |
+   |Alias de sortie  |  Output   |  Saisissez un nom pour identifier la sortie du travail.   |
    |Récepteur   |  Stockage Blob |  Sélectionnez le bon récepteur.    |
    |Ressource  |  Spécifier manuellement les paramètres de la source de données |  Vous pouvez entrer les données manuellement ou sélectionner un compte existant.   |
    |Abonnement  |  \<Votre abonnement\>   | Sélectionnez l’abonnement Azure contenant le compte de stockage que vous avez créé. Le compte de stockage peut être dans le même abonnement ou dans un abonnement distinct. Cet exemple suppose que vous avez créé le compte de stockage dans le même abonnement.   |

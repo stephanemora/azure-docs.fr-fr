@@ -2,7 +2,8 @@
 title: Guide de démarrage rapide - Créer un profil Traffic Manager pour assurer une haute disponibilité à vos applications à l’aide du portail Azure
 description: Cet article de démarrage rapide décrit comment créer un profil Traffic Manager pour créer des applications web hautement disponibles.
 services: traffic-manager
-author: KumudD
+author: asudbring
+manager: twooley
 Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ms.service: traffic-manager
 ms.devlang: na
@@ -10,13 +11,13 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
-ms.author: kumud
-ms.openlocfilehash: 2cd8830f4b2b7c972ba8972e686be984bb96fd04
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.author: allensu
+ms.openlocfilehash: d9b1d0624aa94884c269eb33131f8b61671e99ee
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760662"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050999"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-using-the-azure-portal"></a>Démarrage rapide : Créer un profil Traffic Manager à l’aide du portail Azure
 
@@ -42,7 +43,7 @@ Pour ce guide de démarrage rapide, vous aurez besoin de deux instances d’une 
     | Nom de l’application | Attribuez un nom unique à votre application web.  |
     | Abonnement | Sélectionnez l’abonnement auquel vous souhaitez appliquer l’application web. |
     | Groupe de ressources | Sélectionnez **Créer** et entrez *myResourceGroupTM1*. |
-    | SE | Sélectionnez **Windows** comme système d’exploitation. |
+    | OS | Sélectionnez **Windows** comme système d’exploitation. |
     | Publish | Sélectionnez **Code** comme format de publication. |
 
 3. Sélectionnez **Plan App Service/Emplacement**.
@@ -52,7 +53,7 @@ Pour ce guide de démarrage rapide, vous aurez besoin de deux instances d’une 
     | Paramètre | Valeur |
     | ------- | ----- |
     | Plan App Service | Entrez *myAppServicePlanEastUS*. |
-    | Lieu | USA Est |
+    | Location | USA Est |
     | Niveau tarifaire | S1 Standard |
 
 6. Sélectionnez **OK**.
@@ -66,10 +67,10 @@ Pour ce guide de démarrage rapide, vous aurez besoin de deux instances d’une 
     | Nom | Attribuez un nom unique à votre application web. |
     | Abonnement | Sélectionnez l’abonnement auquel vous souhaitez appliquer l’application web. |
     | Groupe de ressources | Sélectionnez **Créer**, puis entrez *myResourceGroupTM2*. |
-    | SE | Sélectionnez **Windows** comme système d’exploitation. |
+    | OS | Sélectionnez **Windows** comme système d’exploitation. |
     | Publish | Sélectionnez **Code** comme format de publication. |
     | Plan/lieu App Service | Entrez *myAppServicePlanWestEurope*. |
-    | Lieu | Europe Ouest |
+    | Location | Europe Ouest |
     | Niveau tarifaire | S1 Standard |
 
 ## <a name="create-a-traffic-manager-profile"></a>Créer un profil Traffic Manager
@@ -85,7 +86,7 @@ Créez un profil Traffic Manager qui dirige le trafic utilisateur en fonction de
     | Méthode de routage | Sélectionnez **Priorité**.|
     | Abonnement | Sélectionnez l’abonnement auquel vous souhaitez appliquer le profil Traffic Manager. |
     | Groupe de ressources | Sélectionnez *myResourceGroupTM1*.|
-    | Lieu |Ce paramètre fait référence à l’emplacement du groupe de ressources. Il n’a aucun effet sur le profil Traffic Manager qui sera déployé globalement.|
+    | Location |Ce paramètre fait référence à l’emplacement du groupe de ressources. Il n’a aucun effet sur le profil Traffic Manager qui sera déployé globalement.|
 
 3. Sélectionnez **Créer**.
 

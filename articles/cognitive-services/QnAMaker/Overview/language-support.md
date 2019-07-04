@@ -3,20 +3,20 @@ title: Prise en charge linguistique - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: La langue de la base de connaissances influe sur la capacité de QnA Maker à extraire automatiquement les questions et les réponses des sources, ainsi que sur la pertinence des résultats fournis par QnA Maker en réponse aux requêtes de l’utilisateur. Liste de cultures et de langues naturelles prises en charge par QnA Maker pour votre base de connaissances. Ne mélangez pas différentes langues dans une même base de connaissances.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 03/21/2019
-ms.author: tulasim
+ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 496f7c75e6633089d4ca88a9e3cd7c76ee415780
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a543b17633b99bea63d72f46ba856a8b4593d16a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64922410"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67439554"
 ---
 # <a name="language-support-for-qna-maker"></a>Prise en charge linguistique pour QnA Maker
 

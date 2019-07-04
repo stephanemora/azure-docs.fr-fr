@@ -17,11 +17,11 @@ ms.date: 10/31/2018
 ms.author: genli
 ms.custom: ''
 ms.openlocfilehash: e40648ef47b108050486d43eefdb1564786c053e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62098114"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67202868"
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>Créer un réseau virtuel (Classic) comprenant plusieurs sous-réseaux
 
@@ -65,7 +65,7 @@ Vous pouvez créer un réseau virtuel (Classic) à l’aide du [portail Azure](#
     - Dans le volet **myVnet**, cliquez sur l’icône **Supprimer**.
     - Pour confirmer la suppression, cliquez sur **Oui** dans la zone **Supprimer le réseau virtuel**.
 
-## <a name="azure-cli"></a>Azure CLI
+## <a name="azure-cli"></a>D’Azure CLI
 
 1. Vous pouvez soit [installer et configurer Azure CLI](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json), soit utiliser l’interface de ligne de commande au sein d’Azure Cloud Shell. Azure Cloud Shell est un interpréteur de commandes Bash gratuit, que vous pouvez exécuter directement dans le portail Azure. L’interface Azure CLI est préinstallée et configurée pour être utilisée avec votre compte. Pour obtenir de l’aide sur les commandes CLI, entrez `azure <command> --help`. 
 2. Dans une session d’interface de ligne de commande, connectez-vous à Azure avec la commande suivante. Si vous cliquez sur **Essayez-la** dans la zone ci-dessous, Cloud Shell s’ouvre. Vous pouvez vous connecter à votre abonnement Azure sans entrer la commande suivante :
