@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/22/2019
 ms.author: jowargo
-ms.openlocfilehash: b9fa54a24c5d96f0d3ad48034907f2c6fe5cb385
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 714c2be7265a41a7791ce39bfaa1bdc12fa58cac
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006928"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67340747"
 ---
 # <a name="tutorial-send-notifications-to-universal-windows-platform-apps-by-using-azure-notification-hubs"></a>Didacticiel : Envoyer des notifications vers des applications de plateforme Windows universelle avec Azure Notification Hubs
 
@@ -29,7 +29,7 @@ ms.locfileid: "60006928"
 Dans ce didacticiel, vous créez un hub de notification pour envoyer des notifications Push à une application de plateforme Windows universelle (UWP). Vous créez une application Windows Store vide qui reçoit des notifications Push au moyen du Service de notifications Windows Push (WNS). Vous utilisez ensuite votre hub de notification pour diffuser des notifications Push sur tous les appareils exécutant votre application.
 
 > [!NOTE]
-> Vous pouvez trouver le code complet de ce didacticiel sur [GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/GetStartedWindowsUniversal).
+> Vous pouvez trouver le code complet de ce didacticiel sur [GitHub](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/UwpSample).
 
 Procédez comme suit :
 
@@ -77,7 +77,7 @@ Pour envoyer des notifications Push à des applications UWP, associez votre appl
 
 ### <a name="configure-wns-settings-for-the-hub"></a>Configurer les paramètres WNS le hub
 
-1. Dans la catégorie **PARAMÈTRES DE NOTIFICATION**, sélectionnez **Windows (WNS)**.
+1. Dans la catégorie **PARAMÈTRES DE NOTIFICATION**, sélectionnez **Windows (WNS)** .
 2. Entrez les valeurs pour **SID de package** et **Clé de sécurité** notées à la section précédente.
 3. Cliquez sur **Save** dans la barre d'outils.
 
@@ -90,9 +90,9 @@ Votre Notification Hub est désormais configuré pour fonctionner avec WNS. Vous
 1. Dans Visual Studio, ouvrez le menu **Fichier**, sélectionnez **Nouveau**, puis **Projet**.
 2. Dans la boîte de dialogue **Nouveau projet**, effectuez les étapes suivantes :
 
-    1. Développez **Visual C#**.
+    1. Développez **Visual C#** .
     2. Sélectionnez **Windows Universel**.
-    3. Sélectionnez **Application vide (Universal Windows)**.
+    3. Sélectionnez **Application vide (Universal Windows)** .
     4. Entrez un **nom** pour le projet.
     5. Sélectionnez **OK**.
 

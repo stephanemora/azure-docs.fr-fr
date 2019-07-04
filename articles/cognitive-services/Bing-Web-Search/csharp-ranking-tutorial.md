@@ -3,20 +3,20 @@ title: Utilisation du classement pour afficher les résultats de la recherche
 titleSuffix: Azure Cognitive Services
 description: Montre comment utiliser la réponse RankingResponse Bing pour afficher les résultats de la recherche dans un ordre de classement.
 services: cognitive-services
-author: bradumbaugh
+author: aahill
 manager: nitinme
 ms.assetid: 2575A80C-FC74-4631-AE5D-8101CF2591D3
 ms.service: cognitive-services
 ms.subservice: bing-web-search
-ms.topic: conceptual
-ms.date: 05/08/2017
-ms.author: bking
-ms.openlocfilehash: 6afaa2f497fa1a23d083c3ddd76359a49105732d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.topic: tutorial
+ms.date: 06/18/2019
+ms.author: aahi
+ms.openlocfilehash: cfe198352cae95227a76535544d55a6be0c66abc
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66384839"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203249"
 ---
 # <a name="build-a-console-app-search-client-in-c"></a>Générer un client de recherche d’application console en C#
 

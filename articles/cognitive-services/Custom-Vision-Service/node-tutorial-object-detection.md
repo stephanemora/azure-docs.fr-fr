@@ -10,12 +10,12 @@ ms.component: custom-vision
 ms.topic: quickstart
 ms.date: 03/21/2019
 ms.author: areddish
-ms.openlocfilehash: 17b6e59e121b836823b9e86d0d60b91d93ba82f9
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: fdc29d39979bcddc75c3c51d39c9efee9eb5819e
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487258"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67144291"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-nodejs-sdk"></a>Démarrage rapide : Créer un projet de détection d’objets avec le SDK Custom Vision pour Node.js
 
@@ -31,8 +31,8 @@ Cet article fournit des informations et un exemple de code pour vous aider à pr
 Pour installer les kits SDK du service Custom Vision pour Node.js, exécutez les commandes suivantes :
 
 ```command
-npm install azure-cognitiveservices-customvision-training
-npm install azure-cognitiveservices-customvision-prediction
+npm install @azure/cognitiveservices-customvision-training
+npm install @azure/cognitiveservices-customvision-prediction
 ```
 
 Vous pouvez télécharger les images avec les [exemples Node.js](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples).

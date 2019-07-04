@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 2543ffb20c4e7da840201cfd3be04505515458a6
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 8a65b7becc4ec60290670819799e9f8731d55058
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58539358"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67114268"
 ---
 # <a name="tutorial---how-to-use-cloud-init-to-customize-a-linux-virtual-machine-in-azure-on-first-boot"></a>Didacticiel : comment utiliser cloud-init pour personnaliser une machine virtuelle Linux dans Azure au premier démarrage
 
@@ -47,11 +47,11 @@ Nous collaborons avec nos partenaires pour que cloud-init soit inclus et fonctio
 
 | Alias | Publisher | Offre | SKU | Version |
 |:--- |:--- |:--- |:--- |:--- |
-| UbuntuLTS |Canonical |UbuntuServer |16.04-LTS |le plus récent |
-| UbuntuLTS |Canonical |UbuntuServer |14.04.5-LTS |le plus récent |
-| CoreOS |CoreOS |CoreOS |Stable |le plus récent |
-| | OpenLogic | CentOS | 7-CI | le plus récent |
-| | Red Hat | RHEL | 7-RAW-CI | le plus récent |
+| UbuntuLTS |Canonical |UbuntuServer |16.04-LTS |latest |
+| UbuntuLTS |Canonical |UbuntuServer |14.04.5-LTS |latest |
+| CoreOS |CoreOS |CoreOS |Stable |latest |
+| | OpenLogic | CentOS | 7-CI | latest |
+| | Red Hat | RHEL | 7-RAW-CI | latest |
 
 
 ## <a name="create-cloud-init-config-file"></a>Créer un fichier de configuration cloud-init
@@ -110,7 +110,7 @@ Pour pouvoir créer une machine virtuelle, vous devez créer un groupe de ressou
 az group create --name myResourceGroupAutomate --location eastus
 ```
 
-Créez maintenant une machine virtuelle avec la commande [az vm create](/cli/azure/vm#az-vm-create). Utilisez le paramètre `--custom-data` à transmettre dans votre fichier de configuration cloud-init. Indiquez le chemin complet vers la configuration *cloud-init.txt* si vous avez enregistré le fichier en dehors de votre répertoire de travail actuel. L’exemple suivant permet de créer une machine virtuelle nommée *myAutomatedVM* :
+Créez maintenant une machine virtuelle avec la commande [az vm create](/cli/azure/vm#az-vm-create). Utilisez le paramètre `--custom-data` à transmettre dans votre fichier de configuration cloud-init. Indiquez le chemin complet vers la configuration *cloud-init.txt* si vous avez enregistré le fichier en dehors de votre répertoire de travail actuel. L’exemple suivant crée une machine virtuelle nommée *myVM* :
 
 ```azurecli-interactive
 az vm create \

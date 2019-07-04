@@ -9,11 +9,11 @@ ms.date: 02/21/2018
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: dc4281c17b92e1720625764a52a34a94d6f296ab
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66164617"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176994"
 ---
 Avant de créer des éléments, passons en revue le concept de portée. Azure fournit quatre niveaux de gestion : des groupes d’administration, d’abonnement, des groupes de ressources et des ressources. Les [groupes d’administration](../articles/billing/billing-enterprise-mgmt-group-overview.md) sont en préversion. L’image suivante représente un exemple de ces couches.
 
