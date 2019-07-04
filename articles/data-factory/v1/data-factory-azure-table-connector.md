@@ -537,8 +537,8 @@ Définissez le jeu de données des objets blob source comme suit, ainsi que des 
 
 | Nom de la colonne | Type |
 | --- | --- |
-| userId |Edm.Int64 |
-| Nom |Edm.String |
+| userid |Edm.Int64 |
+| name |Edm.String |
 | lastlogindate |Edm.DateTime |
 
 Ensuite, définissez le jeu de données Table Azure comme suit. Il est inutile de spécifier la section « structure » à l'aide des informations de type, car celles-ci sont déjà spécifiées dans le magasin de données sous-jacent.
