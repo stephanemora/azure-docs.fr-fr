@@ -98,7 +98,7 @@ Les clients *doivent* prendre en charge les mécanismes de redirection standard 
 
 Les clients *doivent* utiliser un point de terminaison approprié du service Speech. Le point de terminaison est basé sur la langue et le mode de reconnaissance. Le tableau présente quelques exemples.
 
-| Mode | path | URI de service |
+| Mode | Path | URI de service |
 | -----|-----|-----|
 | Interactive | /speech/recognition/interactive/cognitiveservices/v1 | https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
 | Conversation | /speech/recognition/conversation/cognitiveservices/v1 | https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US |
@@ -253,7 +253,7 @@ Les en-têtes suivants sont requis pour tous les messages `audio`.
 | En-tête         |  Valeur     |
 | ------------- | ---------------- |
 | Path | `audio` |
-| X-RequestId | UUID au format "no-dash" |
+| X-RequestId | UUID au format « sans tirets » |
 | X-Timestamp | Horodatage de l’horloge UTC cliente au format ISO 8601 |
 | Content-Type | Type de contenu audio. Le type doit être *audio/x-wav* (PCM) ou *audio/silk* (SILK). |
 
@@ -308,7 +308,7 @@ Les clients doivent accuser réception de la fin d’un tour en envoyant un mess
 | Champ | Description |
 | ------------- | ---------------- |
 | Encodage des messages WebSocket | Texte |
-| path | `telemetry` |
+| Path | `telemetry` |
 | X-Timestamp | Horodatage de l’horloge UTC cliente au format ISO 8601 |
 | Content-Type | `application/json` |
 | body | Structure JSON qui contient les informations clientes relatives au tour |
@@ -330,7 +330,7 @@ Le message `speech.startDetected` indique que le service Speech a détecté un �
 | Champ | Description |
 | ------------- | ---------------- |
 | Encodage des messages WebSocket | Texte |
-| path | `speech.startDetected` |
+| Path | `speech.startDetected` |
 | Content-Type | application/json; charset=utf-8 |
 | body | Structure JSON qui contient des informations sur les conditions dans lesquelles le début de l’énoncé a été détecté. Le champ *Offset* de cette structure spécifie le décalage (en unités de 100 nanosecondes) avec lequel l’énoncé a été détecté par rapport au début du flux audio. |
 
@@ -355,7 +355,7 @@ Pendant la reconnaissance vocale, le service Speech génère régulièrement des
 | Champ | Description |
 | ------------- | ---------------- |
 | Encodage des messages WebSocket | Texte |
-| path | `speech.hypothesis` |
+| Path | `speech.hypothesis` |
 | X-RequestId | UUID au format « sans tirets » |
 | Content-Type | application/json |
 | body | Structure JSON des hypothèses de la reconnaissance vocale |
@@ -387,7 +387,7 @@ Quand le service Speech détermine qu’il possède suffisamment d’information
 | Champ | Description |
 | ------------- | ---------------- |
 | Encodage des messages WebSocket | Texte |
-| path | `speech.phrase` |
+| Path | `speech.phrase` |
 | Content-Type | application/json |
 | body | Structure JSON de l’expression de reconnaissance vocale |
 
@@ -415,7 +415,7 @@ Le message `speech.endDetected` spécifie que l’application cliente doit arrê
 | Champ | Description |
 | ------------- | ---------------- |
 | Encodage des messages WebSocket | Texte |
-| path | `speech.endDetected` |
+| Path | `speech.endDetected` |
 | body | Structure JSON qui contient le décalage avec lequel la fin de l’énoncé a été détectée. Le décalage est représenté en unités de 100 nanosecondes par rapport au début du contenu audio utilisé pour la reconnaissance. |
 | Content-Type | application/json; charset=utf-8 |
 
@@ -440,7 +440,7 @@ Le message `turn.start` signale le début d’un tour du point de vue du service
 | Champ | Description |
 | ------------- | ---------------- |
 | Encodage des messages WebSocket | Texte |
-| path | `turn.start` |
+| Path | `turn.start` |
 | Content-Type | application/json; charset=utf-8 |
 | body | Structure JSON |
 
@@ -467,7 +467,7 @@ Le message `turn.end` signale la fin d’un tour du point de vue du service. Le 
 | Champ | Description |
 | ------------- | ---------------- |
 | Encodage des messages WebSocket | Texte |
-| path | `turn.end` |
+| Path | `turn.end` |
 | body | Aucun |
 
 #### <a name="sample-message"></a>Exemple de message
