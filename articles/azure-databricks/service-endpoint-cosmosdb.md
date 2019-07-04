@@ -1,18 +1,18 @@
 ---
 title: Implémenter Azure Databricks avec un point de terminaison Cosmos DB
 description: Ce tutoriel explique comment implémenter Azure Databricks dans un réseau virtuel avec un point de terminaison de service activé pour Cosmos DB.
-services: azure-databricks
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
+ms.service: azure-databricks
 ms.topic: tutorial
 ms.date: 04/17/2019
-ms.openlocfilehash: 0d5442a63680227f3a6186330502666c92dc3129
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: d1268ea2cfc22e6350edb32230588a497be8bc79
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60012747"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67054573"
 ---
 # <a name="tutorial-implement-azure-databricks-with-a-cosmos-db-endpoint"></a>Didacticiel : Implémenter Azure Databricks avec un point de terminaison Cosmos DB
 
@@ -61,7 +61,7 @@ Avant de commencer, procédez comme suit :
    |Groupe de ressources|*votre groupe de ressources*|
    |Nom du compte|db-vnet-service-endpoint|
    |API|Core (SQL)|
-   |Lieu|USA Ouest|
+   |Location|USA Ouest|
    |Géoredondance|Désactiver|
    |Écritures multirégions|Activer|
 
