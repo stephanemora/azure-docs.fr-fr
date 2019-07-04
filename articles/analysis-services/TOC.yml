@@ -1,8 +1,8 @@
-- name: "Documentation Analysis\_Services"
+- name: Documentation Azure Analysis Services
   href: index.md
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
-    - name: "Qu’est-ce qu’Analysis Services\_?"
+    - name: "Qu’est-ce qu’Azure Analysis Services\_?"
       href: analysis-services-overview.md
 - name: Démarrages rapides
   items:

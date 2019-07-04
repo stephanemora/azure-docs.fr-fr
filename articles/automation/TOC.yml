@@ -124,6 +124,8 @@
         - name: Résoudre les problèmes de runbooks
           href: troubleshoot/runbooks.md
           displayName: troubleshoot
+        - name: Démarrer/arrêter des machines virtuelles
+          href: troubleshoot/start-stop-vm.md
 - name: Update Management
   items:
     - name: Vue d’ensemble de Update Management
@@ -164,12 +166,12 @@
             - name: Linux
               href: troubleshoot/update-agent-issues-linux.md
               displayName: 'update agent, issue, hybrid runbook worker, hybrid worker, troubleshoot, linux'
-- name: Change Tracking
+- name: Suivi des modifications
   items:
     - name: Vue d’ensemble de Change Tracking
       href: change-tracking.md
       displayName: 'wildcard, recursion, environment variables, registry'
-    - name: Intégration
+    - name: Mise en route
       items:
         - name: Intégrer plusieurs machines virtuelles à partir du portail
           href: automation-onboard-solutions-from-browse.md
@@ -261,7 +263,7 @@
           displayName: DSC
     - name: Résolution des problèmes
       items:
-        - name: Intégration
+        - name: Mise en route
           href: troubleshoot/onboarding.md
           displayName: troubleshoot
         - name: Résoudre les problèmes de State Configuration (DSC)
@@ -313,6 +315,8 @@
   items:
     - name: Transférer des données de travaux Azure Automation à Log Analytics
       href: automation-manage-send-joblogs-log-analytics.md
+    - name: Régions prises en charge pour les correspondances d’espace de travail Log Analytics
+      href: how-to/region-mappings.md
 - name: Migrer
   items:
     - name: Migrer à partir d’Orchestrator

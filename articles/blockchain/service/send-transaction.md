@@ -221,7 +221,7 @@ Vous pouvez obtenir cette clé publique à partir de la liste des nœuds de tran
 
     | Valeur | Description
     |-------|-------------
-    | \<alpha node public key\> | Clé publique du nœud alpha.
+    | \<alpha node public key\> | Public key of the alpha node
     | \<Ethereum account address\> | Adresse du compte Ethereum créée dans le nœud de transaction par défaut
 
     Dans cet exemple, la valeur initiale de **storeData** est 42.
@@ -392,7 +392,7 @@ En raison de la confidentialité du contrat, il est uniquement possible d’inte
 
     | Valeur | Description
     |-------|-------------
-    | \<alpha node public key\> | Clé publique du nœud alpha.
+    | \<alpha node public key\> | Public key of the alpha node
     | \<Ethereum account address\> | Adresse du compte Ethereum créée dans le nœud de transaction par défaut.
 
     **privateFor** définit les nœuds pour lesquels le contrat est disponible. Dans cet exemple, le compte du nœud de transaction par défaut peut caster des transactions privées vers le nœud **alpha**. Vous devez ajouter des clés publiques pour tous les participants aux transactions privées.

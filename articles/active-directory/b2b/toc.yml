@@ -63,6 +63,10 @@
               href: google-federation.md
             - name: Authentification par code secret à usage unique
               href: one-time-passcode.md
+            - name: Fédération directe
+              href: direct-federation.md
+            - name: "Exemple de fédération directe avec AD\_FS"
+              href: direct-federation-adfs.md
             - name: Autoriser ou bloquer des invitations
               href: allow-deny-list.md
             - name: Ajouter des utilisateurs B2B sans invitation

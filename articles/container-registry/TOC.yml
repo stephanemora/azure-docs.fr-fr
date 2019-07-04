@@ -47,8 +47,6 @@
       href: container-registry-image-formats.md
     - name: Géoréplication
       href: container-registry-geo-replication.md
-    - name: Rôles et autorisations
-      href: container-registry-roles.md
     - name: Bonnes pratiques concernant les registres
       href: container-registry-best-practices.md
 - name: Guides pratiques
@@ -87,6 +85,8 @@
               href: container-registry-auth-aci.md
             - name: S’authentifier à partir d’Azure Kubernetes Service (AKS)
               href: container-registry-auth-aks.md
+        - name: Rôles et autorisations
+          href: container-registry-roles.md
         - name: Approbation du contenu
           href: container-registry-content-trust.md
     - name: ACR Tasks
@@ -107,6 +107,10 @@
           href: ../aks/tutorial-kubernetes-prepare-app.md
         - name: Service Fabric
           href: ../service-fabric/service-fabric-tutorial-create-container-images.md
+    - name: Résolution des problèmes
+      items:
+        - name: Diagnostiquer les problèmes courants
+          href: container-registry-check-health.md
 - name: Informations de référence
   items:
     - name: Azure CLI
@@ -131,6 +135,8 @@
       href: container-registry-webhook-reference.md
     - name: Schéma Event Grid
       href: ../event-grid/event-schema-container-registry.md
+    - name: Erreurs de contrôle d’intégrité
+      href: container-registry-health-error-reference.md
       maintainContext: true
 - name: Ressources
   items:
