@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: d705993c7cd3816e89da21625dc5b003435b9128
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 22c12d3233d85a02f6eef8d63e5a4494b4f0cdfa
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60822731"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273701"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Mettre automatiquement à l’échelle les unités de débit Azure Event Hubs
-Azure Event Hubs est une plateforme hautement évolutive de diffusion de données en continu. Ainsi, l’utilisation des unités Event Hubs augmente souvent une fois le service démarré. Ces augmentations obligent à rehausser les [unités de débit](event-hubs-features.md#throughput-units) prédéterminées pour mettre à l’échelle Event Hubs et gérer des taux de transfert plus conséquents. La fonctionnalité **Majoration automatique** d’Event Hubs augmente automatiquement la taille des instances en augmentant le nombre d’unités de débit pour répondre aux besoins d’utilisation. Cette opération permet d’éviter les situations de limitation, dans lesquelles :
+Azure Event Hubs est une plateforme hautement évolutive de diffusion de données en continu. Ainsi, l’utilisation des unités Event Hubs augmente souvent une fois le service démarré. Ces augmentations obligent à rehausser les [unités de débit](event-hubs-scalability.md#throughput-units) prédéterminées pour mettre à l’échelle Event Hubs et gérer des taux de transfert plus conséquents. La fonctionnalité **Majoration automatique** d’Event Hubs augmente automatiquement la taille des instances en augmentant le nombre d’unités de débit pour répondre aux besoins d’utilisation. Cette opération permet d’éviter les situations de limitation, dans lesquelles :
 
 * Les taux d’entrée de données sont supérieurs aux unités de débit définies.
 * Les taux de demande de sortie de données sont supérieurs aux unités de débit définies.
@@ -32,7 +32,7 @@ Le service Event Hubs augmente le débit quand la charge dépasse le seuil minim
 
 ## <a name="how-auto-inflate-works"></a>Fonctionnement de la majoration automatique
 
-Le trafic Event Hubs est contrôlé par les [unités de débit](event-hubs-features.md#throughput-units). Une unité de débit autorise 1 Mo/s en entrée et le double en sortie. Les unités Event Hub standard peuvent être configurées avec 1 à 20 unités de débit. La majoration automatique vous permet de démarrer petit avec le nombre d’unités de débit minimal exigé que vous choisissez. Ensuite, la fonctionnalité met automatiquement à l’échelle le nombre d’unités de débit dont vous avez besoin sur la limite maximale, selon l’augmentation de votre trafic. La majoration automatique vous permet de bénéficier des avantages suivants :
+Le trafic Event Hubs est contrôlé par les [unités de débit](event-hubs-scalability.md#throughput-units). Une unité de débit autorise 1 Mo/s en entrée et le double en sortie. Les unités Event Hub standard peuvent être configurées avec 1 à 20 unités de débit. La majoration automatique vous permet de démarrer petit avec le nombre d’unités de débit minimal exigé que vous choisissez. Ensuite, la fonctionnalité met automatiquement à l’échelle le nombre d’unités de débit dont vous avez besoin sur la limite maximale, selon l’augmentation de votre trafic. La majoration automatique vous permet de bénéficier des avantages suivants :
 
 - Un mécanisme de mise à l’échelle efficace pour démarrer avec la valeur minimale et monter en puissance à mesure de la croissance de votre activité.
 - Mise à l’échelle automatique sur à la limite supérieure spécifiée sans problèmes de limitation.
