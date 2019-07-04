@@ -81,8 +81,8 @@ La table suivante décrit les propriétés dans le JSON ci-dessus :
 
 | Propriété | Description | Obligatoire | Default |
 | --- | --- | --- | --- |
-| Nom |Nom du jeu de données Pour connaître les règles d’affectation des noms, voir [Azure Data Factory - Règles d’affectation des noms](data-factory-naming-rules.md). |OUI |N/D |
-| Type |Type du jeu de données. Spécifiez l’un des types pris en charge par la fabrique de données (par exemple : AzureBlob, AzureSqlTable). <br/><br/>Pour plus d’informations, consultez [Type du jeu de données](#Type). |OUI |N/D |
+| name |Nom du jeu de données Pour connaître les règles d’affectation des noms, voir [Azure Data Factory - Règles d’affectation des noms](data-factory-naming-rules.md). |OUI |N/D |
+| type |Type du jeu de données. Spécifiez l’un des types pris en charge par la fabrique de données (par exemple : AzureBlob, AzureSqlTable). <br/><br/>Pour plus d’informations, consultez [Type du jeu de données](#Type). |OUI |N/D |
 | structure |Schéma du jeu de données.<br/><br/>Pour plus d’informations, consultez [Structure d’un jeu de données](#Structure). |Non |N/D |
 | typeProperties | Les propriétés de type sont différentes pour chaque type (par exemple : objet blob Azure, table SQL Azure). Pour plus d’informations sur les types pris en charge et leurs propriétés, consultez [Type du jeu de données](#Type). |OUI |N/D |
 | external | Indicateur booléen pour indiquer si un jeu de données est explicitement généré par un pipeline de fabrique de données ou non. Si le jeu de données d’entrée d’une activité n’est pas produit par le pipeline actuel, définissez cet indicateur sur true. Définissez cet indicateur sur true pour le jeu de données d’entrée de la première activité dans le pipeline.  |Non |false |
@@ -193,8 +193,8 @@ Chaque colonne de la structure contient les propriétés suivantes :
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| Nom |Nom de la colonne. |OUI |
-| Type |Type de données de la colonne.  |Non |
+| name |Nom de la colonne. |OUI |
+| type |Type de données de la colonne.  |Non |
 | culture |Culture .NET à utiliser lorsque le type est un type .NET : `Datetime` ou `Datetimeoffset`. Par défaut, il s’agit de `en-us`. |Non |
 | format |Chaîne de format à utiliser lorsque le type est un type .NET : `Datetime` ou `Datetimeoffset`. |Non |
 
@@ -239,7 +239,7 @@ Le tableau suivant décrit les propriétés que vous pouvez utiliser dans la sec
 | interval |Spécifie un multiplicateur de fréquence.<br/><br/>« Frequency x interval » déterminent la fréquence à laquelle la tranche est produite. Par exemple, si vous voulez des tranches de jeu de données d’une heure, définissez <b>frequency</b> sur <b>Hour</b> et <b>interval</b> sur <b>1</b>.<br/><br/>Notez que si vous spécifiez **frequency** sur **Minute**, vous devez définir l’intervalle sur une valeur au minimum égale à 15. |OUI |N/D |
 | style |Spécifie si le segment doit être généré au début ou à la fin de l’intervalle.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul>Si **frequency** est défini sur **Month** et **style** défini sur **EndOfInterval**, le segment est généré le dernier jour du mois. Si **style** est défini sur **StartOfInterval**, le segment est généré le premier jour du mois.<br/><br/>Si **frequency** est défini sur **Day** et **style** est défini sur **EndOfInterval**, le segment est généré la dernière heure du jour.<br/><br/>Si **frequency** est défini sur **Hour** et **style** défini sur **EndOfInterval**, le segment est généré à la fin de l’heure. Par exemple, pour un segment de la période 13 h-14 h, le segment est généré à 14 h. |Non |EndOfInterval |
 | anchorDateTime |Définit la position absolue dans le temps utilisée par le planificateur pour calculer les limites de tranche de jeu de données. <br/><br/>Notez que si cette propriété comporte des éléments de date plus précis que la fréquence spécifiée, les éléments plus précis sont ignorés. Par exemple, si **interval** est **hourly** (frequency: hour et interval: 1), et que **anchorDateTime** contient **minutes and seconds**, les éléments minutes et seconds d’**anchorDateTime** sont ignorés. |Non |01/01/0001 |
-| Offset |Intervalle de temps marquant le déplacement du début et de la fin de toutes les tranches du jeu de données. <br/><br/>Notez que si **anchorDateTime** et **offset** sont spécifiés, un décalage combiné est obtenu. |Non |N/D |
+| offset |Intervalle de temps marquant le déplacement du début et de la fin de toutes les tranches du jeu de données. <br/><br/>Notez que si **anchorDateTime** et **offset** sont spécifiés, un décalage combiné est obtenu. |Non |N/D |
 
 ### <a name="offset-example"></a>exemple offset
 Par défaut, les tranches quotidiennes (`"frequency": "Day", "interval": 1`) commencent à 12:00 (minuit), temps universel coordonné (UTC). Si vous souhaitez que l’heure de début soit 6 h UTC, définissez le décalage comme indiqué dans l’extrait suivant :
