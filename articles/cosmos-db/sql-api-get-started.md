@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: sngun
-ms.openlocfilehash: 7574985dbcc502d03bc886c7651c859b22968c5f
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 60c7e6b32f60d6f42d706489c41dbeea4af0d15d
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65596094"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67342118"
 ---
 # <a name="build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>Créer une application console .NET pour gérer des données dans le compte de l’API SQL Azure Cosmos DB
 
@@ -130,11 +130,11 @@ Suivez ces instructions pour créer un compte Azure Cosmos DB dans le portail A
       
       ![Voir et copier des clés d’accès dans le portail Azure](./media/sql-api-get-started/nosql-tutorial-keys.png)
       
-   1. Sous **Clés en lecture-écriture**, copiez la valeur d’**URI** à l’aide du bouton Copier situé à droite, puis collez-la dans `<your endpoint URL>`, dans *Program.cs*. Par exemple :  
+   1. Sous **Clés en lecture-écriture**, copiez la valeur d’**URI** à l’aide du bouton Copier situé à droite, puis collez-la dans `<your endpoint URL>`, dans *Program.cs*. Par exemple : 
       
       `private const string EndpointUrl = "https://mysqlapicosmosdb.documents.azure.com:443/";`
       
-   1. Copiez la valeur de **CLÉ PRIMAIRE**, puis collez-la dans `<your primary key>`, dans *Program.cs*. Par exemple :  
+   1. Copiez la valeur de **CLÉ PRIMAIRE**, puis collez-la dans `<your primary key>`, dans *Program.cs*. Par exemple : 
       
       `private const string PrimaryKey = "19ZDNJAiYL26tmnRvoez6hmtIfBGwjun50PWRjNYMC2ig8Ob9hYk7Fq1RYSv8FcIYnh1TdBISvCh7s6yyb0000==";`
    
@@ -450,7 +450,7 @@ Le diagramme suivant montre comment la syntaxe de requête SQL Azure Cosmos DB e
 
 ![Diagramme illustrant l’étendue et la signification de la requête utilisée par le didacticiel NoSQL pour créer une application de console C#](./media/sql-api-get-started/nosql-tutorial-collection-documents.png)
 
-Le mot clé [FROM](how-to-sql-query.md#FromClause) est facultatif dans la requête SQL, car les requêtes Azure Cosmos DB sont déjà limitées à une collection unique. Vous pouvez permuter `FROM Families f` avec `FROM root r` ou tout autre nom de variable de votre choix. Azure Cosmos DB déduit alors que `Families`, `root` ou le nom de variable choisi font référence à la collection actuelle.
+Le mot clé [FROM](sql-query-from.md) est facultatif dans la requête SQL, car les requêtes Azure Cosmos DB sont déjà limitées à une collection unique. Vous pouvez permuter `FROM Families f` avec `FROM root r` ou tout autre nom de variable de votre choix. Azure Cosmos DB déduit alors que `Families`, `root` ou le nom de variable choisi font référence à la collection actuelle.
 
 ## <a id="ReplaceDocument"></a>Mettre à jour un document JSON
 

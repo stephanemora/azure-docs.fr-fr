@@ -10,16 +10,16 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: c9413fb78bbb92618818ac4311ab1af8ad65576d
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: bb082fb83f8c2521b0deabced6f851e62b785e8f
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025087"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485384"
 ---
-# <a name="c-tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Tutoriel C# : Analyser une base de données SQL Azure à l’aide d’indexeurs Recherche Azure
+# <a name="c-tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Tutoriel C# : Analyser une base de données Azure SQL à l’aide d’indexeurs Recherche Azure
 
-Découvrez comment configurer un indexeur pour extraire des données pouvant faire l’objet d’une recherche à partir d’un exemple de base de données SQL Azure. [Les indexeurs](search-indexer-overview.md) sont un composant de Recherche Azure qui analyse les sources de données externes tout en alimentant un [index de recherche](search-what-is-an-index.md) avec le contenu. De tous les indexeurs, l’indexeur correspondant à Azure SQL Database est le plus couramment utilisé. 
+Découvrez comment configurer un indexeur pour extraire des données pouvant faire l’objet d’une recherche à partir d’un exemple de base de données Azure SQL. [Les indexeurs](search-indexer-overview.md) sont un composant de Recherche Azure qui analyse les sources de données externes tout en alimentant un [index de recherche](search-what-is-an-index.md) avec le contenu. De tous les indexeurs, l’indexeur correspondant à Azure SQL Database est le plus couramment utilisé. 
 
 Il est utile de maîtriser la configuration de l’indexeur dans la mesure où cela simplifie la quantité de code à écrire et à gérer. Au lieu de préparer et d’envoyer un jeu de données conformes au schéma JSON, vous pouvez attacher un indexeur à une source de données, faire en sorte que l’indexeur extrait des données et les insère dans un index, et vous pouvez également exécuter l’indexeur selon une planification périodique pour récupérer les modifications dans la source sous-jacente.
 
@@ -27,7 +27,7 @@ Dans ce tutoriel, vous allez effectuer les tâches suivantes à l’aide des [bi
 
 > [!div class="checklist"]
 > * Ajouter des informations de service de recherche aux paramètres d’application
-> * Préparer un jeu de données externe dans la base de données SQL Azure 
+> * Préparer un jeu de données externe dans la base de données Azure SQL 
 > * Passer en revue les définitions d’index et d’indexeur dans l’exemple de code
 > * Exécuter le code de l’indexeur pour importer des données
 > * Rechercher l’index
@@ -58,7 +58,7 @@ Les appels REST requièrent l’URL du service et une clé d’accès et ce, sur
 
 1. Dans **Paramètres** > **Clés**, obtenez une clé d’administration pour avoir des droits d’accès complets sur le service. Il existe deux clés d’administration interchangeables, fournies pour assurer la continuité de l’activité au cas où vous deviez en remplacer une. Vous pouvez utiliser la clé primaire ou secondaire sur les demandes d’ajout, de modification et de suppression d’objets.
 
-![Obtenir une clé d’accès et un point de terminaison HTTP](media/search-fiddler/get-url-key.png "Obtenir une clé d’accès et un point de terminaison HTTP")
+![Obtenir une clé d’accès et un point de terminaison HTTP](media/search-get-started-postman/get-url-key.png "Obtenir une clé d’accès et un point de terminaison HTTP")
 
 Toutes les demandes nécessitent une clé API sur chaque demande envoyée à votre service. L’utilisation d’une clé valide permet d’établir, en fonction de chaque demande, une relation de confiance entre l’application qui envoie la demande et le service qui en assure le traitement.
 
@@ -83,7 +83,7 @@ La dernière entrée nécessite une base de données existante. Vous allez la cr
 
 ## <a name="prepare-sample-data"></a>Préparer l’exemple de données
 
-Au cours de cette étape, créez une source de données externe qu’un indexeur peut analyser. Vous pouvez utiliser le portail Azure et le fichier *hotels.sql* à partir de l’exemple pour créer le jeu de données dans la base de données SQL Azure. Recherche Azure utilise des ensembles de lignes aplatis, tel que celui généré à partir d’une vue ou d’une requête. Le fichier SQL de l’exemple de solution crée et remplit une table unique.
+Au cours de cette étape, créez une source de données externe qu’un indexeur peut analyser. Vous pouvez utiliser le portail Azure et le fichier *hotels.sql* à partir de l’exemple pour créer le jeu de données dans Azure SQL Database. Recherche Azure utilise des ensembles de lignes aplatis, tel que celui généré à partir d’une vue ou d’une requête. Le fichier SQL de l’exemple de solution crée et remplit une table unique.
 
 L’exercice suivant suppose l’absence de serveur ou de base de données existante et vous invite à créer les deux lors de l’étape 2. Éventuellement, si vous disposez d’une ressource, vous pouvez y ajouter la table hôtels, en commençant à l’étape 4.
 
@@ -99,7 +99,7 @@ L’exercice suivant suppose l’absence de serveur ou de base de données exist
 
    ![Page de la base de données SQL](./media/search-indexer-tutorial/hotels-db.png)
 
-4. Dans le volet de navigation, cliquez sur **Éditeur de requêtes (préversion)**.
+4. Dans le volet de navigation, cliquez sur **Éditeur de requêtes (préversion)** .
 
 5. Cliquez sur **Connexion** et entrez le nom d’utilisateur et un mot de passe d’administrateur du serveur.
 
@@ -226,7 +226,7 @@ Le programme s’exécute en mode débogage. Une fenêtre de console signale l�
 
   ![Script SQL](./media/search-indexer-tutorial/console-output.png)
 
-Votre code s’exécute localement dans Visual Studio en se connectant à votre service de recherche sur Azure, qui à son tour utilise la chaîne de connexion pour se connecter à Microsoft Azure SQL Database et récupérer le jeu de données. Ces nombreuses opérations sont source de plusieurs points de défaillance potentiels. Si vous obtenez une erreur, vérifiez tout d’abord les conditions suivantes :
+Votre code s’exécute localement dans Visual Studio en se connectant à votre service de recherche sur Azure, qui à son tour utilise la chaîne de connexion pour se connecter à Azure SQL Database et récupérer le jeu de données. Ces nombreuses opérations sont source de plusieurs points de défaillance potentiels. Si vous obtenez une erreur, vérifiez tout d’abord les conditions suivantes :
 
 + Les informations de connexion du service de recherche que vous fournissez se limitent au nom du service de ce didacticiel. Si vous avez entré l’URL complète, les opérations s’arrêtent à la création d’index avec une erreur signalant un échec de connexion.
 
