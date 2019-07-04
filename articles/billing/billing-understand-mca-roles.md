@@ -1,24 +1,21 @@
 ---
 title: Présentation des rôles d'administrateur de facturation dans le cadre des Contrats client Microsoft - Azure
 description: Découvrez-en plus sur les rôles de facturation des comptes de facturation Azure dans le cadre des Contrats client Microsoft.
-services: billing
-documentationcenter: ''
 author: amberbhargava
 manager: amberbhargava
-editor: ''
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/28/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 780870cc71e95507a52ba6a9338026f895a96ac1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 12e492fee95192d0af49ff7b6a5be3144398fef8
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60370888"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490440"
 ---
 # <a name="understand-microsoft-customer-agreement-administrative-roles-in-azure"></a>Présentation des rôles d'administrateur Azure dans le cadre des Contrats client Microsoft
 
@@ -30,7 +27,7 @@ Cet article s'applique à un compte de facturation associé à un Contrat client
 
 Le tableau suivant décrit les rôles de facturation que vous utilisez pour gérer votre compte de facturation, vos profils de facturation et vos sections de facture.
 
-|Rôle|Description|
+|Role|Description|
 |---|---|
 |Propriétaire du compte de facturation|Gérer tout le contenu du compte de facturation|
 |Collaborateur du compte de facturation|Gérer tout le contenu du compte de facturation, à l'exception des autorisations|
@@ -46,7 +43,7 @@ Le tableau suivant décrit les rôles de facturation que vous utilisez pour gér
 
 ## <a name="billing-account-roles-and-tasks"></a>Rôles et tâches liés au compte de facturation
 
-Un compte de facturation vous permet de gérer la facturation de votre organisation. Vous utilisez un compte de facturation pour organiser les coûts, superviser les frais et les factures, et contrôler l'accès à la facturation pour votre organisation. Pour plus d'informations, consultez [Présentation du compte de facturation](billing-mca-overview.md#understand-billing-account).
+Un compte de facturation vous permet de gérer la facturation de votre organisation. Vous utilisez un compte de facturation pour organiser les coûts, superviser les frais et les factures, et contrôler l'accès à la facturation pour votre organisation. Pour plus d'informations, consultez [Présentation du compte de facturation](billing-mca-overview.md#your-billing-account).
 
 Les tableaux suivants indiquent le rôle dont vous avez besoin pour accomplir des tâches dans le contexte du compte de facturation.
 
@@ -92,7 +89,7 @@ Les tableaux suivants indiquent le rôle dont vous avez besoin pour accomplir de
 
 ## <a name="billing-profile-roles-and-tasks"></a>Rôles et tâches liés au profil de facturation
 
-Un profil de facturation vous permet de gérer vos factures et vos modes de paiement. Une facture mensuelle est générée pour les abonnements Azure et autres produits achetés par le biais du profil de facturation. Les modes de paiement vous permettent de payer la facture. Pour plus d'informations, consultez [Présentation des profils de facturation](billing-mca-overview.md#understand-billing-profiles).
+Un profil de facturation vous permet de gérer vos factures et vos modes de paiement. Une facture mensuelle est générée pour les abonnements Azure et autres produits achetés par le biais du profil de facturation. Les modes de paiement vous permettent de payer la facture. Pour plus d'informations, consultez [Présentation des profils de facturation](billing-mca-overview.md#billing-profiles).
 
 Les tableaux suivants indiquent le rôle dont vous avez besoin pour accomplir des tâches dans le contexte du profil de facturation.
 
@@ -142,7 +139,7 @@ Les tableaux suivants indiquent le rôle dont vous avez besoin pour accomplir de
 
 ## <a name="invoice-section-roles-and-tasks"></a>Rôles et tâches liés aux sections de facture
 
-Une section de facture vous permet d'organiser les coûts sur votre facture. Vous pouvez créer une section pour organiser vos coûts par service, par environnement de développement, ou en fonction des besoins de votre organisation. Autorisez d'autres utilisateurs à créer des abonnements Azure pour la section. Les frais d'utilisation et les achats liés aux abonnements apparaissent ensuite dans la section de la facture. Pour plus d'informations, consultez [Présentation des sections de facture](billing-mca-overview.md#understand-invoice-sections).
+Une section de facture vous permet d'organiser les coûts sur votre facture. Vous pouvez créer une section pour organiser vos coûts par service, par environnement de développement, ou en fonction des besoins de votre organisation. Autorisez d'autres utilisateurs à créer des abonnements Azure pour la section. Les frais d'utilisation et les achats liés aux abonnements apparaissent ensuite dans la section de la facture. Pour plus d'informations, consultez [Présentation des sections de facture](billing-mca-overview.md#invoice-sections).
 
 Les tableaux suivants indiquent le rôle dont vous avez besoin pour accomplir des tâches dans le contexte des sections de facture.
 
@@ -185,7 +182,7 @@ Les tableaux suivants indiquent le rôle dont vous avez besoin pour accomplir de
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 
-2. Effectuez une recherche sur **Gestion des coûts + facturation**.
+2. Recherchez **Gestion des coûts + facturation**.
 
    ![Capture d’écran montrant la recherche dans le portail Azure](./media/billing-understand-mca-roles/billing-search-cost-management-billing.png)
 

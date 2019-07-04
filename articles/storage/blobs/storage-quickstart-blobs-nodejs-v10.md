@@ -9,16 +9,16 @@ ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: mhopkins
 ms.reviewer: seguler
-ms.openlocfilehash: f426ee10017533c21021d618d613dc0931767988
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: e2deda6bc9a5d13a631e9917f3020cfa68ee1e10
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149436"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67536159"
 ---
 # <a name="quickstart-upload-download-list-and-delete-blobs-using-azure-storage-v10-sdk-for-javascript"></a>Démarrage rapide : Charger, télécharger, lister et supprimer des objets blob à l’aide du kit SDK Azure Storage v10 pour JavaScript
 
-Dans ce guide de démarrage rapide, vous apprenez à utiliser le [kit SDK Azure Storage v10 pour JavaScript](https://github.com/Azure/azure-storage-js) avec Node.js pour charger, télécharger, lister et supprimer des objets blob, et gérer des conteneurs.
+Dans ce guide de démarrage rapide, vous apprenez à utiliser le [kit SDK Azure Storage v10 pour JavaScript](https://github.com/Azure/azure-sdk-for-js) avec Node.js pour charger, télécharger, lister et supprimer des objets blob, et gérer des conteneurs.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -99,7 +99,7 @@ Les informations d’identification sont lues à partir de variables d’environ
 
 ```javascript
 if (process.env.NODE_ENV !== 'production') {
-    require('dotenv').load();
+    require('dotenv').config();
 }
 ```
 
@@ -238,7 +238,7 @@ Pour créer un conteneur, la méthode *create* de *ContainerURL* est utilisée.
 await containerURL.create(aborter);
 console.log(`Container: "${containerName}" is created`);
 ```
-Comme le nom du conteneur est défini lors de l’appel de *ContainerURL.fromServiceURL (serviceURL, containerName)*, l’appel de la méthode *create* est la seule chose qui soit demandée pour créer le conteneur.
+Comme le nom du conteneur est défini lors de l’appel de *ContainerURL.fromServiceURL (serviceURL, containerName)* , l’appel de la méthode *create* est la seule chose qui soit demandée pour créer le conteneur.
 
 ### <a name="upload-text"></a>Charger du texte
 Pour charger du texte dans l’objet blob, utilisez la méthode *upload*.

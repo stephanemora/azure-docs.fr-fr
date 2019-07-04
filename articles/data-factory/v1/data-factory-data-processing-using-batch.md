@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: e95f167cf6dcfe90fff1c2be174ca197cb2aa004
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 67829b6245fe4fea8da88c97fa8d5aeedccc90a0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65204037"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446610"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Traiter des jeux de données volumineux à l’aide de Data Factory et de Batch
 > [!NOTE]
@@ -124,7 +124,7 @@ Créez un pool Azure Batch comprenant au moins deux nœuds de calcul.
    f. Sélectionnez **OK** pour créer le pool.
 
 #### <a name="azure-storage-explorer"></a>Explorateur de stockage Azure
-Vous utilisez [Explorateur Stockage Azure 6](https://azurestorageexplorer.codeplex.com/) ou [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) (à partir de ClumsyLeaf Software) pour inspecter et modifier les données dans vos projets de stockage. Vous pouvez également examiner et modifier les données dans les journaux d’activité de vos applications hébergées dans le cloud.
+Vous utilisez [Explorateur Stockage Azure 6](https://azurestorageexplorer.codeplex.com/) ou [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer) (à partir de ClumsyLeaf Software) pour inspecter et modifier les données dans vos projets de stockage. Vous pouvez également examiner et modifier les données dans les journaux d’activité de vos applications hébergées dans le cloud.
 
 1. Créez un conteneur nommé **mycontainer** avec un accès privé (sans accès anonyme).
 

@@ -11,17 +11,17 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 089f5335a65151c9c576346995f0bee34b5d10b4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 05/21/2019
+ms.openlocfilehash: 6824a7151a0c007d6fe4ba021f274886a3cf0dcb
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65791889"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447823"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Journalisation des métriques et diagnostics d’Azure SQL Database
 
-Dans cette rubrique, vous allez apprendre à configurer la journalisation des données de télémétrie de diagnostic pour une base de données SQL Azure via le portail Azure, PowerShell, Azure CLI, l’API REST Azure Monitor et un modèle Azure Resource Manager. Ces outils de diagnostic peuvent être utilisés pour évaluer l’utilisation des ressources et les statistiques d’exécution de requête. 
+Dans cette rubrique, vous allez apprendre à configurer la journalisation des données de télémétrie de diagnostic pour une base de données SQL Azure via le portail Azure, PowerShell, Azure CLI, l’API REST Azure Monitor et un modèle Azure Resource Manager. Ces outils de diagnostic peuvent être utilisés pour évaluer l’utilisation des ressources et les statistiques d’exécution de requête.
 
 Les bases de données uniques, les bases de données mises en pool dans les pools élastiques et les bases de données d’instance dans une instance managée peuvent diffuser en continu des métriques et des journaux de diagnostic pour faciliter la supervision des performances. Vous pouvez configurer une base de données de sorte qu’elle transmette les informations relatives à l’utilisation des ressources, aux workers et sessions ainsi qu’à la connectivité à l’une de ces ressources Azure :
 
@@ -119,7 +119,7 @@ Pour activer le streaming des données de télémétrie de diagnostic pour une r
 1. En outre, configurez la diffusion en continu des données de télémétrie de diagnostic pour chaque base de données au sein du pool élastique que vous souhaitez surveiller en suivant les étapes décrites dans la section suivante.
 
 > [!IMPORTANT]
-> Outre la configuration des données de télémétrie de diagnostic pour un pool élastique, vous devez également configurer les données de télémétrie de diagnostic pour chaque base de données au sein d’un pool élastique, comme indiqué ci-dessous. 
+> Outre la configuration des données de télémétrie de diagnostic pour un pool élastique, vous devez également configurer les données de télémétrie de diagnostic pour chaque base de données au sein d’un pool élastique, comme indiqué ci-dessous.
 
 ### <a name="configure-streaming-of-diagnostics-telemetry-for-single-database-or-database-in-elastic-pool"></a>Configurer la diffusion en continu des données de télémétrie pour une base de données unique, ou une base de données au sein d’un pool élastique
 
@@ -181,7 +181,7 @@ Pour activer la diffusion en continu des données de télémétrie de diagnostic
 1. En outre, configurez la diffusion en continu des données de télémétrie de diagnostic pour chaque base de données d’instance au sein de l’instance gérée que vous souhaitez surveiller en suivant les étapes décrites dans la section suivante.
 
 > [!IMPORTANT]
-> Outre la configuration des données de télémétrie de diagnostic pour une instance gérée, vous devez également configurer les données de télémétrie de diagnostic pour chaque base de données d’instance, comme indiqué ci-dessous. 
+> Outre la configuration des données de télémétrie de diagnostic pour une instance gérée, vous devez également configurer les données de télémétrie de diagnostic pour chaque base de données d’instance, comme indiqué ci-dessous.
 
 ### <a name="configure-streaming-of-diagnostics-telemetry-for-instance-databases"></a>Configurer la diffusion en continu des données de télémétrie de diagnostic pour les bases de données d’instance
 
@@ -211,7 +211,7 @@ Pour activer la diffusion en continu des données de télémétrie de diagnostic
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Le module PowerShell Azure Resource Manager est toujours pris en charge par une base de données SQL Azure, mais tous les développements futurs sont destinés au module Az.Sql. Pour ces applets de commande, consultez [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments pour les commandes dans le module Az et dans les modules AzureRm sont sensiblement identiques.
+> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements à venir sont destinés au module Az.Sql. Pour ces cmdlets, consultez [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments pour les commandes dans le module Az et dans les modules AzureRm sont sensiblement identiques.
 
 Vous pouvez activer les métriques et la journalisation des diagnostics à l’aide de PowerShell.
 
@@ -261,9 +261,10 @@ Indiquez l’ID de ressource d’espace de travail \<$WSID\> comme paramètre au
     PS C:\> $WSID = "/subscriptions/<subID>/resourcegroups/<RG_NAME>/providers/microsoft.operationalinsights/workspaces/<WS_NAME>"
     PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
     ```
+
    Remplacez \<subID\> par l’ID d’abonnement, \<RG_NAME\> par le nom de groupe de ressources, puis \<WS_NAME\> par le nom d’espace de travail.
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>D’Azure CLI
 
 Vous pouvez activer les métriques et la journalisation des diagnostics à l’aide d’Azure CLI.
 
@@ -396,10 +397,6 @@ Le nom d’un objet blob destiné à stocker les données d’un pool élastique
 ```powershell
 insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription ID}/ RESOURCEGROUPS/{resource group name}/PROVIDERS/Microsoft.SQL/servers/{resource_server}/ elasticPools/{elastic_pool_name}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
 ```
-
-### <a name="download-metrics-and-logs-from-storage"></a>Télécharger les métriques et journaux d’activité du stockage
-
-Découvrez comment [télécharger les journaux d’activité de métriques et de diagnostics à partir du stockage](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-the-sample-application).
 
 ## <a name="data-retention-policy-and-pricing"></a>Stratégie de rétention des données et tarification
 
@@ -719,5 +716,3 @@ Pour plus d’informations sur les concentrateurs d’événements, lisez :
 
 - [Nouveautés des concentrateurs d’événements Azure ?](../event-hubs/event-hubs-what-is-event-hubs.md)
 - [Prise en main des hubs d’événements](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
-
-Pour plus d’informations sur Stockage Azure, consultez [Télécharger des métriques et des journaux de diagnostic à partir de Stockage Azure](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-the-sample-application).

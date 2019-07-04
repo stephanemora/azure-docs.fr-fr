@@ -2,20 +2,20 @@
 title: Sauvegarder Windows Server dans Azure
 description: Ce didacticiel décrit en détail la sauvegarde de serveurs Windows locaux dans un coffre Recovery Services.
 services: backup
-author: saurabhsensharma
-manager: shivamg
+author: dcurwin
+manager: carmonm
 keywords: sauvegarde serveur windows ; sauvegarder windows server ; sauvegarde et récupération d’urgence
 ms.service: backup
 ms.topic: tutorial
 ms.date: 8/22/2018
-ms.author: saurse
+ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: f5cfa3de962c51ac7ff43d9b83bdea9f408f5bcf
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 907a10314f27428d4d4b867abb71e2046208650b
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58097421"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273961"
 ---
 # <a name="back-up-windows-server-to-azure"></a>Sauvegarder Windows Server dans Azure
 
@@ -67,8 +67,8 @@ L’agent Microsoft Azure Recovery Services (MARS) crée une association entre W
 
 3. Dans le menu **Objectif de sauvegarde** :
 
-   * pour **Où s'exécute votre charge de travail ?**, sélectionnez **Local**, 
-   * pour **Que voulez-vous sauvegarder ?**, sélectionnez **Fichiers et dossiers** et **État système**
+   * pour **Où s'exécute votre charge de travail ?** , sélectionnez **Local**, 
+   * pour **Que voulez-vous sauvegarder ?** , sélectionnez **Fichiers et dossiers** et **État système**
 
    ![fournir des informations pour le coffre](./media/tutorial-backup-windows-server-to-azure/backup-goal.png)
 
@@ -116,9 +116,9 @@ Vous utilisez l’agent Microsoft Azure Recovery Services pour planifier quand l
 
 5. Cliquez sur **Suivant**.
 
-6. Dans la page **Spécifier la planification de sauvegarde (état du système)**, spécifiez les heures du jour ou de la semaine auxquelles les sauvegardes doivent être déclenchées pour l’état du système, puis cliquez sur **Suivant**.
+6. Dans la page **Spécifier la planification de sauvegarde (état du système)** , spécifiez les heures du jour ou de la semaine auxquelles les sauvegardes doivent être déclenchées pour l’état du système, puis cliquez sur **Suivant**.
 
-7. Dans la page **Sélectionner la stratégie de rétention (état du système)**, définissez la stratégie de rétention pour la copie de l’état du système, puis cliquez sur **Suivant**.
+7. Dans la page **Sélectionner la stratégie de rétention (état du système)** , définissez la stratégie de rétention pour la copie de l’état du système, puis cliquez sur **Suivant**.
 
 8. De même, sélectionnez la planification de sauvegarde et la stratégie de rétention pour les fichiers et dossiers sélectionnés. 
 

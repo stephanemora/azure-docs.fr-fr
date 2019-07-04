@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 37f85afbdd55d3f14638f0833f69bb1992770449
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4464796e655cefd28f858cb732ff3d5721a7aa47
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58086069"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206813"
 ---
 # <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Démarrage rapide : Intégrer un abonnement Azure à Security Center Standard
 Azure Security Center propose des fonctionnalités unifiées de gestion de la sécurité et de protection contre les menaces sur l’ensemble des charges de travail cloud hybrides. Alors que le niveau Gratuit offre une sécurité limitée aux seules ressources Azure, le niveau Standard étend ces fonctions aux ressources locales et à d’autres clouds. Security Center Standard aide à rechercher et à corriger les failles de sécurité, applique des contrôles d’accès et d’application pour bloquer les activités malveillantes, détecte les menaces à l’aide de l’analytique et de l’analyse décisionnelle et répond rapidement en cas d’attaque. Vous pouvez essayer Security Center Standard gratuitement. Pour en savoir plus, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/security-center/).
@@ -74,10 +74,10 @@ Lorsque l’approvisionnement automatique est activé, Security Center installe 
 Pour activer l’approvisionnement automatique de Microsoft Monitoring Agent :
 
 1. Dans le menu principal de Security Center, sélectionnez **Stratégie de sécurité**.
-2. Sur la ligne de l’abonnement, sélectionnez **Modifier les paramètres >**.
+2. Sur la ligne de l’abonnement, sélectionnez **Modifier les paramètres >** .
 3. Dans l’onglet **Collecte des données**, définissez **Provisionnement automatique** sur **On** (activé).
 4. Sélectionnez **Enregistrer**.
-****
+---
   ![Activer l’approvisionnement automatique][6]
 
 Grâce à ces nouvelles informations sur les machines virtuelles Azure, Security Center peut fournir des recommandations supplémentaires sur l’état de mise à jour du système, les configurations de la sécurité du système d’exploitation et la protection des points de terminaison, et générer des alertes de sécurité supplémentaires.
@@ -88,14 +88,14 @@ Grâce à ces nouvelles informations sur les machines virtuelles Azure, Security
 D’autres guides de démarrage rapide et didacticiels de cette collection reposent sur ce guide. Si vous envisagez de suivre les didacticiels et guides de démarrage rapide suivants, conservez le niveau Standard et gardez l’approvisionnement automatique activé. Dans le cas contraire, ou si vous voulez revenir au niveau Gratuit :
 
 1. Revenez au menu principal de Security Center et sélectionnez **Stratégie de sécurité**.
-2. Sur la ligne de l’abonnement pour lequel vous souhaitez revenir au niveau Gratuit, sélectionnez **Modifier les paramètres >**.
+2. Sur la ligne de l’abonnement pour lequel vous souhaitez revenir au niveau Gratuit, sélectionnez **Modifier les paramètres >** .
 3. Sélectionnez **Niveau tarifaire** puis **Gratuit** pour modifier l’abonnement et passer du niveau Standard au niveau Gratuit.
 5. Sélectionnez **Enregistrer**.
 
 Si vous voulez désactiver l’approvisionnement automatique :
 
 1. Revenez au menu principal de Security Center et sélectionnez **Stratégie de sécurité**.
-2. Sur la ligne de l’abonnement pour lequel vous souhaitez désactiver l’approvisionnement automatique, sélectionnez **Modifier les paramètres >**.
+2. Sur la ligne de l’abonnement pour lequel vous souhaitez désactiver l’approvisionnement automatique, sélectionnez **Modifier les paramètres >** .
 3. Dans l’onglet **Collecte des données**, définissez **Provisionnement automatique** sur **Off** (désactivé).
 4. Sélectionnez **Enregistrer**.
 

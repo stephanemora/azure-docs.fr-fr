@@ -1,23 +1,17 @@
 ---
 title: Authentification Azure Active Directory et Resource Manager | Microsoft Docs
 description: Guide de développement portant sur l’authentification avec l’API Azure Resource Manager et Azure Active Directory pour intégrer une application dans d’autres abonnements Azure.
-services: azure-resource-manager,active-directory
-documentationcenter: na
 author: dushyantgill
-ms.assetid: 17b2b40d-bf42-4c7d-9a88-9938409c5088
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: identity
 ms.date: 04/05/2019
 ms.author: dugill
-ms.openlocfilehash: ae405d5dd99a0e2acced924ccccab292b4489cde
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3a8f9f1975530c846008b3b3def4f4d4a22716fd
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61063242"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205445"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Utiliser l’API d’authentification de Resource Manager pour accéder aux abonnements
 
@@ -283,7 +277,7 @@ Il est inutile d’appeler cette API en continu. Une fois que vous avez détermi
 
 Voici les identifiants des rôles intégrés couramment utilisés :
 
-| Rôle | GUID |
+| Role | GUID |
 | --- | --- |
 | Lecteur |acdd72a7-3385-48ef-bd42-f606fba81ae7 |
 | Contributeur |b24988ac-6180-42a0-ab88-20f7382dd24c |

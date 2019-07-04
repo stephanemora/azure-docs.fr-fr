@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: e4ba3ee0b2138cb83796be50efe129a993d07a8a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 19e87769bf4e49e5665d5f4887da9fd08e3cd6af
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59996490"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67340673"
 ---
 # <a name="quickstart-use-a-domain-model-using-the-rest-api-and-python-in-computer-vision"></a>Démarrage rapide : Utiliser un modèle de domaine à l’aide de l’API REST et Python dans Vision par ordinateur
 
@@ -31,7 +31,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 ## <a name="prerequisites"></a>Prérequis
 
 - Si vous souhaitez exécuter l’exemple en local, [Python](https://www.python.org/downloads/) doit être installé.
-- Vous devez disposer d’une clé d’abonnement pour la Vision par ordinateur. Vous pouvez obtenir une clé d’essai gratuit à partir de la page [Essayez Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Vous pouvez également suivre les instructions mentionnées dans [Créer un compte Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) pour vous abonner à Vision par ordinateur et obtenir votre clé.
+- Vous devez disposer d’une clé d’abonnement pour la Vision par ordinateur. Vous pouvez obtenir une clé d’essai gratuit auprès de [Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Vous pouvez également suivre les instructions mentionnées dans [Créer un compte Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) pour vous abonner à Vision par ordinateur et obtenir votre clé.
 
 ## <a name="create-and-run-the-landmarks-sample"></a>Créer et exécuter l’exemple des monuments
 
@@ -49,7 +49,7 @@ Pour créer et exécuter l’exemple des monuments, effectuez les étapes suivan
 ```python
 import requests
 # If you are using a Jupyter notebook, uncomment the following line.
-#%matplotlib inline
+# %matplotlib inline
 import matplotlib.pyplot as plt
 from PIL import Image
 from io import BytesIO
@@ -74,8 +74,8 @@ image_url = "https://upload.wikimedia.org/wikipedia/commons/f/f6/" + \
     "Bunker_Hill_Monument_2005.jpg"
 
 headers = {'Ocp-Apim-Subscription-Key': subscription_key}
-params  = {'model': 'landmarks'}
-data    = {'url': image_url}
+params = {'model': 'landmarks'}
+data = {'url': image_url}
 response = requests.post(
     landmark_analyze_url, headers=headers, params=params, json=data)
 response.raise_for_status()
@@ -133,7 +133,7 @@ Pour créer et exécuter l’exemple des monuments, effectuez les étapes suivan
 ```python
 import requests
 # If you are using a Jupyter notebook, uncomment the following line.
-#%matplotlib inline
+# %matplotlib inline
 import matplotlib.pyplot as plt
 from PIL import Image
 from io import BytesIO
@@ -151,8 +151,8 @@ image_url = "https://upload.wikimedia.org/wikipedia/commons/d/d9/" + \
     "Bill_gates_portrait.jpg"
 
 headers = {'Ocp-Apim-Subscription-Key': subscription_key}
-params  = {'model': 'celebrities'}
-data    = {'url': image_url}
+params = {'model': 'celebrities'}
+data = {'url': image_url}
 response = requests.post(
     celebrity_analyze_url, headers=headers, params=params, json=data)
 response.raise_for_status()

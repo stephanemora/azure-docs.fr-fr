@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 2/20/2019
 ms.author: erhopf
 ms.openlocfilehash: 9469fd6a1ffc61e90948178b105abd9f83e55fde
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66146035"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177355"
 ---
 1. Démarrez Eclipse.
 
@@ -19,7 +19,7 @@ ms.locfileid: "66146035"
 
 1. La fenêtre principale de l’IDE Eclipse apparaît au bout d’un instant. Fermez l’écran d’accueil s’il en existe un.
 
-1. Dans la barre de menus Eclipse, créez un projet en choisissant **File (Fichier)** > **New (Nouveau)** > **Project (Projet)**.
+1. Dans la barre de menus Eclipse, créez un projet en choisissant **File (Fichier)**  > **New (Nouveau)**  > **Project (Projet)** .
 
 1. La boîte de dialogue **Nouveau projet** apparaît. Sélectionnez **Java Project** (Projet Java), puis **Next** (Suivant).
 
@@ -31,7 +31,7 @@ ms.locfileid: "66146035"
 
 1. Si une fenêtre **Open Associated Perspective?** (Ouvrir la perspective associée ?) s’affiche, sélectionnez **Open Perspective** (Ouvrir la perspective).
 
-1. Dans **Package explorer** (l’Explorateur de package), cliquez avec le bouton droit sur le projet **quickstart** (démarrage rapide). Choisissez **Configure (Configurer)** > **Convert to Maven Project (Convertir en projet Maven)** dans le menu contextuel.
+1. Dans **Package explorer** (l’Explorateur de package), cliquez avec le bouton droit sur le projet **quickstart** (démarrage rapide). Choisissez **Configure (Configurer)**  > **Convert to Maven Project (Convertir en projet Maven)** dans le menu contextuel.
 
    ![Capture d’écran de l’explorateur de package](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-04-convert-to-maven-project.png)
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
-ms.openlocfilehash: e828a8fc4211a0f0c4b53a9e18fa1c2fb6f6916b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ca3fe83d7072ba774c8124c5108652ab7223041d
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60593217"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449812"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>Windows affiche « CRITICAL SERVICE FAILED » sur écran bleu lors du démarrage d’une machine virtuelle Azure
 Cet article décrit l’erreur « CRITICAL SERVICE FAILED » que vous pouvez rencontrer lorsque vous démarrez une machine virtuelle Windows dans Microsoft Azure. Il fournit des étapes de dépannage pour vous aider à résoudre les problèmes. 
@@ -30,7 +30,7 @@ Cet article décrit l’erreur « CRITICAL SERVICE FAILED » que vous pouvez r
 
 Une machine virtuelle Windows ne démarre pas. Quand vous vérifiez les captures d’écran de démarrage de la fenêtre [Diagnostics de démarrage](./boot-diagnostics.md), vous voyez l’un des messages d’erreur suivants sur un écran bleu :
 
-- « Votre PC a rencontré un problème et doit redémarrer. Vous pouvez le redémarrer. Pour plus d’informations sur ce problème et les solutions possibles, visitez http://windows.com/stopcode. Si vous appelez un agent du support technique, fournissez-lui l'information suivante : Code d'arrêt : ÉCHEC DU SERVICE CRITIQUE » 
+- « Votre PC a rencontré un problème et doit redémarrer. Vous pouvez le redémarrer. Pour plus d’informations sur ce problème et les solutions possibles, visitez https://windows.com/stopcode. Si vous appelez un agent du support technique, fournissez-lui l'information suivante : Code d'arrêt : ÉCHEC DU SERVICE CRITIQUE » 
 - « Votre PC a rencontré un problème et doit redémarrer. Nous collectons simplement quelques informations sur l’erreur, puis nous vous aiderons à redémarrer. Si vous souhaitez en savoir plus, vous pourrez ultérieurement rechercher cette erreur en ligne : CRITICAL_SERVICE_FAILED »
 
 ## <a name="cause"></a>Cause :

@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9accb41cdb4d780bf137d6872cca022226f902e6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b0c9699bccbb539c9617fac2f3296483139e7188
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61443097"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203160"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Configurer les contrôles d’accès en fonction du rôle dans l’accélérateur de solution de supervision à distance
 
@@ -91,11 +91,11 @@ Les étapes suivantes décrivent comment ajouter un rôle à une application dan
 
 1. Recherchez **l’inscription d’application** pour votre solution dans le Portail Azure. Le nom de l’application est celui de votre solution de supervision à distance. Dans la capture d’écran suivante, le nom d’affichage de la solution et de l’application est **contoso-rm4**.
 
-    ![Inscription d'application](media/iot-accelerators-remote-monitoring-rbac/appregistration2.png)
+    ![Inscription d'application](media/iot-accelerators-remote-monitoring-rbac/app-registration-2.png)
 
 1. Sélectionnez votre application, puis cliquez sur **Manifeste**. Vous pouvez voir les deux [rôles d’application](https://docs.microsoft.com/azure/architecture/multitenant-identity/app-roles) existants définis pour l’application :
 
-    ![Affichage du manifeste](media/iot-accelerators-remote-monitoring-rbac/viewmanifest.png)
+    ![Affichage du manifeste](media/iot-accelerators-remote-monitoring-rbac/view-manifest.png)
 
 1. Modifiez le manifeste pour ajouter un rôle appelé **ManageDevices** comme indiqué dans l’extrait de code suivant. Vous avez besoin d’une chaîne unique pour le nouvel ID de rôle, par exemple un GUID. Vous pouvez générer un nouveau GUID à l’aide d’un service tel que le [générateur de GUID en ligne](https://www.guidgenerator.com/) :
 

@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: 3345dd82a1de4f9144cdeb5acd5d3e506dc55de8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 97fb4dc37f3c9f776e4abf433f916ceaf177a70b
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64937830"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67202681"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Instructions relatives aux listes de la Place de marché Azure
 
@@ -39,14 +39,14 @@ Toutes les offres doivent respecter [toutes les conditions préalables du réfé
 | 11 | Support et aide de la solution | Dirigez le client vers au moins une des sources d’information suivantes : <br>o   Numéros de téléphone <br>o Support technique par e-mail <br>o Agents de conversation <br>o   Forums des communautés |<br>• Toutes les méthodes d’assistance répertoriées : par téléphone et par e-mail. <br>•    Support payant offert gratuitement pendant la période d’essai ou la version d’évaluation | 
 | 12 | Informations juridiques | Politiques ou conditions générales disponibles par le biais d’une URL publique |  | 
 
-----
+---
 ## <a name="trial-offer-requirements"></a>Exigences de l’offre d’essai
 
 |  | Élément de liste | Configuration de base requise | Configuration optimale | 
 |:--- |:--- |:--- |:--- |
 |  | État du référencement | Le lien doit donner accès à l’article sur l’expérience d’essai gratuit menée par le client | Autres invites à l’action (par exemple, Acheter maintenant) également disponibles | 
 
-----
+---
 ## <a name="saas-apps-requirements"></a>Exigences d’une application SaaS
 
 |  | Élément de liste | Configuration de base requise | Configuration optimale | 
@@ -63,7 +63,7 @@ Toutes les offres doivent respecter [toutes les conditions préalables du réfé
 | 10 | Contacts : Support et aide de la solution | <br>•    Nom du contact ingénierie : entrez le nom associé au contact ingénierie pour votre application. Cette personne recevra des informations techniques de Microsoft.<br>•    E-mail du contact ingénierie :  entrez l’adresse e-mail du contact ingénierie pour votre application.<br>•   Téléphone du contact ingénierie : entrez le numéro de téléphone du contact ingénierie. Les notations de numéro de téléphone ISO sont pris en charge ; pour plus d’informations, voir https://en.wikipedia.org/wiki/E.123.<br>• Nom du contact du support : entrez le nom du contact du support pour votre application. Cette personne recevra des informations de support de Microsoft.<br>• E-mail du contact du support : entrez l’adresse e-mail du contact du support pour votre application. <br>• Téléphone du contact du support : entrez le numéro de téléphone du contact du support. Les notations de numéro de téléphone ISO sont pris en charge ; pour plus d’informations, voir https://en.wikipedia.org/wiki/E.123. <br>• URL du support : entrez l’URL de votre page de support. | <br>•    Toutes les méthodes d’assistance répertoriées : par téléphone et par e-mail. <br>•    Support payant offert gratuitement pendant la période d’essai ou la version d’évaluation |
 | 11 | Informations juridiques |<br>• URL de la politique de confidentialité : entrez l’URL de la politique de confidentialité de votre application dans le champ correspondant du portail CPP. <br>•    Conditions d’utilisation : Entrez les conditions d’utilisation de votre application. Les clients doivent accepter ces conditions avant de pouvoir essayer de votre application. |  Politiques ou conditions générales disponibles par le biais d’une URL de site publique |
 
-----
+---
 
 ## <a name="container-offer-requirements"></a>Exigences de l’offre conteneur
 
@@ -74,7 +74,7 @@ Toutes les offres doivent respecter [toutes les conditions préalables du réfé
 | 3 | Artefacts de la Place de marché | Les logos s’affichent correctement |<br>• Le logo inclut une bannière qui est en fait l’image grand format figurant dans le portail Azure <br>• Logos : format miniature (48 x 48) et grand format (216 x 216) requis <br>• Exigences relatives aux images de bannière : https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish<br>• Capture d’écran (5 maxi.) :  le CPP nécessite une image .png avec une résolution de 1 280 x 720.|
 | 4 | Gestion des prospects |<br>•    Gestion des prospects : Sélectionnez le système dans lequel vos prospects seront stockés. <br>•   Apprenez à connecter votre système CRM [ici](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads) | |
 
-----
+---
 
 ## <a name="consulting-offer-requirements"></a>Exigences de l’offre de consulting
 
@@ -97,6 +97,3 @@ Toutes les offres doivent respecter [toutes les conditions préalables du réfé
 ## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur les différents types d’offre dans la place de marché. <br>[Applications SaaS](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide) <br>[Containers](https://docs.microsoft.com/azure/marketplace/marketplace-containers) <br>[Services de conseil](https://docs.microsoft.com/azure/marketplace/consulting-services)
 *   [Déterminer le type de référencement pour votre solution](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type).
-
- 
----

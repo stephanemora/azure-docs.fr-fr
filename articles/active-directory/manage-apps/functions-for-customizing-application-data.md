@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec1994169891d5256436ac4de741339c865bb268
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 12b75c2df7d11b0e90c5dccc3bc2aae4e0fb0c1e
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65824640"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204481"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Écriture d’expressions pour les mappages d’attributs dans Azure Active Directory
 Quand vous configurez l’approvisionnement pour une application SaaS, l’un des types de mappages d’attributs que vous pouvez spécifier est un mappage d’expression. Dans ce cas, vous devez écrire une expression semblable à un script qui vous permet de transformer les données des utilisateurs dans des formats plus acceptables pour l’application SaaS.
@@ -40,7 +40,7 @@ La syntaxe des expressions pour les mappages d’attributs rappelle celle des fo
 ## <a name="list-of-functions"></a>Liste des fonctions
 [Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)
 
-- - -
+---
 ### <a name="append"></a>Append
 **Fonction :**<br> Append(source, suffixe)
 
@@ -53,7 +53,7 @@ La syntaxe des expressions pour les mappages d’attributs rappelle celle des fo
 | **source** |Obligatoire |Chaîne |Généralement le nom de l’attribut de l’objet source. |
 | **suffix** |Obligatoire |Chaîne |Chaîne que vous souhaitez ajouter à la fin de la valeur source. |
 
-- - -
+---
 ### <a name="formatdatetime"></a>FormatDateTime
 **Fonction :**<br> FormatDateTime(source, inputFormat, outputFormat)
 
@@ -67,7 +67,7 @@ La syntaxe des expressions pour les mappages d’attributs rappelle celle des fo
 | **inputFormat** |Obligatoire |Chaîne |Format attendu de la valeur source. Pour connaitre les formats pris en charge, consultez [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
 | **outputFormat** |Obligatoire |Chaîne |Format de la date de sortie. |
 
-- - -
+---
 ### <a name="join"></a>Join
 **Fonction :**<br> Join(séparateur, source1, source2, …)
 
@@ -82,7 +82,7 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 | **separator** |Obligatoire |Chaîne |Chaîne utilisée pour séparer les valeurs sources quand elles sont concaténées en une seule chaîne. Peut être "" si aucun séparateur n’est requis. |
 | **source1  … sourceN** |Requis, nombre de fois variable |Chaîne |Valeurs de chaîne à joindre ensemble. |
 
-- - -
+---
 ### <a name="mid"></a>Mid
 **Fonction :**<br> Mid(source, début, longueur)
 
@@ -96,7 +96,7 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 | **start** |Obligatoire |integer |Index dans la chaîne **source** où la sous-chaîne doit commencer. Le premier caractère dans la chaîne aura l’index 1, le deuxième caractère aura l’index 2, et ainsi de suite. |
 | **length** |Obligatoire |integer |Longueur de la sous-chaîne. Si la longueur se termine à l’extérieur de la chaîne **source**, la fonction retourne la sous-chaîne de l’index **start** jusqu’à la fin de l’index **source**. |
 
-- - -
+---
 ### <a name="normalizediacritics"></a>NormalizeDiacritics
 **Fonction :**<br> NormalizeDiacritics(source)
 
@@ -108,7 +108,7 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 | --- | --- | --- | --- |
 | **source** |Obligatoire |Chaîne | Généralement un attribut de nom ou de prénom. |
 
-- - -
+---
 ### <a name="not"></a>not
 **Fonction :**<br> Not(source)
 
@@ -120,7 +120,7 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 | --- | --- | --- | --- |
 | **source** |Obligatoire |Chaîne de type Boolean |Les valeurs **sources** attendues sont « True » ou « False ». |
 
-- - -
+---
 ### <a name="replace"></a>Replace
 **Fonction :**<br> Remplacer (source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
 
@@ -153,7 +153,7 @@ Remplace les valeurs dans une chaîne. Elle fonctionne différemment selon les p
 | **replacementAttributeName** |Facultatif |Chaîne |Nom de l’attribut à utiliser pour la valeur de remplacement, quand la source n’a aucune valeur. |
 | **template** |Facultatif |Chaîne |Lorsque la valeur **template** est fournie, nous recherchons **oldValue** dans le modèle et la remplaçons par la valeur source. |
 
-- - -
+---
 ### <a name="selectuniquevalue"></a>SelectUniqueValue
 **Fonction :**<br> SelectUniqueValue(uniqueValueRule1, uniqueValueRule2, uniqueValueRule3, …)
 
@@ -171,7 +171,7 @@ Remplace les valeurs dans une chaîne. Elle fonctionne différemment selon les p
 | **uniqueValueRule1  … uniqueValueRuleN** |Au moins 2 requis, aucune limite supérieure |Chaîne | Liste des règles de génération de valeur unique à évaluer. |
 
 
-- - -
+---
 ### <a name="singleapproleassignment"></a>SingleAppRoleAssignment
 **Fonction :**<br> SingleAppRoleAssignment([appRoleAssignments])
 
@@ -183,7 +183,7 @@ Remplace les valeurs dans une chaîne. Elle fonctionne différemment selon les p
 | --- | --- | --- | --- |
 | **[appRoleAssignments]** |Obligatoire |Chaîne |Objet **[appRoleAssignments]** . |
 
-- - -
+---
 ### <a name="split"></a>Split
 **Fonction :**<br> Split (source, délimiteur)
 
@@ -196,7 +196,7 @@ Remplace les valeurs dans une chaîne. Elle fonctionne différemment selon les p
 | **source** |Obligatoire |Chaîne |**source** à mettre à jour. |
 | **délimiteur** |Obligatoire |Chaîne |Spécifie le caractère qui sera utilisé pour fractionner la chaîne (exemple : « , ») |
 
-- - -
+---
 ### <a name="stripspaces"></a>StripSpaces
 **Fonction :**<br> StripSpaces(source)
 
@@ -208,7 +208,7 @@ Remplace les valeurs dans une chaîne. Elle fonctionne différemment selon les p
 | --- | --- | --- | --- |
 | **source** |Obligatoire |Chaîne |**source** à mettre à jour. |
 
-- - -
+---
 ### <a name="switch"></a>Switch
 **Fonction :**<br> Switch(source, defaultValue, key1, value1, key2, value2, …)
 
@@ -223,7 +223,7 @@ Remplace les valeurs dans une chaîne. Elle fonctionne différemment selon les p
 | **key** |Obligatoire |Chaîne |**Key** avec laquelle comparer la valeur **source**. |
 | **value** |Obligatoire |Chaîne |Valeur de remplacement pour la **source** correspondant à la clé. |
 
-- - -
+---
 ### <a name="tolower"></a>ToLower
 **Fonction :**<br> ToLower(source, culture)
 
@@ -236,7 +236,7 @@ Remplace les valeurs dans une chaîne. Elle fonctionne différemment selon les p
 | **source** |Obligatoire |Chaîne |Généralement le nom de l’attribut de l’objet source |
 | **culture** |Facultatif |Chaîne |Le format du nom de culture basé sur RFC 4646 est *languagecode2-country/regioncode2*, où *languagecode2* correspond au code de langue à deux lettres et *country/regioncode2* au code de sous-culture à deux lettres, par exemple, ja-JP pour le japonais (Japon) et en-US pour l’anglais (États-Unis). Si un code de langue à deux lettres n'est pas disponible, un code à trois lettres dérivé de la norme ISO 639-2 est utilisé.|
 
-- - -
+---
 ### <a name="toupper"></a>ToUpper
 **Fonction :**<br> ToUpper(source, culture)
 

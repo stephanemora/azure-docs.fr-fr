@@ -1,19 +1,17 @@
 ---
 title: Forum Aux Questions Azure Data Catalog
 description: Forum Aux Questions sur Azure Data Catalog, y compris sur les fonctionnalités de détection de source de données, d’annotation et de gestion.
-services: data-catalog
 author: JasonWHowell
 ms.author: jasonh
-ms.assetid: 5c7e209a-458c-4bb4-96bb-7ed178f9528a
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: 7c5241b9df23bb0334a39f2c684fd1bdff40b4c2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/01/2019
+ms.openlocfilehash: 6ab5c67129b16cde5ca74e72effdf56ec0a22711
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61004039"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508888"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Forum Aux Questions Azure Data Catalog
 Cet article fournit des réponses aux questions fréquemment posées sur le service Azure Data Catalog.
@@ -103,9 +101,6 @@ Pour signaler des problèmes, partager des informations et poser des questions, 
 
 ## <a name="does-the-catalog-work-with-another-data-source-that-im-interested-in"></a>Le catalogue fonctionne-t-il avec une autre source de données qui m’intéresse ?
 Nous travaillons activement à l’ajout de sources de données supplémentaires à Data Catalog. Si vous souhaitez qu’une source de données spécifique soit prise en charge, suggérez-la (ou faites part de votre accord si elle a déjà été suggérée) en vous rendant dans la section [Data Catalog sur les forums de commentaires Azure](https://feedback.azure.com/forums/906052-data-catalog).
-
-## <a name="how-is-azure-data-catalog-related-to-the-data-catalog-in-power-bi-for-office-365"></a>Comment Azure Data Catalog est-il lié au catalogue de données dans Power BI pour Office 365 ?
-Vous pouvez considérer Azure Data Catalog comme une évolution de Data Catalog dans Power BI. À partir du printemps 2017, Azure Data Catalog est utilisé pour activer le partage et la découverte de requêtes dans Excel 2016 et Power Query pour Excel. Les fonctions Data Catalog d’Excel sont disponibles pour les utilisateurs disposant de licences Power BI Pro.
 
 ## <a name="what-permissions-do-i-need-to-register-assets-with-data-catalog"></a>Quelles sont les autorisations dont j’ai besoin pour inscrire des ressources auprès de Data Catalog ?
 Pour exécuter l’outil de référencement pour Data Catalog, vous avez besoin d’autorisations sur la source de données qui vous permet de lire les métadonnées de la source. Pour inclure également un aperçu, vous devez disposer des autorisations qui vous permettent de lire les données à partir des objets en cours d’inscription.

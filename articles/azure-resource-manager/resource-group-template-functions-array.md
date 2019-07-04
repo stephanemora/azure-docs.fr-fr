@@ -1,25 +1,17 @@
 ---
 title: Fonctions des modèles Azure Resource Manager - tableaux et objets | Microsoft Docs
 description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour travailler avec des tableaux et des objets.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
-ms.assetid: ''
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/8/2018
 ms.author: tomfitz
-ms.openlocfilehash: c80625fb36709f66319b4966e210785864f30d09
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e093cb65137576a725a7d23676e5b2288bb778a0
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66128696"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206387"
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Fonctions de tableau et d’objet pour les modèles Azure Resource Manager
 
@@ -109,9 +101,9 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| intOutput | Tableau | [1] |
-| stringOutput | Tableau | ["efgh"] |
-| objectOutput | Tableau | [{"a": "b", "c": "d"}] |
+| intOutput | Array | [1] |
+| stringOutput | Array | ["efgh"] |
+| objectOutput | Array | [{"a": "b", "c": "d"}] |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -198,7 +190,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 | stringOutput | Chaîne | default |
 | intOutput | Int | 1 |
 | objectOutput | Object | {"first": "default"} |
-| arrayOutput | Tableau | [1] |
+| arrayOutput | Array | [1] |
 | emptyOutput | Bool | True |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
@@ -273,7 +265,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| return | Tableau | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
+| return | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -484,10 +476,10 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| stringArray | Tableau | ["a", "b", "c"] |
-| intArray | Tableau | [1, 2, 3] |
-| objectArray | Tableau | [{"one": "a", "two": "b", "three": "c"}] |
-| arrayArray | Tableau | [["one", "two", "three"]] |
+| stringArray | Array | ["a", "b", "c"] |
+| intArray | Array | [1, 2, 3] |
+| objectArray | Array | [{"one": "a", "two": "b", "three": "c"}] |
+| arrayArray | Array | [["one", "two", "three"]] |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -710,7 +702,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
 | objectOutput | Object | {"one": "a", "three": "c"} |
-| arrayOutput | Tableau | ["two", "three"] |
+| arrayOutput | Array | ["two", "three"] |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -733,7 +725,7 @@ Renvoie un objet JSON.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |OUI |chaîne |La valeur à convertir au format JSON. |
+| arg1 |OUI |string |La valeur à convertir au format JSON. |
 
 
 ### <a name="return-value"></a>Valeur de retour
@@ -1123,7 +1115,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| rangeOutput | Tableau | [5, 6, 7] |
+| rangeOutput | Array | [5, 6, 7] |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -1203,7 +1195,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| arrayOutput | Tableau | ["three"] |
+| arrayOutput | Array | ["three"] |
 | stringOutput | Chaîne | two three |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
@@ -1284,7 +1276,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| arrayOutput | Tableau | ["one", "two"] |
+| arrayOutput | Array | ["one", "two"] |
 | stringOutput | Chaîne | sur |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
@@ -1364,7 +1356,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
 | objectOutput | Object | {"one": "a", "two": "b", "three": "c2", "four": "d", "five": "e"} |
-| arrayOutput | Tableau | ["one", "two", "three", "four"] |
+| arrayOutput | Array | ["one", "two", "three", "four"] |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 

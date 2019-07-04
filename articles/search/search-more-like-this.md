@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 5723f1ab7258a9e0d672b5c0fd9fd0b9c4dc8721
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4d1c691e570d3cfc7e0475c02e4c60ed6ffa8440
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65522919"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485349"
 ---
 # <a name="morelikethis-in-azure-search"></a>moreLikeThis dans la Recherche Azure
 
@@ -50,4 +50,4 @@ POST /indexes/hotels/docs/search?api-version=2019-05-06-Preview
 Vous pouvez utiliser n’importe quel outil de test web pour faire des essais avec cette fonctionnalité.  Nous vous recommandons d’utiliser Postman pour cet exercice.
 
 > [!div class="nextstepaction"]
-> [Explorer les API REST de la Recherche Azure avec Postman](search-fiddler.md)
+> [Explorer les API REST de la Recherche Azure avec Postman](search-get-started-postman.md)

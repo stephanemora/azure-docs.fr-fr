@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: mamccrea
-ms.openlocfilehash: 42c3f0ce70467c6a90bcc4e2e6b8a21d7570edc4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d560c61339bd608ab9385f99583613526156ca41
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65606197"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508060"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>Créer des clusters basés sur Linux dans HDInsight à l’aide du Kit de développement logiciel (SDK) .NET
 
@@ -393,7 +393,6 @@ Vous avez créé un cluster HDInsight. Pour apprendre à l’utiliser, consultez
 
 ### <a name="run-jobs"></a>Exécuter des tâches
 * [Exécuter des tâches Apache Hive dans HDInsight avec le SDK .NET](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)
-* [Exécuter des tâches Apache Pig dans HDInsight avec le SDK .NET](hadoop/apache-hadoop-use-pig-dotnet-sdk.md)
 * [Exécuter des tâches Apache Sqoop dans HDInsight avec le SDK .NET](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md)
 * [Exécuter des tâches Apache Oozie dans HDInsight](hdinsight-use-oozie-linux-mac.md)
 

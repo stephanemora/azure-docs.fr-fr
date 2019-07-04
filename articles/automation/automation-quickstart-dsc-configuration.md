@@ -11,12 +11,12 @@ ms.date: 11/06/2018
 ms.topic: quickstart
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: a30f9c1a61044c0911a5afc27ad95fc758b4c83e
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 0be78b444c9af9c5c0a818d790982670d2b68ee8
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449091"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477603"
 ---
 # <a name="configure-a-linux-virtual-machine-with-desired-state-configuration"></a>Configurer une machine virtuelle Linux avec le service de configuration d’état souhaité
 
@@ -38,7 +38,7 @@ Il existe plusieurs méthodes pour intégrer une machine et activer le service d
 
 1. Dans le volet de gauche du portail Azure, sélectionnez **Comptes Automation**. Si cette option n’est pas visible dans le volet de gauche, cliquez sur **Tous les services**, puis recherchez-la dans la vue correspondante.
 1. Dans la liste, sélectionnez un compte Automation.
-1. Dans le volet de gauche du compte Automation, sélectionnez **Configuration d’état (DSC)**.
+1. Dans le volet de gauche du compte Automation, sélectionnez **Configuration d’état (DSC)** .
 2. Cliquez sur **Ajouter** pour ouvrir la page Sélection de machine virtuelle.
 3. Trouvez la machine virtuelle pour laquelle vous souhaitez activer DSC. Vous pouvez utiliser le champ de recherche et les options de filtre pour rechercher une machine virtuelle en particulier.
 4. Cliquez sur la machine virtuelle, puis sélectionnez **Connexion**.

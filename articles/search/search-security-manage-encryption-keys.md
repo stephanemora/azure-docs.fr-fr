@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: ''
-ms.openlocfilehash: 567f32cba76aaf2d1657b2476c4d11596d44dec5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 949628fa52b4b020d70b75f4a0e7895f1e0f8bba
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66753959"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485318"
 ---
 # <a name="azure-search-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Chiffrement Recherche Azure à l’aide de clés gérées par le client dans Azure Key Vault
 
@@ -41,7 +41,7 @@ Les services suivants sont utilisés dans cet exemple.
 
 + [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) ou [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) est utilisé pour les tâches de configuration.
 
-+ [Postman](search-fiddler.md), [Azure PowerShell](search-create-index-rest-api.md) et le [SDK Recherche Azure](https://aka.ms/search-sdk-preview) permettent d’appeler la préversion de l’API REST. Il n’existe pour l’instant aucun portail ou prise en charge du SDK .NET pour le chiffrement géré par le client.
++ [Postman](search-get-started-postman.md), [Azure PowerShell](search-create-index-rest-api.md) et le [SDK Recherche Azure](https://aka.ms/search-sdk-preview) permettent d’appeler la préversion de l’API REST. Il n’existe pour l’instant aucun portail ou prise en charge du SDK .NET pour le chiffrement géré par le client.
 
 ## <a name="1---enable-key-recovery"></a>1 - Activer la récupération de clé
 

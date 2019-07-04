@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/12/2019
+ms.date: 06/19/2019
 ms.author: bwren
-ms.openlocfilehash: c80736dcd8be0c7ff3aae850aaaf9659f47daf36
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 56dd1c29d5606da96bbc6d519b70caf580852446
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60996346"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273068"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Journaux d’activité personnalisés dans Azure Monitor
 La source de données Journaux d’activité personnalisés d’Azure Monitor vous permet de collecter des événements stockés dans des fichiers texte sur les ordinateurs Windows et Linux. De nombreuses applications consignent des informations dans des fichiers texte au lieu des services de journalisation standard tels que le Journal des événements Windows ou Syslog. Une fois la collecte terminée, vous pouvez analyser les données dans des champs individuels au sein de vos requêtes ou extraire les données lors de la collecte vers des champs individuels.
@@ -35,11 +35,7 @@ Les fichiers journaux à collecter doivent correspondre aux critères suivants.
 - Le fichier journal doit utiliser l’encodage ASCII ou UTF-8.  Les autres formats, par exemple UTF-16, ne sont pas pris en charge.
 
 >[!NOTE]
->Si le fichier journal contient des entrées dupliquées, Azure Monitor les collecte.  Toutefois, les résultats de la requête sont incohérents dans les cas où les résultats du filtre affichent un nombre d’événements supérieur au nombre de résultats.  Il est important de valider le journal pour déterminer si l’application qui le crée cause ce comportement et résoudre, si possible, le problème avant la création de la définition de collection de journal personnalisée.  
->
-  
->[!NOTE]
-> Si votre application crée un fichier journal tous les jours ou qu’elle atteint une taille spécifique, l’agent Log Analytics pour Linux ne découvre pas ces fichiers tant qu’il n’a pas été redémarré. Ceci est dû au fait que l’agent énumère et supervise uniquement les modèles avec les journaux d’activité spécifiés au démarrage ; par conséquent, vous devez en tenir compte en automatisant le redémarrage de l’agent.  Cette limitation n’existe pas dans le cas de l’agent Log Analytics pour Windows.  
+> Si le fichier journal contient des entrées dupliquées, Azure Monitor les collecte. Toutefois, les résultats de la requête sont incohérents dans les cas où les résultats du filtre affichent un nombre d’événements supérieur au nombre de résultats. Il est important de valider le journal pour déterminer si l’application qui le crée cause ce comportement et résoudre, si possible, le problème avant la création de la définition de collection de journal personnalisée.  
 >
 
 >[!NOTE]
@@ -86,7 +82,7 @@ Par exemple, une application peut créer un fichier journal chaque jour avec la 
 
 Le tableau suivant fournit des exemples de modèles valides pour différents fichiers journaux.
 
-| Description | path |
+| Description | Path |
 |:--- |:--- |
 | Tous les fichiers sous *C:\Logs* avec l’extension .txt sur l’agent Windows |C:\Logs\\\*.txt |
 | Tous les fichiers sous *C:\Logs* avec un nom commençant par log et portant l’extension .txt sur l’agent Windows |C:\Logs\log\*.txt |

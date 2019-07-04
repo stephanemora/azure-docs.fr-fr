@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b33e993dbddc9c1567a1a6f7d3dca28af240a000
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b21c5f8630598a4b7117d23ad7c8da46de07d2fa
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60381142"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204497"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Synchronisation d’Azure AD Connect : Référence des fonctions
 Dans Azure AD Connect, les fonctions servent à manipuler une valeur d’attribut pendant la synchronisation.  
@@ -89,7 +89,7 @@ Les fonctions ayant pour type **mvbin**, **mvstr** et **mvref** ne peuvent fonct
 | [ReplaceChars](#replacechars) |[Right](#right) |[RTrim](#rtrim) |[Trim](#trim) | |
 | [UCase](#ucase) |[Word](#word) | | | |
 
-- - -
+---
 ### <a name="bitand"></a>BitAnd
 **Description :**  
 la fonction BitAnd définit des bits spécifiés sur une valeur.
@@ -111,7 +111,7 @@ En d’autres termes, elle renvoie 0 dans tous les cas, sauf si les bits corresp
 `BitAnd(&HF, &HF7)`  
 Renvoie 7, car les valeurs hexadécimales « F » ET « F7 » donnent cette valeur.
 
-- - -
+---
 ### <a name="bitor"></a>BitOr
 **Description :**  
 La fonction BitOr définit des bits spécifiés sur une valeur.
@@ -124,7 +124,7 @@ La fonction BitOr définit des bits spécifiés sur une valeur.
 **Remarques :**  
 Cette fonction convertit les deux paramètres en la représentation binaire et définit un bit sur 1 si l’un des bits ou les deux bits correspondants dans le masque et l’indicateur ont pour valeur 1, ou sur 0 si les deux bits correspondants ont la valeur 0. En d’autres termes, elle renvoie 1 dans tous les cas, sauf si les bits correspondants de ces deux paramètres ont pour valeur 0.
 
-- - -
+---
 ### <a name="cbool"></a>CBool
 **Description :**  
 La fonction CBool renvoie une valeur booléenne basée sur l’expression évaluée.
@@ -140,7 +140,7 @@ Si l’expression renvoie une valeur autre que zéro, CBool renvoie la valeur Tr
 
 Retourne True si les attributs ont la même valeur.
 
-- - -
+---
 ### <a name="cdate"></a>CDate
 **Description :**  
 La fonction CDate renvoie une valeur DateTime UTC à partir d’une chaîne. DateTime n’est pas un type d’attribut natif dans Sync, mais il est utilisé par certaines fonctions.
@@ -161,7 +161,7 @@ Renvoie une valeur DateTime à partir de l’heure de début de l’employé.
 Renvoie une valeur DateTime représentant « 2013-01-11 12:00 AM ».
 
 
-- - -
+---
 ### <a name="certextensionoids"></a>CertExtensionOids
 **Description :**  
 Retourne les valeurs OID de toutes les extensions critiques d’un objet certificat.
@@ -170,7 +170,7 @@ Retourne les valeurs OID de toutes les extensions critiques d’un objet certifi
 `mvstr CertExtensionOids(binary certificateRawData)`  
 *   certificateRawData : Représentation en tableau d’octets d’un certificat X.509.Byte array representation of an X.509 certificate. Le tableau d’octets peut contenir des données X.509 codées en binaire (DER) ou en Base64.
 
-- - -
+---
 ### <a name="certformat"></a>CertFormat
 **Description :**  
 Retourne le nom du format de ce certificat X.509v3.
@@ -179,7 +179,7 @@ Retourne le nom du format de ce certificat X.509v3.
 `str CertFormat(binary certificateRawData)`  
 *   certificateRawData : Représentation en tableau d’octets d’un certificat X.509.Byte array representation of an X.509 certificate. Le tableau d’octets peut contenir des données X.509 codées en binaire (DER) ou en Base64.
 
-- - -
+---
 ### <a name="certfriendlyname"></a>CertFriendlyName
 **Description :**  
 Retourne l’alias associé à un certificat.
@@ -188,7 +188,7 @@ Retourne l’alias associé à un certificat.
 `str CertFriendlyName(binary certificateRawData)`  
 *   certificateRawData : Représentation en tableau d’octets d’un certificat X.509.Byte array representation of an X.509 certificate. Le tableau d’octets peut contenir des données X.509 codées en binaire (DER) ou en Base64.
 
-- - -
+---
 ### <a name="certhashstring"></a>CertHashString
 **Description :**  
 Retourne la valeur de hachage SHA1 du certificat x.509v.3 sous forme de chaîne hexadécimale.
@@ -197,7 +197,7 @@ Retourne la valeur de hachage SHA1 du certificat x.509v.3 sous forme de chaîne 
 `str CertHashString(binary certificateRawData)`  
 *   certificateRawData : Représentation en tableau d’octets d’un certificat X.509.Byte array representation of an X.509 certificate. Le tableau d’octets peut contenir des données X.509 codées en binaire (DER) ou en Base64.
 
-- - -
+---
 ### <a name="certissuer"></a>CertIssuer
 **Description :**  
 Retourne le nom de l’autorité de certification qui a émis le certificat x.509v.3.
@@ -206,7 +206,7 @@ Retourne le nom de l’autorité de certification qui a émis le certificat x.50
 `str CertIssuer(binary certificateRawData)`  
 *   certificateRawData : Représentation en tableau d’octets d’un certificat X.509.Byte array representation of an X.509 certificate. Le tableau d’octets peut contenir des données X.509 codées en binaire (DER) ou en Base64.
 
-- - -
+---
 ### <a name="certissuerdn"></a>CertIssuerDN
 **Description :**  
 Retourne le nom unique de l’émetteur de certificat.
@@ -215,7 +215,7 @@ Retourne le nom unique de l’émetteur de certificat.
 `str CertIssuerDN(binary certificateRawData)`  
 *   certificateRawData : Représentation en tableau d’octets d’un certificat X.509.Byte array representation of an X.509 certificate. Le tableau d’octets peut contenir des données X.509 codées en binaire (DER) ou en Base64.
 
-- - -
+---
 ### <a name="certissueroid"></a>CertIssuerOid
 **Description :**  
 Retourne l’OID de l’émetteur de certificat.
@@ -224,7 +224,7 @@ Retourne l’OID de l’émetteur de certificat.
 `str CertIssuerOid(binary certificateRawData)`  
 *   certificateRawData : Représentation en tableau d’octets d’un certificat X.509.Byte array representation of an X.509 certificate. Le tableau d’octets peut contenir des données X.509 codées en binaire (DER) ou en Base64.
 
-- - -
+---
 ### <a name="certkeyalgorithm"></a>CertKeyAlgorithm
 **Description :**  
 Retourne les informations d’algorithme de clé du certificat x.509v.3 sous forme de chaîne.
@@ -233,7 +233,7 @@ Retourne les informations d’algorithme de clé du certificat x.509v.3 sous for
 `str CertKeyAlgorithm(binary certificateRawData)`  
 *   certificateRawData : Représentation en tableau d’octets d’un certificat X.509.Byte array representation of an X.509 certificate. Le tableau d’octets peut contenir des données X.509 codées en binaire (DER) ou en Base64.
 
-- - -
+---
 ### <a name="certkeyalgorithmparams"></a>CertKeyAlgorithmParams
 **Description :**  
 Retourne les paramètres d’algorithme de clé du certificat x.509v.3 sous forme de chaîne hexadécimale.
@@ -242,7 +242,7 @@ Retourne les paramètres d’algorithme de clé du certificat x.509v.3 sous form
 `str CertKeyAlgorithm(binary certificateRawData)`  
 *   certificateRawData : Représentation en tableau d’octets d’un certificat X.509.Byte array representation of an X.509 certificate. Le tableau d’octets peut contenir des données X.509 codées en binaire (DER) ou en Base64.
 
-- - -
+---
 ### <a name="certnameinfo"></a>CertNameInfo
 **Description :**  
 Retourne le nom du sujet et de l’émetteur d’un certificat.
@@ -253,7 +253,7 @@ Retourne le nom du sujet et de l’émetteur d’un certificat.
 *   X509NameType : Valeur X509NameType du sujet.
 *   includesIssuerName : true pour inclure le nom de l’émetteur ; sinon, false.
 
-- - -
+---
 ### <a name="certnotafter"></a>CertNotAfter
 **Description :**  
 Retourne la date en heure locale après laquelle un certificat n’est plus valide.
@@ -262,7 +262,7 @@ Retourne la date en heure locale après laquelle un certificat n’est plus vali
 `dt CertNotAfter(binary certificateRawData)`  
 *   certificateRawData : Représentation en tableau d’octets d’un certificat X.509.Byte array representation of an X.509 certificate. Le tableau d’octets peut contenir des données X.509 codées en binaire (DER) ou en Base64.
 
-- - -
+---
 ### <a name="certnotbefore"></a>CertNotBefore
 **Description :**  
 Retourne la date en heure locale à partir de laquelle un certificat devient valide.
@@ -271,7 +271,7 @@ Retourne la date en heure locale à partir de laquelle un certificat devient val
 `dt CertNotBefore(binary certificateRawData)`  
 *   certificateRawData : Représentation en tableau d’octets d’un certificat X.509.Byte array representation of an X.509 certificate. Le tableau d’octets peut contenir des données X.509 codées en binaire (DER) ou en Base64.
 
-- - -
+---
 ### <a name="certpublickeyoid"></a>CertPublicKeyOid
 **Description :**  
 Retourne l’OID de la clé publique du certificat x.509v.3.
@@ -280,7 +280,7 @@ Retourne l’OID de la clé publique du certificat x.509v.3.
 `str CertKeyAlgorithm(binary certificateRawData)`  
 *   certificateRawData : Représentation en tableau d’octets d’un certificat X.509.Byte array representation of an X.509 certificate. Le tableau d’octets peut contenir des données X.509 codées en binaire (DER) ou en Base64.
 
-- - -
+---
 ### <a name="certpublickeyparametersoid"></a>CertPublicKeyParametersOid
 **Description :**  
 Retourne l’OID des paramètres de clé publique du certificat x.509v.3.
@@ -289,7 +289,7 @@ Retourne l’OID des paramètres de clé publique du certificat x.509v.3.
 `str CertPublicKeyParametersOid(binary certificateRawData)`  
 *   certificateRawData : Représentation en tableau d’octets d’un certificat X.509.Byte array representation of an X.509 certificate. Le tableau d’octets peut contenir des données X.509 codées en binaire (DER) ou en Base64.
 
-- - -
+---
 ### <a name="certserialnumber"></a>CertSerialNumber
 **Description :**  
 Retourne le numéro de série du certificat X.509v3.
@@ -298,7 +298,7 @@ Retourne le numéro de série du certificat X.509v3.
 `str CertSerialNumber(binary certificateRawData)`  
 *   certificateRawData : Représentation en tableau d’octets d’un certificat X.509.Byte array representation of an X.509 certificate. Le tableau d’octets peut contenir des données X.509 codées en binaire (DER) ou en Base64.
 
-- - -
+---
 ### <a name="certsignaturealgorithmoid"></a>CertSignatureAlgorithmOid
 **Description :**  
 Retourne l’OID de l’algorithme utilisé pour créer la signature d’un certificat.
@@ -307,7 +307,7 @@ Retourne l’OID de l’algorithme utilisé pour créer la signature d’un cert
 `str CertSignatureAlgorithmOid(binary certificateRawData)`  
 *   certificateRawData : Représentation en tableau d’octets d’un certificat X.509.Byte array representation of an X.509 certificate. Le tableau d’octets peut contenir des données X.509 codées en binaire (DER) ou en Base64.
 
-- - -
+---
 ### <a name="certsubject"></a>CertSubject
 **Description :**  
 Obtient le nom unique du sujet du certificat.
@@ -316,7 +316,7 @@ Obtient le nom unique du sujet du certificat.
 `str CertSubject(binary certificateRawData)`  
 *   certificateRawData : Représentation en tableau d’octets d’un certificat X.509.Byte array representation of an X.509 certificate. Le tableau d’octets peut contenir des données X.509 codées en binaire (DER) ou en Base64.
 
-- - -
+---
 ### <a name="certsubjectnamedn"></a>CertSubjectNameDN
 **Description :**  
 Retourne le nom unique du sujet du certificat.
@@ -325,7 +325,7 @@ Retourne le nom unique du sujet du certificat.
 `str CertSubjectNameDN(binary certificateRawData)`  
 *   certificateRawData : Représentation en tableau d’octets d’un certificat X.509.Byte array representation of an X.509 certificate. Le tableau d’octets peut contenir des données X.509 codées en binaire (DER) ou en Base64.
 
-- - -
+---
 ### <a name="certsubjectnameoid"></a>CertSubjectNameOid
 **Description :**  
 Retourne l’OID du nom du sujet d’un certificat.
@@ -334,7 +334,7 @@ Retourne l’OID du nom du sujet d’un certificat.
 `str CertSubjectNameOid(binary certificateRawData)`  
 *   certificateRawData : Représentation en tableau d’octets d’un certificat X.509.Byte array representation of an X.509 certificate. Le tableau d’octets peut contenir des données X.509 codées en binaire (DER) ou en Base64.
 
-- - -
+---
 ### <a name="certthumbprint"></a>CertThumbprint
 **Description :**  
 Retourne l’empreinte d’un certificat.
@@ -343,7 +343,7 @@ Retourne l’empreinte d’un certificat.
 `str CertThumbprint(binary certificateRawData)`  
 *   certificateRawData : Représentation en tableau d’octets d’un certificat X.509.Byte array representation of an X.509 certificate. Le tableau d’octets peut contenir des données X.509 codées en binaire (DER) ou en Base64.
 
-- - -
+---
 ### <a name="certversion"></a>CertVersion
 **Description :**  
 Retourne la version de format X.509 d’un certificat.
@@ -352,7 +352,7 @@ Retourne la version de format X.509 d’un certificat.
 `str CertThumbprint(binary certificateRawData)`  
 *   certificateRawData : Représentation en tableau d’octets d’un certificat X.509.Byte array representation of an X.509 certificate. Le tableau d’octets peut contenir des données X.509 codées en binaire (DER) ou en Base64.
 
-- - -
+---
 ### <a name="cguid"></a>CGuid
 **Description :**  
 La fonction CGuid convertit la représentation sous forme de chaîne d’un GUID en sa représentation binaire.
@@ -362,7 +362,7 @@ La fonction CGuid convertit la représentation sous forme de chaîne d’un GUID
 
 * Une chaîne rédigée au format suivant : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx ou {xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}
 
-- - -
+---
 ### <a name="contains"></a>Contains
 **Description :**  
 La fonction Contains détecte une chaîne à l’intérieur d’un attribut à valeurs multiples.
@@ -386,7 +386,7 @@ Pour les attributs de référence, la chaîne recherchée doit correspondre exac
 `IIF(Contains([proxyAddresses],"SMTP:")>0,[proxyAddresses],Error("No primary SMTP address found."))`  
 Si l’attribut proxyAddresses a une adresse de messagerie principale (indiquée par « SMTP : »), cette fonction renvoie l’attribut proxyAddress. Sinon, elle renvoie une erreur.
 
-- - -
+---
 ### <a name="convertfrombase64"></a>ConvertFromBase64
 **Description :**  
 La fonction ConvertFromBase64 convertit la valeur encodée en base64 en chaîne régulière.
@@ -404,7 +404,7 @@ La fonction ConvertFromBase64 convertit la valeur encodée en base64 en chaîne 
 
 Les deux exemples renvoient «*Hello world!* »
 
-- - -
+---
 ### <a name="convertfromutf8hex"></a>ConvertFromUTF8Hex
 **Description :**  
 La fonction ConvertFromUTF8Hex convertit la valeur encodée hexadécimale UTF8 spécifiée en chaîne.
@@ -422,7 +422,7 @@ Ce format est utilisé par Azure Active Directory en tant que nom de domaine.
 `ConvertFromUTF8Hex("48656C6C6F20776F726C6421")`  
 Renvoie «*Hello world!* ».
 
-- - -
+---
 ### <a name="converttobase64"></a>ConvertToBase64
 **Description :**  
 La fonction ConvertToBase64 convertit une chaîne en chaîne Unicode base64.  
@@ -435,7 +435,7 @@ Convertit la valeur d’un tableau d’entiers en sa représentation sous forme 
 `ConvertToBase64("Hello world!")`  
 Renvoie « SABlAGwAbABvACAAdwBvAHIAbABkACEA ».
 
-- - -
+---
 ### <a name="converttoutf8hex"></a>ConvertToUTF8Hex
 **Description :**  
 La fonction ConvertToUTF8Hex convertit une chaîne en valeur hexadécimale encodée UTF8.
@@ -450,7 +450,7 @@ Le format de sortie de cette fonction est utilisé par Azure Active Directory en
 `ConvertToUTF8Hex("Hello world!")`  
 Renvoie 48656C6C6F20776F726C6421.
 
-- - -
+---
 ### <a name="count"></a>Count
 **Description :**  
 La fonction Count renvoie le nombre d’éléments dans un attribut à valeurs multiples.
@@ -458,7 +458,7 @@ La fonction Count renvoie le nombre d’éléments dans un attribut à valeurs m
 **Syntaxe :**  
 `num Count(mvstr attribute)`
 
-- - -
+---
 ### <a name="cnum"></a>CNum
 **Description :**  
 La fonction CNum prend une chaîne et renvoie un type de données numérique.
@@ -466,7 +466,7 @@ La fonction CNum prend une chaîne et renvoie un type de données numérique.
 **Syntaxe :**  
 `num CNum(str value)`
 
-- - -
+---
 ### <a name="cref"></a>CRef
 **Description :**  
 Convertit une chaîne en attribut de référence.
@@ -477,7 +477,7 @@ Convertit une chaîne en attribut de référence.
 **Exemple :**  
 `CRef("CN=LC Services,CN=Microsoft,CN=lcspool01,CN=Pools,CN=RTC Service," & %Forest.LDAP%)`
 
-- - -
+---
 ### <a name="cstr"></a>CStr
 **Description :**  
 La fonction CStr convertit en un type de données de chaîne.
@@ -493,7 +493,7 @@ La fonction CStr convertit en un type de données de chaîne.
 `CStr([dn])`  
 Peut renvoyer « cn=Joe,dc=contoso,dc=com ».
 
-- - -
+---
 ### <a name="dateadd"></a>DateAdd
 **Description :**  
 Renvoie un objet Date contenant une date à laquelle un intervalle de temps spécifié a été ajouté.
@@ -519,7 +519,7 @@ Renvoie un objet Date contenant une date à laquelle un intervalle de temps spé
 `DateAdd("m", 3, CDate("2001-01-01"))`  
 Ajoute 3 mois et renvoie une valeur DateTime représentant « 2001-04-01 ».
 
-- - -
+---
 ### <a name="datefromnum"></a>DateFromNum
 **Description :**  
 La fonction DateFromNum convertit une valeur au format de date AD en un type DateTime.
@@ -532,7 +532,7 @@ La fonction DateFromNum convertit une valeur au format de date AD en un type Dat
 `DateFromNum(129699324000000000)`  
 Renvoie une valeur DateTime représentant 2012-01-01 23:00:00.
 
-- - -
+---
 ### <a name="dncomponent"></a>DNComponent
 **Description :**  
 La fonction DNComponent renvoie la valeur d’un composant de nom de domaine spécifié en partant de la gauche.
@@ -547,7 +547,7 @@ La fonction DNComponent renvoie la valeur d’un composant de nom de domaine sp�
 `DNComponent(CRef([dn]),1)`  
 Si dn est « cn=Joe,ou=… », la fonction renvoie Joe.
 
-- - -
+---
 ### <a name="dncomponentrev"></a>DNComponentRev
 **Description :**  
 La fonction DNComponentRev renvoie la valeur d’un composant de nom de domaine spécifié en partant de la droite (fin).
@@ -566,7 +566,7 @@ Si le nom de domaine est « cn=Joe,ou=Atlanta,ou=GA,ou=US, dc=contoso,dc=com »,
 `DNComponentRev(CRef([dn]),1,"DC")`  
 Renvoient US.
 
-- - -
+---
 ### <a name="error"></a>Error
 **Description :**  
 La fonction Error sert à renvoyer une erreur personnalisée.
@@ -578,7 +578,7 @@ La fonction Error sert à renvoyer une erreur personnalisée.
 `IIF(IsPresent([accountName]),[accountName],Error("AccountName is required"))`  
 Si l’attribut accountName n’est pas présent, renvoie une erreur sur l’objet.
 
-- - -
+---
 ### <a name="escapedncomponent"></a>EscapeDNComponent
 **Description :**  
 La fonction EscapeDNComponent prend un composant de nom de domaine et l’isole pour qu’il puisse être représenté dans l’annuaire LDAP.
@@ -590,7 +590,7 @@ La fonction EscapeDNComponent prend un composant de nom de domaine et l’isole 
 `EscapeDNComponent("cn=" & [displayName]) & "," & %ForestLDAP%)`  
 Permet de s’assurer que l’objet peut être créé dans un annuaire LDAP, même si l’attribut displayName comporte des caractères d’échappement dans LDAP.
 
-- - -
+---
 ### <a name="formatdatetime"></a>FormatDateTime
 **Description :**  
 La fonction FormatDateTime sert à mettre en forme une valeur DateTime en chaîne dans le format spécifié.
@@ -612,7 +612,7 @@ Renvoie comme résultat « 2007-12-25 ».
 `FormatDateTime(DateFromNum([pwdLastSet]),"yyyyMMddHHmmss.0Z")`  
 Peut donner comme résultat « 20140905081453.0Z ».
 
-- - -
+---
 ### <a name="guid"></a>Guid
 **Description :**  
 La fonction Guid génère un nouveau GUID aléatoire.
@@ -620,7 +620,7 @@ La fonction Guid génère un nouveau GUID aléatoire.
 **Syntaxe :**  
 `str Guid()`
 
-- - -
+---
 ### <a name="iif"></a>IIF
 **Description :**  
 La fonction IIF renvoie une valeur parmi un ensemble de valeurs possibles en fonction d’une condition spécifiée.
@@ -636,7 +636,7 @@ La fonction IIF renvoie une valeur parmi un ensemble de valeurs possibles en fon
 `IIF([employeeType]="Intern","t-" & [alias],[alias])`  
  Renvoie l’alias d’un utilisateur avec le préfixe « t- » si l’utilisateur est stagiaire. Sinon, l’alias reste inchangé.
 
-- - -
+---
 ### <a name="instr"></a>InStr
 **Description :**  
 La fonction InStr recherche la première occurrence d’une sous-chaîne dans une chaîne.
@@ -662,7 +662,7 @@ Prend la valeur 5.
 `InStr("repEated","e",3,vbBinaryCompare)`  
 Prend la valeur 7.
 
-- - -
+---
 ### <a name="instrrev"></a>InStrRev
 **Description :**  
 La fonction InStrRev recherche la dernière occurrence d’une sous-chaîne dans une chaîne.
@@ -684,7 +684,7 @@ Renvoie la position à laquelle la sous-chaîne a été trouvée, ou 0 si elle e
 `InStrRev("abbcdbbbef","bb")`  
 Renvoie 7.
 
-- - -
+---
 ### <a name="isbitset"></a>IsBitSet
 **Description :**  
 La fonction IsBitSet vérifie si un bit est ou non défini.
@@ -698,7 +698,7 @@ La fonction IsBitSet vérifie si un bit est ou non défini.
 `IsBitSet(&HF,4)`  
 Renvoie True, car le bit « 4 » est défini dans la valeur hexadécimale « F ».
 
-- - -
+---
 ### <a name="isdate"></a>IsDate
 **Description :**  
 La fonction IsDate prend la valeur True si l’expression peut être évaluée à un type DateTime.
@@ -709,7 +709,7 @@ La fonction IsDate prend la valeur True si l’expression peut être évaluée �
 **Remarques :**  
 Permet de déterminer si CDate() peut aboutir.
 
-- - -
+---
 ### <a name="iscert"></a>IsCert
 **Description :**  
 Retourne la valeur true si les données brutes peuvent être sérialisées en un objet certificat .NET X509Certificate2.
@@ -717,7 +717,7 @@ Retourne la valeur true si les données brutes peuvent être sérialisées en un
 **Syntaxe :**  
 `bool CertThumbprint(binary certificateRawData)`  
 *   certificateRawData : Représentation en tableau d’octets d’un certificat X.509.Byte array representation of an X.509 certificate. Le tableau d’octets peut contenir des données X.509 codées en binaire (DER) ou en Base64.
-- - -
+---
 ### <a name="isempty"></a>IsEmpty
 **Description :**  
 La fonction IsEmpty prend la valeur True si l’attribut est présent dans CS ou MV mais qu’il est évalué à une chaîne vide.
@@ -725,7 +725,7 @@ La fonction IsEmpty prend la valeur True si l’attribut est présent dans CS ou
 **Syntaxe :**  
 `bool IsEmpty(var Expression)`
 
-- - -
+---
 ### <a name="isguid"></a>IsGuid
 **Description :**  
 La fonction IsGuid renvoie la valeur True si la chaîne peut être convertie en GUID.
@@ -742,7 +742,7 @@ Utilisé pour déterminer si CGuid() peut aboutir.
 `IIF(IsGuid([strAttribute]),CGuid([strAttribute]),NULL)`  
 Si StrAttribute est au format GUID, renvoie une représentation binaire. Sinon, renvoie la valeur Null.
 
-- - -
+---
 ### <a name="isnull"></a>IsNull
 **Description :**  
 La fonction IsNull renvoie true si l’expression correspond à la valeur Null.
@@ -757,7 +757,7 @@ Dans le cas d’un attribut, la valeur Null est exprimée par l’absence de ce 
 `IsNull([displayName])`  
 Renvoie True si l’attribut est absent dans CS ou MV.
 
-- - -
+---
 ### <a name="isnullorempty"></a>IsNullOrEmpty
 **Description :**  
 La fonction IsNullOrEmpty renvoie la valeur true si l’expression a pour valeur Null ou s’il s’agit d’une chaîne vide.
@@ -773,7 +773,7 @@ L’inverse de cette fonction est nommé IsPresent.
 `IsNullOrEmpty([displayName])`  
 Renvoie True si l’attribut est absent dans CS ou MV ou s’il s’agit d’une chaîne vide.
 
-- - -
+---
 ### <a name="isnumeric"></a>IsNumeric
 **Description :**  
 La fonction IsNumeric renvoie une valeur booléenne indiquant si une expression peut être évaluée en tant que type de nombre.
@@ -784,7 +784,7 @@ La fonction IsNumeric renvoie une valeur booléenne indiquant si une expression 
 **Remarques :**  
 Permet de déterminer si CNum() peut parvenir à analyser l’expression.
 
-- - -
+---
 ### <a name="isstring"></a>IsString
 **Description :**  
 La fonction IsString prend la valeur True si l’expression peut être évaluée en tant que type de chaîne.
@@ -795,7 +795,7 @@ La fonction IsString prend la valeur True si l’expression peut être évaluée
 **Remarques :**  
 Permet de déterminer si CStr() peut parvenir à analyser l’expression.
 
-- - -
+---
 ### <a name="ispresent"></a>IsPresent
 **Description :**  
 La fonction IsPresent renvoie true si l’expression correspond à une chaîne qui n’a pas la valeur Null et n’est pas vide.
@@ -809,7 +809,7 @@ L’inverse de cette fonction est appelé IsNullOrEmpty.
 **Exemple :**  
 `Switch(IsPresent([directManager]),[directManager], IsPresent([skiplevelManager]),[skiplevelManager], IsPresent([director]),[director])`
 
-- - -
+---
 ### <a name="item"></a>Item
 **Description :**  
 La fonction Item renvoie un élément à partir d’une chaîne/d’un attribut à valeurs multiples.
@@ -829,7 +829,7 @@ Génère une erreur si l’index est hors limites.
 `Mid(Item([proxyAddresses],Contains([proxyAddresses], "SMTP:")),6)`  
 Renvoie l’adresse de messagerie principale.
 
-- - -
+---
 ### <a name="itemornull"></a>ItemOrNull
 **Description :**  
 La fonction ItemOrNull renvoie un élément à partir d’une chaîne/d’un attribut à valeurs multiples.
@@ -845,7 +845,7 @@ La fonction ItemOrNull est utile avec la fonction Contains, car cette dernière 
 
 Renvoie une valeur Null si l’index est hors limites.
 
-- - -
+---
 ### <a name="join"></a>Join
 **Description :**  
 La fonction Join prend une chaîne à valeurs multiples et renvoie une chaîne à valeur unique avec le séparateur spécifié inséré entre chaque élément.
@@ -864,7 +864,7 @@ Il existe une parité entre les fonctions Join et Split. La fonction Join prend 
 `Join([proxyAddresses],",")`  
 Peut retourner : « SMTP:john.doe@contoso.com,smtp:jd@contoso.com »
 
-- - -
+---
 ### <a name="lcase"></a>LCase
 **Description :**  
 La fonction LCase convertit tous les caractères d’une chaîne en minuscules.
@@ -876,7 +876,7 @@ La fonction LCase convertit tous les caractères d’une chaîne en minuscules.
 `LCase("TeSt")`  
 Renvoie « test ».
 
-- - -
+---
 ### <a name="left"></a>Left
 **Description :**  
 La fonction Left renvoie un nombre spécifié de caractères en partant de la gauche d’une chaîne.
@@ -900,7 +900,7 @@ Si la chaîne contient moins de caractères que le nombre spécifié dans numCha
 `Left("John Doe", 3)`  
 Renvoie « Joh ».
 
-- - -
+---
 ### <a name="len"></a>Len
 **Description :**  
 La fonction Len renvoie le nombre de caractères contenus dans une chaîne.
@@ -912,7 +912,7 @@ La fonction Len renvoie le nombre de caractères contenus dans une chaîne.
 `Len("John Doe")`  
 Renvoie 8.
 
-- - -
+---
 ### <a name="ltrim"></a>LTrim
 **Description :**  
 La fonction LTrim supprime les espaces blancs situés au début d’une chaîne.
@@ -924,7 +924,7 @@ La fonction LTrim supprime les espaces blancs situés au début d’une chaîne.
 `LTrim(" Test ")`  
 Renvoie « Test ».
 
-- - -
+---
 ### <a name="mid"></a>Mid
 **Description :**  
 La fonction Mid renvoie un nombre donné de caractères à partir d’une position spécifiée dans une chaîne.
@@ -955,7 +955,7 @@ Renvoie « hn Do ».
 `Mid("John Doe", 6, 999)`  
 Renvoie « Doe ».
 
-- - -
+---
 ### <a name="now"></a>Now
 **Description :**  
 La fonction Now renvoie une valeur DateTime indiquant la date et l’heure actuelles qui correspondent à la date et à l’heure système de votre ordinateur.
@@ -963,7 +963,7 @@ La fonction Now renvoie une valeur DateTime indiquant la date et l’heure actue
 **Syntaxe :**  
 `dt Now()`
 
-- - -
+---
 ### <a name="numfromdate"></a>NumFromDate
 **Description :**  
 La fonction NumFromDate renvoie une date au format de date AD.
@@ -975,7 +975,7 @@ La fonction NumFromDate renvoie une date au format de date AD.
 `NumFromDate(CDate("2012-01-01 23:00:00"))`  
 Renvoie 129699324000000000.
 
-- - -
+---
 ### <a name="padleft"></a>PadLeft
 **Description :**  
 La fonction PadLeft remplit par la gauche une chaîne sur une longueur spécifiée à l’aide d’un caractère de remplissage fourni.
@@ -1000,7 +1000,7 @@ La fonction PadLeft remplit par la gauche une chaîne sur une longueur spécifi�
 `PadLeft("User", 10, "0")`  
 Renvoie « 000000User ».
 
-- - -
+---
 ### <a name="padright"></a>PadRight
 **Description :**  
 La fonction PadRight remplit par la droite une chaîne sur une longueur spécifiée à l’aide d’un caractère de remplissage fourni.
@@ -1025,7 +1025,7 @@ La fonction PadRight remplit par la droite une chaîne sur une longueur spécifi
 `PadRight("User", 10, "0")`  
 Renvoie « User000000 ».
 
-- - -
+---
 ### <a name="pcase"></a>PCase
 **Description :**  
 La fonction PCase met en majuscule le premier caractère de chaque mot délimité par un espace dans une chaîne, et tous les autres caractères sont convertis en minuscules.
@@ -1044,7 +1044,7 @@ Renvoie « test ».
 `PCase(LCase("TEST"))`  
 Renvoie « Test ».
 
-- - -
+---
 ### <a name="randomnum"></a>RandomNum
 **Description :**  
 La fonction RandomNum renvoie un nombre aléatoire dans un intervalle spécifié.
@@ -1059,7 +1059,7 @@ La fonction RandomNum renvoie un nombre aléatoire dans un intervalle spécifié
 `Random(100,999)`  
 Peut renvoyer 734.
 
-- - -
+---
 ### <a name="removeduplicates"></a>RemoveDuplicates
 **Description :**  
 La fonction RemoveDuplicates prend une chaîne à valeurs multiples et vérifie que chaque valeur est unique.
@@ -1071,7 +1071,7 @@ La fonction RemoveDuplicates prend une chaîne à valeurs multiples et vérifie 
 `RemoveDuplicates([proxyAddresses])`  
 Renvoie un attribut proxyAddress expurgé duquel toutes les valeurs en double ont été supprimées.
 
-- - -
+---
 ### <a name="replace"></a>Replace
 **Description :**  
 La fonction Replace remplace toutes les occurrences d’une chaîne par une autre chaîne.
@@ -1094,7 +1094,7 @@ La fonction reconnaît les monikers spéciaux suivants :
 `Replace([address],"\r\n",", ")`  
 Remplace CRLF par une virgule et un espace, et peut générer « One Microsoft Way, Redmond, WA, USA ».
 
-- - -
+---
 ### <a name="replacechars"></a>ReplaceChars
 **Description :**  
 La fonction ReplaceChars remplace toutes les occurrences des caractères trouvés dans la chaîne ReplacePattern.
@@ -1127,7 +1127,7 @@ Renvoie Raksmorgas.
 `ReplaceChars("O’Neil",%ReplaceString%)`  
 Renvoie « ONeil », l’apostrophe est définie comme étant à supprimer.
 
-- - -
+---
 ### <a name="right"></a>Right
 **Description :**  
 La fonction Right renvoie un nombre spécifié de caractères en partant de la droite (fin) d’une chaîne.
@@ -1153,7 +1153,7 @@ Si la chaîne contient un nombre de caractères inférieur au nombre spécifié 
 `Right("John Doe", 3)`  
 Renvoie « Doe ».
 
-- - -
+---
 ### <a name="rtrim"></a>RTrim
 **Description :**  
 La fonction RTrim supprime les espaces blancs situés à la fin d’une chaîne.
@@ -1165,7 +1165,7 @@ La fonction RTrim supprime les espaces blancs situés à la fin d’une chaîne.
 `RTrim(" Test ")`  
 Renvoie « Test ».
 
-- - -
+---
 ### <a name="select"></a>Sélectionnez
 **Description :**  
 Traite toutes les valeurs d’un attribut à valeurs multiples (ou la sortie d’une expression) selon la fonction spécifiée.
@@ -1183,7 +1183,7 @@ Traite toutes les valeurs d’un attribut à valeurs multiples (ou la sortie d�
 `Select($item,[otherPhone],Replace($item,"-",""))`  
 Retourne toutes les valeurs de l’attribut à valeurs multiples otherPhone après suppression des traits d’union (-).
 
-- - -
+---
 ### <a name="split"></a>Split
 **Description :**  
 La fonction Split prend une chaîne séparée par un délimiteur et en fait une chaîne à valeurs multiples.
@@ -1200,7 +1200,7 @@ La fonction Split prend une chaîne séparée par un délimiteur et en fait une 
 `Split("SMTP:john.doe@contoso.com,smtp:jd@contoso.com",",")`  
 Renvoie une chaîne à valeurs multiples avec 2 éléments utiles pour l’attribut proxyAddress.
 
-- - -
+---
 ### <a name="stringfromguid"></a>StringFromGuid
 **Description :**  
 La fonction StringFromGuid prend un GUID binaire et le convertit en chaîne.
@@ -1208,7 +1208,7 @@ La fonction StringFromGuid prend un GUID binaire et le convertit en chaîne.
 **Syntaxe :**  
 `str StringFromGuid(bin GUID)`
 
-- - -
+---
 ### <a name="stringfromsid"></a>StringFromSid
 **Description :**  
 La fonction StringFromSid convertit en chaîne un tableau d’octets contenant un identificateur de sécurité.
@@ -1216,7 +1216,7 @@ La fonction StringFromSid convertit en chaîne un tableau d’octets contenant u
 **Syntaxe :**  
 `str StringFromSid(bin ObjectSID)`  
 
-- - -
+---
 ### <a name="switch"></a>Switch
 **Description :**  
 La fonction Switch est utilisée pour renvoyer une valeur unique en fonction des conditions évaluées.
@@ -1245,7 +1245,7 @@ La valeur peut être également la fonction Error qui renvoie une chaîne person
 `Switch([city] = "London", "English", [city] = "Rome", "Italian", [city] = "Paris", "French", True, Error("Unknown city"))`  
 Renvoie la langue parlée dans certaines grandes villes ; sinon, renvoie une erreur.
 
-- - -
+---
 ### <a name="trim"></a>Trim
 **Description :**  
 La fonction Trim supprime les espaces blancs situés au début et à la fin d’une chaîne.
@@ -1260,7 +1260,7 @@ Renvoie « test ».
 `Trim([proxyAddresses])`  
 Supprime les espaces blancs de début et de fin pour chaque valeur contenue dans l’attribut proxyAddress.
 
-- - -
+---
 ### <a name="ucase"></a>UCase
 **Description :**  
 La fonction UCase convertit tous les caractères d’une chaîne en majuscules.
@@ -1272,7 +1272,7 @@ La fonction UCase convertit tous les caractères d’une chaîne en majuscules.
 `UCase("TeSt")`  
 Renvoie « test ».
 
-- - -
+---
 ### <a name="where"></a>Where
 
 **Description :**  
@@ -1290,7 +1290,7 @@ Retourne un sous-ensemble de valeurs d’un attribut à valeurs multiples (ou la
 `Where($item,[userCertificate],CertNotAfter($item)>Now())`  
 Retourne les valeurs de certificat de l’attribut à valeurs multiples userCertificate qui n’ont pas expiré.
 
-- - -
+---
 ### <a name="with"></a>With
 **Description :**  
 La fonction With permet de simplifier une expression complexe en utilisant une variable pour représenter une sous-expression qui apparaît une ou plusieurs fois dans l’expression complexe.
@@ -1308,7 +1308,7 @@ Fonctionnellement équivalent à :
 Qui retourne uniquement les valeurs de certificat non expirées de l’attribut userCertificate.
 
 
-- - -
+---
 ### <a name="word"></a>Word
 **Description :**  
 La fonction Word retourne un mot contenu dans une chaîne, en fonction des paramètres qui décrivent les délimiteurs à utiliser et le nombre de mots à retourner.

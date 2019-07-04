@@ -17,11 +17,11 @@ ms.topic: article
 ms.date: 03/13/2017
 ms.author: manayar
 ms.openlocfilehash: 3d472aeaae7e7f02eba58aadea1df042d6c0f27b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62108054"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204713"
 ---
 # <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>Création d’un jeu de mise à l’échelle de machines virtuelles avec Visual Studio
 Cet article vous indique comment déployer un jeu de mise à l’échelle de machines virtuelles Azure à l'aide d'un déploiement de groupe de ressources Visual Studio.

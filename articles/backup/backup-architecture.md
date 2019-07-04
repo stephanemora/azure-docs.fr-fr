@@ -2,18 +2,18 @@
 title: Architecture de Sauvegarde Azure
 description: Fournit une vue d’ensemble de l’architecture, des composants et des processus utilisés par le service Sauvegarde Azure.
 services: backup
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.author: raynew
-ms.openlocfilehash: 98ffe145103b4be04014627ed04d04dcf7542015
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: dacurwin
+ms.openlocfilehash: 7c0a1650490a863f5b3a3cf09a5500d72359e7f1
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60647403"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272000"
 ---
 # <a name="azure-backup-architecture"></a>Architecture de Sauvegarde Azure
 
@@ -78,7 +78,7 @@ Le tableau suivant présente les différents types de sauvegardes utilisées pou
 
 **Type de sauvegarde** | **Détails** | **Utilisation**
 --- | --- | ---
-**Sauvegarde complète** | Une sauvegarde complète de base de données sauvegarde l’intégralité de la base de données. Elle contient toutes les données d’une base de données spécifique ou d’un ensemble de fichiers ou de groupes de fichiers. Elle contient également suffisamment de journaux pour récupérer ces données. | Vous pouvez déclencher au plus une sauvegarde complète par jour.<br/><br/> Vous pouvez choisir d’effectuer une sauvegarde complète à intervalle quotidien ou hebdomadaire.
+**Sauvegarde complète** | une sauvegarde complète de base de données sauvegarde l’intégralité de la base de données. Elle contient toutes les données d’une base de données spécifique ou d’un ensemble de fichiers ou de groupes de fichiers. Elle contient également suffisamment de journaux pour récupérer ces données. | Vous pouvez déclencher au plus une sauvegarde complète par jour.<br/><br/> Vous pouvez choisir d’effectuer une sauvegarde complète à intervalle quotidien ou hebdomadaire.
 **Sauvegarde différentielle** | Une sauvegarde différentielle est basée sur la sauvegarde de données complète précédente la plus récente.<br/><br/> Elle capture uniquement les données qui ont changé depuis la sauvegarde complète. |  Vous pouvez déclencher au plus une sauvegarde différentielle par jour.<br/><br/> Vous ne pouvez pas configurer une sauvegarde complète et une sauvegarde différentielle le même jour.
 **Sauvegarde de fichier journal** | une sauvegarde de fichier journal permet d’effectuer une restauration ponctuelle à la seconde donnée. | Au plus, vous pouvez configurer des sauvegardes du journal des transactions toutes les 15 minutes.
 

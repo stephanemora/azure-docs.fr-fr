@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: b78fb7d697f8a72b3c2f99c4509ea6ac5c5e5566
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 16b2eaef74a7aa0e3e28bfcbb6dbd9da568db6cf
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60616449"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491407"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Télécharger ou afficher votre facture Azure et vos données d’utilisation quotidienne
 
@@ -56,9 +56,9 @@ Pour plus d’informations sur votre facture, consultez la page [Comprendre votr
 
 ### <a name="download-invoices-for-a-microsoft-customer-agreement"></a>Télécharger les factures pour un Contrat client Microsoft
 
-Les factures sont générées pour chaque [profil de facturation](billing-mca-overview.md#understand-billing-profiles) dans le Contrat client Microsoft. Vous devez être Gestionnaire de factures, Propriétaire, Contributeur ou Lecteur de profil de facturation pour télécharger des factures à partir du portail Azure.
+Les factures sont générées pour chaque [profil de facturation](billing-mca-overview.md#billing-profiles) dans le Contrat client Microsoft. Vous devez être Gestionnaire de factures, Propriétaire, Contributeur ou Lecteur de profil de facturation pour télécharger des factures à partir du portail Azure.
 
-1. Effectuez une recherche sur **Gestion des coûts + facturation**.
+1. Recherchez **Gestion des coûts + facturation**.
 2. Sélectionnez un profil de facturation.
 3. Sélectionnez **Factures**.
 4. Dans la grille des factures, recherchez la ligne de la facture que vous souhaitez télécharger.
@@ -108,7 +108,7 @@ Vous pouvez ne pas adhérer à l’obtention de votre facture par e-mail en suiv
 
 Si vous avez un Contrat client Microsoft, vous pouvez adhérer à l’obtention de votre facture par e-mail. Tous les Gestionnaires de factures, Propriétaires, Contributeurs et Lecteurs de profil de facturation obtiennent la facture par e-mail. Les lecteurs ne peuvent pas mettre à jour la préférence d’envoi par e-mail de la facture.
 
-1. Effectuez une recherche sur **Gestion des coûts + facturation**.
+1. Recherchez **Gestion des coûts + facturation**.
 1. Sélectionnez un profil de facturation.
 1. Sous **Paramètres**, sélectionnez **Propriétés**.
 1. Sous **Facture par e-mail**, sélectionnez **Mettre à jour la préférence d’envoi par e-mail de la facture**.
@@ -169,7 +169,7 @@ Pour afficher et télécharger les données d’utilisation pour un profil de fa
 
 #### <a name="download-usage-for-billed-charges"></a>Télécharger les informations d’utilisation pour les frais facturés
 
-1. Effectuez une recherche sur **Gestion des coûts + facturation**.
+1. Recherchez **Gestion des coûts + facturation**.
 2. Sélectionnez un profil de facturation.
 3. Sélectionnez **Factures**.
 4. Dans la grille des factures, recherchez la ligne de la facture correspondant aux informations d’utilisation que vous souhaitez télécharger.
@@ -180,7 +180,7 @@ Pour afficher et télécharger les données d’utilisation pour un profil de fa
 
 Vous pouvez également télécharger les informations d’utilisation cumulée pour le mois en cours concernant la période de facturation actuelle, ce qui signifie que les frais n’ont pas encore été facturés.
 
-1. Effectuez une recherche sur **Gestion des coûts + facturation**.
+1. Recherchez **Gestion des coûts + facturation**.
 2. Sélectionnez un profil de facturation.
 3. Dans le panneau **Vue d’ensemble**, cliquez sur **Télécharger l’utilisation et les frais Azure**.
 

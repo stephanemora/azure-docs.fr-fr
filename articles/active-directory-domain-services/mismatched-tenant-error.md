@@ -3,7 +3,7 @@ title: Résoudre des erreurs d’annuaire incompatible pour des domaines managé
 description: Comprendre et résoudre des erreurs d’annuaire incompatible pour des domaines managés Azure AD Domain Services existants
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 ms.assetid: 40eb75b7-827e-4d30-af6c-ca3c2af915c7
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.author: mstephen
-ms.openlocfilehash: cc5b7286536901a516cb694013f1ad6eb594dcb1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: iainfou
+ms.openlocfilehash: 1ab6a535c9ffebcb423e7a5cb7f158224c004bd1
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66245818"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67472892"
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>Résoudre des erreurs d’annuaire incompatible pour des domaines managés Azure AD Domain Services existants
 Vous possédez un domaine existant géré par les domaines managés Azure AD Domain Services. Lorsque vous accédez au portail Azure et affichez le domaine managé, vous voyez le message d’erreur suivant :

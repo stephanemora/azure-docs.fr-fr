@@ -10,12 +10,12 @@ ms.date: 05/02/2019
 manager: jlembicz
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 567124f50745080da12178a458957a0f6c8266b5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 99abcc70a81622e4efbe85722d457bd1846b6e15
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65024315"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485213"
 ---
 # <a name="synonyms-in-azure-search"></a>Synonymes dans Recherche Azure
 
@@ -25,7 +25,7 @@ Dans Azure Search, l’expansion des synonymes est effectuée au moment de la re
 
 ## <a name="create-synonyms"></a>Créer des synonymes
 
-Le portail ne prend pas en charge la création de synonymes, mais vous pouvez utiliser l’API REST ou le kit SDK .NET. Pour prendre en main REST, nous vous recommandons d'[utiliser Postman](search-fiddler.md) et la formulation de requêtes à l'aide de cette API : [Créer des cartes de synonymes](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). Pour les développeurs C#, vous pouvez commencer avec [Ajouter des synonymes dans Recherche Azure à l’aide de C#](search-synonyms-tutorial-sdk.md).
+Le portail ne prend pas en charge la création de synonymes, mais vous pouvez utiliser l’API REST ou le kit SDK .NET. Pour prendre en main REST, nous vous recommandons d'[utiliser Postman](search-get-started-postman.md) et la formulation de requêtes à l'aide de cette API : [Créer des cartes de synonymes](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). Pour les développeurs C#, vous pouvez commencer avec [Ajouter des synonymes dans Recherche Azure à l’aide de C#](search-synonyms-tutorial-sdk.md).
 
 En outre, si vous utilisez des [clés gérée par le client](search-security-manage-encryption-keys.md) pour le chiffrement au repos côté service, vous pouvez appliquer cette protection au contenu de votre carte de synonymes.
 
