@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b19c0fd8af2792a4ffb877e5c6a7fc6b3f94511
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 975289f338e638ed0209d4f6cf2a163ced996e42
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60836114"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67202937"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Facteurs à prendre en compte pour le déploiement SGBD des machines virtuelles Azure pour la charge de travail SAP
 [1114181]: https://launchpad.support.sap.com/#/notes/1114181
@@ -58,9 +58,9 @@ Ce document aborde l’exécution des systèmes SGBD de type SAP sur les machine
 ## <a name="definitions"></a>Définitions
 Le document emploie les termes suivants :
 
-* **IaaS** : infrastructure as a service.
-* **PaaS**: platform as a service.
-* **SaaS** : software as a service.
+* **IaaS** : Infrastructure as a Service.
+* **PaaS** : Platform as a Service.
+* **SaaS** : Software as a Service.
 * **Composant SAP** : application SAP individuelle, comme ERP Central Component (ECC), Business Warehouse (BW), Solution Manager ou Enterprise Portal (EP). Les composants SAP peuvent reposer sur des technologies ABAP ou Java traditionnelles ou sur une application non basée sur NetWeaver telle que Business Objects.
 * **Environnement SAP** : un ou plusieurs composants SAP regroupés de manière logique pour exécuter une fonction métier, comme le développement, l’assurance qualité, la formation, la reprise d’activité après sinistre ou la production.
 * **Paysage SAP** : ce terme fait référence à l’ensemble des ressources SAP dans le paysage informatique d’un client. Le paysage SAP comprend tous les environnements de production et hors production.
@@ -150,7 +150,7 @@ L’emplacement des fichiers de base de données, des fichiers journaux et des f
 Comme indiqué précédemment, si vos exigences en IOPS dépassent ce qu’un seul disque dur virtuel peut fournir, répartissez le nombre d’IOPS nécessaires pour les fichiers de base de données entre plusieurs disques durs virtuels. Le moyen le plus simple pour distribuer la charge IOPS entre les disques consiste à créer une bande logicielle sur les différents disques. Ensuite, vous placez un certain nombre de fichiers de données du SGBD SAP sur les LUN issus de la bande logicielle. Le nombre de disques dans la bande est dicté par les exigences en IOPS, en débit de disque et en volume.
 
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > Nous vous recommandons d’utiliser Windows Storage Spaces pour créer des agrégats par bandes sur plusieurs disques durs virtuels Azure. Utilisez Windows Server 2012 R2 ou Windows Server 2016 au minimum.
@@ -164,7 +164,7 @@ Comme indiqué précédemment, si vos exigences en IOPS dépassent ce qu’un se
 >
 >
 
-- - -
+---
 
 > [!NOTE]
 > Dans la mesure où le stockage Azure conserve trois images des disques durs virtuels, il est inutile de configurer une redondance si vous utilisez des agrégats par bandes. Vous devez uniquement configurer des agrégats par bandes afin que les E/S soient distribuées entre les différents disques durs virtuels.
@@ -230,7 +230,7 @@ Les machines virtuelles Azure fournissent des disques non persistants après le 
 
 Pour plus d’informations, consultez [Understand the temporary drive on Windows VMs in Azure](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/), qui décrit le disque temporaire sur les machines virtuelles Windows dans Azure.
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > Sur une machine virtuelle Azure, le disque D est un disque non persistant soutenu par des disques locaux présents sur le nœud de calcul Azure. Comme le disque n’est pas persistant, toutes les modifications apportées au contenu du disque D sont perdues au redémarrage de la machine virtuelle. Les modifications incluent les fichiers stockés, les répertoires créés et les applications installées.
@@ -241,7 +241,7 @@ Pour plus d’informations, consultez [Understand the temporary drive on Windows
 >
 >
 
-- - -
+---
 
 
 
@@ -339,7 +339,7 @@ Afin de réduire davantage la latence du réseau entre les machines virtuelles A
 > La mise en réseau accélérée n’est pas prise en charge par tous les types de machines virtuelles. L’article précédent liste les types de machines virtuelles qui la prennent en charge.
 >
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > Pour savoir comment déployer des machines virtuelles avec mise en réseau accélérée sur Windows, consultez l’article [Créer une machine virtuelle Windows avec mise en réseau accélérée](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell).
@@ -350,7 +350,7 @@ Afin de réduire davantage la latence du réseau entre les machines virtuelles A
 >
 >
 
-- - -
+---
 
 > [!NOTE]
 > SUSE, Red Hat et Oracle Linux prennent en charge la mise en réseau accélérée avec les versions récentes. Les versions plus anciennes comme SLES 12 SP2 ou RHEL 7.2 ne prennent pas en charge la mise en réseau accélérée Azure.
