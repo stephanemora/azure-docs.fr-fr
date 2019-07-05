@@ -37,10 +37,12 @@
       items:
         - name: Scénarios
           href: scenarios.md
-        - name: Sélectionner un réseau virtuel
+        - name: Planifier un réseau virtuel
           href: network-considerations.md
     - name: Gérer Azure AD DS
       items:
+        - name: Activer les événements d’audit de sécurité (préversion)
+          href: security-audit-events.md
         - name: Vérifier l’intégrité d’un domaine managé
           href: check-health.md
         - name: "Configurer la synchronisation étendue d’Azure\_AD vers un domaine managé"

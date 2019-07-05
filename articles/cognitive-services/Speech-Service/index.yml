@@ -44,7 +44,7 @@ sections:
   - title: Introduction
     items:
       - type: paragraph
-        text: "Vous pouvez utiliser le SDK Speech pour ajouter les fonctionnalités suivantes (et d’autres) à vos applications&colon; \n<div class=\"row\"><div class=\"column\"><ul>\n<li><b><a href=\"speech-to-text.md\">Reconnaissance vocale</a></b> (speech-recognition/SR)</li>\n<li><b><a href=\"speech-devices-sdk-create-kws.md\">Mot de mise en éveil personnalisé</a></b> (keyword-spotter/KWS)</li>\n<li><b><a href=\"how-to-recognize-intents-from-speech-csharp.md\">Intention</a></b></li>\n<li><b><a href=\"speech-translation.md\">Traduction</a></b></li>\n<li><b><a href=\"speech-container-howto.md\">Conteneur en local</a></b></li></ul></div><div class=\"column\"><ul>\n<li><b><a href=\"text-to-speech.md\">Synthèse vocale</a></b> (TTS)</li>\n<li><b><a href=\"conversation-transcription-service.md\">Transcription de conversation</a></b> (CTS)</li>\n<li><b><a href=\"how-to-phrase-lists.md\">Personnalisation de la liste d’expressions</a>/<a href=\"how-to-custom-speech.md\">Adaptation vocale personnalisée</a></b></li>\n<li><b><a href=\"voice-first-virtual-assistants.md\">Assistant virtuel «\_voice-first\_»</a></b></li>\n<li><b><a href=\"call-center-transcription.md\">Transcription de centre d’appel</a></b></li></ul></div></div>\n"
+        text: "Vous pouvez utiliser le SDK Speech (<a href=\"releasenotes.md\">notes de publication</a>) pour ajouter les fonctionnalités suivantes (et d’autres) à vos applications&colon; \n<div class=\"row\"><div class=\"column\"><ul>\n<li><b><a href=\"speech-to-text.md\">Reconnaissance vocale</a></b> (speech-recognition/SR)</li>\n<li><b><a href=\"speech-devices-sdk-create-kws.md\">Mot de mise en éveil personnalisé</a></b> (keyword-spotter/KWS)</li>\n<li><b><a href=\"how-to-recognize-intents-from-speech-csharp.md\">Intention</a></b></li>\n<li><b><a href=\"speech-translation.md\">Traduction</a></b></li>\n<li><b><a href=\"speech-container-howto.md\">Conteneur en local</a></b></li></ul></div><div class=\"column\"><ul>\n<li><b><a href=\"text-to-speech.md\">Synthèse vocale</a></b> (TTS)</li>\n<li><b><a href=\"conversation-transcription-service.md\">Transcription de conversation</a></b> (CTS)</li>\n<li><b><a href=\"how-to-phrase-lists.md\">Personnalisation de la liste d’expressions</a>/<a href=\"how-to-custom-speech.md\">Adaptation vocale personnalisée</a></b></li>\n<li><b><a href=\"voice-first-virtual-assistants.md\">Assistant virtuel «\_voice-first\_»</a></b></li>\n<li><b><a href=\"call-center-transcription.md\">Transcription de centre d’appel</a></b></li></ul></div></div>\n"
   - title: "Démarrages en 5\_minutes"
     items:
       - type: paragraph
@@ -69,6 +69,8 @@ sections:
           - image:
               src: media/index/logo_objc.jpg
           - image:
+              src: media/index/logo_swift.jpg
+          - image:
               src: media/index/logo_nodejs.svg
           - image:
               src: media/index/logo_js.svg
@@ -85,6 +87,7 @@ sections:
               - href: quickstart-java-jre
               - href: quickstart-python
               - href: null
+              - href: null
               - href: quickstart-js-node
               - href: null
           - title: Windows 10 (x86)
@@ -96,6 +99,7 @@ sections:
               - href: quickstart-csharp-unity
               - href: null
               - href: quickstart-python
+              - href: null
               - href: null
               - href: quickstart-js-node
               - href: null
@@ -111,6 +115,7 @@ sections:
               - href: null
               - href: null
               - href: null
+              - href: null
           - title: Linux (x64)
             values:
               - href: null
@@ -121,6 +126,7 @@ sections:
               - href: quickstart-java-jre
               - href: quickstart-python
               - href: null
+              - href: null
               - href: quickstart-js-node
               - href: null
           - title: Linux (x86)
@@ -128,6 +134,7 @@ sections:
               - href: null
               - href: null
               - href: quickstart-cpp-linux
+              - href: null
               - href: null
               - href: null
               - href: null
@@ -147,6 +154,7 @@ sections:
               - href: null
               - href: null
               - href: null
+              - href: null
           - title: Android (x86/x64)
             values:
               - href: null
@@ -155,6 +163,7 @@ sections:
               - href: null
               - href: quickstart-csharp-unity
               - href: quickstart-java-android
+              - href: null
               - href: null
               - href: null
               - href: null
@@ -169,6 +178,7 @@ sections:
               - href: null
               - href: null
               - href: quickstart-objectivec-ios
+              - href: quickstart-swift-ios
               - href: null
               - href: null
           - title: macOS (x64)
@@ -181,6 +191,7 @@ sections:
               - href: quickstart-java-jre
               - href: quickstart-python
               - href: quickstart-objective-c-macos
+              - href: quickstart-swift-macos
               - href: quickstart-js-node
               - href: null
           - title: Kit SDK d’appareil (ARM32)
@@ -191,6 +202,7 @@ sections:
               - href: null
               - href: null
               - href: speech-devices-sdk
+              - href: null
               - href: null
               - href: null
               - href: null
@@ -206,9 +218,11 @@ sections:
               - href: null
               - href: null
               - href: null
+              - href: null
               - href: quickstart-js-browser
           - title: REST
             values:
+              - href: null
               - href: null
               - href: null
               - href: null
