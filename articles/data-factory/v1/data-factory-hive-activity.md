@@ -75,14 +75,14 @@ L’activité Hive HDInsight d’un [pipeline](data-factory-create-pipelines.md)
 ## <a name="syntax-details"></a>Détails de la syntaxe
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| Nom |Nom de l’activité |OUI |
+| name |Nom de l’activité |OUI |
 | description |Texte décrivant la raison motivant l’activité. |Non |
-| Type |HDinsightHive |OUI |
+| type |HDinsightHive |OUI |
 | inputs |Entrées utilisées par l’activité Hive |Non |
 | outputs |Sorties produites par l’activité Hive |OUI |
 | linkedServiceName |Référence au cluster HDInsight enregistré comme un service lié dans Data Factory |OUI |
 | script |Spécifier le script en ligne Hive |Non |
-| Chemin d'accès du script |Stockez le script Hive dans un stockage d'objets blob Azure et indiquez le chemin d'accès au fichier. Utilisez la propriété ’script’ ou ’scriptPath’. Les deux propriétés ne peuvent pas être utilisées simultanément. Le nom de fichier respecte la casse. |Non |
+| scriptPath |Stockez le script Hive dans un stockage d'objets blob Azure et indiquez le chemin d'accès au fichier. Utilisez la propriété ’script’ ou ’scriptPath’. Les deux propriétés ne peuvent pas être utilisées simultanément. Le nom de fichier respecte la casse. |Non |
 | defines |Spécifier les paramètres sous forme de paires clé/valeur pour le référencement au sein du script Hive à l'aide de ’hiveconf’ |Non |
 
 ## <a name="example"></a>Exemples
