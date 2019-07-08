@@ -304,14 +304,14 @@ Vérifiez que le certificat est installé sur l’ordinateur\'magasin personnel 
 
         | Propriété | Valeur |
         |---|---|
-        | Source | Quelconque |
-        | Plages de ports source | * |
-        | Destination | Quelconque |
-        | Plage de ports de destination | 636 |
-        | Protocol | Quelconque |
-        | Action | AUTORISER |
-        | Priorité | <Desired Number> |
-        | Nom | Port_LDAP_636 |
+        | Source | Any |
+        | Source port ranges | * |
+        | Destination | Any |
+        | Destination port range | 636 |
+        | Protocol | Any |
+        | Action | Allow |
+        | Priority | \<Desired Number> |
+        | Name | Port_LDAP_636 |
 
     ![règle de sécurité de trafic entrant](./media/apache-domain-joined-create-configure-enterprise-security-cluster/add-inbound-security-rule.png)
 
