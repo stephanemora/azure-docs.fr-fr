@@ -1,6 +1,6 @@
 - name: Documentation Media Services
   href: index.md
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   href: media-services-overview.md
   items:
     - name: Scénarios et disponibilité
@@ -51,6 +51,9 @@
   items:
     - name: gérer
       items:
+        - name: Comptes
+          displayName: subscription
+          href: media-services-account-concept.md
         - name: Entités
           items:
             - name: .NET
