@@ -35,6 +35,12 @@
       href: security-center-data-security.md
     - name: Utiliser les recommandations pour améliorer la sécurité
       href: security-center-using-recommendations.md
+    - name: Détecter les menaces
+      href: security-center-detection-capabilities.md
+    - name: Gérer les alertes de sécurité
+      href: security-center-managing-and-responding-alerts.md
+    - name: Incidents de sécurité
+      href: security-center-incident.md
     - name: Réponse aux incidents
       href: security-center-incident-response.md
 - name: Guides pratiques
@@ -97,19 +103,24 @@
           href: security-center-file-integrity-monitoring.md
         - name: Sécurisation adaptative du réseau
           href: security-center-adaptive-network-hardening.md
-    - name: Détecter les menaces
-      href: security-center-detection-capabilities.md
+    - name: Alertes de détection des menaces
       items:
-        - name: Alertes de sécurité
-          href: security-center-managing-and-responding-alerts.md
-        - name: Incidents de sécurité
-          href: security-center-incident.md
-        - name: Présentation des alertes de sécurité
-          href: security-center-alerts-type.md
-        - name: Validation de l’alerte
+        - name: Vue d'ensemble des alertes de sécurité
+          href: security-center-alerts-overview.md
+        - name: Détection des menaces pour les machines virtuelles et les serveurs
+          href: security-center-alerts-iaas.md
+        - name: Détection des menaces pour le calcul natif cloud
+          href: security-center-alerts-compute.md
+        - name: Détection des menaces pour les services de données
+          href: security-center-alerts-data-services.md
+        - name: Détection des menaces pour la couche des services Azure
+          href: security-center-alerts-service-layer.md
+        - name: Intégration avec les produits de sécurité Azure
+          href: security-center-alerts-integration.md
+        - name: Corrélation des alertes intelligentes cloud (incidents)
+          href: security-center-alerts-cloud-smart.md
+        - name: Validation des alertes (fichier de test EICAR)
           href: security-center-alert-validation.md
-        - name: UEBA pour les utilisateurs et ressources Azure
-          href: security-center-ueba-mcas.md
     - name: Archivage
       items:
         - name: Apply disk encryption
@@ -168,6 +179,10 @@
           href: security-center-search.md
         - name: Planification et fonctionnement
           href: security-center-planning-and-operations-guide.md
+        - name: Présentation des alertes de sécurité
+          href: security-center-alerts-type.md
+        - name: UEBA pour les utilisateurs et ressources Azure
+          href: security-center-ueba-mcas.md
 - name: Informations de référence
   items:
     - name: API REST

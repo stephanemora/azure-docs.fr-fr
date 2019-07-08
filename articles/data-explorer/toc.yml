@@ -100,10 +100,10 @@
           href: manage-database-permissions.md
         - name: Vérifier l’intégrité des clusters
           href: check-cluster-health.md
-        - name: Gérer le scale-out de cluster
-          href: manage-cluster-scale-out.md
-        - name: Gérer le scale-up de cluster
-          href: manage-cluster-scale-up.md
+        - name: Gérer la mise à l’échelle horizontale des clusters
+          href: manage-cluster-horizontal-scaling.md
+        - name: Gérer la mise à l’échelle verticale des clusters
+          href: manage-cluster-vertical-scaling.md
         - name: Suppression de données
           href: delete-data.md
         - name: Gérer des données en double
