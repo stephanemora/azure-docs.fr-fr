@@ -347,7 +347,7 @@ L’activité Spark ne prend pas en charge un script en ligne, contrairement aux
 
 Créez la structure de dossiers suivante dans le stockage Blob référencé par le service lié HDInsight. Chargez ensuite les fichiers dépendants dans les sous-dossiers appropriés dans le dossier racine représenté par **entryFilePath**. Par exemple, chargez les fichiers Python dans le sous-dossier pyFiles et les fichiers jar dans le sous-dossier jars du dossier racine. Lors de l’exécution, le service Data Factory attend la structure de dossiers suivante dans le stockage Blob : 
 
-| path | Description | Obligatoire | Type |
+| path | Description | Obligatoire | type |
 | ---- | ----------- | -------- | ---- |
 | . | Chemin d’accès racine du travail Spark dans le service lié de stockage. | OUI | Dossier |
 | &lt;défini par l’utilisateur &gt; | Chemin d’accès qui pointe vers le fichier d’entrée du travail Spark. | OUI | Fichier |
