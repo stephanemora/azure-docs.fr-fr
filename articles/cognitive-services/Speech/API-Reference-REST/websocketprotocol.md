@@ -153,7 +153,7 @@ Les en-têtes suivants sont requis pour tous les messages provenant du client.
 | En-tête | Valeur |
 |----|----|
 | Path | Chemin du message, tel que spécifié dans ce document |
-| X-RequestId | X-RequestId | UUID au format "no-dash" |
+| X-RequestId | X-RequestId UUID au format "no-dash" |
 | X-Timestamp | Horodatage de l’horloge UTC cliente au format ISO 8601 |
 
 #### <a name="x-requestid-header"></a>En-tête X-RequestId
@@ -253,7 +253,7 @@ Les en-têtes suivants sont requis pour tous les messages `audio`.
 | En-tête         |  Valeur     |
 | ------------- | ---------------- |
 | Path | `audio` |
-| X-RequestId | X-RequestId | UUID au format "no-dash" |
+| X-RequestId | X-RequestId UUID au format "no-dash" |
 | X-Timestamp | Horodatage de l’horloge UTC cliente au format ISO 8601 |
 | Content-Type | Type de contenu audio. Le type doit être *audio/x-wav* (PCM) ou *audio/silk* (SILK). |
 
@@ -356,7 +356,7 @@ Pendant la reconnaissance vocale, le service Speech génère régulièrement des
 | ------------- | ---------------- |
 | Encodage des messages WebSocket | Texte |
 | Path | `speech.hypothesis` |
-| X-RequestId | X-RequestId | UUID au format "no-dash" |
+| X-RequestId | X-RequestId UUID au format "no-dash" |
 | Content-Type | application/json |
 | body | Structure JSON des hypothèses de la reconnaissance vocale |
 
