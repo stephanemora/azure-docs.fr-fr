@@ -110,7 +110,7 @@ La commande `az mysql server georestore` requiert les paramètres suivants :
 | Paramètre | Valeur suggérée | Description  |
 | --- | --- | --- |
 |resource-group| myResourceGroup | Le nom du groupe de ressources auquel appartient le nouveau serveur.|
-|Nom | mydemoserver-georestored | Le nom du nouveau serveur. |
+|name | mydemoserver-georestored | Le nom du nouveau serveur. |
 |source-server | mydemoserver | Le nom du serveur existant dont les sauvegardes géo-redondantes sont utilisées. |
 |location | eastus | L’emplacement du nouveau serveur. |
 |sku-name| GP_Gen5_8 | Ce paramètre définit le niveau tarifaire, la génération de calculs et le nombre de vCores du nouveau serveur. GP_Gen5_8 mappe sur un serveur d’usage général, 5e génération avec 8 vCores.|
