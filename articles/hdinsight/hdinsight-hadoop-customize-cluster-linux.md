@@ -174,10 +174,10 @@ Cette section explique les différentes façons d’utiliser des actions de scri
     | Propriété | Valeur |
     | --- | --- |
     | Sélectionner un script | Pour utiliser votre propre script, sélectionnez __Personnalisé__. Sinon, sélectionnez un des scripts fournis. |
-    | Nom |Indiquez un nom pour l’action de script. |
+    | Name |Indiquez un nom pour l’action de script. |
     | URI de script bash |Spécifiez l’URI du script. |
-    | Head/Worker/Zookeeper |Indiquez les nœuds sur lesquels le script est exécuté : **Head**, **Worker** ou **ZooKeeper**. |
-    | parameters |Spécifiez les paramètres, si le script le demande. |
+    | Head/Worker/ZooKeeper |Indiquez les nœuds sur lesquels le script est exécuté : **Head**, **Worker** ou **ZooKeeper**. |
+    | Parameters |Spécifiez les paramètres, si le script le demande. |
 
     Utilisez l’option __Conserver cette action de script__ pour vous assurer que le script sera appliqué aux nœuds lors des opérations de mise à l’échelle.
 
