@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
 ms.openlocfilehash: 6ba008ffdf0fe00d6720b0968dc42bfcfc651c9c
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66258968"
 ---
 # <a name="register-in-dev-center"></a>S’inscrire dans le centre de développement  
@@ -157,7 +157,7 @@ Les informations fiscales et bancaires sont requises pour toutes les offres comm
   > Vérifiez bien que le code postal indiqué est correct. Il y a une validation de ville et de code postal.
 
 * **Comment obtenir un code promotionnel ?**
-  > Finissez de remplir le formulaire d’[Inscription à la Place de marché](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) pour recevoir un code promotionnel du Centre de développement. Consultez Comment [créer un compte espace partenaires](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) pour plus d’informations.
+  > Finissez de remplir le formulaire d’[Inscription à la Place de marché](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) pour recevoir un code promotionnel du Centre de développement. Pour plus d’informations, consultez [Créer un compte Espace partenaires](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account).
  
 * **Et ensuite, que se passe-t-il après l’inscription ?**
   > Recherchez un e-mail provenant de verify@microsoft.com avec pour ligne d’objet « Action nécessaire : Vérifiez votre compte de messagerie Microsoft ». Cliquez sur le lien de vérification soumis à une contrainte de temps pour terminer l’inscription. *Si vous n’avez reçu aucun e-mail dans les 24 heures, vérifiez votre dossier de courrier indésirable.*
