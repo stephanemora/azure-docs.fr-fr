@@ -189,11 +189,11 @@ Dans cet article, vous configurez l’activité Hive pour créer un cluster HDIn
 
     |Propriété  |Valeur  |
     |---------|---------|
-    |Nom | Entrez un nom pour la fabrique de données. Ce nom doit être globalement unique.|
-    |Abonnement | Sélectionnez votre abonnement Azure. |
-    |Groupe de ressources | Sélectionnez **Utiliser l’existant**, puis sélectionnez le groupe de ressources que vous avez créé à l’aide du script PowerShell. |
+    |Name | Entrez un nom pour la fabrique de données. Ce nom doit être globalement unique.|
+    |Subscription | Sélectionnez votre abonnement Azure. |
+    |Resource group | Sélectionnez **Utiliser l’existant**, puis sélectionnez le groupe de ressources que vous avez créé à l’aide du script PowerShell. |
     |Version | Conservez **V2**. |
-    |Lieu | L’emplacement est automatiquement défini sur l’emplacement que vous avez spécifié au moment de la création du groupe de ressources. Pour ce tutoriel, l’emplacement est défini sur **USA Est**. |
+    |Location | L’emplacement est automatiquement défini sur l’emplacement que vous avez spécifié au moment de la création du groupe de ressources. Pour ce tutoriel, l’emplacement est défini sur **USA Est**. |
 
     ![Créer une fabrique de données Azure Data Factory à l’aide du portail Azure](./media/hdinsight-hadoop-create-linux-clusters-adf/create-data-factory-portal.png "Créer une fabrique de données Azure Data Factory à l’aide du portail Azure")
 
