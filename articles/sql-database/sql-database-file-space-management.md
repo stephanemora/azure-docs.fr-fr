@@ -13,10 +13,10 @@ ms.reviewer: jrasnick, carlrab
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: 96d55da713b8591b20f95ba36f332a340999181e
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66242750"
 ---
 # <a name="manage-file-space-for-single-and-pooled-databases-in-azure-sql-database"></a>Gérer l’espace de fichier des bases de données uniques et mises en pool dans Azure SQL Database
@@ -26,11 +26,11 @@ Cet article décrit les différents types d’espace de stockage des bases de do
 > [!NOTE]
 > Cet article ne s’applique à l’option de déploiement d’instance managée dans Azure SQL Database.
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont pour le module Az.Sql. Pour ces applets de commande, consultez [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments pour les commandes dans le module Az et dans les modules AzureRm sont sensiblement identiques.
+> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont destinés au module Az.Sql. Pour ces cmdlets, consultez [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments des commandes dans le module Az et dans les modules AzureRm sont sensiblement identiques.
 
 Avec des bases de données uniques et mises en pool dans Azure SQL Database, il existe des modèles de charge de travail dans lesquels l’allocation des fichiers de données sous-jacents aux bases de données peut dépasser le nombre de pages de données utilisées. Ce scénario peut se produire quand l’espace utilisé augmente et que des données sont ensuite supprimées. La raison en est que l’espace de fichiers alloué n’est pas récupéré automatiquement quand des données sont supprimées.
 
@@ -253,9 +253,9 @@ Une fois les fichiers de données d’une base de données sont réduits, les in
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour plus d’informations sur les tailles maximales de base de données, consultez :
-  - [Limites du modèle d’achat par vCore d’Azure SQL Database pour une base de données unique](sql-database-vcore-resource-limits-single-databases.md)
+  - [Limites du modèle d’achat vCore Azure SQL Database pour une base de données unique](sql-database-vcore-resource-limits-single-databases.md)
   - [Limites de ressources pour des bases de données uniques suivant le modèle d’achat DTU](sql-database-dtu-resource-limits-single-databases.md)
-  - [Limites du modèle d’achat par vCore d’Azure SQL Database pour les pools élastiques](sql-database-vcore-resource-limits-elastic-pools.md)
+  - [Limites du modèle d’achat vCore Azure SQL Database pour les pools élastiques](sql-database-vcore-resource-limits-elastic-pools.md)
   - [Limites de ressources pour des pools élastiques suivant le modèle d’achat DTU](sql-database-dtu-resource-limits-elastic-pools.md)
 - Pour plus d’informations sur la commande `SHRINKDATABASE`, consultez [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql). 
 - Pour plus d’informations sur la fragmentation et la reconstruction d’index, consultez [Réorganiser et reconstruire des index](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).

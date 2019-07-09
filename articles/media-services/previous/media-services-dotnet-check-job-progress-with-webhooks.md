@@ -1,6 +1,6 @@
 ---
 title: Utiliser Azure WebHooks pour surveiller les notifications de travaux Media Services avec .NET | Microsoft Docs
-description: Découvrez comment utiliser Azure Webhooks pour surveiller les notifications de travaux Media Services. L’exemple de code est écrit en C# et utilise le Kit de développement logiciel (SDK) Media Services pour .NET.
+description: Découvrez comment utiliser Azure Webhooks pour surveiller les notifications de travaux Media Services. L’exemple de code est écrit en C# et utilise le kit SDK Media Services pour .NET.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,17 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 3b4c3bac1a2d62246fa5a7ff3a348c6cb2652ea1
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
-ms.translationtype: MT
+ms.openlocfilehash: a29381bded4bb2562227bd5f23ccb59bb5add028
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64868171"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059211"
 ---
 # <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Utiliser Azure Webhooks pour surveiller les notifications de travaux Media Services avec .NET 
 
 > [!NOTE]
-> Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consultez également [conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md)
+> Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consultez aussi [Conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md)
 
 Lorsque vous exécutez des travaux, vous avez généralement besoin de faire appel à une méthode de suivi de la progression du travail. Vous pouvez surveiller les notifications de travaux Media Services à l’aide d’Azure WebHooks ou du [Stockage File d’attente Azure](media-services-dotnet-check-job-progress-with-queues.md). Cet article vous montre comment utiliser webhooks.
 
@@ -42,7 +42,7 @@ Cet article montre comment
 
 Vous trouverez la définition des différentes fonctions Media Services .NET Azure Functions (notamment celle dont il est question dans cet article) [ici](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Les éléments suivants sont requis pour suivre le didacticiel :
 
@@ -72,7 +72,7 @@ Une fois votre Function App déployée, vous pouvez la retrouver parmi les fonct
 
 1. Sélectionnez votre Function App et cliquez sur **Nouvelle fonction**.
 2. Sélectionnez le code **C#** et le scénario **API et webhooks**. 
-3. Sélectionnez **Webhook générique - C#**.
+3. Sélectionnez **Webhook générique - C#** .
 4. Nommez votre webhook, puis appuyez sur **Créer**.
 
 ### <a name="files"></a>Fichiers
@@ -245,7 +245,7 @@ private static string PublishAndBuildStreamingURLs(String jobID)
 
     // Get a reference to the streaming manifest file from the  
     // collection of files in the asset. 
-    var manifestFile = asset.AssetFiles.Where(f => f.Name.ToLower().
+    var manifestFile = asset.AssetFiles.ToList().Where(f => f.Name.ToLower().
                 EndsWith(".ism")).
                 FirstOrDefault();
 

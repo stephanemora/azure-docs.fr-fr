@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 11/05/2018
 ms.author: seanmck
 ms.openlocfilehash: 03c5eb2e32a0a8ec51844511276d9efba5651068
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/14/2019
 ms.locfileid: "65073771"
 ---
 # <a name="checking-for-kubernetes-best-practices-in-your-cluster"></a>Vérification des meilleures pratiques Kubernetes dans votre cluster
@@ -22,7 +22,7 @@ Il existe plusieurs pratiques recommandées que vous devez suivre pour vos dépl
 
 L’[outil kube-advisor][kube-advisor-github] est un conteneur unique conçu pour être exécuté sur votre cluster. Il interroge le serveur d’API Kubernetes pour obtenir des informations sur vos déploiements et retourne un ensemble de suggestions d’améliorations.
 
-L’outil Conseiller de kube peut signaler sur demande de ressource et les limites manquant dans les applications PodSpecs pour Windows, ainsi que des applications Linux, mais l’outil de kube-conseiller lui-même doit être planifiée sur un bloc de Linux. Vous pouvez planifier un pod pour s’exécuter sur un pool de nœuds avec un système d’exploitation spécifiques à l’aide un [sélecteur de nœud] [ k8s-node-selector] dans la configuration du pod.
+L’outil kube-advisor peut rendre compte des limites et demandes de ressources manquantes dans PodSpecs pour les applications Windows et Linux, mais l’outil kube-advisor proprement dit doit être planifié sur un pod Linux. Vous pouvez planifier un pod pour qu’il s’exécute sur un pool de nœuds avec un système d’exploitation spécifique à l’aide d’un [sélecteur de nœud][k8s-node-selector] dans la configuration du pod.
 
 > [!NOTE]
 > L’outil kube-advisor est pris en charge par Microsoft dans la mesure du possible. Les problèmes et suggestions doivent être déposés sur GitHub.

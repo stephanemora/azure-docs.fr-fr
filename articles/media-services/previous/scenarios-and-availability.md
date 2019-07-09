@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 930420240d7b0f116f72056404e809ca94820f11
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65991429"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Scénarios et disponibilité des fonctionnalités Media Services dans les centres de données
 
 > [!NOTE]
-> Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consultez également [conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md)
+> Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consultez aussi [Conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md).
 
 Microsoft Azure Media Services (AMS) vous permet de charger, de stocker, d’encoder et d’empaqueter en toute sécurité du contenu vidéo ou audio destiné à être diffusé à la demande ou en streaming en direct sur différents clients (par exemple, téléviseurs, PC et appareils mobiles).
 
@@ -31,9 +31,9 @@ AMS fonctionne dans plusieurs centres de données à travers le monde. Ces centr
 
 Cette rubrique décrit les scénarios courants pour distribuer votre contenu [en direct](#live_scenarios) ou à la demande. Cette rubrique présente également des informations sur la disponibilité des fonctionnalités et services dans les centres de données.
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
-### <a name="prerequisites"></a>Conditions préalables
+### <a name="prerequisites"></a>Prérequis
 
 Pour commencer à utiliser Azure Media Services, vous devez disposer des éléments suivants :
 
@@ -196,7 +196,7 @@ AMS offre deux encodeurs à la demande : **Media Encoder Standard** et **Media 
 
 |Nom du processeur multimédia|Statut|Centres de données
 |---|---|---|
-|Media Encoder standard|GA|Tous|
+|Media Encoder Standard|GA|Tous|
 |Media Encoder Premium Workflow|GA|Tout sauf la Chine|
 
 ### <a name="analytics-media-processors"></a>Processeurs multimédias Analytics
@@ -207,14 +207,14 @@ Media Analytics est une collection de composants visuels et vocaux qui aident le
 
 |Nom du processeur multimédia|Statut|Centres de données
 |---|---|---|
-|Détecteur de visage Azure Media|VERSION PRÉLIMINAIRE|Tous|
-|Indexeur multimédia Azure|GA|Tous|
-|Détecteur de mouvement Azure Media|VERSION PRÉLIMINAIRE|Tous|
-|Azure Media OCR|VERSION PRÉLIMINAIRE|Tous|
-|Azure Media Redactor|VERSION PRÉLIMINAIRE|Tous|
-|Azure Media Stabilizer|VERSION PRÉLIMINAIRE|Tous|
-|Miniatures vidéo Azure Media|VERSION PRÉLIMINAIRE|Tous|
-|Azure Media Indexer 2|VERSION PRÉLIMINAIRE|Tout sauf la région de Chine et du gouvernement fédéral|
+|Détecteur de visage Azure Media|PRÉVERSION|Tous|
+|Azure Media Indexer|GA|Tous|
+|Détecteur de mouvement Azure Media|PRÉVERSION|Tous|
+|Azure Media OCR|PRÉVERSION|Tous|
+|Azure Media Redactor|PRÉVERSION|Tous|
+|Azure Media Stabilizer|PRÉVERSION|Tous|
+|Miniatures vidéo Azure Media|PRÉVERSION|Tous|
+|Azure Media Indexer 2|PRÉVERSION|Tout sauf la région de Chine et du gouvernement fédéral|
 
 ### <a name="protection"></a>Protection
 

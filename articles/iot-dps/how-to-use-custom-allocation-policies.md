@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.openlocfilehash: 03d39ed01907a2ad61e089946673b96b8a2cc83e
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65917009"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Comment utiliser des stratégies d’allocation personnalisées
@@ -43,10 +43,10 @@ Dans cet article, vous allez effectuer les étapes suivantes :
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Avoir effectué les étapes décrites dans le guide de démarrage rapide [Configurer le service IoT Hub Device Provisioning avec le portail Azure](./quick-setup-auto-provision.md).
-* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 ou version ultérieure avec le [« développement Desktop en C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) charge de travail est activé.
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 ou version ultérieure avec la charge de travail [« Développement Desktop en C++ »](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) activée.
 * Dernière version de [Git](https://git-scm.com/download/) installée.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -102,7 +102,7 @@ Dans cette section, vous allez créer un groupe d’inscriptions qui utilise la 
 
     **Générer automatiquement les clés** : cette case est normalement déjà cochée.
 
-    **Sélectionner le mode d’affectation des appareils aux hubs** : sélectionnez **Personnalisé (utiliser la fonction Azure)**.
+    **Sélectionner le mode d’affectation des appareils aux hubs** : sélectionnez **Personnalisé (utiliser la fonction Azure)** .
 
     ![Ajouter un groupe d’inscription d’allocation personnalisée pour l’attestation de clé symétrique](./media/how-to-use-custom-allocation-policies/create-custom-allocation-enrollment.png)
 
@@ -404,7 +404,7 @@ Dans cette section, vous allez mettre à jour un exemple de provisionnement nomm
 
 Cet exemple de code simule une séquence de démarrage d’un appareil qui envoie la demande de provisionnement à votre instance du service Device Provisioning. La séquence de démarrage entraîne la reconnaissance de l’appareil Toaster et son assignation au hub IoT défini par la stratégie d’allocation personnalisée.
 
-1. Dans le portail Azure, sélectionnez l’onglet **Vue d’ensemble** de votre service Device Provisioning et notez les valeurs de **_Étendue de l’ID_**.
+1. Dans le portail Azure, sélectionnez l’onglet **Vue d’ensemble** de votre service Device Provisioning et notez les valeurs de **_Étendue de l’ID_** .
 
     ![Extraction des informations de point de terminaison du service Device Provisioning à partir du panneau du Portail](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 
@@ -508,7 +508,7 @@ Le tableau suivant présente les scénarios attendus et les codes d’erreur de 
 
 | Scénario | Résultat de l’inscription retourné par le service Provisioning | Résultat du provisionnement retourné par le SDK |
 | -------- | --------------------------------------------- | ------------------------ |
-| Le webhook retourne 200 OK avec 'iotHubHostName' défini sur un nom d’hôte IoT Hub valide | État du résultat : Affecté  | Le SDK retourne PROV_DEVICE_RESULT_OK et des informations sur le hub |
+| Le webhook retourne 200 OK avec 'iotHubHostName' défini sur un nom d’hôte IoT Hub valide | État du résultat : Attribué  | Le SDK retourne PROV_DEVICE_RESULT_OK et des informations sur le hub |
 | Le webhook retourne 200 OK avec 'iotHubHostName' présent dans la réponse, mais défini sur une chaîne vide ou null | État du résultat : Échec<br><br> Code d’erreur : CustomAllocationIotHubNotSpecified (400208) | Le SDK retourne PROV_DEVICE_RESULT_HUB_NOT_SPECIFIED |
 | Le webhook retourne 401 Unauthorized | État du résultat : Échec<br><br>Code d’erreur : CustomAllocationUnauthorizedAccess (400209) | Le SDK retourne PROV_DEVICE_RESULT_UNAUTHORIZED |
 | Une inscription individuelle a été créée pour désactiver l’appareil | État du résultat : Désactivé | Le SDK retourne PROV_DEVICE_RESULT_DISABLED |
@@ -530,16 +530,16 @@ Pour supprimer le groupe de ressources par nom :
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com) et cliquez sur **Groupes de ressources**.
 
-2. Dans la zone de texte **Filtrer par nom...**, tapez le nom du groupe de ressources contenant vos ressources (ici, **contoso-us-resource-group**). 
+2. Dans la zone de texte **Filtrer par nom...** , tapez le nom du groupe de ressources contenant vos ressources (ici, **contoso-us-resource-group**). 
 
-3. À droite de votre groupe de ressources dans la liste des résultats, cliquez sur **...**, puis sur **Supprimer le groupe de ressources**.
+3. À droite de votre groupe de ressources dans la liste des résultats, cliquez sur **...** , puis sur **Supprimer le groupe de ressources**.
 
 4. Il vous sera demandé de confirmer la suppression du groupe de ressources. Saisissez de nouveau le nom de votre groupe de ressources pour confirmer, puis cliquez sur **Supprimer**. Après quelques instants, le groupe de ressources et toutes les ressources qu’il contient sont supprimés.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour en savoir plus Reprovisioning, consultez [réapprovisionnement des concepts d’appareil IoT Hub](concepts-device-reprovision.md) 
-- Pour en savoir plus Deprovisioning, consultez [Guide pratique pour déprovisionner des appareils qui ont été provisionnés automatiquement](how-to-unprovision-devices.md) 
+- Pour en savoir plus sur le reprovisionnement, consultez [Concepts du reprovisionnement d’appareils IoT Hub](concepts-device-reprovision.md) 
+- Pour en savoir plus sur le déprovisionnement, consultez [Guide pratique pour déprovisionner des appareils auparavant provisionnés automatiquement](how-to-unprovision-devices.md) 
 
 
 

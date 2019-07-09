@@ -15,15 +15,15 @@ ms.workload: infrastructure-services
 ms.date: 03/28/2019
 ms.author: kumud
 ms.openlocfilehash: 266630cb7c9601af69073a6c9beb7d7ada9b8034
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65957473"
 ---
 # <a name="azure-standard-load-balancer-overview"></a>Présentation d'Azure Standard Load Balancer
 
-Azure Load Balancer vous permet de mettre à l'échelle vos applications et de créer une haute disponibilité pour vos services. Load Balancer peut être utilisé dans des scénarios entrants et sortants et offre une latence faible, un débit élevé et une montée en puissance jusqu’à plusieurs millions de flux pour toutes les applications TCP et UDP. 
+Azure Load Balancer vous permet de mettre à l’échelle vos applications et de créer une haute disponibilité pour vos services. Load Balancer peut être utilisé dans des scénarios entrants et sortants et offre une latence faible, un débit élevé et une montée en puissance jusqu’à plusieurs millions de flux pour toutes les applications TCP et UDP. 
 
 Cet article se concentre sur Load Balancer Standard.  Pour obtenir une présentation plus générale d’Azure Load Balancer, consultez [Présentation de Load Balancer](load-balancer-overview.md) également.
 
@@ -75,7 +75,7 @@ Pour plus d’informations, consultez [Sondes d’intégrité Load Balancer](loa
 ### <a name="az"></a> Zones de disponibilité
 
 >[!IMPORTANT]
->Révision [Zones de disponibilité](../availability-zones/az-overview.md) pour d’autres sujets connexes, y compris des informations spécifiques de région.
+>Consultez les sujets connexes de l’article [Zones de disponibilité](../availability-zones/az-overview.md), y compris toutes les informations propres à une région.
 
 Load Balancer Standard prend en charge des fonctionnalités supplémentaires dans les régions où les Zones de disponibilité sont disponibles.  Ces fonctionnalités sont incrémentielles pour tous les Load Balancer Standard fournis.  Les configurations de Zones de disponibilité sont disponibles pour Load Balancer Standard public et interne.
 
@@ -91,7 +91,7 @@ Consultez la [discussion détaillée sur les fonctionnalités relatives aux Zone
 
 Load Balancer Standard fournit des métriques multidimensionnelles via Azure Monitor.  Ces métriques peuvent être filtrées, regroupées et réparties pour une dimension donnée.  Elles fournissent des analyses en cours et historiques sur les performances et l’intégrité de votre service.  Resource Health est également pris en charge.  Voici une brève vue d’ensemble des diagnostics pris en charge :
 
-| Métrique | Description  |
+| Métrique | Description |
 | --- | --- |
 | Disponibilité VIP | Standard Load Balancer teste en continu le chemin de données d'une région vers le serveur frontal Load Balancer, jusqu'à la pile SDN qui prend en charge votre machine virtuelle. Tant que les instances saines restent, la mesure suit le même chemin que le trafic à charge équilibrée de vos applications. Le chemin de données utilisé par vos clients est également validé. La mesure est invisible pour votre application et n’interfère pas avec les autres opérations.|
 | Disponibilité DIP | Le niveau Standard de Load Balancer utilise un service de détection d’intégrité distribué qui surveille l’intégrité du point de terminaison de votre application en fonction de vos paramètres de configuration. Cette métrique fournit un agrégat ou une vue filtrée par point de terminaison de chaque point de terminaison d’instance dans le pool Load Balancer.  Vous pouvez observer comment Load Balancer voit l’intégrité de votre application comme indiqué par votre configuration de sonde d’intégrité.
@@ -204,11 +204,11 @@ Les références SKU ne sont pas mutables. Suivez les étapes décrites dans cet
 >
 >Les références SKU qui correspondent doivent être utilisées pour les ressources de Load Balancer et d’adresse IP publique. Vous ne pouvez pas avoir à la fois des ressources de référence SKU De base et de référence SKU Standard. Vous ne pouvez pas joindre des machines virtuelles autonomes, des machines virtuelles dans une ressource de groupe à haute disponibilité ou des ressources de groupe de machines virtuelles identiques aux deux références SKU simultanément.
 
-## <a name="region-availability"></a>Disponibilité dans la région
+## <a name="region-availability"></a>Disponibilité des régions
 
 Standard Load Balancer est actuellement disponible dans toutes les régions cloud publiques.
 
-## <a name="sla"></a>SLA
+## <a name="sla"></a>Contrat SLA
 
 Les Load Balancer Standard sont disponibles avec un Contrat de niveau de service de 99,99 %.  Examinez le [Contrat de niveau de service Load Balancer Standard](https://aka.ms/lbsla) pour plus d’informations.
 

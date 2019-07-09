@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.openlocfilehash: 00161f8158ad73591687764528258e1081f81ce2
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65914305"
 ---
 # <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>Comment provisionner des appareils hérités avec des clés symétriques
@@ -29,7 +29,7 @@ Cet article suppose également que la mise à jour de l’appareil a lieu dans u
 Cet article traite d’une station de travail Windows. Toutefois, vous pouvez effectuer les procédures sur Linux. Pour obtenir un exemple sur Linux, consultez [Guide pratique du provisionnement pour la multilocation](how-to-provision-multitenant.md).
 
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Un ID d’inscription unique est défini pour chaque appareil en fonction des informations qui identifient cet appareil. Par exemple, l’adresse MAC ou un numéro de série.
 
@@ -40,10 +40,10 @@ Le code de l’appareil montré dans cet article suit le même modèle que le [D
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Avoir effectué les étapes décrites dans le guide de démarrage rapide [Configurer le service IoT Hub Device Provisioning avec le portail Azure](./quick-setup-auto-provision.md).
-* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 ou version ultérieure avec le [« développement Desktop en C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) charge de travail est activé.
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 ou version ultérieure avec la charge de travail [« Développement Desktop en C++ »](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) activée.
 * Dernière version de [Git](https://git-scm.com/download/) installée.
 
 
@@ -198,7 +198,7 @@ Dans cette section, vous allez mettre à jour un exemple de provisionnement nomm
 
 Cet exemple de code simule une séquence de démarrage d’un appareil qui envoie la demande de provisionnement à votre instance du service Device Provisioning. La séquence de démarrage entraîne la reconnaissance de l’appareil et son affectation au hub IoT que vous avez configuré sur le groupe d’inscription.
 
-1. Dans le portail Azure, sélectionnez l’onglet **Vue d’ensemble** de votre service Device Provisioning et notez les valeurs de **_Étendue de l’ID_**.
+1. Dans le portail Azure, sélectionnez l’onglet **Vue d’ensemble** de votre service Device Provisioning et notez les valeurs de **_Étendue de l’ID_** .
 
     ![Extraction des informations de point de terminaison du service Device Provisioning à partir du panneau du Portail](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 
@@ -268,7 +268,7 @@ Cet exemple de code simule une séquence de démarrage d’un appareil qui envoi
 
 
 
-## <a name="security-concerns"></a>Préoccupations en matière de sécurité
+## <a name="security-concerns"></a>Considérations sur la sécurité
 
 Ne perdez pas de vue que ceci laisse la clé d’appareil dérivée incluse dans l’image, ce qui n’est pas une bonne pratique de sécurité recommandée. C’est une raison pour laquelle la sécurité et la facilité d’utilisation sont des compromis. 
 
@@ -278,9 +278,9 @@ Ne perdez pas de vue que ceci laisse la clé d’appareil dérivée incluse dans
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour en savoir plus Reprovisioning, consultez [réapprovisionnement des concepts d’appareil IoT Hub](concepts-device-reprovision.md) 
-* [Démarrage rapide : provisionner un appareil simulé avec des clés symétriques](quick-create-simulated-device-symm-key.md)
-* Pour en savoir plus Deprovisioning, consultez [Guide pratique pour déprovisionner des appareils qui ont été provisionnés automatiquement](how-to-unprovision-devices.md) 
+* Pour en savoir plus sur le reprovisionnement, consultez [Concepts du reprovisionnement d’appareils IoT Hub](concepts-device-reprovision.md) 
+* [Démarrage rapide : provisionner un appareil simulé avec des clés symétriques](quick-create-simulated-device-symm-key.md)
+* Pour en savoir plus sur le déprovisionnement, consultez [Guide pratique pour déprovisionner des appareils auparavant provisionnés automatiquement](how-to-unprovision-devices.md) 
 
 
 
