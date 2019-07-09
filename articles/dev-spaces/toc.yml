@@ -71,6 +71,8 @@
           href: how-to/upgrade-tools.md
         - name: "Utilisation de l’intégration continue/la livraison continue (CI/CD) avec Azure Dev\_Spaces"
           href: how-to/setup-cicd.md
+        - name: Utiliser le plug-in Azure Dev Spaces pour Jenkins
+          href: ../jenkins/tutorial-jenkins-dev-spaces.md
         - name: "Continuité de l’activité et reprise d’activité pour Azure Dev\_Spaces"
           href: how-to/dev-spaces-business-continuity.md
     - name: Résolution de problèmes

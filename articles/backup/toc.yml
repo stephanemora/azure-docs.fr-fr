@@ -64,6 +64,8 @@
           href: faq-backup-sql-server.md
         - name: FAQ sur le serveur de sauvegarde Azure et DPM
           href: backup-azure-dpm-azure-server-faq.md
+        - name: FAQ sur l’alerte de supervision Sauvegarde Azure
+          href: backup-azure-monitor-alert-faq.md
     - name: Architecture de sauvegarde
       href: backup-architecture.md
     - name: Contrôle d’accès en fonction du rôle
