@@ -18,8 +18,7 @@ ms.lasthandoff: 05/20/2019
 ms.locfileid: "65890887"
 ---
 # <a name="face-recognition-concepts"></a>Concepts de reconnaissance faciale
-
-Cet article explique les concepts d’opérations de reconnaissance de visage Vérifiez, Rechercher similaire, le groupe et identifier et les structures de données sous-jacente. Globalement, reconnaissance décrit le travail de la comparaison des deux visages différents pour déterminer si elles sont similaires ou appartiennent à la même personne.
+Cet article explique les concepts des opération Vérifiez, Rechercher similaire, groupe de reconnaissance de visage et les structures de données sous-jacente. Globalement, reconnaissance décrit le travail de la comparaison des deux visages différents pour déterminer si elles sont similaires ou appartiennent à la même personne.
 
 ## <a name="recognition-related-data-structures"></a>Structures de données liées à la reconnaissance
 
@@ -39,19 +38,19 @@ Cette section décrit en détail comment les quatre opérations de reconnaissanc
 
 ### <a name="verify"></a>Vérifier
 
-Le [Vérifiez](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) opération accepte un ID de visage à partir DetectedFace ou PersistedFace et une autre face ID ou un objet Person et détermine s’ils appartiennent à la même personne. Si vous passez un objet Person, vous pouvez éventuellement passer dans un groupe de personnes à laquelle cette personne appartient pour améliorer les performances.
+L'opération [Vérifiez](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) accepte un ID de visage à partir DetectedFace ou PersistedFace et une autre face ID ou un objet Person et détermine s’ils appartiennent à la même personne. Si vous passez un objet Person, vous pouvez éventuellement passer dans un groupe de personnes à laquelle cette personne appartient pour améliorer les performances.
 
 ### <a name="find-similar"></a>Rechercher semblables
 
-Le [Rechercher similaire](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) opération accepte un ID de visage à partir DetectedFace ou PersistedFace et un FaceList ou un tableau des autres ID de visage. Avec un FaceList, elle retourne un plus petit FaceList de visages semblables à la face donnée. Avec un tableau des ID de visage, il retourne de même un tableau plus petit.
+L'opération [Rechercher similaire](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) accepte un ID de visage à partir DetectedFace ou PersistedFace et un FaceList ou un tableau des autres ID de visage. Avec un FaceList, elle retourne un plus petit FaceList de visages semblables à la face donnée. Avec un tableau des ID de visage, il retourne de même un tableau plus petit.
 
 ### <a name="group"></a>Groupe
 
-Le [groupe](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238) opération accepte un tableau des ID de visage assortie de DetectedFace ou PersistedFace et retourne les mêmes ID regroupement en plusieurs tableaux plus petits. Chaque tableau de « groupes » contient face ID similaires. Un tableau unique « messyGroup » contient des ID de face pour laquelle aucun ressemblances ont été trouvés.
+L'opération [groupe](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238) accepte un tableau des ID de visage assortie de DetectedFace ou PersistedFace et retourne les mêmes ID regroupement en plusieurs tableaux plus petits. Chaque tableau de « groupes » contient face ID similaires. Un tableau unique « messyGroup » contient des ID de face pour laquelle aucun ressemblances ont été trouvés.
 
 ### <a name="identify"></a>Identifier
 
-Le [identifier](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) opération prend un ou plusieurs ID de visage à partir de DetectedFace ou PersistedFace et un groupe de personnes et retourne une liste d’objets Person que chaque face peut appartenir à. Retourné personne objets sont encapsulées en tant qu’objets de candidats qui ont une valeur de niveau de confiance de prédiction.
+L'opération [identifier](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) prend un ou plusieurs ID de visage à partir de DetectedFace ou PersistedFace et un groupe de personnes et retourne une liste d’objets Person que chaque face peut appartenir à. Retourné personne objets sont encapsulées en tant qu’objets de candidats qui ont une valeur de niveau de confiance de prédiction.
 
 ## <a name="input-data"></a>Données d’entrée
 
