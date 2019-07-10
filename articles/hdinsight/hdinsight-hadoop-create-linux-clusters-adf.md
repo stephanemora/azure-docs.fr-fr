@@ -189,9 +189,9 @@ Dans cet article, vous configurez l’activité Hive pour créer un cluster HDIn
 
     |Propriété  |Valeur  |
     |---------|---------|
-    |Nom | Entrez un nom pour la fabrique de données. Ce nom doit être globalement unique.|
-    |Abonnement | Sélectionnez votre abonnement Azure. |
-    |Groupe de ressources | Sélectionnez **Utiliser l’existant**, puis sélectionnez le groupe de ressources que vous avez créé à l’aide du script PowerShell. |
+    |Name | Entrez un nom pour la fabrique de données. Ce nom doit être globalement unique.|
+    |Subscription | Sélectionnez votre abonnement Azure. |
+    |Resource group | Sélectionnez **Utiliser l’existant**, puis sélectionnez le groupe de ressources que vous avez créé à l’aide du script PowerShell. |
     |Version | Conservez **V2**. |
     |Location | L’emplacement est automatiquement défini sur l’emplacement que vous avez spécifié au moment de la création du groupe de ressources. Pour ce tutoriel, l’emplacement est défini sur **USA Est**. |
 
@@ -230,7 +230,7 @@ Dans cette section, vous créez deux services liés au sein de votre fabrique de
 
     |Propriété |Valeur |
     |---|---|
-    |Nom |Entrez `HDIStorageLinkedService`.|
+    |Name |Entrez `HDIStorageLinkedService`.|
     |Abonnement Azure |Sélectionnez votre abonnement dans la liste déroulante.|
     |Nom du compte de stockage |Sélectionnez le compte de stockage Azure que vous avez créé avec le script PowerShell.|
 
@@ -252,7 +252,7 @@ Dans cette section, vous créez deux services liés au sein de votre fabrique de
 
     | Propriété | Valeur |
     | --- | --- |
-    | Nom | Entrez `HDInsightLinkedService`.|
+    | Name | Entrez `HDInsightLinkedService`.|
     | Type | Sélectionnez **HDInsight à la demande**. |
     | Service lié Stockage Azure | Sélectionnez `HDIStorageLinkedService`. |
     | Type de cluster | Sélectionnez **hadoop**. |
@@ -260,7 +260,7 @@ Dans cette section, vous créez deux services liés au sein de votre fabrique de
     | ID de principal de service | Indiquez l’ID d’application du principal de service Azure Active Directory que vous avez créé en lien avec les conditions préalables. |
     | Clé de principal de service | Indiquez la clé d’authentification pour le principal de service Azure Active Directory. |
     | Préfixe du nom du cluster | Indiquez une valeur qui fera office de préfixe pour tous les types de clusters créés par la fabrique de données. |
-    |Abonnement |Sélectionnez votre abonnement dans la liste déroulante.|
+    |Subscription |Sélectionnez votre abonnement dans la liste déroulante.|
     | Sélection du groupe de ressources | Sélectionnez le groupe de ressources que vous avez créé en lien avec le script PowerShell utilisé précédemment.|
     |Sélectionner la région | Sélectionnez une région dans la liste déroulante.|
     | Nom d’utilisateur SSH du cluster/type de système d’exploitation | Entrez un nom d’utilisateur SSH, généralement `sshuser`. |

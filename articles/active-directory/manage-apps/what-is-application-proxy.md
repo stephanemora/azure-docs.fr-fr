@@ -12,12 +12,12 @@ ms.date: 05/31/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66403a18be8337939d457c061b07de948c3e34e8
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 5f23b20d460952ae582c292c8015851b9dc2ea98
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66730998"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108173"
 ---
 # <a name="using-azure-ad-application-proxy-to-publish-on-premises-apps-for-remote-users"></a>Utilisation du proxy d’application Azure AD pour publier des applications locales pour les utilisateurs distants
 
@@ -65,7 +65,7 @@ Dans l’environnement de travail numérique d’aujourd’hui, les utilisateurs
 * Un service d’évaluation de stratégie pour déterminer si un utilisateur et un appareil sont conformes à la stratégie définie par les administrateurs de sécurité.
 * La possibilité d’accorder ou de refuser l’accès aux ressources de l’organisation.
 
-Le proxy d’application Azure AD vous permet d’assurer le suivi des utilisateurs qui doivent accéder aux applications web publiées localement et dans le cloud. Il fournit un point de gestion central pour ces applications. Bien que non obligatoire, nous vous recommandons d’activer aussi l’accès conditionnel Azure AD. En définissant des conditions sur la façon dont les utilisateurs s’authentifient et obtiennent l’accès, vous contrôlez davantage qui accède à quelles applications.
+Le proxy d’application Azure AD vous permet d’assurer le suivi des utilisateurs qui doivent accéder aux applications web publiées localement et dans le cloud. Il fournit un point de gestion central pour ces applications. Bien que cela n’est pas obligatoire, nous vous recommandons d’activer aussi l’accès conditionnel Azure AD. En définissant des conditions sur la façon dont les utilisateurs s’authentifient et obtiennent l’accès, vous contrôlez davantage qui accède à quelles applications.
 
 **Remarque :** Comprenez bien que le proxy d’application est censé remplacer le VPN ou le proxy inverse pour les utilisateurs itinérants (ou distants) qui ont besoin d’accéder aux ressources internes. Il n’est pas destiné aux utilisateurs internes sur le réseau d’entreprise. Les utilisateurs internes qui utilisent inutilement le proxy d’application peuvent ralentir les performances de manière inattendue et indésirable.
 
