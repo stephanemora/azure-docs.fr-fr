@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8f06fa6d387cfb8ec01437e6a6aa9925907a45b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6d25c4e0bbde7c8bc5004d4d1335a18ee7f61d6c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65864243"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107143"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-allbound-sso"></a>Didacticiel : Intégration d’Azure Active Directory à Allbound SSO
 
@@ -54,7 +54,7 @@ Pour configurer l’intégration d’Allbound SSO à Azure AD, vous devez ajout
 
 **Pour ajouter Allbound SSO à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

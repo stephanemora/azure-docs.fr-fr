@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Bynder | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Bynder | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Bynder.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 02/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a43d2cf1c833a160a5101d01170ce6923238795a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 00bd25d3edf35356879975ec105ecabaa4e15b5b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57875853"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105923"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-bynder"></a>Tutoriel : Intégration d’Azure Active Directory avec Bynder
+# <a name="tutorial-azure-active-directory-integration-with-bynder"></a>Didacticiel : Intégration d’Azure Active Directory avec Bynder
 
 Dans ce didacticiel, vous allez apprendre à intégrer Bynder à Azure Active Directory (Azure AD).
 L’intégration de Bynder à Azure AD vous offre les avantages suivants :
@@ -54,7 +54,7 @@ Pour configurer l’intégration de Bynder avec Azure AD, vous devez ajouter Byn
 
 **Pour ajouter Bynder à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -155,7 +155,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

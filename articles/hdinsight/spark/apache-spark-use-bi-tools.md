@@ -1,6 +1,6 @@
 ---
 title: 'Didacticiel : Analyser les données d’Apache Spark à l’aide de Power BI dans Azure HDInsight '
-description: Utiliser Microsoft Power BI pour visualiser les données Apache Spark stockées sur les clusters HDInsight
+description: Didacticiel - Utiliser Microsoft Power BI pour visualiser les données Apache Spark stockées sur les clusters HDInsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/16/2019
-ms.openlocfilehash: bf70abd2b3119a97af5ad1d4c56274f8e575fd3e
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: d5296fe19cef9e8881d39bd9e59eb4c40d049959
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65860967"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296187"
 ---
 # <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>Didacticiel : Analyser les données d’Apache Spark à l’aide de Power BI dans HDInsight
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ba76692ec35ddfd0b6c8c49306d6056709d684e
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 669dfaa40cfe1bc65618d8706910e19d72c233ad
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65902912"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67092053"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-for-customer"></a>Didacticiel : Intégration d’Azure Active Directory à SAP Cloud pour le client
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de SAP Cloud pour le client à Azure AD, vous d
 
 **Pour ajouter SAP Cloud pour le client à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -107,7 +107,7 @@ Pour configurer l’authentification unique Azure AD avec SAP Cloud pour le clie
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<server name>.crm.ondemand.com`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://<server name>.crm.ondemand.com`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://<server name>.crm.ondemand.com`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez [l’équipe de support technique SAP Cloud for Customer](https://www.sap.com/about/agreements.sap-cloud-services-customers.html). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
@@ -126,7 +126,7 @@ Pour configurer l’authentification unique Azure AD avec SAP Cloud pour le clie
 
     b. Sélectionnez **Transformation** dans le champ **source**.
 
-    c. Dans la liste **Transformation**, sélectionnez **ExtractMailPrefix()**.
+    c. Dans la liste **Transformation**, sélectionnez **ExtractMailPrefix()** .
 
     d. Dans la liste **Paramètre 1**, sélectionnez l’attribut utilisateur que vous souhaitez utiliser pour votre implémentation.
     Par exemple, si vous souhaitez utiliser EmployeeID comme identificateur d’utilisateur unique et que vous avez stocké la valeur d’attribut dans ExtensionAttribute2, sélectionnez user.extensionattribute2.

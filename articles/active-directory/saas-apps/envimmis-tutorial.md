@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Envi MMIS | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Envi MMIS | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Envi MMIS.
 services: active-directory
 documentationCenter: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7bc40c5043cefad7892eaead8fe8058ac3707865
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ff60e378e900d618cfc07f53959aa2d64518353c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57904709"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67103349"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-envi-mmis"></a>Didacticiel : Intégration d’Azure Active Directory à Envi MMIS
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration d’Envi MMIS à Azure AD, vous devez ajouter E
 
 **Pour ajouter Envi MMIS à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

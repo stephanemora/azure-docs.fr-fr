@@ -11,14 +11,14 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: aaeee4238110faa7a842073af8431b30b885db3c
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: c2565a5549cbca08b987883e5905f09070b5ab2c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64870020"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443200"
 ---
-# <a name="add-an-azure-storage-queue-binding-to-your-function"></a>Ajouter une liaison de file d’attente Stockage Azure à votre fonction
+# <a name="add-an-azure-storage-queue-binding-to-your-python-function"></a>Ajouter une liaison de file d’attente Stockage Azure à votre fonction Python
 
 Azure Functions vous permet de connecter des services Azure et d’autres ressources à des fonctions sans avoir à écrire votre propre code d’intégration. Ces *liaisons*, qui représentent l’entrée et la sortie, sont déclarées dans la définition de la fonction. Les données issues des liaisons sont fournies à la fonction en tant que paramètres. Un déclencheur est un type spécial de liaison d’entrée. Bien que ne pouvant avoir qu’un seul déclencheur, une fonction peut avoir plusieurs liaisons d’entrée et de sortie. Pour en savoir plus, consultez [Concepts des déclencheurs et liaisons Azure Functions](functions-triggers-bindings.md).
 
@@ -32,7 +32,7 @@ Avant de commencer cet article, suivez les étapes de la [partie 1 du guide de 
 
 ## <a name="download-the-function-app-settings"></a>Télécharger les paramètres de l’application de fonction
 
-Dans l’article du guide de démarrage rapide précédent, vous avez créé une application de fonction dans Azure ainsi qu’un compte de stockage. La chaîne de connexion pour ce compte est stockée de manière sécurisée dans les paramètres d’application au sein d’Azure. Dans cet article, vous allez écrire des messages dans une file d’attente de stockage au sein du même compte. Pour vous connecter à votre compte de stockage lors de l’exécution de la fonction localement, vous devez télécharger les paramètres de l’application dans le fichier local.settings.json. Exécutez la commande Azure Functions Core Tools suivante pour télécharger les paramètres dans local.settings.json, en remplaçant `<APP_NAME>` par le nom de votre application de fonction issu de l’article précédent :
+Dans l’article du guide de démarrage rapide précédent, vous avez créé une application de fonction dans Azure ainsi que le compte de stockage requis. La chaîne de connexion pour ce compte est stockée de manière sécurisée dans les paramètres d’application au sein d’Azure. Dans cet article, vous allez écrire des messages dans une file d’attente de stockage au sein du même compte. Pour vous connecter à votre compte de stockage lors de l’exécution de la fonction localement, vous devez télécharger les paramètres de l’application dans le fichier local.settings.json. Exécutez la commande Azure Functions Core Tools suivante pour télécharger les paramètres dans local.settings.json, en remplaçant `<APP_NAME>` par le nom de votre application de fonction issu de l’article précédent :
 
 ```bash
 func azure functionapp fetch-app-settings <APP_NAME>
@@ -44,6 +44,12 @@ Vous serez peut-être amené à vous connecter à votre compte Azure.
 > Comme il contient des secrets, le fichier local.settings.json n’est jamais publié et doit être exclu du contrôle de code source.
 
 Vous avez besoin de la valeur `AzureWebJobsStorage`, qui est la chaîne de connexion de compte de stockage. Cette connexion vous permet de vérifier que la liaison de sortie fonctionne comme prévu.
+
+## <a name="enable-extension-bundles"></a>Activer les offres groupées d’extension
+
+[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
+
+Maintenant, vous pouvez ajouter une liaison de sortie de stockage à votre projet.
 
 ## <a name="add-an-output-binding"></a>Ajouter une liaison de sortie
 
@@ -117,8 +123,8 @@ def main(req: func.HttpRequest, msg: func.Out[func.QueueMessage]) -> str:
         return func.HttpResponse(f"Hello {name}!")
     else:
         return func.HttpResponse(
-             "Please pass a name on the query string or in the request body",
-             status_code=400
+            "Please pass a name on the query string or in the request body",
+            status_code=400
         )
 ```
 
@@ -133,7 +139,7 @@ func host start
 ```
 
 > [!NOTE]  
-> Comme vous avez activé des offres groupées d’extension dans le fichier host.json dans le cadre de l’article précédent, l’[extension de liaison de stockage](functions-bindings-storage-blob.md#packages---functions-2x) a été téléchargée et installée lors du démarrage.
+> Comme vous avez activé des offres groupées d’extension dans le fichier host.json dans le cadre de l’article précédent, l’[extension de liaison de stockage](functions-bindings-storage-blob.md#packages---functions-2x) a été téléchargée et installée lors du démarrage, avec les autres extensions de liaison Microsoft.
 
 Copiez l’URL de votre fonction `HttpTrigger` à partir de la sortie du runtime et collez-la dans la barre d’adresses de votre navigateur. Ajoutez la chaîne de requête `?name=<yourname>` à cette URL et exécutez la demande. Vous devez voir la même réponse dans le navigateur que dans l’article précédent.
 
