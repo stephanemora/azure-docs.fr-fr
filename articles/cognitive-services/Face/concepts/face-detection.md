@@ -23,9 +23,9 @@ Cet article explique les concepts de détection de visages et les données d’a
 
 Vous utilisez le [doivent faire Face : détecter](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) opération pour détecter les visages dans une image. Au minimum, chaque face détectée correspond à un champ faceRectangle dans la réponse. Ce jeu de coordonnées de pixel de gauche, haut, largeur et de hauteur marquer la trouve face. À l’aide de ces coordonnées, vous pouvez obtenir l’emplacement de la police et sa taille. Dans la réponse de l’API, les faces sont répertoriés par ordre de taille du plus grand au plus petit.
 
-## <a name="face-id"></a>ID de visage
+## <a name="face-id"></a>ID du visage
 
-L’ID de visage est une chaîne d’identificateur unique pour chaque face détectée dans une image. Vous pouvez demander un ID de visage dans votre [doivent faire Face : détecter](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) appel d’API.
+L’ID du visage est une chaîne d’identificateur unique pour chaque face détectée dans une image. Vous pouvez demander un ID de visage dans votre [doivent faire Face : détecter](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) appel d’API.
 
 ## <a name="face-landmarks"></a>Points de repère du visage
 
@@ -47,7 +47,7 @@ Les attributs sont un ensemble de fonctionnalités qui peuvent éventuellement �
 * **Sexe**. Sexe estimé de la face donné. Les valeurs possibles sont male et female genderless.
 * **LUNETTES**. Indique si le type de police donné possède en forme de lunettes. Les valeurs possibles sont NoGlasses ReadingGlasses, lunettes de soleil et lunettes de natation.
 * **Cheveux**. Type de la face cheveux. Cet attribut indique si les cheveux est visible, si CALVITIE est détectée, et les couleurs cheveux sont détectés.
-* **Head poser**. Orientation de la face dans l’espace 3D. Cet attribut est décrite par la tonalité, restaurer et lacet angles en degrés. Les plages de valeurs sont-90 degrés à 90 degrés, - 180 degrés et 180 degrés et -90 degrés et 90 degrés, respectivement. Consultez le diagramme suivant pour les mappages d’angle :
+* **Positionnement de la tête**. Orientation de la face dans l’espace 3D. Cet attribut est décrite par la tonalité, restaurer et lacet angles en degrés. Les plages de valeurs sont-90 degrés à 90 degrés, - 180 degrés et 180 degrés et -90 degrés et 90 degrés, respectivement. Consultez le diagramme suivant pour les mappages d’angle :
 
     ![Une tête avec la tonalité, restaurer et lacet axes étiquetés](../Images/headpose.1.jpg)
 * **Composition**. Si la face dispose de composition. Cet attribut retourne une valeur booléenne pour eyeMakeup et lipMakeup.
