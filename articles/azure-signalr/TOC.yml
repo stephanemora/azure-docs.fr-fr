@@ -1,6 +1,6 @@
 - name: Documentation Azure SignalR Service
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: "À propos du service Azure\_SignalR"
       href: signalr-overview.md
@@ -9,6 +9,8 @@
   items:
     - name: "ASP.NET Core\_: C#"
       href: signalr-quickstart-dotnet-core.md
+    - name: 'ASP.NET - C#'
+      href: signalr-quickstart-dotnet.md
     - name: 'Azure Functions : JavaScript'
       href: signalr-quickstart-azure-functions-javascript.md
     - name: 'Azure Functions : C#'
@@ -25,7 +27,7 @@
   items:
     - name: Exemples de code
       href: 'https://github.com/aspnet/AzureSignalR-samples'
-    - name: Azure CLI
+    - name: D’Azure CLI
       href: signalr-reference-cli.md
 - name: Concepts
   items:
@@ -67,7 +69,7 @@
           href: signalr-concept-azure-functions.md
 - name: Références
   items:
-    - name: Azure CLI
+    - name: D’Azure CLI
       href: signalr-reference-cli.md
     - name: API REST
       href: 'https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md'

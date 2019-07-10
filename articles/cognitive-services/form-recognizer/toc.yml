@@ -35,6 +35,8 @@
         - name: Configurer des conteneurs
           href: form-recognizer-container-configuration.md
           displayName: 'docker, container, run, billing, apikey, logging'
+        - name: Utiliser des instances de conteneur
+          href: deploy-form-recognizer-on-container-instances.md
 - name: Informations de référence
   items:
     - name: API Form Recognizer

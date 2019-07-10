@@ -1,6 +1,6 @@
 - name: Container Instances
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: À propos d’Azure Container Instances
       href: container-instances-overview.md
@@ -97,7 +97,7 @@
           href: container-instances-monitor.md
         - name: Obtenir les journaux d’activité et les événements de conteneur
           href: container-instances-get-logs.md
-        - name: Journalisation avec Azure Log Analytics
+        - name: Journalisation avec les journaux d’activité Azure Monitor
           href: container-instances-log-analytics.md
     - name: Résolution des problèmes
       items:
@@ -137,3 +137,5 @@
       href: 'https://stackoverflow.com/questions/tagged/azure-container-instances'
     - name: Videos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=container-instances&sort=newest'
+    - name: Forum Aux Questions
+      href: container-instances-faq.md

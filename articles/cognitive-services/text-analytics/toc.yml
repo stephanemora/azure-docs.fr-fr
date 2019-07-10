@@ -70,10 +70,10 @@
           href: how-tos/text-analytics-how-to-install-containers.md
         - name: Configurer des conteneurs
           href: text-analytics-resource-container-config.md
-        - name: Utiliser des instances de conteneur (ACI)
+        - name: Utiliser des instances de conteneur
           items:
             - name: analyse de sentiments
-              href: how-tos/use-sentiment-analysis-on-aci.md
+              href: how-tos/deploy-sentiment-analysis-on-container-instances.md
         - name: Utiliser le service kubernetes (AKS)
           items:
             - name: Détection de la langue
