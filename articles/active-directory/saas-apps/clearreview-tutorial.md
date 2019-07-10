@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf2576aa112d58e499f0c4a16bf8e9261114974b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 0f2a0560163f9806053f49944cbec0db2b1a9de8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59698977"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105456"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clear-review"></a>Didacticiel : Intégration d’Azure Active Directory à Clear Review
 
@@ -54,7 +54,7 @@ Pour configurer l’intégration de Clear Review à Azure AD, vous devez ajouter
 
 **Pour ajouter Clear Review à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

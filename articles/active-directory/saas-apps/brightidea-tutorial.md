@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc45c63d3168a15b4701dcaff7bb531f759d47ad
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: fa15a91a6b82a8858bf46a08e8a9dbe11a51d8d1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65900060"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105932"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-brightidea"></a>Didacticiel : Intégration d’Azure Active Directory à Brightidea
 
@@ -56,7 +56,7 @@ Pour configurer l’intégration de Brightidea dans Azure AD, vous devez ajoute
 
 **Pour ajouter Brightidea à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

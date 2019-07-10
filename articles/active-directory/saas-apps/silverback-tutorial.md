@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: d02ec23e7e6ce936fdbcce63d1394e3a8681c65b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3c4eab02ed0c7c09fe9b5893bbaaf7cbe1c8028f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65867334"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090910"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-silverback"></a>Didacticiel : Intégration d’Azure Active Directory à Silverback
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de Silverback à Azure AD, vous devez ajouter 
 
 **Pour ajouter Silverback à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -217,7 +217,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Silverback, vous dev
 
     c. Dans la zone de texte **Nom**, entrez le nom de l’utilisateur, par exemple **Simon**.
 
-    d. Dans la zone de texte **Adresse e-mail**, saisissez l’adresse e-mail de l’utilisateur, par exemple **Brittasimon@contoso.com**.
+    d. Dans la zone de texte **Adresse e-mail**, saisissez l’adresse e-mail de l’utilisateur, par exemple **Brittasimon@contoso.com** .
 
     e. Dans la zone de texte **Mot de passe**, entrez votre mot de passe.
 

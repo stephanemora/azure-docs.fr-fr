@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 3dab784d706228793c6acc0f930f39ba1962caeb
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: c41da4417d230b49927ff203efce2b9f4ec0b6b6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65897406"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67097662"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-m-files"></a>Didacticiel : Intégration d’Azure Active Directory à M-Files
 
@@ -52,7 +52,7 @@ Pour configurer l’intégration de M-Files avec Azure AD, vous devez ajouter M
 
 **Pour ajouter M-Files à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -106,7 +106,7 @@ Pour configurer l’authentification unique Azure AD avec M-Files, effectuez le
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<tenantname>.cloudvault.m-files.com/authentication/MFiles.AuthenticationProviders.Core/sso`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://<tenantname>.cloudvault.m-files.com`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://<tenantname>.cloudvault.m-files.com`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez [l’équipe de support technique M-Files](mailto:support@m-files.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.

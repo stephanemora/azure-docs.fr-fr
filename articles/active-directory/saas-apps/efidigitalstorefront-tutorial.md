@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af9d475c4be2adae360d77b3effc758684d60175
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 29bc057ac20f21fb552bd60d2b69f102c6201860
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898867"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67103631"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-efi-digital-storefront"></a>Tutoriel : Intégration d’Azure Active Directory à EFI Digital StoreFront
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration d’EFI Digital StoreFront à Azure AD, vous de
 
 **Pour ajouter EFI Digital StoreFront à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -107,7 +107,7 @@ Pour configurer l’authentification unique Azure AD avec EFI Digital StoreFront
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<companyname>.myprintdesk.net/DSF`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://<companyname>.myprintdesk.net/DSF/asp4/`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://<companyname>.myprintdesk.net/DSF/asp4/`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe de support client EFI Digital StoreFront](https://www.efi.com/products/productivity-software/ecommerce-web-to-print/efi-digital-storefront/support/). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.

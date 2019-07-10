@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 4f7edd13c07d24d5d5a12fb9973083db44f0211f
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: c5f33dc047dcd99a688cf2ad5bbc81e112fb61bf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65901806"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088785"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-the-funding-portal"></a>Didacticiel : Intégration d'Azure Active Directory au Portail du financement
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration du Portail du financement à Azure AD, vous dev
 
 **Pour ajouter le Portail du financement à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -107,7 +107,7 @@ Pour configurer l’authentification unique Azure AD avec The Funding Portal, ef
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<subdomain>.regenteducation.net/`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://<subdomain>.regenteducation.net`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://<subdomain>.regenteducation.net`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Contactez l’[équipe de support client The Funding Portal](mailto:info@regenteducation.com) pour obtenir ces valeurs. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.

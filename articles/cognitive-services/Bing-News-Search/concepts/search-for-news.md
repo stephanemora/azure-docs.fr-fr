@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: overview
-ms.date: 01/11/2019
+ms.date: 06/19/2019
 ms.author: scottwhi
-ms.openlocfilehash: 77f8e41b2271770e49c2e5c4d1591c213eaa257d
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: da1dd68b8e155e121f26f5599207691877fbf0ca
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66383412"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274157"
 ---
 # <a name="search-for-news-with-the-bing-news-search-api"></a>Rechercher des actualités avec l’API Recherche d’actualités Bing
 
@@ -51,7 +51,7 @@ Pour obtenir des actualités à partir d’un domaine spécifique, utilisez l’
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us HTTP/1.1
 ```
 
-Le code suivant affiche la réponse à la requête précédente. Pour respecter les [conditions d’utilisation et d’affichage](../useanddisplayrequirements.md) des API de recherche Bing, vous devez afficher chaque article d’actualités dans l’ordre dans lequel il apparaît dans la réponse. Si l’article comporte un cluster d’articles, vous devez indiquer qu’il existe des articles associés et les afficher sur demande.
+L’exemple de code JSON suivant affiche la réponse à la requête précédente. Pour respecter les [conditions d’utilisation et d’affichage](../useanddisplayrequirements.md) des API de recherche Bing, vous devez afficher chaque article d’actualités dans l’ordre dans lequel il apparaît dans la réponse. Si l’article comporte un cluster d’articles, vous devez indiquer qu’il existe des articles associés et les afficher sur demande.
 
 ```json
 {
@@ -107,7 +107,7 @@ Si Bing peut déterminer la catégorie d’un article d’actualités, l’artic
 
 ## <a name="get-todays-top-news"></a>Obtenir les principales actualités du jour
 
-Pour obtenir les principales actualités du jour, vous devez effectuer la même requête que pour obtenir des actualités générales, mais sans définir `q`.
+Pour obtenir les articles les plus populaires du jour, vous pouvez envoyer la même demande d’actualités générales qu’auparavant, en laissant le paramètre `q` non défini.
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=&mkt=en-us HTTP/1.1
@@ -119,7 +119,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-La réponse à une requête portant sur les principales actualités est presque identique à celle concernant les actualités générales. Toutefois, la réponse `news` n’inclut pas le champ `totalEstimatedMatches`, car il existe un nombre fixe de résultats. Le nombre d’articles d’actualités principales peut varier en fonction du cycle d’actualités. Veillez à utiliser `provider` pour attribuer l’article.
+La réponse à une requête portant sur les principales actualités est presque identique à celle concernant les actualités générales. Toutefois, la réponse `news` n’inclut pas le champ `totalEstimatedMatches`, car il existe un nombre fixe de résultats. Le nombre d’articles d’actualités principales peut varier en fonction du cycle d’actualités. Veillez à utiliser le champ `provider` pour attribuer l’article.
 
 ## <a name="get-news-by-category"></a>Obtenir des actualités par catégorie
 

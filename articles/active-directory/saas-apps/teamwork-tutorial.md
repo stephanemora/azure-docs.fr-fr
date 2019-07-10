@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08-04-2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b0c6fc9ed196a1b3ddd3d8e67887e2340ddbcda
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 2eb38ca490190054ea78b5e1c71c09c94621419b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65888437"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088948"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamworkcom"></a>Didacticiel : Intégration d’Azure Active Directory à Teamwork.com
 
@@ -54,7 +54,7 @@ Pour configurer l’intégration de Teamwork.com dans Azure AD, vous devez ajou
 
 **Pour ajouter Teamwork.com à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -108,7 +108,7 @@ Pour configurer l’authentification unique Azure AD avec Teamwork.com, effectu
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<company name>.teamwork.com`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, tapez l’URL :
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , tapez l’URL :
 
     | | |
     |-|-|

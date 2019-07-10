@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0efc69aa7fb081303df6fc6327253fd5b8336999
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 016f4fe5e0d1e8c84a13ca97d8f910c29d5984d8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65902801"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091131"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicenow"></a>Tutoriel : Intégration d’Azure Active Directory à ServiceNow
 
@@ -59,7 +59,7 @@ Pour configurer l’intégration de ServiceNow à Azure AD, vous devez ajouter 
 
 **Pour ajouter ServiceNow à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -115,7 +115,7 @@ Pour configurer l’authentification unique Azure AD auprès de ServiceNow, effe
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<instance-name>.service-now.com/navpage.do`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://<instance-name>.service-now.com`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://<instance-name>.service-now.com`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Vous devez changer cette valeur pour l’URL de connexion et l’identificateur réels. Ceci est expliqué plus loin dans le didacticiel. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
@@ -126,7 +126,7 @@ Pour configurer l’authentification unique Azure AD auprès de ServiceNow, effe
 
     a. Cliquez sur le bouton de copie pour copier **l’URL des métadonnées de fédération de l’application**, puis collez-la dans le Bloc-notes, car elle sera utilisée plus loin dans le didacticiel.
 
-    b. Cliquez sur **Télécharger** pour télécharger le **certificat (Base64)**, puis enregistrez le fichier du certificat sur votre ordinateur.
+    b. Cliquez sur **Télécharger** pour télécharger le **certificat (Base64)** , puis enregistrez le fichier du certificat sur votre ordinateur.
 
 6. Dans la section **Configurer ServiceNow**, copiez la ou les URL appropriées en fonction de vos besoins.
 
@@ -174,7 +174,7 @@ Pour configurer l’authentification unique Azure AD auprès de ServiceNow, effe
 
     * Pour **Enable debug logging got the multiple provider SSO integration** (Activer l’enregistrement du débogage pour l’intégration de l’authentification unique auprès de plusieurs fournisseurs), sélectionnez **Yes** (Oui).
 
-    * Dans la zone de texte **The field on the user table that...**, entrez **user_name**.
+    * Dans la zone de texte **The field on the user table that...** , entrez **user_name**.
   
     * Cliquez sur **Enregistrer**.
 
@@ -311,7 +311,7 @@ Pour configurer l’authentification unique Azure AD auprès de ServiceNow, effe
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<instance-name>.service-now.com/navpage.do`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://<instance-name>.service-now.com`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://<instance-name>.service-now.com`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Vous devez changer cette valeur pour l’URL de connexion et l’identificateur réels. Ceci est expliqué plus loin dans le didacticiel. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
@@ -344,7 +344,7 @@ Pour configurer l’authentification unique Azure AD auprès de ServiceNow, effe
 
     b. Activez **Enable debug logging for the multiple provider SSO integration** (Activer l’enregistrement du débogage pour l’intégration de l’authentification unique à plusieurs fournisseurs) à droite.
 
-    c. Dans la zone de texte **The field on the user table that...**, entrez **user_name**.
+    c. Dans la zone de texte **The field on the user table that...** , entrez **user_name**.
 
 4. Dans la boîte de dialogue **Authentification unique**, cliquez sur **Add New Certificate** (Ajouter un nouveau certificat).
 

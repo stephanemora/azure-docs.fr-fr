@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3e360b019a0c275c5ce0f9986fabd5dfc847f130
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 68f24d4d019af873a0ca45792a3cbcc3dd3c3c3f
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "66015276"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476044"
 ---
 # <a name="quickstart-use-a-cloud-based-notebook-server-to-get-started-with-azure-machine-learning"></a>Démarrage rapide : Utiliser un serveur de notebooks cloud pour démarrer avec Azure Machine Learning
 
@@ -74,15 +74,20 @@ Dès lors que votre machine virtuelle s’exécute, lancez l’interface web Jup
 
 1. Dans la page web du notebook Jupyter, le nom de dossier en haut est votre nom d’utilisateur.  Sélectionnez ce dossier.
 
+    > [!TIP]
+    > Ce dossier se trouve sur le [conteneur de stockage](concept-workspace.md#resources) dans votre espace de travail plutôt que sur le notebook de machine virtuelle elle-même.  Vous pouvez supprimer la machine virtuelle du notebook et conserver tous vos travaux.  Lorsque vous créez une nouvelle machine virtuelle notebook, elle chargera ce même dossier.
+
 1. Le nom de dossier samples inclut un numéro de version, par exemple **samples-1.0.33.1**.  Sélectionnez le dossier samples.
 
-1. Sélectionnez le notebook **quickstart**.
+1. Sélectionnez le dossier **quickstart**.
 
 ## <a name="run-the-notebook"></a>Exécuter le bloc-notes
 
 Exécutez un notebook qui estime pi et journalise l’erreur dans votre espace de travail.
 
 1. Sélectionnez **01.run-experiment.ipynb** pour ouvrir le notebook.
+
+1. Si vous voyez une alerte « Noyau introuvable », sélectionnez le noyau **Python 3.6 - AzureML** (environ à mi-chemin dans la liste) et définissez le noyau.
 
 1. Cliquez dans la première cellule de code, puis sélectionnez **Run** (Exécuter).
 
@@ -113,11 +118,11 @@ Exécutez un notebook qui estime pi et journalise l’erreur dans votre espace d
 
 1. Cliquez sur le **lien vers le portail Azure** pour voir des informations sur l’exécution dans votre espace de travail.  Le lien ouvre votre espace de travail dans le portail Azure.
 
-1. Les tracés des valeurs consignées que vous voyez ont été créés automatiquement dans l’espace de travail. Chaque fois que vous consignez plusieurs valeurs avec le même paramètre de nom, un tracé est généré automatiquement pour vous.
+1. Les tracés des valeurs consignées que vous voyez ont été créés automatiquement dans l’espace de travail. Chaque fois que vous consignez plusieurs valeurs avec le même paramètre de nom, un tracé est généré automatiquement pour vous. Voici un exemple :
 
    ![Afficher l’historique](./media/quickstart-run-cloud-notebook/web-results.png)
 
-Étant donné que le code pour se rapprocher de pi utilise des valeurs aléatoires, vos tracés affichent des valeurs différentes.  
+Étant donné que le code pour se rapprocher de pi utilise des valeurs aléatoires, vos tracés pourraient sembler différents.  
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
@@ -152,7 +157,9 @@ Dans ce guide de démarrage rapide, vous avez effectué les tâches suivantes :
 * Exécution du notebook
 * Affichez les valeurs d’erreur journalisées dans votre espace de travail.  Cet exemple montre comment l’espace de travail peut vous aider à suivre les informations générées dans un script. 
 
-Dans la page web Jupyter Notebook, parcourez les autres notebooks dans le dossier samples pour en savoir plus sur le service Azure Machine Learning.
+Sur la page Web de Jupyter Notebook, dans le dossier **quickstart**, ouvrez et exécutez le notebook **02.deploy-web-service.ipynb** pour découvrir comment déployer un service web.
+
+Toujours sur la page web Jupyter Notebook, parcourez les autres notebooks dans le dossier samples pour en savoir plus sur le service Azure Machine Learning.
 
 Pour une expérience approfondie du flux de travail, suivez les didacticiels Machine Learning relatifs à l’apprentissage et au déploiement d’un modèle :  
 

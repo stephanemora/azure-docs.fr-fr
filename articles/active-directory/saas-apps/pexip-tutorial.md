@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9dcc353d634d66d4bb972ed5ac7607a5cc823b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eef826f2987ca6e8d78841344359ea276e0f0fc3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65869322"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094459"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pexip"></a>Didacticiel : Intégration d’Azure Active Directory à Pexip
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de Pexip avec Azure AD, vous devez ajouter Pex
 
 **Pour ajouter Pexip à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

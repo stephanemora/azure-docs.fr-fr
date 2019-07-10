@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f5474af0fbc6b510d3667445bfdbe00fb45daebf
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: d0808361acf762ac21281493b71f7c89c9eef228
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65899828"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67104326"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dealpath"></a>Didacticiel : Intégration d’Azure AD à Dealpath
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de Dealpath à Azure AD, vous devez ajouter Dea
 
 **Pour ajouter Dealpath à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -107,7 +107,7 @@ Pour configurer l’authentification unique Azure AD avec Dealpath, effectuez le
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL : `https://app.dealpath.com/account/login`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://api.dealpath.com/saml/metadata/<ID>`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://api.dealpath.com/saml/metadata/<ID>`
 
     > [!NOTE]
     > La valeur de l'identificateur n'est pas réelle. Mettez à jour cette valeur avec l’identificateur réel. Pour obtenir ces valeurs, contactez l’[équipe de support client Dealpath](mailto:kenter@dealpath.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
@@ -142,7 +142,7 @@ Pour configurer l’authentification unique Azure AD avec Dealpath, effectuez le
 
     b. Dans la zone de texte **Identity Provider Issuer** (Émetteur du fournisseur d’identité), collez la valeur **Identificateur Azure AD** que vous avez copiée à partir du portail Azure.
 
-    c. Copiez le contenu du certificat téléchargé dans le fichier **certificate(Base64)**, puis collez-le dans la zone de texte **Certificat public**.
+    c. Copiez le contenu du certificat téléchargé dans le fichier **certificate(Base64)** , puis collez-le dans la zone de texte **Certificat public**.
 
     d. Cliquez sur **Mettre à jour les paramètres**.
 

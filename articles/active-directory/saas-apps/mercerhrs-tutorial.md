@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 8944e4533448f5787f5c85c12e4ab2747eb96e4e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9ae074e8732898524d917f2537023c4b506cff80
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65872262"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67097469"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mercer-benefitscentral-mbc"></a>Didacticiel : Intégration de Azure Active Directory à Mercer BenefitsCentral (MBC)
 
@@ -52,7 +52,7 @@ Pour configurer l’intégration de Mercer BenefitsCentral (MBC) dans Azure AD, 
 
 **Pour ajouter Mercer BenefitsCentral (MBC) à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -64,7 +64,7 @@ Pour configurer l’intégration de Mercer BenefitsCentral (MBC) dans Azure AD, 
 
     ![Bouton Nouvelle application](common/add-new-app.png)
 
-4. Dans la zone de recherche, tapez **Mercer BenefitsCentral (MBC)**, sélectionnez **Mercer BenefitsCentral (MBC)** à partir du volet de résultats puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+4. Dans la zone de recherche, tapez **Mercer BenefitsCentral (MBC)** , sélectionnez **Mercer BenefitsCentral (MBC)** à partir du volet de résultats puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
      ![Mercer BenefitsCentral (MBC) dans la liste des résultats](common/search-new-app.png)
 
@@ -115,7 +115,7 @@ Pour configurer l’authentification unique Azure AD auprès de Mercer BenefitsC
 
     ![Lien Téléchargement de certificat](common/metadataxml.png)
 
-6. Dans la section **Configurer Mercer BenefitsCentral (MBC)**, copiez l’URL ou les URL appropriées en fonction de vos besoins.
+6. Dans la section **Configurer Mercer BenefitsCentral (MBC)** , copiez l’URL ou les URL appropriées en fonction de vos besoins.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
@@ -127,7 +127,7 @@ Pour configurer l’authentification unique Azure AD auprès de Mercer BenefitsC
 
 ### <a name="configure-mercer-benefitscentral-mbc-single-sign-on"></a>Configurer l’authentification unique de Mercer BenefitsCentral (MBC)
 
-Pour configurer l’authentification unique côté **Mercer BenefitsCentral (MBC)**, vous devez envoyer le **XML des métadonnées de fédération** téléchargé et les URL appropriées, copiées à partir du portail Azure, à l’[équipe du support technique de Mercer BenefitsCentral (MBC)](https://www.mercer.com/contact-us.html). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique côté **Mercer BenefitsCentral (MBC)** , vous devez envoyer le **XML des métadonnées de fédération** téléchargé et les URL appropriées, copiées à partir du portail Azure, à l’[équipe du support technique de Mercer BenefitsCentral (MBC)](https://www.mercer.com/contact-us.html). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD 
 
@@ -158,11 +158,11 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Mercer BenefitsCentral (MBC).
 
-1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, **Toutes les applications**, puis **Mercer BenefitsCentral (MBC)**.
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, **Toutes les applications**, puis **Mercer BenefitsCentral (MBC)** .
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
-2. Dans la liste des applications, sélectionnez **Mercer BenefitsCentral (MBC)**.
+2. Dans la liste des applications, sélectionnez **Mercer BenefitsCentral (MBC)** .
 
     ![Lien Mercer BenefitsCentral (MBC) dans la liste des applications](common/all-applications.png)
 

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00f6a5878d1afe35b9e155425275466ecfa07de9
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 2b1ea6aec4a8c8013ac6e87495fc8f0c0dda7d69
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65813342"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164522"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-quantum-workplace"></a>Didacticiel : Intégration d’Azure Active Directory à Quantum Workplace
 
@@ -182,7 +182,7 @@ Quand vous cliquez sur la vignette Quantum Workplace dans le volet d’accès, v
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

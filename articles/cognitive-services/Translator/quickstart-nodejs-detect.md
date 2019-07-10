@@ -3,19 +3,19 @@ title: 'Démarrage rapide : Détecter la langue du texte, Node.js – API de tr
 titleSuffix: Azure Cognitive Services
 description: Dans ce démarrage rapide, vous allez apprendre à identifier la langue du texte fourni à l’aide de Node.js et de l’API REST de traduction de texte Translator Text.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: 2a22584cdace196287f5475536ac019d8dcfc15d
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.author: swmachan
+ms.openlocfilehash: c4baf5fc72986f73bf9081a351a9baec1b4ea277
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515171"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445064"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-detect-text-language-with-nodejs"></a>Démarrage rapide : Utiliser l’API de traduction de texte Translator Text et Node.js pour détecter la langue du texte
 
@@ -89,10 +89,11 @@ let options = {
     json: true,
 };
 ```
+La manière la plus simple d’authentifier une requête consiste à transmettre votre clé d’abonnement comme `Ocp-Apim-Subscription-Key`en-tête. C’est ce que nous avons fait dans ce modèle. Vous pouvez aussi échanger votre clé d’abonnement pour un jeton d’accès et transmettre le jeton d’accès en tant qu’`Authorization`en-tête pour valider votre requête. 
 
-### <a name="authentication"></a>Authentication
+Si vous utilisez un abonnement multiservice Cognitive Services, vous devez également inclure la `Ocp-Apim-Subscription-Region` dans vos en-têtes de requête. 
 
-La manière la plus simple d’authentifier une requête consiste à transmettre votre clé d’abonnement comme `Ocp-Apim-Subscription-Key`en-tête. C’est ce que nous avons fait dans ce modèle. Vous pouvez aussi échanger votre clé d’abonnement pour un jeton d’accès et transmettre le jeton d’accès en tant qu’`Authorization`en-tête pour valider votre requête. Pour en savoir plus, consultez [Authentification](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
+Pour en savoir plus, consultez [Authentification](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 
 ## <a name="make-the-request-and-print-the-response"></a>Effectuer la requête et imprimer la réponse
 

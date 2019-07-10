@@ -1,6 +1,6 @@
 ---
-title: Exemple PowerShell - Groupe de basculement de géoréplication d’une instance unique Azure SQL Database | Microsoft Docs
-description: Exemple de script Azure PowerShell permettant de configurer un groupe de basculement de géoréplication active pour une base de données unique dans Azure SQL Database et de la basculer.
+title: Exemple PowerShell - Géoréplication active - Base de données Azure SQL unique | Microsoft Docs
+description: Exemple de script Azure PowerShell permettant de configurer la géoréplication active pour une base de données unique dans Azure SQL Database et de la basculer.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -12,14 +12,14 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: a90753d075f7f4db9dbae95fde979d471db3247c
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 1733e117c2a5b0d58e37c3f5af451f949bd253f9
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66729195"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561486"
 ---
-# <a name="use-powershell-to-configure-an-active-geo-replication-failover-group-for-a-single-database-in-azure-sql-database"></a>Utiliser PowerShell pour configurer un groupe de basculement de géoréplication active pour une base de données unique dans Azure SQL Database
+# <a name="use-powershell-to-configure-active-geo-replication-for-a-single-database-in-azure-sql-database"></a>Utiliser PowerShell pour configurer la géoréplication active pour une base de données unique dans Azure SQL Database
 
 Cet exemple de script PowerShell configure un groupe de basculement de géoréplication active pour une base de données unique et le fait basculer vers le réplica secondaire de la base de données.
 

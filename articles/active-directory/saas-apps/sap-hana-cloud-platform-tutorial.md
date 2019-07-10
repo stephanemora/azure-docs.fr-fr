@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b345656b30a9bb182c097a4c9e18d71a293bf420
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 13ab9752391519f38e843b9d625164e655348d28
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65868063"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091792"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform"></a>Didacticiel : Intégration d’Azure Active Directory avec SAP Cloud Platform
 
@@ -59,7 +59,7 @@ Pour configurer l’intégration de SAP Cloud Platform à Azure AD, vous devez a
 
 **Pour ajouter SAP Cloud Platform à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

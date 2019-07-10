@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
-ms.openlocfilehash: d04f31ef20135271e4adb1551246d351bfab7b1f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fda9594d97500075e6b018e1e8c9ff5816fe3590
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57883982"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164974"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-fuse"></a>Tutoriel : Intégration d’Azure Active Directory à Fuse
+# <a name="tutorial-azure-active-directory-integration-with-fuse"></a>Didacticiel : Intégration d’Azure Active Directory à Fuse
 
 Dans ce didacticiel, vous allez apprendre à intégrer Fuse dans Azure Active Directory (Azure AD).
 L’intégration de Fuse dans Azure AD vous offre les avantages suivants :
@@ -52,7 +52,7 @@ Pour configurer l’intégration de Fuse avec Azure AD, vous devez ajouter Fuse
 
 **Pour ajouter Fuse à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -104,7 +104,7 @@ Pour configurer l’authentification unique Azure AD avec Fuse, effectuez les �
 
     ![Informations d’authentification unique dans Fuse Domain and URLs (Domaine et URL Fuse)](common/sp-signonurl.png)
 
-    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<tenant name>.fusionuniversal.com/`
+    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://{tenantname}.fuseuniversal.com/`
 
     > [!NOTE]
     > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Pour obtenir cette valeur, contactez l’[équipe du support technique Fuse](mailto:support@fusion-universal.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
@@ -145,7 +145,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

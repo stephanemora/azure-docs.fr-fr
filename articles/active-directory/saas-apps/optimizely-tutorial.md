@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 066847ff8428a5080e655712c1a6bbe504c5cdbc
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: bf4f1a08c4356a68db5315b7563adb3b6c884d41
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65904603"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67095501"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-optimizely"></a>Didacticiel : Intégration d'Azure Active Directory à Optimizely
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration d’Optimizely avec Azure AD, vous devez ajout
 
 **Pour ajouter Optimizely à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -107,7 +107,7 @@ Pour configurer l’authentification unique Azure AD avec Optimizely, effectuez
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://app.optimizely.net/<instance name>`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, entrez une URL au format suivant : `urn:auth0:optimizely:contoso`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , entrez une URL au format suivant : `urn:auth0:optimizely:contoso`
 
     > [!NOTE]
     > Il ne s’agit pas des valeurs réelles. Vous mettrez à jour la valeur avec l’URL de connexion et l’identificateur réels. La procédure est expliquée plus loin dans le didacticiel. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 05/24/2019
+ms.date: 06/19/2019
 ms.author: alkohli
-ms.openlocfilehash: f2f6b544b56977b3f1bfb6a4fb46a9f1e3bcc294
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: d4cdc9b6c31c62080fed5a8528577fef72c01c3f
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66427946"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67271711"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box-heavy-preview"></a>Didacticiel : Brancher votre Azure Data Box Heavy et s’y connecter (préversion)
 
@@ -79,7 +79,7 @@ Effectuez les étapes suivantes pour brancher les câbles de votre appareil.
 Sur l’un des nœuds de l’appareil, effectuez les étapes suivantes pour effectuer un branchement au réseau.
 
 1. Utilisez un câble réseau CAT 6 RJ-45 (câble bleu sur l’image) pour connecter l’ordinateur hôte au port de gestion 1 Gbit/s.
-2. Utilisez un câble en cuivre Twinax QSFP+ (câbles noirs sur l’image) pour connecter au moins une interface réseau 40 Gbit/s (préférable à une interface réseau 1 Gbit/s) pour les données. En cas d’utilisation d’un commutateur 10 Gbits/s, utilisez un câble en cuivre Twinax SFP+ avec une carte QSFP+ à SFP+ (la carte QSA) pour connecter l’interface réseau 40 Gbits/s pour les données.
+2. Utilisez un câble QSFP + (fibre ou cuivre) pour connecter au moins une interface réseau 40 Gbits/s (plutôt que 1 Gbit/s) pour les données. En cas d’utilisation d’un commutateur 10 Gbits/s, utilisez un câble SFP+ avec une carte QSFP+ à SFP+ (la carte QSA) pour connecter l’interface réseau 40 Gbits/s pour les données.
 
     ![Ports Data Box Heavy câblés](media/data-box-heavy-deploy-set-up/data-box-heavy-ports-cabled.png)
 

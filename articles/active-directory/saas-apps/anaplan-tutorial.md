@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88741c81fe5efe219b052810c374fed3f4834d2a
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: ed6762a1cce3afb3e22b15a63c68432fec121efe
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65901066"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107006"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-anaplan"></a>Didacticiel : Intégration d’Azure Active Directory à Anaplan
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration d’Anaplan à Azure AD, vous devez ajouter An
 
 **Pour ajouter Anaplan à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -65,7 +65,7 @@ Pour configurer l’intégration d’Anaplan à Azure AD, vous devez ajouter An
 
     ![Bouton Nouvelle application](common/add-new-app.png)
 
-4. Dans la zone de recherche, tapez **Aha!**, sélectionnez **Aha!** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+4. Dans la zone de recherche, tapez **Aha!** , sélectionnez **Aha!** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
      ![Anaplan dans la liste des résultats](common/search-new-app.png)
 
@@ -107,7 +107,7 @@ Pour configurer l’authentification unique Azure AD auprès d’Anaplan, effec
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://sdp.anaplan.com/frontdoor/saml/<tenant name>`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://<subdomain>.anaplan.com`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://<subdomain>.anaplan.com`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez [l’équipe du support Anaplan](mailto:support@anaplan.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.

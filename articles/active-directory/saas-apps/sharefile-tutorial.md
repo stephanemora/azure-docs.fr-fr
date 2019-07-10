@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5839329f78fc349210f9439c5b1580a21f5172a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e9904ba14e8d5a518807eda371ba655963b33bd4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65867534"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091007"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-citrix-sharefile"></a>Didacticiel : Intégration d’Azure Active Directory à Citrix ShareFile
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de Citrix ShareFile avec Azure AD, vous devez 
 
 **Pour ajouter Citrix ShareFile à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -107,7 +107,7 @@ Pour configurer l’authentification unique Azure AD avec Citrix ShareFile, proc
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<tenant-name>.sharefile.com/saml/login`.
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, entrez une URL au format suivant :
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , entrez une URL au format suivant :
 
     | |
     |---|

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: a297c9db22d81ee3c32be4732198ba25b8f5a8f8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 0d57b3ce4e378a366148b5c3eef6bc4d5d9eb96d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59280194"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088546"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-timeoffmanager"></a>Didacticiel : Intégration d'Azure Active Directory à TimeOffManager
 
@@ -55,7 +55,7 @@ Pour configurer l’intégration de TimeOffManager avec Azure AD, vous devez ajo
 
 **Pour ajouter TimeOffManager à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

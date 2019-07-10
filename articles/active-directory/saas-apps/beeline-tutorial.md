@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62a4495667dc7c934883bfed0a8f07d7b2d653f7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 89c93b4f95817af85477978a2889887aeb0d98e2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59266543"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106378"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-beeline"></a>Didacticiel : Intégration d’Azure Active Directory à Beeline
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de BeeLine avec Azure AD, vous devez ajouter B
 
 **Pour ajouter BeeLine à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

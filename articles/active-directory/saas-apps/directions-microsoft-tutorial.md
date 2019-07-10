@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ca35e1c6966365fab1a53fe9674a8f361422eea
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 0cd6f3a97e96f22ee32ff8f84b234e806f23e945
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65899728"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67104187"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-directions-on-microsoft"></a>Didacticiel : Intégration d’Azure Active Directory à Directions on Microsoft
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de Directions on Microsoft à Azure AD, vous d
 
 **Pour ajouter Directions on Microsoft à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -112,7 +112,7 @@ Pour configurer l’authentification unique Azure AD avec Directions on Microso
     | `https://www.directionsonmicrosoft.com/user/login` |
     | `https://<subdomain>.devcloud.acquia-sites.com/<companyname>` |
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant :
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant :
     
     |  |
     | --- |

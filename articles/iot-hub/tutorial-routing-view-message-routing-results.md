@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 1417ecdaf6a85f491e1accfb9564e27d15e13445
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f34799bbf2142ba07c29915deae5b5dbe590c9fc
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66163049"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67330523"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>Didacticiel : Partie 2 : Visualiser les messages routés
 
@@ -126,7 +126,7 @@ Pour afficher les données dans une visualisation Power BI, commencez par config
 
    **Point de terminaison** : sélectionnez **Messagerie**. (Si vous sélectionnez Surveillance des opérations, vous obtenez les données de télémétrie sur l’IoT Hub, plutôt que les données que vous envoyez.) 
 
-   **Nom de la stratégie d'accès partagé** : sélectionnez **iothubowner**. Le portail renseigne la clé de la stratégie d’accès partagé pour vous.
+   **Nom de la stratégie d'accès partagé** : Sélectionnez **service**. Le portail renseigne la clé de la stratégie d’accès partagé pour vous.
 
    **Groupe de consommateurs** : Sélectionnez le groupe de consommateurs configuré à l’étape 1 de ce tutoriel. Ce didacticiel utilise **contosoconsumers**.
    

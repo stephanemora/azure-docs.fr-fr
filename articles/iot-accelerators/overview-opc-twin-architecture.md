@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: d1c10e056de1bc61b5365550bf2543d2cdf61229
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 002e2e06201688638df98e16c45282187f593a3a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59783900"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444282"
 ---
 # <a name="opc-twin-architecture"></a>Architecture d’OPC Twin
 
@@ -35,6 +35,6 @@ Les schémas suivants illustrent l’architecture d’OPC Twin.
 
    ![Fonctionnement d’OPC Twin](media/overview-opc-twin-architecture/opc-twin3.png)
 
-1. L’interface REST du service de jumeau peut également être utilisée pour créer des abonnements et des éléments supervisés dans le serveur de publication OPC. Le serveur de publication OPC permet d’envoyer des données de télémétrie à partir de systèmes serveur OPC UA à IoT Hub. Pour plus d’informations sur le serveur de publication OPC, consultez le dépôt [Serveur de publication OPC](https://github.com/Azure/iot-edge-opc-publisher) sur GitHub.
+1. L’interface REST du service de jumeau peut également être utilisée pour créer des abonnements et des éléments supervisés dans le serveur de publication OPC. Le serveur de publication OPC permet d’envoyer des données de télémétrie à partir de systèmes serveur OPC UA à IoT Hub. Pour plus d’informations sur OPC Publisher, consultez [Définition d’OPC Publisher](overview-opc-publisher.md).
 
    ![Fonctionnement d’OPC Twin](media/overview-opc-twin-architecture/opc-twin4.png)

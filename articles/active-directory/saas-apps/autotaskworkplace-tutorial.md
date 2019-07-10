@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00e838dd3df417bd0b26167d5f316225520e7263
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b7be7d8b9fc9aa8b6c9c1d888744c25d710ca79a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65859029"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106499"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-autotask-workplace"></a>Didacticiel : Intégration d’Azure Active Directory à Autotask Workplace
 
@@ -57,7 +57,7 @@ Pour configurer l’intégration d’Autotask Workplace à Azure AD, vous devez 
 
 **Pour ajouter Autotask Workplace à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

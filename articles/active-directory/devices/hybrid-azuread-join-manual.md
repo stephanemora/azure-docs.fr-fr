@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8db7e2588b03807a42f82fd0fcd4e71855e55c1d
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: 8babf2a6a4f4a15c6d2979ea0d5ce558dfb0cd6a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66426330"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052135"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Didacticiel : Configurer manuellement des appareils joints à Azure Active Directory hybride
 
@@ -139,7 +139,7 @@ L’applet de commande `Initialize-ADSyncDomainJoinedComputerSync` :
 
 * Utilise le module Active Directory PowerShell et les outils Azure Active Directory Domain Services (Azure AD DS). Ces outils supposent que les services web Active Directory s’exécutent sur un contrôleur de domaine. Les services Web Active Directory sont pris en charge sur les contrôleurs de domaine exécutant Windows Server 2008 R2 et les versions ultérieures.
 * Est pris en charge seulement par le module MSOnline PowerShell version 1.1.166.0. Pour télécharger ce module, utilisez ce [lien](https://msconfiggallery.cloudapp.net/packages/MSOnline/1.1.166.0/).
-* Si les outils Azure AD DS ne sont pas installés, `Initialize-ADSyncDomainJoinedComputerSync` échoue. Vous pouvez installer les outils Azure AD DS via le Gestionnaire de serveur, sous **Fonctionnalités** > **Outils d’administration de serveur distant** > **Outils d’administration de rôles**.
+* Si les outils AD DS ne sont pas installés, `Initialize-ADSyncDomainJoinedComputerSync` échoue. Vous pouvez installer les outils AD DS via le Gestionnaire de serveur, sous **Fonctionnalités** > **Outils d’administration de serveur distant** > **Outils d’administration de rôles**.
 
 Dans le cas de contrôleurs de domaine exécutant Windows Server 2008 ou des versions antérieures, utilisez le script suivant pour créer le point de connexion de service. Dans une configuration multi-forêt, utilisez le script ci-dessous pour créer le point de connexion de service dans chacune des forêts contenant des ordinateurs.
 

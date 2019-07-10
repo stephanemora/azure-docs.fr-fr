@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.openlocfilehash: bc038c863e1afb9313964a6b11365d766e0e8691
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: 4e28da9ab9502e2dac4fc08452a46841c4e50b66
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67310616"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67466806"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Didacticiel : Extraire, transformer et charger des données à l’aide d’Azure Databricks
 
@@ -41,7 +41,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 > [!Note]
 > Ce didacticiel ne peut pas être suivi avec un **abonnement d’essai gratuit Azure**.
-> Pour utiliser un compte gratuit pour créer le cluster Azure Databricks, avant de créer le cluster, accédez à votre profil et définissez votre abonnement sur **paiement à l’utilisation**. Pour plus d’informations, consultez la page [Compte Azure gratuit](https://azure.microsoft.com/free/).
+> Si vous avez un compte gratuit, accédez à votre profil et modifiez votre abonnement sur **Paiement à l’utilisation**. Pour plus d’informations, consultez la page [Compte Azure gratuit](https://azure.microsoft.com/free/). Ensuite, [supprimez la limite de dépense](https://docs.microsoft.com/azure/billing/billing-spending-limit#remove-the-spending-limit-in-account-center), et [demandez une augmentation du quota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) pour les processeurs virtuels dans votre région. Lorsque vous créez votre espace de travail Azure Databricks, vous pouvez sélectionner le tarif **Version d’évaluation (Premium - 14 jours de DBU offerts)** pour donner à l’accès de l’espace de travail un accès gratuit aux DBU d’Azure Databricks pendant 14 jours.
      
 ## <a name="prerequisites"></a>Prérequis
 

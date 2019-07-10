@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: overview
 ms.date: 04/04/2019
 ms.author: aahi
-ms.openlocfilehash: d8f8d110a13e768d93f0be3c4baaf5715436f2ed
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: d8d2aed16b5af60c44501e6d72332783a164ff91
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59502412"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478394"
 ---
 # <a name="example-user-scenarios-for-the-text-analytics-api"></a>Exemples de scénarios utilisateur pour l’API Analyse de texte
 
@@ -29,7 +29,7 @@ Retirez des insights des résultats d’une enquête portant sur les clients et 
 
 ## <a name="analyze-recorded-inbound-customer-calls"></a>Analyser les appels de clients entrants enregistrés
 
-Retirez des insights des appels de services clients à l’aide de la synthèse vocale, de l’analyse des sentiments et de l’extraction de phrases clés. Affichez les résultats dans un tableau de bord Power BI ou un portail pour mieux comprendre les clients, dégager des tendances du service client et stimuler l’engagement des clients. Envoyez les demandes API sous forme de lot en vue de la création d’un rapport ou en temps réel en vue d’une intervention. 
+Retirez des insights des appels de services clients à l’aide de la synthèse vocale, de l’analyse des sentiments et de l’extraction de phrases clés. Affichez les résultats dans un tableau de bord Power BI ou un portail pour mieux comprendre les clients, dégager des tendances du service client et stimuler l’engagement des clients. Envoyez les demandes API sous forme de lot en vue de la création d’un rapport ou en temps réel en vue d’une intervention. Consultez cet [exemple de code](https://github.com/rlagh2/callcenteranalytics).
 
 ![Image montrant comment automatiser la récupération d’insights à partir des appels de service client à l’aide de l’analyse des sentiments](media/use-cases/azure-inbound.svg)
 

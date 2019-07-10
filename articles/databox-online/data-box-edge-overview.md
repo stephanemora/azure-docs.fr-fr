@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 04/12/2019
+ms.date: 06/28/2019
 ms.author: alkohli
-ms.openlocfilehash: cd4d84d6698ddeda2fb00a8452fbe8cd02771e4b
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 3972f9f93cc6323601102f1a54bb067a8995d9e4
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59544566"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484753"
 ---
 # <a name="what-is-azure-data-box-edge"></a>Qu’est-ce qu’Azure Data Box Edge ? 
 
@@ -34,7 +34,7 @@ Azure Data Box Edge est un appareil informatique avec intelligence artificielle,
     - Créer des sous-ensembles et transférer les données nécessaires à une analyse plus approfondie dans le cloud.
     - Analyser et réagir aux événements IoT. 
 
-- **Inference Azure Machine Learning** : Data Box Edge vous permet d’exécuter des modèles Machine Learning (ML) pour obtenir des résultats rapides qui peuvent être traitées avant l’envoi des données vers le cloud. Le jeu de données complet est transféré pour continuer à reformer et améliorer vos modèles ML.
+- **Inference Azure Machine Learning** : Data Box Edge vous permet d’exécuter des modèles Machine Learning (ML) pour obtenir des résultats rapides qui peuvent être traitées avant l’envoi des données vers le cloud. Le jeu de données complet peut être transféré pour continuer à reformer et améliorer vos modèles ML. Pour plus d’informations sur la façon d’utiliser les modèles accélérés matériellement d’Azure ML sur un appareil Databox Edge, consultez [Déployer des modèles accélérés par matériellement Azure ML sur Databox Edge](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server).
 
 - **Transférer des données vers Azure via le réseau** : utilisez Data Box Edge pour transférer rapidement et facilement des données vers Azure pour le calcul et l’analyse à des fins d’archivage. 
 
@@ -55,7 +55,7 @@ Data Box Edge intègre les fonctionnalités suivantes :
 |Fonctionnalité |Description  |
 |---------|---------|
 |Hautes performances     | Transfert de données et bande passante entièrement automatisés et hautement optimisés.|
-|Protocoles pris en charge     | Prise en charge des protocoles SMB et NFS standard pour l’ingestion des données. <br> Pour plus d’informations sur les versions prises en charge, consultez [Conditions requises pour Data Box Edge](https://aka.ms/dbe-docs).|
+|Protocoles pris en charge     | Prise en charge des protocoles SMB et NFS standard pour l’ingestion des données. <br> Pour plus d’informations sur les versions prises en charge, consultez [Conditions requises pour Data Box Edge](data-box-edge-system-requirements.md).|
 |Informatique       |Permet l’analyse, le traitement et le filtrage des données.|
 |Accès aux données     | Accès direct aux données à partir d’objets blob Stockage Azure et Azure Files à l’aide des API cloud pour le traitement d’autres données dans le cloud.|
 |Accès rapide     | Cache local sur l’appareil pour un accès rapide aux derniers fichiers utilisés.|
@@ -75,13 +75,13 @@ La solution Data Box Edge se compose d’une ressource Data Box Edge, d’un app
 
     <!--![The Data Box Edge service in Azure portal](media/data-box-overview/data-box-Edge-service1.png)-->
 
-    Pour plus d’informations, consultez [Utiliser le service Data Box Edge pour gérer votre appareil Data Box Edge](https://aka.ms/dbe-docs).
+    Pour plus d’informations, accédez à la section vous expliquant comment [Créer une commande pour votre appareil Data Box Edge](data-box-edge-deploy-prep.md#create-a-new-resource).
 
 * **Interface utilisateur web locale Data Box** : utilisez l’interface utilisateur web locale pour exécuter des diagnostics, arrêter et redémarrer l’appareil Data Box Edge, afficher les journaux d’activité de copie, et contactez le support Microsoft pour créer une demande de service.
 
     <!--![The Data Box Edge local web UI](media/data-box-Edge-overview/data-box-Edge-local-web-ui.png)-->
 
-    Pour plus d’informations sur l’utilisation de l’interface utilisateur basée sur le web, voir [Utiliser l’interface utilisateur basée sur le web pour gérer votre Data Box](https://aka.ms/dbe-docs).
+    Pour plus d’informations sur l’utilisation de l’interface utilisateur basée sur le web, voir [Utiliser l’interface utilisateur basée sur le web pour gérer votre Data Box](data-box-edge-manage-access-power-connectivity-mode.md).
 
 
 ## <a name="region-availability"></a>Disponibilité des régions

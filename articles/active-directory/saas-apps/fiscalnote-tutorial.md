@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 592d885656ee7753054f020f5768a75a5d43a489
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 0c7e97b2f2a447ae5152764d6b4f40ff38f012c3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898715"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102514"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fiscalnote"></a>Didacticiel : Intégration d’Azure Active Directory à FiscalNote
 
@@ -55,7 +55,7 @@ Pour configurer l’intégration de FiscalNote à Azure AD, vous devez ajouter F
 
 **Pour ajouter FiscalNote à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -109,7 +109,7 @@ Pour configurer l’authentification unique Azure AD avec FiscalNote, procédez
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<InstanceName>.fiscalnote.com/login?client=<ClientID>&redirect_uri=https://app.fiscalnote.com/saml-login.html&audience=https://api.fiscalnote.com/&connection=<CONNECTION_NAME>&response_type=id_token%20token`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `urn:auth0:fiscalnote:<CONNECTIONNAME>`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `urn:auth0:fiscalnote:<CONNECTIONNAME>`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez [l’équipe de support technique FiscalNote](mailto:support@fiscalnote.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.

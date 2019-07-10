@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: ae17ef749a353cd60227e31ba4dadf328b1dc935
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 301abe95b245603e5414eef84ce74cdc8de01d19
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66482437"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509848"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Appeler l’API Microsoft Graph à partir d’une application de bureau Windows
 
@@ -28,7 +28,7 @@ Ce guide explique comment une application de bureau Windows .NET (XAML) native u
 À la fin de ce guide, votre application sera capable d’appeler une API protégée utilisant des comptes personnels (y compris outlook.com, live.com, etc.). L’application utilisera également des comptes professionnels et scolaires de toute entreprise ou organisation utilisant Azure Active Directory.  
 
 > [!NOTE]
-> Ce guide nécessite Visual Studio 2015 Update 3 ou Visual Studio 2019. Vous n’avez aucune de ces versions ? [Téléchargez Visual Studio 2019 gratuitement](https://www.visualstudio.com/downloads/).
+> Ce guide nécessite Visual Studio 2015 Update 3, Visual Studio 2017 ou Visual Studio 2019. Vous n’avez aucune de ces versions ? [Téléchargez Visual Studio 2019 gratuitement](https://www.visualstudio.com/downloads/).
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Fonctionnement de l’exemple d’application de ce guide
 

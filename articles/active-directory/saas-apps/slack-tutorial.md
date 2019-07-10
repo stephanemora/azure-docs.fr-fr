@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a2472e78a9da223b0c651551d7cc8e05ab6eea9
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 90950f2725c821729bf38cfdfbfd1782e5ffc09c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65889665"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090402"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-slack"></a>Didacticiel : Intégration d’Azure AD à Slack
 
@@ -55,7 +55,7 @@ Pour configurer l’intégration de Slack avec Azure AD, vous devez ajouter Sla
 
 **Pour ajouter Slack à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -109,7 +109,7 @@ Pour configurer l’authentification unique Azure AD avec Slack, procédez comme
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<companyname>.slack.com`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL : `https://slack.com`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL : `https://slack.com`
 
     > [!NOTE]
     > La valeur d’URL de connexion n’est pas réelle. Remplacez cette valeur par l’URL de connexion réelle. Pour obtenir la valeur, contactez l’[équipe de support client Allbound SSO](https://slack.com/help/contact). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
@@ -178,7 +178,7 @@ Pour configurer l’authentification unique Azure AD avec Slack, procédez comme
 
     ![Configurer l’authentification unique côté application](./media/slack-tutorial/tutorial_slack_003.png)
 
-    a.  Dans la zone de texte **Point de terminaison SAML 2.0 (HTTP)**, collez la valeur de **l’URL de connexion** que vous avez copiée à partir du portail Azure.
+    a.  Dans la zone de texte **Point de terminaison SAML 2.0 (HTTP)** , collez la valeur de **l’URL de connexion** que vous avez copiée à partir du portail Azure.
 
     b.  Dans la zone de texte **Émetteur du fournisseur d’identité**, collez la valeur de **l’identificateur Azure AD** que vous avez copié à partir du portail Azure.
 

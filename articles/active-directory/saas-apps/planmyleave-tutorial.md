@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 8581b7f940aceca4e3ab85e44f83bf0bebb1b6f5
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: d1192d3606dfbbf54a8177c2369a9cae8871d92b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65904078"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094392"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-planmyleave"></a>Didacticiel : Intégration de PlanMyLeave à Azure Active Directory
 
@@ -55,7 +55,7 @@ Pour configurer l’intégration de PlanMyLeave à Azure AD, vous devez ajouter 
 
 **Pour ajouter PlanMyLeave à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -109,7 +109,7 @@ Pour configurer l’authentification unique Azure AD avec PlanMyLeave, effectuez
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<company-name>.planmyleave.com/Login.aspx`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://<company-name>.planmyleave.com`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://<company-name>.planmyleave.com`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Contactez l’[équipe de support client PlanMyLeave](mailto:support@planmyleave.com) pour obtenir ces valeurs. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.

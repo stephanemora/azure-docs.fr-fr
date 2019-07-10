@@ -10,14 +10,14 @@ ms.subservice: face-api
 ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: pafarley
-ms.openlocfilehash: 5c7f2e86d6fe63d309c74d7304f1c19a714b6471
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: a809a4de588a388c4be8ca6efa245450699eeb64
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312520"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441621"
 ---
-# <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>Tutoriel : Créer une application Android pour détecter et encadrer des visages dans une image
+# <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>Didacticiel : Créer une application Android pour détecter et encadrer des visages dans une image
 
 Dans ce tutoriel, vous allez créer une application Android simple qui utilise l’API Visage Azure par le biais du SDK Java pour détecter des visages humains dans une image. L’application affiche une image sélectionnée et trace un cadre autour de chaque visage détecté.
 
@@ -78,7 +78,7 @@ Commentez l’appel à **detectAndFrame** dans la méthode **onActivityResult**.
 
 ### <a name="add-the-gradle-dependency"></a>Ajouter la dépendance Gradle
 
-Dans le volet **Projet**, utilisez le sélecteur du menu déroulant pour sélectionner **Android**. Développez **Scripts Gradle**, puis ouvrez *build.gradle (Module: app)*. Ajoutez une dépendance de la bibliothèque de client de l’API Visage, `com.microsoft.projectoxford:face:1.4.3`, comme indiqué dans la capture d’écran ci-dessous, puis cliquez sur **Synchroniser maintenant**.
+Dans le volet **Projet**, utilisez le sélecteur du menu déroulant pour sélectionner **Android**. Développez **Scripts Gradle**, puis ouvrez *build.gradle (Module: app)* . Ajoutez une dépendance de la bibliothèque de client de l’API Visage, `com.microsoft.projectoxford:face:1.4.3`, comme indiqué dans la capture d’écran ci-dessous, puis cliquez sur **Synchroniser maintenant**.
 
 ![Capture d’écran Android Studio du fichier d’application build.gradle](../Images/face-tut-java-gradle.png)
 
@@ -100,7 +100,7 @@ Dans le volet **Projet**, développez **Application**, puis **Manifestes**, et o
 
 ## <a name="upload-image-and-detect-faces"></a>Charger l’image et détecter des visages
 
-Votre application détecte les visages en appelant la méthode **FaceServiceClient.detect**, laquelle inclut dans un wrapper l’API REST [Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) et retourne une liste d’instances de **Visage**.
+Votre application détecte les visages en appelant la méthode **faceClient.Face.DetectWithStreamAsync**, laquelle inclut dans un wrapper l’API REST [Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) et retourne une liste d’instances de **Visage**.
 
 Chaque **visage** retourné inclut un rectangle pour indiquer son emplacement, combiné avec une série d’attributs de visage facultatifs. Dans cet exemple, seuls les rectangles de visage sont demandés.
 

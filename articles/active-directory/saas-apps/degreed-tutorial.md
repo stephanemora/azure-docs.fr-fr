@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6741cf58208e972c85d41f2fa657e7dd82cc4f2b
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: b58a315cc2eed91162f19edd5c175d71cc7c4f3c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65900214"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67104287"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-degreed"></a>Didacticiel : Intégration d’Azure AD à Degreed
 
@@ -55,7 +55,7 @@ Pour configurer l’intégration de Degreed à Azure AD, vous devez ajouter Deg
 
 **Pour ajouter Degreed à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -109,7 +109,7 @@ Pour configurer l’authentification unique Azure AD avec Degreed, effectuez le
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://degreed.com/?orgsso=<company code>`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://degreed.com/<instancename>`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://degreed.com/<instancename>`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique de Degreed](mailto:admin@degreed.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.

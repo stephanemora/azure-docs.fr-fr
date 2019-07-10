@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 0424b21c60d4ae86f7802d1b3ca2a0d7bbe35759
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 499b7f5761c97f6986ca0291af2242d694b609d2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59281622"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101738"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-getthere"></a>Didacticiel : Intégration d’Azure Active Directory à GetThere
 
@@ -52,7 +52,7 @@ Pour configurer l’intégration de GetThere à Azure AD, vous devez ajouter Ge
 
 **Pour ajouter GetThere à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

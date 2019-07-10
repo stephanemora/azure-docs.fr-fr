@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7f547b770f63885df00d2fe296698828c323eb4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ff0464ed5b223dc71d635ffceb15376716cc4291
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65859061"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106666"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ares-for-enterprise"></a>Didacticiel : Intégration d’Azure Active Directory à ARES for Enterprise
 
@@ -55,7 +55,7 @@ Pour configurer l’intégration d’ARES for Enterprise à Azure AD, vous devez
 
 **Pour ajouter ARES for Enterprise à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

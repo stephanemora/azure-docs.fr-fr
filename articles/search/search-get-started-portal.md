@@ -1,6 +1,6 @@
 ---
-title: 'Démarrage rapide : Créer, charger et interroger un index dans le portail Azure - Recherche Azure'
-description: Générez et interrogez votre premier index dans la Recherche Azure à l’aide d’exemples de données prédéfinis et de l’Assistant Importation de données dans le portail Azure.
+title: 'Démarrage rapide : Créer, charger et interroger un index avec le portail Azure - Recherche Azure'
+description: Utilisez l’assistant Importer des données dans le portail Azure pour créer, charger et interroger votre premier index dans Azure Search.
 author: HeidiSteen
 manager: cgronlun
 tags: azure-portal
@@ -10,18 +10,18 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: e5baa0876dc976553e8e541cef6b481329500bf6
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 4a1944c5c5f169274cf45bd3ebfb6df47942dd5a
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65606446"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485644"
 ---
-# <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>Démarrage rapide : Utiliser les outils du portail intégrés pour l’importation, l’indexation et la création de requêtes dans Recherche Azure
+# <a name="quickstart-create-an-azure-search-index-using-the-azure-portal"></a>Démarrage rapide : Créer un index Azure Search à l’aide du portail Azure
 > [!div class="op_single_selector"]
 > * [Portal](search-get-started-portal.md)
 > * [PowerShell](search-howto-dotnet-sdk.md)
-> * [Postman](search-fiddler.md)
+> * [Postman](search-get-started-postman.md)
 > * [C#](search-create-index-dotnet.md)
 >*
 
@@ -34,11 +34,11 @@ Pour vous familiariser rapidement avec les concepts de Recherche Azure, essayez 
 > * Affichez un index existant et les options disponibles pour le modifier
 > * Explorez la recherche en texte intégral, les filtres, les facettes, la recherche partielle et la recherche géographique avec **l’Explorateur de recherche**
 
-Si ces outils sont trop limités, vous pouvez suivre une [introduction à la programmation Recherche Azure basée sur le code dans .NET](search-howto-dotnet-sdk.md) ou utiliser [Postman ou Fiddler pour effectuer des appels d’API REST](search-fiddler.md).
+Si ces outils sont trop limités, vous pouvez suivre une [introduction à la programmation Recherche Azure basée sur le code dans .NET](search-howto-dotnet-sdk.md) ou utiliser [Postman ou Fiddler pour effectuer des appels d’API REST](search-get-started-postman.md).
 
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer. Vous pouvez également visionner une démonstration de 6 minutes de la procédure décrite dans ce didacticiel à partir de la troisième minute environ de cette [vidéo de présentation du service Recherche Azure](https://channel9.msdn.com/Events/Connect/2016/138).
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer. Vous pouvez également visionner une démonstration de 6 minutes de la procédure décrite dans ce tutoriel à partir de la troisième minute environ de cette [vidéo de présentation du service Recherche Azure](https://channel9.msdn.com/Events/Connect/2016/138).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 [Créez un service Recherche Azure](search-create-service-portal.md) ou [recherchez un service existant](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) dans votre abonnement actuel. Vous pouvez utiliser un service gratuit pour ce guide de démarrage rapide. 
 
@@ -274,4 +274,4 @@ Pour en savoir plus sur Recherche Azure, utilisez les outils de programmation :
 
 * [Création d’un index à l’aide du Kit de développement logiciel .NET](https://docs.microsoft.com/azure/search/search-create-index-dotnet)
 * [Création d’un index à l’aide de l’API REST](https://docs.microsoft.com/azure/search/search-create-index-rest-api)
-* [Création d’un index à l’aide de Postman ou Fiddler et des API REST Recherche Azure](search-fiddler.md)
+* [Création d’un index à l’aide de Postman ou Fiddler et des API REST Recherche Azure](search-get-started-postman.md)

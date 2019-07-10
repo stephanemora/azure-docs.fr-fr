@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/31/2019
+ms.date: 06/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b849e63b758dca777df2be682b28bc4e10e58330
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 7c09542013dff3a18965d1070216a938c26a144e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66481895"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102843"
 ---
 # <a name="tutorial-integrate-expensein-with-azure-active-directory"></a>Didacticiel : Intégrer ExpenseIn à Azure Active Directory
 
@@ -101,25 +101,35 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 ### <a name="configure-expensein"></a>Configurer ExpenseIn
 
-1. Dans une autre fenêtre de navigateur web, connectez-vous à ExpenseIn en tant qu’administrateur.
+1. Pour automatiser la configuration dans ExpenseIn, vous devez installer l’**extension de navigateur My Apps Secure Sign-in** en cliquant sur **Installer l’extension**.
 
-2. Cliquez sur **Admin** en haut de la page, puis accédez à **Single Sign-On** (Authentification unique) et cliquez sur **Add provider** (Ajouter un fournisseur).
+    ![Extension My apps](common/install-myappssecure-extension.png)
+
+2. Après l’ajout de l’extension au navigateur, cliquez sur **Configurer ExpenseIn** pour être dirigé vers l’application ExpenseIn. À partir de là, indiquez les informations d’identification de l’administrateur pour vous connecter à ExpenseIn. Cette extension de navigateur configure automatiquement l’application et automatise les étapes 3 à 5.
+
+    ![Configuration](common/setup-sso.png)
+
+3. Si vous souhaitez configurer manuellement ExpenseIn, ouvrez une nouvelle fenêtre de navigateur web, connectez-vous à votre site d’entreprise ExpenseIn en tant qu’administrateur et effectuez les étapes suivantes :
+
+4. Cliquez sur **Admin** en haut de la page, puis accédez à **Single Sign-On** (Authentification unique) et cliquez sur **Add provider** (Ajouter un fournisseur).
 
      ![Configuration d’ExpenseIn](./media/expenseIn-tutorial/config01.png)
 
-3. Dans la fenêtre contextuelle **New Identity Provider** (Nouveau fournisseur d’identité), effectuez les étapes suivantes :
+5. Dans la fenêtre contextuelle **New Identity Provider** (Nouveau fournisseur d’identité), effectuez les étapes suivantes :
 
     ![Configuration d’ExpenseIn](./media/expenseIn-tutorial/config02.png)
 
     a. Dans la zone de texte **Provider Name** (Nom du fournisseur), tapez le nom, par exemple, Azure.
 
-    b. Dans la zone de texte **Target Url** (URL cible), collez la valeur **URL de connexion** que vous avez copiée à partir du portail Azure.
+    b. Sélectionnez **Oui** pour **Autoriser l’authentification initiée par le fournisseur**.
 
-    c. Dans la zone de texte **Issuer** (Émetteur), collez la valeur **Identificateur Azure AD** que vous avez copiée depuis le portail Azure.
+    c. Dans la zone de texte **Target Url** (URL cible), collez la valeur **URL de connexion** que vous avez copiée à partir du portail Azure.
 
-    d. Ouvrez le certificat (Base64) dans le Bloc-notes, copiez son contenu et collez-le dans la zone de texte **Certificate** (Certificat).
+    d. Dans la zone de texte **Issuer** (Émetteur), collez la valeur **Identificateur Azure AD** que vous avez copiée depuis le portail Azure.
 
-    e. Cliquez sur **Créer**.
+    e. Ouvrez le certificat (Base64) dans le Bloc-notes, copiez son contenu et collez-le dans la zone de texte **Certificate** (Certificat).
+
+    f. Cliquez sur **Créer**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -128,8 +138,8 @@ Dans cette section, vous allez créer un utilisateur de test appelé B. Simon da
 1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
 1. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
 1. Dans les propriétés **Utilisateur**, effectuez les étapes suivantes :
-   1. Dans le champ **Nom**, entrez `B. Simon`.  
-   1. Dans le champ **Nom de l’utilisateur**, entrez username@companydomain.extension. Par exemple : `BrittaSimon@contoso.com`.
+   1. Dans le champ **Nom**, entrez `B.Simon`.  
+   1. Dans le champ **Nom de l’utilisateur**, entrez username@companydomain.extension. Par exemple : `B.Simon@contoso.com`.
    1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
    1. Cliquez sur **Créer**.
 
@@ -171,7 +181,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à ExpenseIn, vous deve
 
     b. Dans la zone de texte **Nom**, entrez le nom de l’utilisateur, par exemple **Simon**.
 
-    c. Dans la zone de texte **E-mail**, entrez l’adresse e-mail de l’utilisateur, comme `B. Simon@contoso.com`.
+    c. Dans la zone de texte **E-mail**, entrez l’adresse e-mail de l’utilisateur, comme `B.Simon@contoso.com`.
 
     d. Cliquez sur **Créer**.
 

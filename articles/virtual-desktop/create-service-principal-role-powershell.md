@@ -7,26 +7,26 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/12/2019
 ms.author: helohr
-ms.openlocfilehash: 1e53f76f564c0970ac1f291d2125807441500de6
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 44c823653ecbad1c4dd1fd35b676c8a6d8bd1620
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523310"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206661"
 ---
-# <a name="tutorial-create-service-principals-and-role-assignments-with-powershell"></a>Didacticiel : Créer des principaux de service et des attributions de rôles avec PowerShell
+# <a name="tutorial-create-service-principals-and-role-assignments-by-using-powershell"></a>Didacticiel : Créer des principaux de service et des attributions de rôles avec PowerShell
 
 Les principaux de service sont des identités, que vous pouvez créer dans Azure Active Directory pour attribuer des rôles et des autorisations dans un but précis. Dans Windows Virtual Desktop Preview, vous pouvez créer un principal de service pour :
 
-- Automatiser des tâches de gestion Windows Virtual Desktop spécifiques
-- L’utiliser comme informations d’identification à la place des utilisateurs avec MFA (authentification multifacteur) obligatoire lors de l’exécution d’un modèle Azure Resource Manager de Windows Virtual Desktop
+- Automatisez des tâches de gestion Windows Virtual Desktop spécifiques.
+- L’utiliser comme informations d’identification à la place des utilisateurs avec MFA (authentification multifacteur) obligatoire lors de l’exécution de tout modèle Azure Resource Manager pour Windows Virtual Desktop.
 
 Dans ce tutoriel, vous allez apprendre à effectuer les actions suivantes :
 
 > [!div class="checklist"]
-> * Création d’un principal du service dans Azure Active Directory
-> * Créer une attribution de rôle dans Windows Virtual Desktop
-> * Se connecter à Windows Virtual Desktop avec le principal de service
+> * Créez un principal du service dans Azure Active Directory.
+> * Créez une attribution de rôle dans Windows Virtual Desktop.
+> * Se connecter à Windows Virtual Desktop avec le principal de service.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -72,7 +72,7 @@ New-RdsRoleAssignment -RoleDefinitionName "RDS Owner" -ApplicationId $svcPrincip
 
 ## <a name="sign-in-with-the-service-principal"></a>Se connecter avec le principal de service
 
-Après avoir créé une attribution de rôle pour le principal de service, vous devez maintenant vérifier que le principal de service peut se connecter à Windows Virtual Desktop en exécutant l’applet de commande suivante :
+Après avoir créé une attribution de rôle pour le principal de service, vérifiez que le principal de service peut se connecter à Windows Virtual Desktop en exécutant l’applet de commande suivante :
 
 ```powershell
 $creds = New-Object System.Management.Automation.PSCredential($svcPrincipal.AppId, (ConvertTo-SecureString $svcPrincipalCreds.Value -AsPlainText -Force))
@@ -83,7 +83,7 @@ Une fois que vous êtes connecté, vérifiez que tout fonctionne en testant quel
 
 ## <a name="view-your-credentials-in-powershell"></a>Afficher vos informations d’identification dans PowerShell
 
-Avant de terminer votre session PowerShell, vous devez afficher vos informations d’identification et les noter pour vous y référer ultérieurement. Le mot de passe est particulièrement important car vous ne pouvez pas le récupérer une fois que vous avez fermé cette session PowerShell.
+Avant de terminer votre session PowerShell, affichez vos informations d’identification et notez-les pour vous y référer ultérieurement. Le mot de passe est particulièrement important car vous ne pouvez pas le récupérer une fois que vous avez fermé cette session PowerShell.
 
 Voici les trois informations d’identification que vous devez noter et les applets de commande que vous devez exécuter pour les obtenir :
 

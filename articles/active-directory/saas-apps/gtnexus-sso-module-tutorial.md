@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd5f32fd43d75ee91460a5d94ec4bcd57edb0769
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 4e707351e6eaa25774b43557b2e6a817485ef527
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898346"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101436"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gtnexus-sso-system"></a>Didacticiel : Intégration d’Azure Active Directory à GTNexus SSO System
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de GTNexus SSO System à Azure AD, vous devez a
 
 **Pour ajouter GTNexus SSO System à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

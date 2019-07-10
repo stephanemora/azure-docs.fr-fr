@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 1/3/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ec8ffebbbe339e00431f510978f1d3155f1bc4c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a3d9ff6daf954c4c5293223d6a92522163d17973
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65868565"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67093214"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-redbrick-health"></a>Didacticiel : Intégration d’Azure Active Directory à RedBrick Health
 
@@ -57,7 +57,7 @@ Pour configurer l’intégration de RedBrick Health à Azure AD, vous devez ajou
 
 **Pour ajouter RedBrick Health à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

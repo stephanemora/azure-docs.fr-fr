@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 19d9624c5bb60f47ef4bfa1b0629327780c2a9c7
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: d2d0bbc7a6e1c680434041d1b9d55e39a96b6f44
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65901857"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090373"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-small-improvements"></a>Tutoriel : Intégration d’Azure Active Directory à Small Improvements
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de Small Improvements avec Azure AD, vous deve
 
 **Pour ajouter Small Improvements à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -107,7 +107,7 @@ Pour configurer l’authentification unique Azure AD avec Small Improvements, e
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<subdomain>.small-improvements.com`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://<subdomain>.small-improvements.com`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://<subdomain>.small-improvements.com`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Contactez l’[équipe de support client Small Improvements](mailto:support@small-improvements.com) pour obtenir ces valeurs. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
@@ -229,7 +229,7 @@ Pour se connecter à Small Improvements, les utilisateurs d’Azure AD doivent �
 
     b. Entrez le **nom de famille** de l’utilisateur, à savoir **Simon**.
 
-    c. Entrez l’**adresse e-mail** de l’utilisateur, à savoir **brittasimon@contoso.com**.
+    c. Entrez l’**adresse e-mail** de l’utilisateur, à savoir **brittasimon@contoso.com** .
 
     d. Vous pouvez également choisir d’entrer le message personnel dans la zone **Envoyer un e-mail de notification** . Décochez cette case si vous ne souhaitez envoyer de notification.
 

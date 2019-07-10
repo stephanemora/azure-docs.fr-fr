@@ -7,12 +7,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 04/20/2019
 ms.author: zhshang
-ms.openlocfilehash: cda1eddc5fa40e97038274cf9b4c3c2cb9552871
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 2020ee02d236ca13431adb736d9f48171d33b4f3
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154497"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147415"
 ---
 # <a name="quickstart-create-a-chat-room-with-aspnet-and-signalr-service"></a>Démarrage rapide : Créer une salle de conversation avec ASP.NET et SignalR Service
 
@@ -107,7 +107,7 @@ Pendant le déploiement du service, passons à l’utilisation du code. Clonez l
 
 Connectez-vous au [Portail Azure](https://portal.azure.com) et cliquez sur **Groupes de ressources**.
 
-Dans la zone de texte **Filtrer par nom.**, saisissez le nom de votre groupe de ressources. Les instructions relatives à ce démarrage rapide utilisaient un groupe de ressources nommé *SignalRTestResources*. Sur votre groupe de ressources dans la liste des résultats, cliquez sur **...**, puis sur **Supprimer le groupe de ressources**.
+Dans la zone de texte **Filtrer par nom.** , saisissez le nom de votre groupe de ressources. Les instructions relatives à ce démarrage rapide utilisaient un groupe de ressources nommé *SignalRTestResources*. Sur votre groupe de ressources dans la liste des résultats, cliquez sur **...** , puis sur **Supprimer le groupe de ressources**.
 
    
 ![Supprimer](./media/signalr-quickstart-dotnet-core/signalr-delete-resource-group.png)

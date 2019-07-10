@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea67efd1ea062e145026cf9369a14a7d32147055
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 431fa75c68e105e980efe66bb201fb4ee416dcbc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65863138"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105053"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-condeco"></a>Didacticiel : Intégration d'Azure Active Directory à Condeco
 
@@ -55,7 +55,7 @@ Pour configurer l'intégration de Condeco avec Azure AD, vous devez ajouter Con
 
 **Pour ajouter Condeco à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

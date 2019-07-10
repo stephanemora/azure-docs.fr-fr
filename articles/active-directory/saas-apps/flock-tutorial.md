@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 93ac6009e593fa5eaefd14b09ce8eecd513688e5
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 39f0db232e6207a5156707006c895473c5b5be77
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898546"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102423"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-flock"></a>Didacticiel : Intégration d’Azure Active Directory à Flock
 
@@ -52,7 +52,7 @@ Pour configurer l’intégration de Flock à Azure AD, vous devez ajouter Flock 
 
 **Pour ajouter Flock à partir de la galerie, suivez les étapes ci-dessous :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -106,7 +106,7 @@ Pour configurer l’authentification unique Azure AD avec Flock, effectuez les 
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<subdomain>.flock.com/`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://<subdomain>.flock.com/`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://<subdomain>.flock.com/`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez [l’équipe de support client de Flock](mailto:support@flock.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
@@ -137,7 +137,7 @@ Pour configurer l’authentification unique Azure AD avec Flock, effectuez les 
 
     ![Configuration de Flock](./media/flock-tutorial/configure2.png)
 
-    a. Dans la zone de texte **Point de terminaison SAML 2.0 (HTTP)**, collez la valeur de l’**URL de connexion** que vous avez copiée à partir du Portail Azure.
+    a. Dans la zone de texte **Point de terminaison SAML 2.0 (HTTP)** , collez la valeur de l’**URL de connexion** que vous avez copiée à partir du Portail Azure.
 
     b. Dans la zone de texte **Émetteur du fournisseur d’identité**, collez la valeur de l’**identificateur Azure AD** que vous avez copiée à partir du Portail Azure.
 

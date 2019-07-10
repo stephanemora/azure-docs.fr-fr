@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 5/20/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 9c99b534a40b5c87cf511c75ccdb19df4d9aaf63
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: caf82fdab8a841e5c49616a40216a788d877a81b
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65955664"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67501973"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>Créer une passerelle d’application qui héberge plusieurs sites web à l’aide d’Azure CLI
 
@@ -233,7 +233,7 @@ L’utilisation d’enregistrements A n’est pas recommandée étant donné que
 
 ## <a name="test-the-application-gateway"></a>Tester la passerelle d’application
 
-Entrez votre nom de domaine dans la barre d’adresse de votre navigateur. Par exemple, http://www.contoso.com.
+Entrez votre nom de domaine dans la barre d’adresse de votre navigateur. Par exemple : http:\//www.contoso.com.
 
 ![Tester le site contoso dans la passerelle d’application](./media/tutorial-multiple-sites-cli/application-gateway-nginxtest1.png)
 

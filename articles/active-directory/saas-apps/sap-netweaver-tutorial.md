@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b648b8458c7f91cae6edb079fbd2ac78553dd969
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 01a70bfbb169090fbdf4b5f8e00af6895f69c964
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65903528"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091912"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-netweaver"></a>Didacticiel : Intégration d’Azure Active Directory avec SAP NetWeaver
 
@@ -54,7 +54,7 @@ Pour configurer l’intégration de SAP NetWeaver à Azure AD, vous devez ajoute
 
 **Pour ajouter SAP NetWeaver à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -196,7 +196,7 @@ Pour configurer l’authentification unique Azure AD auprès de SAP NetWeaver, e
 
     ![image](./media/sapnetweaver-tutorial/nameidattribute1.png)
 
-    b. Dans la liste **Transformation**, sélectionnez **ExtractMailPrefix()**.
+    b. Dans la liste **Transformation**, sélectionnez **ExtractMailPrefix()** .
 
     c. Dans la liste **Paramètre 1**, sélectionnez **user.userprinicipalname**.
 

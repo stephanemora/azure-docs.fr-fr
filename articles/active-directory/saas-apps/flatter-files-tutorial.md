@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 48c5804df53c084715cac872aa431cf8694c6d35
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9e4ba987393628af07f8a8a507f635047eb18cc5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65740281"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102554"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-flatter-files"></a>Didacticiel : Intégration d’Azure Active Directory à Flatter Files
 
@@ -52,7 +52,7 @@ Pour configurer l’intégration de Flatter Files avec Azure AD, vous devez ajo
 
 **Pour ajouter Flatter Files à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -145,7 +145,7 @@ Pour configurer l’authentification unique Azure AD avec Flatter Files, effect
     
     b. Dans la zone de texte **URL du fournisseur d’identité**, collez la valeur de l’**URL de connexion** que vous avez copiée à partir du Portail Azure.
    
-    c.  Ouvrez votre certificat codé en base 64 dans le Bloc-notes, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **Identity provider certificate (Certificat du fournisseur d’identité)**.
+    c.  Ouvrez votre certificat codé en base 64 dans le Bloc-notes, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **Identity provider certificate (Certificat du fournisseur d’identité)** .
 
     d. Cliquez sur **Update**.
 

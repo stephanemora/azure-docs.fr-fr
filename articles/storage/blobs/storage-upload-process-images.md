@@ -10,25 +10,25 @@ ms.date: 11/26/2018
 ms.author: normesta
 ms.reviewer: seguler
 ms.custom: mvc
-ms.openlocfilehash: e5be86f9f7fbaedeb8fbb10b89926644dcf8aac2
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 612c0b48faac365623fe36d6d2435c1c79566d9b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65835134"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071325"
 ---
 # <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>Tutoriel : Charger des données d’image dans le cloud avec le Stockage Azure
 
 Ce tutoriel est la première partie d’une série d’étapes. Dans ce tutoriel, vous allez apprendre à déployer une application web qui utilise la bibliothèque de client Stockage Azure dans le but de charger des images dans un compte de stockage. À la fin, vous disposerez d’une application web qui stocke et affiche des images à partir du Stockage Azure.
 
 # <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
-![Affichage du conteneur d’images](media/storage-upload-process-images/figure2.png)
+![Application de redimensionnement d’image dans .NET](media/storage-upload-process-images/figure2.png)
 
 # <a name="nodejs-v2-sdktabnodejs"></a>[SDK Node.js V2](#tab/nodejs)
-![Affichage du conteneur d’images](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
+![Application de redimensionnement d’image dans Node.js V2](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
 # <a name="nodejs-v10-sdktabnodejsv10"></a>[SDK Node.js V10](#tab/nodejsv10)
-![Affichage du conteneur d’images](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
+![Application de redimensionnement d’image dans Node.js V10](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
 ---
 
@@ -211,7 +211,7 @@ Pour tester l’application web, accédez à l’URL de l’application publiée
 
 Sélectionnez la zone **Charger des photos** pour sélectionner et charger un fichier, ou faites glisser un fichier dans la zone. L’image disparaît si le chargement a réussi. La section **Miniatures générées** reste vide jusqu’aux tests effectués plus loin dans cette rubrique.
 
-![Application ImageResizer](media/storage-upload-process-images/figure1.png)
+![Télécharger des photos dans .NET](media/storage-upload-process-images/figure1.png)
 
 Dans l’exemple de code, la tâche `UploadFiletoStorage` du fichier *Storagehelper.cs* sert à charger les images dans le conteneur *Images* au sein du compte de stockage suivant la méthode [UploadFromStreamAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.uploadfromstreamasync). L’exemple de code suivant contient la tâche `UploadFiletoStorage`.
 
@@ -254,7 +254,7 @@ Les classes et méthodes suivantes sont utilisées dans la tâche précédente 
 
 Sélectionnez **Choisir un fichier** pour sélectionner un fichier, puis cliquez sur **Charger une image**. La section **Miniatures générées** reste vide jusqu’aux tests effectués plus loin dans cette rubrique. 
 
-![Application de chargement d’image](media/storage-upload-process-images/upload-app-nodejs.png)
+![Télécharger des photos dans Node.js V2](media/storage-upload-process-images/upload-app-nodejs.png)
 
 Dans l’exemple de code, l’itinéraire `post` est responsable du chargement de l’image dans un conteneur d’objets blob. L’itinéraire utilise les modules pour faciliter le traitement du chargement :
 
@@ -318,7 +318,7 @@ router.post('/', uploadStrategy, (req, res) => {
 
 Sélectionnez **Choisir un fichier** pour sélectionner un fichier, puis cliquez sur **Charger une image**. La section **Miniatures générées** reste vide jusqu’aux tests effectués plus loin dans cette rubrique. 
 
-![Application de chargement d’image](media/storage-upload-process-images/upload-app-nodejs.png)
+![Télécharger des photos dans Node.js V10](media/storage-upload-process-images/upload-app-nodejs.png)
 
 Dans l’exemple de code, l’itinéraire `post` est responsable du chargement de l’image dans un conteneur d’objets blob. L’itinéraire utilise les modules pour faciliter le traitement du chargement :
 
@@ -400,7 +400,7 @@ Connectez-vous au [Portail Azure](https://portal.azure.com). Dans le menu de gau
 
 Vérifiez que l’image s’affiche dans le conteneur.
 
-![Affichage du conteneur d’images](media/storage-upload-process-images/figure13.png)
+![Conteneur de liste d’images du portail Azure](media/storage-upload-process-images/figure13.png)
 
 ## <a name="test-thumbnail-viewing"></a>Tester l’affichage des miniatures
 
@@ -413,13 +413,13 @@ Choisissez un fichier à l’aide du sélecteur de fichiers, puis sélectionnez 
 Revenez à votre application pour vérifier que l’image chargée dans le conteneur **thumbnails** est visible.
 
 # <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
-![Affichage du conteneur d’images](media/storage-upload-process-images/figure2.png)
+![Application de redimensionnement d’image .NET avec la nouvelle image affichée](media/storage-upload-process-images/figure2.png)
 
 # <a name="nodejs-v2-sdktabnodejs"></a>[SDK Node.js V2](#tab/nodejs)
-![Affichage du conteneur d’images](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
+![Application de redimensionnement d’image Node.js V2 avec la nouvelle image affichée](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
 # <a name="nodejs-v10-sdktabnodejsv10"></a>[SDK Node.js V10](#tab/nodejsv10)
-![Affichage du conteneur d’images](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
+![Application de redimensionnement d’image Node.js V10 avec la nouvelle image affichée](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
 ---
 

@@ -1,21 +1,24 @@
 ---
 title: Guide pratique pour configurer les fonctionnalités multimaîtres dans Azure Cosmos DB
 description: Découvrez comment configurer les fonctionnalités multimaîtres dans vos applications au sein d’Azure Cosmos DB.
-author: rimman
+author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/23/2019
-ms.author: rimman
-ms.openlocfilehash: 1d9fa7380f62165d360888fd8cb03919f1736297
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.date: 07/02/2019
+ms.author: mjbrown
+ms.openlocfilehash: 73b4ada713e264aaa2504fe4d4f504e07ae45181
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244744"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67538082"
 ---
 # <a name="configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Configurer les fonctionnalités multimaîtres dans les applications qui utilisent Azure Cosmos DB
 
-Pour utiliser la fonctionnalité multimaître dans votre application, vous devez activer les écritures multirégions et configurer la fonctionnalité de multihébergement dans Azure Cosmos DB. Pour configurer le multihébergement, définissez la région dans laquelle l’application est déployée.
+Une fois qu’un compte a été créé avec plusieurs régions d’écriture activées, vous devez apporter deux modifications à votre application pour que ConnectionPolicy et DocumentClient activent les fonctionnalités multimaîtres et multihébergement dans Azure Cosmos DB. Dans ConnectionPolicy, définissez UseMultipleWriteLocations sur true et passez le nom de la région où l’application est déployée à SetCurrentLocation. Cela remplira la propriété PreferredLocations en fonction de la géo-proximité à partir de l’emplacement transmis. Si une nouvelle région est ultérieurement ajoutée au compte, l’application n’aura pas à être mise à jour ou redéployée ; elle détectera automatiquement la région la plus proche et se repliera automatiquement dessus en cas d’événement régional.
+
+> [!TIP]
+> Les comptes Cosmos créés qui n’ont initialement pas été configurés pour le multimaître peuvent être migrés sans temps d’arrêt. Pour en savoir plus, consultez [Configurer plusieurs régions d’écriture](how-to-manage-database-account.md#configure-multiple-write-regions)
 
 ## <a id="netv2"></a>Kit SDK .NET v2
 

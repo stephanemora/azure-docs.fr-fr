@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 810d19a697e32f2d8e389bf58d52e82529bdd66b
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 28dd21bac2c1fb1602fd66ca237b230cdb12bdac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917435"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67097649"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-marketo"></a>Didacticiel : Intégration d'Azure Active Directory à Marketo
 
@@ -52,7 +52,7 @@ Pour configurer l’intégration de Marketo à Azure AD, vous devez ajouter Mark
 
 **Pour ajouter Marketo depuis la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

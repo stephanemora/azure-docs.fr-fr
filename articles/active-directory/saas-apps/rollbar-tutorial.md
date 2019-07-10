@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 5c3546dbadf64786b398610c19ee7f8e9e740d51
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: d76f4e9d61d8fd210fe9332084f9f44d19e54eed
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956840"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67092681"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rollbar"></a>Didacticiel : Intégration d’Azure Active Directory à Rollbar
 
@@ -34,7 +34,7 @@ L’intégration de Rollbar dans Azure AD vous offre les avantages suivants :
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour configurer l’intégration d’Azure AD à Rollbar, vous avez besoin des éléments suivants :
 

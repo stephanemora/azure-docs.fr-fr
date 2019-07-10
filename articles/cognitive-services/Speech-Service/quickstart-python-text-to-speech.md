@@ -7,37 +7,39 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 087440b60e1d5fecc668849bc1350d66988b16b9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 8086e67753821cd6dd87192835b8a2180014db17
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60622488"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67338626"
 ---
 # <a name="quickstart-convert-text-to-speech-using-python"></a>Démarrage rapide : Convertir du texte par synthèse vocale à l’aide de Python
 
 Dans ce guide de démarrage rapide, vous allez apprendre à convertir du texte par synthèse vocale à l’aide de Python et de l’API REST Synthèse vocale. Le corps de la requête figurant dans ce guide est structuré en tant que [Langage de balisage de synthèse vocale (SSML)](speech-synthesis-markup.md), ce qui vous permet de choisir la voix et la langue de la réponse.
 
-Ce démarrage rapide nécessite un [compte Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec une ressource de Services de reconnaissance vocale. Si vous n’avez pas de compte, vous pouvez utiliser la [version d’évaluation gratuite](get-started.md) pour obtenir une clé d’abonnement.
+Ce guide de démarrage rapide exige un [compte Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec une ressource des services Speech. Si vous n’avez pas de compte, vous pouvez utiliser la [version d’évaluation gratuite](get-started.md) pour obtenir une clé d’abonnement.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Ce démarrage rapide nécessite :
 
 * Python 2.7.x ou 3.x
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) ou l’éditeur de texte de votre choix
-* Une clé d’abonnement Azure pour les Services de reconnaissance vocale
+* Une clé d’abonnement Azure pour les services Speech
 
 ## <a name="create-a-project-and-import-required-modules"></a>Créez un projet et importez les modules requis
 
 Créez un projet Python dans votre IDE ou votre éditeur favori. Copiez cet extrait de code dans votre projet, dans un fichier nommé `tts.py`.
 
 ```python
-import os, requests, time
+import os
+import requests
+import time
 from xml.etree import ElementTree
 ```
 
@@ -51,8 +53,10 @@ Ces modules sont utilisés pour écrire la réponse de la reconnaissance vocale 
 Dans les sections suivantes, vous allez créer des méthodes pour gérer l’autorisation, appeler l’API Synthèse vocale et valider la réponse. Commençons par ajouter du code qui vérifie que cet exemple fonctionnera avec Python 2.7.x et 3.x.
 
 ```python
-try: input = raw_input
-except NameError: pass
+try:
+    input = raw_input
+except NameError:
+    pass
 ```
 
 Maintenant, créons une classe. C’est là que nous mettrons nos méthodes pour l’échange de jeton et l’appel de l’API Synthèse vocale.
@@ -70,9 +74,9 @@ class TextToSpeech(object):
 
 ## <a name="get-an-access-token"></a>Obtention d’un jeton d’accès
 
-L’API REST Synthèse vocale nécessite un jeton d’accès pour l’authentification. Pour obtenir un jeton d’accès, un échange est nécessaire. Cet exemple échange votre clé d’abonnement de Services de reconnaissance vocale pour un jeton accès à l’aide du `issueToken` point de terminaison.
+L’API REST Synthèse vocale nécessite un jeton d’accès pour l’authentification. Pour obtenir un jeton d’accès, un échange est nécessaire. Cet exemple échange votre clé d’abonnement des services Speech avec un jeton accès à l’aide du point de terminaison `issueToken`.
 
-Cet exemple suppose que votre abonnement aux Services de reconnaissance vocale est dans la région ouest des États-Unis. Si vous utilisez une autre région, mettez à jour la valeur de `fetch_token_url`. Pour obtenir la liste complète, consultez [Régions](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
+Cet exemple suppose que votre abonnement des services Speech se situe dans la région USA Ouest. Si vous utilisez une autre région, mettez à jour la valeur de `fetch_token_url`. Pour obtenir la liste complète, consultez [Régions](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
 
 Copiez le code suivant dans la classe `TextToSpeech` :
 
@@ -91,7 +95,7 @@ def get_token(self):
 
 ## <a name="make-a-request-and-save-the-response"></a>Effectuer une requête et enregistrer la réponse
 
-Ici, vous allez générer la requête et enregistrer la réponse de la reconnaissance vocale. Tout d’abord, vous devez définir les valeurs `base_url` et `path`. Cet exemple part du principe que vous utilisez le point de terminaison USA Ouest. Si votre ressource est inscrite dans une autre région, veillez à mettre à jour la valeur `base_url`. Pour plus d’informations, consultez [régions des Services de reconnaissance vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
+Ici, vous allez générer la requête et enregistrer la réponse de la reconnaissance vocale. Tout d’abord, vous devez définir les valeurs `base_url` et `path`. Cet exemple part du principe que vous utilisez le point de terminaison USA Ouest. Si votre ressource est inscrite dans une autre région, veillez à mettre à jour la valeur `base_url`. Pour plus d’informations, consultez [Régions des services Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
 
 Ensuite, vous devez ajouter les en-têtes nécessaires pour la requête. Veillez à mettre à jour `User-Agent` avec le nom de votre ressource (située dans le portail Azure), puis définissez `X-Microsoft-OutputFormat` sur la sortie audio de votre choix. Pour obtenir la liste complète des formats de sortie, consultez [Sorties audio](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
 
@@ -120,7 +124,8 @@ def save_audio(self):
     xml_body.set('{http://www.w3.org/XML/1998/namespace}lang', 'en-us')
     voice = ElementTree.SubElement(xml_body, 'voice')
     voice.set('{http://www.w3.org/XML/1998/namespace}lang', 'en-US')
-    voice.set('name', 'Microsoft Server Speech Text to Speech Voice (en-US, Guy24KRUS)')
+    voice.set(
+        'name', 'Microsoft Server Speech Text to Speech Voice (en-US, Guy24KRUS)')
     voice.text = self.tts
     body = ElementTree.tostring(xml_body)
 
@@ -128,9 +133,11 @@ def save_audio(self):
     if response.status_code == 200:
         with open('sample-' + self.timestr + '.wav', 'wb') as audio:
             audio.write(response.content)
-            print("\nStatus code: " + str(response.status_code) + "\nYour TTS is ready for playback.\n")
+            print("\nStatus code: " + str(response.status_code) +
+                  "\nYour TTS is ready for playback.\n")
     else:
-        print("\nStatus code: " + str(response.status_code) + "\nSomething went wrong. Check your subscription key and headers.\n")
+        print("\nStatus code: " + str(response.status_code) +
+              "\nSomething went wrong. Check your subscription key and headers.\n")
 ```
 
 ## <a name="put-it-all-together"></a>Assemblage

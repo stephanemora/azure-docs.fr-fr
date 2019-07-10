@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/06/201
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 1b43463537f620eb59f78184de41ec37c26b97ed
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.openlocfilehash: a3677e45738c368d8438872da740a362a8048a63
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66742825"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155537"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Didacticiel : Mapper un nom DNS personnalisé existant à Azure App Service
 
@@ -68,7 +68,7 @@ Dans le menu de gauche, sélectionnez **App Services**, puis le nom de l’appli
 
 La page de gestion de l’application App Service s’affiche.  
 
-<a name="checkpricing"></a>
+<a name="checkpricing" aria-hidden="true"></a>
 
 ### <a name="check-the-pricing-tier"></a>Vérification du niveau tarifaire
 
@@ -82,7 +82,7 @@ Le niveau actuel de l’application est encadré d’un rectangle bleu. Vérifie
 
 Si le plan App Service n’est pas **F1** , fermez la page **Monter en puissance** et passez à [Mapper un enregistrement CNAME](#cname).
 
-<a name="scaleup"></a>
+<a name="scaleup" aria-hidden="true"></a>
 
 ### <a name="scale-up-the-app-service-plan"></a>Monter en puissance le plan App Service
 
@@ -96,7 +96,7 @@ Lorsque la notification suivante s’affiche, cela signifie que l’opération e
 
 ![Confirmation d’opération de mise à l’échelle](./media/app-service-web-tutorial-custom-domain/scale-notification.png)
 
-<a name="cname"></a>
+<a name="cname" aria-hidden="true"></a>
 
 ## <a name="map-your-domain"></a>Mapper votre domaine
 
@@ -162,7 +162,7 @@ Si vous avez raté une étape ou fait une faute de frappe à un endroit, une err
 
 ![Erreur de vérification](./media/app-service-web-tutorial-custom-domain/verification-error-cname.png)
 
-<a name="a"></a>
+<a name="a" aria-hidden="true"></a>
 
 ### <a name="map-an-a-record"></a>Mapper un enregistrement A
 
@@ -213,7 +213,7 @@ Après avoir ajouté l’enregistrement CNAME, la page d’enregistrements DNS r
 
 ![Page Enregistrements DNS](./media/app-service-web-tutorial-custom-domain/a-record.png)
 
-<a name="enable-a"></a>
+<a name="enable-a" aria-hidden="true"></a>
 
 #### <a name="enable-the-a-record-mapping-in-the-app"></a>Activer le mappage d’enregistrement A dans l’application
 
@@ -246,7 +246,7 @@ Si vous avez raté une étape ou fait une faute de frappe à un endroit, une err
 
 ![Erreur de vérification](./media/app-service-web-tutorial-custom-domain/verification-error.png)
 
-<a name="wildcard"></a>
+<a name="wildcard" aria-hidden="true"></a>
 
 ### <a name="map-a-wildcard-domain"></a>Mapper un domaine générique
 
@@ -310,7 +310,7 @@ Si vous recevez une erreur HTTP 404 (Introuvable) lors de la navigation vers l'U
 - Un enregistrement A et/ou un enregistrement CNAME est manquant dans le domaine personnalisé configuré.
 - Le client du navigateur a mis en cache l'ancienne adresse IP de votre domaine. Effacez le cache et testez à nouveau la résolution DNS. Sur une machine Windows, effacez le cache avec `ipconfig /flushdns`.
 
-<a name="virtualdir"></a>
+<a name="virtualdir" aria-hidden="true"></a>
 
 ## <a name="migrate-an-active-domain"></a>Migrer un domaine actif
 
@@ -332,7 +332,7 @@ Une fois l’opération terminée, votre application devrait renvoyer la bonne p
 
 Vous pouvez automatiser la gestion des domaines personnalisés à l’aide de scripts, en utilisant [Azure CLI](/cli/azure/install-azure-cli) ou [Azure PowerShell](/powershell/azure/overview). 
 
-### <a name="azure-cli"></a>Azure CLI 
+### <a name="azure-cli"></a>D’Azure CLI 
 
 La commande suivante ajoute un nom DNS personnalisé configuré à une application App Service. 
 

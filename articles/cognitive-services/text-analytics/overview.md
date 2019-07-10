@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: overview
 ms.date: 04/03/2019
 ms.author: aahi
-ms.openlocfilehash: 7d52585b51af09c430130141c3680b5630f7b95e
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: a4f1f75c85c99610ee75eb9fda51114b52bbfac3
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417275"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67304013"
 ---
 # <a name="what-is-text-analytics-api"></a>Qu’est-ce que l’API Analyse de texte ?
 
@@ -89,7 +89,18 @@ Tous les points de terminaison de l’API Analyse de texte acceptent des donnée
 | Taille maximale d’une demande | 1 Mo |
 | Nombre maximal de documents par demande | 1 000 documents |
 
-La limite de débit est de 100 demandes par seconde et 1000 demandes par minute. Vous pouvez envoyer une grande quantité de documents dans un même appel (jusqu’à 1000 documents).
+Votre limite de débit varie selon votre niveau tarifaire.
+
+| Niveau          | Demandes par seconde | Requêtes par minute |
+|---------------|---------------------|---------------------|
+| Multiservice | 1 000                | 1 000                |
+| S0/F0         | 100                 | 300                 |
+| S1            | 200                 | 300                 |
+| S2            | 300                 | 300                 |
+| S3            | 500                 | 500                 |
+| S4            | 1 000                | 1 000                |
+
+Les requêtes sont mesurées séparément pour chaque fonctionnalité d’Analyse de texte. Par exemple, vous pouvez envoyer le nombre maximal de requêtes pour votre niveau tarifaire pour chaque fonctionnalité en même temps.      
 
 ## <a name="unicode-encoding"></a>Codage Unicode
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7617889bfbdfecb421538cbc261dace5b4b8279c
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 39aed992a2143065b0737d6a2dde3bcc9f2f958e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898239"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67100957"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hirevue"></a>Didacticiel : Intégration d’Azure Active Directory avec HireVue
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de HireVue avec Azure AD, vous devez ajouter H
 
 **Pour ajouter HireVue à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -112,7 +112,7 @@ Pour configurer l’authentification unique Azure AD avec HireVue, effectuez le
     | Production | `https://<companyname>.hirevue.com` |
     | Staging    | `https://<companyname>.stghv.com` |
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant :
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant :
 
     | Environnement | URN |
     |-------------|-----|

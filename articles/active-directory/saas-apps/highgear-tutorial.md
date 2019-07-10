@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à HighGear | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à HighGear | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et HighGear.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 01/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 873bc340d738704418310e22c34b0042f71a96bd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ad7aedf90ead4b21bab661bdaf85316cd648fd75
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57890897"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101272"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-highgear"></a>Tutoriel : Intégration d’Azure Active Directory à HighGear
+# <a name="tutorial-azure-active-directory-integration-with-highgear"></a>Didacticiel : Intégration d’Azure Active Directory à HighGear
 
 Dans ce tutoriel, vous pouvez apprendre à intégrer HighGear à Azure Active Directory (Azure AD).
 L’intégration de HighGear à Azure AD vous offre les avantages suivants :
@@ -53,7 +53,7 @@ Pour configurer l’intégration de HighGear à Azure AD, vous devez ajouter Hig
 
 **Pour ajouter HighGear à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -129,7 +129,7 @@ Pour configurer l’authentification unique Azure AD auprès de votre système H
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels à partir de la page **Single Sign-On Settings** (Paramètres d’authentification unique) de votre système HighGear. Si vous avez besoin d’aide, contactez l’[équipe du support technique HighGear](mailto:support@highgear.com).
 
-4. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le **Certificat (Base64)**, puis enregistrez-le sur votre ordinateur. Vous en aurez besoin à une étape ultérieure de la configuration de l’authentification unique.
+4. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le **Certificat (Base64)** , puis enregistrez-le sur votre ordinateur. Vous en aurez besoin à une étape ultérieure de la configuration de l’authentification unique.
 
     ![Lien Téléchargement de certificat](common/certificatebase64.png)
 
@@ -157,7 +157,7 @@ Pour configurer HighGear pour l’authentification unique, veuillez vous connect
 
 4. Dans le champ **Single Logout (SLO) URL** (URL de déconnexion unique) dans HighGear, collez la valeur du champ **URL de déconnexion** de la section **Configurer HighGear** dans Azure.
 
-5. Utilisez le Bloc-notes pour ouvrir le certificat que vous avez téléchargé à partir de la section **Certificat de signature SAML** dans Azure. Vous devez avoir téléchargé le format **Certificat (Base64)**. Copiez le contenu du certificat à partir du Bloc-notes et collez-le dans le champ **Identity Provider Certificate** (Certificat du fournisseur d’identité) de HighGear.
+5. Utilisez le Bloc-notes pour ouvrir le certificat que vous avez téléchargé à partir de la section **Certificat de signature SAML** dans Azure. Vous devez avoir téléchargé le format **Certificat (Base64)** . Copiez le contenu du certificat à partir du Bloc-notes et collez-le dans le champ **Identity Provider Certificate** (Certificat du fournisseur d’identité) de HighGear.
 
 6. Envoyez un e-mail à l’[équipe du support technique HighGear](mailto:support@highgear.com) pour demander votre certificat HighGear. Suivez les instructions indiquées dans sa réponse pour renseigner les champs **HighGear Certificate** (Certificat HighGear) et **HighGear Certificate Password** (Mot de passe du certificat HighGear).
 
@@ -181,7 +181,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@votredomaineentreprise.extension**.  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

@@ -7,21 +7,21 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
-ms.date: 05/16/2019
-ms.openlocfilehash: f607c1e79262efdbec79677fa7f16863b7a9d160
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.date: 06/21/2019
+ms.openlocfilehash: c50ad2b045f32daf53033318123b68e4b2d58db5
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393980"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329316"
 ---
 # <a name="what-is-azure-stream-analytics"></a>Qu’est-ce qu’Azure Stream Analytics ?
 
-Azure Stream Analytics est un moteur de traitement des événements conçu pour examiner de gros volumes de données diffusées en continu. Les modèles et les relations peuvent être identifiés dans des informations extraites de plusieurs sources d’entrée, notamment des appareils, des capteurs, des sites Web, des flux de médias sociaux et des applications. Ces modèles peuvent être utilisés pour déclencher d’autres actions en aval, telles que la création d’alertes, l’envoi d’informations vers un outil de création de rapports ou bien le stockage pour une utilisation ultérieure.
+Azure Stream Analytics est un moteur complexe d’analyse et de traitement d’événements en temps réel conçu pour analyser et traiter de grands volumes de données diffusées, ou de données diffusées rapidement à partir de nombreuses sources à la fois. Les modèles et les relations peuvent être identifiés dans des informations extraites de plusieurs sources d’entrée, notamment des appareils, des capteurs, des journaux de parcours de site web, des flux de médias sociaux et des applications. Ces modèles peuvent être utilisés pour déclencher des actions est initier des flux de travail, comme la création d’alertes, l’envoi d’informations vers un outil de création de rapports ou bien le stockage pour une utilisation ultérieure. En outre, Stream Analytics est disponible sur le runtime Azure IoT Edge et prend en charge exactement le même langage ou la même syntaxe que le cloud. 
 
 Les scénarios suivants sont des exemples d’utilisation d’Azure Stream Analytics :
 
-* Fusion de capteurs IoT et analyses en temps réel sur la télémétrie des appareils
+* Analyser les flux de données de télémétrie en temps réel à partir d’appareils IoT
 * Analyse de journaux d’activité/parcours web
 * Analyses géospatiales pour la gestion de flotte et les véhicules sans pilote
 * Surveillance à distance et maintenance prédictive de ressources stratégiques
@@ -29,12 +29,12 @@ Les scénarios suivants sont des exemples d’utilisation d’Azure Stream Analy
 
 ## <a name="how-does-stream-analytics-work"></a>Comment fonctionne Stream Analytics ?
 
-Un travail Azure Stream Analytics se compose d’une entrée, d’une requête de transformation et d’une sortie. Lorsque des événements provenant de votre logiciel ou de vos appareils sont ingérés par Azure Event Hubs, Azure IoT Hub ou le stockage Blob Azure, vous pouvez spécifier un ou plusieurs de ces services comme source d’entrée pour votre travail. La requête de transformation, qui est basée sur un langage de requête de type SQL, est utilisée pour filtrer, trier, agréger et joindre facilement des données de streaming sur une période de temps donnée. Vous pouvez modifier l’ordre des événements et la durée des fenêtres de temps lors des opérations d’agrégation.
+Un travail Azure Stream Analytics se compose d’une entrée, d’une requête et d’une sortie. Stream Analytics peut ingérer des données d’Azure Event Hubs, d’Azure IoT Hub et d’Azure Blob Storage. La requête, qui est basée sur un langage de requête de type SQL, peut être utilisée pour filtrer, trier, agréger et joindre facilement des données de streaming sur une période de temps donnée. Vous pouvez également étendre ce langage SQL avec JavaScript et les fonctions C# définies par l’utilisateur. Vous pouvez facilement modifier l’ordre des événements et la durée des fenêtres de temps lors des opérations d’agrégation via de simples constructions de langage et/ou configurations.
 
 Chaque travail a une sortie pour les données transformées, et vous pouvez définir ce qui arrive en fonction des informations que vous avez analysées. Vous pouvez par exemple :
 
-* Envoyer des données à une file d’attente contrôlée pour déclencher des alertes et des flux de travail personnalisés en aval.
-* Envoyer des données à un tableau de bord Power BI pour une visualisation en temps réel.
+* Envoyez des données à des services tels qu’Azure Functions ou Rubriques/Files d'attente Service Bus pour déclencher des communications ou flux de travail personnalisés en aval.
+* Envoyer des données à un tableau de bord Power BI pour un tableau de bord en temps réel.
 * Stocker des données dans d’autres services de stockage Azure, afin d’effectuer l’apprentissage d’un modèle Machine Learning basé sur des données historiques ou d’effectuer des analyses en mode batch.
 
 L’illustration suivante montre comment les données sont envoyées à Stream Analytics, analysées, puis transmises dans le cadre d’autres actions telles que le stockage, ou une présentation :
@@ -51,7 +51,7 @@ Azure Stream Analytics est conçu pour être facile à utiliser, flexible, fiabl
 
 Azure Stream Analytics est prêt à fonctionner. Quelques clics suffisent pour se connecter à différents récepteurs et sources de données et créer un pipeline de bout en bout. Stream Analytics peut se connecter directement à [Azure Event Hubs](/azure/event-hubs/) et à [Azure IoT Hub](/azure/iot-hub/) pour l’ingestion de données diffusées en continu, ainsi qu’au [stockage Blob Azure](/azure/storage/storage-introduction) pour l’ingestion de données historiques. L’entrée du travail peut également inclure des données de référence statiques ou à variation lente du stockage blob Azure ou de [SQL Database](stream-analytics-use-reference-data.md#azure-sql-database), que vous pouvez joindre aux données de streaming pour effectuer des opérations de recherche.
 
-Stream Analytics peut acheminer la sortie du travail vers de nombreux systèmes de stockage, tels que [Stockage Blob Azure](/azure/storage/storage-introduction), [Azure SQL Database](/azure/sql-database/), [Azure Data Lake Store](/azure/data-lake-store/) et [Azure Cosmos DB](/azure/cosmos-db/introduction). Vous pouvez exécuter des analyses en mode batch sur une sortie stockée à l’aide d’Azure HDInsight ou envoyer la sortie vers un autre service, tel que Event Hubs, à des fins de consommation ou [Power BI](https://docs.microsoft.com/power-bi/) pour une visualisation en temps réel.
+Stream Analytics peut acheminer la sortie du travail vers de nombreux systèmes de stockage, tels que [Stockage Blob Azure](/azure/storage/storage-introduction), [Azure SQL Database](/azure/sql-database/), [Azure Data Lake Store](/azure/data-lake-store/) et [Azure CosmosDB](/azure/cosmos-db/introduction). Vous pouvez exécuter des analyses en mode batch sur une sortie stockée à l’aide d’Azure HDInsight ou envoyer la sortie vers un autre service, tel que Event Hubs, à des fins de consommation ou [Power BI](https://docs.microsoft.com/power-bi/) pour une visualisation en temps réel.
 
 Pour obtenir la liste complète des sorties Stream Analytics, consultez [Comprendre les sorties d’Azure Stream Analytics](stream-analytics-define-outputs.md).
 
@@ -67,9 +67,9 @@ Vous pouvez étendre les fonctionnalités du langage de requête en définissant
 
 Azure Stream Analytics est une plate-forme entièrement gérée et sans serveur (PaaS) disponible sur Azure. Vous n’avez pas besoin d’investir dans un matériel spécifique ou de gérer des clusters pour exécuter vos travaux. Azure Stream Analytics gère intégralement votre travail en configurant des clusters de calcul complexes dans le cloud et en se chargeant du réglage des performances nécessaire pour exécuter le travail. L’intégration à Azure Event Hubs et Azure IoT Hub permet à votre travail d’ingérer des millions d’événements par seconde. Ces événements proviennent de sources diverses pour inclure des appareils connectés, des flux de clics et des fichiers journaux. À l’aide de la fonction de partition d’Event Hubs, vous pouvez partitionner des calculs en étapes logiques, chacune avec la possibilité d’être partitionnée pour augmenter l’évolutivité.
 
-## <a name="run-in-the-cloud-on-in-the-intelligent-edge"></a>Exécuter dans le cloud à la périphérie intelligente
+## <a name="run-in-the-cloud-or-on-the-intelligent-edge"></a>Exécuter dans le cloud ou à la périphérie intelligente
 
-Azure Stream Analytics peut être exécuté dans le cloud pour effectuer des analyses à grande échelle, ou sur IoT Edge pour effectuer des analyses à très faible latence. Azure Stream Analytics utilise le même langage de requête dans le cloud et à la périphérie. Ainsi, les développeurs peuvent créer des architectures véritablement hybrides à des fins de traitement de flux.
+Azure Stream Analytics peut être exécuté dans le cloud pour effectuer des analyses à grande échelle, ou sur IoT Edge pour effectuer des analyses à très faible latence. Azure Stream Analytics utilise le même langage de requête dans le cloud et à la périphérie. Ainsi, les développeurs peuvent créer des architectures véritablement hybrides à des fins de traitement de flux. 
 
 ## <a name="low-total-cost-of-ownership"></a>Faible coût total de possession
 
@@ -85,7 +85,7 @@ Azure Stream Analytics garantit un traitement des événements en « exactement
 
 Azure Stream Analytics dispose de fonctionnalités de récupération intégrées, en cas d’échec de la remise d’un événement. Stream Analytics fournit également des points de contrôle intégrés pour gérer l’état de votre travail et fournir des résultats reproductibles.
 
-Stream Analytics est un service managé qui garantit le traitement des événements avec une disponibilité de 99,9 % au niveau Minute. Pour plus d’informations, consultez la page [Contrat de niveau de service Stream Analytics](https://azure.microsoft.com/support/legal/sla/stream-analytics/v1_0/). 
+Stream Analytics est un service managé qui garantit le traitement des événements avec une disponibilité de 99,9 % au niveau de granularité Minute. Pour plus d’informations, consultez la page [Contrat de niveau de service Stream Analytics](https://azure.microsoft.com/support/legal/sla/stream-analytics/v1_0/). 
 
 ### <a name="security"></a>Sécurité
 
@@ -97,7 +97,7 @@ Azure Stream Analytics suit plusieurs certifications de conformité, comme décr
 
 ## <a name="performance"></a>Performances
 
-Stream Analytics peut traiter des millions d’événements par seconde et fournir des résultats avec une faible latence. Il vous permet de mettre à l’échelle vos travaux pour prendre en charge des applications volumineuses de traitement des événements complexes et en temps réel. Stream Analytics prend en charge les performances à l’aide du partitionnement, permettant de paralléliser des requêtes complexes et de les exécuter sur plusieurs nœuds de streaming. Azure Stream Analytics repose sur [Trill](https://github.com/Microsoft/Trill), un moteur haute performance d’analyse de streaming en mémoire développé en collaboration avec Microsoft Research.
+Stream Analytics peut traiter des millions d’événements par seconde et fournir des résultats avec une latence ultra faible. Il vous permet de mettre à l’échelle vos travaux pour prendre en charge des applications volumineuses de traitement des événements complexes et en temps réel. Stream Analytics offre de meilleures performances à l’aide du partitionnement, permettant de paralléliser des requêtes complexes et de les exécuter sur plusieurs nœuds de streaming. Azure Stream Analytics repose sur [Trill](https://github.com/Microsoft/Trill), un moteur haute performance d’analyse de streaming en mémoire développé en collaboration avec Microsoft Research.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

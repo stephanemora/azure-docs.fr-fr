@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9fa088aa331621409103997755b2344f2dd70c64
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 3bc061cca3a2c57d2ebccb0fc09f8168c2fad253
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65992942"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67163959"
 ---
 # <a name="tutorial-integrate-whatfix-with-azure-active-directory"></a>Didacticiel : Intégrer Whatfix à Azure Active Directory
 
@@ -31,7 +31,7 @@ Dans ce didacticiel, vous allez apprendre à intégrer Whatfix à Azure Active D
 * permettre à vos utilisateurs de se connecter automatiquement à Whatfix avec leur compte Azure AD ;
 * gérer vos comptes à un emplacement central : le portail Azure.
 
-Pour en savoir plus sur l'intégration des applications SaaS à Azure AD, consultez [Qu'est-ce que l'accès aux applications et l'authentification unique auprès d'Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -50,7 +50,7 @@ Pour configurer l'intégration de Whatfix à Azure AD, vous devez ajouter Whatf
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
 1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
-1. Accédez à **Applications d'entreprise**, puis sélectionnez **Toutes les applications**.
+1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
 1. Dans la section **Ajouter à partir de la galerie**, entrez **Whatfix**  dans la zone de recherche.
 1. Sélectionnez **Whatfix**  dans le volet de résultats, puis ajoutez l'application. Patientez quelques secondes, jusqu'à ce que l'application soit ajoutée à votre locataire.
@@ -75,7 +75,7 @@ Procédez comme suit pour activer l'authentification unique Azure AD sur le port
 
 1. Sur le [portail Azure](https://portal.azure.com/), accédez à la page d'intégration de l'application **Whatfix**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
 1. Sur la page **Sélectionner une méthode d'authentification unique**, sélectionnez **SAML**.
-1. Sur la page **Configurer l'authentification unique avec SAML**, cliquez sur l'icône de modification/stylo de la **Configuration SAML de base** afin de modifier les paramètres.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet pour **Configuration SAML de base** afin de modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
@@ -101,13 +101,13 @@ Pour configurer l'authentification unique côté **Whatfix**, vous devez envoyer
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
-Dans cette section, vous allez créer un utilisateur de test appelé Britta Simon sur le portail Azure.
+Dans cette section, vous allez créer un utilisateur de test appelé Britta Simon dans le Portail Azure.
 
-1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
+1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
 1. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
-1. Dans les propriétés **Utilisateur**, procédez comme suit :
+1. Dans les propriétés **Utilisateur**, effectuez les étapes suivantes :
    1. Dans le champ **Nom**, entrez `Britta Simon`.  
-   1. Dans le champ **Nom de l'utilisateur**, entrez username@companydomain.extension. Par exemple : `BrittaSimon@contoso.com`.
+   1. Dans le champ **Nom de l’utilisateur**, entrez username@companydomain.extension. Par exemple : `BrittaSimon@contoso.com`.
    1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
    1. Cliquez sur **Créer**.
 
@@ -125,8 +125,8 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l'authentifica
 
     ![Lien Ajouter un utilisateur](common/add-assign-user.png)
 
-1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** à partir de la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l'écran.
-1. Si vous attendez une valeur de rôle dans l'assertion SAML, accédez à la boîte de dialogue **Sélectionner un rôle**, puis sélectionnez le rôle approprié pour l'utilisateur dans la liste et cliquez sur le bouton **Sélectionner** en bas de l'écran.
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
 ### <a name="create-whatfix-test-user"></a>Créer un utilisateur de test Whatfix
@@ -139,7 +139,7 @@ Le fait de cliquer sur la vignette Whatfix dans le volet d'accès doit vous conn
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

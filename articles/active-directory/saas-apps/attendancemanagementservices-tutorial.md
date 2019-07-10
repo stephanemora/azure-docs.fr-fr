@@ -16,16 +16,16 @@ ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9449e196a59fa20288bca9d4401c5e56a97b86cd
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 7143d0afce7a3644286703a9eba0da1ee45305f2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65901221"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106560"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-attendance-management-services"></a>Didacticiel : Intégration d’Attendance Management Services avec Azure Active Directory
 
-Dans ce didacticiel, vous allez apprendre à intégrer Attendance Management Services avec Azure Active Directory (Azure AD).
+Dans ce tutoriel, vous allez apprendre à intégrer Attendance Management Services avec Azure Active Directory (Azure AD).
 L’intégration d’Attendance Management Services avec Azure AD vous offre les avantages suivants :
 
 * Dans Azure AD, vous pouvez contrôler qui a accès à Attendance Management Services.
@@ -35,7 +35,7 @@ L’intégration d’Attendance Management Services avec Azure AD vous offre le
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour configurer l’intégration d’Attendance Management Services avec Azure AD, vous avez besoin des éléments suivants :
 

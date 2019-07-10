@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f354d0413d023e7af6d1719d86e0fbff59cf2b2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 10d43de00c9daefdb86a92d92ebe2cfe39fd3248
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65813305"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164409"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-surveymonkey-enterprise"></a>Didacticiel : Intégration d’Azure Active Directory à SurveyMonkey Enterprise
 
@@ -54,7 +54,7 @@ Pour configurer l’intégration de SurveyMonkey Enterprise à Azure AD, vous de
 
 **Pour ajouter SurveyMonkey Enterprise à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -110,7 +110,7 @@ Pour configurer l’authentification unique Azure AD avec SurveyMonkey Enterpris
 
     ![Informations d’authentification unique de domaine et d’URL SurveyMonkey Enterprise](common/both-signonurl.png)
 
-    Dans la zone de texte **URL de connexion**, tapez une URL : ` https://www.surveymonkey.com/user/sign-in/sso/?ut_source=megamenu`
+    Dans la zone de texte **URL de connexion**, tapez une URL : `https://www.surveymonkey.com/user/sign-in/sso/?ut_source=megamenu`
 
 6. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies selon vos besoins, puis enregistrez-le sur votre ordinateur.
 

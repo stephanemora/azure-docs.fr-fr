@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 7f5996b41da68adc83c26e836c9fb1a175107337
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a0b8dbb3992808bdcb94291d876192431c72f6c2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59277799"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67100339"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infogix-data3sixty-govern"></a>Didacticiel : Intégration d'Azure Active Directory à Infogix Data3Sixty Govern
 
@@ -54,7 +54,7 @@ Pour configurer l’intégration d’Infogix Data3Sixty Govern à Azure AD, vou
 
 **Pour ajouter Infogix Data3Sixty Govern à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

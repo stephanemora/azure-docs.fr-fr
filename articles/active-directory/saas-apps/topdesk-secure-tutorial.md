@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d0295162acdf358bd798e86bd7d3479f5e78d72
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: eded8eb446d36a321acf46231eee3e764ba41504
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65407899"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088445"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---secure"></a>Didacticiel : Intégration d’Azure Active Directory à TOPdesk - Secure
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de TOPdesk - Secure à Azure AD, vous devez ajo
 
 **Pour ajouter TOPdesk - Secure à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -178,13 +178,13 @@ Pour configurer l’authentification unique Azure AD avec TOPdesk - Secure, effe
 
     a. Pour charger votre fichier de métadonnées téléchargé à partir du portail Azure, dans **Métadonnées de fédération**, cliquez sur **Parcourir**.
 
-    b. Pour charger votre fichier de certificat, sous **Certificate (RSA)**, cliquez sur **Browse**.
+    b. Pour charger votre fichier de certificat, sous **Certificate (RSA)** , cliquez sur **Browse**.
 
-    c. Pour **Private key(RSA, PKCS8, DER)**, vous pouvez charger votre propre clé privée ou contacter [l’équipe de support technique TOPdesk](https://www.topdesk.com/us/support) pour obtenir la clé privée.
+    c. Pour **Private key(RSA, PKCS8, DER)** , vous pouvez charger votre propre clé privée ou contacter [l’équipe de support technique TOPdesk](https://www.topdesk.com/us/support) pour obtenir la clé privée.
 
     d. Pour charger le fichier de logo que vous avez obtenu de l’équipe de support TOPdesk, sous **Logo icon**, cliquez sur **Browse**.
 
-    e. Dans la zone de texte **User name attribute** (Attribut de nom d’utilisateur), entrez `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    e. Dans la zone de texte **User name attribute** (Attribut de nom d’utilisateur), entrez `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
     f. Dans la zone de texte **Display name** , indiquez le nom de votre configuration.
 

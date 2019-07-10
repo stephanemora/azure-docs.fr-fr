@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2b35deab4c4fb20c58e135c0de01a0aa05b1c33
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2ce37aea9e700907ebfda9aa181b7f0eb638af35
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65862672"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102727"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fidelity-netbenefits"></a>Didacticiel : Intégration d’Azure Active Directory à Fidelity NetBenefits
 
@@ -55,7 +55,7 @@ Pour configurer l’intégration de Fidelity NetBenefits à Azure AD, vous devez
 
 **Pour ajouter Fidelity NetBenefits depuis la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

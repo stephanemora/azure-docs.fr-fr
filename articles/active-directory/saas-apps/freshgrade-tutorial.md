@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 3dcbbfcdff0f30b8300e4fe767e27efb65723c5b
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 4abffc36695b5399eec28d74b9aa5eccb9841821
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898506"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101893"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshgrade"></a>Didacticiel : Intégration d’Azure Active Directory à FreshGrade
 
@@ -52,7 +52,7 @@ Pour configurer l’intégration de FreshGrade à Azure AD, vous devez ajouter F
 
 **Procédez comme suit pour ajouter FreshGrade à partir de la galerie :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -111,7 +111,7 @@ Pour configurer l’authentification unique Azure AD avec FreshGrade, effectuez
       | `https://<subdomain>.freshgrade.com/login` |
       | `https://<subdomain>.onboarding.freshgrade.com/login` |
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, entrez une URL aux formats suivants :
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , entrez une URL aux formats suivants :
     
       | |
       |--|

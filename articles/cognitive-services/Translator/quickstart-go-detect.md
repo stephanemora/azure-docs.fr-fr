@@ -3,19 +3,19 @@ title: 'Démarrage rapide : Identifier la langue du texte, Go - API de traducti
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous allez identifier la langue du texte source à l’aide de l’API de traduction de texte Translator Text avec Go.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: 298d0a2b97df482bb1942146df81d3241b9a6cf2
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.author: swmachan
+ms.openlocfilehash: 5e11b7e61505952ceab285c5c10ec2cf9928ecaa
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514915"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445227"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-go"></a>Démarrage rapide : Utiliser l’API de traduction de texte Translator Text pour détecter la langue du texte à l’aide de Go
 
@@ -136,6 +136,8 @@ if err != nil {
     log.Fatal(err)
 }
 ```
+
+Si vous utilisez un abonnement multiservice Cognitive Services, vous devez également inclure la `Ocp-Apim-Subscription-Region` dans vos paramètres de requête. [En savoir plus sur l’authentification sur l’abonnement multiservice](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
 
 ## <a name="handle-and-print-the-response"></a>Gérer et imprimer la réponse
 

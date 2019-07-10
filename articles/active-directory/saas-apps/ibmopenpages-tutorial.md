@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 699e4830b6399fbce07dfc125e69513b58f58dd1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: f045d5f880179827a00078419fc2c67d18db774a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59260117"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67100704"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ibm-openpages"></a>Didacticiel : Intégration d’Azure Active Directory à IBM OpenPages
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration d’IBM OpenPages à Azure AD, vous devez ajout
 
 **Pour ajouter IBM OpenPages à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

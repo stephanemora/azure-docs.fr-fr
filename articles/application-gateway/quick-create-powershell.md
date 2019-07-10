@@ -5,15 +5,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 1/11/2019
+ms.date: 06/11/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 6c472c30514e6acd3b21822e31f2cefc0da5bc98
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: c0e80b1354302f227cb448391c7a92100049cc3a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66729656"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67053342"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-powershell"></a>Démarrage rapide : Diriger le trafic web avec Azure Application Gateway - Azure PowerShell
 
@@ -44,7 +44,7 @@ New-AzResourceGroup -Name myResourceGroupAG -Location eastus
 
 ### <a name="required-network-resources"></a>Ressources réseau requises
 
-Azure a besoin d’un réseau virtuel pour communiquer avec les différentes ressources que vous créez.  Le sous-réseau de passerelle d’application peut contenir uniquement des passerelles d’application. Aucune autre ressource n’est autorisée.  Vous pouvez créer un sous-réseau pour Application Gateway ou en utiliser qui existe déjà. Vous créez deux sous-réseaux dans cet exemple : un pour la passerelle d’application et un autre pour les serveurs back-end. Vous pouvez l’adresse IP frontale d’Application Gateway pour qu’elle soit publique ou privée conformément à votre cas d’utilisation. Dans cet exemple, nous allons choisir une adresse IP frontale publique.
+Azure a besoin d’un réseau virtuel pour communiquer avec les différentes ressources que vous créez.  Le sous-réseau de passerelle d’application peut contenir uniquement des passerelles d’application. Aucune autre ressource n’est autorisée.  Vous pouvez créer un sous-réseau pour Application Gateway ou en utiliser qui existe déjà. Vous créez deux sous-réseaux dans cet exemple : un pour la passerelle d’application et un autre pour les serveurs back-end. Vous pouvez l’adresse IP frontale d’Application Gateway pour qu’elle soit publique ou privée conformément à votre cas d’utilisation. Dans cet exemple, vous allez choisir une adresse IP front-end publique.
 
 1. Créez les configurations de sous-réseau en appelant [New-AzVirtualNetworkSubnetConfig](/powershell/module/Az.network/new-Azvirtualnetworksubnetconfig).
 2. Créez le réseau virtuel avec les configurations de sous-réseau en appelant [New-AzVirtualNetwork](/powershell/module/Az.network/new-Azvirtualnetwork). 
@@ -109,7 +109,7 @@ for ($i=1; $i -le 2; $i++)
   Add-AzVMNetworkInterface `
     -VM $vm `
     -Id $nic.Id
-  Set-AzVMBootDiagnostics `
+  Set-AzVMBootDiagnostic `
     -VM $vm `
     -Disable
   New-AzVM -ResourceGroupName myResourceGroupAG -Location EastUS -VM $vm
@@ -219,7 +219,7 @@ New-AzApplicationGateway `
 IIS n’est pas nécessaire pour créer la passerelle d’application, mais vous l’avez installé dans ce guide de démarrage rapide pour vérifier qu’Azure avait bien créé la passerelle d’application. Utilisez IIS pour tester la passerelle d’application :
 
 1. Exécutez [Get-AzPublicIPAddress](/powershell/module/Az.network/get-Azpublicipaddress) pour obtenir l’adresse IP publique de la passerelle d’application. 
-2. Copiez et collez l’adresse IP publique dans la barre d’adresse de votre navigateur. Quand vous actualisez le navigateur, vous devez voir s’afficher le nom de la machine virtuelle. Une réponse valide vérifie que la passerelle d’application a été créée avec succès et qu’elle est capable de se connecter avec succès au serveur principal.
+2. Copiez et collez l’adresse IP publique dans la barre d’adresse de votre navigateur. Quand vous actualisez le navigateur, vous devez voir s’afficher le nom de la machine virtuelle. Une réponse valide vérifie que la passerelle d’application a bien été créée avec succès et qu’elle est capable de se connecter au back-end.
 
 ```azurepowershell-interactive
 Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress

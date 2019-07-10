@@ -9,13 +9,13 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 02/22/2019
-ms.openlocfilehash: f339d2e3e329ae40ca8bb8bf651d698c73482a7d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 06/21/2019
+ms.openlocfilehash: 1433e71a5e4f9d4effe82d489145c364355100d4
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59049266"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67330431"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-c"></a>Démarrage rapide : Envoyer des données de télémétrie d’un appareil à un hub IoT et les lire avec une application back-end (C#)
 
@@ -81,7 +81,7 @@ Un appareil doit être inscrit dans votre hub IoT pour pouvoir se connecter. Dan
 
     Vous utiliserez cette valeur plus loin dans ce démarrage rapide.
 
-3. Vous avez aussi besoin du _point de terminaison compatible Event Hubs_, du _chemin d’accès compatible Event Hubs_ et de la _clé principale iothubowner_ à partir de votre IoT Hub pour permettre à l’application back-end de se connecter à votre IoT Hub et de récupérer les messages. Les commandes suivantes extraient ces valeurs pour votre IoT Hub :
+3. Vous avez aussi besoin du _point de terminaison compatible Event Hubs_, du _chemin d’accès compatible Event Hubs_ et de la _clé principale du service_ à partir de votre IoT Hub pour permettre à l’application back-end de se connecter à votre IoT Hub et de récupérer les messages. Les commandes suivantes extraient ces valeurs pour votre IoT Hub :
 
    **YourIoTHubName** : Remplacez l’espace réservé ci-dessous par le nom que vous avez choisi pour votre hub IoT.
 
@@ -90,7 +90,7 @@ Un appareil doit être inscrit dans votre hub IoT pour pouvoir se connecter. Dan
 
     az iot hub show --query properties.eventHubEndpoints.events.path --name YourIoTHubName
 
-    az iot hub policy show --name iothubowner --query primaryKey --hub-name YourIoTHubName
+    az iot hub policy show --name service --query primaryKey --hub-name YourIoTHubName
     ```
 
     Prenez note de ces trois valeurs, vous les utiliserez plus loin dans ce démarrage rapide.
@@ -133,7 +133,7 @@ L’application back-end se connecte au point de terminaison **Événements** du
     | -------- | ----------- |
     | `s_eventHubsCompatibleEndpoint` | Remplacez la valeur de la variable par le point de terminaison compatible Event Hubs que vous avez noté précédemment. |
     | `s_eventHubsCompatiblePath`     | Remplacez la valeur de la variable par le chemin d’accès compatible Event Hubs que vous avez noté précédemment. |
-    | `s_iotHubSasKey`                | Remplacez la valeur de la variable par la clé principale iothubowner que vous avez notée précédemment. |
+    | `s_iotHubSasKey`                | Remplacez la valeur de la variable par la clé principale de service que vous avez notée précédemment. |
 
 3. Dans la fenêtre de terminal local, exécutez les commandes suivantes pour installer les bibliothèques requises pour l’application back-end :
 

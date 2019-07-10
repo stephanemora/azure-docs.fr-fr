@@ -14,14 +14,14 @@ ms.workload: identity
 ms.date: 04/12/2019
 ms.author: celested
 ms.custom: include file
-ms.openlocfilehash: d4eec27286d704926cef6c7a85b24d357c05838c
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 8daf73f07a09ee91260981ef42482f966d7a84c6
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67177248"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272688"
 ---
 |   |
 |---|
-| **S’applique à :**<br><ul><li>Point de terminaison de la plateforme d’identités Microsoft<li>Bibliothèque d’authentification Microsoft (MSAL) </ul><br>Pour une bibliothèque de disponibilité générale, utilisez le point de terminaison Azure AD v1.0 et Azure AD Authentication Library (ADAL). Pour plus d’informations, consultez [À propos de v1.0](https://docs.microsoft.com/azure/active-directory/develop/v1-overview). |
+| **S’applique à :**<br><ul><li>Point de terminaison de la plateforme d’identités Microsoft<li>Bibliothèque d’authentification Microsoft (MSAL) </ul><br>Pour une bibliothèque de disponibilité générale, utilisez le point de terminaison Azure Active Directory v1.0 et Azure AD Authentication Library (ADAL). Pour plus d’informations, consultez [À propos de v1.0](https://docs.microsoft.com/azure/active-directory/develop/v1-overview). |
 |   |

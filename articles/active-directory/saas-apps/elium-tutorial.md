@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac14168f9f56a727517232e201e581f913d67c90
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b714983f1401ba60357a8642e0a56422d01be74e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65862859"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67103426"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-elium"></a>Didacticiel : Intégration d’Azure Active Directory à Elium
 
@@ -55,7 +55,7 @@ Pour configurer l’intégration d’Elium à Azure AD, vous devez ajouter Eliu
 
 **Pour ajouter Elium à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e5df48e7fdd766a7f4ae264b1989507e0c280be
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3d5ee500624e44fa7412ad8c98a02a0614e85820
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57838729"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106751"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-aravo"></a>Tutoriel : Intégration d’Azure Active Directory à Aravo
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration d’Aravo avec Azure AD, vous devez ajouter Ara
 
 **Pour ajouter Aravo à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -148,7 +148,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@votredomaineentreprise.extension**.  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

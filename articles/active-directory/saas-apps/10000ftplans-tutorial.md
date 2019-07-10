@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f231d3d966154c1ea5cca808eedad1051089fea
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 441c9345f92974c387429baac768dbccb03fc995
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65897373"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107602"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-10000ft-plans"></a>Didacticiel : Intégration d’Azure Active Directory à 10,000ft Plans
 
@@ -55,7 +55,7 @@ Pour configurer l’intégration de 10,000ft Plans à Azure AD, vous devez ajou
 
 **Pour ajouter 10,000ft Plans à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -109,7 +109,7 @@ Pour configurer l’authentification unique Azure AD avec 10,000ft Plans, effec
 
     a. Dans la zone de texte **URL de connexion**, tapez l’URL : `https://app.10000ft.com`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, tapez l’URL suivante : `https://app.10000ft.com/saml/metadata`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , tapez l’URL suivante : `https://app.10000ft.com/saml/metadata`
 
     > [!NOTE]
     > La valeur de **l’identificateur** est différente si vous avez un domaine personnalisé. Contactez l’[équipe du support 10,000ft Plans](https://www.10000ft.com/plans/support) pour obtenir cette valeur. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-ms.openlocfilehash: bcad6232de7fa257b58fe6d84f2c2ff794b64589
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 63165da69815c77afb8692e1e68c1710beb8df8c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65902297"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090819"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-silkroad-life-suite"></a>Didacticiel : Intégration d’Azure Active Directory à SilkRoad Life Suite
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de SilkRoad Life Suite dans Azure AD, vous dev
 
 **Pour ajouter SilkRoad Life Suite à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

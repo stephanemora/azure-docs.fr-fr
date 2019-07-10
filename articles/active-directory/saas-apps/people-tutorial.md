@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 14313567df69b26b000f9bddd98e009aeed2dcd7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 23791738635d4b8d3b8473e526a1a239be935bc5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65869610"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094676"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-people"></a>Didacticiel : Intégration d’Azure Active Directory à People
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de People à Azure AD, vous devez ajouter Peopl
 
 **Pour ajouter People à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -140,7 +140,7 @@ Pour configurer l’authentification unique Azure AD avec People, effectuez les 
 
     ![Configurer l'authentification unique](./media/people-tutorial/tutorial_people_002.png)
 
-4. Dans **Importer le fichier de métadonnées SAML « Authentification unique »**, cliquez sur **Parcourir** pour importer le fichier de métadonnées téléchargé.
+4. Dans **Importer le fichier de métadonnées SAML « Authentification unique »** , cliquez sur **Parcourir** pour importer le fichier de métadonnées téléchargé.
 
     ![Configurer l'authentification unique](./media/people-tutorial/tutorial_people_003.png)
 

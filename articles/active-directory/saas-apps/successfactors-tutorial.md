@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 1/3/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2281fb046ca9b96aa5800150d630b9086236c5c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a9526cde92fe2f504207de188fa8f0567ffa580d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65866661"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089826"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-successfactors"></a>Didacticiel : Intégration d’Azure Active Directory avec SuccessFactors
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de SuccessFactors à Azure AD, vous devez ajout
 
 **Pour ajouter SuccessFactors à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -204,7 +204,7 @@ Pour configurer l’authentification unique Azure AD avec SuccessFactors, effect
 
     a. Sélectionnez **Yes** (Oui) dans **Support SP-initiated Global Logout** (Prendre en charge la déconnexion globale initiée par le fournisseur de services).
 
-    b. Dans la zone de texte **URL du service de déconnexion global (destination LogoutRequest)**, collez la valeur **URL de déconnexion** que vous avez copiée sur le Portail Azure.
+    b. Dans la zone de texte **URL du service de déconnexion global (destination LogoutRequest)** , collez la valeur **URL de déconnexion** que vous avez copiée sur le Portail Azure.
 
     c. Sélectionnez **No** (Non) dans **Require sp must encrypt all NameID element** (Exiger que le fournisseur de services chiffre tous les éléments NameID).
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 31df4cb9163e598bfde0c491d8088398c3204119
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: e72ec4f9c512f6525f790d555794c1a120ac07c9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65407990"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67093422"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qlik-sense-enterprise"></a>Didacticiel : Intégration d’Azure Active Directory à Qlik Sense Enterprise
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de Qlik Sense Enterprise à Azure AD, vous deve
 
 **Pour ajouter Qlik Sense Enterprise à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -179,13 +179,13 @@ Pour configurer l’authentification unique Azure AD avec Qlik Sense Enterprise
 
     c. Dans le champ **SAML host URI**(URI d’hôte SAML), indiquez le nom d’hôte que les utilisateurs doivent entrer pour accéder à Qlik Sense via ce proxy virtuel SAML.  Le nom d’hôte est l’URI du serveur Qlik Sense.
 
-    d. Dans le champ **SAML entity ID (ID d’entité SAML)**, entrez la valeur indiquée dans le champ SAML host URI (URI d’hôte SAML).
+    d. Dans le champ **SAML entity ID (ID d’entité SAML)** , entrez la valeur indiquée dans le champ SAML host URI (URI d’hôte SAML).
 
     e. La zone **SAML IdP metadata** (Métadonnées IdP SAML) indique le fichier modifié précédemment dans la section **Modifier les métadonnées de fédération dans la configuration d’Azure AD**.  **Avant de charger les métadonnées IdP, vous devez modifier le fichier** et supprimer des informations pour vous assurer du bon fonctionnement entre Azure AD et le serveur Qlik Sense.  **Reportez-vous aux instructions ci-dessus si le fichier doit encore être modifié.**  Si le fichier a été modifié, cliquez sur le bouton Parcourir et sélectionnez le fichier de métadonnées modifié pour le charger vers la configuration du proxy virtuel.
 
-    f. Entrez le nom d’attribut ou la référence de schéma pour l’attribut SAML représentant **l’ID utilisateur** qu’Azure AD envoie au serveur Qlik Sense.  Les informations de référence de schéma sont disponibles dans les écrans de l’application Azure post-configuration.  Pour utiliser le nom d’attribut, tapez `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+    f. Entrez le nom d’attribut ou la référence de schéma pour l’attribut SAML représentant **l’ID utilisateur** qu’Azure AD envoie au serveur Qlik Sense.  Les informations de référence de schéma sont disponibles dans les écrans de l’application Azure post-configuration.  Pour utiliser le nom d’attribut, tapez `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
-    g. Entrez la valeur du **répertoire utilisateur** qui est attaché aux utilisateurs lorsqu’ils s’authentifient sur le serveur Qlik Sense via Azure AD.  Les valeurs codées en dur doivent être entourées de **crochets []**.  Pour utiliser un attribut envoyé dans l’assertion SAML Azure AD, entrez son nom dans cette zone de texte **sans** crochets.
+    g. Entrez la valeur du **répertoire utilisateur** qui est attaché aux utilisateurs lorsqu’ils s’authentifient sur le serveur Qlik Sense via Azure AD.  Les valeurs codées en dur doivent être entourées de **crochets []** .  Pour utiliser un attribut envoyé dans l’assertion SAML Azure AD, entrez son nom dans cette zone de texte **sans** crochets.
 
     h. **L’algorithme de signature SAML** définit la signature du certificat du fournisseur de service (dans ce cas le serveur Qlik Sense) pour la configuration du proxy virtuel.  Si le serveur Qlik Sense utilise un certificat approuvé généré à l’aide de Microsoft Enhanced RSA and AES Cryptographic Provider, définissez l’algorithme de signature SAML sur **SHA-256**.
 
@@ -203,7 +203,7 @@ Pour configurer l’authentification unique Azure AD avec Qlik Sense Enterprise
 
     ![QlikSense][qs13]
 
-    La liste des hôtes approuvés identifie les noms d’hôte qui sont acceptés lors de la connexion au serveur Qlik Sense.  **Entrez le nom d’hôte spécifié par les utilisateurs pour se connecter au serveur Qlik Sense.**  Le nom d’hôte est défini sur la même valeur que l’URI d’hôte SAML sans https://.
+    La liste des hôtes approuvés identifie les noms d’hôte qui sont acceptés lors de la connexion au serveur Qlik Sense.  **Entrez le nom d’hôte spécifié par les utilisateurs pour se connecter au serveur Qlik Sense.** Le nom d’hôte est défini sur la même valeur que l’URI d’hôte SAML sans https://.
 
 11. Cliquez sur le bouton **Appliquer**.
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: c88977f465de6d9b89bd2d9c4cf67402fe6f563f
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 4ae02a494949e92ad8e59cd35e46b6ce246ae7cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65228158"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67115001"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-windows-virtual-machine-in-net"></a>Didacticiel : Utiliser Azure Key Vault avec une machine virtuelle Windows dans .NET
 
@@ -53,21 +53,23 @@ Lorsque vous activez MSI pour un service Azure, par exemple, Machines virtuelles
 
 Ensuite, pour obtenir un jeton d’accès, votre code appelle un service de métadonnées local disponible dans la ressource Azure. Pour s’authentifier auprès d’un service Azure Key Vault, votre code utilise alors le jeton qu’il obtient du point de terminaison local MSI_ENDPOINT. 
 
-## <a name="log-in-to-azure"></a>Connexion à Azure
+## <a name="create-resources-and-assign-permissions"></a>Créer des ressources et affecter des autorisations
 
-Pour vous connecter à Azure à l’aide de l’interface CLI, entrez :
+Avant de commencer à coder, vous devez créer des ressources, placer une clé secrète dans votre coffre de clés et affecter des autorisations.
+
+### <a name="sign-in-to-azure"></a>Connexion à Azure
+
+Pour vous connecter à Azure à l’aide de l’interface CLI Azure, entrez ceci :
 
 ```azurecli
 az login
 ```
 
-## <a name="create-a-resource-group"></a>Créer un groupe de ressources
+### <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées.
+Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#az-group-create). 
 
-Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#az-group-create). 
-
-Sélectionnez ensuite un nom de groupe de ressources et renseignez l’espace réservé. L’exemple suivant crée un groupe de ressources dans l’emplacement USA Ouest :
+Cet exemple crée un groupe de ressources dans l’emplacement USA Ouest :
 
 ```azurecli
 # To list locations: az account list-locations --output table
@@ -76,9 +78,9 @@ az group create --name "<YourResourceGroupName>" --location "West US"
 
 Vous allez utiliser ce nouveau groupe de ressources tout au long du tutoriel.
 
-## <a name="create-a-key-vault"></a>Création d’un coffre de clés
+### <a name="create-a-key-vault-and-populate-it-with-a-secret"></a>Créer un coffre de clés et le remplir avec une clé secrète
 
-Pour créer un coffre de clés dans le groupe de ressources que vous avez créé à l’étape précédente, fournissez les informations suivantes :
+Créez un coffre de clés dans votre groupe de ressources en fournissant à la commande [az keyvault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) avec les informations suivantes :
 
 * Nom du coffre de clés : chaîne de 3 à 24 caractères qui ne peut contenir que des chiffres (0-9), des lettres (a-z, A-Z) et des traits d’union (-).
 * Nom de groupe ressources
@@ -89,9 +91,8 @@ az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGr
 ```
 À ce stade, votre compte Azure est le seul autorisé à effectuer des opérations sur ce nouveau coffre.
 
-## <a name="add-a-secret-to-the-key-vault"></a>Ajouter un secret au coffre de clés
+Maintenant, ajoutez une clé secrète à votre coffre de clés à l’aide de la commande [az keyvault secret set](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-set)
 
-Nous allons ajouter un secret pour montrer comment cela fonctionne. Il peut s’agir d’une chaîne de connexion SQL ou de toute autre information que vous devez sécuriser et garder à disposition pour votre application.
 
 Pour créer un secret dans le coffre de clés appelé **AppSecret**, tapez la commande suivante :
 
@@ -101,15 +102,15 @@ az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --va
 
 Ce secret stocke la valeur **MySecret**.
 
-## <a name="create-a-virtual-machine"></a>Création d'une machine virtuelle
-Vous pouvez créer une machine virtuelle à l’aide de l’une des méthodes suivantes :
+### <a name="create-a-virtual-machine"></a>Création d'une machine virtuelle
+Créez une machine virtuelle à l’aide de l’une des méthodes suivantes :
 
 * [L’interface de ligne de commande Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-cli)
 * [PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell)
 * [Le portail Azure](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
 
-## <a name="assign-an-identity-to-the-vm"></a>Affecter une identité à la machine virtuelle
-Dans cette étape, vous créez une identité affectée par le système pour la machine virtuelle en exécutant la commande suivante dans Azure CLI :
+### <a name="assign-an-identity-to-the-vm"></a>Affecter une identité à la machine virtuelle
+Créez une identité attribuée par le système pour la machine virtuelle avec la commande [az vm identity assign](/cli/azure/vm/identity?view=azure-cli-latest#az-vm-identity-assign) :
 
 ```azurecli
 az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourResourceGroupName>
@@ -124,31 +125,47 @@ Notez l’identité affectée par le système qui est affichée dans le code sui
 }
 ```
 
-## <a name="assign-permissions-to-the-vm-identity"></a>Attribuer des autorisations à l’identité de machine virtuelle
-À présent, vous pouvez attribuer à votre coffre de clés les autorisations d’identité créées précédemment en exécutant la commande suivante :
+### <a name="assign-permissions-to-the-vm-identity"></a>Attribuer des autorisations à l’identité de machine virtuelle
+Attribuez les autorisations d’identité créées précédemment pour votre clé de coffres avec la commande [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) :
 
 ```azurecli
 az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssignedIdentity> --secret-permissions get list
 ```
 
-## <a name="log-on-to-the-virtual-machine"></a>Connexion à la machine virtuelle
+### <a name="sign-in-to-the-virtual-machine"></a>Se connecter à la machine virtuelle
 
 Pour vous connecter à la machine virtuelle, suivez les instructions de l’article [Se connecter à une machine virtuelle Azure exécutant Windows](https://docs.microsoft.com/azure/virtual-machines/windows/connect-logon).
 
-## <a name="install-net-core"></a>Installez .NET Core
+## <a name="set-up-the-console-app"></a>Modifier l’application console
+
+Créez une application de console et installez les packages requis à l’aide de la commande `dotnet`.
+
+### <a name="install-net-core"></a>Installez .NET Core
 
 Pour installer .NET Core, accédez à la page de [téléchargements .NET](https://www.microsoft.com/net/download).
 
-## <a name="create-and-run-a-sample-net-app"></a>Créer et exécuter l’exemple d’application .NET
+### <a name="create-and-run-a-sample-net-app"></a>Créer et exécuter l’exemple d’application .NET
 
 Ouvrez une invite de commandes.
 
 Vous pouvez envoyer un message « Hello World » à la console en exécutant les commandes suivantes :
 
-```batch
+```console
 dotnet new console -o helloworldapp
 cd helloworldapp
 dotnet run
+```
+
+### <a name="install-the-packages"></a>Installer les packages
+
+ À partir de la fenêtre de console, installez les packages .NET requis pour ce guide de démarrage rapide :
+
+ ```console
+dotnet add package System.IO;
+dotnet add package System.Net;
+dotnet add package System.Text;
+dotnet add package Newtonsoft.Json;
+dotnet add package Newtonsoft.Json.Linq;
 ```
 
 ## <a name="edit-the-console-app"></a>Modifier l’application console

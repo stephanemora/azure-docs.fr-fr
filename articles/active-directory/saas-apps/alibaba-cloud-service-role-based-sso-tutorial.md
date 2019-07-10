@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d4b154b8ce55c381f1398c696bc439067dccfab
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: bdfd19d9a0e928e26ad6f01ba4b9c3f493aacb0c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65899745"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107164"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-alibaba-cloud-service-role-based-sso"></a>Didacticiel : Intégration d’Azure Active Directory à Alibaba Cloud Service (Role-based SSO)
 
@@ -135,7 +135,7 @@ Pour configurer l’authentification unique Azure AD avec Alibaba Cloud Service 
 
     | Nom | Espace de noms | Attribut source|
     | ---------------| ------------| --------------- |
-    | Rôle | https:\//www.aliyun.com/SAML-Role/Attribute | user.assignedroles |
+    | Role | https:\//www.aliyun.com/SAML-Role/Attribute | user.assignedroles |
     | RoleSessionName | https:\//www.aliyun.com/SAML-Role/Attribute | user.userprincipalname |
 
     > [!NOTE]

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d60ecfff4e634d6a92eaf1022761c2f23167918
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 68fa570ecfbafe2000bfa6eb9fa159dff48219a6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65859160"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107087"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-andromeda"></a>Didacticiel : Intégration d’Azure Active Directory à Andromeda
 
@@ -55,7 +55,7 @@ Pour configurer l’intégration d’Andromeda à Azure AD, vous devez ajouter A
 
 **Pour ajouter Andromeda à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2692d4109b5ca673b2acffe19eac1b141e5b8067
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 2cc3f8389eb0b98da5c172adf65ff4dae38ca29d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65902866"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67092007"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-11-token-enabled-lob-app"></a>Didacticiel : Intégration d’Azure Active Directory à l’application métier avec jeton SAML 1.1 activé
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de l’application métier avec jeton SAML 1.1 
 
 **Pour ajouter l’application métier avec jeton SAML 1.1 activé à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -107,7 +107,7 @@ Pour configurer l’authentification unique Azure AD avec l’application métie
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://your-app-url`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://your-app-url`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://your-app-url`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Contactez l’équipe du support technique de l’application métier avec jeton SAML 1.1 activé pour obtenir ces valeurs. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53bbbfea4d64c61f47130bb7270c5eb36cef402e
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 516e85fa4dca6c18bc83ee169e284c3c490ba74e
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65473359"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165094"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-aclp"></a>Didacticiel : Intégration d’Azure Active Directory à ACLP
 
@@ -54,7 +54,7 @@ Pour configurer l’intégration d’ACLP avec Azure AD, vous devez ajouter ACLP
 
 **Pour ajouter ACLP à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -181,7 +181,7 @@ Quand vous cliquez sur la vignette ACLP dans le volet d’accès, vous devez êt
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
-ms.openlocfilehash: b1a60c4110d69aec7a384a869ce4a2841741e920
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 46f775f08837b49c274bd7e8989be97e98ef2ee7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65896243"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67096039"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nomadesk"></a>Didacticiel : Intégration d’Azure Active Directory à Nomadesk
 
@@ -54,7 +54,7 @@ Pour configurer l’intégration de Nomadesk à Azure AD, vous devez ajouter No
 
 **Pour ajouter Nomadesk à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -108,7 +108,7 @@ Pour configurer l’authentification unique Azure AD avec Nomadesk, procédez c
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://mynomadesk.com/logon/saml/<TENANTID>`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://secure.nomadesk.com/saml/<instancename>`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://secure.nomadesk.com/saml/<instancename>`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique Nomadesk](mailto:support@nomadesk.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.

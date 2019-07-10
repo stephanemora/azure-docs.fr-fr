@@ -17,12 +17,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e51437a99217316ead50d4075be52f089225e618
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 16b11636068c2b5fc8d7591fd7e10a686037d9a4
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190869"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509319"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Démarrage rapide : Ajouter la connexion avec Microsoft à une application web ASP.NET Core
 
@@ -86,6 +86,10 @@ Dans ce guide de démarrage rapide, vous allez découvrir comment une applicatio
     "TenantId": "Enter_the_Tenant_Info_Here"
     ```
 
+> [!div renderon="portal"]
+> > [!NOTE]
+> > Ce guide de démarrage rapide prend en charge Enter_the_Supported_Account_Info_Here.
+
 > [!div renderon="docs"]
 > Où :
 > - `Enter_the_Application_Id_here` est l’**ID d’application (client)** de l’application que vous avez inscrite dans le portail Azure. Vous trouverez l’**ID d’application (client)** dans la page **Vue d’ensemble** de l’application.
@@ -95,7 +99,7 @@ Dans ce guide de démarrage rapide, vous allez découvrir comment une applicatio
 >   - Si votre application prend en charge **tous les utilisateurs de compte Microsoft**, remplacez cette valeur par `common`
 >
 > > [!TIP]
-> > Pour connaître les valeurs de l’**ID d’Application (client)**, de l’**ID de l’annuaire (locataire)**, et des **Types de comptes pris en charge**, consultez la page **Vue d’ensemble** de l’application dans le Portail Azure.
+> > Pour connaître les valeurs de l’**ID d’Application (client)** , de l’**ID de l’annuaire (locataire)** , et des **Types de comptes pris en charge**, consultez la page **Vue d’ensemble** de l’application dans le Portail Azure.
 
 ## <a name="more-information"></a>Plus d’informations
 

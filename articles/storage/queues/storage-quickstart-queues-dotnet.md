@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 02/06/2018
 ms.author: mhopkins
 ms.reviewer: cbrooks
-ms.openlocfilehash: 41cb37eb9d96752d4732731d2a36d9bc892cbaa5
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: c3743c62dcbdccc2a119cfec570df96c622390c7
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66159812"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67540332"
 ---
 # <a name="quickstart-use-net-to-create-a-queue-in-azure-storage"></a>Démarrage rapide : Utiliser .NET pour créer une file d’attente dans le stockage Azure
 
@@ -26,7 +26,7 @@ Ce guide de démarrage rapide explique comment utiliser la bibliothèque de clie
 
 Ensuite, téléchargez et installez .NET Core 2.0 pour votre système d’exploitation. Si vous exécutez Windows, vous pouvez installer Visual Studio et utiliser .NET Framework. Vous pouvez aussi, si vous voulez, installer un éditeur à utiliser avec votre système d’exploitation.
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 - Installez [.NET Core pour Windows](https://www.microsoft.com/net/download/windows) ou [.NET Framework](https://www.microsoft.com/net/download/windows) (inclus avec Visual Studio pour Windows)
 - Installez [Visual Studio pour Windows](https://www.visualstudio.com/). Si vous utilisez .NET Core, l’installation de Visual Studio est facultative.  
@@ -63,7 +63,7 @@ Pour exécuter l’application, vous devez fournir la chaîne de connexion de vo
 
 Après avoir copié votre chaîne de connexion, écrivez-la dans une variable d’environnement sur l’ordinateur local exécutant l’application. Pour définir la variable d’environnement, ouvrez une fenêtre de console et suivez les instructions pour votre système d’exploitation. Remplacez `<yourconnectionstring>` par votre chaîne de connexion :
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 ```cmd
 setx storageconnectionstring "<yourconnectionstring>"
@@ -93,7 +93,7 @@ Après avoir ajouté la variable d’environnement, exécutez `source .bash_prof
 
 L’exemple d’application crée une file d’attente et y ajoute un message. L’application commence par lire le message sans le supprimer de la file d’attente, puis elle récupère le message et le supprime de la file d’attente.
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 Si vous utilisez Visual Studio comme éditeur, vous pouvez appuyer sur **F5** pour exécuter. 
 
@@ -187,9 +187,9 @@ Console.WriteLine();
 
 Ensuite, l’exemple ajoute un message en bas de la file d’attente. 
 
-Un message doit être dans un format utilisable dans une requête XML avec encodage UTF-8 et avoir une taille maximale de 64 Ko. Si un message contient des données binaires, Microsoft recommande de l’encoder au format Base64.
+Un message doit être dans un format utilisable dans une requête XML avec encodage UTF-8 et avoir une taille maximale de 64 Ko. Si un message contient des données binaires, nous recommandons de l’encoder au format Base64.
 
-Par défaut, un message peut être conservé pendant une durée maximale de 7 jours. Vous pouvez entrer n’importe quel nombre positif pour le délai d’expiration, ou la valeur -1 si vous souhaitez que le message n’expire jamais.
+Par défaut, un message peut être conservé pendant une durée maximale de 7 jours. Vous pouvez spécifier n’importe quel nombre positif pour la durée de vie du message.
 
 ```csharp
 // Create a message and add it to the queue. Set expiration time to 14 days.
@@ -199,6 +199,12 @@ Console.WriteLine("Added message '{0}' to queue '{1}'", message.Id, queue.Name);
 Console.WriteLine("Message insertion time: {0}", message.InsertionTime.ToString());
 Console.WriteLine("Message expiration time: {0}", message.ExpirationTime.ToString());
 Console.WriteLine();
+```
+
+Pour ajouter un message qui n’expire pas, utilisez `Timespan.FromSeconds(-1)` dans votre appel à [AddMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync).
+
+```csharp
+await queue.AddMessageAsync(message, TimeSpan.FromSeconds(-1), null, null, null);
 ```
 
 ### <a name="peek-a-message-from-the-queue"></a>Afficher l’aperçu d’un message de la file d’attente

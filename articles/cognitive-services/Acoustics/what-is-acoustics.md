@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: overview
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 1fc125322b83a0eb51095fac21dee05c7ffb39c1
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 73b8980b0ea2d1adbd814026f026358e25dcbb55
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313615"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67502958"
 ---
 # <a name="what-is-project-acoustics"></a>Qu’est-ce que Project Acoustics ?
 Project Acoustics est un moteur d’acoustique ondulatoire pour les expériences en trois dimensions interactives. Il modélise les effets ondulatoires comme la diffraction, le portage et les effets de réverbération dans des scènes complexes sans nécessiter le balisage manuel des zones. Il inclut également un moteur de jeu et l'intégration d’intergiciel audio. La philosophie de Project Acoustics est similaire à celle de l’éclairage statique : effectuer un baking physique détaillé hors connexion afin de fournir une base physique, et utiliser un runtime léger avec des contrôles de conception expressifs pour vous permettre d’atteindre vos objectifs artistiques.
@@ -41,7 +41,7 @@ L’innovation clé de Project Acoustics est de coupler la simulation acoustique
 
 ## <a name="platforms"></a>Plateformes
 Les plug-ins de runtime Project Acoustics peuvent actuellement être déployés sur les plateformes suivantes :
-*  Windows
+* Windows
 * Android
 * Xbox One
 
@@ -51,7 +51,7 @@ Les plug-ins de runtime Project Acoustics peuvent actuellement être déployés 
   * Pour les binaires et le support Xbox, contactez-nous par le biais du formulaire d’inscription ci-dessous
 
 ## <a name="contact-us"></a>Nous contacter
-* [Forums Project Acoustics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=projectacoustics)
+* [Discussion sur Project Acoustics et signalement de problèmes](https://github.com/microsoft/ProjectAcoustics/issues)
 * [S’inscrire pour recevoir les mises à jour de Project Acoustics](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u)
 
 ## <a name="next-steps"></a>Étapes suivantes

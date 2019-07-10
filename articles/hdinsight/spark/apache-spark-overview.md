@@ -8,12 +8,12 @@ ms.custom: hdinsightactive,mvc
 ms.topic: overview
 ms.date: 05/28/2019
 ms.author: hrasheed
-ms.openlocfilehash: 4fd03dc6ebada5b665a0c256e9cedbb646cd2fb6
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: f10a45c7d9d5da4d5bea535e5157d9b96164e1b0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66297449"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448675"
 ---
 # <a name="what-is-apache-spark-in-azure-hdinsight"></a>Présentation d’Apache Spark dans Azure HDInsight
 
@@ -36,7 +36,7 @@ Les clusters Spark dans HDInsight constituent un service Spark entièrement gér
 | API REST |Les clusters Spark dans HDInsight comprennent [Apache Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server), un serveur de travaux Spark basé sur une API REST, qui permet de soumettre et de surveiller à distance des travaux. Consultez [Utiliser l’API REST Spark Apache pour envoyer des travaux à distance à un cluster Spark HDInsight](apache-spark-livy-rest-interface.md).|
 | Prise en charge d’Azure Data Lake Storage | Les clusters Spark dans HDInsight peuvent utiliser Azure Data Lake Storage comme stockage principal ou comme stockage supplémentaire. Pour plus d’informations sur Data Lake Storage, consultez [Vue d’ensemble d’Azure Data Lake Storage](../../data-lake-store/data-lake-store-overview.md). |
 | Intégration aux services Azure |Un cluster Spark dans HDInsight s’accompagne d’un connecteur à Azure Event Hubs. Vous pouvez créer des applications de diffusion en continu avec Event Hubs, en plus de [Apache Kafka](https://kafka.apache.org/), qui est déjà disponible dans Spark. |
-| Prise en charge de ML Server | La prise en charge de ML Server dans HDInsight est fournie en tant que type de cluster **ML Services**. Il est possible de configurer un cluster ML Services de façon à effectuer des calculs R distribués à la vitesse d’un cluster Spark. Pour plus d’informations, consultez [Bien démarrer avec ML Server dans HDInsight](../r-server/r-server-get-started.md). |
+| Prise en charge de ML Server | La prise en charge de ML Server dans HDInsight est fournie en tant que type de cluster **ML Services**. Il est possible de configurer un cluster ML Services de façon à effectuer des calculs R distribués à la vitesse d’un cluster Spark. Pour plus d’informations, consultez [Qu’est-ce que ML Services dans Azure HDInsight](../r-server/r-server-overview.md). |
 | Intégration à des environnements de développement intégrés tiers | HDInsight offre différents plug-ins d’IDE permettant de créer et d’envoyer des applications sur un cluster HDInsight Spark. Pour plus d’informations, consultez [Utiliser Azure Toolkit for IntelliJ IDEA](apache-spark-intellij-tool-plugin.md), [Utiliser HDInsight pour VSCode](../hdinsight-for-vscode.md) et [Utiliser Azure Toolkit for Eclipse](apache-spark-eclipse-tool-plugin.md).|
 | Requêtes simultanées |Les clusters Spark sur HDInsight prennent en charge les requêtes simultanées. Ainsi, plusieurs requêtes d’un même utilisateur ou de différents utilisateurs et applications peuvent partager les mêmes ressources de cluster. |
 | Mise en cache sur des disques SSD |Vous pouvez choisir de mettre en cache des données en mémoire ou dans les disques SSD attachés aux nœuds de cluster. Si la mise en cache en mémoire est la stratégie qui offre les meilleures performances de requête, elle peut se révéler coûteuse. La mise en cache sur des disques SSD représente une très bonne option pour améliorer les performances des requêtes sans avoir à créer un cluster de la taille requise pour que l’ensemble du jeu de données puisse être mis en mémoire. |

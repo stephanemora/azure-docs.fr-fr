@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 2fce8b628798ef38889f64d9409bf586a85463b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2c320944e952dbea74c41ffd3471143f6713585b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65871866"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67097369"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mindwireless"></a>Didacticiel : Intégration d’Azure Active Directory à mindWireless
 
@@ -52,7 +52,7 @@ Pour configurer l’intégration de mindWireless dans Azure AD, vous devez ajout
 
 **Pour ajouter mindWireless à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

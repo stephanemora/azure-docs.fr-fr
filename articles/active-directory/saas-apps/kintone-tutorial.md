@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: a66d1cb16f47ebe7aeba3685b3567620ae4a8a51
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: a9245ab5a2d51ee3995ff0c614cafaebdc20d00f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898016"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098801"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kintone"></a>Didacticiel : Intégration d’Azure Active Directory à Kintone
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de Kintone avec Azure AD, vous devez ajouter K
 
 **Pour ajouter Kintone à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -107,7 +107,7 @@ Pour configurer l’authentification unique Azure AD avec Kintone, effectuez le
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<companyname>.kintone.com`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant :
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant :
     
     | |
     |--|

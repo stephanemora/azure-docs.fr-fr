@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b46135366c76abf8da5387ff0698b4dc7634d79c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 936de76d1117c56f5a9dec48b51f33b9afa15351
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59698540"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107499"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-absorb-lms"></a>Didacticiel : Intégration d’Azure Active Directory avec Absorb LMS
 
@@ -54,7 +54,7 @@ Pour configurer l’intégration d’Absorb LMS avec Azure AD, vous devez ajoute
 
 **Pour ajouter Absorb LMS à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -163,7 +163,7 @@ Pour configurer l’authentification unique Azure AD avec Absorb LMS, procédez 
 
     b. Sélectionnez **SAML** comme **Méthode**.
 
-    c. Dans le bloc-notes, ouvrez le certificat que vous avez téléchargé à partir du portail Azure. Supprimez les balises **-----BEGIN CERTIFICATE-----** et **-----END CERTIFICATE-----**. Puis, dans la zone **Clé**, collez le reste du contenu.
+    c. Dans le bloc-notes, ouvrez le certificat que vous avez téléchargé à partir du portail Azure. Supprimez les balises **-----BEGIN CERTIFICATE-----** et **-----END CERTIFICATE-----** . Puis, dans la zone **Clé**, collez le reste du contenu.
 
     d. Dans la zone **Mode**, sélectionnez **Identity Provider Initiated** (Initiée par le fournisseur d’identité).
 

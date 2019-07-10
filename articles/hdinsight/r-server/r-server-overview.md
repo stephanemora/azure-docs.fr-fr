@@ -6,20 +6,18 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 05/29/2019
-ms.openlocfilehash: 6fecd2278ddad4de3a2cff9035d60083101e873e
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
-ms.translationtype: MT
+ms.topic: overview
+ms.date: 06/12/2019
+ms.openlocfilehash: a5e4c7acd407cef1bb5fc43d7e40014a6b088a0a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393834"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448887"
 ---
-# <a name="what-is-ml-services-in-azure-hdinsight"></a>Nouveautés des Services de ML dans Azure HDInsight
+# <a name="what-is-ml-services-in-azure-hdinsight"></a>Qu’est-ce que ML Services dans Azure HDInsight
 
 Microsoft Machine Learning Server vous est proposé comme option de déploiement au moment de créer des clusters HDInsight dans Azure. Le type de cluster qui fournit cette option est appelé **ML Services**. Cette fonctionnalité offre aux experts en science des données, aux statisticiens et aux programmeurs R un accès à la demande à des méthodes d’analyse extensibles et distribuées sur HDInsight.
-
-[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
 ML Services sur HDInsight fournit les dernières fonctionnalités analytiques R pour des jeux de données de toute taille ou presque, chargés dans un stockage de type Blob Azure ou Data Lake. Sachant que le cluster ML Services repose sur le langage R open source, les applications basées sur R que vous créez peuvent tirer parti des packages R open source qui se dénombrent à plus de 8 000. Les routines de ScaleR, package analytique Big Data de Microsoft, sont également disponibles.
 
@@ -29,7 +27,7 @@ Les modèles ou prévisions résultant des analyses peuvent être téléchargés
 
 ## <a name="get-started-with-ml-services-on-hdinsight"></a>Démarrer avec ML Services sur HDInsight
 
-Pour créer un cluster ML Services dans Azure HDInsight, sélectionnez le type de cluster **ML Services** au moment de créer un cluster HDInsight via le portail Azure. Le type de cluster ML Services inclut ML Server sur les nœuds de données du cluster et sur un nœud de périphérie, qui sert de zone d’accueil pour l’analytique ML Services. Pour créer le cluster en suivant une procédure pas à pas, consultez [Bien démarrer avec ML Services sur HDInsight](r-server-get-started.md).
+Pour créer un cluster ML Services dans Azure HDInsight, sélectionnez le type de cluster **ML Services** au moment de créer un cluster HDInsight via le portail Azure. Le type de cluster ML Services inclut ML Server sur les nœuds de données du cluster et sur un nœud de périphérie, qui sert de zone d’accueil pour l’analytique ML Services. Consultez [Créer des clusters Apache Hadoop à l’aide du portail Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) pour une procédure pas à pas permettant de créer le cluster.
 
 ## <a name="why-choose-ml-services-in-hdinsight"></a>Pourquoi choisir ML Services dans HDInsight ?
 
@@ -70,13 +68,13 @@ ML Services sur HDInsight inclut les fonctionnalités suivantes.
 
 Le stockage par défaut du système de fichiers HDFS des clusters HDInsight peut être associé à un compte de stockage Azure ou à un compte Azure Data Lake Storage. Cette association garantit que toutes les données chargées dans l’espace de stockage en cluster au cours de l’analyse sont rendues persistantes et qu’elles sont disponibles même après la suppression du cluster. Il existe différents outils permettant de gérer le transfert de données vers l’option de stockage sélectionnée, notamment la fonctionnalité de chargement sur le portail du compte de stockage et l’utilitaire [AzCopy](../../storage/common/storage-use-azcopy.md).
 
-Vous pouvez autoriser l’accès à des objets Blob et des magasins Data Lake supplémentaires pendant le processus de provisionnement du cluster, quelle que soit l’option de stockage principal utilisée. Consultez [Bien démarrer avec ML Services sur HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-r-server-get-started) pour savoir comment ajouter un accès à des comptes supplémentaires. Consultez l’article [Options de stockage Azure pour ML Services sur HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-r-server-storage) pour en savoir plus sur l’utilisation de plusieurs comptes de stockage.
+Vous pouvez autoriser l’accès à des objets Blob et des magasins Data Lake supplémentaires pendant le processus de provisionnement du cluster, quelle que soit l’option de stockage principal utilisée.  Consultez l’article [Options de stockage Azure pour ML Services sur HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-r-server-storage) pour en savoir plus sur l’utilisation de plusieurs comptes de stockage.
 
 Vous pouvez également utiliser [Azure Files](../../storage/files/storage-how-to-use-files-linux.md) comme option de stockage pour une utilisation sur le nœud de périphérie. Le service Azure Files vous permet de monter un partage de fichiers qui a été créé dans un compte Azure Storage sur le système de fichiers Linux. Pour plus d’informations sur ces options de stockage de données pour un cluster ML Services sur HDInsight, consultez [Options de stockage Azure pour ML Services sur HDInsight](r-server-storage.md).
 
 ## <a name="access-ml-services-edge-node"></a>Accéder à un nœud de périphérie ML Services
 
-Vous pouvez vous connecter à Microsoft ML Server sur le nœud de périphérie à l’aide d’un navigateur. R Server est installé par défaut lors de la création du cluster. Pour plus d’informations, consultez [Bien commencer avec ML Services sur HDInsight](r-server-get-started.md). Vous pouvez aussi vous connecter au nœud de périphérie du cluster à partir de la ligne de commande en utilisant SSH/PuTTY pour accéder à la console R.
+Vous pouvez vous connecter à Microsoft ML Server sur le nœud de périphérie à l’aide d’un navigateur. R Server est installé par défaut lors de la création du cluster.  Vous pouvez aussi vous connecter au nœud de périphérie du cluster à partir de la ligne de commande en utilisant SSH/PuTTY pour accéder à la console R.
 
 ## <a name="develop-and-run-r-scripts"></a>Développer et exécuter des scripts R
 
@@ -144,6 +142,6 @@ Les prix associés à un cluster ML Services HDInsight sont structurés de la m�
 
 Pour en savoir plus sur l’utilisation des clusters ML Services sur HDInsight, consultez les rubriques suivantes :
 
-* [Bien commencer avec un cluster ML Services sur HDInsight](r-server-get-started.md)
+* [Exécuter un script R sur un cluster ML Services dans HDInsight Azure à l’aide de RStudio Server](machine-learning-services-quickstart-job-rstudio.md)
 * [Options de contexte de calcul pour un cluster ML Services sur HDInsight](r-server-compute-contexts.md)
 * [Options de stockage pour un cluster ML Services sur HDInsight](r-server-storage.md)

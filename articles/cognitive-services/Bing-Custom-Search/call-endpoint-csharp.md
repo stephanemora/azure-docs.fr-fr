@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 05/07/2018
+ms.date: 06/18/2018
 ms.author: maheshb
-ms.openlocfilehash: 267b50e15d39fc5a0df763cea2e2b79f9b23d151
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 87c6744dd9ee0a921a422320563f10acff9ed875
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595809"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206221"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-c"></a>Démarrage rapide : Appeler votre point de terminaison Recherche personnalisée Bing avec C# 
 
@@ -25,9 +25,9 @@ Utilisez ce guide de démarrage rapide pour commencer à demander des résultats
 
 - Une instance Recherche personnalisée Bing. Consultez [Démarrage rapide : Créer votre première instance Recherche personnalisée Bing](quick-start.md) pour plus amples informations.
 - Microsoft [.NET Core](https://www.microsoft.com/net/download/core)
-- N’importe quelle édition de [Visual Studio 2017 ou ultérieure](https://www.visualstudio.com/downloads/)
+- N’importe quelle édition de [Visual studio 2019 ou ultérieure](https://www.visualstudio.com/downloads/)
 - Si vous utilisez Linux/MacOS, cette application peut être exécutée à l’aide de [Mono](https://www.mono-project.com/).
-- Package [NuGet Custom Search](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0) installé. 
+- Le package NuGet [Recherche personnalisée Bing](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0). 
     - Dans l’**Explorateur de solutions** de Visual Studio, cliquez avec le bouton droit sur votre projet et sélectionnez **Gérer les packages NuGet** dans le menu. Installez le package `Microsoft.Azure.CognitiveServices.Search.CustomSearch`. L’installation du package NuGet Custom Search installe aussi les assemblys suivants :
         - Microsoft.Rest.ClientRuntime
         - Microsoft.Rest.ClientRuntime.Azure
@@ -104,7 +104,7 @@ Utilisez ce guide de démarrage rapide pour commencer à demander des résultats
     ```
    ## <a name="process-and-view-the-results"></a>Traiter et afficher les résultats
 
-1. Itérez sur l’objet de réponse pour afficher des informations sur chaque résultat de recherche, y compris son nom, l’url et la date à laquelle la page web a été analysée pour la dernière fois.
+3. Itérez sur l’objet de réponse pour afficher des informations sur chaque résultat de recherche, y compris son nom, l’url et la date à laquelle la page web a été analysée pour la dernière fois.
 
     ```csharp
     for(int i = 0; i < response.webPages.value.Length; i++) {                

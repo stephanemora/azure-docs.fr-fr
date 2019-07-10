@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 1/4/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3eca6fc3ab788ee7085c0df5f6c9770858af29ba
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 544c74dc5bd336ab79593fc081b4e48ac0caf3ac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65891712"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67095544"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-openathens"></a>Didacticiel : Intégration d’Azure Active Directory à OpenAthens
 
@@ -55,7 +55,7 @@ Pour configurer l’intégration d’OpenAthens à Azure AD, vous devez ajouter
 
 **Pour ajouter OpenAthens à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

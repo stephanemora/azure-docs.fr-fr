@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 850f5e3f96439e1fea0a77b94f2ed733cc451bdf
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 8a29d20c434a7306b016fe9a549415242f5977a2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898264"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101104"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-heybuddy"></a>Didacticiel : Intégration d’Azure Active Directory à HeyBuddy
 
@@ -54,7 +54,7 @@ Pour configurer l’intégration de HeyBuddy à Azure AD, vous devez ajouter Hey
 
 **Pour ajouter HeyBuddy à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -108,7 +108,7 @@ Pour configurer l’authentification unique Azure AD avec HeyBuddy, procédez co
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://api.heybuddy.com/auth/<ENTITY ID>`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `YourCompanyInstanceofHeyBuddy`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `YourCompanyInstanceofHeyBuddy`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur (ID d’entité) et l’URL d’authentification réels. Dans l’URL de connexion, l’`Entity ID` est généré automatiquement pour chaque organisation. Pour obtenir ces valeurs, contactez l’[équipe de support aux clients HeyBuddy](mailto:support@heybuddy.com).

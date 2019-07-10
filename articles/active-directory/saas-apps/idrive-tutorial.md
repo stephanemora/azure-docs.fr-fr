@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b71ba92e46a0363a22695229c40bfac7e0d6f589
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5e4fb9e300a4019ffe47b82582783b9024d968ef
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57904914"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67100570"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-idrive"></a>Tutoriel : Intégration d’Azure Active Directory à IDrive
+# <a name="tutorial-azure-active-directory-integration-with-idrive"></a>Didacticiel : Intégration d’Azure Active Directory à IDrive
 
 Dans ce tutoriel, vous allez apprendre à intégrer IDrive à Azure Active Directory (Azure AD).
 L’intégration d’IDrive à Azure AD vous offre les avantages suivants :
@@ -53,7 +53,7 @@ Pour configurer l’intégration d’IDrive à Azure AD, vous devez ajouter IDr
 
 **Pour ajouter IDrive à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -147,7 +147,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

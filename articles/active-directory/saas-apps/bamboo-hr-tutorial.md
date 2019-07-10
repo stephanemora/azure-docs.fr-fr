@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a054274da0c83fa5f079e05a1c648c1fc693fd7
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 2bc3de858102c02d49a7cefeef15de7e1c82220e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65900330"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106466"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bamboohr"></a>Didacticiel : Intégration d’Azure Active Directory à BambooHR
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de BambooHR à Azure AD, vous devez ajouter Bam
 
 **Pour ajouter BambooHR à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -107,7 +107,7 @@ Pour configurer l’authentification unique Azure AD avec BambooHR, effectuez le
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<company>.bamboohr.com`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, tapez une URL en utilisant le modèle suivant : `BambooHR-SAML`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , tapez une URL en utilisant le modèle suivant : `BambooHR-SAML`
 
     > [!NOTE]
     > La valeur du champ **URL de connexion** n’est pas réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Pour obtenir la valeur, contactez [l’équipe de support de BambooHR](https://www.bamboohr.com/contact.php). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.

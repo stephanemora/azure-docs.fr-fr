@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 6c3a7a8644e0e391f8817a7ae3a4cb9b8af5dab7
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 8943ff45d432768649ace28147c7c14f20f4ad44
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920371"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67087120"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wingspan-etmf"></a>Didacticiel : Intégration d’Azure Active Directory à Wingspan eTMF
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de Wingspan eTMF à Azure AD, vous devez ajout
 
 **Pour ajouter Wingspan eTMF à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

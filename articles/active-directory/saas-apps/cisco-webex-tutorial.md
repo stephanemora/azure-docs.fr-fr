@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 308f745489fba2e2b539a2f2615b65228565dcf9
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: ec8c2fc2c2dbbfd2c98184215f696aaf18a87193
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65900088"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105551"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-webex-meetings"></a>Didacticiel : Intégration d’Azure Active Directory avec Cisco Webex Meetings
 
@@ -55,7 +55,7 @@ Pour configurer l’intégration de Cisco Webex Meetings à Azure AD, vous devez
 
 **Pour ajouter Cisco Webex Meetings à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

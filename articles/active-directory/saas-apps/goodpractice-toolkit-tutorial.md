@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e55399337e06314a5079f9d0e692a771855f8ca
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: fe89c067aed6a6934bfff37609516b6ef4d281c0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683575"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101579"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-goodpractice-toolkit"></a>Didacticiel : Intégration d’Azure Active Directory à GoodPractice Toolkit
 
@@ -55,7 +55,7 @@ Pour configurer l’intégration de GoodPractice Toolkit à Azure AD, vous devez
 
 **Pour ajouter GoodPractice Toolkit à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

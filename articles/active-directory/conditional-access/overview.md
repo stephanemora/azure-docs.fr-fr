@@ -11,14 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32ad8c12834ee538e231b38f9098c741fdc17954
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: a5ef72f1db329d04809a1069c1916d1ffcfffe65
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65997242"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509385"
 ---
-# <a name="what-is-conditional-access-in-azure-active-directory"></a>Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?
+# <a name="what-is-conditional-access"></a>Qu’est-ce que l’accès conditionnel ?
 
 La sécurité est une priorité pour les organisations qui utilisent le cloud. L’un des aspects clés de la sécurité en matière de gestion des ressources du cloud est l’identité et l’accès. Dans les environnements mobiles et cloud, les utilisateurs peuvent accéder aux ressources de votre organisation en utilisant différents appareils et applications, n’importe où. Il en suffit donc plus de contrôler les personnes autorisées à accéder à une ressource. Afin de maîtriser l’équilibre entre sécurité et productivité, dans une décision du contrôle d’accès, vous devez aussi tenir compte des moyens d’accéder à une ressource. L’accès conditionnel Azure Active Directory (Azure AD) répond à ce besoin. L’accès conditionnel est une fonctionnalité d’Azure Active Directory. Avec l’accès conditionnel, vous pouvez implémenter des décisions de contrôle d’accès automatisées pour accéder à vos applications cloud qui sont basées sur des conditions.
 
@@ -40,11 +40,8 @@ Tout d’abord, dans un appareil où mobilité et cloud occupent le premier plan
 Voici quelques problèmes d’accès courants que l’accès conditionnel peut vous aider à résoudre :
 
 - **[Risque à la connexion](conditions.md#sign-in-risk)**  : Azure AD Identity Protection détecte les risques à la connexion. Comment limite l’accès lorsqu’un risque à la connexion détecté signale une personne malveillante ? Et si vous souhaitez obtenir une preuve supplémentaire qu’une connexion a été effectuée par un utilisateur légitime ? Que se passe-t-il si vos doutes sont suffisamment forts pour même empêcher certains utilisateurs spécifiques d’accéder à une application ?  
-
 - **[Emplacement réseau](location-condition.md)**  : Azure AD est accessible partout. Que faire si une tentative d’accès est effectuée depuis un emplacement réseau qui n’est pas contrôlé par votre service informatique ? La combinaison du nom d’utilisateur et du mot de passe peut fournir une preuve d’identité suffisante pour les tentatives d’accès effectuées depuis votre réseau d’entreprise. Comment faire pour demander une preuve d’identité plus forte pour les tentatives d’accès initiées depuis d’autres pays ou régions du monde inattendus ? Comment faire pour bloquer les tentatives d’accès depuis certains emplacements ?  
-
 - **[Gestion des appareils](conditions.md#device-platforms)**  : dans Azure AD, les utilisateurs peuvent accéder aux applications cloud à partir d’un large éventail d’appareils, y compris des appareils mobiles et personnels. Comment faire pour que les tentatives d’accès soient uniquement effectuées avec des appareils gérés par votre service informatique ? Comment faire pour empêcher certains types d’appareils d’accéder aux applications cloud dans votre environnement ?
-
 - **[Application cliente](conditions.md#client-apps)**  : aujourd'hui, vous pouvez accéder à de nombreuses applications de cloud en utilisant différents types d’applications comme les applications sur le Web, les applications mobiles ou les applications de bureau. Que faire lorsqu’une tentative d’accès est effectuée avec un type d’application cliente provoquant des problèmes connus ? Comment faire pour exiger qu’un appareil géré par votre service informatique soit utilisé pour certains types d’applications ?
 
 Ces questions et les réponses associées représentent des scénarios d’accès courants pour l’accès conditionnel Azure AD.
@@ -58,12 +55,10 @@ Une stratégie d’accès conditionnel est une définition d’un scénario d’
 
 ![Contrôle](./media/overview/10.png)
 
-**Faire** spécifie la réponse de votre stratégie. Il est important de noter que l’objectif d’une stratégie d’accès conditionnel n’est pas d’accorder l’accès à une application cloud. Dans Azure AD, l’autorisation d’accès aux applications cloud est soumise aux affectations des utilisateurs. Avec une stratégie d’accès conditionnel, vous contrôlez la manière dont les utilisateurs autorisés (utilisateurs autorisés à accéder à une application cloud) peuvent accéder aux applications cloud dans des conditions spécifiques. Dans votre réponse, vous appliquez des exigences supplémentaires comme l’authentification multifacteur, un appareil géré et autres. Dans le contexte de l’accès conditionnel Azure AD, les exigences appliquées par votre stratégie sont appelées des contrôles d’accès. Dans sa forme la plus restrictive, votre stratégie peut empêcher tout accès. Pour plus d’informations, consultez [Contrôles d’accès dans l’accès conditionnel Azure Active Directory](controls.md).
 
 **Quand cela se produit** définit la raison du déclenchement de votre stratégie. Cette raison est caractérisée par un groupe de conditions qui ont été remplies. Dans l’accès conditionnel Azure AD, les conditions d’attribution jouent un rôle spécial :
 
 - **[Utilisateurs](conditions.md#users-and-groups)**  : les utilisateurs effectuent une tentative d’accès (**Qui**).
-
 - **[Applications cloud](conditions.md#cloud-apps-and-actions)**  : les cibles d’une tentative d’accès (**Quoi**).
 
 Ces deux conditions sont obligatoires dans une stratégie d’accès conditionnel. Outre les deux conditions obligatoires, vous pouvez également inclure des conditions supplémentaires qui décrivent le mode d’exécution de la tentative d’accès. Par exemple, il est courant que des appareils mobiles ou des emplacements situés en dehors du réseau d’entreprise soient utilisés. Pour plus d’informations, consultez [Conditions dans l’accès conditionnel Azure Active Directory](conditions.md).
@@ -89,6 +84,8 @@ Une fois que l’utilisateur s’est connecté au service d’authentification f
 ## <a name="license-requirements"></a>Conditions de licence :
 
 [!INCLUDE [Active Directory P1 license](../../../includes/active-directory-p1-license.md)]
+
+Les clients avec [des licences Microsoft 365 Business](https://docs.microsoft.com/office365/servicedescriptions/microsoft-365-business-service-description) ont également accès aux fonctionnalités d’accès conditionnel. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

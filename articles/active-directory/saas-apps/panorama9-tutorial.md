@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: ff26acc1050a6104525ec44304fd9fee21d6d3cb
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: c88088b804f90769512d33a5e96fdedc5ce6fba8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65904347"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094926"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-panorama9"></a>Tutoriel : Intégration d’Azure Active Directory à Panorama9
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de Panorama9 avec Azure AD, vous devez ajouter
 
 **Pour ajouter Panorama9 à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -107,7 +107,7 @@ Pour configurer l’authentification unique Azure AD avec Panorama9, effectuez 
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL : `https://dashboard.panorama9.com/saml/access/3262`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://www.panorama9.com/saml20/<tenant-name>`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://www.panorama9.com/saml20/<tenant-name>`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique Panorama9](https://support.panorama9.com/). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.

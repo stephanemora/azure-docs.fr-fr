@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e979410405aa9914b496b80d2ac783a67b480a7
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 0ff4250244fcd91c74771aba305b1643926b0732
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65887890"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67087054"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workgrid"></a>Didacticiel : Intégration d’Azure Active Directory avec Workgrid
 
@@ -55,7 +55,7 @@ Pour configurer l’intégration de Workgrid dans Azure AD, vous devez ajouter W
 
 **Pour ajouter Workgrid à partir de la galerie, effectuez les tâches suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -109,7 +109,7 @@ Pour configurer l’authentification unique Azure AD avec Workgrid, effectuez le
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<COMPANYCODE>.workgrid.com/console`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `urn:amazon:cognito:sp:us-east-1_<poolid>`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `urn:amazon:cognito:sp:us-east-1_<poolid>`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe de support client Workgrid](mailto:support@workgrid.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.

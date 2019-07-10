@@ -5,26 +5,27 @@ services: iot-edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/01/2018
+ms.date: 06/25/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: a0530739428e18d01209f94345ae53dfb743d80b
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 12b141f9aa75231adae9f64c57709f290883b420
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66239687"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433935"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Tutoriel : Effectuer la classification d'images en périphérie avec le service Vision personnalisée
 
-Grâce à Azure IoT Edge, votre solution IoT peut gagner en efficacité, via le déplacement des charges de travail en dehors du cloud et vers la périphérie. Cette fonctionnalité s’avère particulièrement utile pour les services qui traitent de nombreuses données, comme les modèles de vision par ordinateur. [Custom Vision](../cognitive-services/custom-vision-service/home.md) vous permet de créer des classifieurs d’images personnalisés et de les déployer en tant que conteneurs sur des appareils. En fonctionnant de concert, ces deux services vous permettent de rechercher des insights à partir de flux vidéo ou d’images sans avoir à transférer toutes les données hors site au préalable. Custom Vision fournit un classifieur qui compare une image par rapport à un modèle entraîné pour générer des insights. 
+Grâce à Azure IoT Edge, votre solution IoT peut gagner en efficacité, via le déplacement des charges de travail en dehors du cloud et vers la périphérie. Cette fonctionnalité s’avère particulièrement utile pour les services qui traitent de nombreuses données, comme les modèles de vision par ordinateur. [Custom Vision](../cognitive-services/custom-vision-service/home.md) vous permet de créer des classifieurs d’images personnalisés et de les déployer en tant que conteneurs sur des appareils. En fonctionnant de concert, ces deux services vous permettent de rechercher des insights à partir de flux vidéo ou d’images sans avoir à transférer toutes les données hors site au préalable. Custom Vision fournit un classifieur qui compare une image par rapport à un modèle entraîné pour générer des insights.
 
-Par exemple, Custom Vision sur un appareil IoT Edge peut déterminer si le trafic sur une autoroute est plus ou moins dense que la normale, ou si un parking dispose de places libres dans une ligne. Ces insights peuvent être partagés avec un autre service pour entreprendre des actions. 
+Par exemple, Custom Vision sur un appareil IoT Edge peut déterminer si le trafic sur une autoroute est plus ou moins dense que la normale, ou si un parking dispose de places libres dans une ligne. Ces insights peuvent être partagés avec un autre service pour entreprendre des actions.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes : 
+Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
+>
 > * Créer un classifieur d’images avec Custom Vision.
 > * Développer un module IoT Edge qui interroge le serveur web Custom Vision sur votre appareil.
 > * Envoyer les résultats du classifieur d’images à IoT Hub.
@@ -72,10 +73,11 @@ Une fois votre classifieur d’images créé et entraîné, vous pouvez l’expo
    | ----- | ----- |
    | Nom | Donnez un nom à votre projet, par exemple **EdgeTreeClassifier**. |
    | Description | Description facultative du projet. |
-   | Groupe de ressources | Acceptez **l’essai gratuit limité** par défaut. |
+   | Groupe de ressources | Sélectionnez un de vos groupes de ressources Azure contenant une ressource de service Custom Vision ou **créez-en un nouveau** si vous n’en avez pas encore ajouté un. |
    | Types de projet | **Classification** |
-   | Classification Types (Types de classification) | **Multiclass (single tag per image)** (Multiclasse (une balise par image)) | 
+   | Classification Types (Types de classification) | **Multiclass (single tag per image)** (Multiclasse (une balise par image)) |
    | Domaines | **General (compact)** (Général (compact)) |
+   | Fonctionnalités d’exportation | **Plateformes de base (Tensorflow, CoreML, ONNX...)** |
 
 5. Sélectionnez **Créer un projet**.
 

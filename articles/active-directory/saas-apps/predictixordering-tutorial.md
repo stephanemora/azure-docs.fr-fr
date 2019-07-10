@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 79e9952aefc44b7c490bb9fe375487c1a3335fc8
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 457ab3a0d5e816becbd2b32d858d5172951f27ad
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65901510"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094120"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-ordering"></a>Didacticiel : Intégration d’Azure Active Directory à Predictix Ordering
 
@@ -100,7 +100,7 @@ Pour configurer l’authentification unique Azure AD avec Predictix Ordering, e
 
     ![Icône Modifier](common/edit-urls.png)
 
-4. Dans la boîte de dialogue **Configuration SAML de base**, effectuez les étapes suivantes.
+4. Dans la boîte de dialogue **Configuration SAML de base**, procédez comme suit.
 
     ![Boîte de dialogue Configuration SAML de base](common/sp-identifier.png)
 
@@ -119,7 +119,7 @@ Pour configurer l’authentification unique Azure AD avec Predictix Ordering, e
     > [!NOTE]
     > Ces valeurs sont des espaces réservés. Vous devez utiliser l’URL de connexion et l’identificateur réels. Contactez l’[équipe de support Predictix Ordering](https://www.predix.io/support/) pour obtenir les valeurs. Vous pouvez aussi vous référer aux modèles figurant dans la boîte de dialogue **Configuration SAML de base** dans le portail Azure.
 
-5. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, sélectionnez le lien **Télécharger** à côté du **certificat (Base64)** correspondant à vos besoins, puis enregistrez le certificat sur votre ordinateur :
+5. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, sélectionnez le lien **Télécharger** en regard du **Certificat (Base64)** correspondant à vos besoins, puis enregistrez le certificat sur votre ordinateur :
 
     ![Lien de téléchargement du certificat](common/certificatebase64.png)
 
@@ -139,13 +139,13 @@ Pour configurer l’authentification unique côté Predictix Ordering, vous deve
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
-Dans cette section, vous allez créer un utilisateur de test nommé Britta Simon dans le portail Azure.
+Dans cette section, vous allez créer un utilisateur de test appelé Britta Simon dans le portail Azure.
 
-1. Dans le portail Azure, sélectionnez **Azure Active Directory** dans le volet gauche, sélectionnez **Utilisateurs**, puis **Tous les utilisateurs** :
+1. Dans le volet de gauche du portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs** :
 
     ![Sélectionner Tous les utilisateurs](common/users.png)
 
-2. Sélectionnez **Nouvel utilisateur** en haut de l’écran :
+2. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran :
 
     ![Sélectionner Nouvel utilisateur](common/new-user.png)
 
@@ -155,7 +155,7 @@ Dans cette section, vous allez créer un utilisateur de test nommé Britta Simon
 
     1. Dans la zone **Nom**, entrez **BrittaSimon**.
   
-    1. Dans la zone **Nom d’utilisateur**, entrez **BrittaSimon@\<votre_domaine_d’entreprise>.\<extension>** . (Par exemple, BrittaSimon@contoso.com.)
+    1. Dans la zone **Nom d’utilisateur**, entrez **BrittaSimon@\<votre_domaine_d'entreprise>.\<extension>** . (Par exemple, BrittaSimon@contoso.com.)
 
     1. Sélectionnez **Afficher le mot de passe**, puis notez la valeur affichée dans la zone **Mot de passe**.
 

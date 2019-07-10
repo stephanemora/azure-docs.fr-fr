@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/25/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b9fdc6bf46cff1f3a38d40a4e7abad5bfe56c47
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 95ce68547ca13d2395fcd447990c42c48c04eb5f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65866379"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089384"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-symantec-web-security-service-wss"></a>Tutoriel : Intégration d’Azure Active Directory à Symantec Web Security Service (WSS)
 
@@ -56,7 +56,7 @@ Pour configurer l’intégration de Symantec Web Security Service (WSS) à Azure
 
 **Pour ajouter Symantec Web Security Service (WSS) à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -68,7 +68,7 @@ Pour configurer l’intégration de Symantec Web Security Service (WSS) à Azure
 
     ![Bouton Nouvelle application](common/add-new-app.png)
 
-4. Dans la zone de recherche, tapez **Symantec Web Security Service (WSS)**, sélectionnez **Symantec Web Security Service (WSS)** dans le volet des résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+4. Dans la zone de recherche, tapez **Symantec Web Security Service (WSS)** , sélectionnez **Symantec Web Security Service (WSS)** dans le volet des résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
      ![Symantec Web Security Service (WSS) dans la liste des résultats](common/search-new-app.png)
 
@@ -92,7 +92,7 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
 Pour configurer l’authentification unique Azure AD avec Symantec Web Security Service (WSS), effectuez les étapes suivantes :
 
-1. Dans le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **Symantec Web Security Service (WSS)**, sélectionnez **Authentification unique**.
+1. Dans le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **Symantec Web Security Service (WSS)** , sélectionnez **Authentification unique**.
 
     ![Lien Configurer l’authentification unique](common/select-sso.png)
 
@@ -152,11 +152,11 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Symantec Web Security Service (WSS).
 
-1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, **Toutes les applications**, puis sélectionnez **Symantec Web Security Service (WSS)**.
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, **Toutes les applications**, puis sélectionnez **Symantec Web Security Service (WSS)** .
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
-2. Dans la liste des applications, tapez et sélectionnez **Symantec Web Security Service (WSS)**.
+2. Dans la liste des applications, tapez et sélectionnez **Symantec Web Security Service (WSS)** .
 
     ![Lien Symantec Web Security Service (WSS) dans la liste des applications](common/all-applications.png)
 

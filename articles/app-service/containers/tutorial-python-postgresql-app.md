@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: beverst;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b3d262a33ecbc35ada278019ee0998486bc92efe
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 4b2304e170f9ddc14a5c1fa71a8822d083955106
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678919"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341543"
 ---
 # <a name="build-a-python-and-postgresql-app-in-azure-app-service"></a>Créer une application Python et PostgreSQL dans Azure App Service
 
@@ -286,7 +286,8 @@ Dans cette étape, vous allez déployer l’application Python connectée à Pos
 Django valide l’en-tête `HTTP_HOST` dans les requêtes entrantes. Pour que votre application Django fonctionne dans App Service, vous devez ajouter le nom de domaine complet de l’application aux hôtes autorisés. Ouvrez _azuresite/settings.py_ et recherchez le paramètre `ALLOWED_HOSTS`. Remplacez la ligne par :
 
 ```python
-ALLOWED_HOSTS = [os.environ['WEBSITE_SITE_NAME'] + '.azurewebsites.net', '127.0.0.1'] if 'WEBSITE_SITE_NAME' in os.environ else []
+ALLOWED_HOSTS = [os.environ['WEBSITE_SITE_NAME'] + '.azurewebsites.net',
+                 '127.0.0.1'] if 'WEBSITE_SITE_NAME' in os.environ else []
 ```
 
 Comme Django ne prend pas en charge le [traitement des fichiers statiques en production](https://docs.djangoproject.com/en/2.1/howto/static-files/deployment/), vous devez ensuite activer cette opération manuellement. Pour ce tutoriel, vous utilisez [WhiteNoise](https://whitenoise.evans.io/en/stable/). Le package WhiteNoise est déjà inclus dans _requirements.txt_. Vous devez simplement configurer Django pour qu’il l’utilise. 
@@ -396,7 +397,7 @@ Accédez à `<app-name>.azurewebsites.net` et connectez-vous à l’aide de l’
 
 [!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
 
-## <a name="manage-your-app-in-the-azure-portal"></a>Gérer votre application dans le Portail Azure
+## <a name="manage-your-app-in-the-azure-portal"></a>Gérer votre application dans le portail Azure
 
 Accédez au [Portail Azure](https://portal.azure.com) pour voir l’application que vous avez créée.
 

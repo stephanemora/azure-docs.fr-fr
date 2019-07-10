@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 4d50c4366128edb5b4bc76408eb1085817af1ce3
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 664824772d9c04e5d02d7a38cda58ad4ede8baaf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65896732"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67096269"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-new-relic"></a>Didacticiel : Intégration d’Azure Active Directory à New Relic
 
@@ -52,7 +52,7 @@ Pour configurer l’intégration de New Relic à Azure AD, vous devez ajouter N
 
 **Pour ajouter New Relic à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -106,7 +106,7 @@ Pour configurer l’authentification unique Azure AD avec New Relic, procédez 
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://rpm.newrelic.com/accounts/{acc_id}/sso/saml/login`. Veillez à spécifier votre propre ID de compte New Relic.
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL : `rpm.newrelic.com`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL : `rpm.newrelic.com`
 
 5. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le **Certificat (Base64)** en fonction des options définies par rapport à vos besoins, puis enregistrez-le sur votre ordinateur.
 

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b9e4f5208eb1f6abb0d6fd786630c183a04ce50
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: aba2d3bab7d709b4bb9ac18e4a9c6ed052a5fb83
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66388867"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086961"
 ---
 # <a name="tutorial-integrate-workday-with-azure-active-directory"></a>Didacticiel : Intégrer Workday à Azure Active Directory
 
@@ -137,8 +137,8 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
    > [!NOTE]
    > La valeur de l’attribut Environment est liée à celle de l’URL du client :  
-   > - Si le nom de domaine de l’URL du locataire Workday commence par impl (par exemple : *https:\//impl.workday.com/\<tenant\>/login-saml2.flex*), l’attribut **Environment** doit être défini sur Implementation.  
-   > - Si le nom de domaine commence par autre chose, vous devez contacter l’[équipe de support technique de Workday](https://www.workday.com/en-us/partners-services/services/support.html) pour obtenir la valeur correspondante de l’attribut **Environment**.
+   > \- Si le nom de domaine de l’URL du locataire Workday commence par impl (par exemple : *https:\//impl.workday.com/\<tenant\>/login-saml2.flex*), l’attribut **Environment** doit être défini sur Implementation.  
+   > \- Si le nom de domaine commence par autre chose, vous devez contacter l’[équipe de support technique de Workday](https://www.workday.com/en-us/partners-services/services/support.html) pour obtenir la valeur correspondante de l’attribut **Environment**.
 
 4. Dans la section **SAML Setup** , procédez comme suit :
 

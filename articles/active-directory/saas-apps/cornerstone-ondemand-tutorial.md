@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 550ffb146db9bb644b46467a7feb8c30792f6ad8
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 70634025bcf09d9cd96ea9d7ca9b228749a299ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65900191"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67104563"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cornerstone-ondemand"></a>Didacticiel : Intégration d’Azure Active Directory à Cornerstone OnDemand
 
@@ -54,7 +54,7 @@ Pour configurer l’intégration de Cornerstone OnDemand à Azure AD, vous dev
 
 **Pour ajouter Cornerstone OnDemand à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -108,7 +108,7 @@ Pour configurer l’authentification unique Azure AD avec Cornerstone OnDemand, 
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<company>.csod.com`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://<company>.csod.com`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://<company>.csod.com`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez [l’équipe du support client Cornerstone OnDemand](mailto:moreinfo@csod.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.

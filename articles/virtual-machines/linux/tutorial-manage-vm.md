@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 270479061ad40fdda9db06571ad4ef24b00d6c4d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fdb01802ec5b20ce57955a4e74e9de8108f4d96d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66171846"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077013"
 ---
 # <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>Didacticiel : Créer et gérer des machines virtuelles Linux avec l’interface Azure CLI
 
@@ -50,11 +50,11 @@ az group create --name myResourceGroupVM --location eastus
 
 Le groupe de ressources est spécifié lors de la création ou de la modification d’une machine virtuelle, qui peut être vue dans ce didacticiel.
 
-## <a name="create-virtual-machine"></a>Créer une machine virtuelle 
+## <a name="create-virtual-machine"></a>Créer une machine virtuelle
 
 Créez une machine virtuelle avec la commande [az vm create](https://docs.microsoft.com/cli/azure/vm). 
 
-Lorsque vous créez une machine virtuelle, plusieurs options sont disponibles, comme l’image de système d’exploitation, le dimensionnement des disques et les informations d’identification d’administration. L’exemple suivant permet de créer une machine virtuelle nommée *myVM* qui s’exécute sur le serveur Ubuntu. Un compte d’utilisateur nommé *azureuser* est créé sur la machine virtuelle, et les clés SSH sont générées si elles n’existent pas dans l’emplacement de la clé par défaut (*~/.ssh*) :
+Lorsque vous créez une machine virtuelle, plusieurs options sont disponibles, comme l’image de système d’exploitation, le dimensionnement des disques et les informations d’identification d’administration. L’exemple suivant permet de créer une machine virtuelle nommée *myVM* qui s’exécute sur le serveur Ubuntu. Un compte d’utilisateur nommé *azureuser* est créé sur la machine virtuelle, et les clés SSH sont générées si elles n’existent pas dans l’emplacement de la clé par défaut ( *~/.ssh*) :
 
 ```azurecli-interactive
 az vm create \
@@ -155,14 +155,14 @@ Une taille de machine virtuelle détermine la quantité de ressources de calcul 
 
 Le tableau suivant classe les tailles en fonction des cas d’utilisation.  
 
-| Type                     | Tailles           |    Description       |
+| Type                     | Tailles courantes           |    Description       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [Usage général](sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| Ratio processeur/mémoire équilibré. Idéale pour le développement/test et pour les petites et moyennes applications et solutions de données.  |
-| [Optimisé pour le calcul](sizes-compute.md)   | Fs, F             | Ratio processeur/mémoire élevé. Convient pour les applications au trafic moyen, les appliances réseau et les processus de traitement par lots.        |
-| [Mémoire optimisée](../virtual-machines-windows-sizes-memory.md)    | Esv3, Ev3, M, GS, G, DSv2, DS, Dv2, D   | Ratio mémoire/cœur élevé. Idéale pour les bases de données relationnelles, les caches moyens à grands et l’analytique en mémoire.                 |
-| [Optimisé pour le stockage](../virtual-machines-windows-sizes-storage.md)      | Ls                | Débit de disque et E/S élevés. Idéale pour les bases de données NoSQL, SQL et Big Data.                                                         |
-| [GPU](sizes-gpu.md)          | NV, NC            | Machines virtuelles spécialisées conçues pour les opérations graphiques lourdes et la retouche vidéo.       |
-| [Hautes performances](sizes-hpc.md) | H, A8-11          | Nos machines virtuelles dotées des processeurs les plus puissants avec interfaces réseau haut débit en option (RDMA). 
+| [Usage général](sizes-general.md)         |B, Dsv3, Dv3, DSv2, Dv2, Av2, DC| Ratio processeur/mémoire équilibré. Idéale pour le développement/test et pour les petites et moyennes applications et solutions de données.  |
+| [Optimisé pour le calcul](sizes-compute.md)   | Fsv2          | Ratio processeur/mémoire élevé. Convient pour les applications au trafic moyen, les appliances réseau et les processus de traitement par lots.        |
+| [Mémoire optimisée](sizes-memory.md)    | Esv3, Ev3, M, DSv2, Dv2  | Ratio mémoire/cœur élevé. Idéale pour les bases de données relationnelles, les caches moyens à grands et l’analytique en mémoire.                 |
+| [Optimisé pour le stockage](sizes-storage.md)      | Lsv2, Ls              | Débit de disque et E/S élevés. Idéale pour les bases de données NoSQL, SQL et Big Data.                                                         |
+| [GPU](sizes-gpu.md)          | NV, NVv2, NC, NCv2, NCv3, ND            | Machines virtuelles spécialisées conçues pour les opérations graphiques lourdes et la retouche vidéo.       |
+| [Hautes performances](sizes-hpc.md) | H        | Nos machines virtuelles dotées des processeurs les plus puissants avec interfaces réseau haut débit en option (RDMA). |
 
 
 ### <a name="find-available-vm-sizes"></a>Rechercher les tailles de machines virtuelles disponibles

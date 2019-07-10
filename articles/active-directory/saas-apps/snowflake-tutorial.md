@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 617a01fdce71e76cf4783ee6a274ee428b0b3b57
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 6e5078c498b3ce4b0c132b6ed2300a58a997f7dd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65889413"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089977"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-snowflake"></a>Didacticiel : Intégration d’Azure Active Directory à Snowflake
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de Snowflake dans Azure AD, vous devez ajouter
 
 **Pour ajouter Snowflake depuis la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

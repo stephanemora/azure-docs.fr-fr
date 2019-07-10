@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: dc1d7032f80babf8686397ae4dcf0043f456acbd
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: 2bdc3a13582f079cc9325ef1c6949c3ae10138eb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565168"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102523"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-firmplay---employee-advocacy-for-recruiting"></a>Didacticiel : Intégration d’Azure Active Directory à FirmPlay - Employee Advocacy for Recruiting
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de FirmPlay - Employee Advocacy for Recruiting 
 
 **Pour ajouter FirmPlay - Employee Advocacy for Recruiting à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

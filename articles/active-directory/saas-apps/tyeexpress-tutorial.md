@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: d84a7060fadcb3f3d80b7fbbff9d91f8812388b2
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 10ebe796f5aed827a4934a94d568aedbef704503
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920611"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088230"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-te-express"></a>Didacticiel : Intégration d’Azure Active Directory à T&E Express
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de T&E Express à Azure AD, vous devez ajouter
 
 **Pour ajouter T&amp;E Express à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -134,7 +134,7 @@ Pour configurer l’authentification unique Azure AD avec T&E Express, effectue
 
     ![Configurer l'authentification unique](./media/tyeexpress-tutorial/tye-SAML.png)
 
-1. Changez l’option **Activar (Activer)** de **No (Non)** à **SI (Oui)**. Dans la zone de texte des **métadonnées du fournisseur d’identité**, collez les métadonnées XML que vous avez téléchargées à partir du portail Azure.
+1. Changez l’option **Activar (Activer)** de **No (Non)** à **SI (Oui)** . Dans la zone de texte des **métadonnées du fournisseur d’identité**, collez les métadonnées XML que vous avez téléchargées à partir du portail Azure.
 
     ![Configurer l'authentification unique](./media/tyeexpress-tutorial/tyeAdmin.png)
 

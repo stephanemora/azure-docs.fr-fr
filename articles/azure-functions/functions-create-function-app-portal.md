@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 04/11/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: a1d4af695807a6e2c5ef4ee74527083002bc6015
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: ad9c50953447c1effee48eec5b0cb9f64386e6cc
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54900764"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155570"
 ---
 # <a name="create-a-function-app-from-the-azure-portal"></a>Créer une Function App à l’aide du Portail Azure
 
@@ -27,7 +27,7 @@ Azure Function App utilise l’infrastructure Azure App Service. Cette rubrique 
 
 [!INCLUDE [functions-create-function-app-portal](../../includes/functions-create-function-app-portal.md)]
 
-Lorsque vous créez une Function App, vous devez entrer un **nom d’application** valide, qui peut seulement contenir des lettres, des chiffres et des traits d’union. Le trait de soulignement (**_**) n’est pas un caractère autorisé.
+Lorsque vous créez une Function App, vous devez entrer un **nom d’application** valide, qui peut seulement contenir des lettres, des chiffres et des traits d’union. Le trait de soulignement ( **_** ) n’est pas un caractère autorisé.
 
 Les noms des comptes de stockage doivent comporter entre 3 et 24 caractères, uniquement des lettres minuscules et des chiffres. Le nom de votre compte de stockage doit être unique dans Azure. 
 
@@ -52,4 +52,7 @@ Pour en savoir plus sur les types de compte de stockage, consultez [Présentatio
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[!INCLUDE [Functions quickstart next steps](../../includes/functions-quickstart-next-steps.md)]
+Si le portail Azure permet de créer et essayer facilement Functions, nous vous recommandons le [développement local](functions-develop-local.md). Après avoir créé une Function App dans le portail, vous devez toujours ajouter une fonction. 
+
+> [!div class="nextstepaction"]
+> [Ajouter une fonction déclenchée via HTTP](functions-create-first-azure-function.md#create-function)

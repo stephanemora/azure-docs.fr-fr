@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 38276757d0472582c3cf5035e1f52d34158a7e38
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 1692032b093cd6189cac3ea3f63c563d9accd8ed
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59784674"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477826"
 ---
 # <a name="project-acoustics-unrealwwise-design-tutorial"></a>Tutoriel de conception Project Acoustics Unreal/Wwise
 Ce tutoriel décrit la configuration et le workflow de la conception pour Project Acoustics dans Unreal et Wwise.
@@ -122,6 +122,11 @@ Pour gérer les données acoustiques de streaming vous-même au lieu du streamin
 La taille de la vignette doit être déjà définie avant d’appeler Force Load Tile. Par exemple, vous pouvez faire ceci pour charger un fichier ACE, définir la taille de la vignette et effectuer le streaming dans une région :
 
 ![Capture d’écran des options Streaming Setup dans Unreal](media/streaming-setup.png)
+
+La fonction de plan Load Acoustics Data utilisée dans cet exemple présente les paramètres suivants :
+
+* **Target :** L’acteur AcousticsSpace.
+* **Nouveau bake :** La ressource de données acoustiques à charger. En laissant ce paramètre vide/ou en le définissant sur null, le bake actuel est déchargé sans en charger de n nouveau.
 
 ### <a name="optionally-query-for-surface-proximity"></a>Interroger (facultatif) la proximité de la surface
 Si vous voulez voir à quelle distance les surfaces se trouvent dans une direction particulière autour de l’auditeur, vous pouvez utiliser la fonction Query Distance. Cette fonction peut être utile pour piloter des réflexions directionnelles retardées, ou pour toute autre logique de jeu pilotée par la proximité des surfaces. La requête consomme moins de ressources que le raycasting, car les résultats sont extraits de la table de recherche acoustique.

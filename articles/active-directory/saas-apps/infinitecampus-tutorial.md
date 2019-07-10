@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 91f1d7151debb1f1f3a562337d6c37e4f63a7ee7
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: d54769c1f3265e2cee619520044313fca46855a5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565289"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67100372"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infinite-campus"></a>Tutoriel : Intégration d’Azure Active Directory à Infinite Campus
 
@@ -54,7 +54,7 @@ Pour configurer l’intégration d’Infinite Campus avec Azure AD, vous devez 
 
 **Pour ajouter Infinite Campus à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

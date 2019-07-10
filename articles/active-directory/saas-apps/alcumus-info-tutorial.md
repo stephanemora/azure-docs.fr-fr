@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Alcumus Info Exchange | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Alcumus Info Exchange | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Alcumus Info Exchange.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5f514fe06c056c4f3142cbe1aad1f5b4082a796
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 82a51913e2b278849d2640c838fa7ebc38bc2d9c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57877783"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107182"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-alcumus-info-exchange"></a>Tutoriel : Intégration d’Azure Active Directory avec Alcumus Info Exchange
+# <a name="tutorial-azure-active-directory-integration-with-alcumus-info-exchange"></a>Didacticiel : Intégration d’Azure Active Directory avec Alcumus Info Exchange
 
 Dans ce didacticiel, vous allez apprendre à intégrer Alcumus Info Exchange à Azure Active Directory (Azure AD).
 L’intégration d’Alcumus Info Exchange dans Azure AD vous offre les avantages suivants :
@@ -53,7 +53,7 @@ Pour configurer l’intégration d’Alcumus Info Exchange dans Azure AD, vous 
 
 **Pour ajouter Alcumus Info Exchange à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

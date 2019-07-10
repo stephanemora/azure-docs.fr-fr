@@ -17,12 +17,12 @@ ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 5fabe9ba03c9516f5df41645fc6ab1b7a0cb2050
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 387801f2ecb2f5fa1639005726218efb54d75dc8
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262174"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331422"
 ---
 # <a name="create-a-cicd-pipeline-for-net-with-azure-devops-projects"></a>Créer un pipeline CI/CD pour .NET avec Azure DevOps Projects
 
@@ -44,51 +44,45 @@ Azure DevOps Projects crée un pipeline CI/CD dans Azure DevOps. Vous pouvez cr�
 
 ## <a name="select-a-sample-application-and-azure-service"></a>Sélectionner un exemple d’application et le service Azure
 
-1. Sélectionnez l’exemple d’application .NET. Les exemples .NET offrent le choix entre une infrastructure ASP.NET open source et une infrastructure .NET Core multiplateforme.
+1. Sélectionnez Exemple d’application **.NET**. Les exemples .NET offrent le choix entre une infrastructure ASP.NET open source et une infrastructure .NET Core multiplateforme.
 
-    ![.NET Framework](_img/azure-devops-project-aspnet-core/chooselanguagedotnet.png)
+   ![.NET Framework](_img/azure-devops-project-aspnet-core/chooselanguagedotnet.png)
 
-1. Sélectionnez le framework d’application .NET Core.  
-    Cet exemple est une application MVC ASP.NET Core.
+2. Cet exemple est une application MVC ASP.NET Core. Sélectionnez le framework d’application **.NET Core**, puis **Suivant**.    
     
-2. Sélectionnez **Suivant**.  
-    La cible de déploiement par défaut est Web App sur Windows.  Si vous le souhaitez, vous pouvez choisir Web App sur Linux ou Web App pour conteneurs.  Le framework d’application, que vous avez choisi précédemment, détermine le type de cible de déploiement de service Azure disponible ici.  
-    
-3. Laissez le service par défaut, puis sélectionnez **Suivant**.
+3. Sélectionnez **Application web Windows** comme cible de déploiement, puis sélectionnez **Suivant**. Si vous le souhaitez, vous pouvez choisir d’autres services Azure pour votre déploiement. Le framework d’application, que vous avez choisi précédemment, détermine le type de cible de déploiement de service Azure disponible ici.
 
 ## <a name="configure-azure-devops-and-an-azure-subscription"></a>Configurer Azure DevOps et un abonnement Azure 
 
-1. Créez gratuitement une organisation Azure DevOps ou choisissez une organisation existante.
+1. Entrez un **Nom de projet**.
 
-    a. Choisissez un nom pour votre projet. 
+2. Créez gratuitement une **organisation Azure DevOps** ou choisissez une organisation existante dans la liste déroulante.
 
-    b. Sélectionnez votre abonnement et un emplacement Azure, choisissez un nom pour votre application, puis sélectionnez **Terminé**.  
-    Après quelques minutes, le tableau de bord DevOps Projects s’affiche dans le portail Azure. Un exemple d’application est configuré dans un dépôt de votre organisation Azure DevOps, une build est exécutée et votre application est déployée sur Azure. Ce tableau de bord donne une visibilité sur votre dépôt de code, le pipeline CI/CD et votre application dans Azure.
-    
+3. Sélectionnez votre **abonnement Azure**, entrez un nom pour votre **application web** ou prenez la valeur par défaut, puis sélectionnez **Terminé**. Après quelques minutes, la vue d’ensemble de déploiement de DevOps Projects s’affiche dans le portail Azure. 
 
-2. Sur la droite du tableau de bord, sélectionnez **Parcourir** pour voir votre application en cours d’exécution.
+4. Sélectionnez **Accéder à la ressource** pour afficher le tableau de bord du projet DevOps. Dans le coin supérieur droit, épinglez le **projet** à votre tableau de bord pour y accéder rapidement. Un exemple d’application est défini dans un référentiel dans votre **organisation Azure DevOps**. Un build est exécuté et votre application est déployée sur Azure.
 
-    ![Vue du tableau de bord](_img/azure-devops-project-aspnet-core/dashboardnopreview.png) 
+5. Le tableau de bord donne une visibilité sur votre dépôt de code, votre pipeline CI/CD et votre application dans Azure. À droite, sous les ressources Azure, sélectionnez **Parcourir** pour voir votre application en cours d’exécution.
+
+   ![Vue du tableau de bord](_img/azure-devops-project-aspnet-core/dashboardnopreview.png) 
 
 ## <a name="commit-code-changes-and-execute-cicd"></a>Valider les modifications de code et exécuter CI/CD
 
- DevOps Projects crée un dépôt Git dans Azure Repos ou dans GitHub. Pour voir le dépôt et modifier le code dans votre application, suivez les étapes ci-dessous :
+DevOps Projects crée un dépôt Git dans Azure Repos ou dans GitHub. Pour voir le dépôt et modifier le code dans votre application, suivez les étapes ci-dessous :
 
-1. À gauche du tableau de bord DevOps Projects, sélectionnez le lien correspondant à votre branche **master**.  
-Ce lien ouvre une vue sur le dépôt Git récemment créé.
+1. À gauche du tableau de bord DevOps Projects, sélectionnez le lien correspondant à votre branche **master**. Ce lien ouvre une vue sur le référentiel Git récemment créé.
 
-1. Pour afficher l’URL du clone du dépôt, sélectionnez **Clone** en haut à droite du navigateur.  
-Vous pouvez cloner votre dépôt Git dans votre environnement de développement intégré favori.  Dans les prochaines étapes, vous allez utiliser le navigateur web pour effectuer des modifications de code directement dans la branche master et les valider.
+2. Dans les prochaines étapes, vous allez utiliser le navigateur web pour effectuer des modifications de code directement dans la branche **maîtresse** et les valider. Vous pouvez également cloner votre référentiel Git dans votre IDE favori en sélectionnant **Cloner** dans la partie supérieure droite de la page du référentiel. 
 
-1. Sur la gauche du navigateur, accédez au fichier **Views/Home/index.cshtml**.
+3. Sur la gauche, parcourez la structure de fichiers de l’application jusqu’à **Application/aspnet-core-dotnet-core/Pages/Index.cshtml**.
 
-1. Sélectionnez **Modifier**, puis modifiez le titre h2. Par exemple, tapez **Prise en main directe d’Azure DevOps Projects** ou faites une autre modification.
+4. Sélectionnez **Modifier**, puis modifiez le titre h2. Par exemple, tapez **Prise en main directe d’Azure DevOps Projects** ou faites une autre modification.
 
-    ![Modifications du code](_img/azure-devops-project-aspnet-core/codechange.png)
+      ![Modifications du code](_img/azure-devops-project-aspnet-core/codechange.png)
 
-1. Sélectionnez **Valider**, puis enregistrez vos modifications.
+5. Sélectionnez **Valider**, laissez un commentaire et sélectionnez **Valider** à nouveau.
 
-1. Dans le navigateur, accédez au tableau de bord Azure DevOps Projects.  Vous devez maintenant voir qu’une build est en cours. Les modifications que vous avez apportées font automatiquement l’objet d’une build et d’un déploiement via un pipeline CI/CD.
+6. Dans le navigateur, accédez au tableau de bord Azure DevOps Projects.  Vous devez maintenant voir qu’une build est en cours. Les modifications que vous avez apportées font automatiquement l’objet d’une build et d’un déploiement via un pipeline CI/CD.
 
 ## <a name="examine-the-cicd-pipeline"></a>Examiner le pipeline CI/CD
 
@@ -111,7 +105,7 @@ Ce lien ouvre un onglet du navigateur et le pipeline de build Azure DevOps pour 
 1. Remplacez le nom de votre pipeline de build par un nom plus descriptif, sélectionnez **Enregistrer et mettre en file d’attente**, puis sélectionnez **Enregistrer**.
 
 1. Sous le nom de votre pipeline de build, sélectionnez **Historique**.   
-Dans le volet **Historique**, vous pouvez voir une piste d’audit des modifications que vous avez apportées récemment à la build.  Azure Pipelines fait le suivi des modifications apportées au pipeline de build et vous permet de comparer des versions.
+Dans le volet **Historique**, vous pouvez voir une piste d’audit des modifications que vous avez apportées récemment à la build.  Azure Pipelines gère les modifications apportées au pipeline de build et vous permet de comparer les versions.
 
 1. Sélectionnez **Déclencheurs**.  
 DevOps Projects a créé automatiquement un déclencheur CI, et chaque validation dans le dépôt lance une nouvelle build.  Vous pouvez éventuellement choisir d’inclure ou d’exclure des branches dans le processus d’intégration continue.
@@ -157,6 +151,6 @@ Pour plus d’informations sur la modification des pipelines de build et de mise
 > [!div class="nextstepaction"]
 > [Personnaliser le processus CD](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
 
-## <a name="videos"></a>vidéos
+## <a name="videos"></a>Videos
 
 > [!VIDEO https://www.youtube.com/embed/itwqMf9aR0w]

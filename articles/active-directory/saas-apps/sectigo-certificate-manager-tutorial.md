@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 15-04-2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 573e06f0dd57b92f7621ecf77039159a64249f18
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 2d7c7cf4972b1ee0a5add3b4611dc4c8655da875
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65786505"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091533"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sectigo-certificate-manager"></a>Didacticiel : Intégration d'Azure Active Directory à Sectigo Certificate Manager
 
@@ -33,7 +33,7 @@ L’intégration de Sectigo Certificate Manager à Azure AD vous offre les avant
 * Les utilisateurs peuvent être automatiquement connectés à Sectigo Certificate Manager avec leur compte Azure AD (par le biais de l’authentification unique).
 * Vous pouvez centraliser la gestion de vos comptes à un seul emplacement : le Portail Azure.
 
-Pour plus d'informations sur l’intégration d’applications software as a service (SaaS) à Azure AD, consultez l’article [S’authentifier avec l’authentification unique auprès des applications dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Pour plus d’informations sur l’intégration d’applications software as a service (SaaS) à Azure AD, consultez l’article [S’authentifier avec l’authentification unique auprès des applications dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Prérequis
 

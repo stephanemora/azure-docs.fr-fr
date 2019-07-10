@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/25/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a62aa573d49ccdd237e692b63a6fda0dd83d52a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7c3651e81cd3916bccc859bc3bc010511b2a114a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65870001"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67095259"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks-captive-portal"></a>Didacticiel : Intégration d’Azure Active Directory à Palo Alto Networks Captive Portal
 
@@ -158,7 +158,7 @@ Ensuite, créez un utilisateur de test nommé *Britta Simon* dans le portail Azu
 
     1. Pour **Nom**, entrez **BrittaSimon**.
   
-    2. Pour **Nom d’utilisateur**, entrez **BrittaSimon\@\<domaine_de_votre_entreprise\>**. Par exemple, **BrittaSimon\@contoso.com**.
+    2. Pour **Nom d’utilisateur**, entrez **BrittaSimon\@\<domaine_de_votre_entreprise\>** . Par exemple, **BrittaSimon\@contoso.com**.
 
     3. Pour **Mot de passe**, entrez un mot de passe. Nous vous recommandons de conserver un enregistrement du mot de passe que vous entrez. Vous pouvez cocher la case **Afficher le mot de passe** pour afficher le mot de passe.
 

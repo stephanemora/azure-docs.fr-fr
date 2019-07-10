@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aee12e9cdf98d1e3a7ab0a49caf8639e9e585455
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fecfc00cfae3a4407f815d27a3f48d6c3bfc92a8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57854821"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67103794"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-easyterritory"></a>Didacticiel : Intégration d’Azure Active Directory à EasyTerritory
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration d’EasyTerritory dans Azure AD, vous devez ajo
 
 **Pour ajouter EasyTerritory à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -154,7 +154,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Hosted Graphite | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Hosted Graphite | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Hosted Graphite.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49e70eab0b9824742a67e4446c5ff6f0a9a366ec
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 79a83ec34d8e9d577e6bde8421a11b4c7bf6b241
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57894663"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67100909"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-hosted-graphite"></a>Tutoriel : Intégration d’Azure Active Directory à Hosted Graphite
+# <a name="tutorial-azure-active-directory-integration-with-hosted-graphite"></a>Didacticiel : Intégration d’Azure Active Directory à Hosted Graphite
 
 Dans ce didacticiel, vous allez apprendre à intégrer Hosted Graphite à Azure Active Directory (Azure AD).
 L’intégration de Hosted Graphite à Azure AD vous offre les avantages suivants :
@@ -54,7 +54,7 @@ Pour configurer l’intégration de Hosted Graphite à Azure AD, vous devez ajou
 
 **Pour ajouter Hosted Graphite à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -177,7 +177,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

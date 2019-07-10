@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: jeedes
-ms.openlocfilehash: c4052dd3b4c8f49b19193109eb5e8d2306646960
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: a2a0ffd670a03aeaaa262b83127a385be9efc978
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65888610"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088476"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---public"></a>Didacticiel : Intégration d’Azure Active Directory à TOPdesk - Public
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de TOPdesk - Public à Azure AD, vous devez aj
 
 **Pour ajouter TOPdesk - Public à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -189,7 +189,7 @@ Pour configurer l’authentification unique Azure AD avec TOPdesk - Public, eff
     
     a. Pour charger votre fichier de métadonnées téléchargé à partir du portail Azure, dans **Métadonnées de fédération**, cliquez sur **Parcourir**.
 
-    b. Pour charger votre fichier de certificat, sous **Certificate (RSA)**, cliquez sur **Browse**.
+    b. Pour charger votre fichier de certificat, sous **Certificate (RSA)** , cliquez sur **Browse**.
 
     c. Pour charger le fichier de logo que vous avez obtenu de l’équipe de support TOPdesk, sous **Logo icon**, cliquez sur **Browse**.
 

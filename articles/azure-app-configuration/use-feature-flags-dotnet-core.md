@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.date: 04/19/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: fc5215f71af45d3273da437fc796bf0d396ba3f9
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: 5e27c6a1ab5fc9dff779c6e5d04689683d5c8e6d
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393512"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274147"
 ---
-# <a name="tutorial-use-feature-flags-in-a-net-core-app"></a>Didacticiel : Utiliser des indicateurs de fonctionnalité dans une application .NET Core
+# <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Didacticiel : Utiliser des indicateurs de fonctionnalités dans une application ASP.NET Core
 
 Les bibliothèques de gestion des fonctionnalités .NET Core fournissent une prise en charge idiomatique de l’implémentation des indicateurs de fonctionnalités dans une application .NET ou ASP.NET Core. Ces bibliothèques vous permettent d’ajouter de manière déclarative des indicateurs de fonctionnalités à votre code afin de vous éviter d’écrire manuellement toutes les instructions `if` correspondantes.
 
@@ -109,7 +109,7 @@ Les valeurs des indicateurs de fonctionnalités sont supposées changer au fil d
 config.AddAzureAppConfiguration(options => {
     options.Connect(settings["ConnectionStrings:AppConfig"])
            .UseFeatureFlags(featureFlagOptions => {
-                featureFlagOptions.PollInterval = TimeSpan.FromSeconds(5);
+                featureFlagOptions.PollInterval = TimeSpan.FromSeconds(300);
            });
 });
 ```
@@ -189,10 +189,10 @@ public class HomeController : Controller
 
 ## <a name="controller-actions"></a>Actions de contrôleur
 
-Dans les contrôleurs MVC, vous pouvez utiliser un attribut `Feature` pour déterminer si l’ensemble d’une classe de contrôleur ou une action spécifique est activée. Le contrôleur `HomeController` suivant exige que `FeatureA` soit défini sur *on* avant l’exécution de toute action que contient la classe de contrôleur :
+Dans les contrôleurs MVC, vous pouvez utiliser un attribut `FeatureGate` pour déterminer si l’ensemble d’une classe de contrôleur ou une action spécifique est activée. Le contrôleur `HomeController` suivant exige que `FeatureA` soit défini sur *on* avant l’exécution de toute action que contient la classe de contrôleur :
 
 ```csharp
-[Feature(MyFeatureFlags.FeatureA)]
+[FeatureGate(MyFeatureFlags.FeatureA)]
 public class HomeController : Controller
 {
     ...
@@ -202,7 +202,7 @@ public class HomeController : Controller
 L’action `Index` suivante exige que `FeatureA` soit défini sur *on* pour pouvoir être exécutée :
 
 ```csharp
-[Feature(MyFeatureFlags.FeatureA)]
+[FeatureGate(MyFeatureFlags.FeatureA)]
 public IActionResult Index()
 {
     return View();
@@ -218,6 +218,25 @@ Dans les vues MVC, vous pouvez utiliser une balise `<feature>` pour restituer le
 ```html
 <feature name="FeatureA">
     <p>This can only be seen if 'FeatureA' is enabled.</p>
+</feature>
+```
+
+Pour afficher un contenu alternatif quand les conditions requises ne sont pas remplies, l’attribut `negate` peut être utilisé.
+
+```html
+<feature name="FeatureA" negate="true">
+    <p>This will be shown if 'FeatureA' is disabled.</p>
+</feature>
+```
+
+La balise de fonctionnalité `<feature>` peut également être utilisée pour afficher le contenu si certaines ou l’ensemble des fonctionnalités dans une liste sont activées.
+
+```html
+<feature name="FeatureA, FeatureB" requirement="All">
+    <p>This can only be seen if 'FeatureA' and 'FeatureB' are enabled.</p>
+</feature>
+<feature name="FeatureA, FeatureB" requirement="Any">
+    <p>This can be seen if 'FeatureA', 'FeatureB', or both are enabled.</p>
 </feature>
 ```
 

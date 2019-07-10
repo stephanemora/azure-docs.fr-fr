@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: yexu
-ms.openlocfilehash: 1bc4bd9b95dc7e45b9b90fbe096ed71c5aa9bedf
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 6a9d6ec651cd365995ce63a8dff6d60c8b23dec1
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447231"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312642"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Charger de façon incrémentielle les données d’une base de données Azure SQL dans un stockage Blob Azure
 Dans ce tutoriel, vous allez créer une fabrique de données Azure avec un pipeline qui charge les données delta d’une table d’une base de données Azure SQL vers un stockage Blob Azure. 
@@ -39,7 +39,7 @@ Dans ce tutoriel, vous allez effectuer les étapes suivantes :
 > * Passer en revue les résultats de la deuxième exécution
 
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 Voici le diagramme général de la solution : 
 
 ![Chargement incrémentiel de données](media/tutorial-Incremental-copy-portal/incrementally-load.png)
@@ -63,7 +63,7 @@ Voici les étapes importantes à suivre pour créer cette solution :
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
-* **Base de données SQL Azure**. Vous utilisez la base de données comme magasin de données source. Si vous ne disposez pas d’une base de données SQL, consultez [Créer une base de données Azure SQL Database](../sql-database/sql-database-get-started-portal.md) pour connaître la procédure à suivre pour en créer une.
+* **Azure SQL Database**. Vous utilisez la base de données comme magasin de données source. Si vous ne disposez pas d’une base de données SQL, consultez [Créer une base de données Azure SQL Database](../sql-database/sql-database-get-started-portal.md) pour connaître la procédure à suivre pour en créer une.
 * **Stockage Azure**. Vous utilisez le stockage d’objets blob comme magasin de données récepteur. Si vous ne possédez pas de compte de stockage, consultez l’article [Créer un compte de stockage](../storage/common/storage-quickstart-create-account.md) pour découvrir comment en créer un. Créez un conteneur sous le nom adftutorial. 
 
 ### <a name="create-a-data-source-table-in-your-sql-database"></a>Créer une table de source de données dans votre base de données SQL
@@ -238,7 +238,7 @@ Dans ce didacticiel, vous allez créer un pipeline avec deux activités de reche
 
         ![Deuxième activité de recherche - nouveau jeu de données](./media/tutorial-incremental-copy-portal/source-dataset-connection.png)
 17. Basculez vers l’éditeur de pipeline en cliquant sur l’onglet du pipeline en haut ou bien en cliquant sur le nom du pipeline dans l’arborescence à gauche. Dans la fenêtre Propriétés pour l’activité de **recherche**, vérifiez que **SourceDataset** est sélectionné dans le champ **Jeu de données source**. 
-18. Sélectionnez **Requête** pour le champ **Utiliser une requête** et saisissez la requête suivante : vous sélectionnez uniquement la valeur maximale de **LastModifytime** à partir de **data_table_source**. Si vous n’avez pas cette requête, le jeu de données obtient toutes les lignes de la table étant donné que vous avez spécifié le nom de table (data_source_table) dans la définition du jeu de données.
+18. Sélectionnez **Requête** pour le champ **Utiliser une requête** et saisissez la requête suivante : vous sélectionnez uniquement la valeur maximale de **LastModifytime** à partir de **data_table_source**. Vérifiez que vous avez également coché **Première ligne uniquement**.
 
     ```sql
     select MAX(LastModifytime) as NewWatermarkvalue from data_source_table
@@ -308,7 +308,7 @@ Dans ce didacticiel, vous allez créer un pipeline avec deux activités de reche
 
         | Nom | type | Valeur | 
         | ---- | ---- | ----- | 
-        | LastModifiedtime | DateTime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
+        | LastModifiedtime | Datetime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
         | TableName | Chaîne | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
 
     ![Activité de procédure stockée- paramètres de procédure stockée](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)

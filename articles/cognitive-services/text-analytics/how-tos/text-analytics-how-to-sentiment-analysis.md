@@ -9,12 +9,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 02/26/2019
 ms.author: aahi
-ms.openlocfilehash: 0c42e7f8b1fffb9cf998f4cee8d30405a8df74a4
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: d4269a99a8e535692e4897630a7edd9b27347d41
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011297"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67304035"
 ---
 # <a name="example-how-to-detect-sentiment-with-text-analytics"></a>Exemple : Comment détecter les sentiments dans l’Analyse de texte
 
@@ -90,7 +90,7 @@ Vous trouverez plus d’informations sur la définition d’une demande dans [Gu
 
 ## <a name="step-2-post-the-request"></a>Étape 2 : Publier la requête
 
-L’analyse est effectuée à la réception de la demande. Le service accepte jusqu'à 100 demandes par minute. Chaque demande peut être au maximum de 1 Mo.
+L’analyse est effectuée à la réception de la demande. Consultez la section [Limites de données](../overview.md#data-limits) dans la vue d’ensemble pour plus d’informations sur la taille et le nombre de demandes que vous pouvez envoyer par minute et seconde.
 
 Rappelez-vous que le service est sans état. Aucune donnée n’est stockée dans votre compte. Les résultats sont retournés immédiatement dans la réponse.
 

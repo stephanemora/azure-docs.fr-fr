@@ -7,12 +7,12 @@ ms.date: 02/08/2019
 ms.topic: overview
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 960b8145e5f53c6c37820604fd634ccf5fd77c6b
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 5f403ee7d2bf4a0730ceaa9b5a95b3e7b11f3695
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "60876237"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67428771"
 ---
 # <a name="overview-of-the-azure-blueprints-service"></a>Vue d’ensemble du service Azure Blueprints
 
@@ -109,7 +109,7 @@ Pour affecter ou annuler l’affectation d’un blueprint, votre compte doit avo
 Toutes les autorisations ci-dessus sont incluses dans le rôle **Propriétaire**. Le rôle **Contributeur** est autorisé à créer et supprimer des blueprints, mais pas à en affecter. Si ces rôles intégrés ne répondent pas à vos besoins de sécurité, songez à créer un [rôle personnalisé](../../role-based-access-control/custom-roles.md).
 
 > [!NOTE]
-> Le principal de service pour Azure Blueprint nécessite le rôle **Propriétaire** sur l’abonnement affecté pour pouvoir activer le déploiement. Si vous utilisez le portail, ce rôle est automatiquement accordé et révoqué pour le déploiement. Si vous utilisez l’API REST, ce rôle doit être accordé manuellement, mais il est toujours automatiquement révoqué une fois le déploiement terminé.
+> Si vous utilisez une identité managée affectée par le système, le principal de service pour Azure Blueprint nécessite le rôle **Propriétaire** sur l’abonnement affecté pour pouvoir activer le déploiement. Si vous utilisez le portail, ce rôle est automatiquement accordé et révoqué pour le déploiement. Si vous utilisez l’API REST, ce rôle doit être accordé manuellement, mais il est toujours automatiquement révoqué une fois le déploiement terminé. Si vous utilisez une identité managée affectée par l’utilisateur, seul l’utilisateur qui crée l’attribution de blueprint nécessite les autorisations de **Propriétaire**.
 
 ## <a name="video-overview"></a>Présentation vidéo
 

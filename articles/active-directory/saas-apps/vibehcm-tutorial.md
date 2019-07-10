@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: cf414f9dd0f3a7ab638dc72e50aa8f3997308cc7
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 8d1f974b7fea72bede2ead2e9d971419d5e83cb2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65813655"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67087522"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vibe-hcm"></a>Didacticiel : Intégration d’Azure Active Directory à Vibe HCM
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de Vibe HCM à Azure AD, vous devez ajouter V
 
 **Pour ajouter Vibe HCM à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

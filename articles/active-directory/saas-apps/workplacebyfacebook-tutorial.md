@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27173c8beeecf2be43e80f59df8907952734c06b
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: db14df2dc24afbc8f7982d8d1e4e6429c1c4b1ba
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65905243"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086798"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workplace-by-facebook"></a>Didacticiel : Intégration d’Azure Active Directory à Workplace by Facebook | Microsoft Docs
 
@@ -66,7 +66,7 @@ Pour configurer l’intégration de Workplace by Facebook à Azure AD, vous dev
 
 **Pour ajouter Workplace by Facebook à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -120,7 +120,7 @@ Pour configurer l’authentification unique Azure AD avec Workplace by Facebook,
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<instancename>.facebook.com`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, entrez une URL au format suivant : `https://www.facebook.com/company/<instanceID>`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , entrez une URL au format suivant : `https://www.facebook.com/company/<instanceID>`
 
     > [!NOTE] 
     > Il ne s’agit pas des valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour connaître les valeurs correctes pour votre communauté Workplace, consultez la page d’authentification du tableau de bord Entreprise de Workplace.
@@ -174,7 +174,7 @@ Pour configurer l’authentification unique Azure AD avec Workplace by Facebook,
 
     i. La page de connexion à Azure AD sera désormais présentée à tous les utilisateurs de Workplace pour qu’ils s’authentifient.
 
-4. **Redirection de déconnexion SAML (facultatif)** -
+4. **Redirection de déconnexion SAML (facultatif)**  -
 
     Vous pouvez choisir de configurer une URL de déconnexion SAML, qui peut être utilisée pour pointer vers la page de déconnexion d’Azure AD. Quand ce paramètre est activé et configuré, l’utilisateur n’est plus dirigé vers la page de déconnexion de Workplace. Au lieu de cela, il est redirigé vers l’URL qui a été ajoutée dans le paramètre SAML Logout Redirect.
 

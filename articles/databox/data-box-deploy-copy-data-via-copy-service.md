@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/24/2019
+ms.date: 06/18/2019
 ms.author: alkohli
-ms.openlocfilehash: 412b554710c552bdfdf8bf94a59e822beed55b32
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: a8a8b9d872860425be721515a7087085acf12065
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925315"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206061"
 ---
 # <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-preview"></a>Didacticiel : Utiliser le service de copie des données pour copier des données dans Azure Data Box (préversion)
 
@@ -59,7 +59,7 @@ Pour copier des données par l’intermédiaire du service de copie des données
     |-------------------------------|---------|
     |**Nom du travail**                       |Nom unique contenant moins de 230 caractères pour le travail. Ces caractères ne sont pas autorisés dans le nom d’un travail : \<, \>, \|, \?, \*, \\, \:, \/ et \\\.         |
     |**Emplacement source**                |Indiquez le chemin SMB vers la source de données au format : `\\<ServerIPAddress>\<ShareName>` ou `\\<ServerName>\<ShareName>`.        |
-    |**Nom d’utilisateur**                       |Nom d’utilisateur au format `\\<DomainName><UserName>` pour accéder à la source de données.        |
+    |**Nom d’utilisateur**                       |Nom d’utilisateur au format `\\<DomainName><UserName>` pour accéder à la source de données. Si un administrateur local se connecte, il aura besoin d’autorisations de sécurité explicites. Cliquez avec le bouton droit, sélectionnez **Propriétés** , puis **Sécurité**. Cela devrait ajouter l’administrateur local dans l’onglet **Sécurité**.       |
     |**Mot de passe**                       |Mot de passe pour accéder à la source de données.           |
     |**Compte de stockage de destination**    |Sélectionnez le compte de stockage cible sur lequel charger les données à partir de la liste.         |
     |**Type de destination**       |Sélectionnez le type du stockage cible dans la liste : **Objet blob de blocs**, **Objet blob de pages** ou **Azure Files**.        |

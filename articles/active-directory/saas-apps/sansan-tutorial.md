@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d24c635607e41b83b33f7168be9d31e69245b06a
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: ea824cfd5e80ce3aff06774a2e1525cf97d15f65
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65868161"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091869"
 ---
 # <a name="tutorial-integrate-sansan-with-azure-active-directory"></a>Didacticiel : Intégrer Sansan à Azure Active Directory
 
@@ -107,9 +107,9 @@ Pour configurer l’authentification unique côté **Sansan**, vous devez envoye
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
-Dans cette section, vous allez créer un utilisateur de test appelé Britta Simon dans le portail Azure.
+Dans cette section, vous allez créer un utilisateur de test appelé Britta Simon dans le Portail Azure.
 
-1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
+1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
 1. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
 1. Dans les propriétés **Utilisateur**, effectuez les étapes suivantes :
    1. Dans le champ **Nom**, entrez `Britta Simon`.  

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 83a5d4c1d9c0475609a506fbfe6ae23bd9e236fa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 837ba4043fe27c15f75c4d401878dfdb3328b82f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65865502"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67087597"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-versal"></a>Didacticiel : Intégration d’Azure Active Directory à Versal
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de Versal à Azure AD, vous devez ajouter Vers
 
 **Pour ajouter Versal à partir de la galerie, suivez les étapes ci-dessous :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 7d844f4d2ad77f5b7cc53275a24167e5f2e71b78
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 055d141cab8ece3fcb462573f6ed4d8941c19751
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025380"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67064120"
 ---
 # <a name="speech-services-for-telephony-data"></a>Services Speech pour les données de téléphonie
 
@@ -34,7 +34,7 @@ Nous allons passer en revue quelques-unes de ces technologies et les fonctionnal
 
 ## <a name="azure-technology-for-call-centers"></a>Technologie Azure pour les centres d’appels
 
-Au-delà de leur aspect fonctionnel, les services Speech servent principalement, dans le cadre du centre d’appels, à améliorer l’expérience client. Trois domaines ressortent clairement à cet égard 
+Au-delà de leur aspect fonctionnel, les services Speech servent principalement, dans le cadre du centre d’appels, à améliorer l’expérience client. Trois domaines ressortent clairement à cet égard :
 
 * Analytique post-appel, autrement dit, le traitement par lot des enregistrements d’appel 
 * Traitement analytique en temps réel du signal audio pour extraire divers insights pendant que l’appel a lieu (le sentiment étant un cas d’usage important)
@@ -62,12 +62,12 @@ Certaines entreprises expérimentent la fourniture de transcriptions traduites �
 ### <a name="text-to-speech"></a>Synthèse vocale
 La [synthèse vocale](text-to-speech.md) est un autre aspect important de l’implémentation de bots qui interagissent avec les clients. Le processus est généralement le suivant : le client parle, sa voix est transcrite en texte, le texte est analysé afin que les intentions en soient dégagées, une réponse est synthétisée selon l’intention reconnue, puis un élément est présenté au client ou une réponse vocale synthétisée est générée. Bien entendu, tout ceci se produit rapidement ; la latence est donc un composant important de la réussite de ces systèmes. 
 
-Notre latence de bout en bout est assez faible compte tenu des différentes technologies impliquées telles que la [reconnaissance vocale](speech-to-text.md), [Luis](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/), [Bot Framework](https://dev.botframework.com/) et la [synthèse vocale](text-to-speech.md). 
+Notre latence de bout en bout est assez faible compte tenu des différentes technologies impliquées telles que la [reconnaissance vocale](speech-to-text.md), [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/), [Bot Framework](https://dev.botframework.com/) et la [synthèse vocale](text-to-speech.md). 
 
 En outre, nos nouvelles voix ressemblent à si méprendre à des voix humaines. Vous pouvez utiliser nos voix afin de doter votre bot d’une personnalité unique.
 
 ### <a name="search"></a>Recherche
-Un autre élément de base de l’analytique consiste à identifier les interactions où un événement ou une expérience spécifique se sont produits. Deux approches sont généralement possibles à cette fin : une recherche ad hoc où l’utilisateur tape simplement une expression, à laquelle le système répond, ou une requête plus structurée, où un analyste peut créer un jeu de déclarations logiques qui identifient un scénario dans un appel, chaque appel pouvant ensuite être indexé par rapport à cet ensemble de requêtes. Un bon exemple de recherche est la déclaration de conformité classique « Cet appel est enregistré pour des raisons de qualité...  ». En effet, de nombreuses entreprises veulent s’assurer que leurs agents indiquent cet avertissement aux clients avant que l’appel ne soit effectivement enregistré. La plupart des systèmes d’analytique ont la possibilité de dégager une tendance des comportements trouvés par les algorithmes de recherche et de requête, cette création de rapports de tendances étant finalement une des fonctions les plus importantes d’un système d’analytique. Par le biais du [Répertoire Cognitive Services](https://azure.microsoft.com/services/cognitive-services/directory/search/), votre solution de bout en bout peut être considérablement améliorée avec des fonctions d’indexation et de recherche.
+Un autre élément de base de l’analytique consiste à identifier les interactions où un événement ou une expérience spécifique se sont produits. Deux approches sont généralement possibles à cette fin : une recherche ad hoc où l’utilisateur tape simplement une expression, à laquelle le système répond, ou une requête plus structurée, où un analyste peut créer un jeu de déclarations logiques qui identifient un scénario dans un appel, chaque appel pouvant ensuite être indexé par rapport à cet ensemble de requêtes. Un bon exemple de recherche est la déclaration de conformité classique « Cet appel est enregistré pour des raisons de qualité... ». En effet, de nombreuses entreprises veulent s’assurer que leurs agents indiquent cet avertissement aux clients avant que l’appel ne soit effectivement enregistré. La plupart des systèmes d’analytique ont la possibilité de dégager une tendance des comportements trouvés par les algorithmes de recherche et de requête, cette création de rapports de tendances étant finalement une des fonctions les plus importantes d’un système d’analytique. Par le biais du [Répertoire Cognitive Services](https://azure.microsoft.com/services/cognitive-services/directory/search/), votre solution de bout en bout peut être considérablement améliorée avec des fonctions d’indexation et de recherche.
 
 ### <a name="key-phrase-extraction"></a>Extraction d’expressions clés
 Ce domaine correspond à une des applications d’analytique les plus complexes, qui bénéficie de l’application de l’intelligence artificielle et du machine learning. Le scénario principal ici consiste à déterminer l’intention du client. Pourquoi le client appelle-t-il ? Quel est le problème du client ? Pourquoi le client a-t-il eu une expérience négative ? Notre [service Analyse de texte](https://azure.microsoft.com/services/cognitive-services/text-analytics/) met à votre disposition un ensemble d’analytiques que vous pouvez exploiter immédiatement pour effectuer une mise à niveau rapide de votre solution de bout en bout afin d’extraire les mots clés ou expressions importants.
@@ -79,10 +79,10 @@ Voyons maintenant un peu plus en détail le traitement par lot et les pipelines 
 Pour la transcription en bloc des données audio, nous avons développé l’[API de transcription par lot](batch-transcription.md). L’API de transcription par lot a été développée pour la transcription de grandes quantités de données audio de façon asynchrone. En ce qui concerne la transcription des données de centre d’appels, notre solution s’appuie sur les socles suivants :
 
 * **Précision** : avec les modèles unifiés de quatrième génération, nous proposons une qualité de transcription inégalée.
-* **Latence** : nous sommes conscients que quand des transcriptions en bloc sont effectuées elles sont requises rapidement. Les travaux de transcription lancés par le biais de l’[API de transcription par lot](batch-transcription.md) sont mis en attente immédiatement et, une fois exécutés, ils sont effectués plus rapidement que la transcription en temps réel.
+* **Latence** : nous sommes conscients que quand des transcriptions en bloc sont effectuées elles sont requises rapidement. Les travaux de transcription lancés par le biais de l’[API de transcription par lot](batch-transcription.md) sont mis en attente immédiatement et, une fois l’exécution lancée, ils sont effectués plus rapidement que la transcription en temps réel.
 * **Sécurité** : nous sommes conscients que les appels peuvent contenir des données sensibles. Soyez assuré que la sécurité est une de nos priorités les plus élevées. Notre service a obtenu les certifications ISO, SOC, HIPAA et PCI.
 
-Les centres d’appels génèrent quotidiennement de grands volumes de données audio. Si votre entreprise stocke des données de téléphonie dans un emplacement central, tel que Stockage Azure, vous pouvez utiliser l’[API de transcription par lot]((batch-transcription.md) pour demander et recevoir des transcriptions de façon asynchrone.
+Les centres d’appels génèrent quotidiennement de grands volumes de données audio. Si votre entreprise stocke des données de téléphonie dans un emplacement central, tel que Stockage Azure, vous pouvez utiliser [l’API de transcription par lot](batch-transcription.md) pour demander et recevoir des transcriptions de façon asynchrone.
 
 Une solution classique utilise les services suivants :
 
@@ -98,7 +98,7 @@ En interne, nous utilisons les technologies ci-dessus pour prendre en charge les
 
 Certaines entreprises sont amenées à transcrire des conversations en temps réel. La transcription en temps réel permet d’identifier les mots clés et de déclencher des recherches de contenu et de ressources pertinents pour la conversation, à des fins de supervision des sentiments, d’améliorer l’accessibilité ou de fournir des traductions pour les clients et les agents qui ne sont pas des locuteurs natifs.
 
-Pour les scénarios qui nécessitent une transcription en temps réel, nous vous recommandons d’utiliser le [SDK Speech](speech-sdk.md). La reconnaissance vocale est disponible dans [plus de 20 langues](language-support.md), tandis que le SDK est disponible en C++, C#, Java, Python, Node.js et Javascript. Vous trouverez des exemples dans chaque langage sur [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk). Pour les dernières actualités et mises à jour, consultez [Notes de publication](releasenotes.md).
+Pour les scénarios qui nécessitent une transcription en temps réel, nous vous recommandons d’utiliser le [SDK Speech](speech-sdk.md). La reconnaissance vocale est disponible dans [plus de 20 langues](language-support.md), tandis que le SDK est disponible en C++, C#, Java, Python, Node.js, Objective-C et JavaScript. Vous trouverez des exemples dans chaque langage sur [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk). Pour les dernières actualités et mises à jour, consultez [Notes de publication](releasenotes.md).
 
 En interne, nous utilisons les technologies ci-dessus pour analyser en temps réel les appels des clients de Microsoft.
 

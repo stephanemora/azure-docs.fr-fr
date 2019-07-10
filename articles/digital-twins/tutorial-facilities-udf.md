@@ -1,23 +1,23 @@
 ---
-title: 'Tutoriel : Surveiller un espace avec Azure Digital Twins | Microsoft Docs'
+title: 'Didacticiel : Surveiller un espace avec Azure Digital Twins | Microsoft Docs'
 description: Découvrez comment provisionner vos ressources spatiales et superviser les conditions de travail avec Azure Digital Twins en suivant les étapes de ce tutoriel.
 services: digital-twins
-author: dsk-2015
+author: alinamstanciu
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 12/27/2018
-ms.author: dkshir
-ms.openlocfilehash: ad6c2625dc56dc3a3155183a04b712122a3b10f1
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.date: 06/26/2019
+ms.author: alinast
+ms.openlocfilehash: 3ebfa9b54007d0b409780e6a549bdd2411b94810
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535380"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484669"
 ---
-# <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins"></a>Didacticiel : Provisionner votre bâtiment et superviser les conditions de travail avec Azure Digital Twins
+# <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins-preview"></a>Didacticiel : Provisionner votre bâtiment et superviser les conditions de travail avec la préversion d’Azure Digital Twins
 
-Ce didacticiel montre comment utiliser Azure Digital Twins pour surveiller les conditions de température et le niveau de confort souhaités pour vos espaces. Après avoir [configuré votre exemple de bâtiment](tutorial-facilities-setup.md), vous pouvez le provisionner et exécuter des fonctions personnalisées dans vos données de capteur en suivant les étapes de ce tutoriel.
+Ce didacticiel montre comment utiliser la préversion d’Azure Digital Twins pour surveiller les conditions de température et le niveau de confort souhaités pour vos espaces. Après avoir [configuré votre exemple de bâtiment](tutorial-facilities-setup.md), vous pouvez le provisionner et exécuter des fonctions personnalisées dans vos données de capteur en suivant les étapes de ce tutoriel.
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
@@ -43,14 +43,14 @@ Vous pouvez définir un ensemble de conditions spécifiques à superviser dans l
 
 À partir de l’exemple de projet **occupancy-quickstart**, ouvrez le fichier **src\actions\provisionSample.yaml** dans Visual Studio Code. Notez la section qui commence par le type **matchers**. Chaque entrée sous ce type crée un détecteur de problèmes de correspondance avec la valeur **Name** (Nom) spécifiée. Cet outil de détection supervise un capteur de type **dataTypeValue**. Notez sa relation avec l’espace nommé *Focus Room A1* (Salle de travail A1), qui est doté d’un nœud **d’appareils** contenant quelques capteurs. Pour provisionner un détecteur de problèmes de correspondance effectuant le suivi d’un de ces capteurs, assurez-vous que sa valeur de **dataTypeValue** correspond à celle de **dataType** du capteur. 
 
-Ajoutez le détecteur de problèmes de correspondance suivant sous ceux qui existent déjà. Assurez-vous que les clés sont alignées et que les espaces ne sont pas remplacés par des tabulations.
+Ajoutez le détecteur de problèmes de correspondance suivant sous ceux qui existent déjà. Assurez-vous que les clés sont alignées et que les espaces ne sont pas remplacés par des tabulations. Ces lignes sont également présentes dans le fichier *provisionSample.yaml* en tant que lignes commentées. Vous pouvez supprimer les marques de commentaire en retirant le caractère `#` au début de chaque ligne.
 
 ```yaml
       - name: Matcher Temperature
         dataTypeValue: Temperature
 ```
 
-Ce détecteur de problèmes de correspondance va assurer le suivi du capteur SAMPLE_SENSOR_TEMPERATURE que vous avez ajouté dans le [premier tutoriel](tutorial-facilities-setup.md). Ces lignes sont également présentes dans le fichier *provisionSample.yaml* en tant que lignes commentées. Vous pouvez supprimer les marques de commentaire en retirant le caractère `#` au début de chaque ligne.
+Ce détecteur de problèmes de correspondance va assurer le suivi du capteur SAMPLE_SENSOR_TEMPERATURE que vous avez ajouté dans le [premier tutoriel](tutorial-facilities-setup.md). 
 
 <a id="udf"></a>
 

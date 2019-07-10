@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 491f1704cf08bd31a1b089d178afb3c281d636e6
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: e76ca7198bfded725d89f04fd162d470a85da904
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898284"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442840"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hr2day-by-merces"></a>Didacticiel : Intégration d’Azure Active Directory avec HR2day by Merces
 
@@ -112,7 +112,7 @@ Pour configurer l’authentification unique Azure AD avec HR2day by Merces, eff
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez [l’équipe de support client HR2day by Merces](mailto:servicedesk@merces.nl). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-5. Votre application HR2day by Merces attend les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à la configuration des attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut. Cliquez sur l’icône  **Modifier** pour ouvrir la boîte de dialogue  **Attributs utilisateur** .
+5. Votre application HR2day by Merces attend les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à la configuration des attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut. Cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Attributs d’utilisateur**.
 
     ![image](common/edit-attribute.png)
 
@@ -218,7 +218,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 ### <a name="create-hr2day-by-merces-test-user"></a>Créer un utilisateur de test HR2day by Merces
 
-Dans cette section, vous créez un utilisateur appelé Britta Simon dans HR2day by Merces. Contactez l’ [équipe du support technique HR2day by Merces](mailto:servicedesk@merces.nl) pour ajouter les utilisateurs à la plateforme HR2day by Merces. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous créez un utilisateur appelé Britta Simon dans HR2day by Merces. Contactez l’[équipe du support technique HR2day by Merces](mailto:servicedesk@merces.nl) pour ajouter les utilisateurs à la plateforme HR2day by Merces. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 > [!NOTE]
 > Si vous devez créer un utilisateur manuellement, contactez l’[équipe du support client HR2day by Merces](mailto:servicedesk@merces.nl).

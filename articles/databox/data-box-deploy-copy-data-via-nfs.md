@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 05/15/2019
+ms.date: 06/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 672bcc3d0cb15ef348d090ed6c5a38d6912465ef
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: c74ed93383ea880900a5428a6f24b5b44a3ff135
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66496307"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443147"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>Didacticiel : Copier des données sur Azure Data Box Disk par le biais de NFS
 
@@ -88,6 +88,12 @@ Une fois que vous êtes connecté aux partages Data Box, l’étape suivante con
 - Si les données, qui sont en cours de chargement par Data Box, sont chargées simultanément par d’autres applications en dehors de Data Box, cela peut entraîner l’échec du chargement ou des corruptions de données.
 - Nous vous recommandons de ne pas utiliser SMB et NFS simultanément et de ne pas copier les mêmes données vers la même destination finale sur Azure. En effet, le résultat final ne pourrait être déterminé.
 - **Toujours créer un dossier pour les fichiers que vous envisagez de copier sous le partage, puis copier les fichiers dans ce dossier**. Le dossier créé sous les partages d’objets blob de pages et d’objets blob de blocs représente un conteneur dans lequel les données sont chargées en tant qu’objets blob. Vous ne pouvez pas copier de fichiers directement dans le dossier *root* du compte de stockage.
+- Si vous ingérez des noms de répertoires et de fichiers sensibles à la casse à partir d’un partage NFS sur Data Box : 
+    - La casse est conservée dans le nom.
+    - Les fichiers sont sensibles à la casse.
+    
+    Par exemple, si vous copiez `SampleFile.txt` et `Samplefile.Txt`, la casse est conservée dans le nom lors de la copie dans Data Box, mais le second fichier remplace le premier, car ils sont considérés comme le même fichier.
+
 
 Si vous utilisez un ordinateur hôte Linux, utilisez un utilitaire de copie similaire à Robocopy. Plusieurs solutions alternatives sont disponibles pour Linux, par exemple, [rsync](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/) et [Ultracopier](https://ultracopier.first-world.info/).  
 

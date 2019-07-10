@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c87b23c338788804be22639f73acfb61ce8d6973
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 8fbf69ba814b99434e933ed700fb0c8c842c3312
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65989412"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101837"
 ---
 # <a name="tutorial-integrate-freshservice-with-azure-active-directory"></a>Didacticiel : Intégrer Freshservice à Azure Active Directory
 
@@ -110,7 +110,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     ![Extension My apps](common/install-myappssecure-extension.png)
 
-2. Après l’ajout de l’extension au navigateur, cliquez sur **Configurer Freshservice** pour être redirigé vers l’application Freshservice. À partir de là, indiquez les informations d’identification de l’administrateur pour vous connecter à Freshservice. Cette extension de navigateur configure automatiquement l’application pour vous et automatise les étapes 3 à 6.
+2. Après l’ajout de l’extension au navigateur, cliquez sur **Configurer Freshservice** pour être redirigé vers l’application Freshservice. À partir de là, indiquez les informations d’identification de l’administrateur pour vous connecter à Freshservice. Cette extension de navigateur configure automatiquement l’application et automatise les étapes 3 à 6.
 
     ![Configuration](common/setup-sso.png)
 
@@ -142,9 +142,9 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
-Dans cette section, vous allez créer un utilisateur de test appelé Britta Simon dans le portail Azure.
+Dans cette section, vous allez créer un utilisateur de test appelé Britta Simon dans le Portail Azure.
 
-1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
+1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
 1. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
 1. Dans les propriétés **Utilisateur**, effectuez les étapes suivantes :
    1. Dans le champ **Nom**, entrez `Britta Simon`.  

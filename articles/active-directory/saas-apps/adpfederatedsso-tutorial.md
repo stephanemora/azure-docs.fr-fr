@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eba63f8295fb5bebffdc8480f763c852521e331b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ae7f47fcbdf61caa95e49a34bcfd093d3370f769
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65859223"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107292"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adp"></a>Didacticiel : Intégration d’Azure Active Directory à ADP
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration d’ADP à Azure AD, vous devez ajouter ADP di
 
 **Pour ajouter ADP à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -117,11 +117,11 @@ Pour configurer l’authentification unique Azure AD avec ADP, effectuez les é
 
     ![Informations d’authentification unique dans Domaine et URL ADP](common/idp-identifier.png)
 
-    Dans la zone de texte **Identificateur (ID d’entité)**, tapez une URL : `https://fed.adp.com`
+    Dans la zone de texte **Identificateur (ID d’entité)** , tapez une URL : `https://fed.adp.com`
 
 6. L’application ADP attend les assertions SAML dans un format spécifique. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de la section **Attributs utilisateur** sur la page d’intégration des applications. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur le bouton **Modifier** pour ouvrir la boîte de dialogue **Attributs utilisateur**. Le nom de la revendication sera toujours **« PersonImmutableID »** et sa valeur mappée à **employeeid**. 
 
-    Le mappage utilisateur d’Azure AD à ADP est effectué avec **employeeid**, mais vous pouvez le mapper à une valeur différente basée sur les paramètres de votre application. Ainsi, contactez d’abord [l’équipe du support ADP](https://www.adp.com/contact-us/overview.aspx) pour utiliser le bon identificateur d’utilisateur et mapper cette valeur à la revendication **« PersonImmutableID »**.
+    Le mappage utilisateur d’Azure AD à ADP est effectué avec **employeeid**, mais vous pouvez le mapper à une valeur différente basée sur les paramètres de votre application. Ainsi, contactez d’abord [l’équipe du support ADP](https://www.adp.com/contact-us/overview.aspx) pour utiliser le bon identificateur d’utilisateur et mapper cette valeur à la revendication **« PersonImmutableID »** .
 
     ![image](common/edit-attribute.png)
 
@@ -169,7 +169,7 @@ Pour configurer l’authentification unique côté **ADP**, vous devez charger l
 > Vous devez assigner à l’application de service ADP les employés qui ont besoin d’un accès fédéré à vos services ADP, puis réassigner les utilisateurs à un service ADP spécifique.
 Une fois la confirmation reçue de votre représentant ADP, configurez vos services ADP et assignez/gérez les utilisateurs pour contrôler l’accès utilisateur à un service ADP spécifique.
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

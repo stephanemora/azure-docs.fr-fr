@@ -9,12 +9,12 @@ ms.date: 05/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 49f853341edab7c7dc92f72472b81f7fb22c0ad8
-ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
+ms.openlocfilehash: 3573e136c1a830cd75aba0725b4bf087bcd63869
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66808761"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485960"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Didacticiel : Développer un module IoT Edge en C pour les appareils Windows
 
@@ -51,10 +51,18 @@ Avant de commencer ce tutoriel, vous devez avoir suivi celui qui précède afin 
 * Un registre de conteneurs tel qu’[Azure Container Registry](https://docs.microsoft.com/azure/container-registry/).
 * [Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/install-visual-studio) configuré avec l’extension [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools).
 * [Docker CE](https://docs.docker.com/install/), configuré pour exécuter des conteneurs Windows.
-* Le SDK Azure IoT pour C. 
+* Installez le SDK C Azure IoT pour Windows x64 par le biais de vcpkg :
 
+   ```powershell
+   git clone https://github.com/Microsoft/vcpkg
+   cd vcpkg
+   .\bootstrap-vcpkg.bat
+   .\vcpkg install azure-iot-sdk-c:x64-windows
+   .\vcpkg --triplet x64-windows integrate install
+   ```
+   
 > [!TIP]
-> Si vous utilisez Visual Studio 2017 (version 15.7 ou supérieure), téléchargez et installez [Azure IoT Edge Tools (préversion)](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) pour VS 2017 à partir de la place de marché Visual Studio.
+> Si vous utilisez Visual Studio 2017 (version 15.7 ou supérieure), téléchargez et installez [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) pour VS 2017 à partir de la place de marché Visual Studio
 
 ## <a name="create-a-module-project"></a>Créer un projet de module
 

@@ -3,19 +3,19 @@ title: 'Démarrage rapide : Obtenir la liste des langues prises en charge, Java
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous allez obtenir une liste des langues prises en charge pour la traduction, la translittération et la recherche dans le dictionnaire à l’aide de l’API de traduction de texte Translator Text.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: ba93082d0fc98d18499b5e3154e782d3ffce26ec
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.author: swmachan
+ms.openlocfilehash: 1c6db84acc2bca8e649f5f7acb1dcbdfd6d1269d
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514801"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445123"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-java"></a>Démarrage rapide : Utiliser l’API de traduction de texte Translator Text et Java pour obtenir la liste des langues prises en charge
 
@@ -103,6 +103,8 @@ Ajoutez ces lignes à la classe `GetLanguages` :
 ```java
 String url = "https://api.cognitive.microsofttranslator.com/languages?api-version=3.0";
 ```
+
+Si vous utilisez un abonnement multiservice Cognitive Services, vous devez également inclure la `Ocp-Apim-Subscription-Region` dans vos paramètres de requête. [En savoir plus sur l’authentification sur l’abonnement multiservice](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
 
 ## <a name="create-a-client-and-build-a-request"></a>Créer un client et générer une requête
 

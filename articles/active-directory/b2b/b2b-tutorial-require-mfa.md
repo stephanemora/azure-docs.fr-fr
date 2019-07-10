@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb26a5056ba4cec14218af70f1561c17e637102c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 16a2438133f545c57d1046a0c4db94135f8a426d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65813116"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113196"
 ---
 # <a name="tutorial-enforce-multi-factor-authentication-for-b2b-guest-users"></a>Didacticiel : Appliquer l’authentification multifacteur pour les utilisateurs invités B2B
 
@@ -78,7 +78,7 @@ Pour suivre le scénario décrit dans ce didacticiel, vous avez besoin de ce qui
 4.  Dans la page **Accès conditionnel**, dans la barre d’outils en haut, sélectionnez **Nouvelle stratégie**.
 5.  Dans la page **Nouveau**, dans la zone de texte **Nom**, tapez **Exiger l’authentification multifacteur pour l’accès au portail B2B**.
 6.  Dans la section **Affectations**, sélectionnez **Utilisateurs et groupes**.
-7.  Dans la page **Utilisateurs et groupes**, choisissez **sélectionner des utilisateurs et groupes**, puis sélectionnez **Tous les utilisateurs invités (préversion)**.
+7.  Dans la page **Utilisateurs et groupes**, choisissez **sélectionner des utilisateurs et groupes**, puis sélectionnez **Tous les utilisateurs invités (préversion)** .
 
     ![Capture d’écran montrant la sélection de tous les utilisateurs invités](media/tutorial-mfa/tutorial-mfa-policy-6.png)
 9.  Sélectionnez **Terminé**.
@@ -123,7 +123,7 @@ Pour suivre le scénario décrit dans ce didacticiel, vous avez besoin de ce qui
 
     ![Capture d’écran montrant où sélectionner l’option What If](media/tutorial-mfa/tutorial-mfa-whatif-4.png)
 
-## <a name="test-your-conditional-access-policy"></a>Tester votre stratégie d’accès conditionnel
+## <a name="test-your-conditional-access-policy"></a>Testervotre stratégie d’accès conditionnel
 1.  Utilisez votre nom d’utilisateur de test et votre mot de passe pour vous connecter à votre [portail Azure](https://portal.azure.com/).
 2.  Vous devez voir une demande pour des méthodes d’authentification supplémentaires. Notez qu’un certain temps peut être nécessaire pour que la stratégie entre en vigueur.
 

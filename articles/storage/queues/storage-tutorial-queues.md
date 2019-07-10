@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: tutorial
 ms.date: 04/24/2019
-ms.openlocfilehash: 8d108e1683be03a79e87990b983f2eda3eadba90
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 08ef140eb860637cc0c09619abe7051cc007e99f
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65797539"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67540294"
 ---
 # <a name="tutorial-work-with-azure-storage-queues"></a>Didacticiel : Utiliser des files d’attente de stockage Azure
 
@@ -227,6 +227,14 @@ Créez une méthode pour envoyer un message dans la file d’attente. Ajoutez la
    ```
 
 2. Enregistrez le fichier .
+
+Un message doit être dans un format utilisable dans une requête XML avec encodage UTF-8 et avoir une taille maximale de 64 Ko. Si un message contient des données binaires, nous recommandons de l’encoder au format Base64.
+
+Par défaut, un message peut être conservé pendant une durée maximale de 7 jours. Vous pouvez spécifier n’importe quel nombre positif pour la durée de vie du message. Pour ajouter un message qui n’expire pas, utilisez `Timespan.FromSeconds(-1)` dans votre appel à **AddMessageAsync**.
+
+```csharp
+await theQueue.AddMessageAsync(message, TimeSpan.FromSeconds(-1), null, null, null);
+```
 
 ## <a name="dequeue-messages"></a>Enlever des messages d’une file d’attente
 

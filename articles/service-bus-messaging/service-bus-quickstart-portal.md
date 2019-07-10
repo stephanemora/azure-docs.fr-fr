@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/10/2019
 ms.author: spelluru
-ms.openlocfilehash: a946443e1d1e66a1ae8f70671ff328cdf47ff009
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 315f8d30b7c7559947c599edd0e18eaa5a99ac22
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65992014"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67513625"
 ---
 # <a name="quickstart-use-azure-portal-to-create-a-service-bus-queue"></a>Démarrage rapide : Utiliser le Portail Azure pour créer une file d’attente Service Bus
 Ce démarrage rapide montre comment envoyer et recevoir des messages vers et depuis une file d’attente Service Bus, en utilisant le [portail Azure][Azure portal] pour créer un espace de noms de messagerie et une file d’attente au sein de cet espace de noms, et pour obtenir les informations d’identification sur cet espace de noms. La procédure montre ensuite comment envoyer et recevoir des messages depuis cette file d’attente à l’aide de la [bibliothèque .NET Standard](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
@@ -25,7 +25,7 @@ Ce démarrage rapide montre comment envoyer et recevoir des messages vers et dep
 
 Pour suivre ce didacticiel, vérifiez que les éléments suivants sont installés :
 
-- Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, vous pouvez créer un [compte gratuit][] avant de commencer.
+- Un abonnement Azure. Si vous n'avez pas d'abonnement Azure, vous pouvez créer un [compte gratuit][] avant de commencer.
 - [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](https://www.visualstudio.com/vs) ou ultérieur. Vous utilisez Visual Studio pour générer un exemple qui envoie des messages à une file d’attente et reçoit un message de celle-ci. L’exemple consiste à tester la file d’attente que vous avez créée à l’aide de PowerShell. 
 - [Kit de développement logiciel (SDK) NET Core](https://www.microsoft.com/net/download/windows), version 2.0 ou ultérieure.
 
@@ -35,7 +35,7 @@ Pour suivre ce didacticiel, vérifiez que les éléments suivants sont installé
 
 ## <a name="send-and-receive-messages"></a>Envoyer et recevoir des messages
 
-Une fois que l’espace de noms et la file d’attente sont approvisionnés et que vous avez les informations d’identification nécessaires, vous êtes prêt à envoyer et recevoir des messages. Vous pouvez consulter le code dans [ce dossier d’exemples GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/TopicFilters).
+Une fois que l’espace de noms et la file d’attente sont approvisionnés et que vous avez les informations d’identification nécessaires, vous êtes prêt à envoyer et recevoir des messages. Vous pouvez consulter le code dans [ce dossier d’exemples GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TopicFilters).
 
 Pour exécuter le code, procédez comme suit :
 
@@ -198,7 +198,7 @@ static async Task ProcessMessagesAsync(Message message, CancellationToken token)
 }
 ```
 > [!NOTE]
-> Vous pouvez gérer les ressources Service Bus à l'aide de [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer permet aux utilisateurs de se connecter à un espace de noms Service Bus et de gérer les entités de messagerie en toute simplicité. L'outil fournit des fonctionnalités avancées telles que l'importation/exportation ou la possibilité de tester des sujets, des files d'attente, des abonnements, des services de relais, des hubs de notification et des hubs d'événements. 
+> Vous pouvez gérer les ressources Service Bus à l'aide de [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer permet aux utilisateurs de se connecter à un espace de noms Service Bus et de gérer les entités de messagerie en toute simplicité. L’outil fournit des fonctionnalités avancées telles que la fonction d’importation/exportation ou la possibilité de tester une rubrique, des files d’attente, des abonnements, des services de relais, des hubs de notification et des hubs d’événements. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7556e93e6e7b7e9bdb1f19f5a6e5b3c15c7b910
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: d96d1addf1028c2651ed837f3dab66f12d5d5fcc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65900636"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105863"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-canvas"></a>Didacticiel : Intégration d’Azure Active Directory à Canvas
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de Canvas à Azure AD, vous devez ajouter Canv
 
 **Pour ajouter Canvas à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -107,7 +107,7 @@ Pour configurer l’authentification unique Azure AD avec Canvas, effectuez les
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<tenant-name>.instructure.com`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://<tenant-name>.instructure.com/saml2`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://<tenant-name>.instructure.com/saml2`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe du support technique de Canvas](https://community.canvaslms.com/community/help). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.

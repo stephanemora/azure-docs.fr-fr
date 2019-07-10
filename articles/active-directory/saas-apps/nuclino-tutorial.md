@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 4788b65201792292d79cd8c4d1b22f22c5e67eb6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9081e2962a225f15b64545b1db7aa18538a20b22
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65870728"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67096069"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nuclino"></a>Didacticiel : Intégration d’Azure Active Directory à Nuclino
 
@@ -54,7 +54,7 @@ Pour configurer l’intégration de Nuclino dans Azure AD, vous devez ajouter Nu
 
 **Pour ajouter Nuclino à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -185,7 +185,7 @@ Pour configurer l’authentification unique Azure AD avec Nuclino, procédez co
 
     ![Configuration de Nuclino](./media/nuclino-tutorial/configure4.png)
 
-    a. Sélectionnez **Authentification unique SAML (SSO)**.
+    a. Sélectionnez **Authentification unique SAML (SSO)** .
 
     b. Copiez la valeur **URL ACS (vous devez la copier et la coller dans votre fournisseur d’authentification unique)** et collez-la dans la zone de texte **URL de réponse** de la section **Configuration SAML de base** dans le portail Azure.
 

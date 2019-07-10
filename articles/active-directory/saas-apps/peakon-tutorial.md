@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: a98ec0d460e050f8158ffee1262dd85f0cd07d9a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b093a26848701254ad674081037c266f1fb012b2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65869781"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094721"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-peakon"></a>Didacticiel : Intégration d’Azure Active Directory à Peakon
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de Peakon à Azure AD, vous devez ajouter Peak
 
 **Pour ajouter Peakon à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

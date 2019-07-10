@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/30/2019
+ms.date: 07/01/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: be9edd0497cca894e4daa87f97b037065379127f
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 836b6bb76ff608fed0f34e40fe450d593fec540a
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66398292"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514158"
 ---
 # <a name="fail-over-and-reprotect-azure-vms-between-regions"></a>Basculer et reprotéger des machines virtuelles Azure entre des régions
 
@@ -46,7 +46,7 @@ Ce tutoriel explique comment basculer une machine virtuelle (VM) vers une régio
    * **Dernier point traité** : Rétablit la machine virtuelle sur le dernier point de récupération ayant été traité par le service Site Recovery.
    * **Personnalisé** : effectue un basculement vers un point de récupération spécifique. Cette option est utile pour effectuer un test de basculement.
 
-3. Sélectionnez **Arrêter la machine avant de commencer le basculement** si vous souhaitez que Site Recovery tente d’arrêter les machines virtuelles sources avant de déclencher le basculement. Le basculement est effectué même en cas d’échec de l’arrêt. Site Recovery ne nettoie pas la source après le basculement.
+3. Sélectionnez **Arrêter la machine avant de commencer le basculement** si vous souhaitez que Site Recovery tente d’arrêter les machines virtuelles sources avant de déclencher le basculement. L’arrêt permet d’éviter toute perte de données. Le basculement est effectué même en cas d’échec de l’arrêt. Site Recovery ne nettoie pas la source après le basculement.
 
 4. Suivre la progression du basculement sur la page **Tâches**.
 

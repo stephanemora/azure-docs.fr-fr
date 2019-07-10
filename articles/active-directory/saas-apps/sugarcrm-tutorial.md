@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 2dea1dcd2f6ecef580d65a95d1227380901213eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5c46b096b1182b3f2a998f992f72e6127dfe0888
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65866433"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089551"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sugar-crm"></a>Didacticiel : Intégration d'Azure AD à Sugar CRM
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de Sugar CRM à Azure AD, vous devez ajouter Su
 
 **Pour ajouter Sugar CRM à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -137,7 +137,7 @@ Pour configurer l’authentification unique Azure AD avec Sugar CRM, effectuez l
 
     ![Administrateur](./media/sugarcrm-tutorial/ic795888.png "Administrateur")
 
-1. Dans la section **Administration**, cliquez sur **Password Management (Gestion des mots de passe)**.
+1. Dans la section **Administration**, cliquez sur **Password Management (Gestion des mots de passe)** .
 
     ![Administration](./media/sugarcrm-tutorial/ic795889.png "Administration")
 
@@ -220,11 +220,11 @@ Pour se connecter à Sugar CRM, les utilisateurs Azure AD doivent être provisio
 
     ![Administrateur](./media/sugarcrm-tutorial/ic795888.png "Administrateur")
 
-1. Dans la section **Administration**, cliquez sur **User Management (Gestion des utilisateurs)**.
+1. Dans la section **Administration**, cliquez sur **User Management (Gestion des utilisateurs)** .
 
     ![Administration](./media/sugarcrm-tutorial/ic795893.png "Administration")
 
-1. Accédez à **Users (Utilisateurs) \> Create New User (Créer un utilisateur)**.
+1. Accédez à **Users (Utilisateurs) \> Create New User (Créer un utilisateur)** .
 
     ![Créer un nouvel utilisateur](./media/sugarcrm-tutorial/ic795894.png "Créer un nouvel utilisateur")
 

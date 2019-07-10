@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 04/01/2019
+ms.date: 06/26/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 08745c3ef3d4996340ec40af496f8f0a5e0201c3
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 6d26cedb0dd836846d7e9f00539fe101c944f478
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595737"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442204"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>Démarrer la surveillance de votre application web ASP.NET
 
@@ -63,13 +63,13 @@ Vous pouvez maintenant ouvrir Application Insights dans le portail Azure pour af
 
 1. Développez le dossier **Services connectés** (icône d’une prise branchée au cloud) dans l’Explorateur de solutions, cliquez avec le bouton droit sur le dossier **Application Insights**, puis cliquez sur **Ouvrir le portail Application Insights**.  Vous voyez des informations sur votre application et diverses options.
 
-    ![Mise en correspondance d'applications](media/quick-monitor-portal/4overview.png)
+    ![Mise en correspondance d'applications](media/quick-monitor-portal/04-overview.png)
 
 2. Cliquez sur **cartographie d’application** pour obtenir une présentation visuelle des relations de dépendance entre les composants de votre application.  Chaque composant affiche des indicateurs de performance clés comme la charge, les performances, les échecs et les alertes.
 
-    ![Mise en correspondance d'applications](media/quick-monitor-portal/5appmap.png)
+    ![Mise en correspondance d'applications](media/quick-monitor-portal/05-appmap.png)
 
-3. Cliquez sur l’icône **Analyse d’application** ![Mise en correspondance d’applications](media/quick-monitor-portal/app-analytics-icon.png) **Voir dans Analytics** sur l’un des composants de l’application. Vous ouvrez ainsi **Application Insights - Analyses**, qui fournit un langage de requête enrichi permettant d’analyser toutes les données collectées par Application Insights.  Dans ce cas, une requête est générée et affiche le nombre de demandes sous forme de graphique. Vous pouvez écrire vos propres requêtes pour analyser d’autres données.
+3. Cliquez sur l’icône **Analyse d’application** ![Mise en correspondance d’applications](media/quick-monitor-portal/app-viewinlogs-icon.png) **Voir dans Logs (Analytics)** sur l’un des composants de l’application. Vous ouvrez ainsi **Logs (Analytics)** , lequel fournit un langage de requête enrichi permettant d’analyser toutes les données collectées par Application Insights. Dans ce cas, une requête est générée et affiche le nombre de demandes sous forme de graphique. Vous pouvez écrire vos propres requêtes pour analyser d’autres données.
 
     ![Analytics](media/quick-monitor-portal/6viewanalytics.png)
 

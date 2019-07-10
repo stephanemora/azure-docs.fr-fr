@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 21f7cdaf3dbd3e01040081c786cd7a03f6ba3e3c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f22f70c587556793c2b02fc79fa6175584b0c5cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65871416"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67096638"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moxtra"></a>Didacticiel : Intégration d'Azure Active Directory à Moxtra
 
@@ -52,7 +52,7 @@ Pour configurer l'intégration de Moxtra à Azure AD, vous devez ajouter Moxtra
 
 **Pour ajouter Moxtra à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

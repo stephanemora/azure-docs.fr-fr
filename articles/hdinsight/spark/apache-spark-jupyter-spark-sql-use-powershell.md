@@ -5,17 +5,18 @@ author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
-ms.date: 05/03/2019
+ms.date: 06/12/2019
 ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: e6b4ba902e9951cd04dc282cc2a163200a38607a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 4a075a2c5a5da677ae8d56c918ecab3384209431
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142901"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066082"
 ---
-# <a name="quickstart-create-an-apache-spark-cluster-in-hdinsight-using-powershell"></a>Démarrage rapide : créer un cluster Apache Spark dans HDInsight à l’aide de PowerShell
+# <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-powershell"></a>Démarrage rapide : créer un cluster Apache Spark dans Azure HDInsight à l’aide de PowerShell
+
 Découvrez comment créer un cluster [Apache Spark](https://spark.apache.org/) dans Azure HDInsight et comment exécuter des requêtes Spark SQL sur des tables [Apache Hive](https://hive.apache.org/). Apache Spark permet une analytique des données et des calculs sur cluster rapides à l’aide du traitement en mémoire. Pour en savoir plus sur le service Spark sur HDInsight, consultez [Vue d’ensemble : Apache Spark sur Azure HDInsight](apache-spark-overview.md).
 
 Dans ce guide de démarrage rapide, vous utilisez Azure PowerShell pour créer un cluster HDInsight Spark. Le cluster utilise des objets blob Stockage Azure comme stockage du cluster. Pour plus d’informations sur l’utilisation de Data Lake Storage Gen2, consultez [Démarrage rapide : Configurer des clusters dans HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
@@ -23,11 +24,11 @@ Dans ce guide de démarrage rapide, vous utilisez Azure PowerShell pour créer u
 > [!IMPORTANT]  
 > La facturation des clusters HDInsight est calculée au prorata des minutes écoulées, que vous les utilisiez ou non. Veillez à supprimer votre cluster une fois que vous avez fini de l’utiliser. Pour plus d’informations, consultez la section [Nettoyer les ressources](#clean-up-resources) de cet article.
 
-## <a name="prerequisites"></a>Prérequis
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-* Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
+## <a name="prerequisite"></a>Configuration requise
 
-* Le [module Az](https://docs.microsoft.com/powershell/azure/overview) PowerShell installé.
+Le [module Az](https://docs.microsoft.com/powershell/azure/overview) PowerShell installé.
 
 ## <a name="create-an-hdinsight-spark-cluster"></a>Créer un cluster HDInsight Spark
 

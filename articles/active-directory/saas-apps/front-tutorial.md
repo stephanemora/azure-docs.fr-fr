@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Front | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Front | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Front.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 6c050bd7cc620776d4e9cb5afd8d11637d11ab4d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8fb5685338ee3d8888f99cc36f4868ef897de5a8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57895720"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101936"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-front"></a>Tutoriel : Intégration d’Azure Active Directory à Front
+# <a name="tutorial-azure-active-directory-integration-with-front"></a>Didacticiel : Intégration d’Azure Active Directory à Front
 
 Dans ce didacticiel, vous allez apprendre à intégrer Front dans Azure Active Directory (Azure AD).
 L’intégration de Front dans Azure AD vous offre les avantages suivants :
@@ -52,7 +52,7 @@ Pour configurer l’intégration de Front avec Azure AD, vous devez ajouter Fron
 
 **Pour ajouter Front à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -177,7 +177,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 211e11b5bfd6a8bb7b1d61fec120566d60b9c5c0
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 6fde8c38722e39d530c2890ef9c9a045b28b6e49
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65191211"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105681"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cherwell"></a>Didacticiel : Intégration d’Azure Active Directory à Cherwell
 
@@ -54,7 +54,7 @@ Pour configurer l’intégration de Cherwell à Azure AD, vous devez ajouter Che
 
 **Pour ajouter Cherwell à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

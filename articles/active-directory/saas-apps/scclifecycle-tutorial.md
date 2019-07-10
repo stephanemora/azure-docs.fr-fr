@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/22/2019
 ms.author: jeedes
-ms.openlocfilehash: df48cb2a0e8716c335fdb4915f0a364c373a6546
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 83974a57fe080e76dee26781abaddf2b0b884839
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65902824"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091490"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scc-lifecycle"></a>Didacticiel : Intégration d’Azure Active Directory à SCC LifeCycle
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de SCC LifeCycle à Azure AD, vous devez ajoute
 
 **Pour ajouter SCC LifeCycle à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -107,7 +107,7 @@ Pour configurer l’authentification unique Azure AD avec SCC LifeCycle, effectu
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<sub-domain>.scc.com/ic7/welcome/customer/PICTtest.aspx`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant :
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant :
     
     | |
     |--|

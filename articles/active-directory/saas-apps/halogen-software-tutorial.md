@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7925e6fe66579c8bf702acbe165c50d2aed536e
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: a8e1f4f0f2bd3521a312523fa9e36dcf14492862
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898354"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101388"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-halogen-software"></a>Didacticiel : Intégration d’Azure Active Directory avec Halogen Software
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de Halogen Software avec Azure AD, vous devez a
 
 **Pour ajouter Halogen Software à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -107,7 +107,7 @@ Pour configurer l’authentification unique Azure AD avec Halogen Software, eff
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://global.hgncloud.com/<companyname>`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant :
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant :
 
     | |
     |--|

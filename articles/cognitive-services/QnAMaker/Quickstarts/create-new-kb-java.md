@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 02/04/2019
 ms.author: diberry
-ms.openlocfilehash: 85d5fa1cc036737497e276413985e0828e3b51f6
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c6fddec80da1baa852a2f3712a94b785d775919e
+ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65788718"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151043"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-java"></a>Démarrage rapide : Créer une base de connaissances dans QnA Maker à l’aide de Java
 
@@ -100,7 +100,7 @@ Répétez l’appel jusqu’à ce que l’opération réussisse ou échoue :
 ```
 
 ## <a name="add-a-main-method"></a>Ajouter une méthode Main
-La méthode Main crée la base de connaissances, puis demande le statut. L’**ID d’opération** create (créer) est renvoyé dans le champ **Emplacement** de l’en-tête de réponse POST. Il est ensuite utilisé dans le routage de la requête GET. ** Les boucles `while` testent à nouveau le statut s’il n’est pas terminé.
+La méthode Main crée la base de connaissances, puis demande le statut. L’ID d’opération est renvoyé dans le champ **Location** de l’en-tête de réponse POST. Il est ensuite utilisé dans le routage de la requête GET. Les boucles `while` testent à nouveau le statut s’il n’est pas terminé.
 
 [!code-java[Add main method](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=152-191 "Add main method")]
 

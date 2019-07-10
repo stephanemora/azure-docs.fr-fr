@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 05/13/2019
+ms.date: 06/07/2019
 ms.author: edjez
-ms.openlocfilehash: 302f1e18a23bdef9247693f84d3a924370b63f80
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: c64d43301fd173203bd1625b8d37120b71c22805
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244250"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077410"
 ---
 # <a name="reward-scores-indicate-success-of-personalization"></a>Les scores de récompense indiquent la réussite de la personnalisation
 
@@ -30,6 +30,18 @@ Les récompenses sont envoyées à Personalizer par l’[API Reward](https://doc
 Les récompenses sont envoyées une fois que le comportement de l’utilisateur a eu lieu, parfois plusieurs jours plus tard. La configuration du délai maximal après lequel Personalizer considère qu’un événement ne reçoit aucune récompense ou reçoit une récompense par défaut s’effectue avec le [Temps d’attente des récompenses](#reward-wait-time) dans le portail Azure.
 
 Si le score de récompense pour un événement n’a pas été reçu dans le **Temps d’attente des récompenses**, la **récompense par défaut** est appliquée. En règle générale, la **[récompense par défaut](how-to-settings.md#configure-reward-settings-for-the-feedback-loop-based-on-use-case)** est configurée sur zéro.
+
+
+## <a name="behaviors-and-data-to-consider-for-rewards"></a>Comportements et données à prendre en compte pour les récompenses
+
+Prenez en compte ces signaux et comportements pour le contexte du score de récompense :
+
+* L’entrée de l’utilisateur elle-même, avec des suggestions lorsque des options sont impliquées (« Voulez-vous dire X ? »).
+* La longueur de la session.
+* Le temps entre les sessions.
+* L’analyse des sentiments des interactions de l’utilisateur.
+* Des questions directes et mini-enquêtes pour lesquelles le bot demande à l’utilisateur d’envoyer des commentaires sur l’utilité, la précision.
+* La réponse aux alertes, ou le retard de réponse aux alertes.
 
 ## <a name="composing-reward-scores"></a>Composition de scores de récompense
 

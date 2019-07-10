@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a23b024737f6af1f6361983045037b325783518a
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 2555c0040c1f2b587adb57e808ed122a4d4ce808
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65896021"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086720"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-yardi-elearning"></a>Didacticiel : Intégration d'Azure Active Directory à Yardi eLearning
 
@@ -56,7 +56,7 @@ Pour configurer l'intégration de Yardi eLearning à Azure AD, vous devez ajout
 
 **Pour ajouter Yardi eLearning à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -110,7 +110,7 @@ Pour configurer l’authentification unique Azure AD auprès de Yardi eLearning
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<companyname>.yardielearning.com/login`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://<companyname>.yardielearning.com/trust`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://<companyname>.yardielearning.com/trust`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez [l’équipe du support client Yardi eLearning](mailto:elearning@yardi.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.

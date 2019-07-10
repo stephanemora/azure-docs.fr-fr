@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/03/2019
 ms.author: chlandsi
-ms.openlocfilehash: 67f2531b24796de1e00505fdc757f3c2244c5054
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 49e39a40093f2efdf0fabbbf9f383576b2cebe22
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002347"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484990"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-macos-using-the-speech-sdk"></a>Démarrage rapide : Reconnaissance vocale en Objective-C sur macOS avec le SDK Speech
 
@@ -34,7 +34,7 @@ Avant de commencer, voici une liste de prérequis :
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-La version actuelle du kit SDK de reconnaissance vocale Cognitive Services est `1.5.1`.
+La version actuelle du kit SDK de reconnaissance vocale Cognitive Services est `1.6.0`.
 
 Le SDK Speech de Cognitive Services pour Mac est actuellement distribué sous la forme d’un bundle de framework.
 Il peut être utilisé dans les projets Xcode comme [CocoaPod](https://cocoapods.org/), ou téléchargé depuis https://aka.ms/csspeech/macosbinary et lié manuellement. Ce guide utilise un CocoaPod.
@@ -67,13 +67,7 @@ Dans les boîtes de dialogue qui suivent, effectuez les sélections suivantes :
 ## <a name="install-the-sdk-as-a-cocoapod"></a>Installer le SDK en tant que CocoaPod
 
 1. Installez le gestionnaire de dépendances de CocoaPod comme décrit dans ses [instructions d’installation](https://guides.cocoapods.org/using/getting-started.html).
-1. Accédez au répertoire de votre exemple d’application (`helloworld`). Placez un fichier texte avec le nom `Podfile` et le contenu suivant dans ce répertoire :
-    ```
-    target 'helloworld' do
-        platform :osx, '10.13'
-        pod 'MicrosoftCognitiveServicesSpeech-macOS', '~> 1.5.1'
-    end
-    ```
+1. Accédez au répertoire de votre exemple d’application (`helloworld`). Placez un fichier texte avec le nom `Podfile` et le contenu suivant dans ce répertoire :[!code-objectivec[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-macos/helloworld/Podfile)]
 1. Accédez au répertoire `helloworld` dans un terminal et exécutez la commande `pod install`. Ceci génère espace de travail Xcode `helloworld.xcworkspace` contenant l’exemple d’application et le SDK Speech en tant que dépendance. Cet espace de travail sera utilisé par la suite.
 
 ## <a name="add-the-sample-code"></a>Ajouter l’exemple de code
@@ -87,7 +81,7 @@ Dans les boîtes de dialogue qui suivent, effectuez les sélections suivantes :
 ## <a name="build-and-run-the-sample"></a>Créer et exécuter l’exemple.
 
 1. Affichez la sortie de débogage (**View** > **Debug Area** > **Activate Console**).
-1. Générez et exécutez l’exemple de code en sélectionnant **Product** -> **Run** dans le menu, ou en cliquant sur le bouton **Play**.
+1. Générez et exécutez l’exemple de code en sélectionnant **Product** > **Run** dans le menu, ou en cliquant sur le bouton **Play**.
 1. Après avoir cliqué sur le bouton et prononcé quelques mots, vous devez normalement voir le texte énoncé sur la partie inférieure de l’écran. Quand vous exécutez l’application pour la première fois, vous devez normalement être invité à autoriser l’application à accéder au microphone de votre ordinateur.
 
 ## <a name="next-steps"></a>Étapes suivantes

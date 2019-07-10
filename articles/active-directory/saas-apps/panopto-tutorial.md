@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 23830d6ae2ba020a77402d3e2b7acc2f50f75733
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 027876e3d8d669d2ab41d37e24f4171c2349adaa
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65869895"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67095004"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-panopto"></a>Didacticiel : Intégration d’Azure Active Directory à Panopto
 
@@ -55,7 +55,7 @@ Pour configurer l’intégration de Panopto à Azure AD, vous devez ajouter Pano
 
 **Pour ajouter Panopto à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -130,7 +130,7 @@ Pour configurer l’authentification unique Azure AD avec Panopto, effectuez le
 
 1. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise Panopto en tant qu’administrateur.
 
-2. Dans la barre d’outils située sur la gauche, cliquez sur **System (Système)**, puis sur **Identity Providers (Fournisseurs d’identité)**.
+2. Dans la barre d’outils située sur la gauche, cliquez sur **System (Système)** , puis sur **Identity Providers (Fournisseurs d’identité)** .
    
     ![Système](./media/panopto-tutorial/ic777670.png "système")
 
@@ -142,7 +142,7 @@ Pour configurer l’authentification unique Azure AD avec Panopto, effectuez le
    
     ![Configuration SaaS](./media/panopto-tutorial/ic777672.png "configuration SaaS")
     
-    a. Dans la liste **Provider Type (Type de fournisseur)**, sélectionnez **SAML20**.    
+    a. Dans la liste **Provider Type (Type de fournisseur)** , sélectionnez **SAML20**.    
     
     b. Dans la zone de texte **Instance Name** , attribuez un nom à votre instance.
 

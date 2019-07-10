@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/13/2019
+ms.date: 06/12/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: db9424ff4ddd2663ae1342294181dc885c6ed937
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 4a5352e96e522a8bd32c428957b3bbfd62c5fa9b
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66479541"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275921"
 ---
 # <a name="what-is-role-based-access-control-rbac-for-azure-resources"></a>Qu’est-ce que le contrôle d’accès en fonction du rôle (RBAC) pour les ressources Azure ?
 
@@ -74,7 +74,7 @@ Azure inclut plusieurs [rôles intégrés](built-in-roles.md) que vous pouvez ut
 
 Les autres rôles intégrés permettent de gérer des ressources Azure spécifiques. Par exemple, le rôle de [contributeur de machine virtuelle](built-in-roles.md#virtual-machine-contributor) permet à l’utilisateur de créer et gérer des machines virtuelles. Si les rôles intégrés ne répondent pas aux besoins spécifiques de votre organisation, vous pouvez créer vos propres [rôles personnalisés pour les ressources Azure](custom-roles.md).
 
-Azure propose des opérations de données (actuellement en version préliminaire) qui vous permettent d’accorder l’accès aux données au sein d’un objet. Par exemple, si un utilisateur dispose d’un accès en lecture aux données d’un compte de stockage, il peut lire les objets blob ou les messages de ce compte de stockage. Pour plus d’informations, consultez [Comprendre les définitions de rôle pour les ressources Azure](role-definitions.md).
+Azure propose des opérations de données qui vous permettent d’accorder l’accès aux données au sein d’un objet. Par exemple, si un utilisateur dispose d’un accès en lecture aux données d’un compte de stockage, il peut lire les objets blob ou les messages de ce compte de stockage. Pour plus d’informations, consultez [Comprendre les définitions de rôle pour les ressources Azure](role-definitions.md).
 
 ### <a name="scope"></a>Étendue
 
@@ -108,10 +108,7 @@ Que se passe-t-il si plusieurs attributions de rôles se chevauchent ? RBAC ét
 
 ## <a name="deny-assignments"></a>Affectations de refus
 
-Jusqu’à maintenant, RBAC était exclusivement un modèle d’autorisation sans possibilité de refus, il prend désormais en charge des affectations de refus dans une certaine mesure. À l’instar d’une attribution de rôle, une *affectation de refus* attache un ensemble d’actions de refus à un utilisateur, un groupe, un principal de service ou une identité managée, sur une étendue spécifique, afin de refuser l’accès. Une attribution de rôle définit un ensemble d’actions *autorisées*, tandis qu’une affectation de refus définit un ensemble d’actions *non autorisées*. En d’autres termes, les affectations de refus empêchent les utilisateurs d’effectuer des actions spécifiées, même si une attribution de rôle leur accorde l’accès. Les affectations de refus ont priorité sur les attributions de rôles. Pour plus d’informations, consultez [Comprendre les affectations de refus pour les ressources Azure](deny-assignments.md) et [Afficher les affectations de refus pour les ressources Azure avec le portail Azure](deny-assignments-portal.md).
-
-> [!NOTE]
-> À ce stade, la seule façon d’ajouter vos propres affectations de refus est d’utiliser Azure Blueprints. Pour plus d’informations, consultez [Protéger les nouvelles ressources avec des verrous de ressources Azure Blueprints](../governance/blueprints/tutorials/protect-new-resources.md).
+Jusqu’à maintenant, RBAC était exclusivement un modèle d’autorisation sans possibilité de refus, il prend désormais en charge des affectations de refus dans une certaine mesure. À l’instar d’une attribution de rôle, une *affectation de refus* attache un ensemble d’actions de refus à un utilisateur, un groupe, un principal de service ou une identité managée, sur une étendue spécifique, afin de refuser l’accès. Une attribution de rôle définit un ensemble d’actions *autorisées*, tandis qu’une affectation de refus définit un ensemble d’actions *non autorisées*. En d’autres termes, les affectations de refus empêchent les utilisateurs d’effectuer des actions spécifiées, même si une attribution de rôle leur accorde l’accès. Les affectations de refus ont priorité sur les attributions de rôles. Pour plus d’informations, consultez [Comprendre les affectations de refus pour les ressources Azure](deny-assignments.md).
 
 ## <a name="how-rbac-determines-if-a-user-has-access-to-a-resource"></a>Comment RBAC détermine si un utilisateur a accès à une ressource
 

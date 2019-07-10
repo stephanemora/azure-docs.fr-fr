@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 9e7993ee1cb439ebeaa9f64bee55429aa54f9cee
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 897685eb967e03cfd30182eec6b237e27386496c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65903949"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67092147"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-fiori"></a>Didacticiel : Intégration d’Azure Active Directory à SAP Fiori
 
@@ -56,7 +56,7 @@ Pour intégrer SAP Fiori à Azure AD, vous devez ajouter SAP Fiori à votre list
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 
-1. Dans le menu gauche, sélectionnez **Azure Active Directory**.
+1. Dans le menu de gauche, sélectionnez **Azure Active Directory**.
 
     ![Option Azure Active Directory](common/select-azuread.png)
 
@@ -256,11 +256,11 @@ Dans cette section, vous allez configurer l’authentification unique Azure AD a
 
     ![Options Authentication Requirements et option Finish dans SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-authentication.png)
 
-1. Sélectionnez **Trusted Provider** > **Identity Federation** (Fournisseurs approuvés>Fédération des identités) en bas de la page. Sélectionnez **Edit**.
+1. Sélectionnez **Trusted Provider** > **Identity Federation** (Fournisseurs approuvés>Fédération des identités) en bas de la page. Sélectionnez **Modifier**.
 
     ![Onglets Trusted Provider et Identity Federation dans SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-trustedprovider.png)
 
-1. Sélectionnez **Add**.
+1. Sélectionnez **Ajouter**.
 
     ![Option Add sous l’onglet Identity Federation](./media/sapfiori-tutorial/tutorial-sapnetweaver-addidentityprovider.png)
 

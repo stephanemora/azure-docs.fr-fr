@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11cc42f9ed7e427620b22ce65365183bc62cc0be
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 58d535c7f19adec470f1fbc9b8d88429ea6e0e26
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65884600"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107518"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-4me"></a>Didacticiel : Intégration d’Azure Active Directory à 4me
 
@@ -54,7 +54,7 @@ Pour configurer l’intégration de 4me à Azure AD, vous devez ajouter 4me, di
 
 **Pour ajouter 4me à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -114,7 +114,7 @@ Pour configurer l’authentification unique Azure AD avec 4me, effectuez les é
     | QA| `https://<SUBDOMAIN>.4me.qa`|
     | | |
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant :
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant :
 
     | Environnement| URL|
     |---|---|

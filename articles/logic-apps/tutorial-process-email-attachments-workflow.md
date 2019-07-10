@@ -10,12 +10,12 @@ manager: carmonm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/07/2019
-ms.openlocfilehash: 4287efedfc35da762825c5562cf88e64987192f1
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: ee232b54bc4d65d6380a6f2a1d1c88ee7dcf53c3
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65414559"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312659"
 ---
 # <a name="tutorial-automate-handling-emails-and-attachments-with-azure-logic-apps"></a>Didacticiel : Automatiser la gestion des e-mails et des pièces jointes avec Azure Logic Apps
 
@@ -100,7 +100,7 @@ Vous pouvez enregistrer les e-mails entrants et les pièces jointes en tant qu�
    2. Lorsque la page **Conteneurs** s’ouvre, dans la barre d’outils, sélectionnez **Conteneur**.
 
    3. Sous **Nouveau conteneur**, entrez « pièces jointes » comme nom de votre conteneur. 
-   Sous **Niveau d’accès public**, sélectionnez **Conteneur (accès en lecture anonyme pour les conteneurs et les objets blob)**, puis choisissez **OK**.
+   Sous **Niveau d’accès public**, sélectionnez **Conteneur (accès en lecture anonyme pour les conteneurs et les objets blob)** , puis choisissez **OK**.
 
       Lorsque vous avez terminé, vous pouvez trouver votre conteneur de stockage dans votre compte de stockage ici dans le portail Azure :
 
@@ -145,7 +145,7 @@ Utilisez l’extrait de code fourni par ces étapes pour créer une fonction Azu
 
    | Paramètre | Valeur | Description |
    | ------- | ----- | ----------- |
-   | **Nom de l’application** | CleanTextFunctionApp | Nom global unique et descriptif de votre application de fonction. |
+   | **Nom de l’application** | <*function-app-name*> | Le nom de votre application de fonction, globalement unique et descriptif, qui est « CleanTextFunctionApp » dans cet exemple ; fournissez donc un nom différent, tel que « MonApplicationDeFonctionDeNettoyageDeTexte » |
    | **Abonnement** | <*your-Azure-subscription-name*> | Abonnement Azure que vous avez utilisé précédemment. | 
    | **Groupe de ressources** | LA-Tutorial-RG | Groupe de ressources Azure que vous avez utilisé précédemment. |
    | **Plan d’hébergement** | Plan de consommation | Ce paramètre détermine l’affectation et la mise à l’échelle des ressources, telles que la puissance de calcul, pour l’exécution de votre application de fonction. Voir [Comparaison des plans d’hébergement](../azure-functions/functions-scale.md). | 
@@ -168,7 +168,7 @@ Utilisez l’extrait de code fourni par ces étapes pour créer une fonction Azu
 
    Pour créer une application de fonction, vous pouvez également utiliser [Azure CLI](../azure-functions/functions-create-first-azure-function-azure-cli.md) ou [PowerShell et des modèles Resource Manager](../azure-resource-manager/resource-group-template-deploy.md).
 
-2. Sous **Applications de fonction**, développez **CleanTextFunctionApp**, puis sélectionnez **Fonctions**. Dans la barre d’outils des fonctions, sélectionnez **Nouvelle fonction**.
+2. Sous **Function Apps**, développez votre application de fonction, qui est « CleanTextFunctionApp » dans cet exemple, puis sélectionnez **Fonctions**. Dans la barre d’outils des fonctions, sélectionnez **Nouvelle fonction**.
 
    ![Créer une fonction](./media/tutorial-process-email-attachments-workflow/function-app-new-function.png)
 
@@ -210,7 +210,7 @@ Utilisez l’extrait de code fourni par ces étapes pour créer une fonction Azu
    }
    ```
 
-6. Une fois ces opérations effectuées, sélectionnez **Enregistrer**. Pour tester votre fonction, sur le côté droit de l’éditeur, sous l’icône de flèche (**<**), choisissez **Test**.
+6. Une fois ces opérations effectuées, sélectionnez **Enregistrer**. Pour tester votre fonction, sur le côté droit de l’éditeur, sous l’icône de flèche ( **<** ), choisissez **Test**.
 
    ![Ouvrir le volet Test](./media/tutorial-process-email-attachments-workflow/function-choose-test.png)
 
@@ -228,7 +228,7 @@ Utilisez l’extrait de code fourni par ces étapes pour créer une fonction Azu
    {"updatedBody":"{\"name\": \"Testing my function\"}"}
    ```
 
-Après avoir vérifié le bon fonctionnement de votre fonction, créez votre application logique. Même si ce didacticiel montre comment créer une fonction qui supprime le code HTML des e-mails, Logic Apps fournit également un connecteur **HTML to Text (HTML à texte)**.
+Après avoir vérifié le bon fonctionnement de votre fonction, créez votre application logique. Même si ce didacticiel montre comment créer une fonction qui supprime le code HTML des e-mails, Logic Apps fournit également un connecteur **HTML to Text (HTML à texte)** .
 
 ## <a name="create-your-logic-app"></a>Créer votre application logique
 
@@ -260,7 +260,7 @@ Ajoutez maintenant un [déclencheur](../logic-apps/logic-apps-overview.md#logic-
 
 1. Dans la zone de recherche du concepteur, entrez « À la réception d’un e-mail » comme filtre. Sélectionnez ce déclencheur pour votre fournisseur de messagerie : **Lorsqu’un nouvel e-mail arrive - <*your-email-provider*>**
 
-   Par exemple : 
+   Par exemple :
 
    ![Sélectionnez ce déclencheur pour votre fournisseur de messagerie : « When a new email arrives » (Quand un nouvel e-mail arrive)](./media/tutorial-process-email-attachments-workflow/add-trigger-when-email-arrives.png)
 
@@ -316,7 +316,7 @@ Ajoutez maintenant une condition qui sélectionne uniquement les e-mails contena
    ![Sélectionnez « Condition »](./media/tutorial-process-email-attachments-workflow/select-condition.png)
 
    1. Renommez la condition en utilisant une meilleure description. 
-   Dans la barre de titre de la condition, choisissez le bouton représentant des **points de suspension** (**...**) > **Renommer**.
+   Dans la barre de titre de la condition, choisissez le bouton représentant des **points de suspension** ( **...** ) > **Renommer**.
 
       ![Renommer la condition](./media/tutorial-process-email-attachments-workflow/condition-rename.png)
 
@@ -399,7 +399,7 @@ Cette étape ajoute votre fonction Azure créée précédemment à votre applica
 
    ![Sélectionner une action pour « Choisir une fonction Azure »](./media/tutorial-process-email-attachments-workflow/add-action-azure-function.png)
 
-3. Sélectionnez votre application de fonction créée précédemment : **CleanTextFunctionApp**
+3. Sélectionnez votre application de fonction créée précédemment, « CleanTextFunctionApp » dans cet exemple :
 
    ![Sélectionner votre application de fonction Azure](./media/tutorial-process-email-attachments-workflow/add-action-select-azure-function-app.png)
 
@@ -626,7 +626,7 @@ Ajoutez une action afin que votre application logique envoie un e-mail pour pass
    ||||
 
    > [!NOTE]
-   > Si vous sélectionnez un champ qui contient un tableau, tel que le champ **Contenu**, qui est un tableau contenant des pièces jointes, le concepteur ajoute automatiquement une boucle For Each autour de l’action qui référence ce champ. De cette façon, votre application logique peut effectuer cette action sur chaque élément du tableau. Pour supprimer la boucle, supprimez le champ du tableau, déplacez l’action de référencement en dehors de la boucle, choisissez les points de suspension (**...** ) dans la barre de titre de la boucle, puis **Supprimer**.
+   > Si vous sélectionnez un champ qui contient un tableau, tel que le champ **Contenu**, qui est un tableau contenant des pièces jointes, le concepteur ajoute automatiquement une boucle For Each autour de l’action qui référence ce champ. De cette façon, votre application logique peut effectuer cette action sur chaque élément du tableau. Pour supprimer la boucle, supprimez le champ du tableau, déplacez l’action de référencement en dehors de la boucle, choisissez les points de suspension ( **...** ) dans la barre de titre de la boucle, puis **Supprimer**.
 
 6. Enregistrez votre application logique.
 

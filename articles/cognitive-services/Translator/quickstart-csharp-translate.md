@@ -3,28 +3,29 @@ title: 'Démarrage rapide : Traduire du texte, C# - Traduction de texte Transla
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous allez traduire du texte d’une langue à une autre à l’aide de l’API de traduction de texte Translator Text avec C#.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: e59e634b04a55a0c7a0fd555b09404545bd26c60
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.date: 06/13/2019
+ms.author: swmachan
+ms.openlocfilehash: 242c16fd0ec1d32c889d511aee78924a296e191d
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514944"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449441"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-c"></a>Démarrage rapide : Utiliser l’API de traduction de texte Translator Text et C# pour traduire une chaîne
 
-Dans ce guide de démarrage rapide, vous allez apprendre à traduire une chaîne de texte de l’anglais vers l’italien et l’allemand à l’aide de .NET Core et de l’API REST de traduction de texte Translator Text.
+Dans ce guide de démarrage rapide, vous allez apprendre à traduire une chaîne de texte de l’anglais vers l’italien, l’allemand, le japonais et le thaï avec .NET Core, C# 7.1 ou version ultérieure à l’aide de .NET Core et de l’API REST de traduction de texte Translator Text.
 
 Pour suivre ce démarrage rapide, vous devrez disposer d’un [compte Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec une ressource Traduction de texte Translator Text. Si vous n’avez pas de compte, vous pouvez utiliser la [version d’évaluation gratuite](https://azure.microsoft.com/try/cognitive-services/) pour obtenir une clé d’abonnement.
 
 ## <a name="prerequisites"></a>Prérequis
 
+* C# 7.1 ou version ultérieure
 * [Kit de développement logiciel (SDK) .NET](https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial)
 * [Package NuGet Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) ou l’éditeur de texte de votre choix
@@ -47,7 +48,19 @@ Ensuite, vous devez installer Json.Net. À partir du répertoire de votre projet
 dotnet add package Newtonsoft.Json --version 11.0.2
 ```
 
-## <a name="add-required-namespaces-to-your-project"></a>Ajouter des espaces de noms requis à votre projet
+## <a name="select-the-c-language-version"></a>Sélectionner la version du langage C#
+
+Ce démarrage rapide requiert C# 7.1 ou version ultérieure. Il existe plusieurs façons de changer la version C# de votre projet. Dans ce guide, nous allons vous montrer comment ajuster le fichier `translate-sample.csproj`. Pour toutes les options disponibles, comme la modification du langage dans Visual Studio, consultez [Sélectionner la version du langage C#](https://docs.microsoft.com/dotnet/csharp/language-reference/configure-language-version).
+
+Ouvrez votre projet, puis ouvrez `translate-sample.csproj`. Vérifiez que `LangVersion` est défini sur 7.1 ou version ultérieure. En l’absence d’un groupe de propriétés pour la version du langage, ajoutez ces lignes :
+
+```xml
+<PropertyGroup>
+   <LangVersion>7.1</LangVersion>
+</PropertyGroup>
+```
+
+## <a name="add-required-namespaces-to-your-project"></a>Ajouter les espaces de noms requis à votre projet
 
 La commande `dotnet new console` que vous avez exécutée précédemment a créé un projet, notamment `Program.cs`. C’est dans ce fichier que vous placerez votre code d’application. Ouvrez `Program.cs` et remplacez les instructions using existantes. Ces instructions garantissent que vous avez accès à tous les types nécessaires pour générer et exécuter l’exemple d’application.
 
@@ -55,15 +68,67 @@ La commande `dotnet new console` que vous avez exécutée précédemment a cré�
 using System;
 using System.Net.Http;
 using System.Text;
+using System.Threading.Tasks;
+// Install Newtonsoft.Json with NuGet
 using Newtonsoft.Json;
+```
+
+## <a name="create-classes-for-the-json-response"></a>Créer des classes pour la réponse JSON
+
+Ensuite, nous allons créer un ensemble de classes qui sont utilisées lors de la désérialisation de la réponse JSON retournée par l’API Translator Text.
+
+```csharp
+/// <summary>
+/// The C# classes that represents the JSON returned by the Translator Text API.
+/// </summary>
+public class TranslationResult
+{
+    public DetectedLanguage DetectedLanguage { get; set; }
+    public TextResult SourceText { get; set; }
+    public Translation[] Translations { get; set; }
+}
+
+public class DetectedLanguage
+{
+    public string Language { get; set; }
+    public float Score { get; set; }
+}
+
+public class TextResult
+{
+    public string Text { get; set; }
+    public string Script { get; set; }
+}
+
+public class Translation
+{
+    public string Text { get; set; }
+    public TextResult Transliteration { get; set; }
+    public string To { get; set; }
+    public Alignment Alignment { get; set; }
+    public SentenceLength SentLen { get; set; }
+}
+
+public class Alignment
+{
+    public string Proj { get; set; }
+}
+
+public class SentenceLength
+{
+    public int[] SrcSentLen { get; set; }
+    public int[] TransSentLen { get; set; }
+}
 ```
 
 ## <a name="create-a-function-to-translate-text"></a>Créer une fonction pour traduire du texte
 
-Dans la classe `Program`, créez une fonction nommée `TranslateText`. Cette classe encapsule le code utilisé pour appeler la ressource Transliterate, et affiche le résultat sur la console.
+Dans la classe `Program`, créez une fonction asynchrone appelée `TranslateTextRequest()`. Cette fonction prend quatre arguments : `subscriptionKey`, `host`, `route` et `inputText`.
 
 ```csharp
-static void TranslateText()
+// This sample requires C# 7.1 or later for async/await.
+// Async call to the Translator Text API
+static public async Task TranslateTextRequest(string subscriptionKey, string host, string route, string inputText)
 {
   /*
    * The code for your call to the translation service will be added to this
@@ -72,20 +137,12 @@ static void TranslateText()
 }
 ```
 
-## <a name="set-the-subscription-key-host-name-and-path"></a>Définir la clé d’abonnement, le nom d’hôte et le chemin
+## <a name="serialize-the-translation-request"></a>Sérialiser la demande de traduction
 
-Ajoutez ces lignes à la fonction `TranslateText`. Vous remarquerez qu’en plus d’`api-version`, deux paramètres supplémentaires ont été ajoutés à `route`. Ces paramètres servent à définir les sorties de traduction. Dans cet exemple, il s’agit de l’allemand (`de`) et de l’italien (`it`). N’oubliez pas de mettre à jour la valeur de clé d’abonnement.
-
-```csharp
-string host = "https://api.cognitive.microsofttranslator.com";
-string route = "/translate?api-version=3.0&to=de&to=it";
-string subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
-```
-
-Ensuite, nous devons créer et sérialiser l’objet JSON qui inclut le texte à traduire. N’oubliez pas que vous pouvez passer plusieurs objets dans le tableau `body`.
+Ensuite, nous devons créer et sérialiser l’objet JSON qui inclut le texte à traduire. N’oubliez pas que vous pouvez passer plusieurs objets dans le `body`.
 
 ```csharp
-System.Object[] body = new System.Object[] { new { Text = @"Hello world!" } };
+object[] body = new object[] { new { Text = inputText } };
 var requestBody = JsonConvert.SerializeObject(body);
 ```
 
@@ -110,40 +167,63 @@ Dans `HttpRequestMessage`, vous allez :
 * Insérer le corps de la requête (objet JSON sérialisé).
 * Ajouter des en-têtes obligatoires.
 * Effectuer une requête asynchrone.
-* Imprimer la réponse
+* Imprimer la réponse en utilisant les classes que vous avez créées précédemment
 
 Ajoutez ce code à `HttpRequestMessage` :
 
 ```csharp
-// Set the method to POST
+// Build the request.
+// Set the method to Post.
 request.Method = HttpMethod.Post;
-
-// Construct the full URI
+// Construct the URI and add headers.
 request.RequestUri = new Uri(host + route);
-
-// Add the serialized JSON object to your request
 request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
-
-// Add the authorization header
 request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
 
-// Send request, get response
-var response = client.SendAsync(request).Result;
-var jsonResponse = response.Content.ReadAsStringAsync().Result;
-
-// Print the response
-Console.WriteLine(jsonResponse);
-Console.WriteLine("Press any key to continue.");
+// Send the request and get response.
+HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
+// Read response as a string.
+string result = await response.Content.ReadAsStringAsync();
+// Deserialize the response using the classes created earlier.
+TranslationResult[] deserializedOutput = JsonConvert.DeserializeObject<TranslationResult[]>(result);
+// Iterate over the deserialized results.
+foreach (TranslationResult o in deserializedOutput)
+{
+    // Print the detected input language and confidence score.
+    Console.WriteLine("Detected input language: {0}\nConfidence score: {1}\n", o.DetectedLanguage.Language, o.DetectedLanguage.Score);
+    // Iterate over the results and print each translation.
+    foreach (Translation t in o.Translations)
+    {
+        Console.WriteLine("Translated to {0}: {1}", t.To, t.Text);
+    }
+}
 ```
+
+Si vous utilisez un abonnement multiservice Cognitive Services, vous devez également inclure la `Ocp-Apim-Subscription-Region` dans vos paramètres de requête. [En savoir plus sur l’authentification sur l’abonnement multiservice](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
 
 ## <a name="put-it-all-together"></a>Assemblage
 
-La dernière étape consiste à appeler `TranslateText()` dans la fonction `Main`. Recherchez `static void Main(string[] args)` et ajoutez ces lignes :
+La dernière étape consiste à appeler `TranslateTextRequest()` dans la fonction `Main`. Dans cet exemple, nous allons traduire en allemand (`de`), en italien (`it`), en japonais (`ja`) et en thaï (`th`). Recherchez `static void Main(string[] args)` et remplacez-le par ce code :
 
 ```csharp
-TranslateText();
-Console.ReadLine();
+static async Task Main(string[] args)
+{
+    // This is our main function.
+    // Output languages are defined in the route.
+    // For a complete list of options, see API reference.
+    // https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate
+    string host = "https://api.cognitive.microsofttranslator.com";
+    string route = "/translate?api-version=3.0&to=de&to=it&to=ja&to=th";
+    string subscriptionKey = "YOUR_TRANSLATOR_TEXT_KEY_GOES_HERE";
+    // Prompts you for text to translate. If you'd prefer, you can
+    // provide a string as textToTranslate.
+    Console.Write("Type the phrase you'd like to translate? ");
+    string textToTranslate = Console.ReadLine();
+    await TranslateTextRequest(subscriptionKey, host, route, textToTranslate);
+}
 ```
+
+Vous remarquerez que dans `Main`, vous déclarez `subscriptionKey`, `host` et `route`. En outre, vous invitez l’utilisateur à saisir avec `Console.Readline()` et affectez la valeur à `textToTranslate`.
 
 ## <a name="run-the-sample-app"></a>Exécution de l'exemple d'application
 
@@ -155,7 +235,19 @@ dotnet run
 
 ## <a name="sample-response"></a>Exemple de réponse
 
-Recherchez l’abréviation du pays/de la région dans cette [liste de langues](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
+Après avoir exécuté l’exemple, vous devriez voir ce qui suit sur le terminal :
+
+```bash
+Detected input language: en
+Confidence score: 1
+
+Translated to de: Hallo Welt!
+Translated to it: Salve, mondo!
+Translated to ja: ハローワールド！
+Translated to th: หวัดดีชาวโลก!
+```
+
+Ce message est généré à partir de JSON brut, qui se présente comme suit :
 
 ```json
 [
@@ -172,6 +264,14 @@ Recherchez l’abréviation du pays/de la région dans cette [liste de langues](
       {
         "text": "Salve, mondo!",
         "to": "it"
+      },
+      {
+        "text": "ハローワールド！",
+        "to": "ja"
+      },
+      {
+        "text": "หวัดดีชาวโลก!",
+        "to": "th"
       }
     ]
   }

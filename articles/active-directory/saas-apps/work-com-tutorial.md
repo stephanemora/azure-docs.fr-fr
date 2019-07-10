@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 816f9bfe022b4a00c01c3ee1bc243f87ef56817b
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: e7a6dc16eef1bb36a5bd6cbf0502a83481230bc0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565935"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67087093"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workcom"></a>Didacticiel : Intégration d'Azure Active Directory à Work.com
 
@@ -54,7 +54,7 @@ Pour configurer l’intégration de Work.com à Azure AD, vous devez ajouter Wo
 
 **Pour ajouter Work.com à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -177,7 +177,7 @@ Pour configurer l’authentification unique Azure AD auprès de Work.com, effec
     
     d. Dans la zone de texte **ID d’entité**, tapez `https://salesforce-work.com`.
     
-    e. Pour **SAML Identity Type (Type d’identité SAML)**, sélectionnez **Assertion contains the Federation ID from the User object (L’assertion contient l’ID de fédération de l’objet utilisateur)**.
+    e. Pour **SAML Identity Type (Type d’identité SAML)** , sélectionnez **Assertion contains the Federation ID from the User object (L’assertion contient l’ID de fédération de l’objet utilisateur)** .
     
     f. Pour **SAML Identity Location**, sélectionnez **Identity is in the NameIdentfier element of the Subject statement**.
     

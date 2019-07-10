@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b00e27a0620212fbc09f8b7d91d8f5b9d0971c8f
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 714e67bc7cf9e9c928eb4fd0764619041c9c1424
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65902981"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67092592"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-samanage"></a>Didacticiel : Intégration d’Azure Active Directory à Samanage
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de Samanage à Azure AD, vous devez ajouter Sam
 
 **Pour ajouter Samanage à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -107,7 +107,7 @@ Pour configurer l’authentification unique Azure AD avec Samanage, effectuez le
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<Company Name>.samanage.com/saml_login/<Company Name>`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://<Company Name>.samanage.com`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://<Company Name>.samanage.com`
 
     > [!NOTE] 
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeur avec l’URL de connexion et l’identificateur réels. La procédure est expliquée plus loin dans le didacticiel. Pour plus de détails, contactez l’[équipe de support technique Samanage](https://www.samanage.com/support). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.

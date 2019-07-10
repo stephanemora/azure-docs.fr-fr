@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce35c2ed61e2c55383de8b7ee491526796438418
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5aded5e6435be1fd4b2794a3a2ce0918bcbc1164
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65863002"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67104226"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-digicert"></a>Didacticiel : Intégration d’Azure Active Directory à DigiCert
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de DigiCert à Azure AD, vous devez ajouter Di
 
 **Pour ajouter DigiCert à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

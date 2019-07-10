@@ -3,19 +3,19 @@ title: 'Démarrage rapide : Obtenir la liste des langues prises en charge, Pyth
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous allez obtenir la liste des langues prises en charge pour la traduction, la translittération et la recherche dans le dictionnaire, ainsi que des exemples d’utilisation de l’API de traduction de texte Translator Text avec Python.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: fe2ab3952b68243f7e95ebf754a42e58006f012b
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.author: swmachan
+ms.openlocfilehash: 23a850723e4f7b4df2a8fca969380156586d6aae
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514733"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444924"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-python"></a>Démarrage rapide : Utiliser l’API de traduction de texte Translator Text pour obtenir la liste des langues prises en charge à l’aide de Python
 
@@ -33,7 +33,10 @@ Créez un projet Python dans votre IDE ou votre éditeur favori. Copiez cet extr
 
 ```python
 # -*- coding: utf-8 -*-
-import os, requests, uuid, json
+import os
+import requests
+import uuid
+import json
 ```
 
 > [!NOTE]
@@ -67,6 +70,8 @@ headers = {
 }
 ```
 
+Si vous utilisez un abonnement multiservice Cognitive Services, vous devez également inclure la `Ocp-Apim-Subscription-Region` dans vos paramètres de requête. [En savoir plus sur l’authentification sur l’abonnement multiservice](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
+
 ## <a name="create-a-request-to-get-a-list-of-supported-languages"></a>Créer une requête pour obtenir la liste des langues prises en charge
 
 Créons une requête GET à l’aide du module `requests`. Il tient compte de deux arguments : l’URL concaténée et les en-têtes de requête :
@@ -81,7 +86,8 @@ response = request.json()
 La dernière étape consiste à imprimer les résultats. Cet extrait de code agrémente les résultats en triant les clés, en configurant la mise en retrait et en déclarant des séparateurs d’élément et de clés.
 
 ```python
-print(json.dumps(response, sort_keys=True, indent=4, ensure_ascii=False, separators=(',', ': ')))
+print(json.dumps(response, sort_keys=True, indent=4,
+                 ensure_ascii=False, separators=(',', ': ')))
 ```
 
 ## <a name="put-it-all-together"></a>Assemblage

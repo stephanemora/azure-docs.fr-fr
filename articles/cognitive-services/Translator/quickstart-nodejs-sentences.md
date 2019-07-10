@@ -3,19 +3,19 @@ title: 'Démarrage rapide : Obtenir la longueur des phrases, Node.js - API de t
 titleSuffix: Azure Cognitive Services
 description: Dans ce démarrage rapide, vous allez apprendre à déterminer les longueurs de phrase (en caractères) à l’aide de Node.js et de l’API REST de traduction de texte Translator Text.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: 2046c0712d392771cc973de9a431191173533435
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.author: swmachan
+ms.openlocfilehash: 7a39e52e9145ac6cab298026b4098206e904943c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515142"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445002"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-with-nodejs"></a>Démarrage rapide : Utiliser l’API de traduction de texte Translator Text et Node.js pour déterminer la longueur de phrase
 
@@ -90,9 +90,11 @@ let options = {
 };
 ```
 
-### <a name="authentication"></a>Authentication
+La manière la plus simple d’authentifier une requête consiste à transmettre votre clé d’abonnement comme `Ocp-Apim-Subscription-Key`en-tête. C’est ce que nous avons fait dans ce modèle. Vous pouvez aussi échanger votre clé d’abonnement pour un jeton d’accès et transmettre le jeton d’accès en tant qu’`Authorization`en-tête pour valider votre requête. 
 
-La manière la plus simple d’authentifier une requête consiste à transmettre votre clé d’abonnement comme `Ocp-Apim-Subscription-Key`en-tête. C’est ce que nous avons fait dans ce modèle. Vous pouvez aussi échanger votre clé d’abonnement pour un jeton d’accès et transmettre le jeton d’accès en tant qu’`Authorization`en-tête pour valider votre requête. Pour en savoir plus, consultez [Authentification](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
+Si vous utilisez un abonnement multiservice Cognitive Services, vous devez également inclure la `Ocp-Apim-Subscription-Region` dans vos en-têtes de requête. 
+
+Pour en savoir plus, consultez [Authentification](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 
 ## <a name="make-the-request-and-print-the-response"></a>Effectuer la requête et imprimer la réponse
 

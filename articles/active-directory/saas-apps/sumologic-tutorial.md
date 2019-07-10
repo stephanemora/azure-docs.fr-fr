@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 4edd445fe526b9be5c421b21b25f9b095c734f43
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 07874988c97044ede59c18b8f85a425483679431
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65901712"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089532"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sumologic"></a>Didacticiel : Intégration d'Azure Active Directory à SumoLogic
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de SumoLogic dans Azure AD, vous devez ajouter 
 
 **Pour ajouter SumoLogic à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -107,7 +107,7 @@ Pour configurer l’authentification unique Azure AD avec SumoLogic, effectuez l
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<tenantname>.SumoLogic.com`
 
-   b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant :
+   b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant :
 
     | |
     |--|
@@ -245,7 +245,7 @@ Pour se connecter à SumoLogic, les utilisateurs Azure AD doivent être provisio
   
     b. Sélectionnez un rôle
   
-    c. Pour **Status (Statut)**, sélectionnez **Active (Actif)**.
+    c. Pour **Status (Statut)** , sélectionnez **Active (Actif)** .
   
     d. Cliquez sur **Enregistrer**.
 

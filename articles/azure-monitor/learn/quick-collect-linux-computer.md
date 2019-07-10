@@ -11,20 +11,20 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.date: 11/13/2018
+ms.date: 06/14/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 15b7c052d0e4d51cb033607c156a55c581f722b1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4484269194aa3d637101a6a0b83eacb268d4c16e
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58893960"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147287"
 ---
 # <a name="configure-log-analytics-agent-for-linux-computers-in-a-hybrid-environment"></a>Configurer l’agent Log Analytics pour les ordinateurs Linux dans un environnement hybride
-[Azure Log Analytics](../../azure-monitor/platform/agent-windows.md) est capable de collecter des données directement à partir de votre ordinateur Linux physique ou virtuel lequel se situe dans votre centre de données ou un autre environnement cloud, puis de les enregistrer dans un référentiel unique pour ensuite procéder à une analyse et à une mise en corrélation détaillées. Ce guide de démarrage rapide montre comment configurer et collecter des données à partir de votre ordinateur Linux en quelques étapes simples.  Pour les machines virtuelles Linux Azure, voir la rubrique [Collecter des données sur les machines virtuelles Azure](quick-collect-azurevm.md).  
+[Azure Log Analytics](../platform/agent-windows.md) est capable de collecter des données directement à partir de votre ordinateur Linux physique ou virtuel lequel se situe dans votre centre de données ou un autre environnement cloud, puis de les enregistrer dans un référentiel unique pour ensuite procéder à une analyse et à une mise en corrélation détaillées. Ce guide de démarrage rapide montre comment configurer et collecter des données à partir de votre ordinateur Linux en quelques étapes simples.  Pour les machines virtuelles Linux Azure, voir la rubrique [Collecter des données sur les machines virtuelles Azure](quick-collect-azurevm.md).  
 
-Pour comprendre la configuration prise en charge, consultez la page [Prise en charge des systèmes d’exploitation Linux](../../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) et [Configuration du pare-feu réseau](../../azure-monitor/platform/log-analytics-agent.md#network-firewall-requirements).
+Avant de continuer, vous devez tout d’abord examiner l’article de [vue d’ensemble](../platform/log-analytics-agent.md) de l’agent Log Analytics pour comprendre quelles configurations sont prises en charge, les [systèmes d’exploitation Linux pris en charge](../platform/log-analytics-agent.md#supported-linux-operating-systems) et la [ configuration de pare-feu réseau](../platform/log-analytics-agent.md#network-firewall-requirements). 
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -107,7 +107,7 @@ Par exemple : `https://user01:password@proxy01.contoso.com:30443`
 Log Analytics est capable de collecter les événements de Syslog Linux ainsi que des compteurs de performances que vous spécifiez dans l’optique de procéder à une analyse à long terme et de générer des rapports afin de réagir dès qu’une condition particulière est détectée.  Pour configurer la collecte d’événements à partir de Syslog Linux, ainsi que plusieurs compteurs de performances courants avec lesquels commencer, procédez comme suit.  
 
 1. Sélectionnez **Syslog**.  
-2. Vous pouvez ajouter un journal d’événements en tapant le nom de ce journal. Tapez **Syslog**, puis cliquez sur le signe plus **+**.  
+2. Vous pouvez ajouter un journal d’événements en tapant le nom de ce journal. Tapez **Syslog**, puis cliquez sur le signe plus **+** .  
 3. Dans le tableau, décochez les niveaux de gravité **Info**, **Avis** et **Débogage**. 
 4. Cliquez sur **Enregistrer** en haut de la page pour enregistrer la configuration.
 5. Sélectionnez **Données de performances Linux** pour activer la collecte des compteurs de performances sur un ordinateur Linux. 

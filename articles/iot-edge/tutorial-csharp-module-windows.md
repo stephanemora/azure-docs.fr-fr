@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 122028217a78463fa2ceaed63248a74257206345
-ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
+ms.openlocfilehash: d7ccce1f21b1caa2268317b7239617a80ddce10b
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66808773"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485929"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Didacticiel : Développer un module IoT Edge en C# pour les appareils Windows
 
@@ -54,7 +54,7 @@ Avant de commencer ce tutoriel, vous devez avoir effectué celui qui précède p
 * [Docker CE](https://docs.docker.com/install/), configuré pour exécuter des conteneurs Windows.
 
 > [!TIP]
-> Si vous utilisez Visual Studio 2017 (version 15.7 ou supérieure), téléchargez et installez [Azure IoT Edge Tools (préversion)](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) pour VS 2017 à partir de la place de marché Visual Studio.
+> Si vous utilisez Visual Studio 2017 (version 15.7 ou supérieure), téléchargez et installez [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) pour VS 2017 à partir de la place de marché Visual Studio
 
 ## <a name="create-a-module-project"></a>Créer un projet de module
 

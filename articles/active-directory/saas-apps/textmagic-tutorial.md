@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: c919d02a72565f42c125e6d123b48e2cedaea508
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 1184e282c8dc52cb616bcc47068d96fe61651da9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65407973"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088871"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-textmagic"></a>Didacticiel : Intégration d’Azure Active Directory dans TextMagic
 
@@ -54,7 +54,7 @@ Pour configurer l’intégration de TextMagic avec Azure AD, vous devez ajouter 
 
 **Pour ajouter TextMagic à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -116,10 +116,10 @@ Pour configurer l’authentification unique Azure AD avec TextMagic, effectuez 
 
     | Nom |   Attribut source| Espace de noms  |
     | --------------- | --------------- | --------------- |
-    | société | user.companyname | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | firstName               | user.givenname |  https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | lastName            | user.surname |  https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | phone               | user.telephonenumber |  https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | société | user.companyname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | firstName               | user.givenname |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | lastName            | user.surname |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | phone               | user.telephonenumber |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
     | | |
 
     a. Cliquez sur le bouton **Ajouter une nouvelle revendication** pour ouvrir la boîte de dialogue **Gérer les revendications des utilisateurs**.
@@ -162,7 +162,7 @@ Pour configurer l’authentification unique Azure AD avec TextMagic, effectuez 
 
     ![Configuration de TextMagic](./media/textmagic-tutorial/config1.png)
 
-3. Cliquez sur l’onglet **Authentification unique (SSO)**, puis complétez les champs suivants :  
+3. Cliquez sur l’onglet **Authentification unique (SSO)** , puis complétez les champs suivants :  
 
     ![Configuration de TextMagic](./media/textmagic-tutorial/config2.png)
 
@@ -194,7 +194,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**. Par exemple, BrittaSimon@contoso.com
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension** . Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 

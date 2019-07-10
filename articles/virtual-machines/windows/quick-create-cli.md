@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 04/24/2018
+ms.date: 07/02/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 8ce1383717b59cc7b7a43ca707fbe5ebba897f20
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: aaa9441064b7bcf5a105b61c61fc5e64f5687dc7
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730320"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551636"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-with-the-azure-cli"></a>Démarrage rapide : Créer une machine virtuelle Windows avec l’interface Azure CLI
 
@@ -29,9 +29,11 @@ L’interface de ligne de commande (CLI) Azure permet de créer et gérer des re
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+## <a name="launch-azure-cloud-shell"></a>Lancement d’Azure Cloud Shell
 
-Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande en local, ce guide de démarrage rapide nécessite que vous exécutiez la version 2.0.30 d’Azure CLI, ou une version ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI]( /cli/azure/install-azure-cli).
+Azure Cloud Shell est un interpréteur de commandes interactif et gratuit que vous pouvez utiliser pour exécuter les étapes de cet article. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. 
+
+Pour ouvrir Cloud Shell, sélectionnez simplement **Essayer** en haut à droite d’un bloc de code. Vous pouvez également lancer Cloud Shell dans un onglet distinct du navigateur en accédant à [https://shell.azure.com/bash](https://shell.azure.com/bash). Sélectionnez **Copier** pour copier les blocs de code, collez-les dans Cloud Shell, puis appuyez sur **Entrée** pour les exécuter.
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
@@ -43,7 +45,10 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-virtual-machine"></a>Créer une machine virtuelle
 
-Créez une machine virtuelle avec la commande [az vm create](/cli/azure/vm). L’exemple suivant permet de créer une machine virtuelle nommée *myVM*. Cet exemple utilise le nom d’utilisateur administratif *azureuser* et le mot de passe *myPassword12*. Mettez à jour ces valeurs avec quelque chose d’approprié pour votre environnement. Ces valeurs sont nécessaires lorsque vous vous connectez à la machine virtuelle.
+Créez une machine virtuelle avec la commande [az vm create](/cli/azure/vm). L’exemple suivant permet de créer une machine virtuelle nommée *myVM*. Cet exemple utilise *azureuser* comme d’utilisateur administratif. 
+
+Vous devez modifier la valeur de `--admin-password` ou la connexion échouera. Remplacez-la par un mot de passe qui répond aux [conditions requises pour les mots de passe pour les machines virtuelles Azure](/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm
+). Le nom d’utilisateur et le mot de passe seront utilisés plus tard, lorsque vous vous connecterez à la machine virtuelle.
 
 ```azurecli-interactive
 az vm create \
@@ -51,7 +56,7 @@ az vm create \
     --name myVM \
     --image win2016datacenter \
     --admin-username azureuser \
-    --admin-password myPassword12
+    --admin-password myPassword
 ```
 
 La création de la machine virtuelle et des ressources de support ne nécessite que quelques minutes. L’exemple de sortie suivant illustre la réussite de l’opération de création d’une machine virtuelle.

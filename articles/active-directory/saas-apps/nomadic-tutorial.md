@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 91ba5de6a6e0a18d494a449acfdea330234bcc9b
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: f292ed4c39d6f11baaa66f25b8ab54587a6609bf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65904767"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67096017"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nomadic"></a>Didacticiel : Intégration d’Azure Active Directory à Nomadic
 
@@ -52,7 +52,7 @@ Pour configurer l’intégration de Nomadic dans Azure AD, vous devez ajouter No
 
 **Pour ajouter Nomadic à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -106,7 +106,7 @@ Pour configurer l’authentification unique Azure AD avec Nomadic, procédez com
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<company name>.nomadic.fm/signin`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant :
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant :
     
     | |
     |--|

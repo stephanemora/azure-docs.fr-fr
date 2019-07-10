@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9cd8374bfce62184df5619b76f4b9e64dd86f900
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: bc5f7bf299465b6af272c9b417a62f121b9a4d82
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65874067"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164928"
 ---
 # <a name="tutorial-integrate-jobhub-with-azure-active-directory"></a>Didacticiel : Intégrer JOBHUB à Azure Active Directory
 
@@ -107,9 +107,9 @@ Pour configurer l’authentification unique côté **JOBHUB**, vous devez envoye
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
-Dans cette section, vous allez créer un utilisateur de test appelé Britta Simon dans le portail Azure.
+Dans cette section, vous allez créer un utilisateur de test appelé Britta Simon dans le Portail Azure.
 
-1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
+1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
 1. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
 1. Dans les propriétés **Utilisateur**, effectuez les étapes suivantes :
    1. Dans le champ **Nom**, entrez `Britta Simon`.  
@@ -145,7 +145,7 @@ Quand vous sélectionnez la vignette JOBHUB dans le volet d’accès, vous devez
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

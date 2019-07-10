@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: arielgo
 ms.custom: aaddev, signin_art
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac14572210b80ac1415d129c5810f0e5443012c9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 92770acb19bf95d6a19507184bd8bea10806d5b7
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540105"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483026"
 ---
 # <a name="branding-guidelines-for-applications"></a>Directives de personnalisation des applications
 
@@ -70,7 +70,7 @@ Le lien « obtenir l’application » doit rediriger l’utilisateur vers la pag
 
 Une fois que les administrateurs ont donné leur consentement à votre application, ils peuvent l’ajouter au lanceur d’applications Office 365 de leurs utilisateurs (accessible à partir de l’icône correspondante dans Office 365 et de [https://portal.office.com/myapps](https://portal.office.com/myapps)). Pour faire la promotion de cette fonctionnalité, vous pouvez utiliser des phrases telles que « Ajouter cette application à votre organisation » et afficher un bouton comme dans l’exemple suivant :
 
-![Types d’application et scénarios](./media/howto-add-branding-in-azure-ad-apps/add-to-my-org.png)
+![Bouton affichant le logo Microsoft et le texte « Ajouter à mon organisation »](./media/howto-add-branding-in-azure-ad-apps/add-to-my-org.png)
 
 Toutefois, nous vous recommandons de fournir un texte explicatif plutôt que de vous contenter des boutons. Par exemple :
 
@@ -80,7 +80,7 @@ Pour télécharger le logo Microsoft officiel afin de l’utiliser dans votre ap
 
 | Asset                                | Format PNG | Format SVG |
 | ------------------------------------ | ---------- | ---------- |
-| Logo Microsoft  | ![Logo Microsoft PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_mssymbol_19.png) | ![Logo Microsoft SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_mssymbol_19.svg) |
+| Logo Microsoft  | ![Logo de Microsoft téléchargeable au format PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_mssymbol_19.png) | ![Logo de Microsoft téléchargeable au format SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_mssymbol_19.svg) |
 
 ## <a name="visual-guidance-for-sign-in"></a>Aide visuelle pour la connexion
 
@@ -92,16 +92,16 @@ C’est l’association du logo Microsoft et des termes « Se connecter avec Mic
 
 Le schéma suivant illustre les lignes rouges recommandées par Microsoft lorsque vous utilisez les éléments multimédias avec votre application. Les lignes rouges s’appliquent au bouton « Se connecter avec Microsoft » ou à sa version abrégée « Se connecter ».
 
-![Lignes rouges Se connecter avec Microsoft](./media/howto-add-branding-in-azure-ad-apps/sign-in-with-microsoft-redlines.png)
+![Affiche les lignes rouges « Se connecter avec Microsoft »](./media/howto-add-branding-in-azure-ad-apps/sign-in-with-microsoft-redlines.png)
 
 Pour télécharger les images Microsoft officielles afin de les utiliser dans votre application, cliquez avec le bouton droit de la souris sur celle que vous souhaitez utiliser et enregistrez-la sur votre ordinateur.
 
 | Asset                                | Format PNG | Format SVG |
 | ------------------------------------ | ---------- | ---------- |
-| Se connecter avec Microsoft (thème sombre)  | ![Bouton Se connecter, thème sombre PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark.png) | ![Bouton Se connecter avec Microsoft, thème sombre SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark.svg) |
-| Se connecter avec Microsoft (thème clair) | ![Bouton Se connecter, thème clair PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.png) | ![Bouton Se connecter avec Microsoft, thème clair SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.svg) |
-| Se connecter (thème sombre)                 | ![Bouton Se connecter, version courte, thème sombre PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.png) | ![Bouton Se connecter, version courte, thème sombre SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.svg) |
-| Se connecter (thème clair)                | ![Bouton Se connecter, version courte, thème clair PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.png) | ![Bouton Se connecter, version courte, thème clair SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.svg) |
+| Se connecter avec Microsoft (thème sombre)  | ![Bouton téléchargeable « Se connecter avec Microsoft », thème sombre PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark.png) | ![Bouton téléchargeable « Se connecter avec Microsoft », thème sombre SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark.svg) |
+| Se connecter avec Microsoft (thème clair) | ![Bouton téléchargeable « Se connecter avec Microsoft », thème clair PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.png) | ![Bouton téléchargeable « Se connecter avec Microsoft », thème clair SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.svg) |
+| Se connecter (thème sombre)                 | ![Bouton téléchargeable « Se connecter », version courte, thème sombre PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.png) | ![Bouton téléchargeable « Se connecter », version courte, thème sombre SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.svg) |
+| Se connecter (thème clair)                | ![Bouton téléchargeable « Se connecter », version courte, thème clair PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.png) | ![Bouton téléchargeable « Se connecter », version courte, thème clair SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.svg) |
 
 ## <a name="branding-dos-and-donts"></a>Choses à faire et à éviter en matière de personnalisation
 

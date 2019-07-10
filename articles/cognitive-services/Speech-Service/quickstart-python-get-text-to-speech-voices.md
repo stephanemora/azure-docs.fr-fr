@@ -1,35 +1,35 @@
 ---
-title: 'Démarrage rapide : Liste voix, Python - Services de reconnaissance vocale'
+title: 'Démarrage rapide : Répertorier les voix de la synthèse vocale, Python - Services Speech'
 titleSuffix: Azure Cognitive Services
-description: Dans ce démarrage rapide, vous allez apprendre à obtenir la liste complète des voix standard et neuronaux pour une région/le point de terminaison que l’utilisation de Python. La liste est retournée au format JSON, et la disponibilité de voix varie selon la région.
+description: Dans ce guide de démarrage rapide, vous allez apprendre à obtenir la liste complète des voix standard et neuronales pour une région/un point de terminaison avec Python. La liste est retournée au format JSON, et la disponibilité des voix varie selon la région.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 03/22/2019
 ms.author: erhopf
-ms.openlocfilehash: 66bda68b1313a7c172e273671bc3a03503d08e0d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 6e28665dfcdaec55ba4f1fa671e9439a9cf4aa7d
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60619252"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67338648"
 ---
 # <a name="quickstart-get-the-list-of-text-to-speech-voices-using-python"></a>Démarrage rapide : Obtenir la liste des voix de synthèse vocale à l’aide de Python
 
-Dans ce démarrage rapide, vous allez apprendre à obtenir la liste complète des voix standard et neuronaux pour une région/le point de terminaison que l’utilisation de Python. La liste est retournée au format JSON, et la disponibilité de voix varie selon la région. Pour obtenir la liste des régions prises en charge, consultez [régions](regions.md).
+Dans ce guide de démarrage rapide, vous allez apprendre à obtenir la liste complète des voix standard et neuronales pour une région/un point de terminaison avec Python. La liste est retournée au format JSON, et la disponibilité des voix varie selon la région. Pour obtenir la liste des régions prises en charge, consultez [Régions](regions.md).
 
-Ce démarrage rapide nécessite un [compte Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec une ressource de Services de reconnaissance vocale. Si vous n’avez pas de compte, vous pouvez utiliser la [version d’évaluation gratuite](get-started.md) pour obtenir une clé d’abonnement.
+Ce guide de démarrage rapide exige un [compte Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec une ressource des services Speech. Si vous n’avez pas de compte, vous pouvez utiliser la [version d’évaluation gratuite](get-started.md) pour obtenir une clé d’abonnement.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Ce démarrage rapide nécessite :
 
 * Python 2.7.x ou 3.x
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) ou l’éditeur de texte de votre choix
-* Une clé d’abonnement Azure pour les Services de reconnaissance vocale
+* Une clé d’abonnement Azure pour les services Speech
 
 ## <a name="create-a-project-and-import-required-modules"></a>Créez un projet et importez les modules requis
 
@@ -42,11 +42,11 @@ import requests
 > [!NOTE]
 > Si vous n’avez jamais utilisé ces modules auparavant, vous devrez les installer avant d’exécuter votre programme. Pour installer ces packages, exécuter `pip install requests`.
 
-Demandes est utilisé pour les requêtes HTTP au service de synthèse vocale.
+Requests est utilisé pour les requêtes HTTP au service de synthèse vocale.
 
 ## <a name="set-the-subscription-key-and-create-a-prompt-for-tts"></a>Définir la clé d’abonnement et créer une invite pour la conversion de texte par synthèse vocale (TTS)
 
-Dans les sections suivantes, vous allez créer des méthodes pour gérer l’autorisation, appeler l’API Synthèse vocale et valider la réponse. Nous allons commencer en créant une classe. C’est là que nous mettrons nos méthodes pour l’échange de jeton et l’appel de l’API Synthèse vocale.
+Dans les sections suivantes, vous allez créer des méthodes pour gérer l’autorisation, appeler l’API Synthèse vocale et valider la réponse. Nous allons commencer par créer une classe. C’est là que nous mettrons nos méthodes pour l’échange de jeton et l’appel de l’API Synthèse vocale.
 
 ```python
 class GetVoices(object):
@@ -59,9 +59,9 @@ class GetVoices(object):
 
 ## <a name="get-an-access-token"></a>Obtention d’un jeton d’accès
 
-Ce point de terminaison nécessite un jeton d’accès pour l’authentification. Pour obtenir un jeton d’accès, un échange est nécessaire. Cet exemple échange votre clé d’abonnement de Services de reconnaissance vocale pour un jeton accès à l’aide du `issueToken` point de terminaison.
+Ce point de terminaison nécessite un jeton d’accès pour l’authentification. Pour obtenir un jeton d’accès, un échange est nécessaire. Cet exemple échange votre clé d’abonnement des services Speech avec un jeton accès à l’aide du point de terminaison `issueToken`.
 
-Cet exemple suppose que votre abonnement aux Services de reconnaissance vocale est dans la région ouest des États-Unis. Si vous utilisez une autre région, mettez à jour la valeur de `fetch_token_url`. Pour obtenir la liste complète, consultez [Régions](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
+Cet exemple suppose que votre abonnement des services Speech se situe dans la région USA Ouest. Si vous utilisez une autre région, mettez à jour la valeur de `fetch_token_url`. Pour obtenir la liste complète, consultez [Régions](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
 
 Copiez le code suivant dans la classe `GetVoices` :
 
@@ -80,9 +80,9 @@ def get_token(self):
 
 ## <a name="make-a-request-and-save-the-response"></a>Effectuer une requête et enregistrer la réponse
 
-Ici, vous allez à la demande de build et enregistrer la liste des voix retourné. Tout d’abord, vous devez définir les valeurs `base_url` et `path`. Cet exemple part du principe que vous utilisez le point de terminaison USA Ouest. Si votre ressource est inscrite dans une autre région, veillez à mettre à jour la valeur `base_url`. Pour plus d’informations, consultez [régions des Services de reconnaissance vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
+Ici, vous allez générer la requête et enregistrer la liste des voix retourné. Tout d’abord, vous devez définir les valeurs `base_url` et `path`. Cet exemple part du principe que vous utilisez le point de terminaison USA Ouest. Si votre ressource est inscrite dans une autre région, veillez à mettre à jour la valeur `base_url`. Pour plus d’informations, consultez [Régions des services Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
 
-Ensuite, ajoutez les en-têtes requis pour la demande. Enfin, vous envoyez une requête au service. Si la demande réussit, et un code de 200 état est retourné, la réponse est écrite dans le fichier.
+Ensuite, ajoutez les en-têtes nécessaires pour la requête. Enfin, vous envoyez une requête au service. Si la requête réussit et qu’un code d’état 200 est retourné, la réponse est écrite dans un fichier.
 
 Copiez le code suivant dans la classe `GetVoices` :
 
@@ -98,7 +98,8 @@ def get_voices(self):
     if response.status_code == 200:
         with open('voices.json', 'wb') as voices:
             voices.write(response.content)
-            print("\nStatus code: " + str(response.status_code) + "\nvoices.json is ready to view.\n")
+            print("\nStatus code: " + str(response.status_code) +
+                  "\nvoices.json is ready to view.\n")
     else:
         print("\nStatus code: " + str(
             response.status_code) + "\nSomething went wrong. Check your subscription key and headers.\n")
@@ -118,7 +119,7 @@ if __name__ == "__main__":
 
 ## <a name="run-the-sample-app"></a>Exécution de l'exemple d'application
 
-Voilà, vous êtes prêt à exécuter l’exemple. À partir de la ligne de commande (ou d’une session terminal), accédez au répertoire de votre projet, puis exécutez :
+Voilà, vous pouvez maintenant exécuter l’exemple. À partir de la ligne de commande (ou d’une session terminal), accédez au répertoire de votre projet, puis exécutez :
 
 ```console
 python get-voices.py

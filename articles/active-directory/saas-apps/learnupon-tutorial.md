@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 574c21dc2713f10513ac296e7db538e20a94c9d6
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: ecdcd8c6024b3cacb422b556718bbbdbb5d601c2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406528"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098239"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learnupon"></a>Didacticiel : Intégration d'Azure Active Directory à LearnUpon
 
@@ -58,7 +58,7 @@ Pour configurer l’intégration de LearnUpon à Azure AD, vous devez ajouter L
 
 **Pour ajouter LearnUpon à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -165,9 +165,9 @@ Pour configurer l’authentification unique Azure AD avec LearnUpon, procédez 
 
      ![Configurer l'authentification unique](./media/learnupon-tutorial/tutorial_learnupon_11.png)  
 
-    a. Dans la zone de texte **First Name Identifier Format** (Format de l’identificateur du prénom), entrez la valeur indiquant à quel emplacement dans votre assertion SAML réside le prénom des utilisateurs, par exemple : `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+    a. Dans la zone de texte **First Name Identifier Format** (Format de l’identificateur du prénom), entrez la valeur indiquant à quel emplacement dans votre assertion SAML réside le prénom des utilisateurs, par exemple : `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
   
-    b. Dans la zone de texte **Last Name Identifier Format** (Format de l’identificateur du nom), entrez la valeur indiquant à quel emplacement dans votre assertion SAML réside le nom des utilisateurs, par exemple : `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
+    b. Dans la zone de texte **Last Name Identifier Format** (Format de l’identificateur du nom), entrez la valeur indiquant à quel emplacement dans votre assertion SAML réside le nom des utilisateurs, par exemple : `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 

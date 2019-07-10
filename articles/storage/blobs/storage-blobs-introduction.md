@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 05/24/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: e8a68ca87307e1265c200f2e05464ff87983c1e6
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: e216503cac2db55115bd4c1b5bf0e2f6e50355fc
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66258405"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190853"
 ---
 # <a name="introduction-to-azure-blob-storage"></a>Présentation du Stockage Blob Azure
 
@@ -29,7 +29,7 @@ Le stockage Blob offre trois types de ressources :
 
 Le diagramme suivant montre la relation entre ces ressources.
 
-![Diagramme de l’architecture du stockage Blob](./media/storage-blob-introduction/blob1.png)
+![relation entre l’objet blob de compte et la ressource de conteneur](./media/storage-blob-introduction/blob1.png)
 
 ### <a name="storage-accounts"></a>Comptes de stockage
 
@@ -56,7 +56,7 @@ Le service Stockage Azure prend en charge trois types d’objets blob :
 
 * Les **objets blob de blocs** stockent du texte et des données binaires, jusqu’à environ 4,7 To. Ils sont composés de blocs de données qui peuvent être gérés individuellement.
 * Les **objets blob d’ajout** se composent de blocs, comme les objets blob de blocs, mais sont optimisés pour les opérations d’ajout. Les objets blob d’ajout sont parfaits pour les scénarios tels que la consignation des données issues des machines virtuelles.
-* Les **objets blob de pages** stockent des fichiers à accès aléatoire d’une taille maximale de 8 To. Les objets blob de pages stockent les fichiers de disque dur virtuel servant de disques pour les machines virtuelles Azure. Pour plus d’informations sur les objets blob de pages, consultez [Vue d’ensemble des objets blob de pages Azure](storage-blob-pageblob-overview.md)
+* Les **objets blob de pages** stockent des fichiers à accès aléatoire d’une taille maximale de 8 To. Les objets blob de pages stockent les fichiers de disque dur virtuel et servent de disques pour les machines virtuelles Azure. Pour plus d’informations sur les objets blob de pages, consultez [Vue d’ensemble des objets blob de pages Azure](storage-blob-pageblob-overview.md)
 
 Pour plus d’informations sur les différents types d’objets blob, consultez [Présentation des objets blob de blocs, des objets blob d’ajout et des objets blob de pages](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
 

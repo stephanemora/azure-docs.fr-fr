@@ -3,7 +3,7 @@ title: Qu’est-ce que l’Azure Security Center ? | Microsoft Docs
 description: Découvrez le Centre de sécurité Azure, ses fonctionnalités principales et son fonctionnement.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: 45b9756b-6449-49ec-950b-5ed1e7c56daa
@@ -13,14 +13,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/15/2019
-ms.author: rkarlin
-ms.openlocfilehash: 13526268480c69798ee52078f7448605fc1afa9a
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.date: 6/06/2019
+ms.author: v-mohabe
+ms.openlocfilehash: 28e85f2e9caacc0cc30dcc1a073414c34bc2ab0e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242035"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67064324"
 ---
 # <a name="what-is-azure-security-center"></a>Qu’est-ce que le Centre de sécurité Azure ?
 
@@ -125,6 +125,10 @@ Security Center vous permet de limiter l’exposition aux attaques par force bru
 ### <a name="protect-data-services"></a>Protéger les services de données
 
 Security Center inclut des fonctionnalités qui vous aident à effectuer la classification automatique de vos données dans Azure SQL. Vous pouvez également obtenir des évaluations pour les vulnérabilités potentielles sur les services Stockage et Azure SQL, ainsi que des recommandations pour les atténuer.
+
+### <a name="protect-iot-and-hybrid-cloud-workloads-preview"></a>Protéger les charges de travail de cloud hybride et IoT (préversion)
+
+Azure Security Center pour IoT (Internet des objets) simplifie la protection des charges de travail hybrides en offrant une visibilité et un contrôle unifiés, une prévention adaptative des menaces, ainsi qu’une détection et une réponse intelligentes des menaces sur l'ensemble des charges de travail exécutées dans le périmètre, sur site, dans Azure et dans d’autres clouds. Pour plus d’informations, consultez l’article [Azure Security Center pour IoT (préversion)](https://docs.microsoft.com/azure/asc-for-iot/).
 
 ## <a name="get-secure-faster"></a>Être plus rapidement en sécurité
 

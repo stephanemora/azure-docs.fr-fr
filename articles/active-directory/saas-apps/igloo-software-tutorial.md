@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/06/2019
 ms.author: jeedes
-ms.openlocfilehash: 60ec322758a3c3b83e7b24cfba37daaec02fc4c0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: df1d70f895e2e0a81344cf2a4e8e2d9963c951fa
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59270827"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67100581"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-igloo-software"></a>Didacticiel : Intégration d’Azure Active Directory avec Igloo Software
 
@@ -54,7 +54,7 @@ Pour configurer l’intégration d’Igloo Software à Azure AD, vous devez ajou
 
 **Pour ajouter Igloo Software à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

@@ -4,15 +4,15 @@ description: Décrit comment découvrir et évaluer des machines virtuelles VMwa
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 01/31/2019
+ms.date: 06/10/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 9eab8a29db40118f2a15064c52419ecebcd4aecb
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ac5bed1f21640a40fe32bedac8b28d0a9fda0ffd
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59490316"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074458"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Découvrir et évaluer des machines virtuelles VMware locales pour la migration vers Azure.
 
@@ -102,6 +102,14 @@ Vérifiez que le fichier .OVA est sécurisé, avant de le déployer.
 3. Le code de hachage généré doit correspondre aux paramètres ci-après.
 
 #### <a name="continuous-discovery"></a>Détection continue
+
+  Pour OVA version 1.0.10.15
+
+  **Algorithme** | **Valeur de hachage**
+    --- | ---
+    MD5 | dfa1838b1e64f7cde51915927220cf48
+    SHA1 | 24bdbd9c37c7366567ff252db3a37a13dda9de42
+    SHA256 | e9f8f16ceb970c27dd068f5a5f7a4b2fd336f2820e9d6247d510ba6824e3f06c
 
   Pour OVA version 1.0.10.11
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 79223a7f5c1f16eaf09de8efd05e0ec096ac73ab
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f20a8a63160a498b9789f77eededad1fd6a02906
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65866984"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090108"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smartrecruiters"></a>Didacticiel : Intégration d’Azure Active Directory à SmartRecruiters
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de SmartRecruiters à Azure AD, vous devez ajou
 
 **Pour ajouter SmartRecruiters à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 05/11/2018
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 5bc326bbc16ef93d484425f26b6f8226150c77c6
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 58daa53dba8f18c3f73253008fe687ba8b0d0839
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66302419"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274080"
 ---
 # <a name="tutorial-deploy-an-application-on-your-service-fabric-standalone-cluster"></a>Didacticiel : déployer une application sur votre cluster autonome Service Fabric
 
@@ -61,7 +61,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 4. Cliquez avec le bouton droit sur le projet de l’application `Voting` dans l’Explorateur de solutions et choisissez **Publier**.
 
-5. Sélectionnez la flèche déroulante pour le **point de terminaison de connexion** et entrez le nom DNS public de l’un des nœuds de votre cluster.  Par exemple, `ec2-34-215-183-77.us-west-2.compute.amazonaws.com:19000`
+5. Sélectionnez la flèche déroulante pour le **point de terminaison de connexion** et entrez le nom DNS public de l’un des nœuds de votre cluster.  Par exemple : `ec2-34-215-183-77.us-west-2.compute.amazonaws.com:19000`. Notez que dans Azure, un nom de domaine complet (FQDN) n’est pas accordé automatiquement, mais peut facilement [être défini sur la page Vue d’ensemble de la machine virtuelle.](https://docs.microsoft.com/azure/virtual-machines/linux/portal-create-fqdn)
 
 6. Ouvrez votre navigateur préféré et tapez l’adresse du cluster (le point de terminaison de connexion, cette application se déploie sur le port 8080 - par exemple, ec2-34-215-183-77.us-west-2.compute.amazonaws.com:8080).
 

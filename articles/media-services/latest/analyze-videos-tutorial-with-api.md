@@ -1,5 +1,5 @@
 ---
-title: Analyser des vidéos avec Media Services à l’aide de .NET - Azure | Microsoft Docs
+title: Analyser des vidéos avec Azure Media Services | Microsoft Docs
 description: Suivez les étapes de ce didacticiel pour analyser des vidéos à l’aide d’Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -9,22 +9,25 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
-ms.date: 04/21/2019
+ms.date: 06/19/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: ead6fdc0ade4a24d162603b9dc3749726c0d8002
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 2c26ba24f0262f7cf43f80b4f4deae464581d08d
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415640"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273897"
 ---
-# <a name="tutorial-analyze-videos-with-media-services-v3-using-net"></a>Didacticiel : Analyser des vidéos avec Media Services v3 à l’aide de .NET
+# <a name="tutorial-analyze-videos-with-media-services-v3"></a>Didacticiel : Analyser des vidéos avec Media Services v3
+
+> [!NOTE]
+> Bien que ce didacticiel utilise des exemples [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet), les étapes générales sont les mêmes pour [l’API REST](https://docs.microsoft.com/rest/api/media/liveevents), [l’interface de ligne de commande](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest) et autres [kits de développement logiciel (SDK)](media-services-apis-overview.md#sdks) pris en charge.
 
 Ce didacticiel vous montre comment analyser des vidéos avec Azure Media Services. Il existe plusieurs scénarios dans lesquels vous pouvez souhaiter obtenir des informations détaillées sur vos vidéos enregistrées ou vos contenus audio. Par exemple, pour obtenir une satisfaction plus élevée des clients, les organisations peuvent exécuter un traitement de reconnaissance vocale pour convertir les enregistrements du support client en un catalogue pouvant faire l’objet de recherches, avec des index et des tableaux de bord. Ensuite, elles peuvent obtenir des informations sur leur entreprise, comme la liste des réclamations courantes avec leurs sources, et d’autres informations utiles.
 
 Ce didacticiel vous explique les procédures suivantes :    
-
+ 
 > [!div class="checklist"]
 > * Télécharger l’exemple d’application décrit dans la rubrique
 > * Examiner le code qui analyse la vidéo spécifiée

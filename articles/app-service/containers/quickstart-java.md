@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: 7c6d5034335a455d24b1f22919b672e2ead2810d
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 09a3ad182ff5ee19a81b03557b3277343912a774
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510854"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461408"
 ---
 # <a name="quickstart-create-a-java-app-in-app-service-on-linux"></a>Démarrage rapide : créer une application Java dans App Service sous Linux
 
@@ -62,50 +62,69 @@ Ajoutez ensuite la définition de plug-in suivante dans l’élément `<build>` 
     <plugin>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-webapp-maven-plugin</artifactId>
-        <version>1.5.4</version>
-        <configuration>
-            <!-- Specify v2 schema -->
-            <schemaVersion>v2</schemaVersion>
-            <!-- App information -->
-            <subscriptionId>${SUBSCRIPTION_ID}</subscriptionId>
-            <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
-            <appName>${WEBAPP_NAME}</appName>
-            <region>${REGION}</region>
-   
-            <!-- Java Runtime Stack for App on Linux-->
-            <runtime>
-                <os>linux</os>
-                <javaVersion>jre8</javaVersion>
-                <webContainer>tomcat 8.5</webContainer>
-            </runtime> 
-            <deployment>
-                <resources>
-                    <resource>
-                        <directory>${project.basedir}/target</directory>
-                        <includes>
-                            <include>*.war</include>
-                        </includes>
-                    </resource>
-                </resources>
-            </deployment>
-        </configuration>
+        <version>1.7.0</version>
     </plugin>
 </plugins>
-```    
+```
 
+Le processus de déploiement sur Azure App Service utilise les informations d’identification du compte provenant d’Azure CLI. [Connectez-vous à Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) avant de continuer.
 
-> [!NOTE] 
+```azurecli
+az login
+```
+
+Vous pouvez alors configurer le déploiement, exécuter la commande maven `mvn azure-webapp:config` dans l’invite de commandes et utiliser les configurations par défaut en appuyant sur **Entrée** jusqu'à ce que vous atteigniez l’invite **Confirm (Y/N)** , puis appuyiez sur **'y'** . La configuration est alors terminée.
+
+```cmd
+~@Azure:~/helloworld$ mvn azure-webapp:config
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ----------------------< example.demo:helloworld >-----------------------
+[INFO] Building helloworld Maven Webapp 1.0-SNAPSHOT
+[INFO] --------------------------------[ war ]---------------------------------
+[INFO]
+[INFO] --- azure-webapp-maven-plugin:1.6.0:config (default-cli) @ helloworld ---
+[WARNING] The plugin may not work if you change the os of an existing webapp.
+Define value for OS(Default: Linux):
+1. linux [*]
+2. windows
+3. docker
+Enter index to use:
+Define value for javaVersion(Default: jre8):
+1. jre8 [*]
+2. java11
+Enter index to use:
+Define value for runtimeStack(Default: TOMCAT 8.5):
+1. TOMCAT 9.0
+2. jre8
+3. TOMCAT 8.5 [*]
+4. WILDFLY 14
+Enter index to use:
+Please confirm webapp properties
+AppName : helloworld-1558400876966
+ResourceGroup : helloworld-1558400876966-rg
+Region : westeurope
+PricingTier : Premium_P1V2
+OS : Linux
+RuntimeStack : TOMCAT 8.5-jre8
+Deploy to slot : false
+Confirm (Y/N)? : Y
+```
+
+> [!NOTE]
 > Dans cet article, nous travaillons uniquement avec des applications Java empaquetées dans des fichiers WAR. Le plug-in prend également en charge les applications web JAR. Accédez à la section [Déployer un fichier JAR SE Java sur App Service dans Linux](https://docs.microsoft.com/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) pour l’essayer.
 
+Accédez à nouveau à `pom.xml` pour voir la configuration de plug-in mise à jour. Vous pouvez modifier d’autres configurations pour App Service directement dans votre fichier pom si nécessaire ; certaines des plus courantes sont répertoriées ci-dessous :
 
-Mettez à jour les espaces réservés suivants dans la configuration du plug-in :
-
-| Placeholder | Description |
-| ----------- | ----------- |
-| `SUBSCRIPTION_ID` | ID unique de l’abonnement dans lequel vous voulez déployer votre application. Vous pouvez trouver l’ID de l’abonnement par défaut dans Cloud Shell ou dans l’interface CLI à l’aide de la commande `az account show`. Pour connaître tous les abonnements disponibles, utilisez la commande `az account list`.|
-| `RESOURCEGROUP_NAME` | Nom du nouveau groupe de ressources dans lequel créer votre application. En plaçant toutes les ressources d’une application dans un groupe, vous pouvez les gérer ensemble. Par exemple, si vous supprimez le groupe de ressources, vous supprimez également toutes les ressources associées à l’application. Mettez à jour cette valeur avec un nouveau nom de groupe de ressources unique, par exemple, *TestResources*. Vous utiliserez ce nom de groupe de ressources pour nettoyer toutes les ressources Azure dans une section ultérieure. |
-| `WEBAPP_NAME` | Le nom d’application fera partie du nom d’hôte pour l’application lors du déploiement vers Azure (WEBAPP_NAME.azurewebsites.net). Mettez à jour cette valeur avec un nom unique pour la nouvelle application App Service, qui va héberger votre application Java (par exemple, *contoso*). |
-| `REGION` | Une région Azure où l’application est hébergée, par exemple `westus2`. Vous pouvez obtenir une liste de régions à partir du Cloud Shell ou de l’interface CLI à l’aide de la commande `az account list-locations`. |
+ Propriété | Obligatoire | Description | Version
+---|---|---|---
+`<schemaVersion>` | false | Spécifiez la version du schéma de configuration. Les valeurs prises en charge sont les suivantes : `v1`, `v2`. | 1.5.2
+`<resourceGroup>` | true | Groupe de ressources Azure pour votre application web. | 0.1.0+
+`<appName>` | true | Le nom de votre application web. | 0.1.0+
+[`<region>`](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#region) | true | Spécifie la région où votre application web sera hébergée ; la valeur par défaut est **westus**. Toutes les régions valides dans la section [Régions prises en charge](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#region). | 0.1.0+
+[`<pricingTier>`](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme##pricingtier) | false | Le niveau tarifaire pour votre application web. La valeur par défaut est **P1V2**.| 0.1.0+
+[`<runtime>`](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#runtimesetting) | true | La configuration de l’environnement de runtime, dont vous pouvez afficher les détails [ici](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#runtimesetting). | 0.1.0+
+[`<deployment>`](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#deploymentsetting) | true | La configuration de déploiement, dont vous pouvez afficher les détails [ici](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#deploymentsetting). | 0.1.0+
 
 ## <a name="deploy-the-app"></a>Déployer l’application
 
@@ -117,11 +136,19 @@ mvn package azure-webapp:deploy
 
 Une fois le déploiement terminé, accédez à l’application déployée à l’aide de l’URL suivante dans votre navigateur web. Par exemple : `http://<webapp>.azurewebsites.net`. 
 
-![Exemple d’application s’exécutant dans Azure](media/quickstart-java/java-hello-world-in-browser-curl.png)
+![Exemple d’application s’exécutant dans Azure](media/quickstart-java/java-hello-world-in-browser.png)
 
 **Félicitations !** Vous avez déployé votre première application Java sur App Service sur Linux.
 
-[!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
+## <a name="clean-up-resources"></a>Supprimer des ressources
+
+Au cours des étapes précédentes, vous avez créé des ressources Azure au sein d’un groupe de ressources. Si vous ne pensez pas avoir besoin de ces ressources à l’avenir, supprimez le groupe de ressources en exécutant la commande suivante dans Cloud Shell :
+
+```azurecli-interactive
+az group delete --name <your resource group name; for example: helloworld-1558400876966-rg> --yes
+```
+
+L’exécution de cette commande peut prendre une minute.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

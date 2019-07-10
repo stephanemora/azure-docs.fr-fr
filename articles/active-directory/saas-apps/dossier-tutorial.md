@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 9e56f37c84890b6e679e9739bc772e67a1b7e53f
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: 2feb65384e8586b30840a37a66aaee5375881c22
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565564"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67103932"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dossier"></a>Didacticiel : Intégration d’Azure Active Directory à Dossier
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de Dossier à Azure AD, vous devez ajouter Doss
 
 **Pour ajouter Dossier à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -113,7 +113,7 @@ Pour configurer l’authentification unique Azure AD avec Dossier, effectuez le
     | `https://dossier.<CLIENTDOMAINNAME>/azuresso/account/SignIn`|
     | |
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `Dossier/<CLIENTNAME>`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `Dossier/<CLIENTNAME>`
 
     > [!NOTE]
     > Pour la valeur de l’identificateur, elle doit être au format `Dossier/<CLIENTNAME>` ou toute valeur personnalisée par l’utilisateur.

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: d5cc15b0b6ef673396be0cf5bce7ca79cc676b35
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 3c2c77d4d6c816b23b86a7daea7cf5f20e98262d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60005118"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67103611"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-edigitalresearch"></a>Didacticiel : Intégration d’Azure Active Directory avec eDigitalResearch
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration d’eDigitalResearch avec Azure AD, vous devez 
 
 **Pour ajouter eDigitalResearch à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/02/2019
 ms.author: jeedes
-ms.openlocfilehash: ac21071b958942d7d689f1e9c2c49f02a3599ac4
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 06ab8a96e4f2c4bb90afd34952a8e6e78114e7e5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65888203"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088335"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trakstar"></a>Didacticiel : Intégration d’Azure Active Directory à Trakstar
 
@@ -55,7 +55,7 @@ Pour configurer l'intégration de Trakstar avec Azure AD, vous devez ajouter Tra
 
 **Pour ajouter Trakstar à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -109,7 +109,7 @@ Pour configurer l’authentification unique Azure AD avec Trakstar, effectuez le
 
     a. Dans la zone de texte **URL de connexion**, copiez la valeur trouvée dans **l’URL ACS (consommateur)** dans Trakstar (Paramètres > Authentification & SSO) au format :`https://app.trakstar.com/auth/saml/callback?namespace=<YOUR_NAMESPACE>`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, conservez la valeur par défaut : `https://app.trakstar.com`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , conservez la valeur par défaut : `https://app.trakstar.com`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Connectez-vous à Trakstar en tant qu’administrateur pour obtenir ces valeurs.

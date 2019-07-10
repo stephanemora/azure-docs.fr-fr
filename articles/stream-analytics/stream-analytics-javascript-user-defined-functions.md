@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc
 ms.date: 04/01/2018
-ms.openlocfilehash: ff8e61c53774429087ffe1a9137d40b155eb3f68
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: c7414ee159303465d6698ce9c47d04ba37c0c46e
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57192273"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329381"
 ---
-# <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>Tutoriel : Fonctions JavaScript définies par l’utilisateur Azure Stream Analytics
+# <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>Didacticiel : Fonctions JavaScript définies par l’utilisateur Azure Stream Analytics
  
 Azure Stream Analytics prend en charge les fonctions définies par l’utilisateur écrites en JavaScript. Avec le large éventail de méthodes **String**, **RegExp**, **Math**, **Array** et **Date** que fournit JavaScript, les transformations complexes de données des travaux Stream Analytics sont plus faciles à créer.
 
@@ -43,7 +43,7 @@ Voici quelques actions que vous ne pouvez pas effectuer avec une fonction JavaSc
 * Sérialisation ou désérialisation à un format d’événement personnalisé sur les entrées/sorties
 * Création d’agrégats personnalisés
 
-Bien qu’elles ne soient pas bloquées dans la définition des fonctions, évitez d’utiliser des fonctions telles que **Date.GetDate()** ou **Math.random()**. Ces fonctions ne retournent **pas** le même résultat à chaque fois que vous les appelez et le service Azure Stream Analytics ne conserve pas de journal des appels de fonction et des résultats retournés. Si une fonction retourne un résultat différent sur les mêmes événements, la reproductibilité n’est pas garantie lorsqu’un travail est relancé par vos soins ou par le service Stream Analytics.
+Bien qu’elles ne soient pas bloquées dans la définition des fonctions, évitez d’utiliser des fonctions telles que **Date.GetDate()** ou **Math.random()** . Ces fonctions ne retournent **pas** le même résultat à chaque fois que vous les appelez et le service Azure Stream Analytics ne conserve pas de journal des appels de fonction et des résultats retournés. Si une fonction retourne un résultat différent sur les mêmes événements, la reproductibilité n’est pas garantie lorsqu’un travail est relancé par vos soins ou par le service Stream Analytics.
 
 ## <a name="add-a-javascript-user-defined-function-in-the-azure-portal"></a>Ajouter une fonction JavaScript définie par l’utilisateur dans le portail Azure
 Pour créer une fonction JavaScript simple définie par l’utilisateur dans un travail Stream Analytics existant, suivez ces étapes :
@@ -100,11 +100,11 @@ Il existe des différences entre les types pris en charge dans le langage de req
 Stream Analytics | JavaScript
 --- | ---
 bigint | Number (JavaScript ne peut représenter les entiers que jusqu’à 2^53 précisément)
-DateTime | Date (JavaScript ne prend en charge que les millisecondes)
+Datetime | Date (JavaScript ne prend en charge que les millisecondes)
 double | Number
 nvarchar(MAX) | Chaîne
 Enregistrement | Object
-Tableau | Tableau
+Array | Array
 NULL | Null
 
 
@@ -114,12 +114,14 @@ Voici les conversions de JavaScript à Stream Analytics :
 JavaScript | Stream Analytics
 --- | ---
 Number | Bigint (si le nombre est rond et entre long.MinValue et long.MaxValue, sinon, double)
-Date | DateTime
+Date | Datetime
 Chaîne | nvarchar(MAX)
 Object | Enregistrement
-Tableau | Tableau
+Array | Array
 Null, Undefined | NULL
 Un autre type (par exemple une fonction ou une erreur) | Non pris en charge (entraîne une erreur d’exécution)
+
+Le langage JavaScript respecte la casse, et la casse des champs d’objet dans le code JavaScript doit correspondre à la casse des champs dans les données entrantes. Veuillez noter que les tâches avec le niveau de compatibilité 1.0 convertiront les champs de l’instruction SQL SELECT en minuscules. À partir de la compatibilité 1.1 et dans les versions ultérieures, les champs de l’instruction SELECT auront la même casse que celle spécifiée dans la requête SQL.
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 Les erreurs d’exécution JavaScript sont considérées comme irrécupérables et remontées par le biais du journal d’activité. Pour récupérer le journal, dans le portail Azure, accédez à votre travail et sélectionnez **Journal d’activité**.

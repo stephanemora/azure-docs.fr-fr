@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/22/2019
-ms.openlocfilehash: 1229ff3221deb49601dec3cd40b556ea367fc4c9
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.date: 06/14/2019
+ms.openlocfilehash: 4e45251147561f2376ac4b044ebdf3a599092dcf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66240701"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67126102"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-database-managed-instance-online-using-dms"></a>Didacticiel : Effectuer la migration en ligne de SQL Server vers une instance managée d’Azure SQL Database à l’aide de DMS
 
@@ -72,6 +72,10 @@ Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
 * Assurez-vous que le compte de service exécutant l’instance SQL Server source dispose de privilèges en écriture sur le partage réseau que vous avez créé, et que le compte d’ordinateur pour le serveur source a accès en lecture/écriture au même partage.
 * Repérez un utilisateur Windows (et son mot de passe) disposant d’un contrôle total sur le partage réseau que vous avez créé précédemment. Azure Database Migration Service emprunte l’identité de l’utilisateur pour charger les fichiers de sauvegarde sur le conteneur de stockage Azure pour l’opération de restauration.
 * Créez un ID d’application Azure Active Directory qui génère la clé d’ID d’application permettant au service DMS de se connecter à l’instance managée d’Azure SQL Database et au conteneur Stockage Azure cibles. Pour plus d’informations, consultez l’article [Utiliser le portail pour créer une application et un principal du service Azure Active Directory pouvant accéder aux ressources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal).
+
+  > [!NOTE]
+  > DMS nécessite les autorisations de contributeur sur l’abonnement pour l’ID d’application spécifié. Nous travaillons activement à réduire ces exigences en autorisations.
+
 * Créez ou prenez note du **niveau de performance Standard**, compte Stockage Azure, qui permet à Azure Database Migration Service de charger les fichiers de sauvegarde de base de données sur les bases de données en cours de migration et de les utiliser pour celles-ci.  Veillez à créer le compte Stockage Azure dans la même région que l’instance Azure Database Migration Service créée.
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Inscrire le fournisseur de ressources Microsoft.DataMigration

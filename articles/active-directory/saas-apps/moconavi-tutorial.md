@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 2a96364d486ed6c0db2762256798ac56afa69a78
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 872a2daf30a2173c7cde93e534b8e7525c88a4d2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65871553"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67096842"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moconavi"></a>Didacticiel : Intégration d’Azure Active Directory à moconavi
 
@@ -52,7 +52,7 @@ Pour configurer l’intégration de moconavi à Azure AD, vous devez ajouter moc
 
 **Pour ajouter moconavi à partir de la galerie, suivez les étapes ci-dessous :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

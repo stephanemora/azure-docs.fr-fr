@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 375b58f47454a7f5904bcdbd132b8318091e9ebd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fd498dc1c37ed6e9518fcefbdb237153504b5e98
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65870042"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67095060"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---aperture"></a>Didacticiel : Intégration d’Azure Active Directory à Palo Alto Networks - Aperture
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de Palo Alto Networks - Aperture à Azure AD, v
 
 **Pour ajouter Palo Alto Networks - Aperture à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

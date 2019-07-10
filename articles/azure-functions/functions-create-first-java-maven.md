@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 08/10/2018
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ab705b6131bd43a7ab70bab16cef81d33f07c055
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 66a7caddc499d32a4d836dcb60bc940c1ebc8a9e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65827412"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444568"
 ---
 # <a name="create-your-first-function-with-java-and-maven"></a>Créer votre première fonction avec Java et Maven
 
@@ -52,7 +52,7 @@ mvn archetype:generate \
 > [!NOTE]
 > Si vous rencontrez des problèmes avec l’exécution d’une commande, jetez un coup d’œil à la version `maven-archetype-plugin` utilisée. Étant donné que vous exécutez la commande dans un répertoire vide dépourvu de fichier `.pom`, celle-ci essaie peut-être d’utiliser un plug-in de l’ancienne version à partir de `~/.m2/repository/org/apache/maven/plugins/maven-archetype-plugin` si vous avez mis à niveau Maven à partir d’une version antérieure. Dans ce cas, essayez de supprimer le répertoire `maven-archetype-plugin` et de réexécuter la commande.
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 ```powershell
 mvn archetype:generate `
@@ -62,8 +62,8 @@ mvn archetype:generate `
 
 ```cmd
 mvn archetype:generate ^
-    -DarchetypeGroupId=com.microsoft.azure ^
-    -DarchetypeArtifactId=azure-functions-archetype
+    "-DarchetypeGroupId=com.microsoft.azure" ^
+    "-DarchetypeArtifactId=azure-functions-archetype"
 ```
 
 Maven vous invite à entrer les valeurs nécessaires pour terminer la génération du projet. Pour les valeurs de _groupId_, _artifactId_ et _version_, consultez les informations de référence sur les [conventions de nommage de Maven](https://maven.apache.org/guides/mini/guide-naming-conventions.html). La valeur de _appName_ doit être unique dans Azure : par défaut, Maven génère donc un nom d’application basé sur la valeur précédemment entrée pour _artifactId_. La valeur de _packageName_ détermine le package Java pour le code de fonction généré.
@@ -79,7 +79,7 @@ Define value for property 'appName' fabrikam-functions-20170927220323382:
 Confirm properties configuration: Y
 ```
 
-Maven crée les fichiers projet dans un nouveau dossier avec le nom de _artifactId_, dans cet exemple `fabrikam-functions`. Le code généré, et prêt à être utilisé, dans le projet est une fonction simple [déclenchée par HTTP](/azure/azure-functions/functions-bindings-http-webhook) qui renvoie le corps de la requête :
+Maven crée les fichiers projet dans un nouveau dossier avec le nom de _artifactId_, dans cet exemple `fabrikam-functions`. Le code généré, et prêt à être utilisé, dans le projet est une fonction [déclenchée par HTTP](/azure/azure-functions/functions-bindings-http-webhook) qui renvoie le corps de la requête :
 
 ```java
 public class Function {
@@ -108,7 +108,7 @@ public class Function {
 
 ```
 
-## <a name="reference-bindings"></a>Liaisons de référence
+## <a name="enable-extension-bundles"></a>Activer les offres groupées d’extension
 
 [!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
@@ -156,7 +156,7 @@ Le processus de déploiement sur Azure Functions utilise les informations d’id
 az login
 ```
 
-Déployez votre code dans une nouvelle application de fonction en utilisant la cible Maven `azure-functions:deploy`.
+Déployez votre code dans une nouvelle application de fonction en utilisant la cible Maven `azure-functions:deploy`. Cela active le mode [Déploiement Zip avec exécution à partir d’un package](functions-deployment-technologies.md#zip-deploy).
 
 > [!NOTE]
 > Quand vous utilisez Visual Studio Code pour déployer votre application de fonction, n’oubliez pas de choisir un abonnement payant, sinon vous obtenez une erreur. Votre abonnement est indiqué sur le côté gauche de l’IDE.

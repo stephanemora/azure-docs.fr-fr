@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e48e353df6c14ec24a01fe3b1852de2c6a0a3155
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 8b1e2baa2cdaee511ecff614406a0e4c25d553c8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65901048"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106846"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appneta-performance-monitor"></a>Didacticiel : Intégration d’Azure Active Directory à AppNeta Performance Monitor
 
@@ -54,7 +54,7 @@ Pour configurer l’intégration d’AppNeta Performance Monitor à Azure AD, vo
 
 **Pour ajouter AppNeta Performance Monitor à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -108,7 +108,7 @@ Pour configurer l’authentification unique Azure AD auprès d’AppNeta Perform
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<subdomain>.pm.appneta.com`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, tapez la valeur : `PingConnect`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , tapez la valeur : `PingConnect`
 
     > [!NOTE]
     > La valeur de l’URL de connexion n’est pas réelle. Mettez à jour cette valeur avec l’URL d’authentification réelle. Pour obtenir cette valeur, contactez [l’équipe du support technique client d’AppNeta Performance Monitor](mailto:support@appneta.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.

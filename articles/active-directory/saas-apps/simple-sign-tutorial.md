@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ecc90c88d2d5b7381e3c79417b643a048d76339a
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.openlocfilehash: 8f175573d7be7f5b82f27762892b4e687548b183
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65441484"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090858"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-simple-sign"></a>Didacticiel : Intégration d’Azure Active Directory à Simple Sign
 
@@ -54,7 +54,7 @@ Pour configurer l’intégration de Simple Sign à Azure AD, vous devez ajouter
 
 **Pour ajouter Simple Sign à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

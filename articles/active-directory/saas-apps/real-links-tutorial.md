@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/26/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1a250b8deba3d12b968c593ddec7ad9f052ae7d
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 8968ec9edd5b1f732bf9d4721bdc4e9bcaf5fa17
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65890567"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67093129"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-real-links"></a>Didacticiel : Intégration d’Azure Active Directory à Real Links
 
@@ -54,7 +54,7 @@ Pour configurer son intégration à Azure AD, vous devez ajouter Real Links à v
 
 **Pour ajouter Real Links à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -108,7 +108,7 @@ Pour configurer l’authentification unique Azure AD avec Real Links, effectuez 
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<SUBDOMAIN>.reallinks.io`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `urn:amazon:cognito:sp:<SUBDOMAIN>`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `urn:amazon:cognito:sp:<SUBDOMAIN>`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique Real Links](mailto:support@reallinks.io). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.

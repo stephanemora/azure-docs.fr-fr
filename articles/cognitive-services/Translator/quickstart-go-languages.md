@@ -3,19 +3,19 @@ title: 'Démarrage rapide : Obtenir les langues prises en charge, Go - API de t
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous allez obtenir la liste des langues prises en charge pour la traduction, la translittération et la recherche dans le dictionnaire, ainsi que des exemples d’utilisation de l’API de traduction de texte Translator Text avec Go.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: 5643a0abe05ff42f0ab5117b9285b472ca2fe9f5
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.author: swmachan
+ms.openlocfilehash: f2de205b6237d3af434700c47056ce52b89a53b4
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514895"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447310"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-go"></a>Démarrage rapide : Utiliser l’API de traduction de texte Translator Text pour obtenir la liste des langues prises en charge à l’aide de Go
 
@@ -107,6 +107,8 @@ if err != nil {
     log.Fatal(err)
 }
 ```
+
+Si vous utilisez un abonnement multiservice Cognitive Services, vous devez également inclure la `Ocp-Apim-Subscription-Region` dans vos paramètres de requête. [En savoir plus sur l’authentification sur l’abonnement multiservice](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
 
 ## <a name="handle-and-print-the-response"></a>Gérer et imprimer la réponse
 

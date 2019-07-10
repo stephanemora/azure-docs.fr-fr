@@ -4,25 +4,22 @@ description: Utilisez les modèles Resource Manager avec Azure Deployment Manage
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
-manager: dougeby
-editor: tysonn
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 05/23/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: aa58d0405176a63ff9d1cc25b572f3f3754dbbdc
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: a42ccb1c0e60f5bf1568ccea13392186577f2875
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66238845"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205719"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>Didacticiel : Utiliser Azure Deployment Manager avec des modèles Resource Manager (préversion publique)
 
-Découvrez comment utiliser [Azure Deployment Manager](./deployment-manager-overview.md) pour déployer vos applications dans plusieurs régions. Pour utiliser Deployment Manager, vous devez créer deux modèles :
+Découvrez comment utiliser [Azure Deployment Manager](./deployment-manager-overview.md) pour déployer vos applications dans plusieurs régions. Si vous préférez une approche plus rapide, le [guide de démarrage rapide d’Azure Deployment Manager](https://github.com/Azure-Samples/adm-quickstart) crée les configurations requises dans votre abonnement et personnalise les artefacts pour déployer une application dans plusieurs régions. Le guide démarrage rapide effectue les mêmes tâches que dans ce didacticiel.
+
+Pour utiliser Deployment Manager, vous devez créer deux modèles :
 
 * **Un modèle de topologie** : décrit les ressources Azure constituant vos applications et l’emplacement où les déployer.
 * **Un modèle de déploiement** : décrit les étapes à suivre lors du déploiement de vos applications.
@@ -44,7 +41,10 @@ Ce tutoriel décrit les tâches suivantes :
 > * Déployer la version la plus récente
 > * Supprimer des ressources
 
-Les informations de référence de l’API REST Azure Deployment Manager sont disponibles [ici](https://docs.microsoft.com/rest/api/deploymentmanager/).
+Ressources supplémentaires :
+
+* Les [informations de référence de l’API REST Azure Deployment Manager](https://docs.microsoft.com/rest/api/deploymentmanager/).
+* [Tutoriel : Utiliser le contrôle d’intégrité dans Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
 
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 

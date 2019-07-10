@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 04/09/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d3e79b00545f76dff9442a11864701d6d61f057
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: d1688cc9317306e7f524536754854b6147ad3dd5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65784567"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108763"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-tenant"></a>Démarrage rapide : Ajouter une application à votre locataire Azure Active Directory
 
@@ -72,7 +72,7 @@ Vous avez terminé l’ajout de votre application. Faites une pause si vous le s
 
 Supposons que vous deviez partir et que vous souhaitez maintenant continuer la configuration de votre application. La première chose à faire est de trouver votre application.
 
-1. Dans le panneau de navigation gauche du **[portail Azure](https://portal.azure.com)**, sélectionnez **Azure Active Directory**.
+1. Dans le panneau de navigation gauche du **[portail Azure](https://portal.azure.com)** , sélectionnez **Azure Active Directory**.
 
 1. Dans le volet **Azure Active Directory**, sélectionnez **Applications d’entreprise**.
 
@@ -132,7 +132,7 @@ Pour modifier les propriétés de l’application :
        | no  | no  | Oui | no  | no   |
        | no  | no  | no  | no  | no   |
 
-     * Est-ce que l’utilisateur peut voir l’application dans le volet d’accès et le lanceur d’applications Office 365 ?
+     \* Est-ce que l’utilisateur peut voir l’application dans le volet d’accès et le lanceur d’applications Office 365 ?
 
 ## <a name="use-a-custom-logo"></a>Utiliser un logo personnalisé
 

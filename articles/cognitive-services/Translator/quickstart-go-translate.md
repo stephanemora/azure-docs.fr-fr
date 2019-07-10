@@ -3,19 +3,19 @@ title: 'Démarrage rapide : Traduire du texte, Go - API de traduction de texte T
 titleSuffix: Azure Cognitive Services
 description: Dans ce démarrage rapide, vous traduisez du texte d’une langue à une autre à l’aide de l’API de traduction de texte Translator Text avec Go en moins de 10 minutes.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: cf0a7598d7af583e3339c511556a121523d12a7a
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.author: swmachan
+ms.openlocfilehash: e23ff7c38d5f2410c3fd0569cd0fda0ba92cf607
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514885"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445185"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-go"></a>Démarrage rapide : Utiliser l’API de traduction de texte Translator Text pour traduire une chaîne à l’aide de Go
 
@@ -138,6 +138,8 @@ if err != nil {
     log.Fatal(err)
 }
 ```
+
+Si vous utilisez un abonnement multiservice Cognitive Services, vous devez également inclure la `Ocp-Apim-Subscription-Region` dans vos paramètres de requête. [En savoir plus sur l’authentification sur l’abonnement multiservice](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
 
 ## <a name="handle-and-print-the-response"></a>Gérer et imprimer la réponse
 

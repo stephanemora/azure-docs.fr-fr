@@ -12,18 +12,18 @@ ms.author: joke
 ms.reviwer: sstein
 manager: craigg
 ms.date: 03/13/2019
-ms.openlocfilehash: eb5066185f9301450a68276dd4b2ce2123231b34
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 53e10636535c553ac5fa17b5f4aac1000cd138bc
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58666783"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445388"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>Créer un agent de travail élastique à l’aide de PowerShell
 
 Les [travaux élastique](sql-database-job-automation-overview.md#elastic-database-jobs) permettent l’exécution d’un ou plusieurs scripts Transact-SQL (T-SQL) en parallèle sur plusieurs bases de données.
 
-Dans ce tutoriel vous découvrez les étapes requises pour exécuter une requête sur plusieurs bases de données :
+Dans ce tutoriel, vous découvrez les étapes requises pour exécuter une requête sur plusieurs bases de données :
 
 > [!div class="checklist"]
 > * Créer un agent de travail élastique
@@ -71,7 +71,7 @@ Get-Module Az.Sql
 
 La création d’un agent de travail élastique requiert une base de données (S0 ou une version ultérieure) pour une utilisation en tant que [Base de données des travaux](sql-database-job-automation-overview.md#job-database). 
 
-*Le script ci-dessous crée un nouveau groupe de ressources, un serveur et une base de données pour une utilisation comme Base de données des travaux. Le script ci-dessous crée également un second serveur avec 2 bases de données vides par rapport auxquelles exécuter les travaux.*
+*Le script ci-dessous crée un nouveau groupe de ressources, un serveur et une base de données pour une utilisation comme Base de données des travaux. Le script ci-dessous crée également un second serveur avec deux bases de données vides par rapport auxquelles exécuter les travaux.*
 
 Travaux élastiques n’ont aucune exigence d’affectation de noms, c’est la raison pour laquelle vous pouvez utiliser n’importe quelle convention d’affectation de noms, tant qu’elle est conforme aux [conditions requises pour Azure](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
 
@@ -285,6 +285,23 @@ $JobExecution | Get-AzSqlElasticJobStepExecution
 # Get the job target execution details
 $JobExecution | Get-AzSqlElasticJobTargetExecution -Count 2
 ```
+
+### <a name="job-execution-states"></a>États de tâche d’exécution
+
+Le tableau suivant répertorie les états d’exécution de travail possibles :
+
+|État|Description|
+|:---|:---|
+|**Créé** | L’exécution du travail vient d’être créée et n’est pas encore en cours d’exécution.|
+|**InProgress** | L’exécution du travail est en cours.|
+|**WaitingForRetry** | L’exécution du travail n’a pas été en mesure de terminer son action et est en attente de nouvelle tentative.|
+|**Réussi** | L’exécution du travail a réussi.|
+|**SucceededWithSkipped** | L’exécution de la tâche s’est terminée avec succès, mais certains de ses enfants ont été ignorés.|
+|**Échec** | L’exécution du travail a échoué et a épuisé ses nouvelles tentatives.|
+|**TimedOut** | L’exécution du travail a expiré.|
+|**Canceled** | L’exécution du travail a été annulée.|
+|**Ignoré** | L’exécution du travail a été ignorée, car une autre exécution de la même étape du travail était déjà en cours d’exécution sur la même cible.|
+|**WaitingForChildJobExecutions** | L’exécution du travail attend que les exécutions de ses enfants se termine.|
 
 ## <a name="schedule-the-job-to-run-later"></a>Planifier le travail pour une exécution ultérieure
 

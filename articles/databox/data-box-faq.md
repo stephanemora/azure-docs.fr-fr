@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 05/23/2019
+ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 18c6175ede1e8459d3a9ca60f7890cc43d75e5ba
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 8f090a3f07eba529fd39976545eb654083e637eb
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66236284"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561409"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box : Forum Aux Questions (FAQ)
 
@@ -53,7 +53,7 @@ R. Data Box offre une capacité brute de 100 To et une capacité utile de 80 T
 R.  Pour plus d’informations sur les pays/régions dans lesquels Data Box est disponible, accédez à la [disponibilité par région](data-box-overview.md#region-availability).  
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box"></a>Q. Dans quelles régions puis-je stocker des données avec Data Box ?
-R. La solution Data Box est prise en charge dans toutes les régions des États-Unis, en Europe de l’Ouest, en Europe du Nord, en France et au Royaume-Uni. Seules les régions du cloud public Azure sont prises en charge. Azure Government et les autres clouds souverains ne sont pas pris en charge. Pour plus d’informations, consultez [Disponibilité des régions](data-box-overview.md#region-availability).
+R. La solution Data Box est prise en charge dans toutes les régions des États-Unis, en Europe de l’Ouest, en Europe du Nord, en France, au Royaume-Uni, au Japon, en Australie et au Canada. Pour plus d’informations, consultez [Disponibilité des régions](data-box-overview.md#region-availability).
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues-with-data-box"></a>Q. Qui dois-je contacter si je rencontre des problèmes avec Data Box ?
 R. Si vous rencontrez des problèmes avec Data Box, veuillez contacter le [support Microsoft](data-box-disk-contact-microsoft-support.md).
@@ -170,7 +170,7 @@ A.  To speed up the copy process:
 
 
 ### <a name="q-can-i-use-multiple-storage-accounts-with-data-box"></a>Q. Puis-je utiliser plusieurs comptes de stockage avec Data Box ?
-R.  Oui. Data Box prend en charge jusqu’à 10 comptes de stockage, à usage général, classiques ou de stockage d’objets blob. Les objets blob chauds et froids sont pris en charge. Lors de la mise à disposition générale, seuls les comptes de stockage aux États-Unis, en Europe de l’Ouest, en Europe du Nord, en France et au Royaume-Uni dans le cloud public Azure sont pris en charge.
+R.  Oui. Data Box prend en charge jusqu’à 10 comptes de stockage, à usage général, classiques ou de stockage d’objets blob. Les objets blob chauds et froids sont pris en charge. 
 
 
 ## <a name="ship-device"></a>Expédier un appareil

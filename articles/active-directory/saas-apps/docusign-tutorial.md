@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 72505cfc0a86c00882de37c35dff61a12a9c3fbe
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 607e5aded52375190878de6b48ffa4aa2ab49767
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65899599"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67104082"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-docusign"></a>Tutoriel : Intégration d’Azure Active Directory avec DocuSign
 
@@ -55,7 +55,7 @@ Pour configurer l’intégration de DocuSign à Azure AD, vous devez ajouter Doc
 
 **Pour ajouter DocuSign à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -109,7 +109,7 @@ Pour configurer l’authentification unique Azure AD avec DocuSign, effectuez le
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2/login/sp/<IDPID>`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. La procédure est expliquée ultérieurement dans le tutoriel, dans la section **Afficher les points de terminaison SAML 2.0**.
@@ -178,7 +178,7 @@ Pour configurer l’authentification unique Azure AD avec DocuSign, effectuez le
 
     ![Configuration de l'authentification unique][62]
 
-    i. Choisissez le champ que vous voulez mapper avec la revendication Azure AD. Dans cet exemple, la revendication **emailaddress** est mappée sur la valeur de **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**. Il s’agit du nom de revendication par défaut d’Azure AD pour la revendication e-mail. Ensuite, cliquez sur **ENREGISTRER**.
+    i. Choisissez le champ que vous voulez mapper avec la revendication Azure AD. Dans cet exemple, la revendication **emailaddress** est mappée sur la valeur de **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress** . Il s’agit du nom de revendication par défaut d’Azure AD pour la revendication e-mail. Ensuite, cliquez sur **ENREGISTRER**.
 
     ![Configuration de l'authentification unique][57]
 

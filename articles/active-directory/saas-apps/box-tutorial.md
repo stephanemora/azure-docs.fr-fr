@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/18/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 21e71e38cd8e2a6d627676cddd400f625452e449
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 0d8d0320766876e09448fa9e570af5e6b9a4f07e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65900688"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106080"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-box"></a>Didacticiel : intégration d’Azure Active Directory à Box
 
@@ -55,7 +55,7 @@ Pour configurer l’intégration de Box à Azure AD, vous devez ajouter Box, dis
 
 **Pour ajouter Box à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -109,7 +109,7 @@ Pour configurer l’authentification unique Azure AD avec Box, procédez comme 
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<SUBDOMAIN>.account.box.com`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL : `box.net`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL : `box.net`
 
     > [!NOTE]
     > La valeur de l’URL de connexion n’est pas réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Pour obtenir la valeur, contactez [l’équipe du support Box](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.

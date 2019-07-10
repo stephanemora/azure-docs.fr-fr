@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 843a4ef36d633b8b72453ba5eb2b969af4649531
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 674e2178ad5e9f58bbe691fd92f643750e0b91e2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65605320"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088953"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-templafy"></a>Didacticiel : Intégration d’Azure Active Directory à Templafy
 
@@ -55,7 +55,7 @@ Pour configurer l’intégration de Templafy à Azure AD, vous devez ajouter Te
 
 **Pour ajouter Templafy à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

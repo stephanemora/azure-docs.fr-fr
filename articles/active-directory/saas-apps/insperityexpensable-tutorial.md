@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: b049b6526b0053c79b313d3d51a94a7706d5f93c
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: dd0c35d23541512e1ed021a57526ac50f7a68e26
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565731"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67100140"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insperity-expensable"></a>Didacticiel : Intégration d’Azure Active Directory à Insperity ExpensAble
 
@@ -53,7 +53,7 @@ Pour configurer l'intégration d’Insperity ExpensAble avec Azure AD, vous dev
 
 **Pour ajouter Insperity ExpensAble à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

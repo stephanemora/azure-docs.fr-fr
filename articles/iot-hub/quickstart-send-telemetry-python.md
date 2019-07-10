@@ -10,12 +10,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/28/2019
-ms.openlocfilehash: 03c7da3e17e8e606b46c5c5e104a1271e8fbfd33
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: a8abd71609d3e063c92541485007a3bde44be954
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65873094"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051242"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-python"></a>Démarrage rapide : Envoyer des données de télémétrie d’un appareil à un hub IoT et les lire avec une application back-end (Python)
 
@@ -112,6 +112,13 @@ L’application d’appareil simulé se connecte à un point de terminaison spé
     La capture d’écran suivante présente la sortie lorsque l’application d’appareil simulé envoie des données de télémétrie à votre IoT Hub :
 
     ![Exécuter l’appareil simulé](media/quickstart-send-telemetry-python/SimulatedDevice.png)
+    
+### <a name="to-avoid-the-import-iothubclient-error"></a>Pour éviter l’erreur d’importation de iothub_client
+La version actuelle du SDK Azure IoT pour Python est un wrapper sur [notre kit de développement logiciel C](https://github.com/azure/azure-iot-sdk-c). Elle est générée à l’aide de la bibliothèque [Boost](https://www.boost.org/). Pour cette raison, elle est fournie avec plusieurs limitations importantes. Vous trouverez plus de détails [ici](https://github.com/Azure/azure-iot-sdk-python#important-installation-notes---dealing-with-importerror-issues)
+
+1. Vérifiez que vous avez la bonne version de [Python](https://github.com/Azure/azure-iot-sdk-python#important-installation-notes---dealing-with-importerror-issues). N’oubliez pas que seules certaines versions fonctionnent pour cet exemple. 
+2. Vérifiez que vous avez la bonne version du runtime C++ [Redistributable Visual C++ pour Visual Studio 2019](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads). (Nous recommandons la dernière option).
+3. Vérifiez que vous avez installé le client iothub : `pip install azure-iothub-device-client`.
 
 ## <a name="read-the-telemetry-from-your-hub"></a>Lire les données de télémétrie envoyées par votre hub
 

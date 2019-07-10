@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 1/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6036d428de89d160e58ae1ab7fe3c619e2b577d4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7f1d36cf3760c790f18d4fbc3d902a1365c49ae0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57838338"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67100598"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-idid-manager"></a>Didacticiel : Intégration d’Azure Active Directory à iDiD Manager
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration d’iDiD Manager à Azure AD, vous devez ajoute
 
 **Pour ajouter iDiD Manager à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -140,7 +140,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@votredomaineentreprise.extension**.  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

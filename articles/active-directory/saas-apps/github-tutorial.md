@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25540d1f26fa6021ef05108f9743e77a6184f3b3
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: f0730dd89a61b046f73e7e39c8226e66700b3494
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898571"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101645"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-github"></a>Didacticiel : Intégration d’Azure Active Directory à GitHub
 
@@ -55,7 +55,7 @@ Pour configurer l’intégration de GitHub à Azure AD, vous devez ajouter GitH
 
 **Pour ajouter GitHub à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -109,7 +109,7 @@ Pour configurer l’authentification unique Azure AD avec GitHub, effectuez les
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://github.com/orgs/<entity-id>/sso`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://github.com/orgs/<entity-id>`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://github.com/orgs/<entity-id>`
 
     > [!NOTE]
     > Notez qu’il ne s’agit pas des valeurs réelles. Vous devez mettre à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Nous vous suggérons d’utiliser ici la valeur de chaîne unique dans l’identificateur. Accédez à la section d’administration de GitHub pour extraire ces valeurs.

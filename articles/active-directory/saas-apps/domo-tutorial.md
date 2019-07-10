@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 011991a3951adde9a0d062b40584caa74d172023
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: e580eb4f02703d584fe7d601a1521765fafbceaa
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65899775"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67104017"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-domo"></a>Didacticiel : Intégration d’Azure Active Directory à Domo
 
@@ -55,7 +55,7 @@ Pour configurer l’intégration de Domo avec Azure AD, vous devez ajouter Domo
 
 **Pour ajouter Domo à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -109,7 +109,7 @@ Pour configurer l’authentification unique Azure AD avec Domo, effectuez les �
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<companyname>.domo.com`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant :
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant :
     
     | |
     |--|

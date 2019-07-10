@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4412e4c482f72872c0783f5390f86acf669e9137
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 097569c6ec43d6d45e89ff3a32fe907861eedc81
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65900891"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106456"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bc-in-the-cloud"></a>Didacticiel : Intégration d'Azure Active Directory à BC in the Cloud
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de BC in the Cloud à Azure AD, vous devez ajou
 
 **Pour ajouter BC in the Cloud à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -107,7 +107,7 @@ Pour configurer l’authentification unique Azure AD avec BC in the Cloud, effec
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://app.bcinthecloud.com/router/loginSaml/<customerid>`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, tapez l’URL suivante : `https://app.bcinthecloud.com`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , tapez l’URL suivante : `https://app.bcinthecloud.com`
 
     > [!NOTE]
     > Cette valeur n’est pas la valeur réelle. Mettez à jour cette valeur avec l’URL d’authentification réelle. Pour obtenir cette valeur, contactez [l’équipe du support BC in the Cloud](https://www.bcinthecloud.com/supportcenter/).

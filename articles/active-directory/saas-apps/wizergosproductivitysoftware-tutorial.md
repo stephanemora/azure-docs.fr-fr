@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 519066651bec85e593079a833b15dc80e5df8d9b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b6491013cb35f2473eff6c2019fe2a80dd9e9b08
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65865215"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086980"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wizergos-productivity-software"></a>Tutoriel : Intégration d’Azure Active Directory à Wizergos Productivity Software
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de Wizergos Productivity Software avec Azure AD
 
 **Pour ajouter Wizergos Productivity Software depuis la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

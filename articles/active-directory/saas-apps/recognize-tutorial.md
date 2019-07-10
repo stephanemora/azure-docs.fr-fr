@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 94e0b365d159ef18d7c0e6216ac9f5babb0d6231
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 82d231eff4690dc060c01d41356933693d08c443
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65890475"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67093259"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-recognize"></a>Didacticiel : Intégration d'Azure Active Directory à Recognize
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de Recognize à Azure AD, vous devez ajouter R
 
 **Pour ajouter Recognize à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -245,7 +245,7 @@ Cette application ne prend pas en charge l’approvisionnement SCIM, mais inclut
    
     b. Pour **Choisir le fournisseur de synchronisation**, sélectionnez **Microsoft / Office 365**.
    
-    c. Cliquez sur **Run User Sync (Exécuter la synchronisation des utilisateurs)**.
+    c. Cliquez sur **Run User Sync (Exécuter la synchronisation des utilisateurs)** .
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique 
 

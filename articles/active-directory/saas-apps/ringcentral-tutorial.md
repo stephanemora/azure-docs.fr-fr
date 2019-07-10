@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/09/2019
 ms.author: jeedes
-ms.openlocfilehash: 2e4f45deb8c63640a328e38cebc2ecbe67233c3b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: c374c9e8fd91d50b7e6589f22f9bed09fbe0de39
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66143134"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67092873"
 ---
 # <a name="tutorial-integrate-ringcentral-with-azure-active-directory"></a>Didacticiel : Intégrer RingCentral à Azure Active Directory
 
@@ -30,11 +30,11 @@ Dans ce tutoriel, vous allez découvrir comment intégrer RingCentral à Azure 
 * Permettre aux utilisateurs de se connecter automatiquement à RingCentral avec leur compte Azure AD.
 * Gérer vos comptes à partir d’un emplacement central : le portail Azure.
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour commencer, vous avez besoin des éléments suivants :
+Pour commencer, vous devez disposer de ce qui suit :
 
 * Un abonnement Azure AD Si vous n’en avez pas, vous pouvez obtenir un essai gratuit d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/)
 * Un abonnement RingCentral pour lequel l’authentification unique est activée
@@ -73,7 +73,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **RingCentral**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet pour **Configuration SAML de base** afin d’ouvrir les paramètres.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet pour **Configuration SAML de base** afin de modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
@@ -150,9 +150,9 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
-Dans cette section, vous allez créer un utilisateur de test appelé Britta Simon dans le portail Azure.
+Dans cette section, vous allez créer un utilisateur de test appelé Britta Simon dans le Portail Azure.
 
-1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
+1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
 1. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
 1. Dans les propriétés **Utilisateur**, effectuez les étapes suivantes :
    1. Dans le champ **Nom**, entrez `Britta Simon`.  

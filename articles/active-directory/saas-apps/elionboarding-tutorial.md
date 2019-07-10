@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9f79a573eedba781c38facb63a2ab86b3897545
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 3a2c584da34988e6512484586288e6d6f2599a40
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898839"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67103405"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-eli-onboarding"></a>Didacticiel : Intégration d’Azure Active Directory avec Eli Onboarding
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration d’Eli Onboarding à Azure AD, vous devrez ajo
 
 **Pour ajouter Eli Onboarding à partir de la galerie, suivez les étapes ci-dessous :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -107,7 +107,7 @@ Pour configurer l’authentification unique Azure AD avec Eli Onboarding, effec
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<YOUR DOMAIN URL>/sso/saml/login`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://<YOUR DOMAIN URL>`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://<YOUR DOMAIN URL>`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Contactez [l’équipe de support client d’Eli Onboarding](mailto:support@geteli.com) pour obtenir ces valeurs. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.

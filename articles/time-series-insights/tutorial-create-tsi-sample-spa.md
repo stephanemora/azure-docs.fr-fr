@@ -4,20 +4,20 @@ description: Découvrez comment créer une application web monopage qui interrog
 author: ashannon7
 ms.service: time-series-insights
 ms.topic: tutorial
-ms.date: 04/25/2019
+ms.date: 06/29/2019
 ms.author: dpalled
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: 2f25267b95e9ed5f7d5f6e6373fb9e3807927a7f
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: e415c681ae5a35de6e8ff76e09cfef8cc8cc98f8
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66735345"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67544078"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>Didacticiel : Créer une application web monopage Azure Time Series Insights
 
-Ce didacticiel vous guide tout au long du processus de création de votre propre application web monopage (SPA) pour accéder aux données Azure Time Series Insights. 
+Ce didacticiel vous guide tout au long du processus de création de votre propre application web monopage (SPA) pour accéder aux données Azure Time Series Insights.
 
 Ce tutoriel vous apprendra à effectuer les opérations suivantes :
 
@@ -50,55 +50,14 @@ Ce didacticiel utilise également des données de l’environnement Time Series 
 
 ## <a name="register-the-application-with-azure-ad"></a>Inscrire l’application auprès d’Azure AD
 
-Avant de générer l’application, vous devez l’inscrire auprès d’Azure AD. L’inscription fournissant la configuration de l’identité, l’application peut utiliser la prise en charge d’OAuth pour l’authentification unique. La norme OAuth requiert que les applications monopages utilisent le type d’autorisation implicite. Vous mettez à jour l’autorisation dans le manifeste de l’application. Un manifeste d’application est une représentation JSON de la configuration de l’identité d’une application.
-
-1. Connectez-vous au [portail Azure](https://portal.azure.com) à l’aide de votre compte d’abonnement Azure.  
-1. Sélectionnez **Azure Active Directory** > **Inscriptions des applications** > **Nouvelle inscription d’application**.
-
-   [![Portail Azure – Commencer l’inscription de l’application Azure AD](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration.png#lightbox)
-
-1. Sur la page **Créer**, renseignez les paramètres requis.
-
-   Paramètre|Description
-   ---|---
-   **Nom** | Entrez un nom d’inscription explicite.  
-   **Type d’application** | Laissez **Application web/API**.
-   **URL d’authentification** | Entrez l’URL de la page de connexion (accueil) de l’application. L’application étant destinée à être hébergée dans Azure App Service, vous devez utiliser une URL du domaine https:\//azurewebsites.net. Dans cet exemple, le nom est basé sur le nom de l’inscription.
-
-   Sélectionnez **Créer** pour créer la nouvelle inscription de l’application.
-
-   [![Portail Azure – Option Créer dans le volet d’inscription d’application Azure AD](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-create.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-create.png#lightbox)
-
-1. Les ressources d’application fournissent des API REST que d’autres applications peuvent utiliser. Les API sont également inscrites auprès d’Azure AD. Les API fournissent un accès granulaire et sécurisé aux applications clientes en exposant des *étendues*. Étant donné que votre application appelle l’API Azure Time Series Insights, vous devez spécifier l’API et l’étendue. Une autorisation est accordée pour l’API et l’étendue lors de l’exécution du runtime. Sélectionnez **Paramètres** > **Autorisations requises** > **Ajouter**.
-
-   [![Portail Azure – Option Ajouter pour l’ajout d’autorisations Azure AD](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms.png#lightbox)
-
-1. Dans le volet **Ajouter un accès API**, sélectionnez **1 Sélectionner une API** pour spécifier l’API Azure Time Series Insights. Sur la page **Sélectionner une API**, dans la zone de recherche, entrez **azure time**. Ensuite, dans la liste des résultats, sélectionnez **Azure Time Series Insights**. Choisissez **Select**.
-
-   [![Portail Azure – Option de recherche pour l’ajout d’autorisations Azure AD](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms-api.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms-api.png#lightbox)
-
-1. Pour sélectionner une étendue pour l’API, dans le volet **Ajouter un accès d’API**, choisissez **2 Sélectionner des autorisations**. Sur la page **Activer l’accès**, sélectionnez l’étendue **Access Azure Time Series Insights service** (Accéder au service Azure Time Series Insights). Choisissez **Select**. Vous êtes redirigé vers le volet **Ajouter un accès d’API**. Sélectionnez **Terminé**.
-
-   [![Portail Azure – Définir une étendue pour l’ajout d’autorisations Azure AD](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms-api-scopes.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms-api-scopes.png#lightbox)
-
-1. Dans le volet **Autorisations requises**, l’API Azure Time Series Insights est à présent affichée. Vous devez également donner un consentement préalable à l’autorisation d’accès de l’application à l’API et à l’étendue, pour tous les utilisateurs. Sélectionnez **Accorder des autorisations**, puis **Oui**.
-
-   [![Portail Azure – Option Accorder des autorisations pour l’ajout des autorisations Azure AD requises](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-required-permissions-consent.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-required-permissions-consent.png#lightbox)
-
-1. Comme indiqué précédemment, vous devez également actualiser le manifeste de l’application. Dans le menu horizontal en haut du volet (la barre de navigation), sélectionnez le nom de l’application pour revenir au volet **Application inscrite**. Sélectionnez **Manifeste**, modifiez la propriété `oauth2AllowImplicitFlow` en la définissant sur `true`, puis sélectionnez **Enregistrer**.
-
-   [![Portail Azure – Mettre à jour le manifeste Azure AD](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-update-manifest.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-update-manifest.png#lightbox)
-
-1. Dans la barre de navigation, sélectionnez le nom de l’application pour revenir au volet **Application inscrite**. Copiez les valeurs de **Page d’accueil** et d’**ID d’Application** pour votre application. Vous utiliserez ces propriétés plus tard dans le didacticiel.
-
-   [![Portail Azure – Copier les valeurs d’URL de la page d’accueil et d’ID de l’Application pour votre application](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-application.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-application.png#lightbox)
+[!INCLUDE [Azure Active Directory app registration](../../includes/time-series-insights-aad-registration.md)]
 
 ## <a name="build-and-publish-the-web-application"></a>Générer et publier l’application web
 
 1. Créez un répertoire pour stocker vos fichiers de projet d’application. Ensuite, accédez à chacune des URL suivantes. Cliquez avec le bouton droit sur le lien **Brute** dans l’angle supérieur droit de la page, puis sélectionnez **Enregistrer sous** pour enregistrer les fichiers dans le répertoire de votre projet.
 
-   - [*index.html*](https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/index.html) : HTML et JavaScript pour la page
-   - [*sampleStyles.css*]( https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/sampleStyles.css) : Feuille de style CSS
+   - [*index.html*](https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/index.html) : HTML et JavaScript pour la page
+   - [*sampleStyles.css*]( https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/sampleStyles.css) : feuille de style CSS
 
    > [!NOTE]
    > Selon le navigateur, il se peut que vous deviez modifier l’extension de fichier en .html ou .css avant d’enregistrer le fichier.
@@ -142,7 +101,7 @@ Avant de générer l’application, vous devez l’inscrire auprès d’Azure AD
       <link rel="stylesheet" type="text/css" href="../../dist/tsiclient.css"> -->
       ```
 
-   1. Pour configurer l’application afin d’utiliser votre ID d’inscription d’application Azure AD, modifiez les valeurs `clientID` et `postLogoutRedirectUri` de façon à utiliser les valeurs d’**ID d’Application** et de **Page d’accueil** que vous avez copiées à l’étape 9 de la section [ Inscrire l’application auprès d’Azure AD](#register-the-application-with-azure-ad).
+   1. Pour configurer l’application afin d’utiliser votre ID d’inscription d’application Azure AD, modifiez la valeur `clientID` oiyr utiliser **l’ID d’Application** que vous avez copié lors de **l’étape 3** lorsque vous avez [inscrit l’application pour utiliser Azure AD](#register-the-application-with-azure-ad). Si vous avez créé une **URL de déconnexion** dans Azure AD, définissez cette valeur en tant que valeur `postLogoutRedirectUri`.
 
       [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=147-153&highlight=4-5)]
 
@@ -182,9 +141,9 @@ Avant de générer l’application, vous devez l’inscrire auprès d’Azure AD
 
 Code d’erreur/condition | Description
 ---------------------| -----------
-*AADSTS50011 : Aucune adresse de réponse n’est inscrite pour l’application.* | La propriété **URL de réponse** est manquante dans l’inscription Azure AD. Accédez à **Paramètres** > **URL de réponse** pour votre inscription d’application Azure AD. Vérifiez que l’**URL de connexion** spécifiée à l’étape 3 de la section [Inscrire l’application auprès d’Azure AD](#register-the-application-with-azure-ad) est présente.
-*AADSTS50011 : L’URL de réponse spécifiée dans la requête ne correspond pas aux URL de réponse configurées pour l’application : '\<GUID de l’ID d’application>'.* | La valeur `postLogoutRedirectUri` spécifiée à l’étape 6 de la section [Générer et publier l’application web](#build-and-publish-the-web-application) doit correspondre à celle spécifiée sous **Paramètres** > **URL de réponse** dans votre inscription d’application Azure AD. Veillez à modifier également la valeur **URL de Destination** afin d’utiliser *https*, comme indiqué à l’étape 5 de la section [Générer et publier l’application web](#build-and-publish-the-web-application).
-L’application web est chargée, mais présente une page de connexion textuelle sans style avec un arrière-plan blanc. | Vérifiez que les chemins d’accès évoqués à l’étape 4 de la section [Générer et publier l’application web](#build-and-publish-the-web-application) sont corrects. Si l’application web ne trouve pas les fichiers .css, la page ne sera pas mise en forme correctement.
+*AADSTS50011 : Aucune adresse de réponse n’est inscrite pour l’application.* | La propriété **URL de réponse** est manquante dans l’inscription Azure AD. Accédez à **Paramètres** > **URL de réponse** pour votre inscription d’application Azure AD. Vérifiez que **l’URI de redirection** que vous aviez la possibilité de spécifier lors de **l’étape 2** lorsque vous avez [inscrit l’application pour utiliser Azure AD](#register-the-application-with-azure-ad) est présente.
+*AADSTS50011 : L’URL de réponse spécifiée dans la requête ne correspond pas aux URL de réponse configurées pour l’application : '\<GUID de l’ID d’application>'.* | La valeur `postLogoutRedirectUri` spécifiée à **l’étape 6** de la section [Générer et publier l’application web](#build-and-publish-the-web-application) doit correspondre à celle spécifiée sous **Paramètres** > **URL de réponse** dans votre inscription d’application Azure AD. Veillez à modifier également la valeur **URL de Destination** afin d’utiliser *https*, comme indiqué à **l’étape 5** de la section [Générer et publier l’application web](#build-and-publish-the-web-application).
+L’application web est chargée, mais présente une page de connexion textuelle sans style avec un arrière-plan blanc. | Vérifiez que les chemins d’accès évoqués à **l’étape 4** de la section [Générer et publier l’application web](#build-and-publish-the-web-application) sont corrects. Si l’application web ne trouve pas les fichiers .css, la page ne sera pas mise en forme correctement.
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

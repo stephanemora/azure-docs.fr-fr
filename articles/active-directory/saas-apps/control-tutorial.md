@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa66ae77ccc271e475d61b286e0f236429e40feb
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: d5a3383c6c79f3cde901c244eafb39bb0f479176
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66507504"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164909"
 ---
 # <a name="tutorial-integrate-continuity-control-with-azure-active-directory"></a>Didacticiel : Intégrer Continuity Control à Azure Active Directory
 
@@ -141,7 +141,7 @@ Quand vous sélectionnez la vignette Control dans le panneau d’accès, vous de
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

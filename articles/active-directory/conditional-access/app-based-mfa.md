@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd5ab513034d6e2946dcb31f3a31dbf86f14873e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 36cb3b1555a339249528e290e376454dd78f1e53
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58895983"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509060"
 ---
-# <a name="quickstart-require-mfa-for-specific-apps-with-azure-active-directory-conditional-access"></a>Démarrage rapide : Exiger une authentification multifacteur (MFA) pour des applications spécifiques disposant d’un accès conditionnel Azure Active Directory.
+# <a name="quickstart-require-mfa-for-specific-apps-with-azure-active-directory-conditional-access"></a>Démarrage rapide : Exiger une authentification multifacteur (MFA) pour des applications spécifiques disposant d’un accès conditionnel à Azure Active Directory
 
-Pour simplifier l’expérience de connexion de vos utilisateurs, vous pouvez autoriser ceux-ci à se connecter à vos applications cloud à l’aide d’un nom d’utilisateur et d’un mot de passe. Cependant, de nombreux environnements englobent au moins quelques applications pour lesquelles il est souhaitable d’exiger une forme plus forte de vérification de compte, telle qu’une authentification multifacteur (MFA). Cela peut être vrai, par exemple, pour accéder au système de courrier de votre organisation ou à vos applications de gestion des ressources humaines. Dans Azure Active Directory (Azure AD), vous pouvez atteindre cet objectif avec une stratégie d’accès conditionnel.
+Pour simplifier l’expérience de connexion de vos utilisateurs, vous pouvez autoriser ceux-ci à se connecter à vos applications cloud à l’aide d’un nom d’utilisateur et d’un mot de passe. Cependant, de nombreux environnements englobent au moins quelques applications pour lesquelles il est souhaitable d’exiger une forme plus forte de vérification de compte, telle qu’une authentification multifacteur (MFA). Cette stratégie peut s’appliquer pour accéder au système de courrier de votre organisation ou à vos applications de gestion des ressources humaines. Dans Azure Active Directory (Azure AD), vous pouvez atteindre cet objectif avec une stratégie d’accès conditionnel.
 
 Ce démarrage rapide montre comment configurer une [stratégie d’accès conditionnel Azure AD](../active-directory-conditional-access-azure-portal.md) qui exige une authentification multifacteur pour une application cloud sélectionnée dans votre environnement.
 
@@ -33,14 +33,13 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 Pour suivre le scénario décrit dans ce démarrage rapide, vous avez besoin de ce qui suit :
 
 - **Accès à l’édition Azure AD Premium** : l’accès conditionnel Azure AD est une fonctionnalité d’Azure AD Premium.
-
 - **Un compte d’essai nommé Isabella Simonsen** : si vous ignorez comment créer un compte d’essai, voir [Ajouter des utilisateurs basés sur le cloud](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
 
 Pour le scénario de ce guide de démarrage rapide, l'authentification multifacteur par utilisateur ne doit pas être activée sur votre compte de test. Pour plus d'informations, consultez [Comment exiger la vérification en deux étapes pour un utilisateur](../authentication/howto-mfa-userstates.md).
 
-## <a name="test-your-sign-in"></a>Tester la connexion
+## <a name="test-your-experience"></a>Tester votre expérience
 
-L’objectif de cette étape consiste à obtenir une impression de l’expérience de connexion sans stratégie d’accès conditionnel.
+L’objectif de cette étape consiste à obtenir une impression de l’expérience sans stratégie d’accès conditionnel.
 
 **Pour initialiser votre environnement :**
 
@@ -52,7 +51,7 @@ L’objectif de cette étape consiste à obtenir une impression de l’expérien
 Cette section montre comment créer la stratégie d’accès conditionnel requise. Le scénario de ce démarrage rapide utilise ce qui suit :
 
 - le portail Azure en tant qu’espace réservé pour une application cloud qui exige une authentification multifacteur ; 
-- votre exemple d’utilisateur pour tester la stratégie d’accès conditionnel.  
+- Votre exemple d’utilisateur pour tester la stratégie d’accès conditionnel.  
 
 Dans votre stratégie, définissez :
 
@@ -67,7 +66,6 @@ Dans votre stratégie, définissez :
 **Pour configurer votre stratégie d’accès conditionnel, procédez comme suit :**
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur général, administrateur de sécurité ou administrateur de l’accès conditionnel.
-
 1. Dans la barre de navigation gauche du portail Azure, cliquez sur **Azure Active Directory**.
 
    ![Azure Active Directory](./media/app-based-mfa/02.png)
@@ -93,11 +91,8 @@ Dans votre stratégie, définissez :
    ![Utilisateurs et groupes](./media/app-based-mfa/24.png)
 
    1. Cliquez sur **Sélectionner des utilisateurs et des groupes**, puis choisissez **des utilisateurs et des groupes**.
-
    1. Cliquez sur **Sélectionner**.
-
    1. Dans la page **Sélectionner**, sélectionnez **Isabella Simonsen**, puis cliquez sur **Sélectionner**.
-
    1. Dans la page **Utilisateurs et groupes**, cliquez sur **Terminé**.
 
 1. Cliquez sur **Applications cloud**.
@@ -109,11 +104,8 @@ Dans votre stratégie, définissez :
    ![Sélection des applications cloud](./media/app-based-mfa/26.png)
 
    1. Cliquez sur **Sélectionner les applications**.
-
    1. Cliquez sur **Sélectionner**.
-
    1. Dans la page **Sélectionner**, choisissez **Gestion Microsoft Azure**, puis cliquez sur **Sélectionner**.
-
    1. Dans la page **Applications cloud**, cliquez sur **Terminé**.
 
 1. Dans la section **Contrôles d’accès**, cliquez sur **Accorder**.
@@ -125,9 +117,7 @@ Dans votre stratégie, définissez :
    ![Grant (Autoriser)](./media/app-based-mfa/11.png)
 
    1. Sélectionner **Accorder l’accès**.
-
    1. Sélectionnez **Exiger une authentification multifacteur**.
-
    1. Cliquez sur **Sélectionner**.
 
 1. Dans la section **Activer la stratégie**, cliquez sur **Activée**.
@@ -138,9 +128,9 @@ Dans votre stratégie, définissez :
 
 ## <a name="evaluate-a-simulated-sign-in"></a>Évaluer une connexion simulée
 
-À présent que vous avez configuré votre stratégie d’accès conditionnel, vous souhaitez probablement savoir s’il fonctionne comme prévu. Dans un premier temps, utilisez l’outil de stratégie d’accès conditionnel What If pour simuler une connexion de votre utilisateur de test. La simulation évalue l’impact cette connexion sur vos stratégies et génère un rapport de simulation.  
+À présent que vous avez configuré votre stratégie d’accès conditionnel, vous souhaitez probablement savoir s’il fonctionne comme prévu. Dans un premier temps, utilisez l’outil de stratégie d’accès conditionnel What If pour simuler une connexion de votre utilisateur de test. La simulation évalue l’impact de cette connexion sur vos stratégies et génère un rapport de simulation.  
 
-Pour initialiser l’outil d’évaluation de stratégie What If, définissez ce qui suit :
+Pour initialiser l’outil d’évaluation de stratégie **What If**, définissez ce qui suit :
 
 - **Isabella Simonsen** en tant qu’utilisateur.
 - **Gestion Microsoft Azure** en tant qu’application cloud.
@@ -167,13 +157,9 @@ Un clic sur **What If** a pour effet de créer un rapport de simulation indiquan
    ![Applications cloud](./media/app-based-mfa/16.png)
 
    1. Cliquez sur **Applications cloud**.
-
    1. Dans la page **Applications cloud**, cliquez sur **Sélectionner les applications**.
-
    1. Cliquez sur **Sélectionner**.
-
    1. Dans la page **Sélectionner**, choisissez **Gestion Microsoft Azure**, puis cliquez sur **Sélectionner**.
-
    1. Dans la page Applications cloud, cliquez sur **Terminé**.
 
 1. Cliquez sur **What If**.

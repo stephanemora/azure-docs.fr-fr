@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a03bb2626525bf022b109105a7c6bc0dee23aea
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 148c2c46a911088d01ab83fe2d16e8ca81d272ff
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65407046"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098790"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lockpath-keylight"></a>Didacticiel : Intégration d’Azure Active Directory avec LockPath Keylight
 
@@ -55,7 +55,7 @@ Pour configurer l’intégration de LockPath Keylight à Azure AD, vous devez aj
 
 **Pour ajouter LockPath Keylight à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -109,7 +109,7 @@ Pour configurer l’authentification unique Azure AD avec LockPath Keylight, eff
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<company name>.keylightgrc.com/`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://<company name>.keylightgrc.com`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://<company name>.keylightgrc.com`
 
     c. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://<company name>.keylightgrc.com/Login.aspx`
 
@@ -172,11 +172,11 @@ Pour configurer l’authentification unique Azure AD avec LockPath Keylight, eff
 
     j. Définissez **Auto-provision security config** (Configuration automatique des paramètres de sécurité), sélectionnez **Standard User Configuration** (Configuration utilisateur standard).
 
-    k. Dans la zone de texte **Email Attribute** (Attribut d’e-mail), entrez `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    k. Dans la zone de texte **Email Attribute** (Attribut d’e-mail), entrez `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
-    l. Dans la zone de texte **First name attribute** (Attribut de prénom), entrez `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+    l. Dans la zone de texte **First name attribute** (Attribut de prénom), entrez `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
 
-    m. Dans la zone de texte **Last name attribute** (Attribut de nom), entrez `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
+    m. Dans la zone de texte **Last name attribute** (Attribut de nom), entrez `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
 
     n. Cliquez sur **Enregistrer**.
 

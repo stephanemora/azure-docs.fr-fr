@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 426162d6655a107aad6fc7dd1081ca9352099449
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 41efce8eeb09e09af2473af6c16074d0fbcd45f8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65897900"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098457"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-korn-ferry-alp"></a>Didacticiel : Intégration d’Azure Active Directory à Korn Ferry ALP
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de Korn Ferry ALP à Azure AD, vous devez ajou
 
 **Pour ajouter Korn Ferry ALP à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -113,7 +113,7 @@ Pour configurer l’authentification unique Azure AD avec Korn Ferry ALP, effect
     | `https://qaassessment.kfnaqa.com/portalweb/sso/client/audience?guid=<customerguid>` |
     | `https://assessments.kornferry.com/portalweb/sso/client/audience?guid=<customerguid>` |
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant :
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant :
     
     | |
     |--|

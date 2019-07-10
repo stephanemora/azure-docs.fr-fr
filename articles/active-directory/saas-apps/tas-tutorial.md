@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 11ba7cd9be59f13081bdc5a543c52ca5f9d66e09
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 279f6970c34acbfea645366f7e965c830873fdbf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59272493"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089173"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tas"></a>Didacticiel : Intégration d’Azure Active Directory à TAS
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de TAS à Azure AD, vous devez ajouter TAS à 
 
 **Pour ajouter TAS à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

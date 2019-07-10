@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Form.com | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Form.com | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Form.com.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 1ed8dac90527de396e0b7ae59e5d19939a4a36be
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bf054cb3a965e94f7f18e39065d744b4376b6527
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57904352"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102191"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-formcom"></a>Tutoriel : Intégration d’Azure Active Directory à Form.com
+# <a name="tutorial-azure-active-directory-integration-with-formcom"></a>Didacticiel : Intégration d’Azure Active Directory à Form.com
 
 Dans ce didacticiel, vous allez apprendre à intégrer Form.com à Azure Active Directory (Azure AD).
 L’intégration de Form.com à Azure AD vous offre les avantages suivants :
@@ -52,7 +52,7 @@ Pour configurer l’intégration de Form.com à Azure AD, vous devez ajouter For
 
 **Pour ajouter Form.com à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -134,7 +134,7 @@ Pour configurer l’authentification unique Azure AD avec Form.com, effectuez l
 
 ### <a name="configure-formcom-single-sign-on"></a>Configurer l’authentification unique Form.com
 
-Pour configurer l’authentification unique côté **Form.com**, vous devez envoyer le **certificat (Base64)**, l’**URL des métadonnées de fédération d’application** ainsi que les URL copiées appropriées du Portail Azure à l’[équipe du support technique Form.com](https://form.com/about/company/contact-us/). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique côté **Form.com**, vous devez envoyer le **certificat (Base64)** , l’**URL des métadonnées de fédération d’application** ainsi que les URL copiées appropriées du Portail Azure à l’[équipe du support technique Form.com](https://form.com/about/company/contact-us/). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD 
 
@@ -154,7 +154,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

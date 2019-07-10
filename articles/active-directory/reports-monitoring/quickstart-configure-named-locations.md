@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71b21c4727e7679c25dc2574a6506f8d3932aec2
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: d12991813f68a42f9846c1c9c9c31c01d371d1d4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58434787"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107635"
 ---
 # <a name="quickstart-configure-named-locations-in-azure-active-directory"></a>Démarrage rapide : Configurer des emplacements nommés dans Azure Active Directory
 
@@ -63,6 +63,6 @@ Pour effectuer ce démarrage rapide, les éléments suivants sont requis :
 
 Pour plus d'informations, consultez les pages suivantes :
 
-- [Accès conditionnel Azure AD](../active-directory-conditional-access-azure-portal.md)
+- [Accès conditionnel Azure AD](../active-directory-conditional-access-azure-portal.md).
 - [Conditions d’emplacement dans l’accès conditionnel Azure AD](../conditional-access/location-condition.md)
 - [Rapport sur les connexions à risque](concept-risky-sign-ins.md)  

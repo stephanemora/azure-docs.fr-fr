@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b434e5b0c4524af642eb1255597cd3e7674571c
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 7e8b0e17248dff3c53b96fd240a7566f09b22fae
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545814"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482697"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-web-apis"></a>Démarrage rapide : Configurer une application cliente pour accéder aux API web
 
@@ -74,14 +74,14 @@ Pour ajouter un URI de redirection à votre application :
 1. Pour ajouter un URI de redirection personnalisé pour des applications web et client public, procédez comme suit :
 
    1. Recherchez la section **URI de redirection**.
-   1. Sélectionnez le type d’application que vous créez : **Web** ou **Client public (mobile et bureau)**.
+   1. Sélectionnez le type d’application que vous créez : **Web** ou **Client public (mobile et bureau)** .
    1. Entrez l’URI de redirection de votre application.
       * Pour les applications web, indiquez l’URL de base de votre application. Par exemple, `http://localhost:31544` peut être l’URL pour une application web en cours d’exécution sur votre ordinateur local. Les utilisateurs peuvent utiliser cette URL pour se connecter à une application web cliente.
       * Pour les applications publiques, indiquez l’URI utilisé par Azure AD pour retourner les réponses de jeton. Saisissez une valeur spécifique à votre application, par exemple https://MyFirstApp.
 
 1. Pour choisir parmi les URI de redirection suggérés pour les clients publics (mobile, bureau), procédez comme suit :
 
-    1. Recherchez la section des **URI de redirection suggérés pour les clients publics (mobile, bureau)**.
+    1. Recherchez la section des **URI de redirection suggérés pour les clients publics (mobile, bureau)** .
     1. Sélectionnez le ou les URI de redirection approprié(s) pour votre application en cochant les cases correspondantes.
 
 ## <a name="add-credentials-to-your-web-application"></a>Ajouter des informations d’identification à votre application web
@@ -110,7 +110,7 @@ Pour ajouter des informations d’identification à votre application web :
 
 ## <a name="add-permissions-to-access-web-apis"></a>Ajouter des autorisations pour accéder aux API web
 
-[![Ajouter des autorisations d’API](./media/quickstart-update-azure-ad-app-preview/api-permissions-expanded.png)](./media/quickstart-update-azure-ad-app-preview/api-permissions-expanded.png#lightbox)
+[![Affiche l’écran où vous pouvez ajouter des autorisations d’API](./media/quickstart-update-azure-ad-app-preview/api-permissions-expanded.png)](./media/quickstart-update-azure-ad-app-preview/api-permissions-expanded.png#lightbox)
 
 Pour ajouter des autorisations d’accéder aux API de ressources à partir de votre client :
 

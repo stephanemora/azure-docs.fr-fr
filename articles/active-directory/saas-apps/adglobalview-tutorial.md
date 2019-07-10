@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0bb43f1dad775594e3c3229bc5d69528f055144
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 57d82f669c190528cd8ec88db19645cff38c42b5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65864365"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107366"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adp-globalview"></a>Didacticiel : Intégration d’Azure Active Directory à ADP GlobalView
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration d’ADP GlobalView à Azure AD, vous devez ajou
 
 **Pour ajouter ADP GlobalView à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

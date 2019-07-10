@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 02/27/2019
+ms.date: 07/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 1d25ea2ce6e365e0d04fab325f9c13bb37382758
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 39d39b313cd2e65989989080d4cb0729b0be1e65
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65603170"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561451"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>Didacticiel : Commander une solution Azure Data Box Disk
 
@@ -49,7 +49,12 @@ Avant de commencer, assurez-vous que :
 
 ## <a name="order-data-box-disk"></a>Commander un Data Box Disk
 
-Procédez comme suit dans le [portail Azure](https://aka.ms/azuredataboxfromdiskdocs) pour commander Data Box Disk.
+Connectez-vous à :
+
+- Le portail Azure à cette URL : https://portal.azure.com pour commander Data Box Disk.
+- Ou bien, au portail Azure Government à cette URL : https://portal.azure.us. Pour plus d’informations, accédez à [Se connecter à Azure Government à l’aide du portail](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
+
+Effectuez les étapes suivantes pour commander Data Box Disk.
 
 1. Dans le coin supérieur gauche du portail, cliquez sur **+Créer une ressource**, puis recherchez *Azure Data Box*. Cliquez sur **Azure Data Box**.
     
@@ -82,7 +87,7 @@ Procédez comme suit dans le [portail Azure](https://aka.ms/azuredataboxfromdisk
     |Région Azure de destination| Sélectionnez une région pour votre compte de stockage.<br> Actuellement, les comptes de stockage de toutes les régions des États-Unis, d’Europe du Nord et de l’Ouest, du Canada et de l’Australie sont pris en charge. |
     |Taille de données estimée en To| Entrez une estimation en To. <br>Selon la taille des données, Microsoft vous envoie un nombre de disques SSD de 8 To (7 To de capacité utilisable) approprié. <br>La capacité utilisable maximale de 5 disques peut atteindre 35 To. |
     |Clé d’accès de disque| Fournissez la clé d’accès de disque si vous cochez l’option **Utiliser une clé personnalisée à la place de la clé d’accès générée par Azure**. <br> Fournissez une clé alphanumérique comprise entre 12 et 32 caractères, et contenant au moins une valeur numérique et un caractère spécial. Seuls les caractères spéciaux `@?_+` sont autorisés. <br> Vous pouvez choisir d’ignorer cette option et d’utiliser la clé d’accès générée par Azure pour déverrouiller vos disques.|
-    |Destination de stockage     | Choisissez un compte de stockage, des disques managés ou les deux. <br> Selon la région Azure spécifiée, sélectionnez un compte de stockage dans la liste filtrée d’un compte de stockage existant. La Data Box peut être liée à 10 comptes de stockage maximum. <br> Vous pouvez également créer un **compte de stockage blob**, **Usage général v1** ou **Usage général v2**. <br>Vous ne pouvez pas utiliser les comptes de stockage qui ont des règles configurées. Les comptes de stockage doivent **autoriser l’accès à partir de tous les réseaux** dans la section des pare-feu et réseaux virtuels.|
+    |Destination de stockage     | Choisissez un compte de stockage, des disques managés ou les deux. <br> Selon la région Azure spécifiée, sélectionnez un compte de stockage dans la liste filtrée d’un compte de stockage existant. Data Box Disk peut être lié à 1 compte de stockage uniquement. <br> Vous pouvez également créer un **compte de stockage blob**, **Usage général v1** ou **Usage général v2**. <br>Les comptes de stockage avec des réseaux virtuels sont pris en charge. Pour autoriser le service Data Box à travailler avec des comptes de stockage sécurisés, activez les services approuvés dans les paramètres de pare-feu réseau du compte de stockage. Pour plus d’informations, découvrez comment [Ajouter Azure Data Box en tant que service approuvé](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).|
 
     Si vous utilisez le compte de stockage comme destination de stockage, vous voyez s’afficher l’écran suivant :
 

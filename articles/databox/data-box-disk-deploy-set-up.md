@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 10/31/2018
+ms.date: 06/13/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 34d62df989da80c84bad92a90fc2253c416a4924
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 688c33a098bb34a6b39937579e2e25591786c531
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939646"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147487"
 ---
 # <a name="tutorial-unpack-connect-and-unlock-azure-data-box-disk"></a>Didacticiel : Déballer, connecter et déverrouiller un disque Azure Data Box Disk
 
@@ -123,7 +123,9 @@ Procédez comme suit pour connecter et déverrouiller vos disques.
     ```  
 8. Une fois que le disque est déverrouillé, vous pouvez afficher son contenu.    
 
-    ![Contenu du disque Data Box](media/data-box-disk-deploy-set-up/data-box-disk-content.png) 
+    ![Contenu du disque Data Box](media/data-box-disk-deploy-set-up/data-box-disk-content.png)
+
+Si vous rencontrez des problèmes lors du déverrouillage des disques, consultez le guide de [Résolution des problèmes de déverrouillage](data-box-disk-troubleshoot-unlock.md). 
 
 ## <a name="unlock-disks-on-linux-client"></a>Déverrouiller les disques sur le client Linux
 
@@ -253,6 +255,9 @@ Procédez comme suit pour connecter et déverrouiller vos disques.
 8. Une fois le disque déverrouillé, vous pouvez accéder au point de montage et visualiser le contenu du disque. Vous voici prêt à copier les données dans les dossiers *BlockBlob* ou *PageBlob*. 
 
     ![Contenu du disque Data Box](media/data-box-disk-deploy-set-up/data-box-disk-content-linux.png)
+
+
+Si vous rencontrez des problèmes lors du déverrouillage des disques, consultez le guide de [Résolution des problèmes de déverrouillage](data-box-disk-troubleshoot-unlock.md). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

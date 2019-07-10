@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff1d9089f3fb2f3ebf3022b54c442e8338ab983b
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 084a045fda66087b657f26679ab1926fa3611cb8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508355"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67103661"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-edcor"></a>Didacticiel : Intégration d’Azure Active Directory à Edcor
 
@@ -54,7 +54,7 @@ Pour configurer l’intégration d’Edcor à Azure AD, vous devez ajouter Edcor
 
 **Pour ajouter Edcor à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

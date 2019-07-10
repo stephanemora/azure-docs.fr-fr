@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc4d96b900090cd217b4b49b1af2f09762c0da84
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 78d259c0354a1519fa57633a68a1dcfa5a183890
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65407015"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105708"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>Didacticiel : Intégration d’Azure Active Directory avec Cezanne HR Software
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de Cezanne HR Software avec Azure AD, vous deve
 
 **Pour ajouter Cezanne HR Software à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -107,7 +107,7 @@ Pour configurer l’authentification unique Azure AD avec Cezanne HR Software, 
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://w3.cezanneondemand.com/CezanneOnDemand/-/<tenantidentifier>`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, tapez l’URL suivante : `https://w3.cezanneondemand.com/CezanneOnDemand/`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , tapez l’URL suivante : `https://w3.cezanneondemand.com/CezanneOnDemand/`
 
     c. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://w3.cezanneondemand.com:443/cezanneondemand/-/<tenantidentifier>/Saml/samlp`
     
@@ -150,13 +150,13 @@ Pour configurer l’authentification unique Azure AD avec Cezanne HR Software, 
 
     a. Entrez le nom de votre fournisseur d’identité en tant que **Nom d’affichage**.
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, collez la valeur de l’**identificateur Azure AD** que vous avez copiée à partir du Portail Azure.
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , collez la valeur de l’**identificateur Azure AD** que vous avez copiée à partir du Portail Azure.
 
     c. Modifiez la **Liaison SAML** sur POST.
 
     d. Dans la zone de texte **Security Token Service Endpoint** (Point de terminaison de service d’émission de jeton de sécurité), collez la valeur de l’**URL de connexion** que vous avez copiée à partir du Portail Azure.
 
-    e. Dans la zone de texte User ID Attribute Name (Nom de l’attribut de l’identificateur d’utilisateur), entrez `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+    e. Dans la zone de texte User ID Attribute Name (Nom de l’attribut de l’identificateur d’utilisateur), entrez `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
     f. Cliquez sur **Télécharger** pour charger le certificat obtenu auprès du portail Azure.
 

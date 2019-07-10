@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 8e85f390ee5ff74f02cb95fa4dcf1dfc1a35dad1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 21c10e142802914bcf3292ef7f25066675e6cdd1
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64699858"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67143921"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sharepoint-on-premises"></a>Tutoriel : Intégration d’Azure Active Directory à SharePoint (local)
 
@@ -56,6 +56,9 @@ Pour configurer l’intégration de SharePoint (local) avec Azure AD, vous devez
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
+
+    > [!NOTE]   
+    > Si l’élément n’est pas disponible, il peut également être ouvert par le biais du lien fixe **Tous les services** en haut du panneau de navigation de gauche. Dans la présentation suivante, le lien **Azure Active Directory** se trouve dans la section **Identité** ou peut être recherché à l’aide de la zone de texte de filtre.
 
 2. Accédez à **Applications d’entreprise**, puis sélectionnez l’option **Toutes les applications**.
 

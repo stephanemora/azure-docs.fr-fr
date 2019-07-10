@@ -1,19 +1,19 @@
 ---
-title: 'Tutoriel : Capturer des événements à partir d’un espace Azure Digital Twins | Microsoft Docs'
+title: 'Didacticiel : Capturer des événements à partir d’un espace Azure Digital Twins | Microsoft Docs'
 description: Découvrez comment recevoir des notifications à partir de vos espaces en intégrant Azure Digital Twins à Logic Apps en suivant la procédure décrite dans ce didacticiel.
 services: digital-twins
-author: dsk-2015
+author: alinamstanciu
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 12/18/2018
-ms.author: dkshir
-ms.openlocfilehash: 524ca96687e9395b65ec513326ad0fd4f7c6d429
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: alinast
+ms.openlocfilehash: 2b84fa2fd8053ca4dc7ef0ad246d29b2bba3dae5
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57528900"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484714"
 ---
 # <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>Didacticiel : Recevoir des notifications à partir de vos espaces Azure Digital Twins avec Logic Apps
 
@@ -76,16 +76,16 @@ Une [rubrique de grille d’événements](../event-grid/concepts.md#topics) offr
       - SpaceChange
       - TopologyOperation
       - UdfCustom
-      connectionString: Primary_connection_string_for_your_Event_Grid
-      secondaryConnectionString: Secondary_connection_string_for_your_Event_Grid
-      path: Event_Grid_Topic_Path
+      connectionString: <Primary connection string for your Event Grid>
+      secondaryConnectionString: <Secondary connection string for your Event Grid>
+      path: <Event Grid Topic Name without https:// and /api/events, e.g. eventgridname.region.eventgrid.azure.net>
     ```
 
-1. Remplacez l’espace réservé `Primary_connection_string_for_your_Event_Grid` par la valeur de **YOUR_KEY_1**.
+1. Remplacez l’espace réservé `<Primary connection string for your Event Grid>` par la valeur de **YOUR_KEY_1**.
 
-1. Remplacez l’espace réservé `Secondary_connection_string_for_your_Event_Grid` par la valeur de **YOUR_KEY_2**.
+1. Remplacez l’espace réservé `<Secondary connection string for your Event Grid>` par la valeur de **YOUR_KEY_2**.
 
-1. Remplacez l’espace réservé `Event_Grid_Topic_Path` par le chemin d’accès à la rubrique Event Grid. Récupérez ce chemin à partir de l’URL du **Point de terminaison de la rubrique**, en supprimant **https://** et les chemins de ressource à la fin. Cela doit ressembler au format suivant : *yourEventGridName.yourLocation.eventgrid.azure.net*.
+1. Remplacez l’espace réservé pour **path** par le chemin d’accès à la rubrique Event Grid. Récupérez ce chemin à partir de l’URL du **Point de terminaison de la rubrique**, en supprimant **https://** et les chemins de ressource à la fin. Cela doit ressembler au format suivant : *yourEventGridName.yourLocation.eventgrid.azure.net*.
 
     > [!IMPORTANT]
     > Entrez toutes les valeurs sans les guillemets. Veillez à laisser au moins un espace après les deux-points dans le fichier YAML. Vous pouvez également valider le contenu de votre fichier YAML au moyen d’un validateur YAML en ligne, tel que [cet outil](https://onlineyamltools.com/validate-yaml).
@@ -114,7 +114,7 @@ Vous pouvez utiliser le service [Azure Logic Apps](../logic-apps/logic-apps-over
 
 1. Ouvrez votre ressource Logic Apps lorsqu’elle est déployée, puis ouvrez le volet **Concepteur d’application logique**. 
 
-1. Sélectionnez le déclencheur **When an Event Grid event occurs** (Quand un événement Event Grid se produit). Connectez-vous à votre locataire avec votre compte Azure lorsque vous y êtes invité. Sélectionnez **Autoriser l’accès** pour votre ressource Event Grid lorsque vous y êtes invité. Sélectionnez **Continuer**.
+1. Sélectionnez le déclencheur **When an Event Grid ressource event occurs** (Quand un événement de ressource Event Grid se produit). Connectez-vous à votre locataire avec votre compte Azure lorsque vous y êtes invité. Sélectionnez **Autoriser l’accès** pour votre ressource Event Grid si vous y êtes invité. Sélectionnez **Continuer**.
 
 1. Dans la fenêtre **When a resource event occurs (Preview)** (Quand un événement de ressource se produit (préversion)) : 
    
@@ -174,7 +174,7 @@ Vous pouvez utiliser le service [Azure Logic Apps](../logic-apps/logic-apps-over
 
    a. Sélectionnez **Ajouter une action**, puis **Office 365 Outlook**.
 
-   b. Dans la liste **Actions**, sélectionnez **Envoyer un e-mail**. Sélectionnez **Se connecter** et utilisez vos informations d’identification de compte e-mail. Sélectionnez **Autoriser l’accès** lorsque vous y êtes invité.
+   b. Dans la liste **Actions**, sélectionnez **Envoyer un e-mail**. Sélectionnez **Se connecter** et utilisez vos informations d’identification de compte e-mail. Sélectionnez **Autoriser l’accès** si vous y êtes invité.
 
    c. Dans la zone **To** (À), entrez votre ID de messagerie pour recevoir des notifications. Dans **Objet**, entrez le texte **Notification Digital Twins pour la mauvaise qualité de l’air dans l’espace**. Sélectionnez ensuite **TopologyObjectId** à partir de la liste **Contenu dynamique** pour **Analyser JSON**.
 

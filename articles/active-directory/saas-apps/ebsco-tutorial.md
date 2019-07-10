@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 2753daf225016d3bd8e07383193a1260b40a36d5
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: b6f1198334d8bd4ba58b4fbba02942fc8c54c578
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59564973"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442862"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ebsco"></a>Didacticiel : Intégration d’Azure Active Directory à EBSCO
 
@@ -55,7 +55,7 @@ Pour configurer l’intégration d’EBSCO à Azure AD, vous devez ajouter EBSCO
 
 **Pour ajouter EBSCO à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -113,7 +113,7 @@ Pour configurer l’authentification unique Azure AD auprès d’EBSCO, effectue
 
     ![image](common/both-preintegrated-signon.png)
 
-    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `http://search.ebscohost.com/login.aspx?authtype=sso&custid=<unique EBSCO customer ID>&profile=<profile ID>`
+    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://search.ebscohost.com/login.aspx?authtype=sso&custid=<unique EBSCO customer ID>&profile=<profile ID>`
 
     > [!NOTE]
     > La valeur de l’URL de connexion n’est pas réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Pour obtenir ces valeurs, contactez l’[équipe du support EBSCO](mailto:sso@ebsco.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.

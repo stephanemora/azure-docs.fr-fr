@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: acee2aabe94f5d015562bd697d08f657895d3b02
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 97d0615fcc4f86c295441ec6a0eb8b86ba6b11b5
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65789468"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059701"
 ---
 # <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Démarrage rapide : Définir et affecter un blueprint dans le portail
 
@@ -70,11 +70,11 @@ La première étape de la définition d’un modèle standard à des fins de con
 
    1. Définissez le **Type** sur **Intégré**. Dans la zone **Recherche**, entrez **étiquette**.
 
-   1. Cliquez en dehors de la fonction **Rechercher** pour que le filtrage se produise. Sélectionnez **Appliquer l’étiquette et sa valeur par défaut aux groupes de ressources**.
+   1. Cliquez en dehors de la fonction **Rechercher** pour que le filtrage se produise. Sélectionnez **Ajouter l’étiquette et sa valeur par défaut aux groupes de ressources**.
 
    1. Sélectionnez **Ajouter** pour ajouter cet artefact au blueprint.
 
-1. Sélectionnez la ligne d’attribution de stratégie  **Appliquer l’étiquette et sa valeur par défaut aux groupes de ressources**.
+1. Sélectionnez la ligne d’attribution de stratégie **Ajouter l’étiquette et sa valeur par défaut aux groupes de ressources**.
 
 1. La fenêtre permettant de paramétrer l’artefact dans le cadre de la définition du blueprint s’ouvre. Vous définissez ainsi des paramètres statiques pour toutes les affectations basées sur ce blueprint (les paramètres dynamiques étant définis durant l’affectation). Cet exemple utilise des paramètres dynamiques durant l’affectation du blueprint. Veillez donc à conserver les valeurs par défaut et à sélectionner **Annuler**.
 

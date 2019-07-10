@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 060492d2ed551ed0e90aaf3c1a373572c0c0ab73
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: b8e208c8e5f1136ef5029e03b59a2f09e113dc3f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66307494"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67096349"
 ---
 # <a name="tutorial-integrate-neogov-with-azure-active-directory"></a>Didacticiel : Intégrer NEOGOV à Azure Active Directory
 
@@ -130,7 +130,7 @@ Pour configurer l’authentification unique côté **NEOGOV**, vous devez envoye
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
-Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le Portail Azure.
+Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
 
 1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
 1. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.

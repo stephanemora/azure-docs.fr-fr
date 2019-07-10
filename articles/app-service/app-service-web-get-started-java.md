@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.date: 05/29/2019
 ms.author: jasonfreeberg
 ms.custom: mvc
-ms.openlocfilehash: c77f7afe3941395a156896135043710252637ef3
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: bd11b5334fbffc28aa6869c9f37b2b9909692d56
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393238"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154797"
 ---
 # <a name="quickstart-create-a-java-app-in-app-service"></a>Démarrage rapide : Créer une application Java dans App Service
 
@@ -66,7 +66,7 @@ Ajoutez ensuite la définition de plug-in suivante dans l’élément `<build>` 
     <plugin>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-webapp-maven-plugin</artifactId>
-        <version>1.5.4</version>
+        <version>1.6.0</version>
         <configuration>
             <!-- Specify v2 schema -->
             <schemaVersion>v2</schemaVersion>
@@ -105,9 +105,9 @@ Mettez à jour les espaces réservés suivants dans la configuration du plug-in 
 | Placeholder | Description |
 | ----------- | ----------- |
 | `SUBSCRIPTION_ID` | ID unique de l’abonnement dans lequel vous voulez déployer votre application. Vous pouvez trouver l’ID de l’abonnement par défaut dans Cloud Shell ou dans l’interface CLI à l’aide de la commande `az account show`. Pour connaître tous les abonnements disponibles, utilisez la commande `az account list`.|
-| `RESOURCEGROUP_NAME` | Nom du nouveau groupe de ressources dans lequel créer votre application. En plaçant toutes les ressources d’une application dans un groupe, vous pouvez les gérer ensemble. Par exemple, si vous supprimez le groupe de ressources, vous supprimez également toutes les ressources associées à l’application. Mettez à jour cette valeur avec un nouveau nom de groupe de ressources unique, par exemple, *TestResources*. Vous utiliserez ce nom de groupe de ressources pour nettoyer toutes les ressources Azure dans une section ultérieure. |
+| `RESOURCEGROUP_NAME` | Nom du nouveau groupe de ressources dans lequel créer votre application. En plaçant toutes les ressources d’une application dans un groupe, vous pouvez les gérer ensemble. Par exemple, si vous supprimez le groupe de ressources, vous supprimez également toutes les ressources associées à l’application. Mettez à jour cette valeur avec un nouveau nom de groupe de ressources unique, par exemple, *myResourceGroup*. Vous utiliserez ce nom de groupe de ressources pour nettoyer toutes les ressources Azure dans une section ultérieure. |
 | `WEBAPP_NAME` | Le nom d’application fera partie du nom d’hôte pour l’application lors du déploiement vers Azure (WEBAPP_NAME.azurewebsites.net). Mettez à jour cette valeur avec un nom unique pour la nouvelle application App Service, qui va héberger votre application Java (par exemple, *contoso*). |
-| `REGION` | Une région Azure où l’application est hébergée, par exemple `westus2`. Vous pouvez obtenir une liste de régions à partir du Cloud Shell ou de l’interface CLI à l’aide de la commande `az account list-locations`. |
+| `REGION` | Une région Azure où l’application est hébergée, par exemple *westus2*. Vous pouvez obtenir une liste de régions à partir du Cloud Shell ou de l’interface CLI à l’aide de la commande `az account list-locations`. |
 
 ## <a name="deploy-the-app"></a>Déployer l’application
 

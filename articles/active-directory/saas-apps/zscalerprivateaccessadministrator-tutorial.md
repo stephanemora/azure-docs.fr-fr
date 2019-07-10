@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce75431de24886c038cd2eb4ee7db02d2b6cde31
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b7f0bc04bb8e7358f5bdb2e4dfc3db198e24303f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65864906"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67085641"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-private-access-administrator"></a>Didacticiel : Intégration d'Azure Active Directory à Zscaler Private Access Administrator
 
@@ -54,7 +54,7 @@ Pour configurer l’intégration de Zscaler Private Access Administrator à Azur
 
 **Pour ajouter Zscaler Private Access Administrator à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

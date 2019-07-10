@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f65e7192bdcc148ba081d0de954b51535778e750
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: b25007fa8e9d547b9e5671390514b3bc10f329fa
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65900159"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106099"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bomgar-remote-support"></a>Didacticiel : Intégration d’Azure Active Directory à Bomgar Remote Support
 
@@ -54,7 +54,7 @@ Pour configurer l’intégration de Bomgar Remote Support à Azure AD, vous deve
 
 **Pour ajouter Bomgar Remote Support à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -108,7 +108,7 @@ Pour configurer l’authentification unique Azure AD avec Bomgar Remote Support,
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<SUBDOMAIN>.trafficmanager.net/saml`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://<SUBDOMAIN>.trafficmanager.net`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://<SUBDOMAIN>.trafficmanager.net`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique Bomgar Remote Support](https://www.bomgar.com/docs/index.htm#support). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.

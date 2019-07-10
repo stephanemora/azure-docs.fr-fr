@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 01/31/2019
+ms.date: 06/26/2019
 ms.author: aahi
-ms.openlocfilehash: ae91deb5b49b0eb202175fdd242ef0d91975bb25
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 5fb6b2b349712a04b79564f9b748538a5cc32d73
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65798224"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446983"
 ---
-#  <a name="quickstart-perform-a-video-search-with-the-bing-video-search-sdk-for-python"></a>Démarrage rapide : Effectuer une recherche de vidéos avec le SDK Recherche de vidéos Bing pour Python
+# <a name="quickstart-perform-a-video-search-with-the-bing-video-search-sdk-for-python"></a>Démarrage rapide : Effectuer une recherche de vidéos avec le SDK Recherche de vidéos Bing pour Python
 
-Utilisez ce guide de démarrage rapide pour démarrer une recherche de vidéos avec le SDK Recherche de vidéos Bing pour Python. Si l’outil Recherche de vidéos Bing dispose d’une API REST compatible avec la plupart des langages de programmation, le SDK offre quant à lui un moyen facile d’intégrer le service à vos applications. Le code source de cet exemple est disponible sur [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/video_search_samples.py). Il contient d’autres fonctionnalités et annotations.
+Utilisez ce guide de démarrage rapide pour démarrer une recherche de vidéos avec le SDK Recherche de vidéos Bing pour Python. Si l’outil Recherche de vidéos Bing dispose d’une API REST compatible avec la plupart des langages de programmation, le SDK offre quant à lui un moyen facile d’intégrer le service à vos applications. Le code source de cet exemple est disponible sur [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/video_search_samples.py) avec des fonctionnalités et annotations supplémentaires.
 
 [!INCLUDE [cognitive-services-bing-video-search-signup-requirements](../../../../includes/cognitive-services-bing-video-search-signup-requirements.md)]
 
@@ -33,7 +33,7 @@ Nous vous recommandons d’utiliser un [environnement virtuel](https://docs.pyth
 ```console
 python -m venv mytestenv
 ```
-   
+
 Installez le SDK Recherche de vidéos Bing avec :
 
 ```console
@@ -50,8 +50,9 @@ python -m pip install azure-cognitiveservices-search-videosearch
     from azure.cognitiveservices.search.videosearch.models import VideoPricing, VideoLength, VideoResolution, VideoInsightModule
     from msrest.authentication import CognitiveServicesCredentials
     ```
+
 2. Créez une variable pour votre clé d’abonnement. 
-    
+
     ```python
     subscription_key = "YOUR-SUBSCRIPTION-KEY"
     ```
@@ -60,9 +61,9 @@ python -m pip install azure-cognitiveservices-search-videosearch
 
 Créez une instance de `CognitiveServicesCredentials`, et instanciez le client :
 
-    ```python
-    client = VideoSearchAPI(CognitiveServicesCredentials(subscription_key))
-    ```
+```python
+client = VideoSearchAPI(CognitiveServicesCredentials(subscription_key))
+```
 
 ## <a name="send-a-search-request-and-get-a-response"></a>Envoyer une requête de recherche et obtenir une réponse
 
@@ -92,5 +93,5 @@ Créez une instance de `CognitiveServicesCredentials`, et instanciez le client :
 
 ## <a name="see-also"></a>Voir aussi 
 
-* [Qu’est-ce que l’API Recherche de vidéos Bing ?](../overview.md)
-* [Exemples du Kit de développement logiciel (SDK) .NET pour Cognitive Services](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
+- [Qu’est-ce que l’API Recherche de vidéos Bing ?](../overview.md)
+- [Exemples du Kit de développement logiciel (SDK) .NET pour Cognitive Services](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)

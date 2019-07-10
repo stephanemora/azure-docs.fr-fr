@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4e128e7e8b39075d23d7d4fe2bdc856b030ea05
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 3a0c0795ff859b6ecf95e1627693c4a7b066081a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65899904"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105335"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clever"></a>Didacticiel : Intégration d’Azure Active Directory à Clever
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de Clever avec Azure AD, vous devez ajouter Cle
 
 **Pour ajouter Clever à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -107,7 +107,7 @@ Pour configurer l’authentification unique Azure AD avec Clever, effectuez les
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://clever.com/in/<companyname>`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL : `https://clever.com/oauth/saml/metadata.xml`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL : `https://clever.com/oauth/saml/metadata.xml`
 
     > [!NOTE]
     > La valeur d’URL de connexion n’est pas réelle. Remplacez cette valeur par l’URL de connexion réelle. Pour obtenir la valeur, contactez l’[équipe de support technique de Clever](https://clever.com/about/contact/). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.

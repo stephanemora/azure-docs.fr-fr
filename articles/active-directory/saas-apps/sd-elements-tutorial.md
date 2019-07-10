@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: a18971125724e6e2fdc6b37de15894efb8b9071a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9e6deb8b31559b8c5add06f1771cd69df0c1f136
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65867565"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091346"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sd-elements"></a>Didacticiel : Intégration d'Azure Active Directory à SD Elements
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de SD Elements avec Azure AD, vous devez ajout
 
 **Pour ajouter SD Elements à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -249,7 +249,7 @@ L’objectif de cette section est de créer un utilisateur appelé Britta Simon 
 
     ![Création d'un utilisateur de test SD Elements](./media/sd-elements-tutorial/tutorial_sd-elements_13.png) 
 
-    a. Dans la zone de texte **E-mail**, entrez l’adresse e-mail de l’utilisateur, par exemple **brittasimon@contoso.com**.
+    a. Dans la zone de texte **E-mail**, entrez l’adresse e-mail de l’utilisateur, par exemple **brittasimon@contoso.com** .
 
     b. Dans la zone de texte **Prénom**, entrez le prénom de l’utilisateur, par exemple **Britta**.
 

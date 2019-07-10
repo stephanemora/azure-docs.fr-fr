@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 802b71aa73e01378f161e62ec4c22d8b470955c3
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 926c22c6512ae083712185a5f235737fb48ab9bd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898800"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102818"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-expensify"></a>Tutoriel : Intégration d’Azure Active Directory à Expensify
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de Expensify à Azure AD, vous devez ajouter E
 
 **Pour ajouter Expensify à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -107,7 +107,7 @@ Pour configurer l’authentification unique Azure AD auprès d’Expensify, eff
 
     a. Dans la zone de texte **URL de connexion**, tapez l’URL au format suivant : `https://www.expensify.com/authentication/saml/loginCallback?domain=[yourdomain]`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL : `https://www.expensify.com`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL : `https://www.expensify.com`
 
     > [!NOTE]
     > La valeur d’URL de connexion n’est pas réelle. Mettez à jour cette valeur avec l’URL de connexion réelle. Pour obtenir cette valeur, contactez [l’équipe de support technique Expensify](mailto:help@expensify.com).

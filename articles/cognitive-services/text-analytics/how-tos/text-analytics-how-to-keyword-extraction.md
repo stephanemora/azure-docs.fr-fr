@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 04/16/2019
-ms.author: aahi
-ms.openlocfilehash: 9cb6a40e6ce53a6d82d4129db876a1b24269f166
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.date: 06/05/2019
+ms.author: raymondl
+ms.openlocfilehash: c803c85a0900a09b18909e2c81d52915a12cff1a
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59997714"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67304069"
 ---
 # <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>Exemple : Comment extraire des phrases clés avec l’Analyse de texte
 
@@ -22,7 +22,7 @@ L’[API Extraction de phrases clés](https://westcentralus.dev.cognitive.micros
 
 Cette fonctionnalité est utile si vous avez besoin d’identifier rapidement les principaux points d’une collection de documents. Par exemple, pour le texte d’entrée « The food was delicious and there were wonderful staff » (La nourriture était délicieuse et le personnel adorable), le service retourne les principaux points de discussion : « food » (nourriture) et « wonderful staff » (personnel adorable).
 
-Actuellement, l’API Extraction de phrases clés prend en charge l’anglais, l’allemand, l’espagnol et le japonais. D’autres langues sont en préversion. Pour en savoir plus, consultez [Langages pris en charge](../text-analytics-supported-languages.md).
+Pour plus d’informations, consultez l’article [Langues prises en charge](../text-analytics-supported-languages.md). 
 
 > [!TIP]
 > Analyse de texte fournit également une image conteneur Docker basée sur Linux pour l’extraction de phrases clés. Vous pouvez ainsi [installer et exécuter le conteneur Analyse de texte](text-analytics-how-to-install-containers.md) à proximité de vos données.
@@ -84,7 +84,7 @@ Vous trouverez plus d’informations sur la définition d’une demande dans [Gu
 
 ## <a name="step-2-post-the-request"></a>Étape 2 : Publier la requête
 
-L’analyse est effectuée à la réception de la demande. Le service accepte jusqu'à 100 demandes par minute. Chaque demande peut être au maximum de 1 Mo.
+L’analyse est effectuée à la réception de la demande. Consultez la section [Limites de données](../overview.md#data-limits) dans la vue d’ensemble pour plus d’informations sur la taille et le nombre de demandes que vous pouvez envoyer par minute et seconde.
 
 Rappelez-vous que le service est sans état. Aucune donnée n’est stockée dans votre compte. Les résultats sont retournés immédiatement dans la réponse.
 

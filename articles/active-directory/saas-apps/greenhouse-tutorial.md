@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 5bd7c5fe97d18d83f07db2b8b75ee556b0ad685d
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 274477deb37006ba5fee6a92438e1763a4f36294
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898534"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101607"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-greenhouse"></a>Tutoriel : Intégration d’Azure Active Directory à Greenhouse
 
@@ -52,7 +52,7 @@ Pour configurer l’intégration de à partir de la galerie avec Azure AD, vous
 
 **Pour ajouter Greenhouse à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -106,7 +106,7 @@ Pour configurer l’authentification unique Azure AD auprès de Greenhouse, eff
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<companyname>.greenhouse.io`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://<companyname>.greenhouse.io`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://<companyname>.greenhouse.io`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique Greenhouse](https://www.greenhouse.io/contact). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
@@ -191,7 +191,7 @@ Pour se connecter à Greenhouse, les utilisateurs d’Azure AD doivent être app
 
 1. Connectez-vous au site d’entreprise **Greenhouse** en tant qu’administrateur.
 
-2. Dans le menu situé en haut, cliquez sur **Configure (Configurer)**, puis sur **Users (Utilisateurs)**.
+2. Dans le menu situé en haut, cliquez sur **Configure (Configurer)** , puis sur **Users (Utilisateurs)** .
    
     ![Utilisateurs](./media/greenhouse-tutorial/ic790791.png "Utilisateurs")
 

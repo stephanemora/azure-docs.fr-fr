@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 675ca1025c4317945f0d588f425d875bf83f249c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 6408700623b8c260b7ef579ca87d26b6c21c9aac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65813207"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107213"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-airstack"></a>Didacticiel : Intégration d’Azure Active Directory à AirStack
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration d’AirStack à Azure AD, vous devez ajouter A
 
 **Pour ajouter AirStack à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

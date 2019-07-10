@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 02/25/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: fd68edcc727ab08ed9d3ba765bbe795e88de5fc9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bf004f07558ae1f252a6bd26b4fd59ea9e4eea6e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60391316"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069267"
 ---
 # <a name="tutorial-secure-artifacts-in-azure-resource-manager-template-deployments"></a>Tutoriel : Sécuriser des artefacts dans les déploiements de modèles Azure Resource Manager
 
@@ -75,9 +75,9 @@ Téléchargez le [fichier BACPAC](https://armtutorials.blob.core.windows.net/sql
 
     * **Abonnement**: Sélectionnez votre abonnement Azure.
     * **Groupe de ressources** : Sélectionnez **Créer** et donnez-lui un nom. Un groupe de ressources est un conteneur utilisé à des fins de gestion des ressources Azure. Dans ce tutoriel, vous pouvez utiliser le même groupe de ressources pour le compte de stockage et la base de données Azure SQL. Notez le nom de ce groupe de ressources. Vous en aurez besoin pour créer la base de données Azure SQL plus loin dans les tutoriels.
-    * **Emplacement** : Sélectionnez une région. Par exemple, **USA Centre**. 
+    * **Emplacement** : Sélectionnez une région. Par exemple, **USA Centre**.
     * **Type de compte de stockage** : Utilisez la valeur par défaut, à savoir **Standard_LRS**.
-    * **Emplacement** : Utilisez la valeur par défaut, à savoir **[resourceGroup () .location]**. Cela signifie que vous utilisez l’emplacement du groupe de ressources pour le compte de stockage.
+    * **Emplacement** : Utilisez la valeur par défaut, à savoir **[resourceGroup () .location]** . Cela signifie que vous utilisez l’emplacement du groupe de ressources pour le compte de stockage.
     * **J’accepte les termes et conditions mentionnés ci-dessus** : (case cochée)
 3. Sélectionnez **Achat**.
 4. Sélectionnez l’icône de notification (icône de cloche) dans le coin supérieur droit du portail pour consulter l’état du déploiement.
@@ -87,7 +87,7 @@ Téléchargez le [fichier BACPAC](https://armtutorials.blob.core.windows.net/sql
 
 ### <a name="create-a-blob-container"></a>Créer un conteneur d’objets blob
 
-Un conteneur d’objets blob est requis avant de télécharger tous les fichiers. 
+Un conteneur d’objets blob est requis avant de télécharger tous les fichiers.
 
 1. Sélectionnez le compte de stockage pour l’ouvrir. Vous devriez voir un seul compte de stockage dans le groupe de ressources. Le nom du compte de stockage est différent de celui indiqué dans la capture d’écran suivante.
 
@@ -99,8 +99,8 @@ Un conteneur d’objets blob est requis avant de télécharger tous les fichiers
 3. Sélectionnez **+ Conteneur**, en haut, pour créer un conteneur.
 4. Saisissez les valeurs suivantes :
 
-    * **Nom** : entrez **sqlbacpac**. 
-    * **Niveau d’accès public** : utilisez la valeur par défaut, **Privé (aucun accès anonyme)**.
+    * **Nom** : entrez **sqlbacpac**.
+    * **Niveau d’accès public** : utilisez la valeur par défaut, **Privé (aucun accès anonyme)** .
 5. Sélectionnez **OK**.
 6. Sélectionnez **sqlbacpac** pour ouvrir le conteneur nouvellement créé.
 
@@ -222,7 +222,7 @@ Pour les valeurs de _artifactsLocation, _artifactsLocationSasToken et bacpacFile
 
 ## <a name="verify-the-deployment"></a>Vérifier le déploiement
 
-Dans le portail, sélectionnez la base de données SQL dans le nouveau groupe de ressources déployé. Sélectionnez l’**éditeur de requêtes (préversion)**, puis entrez les informations d’identification d’administrateur. Vous devez voir deux tables importées dans la base de données :
+Dans le portail, sélectionnez la base de données SQL dans le nouveau groupe de ressources déployé. Sélectionnez l’**éditeur de requêtes (préversion)** , puis entrez les informations d’identification d’administrateur. Vous devez voir deux tables importées dans la base de données :
 
 ![Azure Resource Manager deploy sql extensions BACPAC](./media/resource-manager-tutorial-deploy-sql-extensions-bacpac/resource-manager-tutorial-deploy-sql-extensions-bacpac-query-editor.png)
 
@@ -237,7 +237,7 @@ Lorsque vous n’en avez plus besoin, nettoyez les ressources Azure que vous ave
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez déployé un SQL Server, une SQL Database, et avez importé un fichier BACPAC à l'aide d'un jeton SAS. Pour savoir comment déployer des ressources Azure dans plusieurs régions et comment utiliser des pratiques de déploiement sécurisées, consultez
+Dans ce tutoriel, vous avez déployé un SQL Server, une SQL Database, et avez importé un fichier BACPAC à l'aide d'un jeton SAS. Pour savoir comment créer un pipeline Azure pour développer et déployer des modèles Resource Manager en continu, consultez
 
 > [!div class="nextstepaction"]
-> [Utiliser Azure Deployment Manager](./resource-manager-tutorial-deploy-vm-extensions.md)
+> [Intégration continue avec Azure Pipelines](./resource-manager-tutorial-use-azure-pipelines.md)

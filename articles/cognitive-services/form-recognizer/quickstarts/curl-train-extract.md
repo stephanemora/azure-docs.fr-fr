@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: pafarley
-ms.openlocfilehash: 351cb7ba2d7a55300a0ace999792a498cf72ebbb
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 1990077e6466e08c1b6c463dafe9809b52df6d14
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66475270"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537616"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>Démarrage rapide : Entraîner un modèle Form Recognizer et extraire des données à partir de formulaires au moyen d’une API REST avec cURL
 
@@ -30,30 +30,17 @@ Pour suivre cette procédure de démarrage rapide, vous avez besoin des élémen
 
 ## <a name="create-a-form-recognizer-resource"></a>Créer une ressource Form Recognizer
 
-Lorsque vous recevez un accès qui vous autorise à utiliser Form Recognizer, vous recevez un e-mail d’accueil contenant plusieurs liens et ressources. Utilisez le lien « Portail Azure » dans ce message pour ouvrir le portail Azure et créer une ressource Form Recognizer. Dans le volet **Créer**, indiquez les informations suivantes :
-
-|    |    |
-|--|--|
-| **Nom** | Nom descriptif de votre ressource. Nous recommandons d’utiliser un nom explicite, par exemple *MyNameFormRecognizer*. |
-| **Abonnement** | Sélectionnez l’abonnement Azure auquel l’accès a été accordé. |
-| **Lieu** | Emplacement de votre instance Cognitive Services. Des emplacements différents peuvent entraîner une latence. Toutefois, cela n’aura pas d’impact sur la disponibilité d’exécution de votre ressource. |
-| **Niveau tarifaire** | Le coût de la ressource dépend du niveau tarifaire que vous choisissez et de votre utilisation. Pour plus d'informations, consultez le [détail des tarifs](https://azure.microsoft.com/pricing/details/cognitive-services/) de l’API.
-| **Groupe de ressources** | [Groupe de ressources Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access#what-is-an-azure-resource-group) comprenant votre ressource. Vous pouvez créer un groupe ou l’ajouter à un groupe préexistant. |
-
-> [!IMPORTANT]
-> Normalement, lorsque vous créez une ressource Cognitive Services dans le portail Azure, vous avez la possibilité de créer une clé d’abonnement multiservice (utilisée dans plusieurs services cognitifs) ou une clé d’abonnement à un seul service (utilisée uniquement avec un service cognitif spécifique). Toutefois, étant donné que Form Recognizer est en préversion, il n’est pas inclus dans l’abonnement multiservice et vous ne pouvez pas créer l’abonnement à un service unique, sauf si vous utilisez le lien fourni dans l’e-mail de bienvenue.
-
-Lorsque le déploiement de la ressource Form Recognizer se termine, recherchez-la et sélectionnez-la dans la liste **Toutes les ressources** dans le portail. Sélectionnez ensuite l’onglet **Clés** pour afficher vos clés d’abonnement. Chaque clé donne à votre application l’accès à la ressource. Copiez la valeur de **CLÉ 1**. Vous en aurez besoin dans la prochaine section.
+[!INCLUDE [create resource](../includes/create-resource.md)]
 
 ## <a name="train-a-form-recognizer-model"></a>Entraîner un modèle Form Recognizer
 
-Avant toute chose, vous avez besoin d’un jeu de données d’entraînement dans Azure Storage Blob. Vous devez disposer au minimum de cinq exemples de formulaires (documents PDF et/ou images) d’un type ou d’une structure identique en tant que données d’entrée principales. Vous pouvez également utiliser un formulaire vide avec deux formulaires remplis. Le nom de fichier du formulaire vide doit inclure le mot « vide ».
+Avant toute chose, vous avez besoin d’un jeu de données d’entraînement dans Azure Storage Blob. Vous devez disposer au minimum de cinq formulaires remplis (documents PDF et/ou images) d’un type ou d’une structure identique en tant que données d’entrée principales. Vous pouvez également utiliser un formulaire vide avec deux formulaires remplis. Le nom de fichier du formulaire vide doit inclure le mot « vide ». Consultez [Créer un jeu de données d’apprentissage pour un modèle personnalisé](../build-training-data-set.md) pour obtenir des conseils et des options pour constituer vos données d’apprentissage.
 
 Pour entraîner un modèle Form Recognizer à l’aide des documents de votre conteneur d’objets blob Azure, appelez l’API **Train (Entraîner)** en exécutant la commande cURL suivante. Avant d’exécuter la commande, apportez les modifications suivantes :
 
 1. Remplacez `<Endpoint>` par le point de terminaison que vous avez obtenu avec votre clé d’abonnement Form Recognizer. Vous la trouverez sous l’onglet **Vue d’ensemble** de la ressource Form Recognizer.
-1. Remplacez `<SAS URL>` par une URL de signature d’accès partagé (SAP) du conteneur Stockage Blob Azure où se trouvent les données d’entraînement.  
 1. Remplacez `<subscription key>` par la clé d’abonnement que vous avez copiée à l’étape précédente.
+1. Remplacez `<SAS URL>` par l’URL de signature d’accès partagé (SAS) du conteur de stockage Azure Blob. Pour la retrouver, ouvrez l’Explorateur Stockage Microsoft Azure, cliquez avec le bouton droit sur votre conteneur et sélectionnez **Obtenir la signature d’accès partagé**. Assurez-vous que les autorisations de **Lecture** et **Écriture** sont cochées, puis cliquez sur **Créer**. Copiez alors la valeur dans la section **URL**. Il doit avoir le format : `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 
 ```bash
 curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/train" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{ \"source\": \""<SAS URL>"\"}"
@@ -108,13 +95,13 @@ Notez la valeur `"modelId"`. Vous en aurez besoin dans les étapes suivantes.
 
 1. Remplacez `<Endpoint>` par le point de terminaison que vous avez obtenu avec votre clé d’abonnement Form Recognizer. Vous la trouverez sous l’onglet **Vue d’ensemble** de la ressource Form Recognizer.
 1. Remplacez `<modelID>` par l’ID de modèle que vous avez reçu à la section précédente.
-1. Remplacez `<path to your form>` par le chemin de fichier de votre formulaire. Par exemple c:\temp\file.pdf. 
-1. Remplacez `<file type>` par le type de fichier. Les types pris en charge sont pdf, image/jpeg, image/png.
+1. Remplacez `<path to your form>` par le chemin d’accès du fichier de votre formulaire (par exemple, C:\temp\file.pdf).
+1. Remplacez `<file type>` par le type de fichier. Types pris en charge : `application/pdf`, `image/jpeg`, `image/png`.
 1. Remplacez `<subscription key>` par votre clé d’abonnement.
 
 
 ```bash
-curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/models/<modelID>/analyze" -H "Content-Type: multipart/form-data" -F "form=@\"<path to your form>\";type=application/<file type>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
+curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/models/<modelID>/analyze" -H "Content-Type: multipart/form-data" -F "form=@\"<path to your form>\";type=<file type>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
 ```
 
 ### <a name="examine-the-response"></a>Examiner la réponse

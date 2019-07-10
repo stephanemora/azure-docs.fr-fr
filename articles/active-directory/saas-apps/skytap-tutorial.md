@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04-08-2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91899b35f319dafd01a3f27d31aac53515b46d78
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: 542d1008bfe505887f4c3639ff0271fc1c81664e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565007"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090501"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skytap"></a>Didacticiel : Intégration d'Azure Active Directory à Skytap
 
@@ -54,7 +54,7 @@ Pour configurer l’intégration de Skytap avec Azure AD, vous devez ajouter Sky
 
 **Pour ajouter Skytap à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

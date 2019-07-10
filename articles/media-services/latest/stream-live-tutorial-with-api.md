@@ -1,6 +1,6 @@
 ---
-title: Diffuser en direct avec Azure Media Services v3 à l’aide de .NET | Microsoft Docs
-description: Ce didacticiel vous présente les étapes pour diffuser en temps réel avec Media Services v3 à l’aide de .NET Core.
+title: Diffuser en temps réel avec Azure Media Services v3 | Microsoft Docs
+description: Ce didacticiel vous présente les étapes pour diffuser en temps réel avec Media Services v3.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -12,21 +12,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/21/2019
+ms.date: 06/13/2019
 ms.author: juliako
-ms.openlocfilehash: e4f32e14e8c1035055bd8a37bb453764984fbe4d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 5028fd4179f19634b41bb46a5f6df40f36cc8e29
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149134"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275573"
 ---
-# <a name="tutorial-stream-live-with-media-services-v3-using-net"></a>Didacticiel : Diffuser en direct avec Media Services v3 à l’aide de .NET
-
-Dans Azure Media Services, les [événements en direct](https://docs.microsoft.com/rest/api/media/liveevents) sont responsables du traitement de contenu de streaming en direct. Un événement en direct fournit un point de terminaison d’entrée (URL de réception) que vous fournissez ensuite à un encodeur live. Il reçoit des flux d’entrée en temps réel d’un encodeur live et le rend disponible pour le streaming par le biais d’un ou de plusieurs [points de terminaison de streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints). Les événements en direct fournissent également un point de terminaison d’aperçu (URL d’aperçu) que vous utilisez pour prévisualiser et valider votre flux avant de poursuivre le traitement ou la distribution. Ce didacticiel explique comment utiliser .NET Core pour créer un type de **canal direct** d’un événement en temps réel. 
+# <a name="tutorial-stream-live-with-media-services"></a>Didacticiel : Diffuser en direct avec Media Services
 
 > [!NOTE]
-> Veillez à consulter [Diffusion en continu avec Media Services v3](live-streaming-overview.md) avant de commencer. 
+> Bien que ce didacticiel utilise des exemples [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet), les étapes générales sont les mêmes pour [l’API REST](https://docs.microsoft.com/rest/api/media/liveevents), [l’interface de ligne de commande](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest) et autres [kits de développement logiciel (SDK)](media-services-apis-overview.md#sdks) pris en charge.
+
+Dans Azure Media Services, les [événements en direct](https://docs.microsoft.com/rest/api/media/liveevents) sont responsables du traitement de contenu de streaming en direct. Un événement en direct fournit un point de terminaison d’entrée (URL de réception) que vous fournissez ensuite à un encodeur live. Il reçoit des flux d’entrée en temps réel d’un encodeur live et le rend disponible pour le streaming par le biais d’un ou de plusieurs [points de terminaison de streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints). Les événements en direct fournissent également un point de terminaison d’aperçu (URL d’aperçu) que vous utilisez pour prévisualiser et valider votre flux avant de poursuivre le traitement ou la distribution. Ce didacticiel explique comment utiliser .NET Core pour créer un type de **canal direct** d’un événement en temps réel. 
 
 Ce didacticiel explique les procédures suivantes :    
 
@@ -47,6 +47,9 @@ Les éléments suivants sont requis pour suivre le didacticiel.
 - Suivez les étapes décrites dans [Accéder à l’API Azure Media Services avec Azure CLI](access-api-cli-how-to.md) et enregistrez les informations d’identification. Vous en aurez besoin pour accéder à l’API.
 - Une caméra ou appareil (ordinateur portable) utilisé pour diffuser un événement.
 - Un encodeur vidéo dynamique local qui convertit les signaux de la caméra en flux de données qui sont envoyés vers le service de vidéo en flux continu Media Services. La diffusion doit se faire au format **RTMP** ou **Smooth Streaming**.
+
+> [!TIP]
+> Veillez à consulter [Diffusion en continu avec Media Services v3](live-streaming-overview.md) avant de commencer. 
 
 ## <a name="download-and-configure-the-sample"></a>Télécharger et configurer l’exemple
 
@@ -88,7 +91,8 @@ Voici quelques éléments que vous voudrez probablement spécifier lors de la cr
 * Emplacement Media Services 
 * Le protocole de streaming de l’événement en direct (les protocoles RTMP et Smooth Streaming sont actuellement pris en charge).<br/>Vous ne pouvez pas changer l’option de protocole pendant l’exécution de l’événement en direct ou des sorties en direct qui lui sont associées. Si vous avez besoin d’autres protocoles, vous devez créer des événements en direct distincts pour chaque protocole de streaming.  
 * Restictions IP sur l’ingestion et la préversion. Vous pouvez définir les adresses IP autorisées à recevoir du contenu vidéo sur cet événement en direct. Les adresses IP autorisées peuvent être définies sous forme d’adresse IP unique (par exemple, « 10.0.0.1 »), de plage d’adresses IP constituée d’une adresse IP et d’un masque de sous-réseau CIDR (par exemple, « 10.0.0.1/22 ») ou de plage d’adresses IP constituée d’une adresse IP et d’un masque de sous-réseau au format décimal séparé par des points (par exemple, « 10.0.0.1(255.255.252.0) »).<br/>Si aucune adresse IP n’est spécifiée et qu’il n’existe pas de définition de règle, alors aucune adresse IP ne sera autorisée. Pour autoriser toutes les adresses IP, créez une règle et définissez la valeur 0.0.0.0/0.<br/>Les adresses IP doivent utiliser un des formats suivants : adresses IpV4 avec 4 nombres, plage d’adresses CIDR.
-* Lors de la création de l’événement, vous pouvez préciser que vous voulez que le démarrage soit automatique. <br/>Lorsque le démarrage automatique est défini sur true, l’événement en direct démarre après sa création. La facturation commence donc dès que son exécution commence. Vous devez appeler explicitement la commande Stop sur la ressource de l’événement en direct pour arrêter toute facturation supplémentaire. Pour plus d’informations, consultez [États et facturation des événements en direct](live-event-states-billing.md).
+* Lors de la création de l’événement, vous pouvez préciser que vous voulez que le démarrage soit automatique. <br/>Lorsque le démarrage automatique est défini sur true, l’événement en direct démarre après sa création. La facturation commence donc dès que son exécution démarre. Vous devez appeler explicitement la commande Stop sur la ressource de l’événement en direct pour arrêter toute facturation supplémentaire. Pour plus d’informations, consultez [États et facturation des événements en direct](live-event-states-billing.md).
+* Pour qu’une URL de réception soit prédictive, réglez le mode « personnel ». Pour plus d’informations, consultez [URL de réception des événements en direct](live-events-outputs-concept.md#live-event-ingest-urls).
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CreateLiveEvent)]
 

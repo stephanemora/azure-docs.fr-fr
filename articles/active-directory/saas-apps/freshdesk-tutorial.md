@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4bdeecc5682eb09ac0a65d3834ad1770258c4e0
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 3ed903e71a019d0bdb1b62503913bd696e9d8a8d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898436"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102041"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshdesk"></a>Didacticiel : Intégration d’Azure Active Directory à FreshDesk
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de FreshDesk dans Azure AD, vous devez ajouter 
 
 **Pour ajouter FreshDesk à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -107,7 +107,7 @@ Pour configurer l’authentification unique Azure AD avec FreshDesk, effectuez l
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL en utilisant le modèle `https://<tenant-name>.freshdesk.com`, ou toute autre valeur suggérée par FreshDesk.
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, tapez une URL en utilisant le modèle `https://<tenant-name>.freshdesk.com`, ou toute autre valeur suggérée par FreshDesk.
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , tapez une URL en utilisant le modèle `https://<tenant-name>.freshdesk.com`, ou toute autre valeur suggérée par FreshDesk.
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Contactez [l’équipe de support FreshDesk](https://freshdesk.com/helpdesk-software?utm_source=Google-AdWords&utm_medium=Search-IND-Brand&utm_campaign=Search-IND-Brand&utm_term=freshdesk&device=c&gclid=COSH2_LH7NICFVUDvAodBPgBZg) pour obtenir ces valeurs. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
@@ -171,7 +171,7 @@ Pour configurer l’authentification unique Azure AD avec FreshDesk, effectuez l
 
     ![Single Sign On](./media/freshdesk-tutorial/IC776770.png "Single Sign On")
   
-    a. Pour **Single Sign On (SSO)**, sélectionnez **On**.
+    a. Pour **Single Sign On (SSO)** , sélectionnez **On**.
 
     b. Sélectionnez **SAML SSO**.
 

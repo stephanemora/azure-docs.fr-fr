@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 41f867e2700c7b3f5d70d76c78a32e0fa3361d56
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 5d7d9115ba7b5d60c6fbf61590aebd47a00c4b2f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65813234"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102166"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-folloze"></a>Didacticiel : Intégration d’Azure Active Directory à Folloze
 
@@ -54,7 +54,7 @@ Pour configurer l’intégration de Folloze à Azure AD, vous devez ajouter Fol
 
 **Pour ajouter Folloze à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select_azuread.png)
 

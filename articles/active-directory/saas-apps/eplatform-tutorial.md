@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 5b73712e114b3542caa5aa05570d509c93df019e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 61946f77ddffe999e55acd09e3957d91c621492b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59276590"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67103236"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-eplatform"></a>Didacticiel : Intégration d’Azure Active Directory à ePlatform
 
@@ -52,7 +52,7 @@ Pour configurer l’intégration d’ePlatform à Azure AD, vous devez ajouter e
 
 **Pour ajouter ePlatform à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

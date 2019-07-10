@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/18/2019
+ms.date: 06/17/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: dc43e2ad2668a7d3a808e398857cbf1d28c9aa1c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 6a41df70340da626a849804155ca245d95b6da46
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150867"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190517"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Didacticiel : Configurer HTTPS sur un domaine personnalisé Azure CDN
 
@@ -50,7 +50,11 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 Avant d’effectuer les étapes de ce tutoriel, vous devez d’abord créer un profil CDN et au moins un point de terminaison CDN. Pour plus d’informations, consultez [Démarrage rapide : Créer un point de terminaison et un profil de réseau de distribution de contenu Azure](cdn-create-new-endpoint.md).
 
-En outre, vous devez associer un domaine personnalisé Azure CDN sur votre point de terminaison CDN. Pour plus d’informations, consultez [Tutoriel : Ajouter un domaine personnalisé à votre point de terminaison Azure CDN](cdn-map-content-to-custom-domain.md)
+En outre, vous devez associer un domaine personnalisé Azure CDN sur votre point de terminaison CDN. Pour plus d’informations, consultez [Tutoriel : Ajouter un domaine personnalisé à votre point de terminaison Azure CDN](cdn-map-content-to-custom-domain.md) 
+
+> [!IMPORTANT]
+> Les certificats gérés par CDN ne sont pas disponibles pour les domaines racine ou apex. Si votre domaine personnalisé Azure CDN est un domaine racine ou apex, vous devez utiliser la fonctionnalité Apportez votre propre certificat. 
+>
 
 ---
 
@@ -178,17 +182,17 @@ Pour plus d’informations sur les enregistrements CNAME, consultez [Create the 
 
 Si le format de votre enregistrement CNAME est correct, DigiCert vérifie automatiquement le nom de votre domaine personnalisé et crée un certificat dédié pour votre nom de domaine. DigiCert ne vous envoie pas de courrier électronique de vérification, et vous ne devez pas approuver votre requête. Le certificat est valide pendant un an et est automatiquement renouvelé avant son expiration. Passez à [En attente de la propagation](#wait-for-propagation). 
 
-La validation automatique prend généralement quelques minutes. Si vous ne voyez pas votre domaine validé dans l’heure, ouvrez un ticket de support.
+La validation automatique prend généralement quelques heures. Si votre domaine n’est pas validé dans les 24 heures, ouvrez un ticket de support.
 
 >[!NOTE]
 >Si vous avez un enregistrement CAA (Certificate Authority Authorization) auprès de votre fournisseur DNS, il doit inclure DigiCert en tant qu’autorité de certification valide. Un enregistrement CAA permet aux propriétaires de domaine de spécifier avec leurs fournisseurs DNS les autorités de certification autorisées à émettre des certificats pour leur domaine. Si une autorité de certification reçoit une commande de certificat pour un domaine qui contient un enregistrement CCA et que cette autorité de certification n’est pas répertoriée comme émetteur autorisé, elle ne peut pas émettre le certificat pour ce domaine ou sous-domaine. Pour plus d’informations sur la gestion des enregistrements CAA, consultez [Administrer les enregistrements CAA](https://support.dnsimple.com/articles/manage-caa-record/). Pour obtenir un outil d’enregistrement CAA, consultez [Assistance pour les enregistrements CAA](https://sslmate.com/caa/).
 
 ### <a name="custom-domain-is-not-mapped-to-your-cdn-endpoint"></a>Le domaine personnalisé n’est pas mappé à votre point de terminaison CDN
 
-Si l’entrée d’enregistrement CNAME pour votre point de terminaison n’existe plus ou s’il contient le sous-domaine cdnverify, suivez les autres instructions de cette étape.
-
 >[!NOTE]
->La validation par e-mail d’une propriété de domaine personnalisée n’est pas disponible pour les profils **Azure CDN fournis par Akamai**. Cette fonctionnalité est dans notre backlog. 
+>La validation par e-mail d’une propriété de domaine personnalisée n’est pas disponible pour les profils **Azure CDN fournis par Akamai**. Si vous utilisez **Azure CDN d’Akamai**, votre domaine personnalisé doit être mappé sur votre point de terminaison CDN avec un enregistrement CNAME comme indiqué ci-dessus.  Cette fonctionnalité est dans notre backlog. 
+
+Si l’entrée d’enregistrement CNAME contient le sous-domaine cdnverify, suivez les autres instructions de cette étape.
 
 Dès que vous soumettez une requête pour activer HTTPS sur votre domaine personnalisé, l’autorité de certification DigiCert valide la propriété de votre domaine en contactant son inscrit, en fonction des informations [WHOIS](http://whois.domaintools.com/) du domaine pour cet inscrit. Une prise de contact est établie par le biais de l’adresse de messagerie (par défaut) ou le numéro de téléphone répertorié dans l’inscription WHOIS. Vous devez effectuer la validation de domaine avant que le protocole HTTPS soit activé sur votre domaine personnalisé. Vous disposez de six jours ouvrables pour approuver le domaine. Les requêtes qui ne sont pas approuvées dans ce délai de six jours ouvrables sont automatiquement annulées. 
 

@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78e83f4a1aea04bbaea12181419de6c5c06034f2
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: d47c742e4f6d2ba8a96e9897f43231e509e8aa63
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287075"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476085"
 ---
 # <a name="create-a-basic-group-and-add-members-using-azure-active-directory"></a>Créer un groupe de base et ajouter des membres avec Azure Active Directory
 Vous pouvez créer un groupe de base à l’aide du portail Azure Active Directory (Azure AD). Pour les besoins de cet article, un groupe de base est ajouté à une seule ressource par le propriétaire de la ressource (administrateur) ; il inclut les membres spécifiques (employés) qui doivent accéder à cette ressource. Pour des scénarios plus complexes, notamment la création de règles et les appartenances dynamiques, consultez la [documentation Gestion des utilisateurs Azure Active Directory](../users-groups-roles/index.yml).
@@ -43,9 +43,9 @@ Vous pouvez créer un groupe de base et ajouter vos membres en même temps.
         
        - **Office 365**. Fournit des opportunités de collaboration en donnant aux membres l’accès à des éléments partagés : une boîte aux lettres, un calendrier, des fichiers, un site SharePoint et bien plus encore. Cette option vous permet également de donner à des personnes extérieures à votre organisation un accès au groupe. Pour plus d’informations sur les groupes Office 365, consultez [En savoir plus sur les groupes Office 365](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2).
 
-   - **Nom du groupe (obligatoire).** Ajoutez le nom du groupe, quelque chose dont vous vous souviendrez et qui est évocateur.
+   - **Nom du groupe (obligatoire).** Ajoutez le nom du groupe, quelque chose dont vous vous souviendrez et qui est évocateur. Une vérification sera effectuée pour déterminer si le nom est déjà utilisé pour un autre groupe. Si le nom est déjà en cours d’utilisation, pour éviter les noms en double, vous devrez modifier le nom de votre groupe.
 
-   - **Description du groupe.** Ajoutez une description facultative à votre groupe.
+   - **Description du groupe**. Ajoutez une description facultative à votre groupe.
 
    - **Type d’appartenance (obligatoire).** Sélectionnez un type d’appartenance prédéfini. notamment :
 

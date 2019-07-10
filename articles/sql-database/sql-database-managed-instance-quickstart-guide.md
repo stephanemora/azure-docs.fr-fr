@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlr
 manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 739afe52403633b1a37f57f0005a85972cc78a39
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ec0007e2d53a3fd3cae158375b696379d923b4b3
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59360166"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447769"
 ---
 # <a name="getting-started-with-azure-sql-database-managed-instance"></a>Bien démarrer avec une instance managée Azure SQL Database
 
@@ -79,3 +79,4 @@ Les articles de ces guides de démarrage rapide vous permettent de configurer un
 - Vous trouverez une [liste générale des fonctionnalités prises en charge dans Managed Instance ici](sql-database-features.md) et des [informations détaillées et problèmes connus ici](sql-database-managed-instance-transact-sql-information.md).
 - Apprenez-en davantage sur les [caractéristiques techniques de Managed Instance](sql-database-managed-instance-resource-limits.md#instance-level-resource-limits).
 - Consultez l’article sur l’[utilisation d’une instance managée dans Azure SQL Database](sql-database-howto-managed-instance.md) pour accéder à des guides pratiques plus avancés.
+- [Identifiez la bonne référence SKU d’Azure SQL Database/Managed Instance pour votre base de données locale](/sql/dma/dma-sku-recommend-sql-db/).

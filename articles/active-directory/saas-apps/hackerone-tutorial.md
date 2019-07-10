@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6faf023d36ea40e3694161ee0cfc8aac7c5652fa
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: a8aa5f441e5b356d24d0150569b956da110aa734
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898393"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101398"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hackerone"></a>Didacticiel : Intégration d'Azure Active Directory à HackerOne
 
@@ -54,7 +54,7 @@ Pour configurer l’intégration de HackerOne à Azure AD, vous devez ajouter H
 
 **Pour ajouter HackerOne à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -108,7 +108,7 @@ Pour configurer l’authentification unique Azure AD avec HackerOne, procédez 
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://hackerone.com/<company name>/authentication`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL : `https://hackerone.com/users/saml/metadata`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL : `https://hackerone.com/users/saml/metadata`
 
     > [!NOTE]
     > La valeur de cette URL d’authentification n’est pas réelle. Mettez à jour cette valeur avec l’URL d’authentification réelle. Contactez [l’équipe de support client HackerOne](mailto:support@hackerone.com) pour obtenir cette valeur. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
-ms.openlocfilehash: fd420ea3fc4faae7fe4510a72204d71acaa3549a
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 31826f5d4d88c977f859a009bface2fddf3a1c88
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65890794"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67093193"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rackspace-sso"></a>Didacticiel : Intégration d'Azure Active Directory à Rackspace SSO
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de Rackspace SSO à Azure AD, vous devez ajoute
 
 **Pour ajouter Rackspace SSO à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

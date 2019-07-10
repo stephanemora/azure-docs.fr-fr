@@ -3,19 +3,19 @@ title: 'Démarrage rapide : Obtenir la longueur des phrases, Java - API de trad
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous allez apprendre à déterminer la longueur de phrase à l’aide de Java et de l’API de traduction de texte Translator Text.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: 748f8cfa1e105b5c6d7b9b3fc073eac9f38a63dd
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.author: swmachan
+ms.openlocfilehash: 252be03bfb0f24f0de5868d64d5add0e635cef34
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514847"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445109"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-java"></a>Démarrage rapide : Utiliser l’API de traduction de texte Translator Text et Java pour déterminer la longueur de phrase
 
@@ -108,6 +108,7 @@ Ajoutez ces lignes à la classe `LengthSentence`. Vous remarquerez qu’avec `ap
 String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 String url = "https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0&language=en";
 ```
+Si vous utilisez un abonnement multiservice Cognitive Services, vous devez également inclure la `Ocp-Apim-Subscription-Region` dans vos paramètres de requête. [En savoir plus sur l’authentification sur l’abonnement multiservice](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
 
 ## <a name="create-a-client-and-build-a-request"></a>Créer un client et générer une requête
 

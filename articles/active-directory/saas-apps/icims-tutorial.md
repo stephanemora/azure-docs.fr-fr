@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0966fe01c90d5bf0bdaefba893b678f877805c5
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 83a18d05533058dfe564c1f936403e43194abc6d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898224"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67100672"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-icims"></a>Didacticiel : Intégration d’Azure Active Directory à ICIMS
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration d’ICIMS avec Azure AD, vous devez ajouter IC
 
 **Pour ajouter ICIMS à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -107,7 +107,7 @@ Pour configurer l’authentification unique Azure AD avec ICIMS, effectuez les 
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<tenant name>.icims.com`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://<tenant name>.icims.com`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://<tenant name>.icims.com`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe de support client ICIMS](https://www.icims.com/contact-us). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.

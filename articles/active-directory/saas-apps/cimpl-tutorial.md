@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8896922cf3f95439b76e12faf9577ca6570fbdf7
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 098c305f507d57a7e34dcb33d9c6bb3a3392e23f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65900673"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105630"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cimpl"></a>Didacticiel : Intégration d'Azure Active Directory à Cimpl
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de Cimpl à Azure AD, vous devez ajouter Cimpl
 
 **Pour ajouter Cimpl à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -107,7 +107,7 @@ Pour configurer l’authentification unique Azure AD avec Cimpl, effectuez les 
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://sso.etelesolv.com/<TENANTNAME>`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://sso.etelesolv.com/<TENANTNAME>`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://sso.etelesolv.com/<TENANTNAME>`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’équipe Cimpl en composant le **+1 866-982-8250**.

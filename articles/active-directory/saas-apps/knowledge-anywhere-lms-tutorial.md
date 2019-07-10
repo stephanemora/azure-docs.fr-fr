@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34553c92f54992698a7e3930ac302ef970edd7c7
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: f44324bbdd5af6675dfb4f5664cbbde2627edfec
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66236725"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098561"
 ---
 # <a name="tutorial-integrate-knowledge-anywhere-lms-with-azure-active-directory"></a>Didacticiel : Intégrer Knowledge Anywhere LMS à Azure Active Directory
 
@@ -150,7 +150,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
-Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le Portail Azure.
+Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
 
 1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
 1. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/24/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5330d398a75105b78cb2caa0373b78fa2e32a99
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8fdc9132a88a9822f96600afd64bbb8e2f69a0a7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65863159"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67104857"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-compliance-elf"></a>Didacticiel : Intégration d’Azure Active Directory à Compliance ELF
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de Compliance ELF à Azure AD, vous devez ajou
 
 **Pour ajouter Compliance ELF à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

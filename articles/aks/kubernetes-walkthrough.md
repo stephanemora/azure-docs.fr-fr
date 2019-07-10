@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 05/20/2019
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: b99ee8e6a379a1e86eaf37bb232176c3ca13c0d9
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
+ms.openlocfilehash: a7558308d668fc153b5ac9561efbdf68777ae09f
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66687953"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514375"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Démarrage rapide : déployer un cluster AKS (Azure Kubernetes Service) à l’aide d’Azure CLI
 
@@ -29,11 +29,11 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d'installer et d'utiliser l'interface CLI localement, ce guide de démarrage rapide exige au minimum Azure CLI version 2.0.64. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installer Azure CLI 2.0][azure-cli-install].
+Si vous choisissez d'installer et d'utiliser l'interface CLI localement, ce guide de démarrage rapide exige au minimum Azure CLI version 2.0.64. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][azure-cli-install].
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-Un groupe de ressources Azure est un groupe logique dans lequel des ressources Azure sont déployées et gérées. Lorsque vous créez un groupe de ressources, vous devez spécifier un emplacement. Il s’agit de l’emplacement de stockage des métadonnées de groupe de ressources. C’est également là que vos ressources s’exécutent dans Azure si vous ne spécifiez pas une autre région lors de la création de ressources. Créez un groupe de ressources à l’aide de la commande [az group create][az-group-create].
+Un groupe de ressources Azure est un groupe logique dans lequel des ressources Azure sont déployées et gérées. Lorsque vous créez un groupe de ressources, vous devez spécifier un emplacement. Il s’agit de l’emplacement de stockage des métadonnées de groupe de ressources. C’est également là que vos ressources s’exécutent dans Azure si vous ne spécifiez pas une autre région lors de la création de ressources. Créez un groupe de ressources avec la commande [az group create][az-group-create].
 
 L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *eastus*.
 
@@ -79,7 +79,7 @@ Pour gérer un cluster Kubernetes, vous utilisez [kubectl][kubectl], le client d
 az aks install-cli
 ```
 
-Exécutez la commande [az aks get-credentials][az-aks-get-credentials] pour configurer `kubectl` afin de vous connecter à votre cluster Kubernetes. Cette commande télécharge les informations d’identification et configure l’interface CLI Kubernetes pour les utiliser.
+Pour configurer `kubectl` afin de vous connecter à votre cluster Kubernetes, exécutez la commande [az aks get-credentials][az-aks-get-credentials]. Cette commande télécharge les informations d’identification et configure l’interface CLI Kubernetes pour les utiliser.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -93,14 +93,14 @@ kubectl get nodes
 
 L’exemple de sortie suivant montre le nœud unique créé au cours des étapes précédentes. Vérifiez que l’état du nœud est *Ready* :
 
-```
+```output
 NAME                       STATUS   ROLES   AGE     VERSION
 aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.12.8
 ```
 
 ## <a name="run-the-application"></a>Exécution de l'application
 
-Un fichier manifeste Kubernetes définit un état souhaité pour le cluster, notamment les images conteneur à exécuter. Dans ce guide de démarrage rapide, un manifeste est utilisé afin de créer tous les objets nécessaires pour l’exécution de l’application Azure Vote. Ce manifeste inclut deux [déploiements Kubernetes][kubernetes-deployment] : un pour les exemples d’applications Azure Vote Python et l’autre pour une instance Redis. Deux [services Kubernetes][kubernetes-service] sont également créés : un service interne pour l’instance Redis et un service externe pour accéder à l’application Azure Vote à partir d’Internet.
+Un fichier manifeste Kubernetes définit un état souhaité pour le cluster, notamment les images conteneur à exécuter. Dans ce guide de démarrage rapide, un manifeste est utilisé afin de créer tous les objets nécessaires pour l’exécution de l’application Azure Vote. Ce manifeste contient deux [déploiements de Kubernetes][kubernetes-deployment] - one for the sample Azure Vote Python applications, and the other for a Redis instance. Two [Kubernetes Services][kubernetes-service] sont également créés : un service interne pour l’instance Redis et un service externe pour accéder à l’application Azure Vote à partir d’Internet.
 
 > [!TIP]
 > Dans ce guide de démarrage rapide, vous créez et déployez manuellement vos manifestes d’application sur le cluster AKS. Dans des scénarios plus probables, vous pouvez utiliser [Azure Dev Spaces][azure-dev-spaces] pour itérer et déboguer votre code rapidement, directement dans le cluster AKS. Vous pouvez utiliser les espaces Dev Spaces sur des plateformes de système d’exploitation ainsi que des environnements de développement et collaborer avec les autres personnes de votre équipe.
@@ -200,7 +200,7 @@ kubectl apply -f azure-vote.yaml
 
 L’exemple de sortie suivant montre que les déploiements et les ressources ont été créés correctement :
 
-```
+```output
 deployment "azure-vote-back" created
 service "azure-vote-back" created
 deployment "azure-vote-front" created
@@ -219,14 +219,14 @@ kubectl get service azure-vote-front --watch
 
 Dans un premier temps, la valeur *EXTERNAL-IP* du service *azure-vote-front* apparaît comme étant en attente (*pending*).
 
-```
+```output
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
 azure-vote-front   LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 ```
 
 Quand l’adresse *EXTERNAL-IP* passe de l’état *pending* à une adresse IP publique réelle, utilisez `CTRL-C` pour arrêter le processus de surveillance `kubectl`. L’exemple de sortie suivant montre une adresse IP publique valide affectée au service :
 
-```
+```output
 azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 

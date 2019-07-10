@@ -1,6 +1,6 @@
 ---
 title: 'Démarrage rapide : Exécuter des requêtes Apache Hive dans Azure HDInsight - Apache Zeppelin'
-description: Apprenez à utiliser Apache Zeppelin pour exécuter des requêtes Apache Hive.
+description: Dans ce guide de démarrage rapide, vous allez apprendre à utiliser Apache Zeppelin pour exécuter des requêtes Apache Hive.
 keywords: hdinsight,hadoop,hive,interactive query,LLAP
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: quickstart
 ms.date: 05/06/2019
 ms.author: hrasheed
-ms.openlocfilehash: f4b8495646e83005dc48e8a729a0e5987b832721
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 1642c64b0b14c2e290aad689399b59d896660a28
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65801037"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056701"
 ---
 # <a name="quickstart-execute-apache-hive-queries-in-azure-hdinsight-with-apache-zeppelin"></a>Démarrage rapide : Exécuter des requêtes Apache Hive dans Azure HDInsight avec Apache Zeppelin
 
@@ -83,12 +83,3 @@ Dans ce guide de démarrage rapide, vous avez appris à utiliser Apache Zeppelin
 
 > [!div class="nextstepaction"]
 > [Se connecter à Azure HDInsight et exécuter des requêtes Apache Hive avec Data Lake Tools pour Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)
-
-## <a name="see-also"></a>Voir aussi
-
-* [Visualiser des données Apache Hive à l’aide de Microsoft Power BI dans Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md).
-* [Visualiser des données Interactive Query Apache Hive à l’aide de Power BI dans Azure HDInsight](./apache-hadoop-connect-hive-power-bi-directquery.md).
-* [Connecter Excel à HDInsight avec le pilote ODBC Microsoft Hive](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md).
-* [Connecter Excel à Apache Hadoop à l’aide de Power Query](../hadoop/apache-hadoop-connect-excel-power-query.md).
-* [Utiliser Azure HDInsight Tools pour Visual Studio Code](../hdinsight-for-vscode.md).
-* [Charger des données dans HDInsight](../hdinsight-upload-data.md).

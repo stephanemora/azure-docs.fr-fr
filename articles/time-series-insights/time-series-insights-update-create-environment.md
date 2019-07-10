@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
-ms.date: 04/25/2019
+ms.date: 06/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 77b7b90b63ffebc14498183fc179b9c8ae76a722
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 824d24b97f192583a42192b3bb90eb1818e1aa18
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66237845"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272984"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-preview-environment"></a>Tutoriel : Configurer un environnement Azure Time Series Insights (préversion)
 
@@ -28,6 +28,9 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 * Exécuter un exemple d’accélérateur de solution pour transmettre des données à l’environnement Azure Time Series Insights (préversion)
 * Effectuer une analyse de base des données.
 * Définir une hiérarchie et un type de modèle Time Series, et les associer à vos instances
+
+>[!TIP]
+> [Les accélérateurs de solution IoT](https://www.azureiotsolutions.com/Accelerators) fournissent des solutions préconfigurées de classe entreprise, qui vous permettent d’accélérer le développement de solutions IoT personnalisées.
 
 ## <a name="create-a-device-simulation"></a>Créer une simulation d’appareil
 
@@ -43,58 +46,18 @@ Dans cette section, vous créez trois appareils simulés qui envoient des donné
 
     | Paramètre | Action |
     | --- | --- |
-    | **Nom de la solution** | Entrez une valeur unique pour un nouveau groupe de ressources. Les ressources Azure répertoriées sont créées et affectées au groupe de ressources. |
-    | **Abonnement** | Sélectionnez l’abonnement que vous avez utilisé pour créer votre environnement Time Series Insights. |
-    | **Région** | Sélectionnez la région que vous avez utilisée pour créer votre environnement Time Series Insights. |
-    | **Déployer des ressources Azure facultatives** | Laissez la case **IoT Hub** cochée. Les appareils simulés utilisent IoT Hub pour se connecter et pour diffuser des données en continu. |
+    | **Nom du déploiement** | Entrez une valeur unique pour un nouveau groupe de ressources. Les ressources Azure répertoriées sont créées et affectées au groupe de ressources. |
+    | **Abonnement Azure** | Sélectionnez l’abonnement que vous avez utilisé pour créer votre environnement Time Series Insights. |
+    | **Emplacement Azure** | Sélectionnez la région que vous avez utilisée pour créer votre environnement Time Series Insights. |
+    | **Options de déploiement** | Sélectionnez **Approvisionner nouveau IoT Hub**. |
  
-    Sélectionnez **Créer la solution**. Attendez 10 à 15 minutes, le temps que votre solution soit déployée.
+    Sélectionnez **Créer la solution**. Le déploiement de la solution peut prendre jusqu’à 20 minutes.
 
     [![Page pour créer une solution de simulation d’appareil](media/v2-update-provision/device-two-create.png)](media/v2-update-provision/device-two-create.png#lightbox)
 
-1. Dans le tableau de bord de l’accélérateur de solution, sélectionnez **Lancer** :
-
-    [![Lancer la solution de simulation d'appareil](media/v2-update-provision/device-three-launch.png)](media/v2-update-provision/device-three-launch.png#lightbox)
-
-1. Vous êtes redirigé vers la page **Simulation d’appareil Microsoft Azure IoT**. Dans le coin supérieur droit de la page, sélectionnez **Nouvelle simulation**.
-
-    [![Page Simulation Azure IoT](media/v2-update-provision/device-four-iot-sim-page.png)](media/v2-update-provision/device-four-iot-sim-page.png#lightbox)
-
-1. Dans le volet **Configuration de la simulation**, définissez les paramètres suivants :
-
-    | Paramètre | Action |
-    | --- | --- |
-    | **Nom** | Entrez un nom unique pour le simulateur. |
-    | **Description** | Entrez une définition. |
-    | **Durée de la simulation** | Définissez ce paramètre sur **Run indefinitely** (Exécuter indéfiniment). |
-    | **Modèle de l’appareil** | **Nom** : Entrez **Chiller**. <br />**Quantité** : Entrez **3**. |
-    | **IoT Hub cible** | Définissez ce paramètre sur **Use pre-provisioned IoT Hub** (Utiliser le hub IoT préprovisionné). |
-
-    [![Paramètres à définir](media/v2-update-provision/device-five-params.png)](media/v2-update-provision/device-five-params.png#lightbox)
-
-    Sélectionnez **Démarrer la simulation**.
-
-    Sur le tableau de bord Simulation d’appareil, notez les informations affichées dans les zones **Appareils actifs** et **Messages par seconde**.
-
-    [![Tableau de bord Simulation Azure IoT](media/v2-update-provision/device-seven-dashboard.png)](media/v2-update-provision/device-seven-dashboard.png#lightbox)
-
-## <a name="list-device-simulation-properties"></a>Répertorier les propriétés de la simulation d'appareil
-
-Avant de créer un environnement Azure Time Series Insights, vous devez obtenir les noms de votre hub IoT, de votre abonnement et du groupe de ressources.
-
-1. Accédez au tableau de bord de l’accélérateur de solution. Connectez-vous à l’aide du même compte d’abonnement Azure. Recherchez la simulation d'appareil que vous avez créée dans la section précédente.
-
-1. Sélectionnez votre simulateur d’appareil, puis choisissez **Lancer**. Dans le volet de l’accélérateur de solution du simulateur de solution de droite, sélectionnez l’option **Portail de gestion Azure**.
-
-    [![Listes de simulateurs](media/v2-update-provision/device-six-listings.png)](media/v2-update-provision/device-six-listings.png#lightbox)
-
-1. Notez les noms du hub IoT, de l’abonnement et du groupe de ressources.
-
-    [![Détails du tableau de bord du simulateur d’appareil sur le portail Azure](media/v2-update-provision/device-eight-portal.png)](media/v2-update-provision/device-eight-portal.png#lightbox)
-
 ## <a name="create-a-time-series-insights-preview-payg-environment"></a>Créer un environnement Time Series Insights (préversion) avec paiement à l'utilisation
 
-Cette section explique comment créer un environnement Azure Time Series Insights (préversion) via le [portail Azure](https://portal.azure.com/).
+Cette section décrit comment créer un environnement Azure Time Series Insights (préversion) et le connecter à l’IoT hub créé par l’accélérateur de solution IoT à l’aide du [portail Azure](https://portal.azure.com/).
 
 1. Connectez-vous au portail Azure à l'aide de votre compte d'abonnement.
 
@@ -109,7 +72,7 @@ Cette section explique comment créer un environnement Azure Time Series Insight
     | **Nom de l’environnement** | Entrez un nom unique pour l'environnement Azure Time Series Insights (préversion). |
     | **Abonnement** | Entrez l'abonnement pour lequel vous souhaitez créer l'environnement Azure Time Series Insights (préversion). Nous vous recommandons d'utiliser le même abonnement que pour les autres ressources IoT créées par le simulateur d'appareil. |
     | **Groupe de ressources** | Sélectionnez un groupe de ressources existant, ou créez-en un pour la ressource d'environnement Azure Time Series Insights (préversion). Un groupe de ressources est un conteneur pour les ressources Azure. Une bonne pratique consiste à utiliser le même groupe de ressources que pour les autres ressources IoT créées par le simulateur d’appareil. |
-    | **Lieu** | Choisissez une région de centre de données pour votre environnement Azure Time Series Insights (préversion). Pour éviter des coûts de bande passante et une latence supplémentaires, il est préférable de créer votre environnement Azure Time Series Insights (préversion) dans la même région que vos autres ressources IoT. |
+    | **Lieu** | Choisissez une région de centre de données pour votre environnement Azure Time Series Insights (préversion). Pour éviter toute latence supplémentaire, il est préférable de créer votre environnement Azure Time Series Insights (préversion) dans la même région que vos autres ressources IoT. |
     | **Niveau** |  Sélectionnez **PAYG** (*Paiement à l'utilisation*). Il s’agit de la référence SKU du produit Azure Time Series Insights (préversion). |
     | **ID de propriété** | Entrez une valeur qui identifie de façon unique votre instance Time Series. La valeur que vous entrez dans la zone **ID de propriété** est immuable. Vous ne pouvez pas la changer ultérieurement. Pour ce tutoriel, utilisez l’identificateur **iothub-connection-device-id**. Pour en savoir plus sur l’ID Time Series, consultez [Meilleures pratiques pour le choix d’un ID Time Series](./time-series-insights-update-how-to-id.md). |
     | **Nom du compte de stockage** | Entrez un nom global unique pour le compte de stockage à créer. |
@@ -159,6 +122,34 @@ Cette section explique comment créer un environnement Azure Time Series Insight
       [![Informations d’identification listées](media/v2-update-provision/payg-ten-verify.png)](media/v2-update-provision/payg-ten-verify.png#lightbox)
 
    Si vos informations d’identification ne sont pas listées, vous devez vous octroyer l’autorisation d’accéder à l’environnement. Pour en savoir plus sur la définition des autorisations, consultez [Octroyer l’accès aux données](./time-series-insights-data-access.md).
+
+## <a name="stream-data-into-your-environment"></a>Diffusion de données dans votre environnement
+
+1. Revenez à la [page des accélérateurs de solution Azure IoT](https://www.azureiotsolutions.com/Accelerators). Localisez votre solution dans votre tableau de bord d’accélérateur de solution. Sélectionnez ensuite **Launch** (Lancer) :
+
+    [![Lancer la solution de simulation d'appareil](media/v2-update-provision/device-three-launch.png)](media/v2-update-provision/device-three-launch.png#lightbox)
+
+1. Vous êtes redirigé vers la page **Simulation d’appareil Microsoft Azure IoT**. Dans le coin supérieur droit de la page, sélectionnez **Nouvelle simulation**.
+
+    [![Page Simulation Azure IoT](media/v2-update-provision/device-four-iot-sim-page.png)](media/v2-update-provision/device-four-iot-sim-page.png#lightbox)
+
+1. Dans le volet **Configuration de la simulation**, définissez les paramètres suivants :
+
+    | Paramètre | Action |
+    | --- | --- |
+    | **Nom** | Entrez un nom unique pour le simulateur. |
+    | **Description** | Entrez une définition. |
+    | **Durée de la simulation** | Définissez ce paramètre sur **Run indefinitely** (Exécuter indéfiniment). |
+    | **Modèle de l’appareil** | **Nom** : Entrez **Chiller**. <br />**Quantité** : Entrez **3**. |
+    | **IoT Hub cible** | Définissez ce paramètre sur **Use pre-provisioned IoT Hub** (Utiliser le hub IoT préprovisionné). |
+
+    [![Paramètres à définir](media/v2-update-provision/device-five-params.png)](media/v2-update-provision/device-five-params.png#lightbox)
+
+    Sélectionnez **Démarrer la simulation**.
+
+    Sur le tableau de bord Simulation d’appareil, notez les informations affichées dans les zones **Appareils actifs** et **Messages par seconde**.
+
+    [![Tableau de bord Simulation Azure IoT](media/v2-update-provision/device-seven-dashboard.png)](media/v2-update-provision/device-seven-dashboard.png#lightbox)
 
 ## <a name="analyze-data-in-your-environment"></a>Analyser les données dans votre environnement
 

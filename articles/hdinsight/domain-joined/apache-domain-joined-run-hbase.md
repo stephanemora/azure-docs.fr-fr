@@ -1,17 +1,18 @@
 ---
-title: Configurer des stratégies Apache HBase dans HDInsight avec le Pack Sécurité Entreprise - Azure
-description: Découvrez comment configurer des stratégies Apache Ranger pour HBase dans Azure HDInsight avec le Pack Sécurité Entreprise.
+title: Didacticiel - Configurer des stratégies Apache HBase dans HDInsight avec le Pack Sécurité Entreprise - Azure
+description: Didacticiel - Découvrez comment configurer des stratégies Apache Ranger pour HBase dans Azure HDInsight avec le Pack Sécurité Entreprise.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.topic: tutorial
-ms.date: 02/01/2019
-ms.openlocfilehash: d1f2a2b24e6f1856d021911e6f2e9c107bd38b72
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.date: 06/18/2019
+ms.openlocfilehash: 04592ba307cd696c20778d4a79f03be2eb0ac987
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926091"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274395"
 ---
 # <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>Didacticiel : Configurer des stratégies Apache HBase dans HDInsight avec le Pack Sécurité Entreprise
 
@@ -201,7 +202,7 @@ En fonction des stratégies Ranger configurées, **sales_user1** peut voir toute
    kinit marketing_user1
    ```
 
-2. Ouvrez l’interpréteur de commandes HBase et analysez la table `Customers` :
+2. Ouvrez l’interpréteur de commandes HBase et analysez la table `Customers`.
 
     ```hbaseshell
     hbase shell

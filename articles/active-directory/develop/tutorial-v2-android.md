@@ -16,12 +16,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6112facfc0c10d7a0a0495cd778fa6c3cb6130a7
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: d8f8c8e98a7a99fc1b94bd5ae84062843ebabbc1
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962150"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550587"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-android-app"></a>Connecter des utilisateurs et appeler Microsoft Graph à partir d’une application Android
 
@@ -178,7 +178,7 @@ Vous pouvez inscrire votre application de deux manières, comme décrit dans les
 
 ### <a name="add-msal-to-your-project"></a>Ajouter MSAL à votre projet
 
-1. Dans Android Studio, sélectionnez **Scripts Gradle** > **build.gradle (Module : application)**.
+1. Dans Android Studio, sélectionnez **Scripts Gradle** > **build.gradle (Module : application)** .
 2. Sous **Dépendances**, collez le code suivant :
 
     ```gradle  
@@ -465,7 +465,7 @@ Après avoir obtenu avec succès un jeton, nous pouvons soumettre une demande à
 
 | clé d’en-tête    | value                 |
 | ------------- | --------------------- |
-| Authorization | Porteur <jeton-accès> |
+| Authorization | Porteur \<jeton-accès> |
 
 Pour effectuer cette opération dans le code, ajoutez les deux méthodes suivantes à votre application afin d’afficher le graphique des appels et de mettre à jour l’interface utilisateur : 
 

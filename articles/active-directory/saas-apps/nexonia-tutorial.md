@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: d5f2f31f87bc3732b7b3a5593217ebde4ee213c9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 36bffb73b1e04fd37fe05479a684f107b7679e99
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65870909"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67096196"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nexonia"></a>Didacticiel : Intégration d’Azure Active Directory à Nexonia
 
@@ -52,7 +52,7 @@ Pour configurer l’intégration de Nexonia à Azure AD, vous devez ajouter Nex
 
 **Pour ajouter Nexonia à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

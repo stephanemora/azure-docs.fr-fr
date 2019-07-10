@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6304f4afa05850ced8b88bb81c0f94e4a31fb5be
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c3d3aab2d61f5ae2e2e5e7654e25405c4a23407a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59277259"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67099174"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jostle"></a>Didacticiel : Intégration d’Azure Active Directory à Jostle
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de Jostle à Azure AD, vous devez ajouter Jostl
 
 **Pour ajouter Jostle à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

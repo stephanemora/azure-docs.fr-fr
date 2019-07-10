@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 90d4cdcecd08ae87b3a2ae6023b8a2557a515fb1
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: de27afabe024f08cb80a7b31cfb1b664684315a8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65899310"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107231"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-aha"></a>Didacticiel : Intégration d’Azure Active Directory à Aha!
 
@@ -54,7 +54,7 @@ Pour configurer l’intégration d’Aha! à Azure AD, vous devez ajouter Aha! d
 
 **Pour ajouter Aha! à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -66,7 +66,7 @@ Pour configurer l’intégration d’Aha! à Azure AD, vous devez ajouter Aha! d
 
     ![Bouton Nouvelle application](common/add-new-app.png)
 
-4. Dans la zone de recherche, tapez **Aha !**, sélectionnez **Aha !** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+4. Dans la zone de recherche, tapez **Aha !** , sélectionnez **Aha !** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
      ![Aha! dans la liste des résultats](common/search-new-app.png)
 
@@ -90,7 +90,7 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
 Pour configurer l’authentification unique Azure AD auprès d’Aha!, effectuez les étapes suivantes :
 
-1. Dans le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **Aha!**, sélectionnez **Authentification unique**.
+1. Dans le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **Aha!** , sélectionnez **Authentification unique**.
 
     ![Lien Configurer l’authentification unique](common/select-sso.png)
 
@@ -108,7 +108,7 @@ Pour configurer l’authentification unique Azure AD auprès d’Aha!, effectue
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<companyname>.aha.io/session/new`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://<companyname>.aha.io`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://<companyname>.aha.io`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez [ l’équipe du support technique d’Aha!](https://www.aha.io/company/contact). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
@@ -117,7 +117,7 @@ Pour configurer l’authentification unique Azure AD auprès d’Aha!, effectue
 
     ![Lien Téléchargement de certificat](common/metadataxml.png)
 
-6. Dans la section **Configurer Aha!**, copiez la ou les URL appropriées en fonction de vos besoins.
+6. Dans la section **Configurer Aha!** , copiez la ou les URL appropriées en fonction de vos besoins.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
@@ -188,11 +188,11 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 Dans cette section, vous autorisez Britta Simon à utiliser l’authentification unique Azure en accordant l’accès à Aha!.
 
-1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, **Toutes les applications**, puis **Aha!**.
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, **Toutes les applications**, puis **Aha!** .
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
-2. Dans la liste des applications, sélectionnez **Aha!**.
+2. Dans la liste des applications, sélectionnez **Aha!** .
 
     ![Lien Aha! dans la liste des applications](common/all-applications.png)
 

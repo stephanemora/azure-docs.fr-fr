@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: f5c498fc3f3fe051070b3565041e506bc40fceda
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 70890dcd72cadc55e56410381a94ac071b248a91
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925163"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147531"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Didacticiel : Copier des données sur Azure Data Box Disk et procéder à une vérification
 
@@ -250,6 +250,8 @@ Vous pouvez exécuter cette procédure facultative lorsque vous utilisez plusieu
 
     `DataBoxDiskSplitCopy.exe PrepImport /config:<configFile.json> /ResumeSession`
 
+Si vous constatez des erreurs avec l’outil de fractionnement des données de copie, accédez au guide de [Résolution des erreurs de l’outil de fractionnement des données de copie](data-box-disk-troubleshoot-data-copy.md).
+
 Une fois la copie des données terminée, vous pouvez passer à leur validation. Si vous avez utilisé l’outil Split Copy, ignorez la validation (car l’outil s’en charge aussi) et passez au tutoriel suivant.
 
 
@@ -270,6 +272,8 @@ Si vous n’avez pas utilisé l’outil Split Copy pour copier les données, vou
     > - Utiliser l’option 1 si vous traitez un grand jeu de données qui contient des petits fichiers (~ Ko). Cette option valide seulement les fichiers, car la génération de la somme de contrôle peut prendre beaucoup de temps et les performances peuvent ralentir considérablement.
 
 3. Si vous utilisez plusieurs disques, exécutez la commande pour chaque disque.
+
+Si vous constatez des erreurs lors de la validation, consultez [Résoudre les erreurs de validation](data-box-disk-troubleshoot.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

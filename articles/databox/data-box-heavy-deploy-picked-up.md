@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 05/28/2019
+ms.date: 07/01/2019
 ms.author: alkohli
-ms.openlocfilehash: 31185900ede0fae74a04f98eaecee7379fb1c4fe
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: 3903e14e8923f6d29f2a88c61aead0cfc605b5b5
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66427806"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508680"
 ---
 # <a name="tutorial-return-azure-data-box-heavy-and-verify-data-upload-to-azure-preview"></a>Didacticiel : Retourner l’appareil Azure Data Box Heavy et vérifier le chargement des données dans Azure (préversion)
 
@@ -43,11 +43,11 @@ Avant de commencer, vérifiez les points suivants :
 ## <a name="ship-data-box-heavy-back"></a>Réexpédier le Data Box Heavy
 
 1. Vérifiez que l’appareil est hors tension et que tous les câbles sont débranchés. Enroulez et fixez les 4 cordons d’alimentation sur le plateau accessible à l’arrière de l’appareil.
-2. Si l’appareil est expédié aux États-Unis ou en Europe, le transporteur est FedEx.
+2. L’appareil est livré par chargement partiel via FedEx aux États-Unis et DHL dans l’Union européenne
 
-    1. Appelez le numéro local pour votre transporteur pour planifier l’enlèvement.
-    2. Contactez le service des [Opérations Data Box](mailto:DataBoxOps@microsoft.com) pour l’informer de l’enlèvement et obtenir l’étiquette de réexpédition.
-    3. Vérifiez que l’étiquette d’expédition est affichée sur l’écran vide situé à l’avant de l’appareil.
+    1. Contactez le service des [Opérations Data Box](mailto:DataBoxOps@microsoft.com) pour l’informer de l’enlèvement et obtenir l’étiquette de réexpédition.
+    2. Appelez le numéro local pour votre transporteur pour planifier l’enlèvement.
+    3. Assurez-vous que l’étiquette d’expédition est bien visible à l’extérieur du colis.
     4. Vérifiez que les anciennes étiquettes de l’expédition précédente sont retirées de l’appareil.
 3. Une fois que le Data Box Heavy a été récupéré et scanné par le transporteur, l’état de la commande dans le portail affiche **Collecté**. Un ID de suivi s’affiche également.
 

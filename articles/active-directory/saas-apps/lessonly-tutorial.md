@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: ec1fce18913d6763514abb80ceba471bf73d59ad
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: ccef5b5acd8ba30b6ea8aea2d0eb0a5b2cb6d503
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65897794"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098085"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lessonlycom"></a>Didacticiel : Intégration d’Azure Active Directory à Lessonly.com
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de Lessonly.com à Azure AD, vous devez ajouter
 
 **Pour ajouter Lessonly.com à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -110,7 +110,7 @@ Pour configurer l’authentification unique Azure AD auprès de Lessonly.com, ef
     > [!NOTE]
     > Lors du référencement d’un nom générique, la partie **nomentreprise** doit être remplacée par un nom réel.
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://<companyname>.lessonly.com/auth/saml/metadata`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://<companyname>.lessonly.com/auth/saml/metadata`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez [l’équipe du support technique Lessonly.com](mailto:support@lessonly.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48955354baf86d84c0ddc6618a99f7e806c26c2b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 88f42a849d5c483feb9325072fd65769839672e4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65862362"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105382"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>Didacticiel : Intégration d’Azure Active Directory à Clarizen
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de Clarizen à Azure AD, vous devez ajouter Cl
 
 **Pour ajouter Clarizen à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

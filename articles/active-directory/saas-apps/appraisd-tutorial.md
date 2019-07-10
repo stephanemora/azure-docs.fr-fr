@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ee7e58aa6298977b279d0d538fefb24da657388
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.openlocfilehash: 08453928ab000cf906c451fa6c1cd619a00ee4ca
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66357014"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561196"
 ---
 # <a name="tutorial-integrate-appraisd-with-azure-active-directory"></a>Didacticiel : Intégrer Appraisd à Azure Active Directory
 
@@ -89,7 +89,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     > [!NOTE]
     > Vous obtenez les valeurs d’URL de connexion et d’état de relais réelles dans la page de configuration de l’authentification unique pour Appraisd, comme expliqué plus loin dans le tutoriel.
 
-1. L’application Appraisd s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration d’attributs de jetons SAML. La capture d’écran suivante montre la liste des attributs par défaut, où  **nameidentifier** est mappé à **user.userprincipalname**. L’application Appraisd s’attend à ce que  **nameidentifier** soit mappé à  **user.mail**. Vous devez donc modifier le mappage d’attribut en cliquant sur l’icône  **Modifier** .
+1. L’application Appraisd s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration d’attributs de jetons SAML. La capture d’écran suivante montre la liste des attributs par défaut, où **nameidentifier** est mappé avec **user.userprincipalname**. L’application Appraisd s’attend à ce que **nameidentifier** soit mappé sur **user.mail**. Vous devez donc modifier le mappage d’attribut en cliquant sur l’icône **Modifier**.
 
     ![image](common/edit-attribute.png)
 

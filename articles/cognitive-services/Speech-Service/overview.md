@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: dc0871c0b16246fa178072e9d9f266d4c02ba1c4
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 4a9af96c1defab4cbb10d917b5faa7e0e3ab837f
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002988"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485059"
 ---
 # <a name="what-are-the-speech-services"></a>Qu’est-ce que Speech Services ?
 
@@ -26,21 +26,23 @@ Les services Speech Azure sont l’unification de la reconnaissance vocale, de 
 
 Ces fonctionnalités constituent les services Speech Azure. Pour en savoir plus sur les cas d’utilisation courants de chaque fonctionnalité, utilisez les liens figurant dans ce tableau, ou parcourez la référence de l’API.
 
-| de diffusion en continu | Fonctionnalité | Description | Kit SDK  | REST |
+| de diffusion en continu | Fonctionnalité | Description | Kit SDK | REST |
 |---------|---------|-------------|-----|------|
 | [Reconnaissance vocale](speech-to-text.md) | Reconnaissance vocale | La reconnaissance vocale transcrit en temps réel des flux audio en texte que vos applications, outils ou appareils peuvent utiliser ou afficher. Utilisez la reconnaissance vocale avec [LUIS (Language Understanding Intelligent Service)](https://docs.microsoft.com/azure/cognitive-services/luis/) pour déduire les intentions de l’utilisateur à partir des transcriptions et agir sur des commandes vocales. | [Oui](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Oui](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| | [Transcription par lot](batch-transcription.md) | La transcription par lot permet de transcrire une reconnaissance vocale asynchrone de gros volumes de données. Il s’agit d’un service basé sur REST qui utilise le même point de terminaison que la personnalisation et la gestion des modèles. | Non  | [Oui](https://westus.cris.ai/swagger/ui/index) |
-| | [Transcription de conversation](conversation-transcription-service.md) | Permet la reconnaissance vocale en temps réel, l’identification de l’orateur et la structuration (diarisation). Il est parfait pour la transcription de rencontres en personne, avec possibilité de distinguer les orateurs. | OUI | Non  |
-| | [Créer des modèles vocaux personnalisés](#customize-your-speech-experience) | Si vous utilisez la reconnaissance vocale pour la reconnaissance et la transcription dans un environnement unique, vous pouvez créer et former des modèles de prononciation, de langue et acoustiques personnalisés pour prendre en compte un bruit ambiant ou le vocabulaire spécifique d’un secteur. | Non  | [Oui](https://westus.cris.ai/swagger/ui/index) |
-| [Synthèse vocale](text-to-speech.md) | Synthèse vocale | La synthèse vocale convertit le texte d’entrée en parole synthétisée quasi humaine. Faites votre choix parmi les voix standard et les voix neuronales (voir [Prise en charge linguistique](language-support.md)). | [Oui](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Oui](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| | [Créer des voix personnalisées](#customize-your-speech-experience) | Créez des polices de voix personnalisées propres à vos marques ou produits. | Non  | [Oui](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| [Traduction vocale](speech-translation.md) | Traduction vocale | La traduction vocale permet à vos applications, outils et appareils d’effectuer de la traduction multilingue en temps réel de la parole. Utilisez ce service pour la traduction de voix en voix et de voix en texte. | [Oui](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | Non  |
-| [Assistants virtuels « voice-first »](voice-first-virtual-assistants.md) | Assistants virtuels « voice-first » | Les assistants virtuels personnalisés qui utilisent Azure Speech Services permettent aux développeurs de créer des interfaces conversationnelles naturelles pour leurs applications et leurs expériences. Le canal Direct Line Speech de Bot Framework améliore ces fonctionnalités en fournissant un point d’entrée orchestré et coordonné à un bot compatible qui permet des interactions vocales entrantes et sortantes avec une faible latence et une grande fiabilité. | [Oui](voice-first-virtual-assistants.md) | Non  |
+| | [Transcription par lot](batch-transcription.md) | La transcription par lot permet de transcrire une reconnaissance vocale asynchrone de gros volumes de données. Il s’agit d’un service basé sur REST qui utilise le même point de terminaison que la personnalisation et la gestion des modèles. | Non | [Oui](https://westus.cris.ai/swagger/ui/index) |
+| | [Transcription de conversation](conversation-transcription-service.md) | Permet la reconnaissance vocale en temps réel, l’identification de l’orateur et la structuration (diarisation). Il est parfait pour la transcription de rencontres en personne, avec possibilité de distinguer les orateurs. | OUI | Non |
+| | [Créer des modèles vocaux personnalisés](#customize-your-speech-experience) | Si vous utilisez la reconnaissance vocale pour la reconnaissance et la transcription dans un environnement unique, vous pouvez créer et former des modèles de prononciation, de langue et acoustiques personnalisés pour prendre en compte un bruit ambiant ou le vocabulaire spécifique d’un secteur. | Non | [Oui](https://westus.cris.ai/swagger/ui/index) |
+| [Synthèse vocale](text-to-speech.md) | Synthèse vocale | La synthèse vocale convertit le texte d’entrée en parole synthétisée quasi humaine avec le [langage SSML (Speech Synthesis Markup Language)](text-to-speech.md#speech-synthesis-markup-language-ssml). Faites votre choix parmi les voix standard et les voix neuronales (voir [Prise en charge linguistique](language-support.md)). | [Oui](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Oui](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| | [Créer des voix personnalisées](#customize-your-speech-experience) | Créez des polices de voix personnalisées propres à vos marques ou produits. | Non | [Oui](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Traduction vocale](speech-translation.md) | Traduction vocale | La traduction vocale permet à vos applications, outils et appareils d’effectuer de la traduction multilingue en temps réel de la parole. Utilisez ce service pour la traduction de voix en voix et de voix en texte. | [Oui](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | Non |
+| [Assistants virtuels « voice-first »](voice-first-virtual-assistants.md) | Assistants virtuels « voice-first » | Les assistants virtuels personnalisés qui utilisent Azure Speech Services permettent aux développeurs de créer des interfaces conversationnelles naturelles pour leurs applications et leurs expériences. Le canal Direct Line Speech de Bot Framework améliore ces fonctionnalités en fournissant un point d’entrée orchestré et coordonné à un bot compatible qui permet des interactions vocales entrantes et sortantes avec une faible latence et une grande fiabilité. | [Oui](voice-first-virtual-assistants.md) | Non |
 
 ## <a name="news-and-updates"></a>Nouveautés et mises à jour
 
 Découvrez les nouveautés introduites dans les services Speech Azure.
 
+* Juin 2019
+    * Publication du SDK Speech 1.6.0. Pour la liste complète des mises à jour, des améliorations et des problèmes connus, consultez [Notes de publication](releasenotes.md).
 * Mai 2019 - La documentation est désormais disponible pour [Transcription de conversation](conversation-transcription-service.md), [Transcription de centre d’appel](call-center-transcription.md) et [Assistants virtuels « voice-first »](voice-first-virtual-assistants.md).
 * Mai 2019
     * Publication du SDK Speech 1.5.1. Pour la liste complète des mises à jour, des améliorations et des problèmes connus, consultez [Notes de publication](releasenotes.md).

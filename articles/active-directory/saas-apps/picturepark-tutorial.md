@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 617c75024b45dab7ff2466b99bfb71c18cdd778a
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 32af532fcb3b3c5a294590bb7a1fa610d1068e25
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65904576"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094455"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-picturepark"></a>Didacticiel : Intégration d’Azure Active Directory à Picturepark
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de Picturepark à Azure AD, vous devez ajouter
 
 **Pour ajouter Picturepark à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -107,7 +107,7 @@ Pour configurer l’authentification unique Azure AD avec Picturepark, procéde
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<companyname>.picturepark.com`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant :
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant :
 
     |  |
     |--|
@@ -127,7 +127,7 @@ Pour configurer l’authentification unique Azure AD avec Picturepark, procéde
 
     ![Copier la valeur de l’empreinte](common/copy-thumbprint.png)
 
-7. Dans la section **Configurer Picturepark**, copiez la ou les URL appropriées correspondant à vos besoins. Pour **Login URL (URL de connexion)**, utilisez la valeur au format suivant : `https://login.microsoftonline.com/_my_directory_id_/wsfed`
+7. Dans la section **Configurer Picturepark**, copiez la ou les URL appropriées correspondant à vos besoins. Pour **Login URL (URL de connexion)** , utilisez la valeur au format suivant : `https://login.microsoftonline.com/_my_directory_id_/wsfed`
 
     > [!Note]
     > _my_directory_id_ est l’ID de locataire de l’abonnement Azure AD.
@@ -160,7 +160,7 @@ Pour configurer l’authentification unique Azure AD avec Picturepark, procéde
    
     c. Sélectionnez **Set as default**.
    
-    d. Dans la zone de texte **Issuer URI (URI de l’émetteur)**, collez la valeur **Login URL (URL de connexion)**, que vous avez copiée dans le portail Azure.
+    d. Dans la zone de texte **Issuer URI (URI de l’émetteur)** , collez la valeur **Login URL (URL de connexion)** , que vous avez copiée dans le portail Azure.
    
     e. Dans la zone de texte **Trusted Issuer Thumb Print** (Empreinte numérique de l’émetteur approuvé), collez la valeur de l’**empreinte** que vous avez copiée à partir de la section **Certificat de signature SAML**. 
 

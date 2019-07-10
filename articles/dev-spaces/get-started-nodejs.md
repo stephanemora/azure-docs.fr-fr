@@ -9,12 +9,12 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: Développement Kubernetes rapide avec des conteneurs et des microservices sur Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s
-ms.openlocfilehash: e461f210dc5b2d0dda0eabd5ea80dfcdc9ccebfb
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: 30f912e9c1573b32247bb3c2a3f7d4026436748b
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66392811"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67503038"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-nodejs"></a>Bien démarrer avec l’utilisation d’Azure Dev Spaces conjointement à Node.js
 
@@ -134,24 +134,27 @@ Analysez la sortie de la console pour y rechercher les informations concernant l
 
 ```
 (pending registration) Service 'webfrontend' port 'http' will be available at <url>
+Service 'webfrontend' port 'http' is available at http://webfrontend.1234567890abcdef1234.eus.azds.io/
 Service 'webfrontend' port 80 (TCP) is available at 'http://localhost:<port>'
 ```
 
-Ouvrez cette URL dans une fenêtre de navigateur. Vous devriez alors voir l’application web se charger. Lorsque le conteneur s’exécute, les sorties `stdout` et `stderr` sont transmises à la fenêtre de terminal.
+Identifiez l’URL publique pour le service dans la sortie de la commande `up`. Elle se termine par `.azds.io`. Dans l’exemple ci-dessus, l’URL publique est `http://webfrontend.1234567890abcdef1234.eus.azds.io/`.
+
+Pour voir votre application web, ouvrez l’URL publique dans un navigateur. En outre, notez que la sortie de `stdout` et `stderr` est diffusée dans la fenêtre de terminal *azds trace* lorsque vous interagissez avec votre application web. Vous verrez également des informations de suivi pour les requêtes HTTP lorsqu’elles passent par le système. Cela facilite le suivi des appels multiservice complexes pendant le développement. L’instrumentation ajoutée par Dev Spaces fournit ce suivi des requêtes.
 
 > [!Note]
-> À la première exécution, vous devrez peut-être patienter plusieurs minutes avant que le serveur DNS public ne soit prêt. Si l’URL publique n’est pas résolue, vous pouvez utiliser en guise d’alternative l’URL `http://localhost:<portnumber>` affichée dans la sortie de la console. Si vous utilisez l’URL localhost, le conteneur semble s’exécuter en local. En réalité, il s’exécute dans AKS. Pour des raisons pratiques et pour faciliter l’interaction avec le service à partir de votre ordinateur local, Azure Dev Spaces crée un tunnel SSH temporaire vers le conteneur en cours d’exécution dans Azure. Vous pouvez réessayer l’URL publique plus tard quand l’enregistrement DNS est prêt.
+> En plus de l’URL publique, vous pouvez utiliser en guise d’alternative l’URL `http://localhost:<portnumber>` affichée dans la sortie de la console. Si vous utilisez l’URL localhost, le conteneur semble s’exécuter en local. En réalité, il s’exécute dans Azure. Azure Dev Spaces utilise la fonctionnalité de *redirection des ports* de Kubernetes pour mapper le port localhost sur le conteneur en cours d’exécution dans AKS. Cela facilite l’interaction avec le service à partir de votre machine locale.
 
 ### <a name="update-a-content-file"></a>Mettre à jour un fichier de contenu
 Azure Dev Spaces vous permet non seulement d’obtenir un code s’exécutant dans Kubernetes, mais également de visualiser rapidement et de façon itérative la prise en compte des modifications de votre code dans un environnement Kubernetes dans le cloud.
 
-1. Recherchez le fichier `./public/index.html` et procédez à une modification du code HTML. Par exemple, remplacez la couleur d’arrière-plan de la page par une nuance de bleu :
+1. Recherchez le fichier `./public/index.html` et procédez à une modification du code HTML. Par exemple, remplacez la couleur d’arrière-plan de la page par une nuance de bleu [à la ligne 15](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/public/index.html#L15) :
 
     ```html
     <body style="background-color: #95B9C7; margin-left:10px; margin-right:10px;">
     ```
 
-2. Enregistrez le fichier . Quelques instants plus tard, la fenêtre de terminal affiche un message indiquant qu’un fichier du conteneur en cours d’exécution a été mis à jour.
+1. Enregistrez le fichier . Quelques instants plus tard, la fenêtre de terminal affiche un message indiquant qu’un fichier du conteneur en cours d’exécution a été mis à jour.
 1. Accédez à votre navigateur et actualisez la page. La couleur doit avoir été mise à jour.
 
 Que s’est-il passé ? Les modifications des fichiers de contenu, comme HTML et CSS, ne nécessitent aucun redémarrage du processus Node.js. Par conséquent, une commande `azds up` active synchronise automatiquement tous les fichiers de contenu modifiés directement dans le conteneur en cours d’exécution dans Azure, ce qui vous permet de visualiser rapidement les modifications du contenu.
@@ -161,7 +164,7 @@ Ouvrez l’application web sur un appareil mobile à l’aide de l’URL publiqu
 
 Pour résoudre ce problème, vous allez ajouter une balise META `viewport` :
 1. Ouvrez le fichier `./public/index.html`.
-1. Ajoutez une balise META `viewport` dans l’élément `head` existant :
+1. Ajoutez une balise META `viewport` dans l’élément `head` existant qui commence à la [ligne 6](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/public/index.html#L6) :
 
     ```html
     <head>
@@ -225,16 +228,24 @@ Pour déboguer votre code dans Kubernetes, appuyez sur **F5**.
 Comme avec la commande `up`, le code est synchronisé avec l’environnement de développement lorsque vous démarrez le débogage, et un conteneur est créé et déployé dans Kubernetes. Cette fois-ci, le débogueur est joint au conteneur distant.
 
 > [!Tip]
-> La barre d’état VS Code affichera une URL interactive.
+> La barre d’état VS Code devient orange, indiquant que le débogueur est attaché. Elle affiche également une URL interactive, que vous pouvez utiliser pour ouvrir rapidement votre site.
 
 ![](media/common/vscode-status-bar-url.png)
 
-Définissez un point d’arrêt dans un fichier de code côté serveur, par exemple dans la fonction `app.get('/api'...` du fichier `server.js`. Actualisez la page de navigateur ou appuyez sur le bouton « Say It Again » (Répéter), ce qui doit vous permettre d’atteindre le point d’arrêt et d’exécuter le code pas à pas.
+Définissez un point d’arrêt dans un fichier de code côté serveur, par exemple dans la fonction `app.get('/api'...` à la [ligne 13 de`server.js`](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/server.js#L13). 
+
+    ```javascript
+    app.get('/api', function (req, res) {
+        res.send('Hello from webfrontend');
+    });
+    ```
+
+Actualisez la page de navigateur ou appuyez sur le bouton *Say It Again* (Répéter), ce qui doit vous permettre d’atteindre le point d’arrêt et d’exécuter le code pas à pas.
 
 Vous disposez d’un accès complet aux informations de débogage, exactement comme si le code s’exécutait en local, notamment à la pile des appels, aux variables locales, aux informations sur les exceptions, etc.
 
 ### <a name="edit-code-and-refresh-the-debug-session"></a>Modifier le code et actualiser la session de débogage
-Lorsque le débogueur est actif, apportez une modification au code ; par exemple, modifiez de nouveau le message Hello :
+Lorsque le débogueur est actif, apportez une modification au code ; par exemple, modifiez de nouveau le message Hello à la [ligne 13 de `server.js`](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/server.js#L13) :
 
 ```javascript
 app.get('/api', function (req, res) {
@@ -242,9 +253,9 @@ app.get('/api', function (req, res) {
 });
 ```
 
-Enregistrez le fichier, puis dans le **volet Actions de débogage**, cliquez sur le bouton **Actualiser**. 
+Enregistrez le fichier, puis dans le **volet Actions de débogage**, cliquez sur le bouton **Redémarrer**. 
 
-![](media/get-started-node/debug-action-refresh-nodejs.png)
+![](media/common/debug-action-refresh.png)
 
 Plutôt que de régénérer et redéployer une nouvelle image conteneur chaque fois que des modifications de code sont effectuées, cette opération nécessitant généralement un temps considérable, Azure Dev Spaces redémarre le processus Node.js entre les sessions de débogage afin d’accélérer la boucle de modification/débogage.
 

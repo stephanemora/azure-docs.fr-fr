@@ -12,12 +12,12 @@ ms.date: 04/08/2019
 ms.author: mimart
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa18bc637ec31a1f83b5cab090e008715c5e0c2a
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 0f6707c780931eac58e2a870c321385e63bd948a
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65825010"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550469"
 ---
 # <a name="tutorial-configure-saml-based-single-sign-on-for-an-application-with-azure-active-directory"></a>Tutoriel : Configurer l’authentification unique SAML pour une application avec Azure Active Directory
 
@@ -138,7 +138,7 @@ Pour affecter un utilisateur ou un groupe à l’application :
 
 Vous avez presque terminé.  Dans la dernière étape, vous devez configurer l’application pour utiliser Azure AD comme fournisseur d’identité SAML. 
 
-1. Faites défiler jusqu’à la section **Configurer <applicationName>**. Pour ce tutoriel, cette section est appelée **Configurer GitHub-test**. 
+1. Faites défiler jusqu'à la section **Configurer \<applicationName >** . Pour ce tutoriel, cette section est appelée **Configurer GitHub-test**. 
 2. Copiez la valeur de chaque ligne dans cette section. Ensuite, collez chaque valeur dans la ligne appropriée dans la section **Configuration SAML de base**. Par exemple, copiez la valeur **URL de connexion** à partir de la section **Configurer GitHub-test** et collez-la dans le champ **URL de connexion** de la section **Configuration SAML de base** et ainsi de suite.
 3. Lorsque vous avez collé toutes les valeurs dans les champs appropriés, sélectionnez **Enregistrer**.
 
@@ -147,13 +147,13 @@ Vous avez presque terminé.  Dans la dernière étape, vous devez configurer l�
 Vous êtes prêt à tester vos paramètres.  
 
 1. Ouvrez les paramètres d’authentification unique pour votre application. 
-2. Faites défiler vers la section **Valider l’authentification unique avec <applicationName>**. Pour ce tutoriel, cette section est appelée **Configurer GitHub-test**.
+2. Faites défiler vers la section **Valider l’authentification unique avec \<applicationName>** . Pour ce tutoriel, cette section est appelée **Configurer GitHub-test**.
 3. Sélectionnez **Test**. Les options de tests s’affichent.
 4. Sélectionnez **Se connecter en tant qu’utilisateur actuel**. Ce test vous permet de commencer par voir si l’authentification unique fonctionne pour vous, l’administrateur.
 
 Si une erreur se produit, un message d’erreur s’affiche. Effectuez ensuite les tâches suivantes :
 
-1. Copiez et collez les détails dans la case **À quoi ressemble l’erreur ?**.
+1. Copiez et collez les détails dans la case **À quoi ressemble l’erreur ?** .
 
     ![Obtenir l’aide de résolution](media/configure-single-sign-on-portal/error-guidance.png)
 

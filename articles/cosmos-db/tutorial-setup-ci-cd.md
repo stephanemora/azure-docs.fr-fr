@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 05/23/2019
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: b97fb1956c75332c40e242484b9d94419a45eb92
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 19ced9767d77b0d7bfcec6f01425ab1089a55d54
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66242559"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069227"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Configurer un pipeline CI/CD avec la tâche de génération d’émulateur Azure Cosmos DB
 
@@ -39,7 +39,7 @@ Ensuite, choisissez l’organisation dans laquelle installer l’extension.
 
 Maintenant que l’extension est installée, connectez-vous à votre compte Azure DevOps et recherchez votre projet dans le tableau de bord de projets. Vous pouvez ajouter un [pipeline de build](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav) à votre projet ou modifier un pipeline de build existant. Si vous disposez déjà d’un pipeline de build, vous pouvez passer directement à la section [Ajouter la tâche de génération d’émulateur à une définition de build](#addEmulatorBuildTaskToBuildDefinition).
 
-1. Pour créer une définition de build, accédez à l’onglet **Builds** dans Azure DevOps. Sélectionnez **+Nouveau.**  \> **Nouveau pipeline de build**
+1. Pour créer une définition de build, accédez à l’onglet **Builds** dans Azure DevOps. Sélectionnez **+Nouveau.** \> **Nouveau pipeline de build**
 
    ![Créer un pipeline de build](./media/tutorial-setup-ci-cd/CreateNewBuildDef_1.png)
 
@@ -48,6 +48,9 @@ Maintenant que l’extension est installée, connectez-vous à votre compte Azur
    ![Sélectionner le projet d’équipe, le référentiel et la branche pour le pipeline de build](./media/tutorial-setup-ci-cd/CreateNewBuildDef_2.png)
 
 3. Enfin, sélectionnez le modèle souhaité pour le pipeline de build. Nous allons sélectionner le modèle **ASP.NET** dans ce tutoriel. 
+
+> [!NOTE]
+> Le pool d’agents à sélectionner pour ce CI doit disposer de Docker pour Windows, sauf si l’installation est effectuée manuellement dans une tâche précédente dans le cadre de ce CI. Consultez l’article [Agents hébergés Microsoft](https://docs.microsoft.com/azure/devops/pipelines/agents/hosted?view=azure-devops&tabs=yaml) pour une sélection de pools d’agents ; nous vous recommandons de commencer par `Hosted VS2017` ou `Hosted VS2019`. 
 
 Nous disposons maintenant d’un pipeline de build que nous pouvons configurer pour utiliser la tâche de génération d’émulateur Azure Cosmos DB. 
 

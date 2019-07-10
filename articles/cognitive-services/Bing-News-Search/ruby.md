@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Effectuer une recherche d’actualités à l’aide de Ruby - API REST Recherche d’actualités Bing'
+title: 'Démarrage rapide : Effectuer une recherche d’actualités avec Ruby et l’API REST Recherche d’actualités Bing'
 titlesuffix: Azure Cognitive Services
 description: Utilisez ce démarrage rapide pour envoyer une requête à l’API REST Recherche d’actualités Bing à l’aide de Ruby et recevez une réponse JSON.
 services: cognitive-services
@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 1/10/2019
+ms.date: 6/19/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 9ed658c6613d270ab3de67a8800263d677d70bac
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 5db8d9055ff973c3de1b995340d77004d889aa3d
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867016"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272734"
 ---
 # <a name="quickstart-perform-a-news-search-using-ruby-and-the-bing-news-search-rest-api"></a>Démarrage rapide : Effectuer une recherche d’actualités à l’aide de Ruby et l’API REST Recherche d’actualités Bing
 

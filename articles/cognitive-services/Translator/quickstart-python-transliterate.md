@@ -3,19 +3,19 @@ title: 'Démarrage rapide : Translittérer du texte, Python – API de traduct
 titleSuffix: Azure Cognitive Services
 description: Dans ce démarrage rapide, vous allez apprendre à translittérer (convertir) le texte d’un script dans un autre à l’aide de Python et de l’API de traduction de texte Translator Text. Dans cet exemple, le japonais est translittéré pour utiliser l’alphabet latin.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: ac91212ecc43e5aa03ecdd4857b1431ccf82b1c3
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.author: swmachan
+ms.openlocfilehash: 033bb19bfd003f889735f73a18a0eef1a20b8354
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515048"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447888"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-python"></a>Démarrage rapide : Utiliser l'API de traduction de texte Translator Text pour translittérer du texte à l'aide de Python
 
@@ -36,7 +36,10 @@ Créez un projet avec votre IDE ou votre éditeur favori, ou créez un dossier c
 
 ```python
 # -*- coding: utf-8 -*-
-import os, requests, uuid, json
+import os
+import requests
+import uuid
+import json
 ```
 
 > [!NOTE]
@@ -92,6 +95,8 @@ headers = {
 }
 ```
 
+Si vous utilisez un abonnement multiservice Cognitive Services, vous devez également inclure la `Ocp-Apim-Subscription-Region` dans vos paramètres de requête. [En savoir plus sur l’authentification sur l’abonnement multiservice](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
+
 ## <a name="create-a-request-to-transliterate-text"></a>Créer une requête pour translittérer du texte
 
 Définissez la chaîne (ou les chaînes) que vous souhaitez translittérer :
@@ -116,7 +121,8 @@ response = request.json()
 La dernière étape consiste à imprimer les résultats. Cet extrait de code agrémente les résultats en triant les clés, en configurant la mise en retrait et en déclarant des séparateurs d’élément et de clés.
 
 ```python
-print(json.dumps(response, sort_keys=True, indent=4, ensure_ascii=False, separators=(',', ': ')))
+print(json.dumps(response, sort_keys=True, indent=4,
+                 ensure_ascii=False, separators=(',', ': ')))
 ```
 
 ## <a name="put-it-all-together"></a>Assemblage

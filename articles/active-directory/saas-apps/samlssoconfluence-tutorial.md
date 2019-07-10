@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6d948542cfac8624d70dd37d37fa967f72f22bb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 54a248f64f4534a14d815ffe5865909024e20d31
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65868223"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67092133"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-confluence-by-resolution-gmbh"></a>Didacticiel : Intégration d’Azure Active Directory avec SSO SAML pour Confluence de resolution GmbH
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de SSO SAML pour Confluence de resolution GmbH 
 
 **Pour ajouter SSO SAML pour Confluence de resolution GmbH à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -80,7 +80,7 @@ Pour configurer et tester l’authentification unique Azure AD avec SSO SAML pou
 2. **[Configurer l’authentification unique SSO SAML pour Confluence de resolution GmbH](#configure-saml-sso-for-confluence-by-resolution-gmbh-single-sign-on)** pour configurer les paramètres de l’authentification unique côté application.
 3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Créer un utilisateur de test de SSO SAML pour Confluence de resolution GmbH](#create-saml-sso-for-confluence-by-resolution-gmbh-test-user)**: pour avoir un équivalent de Britta Simon dans SSO SAML pour Confluence de resolution GmbH qui soit lié à la représentation Azure AD de l’utilisateur.
+5. **[Créer un utilisateur de test de SSO SAML pour Confluence de resolution GmbH](#create-saml-sso-for-confluence-by-resolution-gmbh-test-user)** : pour avoir un équivalent de Britta Simon dans SSO SAML pour Confluence de resolution GmbH qui soit lié à la représentation Azure AD de l’utilisateur.
 6. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD

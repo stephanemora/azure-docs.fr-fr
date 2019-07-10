@@ -9,12 +9,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 02/26/2019
 ms.author: aahi
-ms.openlocfilehash: 481f7a7589a58baac922001d230f95198ed45eb7
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 6f1e71b75aa68c8f4ea1fa8ed373da25dbb3c24b
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417943"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67304046"
 ---
 # <a name="example-how-to-detect-language-with-text-analytics"></a>Exemple : Comment détecter la langue avec l’Analyse de texte
 
@@ -79,7 +79,7 @@ Vous trouverez plus d’informations sur la définition d’une demande dans [Gu
 
 ## <a name="step-2-post-the-request"></a>Étape 2 : Publier la requête
 
-L’analyse est effectuée à la réception de la demande. Le service accepte jusqu'à 100 demandes par minute. Chaque demande peut être au maximum de 1 Mo.
+L’analyse est effectuée à la réception de la demande. Consultez la section [Limites de données](../overview.md#data-limits) dans la vue d’ensemble pour plus d’informations sur la taille et le nombre de demandes que vous pouvez envoyer par minute et seconde.
 
 Rappelez-vous que le service est sans état. Aucune donnée n’est stockée dans votre compte. Les résultats sont retournés immédiatement dans la réponse.
 

@@ -4,20 +4,20 @@ description: Ce guide de démarrage rapide vous explique comment créer un trava
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 06/03/2019
+ms.date: 06/21/2019
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-ms.openlocfilehash: 4efb8aa21622abddca1add3d8b2fcb523cf45da5
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: e05d293760b88cd02fdffae60e762f040a4d1311
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66493373"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449233"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Démarrage rapide : Créer un travail Stream Analytics à l’aide du portail Azure
 
-Ce guide de démarrage rapide vous explique comment créer un travail Stream Analytics. Dans ce guide de démarrage rapide, vous allez définir un travail Stream Analytics qui lit des données de streaming en temps réel et filtre les messages qui contiennent une température supérieure à 27. Votre travail Stream Analytics lira les données à partir d’un appareil IoT Hub, transformera ces données et les réécrira dans un conteneur de stockage d’objets blob. Les données d’entrée utilisées dans ce guide de démarrage rapide sont générées par un simulateur en ligne Raspberry Pi. 
+Ce guide de démarrage rapide vous explique comment créer un travail Stream Analytics. Dans ce guide de démarrage rapide, vous allez définir un travail Stream Analytics qui lit des données de streaming en temps réel et filtre les messages qui contiennent une température supérieure à 27. Votre travail Stream Analytics lira les données à partir d’IoT Hub, transformera ces données et les réécrira dans un conteneur de stockage d’objets blob. Les données d’entrée utilisées dans ce guide de démarrage rapide sont générées par un simulateur en ligne Raspberry Pi. 
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -27,7 +27,7 @@ Ce guide de démarrage rapide vous explique comment créer un travail Stream Ana
 
 ## <a name="prepare-the-input-data"></a>Préparer les données d’entrée
 
-Avant de définir le travail Stream Analytics, vous devez préparer les données qui seront configurées ultérieurement comme entrée pour le travail. Pour préparer les données d’entrée requises pour le travail, exécutez les opérations suivantes :
+Avant de définir le travail Stream Analytics, vous devez préparer les données d’entrée. Les données de capteur en temps réel sont ingérées par IoT Hub, configuré plus tard comme entrée du travail. Pour préparer les données d’entrée requises pour le travail, exécutez les opérations suivantes :
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
@@ -91,7 +91,7 @@ Avant de définir le travail Stream Analytics, vous devez préparer les données
    |Nom du travail   |  MyASAJob   |   Saisissez un nom pour identifier votre travail Stream Analytics. Le nom d’un travail Stream Analytics peut contenir uniquement des caractères alphanumériques, des traits d’union et des traits de soulignement, et doit avoir entre 3 et 63 caractères. |
    |Abonnement  | \<Votre abonnement\> |  Sélectionnez l’abonnement Azure que vous souhaitez utiliser pour ce travail. |
    |Groupe de ressources   |   asaquickstart-resourcegroup  |   Sélectionnez le même groupe de ressources que pour votre hub IoT. |
-   |Lieu  |  \<Sélectionnez la région la plus proche de vos utilisateurs\> | Sélectionnez l’emplacement géographique où vous pouvez héberger votre travail Stream Analytics. Utilisez l’emplacement le plus proche de vos utilisateurs pour bénéficier de meilleures performances et réduire les coûts de transfert de données. |
+   |Location  |  \<Sélectionnez la région la plus proche de vos utilisateurs\> | Sélectionnez l’emplacement géographique où vous pouvez héberger votre travail Stream Analytics. Utilisez l’emplacement le plus proche de vos utilisateurs pour bénéficier de meilleures performances et réduire les coûts de transfert de données. |
    |Unités de diffusion en continu  | 1  |   Les unités de streaming sont les ressources de calcul requises pour exécuter un travail. Par défaut, cette valeur est définie sur 1. Pour en savoir plus sur la mise à l’échelle des unités de streaming, consultez l’article [Understanding and adjusting streaming units](stream-analytics-streaming-unit-consumption.md) (Présentation et réglage des unités de streaming).   |
    |Environnement d’hébergement  |  Cloud  |   Les travaux Stream Analytics peuvent être déployés dans le cloud ou sur des appareils Edge. L’option Cloud vous permet de déployer votre travail dans le cloud Azure, et l’option Edge sur un appareil IoT Edge. |
 
@@ -179,7 +179,7 @@ Dans cette section, vous allez configurer une entrée d’appareil IoT Hub pour 
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, le travail de streaming et toutes les ressources associées. La suppression du travail évite la facturation des unités de streaming consommées par le travail. Si vous envisagez d’utiliser le travail à l’avenir, vous pouvez l’arrêter et le redémarrer plus tard lorsque vous en avez besoin. Si vous ne pensez pas continuer à utiliser ce travail, supprimez toutes les ressources créées pendant ce guide de démarrage rapide en procédant comme suit :
+Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, le travail Stream Analytics et toutes les ressources associées. La suppression du travail évite la facturation des unités de streaming consommées par le travail. Si vous envisagez d’utiliser le travail à l’avenir, vous pouvez l’arrêter et le redémarrer plus tard lorsque vous en avez besoin. Si vous ne pensez pas continuer à utiliser ce travail, supprimez toutes les ressources créées pendant ce guide de démarrage rapide en procédant comme suit :
 
 1. Dans le menu de gauche du portail Azure, cliquez sur **Groupes de ressources**, puis sur le nom de la ressource que vous avez créée.  
 

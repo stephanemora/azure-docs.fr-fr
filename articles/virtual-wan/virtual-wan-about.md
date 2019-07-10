@@ -5,19 +5,19 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 03/20/2019
+ms.date: 06/11/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: 6dae42dcc8b74b682c7226916482228058db6154
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 7ee6b2dd07a89de4f5347e82bde19990dbb6c995
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336250"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077545"
 ---
 # <a name="what-is-azure-virtual-wan"></a>Qu’est-ce que le WAN virtuel Azure ?
 
-Azure Virtual WAN est un service réseau qui offre une connectivité de branche optimisée et automatisée via Azure. Les régions Azure servent de hubs auxquels vous pouvez connecter vos branches. Une fois les branches connectées, vous pouvez exploiter la structure principale d’Azure pour établir une connectivité branche à réseau virtuel et branche à branche. Pour obtenir la liste des partenaires et des emplacements qui prennent en charge le VPN Virtual WAN, consultez l’article [Partenaires et emplacements Virtual WAN](virtual-wan-locations-partners.md).
+Azure Virtual WAN est un service réseau qui offre une connectivité de branche optimisée et automatisée via Azure. Les régions Azure servent de hubs auxquels vous pouvez connecter vos branches. Vous pouvez exploiter la dorsale principale d’Azure pour également connecter des branches et profiter d’une connectivité de branche à réseau virtuel. Nous disposons d’une liste de partenaires qui prennent en charge l’automatisation de la connectivité avec le VPN Azure Virtual WAN. Pour plus d’informations sur les emplacements, consultez l’article [Partenaires et emplacements Virtual WAN](virtual-wan-locations-partners.md).
 
 Azure Virtual WAN regroupe plusieurs services de connectivité cloud Azure comme le VPN site à site (mis en disposition générale), ExpressRoute (préversion), VPN utilisateur point à site (préversion) dans une seule interface opérationnelle. La connectivité aux réseaux virtuels Azure est établie à l’aide de connexions de réseau virtuel.
 

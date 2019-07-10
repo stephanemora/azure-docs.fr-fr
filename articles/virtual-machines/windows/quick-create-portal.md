@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 03/19/2019
+ms.date: 07/02/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 08c33068845855fca85f793c21264582be423c2f
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: b3f972fadfa972b581474c1a61769564f81260af
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58368107"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67560456"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-the-azure-portal"></a>Démarrage rapide : Créer une machine virtuelle Windows dans le portail Azure
 
@@ -95,7 +95,7 @@ Dans le portail, sélectionnez la machine virtuelle et dans la vue d’ensemble 
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Dès que vous n’en avez plus besoin, vous pouvez supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées. Pour cela, sélectionnez le groupe de ressources de la machine virtuelle, sélectionnez **Supprimer**, puis confirmez le nom du groupe de ressources à supprimer.
+Dès que vous n’en avez plus besoin, vous pouvez supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées. Sélectionnez le groupe de ressources de la machine virtuelle, puis sélectionnez **Supprimer**. Confirmez le nom du groupe de ressources pour terminer la suppression des ressources.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

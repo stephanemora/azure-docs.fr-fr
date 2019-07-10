@@ -4,21 +4,16 @@ description: Utilisez les modèles Resource Manager avec Azure Deployment Manage
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
-manager: dougeby
-editor: tysonn
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 05/31/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: d43a0e7c48db9dd42c7cf3b52e5d4072a4827898
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 0e8a9fefdf92f568001cc3352fe83a85157acf9a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66479181"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442578"
 ---
 # <a name="tutorial-use-health-check-in-azure-deployment-manager-public-preview"></a>Didacticiel : Utiliser le contrôle d’intégrité dans Azure Deployment Manager (préversion publique)
 
@@ -41,7 +36,10 @@ Ce tutoriel décrit les tâches suivantes :
 > * Vérifier le déploiement du lancement
 > * Supprimer des ressources
 
-Les informations de référence de l’API REST Azure Deployment Manager sont disponibles [ici](https://docs.microsoft.com/rest/api/deploymentmanager/).
+Ressources supplémentaires :
+
+- Les [informations de référence de l’API REST Azure Deployment Manager](https://docs.microsoft.com/rest/api/deploymentmanager/).
+- [Un exemple d’Azure Deployment Manager](https://github.com/Azure-Samples/adm-quickstart).
 
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
@@ -59,7 +57,7 @@ En production, vous utilisez généralement un ou plusieurs fournisseurs de supe
 Les deux fichiers suivants sont utilisés pour le déploiement de la fonction Azure. Vous n’avez pas besoin de télécharger ces fichiers pour suivre le tutoriel.
 
 * Un modèle Resource Manager situé sur [https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json](https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json). Vous déployez ce modèle pour créer une fonction Azure.
-* Un fichier zip contenant le code source de la fonction Azure, [http://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip](http://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip). Ce fichier zip est appelé par le modèle Resource Manager.
+* Un fichier zip contenant le code source de la fonction Azure, [https://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip](https://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip). Ce fichier zip est appelé par le modèle Resource Manager.
 
 Pour déployer la fonction Azure, sélectionnez **Try it** afin d’ouvrir Azure Cloud shell, puis collez le script suivant dans la fenêtre de l’interpréteur de commandes.  Pour coller le code, cliquez avec le bouton droit sur la fenêtre de l’interpréteur de commandes, puis sélectionnez **Coller**.
 

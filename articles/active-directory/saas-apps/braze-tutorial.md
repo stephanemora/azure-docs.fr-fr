@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69dac57118d7876ba08a562f5478b19465b37e07
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.openlocfilehash: bd8d4a4bd21e0f7a7f483e139beb1840b5c3cc7f
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65441473"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165088"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-braze"></a>Didacticiel : Intégration d'Azure Active Directory à Braze
 
@@ -54,7 +54,7 @@ Pour configurer l’intégration de Braze avec Azure AD, vous devez ajouter Bra
 
 **Pour ajouter Braze à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -106,7 +106,7 @@ Pour configurer l’authentification unique Azure AD avec Braze, procédez comm
 
     ![Informations d’authentification unique dans Braze Domain and URLs (Domaine et URL Fuse)](common/both-replyurl.png)
 
-    Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<SUBDOMAIN>.braze.com/auth/saml/callback `
+    Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<SUBDOMAIN>.braze.com/auth/saml/callback`
 
 5. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c64fb2dc4c494252f0078b8d23e05b15f07ebe00
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 8ad2ffddf96aa6ecc886ac5653d2d0b8dcfb0856
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65903756"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091711"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-business-object-cloud"></a>Didacticiel : Intégration d’Azure Active Directory à SAP Business Object Cloud
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de SAP Business Object Cloud à Azure AD, v
 
 **Pour ajouter SAP Business Object Cloud à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -112,7 +112,7 @@ Pour configurer l’authentification unique Azure AD avec SAP Business Object
     | `https://<sub-domain>.sapanalytics.cloud/` |
     | `https://<sub-domain>.sapbusinessobjects.cloud/` |
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant :
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant :
     
     | |
     |-|-|
@@ -154,7 +154,7 @@ Pour configurer l’authentification unique Azure AD avec SAP Business Object
 
     ![Sélectionner un attribut utilisateur](./media/sapboc-tutorial/config6.png)
 
-8. Pour vérifier le compte avec le fournisseur d’identité (étape 4), dans la boîte **Informations d’identification de connexion (e-mail)**, entrez l’adresse e-mail de l’utilisateur. Ensuite, sélectionnez **Vérifier le compte**. Le système ajoute les informations d’identification de connexion au compte utilisateur.
+8. Pour vérifier le compte avec le fournisseur d’identité (étape 4), dans la boîte **Informations d’identification de connexion (e-mail)** , entrez l’adresse e-mail de l’utilisateur. Ensuite, sélectionnez **Vérifier le compte**. Le système ajoute les informations d’identification de connexion au compte utilisateur.
 
     ![Entrer l’e-mail et sélectionner Vérifier le compte](./media/sapboc-tutorial/config7.png)
 
@@ -225,7 +225,7 @@ Pour approvisionner un compte d’utilisateur :
 
     ![Ajouter un employé](./media/sapboc-tutorial/user1.png)
 
-3. Sur la page **Utilisateurs**, pour ajouter de nouvelles informations de l’utilisateur, sélectionnez **+**. 
+3. Sur la page **Utilisateurs**, pour ajouter de nouvelles informations de l’utilisateur, sélectionnez **+** . 
 
     ![Page Ajouter des utilisateurs](./media/sapboc-tutorial/user4.png)
 

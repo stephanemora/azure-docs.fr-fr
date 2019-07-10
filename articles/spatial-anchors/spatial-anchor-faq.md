@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: cd004e1eb6a40648c52dd3b5aee0ec38bff8f9b3
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 73979ec3bd1d667453a186ea1f20bbeddc12db8f
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66304184"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273313"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Questions fréquentes (FAQ) sur Azure Spatial Anchors
 
@@ -78,7 +78,7 @@ Azure Spatial Anchors respecte les [conditions du contrat de service Azure](http
 Les dates de disponibilité générale (GA) seront bientôt annoncées.
 
 **Q : Existe-t-il des limites ?**
- 
+
 **R** : Oui, il existe des limites.  Cependant, vous ne devriez pas les atteindre dans le cadre du développement et du test d’une application normale. Pour les déploiements de production, nous sommes prêts à répondre aux exigences élevées de nos clients. [Contactez-nous](mailto:azuremrs@microsoft.com) pour en discuter. Durant cette phase de préversion, nous n’avons pas encore publié de structure de hiérarchisation et de prix, mais cela devrait venir prochainement.
 
 **Q : Dans quelles régions Azure Spatial Anchors est disponible ?**
@@ -125,3 +125,7 @@ Lancez-vous dans le [développement ici](index.yml).
 **Q : Le service fonctionne-t-il avec Xamarin ?**
 
 **R :** Oui. Bien que nous ne proposions pas de kit SDK Xamarin, nous pensons que les développeurs peuvent utiliser Azure Spatial Anchors dans leurs applications Xamarin en l’intégrant avec l’API Azure Spatial Anchors.
+
+**Q : Quels ports et protocoles Azure Spatial Anchors utilise-t-il ?**
+
+**R :** Azure Spatial Anchors communique via le port TCP 443 à l’aide d’un protocole chiffré. Pour l’authentification, il utilise [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/), qui communique à l’aide de HTTPS sur le port 443.

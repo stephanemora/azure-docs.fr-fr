@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18b575b74c80499f2ddd6648bf051b5245077d2f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 00d03df38dee74f4767e8ff3b21d9462fd59c4c0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58906138"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67099584"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jamf-pro"></a>Didacticiel : Intégration d’Azure Active Directory avec Jamf Pro
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de Jamf Pro à Azure AD, vous devez ajouter Jam
 
 **Pour ajouter Jamf Pro à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -162,7 +162,7 @@ Pour configurer l’authentification unique Azure AD avec Jamf Pro, procédez co
 
     a. Sélectionnez **Autres** comme option dans le menu déroulant **FOURNISSEUR D’IDENTITÉ**.
 
-    b. Dans la zone de texte **OTHER PROVIDER (Autre fournisseur)**, entrez **Azure AD**.
+    b. Dans la zone de texte **OTHER PROVIDER (Autre fournisseur)** , entrez **Azure AD**.
 
     c. Sélectionnez **Metadata URL** (URL des métadonnées) comme option dans la liste déroulante **IDENTITY PROVIDER METADATA SOURCE** (Source des métadonnées du fournisseur d’identité), puis dans la zone de texte suivante, collez la valeur d’**URL des métadonnées de fédération de l’application** que vous avez copiée sur le portail Azure.
 
@@ -236,7 +236,7 @@ Pour se connecter à Jamf Pro, les utilisateurs d’Azure AD doivent être provi
 
     ![Ajouter un employé](./media/jamfprosamlconnector-tutorial/configure1.png)
 
-3. Cliquez sur **Jamf Pro User Accounts & Groups (Groupes et comptes d’utilisateur Jamf Pro)**.
+3. Cliquez sur **Jamf Pro User Accounts & Groups (Groupes et comptes d’utilisateur Jamf Pro)** .
 
     ![Ajouter un employé](./media/jamfprosamlconnector-tutorial/user1.png)
 
@@ -244,25 +244,25 @@ Pour se connecter à Jamf Pro, les utilisateurs d’Azure AD doivent être provi
 
     ![Ajouter un employé](./media/jamfprosamlconnector-tutorial/user2.png)
 
-5. Sélectionnez **Create Standard Account (Créer un compte standard)**.
+5. Sélectionnez **Create Standard Account (Créer un compte standard)** .
 
     ![Ajouter un employé](./media/jamfprosamlconnector-tutorial/user3.png)
 
-6. Dans la boîte de dialogue **New Account (Nouveau compte)**, procédez comme suit :
+6. Dans la boîte de dialogue **New Account (Nouveau compte)** , procédez comme suit :
 
     ![Ajouter un employé](./media/jamfprosamlconnector-tutorial/user4.png)
 
-    a. Dans la zone de texte **USERNAME (Nom d’utilisateur)**, tapez le nom complet BrittaSimon.
+    a. Dans la zone de texte **USERNAME (Nom d’utilisateur)** , tapez le nom complet BrittaSimon.
 
-    b. Sélectionnez les options adaptées à votre organisation pour **ACCESS LEVEL** (Niveau d’accès), **PRIVILEGE SET (Ensemble de privilèges)** et **ACCESS STATUS (État de l’accès)**.
+    b. Sélectionnez les options adaptées à votre organisation pour **ACCESS LEVEL** (Niveau d’accès), **PRIVILEGE SET (Ensemble de privilèges)** et **ACCESS STATUS (État de l’accès)** .
 
-    c. Dans la zone de texte **FULL NAME (Nom complet)**, tapez Britta Simon.
+    c. Dans la zone de texte **FULL NAME (Nom complet)** , tapez Britta Simon.
 
-    d. Dans la zone de texte **EMAIL ADDRESS (Adresse e-mail)**, tapez l’adresse e-mail du compte de Britta Simon.
+    d. Dans la zone de texte **EMAIL ADDRESS (Adresse e-mail)** , tapez l’adresse e-mail du compte de Britta Simon.
 
-    e. Dans la zone de texte **PASSWORD (Mot de passe)**, tapez un mot de passe pour l’utilisateur.
+    e. Dans la zone de texte **PASSWORD (Mot de passe)** , tapez un mot de passe pour l’utilisateur.
 
-    f. Dans la zone de texte **VERIFY PASSWORD (Vérifier le mot de passe)**, tapez le mot de passe de l’utilisateur.
+    f. Dans la zone de texte **VERIFY PASSWORD (Vérifier le mot de passe)** , tapez le mot de passe de l’utilisateur.
 
     g. Cliquez sur **Enregistrer**.
 

@@ -7,13 +7,13 @@ ms.service: postgresql
 ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 5/6/2019
-ms.openlocfilehash: ed272afcfedaf6c781d2a96e5732fe2368914a67
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.date: 06/25/2019
+ms.openlocfilehash: db0ff9facbd8609955c5ef1918b0f8a6aa53ea65
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073062"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447218"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-azure-cli"></a>Didacticiel : Concevoir une base de données Azure pour PostgreSQL (serveur unique) à l’aide d’Azure CLI 
 Dans ce didacticiel, vous allez utiliser l’interface Azure CLI (interface de ligne de commande) et d’autres utilitaires pour apprendre à :
@@ -121,15 +121,21 @@ Le résultat est au format JSON. Prenez note des valeurs **administratorLogin** 
 Si PostgreSQL est installé sur votre ordinateur client, vous pouvez utiliser une instance locale de [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) ou la console Azure Cloud pour vous connecter à un serveur Azure PostgreSQL. Nous allons maintenant utiliser l’utilitaire de ligne de commande psql pour nous connecter au serveur de base de données Azure pour PostgreSQL.
 
 1. Exécutez la commande psql suivante pour vous connecter à une base de données Azure Database pour PostgreSQL :
-   ```azurecli-interactive
+   ```
    psql --host=<servername> --port=<port> --username=<user@servername> --dbname=<dbname>
    ```
 
    Par exemple, la commande suivante se connecte à la base de données par défaut appelée **postgres** sur votre serveur PostgreSQL **mydemoserver.postgres.database.azure.com** à l’aide des informations d’identification d’accès. Saisissez le `<server_admin_password>` que vous avez choisi à l’invite de mot de passe.
   
-   ```azurecli-interactive
+   ```
    psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
    ```
+
+   > [!TIP]
+   > Si vous préférez utiliser un chemin d’URL pour vous connecter à Postgres, encodez par URL le signe @ dans le nom d’utilisateur avec `%40`. La chaîne de connexion pour psql serait, par exemple,
+   > ```
+   > psql postgresql://myadmin%40mydemoserver@mydemoserver.postgres.database.azure.com:5432/postgres
+   > ```
 
 2. Une fois que vous êtes connecté au serveur, créez une base de données vide à l’invite :
    ```sql
@@ -196,7 +202,7 @@ La commande `az postgres server restore` a besoin des paramètres suivants :
 | Paramètre | Valeur suggérée | Description  |
 | --- | --- | --- |
 | resource-group |  myResourceGroup |  Groupe de ressources dans lequel se trouve le serveur source.  |
-| name | mydemoserver-restored | Nom du serveur créé par la commande de restauration. |
+| Nom | mydemoserver-restored | Nom du serveur créé par la commande de restauration. |
 | restore-point-in-time | 2017-04-13T13:59:00Z | Choisissez la date et l’heure à utiliser pour la restauration. Elles doivent être comprises dans la période de rétention de la sauvegarde du serveur source. Utilisez le format de date et d’heure ISO8601. Par exemple, vous pouvez utiliser votre propre fuseau horaire local, comme `2017-04-13T05:59:00-08:00`, ou le format UTC `2017-04-13T13:59:00Z`. |
 | source-server | mydemoserver | Nom ou identifiant du serveur source à partir duquel la restauration s’effectuera. |
 

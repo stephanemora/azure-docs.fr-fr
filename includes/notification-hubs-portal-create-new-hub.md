@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/17/2019
 ms.author: jowargo
 ms.custom: include file
-ms.openlocfilehash: 244a4ebe20863945bfc3b6236e70e786387c8909
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5afcc8e4524a0e8353766ba239d5ab9161b29d86
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67116679"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509112"
 ---
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 
@@ -31,7 +31,7 @@ ms.locfileid: "67116679"
 
     1. Entrez un nom dans **Créer un espace de noms**. Un espace de noms contient un ou plusieurs hubs.
 
-    1. Sélectionnez une valeur dans la zone de liste déroulante **Emplacement**. Cette valeur spécifie l’emplacement où vous voulez créer le hub de notification.
+    1. Sélectionnez une valeur dans la zone de liste déroulante **Emplacement**. Cette valeur spécifie l’emplacement où vous voulez créer le hub.
 
     1. Sélectionnez un groupe de ressources existant dans **Groupe de ressources**, ou créez un nom pour un nouveau groupe.
 
@@ -39,11 +39,11 @@ ms.locfileid: "67116679"
 
         ![Portail Azure - Définition des propriétés du hub de notification](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-settings.png)
 
-1. Sélectionnez **Notifications** (icône de cloche), puis **Accéder à la ressource**. Vous pouvez également actualiser la liste dans la page **Notification Hubs** et sélectionner votre hub de notification.
+1. Sélectionnez **Notifications** (icône de cloche), puis **Accéder à la ressource**. Vous pouvez également actualiser la liste dans la page **Notification Hubs** et sélectionner votre hub.
 
       ![Portail Azure -> Notifications -> Accéder à la ressource](./media/notification-hubs-portal-create-new-hub/go-to-notification-hub.png)
 
-1. Sélectionnez **Stratégies d’accès** dans la liste. Notez les deux chaînes de connexion sont disponibles pour vous. Vous en aurez besoin pour gérer les notifications Push.
+1. Sélectionnez **Stratégies d’accès** dans la liste. Notez que les deux chaînes de connexion sont disponibles pour vous. Vous en aurez besoin pour gérer les notifications Push.
 
       >[!IMPORTANT]
       >N’utilisez *pas* la stratégie **DefaultFullSharedAccessSignature** dans votre application. Elle est censée être utilisée uniquement dans votre back-end.
