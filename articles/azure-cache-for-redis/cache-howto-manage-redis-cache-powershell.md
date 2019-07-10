@@ -155,7 +155,7 @@ Le tableau suivant contient les propriétés et les descriptions pour les param�
 | set-max-intset-entries |Configure [l’optimisation de la mémoire](https://redis.io/topics/memory-optimization) pour les petites quantités de types de données agrégées |Standard et Premium |
 | zset-max-ziplist-entries |Configure [l’optimisation de la mémoire](https://redis.io/topics/memory-optimization) pour les petites quantités de types de données agrégées |Standard et Premium |
 | zset-max-ziplist-value |Configure [l’optimisation de la mémoire](https://redis.io/topics/memory-optimization) pour les petites quantités de types de données agrégées |Standard et Premium |
-| bases de données |Configure le nombre de bases de données. Cette propriété ne peut être configurée qu’au moment de la création du cache. |Standard et Premium |
+| databases |Configure le nombre de bases de données. Cette propriété ne peut être configurée qu’au moment de la création du cache. |Standard et Premium |
 
 ## <a name="to-create-an-azure-cache-for-redis"></a>Créer un Cache Azure pour Redis
 Les nouvelles instances du Cache Azure pour Redis sont créées à l’aide de la cmdlet [New-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/new-azrediscache) .
