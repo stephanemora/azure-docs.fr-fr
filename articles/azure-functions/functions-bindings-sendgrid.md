@@ -261,7 +261,7 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 |**apiKey**|**ApiKey**| Nom d’un paramètre d’application qui contient votre clé API. En l’absence de définition, le nom du paramètre d’application par défaut est « AzureWebJobsSendGridApiKey ».|
 |**to**|**To**| Adresse e-mail du destinataire. |
 |**from**|**From**| Adresse e-mail de l’expéditeur. |
-|**subject**|**Objet**| Objet de l’e-mail. |
+|**subject**|**Subject**| Objet de l’e-mail. |
 |**text**|**Text**| Contenu de l’e-mail. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
