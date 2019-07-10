@@ -242,6 +242,12 @@
           href: monitor-events-portal-how-to.md
         - name: Surveiller les événements - CLI
           href: job-state-events-cli-how-to.md
+    - name: "Utiliser Azure\_Monitor"
+      items:
+        - name: Mesures de surveillance
+          href: media-services-metrics-howto.md
+        - name: Surveiller les journaux de diagnostics
+          href: media-services-diagnostic-logs-howto.md
     - name: Protéger du contenu
       items:
         - name: Obtenir une stratégie de clé de contenu - .NET
