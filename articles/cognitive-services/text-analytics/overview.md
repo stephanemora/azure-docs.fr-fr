@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: overview
 ms.date: 04/03/2019
 ms.author: aahi
-ms.openlocfilehash: a4f1f75c85c99610ee75eb9fda51114b52bbfac3
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 89a1fa396ff8bc5b954e91e7b08e6d731a81559a
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304013"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657645"
 ---
 # <a name="what-is-text-analytics-api"></a>Qu’est-ce que l’API Analyse de texte ?
 
@@ -28,13 +28,13 @@ L’API fait partie d’[Azure Cognitive Services](https://docs.microsoft.com/az
 L’analyse de texte peut signifier différentes choses mais, dans Cognitive Services, l’API Analyse de texte fournit quatre types d’analyses, comme décrit ci-dessous.
 
 ## <a name="sentiment-analysis"></a>Analyse des sentiments
-Utilisez l’[analyse des sentiments](how-tos/text-analytics-how-to-sentiment-analysis.md) pour découvrir ce que les clients pensent de votre marque ou de votre thématique en analysant du texte brut pour trouver des indices sur les sentiments positifs ou négatifs. Cette API renvoie un score de sentiment de 0 à 1 pour chaque document, où 1 correspond au sentiment le plus positif.<br /> Les modèles d’analyse sont préformés à l’aide d’un corps complet de technologies de texte et de Langage naturel de Microsoft. Pour les [langues sélectionnées](text-analytics-supported-languages.md), l’API peut analyser tout texte brut que vous fournissez, lui attribuer un score, et renvoyer directement les résultats à l’application appelante. Vous pouvez utiliser l’API [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c9) ou le SDK [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package).
+Utilisez l’[analyse des sentiments](how-tos/text-analytics-how-to-sentiment-analysis.md) pour découvrir ce que les clients pensent de votre marque ou de votre thématique en analysant du texte brut pour trouver des indices sur les sentiments positifs ou négatifs. Cette API renvoie un score de sentiment de 0 à 1 pour chaque document, où 1 correspond au sentiment le plus positif.<br /> Les modèles d’analyse sont préformés à l’aide d’un corps complet de technologies de texte et de Langage naturel de Microsoft. Pour les [langues sélectionnées](text-analytics-supported-languages.md), l’API peut analyser tout texte brut que vous fournissez, lui attribuer un score, et renvoyer directement les résultats à l’application appelante. Vous pouvez utiliser l’API [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c9) ou le SDK [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#create-the-visual-studio-solution-and-install-the-sdk).
 
 ## <a name="key-phrase-extraction"></a>Extraction d’expressions clés
-[Extrayez automatiquement les expressions clés](how-tos/text-analytics-how-to-keyword-extraction.md) pour identifier rapidement les points principaux. Par exemple, pour le texte d’entrée « Le repas était délicieux et le personnel adorable », l’API renvoie les principaux points de discussion : « repas » et « personnel adorable ». Vous pouvez utiliser l’API [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c6) ici ou le SDK [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package).
+[Extrayez automatiquement les expressions clés](how-tos/text-analytics-how-to-keyword-extraction.md) pour identifier rapidement les points principaux. Par exemple, pour le texte d’entrée « Le repas était délicieux et le personnel adorable », l’API renvoie les principaux points de discussion : « repas » et « personnel adorable ». Vous pouvez utiliser l’API [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c6) ici ou le SDK [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#create-the-visual-studio-solution-and-install-the-sdk).
 
 ## <a name="language-detection"></a>Détection de la langue
-Vous pouvez [détecter la langue dans laquelle le texte d’entrée est rédigé](how-tos/text-analytics-how-to-language-detection.md) et générer un code de langue unique pour chaque document envoyé dans la requête, ceci parmi une grande variété de langues, de variantes, de dialectes, et de quelques langues régionales ou de culture. Le code de langue est associé à un score indiquant la puissance de l’analyse. Vous pouvez utiliser l’API [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c7) ou le SDK [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package).
+Vous pouvez [détecter la langue dans laquelle le texte d’entrée est rédigé](how-tos/text-analytics-how-to-language-detection.md) et générer un code de langue unique pour chaque document envoyé dans la requête, ceci parmi une grande variété de langues, de variantes, de dialectes, et de quelques langues régionales ou de culture. Le code de langue est associé à un score indiquant la puissance de l’analyse. Vous pouvez utiliser l’API [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c7) ou le SDK [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#create-the-visual-studio-solution-and-install-the-sdk).
 
 ## <a name="named-entity-recognition"></a>Reconnaissance d’entité nommée
 [Identifiez et classez les entités](how-tos/text-analytics-how-to-entity-linking.md) dans votre texte en tant que personnes, lieux, organisations, date/heure, quantités, pourcentages, devises et bien plus encore. Les entités bien connues sont également reconnues et liées pour des informations supplémentaires sur le web. Vous pouvez utiliser l’API [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634).
