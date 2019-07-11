@@ -1,227 +1,289 @@
 ---
-title: Projets de groupe de ressources Azure avec Visual Studio | Microsoft Docs
+title: Créer déployer des projets de groupe de ressources Azure avec Visual Studio
 description: Utilisez Visual Studio pour créer un projet de groupe de ressources Azure et déployer les ressources dans Azure.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.service: azure-resource-manager
-ms.devlang: multiple
-ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/21/2019
+ms.topic: quickstart
+ms.date: 06/20/2019
 ms.author: tomfitz
-ms.openlocfilehash: ca7cccb1d4f17ff9f80ca006da0ef7ce77109227
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 8677d906375853bdde5c192c86dacc7479f2e31e
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595530"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67311203"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Création et déploiement de groupes de ressources Azure à l’aide de Visual Studio
 
-Avec Visual Studio, vous pouvez créer un projet qui déploie votre infrastructure et votre code sur Azure. Par exemple, vous pouvez définir l’hôte web, le site web et la base de données de votre application, et déployer cette infrastructure parallèlement au code. Visual Studio fournit de nombreux modèles de démarrage différents pour déployer des scénarios courants. Dans cet article, vous déployez une application web et SQL Database.  
+Avec Visual Studio, vous pouvez créer un projet qui déploie votre infrastructure et votre code sur Azure. Par exemple, vous pouvez déployer l’hôte web, le site web et le code pour le site web. Visual Studio fournit de nombreux modèles de démarrage différents pour déployer des scénarios courants. Dans cet article, vous déployez une application web.  
 
-Cet article explique comment utiliser [Visual Studio 2017 ou version ultérieure lorsque des charges de travail ASP.NET et de développement Azure sont installées](/dotnet/azure/dotnet-tools). Si vous utilisez Visual Studio 2015 Update 2 et le kit de développement logiciel (SDK) Microsoft Azure pour .NET 2.9 ou Visual Studio 2013 avec Azure SDK 2.9, votre expérience sera sensiblement identique.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+Cet article explique comment utiliser [Visual Studio 2019 ou ultérieur avec les charges de travail Développement Azure et ASP.NET installées](/visualstudio/install/install-visual-studio?view=vs-2019). Si vous utilisez Visual Studio 2017, votre expérience sera en grande partie la même.
 
 ## <a name="create-azure-resource-group-project"></a>Créer un projet de groupe de ressources Azure
 
-Au cours de cette procédure, vous allez créer un projet de groupe de ressources Azure avec un modèle **Application web + SQL**.
+Dans cette section, vous créez un projet de groupe de ressources Azure avec un modèle **Application web**.
 
-1. Dans Visual Studio, sélectionnez **Fichier**, **Nouveau projet**, choisissez **C#** ou **Visual Basic** (le langage choisi n’a aucun impact pendant les phases ultérieures, car ces projets présentent uniquement du contenu JSON et PowerShell). Choisissez ensuite **Cloud** et le projet de **Groupe de ressources Azure**.
-   
-    ![Projet de déploiement cloud](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-project.png)
-2. Choisissez le modèle à déployer sur Azure Resource Manager. Notez qu’il existe de nombreuses options différentes selon le type de projet que vous voulez déployer. Pour cet article, sélectionnez le modèle **Application web + SQL**.
-   
+1. Dans Visual Studio, sélectionnez **Fichier**, **Nouveau**, puis **Projet**. Sélectionnez le modèle de projet **Groupe de ressources Azure**, puis **Suivant**.
+
+    ![Créer un projet](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-project.png)
+
+1. Donnez un nom à votre projet. Les autres paramètres par défaut conviennent probablement, mais passez-les en revue pour vérifier qu’ils fonctionnent pour votre environnement. Quand vous avez terminé, sélectionnez **Créer**.
+
+    ![Créer un projet](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/name-project.png)
+
+1. Choisissez le modèle à déployer sur Azure Resource Manager. Notez qu’il existe de nombreuses options différentes selon le type de projet que vous voulez déployer. Pour cet article, choisissez le modèle **Application web**, puis cliquez sur **OK**.
+
     ![Sélectionner un modèle](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-project.png)
-   
+
     Le modèle que vous choisissez est seulement un point de départ ; vous pouvez ajouter et supprimer des ressources en fonction des besoins de votre scénario.
-   
-   > [!NOTE]
-   > Visual Studio extrait une liste des modèles disponibles en ligne. La liste peut évoluer.
-   > 
-   > 
-   
-    Visual Studio crée un projet de déploiement de groupe de ressources Azure pour une application web et une base de données SQL.
-3. Pour voir les éléments créés, consultez les nœuds du projet de déploiement.
-   
-    ![afficher les nœuds](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-items.png)
-   
-    Puisque nous avons choisi le modèle Application web + SQL pour cet exemple, vous voyez les fichiers suivants : 
-   
+
+1. Visual Studio crée un projet de déploiement de groupe de ressources pour l’application web. Pour voir les fichiers de votre projet, examinez le nœud du projet de déploiement.
+
+    ![Afficher les nœuds](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-items.png)
+
+    Comme vous avez choisi le modèle Application web, vous voyez les fichiers suivants :
+
    | Nom de fichier | Description |
    | --- | --- |
-   | Deploy-AzureResourceGroup.ps1 |Script PowerShell qui exécute des commandes PowerShell à déployer sur Azure Resource Manager.<br />**Remarque** Visual Studio utilise ce script PowerShell pour déployer votre modèle. Les modifications apportées à ce script affectent également le déploiement dans Visual Studio. Par conséquent, modifiez ce script avec prudence. |
-   | WebSiteSQLDatabase.json |Le modèle Resource Manager qui définit l’infrastructure que vous voulez déployer sur Azure, et les paramètres que vous pouvez fournir au cours du déploiement. Il définit également les dépendances entre les ressources de manière à ce que Resource Manager les déploie dans le bon ordre. |
-   | WebSiteSQLDatabase.parameters.json |Un fichier de paramètres qui contient les valeurs requises par le modèle. Vous transmettez des valeurs de paramètres pour personnaliser chaque déploiement. |
-   
+   | Deploy-AzureResourceGroup.ps1 |Script PowerShell qui exécute des commandes PowerShell à déployer sur Azure Resource Manager. Visual Studio utilise ce script PowerShell pour déployer votre modèle. |
+   | WebSite.json |Le modèle Resource Manager qui définit l’infrastructure que vous voulez déployer sur Azure, et les paramètres que vous pouvez fournir au cours du déploiement. Il définit également les dépendances entre les ressources de manière à ce que Resource Manager les déploie dans le bon ordre. |
+   | WebSite.parameters.json |Un fichier de paramètres qui contient les valeurs requises par le modèle. Vous transmettez des valeurs de paramètres pour personnaliser chaque déploiement. |
+
     Tous les projets de déploiement de groupe de ressources Azure contiennent ces fichiers de base. D'autres projets peuvent contenir des fichiers supplémentaires pour prendre en charge d'autres fonctionnalités.
 
-## <a name="customize-the-resource-manager-template"></a>Personnaliser le modèle de gestionnaire de ressources
-Vous pouvez personnaliser un projet de déploiement en modifiant les modèles JSON qui décrivent les ressources à déployer. JSON signifie JavaScript Object Notation. Il s'agit d'un format de données sérialisées facile à utiliser. Les fichiers JSON utilisent un schéma que vous référencez au début de chaque fichier. Si vous souhaitez comprendre le schéma, vous pouvez le télécharger et l’analyser. Le schéma définit les éléments valides, les types et les formats des champs et les valeurs énumérées possibles pour une propriété. Pour en savoir plus sur les éléments du modèle Resource Manager, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
+## <a name="customize-resource-manager-template"></a>Personnaliser le modèle Resource Manager
 
-Pour travailler sur votre modèle, ouvrez **WebSiteSQLDatabase.json**.
+Vous pouvez personnaliser un projet de déploiement en modifiant le modèle Resource Manager qui décrit les ressources que vous voulez déployer. Pour en savoir plus sur les éléments du modèle Resource Manager, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
 
-L’éditeur Visual Studio fournit des outils pour vous aider à modifier le modèle Resource Manager. La fenêtre **Structure JSON** permet de voir facilement les éléments définis dans votre modèle.
+1. Pour travailler sur votre modèle, ouvrez **WebSite.json**.
 
-![afficher la structure JSON](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-json-outline.png)
+1. L’éditeur Visual Studio fournit des outils pour vous aider à modifier le modèle Resource Manager. La fenêtre **Structure JSON** permet de voir facilement les éléments définis dans votre modèle.
 
-Il vous suffit de sélectionner l’un des éléments de la structure pour accéder à cette partie du modèle et mettre en évidence le JSON correspondant.
+   ![Afficher la structure JSON](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-json-outline.png)
 
-![explorer JSON](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/navigate-json.png)
+1. Sélectionnez un élément dans la structure pour accéder à cette partie du modèle.
 
-Vous pouvez ajouter une ressource en sélectionnant le bouton **Ajouter une ressource** en haut de la fenêtre Structure JSON, ou en double-cliquant sur **Ressources** et en sélectionnant **Ajouter une nouvelle ressource**.
+   ![Explorer le JSON](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/navigate-json.png)
 
-![ajouter une ressource](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-resource.png)
+1. Vous pouvez ajouter une ressource en sélectionnant le bouton **Ajouter une ressource** en haut de la fenêtre Structure JSON, ou en double-cliquant sur **Ressources** et en sélectionnant **Ajouter une nouvelle ressource**.
 
-Pour ce tutoriel, sélectionnez **Compte de stockage** et donnez-lui un nom. Choisissez un nom qui ne contient pas plus de 11 caractères et uniquement des chiffres et des lettres minuscules.
+   ![Ajouter une ressource](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-resource.png)
 
-![ajouter du stockage](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-storage.png)
+1. Sélectionnez **Compte de stockage** et donnez-lui un nom. Choisissez un nom qui ne contient pas plus de 11 caractères et uniquement des chiffres et des lettres minuscules.
 
-Notez qu’en plus de la ressource, un paramètre pour le compte de stockage de type et une variable pour le nom du compte de stockage ont été ajoutés.
+   ![Ajouter du stockage](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-storage.png)
 
-![afficher la structure](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-new-items.png)
+1. Notez qu’en plus de la ressource, un paramètre pour le compte de stockage de type et une variable pour le nom du compte de stockage ont été ajoutés.
 
-Le paramètre **storageType** est prédéfini avec des types autorisés et un type par défaut. Vous pouvez laisser ces valeurs ou les modifier pour votre scénario. Si vous ne souhaitez autoriser une personne à déployer un compte de stockage **Premium_LRS** via ce modèle, supprimez ce dernier des types autorisés. 
+   ![Afficher la structure](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-new-items.png)
 
-```json
-"storageType": {
-  "type": "string",
-  "defaultValue": "Standard_LRS",
-  "allowedValues": [
-    "Standard_LRS",
-    "Standard_ZRS",
-    "Standard_GRS",
-    "Standard_RAGRS"
-  ]
-}
+1. Le paramètre pour le type de compte de stockage est prédéfini avec des types autorisés et un type par défaut. Vous pouvez laisser ces valeurs ou les modifier pour votre scénario. Si vous ne souhaitez autoriser une personne à déployer un compte de stockage **Premium_LRS** via ce modèle, supprimez ce dernier des types autorisés.
+
+   ```json
+   "demoaccountType": {
+     "type": "string",
+     "defaultValue": "Standard_LRS",
+     "allowedValues": [
+       "Standard_LRS",
+       "Standard_ZRS",
+       "Standard_GRS",
+       "Standard_RAGRS"
+     ]
+   }
+   ```
+
+1. Visual Studio fournit également des fonctionnalités IntelliSense pour vous aider à comprendre les propriétés qui sont disponibles lors de la modification du modèle. Par exemple, pour modifier les propriétés de votre plan App Service, accédez à la ressource **HostingPlan** et ajoutez une valeur pour les **propriétés**. Notez qu’intellisense affiche les valeurs disponibles et fournit une description de cette valeur.
+
+   ![Afficher IntelliSense](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-intellisense.png)
+
+   Vous pouvez définir **numberOfWorkers** sur 1 et enregistrer le fichier.
+
+   ```json
+   "properties": {
+     "name": "[parameters('hostingPlanName')]",
+     "numberOfWorkers": 1
+   }
+   ```
+
+1. Ouvrez le fichier **WebSite.parameters.json**. Vous utilisez le fichier de paramètres pour passer des valeurs lors du déploiement qui personnalisent la ressource en cours de déploiement. Nommez le plan d’hébergement et enregistrez le fichier.
+
+   ```json
+   {
+     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+     "contentVersion": "1.0.0.0",
+     "parameters": {
+       "hostingPlanName": {
+         "value": "demoHostPlan"
+       }
+     }
+   }
+   ```
+
+## <a name="deploy-project-to-azure"></a>Déployer le projet sur Azure
+
+Vous êtes maintenant prêt à déployer votre projet sur un groupe de ressources.
+
+Par défaut, le script PowerShell (Deploy-AzureResourceGroup.ps1) du projet utilise le module AzureRM. Si le module AzureRM est encore installé sur votre ordinateur et que vous voulez continuer à l’utiliser, vous pouvez utiliser ce script par défaut. Avec ce script, vous pouvez utiliser l’interface de Visual Studio pour déployer votre solution.
+
+Cependant, si vous avez migré vers le nouveau [module Az](/powershell/azure/new-azureps-module-az), vous devez ajouter un nouveau script à votre projet. Pour ajouter un script qui utilise le module Az, copiez le script [Deploy-AzTemplate.ps1](https://github.com/Azure/azure-quickstart-templates/blob/master/Deploy-AzTemplate.ps1) et ajoutez-le à votre projet. Pour utiliser ce script pour le déploiement, vous devez l’exécuter à partir d’une console PowerShell, au lieu d’utiliser l’interface de déploiement de Visual Studio.
+
+Les deux approches sont présentées dans cet article. Cet article désigne le script par défaut sous le nom de « script du module AzureRM » et le nouveau script sous le nom de « script du module Az ».
+
+### <a name="az-module-script"></a>Script du module Az
+
+Pour le script du module Az, ouvrez une console PowerShell et exécutez :
+
+```powershell
+.\Deploy-AzTemplate.ps1 -ArtifactStagingDirectory . -Location centralus -TemplateFile WebSite.json -TemplateParametersFile WebSite.parameters.json
 ```
 
-Visual Studio fournit également des fonctionnalités IntelliSense pour vous aider à comprendre les propriétés qui sont disponibles lors de la modification du modèle. Par exemple, pour modifier les propriétés de votre plan App Service, accédez à la ressource **HostingPlan** et ajoutez une valeur pour les **propriétés**. Notez qu’intellisense affiche les valeurs disponibles et fournit une description de cette valeur.
+### <a name="azurerm-module-script"></a>Script du module AzureRM
 
-![afficher intellisense](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-intellisense.png)
-
-Vous pouvez définir **numberOfWorkers** sur 1.
-
-```json
-"properties": {
-  "name": "[parameters('hostingPlanName')]",
-  "numberOfWorkers": 1
-}
-```
-
-## <a name="deploy-the-resource-group-project-to-azure"></a>Déployer le projet de groupe de ressources sur Azure
-Vous êtes maintenant prêt à déployer votre projet. Lorsque vous déployez un projet de groupe de ressources Azure, vous le déployez dans un groupe de ressources Azure. Un groupe de ressources est un regroupement logique de ressources qui partagent un cycle de vie commun.
+Pour le script du module AzureRM, utilisez Visual Studio :
 
 1. Dans le menu contextuel du nœud du projet de déploiement, choisissez **Déployer** > **Nouveau**.
-   
-    ![Déployer, élément de menu Nouveau déploiement](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/deploy.png)
-   
-    La boîte de dialogue **Déployer vers le groupe de ressources** s’affiche.
-   
-    ![Boîte de dialogue Déployer vers le groupe de ressources](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployment.png)
-2. Dans la zone de liste déroulante **Groupe de ressources**, sélectionnez un groupe de ressources existant ou créez-en un. Pour créer un groupe de ressources, ouvrez la zone de liste déroulante **Groupe de ressources** et sélectionnez **Créer**.
-   
-    ![Boîte de dialogue Déployer vers le groupe de ressources](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-new-group.png)
-   
-    La boîte de dialogue **Créer un groupe de ressources** s’affiche. Donnez à votre groupe un nom et un emplacement, puis sélectionnez le bouton **Créer**.
-   
-    ![Boîte de dialogue Créer un groupe de ressources](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-resource-group.png)
-3. Modifiez les paramètres du déploiement en sélectionnant le bouton **Modifier les paramètres**.
-   
-    ![Bouton Modifier les paramètres](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/edit-parameters.png)
-4. Fournissez des valeurs pour les paramètres vides et sélectionnez le bouton **Enregistrer**. Les paramètres vides sont **hostingPlanName**, **administratorLogin**, **administratorLoginPassword** et **databaseName**.
-   
-    **hostingPlanName** spécifie le nom du [plan App Service](../app-service/overview-hosting-plans.md) à créer. 
-   
-    **administratorLogin** spécifie le nom d’utilisateur de l’administrateur SQL Server. N’utilisez pas de noms d’administrateur communs comme **sa** ou **admin**. 
-   
-    **administratorLoginPassword** spécifie le mot de passe d’administrateur SQL Server. L’option **Enregistrer les mots de passe en texte brut dans le fichier de paramètres** n’est pas sécurisée. Ne sélectionnez pas cette option. Étant donné que le mot de passe n’est pas enregistré en texte brut, vous devez indiquer ce mot de passe à nouveau lors du déploiement. 
-   
-    **databaseName** spécifie le nom de la base de données à créer. 
-   
-    ![Boîte de dialogue Modifier les paramètres](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/provide-parameters.png)
-5. Sélectionnez le bouton **Déployer** pour déployer le projet dans Azure. Une console PowerShell s’ouvre en dehors de l’instance de Visual Studio. Entrez le mot de passe d’administrateur SQL Server dans la console PowerShell lorsque vous y êtes invité. **Votre console PowerShell peut être masquée par d’autres éléments ou réduite dans la barre des tâches.** Recherchez-la et sélectionnez-la pour indiquer le mot de passe.
-   
-   > [!NOTE]
-   > Il se peut que Visual Studio vous invite à installer les cmdlets Azure PowerShell. Si vous y êtes invité, installez-les. Vous devez disposer des modules Azure PowerShell pour déployer correctement des groupes de ressources. Le script PowerShell due projet ne fonctionne pas avec le nouveau [module Azure PowerShell Az](/powershell/azure/new-azureps-module-az). 
-   >
-   > Pour plus d’informations, consultez [Installer et configurer des modules Azure PowerShell](/powershell/azure/install-Az-ps).
-   > 
-   > 
-6. Ce déploiement peut prendre quelques minutes. La fenêtre **Sortie** indique l’état du déploiement. Lorsque le déploiement est terminé, le dernier message indique que le déploiement a été réalisé avec succès :
-   
-        ... 
-        18:00:58 - Successfully deployed template 'websitesqldatabase.json' to resource group 'DemoSiteGroup'.
-7. Dans un navigateur, ouvrez le [portail Azure](https://portal.azure.com/) et connectez-vous à votre compte. Pour afficher le groupe de ressources, sélectionnez **Groupes de ressources** et le groupe de ressources vers lequel vous avez effectué le déploiement.
-   
-    ![sélectionner un groupe](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-group.png)
-8. Vous verrez toutes les ressources déployées. Notez que le nom du compte de stockage n’est pas exactement celui spécifié lors de l’ajout de cette ressource. Le compte de stockage doit être unique. Le modèle ajoute automatiquement une chaîne de caractères au nom que vous avez spécifié pour créer un nom unique. 
-   
-    ![afficher des ressources](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-resources.png)
-9. Si vous modifiez et redéployez votre projet, choisissez le groupe de ressources existant dans le menu contextuel du projet de groupe de ressources Azure. Dans le menu contextuel, sélectionnez **Déployer**, puis le groupe de ressources que vous avez déployé.
-   
-    ![Groupe de ressources Azure déployé](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/redeploy.png)
 
-## <a name="deploy-code-with-your-infrastructure"></a>Déployer le code avec votre infrastructure
-À ce stade, vous avez déployé l’infrastructure de votre application, mais aucun code réel n’est déployé avec le projet. Cet article montre comment déployer une application web et des tables SQL Database lors du déploiement. Si vous déployez une machine virtuelle au lieu d’une application web, vous devrez exécuter du code sur la machine dans le cadre du déploiement. Le processus de déploiement du code pour une application web ou pour la configuration d’une machine virtuelle est quasiment le même.
+    ![Élément de menu Nouveau déploiement](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/deploy.png)
+
+1. La boîte de dialogue **Déployer vers le groupe de ressources** s’affiche. Dans la zone de liste déroulante **Groupe de ressources**, sélectionnez un groupe de ressources existant ou créez-en un. Sélectionnez **Déployer**.
+
+    ![Boîte de dialogue Déployer vers le groupe de ressources](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployment.png)
+
+1. La fenêtre **Sortie** indique l’état du déploiement. Lorsque le déploiement est terminé, le dernier message indique que le déploiement a été réalisé avec succès :
+
+   ```output
+   18:00:58 - Successfully deployed template 'website.json' to resource group 'ExampleAppDeploy'.
+   ```
+
+## <a name="view-deployed-resources"></a>Voir les ressources déployées
+
+Vérifions les résultats.
+
+1. Dans un navigateur, ouvrez le [portail Azure](https://portal.azure.com/) et connectez-vous à votre compte. Pour afficher le groupe de ressources, sélectionnez **Groupes de ressources** et le groupe de ressources vers lequel vous avez effectué le déploiement.
+
+1. Vous verrez toutes les ressources déployées. Notez que le nom du compte de stockage n’est pas exactement celui spécifié lors de l’ajout de cette ressource. Le compte de stockage doit être unique. Le modèle ajoute automatiquement une chaîne de caractères au nom que vous avez spécifié pour créer un nom unique.
+
+    ![Afficher les ressources](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-resources.png)
+
+## <a name="add-code-to-project"></a>Ajouter du code au projet
+
+À ce stade, vous avez déployé l’infrastructure de votre application, mais aucun code réel n’est déployé avec le projet.
 
 1. Ajoutez un projet à votre solution Visual Studio. Cliquez avec le bouton droit sur la solution et sélectionnez **Ajouter** > **Nouveau projet**.
-   
-    ![ajouter un projet](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-project.png)
-2. Ajoutez une **application web ASP.NET**. 
-   
-    ![ajouter une application web](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-app.png)
-3. Sélectionnez **MVC**.
-   
-    ![sélectionner MVC](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-mvc.png)
-4. Une fois votre application web créée par Visual Studio, vous voyez les deux projets dans la solution.
-   
-    ![afficher les projets](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-projects.png)
-5. À présent, vous devez vous assurer que votre projet de groupe de ressources est informé du nouveau projet. Revenez à votre projet de groupe de ressources (AzureResourceGroup1). Cliquez avec le bouton droit sur **Références** et sélectionnez **Ajouter une référence**.
-   
-    ![ajouter une référence](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-new-reference.png)
-6. Sélectionnez le projet d’application web que vous avez créé.
-   
-    ![ajouter une référence](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-reference.png)
-   
-    En ajoutant une référence, vous liez le projet d’application web au projet de groupe de ressources et définissez automatiquement trois propriétés clés. Vous voyez ces propriétés dans la fenêtre **Propriétés** de la référence.
-   
-      ![voir une référence](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/see-reference.png)
-   
-    Les propriétés sont les suivantes :
-   
-   * **Propriétés supplémentaires** contient l’emplacement intermédiaire du package de déploiement web qui est envoyé vers Azure Storage. Notez le dossier (ExampleApp) et le fichier (package.zip). Vous devez connaître ces valeurs, car elles doivent être fournies en tant que paramètres lors du déploiement de l’application. 
-   * **Inclure le chemin d’accès au fichier** contient le chemin d’accès à l’emplacement de création du package. **Inclure les cibles** contient la commande que ce déploiement exécute. 
-   * La valeur par défaut **Build;Package** permet au déploiement de construire et créer un package de déploiement web (package.zip).  
-     
-     Vous n’avez pas besoin de profil de publication, car le déploiement obtient les informations nécessaires à partir des propriétés pour créer le package.
-7. Revenez à WebSiteSQLDatabase.json et ajoutez une ressource au modèle.
-   
-    ![ajouter une ressource](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-resource-2.png)
-8. Cette fois-ci, sélectionnez **Web Deploy pour les applications Web**. 
-   
-    ![ajouter web deploy](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-web-deploy.png)
-9. Redéployez votre projet de groupe de ressources vers le groupe de ressources. Cette fois, il y a de nouveaux paramètres. Vous n’avez pas besoin de fournir des valeurs pour **_artifactsLocation** ou **_artifactsLocationSasToken** car Visual Studio les génère automatiquement. Toutefois, vous devez définir le dossier et le nom de fichier sur le chemin d’accès qui contient le package de déploiement (présenté comme **ExampleAppPackageFolder** et **ExampleAppPackageFileName** dans l’image suivante). Indiquez les valeurs que vous avez vues précédemment dans les propriétés de référence (**ExampleApp** et **package.zip**).
-   
-    ![ajouter web deploy](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/set-new-parameters.png)
-   
-    Pour le **compte de stockage des artefacts**, sélectionnez celui déployé avec ce groupe de ressources.
-10. Une fois le déploiement terminé, sélectionnez votre application web dans le portail. Sélectionnez l’URL pour accéder au site.
-    
-     ![parcourir le site](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/browse-site.png)
-11. Notez que vous avez déployé avec succès l’application ASP.NET par défaut.
-    
-     ![afficher l’application déployée](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-app.png)
 
-## <a name="add-an-operations-dashboard-to-your-deployment"></a>Ajouter un tableau de bord des opérations à votre déploiement
+    ![Ajouter un projet](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-project.png)
+
+1. Ajoutez une **Application web ASP.NET Core**.
+
+    ![Ajouter une application web](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-app.png)
+
+1. Donnez un nom à votre application web, puis sélectionnez **Créer**.
+
+    ![Nommer l’application web](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/name-web-app.png)
+
+1. Sélectionnez **Application web**, puis **Créer**.
+
+    ![Sélectionner une application web](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-project-type.png)
+
+1. Une fois votre application web créée par Visual Studio, vous voyez les deux projets dans la solution.
+
+    ![Afficher les projets](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-projects.png)
+
+1. À présent, vous devez vous assurer que votre projet de groupe de ressources est informé du nouveau projet. Revenez à votre projet de groupe de ressources (ExampleAppDeploy). Cliquez avec le bouton droit sur **Références** et sélectionnez **Ajouter une référence**.
+
+    ![Ajouter la référence](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-new-reference.png)
+
+1. Sélectionnez le projet d’application web que vous avez créé.
+
+   ![Ajouter la référence](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-reference.png)
+
+   En ajoutant une référence, vous liez le projet d’application web au projet de groupe de ressources, et vous définissez automatiquement trois propriétés. Vous voyez ces propriétés dans la fenêtre **Propriétés** de la référence. **Inclure le chemin d’accès au fichier** contient le chemin d’accès à l’emplacement de création du package. Notez le dossier (ExampleApp) et le fichier (package.zip). Vous devez connaître ces valeurs, car elles doivent être fournies en tant que paramètres lors du déploiement de l’application.
+
+   ![Voir une référence](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/see-reference.png)
+
+1. Revenez à votre modèle (WebSite.json) et ajoutez une ressource au modèle.
+
+    ![Ajouter une ressource](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-resource-2.png)
+
+1. Cette fois-ci, sélectionnez **Web Deploy pour les applications Web**. 
+
+    ![Ajouter un déploiement web](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-web-deploy.png)
+
+   Enregistrez votre modèle.
+
+1. Il y a de nouveaux paramètres dans votre modèle. Ils ont été ajoutés à l’étape précédente. Vous n’avez pas besoin de fournir des valeurs pour **_artifactsLocation** ou **_artifactsLocationSasToken**, car ces valeurs sont générées automatiquement. Cependant, vous devez définir le dossier et le nom du fichier sur le chemin qui contient le package de déploiement. Les noms de ces paramètres se terminent par **PackageFolder** et **PackageFileName**. La première partie du nom est le nom de la ressource Web Deploy que vous avez ajoutée. Dans cet article, ils sont nommés **ExampleAppPackageFolder** et **ExampleAppPackageFileName**. 
+
+   Ouvrez **Website.parameters.json** et définissez ces paramètres sur les valeurs que vous avez vues dans les propriétés de référence. Définissez **ExampleAppPackageFolder** sur le nom du dossier. Définissez **ExampleAppPackageFileName** sur le nom du fichier zip.
+
+   ```json
+   {
+     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+     "contentVersion": "1.0.0.0",
+     "parameters": {
+       "hostingPlanName": {
+         "value": "demoHostPlan"
+       },
+       "ExampleAppPackageFolder": {
+         "value": "ExampleApp"
+       },
+       "ExampleAppPackageFileName": {
+         "value": "package.zip"
+       }
+     }
+   }
+   ```
+
+## <a name="deploy-code-with-infrastructure"></a>Déployer le code avec l’infrastructure
+
+Comme vous avez ajouté du code au projet, votre déploiement est cette fois un peu différent. Au cours du déploiement, vous placez en zone intermédiaire les artefacts de votre projet à un emplacement accessible par Resource Manager. Les artefacts sont placés en zone intermédiaire dans un compte de stockage.
+
+### <a name="az-module-script"></a>Script du module Az
+
+Vous devez apporter une petite modification à votre modèle si vous utilisez le script du module Az. Ce script ajoute une barre oblique à l’emplacement des artefacts, mais votre modèle n’attend pas cette barre oblique. Ouvrez WebSite.json et recherchez les propriétés de l’extension MSDeploy. Elle a une propriété nommée **packageUri**. Supprimez la barre oblique entre l’emplacement des artefacts et le dossier du package.
+
+Il doit se présenter comme ceci :
+
+```json
+"packageUri": "[concat(parameters('_artifactsLocation'), parameters('ExampleAppPackageFolder'), '/', parameters('ExampleAppPackageFileName'), parameters('_artifactsLocationSasToken'))]",
+```
+
+Notez que dans l’exemple précédent, il n’existe pas de `'/',` entre **parameters('_artifactsLocation')** et **parameters('ExampleAppPackageFolder')** .
+
+Regénérez le projet. Générer le projet permet de garantir que les fichiers que vous devez déployer sont ajoutés au dossier intermédiaire.
+
+Ouvrez maintenant une console PowerShell et exécutez :
+
+```powershell
+.\Deploy-AzTemplate.ps1 -ArtifactStagingDirectory .\bin\Debug\staging\ExampleAppDeploy -Location centralus -TemplateFile WebSite.json -TemplateParametersFile WebSite.parameters.json -UploadArtifacts -StorageAccountName <storage-account-name>
+```
+
+### <a name="azurerm-module-script"></a>Script du module AzureRM
+
+Pour le script du module AzureRM, utilisez Visual Studio :
+
+1. Pour redéployer, choisissez **Déployer** et le groupe de ressources que vous avez déployé précédemment.
+
+    ![Redéployer le projet](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/redeploy.png)
+
+1. Sélectionnez le compte de stockage que vous avez déployé avec ce groupe de ressources pour le **Compte de stockage des artefacts**.
+
+   ![Redéployer un déploiement web](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/redeploy-web-app.png)
+
+## <a name="view-web-app"></a>Voir l’application web
+
+1. Une fois le déploiement terminé, sélectionnez votre application web dans le portail. Sélectionnez l’URL pour accéder au site.
+
+   ![Parcourir le site](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/browse-site.png)
+
+1. Notez que vous avez déployé avec succès l’application ASP.NET par défaut.
+
+   ![Afficher l’application déployée](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-app.png)
+
+## <a name="add-operations-dashboard"></a>Ajouter le tableau de bord des opérations
+
 Vous n’êtes pas limité aux seules ressources qui sont disponibles via l’interface de Visual Studio. Vous pouvez personnaliser votre déploiement en ajoutant une ressource personnalisée à votre modèle. Pour afficher l’ajout d’une ressource, vous ajoutez un tableau de bord opérationnel pour gérer la ressource déployée.
 
-1. Ouvrez le fichier WebsiteSqlDeploy.json et ajoutez le bloc de code JSON suivant après la ressource de compte de stockage, mais avant le `]` de fermeture de la section de ressources.
+1. Ouvrez le fichier WebSite.json et ajoutez le code JSON suivant après la ressource de compte de stockage, mais avant le `]` de fermeture de la section des ressources.
 
    ```json
     ,{
@@ -300,15 +362,27 @@ Vous n’êtes pas limité aux seules ressources qui sont disponibles via l’in
     }
    ```
 
-2. Redéployez votre groupe de ressources. Examinez votre tableau de bord sur le portail Azure et notez que le tableau de bord partagé a été ajoutée à votre liste de choix.
+1. Redéployez votre projet.
+
+1. Une fois le déploiement terminé, regardez votre tableau de bord dans le portail. Sélectionnez **Tableau de bord** et choisissez celui que vous avez déployé.
 
    ![Tableau de bord personnalisé](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/view-custom-dashboards.png)
 
-3. Sélectionnez le tableau de bord.
+1. Vous voyez le tableau de bord personnalisé.
 
    ![Tableau de bord personnalisé](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/Ops-DemoSiteGroup-dashboard.png)
 
 Vous pouvez gérer l’accès au tableau de bord en utilisant des groupes RBAC. Vous pouvez également personnaliser l’apparence du tableau de bord après son déploiement. Toutefois, si vous redéployez le groupe de ressources, le tableau de bord conserve son état par défaut dans votre modèle. Pour plus d’informations sur la création de tableaux de bord, consultez [Créer par programmation des tableaux de bord Azure](../azure-portal/azure-portal-dashboards-create-programmatically.md).
+
+## <a name="clean-up-resources"></a>Supprimer des ressources
+
+Lorsque vous n’en avez plus besoin, nettoyez les ressources Azure que vous avez déployées en supprimant le groupe de ressources.
+
+1. Dans le portail Azure, sélectionnez **Groupes de ressources** dans le menu de gauche.
+
+1. Sélectionnez le nom du groupe de ressources.
+
+1. Sélectionnez **Supprimer le groupe de ressources** dans le menu supérieur.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

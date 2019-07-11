@@ -11,27 +11,28 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f9daeb5e0de9c53f16efff46e02015acfa7c521
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: b24888934d7e89a13b1b07b7138be476575fc306
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66734605"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204613"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Didacticiel : Configurer la jointure hybride Azure Active Directory pour des domaines managés
 
-À l’instar d’un utilisateur, un appareil est une autre identité essentielle que vous souhaitez protéger, mais aussi utiliser pour protéger vos ressources à tout moment et en tout lieu. Vous pouvez atteindre cet objectif en intégrant et en gérant les identités des appareils dans Azure AD à l’aide d’une des méthodes ci-dessous :
+Comme n’importe quel utilisateur de votre organisation, un appareil est une identité fondamentale que vous souhaitez protéger. Vous pouvez utiliser l’identité d’un appareil pour protéger vos ressources à tout moment et à partir de n’importe quel emplacement. Pour atteindre cet objectif, vous devez intégrer et gérer les identités des appareils dans Azure AD (Azure Active Directory) à l’aide de l’une des méthodes suivantes :
 
 - jointure Azure AD ;
 - jointure Azure AD hybride ;
 - inscription Azure AD.
 
-En mettant vos appareils sur Azure AD, vous optimisez la productivité de vos utilisateurs par le biais de l’authentification unique (SSO) sur vos ressources cloud et locales. Dans le même temps, vous pouvez sécuriser l’accès à ces ressources avec [l’accès conditionnel](../active-directory-conditional-access-azure-portal.md).
+En intégrant vos appareils à Azure AD, vous optimisez la productivité des utilisateurs via SSO (authentification unique) parmi vos ressources cloud et locales. En parallèle, vous pouvez sécuriser l’accès à vos ressources cloud et locales à l’aide de l’[accès conditionnel](../active-directory-conditional-access-azure-portal.md).
 
-Dans ce tutoriel, vous apprenez à configurer une jonction Azure AD hybride pour des ordinateurs joints à un domaine AD dans un environnement managé. 
+Dans ce tutoriel, vous allez apprendre à configurer une jonction Azure AD Hybride pour des ordinateurs/appareils appartenant à un domaine Active Directory dans un environnement managé. 
 
-Un environnement managé peut être déployé par le biais de la [synchronisation de hachage de mot de passe (PHS)](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-phs) ou de l’[authentification directe (PTA)](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta) avec l’[authentification unique fluide](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso).
-Ces scénarios ne nécessitent pas la configuration d’un serveur de fédération pour l’authentification.
+Un environnement managé peut être déployé via la [synchronisation de hachage de mot de passe (PHS)](../hybrid/whatis-phs.md) ou l’[authentification directe (PTA)](../hybrid/how-to-connect-pta.md) avec l’[authentification unique fluide](../hybrid/how-to-connect-sso.md). Ces scénarios ne nécessitent pas la configuration d’un serveur de fédération pour l’authentification.
+
+Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Configurer une jonction Azure AD hybride
@@ -41,57 +42,57 @@ Ces scénarios ne nécessitent pas la configuration d’un serveur de fédérati
 
 ## <a name="prerequisites"></a>Prérequis
 
-Ce tutoriel part du principe que vous connaissez :
+Ce tutoriel part du principe que les articles suivants vous sont familiers :
 
-- [Présentation de la gestion des identités des appareils dans Azure Active Directory](../device-management-introduction.md)
-- [Comment planifier l’implémentation de la jointure hybride Azure Active Directory](hybrid-azuread-join-plan.md)
+- [Qu’est-ce qu’une identité d’appareil ?](overview.md)
+- [Guide pratique pour planifier votre implémentation de la jonction Azure AD Hybride](hybrid-azuread-join-plan.md)
 - [Comment effectuer une validation contrôlée de la jonction Azure AD hybride](hybrid-azuread-join-control.md)
 
 > [!NOTE]
-> Azure AD ne prend pas en charge les cartes à puce ou les certificats dans les domaines gérés.
+> Azure AD ne prend pas en charge les cartes à puce ou les certificats dans les domaines managés.
 
-Pour configurer le scénario dans cet article, la [toute dernière version d’Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) (1.1.819.0 ou ultérieure) doit être installée.
+Pour permettre la configuration du scénario décrit dans cet article, la [dernière version d’Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) (1.1.819.0 ou ultérieur) doit être installée.
 
-Vérifiez qu’Azure AD Connect a synchronisé les objets ordinateurs des appareils qui deviendront hybrides et joints à Azure AD. Si les objets ordinateurs appartiennent à des unités d’organisation (UO), celles-ci doivent être également configurées du point de vue de la synchronisation dans Azure AD Connect. Pour en savoir plus sur la façon de synchroniser des objets ordinateur à l’aide d’Azure AD Connect, consultez l’article [Configurer le filtrage à l’aide d’Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-configure-filtering#organizational-unitbased-filtering).
+Vérifiez qu’Azure AD Connect a synchronisé les objets ordinateur des appareils qui doivent devenir membres d’Azure AD Hybride. Si les objets ordinateur appartiennent à des unités d’organisation spécifiques, vous devez également configurer ces unités d’organisation pour qu’elles se synchronisent dans Azure AD Connect. Pour en savoir plus sur la synchronisation des objets ordinateur à l’aide d’Azure AD Connect, consultez [Configurer le filtrage à l’aide d’Azure AD Connect](../hybrid/how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering).
 
-Depuis la version 1.1.819.0, Azure AD Connect comporte un Assistant permettant de configurer la jointure Azure AD hybride. L’Assistant vous permet de simplifier considérablement le processus de configuration. L’Assistant associé configure les points de connexion de service (SCP) pour l’inscription des appareils.
+Depuis la version 1.1.819.0, Azure AD Connect comprend un Assistant qui vous permet de configurer la jonction Azure AD Hybride. L’Assistant simplifie considérablement le processus de configuration. L’Assistant configure les SCP (points de connexion de service) pour l’inscription des appareils.
 
-Les étapes de configuration décrites dans cet article sont basées sur cet Assistant.
+Les étapes de configuration décrites dans cet article sont basées sur l’utilisation de l’Assistant dans Azure AD Connect.
 
-L’accès des appareils aux ressources Microsoft suivantes depuis le réseau de votre organisation est indispensable à la jonction Azure AD hybride :  
+Pour permettre le bon fonctionnement de la jonction Azure AD Hybride, les appareils doivent avoir accès aux ressources Microsoft suivantes sur le réseau de votre organisation :  
 
 - `https://enterpriseregistration.windows.net`
 - `https://login.microsoftonline.com`
 - `https://device.login.microsoftonline.com`
-- [https://autologon.microsoftazuread-sso.com](`https://autologon.microsoftazuread-sso.com`) (Si vous utilisez ou prévoyez d’utiliser l’authentification unique fluide)
+- `https://autologon.microsoftazuread-sso.com` (si vous utilisez ou prévoyez d’utiliser l’authentification unique fluide)
 
-Si votre organisation a besoin d’un accès à Internet via un proxy sortant, Microsoft recommande d’[implémenter la détection automatique de proxy web (WPAD)](https://docs.microsoft.com/previous-versions/tn-archive/cc995261(v%3dtechnet.10)) pour permettre aux ordinateurs Windows 10 de s’inscrire dans Azure AD. Si vous rencontrez des problèmes pour configurer et gérer WPAD, accédez à la [résolution des problèmes de détection automatique](https://docs.microsoft.com/previous-versions/tn-archive/cc302643(v=technet.10)). 
+Si votre organisation nécessite un accès à Internet via un proxy sortant, Microsoft recommande d’[implémenter le protocole WPAD (Web Proxy AutoDiscovery)](https://docs.microsoft.com/previous-versions/tn-archive/cc995261(v%3dtechnet.10)) pour permettre aux ordinateurs Windows 10 de s’inscrire en tant qu’appareils auprès d’Azure AD. Si vous rencontrez des problèmes pour configurer et gérer le protocole WPAD, consultez la [résolution des problèmes de détection automatique](https://docs.microsoft.com/previous-versions/tn-archive/cc302643(v=technet.10)). 
 
-Si vous n’utilisez pas WPAD et que vous devez configurer les paramètres du proxy sur votre ordinateur, vous pouvez le faire, à compter de Windows 10 1709, en [configurant les paramètres WinHTTP à l’aide d’un objet de stratégie de groupe (GPO)](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/).
+Si vous n’utilisez pas WPAD et si vous devez configurer des paramètres de proxy sur votre ordinateur, vous pouvez le faire à partir de Windows 10 1709. Pour plus d’informations, consultez [Configurer les paramètres WinHTTP à l’aide d’un GPO (objet de stratégie de groupe)](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/).
 
 > [!NOTE]
-> Si vous configurez les paramètres du proxy sur votre ordinateur à l’aide des paramètres WinHTTP, les ordinateurs qui ne parviennent pas à se connecter au proxy configuré ne pourront pas non plus se connecter à Internet.
+> Si vous configurez les paramètres du proxy sur votre ordinateur à l’aide des paramètres WinHTTP, les ordinateurs qui ne peuvent pas se connecter au proxy configuré ne pourront pas non plus se connecter à Internet.
 
-Si votre organisation a besoin d’accéder à Internet via un proxy sortant authentifié, assurez-vous que vos ordinateurs Windows 10 parviennent à s’authentifier sur le proxy sortant. Les ordinateurs Windows 10 procèdent à l’inscription des appareils au moyen du contexte ordinateur, il est donc indispensable de configurer l’authentification du proxy sortant avec le contexte ordinateur. Poursuivez avec la configuration requise pour votre fournisseur de proxy sortant.
+Si votre organisation nécessite un accès à Internet via un proxy sortant authentifié, vérifiez que vos ordinateurs Windows 10 parviennent à s’authentifier correctement auprès du proxy sortant. Dans la mesure où les ordinateurs Windows 10 effectuent l’inscription de l’appareil en fonction du contexte de la machine, vous devez configurer l’authentification du proxy sortant selon le contexte de la machine. Poursuivez avec la configuration requise pour votre fournisseur de proxy sortant.
 
 ## <a name="configure-hybrid-azure-ad-join"></a>Configurer une jonction Azure AD hybride
 
 Pour configurer une jonction Azure AD hybride avec Azure AD Connect, vous avez besoin des informations suivantes :
 
-- Informations d’identification d’un administrateur général pour votre locataire Azure AD.  
-- Informations d’identification de l’administrateur d’entreprise pour chacune des forêts.
+- Informations d’identification d’un administrateur général pour votre locataire Azure AD
+- Informations d’identification de l’administrateur d’entreprise pour chacune des forêts
 
-**Pour configurer une jonction Azure AD hybride à l’aide d’Azure AD Connect :**
+**Pour configurer une jonction Azure AD Hybride à l’aide d’Azure AD Connect :**
 
-1. Lancez Azure AD Connect et cliquez sur **Configurer**.
+1. Démarrez Azure AD Connect, puis sélectionnez **Configurer**.
 
    ![Bienvenue](./media/hybrid-azuread-join-managed-domains/11.png)
 
-1. Dans la page **Tâches supplémentaires**, sélectionnez **Configurer les options de l’appareil** et cliquez sur **Suivant**.
+1. Dans la page **Tâches supplémentaires**, sélectionnez **Configurer les options de l’appareil**, puis **Suivant**.
 
    ![Tâches supplémentaires](./media/hybrid-azuread-join-managed-domains/12.png)
 
-1. Dans la page **Vue d’ensemble**, cliquez sur **Suivant**.
+1. Dans la page **Vue d’ensemble**, sélectionnez **Suivant**.
 
    ![Vue d'ensemble](./media/hybrid-azuread-join-managed-domains/13.png)
 
@@ -99,41 +100,41 @@ Pour configurer une jonction Azure AD hybride avec Azure AD Connect, vous avez b
 
    ![Se connecter à Azure AD](./media/hybrid-azuread-join-managed-domains/14.png)
 
-1. Dans la page **Options de l’appareil**, sélectionnez **Configurer joindre Hybrid Azure AD** et cliquez sur **Suivant**.
+1. Dans la page **Options de l’appareil**, sélectionnez **Configurer la jonction Azure AD Hybride**, puis **Suivant**.
 
    ![Options de l’appareil](./media/hybrid-azuread-join-managed-domains/15.png)
 
-1. Dans la page **SCP**, pour chaque forêt où vous souhaitez qu’Azure AD Connect configure le point de connexion de service, effectuez les étapes suivantes et cliquez sur **Suivant** :
+1. Dans la page **SCP**, pour chaque forêt où vous souhaitez qu’Azure AD Connect configure le SCP (point de connexion de service), effectuez les étapes suivantes, puis sélectionnez **Suivant** :
 
    ![SCP](./media/hybrid-azuread-join-managed-domains/16.png)
 
    1. Sélectionnez la forêt.
    1. Sélectionnez le service d’authentification.
-   1. Cliquez sur **Ajouter** pour indiquer les informations d’identification de l’administrateur d’entreprise.
+   1. Sélectionnez **Ajouter** pour entrer les informations d’identification de l’administrateur d’entreprise.
 
-1. Dans la page **Systèmes d’exploitation des appareils**, sélectionnez les systèmes d’exploitation utilisés par les appareils dans votre environnement Active Directory, puis cliquez sur **suivant**.
+1. Dans la page **Systèmes d’exploitation des appareils**, sélectionnez les systèmes d’exploitation utilisés par les appareils dans votre environnement Active Directory, puis sélectionnez **Suivant**.
 
    ![Systèmes d’exploitation des appareils](./media/hybrid-azuread-join-managed-domains/17.png)
 
-1. Dans la page **Prêt à configurer**, cliquez sur **Configurer**.
+1. Dans la page **Prêt à configurer**, sélectionnez **Configurer**.
 
    ![Prêt à configurer](./media/hybrid-azuread-join-managed-domains/19.png)
 
-1. Dans la page **Configuration terminée**, cliquez sur **Quitter**.
+1. Dans la page **Configuration terminée**, sélectionnez **Quitter**.
 
    ![Configuration terminée](./media/hybrid-azuread-join-managed-domains/20.png)
 
-## <a name="enable-windows-down-level-devices"></a>Activer des appareils Windows de bas niveau
+## <a name="enable-windows-downlevel-devices"></a>Activer des appareils Windows de niveau inférieur
 
-Si certains de vos appareils joints à un domaine sont des appareils Windows de bas niveau, vous devez :
+Si certains de vos appareils appartenant à un domaine sont des appareils Windows de niveau inférieur, vous devez :
 
 - Configurer les paramètres d’intranet local pour l’inscription des appareils
-- Configurer l’authentification unique (SSO) fluide
-- Installer Microsoft Workplace Join pour les ordinateurs Windows de bas niveau
+- Configurer l’authentification unique fluide
+- Installer Microsoft Workplace Join pour des ordinateurs Windows de niveau inférieur
 
 ### <a name="configure-the-local-intranet-settings-for-device-registration"></a>Configurer les paramètres d’intranet local pour l’inscription des appareils
 
-Pour terminer la jonction Azure AD Hybride de vos appareils Windows de bas niveau et éviter les invites de certificat lorsque les appareils s’authentifient auprès d’Azure AD, vous pouvez transmettre une stratégie à vos appareils joints à un domaine afin d’ajouter les URL ci-après à la zone Intranet local dans Internet Explorer :
+Pour effectuer correctement la jonction Azure AD Hybride de vos appareils Windows de niveau inférieur et éviter les invites de certificat quand les appareils s’authentifient auprès d’Azure AD, vous pouvez envoyer (push) une stratégie aux appareils appartenant à un domaine afin d’ajouter les URL suivantes à la zone intranet locale dans Internet Explorer :
 
 - `https://device.login.microsoftonline.com`
 - `https://autologon.microsoftazuread-sso.com`
@@ -142,40 +143,40 @@ Vous devez également activer **Autoriser les mises à jour de la barre d’éta
 
 ### <a name="configure-seamless-sso"></a>Configurer l’authentification unique fluide
 
-Pour réussir la jonction Azure AD hybride de vos appareils Windows de bas niveau, dans un domaine managé qui utilise la [synchronisation de hachage de mot de passe (PHS)](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-phs) ou l’[authentification directe (PTA)](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta) comme méthode d’authentification des services cloud Azure AD, vous devez également [configurer l’authentification unique fluide](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-2-enable-the-feature).
+Pour effectuer correctement la jonction Azure AD Hybride de vos appareils Windows de niveau inférieur dans un domaine managé qui utilise [PHS]../hybrid/whatis-phs.md) ou [PTA](../hybrid/how-to-connect-pta.md) en tant que méthode d’authentification des services cloud Azure AD, vous devez également [configurer l’authentification unique fluide](../hybrid/how-to-connect-sso-quick-start.md#step-2-enable-the-feature).
 
-### <a name="install-microsoft-workplace-join-for-windows-down-level-computers"></a>Installer des ordinateurs de bas niveau Workplace Join for Windows
+### <a name="install-microsoft-workplace-join-for-windows-downlevel-computers"></a>Installer Microsoft Workplace Join pour des ordinateurs Windows de niveau inférieur
 
-Pour inscrire des ordinateurs Windows de bas niveau, les organisations doivent installer [Microsoft Workplace Join pour les ordinateurs non-Windows 10](https://www.microsoft.com/download/details.aspx?id=53554) à partir du Centre de téléchargement Microsoft.
+Pour inscrire les appareils Windows de niveau inférieur, les organisations doivent installer [Microsoft Workplace Join pour les ordinateurs non Windows 10](https://www.microsoft.com/download/details.aspx?id=53554). Microsoft Workplace Join pour les ordinateurs non Windows 10 est disponible dans le Centre de téléchargement Microsoft.
 
-Vous pouvez déployer le package à l’aide d’un système de distribution de logiciels, comme  [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager). Le package prend en charge les options d’installation sans assistance standard avec le paramètre quiet. La branche actuelle de Configuration Manager offre des avantages supplémentaires par rapport aux versions précédentes, comme la possibilité d’effectuer le suivi des inscriptions effectuées.
+Vous pouvez déployer le package à l’aide d’un système de distribution de logiciels, comme  [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager). Le package prend en charge les options d’installation sans assistance standard avec le paramètre `quiet`. La branche actuelle de Configuration Manager offre des avantages supplémentaires par rapport aux versions précédentes, comme la possibilité d’effectuer le suivi des inscriptions effectuées.
 
-Le programme d’installation crée une tâche planifiée sur le système, qui s’exécute dans le contexte de l’utilisateur. La tâche est déclenchée lorsque l’utilisateur se connecte à Windows. La tâche joint en mode silencieux l’appareil à Azure AD, au moyen des informations d’identification de l’utilisateur, après son authentification auprès d’Azure AD.
+Le programme d’installation crée une tâche planifiée sur le système, qui s’exécute dans le contexte de l’utilisateur. La tâche est déclenchée lorsque l’utilisateur se connecte à Windows. La tâche joint l’appareil en mode sans assistance à Azure AD avec les informations d’identification de l’utilisateur, après son authentification auprès d’Azure AD.
 
 ## <a name="verify-the-registration"></a>Vérifier l’inscription
 
-Pour vérifier l’état de l’inscription d’un appareil dans votre locataire Azure, vous pouvez utiliser l’applet de commande **[Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice)** dans le **[module Azure Active Directory PowerShell](/powershell/azure/install-msonlinev1?view=azureadps-2.0)** .
+Pour vérifier l’état de l’inscription d’un appareil dans votre locataire Azure, vous pouvez utiliser l’applet de commande **[Get-MsolDevice](/powershell/msonline/v1/get-msoldevice)** dans le [module Azure Active Directory PowerShell](/powershell/azure/install-msonlinev1?view=azureadps-2.0).
 
-Lorsque vous utilisez l’applet de commande **Get-MSolDevice** pour vérifier les détails du service :
+Quand vous utilisez l’applet de commande **Get-MSolDevice** pour vérifier les détails du service :
 
 - Un objet dont l’**ID d’appareil** correspond à l’ID défini sur le client Windows doit exister.
-- La valeur de **DeviceTrustType** doit être **Domain Joined**. C’est l’équivalent de l’état **Joint à une version hybride d’Azure AD** dans la page Appareils du portail Azure AD.
-- La valeur de **Enabled** doit être **True** et celle de **DeviceTrustLevel** doit être **Managed** pour les appareils qui sont utilisés dans l’accès conditionnel.
+- La valeur de **DeviceTrustType** doit être **Domain Joined**. Ce paramètre équivaut à l’état **Joint à une version hybride d’Azure AD** dans la page **Appareils** du portail Azure AD.
+- Pour les appareils utilisés dans l’accès conditionnel, la valeur de **Enabled** doit être **True** et celle de **DeviceTrustLevel** doit être **Managed**.
 
-**Pour vérifier les détails du service :**
+**Pour vérifier les détails du service** :
 
-1. Ouvrez **Windows PowerShell** en tant qu’administrateur.
-1. Tapez `Connect-MsolService` pour vous connecter à votre locataire Azure.  
-1. Saisissez `get-msoldevice -deviceId <deviceId>`.
+1. Ouvrez Windows PowerShell en tant qu’administrateur.
+1. Entrez `Connect-MsolService` pour vous connecter à votre locataire Azure.  
+1. Entrez `get-msoldevice -deviceId <deviceId>`.
 1. Vérifiez que le paramètre **Enabled** est défini sur **True**.
 
 ## <a name="troubleshoot-your-implementation"></a>Résoudre les problèmes liés à votre implémentation
 
-Si vous rencontrez des problèmes pour effectuer une jonction Azure AD hybride avec des appareils Windows joints à un domaine, consultez :
+Si vous rencontrez des problèmes durant l’exécution d’une jonction Azure AD Hybride pour des appareils Windows appartenant à un domaine, consultez :
 
-- [Résolution des problèmes de jonction Azure AD hybride pour les appareils Windows actuels](troubleshoot-hybrid-join-windows-current.md)
-- [Résolution des problèmes de jonction Azure AD hybride pour les appareils Windows de bas niveau](troubleshoot-hybrid-join-windows-legacy.md)
+- [Résolution des problèmes de jonction Azure AD Hybride pour les appareils Windows actuels](troubleshoot-hybrid-join-windows-current.md)
+- [Résolution des problèmes de jonction Azure AD Hybride pour les appareils Windows de niveau inférieur](troubleshoot-hybrid-join-windows-legacy.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour plus d’informations sur la gestion des identités des appareils dans le portail Azure AD, consultez [Gestion des identités des appareils dans le portail Azure](device-management-azure-portal.md).
+Découvrez comment [gérer les identités des appareils à l’aide du portail Azure](device-management-azure-portal.md).

@@ -1,0 +1,367 @@
+---
+title: 'Didacticiel : Utiliser R dans un contexte de calcul Spark dans Azure HDInsight'
+description: 'Tutoriel : Get started with R and Spark on ML Services (Bien démarrer avec R et Spark sur les services ML)'
+ms.service: hdinsight
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
+ms.custom: hdinsightactive
+ms.topic: tutorial
+ms.date: 06/21/2019
+ms.openlocfilehash: 244c62467f187417bbb9f0e54173aad5a7d26d0a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67451740"
+---
+# <a name="tutorial-use-r-in-a-spark-compute-context-in-azure-hdinsight"></a>Didacticiel : Utiliser R dans un contexte de calcul Spark dans Azure HDInsight
+
+Ce tutoriel fournit une présentation étape par étape de l’utilisation des fonctions R dans Apache Spark fonctionnant sur un cluster ML Services dans Azure HDInsight.
+
+Ce tutoriel vous montre comment effectuer les opérations suivantes :
+
+> [!div class="checklist"]
+> * Télécharger les exemples de données vers le stockage local
+> * Copier les données dans le stockage par défaut
+> * Configurer le jeu de données
+> * Créer une source de données
+> * Créer le contexte de calcul pour Spark
+> * Ajuster un modèle linéaire
+> * Utiliser les fichiers XDF composites
+> * Convertir de XDF en CSV
+
+## <a name="prerequisites"></a>Prérequis
+
+* Un cluster ML Services sur HDInsight. Consultez [Création clusters Apache Hadoop à l’aide du Portail Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) et sélectionnez **ML Services** pour le **Type de cluster**.
+
+## <a name="connect-to-rstudio-server"></a>Se connecter à RStudio Server
+
+RStudio Server s’exécute sur le nœud de périphérie du cluster. Accédez à l’URL suivante où `CLUSTERNAME` est le nom du cluster ML Services que vous avez créé :
+
+```
+https://CLUSTERNAME.azurehdinsight.net/rstudio/
+```
+
+La première fois que vous vous connectez, vous devez vous authentifier deux fois. Pour la première authentification, fournissez le nom d’utilisateur et le mot de passe de l’administrateur du cluster, par défaut `admin`. Pour la deuxième authentification, fournissez le nom d’utilisateur et le mot de passe SSH, par défaut `sshuser`. Les connexions suivantes ne nécessitent que les informations d’identification SSH.
+
+## <a name="download-sample-data"></a>Télécharger les exemples de données
+
+Le jeu de données *Airline 2012 On-Time Data Set* se compose de 12 fichiers séparés par des virgules contenant des informations sur les arrivées et les départs de tous les vols commerciaux aux États-Unis au cours de l’année 2012. Il s’agit d’un vaste jeu de données comportant plus de six millions d’observations.
+
+1. Initialisez quelques variables d’environnement. Entrez le code suivant dans la console RStudio Server :
+
+    ```R
+    bigDataDirRoot <- "/tutorial/data" # root directory on cluster default storage
+    localDir <- "/tmp/AirOnTimeCSV2012" # directory on edge node
+    remoteDir <- "https://packages.revolutionanalytics.com/datasets/AirOnTimeCSV2012" # location of data
+    ```
+
+    Les variables apparaîtront sur le côté droit de l’écran sous l’onglet **Environnement**.
+
+    ![RStudio](./media/ml-services-tutorial-spark-compute/rstudio.png)
+
+2.  Créez le répertoire local et téléchargez les exemples de données. Entrez le code suivant dans RStudio :
+
+    ```R
+    # Create local directory
+    dir.create(localDir)
+    
+    # Download data to the tmp folder(local)
+    download.file(file.path(remoteDir, "airOT201201.csv"), file.path(localDir, "airOT201201.csv"))
+    download.file(file.path(remoteDir, "airOT201202.csv"), file.path(localDir, "airOT201202.csv"))
+    download.file(file.path(remoteDir, "airOT201203.csv"), file.path(localDir, "airOT201203.csv"))
+    download.file(file.path(remoteDir, "airOT201204.csv"), file.path(localDir, "airOT201204.csv"))
+    download.file(file.path(remoteDir, "airOT201205.csv"), file.path(localDir, "airOT201205.csv"))
+    download.file(file.path(remoteDir, "airOT201206.csv"), file.path(localDir, "airOT201206.csv"))
+    download.file(file.path(remoteDir, "airOT201207.csv"), file.path(localDir, "airOT201207.csv"))
+    download.file(file.path(remoteDir, "airOT201208.csv"), file.path(localDir, "airOT201208.csv"))
+    download.file(file.path(remoteDir, "airOT201209.csv"), file.path(localDir, "airOT201209.csv"))
+    download.file(file.path(remoteDir, "airOT201210.csv"), file.path(localDir, "airOT201210.csv"))
+    download.file(file.path(remoteDir, "airOT201211.csv"), file.path(localDir, "airOT201211.csv"))
+    download.file(file.path(remoteDir, "airOT201212.csv"), file.path(localDir, "airOT201212.csv"))
+    ```
+
+    Le téléchargement devrait se terminer en environ 9 minutes et demie.
+
+## <a name="copy-data-to-default-storage"></a>Copier les données dans le stockage par défaut
+
+L’emplacement HDFS est spécifié avec la variable `airDataDir`. Entrez le code suivant dans RStudio :
+
+```R
+# Set directory in bigDataDirRoot to load the data into
+airDataDir <- file.path(bigDataDirRoot,"AirOnTimeCSV2012")
+
+# Create directory (default storage)
+rxHadoopMakeDir(airDataDir)
+
+# Copy data from local storage to default storage
+rxHadoopCopyFromLocal(localDir, bigDataDirRoot)
+    
+# Optional. Verify files
+rxHadoopListFiles(airDataDir)
+```
+
+L’étape devrait se terminer en environ 10 secondes.
+
+## <a name="set-up-data-set"></a>Configurer le jeu de données
+
+1. Créez un objet de système de fichiers qui utilise les valeurs par défaut. Entrez le code suivant dans RStudio :
+
+    ```R
+    # Define the HDFS (WASB) file system
+    hdfsFS <- RxHdfsFileSystem()
+    ```
+
+2. Les fichiers CSV originaux possédant des noms de variables plutôt complexes, nous fournissons la liste `colInfo` pour les rendre plus faciles à gérer. Entrez le code suivant dans RStudio :
+
+    ```R
+    airlineColInfo <- list(
+         MONTH = list(newName = "Month", type = "integer"),
+        DAY_OF_WEEK = list(newName = "DayOfWeek", type = "factor",
+            levels = as.character(1:7),
+            newLevels = c("Mon", "Tues", "Wed", "Thur", "Fri", "Sat",
+                          "Sun")),
+        UNIQUE_CARRIER = list(newName = "UniqueCarrier", type =
+                                "factor"),
+        ORIGIN = list(newName = "Origin", type = "factor"),
+        DEST = list(newName = "Dest", type = "factor"),
+        CRS_DEP_TIME = list(newName = "CRSDepTime", type = "integer"),
+        DEP_TIME = list(newName = "DepTime", type = "integer"),
+        DEP_DELAY = list(newName = "DepDelay", type = "integer"),
+        DEP_DELAY_NEW = list(newName = "DepDelayMinutes", type =
+                             "integer"),
+        DEP_DEL15 = list(newName = "DepDel15", type = "logical"),
+        DEP_DELAY_GROUP = list(newName = "DepDelayGroups", type =
+                               "factor",
+           levels = as.character(-2:12),
+           newLevels = c("< -15", "-15 to -1","0 to 14", "15 to 29",
+                         "30 to 44", "45 to 59", "60 to 74",
+                         "75 to 89", "90 to 104", "105 to 119",
+                         "120 to 134", "135 to 149", "150 to 164",
+                         "165 to 179", ">= 180")),
+        ARR_DELAY = list(newName = "ArrDelay", type = "integer"),
+        ARR_DELAY_NEW = list(newName = "ArrDelayMinutes", type =
+                             "integer"),  
+        ARR_DEL15 = list(newName = "ArrDel15", type = "logical"),
+        AIR_TIME = list(newName = "AirTime", type =  "integer"),
+        DISTANCE = list(newName = "Distance", type = "integer"),
+        DISTANCE_GROUP = list(newName = "DistanceGroup", type =
+                             "factor",
+         levels = as.character(1:11),
+         newLevels = c("< 250", "250-499", "500-749", "750-999",
+             "1000-1249", "1250-1499", "1500-1749", "1750-1999",
+             "2000-2249", "2250-2499", ">= 2500")))
+    
+    varNames <- names(airlineColInfo)
+    ```
+
+## <a name="create-data-source"></a>Créer une source de données
+
+Dans un contexte de calcul Spark, vous pouvez créer des sources de données en utilisant les fonctions suivantes :
+
+|Fonction | Description |
+|---------|-------------|
+|`RxTextData` | Texte délimité en tant que source de données. |
+|`RxXdfData` | Données dans le format de fichier de données XDF. Dans RevoScaleR, le format de fichier XDF est modifié pour que Hadoop puisse stocker les données dans un ensemble composite de fichiers plutôt que dans un seul fichier. |
+|`RxHiveData` | Génère un objet Source de données Hive.|
+|`RxParquetData` | Génère un objet Source de données Parquet.|
+|`RxOrcData` | Génère un objet Source de données Orc.|
+
+Créez un objet [RxTextData](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxtextdata) en utilisant les fichiers que vous avez copiés dans HDFS. Entrez le code suivant dans RStudio :
+
+```R
+airDS <- RxTextData( airDataDir,
+                        colInfo = airlineColInfo,
+                        varsToKeep = varNames,
+                        fileSystem = hdfsFS ) 
+```
+
+## <a name="create-compute-context-for-spark"></a>Créer le contexte de calcul pour Spark
+
+Pour charger des données et exécuter des analyses sur les nœuds Worker, vous devez définir le contexte de calcul dans votre script sur [RxSpark](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxspark). Dans ce contexte, les fonctions R répartissent automatiquement la charge de travail sur tous les nœuds Worker sans exigence intégrée pour la gestion des tâches ou la file d’attente. Le contexte de calcul Spark est établi par `RxSpark` ou `rxSparkConnect()` pour créer ce contexte et utilise `rxSparkDisconnect()` pour revenir à un contexte de calcul local. Entrez le code suivant dans RStudio :
+
+```R
+# Define the Spark compute context
+mySparkCluster <- RxSpark()
+
+# Set the compute context
+rxSetComputeContext(mySparkCluster)
+```
+
+## <a name="fit-a-linear-model"></a>Ajuster un modèle linéaire
+
+1. Utilisez la fonction [rxLinMod](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxlinmod) pour adapter un modèle linéaire en utilisant votre source de données `airDS`. Entrez le code suivant dans RStudio :
+
+    ```R
+    system.time(
+         delayArr <- rxLinMod(ArrDelay ~ DayOfWeek, data = airDS,
+              cube = TRUE)
+    )
+    ```
+    
+    Cette étape devrait prendre entre 2 et 3 minutes.
+
+1. Affichez les résultats. Entrez le code suivant dans RStudio :
+
+    ```R
+    summary(delayArr)
+    ```
+
+    Les résultats suivants doivent s’afficher :
+
+    ```output
+    Call:
+    rxLinMod(formula = ArrDelay ~ DayOfWeek, data = airDS, cube = TRUE)
+    
+    Cube Linear Regression Results for: ArrDelay ~ DayOfWeek
+    Data: airDataXdf (RxXdfData Data Source)
+    File name: /tutorial/data/AirOnTimeCSV2012
+    Dependent variable(s): ArrDelay
+    Total independent variables: 7 
+    Number of valid observations: 6005381
+    Number of missing observations: 91381 
+     
+    Coefficients:
+                   Estimate Std. Error t value Pr(>|t|)     | Counts
+    DayOfWeek=Mon   3.54210    0.03736   94.80 2.22e-16 *** | 901592
+    DayOfWeek=Tues  1.80696    0.03835   47.12 2.22e-16 *** | 855805
+    DayOfWeek=Wed   2.19424    0.03807   57.64 2.22e-16 *** | 868505
+    DayOfWeek=Thur  4.65502    0.03757  123.90 2.22e-16 *** | 891674
+    DayOfWeek=Fri   5.64402    0.03747  150.62 2.22e-16 *** | 896495
+    DayOfWeek=Sat   0.91008    0.04144   21.96 2.22e-16 *** | 732944
+    DayOfWeek=Sun   2.82780    0.03829   73.84 2.22e-16 *** | 858366
+    ---
+    Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+    
+    Residual standard error: 35.48 on 6005374 degrees of freedom
+    Multiple R-squared: 0.001827 (as if intercept included)
+    Adjusted R-squared: 0.001826 
+    F-statistic:  1832 on 6 and 6005374 DF,  p-value: < 2.2e-16 
+    Condition number: 1 
+    ```
+
+    Notez que les résultats indiquent que nous avons traité toutes les données, six millions d’observations, en utilisant tous les fichiers.csv dans le répertoire spécifié. Notez aussi que parce que nous avons spécifié `cube = TRUE`, nous avons un coefficient estimé pour chaque jour de la semaine (et non pour l’interception).
+
+## <a name="use-composite-xdf-files"></a>Utiliser les fichiers XDF composites
+
+Comme nous l’avons vu, vous pouvez analyser les fichiers CSV directement avec R sur Hadoop, mais l’analyse peut être faite plus rapidement si les données sont stockées dans un format plus efficace. Le format R .xdf est extrêmement efficace, mais il est quelque peu modifié pour le HDFS afin que les fichiers individuels demeurent dans un seul bloc HDFS. (La taille du bloc HDFS varie d’une installation à l’autre, mais elle est généralement de 64 Mo ou 128 Mo.) Lorsque vous utilisez [rxImport](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rximport) sur Hadoop, vous spécifiez une source de données `RxTextData` telle que `AirDS` comme inData et une source de données `RxXdfData` avec un système de fichiers HDFS comme argument outFile afin de créer un jeu de fichiers .xdf composites. L’objet `RxXdfData` peut ensuite être utilisé comme argument de données dans les analyses R ultérieures.
+
+1. Définissez un objet `RxXdfData`. Entrez le code suivant dans RStudio :
+
+    ```R
+    airDataXdfDir <- file.path(bigDataDirRoot,"AirOnTimeXDF2012")
+    
+    airDataXdf <- RxXdfData( airDataXdfDir,
+                            fileSystem = hdfsFS )
+    ```
+
+1. Définissez une taille de bloc de 250 000 lignes et spécifiez que nous lisons toutes les données. Entrez le code suivant dans RStudio :
+
+    ```R
+    blockSize <- 250000
+    numRowsToRead = -1
+    ```
+
+1. Importez les données à l’aide de `rxImport`. Entrez le code suivant dans RStudio :
+
+    ```R
+    rxImport(inData = airDS,
+             outFile = airDataXdf,
+             rowsPerRead = blockSize,
+             overwrite = TRUE,
+             numRows = numRowsToRead )
+    ```
+    
+    Cette étape devrait prendre quelques minutes.
+
+1. Réestimez le même modèle linéaire en utilisant la nouvelle source de données plus rapide. Entrez le code suivant dans RStudio :
+
+    ```R
+    system.time(
+         delayArr <- rxLinMod(ArrDelay ~ DayOfWeek, data = airDataXdf,
+              cube = TRUE)
+    )
+    ```
+    
+    L’étape doit prendre moins d’une minute.
+
+1. Affichez les résultats. Les résultats doivent être identiques à ceux des fichiers CSV. Entrez le code suivant dans RStudio :
+
+    ```R
+    summary(delayArr)
+    ```
+
+## <a name="convert-xdf-to-csv"></a>Convertir de XDF en CSV
+
+### <a name="in-a-spark-context"></a>Dans un contexte Spark
+
+Si vous avez converti votre CSV en XDF pour profiter de l’efficacité lors de l’exécution des analyses mais que vous souhaitez maintenant convertir vos données en CSV, vous pouvez le faire en utilisant [rxDataStep](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxdatastep).
+
+Pour créer un dossier de fichiers CSV, créez d’abord un objet `RxTextData` en utilisant un nom de répertoire comme argument de fichier ; ceci représente le dossier dans lequel créer les fichiers CSV. Ce répertoire est créé lorsque vous exécutez `rxDataStep`. Ensuite, pointez sur cet objet `RxTextData` dans l’argument `outFile` du `rxDataStep`. Chaque CSV créé sera nommé en fonction du nom du répertoire et suivi d’un numéro.
+
+Supposons que nous voulions écrire un dossier de fichiers CSV dans le système de fichiers DFS hadoop à partir de notre XDF composite `airDataXdf` après avoir effectué la régression logistique et la prédiction, de sorte que les nouveaux fichiers CSV contiennent les valeurs prévues et les résidus. Entrez le code suivant dans RStudio :
+
+```R
+airDataCsvDir <- file.path(bigDataDirRoot,"AirDataCSV2012")
+airDataCsvDS <- RxTextData(airDataCsvDir,fileSystem=hdfsFS)
+rxDataStep(inData=airDataXdf, outFile=airDataCsvDS)
+```
+
+Cette étape doit prendre environ deux minutes et demie.
+
+Vous pouvez constater que le `rxDataStep` a écrit un CSV pour chaque fichier .xdfd dans le fichier XDF composite en entrée. Il s’agit du comportement par défaut pour l’écriture de CSV à partir du fichier XDF composite vers le système de fichiers DFS hadoop lorsque le contexte de calcul est défini sur `RxSpark`.
+
+### <a name="in-a-local-context"></a>Dans un contexte local
+
+Vous pouvez également rétablir votre contexte de calcul sur `local` lorsque vous avez terminé d’effectuer vos analyses et profiter de deux arguments dans `RxTextData` qui vous donnent un peu plus de contrôle lorsque vous écrivez des fichiers CSV dans le système de fichiers DFS hadoop : `createFileSet` et `rowsPerOutFile`. Lorsque `createFileSet` est défini sur `TRUE`, un dossier de fichiers CSV est écrit dans le répertoire spécifié. Lorsque `createFileSet` est réglé sur `FALSE`, un seul fichier CSV est écrit. Le second argument, `rowsPerOutFile`, peut être défini sur une valeur entière pour indiquer combien de lignes écrire dans chaque fichier CSV quand `createFileSet` est défini sur `TRUE`.
+
+Entrez le code suivant dans RStudio :
+
+```R
+rxSetComputeContext("local")
+airDataCsvRowsDir <- file.path(bigDataDirRoot,"AirDataCSVRows2012")
+airDataCsvRowsDS <- RxTextData(airDataCsvRowsDir, fileSystem=hdfsFS, createFileSet=TRUE, rowsPerOutFile=1000000)
+rxDataStep(inData=airDataXdf, outFile=airDataCsvRowsDS)
+```
+
+Cette étape devrait prendre environ 10 minutes.
+
+Lors de l’utilisation d’un contexte de calcul `RxSpark`, `createFileSet` possède la valeur par défaut `TRUE` et `rowsPerOutFile` n’a aucun effet. Ainsi, si vous souhaitez créer un CSV unique ou personnaliser le nombre de lignes par fichier, vous devez effectuer le `rxDataStep` dans un contexte de calcul `local` (les données peuvent toujours résider dans le système de fichiers DFS hadoop).
+
+## <a name="final-steps"></a>Étapes finales
+
+1. Nettoyez les données. Entrez le code suivant dans RStudio :
+
+    ```R
+    rxHadoopRemoveDir(airDataDir)
+    rxHadoopRemoveDir(airDataXdfDir)
+    rxHadoopRemoveDir(airDataCsvDir)
+    rxHadoopRemoveDir(airDataCsvRowsDir)
+    rxHadoopRemoveDir(bigDataDirRoot)
+    ```
+
+1. Arrêtez l’application Spark distante. Entrez le code suivant dans RStudio :
+
+    ```R
+    rxStopEngine(mySparkCluster)
+    ```
+
+1. Quittez la session R. Entrez le code suivant dans RStudio :
+
+    ```R
+    quit()
+    ```
+
+## <a name="clean-up-resources"></a>Supprimer des ressources
+
+Après avoir terminé ce didacticiel, vous souhaiterez peut-être supprimer le cluster. Avec HDInsight, vos données sont stockées Azure Storage, pour que vous puissiez supprimer un cluster en toute sécurité s’il n’est pas en cours d’utilisation. Vous devez également payer pour un cluster HDInsight, même lorsque vous ne l’utilisez pas. Étant donné que les frais pour le cluster sont bien plus élevés que les frais de stockage, économique, mieux vaut supprimer les clusters lorsqu’ils ne sont pas utilisés.
+
+Pour supprimer un cluster, consultez [Supprimer un cluster HDInsight à l’aide de votre navigateur, de PowerShell ou d’Azure CLI](../hdinsight-delete-cluster.md).
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Dans ce tutoriel, vous avez appris à utiliser des fonctions R dans Apache Spark fonctionnant sur un cluster ML Services dans Azure HDInsight. Pour plus d’informations, consultez les articles suivants :
+
+* [Options de contexte de calcul pour ML Services sur HDInsight](r-server-compute-contexts.md)
+* [Fonctions R pour Spark sur Hadoop](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler-hadoop-functions)
