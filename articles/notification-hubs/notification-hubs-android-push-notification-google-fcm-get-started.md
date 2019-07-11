@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/30/2019
 ms.author: jowargo
-ms.openlocfilehash: c21b1e38077575fc49221150a61693a23aa408a3
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: f2efa9b7e1e534f93e4ea01ba52740c8c5ac7b02
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509132"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653900"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-firebase-cloud-messaging"></a>Didacticiel : Notifications Push vers des appareils Android avec Azure Notification Hubs et Google Firebase Cloud Messaging
 
@@ -84,11 +84,30 @@ Vous devez suivre ce didacticiel avant tous les autres didacticiels Notification
 
 Votre hub est désormais configuré pour fonctionner avec Firebase Cloud Messaging. Vous disposez également des chaînes de connexion nécessaires pour envoyer des notifications à un appareil et inscrire une application pour recevoir des notifications.
 
-## <a id="connecting-app"></a>Connecter votre application au hub de notification
+## <a id="connecting-app"></a>Connexion de votre application au hub de notification
 
-### <a name="add-google-play-services-to-the-project"></a>Ajouter des services Google Play au projet
+### <a name="add-google-play-services-to-the-project"></a>Ajout de services Google Play au projet
 
-[!INCLUDE [Add Play Services](../../includes/notification-hubs-android-studio-add-google-play-services.md)]
+1. Dans Android Studio, sélectionnez **Outils** dans le menu, puis **SDK Manager**. 
+2. Sélectionnez la version cible du Kit de développement logiciel (SDK) Android qui est utilisé dans votre projet. Puis sélectionnez **Afficher les détails du package**. 
+
+    ![Android SDK Manager - sélectionner la version cible](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-sdk-manager.png)
+3. Sélectionnez **API Google**, si elles ne sont pas déjà installées.
+
+    ![Android SDK Manager - API Google sélectionnées](./media/notification-hubs-android-studio-add-google-play-services/googole-apis-selected.png)
+4. Basculez vers l’onglet **SDK Tools**. Si vous n’avez pas déjà installé un service Google Play, sélectionnez **Google Play Services** comme indiqué dans l’image suivante. Sélectionnez ensuite **Appliquer** pour procéder à l’installation. Notez le chemin du Kit de développement logiciel (SDK). Vous l’utiliserez à une étape suivante.
+
+    ![Android SDK Manager - Google Play Services sélectionné](./media/notification-hubs-android-studio-add-google-play-services/google-play-services-selected.png)
+3. Si la boîte de dialogue de **confirmation de la modification** s’affiche, sélectionnez **OK**. Le programme d’installation installe les composants demandés. Sélectionnez **Terminer** une fois que les composants sont installés.
+4. Sélectionnez **OK** pour fermer la boîte de dialogue **Paramètres pour les nouveaux projets**.  
+5. Sélectionnez l’icône **Synchroniser maintenant** dans la barre d’outils.
+1. Ouvrez le fichier AndroidManifest.xml, puis ajoutez la balise suivante à la balise *application*.
+
+    ```xml
+    <meta-data android:name="com.google.android.gms.version"
+         android:value="@integer/google_play_services_version" />
+    ```
+
 
 ### <a name="add-azure-notification-hubs-libraries"></a>Ajoutez des bibliothèques Azure Notification Hubs
 
@@ -354,7 +373,6 @@ Votre hub est désormais configuré pour fonctionner avec Firebase Cloud Messagi
 
         mainActivity = this;
         registerWithNotificationHubs();
-        MyHandler.createChannelAndHandleNotifications(getApplicationContext());
     }
     ```
 
@@ -424,7 +442,7 @@ Votre hub est désormais configuré pour fonctionner avec Firebase Cloud Messagi
 
 13. Ajoutez le code suivant pour la classe `MyHandler` afin d’en faire une sous-classe de `com.microsoft.windowsazure.notifications.NotificationsHandler`.
 
-    Comme ce code remplace la méthode `OnReceive`, le gestionnaire rapporte les notifications reçues. Le gestionnaire envoie également la notification Push au gestionnaire de notifications Android en utilisant la méthode `sendNotification()`. Appelez la méthode `sendNotification()` quand l’application n’est pas en cours d’exécution et qu’une notification est reçue.
+    Comme ce code remplace la méthode `OnReceive`, le gestionnaire rapporte les notifications reçues. Le gestionnaire envoie également la notification Push au gestionnaire de notifications Android en utilisant la méthode `sendNotification()` . Appelez la méthode `sendNotification()` quand l’application n’est pas en cours d’exécution et qu’une notification est reçue.
 
     ```java
     public class MyHandler extends NotificationsHandler {
@@ -526,7 +544,7 @@ De plus, assurez-vous que vous avez ajouté votre compte Google à l’émulateu
 Dans ce didacticiel, vous avez utilisé Firebase Cloud Messaging pour diffuser des notifications à tous les appareils Android inscrits auprès du service. Pour savoir comment envoyer des notifications Push à des appareils spécifiques, passez au didacticiel suivant :
 
 > [!div class="nextstepaction"]
->[Didacticiel : Notifications Push sur des appareils Android spécifiques](notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md)
+>[Tutoriel : Notifications Push sur des appareils Android spécifiques](push-notifications-android-specific-devices-firebase-cloud-messaging.md)
 
 <!-- Images. -->
 
