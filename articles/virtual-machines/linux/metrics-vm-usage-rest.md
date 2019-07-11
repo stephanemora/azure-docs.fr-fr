@@ -4,18 +4,18 @@ description: Utilisez les API REST Azure pour collecter des métriques d’utili
 services: virtual-machines
 author: rloutlaw
 ms.reviewer: routlaw
-manager: jeconnoc
+manager: gwallace
 ms.service: load-balancer
 ms.custom: REST
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: routlaw
-ms.openlocfilehash: 924154a64673b4ff646f3b6ece373b278ee37181
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 53e93d20f4a8c4877374d8242521ca97d481e15d
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60773262"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67667450"
 ---
 # <a name="get-virtual-machine-usage-metrics-using-the-rest-api"></a>Obtenir les métriques d’utilisation d’une machine virtuelle à l’aide de l’API REST
 
@@ -45,7 +45,7 @@ Les en-têtes suivants sont requis :
 | Nom | Description |
 | :--- | :---------- |
 | subscriptionId | L’ID d’abonnement d’un abonnement Azure. Si vous avez plusieurs abonnements, consultez [Utilisation de plusieurs abonnements](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
-| nom_groupe_ressources | Nom du groupe de ressources Azure associé à la ressource. Vous pouvez obtenir cette valeur à partir de l’API Azure Resource Manager, de l’interface CLI ou du portail. |
+| resourceGroupName | Nom du groupe de ressources Azure associé à la ressource. Vous pouvez obtenir cette valeur à partir de l’API Azure Resource Manager, de l’interface CLI ou du portail. |
 | vmname | Nom de la machine virtuelle Azure. |
 | metricnames | Liste des [métriques Load Balancer](/azure/load-balancer/load-balancer-standard-diagnostics) valides, séparées par des virgules. |
 | api-version | Version de l’API à utiliser pour la requête.<br /><br /> Ce document aborde la version d’API `2018-01-01`, incluse dans l’URL ci-dessus.  |

@@ -1,24 +1,24 @@
 ---
-author: diberry
-ms.author: diberry
+author: IEvangelist
+ms.author: dapine
+ms.date: 06/25/2019
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 05/07/2019
-ms.openlocfilehash: fe1b4699a300831294c26b103d322fb83ad87d3b
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 9911b1c92bdca6c0cdf064ea484cfb603e659467
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67177333"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67712556"
 ---
 Si vous devez configurer un proxy HTTP pour effectuer des requêtes sortantes, utilisez les deux arguments suivants :
 
 | Nom | Type de données | Description |
 |--|--|--|
-|HTTP_PROXY|chaîne|Le proxy à utiliser, par exemple, `http://proxy:8888`<br><proxy-url>|
-|HTTP_PROXY_CREDS|chaîne|Les informations d’identification nécessaires pour s’authentifier auprès du proxy, par exemple, username:password.|
-|`<proxy-user>`|chaîne|L’utilisateur pour le proxy.|
-|`proxy-password`|chaîne|Le mot de passe associé à `<proxy-user>` pour le proxy.|
+|HTTP_PROXY|string|Le proxy à utiliser, par exemple, `http://proxy:8888`<br><proxy-url>|
+|HTTP_PROXY_CREDS|string|Les informations d’identification nécessaires pour s’authentifier auprès du proxy, par exemple, username:password.|
+|`<proxy-user>`|string|L’utilisateur pour le proxy.|
+|`proxy-password`|string|Le mot de passe associé à `<proxy-user>` pour le proxy.|
 ||||
 
 

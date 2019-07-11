@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 4658de97bc8b8a175934286a5be3f074968ff7bd
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 6b7451371fe1562a6763643cd90e5646bd255018
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485374"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653523"
 ---
 # <a name="query-examples-using-the-simple-search-syntax-in-azure-search"></a>Exemples de requêtes utilisant la syntaxe de recherche « simple » dans Recherche Azure
 
@@ -119,7 +119,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs/9E1E3AF9-0660-4E0
 
 ## <a name="example-3-filter-queries"></a>Exemple 3 : Requêtes de filtre
 
-La [syntaxe de filtre](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples) est une expression OData que vous pouvez utiliser avec une **recherche** ou de façon autonome. Un filtre autonome, dépourvu de paramètre de recherche, est utile quand l’expression de filtre est en mesure de qualifier complètement les documents d’intérêt. En l’absence d’une chaîne de requête, il n’y a ni analyse lexicale ou linguistique, ni scoring (tous les scores sont égaux à 1), ni classement. Vous pouvez remarquer que la chaîne de recherche est vide.
+La [syntaxe de filtre](https://docs.microsoft.com/azure/search/search-query-odata-filter) est une expression OData que vous pouvez utiliser avec une **recherche** ou de façon autonome. Un filtre autonome, dépourvu de paramètre de recherche, est utile quand l’expression de filtre est en mesure de qualifier complètement les documents d’intérêt. En l’absence d’une chaîne de requête, il n’y a ni analyse lexicale ou linguistique, ni scoring (tous les scores sont égaux à 1), ni classement. Vous pouvez remarquer que la chaîne de recherche est vide.
 
 ```http
 POST /indexes/nycjobs/docs/search?api-version=2019-05-06
@@ -147,7 +147,7 @@ Une autre méthode efficace pour combiner un filtre et une recherche consiste à
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&$select=job_id,business_title,agency&search=&$filter=search.ismatch('plan*', 'business_title', 'full', 'any')
 ```
 
-Pour plus d’informations sur la fonction, consultez la [description de la fonction search.ismatch dans les exemples de filtre](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples).
+Pour plus d’informations sur la fonction, consultez la [description de la fonction search.ismatch dans les exemples de filtre](https://docs.microsoft.com/azure/search/search-query-odata-full-text-search-functions#examples).
 
 ## <a name="example-4-range-filters"></a>Exemple 4 : Filtres de plage
 
@@ -198,7 +198,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 
 ## <a name="example-5-geo-search"></a>Exemple 5 : Recherche basée sur la localisation
 
-L’exemple d’index inclut un champ geo_location avec des coordonnées de latitude et de longitude. Cet exemple utilise la [fonction geo.distance](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples) qui applique un filtre sur les documents situés à une distance arbitraire (en kilomètres) d’un point de départ que vous spécifiez. Vous pouvez ajuster la dernière valeur de la requête (4) pour réduire ou étendre la surface de la requête.
+L’exemple d’index inclut un champ geo_location avec des coordonnées de latitude et de longitude. Cet exemple utilise la [fonction geo.distance](https://docs.microsoft.com/azure/search/search-query-odata-geo-spatial-functions#examples) qui applique un filtre sur les documents situés à une distance arbitraire (en kilomètres) d’un point de départ que vous spécifiez. Vous pouvez ajuster la dernière valeur de la requête (4) pour réduire ou étendre la surface de la requête.
 
 L’exemple ci-après est fourni au format POST à des fins de lisibilité :
 

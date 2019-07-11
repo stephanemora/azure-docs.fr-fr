@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 06/11/2018
+ms.date: 07/05/2019
 ms.author: panosper
-ms.openlocfilehash: fd8362748c39389139e8384d0bad7e84d20128a4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a5ca7d8a6b09dc277664fdc7db2433466e665d56
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66751626"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606675"
 ---
 # <a name="text-to-speech-frequently-asked-questions"></a>Forum aux questions sur la synthèse vocale
 
@@ -59,7 +59,7 @@ Nous fournissons des services supplémentaires afin de vous aider à préparer d
 
 **Q : Mes requêtes sont-elles limitées ?**
 
-**R** : L’API REST limite les requêtes à 25 par période de 5 secondes. Vous trouverez des informations dans nos pages sur [Synthèse vocale](text-to-speech.md). 
+**R** : L’API REST limite les requêtes à 25 par période de 5 secondes. Vous trouverez des informations dans nos pages sur [Synthèse vocale](text-to-speech.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

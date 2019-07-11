@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/30/2019
-ms.author: aljo,suhuruli
+ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 1487c9e3e57a2fe4dcdcab04aa81cd81315decfd
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 5d0c8b458f11076ea87d74eae3eecd72fb37eb40
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66302287"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621522"
 ---
 # <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>Démarrage rapide : Déployer des conteneurs Linux sur Service Fabric
 
@@ -188,7 +188,7 @@ ResourceGroupName="containertestcluster"
 az group delete --name $ResourceGroupName
 ```
 
-Si vous avez fini d’utiliser votre cluster, vous pouvez supprimer le certificat du magasin de certificats. Par exemple : 
+Si vous avez fini d’utiliser votre cluster, vous pouvez supprimer le certificat du magasin de certificats. Par exemple :
 - Sous Windows : utilisez le [composant logiciel enfichable MMC Certificats](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in). Veillez à sélectionner **My user account** (Mon compte d’utilisateur) lors de l’ajout du composant logiciel enfichable. Accédez à `Certificates - Current User\Personal\Certificates` et supprimez le certificat.
 - Sur Mac : utilisez l’application Keychain.
 - Sur Ubuntu : suivez les étapes que vous avez utilisées pour afficher les certificats, puis supprimez le certificat.

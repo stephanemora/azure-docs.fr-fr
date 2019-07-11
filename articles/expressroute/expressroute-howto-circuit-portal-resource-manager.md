@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/20/2018
 ms.author: cherylmc;ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 16f3ad1aa037dca2e7b8c3e68ae952c27b952711
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ce6d64f1df7a91f68e4621189553c36b36709039
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60366482"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657225"
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Création et modification d’un circuit ExpressRoute
 
@@ -21,6 +21,7 @@ ms.locfileid: "60366482"
 > * [Portail Azure](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [Interface de ligne de commande Azure](howto-circuit-cli.md)
+> * [Modèle Azure Resource Manager](expressroute-howto-circuit-resource-manager-template.md)
 > * [Vidéo - portail Azure](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (classique)](expressroute-howto-circuit-classic.md)
 >
@@ -121,7 +122,7 @@ Vous pouvez afficher l’état d’un circuit en sélectionnant celui-ci et en a
 
 ## <a name="modify"></a>Modification d’un circuit ExpressRoute
 
-Vous pouvez modifier certaines propriétés d'un circuit ExpressRoute sans affecter la connectivité. Vous pouvez modifier la bande passante, la référence (SKU), le modèle de facturation et autoriser les opérations classiques sur la page **Configuration**. Pour plus d’informations sur les limites et limitations, voir le [FAQ ExpressRoute](expressroute-faqs.md). 
+Vous pouvez modifier certaines propriétés d'un circuit ExpressRoute sans affecter la connectivité. Vous pouvez modifier la bande passante, la référence (SKU), le modèle de facturation et autoriser les opérations classiques sur la page **Configuration**. Pour plus d’informations sur les limites et limitations, voir le [FAQ ExpressRoute](expressroute-faqs.md).
 
 Vous pouvez effectuer les tâches suivantes sans temps d’arrêt :
 
@@ -139,9 +140,9 @@ Vous pouvez effectuer les tâches suivantes sans temps d’arrêt :
 * Vous pouvez activer et désactiver *Autoriser les opérations classiques*.
   > [!IMPORTANT]
   > Vous devrez peut-être recréer le circuit ExpressRoute si la capacité sur le port existant est inappropriée. Vous ne pouvez pas mettre le circuit à niveau si aucune capacité supplémentaire n’est disponible à cet emplacement.
-  > 
+  >
   > Même si vous pouvez aisément mettre à niveau la bande passante, vous ne pouvez pas réduire la bande passante d’un circuit ExpressRoute sans interrompre le service. Le fait de passer à un niveau inférieur de bande passante vous oblige à annuler l’approvisionnement du circuit ExpressRoute, puis à réapprovisionner un nouveau circuit ExpressRoute.
-  > 
+  >
   > La désactivation de l’opération du module complémentaire Premium peut échouer si vous utilisez davantage de ressources que ce qui est autorisé pour le circuit standard.
 
 Pour modifier un circuit ExpressRoute, cliquez sur **Configuration**.

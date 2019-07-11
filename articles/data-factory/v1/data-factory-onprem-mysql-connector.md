@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 06/06/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: de1263d68e96a23bd6b5eca4297e74b56ba22e40
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2468fc0cbdcee9088aa9acb387af396dd448ad0a
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60823944"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67701687"
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Déplacer des données depuis MySQL à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -73,7 +73,7 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
 | database |Nom de la base de données MySQL. |OUI |
 | schema |Nom du schéma dans la base de données. |Non |
 | authenticationType |Type d'authentification utilisé pour se connecter à la base de données MySQL. Les valeurs possibles sont les suivantes : `Basic`. |OUI |
-| username |Spécifiez le nom d’utilisateur associé à la connexion à la base de données MySQL. |OUI |
+| userName |Spécifiez le nom d’utilisateur associé à la connexion à la base de données MySQL. |OUI |
 | password |Spécifiez le mot de passe du compte d’utilisateur que vous avez indiqué. |OUI |
 | gatewayName |Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à la base de données MySQL locale. |OUI |
 

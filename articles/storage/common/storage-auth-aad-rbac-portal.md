@@ -9,12 +9,12 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: ebb67ff295a934b4e125e298018c27a095adc590
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 959d96a9bc1dd9f28e62d904248cd1f18d73c27d
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65153862"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67563927"
 ---
 # <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-in-the-azure-portal"></a>Octroyer l’accès aux données d’objet blob et de file d’attente Azure dans le portail Azure
 
@@ -42,6 +42,11 @@ Après avoir déterminé l’étendue appropriée pour une attribution de rôle,
 
 Les sections suivantes décrivent chacune de ces étapes plus en détail.
 
+> [!NOTE]
+> En tant que propriétaire de votre compte de stockage Azure, aucune autorisation d’accès aux données ne vous est automatiquement attribuée. Vous devez vous attribuer explicitement un rôle RBAC pour le Stockage Azure. Vous pouvez l’attribuer au niveau de votre abonnement, votre groupe de ressources ou votre compte de stockage, ou au niveau d’un conteneur ou d’une file d’attente.
+> 
+> Vous ne pouvez pas attribuer de rôle dans l’étendue d’un conteneur ou d’une file d’attente d’attente si votre compte de stockage a un espace de noms hiérarchique activé.
+
 ### <a name="assign-a-built-in-rbac-role"></a>Attribuer un rôle RBAC intégré
 
 Avant d’attribuer un rôle à un principal de sécurité, veillez à tenir compte de l’étendue des autorisations que vous accordez. Passez en revue la section [Déterminer l’étendue de la ressource](#determine-resource-scope) pour décider de l’étendue appropriée.
@@ -65,11 +70,6 @@ La procédure illustrée ici attribue un rôle limité à un conteneur, mais vou
     ![Capture d’écran montrant la liste des utilisateurs auxquels un rôle a été attribué](media/storage-auth-aad-rbac-portal/container-scoped-role.png)
 
 Vous pouvez suivre des étapes similaires pour attribuer un rôle dans l’étendue du compte de stockage, du groupe de ressources ou de l’abonnement.
-
-> [!NOTE]
-> En tant que propriétaire de votre compte de stockage Azure, aucune autorisation d’accès aux données ne vous est automatiquement attribuée. Vous devez vous attribuer explicitement un rôle RBAC pour le Stockage Azure. Vous pouvez l’attribuer au niveau de votre abonnement, votre groupe de ressources ou votre compte de stockage, ou au niveau d’un conteneur ou d’une file d’attente.
-> 
-> Vous ne pouvez pas attribuer de rôle dans l’étendue d’un conteneur ou d’une file d’attente d’attente si votre compte de stockage a un espace de noms hiérarchique activé.
 
 ### <a name="assign-the-reader-role-for-portal-access"></a>Attribuer le rôle Lecteur pour accéder au portail
 

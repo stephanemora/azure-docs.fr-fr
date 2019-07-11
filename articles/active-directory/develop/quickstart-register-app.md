@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ec1d5fb13d7fb191bfee6194e69a217bcaddbb9
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 541253cf3a8f2628ea0e76f1115ddc4a290daf62
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482572"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655478"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Démarrage rapide : Inscrire une application avec la plateforme d’identités Microsoft
 
@@ -50,7 +50,7 @@ Ce guide de démarrage rapide vous explique comment ajouter et inscrire une appl
        - Pour les applications web, indiquez l’URL de base de votre application. Par exemple, `http://localhost:31544` peut être l’URL pour une application web en cours d’exécution sur votre ordinateur local. Les utilisateurs peuvent utiliser cette URL pour se connecter à une application web cliente.
        - Pour les applications de client public, indiquez l’URI utilisé par Azure AD pour retourner les réponses de jeton. Entrez une valeur spécifique de votre application, par exemple, `myapp://auth`.
 
-     Pour voir des exemples spécifiques pour les applications web ou natives, consultez les [Guides de démarrage rapides](https://docs.microsoft.com/azure/active-directory/develop/#quickstarts).
+     Pour voir des exemples spécifiques pour les applications web ou natives, consultez les [Guides de démarrage rapides](https://docs.microsoft.com/azure/active-directory/develop).
 
 1. Lorsque vous avez terminé, sélectionnez **Inscrire**.
 
@@ -67,6 +67,6 @@ Azure AD assigne un ID d’application unique (client) à votre application, et 
     - [Configurer une application cliente pour accéder aux API web](quickstart-configure-app-access-web-apis.md)
     - [Configurer une application pour exposer les API web](quickstart-configure-app-expose-web-apis.md)
     - [Modifier les comptes pris en charge par une application](quickstart-modify-supported-accounts.md)
-- Choisissez un [guide de démarrage rapide](https://docs.microsoft.com/azure/active-directory/develop/#quickstarts) pour rapidement générer une application et ajouter des fonctionnalités telles que l’obtention de jetons, l’actualisation de jetons, la connexion d’un utilisateur et l’affichage des informations utilisateur et bien plus encore.
+- Choisissez un [guide de démarrage rapide](https://docs.microsoft.com/azure/active-directory/develop) pour rapidement générer une application et ajouter des fonctionnalités telles que l’obtention de jetons, l’actualisation de jetons, la connexion d’un utilisateur et l’affichage des informations utilisateur et bien plus encore.
 - Pour en savoir plus sur les deux objets Azure AD représentant une application inscrite et la relation entre ces objets, consultez [Objets application et principal du service dans Azure Active Directory (Azure AD)](app-objects-and-service-principals.md).
 - Pour en savoir plus sur les directives de personnalisation que vous devez suivre lors du développement d’applications, consultez [Directives de personnalisation des applications](howto-add-branding-in-azure-ad-apps.md).

@@ -4,15 +4,15 @@ description: Comment activer le rendu et le codage avec accélération GPU dans 
 services: virtual-desktop
 author: gundarev
 ms.service: virtual-desktop
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: a6a67c89253a1b16f9266d7917655d1b1104022e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b6a4811f685803ecdc079a690d550618c071c4a6
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65159569"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620196"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop-preview"></a>Configurer l’accélération GPU pour Windows Virtual Desktop Preview
 

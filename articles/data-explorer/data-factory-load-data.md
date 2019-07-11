@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: 64856d53168a7676cf279da2d8675ce81e1985f7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2142fbf03daa6667b20db43f9212a2b5e6d7dd44
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60447879"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657536"
 ---
 # <a name="copy-data-to-azure-data-explorer-using-azure-data-factory"></a>Copier des données dans Azure Data Explorer à l’aide d’Azure Data Factory 
 
@@ -141,7 +141,7 @@ Un nouveau service lié Azure Data Explorer est créé pour copier les données 
     * Sélectionnez **Finish** (Terminer) pour achever la création du service lié.
 
     > [!NOTE]
-    > Le principal du service est utilisé par Azure Data Factory pour accéder au service Azure Data Explorer. Pour le principal du service, [créez un principal du service Azure Active Directory (Azure AD)](/azure/azure-stack/azure-stack-create-service-principals#manage-service-principal-for-azure-ad). N’utilisez pas la méthode **Azure Key Vault**.
+    > Le principal du service est utilisé par Azure Data Factory pour accéder au service Azure Data Explorer. Pour le principal du service, [créez un principal du service Azure Active Directory (Azure AD)](/azure-stack/operator/azure-stack-create-service-principals#manage-an-azure-ad-service-principal). N’utilisez pas la méthode **Azure Key Vault**.
 
 1. Le **Destination data store** (Magasin de données de destination) s’ouvre. La connexion de données Azure Data Explorer que vous avez créée est disponible pour utilisation. Sélectionnez **Next** (Suivant) pour configurer la connexion.
 
@@ -165,7 +165,7 @@ Un nouveau service lié Azure Data Explorer est créé pour copier les données 
 1. Dans la page **Paramètres** :
     * Définissez les **Fault tolerance settings** (Paramètres de tolérance de panne) pertinents.
     * **Performance settings** (Paramètres de performance) : L’option Enable staging (Activer le mode de préproduction) n’est pas applicable. Les **Advanced settings** (Paramètres avancés) incluent des considérations relatives aux coûts. Conservez la valeur actuelle si vous n’avez pas de besoins spécifiques.
-    * Sélectionnez **Next** (Suivant).
+    * Sélectionnez **Suivant**.
 
     ![Copier les paramètres de données](media/data-factory-load-data/copy-data-settings.png)
 

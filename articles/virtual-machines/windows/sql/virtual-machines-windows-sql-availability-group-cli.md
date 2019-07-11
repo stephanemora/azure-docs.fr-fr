@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/12/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 5efbe874bbf3c1c4081eb7a2c76c1be5a3358ec8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b5015f00d3c6dfe0e1e5c2466af777cc0f1bc509
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65518981"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67607151"
 ---
 # <a name="use-azure-sql-vm-cli-to-configure-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>Utiliser l’interface CLI de machine virtuelle SQL Azure pour configurer un groupe de disponibilité Always On pour SQL Server sur une machine virtuelle Azure
 Cet article décrit comment utiliser [l’interface CLI de machine virtuelle SQL Azure](/cli/azure/sql/vm?view=azure-cli-latest/) pour déployer un cluster de basculement Windows (WSFC), ajouter des machines virtuelles SQL Server au cluster, ainsi que pour créer l’équilibreur de charge interne et l’écouteur pour un groupe de disponibilité Always On.  Le déploiement réel du groupe de disponibilité Always On est toujours effectué manuellement par le biais de SQL Server Management Studio (SSMS). 
@@ -28,7 +28,7 @@ Cet article décrit comment utiliser [l’interface CLI de machine virtuelle SQL
 Pour automatiser la configuration d’un groupe de disponibilité Always On à l’aide de modèles de l’interface CLI de machine virtuelle SQL Azure, vous devez déjà avoir les prérequis suivants : 
 - Un [abonnement Azure](https://azure.microsoft.com/free/).
 - Un groupe de ressources avec un contrôleur de domaine. 
-- Une ou plusieurs [machines virtuelles jointes à un domaine dans Azure qui exécutent SQL Server 2016 (ou version supérieure) Enterprise Edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) dans le *même groupe à haute disponibilité ou dans des zones de disponibilité distinctes* et qui sont [inscrites auprès du fournisseur de ressources de machine virtuelle SQL](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-sql-resource-provider).  
+- Une ou plusieurs [machines virtuelles jointes à un domaine dans Azure qui exécutent SQL Server 2016 (ou version supérieure) Enterprise Edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) dans le *même groupe à haute disponibilité ou dans des zones de disponibilité distinctes* et qui sont [inscrites auprès du fournisseur de ressources de machine virtuelle SQL](virtual-machines-windows-sql-register-with-resource-provider.md).  
 - [Azure CLI](/cli/azure/install-azure-cli). 
 - Deux adresses IP disponibles (non utilisées par une entité), une pour l’équilibreur de charge interne et une pour l’écouteur de groupe de disponibilité dans le même sous-réseau que le groupe de disponibilité. Si un équilibreur de charge existant est utilisé, une seule adresse IP disponible est nécessaire pour l’écouteur de groupe de disponibilité. 
 

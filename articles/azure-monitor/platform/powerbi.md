@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/01/219
+ms.date: 05/01/2019
 ms.author: bwren
-ms.openlocfilehash: 2db6ddf57802f6fcf38cfc3ad7094ed94eaca3d8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0b1627306f1a8e9d9285c72118bfebdcb53d369b
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65234203"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626117"
 ---
 # <a name="import-azure-monitor-log-data-into-power-bi"></a>Importation de données de journal Azure Monitor dans Power BI
 
@@ -28,12 +28,12 @@ ms.locfileid: "65234203"
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="overview"></a>Vue d'ensemble
-Pour importer les données d’un [espace de travail Log Analytics](manage-access.md) d’Azure Monitor dans Power BI, créez un jeu de données dans Power BI à partir d’une [requête de recherche dans les journaux](../log-query/log-query-overview.md) dans Azure Monitor.  La requête est exécutée chaque fois que le jeu de données est actualisé.  Vous pouvez ensuite créer des rapports Power BI qui utilisent les informations du jeu de données.  Pour créer le jeu de données dans Power BI, vous exportez votre requête depuis Log Analytics vers le [langage Power Query (M)](https://msdn.microsoft.com/library/mt807488.aspx).  Vous l'utilisez ensuite pour créer une requête dans Power BI Desktop, avant de la publier dans Power BI en tant que jeu de données.  Les détails de ce processus sont décrits ci-dessous.
+Pour importer les données d’un [espace de travail Log Analytics](manage-access.md) d’Azure Monitor dans Power BI, créez un jeu de données dans Power BI à partir d’une [requête de recherche dans les journaux](../log-query/log-query-overview.md) dans Azure Monitor.  La requête est exécutée chaque fois que le jeu de données est actualisé.  Vous pouvez ensuite créer des rapports Power BI qui utilisent les informations du jeu de données.  Pour créer le jeu de données dans Power BI, vous exportez votre requête depuis Log Analytics vers le [langage Power Query (M)](https://docs.microsoft.com/powerquery-m/power-query-m-language-specification).  Vous l'utilisez ensuite pour créer une requête dans Power BI Desktop, avant de la publier dans Power BI en tant que jeu de données.  Les détails de ce processus sont décrits ci-dessous.
 
 ![Log Analytics vers Power BI](media/powerbi/overview.png)
 
 ## <a name="export-query"></a>Exporter une requête
-Commencez par créer une [requête de journal](../log-query/log-query-overview.md) qui renvoie les données que vous voulez ajouter au jeu de données Power BI.  Vous exportez ensuite cette requête dans le [langage Power Query (M)](https://msdn.microsoft.com/library/mt807488.aspx) qui peut être utilisé par Power BI Desktop.
+Commencez par créer une [requête de journal](../log-query/log-query-overview.md) qui renvoie les données que vous voulez ajouter au jeu de données Power BI.  Vous exportez ensuite cette requête dans le [langage Power Query (M)](https://docs.microsoft.com/powerquery-m/power-query-m-language-specification) qui peut être utilisé par Power BI Desktop.
 
 1. [Créez la requête de journal Log Analytics](../log-query/get-started-portal.md) pour extraire les informations de votre jeu de données.
 2. Sélectionnez **Exporter** > **Requête Power BI (M)** .  Cela a pour effet d’exporter la requête vers un fichier texte intitulé **PowerBIQuery.txt**. 

@@ -6,14 +6,14 @@ author: adigan
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-ms.date: 01/30/2019
+ms.date: 07/09/2019
 ms.author: adigan
-ms.openlocfilehash: e3004a44958d75d18d608a2fbed7ccc44a00dc93
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5f656a097509e9998d6fb8f157d1910cc04b7799
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60642681"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705156"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurer les rapports de la Sauvegarde Azure
 Cet article explique les étapes à suivre pour configurer les rapports pour la Sauvegarde Azure à l’aide d’un coffre Recovery Services. Il montre également comment accéder aux rapports à l’aide de Power BI. Une fois que vous avez terminé ces étapes, vous pouvez accéder directement à Power BI pour afficher, personnaliser et créer des rapports.
@@ -71,7 +71,7 @@ Suivez ces étapes afin de configurer le compte de stockage pour un coffre Recov
       ![Afficher le paramètre de diagnostic - Étape 9](./media/backup-azure-configure-reports/diagnostic-setting-row.png)
 
 > [!NOTE]
-> Une fois que vous configurez des rapports en enregistrant le compte de stockage, *attendez 24 heures* pour que le push de données initial se termine. Importez l’application de sauvegarde Azure dans Power BI uniquement après cette heure. Pour plus d’informations, visitez la [section FAQ](#frequently-asked-questions).
+> Une fois que vous configurez des rapports en enregistrant le compte de stockage, *attendez 24 heures* pour que le push de données initial se termine. Importez l’application de sauvegarde Azure dans Power BI uniquement après cette heure. Pour plus d’informations, visitez la [section FAQ](backup-azure-monitor-alert-faq.md).
 >
 >
 
@@ -112,34 +112,6 @@ Pour personnaliser et partager le rapport, créez un espace de travail et procé
 
       ![Onglets des rapports de la Sauvegarde Azure](./media/backup-azure-configure-reports/reports-tab-view.png)
 
-
-## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
-
-### <a name="how-do-i-check-if-reporting-data-has-started-flowing-into-a-storage-account"></a>Comment vérifier si les données de rapports ont commencé à arriver dans un compte de stockage ?
-Accédez au compte de stockage que vous avez configuré et sélectionnez les conteneurs. Si le conteneur a une entrée insights-logs-azurebackupreport, cela signifie que les données de rapports ont commencé à arriver.
-
-### <a name="what-is-the-frequency-of-data-push-to-a-storage-account-and-the-azure-backup-content-pack-in-power-bi"></a>Quelle est la fréquence des Push de données vers un compte de stockage et le pack de contenu de la Sauvegarde Azure dans Power BI ?
-  Pour les nouveaux utilisateurs, il faut environ 24 heures pour effectuer une transmission des données de type push vers un compte de stockage. Une fois cette transmission de type push initiale terminée, les données sont actualisées selon la fréquence indiquée dans la figure suivante.
-
-  * Les données relatives aux **Travaux**, **Alertes**, **Éléments de sauvegarde**, **Coffres**, **Serveurs protégés** et **Stratégies** sont transmises au compte de stockage client au fur et à mesure qu’elles sont consignées.
-
-  * Les données relatives au **Stockage** sont transmises à un compte de stockage client toutes les 24 heures.
-
-       ![Fréquence des Push de données des rapports de la Sauvegarde Azure](./media/backup-azure-configure-reports/reports-data-refresh-cycle.png)
-
-  * Power BI effectue une [actualisation planifiée une fois par jour](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/#what-can-be-refreshed). Vous pouvez effectuer une actualisation manuelle des données dans Power BI pour le pack de contenu.
-
-### <a name="how-long-can-i-retain-reports"></a>Combien de temps puis-je conserver les rapports ?
-Lorsque vous configurez un compte de stockage, vous pouvez sélectionner une période de rétention pour les données de rapport dans le compte de stockage. Suivez l’étape 6 dans la section [Configurer le compte de stockage pour les rapports](backup-azure-configure-reports.md#configure-storage-account-for-reports). Vous pouvez également [analyser les rapports sous Excel](https://powerbi.microsoft.com/documentation/powerbi-service-analyze-in-excel/) et les enregistrer pour allonger la période de rétention en fonction de vos besoins.
-
-### <a name="will-i-see-all-my-data-in-reports-after-i-configure-the-storage-account"></a>Verrai-je toutes mes données dans des rapports après avoir configuré le compte de stockage ?
- Toutes les données générées après que vous ayez configuré un compte de stockage sont transmises au compte de stockage et sont disponibles dans les rapports. Les travaux En cours ne sont pas transmis pour la création de rapports. Une fois que la tâche se termine ou échoue, elle est envoyée aux rapports.
-
-### <a name="if-i-already-configured-the-storage-account-to-view-reports-can-i-change-the-configuration-to-use-another-storage-account"></a>Si j’ai déjà configuré le compte de stockage pour afficher les rapports, puis-je modifier la configuration afin d’utiliser un autre compte de stockage ?
-Oui, vous pouvez modifier la configuration de façon à pointer vers un autre compte de stockage. Utilisez le compte de stockage qui vient d’être configuré pour vous connecter au pack de contenu de la Sauvegarde Azure. En outre, une fois qu’un autre compte de stockage est configuré, les nouvelles données arrivent dans ce compte de stockage. Les données plus anciennes (précédents à votre modification de la configuration) restent dans le compte de stockage précédent.
-
-### <a name="can-i-view-reports-across-vaults-and-subscriptions"></a>Puis-je afficher des rapports sur différents coffres et abonnements ?
-Oui, vous pouvez configurer le même compte de stockage sur différents coffres pour afficher des rapports multicoffres. Vous pouvez également configurer le même compte de stockage pour des coffres de différents abonnements. Vous pouvez ensuite utiliser ce compte de stockage pour vous connecter au pack de contenu de la Sauvegarde Azure dans Power BI afin d’afficher les rapports. Le compte de stockage sélectionné doit se trouver dans la même région que le coffre Recovery Services.
 
 ## <a name="troubleshooting-errors"></a>Résolution des erreurs
 | Détails de l’erreur | Résolution : |

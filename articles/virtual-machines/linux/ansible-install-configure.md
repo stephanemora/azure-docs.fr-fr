@@ -5,15 +5,15 @@ keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
 ms.topic: quickstart
 ms.service: ansible
 author: tomarchermsft
-manager: jeconnoc
+manager: gwallace
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 60cefe24feab9de4262e81eb1bc313aeadc7eb05
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: d3302d999dd70a83be18ce610b9c3d44992c865c
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65409254"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671840"
 ---
 # <a name="quickstart-install-ansible-on-linux-virtual-machines-in-azure"></a>Démarrage rapide : Installer Ansible sur des machines virtuelles Linux dans Azure
 
@@ -39,7 +39,7 @@ Dans cette section, vous configurez CentOS pour qu’il utilise Ansible.
 
 1. Ouvrez une fenêtre de terminal.
 
-1. Entrez la commande suivante pour installer les packages obligatoires pour les modules du SDK Azure Python :
+1. Entrez la commande suivante afin d’installer les packages obligatoires pour les modules du SDK Azure Python :
 
     ```bash
     sudo yum check-update; sudo yum install -y gcc libffi-devel python-devel openssl-devel epel-release
@@ -60,7 +60,7 @@ Dans cette section, vous configurez Ubuntu pour qu’il utilise Ansible.
 
 1. Ouvrez une fenêtre de terminal.
 
-1. Entrez la commande suivante pour installer les packages obligatoires pour les modules du SDK Azure Python :
+1. Entrez la commande suivante afin d’installer les packages obligatoires pour les modules du SDK Azure Python :
 
     ```bash
     sudo apt-get update && sudo apt-get install -y libssl-dev libffi-dev python-dev python-pip

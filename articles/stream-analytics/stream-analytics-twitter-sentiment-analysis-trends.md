@@ -9,12 +9,12 @@ manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/29/2017
-ms.openlocfilehash: abb2a89f41340e8e2e26fa36cc20b790341618d0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f24ad348c681609392f83af894bf774dbee226bc
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60763226"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620837"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Analyse de sentiments Twitter en temps réel dans Azure Stream Analytics
 
@@ -232,9 +232,9 @@ Maintenant que nous avons un flux d’événements de tweet diffusé en temps r�
 
 ## <a name="specify-the-job-query"></a>Spécification de la requête de travail
 
-Stream Analytics prend en charge un modèle de requête simple et déclaratif pour la description des transformations. Pour plus d’informations sur ce langage, consultez la page [Références sur le langage des requêtes d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx).  Ce didacticiel aborde la création et le test de plusieurs requêtes sur des données Twitter.
+Stream Analytics prend en charge un modèle de requête simple et déclaratif pour la description des transformations. Pour plus d’informations sur ce langage, consultez la page [Références sur le langage des requêtes d’Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference).  Ce didacticiel aborde la création et le test de plusieurs requêtes sur des données Twitter.
 
-Pour comparer le nombre de mentions entre les sujets, vous pouvez utiliser une [fenêtre bascule](https://msdn.microsoft.com/library/azure/dn835055.aspx) pour obtenir le nombre de mentions par sujet toutes les cinq secondes.
+Pour comparer le nombre de mentions entre les sujets, vous pouvez utiliser une [fenêtre bascule](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics) pour obtenir le nombre de mentions par sujet toutes les cinq secondes.
 
 1. Si ce n’est déjà fait, fermez le panneau **Entrées**.
 
@@ -266,7 +266,7 @@ Pour comparer le nombre de mentions entre les sujets, vous pouvez utiliser une [
 
     Si n’avez pas utilisé `TwitterStream` comme alias de l’entrée, remplacez votre alias par `TwitterStream` dans la requête.  
 
-    Cette requête utilise le mot clé **TIMESTAMP BY** pour spécifier un champ d’horodatage dans la charge utile à utiliser dans le calcul temporel. Si ce champ n’est pas spécifié, l’opération de fenêtrage est réalisée en utilisant l’heure d’arrivée de chaque événement dans le hub d’événements. Pour en savoir plus, consultez la section « Heure d’arrivée par rapport à l’heure de l’application » de la page [Référence du langage de requête d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx).
+    Cette requête utilise le mot clé **TIMESTAMP BY** pour spécifier un champ d’horodatage dans la charge utile à utiliser dans le calcul temporel. Si ce champ n’est pas spécifié, l’opération de fenêtrage est réalisée en utilisant l’heure d’arrivée de chaque événement dans le hub d’événements. Pour en savoir plus, consultez la section « Heure d’arrivée par rapport à l’heure de l’application » de la page [Référence du langage de requête d’Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference).
 
     Cette requête permet également d’accéder à un horodatage pour la fin de chaque fenêtre à l’aide de la propriété **System.Timestamp**.
 
@@ -348,7 +348,7 @@ Pour afficher la sortie du travail en temps réel, vous pouvez utiliser un outil
 
 ## <a name="create-another-query-to-identify-trending-topics"></a>Créer une autre requête pour identifier les tendances
 
-Une autre requête que vous pouvez utiliser pour comprendre les sentiments Twitter est basée sur une [fenêtre glissante](https://msdn.microsoft.com/library/azure/dn835051.aspx). Pour identifier les tendances, vous recherchez des sujets dépassant une valeur de seuil pour les mentions dans un laps de temps spécifié.
+Une autre requête que vous pouvez utiliser pour comprendre les sentiments Twitter est basée sur une [fenêtre glissante](https://docs.microsoft.com/stream-analytics-query/sliding-window-azure-stream-analytics). Pour identifier les tendances, vous recherchez des sujets dépassant une valeur de seuil pour les mentions dans un laps de temps spécifié.
 
 Pour les besoins de ce didacticiel, vous allez consulter les rubriques mentionnées plus de 20 fois au cours des 5 dernières secondes.
 
@@ -379,5 +379,5 @@ Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https:/
 * [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)
 * [Prise en main d’Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Mise à l’échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
-* [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Références sur le langage des requêtes d'Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)

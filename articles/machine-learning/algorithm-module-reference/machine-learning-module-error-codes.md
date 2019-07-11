@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 09a2b616e2bba93be86241c64d37daec7d6dea3b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5ce3d86d37940f66065debce30b348371b7aa6af
+ms.sourcegitcommit: 3107874d7559ea975e4d55ae33cdf45f4b5485e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65029759"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67568242"
 ---
 # <a name="exceptions-and-error-codes-for-algorithm--module-reference"></a>Exceptions et codes d’erreur pour les algorithmes et informations de référence sur les modules
 
@@ -251,15 +251,16 @@ Si le modèle a été formé à l’aide de l’un des modules de formation spé
 |----|----|----|
 |n’importe quel classifieur|[Former le modèle](train-model.md) |[Noter le modèle](score-model.md)|
 |n’importe quel modèle de régression|[Former le modèle](train-model.md) |[Noter le modèle](score-model.md)|
-<!--| modèles de clustering| [Entraîner un modèle de clustering](train-clustering-model.md) ou [Nettoyer le clustering](sweep-clustering.md)| [Attribuer des données à des clusters](assign-data-to-clusters.md)|
-| détection d’anomalies - SVM à classe unique | [Former le modèle de détection des anomalies](train-anomaly-detection-model.md) |[Noter le modèle](score-model.md)|
-| détection d’anomalies - PCA |[Former le modèle](train-model.md) |[Noter le modèle](score-model.md) </br> Certaines étapes supplémentaires sont nécessaires pour évaluer le modèle. |
-| détection d’anomalies - série chronologique|  [Détection des anomalies de série chronologique](time-series-anomaly-detection.md) |Le modèle s’entraîne à partir des données et produit des scores. Le module ne crée pas d’apprenant formé et aucune notation supplémentaire n’est requise. |
-| modèle de recommandation| [Former la recommandation Matchbox](train-matchbox-recommender.md) | [Noter la recommandation Matchbox](score-matchbox-recommender.md) |
-| classification d’image | [Classification d’image en cascade préformée](pretrained-cascade-image-classification.md) | [Noter le modèle](score-model.md) |
-|Modèles Vowpal Wabbit| [Former un modèle Vowpal Wabbit Version 7-4](train-vowpal-wabbit-version-7-4-model.md) | [Noter un modèle Vowpal Wabbit Version 7-4](score-vowpal-wabbit-version-7-4-model.md) |   
-|Modèles Vowpal Wabbit| [Former un modèle Vowpal Wabbit Version 7-10](train-vowpal-wabbit-version-7-10-model.md) | [Noter un modèle Vowpal Wabbit Version 7-10](score-vowpal-wabbit-version-7-10-model.md) |
-|Modèles Vowpal Wabbit| [Former un modèle Vowpal Wabbit Version 8](score-vowpal-wabbit-version-8-model.md) | [Noter un modèle Vowpal Wabbit Version 8](score-vowpal-wabbit-version-8-model.md) |-->
+
+<!--| clustering models| [Train Clustering Model](train-clustering-model.md) or [Sweep Clustering](sweep-clustering.md)| [Assign Data to Clusters](assign-data-to-clusters.md)|
+| anomaly detection - One-Class SVM | [Train Anomaly Detection Model](train-anomaly-detection-model.md) |[Score Model](score-model.md)|
+| anomaly detection - PCA |[Train Model](train-model.md) |[Score Model](score-model.md) </br> Some additional steps are required to evaluate the model. |
+| anomaly detection - time series|  [Time Series Anomaly Detection](time-series-anomaly-detection.md) |Model trains from data and generates scores. The module does not create a trained learner and no additional scoring is required. |
+| recommendation model| [Train Matchbox Recommender](train-matchbox-recommender.md) | [Score Matchbox Recommender](score-matchbox-recommender.md) |
+| image classification | [Pretrained Cascade Image Classification](pretrained-cascade-image-classification.md) | [Score Model](score-model.md) |
+|Vowpal Wabbit models| [Train Vowpal Wabbit Version 7-4 Model](train-vowpal-wabbit-version-7-4-model.md) | [Score Vowpal Wabbit Version 7-4 Model](score-vowpal-wabbit-version-7-4-model.md) |   
+|Vowpal Wabbit models| [Train Vowpal Wabbit Version 7-10 Model](train-vowpal-wabbit-version-7-10-model.md) | [Score Vowpal Wabbit Version 7-10 Model](score-vowpal-wabbit-version-7-10-model.md) |
+|Vowpal Wabbit models| [Train Vowpal Wabbit Version 8 Model](score-vowpal-wabbit-version-8-model.md) | [Score Vowpal Wabbit Version 8 Model](score-vowpal-wabbit-version-8-model.md) |-->
   
 |Messages d’exception|  
 |------------------------|  
@@ -1169,7 +1170,7 @@ Consultez les articles suivants pour obtenir de l’aide sur les requêtes Hive 
 
 + [Créer des tables Hive et charger des données à partir de Stockage Blob Azure](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-move-hive-tables)
 + [Explorer les données dans des tables avec des requêtes Hive](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-explore-data-hive-tables)
-+ [Créer des fonctionnalités pour les données dans un cluster Hadoop à l’aide de requêtes Hive](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-create-features-hive).
++ [Créer des fonctionnalités pour les données dans un cluster Hadoop à l’aide de requêtes Hive](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-create-features-hive)
 + [Aide-mémoire pour les utilisateurs Hive pour SQL (PDF)](http://hortonworks.com/wp-content/uploads/2013/05/hql_cheat_sheet.pdf) (en anglais)
 
   
@@ -1680,7 +1681,7 @@ En général, une transformation basée sur le comptage ne peut être appliquée
 |------------------------|  
 |Le fichier de définition de module contient des erreurs.|  
 |Le fichier de définition de module « {0} » contient des erreurs.|  
-|Le fichier de définition de module « {0} » contient des erreurs. {1}|  
+|Le fichier de définition de module « {0} » contient des erreurs. [https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip]({1})|  
   
 
 ## <a name="error-0114"></a>Erreur 0114  
@@ -2081,7 +2082,7 @@ Résolution :
 |Messages d’exception|  
 |------------------------|  
 |Erreur d’accès à GitHub.|  
-|Erreur d’accès à GitHub. {0}|  
+|Erreur d’accès à GitHub. [https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip]({0})|  
   
 
 ## <a name="error-0148"></a>Erreur 0148  

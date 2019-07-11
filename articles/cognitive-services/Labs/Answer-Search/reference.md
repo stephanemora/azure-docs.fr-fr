@@ -9,13 +9,13 @@ ms.service: cognitive-services
 ms.subservice: answer-search
 ms.topic: reference
 ms.date: 04/13/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 09fab691ea04ad98472abc4f4dee5ecb4d22e660
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: rosh
+ms.openlocfilehash: 4384bf658024f89664c5202ba10d793d7ad734e0
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60721009"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592909"
 ---
 # <a name="project-answer-search-v7-reference"></a>Informations de référence sur le projet Recherche de réponses v7
 
@@ -201,7 +201,7 @@ Définit les informations concernant la page web dans l’aperçu.
 |Nom|Titre de la page (pas nécessairement le titre HTML).|Chaîne|
 |url|URL réellement analysée (potentiellement avec redirections de la demande).|Chaîne|  
 |description|Brève description de la page et de son contenu.|Chaîne|  
-|isFamilyFriendly|Précision maximale pour les éléments figurant dans l’index web ; les extractions en temps réel effectuent cette détection d’après l’URL uniquement, et non d’après le contenu de la page.|booléenne|
+|isFamilyFriendly|Précision maximale pour les éléments figurant dans l’index web ; les extractions en temps réel effectuent cette détection d’après l’URL uniquement, et non d’après le contenu de la page.|boolean|
 |primaryImageOfPage/contentUrl|URL d’une image représentative à inclure dans l’aperçu.|Chaîne| 
   
   
@@ -257,7 +257,7 @@ Notez que, si le service suspecte une attaque par déni de service, la demande r
 |Nom|Valeur|Type|  
 |----------|-----------|----------|  
 |_type|Indicateur de type, défini sur SearchResponse.|Chaîne|  
-|WebPage|Objet JSON qui définit l’aperçu.|chaîne|  
+|WebPage|Objet JSON qui définit l’aperçu.|string|  
   
   
 ### <a name="textattribution"></a>TextAttribution  

@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
-ms.author: v-ant-msft
-ms.openlocfilehash: 5319b0ac06c4ddf1a7627a4e7fe0bfb2694f79f6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: jeedes
+ms.openlocfilehash: 3d6210fa215792fc7ff049eb597df5905926c193
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64706595"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67670893"
 ---
 # <a name="tutorial-configure-zscaler-one-for-automatic-user-provisioning"></a>Didacticiel : Configurer Zscaler One pour l'approvisionnement automatique d’utilisateurs
 
@@ -33,7 +33,7 @@ Ce tutoriel présente les étapes à effectuer dans Zscaler One et Azure Active 
 
 ## <a name="prerequisites"></a>Prérequis
 
-Le scénario décrit dans ce tutoriel part du principe que vous disposez des éléments suivants :
+Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
 * Un locataire Azure AD.
 * Locataire Zscaler One.
@@ -153,7 +153,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
     ![Sauvegarde Zscaler One](./media/zscaler-one-provisioning-tutorial/save-provisioning.png)
 
-Cette opération démarre la synchronisation initiale de tous les utilisateurs ou groupes définis sous **Étendue** dans la section **Paramètres**. La synchronisation initiale prend plus de temps que les synchronisations ultérieures. Elles se produisent toutes les 40 minutes environ, tant que le service d’approvisionnement Azure AD s’exécute. 
+Cette opération démarre la synchronisation initiale de tous les utilisateurs ou groupes définis sous **Étendue** dans la section **Paramètres**. La synchronisation initiale prend plus de temps que les synchronisations ultérieures. Elles se produisent toutes les 40 minutes environ, tant que le service d’approvisionnement Azure AD s’exécute. 
 
 Vous pouvez utiliser la section **Détails de la synchronisation** pour surveiller la progression et suivre les liens vers le rapport d’activité d’approvisionnement. Ce rapport décrit toutes les actions effectuées par le service d’approvisionnement Azure AD sur Zscaler One.
 

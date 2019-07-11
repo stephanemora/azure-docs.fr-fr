@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 5/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8dffc5b87aefe23953d3a74f1d96b5ee03e0315d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 88171487fd180931d4659390f0db3c8619fb2d62
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65597391"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653455"
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-search"></a>Comment créer un filtre de facette dans la Recherche Azure 
 
@@ -82,7 +82,7 @@ Les attributs d’index qui contrôlent l’utilisation d’un champ sont ajout�
 
 ## <a name="build-and-load-an-index"></a>Créer et charger un index
 
-La [création et le remplissage de l’index](https://docs.microsoft.com/azure/search/search-create-index-dotnet#3---construct-index) sont une étape intermédiaire (et peut-être évidente) avant la formulation d’une requête. Nous signalons cette étape ici par souci d’exhaustivité. Une manière de déterminer si l’index est disponible consiste à vérifier la liste des index dans le [portail](https://portal.azure.com).
+La [création et le remplissage de l’index](https://docs.microsoft.com/azure/search/search-get-started-dotnet#1---create-index) sont une étape intermédiaire (et peut-être évidente) avant la formulation d’une requête. Nous signalons cette étape ici par souci d’exhaustivité. Une manière de déterminer si l’index est disponible consiste à vérifier la liste des index dans le [portail](https://portal.azure.com).
 
 ## <a name="add-facet-filters-to-a-query"></a>Ajoutez des filtres de facettes à une requête
 

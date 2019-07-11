@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/05/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1fcac4bcfb5cd37ddf8b351514c8f4f1622367c6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 46b58aad8a5cb71744aca9baaa3a27d4d1efe8e2
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66512581"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655258"
 ---
 # <a name="set-up-sign-in-with-an-amazon-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurer la connexion avec un compte Amazon à l’aide de stratégies personnalisées dans Azure Active Directory B2C
 
@@ -47,7 +47,7 @@ Vous devez stocker la clé secrète client que vous avez enregistrée dans votre
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 2. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en cliquant sur le **filtre Répertoire et abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
 3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
-4. Dans la page de vue d’ensemble, sélectionnez **Infrastructure d’expérience d’identité - PRÉVERSION**.
+4. Dans la page de vue d’ensemble, sélectionnez **Infrastructure d’expérience d’identité**.
 5. Sélectionnez **Clés de stratégie**, puis **Ajouter**.
 6. Pour **Options**, choisissez `Manual`.
 7. Entrez un **nom** pour la clé de stratégie. Par exemple : `AmazonSecret`. Le préfixe `B2C_1A_` est ajouté automatiquement au nom de votre clé.
@@ -57,14 +57,14 @@ Vous devez stocker la clé secrète client que vous avez enregistrée dans votre
 
 ## <a name="add-a-claims-provider"></a>Ajout d’un fournisseur de revendications
 
-Si vous souhaitez que les utilisateurs se connectent à l’aide d’un compte Amazon, vous devez définir le compte en tant que fournisseur de revendications avec lequel Azure AD B2C peut communiquer par le biais d’un point de terminaison. Le point de terminaison fournit un ensemble de revendications utilisées par Azure AD B2C pour vérifier qu’un utilisateur spécifique s’est authentifié. 
+Si vous souhaitez que les utilisateurs se connectent à l’aide d’un compte Amazon, vous devez définir le compte en tant que fournisseur de revendications avec lequel Azure AD B2C peut communiquer par le biais d’un point de terminaison. Le point de terminaison fournit un ensemble de revendications utilisées par Azure AD B2C pour vérifier qu’un utilisateur spécifique s’est authentifié.
 
 Vous pouvez définir un compte Amazon en tant que fournisseur de revendications en l’ajoutant à l’élément **ClaimsProviders** dans le fichier d’extension de votre stratégie.
 
 
 1. Ouvrez le fichier *TrustFrameworkExtensions.xml*.
 2. Recherchez l’élément **ClaimsProviders**. S’il n’existe pas, ajoutez-le sous l’élément racine.
-3. Ajoutez un nouveau **ClaimsProvider** comme suit :  
+3. Ajoutez un nouveau **ClaimsProvider** comme suit :
 
     ```xml
     <ClaimsProvider>
@@ -147,7 +147,7 @@ Maintenant que vous avez un bouton en place, vous devez le lier à une action. D
     ```XML
     <ClaimsExchange Id="AmazonExchange" TechnicalProfileReferenceId="Amazon-OAuth" />
     ```
-    
+
     Mettez à jour la valeur de **TechnicalProfileReferenceId** sur l’ID du profil technique que vous avez créé. Par exemple : `Amazon-OAuth`.
 
 3. Enregistrez le fichier *TrustFrameworkExtensions.xml* et rechargez-le à des fins de vérification.

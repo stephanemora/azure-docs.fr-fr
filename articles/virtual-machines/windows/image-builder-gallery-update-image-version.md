@@ -1,22 +1,22 @@
 ---
-title: Créer une nouvelle version de l’image à partir d’une version existante à l’aide du Générateur d’images Azure (version préliminaire)
+title: Créer une nouvelle version de l’image à partir d’une version existante à l’aide du Générateur d’images Azure (préversion)
 description: Créez une nouvelle version de l’image à partir d’une version existante à l’aide du Générateur d’images Azure.
 author: cynthn
 ms.author: cynthn
 ms.date: 05/02/2019
 ms.topic: article
 ms.service: virtual-machines-windows
-manager: jeconnoc
-ms.openlocfilehash: f1bce4c2e5c7ae9dc7ec5917fbc5ac115eecdffa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+manager: gwallace
+ms.openlocfilehash: d60a7680bc283ba015d0649fb1d2671f8e5cf793
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65160094"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718635"
 ---
 # <a name="preview-create-a-new-image-version-from-an-existing-image-version-using-azure-image-builder"></a>Aperçu : Créer une nouvelle version de l’image à partir d’une version existante à l’aide du Générateur d’images Azure
 
-Cet article vous montre comment ajouter la version existante d’une l’image à la [Galerie d’images partagées](shared-image-galleries.md), la mettre à jour et la publier en tant qu’une nouvelle version de l’image dans la galerie.
+Cet article explique comment récupérer une version existante d’une image dans une [Bibliothèque d’images partagées](shared-image-galleries.md), la mettre à jour et la publier sous la forme d’une nouvelle version dans la bibliothèque.
 
 Pour configurer l’image, nous allons utiliser un exemple de modèle .json. Le fichier .json que nous utilisons ici est : [helloImageTemplateforSIGfromWinSIG.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/8_Creating_a_Custom_Win_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromWinSIG.json). 
 
@@ -25,7 +25,7 @@ Pour configurer l’image, nous allons utiliser un exemple de modèle .json. Le 
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="register-the-features"></a>Inscrire les fonctionnalités
-Pour utiliser le Générateur d’images Azure durant la phase préliminaire, vous devez inscrire la nouvelle fonctionnalité.
+Pour utiliser le Générateur d’images Azure pendant la préversion, vous devez inscrire la nouvelle fonctionnalité.
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview
@@ -58,7 +58,7 @@ az provider register -n Microsoft.Compute
 
 Si vous avez utilisé [Créer une image et la distribuer dans une galerie d’images partagées](image-builder-gallery.md) pour créer votre galerie d’images partagées, vous avez déjà créé les variables dont nous avons besoin. Si ce n’est pas le cas, veuillez configurer les variables à utiliser pour cet exemple.
 
-Pour la version préliminaire, le Générateur d’images prend uniquement en charge la création d’images personnalisées dans le même groupe de ressources que l’image managée source. Mettez à jour le nom du groupe de ressources dans cet exemple pour correspondre au groupe de ressources de votre image managée source.
+Dans la préversion, le Générateur d’images ne prend en charge la création d’images personnalisées que dans le même groupe de ressources que l’image managée source. Remplacez le nom du groupe de ressources de cet exemple par celui de votre image managée source.
 
 ```azurecli-interactive
 # Resource group name - we are using ibsigRG in this example
@@ -78,13 +78,13 @@ username="user name for the VM"
 vmpassword="password for the VM"
 ```
 
-Créez une variable pour votre ID d’abonnement. Vous pouvez l’obtenir avec `az account show | grep id`.
+Créez une variable pour votre ID d’abonnement. que vous pouvez récupérer avec `az account show | grep id`.
 
 ```azurecli-interactive
 subscriptionID=<Subscription ID>
 ```
 
-Obtenez la version de l’image que vous souhaitez mettre à jour.
+Récupérez la version de l’image à mettre à jour.
 
 ```azurecli-interactive
 sigDefImgVersionId=$(az sig image-version list \
@@ -95,7 +95,7 @@ sigDefImgVersionId=$(az sig image-version list \
 ```
 
 
-Si vous avez déjà votre propre galerie d’images partagées et n’avez pas suivi l’exemple précédent, vous devez affecter des autorisations au Générateur d’images pour accéder au groupe de ressources, afin qu’il puisse accéder à la galerie.
+Si vous avez déjà votre propre bibliothèque d’images partagées et que vous n’avez pas suivi l’exemple précédent, affectez au Générateur d’images les autorisations nécessaires pour accéder au groupe de ressources et donc à la bibliothèque.
 
 
 ```azurecli-interactive
@@ -107,7 +107,7 @@ az role assignment create \
 
 
 ## <a name="modify-helloimage-example"></a>Modifier l’exemple helloImage
-Vous pouvez consulter l’exemple que nous sommes sur le point d’utiliser en ouvrant le fichier .json : [helloImageTemplateforSIGfromSIG.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/8_Creating_a_Custom_Linux_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromSIG.json) avec la [référence du modèle de Générateur d’images](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+Pour consulter l’exemple que nous allons utiliser, ouvrez le fichier .json qui se trouve à l’emplacement [helloImageTemplateforSIGfromSIG.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/8_Creating_a_Custom_Linux_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromSIG.json) avec la [référence des modèles du Générateur d’images](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
 
 Téléchargez l’exemple .json et configurez-le avec vos variables. 
@@ -126,7 +126,7 @@ sed -i -e "s/<runOutputName>/$runOutputName/g" helloImageTemplateforSIGfromWinSI
 
 ## <a name="create-the-image"></a>Création de l’image
 
-Envoyez la configuration de l’image au service Générateur d’images de votre machine virtuelle.
+Envoyez la configuration de l’image au service Générateur d’images de la machine virtuelle.
 
 ```azurecli-interactive
 az resource create \
@@ -137,7 +137,7 @@ az resource create \
     -n imageTemplateforSIGfromWinSIG01
 ```
 
-Démarrez la génération de l’image.
+Lancez la génération de l’image.
 
 ```azurecli-interactive
 az resource invoke-action \
@@ -147,7 +147,7 @@ az resource invoke-action \
      --action Run 
 ```
 
-Attendez que l’image ait été créée et que la réplication prenne place avant de passer à l’étape suivante.
+Attendez que l’image ait été créée et répliquée pour passer à l’étape suivante.
 
 
 ## <a name="create-the-vm"></a>Création de la machine virtuelle
@@ -163,7 +163,7 @@ az vm create \
 ```
 
 ## <a name="verify-the-customization"></a>Vérifier la personnalisation
-Créez une connexion Bureau à distance à la machine virtuelle en utilisant le nom d’utilisateur et le mot de passe définis lors de la création de la machine virtuelle. À l’intérieur de la machine virtuelle, ouvrez une invite de commande et saisissez :
+Créez une connexion Bureau à distance à la machine virtuelle avec le nom d’utilisateur et le mot de passe définis lors de la création de la machine virtuelle. À l’intérieur de la machine virtuelle, ouvrez une invite de commande et saisissez :
 
 ```console
 dir c:\
@@ -176,4 +176,4 @@ Vous devriez maintenant voir deux répertoires :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur les composants du fichier .json utilisé dans cet article, consultez la [référence du modèle Générateur d’images](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Pour plus d’informations sur les composants du fichier .json utilisé dans cet article, voir [Référence des modèles du Générateur d’images](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

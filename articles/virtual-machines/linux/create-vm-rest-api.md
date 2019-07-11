@@ -4,7 +4,7 @@ description: Découvrez comment créer une machine virtuelle Linux dans Azure ut
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/05/2018
 ms.author: cynthn
-ms.openlocfilehash: 2b078cd769a9b4e5e66fe132fd4ef73ec4621efc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a7f624bc85d35048a8f9afa0f527ae592a24fbf1
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60391359"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67667942"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Créer une machine virtuelle Linux utilisant l’authentification SSH avec l’API REST
 
@@ -65,8 +65,8 @@ Les définitions courantes suivantes permettent de générer un corps de demande
 
 | Nom                       | Obligatoire | Type                                                                                | Description  |
 |----------------------------|----------|-------------------------------------------------------------------------------------|--------------|
-| location                   | True     | chaîne                                                                              | Emplacement de la ressource. |
-| Nom                       |          | chaîne                                                                              | Nom de la machine virtuelle. |
+| location                   | True     | string                                                                              | Emplacement de la ressource. |
+| Nom                       |          | string                                                                              | Nom de la machine virtuelle. |
 | properties.hardwareProfile |          | [HardwareProfile](/rest/api/compute/virtualmachines/createorupdate#hardwareprofile) | Spécifie les paramètres matériels de la machine virtuelle. |
 | properties.storageProfile  |          | [StorageProfile](/rest/api/compute/virtualmachines/createorupdate#storageprofile)   | Spécifie les paramètres de stockage des disques de machine virtuelle. |
 | properties.osProfile       |          | [OSProfile](/rest/api/compute/virtualmachines/createorupdate#osprofile)             | Spécifie les paramètres du système d’exploitation de la machine virtuelle. |

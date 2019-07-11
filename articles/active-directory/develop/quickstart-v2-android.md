@@ -14,15 +14,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/26/2019
-ms.author: dadobali
+ms.author: ryanwi
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45252cc4d45e96c2bde4a4600630ea578a8d3009
-ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.openlocfilehash: 547eafac8cc1acf2b60416f93804e819a1c549b0
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64946720"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67702755"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Démarrage rapide : Connecter des utilisateurs et appeler l’API Microsoft Graph à partir d’une application Android
 
@@ -69,7 +69,7 @@ Ce démarrage rapide contient un exemple de code qui montre comment une applicat
 
 > [!div renderon="portal" class="sxs-lookup"]
 > #### <a name="step-1-configure-your-application"></a>Étape 1 : Configuration de votre application
-> Pour que l’exemple de code de ce démarrage rapide fonctionne, vous devez ajouter un URI de redirection compatible avec le courtier d’authentification. 
+> Pour que l'exemple de code de ce guide de démarrage rapide fonctionne, vous devez ajouter un URI de redirection compatible avec le répartiteur d'authentification. 
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Apporter cette modification pour moi]()
 >
@@ -195,7 +195,7 @@ Certaines situations nécessitent l’interaction des utilisateurs avec la plate
 * Si le consentement est révoqué 
 * Si votre application requiert un consentement explicite 
 * Lorsque votre application demande l’accès à une ressource pour la première fois
-* Lorsque l’authentification multifacteur ou d’autres stratégies d’accès conditionnel sont requises
+* Lorsque l'authentification multifacteur ou d'autres stratégies d'accès conditionnel sont requises
 
 ```java
 sampleApp.acquireToken(this, SCOPES, getAuthInteractiveCallback());
@@ -208,7 +208,7 @@ sampleApp.acquireToken(this, SCOPES, getAuthInteractiveCallback());
 
 #### <a name="acquiretokensilent-getting-a-user-token-silently"></a>acquireTokenSilent : Obtention d’un jeton d’utilisateur en mode silencieux
 
-Les applications ne doivent pas demander aux utilisateurs de se connecter chaque fois qu’elles ont besoin d’un jeton. Si l’utilisateur est déjà connecté, cette méthode permet aux applications demander des jetons en mode silencieux.
+Les applications ne doivent pas demander aux utilisateurs de se connecter chaque fois qu’elles ont besoin d’un jeton. Si l'utilisateur est déjà connecté, cette méthode permet aux applications demander des jetons en mode silencieux.
 
 ```java
     sampleApp.getAccounts(new PublicClientApplication.AccountsLoadedCallback() {

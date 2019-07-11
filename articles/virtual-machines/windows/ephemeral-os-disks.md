@@ -3,7 +3,7 @@ title: Disques de système d’exploitation éphémères pour les machines virtu
 description: En savoir plus sur les disques de système d’exploitation éphémères pour les machines virtuelles Azure.
 services: virtual-machines-windows
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/02/2019
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 1e5d37b860a5809806f11df2d13cffc113402ac2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: feadb5798a1b7917bc30daac4bd28b61bc28671c
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65159194"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722794"
 ---
 # <a name="preview-ephemeral-os-disks-for-azure-vms"></a>Aperçu : Disques de système d’exploitation éphémères pour les machines virtuelles Azure
 

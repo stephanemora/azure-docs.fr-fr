@@ -14,25 +14,25 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
-ms.author: v-ant
+ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 85ddcf3aff7d15c946230cedb0da190bca6aeab7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8170fc094f1515783fa51a0d579bc12094aab836
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64721946"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672940"
 ---
 # <a name="tutorial-configure-cornerstone-ondemand-for-automatic-user-provisioning"></a>Didacticiel : Configurer Cornerstone OnDemand pour le provisionnement automatique d’utilisateurs
 
 Ce tutoriel présente les étapes à effectuer dans Cornerstone OnDemand et Azure Active Directory (Azure AD) afin de configurer Azure AD pour provisionner et déprovisionner automatiquement des utilisateurs ou des groupes sur Cornerstone OnDemand.
 
 > [!NOTE]
-> Ce tutoriel décrit un connecteur reposant sur le service de provisionnement d’utilisateurs Azure AD. Pour plus d’informations sur la fonction de ce service, sur son fonctionnement et sur le forum aux questions, consultez [Automatiser le provisionnement et le déprovisionnement d’utilisateurs dans les applications SaaS avec Azure Active Directory](../manage-apps/user-provisioning.md).
+> Ce tutoriel décrit un connecteur reposant sur le service de provisionnement d’utilisateurs Azure AD. Pour plus d’informations sur l’objet et le fonctionnement de ce service et pour accéder au forum aux questions, consultez [Automatisation de l’approvisionnement et de l’annulation de l’approvisionnement des utilisateurs pour les applications SaaS avec Azure Active Directory](../manage-apps/user-provisioning.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
-Le scénario décrit dans ce tutoriel part du principe que vous disposez des éléments suivants :
+Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
 * Un locataire Azure AD.
 * Un locataire Cornerstone OnDemand.
@@ -137,7 +137,7 @@ Pour configurer le provisionnement automatique d’utilisateurs pour Cornerstone
 
     ![Cornerstone OnDemand, Enregistrer](./media/cornerstone-ondemand-provisioning-tutorial/Save.png)
 
-Cette opération démarre la synchronisation initiale de tous les utilisateurs ou groupes définis dans **Étendue** dans la section **Paramètres**. La synchronisation initiale prend plus de temps que les synchronisations ultérieures. Elles se produisent toutes les 40 minutes environ tant que le service de provisionnement AD Azure s’exécute. 
+Cette opération démarre la synchronisation initiale de tous les utilisateurs ou groupes définis dans **Étendue** dans la section **Paramètres**. La synchronisation initiale prend plus de temps que les synchronisations ultérieures. Elles se produisent toutes les 40 minutes environ, tant que le service d’approvisionnement Azure AD s’exécute. 
 
 Vous pouvez utiliser la section **Détails de la synchronisation** pour superviser la progression et suivre les liens vers le rapport d’activité de provisionnement. Ce rapport décrit toutes les actions effectuées par le service de provisionnement Azure AD sur Cornerstone OnDemand.
 

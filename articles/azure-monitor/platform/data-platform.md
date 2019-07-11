@@ -5,18 +5,18 @@ documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 8883c1e7f2874e1e2e61b8eca122f2ec294c7849
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 00c0fea9d8ca7ee299a9a19473917eba90edd675
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60808932"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606975"
 ---
 # <a name="azure-monitor-data-platform"></a>Plateforme de données Azure Monitor
 
@@ -42,7 +42,7 @@ Vous pouvez utiliser les métriques pour effectuer une analyse interactive dans 
 
 Pour en savoir plus sur les métriques Azure Monitor, notamment sur leurs sources de données, consultez [Métriques dans Azure Monitor](data-platform-metrics.md).
 
-### <a name="logs"></a>Journaux
+### <a name="logs"></a>Journaux d’activité
 Les [journaux](data-platform-logs.md) sont les événements qui se sont produits au sein du système. Ils peuvent contenir différents types de données et être du texte structuré ou en forme libre avec un horodatage. Ils peuvent être créés par intermittence à mesure que les événements dans l’environnement génèrent des entrées de journal, et un système surchargé génère généralement un volume de journaux plus grand.
 
 Dans Azure Monitor, les journaux sont stockés dans un espace de travail Log Analytics basé sur [Azure Data Explorer](/azure/data-explorer/), qui fournit un moteur d’analyse puissante et un [langage de requête riche](/azure/kusto/query/). En général, les journaux contiennent suffisamment d’informations pour fournir le contexte complet du problème identifié et sont utiles pour identifier la cause racine des problèmes.
@@ -67,7 +67,7 @@ Pour en savoir plus sur le traçage distribué, consultez [Présentation du tra�
 
 Le tableau suivant compare les métriques et les journaux dans Azure Monitor.
 
-| Attribut  | Mesures | Journaux |
+| Attribut  | Mesures | Journaux d’activité |
 |:---|:---|:---|
 | Avantages | Légères et capables de prendre en charge des scénarios en quasi-temps réel tels que la génération d’alerte. Idéales pour la détection rapide des problèmes. | Analysés avec un langage de requête riche. Idéaux pour une analyse approfondie et l’identification de la cause racine. |
 | Données | Valeur numérique uniquement | Texte ou données numériques |

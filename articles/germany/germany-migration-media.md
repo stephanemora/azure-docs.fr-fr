@@ -9,12 +9,12 @@ ms.service: germany
 ms.date: 08/15/2018
 ms.topic: article
 ms.custom: bfmigrate
-ms.openlocfilehash: 9c1426391edb42ecc3e74ee84649bb69196c45dd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c8a34137c6d1d0d238d27c61d11012bf589b6ea0
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67033657"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657043"
 ---
 # <a name="migrate-media-resources-to-global-azure"></a>Migrer des ressources média Azure vers Azure global
 
@@ -26,7 +26,7 @@ Dans Azure Media Services, vous configurez votre propre compte de stockage et to
 
 Pour plus d'informations :
 
-- Actualisez vos connaissances en suivant les [tutoriels sur Media Service](https://docs.microsoft.com/azure/media-services/#step-by-step-tutorials).
+- Actualisez vos connaissances en suivant les [tutoriels sur Media Service](https://docs.microsoft.com/azure/media-services/previous/).
 - Consultez la [Vue d’ensemble d’Azure Media Services](../media-services/previous/media-services-overview.md).
 - Découvrez [comment créer un compte Media Services](../media-services/previous/media-services-portal-create-account.md).
 
@@ -38,7 +38,7 @@ Pour plus d’informations, consultez [Lecteur multimédia Azure](https://ampdem
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur les outils, techniques et recommandations pour migrer des ressources dans les catégories de service suivantes :
+Informez-vous sur les outils, techniques et suggestions pour migrer des ressources dans les catégories de service suivantes :
 
 - [Calcul](./germany-migration-compute.md)
 - [Mise en réseau](./germany-migration-networking.md)

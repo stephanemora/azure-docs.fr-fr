@@ -9,12 +9,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: conceptual
 ms.date: 03/02/2018
-ms.openlocfilehash: 7c51a0934457a2fcc03f9be1535712e97ac91a1e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 833067f53f53f347ce091a64702d44a78cde836f
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60781188"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657095"
 ---
 # <a name="submit-a-workflow-to-microsoft-genomics-using-a-sas-instead-of-a-storage-account-key"></a>Envoyer un workflow à Microsoft Genomics à l’aide d’un SAS plutôt que d’une clé de compte de stockage 
 
@@ -58,7 +58,7 @@ Les SAP pour les fichiers d’entrée doivent être déterminées en fonction du
 
 ### <a name="set-up-create-a-sas-programmatically"></a>Configuration : créer une SAP par programmation
 
-Pour créer une SAP à l’aide du kit de développement logiciel (SDK) Stockage Azure, consultez la documentation existante dans plusieurs langages, notamment [.NET](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2#generate-a-shared-access-signature-uri-for-a-blob), [Python](https://docs.microsoft.com/azure/storage/blobs/storage-python-how-to-use-blob-storage), and [Node.js](https://docs.microsoft.com/azure/storage/blobs/storage-nodejs-how-to-use-blob-storage). 
+Pour créer une SAP à l’aide du kit de développement logiciel (SDK) Stockage Azure, consultez la documentation existante dans plusieurs langages, notamment [.NET](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1), [Python](https://docs.microsoft.com/azure/storage/blobs/storage-python-how-to-use-blob-storage), and [Node.js](https://docs.microsoft.com/azure/storage/blobs/storage-nodejs-how-to-use-blob-storage). 
 
 Pour créer une SAP sans kit de développement logiciel (SDK), la chaîne de requête SAP peut être directement construite, y compris toutes les informations requises pour authentifier la SAP. Ces [instructions](https://docs.microsoft.com/rest/api/storageservices/constructing-a-service-sas) décrivent en détail les composants de la chaîne de requête SAP et comment la générer. La signature SAP requise est créée en générant un HMAC à l’aide des informations d’authentification du blob/conteneur, comme décrit dans ces [instructions](https://docs.microsoft.com/rest/api/storageservices/service-sas-examples).
 

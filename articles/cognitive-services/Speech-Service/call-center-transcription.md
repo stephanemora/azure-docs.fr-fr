@@ -7,15 +7,15 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: overview
-ms.date: 05/02/2019
+ms.topic: conceptual
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 055d141cab8ece3fcb462573f6ed4d8941c19751
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 37d68a4d2b7658542ebcfdb5d22a10676a8e4d52
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67064120"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603307"
 ---
 # <a name="speech-services-for-telephony-data"></a>Services Speech pour les données de téléphonie
 
@@ -36,7 +36,7 @@ Nous allons passer en revue quelques-unes de ces technologies et les fonctionnal
 
 Au-delà de leur aspect fonctionnel, les services Speech servent principalement, dans le cadre du centre d’appels, à améliorer l’expérience client. Trois domaines ressortent clairement à cet égard :
 
-* Analytique post-appel, autrement dit, le traitement par lot des enregistrements d’appel 
+* Analytique post-appel, autrement dit, le traitement par lot des enregistrements d’appel
 * Traitement analytique en temps réel du signal audio pour extraire divers insights pendant que l’appel a lieu (le sentiment étant un cas d’usage important)
 * Assistants virtuels (bots), qui pilotent le dialogue entre le client et le bot afin de tenter de résoudre le problème du client sans intervention de l’agent ou qui font office d’application de protocoles d’intelligence artificielle pour aider l’agent.
 
@@ -44,9 +44,9 @@ L’image ci-dessous représente une architecture classique de l’implémentati
 
 ## <a name="speech-analytics-technology-components"></a>Composants de la technologie Speech Analytics
 
-Que le domaine soit l’analytique post-appel ou en temps réel, Azure offre un ensemble de technologies matures et émergentes qui permettent d’améliorer l’expérience client. 
+Que le domaine soit l’analytique post-appel ou en temps réel, Azure offre un ensemble de technologies matures et émergentes qui permettent d’améliorer l’expérience client.
 
-### <a name="speech-to-text-stt"></a>Reconnaissance vocale 
+### <a name="speech-to-text-stt"></a>Reconnaissance vocale
 
 La [reconnaissance vocale](speech-to-text.md) est la fonctionnalité la plus recherchée dans toute solution de centre d’appels. Étant donné que la plupart des processus d’analytique en aval s’appuient sur du texte retranscrit, le taux d’erreur de mots est primordial. Un des principaux défis dans une transcription de centre d’appels est le bruit qui prévaut dans le centre d’appels (tel que le bruit de fond produit par les conversations des autres agents), la grande variété de dialectes ou de langues locales ainsi que la faible qualité du signal téléphonique réel. Le taux d’erreur de mots étant étroitement lié à la manière dont les modèles acoustiques et linguistiques sont entraînés pour une langue locale donnée, il est important que vous puissiez personnaliser le modèle en fonction de votre langue locale. Nos derniers modèles unifiés version 4.x sont la solution à la latence et à la précision de la transcription. Entraînés avec des dizaines de milliers d’heures de données acoustiques et des milliards d’informations lexicales, les modèles unifiés sont les modèles les plus précis du marché pour la transcription des données de centre d’appels.
 
@@ -60,9 +60,9 @@ Il n’est pas rare que 35 % de la durée d’un appel de support soit dépourv
 Certaines entreprises expérimentent la fourniture de transcriptions traduites à partir d’appels de support en langues étrangères afin que les responsables des prestations puissent comprendre l’expérience de leurs clients à l’échelle mondiale. Nos capacités de [traduction](translation.md) sont inégalées. Nous pouvons traduire des données audio dans un format audio ou dans un format texte à partir de nombreuses langues locales.
 
 ### <a name="text-to-speech"></a>Synthèse vocale
-La [synthèse vocale](text-to-speech.md) est un autre aspect important de l’implémentation de bots qui interagissent avec les clients. Le processus est généralement le suivant : le client parle, sa voix est transcrite en texte, le texte est analysé afin que les intentions en soient dégagées, une réponse est synthétisée selon l’intention reconnue, puis un élément est présenté au client ou une réponse vocale synthétisée est générée. Bien entendu, tout ceci se produit rapidement ; la latence est donc un composant important de la réussite de ces systèmes. 
+La [synthèse vocale](text-to-speech.md) est un autre aspect important de l’implémentation de bots qui interagissent avec les clients. Le processus est généralement le suivant : le client parle, sa voix est transcrite en texte, le texte est analysé afin que les intentions en soient dégagées, une réponse est synthétisée selon l’intention reconnue, puis un élément est présenté au client ou une réponse vocale synthétisée est générée. Bien entendu, tout ceci se produit rapidement ; la latence est donc un composant important de la réussite de ces systèmes.
 
-Notre latence de bout en bout est assez faible compte tenu des différentes technologies impliquées telles que la [reconnaissance vocale](speech-to-text.md), [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/), [Bot Framework](https://dev.botframework.com/) et la [synthèse vocale](text-to-speech.md). 
+Notre latence de bout en bout est assez faible compte tenu des différentes technologies impliquées telles que la [reconnaissance vocale](speech-to-text.md), [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/), [Bot Framework](https://dev.botframework.com/) et la [synthèse vocale](text-to-speech.md).
 
 En outre, nos nouvelles voix ressemblent à si méprendre à des voix humaines. Vous pouvez utiliser nos voix afin de doter votre bot d’une personnalité unique.
 

@@ -4,7 +4,7 @@ description: Chargez un disque dur virtuel généralisé sur Azure et utilisez-l
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: cynthn
-ms.openlocfilehash: ee2fe91d915faf7e09dee004891edfc6bef38d6f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9846bf7b28f1205f98eb59671553d309fe754d30
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64685413"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707932"
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>Charger un disque dur virtuel généralisé et l’utiliser pour créer des machines virtuelles dans Azure
 
@@ -109,7 +109,7 @@ Vous pouvez également télécharger un disque dur virtuel sur votre compte de s
     Le service Import/Export permet de copier sur un compte de stockage Standard. Vous devez effectuer une copie d’un compte de stockage Standard vers un compte de stockage Premium à l’aide d’un outil comme AzCopy.
 
 > [!IMPORTANT]
-> Si vous utilisez AzCopy pour charger votre disque dur virtuel sur Azure, veillez à définir [ **/BlobType:page**](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy#blobtypeblock--page--append) avant d’exécuter le script de chargement. Si la destination est un objet blob et que cette option n’est pas spécifiée, AzCopy crée par défaut un objet blob de blocs.
+> Si vous utilisez AzCopy pour charger votre disque dur virtuel sur Azure, veillez à définir [ **/BlobType:page**](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-blobs#upload-a-file) avant d’exécuter le script de chargement. Si la destination est un objet blob et que cette option n’est pas spécifiée, AzCopy crée par défaut un objet blob de blocs.
 > 
 > 
 

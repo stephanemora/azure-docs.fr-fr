@@ -4,7 +4,7 @@ description: Découvrez les résultats des tests de performances des machines vi
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines
@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: amverma
-ms.openlocfilehash: 9174ed0fbf95a094c363fa1d9aa899d9554b345b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 820aa1d04437a80f72e95fab71f5c8503c59822c
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66809976"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707744"
 ---
 # <a name="hb-series-virtual-machine-sizes"></a>Tailles des machines virtuelles de la série HB
 
@@ -42,7 +42,7 @@ numactl --physcpubind=[INSERT CORE #]  ib_send_lat -a
 ```
 
 
-|  #bytes         | #iterations     | t_min[microsecond]     | t_max[microsecond]     | t_typical[microsecond] | t_avg[microsecond]     | t_stdev[microsecond]   |
+|  #bytes         | #iterations     | t_min[microseconde]     | t_max[microseconde]     | t_typical[microseconde] | t_avg[microseconde]     | t_stdev[microseconde]   |
 |-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|
 | 2               | 1 000            | 2,35            | 12,63           | 2,38            | 2,42            | 0,33            |
 | 4               | 1 000            | 2,35            | 18,53           | 2,38            | 2.4             | 0,21            |
@@ -91,7 +91,7 @@ OSU MPI Bandwidth Test v5.4.3.
 ./mvapich2-2.3.install/bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=[INSERT CORE #] ./mvapich2-2.3/osu_benchmarks/mpi/pt2pt/osu_bw
 ```
 
-| #Size            | Bande passante (Mbit/s) | Bande passante (Gbit/s) |
+| #Size            | Bande passante (Mo/s) | Bande passante (Gbits/s) |
 |------------------|------------------|------------------|
 | 2                | 4,03             | 0,03             |
 | 4                | 8,2              | 0,07             |

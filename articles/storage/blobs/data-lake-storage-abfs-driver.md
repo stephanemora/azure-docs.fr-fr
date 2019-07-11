@@ -9,12 +9,12 @@ ms.reviewer: jamesbak
 ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 57cda4d07315c6c37c2ce51f530fb081949b628c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: abe3f67141011c765f9de93bcf51998ddae002cb
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64939499"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67696140"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>Pilote Azure Blob FileSystem (ABFS) : un pilote Stockage Azure dédié pour Hadoop
 
@@ -59,7 +59,7 @@ Les détails de toutes les entrées de configuration prises en charge sont spéc
 
 ### <a name="hadoop-documentation"></a>Documentation Hadoop
 
-Le pilote ABFS est présenté au complet dans la [documentation Hadoop officielle](https://hadoop.apache.org/docs/current/hadoop-azure/index.html).
+Le pilote ABFS est présenté au complet dans la [documentation Hadoop officielle](https://github.com/apache/hadoop/blob/trunk/hadoop-tools/hadoop-azure/src/site/markdown/abfs.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,5 +1,5 @@
 ---
-title: Configurer la connexion avec un fournisseur SAML Salesforce en utilisant des stratégies personnalisées dans Azure Active Directory B2C | Microsoft Docs
+title: Configurer la connexion avec un fournisseur SAML Salesforce en utilisant des stratégies personnalisées dans Azure Active Directory B2C
 description: Configurez la connexion avec un fournisseur SAML Salesforce en utilisant des stratégies personnalisées dans Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e565822c006191615dbc10b980da24dcd9ed787a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7cbde2beb03c174facbd145954387a31f6158a9a
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508302"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67654187"
 ---
 # <a name="set-up-sign-in-with-a-salesforce-saml-provider-by-using-custom-policies-in-azure-active-directory-b2c"></a>Configurer la connexion avec un fournisseur SAML Salesforce en utilisant des stratégies personnalisées dans Azure Active Directory B2C
 
@@ -31,11 +31,11 @@ Cet article explique comment autoriser la connexion d’utilisateurs à partir d
 
 ### <a name="set-up-salesforce-as-an-identity-provider"></a>Configurer Salesforce en tant que fournisseur d’identité
 
-1. [Connectez-vous à Salesforce](https://login.salesforce.com/). 
+1. [Connectez-vous à Salesforce](https://login.salesforce.com/).
 2. Dans le menu de gauche, sous **Paramètres**, développez **Identité**, puis sélectionnez **Fournisseur d’identité**.
 3. Cliquez sur **Activer le fournisseur d’identité**.
-4. Sous **Select the certificate (Sélectionner le certificat)** , sélectionnez le certificat que vous souhaitez que Salesforce utilise pour communiquer avec Azure AD B2C Vous pouvez utiliser le certificat par défaut. 
-5. Cliquez sur **Enregistrer**. 
+4. Sous **Select the certificate (Sélectionner le certificat)** , sélectionnez le certificat que vous souhaitez que Salesforce utilise pour communiquer avec Azure AD B2C Vous pouvez utiliser le certificat par défaut.
+5. Cliquez sur **Enregistrer**.
 
 ### <a name="create-a-connected-app-in-salesforce"></a>Créer une application connectée dans Salesforce
 
@@ -49,7 +49,7 @@ Cet article explique comment autoriser la connexion d’utilisateurs à partir d
       ```
 
 6. Dans le champ **ACS URL (URL ACS)** , entrez l’URL suivante. Assurez-vous de remplacer la valeur de `your-tenant` par le nom de votre locataire Azure AD B2C.
-      
+
       ```
       https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase/samlp/sso/assertionconsumer
       ```
@@ -90,17 +90,17 @@ Vous devez enregistrer le certificat que vous avez créé dans votre locataire A
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 2. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en cliquant sur le **filtre Répertoire et abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
 3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
-4. Dans la page de vue d’ensemble, sélectionnez **Infrastructure d’expérience d’identité - PRÉVERSION**.
+4. Dans la page de vue d’ensemble, sélectionnez **Infrastructure d’expérience d’identité**.
 5. Sélectionnez **Clés de stratégie**, puis **Ajouter**.
 6. Pour **Options**, choisissez `Upload`.
 7. Entrez un **nom** pour la stratégie. Par exemple, SAMLSigningCert. Le préfixe `B2C_1A_` est automatiquement ajouté au nom de votre clé.
-8. Recherchez et sélectionnez le certificat B2CSigningCert.pfx que vous avez créé. 
+8. Recherchez et sélectionnez le certificat B2CSigningCert.pfx que vous avez créé.
 9. Entrez le **mot de passe** du certificat.
 3. Cliquez sur **Créer**.
 
 ## <a name="add-a-claims-provider"></a>Ajout d’un fournisseur de revendications
 
-Si vous souhaitez que les utilisateurs se connectent à l’aide d’un compte Salesforce, vous devez définir le compte en tant que fournisseur de revendications avec lequel Azure AD B2C peut communiquer par le biais d’un point de terminaison. Le point de terminaison fournit un ensemble de revendications utilisées par Azure AD B2C pour vérifier qu’un utilisateur spécifique s’est authentifié. 
+Si vous souhaitez que les utilisateurs se connectent à l’aide d’un compte Salesforce, vous devez définir le compte en tant que fournisseur de revendications avec lequel Azure AD B2C peut communiquer par le biais d’un point de terminaison. Le point de terminaison fournit un ensemble de revendications utilisées par Azure AD B2C pour vérifier qu’un utilisateur spécifique s’est authentifié.
 
 Vous pouvez définir un compte Salesforce en tant que fournisseur de revendications en l’ajoutant à l’élément **ClaimsProviders** dans le fichier d’extension de votre stratégie.
 
@@ -189,7 +189,7 @@ Maintenant que vous avez un bouton en place, vous devez le lier à une action. L
     ```XML
     <ClaimsExchange Id="SalesforceExchange" TechnicalProfileReferenceId="salesforce" />
     ```
-    
+
     Mettez à jour la valeur de **TechnicalProfileReferenceId** sur **l’ID** du profil technique que vous avez créé précédemment. Par exemple : `LinkedIn-OAUTH`.
 
 3. Enregistrez le fichier *TrustFrameworkExtensions.xml* et rechargez-le à des fins de vérification.

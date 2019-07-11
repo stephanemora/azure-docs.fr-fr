@@ -6,13 +6,13 @@ ms.author: cynthn
 ms.date: 05/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
-manager: jeconnoc
-ms.openlocfilehash: 31ef53abcf9b416500ee70e42cc3cbd12cb11f35
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+manager: gwallace
+ms.openlocfilehash: 9155f6fc1243f0d2e4d63f2718ccfd6846ebbc50
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65159539"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671497"
 ---
 # <a name="preview-create-a-new-image-version-from-an-existing-image-version-using-azure-image-builder"></a>Aperçu : Créer une nouvelle version de l’image à partir d’une version existante à l’aide du Générateur d’images Azure
 
@@ -22,13 +22,13 @@ Nous utiliserons un exemple de modèle .json.pour configurer l’image. Le fichi
 
 
 ## <a name="register-the-features"></a>Inscrire les fonctionnalités
-Pour utiliser le Générateur d’images Azure en préversion, vous devez inscrire la nouvelle fonctionnalité.
+Pour utiliser le Générateur d’images Azure pendant la préversion, vous devez inscrire la nouvelle fonctionnalité.
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview
 ```
 
-Consultez l’état d’inscription de la fonctionnalité.
+Vérifiez l’état d’inscription de la fonctionnalité.
 
 ```azurecli-interactive
 az feature show --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview | grep state
@@ -42,7 +42,7 @@ az provider show -n Microsoft.VirtualMachineImages | grep registrationState
 az provider show -n Microsoft.Storage | grep registrationState
 ```
 
-Si elle n’est pas inscrite, exécutez les commandes suivantes :
+Si elle n’est pas inscrite, exécutez la commande suivante :
 
 ```azurecli-interactive
 az provider register -n Microsoft.VirtualMachineImages
@@ -73,7 +73,7 @@ imageDefName=myIbImageDef
 runOutputName=aibSIGLinuxUpdate
 ```
 
-Créez une variable pour votre ID d’abonnement, que vous pouvez récupérer avec `az account show | grep id`.
+Créez une variable pour votre ID d’abonnement. que vous pouvez récupérer avec `az account show | grep id`.
 
 ```azurecli-interactive
 subscriptionID=<Subscription ID>
