@@ -4,7 +4,7 @@ description: Avec ce didacticiel, vous allez découvrir les fonctionnalités Azu
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 06/11/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b4c484f3dd118a19291741b071432b09894e836c
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 671b7de8852b0aac30e35b76d89eb4489a206f91
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593299"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67708545"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>Didacticiel : Utiliser Azure Security Center pour superviser les machines virtuelles Linux
 
@@ -51,7 +51,7 @@ Avant d’obtenir une visibilité des configurations de sécurité des machines 
 
 1. Dans le tableau de bord de Security Center, cliquez sur **Stratégie de sécurité** puis sélectionnez votre abonnement. 
 2. Pour **Collecte de données**, dans **Approvisionnement automatique**, sélectionnez **Activer**.
-3. Pour **Configuration de l’espace de travail par défaut**, conservez le paramètre **Utiliser un ou des espace(s) de travail créé(s) par Security Center (par défaut)**.
+3. Pour **Configuration de l’espace de travail par défaut**, conservez le paramètre **Utiliser un ou des espace(s) de travail créé(s) par Security Center (par défaut)** .
 4. Pour **Événements de sécurité**, conservez l’option par défaut **Commun**.
 4. Cliquez sur **Enregistrer** dans la partie supérieure de la page. 
 

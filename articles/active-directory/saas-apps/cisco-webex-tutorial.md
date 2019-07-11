@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec8c2fc2c2dbbfd2c98184215f696aaf18a87193
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 498650ce8a22f4804773bb66db3d640cd63bab8c
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67105551"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655833"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-webex-meetings"></a>Didacticiel : Intégration d’Azure Active Directory avec Cisco Webex Meetings
 
@@ -122,7 +122,7 @@ Pour configurer l’authentification unique Azure AD avec Cisco Webex Meetings, 
 
     Dans la zone de texte **URL de connexion**, collez la valeur d’**URL de réponse** renseignée automatiquement par chargement du fichier de métadonnées du fournisseur de services.
 
-5. L’application Cisco Webex Meetings s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à la configuration de vos attributs de jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut. Cliquez sur l’icône  **Modifier** pour ajouter les attributs.
+5. L’application Cisco Webex Meetings s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à la configuration de vos attributs de jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut. Cliquez sur l’icône **Modifier** pour ajouter les attributs.
 
     ![image](common/edit-attribute.png)
 

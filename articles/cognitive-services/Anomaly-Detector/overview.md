@@ -1,20 +1,21 @@
 ---
-title: Présentation de l’API Détecteur d’anomalies | Microsoft Docs
+title: Présentation de l’API Détecteur d’anomalies
 titleSuffix: Azure Cognitive Services
 description: Utiliser les algorithmes avancés de l’API Détecteur d’anomalies pour identifier des anomalies dans vos données de série chronologique.
 services: cognitive-services
 author: aahill
+manager: nitinme
 ms.service: cognitive-services
-ms.subservice: anomaly-detection
-ms.topic: article
+ms.subservice: anomaly-detector
+ms.topic: overview
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: 48dffb8853d3def590e434c1683ecf038e2a194e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 80e0984deff83726fd96a462a1ae8a4375db9d2e
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64415827"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721607"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>Présentation de l’API Détecteur d’anomalies
 

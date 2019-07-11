@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 04/20/2018
 ms.author: zhshang
 ms.custom: mvc
-ms.openlocfilehash: 122b175d026101dd4b15be4458e67ddd8a0d92d6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 93674574bceb24b75b9af36708ddfe7e77ebf0fe
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66128409"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565835"
 ---
 # <a name="create-a-signalr-service"></a>Créer une ressource SignalR Service 
 
@@ -48,8 +48,8 @@ Chaque commande du tableau renvoie à une documentation spécifique. Ce script u
 | Commande | Notes |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
-| [az signalr create](/cli/azure/ext/signalr/signalr#ext-signalr-az-signalr-create) | Crée une ressource Azure SignalR Service. |
-| [az signalr key list](/cli/azure/ext/signalr/signalr/key#ext-signalr-az-signalr-key-list) | Répertorie les clés qui seront utilisées par votre application lors de la transmission des mises à jour en temps réel de contenus avec SignalR. |
+| [az signalr create](/cli/azure/signalr#az-signalr-create) | Crée une ressource Azure SignalR Service. |
+| [az signalr key list](/cli/azure/signalr/key#az-signalr-key-list) | Répertorie les clés qui seront utilisées par votre application lors de la transmission des mises à jour en temps réel de contenus avec SignalR. |
 
 
 ## <a name="next-steps"></a>Étapes suivantes
