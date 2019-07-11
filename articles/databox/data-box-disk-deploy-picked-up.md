@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 05/06/2019
+ms.date: 06/25/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 8df9c2a5e45cf222debc733b3e051c3f707715c5
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 7e7a1f119a2f2b0e60645cb776b26c124910cacb
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65603088"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448212"
 ---
 # <a name="tutorial-return-azure-data-box-disk-and-verify-data-upload-to-azure"></a>Didacticiel : Retourner des disques Azure Data Box et vérifier le chargement des données dans Azure
 
@@ -88,7 +88,7 @@ Effectuez les étapes suivantes si le retour de l’appareil s’effectue en Eur
 
 ### <a name="pick-up-in-asia-pacific-region"></a>Enlèvement dans la région Asie-Pacifique
 
-Les instructions concernant cette région s’appliquent à l’enlèvement au Japon, en Corée et en Australie.
+Les instructions concernant cette région s’appliquent à l’enlèvement au Japon, en Corée, en Australie et à Singapour.
 
 #### <a name="pick-up-in-australia"></a>Enlèvement en Australie
 
@@ -103,43 +103,64 @@ Les centres de données Azure de l’Australie ont une notification de sécurit�
 
 #### <a name="pick-up-in-japan"></a>Enlèvement au Japon
 
-1. Veillez à inclure le bordereau d’expédition de retour de Japan Post Chakubarai.
-2. Écrivez le nom et l’adresse de votre entreprise dans la partie réservée à l’expéditeur du bordereau d’expédition.
-3. Appelez Japan Post au 0800-0800-111 (appel gratuit) pour faire une demande d’enlèvement. Composez le code postal à 7 chiffres de l’adresse d’enlèvement et transmettez-le au bureau de poste le plus proche de chez vous.
-    - Les heures d’enlèvement disponibles varient selon le bureau de poste.
-    - Indiquez que l’expédition est un colis (Yu-Pack) Japan Post Chakubarai.
-    - Utilisez le bordereau d’expédition Chakubarai inclus.
-4. Si le bordereau d’expédition Japan Post Chakubarai n’était pas inclus, envoyez un e-mail à *Quantium Solutions* à l’adresse `Customerservice.JP@quantiumsolutions.com`. *Quantium Solutions* demandera à Japan Post d’enlever votre colis et d’apporter le bordereau d’expédition à cette occasion.
-    - Indiquez le numéro de référence dans la colonne réservée aux remarques sur le bordereau d’expédition Chakubarai que Japan Post doit apporter.
-    - Entrez l’adresse de livraison comme illustré ci-dessous :   
-        ```
-        3F N7 Prologis Park Tokyo Ohta, 1-3-6 Tokai Ohta-ku, Tokyo 143-0001
-        Microsoft Service Center c/o Quantium Solutions Japan
-        TEL: 03-5755-0150
-        ```
+1. Écrivez le nom et l’adresse de votre entreprise dans la partie du bordereau de réexpédition réservée à l’expéditeur.
+2. Envoyez un courrier à Quantium Solutions en utilisant le modèle d’e-mail suivant.
 
-Si le bordereau d’expédition Chakubarai est manquant, vous pouvez demander l’enlèvement par e-mail. Utilisez le modèle d’e-mail suivant pour demander l’enlèvement.
+    - Si le bordereau de réexpédition de Japon Post Chakubarai était manquant, consignez ce fait que dans cet e-mail. Quantium Solutions demandera à Japan Post d’apporter le bordereau de réexpédition à l’enlèvement.
+    - Si vous avez plusieurs commandes, envoyez un e-mail pour garantir un enlèvement individuel.
 
-```
-To: Customerservice.JP@quantiumsolutions.com
-Subject: Pickup request for Azure Data Box Disk｜Job Name： 
-Body: 
-- Azure Data Box Disk job name：
-- Reference number:  
-- Requested pickup date：mmdd (Select a requested time slot from below).
-    a. 08：00-13：00 
-    b. 13：00-15：00 
-    c. 15：00-17：00 
-    d. 17：00-19：00 
-```
+    ```
+    To: Customerservice.JP@quantiumsolutions.com
+    Subject: Pickup request for Azure Data Box Disk｜Job Name： 
+    Body: 
+    - Japan Post Yu-Pack tracking number (reference number)：
+    - Requested pickup date：mmdd (Select a requested time slot from below).
+        a. 08：00-13：00 
+        b. 13：00-15：00 
+        c. 15：00-17：00 
+        d. 17：00-19：00 
+    ```
+
+3. Recevoir un e-mail de confirmation de Quantium Solutions près avoir réservé un enlèvement. L’e-mail de confirmation inclut également des informations sur le bordereau de réexpédition de Chakubarai.
+
+Si nécessaire, vous pouvez contacter le support de Quantium Solutions (en langue japonaise) dont les coordonnées sont les suivantes : 
+
+- E-mail ：Customerservice.JP@quantiumsolutions.com 
+- Téléphone : 03-5755-0150 
 
 #### <a name="pick-up-in-korea"></a>Enlèvement en Corée
 
-1. Veillez à inclure le bordereau d’expédition de retour.
-2. Pour demander un enlèvement :
-    1. Appelez l’assistance téléphonique de *Quantium Solutions International* au 070-8231-1418 pendant les heures de bureau (du lundi au vendredi de 10 h à 17 h). Indiquez *Enlèvement Microsoft* et le numéro du bordereau d’expédition pour planifier un enlèvement.  
-    2. Si le numéro de l’assistance téléphonique est occupé, envoyez un e-mail à `microsoft@rocketparcel.com`, avec l’objet *Enlèvement Microsoft* et le numéro du bordereau d’expédition comme référence.
+1. Veillez à inclure le bordereau de réexpédition.
+2. Pour demander un enlèvement lorsque le bordereau de réexpédition est présent :
+    1. Appelez l’assistance téléphonique de *Quantium Solutions International* au 070-8231-1418 pendant les heures de bureau (du lundi au vendredi de 10 h à 17 h). Indiquez *Enlèvement Microsoft Azure* et le numéro de la demande de service pour organiser l’enlèvement.  
+    2. Si l’assistance téléphonique est occupée, envoyez un e-mail à `microsoft@rocketparcel.com`, avec l’objet *Enlèvement Microsoft Azure* et le numéro de demande de service comme référence.
     3. Si le transporteur ne procède pas à l’enlèvement, appelez l’assistance téléphonique de *Quantium Solutions International* pour trouver une autre solution. 
+    4. Vous recevez un e-mail de confirmation pour la planification de l’enlèvement.
+3. Effectuez cette étape uniquement si le bordereau de réexpédition n’est pas présent. Pour demander un enlèvement :
+    1. Appelez l’assistance téléphonique de *Quantium Solutions International* au 070-8231-1418 pendant les heures de bureau (du lundi au vendredi de 10 h à 17 h). Indiquez *Enlèvement Microsoft Azure* et le numéro de la demande de service pour organiser l’enlèvement. Spécifiez que vous avez besoin d’un nouveau bordereau de réexpédition pour organiser un enlèvement. Fournissez à l’expéditeur (client) les informations du destinataire (centre de données Azure) et le numéro de référence (numéro de la demande de service). 
+    2. Si l’assistance téléphonique est occupée, envoyez un e-mail à `microsoft@rocketparcel.com`, avec l’objet *Enlèvement Microsoft Azure* et le numéro de demande de service comme référence.
+    3. Si le transporteur ne procède pas à l’enlèvement, appelez l’assistance téléphonique de *Quantium Solutions International* pour trouver une autre solution. 
+    4. Si la demande est effectuée par téléphone, vous recevez une confirmation verbale.
+
+### <a name="pick-up-in-singapore"></a>Enlever à Singapour
+
+1. Imprimez l’étiquette d’expédition et apposez-la sur la boîte. Si l’étiquette est endommagée ou perdue :
+    - Accédez à **Vue d’ensemble > Télécharger une étiquette d’expédition**.
+
+        ![Télécharger une étiquette d’expédition](media/data-box-disk-deploy-picked-up/download-shipping-label.png)
+
+        Cette action permet de télécharger une étiquette de retour comme illustré ci-dessous.
+
+        ![Exemple d’étiquette d’expédition](media/data-box-disk-deploy-picked-up/exmple-shipping-label.png)
+    - Collez l’étiquette sur l’appareil. Vérifiez que l’étiquette est visible.
+
+2. Pour demander un enlèvement :
+    - Appelez **SingPost** au **6845 6485** pendant des heures de bureau (de 9 à 17 h, du lundi au vendredi).  
+    - Indiquez *Enlèvement Microsoft Azure* et le numéro de la demande de service (numéro de suivi sur l’étiquette de réexpédition) pour organiser l’enlèvement. 
+    - Vous recevrez une confirmation verbale pour la planification de l’enlèvement. 
+    - Si le transporteur ne se présente pas pour l’enlèvement, appelez **SingPost** au **6845 6485** pour trouver une autre solution. 
+3. Remettez le colis au transporteur. 
+
 
 ## <a name="verify-data-upload-to-azure"></a>Vérifier le chargement des données dans Azure
 
@@ -156,6 +177,8 @@ Les données sont copiées automatiquement une fois que les disques sont connect
 Une fois la copie terminée, la commande passe à l’état **Completed (Terminée)** .
 
 ![Copie de données terminée](media/data-box-disk-deploy-picked-up/data-box-portal-completed.png)
+
+Si la copie de termine avec des erreurs, voir [résoudre des erreurs de chargement](data-box-disk-troubleshoot-upload.md).
 
 Vérifiez que vos données se trouvent dans les comptes de stockage avant de les supprimer de la source. Vos données peuvent se trouver aux emplacements suivants :
 

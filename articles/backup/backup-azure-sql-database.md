@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: tutorial
-ms.date: 04/23/2019
+ms.date: 06/18/2019
 ms.author: raynew
-ms.openlocfilehash: 2a6319565aa05f34ce31a14c5fc57e591248f4ee
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 5dbdeeba68ae75069b61bd6dc069279ec3c5e5de
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399690"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443012"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>À propos de la sauvegarde SQL Server sur des machines virtuelles Azure
 
@@ -50,6 +50,17 @@ Avant de commencer, contrôlez les points suivants :
 **Systèmes d’exploitation pris en charge** | Windows Server 2016, Windows Server 2012 R2, Windows Server 2012<br/><br/> Linux n’est pas actuellement pris en charge.
 **Versions de SQL Server prises en charge** | SQL Server 2017 ; SQL Server 2016, SQL Server 2014, SQL Server 2012.<br/><br/> Enterprise, Standard, Web, Developer, Express.
 **Versions .NET prises en charge** | .NET Framework 4.5.2 et versions ultérieures installées sur la machine virtuelle
+
+### <a name="support-for-sql-server-2008-and-sql-server-2008-r2"></a>Prise en charge pour SQL Server 2008 et SQL Server 2008 R2
+
+Sauvegarde Azure a récemment annoncé la prise en charge des serveurs [EOS SQL Server](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-2008-eos-extend-support), SQL Server 2008 et SQL Server 2008 R2. La solution est actuellement en préversion pour EOS SQL Server et prend en charge de la configuration suivante :
+
+1. SQL Server 2008 et SQL Server 2008 R2 s’exécutant sur Windows 2008 R2 SP1
+2. .NET Framework 4.5.2 et versions ultérieures à installer sur la machine virtuelle
+3. La sauvegarde pour l’ICF et les bases de données miroir n’est pas prise en charge
+
+Les utilisateurs ne seront pas facturés pour cette fonctionnalité tant qu’elle ne sera pas généralement disponible. Toutes les autres [considérations et limitations en lien avec les fonctionnalités](#feature-consideration-and-limitations) s’appliquent à ces versions également. Nous vous invitons à consulter les [conditions préalables](backup-sql-server-database-azure-vms.md#prerequisites) avant de configurer la protection sur les serveurs SQL Server 2008 et 2008 R2, qui incluent la définition de la [clé de registre](backup-sql-server-database-azure-vms.md#add-registry-key-to-enable-registration) (cette étape ne sera pas nécessaire lorsque la fonctionnalité sera généralement disponible).
+
 
 ## <a name="feature-consideration-and-limitations"></a>Considérations et limitations relatives aux fonctionnalités
 
@@ -114,9 +125,19 @@ Différentielle | Primaire
 Journal |  Secondaire
 Copie complète uniquement |  Secondaire
 
-## <a name="fix-sql-sysadmin-permissions"></a>Correction des autorisations d’administrateur système SQL
+## <a name="set-vm-permissions"></a>Définir des autorisations de machine virtuelle
 
-  Si vous devez corriger des autorisations en raison d’une erreur **UserErrorSQLNoSysadminMembership**, effectuez les étapes suivantes :
+  Lorsque vous exécutez la découverte sur un serveur SQL Server, Sauvegarde Azure effectue les opérations suivantes :
+
+* Ajoute l’extension AzureBackupWindowsWorkload.
+* Crée un compte NT SERVICE\AzureWLBackupPluginSvc pour découvrir les bases de données sur la machine virtuelle. Ce compte est utilisé pour la sauvegarde et la restauration, et doit disposer d’autorisations d’administrateur système SQL.
+* Découvre les bases de données en cours d’exécution sur une machine virtuelle ; Sauvegarde Azure utilise le compte NT AUTHORITY\SYSTEM. Ce compte doit être une connexion publique sur SQL.
+
+Si vous n’avez pas créé la machine virtuelle SQL Server dans la Place de marché Azure, ou si vous êtes sur SQL 2008 et 2008 R2, vous pouvez recevoir une erreur **UserErrorSQLNoSysadminMembership**.
+
+Pour accorder des autorisations dans le cas de **SQL 2008** et **2008 R2** s’exécutant sur Windows 2008 R2, voir [ici](#give-sql-sysadmin-permissions-for-sql-2008-and-sql-2008-r2).
+
+Pour toutes les autres versions, corrigez les autorisations en procédant comme suit :
 
   1. Utilisez un compte disposant d’autorisations d’administrateur système SQL Server pour vous connecter à SQL Server Management Studio (SSMS). À moins que vous ayez besoin d’autorisations spéciales, l’authentification Windows doit fonctionner.
   2. Sur le serveur SQL Server, ouvrez le dossier **Security/Logins**.
@@ -146,8 +167,72 @@ Copie complète uniquement |  Secondaire
 > [!NOTE]
 > Si plusieurs instances de SQL Server sont installées sur votre serveur SQL Server, vous devez ajouter l’autorisation sysadmin du compte **NT Service\AzureWLBackupPluginSvc** à toutes les instances SQL.
 
+### <a name="give-sql-sysadmin-permissions-for-sql-2008-and-sql-2008-r2"></a>Accorder des autorisations d’administrateur système SQL pour SQL 2008 et SQL 2008 R2
+
+Ajouter des connexions **NT AUTHORITY\SYSTEM** et **NT Service\AzureWLBackupPluginSvc** à l’Instance SQL Server :
+
+1. Accédez à l’Instance SQL Server dans l’Explorateur d’objets.
+2. Accédez à Sécurité -> Connexions
+3. Cliquez avec le bouton droit sur Connexions, puis sélectionnez *Nouvelle connexion*.
+
+    ![Nouvelle connexion à l’aide de SSML](media/backup-azure-sql-database/sql-2k8-new-login-ssms.png)
+
+4. Accédez à l’onglet Général et entrez **NT AUTHORITY\SYSTEM** en tant que nom de connexion.
+
+    ![nom de connexion pour SSMS](media/backup-azure-sql-database/sql-2k8-nt-authority-ssms.png)
+
+5. Accédez à *Rôles de serveur*, puis choisissez les rôles *public* et *sysadmin*.
+
+    ![choix de rôles dans SSMS](media/backup-azure-sql-database/sql-2k8-server-roles-ssms.png)
+
+6. Cliquez sur *État*. *Accordez* l’autorisation de se connecter au moteur de base de données et de se connecter en tant que *Activé*.
+
+    ![Accorder des autorisations dans SSMS](media/backup-azure-sql-database/sql-2k8-grant-permission-ssms.png)
+
+7. Cliquez sur OK.
+8. Répétez la même séquence d’étapes (1 à 7 ci-dessus) pour ajouter la connexion NT Service\AzureWLBackupPluginSvc à l’instance SQL Server. Si la connexion existe, assurez-vous qu’elle a le rôle serveur sysadmin et que, sous État, l’autorisation lui est accordée de se connecter au moteur de base de données et de se connecter en tant que Activé.
+9. Une fois l’autorisation octroyée, **redécouvrez les bases de données** dans le portail : Coffre **->** Infrastructure de sauvegarde **->** Charge de travail dans machine virtuelle Azure :
+
+    ![Redécouvrir les bases de données dans le portail Azure](media/backup-azure-sql-database/sql-rediscover-dbs.png)
+
+Vous pouvez aussi automatiser l’octroi d’autorisations en exécutant les commandes PowerShell suivantes en mode Administrateur. Le nom d’instance a la valeur MSSQLSERVER par défaut. Modifiez l’argument de nom d’instance dans le script si nécessaire :
+
+```powershell
+param(
+    [Parameter(Mandatory=$false)]
+    [string] $InstanceName = "MSSQLSERVER"
+)
+if ($InstanceName -eq "MSSQLSERVER")
+{
+    $fullInstance = $env:COMPUTERNAME   # In case it is the default SQL Server Instance
+}
+else
+{
+    $fullInstance = $env:COMPUTERNAME + "\" + $InstanceName   # In case of named instance
+}
+try
+{
+    sqlcmd.exe -S $fullInstance -Q "sp_addsrvrolemember 'NT Service\AzureWLBackupPluginSvc', 'sysadmin'" # Adds login with sysadmin permission if already not available
+}
+catch
+{
+    Write-Host "An error occurred:"
+    Write-Host $_.Exception|format-list -force
+}
+try
+{
+    sqlcmd.exe -S $fullInstance -Q "sp_addsrvrolemember 'NT AUTHORITY\SYSTEM', 'sysadmin'" # Adds login with sysadmin permission if already not available
+}
+catch
+{
+    Write-Host "An error occurred:"
+    Write-Host $_.Exception|format-list -force
+}
+```
+
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [En savoir plus sur](backup-sql-server-database-azure-vms.md) la sauvegarde de bases de données SQL Server.
-- [En savoir plus sur](restore-sql-database-azure-vm.md) la restauration des bases de données SQL Server sauvegardées.
-- [En savoir plus sur](manage-monitor-sql-database-backup.md) la gestion des bases de données SQL Server sauvegardées.
+* [En savoir plus sur](backup-sql-server-database-azure-vms.md) la sauvegarde de bases de données SQL Server.
+* [En savoir plus sur](restore-sql-database-azure-vm.md) la restauration des bases de données SQL Server sauvegardées.
+* [En savoir plus sur](manage-monitor-sql-database-backup.md) la gestion des bases de données SQL Server sauvegardées.
