@@ -4,7 +4,7 @@ description: Vue d’ensemble des fonctionnalités cloud-init dans Microsoft Azu
 services: virtual-machines-linux
 documentationcenter: ''
 author: rickstercdn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 195c22cd-4629-4582-9ee3-9749493f1d72
@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 377ad49ae3a5ae0f61cd0fd93b68dd817d617397
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 057f7c42c037dac4cb2be686df09287de7113f0d
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67050823"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67695386"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Prise en charge cloud-init pour les machines virtuelles dans Azure
 Cet article décrit la prise en charge existante pour [cloud-init](https://cloudinit.readthedocs.io) destinée à la configuration d’une machine virtuelle ou de groupes de machines virtuelles identiques au moment de l’approvisionnement dans Azure. Ces scripts cloud-init s’exécutent au premier démarrage une fois que les ressources ont été approvisionnées par Azure.  
@@ -34,13 +34,13 @@ Cloud-init fonctionne aussi sur les différentes distributions. Par exemple, vou
 
 | Publisher | Offre | SKU | Version | Compatible avec cloud-init |
 |:--- |:--- |:--- |:--- |:--- |
-|Canonical |UbuntuServer |18.04-LTS |le plus récent |Oui | 
-|Canonical |UbuntuServer |17.10 |le plus récent |Oui | 
-|Canonical |UbuntuServer |16.04-LTS |le plus récent |Oui | 
-|Canonical |UbuntuServer |14.04.5-LTS |le plus récent |Oui |
-|CoreOS |CoreOS |Stable |le plus récent |Oui |
-|OpenLogic |CentOS |7-CI |le plus récent |preview |
-|Red Hat |RHEL |7-RAW-CI |le plus récent |preview |
+|Canonical |UbuntuServer |18.04-LTS |latest |Oui | 
+|Canonical |UbuntuServer |17.10 |latest |Oui | 
+|Canonical |UbuntuServer |16.04-LTS |latest |Oui | 
+|Canonical |UbuntuServer |14.04.5-LTS |latest |Oui |
+|CoreOS |CoreOS |Stable |latest |Oui |
+|OpenLogic |CentOS |7-CI |latest |preview |
+|Red Hat |RHEL |7-RAW-CI |latest |preview |
 
 Azure Stack ne prend pas en charge le provisionnement de RHEL 7.4 et de CentOS 7.4 à l’aide de cloud-init.
 

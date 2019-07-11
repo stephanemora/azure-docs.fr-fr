@@ -4,7 +4,7 @@ description: Utilisez un modèle Resource Manager et PowerShell pour créer faci
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 19129d61-8c04-4aa9-a01f-361a09466805
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 03/22/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 58c8ca9bb9b4dfd58c801eb4dd1dad95c1969c18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 70a9680b9f8696cd40cb5631217861dc6d1d7ad8
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62127614"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67719899"
 ---
 # <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a>Créer une machine virtuelle Windows à partir d’un modèle Resource Manager
 
@@ -29,7 +29,7 @@ Découvrez comment créer une machine virtuelle Windows en utilisant un modèle 
 
 ## <a name="create-a-virtual-machine"></a>Création d'une machine virtuelle
 
-La création d’une machine virtuelle Azure s’effectue généralement en deux étapes :
+La création d'une machine virtuelle Azure s'effectue généralement en deux étapes :
 
 - Créez un groupe de ressources. Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. Un groupe de ressources doit être créé avant les machines virtuelles.
 - Création d’une machine virtuelle

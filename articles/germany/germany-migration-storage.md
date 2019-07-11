@@ -9,12 +9,12 @@ ms.service: germany
 ms.date: 08/15/2018
 ms.topic: article
 ms.custom: bfmigrate
-ms.openlocfilehash: db26380ef50fd7546f90ceccaec854587e4690c4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 572313f65d5d97211dcb664d79122ea6be520bab
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67033520"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786547"
 ---
 # <a name="migrate-storage-resources-to-global-azure"></a>Migrer des ressources de stockage vers Azure global
 
@@ -133,12 +133,12 @@ Comme indiqué précédemment, il existe de multiples façons de créer une mach
 Pour plus d'informations :
 
 - Découvrez comment exporter vers un disque [via une API](/rest/api/compute/disks/grantaccess) en obtenant un URI de signature d'accès partagé. 
-- Découvrez comment créer un disque managé [via une API](/rest/api/compute/disks/createorupdate#create_a_managed_disk_by_importing_an_unmanaged_blob_from_a_different_subscription.) à partir d'un objet blob non géré.
+- Découvrez comment créer un disque managé [via une API](/rest/api/compute/disks/createorupdate#create-a-managed-disk-by-importing-an-unmanaged-blob-from-a-different-subscription.) à partir d'un objet blob non géré.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur les outils, techniques et recommandations pour migrer des ressources dans les catégories de service suivantes :
+Informez-vous sur les outils, techniques et suggestions pour migrer des ressources dans les catégories de service suivantes :
 
 - [Calcul](./germany-migration-compute.md)
 - [Mise en réseau](./germany-migration-networking.md)
@@ -150,5 +150,5 @@ En savoir plus sur les outils, techniques et recommandations pour migrer des res
 - [Identité](./germany-migration-identity.md)
 - [Sécurité](./germany-migration-security.md)
 - [Outils de gestion](./germany-migration-management-tools.md)
-- [Médias](./germany-migration-media.md)
+- [Média](./germany-migration-media.md)
 

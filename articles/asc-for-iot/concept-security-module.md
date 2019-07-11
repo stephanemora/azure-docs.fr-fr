@@ -2,24 +2,25 @@
 title: Comprendre Azure Security Center pour les jumeaux de module de sécurité IoT (préversion) | Microsoft Docs
 description: En savoir plus sur le concept des jumeaux de module de sécurité et la manière dont ils sont utilisés dans Azure Security Center pour IoT.
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
 ms.assetid: a5c25cba-59a4-488b-abbe-c37ff9b151f9
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: de0f21fbd847ff801308523f48e9d0c8a91880fa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8f964fd2b121c6232081673666f5babb160e1721
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65198374"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67618305"
 ---
 # <a name="security-module"></a>Module de sécurité
 

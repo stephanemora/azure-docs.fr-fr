@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 25cf9c3b7968be16dcc22f4140725efc22d785f2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f43bf3e9158b7d02f6b0f6147559962da855bfbb
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66156531"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67701751"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - Référence de script JSON
 > [!NOTE]
@@ -49,9 +49,9 @@ Le tableau suivant décrit les propriétés dans la définition JSON du pipeline
 
 | Propriété | Description | Obligatoire
 -------- | ----------- | --------
-| Nom | Nom du pipeline. Spécifiez un nom qui représente l’action que l’activité ou le pipeline est configuré(e) à exécuter<br/><ul><li>Nombre maximal de caractères : 260</li><li>Doit commencer par une lettre, un chiffre ou un trait de soulignement (\_)</li><li>Les caractères suivants ne sont pas autorisés : « . », « + », « ? », « / », « < », « > », « * », « % », « & », « : », « \\ »</li></ul> |OUI |
+| name | Nom du pipeline. Spécifiez un nom qui représente l’action que l’activité ou le pipeline est configuré(e) à exécuter<br/><ul><li>Nombre maximal de caractères : 260</li><li>Doit commencer par une lettre, un chiffre ou un trait de soulignement (\_)</li><li>Les caractères suivants ne sont pas autorisés : « . », « + », « ? », « / », « < », « > », « * », « % », « & », « : », « \\ »</li></ul> |OUI |
 | description |Texte décrivant la raison motivant l’activité ou le pipeline. | Non |
-| activités | Contient une liste d’activités. | OUI |
+| activities | Contient une liste d’activités. | OUI |
 | start |Date et heure de début du pipeline. Doit se trouver au [format ISO](https://en.wikipedia.org/wiki/ISO_8601). Par exemple :  2014-10-14T16:32:41. <br/><br/>Il est possible de spécifier une heure locale, par exemple une heure EST. Voici un exemple : `2016-02-27T06:00:00**-05:00`, qui correspond à 6h EST.<br/><br/>Ensemble, les propriétés de début et de fin spécifient la période active du pipeline. Les tranches de sortie sont uniquement générées pendant cette période active. |Non<br/><br/>Si vous spécifiez une valeur pour la propriété end, vous devez en spécifier une pour la propriété start.<br/><br/>Les heures de début et de fin peuvent être toutes les deux non renseignées pour créer un pipeline. Vous devez spécifier les deux valeurs pour définir une période active d’exécution du pipeline. Si vous ne spécifiez pas d’heures de début et de fin lors de la création d’un pipeline, vous pouvez les définir à l’aide de la cmdlet Set-AzDataFactoryPipelineActivePeriod ultérieurement. |
 | end |Date et heure de fin du pipeline. Si spécifiée, doit être au format ISO. Par exemple :  2014-10-14T17:32:41 <br/><br/>Il est possible de spécifier une heure locale, par exemple une heure EST. Voici un exemple : `2016-02-27T06:00:00**-05:00`, qui correspond à 6h EST.<br/><br/>Pour exécuter le pipeline indéfiniment, spécifiez 9999-09-09 comme valeur pour la propriété end. |Non <br/><br/>Si vous spécifiez une valeur pour la propriété start, vous devez en spécifier une pour la propriété end.<br/><br/>Consultez les remarques relatives à la propriété **start** . |
 | isPaused |Si la valeur est true, le pipeline ne s’exécute pas. Valeur par défaut = false. Vous pouvez utiliser cette propriété pour activer ou désactiver. |Non |
@@ -87,7 +87,7 @@ Le tableau suivant décrit les propriétés dans la définition JSON du pipeline
 
 | Tag | Description | Obligatoire |
 | --- | --- | --- |
-| Nom |Nom de l’activité. Spécifiez un nom qui représente l’action pour laquelle l’activité est configurée<br/><ul><li>Nombre maximal de caractères : 260</li><li>Doit commencer par une lettre, un chiffre ou un trait de soulignement (\_)</li><li>Les caractères suivants ne sont pas autorisés : « . », « + », « ? », « / », « < », « > », « * », « % », « & », « : », « \\ »</li></ul> |OUI |
+| name |Nom de l’activité. Spécifiez un nom qui représente l’action pour laquelle l’activité est configurée<br/><ul><li>Nombre maximal de caractères : 260</li><li>Doit commencer par une lettre, un chiffre ou un trait de soulignement (\_)</li><li>Les caractères suivants ne sont pas autorisés : « . », « + », « ? », « / », « < », « > », « * », « % », « & », « : », « \\ »</li></ul> |OUI |
 | description |Texte décrivant la raison motivant l’activité. |Non |
 | Type |Spécifie le type de l'activité. Consultez les sections [MAGASINS DE DONNÉS](#data-stores) et [ACTIVITÉS DE TRANSFORMATION DES DONNÉES](#data-transformation-activities) pour en savoir plus sur les différents types d’activités. |OUI |
 | inputs |Les tables d’entrée utilisées par l’activité<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |Non pour les activités HDInsightStreaming et SqlServerStoredProcedure <br/> <br/> Oui pour toutes les autres |
@@ -286,8 +286,8 @@ La table suivante décrit les propriétés dans le JSON ci-dessus :
 
 | Propriété | Description | Obligatoire | Default |
 | --- | --- | --- | --- |
-| Nom | Nom du jeu de données Pour connaître les règles d’affectation des noms, voir [Azure Data Factory - Règles d’affectation des noms](data-factory-naming-rules.md). |OUI |N/D |
-| Type | Type du jeu de données. Spécifiez l’un des types pris en charge par Azure Data Factory (par exemple : AzureBlob, AzureSqlTable). Consultez la section [Magasins de données](#data-stores) pour obtenir des informations sur les types de magasins de données et jeu de données pris en charge par Azure Data Factory. |
+| name | Nom du jeu de données Pour connaître les règles d’affectation des noms, voir [Azure Data Factory - Règles d’affectation des noms](data-factory-naming-rules.md). |OUI |N/D |
+| type | Type du jeu de données. Spécifiez l’un des types pris en charge par Azure Data Factory (par exemple : AzureBlob, AzureSqlTable). Consultez la section [Magasins de données](#data-stores) pour obtenir des informations sur les types de magasins de données et jeu de données pris en charge par Azure Data Factory. |
 | structure | Schéma du jeu de données. Il contient des colonnes, leurs types, etc. | Non |N/D |
 | typeProperties | Propriétés correspondant au type sélectionné. Consultez la section [Magasins de données](#data-stores) pour en savoir plus sur les types pris en charge et leurs propriétés. |OUI |N/D |
 | external | Indicateur booléen pour indiquer si un jeu de données est explicitement généré par un pipeline de fabrique de données ou non. |Non |false |
@@ -298,8 +298,8 @@ Chaque colonne de la section **structure** contient les propriétés suivantes 
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| Nom |Nom de la colonne. |OUI |
-| Type |Type de données de la colonne.  |Non |
+| name |Nom de la colonne. |OUI |
+| type |Type de données de la colonne.  |Non |
 | culture |Culture .NET à utiliser lorsque le type est spécifié et qu’il est de type .NET `Datetime` ou `Datetimeoffset`. La valeur par défaut est `en-us`. |Non |
 | format |Chaîne de format à utiliser lorsque le type est spécifié et qu’il est de type .NET `Datetime` ou `Datetimeoffset`. |Non |
 
@@ -322,7 +322,7 @@ Le tableau suivant décrit les propriétés que vous pouvez utiliser dans la sec
 | interval |Spécifie un multiplicateur de fréquence<br/><br/>«Frequency» et «interval» déterminent la fréquence à laquelle la tranche est produite.<br/><br/>Si vous voulez des tranches de jeu de données d’une heure, définissez <b>frequency</b> sur <b>Hour</b> et <b>interval</b> sur <b>1</b>.<br/><br/><b>Remarque</b>: Si vous définissez la fréquence en minutes, nous vous recommandons de définir l’intervalle sur une valeur au moins égale à 15. |OUI |N/D |
 | style |Spécifie si le segment doit être généré au début / à la fin de l’intervalle.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>Si la fréquence est définie sur Month et le style défini sur EndOfInterval, le segment est généré le dernier jour du mois. Si le style est défini sur StartOfInterval, le segment est généré le premier jour du mois.<br/><br/>Si la fréquence est définie sur Day et le style défini sur EndOfInterval, le segment est généré la dernière heure du jour.<br/><br/>Si la fréquence est définie sur Hour et le style défini sur EndOfInterval, le segment est généré à la fin de l’heure. Par exemple, pour un segment de la période 13 h-14 h, le segment est généré à 14 h. |Non |EndOfInterval |
 | anchorDateTime |Définit la position absolue dans le temps utilisée par le planificateur pour calculer les limites de tranche de jeu de données. <br/><br/><b>Remarque</b>: Si AnchorDateTime contient des éléments de date plus précis que la fréquence, ces éléments plus précis sont ignorés. <br/><br/>Par exemple, si <b>interval</b> est <b>hourly</b> (frequency: hour et interval: 1), et que <b>AnchorDateTime</b> contient <b>minutes and seconds</b>, les éléments <b>minutes et seconds</b> d’AnchorDateTime sont ignorés. |Non |01/01/0001 |
-| Offset |Intervalle de temps marquant le déplacement du début et de la fin de toutes les tranches du jeu de données. <br/><br/><b>Remarque</b>: Si anchorDateTime et offset sont spécifiés, on obtient un décalage combiné. |Non |N/D |
+| offset |Intervalle de temps marquant le déplacement du début et de la fin de toutes les tranches du jeu de données. <br/><br/><b>Remarque</b>: Si anchorDateTime et offset sont spécifiés, on obtient un décalage combiné. |Non |N/D |
 
 La section availability suivante spécifie que le jeu de données de sortie est exécuté toutes les heures (ou) que le jeu de données d’entrée est disponible toutes les heures :
 
@@ -595,7 +595,7 @@ Pour définir un service lié Azure Data Lake Store, définissez le type du serv
 | type | La propriété type doit être définie sur : **AzureDataLakeStore** | OUI |
 | dataLakeStoreUri | Spécifiez des informations à propos du compte Azure Data Lake Store. Il se présente au format suivant : `https://[accountname].azuredatalakestore.net/webhdfs/v1` ou `adl://[accountname].azuredatalakestore.net/`. | OUI |
 | subscriptionId | ID d’abonnement Azure auquel appartient le magasin Data Lake Store. | Requis pour le récepteur |
-| nom_groupe_ressources | Nom du groupe de ressources Azure auquel appartient le magasin Data Lake Store. | Requis pour le récepteur |
+| resourceGroupName | Nom du groupe de ressources Azure auquel appartient le magasin Data Lake Store. | Requis pour le récepteur |
 | servicePrincipalId | Spécifiez l’ID client de l’application. | Oui (pour l’authentification du principal du service) |
 | servicePrincipalKey | Spécifiez la clé de l’application. | Oui (pour l’authentification du principal du service) |
 | locataire | Spécifiez les informations de locataire (nom de domaine ou ID de locataire) dans lesquels se trouve votre application. Vous pouvez le récupérer en pointant la souris dans le coin supérieur droit du Portail Azure. | Oui (pour l’authentification du principal du service) |
@@ -1597,7 +1597,7 @@ Pour définir un service lié Amazon Redshift, définissez le **type** du servic
 | serveur |Nom d’hôte ou adresse IP du serveur Amazon Redshift. |OUI |
 | port |Le numéro du port TCP utilisé par le serveur Amazon Redshift pour écouter les connexions clientes. |Aucune valeur par défaut : 5439 |
 | database |Nom de la base de données Amazon Redshift. |OUI |
-| username |Nom d’utilisateur ayant accès à la base de données. |OUI |
+| userName |Nom d’utilisateur ayant accès à la base de données. |OUI |
 | password |Mot de passe du compte d’utilisateur. |OUI |
 
 #### <a name="example"></a>Exemples
@@ -1710,7 +1710,7 @@ Pour définir un service lié IBM DB2, définissez le **type** du service lié s
 | database |Nom de la base de données DB2. |OUI |
 | schema |Nom du schéma dans la base de données. Le nom du schéma respecte la casse. |Non |
 | authenticationType |Type d'authentification utilisé pour se connecter à la base de données DB2. Les valeurs possibles sont les suivantes : Anonymous, Basic et Windows. |OUI |
-| username |Spécifiez le nom d'utilisateur si vous utilisez l'authentification de base ou Windows. |Non |
+| userName |Spécifiez le nom d'utilisateur si vous utilisez l'authentification de base ou Windows. |Non |
 | password |Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. |Non |
 | gatewayName |Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à la base de données DB2 locale. |OUI |
 
@@ -1826,7 +1826,7 @@ Pour définir un service lié MySQL, définissez le **type** du service lié sur
 | database |Nom de la base de données MySQL. |OUI |
 | schema |Nom du schéma dans la base de données. |Non |
 | authenticationType |Type d'authentification utilisé pour se connecter à la base de données MySQL. Les valeurs possibles sont les suivantes : `Basic`. |OUI |
-| username |Spécifiez le nom d’utilisateur associé à la connexion à la base de données MySQL. |OUI |
+| userName |Spécifiez le nom d’utilisateur associé à la connexion à la base de données MySQL. |OUI |
 | password |Spécifiez le mot de passe du compte d’utilisateur que vous avez indiqué. |OUI |
 | gatewayName |Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à la base de données MySQL locale. |OUI |
 
@@ -2117,7 +2117,7 @@ Pour définir un service lié PostgreSQL, définissez le **type** du service li�
 | database |Nom de la base de données PostgreSQL. |OUI |
 | schema |Nom du schéma dans la base de données. Le nom du schéma respecte la casse. |Non |
 | authenticationType |Type d'authentification utilisé pour se connecter à la base de données PostgreSQL. Les valeurs possibles sont les suivantes : Anonymous, Basic et Windows. |OUI |
-| username |Spécifiez le nom d'utilisateur si vous utilisez l'authentification de base ou Windows. |Non |
+| userName |Spécifiez le nom d'utilisateur si vous utilisez l'authentification de base ou Windows. |Non |
 | password |Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. |Non |
 | gatewayName |Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à la base de données PostgreSQL locale. |OUI |
 
@@ -2232,13 +2232,13 @@ Pour définir un service lié SAP Business Warehouse (BW), définissez le **type
 
 Propriété | Description | Valeurs autorisées | Obligatoire
 -------- | ----------- | -------------- | --------
-serveur | Nom du serveur sur lequel réside l’instance SAP BW. | chaîne | OUI
+serveur | Nom du serveur sur lequel réside l’instance SAP BW. | string | OUI
 systemNumber | Numéro de système du système SAP BW. | Nombre décimal à deux chiffres représenté sous forme de chaîne. | OUI
 clientId | ID client du client dans le système SAP W. | Nombre décimal à trois chiffres représenté sous forme de chaîne. | OUI
-username | Nom de l’utilisateur qui a accès au serveur SAP | chaîne | OUI
-password | Mot de passe pour l’utilisateur. | chaîne | OUI
-gatewayName | Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à l’instance SAP BW locale. | chaîne | OUI
-Encryptedcredential | La chaîne d’informations d’identification chiffrée. | chaîne | Non
+userName | Nom de l’utilisateur qui a accès au serveur SAP | string | OUI
+password | Mot de passe pour l’utilisateur. | string | OUI
+gatewayName | Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à l’instance SAP BW locale. | string | OUI
+encryptedCredential | La chaîne d’informations d’identification chiffrée. | string | Non
 
 #### <a name="example"></a>Exemples
 
@@ -2342,12 +2342,12 @@ Pour définir un service lié SAP HANA, définissez le **type** du service lié 
 
 Propriété | Description | Valeurs autorisées | Obligatoire
 -------- | ----------- | -------------- | --------
-serveur | Le nom du serveur sur lequel réside l’instance SAP HANA. Si votre serveur utilise un port personnalisé, spécifiez `server:port`. | chaîne | OUI
+serveur | Le nom du serveur sur lequel réside l’instance SAP HANA. Si votre serveur utilise un port personnalisé, spécifiez `server:port`. | string | OUI
 authenticationType | Type d'authentification. | chaîne. « Basic » ou « Windows » | OUI
-username | Nom de l’utilisateur qui a accès au serveur SAP | chaîne | OUI
-password | Mot de passe pour l’utilisateur. | chaîne | OUI
-gatewayName | Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à l’instance SAP HANA locale. | chaîne | OUI
-Encryptedcredential | La chaîne d’informations d’identification chiffrée. | chaîne | Non
+userName | Nom de l’utilisateur qui a accès au serveur SAP | string | OUI
+password | Mot de passe pour l’utilisateur. | string | OUI
+gatewayName | Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à l’instance SAP HANA locale. | string | OUI
+encryptedCredential | La chaîne d’informations d’identification chiffrée. | string | Non
 
 #### <a name="example"></a>Exemples
 
@@ -2454,7 +2454,7 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| Type |La propriété de type doit être définie sur : **OnPremisesSqlServer**. |OUI |
+| type |La propriété de type doit être définie sur : **OnPremisesSqlServer**. |OUI |
 | connectionString |Spécifiez les informations connectionString nécessaires pour connecter la base de données SQL Server locale à l’aide de l’authentification SQL ou de l’authentification Windows. |OUI |
 | gatewayName |Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à la base de données SQL Server locale. |OUI |
 | username |Spécifiez le nom d’utilisateur si vous utilisez l’authentification Windows. Exemple : **domainname\\username**. |Non |
@@ -2675,7 +2675,7 @@ Pour définir un service lié Sybase, définissez le **type** du service lié su
 | database |Nom de la base de données Sybase. |OUI |
 | schema |Nom du schéma dans la base de données. |Non |
 | authenticationType |Type d'authentification utilisé pour se connecter à la base de données Sybase. Les valeurs possibles sont les suivantes : Anonymous, Basic et Windows. |OUI |
-| username |Spécifiez le nom d'utilisateur si vous utilisez l'authentification de base ou Windows. |Non |
+| userName |Spécifiez le nom d'utilisateur si vous utilisez l'authentification de base ou Windows. |Non |
 | password |Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. |Non |
 | gatewayName |Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à la base de données Sybase locale. |OUI |
 
@@ -2793,7 +2793,7 @@ Pour définir un service lié Teradata, définissez le **type** du service lié 
 | --- | --- | --- |
 | serveur |Nom du serveur Teradata. |OUI |
 | authenticationType |Type d'authentification utilisé pour se connecter à la base de données Teradata. Les valeurs possibles sont les suivantes : Anonymous, Basic et Windows. |OUI |
-| username |Spécifiez le nom d'utilisateur si vous utilisez l'authentification de base ou Windows. |Non |
+| userName |Spécifiez le nom d'utilisateur si vous utilisez l'authentification de base ou Windows. |Non |
 | password |Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. |Non |
 | gatewayName |Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à la base de données Teradata locale. |OUI |
 
@@ -2908,7 +2908,7 @@ Pour définir un service lié Cassandra, définissez le **type** du service lié
 | host |Une ou plusieurs adresses IP ou noms d’hôte de serveurs Cassandra.<br/><br/>Renseignez une liste des adresses IP ou des noms d’hôte séparée par des virgules pour vous connecter simultanément à tous les serveurs. |OUI |
 | port |Le port TCP utilisé par le serveur Cassandra pour écouter les connexions clientes. |Aucune valeur par défaut : 9042 |
 | authenticationType |Basique ou anonyme |OUI |
-| username |Spécifiez le nom d’utilisateur du compte d’utilisateur. |Oui, si authenticationType est défini sur De base. |
+| userName |Spécifiez le nom d’utilisateur du compte d’utilisateur. |Oui, si authenticationType est défini sur De base. |
 | password |Spécifiez le mot de passe du compte d'utilisateur. |Oui, si authenticationType est défini sur De base. |
 | gatewayName |Le nom de la passerelle qui est utilisée pour se connecter à la base de données Cassandra locale. |OUI |
 | Encryptedcredential |Informations d’identification chiffrées par la passerelle. |Non |
@@ -3035,12 +3035,12 @@ Pour définir un service lié MongoDB, définissez le **type** du service lié s
 | serveur |Nom d’hôte ou adresse IP du serveur MongoDB. |OUI |
 | port |Le port TCP utilisé par le serveur MongoDB pour écouter les connexions clientes. |Facultatif, valeur par défaut : 27017 |
 | authenticationType |De base ou anonyme. |OUI |
-| username |Compte d’utilisateur pour accéder à MongoDB. |Oui (si l’authentification de base est utilisée). |
+| userName |Compte d’utilisateur pour accéder à MongoDB. |Oui (si l’authentification de base est utilisée). |
 | password |Mot de passe pour l’utilisateur. |Oui (si l’authentification de base est utilisée). |
 | authSource |Nom de la base de données MongoDB que vous souhaitez utiliser pour vérifier vos informations d’identification pour l’authentification. |Facultatif (si l’authentification de base est utilisée). Par défaut : utilise le compte d’administrateur et la base de données spécifiée à l’aide de la propriété databaseName. |
 | databaseName |Nom de la base de données MongoDB à laquelle vous souhaitez accéder. |OUI |
 | gatewayName |Nom de la passerelle qui accède au magasin de données. |OUI |
-| Encryptedcredential |Informations d’identification chiffrées par la passerelle. |Facultatif |
+| encryptedCredential |Informations d’identification chiffrées par la passerelle. |Facultatif |
 
 #### <a name="example"></a>Exemples
 
@@ -3153,7 +3153,7 @@ Pour définir un service lié Amazon S3, définissez le **type** du service lié
 
 | Propriété | Description | Valeurs autorisées | Requis |
 | --- | --- | --- | --- |
-| accessKeyID |ID de la clé d’accès secrète. |chaîne |OUI |
+| accessKeyID |ID de la clé d’accès secrète. |string |OUI |
 | secretAccessKey |La clé d’accès secrète elle-même. |Chaîne secrète chiffrée |OUI |
 
 #### <a name="example"></a>Exemples
@@ -3321,7 +3321,7 @@ Vous pouvez lier un système de fichiers local à une fabrique de données Azure
 | host |Spécifie le chemin d’accès racine du dossier que vous souhaitez copier. Utilisez le caractère d’échappement « \ » pour les caractères spéciaux contenus dans la chaîne. Pour obtenir des exemples, consultez la section Exemples de définitions de jeux de données et de services liés. |OUI |
 | userId |Spécifiez l’ID de l’utilisateur qui a accès au serveur. |Non (si vous choisissez encryptedcredential) |
 | password |Spécifiez le mot de passe de l’utilisateur (userid). |Non (si vous choisissez encryptedcredential) |
-| Encryptedcredential |Spécifiez les informations d’identification chiffrées que vous pouvez obtenir en exécutant la cmdlet New-AzDataFactoryEncryptValue. |Non (si vous choisissez de spécifier un nom d'utilisateur et un mot de passe en texte brut) |
+| encryptedCredential |Spécifiez les informations d’identification chiffrées que vous pouvez obtenir en exécutant la cmdlet New-AzDataFactoryEncryptValue. |Non (si vous choisissez de spécifier un nom d'utilisateur et un mot de passe en texte brut) |
 | gatewayName |Spécifie le nom de la passerelle que Data Factory doit utiliser pour se connecter au serveur de fichiers local. |OUI |
 
 #### <a name="sample-folder-path-definitions"></a>Exemples de définitions de chemin d’accès du dossier
@@ -3554,9 +3554,9 @@ Pour définir un service lié FTP, définissez le **type** du service lié sur *
 | --- | --- | --- | --- |
 | host |Nom ou adresse IP du serveur FTP |OUI |&nbsp; |
 | authenticationType |Spécification du type d’authentification |OUI |Basic, anonyme |
-| username |L’utilisateur ayant accès au serveur FTP |Non |&nbsp; |
+| userName |L’utilisateur ayant accès au serveur FTP |Non |&nbsp; |
 | password |Mot de passe de l’utilisateur (nom d’utilisateur) |Non |&nbsp; |
-| Encryptedcredential |Informations d’identification chiffrées pour accéder au serveur FTP |Non |&nbsp; |
+| encryptedCredential |Informations d’identification chiffrées pour accéder au serveur FTP |Non |&nbsp; |
 | gatewayName |Nom de la passerelle de gestion des données pour se connecter à un serveur FTP local |Non |&nbsp; |
 | port |Port sur lequel le serveur FTP écoute |Non |21 |
 | enableSsl |Indiquez si vous souhaitez utiliser FTP sur un canal SSL/TLS |Non |true |
@@ -3736,7 +3736,7 @@ Pour définir un service lié HDFS, définissez le **type** du service lié sur 
 | userName |Nom d’utilisateur de l’authentification Windows |Oui (pour l’authentification Windows) |
 | password |Mot de passe de l’authentification Windows |Oui (pour l’authentification Windows) |
 | gatewayName |Nom de la passerelle que le service Data Factory doit utiliser pour se connecter au système HDFS. |OUI |
-| Encryptedcredential |[New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) des informations d’accès. |Non |
+| encryptedCredential |[New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) des informations d’accès. |Non |
 
 #### <a name="example-using-anonymous-authentication"></a>Exemple : Utilisation de l’authentification anonyme
 
@@ -3872,7 +3872,7 @@ Pour définir un service lié SFTP, définissez le **type** du service lié sur 
 | skipHostKeyValidation | Spécifiez s’il faut ignorer la validation de la clé hôte. | Non. valeur par défaut : false |
 | hostKeyFingerprint | Spécifiez l’empreinte de la clé hôte. | Oui, si `skipHostKeyValidation` est défini sur false.  |
 | gatewayName |Nom de la passerelle de gestion des données pour se connecter à un serveur SFTP local. | Oui en cas de copie de données à partir d’un serveur SFTP local. |
-| Encryptedcredential | Informations d’identification chiffrées pour accéder au serveur SFTP. Généré automatiquement lorsque vous spécifiez l’authentification de base (nom d’utilisateur + mot de passe) ou l’authentification SshPublicKey (nom d’utilisateur + chemin d’accès ou contenu de la clé privée) dans l’Assistant de copie ou la boîte de dialogue contextuelle ClickOnce. | Non. S’applique uniquement pour la copie de données à partir d’un serveur SFTP local. |
+| encryptedCredential | Informations d’identification chiffrées pour accéder au serveur SFTP. Généré automatiquement lorsque vous spécifiez l’authentification de base (nom d’utilisateur + mot de passe) ou l’authentification SshPublicKey (nom d’utilisateur + chemin d’accès ou contenu de la clé privée) dans l’Assistant de copie ou la boîte de dialogue contextuelle ClickOnce. | Non. S’applique uniquement pour la copie de données à partir d’un serveur SFTP local. |
 
 #### <a name="example-using-basic-authentication"></a>Exemple : Utilisation de l’authentification de base
 
@@ -3880,7 +3880,7 @@ Pour utiliser l’authentification de base, définissez `authenticationType` sur
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| username | Utilisateur ayant accès au serveur SFTP. |OUI |
+| userName | Utilisateur ayant accès au serveur SFTP. |OUI |
 | password | Mot de passe de l’utilisateur (nom d’utilisateur). | OUI |
 
 ```json
@@ -3929,7 +3929,7 @@ Pour utiliser l’authentification de base, définissez `authenticationType` sur
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| username |Utilisateur ayant accès au serveur SFTP |OUI |
+| userName |Utilisateur ayant accès au serveur SFTP |OUI |
 | privateKeyPath | Spécifiez le chemin absolu au fichier de clé privée auquel la passerelle peut accéder. | Spécifiez soit la propriété `privateKeyPath`, soit la propriété `privateKeyContent`. <br><br> S’applique uniquement pour la copie de données à partir d’un serveur SFTP local. |
 | privateKeyContent | Une chaîne sérialisée du contenu de la clé privée. L’Assistant de copie peut lire le fichier de clé privée et extraire le contenu de clé privée automatiquement. Si vous utilisez tout autre outil/SDK, utilisez plutôt la propriété privateKeyPath. | Spécifiez soit la propriété `privateKeyPath`, soit la propriété `privateKeyContent`. |
 | passPhrase | Spécifiez la phrase secrète/le mot de passe pour déchiffrer la clé privée si le fichier de clé est protégé par une phrase secrète. | Oui, si le fichier de clé privée est protégé par une phrase secrète. |
@@ -4077,14 +4077,14 @@ Pour définir un service lié HTTP, définissez le **type** du service lié sur 
 | authenticationType | Spécifie le type d’authentification. Les valeurs autorisées sont les suivantes : **Anonymous**, **Basic**, **Digest**, **Windows**, **ClientCertificate**. <br><br> Reportez-vous aux sections suivant ce tableau pour accéder à d’autres propriétés et à des exemples JSON sur ces types d’authentification. | OUI |
 | enableServerCertificateValidation | Indiquez si la validation des certificats SSL doit être activée lorsque la source est un serveur web HTTPS. | Non, la valeur par défaut est True. |
 | gatewayName | Nom de la passerelle de gestion des données pour se connecter à une source HTTP locale. | Oui en cas de copie de données à partir d’une source HTTP locale. |
-| Encryptedcredential | Informations d’identification chiffrées pour accéder au point de terminaison. Elles sont générées automatiquement lorsque vous configurez les informations d’authentification dans l’Assistant de copie ou la boîte de dialogue contextuelle ClickOnce. | Non. S’applique uniquement pour la copie de données à partir d’un serveur HTTP local. |
+| encryptedCredential | Informations d’identification chiffrées pour accéder au point de terminaison. Elles sont générées automatiquement lorsque vous configurez les informations d’authentification dans l’Assistant de copie ou la boîte de dialogue contextuelle ClickOnce. | Non. S’applique uniquement pour la copie de données à partir d’un serveur HTTP local. |
 
 #### <a name="example-using-basic-digest-or-windows-authentication"></a>Exemple : Utilisation de l’authentification Basic (De base), Digest ou Windows
 Définissez `authenticationType` sur `Basic`, `Digest` ou `Windows` et spécifiez les propriétés suivantes en plus des propriétés génériques du connecteur HTTP présentées ci-dessus :
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| username | Nom d’utilisateur pour accéder au point de terminaison HTTP. | OUI |
+| userName | Nom d’utilisateur pour accéder au point de terminaison HTTP. | OUI |
 | password | Mot de passe de l’utilisateur (nom d’utilisateur). | OUI |
 
 ```json
@@ -4273,7 +4273,7 @@ Pour définir un service lié OData, définissez le **type** du service lié sur
 | --- | --- | --- |
 | url |URL du service OData. |OUI |
 | authenticationType |Type d’authentification utilisé pour se connecter à la source OData. <br/><br/> Pour OData dans le cloud, les valeurs possibles sont Anonyme, De base et OAuth (notez qu’à l’heure actuelle, Azure Data Factory prend en charge uniquement l’authentification OAuth basée sur Azure Active Directory). <br/><br/> Pour OData en local, les valeurs possibles sont Anonyme, De base et Windows. |OUI |
-| username |Spécifiez le nom d’utilisateur si vous utilisez l’authentification de base. |Oui (uniquement si vous utilisez l’authentification de base) |
+| userName |Spécifiez le nom d’utilisateur si vous utilisez l’authentification de base. |Oui (uniquement si vous utilisez l’authentification de base) |
 | password |Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. |Oui (uniquement si vous utilisez l’authentification de base) |
 | authorizedCredential |Si vous utilisez OAuth, cliquez sur le bouton **Autoriser** de l’Assistant de copie Data Factory ou de l’éditeur et entrez vos informations d’identification. La valeur de cette propriété sera alors générée automatiquement. |Oui (uniquement si vous utilisez l’authentification OAuth) |
 | gatewayName |Nom de la passerelle que le service Data Factory doit utiliser pour se connecter au service OData local. Indiquez uniquement si vous copiez des données à partir d’une source OData locale. |Non |
@@ -4444,7 +4444,7 @@ Pour définir un service lié ODBC, définissez le **type** du service lié sur 
 | connectionString |Partie de la chaîne de connexion ne contenant pas les informations d’accès, avec des informations d’identification chiffrées facultatives. Consultez les exemples dans les sections suivantes. |OUI |
 | credential |Partie de la chaîne de connexion contenant les informations d’accès, spécifiée dans un format de valeurs de propriété spécifique au pilote. Exemple : `“Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;”.` |Non |
 | authenticationType |Type d’authentification utilisé pour se connecter au magasin de données ODBC. Les valeurs possibles sont les suivantes : Anonymous et Basic. |OUI |
-| username |Spécifiez le nom d’utilisateur si vous utilisez l’authentification de base. |Non |
+| userName |Spécifiez le nom d’utilisateur si vous utilisez l’authentification de base. |Non |
 | password |Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. |Non |
 | gatewayName |Nom de la passerelle que le service Data Factory doit utiliser pour se connecter au magasin de données ODBC. |OUI |
 
@@ -4596,7 +4596,7 @@ Pour définir un service lié Salesforce, définissez le **type** du service li�
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
 | environmentUrl | Spécifiez l’URL de l’instance Salesforce. <br><br> - L'URL par défaut est « https:\//login.salesforce.com ». <br> - Pour copier des données du bac à sable, spécifiez « https://test.salesforce.com  ». <br> - Pour copier des données du domaine personnalisé, spécifiez, par exemple : « https://[domain].my.salesforce.com ». |Non |
-| username |Spécifiez un nom d’utilisateur pour le compte d’utilisateur. |OUI |
+| userName |Spécifiez un nom d’utilisateur pour le compte d’utilisateur. |OUI |
 | password |Spécifiez le mot de passe du compte d’utilisateur. |OUI |
 | securityToken |Spécifiez le jeton de sécurité du compte d’utilisateur. Consultez l’article [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) (Obtenir un jeton de sécurité) pour obtenir des instructions sur la réinitialisation et l’obtention d’un jeton de sécurité. Pour en savoir plus sur les jetons de sécurité, consultez l’article [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)(Sécurité et API). |OUI |
 
@@ -4878,7 +4878,7 @@ Le tableau suivant décrit les propriétés utilisées dans la définition JSON 
 | --- | --- | --- |
 | Type |La propriété de type doit être définie sur **HDInsight**. |OUI |
 | clusterUri |L'URI du cluster HDInsight. |OUI |
-| username |Spécifiez le nom de l'utilisateur à utiliser pour se connecter à un cluster HDInsight existant. |OUI |
+| userName |Spécifiez le nom de l'utilisateur à utiliser pour se connecter à un cluster HDInsight existant. |OUI |
 | password |Spécifiez le mot de passe du compte d'utilisateur. |OUI |
 | linkedServiceName | Nom du service lié de stockage Azure faisant référence au stockage Blob Azure utilisé par le cluster HDInsight. <p>Actuellement, vous ne pouvez pas spécifier un service lié Azure Data Lake Store pour cette propriété. Vous pouvez accéder aux données d’Azure Data Lake Store à partir de scripts Hive/Pig si le cluster HDInsight a accès à Data Lake Store. </p>  |OUI |
 
@@ -4974,7 +4974,7 @@ Le tableau suivant décrit les propriétés utilisées dans la définition JSON 
 | dataLakeAnalyticsUri |URI du service Analytique Azure Data Lake. |Non |
 | autorisation |Le code d’autorisation est automatiquement récupéré après un clic sur le bouton **Autoriser** dans l’éditeur de la fabrique de données et une fois la connexion OAuth effectuée. |OUI |
 | subscriptionId |ID d’abonnement Azure |Non (si non spécifié, l’abonnement de la fabrique de données est utilisé). |
-| nom_groupe_ressources |Nom du groupe de ressources Azure |Non (si non spécifié, le groupe de ressources de la fabrique de données est utilisé). |
+| resourceGroupName |Nom du groupe de ressources Azure |Non (si non spécifié, le groupe de ressources de la fabrique de données est utilisé). |
 | sessionId |ID de session issu de la session d'autorisation OAuth. Chaque ID de session est unique et ne peut être utilisé qu’une seule fois. Voici l’ID de session généré automatiquement lorsque vous utilisez Data Factory. |OUI |
 
 
@@ -5060,7 +5060,7 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| Type |La propriété de type doit être définie sur : **OnPremisesSqlServer**. |OUI |
+| type |La propriété de type doit être définie sur : **OnPremisesSqlServer**. |OUI |
 | connectionString |Spécifiez les informations connectionString nécessaires pour connecter la base de données SQL Server locale à l’aide de l’authentification SQL ou de l’authentification Windows. |OUI |
 | gatewayName |Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à la base de données SQL Server locale. |OUI |
 | username |Spécifiez le nom d’utilisateur si vous utilisez l’authentification Windows. Exemple : **domainname\\username**. |Non |
@@ -5130,7 +5130,7 @@ Vous pouvez spécifier les propriétés suivantes dans une définition JSON d’
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
 | script |Spécifier le script en ligne Hive |Non |
-| Chemin d'accès du script |Stockez le script Hive dans un stockage d'objets blob Azure et indiquez le chemin d'accès au fichier. Utilisez la propriété ’script’ ou ’scriptPath’. Les deux propriétés ne peuvent pas être utilisées simultanément. Le nom de fichier respecte la casse. |Non |
+| scriptPath |Stockez le script Hive dans un stockage d'objets blob Azure et indiquez le chemin d'accès au fichier. Utilisez la propriété ’script’ ou ’scriptPath’. Les deux propriétés ne peuvent pas être utilisées simultanément. Le nom de fichier respecte la casse. |Non |
 | defines |Spécifier les paramètres sous forme de paires clé/valeur pour le référencement au sein du script Hive à l'aide de ’hiveconf’ |Non |
 
 Ces propriétés de type sont spécifiques à l’activité Hive. D’autres propriétés (en dehors de la section typeProperties) sont prises en charge pour toutes les activités.
@@ -5176,7 +5176,7 @@ Vous pouvez spécifier les propriétés suivantes dans une définition JSON d’
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
 | script |Spécifier le script en ligne pig |Non |
-| chemin d'accès du script |Stockez le script pig dans un stockage d'objets blob Azure et indiquez le chemin d'accès au fichier. Utilisez la propriété ’script’ ou ’scriptPath’. Les deux propriétés ne peuvent pas être utilisées simultanément. Le nom de fichier respecte la casse. |Non |
+| scriptPath |Stockez le script pig dans un stockage d'objets blob Azure et indiquez le chemin d'accès au fichier. Utilisez la propriété ’script’ ou ’scriptPath’. Les deux propriétés ne peuvent pas être utilisées simultanément. Le nom de fichier respecte la casse. |Non |
 | defines |Spécifier les paramètres sous forme de paires clé/valeur pour le référencement au sein du script pig |Non |
 
 Ces propriétés de type sont spécifiques à l’activité pig. D’autres propriétés (en dehors de la section typeProperties) sont prises en charge pour toutes les activités.

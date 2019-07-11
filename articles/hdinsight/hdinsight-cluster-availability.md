@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: tyfox
-ms.openlocfilehash: 459de569916af14b0efea0ff08b92e5c93ed2369
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 195999ba685828042fc958e8aed7e67bad694657
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64718915"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786557"
 ---
 # <a name="how-to-monitor-cluster-availability-with-ambari-and-azure-monitor-logs"></a>Comment surveiller la disponibilité de cluster avec les journaux Azure Monitor et Ambari
 
@@ -123,7 +123,7 @@ Par exemple, exécutez l’exemple de requête **Availability rate** (Taux de di
 > [!NOTE] 
 > Le taux de disponibilité étant mesuré sur une période de 24 heures, votre cluster devra s’exécuter pendant au moins 24 heures avant de pouvoir consulter le taux de disponibilité précis.
 
-Vous pouvez épingler ce tableau à un tableau de bord partagé en cliquant sur **Épingler** dans le coin supérieur droit. Si vous n’avez pas de tableau de bord partagé accessible en écriture, vous pouvez voir comment en créer un ici : [Créer et partager des tableaux de bord dans le portail Azure](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards#publish-a-dashboard-and-manage-access-control).
+Vous pouvez épingler ce tableau à un tableau de bord partagé en cliquant sur **Épingler** dans le coin supérieur droit. Si vous n’avez pas de tableau de bord partagé accessible en écriture, vous pouvez voir comment en créer un ici : [Créer et partager des tableaux de bord dans le portail Azure](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards#publish-and-share-a-dashboard).
 
 ### <a name="azure-monitor-alerts"></a>Alertes Azure Monitor
 

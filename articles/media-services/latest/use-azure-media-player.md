@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 01/03/2018
+ms.date: 07/10/2018
 ms.author: juliako
-ms.openlocfilehash: fd5bf9f7bca9c667191d0d3f83be6e29a96c8dbe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e72085d3ac9815b3ec5fd89c678860bd75761f73
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64926526"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798098"
 ---
 # <a name="azure-media-player-overview"></a>Présentation du lecteur multimédia Azure
 
@@ -30,7 +30,7 @@ Microsoft Azure Media Services permet au contenu d’être diffusé dans les for
 
 ### <a name="start-using"></a>Démarrer l’utilisation
 
-Vous pouvez utiliser la [page de démonstration du lecteur multimédia Azure](https://aka.ms/amp) pour lire les exemples Azure Media Services ou votre propre flux de données.  
+Vous pouvez utiliser la [page de démonstration du lecteur multimédia Azure](https://ampdemo.azureedge.net/azuremediaplayer.html) pour lire les exemples Azure Media Services ou votre propre flux de données.  
 
 Pour lire une nouvelle vidéo, collez une autre URL et appuyez sur **Mettre à jour**.
 
@@ -40,7 +40,7 @@ Pour configurer diverses options de lecture (relatives à la technologie, à la 
 
 ### <a name="monitor-diagnostics-of-a-video-stream"></a>Superviser les diagnostics d’un flux vidéo
 
-Vous pouvez utiliser la [page de démonstration du lecteur multimédia Azure](https://aka.ms/amp) pour superviser les diagnostics d’un flux vidéo. 
+Vous pouvez utiliser la [page de démonstration du lecteur multimédia Azure](https://ampdemo.azureedge.net/azuremediaplayer.html) pour superviser les diagnostics d’un flux vidéo. 
 
 ![Diagnostics Azure Media Player](./media/azure-media-player/diagnostics.png)
 

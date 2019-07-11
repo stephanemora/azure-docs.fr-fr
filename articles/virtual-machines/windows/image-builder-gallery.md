@@ -5,14 +5,14 @@ author: cynthn
 ms.author: cynthn
 ms.date: 05/02/2019
 ms.topic: article
-ms.service: virtual-machines-widows
-manager: jeconnoc
-ms.openlocfilehash: 2453d37720bcf48b95b428cf78c6186de40b31aa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.service: virtual-machines-windows
+manager: gwallace
+ms.openlocfilehash: 164fc4d8ad567c75ed5029aaf26af260398f80ba
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65160109"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722702"
 ---
 # <a name="preview-create-a-windows-image-and-distribute-it-to-a-shared-image-gallery"></a>Aperçu : Créer une image Windows et la distribuer sur une bibliothèque d’images partagées 
 
@@ -27,13 +27,13 @@ Pour distribuer l’image sur une bibliothèque d’images partagées, le modèl
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="register-the-features"></a>Inscrire les fonctionnalités
-Pour utiliser le Générateur d’images Azure en préversion, vous devez inscrire la nouvelle fonctionnalité.
+Pour utiliser le Générateur d’images Azure pendant la préversion, vous devez inscrire la nouvelle fonctionnalité.
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview
 ```
 
-Consultez l’état d’inscription de la fonctionnalité.
+Vérifiez l’état d’inscription de la fonctionnalité.
 
 ```azurecli-interactive
 az feature show --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview | grep state
@@ -47,7 +47,7 @@ az provider show -n Microsoft.Storage | grep registrationState
 az provider show -n Microsoft.Compute | grep registrationState
 ```
 
-Si elle n’est pas inscrite, exécutez les commandes suivantes :
+Si elle n’est pas inscrite, exécutez la commande suivante :
 
 ```azurecli-interactive
 az provider register -n Microsoft.VirtualMachineImages
@@ -77,7 +77,7 @@ username="azureuser"
 vmpassword="passwordfortheVM"
 ```
 
-Créez une variable pour votre ID d’abonnement, que vous pouvez récupérer avec `az account show | grep id`.
+Créez une variable pour votre ID d’abonnement, Vous pouvez l’obtenir avec `az account show | grep id`.
 
 ```azurecli-interactive
 subscriptionID="Subscription ID"
@@ -103,9 +103,9 @@ az role assignment create \
 
 
 
-## <a name="create-an-image-definition-and-gallery"></a>Créer une définition d’image et une bibliothèque
+## <a name="create-an-image-definition-and-gallery"></a>Créer une définition d’image et une galerie
 
-Créez une bibliothèque d’images. 
+Créez une galerie d’images. 
 
 ```azurecli-interactive
 az sig create \
@@ -144,7 +144,7 @@ sed -i -e "s/<runOutputName>/$runOutputName/g" helloImageTemplateforWinSIG.json
 
 ## <a name="create-the-image-version"></a>Créer la version de l’image
 
-Cette section a pour objectif de créer la version de l’image dans la bibliothèque. 
+Cette section a pour objectif de créer la version de l’image dans la galerie. 
 
 Envoyez la configuration de l’image au service Générateur d’images Azure.
 
@@ -201,7 +201,7 @@ Si vous souhaitez maintenant essayer de repersonnaliser la version de l’image 
 
 L’image créée ainsi que tous les autres fichiers de ressources seront ainsi supprimés. Terminez ce déploiement avant de supprimer les ressources.
 
-En ce qui concerne la suppression des ressources de la bibliothèque d’images, il est nécessaire de supprimer toutes les versions de l’image pour pouvoir supprimer la définition de l’image utilisée pour les créer. Supprimer une bibliothèque implique de supprimer au préalable toutes les définitions de l’image qu’elle comporte.
+En ce qui concerne la suppression des ressources de la bibliothèque d’images, il est nécessaire de supprimer toutes les versions de l’image pour pouvoir supprimer la définition de l’image utilisée pour les créer. Supprimer une galerie implique de supprimer au préalable toutes les définitions de l’image qu’elle comporte.
 
 Supprimez le modèle du Générateur d’images.
 
@@ -212,7 +212,7 @@ az resource delete \
     -n helloImageTemplateforWinSIG01
 ```
 
-Récupérez la version de l’image créée par le Générateur d’images, qui commence toujours par `0.`, puis supprimez la version de l’image.
+Récupérez la version de l’image créée par le Générateur d’images, qui commence toujours par `0.`, puis supprimez la version de l’image
 
 ```azurecli-interactive
 sigDefImgVersion=$(az sig image-version list \
@@ -239,7 +239,7 @@ az sig image-definition delete \
    --subscription $subscriptionID
 ```
 
-Supprimez la bibliothèque.
+Supprimez la galerie.
 
 ```azurecli-interactive
 az sig delete -r $sigName -g $sigResourceGroup
