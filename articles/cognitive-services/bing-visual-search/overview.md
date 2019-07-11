@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: overview
 ms.date: 03/27/2019
 ms.author: scottwhi
-ms.openlocfilehash: bd93166cb878fbd961795492ed9a035c919429a8
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 4da4340176259265fd36c55d2b81ecfc3f4ed5f8
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "64916621"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657698"
 ---
 # <a name="what-is-the-bing-visual-search-api"></a>Qu’est-ce que l’API Recherche visuelle Bing ?
 
@@ -47,7 +47,7 @@ Les résultats de Recherche visuelle Bing incluent également des rectangles eng
 
 L’API Recherche visuelle Bing est un service web RESTful et peut donc être facilement appelé à partir de n’importe quel langage de programmation permettant d’exécuter des requêtes HTTP et d’analyser des réponses JSON. Vous pouvez utiliser l’API REST ou le SDK pour le service.
 
-1. Créez un [compte Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) pour accéder aux API Recherche Bing. Si vous n’avez pas d’abonnement Azure, vous pouvez [créer un compte gratuitement](https://azure.microsoft.com/free/). Vous pouvez obtenir votre clé d’abonnement auprès du [portail Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#access-your-resource) après avoir créé votre compte, ou du [site web Azure](https://azure.microsoft.com/try/cognitive-services/my-apis) après l’activation d’un essai gratuit.
+1. Créez un [compte Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) pour accéder aux API Recherche Bing. Si vous n’avez pas d’abonnement Azure, vous pouvez [créer un compte gratuitement](https://azure.microsoft.com/free/). Vous pouvez obtenir votre clé d’abonnement auprès du [portail Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#get-the-keys-for-your-subscription) après avoir créé votre compte, ou du [site web Azure](https://azure.microsoft.com/try/cognitive-services/my-apis) après l’activation d’un essai gratuit.
 2. Envoyez une demande à l’API avec une requête de recherche valide.
 3. Traitez la réponse de l’API en analysant le message JSON renvoyé.
 

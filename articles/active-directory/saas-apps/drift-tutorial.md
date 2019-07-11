@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88940b40eb309a5fb6ff73c04a47813ec3a47669
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4728ad4fcd44c754a62ec19037562e63d92ec304
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67103863"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67656603"
 ---
 # <a name="tutorial-integrate-drift-with-azure-active-directory"></a>Didacticiel : Intégrer Drift à Azure Active Directory
 
@@ -88,11 +88,11 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     d. Dans la zone de texte **URL de connexion**, tapez une URL : `https://start.drift.com`
 
-6. Votre application Drift s’attend à recevoir les assertions SAML dans un format spécifique. Vous devez donc ajouter des mappages d’attributs personnalisés à votre configuration d’attributs de jetons SAML. La capture d’écran suivante montre la liste des attributs par défaut. Cliquez sur l’icône  **Modifier** pour ouvrir la boîte de dialogue Attributs d’utilisateur.
+6. Votre application Drift s’attend à recevoir les assertions SAML dans un format spécifique. Vous devez donc ajouter des mappages d’attributs personnalisés à votre configuration d’attributs de jetons SAML. La capture d’écran suivante montre la liste des attributs par défaut. Cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue Attributs d’utilisateur.
 
     ![image](common/edit-attribute.png)
 
-7. En plus de ce qui précède, l’application Drift s’attend à ce que quelques attributs supplémentaires soient repassés dans la réponse SAML. Dans la section Revendications des utilisateurs de la boîte de dialogue Attributs utilisateur, effectuez les étapes suivantes pour ajouter le jeton SAML comme indiqué dans le tableau ci-dessous : 
+7. En plus de ce qui précède, l’application Drift s’attend à ce que quelques attributs supplémentaires soient repassés dans la réponse SAML. Dans la section Revendications des utilisateurs de la boîte de dialogue Attributs utilisateur, effectuez les étapes suivantes pour ajouter le jeton SAML, comme indiqué dans le tableau ci-dessous : 
 
     | Nom | Attribut source|
     | ---------------| --------------- |    
