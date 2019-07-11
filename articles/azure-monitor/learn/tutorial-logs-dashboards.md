@@ -1,6 +1,6 @@
 ---
 title: Créer et partager des tableaux de bord de données Log Analytics | Microsoft Docs
-description: Ce didacticiel vous aide à comprendre comment les tableaux de bord Log Analytics permettent de visualiser l’ensemble de vos recherches dans les journaux enregistrées en proposant une vue unique de votre environnement.
+description: Ce tutoriel vous aide à comprendre comment les tableaux de bord Log Analytics permettent de visualiser l’ensemble de vos requêtes de journal enregistrées en proposant une vue unique de votre environnement.
 services: log-analytics
 documentationcenter: log-analytics
 author: mgoedtel
@@ -11,67 +11,82 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 09/14/2017
+ms.date: 06/19/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 5ed0cfba9abaed1f1fdbacc8fcf28918403b82f5
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 93cda8680bc665055d449e86c24d6565f6fc525f
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186614"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296392"
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Créer et partager des tableaux de bord de données Log Analytics
 
-Les tableaux de bord Log Analytics vous permettent de visualiser l’ensemble de vos recherches dans les journaux enregistrées. Vous pouvez y trouver les données opérationnelles du service informatique, mettre ces données en corrélation et les partager dans l’organisation.  Ce didacticiel porte sur la création d’une recherche dans les journaux de journal pour un tableau de bord partagé qui sera utilisé par votre équipe de support des opérations informatiques.  Vous allez apprendre à effectuer les actions suivantes :
+Les tableaux de bord Log Analytics vous permettent de visualiser l’ensemble de vos requêtes de journal enregistrées. Vous pouvez y trouver les données opérationnelles du service informatique, mettre ces données en corrélation et les partager dans l’organisation.  Ce tutoriel porte sur la création d’une requête de journal pour un tableau de bord partagé utilisé par votre équipe de support des opérations informatiques.  Vous allez apprendre à effectuer les actions suivantes :
 
 > [!div class="checklist"]
 > * Créer un tableau de bord partagé dans le portail Azure
-> * Visualiser une recherche dans le journal des performances 
-> * Ajouter une recherche dans les journaux à un tableau de bord partagé 
+> * Visualiser une requête dans le journal des performances 
+> * Ajouter une requête de journal à un tableau de bord partagé 
 > * Personnaliser une vignette dans un tableau de bord partagé
 
-Pour effectuer l’exemple de ce didacticiel, vous devez disposer d’une machine virtuelle [connectée à l’espace de travail Log Analytics](../../azure-monitor/learn/quick-collect-azurevm.md).  
+Pour effectuer l’exemple de ce didacticiel, vous devez disposer d’une machine virtuelle [connectée à l’espace de travail Log Analytics](quick-collect-azurevm.md).  
  
-## <a name="log-in-to-azure-portal"></a>Connexion au portail Azure
-Connectez-vous au portail Azure à l’adresse [https://portal.azure.com](https://portal.azure.com). 
+## <a name="sign-in-to-azure-portal"></a>Se connecter au portail Azure
+Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com). 
 
 ## <a name="create-a-shared-dashboard"></a>Créer un tableau de bord partagé
+Sélectionnez **Tableau de bord** pour ouvrir votre [tableau de bord](../../azure-portal/azure-portal-dashboards.md) par défaut. Votre tableau de bord a un aspect différent de l’exemple ci-dessous.
 
-La première chose que vous voyez après vous être connecté au portail Microsoft Azure, c’est un [tableau de bord](../../azure-portal/azure-portal-dashboards.md).<br> ![Tableau de bord du portail Azure](media/tutorial-logs-dashboards/log-analytics-portal-dashboard.png)
+![Tableau de bord du portail Azure](media/tutorial-logs-dashboards/log-analytics-portal-dashboard.png)
 
-Celui-ci vous permet de rassembler les données opérationnelles les plus importantes pour le service informatique dans toutes vos ressources Azure, notamment les données de télémétrie d’Azure Log Analytics.  Avant d’aborder la visualisation d’une recherche dans les journaux, commençons par créer et partager un tableau de bord.  Ces étapes sont nécessaires avant d’effectuer l’exemple de recherche dans les journaux de performances, qui sera restituée sous forme de graphique en courbes. Nous l’ajouterons ensuite au tableau de bord.  
+Celui-ci vous permet de rassembler les données opérationnelles les plus importantes pour le service informatique dans toutes vos ressources Azure, notamment les données de télémétrie d’Azure Log Analytics.  Avant d’aborder la visualisation d’une requête de journal, commençons par créer et partager un tableau de bord.  Vous pouvez ensuite vous concentrer sur notre exemple de requête dans le journal de performances, qui sera restituée sous forme de graphique en courbes, et l’ajouter ensuite au tableau de bord.  
 
-Pour créer un tableau de bord, sélectionnez le bouton **Nouveau tableau de bord** en regard du nom du tableau de bord actuel.<br> ![Créer un tableau de bord dans le portail Azure](media/tutorial-logs-dashboards/log-analytics-create-dashboard-01.png)
+Pour créer un tableau de bord, sélectionnez le bouton **Nouveau tableau de bord** en regard du nom du tableau de bord actuel.
 
-Cette action crée un nouveau tableau de bord privé vide, et vous fait passer en mode de personnalisation. Vous pouvez alors renommer votre tableau de bord et ajouter ou réorganiser les mosaïques. Modifiez le nom du tableau de bord, spécifiez *Sample Dashboard* pour ce didacticiel, puis sélectionnez **Personnalisation terminée**.<br><br> ![Enregistrer le tableau de bord Azure personnalisé](media/tutorial-logs-dashboards/log-analytics-create-dashboard-02.png)
+![Créer un tableau de bord dans le portail Azure](media/tutorial-logs-dashboards/log-analytics-create-dashboard-01.png)
 
-Par défaut, lorsque vous créez un tableau de bord, celui-ci est privé, ce qui signifie que vous êtes la seule personne à pouvoir le consulter. Pour que les autres utilisateurs puissent le voir, utilisez le bouton **Partager** , disponible avec les autres commandes de tableau de bord.<br> ![Partager un nouveau tableau de bord dans le portail Azure](media/tutorial-logs-dashboards/log-analytics-share-dashboard.png) 
+Cette action crée un nouveau tableau de bord privé vide, et vous fait passer en mode de personnalisation. Vous pouvez alors renommer votre tableau de bord et ajouter ou réorganiser les mosaïques. Modifiez le nom du tableau de bord, spécifiez *Sample Dashboard* pour ce tutoriel, puis sélectionnez **Personnalisation terminée**.<br><br> ![Enregistrer le tableau de bord Azure personnalisé](media/tutorial-logs-dashboards/log-analytics-create-dashboard-02.png)
+
+Par défaut, lorsque vous créez un tableau de bord, celui-ci est privé, ce qui signifie que vous êtes la seule personne à pouvoir le consulter. Pour que les autres utilisateurs puissent le voir, utilisez le bouton **Partager** , disponible avec les autres commandes de tableau de bord.
+
+![Partager un nouveau tableau de bord dans le portail Azure](media/tutorial-logs-dashboards/log-analytics-share-dashboard.png) 
 
 Vous êtes invité à choisir un abonnement et un groupe de ressources dans lesquels votre tableau de bord doit être publié. Pour plus de commodité, l’expérience de publication du portail vous guide vers un modèle dans lequel vous placez les tableaux de bord dans un groupe de ressources appelé **tableaux de bord**.  Vérifiez l’abonnement sélectionné, puis cliquez sur **Publier**.  L’accès aux informations figurant dans le tableau de bord est contrôlé par le [Contrôle d’accès en fonction des ressources Azure](../../role-based-access-control/role-assignments-portal.md).   
 
-## <a name="visualize-a-log-search"></a>Visualiser une recherche dans les journaux
+## <a name="visualize-a-log-query"></a>Visualiser une requête de journal
+[Log Analytics](../log-query/get-started-portal.md) est un portail dédié qui permet d’utiliser des requêtes de journal et leurs résultats. Ces fonctionnalités incluent la possibilité de modifier une requête sur plusieurs lignes et d’exécuter de façon sélective du code, des données Intellisense contextuelles et Smart Analytics. Dans ce tutoriel, vous utilisez Log Analytics pour créer une vue des performances sous forme graphique, l’enregistrer pour une requête ultérieure et l’épingler au tableau de bord partagé créé précédemment.
 
-Vous pouvez créer des requêtes de base sur une seule ligne à partir du portail de recherche dans les journaux, dans le portail Azure. Il est possible d’utiliser le portail de recherche dans les journaux sans lancer un portail externe. Vous pouvez en outre l’utiliser pour exécuter diverses fonctions avec des recherches dans les journaux, y compris la création de règles d’alerte, la création de groupes d’ordinateurs et l’exportation de résultats de la requête. 
+Ouvrez Log Analytics en sélectionnant **Journaux** dans le menu Azure Monitor. Une nouvelle requête vide s’affiche.
 
-Le [portail Log Analytics](../../azure-monitor/log-query/get-started-portal.md) est un portail dédié qui propose des fonctionnalités avancées non disponibles dans le portail de recherche dans les journaux. Ces fonctionnalités incluent la possibilité de modifier une requête sur plusieurs lignes et d’exécuter de façon sélective du code, des données Intellisense contextuelles et Smart Analytics. Dans le portail d’analytique avancée, vous allez créer une vue des performances sous forme graphique, l’enregistrer pour une recherche ultérieure et l’épingler au tableau de bord partagé créé précédemment.   
+![page d'accueil](media/tutorial-logs-dashboards/homepage.png)
 
-Lancez le portail Analytics avancé à partir d’un lien du portail de recherche dans les journaux.<br> ![Lancer le portail d’analytique avancée](media/tutorial-logs-dashboards/log-analytics-advancedportal-01.png)
+Entrez la requête suivante pour obtenir les enregistrements d’utilisation des processeurs pour les ordinateurs Windows et Linux, regroupés selon les critères Computer et TimeGenerated et affichés dans un graphique visuel. Cliquez sur **Exécuter** pour exécuter la requête et afficher le graphique qui en résulte.
 
-Dans le portail d’analytique, entrez la requête suivante pour obtenir uniquement les enregistrements d’utilisation des processeurs pour les ordinateurs Windows et Linux, regroupés selon les critères Computer et TimeGenerated et affichés dans un graphique visuel :
-
+```Kusto
+Perf 
+| where CounterName == "% Processor Time" and ObjectName == "Processor" and InstanceName == "_Total" 
+| summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 1hr), Computer 
+| render timechart
 ```
-Perf | where CounterName == "% Processor Time" and ObjectName == "Processor" and InstanceName == "_Total" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 1m), Computer | render timechart
-```
 
-Enregistrez la requête en cliquant sur le bouton **Enregistrer la requête** en haut à droite.<br> ![Enregistrer la requête à partir du portail d’analytique avancée](media/tutorial-logs-dashboards/log-analytics-advancedportal-02.png)<br><br> Dans le panneau de configuration **Enregistrer la requête**, indiquez un nom, par exemple *Machines virtuelles Azure - Utilisation des processeurs*, puis cliquez sur **Enregistrer**.  De cette manière, vous pouvez créer une bibliothèque de requêtes courantes dédiées aux recherches ou la modifier sans avoir à la réécrire entièrement.  Enfin, épinglez-la au tableau de bord partagé créé précédemment en cliquant sur le bouton **Épingler le graphique à votre tableau de bord Azure** dans l’angle droit central de la page.  
+Enregistrez la requête en sélectionnant le bouton **Enregistrer** en haut de la page.
 
-Maintenant qu’une requête est épinglée au tableau de bord, vous remarquerez qu’elle a un titre générique et qu’elle est suivie d’un commentaire.<br> ![Exemple de tableau de bord Azure](media/tutorial-logs-dashboards/log-analytics-modify-dashboard-01.png)<br><br>  Nous avons tout intérêt à la renommer en lui attribuant un nom explicite et compréhensible des utilisateurs.  Cliquez avec le bouton droit sur la vignette, puis sélectionnez **Modifier la vignette**.  Après avoir personnalisé le titre et le sous-titre de la vignette, cliquez sur **Mettre à jour**.  Une bannière s’affiche pour vous inviter à publier les modifications ou à les ignorer.  Cliquez sur **Publier les modifications**, puis fermez le volet **Modifier la vignette**.  
+![Enregistrer la requête](media/tutorial-logs-dashboards/save-query.png)
+
+Dans le panneau de configuration **Enregistrer la requête**, indiquez un nom, par exemple *Machines virtuelles Azure - Utilisation des processeurs* et une catégorie telle que *Tableaux de bord*, puis cliquez sur **Enregistrer**.  De cette façon, vous pouvez créer une bibliothèque de requêtes courantes que vous pouvez utiliser et modifier.  Enfin, épinglez ceci au tableau de bord partagé créé précédemment en sélectionnant le bouton **Épingler** dans l’angle supérieur droit de la page, puis en sélectionnant le nom du tableau de bord.
+
+Maintenant qu’une requête est épinglée au tableau de bord, vous remarquerez qu’elle a un titre générique et qu’elle est suivie d’un commentaire.
+
+![Exemple de tableau de bord Azure](media/tutorial-logs-dashboards/log-analytics-modify-dashboard-01.png)
+
+ Nous avons tout intérêt à la renommer en lui attribuant un nom explicite et compréhensible des utilisateurs.  Cliquez sur le bouton Modifier pour personnaliser le titre et le sous-titre de la vignette, puis cliquez sur **Mettre à jour**.  Une bannière s’affiche pour vous inviter à publier les modifications ou à les ignorer.  Cliquez sur **Enregistrer une copie**.  
 
 ![Configuration terminée de l’exemple de tableau de bord](media/tutorial-logs-dashboards/log-analytics-modify-dashboard-02.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce didacticiel, vous avez appris à créer un tableau de bord dans le portail Azure et à lui ajouter une recherche dans les journaux.  Passez au didacticiel suivant pour découvrir les différentes réponses que vous pouvez implémenter en fonction des résultats de la recherche dans les journaux.  
+Dans ce tutoriel, vous avez appris à créer un tableau de bord dans le portail Azure et à lui ajouter une requête de journal.  Passez au tutoriel suivant pour découvrir les différentes réponses que vous pouvez implémenter en fonction des résultats des requêtes de journal.  
 
 > [!div class="nextstepaction"]
 > [Répondre aux événements avec des alertes Log Analytics](tutorial-response.md)

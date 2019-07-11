@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 01/10/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 20920a04c5b85c9eede7d7b249dd6e0548308240
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 0fef3bffd30c19d0313e5fce7eb610ae7f6349f5
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55883404"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606991"
 ---
 # <a name="quickstart-analyze-text-content-for-objectionable-material-in-python"></a>Démarrage rapide : Analyser le contenu d’un texte pour trouver des éléments répréhensibles dans Python
 
@@ -32,7 +32,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Installez le kit SDK Python Content Moderator en ouvrant une invite de commandes et en exécutant la commande suivante :
 
-```
+```bash
 pip install azure-cognitiveservices-vision-contentmoderator
 ```
 

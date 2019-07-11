@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: dbef7c2cb8de5a1b4bbb3073f694b8f77c9f441b
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: eae23806ee1b4e2dac1d3410e32c3242e89d4be8
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231286"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67719821"
 ---
 # <a name="tutorial-configure-role-based-access-control-rbac-roles-in-azure-kubernetes-service-aks-using-ansible"></a>Didacticiel : Configurer les rôles de contrôle d’accès en fonction du rôle (RBAC) dans Azure Kubernetes Service (AKS) à l’aide d’Ansible
 
@@ -39,7 +39,7 @@ AKS peut être configuré pour utiliser [Azure Active Directory (AD)](/azure/act
 
 ## <a name="configure-azure-ad-for-aks-authentication"></a>Configurer Azure AD pour l’authentification AKS
 
-Lorsque vous configurez Azure AD pour l’authentification AKS, deux applications Azure AD sont configurées. Cette opération doit être effectuée par un administrateur de locataire Azure. Pour plus d’informations, consultez [Intégrer Azure Active Directory avec AKS](/azure/aks/aad-integration#create-server-application). 
+Lorsque vous configurez Azure AD pour l’authentification AKS, deux applications Azure AD sont configurées. Cette opération doit être effectuée par un administrateur de locataire Azure. Pour plus d’informations, consultez [Intégrer Azure Active Directory avec AKS](/azure/aks/aad-integration#create-the-server-application). 
 
 À partir de l’administrateur du locataire Azure, obtenez les valeurs suivantes :
 
@@ -73,7 +73,7 @@ Enregistrez le playbook suivant en tant que `aks-create.yml` :
       location: "{{ location }}"
 
 - name: List supported kubernetes version from Azure
-  azure_rm_aks_version:
+  azure_rm_aksversion_facts:
       location: "{{ location }}"
   register: versions
 
