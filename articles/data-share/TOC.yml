@@ -1,0 +1,39 @@
+- name: Documentation sur Azure Data Share (préversion)
+  href: index.yml
+- name: Vue d'ensemble
+  items:
+    - name: "En quoi consiste Azure Data Share (préversion)\_?"
+      href: overview.md
+- name: Tutoriels
+  expanded: true
+  items:
+    - name: Partager des données
+      href: share-your-data.md
+    - name: Accepter et recevoir des données
+      href: subscribe-to-data-share.md
+- name: Concepts
+  items:
+    - name: Terminologie propre à Azure Data Share
+      href: terminology.md
+    - name: Rôles et conditions requises
+      href: concepts-roles-permissions.md
+- name: Guides pratiques
+  items:
+    - name: Surveiller
+      href: how-to-monitor.md
+    - name: Configurer des mappages de jeu de données
+      href: how-to-configure-mapping.md
+    - name: Résolution des problèmes
+      href: data-share-troubleshoot.md
+- name: Ressources
+  items:
+    - name: Blog
+      href: 'https://azure.microsoft.com/blog/tag/data-share'
+    - name: Microsoft Tech Community
+      href: 'https://techcommunity.microsoft.com/'
+    - name: Commentaires sur le produit
+      href: 'https://feedback.azure.com/forums/922759-azure-data-share-public-preview'
+    - name: Tarifs
+      href: 'https://azure.microsoft.com/pricing'
+    - name: Mises à jour de service
+      href: 'https://azure.microsoft.com/updates/?product=data-share'

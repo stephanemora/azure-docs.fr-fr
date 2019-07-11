@@ -2,24 +2,25 @@
 title: Comprendre l’architecture de l’agent de sécurité Azure Security Center pour IoT en préversion | Microsoft Docs
 description: Comprenez l’architecture de l’agent de sécurité pour les agents utilisés dans Azure Security Center pour le service IoT.
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
 ms.assetid: e78523ae-d70a-456a-818d-f8b1b025d7cb
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: 3c05b7e9b1c6d1b9214da168f7abfcbb322f8f6d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7f4ca9a2689ab9e09b4ebff903e757f5c352b556
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65192519"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67616581"
 ---
 # <a name="security-agent-reference-architecture"></a>Architecture de référence de l’agent de sécurité
 
@@ -65,5 +66,5 @@ Pour continuer votre prise en main du déploiement d’ASC pour IoT, utilisez le
 - Comprendre les [méthodes d’authentification de l’agent de sécurité](concept-security-agent-authentication-methods.md)
 - Sélectionner et déployer un [agent de sécurité](how-to-deploy-agent.md)
 - Passer en revue les [Prérequis du service](service-prerequisites.md) pour ASC pour IoT
-- Découvrir comment [Activer le service ASC pour IoT dans votre IoT Hub](quickstart-onboard-iot-hub.md)
-- En savoir plus sur le service à partir des [Questions fréquentes sur ASC pour IoT](resources-frequently-asked-questions.md)
+- Découvrez comment [Activer le service ASC pour l’IoT dans votre hub IoT](quickstart-onboard-iot-hub.md)
+- Renseignez-vous sur le service dans la [FAQ ASC pour l’IoT](resources-frequently-asked-questions.md)

@@ -1,0 +1,51 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentation sur Azure Data Share (préversion)
+metadata:
+  title: "Documentation sur Azure Data Share (préversion)\_: tutoriels, guides pratiques"
+  description: Azure Data Share (préversion) est un service sécurisé de partage de données avec des organisations tierces.
+  author: joannapea
+  ms.author: joanpo
+  ms.service: data-share
+  ms.topic: landing-page
+  ms.date: 07/10/2019
+abstract:
+  description: '<p>Azure Data Share (préversion) est un service sécurisé de partage de données avec des organisations tierces. Sélectionnez les jeux de données à partager, ajoutez des destinataires et commencez à partager des données avec la possibilité de régir, superviser et contrôler vos relations de partage de données. </p><p>Suivez nos tutoriels pour apprendre à utiliser Azure Data Share.</p>'
+  aside:
+    image:
+      alt: null
+      height: 110
+      src: media/azure-friday.png
+      width: 250
+    title: Azure Data Share sur Azure Friday
+    href: 'https://channel9.msdn.com/Shows/Azure-Friday/Share-data-simply-and-securely-using-Azure-Data-Share/player?format=ny'
+    width: 250
+sections:
+  - title: Guides pratiques
+    items:
+      - type: paragraph
+        text: "Lisez l’un des guides pratiques suivants pour découvrir comment superviser votre partage de données, configurer des mappages de jeu de données, ajouter des destinataires, etc.\_:"
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/data-share/media/index/portal.svg
+            text: Superviser Azure Data Share
+            href: /azure/data-share/how-to-monitor
+          - image:
+              src: /azure/data-share/media/index/portal.svg
+            text: Configurer un mappage de jeu de données
+            href: /azure/data-share/how-to-configure-mapping
+          - image:
+              src: /azure/data-share/media/index/portal.svg
+            text: Résoudre les problèmes liés à Azure Data Share
+            href: /azure/data-share/data-share-troubleshoot
+  - title: Tutoriels pas à pas
+    items:
+      - type: paragraph
+        text: Découvrir comment partager vos données avec Azure Data Share
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="share-your-data">Partager vos données avec Azure Data Share</a>
+          - html: <a href="subscribe-to-data-share">Accepter et recevoir des données avec Azure Data Share</a>

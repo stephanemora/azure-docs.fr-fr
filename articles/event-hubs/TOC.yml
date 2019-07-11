@@ -92,6 +92,10 @@
           href: event-hubs-programming-guide.md
         - name: Recevoir des événements avec l’hôte du processeur d’événements
           href: event-hubs-event-processor-host.md
+    - name: Traitement des données
+      items:
+        - name: Traiter des données avec Azure Stream Analytics
+          href: process-data-azure-stream-analytics.md
     - name: Utiliser des bibliothèques clientes
       items:
         - name: .NET Framework
