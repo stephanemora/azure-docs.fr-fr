@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 69cb48df4e765250247605fb5c4e1f421554fd20
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 68567e673cf6fb53b8d9b6f7b9ef96aee691ac3a
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467014"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604952"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-java"></a>Démarrage rapide : Traduire une entrée vocale à l’aide du kit de développement logiciel (SDK) Speech pour Java
 
@@ -59,7 +59,7 @@ Si vous exécutez Linux, vérifiez que ces dépendances sont installées avant d
 
 ## <a name="add-sample-code"></a>Ajouter un exemple de code
 
-1. Pour ajouter une nouvelle classe vide dans votre projet Java, sélectionnez **File (Fichier)** > **New (Nouvelle)** > **Classe (Classe)**.
+1. Pour ajouter une nouvelle classe vide dans votre projet Java, sélectionnez **File (Fichier)**  > **New (Nouvelle)**  > **Classe (Classe)** .
 
 1. Dans la fenêtre **New Java Class** (Nouvelle classe Java), entrez **speechsdk.quickstart** dans le champ **Package**, et **Main** dans le champ **Name** (Nom).
 
@@ -77,7 +77,7 @@ Si vous exécutez Linux, vérifiez que ces dépendances sont installées avant d
 
 ## <a name="build-and-run-the-app"></a>Générer et exécuter l’application
 
-Appuyez sur F11 ou sélectionnez **Run (Exécuter)** > **Debug (Déboguer)**.
+Appuyez sur F11 ou sélectionnez **Run (Exécuter)**  > **Debug (Déboguer)** .
 
 La saisie vocale provenant de votre microphone sera retranscrit en allemand et enregistrée dans la fenêtre console. Appuyez sur « Entrée » pour arrêter la capture vocale.
 

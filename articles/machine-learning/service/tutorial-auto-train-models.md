@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: trbye
 ms.date: 04/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 907383c057c0c1eebee6550a0d1e9c75dd88513c
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 8cedf7abf71a772a0b770dd2f82d9a5508f5dd75
+ms.sourcegitcommit: dda9fc615db84e6849963b20e1dce74c9fe51821
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417296"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67622372"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Didacticiel : Utiliser le Machine Learning automatisé pour générer votre modèle de régression
 
@@ -287,7 +287,7 @@ dflow_prepared.get_profile()
       <td>0.0</td>
       <td>0</td>
       <td>5,28131</td>
-      <td>5.</td>
+      <td>5\.</td>
       <td>14,7832</td>
       <td>29,9293</td>
       <td>44,725</td>
@@ -391,7 +391,7 @@ dflow_prepared.get_profile()
       <td>0.0</td>
       <td>0</td>
       <td>5,07801</td>
-      <td>5.</td>
+      <td>5\.</td>
       <td>14,5751</td>
       <td>29,5972</td>
       <td>45,4649</td>
@@ -538,7 +538,7 @@ dflow_prepared.get_profile()
       <th>passengers</th>
       <td>FieldType.DECIMAL</td>
       <td>1</td>
-      <td>6.</td>
+      <td>6\.</td>
       <td>6148,0</td>
       <td>0.0</td>
       <td>6148,0</td>
@@ -550,10 +550,10 @@ dflow_prepared.get_profile()
       <td>1</td>
       <td>1</td>
       <td>1</td>
-      <td>5.</td>
-      <td>5.</td>
-      <td>6.</td>
-      <td>6.</td>
+      <td>5\.</td>
+      <td>5\.</td>
+      <td>6\.</td>
+      <td>6\.</td>
       <td>2,39249</td>
       <td>1,83197</td>
       <td>3,3561</td>
@@ -599,7 +599,7 @@ dflow_prepared.get_profile()
       <td>0.0</td>
       <td>2,33837</td>
       <td>5,00491</td>
-      <td>5.</td>
+      <td>5\.</td>
       <td>6,93129</td>
       <td>10,524</td>
       <td>17,4811</td>
@@ -657,7 +657,7 @@ Définissez les paramètres du modèle et de l’expérience pour la génératio
 |**primary_metric**| spearman_correlation | Métrique que vous souhaitez optimiser. Le modèle le mieux adapté est choisi en fonction de cette métrique.|
 |**preprocess**| True | En utilisant **True**, l’expérience peut traiter les données d’entrée au préalable (gestion des données manquantes, conversion du texte en caractères numériques, etc.)|
 |**verbosity**| logging.INFO | Contrôle le niveau de journalisation.|
-|**n_cross_validations**|5.|Nombre de divisions de validation croisée à effectuer lorsque les données de validation ne sont pas spécifiées.|
+|**n_cross_validations**|5\.|Nombre de divisions de validation croisée à effectuer lorsque les données de validation ne sont pas spécifiées.|
 
 
 
@@ -793,8 +793,8 @@ rundata
       <th>2</th>
       <th>3</th>
       <th>4</th>
-      <th>5.</th>
-      <th>6.</th>
+      <th>5\.</th>
+      <th>6\.</th>
       <th>7</th>
       <th>8</th>
       <th>9</th>
@@ -1127,6 +1127,8 @@ print(y_predict[:10])
 Créer un tracé de points pour visualiser les valeurs de coût prédites par rapport aux valeurs de coût réelles. Le code suivant utilise la caractéristique `distance` comme axe X et le trajet `cost` comme axe Y. Pour comparer l’écart de coût prédit à chaque valeur de distance de trajet, les 100 premières valeurs de coût prédites et réelles sont créées en tant que séries distinctes. Le tracé montre que la relation de distance/coût est quasi linéaire, et les valeurs de coût prédites sont dans la plupart des cas très proches des valeurs de coût réelles pour la même distance de trajet.
 
 ```python
+%matplotlib inline
+
 import matplotlib.pyplot as plt
 
 fig = plt.figure(figsize=(14, 10))

@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 06/19/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 2c26ba24f0262f7cf43f80b4f4deae464581d08d
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: d31d102300cf23e068aee6bec9ea6d253e874dca
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273897"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653973"
 ---
 # <a name="tutorial-analyze-videos-with-media-services-v3"></a>Didacticiel : Analyser des vidéos avec Media Services v3
 
@@ -86,7 +86,7 @@ Dans Media Services v3, vous utilisez des API Stockage Azure pour charger des fi
 La fonction suivante effectue les actions ci-après :
 
 * Elle crée une ressource 
-* Elle récupère une [URL SAP](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) accessible en écriture vers le [conteneur de stockage](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows#upload-blobs-to-the-container) de la ressource
+* Elle récupère une [URL SAP](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) accessible en écriture vers le [conteneur de stockage](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet#upload-blobs-to-a-container) de la ressource
 * Elle charge le fichier dans le conteneur de stockage à l’aide de l’URL SAP
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#CreateInputAsset)]

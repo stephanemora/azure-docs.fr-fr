@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/03/2019
-ms.openlocfilehash: f78555b37cc82c1e97a6f51ec504bc47937ee8c4
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: d09ed0585250d078f728aa4e7272cca147a40c38
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66493412"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612380"
 ---
 # <a name="analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Analyser les données d’appel téléphonique avec Stream Analytics et visualiser les résultats dans un tableau de bord Power BI
 
@@ -54,9 +54,9 @@ Suivez les étapes ci-dessous pour créer un Event Hub et envoyer les données d
    |**Paramètre**  |**Valeur suggérée** |**Description**  |
    |---------|---------|---------|
    |Nom     | myEventHubsNS        |  Nom unique pour identifier l’espace de noms du hub d’événements.       |
-   |Abonnement     |   \<Votre abonnement\>      |   Sélectionnez un abonnement Azure dans lequel vous souhaitez créer le hub d’événements.      |
-   |Groupe de ressources     |   MyASADemoRG      |  Sélectionnez **Créer** et saisissez le nom du nouveau groupe de ressources pour votre compte.       |
-   |Lieu     |   Ouest des États-Unis 2      |    Emplacement où l’espace de noms du hub d’événements peut être déployé.     |
+   |Subscription     |   \<Votre abonnement\>      |   Sélectionnez un abonnement Azure dans lequel vous souhaitez créer le hub d’événements.      |
+   |Resource group     |   MyASADemoRG      |  Sélectionnez **Créer** et saisissez le nom du nouveau groupe de ressources pour votre compte.       |
+   |Location     |   Ouest des États-Unis 2      |    Emplacement où l’espace de noms du hub d’événements peut être déployé.     |
 
 4. Utilisez les options par défaut pour les autres paramètres et sélectionnez **Créer**.
 
@@ -137,9 +137,9 @@ Maintenant que vous disposez d’un flux d’événements d’appel, vous pouvez
    |**Paramètre**  |**Valeur suggérée**  |**Description**  |
    |---------|---------|---------|
    |Nom du travail     |  ASATutorial       |   Nom unique pour identifier l’espace de noms du hub d’événements.      |
-   |Abonnement    |  \<Votre abonnement\>   |   Sélectionnez un abonnement Azure dans lequel vous souhaitez créer le travail.       |
-   |Groupe de ressources   |   MyASADemoRG      |   Sélectionnez **Use existing** (Utiliser existant) et saisissez le nom du nouveau groupe de ressources pour votre compte.      |
-   |Lieu   |    Ouest des États-Unis 2     |      Emplacement où le travail peut être déployé. Il est recommandé de placer le travail et le hub d’événements dans la même région afin d’optimiser les performances. Ce faisant, vous ne payez pas pour transférer des données entre les régions.      |
+   |Subscription    |  \<Votre abonnement\>   |   Sélectionnez un abonnement Azure dans lequel vous souhaitez créer le travail.       |
+   |Resource group   |   MyASADemoRG      |   Sélectionnez **Use existing** (Utiliser existant) et saisissez le nom du nouveau groupe de ressources pour votre compte.      |
+   |Location   |    Ouest des États-Unis 2     |      Emplacement où le travail peut être déployé. Il est recommandé de placer le travail et le hub d’événements dans la même région afin d’optimiser les performances. Ce faisant, vous ne payez pas pour transférer des données entre les régions.      |
    |Environnement d’hébergement    | Cloud        |     Les travaux Stream Analytics peuvent être déployés dans le cloud ou sur des appareils Edge. L’option Cloud vous permet de déployer votre travail dans le cloud Azure, et l’option Edge sur un appareil IoT Edge.    |
    |Unités de diffusion en continu     |    1       |      Les unités de streaming sont les ressources de calcul requises pour exécuter un travail. Par défaut, cette valeur est définie sur 1. Pour en savoir plus sur la mise à l’échelle des unités de streaming, consultez [Understanding and adjusting streaming units](stream-analytics-streaming-unit-consumption.md) (Présentation et réglage des unités de streaming).      |
 
@@ -160,7 +160,7 @@ L’étape suivante consiste à définir une source d’entrée pour le travail,
    |**Paramètre**  |**Valeur suggérée**  |**Description**  |
    |---------|---------|---------|
    |Alias d’entrée     |  CallStream       |  Fournissez un nom convivial pour identifier votre entrée. L’alias d’entrée peut contenir uniquement des caractères alphanumériques, des traits d’union et des traits de soulignement, et doit avoir entre 3 et 63 caractères.       |
-   |Abonnement    |   \<Votre abonnement\>      |   Sélectionnez l’abonnement Azure dans lequel vous avez créé le hub d’événements. Le hub d’événements peut se trouver dans le même abonnement ou dans un autre abonnement que le travail Stream Analytics.       |
+   |Subscription    |   \<Votre abonnement\>      |   Sélectionnez l’abonnement Azure dans lequel vous avez créé le hub d’événements. Le hub d’événements peut se trouver dans le même abonnement ou dans un autre abonnement que le travail Stream Analytics.       |
    |Espace de noms du hub d’événements    |  myEventHubsNS       |  Sélectionnez l’espace de noms du hub d’événements que vous avez créé dans la section précédente. Tous les espaces de noms du hub d’événements disponibles dans votre abonnement actuel sont répertoriés dans la liste déroulante.       |
    |Nom de l’Event Hub    |   MyEventHub      |  Sélectionnez le hub d’événements que vous avez créé dans la section précédente. Tous les hubs d’événements disponibles dans votre abonnement actuel sont répertoriés dans la liste déroulante.       |
    |Nom de la stratégie du hub d’événements   |  MyPolicy       |  Sélectionnez la stratégie d’accès partagé du hub d’événements que vous avez créée dans la section précédente. Toutes les stratégies de hub d’événements disponibles dans votre abonnement actuel sont répertoriées dans la liste déroulante.       |
@@ -191,7 +191,7 @@ La dernière étape consiste à définir un récepteur de sortie pour le travail
 
 ## <a name="define-a-query-to-analyze-input-data"></a>Définir une requête pour analyser les données d’entrée
 
-L’étape suivante consiste à créer une transformation qui analyse les données en temps réel. Vous définissez la requête de transformation à l’aide du [Langage de requête Stream Analytics](https://msdn.microsoft.com/library/dn834998.aspx). La requête utilisée dans ce didacticiel détecte les appels frauduleux à partir des données téléphoniques.
+L’étape suivante consiste à créer une transformation qui analyse les données en temps réel. Vous définissez la requête de transformation à l’aide du [Langage de requête Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference). La requête utilisée dans ce didacticiel détecte les appels frauduleux à partir des données téléphoniques.
 
 Dans cet exemple, les appels frauduleux sont effectués par le même utilisateur dans un délai de cinq secondes, mais dans des emplacements distincts. Par exemple, un même utilisateur ne peut pas légitimement passer simultanément un appel depuis les États-Unis et l’Australie. Pour définir la requête de transformation pour votre travail Stream Analytics, procédez comme suit :
 
@@ -212,7 +212,7 @@ Dans cet exemple, les appels frauduleux sont effectués par le même utilisateur
    GROUP BY TumblingWindow(Duration(second, 1))
    ```
 
-   Pour rechercher des appels frauduleux, vous pouvez effectuer une jointure réflexive des données de diffusion en continu sur la valeur `CallRecTime`. Vous pouvez ensuite rechercher les enregistrements d’appels où la valeur `CallingIMSI` (numéro d’origine) est identique, mais où la valeur `SwitchNum` (pays/région d’origine) est différente. Si vous utilisez une opération JOIN avec des données de diffusion en continu, la jointure doit indiquer certaines limites relatives à l’intervalle pouvant séparer des lignes correspondantes dans le temps. Les données de diffusion en continu étant infinies, les limites de temps de la relation sont spécifiées dans la clause **ON** de la jointure, à l’aide de la fonction [DATEDIFF](https://msdn.microsoft.com/azure/stream-analytics/reference/datediff-azure-stream-analytics).
+   Pour rechercher des appels frauduleux, vous pouvez effectuer une jointure réflexive des données de diffusion en continu sur la valeur `CallRecTime`. Vous pouvez ensuite rechercher les enregistrements d’appels où la valeur `CallingIMSI` (numéro d’origine) est identique, mais où la valeur `SwitchNum` (pays/région d’origine) est différente. Si vous utilisez une opération JOIN avec des données de diffusion en continu, la jointure doit indiquer certaines limites relatives à l’intervalle pouvant séparer des lignes correspondantes dans le temps. Les données de diffusion en continu étant infinies, les limites de temps de la relation sont spécifiées dans la clause **ON** de la jointure, à l’aide de la fonction [DATEDIFF](https://docs.microsoft.com/stream-analytics-query/datediff-azure-stream-analytics).
 
    Cette requête est identique à une jointure SQL normale à l’exception de la fonction **DATEDIFF**. La fonction **DATEDIFF** utilisée dans cette requête est spécifique à Stream Analytics, et doit apparaître dans la clause `ON...BETWEEN`.
 
