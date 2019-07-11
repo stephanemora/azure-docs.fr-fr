@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: c0584a69349c2785b5b6bce1d17c023c95b36151
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0b6bdc884107a522c81d100c0a05018cbc9d0a70
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66136173"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718273"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Résoudre les problèmes de domaines et de certificats SSL dans Azure App Service
 
@@ -325,7 +325,6 @@ Vous pouvez gérer votre domaine même si vous n’avez pas d’application web 
 
 **Puis-je déplacer une application web avec un domaine personnalisé vers un autre abonnement ou depuis un environnement App Service v1 vers v2 ?**
 
-Oui, vous pouvez déplacer votre application web sur plusieurs abonnements. Suivez les instructions dans [Déplacer des ressources dans Azure](../azure-resource-manager/resource-group-move-resources.md). Il existe quelques limites au déplacement d’une application web. Pour plus d’informations, consultez [Limites de déplacement des ressources App Service](../azure-resource-manager/resource-group-move-resources.md#app-service-limitations
-).
+Oui, vous pouvez déplacer votre application web sur plusieurs abonnements. Suivez les instructions dans [Déplacer des ressources dans Azure](../azure-resource-manager/resource-group-move-resources.md). Il existe quelques limites au déplacement d’une application web. Pour plus d’informations, consultez [Limites de déplacement des ressources App Service](../azure-resource-manager/move-limitations/app-service-move-limitations.md).
 
 Après avoir déplacé l’application web, les liaisons de nom d’hôte des domaines dans les paramètres des domaines personnalisés doivent demeurer identiques. Aucune action supplémentaire n’est nécessaire pour configurer les liaisons de nom d’hôte.
