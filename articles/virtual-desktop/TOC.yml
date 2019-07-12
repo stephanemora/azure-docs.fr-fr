@@ -58,6 +58,8 @@
       href: host-pool-load-balancing.md
     - name: Conteneurs de profil FSLogix et fichiers Azure
       href: fslogix-containers-azure-files.md
+    - name: Intégrations des partenaires
+      href: partners.md
 - name: Résolution des problèmes
   items:
     - name: 'Vue d’ensemble du dépannage, commentaires et support'

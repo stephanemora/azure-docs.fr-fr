@@ -254,7 +254,7 @@
         - name: Traiter des opérations de longue durée
           href: media-services-dotnet-long-operations.md
         - name: Spécification d’ingestion en direct au format MP4 fragmenté
-          href: media-services-fmp4-live-ingest-overview.md
+          href: ../media-services-fmp4-live-ingest-overview.md
         - name: Prise en main
           href: media-services-azure-media-clipper-getting-started.md
         - name: Charger des vidéos
@@ -458,11 +458,11 @@
     - name: Spécifications
       items:
         - name: "Ingestion en direct\_- Spécification d’ingestion en direct au format MP4 fragmenté"
-          href: media-services-fmp4-live-ingest-overview.md
+          href: ../media-services-fmp4-live-ingest-overview.md
         - name: "Ingestion en direct\_- Signalisation des métadonnées temporisées dans le streaming en direct"
-          href: media-services-specifications-live-timed-metadata.md
+          href: ../media-services-specifications-live-timed-metadata.md
         - name: Smooth Streaming HEVC
-          href: media-services-specifications-ms-sstr-amendment-hevc.md
+          href: ../media-services-specifications-ms-sstr-amendment-hevc.md
 - name: Ressources
   items:
     - name: Communauté Azure Media Services

@@ -43,7 +43,7 @@
       href: hybrid-azuread-join-plan.md
     - name: Validation contrôlée de la jonction Azure AD hybride
       href: hybrid-azuread-join-control.md
-    - name: Gérer une identité d’appareil
+    - name: Gérer les identités des appareils
       href: device-management-azure-portal.md
     - name: Gérer les appareils obsolètes
       href: manage-stale-devices.md

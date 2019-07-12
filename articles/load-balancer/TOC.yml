@@ -61,6 +61,8 @@
       href: load-balancer-standard-availability-zones.md
     - name: Mesures et diagnostics de l’équilibreur de charge standard
       href: load-balancer-standard-diagnostics.md
+    - name: Attributs de sécurité
+      href: load-balancer-security-attributes.md
 - name: Procédures
   items:
     - name: Créer un équilibrage de charge standard public et redondant dans une zone
