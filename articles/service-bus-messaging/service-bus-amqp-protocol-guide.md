@@ -362,8 +362,8 @@ Le message de demande possède les propriétés d’application suivantes :
 | Clé | Facultatif | Type de valeur | Contenu de la valeur |
 | --- | --- | --- | --- |
 | operation |Non |chaîne |**put-token** |
-| Type |Non |chaîne |Type du jeton placé. |
-| Nom |Non |chaîne |« Audience » à laquelle le jeton s’applique. |
+| type |Non |chaîne |Type du jeton placé. |
+| name |Non |chaîne |« Audience » à laquelle le jeton s’applique. |
 | expiration |OUI |timestamp |Délai d’expiration du jeton. |
 
 La propriété *name* identifie l’entité avec laquelle le jeton doit être associé. Dans Service Bus, il s’agit du chemin d’accès à la file d’attente ou à la rubrique/l’abonnement. La propriété *type* identifie le type de jeton :
