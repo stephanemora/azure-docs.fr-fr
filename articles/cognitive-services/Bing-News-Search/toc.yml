@@ -26,7 +26,7 @@
           href: ruby.md
         - name: Utilisation de Go
           href: go.md
-    - name: 'Kit SDK '
+    - name: Kit SDK
       items:
         - name: 'Utilisation de C#'
           href: news-search-sdk-quickstart.md
@@ -51,7 +51,8 @@
     - name: Nouveautés de la page
       href: paging-news.md
     - name: Redimensionner et rogner les miniatures
-      href: resize-and-crop-thumbnails.md
+      maintainContext: true
+      href: ../bing-web-search/resize-and-crop-thumbnails.md
     - name: Mettre à niveau l’API de v5 vers v7
       href: bing-news-upgrade-guide-v5-to-v7.md
     - name: Interroger Azure SQL Data Warehouse (sqlcmd) (Visual Studio)

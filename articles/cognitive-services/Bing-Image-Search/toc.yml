@@ -24,7 +24,7 @@
           href: quickstarts/python.md
         - name: Utilisation de Ruby
           href: quickstarts/ruby.md
-    - name: 'Kit SDK '
+    - name: Kit SDK
       items:
         - name: 'Utilisation de C#'
           href: image-search-sdk-quickstart.md
@@ -55,7 +55,8 @@
     - name: Parcourir les images
       href: paging-images.md
     - name: Redimensionner et rogner les miniatures
-      href: resize-and-crop-thumbnails.md
+      maintainContext: true
+      href: ../bing-web-search/resize-and-crop-thumbnails.md
     - name: Mettre à niveau de v5 vers v7
       href: bing-image-upgrade-guide-v5-to-v7.md
 - name: Concepts

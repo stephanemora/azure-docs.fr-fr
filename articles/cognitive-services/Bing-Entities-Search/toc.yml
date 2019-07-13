@@ -24,7 +24,7 @@
           href: quickstarts/python.md
         - name: Utilisation de Ruby
           href: quickstarts/ruby.md
-    - name: 'Kit SDK '
+    - name: Kit SDK
       items:
         - name: 'Utilisation de C#'
           href: quickstarts/entity-sdk-csharp-quickstart.md
@@ -45,7 +45,8 @@
 - name: Guides pratiques
   items:
     - name: Redimensionner et rogner les miniatures
-      href: resize-and-crop-thumbnails.md
+      maintainContext: true
+      href: ../bing-web-search/resize-and-crop-thumbnails.md
 - name: Concepts
   items:
     - name: Recherche d’entités

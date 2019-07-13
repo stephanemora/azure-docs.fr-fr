@@ -24,7 +24,7 @@
           href: quickstarts/ruby.md
         - name: Utilisation de Go
           href: quickstarts/go.md
-    - name: 'Kit SDK '
+    - name: Kit SDK
       expanded: true
       items:
         - name: 'Utilisation de C#'
@@ -58,7 +58,8 @@
     - name: Obtenir des informations à l’aide d’un jeton
       href: use-insights-token.md
     - name: Redimensionner et rogner les miniatures
-      href: resize-and-crop-thumbnails.md
+      maintainContext: true
+      href: ../bing-web-search/resize-and-crop-thumbnails.md
     - name: Rechercher une image à l’aide de jetons d’insight d’image
       href: tutorial-visual-search-insights-token.md
     - name: Créer une application web monopage
