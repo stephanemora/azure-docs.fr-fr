@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 91dd1ebc457bfeed5c9e8d0d62ecc23740ca5d8d
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
-ms.translationtype: MT
+ms.openlocfilehash: 398efd36e6c8d82a5090b7446c95abb2d1bfbca1
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65979546"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67428757"
 ---
 # <a name="azure-policy-definition-structure"></a>Structure de définition Azure Policy
 
@@ -24,7 +24,7 @@ Le schéma utilisé par Azure Policy se trouve ici : [https://schema.management
 
 Vous devez utiliser JSON pour créer une définition de stratégie. La définition de stratégie contient des éléments pour :
 
-- mode
+- le mode
 - parameters
 - le nom d’affichage
 - description
@@ -66,11 +66,15 @@ Par exemple, le code JSON suivant illustre une stratégie qui limite les emplace
 }
 ```
 
-Tous les exemples de stratégie Azure courent [exemples Azure Policy](../samples/index.md).
+Tous les exemples Azure Policy se trouvent dans [Exemples de stratégies](../samples/index.md).
 
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## <a name="mode"></a>Mode
+
+Le **Mode** est configuré selon si la stratégie cible une propriété Azure Resource Manager ou une propriété de fournisseur de ressources.
+
+### <a name="resource-manager-modes"></a>Modes Resource Manager
 
 Le **mode** détermine les types de ressources à évaluer pour une stratégie. Les modes pris en charge sont les suivants :
 
@@ -79,7 +83,14 @@ Le **mode** détermine les types de ressources à évaluer pour une stratégie. 
 
 Nous vous recommandons de définir **mode** sur `all` dans tous les cas. Toutes les définitions de stratégie créées via le portail utilisent le mode `all`. Si vous utilisez PowerShell ou Azure CLI, vous pouvez spécifier le paramètre **mode** manuellement. Si la définition de stratégie ne comporte pas de valeur **mode**, elle prend la valeur par défaut `all` dans Azure PowerShell et `null` dans Azure CLI. Le mode `null` a le même effet que `indexed`, à savoir assurer une compatibilité descendante.
 
-Il est recommandé (quoique non obligatoire) d’utiliser `indexed` pour créer des stratégies qui appliquent des balises ou des emplacements, car cela empêche les ressources qui ne prennent pas en charge les balises et les emplacements de s’afficher comme non conformes dans les résultats de conformité. Les **groupes de ressources** font figure d’exception. Les stratégies qui appliquent des emplacements ou des balises à un groupe de ressources doivent définir **mode** sur `all` et cibler spécifiquement le type `Microsoft.Resources/subscriptions/resourceGroups`. Pour exemple, consultez [Appliquer des balises au groupe de ressources](../samples/enforce-tag-rg.md). Pour obtenir la liste de ressources qui prennent en charge les balises, consultez [prise en charge pour les ressources Azure étiquette](../../../azure-resource-manager/tag-support.md).
+Il est recommandé (quoique non obligatoire) d’utiliser `indexed` pour créer des stratégies qui appliquent des balises ou des emplacements, car cela empêche les ressources qui ne prennent pas en charge les balises et les emplacements de s’afficher comme non conformes dans les résultats de conformité. Les **groupes de ressources** font figure d’exception. Les stratégies qui appliquent des emplacements ou des balises à un groupe de ressources doivent définir **mode** sur `all` et cibler spécifiquement le type `Microsoft.Resources/subscriptions/resourceGroups`. Pour exemple, consultez [Appliquer des balises au groupe de ressources](../samples/enforce-tag-rg.md). Pour obtenir la liste des ressources qui prennent en charge les étiquettes, consultez [Prise en charge des étiquettes pour les ressources Azure](../../../azure-resource-manager/tag-support.md).
+
+### <a name="resource-provider-modes"></a>Modes Fournisseur de ressources
+
+Le seul mode Fournisseur de ressources pris en charge actuellement est `Microsoft.ContainerService.Data` pour la gestion des règles de contrôleur d’admission sur [Azure Kubernetes Service](../../../aks/intro-kubernetes.md).
+
+> [!NOTE]
+> [Azure Policy pour Kubernetes](rego-for-aks.md) est en préversion publique et prend uniquement en charge les définitions de stratégie intégrées.
 
 ## <a name="parameters"></a>parameters
 
@@ -99,10 +110,10 @@ Un paramètre possède les propriétés suivantes qui sont utilisées dans la d�
   - `description`: Explication du rôle du paramètre. Utilisable pour fournir des exemples de valeurs acceptables.
   - `displayName`: Nom convivial du paramètre visible dans le portail.
   - `strongType`: (Facultatif) Utilisé lors de l’affectation de la définition de stratégie via le portail. Fournit une liste prenant en compte le contexte. Pour plus d’informations, voir [strongType](#strongtype).
-  - `assignPermissions`: (Facultatif) Définir en tant que _true_ avoir portail Azure à créer des attributions de rôles lors de l’attribution de stratégie. Cette propriété est utile au cas où vous souhaitez affecter des autorisations en dehors de l’étendue d’attribution. Il existe une attribution de rôle par la définition de rôle dans la stratégie (ou par la définition de rôle dans toutes les stratégies dans l’initiative). La valeur du paramètre doit être une ressource valide ou une étendue.
+  - `assignPermissions`: (Facultatif) Définissez l’option sur _True_ pour que le portail Azure crée des attributions de rôles lors de l’attribution de stratégie. Cette propriété est utile si vous souhaitez attribuer des autorisations en dehors de l’étendue d’attribution. Il existe une attribution de rôle par définition de rôle dans la stratégie (ou par définition de rôle dans toutes les stratégies dans l’initiative). La valeur du paramètre doit être une ressource ou une étendue valide.
 - `defaultValue`: (Facultatif) Définit la valeur du paramètre dans une affectation si aucune valeur n’est fournie.
   Obligatoire lors de la mise à jour d’une définition de stratégie existante qui est affectée.
-- `allowedValues`: (Facultatif) Fournit un tableau de valeurs que le paramètre accepte pendant leur affectation.
+- `allowedValues`: (Facultatif) Fournit le tableau des valeurs que le paramètre accepte pendant l’attribution.
 
 Par exemple, vous pouvez définir une définition de stratégie qui limite les emplacements sur lesquels les ressources peuvent être déployées. Le paramètre **allowedLocations** pourrait s’appliquer à cette définition de stratégie. Ce paramètre serait utilisé par chaque affectation de la définition de la stratégie pour limiter les valeurs acceptées. L’utilisation de **strongType** permet d’améliorer l’expérience lors de l’affectation via le portail :
 
@@ -154,7 +165,7 @@ Dans la propriété `metadata`, vous pouvez utiliser **strongType** pour fournir
 - `Microsoft.RecoveryServices/vaults`
 - `Microsoft.RecoveryServices/vaults/backupPolicies`
 
-## <a name="definition-location"></a>Emplacement de définition
+## <a name="definition-location"></a>Emplacement de la définition
 
 Lors de la création d’une initiative ou d’une stratégie, il est important de spécifier l’emplacement de la définition, qui doit être un groupe d’administration ou un abonnement. L’emplacement détermine l’étendue à laquelle l’initiative ou la stratégie peut être affectée. Les ressources doivent être des membres directs ou des enfants dans la hiérarchie de l’emplacement de la définition à cibler pour l’affectation.
 
@@ -239,7 +250,7 @@ Une condition évalue si un **champ** ou un accesseur de **valeur** répond à c
 Avec les conditions **like** et **notLike**, un caractère générique `*` est indiqué dans la valeur.
 Celle-ci ne doit pas en comporter plus d’un (`*`).
 
-Lorsque vous utilisez le **correspond à** et **notMatch** conditions assurent `#` pour correspondre à un chiffre, `?` pour une lettre, `.` pour faire correspondre n’importe quel caractère et tout autre caractère pour faire correspondre ce caractère réel.
+Si vous utilisez les conditions **match** et **notMatch**, entrez `#` pour trouver un chiffre, `?` pour une lettre, `.` pour un caractère et tout autre caractère pour représenter ce caractère réel.
 Les conditions **match** et **notMatch** sont sensibles à la casse. Des alternatives non sensibles à la casse sont disponibles dans **matchInsensitively** et **notMatchInsensitively**. Pour obtenir des exemples, voir [Autoriser plusieurs modèles de noms](../samples/allow-multiple-name-patterns.md).
 
 ### <a name="fields"></a>Champs
@@ -299,7 +310,7 @@ Les conditions peuvent également être formées à l’aide de **valeur**. **va
 **valeur** est associée à n’importe quelle [condition](#conditions) prise en charge.
 
 > [!WARNING]
-> Si le résultat d’une _fonction de modèle_ est une erreur, la stratégie d’évaluation échoue. Une version d’évaluation ayant échouée est implicite **refuser**. Pour plus d’informations, consultez [éviter les défaillances de modèle](#avoiding-template-failures).
+> Si le résultat d’une _fonction de modèle_ est une erreur, la stratégie d’évaluation échoue. Une évaluation ayant échoué correspond à un **refus** implicite. Pour plus d’informations, consultez [Éviter les défaillances des modèles](#avoiding-template-failures).
 
 #### <a name="value-examples"></a>Exemples de valeur
 
@@ -341,9 +352,9 @@ Cet exemple de règle de stratégie utilise **valeur** pour vérifier si le rés
 }
 ```
 
-#### <a name="avoiding-template-failures"></a>Éviter les défaillances de modèle
+#### <a name="avoiding-template-failures"></a>Éviter les défaillances des modèles
 
-L’utilisation de _fonctions de modèle_ dans **valeur** permet pour de nombreuses fonctions imbriquées complexes. Si le résultat d’une _fonction de modèle_ est une erreur, la stratégie d’évaluation échoue. Une version d’évaluation ayant échouée est implicite **refuser**. Un exemple d’un **valeur** qui échoue dans certains scénarios :
+L’utilisation de _fonctions de modèle_ dans **value** (valeur) autorise de nombreuses fonctions imbriquées complexes. Si le résultat d’une _fonction de modèle_ est une erreur, la stratégie d’évaluation échoue. Une évaluation ayant échoué correspond à un **refus** implicite. Voici un exemple d’une **valeur** qui échoue dans certains scénarios :
 
 ```json
 {
@@ -359,9 +370,9 @@ L’utilisation de _fonctions de modèle_ dans **valeur** permet pour de nombreu
 }
 ```
 
-L’exemple de règle de stratégie ci-dessus utilise [substring()](../../../azure-resource-manager/resource-group-template-functions-string.md#substring) à comparer les trois premiers caractères de **nom** à **abc**. Si **nom** est inférieure à trois caractères, le `substring()` fonction génère une erreur. Cette erreur provoque la stratégie devenir un **refuser** effet.
+L’exemple de règle de stratégie ci-dessus utilise [substring()](../../../azure-resource-manager/resource-group-template-functions-string.md#substring) pour comparer les trois premiers caractères du **nom** avec **abc**. Si le **nom** a moins de 3 caractères, la fonction `substring()` génère une erreur. Cette erreur fait que la stratégie produit un effet **deny (refuser)** .
 
-Au lieu de cela, utilisez le [if()](../../../azure-resource-manager/resource-group-template-functions-logical.md#if) fonction permettant de vérifier si les trois premiers caractères de **nom** égal **abc** sans autoriser un **nom** plus courte que trois caractères pour provoquer une erreur :
+Au lieu de cela, utilisez la fonction [if()](../../../azure-resource-manager/resource-group-template-functions-logical.md#if) pour vérifier si les 3 premiers caractères du **nom** sont égaux à **abc** pour éviter qu’un **nom** contenant moins de  3caractères entraîne une erreur :
 
 ```json
 {
@@ -377,11 +388,11 @@ Au lieu de cela, utilisez le [if()](../../../azure-resource-manager/resource-gro
 }
 ```
 
-Avec la règle de stratégie révisée `if()` vérifie la longueur du **nom** avant d’essayer d’obtenir un `substring()` sur une valeur avec moins de trois caractères. Si **nom** est trop court, la valeur « ne commence ne pas par abc » est retournée à la place et par rapport à **abc**. Une ressource avec un nom court qui ne commence pas par **abc** échoue toujours la règle de stratégie, mais n’est plus provoque une erreur lors de l’évaluation.
+Avec la règle de stratégie révisée, `if()` vérifie la longueur du **nom** avant d’essayer d’obtenir une `substring()` sur une valeur avec moins de 3 caractères. Si le **nom** est trop court, la valeur « ne commence pas par abc » est retournée à la place et comparée à **abc**. Une ressource avec un nom court qui ne commence pas par **abc** fait toujours échouer la règle de stratégie, mais ne provoque plus d’erreur lors de l’évaluation.
 
 ### <a name="effect"></a>Résultat
 
-Stratégie Azure prend en charge les types d’effet suivants :
+Azure Policy prend en charge les types d’effet suivants :
 
 - **deny** : génère un événement dans le journal d’activité et fait échouer la requête.
 - **audit** : génère un événement d’avertissement dans le journal d’activité, mais ne fait pas échouer la requête.
@@ -389,6 +400,7 @@ Stratégie Azure prend en charge les types d’effet suivants :
 - **AuditIfNotExists** : active l’audit si une certaine ressource n’existe pas.
 - **DeployIfNotExists** : déploie une ressource si elle n’existe pas déjà.
 - **disabled** : n’évalue pas la conformité des ressources à la règle de stratégie.
+- **EnforceRegoPolicy** : configure le contrôleur d’admissions d’agent de stratégie ouverte dans Azure Kubernetes Service (préversion)
 
 Pour **append**, vous devez fournir les détails suivants :
 
@@ -416,11 +428,11 @@ L’effet **DeployIfNotExists** requiert la présence de la propriété **roleDe
 }
 ```
 
-Pour plus d’informations sur chaque effet, l’ordre d’évaluation, des propriétés et des exemples, consultez [compréhension des effets de stratégie Azure](effects.md).
+Pour plus d’informations sur chaque effet, l’ordre d’évaluation, les propriétés et des exemples, consultez [Présentation des effets Azure Policy](effects.md).
 
 ### <a name="policy-functions"></a>Fonctions de stratégie
 
-Tous les [les fonctions de modèle Resource Manager](../../../azure-resource-manager/resource-group-template-functions.md) sont disponibles à utiliser au sein d’une règle de stratégie, sauf les fonctions suivantes et les fonctions définies par l’utilisateur :
+Toutes les [fonctions de modèle Resource Manager](../../../azure-resource-manager/resource-group-template-functions.md) peuvent être utilisées dans une règle de stratégie, à l’exception des fonctions et fonctions définies par l’utilisateur suivantes :
 
 - copyIndex()
 - deployment()
@@ -432,13 +444,13 @@ Tous les [les fonctions de modèle Resource Manager](../../../azure-resource-man
 - resourceId()
 - variables()
 
-Les fonctions suivantes sont disponibles pour les utiliser dans une règle de stratégie, mais diffèrent à utiliser dans un modèle Azure Resource Manager :
+Les fonctions suivantes sont disponibles pour utilisation dans une règle de stratégie, mais diffèrent de l’utilisation dans un modèle Azure Resource Manager :
 
 - addDays(dateTime, numberOfDaysToAdd)
-  - **date/heure**: [obligatoire] chaîne - chaîne au format date/heure de Universal ISO 8601 « yyyy-MM-ddTHH:mm:ss.fffffffZ'
-  - **numberOfDaysToAdd**: [obligatoire] entier - nombre de jours à ajouter
-- utcNow() - contrairement à un gestionnaire de ressources du modèle, cela peut être utilisé en dehors de defaultValue.
-  - Retourne une chaîne qui est définie sur la date et heure actuelles au format de date/heure de Universal ISO 8601 « yyyy-MM-ddTHH:mm:ss.fffffffZ'
+  - **dateTime** : [obligatoire] chaîne - chaîne au format date/heure universel ISO 8601 « yyyy-MM-ddTHH:mm:ss.fffffffZ »
+  - **numberOfDaysToAdd** : [obligatoire] nombre entier - nombre de jours à ajouter
+- utcNow() : contrairement à un modèle Resource Manager, cela peut être utilisé en dehors de defaultValue.
+  - Retourne une chaîne qui est définie sur la date et l’heure actuelles au format de date/heure universel ISO 8601 « yyyy-MM-ddTHH:mm:ss.fffffffZ »
 
 De plus, la fonction `field` est disponible pour les règles de stratégie. `field` est principalement utilisé avec **AuditIfNotExists** et **DeployIfNotExists** pour faire référence aux champs actuellement évalués de la ressource. Vous pouvez en voir une illustration dans [l’exemple DeployIfNotExists](effects.md#deployifnotexists-example).
 
@@ -478,7 +490,7 @@ La liste des alias augmente toujours. Pour trouver les alias actuellement pris e
   Get-AzPolicyAlias -NamespaceMatch 'automation'
   ```
 
-- Azure CLI
+- D’Azure CLI
 
   ```azurecli-interactive
   # Login first with az login if not using Cloud Shell
@@ -498,14 +510,14 @@ La liste des alias augmente toujours. Pour trouver les alias actuellement pris e
 
 ### <a name="understanding-the--alias"></a>Comprendre l’alias [*]
 
-Plusieurs alias disponibles possèdent une version qui apparaîtra avec un nom « normal » et une autre avec **[\*]** ajouté. Exemple :
+Plusieurs alias disponibles possèdent une version qui apparaîtra avec un nom « normal » et une autre avec **[\*]** ajouté. Par exemple :
 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`
 
-L’alias « normal » représente le champ sous la forme d’une valeur unique. Ce champ est pour les scénarios de comparaison de correspondance exacte, lors de l’ensemble de valeurs doit être exactement tel que défini, pas d’autres et non moins.
+L’alias « normal » représente le champ sous la forme d’une valeur unique. Ce champ est réservé aux scénarios de comparaison de correspondance exacte, lorsque l’ensemble de valeurs entier doit être exactement tel que défini, ni plus ni moins.
 
-Le **[\*]** alias permet de comparer la valeur de chaque élément du tableau et les propriétés spécifiques de chaque élément. Cette approche permet de comparer les propriétés de l’élément 'absence de', 'Si un des', ou ' Si tous les de ' scénarios. À l’aide de **ipRules [\*]**, un exemple serait la validation que chaque _action_ est _Deny_, mais ne pas se préoccuper de savoir combien de règles existent ou l’adresse IP _valeur_ est. Cette règle de l’exemple vérifie toutes les correspondances de **ipRules [\*] .value** à **10.0.4.1** et applique la **effectType** uniquement s’il ne trouve pas au moins une correspondance :
+L’alias **[\*]** permet de comparer la valeur de chaque élément du tableau et les propriétés spécifiques de chaque élément. Cette approche permet de comparer les propriétés d’élément pour les scénarios « if none of », «if any of » ou « if all of ». Avec **ipRules[\*]** , il s’agit par exemple de valider que chaque _action_ est définie sur l’état _Deny_ (refusée), sans se préoccuper de savoir combien de règles existent ou quelle est la _valeur_ IP. Cet exemple de règle vérifie toutes les correspondances de **ipRules[\*].value** sur **10.0.4.1** et applique **effectType** uniquement s’il ne trouve pas au moins une correspondance :
 
 ```json
 "policyRule": {
@@ -527,7 +539,7 @@ Le **[\*]** alias permet de comparer la valeur de chaque élément du tableau et
 }
 ```
 
-Pour plus d’informations, consultez [l’évaluation de la [\*] alias](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
+Pour plus d’informations, consultez [l’évaluation de l’alias [\*]](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
 
 ## <a name="initiatives"></a>Initiatives
 
@@ -609,9 +621,9 @@ L’exemple suivant montre comment créer une initiative pour gérer deux balise
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Passez en revue les exemples à l’adresse [exemples Azure Policy](../samples/index.md).
+- Consultez des exemples à la page [Exemples Azure Policy](../samples/index.md).
 - Consultez la page [Compréhension des effets de Policy](effects.md).
-- Comprendre comment [créer par programmation des stratégies](../how-to/programmatically-create.md).
+- Découvrez comment [créer des stratégies par programmation](../how-to/programmatically-create.md).
 - Découvrez comment [obtenir des données de conformité](../how-to/getting-compliance-data.md).
-- Découvrez comment [corriger les ressources non conformes](../how-to/remediate-resources.md).
-- Examinez un groupe d’administration avec [organiser vos ressources avec des groupes d’administration Azure](../../management-groups/overview.md).
+- Découvrez comment [corriger des ressources non conformes](../how-to/remediate-resources.md).
+- Pour en savoir plus sur les groupes d’administration, consultez [Organiser vos ressources avec des groupes d’administration Azure](../../management-groups/overview.md).

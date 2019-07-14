@@ -8,23 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 2/20/2019
+ms.date: 07/05/2019
 ms.author: panosper
-ms.custom: seodec18
-ms.openlocfilehash: 2148d1bd79a858bec37e6c574c2a6b6e2009fe46
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.openlocfilehash: b71400c3ae3c1cc6737d9194b4d94bf0b9c7efa9
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190412"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606739"
 ---
 # <a name="why-use-batch-transcription"></a>Pourquoi utiliser la transcription Batch ?
 
 La transcription Batch est idéale pour transcrire une grande quantité de données audio stockées dans des objets blob Azure, par exemple. Avec l’API REST dédiée, vous pouvez pointer vers des fichiers audio à l’aide d’un URI de signature d’accès partagé (SAS) et recevoir les transcriptions de manière asynchrone.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-### <a name="subscription-key"></a>Clé de l’abonnement
+### <a name="subscription-key"></a>Clé d'abonnement
 
 Comme pour toutes les fonctionnalités du service Speech, créez une clé d’abonnement à partir du [Portail Azure](https://portal.azure.com) en suivant les instructions du [guide de démarrage rapide](get-started.md). Si vous souhaitez obtenir des transcriptions de nos modèles de base, la création de la clé est la seule opération à faire.
 
@@ -56,7 +55,7 @@ L’API de transcription Batch prend en charge les formats suivants :
 | MP3 | PCM | 16 bits | 8 ou 16 kHz, mono, stéréo |
 | OGG | OPUS | 16 bits | 8 ou 16 kHz, mono, stéréo |
 
-Dans le cas des flux audio stéréo, l’API de transcription Batch divise les canaux gauche et droit lors de la transcription. Elle crée deux fichiers JSON contenant le résultat relatif à chacun de ces deux canaux. Les timestamps par énoncé permettent au développeur de créer une transcription finale ordonnée chronologiquement. Cet exemple de demande inclut les propriétés de filtrage des obscénités et les timestamps au niveau des mots. 
+Dans le cas des flux audio stéréo, l’API de transcription Batch divise les canaux gauche et droit lors de la transcription. Elle crée deux fichiers JSON contenant le résultat relatif à chacun de ces deux canaux. Les timestamps par énoncé permettent au développeur de créer une transcription finale ordonnée chronologiquement. Cet exemple de demande inclut les propriétés de filtrage des obscénités et les timestamps au niveau des mots.
 
 ### <a name="configuration"></a>Configuration
 
@@ -66,8 +65,8 @@ Les paramètres de configuration sont fournis au format JSON :
 {
   "recordingsUrl": "<URL to the Azure blob to transcribe>",
   "models": [{"Id":"<optional acoustic model ID>"},{"Id":"<optional language model ID>"}],
-  "locale": "<local to us, for example en-US>",
-  "name": "<user define name of the transcription batch>",
+  "locale": "<locale to us, for example en-US>",
+  "name": "<user defined name of the transcription batch>",
   "description": "<optional description of the transcription>",
   "properties": {
     "ProfanityFilterMode": "Masked",
@@ -83,36 +82,68 @@ Les paramètres de configuration sont fournis au format JSON :
 
 ### <a name="configuration-properties"></a>Propriétés de configuration
 
-| Paramètre | Description  | Obligatoire/facultatif |
-|-----------|-------------|---------------------|
-| `ProfanityFilterMode` | Spécifie comment traiter la vulgarité dans les résultats de la reconnaissance. Les valeurs acceptées sont `none` qui désactive le d’obscénités, `masked` qui remplace les obscénités par des astérisques, `removed` qui supprime tous les obscénités du résultat ou `tags` qui ajoute les balises « obscénité ». Le paramètre par défaut est `masked`. | Facultatif |
-| `PunctuationMode` | Spécifie comment traiter la ponctuation dans les résultats de la reconnaissance. Les valeurs acceptées sont `none` qui désactive la ponctuation, `dictated` qui implique une ponctuation explicite, `automatic` qui permet au décodeur de gérer la ponctuation, ou `dictatedandautomatic` qui implique des marques de ponctuation dictées ou automatiques. | Facultatif |
- | `AddWordLevelTimestamps` | Spécifie si les timestamps au niveau des mots doivent être ajoutés à la sortie. Les valeurs acceptées sont `true`, qui permet des timestamps au niveau des mots, et `false` (la valeur par défaut) pour les désactiver. | Facultatif |
- | `AddSentiment` | Spécifie le sentiment doit être ajouté à l’énoncé. Valeurs acceptées sont `true` ce qui permet de sentiment par énoncé et `false` (valeur par défaut) pour la désactiver. | Facultatif |
+Utilisez les propriétés facultatives suivantes pour configurer la transcription :
+
+| Paramètre | Description |
+|-----------|-------------|
+| `ProfanityFilterMode` | Spécifie comment traiter la vulgarité dans les résultats de la reconnaissance. Les valeurs acceptées sont `none` qui désactive le d’obscénités, `masked` qui remplace les obscénités par des astérisques, `removed` qui supprime tous les obscénités du résultat ou `tags` qui ajoute les balises « obscénité ». Le paramètre par défaut est `masked`. |
+| `PunctuationMode` | Spécifie comment traiter la ponctuation dans les résultats de la reconnaissance. Les valeurs acceptées sont `none` qui désactive la ponctuation, `dictated` qui implique une ponctuation explicite, `automatic` qui permet au décodeur de gérer la ponctuation, ou `dictatedandautomatic` qui implique des marques de ponctuation dictées ou automatiques. |
+ | `AddWordLevelTimestamps` | Spécifie si les timestamps au niveau des mots doivent être ajoutés à la sortie. Les valeurs acceptées sont `true`, qui permet des timestamps au niveau des mots, et `false` (la valeur par défaut) pour les désactiver. |
+ | `AddSentiment` | Spécifie le sentiment devant être ajouté à l’énoncé. Les valeurs acceptées sont `true` pour activer un sentiment par énoncé et `false` (valeur par défaut) pour désactiver celui-ci. |
+ | `AddDiarization` | Spécifie que l’analyse de diarisation doit être effectuée sur l’entrée qui est censée être un canal unique contenant deux voix. Les valeurs acceptées sont `true` qui active la diarisation et `false` (valeur par défaut) qui désactive cette dernière. De plus, cela nécessite également que `AddWordLevelTimestamps` soit défini sur True.|
 
 ### <a name="storage"></a>Stockage
 
-Batch prend en charge de la transcription [stockage Blob Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) pour la lecture audio et transcriptions d’écriture vers le stockage.
+La transcription Batch prend en charge le [Stockage Blob Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) pour la lecture audio et l’écriture de transcriptions dans le stockage.
 
-## <a name="webhooks"></a>Webhooks 
+## <a name="webhooks"></a>webhooks
 
-Interrogeant le statut de transcription ne peut pas être la plus performante, ou fournir la meilleure expérience utilisateur. Pour effectuer une interrogation pour l’état, vous pouvez inscrire des rappels, qui informe le client quand longue transcription tâches sont terminées.
+Il se peut que l’interrogation de l’état de transcription ne soit pas la plus performante ni qu’elle fournisse la meilleure expérience utilisateur. Pour effectuer une interrogation de l’état, vous pouvez inscrire des rappels, qui informent le client quand de longues tâches de transcription sont terminées.
 
 Pour plus d’informations, consultez [Webhooks](webhooks.md).
 
+## <a name="speaker-separation-diarization"></a>Séparation de l’orateur (diarisation)
+
+La diarisation est le processus de séparation des orateurs dans une partie de l’audio. Notre pipeline Batch prend en charge la diarisation et est capable de reconnaître deux orateurs sur des enregistrements dans un canal unique.
+
+Pour demander à ce que votre demande de transcription audio soit traitée à des fins de diarisation, il vous suffit d’ajouter le paramètre concerné dans la requête HTTP comme indiqué ci-dessous.
+
+ ```json
+{
+  "recordingsUrl": "<URL to the Azure blob to transcribe>",
+  "models": [{"Id":"<optional acoustic model ID>"},{"Id":"<optional language model ID>"}],
+  "locale": "<locale to us, for example en-US>",
+  "name": "<user defined name of the transcription batch>",
+  "description": "<optional description of the transcription>",
+  "properties": {
+    "AddWordLevelTimestamps" : "True",
+    "AddDiarization" : "True"
+  }
+}
+```
+
+Les timestamps au niveau du mot doivent également être « activés », comme l’indiquent les paramètres dans la requête ci-dessus.
+
+L’audio correspondant contient alors les orateurs identifiés par un numéro (nous prenons en charge uniquement deux voix à l’heure actuelle, identifiées par Speaker1 et Speaker2) suivi de la sortie de transcription.
+
+Notez également que la diarisation n’est pas disponible dans les enregistrements stéréo. En outre, toute la sortie JSON contient la balise Speaker (Orateur). Si la diarisation n’est pas utilisée, « Speaker: Null » est indiqué dans la sortie JSON.
+
+> [!NOTE]
+> La diarisation est disponible dans toutes les régions et pour toutes les langues.
+
 ## <a name="sentiment"></a>Sentiments
 
-Sentiment est une nouvelle fonctionnalité dans l’API de Transcription de Batch et est une fonctionnalité importante dans le domaine de centre d’appel. Les clients peuvent utiliser le `AddSentiment` paramètres à leurs demandes à 
+Le sentiment est une nouvelle fonctionnalité de l’API Transcription Batch. Il s’agit d’une fonctionnalité importante dans le domaine des centres d’appels. Les clients peuvent utiliser les paramètres `AddSentiment` dans leurs demandes pour :
 
-1.  Obtenir des informations sur la satisfaction des clients
-2.  Obtenir des informations sur les performances des agents (équipe en prenant les appels)
-3.  Identifier le point exact dans le temps quand un appel a pris un tour dans une direction négative
-4.  Identifier la cause du problème bien lors de l’activation des appels négatives positive
-5.  Identifier ce que les clients aiment et qu’ils n’aime pas sur un produit ou un service
+1.  Obtenir des insights sur la satisfaction des clients
+2.  Obtenir des insights sur les performances des agents (équipe prenant les appels)
+3.  Identifier le point exact dans le temps où un appel a pris une tournure négative
+4.  Identifier ce qui s’est bien passé pour que l’appel négatif devienne positif
+5.  Identifier ce que les clients aiment et ce qu’ils n’aiment pas dans un produit ou service
 
-Sentiment est évalué par segment audio où un segment audio est défini comme le temps écoulé entre le début de l’énoncé (décalage) et la latence de détection de la fin du flux d’octets. L’intégralité du texte au sein de ce segment est utilisé pour calculer les sentiments. Nous ne pas calculer des valeurs de sentiment d’agrégation pour l’appel entière ou la reconnaissance vocale entière de chaque canal. Ceux-ci sont laissées au propriétaire du domaine pour appliquer davantage.
+Le sentiment est évalué par segment audio. Un segment audio correspond au temps écoulé entre le début de l’énoncé (offset) et la détection de silence à la fin du flux d’octets. L’intégralité du texte au sein de ce segment est utilisée pour calculer les sentiments. Nous ne calculons PAS de valeurs de sentiment d’agrégation pour l’appel entier ni pour l’intégralité des énoncés de chaque canal. Ces agrégations sont laissées au propriétaire du domaine pour les appliquer plus tard.
 
-Sentiment est appliqué sur la forme lexicale.
+Le sentiment est appliqué sur la forme lexicale.
 
 Un exemple de sortie JSON se présente comme suit :
 
@@ -149,13 +180,13 @@ Un exemple de sortie JSON se présente comme suit :
   ]
 }
 ```
-Les fonctionnalités utilise un modèle de Sentiment qui est actuellement en version bêta.
+La fonctionnalité utilise un modèle de sentiment, qui est actuellement en version bêta.
 
 ## <a name="sample-code"></a>Exemple de code
 
-L’exemple complet est disponible dans le [référentiel d’exemples GitHub](https://aka.ms/csspeech/samples) à l’intérieur du sous-répertoire `samples/batch`.
+Des exemples complets sont disponibles dans le [dépôt d’exemples GitHub](https://aka.ms/csspeech/samples) à l’intérieur du sous-répertoire `samples/batch`.
 
-Vous devez personnaliser l’exemple de code avec vos informations d’abonnement, la région du service, le pointage SAS URI vers le fichier audio à transcrire et les ID du modèle si vous souhaitez utiliser un modèle acoustique ou de langage personnalisé. 
+Vous devez personnaliser l’exemple de code avec vos informations d’abonnement, la région du service, le pointage SAS URI vers le fichier audio à transcrire et les ID du modèle si vous souhaitez utiliser un modèle acoustique ou de langage personnalisé.
 
 [!code-csharp[Configuration variables for batch transcription](~/samples-cognitive-services-speech-sdk/samples/batch/csharp/program.cs#batchdefinition)]
 
