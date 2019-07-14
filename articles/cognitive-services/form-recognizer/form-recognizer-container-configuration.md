@@ -2,40 +2,38 @@
 title: Configurer le conteneur - Form Recognizer
 titleSuffix: Azure Cognitive Services
 description: Découvrez comment configurer le conteneur Form Recognizer pour analyser des données de formulaire et de table.
-author: PatrickFarley
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: form-recognizer
-ms.topic: overview
-ms.date: 05/31/2019
-ms.author: pafarley
-ms.openlocfilehash: 28acc2d1eafacb9e53fac3e3cce092738401f838
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.topic: conceptual
+ms.date: 06/19/2019
+ms.author: dapine
+ms.openlocfilehash: 7e8e7a13cd02a6f3b109a84829dba2a81fd36aaa
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66475388"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296250"
 ---
 # <a name="configure-form-recognizer-containers"></a>Configurer des conteneurs Form Recognizer
 
-Les conteneurs Form Recognizer permettent aux clients de créer une architecture d’application optimisée pour tirer parti des fonctionnalités robustes du cloud et de la localité en périphérie.
+En utilisant les conteneurs Azure Form Recognizer, vous pouvez créer une architecture d’application optimisée pour tirer parti des fonctionnalités robustes du cloud et de la localité en périphérie.
 
-L’environnement d’exécution de conteneur **Form Recognizer** est configuré à l’aide des arguments de la commande `docker run`. Ce conteneur a plusieurs paramètres obligatoires et quelques paramètres facultatifs. Plusieurs [exemples](#example-docker-run-commands) de commande sont disponibles. Les paramètres propres aux conteneurs correspondent aux paramètres de facturation.
+Configurez l’environnement d’exécution du conteneur Form Recognizer à l’aide des arguments de la commande `docker run`. Ce conteneur a plusieurs paramètres obligatoires et quelques paramètres facultatifs. Pour obtenir des exemples, consultez la section [Exemples de commandes docker run](#example-docker-run-commands). Les paramètres propres aux conteneurs correspondent aux paramètres de facturation.
 
 ## <a name="configuration-settings"></a>Paramètres de configuration
 
 [!INCLUDE [Container shared configuration settings table](../../../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
 
 > [!IMPORTANT]
-> Les paramètres [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting) et [`Eula`](#eula-setting) sont utilisés conjointement, et vous devez fournir des valeurs valides pour les trois ; à défaut, votre conteneur ne démarrera pas. Pour plus d’informations sur l’instanciation d’un conteneur à l’aide de ces paramètres de configuration, consultez [Facturation](form-recognizer-container-howto.md#billing).
+> Les paramètres [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting) et [`Eula`](#eula-setting) sont utilisés ensemble. Vous devez fournir des valeurs valides pour les trois ; à défaut, votre conteneur ne démarre pas. Pour plus d’informations sur l’instanciation d’un conteneur à l’aide de ces paramètres de configuration, consultez [Facturation](form-recognizer-container-howto.md#billing).
 
 ## <a name="apikey-configuration-setting"></a>Paramètre de configuration ApiKey
 
-Le paramètre `ApiKey` spécifie la clé de ressource Azure utilisée pour effectuer le suivi des informations de facturation pour le conteneur. Vous devez spécifier une valeur pour ApiKey, il doit s’agir d’une clé valide de la ressource _Form Recognizer_ spécifiée pour le paramètre de configuration [`Billing`](#billing-configuration-setting).
+Le paramètre `ApiKey` spécifie la clé de ressource Azure utilisée pour effectuer le suivi des informations de facturation pour le conteneur. La valeur pour la clé API doit être une clé valide pour la ressource _Form Recognizer_ spécifiée pour `Billing` dans la section Paramètre de configuration Billing.
 
-Vous trouverez ce paramètre à l’emplacement suivant :
-
-* Portail Azure : Gestion des ressources de **Form Recognizer**, sous **Clés**
+Ce paramètre figure dans le portail Azure, dans **Form Recognizer Resource Management (Gestion des ressources Form Recognizer)** , sous **Clés**.
 
 ## <a name="applicationinsights-setting"></a>Paramètre ApplicationInsights
 
@@ -43,11 +41,9 @@ Vous trouverez ce paramètre à l’emplacement suivant :
 
 ## <a name="billing-configuration-setting"></a>Paramètre de configuration Billing
 
-Le paramètre `Billing` permet de spécifier l’URI du point de terminaison de la ressource _Form Recognizer_ sur Azure servant à mesurer les informations de facturation du conteneur. Vous devez affecter à ce paramètre de configuration une valeur correspondant à un URI de point de terminaison valide pour une ressource _Form Recognizer_ sur Azure. Le conteneur crée des rapports sur l’utilisation toutes les 10 à 15 minutes.
+Le paramètre `Billing` permet de spécifier l’URI de point de terminaison de la ressource _Form Recognizer_ sur Azure servant à mesurer les informations de facturation du conteneur. La valeur de ce paramètre de configuration doit être un URI de point de terminaison valide pour une ressource _Form Recognizer_ sur Azure. Le conteneur crée des rapports sur l’utilisation toutes les 10 à 15 minutes.
 
-Vous trouverez ce paramètre à l’emplacement suivant :
-
-* Portail Azure : Vue d’ensemble de **Form Recognizer**, étiqueté `Endpoint`
+Ce paramètre figure dans le portail Azure, dans **Form Recognizer Overview (Présentation de Form Recognizer)** , sous **Point de terminaison**.
 
 |Obligatoire| Nom | Type de données | Description |
 |--|------|-----------|-------------|
@@ -61,7 +57,7 @@ Vous trouverez ce paramètre à l’emplacement suivant :
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
 
-## <a name="http-proxy-credentials-settings"></a>Paramètres des informations d'identification du proxy HTTP
+## <a name="http-proxy-credentials-settings"></a>Paramètres des informations d’identification du proxy HTTP
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
 
@@ -72,11 +68,11 @@ Vous trouverez ce paramètre à l’emplacement suivant :
 
 ## <a name="mount-settings"></a>Paramètres de montage
 
-Utilisez des montages de liaisons pour lire et écrire des données vers et à partir du conteneur. Vous pouvez spécifier un montage d’entrée ou de sortie en spécifiant l’option `--mount` dans la commande [docker run](https://docs.docker.com/engine/reference/commandline/run/).
+Utilisez des montages de liaisons pour lire et écrire des données vers et à partir du conteneur. Vous pouvez spécifier un montage d’entrée ou de sortie en spécifiant l’option `--mount` dans la commande [`docker run`](https://docs.docker.com/engine/reference/commandline/run/).
 
-Le conteneur Form Recognizer nécessite un montage d’entrée et de sortie. Le montage d’entrée peut être en lecture seule. Il est indispensable pour accéder aux données qui sont utilisées dans l’entraînement et le scoring. Le montage de sortie doit être accessible en écriture. Il sert à stocker les modèles et les données temporaires.
+Le conteneur Form Recognizer nécessite un montage d’entrée et de sortie. Le montage d’entrée peut être en lecture seule. Il est indispensable pour accéder aux données qui sont utilisées pour l’entraînement et le scoring. Le montage de sortie doit être accessible en écriture. Il sert à stocker les modèles et les données temporaires.
 
-La syntaxe exacte de l’emplacement de montage d’hôte varie en fonction du système d’exploitation hôte. De plus, l’emplacement de montage de l’[ordinateur hôte](form-recognizer-container-howto.md#the-host-computer) peut ne pas être accessible en raison d’un conflit entre les autorisations utilisées par le compte de service Docker et les autorisations de l’emplacement de montage de l’hôte.
+La syntaxe exacte de l’emplacement de montage d’hôte varie en fonction du système d’exploitation hôte. De plus, l’emplacement de montage de l’[ordinateur hôte](form-recognizer-container-howto.md#the-host-computer) peut ne pas être accessible en raison d’un conflit entre les autorisations de compte de service Docker et les autorisations d’emplacement du montage d’hôte.
 
 |Facultatif| Nom | Type de données | Description |
 |-------|------|-----------|-------------|
@@ -85,22 +81,24 @@ La syntaxe exacte de l’emplacement de montage d’hôte varie en fonction du s
 
 ## <a name="example-docker-run-commands"></a>Exemples de commandes docker run
 
-Les exemples suivants utilisent les paramètres de configuration pour illustrer comment écrire et utiliser des commandes `docker run`.  Une fois en cours d’exécution, le conteneur continue à s’exécuter jusqu’à ce que vous l’[arrêtiez](form-recognizer-container-howto.md#stop-the-container).
+Les exemples suivants utilisent les paramètres de configuration pour illustrer comment écrire et utiliser des commandes `docker run`. Une fois en cours d’exécution, le conteneur continue à s’exécuter jusqu’à ce que vous l’[arrêtiez](form-recognizer-container-howto.md#stop-the-container).
 
-* **Caractère de continuation de ligne** : Les commandes Docker dans les sections suivantes utilisent la barre oblique inverse, `\`, comme caractère de continuation de ligne. Remplacez-la ou supprimez-la en fonction des exigences de votre système d’exploitation hôte.
+* **Caractère de continuation de ligne** : Les commandes Docker dans les sections suivantes utilisent la barre oblique inverse (\\) comme caractère de continuation de ligne. Remplacez ou supprimez ce caractère en fonction des exigences de votre système d’exploitation hôte.
 * **Ordre des arguments** : Ne changez pas l’ordre des arguments, sauf si vous avez une connaissance approfondie des conteneurs Docker.
 
-Remplacez {_argument_name_} par vos propres valeurs :
+Remplacez {_argument_name_} dans le tableau suivant par vos propres valeurs :
 
 | Placeholder | Valeur |
 |-------------|-------|
-|{BILLING_KEY} | Cette clé, qui permet de démarrer le conteneur, est disponible dans la page Clés de Form Recognizer du portail Azure.  |
-|{BILLING_ENDPOINT_URI} | La valeur de l’URI du point de terminaison de facturation est disponible dans la page Vue d’ensemble de Form Recognizer du portail Azure.|
+|{BILLING_KEY} | Clé qui sert à démarrer le conteneur. Elle est disponible dans la page Clés Form Recognizer dans le portail Azure.  |
+|{BILLING_ENDPOINT_URI} | La valeur d’URI de point de terminaison de facturation est disponible dans la page de présentation de Form Recognizer du portail Azure.|
 |{COMPUTER_VISION_API_KEY}| La clé est disponible dans la page Clés de l’API Vision par ordinateur du portail Azure.|
-|{COMPUTER_VISION_ENDPOINT_URI}|Le point de terminaison de facturation. Si vous utilisez une ressource informatique Vision par ordinateur, la valeur de l’URI est disponible dans la page Vue d’ensemble de l’API Vision par ordinateur du portail Azure. Si vous utilisez un conteneur `cognitive-services-recognize-text`, utilisez l’URL du point de terminaison de facturation passée au conteneur dans la commande `docker run`.|
+|{COMPUTER_VISION_ENDPOINT_URI}|Le point de terminaison de facturation. Si vous utilisez une ressource informatique Vision par ordinateur, la valeur de l’URI est disponible dans la page de vue d’ensemble de l’API Vision par ordinateur du portail Azure. Si vous utilisez un conteneur *cognitive-services-recognize-text*, utilisez l’URL du point de terminaison de facturation passée au conteneur dans la commande `docker run`.|
 
 > [!IMPORTANT]
-> Vous devez spécifier les options `Eula`, `Billing` et `ApiKey` pour exécuter le conteneur, sinon il ne démarrera pas.  Pour plus d'informations, consultez [Facturation](#billing-configuration-setting).
+> Pour exécuter le conteneur, spécifiez les options `Eula`, `Billing` et `ApiKey` ; sinon, le conteneur ne démarre pas. Pour plus d'informations, consultez [Facturation](#billing-configuration-setting).
+
+> [!NOTE] 
 > La valeur ApiKey est la **Clé** présente dans la page des clés de la ressource Azure Form Recognizer.
 
 ## <a name="form-recognizer-container-docker-examples"></a>Exemples Docker de conteneurs Form Recognizer
@@ -139,4 +137,4 @@ Logging:Console:LogLevel:Default=Information
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Consultez [Guide pratique pour installer et exécuter des conteneurs](form-recognizer-container-howto.md).
+* Passez en revue la page sur l’[installation et l’exécution des conteneurs](form-recognizer-container-howto.md).

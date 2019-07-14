@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 764fca8d3cb4cd9c40d7880043637f89ef1a8578
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4bf931b19b7490a94f30afde49038cdc7573fab3
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66755379"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67302240"
 ---
 # <a name="how-to-schedule-indexers-for-azure-search"></a>Comment planifier des indexeurs pour Recherche Azure
 Un indexeur s’exécute normalement une fois, immédiatement après sa création. Vous pouvez l’exécuter à nouveau à la demande avec le portail, l’API REST ou le kit SDK .NET. Vous pouvez également configurer un indexeur pour qu’il s’exécute à intervalles périodiques.
@@ -43,6 +43,9 @@ Pour être plus clair, prenons un exemple. Supposons que nous configurons une pl
 * La première exécution de l’indexeur commence à ou autour du 1er juin 2019 à 8h00 UTC. Supposons que cette exécution prend 20 minutes (ou en tout cas, moins de 1 heure).
 * La deuxième exécution de l’indexeur commence à ou autour du 1er juin 2019 à 9h00 UTC. Supposons que cette exécution dure 70 minutes (plus d’une heure), et qu’elle ne se terminera pas avant 10h10 UTC.
 * La troisième exécution est planifiée pour démarrer à 10h00 UTC, mais à ce moment l’exécution précédente est toujours en cours. Cette exécution planifiée est donc ignorée. La prochaine exécution de l’indexeur ne va pas démarrer avant 11h00 UTC.
+
+> [!NOTE]
+> Si un indexeur est défini sur une certaine planification, mais échoue à plusieurs reprises sur le même document chaque fois qu’il s’exécute, l’indexeur commence à s’exécuter à un intervalle moins fréquent (jusqu’à un maximum d’au moins une fois toutes les 24 heures) jusqu’à ce qu’il progresse correctement à nouveau.  Si vous pensez avoir résolu le problème qui provoquait le blocage de l’indexeur à un moment donné, vous pouvez effectuer une exécution à la demande de l’indexeur, et en cas de progression, l’indexeur reprend son intervalle de planification défini.
 
 <a name="portal"></a>
 
