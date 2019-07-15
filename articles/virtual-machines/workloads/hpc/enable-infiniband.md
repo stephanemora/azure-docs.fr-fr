@@ -4,7 +4,7 @@ description: Découvrez comment activer InfiniBand avec SR-IOV.
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines
@@ -12,27 +12,26 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: amverma
-ms.openlocfilehash: 879b1eed7bf4778d4d49f6f991d6d74214d33823
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 2e28627359f339a3bf818a15d6a5c8e456fb554a
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67537651"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797519"
 ---
 # <a name="enable-infiniband-with-sr-iov"></a>Activer InfiniBand avec SR-IOV
-
 
 La façon la plus simple et recommandée de configurer votre image de machine virtuelle personnalisée avec InfiniBand (IB) consiste à ajouter l’extension de machine virtuelle InfiniBandDriverLinux ou InfiniBandDriverWindows à votre déploiement.
 Découvrez comment utiliser ces extensions de machine virtuelle avec [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc#rdma-capable-instances) et [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc#rdma-capable-instances)
 
-Pour configurer manuellement InfiniBand sur des machines virtuelles compatibles SR-IOV (actuellement les séries HB et HC), suivez les étapes ci-dessous. Ces étapes concernent uniquement RHEL/CentOS. Pour Ubuntu (16.04 et 18.04) et SLES (12 SP4 et 15), les pilotes de la boîte de réception fonctionnent bien. Pour Ubuntu, 
-
+Pour configurer manuellement InfiniBand sur des machines virtuelles compatibles SR-IOV (actuellement les séries HB et HC), suivez les étapes ci-dessous. Ces étapes concernent uniquement RHEL/CentOS. Pour Ubuntu (16.04 et 18.04) et SLES (12 SP4 et 15), les pilotes de la boîte de réception fonctionnent bien.
 
 ## <a name="manually-install-ofed"></a>Installez manuellement OFED
 
 Installez les derniers pilotes MLNX_OFED ConnectX-5 à partir de [Mellanox](https://www.mellanox.com/page/products_dyn?product_family=26).
 
 Pour RHEL/CentOS (exemple ci-dessous pour 7.6) :
+
 ```bash
 sudo yum install -y kernel-devel python-devel
 sudo yum install -y redhat-rpm-config rpm-build gcc-gfortran gcc-c++

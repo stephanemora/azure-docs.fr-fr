@@ -2,25 +2,25 @@
 title: Qu’est un dictionnaire ? – Custom Translator
 titleSuffix: Azure Cognitive Services
 description: Un dictionnaire est un document aligné spécifiant une liste d’expressions ou de phrases (avec leur traduction) que Microsoft Translator devra traduire toujours de la même façon. Les dictionnaires sont parfois appelés glossaires ou bases terminologiques.
-author: rajdeep-in
+author: swmachan
 manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-pawal
+ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 4bf112974befd7063b3da8e2b1c1dcbb7ad55608
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.openlocfilehash: c837399778723b0b084c26422b7bea762f0e7709
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66385240"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447364"
 ---
 # <a name="what-is-a-dictionary"></a>Qu’est un dictionnaire ?
 
 Un dictionnaire est une paire alignée de documents qui spécifie une liste d’expressions ou de phrases avec les traductions correspondantes. Utilisez un dictionnaire dans votre apprentissage si vous souhaitez que Microsoft Translator traduise toujours toutes les instances de l’expression ou de la phrase source selon la traduction que vous avez indiquée dans le dictionnaire. Les dictionnaires sont parfois appelés glossaires ou bases terminologiques. On peut considérer le dictionnaire comme un « copier-remplacer » en force pour tous les termes listés.
 
-Les dictionnaires ne fonctionnent que pour les projets des paires de langues qui s’appuient sur un système de traduction automatique neuronale (NMT, pour « neural machine translation ») Microsoft entièrement pris en charge. [Afficher la liste complète des langues](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization).
+Les dictionnaires ne fonctionnent que pour les projets des paires de langues qui s’appuient sur un système de traduction automatique neuronale (NMT, pour « neural machine translation ») Microsoft entièrement pris en charge. [Affichez la liste complète des langues](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization).
 
 ## <a name="phrase-dictionary"></a>Dictionnaire d’expressions
 Si un dictionnaire d’expressions est ajouté dans le cadre de l’apprentissage du modèle, tous les mots et expressions listés sont traduits de la manière spécifiée. La traduction du reste de la phrase reste inchangée. Vous pouvez utiliser un dictionnaire d’expressions pour spécifier des expressions à ne pas traduire : indiquez pour cela la même expression non traduite dans le fichier source et dans le fichier cible du dictionnaire.
