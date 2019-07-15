@@ -7,12 +7,12 @@ ms.service: lighthouse
 ms.topic: sample
 ms.date: 07/11/2019
 ms.author: jenhayes
-ms.openlocfilehash: 3bc4446b1964b28963166c92b59b55f782ceb67c
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: c0266bd3c88dccc8b0413e617bb4a5fcadbf3720
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67808069"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67971348"
 ---
 # <a name="azure-lighthouse-samples"></a>Exemples Azure Lighthouse
 
@@ -21,7 +21,7 @@ Le tableau suivant comprend des liens vers les principaux modèles Azure Resourc
 | **Modèle** | **Description** |
 |---------|---------|
 | [create-multiple-rgs](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/create-multiple-rgs) | Crée plusieurs groupes de ressources à l’aide d’un seul modèle Azure Resource Manager. |
-| [cross-rg-deployment](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/cross-rg-deployment) | Déploie des comptes de stockage dans deux différents groupes de ressources. |
+| [cross-rg-deployment](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/cross-rg-deployment) | Déploie des comptes de stockage dans deux différents groupes de ressources. |
 | [cross-subscription-deployment](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/cross-subscription-deployment) | Déploie des modèles Azure Resource Manager dans plusieurs abonnements. |
 | [delegated-resource-management](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/delegated-resource-management) | Intègre l’abonnement d’un client dans la gestion des ressources déléguées Azure. |
 | [deploy-azure-mgmt-services](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/deploy-azure-mgmt-services) | Crée des services de gestion Azure, les relie et déploie des solutions supplémentaires. |
