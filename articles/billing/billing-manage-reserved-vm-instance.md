@@ -1,23 +1,21 @@
 ---
-title: Gérer les réservations Azure | Microsoft Docs
+title: Gérer les réservations Azure
 description: Découvrez comment changer l’étendue de l’abonnement et gérer l’accès pour les réservations Azure.
 ms.service: billing
-documentationcenter: ''
-author: yashesvi
+author: bandersmsft
 manager: yashesvi
-editor: ''
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/13/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 9a5b200ffb9441b90875c7764786004ff5f1e8a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 89279387b3630ea654070eef671f131ec757d55f
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66127142"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491178"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Gérer les réservations pour les ressources Azure
 
@@ -54,7 +52,7 @@ Pour mettre à jour l’étendue d’une réservation :
 
 Si vous passez de l’étendue partagée à une étendue unique, vous ne pouvez sélectionner que les abonnements dont vous êtes le propriétaire. Seuls peuvent être sélectionnés les abonnements présents dans le même contexte de facturation que celui de la réservation.
 
-L’étendue s’applique uniquement aux abonnements MS-AZR-0003P ou MS-AZR-0023P de l’offre avec paiement à l’utilisation, MS-AZR-0017P ou MS-AZR-0148P de l’offre Entreprise ou CSP.
+L’étendue s’applique uniquement aux abonnements individuels MS-AZR-0003P ou MS-AZR-0023P de l’offre avec paiement à l’utilisation, MS-AZR-0017P ou MS-AZR-0148P de l’offre Entreprise ou CSP.
 
 ## <a name="add-or-change-users-who-can-manage-a-reservation"></a>Ajouter ou modifier les utilisateurs qui peuvent gérer une réservation
 
@@ -148,7 +146,7 @@ Acheter un plan de service :
 - [Prépayer des ressources Azure Cosmos DB avec une capacité réservée Azure Cosmos DB](../cosmos-db/cosmos-db-reserved-capacity.md)
 
 Acheter un abonnement logiciel :
-- [Prépayer des abonnements logiciels Red Hat dans Azure Reservations](../virtual-machines/linux/prepay-rhel-software-charges.md)
+- [Prépayer des abonnements logiciels Red Hat dans Réservations Azure](../virtual-machines/linux/prepay-rhel-software-charges.md)
 - [Prépayer des logiciels SUSE avec des réservations Azure](../virtual-machines/linux/prepay-suse-software-charges.md)
 
 Comprendre la remise et l’utilisation :

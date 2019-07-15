@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmon
 ms.service: multiple
 ms.topic: article
-ms.date: 04/28/2019
+ms.date: 07/01/2019
 ms.author: raynew
-ms.openlocfilehash: 5ed9dc595c537d8a923d3eb056dcb002cf225f7c
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
-ms.translationtype: MT
+ms.openlocfilehash: 81ba993e6cbe55b45d34325545754bec561ce479
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66427114"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514461"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuité et reprise d’activité : Régions jumelées Azure
 
@@ -34,8 +34,8 @@ Figure 1 – Paires régionales Azure
 | Brésil |Brésil Sud |USA Centre Sud |
 | Canada |Centre du Canada |Est du Canada |
 | Chine |Chine du Nord |Chine orientale|
-| Chine |Chine Nord 2 |Chine Est 2|
-| Europe |Europe Nord (Irlande) |Europe de l’Ouest (Pays-Bas) |
+| Chine |Chine Nord 2 |Chine orientale 2|
+| Europe |Europe Nord (Irlande) |Europe Ouest (Pays-Bas) |
 | France |France Centre|France Sud|
 | Allemagne |Centre de l’Allemagne |Nord-Est de l’Allemagne |
 | Inde |Inde centrale |Inde du Sud |
@@ -48,7 +48,7 @@ Figure 1 – Paires régionales Azure
 | Amérique du Nord |Ouest des États-Unis 2 |USA Centre-Ouest 
 | Afrique du Sud | Afrique du Sud Nord | Afrique du Sud Ouest
 | Royaume-Uni |Ouest du Royaume-Uni |Sud du Royaume-Uni |
-| Émirats Arabes Unis | Nord des Émirats arabes unis | Centre des Émirats arabes unis
+| Émirats Arabes Unis | Émirats arabes unis Nord | Émirats arabes unis Centre
 | Ministère de la défense des États-Unis |Est des États-Unis – US DoD |Centre des États-Unis – US DoD |
 | Gouvernement américain |Gouvernement des États-Unis – Arizona |Gouvernement des États-Unis – Texas |
 | Gouvernement américain |US Gov Iowa |Gouvernement américain - Virginie |
@@ -56,11 +56,11 @@ Figure 1 – Paires régionales Azure
 
 Tableau 1 - Mise en correspondance des paires régionales Azure
 
-- Inde de l’ouest est associée dans une seule direction. La région secondaire de la région Inde de l’Ouest est Inde du Sud, mais la région secondaire de la région Inde du Sud est Centre de l’Inde.
-- La région Brésil Sud est unique, car elle est jumelée avec une région située en dehors de sa propre zone géographique. Région secondaire sud du Brésil est sud du centre des États-Unis. De Sud région secondaire n’est pas sud du Brésil.
-- La des États-Unis-Iowa région secondaire est Virginie.
-- Région secondaire de gouvernement américain-Virginie est la région gouvernement des États-Unis-Texas.
-- L’US Gov Texas région secondaire est gouvernement des États-Unis-Arizona.
+- La région Inde Ouest est jumelée dans une seule direction. La région secondaire de la région Inde de l’Ouest est Inde du Sud, mais la région secondaire de la région Inde du Sud est Centre de l’Inde.
+- La région Brésil Sud est unique, car elle est jumelée avec une région située en dehors de sa propre zone géographique. La région secondaire de la région Brésil Sud est USA Centre Sud. La région secondaire de la région USA Centre Sud n’est pas Brésil Sud.
+- La région secondaire de la région US Gov Iowa est US Gov Virginie.
+- La région secondaire de la région US Gov Virginie est US Gov Texas.
+- La région secondaire de la région US Gov Texas est US Gov Arizona.
 
 
 Nous vous recommandons de configurer la continuité d’activité et reprise d’activité (BCDR) dans les paires régionales pour tirer parti des stratégies d’isolation et de disponibilité Azure. Pour les applications qui prennent en charge plusieurs régions actives, nous vous recommandons d’utiliser les deux régions d’une paire lorsque cela est possible. Cela garantit la disponibilité optimale des applications, ainsi qu’un temps de récupération réduit en cas de sinistre. 
@@ -77,9 +77,9 @@ Conformément à la figure 2.
 
 ![IaaS](./media/best-practices-availability-paired-regions/1Green.png)**Azure Compute (IaaS)** – Vous devez approvisionner des ressources de calcul supplémentaires à l’avance pour garantir la disponibilité des ressources dans d’autres régions au cours d’un incident. Pour plus d’informations, consultez le [Guide technique de la résilience Azure](resiliency/resiliency-technical-guidance.md).
 
-![Storage](./media/best-practices-availability-paired-regions/2Green.png)**Azure Storage** - Le stockage géo-redondant (GRS, Geo-Redundant Storage) est configuré par défaut quand vous créez un compte de stockage Azure. Avec GRS, vos données sont répliquées trois fois dans la région principale et trois fois dans la région jumelée. Pour plus d'informations, consultez [Options de redondance du stockage Azure](storage/common/storage-redundancy.md).
+![Stockage](./media/best-practices-availability-paired-regions/2Green.png) **Stockage Azure** : si vous utilisez des disques managés, découvrez les [sauvegardes inter-régions](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region#virtual-machines) avec Sauvegarde Azure, et la [réplication de machines virtuelles](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication) d’une région à l’autre avec Azure Site Recovery. Si vous utilisez des comptes de stockage, le stockage géo-redondant (GRS, Geo-Redundant Storage) est configuré par défaut quand vous créez un compte de stockage Azure. Avec GRS, vos données sont répliquées trois fois dans la région principale et trois fois dans la région jumelée. Pour plus d'informations, consultez [Options de redondance du stockage Azure](storage/common/storage-redundancy.md).
 
-![SQL Azure](./media/best-practices-availability-paired-regions/3Green.png) **Azure SQL Database** – avec la géoréplication dans Azure SQL Database, vous pouvez configurer une réplication asynchrone des transactions vers toute région du monde. En revanche, nous vous recommandons de déployer ces ressources dans une région couplée pour la plupart des scénarios de récupération d’urgence. Pour plus d’informations, consultez [Géoréplication dans Azure SQL Database](sql-database/sql-database-geo-replication-overview.md).
+![Azure SQL](./media/best-practices-availability-paired-regions/3Green.png)**Azure SQL Database** – avec la géoréplication dans Azure SQL Database, vous pouvez configurer une réplication asynchrone des transactions vers toute région du monde. En revanche, nous vous recommandons de déployer ces ressources dans une région couplée pour la plupart des scénarios de récupération d’urgence. Pour plus d’informations, consultez [Géoréplication dans Azure SQL Database](sql-database/sql-database-geo-replication-overview.md).
 
 ![Resource Manager](./media/best-practices-availability-paired-regions/4Green.png)**Azure Resource Manager** - Resource Manager offre par nature une isolation logique des composants entre les régions. Cela signifie que des échecs logiques dans une région sont moins susceptibles d’avoir un impact sur une autre.
 

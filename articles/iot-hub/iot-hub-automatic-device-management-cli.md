@@ -6,14 +6,14 @@ manager: bruz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 04/13/2018
+ms.date: 06/28/2019
 ms.author: chrisgre
-ms.openlocfilehash: 0302146634904ccf1d87220d3a24553149e10372
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d57dbbdd7614d09d52fef0f613c43d4ca1d08136
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61321196"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485863"
 ---
 # <a name="automatic-iot-device-management-at-scale-using-the-azure-cli"></a>Gestion automatique des appareils IoT à grande échelle avec Azure CLI
 
@@ -29,7 +29,9 @@ La gestion automatique des appareils fonctionne en mettant à jour un ensemble d
 
 * Le **contenu cible** définit les propriétés souhaitées à ajouter ou à mettre à jour dans les jumeaux d’appareil ciblés. Le contenu inclut un chemin de la section des propriétés souhaitées à changer.
 
-* Les **métriques** définissent les nombres récapitulatifs des différents états de configuration tels que **Réussite**, **En cours** et **Erreur**. Les métriques personnalisées sont spécifiées en tant que requêtes sur les propriétés signalées du jumeau d’appareil.  Les métriques système sont des métriques par défaut qui mesurent l’état de la mise à jour des jumeaux, comme le nombre de jumeaux d’appareil qui sont ciblés et le nombre de jumeaux qui ont été correctement mis à jour. 
+* Les **métriques** définissent les nombres récapitulatifs des différents états de configuration tels que **Réussite**, **En cours** et **Erreur**. Les métriques personnalisées sont spécifiées en tant que requêtes sur les propriétés signalées du jumeau d’appareil.  Les métriques système sont des métriques par défaut qui mesurent l’état de la mise à jour des jumeaux, comme le nombre de jumeaux d’appareil qui sont ciblés et le nombre de jumeaux qui ont été correctement mis à jour.
+
+Les configurations automatiques d’appareils s’exécutent pour la première fois peu de temps après la création de la configuration, puis à cinq minutes d’intervalle. Les requêtes relatives aux métriques s’exécutent à chaque exécution de la configuration automatique des appareils.
 
 ## <a name="cli-prerequisites"></a>Prérequis pour l’interface CLI
 
@@ -56,7 +58,7 @@ Avant de pouvoir créer une configuration, vous devez spécifier les appareils c
 
 ## <a name="define-the-target-content-and-metrics"></a>Définir le contenu cible et les métriques
 
-Le contenu cible et les requêtes de métriques sont spécifiés sous forme de documents JSON qui décrivent les propriétés souhaitées du jumeau d’appareil à définir et les propriétés indiquées à mesurer.  Pour créer une configuration d’appareil automatique avec Azure CLI, enregistrez le contenu cible et les métriques localement dans des fichiers .txt. Vous utiliserez les chemins des fichiers dans une section ultérieure, au moment d’exécuter la commande pour appliquer la configuration à votre appareil. 
+Le contenu cible et les requêtes de métriques sont spécifiés sous forme de documents JSON qui décrivent les propriétés souhaitées du jumeau d’appareil à définir et les propriétés indiquées à mesurer.  Pour créer une configuration d’appareil automatique avec Azure CLI, enregistrez le contenu cible et les métriques localement dans des fichiers .txt. Vous utiliserez les chemins des fichiers dans une section ultérieure, au moment d’exécuter la commande pour appliquer la configuration à votre appareil.
 
 Voici un exemple de contenu cible de base :
 

@@ -1,5 +1,5 @@
 ---
-title: Partager des images de la galerie entre des locataires dans Azure | Microsoft Docs
+title: Partager des images de la bibliothèque entre locataires dans Azure | Microsoft Docs
 description: Découvrez comment partager des images de machine virtuelle entre des locataires Azure à l’aide des galeries d’images partagées.
 services: virtual-machines-linux
 author: cynthn
@@ -10,17 +10,19 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 04/05/2019
 ms.author: cynthn
-ms.openlocfilehash: 1578ba840c6dca93feb68754863439811d7ef099
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 88596a4bda3c9ebae99403e95b3539f068cad665
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65158729"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67465475"
 ---
-# <a name="share-gallery-vm-images-across-azure-tenants"></a>Partager des images de machine virtuelle de la galerie entre des locataire Azure
+# <a name="share-gallery-vm-images-across-azure-tenants"></a>Partager des images de machine virtuelle de la galerie entre des locataires Azure
 
 [!INCLUDE [virtual-machines-share-images-across-tenants](../../../includes/virtual-machines-share-images-across-tenants.md)]
 
+> [!IMPORTANT]
+> Vous ne pouvez pas utiliser le portail pour déployer une machine virtuelle à partir d’une image dans un autre locataire Azure. Pour créer une machine virtuelle à partir d’une image partagée entre des locataires, vous devez utiliser l’interface Azure CLI ou [PowerShell](../windows/share-images-across-tenants.md).
 
 ## <a name="create-a-vm-using-azure-cli"></a>Créer une machine virtuelle à l’aide d’Azure CLI
 

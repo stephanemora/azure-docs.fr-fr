@@ -1,5 +1,5 @@
 ---
-title: Éléments multimédias dans Media Services - Azure | Microsoft Docs
+title: Éléments multimédias dans Azure Media Services | Microsoft Docs
 description: Cet article explique ce que sont les éléments multimédias et comment ils sont utilisés par Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/11/2019
+ms.date: 07/02/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 2afcf2066238414cd08e32901ffccf2a44718b6d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e88863fbbc29287baaf1c3c98dbdae04539e08e5
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65551760"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542594"
 ---
 # <a name="assets"></a>Éléments multimédias
 
@@ -87,9 +87,22 @@ curl -X PUT \
 
 Pour obtenir un exemple complet, consultez [Créer une entrée de travail à partir d’un fichier local](job-input-from-local-file-how-to.md). Dans Media Services v3, il est également possible de créer une entrée de travail à partir d’URL HTTPS (consultez [Créer une entrée de travail à partir d’une URL HTTPS](job-input-from-http-how-to.md)).
 
-## <a name="filtering-ordering-paging"></a>Filtrage, tri, pagination
+## <a name="map-v3-asset-properties-to-v2"></a>Mapper les propriétés de l’élément multimédia v3 à v2
 
-Consultez [Filtrage, tri et pagination des entités Media Services](entities-overview.md).
+Le tableau suivant montre comment les propriétés de l’[élément multimédia](https://docs.microsoft.com/rest/api/media/assets/createorupdate#asset)de v3 sont mappées aux propriétés de l’élément multimédia de v2.
+
+|Propriétés de v3|Propriétés de v2|
+|---|---|
+|id : (unique) chemin d’accès complet à Azure Resource Manager<br/>`"id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Media/mediaservices/contosomedia/assets/ClimbingMountLogan"`||
+|nom : (unique) consultez [Convention d’affectation de noms](media-services-apis-overview.md#naming-conventions) ||
+|alternateId|AlternateId|
+|assetId|Id : valeur (unique) commençant par le préfixe `nb:cid:UUID:`.|
+|created|Date de création|
+|description|Nom|
+|lastModified|LastModified|
+|storageAccountName|StorageAccountName|
+|storageEncryptionFormat| Options : options de création|
+|Type||
 
 ## <a name="storage-side-encryption"></a>Chiffrement côté stockage
 
@@ -104,6 +117,10 @@ Pour protéger vos éléments au repos, les ressources doivent être chiffrées 
 <sup>1</sup> Bien que Media Services prenne en charge la gestion de contenu en clair/sans aucune forme de chiffrement, ce n’est pas conseillé.
 
 <sup>2</sup> Dans Media Services v3, le chiffrement de stockage (chiffrement AES-256) est uniquement pris en charge pour la compatibilité descendante lorsque vos ressources ont été créées avec Media Services v2. Cela signifie que la version v3 fonctionne avec les ressources chiffrées du stockage existant mais qu’elle n’autorisera pas de nouvelles créations.
+
+## <a name="filtering-ordering-paging"></a>Filtrage, tri, pagination
+
+Consultez [Filtrage, tri et pagination des entités Media Services](entities-overview.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

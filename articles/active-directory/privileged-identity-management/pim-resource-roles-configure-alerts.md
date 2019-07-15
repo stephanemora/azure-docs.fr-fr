@@ -1,5 +1,5 @@
 ---
-title: Configurer des alertes de sécurité pour les rôles de ressources Azure dans PIM - Azure Active Directory | Microsoft Docs
+title: Configurer des alertes de sécurité pour les rôles de ressources Azure dans PIM – Azure Active Directory | Microsoft Docs
 description: Découvrez comment configurer des alertes de sécurité pour les rôles de ressources Azure dans Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -15,22 +15,22 @@ ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 827c42763eee39c717cedc90469ae765cc331272
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: MT
+ms.openlocfilehash: 3c7ce8b79644a9ffc9481ba825ec5623a9268983
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66253835"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476329"
 ---
 # <a name="configure-security-alerts-for-azure-resource-roles-in-pim"></a>Configurer des alertes de sécurité pour les rôles de ressources Azure dans PIM
-Azure Active Directory (Azure AD) Privileged Identity Management (PIM) génère des alertes en cas d’une activité suspecte ou non fiable dans votre environnement. Lorsqu’une alerte est déclenchée, elle s’affiche sur la page Alertes. 
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM) génère des alertes en cas d’activité suspecte ou non fiable dans votre environnement. Lorsqu’une alerte est déclenchée, elle s’affiche sur la page Alertes. 
 
-![Page des alertes](media/pim-resource-roles-configure-alerts/rbac-alerts-page.png)
+![Page des alertes des ressources Azure répertorie les alertes, le niveau de risque et leur nombre](media/pim-resource-roles-configure-alerts/rbac-alerts-page.png)
 
 ## <a name="review-alerts"></a>Consulter les alertes
 Sélectionnez une alerte pour obtenir un rapport qui répertorie les utilisateurs ou les rôles à l’origine de son déclenchement et fournit des conseils pour sa correction.
 
-![Rapport d’alerte](media/pim-resource-roles-configure-alerts/rbac-alert-info.png)
+![Rapport d’alerte montrant la dernière durée d’analyse, la description, les mesures d’atténuation, le type, la gravité, l’impact sur la sécurité et la manière d’éviter ce problème la prochaine fois](media/pim-resource-roles-configure-alerts/rbac-alert-info.png)
 
 ## <a name="alerts"></a>Alertes
 | Alerte | Severity | Déclencheur | Recommandation |
@@ -47,10 +47,12 @@ Sélectionnez une alerte pour obtenir un rapport qui répertorie les utilisateur
 
 ## <a name="configure-security-alert-settings"></a>Configurez les paramètres d'alerte de sécurité
 Dans la page Alertes, accédez aux **paramètres**.
-![Paramètres](media/pim-resource-roles-configure-alerts/rbac-navigate-settings.png)
+
+![Page des alertes avec paramètres mis en surbrillance](media/pim-resource-roles-configure-alerts/rbac-navigate-settings.png)
 
 Personnalisez les paramètres des différentes alertes pour travailler avec votre environnement et les objectifs de sécurité.
-![Personnaliser les paramètres](media/pim-resource-roles-configure-alerts/rbac-alert-settings.png)
+
+![Page de configuration d’une alerte permettant d’activer et de configurer des paramètres](media/pim-resource-roles-configure-alerts/rbac-alert-settings.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

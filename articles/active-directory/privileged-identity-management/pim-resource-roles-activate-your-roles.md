@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 04/09/2019
+ms.date: 06/28/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04e8615cc5534255308c35fa1f675ef3a85aa84e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bdce060006f65f2b0fb08023066ee504578bc552
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60438451"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67501668"
 ---
 # <a name="activate-my-azure-resource-roles-in-pim"></a>Activer des rôles de ressources Azure dans PIM
 
@@ -38,37 +38,37 @@ Lorsque vous avez besoin d’endosser un rôle de ressource Azure, vous pouvez d
 
 1. Cliquez sur **Mes rôles**.
 
-    ![Rôles Azure AD et rôles de ressources Azure - Mes rôles](./media/pim-resource-roles-activate-your-roles/resources-my-roles.png)
+    ![Page Mes rôles montrant les rôles que vous pouvez activer](./media/pim-resource-roles-activate-your-roles/resources-my-roles.png)
 
 1. Cliquez sur **Rôles de ressources Azure** pour afficher la liste de vos rôles de ressources Azure éligibles.
 
-   ![Rôles de ressources Azure](./media/pim-resource-roles-activate-your-roles/resources-my-roles-azure-resources.png) 
+   ![Page Mes rôles - Rôles de ressources Azure](./media/pim-resource-roles-activate-your-roles/resources-my-roles-azure-resources.png) 
 
 1. Dans la liste **Rôles de ressources Azure**, recherchez le rôle que vous souhaitez activer.
 
-    ![Rôles de ressources Azure - Liste Mes rôles](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate.png)
+    ![Rôles de ressources Azure - Liste Mes rôles éligibles](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate.png)
 
 1. Cliquez sur **Activer** pour ouvrir le volet Activer.
 
 1. Si votre rôle exige une authentification multifacteur (MFA), cliquez sur **Vérifier votre identité avant de continuer**. Vous ne devez vous authentifier qu’une seule fois par session.
 
-    ![Vérification multifacteur avant activation du rôle](./media/pim-resource-roles-activate-your-roles/resources-my-roles-mfa.png)
+    ![Vérifier mon identité à l’aide de l’authentification multifacteur avant activation du rôle](./media/pim-resource-roles-activate-your-roles/resources-my-roles-mfa.png)
 
 1. Cliquez sur **Vérifier mon identité** et suivez les instructions pour effectuer une vérification de sécurité supplémentaire.
 
-    ![Vérification de sécurité supplémentaire](./media/pim-resource-roles-activate-your-roles/resources-mfa-enter-code.png)
+    ![Écran de vérification de sécurité permettant la saisie d’un code secret, par exemple](./media/pim-resource-roles-activate-your-roles/resources-mfa-enter-code.png)
 
 1. Si vous souhaitez spécifier une étendue réduite, cliquez sur **Étendue** pour ouvrir le volet Filtre de ressources.
 
     Il est recommandé de ne demander l’accès qu’aux ressources dont vous avez besoin. Dans le volet Filtre de ressources, vous pouvez spécifier les groupes de ressources ou les ressources auxquels vous avez besoin d’accéder.
 
-    ![Activer - Filtre de ressources](./media/pim-resource-roles-activate-your-roles/resources-my-roles-resource-filter.png)
+    ![Activer - Volet Filtre de ressources pour spécifier l’étendue](./media/pim-resource-roles-activate-your-roles/resources-my-roles-resource-filter.png)
 
 1. Si nécessaire, spécifiez une heure de début personnalisée pour l’activation. Le membre sera activé après l’heure sélectionnée.
 
 1. Dans la zone de texte **Raison**, entrez le motif de la demande d’activation.
 
-    ![Volet Activation terminée](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-done.png)
+    ![Volet Activer complètement renseigné comportant l’étendue, l’heure de début, la durée et le motif](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-done.png)
 
 1. Cliquez sur **Activer**.
 
@@ -76,7 +76,7 @@ Lorsque vous avez besoin d’endosser un rôle de ressource Azure, vous pouvez d
 
     Si [l’activation du rôle nécessite une approbation](pim-resource-roles-approval-workflow.md), une notification s’affiche dans le coin supérieur droit de votre navigateur pour vous informer que la demande est en attente d’approbation.
 
-    ![Notification de demande en attente](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-notification.png)
+    ![La demande d’activation est en attente de la notification d’approbation](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-notification.png)
 
 ## <a name="use-a-role-immediately-after-activation"></a>Utiliser un rôle immédiatement après son activation
 
@@ -102,7 +102,7 @@ Vous pouvez afficher l’état de vos demandes d’activation en attente.
 
 1. Cliquez sur **Mes demandes** pour afficher la liste des demandes de vos rôles Azure AD et de rôles de ressources Azure.
 
-    ![Rôles Azure AD et rôles de ressources Azure - Mes demandes](./media/pim-resource-roles-activate-your-roles/resources-my-requests.png)
+    ![Mes demandes - Page des ressources Azure montrant vos demandes en attente](./media/pim-resource-roles-activate-your-roles/resources-my-requests.png)
 
 1. Faites défiler vers la droite pour afficher la colonne **État de la demande**.
 
@@ -118,22 +118,19 @@ Si vous n’avez pas besoin de l’activation d’un rôle nécessitant une appr
 
     Lorsque vous cliquez sur Annuler, la demande est annulée. Pour réactiver le rôle, vous devez envoyer une nouvelle demande d’activation.
 
-   ![Annuler une demande en attente](./media/pim-resource-roles-activate-your-roles/resources-my-requests-cancel.png)
+   ![Ma liste de demandes dans laquelle l’action d’annulation est mise en surbrillance](./media/pim-resource-roles-activate-your-roles/resources-my-requests-cancel.png)
 
 ## <a name="troubleshoot"></a>Résolution des problèmes
 
-### <a name="permissions-not-granted-after-activating-a-role"></a>Autorisations non accordées après l’activation d’un rôle
+### <a name="permissions-are-not-granted-after-activating-a-role"></a>Les autorisations ne sont pas accordées après l’activation d’un rôle.
 
-Quand vous activez un rôle dans PIM, 10 minutes au moins sont nécessaires avant de pouvoir accéder au portail d’administration souhaité ou d’exécuter des fonctions au sein d’une charge de travail d’administration spécifique. Une fois l’activation terminée, déconnectez-vous du portail Azure et reconnectez-vous pour commencer à utiliser le rôle qui vient d’être activé.
+Quand vous activez un rôle dans PIM, il est possible que l’activation ne se propage pas instantanément à tous les portails qui nécessitent le rôle privilégié. Parfois, même si la modification est propagée, son application immédiate peut être empêchée par la mise en cache web dans un portail. Si l’activation est retardée, voici les étapes à suivre.
 
-Pour des étapes de dépannage supplémentaires, consultez [Résolution des problèmes des autorisations élevées](https://social.technet.microsoft.com/wiki/contents/articles/37568.troubleshooting-elevated-permissions-with-azure-ad-privileged-identity-management.aspx).
+1. Déconnectez-vous du portail Azure, puis reconnectez-vous.
 
-### <a name="cannot-activate-a-role-due-to-a-resource-lock"></a>Impossible d’activer un rôle en raison d’un verrou de ressource
+    Quand vous activez un rôle de ressource Azure AD, vous voyez les phases de l’activation. Une fois toutes les phases terminées, vous voyez un lien **Se déconnecter**. Vous pouvez utiliser ce lien pour vous déconnecter. Cette procédure résout la plupart des cas de retard d’activation.
 
-Si vous recevez un message selon lequel une ressource Azure est verrouillée lorsque vous essayez d’activer un rôle, c’est peut-être qu’une ressource dans l’étendue d’une attribution de rôle a un verrou de ressource. Des verrous protègent les ressources contre une suppression accidentelle ou des modifications inattendues. Un verrou empêche également PIM de supprimer une attribution de rôle sur la ressource à la fin de la période d’activation. Étant donné que la technologie PIM ne peut pas fonctionner correctement lorsqu’un verrou est appliqué, elle empêche les utilisateurs d’activer des rôles sur la ressource. Il y a deux manières de résoudre ce problème :
-
-- Supprimez le verrou, comme décrit dans [verrouiller les ressources pour empêcher les modifications inattendues](../../azure-resource-manager/resource-group-lock-resources.md).
-- Si vous souhaitez conserver le verrou, rendez l’attribution de rôle permanente ou utilisez un compte de secours.
+1. Dans PIM, vérifiez que vous êtes listé en tant que membre du rôle.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

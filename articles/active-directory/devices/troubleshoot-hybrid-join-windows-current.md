@@ -2,26 +2,21 @@
 title: Résolution des problèmes des appareils hybrides Windows 10 et Windows Server 2016 joints à Azure Active Directory| Documents Microsoft
 description: Résolution des problèmes des appareils hybrides Windows 10 et Windows Server 2016 joints à Azure Active Directory.
 services: active-directory
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
 ms.service: active-directory
 ms.subservice: devices
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/08/2017
+ms.topic: troubleshooting
+ms.date: 06/28/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dcb7dc356c8101c1b0907818b45618ef6372c691
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: dfb4b03fb57efecff587a91dfc2ad293be96d9ba
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60250890"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67481605"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-windows-10-and-windows-server-2016-devices"></a>Résolution des problèmes des appareils hybrides Windows 10 et Windows Server 2016 joints à Azure Active Directory 
 
@@ -35,26 +30,20 @@ Pour les autres clients Windows, consultez [Résoudre des problèmes des apparei
 Cet article suppose que vous avez [configuré des appareils hybrides joints à Azure Active Directory](hybrid-azuread-join-plan.md) de façon à prendre en charge les scénarios suivants :
 
 - Accès conditionnel basé sur les appareils
-
 - [Itinérance d’entreprise des paramètres](../active-directory-windows-enterprise-state-roaming-overview.md)
-
 - [Windows Hello Entreprise](../active-directory-azureadjoin-passport-deployment.md)
-
 
 Ce document fournit des conseils sur la façon de résoudre les problèmes potentiels. 
 
-
 Pour Windows 10 et Windows Server 2016, la jonction Azure Active Directory hybride prend en charge la mise à jour Windows du 10 novembre 2015 et au-delà. Nous vous recommandons d’utiliser la mise à jour anniversaire.
 
-## <a name="step-1-retrieve-the-join-status"></a>Étape 1 : Récupérer l’état de jonction 
+## <a name="step-1-retrieve-the-join-status"></a>Étape 1 : Récupérer l’état de jonction 
 
 **Pour récupérer l’état de jonction :**
 
 1. Ouvrez une invite de commandes en tant qu’administrateur.
 
 2. Entrez **dsregcmd /status**
-
-
 
 ```
 +----------------------------------------------------------------------+
@@ -101,9 +90,7 @@ WamDefaultAuthority: organizations
          AzureAdPrt: YES
 ```
 
-
-
-## <a name="step-2-evaluate-the-join-status"></a>Étape 2 : Évaluer l’état de jonction 
+## <a name="step-2-evaluate-the-join-status"></a>Étape 2 : Évaluer l’état de jonction 
 
 Examinez les champs suivants et assurez-vous qu’ils disposent des valeurs attendues :
 
@@ -114,22 +101,14 @@ Ce champ indique si l’appareil est joint à Azure AD. Si la valeur est **Non**
 **Causes possibles :**
 
 - Échec de l’authentification de l’ordinateur pour une jonction.
-
 - Il existe un proxy HTTP dans l’organisation qui ne peut pas être détecté par l’ordinateur
-
 - L’ordinateur ne peut pas atteindre Azure AD pour l’authentification ou Azure DRS pour l’inscription
-
 - L’ordinateur n’est peut-être pas sur le réseau interne de l’entreprise ou un réseau privé virtuel avec une vue directe sur un contrôleur de domaine AD local.
-
 - Si l’ordinateur dispose d’un module de plateforme sécurisée, celui-ci est peut-être en mauvais état.
-
 - Il peut y avoir un problème de configuration des services mentionnés plus haut dans ce document que vous devez vérifier à nouveau. Voici des exemples courants :
-
-    - Votre serveur de fédération n’a pas de points de terminaison WS-Trust activés
-
-    - Votre serveur de fédération n’autorise peut-être pas l’authentification entrante à partir d’ordinateurs de votre réseau à l’aide de l’authentification Windows intégrée.
-
-    - Il n’existe aucun objet de point de connexion de service qui pointe vers le nom de votre domaine vérifié dans Azure AD dans la forêt Active Directory à laquelle l’ordinateur appartient
+   - Votre serveur de fédération n’a pas de points de terminaison WS-Trust activés
+   - Votre serveur de fédération n’autorise peut-être pas l’authentification entrante à partir d’ordinateurs de votre réseau à l’aide de l’authentification Windows intégrée.
+   - Il n’existe aucun objet de point de connexion de service qui pointe vers le nom de votre domaine vérifié dans Azure AD dans la forêt Active Directory à laquelle l’ordinateur appartient
 
 ---
 
@@ -150,9 +129,7 @@ Ce champ indique si l’appareil est inscrit auprès d’Azure AD mais en tant q
 Ces champs indiquent que l’utilisateur s’est correctement authentifié auprès d’Azure AD lors de la connexion à l’appareil. Si les valeurs sont **NON**, il peut être dû :
 
 - Clé de stockage défectueuse (STK) dans le module de plateforme sécurisée associé à l’appareil lors de l’inscription (vérifiez KeySignTest en cours d’exécution avec élévation de privilèges).
-
 - ID de connexion de substitution
-
 - Proxy HTTP introuvable
 
 ## <a name="next-steps"></a>Étapes suivantes

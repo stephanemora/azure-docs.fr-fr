@@ -1,42 +1,38 @@
 ---
-title: Termes du fichier CSV détaillant l'utilisation et les frais Azure dans le cadre d'un Contrat client Microsoft | Microsoft Docs
-description: Apprenez à lire et à comprendre les sections du fichier CSV détaillant l'utilisation et les frais Azure associés à votre profil de facturation
-services: ''
-documentationcenter: ''
+title: Termes du fichier détaillant l’utilisation et les frais Azure dans le cadre d’un Contrat client Microsoft
+description: Apprenez à lire et à comprendre les sections du fichier CSV détaillant l’utilisation et les frais Azure associés à votre profil de facturation.
 author: bandersmsft
-manager: alherz
-editor: ''
+manager: jureid
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/31/2017
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 8f71f42386ce49d4d7178cb03d28d74edacd7e39
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d11e31366ea5aa15cf7a790eaee800fa2ea6dabe
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60371306"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490623"
 ---
-# <a name="understand-terms-on-your-azure-usage-and-charges-csv-for-a-microsoft-customer-agreement"></a>Termes du fichier CSV détaillant l'utilisation et les frais Azure dans le cadre d'un Contrat client Microsoft
+# <a name="terms-in-the-azure-usage-and-charges-file-for-a-microsoft-customer-agreement"></a>Termes du fichier détaillant l’utilisation et les frais Azure dans le cadre d’un Contrat client Microsoft
 
-Cet article s'applique à un compte de facturation associé à un Contrat client Microsoft. [Vérifiez que vous avez accès à un Contrat client Microsoft](#check-access-to-a-microsoft-customer-agreement).
+Cet article s'applique à un compte de facturation associé à un contrat client Microsoft. [Vérifiez que vous avez accès à un contrat client Microsoft](#check-access-to-a-microsoft-customer-agreement).
 
-Le fichier CSV détaillant l'utilisation et les frais Azure contient les frais liés à l'utilisation quotidienne et à l'utilisation au niveau du compteur pour la période de facturation actuelle.
+Le fichier CSV détaillant l’utilisation et les frais Azure contient les frais liés à l’utilisation quotidienne et à l’utilisation au niveau du compteur pour la période de facturation actuelle.
 
-Pour obtenir le fichier détaillant votre utilisation et vos frais Azure, consultez [Afficher et télécharger l'utilisation et les frais Azure pour votre Contrat client Microsoft](billing-download-azure-daily-usage.md).
-Il est disponible au format .csv, que vous pouvez ouvrir dans une application de feuille de calcul.
+Pour obtenir le fichier détaillant votre utilisation et vos frais Azure, consultez [Afficher et télécharger l'utilisation et les frais Azure pour votre Contrat client Microsoft](billing-download-azure-daily-usage.md). Il est disponible au format .csv, que vous pouvez ouvrir dans une application de feuille de calcul.
 
 Les frais d’utilisation correspondent au total des frais **mensuels** d’un abonnement. Les frais d’utilisation ne prennent pas en compte les crédits et les remises.
 
-## <a name="changes-in-the-enterprise-agreement-azure-usage-and-charges-csv"></a>Modifications apportées au fichier CSV détaillant l'utilisation et les frais Azure dans le cadre d'un Contrat Entreprise (EA)
+## <a name="changes-from-azure-ea-usage-and-charges"></a>Modifications de l’utilisation et des frais Azure dans le cadre d’un Contrat Entreprise
 
-Les clients EA remarqueront que les termes employés dans le fichier CSV d'utilisation Azure du profil de facturation sont différents de ceux employés dans le fichier CSV d'utilisation Azure du Contrat Entreprise. Le tableau suivant met en correspondance les termes d'un Contrat Entreprise et ceux du profil de facturation :
+Les clients EA remarqueront que les termes employés dans le fichier CSV d’utilisation Azure du profil de facturation sont différents de ceux employés dans le fichier CSV d’utilisation Azure du Contrat Entreprise. Le tableau suivant met en correspondance les termes d'un Contrat Entreprise et ceux du profil de facturation :
 
-| Fichier CSV détaillant l'utilisation Azure dans le cadre d'un Contrat Entreprise | Fichier CSV détaillant l'utilisation et les frais Azure dans le cadre d'un Contrat client Microsoft |
+| Fichier CSV détaillant l’utilisation Azure dans le cadre d’un Contrat Entreprise | Fichier CSV détaillant l'utilisation et les frais Azure dans le cadre d'un Contrat client Microsoft |
 | --- | --- |
 | Date | date |
 | Mois| date |
@@ -49,7 +45,7 @@ Les clients EA remarqueront que les termes employés dans le fichier CSV d'utili
 | MeterRegion | meterRegion |
 | MeterName | meterName |
 | ConsumedQuantity | quantité |
-| ResourceRate | effectivePrice | <!-- this was highlighted -->
+| ResourceRate | effectivePrice |
 | ExtendedCost | coût |
 | ResourceLocation | resourceLocation |
 | ConsumedService | consumedService |
@@ -59,17 +55,15 @@ Les clients EA remarqueront que les termes employés dans le fichier CSV d'utili
 | AdditionalInfo | additionalInfo |
 | Balises | tags |
 | StoreServiceIdentifier | N/A |
-| DepartmentName | invoiceSection | <!-- this was highlighted -->
+| DepartmentName | invoiceSection |
 | CostCenter | costCenter |
 | UnitOfMeasure | unitofMeasure |
 | ResourceGroup | resourceGroup |
-| ChargesBilledSeparately | isAzureCreditEligible | <!-- this was highlighted -->
+| ChargesBilledSeparately | isAzureCreditEligible |
 
-<!-- TO DO: Marketplace CSV? -->
+## <a name="detailed-terms-and-descriptions"></a>Termes et descriptions détaillés
 
-## <a name="detailed-terms-and-descriptions-in-your-azure-usage-and-charges-file"></a>Description des termes employés dans le fichier détaillant votre utilisation et vos frais Azure
-
-La section suivante décrit les termes importants employés dans le fichier détaillant l'utilisation et les frais Azure.
+Les termes suivants sont affichés dans le fichier d’utilisation et des frais Azure.
 
 Terme | Description
 --- | ---
@@ -106,7 +100,7 @@ reservationName | Nom de l'instance de réservation achetée
 publisherType | Type d'éditeur (valeurs : firstParty, thirdPartyReseller, thirdPartyAgency)
 publisherName | Éditeur des services de la Place de marché
 resourceGroupId | Identificateur unique du groupe de ressources associé à la ressource
-nom_groupe_ressources | Nom du groupe de ressources associé à la ressource
+resourceGroupName | Nom du groupe de ressources associé à la ressource
 resourceId | Identificateur unique de l'instance de ressource
 resourceType | Type d'instance de ressource
 resourceLocation | Identifie l'emplacement du centre de données dans lequel la ressource est exécutée
@@ -120,16 +114,16 @@ serviceInfo2 | Champ hérité capturant les métadonnées facultatives propres a
 additionalInfo | Autres métadonnées spécifiques au service
 tags | Balises que vous attribuez à la ressource
 
-### <a name="how-do-i-make-sure-that-the-charges-in-my-azure-usage-and-charges-file-are-correct"></a>Comment m'assurer que les frais mentionnés dans le fichier détaillant mon utilisation et mes frais Azure sont corrects ?
+### <a name="make-sure-that-charges-are-correct"></a>Vérifier l’exactitude des frais
 
-Pour plus de détails sur certains frais comptabilisés dans votre fichier d'utilisation détaillée, consultez [Comprendre les frais comptabilisés sur la facture de votre profil de facturation](billing-mca-understand-your-bill.md).
+Si vous souhaitez vous assurer que les frais indiqués sur votre fichier d’utilisation détaillée sont corrects, vous pouvez les vérifier. Consultez [Comprendre les frais indiqués sur la facture de votre profil de facturation](billing-mca-understand-your-bill.md)
 
-## <a name="check-access-to-a-microsoft-customer-agreement"></a>Vérifier l'accès à un Contrat client Microsoft
+## <a name="check-access-to-a-microsoft-customer-agreement"></a>Vérifier l'accès à un contrat client Microsoft
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
 
-Si vous avez des questions ou besoin d'aide, [créez une demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).
+Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -8,18 +8,18 @@ ms.workload: web
 ms.topic: article
 ms.date: 2/04/2019
 ms.author: msangapu-msft
-ms.openlocfilehash: 6b4e145a693aabbf1a00d732e2fd602e7c887a03
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.openlocfilehash: e6284174089419cd201d094bcb1a8c7e865d2892
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956017"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484414"
 ---
 # <a name="serve-content-from-azure-storage-in-app-service-on-linux"></a>Distribuer du contenu issu du Stockage Azure dans App Service sur Linux
 
-Ce guide montre comment distribuer du contenu statique dans App Service sur Linux avec le [Stockage Azure](/azure/storage/common/storage-introduction). Les avantages sont multiples : sécurisation et portabilité du contenu, accès à plusieurs applications et multiplication des méthodes de transfert. 
+Ce guide montre comment distribuer du contenu statique dans App Service sur Linux avec le [Stockage Azure](/azure/storage/common/storage-introduction). Les avantages sont multiples : sécurisation et portabilité du contenu, accès à plusieurs applications et multiplication des méthodes de transfert.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 - une application web existante (App Service sur Linux ou Web App pour conteneurs) ;
 - [Azure CLI](/cli/azure/install-azure-cli) 2.0.46 (ou version ultérieure).
@@ -28,6 +28,8 @@ Ce guide montre comment distribuer du contenu statique dans App Service sur Linu
 
 > [!NOTE]
 > Le Stockage Azure, facturé séparément et non fourni avec l’application web, n’est pas le stockage par défaut.
+>
+> La fonctionnalité Bring Your Own Storage ne prend pas en charge l’utilisation de la configuration du pare-feu de stockage en raison de restrictions liées à l’infrastructure.
 >
 
 Créez un [compte de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-cli).
@@ -70,11 +72,11 @@ Vous pouvez vérifier qu’un conteneur de stockage est lié à une application 
 az webapp config storage-account list --resource-group <resource_group> --name <app_name>
 ```
 
-## <a name="use-custom-storage-in-docker-compose"></a>Utilisation du stockage personnalisé dans Docker Compose
+## <a name="use-custom-storage-in-docker-compose"></a>Utiliser le stockage personnalisé dans Docker Compose
 
-Stockage Azure peut être monté avec des applications à plusieurs conteneurs à l’aide de l’id personnalisé. Pour afficher le nom personnalisé-id, exécutez [ `az webapp config storage-account list --name <app_name> --resource-group <resource_group>` ](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-list).
+Stockage Azure peut être monté avec des applications à plusieurs conteneurs à l’aide de l’id personnalisé. Pour afficher le nom de l’id personnalisé, exécutez [`az webapp config storage-account list --name <app_name> --resource-group <resource_group>`](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-list).
 
-Dans votre *docker-compose.yml* de fichiers, mappez le `volumes` option `custom-id`. Exemple :
+Dans votre fichier *docker-compose.yml*, mappez l’option `volumes` sur `custom-id`. Par exemple :
 
 ```yaml
 wordpress:

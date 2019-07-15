@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2edbf5548f5e230986f0a1786d67fb4580e574e2
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: 7b9d272c8a01eeed58278a6e7f0cec147b01a10e
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235439"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482934"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Infrastructure de consentement d’Azure Active Directory
 
@@ -50,7 +50,7 @@ Les étapes suivantes vous montrent comment l’expérience de consentement fonc
 
 1. Une fois l'utilisateur connecté, Azure AD déterminera s’il est nécessaire d'afficher une page de consentement pour l’utilisateur. La détermination est différente selon que l’utilisateur (ou l’administrateur de son organisation), a déjà accordé ou non son consentement à l'application. Si l'autorisation n'a pas encore été accordée, Azure AD invite l'utilisateur à fournir son consentement et affiche les autorisations dont il a besoin pour fonctionner. L’ensemble des autorisations qui s’affichent dans la boîte de dialogue de consentement correspondent à celles sélectionnées dans la section **Autorisations déléguées** du portail Azure.
 
-    ![Expérience de consentement de l'utilisateur](./media/quickstart-v1-integrate-apps-with-azure-ad/consent.png)
+    ![Montre un exemple d’autorisations affichées dans la boîte de dialogue de consentement](./media/quickstart-v1-integrate-apps-with-azure-ad/consent.png)
 
 1. Une fois que l'utilisateur a donné son consentement, un code d'autorisation est retourné à votre application, qui est utilisé pour acquérir un jeton d'accès et un jeton d'actualisation. Pour plus d’informations sur ce flux, consultez [Type d’application API web](web-api.md).
 
@@ -58,8 +58,8 @@ Les étapes suivantes vous montrent comment l’expérience de consentement fonc
 
     **Pour donner son consentement pour les autorisations déléguées d’une application**
 
-   1. Accédez à la **autorisations d’API** page de votre application
-   1. Cliquez sur le **accorder le consentement de l’administrateur** bouton.
+   1. Accédez à la page **Autorisations des API** de votre application
+   1. Cliquez sur le bouton **Accorder le consentement administrateur**.
 
       ![Accorder des autorisations pour un consentement administrateur explicite](./media/consent-framework/grant-consent.png)
 

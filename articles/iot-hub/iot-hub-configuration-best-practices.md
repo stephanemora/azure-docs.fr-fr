@@ -3,16 +3,16 @@ title: Bonnes pratiques en matière de configuration d’appareil pour Azure IoT
 description: En savoir plus sur les bonnes pratiques pour la configuration des appareils IoT à grande échelle
 author: chrisgre
 ms.author: chrisgre
-ms.date: 06/24/2018
+ms.date: 06/28/2019
 ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: c97395981ea3af90c7b0c590cb049fccc7392304
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 33e77d63b958df292ee9b4ac8ded41f3693cb6bc
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60734828"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485809"
 ---
 # <a name="best-practices-for-device-configuration-within-an-iot-solution"></a>Bonnes pratiques en matière de configuration d’appareil dans une solution IoT
 
@@ -64,9 +64,11 @@ Voici les bonnes pratiques pour les développeurs de solutions IoT qui génèren
 
 * **Organiser les appareils en utilisant des étiquettes de jumeau d’appareil :** La solution doit permettre à l’opérateur de définir des anneaux de qualité ou d’autres ensembles d’appareils en fonction de différentes stratégies de déploiement, comme le contrôle de validité. L’organisation des appareils peut être implémentée dans votre solution à l’aide de balises de jumeau d’appareil et de [requêtes](iot-hub-devguide-query-language.md). Elle est nécessaire pour permettre des déploiements de configuration avec précision et en toute sécurité.
 
-* **Implémenter des [configurations automatiques des appareils](iot-hub-auto-device-config.md) :** Les configurations automatiques des appareils déploient et supervisent les changements de configuration apportés à grands ensembles d’appareils IoT via des jumeaux d’appareil. Les configurations automatiques des appareils ciblent des ensembles de jumeaux d’appareil via la **condition cible**, qui est une requête sur les balises ou propriétés signalées du jumeau d’appareil. Le **contenu cible** est l’ensemble des propriétés voulues qui seront définies dans les jumeaux d’appareil ciblés. Le contenu cible doit s’aligner sur la structure du jumeau d’appareil définie par le fabricant/l’intégrateur de matériel IoT.
+* **Implémenter des [configurations automatiques des appareils](iot-hub-auto-device-config.md) :** Les configurations automatiques des appareils déploient et supervisent les changements de configuration apportés à grands ensembles d’appareils IoT via des jumeaux d’appareil.
 
-   Les **métriques** sont des requêtes sur les propriétés signalées du jumeau d’appareil et doivent également être alignées sur la structure du jumeau d’appareil définie par le fabricant/l’intégrateur de matériel IoT. Les configurations automatiques des appareils bénéficient également d’IoT Hub qui effectue des opérations de jumeau d’appareil à une fréquence qui ne dépasse jamais les [seuils de limitation](iot-hub-devguide-quotas-throttling.md) pour les lectures et mises à jour de jumeaux d’appareil.
+   Les configurations automatiques des appareils ciblent des ensembles de jumeaux d’appareil via la **condition cible**, qui est une requête sur les balises ou propriétés signalées du jumeau d’appareil. Le **contenu cible** est l’ensemble des propriétés voulues qui seront définies dans les jumeaux d’appareil ciblés. Le contenu cible doit s’aligner sur la structure du jumeau d’appareil définie par le fabricant/l’intégrateur de matériel IoT. Les **métriques** sont des requêtes sur les propriétés signalées du jumeau d’appareil et doivent également être alignées sur la structure du jumeau d’appareil définie par le fabricant/l’intégrateur de matériel IoT.
+
+   Les configurations automatiques d’appareils s’exécutent pour la première fois peu de temps après la création de la configuration, puis à cinq minutes d’intervalle. Elles bénéficient également d’IoT Hub qui effectue des opérations de jumeau d’appareil à une fréquence qui ne dépasse jamais les [seuils de limitation](iot-hub-devguide-quotas-throttling.md) pour les lectures et mises à jour de jumeaux d’appareil.
 
 * **Utiliser le [service Device Provisioning](../iot-dps/how-to-manage-enrollments.md) :** Les développeurs de solutions doivent utiliser le service Device Provisioning pour affecter des étiquettes de jumeau d’appareil aux nouveaux appareils, de façon à ce qu’ils soient automatiquement configurés par des **configurations automatiques des appareils** ciblées au niveau des jumeaux avec cette étiquette. 
 

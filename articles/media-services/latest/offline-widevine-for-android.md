@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
-ms.openlocfilehash: 5102720242edd3ffc0a377bbddf0f7f3ade68b63
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9e90951f810c5101a46c29570af8ad71b42be637
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64937217"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341032"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Widevine hors connexion pour Android
 
@@ -38,6 +38,9 @@ Pour créer les applications du lecteur Android, nous soulignons trois options 
 > * créer un lecteur à l’aide de Encrypted Media Extension (EME) et Media Source Extension (MSE) dans le navigateur mobile Chrome v62 ou version ultérieure
 
 L’article répond également à certaines questions fréquentes sur la diffusion en continu du contenu protégé de Widevine.
+
+> [!NOTE]
+> DRM hors connexion est uniquement facturé pour une requête unique de licence lorsque vous téléchargez le contenu. Les erreurs ne sont pas facturées.
 
 ## <a name="prerequisites"></a>Prérequis 
 

@@ -2,28 +2,21 @@
 title: Que sont les contrôles d’accès dans l’accès conditionnel Azure Active Directory ? | Microsoft Docs
 description: Découvrez comment fonctionnent les contrôles d’accès dans l’accès conditionnel Azure Active Directory.
 services: active-directory
-keywords: accès conditionnel aux applications, accès conditionnel à Azure AD, accès sécurisé aux ressources d’entreprise, stratégies d’accès conditionnel
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-editor: ''
-ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 03/23/2019
+ms.date: 06/15/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: acc30bc18921b79be3b5e5b2ae340eab29dd5bcf
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
-ms.translationtype: MT
+ms.openlocfilehash: a5fc672898a56d8b3e1486b1d8d84cf532fa2b6d
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66305758"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509406"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Que sont les contrôles d’accès dans l’accès conditionnel Azure Active Directory ?
 
@@ -31,10 +24,9 @@ Avec l’[accès conditionnel Azure Active Directory (Azure AD)](../active-direc
 
 ![Contrôle](./media/controls/10.png)
 
-Dans le contexte de l’accès conditionnel,
+Dans le contexte de l’accès conditionnel :
 
 - « **Quand cela se produit** » est une **condition**
-
 - « **Faire** » est un **contrôle d’accès**
 
 Une stratégie d’accès conditionnel combine une instruction de condition à des contrôles.
@@ -46,7 +38,6 @@ Chaque contrôle est soit une exigence qui doit être remplie par la personne ou
 Il existe deux types de contrôles :
 
 - **Contrôle d’octroi** - pour réguler l’accès
-
 - **Contrôles de session** - pour restreindre l’accès au sein d’une session
 
 Cette rubrique explique les divers contrôles qui sont disponibles dans l’accès conditionnel Azure AD. 
@@ -65,7 +56,6 @@ Avec les contrôles d’octroi, vous pouvez bloquer l’accès complètement ou 
 Vous pouvez utiliser ce contrôle pour exiger une authentification multifacteur pour accéder à l’application cloud spécifiée. Ce contrôle prend en charge les fournisseurs multifacteur suivants :
 
 - Azure Multi-Factor Authentication
-
 - Un fournisseur d’authentification multifacteur local combiné avec les services de fédération Active Directory (AD FS).
 
 L’authentification multifacteur contribue à empêcher tout accès à vos ressources par un utilisateur non autorisé qui peut avoir obtenu l’accès aux informations d’identification principales d’un utilisateur valide.
@@ -76,9 +66,11 @@ Vous pouvez configurer des stratégies d’accès conditionnel au niveau de l’
 
 Votre appareil doit être inscrit auprès d’Azure AD avant de pouvoir être marqué comme conforme. Pour inscrire un appareil, vous disposez de trois options : 
 
-- [Appareils inscrits sur Azure AD](../devices/overview.md#azure-ad-registered-devices)
-- [Appareils joints Azure AD](../devices/overview.md#azure-ad-joined-devices)  
-- [Appareils avec jonction Azure AD Hybride](../devices/overview.md#hybrid-azure-ad-joined-devices)
+- Appareils inscrits sur Azure AD
+- Appareils joints Azure AD  
+- Appareils joints Azure AD hybrides
+
+Ces trois options sont décrites dans l’article [Qu’est-ce qu’une identité d’appareil ?](../devices/overview.md)
 
 Pour plus d’informations, consultez le [guide pratique pour exiger des appareils managés et accéder aux applications cloud avec l’accès conditionnel](require-managed-devices.md).
 
@@ -95,27 +87,22 @@ Vous pouvez utiliser des [stratégies de protection des applications Intune](htt
 
 Avec les applications clientes approuvées, vous pouvez exiger qu’une application cliente qui tente d’accéder à vos applications cloud prenne en charge des [stratégies de protection des applications Intune](https://docs.microsoft.com/intune/app-protection-policy). Par exemple, vous pouvez restreindre l’accès à Exchange Online à l’application Outlook. Une stratégie d’accès conditionnel qui requiert des applications clientes approuvées est aussi appelée [stratégie d’accès conditionnel basé sur les applications](app-based-conditional-access.md). Pour obtenir la liste des applications clientes approuvées prises en charge, consultez [Spécification d’application cliente approuvée](technical-reference.md#approved-client-app-requirement).
 
-### <a name="app-protection-policy-preview"></a>Stratégie de protection des applications (version préliminaire)
+### <a name="app-protection-policy-preview"></a>Stratégie de protection des applications (préversion)
 
 Étant donné que vos employés utilisent des appareils mobiles pour les tâches personnelles et professionnelles, vous pouvez souhaiter avoir la possibilité de protéger les données d’entreprise accessibles à l’aide d’appareils même si ce n’est pas vous qui les gérez.
 Vous pouvez utiliser des [stratégies de protection des applications Intune](https://docs.microsoft.com/intune/app-protection-policy) pour mieux protéger les données de votre entreprise, quelle que soit votre solution de gestion des appareils mobiles (MDM).
 
-Avec la stratégie de protection d’application, vous pouvez limiter l’accès aux applications clientes qui ont signalé à Azure AD a ayant reçu [stratégies Intune app protection](https://docs.microsoft.com/intune/app-protection-policy). Par exemple, vous pouvez restreindre l’accès à Exchange Online à l’application Outlook qui a une stratégie de protection d’application Intune. Une stratégie d’accès conditionnel qui requiert la stratégie de protection des applications est également appelé [stratégie accès conditionnel basé sur la protection des applications](app-protection-based-conditional-access.md). 
+Avec la stratégie de protection d’application, vous pouvez limiter l’accès aux applications clientes qui ont signalé à Azure AD avoir reçu des [stratégies Intune App Protection](https://docs.microsoft.com/intune/app-protection-policy). Par exemple, vous pouvez restreindre l’accès à Exchange Online à l’application Outlook ayant une stratégie Intune App Protection. Une stratégie d’accès conditionnel qui requiert une stratégie de protection d’application est aussi appelée [stratégie d’accès conditionnel basé sur la protection des applications](app-protection-based-conditional-access.md). 
 
-Votre appareil doit être inscrit à Azure AD avant d’une application peut être marquée en tant que stratégie protégé.
+Votre appareil doit être inscrit à Azure AD avant de pouvoir marquer une application comme étant protégée par une stratégie.
 
-Pour obtenir la liste de stratégie pris en charge les applications clientes protégé, consultez [exigence de stratégie de protection application](technical-reference.md#app-protection-policy-requirement).
-
+Pour obtenir la liste des applications clientes protégées par une stratégie prises en charge, consultez [Exigence relative à la stratégie de protection des applications](technical-reference.md#app-protection-policy-requirement).
 
 ### <a name="terms-of-use"></a>Conditions d’utilisation
 
 Vous pouvez demander à un utilisateur dans votre locataire de donner son consentement pour les conditions d’utilisation avant de lui accorder l’accès à une ressource. En tant qu’administrateur, vous pouvez configurer et personnaliser les conditions d’utilisation en chargeant un document PDF. Si un utilisateur est soumis à ce contrôle, il est autorisé à accéder à une application uniquement s’il a accepté les conditions d’utilisation.
 
-### <a name="custom-controls-preview"></a>Contrôles personnalisés (préversion)
-
-Vous pouvez ajouter des contrôles personnalisés dans l’accès conditionnel qui redirigent les utilisateurs vers un service compatible pour satisfaire à d’autres exigences en dehors d’Azure Active Directory. Cela vous permet d’utiliser certains fournisseurs de vérification et l’authentification multifacteur externes pour appliquer des exigences d’accès conditionnel. Pour satisfaire à ce contrôle, le navigateur de l’utilisateur est redirigé vers le service externe, effectue les opérations d’authentification et de vérification requises, puis est redirigé vers Azure Active Directory. Si l’utilisateur a été correctement authentifié ou vérifié, il continue dans le flux d’accès conditionnel. 
-
-## <a name="custom-controls"></a>Contrôles personnalisés
+## <a name="custom-controls-preview"></a>Contrôles personnalisés (préversion)
 
 Les contrôles personnalisés sont une fonctionnalité de l’édition Premium P1 d’Azure Active Directory. Quand vous utilisez les contrôles personnalisés, les utilisateurs sont redirigés vers un service compatible pour satisfaire à d’autres exigences en dehors d’Azure Active Directory. Pour satisfaire à ce contrôle, le navigateur de l’utilisateur est redirigé vers le service externe, effectue les opérations d’authentification et de vérification requises, puis est redirigé vers Azure Active Directory. Azure Active Directory vérifie la réponse. Si l’utilisateur a été correctement authentifié ou vérifié, il continue dans le flux d’accès conditionnel.
 
@@ -125,11 +112,13 @@ Les fournisseurs suivants offrent un service compatible :
 
 - [Duo Security](https://duo.com/docs/azure-ca)
 - [Entrust Datacard](https://www.entrustdatacard.com/products/authentication/intellitrust)
+- [GSMA](https://mobileconnect.io/azure/)
 - [Identité Ping](https://documentation.pingidentity.com/pingid/pingidAdminGuide/index.shtml#pid_c_AzureADIntegration.html)
 - RSA
 - [SecureAuth](https://docs.secureauth.com/pages/viewpage.action?pageId=47238992#)
 - [Silverfort](https://www.silverfort.io/company/using-silverfort-mfa-with-azure-active-directory/)
 - [Symantec VIP](https://help.symantec.com/home/VIP_Integrate_with_Azure_AD)
+- [Thales (Gemalto)](https://resources.eu.safenetid.com/help/AzureMFA/Azure_Help/Index.htm)
 - [Trusona](https://www.trusona.com/docs/azure-ad-integration-guide)
 
 Pour plus d’informations sur ces services, contactez directement les fournisseurs.
@@ -138,11 +127,11 @@ Pour plus d’informations sur ces services, contactez directement les fournisse
 
 Pour créer un contrôle personnalisé, commencez par contacter le fournisseur que vous souhaitez utiliser. Les fournisseurs autres que Microsoft ont chacun leurs propres processus et exigences que vous devez suivre pour vous inscrire, vous abonner ou devenir membre du service, et pour demander à intégrer l’accès conditionnel. Le fournisseur vous fournit alors un bloc de données au format JSON. Ces données permettent au fournisseur et à l’accès conditionnel de fonctionner ensemble pour votre locataire, créent le contrôle et définissent de quelle façon l’accès conditionnel indique si vos utilisateurs ont réussi la vérification auprès du fournisseur.
 
-Contrôles personnalisés ne peut pas être utilisés avec l’automatisation du service Identity Protection exigeant une authentification multifacteur ou à élever les rôles dans Privileged Identity Manager (PIM).
+Les contrôles personnalisés ne peuvent pas être utilisés avec l’automatisation du service de protection des identités exigeant une authentification multifacteur ou pour élever des rôles dans PIM.
 
 Copiez les données JSON et collez-les dans la zone de texte correspondante. Ne modifiez pas les données JSON, à moins d’être parfaitement sûr de la modification que vous apportez. Une modification inappropriée peut rompre la liaison entre le fournisseur et Microsoft, et potentiellement verrouiller l’accès à votre compte et aux comptes de vos utilisateurs.
 
-L’option pour créer un contrôle personnalisé se trouve dans la section **Gérer** de la page **Accès conditionnel**.
+L’option permettant de créer un contrôle personnalisé se trouve dans la section **Gérer** de la page **Accès conditionnel**.
 
 ![Contrôle](./media/controls/82.png)
 
@@ -155,10 +144,8 @@ Cliquez sur **Nouveau contrôle personnalisé** pour ouvrir un panneau contenant
 Pour supprimer un contrôle personnalisé, vous devez d’abord vous assurer qu’il n’est pas utilisé dans une stratégie d’accès conditionnel. Quand vous avez terminé :
 
 1. Accédez à la liste de contrôles personnalisés
-
-2. Cliquez sur...  
-
-3. Sélectionnez **Supprimer**.
+1. Cliquez sur...  
+1. Sélectionnez **Supprimer**.
 
 ### <a name="editing-custom-controls"></a>Modification des contrôles personnalisés
 
@@ -177,11 +164,9 @@ Vous pouvez utiliser ce contrôle pour exiger qu’Azure AD transmette les infor
 Pour plus d'informations, consultez les rubriques suivantes :
 
 - [Activation d’un accès limité avec SharePoint Online](https://aka.ms/spolimitedaccessdocs)
-
 - [Activation d’un accès limité avec Exchange Online](https://aka.ms/owalimitedaccess)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour savoir comment configurer une stratégie d’accès conditionnel, consultez [Exiger une authentification multifacteur (MFA) pour des applications spécifiques disposant d’un accès conditionnel Azure Active Directory](app-based-mfa.md).
-
-- Si vous êtes prêt à configurer des stratégies d’accès conditionnel pour votre environnement, consultez les [Meilleures pratiques pour l’accès conditionnel dans Azure Active Directory](best-practices.md).
+- Si vous êtes prêt à configurer des stratégies d’accès conditionnel pour votre environnement, consultez les [Meilleures pratiques pour l’accès conditionnel](best-practices.md) dans Azure Active Directory.

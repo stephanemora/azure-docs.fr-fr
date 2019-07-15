@@ -1,23 +1,21 @@
 ---
-title: Prépayer les abonnements logiciels – Réservations Azure | Microsoft Docs
+title: Prépayer les abonnements logiciels – Réservations Azure
 description: Découvrez comment prépayer vos abonnements logiciels pour faire des économies par rapport au paiement à l’utilisation.
-documentationcenter: ''
-author: yashesvi
+author: bandersmsft
 manager: yashesvi
-editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/12/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: e15dcdbbcaed32d836bb751ef93ce17e90bd6905
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c8e9d07bf01536d7865bd79f667a937037d96837
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60771241"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67489878"
 ---
 # <a name="prepay-for-azure-software-plans"></a>Prépayer les abonnements logiciels Azure
 
@@ -25,7 +23,7 @@ Quand vous prépayez votre utilisation de logiciels SUSE et RedHat dans Azure, v
 
 Vous pouvez acheter des abonnements logiciels SUSE et RedHat sur le portail Azure. Pour acheter un abonnement logiciel :
 
-- Vous devez disposer du rôle de propriétaire pour au moins un abonnement Entreprise ou Paiement à l’utilisation.
+- Vous devez disposer du rôle Propriétaire sur au moins un abonnement Entreprise ou individuel avec des tarifs de paiement à l’utilisation.
 - Pour les abonnements Entreprise, l’option **Ajouter des instances réservées** doit être activée sur le [portail EA](https://ea.azure.com/). Si ce paramètre est désactivé, vous devez être administrateur EA de l’abonnement.
 - Pour le programme Fournisseur de solutions Cloud, seuls les administrateurs et les commerciaux peuvent acheter des abonnements logiciels.
 
@@ -35,12 +33,12 @@ Vous pouvez acheter des abonnements logiciels SUSE et RedHat sur le portail Azur
 2. Cliquez sur **Ajouter**, puis sélectionnez l’abonnement logiciel que vous voulez acheter.
 Renseignez les champs obligatoires. Toutes les machines virtuelles SUSE Linux ou RedHat qui correspondent aux attributs de ce que vous achetez bénéficient de la remise. Le nombre de déploiements qui peuvent bénéficier de la remise dépend de l’étendue et de la quantité sélectionnées.
 3. Sélectionnez un abonnement. Cela détermine ce que vous payez.
-Les coûts initiaux de la réservation sont facturés sur le mode de paiement de l’abonnement. Le type d’abonnement doit être Accord Entreprise (numéros de l’offre : MS-AZR-0017P ou MS-AZR-0148P) ou Paiement à l’utilisation (numéros de l’offre : MS-AZR-0003P ou MS-AZR-0023P).
+Les coûts initiaux de la réservation sont facturés sur le mode de paiement de l’abonnement. Le type d’abonnement doit être Accord Entreprise (numéros de l’offre : MS-AZR-0017P ou MS-AZR - 0148p) ou un accord individuel avec paiement à l’utilisation numéros de l’offre : MS-AZR-0003P ou MS-AZR-0023P).
     - Pour un abonnement Entreprise, les frais sont déduits du solde d’engagement monétaire de l’inscription ou facturés comme un dépassement.
-    - Pour un abonnement Paiement à l’utilisation, les frais sont facturés sur le mode de paiement de l’abonnement (carte de crédit ou facture).
+    - Pour un abonnement individuel avec paiement à l’utilisation, les frais sont facturés sur le mode de paiement par carte de crédit ou par facture.
 4. Sélectionnez une étendue. L’étendue peut couvrir un ou plusieurs abonnements (étendue partagée).
     - Abonnement unique : la remise sur l’abonnement est appliquée à l’utilisation correspondante de cet abonnement.
-    - Partagé : la remise sur l’abonnement est appliquée aux instances correspondantes de tout abonnement compris dans votre contexte de facturation. Pour les clients Entreprise, le contexte de facturation correspond à l’inscription et comprend tous les abonnements compris dans l’inscription. Pour les clients Paiement à l’utilisation, le contexte de facturation correspond à tous les abonnements Paiement à l’utilisation créés par l’administrateur de compte.
+    - Partagé : la remise sur l’abonnement est appliquée aux instances correspondantes de tout abonnement compris dans votre contexte de facturation. Pour les clients Entreprise, le contexte de facturation correspond à l’inscription et comprend tous les abonnements compris dans l’inscription. Pour le forfait individuel avec des clients ayant choisi le paiement à l’utilisation, le contexte de facturation est tous les forfaits individuels avec abonnement à paiement à l’utilisation créés par l’administrateur de compte.
 5. Sélectionnez un produit pour choisir la taille de machine virtuelle et le type d’image. La remise s’applique à la taille de machine virtuelle sélectionnée uniquement.
 6. Sélectionnez une durée de 1 ou 3 ans.
 7. Choisissez une quantité, c’est-à-dire le nombre d’instances de machine virtuelle prépayées pouvant bénéficier de la remise de facturation.

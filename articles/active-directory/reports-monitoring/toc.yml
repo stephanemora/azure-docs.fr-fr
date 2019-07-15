@@ -1,6 +1,6 @@
 - name: Documentation sur les rapports et l’analyse
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: Que sont les rapports Azure AD ?
       href: overview-reports.md
@@ -58,7 +58,7 @@
           href: howto-power-bi-content-pack.md
         - name: Configurer les composants requis pour l’API de création de rapports
           href: howto-configure-prerequisites-for-reporting-api.md
-        - name: Guide pratique pour utiliser des classeurs Azure Monitor
+        - name: Guide pratique pour utiliser des classeurs Azure AD
           href: howto-use-azure-monitor-workbooks.md
     - name: Surveillance
       items:
@@ -87,6 +87,8 @@
 - name: Informations de référence
   expanded: true
   items:
+    - name: Applets de commande Azure AD PowerShell pour la création de rapports
+      href: reference-powershell-reporting.md
     - name: Informations de référence sur l’API des journaux d’audit
       href: 'https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit'
     - name: Informations de référence sur l’API des journaux d’activité de connexion

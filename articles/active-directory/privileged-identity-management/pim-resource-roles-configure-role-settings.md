@@ -15,12 +15,12 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73d42c693fae6b538136d1e8c93094a0ea9e2077
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c6da92ccd50707e676a1f5d583fe22ae8b3d8b73
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60288379"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476317"
 ---
 # <a name="configure-azure-resource-role-settings-in-pim"></a>Configurer les paramètres des rôles de ressources Azure dans PIM
 
@@ -38,19 +38,19 @@ Suivez ces étapes pour ouvrir les paramètres pour un rôle de ressource Azure.
 
 1. Cliquez sur la ressource que vous souhaitez gérer, telle qu’un abonnement ou un groupe d’administration.
 
-    ![Liste des ressources Azure à gérer](./media/pim-resource-roles-configure-role-settings/resources-list.png)
+    ![Page de ressources Azure qui répertorie les ressources pouvant être gérées](./media/pim-resource-roles-configure-role-settings/resources-list.png)
 
 1. Cliquez sur **Paramètres de rôle**.
 
-    ![Paramètres de rôle](./media/pim-resource-roles-configure-role-settings/resources-role-settings.png)
+    ![Page Paramètres de rôle répertoriant les rôles de ressources Azure](./media/pim-resource-roles-configure-role-settings/resources-role-settings.png)
 
 1. Cliquez sur le rôle dont vous souhaitez configurer les paramètres.
 
-    ![Détails des paramètres du rôle](./media/pim-resource-roles-configure-role-settings/resources-role-setting-details.png)
+    ![Page Détails des paramètres de rôle répertoriant plusieurs paramètres d’affectation et d’activation](./media/pim-resource-roles-configure-role-settings/resources-role-setting-details.png)
 
 1. Cliquez sur **Modifier** pour ouvrir le volet Paramètres de rôle.
 
-    ![Modifier les paramètres du rôle](./media/pim-resource-roles-configure-role-settings/resources-role-settings-edit.png)
+    ![Modifier la page des paramètres de rôle avec des options permettant de mettre à jour les paramètres d’affectation et d’activation](./media/pim-resource-roles-configure-role-settings/resources-role-settings-edit.png)
 
     Dans le volet Paramètres de rôle de chaque rôle, vous pouvez configurer plusieurs paramètres.
 
@@ -109,7 +109,7 @@ Si vous souhaitez exiger une approbation pour activer un rôle, procédez comme 
 
 1. Cliquez sur **Sélectionner des approbateurs** pour ouvrir le volet Sélectionner un membre ou un groupe.
 
-    ![Sélectionner un membre ou un groupe](./media/pim-resource-roles-configure-role-settings/resources-role-settings-select-approvers.png)
+    ![Sélectionnez un volet de membre ou de groupe pour sélectionner les approbateurs.](./media/pim-resource-roles-configure-role-settings/resources-role-settings-select-approvers.png)
 
 1. Sélectionnez au moins un membre ou un groupe, puis cliquez sur **Sélectionner**. Vous pouvez ajouter n’importe quelle combinaison de membres et de groupes. Vous devez sélectionner au moins un approbateur. Il n’existe aucun approbateur par défaut.
 

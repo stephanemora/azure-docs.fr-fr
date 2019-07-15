@@ -14,12 +14,12 @@ ms.date: 11/08/2018
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c22d44b02b3cc25c855361cab17132c46fa04794
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d896a45931512b925491e05ff6e5eef8a856d83d
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65783698"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67481322"
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Publier des applications sur des réseaux et emplacements distincts à l’aide de groupes de connecteurs
 
@@ -42,7 +42,7 @@ Procédez comme suit pour créer autant de groupes de connecteurs que vous le so
 1. Sélectionnez **Azure Active Directory** > **Applications d’entreprise** > **Proxy d’application**.
 2. Sélectionnez **Nouveau groupe de connecteurs**. Le panneau Nouveau groupe de connecteurs s’affiche.
 
-   ![Sélectionner un nouveau groupe de connecteurs](./media/application-proxy-connector-groups/new-group.png)
+   ![Il comporte l’écran permettant de sélectionner un nouveau groupe de connecteurs](./media/application-proxy-connector-groups/new-group.png)
 
 3. Donnez un nom à votre nouveau groupe de connecteurs, puis utilisez le menu déroulant pour sélectionner les connecteurs qui appartiennent à ce groupe.
 4. Sélectionnez **Enregistrer**.
@@ -74,7 +74,7 @@ Pour les applications installées sur IaaS pour l’accès au cloud, les groupes
 
 Prenons par exemple une organisation qui a plusieurs machines virtuelles connectées à son propre réseau virtuel IaaS hébergé. Pour permettre aux employés d’utiliser ces applications, ces réseaux privés sont connectés au réseau d’entreprise via un réseau VPN de site à site. Les employés qui se trouvent sur site bénéficient ainsi d’une bonne expérience. Toutefois, cela peut ne pas être idéal pour les employés à distance, car cela nécessite une infrastructure locale supplémentaire pour acheminer l’accès, comme vous pouvez le voir dans le schéma ci-dessous :
 
-![Réseau IaaS Azure AD](./media/application-proxy-connector-groups/application-proxy-iaas-network.png)
+![Diagramme illustrant le réseau Azure AD IaaS](./media/application-proxy-connector-groups/application-proxy-iaas-network.png)
   
 Avec les groupes de connecteurs de proxy d’application Azure AD, vous pouvez activer un service commun pour sécuriser l’accès à toutes les applications sans créer de dépendance supplémentaire sur votre réseau d’entreprise :
 
@@ -85,14 +85,14 @@ Avec les groupes de connecteurs de proxy d’application Azure AD, vous pouvez a
 La plupart des clients qui ont déployé le proxy d’application utilisent ses fonctionnalités d’authentification unique (SSO) par le biais de la délégation Kerberos contrainte (KCD). Pour ce faire, les machines du connecteur doivent être jointes à un domaine qui peut déléguer les utilisateurs vers l’application. KCD prend en charge les fonctionnalités inter-forêts. Mais pour les entreprises qui disposent d’environnements distincts à plusieurs forêts sans approbation entre eux, il est impossible d’utiliser un connecteur unique pour toutes les forêts. 
 
 Dans ce cas, des connecteurs spécifiques peuvent être déployés par forêt et définis pour traiter les applications qui ont été publiées pour traiter uniquement les utilisateurs de cette forêt spécifique. Chaque groupe de connecteurs représente une forêt différente. Bien que le client et la majorité de l’expérience soient unifiés pour toutes les forêts, les utilisateurs peuvent être affectés à leurs applications de forêt à l’aide de groupes Azure AD.
- 
+
 ### <a name="disaster-recovery-sites"></a>Sites de récupération d’urgence
 
 Il existe deux approches différentes que vous pouvez utiliser avec un site de récupération d’urgence, en fonction de l’implémentation de vos sites :
 
 * Si votre site de récupération d’urgence est créé en mode actif - actif où il est identique au site principal et dispose des mêmes paramètres de mise en réseau et AD, vous pouvez créer les connecteurs sur le site de récupération d’urgence dans le même groupe de connecteurs que le site principal. Cela permet à Azure AD de détecter les basculements.
 * Si votre site de récupération d’urgence est distinct du site principal, vous pouvez créer un groupe de connecteurs différent dans le site de récupération d’urgence et soit 1) avoir des applications de sauvegarde, soit 2) diriger manuellement l’application existante vers le groupe de connecteurs de récupération d’urgence si nécessaire.
- 
+
 ### <a name="serve-multiple-companies-from-a-single-tenant"></a>Traiter plusieurs entreprises à partir d’un seul client
 
 Il existe différentes manières d’implémenter un modèle dans lequel un fournisseur de services unique déploie et gère les services relatifs à Azure AD pour plusieurs entreprises. Les groupes de connecteurs aident l’administrateur à séparer les connecteurs et les applications en différents groupes. Une méthode, qui est appropriée pour les petites entreprises, est d’avoir un seul client Azure AD tandis que les différentes entreprises ont leurs propres nom de domaine et réseaux. Cela vaut également pour les scénarios et les situations M&A où une division informatique unique sert plusieurs entreprises pour des raisons réglementaires ou professionnelles. 
@@ -100,32 +100,30 @@ Il existe différentes manières d’implémenter un modèle dans lequel un four
 ## <a name="sample-configurations"></a>Exemples de configurations
 
 Certains exemples que vous pouvez implémenter incluent les groupes de connecteurs suivants.
- 
+
 ### <a name="default-configuration--no-use-for-connector-groups"></a>Configuration par défaut : inutile pour les groupes de connecteurs
 
 Si vous n’utilisez pas les groupes de connecteurs, votre configuration ressemblerait à ceci :
 
-![AzureAD Aucun groupe de connecteurs](./media/application-proxy-connector-groups/application-proxy-sample-config-1.png)
- 
+![Exemple : AzureAD Aucun groupe de connecteurs](./media/application-proxy-connector-groups/application-proxy-sample-config-1.png)
+
 Cette configuration est suffisante pour les tests et les petits déploiements. Elle est également adaptée si votre organisation dispose d’une topologie de réseau à plat.
- 
+
 ### <a name="default-configuration-and-an-isolated-network"></a>Configuration par défaut et réseau isolé
 
-Cette configuration est une évolution de la configuration par défaut, dans laquelle une application spécifique s’exécute sur un réseau isolé, comme un réseau virtuel IaaS : 
+Cette configuration est une évolution de la configuration par défaut, dans laquelle une application spécifique s’exécute sur un réseau isolé, comme un réseau virtuel IaaS :
 
-![AzureAD Aucun groupe de connecteurs](./media/application-proxy-connector-groups/application-proxy-sample-config-2.png)
- 
+![Exemple : AzureAD Aucun groupe de connecteurs](./media/application-proxy-connector-groups/application-proxy-sample-config-2.png)
+
 ### <a name="recommended-configuration--several-specific-groups-and-a-default-group-for-idle"></a>Configuration recommandée : plusieurs groupes spécifiques et un groupe par défaut inactif
 
 La configuration recommandée pour les organisations de grande taille et complexes consiste à disposer du groupe de connecteurs par défaut en tant que groupe qui ne traite aucune application et qui est utilisé pour les connecteurs inactifs ou nouvellement installés. Toutes les applications sont traitées à l’aide de groupes de connecteurs personnalisés. Ainsi, toute la complexité des scénarios décrits ci-dessus est permise.
 
-Dans l’exemple ci-dessous, l’entreprise a deux centres de données, A et B, avec deux connecteurs qui servent chaque site. Des applications différentes s’exécutent sur chaque site. 
+Dans l’exemple ci-dessous, l’entreprise a deux centres de données, A et B, avec deux connecteurs qui servent chaque site. Des applications différentes s’exécutent sur chaque site.
 
-![AzureAD Aucun groupe de connecteurs](./media/application-proxy-connector-groups/application-proxy-sample-config-3.png)
- 
+![Exemple d’une société avec 2 centres de données et 2 connecteurs](./media/application-proxy-connector-groups/application-proxy-sample-config-3.png)
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Présentation des connecteurs de proxy d’application Azure AD](application-proxy-connectors.md)
 * [Activer l’authentification unique](what-is-single-sign-on.md)
-
-

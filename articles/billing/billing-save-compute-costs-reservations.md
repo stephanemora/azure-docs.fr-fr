@@ -1,24 +1,24 @@
 ---
-title: Qu’est-ce qu’une réservation Azure ? | Microsoft Docs
+title: Qu’est-ce qu’une réservation Azure ?
 description: Découvrez les réservations et tarifs Azure pour économiser sur vos machines virtuelles, les bases de données SQL, Azure Cosmos DB et les coûts d’autres ressources.
 author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 04/13/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: b20983c45cd62b9812cdb52de32a6e29da459efe
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7ffb575d7f962232604a4ad6930b804d2619b488
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60370796"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490595"
 ---
 # <a name="what-are-azure-reservations"></a>Qu’est-ce qu’une réservation Azure ?
 
 Les réservations Azure vous permettent d’économiser de l’argent en prépayant un ou trois ans de machine virtuelle, de capacité de calcul SQL Database, de débit Azure Cosmos DB ou d’autres ressources Azure. Le prépaiement vous permet d’obtenir une remise sur les ressources que vous utilisez. Les réservations peuvent réduire sensiblement les coûts de machine virtuelle, de calcul SQL Database, d’Azure Cosmos DB ou d’autres ressources, jusqu’à hauteur de 72 % sur les tarifs des paiements à l’utilisation. Des réservations permettent de bénéficier d’une remise sur la facturation et n’ont aucune incidence sur l’état de runtime de vos ressources.
 
-Vous pouvez acheter une réservation sur le [portail Azure](https://aka.ms/reservations).
+Vous pouvez acheter une réservation sur le [portail Azure](https://ms.portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
 
 ## <a name="why-buy-a-reservation"></a>Pourquoi acheter une réservation ?
 
@@ -28,9 +28,9 @@ Si vous avez des machines virtuelles, Azure Cosmos DB ou des bases de données S
 
 Plans de service :
 
-- Instance de machine virtuelle réservée : une réservation couvre uniquement les coûts de calcul de machine virtuelle. Une réservation ne couvre pas les frais de logiciels, de mise en réseau ou de stockage.
-- Capacité réservée Azure Cosmos DB : Une réservation couvre le débit approvisionné pour vos ressources. Elle ne couvre pas les frais de stockage et de réseau.
-- vCore réservé de SQL Database : seuls les coûts de calcul sont inclus dans une réservation. La licence est facturée séparément.
+- **Instance de machine virtuelle réservée** : une réservation couvre uniquement les coûts de calcul de machine virtuelle. Une réservation ne couvre pas les frais de logiciels, de mise en réseau ou de stockage.
+- **La capacité réservée Azure Cosmos DB** : une réservation couvre le débit provisionné pour vos ressources. Elle ne couvre pas les frais de stockage et de réseau.
+- **vCore réservé de SQL Database** : seuls les coûts de calcul sont inclus dans une réservation. La licence est facturée séparément.
 
 Pour les machines virtuelles Windows et SQL Database, vous pouvez couvrir les coûts de licence avec [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
@@ -38,9 +38,9 @@ Pour les machines virtuelles Windows et SQL Database, vous pouvez couvrir les co
 
 Pour acheter un plan, vous devez disposer d’un rôle de propriétaire dans un abonnement Entreprise (MS-AZR-0017P ou MS-AZR-0148P) ou Paiement à l'utilisation (MS-AZR-003P or MS-AZR-0023P). Les fournisseurs de solutions cloud peuvent utiliser le portail Azure ou l’ [Espace partenaires](/partner-center/azure-reservations) pour acheter des réservations Azure.
 
-Les clients EA peuvent limiter les achats aux administrateurs EA en désactivant l'option **Ajouter des instances réservées** dans EA Portal. Les administrateurs EA doivent être propriétaires d'au moins un abonnement EA pour acheter une réservation. Cette option est particulièrement utile pour les entreprises souhaitant qu'une équipe centralisée achète des réservations pour différents centres de coûts. Au terme de l'achat, les équipes centralisées peuvent ajouter des propriétaires de centres de coûts aux réservations. Les propriétaires peuvent ensuite étendre la réservation à leurs abonnements. L’équipe centralisée n'est pas tenue de disposer d'un accès de propriétaire d'abonnement là où la réservation est achetée.
+Les clients EA peuvent limiter les achats aux administrateurs EA en désactivant l’option **Ajouter des instances réservées** dans EA Portal. Les administrateurs EA doivent être propriétaires d'au moins un abonnement EA pour acheter une réservation. Cette option est particulièrement utile pour les entreprises souhaitant qu'une équipe centralisée achète des réservations pour différents centres de coûts. Au terme de l'achat, les équipes centralisées peuvent ajouter des propriétaires de centres de coûts aux réservations. Les propriétaires peuvent ensuite étendre la réservation à leurs abonnements. L’équipe centralisée n'est pas tenue de disposer d'un accès de propriétaire d'abonnement là où la réservation est achetée.
 
-Une remise sur réservation s’applique uniquement aux ressources associées aux types d’abonnements CSP, Entreprise ou avec paiement à l’utilisation.
+Une remise de réservation s’applique uniquement aux ressources associées aux abonnements achetés via des forfaits d’entreprise, de fournisseurs de services cloud et individuels avec paiement à l’utilisation.
 
 ## <a name="reservation-scope"></a>Étendue de la réservation
 
@@ -48,8 +48,7 @@ Une étendue de réservation détermine les ressources auxquelles la remise de r
 
 **Étendue partagée** : la remise de réservation est appliquée aux ressources correspondantes dans les abonnements éligibles du contexte de facturation.
 
-- Pour les clients Contrat Entreprise, le contexte de facturation correspond à l’inscription.
- Pour les clients Paiement à l’utilisation, l’étendue de facturation correspond à tous les abonnements éligibles créés par l’administrateur de compte.
+- Pour les clients Contrat Entreprise, le contexte de facturation correspond à l’inscription. Pour les clients disposant de forfaits individuels Paiement à l’utilisation, l’étendue de facturation correspond à tous les abonnements éligibles créés par l’administrateur de compte.
 
 **Abonnement unique** : la remise de réservation est appliquée aux ressources correspondantes incluses dans l’abonnement sélectionné.
 
@@ -60,14 +59,14 @@ Vous pouvez [mettre à jour l'étendue après avoir acheté une réservation](bi
 Les remises de réservation s’appliquent aux types d'abonnements et d'offres éligibles suivants.
 
 - Contrat Entreprise (références de l’offre : MS-AZR-0017P ou MS-AZR-0148P)
-- Paiement à l’utilisation (références de l’offre : MS-AZR-0003P ou MS-AZR-0023P)
+- Forfaits individuels avec paiement à l’utilisation (références de l’offre : MS-AZR-0003P ou MS-AZR-0023P)
 - Abonnements CSP
 
 Les ressources opérant dans le cadre d’un abonnement relevant d’autres types d’offres ne bénéficient d’aucune remise sur réservation.
 
 ## <a name="how-is-a-reservation-billed"></a>Comment une réservation est-elle facturée ?
 
-La réservation est facturée selon le mode de paiement associé à l’abonnement. Si vous avez souscrit un abonnement Entreprise, le coût des réservations est déduit de votre solde d’engagement. Si ce solde ne couvre pas le coût des réservations, le dépassement vous est facturé. Si vous avez souscrit un abonnement avec paiement à l’utilisation, la carte de crédit associée à votre compte est facturée immédiatement. Si vous réglez sur facture, les frais sont portés sur votre prochaine facture.
+La réservation est facturée selon le mode de paiement associé à l’abonnement. Si vous avez souscrit un abonnement Entreprise, le coût des réservations est déduit de votre solde d’engagement. Si ce solde ne couvre pas le coût des réservations, le dépassement vous est facturé. Si vous avez souscrit un abonnement à partir d’un forfait individuel avec paiement à l’utilisation, la carte de crédit associée à votre compte est facturée immédiatement. Si vous réglez sur facture, les frais sont portés sur votre prochaine facture.
 
 ## <a name="how-reservation-discount-is-applied"></a>Comment la remise de réservation est-elle appliquée ?
 
@@ -99,7 +98,7 @@ Plans de service :
 
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
 
-Si vous avez des questions ou besoin d’aide, créez une [demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).
+Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

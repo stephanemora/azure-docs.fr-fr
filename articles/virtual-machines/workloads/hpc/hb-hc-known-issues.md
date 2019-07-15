@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: amverma
-ms.openlocfilehash: ff65f3937069be87e922dad9287ba22380632329
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a41155b90257f7eaec85c3adbd975a0a37e24d91
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66810036"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67560415"
 ---
 # <a name="known-issues-with-hb-series-and-hc-series-vms"></a>Problèmes connus avec les machines virtuelles des séries HC et HB
 
@@ -31,13 +31,13 @@ Les machines virtuelles de série HB peuvent exposer seulement 228 Go de RAM aux
 
 La mise en réseau accélérée Azure n’est pas activée pour l’instant, mais elle le sera à mesure que nous avançons dans la période de préversion. Nous informerons les clients lorsque cette fonctionnalité sera prise en charge.
 
+## <a name="qp0-access-restriction"></a>Restriction d’accès qp0
+
+Pour empêcher l’accès au matériel de bas niveau pouvant entraîner des failles de sécurité, Queue Pair 0 n’est pas accessible aux machines virtuelles invitées. Cela ne doit affecter que les actions généralement associées à l’administration de la carte réseau ConnectX-5 et à l’exécution des diagnostics InfiniBand comme ibdiagnet, et pas les applications de l’utilisateur final elles-mêmes.
+
 ## <a name="ud-transport"></a>Transport UD
 
-Au lancement, la série HB ne prend pas en charge le transport connecté de façon dynamique (DCT). La prise en charge de DCT sera implémentée en temps voulu. Les transports de connexion fiable (RC) et de datagramme non fiable (UD) sont pris en charge.
-
-## <a name="azure-batch"></a>Azure Batch
-
-Tant que les machines virtuelles de série HB sont en version préliminaire, utilisez un compte Batch en mode Abonnement utilisateur et non en mode Service.
+Au lancement, les séries HB et HC ne prennent pas en charge le transport connecté de façon dynamique (DCT). La prise en charge de DCT sera implémentée en temps voulu. Les transports de connexion fiable (RC) et de datagramme non fiable (UD) sont pris en charge.
 
 ## <a name="gss-proxy"></a>GSS Proxy
 
@@ -89,4 +89,4 @@ Vous pouvez ignorer cet avertissement. Il s’agit d’une limitation connue de 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur le [calcul haute performance](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) dans Azure.
+Informez-vous sur le [calcul haute performance](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) dans Azure.

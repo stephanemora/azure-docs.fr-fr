@@ -9,12 +9,12 @@ ms.date: 11/13/2018
 ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
-ms.openlocfilehash: 83cfd2b7ccdf8ec14e828baec1031e11b28c988c
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
-ms.translationtype: MT
+ms.openlocfilehash: 21c832235eeb86dcea94e70f34abaf4ec3489c3c
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66427366"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509617"
 ---
 # <a name="azure-backup-server-protection-matrix"></a>Matrice de protection du serveur de sauvegarde Azure
 
@@ -80,17 +80,17 @@ Cet article répertorie les différents serveurs et charges de travail que vous 
 |Hôte Hyper-V - agent de protection DPM sur un serveur hôte, un cluster ou une machine virtuelle Hyper-V|Windows Server 2008 R2 SP1 - Enterprise et Standard|Serveur physique<br /><br />Machine virtuelle Hyper-V locale|O|O|Protéger : ordinateurs Hyper-V, volumes partagés de cluster<br /><br />Récupérer : machine virtuelle ; au niveau élément récupération de fichiers et de dossiers ; volumes ; disques durs virtuels|
 |Hôte Hyper-V - agent de protection DPM sur un serveur hôte, un cluster ou une machine virtuelle Hyper-V|Windows Server 2008 SP2|Serveur physique<br /><br />Machine virtuelle Hyper-V locale|N|N|Protéger : ordinateurs Hyper-V, volumes partagés de cluster<br /><br />Récupérer : machine virtuelle ; au niveau élément récupération de fichiers et de dossiers ; volumes ; disques durs virtuels|
 |Machines virtuelles VMware|Sous licence VMware vCenter/vSphere ESX/ESXi version 5.5/6.0/6.5 |Serveur physique, <br/>Machines virtuelles Hyper-V en local, <br/> Machine virtuelle Windows dans VMWare|O|O|Machines virtuelles VMware sur volumes partagés de cluster (CSV), NFS et stockage SAN<br /> Récupération au niveau élément des fichiers et dossiers disponibles uniquement pour les machines virtuelles Windows. Applications virtuelles VMware non prises en charge.|
-|Machines virtuelles VMware|[VMware vSphere 6.7](backup-azure-backup-server-vmware.md#vmware-vsphere-67) |Serveur physique, <br/>Machines virtuelles Hyper-V en local, <br/> Machine virtuelle Windows dans VMWare|O|N|Machines virtuelles VMware sur volumes partagés de cluster (CSV), NFS et stockage SAN<br /> Récupération au niveau élément des fichiers et dossiers disponibles uniquement pour les machines virtuelles Windows. Applications virtuelles VMware non prises en charge.|
+|Machines virtuelles VMware|[Sous licence VMware vSphere version 6.7](backup-azure-backup-server-vmware.md#vmware-vsphere-67) |Serveur physique, <br/>Machines virtuelles Hyper-V en local, <br/> Machine virtuelle Windows dans VMWare|O|N|Machines virtuelles VMware sur volumes partagés de cluster (CSV), NFS et stockage SAN<br /> Récupération au niveau élément des fichiers et dossiers disponibles uniquement pour les machines virtuelles Windows. Applications virtuelles VMware non prises en charge.|
 |Linux|Linux s’exécutant en tant qu’invité Hyper-V ou VMware|Serveur physique, <br/>Machines virtuelles Hyper-V en local, <br/> Machine virtuelle Windows dans VMWare|O|O|Hyper-V doit s’exécuter sur Windows Server 2012 R2 ou Windows Server 2016. Protéger : toute la machine virtuelle<br /><br />Récupérer : toute la machine virtuelle <br/><br/> Pour obtenir la liste complète des versions et distributions Linux prises en charge, consultez l’article [Linux sur les distributions approuvées par Azure](../virtual-machines/linux/endorsed-distros.md).|
 
-## <a name="azure-expressroute-support"></a>Prise en charge de Azure ExpressRoute
+## <a name="azure-expressroute-support"></a>Support Azure ExpressRoute
 
-Si Azure ExpressRoute est configurée avec un appairage privé ou Microsoft, il ne peut pas servir à sauvegarder les données dans Azure.
+Si Azure ExpressRoute est configuré avec un peering privé ou Microsoft, il ne peut pas servir à sauvegarder les données dans Azure.
 
-Si Azure ExpressRoute est configurée avec l’homologation publique, il peut être utilisé pour sauvegarder les données vers Azure.
+Si Azure ExpressRoute est configuré avec un peering privé ou Microsoft, il peut servir à sauvegarder les données dans Azure.
 
 >[!NOTE]
->L’homologation publique est déconseillée pour les circuits de nouveau.
+>Le peering public Azure est déconseillé pour les nouveaux circuits.
 
 ## <a name="cluster-support"></a>Prise en charge des clusters
 Le serveur de sauvegarde Azure peut protéger les données dans les applications en cluster suivantes :

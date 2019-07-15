@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 9b8e12220f220bd8183675d13e25bdcab02707fd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c3596f230ace2d19df28d0b43af45c74aaa87836
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65020853"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561295"
 ---
 # <a name="language-and-region-support-for-the-speech-services"></a>Prise en charge des langues et des régions des services Speech
 
@@ -24,7 +24,7 @@ Les langues prises en charge varient selon les fonctions des services Speech. Le
 
 ## <a name="speech-to-text"></a>Reconnaissance vocale
 
-L’API de reconnaissance vocale Microsoft prend en charge les langues suivantes. Différents niveaux de personnalisation sont disponibles pour chaque langue.
+Le Kit de développement logiciel (SDK) et l’API REST de reconnaissance vocale de Microsoft prennent en charge les langues suivantes (paramètres régionaux). Différents niveaux de personnalisation sont disponibles pour chaque langue.
 
   Code | Langage | [Adaptation acoustique](how-to-customize-acoustic-models.md) | [Adaptation de langage](how-to-customize-language-model.md) | [Adaptation de prononciation](how-to-customize-pronunciation.md)
  ------|----------|---------------------|---------------------|-------------------------

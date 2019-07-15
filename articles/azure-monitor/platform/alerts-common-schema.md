@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: c18227a491478d0d8010761440a54fd088344b39
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: be38f5d3bbf4fe3d90fc78feab8774595b5338f2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60776581"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447673"
 ---
 # <a name="common-alert-schema"></a>Schéma d’alerte courant
 
@@ -125,6 +125,7 @@ Par exemple, le corps de demande suivant apporté à l’API REST [Créer ou met
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Définitions de schéma d’alerte commun pour les webhooks/applications logiques/fonctions Azure/runbooks automation.](https://aka.ms/commonAlertSchemaDefinitions)
+- [Découvrez comment créer une application logique qui s’appuie sur le schéma d’alerte courant pour gérer toutes vos alertes.](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-integrations) 
 
 
 

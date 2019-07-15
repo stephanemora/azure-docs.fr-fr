@@ -443,6 +443,13 @@
           href: ./partner-center-portal/offer-creation-checklist.md
         - name: Créer une offre SaaS
           href: ./partner-center-portal/create-new-saas-offer.md
+        - name: Facturation à l’usage SaaS
+          href: ./partner-center-portal/saas-metered-billing.md
+          items:
+            - name: API de service de mesure de la Place de marché - Questions fréquentes (FAQ)
+              href: ./partner-center-portal/marketplace-metering-service-apis-faq.md
+            - name: API de service de mesure de la Place de marché
+              href: ./partner-center-portal/marketplace-metering-service-apis.md
         - name: API de traitement SaaS
           href: ./partner-center-portal/pc-saas-fulfillment-apis.md
           items:
@@ -452,6 +459,8 @@
               href: ./partner-center-portal/pc-saas-fulfillment-api-v2.md
             - name: API de traitement SaaS v1 (dépréciées)
               href: ./partner-center-portal/pc-saas-fulfillment-api-v1.md
+            - name: API de traitement SaaS - Questions fréquentes (FAQ)
+              href: ./partner-center-portal/saas-fulfillment-apis-faq.md
     - name: État de publication
       href: ./partner-center-portal/publishing-status.md
     - name: Mettre à jour les offres existantes

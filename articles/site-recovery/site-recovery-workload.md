@@ -5,14 +5,14 @@ author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 6/27/2019
 ms.author: raynew
-ms.openlocfilehash: 8f4e78f7e16f775a852b4c8172d1fa9fd70ec341
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6a0e07f338da039be1660e59510b24bcd44eed0c
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66417839"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491738"
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Quelles charges de travail pouvez-vous protéger avec Azure Site Recovery ?
 
@@ -35,7 +35,7 @@ Site Recovery contribue à la protection des applications et à la récupératio
 * Service indépendant de l’application qui assure la réplication de n’importe quelle charge de travail exécutée sur une machine prise en charge.
 * Réplication presque synchrone avec des RPO de 30 secondes pour répondre aux besoins des applications professionnelles les plus critiques.
 * Captures instantanées cohérentes de l’application pour les applications uniques ou multiniveau.
-* Intégration avec SQL Server AlwaysOn et partenariat avec d’autres technologies de réplication au niveau des applications, y compris la réplication AD, SQL AlwaysOn, les groupes de disponibilité de base de données (DAG) Exchange et Oracle Data Guard.
+* Intégration avec SQL Server AlwaysOn et partenariat avec d’autres technologies de réplication au niveau des applications, y compris la réplication AD, SQL AlwaysOn, les groupes de disponibilité de base de données (DAG) Exchange.
 * Plans de récupération flexibles qui vous permettent de récupérer une pile de l’application entière en un seul clic et d’inclure les scripts externes et des actions manuelles.
 * Gestion réseau avancée dans Site Recovery et Azure simplifiant la configuration réseau requise pour une application, notamment la réservation d’adresses IP, la configuration de l’équilibrage de charge et l’intégration avec Azure Traffic Manager pour les commutations réseau à RTO faible.
 * Une bibliothèque d’automatisation avancée qui fournit des scripts spécifiques d’application prêts pour la production, qui peuvent être téléchargés et intégrés avec des plans de récupération.

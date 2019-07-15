@@ -1,32 +1,26 @@
 ---
-title: Comprendre les frais indiqués sur la facture de votre contrat client Microsoft - Azure| Microsoft Docs
-description: Découvrez comment comprendre les frais indiqués sur votre facture
-services: ''
-documentationcenter: ''
+title: Comprendre les frais indiqués sur la facture de votre contrat client Microsoft - Azure
+description: Découvrez comment lire et comprendre les frais indiqués sur votre facture.
 author: jureid
 manager: jureid
-editor: ''
 tags: billing
-ms.assetid: 32eea268-161c-4b93-8774-bc435d78a8c9
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/19/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: f93152ae3db926fb989c219d1e515abaf0281bf4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ee250589133abb1944ff17e39dc650cbae4279c6
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60372094"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490675"
 ---
-# <a name="understand-the-charges-on-your-microsoft-customer-agreements-invoice"></a>Comprendre les frais indiqués sur la facture de votre contrat client Microsoft
+# <a name="understand-charges-on-your-microsoft-customer-agreement-invoice"></a>Comprendre les frais indiqués sur votre facture du Contrat client Microsoft
 
-Vous pouvez comprendre les frais sur votre facture en analysant les transactions individuelles.
-
-Dans le compte de facturation d’un contrat client Microsoft, une facture est générée chaque mois pour chaque profil de facturation. La facture inclut tous les frais du mois précédent. Vous pouvez afficher vos factures dans le portail Microsoft Azure. Pour plus d'informations, veuillez consulter [Télécharger les factures pour un contrat client Microsoft](billing-download-azure-invoice-daily-usage-date.md#download-invoices-for-a-microsoft-customer-agreement).
+Vous pouvez comprendre les frais sur votre facture en analysant les transactions individuelles. Dans le compte de facturation d’un contrat client Microsoft, une facture est générée chaque mois pour chaque profil de facturation. La facture inclut tous les frais du mois précédent. Vous pouvez afficher vos factures dans le portail Microsoft Azure. Pour plus d'informations, veuillez consulter [Télécharger les factures pour un contrat client Microsoft](billing-download-azure-invoice-daily-usage-date.md#download-invoices-for-a-microsoft-customer-agreement).
 
 Cet article s'applique à un compte de facturation associé à un contrat client Microsoft. [Vérifiez que vous avez accès à un contrat client Microsoft](#check-access-to-a-microsoft-customer-agreement).
 
@@ -34,11 +28,11 @@ Cet article s'applique à un compte de facturation associé à un contrat client
 
 1. Connectez-vous au [Portail Azure](https://www.azure.com).
 
-2. Effectuez une recherche sur **Cost Management + Facturation**.
+2. Recherchez **Gestion des coûts + facturation**.
 
     ![Capture d’écran montrant une recherche relative à la gestion des coûts et à la facturation sur le portail Microsoft Azure](./media/billing-understand-your-bill-mca/billing-search-cost-management-billing.png)
 
-3. Sur le côté gauche de l’écran, sélectionnez **Toutes les transactions**. Selon votre accès, vous devrez peut-être sélectionner un compte ou un profil de facturation, puis **Toutes les transactions**.
+3. Sur le côté gauche de la page, sélectionnez **Toutes les transactions**. Selon votre accès, vous devrez peut-être sélectionner un compte, un profil ou une section de facturation, puis **Toutes les transactions**.
 
 4. La page Toutes les transactions affiche les informations suivantes :
 
@@ -59,7 +53,7 @@ Cet article s'applique à un compte de facturation associé à un contrat client
 
 ### <a name="view-transactions-by-invoice-sections"></a>Afficher les transactions en sections de facture
 
-Les sections de facture vous permettent d’organiser les coûts sur la facture d’un profil de facturation. Pour plus d'informations, consultez [Présentation des sections de facture](billing-mca-overview.md#understand-invoice-sections). Lorsqu'une facture est générée, les frais pour toutes les sections du profil de facturation sont répercutés sur la facture.
+Les sections de facture vous permettent d’organiser les coûts pour la facture d’un profil de facturation. Pour plus d'informations, consultez [Présentation des sections de facture](billing-mca-overview.md#invoice-sections). Lorsqu’une facture est générée, les frais pour toutes les sections du profil de facturation sont répercutés sur la facture.
 
 L’image suivante montre les frais de la section Facture du service de comptabilité sur un exemple de facture.
 
@@ -69,17 +63,17 @@ Lorsque vous avez identifié les frais dans la section d’une facture, vous pou
 
 1. Dans le portail Microsoft Azure, accédez à la page Toutes les transactions, pour afficher les transactions d’une facture. Pour plus d’informations, veuillez consulter [Afficher les transactions d’une facture dans le portail Microsoft Azure](#view-transactions-for-an-invoice-in-the-azure-portal).
 
-2. Filtrez la facture par nom de section pour consulter les transactions de chaque section.
+2. Filtrez par nom de section de la facture pour consulter les transactions.
 
-## <a name="understand-pending-charges-to-estimate-your-next-invoice"></a>Comprendre les frais en attente pour estimer votre prochaine facture
+## <a name="review-pending-charges-to-estimate-your-next-invoice"></a>Passez en revue les frais en attente pour estimer votre prochaine facture
 
-Dans le compte de facturation d’un contrat client de Microsoft, tant que les frais ne sont pas facturés, ils sont considérés comme une estimation en attente de validation. Vous pouvez consulter les frais en attente dans le portail Microsoft Azure pour estimer le montant de votre prochaine facture. Les frais en attente sont estimés hors taxes. Les frais réels de votre prochaine facture peuvent varier des frais en attente.
+Dans le compte de facturation d’un contrat client de Microsoft, tant que les frais ne sont pas facturés, ils sont considérés comme une estimation en attente de validation. Vous pouvez consulter les frais en attente dans le portail Microsoft Azure pour estimer le montant de votre prochaine facture. Les frais en attente sont des estimations et s’entendent hors taxes. Les frais réels figurant sur votre prochaine facture seront différents des frais en attente.
 
 ### <a name="view-summary-of-pending-charges"></a>Afficher un résumé des frais en attente
 
-1. Connectez-vous au [Portail Azure](https://www.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 
-2. Effectuez une recherche sur **Cost Management + Facturation**.
+2. Recherchez **Gestion des coûts + facturation**.
 
    ![Capture d’écran montrant une recherche relative à la gestion des coûts et à la facturation sur le portail Microsoft Azure](./media/billing-understand-your-bill-mca/billing-search-cost-management-billing.png)
 
@@ -97,31 +91,31 @@ Les frais du mois en cours sont des frais en attente. Ils seront facturés lors 
 
 Lorsque vous avez identifié les frais en attente, vous pouvez les comprendre en analysant les transactions individuelles qui forment ces frais. À ce stade, les frais d’utilisation en attente ne sont pas affichés sur la page Toutes les transactions. Vous pouvez les afficher sur la page Abonnements Azure. Pour plus d’informations, veuillez consulter [Afficher les frais d’utilisation en attente](#view-pending-usage-charges)
 
-1. Connectez-vous au [Portail Azure](https://www.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 
-2. Effectuez une recherche sur **Cost Management + Facturation**.
+2. Recherchez **Gestion des coûts + facturation**.
 
    ![Capture d’écran montrant une recherche relative à la gestion des coûts et à la facturation sur le portail Microsoft Azure](./media/billing-understand-your-bill-mca/billing-search-cost-management-billing.png)
 
 3. Sélectionnez un profil de facturation. Selon votre accès, vous devrez peut-être sélectionner un compte de facturation. Dans le compte de facturation, sélectionnez **Profils de facturation**, puis un profil de facturation.
 
-4. Sur le côté gauche de l’écran, sélectionnez **Toutes les transactions**.
+4. Sur le côté gauche de la page, sélectionnez **Toutes les transactions**.
 
-5. Recherchez **En attente**. Utilisez le filtre **Timespan** (Période) pour afficher les frais en attente pour le mois actuel ou le mois dernier.
+5. Recherchez *En attente*. Utilisez le filtre **Timespan** (Période) pour afficher les frais en attente pour le mois actuel ou le mois dernier.
 
    ![Capture d’écran montrant la liste des transactions en attente](./media/billing-understand-your-bill-mca/mca-pending-transactions-list.png)
 
 ### <a name="view-pending-usage-charges"></a>Afficher les frais d’utilisation en attente
 
-1. Connectez-vous au [Portail Azure](https://www.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 
-2. Effectuez une recherche sur **Cost Management + Facturation**.
+2. Recherchez *Gestion des coûts + facturation*.
 
    ![Capture d’écran montrant une recherche relative à la gestion des coûts et à la facturation sur le portail Microsoft Azure](./media/billing-understand-your-bill-mca/billing-search-cost-management-billing.png)
 
 3. Sélectionnez un profil de facturation. Selon votre accès, vous devrez peut-être sélectionner un compte de facturation. Dans le compte de facturation, sélectionnez **Profils de facturation**, puis un profil de facturation.
 
-4. Sur le côté gauche de l’écran, sélectionnez **Tous les abonnements**.
+4. Sur le côté gauche de la page, sélectionnez **Tous les abonnements**.
 
 5. La page Abonnements Azure affiche les frais actuels et ceux du mois dernier pour chaque abonnement dans le profil de facturation. Les frais du mois en cours sont des frais en attente. Ils seront facturés lors de la génération de la facture à la fin du mois. Si la facture du mois dernier n’est pas encore générée, les frais du mois dernier sont également en attente.
 
@@ -129,7 +123,7 @@ Lorsque vous avez identifié les frais en attente, vous pouvez les comprendre en
 
 ## <a name="analyze-your-azure-usage-charges"></a>Analyser vos frais d’utilisation Azure
 
-Utilisez le fichier csv Utilisation et frais Azure pour analyser vos frais en fonction de votre utilisation. Vous pouvez télécharger le fichier pour une facture ou des frais en attente. Pour plus d’informations, veuillez consulter [Obtenir votre facture Azure et vos données d’utilisation quotidienne](billing-download-azure-invoice-daily-usage-date.md).
+Utilisez le fichier CSV Utilisation et frais Azure pour analyser vos frais en fonction de votre utilisation. Vous pouvez télécharger le fichier pour une facture ou des frais en attente. Pour plus d’informations, veuillez consulter [Obtenir votre facture Azure et vos données d’utilisation quotidienne](billing-download-azure-invoice-daily-usage-date.md).
 
 ### <a name="view-detailed-usage-by-invoice-section"></a>Afficher l’utilisation détaillée par section de la facture
 
@@ -151,15 +145,14 @@ La procédure suivante vous guide lors du rapprochement des frais de calcul pour
 
 ![Capture d’écran qui illustre le fichier d’utilisation et de frais filtré par section de facture](./media/billing-understand-your-bill-mca/billing-usage-file-filtered-by-invoice-section.png)
 
-<!--Todo Add screenshot of usage file -->
 
 ### <a name="view-detailed-usage-by-subscription"></a>Afficher l’utilisation détaillée par abonnement
 
-Vous pouvez filtrer le fichier csv Utilisation et frais Azure pour rapprocher les frais d’utilisation de vos abonnements. Pour afficher tous les abonnements dans un profil de facturation, consultez [Afficher les frais d’utilisation en attente](#view-pending-usage-charges).
+Vous pouvez filtrer le fichier CSV Utilisation et frais Azure pour rapprocher les frais d’utilisation de vos abonnements. Pour afficher tous les abonnements dans un profil de facturation, consultez [Afficher les frais d’utilisation en attente](#view-pending-usage-charges).
 
-Lorsque vous avez identifié des frais d’un abonnement, utilisez le fichier csv Utilisation et frais Azure pour analyser les frais.
+Lorsque vous avez identifié des frais d’un abonnement, utilisez le fichier CSV Utilisation et frais Azure pour analyser les frais.
 
-La capture d’écran suivante affiche la liste des abonnements dans le portail Microsoft Azure.
+L’image suivante montre la liste des abonnements dans le portail Microsoft Azure.
 
 ![Capture d’écran montrant la liste des abonnements Azure pour le profil de facturation](./media/billing-understand-your-bill-mca/mca-billing-profile-subscriptions-list-highlighted.png)
 
@@ -176,7 +169,7 @@ Si vous avez déjà payé votre facture, vous pouvez vérifier le statut du paie
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Vérifier l'accès à un contrat client Microsoft
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Nous contacter
+## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
 
 Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).
 

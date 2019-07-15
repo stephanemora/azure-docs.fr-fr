@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 485f79f79c52067e89fa0a606e76a533c312fb84
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 85a32244a9aff9319343fd7d3961941973aa9d9a
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65545096"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482248"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Plateforme d’identités Microsoft et flux d’informations d’identification du client OAuth 2.0
 
@@ -42,7 +42,7 @@ Dans l’octroi *OAuth à trois branches* le plus courant, une application clien
 
 Le flux d’informations d’identification client complet est similaire à l’illustration suivante. Nous décrirons en détail chacune des étapes plus loin dans cet article.
 
-![Flux des informations d’identification du client](./media/v2-oauth2-client-creds-grant-flow/convergence-scenarios-client-creds.svg)
+![Diagramme montrant le flux d’informations d’identification du client](./media/v2-oauth2-client-creds-grant-flow/convergence-scenarios-client-creds.svg)
 
 ## <a name="get-direct-authorization"></a>Obtenir l’autorisation directe
 
@@ -92,7 +92,7 @@ Si vous connectez l’utilisateur à votre application vous pouvez identifier l�
 Lorsque vous êtes prêt à demander les autorisations à l’administrateur de l’organisation, vous pouvez rediriger l’utilisateur vers le *point de terminaison de consentement administrateur* de la plateforme d’identités Microsoft.
 
 > [!TIP]
-> Essayez d'exécuter cette requête dans Postman ! Utilisez votre propre ID d’application pour de meilleurs résultats. L’application du tutoriel ne vous demande pas d’autorisations utiles. [![Exécuter dans Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+> Essayez d'exécuter cette requête dans Postman ! Utilisez votre propre ID d’application pour de meilleurs résultats. L’application du tutoriel ne vous demande pas d’autorisations utiles. [![Essayez d’exécuter cette requête dans Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 ```
 // Line breaks are for legibility only.
@@ -114,7 +114,7 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 | Paramètre | Condition | Description |
 | --- | --- | --- |
 | `tenant` | Obligatoire | Le client d’annuaire auquel vous souhaitez demander l’autorisation. Peut être au format GUID ou sous forme de nom convivial. Si vous ne savez pas à quel client appartient l’utilisateur et si vous souhaitez lui permettre de se connecter avec n’importe quel client, utilisez `common`. |
-| `client_id` | Obligatoire | L’**ID (client) d’application** attribué à votre application par l’expérience [Inscriptions d’applications du portail Azure](https://go.microsoft.com/fwlink/?linkid=2083908). |
+| `client_id` | Obligatoire | L’**ID (client) d’application** attribué à votre application par l’environnement [Inscriptions d’applications du portail Azure](https://go.microsoft.com/fwlink/?linkid=2083908). |
 | `redirect_uri` | Obligatoire | L'URI de redirection où vous souhaitez que la réponse soit envoyée pour être gérée par votre application. Il doit correspondre exactement à l’un des URI de redirection enregistrés dans le portail, auquel s’ajoute le codage dans une URL, et peut avoir des segments de chemin d’accès supplémentaires. |
 | `state` | Recommandé | Une valeur incluse dans la requête qui est également renvoyée dans la réponse de jeton. Il peut s’agir d’une chaîne du contenu de votre choix. La valeur d’état est utilisée pour coder les informations sur l’état de l’utilisateur dans l’application avant la requête d’authentification, comme la page ou l’écran sur lequel ou laquelle il était positionné. |
 
@@ -154,7 +154,7 @@ Une fois que vous avez reçu une réponse correcte du point de terminaison de mi
 Une fois que vous avez acquis l’autorisation nécessaire pour votre application, passez à l’acquisition des jetons d’accès pour les API. Pour obtenir un jeton à l’aide de l’octroi des informations d’identification du client, envoyez une demande POST au point de terminaison de la plateforme d’identités Microsoft `/token` :
 
 > [!TIP]
-> Essayez d'exécuter cette requête dans Postman ! Utilisez votre propre ID d’application pour de meilleurs résultats. L’application du tutoriel ne vous demande pas d’autorisations utiles. [![Exécuter dans Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+> Essayez d'exécuter cette requête dans Postman ! Utilisez votre propre ID d’application pour de meilleurs résultats. L’application du tutoriel ne vous demande pas d’autorisations utiles. [![Essayez d’exécuter cette requête dans Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 ### <a name="first-case-access-token-request-with-a-shared-secret"></a>Premier cas : Requête de jeton d’accès avec un secret partagé
 

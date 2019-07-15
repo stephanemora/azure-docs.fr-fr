@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/06/2019
+ms.date: 07/03/2019
 ms.author: Kumud
-ms.openlocfilehash: ec68038a5b0fe7edca095e0d9b190d5da09c8e82
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 08670c8aa6d5c9830ab84bc848bac38063bd41c0
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66754705"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550918"
 ---
 # <a name="metrics-and-health-diagnostics-for-standard-load-balancer"></a>Métriques et diagnostics d’intégrité du Load Balancer Standard
 
@@ -85,7 +85,7 @@ Pour obtenir la disponibilité du chemin d’accès aux données pour vos ressou
 La métrique est générée par une mesure intrabande active. Un service de détection dans la région provient du trafic pour la mesure. Le service est activé dès que vous créez un déploiement avec un serveur frontal public, et il continue de fonctionner tant que vous ne supprimez pas le serveur frontal. 
 
 >[!NOTE]
->Les serveurs frontaux internes ne sont pas pris en charge pour le moment. 
+>La disponibilité du chemin d’accès de données (disponibilité VIP) n’est pas disponible pour les serveurs frontaux de l’équilibreur de charge interne. 
 
 Un paquet correspondant au serveur frontal et à la règle de votre déploiement est généré régulièrement. Il traverse la région depuis la source vers l’hôte où une machine virtuelle dans le pool de serveur principal se trouve. L’infrastructure de l’équilibreur de charge effectue les mêmes opérations d’équilibrage de charge et de conversion que pour tout autre trafic. Cette sonde est intrabande sur votre point de terminaison équilibré en charge. Lorsque la sonde arrive sur l’hôte de calcul sur lequel se trouve une machine virtuelle intègre du pool principal, l’hôte de calcul génère une réponse au service de détection. Votre machine virtuelle ne voit pas ce trafic.
 
@@ -208,6 +208,10 @@ Le tableau suivant répertorie les divers états d’intégrité de ressource et
 | Disponible | Votre ressource d’équilibreur de charge standard public est intègre et disponible. |
 | Non disponible | Votre ressource d’équilibreur de charge standard public n’est pas intègre. Diagnostiquez l’intégrité en sélectionnant **Azure Monitor** > **Métriques**.<br>(L’état *Non disponible* peut également indiquer que la ressource n’est pas connectée avec votre équilibreur de charge standard public.) |
 | Unknown | L’état d’intégrité des ressources de votre ressource d’équilibreur de charge standard public n’a pas encore été mis à jour.<br>(L’état *Inconnu* peut également indiquer que la ressource n’est pas connectée avec votre équilibreur de charge standard public.)  |
+
+## <a name="limitations"></a>Limites 
+
+- La disponibilité du chemin d’accès de données (disponibilité VIP) n’est pas disponible pour les serveurs frontaux de l’équilibreur de charge interne.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

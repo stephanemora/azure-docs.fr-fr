@@ -14,23 +14,23 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: 3b805a80330dd44ac4a65db88950393d3d4d60b7
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
-ms.translationtype: MT
+ms.openlocfilehash: 3dbec81237edd7cbf51e4812e83da068b9a366e0
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65992091"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67540992"
 ---
-# <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azure-sb-package"></a>Rubriques de l’utilisation de Service Bus et les abonnements avec Node.js et le package azure-sb
-> [!div class="op_multi_selector" title1="Programming language" title2="Node.js pacakge"]
+# <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azure-sb-package"></a>Utilisation des rubriques et abonnements Service Bus avec Node.js et le package azure-sb
+> [!div class="op_multi_selector" title1="Langage de programmation" title2="Package Node.js"]
 > - [(Node.js | azure-sb)](service-bus-nodejs-how-to-use-topics-subscriptions.md)
 > - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md)
 
-Dans ce didacticiel, vous allez apprendre à créer des applications Node.js à envoyer des messages à une rubrique Service Bus et de recevoir des messages à partir d’un abonnement de Bus de Service à l’aide de la [azure-sb](https://www.npmjs.com/package/azure-sb) package. Les exemples sont écrits en JavaScript et utiliser le Node.js [module Azure](https://www.npmjs.com/package/azure) qui utilise en interne le `azure-sb` package.
+Dans ce tutoriel, vous allez apprendre à créer des applications Node.js à envoyer des messages à une rubrique Service Bus et recevoir des messages à partir d’un abonnement Service Bus à l’aide du package [azure-sb](https://www.npmjs.com/package/azure-sb). Les exemples sont écrits en JavaScript et utilisent le [module Azure Node.js](https://www.npmjs.com/package/azure), qui utilise en interne le package `azure-sb`.
 
-Le [azure-sb](https://www.npmjs.com/package/azure-sb) package utilise [API d’exécution REST Service Bus](/rest/api/servicebus/service-bus-runtime-rest). Vous pouvez obtenir une expérience plus rapide à l’aide de la nouvelle [ @azure/service-bus ](https://www.npmjs.com/package/@azure/service-bus) package qui utilise le plus rapide [protocole AMQP 1.0](service-bus-amqp-overview.md). Pour en savoir plus sur le nouveau package, consultez [l’utilisation des rubriques et abonnements Service Bus avec Node.js et @azure/service-bus package](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-topics-subscriptions-new-package), sinon poursuivez votre lecture pour voir comment utiliser le [azure](https://www.npmjs.com/package/azure) package.
+Le package [azure-sb](https://www.npmjs.com/package/azure-sb) utilise les [API d’exécution REST Service Bus](/rest/api/servicebus/service-bus-runtime-rest). Le nouveau package [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) utilisant le [protocole AMQP 1.0](service-bus-amqp-overview.md) plus rapide permet d’accélérer l’expérience. Pour en savoir plus sur le nouveau package, consultez [Utilisation des rubriques et abonnements Service Bus avec Node.js et le package @azure/service-bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-topics-subscriptions-new-package), sinon poursuivez votre lecture pour savoir comment utiliser le package [azure](https://www.npmjs.com/package/azure).
 
-Les scénarios présentés ici sont les suivantes :
+Voici les scénarios abordés ici :
 
 - Création de rubriques et d’abonnements 
 - Création de filtres d’abonnement 
@@ -40,12 +40,12 @@ Les scénarios présentés ici sont les suivantes :
 
 Pour plus d’informations sur les rubriques et les abonnements, consultez la section [Étapes suivantes](#next-steps).
 
-## <a name="prerequisites"></a>Conditions préalables
-- Un abonnement Azure. Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Vous pouvez activer votre [avantages pour les abonnés Visual Studio ou MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou vous inscrire pour un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-- Suivez les étapes de la [Guide de démarrage rapide : Utiliser le portail Azure pour créer une rubrique Service Bus et des abonnements à la rubrique](service-bus-quickstart-topics-subscriptions-portal.md) pour créer un Service Bus **espace de noms** et obtenir le **chaîne de connexion**.
+## <a name="prerequisites"></a>Prérequis
+- Un abonnement Azure. Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Vous pouvez activer les [avantages de votre abonnement Visual Studio ou MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou vous inscrire pour un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+- Suivez les étapes du [Démarrage rapide : Utiliser le portail Azure pour créer une rubrique Service Bus et des abonnements à cette rubrique](service-bus-quickstart-topics-subscriptions-portal.md) pour créer un **espace de noms** Service Bus et obtenir la **chaîne de connexion**.
 
     > [!NOTE]
-    > Vous allez créer un **rubrique** et un **abonnement** à la rubrique à l’aide de **Node.js** dans ce démarrage rapide. 
+    > Vous allez créer une **rubrique** et un **abonnement** à la rubrique à l’aide de **Node.js** dans ce démarrage rapide. 
 
 ## <a name="create-a-nodejs-application"></a>Création d’une application Node.js
 Créez une application Node.js vide. Pour obtenir les instructions permettant de créer une application Node.js, consultez les pages [Création et déploiement d’une application Node.js sur un site Web Azure], [Service cloud Node.js][Node.js Cloud Service] avec Windows PowerShell ou Site Web avec WebMatrix.
@@ -87,7 +87,7 @@ Pour obtenir un exemple de paramétrage des variables d’environnement pour un 
 
 
 
-## <a name="create-a-topic"></a>Créer une rubrique
+## <a name="create-a-topic"></a>Création d'une rubrique
 L’objet **ServiceBusService** permet d’utiliser des rubriques. Le code suivant crée un objet **ServiceBusService**. Ajoutez-le vers le début du fichier **server.js** , après l'instruction relative à l'importation du module Azure :
 
 ```javascript
@@ -148,9 +148,9 @@ var serviceBusService = azure.createServiceBusService().withFilter(retryOperatio
 Les abonnements de rubrique sont également créés à l’aide de l’objet **ServiceBusService**. Les abonnements sont nommés et peuvent être assortis d’un filtre facultatif qui limite l’ensemble des messages transmis à la file d’attente virtuelle de l’abonnement.
 
 > [!NOTE]
-> Les abonnements sont persistants jusqu’à leur suppression ou celle de la rubrique à laquelle ils sont associés. Si votre application contient une logique pour la création d’un abonnement, elle doit d’abord vérifier si l’abonnement existe en utilisant la méthode `getSubscription`.
+> Par défaut, les abonnements sont persistants jusqu’à leur suppression ou celle de la rubrique à laquelle ils sont associés. Si votre application contient une logique pour la création d’un abonnement, elle doit d’abord vérifier si l’abonnement existe en utilisant la méthode `getSubscription`.
 >
->
+> Vous pouvez supprimer automatiquement les abonnements en définissant la [propriété AutoDeleteOnIdle](https://docs.microsoft.com/javascript/api/azure-arm-sb/sbsubscription?view=azure-node-latest#autodeleteonidle).
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Création d’un abonnement avec le filtre par défaut (MatchAll)
 Le filtre **MatchAll** est par défaut utilisé lors de la création d’un abonnement. Lorsque vous utilisez le filtre **MatchAll**, tous les messages publiés dans la rubrique sont placés dans la file d’attente virtuelle de l’abonnement. Dans l’exemple suivant, l’abonnement AllMessages qui est créé utilise le filtre par défaut **MatchAll**.
@@ -314,7 +314,7 @@ De même, il faut savoir qu’un message verrouillé dans la rubrique est assort
 Si l’application subit un incident après le traitement du message, mais avant l’appel de la méthode `deleteMessage`, le message est à nouveau remis à l’application lorsqu’elle redémarre. Ce comportement est souvent appelé *Traitement au moins une fois*. Autrement dit, chaque message est traité au moins une fois, mais dans certaines situations, le même message peut être redistribué. Si le scénario ne peut pas tolérer le traitement en double, vous devez ajouter une logique à votre application pour traiter la remise de messages en double. Vous pouvez utiliser la propriété **MessageId** du message, qui reste constante pendant les tentatives de remise.
 
 ## <a name="delete-topics-and-subscriptions"></a>Suppression de rubriques et d'abonnements
-Les rubriques et les abonnements sont persistants et doivent être supprimés de façon explicite par le biais du [portail Azure][Azure portal] ou par programme.
+Les rubriques et les abonnements sont persistants, à moins que la propriété [autoDeleteOnIdle](https://docs.microsoft.com/javascript/api/azure-arm-sb/sbsubscription?view=azure-node-latest#autodeleteonidle) ne soit définie et doivent être supprimés de façon explicite par le biais du [portail Azure][Azure portal] ou par programme.
 L’exemple suivant montre comment supprimer la rubrique `MyTopic` :
 
 ```javascript
@@ -336,7 +336,7 @@ serviceBusService.deleteSubscription('MyTopic', 'HighMessages', function (error)
 ```
 
 > [!NOTE]
-> Vous pouvez gérer les ressources de Service Bus avec [Explorateur Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/). L’Explorateur Service Bus permet aux utilisateurs de se connecter à un espace de noms Service Bus et administrer les entités de messagerie de manière simple. L’outil fournit des fonctionnalités avancées telles que la fonctionnalité d’importation/exportation ou de la possibilité de tester une rubrique, files d’attente, abonnements, services de relais, hubs de notification et hubs d’événements. 
+> Vous pouvez gérer les ressources Service Bus à l'aide de [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer permet aux utilisateurs de se connecter à un espace de noms Service Bus et de gérer les entités de messagerie en toute simplicité. L’outil fournit des fonctionnalités avancées telles que la fonction d’importation/exportation ou la possibilité de tester une rubrique, des files d’attente, des abonnements, des services de relais, des hubs de notification et des hubs d’événements. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous avez appris les principes de base des rubriques Service Bus, consultez ces liens pour en savoir plus.

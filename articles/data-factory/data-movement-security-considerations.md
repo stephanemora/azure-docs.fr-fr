@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 635b45fe7f0108795c34f51081fa374c604036b2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3dab2da2d54efe73b7b782800b190ea8aac2b5cd
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66153295"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67460688"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Considérations de sécurité relatives au déplacement des données dans Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -119,7 +119,7 @@ Les informations d’identification associées à vos banques de données locale
 
 
 #### <a name="ports-used-when-encrypting-linked-service-on-self-hosted-integration-runtime"></a>Ports utilisés pendant le chiffrement du service lié sur le runtime d’intégration auto-hébergé
-Par défaut, PowerShell utilise le port 8050 sur la machine disposant du runtime d’intégration auto-hébergé pour garantir une communication sécurisée. Ce port peut être modifié en cas de besoin.  
+Par défaut, PowerShell utilise le port 8060 sur la machine disposant du runtime d’intégration auto-hébergé pour garantir une communication sécurisée. Ce port peut être modifié en cas de besoin.  
 
 ![Port HTTPS pour la passerelle](media/data-movement-security-considerations/https-port-for-gateway.png)
 
@@ -197,7 +197,7 @@ Oui. Plus de détails [ici](https://azure.microsoft.com/blog/sharing-a-self-host
 
 **Quelle sont les exigences de ports pour assurer un bon fonctionnement du runtime d’intégration auto-hébergé ?**
 
-Le runtime d’intégration auto-hébergé établit des connexions HTTP pour l’accès à Internet. Le port sortant 443 doit être ouvert pour que le runtime d’intégration autohébergé puisse établir cette connexion. Ouvrez le port entrant 8050 uniquement au niveau de la machine (et non au niveau du pare-feu d’entreprise) pour l’application du gestionnaire des informations d’identification. Si vous utilisez Azure SQL Database ou Azure SQL Data Warehouse comme source ou destination, vous devez également ouvrir le port 1433 également. Pour en savoir plus, consultez la section [Configurations du pare-feu et adresses IP de mise en liste verte](#firewall-configurations-and-whitelisting-ip-address-of-gateway). 
+Le runtime d’intégration auto-hébergé établit des connexions HTTP pour l’accès à Internet. Le port sortant 443 doit être ouvert pour que le runtime d’intégration autohébergé puisse établir cette connexion. Ouvrez le port entrant 8060 uniquement au niveau de la machine (et non au niveau du pare-feu d’entreprise) pour l’application du gestionnaire des informations d’identification. Si vous utilisez Azure SQL Database ou Azure SQL Data Warehouse comme source ou destination, vous devez également ouvrir le port 1433 également. Pour en savoir plus, consultez la section [Configurations du pare-feu et adresses IP de mise en liste verte](#firewall-configurations-and-whitelisting-ip-address-of-gateway). 
 
 
 ## <a name="next-steps"></a>Étapes suivantes

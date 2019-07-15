@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
-ms.date: 02/12/2019
+ms.date: 06/25/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 47a573fd4ed4d058b9f9a265c8774f0856371b94
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.openlocfilehash: 5380713af17a751ab695fee90895b4f6b0d2369b
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390098"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542809"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Types et structure de la réponse de l’API Recherche Web Bing  
 
@@ -39,6 +39,8 @@ Lorsque vous envoyez une demande de recherche à l’API Recherche Web Bing, cel
 ```
 
 En général, l’API Recherche Web Bing retourne un sous-ensemble des réponses. Par exemple, si le terme de requête est *sailing dinghies*, la réponse peut inclure `webPages`, `images` et `rankingResponse`. À moins que vous n’utilisiez [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) pour filtrer les pages web, la réponse inclut toujours les réponses `webpages` et `rankingResponse`.
+
+[!INCLUDE [cognitive-services-bing-url-note](../../../includes/cognitive-services-bing-url-note.md)]
 
 ## <a name="webpages-answer"></a>Réponse webPages
 
@@ -330,7 +332,7 @@ Si l’utilisateur entre une requête portant sur une heure ou une date, la rép
 
 La réponse `timeZone` fournit le nom de l’emplacement, la date et l’heure UTC actuelles à l’emplacement spécifié et le décalage UTC. Si l’emplacement couvre plusieurs fuseaux horaires, la réponse contient la date et l’heure UTC actuelles pour tous les fuseaux horaires concernés. Par exemple, l’État de Floride couvre deux fuseaux horaires. Par conséquent, la réponse contient la date et heure locales pour ces deux fuseaux horaires.  
 
-Si la requête demande à la fois d’état ou pays/région, Bing détermine la ville principale au sein des limites géographiques de l’emplacement et le retourne dans le `primaryCityTime` champ. Si ces limites couvrent plusieurs fuseaux horaires, les fuseaux horaires restants sont retournés dans le champ `otherCityTimes`.
+Si la requête porte sur l’heure actuelle dans un État ou un pays/une région, Bing détermine la principale ville incluse dans les limites géographiques correspondantes et la retourne dans le champ `primaryCityTime`. Si ces limites couvrent plusieurs fuseaux horaires, les fuseaux horaires restants sont retournés dans le champ `otherCityTimes`.
 
 L’exemple suivant illustre des requêtes retournant la réponse `timeZone`.
 
@@ -428,10 +430,6 @@ Si Bing détermine que l’utilisateur rechercherait peut-être autre chose, la 
     }]
 }, ...
 ```
-
-L’exemple suivant montre comment Bing utilise la suggestion orthographique.
-
-![Exemple de suggestion orthographique de Bing](./media/cognitive-services-bing-web-api/bing-web-spellingsuggestion.GIF)  
 
 ## <a name="response-headers"></a>En-têtes de réponse
 

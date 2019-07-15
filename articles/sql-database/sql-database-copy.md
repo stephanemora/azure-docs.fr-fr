@@ -12,20 +12,20 @@ ms.author: sahsan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 06/03/2019
-ms.openlocfilehash: ba787ccd51bf5ea9ec8e06e341a0f698afb5a7e2
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
-ms.translationtype: MT
+ms.openlocfilehash: 6a4d3fd0f7b670bbb0b01385252b405829a91baa
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66688074"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442311"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>Copier une copie cohérente au niveau transactionnel d'une base de données Azure SQL Database
 
-Azure SQL Database fournit plusieurs méthodes pour créer une copie cohérente au niveau transactionnel de la base de données Azure SQL existante sur le même serveur ou sur un autre serveur. Vous pouvez copier une base de données SQL à l’aide du portail Azure, de PowerShell ou de T-SQL. 
+Azure SQL Database fournit plusieurs méthodes pour créer une copie cohérente au niveau transactionnel de la base de données Azure SQL existante ([base de données unique](sql-database-single-database.md)) sur le même serveur ou sur un autre serveur. Vous pouvez copier une base de données SQL à l’aide du portail Azure, de PowerShell ou de T-SQL. 
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
-La copie de la base de données est une capture instantanée de la base de données source au moment de la demande de la copie. Vous pouvez sélectionner le même serveur ou un autre serveur. Vous pouvez également conserver son niveau de service et taille de calcul ou utiliser une taille de calcul différents dans le même niveau de service (édition). Une fois la copie terminée, elle devient une base de données indépendante et entièrement fonctionnelle. À ce stade, vous pouvez la mettre à niveau ou la rétrograder vers n’importe quelle édition. Les connexions, les utilisateurs et les autorisations peuvent être gérés indépendamment.  
+La copie de la base de données est une capture instantanée de la base de données source au moment de la demande de la copie. Vous pouvez sélectionner le même serveur ou un autre serveur. Vous pouvez également choisir de conserver son niveau de service et sa taille de calcul, ou d’utiliser une taille de calcul différente au sein du même niveau de service (édition). Une fois la copie terminée, elle devient une base de données indépendante et entièrement fonctionnelle. À ce stade, vous pouvez la mettre à niveau ou la rétrograder vers n’importe quelle édition. Les connexions, les utilisateurs et les autorisations peuvent être gérés indépendamment.  
 
 > [!NOTE]
 > Les [sauvegardes de base de données automatiques](sql-database-automated-backups.md) sont utilisées lorsque vous créez une copie de base de données.
@@ -50,7 +50,7 @@ Pour copier une base de données à l’aide du portail Azure, ouvrez la page de
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Pour copier une base de données à l’aide de PowerShell, utilisez le [New-AzSqlDatabaseCopy](/powershell/module/az.sql/new-azsqldatabasecopy) applet de commande. 
+Pour copier une base de données à l’aide de PowerShell, utilisez l’applet de commande [New-AzSqlDatabaseCopy](/powershell/module/az.sql/new-azsqldatabasecopy). 
 
 ```powershell
 New-AzSqlDatabaseCopy -ResourceGroupName "myResourceGroup" `
@@ -90,14 +90,14 @@ Cette commande copie Database1 sur server1 dans une nouvelle base de données no
     CREATE DATABASE Database2 AS COPY OF server1.Database1;
     
 > [!IMPORTANT]
-> Pare-feu de deux serveurs doivent être configurés pour autoriser la connexion entrante à partir de l’adresse IP du client émettant la commande de copie de T-SQL.
+> Les pare-feu des deux serveurs doivent être configurés pour autoriser la connexion entrante à partir de l’adresse IP du client émettant la commande T-SQL COPY.
 
 ### <a name="copy-a-sql-database-to-a-different-subscription"></a>Copier une base de données SQL vers un autre abonnement
 
-Vous pouvez utiliser le descrbed étapes dans la section précédente pour copier votre base de données à un serveur de base de données SQL dans un autre abonnement. Assurez-vous que vous utilisez une connexion qui a le même nom et mot de passe en tant que le propriétaire de la base de données de la base de données source et elle est membre du rôle dbmanager, soit la connexion du principal au niveau du serveur. 
+Vous pouvez utiliser les étapes décrites dans la section précédente pour copier votre base de données sur un serveur de base de données SQL d’un autre abonnement. Veillez à utiliser une connexion dont le nom et mot de passe sont identiques à ceux du propriétaire de la base de données source et qui est membre du rôle dbmanager, ou la connexion du principal au niveau du serveur. 
 
 > [!NOTE]
-> Le [Azure portal](https://portal.azure.com) ne prend pas en charge la copie vers un autre abonnement, car le portail appelle l’API ARM et il utilise les certificats d’abonnement pour accéder aux deux serveurs impliqués dans la géo-réplication.  
+> Le [portail Azure](https://portal.azure.com) ne prend pas en charge la copie vers un autre abonnement, car le portail appelle l’API ARM et utilise les certificats d’abonnement pour accéder aux deux serveurs impliqués dans la géoréplication.  
 
 ### <a name="monitor-the-progress-of-the-copying-operation"></a>Contrôle de la progression de l’opération de copie
 

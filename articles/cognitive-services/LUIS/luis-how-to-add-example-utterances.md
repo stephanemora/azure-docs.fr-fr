@@ -11,18 +11,18 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: badf351f8336e501b3ee1c035fcb389a570750c0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dd8ed146c507d8d39ba99c6573321ee80bc891c9
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65072849"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442577"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>Ajouter une entité à des exemples d’énoncés 
 
 Les exemples d’énoncés sont des exemples de texte de questions ou de commandes des utilisateurs. Pour permettre l’apprentissage de Language Understanding (LUIS), vous devez ajouter des [exemples d’énoncé](luis-concept-utterance.md) à une [intention](luis-concept-intent.md).
 
-En général, commencez par ajouter un exemple d’énoncé à une intention, puis créez des entités et étiquetez les énoncés dans la page d’intention. Si vous préférez commencer par créer des entités, voir [Ajouter des entités](luis-how-to-add-entities.md).
+En général, commencez par ajouter un exemple d’énoncé à une intention, puis créez des entités et étiquetez les énoncés dans la page d’**intention**. Si vous préférez commencer par créer des entités, voir [Ajouter des entités](luis-how-to-add-entities.md).
 
 ## <a name="marking-entities-in-example-utterances"></a>Marquage d’entités dans des exemples d’énoncés
 
@@ -32,7 +32,7 @@ Certains types d’entités, tels que les entités prédéfinies et les entités
 
 ## <a name="add-a-simple-entity"></a>Ajouter une entité simple
 
-Dans la procédure suivante, vous allez créer et marquer une entité personnalisée dans l’énoncé suivant dans la page d’intention :
+Dans la procédure suivante, vous allez créer et marquer une entité personnalisée dans l’énoncé suivant dans la page d’**intention** :
 
 ```text
 Are there any SQL server jobs?
@@ -65,9 +65,9 @@ Pour la liste des services d’une entreprise, vous pouvez avoir des valeurs nor
 
     Vous pouvez ajouter d’autres éléments de liste ou synonymes d’éléments en étiquetant d’autres énoncés, ou en modifiant l’entité à partir d’**Entités** dans le volet de navigation gauche. La [modification](luis-how-to-add-entities.md#add-list-entities) des entités vous offre la possibilité d’entrer des éléments supplémentaires avec des synonymes correspondants, ou d’importer une liste. 
 
-## <a name="add-composite-entity"></a>Ajouter une entité composite
+## <a name="add-a-composite-entity"></a>Ajouter une entité composite
 
-Les entités composites sont créées à partir d’**entités** existantes dans une entité parente. 
+Les entités composites sont créées à partir d’**entités** existantes pour former une entité parente. 
 
 Prenons l’énoncé `Does John Smith work in Seattle?` : un énoncé composite peut retourner les informations nom de l’employé `John Smith` et emplacement `Seattle` dans une entité composite. Il faut que les entités enfants existent déjà dans l’application et soient marquées dans l’exemple d’énoncé pour pouvoir créer l’entité composite.
 
@@ -135,11 +135,11 @@ Vous pouvez supprimer d’un énoncé des étiquettes apprises automatiquement s
 
 Pour supprimer une étiquette d’entité apprise automatiquement d’un énoncé, sélectionnez l’entité dans celui-ci. Sélectionnez ensuite **Remove Label** (Supprimer l’étiquette) dans la zone de liste déroulante de l’entité qui s’affiche.
 
-### <a name="add-prebuilt-entity-label"></a>Ajouter une étiquette d’entité prédéfinie
+### <a name="add-a-prebuilt-entity-label"></a>Ajouter une étiquette d’entité prédéfinie
 
 Quand vous ajoutez les entités prédéfinies à votre application LUIS, vous n’avez pas besoin de marquer les énoncés avec ces entités. Pour plus d’informations sur les entités prédéfinies et la manière de les ajouter, voir [Ajouter des entités](luis-how-to-add-entities.md#add-a-prebuilt-entity-to-your-app).
 
-### <a name="add-regular-expression-entity-label"></a>Ajouter une étiquette d’entité regular expression
+### <a name="add-a-regular-expression-entity-label"></a>Ajouter une étiquette d’entité regular expression
 
 Si vous ajoutez les entités d’expression régulière à votre application LUIS, vous n’avez pas besoin de marquer les énoncés avec ces entités. Pour plus d’informations sur les entités d’expression régulière et la manière de les ajouter, voir [Ajouter des entités](luis-how-to-add-entities.md#add-regular-expression-entities-for-highly-structured-concepts).
 
@@ -149,7 +149,7 @@ Si vous ajoutez les entités d’expression régulière à votre application LUI
 Voir [Ajouter un modèle à partir d’un énoncé existant sur une page d’intention ou d’entité](luis-how-to-model-intent-pattern.md#add-pattern-from-existing-utterance-on-intent-or-entity-page).
 
 
-### <a name="add-patternany-entity"></a>Ajouter une entité pattern.any
+### <a name="add-a-patternany-entity"></a>Ajouter une entité pattern.any
 
 Si vous ajoutez les entités pattern.any à votre application LUIS, vous ne pouvez pas étiqueter les énoncés avec ces entités. Elles sont valides uniquement dans des modèles. Pour plus d’informations sur les entités pattern.any et la manière de les ajouter, voir [Ajouter des entités](luis-how-to-add-entities.md#add-patternany-entities-to-capture-free-form-entities).
 
@@ -159,4 +159,4 @@ Après avoir ajouté, modifié ou supprimé des énoncés, [formez](luis-how-to-
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après étiquetage des énoncés dans vos intentions, vous pouvez créer une [entité composite](luis-how-to-add-entities.md).
+Après étiquetage des énoncés dans vos **intentions**, vous pouvez créer une [entité composite](luis-how-to-add-entities.md).

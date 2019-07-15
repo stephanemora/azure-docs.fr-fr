@@ -1,34 +1,30 @@
 ---
-title: Comprendre les conditions de votre grille tarifaire pour un Contrat client Microsoft - Azure | Microsoft Docs
-description: Apprenez à lire et à comprendre votre utilisation et la facturation de votre abonnement Azure
-services: ''
-documentationcenter: ''
-author: jureid
+title: Comprendre les conditions de votre grille tarifaire pour un Contrat client Microsoft - Azure
+description: Découvrir comment lire et comprendre vos données d’utilisation et de facture pour un Contrat client Microsoft.
+author: bandersmsft
 manager: jureid
-editor: ''
 tags: billing
-ms.assetid: 32eea268-161c-4b93-8774-bc435d78a8c9
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/19/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: eb6184e10d38cdcfad7070663e36f6610d009cdb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4d83228fbec395d604e5ce3f988d2a6157f21eed
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60371357"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490660"
 ---
-# <a name="understand-the-terms-in-your-price-sheet-for-a-microsoft-customer-agreement"></a>Comprendre les conditions de votre grille tarifaire pour un Contrat client Microsoft
+# <a name="terms-in-your-microsoft-customer-agreement-price-sheet"></a>Conditions de la grille tarifaire de votre Contrat client Microsoft
 
-Cet article s’applique à un compte de facturation associé à un Contrat client Microsoft. [Vérifiez que vous avez accès à un Contrat client Microsoft](#check-access-to-a-microsoft-customer-agreement).
+Cet article s’applique à un compte de facturation associé à un contrat client Microsoft. [Vérifiez que vous avez accès à un contrat client Microsoft](#check-access-to-a-microsoft-customer-agreement).
 
 Si vous êtes Propriétaire, Collaborateur, Lecteur ou Gestionnaire de factures d’un profil de facturation, vous pouvez télécharger la grille tarifaire de votre organisation à partir du Portail Azure. Consultez [Afficher et télécharger les tarifs de votre organisation](billing-ea-pricing.md).
 
-## <a name="detailed-terms-and-descriptions-in-your-microsoft-customer-agreement-price-sheet"></a>Conditions et descriptions détaillées de la grille tarifaire de votre Contrat client Microsoft
+## <a name="terms-and-descriptions-in-your-price-sheet"></a>Conditions et descriptions de votre grille tarifaire
 
 La section suivante décrit les conditions importantes figurant dans la grille tarifaire de votre Contrat client Microsoft.
 
@@ -45,7 +41,7 @@ La section suivante décrit les conditions importantes figurant dans la grille t
 | unitOfMeasure  | Identifie les unités de mesure pour la facturation du service. Par exemple, les services de calcul sont facturés à l’heure. |
 | meterId  | Identificateur unique de la mesure. |
 | meterName  | Nom du compteur. Le compteur représente la ressource déployable d’un service Azure. |
-| meterCategory  | Nom de la catégorie de classification pour le compteur. Par exemple, _services Cloud_, _mise en réseau_, etc. |
+| meterCategory  | Nom de la catégorie de classification du compteur. Par exemple, _services Cloud_, _mise en réseau_, etc. |
 | meterType  |  Nom du type de compteur. |
 | meterSubCategory  | Nom de la catégorie de sous-classification du compteur.  |
 | meterRegion  | Nom de la région où le compteur du service est disponible. Identifie l’emplacement du centre de données pour certains services dont le prix est basé sur cet emplacement.    |
@@ -61,7 +57,7 @@ La section suivante décrit les conditions importantes figurant dans la grille t
 
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
 
-Si vous avez des questions ou besoin d’aide, [créez une requête de support](https://go.microsoft.com/fwlink/?linkid=2083458).
+Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

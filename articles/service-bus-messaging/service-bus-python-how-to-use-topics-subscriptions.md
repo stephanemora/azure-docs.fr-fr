@@ -14,18 +14,18 @@ ms.devlang: python
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: 47cd0621a601e3f1ef53572bc7bb8bc1c7ea76ab
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
-ms.translationtype: MT
+ms.openlocfilehash: cd75ba9d407399703a382596019d5f370808b20a
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991996"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543658"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-python"></a>Utilisation des rubriques et abonnements Service Bus avec Python
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-Cet article explique comment utiliser les rubriques et les abonnements Service Bus. Ces exemples sont écrits en Python et utilisent le [package du Kit de développement logiciel (SDK) Azure Python][Azure Python package]. Parmi les scénarios présentés :
+Cet article explique comment utiliser les rubriques et les abonnements Service Bus. Ces exemples sont écrits en Python et utilisent le [package du Kit de développement logiciel (SDK) Python][Azure Python package]. Parmi les scénarios présentés :
 
 - Création de rubriques et d’abonnements 
 - Création de filtres d’abonnement 
@@ -33,15 +33,15 @@ Cet article explique comment utiliser les rubriques et les abonnements Service B
 - Réception de messages à partir d’un abonnement
 - Suppression de rubriques et d’abonnements
 
-## <a name="prerequisites"></a>Conditions préalables
-1. Un abonnement Azure. Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Vous pouvez activer votre [avantages pour les abonnés Visual Studio ou MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou vous inscrire pour un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Suivez les étapes de la [Guide de démarrage rapide : Utiliser le portail Azure pour créer une rubrique Service Bus et des abonnements à la rubrique](service-bus-quickstart-topics-subscriptions-portal.md) pour créer un Service Bus **espace de noms** et obtenir le **chaîne de connexion**.
+## <a name="prerequisites"></a>Prérequis
+1. Un abonnement Azure. Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Vous pouvez activer les [avantages de votre abonnement Visual Studio ou MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou vous inscrire pour un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Suivez les étapes du [Démarrage rapide : utiliser le portail Azure pour créer une rubrique Service Bus et des abonnements à cette rubrique](service-bus-quickstart-topics-subscriptions-portal.md) pour créer un **espace de noms** Service Bus et obtenir la **chaîne de connexion**.
 
     > [!NOTE]
-    > Vous allez créer un **rubrique** et un **abonnement** à la rubrique à l’aide de **Python** dans ce démarrage rapide. 
-3. Installer [package Azure Python][Azure Python package]. Consultez le [Guide d’Installation de Python](../python-how-to-install.md).
+    > Vous allez créer une **rubrique** et un **abonnement** à la rubrique à l’aide de **Python** dans ce démarrage rapide. 
+3. Installez le [package Python Azure][Azure Python package]. Consultez le [Guide d’installation de Python](../python-how-to-install.md).
 
-## <a name="create-a-topic"></a>Créer une rubrique
+## <a name="create-a-topic"></a>Création d'une rubrique
 
 L’objet **ServiceBusService** permet d’utiliser des rubriques. Ajoutez le code suivant au début de chaque fichier Python dans lequel vous souhaitez accéder à Service Bus par programme :
 
@@ -58,7 +58,7 @@ bus_service = ServiceBusService(
     shared_access_key_value='sharedaccesskey')
 ```
 
-Vous pouvez obtenir les valeurs pour la valeur et le nom de la clé SAP à partir du [portail Azure][Azure portal].
+Vous pouvez obtenir les valeurs pour la valeur et le nom de la clé SAP à partir de la fenêtre à partir du [portail Azure][Azure portal].
 
 ```python
 bus_service.create_topic('mytopic')
@@ -79,9 +79,9 @@ bus_service.create_topic('mytopic', topic_options)
 Les abonnements à des rubriques sont également créés à l’aide de l’objet **ServiceBusService**. Les abonnements sont nommés et peuvent être assortis d'un filtre facultatif qui limite l'ensemble des messages transmis à la file d'attente virtuelle de l'abonnement.
 
 > [!NOTE]
-> Les abonnements sont persistants et continuent à exister jusqu’à leur suppression ou celle de la rubrique à laquelle ils sont abonnés.
+> Par défaut, les abonnements sont persistants et continuent à exister jusqu’à leur suppression ou celle de la rubrique à laquelle ils sont abonnés.
 > 
-> 
+> Vous pouvez supprimer automatiquement les abonnements en définissant la [propriété auto_delete_on_idle](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python).
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Création d’un abonnement avec le filtre par défaut (MatchAll)
 
@@ -95,7 +95,7 @@ bus_service.create_subscription('mytopic', 'AllMessages')
 
 Vous pouvez également définir des filtres pour spécifier quels sont les messages, parmi ceux envoyés à une rubrique, qui doivent apparaître dans un abonnement de rubrique spécifique.
 
-Le type de filtre le plus flexible pris en charge par les abonnements est **SqlFilter**, qui implémente un sous-ensemble de SQL92. Les filtres SQL opèrent au niveau des propriétés des messages publiés dans la rubrique. Pour plus d’informations sur les expressions utilisables avec un filtre SQL, consultez la syntaxe de [SqlFilter.SqlExpression][SqlFilter.SqlExpression].
+Le type de filtre le plus flexible pris en charge par les abonnements est **SqlFilter**, qui implémente un sous-ensemble de SQL92. Les filtres SQL opèrent au niveau des propriétés des messages publiés dans la rubrique. Pour plus d’informations sur les expressions utilisables avec un filtre SQL, examinez la syntaxe [SqlFilter.SqlExpression][SqlFilter.SqlExpression].
 
 Vous pouvez ajouter des filtres à un abonnement en utilisant la méthode **create\_rule** de l’objet **ServiceBusService**. Cette méthode vous permet d’ajouter de nouveaux filtres à un abonnement existant.
 
@@ -174,11 +174,11 @@ Service Bus intègre des fonctionnalités destinées à faciliter la récupérat
 
 De même, il faut savoir qu’un message verrouillé dans un abonnement est assorti d’un délai d’expiration et que si l’application ne parvient pas à traiter le message dans le temps imparti (par exemple, si l’application subit un incident), Service Bus déverrouille le message automatiquement et le rend à nouveau disponible en réception.
 
-Si l’application subit un incident après le traitement du message, mais avant l’appel de la méthode `delete`, le message est à nouveau remis à l’application lorsqu’elle redémarre. Ce traitement est souvent appelé Au moins une fois le traitement\*; autrement dit, chaque message est traité au moins une fois, mais dans certaines situations le même message peut être redistribué. Toutefois, dans certaines circonstances, un même message peut être remis une nouvelle fois. Pour cela, vous pouvez utiliser la propriété **MessageId** du message, qui reste constante pendant les tentatives de remise.
+Si l’application subit un incident après le traitement du message, mais avant l’appel de la méthode `delete`, le message est à nouveau remis à l’application lorsqu’elle redémarre. Ce traitement est souvent appelé Au moins une fois\*. Chaque message est traité au moins une fois, mais dans certaines circonstances, un même message peut être remis une nouvelle fois. Toutefois, dans certaines circonstances, un même message peut être remis une nouvelle fois. Pour cela, vous pouvez utiliser la propriété **MessageId** du message, qui reste constante pendant les tentatives de remise.
 
 ## <a name="delete-topics-and-subscriptions"></a>Suppression de rubriques et d'abonnements
 
-Les rubriques et les abonnements sont persistants et doivent être supprimés de façon explicite par le biais du [portail Azure][Azure portal] ou par programme. L’exemple suivant indique comment supprimer la rubrique nommée `mytopic` :
+Les rubriques et abonnements sont persistants, sauf si la [propriété auto_delete_on_idle](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python) est définie. Ils peuvent être supprimés via le [portail Azure][Azure portal] ou par programmation. L’exemple suivant indique comment supprimer la rubrique nommée `mytopic` :
 
 ```python
 bus_service.delete_topic('mytopic')
@@ -191,13 +191,13 @@ bus_service.delete_subscription('mytopic', 'HighMessages')
 ```
 
 > [!NOTE]
-> Vous pouvez gérer les ressources de Service Bus avec [Explorateur Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/). L’Explorateur Service Bus permet aux utilisateurs de se connecter à un espace de noms Service Bus et administrer les entités de messagerie de manière simple. L’outil fournit des fonctionnalités avancées telles que la fonctionnalité d’importation/exportation ou de la possibilité de tester une rubrique, files d’attente, abonnements, services de relais, hubs de notification et hubs d’événements. 
+> Vous pouvez gérer les ressources Service Bus à l'aide de [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer permet aux utilisateurs de se connecter à un espace de noms Service Bus et de gérer les entités de messagerie en toute simplicité. L’outil fournit des fonctionnalités avancées telles que la fonction d’importation/exportation ou la possibilité de tester une rubrique, des files d’attente, des abonnements, des services de relais, des hubs de notification et des hubs d’événements. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Maintenant que vous avez appris les principes de base des rubriques Service Bus, consultez ces liens pour en savoir plus.
 
-* Consultez [Files d’attente, rubriques et abonnements][Queues, topics, and subscriptions].
+* Consultez [Files d’attente, rubriques et abonnements Service Bus][Queues, topics, and subscriptions].
 * Référence pour [SqlFilter.SqlExpression][SqlFilter.SqlExpression].
 
 [Azure portal]: https://portal.azure.com
