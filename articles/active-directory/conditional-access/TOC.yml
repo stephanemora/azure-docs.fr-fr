@@ -44,7 +44,7 @@
       items:
         - name: Demander l’authentification multifacteur pour les administrateurs
           href: howto-baseline-protect-administrators.md
-        - name: Protection de l’utilisateur final
+        - name: Protection des utilisateurs finaux
           href: howto-baseline-protect-end-users.md
         - name: Bloquer l’authentification héritée
           href: howto-baseline-protect-legacy-auth.md
@@ -52,22 +52,22 @@
           href: howto-baseline-protect-azure.md
     - name: Bloquer l’authentification héritée
       href: block-legacy-authentication.md
-    - name: Migrer les stratégies classiques
-      href: policy-migration.md
-    - name: Contrôles de la fréquence des connexions et de la persistance du navigateur
-      href: howto-conditional-access-session-lifetime.md
+    - name: Accès conditionnel pour l’inscription MFA
+      href: '../authentication/howto-registration-mfa-sspr-combined.md#conditional-access-policies-for-combined-registration'
     - name: Exiger des applications client approuvées
       href: app-based-conditional-access.md
     - name: Exiger une stratégie de protection des applications
       href: app-protection-based-conditional-access.md
     - name: Exiger des appareils gérés
       href: require-managed-devices.md
-    - name: Exiger des réseaux approuvés pour l’inscription MFA
-      href: '../authentication/howto-registration-mfa-sspr-combined.md#conditional-access-policies-for-combined-registration'
     - name: Exiger une authentification multifacteur pour les tentatives d’accès à partir de réseaux non approuvés
       href: untrusted-networks.md
     - name: Exiger des conditions d’utilisation
       href: terms-of-use.md
+    - name: Contrôles de la fréquence des connexions et de la persistance du navigateur
+      href: howto-conditional-access-session-lifetime.md
+    - name: Migrer les stratégies classiques
+      href: policy-migration.md
 - name: Informations de référence
   items:
     - name: Référence technique

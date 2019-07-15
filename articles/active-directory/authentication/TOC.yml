@@ -16,8 +16,6 @@
       href: tutorial-sspr-pilot.md
     - name: Activer l’intégration locale SSPR
       href: tutorial-enable-writeback.md
-    - name: Activer la réinitialisation de mot de passe pour Windows 10
-      href: tutorial-sspr-windows.md
     - name: Intégrer Azure Identity Protection
       href: tutorial-risk-based-sspr-mfa.md
 - name: Concepts
@@ -73,8 +71,8 @@
           href: howto-sspr-authenticationdata.md
         - name: Activer la réécriture du mot de passe
           href: howto-sspr-writeback.md
-        - name: 'SSPR pour Windows 7, 8 et 8.1'
-          href: howto-sspr-windows-7-8.md
+        - name: SSPR pour les clients Windows
+          href: howto-sspr-windows.md
     - name: Authentification multifacteur sur le cloud
       items:
         - name: Déployer une authentification multifacteur sur le cloud

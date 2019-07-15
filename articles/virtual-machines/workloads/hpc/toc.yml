@@ -1,7 +1,9 @@
 - name: Documentation sur le calcul haute performance
   items:
     - name: Vue d'ensemble
-      href: 'https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/'
+      items:
+        - name: "HPC pour machines virtuelles de série\_H"
+          href: overview.md
     - name: Configuration
       items:
         - name: Optimisation pour Linux

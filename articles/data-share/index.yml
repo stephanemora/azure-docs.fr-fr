@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   ms.date: 07/10/2019
 abstract:
-  description: '<p>Azure Data Share (préversion) est un service sécurisé de partage de données avec des organisations tierces. Sélectionnez les jeux de données à partager, ajoutez des destinataires et commencez à partager des données avec la possibilité de régir, superviser et contrôler vos relations de partage de données. </p><p>Suivez nos tutoriels pour apprendre à utiliser Azure Data Share.</p>'
+  description: '<p>Azure Data Share (préversion) est un service sécurisé de partage de données avec des organisations tierces. Sélectionnez les jeux de données à partager, ajoutez des destinataires et commencez à partager des données avec la possibilité de régir, superviser et contrôler vos relations de partage de données. </p><p>Suivez nos tutoriels et nos guides pratiques pour apprendre à utiliser Azure Data Share.</p>'
   aside:
     image:
       alt: null

@@ -131,6 +131,8 @@
           href: search-what-is-an-index.md
         - name: Créer un index (portail)
           href: search-create-index-portal.md
+        - name: Créer un index multilingue
+          href: search-language-support.md
         - name: Analyseurs
           items:
             - name: Ajout d’analyseurs
@@ -360,6 +362,8 @@
       href: 'https://azure.microsoft.com/support/community/?product=search'
     - name: Mises à jour Azure
       href: 'https://azure.microsoft.com/updates/?product=search'
+    - name: Forum de commentaires (UserVoice)
+      href: 'https://feedback.azure.com/forums/263029-azure-search'
     - name: Sites de démonstration
       items:
         - name: Présentation des fichiers financiers

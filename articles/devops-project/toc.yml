@@ -1,6 +1,6 @@
 - name: Documentation Azure DevOps Projects
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: Présentation d’Azure DevOps Project
       href: overview.md
@@ -44,4 +44,10 @@
       maintainContext: true
     - name: 5 - Déployer sur Azure Service Fabric
       href: azure-devops-project-service-fabric.md
+      maintainContext: true
+    - name: 6 - Déployer sur Azure Cosmos DB
+      href: azure-devops-project-cosmos-db.md
+      maintainContext: true
+    - name: 7 - Déployer sur Azure Functions
+      href: azure-devops-project-functions.md
       maintainContext: true

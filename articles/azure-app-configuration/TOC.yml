@@ -29,6 +29,8 @@
   items:
     - name: Activer la configuration dynamique dans ASP.NET Core
       href: enable-dynamic-configuration-aspnet-core.md
+    - name: Activer la configuration dynamique dans une application .NET Core
+      href: enable-dynamic-configuration-dotnet-core.md
     - name: Utiliser des indicateurs de fonctionnalité dans une application .NET Core
       href: use-feature-flags-dotnet-core.md
     - name: Gérer les indicateurs de fonctionnalité
@@ -37,7 +39,7 @@
       href: integrate-ci-cd-pipeline.md
 - name: Exemples
   items:
-    - name: D’Azure CLI
+    - name: Azure CLI
       href: cli-samples.md
 - name: Concepts
   items:

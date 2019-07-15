@@ -66,6 +66,8 @@
           href: write-queries.md
         - name: Interroger des données dans Azure Data Lake
           href: data-lake-query-data.md
+        - name: Interroger des données dans Azure Monitor
+          href: query-monitor-data.md
         - name: Python
           href: python-query-data.md
         - name: Analyse des séries chronologiques et machine learning

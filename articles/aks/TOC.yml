@@ -126,6 +126,8 @@
           href: virtual-kubelet.md
         - name: Utiliser le programme de mise à l’échelle automatique de cluster (préversion)
           href: cluster-autoscaler.md
+        - name: Utiliser des zones de disponibilité (préversion)
+          href: availability-zones.md
         - name: Utiliser plusieurs pools de nœuds (préversion)
           href: use-multiple-node-pools.md
         - name: Déployer AKS avec Terraform
@@ -315,11 +317,13 @@
         - name: Azure DevOps Project
           href: ../devops-project/azure-devops-project-aks.md
           maintainContext: true
+        - name: Lanceur du centre de déploiement
+          href: deployment-center-launcher.md
     - name: Résolution des problèmes
       items:
         - name: Problèmes courants
           href: troubleshooting.md
-        - name: Vérification des meilleures pratiques
+        - name: Recherche de bonnes pratiques
           href: kube-advisor-tool.md
         - name: Accès au nœud SSH
           href: ssh.md

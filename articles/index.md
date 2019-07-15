@@ -6,12 +6,12 @@ description: Découvrez comment créer et gérer des applications performantes �
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: f7a0afd8058d2de277da8f7ab3d1eb37abae4add
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: f46239e524796dbdcaa6e9720e9cc8ecc3e31368
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67544180"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839731"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -108,14 +108,14 @@ ms.locfileid: "67544180"
                                             <div class="cardText">
                                                 <h3>Sécuriser et gérer les ressources</h3>
                                                 <ul class="noBullet">
-                                                    <li><a class="barLink" href="/azure/security-center/">Centre de sécurité Azure</a></li>
-                                                    <li><a class="barLink" href="/azure/monitoring-and-diagnostics/">Azure Monitor</a></li>
-                                                    <li><a class="barLink" href="/azure/application-insights/">Azure Application Insights</a></li>
-                                                    <li><a class="barLink" href="/azure/cost-management/">Azure Cost Management</a></li>
                                                     <li><a class="barLink" href="/azure/backup/">Sauvegarde Azure</a></li>
-                                                    <li><a class="barLink" href="/azure/site-recovery/">Azure Site Recovery</a></li>
+                                                    <li><a class="barLink" href="/azure/cost-management/">Azure Cost Management</a></li>
                                                     <li><a class="barLink" href="/azure/migrate/">Azure Migrate</a></li>
+                                                    <li><a class="barLink" href="/azure/monitoring-and-diagnostics/">Azure Monitor</a></li>
                                                     <li><a class="barLink" href="/azure/governance/policy/">Azure Policy</a></li>
+                                                    <li><a class="barLink" href="/azure/security-center/">Centre de sécurité Azure</a></li>
+                                                    <li><a class="barLink" href="/azure/lighthouse/">Azure Lighthouse</a></li>
+                                                    <li><a class="barLink" href="/azure/site-recovery/">Azure Site Recovery</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -1864,6 +1864,12 @@ Automatiser des tâches Azure à l’aide de scripts avec PowerShell </a>
                                             <a href="/azure/azure-signalr/">
                                                 <img src="media/index/azure-signalr.svg" alt="" />
                                                 <p>Service Azure SignalR</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/lighthouse/">
+                                                <img src="media/index/azure-resource-manager.svg" alt="" />
+                                                <p>Azure Lighthouse</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -5809,6 +5815,25 @@ Automatiser des tâches Azure à l’aide de scripts avec PowerShell </a>
                                                 <div class="cardText">
                                                     <h3>Data Lake Storage Gen2</h3>
                                                     <p>Data Lake Storage hautement évolutif et sécurisé reposant sur le stockage d’objets blob</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/lighthouse/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure-resource-manager.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Lighthouse</h3>
+                                                    <p>Gérer les ressources de clients à grande échelle</p>
                                                 </div>
                                             </div>
                                         </div>

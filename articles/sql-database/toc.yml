@@ -30,6 +30,8 @@
       items:
         - name: Règles de pare-feu IP au niveau du serveur
           href: sql-database-server-level-firewall-rule.md
+        - name: Configurer un point de terminaison public sur une instance managée
+          href: sql-database-managed-instance-public-endpoint-configure.md
         - name: Connexion de machine virtuelle cliente à une instance managée
           href: sql-database-managed-instance-configure-vm.md
         - name: Connexion point à site à une instance managée
@@ -512,8 +514,6 @@
           href: sql-database-managed-instance-threat-detection.md
         - name: Connecter des applications
           href: sql-database-managed-instance-connect-app.md
-        - name: Configurer un point de terminaison public
-          href: sql-database-managed-instance-public-endpoint-configure.md
     - name: Charger et déplacer des données
       items:
         - name: Copier une base de données dans Azure

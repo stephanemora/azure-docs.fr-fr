@@ -11,17 +11,27 @@
       href: publish-managed-app-definition-quickstart.md
     - name: Déployer une application de catalogue de services
       href: deploy-service-catalog-quickstart.md
+    - name: Créer un fournisseur de ressources personnalisé
+      href: create-custom-provider.md
 - name: Tutoriels
   items:
+    - name: Fournisseurs personnalisés
+      items:
+        - name: Bien démarrer avec les fournisseurs personnalisés
+          href: tutorial-custom-providers-101.md
+        - name: Configurer Azure Functions
+          href: tutorial-custom-providers-function-setup.md
+        - name: Créer un point de terminaison RESTful
+          href: tutorial-custom-providers-function-authoring.md
+        - name: Créer et utiliser des fournisseurs personnalisés
+          href: tutorial-custom-providers-create.md
     - name: Créer les fichiers de définition
       href: publish-service-catalog-app.md
     - name: Publier l’application marketplace
       href: publish-marketplace-app.md
-    - name: Créer un fournisseur de ressources personnalisé
-      href: create-custom-provider.md
 - name: Exemples
   items:
-    - name: D’Azure CLI
+    - name: L’interface Azure CLI
       href: cli-samples.md
     - name: Azure PowerShell
       href: powershell-samples.md
@@ -29,13 +39,13 @@
       href: sample-projects.md
 - name: Concepts
   items:
-    - name: Fournisseurs de ressources personnalisées Azure
+    - name: Fournisseurs personnalisés Azure
       href: custom-providers-overview.md
     - name: Afficher un artefact de définition
       href: concepts-view-definition.md
 - name: Guides pratiques
   items:
-    - name: Fournisseurs de ressources personnalisées
+    - name: Fournisseurs personnalisés
       items:
         - name: Ajouter des actions personnalisées dans Azure
           href: custom-providers-action-endpoint-how-to.md
@@ -65,12 +75,14 @@
           href: approve-just-in-time-access.md
 - name: Informations de référence
   items:
-    - name: Fournisseurs de ressources personnalisées
+    - name: Fournisseurs personnalisés
       items:
         - name: Informations de référence sur les proxys de ressources personnalisées
           href: custom-providers-proxy-resource-endpoint-reference.md
         - name: Informations de référence sur les caches de ressources personnalisées
           href: custom-providers-proxy-cache-resource-endpoint-reference.md
+        - name: Informations de référence sur le point de terminaison RESTful de fournisseur personnalisé
+          href: reference-custom-providers-csharp-endpoint.md
     - name: D’Azure CLI
       href: /cli/azure/managedapp
     - name: PowerShell

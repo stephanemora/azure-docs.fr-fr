@@ -1,0 +1,59 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentation Azure Lighthouse
+metadata:
+  title: Documentation Azure Lighthouse
+  description: Découvrir comment gérer les ressources de client à grande échelle
+  author: JnHs
+  manager: carmonm
+  ms.service: lighthouse
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 07/11/2019
+  ms.author: jenhayes
+abstract:
+  description: 'Azure Lighthouse offre aux fournisseurs de services un plan de contrôle unique pour voir et gérer Azure sur tous leurs clients avec une automatisation supérieure, une mise à l’échelle et une gouvernance avancée.'
+sections:
+  - title: Concepts
+    items:
+      - type: paragraph
+        text: Découvrez les principaux aspects d’Azure Lighthouse.
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="concepts/azure-delegated-resource-management">Gestion des ressources déléguées Azure</a>
+          - html: <a href="concepts/cross-tenant-management-experience">Expériences de la gestion multilocataire</a>
+          - html: <a href="concepts/managed-services-offers">Offres de services managés dans la Place de marché Azure</a>
+          - html: <a href="concepts/recommended-security-practices.md">Pratiques de sécurité recommandées</a>
+          - html: <a href="concepts/cloud-solution-provider.md">Considérations sur le programme des fournisseurs de solutions cloud</a>
+  - title: Guides pratiques
+    items:
+      - type: paragraph
+        text: Découvrez comment intégrer des clients pour la gestion des ressources déléguées Azure et comment gérer leurs ressources.
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="how-to/onboard-customer">Intégrer un client dans la gestion des ressources déléguées Azure</a>
+          - html: <a href="how-to/publish-managed-services-offers">Publier des offres de services managés sur la Place de marché Azure</a>
+          - html: <a href="how-to/view-manage-customers">Voir et gérer les clients et les ressources déléguées</a>
+          - html: <a href="how-to/view-manage-service-providers">Voir et gérer les fournisseurs de services</a>
+  - title: Exemples
+    items:
+      - type: paragraph
+        text: Consultez les exemples et les modèles disponibles qui vous aideront à utiliser Azure Lighthouse.
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="samples/index">Index d’exemples</a>
+  - title: Informations de référence
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Languages
+            html: '<p><a href="/dotnet/api/Microsoft.Azure.Management.ManagedServices">Kit de développement logiciel (SDK) Azure pour .NET</a></p><p><a href="https://www.nuget.org/packages/Microsoft.Azure.Management.ManagedServices/">SDK Azure pour .NET (NuGet)</a></p><p><a href="https://docs.microsoft.com/python/api/azure-mgmt-managedservices">Kit de développement logiciel (SDK) Azure pour Python</a></p><p><a href="https://pypi.org/project/azure-mgmt-managedservices/">Kit SDK Azure pour Python (PyPi)</a></p>'
+          - title: REST
+            html: '<p><a href="https://docs.microsoft.com/rest/api/managedservices/">Référence sur l’API</a></p><p><a href="https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managedservices/resource-manager/Microsoft.ManagedServices/stable/2019-06-01">2019-06-01 (OpenAPI)</a></p>'
