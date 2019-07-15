@@ -81,7 +81,7 @@ Get-AzEnvironment | select Name, StorageEndpointSuffix
 
 Cette commande retourne les résultats suivants.
 
-| Nom| StorageEndpointSuffix|
+| Name| StorageEndpointSuffix|
 |----|----|
 | AzureChinaCloud | core.chinacloudapi.cn|
 | AzureCloud | core.windows.net |
