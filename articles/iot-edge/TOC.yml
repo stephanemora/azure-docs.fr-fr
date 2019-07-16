@@ -137,10 +137,14 @@
           href: how-to-update-iot-edge.md
     - name: Provisionnement automatique avec DPS
       items:
-        - name: Linux
-          href: how-to-auto-provision-simulated-device-linux.md
-        - name: Windows
-          href: how-to-auto-provision-simulated-device-windows.md
+        - name: Attestation de clé symétrique
+          href: how-to-auto-provision-symmetric-keys.md
+        - name: Attestation TPM
+          items:
+            - name: Linux
+              href: how-to-auto-provision-simulated-device-linux.md
+            - name: Windows
+              href: how-to-auto-provision-simulated-device-windows.md
     - name: Développer et déboguer des modules personnalisés
       items:
         - name: "Visual Studio\_2019"
@@ -159,7 +163,7 @@
       items:
         - name: Portail Azure
           href: how-to-deploy-monitor.md
-        - name: Azure CLI
+        - name: D’Azure CLI
           href: how-to-deploy-monitor-cli.md
     - name: Utiliser des appareils IoT Edge comme passerelles
       items:

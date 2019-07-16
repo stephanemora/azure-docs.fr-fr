@@ -7,12 +7,12 @@ ms.service: blueprints
 ms.topic: sample
 ms.date: 06/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: 2cb5f08cfc6e6bbf0f2df4cef44e4ecd1aa3aadf
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 743cd27b5328cae2fe19688f6d0638d6f706d8a8
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67428732"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68225973"
 ---
 # <a name="azure-blueprints-samples"></a>Exemples Azure Blueprints
 
@@ -27,6 +27,7 @@ Le tableau suivant inclut des liens vers des exemples pour Azure Blueprints. Cha
 | [NIST SP 800-53 R4](./nist-sp-800-53-rev4/control-mapping.md) | Propose des rails de sécurité pour la conformité à NIST SP 800-53 R4. |
 | [PCI-DSS v3.2.1](./pci-dss-3.2.1/index.md) | Fournit un ensemble de stratégies pour la mise en conformité à PCI-DSS v3.2.1. |
 | [Gouvernance de UK OFFICIAL et de UK NHS](./ukofficial/index.md) | Fournit un ensemble de modèles d’infrastructure conformes et de garde-fous stratégiques qui facilitent l’attestation UK OFFICIAL et UK NHS. |
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 
