@@ -1681,7 +1681,7 @@ En général, une transformation basée sur le comptage ne peut être appliquée
 |------------------------|  
 |Le fichier de définition de module contient des erreurs.|  
 |Le fichier de définition de module « {0} » contient des erreurs.|  
-|Le fichier de définition de module « {0} » contient des erreurs. [https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip]({1})|  
+|Le fichier de définition de module « {0} » contient des erreurs. {1}|  
   
 
 ## <a name="error-0114"></a>Erreur 0114  
@@ -2082,7 +2082,7 @@ Résolution :
 |Messages d’exception|  
 |------------------------|  
 |Erreur d’accès à GitHub.|  
-|Erreur d’accès à GitHub. [https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip]({0})|  
+|Erreur d’accès à GitHub. {0}|  
   
 
 ## <a name="error-0148"></a>Erreur 0148  

@@ -30,7 +30,7 @@
   items:
     - name: Créer un cluster et une base de données
       items:
-        - name: D’Azure CLI
+        - name: Azure CLI
           href: create-cluster-database-cli.md
         - name: PowerShell
           href: create-cluster-database-powershell.md
@@ -102,6 +102,8 @@
           href: manage-database-permissions.md
         - name: Vérifier l’intégrité des clusters
           href: check-cluster-health.md
+        - name: Sélectionner une référence SKU de machine virtuelle de cluster
+          href: manage-cluster-choose-sku.md
         - name: Gérer la mise à l’échelle horizontale des clusters
           href: manage-cluster-horizontal-scaling.md
         - name: Gérer la mise à l’échelle verticale des clusters

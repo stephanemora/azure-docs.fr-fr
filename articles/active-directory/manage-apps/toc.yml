@@ -59,9 +59,9 @@
           href: isv-create-sso-documentation.md
         - name: Planification d’un déploiement d’authentification unique
           href: plan-sso-deployment.md
-    - name: Authentification SSO en un clic
+    - name: SSO en un clic
       items:
-        - name: Qu’est-ce que l’authentification SSO en un clic
+        - name: Configuration SSO en un clic
           href: one-click-sso-tutorial.md
     - name: Provisionnement d'utilisateurs et de groupes
       items:

@@ -139,7 +139,7 @@ MSAL.NET transforme le cache de jetons en classe sealed, en supprimant la possib
 
 ## <a name="signification-of-the-common-authority"></a>Signification de l’autorité commune
 
-Dans v1.0, si vous utilisez l’autorité https://login.microsoftonline.com/common, vous autorisez les utilisateurs à se connecter à n’importe quel compte AAD (pour n’importe quelle organisation). Consultez [Validation de l’autorité dans ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AuthenticationContext:-the-connection-to-Azure-AD#authority-validation).
+Dans v1.0, si vous utilisez l’autorité https://login.microsoftonline.com/common , vous autorisez les utilisateurs à se connecter à n’importe quel compte AAD (pour n’importe quelle organisation). Consultez [Validation de l’autorité dans ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AuthenticationContext:-the-connection-to-Azure-AD#authority-validation).
 
 Si vous utilisez l’autorité https://login.microsoftonline.com/common dans v2.0, vous autorisez les utilisateurs à se connecter à n’importe quelle organisation AAD ou à un compte personnel Microsoft (MSA). Dans MSAL.NET, si vous voulez limiter la connexion à un compte AAD (même comportement qu’avec ADAL.NET), vous devez utiliser https://login.microsoftonline.com/organizations. Pour plus d’informations, consultez le paramètre `authority` dans l’[application cliente publique](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Client-Applications#publicclientapplication).
 
@@ -161,7 +161,7 @@ Les autorisations OAuth2 sont des étendues d’autorisation qu’une applicatio
 
 ### <a name="scopes-to-request-access-to-specific-oauth2-permissions-of-a-v10-application"></a>Étendues pour demander l’accès à des autorisations OAuth2 spécifiques d’une application v1.0
 
-Pour acquérir des jetons pour des étendues spécifiques d’une application v1.0 (par exemple, AAD Graph, à savoir https://graph.windows.net)), vous devez créer des `scopes` en concaténant un identificateur de ressource de votre choix avec une autorisation OAuth2 souhaitée pour cette ressource.
+Pour acquérir des jetons pour des étendues spécifiques d’une application v1.0 (par exemple, AAD Graph, à savoir https://graph.windows.net) ), vous devez créer des `scopes` en concaténant un identificateur de ressource de votre choix avec une autorisation OAuth2 souhaitée pour cette ressource.
 
 Par exemple, pour accéder au nom de l’utilisateur à une API web v1.0 dont l’URI de l’ID d’application est `ResourceId`, vous devez utiliser :
 
@@ -169,7 +169,7 @@ Par exemple, pour accéder au nom de l’utilisateur à une API web v1.0 dont l�
 var scopes = new [] {  ResourceId+"/user_impersonation"};
 ```
 
-Pour lire et écrire avec MSAL.NET Azure Active Directory à l’aide de l’API AAD Graph (https://graph.windows.net/)), vous devez créer la liste des étendues, comme dans l’extrait de code suivant :
+Pour lire et écrire avec MSAL.NET Azure Active Directory à l’aide de l’API AAD Graph (https://graph.windows.net/) ), vous devez créer la liste des étendues, comme dans l’extrait de code suivant :
 
 ```csharp
 ResourceId = "https://graph.windows.net/";
@@ -178,7 +178,7 @@ var scopes = new [] { ResourceId + “Directory.Read”, ResourceID + “Directo
 
 #### <a name="warning-should-you-have-one-or-two-slashes-in-the-scope-corresponding-to-a-v10-web-api"></a>Avertissement : Une ou deux barres obliques dans l’étendue correspondant à une API web v1.0 ?
 
-Si vous voulez écrire l’étendue correspondant à l’API Azure Resource Manager (https://management.core.windows.net/)), vous devez demander l’étendue suivante (notez les deux barres obliques) : 
+Si vous voulez écrire l’étendue correspondant à l’API Azure Resource Manager (https://management.core.windows.net/) ), vous devez demander l’étendue suivante (notez les deux barres obliques) : 
 
 ```csharp
 var scopes = new[] {"https://management.core.windows.net//user_impersonation"};
@@ -192,7 +192,7 @@ En effet, l’API Resource Manager attend une barre oblique dans sa revendicatio
 La logique utilisée par Azure AD est la suivante :
 - Pour le point de terminaison ADAL (v1.0) avec jeton d’accès v1.0 (le seul possible), aud=resource
 - Pour le point de terminaison MSAL (v2.0) qui demande un jeton d’accès pour une ressource qui accepte des jetons v2.0, aud=resource.AppId
-- Pour le point de terminaison MSAL (v2.0) qui demande un jeton d’accès pour une ressource qui accepte un jeton d’accès v1.0 (ce qui correspond au cas ci-dessus), Azure AD analyse l’audience souhaitée d’après l’étendue demandée en prenant tout ce qui précède la dernière barre oblique et en l’utilisant comme identificateur de la ressource. Par conséquent, si https :\//database.windows.net attend une audience de « https://database.windows.net/», vous devrez demander une étendue de https :\//database.windows.net//.default. Consultez également le problème n° [747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747) : La barre oblique de fin est omise dans l’URL de la ressource, ce qui a entraîné un échec d’authentification SQK n° 747
+- Pour le point de terminaison MSAL (v2.0) qui demande un jeton d’accès pour une ressource qui accepte un jeton d’accès v1.0 (ce qui correspond au cas ci-dessus), Azure AD analyse l’audience souhaitée d’après l’étendue demandée en prenant tout ce qui précède la dernière barre oblique et en l’utilisant comme identificateur de la ressource. Par conséquent, si https :\//database.windows.net attend une audience de "https://database.windows.net/ ", vous devrez demander une étendue de https :\/ /database.windows.net//.default. Consultez également le problème n° [747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747) : La barre oblique de fin est omise dans l’URL de la ressource, ce qui a entraîné un échec d’authentification SQK n° 747
 
 
 ### <a name="scopes-to-request-access-to-all-the-permissions-of-a-v10-application"></a>Étendues pour demander l’accès à toutes les autorisations d’une application v1.0

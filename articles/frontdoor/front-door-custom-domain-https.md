@@ -23,7 +23,7 @@ ms.locfileid: "67450189"
 
 Ce didacticiel montre comment activer le protocole HTTPS pour un domaine personnalisé associé à votre porte d’entrée sous la section d’hôtes frontend. En utilisant le protocole HTTPS sur votre domaine personnalisé (par exemple, https :\//www.contoso.com), vous vous assurez que vos données sensibles sont remises en toute sécurité via le chiffrement TLS/SSL lors de l’envoi sur Internet. Lorsque votre navigateur web est connecté à un site web par le biais de HTTPS, ce protocole valide le certificat de sécurité du site et vérifie qu’il est fourni par une autorité de certification légitime. Ce processus assure la sécurité et protège également vos applications web contre les attaques.
 
-Par défaut, Azure Front Door Service prend en charge HTTPS sur un nom d’hôte Front Door par défaut. Par exemple, si vous créez une porte d’entrée (comme https:\//contoso.azurefd.net), HTTPS est automatiquement activé pour les requêtes effectuées sur https://contoso.azurefd.net. Toutefois, une fois que vous intégrez le domaine personnalisé « www.contoso.com », vous devez également activer HTTPS pour cet hôte frontend.   
+Par défaut, Azure Front Door Service prend en charge HTTPS sur un nom d’hôte Front Door par défaut. Par exemple, si vous créez une porte d’entrée (comme https:\//contoso.azurefd.net), HTTPS est automatiquement activé pour les requêtes effectuées sur https://contoso.azurefd.net. Toutefois, une fois que vous intégrez le domaine personnalisé 'www.contoso.com', vous devez également activer HTTPS pour cet hôte frontend.   
 
 Voici quelques-uns des attributs clés de la fonctionnalité HTTPS personnalisée :
 
