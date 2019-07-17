@@ -8,12 +8,12 @@ ms.date: 01/02/2019
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: cdffbfd11a0f1c7d99818fa00f550965774b9b31
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c32d9954b3c90a5f7e9c5475acdb141f7154cf76
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65190064"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67540355"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Questions fréquentes (FAQ) sur Azure Files
 [Azure Files](storage-files-introduction.md) offre des partages de fichiers managés dans le cloud qui sont accessibles via le [protocole SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) standard. Vous pouvez monter des partages de fichiers Azure simultanément sur des déploiements cloud ou locaux de Windows, Linux et macOS. Vous pouvez également mettre en cache des partages de fichiers Azure sur des ordinateurs Windows Server à l’aide d’Azure File Sync pour bénéficier d’un accès rapide proche de l’endroit où les données sont utilisées.
@@ -73,10 +73,10 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
 
 * <a id="tier-options"></a>
   **Quels sont les niveaux de stockage pris en charge par Azure Files ?**  
-    Actuellement, Azure Files prend uniquement en charge le niveau de stockage standard. Aucun calendrier n’est arrêté pour l’instant en ce qui concerne la prise en charge du stockage Premium et du stockage froid. 
+    Azure Files prend en charge deux niveaux de stockage : Premium et standard. Les partages de fichiers standard sont créés dans les comptes de stockage (GPv1 ou GPv2) à usage général, alors que les partages de fichiers Premium sont créés dans les comptes de stockage FileStorage. Découvrez comment créer des [partages de fichiers standard](storage-how-to-create-file-share.md) et [des partages de fichiers Premium](storage-how-to-create-premium-fileshare.md). 
     
     > [!NOTE]
-    > Vous ne pouvez pas créer de partages de fichiers Azure à partir de comptes de stockage d’objets blob uniquement ou de comptes de stockage Premium.
+    > Vous ne pouvez pas créer de partages de fichiers Azure à partir de comptes de stockage d’objets blob ou de comptes de stockage *Premium* à usage général (GPv1 ou GPv2). Les partages de fichiers Azure standard doivent être créés dans des comptes *standard* à usage général uniquement, et les partages Azure Premium doivent être créés dans des comptes de stockage FileStorage uniquement. Les comptes de stockage *Premium* à usage général (GPv1 et GPv2) sont destinés aux objets blob de pages Premium uniquement. 
 
 * <a id="give-us-feedback"></a>
   **Je souhaite vraiment qu’une fonctionnalité soit ajoutée à Azure Files. Pouvez vous ajouter ?**  
@@ -356,8 +356,8 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
     Pour plus d’informations sur les objectifs de scalabilité et de performances d’Azure Files, consultez [Objectifs de performance et d’extensibilité d’Azure Files](storage-files-scale-targets.md).
 
 * <a id="need-larger-share"></a>
-**J’ai besoin d’un partage de fichiers plus volumineux que celui offert actuellement par Azure Files. Puis-je augmenter la taille de mon partage de fichiers Azure ?**  
-    Non. La taille maximale d’un partage de fichiers Azure est de 5 To. Actuellement, il s’agit d’une limite inconditionnelle que nous ne pouvons pas ajuster. Nous travaillons sur une solution permettant d’augmenter la taille de partage à 100 To, mais nous ne sommes pas en mesure de vous indiquer quand elle sera disponible pour l’instant.
+**Quelles sont les tailles disponibles pour les partages de fichiers Azure ?**  
+    Les tailles des partages de fichiers Azure (Premium et standard) ne peuvent pas dépasser 100 Tio. Les tailles de partages de fichiers Premium de 100 Tio maximum sont disponibles sous la forme d’une offre GA. C’est également le cas pour les partages de fichiers standard de 5 Tio maximum, alors que les autres tailles, jusqu’à 100 Tio, sont accessibles en préversion. Consultez la section relative à [l’intégration de partages de fichiers plus grands (niveau standard)](storage-files-planning.md#onboard-to-larger-file-shares-standard-tier) du guide de planification pour savoir comment intégrer des partages de fichiers plus grands, en préversion, au niveau standard.
 
 * <a id="open-handles-quota"></a>
 **Combien de clients peuvent accéder simultanément au même fichier ?**    

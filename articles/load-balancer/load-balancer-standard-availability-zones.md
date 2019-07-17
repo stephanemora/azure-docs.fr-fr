@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/27/2018
 ms.author: kumud
-ms.openlocfilehash: 6f33be6e418366f57d243f578035b5c87079c99e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0820285555110e8e85bff814f4774d6da6443f69
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60734454"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491984"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Référence Standard de Load Balancer et zones de disponibilité
 
@@ -186,7 +186,7 @@ Load Balancer est volontairement flexible dans le contexte des zones de disponib
 
 Avec Load Balancer, il est simple d’avoir une adresse IP unique comme frontend redondant interzone. Une adresse IP redondante interzone peut servir en toute sécurité une ressource zonale dans toute zone et survivre à un ou plusieurs échecs de zone tant qu’une seule zone reste saine au sein de la région. Inversement, un frontend zonal est une réduction du service à une seule zone et partage son sort avec la zone concernée.
 
-La redondance dans une zone n’implique pas de chemin de données ni de plan de contrôle sans réponse ; il s’agit expressément d’un plan de données. Les flux redondants interzone peuvent utiliser toutes les zones et les flux d’un client utilise toutes les zones saines dans une région. En cas d’échec de zone, les flux de trafic qui utilisent les zones saines à ce moment-là ne sont pas impactés.  Les flux de trafic qui utilisent une zone au moment de l’échec de zone peuvent être impactés, mais les applications peuvent récupérer et ces flux peuvent continuer dans les zones saines restantes dans la région après retransmission ou rétablissement une fois qu’Azure a convergé autour de l’échec de zone.
+La redondance dans une zone n’implique pas de chemin de données ni de plan de contrôle sans réponse ; il s’agit expressément d’un plan de données. Les flux redondants interzone peuvent utiliser toutes les zones et les flux d’un client utilise toutes les zones saines dans une région. En cas d’échec de zone, les flux de trafic qui utilisent les zones saines à ce moment-là ne sont pas impactés.  Les flux de trafic qui font appel à une zone au moment de la défaillance de cette dernière peuvent être affectés, mais les applications peuvent récupérer. Ces flux peuvent se poursuivre dans les zones saines restantes dans la région après retransmission ou rétablissement, une fois qu’Azure a convergé autour de l’échec de zone.
 
 ### <a name="xzonedesign"></a> Limites entre les zones
 

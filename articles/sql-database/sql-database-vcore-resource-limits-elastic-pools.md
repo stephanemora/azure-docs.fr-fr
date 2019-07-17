@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 05/23/2019
-ms.openlocfilehash: 98bd70d9f6eb70cb7848dfa74e19c78e55a34991
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.date: 06/26/2019
+ms.openlocfilehash: 4e63e1e477ce82221e5121815b609326cc2c1112
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66240355"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447183"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-based-purchasing-model-limits"></a>Limites de ressources pour les pools élastiques suivant les limites du modèle d’achat vCore
 
@@ -31,31 +31,34 @@ Pour connaître les limites du modèle d’achat DTU, consultez [Limites des res
 Vous pouvez définir le niveau de service, la taille de calcul et la quantité de stockage à l’aide du [Portail Azure](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), de [PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases), [d’Azure CLI](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases) ou de [l’API REST](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases).
 
 > [!IMPORTANT]
-> Mise à l’échelle les instructions et des considérations, consultez [mettre à l’échelle un pool élastique](sql-database-elastic-pool-scale.md)
+> Pour obtenir des instructions et informations sur la mise à l’échelle, consultez [Mettre à l’échelle un pool élastique](sql-database-elastic-pool-scale.md).
 > [!NOTE]
 > Les limites de ressources des bases de données individuelles dans les pools élastiques sont généralement identiques à celles des bases de données uniques situées hors des pools qui ont la même taille de calcul. Par exemple, le nombre maximal de workers simultanés dans une base de données GP_Gen4_1 est de 200. Par conséquent, le nombre maximal de workers simultanés pour une base de données dans un pool GP_Gen4_1 est aussi de 200. Notez que le nombre total de workers simultanés dans le pool GP_Gen4_1 est de 210.
 
 ## <a name="general-purpose-service-tier-storage-sizes-and-compute-sizes"></a>Niveau de service Usage général : tailles de stockage et tailles de calcul
+
+> [!IMPORTANT]
+> Les nouvelles bases de données Gen4 ne sont plus prises en charge dans la région AustraliaEast.
 
 ### <a name="general-purpose-service-tier-generation-4-compute-platform-part-1"></a>Niveau de service Usage général : Plateforme de calcul de génération 4 (partie 1)
 
 |Taille de calcul|GP_Gen4_1|GP_Gen4_2|GP_Gen4_3|GP_Gen4_4|GP_Gen4_5|GP_Gen4_6
 |:--- | --: |--: |--: |--: |--: |--: |
 |Génération H/W|4|4|4|4|4|4|
-|vCores|1|2|3|4|5|6.|
+|vCores|1|2|3|4|5\.|6\.|
 |Mémoire (Go)|7|14|21|28|35|42|
 |Nombre maximal de bases de données par pool|100|200|500|500|500|500|
 |Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|OUI|
-|Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|N/A|S.O.|
+|Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|N/A|N/A|
 |Taille maximale des données (Go)|512|756|756|1536|1536|1536|
 |Taille maximale du journal|154|227|227|461|461|461|
 |Taille de TEMPDB (Go)|32|64|96|128|160|192|
 |Type de stockage|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
 |IOPS cible (64 ko)|500|1 000|1 500|2000|2 500|3000|
-|Limites de taux de journal (Mbits/s)|4.6875|9.375|14.0625|18.75|23.4375|28.125|
+|Limites du taux de journalisation (Mbits/s)|4,6875|9,375|14,0625|18,75|23,4375|28,125|
 |Nombre maximal de workers simultanés par pool (demandes) * |210|420|630|840|1050|1 260|
-|Nombre maximal de connexions simultanées par pool * |210|420|630|840|1050|1 260|
+|Nombre maximal de connexions simultanées par pool* |210|420|630|840|1050|1 260|
 |Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|
 |Choix du nombre minimal/maximal de cœurs virtuels de pool élastique par base de données|0 ; 0,25 ; 0,5 ; 1|0 ; 0,25 ; 0,5 ; 1 ; 2|0 ; 0,25 ; 0,5 ; 1...3|0 ; 0,25 ; 0,5, 1...4|0 ; 0,25 ; 0,5 ; 1...5|0 ; 0,25 ; 0,5 ; 1...6|
 |Nombre de réplicas|1|1|1|1|1|1|
@@ -74,16 +77,16 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Mémoire (Go)|49|56|63|70|112|168|
 |Nombre maximal de bases de données par pool|500|500|500|500|500|500|
 |Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|OUI|
-|Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|N/A|S.O.|
+|Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|N/A|N/A|
 |Taille maximale des données (Go)|1536|2 048|2 048|2 048|3584|4096|
 |Taille maximale du journal (Go)|461|614|614|614|1075|1229|
 |Taille de TEMPDB (Go)|224|256|288|320|384|384|
 |Type de stockage|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
 |IOPS cible (64 ko)|3 500|4000|4500|5 000|7000|7000|
-|Limites de taux de journal (Mbits/s)|32.8125|37.5|37.5|37.5|37.5|37.5|
+|Limites du taux de journalisation (Mbits/s)|32,8125|37.5|37.5|37.5|37.5|37.5|
 |Nombre maximal de workers simultanés par pool (demandes) *|1470|1680|1890|2100|3360|5040|
-|Pool de connexions simultanées max (demandes) *|1470|1680|1890|2100|3360|5040|
+|Nombre maximal de connexions simultanées par pool (requêtes)*|1470|1680|1890|2100|3360|5040|
 |Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|
 |Choix du nombre minimal/maximal de cœurs virtuels de pool élastique par base de données|0 ; 0,25 ; 0,5 ; 1... 7|0 ; 0,25 ; 0,5 ; 1... 8|0 ; 0,25 ; 0,5 ; 1... 9|0 ; 0,25 ; 0,5 ; 1... 10|0 ; 0,25 ; 0,5 ; 1... 10 ; 16|0 ; 0,25 ; 0,5 ; 1... 10 ; 16 ; 24|
 |Nombre de réplicas|1|1|1|1|1|1|
@@ -97,21 +100,21 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 
 |Taille de calcul|GP_Gen5_2|GP_Gen5_4|GP_Gen5_6|GP_Gen5_8|GP_Gen5_10|GP_Gen5_12|GP_Gen5_14|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
-|Génération H/W|5.|5.|5.|5.|5.|5.|5.|
-|vCores|2|4|6.|8|10|12|14|
+|Génération H/W|5\.|5\.|5\.|5\.|5\.|5\.|5\.|
+|vCores|2|4|6\.|8|10|12|14|
 |Mémoire (Go)|10.2|20,4|30,6|40,8|51|61,2|71,4|
 |Nombre maximal de bases de données par pool|100|200|500|500|500|500|500|
 |Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|OUI|OUI|
-|Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|N/A|N/A|S.O.|
+|Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Taille maximale des données (Go)|512|756|756|1536|1536|1536|
 |Taille maximale du journal (Go)|154|227|227|461|461|461|461|
 |Taille de TEMPDB (Go)|64|128|192|256|320|384|384|
 |Type de stockage|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
 |IOPS cible (64 ko)|1 000|2000|3000|4000|5 000|6000|7000|
-|Limites de taux de journal (Mbits/s)|4.6875|9.375|14.0625|18.75|23.4375|28.125|32.8125|
+|Limites du taux de journalisation (Mbits/s)|4,6875|9,375|14,0625|18,75|23,4375|28,125|32,8125|
 |Nombre maximal de workers simultanés par pool (demandes) *|210|420|630|840|1050|1 260|1470|
-|Nombre maximal de connexions simultanées par pool (demandes) *|210|420|630|840|1050|1 260|1470|
+|Nombre maximal de connexions simultanées par pool (requêtes)*|210|420|630|840|1050|1 260|1470|
 |Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|30000|
 |Choix du nombre minimal/maximal de cœurs virtuels de pool élastique par base de données|0 ; 0,25 ; 0,5 ; 1 ; 2|0 ; 0,25 ; 0,5, 1...4|0 ; 0,25 ; 0,5 ; 1...6|0 ; 0,25 ; 0,5 ; 1... 8|0 ; 0,25 ; 0,5 ; 1... 10|0 ; 0,25 ; 0,5 ; 1... 12|0 ; 0,25 ; 0,5 ; 1... 14|
 |Nombre de réplicas|1|1|1|1|1|1|1|
@@ -125,21 +128,21 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 
 |Taille de calcul|GP_Gen5_16|GP_Gen5_18|GP_Gen5_20|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
-|Génération H/W|5.|5.|5.|5.|5.|5.|5.|
+|Génération H/W|5\.|5\.|5\.|5\.|5\.|5\.|5\.|
 |vCores|16|18|20|24|32|40|80|
 |Mémoire (Go)|81,6|91,8|102|122,4|163,2|204|408|
 |Nombre maximal de bases de données par pool|500|500|500|500|500|500|500|
 |Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|OUI|OUI|
-|Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|N/A|N/A|S.O.|
+|Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Taille maximale des données (Go)|2 048|2 048|3 072|3 072|4096|4096|4096|
 |Taille maximale du journal (Go)|614|614|922|922|1229|1229|1229|
 |Taille de TEMPDB (Go)|384|384|384|384|384|384|384|
 |Type de stockage|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
 |IOPS cible (64 ko)|7000|7000|7000|7000|7000|7000|7000|
-|Limites de taux de journal (Mbits/s)|37.5|37.5|37.5|37.5|37.5|37.5|37.5|
+|Limites du taux de journalisation (Mbits/s)|37.5|37.5|37.5|37.5|37.5|37.5|37.5|
 |Nombre maximal de workers simultanés par pool (demandes) *|1680|1890|2100|2520|33600|4200|8400|
-|Nombre maximal de connexions simultanées par pool (demandes) *|1680|1890|2100|2520|33600|4200|8400|
+|Nombre maximal de connexions simultanées par pool (requêtes)*|1680|1890|2100|2520|33600|4200|8400|
 |Choix du nombre minimal/maximal de cœurs virtuels de pool élastique par base de données|0 ; 0,25 ; 0,5 ; 1... 16|0 ; 0,25 ; 0,5 ; 1... 18|0 ; 0,25 ; 0,5 ; 1... 20|0 ; 0,25 ; 0,5 ; 1... 20 ; 24|0 ; 0,25 ; 0,5 ; 1... 20 ; 24 ; 32|0 ; 0,25 ; 0,5 ; 1... 16 ; 24 ; 32 ; 40|0 ; 0,25 ; 0,5 ; 1... 16 ; 24 ; 32 ; 40 ; 80|
 |Nombre de réplicas|1|1|1|1|1|1|1|
 |Plusieurs zones de disponibilités|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
@@ -150,27 +153,30 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 
 ## <a name="business-critical-service-tier-storage-sizes-and-compute-sizes"></a>Niveau de service Critique pour l’entreprise : tailles de stockage et tailles de calcul
 
+> [!IMPORTANT]
+> Les nouvelles bases de données Gen4 ne sont plus prises en charge dans la région AustraliaEast.
+
 ### <a name="business-critical-service-tier-generation-4-compute-platform-part-1"></a>Niveau de service Critique pour l’entreprise : Plateforme de calcul de génération 4 (partie 1)
 
 |Taille de calcul|BC_Gen4_1|BC_Gen4_2|BC_Gen4_3|BC_Gen4_4|BC_Gen4_5|BC_Gen4_6|
 |:--- | --: |--: |--: |--: |--: |--: |
 |Génération H/W|4|4|4|4|4|4|
-|vCores|1|2|3|4|5|6.|
+|vCores|1|2|3|4|5\.|6\.|
 |Mémoire (Go)|7|14|21|28|35|42|
 |Nombre maximal de bases de données par pool|Seules les bases de données uniques sont prises en charge pour cette taille de calcul|50|100|100|100|100|
 |Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|OUI|
-|Stockage In-Memory OLTP (Go)|1|2|3|4|5|6.|
+|Stockage In-Memory OLTP (Go)|1|2|3|4|5\.|6\.|
 |Type de stockage|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Taille maximale des données (Go)|650|650|650|650|650|650|
 |Taille maximale du journal (Go)|195|195|195|195|195|195|
 |Taille de TEMPDB (Go)|32|64|96|128|160|192|
 |Latence d’E/S (approximative)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|
 |IOPS cible (64 ko)|5 000|10000|15000|20000|25000|30000|
-|Limites de taux de journal (Mbits/s)|10|20|30|40|50|60|
+|Limites du taux de journalisation (Mbits/s)|10|20|30|40|50|60|
 |Nombre maximal de workers simultanés par pool (demandes) *|210|420|630|840|1050|1 260|
-|Nombre maximal de connexions simultanées par pool (demandes) *|210|420|630|840|1050|1 260|
+|Nombre maximal de connexions simultanées par pool (requêtes)*|210|420|630|840|1050|1 260|
 |Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|
-|Choix du nombre minimal/maximal de cœurs virtuels de pool élastique par base de données|S.O.|0 ; 0,25 ; 0,5 ; 1 ; 2|0 ; 0,25 ; 0,5 ; 1...3|0 ; 0,25 ; 0,5, 1...4|0 ; 0,25 ; 0,5 ; 1...5|0 ; 0,25 ; 0,5 ; 1...6|
+|Choix du nombre minimal/maximal de cœurs virtuels de pool élastique par base de données|N/A|0 ; 0,25 ; 0,5 ; 1 ; 2|0 ; 0,25 ; 0,5 ; 1...3|0 ; 0,25 ; 0,5, 1...4|0 ; 0,25 ; 0,5 ; 1...5|0 ; 0,25 ; 0,5 ; 1...6|
 |Nombre de réplicas|4|4|4|4|4|4|
 |Plusieurs zones de disponibilités|OUI|OUI|OUI|OUI|OUI|OUI|
 |Lecture du Scale-out|OUI|OUI|OUI|OUI|OUI|OUI|
@@ -186,7 +192,7 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |vCores|7|8|9|10|16|24|
 |Mémoire (Go)|81,6|91,8|102|122,4|163,2|204|
 |Nombre maximal de bases de données par pool|100|100|100|100|100|100|
-|Prise en charge de ColumnStore|S.O.|N/A|N/A|N/A|N/A|S.O.|
+|Prise en charge de ColumnStore|N/A|N/A|N/A|N/A|N/A|N/A|
 |Stockage In-Memory OLTP (Go)|7|8|9,5|11|20|36|
 |Type de stockage|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Taille maximale des données (Go)|650|650|650|650|1 024|1 024|
@@ -194,9 +200,9 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Taille de TEMPDB (Go)|224|256|288|320|384|384|
 |Latence d’E/S (approximative)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|
 |IOPS cible (64 ko)|35000|40000|45000|50000|80000|120 000|
-|Limites de taux de journal (Mbits/s)|70|80|80|80|80|80|
+|Limites du taux de journalisation (Mbits/s)|70|80|80|80|80|80|
 |Nombre maximal de workers simultanés par pool (demandes) *|1470|1680|1890|2100|3360|5040|
-|Nombre maximal de connexions simultanées par pool (demandes) *|1470|1680|1890|2100|3360|5040|
+|Nombre maximal de connexions simultanées par pool (requêtes)*|1470|1680|1890|2100|3360|5040|
 |Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|
 |Choix du nombre minimal/maximal de cœurs virtuels de pool élastique par base de données|0 ; 0,25 ; 0,5 ; 1... 7|0 ; 0,25 ; 0,5 ; 1... 8|0 ; 0,25 ; 0,5 ; 1... 9|0 ; 0,25 ; 0,5 ; 1... 10|0 ; 0,25 ; 0,5 ; 1... 10 ; 16|0 ; 0,25 ; 0,5 ; 1... 10 ; 16 ; 24|
 |Nombre de réplicas|4|4|4|4|4|4|
@@ -210,8 +216,8 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 
 |Taille de calcul|BC_Gen5_2|BC_Gen5_4|BC_Gen5_6|BC_Gen5_8|BC_Gen5_10|BC_Gen5_12|BC_Gen5_14|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
-|Génération H/W|5.|5.|5.|5.|5.|5.|5.|
-|vCores|2|4|6.|8|10|12|14|
+|Génération H/W|5\.|5\.|5\.|5\.|5\.|5\.|5\.|
+|vCores|2|4|6\.|8|10|12|14|
 |Mémoire (Go)|10.2|20,4|30,6|40,8|51|61,2|71,4|
 |Nombre maximal de bases de données par pool|Seules les bases de données uniques sont prises en charge pour cette taille de calcul|50|100|100|100|100|100|
 |Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|OUI|OUI|
@@ -222,11 +228,11 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Type de stockage|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Latence d’E/S (approximative)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|
 |IOPS cible (64 ko)|5 000|10000|15000|20000|25000|30000|35000|
-|Limites de taux de journal (Mbits/s)|15|30|45|60|75|90|105|
+|Limites du taux de journalisation (Mbits/s)|15|30|45|60|75|90|105|
 |Nombre maximal de workers simultanés par pool (demandes) *|210|420|630|840|1050|1 260|1470|
-|Nombre maximal de connexions simultanées par pool (demandes) *|210|420|630|840|1050|1 260|1470|
+|Nombre maximal de connexions simultanées par pool (requêtes)*|210|420|630|840|1050|1 260|1470|
 |Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|30000|
-|Choix du nombre minimal/maximal de cœurs virtuels de pool élastique par base de données|S.O.|0 ; 0,25 ; 0,5, 1...4|0 ; 0,25 ; 0,5 ; 1...6|0 ; 0,25 ; 0,5 ; 1... 8|0 ; 0,25 ; 0,5 ; 1... 10|0 ; 0,25 ; 0,5 ; 1... 12|0 ; 0,25 ; 0,5 ; 1... 14|
+|Choix du nombre minimal/maximal de cœurs virtuels de pool élastique par base de données|N/A|0 ; 0,25 ; 0,5, 1...4|0 ; 0,25 ; 0,5 ; 1...6|0 ; 0,25 ; 0,5 ; 1... 8|0 ; 0,25 ; 0,5 ; 1... 10|0 ; 0,25 ; 0,5 ; 1... 12|0 ; 0,25 ; 0,5 ; 1... 14|
 |Nombre de réplicas|4|4|4|4|4|4|4|
 |Plusieurs zones de disponibilités|OUI|OUI|OUI|OUI|OUI|OUI|
 |Lecture du Scale-out|OUI|OUI|OUI|OUI|OUI|OUI|OUI|
@@ -238,7 +244,7 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 
 |Taille de calcul|BC_Gen5_16|BC_Gen5_18|BC_Gen5_20|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
-|Génération H/W|5.|5.|5.|5.|5.|5.|5.|
+|Génération H/W|5\.|5\.|5\.|5\.|5\.|5\.|5\.|
 |vCores|16|18|20|24|32|40|80|
 |Mémoire (Go)|81,6|91,8|102|122,4|163,2|204|408|
 |Nombre maximal de bases de données par pool|100|100|100|100|100|100|100|
@@ -250,9 +256,9 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Type de stockage|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Latence d’E/S (approximative)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|
 |IOPS cible (64 ko)|40000|45000|50000|60000|80000|100000|200000|
-|Limites de taux de journal (Mbits/s)|120|120|120|120|120|120|120|
+|Limites du taux de journalisation (Mbits/s)|120|120|120|120|120|120|120|
 |Nombre maximal de workers simultanés par pool (demandes) *|1680|1890|2100|2520|3360|4200|8400|
-|Nombre maximal de connexions simultanées par pool (demandes) *|1680|1890|2100|2520|3360|4200|8400|
+|Nombre maximal de connexions simultanées par pool (requêtes)*|1680|1890|2100|2520|3360|4200|8400|
 |Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|30000|
 |Choix du nombre minimal/maximal de cœurs virtuels de pool élastique par base de données|0 ; 0,25 ; 0,5 ; 1... 16|0 ; 0,25 ; 0,5 ; 1... 18|0 ; 0,25 ; 0,5 ; 1... 20|0 ; 0,25 ; 0,5 ; 1... 20 ; 24|0 ; 0,25 ; 0,5 ; 1... 20 ; 24 ; 32|0 ; 0,25 ; 0,5 ; 1... 20 ; 24 ; 32 ; 40|0 ; 0,25 ; 0,5 ; 1... 20 ; 24 ; 32 ; 40 ; 80|
 |Nombre de réplicas|4|4|4|4|4|4|4|

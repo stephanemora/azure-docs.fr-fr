@@ -1,25 +1,22 @@
 ---
-title: Comprendre votre facture Azure Enterprise | Microsoft Docs
-description: Découvrir comment lire et comprendre vos données d’utilisation et de facture pour les Contrats Entreprise Azure
-services: ''
-documentationcenter: ''
+title: Comprendre une facture Contrat Entreprise Azure
+description: Découvrez comment lire et comprendre vos données d’utilisation et de facture pour un Contrat Entreprise Azure.
 author: adpick
 manager: dougeby
-editor: ''
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/01/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: be20ad0583558949f65b9706f0a478669360bf3d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 02ddaf4878367524291ce54a4e12fc9b4fee4cd2
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64571207"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490284"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Comprendre votre facture Contrat Entreprise Azure
 
@@ -59,7 +56,7 @@ Comparez votre montant total combiné indiqué sur Enterprise Portal dans **Rapp
 
 1. Connectez-vous à [Enterprise Portal](https://ea.azure.com).
 1. Sélectionnez **Rapports**.
-1. Dans le coin supérieur droit de l’onglet, changez d’affichage en passant de **M** à **C**, et faites correspondre la période sur la facture.  
+1. Dans l’angle supérieur droit de l’onglet, changez d’affichage en passant de **M** à **C**, et faites correspondre la période sur la facture.  
     ![Capture d’écran qui montre l’option M + C dans le récapitulatif de l’utilisation.](./media/billing-understand-your-bill-ea/ea-portal-usage-sumary-cm-option.png)
 1. Le montant combiné de l’**Utilisation totale** et de la **Place de marché Azure** doit correspondre au **Total final** sur votre facture.
 1. Pour obtenir plus de détails sur vos frais, accédez à **Télécharger l’utilisation**.  
@@ -100,7 +97,7 @@ Comparez le montant total de votre utilisation sur Enterprise Portal dans **Rapp
 
 1. Connectez-vous à [Enterprise Portal](https://ea.azure.com).
 1. Sélectionnez **Rapports**.
-1. Dans le coin supérieur droit de l’onglet, changez d’affichage en passant de **M** à **C**, et faites correspondre la période sur la facture.  
+1. Dans l’angle supérieur droit de l’onglet, changez d’affichage en passant de **M** à **C**, et faites correspondre la période sur la facture.  
     ![Capture d’écran qui montre l’option M + C dans le récapitulatif de l’utilisation.](./media/billing-understand-your-bill-ea/ea-portal-usage-sumary-cm-option.png)
 1. Le montant **Utilisation totale** doit correspondre au **Total final** de votre facture de dépassement de service.  
 1. Pour plus d’informations sur vos frais, accédez à **Télécharger l’utilisation** > **Téléchargement de rapport avancé**. Le rapport n’inclut pas les taxes ou frais de réservation, ni les frais de la Place de marché.  
@@ -124,7 +121,7 @@ Comparez le total de la Place de marché Azure sur **Rapports** > **Récapitulat
 
 1. Connectez-vous à [Enterprise Portal](https://ea.azure.com).
 1. Sélectionnez **Rapports**.
-1. Dans le coin supérieur droit de l’onglet, changez d’affichage en passant de **M** à **C**, et faites correspondre la période sur la facture.  
+1. Dans l’angle supérieur droit de l’onglet, changez d’affichage en passant de **M** à **C**, et faites correspondre la période sur la facture.  
      ![Capture d’écran qui montre l’option M + C dans le récapitulatif de l’utilisation.](./media/billing-understand-your-bill-ea/ea-portal-usage-sumary-cm-option.png)  
 1. Le total de la **Place de marché Azure** doit correspondre au **Total de la vente** sur votre facture de la Place de marché.
 1. Pour plus d’informations sur vos frais d’utilisation, accédez à **Télécharger l’utilisation**. Sous **Frais de la Place de marché**, sélectionnez **Télécharger**. Ce rapport n’inclut pas les taxes et ne montre pas les achats définitifs.  
@@ -132,7 +129,7 @@ Comparez le total de la Place de marché Azure sur **Rapports** > **Récapitulat
 
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
 
-Si vous avez des questions ou besoin d’aide, créez une [demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).
+Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Afficher et télécharger vos informations d’utilisation et vos frais Azure](billing-download-azure-daily-usage.md)

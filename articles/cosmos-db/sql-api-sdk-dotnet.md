@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/09/2018
 ms.author: sngun
-ms.openlocfilehash: 3c420882b734883039ec95d609c155617359fa25
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4f502984a09f81b5aaf0568c84b75832f8164151
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65510717"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67541048"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Kit de développement logiciel .NET Azure Cosmos DB pour l’API SQL : Téléchargement et notes de publication
 > [!div class="op_single_selector"]
@@ -48,9 +48,18 @@ ms.locfileid: "65510717"
 * Prise en charge des flux. 
 * Mise à jour de CosmosResponseMessage à partir du serveur pour renvoyer le code d’état, et levée d’une seule exception si aucune réponse n’est retournée. 
 
+### <a name="a-name251251"></a><a name="2.5.1"/>2.5.1
+
+* La version System.Net.Http du Kit de développement logiciel (SDK) correspond désormais à celle définie dans le package NuGet.
+* Les demandes d’écriture sont autorisées à basculer vers une autre région en cas de défaillance de la région d’origine.
+* Une stratégie de nouvelles tentatives dans une session a été ajoutée pour une requête d’écriture.
+
+### <a name="a-name241241"></a><a name="2.4.1"/>2.4.1
+
+* La condition de concurrence de traçage a été corrigée pour les requêtes ayant généré des pages vides
+
 ### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
 
-* La version System.Net.Http du Kit de développement logiciel (SDK) correspond à celle définie dans le package NuGet.
 * Augmentation de taille de précision décimale pour les requêtes LINQ.
 * Ajout de nouvelles classes CompositePath, CompositePathSortOrder, SpatialSpec, SpatialType et PartitionKeyDefinitionVersion
 * Ajout de TimeToLivePropertyPath à DocumentCollection
@@ -222,7 +231,7 @@ ms.locfileid: "65510717"
 * Correction d’un problème de fonctionnement de la liaison des requêtes ORDER BY entre les partitions lors d’un tri sur un champ de chaîne.
 
 ### <a name="a-name11201120"></a><a name="1.12.0"/>1.12.0
-* Ajout de la prise en charge des requêtes d’agrégation (COUNT, MIN, MAX, SUM et AVG). Consultez l’article [Aggregation support (Prise en charge de l’agrégation)](how-to-sql-query.md#Aggregates).
+* Ajout de la prise en charge des requêtes d’agrégation (COUNT, MIN, MAX, SUM et AVG). Consultez l’article [Aggregation support (Prise en charge de l’agrégation)](sql-query-aggregates.md).
 * Débit minimal réduit sur les collections partitionnées de 10 100 unités de demande/s à 2 500 unités de demande/s.
 
 ### <a name="a-name11141114"></a><a name="1.11.4"/>1.11.4
@@ -375,6 +384,8 @@ Toute requête envoyée à Azure Cosmos DB à l’aide d’un Kit de développem
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
+| [2.5.1](#2.5.1) |2 juillet 2019 |--- |
+| [2.4.1](#2.4.1) |20 juin 2019 |--- |
 | [2.4.0](#2.4.0) |5 mai 2019 |--- |
 | [2.3.0](#2.3.0) |4 avril 2019 |--- |
 | [2.2.3](#2.2.3) |11 février 2019 |--- |

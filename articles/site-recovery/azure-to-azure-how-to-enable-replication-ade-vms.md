@@ -2,18 +2,18 @@
 title: Configurer la réplication de machines virtuelles prenant en charge Azure Disk Encryption dans Azure Site Recovery | Microsoft Docs
 description: Cet article décrit comment configurer la réplication pour les machines virtuelles prenant en charge Azure Disk Encryption, d’une région Azure à l’autre à l’aide de Site Recovery.
 services: site-recovery
-author: sujayt
+author: asgang
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 4943b730bb46ee00200d84faf95a7ccb069d3aa8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b2e9bf7fbe7d5940b517d97dcc15d21c30835001
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60790997"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449215"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Répliquer des machines virtuelles prenant en charge Azure Disk Encryption vers une autre région Azure
 
@@ -22,23 +22,23 @@ Cet article décrit comment répliquer des machines virtuelles prenant en charge
 >[!NOTE]
 >Azure Site Recovery prend actuellement en charge uniquement les machines virtuelles Azure qui exécutent un système d’exploitation Windows et pour lesquelles [le chiffrement est activé avec Azure Active Directory (Azure AD)](https://aka.ms/ade-aad-app).
 
-## <a name="required-user-permissions"></a>Autorisations utilisateur requises
+## <a id="required-user-permissions"></a> Autorisations utilisateur requises
 Site Recovery a besoin que l’utilisateur dispose d’une autorisation de création du coffre de clés dans la région cible et d’une autorisation de copie des clés dans la région.
 
 Pour activer la réplication de machines virtuelles prenant en charge Azure Disk Encryption à partir du portail Azure, l’utilisateur a besoin des autorisations suivantes :
 
 - Autorisations d’accès au coffre de clés
-    - Liste
+    - List
     - Créer
     - Obtenir
 
 -   Autorisations d’accès au secret du coffre de clés
-    - Liste
+    - List
     - Créer
     - Obtenir
 
 - Autorisations de clé du coffre de clés (obligatoires uniquement si les machines virtuelles utilisent la clé de chiffrement à clé pour chiffrer les clés de chiffrement de disque)
-    - Liste
+    - List
     - Obtenir
     - Créer
     - Encrypt (Chiffrer)
@@ -139,18 +139,25 @@ Vous pouvez utiliser [un script](#copy-disk-encryption-keys-to-the-dr-region-by-
 
 ## <a id="trusted-root-certificates-error-code-151066"></a>Résoudre les problèmes d’autorisation du coffre de clés lors de la réplication d’une machine virtuelle Azure vers Azure
 
-**Cause 1 :** Vous avez peut-être sélectionné dans la région cible un coffre de clés déjà créé qui n’a pas les autorisations nécessaires au lieu de laisser Site Recovery en créer un. Vérifiez que le coffre de clés a les autorisations nécessaires, comme décrit précédemment.
+Pour pouvoir lire le secret et le copier dans le coffre de clés de la région cible, Azure Site Recovery requiert au minimum des autorisations de lecture dans le coffre de clés de la région source, ainsi que des autorisations de lecture dans le coffre de clés de la région cible. 
+
+**Cause 1 :** Vous ne disposez pas d’autorisations de type GET sur le **coffre de clés de la région source** pour la lecture des clés. </br>
+**Procédure de résolution :** Que vous soyez un administrateur de l’abonnement ou non, il est important de bénéficier d’une autorisation GET sur le coffre de clés.
+
+1. Accédez au coffre de clés de la région source ; dans cet exemple, il s’agit de ContososourceKeyvault > **Stratégies d’accès**. 
+2. Sous **Sélectionner le principal**, ajoutez votre nom d’utilisation (par exemple, « dradmin@contoso.com »).
+3. Sous **Autorisations de clé**, sélectionnez GET. 
+4. Sous **Autorisations de clé**, sélectionnez GET. 
+5. Enregistrez la stratégie d’accès.
+
+**Cause 2 :** Vous ne disposez pas de l’autorisation requise sur le **coffre de clés de la région cible** pour l’écriture des clés. </br>
 
 *Par exemple* : Vous essayez de répliquer une machine virtuelle qui a le coffre de clés *ContososourceKeyvault* sur une région source.
 Vous avez toutes les autorisations sur le coffre de clés de la région source. Mais pendant la protection, vous sélectionnez le coffre de clés déjà créé ContosotargetKeyvault, qui n’a pas les autorisations. Une erreur se produit.
 
-**Procédure de résolution :** Accédez à **Accueil** > **Keyvaults** > **ContososourceKeyvault** > **Stratégies d’accès** et ajoutez les autorisations appropriées.
+Autorisation requise sur le [coffre de clés cible](#required-user-permissions)
 
-**Cause 2 :** Vous avez peut-être sélectionné dans la région cible un coffre de clés déjà créé qui n’a pas d’autorisations de déchiffrement/chiffrement au lieu de laisser Site Recovery en créer un. Vérifiez que vous avez des autorisations de déchiffrement/chiffrement si vous chiffrez également la clé sur la région source.</br>
-
-*Par exemple* : Vous essayez de répliquer une machine virtuelle qui a un coffre de clés *ContososourceKeyvault* sur la région source. Vous avez toutes les autorisations nécessaires sur le coffre de clés de la région source. Mais pendant la protection, vous sélectionnez le coffre de clés déjà créé ContosotargetKeyvault, qui n’a pas les autorisations de déchiffrement et chiffrement. Une erreur se produit.</br>
-
-**Procédure de résolution :** Accédez à **Accueil** > **Keyvaults** > **ContososourceKeyvault** > **Stratégies d’accès**. Ajoutez des autorisations sous **Autorisations de clé** > **Opérations de chiffrement**.
+**Procédure de résolution :** Accédez à **Accueil** > **Keyvaults** > **ContosotargetKeyvault** > **Stratégies d’accès** et ajoutez les autorisations appropriées.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

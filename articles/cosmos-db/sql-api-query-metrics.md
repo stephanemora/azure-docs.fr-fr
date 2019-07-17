@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
-ms.openlocfilehash: 61bb102e17d9980d991fdf423174d7110cd5433d
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: d61d3d00de5b46f7dad44625509eabe6836ca7cf
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66237866"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447256"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Réglage des performances de requête avec Azure Cosmos DB
 
@@ -216,7 +216,7 @@ La section sur les mesures d’exécution de requête explique comment récupér
 ### <a name="indexing-policy"></a>Stratégie d’indexation
 Consultez [Configuration de la stratégie d’indexation](index-policy.md) pour l’indexation de chemins, de types et de modes, ainsi que leur impact sur l’exécution des requêtes. Par défaut, la stratégie d’indexation utilise une indexation de hachage pour les chaînes, ce qui est efficace pour les requêtes d’égalité, mais pas pour les requêtes de plage ou les requêtes de tri sélectif. Si vous avez besoin de requêtes de plage pour des chaînes, nous recommandons d’indiquer le type d’index de plage pour toutes les chaînes. 
 
-Par défaut, Azure Cosmos DB applique une indexation automatique à toutes les données. Insérer des scénarios pour de hautes performances, envisagez d’exclure les chemins d’accès car cela permet de réduire le coût des unités de requête pour chaque opération d’insertion. 
+Par défaut, Azure Cosmos DB applique une indexation automatique à toutes les données. Pour bénéficier de scénarios d’insertion hautes performances, envisagez d’exclure les chemins d’accès, car cela permet de réduire le coût des unités de requête pour chaque opération d’insertion. 
 
 ## <a name="query-execution-metrics"></a>Mesures d’exécution des requêtes
 Vous pouvez obtenir des mesures détaillées sur l’exécution des requêtes en passant l’en-tête facultatif `x-ms-documentdb-populatequerymetrics` (`FeedOptions.PopulateQueryMetrics` dans le kit SDK .NET). La valeur retournée dans `x-ms-documentdb-query-metrics` contient les paires clé-valeur suivantes qui servent à la résolution plus poussée des problèmes d’exécution de requêtes. 
@@ -259,7 +259,7 @@ Les kits SDK client peuvent effectuer plusieurs opérations de requête en inter
 
 Voici quelques exemples de requête, et la façon d’interpréter certains mesures retournées à partir de l’exécution des requêtes : 
 
-| Interroger | Exemples de mesures | Description | 
+| Requête | Exemples de mesures | Description | 
 | ------ | -----| ----------- |
 | `SELECT TOP 100 * FROM c` | `"RetrievedDocumentCount": 101` | Le nombre de documents récupérés est 100 + 1 pour correspondre à la clause TOP. Le temps de la requête est essentiellement consacré à `WriteOutputTime` et `DocumentLoadTime` puisqu’il s’agit d’une analyse. | 
 | `SELECT TOP 500 * FROM c` | `"RetrievedDocumentCount": 501` | RetrievedDocumentCount est désormais plus élevé (500 + 1 pour correspondre à la clause TOP). | 
@@ -272,7 +272,7 @@ Voici quelques exemples de requête, et la façon d’interpréter certains mesu
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour en savoir plus sur les opérateurs et les mots clés de requête SQL pris en charge, consultez [Requête SQL](how-to-sql-query.md). 
+* Pour en savoir plus sur les opérateurs et les mots clés de requête SQL pris en charge, consultez [Requête SQL](sql-query-getting-started.md). 
 * Pour obtenir plus d’informations sur les unités de requête, consultez [Unités de requête](request-units.md).
 * Pour en savoir plus sur la stratégie d’indexation, consultez [Stratégie d’indexation](index-policy.md) 
 

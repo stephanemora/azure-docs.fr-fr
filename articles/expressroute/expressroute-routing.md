@@ -2,18 +2,18 @@
 title: 'Configuration requise - ExpressRoute : Azure | Microsoft Docs'
 description: Cette page détaille les conditions nécessaires à la configuration et à la gestion du routage pour les circuits ExpressRoute.
 services: expressroute
-author: ganesr
+author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 01/11/2019
-ms.author: ganesr
+ms.date: 06/12/2019
+ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 9a4b99e311a65435595c9cb0455b0411b7c09324
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 6c475ab0a2e47cf654d1299a4c5638b34fb5e4b6
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60883111"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508534"
 ---
 # <a name="expressroute-routing-requirements"></a>Configuration requise pour le routage ExpressRoute
 Pour vous connecter aux services de cloud Microsoft à l’aide d’ExpressRoute, vous devez configurer et gérer le routage. Certains fournisseurs de connectivité proposent la configuration et la gestion du routage comme un service géré. Vérifiez auprès de votre fournisseur de connectivité s’il offre ce service. Si ce n’est pas le cas, vous devez respecter les conditions suivantes :
@@ -154,47 +154,53 @@ Reportez-vous à la page [Partenaires ExpressRoute et emplacements d’homologat
 
 Vous pouvez acheter plusieurs circuits ExpressRoute par région géopolitique. Le fait de disposer de plusieurs connexions vous offre des avantages significatifs en termes de haute disponibilité en raison de la redondance géographique. Si vous avez plusieurs circuits ExpressRoute, vous recevrez le même jeu de préfixes publiés par Microsoft sur les chemins d’homologation publiques et Microsoft. Cela signifie que vous disposez de plusieurs chemins de votre réseau vers Microsoft. Vous risquez ainsi de prendre des décisions de routage non optimales au sein de votre réseau. Et par conséquent, vous risquez de rencontrer des problèmes de connectivité non optimale avec différents services. Vous pouvez compter sur les valeurs fournies par la communauté pour prendre les bonnes décisions en matière de routage et offrir un [routage optimal aux utilisateurs](expressroute-optimize-routing.md).
 
-| **Région Microsoft Azure** | **Régionale Communauté BGP** | **Communauté BGP de stockage** | **Communauté SQL BGP** | 
-| --- | --- | --- | --- |
+| **Région Microsoft Azure** | **Communauté BGP régionale** | **Communauté BGP de stockage** | **Communauté BGP SQL** | **Communauté BGP Cosmos DB** |
+| --- | --- | --- | --- | --- |
 | **Amérique du Nord** | |
-| USA Est | 12076:51004 | 12076:52004 | 12076:53004 |
-| USA Est 2 | 12076:51005 | 12076:52005 | 12076:53005 |
-| USA Ouest | 12076:51006 | 12076:52006 | 12076:53006 |
-| USA Ouest 2 | 12076:51026 | 12076:52026 | 12076:53026 |
-| USA Centre-Ouest | 12076:51027 | 12076:52027 | 12076:53027 |
-| USA Centre Nord | 12076:51007 | 12076:52007 | 12076:53007 |
-| USA Centre Sud | 12076:51008 | 12076:52008 | 12076:53008 |
-| USA Centre | 12076:51009 | 12076:52009 | 12076:53009 |
-| Centre du Canada | 12076:51020 | 12076:52020 | 12076:53020 |
-| Est du Canada | 12076:51021 | 12076:52021 | 12076:53021 |
+| USA Est | 12076:51004 | 12076:52004 | 12076:53004 | 12076:54004 |
+| USA Est 2 | 12076:51005 | 12076:52005 | 12076:53005 | 12076:54005 |
+| USA Ouest | 12076:51006 | 12076:52006 | 12076:53006 | 12076:54006 |
+| USA Ouest 2 | 12076:51026 | 12076:52026 | 12076:53026 | 12076:54026 |
+| USA Centre-Ouest | 12076:51027 | 12076:52027 | 12076:53027 | 12076:54027 |
+| USA Centre Nord | 12076:51007 | 12076:52007 | 12076:53007 | 12076:54007 |
+| USA Centre Sud | 12076:51008 | 12076:52008 | 12076:53008 | 12076:54008 |
+| USA Centre | 12076:51009 | 12076:52009 | 12076:53009 | 12076:54009 |
+| Centre du Canada | 12076:51020 | 12076:52020 | 12076:53020 | 12076:54020 |
+| Est du Canada | 12076:51021 | 12076:52021 | 12076:53021 | 12076:54021 |
 | **Amérique du Sud** | |
-| Brésil Sud | 12076:51014 | 12076:52014 | 12076:53014 |
+| Brésil Sud | 12076:51014 | 12076:52014 | 12076:53014 | 12076:54014 |
 | **Europe** | |
-| Europe Nord | 12076:51003 | 12076:52003 | 12076:53003 |
-| Europe Ouest | 12076:51002 | 12076:52002 | 12076:53002 |
-| Sud du Royaume-Uni | 12076:51024 | 12076:52024 | 12076:53024 |
-| Ouest du Royaume-Uni | 12076:51025 | 12076:52025 | 12076:53025 |
-| France Centre | 12076:51030 | 12076:52030 | 12076:53030 |
-| France Sud | 12076:51031 | 12076:52031 | 12076:53031 |
+| Europe Nord | 12076:51003 | 12076:52003 | 12076:53003 | 12076:54003 |
+| Europe Ouest | 12076:51002 | 12076:52002 | 12076:53002 | 12076:54002 |
+| Sud du Royaume-Uni | 12076:51024 | 12076:52024 | 12076:53024 | 12076:54024 |
+| Ouest du Royaume-Uni | 12076:51025 | 12076:52025 | 12076:53025 | 12076:54025 |
+| France Centre | 12076:51030 | 12076:52030 | 12076:53030 | 12076:54030 |
+| France Sud | 12076:51031 | 12076:52031 | 12076:53031 | 12076:54031 |
 | **Asie-Pacifique** | |
-| Asie Est | 12076:51010 | 12076:52010 | 12076:53010 |
-| Asie Sud-Est | 12076:51011 | 12076:52011 | 12076:53011 |
+| Asie Est | 12076:51010 | 12076:52010 | 12076:53010 | 12076:54010 |
+| Asie Sud-Est | 12076:51011 | 12076:52011 | 12076:53011 | 12076:54011 |
 | **Japon** | |
-| Japon Est | 12076:51012 | 12076:52012 | 12076:53012 |
-| Japon Ouest | 12076:51013 | 12076:52013 | 12076:53013 |
+| Japon Est | 12076:51012 | 12076:52012 | 12076:53012 | 12076:54012 |
+| Japon Ouest | 12076:51013 | 12076:52013 | 12076:53013 | 12076:54013 |
 | **Australie** | |
-| Australie Est | 12076:51015 | 12076:52015 | 12076:53015 |
-| Australie Sud-Est | 12076:51016 | 12076:52016 | 12076:53016 |
+| Australie Est | 12076:51015 | 12076:52015 | 12076:53015 | 12076:54015 |
+| Australie Sud-Est | 12076:51016 | 12076:52016 | 12076:53016 | 12076:54016 |
 | **Secteur public australien** | |
-| Centre de l’Australie | 12076:51032 | 12076:52032 | 12076:53032 |
-| Centre de l’Australie 2 | 12076:51033 | 12076:52033 | 12076:53033 |
+| Centre de l’Australie | 12076:51032 | 12076:52032 | 12076:53032 | 12076:54032 |
+| Centre de l’Australie 2 | 12076:51033 | 12076:52033 | 12076:53033 | 12076:54033 |
 | **Inde** | |
-| Sud de l’Inde | 12076:51019 | 12076:52019 | 12076:53019 |
-| Inde Ouest | 12076:51018 | 12076:52018 | 12076:53018 |
-| Inde Centre | 12076:51017 | 12076:52017 | 12076:53017 |
+| Sud de l’Inde | 12076:51019 | 12076:52019 | 12076:53019 | 12076:54019 |
+| Inde Ouest | 12076:51018 | 12076:52018 | 12076:53018 | 12076:54018 |
+| Inde Centre | 12076:51017 | 12076:52017 | 12076:53017 | 12076:54017 |
 | **Corée** | |
-| Corée du Sud | 12076:51028 | 12076:52028 | 12076:53028 |
-| Centre de la Corée | 12076:51029 | 12076:52029 | 12076:53029 |
+| Corée du Sud | 12076:51028 | 12076:52028 | 12076:53028 | 12076:54028 |
+| Centre de la Corée | 12076:51029 | 12076:52029 | 12076:53029 | 12076:54029 |
+| **Afrique du Sud**| |
+| Afrique du Sud Nord | 12076:51034 | 12076:52034 | 12076:53034 | 12076:54034 |
+| Afrique du Sud Ouest | 12076:51035 | 12076:52035 | 12076:53035 | 12076:54035 |
+| **Émirats Arabes Unis**| |
+| Émirats arabes unis Nord | 12076:51036 | 12076:52036 | 12076:53036 | 12076:54036 |
+| Émirats arabes unis Centre | 12076:51037 | 12076:52037 | 12076:53037 | 12076:54037 |
 
 
 Tous les routages publiés par Microsoft seront marqués avec la valeur de communauté appropriée. 
@@ -204,6 +210,7 @@ Tous les routages publiés par Microsoft seront marqués avec la valeur de commu
 > 
 > 
 
+### <a name="service-to-bgp-community-value"></a>Service associé à la valeur de communauté BGP
 Par ailleurs, Microsoft marquera également des préfixes basés sur le service auquel ils appartiennent. Cela s'applique uniquement à l'homologation Microsoft. Le tableau ci-dessous fournit un mappage d’un service à la valeur de communauté BGP.
 
 | **Service** | **Valeur de communauté BGP** |
@@ -215,7 +222,7 @@ Par ailleurs, Microsoft marquera également des préfixes basés sur le service 
 | Services globaux Azure* | 12076:5050 |
 | Autres services Office 365 en ligne | 12076:5100 |
 
-* Pour le moment, les services globaux Azure incluent uniquement Azure DevOps.
+\* Pour le moment, les services globaux Azure incluent uniquement Azure DevOps.
 
 
 > [!NOTE]

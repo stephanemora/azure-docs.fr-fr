@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: rkarlin
-ms.openlocfilehash: 7ffb9684045031c5bca7a79a15db7cb16fc99e9b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: af7896ec4afaeefda7261542bf593a89a7bb9ae8
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60332373"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551797"
 ---
 # <a name="ueba-for-azure-resources-and-users"></a>UEBA pour les utilisateurs et ressources Azure 
 
@@ -55,8 +55,8 @@ Security Center prend en charge les alertes de détection d’anomalies de Cloud
 
 Ces alertes sont activées par défaut, mais vous pouvez les désactiver :
 
-1. Dans le panneau Security Center, sélectionnez **Stratégie de sécurité**. Pour l’abonnement que vous souhaitez modifier, cliquez sur **Modifier les paramètres**.
-2.  Cliquez sur **Détection des menaces**.
+1. Dans le panneau Security Center, sélectionnez **Pricing & Settings** (Tarification et paramètres) et sélectionnez l’abonnement applicable.
+2. Cliquez sur **Détection des menaces**.
 3. Sous **Activer les intégrations**, décochez la case **Autoriser Microsoft Cloud App Security à accéder à mes données**, puis cliquez sur **Enregistrer**.
 
    ![alerte de détection des menaces](./media/security-center-ueba-mcas/security-center-mcas-optout.png)

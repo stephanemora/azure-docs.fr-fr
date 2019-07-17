@@ -10,16 +10,16 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: 4366f09ccc9a3b2335e0aa84b7fb7398825cb87e
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
-ms.translationtype: MT
+ms.openlocfilehash: 8ed3b42c61456f110925e34473dbb326dafc1b80
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65864526"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447715"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Développer Azure Functions à l’aide de Visual Studio  
 
-Azure Functions Tools pour Visual Studio 2019 est une extension pour Visual Studio qui vous permet de développer, tester et déployer C# fonctions vers Azure. S’il s’agit de votre première expérience avec Azure Functions, vous pouvez en apprendre davantage dans l’article [Présentation d’Azure Functions](functions-overview.md).
+Azure Functions Tools est une extension pour Visual Studio qui vous permet de développer, de tester et de déployer des fonctions C# sur Azure. S’il s’agit de votre première expérience avec Azure Functions, vous pouvez en apprendre davantage dans l’article [Présentation d’Azure Functions](functions-overview.md).
 
 Azure Functions Tools propose les avantages suivants : 
 
@@ -29,26 +29,24 @@ Azure Functions Tools propose les avantages suivants :
 * Développer et déployer des fonctions précompilées C#. Les fonctions précompilées offrent de meilleures performances de démarrage à froid que les fonctions basées sur un script C#. 
 * Coder vos fonctions en C# tout en bénéficiant de tous les avantages du développement Visual Studio. 
 
-Cet article fournit des détails sur l’utilisation d’Azure Functions Tools pour Visual Studio 2019 pour développer C# fonctions et les publier sur Azure. Avant de lire cet article, lisez le [Démarrage rapide de Functions pour Visual Studio](functions-create-your-first-function-visual-studio.md). 
+Cet article fournit des informations sur le développement et la publication sur Azure de fonctions C#, à l’aide de Microsoft Azure Functions Tools pour Visual Studio 2019. Avant de lire cet article, lisez le [Démarrage rapide de Functions pour Visual Studio](functions-create-your-first-function-visual-studio.md). 
 
 > [!IMPORTANT]
 > Ne mélangez pas un développement local avec un développement de portail dans une même application de fonction. Quand vous publiez à partir d’un projet local dans une application de fonction, le processus de déploiement remplace toutes les fonctions que vous avez développées dans le portail.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-Azure Functions Tools est inclus dans la charge de travail de développement Azure de [Visual Studio 2017](https://www.visualstudio.com/vs/), ou une version ultérieure. Veillez à inclure le **développement Azure** charge de travail dans votre installation de Visual Studio 2019 :
+Le logiciel Azure Functions Tools est inclus dans la charge de travail de développement Azure de [Visual Studio 2017](https://www.visualstudio.com/vs/) et versions ultérieures. Veillez à inclure la charge de travail de **développement Azure** lorsque vous installez Visual Studio 2019 :
 
 ![Installer Visual Studio 2019 avec la charge de travail de développement Azure](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
 
 Vérifiez que Visual Studio est à jour et que vous utilisez la [dernière version](#check-your-tools-version) d’Azure Functions Tools.
 
-### <a name="other-requirements"></a>Autres exigences
+### <a name="azure-resources"></a>Ressources Azure
 
-Pour créer et déployer des fonctions, vous avez également besoin des éléments suivants :
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-* Un abonnement Azure actif. Si tel n’est pas le cas, des [comptes gratuits](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) sont disponibles.
-
-* Un compte de stockage Azure. Pour créer un compte de stockage, consultez [Créez un compte de stockage](../storage/common/storage-quickstart-create-account.md).
+Les autres ressources dont vous avez besoin, tel qu’un compte de stockage Azure, sont créées dans votre abonnement au cours du processus de publication.
 
 ### <a name="check-your-tools-version"></a>Vérifier la version des outils
 
@@ -80,16 +78,24 @@ Le modèle de projet crée un projet C#, installe le package NuGet `Microsoft.NE
 
 * **host.json** : vous permet de configurer l’hôte Functions. Ces paramètres s’appliquent lors de l’exécution en local et dans Azure. Pour plus d’informations, consultez l’article de référence sur [host.json](functions-host-json.md).
 
-* **local.settings.json** : tient à jour les paramètres utilisés lors de l’exécution locale des fonctions. Ces paramètres ne sont pas utilisés par Azure, ils sont utilisés par [Azure Functions Core Tools](functions-run-local.md). Utilisez ce fichier pour spécifier des paramètres d’application pour les variables d’environnement requises par vos fonctions. Ajoutez un élément au tableau **Valeurs** pour chaque connexion requise par les liaisons de fonctions dans votre projet. Pour plus d’informations, consultez [Local settings file](functions-run-local.md#local-settings-file) (Fichier de paramètres local) dans l’article Azure Functions Core Tools.
+* **local.settings.json** : tient à jour les paramètres utilisés lors de l’exécution locale des fonctions. Ces paramètres ne sont pas utilisés lors de l’exécution dans Azure. Pour en savoir plus, voir [Fichier de paramètres locaux](#local-settings-file).
 
     >[!IMPORTANT]
     >Étant donné que le fichier local.settings.json peut contenir des secrets, vous devez l’exclure du contrôle de code source du projet. Le paramètre **Copier dans le répertoire de sortie** de ce fichier doit toujours être **Copier si plus récent**. 
 
 Pour plus d’informations, consultez [Projet de bibliothèque de classes Azure Functions](functions-dotnet-class-library.md#functions-class-library-project).
 
+[!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
+
+Les paramètres du fichier local.settings.json ne sont pas chargés automatiquement lorsque vous publiez le projet. Pour vous assurer que ces paramètres existent également dans votre Function App dans Azure, vous devez les charger après avoir publié votre projet. Pour en savoir plus, voir [Paramètres Function App](#function-app-settings).
+
+Les valeurs dans **ConnectionStrings** ne sont jamais publiées.
+
+Ces valeurs de paramètres d’application de fonction peuvent aussi être lues dans votre code en tant que variables d’environnement. Pour en savoir plus, voir [Variables d’environnement](functions-dotnet-class-library.md#environment-variables).
+
 ## <a name="configure-the-project-for-local-development"></a>Configurer le projet pour un développement local
 
-Le runtime de Functions utilise un compte de stockage Azure en interne. Pour tous les types de déclencheur autres que HTTP et webhooks, vous devez définir la clé **Values.AzureWebJobsStorage** sur une chaîne de connexion de compte de stockage Azure valide. Votre application de fonctions peut aussi utiliser l’[émulateur de stockage Azure](../storage/common/storage-use-emulator.md) pour le paramètre de connexion **AzureWebJobsStorage** qui est nécessaire au projet. Pour utiliser l’émulateur, définissez la valeur de **AzureWebJobsStorage** sur `UseDevelopmentStorage=true`. Vous devez modifier ce paramètre sur une connexion de stockage réel avant le déploiement.
+Le runtime de Functions utilise un compte de stockage Azure en interne. Pour tous les types de déclencheur autres que HTTP et webhooks, vous devez définir la clé **Values.AzureWebJobsStorage** sur une chaîne de connexion de compte de stockage Azure valide. Votre application de fonctions peut aussi utiliser l’[émulateur de stockage Azure](../storage/common/storage-use-emulator.md) pour le paramètre de connexion **AzureWebJobsStorage** qui est nécessaire au projet. Pour utiliser l’émulateur, définissez la valeur de **AzureWebJobsStorage** sur `UseDevelopmentStorage=true`. Modifiez ce paramètre, afin de lui associer une connexion de stockage réel avant le déploiement.
 
 Pour définir la chaîne de connexion de compte de stockage :
 
@@ -133,8 +139,9 @@ Dans les fonctions précompilées, les liaisons utilisées par la fonction sont 
         }
     }
     ```
+
     Un attribut spécifique à la liaison est appliqué à chaque paramètre de liaison fourni à la méthode de point d’entrée. L’attribut accepte les informations de liaison en tant que paramètres. Dans l’exemple précédent, un attribut **QueueTrigger** est appliqué au premier paramètre, indiquant ainsi la fonction déclenchée par la file d’attente. Le nom de la file d’attente et le nom du paramètre de la chaîne de connexion sont transmis en tant que paramètres à l’attribut **QueueTrigger**. Pour plus d’informations, consultez [Liaisons de stockage File d’attente Azure pour Azure Functions](functions-bindings-storage-queue.md#trigger---c-example).
-    
+
 Vous pouvez utiliser la procédure ci-dessus pour ajouter des fonctions à votre projet d’application de fonction. Chaque fonction dans le projet peut avoir un déclencheur différent, mais une fonction ne doit avoir qu’un seul déclencheur. Pour plus d’informations, consultez [Concepts des déclencheurs et liaisons Azure Functions](functions-triggers-bindings.md).
 
 ## <a name="add-bindings"></a>Ajouter des liaisons
@@ -182,6 +189,13 @@ For an example of how to test a queue triggered function, see the [queue trigger
 Pour en savoir plus sur l’utilisation d’Azure Functions Core Tools, consultez [Procédure locale de codage et de test d’Azure Functions](functions-run-local.md).
 
 ## <a name="publish-to-azure"></a>Publication dans Azure
+
+Lors de la publication à partir de Visual Studio, l’une des deux méthodes de déploiement suivantes est utilisée :
+
+* [Web Deploy](functions-deployment-technologies.md#web-deploy-msdeploy) : crée un package et déploie des applications Windows sur n’importe quel serveur IIS.
+* [Zip Deploy avec le mode d’exécution à partir du package activé](functions-deployment-technologies.md#zip-deploy) : méthode recommandée pour les déploiements Azure Functions.
+
+La procédure suivante vous permet de publier votre projet dans une Function App sur Azure.
 
 [!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
 

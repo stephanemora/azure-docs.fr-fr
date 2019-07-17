@@ -16,12 +16,12 @@ ms.author: ryanwi
 ms.reviewer: jlu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fe1517cce8a1f9b1024085340ffb927b282f0fb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1cb17109d53c6e08c8607959207e367086032f6d
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540284"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482710"
 ---
 # <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>Activation Réactiver des espaces de noms Access Control Service désactivés
 
@@ -90,7 +90,7 @@ Les extensions supplémentaires ne seront plus automatiquement approuvées. Si v
 
 ### <a name="to-request-an-extension"></a>Pour demander une extension
 
-1. Connectez-vous au portail Azure et créez une [demande de support](https://portal.azure.com/#create/Microsoft.Support).
+1. Connectez-vous au portail Microsoft Azure et créez une [demande de support](https://portal.azure.com/#create/Microsoft.Support).
 1. Renseignez le formulaire de demande de support comme indiqué dans l’exemple suivant.
 
     | Champ de la demande de support | Valeur |
@@ -102,7 +102,7 @@ Les extensions supplémentaires ne seront plus automatiquement approuvées. Si v
     | **Type de problème** | `ACS to SAS Migration` |
     | **Objet** | Décrivez le problème |
 
-   ![Nouvelle demande de support technique](./media/howto-reactivate-disabled-acs-namespaces/new-technical-support-request.png)
+   ![Affiche un exemple de nouvelle demande de support technique](./media/howto-reactivate-disabled-acs-namespaces/new-technical-support-request.png)
 
 <!--
 

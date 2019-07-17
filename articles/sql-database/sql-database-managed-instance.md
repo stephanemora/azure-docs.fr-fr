@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 manager: craigg
-ms.date: 04/16/2019
-ms.openlocfilehash: 46c6972e20df69da236c151516d7d889f9db6084
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.date: 06/26/2019
+ms.openlocfilehash: b03f546b992bd9de6092dc0da8ef72aa69aa1da2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62098528"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447789"
 ---
 # <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>Utiliser Advanced Data Security pour SQL Database avec des réseaux virtuels et une compatibilité de presque 100 %
 
@@ -50,22 +50,22 @@ L’instance managée combine les meilleures fonctionnalités d’Azure SQL Data
 |Environnement isolé ([intégration de réseau virtuel](sql-database-managed-instance-connectivity-architecture.md), service de locataire unique, calcul et stockage dédiés) <br>[Chiffrement transparent des données (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>Prise en charge de l’[authentification unique Azure AD](sql-database-aad-authentication.md) <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Principaux (connexions) de serveur Azure AD</a> (**préversion publique**) <br>Conformité aux mêmes normes qu’une base de données Azure SQL <br>[Audit SQL](sql-database-managed-instance-auditing.md) <br>[détection des menaces](sql-database-managed-instance-threat-detection.md) |API Azure Resource Manager pour automatiser le provisionnement et la mise à l’échelle des services <br>Fonctionnalités du portail Azure pour le provisionnement et la mise à l’échelle manuels des services <br>Service de migration des données
 
 > [!IMPORTANT]
-> Base de données SQL Azure (toutes les options de déploiement), a été certifié par rapport à un nombre de normes de conformité. Pour plus d’informations, consultez le [Microsoft Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) où vous trouverez la liste actualisée des certifications de conformité de base de données SQL.
+> La base de données Azure SQL Database (toutes les options de déploiement) a été certifiée par rapport à plusieurs normes de conformité. Pour en savoir plus, accédez au [Centre de confidentialité Microsoft Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942), qui inclut la liste la plus à jour des certifications de conformité de SQL Database.
 
 Les fonctionnalités clés des instances managées figurent dans le tableau suivant :
 
 |Fonctionnalité | Description|
 |---|---|
 | Version/Build de SQL Server | Moteur de base de données SQL Server (dernière version stable) |
-| Sauvegardes automatisées gérées | Oui |
-| Analyse et métriques des instances et bases de données intégrées | Oui |
-| Mise à jour corrective automatique des logiciels | Oui |
-| Les dernières fonctionnalités du moteur de base de données | Oui |
+| Sauvegardes automatisées gérées | OUI |
+| Analyse et métriques des instances et bases de données intégrées | OUI |
+| Mise à jour corrective automatique des logiciels | OUI |
+| Les dernières fonctionnalités du moteur de base de données | OUI |
 | Nombre de fichiers de données (ROWS) par base de données | Multiple |
 | Nombre de fichiers journaux (LOG) par base de données | 1 |
-| Réseau virtuel - Déploiement Azure Resource Manager | Oui |
-| Réseau virtuel - Modèle de déploiement classique | Non  |
-| Prise en charge du portail | Oui|
+| Réseau virtuel - Déploiement Azure Resource Manager | OUI |
+| Réseau virtuel - Modèle de déploiement classique | Non |
+| Prise en charge du portail | OUI|
 | Integration Services (SSIS) intégré | Non : SSIS fait partie de la [plateforme PaaS Azure Data Factory](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure) |
 | Analysis Services (SSAS) intégré | Non : SSAS est une [plateforme PaaS](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview) distincte |
 | Reporting Services (SSRS) intégré | Non : utilisez Power BI ou l’infrastructure IaaS SSRS |
@@ -78,9 +78,12 @@ Le [modèle d’achat vCore](sql-database-service-tiers-vcore.md) pour les insta
 Dans le modèle vCore, vous pouvez choisir entre différentes générations de matériel.
 
 - Les processeurs logiques **Gen4** sont basés sur des processeurs Intel E5-2673 v3 (Haswell) de 2,4 GHz, un disque SSD attaché, des cœurs physiques, 7 Go de RAM par cœur, et des tailles de calcul comprises entre 8 et 24 vCores.
-- Les processeurs logiques **Gen5** sont basés sur des processeurs Intel E5-2673 v4 (Broadwell) de 2,3 GHz, un disque SSD NVMe rapide, un cœur logique multithread, et des tailles de calcul comprises entre 8 et 80 cœurs.
+- Les processeurs logiques **Gen5** sont basés sur des processeurs Intel E5-2673 v4 (Broadwell) de 2,3 GHz, un disque SSD NVMe rapide, un cœur logique multithread, et des tailles de calcul comprises entre 4 et 80 cœurs.
 
 Vous trouverez des informations sur les différences entre les générations de matériel dans les [limites de ressources d’instance managée](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
+
+> [!IMPORTANT]
+> Les nouvelles bases de données Gen4 ne sont plus prises en charge dans la région AustraliaEast.
 
 ## <a name="managed-instance-service-tiers"></a>Niveaux de service Managed Instance
 
@@ -126,7 +129,7 @@ L’option de déploiement d’instance managée combine les fonctionnalités de
 Une instance managée offre une meilleure isolation de la sécurité vis-à-vis des autres locataires dans le cloud Azure. L’isolation de la sécurité inclut :
 
 - [Implémentation d’un réseau virtuel natif](sql-database-managed-instance-connectivity-architecture.md) et sa connexion à votre environnement local à l’aide d’Azure Express Route ou d’une passerelle VPN.
-- Dans un déploiement par défaut, le point de terminaison SQL est exposée uniquement par le biais d’une adresse IP privée, en autorisant les sécuriser la connexion à partir d’Azure privés ou les réseaux mixtes.
+- Dans un déploiement par défaut, le point de terminaison SQL est exposé uniquement par le biais d’une adresse IP privée, ce qui permet de sécuriser la connexion à partir de réseaux Azure privés ou hybrides.
 - Locataire unique avec infrastructure sous-jacente dédiée (calcul, stockage).
 
 Le diagramme suivant présente différentes options de connectivité pour vos applications :
@@ -149,7 +152,7 @@ Azure SQL Database fournit un ensemble de fonctionnalités de sécurité avancé
 - La [sécurité au niveau des lignes](/sql/relational-databases/security/row-level-security) vous permet de contrôler l’accès aux lignes d’une table de base de données en fonction des caractéristiques de l’utilisateur qui exécute une requête (par exemple, appartenance à un groupe ou contexte d’exécution). La sécurité au niveau des lignes (RLS) simplifie la conception et le codage de la sécurité dans votre application. Elle vous permet d’implémenter des restrictions sur l’accès aux lignes de données. Par exemple, en s’assurant que les employés ne peuvent accéder qu’aux lignes de données utiles à leur service, ou en limitant l’accès aux données aux seules données pertinentes.
 - [Transparent Data Encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) : également appelé chiffrement des données au repos, chiffre les fichiers de données d’instance managée. TDE effectue le chiffrement et le déchiffrement d’E/S en temps réel des données et des fichiers journaux. Le chiffrement utilise une clé de chiffrement de base de données stockée dans l’enregistrement de démarrage de base de données à des fins de disponibilité lors de la récupération. Vous pouvez protéger toutes vos bases de données dans une instance managée avec Transparent Data Encryption. Il s’agit de la technologie de chiffrement au repos éprouvée de SQL Server, qui est requise par de nombreuses normes de conformité comme protection contre le vol d’un support de stockage.
 
-La migration d’une base de données chiffrée vers une instance managée est prise en charge par le biais d’Azure Database Migration Service (DMS) ou d’une restauration native. Si vous projetez de migrer une base de données chiffrée à l’aide de la restauration native, la migration du chiffrement transparent des données certificat existant à partir de SQL Server en local ou de SQL Server sur une machine virtuelle sur une instance gérée est une étape obligatoire. Pour plus d’informations sur les options de migration, consultez [Migration d’une instance SQL Server vers une instance managée](sql-database-managed-instance-migrate.md).
+La migration d’une base de données chiffrée vers une instance managée est prise en charge par le biais d’Azure Database Migration Service (DMS) ou d’une restauration native. Si vous envisagez de migrer une base de données chiffrée en utilisant une restauration native, vous devez nécessairement migrer le certificat TDE existant d’une instance locale de SQL Server ou de SQL Server dans une machine virtuelle vers une instance managée. Pour plus d’informations sur les options de migration, consultez [Migration d’une instance SQL Server vers une instance managée](sql-database-managed-instance-migrate.md).
 
 ## <a name="azure-active-directory-integration"></a>Intégration d'Azure Active Directory
 
@@ -161,7 +164,7 @@ Une nouvelle syntaxe a été ajoutée pour créer des principaux (connexions) de
 
 L’option de déploiement d’instance managée vous permet de gérer de manière centralisée les identités d’utilisateur de base de données et d’autres services Microsoft avec l’[Intégration d’Azure Active Directory](sql-database-aad-authentication.md). Cette fonctionnalité simplifie la gestion des autorisations et améliore la sécurité. Azure Active Directory prend en charge l’[authentification multifacteur](sql-database-ssms-mfa-authentication-configure.md) (MFA) pour augmenter la sécurité des données et des applications, ainsi qu’un processus d’authentification unique.
 
-### <a name="authentication"></a>Authentification
+### <a name="authentication"></a>Authentication
 
 L’authentification d’instance managée fait référence à la façon dont les utilisateurs prouvent leur identité quand ils se connectent à la base de données. Une base de données SQL prend en charge deux types d’authentification :  
 
@@ -240,5 +243,5 @@ Le tableau suivant montre plusieurs propriétés, accessibles par le biais de Tr
 - Pour plus d’informations sur la configuration du réseau virtuel, consultez [Configuration de réseau virtuel d’une instance managée](sql-database-managed-instance-connectivity-architecture.md).
 - Pour obtenir un guide de démarrage rapide qui crée une instance managée et restaure une base de données à partir d’un fichier de sauvegarde, consultez [Créer une instance managée](sql-database-managed-instance-get-started.md).
 - Pour un tutoriel utilisant le service Azure Database Migration Service (DMS) pour la migration, consultez [Migration d’une instance managée à l’aide de DMS](../dms/tutorial-sql-server-to-managed-instance.md).
-- Pour une supervision avancée des performances de base de données d’instance managée avec des informations de dépannage intégrées, consultez [Superviser Azure SQL Database avec Azure SQL Analytics](../azure-monitor/insights/azure-sql.md)
+- Pour une supervision avancée des performances de base de données Managed Instance avec informations de dépannage intégrées, consultez [Surveiller Azure SQL Database avec Azure SQL Analytics](../azure-monitor/insights/azure-sql.md).
 - Pour des informations sur les prix, consultez [Tarifs des instances managées SQL Database](https://azure.microsoft.com/pricing/details/sql-database/managed/).

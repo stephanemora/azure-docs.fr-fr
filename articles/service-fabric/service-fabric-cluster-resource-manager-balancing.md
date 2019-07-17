@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 74fe4f7c4c231f80c7555f39f840a85baae310e9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3ea95405f68938906ba010836753cd74ab0f775e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60809379"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446753"
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>Équilibrage de votre cluster Service Fabric
 Service Fabric Cluster Resource Manager permet de modifier la charge dynamique, de réagir aux ajouts ou aux suppressions de nœuds ou de services. Il corrige également automatiquement les violations de contrainte et rééquilibre de façon proactive le cluster. Mais à quelle fréquence ces actions sont-elles effectuées, et quel en est l’élément déclencheur ?
@@ -36,7 +36,7 @@ Le premier ensemble de contrôles autour d’équilibrage sont un ensemble de mi
 Chacun de ces différents types de corrections offerts par Cluster Resource Manager est contrôlé par un minuteur différent qui détermine sa fréquence. Lorsque chaque minuteur se déclenche, la tâche est planifiée. Par défaut, Resource Manager :
 
 * analyse son état et applique des mises à jour (comme l’enregistrement de l’arrêt d’un nœud) tous les dixièmes de seconde ;
-* définit l’indicateur de contrôle du placement 
+* définit l’indicateur de contrôle du placement chaque seconde ;
 * définit l’indicateur de contrôle de la contrainte chaque seconde
 * définit l’indicateur d’équilibrage toutes les cinq secondes.
 

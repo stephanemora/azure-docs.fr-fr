@@ -2,29 +2,21 @@
 title: Résolution des problèmes de paramètres Enterprise State Roaming dans Azure Active Directory | Microsoft Docs
 description: Répond à certaines questions que les administrateurs informatiques peuvent se poser sur les paramètres et la synchronisation des données d’application.
 services: active-directory
-keywords: paramètres enterprise state roaming, cloud windows, forum aux questions sur enterprise state roaming
-documentationcenter: ''
+ms.service: active-directory
+ms.subservice: devices
+ms.topic: troubleshooting
+ms.date: 06/28/2019
+ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-editor: ''
-ms.subservice: devices
-ms.assetid: f45d0515-99f7-42ad-94d8-307bc0d07be5
-ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 10/25/2018
-ms.author: joflore
 ms.reviewer: tanning
-ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cce60769ffae399062a50e1b2c28c1cd6e49a47e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 4cceae17b06e8b631dd530b0408008a8222bccbf
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60353174"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67481855"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Résolution des problèmes de paramètres Enterprise State Roaming dans Azure Active Directory
 
@@ -70,12 +62,11 @@ Cette section propose des suggestions de résolution et de diagnostic des probl�
 
 Enterprise State Roaming exige que l’appareil soit inscrit auprès d’Azure AD. Bien que non spécifique à Enterprise State Roaming, le respect des instructions ci-dessous peut vous aider à vérifier si le client de Windows 10 est inscrit, et à vérifier l’empreinte, l’URL des paramètres Azure AD, l’état NGC et d’autres informations encore.
 
-1.  Ouvrez l’invite de commandes non élevée. Pour ce faire, dans Windows, ouvrez le lanceur Exécuter (touche Win + R) et tapez « cmd ».
-2.  Une fois l’invite de commandes ouverte, tapez « *dsregcmd.exe /status* ».
-3.  Pour le résultat attendu, la valeur du champ **AzureAdJoined** doit être « YES », la valeur du champ **WamDefaultSet** doit être « YES » et la valeur du champ **WamDefaultGUID** doit être un GUID se terminant par « (AzureAd) ».
+1. Ouvrez l’invite de commandes non élevée. Pour ce faire, dans Windows, ouvrez le lanceur Exécuter (touche Win + R) et tapez « cmd ».
+1. Une fois l’invite de commandes ouverte, tapez « *dsregcmd.exe /status* ».
+1. Pour le résultat attendu, la valeur du champ **AzureAdJoined** doit être « YES », la valeur du champ **WamDefaultSet** doit être « YES » et la valeur du champ **WamDefaultGUID** doit être un GUID se terminant par « (AzureAd) ».
 
 **Problème potentiel** : la valeur des champs **WamDefaultSet** et **AzureAdJoined** est « NO », l’appareil était joint au domaine et inscrit auprès d’Azure AD, et l’appareil n’est pas synchronisé. Si ce problème apparaît, il est possible que l’appareil attente l’application de la stratégie ou que l’authentification de l’appareil a échoué lors de la connexion à Azure AD. Il est possible que l’utilisateur doive patienter quelques heures avant que la stratégie ne soit appliquée. D’autres étapes de résolution des problèmes peuvent inclure une nouvelle tentative d’inscription automatique en se déconnectant et en se reconnectant, ou en lançant la tâche dans le Planificateur de tâches. Dans certains cas, l’exécution de «*dsregcmd.exe /leave*» dans une fenêtre d’invite de commandes avec élévation de privilèges, un redémarrage et une nouvelle tentative d’inscription peuvent résoudre ce problème.
-
 
 **Problème potentiel** : le champ **SettingsUrl** est vide et l’appareil n’est pas synchronisé. L’utilisateur a peut-être ouvert sa dernière session sur l’appareil avant l’activation d’Enterprise State Roaming dans le portail Azure Active Directory. Redémarrez l’appareil et connectez l’utilisateur. Éventuellement, dans le portail, demandez à l’administrateur informatique d’accéder à **Azure Active Directory** > **Appareils** > **Enterprise State Roaming** et de désactiver et réactiver **Les utilisateurs peuvent synchroniser les paramètres et les données d'application sur différents appareils**. Une fois l’option réactivée, redémarrez l’appareil et connectez l’utilisateur. Si cela ne résout pas le problème, **SettingsUrl** peut être vide si le certificat de l’appareil est erroné. Dans ce cas, l’exécution de «*dsregcmd.exe /leave*» dans une fenêtre d’invite de commandes avec élévation de privilèges, un redémarrage et une nouvelle tentative d’inscription peuvent résoudre ce problème.
 
@@ -85,7 +76,7 @@ Il peut arriver qu’Enterprise State Roaming ne parvienne pas à synchroniser l
 
 **Problème potentiel** : si votre appareil est configuré pour requérir l’authentification multifacteur sur le portail Azure Active Directory, la synchronisation des paramètres lors de la connexion à un appareil Windows 10 à l’aide d’un mot de passe peut échouer. Ce type de configuration de l’authentification multifacteur a pour but de protéger un compte d’administrateur Windows Azure. Les utilisateurs administrateurs peuvent cependant continuer de synchroniser les paramètres en se connectant à leurs appareils Windows 10 à l’aide du code confidentiel Microsoft Passport for Work ou en effectuant une authentification multifacteur lors de l’accès à d’autres services Azure comme Office 365.
 
-**Problème potentiel** : La synchronisation peut échouer si l’administrateur configure la stratégie d’accès conditionnel Multi-Factor Authentication des services Active Directory Federation Services et le jeton d’accès de l’appareil expire. Veillez à vous connecter et à vous déconnecter en utilisant le code confidentiel Microsoft Passport for Work ou à effectuer une authentification multifacteur lorsque vous accédez à d’autres services Azure comme Office 365.
+**Problème potentiel** : la synchronisation peut échouer si l’administrateur configure la stratégie d’accès conditionnel Multi-Factor Authentication des services de fédération Active Directory (AD FS) et que le jeton d’accès de l’appareil arrive à expiration. Veillez à vous connecter et à vous déconnecter en utilisant le code confidentiel Microsoft Passport for Work ou à effectuer une authentification multifacteur lorsque vous accédez à d’autres services Azure comme Office 365.
 
 ### <a name="event-viewer"></a>Observateur d’événements
 

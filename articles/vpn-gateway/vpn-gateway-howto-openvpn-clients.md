@@ -5,18 +5,18 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 5/21/2019
+ms.date: 06/14/2019
 ms.author: cherylmc
-ms.openlocfilehash: fdfabf328ddfa6b5e4b578be5a1b329cb3219a18
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
-ms.translationtype: MT
+ms.openlocfilehash: b8f1626da730178d2cd9c2f31c4f9876102b3d46
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65989101"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477844"
 ---
-# <a name="configure-openvpn-clients-for-azure-vpn-gateway"></a>Configurer les clients de OpenVPN pour la passerelle VPN Azure
+# <a name="configure-openvpn-clients-for-azure-vpn-gateway"></a>Configurer des clients OpenVPN sur la passerelle VPN Azure
 
-Cet article vous permet de configurer **OpenVPN® protocole** les clients.
+Cet article vous permet de configurer des clients pour l’utilisation du **protocole OpenVPN®**.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -26,7 +26,7 @@ Vérifiez que vous avez terminé les étapes de configuration de OpenVPN pour vo
 
 ## <a name="windows"></a>Clients Windows
 
-1. Téléchargez et installez le client OpenVPN depuis le [site web OpenVPN](https://openvpn.net/index.php/open-source/downloads.html) officiel.
+1. Téléchargez et installez le client OpenVPN (version 2.4 ou plus) depuis le [site web OpenVPN](https://openvpn.net/index.php/open-source/downloads.html) officiel.
 2. Téléchargez le profil VPN pour la passerelle. Pour y parvenir, accédez à l’onglet Configurations point à site dans le Portail Azure, ou saisissez « New-AzVpnClientConfiguration » dans PowerShell.
 3. Décompressez le profil. Utilisez ensuite e bloc-notes pour ouvrir le fichier de configuration *vpnconfig.ovpn* à partir du dossier OpenVPN.
 4. [Exportez](vpn-gateway-certificates-point-to-site.md#clientexport) le certificat de client P2S que vous avez créé et chargé dans votre configuration P2S sur la passerelle.
@@ -45,7 +45,7 @@ Vérifiez que vous avez terminé les étapes de configuration de OpenVPN pour vo
    $CLIENTCERTIFICATE
    </cert>
    ```
-8. Ouvrez *profileinfo.txt* dans le Bloc-notes. Pour obtenir la clé privée, sélectionnez le texte (y compris et entre) «---BEGIN PRIVATE KEY--- » et «---END PRIVATE KEY--- » et copiez-le.
+8. Ouvrez *profileinfo.txt* dans le Bloc-notes. Pour obtenir la clé privée, sélectionnez le texte (y compris et entre) « ---BEGIN PRIVATE KEY--- » et « ---END PRIVATE KEY--- », puis copiez-le.
 9. Revenez au fichier vpnconfig.ovpn dans le Bloc-notes et recherchez cette section. Collez la clé privée, en remplaçant tout le contenu compris entre « key » et « /key ».
 
    ```
@@ -61,15 +61,15 @@ Vérifiez que vous avez terminé les étapes de configuration de OpenVPN pour vo
 
 ## <a name="mac"></a>Clients Mac
 
-1. Télécharger et installer un client OpenVPN, comme [TunnelBlik](https://tunnelblick.net/downloads.html). 
+1. Télécharger et installer un client OpenVPN, comme [TunnelBlick](https://tunnelblick.net/downloads.html). 
 2. Téléchargez le profil VPN pour la passerelle. Pour y parvenir, accédez à l’onglet Configurations point à site dans le Portail Azure, ou saisissez « New-AzVpnClientConfiguration » dans PowerShell.
 3. Décompressez le profil. Utilisez le Bloc-notes pour ouvrir le fichier de configuration vpnconfig.ovpn à partir du dossier OpenVPN.
 4. Renseignez la section du certificat client P2S avec la clé publique du certificat client P2S en base64. Dans un certificat au format PEM, vous pouvez simplement ouvrir le fichier .cer et copier la clé base64 entre les en-têtes de certificat. Consultez [Exporter la clé publique](vpn-gateway-certificates-point-to-site.md#cer) pour plus d’informations sur la façon d’exporter un certificat pour obtenir la clé publique codée.
 5. Renseignez la section de la clé privée avec la clé privée du certificat client P2S en base64. Pour plus d’informations sur la façon d’extraire une la clé privée, consultez [Exporter votre clé privée](https://openvpn.net/community-resources/how-to/#pki).
 6. Ne modifiez aucun autre champ. Utilisez la configuration complétée dans l’entrée client pour vous connecter au VPN.
-7. Double-cliquez sur le fichier de profil pour créer le profil dans Tunnelblik.
-8. Lancez Tunnelblik à partir du dossier d’applications.
-9. Cliquez sur l’icône Tunnelblik dans la zone de notification et choisissez l’option de connexion.
+7. Double-cliquez sur le fichier de profil pour créer le profil dans Tunnelblick.
+8. Lancez Tunnelblick à partir du dossier d’applications.
+9. Cliquez sur l’icône Tunnelblick dans la zone de notification et choisissez l’option de connexion.
 
 > [!IMPORTANT]
 >Seuls iOS 11.0 et versions ultérieures et MacOS 10.13 et versions ultérieures sont pris en charge avec le protocole OpenVPN.
@@ -105,7 +105,7 @@ Vérifiez que vous avez terminé les étapes de configuration de OpenVPN pour vo
    $CLIENTCERTIFICATE
    </cert>
    ```
-8. Ouvrez profileinfo.txt dans un éditeur de texte. Pour obtenir la clé privée, sélectionnez le texte y compris entre «---BEGIN clé privée--- » et «---END PRIVATE KEY--- » et copiez-le.
+8. Ouvrez profileinfo.txt dans un éditeur de texte. Pour obtenir la clé privée, sélectionnez le texte (y compris et entre) « ---BEGIN PRIVATE KEY--- » et « ---END PRIVATE KEY--- », puis copiez-le.
 
 9. Revenez au fichier vpnconfig.ovpn dans votre éditeur de texte et recherchez cette section. Collez la clé privée, en remplaçant tout le contenu compris entre « key » et « /key ».
 
@@ -134,6 +134,6 @@ Vérifiez que vous avez terminé les étapes de configuration de OpenVPN pour vo
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous souhaitez que les clients VPN pour pouvoir accéder aux ressources dans un autre réseau virtuel, puis suivez les instructions la [réseau virtuel à réseau virtuel](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) article explique comment créer une connexion de réseau virtuel à réseau virtuel. Veillez à activer BGP sur les passerelles et les connexions, sinon le trafic ne passe pas.
+Si vous souhaitez que les clients VPN puissent accéder aux ressources d’un autre réseau virtuel, suivez les instructions de l’article [Réseau virtuel à réseau virtuel](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) qui explique comment définir une connexion entre des réseaux virtuels. Veillez à activer BGP sur les passerelles et les connexions, sinon le trafic ne passe pas.
 
-**« OpenVPN » est une marque d’Inc. OpenVPN**
+**« OpenVPN » est une marque d’OpenVPN Inc.**

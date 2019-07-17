@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/30/2019
+ms.date: 06/30/2019
 ms.author: raynew
-ms.openlocfilehash: a02a2be7fb3ed942b1359949e18ba7d3dee824ae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8d1471188999182623a57db50d3205a859c160a2
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399969"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491797"
 ---
 # <a name="fail-over-vms-and-physical-servers"></a>Basculer des machines virtuelles et des serveurs physiques 
 
@@ -70,9 +70,9 @@ Les machines virtuelles/serveurs physiques protégés à l’aide de Site Recove
 
 > [!NOTE]
 > Au cours du basculement des machines virtuelles Hyper-V d’un site local vers un autre site local, pour revenir au site local principal vous devez d’abord exécuter une **réplication inverse** de la machine virtuelle vers le site principal, puis déclencher un basculement. Si la machine virtuelle principale n’est pas disponible, avant de commencer la **réplication inversée** vous devez restaurer la machine virtuelle à partir d’une sauvegarde.   
-> 
-> 
-> ## <a name="failover-job"></a>Travail de basculement
+ 
+ 
+## <a name="failover-job"></a>Travail de basculement
 
 ![Basculement](./media/site-recovery-failover/FailoverJob.png)
 
@@ -111,7 +111,7 @@ Si vous le souhaitez, vous pouvez automatiser certaines actions pendant l’exé
 ## <a name="post-failover-considerations"></a>Points à prendre en compte après le basculement
 Après le basculement, vous souhaiterez peut-être prendre en compte les recommandations suivantes :
 ### <a name="retaining-drive-letter-after-failover"></a>Conserver la lettre de lecteur après le basculement
-Pour conserver la lettre de lecteur sur les machines virtuelles après basculement, vous pouvez définir la **stratégie SAN** de la machine virtuelle sur **Activé**. [En savoir plus](https://support.microsoft.com/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure).
+Azure Site Recovery gère la rétention des lettres de lecteur. [Informez-vous](vmware-azure-exclude-disk.md#example-1-exclude-the-sql-server-tempdb-disk) sur la procédure à suivre pour exclure certains disques.
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Préparer la connexion aux machines virtuelles Azure après le basculement
 

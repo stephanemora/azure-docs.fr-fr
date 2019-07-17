@@ -6,15 +6,15 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 06/03/2019
+ms.date: 06/29/2019
 ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: 842c35a1575c7bcf6f547fb04d5680178b3bee78
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
-ms.translationtype: MT
+ms.openlocfilehash: 9d4fd798309398dff38081cc66b4071c5dd1f5bf
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66730395"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67670787"
 ---
 # <a name="azure-digital-twins-swagger-reference-documentation"></a>Documentation de référence relative à Swagger sur Azure Digital Twins
 
@@ -42,15 +42,15 @@ La documentation de référence sur Swagger, générée automatiquement, fournit
 
 Un bref résumé décrit l’API.
 
-[![Haut de swagger](media/how-to-use-swagger/swagger_management_top.PNG)](media/how-to-use-swagger/swagger_management_top.PNG#lightbox)
+[![Début de Swagger](media/how-to-use-swagger/swagger-management-top-img.png)](media/how-to-use-swagger/swagger-management-top-img.png#lightbox)
 
 Les modèles objet des API de gestion sont également répertoriés.
 
-[![Modèles de swagger](media/how-to-use-swagger/swagger_management_models.PNG)](media/how-to-use-swagger/swagger_management_models.PNG#lightbox)
+[![Modèles Swagger](media/how-to-use-swagger/swagger-management-models-img.png)](media/how-to-use-swagger/swagger-management-models-img.png#lightbox)
 
 Vous pouvez sélectionner chacun des modèles objet listés pour obtenir un résumé plus détaillé des principaux attributs.
 
-[![Modèle de swagger](media/how-to-use-swagger/swagger_management_model.PNG)](media/how-to-use-swagger/swagger_management_model.PNG#lightbox)
+[![Modèle Swagger](media/how-to-use-swagger/swagger-management-model-img.png)](media/how-to-use-swagger/swagger-management-model-img.png#lightbox)
 
 Les modèles objet Swagger générés sont pratiques pour voir la totalité des [objets et API](./concepts-objectmodel-spatialgraph.md) Azure Digital Twins disponibles. Les développeurs peuvent utiliser cette ressource quand ils créent des solutions sur Azure Digital Twins.
 
@@ -64,7 +64,7 @@ Chaque point de terminaison listé inclut également les informations obligatoir
 * Types de données de paramètre obligatoires.
 * Méthode HTTP permettant d’accéder à la ressource.
 
-[![Les points de terminaison swagger](media/how-to-use-swagger/swagger_management_endpoints.PNG)](media/how-to-use-swagger/swagger_management_endpoints.PNG#lightbox)
+[![Points de terminaison Swagger](media/how-to-use-swagger/swagger-management-endpoints-img.png)](media/how-to-use-swagger/swagger-management-endpoints-img.png#lightbox)
 
 Sélectionnez une ressource pour en voir une présentation plus détaillée.
 
@@ -74,11 +74,11 @@ L’une des fonctionnalités les plus puissantes de Swagger est la possibilité 
 
 Lorsqu’un point de terminaison spécifique est sélectionné, le bouton **Essayer** apparaît.
 
-[![Essayez de swagger](media/how-to-use-swagger/swagger_management_try.PNG)](media/how-to-use-swagger/swagger_management_try.PNG#lightbox)
+[![Essayer Swagger](media/how-to-use-swagger/swagger-management-try-img.png)](media/how-to-use-swagger/swagger-management-try-img.png#lightbox)
 
 Développez cette section pour faire apparaître les champs d’entrée de chaque paramètre obligatoire et de chaque paramètre facultatif. Entrez les valeurs correctes, puis sélectionnez **Exécuter**.
 
-[![A tenté de swagger](media/how-to-use-swagger/swagger_management_tried.PNG)](media/how-to-use-swagger/swagger_management_tried.PNG#lightbox)
+[![Essai de Swagger](media/how-to-use-swagger/swagger-management-tried-img.png)](media/how-to-use-swagger/swagger-management-tried-img.png#lightbox)
 
 Après avoir exécuté le test, vous pouvez valider les données de réponse.
 
@@ -86,51 +86,43 @@ Après avoir exécuté le test, vous pouvez valider les données de réponse.
 
 Chaque point de terminaison listé inclut également des données de corps de réponse pour la validation de votre développement et de vos tests. Ces exemples comportent les codes d’état et le code JSON correspondant à des requêtes HTTP réussies.
 
-[![Réponse de swagger](media/how-to-use-swagger/swagger_management_response.PNG)](media/how-to-use-swagger/swagger_management_response.PNG#lightbox)
+[![Réponse de Swagger](media/how-to-use-swagger/swagger-management-response-img.png)](media/how-to-use-swagger/swagger-management-response-img.png#lightbox)
 
 Les exemples incluent également des codes d’erreur pour faciliter le débogage ou l’amélioration des tests ayant échoué.
 
 ## <a name="swagger-oauth-20-authorization"></a>Autorisation OAuth 2.0 avec Swagger
 
-Pour en savoir plus sur les demandes de test protégées par OAuth 2.0, consultez la [documentation officielle](https://swagger.io/docs/specification/authentication/oauth2/).
-
 > [!NOTE]
-> L’utilisateur principal qui a créé la ressource de représentations numériques Azure aura une attribution de rôle d’administrateur de l’espace et sera en mesure de créer des attributions de rôles supplémentaires pour d’autres utilisateurs.
+> * L’utilisateur principal qui a créé la ressource Azure Digital Twins se voit attribuer le rôle d’administrateur de l’espace, et est en mesure de créer des attributions de rôles supplémentaires pour d’autres utilisateurs. Ces utilisateurs et leurs rôles peuvent être autorisés à appeler les API.
 
-1. Suivez les étapes de [ce démarrage rapide](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) pour créer une application Azure AD de type ***application Web / API***. Ou vous pouvez réutiliser une inscription d’application existant.
+1. Suivez les étapes de [ce guide de démarrage rapide](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) ou [inscrivez l’application Azure Digital Twins auprès de l’instance Azure Active Directory héritée](./how-to-use-legacy-aad.md) pour créer et configurer une application Azure AD. Vous pouvez aussi réutiliser une inscription d’application existante.
 
-2. Ajoutez l’url de réponse suivants à l’inscription d’application :
+1. Ajoutez l’URL de réponse suivante à l’inscription d’application :
 
     ```plaintext
     https://YOUR_SWAGGER_URL/ui/oauth2-redirect-html
     ```
     | Nom  | Remplacer par | Exemples |
     |---------|---------|---------|
-    | YOUR_SWAGGER_URL | Votre URL de documentation API REST de gestion disponibles dans le portail  | `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger` |
+    | YOUR_SWAGGER_URL | Votre URL de documentation API REST de gestion disponible sur le portail  | `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger` |
 
-3. Accorder des autorisations pour votre application accéder aux représentations numériques d’Azure. Sous **Autorisations requises**, entrez `Azure Digital Twins` et sélectionnez **Autorisations déléguées**. Sélectionnez ensuite **Accorder des autorisations**.
+1. Copiez l’ID de votre application Azure AD.
 
-    ![Inscriptions d’applications Azure AD – Ajout d’API](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)
+À l’issue de l’inscription de l’application Azure Active Directory, procédez comme suit :
 
-4. Configurer le manifeste d’application pour autoriser un flux implicite OAuth 2.0. Cliquez sur **Manifeste** pour ouvrir le manifeste d’application pour votre application. Définissez *oauth2AllowImplicitFlow* sur `true`.
+1. Cliquez sur le bouton **Autoriser** sur la page de votre instance Swagger.
 
-    ![Flux implicite Azure AD](../../includes/media/digital-twins-permissions/aad-app-allow-implicit-flow.png)
+    [![Cliquez sur le bouton Autoriser de Swagger](media/how-to-use-swagger/swagger-select-authorize-btn.png)](media/how-to-use-swagger/swagger-select-authorize-btn.png#lightbox)
 
-5. Copiez l’ID de votre application Azure AD.
+1. Collez l’ID d’application dans le champ **client_id**.
 
-À l’issue de l’inscription Azure Active Directory :
+    [![Champ client_id de Swagger](media/how-to-use-swagger/swagger-auth-form.png)](media/how-to-use-swagger/swagger-auth-form.png#lightbox)
 
-6. Cliquez sur le **Authorize** bouton sur votre page de swagger.
+1. Vous serez ensuite redirigé vers le modal de réussite suivant.
 
-    [![Cliquez sur le fichier Swagger bouton Autoriser](media/how-to-use-swagger/swagger-select-authorize-btn.png)](media/how-to-use-swagger/swagger-select-authorize-btn.png#lightbox)
+    [![Modal de redirection de Swagger](media/how-to-use-swagger/swagger-auth-redirect-img.png)](media/how-to-use-swagger/swagger-auth-redirect-img.png#lightbox)
 
-7. Collez l’ID d’application dans le **client_id** champ.
-
-    [![Champ client_id de swagger](media/how-to-use-swagger/swagger-auth-form.png)](media/how-to-use-swagger/swagger-auth-form.png#lightbox)
-
-8. Vous serez ensuite redirigé vers la réussite suivante modale.
-
-    [![Modal de redirection de swagger](media/how-to-use-swagger/swagger_auth_redirect.PNG)](media/how-to-use-swagger/swagger_auth_redirect.PNG#lightbox)
+Pour en savoir plus sur les demandes de test protégées par OAuth 2.0, consultez la [documentation officielle](https://swagger.io/docs/specification/authentication/oauth2/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -11,13 +11,13 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 manager: craigg
-ms.date: 01/19/2019
-ms.openlocfilehash: fad9437a631254d6c60d6d97267ae111d195040f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 07/01/2019
+ms.openlocfilehash: 5188862c50895c8e3f1bdecb4e08d39409bb5f9e
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60585680"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491667"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Vue d’ensemble de la requête élastique Azure SQL Database (préversion)
 
@@ -77,13 +77,13 @@ Une requête élastique peut être utilisée pour mettre les données situées d
 
 **Figure 2** Partitionnement vertical -Utilisation d’une requête élastique pour interroger des données de référence
 
-![ Partitionnement vertical -Utilisation d’une requête élastique pour interroger des données de référence][3]
+![Partitionnement vertical -Utilisation d’une requête élastique pour interroger des données de référence][3]
 
 **Interrogation de plusieurs bases de données** : les requêtes élastiques autorisent les cas d’usage qui nécessitent l’interrogation de plusieurs bases de données SQL. La figure 3 présente quatre bases de données différentes : CRM, Inventaire, Ressources humaines et Produits. Les requêtes exécutées dans une des bases de données doivent également accéder à une ou à toutes les autres bases de données. Avec une requête élastique, vous pouvez configurer votre base de données pour ce cas en exécutant plusieurs instructions DDL simples sur chacune des quatre bases de données. Après cette configuration à usage unique, l’accès à une table distante se fait simplement en faisant référence à une table locale à partir de vos requêtes T-SQL ou de vos outils d’analyse décisionnelle. Cette approche est recommandée si les requêtes distantes ne renvoient pas de résultats volumineux.
 
 **Figure 3** Partitionnement vertical - Utilisation de requête élastique pour l’interrogation de plusieurs bases de données
 
-![ Partitionnement vertical - Utilisation de requête élastique pour l’interrogation de plusieurs bases de données][4]
+![Partitionnement vertical - Utilisation de requête élastique pour l’interrogation de plusieurs bases de données][4]
 
 Les étapes suivantes servent à configurer des requêtes de base de données élastique pour des scénarios de partitionnement verticaux qui requièrent l’accès à une table située sur des bases de données SQL distantes avec le même schéma :
 
@@ -100,7 +100,7 @@ L’utilisation d’une requête élastique destinée à effectuer des tâches d
 
 **Figure 4** partitionnement horizontal : utilisation d’une requête élastique pour les rapports sur les couches de données partitionnées
 
-![ partitionnement horizontal : utilisation d’une requête élastique pour les rapports sur les couches de données partitionnées][5]
+![partitionnement horizontal : utilisation d’une requête élastique pour les rapports sur les couches de données partitionnées][5]
 
 > [!NOTE]
 > Une base de données élastique (nœud principal) peut être une base de données distincte, ou la même base de données qui héberge la carte de partitions.
@@ -140,9 +140,10 @@ La requête élastique est incluse dans le coût des bases de données Azure SQL
 * La rédaction de script de sources de données externes ou de tables externes à partir de SSMS ou SSDT n’est pas encore prise en charge.
 * L’importation/exportation de base de données de SQL ne prend pas en charge les tables et sources de données externes. Si vous devez utiliser importer/exporter, supprimez ces objets avant l’exportation, puis recréez-les après l’importation.
 * Une requête élastique prend actuellement en charge uniquement les accès en lecture seule à des tables externes. Vous pouvez toutefois utiliser des fonctionnalités T-SQL complètes sur la base de données dans laquelle la table externe est définie. Cela peut être utile, par exemple pour conserver les résultats temporaires à l’aide de SELECT <liste_colonnes> INTO <table_locale>, ou pour définir des procédures stockées dans la base de données de requêtes élastiques qui font référence à des tables externes.
-* À l’exception de nvarchar (max), les types métier ne sont pas pris en charge dans les définitions de table externes. Pour résoudre ce problème, vous pouvez créer une vue sur la base de données distante qui convertit le type LOB en nvarchar (max), définir votre table externe sur la vue au lieu de la table de base, et puis effectuer un cast vers le type LOB d’origine dans vos requêtes.
+* À l’exception de nvarchar (max), les types métier (y compris les types spatiaux) ne sont pas pris en charge dans les définitions de table externes. Pour résoudre ce problème, vous pouvez créer une vue sur la base de données distante qui convertit le type LOB en nvarchar (max), définir votre table externe sur la vue au lieu de la table de base, et puis effectuer un cast vers le type LOB d’origine dans vos requêtes.
 * Les colonnes de type de données nvarchar(max) dans le jeu de résultats désactivent la technique avancée de traitement par lot utilisée dans l’implémentation de la requête élastique et peuvent affecter les performances d’une requête pour un ordre de grandeur, ou même deux ordres de grandeur dans des cas d’usage non canoniques où une grande quantité de données non agrégées est transférée à la suite d’une requête.
 * Les statistiques des colonnes via les tables externes ne sont pas prises en charge actuellement. Les statistiques des tables sont prises en charge, mais doivent être créées manuellement.
+* Une requête élastique fonctionne uniquement avec Azure SQL Database. Vous ne pouvez pas l’utiliser pour interroger l’instance Microsoft SQL Server locale, ou SQL Server dans une machine virtuelle.
 
 ## <a name="feedback"></a>Commentaires
 

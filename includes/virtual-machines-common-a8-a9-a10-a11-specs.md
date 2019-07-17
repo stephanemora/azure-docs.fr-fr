@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/29/2018
 ms.author: azcspmt;jonbeck;cynthn;danlep;amverma
 ms.custom: include file
-ms.openlocfilehash: 5cbc19d5aade2bbcc8b8dca277352d1b17d1d35a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 88d9491bae1fcc6acb7ab631514aa4f6244f593d
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66755188"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67538028"
 ---
 ## <a name="deployment-considerations"></a>Points à prendre en considération pour le déploiement
 * **Abonnement Azure** : pour déployer un plus grand nombre d’instances de calcul intensif, envisagez de souscrire un abonnement de paiement à l’utilisation ou d’autres options d’achat. Si vous utilisez un [compte gratuit Azure](https://azure.microsoft.com/free/), vous pouvez seulement utiliser un nombre limité de cœurs de calcul Azure.
@@ -34,6 +34,6 @@ Un sous-ensemble d’instances nécessitant beaucoup de ressources système (A8,
 Cette interface permet aux instances prenant en charge l’accès RDMA de communiquer sur un réseau InfiniBand (IB), opérant à des vitesses EDR pour les machines virtuelles HB, HC, à des vitesses FDR pour les machines virtuelles de la série N H16r, H16mr, compatibles RDMA, et à des vitesses QDR pour les machines virtuelles A8 et A9. Ces fonctionnalités RDMA peuvent améliorer l’extensibilité et les performances de certaines applications MPI (Message Passing Interface). Pour plus d’informations sur la vitesse, consultez les détails dans les tables sur cette page.
 
 > [!NOTE]
-> Dans Azure, IP over IB est uniquement pris en charge sur les machines virtuelles compatibles SR-IOV (actuellement HB et HC). RDMA over IB est pris en charge pour toutes les instances compatibles RDMA.
+> Dans Azure, la fonction IP over IB est uniquement prise en charge sur les machines virtuelles compatibles SR-IOV (SR-IOV pour InfiniBand, actuellement HB et HC). RDMA over IB est pris en charge pour toutes les instances compatibles RDMA.
 >
 

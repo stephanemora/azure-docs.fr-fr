@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: b1edd4777839c947cf8f60bb6857f939553e2603
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e6947a4f15797028274d49069d9e2787b143860d
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65467625"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67503231"
 ---
 # <a name="configure-the-application-dashboard"></a>Configurer le tableau de bord de l’application
 
@@ -41,6 +41,8 @@ Maintenant, lorsqu’un opérateur affiche le tableau de bord de l’application
 ![Onglet « Tableau de bord » où figurent les paramètres et les propriétés de la vignette](media/howto-configure-homepage/image4a.png)
 
 Vous pouvez explorer d’autres types de vignettes dans la bibliothèque afin de découvrir comment personnaliser davantage le tableau de bord de l’application par défaut.
+
+Pour en savoir plus sur l’utilisation des mosaïque dans Azure IoT Central, voir [Utiliser des vignettes de tableau de bord](howto-use-tiles.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

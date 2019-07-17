@@ -2,19 +2,19 @@
 title: Comment rechercher, modifier et supprimer un projet - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: Custom Translator offre différents moyens pour gérer vos projets efficacement. Vous pouvez créer des projets, effectuer des recherches en fonction de vos critères et modifier vos projets. La suppression d’un projet est également possible dans Custom Translator.
-author: rajdeep-in
+author: swmachan
 manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-pawal
+ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 0e3397151d2f88e0e55b9526b3c41de19c019a6b
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.openlocfilehash: 3a19feb76b5f5e65f891dc9f4e9dbfbd642d15b6
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66382544"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447936"
 ---
 # <a name="search-edit-and-delete-projects"></a>Rechercher, modifier et supprimer des projets
 
@@ -39,7 +39,7 @@ L’outil de filtrage vous permet de rechercher des projets selon différentes c
 
 ## <a name="edit-a-project"></a>Modifier un projet
 
-Traducteur personnalisé vous donne la possibilité de modifier le nom et la description d’un projet. Autres métadonnées de projet, comme la catégorie, la langue source et la langue cible ne sont pas disponibles pour les modifier. Les étapes ci-dessous décrivent comment modifier un projet.
+Custom Translator vous permet de modifier le nom et la description d’un projet. Les autres métadonnées du projet comme la catégorie, la langue source et la langue cible ne peuvent pas être modifiées. Les étapes ci-dessous expliquent comment modifier un projet.
 
 1.  Cliquez sur l’icône crayon qui apparaît lors du survol d’un projet.
 

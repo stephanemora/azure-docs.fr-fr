@@ -4,12 +4,12 @@ ms.service: site-recovery
 ms.topic: include
 ms.date: 04/28/2019
 ms.author: raynew
-ms.openlocfilehash: cf39baf34096691144181332566cf567ebc02310
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 088cd5447b1f96dbf172b5918c29e4f3293289a6
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67177590"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67534624"
 ---
 1. Établissez une connexion Bureau à distance à la machine exécutant le serveur de traitement. 
 2. Exécutez cspsconfigtool.exe pour démarrer l’outil de configuration du serveur de traitement Azure Site Recovery.
@@ -19,8 +19,14 @@ ms.locfileid: "67177590"
 3. Dans **FQDN ou IP du serveur de Configuration**, spécifiez le nom ou l’adresse IP du serveur de configuration avec laquelle inscrire le serveur de traitement.
 4. Vérifiez que **Port du serveur de Configuration** est défini sur 443. Il s’agit du port sur lequel le serveur de configuration écoute les requêtes.
 5. Dans **Phrase secrète de connexion**, indiquez la phrase secrète spécifiée lorsque vous configurez le serveur de configuration. Pour rechercher la phrase secrète :
-    -  Sur le serveur de configuration, accédez au dossier d’installation de Site Recovery * *\home\svssystems\bin\** . 
-    - Exécutez la commande suivante : **genpassphrase.exe.n**. Celle-ci indique l’emplacement de la phrase secrète, que vous pouvez ensuite noter.
+    -  Sur le serveur de configuration, accédez au dossier d’installation de Site Recovery * *\home\svssystems\bin\** :
+    ```
+    cd %ProgramData%\ASR\home\svsystems\bin
+    ```
+    - Exécutez la commande ci-dessous pour imprimer la phrase secrète actuelle :
+    ```
+    genpassphrase.exe -n
+    ```
 
 6. Dans **Port de transfert de données**, laissez la valeur par défaut, sauf si vous avez indiqué un port personnalisé.
 

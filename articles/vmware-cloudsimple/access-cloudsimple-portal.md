@@ -1,6 +1,6 @@
 ---
-title: Solution d’accès Azure VMware par CloudSimple - portail
-description: Décrit comment accéder à des solutions de VMware à portail CloudSimple à partir du portail Azure
+title: Accès à la solution Azure VMware par CloudSimple - Portail
+description: Explique comment accéder au portail de la solution Azure VMware par CloudSimple, à partir du portail Microsoft Azure
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 06/04/2019
@@ -8,16 +8,29 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 30882899e5be4101ae3d77f9840d8bdef567e53f
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.openlocfilehash: 61c3d37f365034984231c780199e181872c010c6
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66676982"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67544127"
 ---
-# <a name="accessing-the-vmware-solution-by-cloudsimple-portal-from-azure-portal"></a>L’accès à la VMware Solution par portail CloudSimple à partir du portail Azure
+# <a name="accessing-the-vmware-solution-by-cloudsimple-portal-from-azure-portal"></a>Accès à la solution Azure VMware par CloudSimple, à partir du portail Microsoft Azure
 
-L’authentification unique est prise en charge pour l’accès au portail CloudSimple. Après que vous être connecté au portail Azure, vous pouvez accéder au portail de CloudSimple sans vous connecter à nouveau. La première fois que vous accédez au portail de CloudSimple que vous êtes invité à autoriser la [autorisation du Service CloudSimple](#consent-to-cloudsimple-service-authorization-application) application.  L’autorisation est qu’une seule fois.
+L’authentification unique est prise en charge pour l’accès au portail CloudSimple. Une fois connecté au portail Microsoft Azure, vous pouvez accéder au portail CloudSimple sans avoir à vous connecter à nouveau. La première fois que vous accédez au portail CloudSimple, vous êtes invité à autoriser l’application [Autorisation du Service CloudSimple](#consent-to-cloudsimple-service-authorization-application).  L’autorisation n’est effectuée qu’une seule fois.
+
+## <a name="before-you-begin"></a>Avant de commencer
+
+Les utilisateurs disposant des rôles **Propriétaire** et **Contributeur** peuvent accéder au portail CloudSimple.  Les rôles doivent être configurés sur le groupe de ressources dans lequel le service CloudSimple est déployé.  Ils peuvent également être configurés sur l’objet de service CloudSimple.  Pour en savoir plus sur la vérification de votre rôle, consultez l’article [Voir les attributions de rôles](https://docs.microsoft.com/azure/role-based-access-control/check-access).
+
+Si vous utilisez un rôle personnalisé, il doit inclure l’une des opérations suivantes sous ```Actions```.  Pour en savoir plus sur les rôles personnalisés, voir [Rôles personnalisés pour les ressources Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).  Si l’une des opérations ne fait pas partie de ```NotActions```, l’utilisateur ne peut pas accéder au portail CloudSimple. 
+
+```
+Microsoft.VMwareCloudSimple/*
+Microsoft.VMwareCloudSimple/*/write
+Microsoft.VMwareCloudSimple/dedicatedCloudServices/*
+Microsoft.VMwareCloudSimple/dedicatedCloudServices/*/write
+```
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
@@ -27,36 +40,36 @@ Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.az
 
 1. Sélectionnez **Tous les services**.
 
-2. Recherchez **CloudSimple Services**.
+2. Recherchez **Services CloudSimple**.
 
-3. Sélectionnez le service CloudSimple sur lequel vous souhaitez créer votre Cloud privé.
+3. Sélectionnez le service CloudSimple où vous voulez créer votre cloud privé.
 
-4. Sur le **vue d’ensemble** , cliquez sur **accéder au portail CloudSimple**.  Si vous accédez au portail de CloudSimple à partir du portail Azure pour la première fois, vous allez être invité à autoriser la [autorisation du Service CloudSimple](#consent-to-cloudsimple-service-authorization-application) application. 
+4. Sur la page **Vue d’ensemble**, cliquez sur **Go to the CloudSimple Portal** (Accéder au portail CloudSimple).  Si vous accédez au portail CloudSimple depuis le portail Microsoft Azure pour la première fois, vous êtes invité à autoriser l’application [Autorisation du Service CloudSimple](#consent-to-cloudsimple-service-authorization-application). 
 
-    ![Lancez CloudSimple portail](media/launch-cloudsimple-portal.png)
+    ![Lancer le portail CloudSimple](media/launch-cloudsimple-portal.png)
 
 > [!TIP]
-> Si vous sélectionnez une opération de Cloud privé (par exemple, la création ou le développement d’un Cloud privé) directement depuis le portail Azure, le portail CloudSimple s’ouvre à la page indiquée.
+> Si vous sélectionnez une opération de cloud privé (par exemple, la création ou le développement d’un cloud privé) directement depuis le portail Microsoft Azure, le portail CloudSimple s’ouvre à la page indiquée.
 
-Dans le portail CloudSimple, sélectionnez **accueil** dans le menu latéral pour afficher des informations résumées concernant vos Clouds privés. Les ressources et la capacité de vos Clouds privés sont affichés, ainsi que les alertes et les tâches qui nécessitent votre attention. Pour les tâches courantes, cliquez sur les icônes nommées en haut de la page.
+Dans le portail CloudSimple, sélectionnez **Accueil** dans le menu latéral pour afficher un récapitulatif des informations concernant vos Clouds privés. Les ressources et la capacité de vos Clouds privés sont affichées, ainsi que des alertes et les tâches qui nécessitent votre attention. Pour les tâches courantes, cliquez sur les icônes nommées en haut de la page.
 
 ![Page d’accueil](media/cloudsimple-portal-home.png)
 
-## <a name="consent-to-cloudsimple-service-authorization-application"></a>Consentement pour une application de l’autorisation du Service CloudSimple
+## <a name="consent-to-cloudsimple-service-authorization-application"></a>Consentement pour l’application Autorisation du Service CloudSimple
 
-Lancement du portail CloudSimple à partir du portail Azure pour la première fois nécessite votre consentement pour l’application de l’autorisation du Service CloudSimple.  Sélectionnez **Accept** pour accorder les autorisations demandées et accéder au portail CloudSimple. 
+Si vous démarrez le portail CloudSimple depuis le portail Microsoft Azure pour la première fois, vous êtes invité à autoriser l’application Autorisation du Service CloudSimple.  Sélectionnez **Accepter** pour accorder les autorisations demandées et accéder au portail CloudSimple. 
 
-![Donner son consentement pour l’autorisation du Service CloudSimple - les administrateurs](media/cloudsimple-azure-consent.png)
+![Consentement pour l’application Autorisation du Service CloudSimple - Administrateurs](media/cloudsimple-azure-consent.png)
 
-Si vous disposez des privilèges d’administrateur global, vous pouvez donner son consentement pour votre organisation.  Sélectionnez **donner son consentement au nom de votre organisation**.
+Si vous disposez du privilège Administrateur d’entreprise, vous pouvez donner votre consentement au nom de votre organisation.  Sélectionnez **Consentement pour le compte de votre organisation**.
 
-![Donner son consentement pour l’autorisation du Service CloudSimple - administrateur général](media/cloudsimple-azure-consent-global-admin.png)
+![Consentement pour l’application Autorisation du Service CloudSimple - Administrateur d’entreprise](media/cloudsimple-azure-consent-global-admin.png)
 
-Si vos autorisations ne pas autoriser l’accès au portail CloudSimple, contactez l’administrateur général de votre client pour accorder des autorisations requises.  Un administrateur global peut donner son consentement au nom de votre organisation.
+Si les autorisations dont vous disposez n’autorisent pas l’accès au portail CloudSimple, contactez l’administrateur d’entreprise de votre locataire afin d’obtenir les autorisations requises.  Un administrateur d’entreprise peut donner son consentement au nom de votre organisation.
 
-![Donner son consentement à l’autorisation de Service CloudSimple : nécessite que les administrateurs](media/cloudsimple-azure-consent-requires-administrator.png)
+![Consentement pour l’application Autorisation du Service CloudSimple - Nécessite des administrateurs](media/cloudsimple-azure-consent-requires-administrator.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Découvrez comment [créer un cloud privé](https://docs.azure.cloudsimple.com/create-private-cloud/)
-* Découvrez comment [configurer un environnement de cloud privé](quickstart-create-private-cloud.md)
+* Découvrez comment [créer un cloud privé](https://docs.azure.cloudsimple.com/create-private-cloud/).
+* Apprenez à [configurer un environnement de cloud privé](quickstart-create-private-cloud.md).

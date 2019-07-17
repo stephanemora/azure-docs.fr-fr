@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 06/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: 73384868deb8f0e33b233e363c42a12adbcbe402
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: 05faf77d22f77da87e7c22d47473e6debf0f77c8
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66237561"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461090"
 ---
 # <a name="data-modeling-in-azure-time-series-insights-preview"></a>Modélisation des données dans Azure Time Series Insights (préversion)
 
@@ -29,12 +29,12 @@ Pour en savoir plus sur l’utilisation de la mise à jour, consultez la page su
 
 1. Accédez au panneau du sélecteur de modèles Time Series, puis sélectionnez **Types** dans le menu. Réduisez le panneau pour ne garder que les types de modèles Time Series.
 
-    [![Créer un type unique](media/v2-update-how-to-tsm/portal_one.png)](media/v2-update-how-to-tsm/portal_one.png#lightbox)
+    [![Créer un type unique](media/v2-update-how-to-tsm/portal-one.png)](media/v2-update-how-to-tsm/portal-one.png#lightbox)
 
 1. Sélectionnez **Ajouter**.
 1. Entrez tous les détails se rapportant aux types, puis sélectionnez **Créer**. Cette action crée des types dans l’environnement.
 
-    [![Ajouter un type](media/v2-update-how-to-tsm/portal_two.png)](media/v2-update-how-to-tsm/portal_two.png#lightbox)
+    [![Ajouter un type](media/v2-update-how-to-tsm/portal-two.png)](media/v2-update-how-to-tsm/portal-two.png#lightbox)
 
 ### <a name="bulk-upload-one-or-more-types"></a>Charger un ou plusieurs types en bloc
 
@@ -42,21 +42,21 @@ Pour en savoir plus sur l’utilisation de la mise à jour, consultez la page su
 1. Sélectionnez le fichier qui contient la charge utile de type.
 1. Sélectionnez **Télécharger**.
 
-    [![Télécharger JSON](media/v2-update-how-to-tsm/portal_three.png)](media/v2-update-how-to-tsm/portal_three.png#lightbox)
+    [![Charger un fichier JSON](media/v2-update-how-to-tsm/portal-three.png)](media/v2-update-how-to-tsm/portal-three.png#lightbox)
 
 ### <a name="edit-a-single-type"></a>Modifier un type unique
 
 1. Sélectionnez le type, puis **Modifier**. 
 1. Apportez les modifications nécessaires, puis sélectionnez **Enregistrer**.
 
-    [![Modifier un type](media/v2-update-how-to-tsm/portal_four.png)](media/v2-update-how-to-tsm/portal_four.png#lightbox)
+    [![Modifier un type](media/v2-update-how-to-tsm/portal-four.png)](media/v2-update-how-to-tsm/portal-four.png#lightbox)
 
 ### <a name="delete-a-type"></a>Supprimer un type
 
 1. Sélectionnez le type, puis **Supprimer**.
 1. Si aucune instance n’est associée aux types, ils sont supprimés.
 
-    [![Supprimer un type](media/v2-update-how-to-tsm/portal_five.png)](media/v2-update-how-to-tsm/portal_five.png#lightbox)
+    [![Supprimer un type](media/v2-update-how-to-tsm/portal-five.png)](media/v2-update-how-to-tsm/portal-five.png#lightbox)
 
 ## <a name="hierarchies"></a>Hiérarchies
 
@@ -64,19 +64,19 @@ Pour en savoir plus sur l’utilisation de la mise à jour, consultez la page su
 
 1. Accédez au panneau du sélecteur de modèles Time Series, puis sélectionnez **Hiérarchies** dans le menu. Réduisez le panneau pour ne garder que les hiérarchies de modèles Time Series.
 
-    [![Sélectionner des hiérarchies](media/v2-update-how-to-tsm/portal_six.png)](media/v2-update-how-to-tsm/portal_six.png#lightbox)
+    [![Sélectionner des hiérarchies](media/v2-update-how-to-tsm/portal-six.png)](media/v2-update-how-to-tsm/portal-six.png#lightbox)
 
 1. Sélectionnez **Ajouter**.
 
-    [![Ajouter une hiérarchie](media/v2-update-how-to-tsm/portal_seven.png)](media/v2-update-how-to-tsm/portal_seven.png#lightbox)
+    [![Ajouter une hiérarchie](media/v2-update-how-to-tsm/portal-seven.png)](media/v2-update-how-to-tsm/portal-seven.png#lightbox)
 
 1. Sélectionnez **Ajouter un niveau** dans le volet droit.
 
-    [![Ajouter un niveau](media/v2-update-how-to-tsm/portal_eight.png)](media/v2-update-how-to-tsm/portal_eight.png#lightbox)
+    [![Ajouter un niveau](media/v2-update-how-to-tsm/portal-eight.png)](media/v2-update-how-to-tsm/portal-eight.png#lightbox)
 
 1. Entrez les détails de la hiérarchie, puis sélectionnez **Créer**.
 
-    [![Créer un niveau](media/v2-update-how-to-tsm/portal_nine.png)](media/v2-update-how-to-tsm/portal_nine.png#lightbox)
+    [![Créer un niveau](media/v2-update-how-to-tsm/portal-nine.png)](media/v2-update-how-to-tsm/portal-nine.png#lightbox)
 
 ### <a name="bulk-upload-one-or-more-hierarchies"></a>Charger une ou plusieurs hiérarchies en bloc
 
@@ -84,21 +84,21 @@ Pour en savoir plus sur l’utilisation de la mise à jour, consultez la page su
 1. Sélectionnez le fichier qui contient la charge utile de hiérarchie.
 1. Sélectionnez **Télécharger**.
 
-    [![Hiérarchies de chargement en bloc](media/v2-update-how-to-tsm/portal_ten.png)](media/v2-update-how-to-tsm/portal_ten.png#lightbox)
+    [![Chargement de hiérarchies en bloc](media/v2-update-how-to-tsm/portal-ten.png)](media/v2-update-how-to-tsm/portal-ten.png#lightbox)
 
 ### <a name="edit-a-single-hierarchy"></a>Modifier une hiérarchie unique
 
 1. Sélectionnez la hiérarchie, puis **Modifier**.
 1. Apportez les modifications nécessaires, puis sélectionnez **Enregistrer**.
 
-    [![Modifier une hiérarchie unique](media/v2-update-how-to-tsm/portal_eleven.png)](media/v2-update-how-to-tsm/portal_eleven.png#lightbox)
+    [![Modifier une hiérarchie unique](media/v2-update-how-to-tsm/portal-eleven.png)](media/v2-update-how-to-tsm/portal-eleven.png#lightbox)
 
 ### <a name="delete-a-hierarchy"></a>Supprimer une hiérarchie
 
 1. Sélectionnez la hiérarchie, puis **Supprimer**. 
 1. Si aucune instance n’est associée à la hiérarchie, elle est supprimée.
 
-    [![Supprimer une hiérarchie](media/v2-update-how-to-tsm/portal_twelve.png)](media/v2-update-how-to-tsm/portal_twelve.png#lightbox)
+    [![Supprimer une hiérarchie](media/v2-update-how-to-tsm/portal-twelve.png)](media/v2-update-how-to-tsm/portal-twelve.png#lightbox)
 
 ## <a name="instances"></a>Instances
 
@@ -106,11 +106,11 @@ Pour en savoir plus sur l’utilisation de la mise à jour, consultez la page su
 
 1. Accédez au panneau du sélecteur de modèles Time Series, puis sélectionnez **Instances** dans le menu. Réduisez le panneau pour ne garder que les instances de modèles Time Series.
 
-    [![Créer une instance unique](media/v2-update-how-to-tsm/portal_thirteen.png)](media/v2-update-how-to-tsm/portal_thirteen.png#lightbox)
+    [![Créer une instance unique](media/v2-update-how-to-tsm/portal-thirteen.png)](media/v2-update-how-to-tsm/portal-thirteen.png#lightbox)
 
 1. Sélectionnez **Ajouter**.
 
-    [![Ajouter une instance](media/v2-update-how-to-tsm/portal_fourteen.png)](media/v2-update-how-to-tsm/portal_fourteen.png#lightbox)
+    [![Ajouter une instance](media/v2-update-how-to-tsm/portal-fourteen.png)](media/v2-update-how-to-tsm/portal-fourteen.png#lightbox)
 
 1. Entrez les détails de l’instance, sélectionnez l’association de type et de hiérarchie, puis cliquez sur **Créer**.
 
@@ -119,7 +119,7 @@ Pour en savoir plus sur l’utilisation de la mise à jour, consultez la page su
 1. Sélectionnez **Charger un fichier JSON**.
 1. Sélectionnez le fichier qui contient la charge utile des instances.
 
-    [![Une ou plusieurs instances de téléchargement en bloc](media/v2-update-how-to-tsm/portal_fifteen.png)](media/v2-update-how-to-tsm/portal_fifteen.png#lightbox)
+    [![Charger une ou plusieurs instances en bloc](media/v2-update-how-to-tsm/portal-fifteen.png)](media/v2-update-how-to-tsm/portal-fifteen.png#lightbox)
 
 1. Sélectionnez **Télécharger**.
 
@@ -128,7 +128,7 @@ Pour en savoir plus sur l’utilisation de la mise à jour, consultez la page su
 1. Sélectionnez l’instance, puis **Modifier**. 
 1. Apportez les modifications nécessaires, puis sélectionnez **Enregistrer**.
 
-    [![Modifier une seule instance](media/v2-update-how-to-tsm/portal_sixteen.png)](media/v2-update-how-to-tsm/portal_sixteen.png#lightbox)
+    [![Modifier une instance unique](media/v2-update-how-to-tsm/portal-sixteen.png)](media/v2-update-how-to-tsm/portal-sixteen.png#lightbox)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

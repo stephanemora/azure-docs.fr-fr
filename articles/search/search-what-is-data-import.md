@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 83ca0c11ab0065929d939b7345cbd15869740bb3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b56a31a58937ddbea08ff22c3d1c0c71942f47f1
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65024354"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445392"
 ---
 # <a name="data-import-overview---azure-search"></a>Vue d’ensemble de l’importation des données - Recherche Azure
 
@@ -36,7 +36,7 @@ Vous pouvez utiliser les API suivantes pour charger un ou plusieurs documents da
 
 Il n’existe actuellement aucune prise en charge de l’outil de diffusion de données via le portail.
 
-Pour une présentation de chaque méthode, consultez [Guide de démarrage rapide : Créer un index Recherche Azure à l’aide de PowerShell et l’API REST](search-create-index-rest-api.md) ou [Guide de démarrage rapide : Créer un index Recherche Azure en C#](search-import-data-dotnet.md).
+Pour une présentation de chaque méthode, consultez [Guide de démarrage rapide : Créer un index Recherche Azure à l’aide de PowerShell](search-create-index-rest-api.md) ou [Guide de démarrage rapide C# : Création d’un index Recherche Azure à l’aide du Kit de développement logiciel (SDK) .NET](search-get-started-dotnet.md).
 
 <a name="indexing-actions"></a>
 
@@ -44,9 +44,9 @@ Pour une présentation de chaque méthode, consultez [Guide de démarrage rapide
 
 Vous pouvez contrôler le type d’action d’indexation par document, en spécifiant si le document doit être chargé en intégralité, fusionné avec du contenu de document existant ou supprimé.
 
-Dans l’API REST, émettez des requêtes HTTP POST avec un corps de requête JSON à l’URL de point de terminaison de votre index Recherche Azure. Chaque objet JSON du tableau « valeur » contient les clés du document et spécifie une action d’indexation pour ajouter, mettre à jour ou supprimer du contenu. Pour un exemple de code, consultez [Charger des documents](search-create-index-rest-api.md#load-documents).
+Dans l’API REST, émettez des requêtes HTTP POST avec un corps de requête JSON à l’URL de point de terminaison de votre index Recherche Azure. Chaque objet JSON du tableau « valeur » contient la clé du document et spécifie qu’une action d’indexation doit ajouter, mettre à jour ou supprimer le contenu d’un document. Pour un exemple de code, consultez [Charger des documents](search-get-started-dotnet.md#load-documents).
 
-Dans le kit de développement logiciel (SDK) .NET, empaquetez vos données dans un objet `IndexBatch`. Un `IndexBatch` encapsule une collection d’objets `IndexAction`, chacun d’entre eux contenant un document et une propriété qui indique à Recherche Azure les actions à effectuer sur ce document. Pour un exemple de code, consultez [Construire IndexBatch](search-import-data-dotnet.md#construct-indexbatch).
+Dans le kit de développement logiciel (SDK) .NET, empaquetez vos données dans un objet `IndexBatch`. Un `IndexBatch` encapsule une collection d’objets `IndexAction`, chacun d’entre eux contenant un document et une propriété qui indique à Recherche Azure les actions à effectuer sur ce document. Pour obtenir un exemple de code, consultez le [guide de démarrage rapide C#](search-get-started-dotnet.md).
 
 
 | @search.action | Description | Champs requis pour chaque document | Notes |

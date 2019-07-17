@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 6bf61e2afd96e3923938ac4f815d34ae08f7c618
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 97866a1f1299c028cdc8f86245308ae4a8b5db88
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64694221"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67502681"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Lier un ID partenaire à vos comptes Azure
 
-En tant que partenaire, vous pouvez suivre votre impact dans tous vos engagements avec les clients. Vous pouvez lier votre ID partenaire aux comptes utilisés pour gérer les ressources d’un client.
+Les partenaires de Microsoft fournissent des services qui aident les clients à atteindre leurs objectifs commerciaux et stratégiques, à l’aide de produits Microsoft. Lorsqu’il agit au nom du client pour la gestion, la configuration et le support des services Azure, le partenaire doit accéder à l’environnement du client. À l’aide du lien d’administrateur partenaire, les partenaires peuvent associer leur ID Microsoft Partner Network aux informations d’identification utilisées pour la remise du service.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -141,11 +141,11 @@ Le lien est associé au niveau du compte d'utilisateur. Vous seul pouvez modifie
 
 **Quel ID MPN utiliser si ma société en possède plusieurs ?**
 
-Vous pouvez utiliser n’importe quel ID MPN valide à l’exception d’un ID MPN d’organisation virtuelle (v-org). La plupart des partenaires choisissent d’utiliser l’ID MPN de la zone géographique dans laquelle le client est basé ou les services remis.
+Les comptes associés aux emplacements partenaire et les ID MPN associés doivent être utilisés pour la liaison de l’ID du partenaire.  En savoir plus sur les [comptes de partenaires](https://docs.microsoft.com/partner-center/account-structure)
 
 **Où trouver un rapport sur le chiffre d’affaires influencé pour l’ID de partenaire lié ?**
 
-Vous pouvez trouver un rapport sur le chiffre d’affaires influencé dans le [tableau de bord Insights Mes insights](https://partner.microsoft.com/membership/reports/myinsights). Vous devez sélectionner le lien d’administrateur partenaire en tant que le type d’association partenaire.
+Les partenaires peuvent accéder aux rapports sur les performances des produits cloud en consultant le [tableau de bord Mes Insights](https://partner.microsoft.com/membership/reports/myinsights) de Partner Central. Vous devez sélectionner le lien d’administrateur partenaire en tant que le type d’association partenaire.
 
 **Pourquoi ne puis-je pas voir mon client dans les rapports ?**
 

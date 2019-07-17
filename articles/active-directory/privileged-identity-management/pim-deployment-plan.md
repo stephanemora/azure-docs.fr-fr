@@ -14,12 +14,12 @@ ms.date: 02/08/2019
 ms.author: rolyon
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1755d627473b0ae47bbc4bc74a3f0d2210e5372b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7413fcf7992195753cba86a50b7d53a144b36023
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60440607"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476440"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Déployer Azure AD Privileged Identity Management (PIM)
 
@@ -99,7 +99,7 @@ La section suivante vous permet d’identifier tous les participants impliqués 
 
 #### <a name="stakeholders-pim-for-azure-ad-roles"></a>Participants : PIM pour les rôles Azure AD
 
-| Nom | Rôle | Action |
+| Nom | Role | Action |
 | --- | --- | --- |
 | Nom et e-mail | **Architecte de l’identité ou administrateur général Azure**<br/>Représentant de l’équipe de gestion des identités responsable de la définition de l’alignement de cette modification sur l’infrastructure principale de gestion des identités dans votre organisation. | SO/R/I |
 | Nom et e-mail | **Propriétaire de service / Supérieur hiérarchique**<br/>Représentant des propriétaires du service informatique d’un service ou d’un groupe de services. Ils sont essentiels à la prise de décisions et au déploiement de PIM pour leur équipe. | SO/R/I |
@@ -109,7 +109,7 @@ La section suivante vous permet d’identifier tous les participants impliqués 
 
 #### <a name="stakeholders-pim-for-azure-resource-roles"></a>Participants : PIM pour les rôles de ressources Azure
 
-| Nom | Rôle | Action |
+| Nom | Role | Action |
 | --- | --- | --- |
 | Nom et e-mail | **Propriétaire de l’abonnement / de la ressource**<br/>Représentant des propriétaires du service informatique de chaque abonnement ou ressource pour lequel ou laquelle vous voulez déployer PIM | SO/R/I |
 | Nom et e-mail | **Responsable de la sécurité**<br/>Représentant de l’équipe de sécurité qui peut valider que le plan répond aux exigences de sécurité de votre organisation. | SO/R |
@@ -143,7 +143,7 @@ Suivez les étapes ci-dessous afin d’appliquer le principe des privilèges min
 
 1. Listez les utilisateurs avec des rôles privilégiés dans votre organisation. Vous pouvez utiliser l’[Assistant PIM](pim-security-wizard.md#run-the-wizard) pour accéder à une page similaire à celle-ci.
 
-    ![Découvrir les rôles privilégiés](./media/pim-deployment-plan/discover-privileged-roles-users.png)
+    ![Volet Découvrir les rôles privilégiés indiquant les utilisateurs disposant de rôles privilégiés](./media/pim-deployment-plan/discover-privileged-roles-users.png)
 
 1. Pour tous les administrateurs généraux dans votre organisation, découvrez pourquoi ils ont besoin du rôle. En vous basant sur la lecture de la documentation précédente, si le travail de la personne peut être effectué par un ou plusieurs rôles d’administrateur précis, vous devez les supprimer du rôle Administrateur général et effectuer des affectations en conséquence à l’intérieur d’Azure Active Directory (comme référence : actuellement, Microsoft a uniquement environ 10 administrateurs disposant du rôle Administrateur général. Découvrez plus en détail la [façon dont Microsoft utilise PIM](https://www.microsoft.com/itshowcase/Article/Content/887/Using-Azure-AD-Privileged-Identity-Management-for-elevated-access)).
 
@@ -151,7 +151,7 @@ Suivez les étapes ci-dessous afin d’appliquer le principe des privilèges min
 
 Pour automatiser les étapes 3 et 4, vous pouvez utiliser la fonction de révision d’accès dans PIM. En suivant les étapes de [Démarrer une révision d’accès des rôles d’annuaire Azure AD dans PIM](pim-how-to-start-security-review.md), vous pouvez configurer une révision d’accès pour chaque rôle Azure AD avec un ou plusieurs membres.
 
-![Créer une révision d’accès](./media/pim-deployment-plan/create-access-review.png)
+![Volet Créer une révision d’accès pour les rôles Azure AD](./media/pim-deployment-plan/create-access-review.png)
 
 Vous devez définir les réviseurs sur **Membres (auto)** . Vous envoyez ainsi un e-mail à tous les membres du rôle pour leur demander de confirmer s’ils ont besoin de l’accès. Vous devez également activer **Exiger la raison lors de l’approbation** dans les paramètres avancés afin que les utilisateurs puissent indiquer pourquoi ils ont besoin du rôle. En fonction de ces informations, vous serez en mesure de supprimer des utilisateurs dans des rôles inutiles et de déléguer des rôles d’administrateur plus précis dans le cas d’administrateurs généraux.
 
@@ -240,7 +240,7 @@ Avant d’implémenter votre solution PIM, il est conseillé d’élaborer vos p
 
 #### <a name="pim-settings-for-azure-ad-roles"></a>Paramètres PIM pour les rôles Azure AD
 
-| Rôle | Exiger une authentification multifacteur | Notification | Ticket d’incident | Exiger une approbation | Approbateur | Durée d’activation | Administrateur permanent |
+| Role | Exiger une authentification multifacteur | Notification | Ticket d’incident | Exiger une approbation | Approbateur | Durée d’activation | Administrateur permanent |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Administrateur général | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Autres administrateurs généraux | 1 heure | Comptes d’accès d’urgence |
 | Administrateur Exchange | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: | Aucun | 2 heures | Aucun |
@@ -248,7 +248,7 @@ Avant d’implémenter votre solution PIM, il est conseillé d’élaborer vos p
 
 #### <a name="pim-settings-for-azure-resource-roles"></a>Paramètres PIM pour les rôles de ressources Azure
 
-| Rôle | Exiger une authentification multifacteur | Notification | Exiger une approbation | Approbateur | Durée d’activation | Administrateur actif | Expiration active | Expiration éligible |
+| Role | Exiger une authentification multifacteur | Notification | Exiger une approbation | Approbateur | Durée d’activation | Administrateur actif | Expiration active | Expiration éligible |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Propriétaire d’abonnements critiques | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Autres propriétaires de l’abonnement | 1 heure | Aucun | n/a | 3 mois |
 | Administrateur de l’accès utilisateur d’abonnements moins critiques | :heavy_check_mark: | :heavy_check_mark: | :x: | Aucun | 1 heure | Aucun | n/a | 3 mois |
@@ -258,7 +258,7 @@ Le tableau suivant décrit chacun des paramètres.
 
 | Paramètre | Description |
 | --- | --- |
-| Rôle | Nom du rôle pour lequel vous définissez les paramètres. |
+| Role | Nom du rôle pour lequel vous définissez les paramètres. |
 | Exiger une authentification multifacteur | Indique si l’utilisateur éligible doit effectuer une authentification multifacteur avant d’activer le rôle.<br/><br/> :heavy_check_mark: **Microsoft recommande** d’appliquer l’authentification multifacteur pour tous les rôles d’administrateur, en particulier si les rôles ont des utilisateurs invités. |
 | Notification | Si la valeur est true, les rôles Administrateur général, Administrateur de rôle privilégié et Administrateur de la sécurité de l’organisation reçoivent une notification par e-mail quand un utilisateur éligible active le rôle.<br/><br/>**Remarque :** Certaines organisations ne disposent pas d’une adresse e-mail liée à leurs comptes d’administrateurs ; pour obtenir ces notifications par e-mail, vous devez définir une autre adresse e-mail afin que les administrateurs reçoivent ces e-mails. |
 | Ticket d’incident | Indique si l’utilisateur éligible doit enregistrer un numéro de ticket d’incident lors de l’activation de son rôle. Ce paramètre permet à une organisation d’identifier chaque activation avec un numéro d’incident interne pour atténuer les activations indésirables.<br/><br/> :heavy_check_mark: **Microsoft recommande** de tirer parti des numéros de ticket d’incident pour lier PIM à votre système interne. Cela est particulièrement utile pour les approbateurs qui ont besoin de contexte pour l’activation. |
@@ -318,7 +318,7 @@ Maintenant que vous avez identifié les utilisateurs de test, utilisez cette ét
 
 Vous devez utiliser cette étape pour vérifier si toute la configuration que vous avez définie pour les rôles fonctionne correctement. Utilisez le tableau suivant pour documenter vos tests. Vous devez également utiliser cette étape pour optimiser la communication avec les utilisateurs affectés.
 
-| Rôle | Comportement attendu lors de l’activation | Résultats réels |
+| Role | Comportement attendu lors de l’activation | Résultats réels |
 | --- | --- | --- |
 | Administrateur général | (1) Exiger une authentification multifacteur<br/>(2) Exiger une approbation<br/>(3) L’approbateur reçoit une notification et peut approuver<br/>(4) Le rôle expire au bout d’un délai prédéfini |  |
 | Propriétaire de l’abonnement *X* | (1) Exiger une authentification multifacteur<br/>(2) L’affectation éligible expire après la période configurée |  |

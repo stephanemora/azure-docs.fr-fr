@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services : Joindre une machine virtuelle 
 description: Joindre une machine virtuelle Windows Server à Azure AD DS
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 ms.assetid: 29316313-c76c-4fb9-8954-5fa5ec82609e
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.author: mstephen
-ms.openlocfilehash: 1564fff8a749cc2d4db9e8e820981ba5dc1da570
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.author: iainfou
+ms.openlocfilehash: 377e253ef595e933f3ccab76bd053e2b416d3a16
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66245968"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67473162"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Joindre une machine virtuelle Windows Server à un domaine géré
 Cet article explique comment déployer une machine virtuelle Windows Server à l’aide du portail Azure. Il indique également comment joindre une machine à un domaine managé Azure Active Directory Domain Services.
@@ -146,7 +146,7 @@ Si vous rencontrez des problèmes concernant les informations d’identification
 
 * Vérifiez que vous avez [activé la synchronisation de mot de passe](active-directory-ds-getting-started-password-sync.md) avec votre domaine managé.
 
-* Vérifiez que vous avez utilisé l’UPN de l’utilisateur tel que configuré dans Azure AD (par exemple, *bob\@domainservicespreview.onmicrosoft.com*) pour vous connecter.
+* Assurez-vous que vous avez utilisé l’UPN de l’utilisateur tel que configuré dans Azure AD (par exemple, *bob\@domainservicespreview.onmicrosoft.com*) pour vous connecter.
 
 * Attendez la fin de la synchronisation de mot de passe, comme indiqué dans le guide de démarrage.
 

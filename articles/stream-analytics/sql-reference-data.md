@@ -1,5 +1,5 @@
 ---
-title: Utiliser les données de référence d’une base de données SQL pour une tâche Azure Stream Analytics (préversion)
+title: Utiliser les données de référence d’une base de données SQL pour une tâche Azure Stream Analytics
 description: Cet article décrit comment utiliser une base de données SQL comme entrée de données de référence pour une tâche Azure Stream Analytics dans le portail Azure et dans Visual Studio.
 services: stream-analytics
 author: mamccrea
@@ -8,14 +8,14 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: f0e62c27885e2f6d5097194e1b9d869e167c4a4c
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
-ms.translationtype: MT
+ms.openlocfilehash: ae1954b99e268e8bc44c4ba29bbc79d7734fda6e
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66304970"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461732"
 ---
-# <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job-preview"></a>Utiliser les données de référence d’une base de données SQL pour une tâche Azure Stream Analytics (préversion)
+# <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job"></a>Utiliser les données de référence d’une base de données SQL pour une tâche Azure Stream Analytics
 
 Azure Stream Analytics prend en charge l'utilisation d'Azure SQL Database comme source d'entrée de données de référence. Vous pouvez utiliser les données d’une base de données SQL comme données de référence pour votre tâche Stream Analytics dans le portail Azure et dans Visual Studio avec les outils Stream Analytics. Cet article décrit les deux méthodes.
 
@@ -116,7 +116,7 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
 
 4. Ouvrez le fichier SQL dans l’éditeur et écrivez la requête SQL.
 
-5. Si vous utilisez Visual Studio 2019, et que vous avez installé SQL Server Data tools, vous pouvez tester la requête en cliquant sur **Execute**. Une fenêtre d’Assistant s’affiche pour vous aider à vous connecter à la base de données SQL. Le résultat de la requête s’affiche en bas de la fenêtre.
+5. Si vous utilisez Visual Studio 2019 et que vous avez installé SQL Server Data Tools, vous pouvez tester la requête en cliquant sur **Exécuter**. Une fenêtre d’Assistant s’affiche pour vous aider à vous connecter à la base de données SQL. Le résultat de la requête s’affiche en bas de la fenêtre.
 
 ### <a name="specify-storage-account"></a>Spécifier le compte de stockage
 
@@ -132,7 +132,7 @@ Avant de déployer la tâche sur Azure, vous pouvez tester la logique de la requ
 
 Quand vous utilisez la requête delta, des [tables temporelles dans Azure SQL Database](../sql-database/sql-database-temporal-tables.md) sont recommandées.
 
-1. Créer une table temporelle dans la base de données SQL Azure.
+1. Créer une table temporelle dans la base de données Azure SQL Database.
    
    ```SQL 
       CREATE TABLE DeviceTemporal 
@@ -148,7 +148,7 @@ Quand vous utilisez la requête delta, des [tables temporelles dans Azure SQL Da
    ```
 2. Créez la requête de capture instantanée. 
 
-   Utilisez le  **\@snapshotTime** paramètre pour indiquer à l’exécution du Stream Analytique pour obtenir le jeu de données de référence à partir de la base de données temporel SQL valide à l’heure système. Si vous ne fournissez pas ce paramètre, vous risquez d’obtenir un jeu de données de référence de base incorrect en raison des décalages d’horloge. Un exemple complet de requête d’instantané est présenté ci-dessous :
+   Utilisez le paramètre **\@snapshotTime** pour indiquer au runtime Stream Analytics d’obtenir le jeu de données de référence à partir de la table temporelle de la base de données SQL valide à l’heure système. Si vous ne fournissez pas ce paramètre, vous risquez d’obtenir un jeu de données de référence de base incorrect en raison des décalages d’horloge. Un exemple complet de requête d’instantané est présenté ci-dessous :
    ```SQL
       SELECT DeviceId, GroupDeviceId, [Description]
       FROM dbo.DeviceTemporal
@@ -157,7 +157,7 @@ Quand vous utilisez la requête delta, des [tables temporelles dans Azure SQL Da
  
 2. Créez la requête delta. 
    
-   Cette requête récupère toutes les lignes dans votre base de données SQL qui ont été insérées ou supprimées dans une heure de début,  **\@deltaStartTime**et une heure de fin  **\@deltaEndTime**. La requête delta doit retourner les mêmes colonnes que la requête d’instantané, ainsi que l’opération ( **_operation_** ) de la colonne. Cette colonne définit si la ligne est insérée ou supprimée entre  **\@deltaStartTime** et  **\@deltaEndTime**. Les lignes obtenues sont marquées avec le chiffre **1** si les enregistrements ont été insérés ou avec le chiffre **2** s’ils ont été supprimés. 
+   Cette requête récupère toutes les lignes dans votre base de données SQL qui ont été insérées ou supprimées entre l’heure de début **\@deltaStartTime** et l’heure de fin **\@deltaEndTime**. La requête delta doit retourner les mêmes colonnes que la requête d’instantané, ainsi que l’opération ( **_operation_** ) de la colonne. Cette colonne définit si la ligne est insérée ou supprimée entre **\@deltaStartTime** et **\@deltaEndTime**. Les lignes obtenues sont marquées avec le chiffre **1** si les enregistrements ont été insérés ou avec le chiffre **2** s’ils ont été supprimés. 
 
    Pour les enregistrements qui ont été mis à jour, la table temporelle se charge de la comptabilité en capturant une opération d’insertion et de suppression. Le runtime Stream Analytics applique ensuite les résultats de la requête delta à l’instantané précédent pour conserver les données de référence à jour. Un exemple de requête delta est présenté ci-dessous :
 
@@ -174,7 +174,7 @@ Quand vous utilisez la requête delta, des [tables temporelles dans Azure SQL Da
    Notez que le runtime Stream Analytics peut exécuter périodiquement la requête d’instantané en plus de la requête delta pour stocker des points de contrôle.
 
 ## <a name="test-your-query"></a>Tester votre requête
-   Il est important de vérifier que votre requête retourne le jeu de données attendu que le travail Stream Analytique utilisera comme données de référence. Pour tester votre requête, accédez à l’entrée dans la section de la topologie de la tâche sur le portail. Vous pouvez ensuite sélectionner des exemples de données sur votre entrée de référence de base de données SQL. Une fois que l’exemple est disponible, vous pouvez télécharger le fichier et vérifiez si les données retournées est comme prévu. Si vous souhaitez une optimisation des itérations de test et de développement, il est recommandé d’utiliser le [outils Stream Analytique pour Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install). Vous pouvez également n’importe quel autre outil de votre préférence pour assurer que la requête retourne des résultats corrects de votre base de données SQL Azure, puis l’utiliser dans votre travail Stream Analytique. 
+   Il est important de vérifier que votre requête renvoie le jeu de données attendu, que le travail Stream Analytics utilisera comme information de référence. Pour tester votre requête, accédez à la zone Entrée, dans la section Topologie de la tâche sur le portail. Vous pouvez ensuite sélectionner des échantillons de données sur votre entrée de référence Microsoft Azure SQL Database. Lorsque l’échantillon est disponible, vous pouvez télécharger le fichier et vérifier que les données renvoyées correspondent aux attentes. Si vous souhaitez optimiser vos itérations de test et de développement, il est recommandé d’utiliser les [outils Azure Steam Analytics pour Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install). Vous pouvez également utiliser l’outil de votre choix pour vérifier au préalable que la requête renvoie les bons résultats de Microsoft Azure SQL Database, puis l’utiliser dans votre travail Steam Analytics. 
 
 ## <a name="faqs"></a>FAQ
 
@@ -184,14 +184,14 @@ Le [coût par unité de streaming](https://azure.microsoft.com/pricing/details/s
 
 **Comment faire pour savoir si un instantané de données de référence est interrogé à partir de la base de données SQL et utilisé dans la tâche Azure Stream Analytics ?**
 
-Il existe deux métriques filtrées par nom logique (sous les métriques Azure Portal) que vous pouvez utiliser pour surveiller l’intégrité des données de référence de base de données SQL d’entrée.
+Vous pouvez recourir à deux mesures filtrées par nom logique (sous Mesures, dans le portail Microsoft Azure) pour superviser l’intégrité de la base de données SQL utilisée comme entrée de données de référence.
 
    * InputEvents : Cette métrique mesure le nombre d’enregistrements chargés à partir du jeu de données de référence de la base de données SQL.
    * InputEventBytes : Cette métrique mesure la taille de l’instantané de données de référence chargé en mémoire de la tâche Stream Analytics. 
 
 La combinaison de ces deux métriques permet de déduire si la tâche interroge la base de données SQL pour récupérer le jeu de données de référence et le charge en mémoire.
 
-**La base de données SQL Azure doit-elle être d’un type spécial ?**
+**La base de données Azure SQL doit-elle être d’un type spécial ?**
 
 Azure Stream Analytics fonctionne avec n’importe quel type de base de données Azure SQL. Toutefois, il est important de comprendre que la fréquence d’actualisation définie pour votre entrée de données de référence peut impacter la charge de votre requête. Pour utiliser l’option de requête delta, il est recommandé d’utiliser des tables temporelles dans Azure SQL Database.
 
@@ -202,5 +202,5 @@ Stream Analytics garantit un traitement des événements « Exactement une fois 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Utilisation de données de référence pour effectuer des recherches dans Stream Analytics](stream-analytics-use-reference-data.md)
-* [Démarrage rapide : créer une tâche Stream Analytics à l’aide des outils Azure Stream Analytics pour Visual Studio](stream-analytics-quick-create-vs.md)
+* [Démarrage rapide : créer une tâche Stream Analytics à l’aide des outils Azure Stream Analytics pour Visual Studio](stream-analytics-quick-create-vs.md)
 * [Tester des données actives localement à l’aide des outils Azure Stream Analytics pour Visual Studio (préversion)](stream-analytics-live-data-local-testing.md)

@@ -1,24 +1,24 @@
 ---
-title: Mappages d’espace de travail Azure Automation et d’Analytique de journal
-description: Cet article décrit les mappages autorisés entre un compte Automation et un espace de travail Log Analytique pour prendre en charge de la solution
+title: Mappages d’espaces de travail Azure Automation et Log Analytics
+description: Cet article décrit les mappages autorisés entre un compte Automation et un espace de travail Log Analytics pour la prise en charge d’une solution
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 05/20/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8afe8fed8912dd365071f1c4c5560c9f5578dcd8
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.openlocfilehash: 9faa261f4b6293d778c5da685f630a21fd88f600
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66133097"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478578"
 ---
-# <a name="workspace-mappings"></a>Mappages d’espace de travail
+# <a name="workspace-mappings"></a>Mappages d’espaces de travail
 
-Lorsque vous activez des solutions telles que Update Management, Change Tracking et d’inventaire ou le démarrer/arrêter des machines virtuelles au cours de la solution d’heures creuses, uniquement dans certaines régions sont prises en charge pour la liaison d’un espace de travail Analytique de journal et un compte Automation. Ce mappage s’applique uniquement au compte Automation et l’espace de travail Analytique de journal. Les ressources de création de rapports à votre espace de travail de compte Automation ou Log Analytique peuvent résider dans d’autres régions.
+Lorsque vous activez des solutions comme Update Management, Change Tracking et Inventory, ou Start/Stop VMs during off-hours, seules certaines régions sont prises en charge pour la liaison entre un espace de travail Log Analytics et un compte Automation. Ce mappage s’applique uniquement au compte Automation et à l’espace de travail Log Analytics. Les ressources créant des rapports pour votre espace de travail Log Analytics ou votre compte Automation peuvent résider dans d’autres régions.
 
 ## <a name="supported-mappings"></a>Mappages pris en charge
 
@@ -40,16 +40,16 @@ Le tableau suivant renseigne sur les mappages pris en charge :
 |**Europe**||
 |RoyaumeUniSud|RoyaumeUniSud|
 |WestEurope|WestEurope|
-|**US Gov**||
+|**Gouvernement des États-Unis**||
 |USGovVirginie|USGovVirginie|
 
-<sup>1</sup> mappage EastUS pour les espaces de travail Analytique de journal aux comptes Automation n’est pas un mappage précis de la région à une autre, mais est le mappage correct.
+<sup>1</sup> Le mappage EastUS entre des espaces de travail Log Analytics et des comptes Automation n’est pas un mappage précis entre deux région, mais le mappage correct.
 
-<sup>2</sup> en raison des restrictions de capacité la région n’est pas disponible lors de la création de nouvelles ressources. Cela inclut les espaces de travail comptes Automation et d’Analytique de journal. Toutefois, les ressources liées préexistants dans la région doivent continuer à fonctionner.
+<sup>2</sup> En raison de restrictions de capacité, la région n’est pas disponible lors de la création de ressources. Cela inclut les espaces de travail Log Analytics et les comptes Automation. Toutefois, les ressources liées préexistantes dans la région doivent continuer à fonctionner.
 
 ## <a name="unlink-workspace"></a>Supprimer le lien de votre espace de travail
 
-Si vous décidez que vous ne souhaitez plus intégrer votre compte Automation à un espace de travail Analytique de journal, vous pouvez dissocier votre compte directement depuis le portail Azure. Avant de continuer, vous devez d’abord supprimer la gestion de la mise à jour, le suivi des modifications et d’inventaire ou le démarrer/arrêter des machines virtuelles pendant les solutions les heures creuses si vous utilisez. Si vous ne les supprimez pas, cette procédure ne pourra aboutir. Consultez l’article relatif à la solution que vous avez importée pour comprendre sa procédure de suppression.
+Si vous ne souhaitez plus intégrer votre compte Automation dans un espace de travail Log Analytics, vous pouvez supprimer son lien directement dans le portail Microsoft Azure. Avant de continuer, vous devez d’abord supprimer les solutions Update Management, Change Tracking et Inventory, et Start/Stop VMs during off-hours, si vous les utilisez. Si vous ne les supprimez pas, cette procédure ne pourra pas aboutir. Consultez l’article relatif à la solution que vous avez importée pour comprendre sa procédure de suppression.
 
 Après avoir supprimé ces solutions, vous pouvez effectuer les étapes suivantes pour supprimer le lien de votre compte Automation.
 
@@ -58,7 +58,7 @@ Après avoir supprimé ces solutions, vous pouvez effectuer les étapes suivante
 
 1. Dans le portail Azure, ouvrez votre compte Automation puis, dans la page de ce dernier, sélectionnez **Espace de travail lié** dans la section **Ressources associées** sur la gauche.
 
-2. Dans la page Dissocier l’espace de travail, cliquez sur **Dissocier l’espace de travail**. Vous recevrez une invite de confirmation pour continuer.
+2. Dans la page Dissocier l’espace de travail, cliquez sur **Dissocier l’espace de travail**. Vous recevez une invite de confirmation de la poursuite de l’opération.
 
 3. Pour suivre la progression de la suppression du lien de votre espace de travail Log Analytics dans Azure Automation, sélectionnez **Notifications** dans le menu.
 
@@ -74,19 +74,19 @@ Si vous avez utilisé la solution Démarrer/arrêter des machines virtuelles pen
 * Start and stop VM runbooks (Démarrer et arrêter les Runbooks de machine virtuelle)
 * variables
 
-Ou bien, vous pouvez également dissocier votre espace de travail à partir de votre compte Automation à partir de votre espace de travail Analytique de journal. Dans votre espace de travail, sélectionnez **compte Automation** sous **les ressources associées**. Dans la page compte Automation, sélectionnez **dissocier le compte**.
+Vous pouvez également dissocier votre espace de travail de votre compte Automation à partir de votre espace de travail Log Analytics. Dans votre espace de travail, sélectionnez **Compte Automation** sous **Ressources connexes**. Sur la page du compte Automation, sélectionnez **Dissocier le compte**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez comment intégrer les solutions suivantes :
+Découvrez comment intégrer les solutions suivantes :
 
-Mettre à jour de la gestion et suivi des modifications et inventaire :
+Update Management, Change Tracking et Inventory :
 
-* À partir d’un [machine virtuelle](../automation-onboard-solutions-from-vm.md)
-* À partir de votre [compte Automation](../automation-onboard-solutions-from-automation-account.md)
-* Lorsque [navigation sur plusieurs ordinateurs](../automation-onboard-solutions-from-browse.md)
-* À partir d’un [runbook](../automation-onboard-solutions.md)
+* Depuis une [machine virtuelle](../automation-onboard-solutions-from-vm.md)
+* Depuis votre [compte Automation](../automation-onboard-solutions-from-automation-account.md)
+* Lorsque vous [parcourez plusieurs machines](../automation-onboard-solutions-from-browse.md)
+* Depuis un [runbook](../automation-onboard-solutions.md)
 
 Démarrer/arrêter des machines virtuelles pendant les heures creuses
 
-* [Déployer Start/Stop VMs during off-](../automation-solution-vm-management.md)
+* [Déployer Start/Stop VMs during off-hours](../automation-solution-vm-management.md)

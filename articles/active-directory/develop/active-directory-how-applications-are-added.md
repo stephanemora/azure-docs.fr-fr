@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: elisol, lenalepa
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84069fb80ac751cbde53b0febdac451b54cd2b29
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
-ms.translationtype: MT
+ms.openlocfilehash: e1b92b174d48c710a763857951d66d00956fa0f9
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66688758"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483072"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Comment et pourquoi les applications sont ajoutées à Azure AD
 
@@ -79,8 +79,10 @@ Le principal de service peut inclure :
 * Par programmation via l’API Graph Azure AD ou PowerShell
 
 ## <a name="how-are-application-objects-and-service-principals-related-to-each-other"></a>Quel est le lien entre les objets d’application et les principaux de service ?
+
 Une application possède un objet d’application dans son annuaire de base qui est référencé par un ou plusieurs principaux de service dans chacun des annuaires où il opère (y compris l’annuaire de base de l’application).
-![Schéma illustrant la façon dont les objets d’application et les principaux de service interagissent entre eux et avec les instances Azure AD.][apps_service_principals_directory]
+
+![Illustre la relation entre les objets d’application et les principaux de service][apps_service_principals_directory]
 
 Dans le schéma ci-dessus, Microsoft gère deux annuaires en interne (représentés à gauche), qu’il utilise pour publier des applications :
 
@@ -96,6 +98,7 @@ Les applications que vous ajoutez vous-même (représentées en tant que **(Vos)
 * Les applications que vous avez publiées à l’aide du proxy d’application Azure AD
 
 ### <a name="notes-and-exceptions"></a>Remarques et exceptions
+
 * Tous les principaux de service ne pointent pas vers un objet d’application. Lorsqu’Azure AD a été créé, les services fournis aux applications étaient alors plus limités et le principal de service était suffisant pour établir une identité d’application. Le principal du service d'origine était plus proche en termes de forme du compte de service Windows Server Active Directory. Pour cette raison, il est toujours possible de créer des principaux de service via diverses méthodes, avec Azure AD PowerShell par exemple, sans d’abord créer un objet d’application. L’API Graph Azure AD requiert un objet d’application avant de pouvoir créer un principal de service.
 * Actuellement, toutes les informations décrites ci-dessus sont exposées par programmation. Les éléments suivants sont uniquement disponibles dans l'interface utilisateur :
   * Revendication des règles de transformation
@@ -105,6 +108,7 @@ Les applications que vous ajoutez vous-même (représentées en tant que **(Vos)
   * [Principal du service](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity)
 
 ## <a name="why-do-applications-integrate-with-azure-ad"></a>Pourquoi les applications s’intègrent à Azure AD ?
+
 Les applications sont ajoutées à Azure AD pour exploiter un ou plusieurs des services proposés par Azure AD, notamment :
 
 * L’authentification et l’autorisation de l’application
@@ -116,6 +120,7 @@ Les applications sont ajoutées à Azure AD pour exploiter un ou plusieurs des s
 * La publication et le proxy d’applications : publiez une application sur Internet à partir d’un réseau privé
 
 ## <a name="who-has-permission-to-add-applications-to-my-azure-ad-instance"></a>Qui a l'autorisation d'ajouter des applications à mon instance Azure AD ?
+
 Bien que certaines tâches puissent uniquement être effectuées par les administrateurs généraux (comme l’ajout d’applications depuis la galerie d’applications et la configuration d’une application pour utiliser le proxy d’application), par défaut tous les utilisateurs de votre annuaire ont des droits pour inscrire des objets d’application qu’ils sont en train de développer et décider des applications qu’ils partagent ou auxquelles ils donnent accès à leurs données organisationnelles via un consentement. Si une personne est le premier utilisateur de votre annuaire à se connecter à une application et à donner son consentement, un principal de service sera créé dans votre locataire ; sinon, les informations d’octroi du consentement seront stockées dans le principal de service existant.
 
 Permettre aux utilisateurs d’inscrire des applications et de donner leur consentement peut, à première vue, sembler inquiétant, mais n’oubliez pas les points suivants :
@@ -132,10 +137,11 @@ Si vous souhaitez toujours empêcher les utilisateurs de votre annuaire d’insc
 
 * Pour empêcher les utilisateurs de donner leur consentement pour leur propre compte :
   1. Dans le portail Azure, accédez à la section [Paramètres utilisateur](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) sous Applications d’entreprise.
-  2. Définissez le paramètre **Les utilisateurs peuvent autoriser les applications à accéder aux données de l’entreprise en leur nom** sur **Non**. 
+  2. Définissez le paramètre **Les utilisateurs peuvent autoriser les applications à accéder aux données de l’entreprise en leur nom** sur **Non**.
      
      > [!NOTE]
-     > Si vous décidez de désactiver le consentement de l’utilisateur, un administrateur devra donner son consentement pour chaque nouvelle application qu’un utilisateur utilisera.    
+     > Si vous décidez de désactiver le consentement de l’utilisateur, un administrateur devra donner son consentement pour chaque nouvelle application qu’un utilisateur utilisera.
+
 * Pour empêcher les utilisateurs d’inscrire leurs propres applications :
   1. Dans le portail Azure, accédez à la section [Paramètres utilisateur](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings) sous Azure Active Directory
   2. Définissez le paramètre **Les utilisateurs peuvent inscrire des applications** sur **Non**.
@@ -145,4 +151,3 @@ Si vous souhaitez toujours empêcher les utilisateurs de votre annuaire d’insc
 
 <!--Image references-->
 [apps_service_principals_directory]:../media/active-directory-how-applications-are-added/HowAppsAreAddedToAAD.jpg
-

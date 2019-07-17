@@ -4,17 +4,17 @@ description: Cet article fournit des informations sur l’utilisation de modules
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 02/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a076c924d57aadfae477a5df0d128aad8e67af60
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: c722dc6af2b98adb60045d530bb38de7762027d5
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61305396"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477893"
 ---
 # <a name="az-module-support-in-azure-automation"></a>Prise en charge de modules Az dans Azure Automation
 
@@ -63,13 +63,13 @@ Ce processus d’importation peut également être réalisé par l’intermédia
 
 ## <a name="test-your-runbooks"></a>Tester vos runbooks
 
-Dès lors que les modules `Az` sont importés dans votre compte Automation, vous pouvez commencer à modifier vos runbooks pour utiliser le module Az à la place. La plupart des applets de commande portent le même nom, à l’exception de `AzureRM` qui a été remplacé par `Az`. Pour obtenir la liste des modules qui ne suivent pas ce processus, consultez [la liste des exceptions](/powershell/azure/migrate-from-azurerm-to-az?view=azps-1.1.0#change-module-imports-and-cmdlet-names).
+Dès lors que les modules `Az` sont importés dans votre compte Automation, vous pouvez commencer à modifier vos runbooks pour utiliser le module Az à la place. La plupart des applets de commande portent le même nom, à l’exception de `AzureRM` qui a été remplacé par `Az`. Pour obtenir la liste des modules qui ne suivent pas ce processus, consultez [la liste des exceptions](/powershell/azure/migrate-from-azurerm-to-az#update-cmdlets-modules-and-parameters).
 
 Un moyen de tester vos runbooks avant de les modifier pour utiliser les nouvelles applets de commande consiste à utiliser `Enable-AzureRMAlias -Scope Process` au début d’un runbook. Grâce à cet ajout dans votre runbook, celui-ci peut s’exécuter sans modification.
 
 ## <a name="after-migration-details"></a>Détails post-migration
 
-Une fois la migration terminée, ne démarrez plus les runbooks à l’aide des modules `AzureRM` sur le compte. Nous vous recommandons également de ne pas importer ni de mettre à jour des modules `AzureRM` sur ce compte. Désormais, considérez que ce compte a migré vers `Az` et qu’il fonctionne uniquement avec des modules `Az`. Lorsqu’un compte Automation est créé, les modules `AzureRM` existants continuent d’être installés, et les runbooks de tutoriel sont toujours créés avec des applets de commande `AzureRM`. Ces runbooks ne doit pas être exécutés.
+Une fois la migration terminée, ne démarrez plus les runbooks à l’aide des modules `AzureRM` sur le compte. Nous vous recommandons également de ne pas importer ni de mettre à jour des modules `AzureRM` sur ce compte. Désormais, considérez que ce compte a migré vers `Az` et qu’il fonctionne uniquement avec des modules `Az`. Lorsqu’un compte Automation est créé, les modules `AzureRM` existants continuent d’être installés, et les runbooks de tutoriel sont toujours créés avec des applets de commande `AzureRM`. Ces runbooks ne doivent pas être exécutés.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

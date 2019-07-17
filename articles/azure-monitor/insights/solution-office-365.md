@@ -6,18 +6,18 @@ documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: ''
-ms.service: operations-management-suite
+ms.service: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 05/29/2019
+ms.date: 07/01/2019
 ms.author: bwren
-ms.openlocfilehash: 4c7e1225a8da1e20bc90986d1530b781f7f2c11a
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
-ms.translationtype: MT
+ms.openlocfilehash: 3f4b0ad8b7aad01472a76db67f2c07e03e978e41
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66357574"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673039"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solution de gestion Office 365 dans Azure (préversion)
 
@@ -25,11 +25,11 @@ ms.locfileid: "66357574"
 
 
 > [!NOTE]
-> L’activation de la méthode recommandée pour installer et configurer la solution Office 365 le [Connecteur Office 365](../../sentinel/connect-office-365.md) dans [Azure Sentinel](../../sentinel/overview.md) au lieu d’utiliser les étapes décrites dans cet article. Il s’agit d’une version mise à jour de la solution Office 365 avec une expérience de configuration améliorés. Pour connecter les journaux d’Azure AD, utilisez le [Sentinel Azure AD Azure connecteur](../../sentinel/connect-azure-active-directory.md), qui fournit des données de journal plus riches que les journaux de gestion Office 365. 
+> Pour installer et configurer la solution Office 365, nous vous recommandons d’activer le [connecteur Office 365](../../sentinel/connect-office-365.md) dans [Azure Sentinel](../../sentinel/overview.md) plutôt que d’utiliser les étapes du présent article. Il s’agit d’une version mise à jour de la solution Office 365, qui offre une expérience de configuration optimisée. Pour connecter les journaux Azure AD, vous pouvez utiliser le [connecteur Azure AD Azure Sentinel](../../sentinel/connect-azure-active-directory.md) ou [configurer les paramètres de diagnostic Azure AD](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md), qui fournissent des données de journal plus riches que les journaux de gestion Office 365. 
 >
-> Lorsque vous [Sentinel à intégrer Azure](../../sentinel/quickstart-onboard.md), spécifiez l’espace de travail Analytique de journal que vous souhaitez que la solution Office 365 installée dans. Une fois que vous activez le connecteur, la solution sera disponible dans l’espace de travail et utilisé exactement comme d’autres solutions de surveillance que vous avez installé.
+> Lorsque vous [intégrez Azure Sentinel](../../sentinel/quickstart-onboard.md), spécifiez l’espace de travail Log Analytics dans lequel vous souhaitez installer la solution Office 365 Une fois le connecteur activé, la solution est disponible dans l’espace de travail, et vous pouvez l’utiliser exactement comme les autres solutions de surveillance que vous avez installées.
 >
-> Utilisateurs du cloud Azure government doivent installer Office 365, suivant les étapes de cet article dans la mesure où Azure Sentinel n’est pas encore disponible dans le cloud government.
+> Les utilisateurs du cloud Azure Government doivent installer Office 365 en suivant la procédure de cet article, car Azure Sentinel n’est pas encore disponible sur ce Cloud.
 
 La solution de gestion Office 365 vous permet d’effectuer le monitoring de votre environnement Office 365 dans Azure Monitor.
 
@@ -42,7 +42,7 @@ La solution de gestion Office 365 vous permet d’effectuer le monitoring de vot
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Les conditions suivantes sont requises avant l’installation et la configuration de cette solution.
 
@@ -86,7 +86,7 @@ La première étape consiste à créer une application dans Azure Active Directo
 1. Cliquez sur **Nouvelle inscription d’application**.
 
     ![Ajouter une inscription d’application](media/solution-office-365/add-app-registration.png)
-1. Entrez le **Nom** de l’application et **l’URL de connexion**.  Le nom doit être descriptif.  Utilisez `http://localhost` pour l’URL et de conserver _application Web / API_ pour la **type d’Application**
+1. Entrez le **Nom** de l’application et **l’URL de connexion**.  Le nom doit être descriptif.  Utilisez `http://localhost` en tant qu’URL et conservez _Application web/API_ comme **Type d’application**.
     
     ![Créer une application](media/solution-office-365/create-application.png)
 1. Cliquez sur **Créer** et validez les informations de l’application.
@@ -743,7 +743,7 @@ Le tableau suivant fournit des exemples de recherches de journaux pour les enreg
 | Requête | Description |
 | --- | --- |
 |Nombre de toutes les opérations sur votre abonnement Office 365 |OfficeActivity &#124; summarize count() by Operation |
-|Utilisation des sites SharePoint|OfficeActivity &#124; where OfficeWorkload =~ "sharepoint" &#124; summarize count() by SiteUrl \| sort by Count asc|
+|Utilisation des sites SharePoint|OfficeActivity &#124; où OfficeWorkload =~ "sharepoint" &#124; summarize count() by SiteUrl \| sort by Count asc|
 |Opérations d’accès de fichier par type d’utilisateur|search in (OfficeActivity) OfficeWorkload =~ "azureactivedirectory" and "MyTest"|
 |Recherche avec un mot clé spécifique|Type=OfficeActivity OfficeWorkload=azureactivedirectory "MyTest"|
 |Analyser des actions externes sur Exchange|OfficeActivity &#124; where OfficeWorkload =~ "exchange" and ExternalAccess == true|

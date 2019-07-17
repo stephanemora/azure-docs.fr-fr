@@ -8,12 +8,12 @@ ms.date: 05/21/2019
 author: wmengmsft
 ms.author: wmeng
 ms.custom: seodec18
-ms.openlocfilehash: af155b5adb2e4b45412a8b84818852ed1b1c5e72
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.openlocfilehash: 0812828f8d7c0be38fb03c06f4a10019e2ed153c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65966098"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447293"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Guide de conception de tables de Stockage Azure : concevoir des tables scalables et performantes
 
@@ -162,19 +162,19 @@ Ces listes résument certains des principaux conseils que vous devez garder à l
 
 Conception de votre solution de service de Table pour une *lecture* efficace :
 
-* ***Pensez votre conception pour l’interrogation dans des applications à lecture intensive.***  Lorsque vous concevez vos tables, pensez aux requêtes que vous allez exécuter (en particulier celles sensibles à la latence) avant de réfléchir à la méthode de mise à jour de vos entités. Cela permet généralement d’élaborer une solution efficace et performante.  
+* ***Pensez votre conception pour l’interrogation dans des applications à lecture intensive.*** Lorsque vous concevez vos tables, pensez aux requêtes que vous allez exécuter (en particulier celles sensibles à la latence) avant de réfléchir à la méthode de mise à jour de vos entités. Cela permet généralement d’élaborer une solution efficace et performante.  
 * ***Spécifiez les valeurs de PartitionKey et de RowKey dans vos requêtes.*** *requêtes de pointage* telles que celles-ci sont les requêtes de service de Table les plus efficaces.  
 * ***Envisagez de stocker des copies dupliquées des entités.*** Le stockage de table est bon marché. Vous pourriez donc stocker la même entité plusieurs fois (avec différentes clés) pour rendre les requêtes plus efficaces.  
 * ***Envisagez de dénormaliser vos données.*** Le stockage de tables est bon marché. Nous vous recommandons donc d’envisager la dénormalisation de vos données. Par exemple, stockez des entités de résumé pour que les requêtes d’agrégation de données aient seulement besoin d’accéder à une entité unique.  
 * ***Utilisez des valeurs de clé composées.*** Les seules clés dont vous disposez sont **PartitionKey** et **RowKey**. Par exemple, utilisez des valeurs de clé composées pour activer les chemins d’accès de clé de substitution pour les entités.  
-* ***Utilisez la projection de requête.***  Vous pouvez réduire la quantité de données que vous transférez sur le réseau en utilisant des requêtes qui sélectionnent uniquement les champs dont vous avez besoin.  
+* ***Utilisez la projection de requête.*** Vous pouvez réduire la quantité de données que vous transférez sur le réseau en utilisant des requêtes qui sélectionnent uniquement les champs dont vous avez besoin.  
 
 Conception de votre solution de service de Table pour une *écriture* efficace :  
 
-* ***Ne créez pas de partitions à chaud.***  Choisissez des clés qui vous permettent de répartir vos requêtes sur plusieurs partitions à tout moment.  
-* ***Évitez les pics de trafic.***  Fluidifiez le trafic sur une période de temps raisonnable et évitez les pics de trafic.
-* ***Ne créez pas nécessairement une table distincte pour chaque type d’entité.***  Lorsque vous avez besoin d’utiliser des transactions atomiques sur des types d’entité, vous pouvez stocker ces types d’entité multiples dans la même partition de la même table.
-* ***Prévoyez le débit maximal nécessaire.***  Vous devez connaître les objectifs d'extensibilité du service de Table et vous assurer que votre conception n'entraînera pas de dépassement.  
+* ***Ne créez pas de partitions à chaud.*** Choisissez des clés qui vous permettent de répartir vos requêtes sur plusieurs partitions à tout moment.  
+* ***Évitez les pics de trafic.*** Fluidifiez le trafic sur une période de temps raisonnable et évitez les pics de trafic.
+* ***Ne créez pas nécessairement une table distincte pour chaque type d’entité.*** Lorsque vous avez besoin d’utiliser des transactions atomiques sur des types d’entité, vous pouvez stocker ces types d’entité multiples dans la même partition de la même table.
+* ***Prévoyez le débit maximal nécessaire.*** Vous devez connaître les objectifs d'extensibilité du service de Table et vous assurer que votre conception n'entraînera pas de dépassement.  
 
 En lisant ce guide, vous rencontrerez des exemples mettant ces principes en pratique.  
 
@@ -204,7 +204,7 @@ Les exemples suivants supposent que le service de Table stocke les entités rela
 | **RowKey** (ID d’employé) |Chaîne |
 | **FirstName** |Chaîne |
 | **LastName** |Chaîne |
-| **Age** |Entier  |
+| **Age** |Entier |
 | **EmailAddress** |Chaîne |
 
 La section précédente Présentation du service de Table Azure décrit quelques-unes des principales fonctionnalités du service de Table Azure qui ont un impact direct sur la conception des requêtes. Il en résulte les conseils suivants, qui vous aideront à concevoir des requêtes de service de Table. La syntaxe de filtre utilisée dans les exemples ci-dessous provient de l’API REST du service de Table. Pour en savoir plus, consultez la rubrique [Interrogation d’entités](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
@@ -213,7 +213,7 @@ La section précédente Présentation du service de Table Azure décrit quelques
 * La deuxième méthode conseillée consiste à utiliser une ***requête de plage*** de données qui utilise la valeur de **PartitionKey** et des filtres sur une plage de valeurs de **RowKey** pour retourner plusieurs entités. La valeur de **PartitionKey** identifie une partition spécifique, tandis que la valeur de **RowKey** identifie un sous-ensemble des entités de cette partition. Par exemple : $filter=PartitionKey eq ’Sales’ and RowKey ge ’S’ and RowKey lt ’T’  
 * La troisième méthode conseillée consiste à effectuer une ***analyse de partition*** qui utilise la valeur de **PartitionKey** et des filtres sur une autre propriété sans clé afin de renvoyer plusieurs entités. La valeur de **PartitionKey** identifie une partition spécifique et les valeurs des propriétés sélectionnent un sous-ensemble d’entités dans cette partition. Par exemple : $filter=PartitionKey eq ’Sales’ and LastName eq ’Smith’  
 * Une ***analyse de table*** n’inclut pas la valeur de **PartitionKey** et s’avère inefficace, car elle lance une recherche sur toutes les partitions qui composent la table pour toutes les entités correspondantes. Elle effectue une analyse de table, que votre filtre utilise la valeur de **RowKey**ou non. Par exemple : $filter=LastName eq ’Jones’  
-* Les requêtes Stockage Table Azure qui renvoient plusieurs entités les renvoient triées dans l’ordre de la **PartitionKey** et de la **RowKey**. Pour éviter un nouveau tri des entités dans le client, sélectionnez une valeur de **RowKey** qui définit l’ordre de tri le plus répandu. Les résultats de requête retournés par l’API de Table Azure dans Azure Cosmos DB ne sont pas triés par clé de partition ou la clé de ligne. Pour obtenir la liste détaillée des différences de fonctionnalités, consultez [Différences entre l'API Table dans Azure Cosmos DB et Stockage Table Azure](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
+* Les requêtes Stockage Table Azure qui renvoient plusieurs entités les renvoient triées dans l’ordre de la **PartitionKey** et de la **RowKey**. Pour éviter un nouveau tri des entités dans le client, sélectionnez une valeur de **RowKey** qui définit l’ordre de tri le plus répandu. Les résultats de la requête renvoyés par l’API Table Azure dans Azure Cosmos DB ne sont pas triés par clé de partition ou clé de ligne. Pour obtenir la liste détaillée des différences de fonctionnalités, consultez [Différences entre l'API Table dans Azure Cosmos DB et Stockage Table Azure](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
 
 L’utilisation d’un connecteur « **or** » pour spécifier un filtre selon les valeurs de **RowKey** déclenche une analyse de partition et n’est pas traitée en tant que requête de plage de données. Par conséquent, vous devez éviter les requêtes qui utilisent des filtres comme : $filter=PartitionKey eq ’Sales’ and (RowKey eq ’121’ or RowKey eq ’322’)  
 
@@ -255,7 +255,7 @@ De nombreuses conceptions doivent répondre aux conditions requises pour permett
 Les résultats de la requête retournés par le service de Table sont triés dans l’ordre croissant selon la **PartitionKey**, puis la **RowKey**.
 
 > [!NOTE]
-> Les résultats de requête retournés par l’API de Table Azure dans la base de données Azure ne sont pas triés par clé de partition ou la clé de ligne. Pour obtenir la liste détaillée des différences de fonctionnalités, consultez [Différences entre l'API Table dans Azure Cosmos DB et Stockage Table Azure](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
+> Les résultats de la requête renvoyés par l’API Table Azure dans Azure Cosmos DB ne sont pas triés par clé de partition ou clé de ligne. Pour obtenir la liste détaillée des différences de fonctionnalités, consultez [Différences entre l'API Table dans Azure Cosmos DB et Stockage Table Azure](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
 
 Dans Stockage Table Azure, les clés correspondent à des valeurs de chaîne. Pour vous assurer que les valeurs numériques permettent des tris corrects, vous devez les convertir en une longueur fixe et les remplir avec des zéros. Par exemple, si la valeur d’ID d’un employé que vous utilisez comme **RowKey** est une valeur de nombre entier, vous devez convertir l’ID de cet employé, **123**, en **00000123**. 
 
@@ -653,7 +653,7 @@ Dans une base de données relationnelle, vous normalisez généralement des donn
 ![Entité de service et entité d’employé][16]
 
 #### <a name="solution"></a>Solution
-Au lieu de stocker les données dans les deux entités distinctes, dénormalisez les données et conservez une copie des détails du responsable dans l’entité du service. Par exemple :   
+Au lieu de stocker les données dans les deux entités distinctes, dénormalisez les données et conservez une copie des détails du responsable dans l’entité du service. Par exemple :  
 
 ![Entité de service dénormalisée et combinée][17]
 
@@ -723,7 +723,7 @@ Les modèles et les conseils suivants peuvent également être pertinents lors d
 Récupérez les *n* entités récemment ajoutées à une partition en utilisant une valeur de **RowKey** qui effectue un tri dans l’ordre inverse de la date et de l’heure.  
 
 > [!NOTE]
-> Les résultats de requête retournés par l’API de Table Azure dans la base de données Azure ne sont pas triés par clé de partition ou la clé de ligne. Dès lors, ce modèle convient au stockage Table Azure, mais pas à Azure Cosmos DB. Pour obtenir la liste détaillée des différences de fonctionnalités, consultez [Différences entre l'API Table dans Azure Cosmos DB et Stockage Table Azure](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
+> Les résultats de la requête renvoyés par l’API Table Azure dans Azure Cosmos DB ne sont pas triés par clé de partition ou clé de ligne. Dès lors, ce modèle convient au stockage Table Azure, mais pas à Azure Cosmos DB. Pour obtenir la liste détaillée des différences de fonctionnalités, consultez [Différences entre l'API Table dans Azure Cosmos DB et Stockage Table Azure](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
 
 #### <a name="context-and-problem"></a>Contexte et problème
 Une exigence courante est de pouvoir récupérer les toutes dernières entités créées, par exemple les dix dernières notes de frais soumises par un employé. Les requêtes de table prennent en charge une opération de requête **$top** pour retourner les *n* premières entités en provenance d’un ensemble. Il n’existe aucune opération de requête équivalente pour retourner les n dernières entités d’un ensemble.  

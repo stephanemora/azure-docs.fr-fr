@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/28/2018
 ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: 6fb49baf8ab58ae6cfe7639cedcc4466810c8b96
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c389f2ab9e67cbb1fd1a6a0c9ee274bca7d4c99d
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60347453"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67560437"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Vue d’ensemble des alertes dans Microsoft Azure 
 
@@ -33,7 +33,7 @@ Le diagramme ci-dessous représente le flux des alertes.
 
 ![Flux d’alertes](media/alerts-overview/Azure-Monitor-Alerts.svg)
 
-Les règles d’alerte sont séparées des alertes et de l’action effectuée lorsqu’une alerte se déclenche. 
+Les règles d’alerte sont séparées des alertes et des actions effectuées lorsqu’une alerte se déclenche. 
 
 **Règle d’alerte** : la règle d’alerte capture la cible et les critères d’alerte. La règle d’alerte peut être activée ou désactivée. Les alertes se déclenchent uniquement lorsqu’elles sont activées. 
 
@@ -94,6 +94,8 @@ Les groupes intelligents sont des agrégations d’alertes reposant sur des algo
 ## <a name="alerts-experience"></a>Expérience d’alertes 
 La page des alertes par défaut fournit un résumé des alertes qui sont créées dans une fenêtre de temps spécifique. Elle affiche le nombre total d’alertes pour chaque niveau de gravité avec des colonnes identifiant le nombre total d’alertes dans chaque état pour chaque niveau de gravité. Sélectionnez l’un des niveaux de gravité pour ouvrir la page [Toutes les alertes](#all-alerts-page) filtrée sur ce niveau de gravité.
 
+Vous pouvez également [énumérer par programmation les instances d’alertes générées sur votre ou vos abonnements à l’aide des API REST](#manage-your-alert-instances-programmatically).
+
 Elle n’affiche pas et ne suit pas les [alertes classiques](#classic-alerts) plus anciennes. Vous pouvez modifier les abonnements ou filtrer des paramètres pour mettre à jour la page. 
 
 ![Page des alertes](media/alerts-overview/alerts-page.png)
@@ -102,7 +104,7 @@ Vous pouvez filtrer cet affichage en sélectionnant des valeurs dans les menus d
 
 | Colonne | Description |
 |:---|:---|
-| Abonnement | Sélectionnez jusqu’à cinq abonnements Azure. Seules les alertes dans les abonnements sélectionnés sont incluses dans la vue. |
+| Abonnement | Sélectionnez les abonnements Azure pour lesquels vous souhaitez afficher les alertes. Vous pouvez sélectionner tous vos abonnements, si vous le souhaitez. Seules les alertes auxquelles vous pouvez accéder dans les abonnements sélectionnés sont incluses dans la vue. |
 | Groupe de ressources | Sélectionnez un seul groupe de ressources. Seules les alertes avec des cibles dans le groupe de ressources sélectionné sont incluses dans la vue. |
 | Période | Seules les alertes déclenchées dans la fenêtre de temps sélectionnée seront incluses dans l’affichage. Les valeurs prises en charge sont : dernière heure, dernières 24 heures, 7 derniers jours et 30 derniers jours. |
 
@@ -145,7 +147,7 @@ Vous pouvez filtrer l’affichage en sélectionnant les valeurs suivantes dans l
 
 | Colonne | Description |
 |:---|:---|
-| Abonnement | Sélectionnez jusqu’à cinq abonnements Azure. Seules les alertes dans les abonnements sélectionnés sont incluses dans la vue. |
+| Abonnement | Sélectionnez les abonnements Azure pour lesquels vous souhaitez afficher les alertes. Vous pouvez sélectionner tous vos abonnements, si vous le souhaitez. Seules les alertes auxquelles vous pouvez accéder dans les abonnements sélectionnés sont incluses dans la vue. |
 | Groupe de ressources | Sélectionnez un seul groupe de ressources. Seules les alertes avec des cibles dans le groupe de ressources sélectionné sont incluses dans la vue. |
 | Type de ressource | Sélectionnez un ou plusieurs types de ressources. Seules les alertes avec des cibles du type sélectionné sont incluses dans la vue. Cette colonne n’est disponible qu’après qu’un groupe de ressources a été spécifié. |
 | Ressource | Sélectionnez une ressource. Seules les alertes ayant ces ressources pour cible sont incluses dans l’affichage. Cette colonne n’est disponible qu’après qu’un type de ressource a été spécifié. |
@@ -157,20 +159,47 @@ Vous pouvez filtrer l’affichage en sélectionnant les valeurs suivantes dans l
 
 Cliquez sur **Colonnes** en haut de la page pour sélectionner les colonnes à afficher. 
 
-## <a name="alert-detail-page"></a>Page Détails de l’alerte
+## <a name="alert-details-page"></a>Page Détails de l’alerte
 La page Détails de l’alerte s’affiche lorsque vous sélectionnez une alerte. Elle fournit des détails de l’alerte et vous permet d’en modifier l’état.
 
 ![Détails de l’alerte](media/alerts-overview/alert-detail2.png)
 
-La page Détails de l’alerte comprend les sections suivantes.
+La page Détails de l’alerte comprend les sections ci-après.
 
 | Section | Description |
 |:---|:---|
-| Essentials | Affiche les propriétés et autres informations importantes sur l’alerte. |
+| Résumé | Affiche les propriétés et autres informations importantes sur l’alerte. |
 | Historique | Répertorie chaque action effectuée par l’alerte et toutes les modifications apportées à l’alerte. Actuellement limité aux changements d’état. |
-| Groupe intelligent | Informations sur le groupe intelligent dans lequel l’alerte se trouve. Le *nombre d’alertes* fait référence au nombre d’alertes incluses dans le groupe intelligent. Cela comprend les autres alertes du même groupe intelligent qui ont été créées au cours des 30 derniers jours, quel que soit le filtre de temps dans la page de la liste des alertes. Sélectionnez une alerte pour afficher ses détails. |
-| Détails supplémentaires | Affiche des informations contextuelles supplémentaires sur l’alerte, qui sont généralement spécifiques du type de source ayant créé l’alerte. |
+| Diagnostics | Informations sur le groupe intelligent dans lequel l’alerte se trouve. Le *nombre d’alertes* fait référence au nombre d’alertes incluses dans le groupe intelligent. Cela comprend les autres alertes du même groupe intelligent qui ont été créées au cours des 30 derniers jours, quel que soit le filtre de temps dans la page de la liste des alertes. Sélectionnez une alerte pour afficher ses détails. |
 
+## <a name="role-based-access-control-rbac-for-your-alert-instances"></a>Contrôle d’accès en fonction du rôle (RBAC) pour vos instances d’alertes
+
+Pour pouvoir utiliser et gérer des instances d’alerte, l’utilisateur doit disposer du rôle RBAC intégré [Contributeur d’analyse](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) ou [Lecteur d’analyse](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader). Ces rôles sont pris en charge à tout niveau de Microsoft Azure Resource Manager, du niveau de l’abonnement aux affectations granulaires, en passant par le niveau des ressources. Par exemple, si un utilisateur dispose uniquement d’un accès de type Contributeur d’analyse à la machine virtuelle ContosoVM1, il peut uniquement consommer et gérer les alertes générées sur cette machine.
+
+## <a name="manage-your-alert-instances-programmatically"></a>Gérer vos instances d’alerte par programmation
+
+Il existe de nombreux scénarios vous invitant à interroger le système par programmation, afin d’obtenir les alertes générées pour votre abonnement. L’objectif peut être de créer des vues personnalisées en dehors du portail Microsoft Azure, ou d’analyser ces analyses pour identifier les tendances et les modèles.
+
+Vous pouvez interroger le système afin d’accéder aux alertes générées pour vos abonnements en utilisant [l’API REST Alert Management](https://aka.ms/alert-management-api) ou [l’API REST Azure Resource Graph pour les alertes](https://docs.microsoft.com/rest/api/azureresourcegraph/resources/resources).
+
+[L’API REST Azure Resource Graph pour les alertes](https://docs.microsoft.com/rest/api/azureresourcegraph/resources/resources) vous permet d’interroger le système pour afficher les instances d’alerte à grande échelle. Elle est recommandée pour les scénarios de gestion des alertes générées pour plusieurs abonnements. 
+
+L’exemple de requête suivant demande à l’API de renvoyer le nombre d’alertes au sein d’un abonnement :
+
+```json
+{
+  "subscriptions": [
+    <subscriptionId>
+  ],
+  "query": "where type =~ 'Microsoft.AlertsManagement/alerts' | summarize count()",
+  "options": {
+            "dataset":"alerts"
+  }
+}
+```
+Les alertes peuvent être interrogées pour leurs champs [« Essentiels »](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#essentials-fields).
+
+[L’API REST Alert Management](https://aka.ms/alert-management-api) peut être utilisée pour obtenir plus d’informations sur des alertes spécifiques, y compris leurs champs [« Contexte de l’alerte »](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields).
 
 ## <a name="classic-alerts"></a>Alertes classiques 
 

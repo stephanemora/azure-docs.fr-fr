@@ -1,26 +1,26 @@
 ---
 title: Ingérer des objets blob Azure dans Azure Data Explorer
-description: Dans cet article, vous allez apprendre à envoyer des données de compte de stockage à l’Explorateur de données Azure à l’aide d’un abonnement Event Grid.
+description: Cet article vous montre comment envoyer des données de compte de stockage à Azure Data Explorer en utilisant un abonnement Event Grid.
 author: radennis
 ms.author: radennis
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 7d9c21b46f760055846194f52f1594f25b1ee989
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
-ms.translationtype: MT
+ms.openlocfilehash: 5854a8974a4d2a9dbc1aa690dc2340fd806f4219
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66494747"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490133"
 ---
 # <a name="ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Ingérer des objets blob dans Azure Data Explorer en s’abonnant à des notifications Event Grid
 
 Azure Data Explorer est un service d’exploration de données rapide et évolutif pour les données de journal et de télémétrie. Il assure une ingestion continue (chargement de données) à partir d’objets blob écrits dans des conteneurs d’objets blob. 
 
-Dans cet article, vous allez apprendre à définir un [Azure Event Grid](/azure/event-grid/overview) abonnement et acheminer les événements vers l’Explorateur de données Azure via un concentrateur d’événements. Pour commencer, vous devez avoir un compte de stockage avec un abonnement Event Grid qui envoie des notifications à Azure Event Hubs. Ensuite, vous créez une connexion de données Event Grid et voyez les données circuler dans le système.
+Cet article vous montre comment définir un abonnement [Azure Event Grid](/azure/event-grid/overview) et acheminer les événements vers Azure Data Explorer via un Event Hub. Pour commencer, vous devez avoir un compte de stockage avec un abonnement Event Grid qui envoie des notifications à Azure Event Hubs. Ensuite, vous créez une connexion de données Event Grid et voyez les données circuler dans le système.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure. Créez un [compte Azure gratuit](https://azure.microsoft.com/free/).
 * [Un cluster et une base de données](create-cluster-database-portal.md).
@@ -41,7 +41,7 @@ Dans cet article, vous allez apprendre à définir un [Azure Event Grid](/azure/
     | Nom | *test-grid-connection* | Nom de la grille d’événement que vous voulez créer.|
     | Schéma d’événement | *Schéma Event Grid* | Schéma à utiliser pour la grille d’événement. |
     | Type de rubrique | *Compte de stockage* | Type de rubrique Event Grid. |
-    | Ressource de rubrique | *gridteststorage* | Nom de votre compte de stockage. |
+    | Ressource de rubrique | *gridteststorage* | nom de votre compte de stockage. |
     | S’abonner à tous les types d’événements | *clear* | Ne pas être notifié de tous les événements. |
     | Types d’événements définis | *Objet blob créé* | De quels événements spécifiques être notifié. |
     | Type de point de terminaison | *Event Hubs* | Type de point de terminaison auquel vous envoyez les événements. |
@@ -112,10 +112,10 @@ Créez une table dans Azure Data Explorer, à laquelle Event Hubs enverra les do
      **Paramètre** | **Valeur suggérée** | **Description du champ**
     |---|---|---|
     | Table | *TestTable* | Table que vous avez créée dans **TestDatabase**. |
-    | Format de données | *JSON* | Les formats pris en charge sont Avro, CSV, JSON, JSON MULTILIGNE, PSV, SOH, SCSV, TSV et TXT. |
+    | Format de données | *JSON* | Les formats pris en charge sont Avro, CSV, JSON, JSON MULTILIGNE, PSV, SOH, SCSV, TSV et TXT. Options de compression prises en charge : ZIP et GZIP |
     | Mappage de colonnes | *TestMapping* | Le mappage que vous avez créé dans **TestDatabase**, qui mappe les données JSON entrantes dans les colonnes des noms de colonne et les types de données de **TestTable**.|
     | | |
-
+    
 ## <a name="generate-sample-data"></a>Générer un exemple de données
 
 Maintenant qu’Azure Data Explorer et le compte de stockage sont connectés, vous pouvez créer des exemples de données et les charger dans le stockage d’objets blob.
@@ -157,7 +157,7 @@ Enregistrez les données dans un fichier et chargez celui-ci avec ce script :
 > [!NOTE]
 > Azure Data Explorer est associé à une stratégie d’agrégation (traitement par lot) conçue pour optimiser le processus d’ingestion des données.
 Par défaut, la stratégie est configurée sur 5 minutes.
-Vous pouvez modifier la stratégie ultérieurement si nécessaire. Dans cet article, vous pouvez attendre une latence de quelques minutes.
+Vous pouvez modifier la stratégie ultérieurement si nécessaire. Dans cet article, vous pouvez vous attendre à une latence de quelques minutes.
 
 1. Dans le portail Azure, sous votre grille d’événement, vous voyez le pic de l’activité pendant l’exécution de l’application.
 
@@ -196,4 +196,4 @@ Si vous ne prévoyez pas de réutiliser votre grille d’événement, effacez **
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Interroger des données dans l’Explorateur de données Azure](web-query-data.md)
+* [Interroger des données dans Azure Data Explorer](web-query-data.md)
