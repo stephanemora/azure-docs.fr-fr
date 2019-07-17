@@ -25,7 +25,7 @@ Vous utilisez le [doivent faire Face : détecter](https://westus.dev.cognitive.
 
 ## <a name="face-id"></a>ID du visage
 
-L’ID du visage est une chaîne d’identificateur unique pour chaque face détectée dans une image. Vous pouvez demander un ID de visage dans votre [doivent faire Face : détecter](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) appel d’API.
+L’ID du visage est une chaîne d’identificateur unique pour chaque face détectée dans une image. Vous pouvez demander un ID de visage dans votre appel d’API [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 ## <a name="face-landmarks"></a>Points de repère du visage
 
@@ -47,7 +47,7 @@ Les attributs sont un ensemble de fonctionnalités qui peuvent éventuellement �
 * **Sexe**. Sexe estimé de la face donné. Les valeurs possibles sont male et female genderless.
 * **LUNETTES**. Indique si le type de police donné possède en forme de lunettes. Les valeurs possibles sont NoGlasses ReadingGlasses, lunettes de soleil et lunettes de natation.
 * **Cheveux**. Type de la face cheveux. Cet attribut indique si les cheveux est visible, si CALVITIE est détectée, et les couleurs cheveux sont détectés.
-* **Positionnement de la tête**. Orientation de la face dans l’espace 3D. Cet attribut est décrite par la tonalité, restaurer et lacet angles en degrés. Les plages de valeurs sont-90 degrés à 90 degrés, - 180 degrés et 180 degrés et -90 degrés et 90 degrés, respectivement. Consultez le diagramme suivant pour les mappages d’angle :
+* **Positionnement de la tête**. Orientation du visage dans l’espace 3D. Cet attribut est défini par des angles de roulis, de tangage et de lacet, mesurés en degrés. Les plages de valeurs vont de -90 degrés à 90 degrés, - 180 degrés à 180 degrés, et -90 degrés à 90 degrés, respectivement. Consultez le diagramme suivant pour les mappages des angles :
 
     ![Une tête avec la tonalité, restaurer et lacet axes étiquetés](../Images/headpose.1.jpg)
 * **Composition**. Si la face dispose de composition. Cet attribut retourne une valeur booléenne pour eyeMakeup et lipMakeup.
