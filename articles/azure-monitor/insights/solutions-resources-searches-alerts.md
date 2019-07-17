@@ -179,7 +179,7 @@ Les propriétés des ressources d’action d’alerte sont décrites dans les ta
 | type | OUI | Type de l’action.  **Alert** pour les actions d’alerte. |
 | name | OUI | Nom d’affichage de l’alerte.  Il s’agit du nom qui s’affiche dans la console pour la règle d’alerte. |
 | description | Non | La description facultative de l’alerte. |
-| Severity | OUI | La gravité de l’enregistrement d’alerte selon les valeurs suivantes :<br><br> **critical**<br>**warning**<br>**informational**
+| severity | OUI | La gravité de l’enregistrement d’alerte selon les valeurs suivantes :<br><br> **critical**<br>**warning**<br>**informational**
 
 
 #### <a name="threshold"></a>Seuil
@@ -188,7 +188,7 @@ Cette section est obligatoire. Elle définit les propriétés du seuil d’alert
 | Nom de l'élément | Obligatoire | description |
 |:--|:--|:--|
 | Operator | OUI | L’opérateur de comparaison selon les valeurs suivantes :<br><br>**gt = supérieur à<br>lt = inférieur à** |
-| Valeur | OUI | La valeur par rapport à laquelle les résultats doivent être comparés. |
+| Value | OUI | La valeur par rapport à laquelle les résultats doivent être comparés. |
 
 ##### <a name="metricstrigger"></a>MetricsTrigger
 Cette section est facultative. Vous devez l’inclure pour une alerte relative aux mesures métriques.
