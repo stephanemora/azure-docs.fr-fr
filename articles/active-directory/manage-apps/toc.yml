@@ -49,7 +49,7 @@
       items:
         - name: Qu’est-ce que l’authentification unique
           href: what-is-single-sign-on.md
-        - name: Activation de l’authentification unique pour votre application multilocataire
+        - name: Activer SSO pour votre application multilocataire
           href: isv-sso-content.md
         - name: Créer un locataire Azure pour une application multilocataire
           href: isv-tenant-multi-tenant-app.md
@@ -57,7 +57,7 @@
           href: isv-choose-multi-tenant-federation.md
         - name: Créer une documentation pour une application multilocataire
           href: isv-create-sso-documentation.md
-        - name: Planification d’un déploiement d’authentification unique
+        - name: Planifier un déploiement de l’authentification unique
           href: plan-sso-deployment.md
     - name: SSO en un clic
       items:
@@ -81,20 +81,6 @@
           href: tenant-restrictions.md
         - name: Configurer le chiffrement de jetons SAML (préversion)
           href: howto-saml-token-encryption.md
-    - name: Authentification unique
-      items:
-        - name: Qu’est-ce que l’authentification unique
-          href: what-is-single-sign-on.md
-        - name: Planification d’un déploiement d’authentification unique
-          href: plan-sso-deployment.md
-        - name: Activer l’authentification unique dans votre application multilocataire
-          href: isv-sso-content.md
-        - name: Choisir le bon protocole de fédération d’authentification unique
-          href: isv-choose-multi-tenant-federation.md
-        - name: Créer un locataire Azure pour votre application multilocataire
-          href: isv-tenant-multi-tenant-app.md
-        - name: Créer et publier une documentation sur l’authentification unique pour votre application
-          href: isv-create-sso-documentation.md
     - name: Portails d’utilisateurs finaux
       href: end-user-experiences.md
 - name: Guides pratiques

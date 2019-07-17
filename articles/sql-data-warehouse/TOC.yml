@@ -303,6 +303,8 @@
           href: sql-data-warehouse-troubleshoot-connectivity.md
 - name: Informations de référence
   items:
+    - name: Types de classement de base de données
+      href: sql-data-warehouse-reference-collation-types.md
     - name: T-SQL
       items:
         - name: Référence complète

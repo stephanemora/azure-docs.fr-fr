@@ -9,114 +9,211 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/06/2019
-ms.openlocfilehash: e37e99323c92adad0b9e897af8c276a8ac153371
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 21f5a2d93b708e93f124bd44177bb7852dfbd86a
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515630"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67720546"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-visual-interface"></a>Didacticiel : Prédire le prix de véhicules automobiles à l’aide de l’interface visuelle
 
 Dans ce tutoriel, vous étudiez de manière approfondie le développement d’une solution prédictive dans l’interface visuelle du service Azure Machine Learning. À la fin de ce tutoriel, vous disposerez d’une solution capable de prédire le prix de n’importe quelle voiture en fonction des spécifications techniques que vous lui fournirez.
 
-Ce tutoriel [suit le guide de démarrage rapide](ui-quickstart-run-experiment.md) et constitue le **premier volet d’une série de deux tutoriels**. Toutefois, vous n’êtes pas obligé de suivre le guide de démarrage rapide avant de commencer.
-
-Dans ce premier volet, vous apprenez à :
+Dans la première partie du tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
-> * Importer et nettoyer les données (mêmes étapes que dans le guide de démarrage rapide)
+> * Importer et nettoyer les données
 > * Entraîner un modèle Machine Learning
 > * Scorer et évaluer un modèle
 
-Dans la [deuxième partie](ui-tutorial-automobile-price-deploy.md) de cette série de tutoriels, vous apprendrez à déployer votre modèle prédictif en tant que service web Azure.
-
-> [!NOTE]
-> Une version complète de ce tutoriel est disponible en tant qu’exemple d’expérience.
-> Dans la page Expériences, accédez à **Ajouter nouveau** > **Exemple 1 - Régression : Prédiction du prix de véhicules automobiles (de base)**
-
+Dans la [deuxième partie](ui-tutorial-automobile-price-deploy.md) du tutoriel, vous allez apprendre à déployer votre modèle prédictif en tant que service web Azure.
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GY]
 
+Une version complète de ce tutoriel est disponible en tant qu’exemple d’expérience.
+
+Pour le trouver, sélectionnez **Ajouter nouveau** dans la **page Expériences**, puis sélectionnez l’expérience **Sample 1 - Regression: Automobile Price Prediction(Basic)** (Exemple 1 - Régression : Prédiction du prix de véhicules automobiles [de base]).
+
 ## <a name="create-a-workspace"></a>Créer un espace de travail
 
-Si vous disposez d’un espace de travail Azure Machine Learning service, passez à la [section suivante](#open-the-visual-interface-webpage). Dans le cas contraire, créez-en un maintenant.
+Si vous disposez d’un espace de travail Azure Machine Learning service, passez à la [section suivante](#open-the-visual-interface-webpage).
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
 ## <a name="open-the-visual-interface-webpage"></a>Ouvrir la page web de l’interface visuelle
 
-1. Ouvrez votre espace de travail dans le [portail Azure](https://portal.azure.com/).  
+1. Ouvrez votre espace de travail dans le [portail Azure](https://portal.azure.com/).
 
-1. Dans votre espace de travail, sélectionnez **Interface visuelle**.  Ensuite, sélectionnez **Lancer l’interface visuelle**.  
+1. Dans votre espace de travail, sélectionnez **Interface visuelle**. Ensuite, sélectionnez **Lancer l’interface visuelle**. 
 
     ![Capture d’écran du portail Azure montrant comment accéder à l’interface visuelle à partir d’un espace de travail du service Machine Learning](./media/ui-tutorial-automobile-price-train-score/launch-ui.png)
 
-    La page web d’interface s’affiche dans une nouvelle page de navigateur.  
+## <a name="create-your-first-experiment"></a>Créer votre première expérience
 
-## <a name="import-and-clean-your-data"></a>Importer et nettoyer les données
-
-Pour commencer, vous devez nettoyer vos données. Si vous avez terminé le démarrage rapide, vous pouvez réutiliser ici votre expérience de préparation de données. Si vous n’avez pas terminé le démarrage rapide, ignorez la section suivante et [commencez à partir d’une nouvelle expérience](#start-from-a-new-experiment).
-
-### <a name="reuse-the-quickstart-experiment"></a>Réutiliser l’expérience de démarrage rapide
-
-1. Ouvrez votre expérience de démarrage rapide.
-
-1. Sélectionnez **Enregistrer sous** en bas de la fenêtre.
-
-1. Attribuez-lui un nouveau nom dans la boîte de dialogue contextuelle qui s’affiche.
-
-    ![Capture d’écran montrant comment renommer une expérience en « Tutorial - Predict Automobile Price » (Tutoriel - Prédire le prix de véhicules automobiles)](./media/ui-tutorial-automobile-price-train-score/save-a-copy.png)
-
-1. L'expérience doit ressembler à ceci :
-
-    ![Capture d’écran montrant l’état attendu de l’expérience. Le jeu de données automobiles se connecte au module Sélectionner des colonnes qui se connecte au module Nettoyer les données manquantes](./media/ui-tutorial-automobile-price-train-score/save-copy-result.png)
-
-Si vous avez réutilisé avec succès votre expérience de démarrage rapide, ignorez la section suivante pour commencer la [formation de votre modèle](#train-the-model).
-
-### <a name="start-from-a-new-experiment"></a>Commencer à partir d’une nouvelle expérience
-
-Si vous n’avez pas suivi le guide de démarrage rapide, suivez ces étapes pour créer rapidement une expérience qui importe et nettoie le jeu de données automobiles.
+L’outil d’interface visuelle offre un espace visuel interactif qui vous permet de générer des modèles d’analytique prédictive. Faites glisser-déplacer des jeux de données et des modules d’analyse sur un canevas interactif, puis connectez-les ensemble pour créer une *expérience*.
 
 1. Créez une expérience en sélectionnant **+Nouveau** en bas de la fenêtre d’interface visuelle.
 
-1. Sélectionnez **Expériences** >  **Expérience vide**.
+    ![Ajouter une nouvelle expérience](./media/ui-tutorial-automobile-price-train-score/add-new.png)
+
+1. Sélectionnez **Blank Experiment**.
 
 1. Sélectionnez le nom d’expérience par défaut, **« Expérience créée le ... »** , situé en haut du canevas, et remplacez-le par un nom significatif. Par exemple, **Prédiction du prix de véhicules automobiles**. Le nom n’a pas besoin d’être unique.
 
-1. Sur la gauche de la zone de dessin de l’expérience se trouve une palette de jeux de données et de modules. Pour rechercher des modules, utilisez la zone de recherche en haut de la palette des modules. Tapez la valeur **automobile** dans la zone de recherche pour localiser le jeu de données **Données sur le prix des véhicules automobiles (brutes)** . Faites glisser ce jeu de données vers le canevas de l’expérience.
+## <a name="add-data"></a>Ajout de données
 
-    ![Capture d’écran montrant comment rechercher le jeu de données des prix des véhicules automobiles](./media/ui-tutorial-automobile-price-train-score/automobile-dataset.png)
+Les données sont la première chose dont vous avez besoin pour le machine learning. Vous pouvez utiliser plusieurs exemples de jeux de données inclus dans cette interface. Vous pouvez également importer des données à partir de sources existantes. Pour les besoins de ce tutoriel, vous allez utiliser le jeu de données **Automobile price data (Raw)** (Données sur le prix des véhicules automobiles [brutes]). 
 
-    À présent que vous avez ces données, vous pouvez ajouter un module qui supprimera complètement la colonne **normalized-losses**. Ensuite, ajoutez un autre module qui supprimera toutes les lignes où il manque des données.
+1. Sur la gauche de la zone de dessin de l’expérience se trouve une palette de jeux de données et de modules. Sélectionnez **Saved Datasets** (Jeux de données enregistrés), puis **Samples** (Exemples) pour voir les exemples de jeux de données disponibles.
 
-1. Tapez la chaîne **sélectionner des colonnes** dans la zone de recherche pour localiser le module **Sélectionner des colonnes dans le jeu de données**. Faites ensuite glisser ce module vers le canevas de l’expérience. Ce module permet de sélectionner les colonnes de données à inclure dans le modèle ou à en exclure.
+1. Sélectionnez le jeu de données **Automobile price data (raw)** , puis faites-le glisser jusqu’au canevas.
 
-1. Connectez le port de sortie du jeu de données **Données sur le prix des véhicules automobiles (brutes)** au port d’entrée de Sélectionner des colonnes dans le jeu de données.
+   ![Faites glisser les données jusqu’au canevas](./media/ui-tutorial-automobile-price-train-score/drag-data.png)
 
-    ![Image GIF animée montrant comment connecter le module de données de prix des véhicules automobiles au module Sélectionner des colonnes](./media/ui-tutorial-automobile-price-train-score/connect-modules.gif)
+## <a name="select-columns"></a>Select columns
 
-1. Sélectionnez le module Sélectionner des colonnes dans le jeu de données et sélectionnez **Lancer le sélecteur de colonne** dans le volet **Propriétés**.
+Sélectionner les colonnes de données à utiliser. Pour commencer, configurez le module pour qu’il affiche toutes les colonnes disponibles.
 
-   1. À gauche, sélectionnez **With rules** (Avec règles).
+> [!TIP]
+> Si vous connaissez le nom des données ou du module que vous voulez, utilisez la barre de recherche en haut de la palette pour les retrouver rapidement. Ce raccourci sera utilisé dans le reste du tutoriel.
 
-   1. En regard de **Commencer par**, sélectionnez **Toutes les colonnes**. Ces règles indiquent au module **Sélectionner des colonnes dans le jeu de données** de transmettre toutes les colonnes, sauf celles que nous nous apprêtons à exclure.
 
-   1. Dans les listes déroulantes, sélectionnez **Exclure** et **noms des colonnes**, puis tapez **normalized-losses** dans la zone de texte.
+1. Tapez **Select** dans la zone de recherche pour trouver le module **Select Columns in Dataset**.
 
-   1. Sélectionnez le bouton OK pour fermer le sélecteur de colonne (en bas à droite).
+1. Cliquez sur **Select Columns in Dataset** et faites-glisser le module jusqu’au canevas. Déposez-le en dessous du jeu de données que vous avez ajouté précédemment.
 
-     À présent, le volet de propriétés du module **Sélectionner des colonnes dans le jeu de données** indique qu’il transmettra toutes les colonnes du jeu de données, à l’exception de **normalized-losses**.
+1. Connectez le jeu de données à **Select Columns in Dataset** : cliquez sur le port de sortie du jeu de données, faites glisser la souris jusqu’au port d’entrée de **Select Columns in Dataset**, puis relâchez le bouton de la souris. Le jeu de données et le module restent connectés même si vous opérez des déplacements sur le canevas.
 
-1. Ajoutez un commentaire dans le module **Sélectionner des colonnes dans le jeu de données** en double-cliquant sur le module, et entrez « Exclure les pertes normalisées. ». Ceci peut vous aider à voir d'un coup d'œil ce que fait le module dans votre expérience.
+    > [!TIP]
+    > Les jeux de données et les modules disposent de ports d’entrée et de sortie représentés par de petits cercles : les ports d’entrée se situent en haut, tandis que les ports de sortie se situent en bas. Vous créez un flux de données dans votre expérience quand vous connectez le port de sortie d’un module au port d’entrée d’un autre module.
+    >
 
-    ![Capture d’écran montrant la configuration correcte du module Sélectionner des colonnes](./media/ui-tutorial-automobile-price-train-score/select-columns.png)
+    ![Connecter des modules](./media/ui-tutorial-automobile-price-train-score/connect-modules.gif)
 
-1. Tapez **Nettoyer** dans la zone de recherche pour localiser le module **Nettoyer les données manquantes**. Faites glisser le module **Nettoyer les données manquantes** jusqu’à la zone de dessin de l’expérience et connectez-le au module **Sélectionner des colonnes dans le jeu de données**.
+    Le point d’exclamation rouge indique que vous n’avez pas encore défini les propriétés du module.
 
-1. Dans le volet **Propriétés**, sélectionnez **Supprimer toute la ligne** sous **Mode de nettoyage**. Ces options indiquent au module **Nettoyer les données manquantes** de nettoyer les données en supprimant les lignes où il manque des valeurs. Double-cliquez sur le module et saisissez le commentaire suivant : « Supprimer les lignes de valeur manquantes ».
+1. Sélectionnez le module **Select Columns in Dataset**.
 
-![Capture d’écran montrant la configuration correcte du module Nettoyer les données manquantes](./media/ui-tutorial-automobile-price-train-score/clean-missing-data.png)
+1. Dans le volet **Propriétés** à droite du canevas, sélectionnez **Modifier les colonnes**.
+
+    Dans la boîte de dialogue **Select columns** (Sélectionner les colonnes), sélectionnez **ALL COLUMNS** (TOUTES LES COLONNES) et incluez **toutes les fonctionnalités**. La boîte de dialogue doit ressembler à ceci :
+
+     ![sélecteur de colonne](./media/ui-tutorial-automobile-price-train-score/select-all.png)
+
+1. En bas à droite, sélectionnez le bouton **OK** pour fermer le sélecteur de colonne.
+
+## <a name="run-the-experiment"></a>Exécuter l’expérience
+
+À tout moment, cliquez sur le port de sortie d’un jeu de données ou d’un module pour examiner l’aspect des données à ce stade dans le flux de données. Si l’option **Visualize** (Visualiser) est désactivée, vous devez d’abord exécuter l’expérience.
+
+Une expérience s’exécute sur une cible de calcul, qui est une ressource de calcul attachée à votre espace de travail. Une fois que vous avez créé une cible de calcul, vous pouvez la réutiliser pour d’autres exécutions ultérieures.
+
+[!INCLUDE [aml-ui-create-training-compute](../../../includes/aml-ui-create-training-compute.md)]
+
+Une fois que la cible de calcul est disponible, l’expérience s’exécute. Une fois l’exécution terminée, une coche verte apparaît sur chaque module.
+
+
+## <a name="preview-the-data"></a>Prévisualiser les données
+
+Maintenant que vous avez exécuté votre expérience initiale, vous pouvez visualiser les données pour mieux comprendre le jeu de données que vous devez utiliser.
+
+1. Sélectionnez le port de sortie au bas du module **Select Columns in Dataset**, puis sélectionnez **Visualize**.
+
+1. Cliquez sur différentes colonnes dans la fenêtre de données pour afficher des informations les concernant.
+
+    Dans ce jeu de données, chaque ligne représente un véhicule automobile et chaque colonne représente une variable associée au véhicule automobile. Ce jeu de données contient 205 lignes et 26 colonnes.
+
+     Chaque fois que vous cliquez sur une colonne de données, les informations **statistiques** et l’image de **visualisation** de la colonne en question s’affichent à gauche. Par exemple, quand vous cliquez sur **num-of-doors** (nombre de portes), vous constatez qu’elle contient 2 valeurs uniques et 2 valeurs manquantes. Faites défiler vers le bas pour afficher les valeurs : deux et quatre (portes).
+
+     ![Prévisualiser les données](./media/ui-tutorial-automobile-price-train-score/preview-data.gif)
+
+1. Cliquez sur chaque colonne pour obtenir plus d’informations sur votre jeu de données, et déterminez si ces colonnes seront utiles pour prédire le prix d’une voiture.
+
+## <a name="prepare-data"></a>Préparer les données
+
+Pour pouvoir être analysé, un jeu de données nécessite généralement un traitement préalable. Vous avez peut-être remarqué des valeurs manquantes lors de la visualisation du jeu de données. Pour que vous puissiez analyser les données correctement, ces valeurs manquantes doivent être nettoyées. Vous allez supprimer les lignes dans lesquelles il manque des valeurs. Par ailleurs, la colonne **normalized-losses** (pertes normalisées) contient une grande proportion de valeurs manquantes. Vous allez donc l’exclure du modèle.
+
+> [!TIP]
+> Le nettoyage des valeurs manquantes des données d’entrée est un prérequis pour l’utilisation de la plupart des modules.
+
+### <a name="remove-column"></a>Supprimer une colonne
+
+Commencez par supprimer entièrement la colonne **normalized-losses**.
+
+1. Sélectionnez le module **Select Columns in Dataset**.
+
+1. Dans le volet **Propriétés** à droite du canevas, sélectionnez **Modifier les colonnes**.
+
+    * Laissez **With rules** (Avec règles) et **All columns** (Toutes les colonnes) sélectionnés.
+
+    * Dans les listes déroulantes, sélectionnez **Exclure** et **Noms des colonnes**, puis cliquez dans la zone de texte. Tapez **normalized-losses**.
+
+    * En bas à droite, sélectionnez le bouton **OK** pour fermer le sélecteur de colonne.
+
+    ![Exclure une colonne](./media/ui-tutorial-automobile-price-train-score/exclude-column.png)
+        
+    À présent, le volet de propriétés du module Select Columns in Dataset indique qu’il transmettra toutes les colonnes du jeu de données, à l’exception de **normalized-losses**.
+        
+    Le volet de propriétés montre que la colonne **normalized-losses** est exclue.
+        
+    ![Volet de propriétés](./media/ui-tutorial-automobile-price-train-score/property-pane.png)
+        
+    Vous pouvez ajouter un commentaire dans un module en double-cliquant sur ce module, puis en saisissant du texte. Ceci peut vous aider à voir d'un seul coup d'œil ce que fait chaque module dans votre expérience. 
+
+1. Double-cliquez sur le module **Select Columns in Dataset** et tapez le commentaire « Exclude normalized losses ». 
+    
+    Après avoir tapé le commentaire, cliquez à l’extérieur du module. Une flèche vers le bas s’affiche pour indiquer que le module contient un commentaire.
+
+1. Cliquez sur la flèche vers le bas pour afficher le commentaire.
+
+    Le module présente maintenant une flèche vers le haut pour masquer le commentaire.
+        
+    ![Commentaires](./media/ui-tutorial-automobile-price-train-score/comments.png)
+
+### <a name="clean-missing-data"></a>Nettoyage des données manquantes
+
+Lorsque vous entraînez un modèle, vous devez traiter le problème des données manquantes. Dans ce cas, vous allez ajouter un module pour supprimer toutes les lignes restantes dans lesquelles il manque des données.
+
+1. Tapez **Clean** dans la zone de recherche pour trouver le module **Clean Missing Data**.
+
+1. Faites glisser le module **Clean Missing Data** jusqu’au canevas de l’expérience et connectez-le au module **Select Columns in Dataset**. 
+
+1. Dans le volet des propriétés, sélectionnez **Remove entire row** (Supprimer la ligne entière) sous **Cleaning mode** (Mode nettoyage).
+
+    Ces options indiquent au module **Clean Missing Data** de nettoyer les données en supprimant les lignes dans lesquelles il manque des valeurs.
+
+1. Double-cliquez sur le module et saisissez le commentaire suivant : « Supprimer les lignes de valeur manquantes ».
+ 
+    ![Supprimer les lignes](./media/ui-tutorial-automobile-price-train-score/remove-rows.png)
+
+    Votre expérience doit maintenant se présenter comme suit :
+    
+    ![sélectionner une colonne](./media/ui-tutorial-automobile-price-train-score/experiment-clean.png)
+
+## <a name="visualize-the-results"></a>Visualiser les résultats
+
+Comme vous avez apporté des modifications aux modules de votre expérience, l’état est passé à « In draft » (Brouillon).  Pour visualiser les nouvelles données nettoyées, vous devez d’abord réexécuter l’expérience.
+
+1. Sélectionnez **Run** (Exécuter) au bas pour exécuter l’expérience.
+
+    Cette fois, vous pouvez réutiliser la cible de calcul que vous avez créée précédemment.
+
+1. Sélectionnez **Run** (Exécuter) dans la boîte de dialogue.
+
+   ![Exécuter une expérience](./media/ui-tutorial-automobile-price-train-score/select-compute.png)
+
+1. Quand l’exécution se termine, cliquez sur le module **Clean Missing Data** pour visualiser les nouvelles données nettoyées.
+
+    ![Visualiser les données nettoyées](./media/ui-tutorial-automobile-price-train-score/visualize-cleaned.png)
+
+1. Cliquez sur différentes colonnes dans la fenêtre des données nettoyées pour voir comment les données ont changé.
+
+    ![Visualiser les données nettoyées](media/ui-tutorial-automobile-price-train-score/visualize-result.png)
+
+    Il existe désormais 193 lignes et 25 colonnes.
+
+    Quand vous cliquez sur **num-of-doors**, vous constatez qu’il reste 2 valeurs uniques mais aucune valeur manquante. Cliquez sur les autres colonnes pour vérifier qu’il ne manque aucune valeur dans le jeu de données. 
 
 ## <a name="train-the-model"></a>Formation du modèle
 
@@ -154,8 +251,9 @@ Utilisez vos données pour entraîner et tester le modèle en fractionnant les d
 
     ![Capture d’écran montrant la configuration correcte du module de sélection de colonne With rules (Avec règles) > Include column names (Inclure noms des colonnes) > "price" (prix)](./media/ui-tutorial-automobile-price-train-score/select-price.png)
 
-    À présent, l'expérience doit ressembler à ceci :
-    ![Capture d’écran montrant la configuration correcte de l’expérience après l’ajout du module Entraîner le modèle](./media/ui-tutorial-automobile-price-train-score/train-graph.png)
+    Votre expérience doit ressembler à cela :
+
+    ![Capture d’écran montrant la configuration correcte de l’expérience après l’ajout du module Entraîner le modèle.](./media/ui-tutorial-automobile-price-train-score/train-graph.png)
 
 ### <a name="run-the-training-experiment"></a>Exécuter l’expérience d’entraînement
 
@@ -219,7 +317,7 @@ Les expériences que vous créez dans l’interface visuelle peuvent être gér�
 
 Dans cette première partie du tutoriel, vous avez effectué les étapes suivantes :
 
-* Réutiliser l’expérience créée dans le guide de démarrage rapide
+* Créer une expérience
 * Préparer les données
 * Formation du modèle
 * Scorer et évaluer le modèle

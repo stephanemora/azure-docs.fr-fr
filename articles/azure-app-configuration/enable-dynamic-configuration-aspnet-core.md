@@ -14,18 +14,20 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 9cbdfe957587977b01bc46b46818856f789f46d8
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: 78c64786f523aa424e8a9816e42db70e2a2997c2
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393612"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798470"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Didacticiel : Utiliser la configuration dynamique dans une application ASP.NET Core
 
-ASP.NET Core offre un système de configuration enfichable qui peut lire des données de configuration à partir de diverses sources. Il peut gérer instantanément les changements sans entraîner le redémarrage d’une application. ASP.NET Core prend en charge la liaison des paramètres de configuration pour les classes .NET fortement typées. Il les injecte dans votre code à l’aide des différents modèles `IOptions<T>`. L’un de ces modèles, en particulier `IOptionsSnapshot<T>`, recharge automatiquement la configuration de l’application quand les données sous-jacentes changent.
+ASP.NET Core offre un système de configuration enfichable qui peut lire des données de configuration à partir de diverses sources. Il peut gérer instantanément les changements sans entraîner le redémarrage d’une application. ASP.NET Core prend en charge la liaison des paramètres de configuration pour les classes .NET fortement typées. Il les injecte dans votre code à l’aide des différents modèles `IOptions<T>`. L’un de ces modèles, en particulier `IOptionsSnapshot<T>`, recharge automatiquement la configuration de l’application quand les données sous-jacentes changent. Vous pouvez injecter `IOptionsSnapshot<T>` dans des contrôleurs de votre application pour accéder à la configuration la plus récente stockée dans Azure App Configuration.
 
-Vous pouvez injecter `IOptionsSnapshot<T>` dans des contrôleurs de votre application pour accéder à la configuration la plus récente stockée dans Azure App Configuration. Vous pouvez également configurer la bibliothèque cliente ASP.NET Core d’App Configuration pour superviser et récupérer en continu tout changement dans un magasin de configuration d’application. Vous définissez un intervalle d’interrogation régulier.
+Vous pouvez également configurer la bibliothèque de client ASP.NET Core App Configuration pour actualiser dynamiquement un jeu de paramètres de configuration à l’aide d’un intergiciel. Tant que l’application web continue à recevoir des demandes, les paramètres de configuration continuent à être mis à jour avec le magasin de configuration.
+
+Pour maintenir les paramètres à jour et éviter trop d’appels au magasin de configuration, un cache est utilisé pour chaque paramètre. Tant que la valeur mise en cache d’un paramètre n’a pas expiré, l’opération d’actualisation ne met pas à jour la valeur, même si celle-ci a été modifiée dans le magasin de configuration. Pour chaque requête, le délai d’expiration par défaut est de 30 secondes. Toutefois, vous pouvez le modifier selon vos besoins.
 
 Ce tutoriel montre comment vous pouvez implémenter des mises à jour de la configuration dynamique dans votre code. Il s’appuie sur l’application web introduite dans les guides de démarrage rapide. Avant de continuer, terminez d’abord l’étape [Créer une application ASP.NET Core avec App Configuration](./quickstart-aspnet-core-app.md).
 
@@ -45,7 +47,7 @@ Pour effectuer ce tutoriel, installez le [kit SDK .NET Core](https://dotnet.micr
 
 ## <a name="reload-data-from-app-configuration"></a>Recharger des données à partir d’Azure App Configuration
 
-1. Ouvrez *Program.cs*, puis mettez à jour la méthode `CreateWebHostBuilder` en ajoutant la méthode `config.AddAzureAppConfiguration()`.
+1. Ouvrez *Program.cs*, puis mettez à jour la méthode `CreateWebHostBuilder` pour ajouter la méthode `config.AddAzureAppConfiguration()`.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -53,19 +55,22 @@ Pour effectuer ce tutoriel, installez le [kit SDK .NET Core](https://dotnet.micr
             .ConfigureAppConfiguration((hostingContext, config) =>
             {
                 var settings = config.Build();
+
                 config.AddAzureAppConfiguration(options =>
+                {
                     options.Connect(settings["ConnectionStrings:AppConfig"])
-                           .Watch("TestApp:Settings:BackgroundColor")
-                           .Watch("TestApp:Settings:FontColor")
-                           .Watch("TestApp:Settings:Message"));
+                           .ConfigureRefresh(refresh =>
+                           {
+                               refresh.Register("TestApp:Settings:BackgroundColor")
+                                      .Register("TestApp:Settings:FontColor")
+                                      .Register("TestApp:Settings:Message")
+                           });
+                }
             })
             .UseStartup<Startup>();
     ```
 
-    Le deuxième paramètre de la méthode `.Watch` est la fréquence à laquelle la bibliothèque cliente ASP.NET interroge un magasin de configuration d’application. La bibliothèque cliente vérifie si le paramètre de configuration spécifique a fait l’objet d’un changement.
-    
-    > [!NOTE]
-    > Si aucune valeur n'est spécifiée, l’intervalle d’interrogation par défaut de la méthode d'extension `Watch` est de 30 secondes.
+    La méthode `ConfigureRefresh` permet de spécifier les paramètres utilisés pour mettre à jour les données de configuration à l’aide du magasin de configuration d’application, lorsqu’une opération d’actualisation est déclenchée. Pour déclencher une opération d’actualisation, un intergiciel d’actualisation doit être configuré pour que l’application actualise les données de configuration en cas de modification.
 
 2. Ajoutez un fichier *Settings.cs* qui définit et implémente une nouvelle classe `Settings`.
 
@@ -98,6 +103,21 @@ Pour effectuer ce tutoriel, installez le [kit SDK .NET Core](https://dotnet.micr
         services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
     }
     ```
+
+4. Mettez à jour la méthode `Configure` en y ajoutant un middleware pour permettre la mise à jour des paramètres de configuration inscrits à l’actualisation, pendant que l’application web ASP.NET continue de recevoir des demandes.
+
+    ```csharp
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+    {
+        app.UseAzureAppConfiguration();
+        app.UseMvc();
+    }
+    ```
+    
+    L’intergiciel utilise la configuration d’actualisation spécifiée dans la méthode `AddAzureAppConfiguration` de `Program.cs` afin de déclencher une actualisation pour chaque demande reçue par l’application web ASP.NET Core. Pour chaque demande, une opération d’actualisation est déclenchée et la bibliothèque de client vérifie si la valeur mise en cache pour les paramètres de configuration inscrits a expiré. Pour les valeurs mises en cache ayant expiré, les valeurs des paramètres sont mises à jour avec celles du magasin de configuration d’application. Quant aux valeurs restantes, elles ne changent pas.
+    
+    > [!NOTE]
+    > Pour un paramètre de configuration, le délai d’expiration du cache par défaut est de 30 secondes. Toutefois, vous pouvez le modifier en appelant la méthode `SetCacheExpiration` de l’initialiseur d’options qui est passé en tant qu’argument à la méthode `ConfigureRefresh`.
 
 ## <a name="use-the-latest-configuration-data"></a>Utiliser les données de configuration les plus récentes
 
@@ -177,9 +197,12 @@ Pour effectuer ce tutoriel, installez le [kit SDK .NET Core](https://dotnet.micr
     | TestAppSettings:FontColor | lightGray |
     | TestAppSettings:Message | Données provenant d’Azure App Configuration, avec maintenant des mises à jour automatiques ! |
 
-6. Actualisez la page de navigateur pour afficher les nouveaux paramètres de configuration.
+6. Actualisez la page de navigateur pour afficher les nouveaux paramètres de configuration. Vous devrez peut-être actualiser la page du navigateur à plusieurs reprises pour que les modifications apparaissent.
 
     ![Démarrage rapide de l’actualisation locale de l’application](./media/quickstarts/aspnet-core-app-launch-local-after.png)
+    
+    > [!NOTE]
+    > Étant donné que les paramètres de configuration sont mis en cache avec un délai d’expiration par défaut de 30 secondes, toute modification apportée aux paramètres dans le magasin de configuration d’application n’apparaît dans l’application web qu’après l’expiration du cache.
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

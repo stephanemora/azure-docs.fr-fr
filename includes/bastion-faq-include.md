@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/17/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: e29a9265e010c3f442b742faf62b16dae02739fa
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 29ab9b3c33aae6005510c34b207c7f87714149e5
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67191138"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67608167"
 ---
 ### <a name="preview"></a>Comment participer à la préversion publique ?
 
@@ -55,4 +55,8 @@ Pour établir une connexion, les rôles suivants sont nécessaires :
 
 ### <a name="previewbill"></a>Tarifs : serai-je facturé pour ma participation à la préversion ?
 
-Vous serez uniquement facturé partiellement pendant la préversion publique. Toutefois, il n’existe aucun Contrat de niveau de service associé à votre déploiement. Pour plus d’informations, consultez la [page relative aux prix appliqués](https://aka.ms/BastionHostPricing).
+Vous serez uniquement facturé partiellement pendant la préversion publique. Toutefois, aucun contrat de niveau de service n’est associé à votre déploiement. Pour plus d’informations, consultez la [page relative aux prix appliqués](https://aka.ms/BastionHostPricing).
+
+### <a name="previewbill"></a>Pourquoi le message d’erreur « Votre session a expiré » s’affiche avant le démarrage de la session Bastion ?
+
+Une session ne doit être lancée qu’à partir du portail Azure. Connectez-vous au portail Azure, puis redémarrez votre session. Si vous accédez à l’URL directement à partir d’une autre session de navigateur ou d’un autre onglet, cette erreur est normale. Cela permet de sécuriser votre session, en évitant qu’elle soit accessible en dehors du portail Azure.

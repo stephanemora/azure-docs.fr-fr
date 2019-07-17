@@ -8,18 +8,18 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 03/11/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 51b2cd42fabe6406f88388e99459a6f3dd3e69f5
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: b4b10591069b71a4e70769f5bdcd6149768c5007
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65827651"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604020"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Didacticiel : Reconnaître les logos des services Azure dans les images de l’appareil photo
 
-Dans ce tutoriel, vous allez examiner un exemple d’application qui utilise Azure Custom Vision dans le cadre d’un scénario plus vaste. L’application AI Visual Provision, une application Xamarin.Forms pour plateformes mobiles, analyse les images d’appareil photo des logos des services Azure, puis déploie les services eux-mêmes sur le compte Azure de l’utilisateur. Ici, vous verrez comment elle utilise Custom Vision en coordination avec d’autres composants pour fournir une application de bout en bout utile. Exécutez le scénario d’application dans son ensemble pour vous-même, ou effectuez simplement la partie Custom Vision de l’installation et examinez l’usage qu’en fait l’application.
+Dans ce tutoriel, vous allez examiner un exemple d’application qui utilise Azure Custom Vision dans le cadre d’un scénario plus vaste. L’application AI Visual Provision, une application Xamarin.Forms pour plateformes mobiles, analyse les images d’appareil photo des logos des services Azure, puis déploie les services eux-mêmes sur le compte Azure de l’utilisateur. Ici, vous verrez comment elle utilise Custom Vision en coordination avec d’autres composants pour fournir une application de bout en bout utile. Vous pouvez exécuter l’intégralité du scénario de l’application pour vous-même, ou effectuer uniquement la partie Custom Vision de l’installation et examiner l’usage qu’en fait l’application.
 
 Ce didacticiel vous explique comment :
 
@@ -51,7 +51,7 @@ Connectez-vous au [site web du service Vision personnalisée](https://customvisi
 
 Ensuite, entraînez l’algorithme de détection de logos en chargeant les images des logos des services Azure et en les marquant manuellement. Le dépôt AIVisualProvision inclut un ensemble d’images d’entraînement que vous pouvez utiliser. Sur le site web, sélectionnez le bouton **Ajouter des images** sous l’onglet **Images d’entraînement**. Accédez ensuite au dossier **Documents/Images/Training_DataSet** du dépôt. Vous devez marquer manuellement les logos dans chaque image. Ainsi, si vous testez seulement ce projet, vous pouvez ne charger qu’un sous-ensemble des images. Chargez au moins 15 instances de chaque balise que vous prévoyez d’utiliser.
 
-Une fois que vous avez chargé les images d’entraînement, sélectionnez la première affichée. Cela fera apparaître la fenêtre de marquage. Dessinez des rectangles et assignez des balises pour chaque logo dans chaque image. 
+Une fois que vous avez chargé les images d’entraînement, sélectionnez la première affichée. La fenêtre d’étiquetage s’affiche. Dessinez des rectangles et assignez des balises pour chaque logo dans chaque image. 
 
 ![Marquage des logos sur le site web de Custom Vision](media/azure-logo-tutorial/tag-logos.png)
 
@@ -63,13 +63,13 @@ Après avoir marqué une image, passez à droite pour marquer la suivante. Ferme
 
 ## <a name="train-the-object-detector"></a>Entraîner le détecteur d’objet
 
-Dans le volet gauche, affectez au commutateur **Balises** la valeur **Marqué** pour afficher vos images. Ensuite, sélectionnez le bouton vert en haut de la page pour entraîner le modèle. Cela apprend à l’algorithme à reconnaître les mêmes balises dans les nouvelles images. Cela teste également le modèle sur certaines de vos images existantes pour générer des scores de précision.
+Dans le volet gauche, affectez au commutateur **Balises** la valeur **Marqué** pour afficher vos images. Ensuite, sélectionnez le bouton vert en haut de la page pour entraîner le modèle. L’algorithme s’entraîne à reconnaître les mêmes étiquettes dans de nouvelles images. Cela teste également le modèle sur certaines de vos images existantes pour générer des scores de précision.
 
 ![Site web Custom Vision sous l’onglet Images d’entraînement. Dans cette capture d’écran, le bouton Entraîner est mis en surbrillance.](media/azure-logo-tutorial/train-model.png)
 
 ## <a name="get-the-prediction-url"></a>Obtenir l’URL de prédiction
 
-Une fois votre modèle entraîné, vous êtes prêt à l’intégrer dans votre application. Pour ce faire, vous devez obtenir l’URL du point de terminaison (l’adresse de votre modèle, que l’application interrogera) et la clé de prédiction (pour accorder à l’application l’accès aux demandes de prédiction). Sous l’onglet **Performances**, sélectionnez le bouton **URL de prédiction** en haut de la page.
+Une fois votre modèle entraîné, vous êtes prêt à l’intégrer dans votre application. Vous devez obtenir l’URL de point de terminaison (l’adresse de votre modèle, que l’application va interroger) et la clé de prédiction (pour permettre à l’application d’accéder aux demandes de prédiction). Sous l’onglet **Performances**, sélectionnez le bouton **URL de prédiction** en haut de la page.
 
 ![Site web Custom Vision, montrant une fenêtre de l’API de prédiction qui présente une adresse URL et une clé API](media/azure-logo-tutorial/cusvis-endpoint.png)
 
@@ -95,7 +95,7 @@ La partie Custom Vision du tutoriel est terminée. Si vous voulez exécuter l’
 
 Abonnez-vous au service Vision par ordinateur pour obtenir une clé et une URL de point de terminaison. Pour obtenir de l’aide sur cette étape, consultez [Comment obtenir des clés d’abonnement](https://docs.microsoft.com/azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtosubscribe).
 
-![Service Vision par ordinateur dans le portail Azure, avec le menu Démarrage rapide sélectionné. Un lien est entouré pour les clés, ainsi que l’URL de point de terminaison de l’API](media/azure-logo-tutorial/comvis-keys.png)
+![Service Vision par ordinateur dans le portail Azure. Menu Démarrage rapide sélectionné. Un lien est entouré pour les clés, ainsi que l’URL de point de terminaison de l’API](media/azure-logo-tutorial/comvis-keys.png)
 
 Ensuite, ouvrez le fichier *Source\VisualProvision\AppSettings.cs* et affectez des valeurs correctes aux variables `ComputerVisionEndpoint` et `ComputerVisionKey`.
 

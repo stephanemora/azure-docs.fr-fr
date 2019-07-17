@@ -1,25 +1,25 @@
 ---
 title: 'Démarrage rapide : Analyser le contenu d’un texte (C#) - Content Moderator'
 titlesuffix: Azure Cognitive Services
-description: Comment analyser le contenu d’un texte pour trouver des matériaux répréhensibles à l’aide du kit SDK Azure Content Moderator pour .NET
+description: Guide pratique pour analyser du texte afin d’y détecter du contenu choquant ou répréhensible à l’aide du kit SDK Azure Content Moderator pour .NET
 services: cognitive-services
 author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 02/07/2019
+ms.date: 07/03/2019
 ms.author: sajagtap
-ms.openlocfilehash: 09fd58fa33873c06ac5dab4970af199bc3030479
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: f848ea0d1c86b9c12d26c59b8f0e92d1e5d70094
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756527"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604062"
 ---
-# <a name="quickstart-analyze-text-content-for-objectionable-material-in-c"></a>Démarrage rapide : Analyser le contenu d’un texte pour trouver des matériaux répréhensibles en C#
+# <a name="quickstart-analyze-text-content-for-objectionable-material-in-c"></a>Démarrage rapide : Analyser le contenu d’un texte pour trouver des matériaux répréhensibles en C#
 
-Cet article fournit des informations et des exemples de code qui vont vous aider à prendre en main le [kit SDK Content Moderator pour .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/). Vous allez apprendre à exécuter le filtrage basé sur des termes et la classification d’un contenu textuel dans le but de modérer les matériaux potentiellement répréhensibles.
+Cet article fournit des informations et des exemples de code qui vont vous aider à prendre en main le [kit SDK Content Moderator pour .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/). Vous allez apprendre à exécuter le filtrage et la classification de textes en fonction de certains termes pour modérer les contenus potentiellement choquants ou répréhensibles.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer. 
 
@@ -57,11 +57,11 @@ Ajoutez le code suivant à votre fichier *Program.cs* afin de créer un fourniss
 
 ### <a name="set-up-input-and-output-targets"></a>Configurer les cibles d’entrée et de sortie
 
-Ajoutez les champs statiques suivants à la classe **Program** dans _Program.cs_. Ils spécifient les fichiers pour le contenu textuel d’entrée et le contenu JSON de sortie.
+Ajoutez les champs statiques suivants à la classe **Program** dans _Program.cs_. Ces champs spécifient les fichiers pour le contenu textuel d’entrée et le contenu JSON de sortie.
 
 [!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/text-moderation-quickstart-dotnet.cs?range=15-19)]
 
-Vous devez créer le fichier d’entrée *TextFile.txt* et mettre à jour son chemin d’accès en conséquence (les chemins d’accès relatifs sont relatifs au répertoire d’exécution). Ouvrez _TextFile.txt_ et ajoutez le texte à modérer. Ce démarrage rapide utilise l’exemple de texte suivant :
+Vous devrez créer le fichier d’entrée *TextFile.txt* et mettre à jour son chemin (les chemins sont relatifs au répertoire d’exécution). Ouvrez _TextFile.txt_ et ajoutez le texte à modérer. Ce démarrage rapide utilise l’exemple de texte suivant :
 
 ```
 Is this a grabage or crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.

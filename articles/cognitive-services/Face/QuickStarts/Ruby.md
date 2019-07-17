@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 02/07/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 52faef37dbd9a3ce324db9665f04d6ac9b223d9c
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 6583db5b1403f70593d586a610f4d06be15c729b
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312393"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603353"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-ruby"></a>Démarrage rapide : Détecter des visages sur une image avec l’API REST et Ruby
 
@@ -28,7 +28,7 @@ Dans ce guide de démarrage rapide, vous allez utiliser l’API REST Visage Azur
 
 ## <a name="write-the-script"></a>Écrire le script
 
-Créez un fichier _faceDetection.rb_ et ajoutez le code suivant. L’API Visage est appelée pour une URL d’image donnée.
+Créez un fichier _faceDetection.rb_ et ajoutez le code suivant. Ce code appelle l’API Visage pour une URL d’image donnée.
 
 ```ruby
 require 'net/http'
@@ -64,7 +64,7 @@ puts response.body
 
 Vous devez remplacer la valeur `request['Ocp-Apim-Subscription-Key']` par votre clé d’abonnement, et éventuellement changer la chaîne `uri` pour qu’elle contienne l’identificateur de région approprié. (Pour connaître la liste des points de terminaison de toutes les régions, consultez les [documents sur l’API Visage](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)). 
 
-Vous pouvez également changer le champ `imageUri` pour qu’il pointe vers votre propre image d’entrée. Vous pouvez aussi changer le champ `returnFaceAttributes` qui spécifie les attributs de visage à récupérer.
+Vous pouvez également changer le champ `imageUri` pour qu’il pointe vers votre propre image d’entrée. Vous pouvez également changer le champ `returnFaceAttributes`, qui spécifie les attributs de visage à récupérer.
 
 ## <a name="run-the-script"></a>Exécutez le script
 
@@ -74,7 +74,7 @@ Exécutez le script Ruby avec la commande suivante :
 ruby faceDetection.rb
 ```
 
-Une chaîne JSON des données de visage détectées doit apparaître dans la console. Voici un exemple de réponse JSON correcte.
+Une chaîne JSON des données de visage détectées doit apparaître dans la console. Le texte suivant est un exemple de réponse JSON réussie.
 
 ```json
 [

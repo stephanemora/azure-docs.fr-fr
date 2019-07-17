@@ -8,12 +8,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: quickstart
 ms.date: 01/11/2019
-ms.openlocfilehash: 4c8d488021ca12a704a5c0a06bb0c491588bcaed
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: b2d68f878aed5ce400214b6bdf6e1c0d713043bb
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261687"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67670743"
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Démarrage rapide : Exécuter un workflow par le biais du service Microsoft Genomics
 
@@ -22,7 +22,7 @@ Ce démarrage rapide vous montre comment charger des données d’entrée dans l
 Démarrez en quelques étapes : 
 1.  Configuration : Créez un compte Microsoft Genomics par le biais du portail Azure, puis installez le client Microsoft Genomics Python dans votre environnement local. 
 2.  Chargement des données d’entrée : Créez un compte de Stockage Microsoft Azure par le biais du portail Azure, puis chargez les fichiers d’entrée. Les fichiers d’entrée doivent constituer des séquences appariées (fichiers fastq ou bam).
-3.  Exécution : Utilisez l’interface de ligne de commande Microsoft Genomics pour exécuter les workflows par le biais du service Microsoft Genomics. 
+3.  Exécutez : Utilisez l’interface de ligne de commande Microsoft Genomics pour exécuter les workflows par le biais du service Microsoft Genomics. 
 
 Pour plus d’informations sur Microsoft Genomics, consultez la page [Qu’est-ce que Microsoft Genomics ?](overview-what-is-genomics.md)
 
@@ -38,10 +38,10 @@ Configurez votre compte Genomics avec les informations suivantes, tel que repré
 
  |**Paramètre**          |  **Valeur suggérée**  | **Description du champ** |
  |:-------------       |:-------------         |:----------            |
- |Abonnement         | Votre nom d’abonnement|Il s’agit de l’unité de facturation de vos services Azure. Pour plus de détails sur votre abonnement, consultez la section [Abonnements](https://account.azure.com/Subscriptions) |      
- |Groupe de ressources       | myResourceGroup       |  Les groupes de ressources vous permettent de rassembler plusieurs ressources Azure (compte de stockage, compte Genomics, etc.) dans un groupe unique, pour une gestion simplifiée. Pour plus d’informations, consultez [Groupes de ressources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups). Pour connaître les noms valides de groupes de ressources, consultez la page [Règles d’affectation des noms](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
+ |Subscription         | Votre nom d’abonnement|Il s’agit de l’unité de facturation de vos services Azure. Pour plus de détails sur votre abonnement, consultez la section [Abonnements](https://account.azure.com/Subscriptions) |      
+ |Resource group       | myResourceGroup       |  Les groupes de ressources vous permettent de rassembler plusieurs ressources Azure (compte de stockage, compte Genomics, etc.) dans un groupe unique, pour une gestion simplifiée. Pour plus d’informations, consultez [Groupes de ressources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups). Pour connaître les noms valides de groupes de ressources, consultez la page [Règles d’affectation des noms](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
  |Nom du compte         | MyGenomicsAccount     |Choisissez un identifiant de compte unique. Pour connaître les noms valides, consultez la page [Règles d’affectation des noms](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
- |Lieu                   | USA Ouest 2                    |    Le service est disponible dans les régions USA Ouest 2, Europe Ouest et Asie Sud-Est. |
+ |Location                   | USA Ouest 2                    |    Le service est disponible dans les régions USA Ouest 2, Europe Ouest et Asie Sud-Est. |
 
 
 
@@ -117,10 +117,10 @@ Configurez votre compte Stockage avec les informations suivantes, tel que repré
 
  |**Paramètre**          |  **Valeur suggérée**  | **Description du champ** |
  |:-------------------------       |:-------------         |:----------            |
- |Abonnement         | Votre abonnement Azure |Pour plus d’informations sur votre abonnement, consultez [Abonnements](https://account.azure.com/Subscriptions). |      
- |Groupe de ressources       | myResourceGroup       |  Vous pouvez sélectionner le même groupe de ressources en tant que compte Genomics. Pour connaître les noms valides de groupes de ressources, consultez la page [Règles d’affectation des noms](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
+ |Subscription         | Votre abonnement Azure |Pour plus d’informations sur votre abonnement, consultez [Abonnements](https://account.azure.com/Subscriptions). |      
+ |Resource group       | myResourceGroup       |  Vous pouvez sélectionner le même groupe de ressources en tant que compte Genomics. Pour connaître les noms valides de groupes de ressources, consultez la page [Règles d’affectation des noms](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
  |Nom du compte de stockage         | MyStorageAccount     |Choisissez un identifiant de compte unique. Pour connaître les noms valides, consultez la page [Règles d’affectation des noms](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
- |Lieu                  | USA Ouest 2                  | Utilisez l’emplacement de votre compte Genomics, afin de réduire les frais de sortie ainsi que la latence.  | 
+ |Location                  | USA Ouest 2                  | Utilisez l’emplacement de votre compte Genomics, afin de réduire les frais de sortie ainsi que la latence.  | 
  |Performances                  | standard                   | Le niveau par défaut est Standard. Pour plus d’informations sur les comptes de stockage standard et premium, consultez [Présentation du stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction).    |
  |Type de compte       | Stockage d'objets blob       |  Le stockage d’objets blob peut s’avérer entre 2 à 5 fois plus rapide que le modèle à usage général pour les téléchargements et les chargements. |
  |Réplication                  | Stockage localement redondant                  | Le stockage localement redondant réplique vos données dans la région du centre de données dans laquelle vous avez créé votre compte de stockage. Pour plus d’informations, consultez l’article [Réplication de Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy).    |
@@ -152,7 +152,7 @@ Ouvrez le fichier config.txt téléchargé à partir de votre compte Genomics. L
 ![Configuration Genomics](./media/quickstart-run-genomics-workflow-portal/genomics-config.png "Configuration Genomics")
 
 
-Si vous souhaitez exécuter GATK4, définissez le paramètre `process_name` sur gatk4 ou gatk4-promotion. Pour plus d’informations sur la promotion GATK4, visitez [cette page](https://aka.ms/msgatk4).
+Si vous souhaitez exécuter GATK4, définissez le paramètre `process_name` sur `gatk4`.
 
 Par défaut, le service Genomics génère des fichiers VCF. Si vous voulez une sortie gVCF plutôt qu’une sortie VCF (équivalent à `-emitRefConfidence` dans GATK 3.x et à `emit-ref-confidence` dans GATK 4.x), ajoutez le paramètre `emit_ref_confidence` à votre fichier `config.txt`, puis affectez-lui la valeur `gvcf`, comme illustré dans la figure ci-dessus.  Pour revenir à la sortie VCF, supprimez-le du fichier `config.txt` ou définissez le paramètre `emit_ref_confidence` sur `none`. 
 

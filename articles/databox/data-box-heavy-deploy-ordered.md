@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 05/29/2019
+ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 8453a3592c1822489a3724dacdf8f0ff5e8492f1
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: c7fbd37ff8d40f27e0ca18a6f9816d3d96422ab9
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66427914"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592412"
 ---
-# <a name="tutorial-order-azure-data-box-heavy-preview"></a>Didacticiel : Commander Azure Data Box Heavy (préversion)
+# <a name="tutorial-order-azure-data-box-heavy"></a>Didacticiel : Commander Azure Data Box Heavy
 
 
 Azure Data Box Heavy est une solution hybride qui vous permet d’importer vos données locales dans Azure de manière rapide, simple et fiable. Vous transférez vos données vers un dispositif de stockage de 770 To (capacité utilisable approximative) fourni par Microsoft, puis vous réexpédiez l’appareil. Ces données sont ensuite chargées dans Azure.
@@ -80,7 +80,7 @@ Procédez comme suit dans le portail Azure pour commander un appareil.
 
     |Paramètre  |Valeur  |
     |---------|---------|
-    |Abonnement     | Sélectionnez un abonnement EA, CSP ou Azure pour le service Data Box. <br> L’abonnement est lié à votre compte de facturation.       |
+    |Subscription     | Sélectionnez un abonnement EA, CSP ou Azure pour le service Data Box. <br> L’abonnement est lié à votre compte de facturation.       |
     |Type de transfert     | Sélectionnez **Importer vers Azure**.        |
     |Pays source     | Sélectionnez le pays ou la région où vos données se trouvent actuellement.         |
     |Région Azure de destination     | Sélectionnez la région Azure où vous souhaitez transférer des données.        |
@@ -96,7 +96,7 @@ Procédez comme suit dans le portail Azure pour commander un appareil.
     |Paramètre  |Valeur  |
     |---------|---------|
     |Nom     | Indiquez un nom convivial pour suivre la commande. <br> Le nom peut comporter entre 3 et 24 caractères qui peuvent être des lettres, des chiffres et des traits d’union. <br> Il doit commencer et se terminer par une lettre ou un chiffre.      |
-    |Groupe de ressources     | Créez-en un nouveau ou utilisez un groupe existant. <br> Un groupe de ressources est un conteneur logique pour les ressources qui peuvent être gérées ou déployées ensemble.         |
+    |Resource group     | Créez-en un nouveau ou utilisez un groupe existant. <br> Un groupe de ressources est un conteneur logique pour les ressources qui peuvent être gérées ou déployées ensemble.         |
     |Région Azure de destination     | Sélectionnez une région pour votre compte de stockage. <br> Pour plus d’informations, consultez la [disponibilité des régions](https://azure.microsoft.com/global-infrastructure/services/?products=databox).        |
     |Destination de stockage     | Choisissez un compte de stockage, des disques managés ou les deux. <br> Selon la région Azure spécifiée, sélectionnez un ou plusieurs comptes de stockage dans la liste filtrée d’un compte de stockage existant. <br>Le Data Box Heavy peut être liée à 10 comptes de stockage maximum. <br> Vous pouvez également créer un **compte de stockage blob**, **Usage général v1** ou **Usage général v2**. <br> Les comptes Azure Data Lake Storage Gen 2 ne sont pas pris en charge. Consultez les [comptes de stockage pris en charge avec votre appareil](data-box-heavy-system-requirements.md#supported-storage-accounts). <br>Les comptes de stockage avec des réseaux virtuels sont pris en charge. Pour autoriser le service Data Box à travailler avec des comptes de stockage sécurisés, activez les services approuvés dans les paramètres de pare-feu réseau du compte de stockage. Pour plus d’informations, consultez le guide pratique pour [Ajouter le service Azure Data Box en tant que service approuvé](../storage/common/storage-network-security.md#exceptions).|
 

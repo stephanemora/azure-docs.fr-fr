@@ -12,12 +12,12 @@ ms.topic: overview
 ms.workload: tbd
 ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: b25cc8c04aed8cd333ff4de5b12db6674323787d
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: c7a7e7994ef5e16640f59efdc672f6793bc4f18d
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393605"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706467"
 ---
 # <a name="keys-and-values"></a>Clés et valeurs
 
@@ -94,7 +94,7 @@ Vous pouvez également inclure les modèles d’étiquette suivants :
 | `label=1.0.*` | Correspond aux étiquettes qui commencent par **1.0.** |
 | `label=*.0.0` | Correspond aux étiquettes qui finissent par **.0.0** |
 | `label=*.0.*` | Correspond aux étiquettes qui contiennent **.0.** |
-| `label=%00,1.0.0` | Correspond aux étiquettes `null` ou **1.0.1**, limitées à cinq valeurs séparées par des virgules (CSV) |
+| `label=%00,1.0.0` | Correspond aux étiquettes `null` ou **1.0.0**, limitées à cinq valeurs séparées par des virgules (CSV) |
 
 ## <a name="values"></a>Valeurs
 

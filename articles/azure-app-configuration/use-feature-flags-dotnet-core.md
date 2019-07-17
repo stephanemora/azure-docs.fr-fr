@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 04/19/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 5e27c6a1ab5fc9dff779c6e5d04689683d5c8e6d
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 99559c0c77c3e4b29badec1c0be2d741df1f0621
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274147"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798376"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Didacticiel : Utiliser des indicateurs de fonctionnalités dans une application ASP.NET Core
 
@@ -86,30 +86,42 @@ public class Startup
 
 Nous vous recommandons de conserver les indicateurs de fonctionnalités en dehors de l’application et de les gérer séparément. Cela vous permet de modifier l’état des indicateurs à tout moment, et d’appliquer immédiatement ces changements dans l’application. Le service App Configuration fournit un emplacement centralisé pour organiser et contrôler tous vos indicateurs de fonctionnalités par le biais d’une interface utilisateur de portail dédiée. Il remet également les indicateurs à votre application directement par le biais de ses bibliothèques clientes .NET Core.
 
-Le moyen le plus simple de connecter votre application ASP.NET Core à App Configuration est de passer par l’objet `Microsoft.Extensions.Configuration.AzureAppConfiguration` du fournisseur de configuration. Pour utiliser ce package NuGet, ajoutez le code suivant au fichier *Program.cs* :
+Le moyen le plus simple de connecter votre application ASP.NET Core à App Configuration est de passer par l’objet `Microsoft.Azure.AppConfiguration.AspNetCore` du fournisseur de configuration. Suivez ces étapes pour utiliser ce package NuGet.
 
-```csharp
-using Microsoft.Extensions.Configuration.AzureAppConfiguration;
+1. Ouvrez le fichier *Program.cs* et ajoutez le code suivant.
 
-public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-    WebHost.CreateDefaultBuilder(args)
-           .ConfigureAppConfiguration((hostingContext, config) => {
-               var settings = config.Build();
-               config.AddAzureAppConfiguration(options => {
-                   options.Connect(settings["ConnectionStrings:AppConfig"])
-                          .UseFeatureFlags();
-                });
-           })
-           .UseStartup<Startup>();
-```
+   ```csharp
+   using Microsoft.Extensions.Configuration.AzureAppConfiguration;
 
-Les valeurs des indicateurs de fonctionnalités sont supposées changer au fil du temps. Par défaut, le gestionnaire de fonctionnalités actualise les valeurs des indicateurs de fonctionnalités toutes les 30 secondes. Le code suivant montre comment définir l’intervalle d’interrogation sur 5 secondes dans l’appel `options.UseFeatureFlags()` :
+   public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+       WebHost.CreateDefaultBuilder(args)
+              .ConfigureAppConfiguration((hostingContext, config) => {
+                  var settings = config.Build();
+                  config.AddAzureAppConfiguration(options => {
+                      options.Connect(settings["ConnectionStrings:AppConfig"])
+                             .UseFeatureFlags();
+                   });
+              })
+              .UseStartup<Startup>();
+   ```
+
+2. Ouvrez *Startup.cs* et mettez à jour la méthode `Configure` en y ajoutant un middleware afin de permettre l’actualisation des valeurs des indicateurs de fonctionnalités à intervalles réguliers, pendant que l’application web ASP.NET continue de recevoir des demandes.
+
+   ```csharp
+   public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+   {
+       app.UseAzureAppConfiguration();
+       app.UseMvc();
+   }
+   ```
+
+Les valeurs des indicateurs de fonctionnalités sont supposées changer au fil du temps. Par défaut, les valeurs d’indicateur de fonctionnalité sont mises en cache pendant une période de 30 secondes. Une opération d’actualisation déclenchée quand le middleware reçoit une demande ne met donc à jour la valeur qu’après l’expiration de la valeur mise en cache. Le code suivant montre comment faire passer l’heure d’expiration du cache ou l’intervalle d’interrogation à 5 minutes dans l’appel `options.UseFeatureFlags()`.
 
 ```csharp
 config.AddAzureAppConfiguration(options => {
     options.Connect(settings["ConnectionStrings:AppConfig"])
            .UseFeatureFlags(featureFlagOptions => {
-                featureFlagOptions.PollInterval = TimeSpan.FromSeconds(300);
+                featureFlagOptions.CacheExpirationTime = TimeSpan.FromMinutes(5);
            });
 });
 ```

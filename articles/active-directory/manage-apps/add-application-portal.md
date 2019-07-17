@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 04/09/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1688cc9317306e7f524536754854b6147ad3dd5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3de6a2cbdfe7a6d006a3bbfab16792376eda0d07
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108763"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67702533"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-tenant"></a>Démarrage rapide : Ajouter une application à votre locataire Azure Active Directory
 
@@ -43,27 +43,21 @@ Pour tester les étapes de ce didacticiel, nous recommandons l’utilisation d�
 Pour ajouter une application de la galerie à votre locataire Azure AD :
 
 1. Dans le panneau de navigation gauche du [portail Azure](https://portal.azure.com), sélectionnez **Azure Active Directory**.
-
 1. Dans le volet **Azure Active Directory**, sélectionnez **Applications d’entreprise**.
+1. Le volet **Toutes les applications** s’ouvre pour afficher un échantillon aléatoire des applications de votre locataire Azure AD. Sélectionnez **Nouvelle application** en haut du volet **Toutes les applications** pour ajouter une application de galerie à votre locataire.
 
-    ![Ouvrir des applications d’entreprise](media/add-application-portal/open-enterprise-apps.png)
+    ![Sélectionner Nouvelle application pour ajouter une application de galerie à votre locataire](media/add-application-portal/new-application.png)
 
-1. Le volet **Toutes les applications** s’ouvre pour afficher un échantillon aléatoire des applications de votre locataire Azure AD. Sélectionnez **Nouvelle application** en haut du volet **Toutes les applications**.
+1. Dans le volet **Catégories**, sous la zone **Applications principales**, apparaissent des icônes qui sont un échantillon aléatoire des applications de la galerie. Pour voir plus d’applications, vous pouvez sélectionner **Afficher plus**, mais nous ne recommandons pas d’effectuer des recherches de cette façon, car il existe des milliers d’applications dans la galerie.
 
-    ![Nouvelle application](media/add-application-portal/new-application.png)
-
-1. Dans le volet **Catégories**, sous la zone **Applications principales**, apparaissent des icônes qui sont un échantillon aléatoire des applications de la galerie.  Pour afficher davantage d’applications, vous pouvez sélectionner **Afficher plus**. Toutefois, nous ne recommandons pas d’effectuer une recherche de cette façon, dans la mesure où il existe des milliers d’applications dans la galerie.
-
-    ![Rechercher par nom ou par catégorie](media/add-application-portal/categories.png)
+    ![Rechercher une application par nom ou par catégorie](media/add-application-portal/categories.png)
 
 1. Pour rechercher une application, tapez le nom de l’application que vous souhaitez ajouter sous **Ajouter à partir de la galerie**. Sélectionnez l’application à partir des résultats, puis sélectionnez **Ajouter**. L’exemple suivant montre le formulaire **Ajouter une application** qui apparaît après la recherche de github.com.
 
-    ![Ajouter une application](media/add-application-portal/add-an-application.png)
+    ![Montre comment ajouter une application à partir de la galerie](media/add-application-portal/add-an-application.png)
 
 1. Dans le formulaire spécifique à l’application, vous pouvez modifier les informations de propriété. Par exemple, vous pouvez modifier le nom de l’application afin qu’il corresponde aux besoins de votre organisation. Cet exemple utilise le nom **GitHub-test**.
-
 1. Quand vous avez terminé de modifier les propriétés, sélectionnez **Ajouter**.
-
 1. Une page de démarrage s’affiche avec les options de configuration de l’application pour votre organisation.
 
 Vous avez terminé l’ajout de votre application. Faites une pause si vous le souhaitez. Les sections suivantes vous montrent comment modifier le logo et d’autres propriétés pour votre application.
@@ -73,17 +67,12 @@ Vous avez terminé l’ajout de votre application. Faites une pause si vous le s
 Supposons que vous deviez partir et que vous souhaitez maintenant continuer la configuration de votre application. La première chose à faire est de trouver votre application.
 
 1. Dans le panneau de navigation gauche du **[portail Azure](https://portal.azure.com)** , sélectionnez **Azure Active Directory**.
-
 1. Dans le volet **Azure Active Directory**, sélectionnez **Applications d’entreprise**.
-
 1. À partir du menu déroulant **Type d’Application**, sélectionnez **Toutes les Applications**, puis sélectionnez **Appliquer**. Pour en savoir plus sur les options d’affichage, consultez [Afficher les applications du locataire](view-applications-portal.md).
-
 1. Vous pouvez maintenant voir une liste de toutes les applications dans votre locataire Azure AD. La liste est un échantillon aléatoire. Pour voir davantage d’applications, sélectionnez **Afficher plus** une ou plusieurs fois.
-
 1. Pour trouver rapidement une application dans votre locataire, entrez le nom de l’application dans la zone de recherche, puis sélectionnez **Appliquer**. Cet exemple recherche l’application GitHub-test ajoutée précédemment.
 
-    ![Rechercher une application](media/add-application-portal/find-application.png)
-
+    ![Montre comment rechercher une application avec la zone de recherche](media/add-application-portal/find-application.png)
 
 ## <a name="configure-user-sign-in-properties"></a>Configurer les propriétés de connexion de l’utilisateur
 
@@ -94,7 +83,7 @@ Pour modifier les propriétés de l’application :
 1. Sélectionnez l’application pour l’ouvrir.
 1. Sélectionnez **Propriétés** pour ouvrir le volet Propriétés pour la modification.
 
-    ![Volet Modifier des propriétés](media/add-application-portal/edit-properties.png)
+    ![Montre l’écran Propriétés et les propriétés modifiables de l’application](media/add-application-portal/edit-properties.png)
 
 1. Prenez un moment pour comprendre les options de connexion. Les options déterminent la façon dont les utilisateurs qui sont assignés ou non assignés à l’application peuvent s’y connecter. De plus, les options déterminent si un utilisateur peut voir l’application dans le volet d’accès.
 
@@ -144,8 +133,7 @@ Pour utiliser un logo personnalisé :
 1. Téléchargez le logo.
 1. Quand vous avez terminé, Sélectionnez **Enregistrer**.
 
-    ![Modifier le logo](media/add-application-portal/change-logo.png)
-
+    ![Montre comment changer le logo de la page Propriétés de l’application](media/add-application-portal/change-logo.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -155,5 +143,3 @@ Vous êtes maintenant prêt à configurer l’application pour une authentificat
 
 > [!div class="nextstepaction"]
 > [Configurer l’authentification unique](configure-single-sign-on-portal.md)
-
-

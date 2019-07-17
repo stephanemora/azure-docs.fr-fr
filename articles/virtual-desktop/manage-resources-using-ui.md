@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 06/04/2019
 ms.author: v-chjenk
-ms.openlocfilehash: 275fec5fb696a7e1352bbddccd288863e984b796
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 9579db9836ef41706f2c6be09570fa7c1459e14f
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304549"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620453"
 ---
 # <a name="tutorial-deploy-a-management-tool"></a>Didacticiel : Déployer un outil de gestion
 
@@ -57,8 +57,8 @@ Suivez ces instructions pour déployer le modèle Azure Resource Management :
 ### <a name="guidance-for-template-parameters"></a>Conseils pour les paramètres des modèles
 Voici comment entrer des paramètres pour la configuration de l’outil :
 
-- Il s’agit de l’URL du répartiteur RD :  <https://rdbroker.wvd.microsoft.com/>
-- Il s’agit de l’URL de la ressource :  <https://mrs-prod.ame.gbl/mrs-RDInfra-prod>
+- Voici l’URL du service Broker Bureau à distance :  https:\//rdbroker.wvd.microsoft.com/
+- Voici l’URL de la ressource :  https:\//mrs-prod.ame.gbl/mrs-RDInfra-prod
 - Utilisez vos informations d’identification AAD avec MFA désactivée pour vous connecter à Azure. Consultez [Conditions nécessaires pour exécuter le modèle Azure Resource Manager](#what-you-need-to-run-the-azure-resource-manager-template).
 - Utilisez un nom unique pour l’application qui sera inscrit dans votre annuaire Azure Active Directory pour l’outil de gestion, par exemple, Apr3UX.
 

@@ -9,12 +9,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 02/26/2019
 ms.author: aahi
-ms.openlocfilehash: d4269a99a8e535692e4897630a7edd9b27347d41
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: e17b68dfd63952d0c8c81415b090b047c5808e2e
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304035"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797806"
 ---
 # <a name="example-how-to-detect-sentiment-with-text-analytics"></a>Exemple : Comment détecter les sentiments dans l’Analyse de texte
 
@@ -103,7 +103,7 @@ La sortie est retournée immédiatement. Vous pouvez diffuser en continu les ré
 
 L’exemple suivant montre la réponse pour la collection de documents dans cet article.
 
-```
+```json
 {
     "documents": [
         {
@@ -130,6 +130,133 @@ L’exemple suivant montre la réponse pour la collection de documents dans cet 
     "errors": []
 }
 ```
+
+## <a name="sentiment-analysis-v3-public-preview"></a>Analyse des sentiments V3 - Préversion publique
+
+La [version suivante d’Analyse des sentiments](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-preview/operations/56f30ceeeda5650db055a3c9) est maintenant disponible en préversion publique, et fournit des améliorations significatives dans la précision et les détails de catégorisation et de scoring de texte de l’API. 
+
+> [!NOTE]
+> * Analyse des sentiments v3 nécessite le même format et les mêmes [limites de données](../overview.md#data-limits) que la version précédente.
+> * Pour l’instant, Analyse des sentiments V3 : 
+>    * Prend en charge seulement la langue anglaise.  
+>    * Est disponible dans les régions suivantes : `Central US`, `Central Canada` et `East Asia` 
+
+|Fonctionnalité |Description  |
+|---------|---------|
+|Précision accrue     | Amélioration significative de la détection des sentiments positifs, neutres, négatifs et mixtes dans des documents texte par rapport aux versions précédentes.           |
+|Score de sentiment au niveau du document et des phrases     | Détection du sentiment exprimé dans un document et dans ses différentes phrases. Si le document comprend plusieurs phrases, un score de sentiment est également attribué à chacune d’elles.         |
+|Catégorie et score de sentiment     | En plus d’un score de sentiment, l’API retourne désormais des catégories de sentiments (`positive`, `negative`, `neutral` et `mixed`) pour le texte.        |
+| Sortie améliorée | Analyse des sentiments retourne désormais des informations à la fois pour un document texte entier et pour ses phrases individuelles. |
+
+### <a name="sentiment-labeling"></a>Étiquetage des sentiments
+
+Analyse des sentiments V3 peut retourner des scores et des étiquettes (`positive`, `negative` et `neutral`) au niveau du document et des phrases. Au niveau du document, l’étiquette (pas le score) de sentiment `mixed` peut également être retournée. Le sentiment du document est déterminé en agrégeant les scores de ses phrases.
+
+| Sentiment des phrases                                                        | Étiquette de document retournée |
+|---------------------------------------------------------------------------|----------------|
+| Au moins une phrase positive et le reste des phrases sont neutres. | `positive`     |
+| Au moins une phrase négative et le reste des phrases sont neutres.  | `negative`     |
+| Au moins une phrase négative et au moins une phrase positive.         | `mixed`        |
+| Toutes les phrases sont neutres.                                                 | `neutral`      |
+
+### <a name="sentiment-analysis-v3-example-request"></a>Exemple de demande d’Analyse des sentiments V3
+
+Le JSON suivant est un exemple d’une demande adressée à la nouvelle version d’Analyse des sentiments. Notez que la mise en forme de la demande est identique à celle de la version précédente :
+
+```json
+{
+  "documents": [
+    {
+      "language": "en",
+      "id": "1",
+      "text": "Hello world. This is some input text that I love."
+    },
+    {
+      "language": "en",
+      "id": "2",
+      "text": "It's incredibly sunny outside! I'm so happy."
+    }
+  ]
+}
+```
+
+### <a name="sentiment-analysis-v3-example-response"></a>Exemple de réponse d’Analyse des sentiments V3
+
+Alors que le format de la demande est identique à celui de la version précédente, le format de la réponse a changé. Le JSON suivant est un exemple de réponse de la nouvelle version de l’API :
+
+```json
+{
+    "documents": [
+        {
+            "id": "1",
+            "sentiment": "positive",
+            "documentScores": {
+                "positive": 0.98570585250854492,
+                "neutral": 0.0001625834556762,
+                "negative": 0.0141316400840878
+            },
+            "sentences": [
+                {
+                    "sentiment": "neutral",
+                    "sentenceScores": {
+                        "positive": 0.0785155147314072,
+                        "neutral": 0.89702343940734863,
+                        "negative": 0.0244610067456961
+                    },
+                    "offset": 0,
+                    "length": 12
+                },
+                {
+                    "sentiment": "positive",
+                    "sentenceScores": {
+                        "positive": 0.98570585250854492,
+                        "neutral": 0.0001625834556762,
+                        "negative": 0.0141316400840878
+                    },
+                    "offset": 13,
+                    "length": 36
+                }
+            ]
+        },
+        {
+            "id": "2",
+            "sentiment": "positive",
+            "documentScores": {
+                "positive": 0.89198976755142212,
+                "neutral": 0.103382371366024,
+                "negative": 0.0046278294175863
+            },
+            "sentences": [
+                {
+                    "sentiment": "positive",
+                    "sentenceScores": {
+                        "positive": 0.78401315212249756,
+                        "neutral": 0.2067587077617645,
+                        "negative": 0.0092281140387058
+                    },
+                    "offset": 0,
+                    "length": 30
+                },
+                {
+                    "sentiment": "positive",
+                    "sentenceScores": {
+                        "positive": 0.99996638298034668,
+                        "neutral": 0.0000060341349126,
+                        "negative": 0.0000275444017461
+                    },
+                    "offset": 31,
+                    "length": 13
+                }
+            ]
+        }
+    ],
+    "errors": []
+}
+```
+
+### <a name="example-c-code"></a>Exemple de code C#
+
+Vous trouverez un exemple d’application C# qui appelle cette version d’Analyse des sentiments sur [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/dotnet/Language/SentimentV3.cs).
 
 ## <a name="summary"></a>Résumé
 

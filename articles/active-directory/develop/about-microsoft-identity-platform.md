@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58136aba278097e9778cc1361ed77a4512e3d51b
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 0dc4c29d3a12902b3ce01f9505cba5ac02e921eb
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66751913"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67625345"
 ---
 # <a name="evolution-of-microsoft-identity-platform"></a>Évolution de la plateforme d’identités Microsoft
 
@@ -50,7 +50,7 @@ Le diagramme suivant illustre l’expérience d’identité Microsoft à un haut
 
 ### <a name="app-registration-experience"></a>Expérience d’inscription d’application
 
-L’expérience d’ **[inscription d’application](https://go.microsoft.com/fwlink/?linkid=2083908)** du portail Azure est la seule expérience de portail qui vous permet de gérer toutes les applications que vous avez intégrées à la plateforme d’identités Microsoft. Si vous utilisez le portail d’inscription d’application, commencez plutôt à utiliser l’expérience d’inscription d’application du portail Azure.
+L’expérience d’ **[inscription d’application](https://go.microsoft.com/fwlink/?linkid=2083908)** du portail Azure est la seule expérience de portail qui vous permet de gérer toutes les applications que vous avez intégrées à la plateforme d’identités Microsoft. Si vous utilisez le portail d’inscription d’application, commencez plutôt à utiliser l’inscription d’application du portail Azure.
 
 Pour l’intégration à Azure AD B2C (lors de l’authentification d’identités sociales ou locales), vous devrez inscrire votre application dans un locataire B2C. Cette expérience fait également partie du portail Azure.
 

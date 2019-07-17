@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 06/19/2019
+ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: d4cdc9b6c31c62080fed5a8528577fef72c01c3f
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 3e6bfe4a93ab8c97bcffb84bda08977f8d811fa8
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67271711"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592372"
 ---
-# <a name="tutorial-cable-and-connect-to-your-azure-data-box-heavy-preview"></a>Didacticiel : Brancher votre Azure Data Box Heavy et s’y connecter (préversion)
+# <a name="tutorial-cable-and-connect-to-your-azure-data-box-heavy"></a>Didacticiel : Brancher votre Azure Data Box Heavy et s’y connecter
 
 
 Ce tutoriel explique comment brancher votre Azure Data Box Heavy, vous y connecter et l’activer.

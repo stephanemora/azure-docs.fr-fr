@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 03/27/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 57605f9bd1a39435e27a2f2c56c06cf3bfb38605
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: bf4d11a18932d20e7dcc7580ebe5aa4e060c5a88
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630704"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606777"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-net-sdk"></a>Démarrage rapide : Détecter des visages dans une image à l’aide du kit SDK .NET Visage
 
@@ -60,13 +60,13 @@ Ensuite, ajoutez la méthode **Main** de la classe **Program** avec le code suiv
 
 [!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=36-41)]
 
-Toujours dans la méthode **Main**, ajoutez le code suivant pour utiliser le client Visage récemment créé pour détecter des visages dans une image locale et distante. Vous définissez ensuite les méthodes de détection. 
+Toujours dans la méthode **Main**, ajoutez le code suivant pour utiliser le client Visage récemment créé afin de détecter des visages dans une image locale et distante. Vous définissez ensuite les méthodes de détection. 
 
 [!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=43-50)]
 
 ### <a name="detect-faces"></a>Détecter des visages
 
-Ajoutez la méthode suivante à la classe **Program**. Elle utilise le client du service Visage pour détecter des visages dans une image distante référencée par une URL. Notez qu’elle utilise le champ `faceAttributes`. Les objets **DetectedFace** ajoutés à `faceList` ont les attributs spécifiés (dans ce cas, l’âge et le sexe).
+Ajoutez la méthode suivante à la classe **Program**. Elle utilise le client du service Visage pour détecter des visages dans une image distante référencée par une URL. Elle utilise le champ `faceAttributes`. Les objets **DetectedFace** ajoutés à `faceList` ont les attributs spécifiés (dans ce cas, l’âge et le sexe).
 
 [!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=52-74)]
 
@@ -86,7 +86,7 @@ Enfin, définissez la méthode **DisplayAttributes** pour écrire les données d
 
 ## <a name="run-the-app"></a>Exécution de l'application
 
-Une réponse correcte affiche le sexe et l’âge pour chaque visage de l’image. Par exemple : 
+Une réponse correcte affiche le sexe et l’âge pour chaque visage de l’image. Par exemple :
 
 ```
 https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg

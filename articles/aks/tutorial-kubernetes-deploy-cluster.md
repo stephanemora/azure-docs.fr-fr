@@ -2,18 +2,18 @@
 title: Didacticiel Kubernetes sur Azure – Déployer un cluster
 description: Dans ce didacticiel Azure Kubernetes Service (AKS), vous créez un cluster AKS et utilisez kubectl pour vous connecter au nœud principal Kubernetes.
 services: container-service
-author: tylermsft
+author: mlearned
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: twhitney
+ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 020b5935595506732c1c1425179741c45f8326d7
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 27ec77e15d1289742fa40320631684d37c9660a1
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66304469"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614270"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Didacticiel : Déployer un cluster Azure Kubernetes Service (AKS)
 
@@ -29,9 +29,9 @@ Dans d’autres tutoriels, l’application Azure Vote est déployée sur le clus
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Dans les tutoriels précédents, une image conteneur a été créée et chargée dans une instance Azure Container Registry. Si vous n’avez pas effectué ces étapes et que vous souhaitez suivre cette procédure, commencez par le [Tutoriel 1 : Créer des images conteneurs][aks-tutorial-prepare-app].
+Dans les tutoriels précédents, une image conteneur a été créée et chargée dans une instance Azure Container Registry. Si vous n’avez pas effectué ces étapes et que vous souhaitez suivre cette procédure, commencez par le [Tutoriel 1 : Créer des images conteneur][aks-tutorial-prepare-app].
 
-Ce tutoriel nécessite l’exécution de l’interface de ligne de commande Azure CLI version 2.0.53 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installer Azure CLI 2.0][azure-cli-install].
+Ce didacticiel nécessite l’exécution de l’interface de ligne de commande Azure CLI version 2.0.53 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][azure-cli-install].
 
 ## <a name="create-a-service-principal"></a>Créer un principal du service
 
@@ -93,7 +93,7 @@ Après quelques minutes, le déploiement se termine et retourne des informations
 
 ## <a name="install-the-kubernetes-cli"></a>Installer l’interface de ligne de commande Kubernetes
 
-Pour vous connecter au cluster Kubernetes à partir de votre ordinateur local, vous utilisez [kubectl][kubectl], le client de ligne de commande Kubernetes.
+Pour vous connecter au cluster Kubernetes à partir de votre ordinateur local, utilisez [kubectl][kubectl], le client de ligne de commande Kubernetes.
 
 Si vous utilisez Azure Cloud Shell, `kubectl` est déjà installé. Vous pouvez également l’installer en local à l’aide de la commande [az aks install-cli][] :
 
@@ -109,7 +109,7 @@ Pour configurer `kubectl` afin de vous connecter à votre cluster Kubernetes, ex
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Pour vérifier la connexion à votre cluster, exécutez la commande [kubectl get nodes][kubectl-get] :
+Pour vérifier la connexion à votre cluster, exécutez la commande [kubectl get nodes][kubectl-get] :
 
 ```
 $ kubectl get nodes

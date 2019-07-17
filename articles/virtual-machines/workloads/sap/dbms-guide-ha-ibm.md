@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/10/2019
 ms.author: juergent
-ms.openlocfilehash: a74dd1a932cac41081786f76938a5b35de62d878
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7464ea481d4c95856b78a83a875f2cd24c00705b
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64689709"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67503320"
 ---
 [1928533]: https://launchpad.support.sap.com/#/notes/1928533
 [2015553]: https://launchpad.support.sap.com/#/notes/2015553
@@ -78,14 +78,14 @@ Avant de commencer une installation, consultez les notes SAP suivantes et la doc
 | --- |
 | [Wiki de la communauté SAP](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) : contient toutes les notes SAP requises pour Linux |
 | Guide [Planification et implémentation de machines virtuelles Azure pour SAP sur Linux][planning-guide] |
-| [Déploiement de machines virtuelles Azure pour SAP sur Linux][deployment-guide] (cet article) |
+| [Déploiement de machines virtuelles Azure pour SAP sur Linux][deployment-guide] (le présent article) |
 | Guide [Déploiement du système de gestion de base de données (SGBD) des machines virtuelles Azure pour SAP sur Linux][dbms-guide] |
 | [Check-list relative à la planification et au déploiement de la charge de travail SAP sur Azure][azr-sap-plancheck] |
 | [Guides des meilleures pratiques de SUSE Linux Enterprise Server pour applications SAP 12 SP3][sles-for-sap-bp] |
 | [Extension haute disponibilité SUSE Linux Enterprise 12 SP3][sles-ha-guide] |
 | [Déploiement SGBD de machines virtuelles Azure IBM Db2 pour charge de travail SAP][dbms-db2] |
-| [IBM Db2 HADR 11.1][db2-hadr-11.1] |
-| [IBM Db2 HADR R 10.5][db2-hadr-10.5] |
+| [IBM Db2 HADR 11.1][db2-hadr-11.1] |
+| [IBM Db2 HADR R 10.5][db2-hadr-10.5] |
 
 ## <a name="overview"></a>Vue d'ensemble
 Pour obtenir une haute disponibilité, IBM Db2 LUW avec HADR est installé sur au moins deux machines virtuelles Azure, qui sont déployées sur un [groupe à haute disponibilité Azure](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) ou des [zones de disponibilité Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ha-availability-zones). 
@@ -162,11 +162,11 @@ Vérifiez que le système d’exploitation sélectionné est pris en charge par 
 1.  Créez la machine virtuelle 2.
     + Utilisez l’image SLES pour SAP dans la Place de marché Azure.
     + Sélectionnez le groupe à haute disponibilité Azure créé à l’étape 3, ou une zone de disponibilité (différente de celle de l’étape 3).
-1. Ajoutez des disques de données aux machines virtuelles et vérifiez ensuite la recommandation sur la configuration d’un système de fichiers dans l’article [Déploiement SGBD de machines virtuelles Azure IBM Db2 pour charge de travail SAP][dbms-db2].
+1. Ajoutez des disques de données aux machines virtuelles et vérifiez ensuite la suggestion sur la configuration d’un système de fichiers dans l’article [Déploiement SGBD de machines virtuelles Azure IBM Db2 pour charge de travail SAP][dbms-db2].
 
 ## <a name="create-the-pacemaker-cluster"></a>Créer le cluster Pacemaker
     
-Pour créer un cluster Pacemaker de base pour ce serveur IBM Db2, consultez  [Configurer Pacemaker sur SUSE Linux Enterprise Server dans Azure][sles-pacemaker]. 
+Pour créer un cluster Pacemaker de base pour ce serveur IBM Db2, voir  [Configurer Pacemaker sur SUSE Linux Enterprise Server dans Azure][sles-pacemaker]. 
 
 ## <a name="install-the-ibm-db2-luw-and-sap-environment"></a>Installer l’environnement SAP et IBM Db2 LUW
 
@@ -496,14 +496,13 @@ Si vous avez effectué l’installation avant de créer la configuration HADR Db
 
 Utilisez l’outil de configuration J2EE pour vérifier ou mettre à jour l’URL JDBC. Étant donné que l’outil de configuration J2EE est un outil graphique, le serveur X doit être installé :
  
-1. Connectez-vous au serveur d’applications principal de l’instance J2EE et exécutez :
-     <pre><code>sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh</code></pre>
-1. Dans le cadre de gauche, choisissez **security store** (magasin de sécurité).
+1. Connectez-vous au serveur d’applications principal de l’instance J2EE et exécutez :   `sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh`
+1. Dans le cadre de gauche, choisissez **Security store** (Magasin de sécurité).
 1. Dans le cadre de droite, choisissez la clé jdbc/pool/\<SAPSID>/url.
 1. Remplacez le nom d’hôte dans l’URL JDBC par le nom d’hôte virtuel.
-     <pre><code>jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0</code></pre>
+     `jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0`
 1. Sélectionnez **Ajouter**.
-1. Pour enregistrer vos modifications, sélectionnez l’icône de disque en haut à gauche.
+1. Pour enregistrer vos modifications, sélectionnez l’icône en forme de disque en haut à gauche.
 1. Fermez l’outil de configuration.
 1. Redémarrez l’instance Java.
 

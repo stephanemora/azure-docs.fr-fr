@@ -292,6 +292,8 @@
       displayName: 'module, import'
 - name: Scénarios multicomposants
   items:
+    - name: Envoyer un e-mail depuis un runbook à l’aide de SendGrid
+      href: automation-send-email.md
     - name: galerie de runbooks
       href: automation-runbook-gallery.md
     - name: Surveiller des runbooks avec des alertes de métrique

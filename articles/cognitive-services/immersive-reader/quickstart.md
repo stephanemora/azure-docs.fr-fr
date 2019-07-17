@@ -1,26 +1,27 @@
 ---
-title: 'Démarrage rapide : Créer une application web qui lance le lecteur immersif (C#)'
+title: 'Démarrage rapide : Créer une application web qui lance le lecteur immersif avec C#'
 titlesuffix: Azure Cognitive Services
-description: Dans ce démarrage rapide, vous générez une application web à partir de zéro et lui ajoutez les fonctions de lecteur immersif.
+description: Dans ce guide de démarrage rapide, vous générez une application web à partir de zéro et lui ajoutez les fonctions de l’API Lecteur immersif.
 services: cognitive-services
 author: metanMSFT
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: quickstart
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 77d95383c801038c256ccb2bf386ddf06048cf78
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: 3b408de6b60e7e7704ee228b52c399e5b80e3a9e
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67311811"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718421"
 ---
 # <a name="quickstart-create-a-web-app-that-launches-the-immersive-reader-c"></a>Démarrage rapide : Créer une application web qui lance le lecteur immersif (C#)
 
 Le [lecteur immersif](https://www.onenote.com/learningtools) est un outil conçu de façon inclusive qui implémente des techniques éprouvées pour améliorer la compréhension de la lecture.
 
-Dans ce guide de démarrage rapide, vous allez créer une application web à partir de zéro et intégrer le lecteur immersif à l’aide du SDK Lecteur immersif. Un exemple complet fonctionnel de ce guide de démarrage rapide est disponible [ici](https://github.com/Microsoft/immersive-reader-sdk/samples/quickstart-csharp).
+Dans ce guide de démarrage rapide, vous allez créer une application web à partir de zéro et intégrer le lecteur immersif à l’aide du SDK Lecteur immersif. Un exemple complet fonctionnel de ce guide de démarrage rapide est disponible [ici](https://github.com/microsoft/immersive-reader-sdk/tree/master/samples/quickstart-csharp).
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 

@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 6/26/2019
+ms.date: 7/10/2019
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 9a875f4450b700fc9db74b4402471e282f8e9dab
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: da82f6c93045b38aed887860c6d5c45c93b2260b
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442911"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67703949"
 ---
 # <a name="what-is-azure-firewall"></a>Qu’est-ce qu’un pare-feu Azure ?
 
@@ -30,7 +30,7 @@ Pare-feu Azure offre les fonctionnalités suivantes :
 
 Comme la haute disponibilité est intégrée, aucun équilibreur de charge supplémentaire n’est nécessaire, et vous n’avez rien à configurer.
 
-## <a name="availability-zones-public-preview"></a>Zones de disponibilité (préversion publique)
+## <a name="availability-zones"></a>Zones de disponibilité
 
 Pare-feu Azure peut être configuré pendant le déploiement pour couvrir plusieurs zones de disponibilité afin de fournir une disponibilité supérieure. Avec les Zones de disponibilité Azure, votre disponibilité s’élève à 99,99 % du temps total. Pour plus d’informations, consultez [Contrat de niveau de service (SLA)](https://azure.microsoft.com/support/legal/sla/azure-firewall/v1_0/) de Pare-feu Azure. Un contrat de niveau de service de 99,99 % est offert lorsque deux Zones de disponibilité ou plus sont sélectionnées.
 
@@ -51,7 +51,7 @@ Le service Pare-feu Azure peut évoluer en fonction de vos besoins pour prendre 
 
 ## <a name="application-fqdn-filtering-rules"></a>Règles de filtrage des noms de domaine complets de l’application
 
-Vous pouvez limiter le trafic HTTP/S sortant vers une liste spécifiée de noms de domaine complets (FQDN), y compris des caractères génériques. Cette fonctionnalité ne nécessite pas d’arrêt SSL.
+Vous pouvez limiter le trafic HTTP/S sortant ou le trafic SQL Azure (préversion) vers une liste spécifiée de noms de domaine complets (FQDN), y compris des caractères génériques. Cette fonctionnalité ne nécessite pas d’arrêt SSL.
 
 ## <a name="network-traffic-filtering-rules"></a>Règles de filtrage du trafic réseau
 
@@ -77,7 +77,11 @@ Toutes les adresses IP du trafic réseau virtuel sortant sont traduites en adres
 
 Le trafic réseau entrant vers votre adresse IP publique de pare-feu est traduit (Destination Network Address Translation ou DNAT) et filtré selon les adresses IP privées sur vos réseaux virtuels.
 
-## <a name="multiple-public-ips-public-preview"></a>Adresses IP publiques multiples (préversion publique)
+## <a name="multiple-public-ip-addresses"></a>Adresses IP publiques multiples
+
+> [!IMPORTANT]
+> Le Pare-feu Azure avec plusieurs adresses IP publiques est disponible via Azure PowerShell, Azure CLI, REST et les modèles. L’interface utilisateur du portail est ajoutée progressivement aux régions et sera disponible dans toutes les régions après le lancement.
+
 
 Vous pouvez associer plusieurs adresses IP publiques (jusqu’à 100) à votre pare-feu.
 
@@ -85,9 +89,6 @@ Cela donne accès aux scénarios suivants :
 
 - **DNAT** -Vous pouvez traduire plusieurs instances de ports standard vers vos serveurs principaux. Par exemple, si vous avez deux adresses IP publiques, vous pouvez traduire le port TCP 3389 (RDP) pour ces deux adresses IP.
 - **SNAT** - Des ports supplémentaires sont disponibles pour les connexions SNAT sortantes, réduisant ainsi le risque de pénurie de ports SNAT. À ce stade, Pare-feu Azure sélectionne aléatoirement l’adresse IP publique source à utiliser pour une connexion. Si votre réseau est doté d’un filtrage en aval, vous devez autoriser toutes les adresses IP publiques associées à votre pare-feu.
-
-> [!NOTE]
-> Durant la préversion publique, si vous ajoutez ou supprimez une adresse IP publique à un pare-feu en cours d’exécution, la connectivité entrante existante utilisant les règles DNAT peut ne pas fonctionner pendant 40 à 120 secondes. Vous ne pouvez pas supprimer la première adresse IP publique affectée au pare-feu sauf si celui-ci est libéré ou supprimé.
 
 ## <a name="azure-monitor-logging"></a>Journalisation d’Azure Monitor
 
@@ -108,10 +109,10 @@ Les règles de filtrage réseau pour les protocoles autres que TCP/UDP (par exem
 |Les alertes Threat intelligence peuvent être masquées|Les règles de réseau avec la destination 80/443 pour le filtrage sortant masque les alertes intelligentes de menaces lorsqu’elles sont configurées pour en mode alerte uniquement.|Créez un filtrage sortant pour 80/443 à l’aide de règles d’application. Ou modifiez le mode d’intelligence contre les menaces pour **alerter et rejeter**.|
 |Le Pare-feu Azure utilise Azure DNS uniquement pour la résolution de noms|Le Pare-feu Azure résout les noms de domaine complets uniquement à l’aide d’Azure DNS. Un serveur DNS personnalisé n’est pas pris en charge. Il n’y a aucun impact sur la résolution DNS dans les autres sous-réseaux.|Nous travaillons actuellement à l’assouplissement de cette limitation.|
 |Le Pare-feu Azure SNAT/DNAT ne fonctionne pas pour les destinations IP privées|La prise en charge du Pare-feu Azure SNAT/DNAT est limitée à la sortie/l’entrée Internet. Actuellement, SNAT/DNAT ne fonctionne pas pour les destinations IP privées. Par exemple, spoke-à-spoke.|Il s’agit d’une limitation actuelle.|
-|Impossible de supprimer le première adresse IP publique|Vous ne pouvez pas supprimer la première adresse IP publique affectée au pare-feu sauf si celui-ci est libéré ou supprimé.|C’est normal.|
-|Si vous ajoutez ou supprimez une adresse IP publique, les règles DNAT peuvent ne pas fonctionner temporairement.| Si vous ajoutez ou supprimez une adresse IP publique à un pare-feu en cours d’exécution, la connectivité entrante existante utilisant les règles DNAT peut ne pas fonctionner pendant 40 à 120 secondes.|Il s’agit d’une limitation de la préversion publique pour cette fonctionnalité.|
+|Impossible de supprimer la première configuration IP publique|Chaque adresse IP publique du Pare-feu Azure est affectée à une *configuration IP*.  La première configuration IP est affectée pendant le déploiement du pare-feu. En général, elle contient une référence au sous-réseau du pare-feu (sauf si elle est configurée autrement de manière explicite via un déploiement de modèle). Vous ne pouvez pas supprimer cette configuration IP, car cela aurait pour effet de désallouer le pare-feu. Vous pouvez toujours changer ou supprimer l’adresse IP publique qui est associée à cette configuration IP si le pare-feu comprend au moins une autre adresse IP publique disponible.|C’est normal.|
 |Les zones de disponibilité ne peuvent être configurées que pendant le déploiement.|Les zones de disponibilité ne peuvent être configurées que pendant le déploiement. Vous ne pouvez pas configurer les Zones de disponibilité après le déploiement d’un pare-feu.|C’est normal.|
 |SNAT sur les connexions entrantes|En plus de DNAT, les connexions via l’adresse IP publique du pare-feu (entrante) sont traduites vers l’une des adresses IP privées du pare-feu. Cette exigence actuelle (également pour les appliances virtuelles réseau Active/Active) permet d’assurer la symétrie du routage.|Pour préserver la source originale pour HTTP/S, pensez à utiliser les en-têtes [XFF](https://en.wikipedia.org/wiki/X-Forwarded-For). Par exemple, utilisez un service tel que [Azure Front Door](../frontdoor/front-door-http-headers-protocol.md#front-door-service-to-backend) devant le pare-feu. Vous pouvez également ajouter le pare-feu d’applications web en tant qu’Azure Front Door et l’associer au pare-feu.
+|Prise en charge du filtrage FQDN SQL uniquement en mode proxy (port 1433)|Pour Azure SQL Database,Azure SQL Data Warehouse et Azure SQL Managed Instance :<br><br>Dans la préversion, le filtrage FQDN SQL est pris en charge uniquement en mode proxy (port 1433).<br><br>Pour Azure SQL IaaS :<br><br>Si vous utilisez des ports non standard, vous pouvez spécifier ces ports dans les règles de l’application.|Pour SQL en mode de redirection (qui est l’option par défaut si vous vous connectez à partir d’Azure), vous pouvez filtrer l’accès à l’aide de l’étiquette du service SQL, dans le cadre des règles de réseau du Pare-feu Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

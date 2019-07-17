@@ -3,15 +3,15 @@ title: Développer localement avec l’émulateur Azure Cosmos
 description: L’émulateur Azure Cosmos vous permet de développer et de tester votre application localement, sans créer d’abonnement Azure et sans frais.
 ms.service: cosmos-db
 ms.topic: tutorial
-author: deborahc
-ms.author: dech
-ms.date: 06/21/2019
-ms.openlocfilehash: d7d9d62525161e6871cafd65cf5cd2c403cf0579
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+author: markjbrown
+ms.author: mjbrown
+ms.date: 07/09/2019
+ms.openlocfilehash: 9649c53f9fc11795449afd78b12fda691239bb18
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67331772"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797324"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Utiliser l’émulateur Azure Cosmos pour le développement et le test en local
 
@@ -232,7 +232,7 @@ Lors de la connexion à l’émulateur à partir des Kits de développement logi
 
 ### <a name="command-line-syntax"></a>Syntaxe de ligne de commande
 
-    CosmosDB.Emulator.exe [/Shutdown] [/DataPath] [/Port] [/MongoPort] [/DirectPorts] [/Key] [/EnableRateLimiting] [/DisableRateLimiting] [/NoUI] [/NoExplorer] [/?]
+    CosmosDB.Emulator.exe [/Shutdown] [/DataPath] [/Port] [/MongoPort] [/DirectPorts] [/Key] [/EnableRateLimiting] [/DisableRateLimiting] [/NoUI] [/NoExplorer] [/EnableMongoDbEndpoint] [/?]
 
 Pour afficher la liste des options, tapez `CosmosDB.Emulator.exe /?` dans l’invite de commandes.
 
@@ -244,18 +244,19 @@ Pour afficher la liste des options, tapez `CosmosDB.Emulator.exe /?` dans l’in
 | Shutdown| Arrête l’émulateur Azure Cosmos.| CosmosDB.Emulator.exe /Shutdown | |
 |DataPath | Spécifie le chemin d’accès dans lequel stocker les fichiers de données. La valeur par défaut est %LocalAppdata%\CosmosDBEmulator. | CosmosDB.Emulator.exe /DataPath=\<datapath\> | \<datapath\> : Un chemin accessible |
 |Port | Spécifie le numéro de port à utiliser pour l'émulateur. La valeur par défaut est 8081. |CosmosDB.Emulator.exe /Port=\<port\> | \<port\> : Numéro de port unique |
-| MongoPort | Spécifie le numéro de port à utiliser pour l'API de compatibilité MongoDB. La valeur par défaut est 10255. |CosmosDB.Emulator.exe /MongoPort= \<mongoport\>|\<mongoport\> : Numéro de port unique|
-| CassandraPort | Spécifie le numéro de port à utiliser pour le point de terminaison Cassandra. La valeur par défaut est 10350. | CosmosDB.Emulator.exe /CassandraPort = \<cassandraport\> | \<cassandraport\> : Numéro de port unique |
 | ComputePort | Spécifie le numéro de port à utiliser pour le service de passerelle Interop Compute. Le port de sonde du point de terminaison HTTP de la passerelle est calculé comme étant égal à ComputePort + 79. Par conséquent, les ports ComputePort et ComputePort + 79 doivent être ouverts et disponibles. Les valeurs par défaut sont 8900 et 8979. | CosmosDB.Emulator.exe /ComputePort = \<computeport\> | \<computeport\> : Numéro de port unique |
+| EnableMongoDbEndpoint | Active l’API MongoDB | CosmosDB.Emulator.exe /EnableMongoDbEndpoint | |
+| MongoPort | Spécifie le numéro de port à utiliser pour l'API de compatibilité MongoDB. La valeur par défaut est 10255. |CosmosDB.Emulator.exe /MongoPort= \<mongoport\>|\<mongoport\> : Numéro de port unique|
 | EnableCassandraEndpoint | Active l’API Cassandra | CosmosDB.Emulator.exe /EnableCassandraEndpoint | |
+| CassandraPort | Spécifie le numéro de port à utiliser pour le point de terminaison Cassandra. La valeur par défaut est 10350. | CosmosDB.Emulator.exe /CassandraPort = \<cassandraport\> | \<cassandraport\> : Numéro de port unique |
 | EnableGremlinEndpoint | Active l’API Gremlin | CosmosDB.Emulator.exe /EnableGremlinEndpoint | |
 | GremlinPort | Numéro de port à utiliser pour le point de terminaison Gremlin. La valeur par défaut est 8901. | CosmosDB.Emulator.exe /GremlinPort=\<port\> | \<port\> : Numéro de port unique |
+|EnableTableEndpoint | Active l’API Table Azure | CosmosDB.Emulator.exe /EnableTableEndpoint | |
 |TablePort | Numéro de port à utiliser pour le point de terminaison Table Azure. La valeur par défaut est 8902. | CosmosDB.Emulator.exe /TablePort=\<port\> | \<port\> : Numéro de port unique|
 | KeyFile | Lit la clé d’autorisation dans le fichier spécifié. Utilisez l’option /GenKeyFile pour générer un fichier de clé | CosmosDB.Emulator.exe /KeyFile=\<file_name\> | \<file_name\> : chemin du fichier |
 | ResetDataPath | Supprime de manière récursive tous les fichiers du chemin spécifié. Si vous ne spécifiez pas de chemin, le chemin par défaut est %LOCALAPPDATA%\CosmosDbEmulator | CosmosDB.Emulator.exe /ResetDataPath[=\<path>] | \<path\> : Chemin de fichier  |
 | StartTraces  |  Démarre la collecte des journaux de trace du débogage. | CosmosDB.Emulator.exe /StartTraces | |
 | StopTraces     | Arrête la collecte des journaux de trace du débogage. | CosmosDB.Emulator.exe /StopTraces  | |
-|EnableTableEndpoint | Active l’API Table Azure | CosmosDB.Emulator.exe /EnableTableEndpoint | |
 |FailOnSslCertificateNameMismatch | Par défaut, l’émulateur regénère son certificat SSL auto-signé, si le réseau SAN du certificat n’inclut pas les informations de l’hôte émulateur (nom de domaine, adresse IPv4 locale, « localhost » et « 127.0.0.1 »). Avec cette option, l’émulateur échoue au démarrage. Vous devez alors utiliser l’option /GenCert pour créer et installer un nouveau certificat SSL auto-signé. | CosmosDB.Emulator.exe /FailOnSslCertificateNameMismatch  | |
 | GenCert | Génère et installe un nouveau certificat SSL auto-signé, incluant de manière facultative une liste de noms DNS supplémentaires séparés par des virgules pour accéder à l’émulateur via le réseau. | CosmosDB.Emulator.exe /GenCert[ \<liste-de-noms-DNS-supplémentaires-séparés-par-des-virgules\>] | |
 | DirectPorts |Spécifie les ports à utiliser pour une connectivité directe. Les valeurs par défaut sont 10251,10252,10253,10254. | CosmosDB.Emulator.exe /DirectPorts:\<directports\> | \<directports\> : Liste de 4 ports séparée par des virgules |
@@ -276,11 +277,11 @@ Pour afficher la liste des options, tapez `CosmosDB.Emulator.exe /?` dans l’in
 
 Par défaut, vous pouvez créer jusqu’à 25 conteneurs de taille fixe (pris en charge uniquement avec les SDK Azure Cosmos DB), ou cinq conteneurs illimités avec l’émulateur Azure Cosmos. En changeant la valeur **PartitionCount**, vous pouvez créer jusqu’à 250 conteneurs de taille fixe ou 50 conteneurs illimités, ou n’importe quelle combinaison des deux à hauteur de 250 conteneurs de taille fixe au total (sachant qu’un conteneur illimité est égal à cinq conteneurs de taille fixe). Toutefois, il est déconseillé de configurer l’émulateur pour s’exécuter avec plus de 200 conteneurs de taille fixe. En effet, cela ajoute une surcharge aux opérations d’E/S sur le disque, qui entraîne des délais d’attente imprévisibles lors de l’utilisation des API de point de terminaison.
 
-
 Si vous tentez de créer un conteneur après le dépassement du nombre de partitions actuel, l’émulateur lève une exception ServiceUnavailable et affiche un message similaire à celui-ci.
 
 « Nous sommes désolés, mais nous rencontrons actuellement une demande élevée dans cette région et nous ne pouvons pas répondre à votre demande pour l’instant. Nous nous efforçons d’offrir une capacité en ligne toujours plus grande, et nous vous encourageons à réessayer plus tard.
-N’hésitez pas à nous contacter par e-mail à l’adresse askcosmosdb@microsoft.com à tout moment et pour quelque raison que ce soit. ActivityId : 12345678-1234-1234-1234-123456789abc »
+N’hésitez pas à nous contacter par e-mail à l’adresse askcosmosdb@microsoft.com à tout moment et pour quelque raison que ce soit.
+ActivityId : 12345678-1234-1234-1234-123456789abc »
 
 Pour changer le nombre de conteneurs disponibles dans l’émulateur Azure Cosmos, effectuez les étapes suivantes :
 

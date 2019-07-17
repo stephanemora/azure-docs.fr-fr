@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.date: 05/16/2019
+ms.date: 07/09/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: b3c5c08e9862d59481573b501045466d6d691a77
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: ee3c4da96629910801413cbbad69963defb87dfe
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485578"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798793"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-postman-using-rest-apis"></a>Démarrage rapide : Créer un index Recherche Azure dans Postman à l’aide des API REST
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ Les services et les outils qui suivent sont utilisés dans ce guide de démarrag
 
 + [Créez un service Recherche Azure](search-create-service-portal.md) ou [recherchez un service existant](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) dans votre abonnement actuel. Vous pouvez utiliser un service gratuit pour ce guide de démarrage rapide. 
 
-+ L’[application de bureau Postman](https://www.getpostman.com/) ou [Telerik Fiddler](https://www.telerik.com/fiddler) sont utilisés pour envoyer des requêtes à la Recherche Azure.
++ L’[application de bureau Postman](https://www.getpostman.com/) permet d’envoyer des requêtes au service Recherche Azure.
 
 ## <a name="get-a-key-and-url"></a>Obtenir une clé et une URL
 
@@ -240,7 +240,11 @@ Pour en savoir plus sur cette API, consultez [API REST Obtenir des statistiques 
 
 ## <a name="clean-up"></a>Nettoyer
 
-Si vous n’avez plus besoin du service de recherche, le moyen le plus rapide de libérer des services est de supprimer le groupe de ressources contenant le service Recherche Azure. Supprimer groupe de ressources efface définitivement tout son contenu, y compris les services et tout le contenu stocké. Dans le portail, le nom du groupe de ressources figure dans la page Vue d’ensemble de chaque service.
+Quand vous travaillez au sein de votre propre abonnement, il est recommandé, à la fin de chaque projet, de déterminer si vous avez toujours besoin des ressources que vous avez créées. Les ressources laissées en cours d’exécution peuvent vous coûter de l’argent. Vous pouvez supprimer les ressources une par une, ou choisir de supprimer le groupe de ressources afin de supprimer l’ensemble des ressources.
+
+Vous pouvez rechercher et gérer les ressources dans le portail à l’aide des liens **Toutes les ressources** ou **Groupes de ressources** situés dans le volet de navigation de gauche.
+
+Si vous utilisez un service gratuit, n’oubliez pas que vous êtes limité à trois index, indexeurs et sources de données. Vous pouvez supprimer des éléments un par un dans le portail pour ne pas dépasser la limite. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

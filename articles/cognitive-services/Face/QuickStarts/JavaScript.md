@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 02/07/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: d1aa3e3a23acf82af8435cbb075fac38353500e5
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 70c496aef0ff2f34c917fd594767d464cab3e625
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538729"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603426"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-javascript"></a>Démarrage rapide : Détecter des visages sur une image avec l’API REST et JavaScript
 
@@ -41,7 +41,7 @@ Créez un fichier HTML, *detectFaces.html*, et ajoutez le code suivant.
 </html>
 ```
 
-Ajoutez ensuite le code suivant à l’intérieur de l’élément `body` du document. Une interface utilisateur de base est configurée avec un champ URL, un bouton **Analyze face** (Analyser le visage), un volet de réponse et un volet d’affichage de l’image.
+Ajoutez ensuite le code suivant à l’intérieur de l’élément `body` du document. Ce code configure une interface utilisateur de base avec un champ URL, un bouton **Analyze face** (Analyser le visage), un volet de réponse et un volet d’affichage de l’image.
 
 ```html
 <h1>Detect Faces:</h1>
@@ -65,7 +65,7 @@ Image to analyze: <input type="text" name="inputImage" id="inputImage"
 
 ## <a name="write-the-javascript-script"></a>Écrire le script JavaScript
 
-Ajoutez le code suivant immédiatement au-dessus de l’élément `h1` dans votre document. Cela définit le code JavaScript qui appelle l’API Visage.
+Ajoutez le code suivant immédiatement au-dessus de l’élément `h1` dans votre document. Ce code définit le code JavaScript qui appelle l’API Visage.
 
 ```html
 <script type="text/javascript">
@@ -140,7 +140,7 @@ Ouvrez *detectFaces.html* dans votre navigateur. Quand vous cliquez sur le bouto
 
 ![GettingStartCSharpScreenshot](../Images/face-detect-javascript.png)
 
-Voici un exemple de réponse JSON correcte.
+Le texte suivant est un exemple de réponse JSON correcte.
 
 ```json
 [

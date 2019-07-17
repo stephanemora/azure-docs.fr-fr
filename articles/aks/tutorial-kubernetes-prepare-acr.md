@@ -2,18 +2,18 @@
 title: Didacticiel Kubernetes sur Azure - Créer un registre de conteneurs
 description: Dans le cadre de ce didacticiel Azure Kubernetes Service (AKS), vous allez créer une instance Azure Container Registry et y charger un exemple d’image conteneur d’application.
 services: container-service
-author: tylermsft
+author: mlearned
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: twhitney
+ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 1bd41dc464c251a2e7dab3087f3feffb15db785f
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 5089326af1d7f6e057667cd916f35de92bf517ef
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66304408"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614241"
 ---
 # <a name="tutorial-deploy-and-use-azure-container-registry"></a>Didacticiel : Déployer et utiliser Azure Container Registry
 
@@ -31,7 +31,7 @@ Dans d’autres didacticiels, cette instance ACR est intégrée à un cluster Ku
 
 Dans le [didacticiel précédent][aks-tutorial-prepare-app], une image conteneur a été créée pour une application Azure Vote. Si vous n’avez pas créé l’image de l’application Azure Vote, retournez au [Didacticiel 1 : Créer des images conteneur][aks-tutorial-prepare-app].
 
-Ce didacticiel nécessite l’exécution de l’interface de ligne de commande Azure CLI version 2.0.53 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installer Azure CLI 2.0][azure-cli-install].
+Ce didacticiel nécessite l’exécution de l’interface de ligne de commande Azure CLI version 2.0.53 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][azure-cli-install].
 
 ## <a name="create-an-azure-container-registry"></a>Création d’un Azure Container Registry
 
@@ -61,7 +61,7 @@ Après son exécution, la commande retourne le message *Login Succeeded (Connexi
 
 ## <a name="tag-a-container-image"></a>Baliser une image conteneur
 
-Pour afficher la liste des images locales actuelles, utilisez la commande [docker images][docker-images] :
+Pour afficher la liste des images locales actuelles, utilisez la commande [docker images][docker-images] :
 
 ```
 $ docker images
@@ -74,7 +74,7 @@ tiangolo/uwsgi-nginx-flask   flask               788ca94b2313        9 months ag
 
 Pour utiliser l’image conteneur *azure-vote-front* avec ACR, vous devez baliser cette image avec l’adresse du serveur de connexion de votre registre. Cette balise est utilisée pour l’acheminement lors de l’envoi des images de conteneur dans un registre d’images.
 
-Pour obtenir l’adresse du serveur de connexion, utilisez la commande [az acr list][az-acr-list] et exécutez une requête portant sur l’élément *loginServer*, comme suit :
+Pour obtenir l’adresse du serveur de connexion, utilisez la commande [az acr list][az-acr-list] et exécutez une requête portant sur l’élément *loginServer*, comme suit :
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
@@ -86,7 +86,7 @@ az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginSe
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v1
 ```
 
-Pour vérifier que les balises sont appliquées, exécutez de nouveau la commande [docker images][docker-images]. Une image est balisée avec l’adresse de l’instance ACR et un numéro de version.
+Pour vérifier que les étiquettes sont appliquées, réexécutez la commande [docker images][docker-images]. Une image est balisée avec l’adresse de l’instance ACR et un numéro de version.
 
 ```
 $ docker images
@@ -100,7 +100,7 @@ tiangolo/uwsgi-nginx-flask                           flask         788ca94b2313 
 
 ## <a name="push-images-to-registry"></a>Envoyer des images au registre
 
-Une fois votre image développée et balisée, envoyez l’image *azure-vote-front* à votre instance ACR. Utilisez la commande [docker push][docker-push] et fournissez votre propre adresse *acrLoginServer* pour le nom d’image, comme suit :
+Une fois votre image développée et balisée, envoyez l’image *azure-vote-front* à votre instance ACR. Utilisez la commande [docker push][docker-push] et fournissez votre propre adresse *acrLoginServer* pour le nom d’image, comme suit :
 
 ```console
 docker push <acrLoginServer>/azure-vote-front:v1
@@ -110,7 +110,7 @@ L’envoi de l’image à ACR peut nécessiter quelques minutes.
 
 ## <a name="list-images-in-registry"></a>Créer la liste des images du registre
 
-Pour obtenir la liste des images qui ont été envoyées à votre instance ACR, utilisez la commande [az acr repository list][az-acr-repository-list]. Fournissez votre propre `<acrName>`, comme suit :
+Pour retourner la liste des images qui ont été envoyées à votre instance ACR, utilisez la commande [az acr repository list][az-acr-repository-list]. Fournissez votre propre `<acrName>`, comme suit :
 
 ```azurecli
 az acr repository list --name <acrName> --output table
@@ -124,7 +124,7 @@ Result
 azure-vote-front
 ```
 
-Pour visualiser les balises d’une image spécifique, utilisez la commande [az acr repository show-tags][az-acr-repository-show-tags], comme suit :
+Pour visualiser les étiquettes d’une image spécifique, utilisez la commande [az acr repository show-tags][az-acr-repository-show-tags] comme suit :
 
 ```azurecli
 az acr repository show-tags --name <acrName> --repository azure-vote-front --output table

@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/29/2019
-ms.openlocfilehash: 0bd271dbf173885cbd5f7835c5dc6b672a3e6035
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.date: 07/04/2019
+ms.openlocfilehash: 17f1b36ba5d5b699cce621db3917ef92654047ff
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66298960"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565578"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-online-using-dms"></a>Didacticiel : Migrer MongoDB vers l’API Azure Cosmos DB pour MongoDB en ligne à l’aide de DMS
 
@@ -150,7 +150,14 @@ Une fois le service créé, recherchez-le dans le portail Azure, ouvrez-le, puis
 
      * Pour les images mémoire JSON, les fichiers présents dans le conteneur d’objets blob doivent être placés dans des dossiers nommés d’après les bases de données conteneur. Dans chaque dossier de base de données, les fichiers de données doivent être placés dans un sous-dossier appelé « data » et nommé en utilisant le format *collection*.json. Les fichiers de métadonnées (le cas échéant) doivent être placés dans un sous-dossier appelé « metadata » et nommé en utilisant le même format, *collection*.json. Les fichiers de métadonnées doivent être au même format que celui produit par l’outil de bsondump MongoDB.
 
-   Vous pouvez utiliser l’adresse IP quand la résolution de noms DNS est impossible.
+    > [!IMPORTANT]
+    > Il est déconseillé d’utiliser un certificat autosigné sur le serveur mongo. Toutefois, si vous en utilisez un, connectez-vous au serveur à l’aide du **mode chaîne de connexion** et vérifiez que votre chaîne de connexion contient “”
+    >
+    >```
+    >&sslVerifyCertificate=false
+    >```
+
+    Vous pouvez utiliser l’adresse IP quand la résolution de noms DNS est impossible.
 
    ![Spécifier les détails de la source](media/tutorial-mongodb-to-cosmosdb-online/dms-specify-source1.png)
 

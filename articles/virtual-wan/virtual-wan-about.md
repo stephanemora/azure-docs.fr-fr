@@ -5,21 +5,23 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 06/11/2019
+ms.date: 06/28/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: 7ee6b2dd07a89de4f5347e82bde19990dbb6c995
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 46f3f87fac5b65229e03ee91d8f2b93b1a1590e8
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077545"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67795279"
 ---
 # <a name="what-is-azure-virtual-wan"></a>Qu’est-ce que le WAN virtuel Azure ?
 
 Azure Virtual WAN est un service réseau qui offre une connectivité de branche optimisée et automatisée via Azure. Les régions Azure servent de hubs auxquels vous pouvez connecter vos branches. Vous pouvez exploiter la dorsale principale d’Azure pour également connecter des branches et profiter d’une connectivité de branche à réseau virtuel. Nous disposons d’une liste de partenaires qui prennent en charge l’automatisation de la connectivité avec le VPN Azure Virtual WAN. Pour plus d’informations sur les emplacements, consultez l’article [Partenaires et emplacements Virtual WAN](virtual-wan-locations-partners.md).
 
-Azure Virtual WAN regroupe plusieurs services de connectivité cloud Azure comme le VPN site à site (mis en disposition générale), ExpressRoute (préversion), VPN utilisateur point à site (préversion) dans une seule interface opérationnelle. La connectivité aux réseaux virtuels Azure est établie à l’aide de connexions de réseau virtuel.
+Azure Virtual WAN regroupe plusieurs services de connectivité cloud Azure comme le VPN site à site, ExpressRoute et le VPN utilisateur point à site dans une même interface opérationnelle. La connectivité aux réseaux virtuels Azure est établie à l’aide de connexions de réseau virtuel.
+
+ExpressRoute et le VPN utilisateur point à site pour Virtual WAN sont actuellement en préversion.
 
 ![Diagramme WAN virtuel](./media/virtual-wan-about/virtualwan1.png)
 

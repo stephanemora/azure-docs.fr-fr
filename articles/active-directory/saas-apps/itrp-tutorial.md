@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: c3be09c998399cdca886f207bf5fc621bf51d8dd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d44391624e29d2bdd182bb07452e0e8def2d1407
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67099595"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67656690"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-itrp"></a>Didacticiel : Intégration d’Azure Active Directory avec ITRP
 
@@ -153,9 +153,9 @@ Pour configurer l’authentification unique Azure AD avec ITRP, effectuez les é
 
     1. Sélectionnez **Enabled**.
 
-    1. Dans la zone  **Remote Logout URL** (URL de déconnexion distante), collez la valeur de l’**URL de déconnexion** que vous avez copiée à partir du portail Azure.
+    1. Dans la zone **URL de déconnexion distante**, collez la valeur de l’**URL de déconnexion** que vous avez copiée à partir du portail Azure.
 
-    1. Dans la zone  **SAML SSO URL** (URL d’authentification unique SAML), collez la valeur de l’**URL de connexion** que vous avez copiée à partir du portail Azure.
+    1. Dans la zone **URL SSO SAML**, collez la valeur de l’**URL de connexion** que vous avez copiée à partir du portail Azure.
 
     1. Dans la zone **Empreinte du certificat**, collez la valeur du certificat **Empreinte** que vous avez copiée à partir du portail Azure.
 

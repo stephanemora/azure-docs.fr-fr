@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/17/2019
+ms.date: 07/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4cdc605c059857c826056fece782bbb9a9c86a15
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 93c5e473c62dc6b38f0b2c2906560d6099842d49
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275846"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718499"
 ---
 # <a name="tutorial-integrate-mondaycom-with-azure-active-directory"></a>Didacticiel : Intégrer monday.com à Azure Active Directory
 
@@ -78,7 +78,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-4. Dans le volet **Configuration SAML de base**, si vous avez un fichier de métadonnées de fournisseur de services et voulez une configuration en **mode initié par le fournisseur d’identité** (IDP), effectuez les étapes suivantes :
+1. Dans le volet **Configuration SAML de base**, si vous avez un fichier de métadonnées de fournisseur de services et voulez une configuration en **mode initié par le fournisseur d’identité** (IDP), effectuez les étapes suivantes :
 
     1. Sélectionnez **Charger le fichier de métadonnées**.
 
@@ -89,7 +89,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
        > [!Note]
        > Si les valeurs **Identificateur** et **URL de réponse** ne sont pas automatiquement renseignées, renseignez-les manuellement. L’**Identificateur** et l’**URL de réponse** sont identiques et la valeur figure dans le modèle suivant : `https://<your-domain>.monday.com/saml/saml_callback`
 
-5. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
+1. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<your-domain>.monday.com`
 
@@ -100,7 +100,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     ![Volet Attributs utilisateur](common/edit-attribute.png)
 
-6. En plus de ce qui précède, l’application monday.com s’attend à ce que quelques attributs supplémentaires soient passés dans la réponse SAML. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, effectuez les étapes suivantes pour ajouter le jeton SAML comme indiqué dans le tableau ci-dessous :
+1. En plus de ce qui précède, l’application monday.com s’attend à ce que quelques attributs supplémentaires soient passés dans la réponse SAML. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, effectuez les étapes suivantes pour ajouter le jeton SAML comme indiqué dans le tableau ci-dessous :
 
     | Nom | Attribut source|
     | ---------------| --------------- |
@@ -109,10 +109,6 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     | LastName | user.surname |
 
     a. Cliquez sur le bouton **Ajouter une nouvelle revendication** pour ouvrir la boîte de dialogue **Gérer les revendications des utilisateurs**.
-
-    ![image](./media/mondaycom-tutorial/attribute01.png)
-
-    ![image](common/new-attribute-details.png)
 
     b. Dans la zone de texte **Attribut**, indiquez le nom d’attribut pour cette ligne.
 
@@ -136,17 +132,25 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 ### <a name="configure-mondaycom"></a>Configurer monday.com
 
-1. Dans une autre fenêtre de navigateur web, connectez-vous à monday.com en tant qu’administrateur.
+1. Pour automatiser la configuration dans monday.com, vous devez installer l’**extension de navigateur My Apps Secure Sign-in** en cliquant sur **Installer l’extension**.
 
-2. Accédez à **Profile** en haut à droite de la page et cliquez sur **Admin**.
+    ![Extension My apps](common/install-myappssecure-extension.png)
 
-     ![Configuration de monday.com](./media/mondaycom-tutorial/configuration01.png)
+1. Après l’ajout de l’extension au navigateur, cliquez sur **Configurer monday.com** pour être dirigé vers l’application monday.com. À partir de là, indiquez les informations d’identification de l’administrateur pour vous connecter à monday.com. Cette extension de navigateur configure automatiquement l’application et automatise les étapes 3 à 6.
 
-3. Sélectionnez **Sécurité** et cliquez sur **Ouvrir** en regard de SAML.
+    ![Configuration](common/setup-sso.png)
+
+1. Si vous souhaitez configurer manuellement monday.com, ouvrez une nouvelle fenêtre de navigateur web, connectez-vous à votre site d’entreprise monday.com en tant qu’administrateur et effectuez les étapes suivantes :
+
+1. Accédez à **Profile** en haut à droite de la page et cliquez sur **Admin**.
+
+    ![Configuration de monday.com](./media/mondaycom-tutorial/configuration01.png)
+
+1. Sélectionnez **Sécurité** et cliquez sur **Ouvrir** en regard de SAML.
 
     ![Configuration de monday.com](./media/mondaycom-tutorial/configuration02.png)
 
-4. Remplissez les détails ci-dessous à partir de votre fournisseur d’identité.
+1. Remplissez les détails ci-dessous à partir de votre fournisseur d’identité.
 
     ![Configuration de monday.com](./media/mondaycom-tutorial/configuration03.png)
 
@@ -179,7 +183,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
     ![Lien Ajouter un utilisateur](common/add-assign-user.png)
 
-1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B.Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
 1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 

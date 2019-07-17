@@ -1,25 +1,25 @@
 ---
 title: 'Démarrage rapide : Détecter et encadrer des visages dans une image avec le SDK Python'
 titleSuffix: Azure Cognitive Services
-description: Dans ce guide de démarrage rapide, vous allez créer un script Python simple qui utilise l’API Visage pour détecter et encadrer des visages dans une image distante.
+description: Dans ce guide de démarrage rapide, vous allez créer un script Python qui utilise l’API Visage pour détecter et encadrer des visages dans une image distante.
 services: cognitive-services
 author: SteveMSFT
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 11/13/2018
+ms.date: 07/03/2018
 ms.author: sbowles
-ms.openlocfilehash: b816f4b78921c4bace1d15dd408b3fd701a3d6c5
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 741dd18a3b8da5e44d77c24d46adb8d550322281
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67339376"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603296"
 ---
 # <a name="quickstart-create-a-python-script-to-detect-and-frame-faces-in-an-image"></a>Démarrage rapide : Créer un script Python pour détecter et encadrer des visages dans une image
 
-Dans ce guide de démarrage rapide, vous allez créer un script Python simple qui utilise l’API Visage Azure, par le biais du SDK Python, pour détecter des visages humains dans une image distante. L’application affiche une image sélectionnée et trace un cadre autour de chaque visage détecté.
+Dans ce guide de démarrage rapide, vous allez créer un script Python qui utilise l’API Visage Azure, par le biais du SDK Python, pour détecter des visages humains dans une image distante. L’application affiche une image sélectionnée et trace un cadre autour de chaque visage détecté.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer. 
 
@@ -39,7 +39,7 @@ pip install cognitive_face
 
 ## <a name="detect-faces-in-an-image"></a>Détecter des visages dans une image
 
-Créez un script Python nommé _FaceQuickstart.py_ et ajoutez le code suivant. Il s’agit de la fonctionnalité de base de la détection des visages. Vous devez remplacer `<Subscription Key>` par la valeur de votre clé. Vous devrez aussi peut-être changer la valeur de `BASE_URL` pour utiliser l’identificateur de région approprié pour votre clé. (Pour connaître la liste des points de terminaison de toutes les régions, consultez les [documents API Visage](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)). Les clés d’abonnement d’essai gratuit sont générées dans la région **westus**. Si vous le souhaitez, définissez `img_url` avec l’URL d’une image que vous souhaitez utiliser.
+Créez un script Python nommé _FaceQuickstart.py_ et ajoutez le code suivant. Ce code gère la fonctionnalité de base de la détection des visages. Vous devez remplacer `<Subscription Key>` par la valeur de votre clé. Vous devrez aussi peut-être changer la valeur de `BASE_URL` pour utiliser l’identificateur de région approprié pour votre clé. (Pour connaître la liste des points de terminaison de toutes les régions, consultez les [documents API Visage](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)). Les clés d’abonnement d’essai gratuit sont générées dans la région **westus**. Si vous le souhaitez, définissez `img_url` avec l’URL d’une image que vous souhaitez utiliser.
 
 Le script détecter les visages en appelant la méthode **cognitive_face.face.detect**, laquelle inclut dans un wrapper l’API REST [Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) et retourne une liste de visages.
 
@@ -64,11 +64,11 @@ print(faces)
 
 Exécutez l’application avec la commande `python FaceQuickstart.py`. Vous devriez obtenir une réponse de texte semblable à la suivante dans la fenêtre de console :
 
-```shell
+```console
 [{'faceId': '26d8face-9714-4f3e-bfa1-f19a7a7aa240', 'faceRectangle': {'top': 124, 'left': 459, 'width': 227, 'height': 227}}]
 ```
 
-Il s’agit d’une liste des visages détectés. Chaque élément dans cette liste est une instance **dict** où `faceId` est un ID unique pour le visage détecté et où `faceRectangle` décrit la position du visage détecté. 
+La sortie représente une liste de visages détectés. Chaque élément dans cette liste est une instance **dict** où `faceId` est un ID unique pour le visage détecté et où `faceRectangle` décrit la position du visage détecté. 
 
 > [!NOTE]
 > Les ID de visage expirent après 24 heures. Vous devez donc stocker explicitement les données de visage si vous souhaitez les conserver à long terme.
@@ -83,7 +83,7 @@ from io import BytesIO
 from PIL import Image, ImageDraw
 ```
 
-Ensuite, en bas du script, ajoutez le code suivant. Vous obtenez une fonction simple qui analyse les coordonnées des rectangles et qui utilise Pillow pour tracer des rectangles sur l’image d’origine. Elle affiche ensuite l’image dans votre visionneuse d’images par défaut.
+Ensuite, en bas du script, ajoutez le code suivant. Ce code crée une fonction simple qui analyse les coordonnées des rectangles et utilise Pillow pour tracer des rectangles sur l’image d’origine. Elle affiche ensuite l’image dans votre visionneuse d’images par défaut.
 
 ```python
 # Convert width height to a point in a rectangle

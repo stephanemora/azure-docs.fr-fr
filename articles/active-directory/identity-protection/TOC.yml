@@ -1,6 +1,6 @@
 - name: "Documentation relative à\_Identity\_Protection"
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: "Qu’est-ce qu’Azure AD Identity Protection\_?"
       href: overview.md
@@ -17,6 +17,8 @@
       href: notifications.md
     - name: "Quelle est votre expérience de connexion\_?"
       href: flows.md
+    - name: Utilisateurs Identity Protection et B2B
+      href: concept-identity-protection-b2b.md
 - name: Guides pratiques
   expanded: true
   items:
@@ -40,7 +42,7 @@
           href: faqs.md
     - name: Identity Protection (actualisé)
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           href: overview-v2.md
         - name: Présentation de la sécurité
           href: security-overview.md

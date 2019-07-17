@@ -5,28 +5,27 @@ services: databox
 documentationcenter: NA
 author: alkohli
 ms.service: databox
-ms.subservice: pod
+ms.subservice: heavy
 ms.topic: overview
-ms.date: 06/19/2019
+ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 94ba0040b1de7e1f03825f1cd2ef2a6536343d96
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 0f4657cdd71a104ca111f62a6e9757b5a33b46e8
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67271747"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592299"
 ---
-# <a name="what-is-azure-data-box-heavy-preview"></a>Qu’est-ce qu’Azure Data Box Heavy ? (préversion)
+# <a name="what-is-azure-data-box-heavy"></a>Qu’est-ce qu’Azure Data Box Heavy ?
 
 Azure Data Box Heavy vous permet d'envoyer des centaines de téraoctets de données vers Azure de manière rapide, économique et fiable. Pour vous permettre de transférer vos données vers Azure, vous recevez un appareil Data Box Heavy d'une capacité de stockage de 1 Po sur lequel vous copiez vos données avant de le renvoyer à Microsoft. L'appareil dispose d'un caisson robuste afin de protéger et de sécuriser vos données pendant le transport.
 
-Data Box Heavy est actuellement disponible en préversion. Inscrivez-vous pour demander un appareil via le portail Azure. Une fois l'appareil réceptionné par votre centre de données, configurez-le à l'aide de l'interface utilisateur web locale. Copiez les données à partir de vos serveurs vers l’appareil et réexpédiez l’appareil à Azure. Dans le centre de données Azure, vos données sont chargées sur vos comptes de stockage Azure. Vous pouvez suivre l'ensemble du processus de bout en bout sur le portail Azure.
+Une fois l'appareil réceptionné par votre centre de données, configurez-le à l'aide de l'interface utilisateur web locale. Copiez les données à partir de vos serveurs vers l’appareil et réexpédiez l’appareil à Azure. Dans le centre de données Azure, vos données sont chargées sur vos comptes de stockage Azure. Vous pouvez suivre l'ensemble du processus de bout en bout sur le portail Azure.
 
 
 > [!IMPORTANT]
-> - Data Box Heavy est disponible en préversion. Veuillez lire les [conditions d’utilisation de la préversion Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) avant de déployer cette solution.
-> - Pour demander un appareil, inscrivez-vous dans le [Portail en version préliminaire](https://aka.ms/azuredatabox).
-> - Pendant la période de préversion, Data Box Heavy peut être envoyé aux clients des États-Unis et de l’Union européenne. Pour plus d’informations, consultez [Disponibilité des régions](#region-availability).
+> - Pour demander un appareil, inscrivez-vous dans le [portail Azure](https://portal.azure.com).
+
 
 ## <a name="use-cases"></a>Cas d'utilisation
 
@@ -115,25 +114,14 @@ Pour obtenir les informations les plus récentes sur la disponibilité régional
 
 ## <a name="sign-up"></a>Inscription
 
-Data Box Heavy est en préversion et vous devez vous inscrire. Procédez comme suit pour vous inscrire à Data Box Heavy :
+Procédez comme suit pour vous inscrire à Data Box Heavy :
 
-1. Connectez-vous au portail Azure à l’adresse : https://aka.ms/azuredatabox.
+1. Connectez-vous au portail Azure à l’adresse : https://portal.azure.com.
 2. Cliquez sur **+ Créer une ressource** pour créer une ressource. Recherchez **Azure Data Box**. Sélectionnez le service **Azure Data Box**.
-
-    <!--![The Data Box Heavy sign up 1]()-->
-
 3. Cliquez sur **Créer**.
-
-    <!--![The Data Box Heavy sign up 2]()-->
-
-4. Sélectionnez l’abonnement que vous souhaitez utiliser pour la préversion de Data Box Heavy. Sélectionnez la région dans laquelle vous souhaitez déployer la ressource Data Box Heavy. Dans l’option **Data Box Heavy**, cliquez sur **S’inscrire**.
-
-   <!--![The Data Box Heavy sign up 3]()-->
-
+4. Sélectionnez l’abonnement que vous voulez utiliser pour Data Box Heavy. Sélectionnez la région dans laquelle vous souhaitez déployer la ressource Data Box Heavy. Dans l’option **Data Box Heavy**, cliquez sur **S’inscrire**.
 5. Répondez aux questions concernant le pays/la région de résidence des données, le laps de temps, le service Azure cible pour le transfert des données, la bande passante réseau et la fréquence de transfert des données. Consultez le texte Confidentialité et conditions d'utilisation et sélectionnez la case à cocher autorisant Microsoft à utiliser votre adresse de messagerie pour vous contacter.
 
-    <!--![The Data Box Heavy sign up 4]()-->
-
-Une fois inscrit et autorisé à utiliser la préversion, vous pouvez commander un appareil Data Box Heavy.
+Une fois inscrit, vous pouvez commander un appareil Data Box Heavy.
 
     

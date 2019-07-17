@@ -6,7 +6,7 @@ documentationcenter: ''
 author: mdgattuso
 manager: danielgi
 editor: ''
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.date: 04/20/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 10d06d2e792b476a4c973029241d6cb98c0dd444
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: c6da3270de94fd0d5525f28cdd31039f5bd85dbd
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094069"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594071"
 ---
-# <a name="tutorial-set-azure-cdn-caching-rules"></a>Didacticiel : Définir des règles de mise en cache d’Azure CDN
+# <a name="tutorial-set-azure-cdn-caching-rules"></a>Didacticiel : Définir les règles de mise en cache d’Azure CDN
 
 > [!NOTE] 
 > Les règles de mise en cache d’Azure CDN sont disponibles uniquement pour **Azure CDN Standard fourni par Verizon** et **Azure CDN Standard fourni par Akamai**. Pour **Azure CDN Premium fourni par Verizon**, utilisez le [moteur de règles Azure CDN](cdn-rules-engine.md) dans le portail **Gérer** pour bénéficier de fonctionnalités similaires.
@@ -42,7 +42,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 
-Avant d’effectuer les étapes de ce tutoriel, vous devez d’abord créer un profil CDN et au moins un point de terminaison CDN. Pour plus d’informations, consultez la page[Prise en main d’Azure CDN](cdn-create-new-endpoint.md).
+Avant d’effectuer les étapes de ce tutoriel, vous devez d’abord créer un profil CDN et au moins un point de terminaison CDN. Pour plus d’informations, consultez [Démarrage rapide : Créer un point de terminaison et un profil de réseau de distribution de contenu Azure](cdn-create-new-endpoint.md).
 
 ## <a name="open-the-azure-cdn-caching-rules-page"></a>Ouvrir la page des règles de mise en cache d’Azure CDN
 
