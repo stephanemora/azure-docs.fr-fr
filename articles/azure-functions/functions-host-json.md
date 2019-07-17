@@ -173,7 +173,7 @@ Paramètres de configuration de l’[analyse d’intégrité d’hôtes](https:/
 
 |Propriété  |Default | Description |
 |---------|---------|---------| 
-|Activé|true|Indique si la fonctionnalité est activée. | 
+|enabled|true|Indique si la fonctionnalité est activée. | 
 |healthCheckInterval|10 secondes|L’intervalle de temps entre les contrôles d’intégrité périodiques en arrière-plan. | 
 |healthCheckWindow|2 minutes|Une fenêtre de temps coulissante utilisée conjointement au paramètre `healthCheckThreshold`.| 
 |healthCheckThreshold|6\.|Nombre maximal de fois où le contrôle d’intégrité peut échouer avant le lancement d’un recyclage de l’hôte.| 
