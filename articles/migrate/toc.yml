@@ -54,34 +54,32 @@
       href: migrate-replication-appliance.md
     - name: Bonnes pratiques pour les évaluations
       href: best-practices-assessment.md
-    - name: Calculs d’évaluation
+    - name: Vue d’ensemble des évaluations
       href: concepts-assessment-calculation.md
     - name: Visualisation de dépendance
       href: concepts-dependency-visualization.md
 - name: Guides pratiques
   items:
-    - name: Série d’exemples de migration de Contoso
-      href: contoso-migration-overview.md
-    - name: Déployer une appliance pour l’évaluation/la migration VMware (sans agent)
+    - name: Utiliser une version antérieure
+      href: migrate-v1.md
+    - name: Déployer une appliance VMware
       href: how-to-set-up-appliance-vmware.md
-    - name: Déployer une appliance pour l’évaluation/la migration Hyper-V
+    - name: Déployer une appliance Hyper-V
       href: how-to-set-up-appliance-hyper-v.md
-    - name: Ajouter un outil d’évaluation/de migration pour la première fois
+    - name: Ajouter un outil pour la première fois
       href: how-to-add-tool-first-time.md
     - name: Ajouter des outils d’évaluation
       href: how-to-assess.md
-    - name: Ajouter des outils de migration
-      href: how-to-migrate.md
     - name: Grouper des machines pour l’évaluation
-      items:
-        - name: Créer un groupe
-          href: how-to-create-a-group.md
-        - name: Regrouper des machines à l’aide de dépendances de machines
-          href: how-to-create-group-machine-dependencies.md
-        - name: Affiner un groupe à l’aide de dépendances de groupes
-          href: how-to-create-group-dependencies.md
+      href: how-to-create-a-group.md
+    - name: Grouper des machines à l’aide de la visualisation des dépendances
+      href: how-to-create-group-machine-dependencies.md
+    - name: Créer une évaluation
+      href: how-to-create-assessment.md
     - name: Personnaliser une évaluation
       href: how-to-modify-assessment.md
+    - name: Ajouter des outils de migration
+      href: how-to-migrate.md
     - name: Adapter l’évaluation et la migration
       items:
         - name: Évaluer un grand nombre de machines virtuelles VMware
@@ -90,6 +88,10 @@
           href: scale-hyper-v-assessment.md
         - name: Automatiser la migration d’un grand nombre de machines virtuelles
           href: how-to-migrate-at-scale.md
+    - name: Série d’exemples de migration de Contoso
+      href: contoso-migration-overview.md
+- name: Résolution des problèmes
+  items:
     - name: Résoudre les problèmes d’Azure Migrate
       href: troubleshooting-general.md
 - name: Ressources
