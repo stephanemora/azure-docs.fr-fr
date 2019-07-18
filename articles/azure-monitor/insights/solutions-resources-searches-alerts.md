@@ -179,7 +179,7 @@ Les propriétés des ressources d’action d’alerte sont décrites dans les ta
 | type | OUI | Type de l’action.  **Alert** pour les actions d’alerte. |
 | name | OUI | Nom d’affichage de l’alerte.  Il s’agit du nom qui s’affiche dans la console pour la règle d’alerte. |
 | description | Non | La description facultative de l’alerte. |
-| severity | OUI | La gravité de l’enregistrement d’alerte selon les valeurs suivantes :<br><br> **critical**<br>**warning**<br>**informational**
+| Severity | OUI | La gravité de l’enregistrement d’alerte selon les valeurs suivantes :<br><br> **critical**<br>**warning**<br>**informational**
 
 
 #### <a name="threshold"></a>Seuil
@@ -200,7 +200,7 @@ Cette section est facultative. Vous devez l’inclure pour une alerte relative a
 |:--|:--|:--|
 | TriggerCondition | OUI | Spécifie si le seuil est défini pour le nombre total de violations ou pour des violations consécutives selon les valeurs suivantes :<br><br>**Total<br>Consecutive** |
 | Operator | OUI | L’opérateur de comparaison selon les valeurs suivantes :<br><br>**gt = supérieur à<br>lt = inférieur à** |
-| Valeur | OUI | Le nombre de fois où les critères doivent être respectés pour que l’alerte soit déclenchée. |
+| Value | OUI | Le nombre de fois où les critères doivent être respectés pour que l’alerte soit déclenchée. |
 
 
 #### <a name="throttling"></a>Limitation

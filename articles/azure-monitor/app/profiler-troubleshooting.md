@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 6ab13e1ecd5f4825270f4b3a28251b959ad98f02
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6b57ffbd3cb2b31da3fc2882e941f9788d83fea8
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60731023"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341673"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Résoudre les problèmes d’activation ou d’affichage d’Application Insights Profiler
 
@@ -88,7 +88,7 @@ Pour que Profiler fonctionne correctement :
 
       ![profiler-webjob-log]
 
-Si vous ne pouvez pas déterminer pourquoi Profiler ne fonctionne pas, téléchargez le journal et envoyez-le à notre équipe pour obtenir de l’aide. 
+Si vous ne pouvez pas déterminer pourquoi Profiler ne fonctionne pas, téléchargez le journal et envoyez-le à notre équipe pour obtenir de l’aide, serviceprofilerhelp@microsoft.com. 
     
 ### <a name="manual-installation"></a>Installation manuelle
 
@@ -131,7 +131,7 @@ Profiler s’exécute comme une tâche web continue dans l’application web. Vo
 
 ## <a name="troubleshoot-problems-with-profiler-and-azure-diagnostics"></a>Résoudre les problèmes de Profiler et de Diagnostics Azure
 
->**Le bogue dans le profileur fourni avec WAD pour les Services cloud a été résolu.** La dernière version de WAD (1.12.2.0) pour les Services cloud fonctionne avec toutes les versions récentes du SDK App Insights. Les hôtes des Services cloud mettent automatiquement à niveau WAD, mais ce n’est pas immédiat. Pour forcer une mise à niveau, vous pouvez redéployer votre service ou redémarrer le nœud.
+>**Le bogue dans le profileur fourni avec WAD pour les Services cloud a été résolu.** La dernière version de WAD (1.12.2.0) pour les Services cloud fonctionne avec toutes les versions récentes du kit de développement logiciel (SDK) App Insights. Les hôtes des Services cloud mettent automatiquement à niveau WAD, mais ce n'est pas immédiat. Pour forcer une mise à niveau, vous pouvez redéployer votre service ou redémarrer le nœud.
 
 Pour voir si Profiler est correctement configuré par Diagnostics Azure, effectuez les trois actions suivantes : 
 1. Premièrement, vérifiez si le contenu de la configuration Diagnostics Azure qui est déployé est celui que vous attendez. 

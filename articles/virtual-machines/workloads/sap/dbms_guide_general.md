@@ -109,7 +109,7 @@ Vous devez avoir une connaissance pratique de l’architecture Microsoft Azure a
 En règle générale, les processus d’installation et de configuration sur Windows, Linux ou SGBD sont globalement les mêmes que pour une machine virtuelle ou un système nu que vous installez en local. Les décisions relatives à l’implémentation de l’architecture et de la gestion des systèmes diffèrent sur certains points lorsque vous utilisez Azure IaaS. Ce document explique les différences spécifiques de l’architecture et de la gestion des systèmes que vous devez prendre en compte quand vous utilisez Azure IaaS.
 
 
-## <a name="65fa79d6-a85f-47ee-890b-22e794f51a64">Structure du stockage d’une machine virtuelle pour les déploiements SGBDR</a>
+## <a name="65fa79d6-a85f-47ee-890b-22e794f51a64"></a>Structure du stockage d’une machine virtuelle pour les déploiements SGBDR
 Pour suivre le présent chapitre, lisez d’abord attentivement le contenu de [ce chapitre][deployment-guide-3] du [Guide de déploiement][deployment-guide]. Vous devez comprendre et connaître les différentes séries de machines virtuelles ainsi que les différences entre le stockage Standard et Premium. 
 
 Pour découvrir le stockage Azure sur les machines virtuelles Azure, consultez :
