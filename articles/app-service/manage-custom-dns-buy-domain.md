@@ -15,20 +15,20 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 4b26446845d004b4dd92807c0b5ec0ada9ed181f
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.openlocfilehash: 6bba176a27cc70321915654e3e2e62320f22c16c
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66475225"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67310144"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Acheter un nom de domaine personnalisé pour Azure App Service
 
-Domaines App Service sont des domaines de niveau supérieur qui sont gérés directement dans Azure. Ils facilitent la gestion des domaines personnalisés pour [Azure App Service](overview.md). Ce tutoriel explique comment acheter un domaine App Service et attribuer des noms DNS dans Azure App Service.
+Les domaines App Service sont des domaines de niveau supérieur gérés directement dans Azure. Ils facilitent la gestion des domaines personnalisés pour [Azure App Service](overview.md). Ce tutoriel explique comment acheter un domaine App Service et attribuer des noms DNS dans Azure App Service.
 
 Pour la machine virtuelle Azure ou le stockage Azure, consultez [Assign App Service domain to Azure VM or Azure Storage](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/31/assign-app-service-domain-to-azure-vm-or-azure-storage/) (Attribuer un domaine App Service à une machine virtuelle Azure ou un stockage Azure). Pour Services cloud, consultez [Configuration d’un nom de domaine personnalisé pour un service cloud Azure](../cloud-services/cloud-services-custom-domain-name-portal.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce tutoriel :
 
@@ -80,7 +80,7 @@ Lorsque la notification suivante s’affiche, cela signifie que l’opération e
 ## <a name="buy-the-domain"></a>Acheter le domaine
 
 ### <a name="pricing-information"></a>Informations sur la tarification
-Pour plus d’informations sur les domaines Azure App Service la tarification, visitez le [page Tarification d’App Service](https://azure.microsoft.com/pricing/details/app-service/windows/) et faites défiler jusqu'à domaine App Service.
+Pour obtenir des informations de tarification sur les domaines Azure App Service, visitez la [page Tarification d’App Service](https://azure.microsoft.com/pricing/details/app-service/windows/) et faites défiler jusqu’au domaine App Service.
 
 ### <a name="sign-in-to-azure"></a>Connexion à Azure
 Ouvrez le [portail Azure](https://portal.azure.com/) et connectez-vous avec votre compte Azure.
@@ -126,7 +126,7 @@ Sélectionnez ensuite les options souhaitées pour votre domaine. Pour plus de p
 Cliquez sur **Mentions légales** pour consulter les mentions et les frais, puis cliquez sur **Acheter**.
 
 > [!NOTE]
-> Domaines App Service utilisent GoDaddy pour l’inscription de domaine et Azure DNS pour héberger les domaines. Outre les frais d’inscription de domaine, les frais d’utilisation d’Azure DNS s’appliquent aussi. Pour en savoir plus, consultez la page relative à la [tarification Azure DNS](https://azure.microsoft.com/pricing/details/dns/).
+> Les domaines App Service utilisent GoDaddy pour l’inscription du domaine, et Azure DNS pour l’hébergement. Outre les frais d’inscription de domaine, les frais d’utilisation d’Azure DNS s’appliquent aussi. Pour en savoir plus, consultez la page relative à la [tarification Azure DNS](https://azure.microsoft.com/pricing/details/dns/).
 >
 >
 
@@ -147,14 +147,14 @@ Vous voyez également les noms d’hôtes choisis sur la page **Domaines personn
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
 
 > [!NOTE]
-> Un **Remarque Secure** étiquette pour votre signifie de domaine personnalisé qu’il n’est pas encore lié à un certificat SSL, et recevez toute demande HTTPS à partir d’un navigateur vers votre domaine personnalisé et un erreur ou un avertissement, selon le navigateur. Pour configurer la liaison SSL, consultez [acheter et configurer un certificat SSL pour Azure App Service](web-sites-purchase-ssl-web-site.md).
+> Si le domaine personnalisé présente l’état **Non sécurisé**, cela signifie qu’il n’est pas encore lié à un certificat SSL. Toutes les requêtes HTTPS d’un navigateur sur votre domaine personnalisé recevront une erreur ou un avertissement, selon le navigateur. Pour configurer la liaison SSL, consultez [Acheter et configurer un certificat SSL pour Azure App Service](web-sites-purchase-ssl-web-site.md).
 >
 
 Pour tester des noms d’hôte, accédez à ceux qui sont répertoriés dans le navigateur. Dans l’exemple de la capture d’écran précédente, essayez d’accéder à _kontoso.net_ et _www\.kontoso.net_.
 
 ## <a name="assign-hostnames-to-app"></a>Attribuer des noms d’hôte à une application
 
-Si vous choisissez de ne pas affecter un ou plusieurs noms d’hôte de valeur par défaut à votre application pendant le processus d’achat, ou si vous devez attribuer un nom d’hôte non répertorié, vous pouvez attribuer un nom d’hôte à tout moment.
+Si vous choisissez de ne pas attribuer un ou plusieurs noms d’hôte par défaut à votre application lors de l’achat, ou si vous devez attribuer un nom d’hôte non répertorié, sachez que vous pouvez attribuer ce nom à tout moment.
 
 Vous pouvez également attribuer des noms d’hôte dans le domaine App Service à n’importe quelle autre application. La procédure varie selon que le domaine App Service et l’application appartiennent ou non au même abonnement.
 
@@ -178,7 +178,7 @@ Vérifiez que votre domaine acheté est répertorié dans la section **Domaines 
 Sélectionnez **Ajouter un nom d’hôte**.
 
 ### <a name="configure-hostname"></a>Configurer le nom d’hôte
-Dans la boîte de dialogue **Ajouter un nom d’hôte**, entrez le nom de domaine complet du domaine App Service ou de n’importe quel sous-domaine. Exemple :
+Dans la boîte de dialogue **Ajouter un nom d’hôte**, entrez le nom de domaine complet du domaine App Service ou de n’importe quel sous-domaine. Par exemple :
 
 - kontoso.net
 - www\.kontoso.net
@@ -221,21 +221,21 @@ Dans la barre de navigation à gauche du domaine, sélectionnez **Renouvellement
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-autorenew.png)
 
-Pour renouveler manuellement votre domaine, sélectionnez **Renouveler le domaine**. Toutefois, ce bouton n’est pas actif jusqu'à ce que [90 jours avant l’expiration du domaine](#when-domain-expires).
+Pour renouveler manuellement votre domaine, sélectionnez **Renouveler le domaine**. Cependant, ce bouton n'est actif que [90 jours avant l'expiration du domaine](#when-domain-expires).
 
-Si le renouvellement de votre domaine est réussi, vous recevez une notification par e-mail dans les 24 heures.
+Si le renouvellement de votre domaine est réussi, vous recevrez une notification par e-mail dans les 24 heures.
 
 ## <a name="when-domain-expires"></a>Lorsque le domaine expire
 
-Azure porte sur la date d’expiration ou a expiré domaines App Service comme suit :
+Azure traite les domaines App Service expirés ou sur le point d’expirer comme suit :
 
-* Si le renouvellement automatique est désactivé : 90 jours avant l’expiration de domaine, une notification par e-mail est envoyée et la **renouveler le domaine** bouton est activé dans le portail.
-* Si le renouvellement automatique est activé : Le jour après la date d’expiration de votre domaine, Azure tente de vous facturer pour le renouvellement de nom de domaine.
-* Si une erreur se produit pendant le renouvellement automatique (par exemple, votre carte de fichier est arrivé à expiration), ou si le renouvellement automatique est désactivé et que vous autorisez l’expiration du domaine, Azure vous avertit de l’expiration du domaine ou les parcs votre nom de domaine. Vous pouvez [renouveler manuellement](#renew-the-domain) votre domaine.
-* Le jour 4 et 12 jours après l’expiration, Azure vous envoie des e-mails de notification supplémentaires. Vous pouvez [renouveler manuellement](#renew-the-domain) votre domaine.
-* Le 19 jour après l’expiration, votre domaine reste en attente, mais soit assujettie à un tarif d’échange. Vous pouvez appeler le support technique pour renouveler votre nom de domaine, soumis à un renouvellement applicable et les frais d’échange.
-* Le jour 25 après l’expiration, Azure place votre domaine enchères avec un service de vente aux enchères domaine nom du secteur. Vous pouvez appeler le support technique pour renouveler votre nom de domaine, soumis à un renouvellement applicable et les frais d’échange.
-* Sur le 30 jours après l’expiration, vous n’êtes plus en mesure d’échanger votre domaine.
+* Si le renouvellement automatique est désactivé : 90 jours avant l’expiration de domaine, une notification par e-mail est envoyée et le bouton **Renouveler le domaine** est activé dans le portail.
+* Si le renouvellement automatique est activé : Le jour après la date d’expiration de votre domaine, Azure tente de vous facturer pour le renouvellement du nom de domaine.
+* Si une erreur se produit pendant le renouvellement automatique (par exemple, si votre carte enregistrée est arrivée à expiration), ou si le renouvellement automatique est désactivé et que vous autorisez l’expiration du domaine, Azure vous avertit de l’expiration du domaine et réserve votre nom de domaine. Vous pouvez [renouveler manuellement](#renew-the-domain) votre domaine.
+* Les 4 et 12e jours après expiration, Azure vous envoie des e-mails de notification supplémentaires. Vous pouvez [renouveler manuellement](#renew-the-domain) votre domaine.
+* Le 19e jour après expiration, votre domaine reste réservé, mais fait alors l’objet de frais d’échange. Vous pouvez appeler le support technique pour renouveler votre nom de domaine, soumis aux frais de renouvellement et d’échange applicables.
+* Le 25e jour après expiration, Azure met votre domaine aux enchères avec un service de vente aux enchères de noms de domaine du secteur. Vous pouvez appeler le support technique pour renouveler votre nom de domaine, soumis aux frais de renouvellement et d’échange applicables.
+* Le 30e jour après expiration, vous n’êtes plus en mesure de récupérer votre domaine.
 
 <a name="custom"></a>
 

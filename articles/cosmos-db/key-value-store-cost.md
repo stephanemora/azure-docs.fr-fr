@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: a3b4886bc175311e9a0e61f3dfb99b1fe7e1a679
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 757366f1d1f94d11438be4df0772ce1155f71cee
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66236760"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67310585"
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>Azure Cosmos DB comme magasin de valeurs de clés – Synthèse des coûts
 
 Azure Cosmos DB est un service de base de données multimodèle, distribué dans le monde entier, qui permet de créer facilement des applications à grande échelle et à haute disponibilité. Par défaut, Azure Cosmos DB indexe automatiquement et efficacement toutes les données qu’il reçoit. Vous pouvez ainsi créer des requêtes [SQL](how-to-sql-query.md) (et [JavaScript](stored-procedures-triggers-udfs.md)) rapides et cohérentes sur n’importe quel type de données. 
 
-Cet article décrit le coût qu’implique l’utilisation d’Azure Cosmos DB pour de simples opérations de lecture et d’écriture lorsqu’il est utilisé comme magasin de valeurs de clés. Les opérations d’écriture incluent des insertions, des remplacements, des suppressions et des upserts de documents. En plus de la garantie d’un contrat SLA de disponibilité à 99,99 % pour tous les comptes à une et plusieurs régions avec cohérence souple, et de la disponibilité de lecture de 99,999 % pour tous les comptes de base de données couvrant plusieurs régions, Azure Cosmos DB garantit une latence inférieure à 10 ms pour les lectures et une latence inférieure à 15 ms pour les écritures (indexées), au 99e centile. 
+Cet article décrit le coût qu’implique l’utilisation d’Azure Cosmos DB pour de simples opérations de lecture et d’écriture lorsqu’il est utilisé comme magasin de valeurs de clés. Les opérations d’écriture incluent des insertions, des remplacements, des suppressions et des upserts de documents. En plus de la garantie d’un contrat SLA de disponibilité à 99,99 % pour tous les comptes à une et plusieurs régions avec cohérence souple, et de la disponibilité de lecture de 99,999 % pour tous les comptes de base de données couvrant plusieurs régions, Azure Cosmos DB garantit une latence inférieure à 10 ms pour les lectures et pour les écritures (indexées), au 99e centile. 
 
 ## <a name="why-we-use-request-units-rus"></a>Pourquoi utiliser des unités de requête (RU) ?
 

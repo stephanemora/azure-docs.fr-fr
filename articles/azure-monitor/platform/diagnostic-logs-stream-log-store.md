@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: b17978da3195b364f868d33ab7ad9faa1544e9ec
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 13eb1a8fcea2f74cda5921a51b8c2e8816be975f
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60238002"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303716"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics-workspace-in-azure-monitor"></a>Diffuser en continu les journaux de diagnostic Azure vers un espace de travail Log Analytics d'Azure Monitor
 
@@ -60,7 +60,7 @@ Il n’est pas nécessaire que l’espace de travail Log Analytics se trouve dan
 
 4. Cliquez sur **Enregistrer**.
 
-Après quelques instants, le nouveau paramètre apparaît dans la liste des paramètres de cette ressource, et les journaux de diagnostic sont diffusés en continu dans cet espace de travail dès que de nouvelles données d’événement sont générées. Notez qu’un délai de quinze minutes peut s’écouler entre l’événement et sa consignation dans Log Analytics.
+Après quelques instants, le nouveau paramètre apparaît dans la liste des paramètres de cette ressource, et les journaux de diagnostic sont diffusés en continu dans cet espace de travail dès que de nouvelles données d’événement sont générées. Un délai de 15 minutes peut s’écouler entre l’événement et sa consignation dans Log Analytics.
 
 ### <a name="via-powershell-cmdlets"></a>Via les applets de commande PowerShell
 
@@ -99,37 +99,81 @@ L’argument `--resource-group` est obligatoire seulement si `--workspace` n’e
 
 Dans le panneau Journaux du portail Azure Monitor, vous pouvez interroger les journaux de diagnostic dans le cadre de la solution de gestion des journaux au niveau de la table AzureDiagnostics. Il existe également [pour les ressources Azure plusieurs solutions de supervision](../../azure-monitor/insights/solutions.md) que vous pouvez installer pour bénéficier d'une visibilité immédiate sur les données de journal que vous envoyez à Azure Monitor.
 
+## <a name="azure-diagnostics-vs-resource-specific"></a>Diagnostics Azure contre mode Spécifique à la ressource  
+Une fois qu’une destination Log Analytics est activée dans une configuration de Diagnostics Azure, les données s’afficheront de deux façons distinctes dans votre espace de travail :  
+- **Diagnostics Azure** est l’ancienne méthode aujourd’hui utilisée par la plupart des services Azure. Dans ce mode, toutes les données de n’importe quel paramètre de diagnostic pointant vers un espace de travail donné se retrouvent dans la table _AzureDiagnostics_. 
+<br><br>Dans la mesure où de nombreuses ressources envoient des données à la même table (_AzureDiagnostics_), le schéma de cette table constitue le super-ensemble des schémas des différents types de données collectés. Par exemple, si vous avez créé des paramètres de diagnostic pour la collecte des types de données suivants, ils sont tous envoyés au même espace de travail :
+    - Journaux d'audit de la Ressource 1 (schéma constitué des colonnes A, B et C)  
+    - Journaux d'erreurs de la Ressource 2 (schéma constitué des colonnes D, E et F)  
+    - Journaux de flux de données de la Ressource 3 (schéma constitué des colonnes G, H et I)  
+
+    La table AzureDiagnostics se présente comme suit, avec des exemples de données :  
+
+    | ResourceProvider | Catégorie | A | b | C | D | E | F | G | H | I |
+    | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
+    | Microsoft.Resource1 | AuditLogs | x1 | y1 | z1 |
+    | Microsoft.Resource2 | ErrorLogs | | | | q1 | w1 | e1 |
+    | Microsoft.Resource3 | DataFlowLogs | | | | | | | j1 | k1 | l1|
+    | Microsoft.Resource2 | ErrorLogs | | | | q2 | w2 | e2 |
+    | Microsoft.Resource3 | DataFlowLogs | | | | | | | j3 | k3 | l3|
+    | Microsoft.Resource1 | AuditLogs | x5 | y5 | z5 |
+    | ... |
+
+- **Propre à la ressource** - Dans ce mode, les tables individuelles dans l’espace de travail sélectionné sont créées par chaque catégorie sélectionnée dans la configuration des paramètres de diagnostic. Cette méthode plus récente permet de trouver beaucoup plus facilement exactement ce que vous souhaitez via une séparation explicite des problèmes : une table pour chaque catégorie. En outre, elle offre des avantages dans sa prise en charge des types dynamiques. Vous pouvez déjà voir ce mode pour certains types de ressources Azure, comme les journaux [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-analyze-activity-logs-log-analytics) ou [Intune](https://docs.microsoft.com/intune/review-logs-using-azure-monitor). Au final, nous nous attendons à ce que chaque type de données migre vers le mode Propre à la ressource. 
+
+    Dans l’exemple ci-dessus, cela se traduirait par la création de trois tables : 
+    - La table _AuditLogs_ comme suit :
+
+        | ResourceProvider | Catégorie | A | b | C |
+        | -- | -- | -- | -- | -- |
+        | Microsoft.Resource1 | AuditLogs | x1 | y1 | z1 |
+        | Microsoft.Resource1 | AuditLogs | x5 | y5 | z5 |
+        | ... |
+
+    - La table _ErrorLogs_ comme suit :  
+
+        | ResourceProvider | Catégorie | D | E | F |
+        | -- | -- | -- | -- | -- | 
+        | Microsoft.Resource2 | ErrorLogs | q1 | w1 | e1 |
+        | Microsoft.Resource2 | ErrorLogs | q2 | w2 | e2 |
+        | ... |
+
+    - La table _DataFlowLogs_ comme suit :  
+
+        | ResourceProvider | Catégorie | G | H | I |
+        | -- | -- | -- | -- | -- | 
+        | Microsoft.Resource3 | DataFlowLogs | j1 | k1 | l1|
+        | Microsoft.Resource3 | DataFlowLogs | j3 | k3 | l3|
+        | ... |
+
+    Les autres avantages de l’utilisation du mode Propre à la ressource comprennent l’amélioration des performances à la fois en matière de latence d’ingestion et de durée de requête, une meilleure détectabilité des schémas et de leur structure, la capacité d’octroyer des droits RBAC sur une table spécifique et bien plus encore.
+
+### <a name="selecting-azure-diagnostic-vs-resource-specific-mode"></a>Choix du mode Diagnostic Azure ou Propre à la ressource
+Pour la plupart des ressources Azure, vous n’aurez pas le choix d’utiliser le mode Diagnostic Azure ou Propre à la ressource : les données circuleront automatiquement via la méthode que la ressource a choisi d’utiliser. Consultez la documentation fournie par la ressource que vous avez autorisée à envoyer des données à Log Analytics pour plus d’informations sur le mode employé. 
+
+Comme indiqué dans la section précédente, l’objectif final d’Azure Monitor est que tous les services dans Azure utilisent le mode Propre à la ressource. Pour faciliter cette transition et s’assurer qu’aucune donnée n’est perdue en cours de route, certains services Azure proposeront une sélection du mode lors de l’intégration à Log Analytics :  
+   ![Sélecteur du mode Paramètres de diagnostic](media/diagnostic-logs-stream-log-store/diagnostic-settings-mode-selector.png)
+
+Nous vous conseillons **fortement**, pour éviter des migrations potentiellement difficiles à l’avenir, d’utiliser le mode Propre à la ressource pour les paramètres de diagnostic nouvellement créés.  
+
+Pour les paramètres de diagnostic existants, après activation par une ressource Azure particulière, vous ne pourrez pas rétroactivement basculer des diagnostics Azure au mode Propre à la ressource. Vos données ingérées précédemment continueront à être disponibles dans la table _AzureDiagnostics_ jusqu'à ce qu’elles deviennent obsolètes, comme configuré dans votre paramètre de rétention sur l’espace de travail, mais toutes les nouvelles données seront envoyées à la table dédiée. Cela signifie que pour les requêtes qui doivent couvrir à la fois les anciennes données et les nouvelles (jusqu'à ce que les anciennes données deviennent entièrement obsolètes), un opérateur [union](https://docs.microsoft.com/azure/kusto/query/unionoperator) dans vos requêtes sera nécessaire pour combiner les deux jeux de données.
+
+Recherchez les dernières actualités concernant les nouveaux journaux de soutien des services Azure en mode Propre à la ressource sur le blog [Mises à jour Azure](https://azure.microsoft.com/updates/) !
+
 ### <a name="known-limitation-column-limit-in-azurediagnostics"></a>Limitation connue : limite de colonnes dans AzureDiagnostics
-Dans la mesure où de nombreuses ressources envoient les types de données à la même table (_AzureDiagnostics_), le schéma de cette table constitue le super-ensemble des schémas des différents types de données collectés. Par exemple, si vous avez créé des paramètres de diagnostic pour la collecte des types de données suivants, ils sont tous envoyés au même espace de travail :
-- Journaux d'audit de la Ressource 1 (schéma constitué des colonnes A, B et C)  
-- Journaux d'erreurs de la Ressource 2 (schéma constitué des colonnes D, E et F)  
-- Journaux de flux de données de la Ressource 3 (schéma constitué des colonnes G, H et I)  
- 
-La table AzureDiagnostics se présente comme suit, avec des exemples de données :  
- 
-| ResourceProvider | Catégorie | A | b | C | D | E | F | G | H | I |
-| -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
-| Microsoft.Resource1 | AuditLogs | x1 | y1 | z1 |
-| Microsoft.Resource2 | ErrorLogs | | | | q1 | w1 | e1 |
-| Microsoft.Resource3 | DataFlowLogs | | | | | | | j1 | k1 | l1|
-| Microsoft.Resource2 | ErrorLogs | | | | q2 | w2 | e2 |
-| Microsoft.Resource3 | DataFlowLogs | | | | | | | j3 | k3 | l3|
-| Microsoft.Resource1 | AuditLogs | x5 | y5 | z5 |
-| ... |
- 
-Il existe une limite explicite qui empêche une table de journal Azure donnée de dépasser les 500 colonnes. Une fois cette limite atteinte, toutes les lignes contenant des données avec plus de 500 colonnes sont supprimées au moment de l'ingestion. La table AzureDiagnostics est particulièrement susceptible d'être impactée par cette limite. Celle-ci est généralement atteinte lorsqu'une grande variété de sources de données ou plusieurs sources de données très détaillées sont envoyées dans le même espace de travail. 
- 
+Il existe une limite explicite qui empêche une table de journal Azure donnée de dépasser les 500 colonnes. Une fois cette limite atteinte, toutes les lignes contenant des données avec plus de 500 colonnes sont supprimées au moment de l'ingestion. La table AzureDiagnostics est particulièrement susceptible d'être impactée par cette limite. Celle-ci est généralement atteinte lorsqu'une grande variété de sources de données ou plusieurs sources de données détaillées sont envoyées dans le même espace de travail. 
+
 #### <a name="azure-data-factory"></a>Azure Data Factory  
-Compte tenu de ses journaux très détaillés, Azure Data Factory est particulièrement impacté par cette limite. notamment :  
+Compte tenu de ses journaux très détaillés, Azure Data Factory est particulièrement impacté par cette limite. En particulier, pour les paramètres de diagnostic configurés avant l’activation du mode Propre à la ressource ou choisissant explicitement d’utiliser le mode Propre à la ressource pour des raisons de compatibilité inverse :  
 - *Paramètres utilisateur définis pour toute activité de votre pipeline* : une nouvelle colonne est créée pour chaque paramètre utilisateur portant un nom unique et pour chaque activité. 
 - *Entrées et sorties d'activité* : celles-ci varient d'une activité à l'autre et génèrent un grand nombre de colonnes en raison de leur nature détaillée. 
  
-Comme dans les solutions de contournement ci-dessous, il est recommandé d'isoler les journaux ADF dans leur propre espace de travail afin de minimiser les risques d'impact de ceux-ci sur d'autres types de journaux collectés dans vos espaces de travail. Des journaux organisés devraient bientôt être disponibles pour Azure Data Factory.
+Comme avec les suggestions de contournement plus générales ci-dessous, il est recommandé de migrer vos journaux pour utiliser le mode Propre à la ressource dès que possible. Si vous ne pouvez pas le faire immédiatement, une alternative temporaire est d'isoler les journaux ADF dans leur propre espace de travail afin de minimiser les risques d'impact de ceux-ci sur d'autres types de journaux collectés dans vos espaces de travail. 
  
 #### <a name="workarounds"></a>Solutions de contournement
-À court terme, jusqu'à ce que la limite des 500 colonnes soit redéfinie, il est recommandé de placer les types de données détaillés dans des espaces de travail distincts afin de réduire les risques de dépassement.
+À court terme, jusqu'à ce que tous les services Azure soient activés en mode Propre à la ressource, pour tous les services non encore pris en charge le mode Propre à la ressource, il est recommandé de séparer les types de données détaillés publiés par ces services dans des espaces de travail distincts afin de réduire les risques d’atteinte de limite.  
  
-À plus long terme, Diagnostics Azure s'éloignera d'un schéma unifié et épars pour s'orienter vers des tables individuelles pour chaque type de données. En plus de la prise en charge des types dynamiques, cela améliorera considérablement la convivialité des données entrant dans les journaux Azure via le mécanisme de diagnostic Azure. Vous pouvez déjà le constater pour certains types de ressources Azure, comme les journaux [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-analyze-activity-logs-log-analytics) ou [Intune](https://docs.microsoft.com/intune/review-logs-using-azure-monitor). Des informations sur les nouveaux types de ressources Azure qui prennent en charge ces journaux organisés sont disponibles sur le blog [Azure Updates](https://azure.microsoft.com/updates/).
+À long terme, les diagnostics Azure migreront vers tous les services Azure prenant en charge le mode Propre à la ressource. Nous vous recommandons de passer à ce mode dès que possible pour réduire le risque potentiel d’atteindre cette limitation de 500 colonnes.  
 
 
 ## <a name="next-steps"></a>Étapes suivantes

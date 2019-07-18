@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 11/09/2018
-ms.openlocfilehash: 6cbfdc9e595ebdf682356990ec975dbd0514035d
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
-ms.translationtype: MT
+ms.openlocfilehash: 5f4a1962f90d54001f315827c1243e929344e3d7
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66297087"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274000"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Connecter votre application à Azure SQL Database Managed Instance
 
@@ -45,7 +45,7 @@ Il existe deux options pour connecter des réseaux virtuels :
 L’option d’homologation est préférable car elle utilise le réseau principal de Microsoft, donc du point de vue de la connectivité, il n’y a pas de différence notable de latence entre les machines virtuelles dans le réseau virtuel homologué et dans le même réseau virtuel. L’homologation de réseau virtuel est limité aux réseaux d’une même région.  
 
 > [!IMPORTANT]
-> Le scénario d’homologation de réseau virtuel pour Managed Instance est limité aux réseaux de la même région en raison de [contraintes de l’homologation de réseau virtuel globale](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints).
+> Le scénario d’homologation de réseau virtuel pour Managed Instance est limité aux réseaux de la même région en raison de [contraintes de l’homologation de réseau virtuel globale](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Consultez également la section appropriée de l’article [Forum Aux Questions sur les réseaux virtuel Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) pour plus d’informations. 
 
 ## <a name="connect-an-on-premises-application"></a>Connecter une application locale
 
@@ -56,7 +56,7 @@ Vous avez deux options pour la connexion locale à un réseau virtuel Azure :
 - Connexion VPN de site à site ([portail Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), [Azure CLI](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md))
 - Connexion [ExpressRoute](../expressroute/expressroute-introduction.md)  
 
-Si vous avez établi avec succès en local pour la connexion à Azure et vous ne pouvez pas établir de connexion à Managed Instance, vérifiez si votre pare-feu dispose d’une connexion sortante ouverte sur le port SQL 1433 ainsi qu’une plage 11000-11999 de ports pour la redirection.
+Si vous avez établi une connexion locale à Azure et que vous ne parvenez pas à établir une connexion à Managed Instance, vérifiez si votre pare-feu dispose d’une connexion sortante ouverte sur le port SQL 1433 et la plage de ports 11000 à 11999 à des fins de redirection.
 
 ## <a name="connect-an-application-on-the-developers-box"></a>Connecter une application dans la box de développeur
 
@@ -96,7 +96,7 @@ Ce scénario est illustré dans le diagramme suivant :
 
 Pour résoudre les problèmes de connectivité, lisez ce qui suit :
 
-- Si vous ne parvenez pas à vous connecter à Managed Instance à partir d’une machine virtuelle Azure dans le même réseau virtuel mais un autre sous-réseau, vérifiez si vous disposez d’un groupe de sécurité réseau défini sur le sous-réseau d’ordinateurs virtuels qui peut-être bloquer l’accès. Notez en outre que vous devez ouvrir une connexion sortante sur le port SQL 1433, ainsi que des ports dans la plage 11000-11999 étant donné que celles nécessaires pour la connexion via la redirection à l’intérieur de la limite Azure.
+- Si vous ne parvenez pas à vous connecter à Managed Instance à partir d’une machine virtuelle Azure appartenant au même réseau virtuel mais à un sous-réseau différent, vérifiez qu’un groupe de sécurité réseau défini dans le sous-réseau de la machine virtuelle ne bloque pas l’accès. En outre, notez que vous devez ouvrir une connexion sortante sur le port SQL 1433, ainsi que des ports dans la plage 11000-11999, car ceux-ci sont nécessaires pour se connecter via une redirection à l’intérieur des limites Azure.
 - Pour la table de routage associée au réseau virtuel, vérifiez que la propagation BGP est définie sur **Activé**.
 - Si vous utilisez une connexion VPN point à site, accédez à la configuration dans le portail Azure pour voir si les sections **Entrée/Sortie** contiennent des chiffres. La présence de chiffres autres que zéro indiquent qu’Azure achemine le trafic entrant et sortant sur l’ordinateur local.
 
@@ -146,8 +146,8 @@ Les versions minimales suivantes des outils et des pilotes sont recommandées si
 |Pilote JDBC| 6.4.0 |
 |Pilote Node.js| 2.1.1 |
 |Pilote OLEDB| 18.0.2.0 |
-|SSMS| 18.0 ou [supérieur](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
-|[SMO](https://docs.microsoft.com/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | [150](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) ou une version ultérieure |
+|SSMS| 18.0 ou [ultérieur](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
+|[SMO](https://docs.microsoft.com/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | [150](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) ou ultérieur |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

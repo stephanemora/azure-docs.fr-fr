@@ -1,101 +1,105 @@
 ---
-title: Analyser les données de journal dans Azure Monitor | Microsoft Docs
-description: Pour récupérer des données de journal à partir d'Azure Monitor, vous devez exécuter une requête de journal.  Cet article explique comment les nouvelles requêtes de journal sont utilisées dans Azure Monitor et présente les concepts avec lesquels vous devez vous familiariser avant de créer une requête.
+title: Vue d’ensemble des requêtes de journal dans Azure Monitor | Microsoft Docs
+description: Repond aux questions fréquentes liées aux requêtes de journal et vous montre comment commencer à les utiliser.
 services: log-analytics
 author: bwren
 ms.service: log-analytics
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 06/19/2019
 ms.author: bwren
-ms.openlocfilehash: 1cb3946a93cbeff6a9b95e0a21edbf0523b53d5e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7605bf36c41c5b1276d29076173efd52409afaa9
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65203614"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67310336"
 ---
-# <a name="analyze-log-data-in-azure-monitor"></a>Analyser les données de journal dans Azure Monitor
+# <a name="overview-of-log-queries-in-azure-monitor"></a>Vue d’ensemble des requêtes de journal dans Azure Monitor
+Les requêtes de journal vous aident à tirer pleinement parti de la valeur des données collectées dans les [journaux Azure Monitor](../platform/data-platform-logs.md). Un puissant langage de requête vous permet de joindre des données provenant de plusieurs tables, d’agréger des jeux de données volumineux et d’effectuer des opérations complexes avec un minimum de code. Vous pouvez répondre à pratiquement n’importe quelle question et effectuer n’importe quelle analyse tant que les données de soutien ont été collectées et que vous comprenez comment construire la bonne requête.
 
-Les données de journal collectées par Azure Monitor sont stockées dans un espace de travail Log Analytics, qui est basé sur [Azure Data Explorer](/azure/data-explorer). La fonctionnalité collecte des données de télémétrie à partir de diverses sources et exploite le [langage de requête de Kusto](/azure/kusto/query) utilisé par Data Explorer pour récupérer et analyser les données.
+Certaines fonctionnalités d’Azure Monitor telles que les [insights](../insights/insights-overview.md) et les [solutions](../insights/solutions-inventory.md) traitent les données de journal sans vous exposer à des requêtes sous-jacentes. Pour tirer pleinement parti des autres fonctionnalités d’Azure Monitor, vous devez comprendre comment les requêtes sont construites et comment vous pouvez les utiliser pour analyser les données dans les journaux d’Azure Monitor de manière interactive.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
+Utilisez cet article comme point de départ pour l’apprentissage des requêtes de journal dans Azure Monitor. Il répond aux questions courantes et fournit des liens vers d’autres documents offrant davantage de détails et de leçons.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+## <a name="how-can-i-learn-how-to-write-queries"></a>Comment puis-je apprendre à écrire des requêtes ?
+Si vous souhaitez vous lancer directement dans les choses, vous pouvez démarrer avec les didacticiels suivants :
 
-## <a name="log-queries"></a>Requêtes dans les journaux
+- [Bien démarrer avec Log Analytics dans Azure Monitor](get-started-portal.md).
+- [Bien démarrer avec les requêtes de journal dans Azure Monitor](get-started-queries.md).
 
-Pour récupérer des données de journal à partir d'Azure Monitor, vous devez exécuter une requête de journal.  Que vous [analysiez des données sur le portail](portals.md), [configuriez une règle d’alerte](../platform/alerts-metric.md) pour être averti d’une condition particulière ou récupériez des données à l’aide de l’[API Journaux d’activité Azure Monitor](https://dev.loganalytics.io/), vous devrez utiliser une requête afin de spécifier les données souhaitées.  Cet article explique comment les requêtes de journal sont utilisées dans Azure Monitor et présente les concepts avec lesquels vous devez vous familiariser avant de créer une requête.
+Une fois que vous avez intégré les notions de base, passez en revue les leçons avec vos propres données ou celles de notre environnement de démonstration en commençant par : 
 
-## <a name="where-log-queries-are-used"></a>Lorsque les requêtes dans les journaux sont utilisées
+- [Utilisation de chaînes dans des requêtes de journal Azure Monitor](string-operations.md)
+ 
+## <a name="what-language-do-log-queries-use"></a>Quel langage les requêtes de journal utilisent-elles ?
+Azure Monitor Logs repose sur [Azure Data Explorer](/azure/data-explorer), et les requêtes de journal sont écrites à l’aide du même langage de requête Kusto (KQL). Il s’agit d’un langage riche conçu pour être facile à lire et écrire, et vous pourrez commencer à l’utiliser avec un minimum de conseils.
 
-Voici plusieurs façons d’utiliser les requêtes dans Azure Monitor :
+Consultez la [documentation de KQL pour Azure Data Explorer](/azure/kusto/query) pour obtenir une documentation complète sur KQL et des informations de référence sur les différentes fonctions disponibles.<br>
+Consultez [Bien démarrer avec les requêtes de journal dans Azure Monitor](get-started-queries.md) pour un bref aperçu du langage avec des données des journaux d’Azure Monitor.
+Consultez [Différences propres au langage de requête de journal d'Azure Monitor](data-explorer-difference.md) pour découvrir les différences mineures dans la version de KQL utilisée par Azure Monitor.
 
-- **Portail.** Vous pouvez effectuer une analyse interactive des données de journal dans le [portail Azure](portals.md).  Cela vous permet de modifier votre requête et d’analyser les résultats dans divers formats et visualisations.  
+## <a name="what-data-is-available-to-log-queries"></a>Quelles sont les données disponibles pour les requêtes de journal ?
+Toutes les données collectées dans Azure Monitor Logs sont disponibles pour récupération et analyse par les requêtes de journal. Différentes sources de données écriront leurs données dans différentes tables, mais vous pouvez inclure plusieurs tables dans une seule requête pour analyser les données entre plusieurs sources. Lorsque vous générez une requête, vous commencez par déterminer les tables comportant les données que vous recherchez ; vous devez donc avoir au moins une connaissance élémentaire de la structure des données dans Azure Monitor Logs.
+
+Consultez [Sources d’Azure Monitor Logs](../platform/data-platform-logs.md#sources-of-azure-monitor-logs) pour une liste des différentes sources de données qui remplissent Azure Monitor Logs.<br>
+Consultez [Structure d’Azure Monitor Logs](logs-structure.md) pour une explication de la façon dont les données sont structurées.
+
+## <a name="what-does-a-log-query-look-like"></a>À quoi ressemble une requête de journal ?
+Une requête peut être aussi simple qu’un seul nom de table pour récupérer tous les enregistrements de cette table :
+
+```Kusto
+Syslog
+```
+
+Ou vous pouvez filtrer des enregistrements particuliers, les synthétiser et visualiser les résultats dans un graphique :
+
+```
+SecurityEvent
+| where TimeGenerated > ago(7d)
+| where EventID == 4625
+| summarize count() by Computer, bin(TimeGenerated, 1h)
+| render timechart 
+```
+
+Pour une analyse plus complexe, vous pouvez récupérer des données provenant de plusieurs tables à l’aide d’une jointure pour analyser les résultats ensemble.
+
+```Kusto
+app("ContosoRetailWeb").requests
+| summarize count() by bin(timestamp,1hr)
+| join kind= inner (Perf
+    | summarize avg(CounterValue) 
+      by bin(TimeGenerated,1hr))
+on $left.timestamp == $right.TimeGenerated
+```
+Même si vous n’êtes pas familiarisé avec KQL, vous devriez au moins pouvoir déterminer la logique de base utilisée par ces requêtes. Elles commencent par le nom d’une table, et vous y ajoutez plusieurs commandes pour filtrer et traiter ces données. Une requête peut utiliser n’importe quel nombre de commandes, et vous pourrez écrire des requêtes plus complexes après vous être familiarisé avec les différentes commandes KQL disponibles.
+
+Consultez [Bien démarrer avec les requêtes de journal dans Azure Monitor](get-started-queries.md) pour obtenir un didacticiel sur les requêtes de journal qui présente le langage et ses fonctions communes.<br>
+
+
+## <a name="what-is-log-analytics"></a>Présentation de Log Analytics
+Log Analytics est le principal outil dans le portail Azure pour l’écriture de requêtes de journal et l’analyse interactive de leurs résultats. Même si une requête de journal est utilisée ailleurs dans Azure Monitor, vous allez généralement commencer par écrire et tester la requête dans Log Analytics.
+
+Vous pouvez démarrer Log Analytics à partir de plusieurs endroits dans le portail Azure. L’étendue des données disponibles pour Log Analytics est déterminée par la façon dont vous le démarrez. Consultez [Étendue de requête](scope.md) pour plus d’informations.
+
+- Sélectionnez **Journaux** dans le menu **Azure Monitor** ou **Espaces de travail Log Analytics**.
+- Sélectionnez **Analytique** à partir de la page **Vue d’ensemble** d’une application Application Insights.
+- Sélectionnez **Journaux** dans le menu d’une ressource Azure.
+
+![Log Analytics](media/log-query-overview/log-analytics.png)
+
+Consultez [Bien démarrer avec Log Analytics dans Azure Monitor](get-started-portal.md) pour un didacticiel pas à pas de Log Analytics qui présente plusieurs de ses fonctionnalités.
+
+## <a name="where-else-are-log-queries-used"></a>Où les requêtes de journal sont-elles utilisées ?
+En plus de travailler de manière interactive avec les requêtes de journal et leurs résultats dans Log Analytics, les zones dans Azure Monitor où vous allez utiliser les requêtes sont les suivantes :
+
 - **Règles d’alerte.** Les [règles d’alerte](../platform/alerts-overview.md) identifient de façon proactive les problèmes à partir des données dans votre espace de travail.  Chaque règle d’alerte est basée sur une recherche dans les journaux qui est exécutée automatiquement à intervalles réguliers.  Les résultats sont inspectés pour déterminer si une alerte doit être créée.
-- **Tableaux de bord.** Vous pouvez épingler les résultats de n’importe quelle requête dans un [tableau de bord Azure](../learn/tutorial-logs-dashboards.md) afin de visualiser les données de journal et les métriques ensemble et de partager ces informations avec d’autres utilisateurs Azure si vous le souhaitez. 
+- **Tableaux de bord.** Vous pouvez épingler les résultats de n’importe quelle requête dans un [tableau de bord Azure](../learn/tutorial-logs-dashboards.md) afin de visualiser les données de journal et les métriques ensemble et de partager ces informations avec d’autres utilisateurs Azure si vous le souhaitez.
 - **Vues.**  Vous pouvez créer des visualisations de données à inclure dans les tableaux de bord utilisateur avec le [Concepteur de vues](../platform/view-designer.md).  Les requêtes dans les journaux fournissent les données utilisées par les [vignettes](../platform/view-designer-tiles.md) et les [composants de visualisation](../platform/view-designer-parts.md) dans chaque vue.  
-
 - **Exportation.**  Lorsque vous importez des données de journal d'Azure Monitor vers Excel ou [Power BI](../platform/powerbi.md), vous créez une requête de journal pour définir les données à exporter.
 - **PowerShell.** Vous pouvez exécuter un script PowerShell à partir d’une ligne de commande ou d’un runbook Azure Automation qui utilise [Get-AzOperationalInsightsSearchResults](/powershell/module/az.operationalinsights/get-azoperationalinsightssearchresult) pour récupérer des données de journal à partir d’Azure Monitor.  Cette applet de commande nécessite une requête pour déterminer les données à récupérer.
 - **API Journaux d’activité Azure Monitor.**  L’[API Journaux d’activité Azure Monitor](../platform/alerts-overview.md) permet à tout client d’API REST de récupérer des données de journal d’activité à partir de l’espace de travail.  La demande API comprend une requête qui est exécutée sur Azure Monitor pour déterminer les données à récupérer.
 
-![Recherches dans les journaux](media/log-query-overview/queries-overview.png)
-
-## <a name="write-a-query"></a>Écrivez votre requête.
-Azure Monitor utilise [une version du langage de requête de Kusto](get-started-queries.md) pour récupérer et analyser les données de journal de différentes façons.  Vous commencerez généralement par des requêtes de base, puis vous passerez à des fonctions plus avancées à mesure que vos exigences deviendront plus complexes.
-
-La structure de base d’une requête est une table source suivie d’une série d’opérateurs séparés par une barre verticale `|`.  Vous pouvez chaîner plusieurs opérateurs pour affiner les données et effectuer des fonctions avancées.
-
-Par exemple, supposez que vous souhaitez rechercher les dix ordinateurs ayant eu le plus d’événements d’erreur durant les dernières 24 heures,
-
-```Kusto
-Event
-| where (EventLevelName == "Error")
-| where (TimeGenerated > ago(1days))
-| summarize ErrorCount = count() by Computer
-| top 10 by ErrorCount desc
-```
-
-ou que vous souhaitez rechercher les ordinateurs qui n’ont pas eu de pulsation durant les dernières 24 heures.
-
-```Kusto
-Heartbeat
-| where TimeGenerated > ago(7d)
-| summarize max(TimeGenerated) by Computer
-| where max_TimeGenerated < ago(1d)  
-```
-
-Et si vous génériez un graphique en courbes avec l’utilisation du processeur pour chaque ordinateur durant la semaine dernière ?
-
-```Kusto
-Perf
-| where ObjectName == "Processor" and CounterName == "% Processor Time"
-| where TimeGenerated  between (startofweek(ago(7d)) .. endofweek(ago(7d)) )
-| summarize avg(CounterValue) by Computer, bin(TimeGenerated, 5min)
-| render timechart    
-```
-
-Grâce à ces exemples rapides, vous pouvez constater que, quel que soit le type de données avec lequel vous travaillez, la structure de la requête est similaire.  Vous pouvez la décomposer en étapes distinctes où les données obtenues à partir d’une commande sont envoyées à la commande suivante par l’intermédiaire du pipeline.
-
-Vous pouvez également interroger les données dans les espaces de travail Log Analytics au sein de votre abonnement.
-
-```Kusto
-union Update, workspace("contoso-workspace").Update
-| where TimeGenerated >= ago(1h)
-| summarize dcount(Computer) by Classification 
-```
-
-## <a name="how-azure-monitor-log-data-is-organized"></a>Organisation des données de journal Azure Monitor
-Quand vous générez une requête, commencez par déterminer les tables où figurent les données que vous recherchez. Les différents types de données sont séparés en tables dédiées dans chaque [espace de travail Log Analytics](../learn/quick-create-workspace.md).  La documentation des diverses sources de données inclut le nom du type de données créé et une description de chacune de ses propriétés.  De nombreuses requêtes nécessitent les données d’une seule table, mais d’autres peuvent utiliser diverses options pour inclure des données provenant de plusieurs tables.
-
-Bien qu’[Application Insights](../app/app-insights-overview.md) stocke les données d’application telles que les requêtes, les exceptions, les traces et les données d’utilisation dans les journaux d’activité Azure Monitor, ces données sont stockées dans une partition différente de celle des autres données de journal d’activité. Le même langage de requête vous permet d’accéder à ces données, mais vous devez utiliser la [console Application Insights](../app/analytics.md) ou l’[API REST Application Insights](https://dev.applicationinsights.io/) pour y accéder. Vous pouvez utiliser des [requêtes interressources](../log-query/cross-workspace-query.md) pour combiner des données Application Insights avec d'autres données de journal dans Azure Monitor.
-
-
-![Tables](media/log-query-overview/queries-tables.png)
-
-
-
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Apprenez à utiliser [l’analytique des journaux d’activité pour créer et modifier des recherches dans les journaux](../log-query/portals.md).
-- Consultez un [didacticiel sur l’écriture de requêtes](../log-query/get-started-queries.md) à l’aide du nouveau langage de requête.
+- Passez en revue un [didacticiel sur l’utilisation de Log Analytics dans le portail Azure](get-started-portal.md).
+- Passez en revue un [didacticiel sur l’écriture de requêtes](get-started-queries.md).

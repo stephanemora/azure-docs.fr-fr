@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: df05bd984667283b0ccc143ba14fff6b35d69144
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9c003ebaed645fcdefb379eb100220ccc2207d82
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66753180"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67202974"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurer des expériences ML automatisées dans Python
 
@@ -134,7 +134,7 @@ y_valid |   Tramedonnées Pandas ou tableaux Numpy | data_train, étiquette | _F
 sample_weight | Tramedonnées Pandas ou tableaux Numpy |   data_train, étiquette, colonnes| _Facultatif_ Une valeur de pondération pour chaque échantillon. À utiliser quand vous voulez affecter des pondérations différentes à vos points de données
 sample_weight_valid | Tramedonnées Pandas ou tableaux Numpy | data_train, étiquette, colonnes |    _Facultatif_ Une valeur de pondération pour chaque échantillon de validation. Si non spécifié, sample_weight est divisé entre l’entraînement et la validation
 data_train |    Tramedonnées Pandas |  X, y, X_valid, y_valid |    Toutes les données (caractéristiques + étiquette) pour l’entraînement
-label | chaîne  | X, y, X_valid, y_valid |  La colonne de data_train qui représente l’étiquette
+label | string  | X, y, X_valid, y_valid |  La colonne de data_train qui représente l’étiquette
 colonnes | Tableau de chaînes  ||  _Facultatif_ Liste verte de colonnes à utiliser pour les caractéristiques
 cv_splits_indices   | Tableau d’entiers ||  _Facultatif_ Liste des index pour diviser les données pour la validation croisée
 
@@ -259,6 +259,20 @@ automl_config = AutoMLConfig(task='forecasting',
 
 ## <a name="run-experiment"></a>Exécuter une expérience
 
+Pour le ML automatisé, vous devez créer un objet `Experiment`, qui est un objet nommé dans un `Workspace` utilisé pour exécuter des expériences.
+
+```python
+from azureml.core.experiment import Experiment
+
+ws = Workspace.from_config()
+
+# Choose a name for the experiment and specify the project folder.
+experiment_name = 'automl-classification'
+project_folder = './sample_projects/automl-classification'
+
+experiment = Experiment(ws, experiment_name)
+```
+
 Soumettez l’expérience pour qu’elle s’exécute et génère un modèle. Passez `AutoMLConfig` à la méthode `submit` pour générer le modèle.
 
 ```python
@@ -358,7 +372,7 @@ Utilisez ces 2 API sur la première étape du modèle ajusté pour en savoir plu
 
    Où :
 
-   |Sortie|Définition|
+   |Output|Définition|
    |----|--------|
    |RawFeatureName|Fonctionnalité/colonne d’entrée du jeu de données fournis.|
    |TypeDetected|Type de données détecté de la fonctionnalité d’entrée.|

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: kasinh
-ms.openlocfilehash: 26f25a0dcbeef0d5b7456d42caaca392c3ca6a1a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 43793f1cc105bda7a50371f8fffd4ff787f6e300
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62098860"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204436"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installer et mettre à niveau Azure Backup Server
 > [!div class="op_single_selector"]
@@ -42,19 +42,18 @@ Azure Backup Server hérite d’une grand partie des fonctionnalités de sauvega
 La première étape de la mise en service d’Azure Backup Server consiste à configurer un serveur Windows Server. Il peut s’agir d’un serveur local ou d’un serveur dans Azure.
 
 ### <a name="using-a-server-in-azure"></a>Utilisation d’un serveur dans Azure
-Lorsque vous choisissez un serveur pour exécuter le serveur de sauvegarde Azure, nous vous recommandons de commencer par une image de la galerie de Windows Server 2012 R2 Datacenter, Windows Server 2016 Datacenter ou Windows Server 2019 Datacenter. L’article [Créer votre première machine virtuelle Windows dans le portail Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)propose un didacticiel de prise en main de la machine virtuelle recommandée dans Azure, même si vous n’avez jamais utilisé Azure. Configuration minimale recommandée pour la machine virtuelle serveur : A2 Standard avec deux cœurs et 3,5 Go de RAM.
+Lorsque vous choisissez un serveur pour exécuter le serveur de sauvegarde Azure, nous vous recommandons de commencer par une image de la galerie de Windows Server 2012 R2 Datacenter, Windows Server 2016 Datacenter ou Windows Server 2019 Datacenter. L’article [Créer votre première machine virtuelle Windows dans le portail Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)propose un didacticiel de prise en main de la machine virtuelle recommandée dans Azure, même si vous n’avez jamais utilisé Azure. Configuration minimale recommandée pour la machine virtuelle serveur : Standard_A4_v2 avec quatre cœurs et 8 Go de RAM.
 
 La protection des charges de travail à l’aide d’Azure Backup Server peut prendre plusieurs formes. L’article [Installation de DPM en tant que machine virtuelle Azure](https://technet.microsoft.com/library/jj852163.aspx), permet d’expliquer ces différentes formes. Avant de déployer la machine, lisez cet entièrement cet article.
 
 ### <a name="using-an-on-premises-server"></a>Utilisation d’un serveur local
-Si vous ne souhaitez pas exécuter le serveur de base dans Azure, vous pouvez l’exécuter sur un ordinateur virtuel Hyper-V, un ordinateur virtuel VMware ou un hôte physique. Configuration minimale recommandée pour le matériel de serveur : 2 cœurs et 4 Go de RAM. Les systèmes d’exploitation pris en charge sont répertoriés dans le tableau ci-après :
+Si vous ne souhaitez pas exécuter le serveur de base dans Azure, vous pouvez l’exécuter sur un ordinateur virtuel Hyper-V, un ordinateur virtuel VMware ou un hôte physique. Configuration minimale recommandée pour le matériel de serveur : 2 cœurs et 8 Go de RAM. Les systèmes d’exploitation pris en charge sont répertoriés dans le tableau ci-après :
 
 | Système d’exploitation | Plateforme | SKU |
 |:--- | --- |:--- |
 | Windows Server 2019 |64 bits |Standard, Datacenter, Essentials (MABS V3 et versions ultérieures) |
 | Windows Server 2016 et derniers Service Packs |64 bits |Standard, Datacenter, Essentials (MABS V2 et versions ultérieures) |
 | Windows Server 2012 R2 et derniers Service Packs |64 bits |Standard, Datacenter, Foundation |
-| Windows Server 2012 et derniers Service Packs |64 bits |Datacenter, Foundation, Standard |
 | Windows Storage Server 2012 R2 et derniers Service Packs |64 bits |Standard, Workgroup |
 | Windows Storage Server 2012 et derniers Service Packs |64 bits |Standard, Workgroup |
 
@@ -206,7 +205,7 @@ Une fois le processus d’extraction terminé, cochez la case pour exécuter le 
 
     L’étape suivante consiste à configurer l’Agent Microsoft Azure Recovery Services. Dans le cadre de la configuration, vous devrez fournir les informations d’identification de coffre pour inscrire l’ordinateur dans le coffre Recovery Services. Vous allez également fournir une phrase secrète pour chiffrer/déchiffrer les données circulant entre Azure et votre environnement local. Vous pouvez automatiquement générer une phrase secrète ou fournir votre propre phrase secrète d’au minimum 16 caractères. Continuez avec l’Assistant jusqu’à ce que l’agent soit configuré.
 
-    ![PreReq2 de serveur de sauvegarde Azure](./media/backup-azure-microsoft-azure-backup/mars/04.png)
+    ![Azure Backup Server PreReq2](./media/backup-azure-microsoft-azure-backup/mars/04.png)
 9. Une fois l’inscription du serveur Microsoft Azure Backup terminée et réussie, l’Assistant général d’installation procède à l’installation et à la configuration de SQL Server et des composants Azure Backup Server. Une fois l’installation du composant SQL Server terminée, les composants Azure Backup Server sont installés.
 
     ![Azure Backup Server](./media/backup-azure-microsoft-azure-backup/final-install/venus-installation-screen.png)
@@ -262,7 +261,7 @@ Voici les étapes à suivre si vous devez déplacer MABS vers un nouveau serveur
 9. Depuis SQL, restaurez la base de données DPM.
 10. À partir de la ligne de commande d’administration sur le nouveau serveur, accédez au répertoire d’installation de Sauvegarde Microsoft Azure, puis au dossier bin.
 
-    Exemple de chemin : C:\windows\system32>cd "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\" 
+    Exemple de chemin : C:\windows\system32>cd "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\"
 
 11. Vers la sauvegarde Azure, exécutez DPMSYNC -SYNC
 
@@ -285,7 +284,7 @@ Une fois que vous connaissez l’état de la connectivité d’Azure et de l’a
 | Connectivité perdue depuis > 15 jours |Approvisionnement annulé |Arrêté |Arrêté |Arrêté et points de restauration Azure supprimés |Arrêté |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Récupération après la perte de connectivité
-Si vous êtes équipé d’un pare-feu ou d’un proxy qui empêche l’accès à Azure, vous devez mettre sur liste approuvée les adresses de domaine suivantes dans le profil de pare-feu/proxy :
+Si vous êtes équipé d’un pare-feu ou d’un proxy qui empêche l’accès à Azure, vous devez autoriser les adresses de domaine suivantes dans le profil de pare-feu/proxy :
 
 * `http://www.msftncsi.com/ncsi.txt`
 * \*.Microsoft.com
@@ -307,7 +306,7 @@ Utilisez les procédures suivantes pour mettre à niveau MABS.
 ### <a name="upgrade-from-mabs-v2-to-v3"></a>Mettre à niveau de MABS V2 vers MABS V3
 
 > [!NOTE]
-> 
+>
 > MABS V2 n’est pas une condition préalable à l’installation de MABS V3. Toutefois, vous ne pouvez mettre à niveau vers MABS V3 qu’à partir de MABS V2.
 
 Procédez comme suit pour mettre à niveau MABS :
@@ -317,15 +316,15 @@ Procédez comme suit pour mettre à niveau MABS :
 2. Mettre à niveau votre serveur. La procédure est similaire à celle de l’[installation](#install-and-upgrade-azure-backup-server). Toutefois, pour les paramètres de SQL, vous aurez le choix entre deux options : mettre à niveau votre instance SQL vers SQL 2017, ou utiliser votre propre instance SQL server 2017.
 
    > [!NOTE]
-   > 
+   >
    > Ne quittez pas pendant la mise à niveau de votre instance SQL, car ceci désinstallera l’instance de création de rapports SQL et, par conséquent, une tentative de nouvelle mise à niveau de MABS échouera.
 
    Quelques points importants à prendre en considération :
 
    > [!IMPORTANT]
-   > 
+   >
    >  Dans le cadre de la mise à niveau de SQL 2017, nous sauvegardons les clés de chiffrement SQL et désinstallons les services de création de rapports. Après la mise à niveau du serveur SQL, le service de création de rapports (14.0.6827.4788) est installé et les clés de chiffrement sont restaurées.
-   > 
+   >
    > Lorsque vous configurez manuellement SQL 2017, reportez-vous à la section *configuration de SSRS avec SQL 2017* sous les instructions d’installation.
 
 3. Mettez à jour les agents de protection sur les serveurs protégés.
@@ -333,7 +332,7 @@ Procédez comme suit pour mettre à niveau MABS :
 5. Vous pouvez commencer à protéger vos données dès maintenant. Si vous mettez à niveau vers le stockage de sauvegarde moderne, tout en protégeant les données, vous pouvez également choisir les volumes dans lesquels vous souhaitez stocker les sauvegardes et vérifier s'il n'y a pas d'espace sous-approvisionné. [Plus d’informations](backup-mabs-add-storage.md)
 
 > [!NOTE]
-> 
+>
 > Si vous mettez à niveau de MABS V1 vers MABS V2, assurez-vous que votre système d’exploitation est Windows Server 2016 ou Windows Server 2012 R2. Pour tirer parti des nouvelles fonctionnalités telles que System Center 2016 Data Protection Manager Modern Backup Storage, vous devez installer le serveur de sauvegarde V2 sur Windows Server 2016. Avant d’installer le serveur de sauvegarde V2 ou d’effectuer la mise à niveau vers ce dernier, prenez connaissance des [conditions préalables à l’installation](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites) applicables à MABS.
 
 ## <a name="troubleshooting"></a>Résolution de problèmes

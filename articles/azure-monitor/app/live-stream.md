@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: bc85de0c8ec89ea88d2bae8e3f226da7d3163f53
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 607da7983cabe4c36c01171ba8d88c752b99ce3d
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64721092"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303809"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Flux de métriques temps réel : Surveiller et diagnostiquer avec une latence de 1 seconde
 
-Sondez le cœur de votre application web dynamique en production en utilisant les flux de métriques temps réel depuis [Application Insights](../../azure-monitor/app/app-insights-overview.md). Sélectionnez et filtrez les métriques et les compteurs de performances à surveiller en temps réel, sans aucune perturbation de votre service. Inspectez les traces de pile à partir d’échantillons de demandes en échec et d’exceptions. En combinaison avec le [profileur](../../azure-monitor/app/profiler.md), le [débogueur d’instantané](../../azure-monitor/app/snapshot-debugger.md) et les [tests de performances](../../azure-monitor/app/monitor-web-app-availability.md#performance-tests), les flux de métriques temps réel constituent un outil de diagnostic puissant et non invasif pour votre site web dynamique.
+Sondez le cœur de votre application web dynamique en production en utilisant les flux de métriques temps réel depuis [Application Insights](../../azure-monitor/app/app-insights-overview.md). Sélectionnez et filtrez les métriques et les compteurs de performances à surveiller en temps réel, sans aucune perturbation de votre service. Inspectez les traces de pile à partir d’échantillons de demandes en échec et d’exceptions. Avec [Profiler](../../azure-monitor/app/profiler.md), le [Débogueur de capture instantanée](../../azure-monitor/app/snapshot-debugger.md). Live Metrics Stream fournit un outil de diagnostic puissant et non invasif pour votre site web actif.
 
 Avec les flux de métriques temps réel, vous pouvez :
 
@@ -192,15 +192,6 @@ Toutefois, si vous connaissez et faites confiance à tous les serveurs connecté
 >[!NOTE]
 >Nous vous recommandons vivement de configurer le canal authentifié avant d’entrer des informations potentiellement sensibles comme un ID client dans les critères de filtre.
 >
-
-## <a name="generating-a-performance-test-load"></a>Génération d’un test de performances de charge
-
-Si vous voulez observer l’effet d’une augmentation de la charge, utilisez le panneau Test de performances. Il simule des demandes à partir d’un certain nombre d’utilisateurs simultanés. Il peut s’exécuter des « tests manuels » (tests de ping) d’une URL unique, ou il peut exécuter un [test de performances web multi-étape](../../azure-monitor/app/monitor-web-app-availability.md#multi-step-web-tests) que vous chargez (de la même façon qu’un test de disponibilité).
-
-> [!TIP]
-> Après avoir créé le test de performances, ouvrez le test et le panneau Flux temps réel dans des fenêtres distinctes. Vous pouvez voir quand le test de performances en file d’attente démarre, et observer le flux dynamique en même temps.
->
-
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 

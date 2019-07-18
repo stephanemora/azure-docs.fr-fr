@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/29/2019
 ms.author: erhopf
-ms.openlocfilehash: 9cad860b8808dd2682995768c282d8376ab5d9be
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.openlocfilehash: 5f06ca04b0b6ea48ebb49952df71cb02946777fa
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66145372"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67333373"
 ---
 ## <a name="authentication"></a>Authentication
 
@@ -17,17 +17,16 @@ Chaque requête nécessite un en-tête d’autorisation. Ce tableau présente le
 
 | En-têtes d'autorisation pris en charge | Reconnaissance vocale | Synthèse vocale |
 |------------------------|----------------|----------------|
-| Ocp-Apim-Subscription-Key | Oui | Non |
-| Autorisation : Support | Oui | Oui |
+| Ocp-Apim-Subscription-Key | OUI | Non |
+| Autorisation : Support | OUI | OUI |
 
-Lorsque vous utilisez l’en-tête `Ocp-Apim-Subscription-Key`, vous devez uniquement fournir votre clé d’abonnement. Exemple :
+Lorsque vous utilisez l’en-tête `Ocp-Apim-Subscription-Key`, vous devez uniquement fournir votre clé d’abonnement. Par exemple :
 
 ```
 'Ocp-Apim-Subscription-Key': 'YOUR_SUBSCRIPTION_KEY'
 ```
 
-Lorsque vous utilisez l’en-tête `Authorization: Bearer`, vous devez envoyer une demande au point de terminaison `issueToken`. Dans cette requête, vous échangez votre clé d’abonnement contre un jeton d’accès valide pendant 10 minutes. Dans les sections suivantes, vous apprendrez à obtenir, utiliser et actualiser un jeton.
-
+Lorsque vous utilisez l’en-tête `Authorization: Bearer`, vous devez envoyer une demande au point de terminaison `issueToken`. Dans cette requête, vous échangez votre clé d’abonnement contre un jeton d’accès valide pendant 10 minutes. Dans les sections suivantes, vous apprendrez à obtenir et utiliser un jeton.
 
 ### <a name="how-to-get-an-access-token"></a>Obtenir un jeton d’accès
 

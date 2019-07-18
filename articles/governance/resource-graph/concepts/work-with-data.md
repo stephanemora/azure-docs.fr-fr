@@ -7,16 +7,18 @@ ms.date: 04/01/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: ff9513418857562408c162533c48f6495b1f83c4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9accdc19062cba7bb313afac3da056798c325a4c
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65137854"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274418"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Utilisation de jeux de données volumineux d’Azure Resource Graph
 
 Azure Resource Graph est conçu pour obtenir et utiliser des informations sur des ressources dans votre environnement Azure. Resource Graph permet d’obtenir ces données rapidement, même en cas d’interrogation de milliers d’enregistrements. Resource Graph offre plusieurs options pour utiliser ces jeux de données volumineux.
+
+Pour obtenir des conseils sur l’utilisation des requêtes à une fréquence élevée, voir [Instructions pour les requêtes limitées](./guidance-for-throttled-requests.md).
 
 ## <a name="data-set-result-size"></a>Taille du jeu de résultats
 
@@ -84,6 +86,6 @@ Pour obtenir un exemple, voir [Requête Page suivante](/rest/api/azureresourcegr
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Voir l’utilisation du langage dans les [requêtes de démarrage](../samples/starter.md)
-- Voir les utilisations avancées dans les [Requêtes avancées](../samples/advanced.md)
-- Apprendre à [explorer les ressources](explore-resources.md)
+- Examinez le langage utilisé dans les [requêtes de démarrage](../samples/starter.md).
+- Examinez les utilisations avancées dans les [Requêtes avancées](../samples/advanced.md).
+- Apprenez à [explorer les ressources](explore-resources.md).

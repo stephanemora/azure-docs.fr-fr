@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: ddd3b0889eedd55f809dbb57b2ef41a2ae3f9c94
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 89c4723e83979f89721677146810abdf99fb5d11
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65521393"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67310483"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Informations de référence sur le fichier host.json pour Azure Functions 2.x  
 
@@ -147,7 +147,7 @@ Liste des fonctions que l’hôte de travail exécute. Un tableau vide désigne 
 
 ## <a name="functiontimeout"></a>functionTimeout
 
-Indique la durée avant expiration du délai de toutes les fonctions. Dans les plans de consommation serverless, la plage valide est comprise entre 1 seconde et 10 minutes, et la valeur par défaut est de 5 minutes. Dans un plan App Service, il n’existe aucune limite globale et la valeur par défaut dépend de la version du runtime. Dans la version 2.x, la valeur par défaut pour un plan App Service plan est de 30 minutes. Dans la version 1.x, elle prend la valeur *null*, ce qui signifie l’absence de délai d’expiration.
+Indique la durée avant expiration du délai de toutes les fonctions. Dans les plans de consommation serverless, la plage valide est comprise entre 1 seconde et 10 minutes, et la valeur par défaut est de 5 minutes. Dans un plan App Service dédié, il n’existe aucune limite globale, et la valeur par défaut est de 30 minutes. La valeur `-1` indique une exécution sans limite.
 
 ```json
 {

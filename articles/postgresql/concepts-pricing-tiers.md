@@ -1,19 +1,19 @@
 ---
-title: Niveaux tarifaires pour Azure Database pour PostgreSQL - serveur unique
-description: Cet article décrit les niveaux de tarification pour Azure Database pour PostgreSQL - serveur unique.
+title: Niveaux tarifaires pour Azure Database pour PostgreSQL - Serveur unique
+description: Cet article présente les niveaux tarifaires pour Azure Database pour PostgreSQL - Serveur unique.
 author: jan-eng
 ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: ed534f910fa1e44d3d53ab61ee86378eba788036
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: 5f60a2786a87f4bd9be1f4a9e2a7a222e097b2e1
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66240382"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448081"
 ---
-# <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Niveaux tarifaires dans Azure Database pour PostgreSQL - serveur unique
+# <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Créer des utilisateurs dans Azure Database pour PostgreSQL - Serveur unique
 
 Vous pouvez créer un serveur Azure Database pour PostgreSQL dans un des trois différents niveaux tarifaires : De base, Usage général et À mémoire optimisée. Les niveaux tarifaires diffèrent par la quantité de calcul dans vCores qui peut être configurée, la mémoire par vCore et la technologie de stockage utilisée pour stocker les données. Toutes les ressources sont approvisionnées au niveau du serveur PostgreSQL. Un serveur peut avoir une ou plusieurs bases de données.
 
@@ -38,7 +38,7 @@ Après avoir créé un serveur, le nombre de vCores, la génération du matérie
 
 ## <a name="compute-generations-and-vcores"></a>Générations de calcul et vCores
 
-Les ressources de calcul sont fournies en tant que vCores, représentant le processeur logique du matériel sous-jacent. Chine orientale 1, en Chine du Nord 1, centre des États-Unis et DoD est utilisent des processeurs logiques Gen 4 qui sont basés sur Intel E5-2673 v3 (Haswell) 2,4 GHz. Toutes les autres régions utilisent des processeurs logiques Gen 5 qui sont basés sur Intel E5-2673 v4 (Broadwell) 2.3 GHz processeurs.
+Les ressources de calcul sont fournies en tant que vCores, représentant le processeur logique du matériel sous-jacent. Chine Est 1, Chine Nord 1, US DoD Centre et US DoD Est utilisent des processeurs logiques Gen 4 qui sont basés sur des processeurs Intel E5-2673 v3 (Haswell) 2,4 GHz. Toutes les autres régions utilisent des processeurs logiques Gen 5 basés sur des processeurs Intel E5-2673 v4 (Broadwell) 2,3 GHz.
 
 ## <a name="storage"></a>Stockage
 
@@ -51,27 +51,47 @@ Le stockage que vous approvisionnez est la quantité de stockage disponible pour
 | Taille d’incrément de stockage | 1 Go | 1 Go | 1 Go |
 | E/S par seconde | Variable |3 E/S par seconde/Go<br/>Min 100 E/S par seconde<br/>Max 6000 E/S par seconde | 3 E/S par seconde/Go<br/>Min 100 E/S par seconde<br/>Max 6000 E/S par seconde |
 
-Vous pouvez ajouter de la capacité de stockage supplémentaire pendant et après la création du serveur et autoriser le système à croître automatiquement en fonction de la consommation de stockage de votre charge de travail de stockage. Le niveau De base n’offre pas de garantie d’E/S par seconde. Dans les niveaux tarifaires Usage général et À mémoire optimisée, les IOPS augmentent avec la taille de stockage approvisionnée selon un ratio de 3:1.
+Vous pouvez ajouter de la capacité de stockage supplémentaire pendant et après la création du serveur et autoriser le système à faire évoluer le stockage automatiquement en fonction de la consommation de votre charge de travail. Le niveau De base n’offre pas de garantie d’E/S par seconde. Dans les niveaux tarifaires Usage général et À mémoire optimisée, les IOPS augmentent avec la taille de stockage approvisionnée selon un ratio de 3:1.
 
 Vous pouvez surveiller votre consommation d’E/S dans le Portail Azure ou à l’aide des commandes Azure CLI. Les métriques pertinentes à surveiller sont [la limite de stockage, le pourcentage de stockage, le stockage utilisé et le pourcentage d’E/S](concepts-monitoring.md).
 
+### <a name="large-storage-preview"></a>Grand stockage (préversion)
+
+Nous augmentons les limites de stockage dans nos niveaux de service Usage général et Mémoire optimisée. Les serveurs nouvellement créés qui ont opté pour la préversion peuvent configurer jusqu'à 16 To de stockage. Les E/S évoluent à un taux de 3:1 jusqu'à 20 000 E/S par seconde. Comme pour le stockage à disponibilité générale actuel, vous pouvez ajouter de la capacité de stockage supplémentaire après la création du serveur et autoriser le système à faire évoluer le stockage automatiquement en fonction de la consommation de votre charge de travail.
+
+|              | **Usage général** | **Mémoire optimisée** |
+|:-------------|:--------------------|:---------------------|
+| Type de stockage | Stockage Premium Azure | Stockage Premium Azure |
+| Taille de stockage | 32 Go à 16 To| 32 à 16 To |
+| Taille d’incrément de stockage | 1 Go | 1 Go |
+| E/S par seconde | 3 E/S par seconde/Go<br/>Min 100 E/S par seconde<br/>Max 20 000 E/S par seconde | 3 E/S par seconde/Go<br/>Min 100 E/S par seconde<br/>Max 20 000 E/S par seconde |
+
+> [!IMPORTANT]
+> Le stockage volumineux est actuellement en préversion publique dans les régions suivantes : USA Est, USA Est 2, USA Centre, USA Ouest, Europe Nord, Europe Ouest, Royaume-Uni Sud, Royaume-Uni Ouest, Asie Sud-Est, Asie Est, Asie-Pacifique, Japon Est, Japon Ouest, Corée Centre, Corée Sud, Australie Est, Australie Sud-Est.
+>
+> La préversion du stockage volumineux ne prend actuellement pas en charge :
+>
+> * Les connexions entrantes via des points de terminaison de service de réseau virtuel
+> * Sauvegardes géographiquement redondantes
+> * Réplicas en lecture
+
 ### <a name="reaching-the-storage-limit"></a>Atteindre la limite de stockage
 
-Serveurs avec moins de 100 Go mis en service de stockage sont marqués en lecture seule si l’espace de stockage est inférieure à 512 Mo ou 5 % de la taille de stockage approvisionné. Serveurs avec plus de 100 Go mis en service de stockage sont en lecture uniquement lorsque l’espace de stockage est inférieure à 5 Go.
+Les serveurs avec moins de 100 Go de stockage configurés sont marqués en lecture seule si l’espace de stockage libre est inférieur à 512 Mo ou 5 % de la taille configurée. Les serveurs avec plus de 100 Go de stockage configurés sont en lecture seule lorsque l’espace de stockage libre est inférieur à 5 Go.
 
-Par exemple, si vous avez configuré de 110 Go de stockage, et l’utilisation réelle dépasse 105 Go, le serveur est marqué en lecture seule. Vous pouvez également, si vous avez configuré les 5 Go de stockage, le serveur est marqué en lecture seule lorsque l’espace de stockage atteint moins de 512 Mo.
+Par exemple, si vous avez provisionné 110 Go de stockage, et que l’utilisation réelle dépasse 105 Go, le serveur est marqué en lecture seule. Ou, si vous avez provisionné 5 Go de stockage, le serveur est marqué en lecture seule lorsque le stockage disponible est inférieur à 512 Mo.
 
 Lorsque le serveur est marqué en lecture seule, toutes les sessions existantes sont déconnectées et les transactions non validées sont restaurées. Toutes les opérations d’écriture suivantes et les validations de transactions ultérieures échouent. Toutes les requêtes de lecture ultérieures fonctionnent sans interruption.  
 
 Vous pouvez augmenter la quantité de stockage provisionné sur votre serveur ou démarrer une nouvelle session en mode lecture-écriture et supprimer des données pour récupérer du stockage disponible. L’exécution de `SET SESSION CHARACTERISTICS AS TRANSACTION READ WRITE;` définit la session actuelle en mode lecture-écriture. Pour éviter une altération des données, n’effectuez pas d’opérations d’écriture lorsque le serveur est toujours en lecture seule.
 
-Nous vous recommandons d’activer sur le stockage la croissance automatique ou pour configurer une alerte pour vous avertir quand le stockage serveur approche le seuil par conséquent, vous pouvez éviter d’introduire l’état en lecture seule. Pour plus d’informations, consultez la documentation sur [comment configurer une alerte](howto-alert-on-metric.md).
+Nous vous recommandons d’activer la croissance automatique du stockage ou de configurer une alerte pour vous avertir quand votre serveur de stockage est proche du seuil afin d’éviter la mise en lecture seule. Pour plus d’informations, consultez la documentation sur [comment configurer une alerte](howto-alert-on-metric.md).
 
-### <a name="storage-auto-grow"></a>Stockage-la croissance automatique
+### <a name="storage-auto-grow"></a>Croissance automatique du stockage
 
-Si la croissance automatique du stockage est activé, le stockage s’agrandit automatiquement sans affecter la charge de travail. Pour les serveurs avec moins de 100 Go mis en service de stockage, la taille de stockage approvisionné est augmentée de 5 Go dès que l’espace de stockage est ci-dessous supérieur à 1 Go ou 10 % du stockage approvisionné. Pour les serveurs avec plus de 100 Go de stockage approvisionné, la taille de stockage approvisionné est augmentée de 5 % lorsque l’espace de stockage libre est inférieur à 5 % de la taille de stockage approvisionné. Limites de stockage maximale comme indiqué ci-dessus s’appliquent.
+Si la croissance automatique du stockage est activée, le stockage évolue automatiquement sans affecter la charge de travail. Pour les serveurs avec moins de 100 Go de stockage configurés, la taille de stockage configurée augmente de 5 Go dès que l’espace de stockage libre est inférieur à 1 Go ou 10 % (selon la valeur la plus élevée) du stockage configuré. Pour les serveurs avec plus de 100 Go de stockage configuré, la taille de stockage configurée augmente de 5 % lorsque l’espace de stockage libre est inférieur à 5 % de la taille de stockage configurée. Les limites de stockage maximales indiquées ci-dessus s’appliquent.
 
-Par exemple, si vous avez configuré les 1 000 Go de stockage, et l’utilisation réelle dépasse 950 Go, la taille de stockage du serveur est augmentée à 1050 go. Vous pouvez également, si vous avez approvisionné 10 Go de stockage, la taille de stockage est augmentation à 15 Go lorsque moins de 1 Go de stockage est gratuit.
+Par exemple, si vous avez provisionné 1000 Go de stockage, et que l’utilisation réelle dépasse 950 Go, la taille de stockage du serveur passe à 1050 Go. Sinon, si vous avez configuré 10 Go de stockage, la taille de stockage augmente à 15 Go lorsque moins de 1 Go de stockage est libre.
 
 ## <a name="backup"></a>Sauvegarde
 
