@@ -6,16 +6,16 @@ services: cognitive-services
 author: yluiu
 manager: nitinme
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: yluiu
-ms.openlocfilehash: 037a059c95150314b6f85ea3eacdec0f6bb3d6c0
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 26ab3cb247309aa21791ca5a984f39ef40ce9a78
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449027"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249629"
 ---
 # <a name="specify-a-face-detection-model"></a>Spécifier un modèle de détection des visages
 
@@ -45,8 +45,7 @@ Lorsque vous utilisez l’API [Face - Detect], vous pouvez attribuer la version 
 
 Une URL de requête pour l’API REST [Face - Detect] se présentera comme suit :
 
-`https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes][&recognitionModel][&returnRecognitionModel][&detectionModel]
-&subscription-key=<Subscription key>`
+`https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes][&recognitionModel][&returnRecognitionModel][&detectionModel]&subscription-key=<Subscription key>`
 
 Si vous utilisez la bibliothèque cliente, vous pouvez attribuer la valeur de `detectionModel` en passant une chaîne appropriée. Si vous n’affectez pas de valeur, l’API utilise la version de modèle par défaut (`detection_01`). Consultez l'exemple de code suivant pour la bibliothèque cliente .NET.
 
