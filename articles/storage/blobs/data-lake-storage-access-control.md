@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 72a72e385217178cb6afee237cc3a3e5c5d1248b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 112d3b18df8205aac173eafb8f8e30ed6c32e048
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66751642"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249075"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Contrôle d’accès dans Azure Data Lake Storage Gen2
 
@@ -102,7 +102,7 @@ Les autorisations sur un objet de système de fichiers sont **Lecture**, **Écri
 | 7            | `RWX`        | Lecture + Écriture + Exécution |
 | 5\.            | `R-X`        | Lecture + Exécution         |
 | 4            | `R--`        | Lire                   |
-| 0            | `---`        | | Aucune autorisation         |
+| 0            | `---`        | Aucune autorisation         |
 
 #### <a name="permissions-inheritance"></a>Héritage des autorisations
 
@@ -312,8 +312,10 @@ Lorsque vous définissez des ACL pour des principaux de service, il est importan
 
 Pour obtenir l’OID du principal du service qui correspond à une inscription d’application, vous pouvez utiliser la commande `az ad sp show`. Spécifiez l’ID d’application comme paramètre. Voici un exemple sur l’obtention de l’OID du principal du service qui correspond à une inscription d’application avec l’ID d’application = 18218b12-1895-43e9-ad80-6e8fc1ea88ce. Dans Azure CLI, exécutez la commande suivante :
 
-`az ad sp show --id 18218b12-1895-43e9-ad80-6e8fc1ea88ce --query objectId
-<<OID will be displayed>>`
+```
+$ az ad sp show --id 18218b12-1895-43e9-ad80-6e8fc1ea88ce --query objectId
+<<OID will be displayed>>
+```
 
 Si vous avez le bon OID pour le principal du service, accédez à la page **Gérer l’accès** de l’Explorateur Stockage pour ajouter l’OID et attribuer des autorisations appropriées pour l’OID. Veillez à sélectionner **Enregistrer**.
 

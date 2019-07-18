@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 9d650a17ddfac6461341e50c4693e4522d9628b3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b8b0cebf4ba47f875caacfcfbf89b84551b41333
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65148193"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341855"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>Créer une application LUIS dans le portail LUIS
 Il existe deux façons de créer une application LUIS. Vous pouvez créer une application LUIS dans le portail [LUIS](https://www.luis.ai) ou par le biais des [API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f) de création LUIS.
@@ -65,7 +65,7 @@ Vous pouvez créer une application avec les API de création de deux manières 
 
 Plusieurs erreurs sont possibles : 
 
-* Il existe déjà une application portant ce nom. Importez à nouveau l’application, puis définissez un autre **Nom facultatif**. 
+* Il existe déjà une application portant ce nom. Pour y remédier, réimportez l’application, puis définissez un autre **Nom facultatif**. 
 
 ## <a name="export-app-for-backup"></a>Exporter une application à des fins de sauvegarde
 

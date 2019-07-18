@@ -1,19 +1,19 @@
 ---
-title: Surveiller et régler dans Azure Database pour PostgreSQL - serveur unique
-description: Cet article décrit les fonctionnalités de surveillance et de paramétrage de base de données Azure pour PostgreSQL - serveur unique.
+title: Superviser et optimiser Azure Database pour PostgreSQL - Serveur unique
+description: Cet article décrit les fonctionnalités de supervision et d’optimisation disponibles dans Azure Database pour PostgreSQL - Serveur unique.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
-ms.openlocfilehash: 5e03a3e33d618c393241a649be50fe78632caafe
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.date: 06/19/2019
+ms.openlocfilehash: c69ffb30a37de8e6dc3e15aa1f7dcd6a9311d614
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65068994"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274292"
 ---
-# <a name="monitor-and-tune-azure-database-for-postgresql---single-server"></a>Surveiller et régler la base de données Azure pour PostgreSQL - serveur unique
+# <a name="monitor-and-tune-azure-database-for-postgresql---single-server"></a>Superviser et optimiser Azure Database pour PostgreSQL (serveur unique)
 La surveillance des données relatives à vos serveurs vous aide à résoudre les problèmes et à optimiser votre charge de travail. Azure Database pour PostgreSQL propose différentes options de supervision pour fournir un insight sur le comportement de votre serveur.
 
 ## <a name="metrics"></a>Mesures
@@ -38,18 +38,20 @@ Les métriques suivantes sont disponibles pour Azure Database pour PostgreSQL :
 |network_bytes_egress|Network Out|Octets|Sortie réseau entre connexions actives.|
 |network_bytes_ingress|Network In|Octets|Entrée réseau entre connexions actives.|
 |backup_storage_used|Stockage de sauvegarde utilisé|Octets|Quantité de stockage de sauvegarde utilisée.|
+|pg_replica_log_delay_in_bytes|Retard maximum entre réplicas|Octets|Retard en octets entre le serveur maître et le réplica le plus en retard. Cette métrique est disponible sur le serveur maître uniquement.|
+|pg_replica_log_delay_in_seconds|Retard du réplica|Secondes|Temps écoulé depuis la dernière transaction réexécutée. Cette métrique est disponible pour les serveurs réplicas uniquement.|
 
 ## <a name="server-logs"></a>Journaux d’activité du serveur
-Vous pouvez activer la journalisation sur votre serveur. Ces journaux sont également disponibles via les journaux de Diagnostic Azure dans [Azure Monitor enregistre](../azure-monitor/log-query/log-query-overview.md), Event Hubs et compte de stockage. Pour en savoir plus sur la journalisation, consultez la page [journaux d’activité serveur](concepts-server-logs.md).
+Vous pouvez activer la journalisation sur votre serveur. Ces journaux sont également disponibles via les journaux de diagnostic Azure dans les [journaux d'activité Azure Monitor](../azure-monitor/log-query/log-query-overview.md), Event Hubs et le compte de stockage. Pour en savoir plus sur la journalisation, consultez la page [journaux d’activité serveur](concepts-server-logs.md).
 
 ## <a name="query-store"></a>Magasin de requêtes
-[Magasin des requêtes](concepts-query-store.md) est une fonctionnalité en préversion publique qui effectue le suivi des performances des requêtes au fil du temps, y compris les statistiques d’exécution des requêtes et les événements d’attente. Cette fonctionnalité conserve les informations sur les performances d’exécution des requêtes dans une base de données système nommée **azure_sys** sous le schéma query_store. Vous pouvez contrôler la collecte et le stockage des données au moyen de différents boutons de configuration.
+[Magasin des requêtes](concepts-query-store.md) effectue le suivi des performances des requêtes au fil du temps, y compris les statistiques d’exécution des requêtes et les événements d’attente. Cette fonctionnalité conserve les informations sur les performances d’exécution des requêtes dans une base de données système nommée **azure_sys** sous le schéma query_store. Vous pouvez contrôler la collecte et le stockage des données au moyen de différents boutons de configuration.
 
 ## <a name="query-performance-insight"></a>Query Performance Insight
-[Query Performance Insight](concepts-query-performance-insight.md) fonctionne conjointement avec le Magasin des requêtes pour fournir des visualisations accessibles à partir du portail Azure. Ces graphiques vous permettent d’identifier les principales requêtes qui ont un impact sur les performances. Query Performance Insight est disponible en préversion publique et est accessible dans la section **Support + dépannage** dans la page du portail de votre serveur Azure Database pour PostgreSQL.
+[Query Performance Insight](concepts-query-performance-insight.md) fonctionne conjointement avec le Magasin des requêtes pour fournir des visualisations accessibles à partir du portail Azure. Ces graphiques vous permettent d’identifier les principales requêtes qui ont un impact sur les performances. Query Performance Insight est accessible dans la section **Support + dépannage** de la page du portail de votre serveur Azure Database pour PostgreSQL.
 
 ## <a name="performance-recommendations"></a>Recommandations sur les performances
-La fonctionnalité [Recommandations sur les performances](concepts-performance-recommendations.md) identifie les opportunités d’amélioration des performances des charges de travail. La préversion publique de la fonctionnalité Recommandations sur les performances fournit des recommandations pour créer des index susceptibles d’améliorer les performances de vos charges de travail. Pour générer des recommandations d’index, la fonctionnalité prend en compte différentes caractéristiques de la base de données, notamment son schéma et la charge de travail comme indiqué par le Magasin des requêtes. Après avoir implémenté une recommandation sur les performances, les clients doivent tester les performances pour évaluer l’impact des changements. 
+La fonctionnalité [Recommandations sur les performances](concepts-performance-recommendations.md) identifie les opportunités d’amélioration des performances des charges de travail. La fonctionnalité Recommandations sur les performances fournit des recommandations pour créer des index susceptibles d’améliorer les performances de vos charges de travail. Pour générer des recommandations d’index, la fonctionnalité prend en compte différentes caractéristiques de la base de données, notamment son schéma et la charge de travail comme indiqué par le Magasin des requêtes. Après avoir implémenté une recommandation sur les performances, les clients doivent tester les performances pour évaluer l’impact des changements. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Consultez le [guide pratique pour configurer des alertes](howto-alert-on-metric.md) pour savoir comment créer une alerte sur une métrique.

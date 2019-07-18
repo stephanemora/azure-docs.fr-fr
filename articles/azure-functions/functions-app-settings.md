@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: 02becd787fcc5f82efff7ef21feaf336fba3a26f
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.openlocfilehash: 62d359494050b188869d51d1e3975c823b9c0a76
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65967593"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204933"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Informations de référence sur les paramètres d’application d’Azure Functions
 
@@ -32,6 +32,10 @@ Clé d’instrumentation d’Application Insights si vous utilisez Application�
 |Clé|Exemple de valeur|
 |---|------------|
 |APPINSIGHTS_INSTRUMENTATIONKEY|5dbdd5e9-af77-484b-9032-64f83bb83bb|
+
+## <a name="azurefunctionsenvironment"></a>AZURE_FUNCTIONS_ENVIRONMENT
+
+Dans la version 2.x du runtime Functions, configure le comportement de l’application en fonction de l’environnement d’exécution. Cette valeur est [lue lors de l’initialisation](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/Program.cs#L43). Vous pouvez définir `AZURE_FUNCTIONS_ENVIRONMENT` sur n’importe quelle valeur, mais [trois valeurs](/dotnet/api/microsoft.aspnetcore.hosting.environmentname) sont prises en charge : [Développement](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.development), [Préproduction](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.staging) et [Production](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.production). Si `AZURE_FUNCTIONS_ENVIRONMENT` n’est pas défini, la valeur `Production` est utilisée par défaut. Ce paramètre doit être utilisé à la place de `ASPNETCORE_ENVIRONMENT` pour définir l’environnement d’exécution. 
 
 ## <a name="azurewebjobsdashboard"></a>AzureWebJobsDashboard
 
@@ -72,14 +76,6 @@ Liste délimitée par des virgules des fonctionnalités bêta à activer. Les fo
 |---|------------|
 |AzureWebJobsFeatureFlags|feature1,feature2|
 
-## <a name="azurewebjobsscriptroot"></a>AzureWebJobsScriptRoot
-
-Chemin d’accès au répertoire racine dans lequel se trouvent les dossiers de fonctions et du fichier *host.json*. Dans une application de fonction, la valeur par défaut est `%HOME%\site\wwwroot`.
-
-|Clé|Exemple de valeur|
-|---|------------|
-|AzureWebJobsScriptRoot|%HOME%\site\wwwroot|
-
 ## <a name="azurewebjobssecretstoragetype"></a>AzureWebJobsSecretStorageType
 
 Spécifie le référentiel ou le fournisseur à utiliser pour le stockage de clés. Actuellement, les référentiels pris en charge sont le stockage d’objets blob (« Blob ») et le système de fichiers local (« Fichiers »). La valeur par défaut est blob dans la version 2 et le système de fichiers dans la version 1.
@@ -106,7 +102,7 @@ Chemin d’accès au compilateur utilisé pour TypeScript. Vous permet d’écra
 
 ## <a name="functionappeditmode"></a>FUNCTION\_APP\_EDIT\_MODE
 
-Détermine si la modification dans le portail Azure est activée. Les valeurs valides sont « readwrite » et « readonly ».
+Détermine si la modification est activée dans le portail Azure. Les valeurs valides sont « readwrite » et « readonly ».
 
 |Clé|Exemple de valeur|
 |---|------------|
@@ -122,7 +118,7 @@ Version du runtime Azure Functions à utiliser dans cette application de fonctio
 
 ## <a name="functionsworkerruntime"></a>FUNCTIONS\_WORKER\_RUNTIME
 
-Runtime du rôle de travail de langage à charger dans l’application de fonction.  Correspond au langage utilisé dans votre application (par exemple, « dotnet »). Pour les fonctions dans plusieurs langages, vous devrez les publier dans plusieurs applications, chacune avec une valeur de runtime de travail correspondante.  Les valeurs valides sont `dotnet` (C#/F#), `node` (JavaScript/TypeScript), `java` (Java), `powershell` (PowerShell), et `python` (Python).
+Runtime du rôle de travail de langage à charger dans l’application de fonction.  Correspond au langage utilisé dans votre application (par exemple, « dotnet »). Pour les fonctions dans plusieurs langages, vous devrez les publier dans plusieurs applications, chacune avec une valeur de runtime de travail correspondante.  Les valeurs valides sont `dotnet` (C#/F#), `node` (JavaScript/TypeScript), `java` (Java), `powershell` (PowerShell) et `python` (Python).
 
 |Clé|Exemple de valeur|
 |---|------------|
@@ -153,7 +149,7 @@ Nombre maximal d’instances possibles de l’application de fonction. Par défa
 
 |Clé|Exemple de valeur|
 |---|------------|
-|WEBSITE\_MAX\_DYNAMIC\_APPLICATION\_SCALE\_OUT|5.|
+|WEBSITE\_MAX\_DYNAMIC\_APPLICATION\_SCALE\_OUT|5\.|
 
 ## <a name="websitenodedefaultversion"></a>WEBSITE\_NODE\_DEFAULT_VERSION
 
@@ -209,7 +205,7 @@ Voici un fichier exemple proxies.json dans une application de fonction sur l’U
     }
 }
 ```
-|Décodage d’URL|Entrée|Sortie|
+|Décodage d’URL|Entrée|Output|
 |-|-|-|
 |true|myfunction.com/test%2fapi|example.com/test/api
 |false|myfunction.com/test%2fapi|example.com/test%2fapi|

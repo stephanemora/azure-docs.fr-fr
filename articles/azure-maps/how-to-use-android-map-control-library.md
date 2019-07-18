@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: e655b442ba9290d4b4525108521f2d1a0c766b48
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9df5eb9fa4493f82c6efd4a8e30eee324e4eac2a
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64869825"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273835"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>Bien démarrer avec Android SDK Azure Maps
 
@@ -201,7 +201,7 @@ La création de l’application par Android Studio prend quelques secondes. Une 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour ajouter des éléments à votre carte, consultez :
+Découvrez comment ajouter des données superposées sur la carte :
 
 > [!div class="nextstepaction"]
 > [Add a symbol layer to an Android map](https://review.docs.microsoft.com/azure/azure-maps/how-to-add-symbol-to-android-map) (Ajouter une couche de symboles à une carte Android)
@@ -211,5 +211,3 @@ Pour ajouter des éléments à votre carte, consultez :
 
 > [!div class="nextstepaction"]
 > [Change map styles in Android maps](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles) (Modifier les styles de carte dans les cartes Android)
-
-

@@ -2,31 +2,25 @@
 title: Guide pratique pour planifier l’implémentation de la jonction Azure AD Hybride dans Azure Active Directory (Azure AD) | Microsoft Docs
 description: Découvrez comment configurer des appareils hybrides joints à Azure Active Directory.
 services: active-directory
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-editor: ''
-ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.subservice: devices
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/10/2019
+ms.topic: conceptual
+ms.date: 06/28/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64dd8067654246f7c9a077d027c068df820f439d
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
-ms.translationtype: MT
+ms.openlocfilehash: abb050eb527e65b4fd31f3251d37fef7d51e867e
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66688705"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655978"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Procédure : Planifier l’implémentation de la jonction Azure AD Hybride
 
-De manière similaire à un utilisateur, un appareil est une autre identité core que vous souhaitez protéger et l’utiliser pour protéger vos ressources à tout moment et à partir de n’importe quel emplacement. Vous pouvez atteindre cet objectif en ouvrant et la gestion des identités des appareils dans Azure AD en utilisant l’une des méthodes suivantes :
+À l’instar d’un utilisateur, un appareil est une autre identité essentielle que vous souhaitez protéger et utiliser pour protéger vos ressources à tout moment et en tout lieu. Vous pouvez atteindre cet objectif en intégrant et en gérant les identités des appareils dans Azure AD à l’aide d’une des méthodes ci-dessous :
 
 - jointure Azure AD ;
 - jointure Azure AD hybride ;
@@ -34,14 +28,14 @@ De manière similaire à un utilisateur, un appareil est une autre identité cor
 
 En mettant vos appareils sur Azure AD, vous optimisez la productivité de vos utilisateurs par le biais de l’authentification unique (SSO) sur vos ressources cloud et locales. Dans le même temps, vous pouvez sécuriser l’accès à ces ressources avec [l’accès conditionnel](../active-directory-conditional-access-azure-portal.md).
 
-Si votre environnement Active Directory (AD) en local et que vous souhaitez joindre vos ordinateurs joints au domaine d’Active Directory à Azure AD, vous pouvez le faire en effectuant une jointure hybrid Azure AD. Cet article présente les étapes à suivre pour implémenter une jointure Azure AD hybride dans un environnement. 
+Si vous disposez d’un environnement Active Directory (AD) local et que vous souhaitez lier vos ordinateurs joints au domaine AD à Azure AD, vous pouvez y parvenir en effectuant une jonction Azure AD Hybride. Cet article présente les étapes à suivre pour implémenter une jointure Azure AD hybride dans un environnement. 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-Cet article suppose que vous êtes familiarisé avec la [Introduction à la gestion d’identité de périphérique dans Azure Active Directory](../device-management-introduction.md).
+Cet article suppose que vous avez lu la [Présentation de la gestion des identités des appareils dans Azure Active Directory](../device-management-introduction.md).
 
 > [!NOTE]
-> Le minimum requis fonctionnel de domaine et les niveaux fonctionnels de forêt pour une jointure hybrid Azure AD Windows 10 est Windows Server 2008 R2.
+> Les niveaux fonctionnels de domaine et de forêt minimaux requis pour une jonction Azure AD Hybride Windows 10 correspondent à Windows Server 2008 R2.
 
 ## <a name="plan-your-implementation"></a>Planifier l’implémentation
 
@@ -51,9 +45,9 @@ Pour planifier votre implémentation Azure AD hybride, prenez connaissance de ce
 | --- | --- |
 | ![Vérification][1] | Vérifier les appareils pris en charge |
 | ![Vérification][1] | Connaître les points à savoir |
-| ![Vérification][1] | Passez en revue la validation contrôlée de jonction hybride Azure AD |
-| ![Vérification][1] | Sélectionnez votre scénario en fonction de votre infrastructure d’identité |
-| ![Vérification][1] | Révision local UPN AD prise en charge des hybrides d’Azure AD join |
+| ![Vérification][1] | Vérifier la validation contrôlée de la jonction Azure AD Hybride |
+| ![Vérification][1] | Sélectionner votre scénario en fonction de votre infrastructure d’identité |
+| ![Vérification][1] | Vérifier la prise en charge d’un UPN AD local pour la jonction Azure AD Hybride |
 
 ## <a name="review-supported-devices"></a>Vérifier les appareils pris en charge
 
@@ -65,12 +59,12 @@ La jointure Azure AD hybride prend en charge un large éventail d’appareils Wi
 - Windows Server 2016
 - Windows Server 2019
 
-Pour les appareils exécutant le système d’exploitation de bureau Windows, version prise en charge sont répertoriées dans cet article [les informations de version de Windows 10](https://docs.microsoft.com/windows/release-information/). Comme meilleure pratique, Microsoft vous recommande de que vous mettre à niveau vers la dernière version de Windows 10.
+Pour les appareils exécutant le système d’exploitation Windows, les versions prises en charge sont répertoriées dans l'article [Informations de publication relatives à Windows 10](https://docs.microsoft.com/windows/release-information/). En guise de meilleure pratique, Microsoft recommande d'effectuer une mise à niveau vers la dernière version de Windows 10.
 
 ### <a name="windows-down-level-devices"></a>Appareils Windows de bas niveau
 
 - Windows 8.1
-- Windows 7. Pour plus d’informations sur Windows 7, veuillez consulter cet article [prennent en charge pour Windows 7 se termine.](https://www.microsoft.com/en-us/windowsforbusiness/end-of-windows-7-support)
+- Windows 7 Pour des informations relatives à la prise en charge de Windows 7, consultez l'article [Fin de la prise en charge de Windows 7](https://www.microsoft.com/en-us/windowsforbusiness/end-of-windows-7-support)
 - Windows Server 2012 R2
 - Windows Server 2012
 - Windows Server 2008 R2
@@ -79,66 +73,62 @@ La première étape de la planification consiste à examiner l’environnement e
 
 ## <a name="review-things-you-should-know"></a>Connaître les points à savoir
 
-Une jointure Hybrid Azure AD n’est actuellement pas possible si votre environnement se compose d’une seule forêt AD, la synchronisation des données d’identité à plusieurs locataires Azure AD.
+La jonction Azure AD Hybride n'est pas prise en charge si votre environnement se compose d’une seule forêt AD synchronisant les données d’identité sur plusieurs locataires Azure AD.
 
-Une jointure Hybrid Azure AD est actuellement pas pris en charge à l’aide d’infrastructure de bureau virtuel (VDI).
+La jonction Azure AD Hybride n'est pas prise en charge avec l'infrastructure VDI (Virtual Desktop Infrastructure).
 
-Azure AD hybride n’est pas pris en charge pour le module de plateforme sécurisée compatible FIPS. Si vos appareils sont dotés de TPM compatible FIPS, vous devez les désactiver avant de procéder à une jointure Hybrid Azure AD. Microsoft ne fournit pas d’outils permettant de désactiver le mode FIPS pour le module de plateforme sécurisée car il dépend du fabricant du TPM. Veuillez contacter votre matériel OEM pour la prise en charge.
+La jonction Azure AD Hybride n’est pas prise en charge pour les modules TPM compatibles FIPS. Si vos appareils sont dotés de modules TPM compatibles FIPS, vous devez les désactiver avant de procéder à la jonction Azure AD Hybride. Microsoft ne propose aucun outil permettant de désactiver le mode FIPS pour les modules TPM car il dépend du fabricant de ces modules. Pour obtenir de l'aide, contactez votre fabricant OEM.
 
-Une jointure Hybrid Azure AD n’est pas pris en charge pour Windows Server qui exécute le rôle de contrôleur de domaine (DC).
+La jonction Azure AD Hybride n'est pas prise en charge pour Windows Server avec le rôle de contrôleur de domaine.
 
-Jonction hybride Azure AD n’est pas pris en charge sur les appareils de bas niveau Windows lors de l’utilisation des informations d’identification itinérantes ou en itinérance de profil utilisateur.
+La jonction Azure AD Hybride n’est pas prise en charge sur les appareils Windows de bas niveau lors de l’utilisation de l’itinérance des informations d’identification ou du profil utilisateur.
 
-Si vous comptez sur l’outil de préparation système (Sysprep) et si vous utilisez un **antérieur à Windows 10 1809** de l’image pour l’installation, vérifiez que cette image n’est pas d’un appareil qui est déjà inscrit auprès d’Azure AD en tant que jointure Hybrid Azure AD.
+Si vous comptez sur l’outil de préparation système (Sysprep) et utilisez une image **pré-Windows 10 1809** pour l’installation, vérifiez que cette image ne provient pas d'un appareil déjà inscrit auprès d’Azure AD en tant que jonction Azure AD Hybride.
 
-Si vous comptez sur un instantané de Machine virtuelle (VM) pour créer des machines virtuelles supplémentaires, assurez-vous que cet instantané n’est pas d’une machine virtuelle qui est déjà inscrit auprès d’Azure AD en tant que jointure Hybrid Azure AD.
+Si vous utilisez une capture instantanée de machine virtuelle pour créer des machines virtuelles supplémentaires, vérifiez qu’elle ne provient pas d'une machine virtuelle déjà inscrite auprès d'Azure AD en tant que jonction Azure AD Hybride.
 
-Si vos appareils joints au domaine Windows 10 sont déjà [inscrits auprès d’Azure AD](https://docs.microsoft.com/azure/active-directory/devices/overview#azure-ad-registered-devices) sur votre locataire, nous vous recommandons vivement de supprimer cet état avant d’activer la jonction Azure AD Hybride. À partir de la version 1809 de Windows 10, les modifications suivantes ont été apportées pour éviter ce double état :
+Si vos appareils joints au domaine Windows 10 sont déjà [inscrits auprès d’Azure AD](https://docs.microsoft.com/azure/active-directory/devices/overview#getting-devices-in-azure-ad) sur votre locataire, nous vous recommandons vivement de supprimer cet état avant d’activer la jonction Azure AD Hybride. À partir de la version 1809 de Windows 10, les modifications suivantes ont été apportées pour éviter ce double état :
 
 - Tout état existant inscrit à Azure AD est automatiquement supprimé dès lors que l’appareil est joint à Azure AD Hybride.
-- Vous pouvez empêcher votre appareil joint au domaine Azure AD inscrite en ajoutant cette clé de Registre - HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, « BlockAADWorkplaceJoin » = DWORD : 00000001.
-- Cette modification est désormais disponible pour Windows 10 1803 version avec KB4489894 appliquée. Toutefois, si vous avez Windows Hello entreprise configurée, l’utilisateur est obligé de re-le programme d’installation Windows Hello entreprise après l’état double de nettoyage.
+- Vous pouvez éviter que votre appareil joint au domaine soit inscrit à Azure AD en ajoutant cette clé de Registre - HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin"=dword:00000001.
+- Cette modification est désormais disponible pour Windows 10 version 1803 avec application de KB4489894. Toutefois, si vous avez configuré Windows Hello Entreprise, l’utilisateur doit reconfigurer Windows Hello Entreprise après le nettoyage de double état.
 
+## <a name="review-controlled-validation-of-hybrid-azure-ad-join"></a>Vérifier la validation contrôlée de la jonction Azure AD Hybride
 
-## <a name="review-controlled-validation-of-hybrid-azure-ad-join"></a>Passez en revue la validation contrôlée de jonction hybride Azure AD
+Lorsque toutes les conditions préalables sont en place, les appareils Windows sont inscrits automatiquement en tant qu’appareils dans votre locataire Azure AD. L’état de ces identités d’appareils dans Azure AD est appelé jonction Azure AD Hybride. Des informations supplémentaires sur les concepts abordés dans cet article sont disponibles dans les articles [Présentation de la gestion des identités des appareils dans Azure Active Directory](overview.md) et [Planifier votre implémentation de jonction Azure Active Directory Hybride](hybrid-azuread-join-plan.md).
 
-Lorsque toutes les conditions préalables sont en place, les appareils Windows seront inscriront automatiquement en tant qu’appareils dans votre locataire Azure AD. L’état de ces identités des appareils dans Azure AD est appelée une jointure hybrid Azure AD. Vous trouverez plus d’informations sur les concepts abordés dans cet article dans les articles [Introduction à la gestion d’identité de périphérique dans Azure Active Directory](overview.md) et [planifier votre jonction d’Azure Active Directory hybride implémentation](hybrid-azuread-join-plan.md).
+Les organisations peuvent vouloir effectuer une validation contrôlée de la jonction Azure AD Hybride avant de l’activer dans leur organisation entière en une fois. Consultez l'article [Validation contrôlée de la jonction Azure AD Hybride](hybrid-azuread-join-control.md) pour savoir comment procéder.
 
-Organisations peuvent vouloir effectuer une validation contrôlée de jointure Azure AD hybride avant de l’activer dans leur organisation entière à la fois. Consultez l’article [sous contrôle de validation de jonction hybride Azure AD](hybrid-azuread-join-control.md) pour comprendre comment y parvenir.
+## <a name="select-your-scenario-based-on-your-identity-infrastructure"></a>Sélectionner votre scénario en fonction de votre infrastructure d’identité
 
-
-## <a name="select-your-scenario-based-on-your-identity-infrastructure"></a>Sélectionnez votre scénario en fonction de votre infrastructure d’identité
-
-Jonction hybride Azure AD fonctionne avec les environnements à la fois, gérées et fédérées.  
+La jonction Azure AD Hybride fonctionne à la fois avec les environnements managés et fédérés.  
 
 ### <a name="managed-environment"></a>Environnement géré
 
-Un environnement géré peut être déployé via [synchronisation de hachage de mot de passe (PHS)](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-phs) ou [passer via l’authentification (PTA)](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta) avec [transparente Single Sign On](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso).
+Un environnement managé peut être déployé par le biais de la [synchronisation de hachage de mot de passe (PHS)](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-phs) ou de l’[authentification directe (PTA)](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta) avec l’[authentification unique fluide](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso).
 
 Ces scénarios ne nécessitent pas la configuration d’un serveur de fédération pour l’authentification.
 
 ### <a name="federated-environment"></a>Environnement fédéré
 
-Un environnement fédéré doit avoir un fournisseur d’identité qui prend en charge les exigences suivantes :
+Un environnement fédéré doit disposer d'un fournisseur d’identité qui prend en charge les exigences suivantes :
 
-- **Protocole WS-Trust :** Ce protocole est requis pour l’authentification Windows en cours joints Azure AD des appareils avec Azure AD.
-- **Revendication WIAORMULTIAUTHN :** Cette revendication est requise pour effectuer la jointure d’Azure AD hybride pour les appareils de bas niveau Windows.
+- **Protocole WS-Trust :** Ce protocole est nécessaire pour authentifier auprès d’Azure AD les appareils Windows actuels ayant fait l’objet d’une jonction Azure AD Hybride.
+- **Revendication WIAORMULTIAUTHN :** Cette revendication est nécessaire à des fins de jonction Azure AD Hybride pour les appareils Windows de bas niveau.
 
-Si vous avez un environnement fédéré à l’aide d’Active Directory Federation Services (ADFS), puis les conditions ci-dessus sont déjà prises en charge.
+Si vous disposez d'un environnement fédéré utilisant Active Directory Federation Services (AD FS), les exigences ci-dessus sont déjà prises en charge.
 
 > [!NOTE]
 > Azure AD ne prend pas en charge les cartes à puce ou les certificats dans les domaines gérés.
 
 Depuis la version 1.1.819.0, Azure AD Connect comporte un Assistant permettant de configurer la jointure Azure AD hybride. Il simplifie considérablement le processus de configuration. Si vous n’avez pas la possibilité d’installer la version requise d’Azure AD Connect, consultez le [Guide pratique pour configurer manuellement l’inscription des appareils](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-manual). 
 
-Selon le scénario qui correspond à votre infrastructure d’identité, consultez :
+Selon le scénario correspondant à votre infrastructure d’identité, consultez :
 
-- [Configurer la jonction d’Azure Active Directory hybride pour un environnement fédéré](hybrid-azuread-join-federated-domains.md)
-- [Configurer la jonction d’Azure Active Directory hybride pour un environnement géré](hybrid-azuread-join-managed-domains.md)
+- [Configurer la jonction Azure Active Directory Hybride pour un environnement fédéré](hybrid-azuread-join-federated-domains.md)
+- [Configurer la jonction Azure Active Directory Hybride pour un environnement managé](hybrid-azuread-join-managed-domains.md)
 
-
-
-## <a name="review-on-premises-ad-upn-support-for-hybrid-azure-ad-join"></a>Révision locale prise en charge de l’UPN AD de jonction hybride Azure AD
+## <a name="review-on-premises-ad-upn-support-for-hybrid-azure-ad-join"></a>Vérifier la prise en charge d’un UPN AD local pour la jonction Azure AD Hybride
 
 Parfois, vos UPN AD locaux peuvent différer de vos UPN AD Azure. Dans ce cas, une jonction Azure AD Hybride Windows 10 offre une prise en charge limitée des UPN AD locaux, variable selon la [méthode d’authentification](https://docs.microsoft.com/azure/security/azure-ad-choose-authn), le type de domaine et la version de Windows 10. Deux types d’UPN AD locaux peuvent exister dans votre environnement :
 
@@ -157,8 +147,8 @@ Le tableau ci-dessous fournit des détails sur la prise en charge de ces UPN AD 
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Jonction d’Azure Active Directory hybride configurer pour fédérés environnement](hybrid-azuread-join-federated-domains.md)
-> [jonction d’Azure Active Directory hybride configurer pour un environnement géré](hybrid-azuread-join-managed-domains.md)
+> [Configurer la jonction Azure Active Directory Hybride pour un environnement fédéré](hybrid-azuread-join-federated-domains.md)
+> [Configurer la jonction Azure Active Directory Hybride pour un environnement fédéré](hybrid-azuread-join-managed-domains.md)
 
 <!--Image references-->
 [1]: ./media/hybrid-azuread-join-plan/12.png
