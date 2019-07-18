@@ -1,20 +1,21 @@
 ---
 title: Référence du kit de développement logiciel (SDK) Lecteur immersif
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Référence correspondant au kit de développement logiciel (SDK) du lecteur immersif
 services: cognitive-services
 author: metanMSFT
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: c128608b3c4a8e1155c3ac962bcfd07f589fbf23
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: 485e8626af4266492e02d4f9fbe4af486e10c082
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67311780"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718392"
 ---
 # <a name="immersive-reader-sdk-reference"></a>Référence du kit de développement logiciel (SDK) du lecteur immersif
 

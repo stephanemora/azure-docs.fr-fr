@@ -12,22 +12,22 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: abnarain
-ms.openlocfilehash: 7c86577abe1e8e158299e3a6aee2cff7f3568241
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
-ms.translationtype: MT
+ms.openlocfilehash: 7b0b637bdbab8f85c87d28473dda8f2e8f8a086e
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66427136"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312056"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Infrastructure Integration Runtime dans Azure Data Factory
 IR est l’infrastructure de calcul utilisée par Azure Data Factory pour fournir les fonctionnalités d’intégration de données suivantes entre différents environnements réseau :
 
-- **Flux de données**: Exécuter un [de flux de données](concepts-data-flow-overview.md) dans l’environnement compute Azure géré.  
+- **Data Flow** : exécutez un [Data Flow](concepts-data-flow-overview.md) dans un environnement de calcul Azure managé.  
 - **Déplacement des données** : copie des données entre les banques de données d’un réseau public et celles d’un réseau privé (sur un réseau privé local ou virtuel). Les connecteurs intégrés, la conversion de format, le mappage de colonnes, ainsi que les transferts de données performants et évolutifs sont pris en charge.
-- **Répartition des activités** :  Activités de transformation répartit et analyse en cours d’exécution sur un large éventail de services de calcul comme Azure Databricks, Azure HDInsight, Azure Machine Learning, Azure SQL Database, SQL Server et bien plus encore.
+- **Répartition des activités** :  Répartit et analyse les activités de transformation exécutées sur un large éventail de services de calcul, tels qu’Azure Databricks, Azure HDInsight, Azure Machine Learning, Azure SQL Database, SQL Server, etc.
 - **Exécution des packages SSIS** : exécute en mode natif les packages SSIS (SQL Server Integration Services) dans un environnement Compute Azure managé.
 
-Dans Data Factory, une activité désigne l’action à effectuer. Un service lié désigne un magasin de données cible ou un service de calcul. Un runtime d’intégration permet de créer une passerelle entre l’activité et les services liés.  Il est référencé par le service lié ou d’une activité et fournit l’environnement de calcul où l’activité peut s’exécuter ou est envoyée à partir de. L’activité peut être effectuée de la façon la plus efficace possible dans la région la plus proche du magasin de données cible ou du service de calcul, tout en respectant les exigences de conformité et de sécurité.
+Dans Data Factory, une activité désigne l’action à effectuer. Un service lié désigne un magasin de données cible ou un service de calcul. Un runtime d’intégration permet de créer une passerelle entre l’activité et les services liés.  Il est référencé par l’activité ou le service lié et fournit l’environnement de calcul dans lequel l’activité s’exécute ou depuis lequel elle est envoyée. L’activité peut être effectuée de la façon la plus efficace possible dans la région la plus proche du magasin de données cible ou du service de calcul, tout en respectant les exigences de conformité et de sécurité.
 
 ## <a name="integration-runtime-types"></a>Types de runtime d’intégration
 Data Factory propose trois types de runtime d’intégration. Vous devez choisir le type qui répond le mieux à vos besoins en matière de fonctionnalités d’intégration de données et d’environnement réseau.  Ces trois types sont :
@@ -40,7 +40,7 @@ Le tableau suivant décrit les fonctionnalités et l’environnement réseau pou
 
 Type de runtime | Réseau public | Réseau privé
 ------- | -------------- | ---------------
-Azure | Flux de données<br/>Déplacement des données<br/>Répartition des activités | &nbsp;
+Azure | Data Flow<br/>Déplacement des données<br/>Répartition des activités | &nbsp;
 Auto-hébergé | Déplacement des données<br/>Répartition des activités | Déplacement des données<br/>Répartition des activités
 Azure-SSIS | Exécution des packages SSIS | Exécution des packages SSIS
 
@@ -51,12 +51,12 @@ Le schéma suivant montre comment les différents runtimes d’intégration peuv
 ## <a name="azure-integration-runtime"></a>Runtime d’intégration Azure
 Un runtime d’intégration Azure peut :
 
-- Flux de données en cours d’exécution dans Azure 
+- Exécution de flux de données dans Azure 
 - Exécuter des activités de copie entre les magasins de données cloud
-- Répartir les activités de transformation suivantes dans un réseau public : Databricks Notebook / Jar / activité de Python, activité HDInsight Hive, activité Pig de HDInsight, activité MapReduce de HDInsight, activité HDInsight Spark, activité de diffusion en continu HDInsight, activité de Machine Learning Batch Execution, ressource de mise à jour de Machine Learning activités, activité de procédure stockée, activité U-SQL Data Lake Analytique, activité personnalisée .NET, activité Web, activité de recherche et activité d’obtenir les métadonnées.
+- Répartir les activités de transformation suivantes dans un réseau public : Notebook Databricks / Jar /activité Python, activité Hive HDInsight, activité Pig HDInsight, activité MapReduce HDInsight, activité Spark HDInsight, activité de diffusion en continu HDInsight, activité d’exécution par lot Machine Learning, activités des ressources de mise à jour de Machine Learning, activité de procédure stockée, activité U-SQL Data Lake Analytics, activité personnalisée .NET, activité web, activité de recherche et activité d’obtention des métadonnées.
 
 ### <a name="azure-ir-network-environment"></a>Environnement réseau du runtime d'intégration Azure
-Runtime d’intégration Azure prend en charge la connexion à des magasins de données et les services de calcul avec les points de terminaison publics accessibles. Utilisez un runtime d’intégration auto-hébergé pour l’environnement du réseau virtuel Azure.
+L’infrastructure Azure Integration Runtime prend en charge les connexions aux magasins de données et aux services de calcul comprenant des points de terminaison accessibles publiquement. Utilisez un runtime d’intégration auto-hébergé pour l’environnement du réseau virtuel Azure.
 
 ### <a name="azure-ir-compute-resource-and-scaling"></a>Ressources de calcul et mise à l’échelle du runtime d'intégration Azure
 Le runtime d’intégration Azure fournit une expérience de calcul entièrement gérée, sans serveur dans Azure.  Vous n’avez plus à vous soucier de l’approvisionnement de l’infrastructure, de l’installation du logiciel, des mises à jour correctives ou de la mise à l’échelle des besoins.  Par ailleurs, vous payez uniquement pour ce que vous utilisez.
@@ -68,13 +68,13 @@ La répartition des activités est une opération légère pour acheminer l’ac
 Pour en savoir plus sur la création et la configuration d’un runtime d’intégration Azure, consultez la rubrique « Comment créer et configurer Azure IR » sous Procédures. 
 
 > [!NOTE] 
-> Runtime d’intégration Azure a des propriétés relatives à l’exécution de flux de données, qui définit l’infrastructure de calcul sous-jacentes qui serait utilisé pour exécuter les flux de données sur. 
+> Le runtime d’intégration Azure possède des propriétés liées au runtime Data Flow, définissant l’infrastructure de calcul sous-jacente qui sera utilisée pour exécuter les flux de données. 
 
 ## <a name="self-hosted-integration-runtime"></a>Runtime d’intégration auto-hébergé
 Un runtime d’intégration auto-hébergé peut :
 
 - Exécuter une activité de copie entre des magasins de données cloud et un magasin de données situé sur un réseau privé.
-- Répartir les activités de transformation suivantes selon les ressources de calcul dans le réseau local ou le réseau virtuel Azure : Activité Hive d’HDInsight (BYOC-Bring Your Own Cluster), activité Pig de HDInsight (BYOC), activité de MapReduce de HDInsight (BYOC), activité HDInsight Spark (BYOC), activité de diffusion en continu HDInsight (BYOC), activité de Machine Learning Batch Execution, Machine Learning Mettre à jour les activités de la ressource, activité de procédure stockée, activité U-SQL Data Lake Analytique, activité personnalisée .NET, activité de recherche et activité d’obtenir les métadonnées.
+- Répartir les activités de transformation suivantes selon les ressources de calcul dans le réseau local ou le réseau virtuel Azure : activité Hive HDInsight (BYOC - Bring Your Own Cluster), activité Pig HDInsight (BYOC), activité MapReduce HDInsight (BYOC), activité Spark HDInsight (BYOC), activité de diffusion en continu HDInsight (BYOC), activité d’exécution par lot Machine Learning, activités des ressources de mise à jour de Machine Learning, activité de procédure stockée, activité U-SQL Data Lake Analytics, activité personnalisée .NET (s’exécute sur Azure Batch), activité de recherche et activité d’obtention des métadonnées.
 
 > [!NOTE] 
 > Utilisez le runtime d’intégration auto-hébergé pour prendre en charge les magasins de données nécessitant l’utilisation de votre propre pilote tels que SAP, Hana, MySQL, etc.  Pour en savoir plus, consultez les [magasins de données pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -114,16 +114,16 @@ L’emplacement du runtime d’intégration définit l’emplacement de son calc
 ### <a name="azure-ir-location"></a>Emplacement du runtime d'intégration Azure
 Vous pouvez définir l’emplacement spécifique d’un runtime d'intégration Azure, auquel cas le déplacement des données ou la distribution d’activité se fera dans cette région spécifique. 
 
-Si vous choisissez d’utiliser le **runtime d’intégration Azure-résolution automatique** qui est la valeur par défaut 
+Si vous choisissez d’utiliser la **résolution automatique du runtime d’intégration Azure**, définie par défaut, 
 
 - Pour une activité de copie, ADF fera au mieux pour détecter automatiquement votre récepteur et banque de données source afin de choisir le meilleur emplacement, que ce soit dans la même région si disponible ou dans région la plus proche dans la même zone géographique. S’ils ne sont pas détectables, il utilisera la région de la fabrique de données comme alternative.
 
-- Pour recherche/GetMetadata/Supprimer activité d’exécution (également connu sous les activités de Pipeline), activité de transformation, la distribution (également appelé externes activités) et la création d’opérations (tester la connexion, liste des dossiers de parcourir et liste de tables, afficher un aperçu des données), ADF utilise le runtime d’intégration dans la région de la fabrique de données.
+- Pour l’exécution de l’activité Lookup/GetMetadata/Delete (également connue sous le nom d’activités Pipeline), la répartition de l’activité de transformation (également connue sous le nom d’activités externes) et les opérations de création (tester la connexion, dresser la liste des dossiers et des tables, prévisualiser les données), ADF utilise le runtime d’intégration dans la région Data factory.
 
-- Pour les flux de données, ADF utilisera le runtime d’intégration dans la région de la fabrique de données. 
+- Pour les flux de données, ADF utilise le runtime d’intégration dans la région de la fabrique de données. 
 
   > [!TIP] 
-  > Une bonne pratique consisterait à assurer le flux de données s’exécute dans la même région que vos magasins de données correspondante (si possible). Vous pouvez parvenir par le runtime d’intégration Azure-résolution automatique (si l’emplacement de magasin de données est la même en tant qu’emplacement de la fabrique de données), ou en créant une nouvelle instance de runtime d’intégration Azure dans la même région que vos magasins de données et puis exécuter le flux de données dessus. 
+  > Une bonne pratique serait de s’assurer que le flux de données s’exécute dans la même région que vos banques de données correspondantes (si possible). Vous pouvez y parvenir soit en résolvant automatiquement Azure IR (si l’emplacement de la banque de données est celui de Data Factory), soit en créant une nouvelle instance Azure IR dans la même région que vos banques de données, puis en y exécutant le flux de données. 
 
 Vous pouvez surveiller quel emplacement du runtime d'intégration prend effet lors de l’exécution de l’activité dans la vue de surveillance de l’activité du pipeline sur l’interface utilisateur, ou dans la charge utile de la surveillance de l’activité.
 
@@ -164,13 +164,13 @@ L’activité Lookup/GetMetadata est exécutée sur le runtime d'intégration as
 
 Chaque activité de transformation a un service de calcul cible lié qui pointe vers un runtime d’intégration. Cette instance du runtime d’intégration se trouve au point d’envoi de l’activité de transformation.
 
-### <a name="data-flow-activity"></a>Activité de flux de données
+### <a name="data-flow-activity"></a>Activité Data Flow
 
-Activité de flux de données est exécutée sur le runtime d’intégration qui lui sont associé. 
+L’activité Data Flow est exécutée sur le runtime d’intégration qui lui est associé. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez les articles suivants :
 
-- [Créer un runtime d’intégration d’Azure](create-azure-integration-runtime.md)
+- [Créer un runtime d’intégration Azure](create-azure-integration-runtime.md)
 - [Créer un runtime d’intégration auto-hébergé](create-self-hosted-integration-runtime.md)
 - [Créer un runtime d’intégration Azure-SSIS](create-azure-ssis-integration-runtime.md). Cet article s’appuie sur le tutoriel et fournit des instructions sur la façon d’utiliser Azure SQL Database Managed Instance et de joindre le runtime d’intégration à un réseau virtuel. 

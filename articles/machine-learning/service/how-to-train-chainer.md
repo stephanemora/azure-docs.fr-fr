@@ -6,15 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: sgilley
-author: sdgilley
+ms.author: maxluk
+author: maxluk
+ms.reviewer: sdgilley
 ms.date: 06/15/2019
-ms.openlocfilehash: 5057a8cf6c8769761a1a1a9f513ec46d152289ab
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: 8ecefccbdf5f02652e935858b6ae8fb4cdfde640
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67488674"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67840037"
 ---
 # <a name="train-and-register-chainer-models-at-scale-with-azure-machine-learning-service"></a>Entraîner et inscrire des modèles Chainer à l’échelle avec Azure Machine Learning service
 
@@ -173,7 +174,7 @@ Lorsque l’exécution est lancée, il effectue les étapes suivantes :
 
 - **Mise à l’échelle** : le cluster tente de monter en puissance si le cluster Batch AI nécessite plus de nœuds pour l’exécution que la quantité disponible actuellement.
 
-- **Exécution** : tous les scripts dans le dossier de script sont chargés dans la cible de calcul, les magasins de données sont montés ou copiés, puis entry_script est exécuté. Les sorties issues de stdout et du dossier ./logs sont transmises en continu à l’historique des exécutions et peuvent être utilisées pour surveiller l’exécution.
+- **Running** : tous les scripts dans le dossier de script sont chargés dans la cible de calcul, les magasins de données sont montés ou copiés, puis entry_script est exécuté. Les sorties issues de stdout et du dossier ./logs sont transmises en continu à l’historique des exécutions et peuvent être utilisées pour surveiller l’exécution.
 
 - **Post-traitement** : Le dossier ./outputs de l’exécution est copiée dans l’historique des exécutions.
 

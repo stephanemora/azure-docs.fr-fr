@@ -11,36 +11,39 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/06/2019
+ms.date: 06/19/2019
 ms.author: juliako
-ms.openlocfilehash: f04ae727957d988e75ea0984d0005a6a140ca63f
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
-ms.translationtype: MT
+ms.openlocfilehash: f26467a250314fa8a6fe401f4ec1d6a999b6bb4d
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732987"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296207"
 ---
 # <a name="live-events-and-live-outputs"></a>Événements en direct et Sorties en direct
 
-Azure Media Services vous permet de transmettre des événements en direct auprès de vos clients dans le cloud Azure. Pour configurer vos événements de diffusion en continu en direct dans Media Services v3, vous devez comprendre les concepts abordés dans cet article.
+Azure Media Services vous permet de transmettre des événements en direct auprès de vos clients dans le cloud Azure. Pour configurer vos événements de streaming en direct dans Media Services v3, vous devez comprendre les concepts abordés dans cet article.
 
 > [!TIP]
-> Pour les clients de la migration à partir de Media Services v2 API, le **événement réel** entité remplace **canal** dans v2 et **sortie Live** remplace **programme**.
-
+> Pour les clients migrant depuis les API de Media Services v2, l’entité **Live Event** remplace **Channel** dans la version 2 et **Live Output** remplace **Program**.
 
 ## <a name="live-events"></a>Événements en direct
 
-Les [événements en direct](https://docs.microsoft.com/rest/api/media/liveevents) sont chargés de la réception et du traitement des flux vidéo en direct. Quand vous créez un événement en direct, un point de terminaison d’entrée est également créé. Vous pouvez utiliser ce point de terminaison pour envoyer un signal en direct à partir d’un encodeur à distance. L’encodeur live à distance envoie le flux de contribution à ce point de terminaison d’entrée par le biais du protocole [RTMP](https://www.adobe.com/devnet/rtmp.html) ou [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) (MP4 fragmenté). Pour le protocole de réception Smooth Streaming, les schémas d’URL pris en charge sont `http://` ou `https://`. Pour le protocole de réception RTMP, les schémas d’URL pris en charge sont `rtmp://` ou `rtmps://`. 
+Les [événements en direct](https://docs.microsoft.com/rest/api/media/liveevents) sont chargés de la réception et du traitement des flux vidéo en direct. Quand vous créez un événement en direct, un point de terminaison d’entrée primaire et secondaire est également créé. Vous pouvez utiliser ce point de terminaison pour envoyer un signal en direct à partir d’un encodeur à distance. L’encodeur live à distance envoie le flux de contribution à ce point de terminaison d’entrée par le biais du protocole d’entrée [RTMP](https://www.adobe.com/devnet/rtmp.html) ou [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) (MP4 fragmenté). Pour le protocole de réception RTMP, le contenu peut être envoyé en clair (`rtmp://`) ou chiffré pour plus de sécurité sur la connexion filaire (`rtmps://`). Pour le protocole de réception Smooth Streaming, les schémas d’URL pris en charge sont `http://` ou `https://`.  
 
 ## <a name="live-event-types"></a>Types d’événements en direct
 
-Un [événement en direct](https://docs.microsoft.com/rest/api/media/liveevents) peut être de deux types : pass-through et Live Encoding. 
+Un [événement en direct](https://docs.microsoft.com/rest/api/media/liveevents) peut être de deux types : pass-through et Live Encoding. Durant la création, les types sont définis à l’aide de [LiveEventEncodingType](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencodingtype) :
+
+* **LiveEventEncodingType.None** - Un encodeur live local envoie un flux à débits multiples. Les flux reçus transitent par l’Événement en temps réel sans traitement supplémentaire. 
+* **LiveEventEncodingType.Standard** - Un encodeur live local envoie un flux à débit unique à l’Événement en direct, puis Media Services crée des flux à débits multiples. Si la résolution du flux de contribution est de 720p ou plus, la présélection **Default720p** encode un jeu de 6 paires résolution/débits.
+* **LiveEventEncodingType.Premium1080p** - Un encodeur live local envoie un flux à débit unique à l’Événement en direct, puis Media Services crée des flux à débits multiples. La présélection Default1080p spécifie le jeu de sortie des paires résolution/débits. 
 
 ### <a name="pass-through"></a>Requête directe
 
 ![transmission directe](./media/live-streaming/pass-through.svg)
 
-Quand vous utilisez l’**événement en direct** de type pass-through, vous chargez l’encodeur live local de générer un flux vidéo à vitesse de transmission multiple et d’envoyer ce flux comme flux de contribution à l’événement en direct (à l’aide du protocole RTMP ou MP4 fragmenté). L’événement en direct est ensuite transmis dans les flux vidéo entrants sans traitement supplémentaire. Les objets LiveEvent pass-through sont optimisés pour les événements en direct de longue durée ou le streaming en direct linéaire sans interruption (24 h/24, 365 jours/an). Si vous créez ce type d’événement en direct, spécifiez le paramètre None (LiveEventEncodingType.None).
+Quand vous utilisez l’**événement en direct** de type pass-through, vous chargez l’encodeur live local de générer un flux vidéo à vitesse de transmission multiple et d’envoyer ce flux comme flux de contribution à l’événement en direct (à l’aide du protocole RTMP ou MP4 fragmenté). L’événement en direct est ensuite transmis dans les flux vidéo entrants sans traitement supplémentaire. Une transmission LiveEvent est optimisée pour les événements en direct de longue durée ou le streaming en direct linéaire sans interruption (24 heures sur 24, 365 jours par an). Si vous créez ce type d’événement en direct, spécifiez le paramètre None (LiveEventEncodingType.None).
 
 Vous pouvez envoyer le flux de contribution à une résolution jusqu’à 4 K et à une fréquence de 60 images/seconde, avec des codecs vidéo H.264/AVC ou H.265/HEVC et des codecs audio AAC (AAC-LC, HE-AACv1 ou HE-AACv2).  Pour plus d’informations, consultez l’article [Comparaison des types d’événements en direct](live-event-types-comparison.md).
 
@@ -54,14 +57,14 @@ Consultez un exemple de code .NET dans [MediaV3LiveApp](https://github.com/Azur
 
 ![encodage en temps réel](./media/live-streaming/live-encoding.svg)
 
-Quand vous utilisez Live Encoding avec Media Services, vous configurez votre encodeur live local pour qu’il envoie un flux vidéo à une seule vitesse de transmission comme flux de contribution à l’événement en direct (à l’aide du protocole RTMP ou MP4 fragmenté). L’événement en direct encode ce flux vidéo à une seule vitesse de transmission entrant en [flux vidéo à vitesse de transmission multiple](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), pour rendre sa transmission et sa lecture possibles sur les appareils via des protocoles comme MPEG-DASH, HLS et Smooth Streaming. Si vous créez ce type d’événement en direct, spécifiez le type d’encodage **Standard** (LiveEventEncodingType.Standard).
+Quand vous utilisez Live Encoding avec Media Services, vous configurez votre encodeur live local pour qu’il envoie un flux vidéo à une seule vitesse de transmission comme flux de contribution à l’événement en direct (à l’aide du protocole RTMP ou MP4 fragmenté). Vous configurerez ensuite un événement en direct de sorte qu’il encode ce flux vidéo à une seule vitesse de transmission entrant en [flux vidéo à vitesse de transmission multiple](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), pour rendre la transmission et la lecture de la sortie possibles sur les appareils via des protocoles comme MPEG-DASH, HLS et Smooth Streaming.
 
-Vous pouvez envoyer le flux de contribution à une résolution jusqu’à 1080p et à une fréquence de 30 images/seconde, avec un codec vidéo H.264/AVC et un codec audio AAC (AAC-LC, HE-AACv1 ou HE-AACv2). Pour plus d’informations, consultez l’article [Comparaison des types d’événements en direct](live-event-types-comparison.md).
+Lorsque vous utilisez un encodage en direct, vous pouvez envoyer le flux de contribution uniquement aux résolutions jusqu’à 1080p et à une fréquence de 30 images/seconde, avec un codec vidéo H.264/AVC et un codec audio AAC (AAC-LC, HE-AACv1 ou HE-AACv2). Notez que les événements en direct pass-through peut prendre en charge les résolutions jusqu’à 4K à 60 images/seconde. Pour plus d’informations, consultez l’article [Comparaison des types d’événements en direct](live-event-types-comparison.md).
 
-Quand vous utilisez l’encodage en temps réel (événement en direct défini sur **Standard**), la valeur d’encodage prédéfinie définit comment le flux entrant est encodé en plusieurs débits binaires ou couches. Pour plus d’informations, consultez [Présélections système](live-event-types-comparison.md#system-presets).
+La présélection détermine les résolutions et débits de la sortie émanant de l’encodeur live. Si vous utilisez un encodeur live **Standard** (LiveEventEncodingType.Standard), la présélection *Default720p* spécifie un jeu de 6 paires résolution/débit, allant de 720p à 3,5 Mbits/s à 192p à 200 Kbits/s. Autrement, si vous utilisez un encodeur live **Premium1080p** (LiveEventEncodingType.Premium1080p), la présélection *Default1080p* spécifie un jeu de 6 paires résolution/débit, allant de 1080p à 3,5 Mbits/s à 180p à 200 Kbits/s. Pour plus d’informations, consultez [Présélections système](live-event-types-comparison.md#system-presets).
 
 > [!NOTE]
-> Actuellement, la seule valeur prédéfinie autorisée pour le type d’événement en direct Standard est *Default720p*. Si vous devez utiliser une valeur d’encodage prédéfinie en direct personnalisée, veuillez contacter amshelp@microsoft.com. Vous devez spécifier la table de résolution et de débits binaires souhaitée. Vérifiez qu’il n’existe qu’une seule couche à 720p, et au maximum six couches.
+> Si vous avez besoin de personnaliser la présélection d’encodage live, ouvrez un ticket de support sur le Portail Azure. Vous devez spécifier la table de résolution et de débits binaires souhaitée. Vérifiez qu’il n’existe qu’un calque à 720p (si vous demandez un préréglage pour un encodeur live Standard) ou à 1080p (si vous demandez un préréglage pour un encodeur live Premium1080p). Le nombre maximal de calques est de 6.
 
 ## <a name="live-event-creation-options"></a>Options de création d’événements en direct
 
@@ -80,52 +83,62 @@ Une fois l’événement en direct créé, vous pouvez obtenir des URL de récep
 Vous pouvez utiliser des URL de redirection ou de non-redirection vers un microsite. 
 
 > [!NOTE] 
-> Pour une URL de réception être prédictif, définissez le mode de « personnel ».
+> Pour qu’une URL de réception soit prédictive, réglez le mode « personnel ».
 
 * URL de non-redirection vers un microsite
 
-    L’URL de non-redirection vers un microsite est le mode par défaut dans AMS v3. Vous obtenez éventuellement l’événement en direct rapidement, mais l’URL de réception est connue uniquement quand l’événement en direct est démarré. L’URL change si vous arrêtez/démarrez l’événement en direct. <br/>La non-redirection vers un microsite est utile dans les scénarios quand un utilisateur final souhaite diffuser à l’aide d’une application là où l’application souhaite obtenir un événement en direct dès que possible et qu’une URL de réception dynamique n’est pas un problème.
+    L’URL de non-redirection vers un microsite est le mode par défaut dans Media Services v3. Vous obtenez éventuellement l’événement en direct rapidement, mais l’URL de réception est connue uniquement quand l’événement en direct est démarré. L’URL change si vous arrêtez/démarrez l’événement en direct. <br/>La non-redirection vers un microsite est utile dans les scénarios quand un utilisateur final souhaite diffuser à l’aide d’une application là où l’application souhaite obtenir un événement en direct dès que possible et qu’une URL de réception dynamique n’est pas un problème.
+    
+    Si une application client n’a pas besoin de prégénérer une URL de réception avant la création de l’événement en direct, laissez simplement Media Services générer automatiquement le jeton d’accès pour l’événement en direct.
 * URL de redirection vers un microsite
 
     Le mode de redirection vers un microsite est préféré par les diffuseurs multimédias importants qui utilisent des encodeurs de diffusion matériels et ne veulent pas reconfigurer leurs encodeurs quand ils démarrent l’événement en direct. Ils veulent une URL de réception prédictive, qui ne change pas au fil du temps.
     
-    Pour spécifier ce mode, vous définissez `vanityUrl` à `true` lors de la création (valeur par défaut est `false`). Vous devez également transmettre votre propre jeton d’accès (`LiveEventInput.accessToken`) lors de la création. Vous spécifiez la valeur du jeton pour éviter un jeton aléatoire dans l’URL. Le jeton d’accès doit être une chaîne GUID valide (avec ou sans tirets). Une fois que le mode est défini qu’il ne peut pas être mis à jour.
+    Pour spécifier ce mode, définissez `vanityUrl` sur `true` lors de la création (valeur par défaut : `false`). Vous devez également transmettre votre jeton d’accès (`LiveEventInput.accessToken`) lors de la création. Vous spécifiez la valeur du jeton pour éviter qu’un jeton aléatoire soit inséré dans l’URL. Le jeton d’accès doit être une chaîne GUID valide (avec ou sans traits d’union). Une fois défini, le mode ne peut pas être mis à jour.
 
-    Le jeton d’accès doit être unique dans votre centre de données. Si votre application doit utiliser une URL de personnel, il est recommandé de toujours créer une nouvelle instance GUID pour votre jeton d’accès (au lieu de réutiliser un GUID existant). 
+    Le jeton d’accès doit être unique dans votre centre de données. Si votre application doit utiliser une URL personnelle, il est recommandé de toujours créer une nouvelle instance GUID pour votre jeton d’accès (au lieu de réutiliser un GUID existant). 
 
+    Utiliser les API suivantes pour activer l’URL personnelle et de définir le jeton d’accès sur un GUID valide (par exemple `"accessToken": "1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`).  
+    
+    |Langage|Activer une URL de redirection vers un microsite|Définir le jeton d’accès|
+    |---|---|---|
+    |REST|[properties.vanityUrl](https://docs.microsoft.com/rest/api/media/liveevents/create#liveevent)|[LiveEventInput.accessToken](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventinput)|
+    |Interface de ligne de commande|[--vanity-url](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest#az-ams-live-event-create)|[--access-token](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest#optional-parameters)|
+    |.NET|[LiveEvent.VanityUrl](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent.vanityurl?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEvent_VanityUrl)|[LiveEventInput.AccessToken](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
+    
 ### <a name="live-ingest-url-naming-rules"></a>Règles de nommage de l’URL de réception en direct
 
-La chaîne *aléatoire* ci-dessous est un nombre hexadécimal de 128 bits (qui se compose de 32 caractères de 0 à 9 et de a à f).<br/>
-Le *jeton d’accès* est ce que vous devez spécifier pour les URL fixe. Vous devez définir une chaîne de jeton d’accès qui est une chaîne GUID de longueur valide. <br/>
-Le *nom de flux* indique le nom du flux pour une connexion spécifique. La valeur de nom de flux de données est généralement ajoutée par l’encodeur dynamique que vous utilisez.
+* La chaîne *aléatoire* ci-dessous est un nombre hexadécimal de 128 bits (qui se compose de 32 caractères de 0 à 9 et de a à f).
+* *votre jeton d’accès* - Chaîne GUID valide que vous définissez lorsque vous utilisez le mode personnel. Par exemple : `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`.
+* *nom de flux* -indique le nom du flux pour une connexion spécifique. La valeur du nom du flux est généralement ajoutée par l’encodeur live que vous utilisez. Vous pouvez configurer l’encodeur live pour qu’il utilise n’importe quel nom afin de décrire la connexion, par exemple : « video1_audio1 », « video2_audio1 », « stream ».
 
 #### <a name="non-vanity-url"></a>URL de non-redirection vers un microsite
 
 ##### <a name="rtmp"></a>RTMP
 
-`rtmp://<random 128bit hex string>.channel.media.azure.net:1935/live/<access token>/<stream name>`<br/>
-`rtmp://<random 128bit hex string>.channel.media.azure.net:1936/live/<access token>/<stream name>`<br/>
-`rtmps://<random 128bit hex string>.channel.media.azure.net:2935/live/<access token>/<stream name>`<br/>
-`rtmps://<random 128bit hex string>.channel.media.azure.net:2936/live/<access token>/<stream name>`<br/>
+`rtmp://<random 128bit hex string>.channel.media.azure.net:1935/live/<auto-generated access token>/<stream name>`<br/>
+`rtmp://<random 128bit hex string>.channel.media.azure.net:1936/live/<auto-generated access token>/<stream name>`<br/>
+`rtmps://<random 128bit hex string>.channel.media.azure.net:2935/live/<auto-generated access token>/<stream name>`<br/>
+`rtmps://<random 128bit hex string>.channel.media.azure.net:2936/live/<auto-generated access token>/<stream name>`<br/>
 
 ##### <a name="smooth-streaming"></a>Smooth Streaming
 
-`http://<random 128bit hex string>.channel.media.azure.net/<access token>/ingest.isml/streams(<stream name>)`<br/>
-`https://<random 128bit hex string>.channel.media.azure.net/<access token>/ingest.isml/streams(<stream name>)`<br/>
+`http://<random 128bit hex string>.channel.media.azure.net/<auto-generated access token>/ingest.isml/streams(<stream name>)`<br/>
+`https://<random 128bit hex string>.channel.media.azure.net/<auto-generated access token>/ingest.isml/streams(<stream name>)`<br/>
 
 #### <a name="vanity-url"></a>URL de redirection vers un microsite
 
 ##### <a name="rtmp"></a>RTMP
 
-`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1935/live/<access token>/<stream name>`<br/>
-`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1936/live/<access token>/<stream name>`<br/>
-`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2935/live/<access token>/<stream name>`<br/>
-`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2936/live/<access token>/<stream name>`<br/>
+`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1935/live/<your access token>/<stream name>`<br/>
+`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1936/live/<your access token>/<stream name>`<br/>
+`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2935/live/<your access token>/<stream name>`<br/>
+`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2936/live/<your access token>/<stream name>`<br/>
 
 ##### <a name="smooth-streaming"></a>Smooth Streaming
 
-`http://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<access token>/ingest.isml/streams(<stream name>)`<br/>
-`https://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<access token>/ingest.isml/streams(<stream name>)`<br/>
+`http://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<your access token>/ingest.isml/streams(<stream name>)`<br/>
+`https://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<your access token>/ingest.isml/streams(<stream name>)`<br/>
 
 ## <a name="live-event-preview-url"></a>URL de l’aperçu des événements en direct
 
@@ -134,9 +147,9 @@ Une fois que l’**événement en direct** commence à recevoir le flux de contr
 > [!IMPORTANT]
 > Veillez à ce que la vidéo transite par l’URL d’aperçu avant de poursuivre !
 
-## <a name="live-event-long-running-operations"></a>Opérations à long terme événement en direct
+## <a name="live-event-long-running-operations"></a>Opérations de longue durée d’un événement en direct
 
-Pour plus d’informations, consultez [opérations à long terme](media-services-apis-overview.md#long-running-operations)
+Pour plus de détails, consultez [Opérations de longue durée](media-services-apis-overview.md#long-running-operations)
 
 ## <a name="live-outputs"></a>Sorties en direct
 
