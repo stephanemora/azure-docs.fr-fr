@@ -13,15 +13,15 @@ ms.topic: overview
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 9bf8c51fda6985f88ecffa60b32c1c62e364a511
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: aed073e7d65f193c4123106ba1ae3f4f442965e1
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014928"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836310"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Présentation d’Azure Data Factory 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version 1](data-factory-introduction.md)
 > * [Version 2 (version actuelle)](../introduction.md)
 
@@ -133,7 +133,6 @@ Supposons que vos environnements de calcul (cluster Azure HDInsight et Azure Mac
 ## <a name="get-started-with-creating-a-pipeline"></a>Prise en main de la création d’un pipeline
 Vous pouvez utiliser un des outils ou API suivants pour créer des pipelines de données dans Azure Data Factory : 
 
-- Portail Azure
 - Visual Studio
 - PowerShell
 - API .NET

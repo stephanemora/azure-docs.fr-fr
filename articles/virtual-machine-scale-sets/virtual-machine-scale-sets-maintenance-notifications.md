@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: shants
-ms.openlocfilehash: 31d4829c6adaf4bd5392ef393dcaefbeb7dc6255
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2ba1bb914dfc2edbe17d12cc58df097b60d1f94c
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60618453"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849731"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Notifications de maintenance planifiées pour les groupes de machines virtuelles identiques
 
@@ -128,8 +128,13 @@ Get-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -In
 Les propriétés suivantes sont retournées sous **MaintenanceRedeployStatus** : 
 
 | Valeur | Description   |
-
-|-------|---------------| | IsCustomerInitiatedMaintenanceAllowed | Indique si vous pouvez démarrer la maintenance sur la machine virtuelle à l’instant T. | | PreMaintenanceWindowStartTime         | Début de la fenêtre de maintenance en libre-service au cours de laquelle vous pouvez démarrer la maintenance sur votre machine virtuelle. | | PreMaintenanceWindowEndTime           | Fin de la fenêtre de maintenance en libre-service au cours de laquelle vous pouvez démarrer la maintenance sur votre machine virtuelle. | | MaintenanceWindowStartTime            | Début de la fenêtre de maintenance planifiée au cours de laquelle Azure démarre la maintenance sur votre machine virtuelle. | | MaintenanceWindowEndTime              | Fin de la fenêtre de maintenance planifiée au cours de laquelle Azure démarre la maintenance sur votre machine virtuelle. | | LastOperationResultCode               | Résultat de la dernière tentative de démarrage de la maintenance sur la machine virtuelle. |
+|-------|---------------|
+| IsCustomerInitiatedMaintenanceAllowed | Indique si vous pouvez démarrer la maintenance sur la machine virtuelle à l’instant T. |
+| PreMaintenanceWindowStartTime         | Début de la fenêtre de maintenance en libre-service au cours de laquelle vous pouvez démarrer la maintenance sur votre machine virtuelle. |
+| PreMaintenanceWindowEndTime           | Fin de la fenêtre de maintenance en libre-service au cours de laquelle vous pouvez démarrer la maintenance sur votre machine virtuelle. |
+| MaintenanceWindowStartTime            | Début de la maintenance planifiée pendant laquelle Azure lance la maintenance sur votre machine virtuelle. |
+| MaintenanceWindowEndTime              | Fin de la fenêtre de maintenance planifiée pendant laquelle Azure lance la maintenance sur votre machine virtuelle. |
+| LastOperationResultCode               | Résultat de la dernière tentative de lancement de la maintenance sur la machine virtuelle. |
 
 
 
@@ -154,8 +159,13 @@ az vmss list-instances -g rgName -n vmssName --expand instanceView
 Les propriétés suivantes sont retournées sous **MaintenanceRedeployStatus** pour chaque instance de machine virtuelle : 
 
 | Valeur | Description   |
-
-|-------|---------------| | IsCustomerInitiatedMaintenanceAllowed | Indique si vous pouvez démarrer la maintenance sur la machine virtuelle à l’instant T. | | PreMaintenanceWindowStartTime         | Début de la fenêtre de maintenance en libre-service au cours de laquelle vous pouvez démarrer la maintenance sur votre machine virtuelle. | | PreMaintenanceWindowEndTime           | Fin de la fenêtre de maintenance en libre-service au cours de laquelle vous pouvez démarrer la maintenance sur votre machine virtuelle. | | MaintenanceWindowStartTime            | Début de la fenêtre de maintenance planifiée au cours de laquelle Azure démarre la maintenance sur votre machine virtuelle. | | MaintenanceWindowEndTime              | Fin de la fenêtre de maintenance planifiée au cours de laquelle Azure démarre la maintenance sur votre machine virtuelle. | | LastOperationResultCode               | Résultat de la dernière tentative de démarrage de la maintenance sur la machine virtuelle. |
+|-------|---------------|
+| IsCustomerInitiatedMaintenanceAllowed | Indique si vous pouvez démarrer la maintenance sur la machine virtuelle à l’instant T. |
+| PreMaintenanceWindowStartTime         | Début de la fenêtre de maintenance en libre-service au cours de laquelle vous pouvez démarrer la maintenance sur votre machine virtuelle. |
+| PreMaintenanceWindowEndTime           | Fin de la fenêtre de maintenance en libre-service au cours de laquelle vous pouvez démarrer la maintenance sur votre machine virtuelle. |
+| MaintenanceWindowStartTime            | Début de la maintenance planifiée pendant laquelle Azure lance la maintenance sur votre machine virtuelle. |
+| MaintenanceWindowEndTime              | Fin de la fenêtre de maintenance planifiée pendant laquelle Azure lance la maintenance sur votre machine virtuelle. |
+| LastOperationResultCode               | Résultat de la dernière tentative de lancement de la maintenance sur la machine virtuelle. |
 
 
 ### <a name="start-maintenance-on-your-vm-instance-by-using-the-cli"></a>Démarrer la maintenance sur votre instance de machine virtuelle à l’aide de l’interface de ligne de commande
@@ -176,7 +186,7 @@ az vmss perform-maintenance -g rgName -n vmssName --instance-ids id
 
 **R :** Les machines virtuelles déployées dans un groupe à haute disponibilité ou dans des groupes de machines virtuelles identiques utilisent des domaines de mise à jour. Lors des opérations de maintenance, Azure respecte la contrainte de domaine de mise à jour et ne redémarre pas les machines virtuelles à partir d’un domaine de mise à jour distinct (dans le même groupe à haute disponibilité). Azure attend également au moins 30 minutes avant de passer au groupe de machines virtuelles suivant. 
 
-Pour plus d’informations sur la haute disponibilité, consultez [Régions et disponibilité des machines virtuelles dans Azure](../virtual-machines/windows/regions-and-availability.md).
+Pour plus d’informations sur la haute disponibilité, consultez [Régions et disponibilité des machines virtuelles dans Azure](../virtual-machines/windows/availability.md).
 
 **Q : Comment puis-je être averti d’une maintenance planifiée ?**
 

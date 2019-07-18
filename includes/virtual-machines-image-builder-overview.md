@@ -5,36 +5,36 @@ ms.date: 04/30/2019
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: jeconnoc
-ms.openlocfilehash: e1b3b5fe603072069cb3a19c7597fcc1872fefd7
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.openlocfilehash: 6eedc095f155a77cddf48211dbc4a677bf188112
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66111454"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509841"
 ---
-Images de machine virtuelle standardisée (VM) permettent aux organisations de migrer vers le cloud et de garantir la cohérence dans les déploiements. Les images incluent généralement des paramètres de sécurité et de configuration prédéfinis et les logiciels nécessaires. Configurer votre propre pipeline de création d’images nécessite de temps, l’infrastructure et le programme d’installation, mais avec Azure VM Image Builder, simplement fournir une configuration simple décrivant votre image, envoyez-le au service et l’image est créé et distribué.
+Des images de machine virtuelle standardisées permettent aux organisations de migrer vers le cloud en veillant à la cohérence des déploiements. Les images incluent généralement des paramètres de sécurité et de configuration prédéfinis et les logiciels nécessaires. La mise en place de votre propre pipeline d’acquisition d’image nécessite du temps, une infrastructure et une configuration. En revanche, le Générateur d’images de machine virtuelle Azure génère une simple configuration décrivant votre image et l’envoie au service qui la produit et la distribue.
  
-Azure VM Image Builder (Générateur d’images Azure) vous permet de commencer par un Windows ou image de place de marché Azure basés sur Linux, des images personnalisées existantes ou Red Hat Enterprise Linux (RHEL) ISO et commencer à ajouter vos propres personnalisations. Étant donné que le Générateur d’images s’appuie sur [HashiCorp Packer](https://packer.io/), vous pouvez également importer vos scripts de fournisseur Packer shell existants. Vous pouvez également spécifier où vous souhaitez que vos images hébergées dans la Azure Shared Galerie d’images (virtual-machines-common-shared-image-galleries.md), comme une image managée ou un disque dur virtuel.
+Le Générateur d’images de machine virtuelle Azure vous permet de partir d’une image de la Place de marché Azure basée sur Windows ou Linux, d’images personnalisées existantes ou d’une image ISO Red Hat Enterprise Linux (RHEL), et d’y ajouter vos propres personnalisations. Le Générateur d’images s’appuyant sur [HashiCorp Packer](https://packer.io/), vous pouvez également importer vos scripts fournisseurs de shell Packer existants. Vous pouvez également spécifier où vous souhaitez que vos images soient hébergées dans la [Galerie d’images partagées Azure](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries), en tant qu’images managées ou disque dur virtuel.
 
 > [!IMPORTANT]
-> Générateur d’images Azure est actuellement en version préliminaire publique.
+> Le Générateur d’images Azure est actuellement en préversion publique.
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="preview-features"></a>Fonctionnalités préliminaires
+## <a name="preview-features"></a>Fonctionnalités de préversion
 
-La version préliminaire, ces fonctionnalités sont prises en charge :
+La préversion prend en charge les fonctionnalités suivantes :
 
-- Création d’images de base finale, qui inclut votre sécurité minimale et les configurations d’entreprise et permettre aux services de personnaliser davantage pour leurs besoins.
-- Mise à jour corrective d’images existantes, Générateur d’images vous permettra de correction en permanence des images personnalisées.
-- Intégration avec la galerie d’images partagé Azure, vous permet de distribuer, version, et la mise à l’échelle d’images dans le monde entier, ainsi qu’un système de gestion d’image.
-- Intégration avec l’image existante générer des pipelines, simplement appeler le Générateur d’images à partir de votre pipeline ou utilisez la tâche de DevOps Azure simple Preview Image Builder.
-- Migrer un pipeline de personnalisation d’image existant vers Azure. Utiliser vos scripts existants, les commandes et les processus pour personnaliser des images.
-- Utilisez la prise en charge de Red Hat Bring Your Own Subscription. Créer des images de Red Hat Enterprise pour une utilisation avec vos abonnements Red Hat éligibles et inutilisés.
+- Création d’images de base finales, qui incluent vos configurations minimales de sécurité et d’entreprise, et permettent aux services de les personnaliser en fonction de leurs besoins.
+- En corrigeant des images existantes, le Générateur d’images vous permet de corriger en permanence des images personnalisées.
+- L’intégration avec la Galerie d’images partagées Azure vous permet de distribuer, de contrôler les versions, et de mettre à l’échelle des images globalement, et offre un système de gestion des images.
+- L’intégration avec des pipelines de génération d’images existants vous permet d’appeler simplement le Générateur d’images à partir de votre pipeline ou d’utiliser la simple tâche Azure DevOps de prévisualisation du Générateur d’images.
+- Migrez un pipeline de personnalisation d’image existant vers Azure. Utilisez vos scripts, commandes et processus existants pour personnaliser des images.
+- Utilisez le support Bring Your Own Subscription de Red Hat. Créez des images Red Hat Enterprise à utiliser avec vos abonnements Red Hat éligibles inutilisés.
 - Création d’images au format VHD.
  
 
 ## <a name="regions"></a>Régions
-Le Service de générateur d’images Azure sera disponible en version préliminaire dans ces régions. Les images peuvent être distribuées en dehors de ces régions.
+Le service Générateur d’images Azure sera disponible en préversion dans les régions suivantes. Des images peuvent être distribuées en dehors de ces régions.
 - USA Est
 - USA Est 2
 - USA Centre-Ouest
@@ -42,41 +42,47 @@ Le Service de générateur d’images Azure sera disponible en version prélimin
 - USA Ouest 2
 
 ## <a name="os-support"></a>Prise en charge du système d’exploitation
-AIB prendra en charge des images de système d’exploitation de base de la place de marché Azure :
+Le Générateur d’images Azure prendra en charge les images de système d’exploitation de base de la Place de marché Azure :
 - Ubuntu 18.04
 - Ubuntu 16.04
 - RHEL 7.6
 - CentOS 7.6
-- Windows 2016
+- Windows 2016
 - Windows 2019
 
+Le Générateur d’images Azure prendra en charge les images ISO Red Hat Enterprise Linux (RHEL) en tant que sources pour :
+- RHEL 7.3
+- RHEL 7.4
+- RHEL 7.5
+
+RHEL 7.6 n’est pas pris en charge, mais en cours de test.
 
 ## <a name="how-it-works"></a>Fonctionnement
 
 
-![Schéma conceptuel de générateur d’images Azure](./media/virtual-machines-image-builder-overview/image-builder.png)
+![Schéma conceptuel du Générateur d’images Azure](./media/virtual-machines-image-builder-overview/image-builder.png)
 
-Le Générateur d’images Azure est un service Azure entièrement géré qui est accessible par un fournisseur de ressources Azure. Le processus de génération d’images Azure comporte trois parties principales : source, personnaliser et distribuer, ils sont représentés dans un modèle. Le diagramme ci-dessous illustre les composants, avec certaines de leurs propriétés. 
+Le Générateur d’images Azure est un service Azure entièrement managé accessible à un fournisseur de ressources Azure. Le processus du Générateur d’images Azure comporte trois parties principales, le sourçage, la personnalisation et la distribution, représentés dans un modèle. Le diagramme ci-dessous présente les composants avec certaines de leurs propriétés. 
  
 
 
-**Processus de générateur d’image** 
+**Processus du Générateur d’images** 
 
-![Schéma conceptuel du processus de génération d’images Azure](./media/virtual-machines-image-builder-overview/image-builder-process.png)
+![Schéma conceptuel du processus du Générateur d’images Azure](./media/virtual-machines-image-builder-overview/image-builder-process.png)
 
-1. Créer le modèle d’Image sous forme de fichier .json. Ce fichier .json contient des informations sur la source de l’image, les personnalisations et la distribution. Il existe plusieurs exemples dans le [référentiel GitHub de générateur d’Image Azure](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts).
-1. Envoyer au service, cela créera un artefact de modèle d’Image dans le groupe de ressources que vous spécifiez. En arrière-plan, Générateur d’images télécharge l’image source ou ISO et les scripts en fonction des besoins. Ceux-ci sont stockés dans un groupe de ressources distinct est créé automatiquement dans votre abonnement, au format : IT_<DestinationResourceGroup>_<TemplateName>. 
-1. Une fois le modèle d’Image est créé, vous pouvez ensuite générer l’image. Dans l’arrière-plan du Générateur d’images utilise les modèle et les fichiers sources pour créer une machine virtuelle, réseau et stockage dans le IT_<DestinationResourceGroup>_<TemplateName> groupe de ressources.
-1. Dans le cadre de la création d’image, le Générateur d’images distribue l’image il en fonction du modèle, puis supprime les ressources supplémentaires dans le IT_<DestinationResourceGroup>_<TemplateName> groupe de ressources qui a été créé pour le processus.
+1. Créez le modèle d’image en tant que fichier .json. Ce fichier .json contient des informations sur la source, les personnalisations et la distribution de l’image. Plusieurs exemples son disponibles dans le [référentiel GitHub du Générateur d’images Azure](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts).
+1. Envoyez-le au service. Cela a pour effet de créer un artefact de modèle d’image dans le groupe de ressources que vous spécifiez. En arrière-plan, le Générateur d’images télécharge l’image ou l’ISO source et les scripts en fonction des besoins. Celles-ci sont stockées dans un groupe de ressources distinct créé automatiquement dans votre abonnement, au format suivant : IT_\<DestinationResourceGroup>_\<TemplateName>. 
+1. Une fois le modèle d’image créé, vous pouvez générer l’image. En arrière-plan, le Générateur d’images utilise le modèle et des fichiers sources pour créer une machine virtuelle, un réseau et un stockage dans le groupe de ressources IT_\<DestinationResourceGroup > _\<TemplateName >.
+1. Dans le cadre de la création d’image, le Générateur d’images distribue l’image en fonction du modèle, puis supprime les ressources supplémentaires dans le groupe de ressources IT_\<DestinationResourceGroup>_\<TemplateName> créé pour le processus.
 
 
 ## <a name="permissions"></a>Autorisations
 
-Pour autoriser le Générateur d’images de machine virtuelle Azure distribuer des images aux images gérés ou à une galerie d’images partagé, vous devrez fournir les autorisations « Contributeur » pour le service « Générateur d’images Azure Virtual Machine » (ID d’application : cf32a0cc-373c-47c9-9156-0db11f6a6dfc ) sur les groupes de ressources. 
+Pour permettre au Générateur d’images de machine virtuelle Azure de distribuer des images vers les images gérées ou une galerie d’images partagées, vous devrez fournir des autorisations « Contributeur » pour le service « Générateur d’images Azure Virtual Machine » (ID d’application : cf32a0cc-373c-47c9-9156-0db11f6a6dfc ) sur les groupes de ressources. 
 
-Si vous utilisez une image managée personnalisée existante ou une version de l’image, le Générateur d’images Azure devez au minimum un accès « Lecteur » à ces groupes de ressources.
+Si vous utilisez une image managée personnalisée ou une version d’image existantes, le Générateur d’images Azure a besoin au minimum d’un accès « Lecteur » à ces groupes de ressources.
 
-Vous pouvez affecter l’accès à l’aide de l’interface CLI :
+Vous pouvez accorder l’accès à l’aide d’Azure CLI :
 
 ```azurecli-interactive
 az role assignment create \
@@ -85,20 +91,20 @@ az role assignment create \
     --scope /subscriptions/$subscriptionID/resourceGroups/<distributeResoureGroupName>
 ```
 
-Si le compte de service est introuvable, cela peut signifier que l’abonnement où vous ajoutez l’attribution de rôle n’a pas encore inscrit pour le fournisseur de ressources.
+Si le compte de service est introuvable, cela peut signifier que l’abonnement auquel vous ajoutez l’attribution de rôle n’est pas encore inscrit pour le fournisseur de ressources.
 
 
 ## <a name="costs"></a>Coûts
-Nous vous facturons certains calcul, de mise en réseau et les coûts de stockage lors de la création, de création et de stockage des images avec le Générateur d’images Azure. Ces coûts sont similaires aux coûts de création manuelle d’images personnalisées. Pour les ressources, vous êtes facturé au tarif de votre Azure. 
+Nous vous facturons des coûts de calcul, de mise en réseau et de stockage lors de la création, de la génération et du stockage d’images avec le Générateur d’images Azure. Ces coûts sont similaires à ceux associés à la création manuelle d’images personnalisées. Pour les ressources, vous êtes facturé conformément aux tarifs Azure qui vous sont appliqués. 
 
-Pendant le processus de création d’image, les fichiers sont téléchargés et stockés dans le `IT_<DestinationResourceGroup>_<TemplateName>` groupe de ressources, ce qui implique des coûts de stockage petit. f, vous ne souhaitez pas conserver ces ressources, supprimer le modèle d’Image une fois la build d’image.
+Pendant le processus de création d’image, les fichiers sont téléchargés et stockés dans le groupe de ressources `IT_<DestinationResourceGroup>_<TemplateName>`, ce qui implique des coûts de stockage modiques. Si vous ne souhaitez pas conserver ces ressources, supprimez le modèle d’image une fois l’image générée.
  
-Générateur d’images crée une machine virtuelle à l’aide d’une taille de machine virtuelle D1v2 et le stockage et la mise en réseau nécessaires pour la machine virtuelle. Ces ressources sont valables pour la durée du processus de génération et seront supprimés une fois l’image de création d’Image Builder terminée. 
+Le Générateur d’images crée une machine virtuelle de taille D1v2, ainsi que le stockage et la mise en réseau nécessaires pour la machine virtuelle. Ces ressources durent pendant le temps d’exécution du processus de génération, puis sont supprimées une fois l’image créée par le Générateur d’images. 
  
-Générateur d’images Azure répartit l’image à votre régions choisies, ce qui peut entraîner des frais de sortie de réseau.
+Le Générateur d’images Azure distribue l’image aux régions choisies, ce qui peut occasionner des frais de sortie de réseau.
  
 ## <a name="next-steps"></a>Étapes suivantes 
  
-Pour tester le Générateur d’images Azure, consultez les articles pour la création de [Linux](../articles/virtual-machines/linux/image-builder.md) ou [Windows](../articles/virtual-machines/windows/image-builder.md) images.
+Pour essayer le Générateur d’images Azure, voir les articles sur la génération d’images [Linux](../articles/virtual-machines/linux/image-builder.md) ou [Windows](../articles/virtual-machines/windows/image-builder.md).
  
  

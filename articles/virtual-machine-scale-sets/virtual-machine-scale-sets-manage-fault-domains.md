@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2018
-ms.author: rajraj
-ms.openlocfilehash: bab264769576b6e5478236c452d7de920d887c1a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: drewm
+ms.openlocfilehash: f97c7e6971fb9c58a3f08959c00c84e64e160916
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60617977"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67871956"
 ---
 # <a name="choosing-the-right-number-of-fault-domains-for-virtual-machine-scale-set"></a>Choisir le bon nombre de domaines d’erreur pour un groupe de machines virtuelles identiques
 Des groupes de machines virtuelles identiques sont créés avec cinq domaines d’erreur par défaut dans les régions Azure sans zones. Pour les régions qui prennent en charge le déploiement zonal de groupes de machines virtuelles identiques, la valeur par défaut du nombre de domaines d’erreur est de 1 pour chacune des zones. FD = 1 implique dans ce cas que les instances de machine virtuelle appartenant au groupe identique sont réparties entre plusieurs racks dans la mesure du possible.
@@ -30,7 +30,7 @@ Vous pouvez également envisager d’aligner le nombre de domaines d’erreur du
 ## <a name="rest-api"></a>API REST
 Vous pouvez définir la propriété `properties.platformFaultDomainCount` sur 1, 2 ou 3 (la valeur par défaut est 5 si aucune valeur n’est spécifiée). Reportez-vous à la documentation de l’API REST [ici](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate).
 
-## <a name="azure-cli"></a>Azure CLI
+## <a name="azure-cli"></a>D’Azure CLI
 Vous pouvez définir le paramètre `--platform-fault-domain-count` sur 1, 2 ou 3 (la valeur par défaut est 5 si aucune valeur n’est spécifiée). Reportez-vous à la documentation d’Azure CLI [ici](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az-vmss-create).
 
 ```azurecli-interactive
@@ -47,4 +47,4 @@ az vmss create \
 La création et la configuration des l’ensemble des ressources et des machines virtuelles du groupe identique prennent quelques minutes.
 
 ## <a name="next-steps"></a>Étapes suivantes
-- En savoir plus sur les [fonctionnalités de disponibilité et de redondance](../virtual-machines/windows/regions-and-availability.md) pour les environnements Azure.
+- En savoir plus sur les [fonctionnalités de disponibilité et de redondance](../virtual-machines/windows/availability.md) pour les environnements Azure.

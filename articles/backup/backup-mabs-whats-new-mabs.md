@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: adigan
-ms.openlocfilehash: 5718064994a80266c216ae6040746be29194adc9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a858ac84ec9181cef4703c8fe236b9a3513af9f5
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60254707"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234732"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server"></a>Nouveautés du serveur de sauvegarde Microsoft Azure
 
@@ -25,7 +25,7 @@ Les fonctionnalités suivantes sont incluses dans MABS v3 :
 Avec le stockage de sauvegarde moderne (MBS) de MABS v2, nous avons annoncé la mise en place du stockage adapté à la charge de travail : avec cette fonctionnalité, vous configurez certaines charges de travail à sauvegarder dans un stockage spécifique, selon les propriétés de stockage. Toutefois, après la configuration, vous pourriez avoir besoin de déplacer des sauvegardes de certaines sources de données vers un autre stockage pour optimiser l’utilisation des ressources. MABS v3 offre la possibilité de migrer des sauvegardes et de les configurer de façon à les stocker sur un autre volume en [trois étapes](https://blogs.technet.microsoft.com/dpm/2017/10/24/storage-migration-with-dpm-2016-mbs/).
 
 ## <a name="prevent-unexpected-data-loss"></a>Empêcher les pertes de données imprévues
-Dans les entreprises, MABS est géré par une équipe d’administrateurs. Malgré les instructions sur le stockage à utiliser pour les sauvegardes, un mauvais choix de volume comme stockage de sauvegarde pour MABS peut entraîner une perte de données critiques. Avec MABS v3, vous pouvez éviter ce type de situation en configurant ces volumes comme non disponibles pour le stockage avec [ces cmdlets PowerShell](https://docs.microsoft.com/system-center/dpm/add-storage#volume-exclusion).
+Dans les entreprises, MABS est géré par une équipe d’administrateurs. Malgré les instructions sur le stockage à utiliser pour les sauvegardes, un mauvais choix de volume comme stockage de sauvegarde pour MABS peut entraîner une perte de données critiques. Avec MABS v3, vous pouvez éviter ce type de situation en configurant ces volumes comme non disponibles pour le stockage avec [ces cmdlets PowerShell](https://docs.microsoft.com/azure/backup/backup-mabs-add-storage).
 
 ## <a name="custom-size-allocation"></a>Allocation de taille personnalisée
 Le stockage de sauvegarde moderne (MBS) consomme peu de stockage, selon les besoins. Pour cela, MABS calcule la taille des données à sauvegarder lorsqu’il est configuré dans une optique de protection. Toutefois, si cela représente de nombreux fichiers et dossiers, comme dans le cas d’un serveur de fichiers, le calcul de la taille risque de prendre beaucoup de temps. Avec MABS v3, vous pouvez configurer MABS de façon à ce que, au lieu de calculer la taille de chaque fichier, il accepte la taille du volume comme valeur par défaut, ce qui fait gagner le temps.
@@ -54,7 +54,7 @@ Pour plus d’informations sur les étapes d’installation/de mise à niveau de
 
 
 > [!NOTE]
-> 
+>
 > MABS présente le même codebase que System Center Data Protection Manager. MABS v3 est équivalent à Data Protection Manager 1807.
 
 ## <a name="next-steps"></a>Étapes suivantes

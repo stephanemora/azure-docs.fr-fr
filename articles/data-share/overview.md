@@ -6,12 +6,12 @@ ms.service: data-share
 ms.topic: overview
 ms.date: 07/10/2019
 ms.author: joanpo
-ms.openlocfilehash: 1e0d640c5434c27695b90ee7fd4c20a4959c24b3
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: 7d4e51ec9564bfb123cf73d9fe89d040f42fe650
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67788983"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807543"
 ---
 # <a name="what-is-azure-data-share-preview"></a>En quoi consiste Azure Data Share (préversion) ?
 
@@ -78,14 +78,6 @@ Azure Data Share s’appuie sur la sécurité sous-jacente fournie par Azure pou
 Les contrôles d’accès peuvent être définis au niveau des ressources Azure Data Share, afin que seules les personnes autorisées puissent y accéder. 
 
 Azure Data Share utilise les identités managées pour ressources Azure (autrefois, fichiers MSI) dans le cadre de la gestion automatique des identités dans Azure Active Directory. Les identités managées pour ressources Azure permettent d’accéder aux comptes de stockage qui sont utilisés pour le partage des données. Il n’y a pas d’échange d’informations d’identification entre un fournisseur de données et un consommateur de données. Pour plus d’informations, consultez [Identités managées pour les ressources Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities). 
-
-## <a name="pricing"></a>Tarifs
-
-Dans la préversion d’Azure Data Share, deux composants vous sont facturés. Le premier composant permet de gérer le partage de données. Dans la préversion, la gestion des partages de données est gratuite.
-
-Le deuxième composant permet de déplacer les données. Azure Data Share vous facture le déplacement des données entre le locataire Azure du fournisseur de données et le locataire Azure du consommateur de données. Vous payez pour le déplacement des jeux de données à chaque opération de déplacement, ainsi que pour le calcul nécessaire au déplacement. Le calcul nécessaire au déplacement du jeu de données est facturé à l’heure pour chaque vCore. Le calcul nécessaire au déplacement du jeu de données est facturé au prorata à la minute supérieure. Dans la préversion, les opérations de déplacement de jeu de données sont gratuites. 
-
-Pour plus d’informations sur les tarifs, consultez la [page des tarifs](https://azure.microsoft.com/pricing/) d’Azure Data Share.
 
 ## <a name="supported-regions"></a>Régions prises en charge
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: 38403efd72843e7cd6d1afff5ff65a15af39c107
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 6b808126fe4366d3ca3cc19c674b489ec3055665
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67473970"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234158"
 ---
 # <a name="check-the-health-of-an-azure-ad-domain-services-managed-domain"></a>Vérifier l’intégrité d’un domaine managé Azure AD Domain Services
 
@@ -43,10 +43,10 @@ L’état affiché dans le coin supérieur droit de votre page d’intégrité i
 
 | Statut | Icône | Explication |
 | --- | :----: | --- |
-| Exécution | <img src= "./media/active-directory-domain-services-alerts/running-icon.png" width = "15"> | Votre domaine managé fonctionne normalement et n’a pas d’alertes critiques ou d’avertissement. Ce domaine peut avoir des alertes d’information. |
-| Doit être surveillé (avertissement) | <img src= "./media/active-directory-domain-services-alerts/warning-icon.png" width = "15"> | Il n’existe aucune alerte critique sur votre domaine managé, mais il existe une ou plusieurs alertes d’avertissement qui doivent être traitées. |
-| Doit être surveillé (critique) | <img src= "./media/active-directory-domain-services-alerts/critical-icon.png" width = "15"> | Il existe une ou plusieurs alertes critiques sur votre domaine managé. Vous avez peut-être également des alertes d’avertissement et/ou d’information. |
-| Déploiement en cours | <img src= "./media/active-directory-domain-services-alerts/deploying-icon.png" width = "15"> | Votre domaine est en cours de déploiement. |
+| Exécution | <img src= "./media/active-directory-domain-services-alerts/running-icon.png" width = "15" alt="Green check mark for running"> | Votre domaine managé fonctionne normalement et n’a pas d’alertes critiques ou d’avertissement. Ce domaine peut avoir des alertes d’information. |
+| Doit être surveillé (avertissement) | <img src= "./media/active-directory-domain-services-alerts/warning-icon.png" width = "15" alt="Yellow exclamation mark for warning"> | Il n’existe aucune alerte critique sur votre domaine managé, mais il existe une ou plusieurs alertes d’avertissement qui doivent être traitées. |
+| Doit être surveillé (critique) | <img src= "./media/active-directory-domain-services-alerts/critical-icon.png" width = "15" alt="Red exclamation mark for critical"> | Il existe une ou plusieurs alertes critiques sur votre domaine managé. Vous avez peut-être également des alertes d’avertissement et/ou d’information. |
+| Déploiement en cours | <img src= "./media/active-directory-domain-services-alerts/deploying-icon.png" width = "15" alt="Blue circular arrows for deploying"> | Votre domaine est en cours de déploiement. |
 
 ## <a name="monitors"></a>Analyses
 Les analyses sont les aspects de votre domaine managé qu’Azure AD Domain Services surveille régulièrement. La meilleure façon de conserver vos analyses dans un état sain consiste à résoudre toutes les alertes actives pour votre domaine managé.

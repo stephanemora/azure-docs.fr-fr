@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Ce guide de démarrage rapide vous montre comment créer un Standard Load Balancer avec le portail Azure.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 Customer intent: I want to create a Standard Load Balancer so that I can load balance internet traffic to VMs.
 ms.service: load-balancer
@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/11/2019
-ms.author: kumud
+ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 79ba86fd32248da240706fda2d8b5fcf8323263d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: c8df0daac25a79bbbd67577c30b0a2da62d037da
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65143201"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68273842"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Démarrage rapide : Créer un équilibreur de charge standard pour équilibrer la charge des machines virtuelles à l’aide du portail Azure
 
@@ -41,8 +41,8 @@ Dans cette section, vous allez créer un équilibreur de charge standard qui éq
 
     | Paramètre                 | Valeur                                              |
     | ---                     | ---                                                |
-    | Abonnement               | Sélectionnez votre abonnement.    |    
-    | Groupe de ressources         | Sélectionnez **Créer**, puis entrez *myResourceGroupSLB* dans la zone de texte.|
+    | Subscription               | Sélectionnez votre abonnement.    |    
+    | Resource group         | Sélectionnez **Créer**, puis entrez *myResourceGroupSLB* dans la zone de texte.|
     | Nom                   | *myLoadBalancer*                                   |
     | Région         | Sélectionnez **Europe Ouest**.                                        |
     | Type          | Sélectionnez **Public**.                                        |
@@ -50,7 +50,7 @@ Dans cette section, vous allez créer un équilibreur de charge standard qui éq
     | Adresse IP publique | Sélectionnez **Créer nouveau**. |
     | Nom de l’adresse IP publique              | Tapez *myPublicIP* dans la zone de texte.   |
     |Zone de disponibilité| Sélectionnez **Redondant dans une zone**.    |
-3. Sous l’onglet **Review + create (Vérifier + créer)**, sélectionnez **Créer**.   
+3. Sous l’onglet **Review + create (Vérifier + créer)** , sélectionnez **Créer**.   
 
     ![Créer un équilibreur de charge standard](./media/quickstart-load-balancer-standard-public-portal/create-standard-load-balancer.png)
 
@@ -114,9 +114,9 @@ Dans cette section, vous allez créer un réseau virtuel ainsi que trois machine
     | ------- | ----- |
     | Nom | Entrez *myVNet*. |
     | Espace d’adressage | Entrez *10.1.0.0/16*. |
-    | Abonnement | Sélectionnez votre abonnement.|
-    | Groupe de ressources | Sélectionner une ressource existante – *myResourceGroupSLB*. |
-    | Lieu | Sélectionnez **Europe Ouest**.|
+    | Subscription | Sélectionnez votre abonnement.|
+    | Resource group | Sélectionner une ressource existante – *myResourceGroupSLB*. |
+    | Location | Sélectionnez **Europe Ouest**.|
     | Sous-réseau - Nom | Entrez *myBackendSubnet*. |
     | Plage d’adresses du sous-réseau | Entrez *10.1.0.0/24*. |
 1. Laissez les autres valeurs par défaut et sélectionnez **Créer**.
@@ -138,12 +138,12 @@ Le service Standard Load Balancer ne prend en charge que des machines virtuelles
 1. Dans l’onglet **Mise en réseau**, vérifiez que les points suivants sont sélectionnés :
    - **Réseau virtuel** : *MyVNet*
    - **Sous-réseau** : *MyBackendSubnet*
-   - **Adresse IP publique** > Sélectionnez **Créer**, puis, dans la fenêtre **Créer une adresse IP publique**, pour **Référence (SKU)**, sélectionnez **Standard**, et pour **Zone de disponibilité**, sélectionnez **Redondant interzone**, puis **OK**.
+   - **Adresse IP publique** > Sélectionnez **Créer**, puis, dans la fenêtre **Créer une adresse IP publique**, pour **Référence (SKU)** , sélectionnez **Standard**, et pour **Zone de disponibilité**, sélectionnez **Redondant interzone**, puis **OK**.
    - Pour créer un groupe de sécurité réseau (NSG, un type de pare-feu), sous **Groupe de sécurité réseau**, sélectionnez **Avancé**. 
        1. Dans le champ **Configurer le groupe de sécurité réseau**, sélectionnez **Créer**. 
        1. Tapez *myNetworkSecurityGroup*, puis sélectionnez **OK**.
    - Pour que la machine virtuelle fasse partie du pool principal de l’équilibreur de charge, procédez comme suit :
-        - Dans **Équilibrage de charge**, pour **Placer cette machine virtuelle derrière une solution d’équilibrage de charge existante ?**, sélectionnez **Oui**.
+        - Dans **Équilibrage de charge**, pour **Placer cette machine virtuelle derrière une solution d’équilibrage de charge existante ?** , sélectionnez **Oui**.
         - Dans **Paramètres d’équilibrage de charge**, pour **Options d’équilibrage de charge**, sélectionnez **Équilibreur de charge Azure**.
         - Pour **Sélectionner un équilibreur de charge**, sélectionnez *MyLoadBalancer*.
         - Sélectionnez l’onglet **Gestion** ou sélectionnez **Suivant** > **Gestion**.

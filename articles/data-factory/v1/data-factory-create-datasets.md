@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 6b16b6c4de8c8d2d7a821dd476f07c8ab1135408
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f88d83a851ad878ac9ee9b0195816d2ca35e4c13
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60487252"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839374"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Jeux de données dans Azure Data Factory
-> [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
+> [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version 1](data-factory-create-datasets.md)
 > * [Version 2 (version actuelle)](../concepts-datasets-linked-services.md)
 
@@ -328,7 +328,6 @@ Les jeux de données externes sont ceux qui ne sont pas générés par un pipeli
 Vous pouvez créer des jeux de données à l’aide de l’un de ces outils ou kits de développement logiciel (SDK) :
 
 - Assistant de copie
-- Portail Azure
 - Visual Studio
 - PowerShell
 - Modèle Azure Resource Manager

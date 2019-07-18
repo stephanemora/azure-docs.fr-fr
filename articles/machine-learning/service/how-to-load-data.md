@@ -10,14 +10,14 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 02/22/2019
+ms.date: 07/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: fef3281f1f4e727b58878439e3f6456fee3b6241
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0fa60198af66154e0ddc703f90224adf5be89447
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752936"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876405"
 ---
 # <a name="load-and-read-data-with-the-azure-machine-learning-data-prep-sdk"></a>Charger et lire des données avec le kit SDK Azure Machine Learning Data Prep
 Dans cet article, vous découvrez les différentes méthodes de chargement de données à l’aide du kit SDK de préparation de données Azure Machine Learning.  Le SDK prend en charge plusieurs fonctionnalités d’ingestion des données, notamment :
@@ -28,7 +28,7 @@ Dans cet article, vous découvrez les différentes méthodes de chargement de do
 
 > [!Important]
 > Si vous concevez une nouvelle solution, essayez les [Jeux de données Azure Machine Learning](how-to-explore-prepare-data.md) (préversion) pour l’exploration et la préparation des données. Datasets est la prochaine version du SDK de préparation des données, offrant des fonctionnalités étendues pour la gestion des jeux de données dans des solutions d’intelligence artificielle.
-> Si vous utilisez le package `azureml-dataprep` pour créer un dataflow avec vos transformations au lieu d’utiliser le package `azureml-datasets` pour créer un jeu de données, vous ne pourrez pas utiliser des instantanés ou des jeux de données avec version ultérieurement.
+
 
 Le tableau suivant présente une sélection de fonctions utilisées pour le chargement des données à partir de types de fichiers courants.
 
@@ -128,7 +128,7 @@ Sortie :
 
 Par défaut, le kit SDK de préparation de données Azure Machine Learning ne change pas votre type de données. La source de données que vous lisez étant un fichier texte, le kit SDK lit toutes les valeurs sous forme de chaînes. Pour cet exemple, les colonnes numériques doivent être analysées en tant que nombres. Définissez le paramètre `inference_arguments` sur `InferenceArguments.current_culture()` pour déduire et convertir automatiquement les types de colonne pendant la lecture du fichier.
 
-```
+```python
 dflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv',
                           skip_rows=1,
                           inference_arguments=dprep.InferenceArguments.current_culture())
@@ -228,7 +228,7 @@ dflow = dprep.read_sql(ds, "SELECT top 100 * FROM [SalesLT].[Product]")
 dflow.head(5)
 ```
 
-| |IDProduit|Nom|RéférenceProduit|Couleur|CoûtStandard|ListPrice|Taille|Poids|IDCatégorieProduit|IDModèleProduit|DateDébutVente|DateFinVente|DateInterruption|PhotoMiniature|NomFichierPhotoMiniature|GuidLigne|DateModification| |
+| |IDProduit|Nom|RéférenceProduit|Couleur|CoûtStandard|ListPrice|Size|Poids|IDCatégorieProduit|IDModèleProduit|DateDébutVente|DateFinVente|DateInterruption|PhotoMiniature|NomFichierPhotoMiniature|GuidLigne|DateModification| |
 |-|---------|----|-------------|-----|------------|---------|----|------|-----------------|--------------|-------------|-----------|----------------|--------------|----------------------|-------|------------|-|
 |0|680|Cadre route HL - Noir, 58|FR-R92B-58|Noir|1059,3100|1431,50|58|1016,04|18|6\.|01-06-2002 00:00:00+00:00|Aucun|Aucun|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|43dd68d6-14a4-461f-9069-55309d90ea7e|03-11-2008 |0:01:36.827000+00:00|
 |1|706|Cadre route HL - Rouge, 58|FR-R92R-58|Rouge|1059,3100|1431,50|58|1016,04|18|6\.|01-06-2002 00:00:00+00:00|Aucun|Aucun|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|9540ff17-2712-4c90-a3d1-8ce5568b2462|03-11-2008 |10:01:36.827000+00:00|

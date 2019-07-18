@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: ee34c91787ede0431c71b0fd96d2c040717dbca2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 58db6f9903c4dc02c2d76f3784b004972621a000
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60487388"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836495"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines et activités dans Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -96,10 +96,10 @@ Examinons de plus près la définition d’un pipeline au format JSON. La struct
 
 | Tag | Description | Obligatoire |
 | --- | --- | --- |
-| Nom |Nom du pipeline. Spécifiez un nom qui représente l’action effectuée par le pipeline. <br/><ul><li>Nombre maximal de caractères : 260</li><li>Doit commencer par une lettre, un chiffre ou un trait de soulignement (\_)</li><li>Les caractères suivants ne sont pas autorisés : « . », « + », « ? », « / », « < », « > », « \* », « % », « & », « : », « \\ »</li></ul> |OUI |
+| name |Nom du pipeline. Spécifiez un nom qui représente l’action effectuée par le pipeline. <br/><ul><li>Nombre maximal de caractères : 260</li><li>Doit commencer par une lettre, un chiffre ou un trait de soulignement (\_)</li><li>Les caractères suivants ne sont pas autorisés : « . », « + », « ? », « / », « < », « > », « \* », « % », « & », « : », « \\ »</li></ul> |OUI |
 | description | Spécifiez le texte décrivant la raison motivant l’utilisation du pipeline. |OUI |
-| activités | La section **Activités** peut contenir une ou plusieurs activités définies. Consultez la section suivante pour plus d’informations sur l’élément JSON des activités. | OUI |
-| start | Date et heure de début du pipeline. Doit se trouver au [format ISO](https://en.wikipedia.org/wiki/ISO_8601). Par exemple : `2016-10-14T16:32:41Z`. <br/><br/>Il est possible de spécifier une heure locale, par exemple une heure EST. Voici un exemple : `2016-02-27T06:00:00-05:00`, qui correspond à 6h EST.<br/><br/>Ensemble, les propriétés de début et de fin spécifient la période active du pipeline. Les tranches de sortie sont uniquement générées pendant cette période active. |Non<br/><br/>Si vous spécifiez une valeur pour la propriété end, vous devez en spécifier une pour la propriété start.<br/><br/>Les heures de début et de fin peuvent être toutes les deux non renseignées pour créer un pipeline. Vous devez spécifier les deux valeurs pour définir une période active d’exécution du pipeline. Si vous ne spécifiez pas d’heures de début et de fin lors de la création d’un pipeline, vous pouvez les définir à l’aide de l’applet de commande Set-AzDataFactoryPipelineActivePeriod ultérieurement. |
+| activities | La section **Activités** peut contenir une ou plusieurs activités définies. Consultez la section suivante pour plus d’informations sur l’élément JSON des activités. | OUI |
+| start | Date et heure de début du pipeline. Doit se trouver au [format ISO](https://en.wikipedia.org/wiki/ISO_8601). Par exemple : `2016-10-14T16:32:41Z`. <br/><br/>Il est possible de spécifier une heure locale, par exemple une heure EST. Voici un exemple : `2016-02-27T06:00:00-05:00`, qui correspond à 6h EST.<br/><br/>Ensemble, les propriétés de début et de fin spécifient la période active du pipeline. Les tranches de sortie sont uniquement générées pendant cette période active. |Non<br/><br/>Si vous spécifiez une valeur pour la propriété end, vous devez en spécifier une pour la propriété start.<br/><br/>Les heures de début et de fin peuvent être toutes les deux non renseignées pour créer un pipeline. Vous devez spécifier les deux valeurs pour définir une période active d’exécution du pipeline. Si vous ne spécifiez pas d’heures de début et de fin lors de la création d’un pipeline, vous pouvez les définir à l’aide de la cmdlet Set-AzDataFactoryPipelineActivePeriod ultérieurement. |
 | end | Date et heure de fin du pipeline. Si spécifiée, doit être au format ISO. Par exemple : `2016-10-14T17:32:41Z` <br/><br/>Il est possible de spécifier une heure locale, par exemple une heure EST. Voici un exemple : `2016-02-27T06:00:00-05:00`, qui correspond à 6h EST.<br/><br/>Pour exécuter le pipeline indéfiniment, spécifiez 9999-09-09 comme valeur pour la propriété end. <br/><br/> Un pipeline est actif uniquement entre son heure de début et son heure de fin. Il n'est pas exécuté avant l'heure de début, ni après l'heure de fin. Lorsque le pipeline est suspendu, il n’est pas exécuté, quelle que soit son heure de début et de fin. Pour qu'un pipeline soit exécuté, il ne doit pas être suspendu. Consultez [Planification et exécution](data-factory-scheduling-and-execution.md) pour comprendre le fonctionnement de planification et de l’exécution dans Azure Data Factory. |Non <br/><br/>Si vous spécifiez une valeur pour la propriété start, vous devez en spécifier une pour la propriété end.<br/><br/>Consultez les remarques relatives à la propriété **start** . |
 | isPaused | Si la valeur est true, le pipeline ne s’exécute pas. Il est à l’état de pause. Valeur par défaut = false. Vous pouvez utiliser cette propriété pour activer ou désactiver un pipeline. |Non |
 | pipelineMode | La méthode de planification des exécutions pour le pipeline. Les valeurs autorisées sont : scheduled (par défaut) et onetime.<br/><br/>« scheduled » indique que le pipeline s’exécute selon un intervalle de temps spécifié en fonction de sa période active (heure de début et de fin). « Onetime » indique que le pipeline ne s’exécute qu’une seule fois. Une fois créés, les pipelines de type onetime ne peuvent pas être modifiés ni mis à jour pour le moment. Consultez la page [Pipeline onetime](#onetime-pipeline) pour plus d’informations sur le paramètre onetime. |Non |
@@ -134,9 +134,9 @@ Le tableau suivant décrit des propriétés de la définition JSON de l’activi
 
 | Tag | Description | Obligatoire |
 | --- | --- | --- |
-| Nom | Nom de l’activité. Spécifiez un nom qui représente l’action effectuée par l’activité. <br/><ul><li>Nombre maximal de caractères : 260</li><li>Doit commencer par une lettre, un chiffre ou un trait de soulignement (\_)</li><li>Les caractères suivants ne sont pas autorisés : « . », « + », « ? », « / », « < », « > », « * », « % », « & », « : », « \\ »</li></ul> |OUI |
+| name | Nom de l’activité. Spécifiez un nom qui représente l’action effectuée par l’activité. <br/><ul><li>Nombre maximal de caractères : 260</li><li>Doit commencer par une lettre, un chiffre ou un trait de soulignement (\_)</li><li>Les caractères suivants ne sont pas autorisés : « . », « + », « ? », « / », « < », « > », « * », « % », « & », « : », « \\ »</li></ul> |OUI |
 | description | Texte décrivant la raison motivant l’activité ou son utilisation |OUI |
-| Type | Type de l’activité. Consultez les sections [Activités de déplacement des données](#data-movement-activities) et [Activités de transformation des données](#data-transformation-activities) pour en savoir plus sur les différents types d’activités. |OUI |
+| type | Type de l’activité. Consultez les sections [Activités de déplacement des données](#data-movement-activities) et [Activités de transformation des données](#data-transformation-activities) pour en savoir plus sur les différents types d’activités. |OUI |
 | inputs |Les tables d’entrée utilisées par l’activité<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |OUI |
 | outputs |Les tables de sortie utilisées par l’activité.<br/><br/>`// one output table`<br/>`"outputs":  [ { "name": "outputtable1" } ],`<br/><br/>`//two output tables`<br/>`"outputs":  [ { "name": "outputtable1" }, { "name": "outputtable2" }  ],` |OUI |
 | linkedServiceName |Nom du service lié utilisé par l’activité. <br/><br/>Une activité peut nécessiter que vous spécifiiez le service lié à l’environnement de calcul requis. |Oui pour les activités HDInsight et de calcul de score Azure Machine Learning <br/><br/>Non pour toutes les autres |
@@ -290,8 +290,7 @@ Pour plus d’informations, consultez [Planification et exécution](data-factory
 ## <a name="create-and-monitor-pipelines"></a>Créer et surveiller des pipelines
 Vous pouvez créer des pipelines à l’aide de l’un de ces outils ou kits de développement logiciel (SDK).
 
-- Assistant Copie.
-- Portail Azure
+- Assistant de copie
 - Visual Studio
 - Azure PowerShell
 - Modèle Azure Resource Manager

@@ -8,13 +8,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/07/2019
-ms.author: kumud;tyao
-ms.openlocfilehash: 744c6fb9235c9daa2d5239ef9fd13679db943650
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: kumud
+ms.reviewer: tyao
+ms.openlocfilehash: 02b335de7f105d768168d5f798ec9109136d7430
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61459706"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67846258"
 ---
 #  <a name="custom-rules-for-web-application-firewall-with-azure-front-door"></a>Règles personnalisées pour le pare-feu d’applications web avec Azure Front Door
 Le pare-feu d’applications web Azure (WAF) doté du service Front Door vous permet de contrôler l’accès à vos applications web basées sur les conditions que vous définissez. Une règle WAF personnalisée se compose d’un numéro de priorité, d’un type de règle, de conditions de correspondance et d’une action. Il existe deux types de règles personnalisées : les règles de correspondance et les règles de limite de taux. Une règle de correspondance contrôle un accès en fonction de conditions de correspondance, alors qu’une règle de limite de taux contrôle d’accès basée sur la correspondance des conditions et les taux de requêtes entrantes. Vous pouvez désactiver une règle personnalisée pour l’empêcher d’être évaluée, tout en conservant la configuration. Cet article décrit les règles de correspondance qui reposent sur les paramètres http.
@@ -61,7 +62,7 @@ Les valeurs de la méthode de requête HTTP prises en charge incluent :
 - POST
 - PUT
 - HEAD
-- DELETE
+- SUPPRIMER
 - LOCK
 - UNLOCK
 - PROFILE

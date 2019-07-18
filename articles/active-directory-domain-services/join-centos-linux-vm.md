@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: d34f6c9ea014759ec2ba310786cd524ff69094af
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: c4a04f55f4f69521f00ed450a2d3d1a80b56761c
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67473337"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234094"
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-a-managed-domain"></a>Joindre une machine virtuelle Linux CentOS à un domaine managé
 Cet article indique comment joindre une machine virtuelle Linux CentOS dans Azure à un domaine managé par Azure AD Domain Services.
@@ -57,24 +57,25 @@ Suivez les instructions de l’article [Connexion à une machine virtuelle exéc
 ## <a name="configure-the-hosts-file-on-the-linux-virtual-machine"></a>Configurer le fichier hosts sur la machine virtuelle Linux
 Dans votre terminal SSH, modifiez le fichier/etc/hosts et mettez à jour l’adresse IP et le nom d’hôte de votre machine.
 
-```
+```console
 sudo vi /etc/hosts
 ```
 
 Dans le fichier hosts, saisissez la valeur suivante :
 
-```
+```console
 127.0.0.1 contoso-centos.contoso100.com contoso-centos
 ```
+
 Ici, « contoso100.com » est le nom de domaine DNS de votre domaine géré. « contoso-centos » est le nom d’hôte de la machine virtuelle CentOS que vous joignez au domaine managé.
 
 
 ## <a name="install-required-packages-on-the-linux-virtual-machine"></a>Installer les packages requis sur la machine virtuelle Linux
 Ensuite, installez les packages requis pour la jonction de domaine sur la machine virtuelle. Dans votre terminal SSH, saisissez la commande suivante pour installer les packages nécessaires :
 
-    ```
-    sudo yum install realmd sssd krb5-workstation krb5-libs oddjob oddjob-mkhomedir samba-common-tools
-    ```
+```console
+sudo yum install realmd sssd krb5-workstation krb5-libs oddjob oddjob-mkhomedir samba-common-tools
+```
 
 
 ## <a name="join-the-linux-virtual-machine-to-the-managed-domain"></a>Joindre la machine virtuelle Linux au domaine géré
@@ -82,7 +83,7 @@ Maintenant que les packages requis sont installés sur la machine virtuelle Linu
 
 1. Découvrez le domaine géré par les services de domaine Azure AD. Sur votre terminal SSH, saisissez la commande suivante :
 
-    ```
+    ```console
     sudo realm discover CONTOSO100.COM
     ```
 
@@ -97,9 +98,8 @@ Maintenant que les packages requis sont installés sur la machine virtuelle Linu
     > [!TIP]
     > * Spécifiez un utilisateur appartenant au groupe « AAD DC Administrators ».
     > * Spécifiez le nom de domaine en majuscules. Dans le cas contraire, kinit échoue.
-    >
 
-    ```
+    ```console
     kinit bob@CONTOSO100.COM
     ```
 
@@ -107,9 +107,8 @@ Maintenant que les packages requis sont installés sur la machine virtuelle Linu
 
     > [!TIP]
     > Utilisez le même compte utilisateur qu’à l’étape précédente (« kinit »).
-    >
 
-    ```
+    ```console
     sudo realm join --verbose CONTOSO100.COM -U 'bob@CONTOSO100.COM'
     ```
 
@@ -120,17 +119,20 @@ Vous devez voir apparaître un message signalant que l’ordinateur a bien été
 Vérifiez rapidement si la machine a bien été jointe au domaine géré. Connectez-vous à la machine virtuelle CentOS jointe au domaine à l’aide d’une autre connexion SSH. Utilisez un compte d’utilisateur de domaine, puis vérifiez que le compte d’utilisateur est correctement résolu.
 
 1. Sur votre terminal SSH, saisissez la commande suivante pour vous connecter à la machine virtuelle CentOS jointe au domaine à l’aide de SSH. Utilisez un compte de domaine appartenant au domaine géré (par exemple dans ce cas, « bob@CONTOSO100.COM »).
-    ```
+    
+    ```console
     ssh -l bob@CONTOSO100.COM contoso-centos.contoso100.com
     ```
 
 2. Sur votre terminal SSH, tapez la commande suivante pour voir si le répertoire de base a été initialisé correctement.
-    ```
+   
+    ```console
     pwd
     ```
 
 3. Sur votre terminal SSH, tapez la commande suivante pour voir si les membres du groupe ont été correctement résolus.
-    ```
+    
+    ```console
     id
     ```
 

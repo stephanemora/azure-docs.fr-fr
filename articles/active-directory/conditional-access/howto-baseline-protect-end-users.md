@@ -1,6 +1,6 @@
 ---
-title: Stratégie de référence utilisateur final protection (version préliminaire) - Azure Active Directory
-description: Stratégie d’accès conditionnel pour exiger une authentification multifacteur pour les utilisateurs
+title: Stratégie de base de protection de l’utilisateur final (préversion) – Azure Active Directory
+description: Stratégie d’accès conditionnel pour exiger une authentification multifacteur des utilisateurs
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -11,83 +11,69 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 104665774eee885cc2f562e9813cffcf23aa943e
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: f2644e0e35139ac470b89f6af1b95cf510f60a0a
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235501"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561016"
 ---
-# <a name="baseline-policy-end-user-protection-preview"></a>Stratégie de référence : Protection de l’utilisateur final (version préliminaire)
+# <a name="baseline-policy-end-user-protection-preview"></a>Stratégie de base : Protection de l’utilisateur final (préversion)
 
-Nous avons tendance à considérer que les comptes d’administrateur sont les seuls comptes qui requièrent une protection avec l’authentification multifacteur (MFA). Les administrateurs ont un accès étendu à des informations sensibles et apporter des modifications aux paramètres de l’ensemble de l’abonnement. Toutefois, les mauvais acteurs ont tendance pour cibler des utilisateurs finaux. Après avoir obtenu l’accès, ces mauvais acteurs peut demander l’accès à des informations confidentielles au nom du titulaire du compte d’origine ou télécharger l’ensemble du répertoire pour effectuer une attaque par phishing sur toute l’organisation. Une méthode courante pour améliorer la protection pour tous les utilisateurs consiste à exiger une forme plus puissante de vérification du compte, telles que l’authentification multifacteur (MFA).
+Nous avons tendance à considérer que les comptes administrateur sont les seuls qui nécessitent une protection par authentification multifacteur (MFA). Les administrateurs ont largement accès à des informations sensibles et peuvent modifier des paramètres à l’échelle d’un abonnement. Pourtant, les cybercriminels ont tendance à cibler les utilisateurs finaux. Après s’être introduits, ils peuvent demander l’accès à des informations confidentielles au nom du titulaire du compte d’origine, ou télécharger l’ensemble du répertoire pour effectuer une attaque par hameçonnage dans toute l’organisation. Une méthode courante pour améliorer la protection de tous les utilisateurs finaux consiste à demander une forme de vérification de compte plus stricte, telle qu’une authentification multifacteur (MFA).
 
-Pour atteindre un équilibre raisonnable de sécurité et de facilité d’utilisation, les utilisateurs ne doit pas être invités à chaque fois qu’ils connectez-vous. Demandes d’authentification reflétant le comportement d’utilisateur normal, telles que la connexion à partir de la même appareil à partir de l’emplacement, ont un faible risque de compromission. Uniquement connexions qui sont jugées à risque et affichent les caractéristiques d’un acteur doivent être présentées aux défis MFA.
+Pour trouver un équilibre raisonnable entre sécurité et convivialité, les utilisateurs ne doivent pas être invités à s’authentifier chaque fois qu’ils se connectent. Des demandes d’authentification correspondant à un comportement normal, telles qu’une connexion à l’aide d’un même appareil depuis un même emplacement, sont peu susceptibles de constituer une menace. Seules les connexions jugées risquées et présentant les caractéristiques d’un accès malveillant devraient justifier une demande d’authentification multifacteur.
 
-![Exiger l’authentification Multifacteur pour les utilisateurs](./media/howto-baseline-protect-end-users/baseline-policy-end-user-protection.png)
-
-Protection de l’utilisateur final est une authentification Multifacteur en fonction des risques [stratégie de référence](concept-baseline-protection.md) qui protège tous les utilisateurs dans un répertoire, y compris tous les rôles d’administrateur. L’activation de cette stratégie nécessite tous les utilisateurs à s’inscrire à MFA à l’aide de l’application d’authentification. Les utilisateurs peuvent ignorer l’invite d’inscription MFA pendant 14 jours, après laquelle ils seront bloqués de se connecter jusqu'à ce qu’ils s’inscrivent pour l’authentification Multifacteur. Une fois inscrit pour l’authentification Multifacteur, les utilisateurs seront invités pour l’authentification Multifacteur uniquement pendant les tentatives de connexion à risque. Comptes d’utilisateur compromis sont bloquées jusqu'à ce que son mot de passe est réinitialisé et événements à risque ont été ignorées.
+La protection de l’utilisateur final est une [stratégie de base](concept-baseline-protection.md) d’authentification multifacteur qui protège tous les utilisateurs au sein d’annuaire, incluant tous les rôles administrateur. L’activation de cette stratégie nécessite que tous les utilisateurs s’inscrivent pour l’authentification multifacteur via l’application d’authentification. Les utilisateurs peuvent ignorer l’invite d’inscription à l’authentification multifacteur pendant 14 jours à l’issue desquels il ne peuvent plus se connecter sans authentification multifacteur. Une fois inscrits à l’authentification multifacteur, les utilisateurs sont invités à s’identifier de cette manière uniquement lors de tentatives de connexion risquées. Les comptes d’utilisateurs compromis sont bloqués jusqu’à ce que leur mot de passe soit réinitialisé et que les risques aient été écartés.
 
 > [!NOTE]
-> Cette stratégie s’applique à tous les utilisateurs, y compris les comptes d’invité et doit être évaluée lors de la connexion à toutes les applications.
+> Cette stratégie vaut pour tous les utilisateurs, y compris les comptes invités, et est appliquée lors de la connexion à toutes les applications.
 
-## <a name="recovering-compromised-accounts"></a>La récupération de compte compromis
+## <a name="recovering-compromised-accounts"></a>Récupération de comptes compromis
 
-Pour protéger nos clients, le service informations d’identification de Microsoft recherche des paires nom d’utilisateur/mot de passe disponible publiquement. Si elles correspondent à une de nos utilisateurs, nous aider à sécuriser ce compte immédiatement. Utilisateurs identifiés comme ayant des informations d’identification volées sont confirmées compromis. Ces utilisateurs ne pourra se connecter jusqu'à ce que son mot de passe est réinitialisé.
+Pour protéger nos clients, le service de Microsoft en charge des informations d’identification ayant fuité recherche des paires nom d’utilisateur/mot de passe accessibles au public. Si elles correspondent à l’un de nos utilisateurs, nous contribuons immédiatement à sécuriser le compte correspondant. Les utilisateurs dont les informations d’identification ont fuité sont confirmés comme étant compromis. Leur connexion est bloquée jusqu’à ce que leur mot de passe soit réinitialisé.
 
-Les utilisateurs reçoivent une licence Azure AD Premium peuvent restaurer l’accès via la réinitialisation de mot de passe libre-service (SSPR) si la fonctionnalité est activée dans son annuaire. Les utilisateurs sans licence premium qui sont bloquent doivent contacter un administrateur pour effectuer une réinitialisation de mot de passe manuelle et d’ignorer l’événement à risque utilisateur avec indicateur.
+Les utilisateurs titulaires d’une licence Azure AD Premium peuvent restaurer l’accès via une réinitialisation de mot de passe en libre-service (SSPR) si cette fonctionnalité est activée dans leur annuaire. Les utilisateurs dépourvus d’une telle licence Premium qui se retrouvent bloqués doivent demander à un administrateur d’effectuer une réinitialisation manuelle du mot de passe et de supprimer l’indicateur de risque de l’utilisateur.
 
 ### <a name="steps-to-unblock-a-user"></a>Étapes pour débloquer un utilisateur
 
 Vérifiez que l’utilisateur a été bloqué par la stratégie en examinant les journaux de connexion de l’utilisateur.
 
-1. Un administrateur doit se connecter à la **Azure portal** et accédez à **Azure Active Directory** > **utilisateurs** > cliquez sur le nom de l’utilisateur et accédez à des connexions.
-1. Pour lancer le mot de passe réinitialisé sur un utilisateur bloqué, un administrateur doit accéder à **Azure Active Directory** > **utilisateurs avec indicateur de risque**
-1. Cliquez sur l’utilisateur dont le compte est bloqué pour afficher des informations sur l’activité de connexion récente de l’utilisateur.
-1. Cliquez sur Réinitialiser le mot de passe pour affecter un mot de passe temporaire qui doit être modifié lors de la prochaine connexion.
-1. Cliquez sur Ignorer tous les événements pour réinitialiser le score de risque de l’utilisateur.
+1. Un administrateur doit se connecter au **portail Azure** pour accéder à **Azure Active Directory** > **Utilisateurs**, puis cliquer sur le nom de l’utilisateur et accéder à Connexions.
+1. Pour réinitialiser le mot de passe d’un utilisateur bloqué, un administrateur doit accéder à **Azure Active Directory** > **Utilisateurs avec indicateur de risque**.
+1. Cliquez sur l’utilisateur dont le compte est bloqué pour afficher les informations concernant son activité de connexion récente.
+1. Cliquez sur Réinitialiser le mot de passe pour affecter un mot de passe temporaire qui devra être modifié lors de la prochaine connexion.
+1. Cliquez sur Ignorer tous les événements pour réinitialiser l’indice de risque de l’utilisateur.
 
-L’utilisateur peut désormais se connecter, de réinitialiser leur mot de passe et d’accéder à l’application.
+L’utilisateur peut désormais se connecter, réinitialiser son mot de passe et accéder à l’application.
 
 ## <a name="deployment-considerations"></a>Points à prendre en considération pour le déploiement
 
-Étant donné que le **protection de l’utilisateur final** stratégie s’applique à tous les utilisateurs dans votre répertoire, plusieurs considérations doivent être apportées pour garantir un déploiement sans heurts. Ces considérations incluent l’identification des utilisateurs et les principes de service dans Azure AD qui ne peuvent pas ou ne devez pas effectuer d’authentification Multifacteur, ainsi que les applications et les clients utilisés par votre organisation qui ne prennent pas en charge l’authentification moderne.
+Étant donné que la stratégie de **protection de l’utilisateur final** s’applique à tous les utilisateurs figurant dans votre annuaire, il convient de prendre plusieurs aspects en considérations pour garantir un déploiement fluide. Ces considérations incluent l’identification des utilisateurs et principaux de service dans Azure AD qui ne peuvent pas ou ne doivent pas utiliser l’authentification multifacteur, ainsi que des applications et clients utilisés par votre organisation qui ne prennent pas en charge l’authentification moderne.
 
 ### <a name="legacy-protocols"></a>Protocoles hérités
 
-Protocoles d’authentification hérités (IMAP, SMTP, POP3, etc.) sont utilisés par les clients de messagerie pour effectuer des demandes d’authentification. Ces protocoles ne prennent pas en charge MFA.  La plupart de la compromission de compte indiquée par Microsoft est causée par des mauvais acteurs, effectuer des attaques contre des protocoles hérités de contourner l’authentification Multifacteur. Pour garantir l’authentification Multifacteur est requise lors de la connexion à un compte et mauvais acteurs ne sont pas capables de contourner l’authentification Multifacteur, cette stratégie bloque toutes les demandes d’authentification effectuées aux comptes d’administrateur à partir de protocoles hérités.
+Les protocoles d’authentification hérités (IMAP, SMTP, POP3, etc.) sont utilisés par les clients de messagerie pour effectuer des demandes d’authentification. Ces protocoles ne prennent pas en charge l’authentification multifacteur.  La plupart des problèmes de compromission de comptes détectés par Microsoft sont causés par des utilisateurs malveillants, qui s’attaquent à des protocoles hérités pour tenter de contourner l’authentification multifacteur. Pour s’assurer que l’authentification multifacteur est bien requise lors de la connexion à un compte et que des utilisateurs malveillants ne peuvent pas la contourner, cette stratégie bloque toutes les demandes d’authentification adressées à des comptes administrateur à partir de protocoles hérités.
 
 > [!WARNING]
-> Avant d’activer cette stratégie, assurez-vous que vos utilisateurs ne sont pas à l’aide de protocoles d’authentification hérités. Consultez l’article [Comment : L’authentification héritée de bloc à Azure AD avec l’accès conditionnel](howto-baseline-protect-legacy-auth.md#identify-legacy-authentication-use) pour plus d’informations.
+> Avant d’activer cette stratégie, assurez-vous que vos utilisateurs n’utilisent aucun protocole d’authentification hérité. Pour plus d’informations, voir l’article [Comment bloquer l’authentification héritée auprès d’Azure AD avec un accès conditionnel](howto-baseline-protect-legacy-auth.md#identify-legacy-authentication-use).
 
-### <a name="user-exclusions"></a>Exclusions de l’utilisateur
+## <a name="enable-the-baseline-policy"></a>Activer la stratégie de base
 
-Cette stratégie de référence vous offre la possibilité d’exclure les utilisateurs. Avant d’activer la stratégie pour votre client, nous recommandons à l’exclusion des comptes suivants :
+La stratégie **Stratégie de base : la protection des utilisateurs finaux (préversion)** est préconfigurée et s’affiche dans la partie supérieure de la fenêtre lorsque vous accédez au panneau Accès conditionnel dans le portail Microsoft Azure.
 
-* **Accès d’urgence** ou **secours** comptes afin d’éviter le verrouillage de compte de l’échelle du client. Dans le scénario improbable où tous les administrateurs sont verrouillés en dehors de votre locataire, votre compte d’administration d’accès d’urgence peut être utilisé pour vous connecter à la procédure client de récupérer l’accès.
-   * Vous trouverez plus d’informations dans l’article [gérer les comptes d’accès d’urgence dans Azure AD](../users-groups-roles/directory-emergency-access.md).
-* **Comptes de service** et **principes de service**, telles que le compte de synchronisation de connexion AD Azure. Comptes de service sont des comptes non interactifs qui ne sont pas liés à un utilisateur spécifique. Ils sont normalement utilisés par les services back-end et autorisent l’accès par programmation aux applications. Comptes de service doivent être exclus, car l’authentification Multifacteur ne peut pas être effectuée par programme.
-   * Si votre organisation dispose de ces comptes en cours d’utilisation dans des scripts ou du code, envisagez d’en les remplaçant par [gérés identités](../managed-identities-azure-resources/overview.md). En tant que solution de contournement temporaire, vous pouvez exclure ces comptes spécifiques à partir de la stratégie de référence.
-* Utilisateurs qui n’ont pas ou ne sera pas en mesure d’utiliser un Smartphone.
-   * Cette stratégie nécessite que les utilisateurs de s’inscrire à MFA à l’aide de l’application Microsoft Authenticator.
+Pour activer cette stratégie et protéger vos utilisateurs, procédez comme suit :
 
-## <a name="enable-the-baseline-policy"></a>Activer la stratégie de référence
-
-La stratégie **stratégie de référence : Protection de l’utilisateur final (version préliminaire)** est préconfigurée et s’affichera en haut lorsque vous accédez au panneau d’accès conditionnel dans le portail Azure.
-
-Pour activer cette stratégie et protéger vos utilisateurs :
-
-1. Se connecter à la **Azure portal** en tant qu’administrateur général, administrateur de sécurité ou administrateur de l’accès conditionnel.
-1. Accédez à **Azure Active Directory** > **accès conditionnel**.
-1. Dans la liste des stratégies, sélectionnez **stratégie de référence : Protection de l’utilisateur final (version préliminaire)** .
-1. Définissez **activer la stratégie** à **utiliser immédiatement la stratégie**.
-1. Ajoutez les exclusions d’utilisateur en cliquant sur **utilisateurs** > **sélectionner les utilisateurs exclus** et en choisissant les utilisateurs qui doivent être exclues. Cliquez sur **sélectionnez** puis **fait**.
-1. Cliquez sur **enregistrer**.
+1. Connectez-vous au **portail Microsoft Azure** en tant qu’administrateur général, administrateur de sécurité ou administrateur de l’accès conditionnel.
+1. Accédez à **Azure Active Directory** > **Accès conditionnel**.
+1. Dans la liste des stratégies, sélectionnez **Stratégie de base : Protection de l’utilisateur final (préversion)** .
+1. Définissez **Activer la stratégie** sur **Utiliser la stratégie immédiatement**.
+1. Cliquez sur  **Enregistrer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d'informations, consultez les pages suivantes :
 
-* [Stratégies de protection d’accès conditionnel de base](concept-baseline-protection.md)
+* [Stratégies de protection de base de l’accès conditionnel](concept-baseline-protection.md)
 * [Cinq étapes pour sécuriser votre infrastructure d’identité](../../security/azure-ad-secure-steps.md)
 * [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](overview.md)

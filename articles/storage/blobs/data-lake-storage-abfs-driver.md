@@ -9,12 +9,12 @@ ms.reviewer: jamesbak
 ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: abe3f67141011c765f9de93bcf51998ddae002cb
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 50d39aa3c6341e61e383c5584ab2992e3fea3189
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67696140"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68278084"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>Pilote Azure Blob FileSystem (ABFS) : un pilote Stockage Azure dédié pour Hadoop
 
@@ -55,11 +55,11 @@ Le pilote ABFS prend en charge deux types d’authentification. L’application 
 
 La configuration du pilote ABFS est entièrement stockée dans le fichier de configuration <code>core-site.xml</code>. Sur les distributions Hadoop proposant [Ambari](https://ambari.apache.org/), la configuration peut également être gérée à l’aide du portail web ou de l’API REST Ambari.
 
-Les détails de toutes les entrées de configuration prises en charge sont spécifiés dans la [documentation Hadoop officielle](https://hadoop.apache.org/docs/current/hadoop-azure/index.html).
+Les détails de toutes les entrées de configuration prises en charge sont spécifiés dans la [documentation Hadoop officielle](https://hadoop.apache.org/docs/r3.2.0/hadoop-azure/abfs.html).
 
 ### <a name="hadoop-documentation"></a>Documentation Hadoop
 
-Le pilote ABFS est présenté au complet dans la [documentation Hadoop officielle](https://github.com/apache/hadoop/blob/trunk/hadoop-tools/hadoop-azure/src/site/markdown/abfs.md).
+Le pilote ABFS est présenté au complet dans la [documentation Hadoop officielle](https://hadoop.apache.org/docs/r3.2.0/hadoop-azure/abfs.html).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

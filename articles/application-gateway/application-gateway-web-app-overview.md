@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: victorh
-ms.openlocfilehash: 256fb42be8fec056ed7d10cfc4197a1b5a33fac1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 66e4a578e3f443f4cbc3f6e5467cf9a86adf05fe
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66807164"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297042"
 ---
 # <a name="application-gateway-support-for-multi-tenant-back-ends-such-as-app-service"></a>Prise en charge d’Application Gateway pour les back-ends multilocataires tels qu’App Service
 
@@ -62,4 +62,4 @@ Pour résoudre de tels cas, consultez [Résolution des problèmes de redirection
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez comment configurer une passerelle d’application avec une application multi-locataires, telles qu’une application web Azure App service, en tant que membre du pool de serveurs principaux en consultant l’article suivant : [Configurer les applications web App Service avec Application Gateway](https://docs.microsoft.com/azure/application-gateway/create-web-app).
+Découvrez comment configurer une passerelle d’application avec une application multi-locataires, telles qu’une application web Azure App service, en tant que membre du pool de serveurs principaux en consultant l’article suivant : [Configurer les applications web App Service avec Application Gateway](https://docs.microsoft.com/azure/application-gateway/configure-web-app-portal).

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: b21c5c517b1f4a1cbcbf2028a079793c70996d58
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 29a6cb69a818ed11e5f20dddd7299c01fbefbf47
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67473119"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234015"
 ---
 # <a name="join-an-ubuntu-virtual-machine-in-azure-to-a-managed-domain"></a>Joindre une machine virtuelle Ubuntu dans Azure à un domaine géré
 Cet article indique comment joindre une machine virtuelle Linux Ubuntu à un domaine géré par les services de domaine Azure AD.
@@ -57,15 +57,16 @@ Suivez les instructions de l’article [Connexion à une machine virtuelle exéc
 ## <a name="configure-the-hosts-file-on-the-linux-virtual-machine"></a>Configurer le fichier hosts sur la machine virtuelle Linux
 Dans votre terminal SSH, modifiez le fichier/etc/hosts et mettez à jour l’adresse IP et le nom d’hôte de votre machine.
 
-```
+```console
 sudo vi /etc/hosts
 ```
 
 Dans le fichier hosts, saisissez la valeur suivante :
 
-```
+```console
 127.0.0.1 contoso-ubuntu.contoso100.com contoso-ubuntu
 ```
+
 Ici, « contoso100.com » est le nom de domaine DNS de votre domaine géré. « contoso-ubuntu » est le nom d’hôte de la machine virtuelle Ubuntu que vous joignez au domaine géré.
 
 
@@ -74,12 +75,13 @@ Ensuite, installez les packages requis pour la jonction de domaine sur la machin
 
 1.  Dans votre terminal SSH, tapez la commande suivante pour télécharger les listes de package à partir des référentiels. Cette commande met à jour les listes de package pour obtenir plus d’informations sur les dernières versions des packages et leurs dépendances.
 
-    ```
+    ```console
     sudo apt-get update
     ```
 
 2. Saisissez la commande suivante pour installer les packages nécessaires.
-    ```
+
+    ```console
       sudo apt-get install krb5-user samba sssd sssd-tools libnss-sss libpam-sss ntp ntpdate realmd adcli
     ```
 
@@ -87,27 +89,26 @@ Ensuite, installez les packages requis pour la jonction de domaine sur la machin
 
     > [!TIP]
     > Si le nom de votre domaine géré est contoso100.com, saisissez « CONTOSO100.COM » comme domaine. N’oubliez pas que le nom de domaine doit être écrit en majuscules.
-    >
-    >
 
 
 ## <a name="configure-the-ntp-network-time-protocol-settings-on-the-linux-virtual-machine"></a>Configurer les paramètres de protocole NTP (Network Time Protocol) sur la machine virtuelle Linux
 La date et l’heure de votre machine virtuelle Ubuntu être synchronisées avec le domaine géré. Ajoutez le nom d’hôte NTP de votre domaine géré dans le fichier /etc/ntp.conf.
 
-```
+```console
 sudo vi /etc/ntp.conf
 ```
 
 Dans le fichier ntp.conf, saisissez la valeur suivante et enregistrez le fichier :
 
-```
+```console
 server contoso100.com
 ```
+
 Ici, « contoso100.com » est le nom de domaine DNS de votre domaine géré.
 
 Effectuez maintenant la synchronisation de la date et de l’heure de la machine virtuelle Ubuntu avec le serveur NTP, puis démarrez le service NTP :
 
-```
+```console
 sudo systemctl stop ntp
 sudo ntpdate contoso100.com
 sudo systemctl start ntp
@@ -119,7 +120,7 @@ Maintenant que les packages requis sont installés sur la machine virtuelle Linu
 
 1. Découvrez le domaine géré par les services de domaine Azure AD. Sur votre terminal SSH, saisissez la commande suivante :
 
-    ```
+    ```console
     sudo realm discover CONTOSO100.COM
     ```
 
@@ -136,7 +137,7 @@ Maintenant que les packages requis sont installés sur la machine virtuelle Linu
     > * Spécifiez le nom de domaine en majuscules. Dans le cas contraire, kinit échoue.
     >
 
-    ```
+    ```console
     kinit bob@CONTOSO100.COM
     ```
 
@@ -144,9 +145,8 @@ Maintenant que les packages requis sont installés sur la machine virtuelle Linu
 
     > [!TIP]
     > Utilisez le même compte utilisateur qu’à l’étape précédente (« kinit »).
-    >
 
-    ```
+    ```console
     sudo realm join --verbose CONTOSO100.COM -U 'bob@CONTOSO100.COM' --install=/
     ```
 
@@ -155,29 +155,34 @@ Vous devez voir apparaître un message signalant que l’ordinateur a bien été
 
 ## <a name="update-the-sssd-configuration-and-restart-the-service"></a>Mettre à jour la configuration SSSD et redémarrer le service
 1. Sur votre terminal SSH, saisissez la commande suivante. Ouvrez le fichier sssd.conf et effectuez la modification suivante.
-    ```
+    
+    ```console
     sudo vi /etc/sssd/sssd.conf
     ```
 
 2. Commentez la ligne **use_fully_qualified_names = True** et enregistrez le fichier.
-    ```
+    
+    ```console
     # use_fully_qualified_names = True
     ```
 
 3. Redémarrez le service SSSD.
-    ```
+    
+    ```console
     sudo service sssd restart
     ```
 
 
 ## <a name="configure-automatic-home-directory-creation"></a>Configurer la création automatique du répertoire de base
 Pour activer la création automatique du répertoire de base après la connexion des utilisateurs, saisissez les commandes suivantes dans votre terminal PuTTY :
-```
+
+```console
 sudo vi /etc/pam.d/common-session
 ```
 
 Ajoutez la ligne suivante dans ce fichier sous la ligne « session optional pam_sss.so », puis enregistrez-le :
-```
+
+```console
 session required pam_mkhomedir.so skel=/etc/skel/ umask=0077
 ```
 
@@ -186,17 +191,20 @@ session required pam_mkhomedir.so skel=/etc/skel/ umask=0077
 Vérifiez rapidement si la machine a bien été jointe au domaine géré. Connectez-vous à la machine virtuelle Ubuntu jointe au domaine à l’aide d’une autre connexion SSH. Utilisez un compte d’utilisateur de domaine, puis vérifiez que le compte d’utilisateur est correctement résolu.
 
 1. Sur votre terminal SSH, saisissez la commande suivante pour vous connecter à la machine virtuelle Ubuntu jointe au domaine à l’aide de SSH. Utilisez un compte de domaine appartenant au domaine géré (par exemple dans ce cas, « bob@CONTOSO100.COM »).
-    ```
+    
+    ```console
     ssh -l bob@CONTOSO100.COM contoso-ubuntu.contoso100.com
     ```
 
 2. Sur votre terminal SSH, tapez la commande suivante pour voir si le répertoire de base a été initialisé correctement.
-    ```
+    
+    ```console
     pwd
     ```
 
 3. Sur votre terminal SSH, tapez la commande suivante pour voir si les membres du groupe ont été correctement résolus.
-    ```
+    
+    ```console
     id
     ```
 
@@ -205,12 +213,14 @@ Vérifiez rapidement si la machine a bien été jointe au domaine géré. Connec
 Vous pouvez accorder des privilèges d’administration aux membres du groupe « Administrateurs du contrôleur de domaine AAD» sur la machine virtuelle Ubuntu. Le fichier sudo se trouve dans/etc/sudoers. Les membres de groupes AD ajoutés dans sudoers peuvent utiliser la commande sudo.
 
 1. Sur votre terminal SSH, assurez-vous que vous êtes connecté avec des privilèges de superutilisateur. Vous pouvez utiliser le compte d’administrateur local que vous avez spécifié lors de la création de la machine virtuelle. Exécutez la commande suivante :
-    ```
+    
+    ```console
     sudo vi /etc/sudoers
     ```
 
 2. Ajoutez l’entrée suivante au fichier/etc/sudoers et enregistrez-le :
-    ```
+    
+    ```console
     # Add 'AAD DC Administrators' group members as admins.
     %AAD\ DC\ Administrators ALL=(ALL) NOPASSWD:ALL
     ```

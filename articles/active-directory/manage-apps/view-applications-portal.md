@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cccd5ddc2f268eda48bd9803596a1db1c5ee9395
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 1ae5e16aa00147d6ea434090720b51af06e8e0c5
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67481172"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807565"
 ---
 # <a name="view-your-azure-active-directory-tenant-applications"></a>Afficher les application du tenant Azure Active Directory
 
@@ -39,20 +39,16 @@ Vos applications de tenant Azure AD sont visibles dans la section **Applications
 
 Pour rechercher les applications de votre tenant :
 
-1. Dans le panneau de navigation gauche du **[portail Azure](https://portal.azure.com)** , sélectionnez **Azure Active Directory**. 
-
-1. Dans le volet **Azure Active Directory**, sélectionnez **Applications d’entreprise**. 
-
+1. Dans le panneau de navigation gauche du **[portail Azure](https://portal.azure.com)** , sélectionnez **Azure Active Directory**.
+1. Dans le volet **Azure Active Directory**, sélectionnez **Applications d’entreprise**.
 1. À partir du menu déroulant **Type d’Application**, sélectionnez **Toutes les Applications**, puis choisissez **Appliquer**. Un échantillon aléatoire des applications de votre tenant s’affiche.
-   
 1. Pour afficher davantage d’applications, sélectionnez **Charger plus** en bas de la liste. Selon le nombre d’applications de votre tenant, il peut être plus facile de [rechercher une application particulière](#search-for-a-tenant-application) que de faire défiler la liste.
 
 ## <a name="select-viewing-options"></a>Sélectionner les options d'affichage
 
 Sélectionnez les options correspondant à ce que vous recherchez.
 
-1. Vous pouvez afficher les applications par **Type d’application**, **État de l’application** et **Visibilité de l’application**. 
-
+1. Vous pouvez afficher les applications par **Type d’application**, **État de l’application** et **Visibilité de l’application**.
 1. Sous **Type d’Application**, choisissez l’une des options suivantes :
 
     - **Applications d’entreprise** montre les applications non Microsoft.
@@ -60,9 +56,7 @@ Sélectionnez les options correspondant à ce que vous recherchez.
     - **Toutes les Applications** montre les applications non Microsoft et Microsoft.
 
 1. Sous **État de l’Application**, choisissez **Quelconque**, **Désactivé**, ou **Activé**. L’option **Quelconque** inclut les applications activées et désactivées.
-
 1. Sous **Visibilité de l’Application**, choisissez **Quelconque** ou **Masqué**. L’option **Masqué** affiche les applications qui sont dans le locataire, mais ne sont pas visibles pour les utilisateurs.
-
 1. Après avoir choisi les options souhaitées, sélectionnez **Appliquer**.
 
 ## <a name="search-for-a-tenant-application"></a>Rechercher une application de tenant
@@ -70,7 +64,6 @@ Sélectionnez les options correspondant à ce que vous recherchez.
 Pour rechercher une application particulière :
 
 1. À partir du menu déroulant **Type d’application**, sélectionnez **Toutes les applications**, puis sélectionnez **Appliquer**.
-
 1. Entrez le nom de l’application recherchée. Si l’application a été ajoutée à votre locataire Azure AD, elle apparaît dans les résultats de recherche. Cet exemple montre que GitHub n’a pas été ajouté aux applications du locataire.
 
     ![L’exemple montre qu'une application n’a pas été ajoutée au locataire](media/view-applications-portal/search-for-tenant-application.png)

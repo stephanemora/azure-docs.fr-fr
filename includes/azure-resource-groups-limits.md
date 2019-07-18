@@ -2,14 +2,14 @@
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 04/19/2019
+ms.date: 07/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: 8bd16378e9c82a011309c12cf241b59d03405a77
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 5e251402a89f84a0aa67eee676c1794207dd24fb
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67177429"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67869880"
 ---
 | Ressource | Limite par défaut | Limite maximale |
 | --- | --- | --- |
@@ -33,7 +33,7 @@ ms.locfileid: "67177429"
 | Outputs |64 |64 |
 | Expression de modèle |24 576 caractères |24 576 caractères |
 | Ressources dans les modèles exportés |200 |200 | 
-| Taille du modèle |1 Mo |1 Mo |
+| Taille du modèle |4 Mo |4 Mo |
 | Taille du fichier de paramètres |64 Ko |64 Ko |
 
 Vous pouvez dépasser certaines limites de modèle en utilisant un modèle imbriqué. Pour plus d’informations, consultez l’article [Utilisation de modèles liés lors du déploiement des ressources Azure](../articles/azure-resource-manager/resource-group-linked-templates.md). Pour réduire le nombre de paramètres, de variables ou de sorties, vous pouvez combiner plusieurs valeurs dans un même objet. Pour plus d’informations, consultez l’article [Objects as parameters](../articles/azure-resource-manager/resource-manager-objects-as-parameters.md) (Utiliser un objet en tant que paramètre).

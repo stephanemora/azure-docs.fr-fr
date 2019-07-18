@@ -7,12 +7,12 @@ ms.date: 12/06/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 2dd31ab29479fade21d27b8e2c23952f905f530a
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: da045a561fba81bf9a5e412a6f2bf0a6160acfa7
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65979154"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807447"
 ---
 # <a name="overview-of-the-azure-policy-service"></a>Vue d’ensemble du service Azure Policy
 
@@ -25,6 +25,8 @@ Azure Policy est un service d’Azure que vous utilisez pour créer, affecter et
 
 > [!IMPORTANT]
 > L’évaluation de la conformité Azure Policy est désormais fournie pour toutes les affectations, quel que soit le niveau de tarification. Si vos affectations n’affichent pas les données de conformité, vérifiez que l’abonnement est inscrit auprès du fournisseur de ressources Microsoft.PolicyInsights.
+
+[!INCLUDE [service-provider-management-toolkit](../../../includes/azure-lighthouse-supported-service.md)]
 
 ## <a name="how-is-it-different-from-rbac"></a>Quelle est la différence avec RBAC ?
 
@@ -45,7 +47,7 @@ Si aucun des rôles intégrés ne dispose d’autorisations, créez un [rôle pe
 
 Pour créer et implémenter une stratégie dans Azure Policy, il faut commencer par créer une définition de stratégie. Chaque définition de stratégie présente des conditions dans lesquelles elle est appliquée. Si les conditions sont remplies, un effet défini se produit.
 
-Dans Azure Policy, nous proposons plusieurs stratégies intégrées qui sont disponibles par défaut. Par exemple : 
+Dans Azure Policy, nous proposons plusieurs stratégies intégrées qui sont disponibles par défaut. Par exemple :
 
 - **Exiger SQL Server 12.0** : Valide le fait que tous les serveurs SQL utilisent la version 12.0. Son effet consiste à refuser tous les serveurs qui ne répondent pas à ces critères.
 - **Références SKU de compte de stockage autorisées** : Détermine si un compte de stockage en cours de déploiement se trouve dans un ensemble de tailles de référence SKU. Son effet consiste à refuser tous les comptes de stockage dont la taille ne fait pas partie de l’ensemble de tailles de référence SKU définies.
@@ -105,7 +107,7 @@ Par exemple, imaginons un scénario où vous avez une définition d’initiative
 | Stratégie | Nom de paramètre |Type de paramètre  |Remarque |
 |---|---|---|---|
 | policyA | allowedLocations | array  |Ce paramètre attend une liste de chaînes pour une valeur, le type de paramètre ayant été défini comme tableau |
-| policyB | allowedSingleLocation |chaîne |Ce paramètre attend un mot pour une valeur, le type de paramètre ayant été défini comme chaîne |
+| policyB | allowedSingleLocation |string |Ce paramètre attend un mot pour une valeur, le type de paramètre ayant été défini comme chaîne |
 
 Dans ce scénario, quand vous définissez les paramètres d’initiative pour **initiativeC**, vous avec trois options :
 

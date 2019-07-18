@@ -3,17 +3,17 @@ title: Configurer le tableau de bord de l’application d’Azure IoT Central | 
 description: En tant que concepteur, découvrez comment configurer le tableau de bord de l’application d’Azure IoT Central par défaut.
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/13/2019
+ms.date: 07/10/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: e6947a4f15797028274d49069d9e2787b143860d
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.openlocfilehash: 94ad51ac11687dfe060176132e2030d61b8d4ffc
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67503231"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67850216"
 ---
 # <a name="configure-the-application-dashboard"></a>Configurer le tableau de bord de l’application
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 04/08/2019
 ms.author: kwill
-ms.openlocfilehash: 7c8459a6694663a49203b6ec21a760d3e6bd60c3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e7b3146ffa0f4b828f1a28d3bc51b26db194244c
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60480743"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249503"
 ---
 #    <a name="workflow-of-windows-azure-classic-vm-architecture"></a>Workflow de l’architecture de machine virtuelle Windows Azure 
 Cet article présente les processus de workflow qui interviennent lorsque vous déployez ou mettez à jour une ressource Azure telle qu'une machine virtuelle. 
@@ -84,7 +84,7 @@ Le diagramme suivant présente l’architecture des ressources Azure.
 5. WindowsAzureGuestAgent configure le système d’exploitation invité (pare-feu, ACL, LocalStorage, etc.), copie un nouveau fichier de configuration XML vers C:\Config, puis démarre le processus WaHostBootstrapper.
 6. Pour les rôles web IIS complets, WaHostBootstrapper démarre IISConfigurator et lui indique de supprimer tout pool d'applications existant pour le rôle web dans IIS.
 7. WaHostBootstrapper lit les tâches **Startup** depuis E:\RoleModel.xml et commence à exécuter les tâches de démarrage. WaHostBootstrapper attend la fin de toutes les tâches de démarrage simple et renvoie un message de « réussite ».
-8. Pour les rôles web IIS complets, WaHostBootstrapper indique à IISConfigurator de configurer le pool d’applications IIS et pointe le site vers `E:\Sitesroot\<index>`, où `<index>` correspond à un index basé sur 0 dans le nombre de <Sites> éléments définis pour le service.
+8. Pour les rôles web IIS complets, WaHostBootstrapper indique à IISConfigurator de configurer le pool d’applications IIS et pointe le site vers `E:\Sitesroot\<index>`, où `<index>` correspond à un index basé sur 0 dans le nombre de `<Sites>` éléments définis pour le service.
 9. WaHostBootstrapper démarre le processus hôte en fonction du type de rôle :
     1. **Rôle de travail** : WaWorkerHost.exe est démarré. WaHostBootstrapper exécute la méthode OnStart(). Ensuite, WaHostBootstrapper commence à exécuter la méthode Run(), puis marque simultanément le rôle comme Prêt et le place dans la rotation d'équilibrage de charge (si des InputEndpoints sont définis). WaHostBootsrapper entre ensuite dans une boucle de vérification d'état du rôle.
     1. **Rôle Web HWC SDK 1.2** : WaWebHost est démarré. WaHostBootstrapper exécute la méthode OnStart(). Ensuite, WaHostBootstrapper commence à exécuter la méthode Run(), puis marque simultanément le rôle comme Prêt et le place dans la rotation d'équilibrage de charge. WaWebHost émet une requête de préparation (/do.rd_runtime_init GET). Toutes les requêtes web sont envoyées à WaWebHost.exe. WaHostBootsrapper entre ensuite dans une boucle de vérification d'état du rôle.
@@ -102,27 +102,27 @@ Ce journal contient les mises à jour d'état ainsi que les notifications de pul
  
 **WaHostBootstrapper**
 
-C:\Resources\Directory\<deploymentID>.<role>.DiagnosticStore\WaHostBootstrapper.log
+`C:\Resources\Directory\<deploymentID>.<role>.DiagnosticStore\WaHostBootstrapper.log`
  
 **WaWebHost**
 
-C:\Resources\Directory\<guid>.<role>\WaWebHost.log
+`C:\Resources\Directory\<guid>.<role>\WaWebHost.log`
  
 **WaIISHost**
 
-C:\Resources\Directory\<deploymentID>.<role>\WaIISHost.log
+`C:\Resources\Directory\<deploymentID>.<role>\WaIISHost.log`
  
 **IISConfigurator**
 
-C:\Resources\Directory\<deploymentID>.<role>\IISConfigurator.log
+`C:\Resources\Directory\<deploymentID>.<role>\IISConfigurator.log`
  
 **Journaux d’activité IIS**
 
-C:\Resources\Directory\<guid>.<role>.DiagnosticStore\LogFiles\W3SVC1
+`C:\Resources\Directory\<guid>.<role>.DiagnosticStore\LogFiles\W3SVC1`
  
 **Journaux d’événements Windows**
 
-D:\Windows\System32\Winevt\Logs
+`D:\Windows\System32\Winevt\Logs`
  
 
 

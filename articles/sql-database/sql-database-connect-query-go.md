@@ -8,16 +8,16 @@ ms.custom: ''
 ms.devlang: go
 ms.topic: quickstart
 author: David-Engel
-ms.author: v-daveng
+ms.author: craigg
 ms.reviewer: MightyPen
 manager: craigg
 ms.date: 02/12/2019
-ms.openlocfilehash: 0014dc0edde0eafc153b40eec06c6bd6dc8446b5
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 25de6fc2d752020ea47913bf6a4666735026b96f
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447868"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67871678"
 ---
 # <a name="quickstart-use-golang-to-query-an-azure-sql-database"></a>Démarrage rapide : Utiliser Golang pour interroger une base de données Azure SQL
 
@@ -328,7 +328,7 @@ Procurez-vous les informations de connexion dont vous avez besoin pour vous conn
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Concevoir votre première base de données SQL Azure](sql-database-design-first-database.md)
+- [Concevoir votre première base de données Azure SQL](sql-database-design-first-database.md)
 - [Pilote Golang pour Microsoft SQL Server](https://github.com/denisenkom/go-mssqldb)
 - [Signaler des problèmes ou poser des questions](https://github.com/denisenkom/go-mssqldb/issues)
 

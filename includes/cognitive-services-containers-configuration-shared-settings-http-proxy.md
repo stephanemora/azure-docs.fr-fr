@@ -4,18 +4,18 @@ ms.author: dapine
 ms.date: 06/25/2019
 ms.service: cognitive-services
 ms.topic: include
-ms.openlocfilehash: 9911b1c92bdca6c0cdf064ea484cfb603e659467
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 664cea26f910fa5b3354e2879a33de50eb13a7f3
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67712556"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68286319"
 ---
 Si vous devez configurer un proxy HTTP pour effectuer des requêtes sortantes, utilisez les deux arguments suivants :
 
 | Nom | Type de données | Description |
 |--|--|--|
-|HTTP_PROXY|string|Le proxy à utiliser, par exemple, `http://proxy:8888`<br><proxy-url>|
+|HTTP_PROXY|string|Le proxy à utiliser, par exemple, `http://proxy:8888`<br>`<proxy-url>`|
 |HTTP_PROXY_CREDS|string|Les informations d’identification nécessaires pour s’authentifier auprès du proxy, par exemple, username:password.|
 |`<proxy-user>`|string|L’utilisateur pour le proxy.|
 |`proxy-password`|string|Le mot de passe associé à `<proxy-user>` pour le proxy.|

@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Créer une instance publique de Standard Load Balancer avec un frontend interzone redondant à l’aide d’Azure CLI
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.custom: seodec18
 ms.assetid: ''
 ms.service: load-balancer
@@ -13,17 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/09/2018
-ms.author: kumud
-ms.openlocfilehash: 8f1bf9b9070f2db2376de9cb0a0602eaea98b47e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: 6a22ac9a2727c537d98e692e67076637fe8cc457
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66147680"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274327"
 ---
 #  <a name="load-balance-vms-across-all-availability-zones-using-azure-cli"></a>Équilibrer la charge de machines virtuelles entre toutes les zones de disponibilité avec Azure CLI
 
-Cet article détaille les étapes de la création d’une instance publique de [Standard Load Balancer](https://aka.ms/azureloadbalancerstandard) avec un frontend interzone redondant pour obtenir une redondance interzone sans dépendance sur plusieurs enregistrements DNS. Une adresse IP de serveur frontal unique est automatiquement redondante interzone.  Avec une adresse IP unique et un frontend redondant dans une zone pour votre équilibreur de charge, vous pouvez maintenant atteindre toutes les machines virtuelles d’un réseau virtuel au sein d’une région parmi toutes les zones de disponibilité. Utilisez les zones de disponibilité pour protéger vos applications et vos données dans l’éventualité peu probable d’une défaillance ou d’une perte d’un centre de données entier.
+Cet article détaille les étapes de la création d’un instance publique de [Standard Load Balancer](https://aka.ms/azureloadbalancerstandard) avec un frontend interzone redondant pour obtenir une redondance interzone sans dépendance sur plusieurs enregistrements DNS. Une adresse IP de serveur frontal unique est automatiquement redondante interzone.  Avec une adresse IP unique et un frontend redondant dans une zone pour votre équilibreur de charge, vous pouvez maintenant atteindre toutes les machines virtuelles d’un réseau virtuel au sein d’une région parmi toutes les zones de disponibilité. Utilisez les zones de disponibilité pour protéger vos applications et vos données dans l’éventualité peu probable d’une défaillance ou d’une perte d’un centre de données entier.
 
 Pour plus d’informations sur l’utilisation des zones de disponibilité avec un équilibreur de charge standard, voir [Équilibreur de charge standard et zones de disponibilité](load-balancer-standard-availability-zones.md).
 

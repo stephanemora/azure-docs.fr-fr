@@ -3,17 +3,17 @@ title: Gérer vos préférences d’application sur IoT Central | Microsoft Docs
 description: Comment gérer vos préférences d’application et vos préférences personnelles sur IoT Central
 author: lmasieri
 ms.author: lmasieri
-ms.date: 02/20/2019
+ms.date: 07/10/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 00d40b9910f9b549443373c84b079c543037ce62
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c5c0dbcb1c1f483bd7499de08c9f1949adff415b
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65236320"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67850146"
 ---
 # <a name="manage-your-application-preferences"></a>Gérer les préférences des applications
 

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 8df587db7655e2aafd876d80581f3296c8c99fbf
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a0ceffbf4666ebc6bb5f95a6f3e2501f86095232
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60201543"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305659"
 ---
 # <a name="dependency-visualization"></a>Visualisation de dépendance
 
@@ -77,4 +77,4 @@ Ne supprimez pas l’espace de travail créé par Azure Migrate, sauf si vous su
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Regrouper des machines à l’aide de dépendances de machines](how-to-create-group-machine-dependencies.md)
-- [Découvrez plus en détail](https://docs.microsoft.com/azure/migrate/resources-faq#dependency-visualization) les questions fréquemment posées au sujet de la visualisation des dépendances.
+- [Découvrez plus en détail](https://docs.microsoft.com/azure/migrate/resources-faq#what-is-dependency-visualization) les questions fréquemment posées au sujet de la visualisation des dépendances.

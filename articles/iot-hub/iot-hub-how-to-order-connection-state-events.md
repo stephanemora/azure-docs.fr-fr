@@ -7,12 +7,12 @@ author: ash2017
 ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: asrastog
-ms.openlocfilehash: f4baab6e0909144efc613572207e7f24c4b4fe1f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a020221d841682d1e18d2b728a732ec4dfc35ef3
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66743269"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67988284"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Commander des événements de connexion d’appareils depuis Azure IoT Hub à l’aide d’Azure Cosmos DB
 
@@ -24,9 +24,9 @@ Le numéro de séquence est la représentation d’un nombre hexadécimal sous l
 
 * Un compte Azure actif. Si vous n’en avez pas, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/).
 
-* Un compte d’API SQL Azure Cosmos DB actif. Si vous n’en avez pas encore créé un, consultez [Créer un compte de base de données](../cosmos-db/create-sql-api-dotnet.md#create-an-azure-cosmos-db-account) pour obtenir une procédure pas à pas.
+* Un compte d’API SQL Azure Cosmos DB actif. Si vous n’en avez pas encore créé un, consultez [Créer un compte de base de données](../cosmos-db/create-sql-api-java.md#create-a-database-account) pour obtenir une procédure pas à pas.
 
-* Une collection dans votre base de données. Consultez [Ajouter une collection](../cosmos-db/create-sql-api-dotnet.md#add-a-database-and-a-collection) pour une procédure pas à pas. Lorsque vous créez votre collection, utilisez `/id` pour la clé de partition.
+* Une collection dans votre base de données. Consultez [Ajouter une collection](../cosmos-db/create-sql-api-java.md#add-a-container) pour une procédure pas à pas. Lorsque vous créez votre collection, utilisez `/id` pour la clé de partition.
 
 * Un Hub IoT dans Azure. Si vous n’en avez pas encore créé un, consultez [Prise en main d’IoT Hub](iot-hub-csharp-csharp-getstarted.md) pour obtenir une procédure pas à pas.
 

@@ -12,16 +12,16 @@ ms.topic: reference
 ms.date: 04/29/2019
 ms.reviewer: mbullwin
 ms.author: nimolnar
-ms.openlocfilehash: 832f927f81b57fd16c202b855d8f1dbe0617ad56
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 839ab291a99de646053b638520ce43f459d5c41f
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65149895"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297017"
 ---
 # <a name="dependency-auto-collection"></a>Collecte automatique de dépendance
 
-Voici la liste des appels de dépendance actuellement pris en charge qui sont automatiquement détectés comme des dépendances sans devoir apporter des modifications supplémentaires au code de votre application. Il s’agit d’appels sortants vers des bibliothèques de communication, clients de stockage, bibliothèques de journalisation et de mesures, ainsi que d’appels entrants dans des infrastructures d’application et des serveurs. Ces dépendances sont visualisées dans les vues [Cartographie d’application](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) et [Diagnostics des transactions](https://docs.microsoft.com/azure/application-insights/app-insights-transaction-diagnostics) d’Application Insights. Si votre dépendance ne figure pas dans la liste ci-dessous, vous pouvez toujours la suivre manuellement avec un [appel de suivi des dépendances](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
+Voici la liste des appels de dépendance actuellement pris en charge qui sont automatiquement détectés comme des dépendances sans devoir apporter des modifications supplémentaires au code de votre application. Ces dépendances sont visualisées dans les vues [Cartographie d’application](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) et [Diagnostics des transactions](https://docs.microsoft.com/azure/application-insights/app-insights-transaction-diagnostics) d’Application Insights. Si votre dépendance ne figure pas dans la liste ci-dessous, vous pouvez toujours la suivre manuellement avec un [appel de suivi des dépendances](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
 
 ## <a name="net"></a>.NET
 
@@ -38,11 +38,6 @@ Voici la liste des appels de dépendance actuellement pris en charge qui sont au
 | [Kit de développement logiciel (SDK) client ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) | 3.0.0 |
 | <b>Clients de stockage</b>|  |
 | ADO.NET | 4.5+ |
-| <b>Bibliothèques de journalisation</b> |  |
-| ILogger | 1.1+ |
-| System.Diagnostics.Trace | 4.5+ |
-| [nLog](https://www.nuget.org/packages/NLog/) | 4.4.12+ |
-| [log4net](https://www.nuget.org/packages/log4net/) | 2.0.8+ sur NetStandard  1.3, 2.0.6+ sur .NET 4.5+ |
 
 ## <a name="java"></a>Java
 | Serveurs d’applications | Versions |
