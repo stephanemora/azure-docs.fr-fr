@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dabe0ad1a556ee43f3e6cae0e1cd421db5cde0fd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1efb67df6c31a3b03fdc45fffc0564fb09e39faf
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56183205"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67853038"
 ---
 # <a name="tutorial-enabling-password-writeback"></a>Didacticiel : Activation de la réécriture du mot de passe
 
@@ -61,4 +61,4 @@ L’activation de la fonctionnalité de réécriture du mot de passe dans Azure�
 Dans ce didacticiel, vous avez activé la réécriture du mot de passe pour la réinitialisation de mot de passe en libre-service. Laissez la fenêtre du portail Azure ouverte et passez au didacticiel suivant pour configurer les paramètres supplémentaires liés à la réinitialisation de mot de passe en libre-service avant de déployer la solution dans un projet pilote.
 
 > [!div class="nextstepaction"]
-> [Activation de la réinitialisation de mot de passe en libre-service dans l’écran de connexion Windows](tutorial-sspr-windows.md)
+> [Évaluer les risques lors de la connexion](tutorial-risk-based-sspr-mfa.md)

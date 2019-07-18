@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: overview
-ms.date: 06/19/2019
+ms.date: 06/24/2019
 ms.author: aahi
-ms.openlocfilehash: 71d7ebb8cb797e2166fc91fdfdefdba5f22d82ec
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: bf0f74fe76ec7a83e0ce23ca83141276a677a5df
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272705"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67868088"
 ---
 # <a name="search-for-videos-with-the-bing-video-search-api"></a>Rechercher des vidéos avec l’API Recherche de vidéos Bing
 
@@ -98,7 +98,7 @@ La réponse contient un objet [Videos](https://docs.microsoft.com/rest/api/cogni
 
 ## <a name="video-thumbnails"></a>Vidéos miniatures
 
-Vous pouvez afficher la totalité ou une partie des vidéos miniatures retournées par l’API Recherche de vidéos Bing. Si vous affichez une partie, donnez à l’utilisateur la possibilité d’afficher les vidéos restantes. Conformément aux [exigences liées à l’affichage et à l’utilisation](../UseAndDisplayRequirements.md) de l’API Bing, vous devez afficher les vidéos dans l’ordre indiqué dans la réponse. Pour plus d’informations sur le redimensionnement de la miniature, consultez [Redimensionnement et rognage de miniatures](../resize-and-crop-thumbnails.md). 
+Vous pouvez afficher la totalité ou une partie des vidéos miniatures retournées par l’API Recherche de vidéos Bing. Si vous affichez une partie, donnez à l’utilisateur la possibilité d’afficher les vidéos restantes. Conformément aux [exigences liées à l’affichage et à l’utilisation](../UseAndDisplayRequirements.md) de l’API Bing, vous devez afficher les vidéos dans l’ordre indiqué dans la réponse. Pour plus d’informations sur le redimensionnement de la miniature, consultez [Redimensionnement et rognage de miniatures](../../bing-web-search/resize-and-crop-thumbnails.md). 
 
 Vous pouvez utiliser [motionThumbnailUrl](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video-motionthumbnailurl) pour lire une version miniature de la vidéo lorsque l’utilisateur pointe sur la miniature. Veillez à attribuer la vidéo miniature lorsque vous l’affichez.
 

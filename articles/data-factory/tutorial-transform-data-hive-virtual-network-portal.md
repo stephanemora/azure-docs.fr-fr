@@ -11,12 +11,12 @@ ms.date: 01/04/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 9cea3e7494ee81638923cbcaff9f1b82d08a1ad1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b6e57500da0ca863f0c5810f625d6a4b0c56d1bf
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66164674"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277470"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Transformer des données dans un réseau virtuel Azure à l’aide de l’activité Hive dans Azure Data Factory
 Dans ce didacticiel, vous utilisez le portail Azure pour créer un pipeline Azure Data Factory qui transforme des données à l’aide d’une activité Hive sur un cluster HDInsight qui se trouve dans un réseau virtuel Azure (VNet). Dans ce tutoriel, vous allez effectuer les étapes suivantes :
@@ -201,7 +201,7 @@ Au cours de cette étape, vous allez créer un pipeline avec une activité Hive.
 Notez les points suivants :
 
 - **scriptPath** pointe vers le chemin d’accès au script Hive sur le compte de stockage Azure que vous avez utilisé pour MyStorageLinkedService. Le chemin respecte la casse.
-- **Output** est un argument utilisé dans le script Hive. Utilisez le format `wasb://<Container>@<StorageAccount>.blob.core.windows.net/outputfolder/` pour le faire pointer vers un dossier existant de votre stockage Azure. Le chemin respecte la casse. 
+- **Output** est un argument utilisé dans le script Hive. Utilisez le format `wasbs://<Container>@<StorageAccount>.blob.core.windows.net/outputfolder/` pour le faire pointer vers un dossier existant de votre stockage Azure. Le chemin respecte la casse. 
 
 1. Dans l’interface utilisateur de Data Factory, cliquez sur **+ (plus)** dans le volet gauche, puis cliquez sur **Pipeline**. 
 
@@ -226,7 +226,7 @@ Notez les points suivants :
         ![Paramètres de script](./media/tutorial-transform-data-using-hive-in-vnet-portal/confirm-hive-script-settings.png)
     5. Dans l’**onglet Script**, développez la section **Avancé**. 
     6. Cliquez sur **Auto-fill from script** (Remplissage automatique à partir du script) pour **Paramètres**. 
-    7. Entrez la valeur du paramètre **Sortie** au format suivant : `wasb://<Blob Container>@<StorageAccount>.blob.core.windows.net/outputfolder/`. Par exemple : `wasb://adftutorial@mystorageaccount.blob.core.windows.net/outputfolder/`.
+    7. Entrez la valeur du paramètre **Sortie** au format suivant : `wasbs://<Blob Container>@<StorageAccount>.blob.core.windows.net/outputfolder/`. Par exemple : `wasbs://adftutorial@mystorageaccount.blob.core.windows.net/outputfolder/`.
  
         ![Arguments de script](./media/tutorial-transform-data-using-hive-in-vnet-portal/script-arguments.png)
 1. Pour publier les artefacts Data Factory, cliquez sur **Publier**.
@@ -235,7 +235,7 @@ Notez les points suivants :
 
 ## <a name="trigger-a-pipeline-run"></a>Déclencher une exécution du pipeline
 
-1. Validez tout d’abord le pipeline en cliquant sur le bouton **Valider** dans la barre d’outils. Fermez la fenêtre **Pipeline Validation Output** (Sortie de validation du pipeline) en cliquant sur la **flèche droite (>>)**. 
+1. Validez tout d’abord le pipeline en cliquant sur le bouton **Valider** dans la barre d’outils. Fermez la fenêtre **Pipeline Validation Output** (Sortie de validation du pipeline) en cliquant sur la **flèche droite (>>)** . 
 
     ![Valider le pipeline](./media/tutorial-transform-data-using-hive-in-vnet-portal/validate-pipeline.png) 
 2. Pour déclencher une exécution du pipeline, cliquez sur Déclencher dans la barre d’outils, puis sur Déclencher maintenant. 

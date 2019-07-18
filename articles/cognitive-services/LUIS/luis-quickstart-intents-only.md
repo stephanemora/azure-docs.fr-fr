@@ -3,20 +3,20 @@ title: Prédire les intentions
 titleSuffix: Azure Cognitive Services
 description: Dans ce tutoriel, vous allez créer une application personnalisée qui prédit l’intention d’un utilisateur. Cette application est le type d’application LUIS le plus simple, car elle n’extrait pas divers éléments de données du texte de l’énoncé tels que les adresses e-mail ou les dates.
 services: cognitive-services
-author: lingliw
-manager: digimobile
+author: diberry
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 04/19/19
-ms.author: v-lingwu
-ms.openlocfilehash: 067829a1d9425ede1320242e364eca7c30bb7053
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 07/16/2019
+ms.author: diberry
+ms.openlocfilehash: 534aa678df69a4ef71296005922fa59bbe7bbcfa
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66123937"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277578"
 ---
 # <a name="tutorial-build-luis-app-to-determine-user-intentions"></a>Didacticiel : Générer une application LUIS pour déterminer les intentions d’un utilisateur
 
@@ -131,7 +131,7 @@ Cette application a quelques intentions.
 
     Le paramètre de chaîne de requête `verbose=true` signifie qu’il faut inclure **toutes les intentions** dans les résultats de requête de l’application. Le tableau d’entités est vide, car cette application n’a pas d’entités. 
 
-    Le résultat JSON identifie l’intention avec le score le plus élevé en tant que propriété **`topScoringIntent`**. Tous les scores sont compris entre 1 et 0, le meilleur score étant proche de 1. 
+    Le résultat JSON identifie l’intention avec le score le plus élevé en tant que propriété **`topScoringIntent`** . Tous les scores sont compris entre 1 et 0, le meilleur score étant proche de 1. 
 
 ## <a name="create-intent-for-job-applications"></a>Créer une intention pour des candidatures à des postes
 
@@ -239,7 +239,3 @@ Poursuivez avec cette application, [en ajoutant une entité simple et une liste 
 
 > [!div class="nextstepaction"]
 > [Ajouter des intentions et des entités prédéfinies à cette application](luis-tutorial-prebuilt-intents-entities.md)
-
-
-
-

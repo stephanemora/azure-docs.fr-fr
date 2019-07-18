@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/01/2019
 ms.author: jowargo
-ms.openlocfilehash: 86a2cd824d1896211efd40bb8aa1d007149ef2db
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 67df6c84c5a88a3ffc82948898e356e0a913ba27
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65203574"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227788"
 ---
 # <a name="tutorial-push-notification-to-specific-android-application-users-by-using-azure-notification-hubs"></a>Didacticiel : Notifications Push vers des utilisateurs spécifiques d’une application Android à l’aide d’Azure Notification Hubs
 
@@ -276,7 +276,7 @@ L’étape suivante consiste à mettre à jour l’application Android créée d
         super.onCreate(savedInstanceState);
 
         mainActivity = this;
-        MyHandler.createChannelAndHandleNotifications(getApplicationContext());
+        FirebaseService.createChannelAndHandleNotifications(getApplicationContext());
         fcm = FirebaseInstanceId.getInstance();
         registerClient = new RegisterClient(this, BACKEND_ENDPOINT);
         setContentView(R.layout.activity_main);
@@ -320,7 +320,7 @@ L’étape suivante consiste à mettre à jour l’application Android créée d
     Button sendPush = (Button) findViewById(R.id.sendbutton);
     sendPush.setEnabled(false);
     ```
-9. Ensuite, ajoutez les méthodes suivantes pour gérer l’événement de clic sur le bouton **Sign in** et l’envoi de notifications Push.
+9. Ensuite, ajoutez les méthodes suivantes pour gérer l’événement de clic sur le bouton **Se connecter** et l’envoi de notifications Push.
 
     ```java
     public void login(View view) throws UnsupportedEncodingException {
@@ -410,7 +410,7 @@ L’étape suivante consiste à mettre à jour l’application Android créée d
     }
     ```
 
-    Le gestionnaire `login` pour le bouton **Sign in** génère un jeton d’authentification de base, à partir du nom d’utilisateur et du mot de passe entrés (cela représente n’importe quel jeton utilisé par votre système d’authentification), puis utilise `RegisterClient` pour appeler le back-end en vue de l’inscription.
+    Le gestionnaire `login` pour le bouton **Se connecter** génère une utilisation du jeton d'authentification de base sur l’entrée de nom d’utilisateur et de mot de passe (qui représente n’importe quel jeton utilisé par votre schéma d’authentification), puis il utilise `RegisterClient` pour appeler le principal et s’inscrire.
 
     La méthode `sendPush` appelle le serveur principal pour déclencher une notification sécurisée pour l'utilisateur basée sur la balise d'utilisateur. Le service de notification de la plateforme ciblé par `sendPush` varie selon la chaîne `pns` passée.
 

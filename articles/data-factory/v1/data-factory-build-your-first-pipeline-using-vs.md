@@ -14,17 +14,16 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 2d816ab2f14be8574f77491807d4dbd071487f42
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f3c4fc379ac932e66c5d02e08e72ef4d16db638b
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66163915"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836706"
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>Didacticiel : Créer une fabrique de données à l’aide de Visual Studio
 > [!div class="op_single_selector" title="Tools/SDKs"]
 > * [Vue d’ensemble et composants requis](data-factory-build-your-first-pipeline.md)
-> * [Portail Azure](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Modèle Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
@@ -124,8 +123,8 @@ Avec le service lié HDInsight à la demande, le cluster HDInsight à la demande
 
     Propriété | Description
     -------- | ----------- 
-    ClusterSize | Spécifie la taille du cluster HDInsight Hadoop.
-    TimeToLive | Spécifie la durée d’inactivité du cluster HDInsight avant sa suppression.
+    clusterSize | Spécifie la taille du cluster HDInsight Hadoop.
+    timeToLive | Spécifie la durée d’inactivité du cluster HDInsight avant sa suppression.
     linkedServiceName | Spécifie le compte de stockage utilisé pour stocker les journaux d’activité générés par le cluster HDInsight Hadoop. 
 
     > [!IMPORTANT]
@@ -176,7 +175,7 @@ Dans cette étape, vous créez des jeux de données afin de représenter les don
     Type |La propriété de type est définie sur **AzureBlob**, car les données se trouvent dans le Stockage Blob Azure.
     linkedServiceName | Fait référence au service AzureStorageLinkedService1 que vous avez créé précédemment.
     fileName |Cette propriété est facultative. Si vous omettez cette propriété, tous les fichiers spécifiés dans le paramètre folderPath sont récupérés. Dans le cas présent, seul le fichier input.log est traité.
-    Type | Les fichiers journaux sont au format texte : nous utilisons donc TextFormat. |
+    type | Les fichiers journaux sont au format texte : nous utilisons donc TextFormat. |
     columnDelimiter | Les colonnes des fichiers journaux sont délimitées par une virgule (`,`)
     frequency/interval | La fréquence est définie sur Mois et l’intervalle est 1, ce qui signifie que les segments d’entrée sont disponibles mensuellement.
     external | Cette propriété a la valeur true si les données d’entrée de l’activité ne sont pas générées par le pipeline. Cette propriété est uniquement spécifiée sur les jeux de données d’entrée. Pour le jeu de données d’entrée de la première activité, choisissez toujours la valeur true.

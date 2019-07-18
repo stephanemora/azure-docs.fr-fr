@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Ce tutoriel vous montre comment créer un équilibreur de charge interne de base à l’aide du portail Azure.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internal traffic to virtual machines within a specific zone in a region.
 ms.service: load-balancer
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2019
-ms.author: kumud
+ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 56568cfb8fc659308475e581955e5acbdfd32b44
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 09a73b5d97e46797dd880f64383fdf03fd591f3d
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59489312"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68273491"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>Tutoriel : Équilibrer la charge du trafic interne avec un équilibreur de charge de base sur le portail Azure
 
@@ -68,7 +68,7 @@ Créez d’abord un réseau virtuel. Dans le réseau virtuel, créez deux machin
    - **Sous-réseau** : **MyBackendSubnet**
    
    Sous **Groupe de sécurité réseau** :
-   1. Sélectionnez **Advanced (Avancé)**. 
+   1. Sélectionnez **Advanced (Avancé)** . 
    1. Dans la liste déroulante, sélectionnez **Configurer le groupe de sécurité réseau**, puis sélectionnez **Aucun**. 
    
 1. Sélectionnez l’onglet **Gestion** ou sélectionnez **Suivant** > **Gestion**. Sous **Supervision**, définissez **Diagnostics de démarrage** sur **Désactivé**.
@@ -91,8 +91,8 @@ Créez un équilibreur de charge interne de base à l’aide du portail. Le nom 
 
     | Paramètre                 | Valeur                                              |
     | ---                     | ---                                                |
-    | Abonnement               | Sélectionnez votre abonnement.    |    
-    | Groupe de ressources         | Sélectionnez **Créer** et tapez *MyResourceGroupLB* dans la zone de texte.|
+    | Subscription               | Sélectionnez votre abonnement.    |    
+    | Resource group         | Sélectionnez **Créer** et tapez *MyResourceGroupLB* dans la zone de texte.|
     | Nom                   | *myLoadBalancer*                                   |
     | Région         | Sélectionnez **Europe Ouest**.                                        |
     | Type          | sélectionnez **Interne**.                                        |

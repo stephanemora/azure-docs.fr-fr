@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Ce tutoriel montre comment créer un équilibreur de charge standard avec serveur frontal zonal pour équilibrer la charge de machines virtuelles dans une zone de disponibilité à l’aide du portail Azure.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines within a specific zone in a region.
 ms.service: load-balancer
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2019
-ms.author: kumud
+ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 563b54fe9b4ab65cd8d3008e9d3955618194031f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0ec9fae1ce4ef976d5f50e1d8d8412354706c5f8
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57899544"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68273401"
 ---
 # <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>Didacticiel : Équilibrer la charge de machines virtuelles dans une zone de disponibilité avec Standard Load Balancer à l’aide du portail Azure
 
@@ -52,8 +52,8 @@ Standard Load Balancer prend uniquement en charge une adresse IP publique standa
 
     | Paramètre                 | Valeur                                              |
     | ---                     | ---                                                |
-    | Abonnement               | Sélectionnez votre abonnement.    |    
-    | Groupe de ressources         | Sélectionnez **Créer** et tapez *MyResourceGroupZLB* dans la zone de texte.|
+    | Subscription               | Sélectionnez votre abonnement.    |    
+    | Resource group         | Sélectionnez **Créer** et tapez *MyResourceGroupZLB* dans la zone de texte.|
     | Nom                   | *myLoadBalancer*                                   |
     | Région         | Sélectionnez **Europe Ouest**.                                        |
     | Type          | Sélectionnez **Public**.                                        |
@@ -165,7 +165,7 @@ Dans cette section, vous configurez les paramètres de l’équilibreur de charg
 Pour distribuer le trafic vers les machines virtuelles, un pool d’adresses principales contient les adresses IP des cartes d’interface réseau virtuelles connectées à l’équilibreur de charge. Créez le pool d’adresses principal **myBackendPool** pour inclure **VM1** et **VM2**.
 
 1. Dans le menu le plus à gauche, sélectionnez **Toutes les ressources**. Puis sélectionnez **myLoadBalancer** à partir de la liste des ressources.
-2. Sous **Paramètres**, sélectionnez **Backend Pools (Pools principaux)**. Sélectionnez ensuite **Ajouter**.
+2. Sous **Paramètres**, sélectionnez **Backend Pools (Pools principaux)** . Sélectionnez ensuite **Ajouter**.
 3. Sur la page **Ajouter un pool principal**, procédez comme suit :
     - Saisissez **myBackEndPool** comme nom du pool principal.
     - Pour **Réseau virtuel**, dans le menu déroulant, sélectionnez **myVNet**. 

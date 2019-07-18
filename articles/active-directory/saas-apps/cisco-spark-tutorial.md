@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/24/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1dc537a631cd083da0f902fb4fcd44d47756eeba
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 9bf8b4d696a3784988a92fc24de1ae6964786e07
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67471775"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836432"
 ---
 # <a name="tutorial-integrate-cisco-webex-with-azure-active-directory"></a>Didacticiel : Intégrer Cisco Webex à Azure Active Directory
 
@@ -133,13 +133,13 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 2. Sélectionnez **Settings** (Paramètres), puis, dans la section **Authentication** (Authentification), cliquez sur **Modify** (Modifier).
 
-    ![Configurer l'authentification unique](./media/cisco-spark-tutorial/tutorial_cisco_spark_10.png)
+    ![Configurer l'authentification unique](./media/cisco-spark-tutorial/tutorial-cisco-spark-10.png)
   
 3. Sélectionnez **intégrer un fournisseur d’identité tiers. (Avancé)** et accédez à l’écran suivant.
 
 4. Dans la page **Import Idp Metadata** -(Importer les métadonnées Idp), glissez-déposez le fichier de métadonnées Azure AD sur la page, ou utilisez l’option d’explorateur de fichiers pour localiser et charger le fichier de métadonnées Azure AD. Ensuite, sélectionnez **Require certificate signed by a certificate authority in Metadata (more secure)** (Exiger un certificat signé par une autorité de certification dans les métadonnées (plus sûr)), puis cliquez sur **Next** (Suivant).
 
-    ![Configurer l'authentification unique](./media/cisco-spark-tutorial/tutorial_cisco_spark_11.png)
+    ![Configurer l'authentification unique](./media/cisco-spark-tutorial/tutorial-cisco-spark-11.png)
 
 5. Sélectionnez **Test SSO Connection** (Tester la connexion SSO), puis, quand un nouvel onglet de navigateur s’ouvre, et authentifiez-vous auprès d’Azure AD en vous connectant.
 
@@ -182,13 +182,13 @@ Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans C
 
 2. Cliquez sur **Utilisateurs**, puis sur **Gérer les utilisateurs**.
    
-    ![Configurer l'authentification unique](./media/cisco-spark-tutorial/tutorial_cisco_spark_12.png) 
+    ![Configurer l'authentification unique](./media/cisco-spark-tutorial/tutorial-cisco-spark-12.png) 
 
 3. Dans la fenêtre **Manage User** (Gérer l’utilisateur), sélectionnez **Manually add or modify users** (Ajouter ou modifier manuellement des utilisateurs), puis cliquez sur **Next** (Suivant).
 
 4. Sélectionnez **Names and Email address** (Noms et adresse de messagerie). Ensuite, complétez la zone de texte comme suit :
 
-    ![Configurer l'authentification unique](./media/cisco-spark-tutorial/tutorial_cisco_spark_13.png) 
+    ![Configurer l'authentification unique](./media/cisco-spark-tutorial/tutorial-cisco-spark-13.png) 
 
     a. Dans la zone de texte **First Name** (Prénom), tapez le prénom de l’utilisateur, par exemple **B**.
 
