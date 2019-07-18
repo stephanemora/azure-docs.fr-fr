@@ -564,12 +564,12 @@
           href: solution-template-copy-files-multiple-containers.md
         - name: Copier les nouveaux fichiers par date de dernière modification
           href: solution-template-copy-new-files-lastmodifieddate.md
+        - name: Copie en bloc depuis une base de données
+          href: solution-template-bulk-copy-with-control-table.md
+        - name: Copie delta depuis une base de données
+          href: solution-template-delta-copy-with-control-table.md
         - name: Déplacer des fichiers
           href: solution-template-move-files.md
-        - name: Copie en bloc avec une table de contrôles
-          href: solution-template-bulk-copy-with-control-table.md
-        - name: Copie delta avec une table de contrôles
-          href: solution-template-delta-copy-with-control-table.md
         - name: Transformer des données avec Databricks
           href: solution-template-databricks-notebook.md
     - name: Guide de résolution des problèmes

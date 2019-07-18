@@ -3,19 +3,19 @@ title: Prise en charge linguistique - API de traduction de texte Translator Text
 titleSuffix: Azure Cognitive Services
 description: Liste des langages naturels pris en charge par l’API de traduction de texte Translator Text.
 services: cognitive-services
-author: rajdeep-in
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/04/2019
-ms.author: v-pawal
-ms.openlocfilehash: 924324b11f49a50bfb5f00e117b33c0cc572e3bb
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.author: swmachan
+ms.openlocfilehash: 14ab1988f28de214036fa80fa36a4006a3359f30
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514983"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67435880"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Langues et régions prises en charge par l’API de traduction de texte Translator Text
 
@@ -28,7 +28,7 @@ L’API de traduction de texte Translator Text prend en charge les langues ci-ap
 **API Translator V2**
 
 > [!NOTE]
-> V2 a été déconseillée à partir du 30 avril 2018. Veuillez migrer vos applications vers V3 pour tirer parti des nouvelles fonctionnalités disponibles exclusivement dans V3.
+> La V2 a été déconseillée le 30 avril 2018. Migrez vos applications vers la V3 pour bénéficier des nouvelles fonctionnalités disponibles exclusivement dans la V3.
 
 * Statistique uniquement : Aucun système neural n’est disponible pour cette langue.
 * Neural disponible : Un système neural est disponible. Utilisez le paramètre `category=generalnn` pour accéder au système neural.
@@ -38,9 +38,9 @@ L’API de traduction de texte Translator Text prend en charge les langues ci-ap
 L’**API Translator V3** est neurale par défaut et les systèmes statistiques ne sont disponibles qu’en l’absence d’un système neural.
 
 > [!NOTE]
-> Actuellement, un sous-ensemble des langues NEURONALES sont disponibles dans le traducteur de personnalisé et nous ajoutons progressivement de nouvelles. [Afficher des langues actuellement disponibles dans personnalisé Translator](#customization).
+> Actuellement, un sous-ensemble de langues neurales est disponible dans Custom Translator et nous les enrichissons progressivement. [Affichez les langues actuellement disponibles dans Custom Translator](#customization).
 
-|Langue|  Code de langue|  API V2| API V3|
+|Langage|  Code de langue|  API V2| API V3|
 |:-----|:-----:|:-----|:-----|
 |Afrikaans| `af`    |Statistique uniquement|  Neuronale|
 |Arabe|    `ar`    |Neural disponible|  Neuronale|
@@ -111,7 +111,7 @@ L’**API Translator V3** est neurale par défaut et les systèmes statistiques
 
 La méthode Transliterate prend en charge les langues ci-après. Dans la colonne « Vers/De », le symbole « <--> » indique que la langue peut être translittérée aussi bien à partir des scripts indiqués que vers ces derniers. Le symbole « --> » signifie que la langue peut uniquement être translittérée du premier script vers le second.
 
-| Langue    | Code de langue | Script | Vers/De | Script|
+| Langage    | Code de langue | Script | Vers/De | Script|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | Arabe | `ar` | Arabe `Arab` | <--> | Latin `Latn` |
 |Bangla  | `bn` | Bengali `Beng` | <--> | Latin `Latn` |
@@ -138,7 +138,7 @@ La méthode Transliterate prend en charge les langues ci-après. Dans la colonne
 
 Le dictionnaire prend en charge les langues ci-après de ou vers l’anglais à l’aide des méthodes Lookup et Examples.
 
-| Langue    | Code de langue |
+| Langage    | Code de langue |
 |:----------- |:-------------:|
 | Afrikaans      | `af`          |
 | Arabe       | `ar`          |
@@ -193,7 +193,7 @@ Le dictionnaire prend en charge les langues ci-après de ou vers l’anglais à 
 
 ## <a name="detect"></a>Detect
 
-L’API Translator Text détecte toutes les langues disponibles pour la traduction et translittération.
+L’API de traduction de texte détecte toutes les langues disponibles pour la traduction et la translittération.
 
 
 ## <a name="access-the-translator-text-api-language-list-programmatically"></a>Accéder par programme à la liste de langues de l'API de traduction de texte Translator Text
@@ -204,9 +204,9 @@ Vous pouvez utiliser la méthode Languages pour récupérer la liste des langues
 
 ## <a name="customization"></a>Personnalisation
 
-Les langues suivantes sont disponibles pour la personnalisation vers ou à partir de l’anglais à l’aide de [personnalisé Translator](https://aka.ms/CustomTranslator).
+Les langues suivantes sont disponibles pour la personnalisation vers ou depuis l'anglais à l'aide de [Custom Translator](https://aka.ms/CustomTranslator).
 
-| Langue    | Code de langue |
+| Langage    | Code de langue |
 |:----------- |:-------------:|
 | Arabe       | `ar`          |
 | Bangla      | `bn`          |

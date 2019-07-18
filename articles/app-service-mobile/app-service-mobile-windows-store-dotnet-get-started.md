@@ -3,7 +3,7 @@ title: Créer une plateforme Windows universelle (UWP) sur Azure Mobile Apps | M
 description: Suivez ce didacticiel pour commencer à utiliser des services principaux d’applications mobiles Azure pour le développement d’applications UWP en C#, Visual Basic ou JavaScript.
 services: app-service\mobile
 documentationcenter: windows
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 ms.assetid: 47124296-2908-4d92-85e0-05c4aa6db916
@@ -12,18 +12,22 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/09/2019
-ms.author: crdun
-ms.openlocfilehash: be579b631fd910c56f2c360d6aace5b8d35c22e5
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: 2b718a000bb5805cc615a59aebb2d5dcca6906a4
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235983"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440198"
 ---
 # <a name="create-a-windows-app-with-an-azure-backend"></a>Créer une application Windows avec un back-end Azure
 
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
+
+> [!NOTE]
+> Visual Studio App Center investit dans des services nouveaux et intégrés, essentiels au développement d’applications mobiles. Les développeurs peuvent utiliser les services **Build**, **Test** et **Distribute** pour configurer le pipeline de livraison et d’intégration continues. Une fois l’application déployée, les développeurs peuvent surveiller l’état et l’utilisation de leur application à l’aide des services **Analytics** et **Diagnostics** et interagir avec des utilisateurs à l’aide du service **Push**. Les développeurs peuvent également utiliser **Auth** pour authentifier leurs utilisateurs, ainsi que le service **Data** pour conserver et synchroniser les données d’application dans le cloud. Découvrez [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-windows-store-dotnet-get-started) aujourd'hui.
+>
 
 ## <a name="overview"></a>Vue d'ensemble
 
@@ -33,7 +37,7 @@ Ce didacticiel présente l’ajout d’un service principal cloud à une applica
 
 Vous devez suivre ce didacticiel avant de pouvoir suivre les autres didacticiels Mobile App pour les applications UWP.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
@@ -48,18 +52,18 @@ Suivez ces étapes pour créer un serveur principal d’application mobile.
 
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-## <a name="create-a-database-connection-and-configure-the-client-and-server-project"></a>Créer une connexion de base de données et de configurer le projet client et serveur
+## <a name="create-a-database-connection-and-configure-the-client-and-server-project"></a>Créer une connexion de base de données et configurer le projet client et de serveur
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## <a name="run-the-client-project"></a>Exécutez le projet client
+## <a name="run-the-client-project"></a>Exécuter le projet client
 
 1. Ouvrez le projet UWP.
 
-2. Accédez à la [Azure portal](https://portal.azure.com/) et accédez à l’application mobile que vous avez créé. Sur le `Overview` panneau, recherchez l’URL qui est le point de terminaison public pour votre application mobile. Exemple - sitename pour mon nom de l’application « test123 » sera https://test123.azurewebsites.net.
+2. Ouvrez le [Portail Microsoft Azure](https://portal.azure.com/), puis accédez à l’application mobile que vous avez créée. Sur le panneau `Overview`, recherchez l’URL qui correspond au point de terminaison public de votre application mobile. Exemple : la valeur sitename relative au nom de l’application « test123 » est https://test123.azurewebsites.net.
 
-3. Ouvrez le fichier `App.xaml.cs` dans ce dossier - windows-uwp-cs/ZUMOAPPNAME /. Le nom de l’application est `ZUMOAPPNAME`.
+3. Ouvrez le fichier `App.xaml.cs` dans le dossier windows-uwp-cs/ZUMOAPPNAME/. Le nom de l’application est `ZUMOAPPNAME`.
 
-4. Dans `App` classe, remplacez `ZUMOAPPURL` paramètre avec le point de terminaison public ci-dessus.
+4. Dans la classe `App`, remplacez le paramètre `ZUMOAPPURL` par le point de terminaison public ci-dessus.
 
     `public static MobileServiceClient MobileService = new MobileServiceClient("ZUMOAPPURL");`
 
@@ -67,7 +71,7 @@ Suivez ces étapes pour créer un serveur principal d’application mobile.
     
     `public static MobileServiceClient MobileService = new MobileServiceClient("https://test123.azurewebsites.net");`
 
-5. Appuyez sur la touche F5 pour déployer et exécuter l’application.
+5. Appuyez sur la touche F5 pour déployer et exécuter l'application.
 
 6. Dans l’application, tapez un texte explicite, comme *Suivre le didacticiel*, dans la zone de texte **Insérer un TodoItem**, puis cliquez sur **Enregistrer**.
 

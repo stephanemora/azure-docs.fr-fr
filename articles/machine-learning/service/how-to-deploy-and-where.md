@@ -1,5 +1,5 @@
 ---
-title: Comment et où déployer les modèles
+title: Comment et où déployer des modèles ?
 titleSuffix: Azure Machine Learning service
 description: 'Découvrez comment et où déployer vos modèles de service Azure Machine Learning, notamment : Azure Container Instances, Azure Kubernetes Service, Azure IoT Edge et FPGA (Field-Programmable Gate Arrays).'
 services: machine-learning
@@ -11,60 +11,69 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 05/31/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 89539509e759da7f041ce0216397b1a9c8ff1f16
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
-ms.translationtype: MT
+ms.openlocfilehash: dcb90eb8ee25b8b0c780006f3555a5a9b815ffdd
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66753097"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514311"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Déployer des modèles avec le service Azure Machine Learning
 
-Découvrez comment déployer votre modèle d’apprentissage comme un service web dans le cloud Azure ou sur des appareils IoT Edge. 
+Découvrez comment déployer votre modèle Machine Learning en tant que service web dans le cloud Azure ou sur des appareils IoT Edge. 
 
-Le flux de travail est similaire, indépendamment du [où vous déployez](#target) votre modèle :
+Le workflow est similaire quel que soit l’endroit [où vous déployez](#target) votre modèle :
 
 1. Inscrire le modèle.
-1. Préparer le déploiement (spécifier la cible de calcul des ressources, l’utilisation,)
+1. Préparer le déploiement (spécifier les ressources, l’utilisation et la cible de calcul).
 1. Déployer le modèle sur la cible de calcul.
 1. Tester le modèle déployé, également appelé service web.
 
 Pour plus d’informations sur les concepts impliqués dans le workflow de déploiement, consultez [Déployer, gérer et surveiller des modèles avec le service Azure Machine Learning](concept-model-management-and-deployment.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-- Un modèle Si vous n’avez pas d’un modèle formé, vous pouvez utiliser le modèle de & fichiers de dépendance fournie dans [ce didacticiel](https://aka.ms/azml-deploy-cloud).
+- Un modèle Si vous n’avez pas de modèle entraîné, vous pouvez utiliser les fichiers de modèle et de dépendance fournis dans [ce tutoriel](https://aka.ms/azml-deploy-cloud).
 
-- Le [extension Azure CLI pour le service Machine Learning](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](https://aka.ms/aml-sdk), ou le [extension Azure Machine Learning Visual Studio Code](how-to-vscode-tools.md).
+- L’[extension Azure CLI pour Machine Learning service](reference-azure-machine-learning-cli.md), le [SDK Azure Machine Learning pour Python](https://aka.ms/aml-sdk) ou l’[extension Azure Machine Learning pour Visual Studio Code](how-to-vscode-tools.md).
 
-## <a id="registermodel"></a> Enregistrer votre modèle
+## <a id="registermodel"></a> Inscrire votre modèle
 
-Inscrire vos modèles machine learning dans votre espace de travail Azure Machine Learning. Le modèle peut provenir d’Azure Machine Learning ou peut provenir d’un autre emplacement. Les exemples suivants montrent comment inscrire un modèle à partir du fichier :
+Un modèle inscrit est un conteneur logique pour un ou plusieurs fichiers qui composent votre modèle. Par exemple, si vous disposez d'un modèle stocké dans plusieurs fichiers, vous pouvez enregistrer ces derniers en tant que modèle unique dans l'espace de travail. Après l’inscription, vous pouvez télécharger ou déployer le modèle inscrit et recevoir tous les fichiers qui ont été inscrits.
 
-### <a name="register-a-model-from-an-experiment-run"></a>Inscrire un modèle à partir d’une exécution de l’expérience
+Les modèles Machine Learning sont inscrits dans votre espace de travail Azure Machine Learning. Le modèle peut provenir d’Azure Machine Learning ou d’un autre emplacement. Les exemples suivants montrent comment inscrire un modèle à partir d’un fichier :
 
-+ **Exemple de Scikit-Learn à l’aide du SDK**
+### <a name="register-a-model-from-an-experiment-run"></a>Inscrire un modèle à partir d’une exécution d’expérience
+
++ **Exemple Scikit-learn avec le SDK**
   ```python
   model = run.register_model(model_name='sklearn_mnist', model_path='outputs/sklearn_mnist_model.pkl')
   print(model.name, model.id, model.version, sep='\t')
   ```
-+ **À l’aide de l’interface CLI**
+
+  > [!TIP]
+  > Pour inclure plusieurs fichiers dans l’inscription du modèle, définissez `model_path` dans le répertoire contenant les fichiers.
+
++ **Avec l’interface CLI**
+
   ```azurecli-interactive
   az ml model register -n sklearn_mnist  --asset-path outputs/sklearn_mnist_model.pkl  --experiment-name myexperiment
   ```
 
+  > [!TIP]
+  > Pour inclure plusieurs fichiers dans l’inscription du modèle, définissez `--asset-path` dans le répertoire contenant les fichiers.
 
-+ **À l’aide de VS Code**
++ **Avec VS Code**
 
-  Inscrire des modèles à l’aide de tous les fichiers de modèle ou des dossiers avec le [VS Code](how-to-vscode-tools.md#deploy-and-manage-models) extension.
+  Utilisez l’extension [VS Code](how-to-vscode-tools.md#deploy-and-manage-models) pour inscrire des modèles à l’aide de fichiers ou dossiers de modèles.
 
 ### <a name="register-an-externally-created-model"></a>Inscrire un modèle créé en externe
 
 [!INCLUDE [trusted models](../../../includes/machine-learning-service-trusted-model.md)]
 
-Vous pouvez inscrire un modèle créé en externe en fournissant un **chemin d’accès local** au modèle. Vous pouvez fournir un dossier ou un seul fichier.
+Vous pouvez inscrire un modèle créé en externe en indiquant le **chemin local** du modèle. Vous pouvez fournir un dossier ou un seul fichier.
 
-+ **Exemple ONNX avec le kit SDK Python :**
++ **Exemple ONNX avec le SDK Python :**
   ```python
   onnx_model_url = "https://www.cntk.ai/OnnxModels/mnist/opset_7/mnist.tar.gz"
   urllib.request.urlretrieve(onnx_model_url, filename="mnist.tar.gz")
@@ -77,53 +86,73 @@ Vous pouvez inscrire un modèle créé en externe en fournissant un **chemin d�
                          description = "MNIST image classification CNN from ONNX Model Zoo",)
   ```
 
-+ **À l’aide de l’interface CLI**
+  > [!TIP]
+  > Pour inclure plusieurs fichiers dans l’inscription du modèle, définissez `model_path` dans le répertoire contenant les fichiers.
+
++ **Avec l’interface CLI**
   ```azurecli-interactive
   az ml model register -n onnx_mnist -p mnist/model.onnx
   ```
+
+  > [!TIP]
+  > Pour inclure plusieurs fichiers dans l’inscription du modèle, définissez `-p` dans le répertoire contenant les fichiers.
 
 **Durée estimée** : Environ 10 secondes.
 
 Pour plus d'informations, consultez la documentation de référence de la classe [Model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
 
+Pour plus d’informations sur l’utilisation de modèles formés en dehors du service Azure Machine Learning, consultez [Déployer un modèle existant](how-to-deploy-existing-model.md).
+
 <a name="target"></a>
 
-## <a name="choose-a-compute-target"></a>Choisissez une cible de calcul
+## <a name="choose-a-compute-target"></a>Choisir une cible de calcul
 
-Les éléments suivants de calcul cibles, ou les ressources de calcul, peuvent être utilisées pour héberger votre déploiement de service web. 
+Les cibles de calcul (ou ressources de calcul) suivantes peuvent héberger votre déploiement de service web. 
 
 [!INCLUDE [aml-compute-target-deploy](../../../includes/aml-compute-target-deploy.md)]
 
 ## <a name="prepare-to-deploy"></a>Préparer au déploiement
 
-Pour déployer comme un service web, vous devez créer une configuration de l’inférence (`InferenceConfig`) et une configuration de déploiement. Inférence, ou un modèle de score, est la phase où le modèle déployé est utilisé pour la prédiction, généralement sur les données de production. Dans la configuration de l’inférence, vous spécifiez les scripts et les dépendances nécessaires pour traiter votre modèle. Dans la configuration de déploiement, vous spécifiez plus d’informations à traiter le modèle de la cible de calcul.
+Pour déployer un modèle en tant que service web, vous devez créer une configuration d’inférence (`InferenceConfig`) et une configuration de déploiement. L’inférence, ou scoring du modèle, est la phase où le modèle déployé est utilisé pour la prédiction, généralement sur des données de production. Dans la configuration de l’inférence, vous spécifiez les scripts et les dépendances nécessaires à l’utilisation de votre modèle. Dans la configuration du déploiement, vous spécifiez de quelle manière le modèle doit être utilisé sur la cible de calcul.
 
 
 ### <a id="script"></a> 1. Définir votre script d’entrée et les dépendances
 
-Le script d’entrée reçoit des données soumises à un service web déployé et les transmet au modèle. Ensuite, il prend la réponse retournée par le modèle et la retourne au client. **Le script est spécifique à votre modèle**; il doit comprendre les données qui le modèle attend et retourne.
+Le script d’entrée reçoit les données envoyées à un service web déployé, puis les passe au modèle. Ensuite, il prend la réponse retournée par le modèle et la retourne au client. **Le script est propre à votre modèle**. Il doit comprendre les données que le modèle attend et retourne.
 
-Le script contient deux fonctions qui chargent et exécuter le modèle :
+Le script contient deux fonctions qui chargent et exécutent le modèle :
 
-* `init()`: en général, cette fonction charge le modèle dans un objet global. Cette fonction est exécutée une seule fois lorsque le conteneur Docker pour votre service web est démarré.
+* `init()`: en général, cette fonction charge le modèle dans un objet global. Cette fonction est exécutée une seule fois lors du démarrage du conteneur Docker de votre service web.
 
 * `run(input_data)`: cette fonction utilise le modèle pour prédire une valeur basée sur les données d'entrée. Les entrées et les sorties de l’exécution utilisent en général JSON pour la sérialisation et la désérialisation. Vous pouvez également utiliser des données binaires brutes. Vous pouvez transformer les données avant de les envoyer au modèle ou avant de les retourner au client.
 
-#### <a name="optional-automatic-swagger-schema-generation"></a>(Facultatif) Génération de schéma Swagger automatique
+#### <a name="what-is-getmodelpath"></a>Qu’est-ce que l’API get_model_path ?
 
-Pour générer un schéma pour votre service web automatiquement, fournir un exemple de l’entrée et/ou de sortie dans le constructeur pour l’une des objets de type défini et le type et l’exemple sont utilisés pour créer automatiquement le schéma. Service Azure Machine Learning crée ensuite un [OpenAPI](https://swagger.io/docs/specification/about/) spécification (Swagger) pour le service web pendant le déploiement.
+Quand vous inscrivez un modèle, vous fournissez un nom de modèle qui sera utilisé pour la gestion du modèle dans le Registre. Vous utilisez ce nom avec [Model.get_model_path()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) pour récupérer le chemin de chaque fichier de modèle présent sur le système de fichiers local. Si vous inscrivez un dossier ou une collection de fichiers, cette API retourne le chemin du répertoire qui contient ces fichiers.
 
-Les types suivants sont actuellement pris en charge :
+Lorsque vous inscrivez un modèle, vous lui donnez un nom qui reflète l’emplacement du modèle, localement ou durant le déploiement du service.
+
+L’exemple ci-dessous retourne le chemin d’un seul fichier appelé `sklearn_mnist_model.pkl` (mais qui a été inscrit sous le nom `sklearn_mnist`) :
+
+```python
+model_path = Model.get_model_path('sklearn_mnist')
+``` 
+
+#### <a name="optional-automatic-swagger-schema-generation"></a>(Facultatif) Génération automatique d’un schéma Swagger
+
+Si vous voulez générer automatiquement un schéma pour votre service web, spécifiez un exemple d’entrée et/ou de sortie dans le constructeur pour l’un des objets de type définis. Le type et l’exemple fournis sont alors utilisés automatiquement pour créer le schéma. Azure Machine Learning service crée ensuite une spécification (Swagger) [OpenAPI](https://swagger.io/docs/specification/about/) pour le service web pendant le déploiement.
+
+Les types suivants sont pris en charge :
 
 * `pandas`
 * `numpy`
 * `pyspark`
-* objet Python standard
+* Objet Python standard
 
-Pour utiliser la génération de schéma, incluez le `inference-schema` package dans votre fichier d’environnement conda. L’exemple suivant utilise `[numpy-support]` étant donné que le script d’entrée utilise un type de paramètre numpy : 
+Pour utiliser la génération de schéma, incluez le package `inference-schema` dans votre fichier d’environnement Conda. L’exemple suivant contient `[numpy-support]`, car le script d’entrée utilise un type de paramètre numpy : 
 
 #### <a name="example-dependencies-file"></a>Exemple de fichier de dépendances
-Le YAML suivant est un exemple d’un fichier de dépendances Conda pour l’inférence.
+L’extrait YAML suivant est un exemple de fichier de dépendances Conda pour l’inférence.
 
 ```YAML
 name: project_environment
@@ -135,14 +164,14 @@ dependencies:
     - inference-schema[numpy-support]
 ```
 
-Si vous souhaitez utiliser la génération de schéma automatique, votre script d’entrée **doit** importer le `inference-schema` packages. 
+Si vous souhaitez utiliser la génération de schéma automatique, votre script d’entrée **doit** importer les packages `inference-schema`. 
 
-Définir l’entrée et de sortie des exemples de formats dans le `input_sample` et `output_sample` variables qui représentent les formats de demande et de réponse pour le service web. Utiliser ces exemples dans l’entrée et de sortie des éléments décoratifs de fonction sur le `run()` (fonction). Le scikit-Découvrez l’exemple ci-dessous utilise la génération de schéma.
+Définissez les exemples de formats d’entrée et de sortie dans les variables `input_sample` et `output_sample`, qui représentent les formats de requête et de réponse pour le service web. Utilisez ces exemples dans les éléments décoratifs des fonctions d’entrée et de sortie sur la fonction `run()`. L’exemple scikit-learn ci-dessous utilise la génération de schéma.
 
 > [!TIP]
-> Après avoir déployé le service, utilisez le `swagger_uri` propriété pour récupérer le document JSON de schéma.
+> Après avoir déployé le service, utilisez la propriété `swagger_uri` pour récupérer le document JSON du schéma.
 
-#### <a name="example-entry-script"></a>Exemple de script entrée
+#### <a name="example-entry-script"></a>Exemple de script d’entrée
 
 L’exemple suivant montre comment accepter et retourner des données JSON :
 
@@ -180,9 +209,9 @@ def run(data):
         return error
 ```
 
-#### <a name="example-script-with-dictionary-input-support-consumption-from-power-bi"></a>Exemple de script avec l’entrée de dictionnaire (consommation de prise en charge à partir de Power BI)
+#### <a name="example-script-with-dictionary-input-support-consumption-from-power-bi"></a>Exemple de script avec une entrée de dictionnaire (prise en charge de la consommation à partir de Power BI)
 
-L’exemple suivant montre comment définir les données d’entrée en tant que < clé : valeur > dictionnaire, à l’aide de la trame de données. Cette méthode est prise en charge pour la consommation du service web déployé à partir de Power BI ([en savoir plus sur comment consommer le service web à partir de Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-integration)) :
+L’exemple suivant montre comment définir les données d’entrée en tant que dictionnaire <clé:valeur> à l’aide d’un Dataframe. Cette méthode est prise en charge pour la consommation du service web déployé à partir de Power BI ([en savoir plus sur la consommation du service web à partir de Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-integration)) :
 
 ```python
 import json
@@ -222,41 +251,77 @@ def run(data):
         error = str(e)
         return error
 ```
-Pour plus des exemples de scripts, consultez les exemples suivants :
+Pour obtenir d’autres exemples de scripts, consultez ces exemples :
 
 * Pytorch : [https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch)
 * TensorFlow : [https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow)
 * Keras : [https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras)
 * ONNX : [https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx/](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx/)
-* Calcul de score par rapport aux données binaires : [Comment utiliser un service web](how-to-consume-web-service.md)
+* Scoring par rapport à des données binaires : [Comment consommer un service web](how-to-consume-web-service.md)
 
-### <a name="2-define-your-inferenceconfig"></a>2. Définir votre InferenceConfig
+### <a name="2-define-your-inferenceconfig"></a>2. Définir votre configuration d’inférence
 
-La configuration de l’inférence décrit comment configurer le modèle pour élaborer des prédictions. L’exemple suivant montre comment créer une configuration de l’inférence :
+La configuration de l’inférence décrit comment configurer le modèle pour les prédictions. L’exemple suivant montre comment créer une configuration d’inférence. Cette configuration spécifie le runtime, le script d’entrée et (facultatif) le fichier d’environnement conda :
 
 ```python
-inference_config = InferenceConfig(source_directory="C:/abc",
-                                   runtime= "python",
+inference_config = InferenceConfig(runtime= "python",
                                    entry_script="x/y/score.py",
                                    conda_file="env/myenv.yml")
 ```
 
+Pour plus d’informations, consultez les informations de référence de classe sur [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py).
+
+Pour plus d’informations sur l’utilisation d’une image Docker personnalisée avec configuration de l’inférence, consultez [Guide pratique pour déployer un modèle à l’aide d’une image Docker personnalisée](how-to-deploy-custom-docker-image.md).
+
+### <a name="cli-example-of-inferenceconfig"></a>Exemple CLI InferenceConfig
+
+Le document JSON suivant est un exemple de configuration de l’inférence pour une utilisation avec l’interface CLI Machine Learning :
+
+```JSON
+{
+   "entryScript": "x/y/score.py",
+   "runtime": "python",
+   "condaFile": "env/myenv.yml",
+   "sourceDirectory":"C:/abc",
+}
+```
+
+Les entités suivantes sont valides dans ce fichier :
+
+* __entryScript__ : Chemin d’accès au fichier local contenant le code à exécuter pour l’image.
+* __runtime__ : Runtime à utiliser pour l’image. Actuellement, les runtimes pris en charge sont « spark-py » et « python ».
+* __condaFile__ (facultatif) : Chemin d’accès au fichier local contenant une définition de l’environnement conda à utiliser pour l’image.
+* __extraDockerFileSteps__ (facultatif) : Chemin d’accès au fichier local contenant des étapes Docker supplémentaires à exécuter lors de la configuration de l’image.
+* __sourceDirectory__ (facultatif) : Chemin d’accès aux dossiers contenant tous les fichiers pour créer l’image.
+* __enableGpu__ (facultatif) : Activer ou non la prise en charge GPU dans l’image. L’image GPU doit être utilisée sur les services Microsoft Azure tels que Azure Container Instances, Capacité de calcul Azure Machine Learning, Machines virtuelles Azure et Azure Kubernetes Service. Valeur par défaut False.
+* __baseImage__ (facultatif) : Image personnalisée à utiliser comme image de base. Si aucune image de base n'est proposée, l'image de base sera utilisée en fonction d'un paramètre d'exécution donné.
+* __baseImageRegistry__ (facultatif) : Registre d’images contenant l’image de base.
+* __cudaVersion__ (facultatif) : Version de CUDA à installer pour les images nécessitant une prise en charge GPU. L’image GPU doit être utilisée sur les services Microsoft Azure tels que Azure Container Instances, Capacité de calcul Azure Machine Learning, Machines virtuelles Azure et Azure Kubernetes Service. Les versions prises en charge sont les versions 9.0, 9.1 et 10.0. Si « enable_gpu » est défini, la valeur par défaut est « 9.1 ».
+
+Ces entités mappent vers les paramètres de la classe [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py).
+
+La commande suivante montre comment déployer un modèle à l’aide de l’interface CLI :
+
+```azurecli-interactive
+az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
+```
+
 Dans cet exemple, la configuration contient les éléments suivants :
 
-* Un répertoire qui contient les ressources nécessaires à l’inférence
-* Que ce modèle nécessite Python
-* Le [script d’entrée](#script), qui est utilisé pour gérer les requêtes web envoyées au service déployé
-* Le fichier conda qui décrit les packages Python nécessaires pour l’inférence
+* Un répertoire renfermant les ressources nécessaires à l’inférence
+* L’information indiquant l’utilisation de Python
+* Le [script d’entrée](#script) qui est utilisé pour gérer les requêtes web envoyées au service déployé
+* Le fichier Conda qui décrit les packages Python nécessaires à l’inférence
 
-Pour plus d’informations sur les fonctionnalités de InferenceConfig, consultez le [configuration avancée](#advanced-config) section.
+Pour plus d’informations sur l’utilisation d’une image Docker personnalisée avec configuration de l’inférence, consultez [Guide pratique pour déployer un modèle à l’aide d’une image Docker personnalisée](how-to-deploy-custom-docker-image.md).
 
-### <a name="3-define-your-deployment-configuration"></a>3. Définir la configuration de votre déploiement
+### <a name="3-define-your-deployment-configuration"></a>3. Définir votre configuration de déploiement
 
-Avant de déployer, vous devez définir la configuration de déploiement. La configuration de déploiement est spécifique à la cible de calcul qui hébergera le service web. Par exemple, lorsque vous déployez localement, vous devez spécifier le port où le service accepte les requêtes.
+Avant de commencer le déploiement, vous devez définir la configuration de déploiement. La configuration de déploiement est propre à la cible de calcul qui va héberger le service web. Par exemple, dans un déploiement local, vous devez spécifier le port sur lequel le service accepte les requêtes.
 
-Vous serez peut-être amené à créer la ressource de calcul. Par exemple, si vous ne le faites pas déjà avez un service Azure Kubernetes Service associé à votre espace de travail.
+Vous pouvez aussi avoir besoin de créer la ressource de calcul. C’est le cas, par exemple, si vous n’avez pas encore associé Azure Kubernetes Service à votre espace de travail.
 
-Le tableau suivant fournit un exemple de création d’une configuration de déploiement pour chaque cible de calcul :
+Le tableau suivant donne un exemple de configuration de déploiement créée pour chaque cible de calcul :
 
 | Cible de calcul | Exemple de configuration de déploiement |
 | ----- | ----- |
@@ -264,15 +329,23 @@ Le tableau suivant fournit un exemple de création d’une configuration de dép
 | Azure Container Instance | `deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 | Azure Kubernetes Service | `deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 
-Les sections suivantes expliquent comment créer la configuration de déploiement et puis l’utiliser pour déployer le service web.
+Les sections suivantes expliquent comment créer la configuration de déploiement et l’utiliser ensuite pour déployer le service web.
 
-## <a name="deploy-to-target"></a>Déployer à la cible
+### <a name="optional-profile-your-model"></a>Facultatif : Profiler votre modèle
+Avant de déployer votre modèle en tant que service, vous pouvez le profiler afin de déterminer les exigences optimales en processeur et en mémoire. Vous pouvez profiler votre modèle à l’aide du kit de développement logiciel (SDK) ou de l'interface CLI.
+
+Pour plus d’informations, consultez la documentation du SDK disponible ici : https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-
+
+Les résultats du profilage du modèle sont fournis sous la forme d’un objet Run.
+Vous trouverez des détails sur le schéma de profil de modèle ici : https://docs.microsoft.com/python/api/azureml-core/azureml.core.profile.modelprofile?view=azure-ml-py
+
+## <a name="deploy-to-target"></a>Déployer sur la cible
 
 ### <a id="local"></a> Déploiement local
 
-Pour déployer en local, vous devez disposer **Docker installé** sur votre ordinateur local.
+Pour un déploiement local, vous devez avoir **Docker installé** sur votre machine locale.
 
-+ **L’utilisation du SDK**
++ **Avec le kit SDK**
 
   ```python
   deployment_config = LocalWebservice.deploy_configuration(port=8890)
@@ -281,7 +354,7 @@ Pour déployer en local, vous devez disposer **Docker installé** sur votre ordi
   print(service.state)
   ```
 
-+ **À l’aide de l’interface CLI**
++ **Avec l’interface CLI**
 
   ```azurecli-interactive
   az ml model deploy -m sklearn_mnist:1 -ic inferenceconfig.json -dc deploymentconfig.json
@@ -293,9 +366,9 @@ Utilisez Azure Container Instances pour déployer vos modèles en tant que servi
 - Vous avez besoin de déployer et de valider rapidement votre modèle.
 - Vous testez un modèle en cours de développement. 
 
-Pour obtenir le quota et zone de disponibilité pour ACI, consultez le [Quotas et disponibilité des régions pour Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-quotas) article.
+Pour plus d’informations sur les quotas et la disponibilité d’ACI en fonction des régions, consultez l’article [Quotas et disponibilité dans les régions pour Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-quotas).
 
-+ **L’utilisation du SDK**
++ **Avec le kit SDK**
 
   ```python
   deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)
@@ -304,28 +377,28 @@ Pour obtenir le quota et zone de disponibilité pour ACI, consultez le [Quotas e
   print(service.state)
   ```
 
-+ **À l’aide de l’interface CLI**
++ **Avec l’interface CLI**
 
   ```azurecli-interactive
   az ml model deploy -m sklearn_mnist:1 -n aciservice -ic inferenceconfig.json -dc deploymentconfig.json
   ```
 
 
-+ **À l’aide de VS Code**
++ **Avec VS Code**
 
-  Pour [déployer vos modèles avec Visual Studio Code](how-to-vscode-tools.md#deploy-and-manage-models) vous n’avez pas besoin de créer un conteneur ACI pour tester à l’avance, car les conteneurs ACI sont créés à la volée.
+  Pour [déployer vos modèles avec VS Code](how-to-vscode-tools.md#deploy-and-manage-models), vous n’avez pas besoin de créer un conteneur ACI en vue de le tester au préalable, car les conteneurs ACI sont créés instantanément.
 
 Pour plus d'informations, consultez la documentation de référence des classes [AciWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py) et [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py).
 
-### <a id="aks"></a>Azure Kubernetes Service (DEVTEST et PRODUCTION)
+### <a id="aks"></a>Azure Kubernetes Service (DEVTEST & PRODUCTION)
 
 Vous pouvez utiliser un cluster AKS existant ou en créer un en utilisant le kit SDK Azure Machine Learning, l’interface CLI ou le portail Azure.
 
 <a id="deploy-aks"></a>
 
-Si vous avez déjà un cluster AKS attaché, vous pouvez déployer à celui-ci. Si vous n’avez pas créé ou attaché un cluster AKS, suivez le processus pour <a href="#create-attach-aks">créer un cluster AKS</a>.
+Si vous avez déjà un cluster AKS attaché, vous pouvez le déployer. Si vous n’avez pas créé ou attaché de cluster AKS, suivez le processus pour <a href="#create-attach-aks">créer un cluster AKS</a>.
 
-+ **L’utilisation du SDK**
++ **Avec le kit SDK**
 
   ```python
   aks_target = AksCompute(ws,"myaks")
@@ -339,29 +412,29 @@ Si vous avez déjà un cluster AKS attaché, vous pouvez déployer à celui-ci. 
   print(service.get_logs())
   ```
 
-+ **À l’aide de l’interface CLI**
++ **Avec l’interface CLI**
 
   ```azurecli-interactive
   az ml model deploy -ct myaks -m mymodel:1 -n aksservice -ic inferenceconfig.json -dc deploymentconfig.json
   ```
 
-+ **À l’aide de VS Code**
++ **Avec VS Code**
 
-  Vous pouvez également [déployer sur AKS via l’extension VS Code](how-to-vscode-tools.md#deploy-and-manage-models), mais vous aurez besoin configurer les clusters AKS à l’avance.
+  Vous pouvez également choisir de [déployer sur AKS à l’aide de l’extension VS Code](how-to-vscode-tools.md#deploy-and-manage-models). Dans ce cas, vous devez préalablement configurer les clusters AKS.
 
-En savoir plus sur AKS déploiement et la mise à l’échelle dans le [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice) référence.
+Pour en savoir plus sur le déploiement d’AKS et sa mise à l’échelle automatique, consultez la documentation de référence sur [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice).
 
 #### Créer un cluster AKS<a id="create-attach-aks"></a>
-**Durée estimée :** Environ 5 minutes.
+**Durée estimée** : environ 20 minutes.
 
-Création ou l’attachement d’un cluster AKS est défini une fois traiter pour votre espace de travail. Vous pouvez le réutiliser pour vos autres déploiements. Si vous supprimez le cluster ou le groupe de ressources qui le contient, vous devez créer un nouveau cluster la prochaine fois que vous devez déployer. Vous pouvez avoir plusieurs clusters AKS associés à votre espace de travail.
+La création ou l’attachement d’un cluster AKS est un processus à effectuer une seule fois pour votre espace de travail. Vous pouvez le réutiliser pour vos autres déploiements. Si vous supprimez le cluster ou le groupe de ressources dans lequel il se trouve, vous devrez recréer un cluster lors du prochain déploiement. Vous pouvez avoir plusieurs clusters AKS attachés à votre espace de travail.
 
-Si vous souhaitez créer un cluster AKS pour le développement, de validation et de test, vous définissez `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST` lors de l’utilisation [ `provisioning_configuration()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py). Un cluster créé avec ce paramètre a qu’un seul nœud.
+Si vous souhaitez créer un cluster AKS pour le développement, la validation et le test, définissez `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST` quand vous utilisez [`provisioning_configuration()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py). Un cluster créé avec ce paramètre a un seul nœud.
 
 > [!IMPORTANT]
-> Paramètre `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST` crée un cluster AKS qui n’est pas adapté à la gestion du trafic de production. Durées d’inférence peuvent être plus longues que sur un cluster créé pour la production. Une tolérance de panne n'est pas garanti que pour les clusters de développement/test.
+> Le paramètre `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST` crée un cluster AKS qui ne convient pas à la gestion du trafic de production. Les temps d’inférence peuvent être plus longs que sur un cluster créé spécialement pour la production. Par ailleurs, la tolérance de panne n’est pas garantie pour les clusters de développement/test.
 >
-> Nous recommandons d’utilisent au moins deux processeurs virtuels clusters créés pour le développement/test.
+> Les clusters créés pour les besoins de développement/test doivent si possible avoir deux processeurs virtuels.
 
 L’exemple suivant montre comment créer un cluster Azure Kubernetes Service :
 
@@ -383,29 +456,30 @@ aks_target = ComputeTarget.create(workspace = ws,
 aks_target.wait_for_completion(show_output = True)
 ```
 
-Pour plus d’informations sur la création d’un cluster AKS en dehors du Kit de développement logiciel Azure Machine Learning, consultez les articles suivants :
-* [Créer un cluster AKS](https://docs.microsoft.com/cli/azure/aks?toc=%2Fazure%2Faks%2FTOC.json&bc=%2Fazure%2Fbread%2Ftoc.json&view=azure-cli-latest#az-aks-create)
-* [Créer un cluster AKS (portail)](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal?view=azure-cli-latest)
+Pour plus d’informations sur la création d’un cluster AKS en dehors du SDK Azure Machine Learning, consultez les articles suivants :
+* [Créer un cluster AKS](https://docs.microsoft.com/cli/azure/aks?toc=%2Fazure%2Faks%2FTOC.json&bc=%2Fazure%2Fbread%2Ftoc.json&view=azure-cli-latest#az-aks-create)
+* [Créer un cluster AKS (portail)](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal?view=azure-cli-latest)
 
-Pour plus d’informations sur la `cluster_purpose` paramètre, consultez le [AksCompute.ClusterPurpose](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?view=azure-ml-py) référence.
+Pour plus d’informations sur le paramètre `cluster_purpose`, consultez la documentation de référence sur [AksCompute.ClusterPurpose](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?view=azure-ml-py).
 
 > [!IMPORTANT]
 > Pour [`provisioning_configuration()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py), si vous choisissez des valeurs personnalisées pour agent_count et vm_size, vous devez vous assurer que agent_count multiplié par vm_size est supérieur ou égal à 12 processeurs virtuels. Par exemple, si vous définissez vm_size sur « Standard_D3_v2 », qui comporte 4 processeurs virtuels, vous devez définir agent_count sur un nombre supérieur ou égal à 3.
+>
+> Le kit de développement logiciel (SDK) Azure Machine Learning ne prend pas en charge la mise à l’échelle d'un cluster AKS. Pour mettre à l'échelle les nœuds du cluster, utilisez l’interface utilisateur de votre cluster AKS dans le portail Azure. Vous pouvez modifier le nombre de nœuds, mais pas la taille de machine virtuelle du cluster.
 
-**Durée estimée** : environ 20 minutes.
+#### <a name="attach-an-existing-aks-cluster"></a>Attacher un cluster AKS existant
+**Durée estimée** : 5 minutes environ.
 
-#### <a name="attach-an-existing-aks-cluster"></a>Joindre un cluster ACS existant
-
-Si vous avez déjà cluster AKS dans votre abonnement Azure, et il s’agit version 1.12. ##, vous pouvez l’utiliser pour déployer votre image.
+Si vous avez déjà un cluster AKS version 1.12.## dans votre abonnement Azure, vous pouvez l’utiliser pour déployer votre image.
 
 > [!WARNING]
-> Lorsque vous attachez un cluster AKS à un espace de travail, vous pouvez définir la façon dont vous allez utiliser le cluster en définissant le `cluster_purpose` paramètre.
+> Quand vous attachez un cluster AKS à un espace de travail, vous pouvez spécifier la façon dont vous allez l’utiliser en définissant le paramètre `cluster_purpose`.
 >
-> Si vous ne définissez pas la `cluster_purpose` paramètre, ou un ensemble `cluster_purpose = AksCompute.ClusterPurpose.FAST_PROD`, puis le cluster doit avoir au moins 12 processeurs virtuels disponibles.
+> Si vous ne définissez pas le paramètre `cluster_purpose`, ou `cluster_purpose = AksCompute.ClusterPurpose.FAST_PROD`, le cluster doit avoir au moins 12 processeurs virtuels disponibles.
 >
-> Si vous définissez `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST`, puis le cluster n’a pas besoin d’avoir 12 processeurs virtuels. Toutefois, un cluster qui est configuré pour le développement/test ne sera pas approprié pour le trafic au niveau de production et peut augmenter les temps de l’inférence.
+> Si vous définissez `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST`, le cluster n’a pas besoin d’autant de processeurs virtuels. Toutefois, un cluster configuré pour le développement/test n’est pas approprié pour le trafic de production et peut augmenter les temps d’inférence.
 
-Le code suivant montre comment attacher un 1.12 AKS existant. ## cluster à votre espace de travail :
+Le code suivant montre comment attacher un cluster AKS 1.12.## à votre espace de travail :
 
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget
@@ -422,13 +496,13 @@ attach_config = AksCompute.attach_configuration(resource_group = resource_group,
 aks_target = ComputeTarget.attach(ws, 'mycompute', attach_config)
 ```
 
-Pour plus d’informations sur `attack_configuration()`, consultez le [AksCompute.attach_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-) référence.
+Pour plus d’informations sur `attack_configuration()`, consultez la documentation de référence sur [AksCompute.attach_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-).
 
-Pour plus d’informations sur la `cluster_purpose` paramètre, consultez le [AksCompute.ClusterPurpose](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?view=azure-ml-py) référence.
+Pour plus d’informations sur le paramètre `cluster_purpose`, consultez la documentation de référence sur [AksCompute.ClusterPurpose](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?view=azure-ml-py).
 
 ## <a name="consume-web-services"></a>Utiliser des services web
 
-Chaque service web déployé fournit une API REST, donc vous pouvez créer des applications clientes dans un large éventail de langages de programmation. Si vous avez activé l’authentification pour votre service, vous devez fournir une clé de service en tant que jeton dans votre en-tête de demande.
+Chaque service web déployé fournit une API REST, qui vous permet de créer des applications clientes dans divers langages de programmation. Si vous avez activé l’authentification pour votre service, vous devez fournir une clé de service comme jeton dans l’en-tête de requête.
 
 ### <a name="request-response-consumption"></a>Consommation de requête-réponse
 
@@ -458,18 +532,18 @@ print(response.json())
 Pour plus d’informations, consultez [Créer des applications clientes pour utiliser des services web](how-to-consume-web-service.md).
 
 
-### <a id="azuremlcompute"></a> Inférence de lot
-Objectifs d’Azure Machine Learning Compute sont créés et gérés par le service Azure Machine Learning. Ils peuvent être utilisés pour la prédiction par lot à partir d’Azure Machine Learning Pipelines.
+### <a id="azuremlcompute"></a> Inférence par lots
+Les cibles de calcul Azure Machine Learning sont créées et managées par Azure Machine Learning service. Elles peuvent être utilisées pour la prédiction par lots à partir d’Azure Machine Learning Pipelines.
 
-Pour obtenir une description de l’inférence de traitement par lots avec Azure Machine Learning Compute, lisez le [comment exécuter des prédictions par lot](how-to-run-batch-predictions.md) article.
+Pour obtenir une présentation détaillée de l’inférence par lots avec la capacité de calcul Azure Machine Learning, lisez l’article [Exécuter des prédictions par lots](how-to-run-batch-predictions.md).
 
-### <a id="iotedge"></a> Inférence de IoT Edge
-Prise en charge pour le déploiement sur le bord est en version préliminaire. Pour plus d’informations, consultez le [déployer Azure Machine Learning en tant que IoT Edge module](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-machine-learning) article.
+### <a id="iotedge"></a> Inférence IoT Edge
+La prise en charge du déploiement en périphérie est en préversion. Pour plus d’informations, consultez l’article [Déployer Azure Machine Learning en tant que module IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-machine-learning).
 
 
-## <a id="update"></a> Mettre à jour des services web
+## <a id="update"></a> Mettre à jour les services web
 
-Lorsque vous créez un nouveau modèle, vous devez manuellement mettre à jour chaque service que vous souhaitez utiliser le nouveau modèle. Pour effectuer une mise à jour du service web, utilisez la méthode `update`. Le code suivant montre comment mettre à jour le service web pour utiliser un nouveau modèle :
+Lorsque vous créez un modèle, vous devez mettre à jour manuellement chacun des services pour lesquels vous souhaitez utiliser le nouveau modèle. Pour effectuer une mise à jour du service web, utilisez la méthode `update`. Le code suivant montre comment effectuer une mise à jour du service web pour utiliser un nouveau modèle :
 
 ```python
 from azureml.core.webservice import Webservice
@@ -492,62 +566,43 @@ print(service.state)
 print(service.get_logs())
 ```
 
-<a id="advanced-config"></a>
+## <a name="continuous-model-deployment"></a>Modèle de déploiement en continu 
 
-## <a name="advanced-settings"></a>Paramètres avancés 
+Vous pouvez déployer des modèles en continu à l’aide de l’extension Machine Learning pour [Azure DevOps](https://azure.microsoft.com/services/devops/). L'extension Machine Learning pour Azure DevOps vous permet de déclencher un pipeline de déploiement lorsqu’un nouveau modèle Machine Learning est inscrit dans l’espace de travail du service Azure Machine Learning. 
 
-**<a id="customimage"></a> Utiliser une image personnalisée de base**
+1. Inscrivez-vous sur [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops), ce qui permet l'intégration et la livraison continues de votre application vers n’importe quelle plateforme/n'importe quel cloud. Azure Pipelines [diffère des pipelines ML](concept-ml-pipelines.md#compare). 
 
-En interne, InferenceConfig crée une image Docker qui contient le modèle et autres ressources requises par le service. Si non spécifié, une image de base par défaut est utilisée.
+1. [Créez un projet Azure DevOps.](https://docs.microsoft.com/azure/devops/organizations/projects/create-project?view=azure-devops)
 
-Lorsque vous créez une image à utiliser avec votre configuration de l’inférence, l’image doit remplir les conditions suivantes :
+1. Installer l'[extension Machine Learning pour Azure Pipelines](https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.vss-services-azureml&targetId=6756afbe-7032-4a36-9cb6-2771710cadc2&utm_source=vstsproduct&utm_medium=ExtHubManageList) 
 
-* Ubuntu 16.04 ou version ultérieure.
-* Conda 4.5. # ou supérieur.
-* Python 3.5. # ou 3.6. #.
+1. Utilisez __Connexions au service__ pour configurer une connexion de principal de service à votre espace de travail de service Azure Machine Learning afin d'accéder à tous vos artefacts. Accédez aux paramètres du projet, cliquez sur Connexions au service, puis sélectionnez Azure Resource Manager.
 
-Pour utiliser une image personnalisée, définissez la `base_image` propriété de la configuration de l’inférence à l’adresse de l’image. L’exemple suivant montre comment utiliser une image à partir d’un Registre de conteneurs Azure public et privé :
+    ![view-service-connection](media/how-to-deploy-and-where/view-service-connection.png) 
 
-```python
-# use an image available in public Container Registry without authentication
-inference_config.base_image = "mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda"
+1. Définissez AzureMLWorkspace en tant que __niveau d'étendue__ et renseignez les paramètres suivants.
 
-# or, use an image available in a private Container Registry
-inference_config.base_image = "myregistry.azurecr.io/mycustomimage:1.0"
-inference_config.base_image_registry.address = "myregistry.azurecr.io"
-inference_config.base_image_registry.username = "username"
-inference_config.base_image_registry.password = "password"
-```
+    ![view-azure-resource-manager](media/how-to-deploy-and-where/resource-manager-connection.png)
 
-L’image suivante URI sont pour les images fournies par Microsoft et peut être utilisé sans fournir une valeur de mot de passe ou nom d’utilisateur :
+1. Ensuite, pour déployer en continu votre modèle Machine Learning à l’aide d'Azure Pipelines, sous Pipelines, sélectionnez __Mise en production__. Ajoutez un nouvel artefact, sélectionnez l’artefact Modèle AzureML et la connexion au service créée à l’étape précédente. Sélectionnez le modèle et la version pour déclencher un déploiement. 
 
-* `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda`
-* `mcr.microsoft.com/azureml/onnxruntime:v0.4.0`
-* `mcr.microsoft.com/azureml/onnxruntime:v0.4.0-cuda10.0-cudnn7`
-* `mcr.microsoft.com/azureml/onnxruntime:v0.4.0-tensorrt19.03`
+    ![select-AzureMLmodel-artifact](media/how-to-deploy-and-where/enable-modeltrigger-artifact.png)
 
-Pour utiliser ces images, définissez le `base_image` à l’URI à partir de la liste ci-dessus. Réglez `base_image_registry.address` sur `mcr.microsoft.com`.
+1. Activez le déclencheur de modèle sur votre artefact de modèle. En activant le déclencheur, chaque fois que la version spécifiée (version la plus récente) de ce modèle est inscrite dans votre espace de travail, un pipeline de mise en production Azure DevOps est déclenché. 
 
-> [!IMPORTANT]
-> Les images de Microsoft qui utilisent CUDA ou TensorRT doivent être utilisés uniquement sur les Services Microsoft Azure.
+    ![enable-model-trigger](media/how-to-deploy-and-where/set-modeltrigger.png)
 
-Pour plus d’informations sur le chargement de vos propres images dans Azure Container Registry, consultez [transmettre votre première image vers un Registre de conteneur Docker privé](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli).
-
-Si votre modèle est formé sur Azure Machine Learning Compute, à l’aide __version 1.0.22 ou supérieur__ du SDK Azure Machine Learning, une image est créée au cours de formation. L’exemple suivant montre comment utiliser cette image :
-
-```python
-# Use an image built during training with SDK 1.0.22 or greater
-image_config.base_image = run.properties["AzureML.DerivedImageName"]
-```
+Pour des exemples de projets, consultez [le référentiel MLOps](https://github.com/Microsoft/MLOps)
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 Pour supprimer un service web déployé, utilisez `service.delete()`.
 Pour supprimer un modèle inscrit, utilisez `model.delete()`.
 
-Pour plus d’informations, consultez la documentation de référence [WebService.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--), et [Model.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
+Pour plus d’informations, consultez la documentation de référence sur [WebService.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--) et [Model.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Résolution des problèmes de déploiement](how-to-troubleshoot-deployment.md)
+* [Guide pratique pour déployer un modèle à l’aide d’une image Docker personnalisée](how-to-deploy-custom-docker-image.md)
+* [Résolution des problèmes liés au déploiement](how-to-troubleshoot-deployment.md)
 * [Sécuriser les services web Azure Machine Learning avec SSL](how-to-secure-web-service.md)
 * [Utiliser un modèle ML déployé en tant que service web](how-to-consume-web-service.md)
 * [Superviser vos modèles Azure Machine Learning avec Application Insights](how-to-enable-app-insights.md)

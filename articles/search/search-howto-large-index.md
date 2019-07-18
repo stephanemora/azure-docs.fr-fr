@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8923c94409dcf079179ed0464046e39ef7654c4c
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.openlocfilehash: 8c067b6e238fab2970e5e40f0660a5c7555a8f2e
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65949832"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67302226"
 ---
 # <a name="how-to-index-large-data-sets-in-azure-search"></a>Comment indexer des grands volumes de données dans Recherche Azure
 
@@ -54,7 +54,7 @@ La planification des indexeurs est un mécanisme important pour le traitement de
 
 Par conception, l’indexation planifiée démarre à intervalles spécifiques. En général, les tâches sont entièrement exécutées, puis redémarrées au prochain intervalle planifié. Toutefois, si le traitement n’est pas terminé à la fin de l’intervalle, l’indexeur s’arrête (car le délai de traitement a expiré). Au prochain intervalle, le traitement reprend là où il s’était arrêté, le système gardant en mémoire l’endroit où la tâche doit redémarrée. 
 
-En pratique, pour les charges d’index réparties sur plusieurs jours, vous pouvez définir une fenêtre d’exécution de 24 heures pour l’indexeur. Quand l’indexation reprend pour le cycle suivant de 24 heures, elle redémarre au dernier document valide connu. De cette façon, un indexeur peut s’exécuter sur un backlog de documents pendant plusieurs jours jusqu’à ce que tous les documents non traités soient traités. Pour plus d’informations sur cette approche, consultez [Indexation de grands jeux de données dans Stockage Blob Azure](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets). Pour plus d’informations sur la définition de planifications en général, consultez [API REST de création d’indexeur](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer#request-syntax).
+En pratique, pour les charges d’index réparties sur plusieurs jours, vous pouvez définir une fenêtre d’exécution de 24 heures pour l’indexeur. Quand l’indexation reprend pour le cycle suivant de 24 heures, elle redémarre au dernier document valide connu. De cette façon, un indexeur peut s’exécuter sur un backlog de documents pendant plusieurs jours jusqu’à ce que tous les documents non traités soient traités. Pour plus d’informations sur cette approche, consultez [Indexation de grands jeux de données dans Stockage Blob Azure](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets). Pour plus d’informations sur la définition de planifications en général, voir [API REST de création d’indexeur](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer#request-syntax) ou [Comment planifier des indexeurs pour Recherche Azure](search-howto-schedule-indexers.md).
 
 <a name="parallel-indexing"></a>
 
@@ -67,7 +67,7 @@ Pour des besoins ponctuels d’indexation gourmande en ressources, comme la reco
 Un traitement parallèle se déroule comme suit :
 
 + Répartissez vos données sources entre plusieurs conteneurs ou plusieurs dossiers virtuels au sein du même conteneur. 
-+ Mappez chaque jeu de données mini à sa propre [source de données](https://docs.microsoft.com/rest/api/searchservice/create-data-source)couplé à sa propre [indexeur](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
++ Mappez chaque petit jeu de données à sa propre [source de données](https://docs.microsoft.com/rest/api/searchservice/create-data-source), appairée à son propre [indexeur](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 + Pour la recherche cognitive, référencez le même [ensemble de compétences](https://docs.microsoft.com/rest/api/searchservice/create-skillset) dans chaque définition d’indexeur.
 + Écrivez dans le même index de recherche cible. 
 + Planifiez une exécution simultanée de tous les indexeurs.

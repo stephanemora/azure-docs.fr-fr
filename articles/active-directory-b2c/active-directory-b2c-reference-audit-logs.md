@@ -10,12 +10,13 @@ ms.workload: identity
 ms.date: 08/04/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 27c91185bacea839ec73a3f4bd06f5df43bd4edf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 2c1bfd9e2659127ab77e9db661b54fde18a8d25c
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509656"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205361"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Accès aux journaux d’audit Azure AD B2C
 
@@ -23,6 +24,9 @@ Azure Active Directory B2C (Azure AD B2C) produit des journaux d’audit contena
 
 > [!IMPORTANT]
 > Les journaux d’audit sont uniquement conservés pendant sept jours. Envisagez de télécharger et stocker vos journaux d’activité en utilisant l’une des méthodes indiquées ci-dessous si vous avez besoin d’une période de rétention plus longue.
+
+> [!NOTE]
+> Vous ne voyez pas de connexions d’utilisateur pour des applications Azure AD B2C individuelles dans la section **Utilisateurs** des panneaux **Azure Active Directory** ou **Azure AD B2C**. Les connexions affichent l’activité de l’utilisateur, mais ne peuvent pas être corrélées avec l’application B2C à laquelle l’utilisateur s’est connecté. Pour cela, vous devez utiliser les journaux d’audit, comme expliqué dans cet article.
 
 ## <a name="overview-of-activities-available-in-the-b2c-category-of-audit-logs"></a>Vue d’ensemble des activités disponibles dans la catégorie B2C des journaux d’audit
 La catégorie **B2C** des journaux d’audit contient les types d’activités suivants :
@@ -41,6 +45,18 @@ La catégorie **B2C** des journaux d’audit contient les types d’activités s
 
 ## <a name="example-activity"></a>Exemple d’activité
 L’exemple ci-dessous montre les données capturées quand un utilisateur se connecte avec un fournisseur d’identité externe : ![Journaux d’audit - exemple](./media/active-directory-b2c-reference-audit-logs/audit-logs-example.png)
+
+Le volet des détails de l’activité contient les informations pertinentes suivantes :
+
+|Section|Champ|Description|
+|-------|-----|-----------|
+| Activité | Nom | Activité qui a eu lieu. Par exemple, « Émettre un id_token pour l’application » (qui conclut la connexion d’utilisateur réelle). |
+| Initié par (intervenant) | ID d’objet | **ID d’objet** de l’application B2C à laquelle l’utilisateur se connecte (cet identificateur n’est pas visible dans le portail Azure, mais est accessible, par exemple, via l’API Graph). |
+| Initié par (intervenant) | Nom de principal de service | **ID d’Application** de l’application B2C à laquelle l’utilisateur se connecte. |
+| Cible(s) | ID d’objet | **ID d’objet** de l’utilisateur qui se connecte. |
+| Détails supplémentaires | TenantId | **ID de locataire** du locataire Azure AD B2C. |
+| Détails supplémentaires | PolicyId | **ID de stratégie** du flux d’utilisateur (stratégie) utilisé pour la connexion de l’utilisateur. |
+| Détails supplémentaires | ApplicationId | **ID d’Application** de l’application B2C à laquelle l’utilisateur se connecte. |
 
 ## <a name="accessing-audit-logs-through-the-azure-portal"></a>Accès aux journaux d’audit par le biais du portail Azure
 1. Accédez au [portail Azure](https://portal.azure.com). Vérifiez que vous êtes dans votre annuaire B2C.
@@ -62,6 +78,9 @@ La liste des activités journalisées pendant les sept derniers jours apparaît.
 - Utilisez la liste déroulante **Plage de dates** pour filtrer la plage de dates des activités présentées.
 - Si vous cliquez sur une ligne spécifique dans la liste, une zone contextuelle affiche sur la droite d’autres attributs associés à l’activité.
 - Cliquez sur **Télécharger** pour télécharger les activités dans un fichier csv.
+
+> [!NOTE]
+> Vous pouvez également voir les journaux d’audit en accédant à **Azure AD B2C** plutôt qu’à **Azure Active Directory** dans la barre des favoris sur la gauche. Sous **Activités**, cliquez sur **Journaux d’Audit**, où vous trouverez les mêmes journaux avec des fonctionnalités de filtrage similaires.
 
 ## <a name="accessing-audit-logs-through-the-azure-ad-reporting-api"></a>Accès aux journaux d’audit par le biais de l’API de création de rapports Azure AD
 Les journaux d’audit sont publiés dans le même pipeline que les autres activités Azure Active Directory, afin d’être accessibles par le biais de l’[API de création de rapports Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-audit-reference).

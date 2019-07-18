@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 03/26/2019
-ms.openlocfilehash: ca53f4bfa80d6fdead24dc7d562c2240bb3fa86d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/18/2019
+ms.openlocfilehash: 826944fd3713f5cc3e99f20cb140055bfdb11a14
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60387427"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341432"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Création et utilisation de la géoréplication active
 
@@ -100,9 +100,6 @@ Pour assurer vraiment la continuité des activités, l’ajout d’une redondanc
 
   Chaque base de données secondaire peut participer séparément à un pool élastique ou ne faire partie d’aucun pool élastique. Le choix du pool pour chaque base de données secondaire est distinct et ne dépend pas de la configuration des autres bases de données secondaires (primaires comme secondaires). Chaque pool élastique est contenu dans une seule région. Par conséquent plusieurs bases de données secondaires de la même topologie ne peuvent jamais partager un pool élastique.
 
-- **Taille de calcul configurable de la base de données secondaire**
-
-  Les bases de données primaire et secondaire doivent offrir le même niveau de service. Il est également vivement recommandé de créer la base de données secondaire avec la même taille de calcul (DTU ou vCore) que la base de données primaire. Une base de données secondaire avec une taille de calcul inférieure à celle de la base de données primaire risque de subir un plus grand décalage de réplication, une indisponibilité potentielle et, par conséquent, une importante perte de données après un basculement. Par conséquent, un RPO publié de 5 s ne peut pas être garanti. L’autre risque est qu’après le basculement, les performances de l’application soient impactées en raison de la capacité de calcul insuffisante de la nouvelle base de données primaire, qui doit donc être mise à niveau vers une taille de calcul supérieure. La durée de la mise à niveau dépend de la taille de la base de données. De plus, une telle mise à niveau nécessite que les bases de données primaires et secondaires soient en ligne. Elle ne peut donc pas être effectuée tant que la panne n’a pas été résolue. Si vous décidez de créer une base de données secondaire avec une taille de calcul inférieure, vous pouvez utiliser le graphique de pourcentage d’E/S du journal sur le portail Azure pour estimer la taille de calcul minimale de la base de données secondaire qui est nécessaire pour supporter la charge de réplication. Par exemple, si votre base de données primaire est P6 (1 000 DTU) et si son pourcentage d’E/S du journal est de 50 %, la base de données secondaire doit être au moins P4 (500 DTU). Vous pouvez également récupérer les données d’E/S du journal à l’aide des vues de base de données [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) ou [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database).  Pour plus d’informations sur les tailles de calcul SQL Database, consultez [Présentation des niveaux de service SQL Database](sql-database-purchase-models.md).
 
 - **Basculement et restauration automatique contrôlés par l’utilisateur**
 
@@ -112,7 +109,19 @@ Pour assurer vraiment la continuité des activités, l’ajout d’une redondanc
 
 Nous recommandons d’utiliser des [règles de pare-feu IP au niveau de la base de données](sql-database-firewall-configure.md) pour les bases de données géorépliquées, de façon à ce que ces règles puissent être répliquées avec la base de données, garantissant ainsi que toutes les bases de données secondaires ont les mêmes règles de pare-feu IP que la base de données primaire. Cette approche évite aux clients de devoir configurer et tenir à jour manuellement les règles de pare-feu sur les serveurs hébergeant les bases de données primaire et secondaires. De même, le recours à des [utilisateurs de base de données contenus](sql-database-manage-logins.md) pour l’accès aux données garantit que les bases de données primaires et secondaires ont toujours les mêmes informations d’identification d’utilisateur afin qu’un basculement n’entraîne aucune interruption due à une discordance d’ID de connexion et de mots de passe. Avec l’ajout [d’Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), les clients peuvent gérer l’accès utilisateur aux bases de données primaires et secondaires. Cela élimine également la nécessité de gérer les informations d’identification dans l’ensemble des bases de données.
 
-## <a name="upgrading-or-downgrading-a-primary-database"></a>Mise à niveau ou rétrogradation d’une base de données primaire
+## <a name="configuring-secondary-database"></a>Configuration d'une base de données secondaire
+
+Les bases de données primaire et secondaire doivent offrir le même niveau de service. Il est également vivement recommandé de créer la base de données secondaire avec la même taille de calcul (DTU ou vCore) que la base de données primaire. En cas de charge de travail d'écriture importante de la base de données primaire, une base de données secondaire dotée d'une taille de calcul inférieure peut ne pas suivre. Cela entraînera un retard de la phase de restauration par progression sur la base de données secondaire, une possible indisponibilité et dès lors, un risque de perte de données après un basculement. Par conséquent, un RPO publié de 5 s ne peut pas être garanti. Cela peut aussi entraîner l'échec ou le blocage des autres charges de travail sur la base de données primaire. 
+
+Après un basculement, une configuration de base de données secondaire déséquilibrée peut aussi altérer le niveau de performance de l'application en raison de la capacité de calcul insuffisante de la nouvelle base de données primaire. Elle devra être mise à niveau vers une taille de calcul supérieure, ce qui ne sera possible qu'une fois la panne résolue. 
+
+> [!NOTE]
+> Actuellement, il n’est pas possible de mettre à niveau la base de données primaire si la base de données secondaire est hors connexion. 
+
+
+Si vous décidez de créer une base de données secondaire avec une taille de calcul inférieure, vous pouvez utiliser le graphique de pourcentage d’E/S du journal sur le portail Azure pour estimer la taille de calcul minimale de la base de données secondaire qui est nécessaire pour supporter la charge de réplication. Par exemple, si votre base de données primaire est P6 (1 000 DTU) et si son pourcentage d’E/S du journal est de 50 %, la base de données secondaire doit être au moins P4 (500 DTU). Vous pouvez également récupérer les données d’E/S du journal à l’aide des vues de base de données [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) ou [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database).  Pour plus d’informations sur les tailles de calcul SQL Database, consultez [Présentation des niveaux de service SQL Database](sql-database-purchase-models.md).
+
+## <a name="upgrading-or-downgrading-primary-database"></a>Mise à niveau ou rétrogradation de la base de données primaire
 
 Vous pouvez augmenter ou diminuer la taille de calcul d’une base de données primaire (au sein du même niveau de service, mais pas entre les niveaux Usage général et Critique pour l’entreprise) sans déconnecter les bases de données secondaires. Lors d’une mise à niveau, nous vous recommandons de mettre à niveau la base de données secondaire dans un premier temps, avant de mettre à niveau la base de données primaire. Lors d’une rétrogradation, inversez l’ordre : rétrogradez tout d’abord la base de données primaire, puis dans un second temps la base de données secondaire. Lorsque vous passez la base de données à un niveau de service supérieur ou inférieur, cette recommandation est appliquée.
 

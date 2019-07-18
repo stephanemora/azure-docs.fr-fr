@@ -5,18 +5,15 @@ services: azure-resource-manager
 documentationcenter: ''
 author: mumian
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: 9245d4c01816d26e262b1c8bd35015e2a6a9558c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c50a96b2598b89d5072a9441162d198163156c8d
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60550544"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296273"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-cli"></a>Gérer des groupes de ressources Azure Resource Manager à l’aide d’Azure CLI
 
@@ -142,7 +139,7 @@ az group export --name $resourceGroupName
 
 Le script affiche le modèle sur la console.  Copiez le JSON et enregistrez-le dans un fichier.
 
-Pour plus d’informations, voir [Exporter un groupe de ressources](./manage-resource-groups-portal.md#export-resource-groups-to-templates).
+Pour plus d’informations, consultez [Export d’une ressource unique ou de plusieurs ressources vers un modèle dans le portail Azure](./export-template-portal.md).
 
 ## <a name="manage-access-to-resource-groups"></a>Gérer l'accès aux groupes de ressources
 
@@ -150,7 +147,7 @@ Le [contrôle d’accès en fonction du rôle (RBAC)](../role-based-access-contr
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour vous familiariser avec Azure Resource Manager, consultez [Vue d'ensemble d'Azure Resource Manager](./resource-group-overview.md).
+- Pour vous familiariser avec Azure Resource Manager, consultez [Vue d’ensemble d’Azure Resource Manager](./resource-group-overview.md).
 - Pour vous familiariser avec la syntaxe des modèles Resource Manager, consultez [Comprendre la structure et la syntaxe des modèles Azure Resource Manager](./resource-group-authoring-templates.md).
 - Pour apprendre à développer des modèles, consultez les [tutoriels pas à pas](/azure/azure-resource-manager/).
 - Pour accéder aux schémas liés aux modèles Azure Resource Manager, consultez [Informations de référence sur les modèles](/azure/templates/).

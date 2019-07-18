@@ -1,5 +1,5 @@
 ---
-title: Prise en main Azure Monitor Log Analytique | Microsoft Docs
+title: Prise en main d'Azure Monitor Log Analytics | Microsoft Docs
 description: Cet article fournit un didacticiel dédié à l’écriture de requêtes dans le Portail Azure à l’aide de Log Analytics.
 services: log-analytics
 author: bwren
@@ -8,20 +8,20 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: bwren
-ms.openlocfilehash: af01ebdc72df096b45c4ca4e755b2ed3880bab65
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: MT
+ms.openlocfilehash: 17b5c0b459e70909d9f305beb8bf87b83f1cf65c
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66255260"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296513"
 ---
-# <a name="get-started-with-azure-monitor-log-analytics"></a>Prise en main Azure Monitor Log Analytique
+# <a name="get-started-with-log-analytics-in-azure-monitor"></a>Prise en main de Log Analytics dans Azure Monitor
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Dans ce didacticiel, vous allez apprendre à utiliser l’Analytique de journal d’analyse Azure dans le portail Azure pour écrire des requêtes de journal Azure Monitor. Au terme du tutoriel, vous saurez :
+Dans ce tutoriel, vous allez apprendre à utiliser Log Analytics dans le portail Azure pour écrire des requêtes de journal Azure Monitor. Au terme du tutoriel, vous saurez :
 
-- Écrire des requêtes simples
+- Utiliser Log Analytics pour écrire une requête simple
 - Comprendre le schéma de vos données
 - Filtrer, trier et regrouper les résultats
 - Appliquer un intervalle de temps
@@ -29,13 +29,22 @@ Dans ce didacticiel, vous allez apprendre à utiliser l’Analytique de journal 
 - Enregistrer et charger des requêtes
 - Exporter et partager des requêtes
 
+Pour un tutoriel sur l'écriture de requêtes de journal, consultez [Bien démarrer avec les requêtes de journal dans Azure Monitor](get-started-queries.md).<br>
+Pour plus d’informations sur les requêtes de journal, consultez [Vue d’ensemble des requêtes de journal dans Azure Monitor](log-query-overview.md).
 
-## <a name="meet-log-analytics"></a>Répondre aux Analytique de journal
-Analytique de journal est un outil web utilisé pour écrire et exécuter des requêtes de journal Azure Monitor. Pour l’ouvrir, sélectionnez **Journaux d’activité** dans le menu Azure Monitor. Une nouvelle requête vide s’affiche.
+## <a name="meet-log-analytics"></a>Présentation de Log Analytics
+Log Analytics est un outil web utilisé pour écrire et exécuter des requêtes de journal Azure Monitor. Pour l’ouvrir, sélectionnez **Journaux d’activité** dans le menu Azure Monitor. Une nouvelle requête vide s’affiche.
 
 ![page d'accueil](media/get-started-portal/homepage.png)
 
+## <a name="firewall-requirements"></a>Configuration requise du pare-feu
+Pour utiliser Log Analytics, votre navigateur doit pouvoir accéder aux adresses suivantes. Si votre navigateur accède au portail Azure par le biais d’un pare-feu, vous devez activer l’accès à ces adresses.
 
+| Uri | IP | Ports |
+|:---|:---|:---|
+| portal.loganalytics.io | Dynamique | 80,443 |
+| api.loganalytics.io | Dynamique | 80,443 |
+| docs.loganalytics.io | Dynamique | 80,443 |
 
 ## <a name="basic-queries"></a>Requêtes de base
 Les requêtes peuvent être utilisées pour rechercher des termes, identifier des tendances, analyser des modèles et fournissent de nombreux autres insights basés sur vos données. Démarrez avec une requête de base :
@@ -44,9 +53,9 @@ Les requêtes peuvent être utilisées pour rechercher des termes, identifier de
 Event | search "error"
 ```
 
-Cette requête recherche dans la table _Event_ les enregistrements qui contiennent le terme « error » dans n’importe quelle propriété.
+Cette requête recherche dans la table _Event_ les enregistrements qui contiennent le terme _error_ dans n’importe quelle propriété.
 
-Les requêtes peuvent commencer par un nom de table ou une commande **search**. L’exemple ci-dessus commence par le nom de table _Event_, qui définit l’étendue de la requête. Le caractère barre verticale (|) sépare les commandes, donc la sortie de la première sert d’entrée de la commande suivante. Vous pouvez ajouter n’importe quel nombre de commandes à une seule requête.
+Les requêtes peuvent commencer par un nom de table ou une commande [search](/kusto/query/searchoperator). L’exemple ci-dessus commence par le nom de table _Event_, qui récupère tous les enregistrements à partir de la table Event. Le caractère barre verticale (|) sépare les commandes. Ainsi, la sortie de la première commande sert d'entrée à la commande suivante. Vous pouvez ajouter n’importe quel nombre de commandes à une seule requête.
 
 Une autre façon d’écrire cette même requête serait :
 
@@ -54,18 +63,18 @@ Une autre façon d’écrire cette même requête serait :
 search in (Event) "error"
 ```
 
-Dans cet exemple, l’étendue de la commande **search** est la table _Event_, et le terme « error » est recherché dans tous les enregistrements de cette table.
+Dans cet exemple, l’étendue de la commande **search** est la table _Event_, et le terme _error_ est recherché dans tous les enregistrements de cette table.
 
 ## <a name="running-a-query"></a>Exécution d’une requête
 Exécutez une requête en cliquant sur le bouton **Exécuter** ou en appuyant sur **Maj+Entrée**. Prenez en compte les détails suivants qui déterminent le code exécuté et les données retournées :
 
-- Sauts de ligne : un simple saut rend votre requête plus claire. Plusieurs sauts de ligne la scindent en requêtes distinctes.
+- Sauts de ligne : un simple saut facilite la lecture de votre requête. Plusieurs sauts de ligne la scindent en requêtes distinctes.
 - Curseur : placez votre curseur à l’intérieur de la requête pour l’exécuter. La première ligne vide trouvée marque la fin de la requête actuelle.
 - Intervalle de temps : un intervalle de temps couvrant les _dernières 24 heures_ est défini par défaut. Pour utiliser un autre intervalle, utilisez le sélecteur d’heure ou ajoutez un filtre d’intervalle de temps explicite à votre requête.
 
 
 ## <a name="understand-the-schema"></a>Comprendre le schéma
-Le schéma est une collection de tables regroupées visuellement sous une catégorie logique. Plusieurs catégories proviennent de solutions de supervision. La catégorie _LogManagement_ contient des données courantes telles que les événements Windows et Syslog, les données de performances et les pulsations clientes.
+Le schéma est une collection de tables regroupées visuellement sous une catégorie logique. Plusieurs catégories proviennent de solutions de supervision. La catégorie _LogManagement_ contient des données courantes telles que les événements Windows et Syslog, les données de performances et les pulsations d'agent.
 
 ![Schéma](media/get-started-portal/schema.png)
 
@@ -78,7 +87,7 @@ Commencez par récupérer tout le contenu de la table _Event_.
 Event
 ```
 
-Analytique de journal étendues automatiquement les résultats par :
+Log Analytics définit automatiquement l'étendue des résultats par :
 
 - Intervalle de temps :  par défaut, les requêtes sont limitées aux dernières 24 heures.
 - Nombre de résultats : les résultats sont limités à un maximum de 10 000 enregistrements.
@@ -116,7 +125,7 @@ La table de résultats inclut souvent un grand nombre de colonnes. Peut-être co
 
 
 ## <a name="select-a-time-range"></a>Sélectionner un intervalle de temps
-Par défaut, le journal Analytique applique le _dernières 24 heures_ intervalle de temps. Pour utiliser un autre intervalle, sélectionnez une autre valeur par le biais du sélecteur d’heure, puis cliquez sur **Exécuter**. Outre les valeurs prédéfinies, vous pouvez utiliser l’option _intervalle de temps personnalisé_ pour sélectionner un intervalle absolu pour votre requête.
+Par défaut, Log Analytics applique l’intervalle de temps correspondant aux _dernières 24 heures_. Pour utiliser un autre intervalle, sélectionnez une autre valeur par le biais du sélecteur d’heure, puis cliquez sur **Exécuter**. Outre les valeurs prédéfinies, vous pouvez utiliser l’option _intervalle de temps personnalisé_ pour sélectionner un intervalle absolu pour votre requête.
 
 ![Sélecteur d’heure](media/get-started-portal/time-picker.png)
 
@@ -178,7 +187,7 @@ L’icône Explorateur de requêtes se trouve dans la zone supérieure droite. I
 ![Explorateur de requêtes](media/get-started-portal/query-explorer.png)
 
 ## <a name="export-and-share-as-link"></a>Exporter et partager en tant que lien
-Analytique de journal prend en charge plusieurs méthodes d’exportation :
+Log Analytics prend en charge plusieurs méthodes d'exportation :
 
 - Excel : enregistrer les résultats dans un fichier CSV.
 - Power BI : exporter les résultats dans Power BI. Pour plus d'informations, consultez [Importation de données de journal Azure Monitor dans Power BI](../../azure-monitor/platform/powerbi.md).

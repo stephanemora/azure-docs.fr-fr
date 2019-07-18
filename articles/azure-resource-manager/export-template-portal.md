@@ -4,20 +4,22 @@ description: Utilisez le portail Azure pour exporter un modèle Azure Resource M
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/09/2019
+ms.date: 06/19/2019
 ms.author: tomfitz
-ms.openlocfilehash: ea9499da3dac67635a48704f439f6592c6ed467e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e482bf99013b9bec9dfbf64c4e8ad5a8a43ff540
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65515383"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296302"
 ---
 # <a name="single-and-multi-resource-export-to-template-in-azure-portal"></a>Export d’une ressource unique ou de plusieurs ressources vers un modèle dans le portail Azure
 
 Pour aider à créer des modèles Azure Resource Manager, vous pouvez exporter un modèle à partir de ressources existantes. Le modèle exporté vous aide à comprendre la syntaxe JSON et les propriétés qui déploient vos ressources. Pour automatiser les déploiements futurs, commencez par le modèle exporté et modifiez-le en fonction de votre scénario.
 
 Resource Manager vous permet de choisir une ou plusieurs ressources pour l’exportation vers un modèle. Vous pouvez vous concentrer exactement sur les ressources dont vous avez besoin dans le modèle.
+
+Cet article explique comment exporter des modèles via le portail. Vous pouvez également utiliser [Azure CLI](manage-resource-groups-cli.md#export-resource-groups-to-templates), [Azure PowerShell](manage-resource-groups-powershell.md#export-resource-groups-to-templates) ou l'[API REST](/rest/api/resources/resourcegroups/exporttemplate).
 
 ## <a name="choose-the-right-export-option"></a>Choisir la bonne option d’exportation
 
@@ -102,7 +104,7 @@ Vous pouvez exporter le modèle qui a été utilisé pour déployer les ressourc
 
 1. Sélectionnez le lien sous **Déploiements**.
 
-   ![Sélectionner l’historique de déploiement](./media/export-template-portal/select-deployment-history.png)
+   ![Sélectionner l’historique des déploiements](./media/export-template-portal/select-deployment-history.png)
 
 1. Sélectionnez un des déploiements dans l’historique des déploiements.
 
@@ -114,7 +116,7 @@ Vous pouvez exporter le modèle qui a été utilisé pour déployer les ressourc
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour vous familiariser avec Azure Resource Manager, consultez [Vue d’ensemble d’Azure Resource Manager](./resource-group-overview.md).
+- Découvrez comment exporter des modèles avec [Azure CLI](manage-resource-groups-cli.md#export-resource-groups-to-templates), [Azure PowerShell](manage-resource-groups-powershell.md#export-resource-groups-to-templates) ou l'[API REST](/rest/api/resources/resourcegroups/exporttemplate).
 - Pour vous familiariser avec la syntaxe des modèles Resource Manager, consultez [Comprendre la structure et la syntaxe des modèles Azure Resource Manager](./resource-group-authoring-templates.md).
 - Pour apprendre à développer des modèles, consultez les [tutoriels pas à pas](/azure/azure-resource-manager/).
 - Pour accéder aux schémas liés aux modèles Azure Resource Manager, consultez [Informations de référence sur les modèles](/azure/templates/).

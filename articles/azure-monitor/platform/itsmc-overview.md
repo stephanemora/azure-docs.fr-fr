@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: abbd26779cefaf52c6f2247a5d27db25f280c930
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f2574cc64e157ff0f8a6cb875a832db88cf13dd6
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60395803"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67479810"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Connecter Azure aux outils ITSM à l’aide du connecteur de gestion des services informatiques
 
@@ -62,7 +62,9 @@ Avant de pouvoir créer une connexion, vous devez ajouter la solution de connect
 
 3. Dans la section **Espace de travail OMS**, sélectionnez l’espace de travail Azure Log Analytics où vous souhaitez installer la solution.
    >[!NOTE]
-   >Dans le cadre de la transition en cours depuis Microsoft Operations Management Suite (OMS) vers Azure Monitor, les espaces de travail OMS sont maintenant appelé espaces de travail Log Analytics.
+   > * Dans le cadre de la transition en cours depuis Microsoft Operations Management Suite (OMS) vers Azure Monitor, les espaces de travail OMS sont maintenant appelé espaces de travail Log Analytics.
+   > * Le connecteur ITSM peut uniquement être installé dans les espaces de travail Log Analytics des régions suivantes : USA Est, Europe Ouest, Asie Sud-Est, Australie Sud-Est, USA Centre-Ouest, Japon Est, Royaume-Uni Sud, Inde Centre, Canada Centre.
+
 4. Dans la section **Paramètres de l’espace de travail OMS**, sélectionnez le groupe de ressources où vous souhaitez créer la ressource de la solution.
 
    ![Espace de travail ITSMC](media/itsmc-overview/itsmc-solution-workspace.png)
@@ -199,7 +201,7 @@ ServiceDeskWorkItemType_s="Incident"
 - Date de fermeture
 - Date de résolution
 - Date de dernière modification
-- Ordinateur
+- Computer
 
 
 **Élément de travail :** **Demandes de modification**
@@ -233,7 +235,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Date de début du travail
 - Date de fin du travail
 - Description
-- Ordinateur
+- Computer
 
 ## <a name="output-data-for-a-servicenow-incident"></a>Données de sortie pour un incident ServiceNow
 
@@ -255,7 +257,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | CreatedDate_t|  Ouvert |
 | ClosedDate_t| Fermé|
 | ResolvedDate_t|Résolu|
-| Ordinateur  | Élément de configuration |
+| Computer  | Élément de configuration |
 
 ## <a name="output-data-for-a-servicenow-change-request"></a>Données de sortie pour une demande de modification ServiceNow
 
@@ -280,7 +282,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | WorkStartDate_t  | Date de début réelle |
 | WorkEndDate_t | Date de fin réelle|
 | Description_s | Description |
-| Ordinateur  | Élément de configuration |
+| Computer  | Élément de configuration |
 
 
 ## <a name="troubleshoot-itsm-connections"></a>Dépanner les connexions ITSM

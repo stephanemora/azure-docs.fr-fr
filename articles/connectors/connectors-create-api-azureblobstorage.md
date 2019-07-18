@@ -8,14 +8,14 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 05/21/2018
+ms.date: 06/20/2019
 tags: connectors
-ms.openlocfilehash: ea3e97db9ec560306788943d92a7670025f38bdc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d9c29837e99d327112e6a9d648a5c56cc35e8555
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60958584"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296670"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-with-azure-logic-apps"></a>Créer et gérer des objets Blob dans Stockage Blob Azure avec Azure Logic Apps
 
@@ -30,12 +30,21 @@ Supposons que vous disposez d’un outil qui est mis à jour sur un site web Azu
 >
 > * Si vous utilisez déjà Gestion des API, vous pouvez utiliser ce service pour ce scénario. Pour plus d’informations, consultez [Architecture d’intégration d’entreprise simple](https://aka.ms/aisarch).
 
-Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md) et [Démarrage rapide : Créer votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
-Pour obtenir des informations techniques spécifiques aux connecteurs, consultez la <a href="https://docs.microsoft.com/connectors/azureblobconnector/" target="blank">référence du connecteur Stockage Blob Azure</a>.
+Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md) et [Démarrage rapide : Créer votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md). Pour obtenir des informations techniques spécifiques aux connecteurs, consultez la [référence du connecteur Stockage Blob Azure](/connectors/azureblobconnector/).
+
+## <a name="limits"></a>limites
+
+* Par défaut, les actions de Stockage Blob Azure peuvent lire ou écrire des fichiers dont la taille est *inférieure ou égale à 50 Mo*. Pour gérer les fichiers d’une taille supérieure à 50 Mo, mais n’excédant pas 1 024 Mo, les actions de Stockage Blob Azure prennent en charge la [segmentation du message](../logic-apps/logic-apps-handle-large-messages.md). L’action **Obtenir le contenu de l’objet blob** utilise implicitement la segmentation.
+
+* Les déclencheurs de Stockage Blob Azure ne prennent pas en charge la segmentation. Quand ils demandent du contenu de fichiers, les déclencheurs sélectionnent uniquement des fichiers dont la taille est inférieure ou égale à 50 Mo. Pour obtenir des fichiers supérieurs à 50 Mo, suivez ce modèle :
+
+  * Utilisez un déclencheur Stockage Blob Azure qui retourne des propriétés de fichier, comme **Quand un blob est ajouté ou modifié (propriétés uniquement)** .
+
+  * Suivez le déclencheur avec l’action Stockage Blob Azure **Obtenir le contenu de l’objet blob**, qui lit le fichier complet et utilise implicitement la segmentation.
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>.
+* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/).
 
 * Un [compte de stockage Azure et un conteneur de stockage](../storage/blobs/storage-quickstart-blobs-portal.md)
 
@@ -47,13 +56,13 @@ Pour obtenir des informations techniques spécifiques aux connecteurs, consultez
 
 Dans Azure Logic Apps, chaque application logique doit démarrer avec un [déclencheur](../logic-apps/logic-apps-overview.md#logic-app-concepts), qui s’active lorsqu’un événement spécifique se produit ou lorsqu’une condition particulière est remplie. Chaque fois que le déclencheur s’active, le moteur Logic Apps crée une instance d’application logique et lance l’exécution du flux de travail de votre application.
 
-Cet exemple montre comment vous pouvez démarrer un flux de travail d’application logique avec le déclencheur **Stockage Blob Azure - Quand un blob est ajouté ou modifié (propriétés uniquement)** lorsque les propriétés d’un objet Blob sont ajoutées ou mises à jour dans votre conteneur de stockage. 
+Cet exemple montre comment vous pouvez démarrer un flux de travail d’application logique avec le déclencheur **Quand un blob est ajouté ou modifié (propriétés uniquement)** lorsque les propriétés d’un objet Blob sont ajoutées ou mises à jour dans votre conteneur de stockage.
 
-1. Dans le portail Azure ou Visual Studio, créez une application logique vide, qui ouvre le Concepteur d’applications logiques. Cet exemple utilise le portail Azure.
+1. Dans le [portail Azure](https://portal.azure.com) ou Visual Studio, créez une application logique vide, qui ouvre le Concepteur d’applications logiques. Cet exemple utilise le portail Azure.
 
 2. Dans la zone de recherche, saisissez le filtre « blob azure ». Dans la liste des déclencheurs, sélectionnez le déclencheur souhaité.
 
-   Cet exemple utilise ce déclencheur : **Stockage Blob Azure - Quand un blob est ajouté ou modifié (propriétés uniquement)**
+   Cet exemple utilise ce déclencheur : **Quand un blob est ajouté ou modifié (propriétés uniquement)**
 
    ![Sélectionner le déclencheur](./media/connectors-create-api-azureblobstorage/azure-blob-trigger.png)
 
@@ -79,22 +88,22 @@ Cet exemple montre comment vous pouvez démarrer un flux de travail d’applicat
 
 Dans Azure Logic Apps, une [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) est une étape de votre flux de travail qui suit un déclencheur ou une autre action. Dans cet exemple, l’application logique commence avec le [déclencheur de périodicité](../connectors/connectors-native-recurrence.md).
 
-1. Dans le portail Azure ou Visual Studio, ouvrez votre application logique dans le Concepteur d’applications logiques. Cet exemple utilise le portail Azure.
+1. Dans le [portail Azure](https://portal.azure.com) ou dans Visual Studio, ouvrez votre application logique dans le Concepteur d’application logique. Cet exemple utilise le portail Azure.
 
-2. Dans le Concepteur d’application logique, sous le déclencheur ou l’action, sélectionnez **Nouvelle étape** > **Ajouter une action**.
+2. Dans le Concepteur d’application logique, sous le déclencheur ou l’action, sélectionnez **Nouvelle étape**.
 
    ![Ajouter une action](./media/connectors-create-api-azureblobstorage/add-action.png) 
 
-   Pour ajouter une action entre des étapes, déplacez votre souris sur la flèche de connexion. 
-   Cliquez sur le signe plus ( **+** ) qui s’affiche, puis choisissez **Ajouter une action**.
+   Pour ajouter une action entre des étapes, déplacez votre souris sur la flèche de connexion. Choisissez le signe plus ( **+** ) qui s’affiche, puis sélectionnez **Ajouter une action**.
 
 3. Dans la zone de recherche, saisissez le filtre « blob azure ». Dans la liste des actions, sélectionnez l’action souhaitée.
 
-   Cet exemple utilise cette action : **Stockage Blob Azure - Obtenir le contenu de l’objet blob**
+   Cet exemple utilise cette action : **Obtenir le contenu de l’objet blob**
 
-   ![Action select](./media/connectors-create-api-azureblobstorage/azure-blob-action.png) 
+   ![Action select](./media/connectors-create-api-azureblobstorage/azure-blob-action.png)
 
-4. Si vous êtes invité à entrer les informations de connexion, [créez votre connexion Stockage Blob Azure maintenant](#create-connection). Ou bien, si votre connexion existe déjà, fournissez les informations nécessaires pour l’action.
+4. Si vous êtes invité à entrer les informations de connexion, [créez votre connexion Stockage Blob Azure maintenant](#create-connection).
+Ou bien, si votre connexion existe déjà, fournissez les informations nécessaires pour l’action.
 
    Dans cet exemple, sélectionnez le fichier souhaité.
 
@@ -120,11 +129,6 @@ Cet exemple obtient uniquement le contenu d’un objet Blob. Pour afficher le co
 ## <a name="connector-reference"></a>Référence de connecteur
 
 Pour plus d’informations techniques, telles que les déclencheurs, actions et limites, comme décrit dans le fichier Open API (anciennement Swagger) du connecteur, consultez la [page de référence du connecteur](/connectors/azureblobconnector/).
-
-## <a name="get-support"></a>Obtenir de l’aide
-
-* Si vous avez des questions, consultez le [forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Pour voter pour des idées de fonctionnalités ou pour en soumettre, visitez le [site de commentaires des utilisateurs Logic Apps](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

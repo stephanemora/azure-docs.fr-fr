@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51ad6ea2abcc18b985e9c45fbfb1ffba98fb2c1f
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.openlocfilehash: 674d055c40ff594f0e4e05ec512b9124b1d7ab77
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66113080"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341331"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Présentation des connecteurs de proxy d’application Azure AD
 
@@ -29,12 +29,12 @@ Les connecteurs sont des agents légers présent en local et qui facilitent la c
 
 ## <a name="requirements-and-deployment"></a>Exigences et déploiement
 
-Pour déployer le proxy d’application avec succès, vous devez disposer d’au moins un connecteur, mais nous vous recommandons d’en utiliser deux ou plusieurs pour assurer une meilleure résilience. Installer le connecteur sur un ordinateur exécutant Windows Server 2012 R2 ou version ultérieure. Le connecteur doit communiquer avec le service Proxy d’application et les applications locales que vous publiez. 
+Pour déployer le proxy d’application avec succès, vous devez disposer d’au moins un connecteur, mais nous vous recommandons d’en utiliser deux ou plusieurs pour assurer une meilleure résilience. Installez le connecteur sur une machine exécutant Windows Server 2012 R2 ou une version ultérieure. Le connecteur doit communiquer avec le service Proxy d’application et les applications locales que vous publiez. 
 
 ### <a name="windows-server"></a>Windows Server
 Vous avez besoin d’un serveur exécutant Windows Server 2012 R2 ou ultérieur, sur lequel vous pouvez installer le connecteur de proxy d’application. Le serveur doit se connecter aux services Proxy d’application dans Azure et aux applications locales que vous publiez.
 
-TLS 1.2 doit être activé sur le serveur Windows Server avant l’installation du connecteur de proxy d’application. Jusqu’à nouvel ordre, les connecteurs existants avec des versions antérieures à 1.5.612.0 continueront de fonctionner sur les versions antérieures de TLS. Pour activer TLS 1.2 :
+TLS 1.2 doit être activé sur le serveur Windows Server avant l’installation du connecteur de proxy d’application. Pour activer TLS 1.2 sur le serveur :
 
 1. Définissez les clés de Registre suivantes :
     
@@ -50,7 +50,7 @@ TLS 1.2 doit être activé sur le serveur Windows Server avant l’installation 
 
 Pour plus d’informations sur la configuration réseau requise pour le serveur du connecteur, consultez [Prise en main du proxy d’application et de l’installation d’un connecteur](application-proxy-add-on-premises-application.md).
 
-## <a name="maintenance"></a>Maintenance 
+## <a name="maintenance"></a>Maintenance
 Les connecteurs et le service se chargent de toutes les tâches de haut niveau de disponibilité. Vous pouvez les ajouter ou supprimer de manière dynamique. Chaque fois qu’une nouvelle requête arrive, elle est acheminée vers un des connecteurs actuellement disponibles. Si un connecteur est temporairement indisponible, il ne répond pas à ce trafic.
 
 Les connecteurs sont sans état et ne disposent d’aucune donnée de configuration sur l’ordinateur. Les seules données qu’ils stockent sont les paramètres de connexion au service et le certificat d’authentification. Lorsqu’ils se connectent au service, ils extraient toutes les données de configuration requises et les actualisent toutes les deux minutes.
@@ -87,9 +87,9 @@ Pour en savoir plus sur les groupes de connecteurs, consultez [Publier des appli
 
 ## <a name="capacity-planning"></a>Planification de la capacité 
 
-Il est important de planifier une capacité suffisante entre les connecteurs pour gérer le volume de trafic attendu. Nous recommandons que chaque groupe de connecteurs ait au moins deux connecteurs pour permettre la mise à l’échelle et haute disponibilité. Avoir trois connecteurs est optimal au cas où vous devrez peut-être un ordinateur à n’importe quel point de service. 
+Il est important de planifier une capacité suffisante entre les connecteurs pour gérer le volume de trafic attendu. Nous recommandons la présence d'au moins deux connecteurs par groupe de connecteurs à des fins de haute disponibilité et de mise à l’échelle. La présence de trois connecteurs est idéale s'il vous faut mettre en service une machine à tout moment. 
 
-En général, plus il y a d’utilisateurs, plus l’ordinateur doit avoir des capacités importantes. Voici un tableau donnant un plan du volume et latence attendue différentes machines peuvent gérer. Veuillez noter qu’il s’appuie entièrement sur le nombre attendu de transactions par seconde (TPS) plutôt que par utilisateur, étant donné que les modèles d’utilisation varient et ne peuvent servir à prévoir une charge. Il y aura par ailleurs des différences en fonction de la taille des réponses et du temps de réponse de l’application principale : plus la réponse est volumineuse et le temps de réponse lent, plus le TPS maximal est faible. Nous recommandons également d’avoir des ordinateurs supplémentaires afin que la charge distribuée entre les machines fournit toujours suffisamment mémoire tampon. Cette capacité additionnelle garantit résilience et haute disponibilité.
+En général, plus il y a d’utilisateurs, plus l’ordinateur doit avoir des capacités importantes. Le tableau ci-dessous présente le volume et la latence attendue que les différentes machines peuvent gérer. Veuillez noter qu’il s’appuie entièrement sur le nombre attendu de transactions par seconde (TPS) plutôt que par utilisateur, étant donné que les modèles d’utilisation varient et ne peuvent servir à prévoir une charge. Il y aura par ailleurs des différences en fonction de la taille des réponses et du temps de réponse de l’application principale : plus la réponse est volumineuse et le temps de réponse lent, plus le TPS maximal est faible. Nous vous recommandons également de prévoir des machines supplémentaires pour permettre à la charge distribuée des machines d'offrir suffisamment de mémoire tampon. Cette capacité additionnelle garantit résilience et haute disponibilité.
 
 |Cœurs|RAM|Latence attendue (MS)-P99|TPS max.|
 | ----- | ----- | ----- | ----- |
@@ -98,14 +98,14 @@ En général, plus il y a d’utilisateurs, plus l’ordinateur doit avoir des c
 |8|32|270|1190|
 |16|64|245|1200*|
 
-\* Cet ordinateur utilisé un paramètre personnalisé pour déclencher certaines limites de connexion par défaut au-delà de .NET, les paramètres recommandés. Nous vous recommandons d’exécuter un test avec les paramètres par défaut avant de contacter le support technique pour que cette limite soit modifiée pour votre abonné.
+\* Cette machine a utilisé un paramètre personnalisé pour déclencher certaines limites de connexion par défaut au-delà des paramètres .NET recommandés. Nous vous recommandons d’exécuter un test avec les paramètres par défaut avant de contacter le support technique pour que cette limite soit modifiée pour votre abonné.
  
 >[!NOTE]
 >L’utilisation d’une machine utilisant 4, 8 ou 16 cœurs n’entraîne pas de grandes différences au niveau des TPS maximales. La principale différence entre ces machines se situe au niveau de la latence attendue.  
 
 ## <a name="security-and-networking"></a>Sécurité et mise en réseau
 
-Les connecteurs peuvent être installés n’importe où sur le réseau pourvu qu’ils puissent envoyer des requêtes vers le service de proxy d’application. L’important est que l’ordinateur qui exécute le connecteur dispose également d’un accès à vos applications. Vous pouvez installer les connecteurs à l’intérieur de votre réseau d’entreprise ou sur une machine virtuelle qui s’exécute dans le cloud. Les connecteurs peuvent s’exécuter au sein d’un réseau de périmètre, également appelé zone démilitarisée (DMZ), mais il n’est pas nécessaire, car tout le trafic est sortant afin de votre réseau reste sécurisé.
+Les connecteurs peuvent être installés n’importe où sur le réseau pourvu qu’ils puissent envoyer des requêtes vers le service de proxy d’application. L’important est que l’ordinateur qui exécute le connecteur dispose également d’un accès à vos applications. Vous pouvez installer les connecteurs à l’intérieur de votre réseau d’entreprise ou sur une machine virtuelle qui s’exécute dans le cloud. Les connecteurs peuvent s’exécuter dans réseau de périmètre, également appelé zone démilitarisée (DMZ), mais ce n’est pas nécessaire car tout le trafic est sortant afin sécuriser votre réseau.
 
 Les connecteurs envoient uniquement des demandes sortantes. Le trafic sortant est envoyé au service de proxy d’application et aux applications publiées. Il n’est pas nécessaire pour ouvrir des ports d’entrée car le trafic passe dans les deux sens une fois qu’une session est établie. Il n’est pas non plus nécessaire de configurer l’accès entrant à travers les pare-feu. 
 

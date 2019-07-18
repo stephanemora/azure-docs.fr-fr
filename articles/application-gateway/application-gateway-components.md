@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: f5dfa34760bcef23bf54d65b35e3ad8f48cc2ee5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 49b6b49d908a7426e7cfd1bae5260ff399d9953b
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60831830"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273218"
 ---
 # <a name="application-gateway-components"></a>Composants de passerelle d’application
 
@@ -26,7 +26,9 @@ Une adresse IP front-end est l’adresse IP associée à une passerelle d’ap
 
 ### <a name="static-versus-dynamic-public-ip-address"></a>Adresse IP publique statique ou dynamique
 
-La référence SKU Azure Application Gateway v2 prend en charge les adresses IP internes statiques et les adresses IP publiques statiques, tandis que la référence SKU v1 prend en charge uniquement les adresses IP internes statiques. L’adresse IP virtuelle peut changer en cas de démarrage et d’arrêt d’une passerelle d’application.
+La référence (SKU) Azure Application Gateway V2 peut être configurée pour prendre en charge à la fois les adresses IP internes statiques et publiques statiques, ou uniquement les adresses IP publiques statiques. Elle ne peut pas être configurée pour prendre en charge uniquement les adresses IP internes statiques.
+
+La référence (SKU) V1 peut être configurée pour prendre en charge les adresses IP internes statiques et publiques dynamiques, uniquement les adresses IP internes statiques ou uniquement les adresses IP publiques dynamiques. L’adresse IP dynamique d’Application Gateway ne change pas sur une passerelle en cours d’exécution. Elle peut être modifiée uniquement lorsque vous arrêtez ou démarrez la passerelle. Elle ne change pas lors des défaillances du système, des mises à jour, des changements d’hôte Azure, etc. 
 
 Le nom DNS associé à une passerelle d’application ne change pas au cours du cycle de vie de la passerelle. Vous devez donc utiliser un alias CNAME et le faire pointer vers l’adresse DNS de la passerelle d’application.
 

@@ -1,58 +1,58 @@
 ---
-title: Déploiements de langage non pris en charge - personnalisé Translator
+title: Déploiements de langues non prises en charge – Custom Translator
 titleSuffix: Azure Cognitive Services
-description: Comment déployer des paires de langages non pris en charge dans les convertisseur personnalisé.
+description: Comment déployer des paires de langages non prises en charge dans Custom Translator.
 services: cognitive-services
-author: rajdeep-in
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 04/24/2019
-ms.author: v-pawal
-ms.openlocfilehash: 0938ba2e839be603c557cc2a87dd0c5aa1dfe1e3
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.author: swmachan
+ms.openlocfilehash: 284a7e98c088edb73a2c770a4c14bb0a479a6621
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390583"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67436070"
 ---
 # <a name="unsupported-language-deployments"></a>Déploiements de langages non pris en charge
 
 <!--Custom Translator provides the highest-quality translations possible using the latest techniques in neural machine learning. While Microsoft intends to make neural training available in all languages, there are some limitations that prevent us from being able to offer neural machine translation in all language pairs.-->  
 
-Avec la mise hors service à venir de Microsoft Translator Hub, Microsoft sera être annulation du déploiement de tous les modèles actuellement déployées via le concentrateur. La plupart d'entre vous ont modèles déployés dans le Hub dont paires de langues ne sont pas pris en charge dans personnalisé Translator.  Nous ne souhaitez pas que les utilisateurs dans ce cas de n’avoir aucun recours pour la traduction de leur contenu.
+Avec le retrait prochain du Microsoft Translator Hub, Microsoft annulera le déploiement de tous les modèles déployés via le hub. La plupart d’entre vous ont des modèles déployés dans le hub dont paires de langues ne sont pas prises en charge dans Custom Translator.  Nous ne souhaitez pas que les utilisateurs se trouvant dans cette situation n’aient aucune solution pour la traduction de leur contenu.
 
-Nous disposons désormais d’un processus qui vous permet de déployer vos modèles non pris en charge via le traducteur personnalisé.  Ce processus vous permet de continuer à traduire le contenu à l’aide de la dernière API V3.  Ces modèles seront hébergées jusqu'à ce que vous choisissez d’annuler leur déploiement ou la paire de langues est disponible dans le traducteur de personnalisé.  Cet article explique le processus pour déployer des modèles avec des paires de langages non pris en charge.
+Nous avons élaboré un processus qui vous permet de déployer vos modèles non pris en charge via Custom Translator.  Ce processus vous permet de continuer à traduire du contenu à l’aide de la dernière API V3.  Ces modèles seront hébergés jusqu’à ce que vous décidiez d’annuler leur déploiement ou que la paire de langues devienne disponible dans Custom Translator.  Cet article explique le processus de déploiement des modèles avec des paires de langues non prises en charge.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-Dans l’ordre pour vos modèles candidats pour le déploiement, ils doivent respecter les critères suivants :
-* Le projet contenant le modèle doit ont été migré à partir du concentrateur pour le convertisseur personnalisé à l’aide de l’outil de Migration.  Vous pouvez trouver le processus de migration des projets et des espaces de travail [ici](how-to-migrate.md).
-* Le modèle doit être dans un état déployé lors de la migration effectuée.  
-* La paire de langage du modèle doit être une paire de langage non pris en charge dans personnalisé Translator.  Paires de langues dans laquelle une langue est prise en charge vers ou à partir de l’anglais, mais la paire lui-même n’inclut pas l’anglais, sont des candidats pour les déploiements de langage non pris en charge.  Par exemple, un modèle de Hub pour un Français à une paire de langue allemande est considéré comme une paire de langage pris en charge cependant Français pour l’anglais et l’anglais vers allemand sont même langage non pris en charge paire.
+Pour que vos modèles puissent être candidats au déploiement, ils doivent respecter les critères suivants :
+* Le projet contenant le modèle doit avoir été migré du hub vers Custom Translator à l’aide de l’outil de migration.  Le processus de migration de projets et d’espaces de travail est décrit [ici](how-to-migrate.md).
+* Lors de la migration, le modèle doit être dans l’état déployé.  
+* La paire de langues du modèle ne doit pas être prise en charge dans Custom Translator.  Les paires de langues dont l’une des langues est prise en charge depuis ou vers l’anglais, mais qui n’incluent pas l’anglais, sont candidates pour des déploiements de langues non prises en charge.  Par exemple, un modèle de hub pour la paire de langues français-allemand est considéré comme une paire de langues non prise en charge, même si les paires de langues français-anglais et anglais-allemand sont prise en charge.
 
 ## <a name="process"></a>Process
-Une fois que vous avez migré des modèles à partir du Hub sont des candidats pour le déploiement, vous les trouverez en accédant à la **paramètres** page de votre espace de travail et faire défiler vers la fin de la page où vous verrez une **non pris en charge Formations de Hub Translator** section.  Cette section s’affiche uniquement si vous avez des projets qui remplissent les conditions préalables mentionnées ci-dessus.
+Après avoir migré à partir du hub les modèles candidats au déploiement, vous pouvez les trouver en accédant à la page **Paramètres** de votre espace de travail, puis en faisant défiler l’écran jusqu’à la fin de la page où se trouve une section intitulée **Unsupported Translator Hub Trainings**.  Cette section apparaît uniquement si vous avez des projets remplissant les conditions préalables mentionnées ci-dessus.
 
 ![Migrer à partir du hub](media/unsupported-language-deployments/unsupported-translator-hub-trainings.jpg)
 
-Dans le **formations de Hub non pris en charge Translator** page de sélection, le **non sollicité formations** onglet contient les modèles qui sont éligibles pour le déploiement.  Sélectionnez les modèles que vous souhaitez déployer et d’envoyer une demande.   Avant l’échéance du déploiement du 30 avril, vous pouvez sélectionner autant de modèles comme vous le souhaitez pour le déploiement.
+Dans la page de sélection **Unsupported Translator Hub Trainings**, l’onglet **Unrequested trainings** contient des modèles éligibles pour un déploiement.  Sélectionnez les modèles que vous souhaitez déployer et envoyez une demande.   Avant l’échéance de déploiement du 30 avril, vous pouvez sélectionner autant de modèles que vous le souhaitez pour le déploiement.
  
 ![Migrer à partir du hub](media/unsupported-language-deployments/unsupported-translator-hub-trainings-list.jpg)
 
-Une fois envoyée, le modèle ne sera plus disponible sur le **non sollicité formations** onglet et à la place apparaîtra sur la **demandé formations** onglet.  Vous pouvez afficher vos formations demandées à tout moment.
+Une fois envoyé, le modèle n’est plus disponible sous l’onglet **Unrequested trainings**, mais apparaît sous l’onglet **Requested trainings**.  Vous pouvez afficher vos formations demandées à tout moment.
 
 ![Migrer à partir du hub](media/unsupported-language-deployments/request-unsupported-trainings.jpg) 
 
 ## <a name="whats-next"></a>Et ensuite ?
 
-Les modèles que vous avez sélectionné pour le déploiement sont enregistrés une fois que le Hub est hors service et tous les modèles sont annulés.  Vous avez jusqu’au 24 mai pour soumettre des demandes pour le déploiement de modèles non pris en charge.  Nous allons déployer ces modèles, du 15 juin, à quel point ils sont accessibles via l’API de V3 Translator.  En outre, ils seront disponibles via l’API V2 jusqu’au 1er juillet.  
+Les modèles que vous avez sélectionnés pour déploiement sont enregistrés une fois le hub désaffecté, et le déploiement de tous les modèles est annulé.  Vous avez jusqu’au 24 mai pour soumettre des demandes de déploiement de modèles non pris en charge.  Nous allons déployer ces modèles le 15 juin, date à laquelle ils seront accessibles via l’API Translator V3.  Ils seront également disponibles via l’API V2 jusqu’au 1er juillet.  
 
-Pour plus d’informations sur les dates importantes dans la dépréciation de la vérification de Hub [ici](https://www.microsoft.com/translator/business/hub/).
-Des frais d’hébergement une fois déployés, normales s’appliquent.  Consultez [tarification](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/) pour plus d’informations.  
+Pour plus d’informations sur les dates importantes en lien avec l’abandon du hub, voir [ici](https://www.microsoft.com/translator/business/hub/).
+Après déploiement, les frais d’hébergement normaux s’appliquent.  Pour en savoir plus, voir les [tarifs](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/).  
 
-Contrairement aux modèles de traducteur de personnalisé standards, les modèles de Hub sera uniquement disponibles dans une seule région, afin de frais d’hébergement dans plusieurs régions ne s’applique pas.  Une fois déployé, vous ne pourrez pas annuler le déploiement de votre modèle de Hub à tout moment via le projet personnalisé Translator migré.
+Contrairement aux modèles Custom Translator standard, les modèles du hub ne sont disponibles que dans une seule région, afin d’éviter les frais d’hébergement multirégion.  Après déploiement, vous pourrez annuler le déploiement de votre modèle de hub à tout moment via le projet Custom Translator migré.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -8,13 +8,13 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
-ms.date: 05/13/2019
-ms.openlocfilehash: aa5d3a0555875571276fdf4046ad0e4dd1e69bbd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/19/2019
+ms.openlocfilehash: 490131d1743b366b5ac51a5a0fdac4b89ffe08f2
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65596946"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274174"
 ---
 # <a name="reference-for-trigger-and-action-types-in-workflow-definition-language-for-azure-logic-apps"></a>Référence des types d’actions et de déclencheurs pour le langage de définition du flux de travail dans Azure Logic Apps
 
@@ -63,7 +63,7 @@ Les déclencheurs ont les éléments principaux suivants, bien que certains soie
 
 | Valeur | Type | Description | 
 |-------|------|-------------| 
-| <*array-with-conditions*> | Tableau | Tableau qui contient une ou plusieurs [conditions](#trigger-conditions) qui déterminent s’il faut exécuter le workflow. Uniquement disponible pour les déclencheurs. | 
+| <*array-with-conditions*> | Array | Tableau qui contient une ou plusieurs [conditions](#trigger-conditions) qui déterminent s’il faut exécuter le workflow. Uniquement disponible pour les déclencheurs. | 
 | <*runtime-config-options*> | Objet JSON | Vous pouvez modifier le comportement d’exécution du déclencheur en définissant des propriétés `runtimeConfiguration`. Pour plus d’informations, consultez [Paramètres de configuration d’exécution](#runtime-config-options). | 
 | <*splitOn-expression*> | String | Pour les déclencheurs qui retournent un tableau, vous pouvez spécifier une expression qui [fractionne ou *dégroupe*](#split-on-debatch) des éléments de tableau dans plusieurs instances de workflows à des fins de traitement. | 
 | <*operation-option*> | String | Vous pouvez modifier le comportement par défaut en définissant la propriété `operationOptions`. Pour plus d’informations, consultez [Options d’opérations](#operation-options). | 
@@ -615,7 +615,7 @@ Pour appeler ce déclencheur, vous devez utiliser l’API `listCallbackUrl`, qui
 |-------|------|-------------| 
 | <*method-type*> | String | Méthode que les requêtes entrantes doivent utiliser pour appeler votre application logique : « GET », « PUT », « POST », « PATCH », « DELETE » |
 | <*relative-path-for-accepted-parameter*> | String | Chemin relatif pour le paramètre que l’URL de votre point de terminaison peut accepter | 
-| <*required-properties*> | Tableau | Une ou plusieurs propriétés qui nécessitent des valeurs. | 
+| <*required-properties*> | Array | Une ou plusieurs propriétés qui nécessitent des valeurs. | 
 | <*max-runs*> | Entier | Par défaut, les instances de workflows s’exécutent toutes en même temps, ou en parallèle jusqu’à la [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Pour changer cette limite en définissant une nouvelle valeur <*count*>, consultez [Changer la concurrence du déclencheur](#change-trigger-concurrency). | 
 | <*max-runs-queue*> | Entier | Lorsque votre application logique exécute déjà le nombre maximal d’instances, que vous pouvez modifier en fonction de la propriété `runtimeConfiguration.concurrency.runs`, les nouvelles exécutions sont placées dans cette file d’attente jusqu’à la [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Pour changer la limite par défaut, consultez [Changer la limite d’exécutions en attente](#change-waiting-runs). | 
 | <*operation-option*> | String | Vous pouvez modifier le comportement par défaut en définissant la propriété `operationOptions`. Pour plus d’informations, consultez [Options d’opérations](#operation-options). | 
@@ -1274,7 +1274,7 @@ Cette action crée une chaîne à partir de tous les éléments d’un tableau, 
 
 | Valeur | Type | Description | 
 |-------|------|-------------| 
-| <*array*> | Tableau | Tableau ou expression qui fournit les éléments sources. Si vous spécifiez une expression, placez l’expression entre guillemets doubles. | 
+| <*array*> | Array | Tableau ou expression qui fournit les éléments sources. Si vous spécifiez une expression, placez l’expression entre guillemets doubles. | 
 | <*delimiter*> | Chaîne d’un seul caractère | Caractère qui sépare chaque élément dans la chaîne | 
 |||| 
 
@@ -1420,7 +1420,7 @@ Cette action crée un tableau à partir des éléments d’un autre tableau en f
 
 | Valeur | Type | Description | 
 |-------|------|-------------| 
-| <*array*> | Tableau | Tableau ou expression qui fournit les éléments sources. Si vous spécifiez une expression, placez l’expression entre guillemets doubles. |
+| <*array*> | Array | Tableau ou expression qui fournit les éléments sources. Si vous spécifiez une expression, placez l’expression entre guillemets doubles. |
 | <*condition-or-filter*> | String | Condition utilisée pour le filtrage des éléments dans le tableau source <p>**Remarque**: Si aucune valeur ne remplit la condition, l’action crée un tableau vide. |
 |||| 
 
@@ -1536,9 +1536,9 @@ Cette action crée un tableau avec des objets JSON en transformant les élément
 
 | Valeur | Type | Description | 
 |-------|------|-------------| 
-| <*array*> | Tableau | Tableau ou expression qui fournit les éléments sources. N’oubliez pas de placer une expression entre guillemets doubles. <p>**Remarque**: Si le tableau source est vide, l’action crée un tableau vide. | 
+| <*array*> | Array | Tableau ou expression qui fournit les éléments sources. N’oubliez pas de placer une expression entre guillemets doubles. <p>**Remarque**: Si le tableau source est vide, l’action crée un tableau vide. | 
 | <*key-name*> | String | Nom de la propriété attribué au résultat à partir de <*expression*> <p>Pour ajouter une nouvelle propriété à tous les objets dans le tableau de sortie, fournissez un <*key-name*> pour cette propriété et une <*expression*> pour la valeur de propriété. <p>Pour supprimer une propriété de tous les objets dans le tableau, omettez le <*key-name*> pour cette propriété. | 
-| <*expression*> | String | Expression qui transforme l’élément du tableau source et assigne le résultat à <*key-name*> | 
+| <*expression*> | Chaîne | Expression qui transforme l’élément du tableau source et assigne le résultat à <*key-name*> | 
 |||| 
 
 L’action **Select** crée un tableau en tant que sortie. Par conséquent, toute action qui souhaite utiliser cette sortie doit accepter un tableau, ou vous devez convertir le tableau vers le type acceptée par l’action consommatrice. Par exemple, pour convertir le tableau de sortie en une chaîne, vous pouvez passer ce tableau à l’action **Compose**, puis référencer la sortie de l’action **Compose** dans vos autres actions.
@@ -1635,7 +1635,7 @@ Cette action crée une table CSV ou HTML à partir d’un tableau. Pour les tabl
 | Valeur | Type | Description | 
 |-------|------|-------------| 
 | <CSV *ou* HTML>| String | Format de la table que vous souhaitez créer | 
-| <*array*> | Tableau | Tableau ou expression qui fournit les éléments sources pour la table <p>**Remarque**: Si le tableau source est vide, l’action crée une table vide. | 
+| <*array*> | Array | Tableau ou expression qui fournit les éléments sources pour la table <p>**Remarque**: Si le tableau source est vide, l’action crée une table vide. | 
 |||| 
 
 *Facultatif*
@@ -1692,7 +1692,7 @@ Cette définition d’action crée une table HTML à partir de la variable « m
 
 Voici la table HTML créée par cette action : 
 
-<table><thead><tr><th>ID</th><th>Product_Name</th></tr></thead><tbody><tr><td>0</td><td>Pommes</td></tr><tr><td>1</td><td>Oranges</td></tr></tbody></table>
+<table><thead><tr><th>id</th><th>Product_Name</th></tr></thead><tbody><tr><td>0</td><td>Pommes</td></tr><tr><td>1</td><td>Oranges</td></tr></tbody></table>
 
 *Exemple 3*
 
@@ -2624,7 +2624,7 @@ Toutefois, les requêtes ayant un délai d’expiration, pour les actions de lon
 
 ### <a name="run-in-high-throughput-mode"></a>Exécuter en mode de débit élevé
 
-Pour une exécution d’application logique unique, le nombre d’actions qui s’exécutent toutes les cinq minutes a une [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Pour augmenter cette limite à la valeur [maximale](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) possible, affectez la valeur `OptimizedForHighThroughput` à la propriété `operationOptions`. Ce paramètre met votre application logique en mode de « débit élevé ». 
+Pour une définition d’application logique unique, le nombre d’actions qui s’exécutent toutes les cinq minutes présente une [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Pour augmenter cette limite à la valeur [maximale](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) possible, affectez la valeur `OptimizedForHighThroughput` à la propriété `operationOptions`. Ce paramètre met votre application logique en mode de « débit élevé ». 
 
 > [!NOTE]
 > Le mode de débit élevé est en préversion. Vous pouvez également distribuer une charge de travail sur plusieurs applications logiques si nécessaire.

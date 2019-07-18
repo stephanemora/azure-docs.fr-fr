@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/09/2019
 ms.author: sharadag
 ms.custom: include file
-ms.openlocfilehash: e1f5a1c8229544d97d9ff64748390f0d5237ab97
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: deca0034996f6c8ddcac71cd4f191c1a0659b655
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67177436"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67333374"
 ---
 | Ressource | Limite maximale/par défaut |
 | --- | --- |
@@ -25,6 +25,15 @@ ms.locfileid: "67177436"
 | Modèles de chemin à utiliser pour une règle de routage | 25 |
 | Règles personnalisées de pare-feu d’applications web par stratégie | 10 |
 | Stratégie de pare-feu d’applications web par ressource | 100 |
+| Conditions de correspondance du pare-feu d'applications web par règle personnalisée | 10 |
+| Plages d’adresses IP du pare-feu d'applications web par condition de correspondance | 600 |
+| Valeurs de correspondance de chaîne du pare-feu d'applications web par condition de correspondance | 10 |
+| Longueur de valeur de correspondance de chaîne du pare-feu d'applications web | 256 |
+| Longueur de nom de paramètre du corps POST du pare-feu d’applications web | 256 |
+| Longueur du nom d’en-tête HTTP du pare-feu d’applications web | 256 |
+| Longueur du nom de cookie du pare-feu d’applications web | 256 |
+| Taille du corps de la requête HTTP inspectée du pare-feu d'applications web | 128 Ko |
+| Longueur du corps de la réponse personnalisée du pare-feu d’applications web | 2 Ko |
 
 ### <a name="timeout-values"></a>Valeurs de délai d’expiration
 #### <a name="client-to-front-door"></a>Du client à Front Door
@@ -42,3 +51,6 @@ ms.locfileid: "67177436"
 | ---- | ------- | ------- |
 | **Télécharger** | La taille du téléchargement n’est pas limitée. | La taille du téléchargement n’est pas limitée. |
 | **Charger** |  Aucune limite tant que la taille de chaque chargement avec encodage de transfert mémorisé en bloc est inférieure à 2 Go. | Elle ne peut pas être supérieure à 2 Go. |
+
+### <a name="other-limits"></a>Autres limites
+- Taille d’URL maximale : 8 192 octets - Spécifie la longueur maximale de l’URL brute (schéma + nom d’hôte + port + chemin + chaîne de requête de l’URL) - Taille maximale de chaîne de requête : 4 096 octets - Spécifie la longueur maximale de la chaîne de requête en octets.

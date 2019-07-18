@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/24/2019
 ms.author: banders
-ms.openlocfilehash: 9ff9b6b5313026d2102b98659183fa97c6a5ef84
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2eb9f8e19be2a7b6220bc34bf4ce0c72c4ac0b4f
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64683982"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275054"
 ---
 # <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>Comprendre les termes du fichier sur l’utilisation et les frais Azure
 
@@ -28,7 +28,7 @@ Type de compte | Utilisation d’Azure | Utilisation de la Place de marché | Ac
 --- | --- | --- | --- | ---
 Contrat Entreprise (EA) | OUI | OUI | OUI | Non
 Contrat client Microsoft (MCA) | OUI | OUI | OUI | OUI
-Paiement à l’utilisation (PAYG) | OUI | Non | Non | Non
+Paiement à l’utilisation | OUI | Non | Non | Non
 
 Pour en savoir plus sur les commandes passées sur la Place de marché (également appelées services externes), voir [Comprendre vos frais de service externe Azure](billing-understand-your-azure-marketplace-charges.md).
 
@@ -72,7 +72,8 @@ InvoiceSection | MCA | Voir InvoiceSectionName.
 InvoiceSectionId | EA, MCA | Identificateur unique du service EA ou de la section de facture MCA.
 InvoiceSectionName | EA, MCA | Nom du service EA ou de la section de facture MCA.
 IsAzureCreditEligible | EA, MCA | Indique si les frais sont éligibles pour un paiement à l’aide de crédits Azure (valeurs : True, False).
-Lieu | EA, MCA | Emplacement du centre de données où la ressource est exécutée.
+IsEstimated | Tous | Indique si la période de facturation est clôturée/finalisée. Les données d’utilisation peuvent changer tout au long de la période de facturation jusqu’à la génération de la facture. Ces enregistrements sont marqués comme « estimé ».
+Location | EA, MCA | Emplacement du centre de données où la ressource est exécutée.
 MeterCategory | Tous | Nom de la catégorie de classification du compteur. Par exemple, *Services cloud* ou *Mise en réseau*.
 ID du compteur | Tous | Identificateur unique du compteur.
 MeterName | Tous | Nom du compteur.

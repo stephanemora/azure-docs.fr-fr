@@ -13,19 +13,19 @@ ms.topic: conceptual
 ms.workload: tbd
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: eb7cbb80be12498242363eb8141a468e08cba73a
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.openlocfilehash: 64995ad0560efd06bfa0084c948527e8a01e1890
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66478331"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443332"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights pour les services cloud Azure
 [Application Insights][start] peut superviser les [applications de service cloud Azure](https://azure.microsoft.com/services/cloud-services/) pour vérifier la disponibilité, les performances, les échecs et l’utilisation en combinant les données des SDK Application Insights avec les données d’[Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) de vos services cloud. Avec les retours que vous obtenez sur les performances et l’efficacité de votre application dans la nature, vous pouvez prendre des décisions avisées sur la direction de la conception de chaque cycle de développement.
 
 ![Vue d’ensemble du tableau de bord](./media/cloudservices/overview-graphs.png)
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Avant de commencer, vous avez besoin des éléments suivants :
 
 * Un abonnement [Azure](https://azure.com). Une connexion avec un compte Microsoft pour Windows, Xbox Live ou d’autres services cloud de Microsoft. 
@@ -41,7 +41,7 @@ Cette option instrumente votre application au moment de l’exécution, ce qui v
 
 Si cette option vous suffit, vous avez terminé. 
 
-La prochaine étape [affichage des métriques à partir de votre application](../../azure-monitor/app/metrics-explorer.md), [interroger vos données avec Analytique](../../azure-monitor/app/analytics.md). 
+Les étapes suivantes sont la [consultation des métriques de votre application](../../azure-monitor/app/metrics-explorer.md), l’[interrogation de vos données avec Analytics](../../azure-monitor/app/analytics.md). 
 
 Pour superviser les performances dans le navigateur, vous pouvez configurer des [tests de disponibilité](../../azure-monitor/app/monitor-web-app-availability.md) et [ajouter du code à vos pages web](../../azure-monitor/app/javascript.md).
 
@@ -136,7 +136,38 @@ Dans Visual Studio, configurez le Kit de développement logiciel (SDK) Applicat
 1. Définissez le fichier *ApplicationInsights.config* pour qu’il soit toujours copié dans le répertoire de sortie.  
     Un message dans le fichier *.config* vous demande de placer ici la clé d’instrumentation. Toutefois, pour les applications cloud, définissez-la à partir du fichier *.cscfg*. De cette façon, le rôle est identifié correctement dans le portail.
 
-#### <a name="run-and-publish-the-app"></a>Exécution et publication de l’application
+## <a name="set-up-status-monitor-to-collect-full-sql-queries-optional"></a>Configurer Status Monitor pour collecter des requêtes SQL complètes (facultatif)
+
+Cette étape est uniquement nécessaire si vous voulez capturer des requêtes SQL complètes sur .NET Framework. 
+
+1. Dans le fichier `\*.csdef`, ajoutez une [tâche de démarrage](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks) pour chaque rôle similaire à 
+
+    ```xml
+    <Startup>
+      <Task commandLine="AppInsightsAgent\InstallAgent.bat" executionContext="elevated" taskType="simple">
+        <Environment>
+          <Variable name="ApplicationInsightsAgent.DownloadLink" value="http://go.microsoft.com/fwlink/?LinkID=522371" />
+          <Variable name="RoleEnvironment.IsEmulated">
+            <RoleInstanceValue xpath="/RoleEnvironment/Deployment/@emulated" />
+          </Variable>
+        </Environment>
+      </Task>
+    </Startup>
+    ```
+    
+2. Téléchargez [InstallAgent.bat](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.bat) et [InstallAgent.ps1](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.ps1), et placez-les dans le dossier `AppInsightsAgent` de chaque projet de rôle. Veillez à les copier dans le répertoire de sortie par le biais des propriétés de fichier Visual Studio ou de scripts de build.
+
+3. Sur tous les workers, ajoutez les variables d’environnement : 
+
+    ```xml
+      <Environment>
+        <Variable name="COR_ENABLE_PROFILING" value="1" />
+        <Variable name="COR_PROFILER" value="{324F817A-7420-4E6D-B3C1-143FBED6D855}" />
+        <Variable name="MicrosoftInstrumentationEngine_Host" value="{CA487940-57D2-10BF-11B2-A3AD5A13CBC0}" />
+      </Environment>
+    ```
+    
+## <a name="run-and-publish-the-app"></a>Exécution et publication de l’application
 
 1. Exécutez votre application et connectez-vous à Azure. 
 
@@ -149,7 +180,7 @@ S’il n’y a pas de données, effectuez ce qui suit :
 1. Pour voir les événements individuels, ouvrez la vignette [Rechercher][diagnostic].
 1. Dans l’application, ouvrez différentes pages pour générer des données de télémétrie.
 1. Attendez quelques secondes, puis cliquez sur **Actualiser**.  
-    Pour plus d’informations, consultez [Résolution des problèmes][qna].
+    Pour plus d’informations, consultez la page [Dépannage][qna].
 
 ## <a name="view-azure-diagnostics-events"></a>Voir les événements Diagnostics Azure
 Les informations d’[Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) sont disponibles dans Application Insights aux emplacements suivants :

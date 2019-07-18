@@ -1,6 +1,6 @@
 ---
-title: Qu’est la gestion des droits Azure AD ? (Version préliminaire) - Azure Active Directory
-description: Obtenir une vue d’ensemble de la gestion des habilitations Azure Active Directory et comment vous pouvez l’utiliser pour gérer l’accès aux groupes, les applications et sites SharePoint Online pour les utilisateurs internes et externes.
+title: Présentation de la gestion des droits d’utilisation Azure AD (Préversion) - Azure Active Directory
+description: Obtenez une vue d’ensemble de la gestion des droits d'utilisation Azure Active Directory et découvrez comment l’utiliser pour gérer l’accès aux groupes, applications et sites SharePoint Online pour les utilisateurs internes et externes.
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -12,164 +12,129 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 05/30/2019
+ms.date: 06/05/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efd3ff8a6e7ddf2aa6242cc322d8a6536a6bd26b
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.openlocfilehash: fbb4001e9496d31d9c2879721f8cf8e26b74ddf3
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66474064"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204553"
 ---
-# <a name="what-is-azure-ad-entitlement-management-preview"></a>Qu’est la gestion des droits Azure AD ? (Préversion)
+# <a name="what-is-azure-ad-entitlement-management-preview"></a>Présentation de la gestion des droits d’utilisation Azure AD (Préversion)
 
 > [!IMPORTANT]
 > La gestion des droits d’utilisation Azure Active Directory (Azure AD) est actuellement en préversion publique.
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
 > Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Les employés dans les organisations ont besoin d’accéder à différents groupes, les applications et sites pour effectuer leur travail. Il est difficile de gérer cet accès. Dans la plupart des cas, il n’existe aucune liste organisée de toutes les ressources qu’un utilisateur a besoin pour un projet. Le responsable de projet a une bonne compréhension des ressources nécessaires, les personnes impliquées et la durée pendant laquelle que le projet est valable. Toutefois, le responsable de projet en général n’a pas autorisé à approuver ou accorder l’accès à d’autres personnes. Ce scénario se complique lorsque vous tentez de travailler avec des personnes externes ou des entreprises.
+Pour travailler, les employés d'une organisation doivent pouvoir accéder à différents groupes, applications et sites. Gérer cet accès n'est pas facile. La plupart du temps, aucune liste organisée ne répertorie toutes les ressources dont un utilisateur a besoin pour un projet. Le chef de projet a une bonne compréhension des ressources requises, des personnes impliquées et de la durée du projet. Pour autant, le chef de projet ne dispose généralement pas des autorisations nécessaires pour approuver ou accorder un accès à d'autres personnes. Ce scénario se complique lorsqu'il vous faut collaborer avec des personnes ou entreprises externes.
 
-Gestion des habilitations Azure Active Directory (Azure AD) peut vous aider à gérer l’accès aux groupes, des applications et des sites SharePoint Online pour les utilisateurs internes, ainsi que les utilisateurs en dehors de votre organisation.
+La gestion des droits d'utilisation Azure Active Directory (Azure AD) vous aide à gérer l'accès aux groupes, applications et sites SharePoint Online pour les utilisateurs internes et externes à votre organisation.
 
-## <a name="why-use-entitlement-management"></a>Pourquoi utiliser la gestion des habilitations ?
+## <a name="why-use-entitlement-management"></a>Pourquoi utiliser la gestion des droits d’utilisation ?
 
-Les entreprises doivent souvent faire face les défis lors de la gestion des accès aux ressources telles que :
+Les entreprises font souvent face à des défis lorsqu'il leur faut gérer l'accès aux ressources, notamment :
 
-- Les utilisateurs peuvent ne pas savent quel accès doit leur être
-- Les utilisateurs peuvent avoir des difficultés à localiser les personnes appropriées ou les ressources droite
-- Une fois que les utilisateurs de trouver et obtenez l’accès à une ressource, ils peuvent conserver pour accéder plus que nécessaire à des fins professionnelles
+- Les utilisateurs peuvent ne pas connaître l'accès dont ils ont besoin
+- Les utilisateurs peuvent avoir du mal à localiser les bonnes personnes ou les bonnes ressources
+- Après avoir localisé une ressource et obtenu l'accès correspondant, les utilisateurs peuvent y avoir accès plus longtemps que nécessaire à des fins professionnelles
 
-Ces problèmes sont compliquent pour les utilisateurs qui ont besoin d’accéder à partir d’un autre annuaire, telles que les utilisateurs externes qui proviennent d’organisations de chaîne d’approvisionnement ou d’autres partenaires commerciaux. Exemple :
+Ces problèmes sont complexes pour les utilisateurs qui ont besoin d'un accès à partir d'un autre répertoire, tels que les utilisateurs externes issus d'organisations de la chaîne logistique ou d'autres partenaires commerciaux. Par exemple :
 
-- Les organisations peuvent ne pas savoir toutes les personnes dans d’autres répertoires pour être en mesure de les inviter
-- Même si les organisations ont été en mesure d’inviter ces utilisateurs, les organisations peuvent vous souvenez pas gérer l’ensemble de l’accès utilisateur cohérente
+- Les organisations peuvent ne pas connaître toutes les personnes spécifiques d'autres répertoires pour les inviter
+- Et même si les organisations étaient en mesure d'inviter ces utilisateurs, il n'est pas certain qu'elles penseraient à gérer tous les accès des utilisateurs de manière cohérente
 
-Gestion des droits Azure AD peut aider à relever ces défis.
+La gestion des droits d'utilisation Azure AD permet de relever ces défis.
 
-## <a name="what-can-i-do-with-entitlement-management"></a>Que puis-je faire avec la gestion des habilitations ?
+## <a name="what-can-i-do-with-entitlement-management"></a>À quoi sert la gestion des droits d'utilisation ?
 
-Voici certaines des fonctionnalités de gestion des habilitations :
+La gestion des droits d'utilisation offre différentes possibilités, notamment :
 
-- Créer des packages de ressources liées que les utilisateurs peuvent demander
-- Définir des règles de façon à demander des ressources et lorsque l’accès arrive à expiration
-- Régissent le cycle de vie de l’accès pour les utilisateurs internes et externes
+- Créer des packages de ressources associées que les utilisateurs peuvent demander
+- Définir des règles sur la manière de demander des ressources et l'expiration de l'accès correspondant
+- Gérer le cycle de vie de l'accès pour les utilisateurs internes et externes
 - Déléguer la gestion des ressources
-- Désigner des approbateurs pour approuver les demandes
+- Désigner des personnes chargées d'approuver les demandes
 - Créer des rapports pour effectuer le suivi de l’historique
 
-Pour une vue d’ensemble de la gouvernance des identités et de gestion des habilitations, regardez la vidéo suivante de la conférence Ignite 2018 :
+Pour une vue d’ensemble de la gouvernance des identités et de la gestion des droits d'utilisation, regardez la vidéo suivante de la conférence Ignite 2018 :
 
 >[!VIDEO https://www.youtube.com/embed/aY7A0Br8u5M]
 
 ## <a name="what-resources-can-i-manage"></a>Quelles ressources puis-je gérer ?
 
-Voici les types de ressources que vous pouvez gérer l’accès à avec la gestion des droits :
+La gestion des droits d'utilisation vous permet de gérer l'accès aux types de ressources ci-dessous :
 
-- Groupes de sécurité Azure AD
-- Groupes Office 365
-- Applications d’entreprise AD Azure, y compris l’application SaaS et les applications intégrées personnalisées qui prennent en charge la fédération ou l’approvisionnement
+- Groupes de sécurité Azure AD
+- Groupes Office 365
+- Applications d’entreprise Azure AD, y compris les applications SaaS et les applications intégrées personnalisées prenant en charge la fédération ou l’approvisionnement
 - Sites et collections de sites SharePoint Online
 
-Vous pouvez également contrôler l’accès à d’autres ressources qui s’appuient sur des groupes de sécurité Azure AD ou Office 365.  Exemple :
+Vous pouvez également contrôler l’accès à d’autres ressources s'appuyant sur des groupes de sécurité Azure AD ou Office 365.  Par exemple :
 
-- Vous pouvez attribuer des licences aux utilisateurs pour Microsoft Office 365 en à l’aide d’un groupe de sécurité Azure AD dans un package d’accès et la configuration [gestion des licences par groupe](../users-groups-roles/licensing-groups-assign.md) pour ce groupe
-- Vous pouvez accorder aux utilisateurs l’accès pour gérer les ressources Azure à l’aide d’un groupe de sécurité Azure AD dans un package de l’accès en créant un [attribution de rôle Azure](../../role-based-access-control/role-assignments-portal.md) pour ce groupe
+- Vous pouvez accorder des licences aux utilisateurs pour Microsoft Office 365 en utilisant un groupe de sécurité Azure AD dans un package d’accès et en configurant la [gestion des licences par groupe](../users-groups-roles/licensing-groups-assign.md) pour ce groupe
+- Vous pouvez accorder un accès aux utilisateurs pour gérer des ressources Azure en utilisant un groupe de sécurité Azure AD dans un package d'accès et en créant un [attribution de rôle Azure](../../role-based-access-control/role-assignments-portal.md) pour ce groupe
 
-## <a name="what-are-access-packages-and-policies"></a>Quelles sont les stratégies et les packages de l’accès ?
+## <a name="what-are-access-packages-and-policies"></a>Quels sont les packages d'accès et les stratégies ?
 
-Gestion des habilitations introduit le concept d’un *package access*. Un package d’accès est un ensemble de toutes les ressources qu’un utilisateur a besoin pour travailler sur un projet ou d’effectuer leur travail. Les ressources comprennent l’accès aux groupes, des applications ou des sites. Accès aux packages sont utilisés pour régir l’accès pour vos employés internes et également les utilisateurs en dehors de votre organisation. Les packages d’accès sont définis dans des conteneurs appelés *catalogues*.
+La gestion des droits d'utilisation introduit le concept de *package d'accès*. Un package d'accès regroupe toutes les ressources dont un utilisateur a besoin pour travailler sur un projet ou exercer ses fonctions. Ces ressources incluent un accès à des groupes, applications ou sites. Les packages d'accès régissent l'accès de vos employés internes et des utilisateurs extérieurs à votre organisation. Les packages d’accès sont définis dans des conteneurs appelés *catalogues*.
 
-Packages de l’accès est également incluent un ou plusieurs *stratégies*. Une stratégie définit les règles ou les guardrails pour accéder à un package d’accès. L’activation d’une stratégie impose que seuls les utilisateurs appropriés accès sont accordés, aux ressources appropriées et pour la bonne quantité de temps.
+Les packages d’accès incluent également une ou plusieurs *stratégies*. Une stratégie définit les règles ou barrières mises en place pour accéder à un package d’accès. Lorsqu'une stratégie est activée, seuls les utilisateurs appropriés se voient accorder l'accès aux bonnes ressources pendant le bon laps de temps.
 
-![Stratégies et le package de l’accès](./media/entitlement-management-overview/elm-overview-access-package.png)
+![Package d’accès et stratégies](./media/entitlement-management-overview/elm-overview-access-package.png)
 
-Avec un package d’accès et ses stratégies, le Gestionnaire de package accès définit :
+Moyennant un package d’accès et les stratégies correspondantes, le gestionnaire de package d'accès définit ce qui suit :
 
 - Ressources
-- Rôles utilisateurs avez besoin pour les ressources
-- Les utilisateurs internes et les utilisateurs externes qui sont éligibles pour demander l’accès
-- Processus d’approbation et les utilisateurs qui peuvent approuver ou refuser l’accès
-- Durée de l’accès de l’utilisateur
+- Rôles dont les utilisateurs ont besoin pour les ressources
+- Utilisateurs internes et externes autorisés à demander un accès
+- Processus d’approbation et utilisateurs autorisés à approuver ou refuser un accès
+- Durée d'accès d'un utilisateur
 
-Le diagramme suivant illustre les différents éléments dans Gestion des habilitations. Il montre deux exemples de lots accès.
+Le diagramme suivant montre un exemple des différents éléments en matière de gestion des droits d'utilisation. Il porte sur deux exemples de packages d'accès.
 
-- **Package d’accès 1** inclut un seul groupe en tant que ressource. L’accès est défini avec une stratégie qui active un ensemble d’utilisateurs dans le répertoire pour demander l’accès.
-- **Package d’accès 2** inclut un groupe, une application et un site SharePoint Online en tant que ressources. L’accès est défini avec deux stratégies. La première stratégie autorise un ensemble d’utilisateurs dans le répertoire pour demander l’accès. La deuxième stratégie permet aux utilisateurs dans un répertoire externe demander l’accès.
+- Le **package d’accès 1** comprend un seul groupe en tant que ressource. L’accès est défini par une stratégie qui autorise un ensemble d’utilisateurs du répertoire à demander un accès.
+- Le **package d’accès 2** comprend un groupe, une application et un site SharePoint Online en tant que ressources. L’accès est défini par deux stratégies différentes. La première stratégie autorise un ensemble d’utilisateurs du répertoire à demander un accès. La seconde stratégie permet aux utilisateurs d'un répertoire externe de demander un accès.
 
-![Vue d’ensemble de la gestion des droits](./media/entitlement-management-overview/elm-overview.png)
+![Vue d'ensemble de la gestion des droits d’utilisation](./media/entitlement-management-overview/elm-overview.png)
 
 ## <a name="external-users"></a>Utilisateurs externes
 
-Lorsque vous utilisez le [Azure AD business-to-business (B2B)](../b2b/what-is-b2b.md) inviter expérience, vous devez déjà connaître les adresses de messagerie des utilisateurs invités externes vous souhaitez importer dans votre répertoire de ressources et de travailler avec. Cela fonctionne parfaitement lorsque vous travaillez sur un projet à court terme ou plus petit et que vous connaissez déjà tous les participants, mais il est plus difficile à gérer si vous avez un grand nombre d’utilisateurs que vous souhaitez utiliser, ou si les participants changent au fil du temps.  Par exemple, vous pouvez travailler avec une autre organisation et atteigne un point de contact avec cette organisation, mais au fil du temps des utilisateurs supplémentaires à partir de cette organisation seront également besoin d’accéder.
+Lorsque vous utilisez l'expérience d'invitation [Azure AD entreprise à entreprise (B2B)](../b2b/what-is-b2b.md), vous devez déjà connaître les adresses e-mail des utilisateurs invités externes que vous souhaitez importer dans votre répertoire de ressources et avec lesquels collaborer. Cela fonctionne très bien lorsque vous travaillez sur un projet plus petit ou à court terme et que vous connaissez déjà tous les participants, mais s'avère plus complexe si vous souhaitez collaborer avec un grand nombre d'utilisateurs ou si les participants changent au fil du temps.  Par exemple, vous pouvez travailler avec une autre organisation et avoir un point de contact avec cette organisation, mais au fil du temps, d'autres utilisateurs de cette organisation auront également besoin d'un accès.
 
-Avec la gestion des droits, vous pouvez définir une stratégie qui autorise les utilisateurs d’organisations que vous spécifiez, et qui utilisent également Azure AD, pour être en mesure de demander un package d’accès. Vous pouvez spécifier si l’approbation est requise et la date d’expiration de l’accès. Si l’approbation est requise, vous pouvez également désigner en tant qu’approbateur un ou plusieurs utilisateurs à partir de l’organisation externe que vous avez précédemment invité - dans la mesure où ils sont susceptibles de connaître les utilisateurs externes à partir de leur organisation ont besoin d’accéder. Une fois que vous avez configuré le package de l’accès, vous pouvez envoyer un lien vers le package de l’accès à la personne à contacter à l’organisation externe. Ce contact peut partager avec d’autres utilisateurs dans l’organisation externe, et ils peuvent utiliser ce lien pour demander le package de l’accès.  Utilisateurs de cette organisation qui ont déjà été invités dans votre annuaire peuvent également utiliser ce lien.
+Avec la gestion des droits d'utilisation, vous pouvez définir une stratégie autorisant les utilisateurs des organisations que vous spécifiez, et qui utilisent également Azure AD, à demander un package d'accès. Vous pouvez spécifier si une approbation est requise, ainsi qu'une date d’expiration de l’accès. Si une approbation est requise, vous pouvez également désigner un ou plusieurs utilisateurs de l'organisation externe que vous avez précédemment invités en tant qu'approbateurs, ceux-ci étant susceptibles de savoir quels utilisateurs externes à leur organisation ont besoin d'un accès. Une fois le package d'accès configuré, vous pouvez envoyer le lien correspondant à la personne à contacter au sein de l'organisation externe. Cette personne peut le partager avec d'autres utilisateurs de l'organisation externe et ceux-ci peuvent à leur tour utiliser ce lien pour demander le package d'accès.  Les utilisateurs de cette organisation déjà invités dans votre répertoire peuvent également utiliser ce lien.
 
-Lorsqu’une demande est approuvée, gestion des habilitations configurera l’utilisateur avec l’accès nécessaire, ce qui peut inclure l’invitation de l’utilisateur si elles ne sont pas déjà dans votre répertoire. Azure AD crée automatiquement un compte B2B pour eux.  Notez qu’un administrateur peut avoir limité précédemment quelles organisations qui est autorisés pour la collaboration, en définissant un [B2B autoriser ou refuser les liste](../b2b/allow-deny-list.md) pour autoriser ou bloquer des invitations à d’autres organisations.  Si l’utilisateur n’est pas autorisée par la liste verte ou rouge, puis ils ne seront pas invités.
+Lorsqu'une demande est approuvée, la gestion des droits d'utilisation accorde à l'utilisateur l'accès nécessaire, notamment une invitation si cet utilisateur n'est pas encore présent dans votre répertoire. Azure AD crée automatiquement un compte B2B pour cet utilisateur.  Notez qu’un administrateur peut avoir précédemment restreint les organisations autorisées à collaborer, en définissant une [liste d'autorisations ou de refus B2B](../b2b/allow-deny-list.md) pour autoriser ou refuser les invitations liées à d’autres organisations.  Si l’utilisateur ne figure pas sur la liste d'autorisations ou de refus, il ne sera pas invité.
 
-Étant donné que vous ne souhaitez pas l’accès de l’utilisateur externe à éternels, vous spécifiez une date d’expiration dans la stratégie, tels que 180 jours. Après 180 jours, si leur accès n’est pas renouvelé, gestion des habilitations supprimera tous les accès associé à ce package de l’accès.  Si l’utilisateur qui a été invitée via la gestion des habilitations n’a aucune autres affectations de package d’accès, puis lorsqu’ils perdent leur dernière attribution, son compte B2B sera bloqué à partir de la connexion pendant 30 jours et par la suite supprimé.  Cela empêche la prolifération des comptes inutiles.  
+Pour limiter dans le temps l'accès de l'utilisateur externe, vous spécifiez une date d'expiration dans la stratégie, comme 180 jours. Une fois ces 180 jours écoulés et en l'absence de renouvellement, la gestion des droits d'utilisateur supprime tous les accès associés à ce package d'accès.  Si l'utilisateur invité par le biais de la gestion des droits d'utilisation ne dispose d'aucune autre attribution de package d'accès, lorsqu'il perd sa dernière attribution, son compte B2B est bloqué pendant 30 jours, puis supprimé.  Et ce, afin d'éviter la prolifération de comptes inutiles.  
 
 ## <a name="terminology"></a>Terminologie
 
-Pour mieux comprendre le gestion des habilitations et sa documentation, vous devez examiner les termes suivants.
+Pour mieux comprendre la gestion des droits d'utilisation et sa documentation, vous devez connaître les termes suivants.
 
 | Terme ou concept | Description |
 | --- | --- |
-| gestion des habilitations | Un service qui est attribué, révoque et administre les packages de l’accès. |
-| package de l’accès | Une collection d’autorisations et les stratégies de ressources que les utilisateurs peuvent demander. Un package d’accès est toujours contenu dans un catalogue. |
-| demande d’accès | Une demande à accéder à un package d’accès. Une demande passe généralement par un flux de travail. |
-| policy | Un ensemble de règles qui définit le cycle de vie de l’accès, telles que la façon dont les utilisateurs ont accès, qui peuvent approuver, et la durée pendant laquelle les utilisateurs ont accès. Les exemples de stratégie comprennent l’accès des employés et l’accès externe. |
-| catalog | Un conteneur de ressources associées et leur accès aux packages. |
-| Catalogue général | Catalogue intégré qui est toujours disponible. Pour ajouter des ressources dans le catalogue général, requiert certaines autorisations. |
-| resource | Une ressource ou un service (par exemple, un groupe, une application ou un site) qui peut disposer des autorisations pour un utilisateur. |
-| Type de ressource | Le type de ressource, qui inclut les groupes, les applications et sites SharePoint Online. |
-| rôle de ressource | Une collection d’autorisations associées à une ressource. |
-| répertoire de ressources | Un répertoire qui a une ou plusieurs ressources à partager. |
-| utilisateurs affectés | Une affectation d’un package de l’accès à un utilisateur ou un groupe. |
-| enable | Le processus de mise à disposition un package de l’accès des utilisateurs à demander. |
-
-## <a name="roles-and-permissions"></a>Rôles et autorisations
-
-Gestion des habilitations a différents rôles basés sur la fonction.
-
-| Rôle | Description |
-| --- | --- |
-| [Administrateur de l’utilisateur](../users-groups-roles/directory-assign-admin-roles.md#user-administrator) | Gérer tous les aspects de la gestion des habilitations.<br/>Créer des utilisateurs et groupes. |
-| Créateur de catalogue | Créer et gérer des catalogues. En général, un administrateur ou propriétaire de la ressource. La personne qui crée un catalogue automatiquement devient propriétaire du catalogue premier du catalogue. |
-| Propriétaire du catalogue | Modifier et gérer des catalogues existants. En général, un administrateur ou propriétaire de la ressource. |
-| Gestionnaire de package de l’accès | Modifier et gérer tous les packages d’accès existants au sein d’un catalogue. |
-| Approbateur | Approuver les demandes d’accéder aux packages. |
-| Demandeur | Demander l’accès de packages. |
-
-Le tableau suivant répertorie les autorisations pour chacun de ces rôles.
-
-| Tâche | Utilisateur admin | Créateur de catalogue | Propriétaire du catalogue | Gestionnaire de package de l’accès | Approbateur |
-| --- | :---: | :---: | :---: | :---: | :---: |
-| [Créer un nouveau package d’accès dans le catalogue général](entitlement-management-access-package-create.md) | :heavy_check_mark: |  :heavy_check_mark: |  |  |  |
-| [Créer un nouveau package d’accès dans un catalogue](entitlement-management-access-package-create.md) | :heavy_check_mark: |   | :heavy_check_mark: |  |  |
-| [Ajouter/supprimer des rôles de ressources vers/à partir d’un package d’accès](entitlement-management-access-package-edit.md) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Spécifiez qui peut demander un package d’accès](entitlement-management-access-package-edit.md#add-a-new-policy) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Attribuer directement un utilisateur à un package de l’accès](entitlement-management-access-package-edit.md#directly-assign-a-user) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Vue qui a une assignation à un package d’accès](entitlement-management-access-package-edit.md#view-who-has-an-assignment) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Afficher les demandes d’un package d’accès](entitlement-management-access-package-edit.md#view-requests) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Afficher les erreurs de remise d’une requête](entitlement-management-access-package-edit.md#view-a-requests-delivery-errors) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Annuler une demande en attente](entitlement-management-access-package-edit.md#cancel-a-pending-request) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Masquer un package d’accès](entitlement-management-access-package-edit.md#change-the-hidden-setting) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Supprimer un package d’accès](entitlement-management-access-package-edit.md#delete) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Approuver une demande d’accès](entitlement-management-request-approve.md) |  |  |  |  | :heavy_check_mark: |
-| [Créer un catalogue](entitlement-management-catalog-create.md) | :heavy_check_mark: | :heavy_check_mark: |  |  |  |
-| [Ajouter/supprimer des ressources vers/depuis le catalogue général](entitlement-management-catalog-create.md#add-resources-to-a-catalog) | :heavy_check_mark: |  |  |  |  |
-| [Ajouter/supprimer des ressources vers ou à partir d’un catalogue](entitlement-management-catalog-create.md#add-resources-to-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
-| [Ajouter des propriétaires de catalogue ou accéder aux gestionnaires de packages](entitlement-management-catalog-create.md#add-catalog-owners-or-access-package-managers) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
-| [Modifier/supprimer un catalogue](entitlement-management-catalog-create.md#edit-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
+| gestion des droits d’utilisation | Service permettant d'attribuer, de révoquer et d'administrer les packages d'accès. |
+| package d'accès | Ensemble d'autorisations et de stratégies liées à des ressources que les utilisateurs peuvent demander. Un package d’accès est toujours contenu dans un catalogue. |
+| demande d’accès | Demande d'accès à un package d’accès. Cette demande transite généralement par un flux de travail. |
+| policy | Ensemble de règles définissant le cycle de vie d'un accès, telles que le mode d'accès des utilisateurs, les approbateurs et la durée des accès. À titre d'exemple, il peut s'agir de l'accès des employés et de l’accès externe. |
+| catalog | Conteneur de ressources connexes et de packages d’accès. |
+| catalogue Général | Catalogue intégré toujours disponible. L'ajout de ressources au catalogue Général implique certaines autorisations. |
+| resource | Ressource ou service (groupe, application ou site, par exemple) pouvant faire l'objet d'autorisations accordées à un utilisateur. |
+| type de ressource | Type de ressource incluant des groupes, applications et sites SharePoint Online. |
+| rôle de ressource | Ensemble d’autorisations associées à une ressource. |
+| répertoire de ressources | Répertoire comprenant une ou plusieurs ressources à partager. |
+| utilisateurs attribués | Attribution d'un package d'accès à un utilisateur ou groupe. |
+| enable | Processus permettant aux utilisateurs de demander un package d'accès. |
 
 ## <a name="license-requirements"></a>Conditions de licence :
 
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
-Clouds spécialisés, tels que Azure Government, Azure Allemagne et Azure China 21Vianet, ne sont pas actuellement disponibles pour une utilisation dans cette version préliminaire.
+Les clouds spécialisés, tels que Azure Government, Azure Allemagne et Azure China 21Vianet, ne peuvent pas être utilisés dans cette préversion.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

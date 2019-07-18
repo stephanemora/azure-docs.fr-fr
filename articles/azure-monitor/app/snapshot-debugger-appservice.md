@@ -11,13 +11,13 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 03/07/2019
-ms.author: brahmnes
-ms.openlocfilehash: 7ff93dffe2dd82bdbba204b4235a297b337438f5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: bfung
+ms.openlocfilehash: 3e8ce3c2eff7b1f7184bb37f141e62563d4fe714
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60784078"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612681"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-app-service"></a>Activer le Débogueur de capture instantanée pour les applications .NET dans Azure App Service
 
@@ -29,6 +29,8 @@ Pour activer le Débogueur de capture instantanée pour une application, suivez 
 * [Services Azure Service Fabric](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Machines virtuelles Azure et Virtual Machine Scale Sets](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Machines virtuelles ou physiques locales](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
+
+Si vous utilisez une préversion de .NET Core, suivez les instructions pour [Activer le débogueur de capture instantanée pour d’autres environnements](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) pour d’abord inclure le package NuGet [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) avec l’application, puis effectuez le reste des instructions ci-dessous. 
 
 Le Débogueur de capture instantanée Application Insights est préinstallé dans le cadre de l’exécution d’App Services, mais vous devez l’activer pour obtenir des captures instantanées pour votre application App Service. Une fois que vous avez déployé une application, même si vous avez inclus le SDK Application Insights dans le code source, suivez les étapes ci-dessous pour activer le débogueur de capture instantanée.
 
@@ -52,7 +54,9 @@ Nous vous recommandons d’avoir le Débogueur de capture instantanée activé s
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Utilisation d’Application Insights dans Visual Studio](https://docs.microsoft.com/azure/application-insights/app-insights-visual-studio)
+- Générez du trafic vers votre application pouvant déclencher une exception. Attendez ensuite 10 à 15 minutes le temps que des captures instantanées soient envoyées à l’instance Application Insights.
+- Consultez [Captures instantanées](snapshot-debugger.md?toc=/azure/azure-monitor/toc.json#view-snapshots-in-the-portal) dans le portail Azure.
+- Pour obtenir de l’aide sur la résolution des problèmes liés au débogueur de capture instantanée, consultez [Résolution des problèmes liés au Débogueur de capture instantanée](snapshot-debugger-troubleshoot.md?toc=/azure/azure-monitor/toc.json).
 
 [Enablement UI]: ./media/snapshot-debugger/enablement-ui.png
 [snapshot-debugger-app-setting]:./media/snapshot-debugger/snapshot-debugger-app-setting.png

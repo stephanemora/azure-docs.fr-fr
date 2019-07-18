@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 8c23e429966cf9a1e93ac46ea3ecd11744761872
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f1c6f8074dab19b18f695763b160e4aeffe3ac44
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65148615"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204834"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Suppression réversible pour objets blob de Stockage Azure
 Le Stockage Azure offre désormais une fonctionnalité de suppression réversible pour les objets blob, qui vous permet de récupérer plus facilement vos données en cas de modification ou de suppression malencontreuses de celles-ci par une application ou un autre utilisateur du compte de stockage.
@@ -205,7 +205,7 @@ Pour rechercher la stratégie actuelle de conservation de suppression réversibl
    Get-AzStorageServiceProperty -ServiceType Blob -Context $account.Context
 ```
 
-### <a name="azure-cli"></a>Azure CLI 
+### <a name="azure-cli"></a>D’Azure CLI 
 Pour activer la suppression réversible, mettez à jour les propriétés du service du client d’un objet blob :
 
 ```azurecli-interactive
@@ -274,13 +274,10 @@ CloudBlockBlob copySource = allBlobVersions.First(version => ((CloudBlockBlob)ve
 blockBlob.StartCopy(copySource);
 ```
 
-## <a name="should-i-use-soft-delete"></a>Dois-je utiliser la suppression réversible ?
-S’il existe une possibilité de modification ou de suppression accidentelles de vos données par une application ou un autre utilisateur du compte de stockage, nous vous recommandons d’activer la suppression réversible. Cette fonctionnalité qui s’inscrit dans le cadre d’une stratégie de protection des données peut vous aider à prévenir toute perte malencontreuse de données.
+## <a name="are-there-any-special-considerations-for-using-soft-delete"></a>Existe-t-il des considérations spéciales pour l’utilisation de la suppression réversible ?
+S’il existe une possibilité de modification ou de suppression accidentelles de vos données par une application ou un autre utilisateur du compte de stockage, nous vous recommandons d’activer la suppression réversible. L’activation de la suppression réversible pour les données fréquemment remplacées peut entraîner une augmentation des frais en termes de capacité de stockage, ainsi qu’une latence plus élevée lors de la classification des objets blob. Vous pouvez atténuer ces comportements en stockant les données fréquemment remplacées dans un compte de stockage distinct avec la suppression réversible désactivée. 
 
 ## <a name="faq"></a>Forum Aux Questions
-**Existe-t-il des considérations spéciales pour l’utilisation de la suppression réversible ?**  
-L’activation de la suppression réversible pour les données fréquemment remplacées peut entraîner une augmentation des frais en termes de capacité de stockage, ainsi qu’une latence plus élevée lors de la classification des objets blob. Vous pouvez atténuer ces comportements en stockant les données fréquemment remplacées dans un compte de stockage distinct avec la suppression réversible désactivée. 
-
 **Pour quels types de stockages puis-je utiliser la suppression réversible ?**  
 Actuellement, la suppression réversible est disponible uniquement pour le stockage d’objets blob.
 

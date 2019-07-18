@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: 4fd862c2442d2637d799a1f690d5f0a091c80562
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 5eba5601a50640261fa1b488d959f606d4514737
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449194"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612216"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Profiter de la parallélisation de requête dans Azure Stream Analytics
 Cet article explique comment tirer parti de la parallélisation dans Azure Stream Analytics. Vous découvrez comment mettre à l’échelle des travaux Stream Analytics en configurant des partitions d’entrée et en réglant la définition de requête Analytics.
@@ -202,9 +202,9 @@ Vous pouvez voir quelques **exemples** dans le tableau ci-dessous.
 
 | Requête                                               | Nombre d’unités SU maximal pour le travail |
 | --------------------------------------------------- | ------------------- |
-| <ul><li>La requête contient une étape.</li><li>L'étape n'est pas partitionnée.</li></ul> | 6\. |
+| <ul><li>La requête contient une étape.</li><li>L'étape n'est pas partitionnée.</li></ul> | 6 |
 | <ul><li>Le flux de données d’entrée est partitionné par 16.</li><li>La requête contient une étape.</li><li>L'étape est partitionnée.</li></ul> | 96 (6 * 16 partitions) |
-| <ul><li>La requête contient 2 étapes.</li><li>Aucune des étapes n'est partitionnée.</li></ul> | 6\. |
+| <ul><li>La requête contient 2 étapes.</li><li>Aucune des étapes n'est partitionnée.</li></ul> | 6 |
 | <ul><li>Le flux de données d'entrée est partitionné par 3.</li><li>La requête contient 2 étapes. L'étape d'entrée est partitionnée et la deuxième étape ne l'est pas.</li><li>L’instruction <strong>SELECT</strong> lit dans l’entrée partitionnée.</li></ul> | 24 (18 pour les étapes partitionnées + 6 pour les étapes non partitionnées) |
 
 ### <a name="examples-of-scaling"></a>Exemples de mise à l’échelle
@@ -274,7 +274,7 @@ La solution [Event Hub](https://github.com/Azure-Samples/streaming-at-scale/tree
 [SQL Azure](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-azuresql) prend en charge l’écriture en parallèle, appelée Inherit Partitioning, qui n’est pas activée par défaut. Toutefois, l’activation de la fonctionnalité Inherit Partitioning avec une requête entièrement parallèle peut ne pas suffire pour atteindre des débits supérieurs. Les débits en écriture SQL dépendent considérablement de la configuration et du schéma de table de votre base de données SQL Azure. L’article [Performances en sortie SQL](./stream-analytics-sql-output-perf.md) contient des informations plus détaillées sur les paramètres susceptibles d’optimiser votre débit en écriture. Comme indiqué dans l’article [Sortie d’Azure Stream Analytics dans Azure SQL Database](./stream-analytics-sql-output-perf.md#azure-stream-analytics), cette solution n’est pas mise à l’échelle de manière linéaire en tant que pipeline entièrement parallèle au-delà de 8 partitions, et peut nécessiter un repartitionnement avant la sortie SQL (voir [INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)). Des références (SKU) Premium sont nécessaires pour prendre en charge des taux d’E/S élevés, ainsi que la surcharge liée aux sauvegardes de fichiers journaux toutes les quelques minutes.
 
 #### <a name="cosmos-db"></a>Cosmos DB
-|Taux d’ingestion (événements par seconde) | Unités de streaming | Ressources de sortie  |
+|Taux d’ingestion (événements par seconde) | Unités de diffusion en continu | Ressources de sortie  |
 |-------|-------|---------|
 |  1 000   |  3    | 20 000 unités de requête  |
 |  5 000   |  24   | 60 000 unités de requête  |
@@ -312,7 +312,7 @@ Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https:/
 ## <a name="next-steps"></a>Étapes suivantes
 * [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)
 * [Prise en main d'Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Références sur le langage des requêtes d'Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 <!--Image references-->

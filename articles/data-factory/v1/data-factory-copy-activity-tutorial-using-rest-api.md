@@ -14,18 +14,17 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d83b659cc04218fad66ea95216e69682b265dc83
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6b5698d94a09096d58b316ca3b23bead5b1a39a7
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66151616"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839406"
 ---
 # <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>Didacticiel : utiliser l’API REST pour créer un pipeline Azure Data Factory afin de copier des données 
 > [!div class="op_single_selector"]
 > * [Vue d’ensemble et composants requis](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Assistant de copie](data-factory-copy-data-wizard-tutorial.md)
-> * [Portail Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Modèle Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
@@ -186,7 +185,7 @@ Le tableau suivant décrit les propriétés JSON utilisées dans l'extrait de co
 | folderPath | Spécifie le **conteneur** d’objets blob et le **dossier** qui contient les objets blob d’entrée. Dans ce didacticiel, adftutorial est le conteneur d’objets blob et folder est le dossier racine. | 
 | fileName | Cette propriété est facultative. Si vous omettez cette propriété, tous les fichiers spécifiés dans le paramètre folderPath sont récupérés. Dans ce didacticiel, **emp.txt** est spécifié pour le paramètre fileName, si bien que seul ce fichier est récupéré pour le traitement. |
 | format -> type |Le fichier d’entrée étant au format texte, nous utilisons **TextFormat**. |
-| columnDelimiter | Les colonnes du fichier d’entrée sont délimitées par une **virgule (`,`)**. |
+| columnDelimiter | Les colonnes du fichier d’entrée sont délimitées par une **virgule (`,`)** . |
 | frequency/interval | La fréquence est définie sur **Heure** et l’intervalle est **1**, ce qui signifie que les segments d’entrée sont disponibles **toutes les heures**. En d’autres termes, le service Data Factory recherche les données d’entrée toutes les heures dans le dossier racine du conteneur d’objets blob (**adftutorial**) que vous avez spécifié. Il recherche des données entre les heures de début et de fin du pipeline, pas avant ni après.  |
 | external | Cette propriété a la valeur **true** si les données ne sont pas générées par ce pipeline. Dans ce didacticiel, les données d’entrée sont dans le fichier emp.txt, qui n’est pas généré par ce pipeline. Nous définissons donc cette propriété sur true. |
 
@@ -489,7 +488,7 @@ Le jeu de données de sortie pilote actuellement la planification. Dans ce didac
     Write-Host $results
     ```
 
-**Félicitations !**  Vous avez créé une fabrique de données Azure, avec un pipeline qui copie les données de stockage d’objets blob Azure vers une base de données Azure SQL.
+**Félicitations !** Vous avez créé une fabrique de données Azure, avec un pipeline qui copie les données de stockage d’objets blob Azure vers une base de données Azure SQL.
 
 ## <a name="monitor-pipeline"></a>Surveillance d’un pipeline
 Dans cette étape, vous utilisez l’API REST Data Factory pour surveiller les tranches produites par le pipeline.

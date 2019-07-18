@@ -5,14 +5,14 @@ services: container-service
 author: tylermsft
 ms.service: container-service
 ms.topic: article
-ms.date: 06/06/2019
+ms.date: 06/17/2019
 ms.author: twhitney
-ms.openlocfilehash: cdcc1b985c570d1af4bbb33ac29a37e63b1dfa90
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b753d643b4651cd6665b5b85dcb8b7c5f0b3583d
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752392"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444141"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Préversion - Créer un conteneur Windows Server sur un cluster Azure Kubernetes Service (AKS) à l’aide d’Azure CLI
 
@@ -28,7 +28,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface CLI localement, cet article vous demande d’exécuter Azure CLI version 2.0.61 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installer Azure CLI 2.0][azure-cli-install].
+Si vous choisissez d’installer et d’utiliser l’interface CLI localement, cet article vous demande d’exécuter Azure CLI version 2.0.61 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][azure-cli-install].
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -37,19 +37,20 @@ Vous devez ajouter un pool de nœuds supplémentaire après avoir créé votre c
 > [!IMPORTANT]
 > Les fonctionnalités d’évaluation AKS sont en libre-service et font l’objet d’un abonnement. Elles sont fournies pour que notre communauté puisse faire part de ses commentaires et des bogues éventuels. En préversion, ces fonctionnalités ne sont pas destinées à une utilisation en production. Les fonctionnalités en préversion publique font l’objet d’un support relatif. L’assistance des équipes de support technique AKS est disponible pendant les heures de bureau du fuseau horaire Heure du Pacifique uniquement. Pour obtenir des informations supplémentaires, veuillez lire les articles de support suivants :
 >
-> * [Stratégie de support AKS][aks-support-policies]
+> * [Stratégies de support AKS][aks-support-policies]
 > * [FAQ du support Azure][aks-faq]
 
 ### <a name="install-aks-preview-cli-extension"></a>Installer l’extension CLI de préversion d’aks
-    
-Les commandes CLI pour créer et gérer plusieurs pools de nœuds sont disponibles dans l’extension CLI *aks-preview*. Installez l’extension d’Azure CLI *aks-preview* à l’aide de la commande [az extension add][az-extension-add], comme indiqué dans l’exemple suivant :
+
+Pour utiliser des conteneurs Windows Server, vous aurez besoin de l’extension de CLI *aks-preview* version 0.4.1 ou version ultérieure. Installez l’extension d’Azure CLI *aks-preview* à l’aide de la commande [az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] :
 
 ```azurecli-interactive
+# Install the aks-preview extension
 az extension add --name aks-preview
-```
 
-> [!NOTE]
-> Si vous avez installé précédemment l’extension *aks-preview*, installez toutes les mises à jour disponibles à l’aide de la commande `az extension update --name aks-preview`.
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
 
 ### <a name="register-windows-preview-feature"></a>Enregistrer la fonctionnalité d’évaluation Windows
 
@@ -62,13 +63,13 @@ az feature register --name WindowsPreview --namespace Microsoft.ContainerService
 > [!NOTE]
 > Tous les clusters AKS que vous créez après avoir enregistré l’indicateur de fonctionnalité *WindowsPreview* utilisent l’expérience de cluster en préversion. Pour continuer à créer des clusters standard et entièrement supportés, n’activez pas les fonctionnalités en préversion sur les abonnements de production. Utilisez abonnement Azure de test ou de développement pour tester les fonctionnalités en préversion.
 
-Quelques minutes sont nécessaires pour que l’état s’affiche *Registered* (Inscrit). Vous pouvez vérifier l'état de l'enregistrement à l'aide de la commande [az feature list][az-feature-list] :
+L’inscription peut prendre quelques minutes. Vérifiez l'état de l'enregistrement à l'aide de la commande [az feature list][az-feature-list] :
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/WindowsPreview')].{Name:name,State:properties.state}"
 ```
 
-Lorsque vous êtes prêt, actualisez l’inscription du fournisseur de ressources *Microsoft.ContainerService* à l’aide de la commande [az provider register][az-provider-register] :
+Lorsque l’état d’inscription est `Registered`, appuyez sur Ctrl + C pour arrêter la surveillance de l’état.  Actualisez l’inscription du fournisseur de ressources *Microsoft.ContainerService* à l’aide de la commande [az provider register][az-provider-register] :
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -89,9 +90,13 @@ Même si cette fonctionnalité est en préversion préliminaire, les limitations
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-Un groupe de ressources Azure est un groupe logique dans lequel des ressources Azure sont déployées et gérées. Lorsque vous créez un groupe de ressources, vous devez spécifier un emplacement. Il s’agit de l’emplacement de stockage des métadonnées de groupe de ressources. C’est également là que vos ressources s’exécutent dans Azure si vous ne spécifiez pas une autre région lors de la création de ressources. Créez un groupe de ressources à l’aide de la commande [az group create][az-group-create].
+Un groupe de ressources Azure est un groupe logique dans lequel des ressources Azure sont déployées et gérées. Lorsque vous créez un groupe de ressources, vous devez spécifier un emplacement. Il s’agit de l’emplacement de stockage des métadonnées de groupe de ressources. C’est également là que vos ressources s’exécutent dans Azure si vous ne spécifiez pas une autre région lors de la création de ressources. Créez un groupe de ressources avec la commande [az group create][az-group-create].
 
 L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *eastus*.
+
+> [!NOTE]
+> Cet article utilise la syntaxe Bash pour les commandes dans ce didacticiel.
+> Si vous utilisez Azure Cloud Shell, assurez-vous que la liste déroulante dans le coin supérieur gauche de la fenêtre de Cloud Shell est définie sur **Bash**.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -113,12 +118,13 @@ L’exemple de sortie suivant montre que le groupe de ressources a été créé 
 }
 ```
 
-## <a name="create-aks-cluster"></a>Créer un cluster ACS
-Pour exécuter un cluster AKS qui prend en charge des pools de nœuds pour les conteneurs Windows Server, votre cluster doit utiliser une stratégie de réseau qui utilise un plug-in réseau [Azure CNI][azure-cni-about] (avancé). Pour des informations plus détaillées sur la planification des plages de sous-réseau nécessaires et les considérations réseau, consultez [Configure Azure CNI networking in Azure Kubernetes Service (AKS)][use-advanced-networking] (Configurer un réseau Azure CNI dans Azure Kubernetes Service (AKS)). Utilisez la commande [az aks create][az-aks-create] pour créer un cluster AKS nommé *myAKSCluster*. Cette commande crée les ressources réseau nécessaires si elles n’existent pas.
+## <a name="create-an-aks-cluster"></a>Créer un cluster AKS
+
+Pour exécuter un cluster AKS qui prend en charge des pools de nœuds pour les conteneurs Windows Server, votre cluster doit utiliser une stratégie de réseau qui utilise [Azure CNI][azure-cni-about](advanced) network plugin. For more detailed information to help plan out the required subnet ranges and network considerations, see [configure Azure CNI networking][use-advanced-networking]. Utilisez la commande [az aks create][az-aks-create] pour créer un cluster AKS nommé *myAKSCluster*. Cette commande crée les ressources réseau nécessaires si elles n’existent pas.
   * Le cluster est configuré avec un seul nœud
   * Les paramètres *windows-admin-password* et *windows-admin-username* définissent les informations d’identification administrateur pour les conteneurs Windows Server créés sur le cluster.
 
-Fournissez votre propre *PASSWORD_WIN* sécurisé.
+Fournissez votre propre *PASSWORD_WIN* sécurisé (n’oubliez pas que les commandes dans cet article sont entrées dans un interpréteur de commandes BASH) :
 
 ```azurecli-interactive
 PASSWORD_WIN="P@ssw0rd1234"
@@ -135,6 +141,10 @@ az aks create \
     --enable-vmss \
     --network-plugin azure
 ```
+
+> [!Note]
+> Si vous obtenez une erreur de validation de mot de passe, essayez de créer votre groupe de ressources dans une autre région.
+> Puis essayez de créer le cluster avec le nouveau groupe de ressources.
 
 Au bout de quelques minutes, la commande se termine et retourne des informations au format JSON sur le cluster.
 
@@ -162,7 +172,7 @@ Pour gérer un cluster Kubernetes, vous utilisez [kubectl][kubectl], le client d
 az aks install-cli
 ```
 
-Exécutez la commande [az aks get-credentials][az-aks-get-credentials] pour configurer `kubectl` afin de vous connecter à votre cluster Kubernetes. Cette commande télécharge les informations d’identification et configure l’interface CLI Kubernetes pour les utiliser.
+Pour configurer `kubectl` afin de vous connecter à votre cluster Kubernetes, exécutez la commande [az aks get-credentials][az-aks-get-credentials]. Cette commande télécharge les informations d’identification et configure l’interface CLI Kubernetes pour les utiliser.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -184,7 +194,7 @@ aksnpwin987654                      Ready    agent   108s   v1.14.0
 
 ## <a name="run-the-application"></a>Exécution de l'application
 
-Un fichier manifeste Kubernetes définit un état souhaité pour le cluster, notamment les images conteneur à exécuter. Dans cet article, un manifeste est utilisé pour créer tous les objets nécessaires pour exécuter l’exemple d’application ASP.NET dans un conteneur Windows Server. Ce manifeste comprend un [déploiement Kubernetes][kubernetes-deployment] pour l’exemple d’application ASP.NET et un [service Kubernetes][kubernetes-service] externe pour accéder à l’application à partir d’Internet.
+Un fichier manifeste Kubernetes définit un état souhaité pour le cluster, notamment les images conteneur à exécuter. Dans cet article, un manifeste est utilisé pour créer tous les objets nécessaires pour exécuter l’exemple d’application ASP.NET dans un conteneur Windows Server. Ce manifeste comprend un [déploiement Kubernetes][kubernetes-deployment] for the ASP.NET sample application and an external [Kubernetes service][kubernetes-service] pour accéder à l’application à partir d’Internet.
 
 L’exemple d’application ASP.NET est fourni dans le cadre des [Exemples .NET Framework][dotnet-samples] et s’exécute dans un conteneur Windows Server. AKS exige que les conteneurs Windows Server soient basés sur des images de *Windows Server 2019* ou versions supérieures. Le fichier manifeste Kubernetes doit également définir un [sélecteur de nœud][node-selector] pour indiquer à votre cluster AKS d’exécuter le pod de votre exemple d’application ASP.NET sur un nœud qui peut exécuter des conteneurs Windows Server.
 
@@ -213,10 +223,10 @@ spec:
         resources:
           limits:
             cpu: 1
-            memory: 800m
+            memory: 800M
           requests:
             cpu: .1
-            memory: 300m
+            memory: 300M
         ports:
           - containerPort: 80
   selector:
@@ -294,7 +304,7 @@ Dans cet article, vous avez déployé un cluster Kubernetes et déployé un exem
 Pour en savoir plus sur ACS et parcourir le code complet de l’exemple de déploiement, passez au tutoriel sur le cluster Kubernetes.
 
 > [!div class="nextstepaction"]
-> [Tutoriel ACS][aks-tutorial]
+> [Didacticiel AKS][aks-tutorial]
 
 <!-- LINKS - external -->
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
@@ -329,3 +339,5 @@ Pour en savoir plus sur ACS et parcourir le code complet de l’exemple de dépl
 [use-advanced-networking]: configure-advanced-networking.md
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update

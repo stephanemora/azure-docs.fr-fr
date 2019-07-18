@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: vinigam
-ms.openlocfilehash: a5d5a9e07c28ab3059872f4d187c96586456a200
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a1a69e02a2630ab2b0466856ca87e8f88fc4d9d8
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64916756"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68304808"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solution Network Performance Monitor dans Azure
 
@@ -249,7 +249,7 @@ Toutes les données présentées sous forme graphique via le tableau de bord Net
 
 Network Performance Monitor utilise les fonctionnalités d’alerte [d’Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts).
 
-Cela signifie que toutes les notifications sont gérées à l’aide de [groupes d’actions](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#overview).  
+Cela signifie que toutes les notifications sont gérées à l’aide de [groupes d’actions](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups).  
 
 Si vous êtes un utilisateur NPM créant une alerte via Log Analytics : 
 1. Un lien permettant de vous rediriger vers le portail Azure s’affiche. Cliquez dessus pour accéder au portail.

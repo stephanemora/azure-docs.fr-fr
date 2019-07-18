@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: 6e97826499842a257f6402bd5268edc4cd6a486e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 212e6b042caec5f24a620dc491dc674417816df7
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66734911"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67310375"
 ---
 # <a name="action-rules-preview"></a>Règles d’action (préversion)
 
@@ -30,6 +30,8 @@ Il y a souvent de nombreux scénarios où la suppression des notifications gén�
 
 Bien que les règles d’alertes vous permettent de définir le groupe d'actions qui décide de quand est générée l’alerte, le groupe d’actions courant des clients a tendance à ne pas être adapté aux opérations. Par exemple, une équipe responsable du groupe de ressources « ContosoRG » définira probablement le même groupe d’actions pour toutes les règles d’alertes définies au sein de « ContosoRG ». Les règles d’actions peuvent simplifier ce processus en vous permettant de définir des actions adaptées, de sorte qu’un groupe d'actions puisse être déclenché pour chaque alerte générée à la portée configurée. Pour reprendre l’exemple précédent, l’équipe peut maintenant définir une règle d’action sur « ContosoRG » qui déclenchera le même groupe d'actions pour toutes les alertes générées.
 
+> [!NOTE]
+> Les règles d’action ne s’appliquent actuellement pas aux alertes d’état de service.
 
 ## <a name="configuring-an-action-rule"></a>Configuration d’une règle d’action
 
