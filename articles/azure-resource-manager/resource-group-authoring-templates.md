@@ -129,8 +129,8 @@ Les propriétés disponibles pour un paramètre sont :
 
 | Nom de l'élément | Obligatoire | Description |
 |:--- |:--- |:--- |
-| parameterName |OUI |Nom du paramètre. Doit être un identificateur JavaScript valide. |
-| Type |OUI |Type de la valeur du paramètre. Les types et valeurs autorisés sont : **string**, **secureString**, **int**, **bool**, **object**, **secureObject** et **array**. |
+| parameterName |Oui |Nom du paramètre. Doit être un identificateur JavaScript valide. |
+| type |Oui |Type de la valeur du paramètre. Les types et valeurs autorisés sont : **string**, **secureString**, **int**, **bool**, **object**, **secureObject** et **array**. |
 | defaultValue |Non |Valeur par défaut du paramètre, si aucune valeur n'est fournie pour le paramètre. |
 | allowedValues |Non |Tableau des valeurs autorisées pour le paramètre afin de vous assurer que la bonne valeur a bien été fournie. |
 | minValue |Non |Valeur minimale pour les paramètres de type int, cette valeur est inclusive. |
