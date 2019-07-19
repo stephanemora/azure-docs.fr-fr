@@ -10,12 +10,13 @@ ms.topic: conceptual
 ms.date: 05/06/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: eb99cd94dca2a463c275dd5d4fab540b4fc55318
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 4cbca467b50dd0e43132b6d09dc0785c501fca0f
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510442"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204679"
 ---
 # <a name="manage-user-data-in-azure-active-directory-b2c"></a>Gérer les données utilisateur dans Azure Active Directory B2C
 
@@ -25,7 +26,7 @@ ms.locfileid: "66510442"
 
 ## <a name="delete-user-data"></a>Supprimer des données utilisateur
 
-Les données utilisateur sont stockées dans l’annuaire Azure AD B2C et dans les journaux d’audit. Toutes les données d’audit utilisateur sont conservées pendant 30 jours dans Azure AD B2C. Si vous souhaitez supprimer des données utilisateur avant l’expiration de ces 30 jours, vous pouvez utiliser l’opération [Supprimer un utilisateur](/previous-versions/azure/ad/graph/api/users-operations#DeleteUser). Une opération DELETE est requise pour chacun des clients Azure AD B2C susceptibles de contenir des données. 
+Les données utilisateur sont stockées dans l’annuaire Azure AD B2C et dans les journaux d’audit. Toutes les données d’audit utilisateur sont conservées pendant 7 jours dans Azure AD B2C. Si vous souhaitez supprimer des données utilisateur avant l’expiration de ces 7 jours, vous pouvez utiliser l’opération [Supprimer un utilisateur](/previous-versions/azure/ad/graph/api/users-operations#DeleteUser). Une opération DELETE est requise pour chacun des clients Azure AD B2C susceptibles de contenir des données. 
 
 Un ID objet est attribué à chaque utilisateur dans Azure AD B2C. L’ID objet constitue un identificateur non ambigu que vous pouvez utiliser pour supprimer des données utilisateur dans Azure AD B2C. En fonction de votre architecture, l’ID objet peut être un identificateur de corrélation utile pour d’autres services, tels que des bases de données de gestion des finances, du marketing et de la relation client. 
 

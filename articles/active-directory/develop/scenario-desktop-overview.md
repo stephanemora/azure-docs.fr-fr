@@ -1,6 +1,6 @@
 ---
-title: Application de bureau que les appels de web API (vue d’ensemble) - plateforme d’identité Microsoft
-description: Découvrez comment créer une application de bureau que les appels de web API (vue d’ensemble)
+title: Application de bureau qui appelle des API web (vue d’ensemble) - Plateforme d’identités Microsoft
+description: Apprenez à générer une application de bureau qui appelle des API web (vue d’ensemble)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,53 +15,53 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44d31011ca70bbebaf994b5fb80a45eee8dbde40
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.openlocfilehash: 204e230f7ff0897d2ba97213ebc836aff9d0324b
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65076944"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204648"
 ---
-# <a name="scenario-desktop-app-that-calls-web-apis"></a>Scénario : Application de bureau que des appels d’API web
+# <a name="scenario-desktop-app-that-calls-web-apis"></a>Scénario : Application de bureau qui appelle des API web
 
-En savoir plus il que vous suffit de générer une application de bureau qui appelle des API web
+Découvrez tout ce que vous devez savoir pour générer une application de bureau qui appelle des API web
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
 ## <a name="getting-started"></a>Prise en main
 
-Si vous n’avez pas déjà, créez votre première application en suivant le démarrage rapide de bureau .NET ou le démarrage rapide UWP :
+Si ce n’est pas déjà fait, créez votre première application en suivant le Guide de démarrage rapide du bureau .NET ou le guide de démarrage rapide UWP :
 
 > [!div class="nextstepaction"]
-> [Démarrage rapide : Acquérir un jeton et appeler des API Microsoft Graph à partir d’une application de bureau Windows](./quickstart-v2-windows-desktop.md)
+> [Démarrage rapide : Acquérir un jeton et appeler l’API Microsoft Graph à partir d’une application de bureau Windows](./quickstart-v2-windows-desktop.md)
 
 
 > [!div class="nextstepaction"]
-> [Démarrage rapide : Acquérir un jeton et appeler des API Microsoft Graph à partir d’une application UWP](./quickstart-v2-uwp.md)
+> [Démarrage rapide : Acquérir un jeton et appeler l’API Microsoft Graph à partir d’une application UWP](./quickstart-v2-uwp.md)
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
-Vous écrivez une application de bureau, et que vous souhaitez connecter des utilisateurs à votre application et appeler des API comme Microsoft Graph, autres APIs Microsoft ou votre propre API web web. Vous avez plusieurs possibilités :
+Vous écrivez une application de bureau et vous voulez connecter des utilisateurs à votre application et appeler des API Web telles que Microsoft Graph, d’autres API Microsoft ou votre propre API Web. Vous avez plusieurs possibilités :
 
-- Si votre application de bureau prend en charge des contrôles graphiques, par exemple s’il s’agit d’une application Windows.Form ou une application WPF, vous pouvez utiliser l’acquisition des jetons interactive.
-- Pour les applications Windows hébergées, il est également possible pour les applications exécutées sur des ordinateurs joints à un domaine Windows ou AAD joint pour acquérir un jeton en mode silencieux à l’aide de l’authentification Windows intégrée.
-- Enfin, et bien qu’il n’est pas recommandé, vous pouvez utiliser le nom d’utilisateur/mot de passe dans les applications de client public. Il est toujours nécessaire dans certains scénarios (par exemple, les opérations de développement), mais prenez garde que l’utiliser seront imposent des contraintes sur votre application. Par exemple, il ne peut pas se connecter utilisateur ayant besoin d’effectuer une authentification multifacteur (accès conditionnel). Votre application ne bénéficient également d’authentification unique (SSO).
+- Si votre application de bureau supporte les contrôles graphiques, par exemple si c’est une application Windows.Form ou WPF, vous pouvez utiliser l’acquisition de jetons interactive.
+- Pour les applications hébergées sous Windows, il est également possible pour les applications s’exécutant sur des ordinateurs reliés à un domaine Windows ou AAD relié à un domaine Windows d’acquérir un jeton en silence en utilisant l’authentification Windows intégrée.
+- Enfin, et bien que ce ne soit pas recommandé, vous pouvez utiliser Nom d’utilisateur/Mot de passe dans les applications clientes publiques. Il est toujours nécessaire dans certains scénarios (comme DevOps), mais prenez garde, car son utilisation peut imposer des contraintes à votre application. Par exemple, il ne peut pas se connecter à un utilisateur qui a besoin d’effectuer une authentification multifacteur (accès conditionnel). De plus, votre application ne bénéficiera pas de l’authentification unique (SSO).
 
-  Il est également sur les principes de l’authentification moderne et est fourni uniquement pour des raisons d’héritage.
+  Elle est également contraire aux principes de l’authentification moderne et n’est fournie que pour des raisons patrimoniales.
 
   ![Application de bureau](media/scenarios/desktop-app.svg)
 
-- Si vous écrivez un outil de ligne de commande portable - probablement une application .NET Core s’exécutant sur Linux ou Mac, vous ne pourrez pas utiliser ni l’authentification interactive (comme .NET Core ne fournit pas un [navigateur Web](https://aka.ms/msal-net-uses-web-browser)), ni intégré Authentification Windows. Dans ce cas, la meilleure option est d’utiliser des flux de code d’appareil. Ce flux est également utilisé pour les applications sans un navigateur, telles que les applications iOT
+- Si vous écrivez un outil de ligne de commande portable, par exemple, une application .NET Core fonctionnant sous Linux ou Mac, vous ne pourrez utiliser ni l’authentification interactive (car .NET Core ne fournit pas de [navigateur web](https://aka.ms/msal-net-uses-web-browser)), ni l’authentification Windows intégrée. La meilleure option dans ce cas est d’utiliser le flux de code d’appareil. Ce flux est également utilisé pour les applications sans navigateur, telles que les applications IoT
 
-  ![Application browserless](media/scenarios/device-code-flow-app.svg)
+  ![Application sans navigateur](media/scenarios/device-code-flow-app.svg)
 
 ## <a name="specifics"></a>Spécificités
 
-Applications de bureau ont un nombre de spécificités, qui dépend principalement de si votre application utilise l’authentification interactive ou non.
+Les applications de bureau ont un certain nombre de spécificités, qui dépendent principalement du fait que votre application utilise ou non l’authentification interactive.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Application de bureau - inscription de l’application](scenario-desktop-app-registration.md)
+> [Application de bureau – Inscription de l’application](scenario-desktop-app-registration.md)
