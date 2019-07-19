@@ -3,15 +3,15 @@ title: Script Azure PowerShell - Azure Cosmos DB - Répertorier et obtenir les o
 description: Script Azure PowerShell - Azure Cosmos DB - Répertorier et obtenir les opérations pour l’API Cassandra
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: e275f0e1ca90a1d9385784bebcef9c70ffe6cdcf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f426afee2ab5635cf29ee5a48a6e11e1f6d10f4e
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66247258"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604009"
 ---
 # <a name="list-and-get-keyspaces-and-tables-for-azure-cosmos-db---cassandra-api"></a>Répertorier et obtenir des espaces de clés et des tables pour Azure Cosmos DB - API Cassandra
 

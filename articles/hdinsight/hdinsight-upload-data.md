@@ -8,25 +8,25 @@ ms.service: hdinsight
 ms.custom: hdiseo17may2017
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 0dbd5a886e2369d29a568eca47dda5558f43c8cd
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.openlocfilehash: fceea6273f00fdf16d8934533f08bc3494795bc4
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66479144"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433282"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>Charger des données pour des travaux Apache Hadoop dans HDInsight
 
-Azure HDInsight fournit un système HDFS (Hadoop Distributed File System) complet pour Stockage Azure et Azure Data Lake Storage (Gen1 et Gen2). Stockage Azure et Azure Data Lake Storage (Gen1 et Gen2) sont conçus en tant qu’extensions HDFS pour offrir aux clients une expérience fluide. Ils permettent à l’ensemble des composants de l’écosystème Hadoop de fonctionner directement sur les données qu’il gère. Stockage Azure et Azure Data Lake Storage (Gen1 et Gen2) sont des systèmes de fichiers distincts, optimisés pour le stockage de données et pour les calculs réalisés à partir de ces données. Pour plus d’informations sur les avantages de l’utilisation du stockage Azure, consultez [utilisation du stockage Azure avec HDInsight](hdinsight-hadoop-use-blob-storage.md), [utilisez Data Lake Storage Gen1 avec HDInsight](hdinsight-hadoop-use-data-lake-store.md), et [utilisez Data Lake Storage Gen2 avec HDInsight](hdinsight-hadoop-use-data-lake-storage-gen2.md).
+Azure HDInsight fournit un système HDFS (Hadoop Distributed File System) complet pour Stockage Azure et Azure Data Lake Storage (Gen1 et Gen2). Stockage Azure et Azure Data Lake Storage (Gen1 et Gen2) sont conçus en tant qu’extensions HDFS pour offrir aux clients une expérience fluide. Ils permettent à l’ensemble des composants de l’écosystème Hadoop de fonctionner directement sur les données qu’il gère. Stockage Azure et Azure Data Lake Storage (Gen1 et Gen2) sont des systèmes de fichiers distincts, optimisés pour le stockage de données et pour les calculs réalisés à partir de ces données. Pour connaître les avantages associés à l’utilisation de Stockage Azure, voir [Utiliser Stockage Azure avec HDInsight](hdinsight-hadoop-use-blob-storage.md), [Utiliser Data Lake Storage Gen1 avec HDInsight](hdinsight-hadoop-use-data-lake-store.md) et [Utiliser Data Lake Storage Gen2 avec HDInsight](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Notez les prérequis suivants avant de démarrer :
 
-* Un cluster Azure HDInsight. Pour obtenir des instructions, consultez [prise en main Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md) ou [HDInsight de créer des clusters](hdinsight-hadoop-provision-linux-clusters.md).
+* Un cluster Azure HDInsight. Pour obtenir des instructions, consultez le didacticiel [Prise en main d’Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md) ou la rubrique [Créer des clusters HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 * Connaissance des articles suivants :
 
-    - [Utilisation du stockage Azure avec HDInsight](hdinsight-hadoop-use-blob-storage.md)
+    - [Utiliser Stockage Azure avec HDInsight](hdinsight-hadoop-use-blob-storage.md)
     - [Utiliser Data Lake Storage Gen1 avec HDInsight](hdinsight-hadoop-use-data-lake-store.md)
     - [Utiliser Data Lake Storage Gen2 avec HDInsight](hdinsight-hadoop-use-data-lake-storage-gen2.md)  
 
@@ -35,7 +35,7 @@ Notez les prérequis suivants avant de démarrer :
 ## <a name="utilities"></a>Services
 Microsoft fournit les utilitaires suivants pour utiliser le Stockage Azure :
 
-| Tool | Linux | OS X | Windows |
+| Outil | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
 | [Portail Azure](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
 | [Interface de ligne de commande Azure](../storage/blobs/storage-quickstart-blobs-cli.md) |✔ |✔ |✔ |
@@ -51,7 +51,7 @@ Microsoft fournit les utilitaires suivants pour utiliser le Stockage Azure :
 ## <a id="commandline"></a>Ligne de commande Hadoop
 La ligne de commande Hadoop est utile uniquement pour stocker les données dans le blob du stockage Azure quand celles-ci sont déjà présentes sur le nœud principal du cluster.
 
-Pour pouvoir utiliser la commande Hadoop, vous devez vous connecter au nœud principal en utilisant [SSH ou PuTTY](hdinsight-hadoop-linux-use-ssh-unix.md).
+Pour utiliser la commande Hadoop, vous devez d’abord vous connecter au nœud principal à l’aide de [SSH ou PuTTY](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Une fois connecté, vous pouvez utiliser la syntaxe suivante pour télécharger un fichier dans le stockage.
 
@@ -82,7 +82,7 @@ Plusieurs applications fournissent également une interface graphique pour utili
 | [Outils Microsoft Visual Studio pour HDInsight](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources) |✔ |✔ |✔ |
 | [Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) |✔ |✔ |✔ |
 | [Cerulea](https://www.cerebrata.com/products/cerulean/features/azure-storage) | | |✔ |
-| [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) | | |✔ |
+| [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer) | | |✔ |
 | [CloudBerry Explorer for Microsoft Azure](https://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx) | | |✔ |
 | [Cyberduck](https://cyberduck.io/) | |✔ |✔ |
 
@@ -103,7 +103,7 @@ Le service Azure Data Factory est un service entièrement géré pour composer d
 ### <a id="sqoop"></a>Apache Sqoop
 Sqoop est un outil conçu pour transférer des données entre Hadoop et des bases de données relationnelles. Vous pouvez l’utiliser pour importer des données depuis un système de gestion de base de données relationnelle (SGBDR) tel que SQ Server, MySQL ou Oracle dans un système de fichiers distribués Hadoop (HDFS), transformer des données dans Hadoop avec MapReduce ou Hive et exporter à nouveau les données dans un SGBDR.
 
-Pour plus d’informations, consultez [utilisation de Sqoop avec HDInsight](hadoop/hdinsight-use-sqoop.md).
+Pour plus d’informations, consultez [Utilisation de Sqoop avec HDInsight](hadoop/hdinsight-use-sqoop.md).
 
 ### <a name="development-sdks"></a>Kits de développement logiciel (SDK) de développement
 Le Stockage Azure est également accessible à l’aide d’un SDK Azure dans les langages de programmation suivants :

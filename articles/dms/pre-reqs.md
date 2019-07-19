@@ -12,15 +12,15 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 05/29/2019
 ms.openlocfilehash: 4e21014f7b4ed86846a100ed9a2b1cd4b0400974
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66304253"
 ---
 # <a name="overview-of-prerequisites-for-using-the-azure-database-migration-service"></a>Vue d’ensemble des conditions préalables pour l’utilisation d’Azure Database Migration Service
 
-Il existe plusieurs conditions préalables requises pour assurer le que service de Migration de base de données Azure s’exécute correctement lorsque vous effectuez des migrations de base de données. Certaines des conditions préalables s’appliquent à tous les scénarios (paires source-cible) pris en charge par le service, tandis que d’autres sont propres à un scénario spécifique.
+Il existe plusieurs conditions préalables requises pour vous garantir qu’Azure Database Migration Service s’exécute correctement lors de la migration de bases de données. Certaines des conditions préalables s’appliquent à tous les scénarios (paires source-cible) pris en charge par le service, tandis que d’autres sont propres à un scénario spécifique.
 
 Les conditions préalables relatives à l’utilisation d’Azure Database Migration Service sont répertoriées dans les sections suivantes.
 
@@ -29,13 +29,13 @@ Les conditions préalables relatives à l’utilisation d’Azure Database Migra
 Les conditions préalables associées à Azure Database Migration Service communes à tous les scénarios de migration pris en charge incluent le besoin de :
 
 * Créez un réseau virtuel Azure (VNet) pour le service Azure Database Migration Service à l’aide du modèle de déploiement Azure Resource Manager, qui fournit une connectivité de site à site à vos serveurs sources locaux via [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou un [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-* Assurez-vous que vos règles de groupe de sécurité réseau (NSG) réseau virtuel ne bloquent pas les éléments suivants ports de communication 443, 53, 9354, 445 et 12000. Pour plus d’informations sur le filtrage du trafic de groupe de sécurité réseau de réseau virtuel Azure, consultez l’article [Filtrer le trafic réseau avec les groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+* Vérifiez que les règles du groupe de sécurité réseau du réseau virtuel ne bloquent pas les ports de communication suivants : 443, 53, 9354, 445, 12000. Pour plus d’informations sur le filtrage du trafic de groupe de sécurité réseau de réseau virtuel Azure, consultez l’article [Filtrer le trafic réseau avec les groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 * Lorsque vous utilisez une appliance de pare-feu devant vos bases de données sources, vous devrez peut-être ajouter des règles de pare-feu pour permettre à Azure Database Migration Service d’accéder aux bases de données sources pour la migration.
 * Configurez votre [pare-feu Windows pour accéder au moteur de base de données](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 * Activez le protocole TCP/IP, qui est désactivé par défaut pendant l’installation de SQL Server Express, en suivant les instructions de l’article [Activer ou désactiver un protocole réseau de serveur](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
 
     > [!IMPORTANT]
-    > Création d’une instance d’Azure Database Migration Service nécessite un accès aux paramètres de réseau virtuel qui ne sont normalement pas du même groupe de ressources. Par conséquent, l’utilisateur qui crée une instance de DMS requiert l’autorisation au niveau de l’abonnement. Pour créer les rôles requis, que vous pouvez assigner en fonction des besoins, exécutez le script suivant :
+    > La création d’une instance d’Azure Database Migration Service nécessite l’accès à des paramètres de réseau virtuel qui ne font normalement pas partie du même groupe de ressources. Par conséquent, l’utilisateur qui crée une instance de DMS a besoin d’une autorisation au niveau de l’abonnement. Pour créer les rôles requis, que vous pouvez affecter selon vos besoins, exécutez le script suivant :
     >
     > ```
     >
@@ -118,9 +118,9 @@ Lorsque vous utilisez Azure Database Migration Service pour exécuter SQL Server
    > Pour une liste complète des prérequis pour utiliser Azure Database Migration Service afin d’effectuer des migrations à partir de SQL Server vers Azure SQL Database, consultez le tutoriel [Migrer SQL Server vers Azure SQL Database](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-azure-sql).
    > 
 
-## <a name="prerequisites-for-migrating-sql-server-to-an-azure-sql-database-managed-instance"></a>Conditions préalables pour la migration de SQL Server vers une base de données Azure SQL managed instance
+## <a name="prerequisites-for-migrating-sql-server-to-an-azure-sql-database-managed-instance"></a>Prérequis pour la migration de SQL Server vers une instance gérée Azure SQL Database
 
-* Créer une instance gérée Azure SQL Database en suivant les indications dans l’article [créer une Azure SQL Database Managed Instance dans le portail Azure](https://aka.ms/sqldbmi).
+* Créez une instance managée Azure SQL Database en suivant les indications de l’article [Créer une instance Azure SQL Database Managed Instance dans le Portail Azure](https://aka.ms/sqldbmi).
 * Ouvrez vos pare-feu afin d’autoriser le trafic SMB via le port 445 pour la plage d’adresses IP ou le sous-réseau Azure Database Migration Service.
 * Ouvrez votre Pare-feu Windows pour permettre à Azure Database Migration Service d’accéder au serveur SQL Server source, par défaut le port TCP 1433.
 * Si vous exécutez plusieurs instances nommées de SQL Server avec des ports dynamiques, vous pouvez activer le service SQL Browser et autoriser l’accès au port UDP 1434 à travers vos pare-feu, de sorte qu’Azure Database Migration Service puisse se connecter à une instance nommée sur votre serveur source.

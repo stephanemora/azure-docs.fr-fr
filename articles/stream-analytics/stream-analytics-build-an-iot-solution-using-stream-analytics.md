@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 5b2c153646021aeb8ee0dbb787cfce41af19568d
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 4b250a5e14ab37553d93453d05f8ff388bf1ba84
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443679"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620517"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Créer une solution IoT à l’aide de Stream Analytics
 
@@ -51,7 +51,7 @@ Le flux des données d’entrée contient les informations relatives aux véhicu
 | 3 |2014-09-10 12:02:00.000 |ABC 1004 |CT |Ford |Taurus |1 |0 |5\. |456789123 |
 | 2 |2014-09-10 12:03:00.000 |XYZ 1003 |CT |Toyota |Corolla |1 |0 |4 | |
 | 1 |2014-09-10 12:03:00.000 |BNJ 1007 |NY |Honda |CRV |1 |0 |5\. |789123456 |
-| 2 |2014-09-10 12:05:00.000 |CDE 1007 |NJ |Toyota |4x4 |1 |0 |6\. |321987654 |
+| 2 |2014-09-10 12:05:00.000 |CDE 1007 |NJ |Toyota |4x4 |1 |0 |6 |321987654 |
 
 Voici une brève description des colonnes :
 
@@ -164,7 +164,7 @@ Il existe plusieurs ressources qui peuvent facilement être déployées ensemble
 
    Pour paraphraser le but de la requête, imaginons que vous ayez besoin de compter le nombre de véhicules entrant dans un poste de péage. Un poste de péage autoroutier accueillant un flux continu de véhicules, ces événements d’entrée peuvent être comparés à un flux qui ne s’arrête jamais. Pour quantifier le flux, vous devez définir la « durée » pendant laquelle vous allez effectuer la mesure. Nous pouvons affiner la question de la sorte : « Combien de véhicules passent par le poste de péage en trois minutes ? ». C’est ce qu’on appelle communément le « nombre bascule ».
 
-   Comme vous pouvez le voir, Azure Stream Analytics utilise un langage de requête similaire à SQL et ajoute quelques extensions pour spécifier les aspects de la requête liés au temps.  Pour plus de détails, consultez les constructions de [gestion du temps](https://msdn.microsoft.com/library/azure/mt582045.aspx) et de [fenêtrage](https://msdn.microsoft.com/library/azure/dn835019.aspx) utilisées dans la requête.
+   Comme vous pouvez le voir, Azure Stream Analytics utilise un langage de requête similaire à SQL et ajoute quelques extensions pour spécifier les aspects de la requête liés au temps.  Pour plus de détails, consultez les constructions de [gestion du temps](https://docs.microsoft.com/stream-analytics-query/time-management-azure-stream-analytics) et de [fenêtrage](https://docs.microsoft.com/stream-analytics-query/windowing-azure-stream-analytics) utilisées dans la requête.
 
 3. Examinez les entrées de l’exemple de tâche TollApp. Seule l’entrée EntryStream est utilisée dans la requête actuelle.
    - L’entrée **EntryStream** est une connexion de l'Event Hub qui met en file d’attente les données représentant chaque passage d’un véhicule par un poste de péage autoroutier. Une application web qui fait partie de l’exemple crée les événements, et ces données sont mises en file d’attente dans cet Event Hub. Notez que cette entrée est interrogée dans la clause FROM de la requête de diffusion en continu.

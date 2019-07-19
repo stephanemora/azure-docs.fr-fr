@@ -3,17 +3,17 @@ title: Créer et gérer des règles d’événement dans votre application Azure
 description: Les règles d’événement d’Azure IoT Central vous permettent de surveiller vos appareils quasi en temps réel et d’appeler automatiquement des actions, comme l’envoi d’un e-mail, quand la règle se déclenche.
 author: ankitscribbles
 ms.author: ankitgup
-ms.date: 02/20/2019
+ms.date: 06/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: a2bce535d8612eca565970d4c530a27efb356334
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
-ms.translationtype: MT
+ms.openlocfilehash: 4754e6b571845d286ef22014f87b86fae2f6633d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65464519"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67053019"
 ---
 # <a name="create-an-event-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Créer une règle d’événement et configurer des notifications dans votre application Azure IoT Central
 
@@ -27,21 +27,21 @@ Les appareils peuvent utiliser les mesures d’événement pour envoyer les év�
 
 Pour permettre la création d’une règle d’événement, le modèle d’appareil doit comporter au moins une mesure d’événement définie. Cet exemple utilise un appareil distributeur réfrigéré qui signale un événement d’erreur de moteur du ventilateur. La règle surveille l’événement signalé par l’appareil et envoie un e-mail chaque fois que l’événement est signalé.
 
-1. À l’aide de la **modèles de périphériques** page, accédez au modèle de périphérique pour lequel vous ajoutez la règle pour.
+1. À l’aide de la page **Modèles d’appareil**, accédez au modèle d’appareil pour lequel vous ajoutez la règle.
 
 1. Si vous n’avez pas encore créé de règles, vous voyez l’écran suivant :
 
     ![Pas encore de règles](media/howto-create-event-rules/rules_landing_page1.png)
 
-1. Sur le **règles** onglet, sélectionnez **+ nouvelle règle** pour voir les types de règles que vous pouvez créer.
+1. Sous l’onglet **Règles**, sélectionnez **+ Nouvelle règle** pour voir les types de règles que vous pouvez créer.
 
-1. Choisissez le **événement** pour créer une règle de surveillance des événements.
+1. Choisissez la vignette **Événement** pour créer une règle de surveillance d’événement.
 
     ![Types de règles](media/howto-create-event-rules/rule_types1.png)
 
 1. Entrez un nom facilitant l’identification de la règle dans ce modèle d’appareil.
 
-1. Pour activer immédiatement la règle pour tous les appareils créés à partir de ce modèle, activer/désactiver **activer la règle pour tous les appareils de ce modèle**.
+1. Pour activer immédiatement la règle sur tous les appareils créés à partir de ce modèle, choisissez **Activer la règle pour tous les appareils de ce modèle**.
 
     ![Détail de la règle](media/howto-create-event-rules/rule_detail1.png)
 
@@ -59,21 +59,21 @@ La condition définit les critères qui sont surveillés par la règle.
 
 1. Si vous le souhaitez, vous pouvez également définir le champ **Agrégation** sur la valeur **Nombre** et spécifier le seuil correspondant.
 
-   - Sans agrégation, la règle se déclenche pour chaque point de données d’événement qui remplit la condition. Par exemple, si vous configurez la règle de condition à déclencher quand un **erreur Motor ventilateur** événement se produit, puis la règle déclenche presque immédiatement lorsque l’appareil signale que l’événement.
-   - Si la fonction Nombre est utilisée comme fonction d’agrégation, vous devez définir un **seuil** et une **période d’agrégation** pendant laquelle la condition doit être évaluée. Dans ce cas, le nombre d’événements est agrégé et la règle se déclenche uniquement si le nombre d’événements agrégés correspond au seuil.
+   - Sans agrégation, la règle se déclenche pour chaque point de données d’événement qui remplit la condition. Par exemple, si vous configurez la condition de la règle pour que cette dernière se déclenche lorsqu’un événement d’**erreur du moteur du ventilateur** survient, la règle se déclenche presque immédiatement après le signalement de cet événement par l’appareil.
+   - Si la fonction Nombre est utilisée comme fonction d’agrégation, vous devez définir un **seuil** et une **période d’agrégation** pendant laquelle la condition doit être évaluée. Dans ce cas, le nombre d’événements est agrégé, et la règle se déclenche uniquement si le nombre d’événements agrégés correspond au seuil.
 
      Par exemple, si vous souhaitez être alerté lorsque plus de trois événements d’appareil se produisent en 5 minutes, sélectionnez l’événement et définissez la fonction d’agrégation sur « nombre », l’opérateur sur « supérieur à » et le « seuil » sur 3. Définissez la période d’agrégation sur « 5 minutes ». La règle se déclenchera si l’appareil envoie plus de trois événements en 5 minutes. La fréquence d’évaluation de la règle est identique à la **période d’agrégation**, ce qui signifie que, dans cet exemple, la règle est évaluée toutes les 5 minutes.
 
      ![Ajouter une condition d’événement](media/howto-create-event-rules/aggregate_condition_filled_out1.png)
 
      >[!NOTE]
-     >Vous pouvez ajouter plusieurs mesures d’événement sous **Condition**. Quand plusieurs conditions sont spécifiées, toutes les conditions doivent être remplies pour que la règle se déclenche. Chaque condition obtient implicitement jointes par une clause 'Et'. Lorsque vous utilisez un agrégat, chaque mesure doit être agrégée.
+     >Vous pouvez ajouter plusieurs mesures d’événement sous **Condition**. Quand plusieurs conditions sont spécifiées, toutes les conditions doivent être remplies pour que la règle se déclenche. Chaque condition est implicitement jointe par une clause « AND ». Lorsque vous utilisez un agrégat, chaque mesure doit être agrégée.
 
 ### <a name="configure-actions"></a>Configurer les actions
 
 Cette section vous indique comment configurer les actions à effectuer lorsque la règle est déclenchée. Les actions sont appelées lorsque toutes les conditions spécifiées dans la règle présentent la valeur true.
 
-1. Choisissez le signe Plus (**+**) en regard de **Actions**. Vous voyez ici la liste des actions disponibles.
+1. Choisissez le signe Plus ( **+** ) en regard de **Actions**. Vous voyez ici la liste des actions disponibles.
 
     ![Ajouter une action](media/howto-create-event-rules/add_action1.png)
 
@@ -113,5 +113,5 @@ Maintenant que vous avez appris à créer des règles dans votre application Azu
 
 - [Ajouter une action Microsoft Flow dans les règles](howto-add-microsoft-flow.md)
 - [Ajouter une action Webhook dans les règles](howto-create-webhooks.md)
-- [Plusieurs actions à exécuter à partir d’une ou plusieurs règles de groupe](howto-use-action-groups.md)
+- [Regrouper plusieurs actions à exécuter à partir d’une ou plusieurs règles](howto-use-action-groups.md)
 - [Gérer vos appareils](howto-manage-devices.md)

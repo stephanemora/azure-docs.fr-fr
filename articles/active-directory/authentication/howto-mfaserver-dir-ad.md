@@ -1,5 +1,5 @@
 ---
-title: Intégration du serveur Azure MFA et Active Directory - Azure Active Directory
+title: Intégration du serveur Azure MFA et d’Active Directory - Azure Active Directory
 description: Comment intégrer le serveur Microsoft Azure Multi-Factor Authentication à Active Directory afin de pouvoir synchroniser les annuaires.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -12,22 +12,28 @@ manager: daveba
 ms.reviewer: michmcla
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f97b4ee364ecadde7738b8fe077f21d5732365f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: eac6cff0f0f12daaf772549f547aafd670600d61
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60358416"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67536982"
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Intégration d'annuaires entre le serveur Azure MFA et Active Directory
 
 Utilisez la section Intégration de répertoires du serveur Azure MFA pour l’intégrer à Active Directory ou un autre répertoire LDAP. Vous pouvez configurer des attributs pour correspondre au schéma du répertoire et configurer la synchronisation automatique des utilisateurs.
 
+> [!IMPORTANT]
+> À compter du 1er juillet 2019, Microsoft ne proposera plus le serveur MFA pour les nouveaux déploiements. Les nouveaux clients qui veulent demander à leurs clients de procéder à une authentification multifacteur doivent utiliser la fonction Azure Multi-Factor Authentication basée sur le cloud. Les clients existants qui ont activé le serveur MFA avant le 1er juillet pourront télécharger la dernière version et les futures mises à jour et générer des informations d’identification d’activation comme d’habitude.
+
 ## <a name="settings"></a>Paramètres
 
 Par défaut, le serveur Azure Multi-Factor Authentication (MFA) est configuré pour importer ou synchroniser des utilisateurs à partir d’Active Directory.  L’onglet Intégration de répertoires vous permet d’annuler le comportement par défaut et d’effectuer la liaison à un autre répertoire LDAP, un répertoire ADAM ou un contrôleur de domaine Active Directory spécifique.  Il permet également l'utilisation de l'authentification LDAP sur un proxy LDAP ou une liaison LDAP comme cible RADIUS, la pré-authentification pour l'authentification IIS ou l'authentification principale pour le portail de l'utilisateur.  Le tableau suivant décrit les paramètres individuels.
 
-![Modifier la configuration de LDAP du serveur MFA](./media/howto-mfaserver-dir-ad/dirint.png)
+![Modifier la configuration LDAP du serveur MFA](./media/howto-mfaserver-dir-ad/dirint.png)
+
+> [!NOTE]
+> Il n’est pas garanti que l’intégration d’annuaire fonctionnera correctement avec des répertoires autres qu’Active Directory Domain Services.
 
 | Fonctionnalité | Description |
 | --- | --- |
@@ -54,7 +60,7 @@ Le tableau suivant décrit les paramètres de la configuration LDAP.
 
 Les filtres vous permettent de définir des critères pour qualifier les enregistrements lorsque vous effectuez une recherche dans l'annuaire.  En définissant le filtre, vous pouvez étendre les objets que vous souhaitez synchroniser.  
 
-![Configurer le filtrage du répertoire du serveur MFA](./media/howto-mfaserver-dir-ad/dirint2.png)
+![Configurer le filtrage d’annuaire du serveur MFA](./media/howto-mfaserver-dir-ad/dirint2.png)
 
 Azure Multi-Factor Authentication comporte les trois options de filtre suivantes :
 
@@ -64,17 +70,17 @@ Azure Multi-Factor Authentication comporte les trois options de filtre suivantes
 
 ## <a name="attributes"></a>Attributs
 
-Vous pouvez personnaliser les attributs pour un répertoire spécifique.  Cela vous permet d’ajouter des attributs personnalisés et de régler avec précision la synchronisation uniquement avec les attributs dont vous avez besoin. Utilisez le nom de l’attribut tel que défini dans le schéma de répertoire pour la valeur de chaque champ d’attribut. Le tableau suivant fournit des informations supplémentaires sur chaque fonctionnalité.
+Vous pouvez personnaliser les attributs pour un répertoire spécifique.  Cela vous permet d’ajouter des attributs personnalisés et de régler avec précision la synchronisation uniquement avec les attributs dont vous avez besoin. Utilisez le nom de l’attribut, tel que défini dans le schéma de l’annuaire pour la valeur de chaque champ d’attribut. Le tableau suivant fournit des informations supplémentaires sur chaque fonctionnalité.
 
 Les attributs peuvent être entrés manuellement et ne doivent pas nécessairement correspondre à un attribut de la liste d’attributs.
 
-![Personnaliser les attributs d’intégration de répertoire du serveur MFA](./media/howto-mfaserver-dir-ad/dirint3.png)
+![Personnaliser les attributs d’intégration d’annuaire du serveur MFA](./media/howto-mfaserver-dir-ad/dirint3.png)
 
 | Fonctionnalité | Description |
 | --- | --- |
 | Identificateur unique |Entrez le nom de l'attribut qui sert d'identificateur unique pour le conteneur, le groupe de sécurité et les enregistrements utilisateur.  Dans Active Directory, il s'agit généralement de objectGUID. Les autres implémentations LDAP peuvent utiliser entryUUID ou autre paramètre similaire.  La valeur par défaut est objectGUID. |
 | Type d'identificateur unique |Sélectionnez le type de l'attribut d'identificateur unique.  Dans Active Directory, l'attribut objectGUID est du type GUID. Les autres implémentations LDAP peuvent utiliser Chaîne ou Tableau d’octets ASCII.  La valeur par défaut est GUID. <br><br>Il est important de définir correctement ce type dans la mesure où les éléments de synchronisation sont référencés par leur identificateur unique. Le type d’identificateur unique est utilisé pour trouver directement l’objet dans le répertoire.  La définition de ce type sur Chaîne alors que le répertoire stocke la valeur sous forme de tableau d’octets de caractères ASCII empêche la synchronisation de fonctionner correctement. |
-| Nom unique |Entrez le nom de l'attribut qui contient le nom unique de chaque enregistrement.  Dans Active Directory, il s'agit généralement de distinguishedName. Les autres implémentations LDAP peuvent utiliser entryDN ou autre paramètre similaire.  La valeur par défaut est distinguishedName. <br><br>Si un attribut contenant simplement le nom unique n’existe pas, l’attribut de chemin d’accès de publicités peut être utilisé.  La partie « LDAP://\<server\>/ » du chemin d’accès est automatiquement supprimée. Seul le nom unique de l’objet est conservé. |
+| Nom unique |Entrez le nom de l'attribut qui contient le nom unique de chaque enregistrement.  Dans Active Directory, il s'agit généralement de distinguishedName. Les autres implémentations LDAP peuvent utiliser entryDN ou autre paramètre similaire.  La valeur par défaut est distinguishedName. <br><br>Si un attribut contenant seulement le nom unique n’existe pas, l’attribut ads path peut être utilisé.  La partie « LDAP://\<server\>/ » du chemin d’accès est automatiquement supprimée. Seul le nom unique de l’objet est conservé. |
 | Nom du conteneur |Entrez le nom de l'attribut qui contient le nom d'un enregistrement de conteneur.  La valeur de cet attribut s’affiche dans la hiérarchie de conteneur lors de l’importation à partir d’Active Directory ou l’ajout d’éléments de synchronisation.  La valeur par défaut est name. <br><br>Si des conteneurs différents utilisent des attributs différents pour leurs noms, séparez les attributs de nom de conteneur par des points-virgules.  Le premier attribut de nom de conteneur trouvé sur un objet de conteneur est utilisé pour afficher son nom. |
 | Nom de groupe de sécurité |Entrez le nom de l'attribut qui contient le nom d'un enregistrement de groupe de sécurité.  La valeur de cet attribut s’affiche dans la liste des groupes de sécurité lors de l’importation à partir d’Active Directory ou lors de l’ajout d’éléments de synchronisation.  La valeur par défaut est name. |
 | Nom d’utilisateur |Entrez le nom de l'attribut qui contient le nom d'utilisateur dans un enregistrement utilisateur.  La valeur de cet attribut est utilisée comme nom d’utilisateur du serveur MFA.  Un deuxième attribut peut être spécifié en tant que sauvegarde.  Le deuxième attribut n’est utilisé que si le premier attribut ne contient pas de valeur pour l’utilisateur.  Les valeurs par défaut sont userPrincipalName et sAMAccountName. |
@@ -99,7 +105,7 @@ Les attributs peuvent être entrés manuellement et ne doivent pas nécessaireme
 
 Pour modifier les attributs, cliquez sur **Modifier** dans l’onglet Attributs.  Cette action ouvre une fenêtre dans laquelle vous pouvez modifier les attributs. Sélectionnez **...** en regard d’un attribut pour ouvrir une fenêtre dans laquelle vous pouvez choisir les attributs à afficher.
 
-![Modifier le mappage d’attribut directory du serveur MFA](./media/howto-mfaserver-dir-ad/dirint4.png)
+![Modifier le mappage d’attribut d’annuaire du serveur MFA](./media/howto-mfaserver-dir-ad/dirint4.png)
 
 ## <a name="synchronization"></a>Synchronisation
 
@@ -111,7 +117,7 @@ Le service Multi-Factor Auth ADSync utilise l'extension de serveur LDAP DirSync 
 
 Si le répertoire LDAP prend en charge le contrôle DirSync et est configuré pour l’utiliser, alors l’interrogation pour connaître les modifications des utilisateurs et des groupes de sécurité fonctionnera de la même manière qu’avec Active Directory.  Si le répertoire LDAP ne prend pas en charge le contrôle DirSync, alors une synchronisation complète est effectuée lors de chaque cycle.
 
-![Synchronisation d’objets d’annuaire pour le serveur MFA](./media/howto-mfaserver-dir-ad/dirint5.png)
+![Synchronisation d’objets annuaire avec le serveur MFA](./media/howto-mfaserver-dir-ad/dirint5.png)
 
 Le tableau suivant contient des informations supplémentaires sur chaque paramètre de l’onglet Synchronisation.
 
@@ -121,7 +127,7 @@ Le tableau suivant contient des informations supplémentaires sur chaque paramè
 | Synchroniser toutes les |Spécifiez combien de temps le service du serveur MFA doit attendre entre l'interrogation et le traitement des modifications. <br><br> Remarque : L’intervalle spécifié correspond au temps entre le début de chaque cycle.  Si la durée de traitement des modifications dépasse l’intervalle, l’interrogation redémarre immédiatement. |
 | Supprimer les utilisateurs n'étant plus dans Active Directory |Lorsque cette option est activée, le service du serveur MFA traite les objets tombstone des utilisateurs supprimés dans Active Directory et supprime l'utilisateur connexe. |
 | Toujours effectuer une synchronisation complète |Lorsque cette option est activée, le service du serveur MFA effectue toujours une synchronisation complète.  Lorsqu'elle est désactivée, le service du serveur MFA effectue une synchronisation incrémentielle en interrogeant uniquement les utilisateurs qui ont été modifiés.  Par défaut, cette option est désactivée. <br><br>Quand elle est désactivée, le serveur Azure MFA procède à une synchronisation incrémentielle uniquement si le répertoire prend en charge le contrôle DirSync et que le compte utilisé pour la liaison au répertoire possède les autorisations nécessaires pour effectuer des requêtes incrémentielles DirSync.  Si le compte ne dispose pas des autorisations appropriées ou si plusieurs domaines sont impliqués dans la synchronisation, le serveur Azure MFA effectue une synchronisation complète. |
-| Exiger l'approbation de l'administrateur lorsque le nombre d'utilisateurs désactivés ou supprimés dépasse X |Les éléments de synchronisation peuvent être configurés pour désactiver ou supprimer les utilisateurs qui ne font plus partie du groupe de sécurité ou du conteneur de l'élément.  Par précaution, il est possible d'exiger l'approbation de l'administrateur lorsque le nombre d'utilisateurs à désactiver ou à supprimer dépasse un seuil.  Lorsque cette option est activée, l’approbation est requise pour le seuil spécifié.  La valeur par défaut est 5 et la plage va de 1 à 999. <br><br>  L'approbation est facilitée par l'envoi au préalable d'une notification par courrier électronique aux administrateurs. La notification par courrier électronique fournit des instructions sur la révision et l'approbation de la désactivation et la suppression des utilisateurs.  Lorsque l'interface utilisateur du serveur MFA est lancée, elle demande l'approbation. |
+| Exiger l'approbation de l'administrateur lorsque le nombre d'utilisateurs désactivés ou supprimés dépasse X |Les éléments de synchronisation peuvent être configurés pour désactiver ou supprimer les utilisateurs qui ne font plus partie du groupe de sécurité ou du conteneur de l'élément.  Par précaution, il est possible d'exiger l'approbation de l'administrateur lorsque le nombre d'utilisateurs à désactiver ou à supprimer dépasse un seuil.  Lorsque cette option est activée, l’approbation est requise pour le seuil spécifié.  La valeur par défaut est 5 et la plage va de 1 à 999. <br><br> L'approbation est facilitée par l'envoi au préalable d'une notification par courrier électronique aux administrateurs. La notification par courrier électronique fournit des instructions sur la révision et l'approbation de la désactivation et la suppression des utilisateurs.  Lorsque l'interface utilisateur du serveur MFA est lancée, elle demande l'approbation. |
 
 Le bouton **Synchroniser maintenant** permet d'exécuter une synchronisation complète des éléments de synchronisation spécifiés.  Une synchronisation complète est nécessaire à chaque fois que des éléments de synchronisation sont ajoutés, modifiés, supprimés ou réorganisés.  Elle est également nécessaire pour que le service Multi-Factor Auth AdSync soit opérationnel, dans la mesure où elle définit le point de départ à partir duquel le service interroge les modifications incrémentielles.  Si des modifications ont été apportées aux éléments de synchronisation mais qu’aucune synchronisation complète n’a été effectuée, vous devrez synchroniser immédiatement.
 
@@ -137,8 +143,8 @@ Les boutons Déplacer vers le haut et Déplacer vers le bas permettent à l'admi
 > [!TIP]
 > Une synchronisation complète doit être effectuée après la suppression d'éléments de synchronisation.  Une synchronisation complète doit être effectuée après la réorganisation d'éléments de synchronisation.  Cliquez sur **Synchroniser maintenant** pour effectuer une synchronisation complète.
 
-## <a name="multi-factor-authentication-servers"></a>Serveurs multi-Factor Authentication
+## <a name="multi-factor-authentication-servers"></a>Serveurs Multi-Factor Authentication
 
-Les serveurs multi-Factor Authentication supplémentaires peuvent être configurés pour servir en tant que proxy RADIUS de secours, proxy LDAP, ou pour l’authentification IIS. La configuration de la synchronisation est partagée par tous les agents. Toutefois, qu’un seul de ces agents peut avoir l’exécution de service du serveur multi-Factor Authentication. Cet onglet vous permet de sélectionner le serveur multi-Factor Authentication qui doit être activé pour la synchronisation.
+Il est possible de configurer des serveurs MFA supplémentaires en tant que proxy RADIUS de secours, proxy LDAP ou pour l’authentification IIS. La configuration de la synchronisation est partagée par tous les agents. Toutefois, le service du serveur MFA ne peut s’exécuter que sur un seul agent. Cet onglet vous permet de sélectionner le serveur MFA qui doit être activé pour la synchronisation.
 
-![Les serveurs de multi-Factor Authentication associés](./media/howto-mfaserver-dir-ad/dirint6.png)
+![Serveurs Multi-Factor Authentication associés](./media/howto-mfaserver-dir-ad/dirint6.png)

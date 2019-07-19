@@ -16,12 +16,12 @@ ms.date: 05/08/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2916c9aba7d404ff4ad380d249bd507fadf71ea
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: b0392a40ef948d96e613da9127629f52b02deb97
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67310076"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655820"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Conditions préalables pour Azure AD Connect
 Cette rubrique décrit les conditions préalables et la configuration matérielle requise pour Azure AD Connect.
@@ -49,7 +49,7 @@ Avant d’installer Azure AD Connect, voici ce dont vous avez besoin.
 
 ### <a name="azure-ad-connect-server"></a>Serveur Azure AD Connect
 >[!IMPORTANT]
->Le serveur Azure AD Connect contient des données d’identité critique et doit être traité comme un composant de niveau 0 comme expliqué dans [le modèle de niveau administratif Active Directory](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#ADATM_BM).
+>Le serveur Azure AD Connect contient des données d’identité critique et doit être traité comme un composant de niveau 0 comme expliqué dans [le modèle de niveau administratif Active Directory](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material).
 
 * Vous ne pouvez pas installer Azure AD Connect sur Small Business Server ou Windows Server Essentials version antérieure à 2019 (Windows Server Essentials 2019 est pris en charge). Le serveur doit utiliser Windows Server Standard ou une version supérieure.
 * L’installation d’Azure AD Connect sur un contrôleur de domaine n’est pas recommandée en raison des pratiques de sécurité et de paramètres plus restrictifs pouvant empêchant Azure AD Connect de s’installer correctement.

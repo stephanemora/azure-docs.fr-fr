@@ -8,16 +8,16 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: e4a6d169b50eff1b0e166bea098e28e65bad8cab
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: ed50dfd7e3c423c1c26a7dc19ae60dcb319f1850
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67329302"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621611"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Utiliser des données de référence pour effectuer des recherches dans Stream Analytics
 
-Les données de référence (également appelées « tables de choix ») sont un jeu de données finies, statiques ou variant lentement par nature, utilisé pour effectuer des recherches ou pour augmenter vos flux de données. Par exemple, dans un scénario IoT, vous pourriez stocker des métadonnées sur les capteurs (qui ne changent pas souvent) dans les données de référence et les associer à des flux de données IoT en temps réel. Azure Stream Analytics charge les données de référence dans la mémoire pour obtenir un traitement de flux à faible latence. Pour utiliser des données de référence dans votre travail Azure Stream Analytics, vous utiliserez généralement une [jointure de données de référence](https://msdn.microsoft.com/library/azure/dn949258.aspx) dans votre requête. 
+Les données de référence (également appelées « tables de choix ») sont un jeu de données finies, statiques ou variant lentement par nature, utilisé pour effectuer des recherches ou pour augmenter vos flux de données. Par exemple, dans un scénario IoT, vous pourriez stocker des métadonnées sur les capteurs (qui ne changent pas souvent) dans les données de référence et les associer à des flux de données IoT en temps réel. Azure Stream Analytics charge les données de référence dans la mémoire pour obtenir un traitement de flux à faible latence. Pour utiliser des données de référence dans votre travail Azure Stream Analytics, vous utiliserez généralement une [jointure de données de référence](https://docs.microsoft.com/stream-analytics-query/reference-data-join-azure-stream-analytics) dans votre requête. 
 
 Stream Analytics prend en charge le stockage Blob Azure et Azure SQL Database comme couche de stockage pour les données de référence. Vous pouvez également transformer et/ou copier des données de référence dans le stockage d’objets Blob à partir d’Azure Data Factory pour utiliser [n’importe quel nombre de banques de données cloud et locales](../data-factory/copy-activity-overview.md).
 
@@ -89,7 +89,7 @@ Pour configurer vos données de référence SQL Database, vous devez d'abord cr�
 |**Nom de la propriété**|**Description**  |
 |---------|---------|
 |Alias d’entrée|Nom convivial qui servira dans la requête de tâche pour faire référence à cette entrée.|
-|Abonnement|Choisir votre abonnement|
+|Subscription|Choisir votre abonnement|
 |Base de données|Base de données Azure SQL qui contient vos données de référence.|
 |Nom d’utilisateur|Nom d’utilisateur associé à votre base de données Azure SQL.|
 |Mot de passe|Mot de passe associé à votre base de données Azure SQL.|

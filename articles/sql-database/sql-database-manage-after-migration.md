@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 02/13/2019
 ms.openlocfilehash: 73bc2d9889727a1633986e12642bd06cf2714632
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66357326"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Nouvel administrateur de base de données dans le cloud - Gérer vos bases de données uniques et mises en pool dans Azure SQL Database
@@ -29,7 +29,7 @@ Le passage d’un environnement autogéré et auto-contrôlé traditionnel à un
 
 Cet article traite de certaines caractéristiques essentielles d'Azure SQL Database en tant que plateforme, auxquelles vous pouvez facilement avoir recours lorsque vous utilisez des bases de données uniques et des bases de données mises en pool dans des pools élastiques. Ces caractéristiques sont les suivantes :
 
-- Surveiller la base de données à l’aide du portail Azure
+- Analyser des bases de données au moyen du Portail Azure
 - Continuité d’activité et récupération d’urgence (BCDR)
 - Sécurité et conformité
 - Surveillance et maintenance de bases de données intelligentes
@@ -40,7 +40,7 @@ Cet article traite de certaines caractéristiques essentielles d'Azure SQL Datab
 
 ## <a name="monitor-databases-using-the-azure-portal"></a>Analyser des bases de données au moyen du portail Azure
 
-Dans le [Azure portal](https://portal.azure.com/), vous pouvez surveiller une utilisation de la base de données individuelle s en sélectionnant votre base de données, puis en cliquant sur le **surveillance** graphique. Une fenêtre **Métrique** apparaît. Vous pouvez la modifier en cliquant sur le bouton **Modifier le graphique**. Ajoutez les mesures suivantes :
+Dans le [Portail Azure](https://portal.azure.com/), vous pouvez superviser l’utilisation de bases de données individuelles en sélectionnant votre base de données et en cliquant sur le graphique **Surveillance**. Une fenêtre **Métrique** apparaît. Vous pouvez la modifier en cliquant sur le bouton **Modifier le graphique**. Ajoutez les mesures suivantes :
 
 - Pourcentage UC
 - Pourcentage DTU
@@ -172,7 +172,7 @@ Pour protéger vos données sensibles en transit et au repos, SQL Database propo
 |**Caractéristiques**|**Always Encrypted**|**Chiffrement transparent des données**|
 |---|---|---|
 |**Étendue de chiffrement**|Bout en bout|Données au repos|
-|**Le serveur de base de données peut accéder aux données sensibles**|Non |Oui, étant donné que le chiffrement concerne les données au repos|
+|**Le serveur de base de données peut accéder aux données sensibles**|Non|Oui, étant donné que le chiffrement concerne les données au repos|
 |**Opérations T-SQL autorisées**|Comparaison d’égalité|Toute la surface d’exposition T-SQL est disponible|
 |**Modifications de l’application exigées pour utiliser la fonctionnalité**|Minimales|Très minimes|
 |**Granularité de chiffrement**|Au niveau des colonnes|Au niveau de la base de données|
@@ -180,7 +180,7 @@ Pour protéger vos données sensibles en transit et au repos, SQL Database propo
 
 ### <a name="how-can-i-limit-access-to-sensitive-data-in-my-database"></a>Comment limiter l’accès aux données sensibles dans ma base de données
 
-Chaque application comporte des données sensibles dans la base de données qui ont besoin d’une protection afin de ne pas être visibles par tous. Certains employés de l’organisation ont besoin de consulter ces données, tandis que d’autres ne doivent pas être en mesure de les afficher. C’est le cas des salaires des employés, par exemple. Un gestionnaire a besoin, les informations de salaire à leurs collaborateurs directs Toutefois, les membres d’équipe individuel ne doit pas avoir accès aux informations de salaire de leurs homologues. Un autre scénario a trait aux développeurs de données amenés à manipuler des données sensibles lors des phases de développement ou de test, par exemple, les numéros de sécurité sociale de clients. Là encore, ces informations n’ont pas besoin d’être exposées aux développeurs. Dans de telles situations, vos données sensibles ont besoin d’être masquées ou carrément non exposées. SQL Database propose deux approches permettant d’empêcher les utilisateurs non autorisés d’afficher des données sensibles :
+Chaque application comporte des données sensibles dans la base de données qui ont besoin d’une protection afin de ne pas être visibles par tous. Certains employés de l’organisation ont besoin de consulter ces données, tandis que d’autres ne doivent pas être en mesure de les afficher. C’est le cas des salaires des employés, par exemple. Un manager a besoin d’accéder aux informations sur les salaires de ses collaborateurs directs, tandis que les membres de son équipe ne doivent pas pouvoir accéder aux informations salariales individuelles de chacun. Un autre scénario a trait aux développeurs de données amenés à manipuler des données sensibles lors des phases de développement ou de test, par exemple, les numéros de sécurité sociale de clients. Là encore, ces informations n’ont pas besoin d’être exposées aux développeurs. Dans de telles situations, vos données sensibles ont besoin d’être masquées ou carrément non exposées. SQL Database propose deux approches permettant d’empêcher les utilisateurs non autorisés d’afficher des données sensibles :
 
 [Dynamic Data Masking](sql-database-dynamic-data-masking-get-started.md) est une fonctionnalité de masquage de données qui vous permet de limiter l’exposition des données sensibles en les masquant aux utilisateurs qui n’ont aucun privilège sur la couche Application. Vous définissez une règle de masquage qui peut créer un modèle de masquage (par exemple, pour afficher uniquement les quatre derniers chiffres d’un numéro d’identification quelconque, utilisez un modèle de type XXX-XX-0000 qui permet de masquer le reste avec des X) et d’identifier les utilisateurs à exclure de la règle de masquage. Le masquage se produit à la volée et il existe diverses fonctions de masquage disponibles pour diverses catégories de données. Le masquage dynamique des données vous permet de détecter automatiquement les données sensibles dans votre base de données et de leur appliquer des masques.
 
@@ -227,7 +227,7 @@ Express Route vous permet également de doubler la limite de bande passante que 
 
 ### <a name="is-sql-database-compliant-with-any-regulatory-requirements-and-how-does-that-help-with-my-own-organizations-compliance"></a>Est-ce que SQL Database est conforme aux exigences réglementaires et comment cela peut-il répondre aux exigences de conformité de mon organisation
 
-SQL Database est conforme à un certain nombre d’exigences réglementaires. Pour afficher la dernière série d’en matière de confidentialité qui ont été remplies par la base de données SQL, visitez le [Microsoft Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) et détaille l’en matière de confidentialité qui est importants pour votre organisation pour voir si la base de données SQL est inclus sous le conforme Services Azure. Il est important de noter que même si SQL Database peut être certifié en tant que service conforme, il contribue à la conformité du service de votre organisation sans représenter pour autant une garantie automatique.
+SQL Database est conforme à un certain nombre d’exigences réglementaires. Pour voir quels sont les derniers points de conformité respectés par SQL Database, visitez [Microsoft Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) et recherchez les points de conformité importants pour votre organisation. Ainsi, vous pourrez déterminer si SQL Database fait partie des services Azure conformes. Il est important de noter que même si SQL Database peut être certifié en tant que service conforme, il contribue à la conformité du service de votre organisation sans représenter pour autant une garantie automatique.
 
 ## <a name="intelligent-database-monitoring-and-maintenance-after-migration"></a>Surveillance et maintenance de bases de données intelligentes après la migration
 
@@ -281,9 +281,9 @@ vous pouvez interroger la vue de gestion dynamique [sys.dm_db_resource_stats](/s
 
 ![Query Performance Insight](./media/sql-database-manage-after-migration/query-performance-insight.png)
 
-#### <a name="azure-sql-analytics-preview-in-azure-monitor-logs"></a>Journaux d’Analytique SQL Azure (version préliminaire) dans Azure Monitor
+#### <a name="azure-sql-analytics-preview-in-azure-monitor-logs"></a>Azure SQL Analytics (préversion) dans les journaux d'activité Azure Monitor
 
-[Journaux d’analyse Azure](../azure-monitor/insights/azure-sql.md) vous permet de collecter et visualiser les métriques de performance clés Azure SQL Azure, prenant en charge jusqu'à 150 000 bases de données SQL et 5 000 pools élastiques SQL par espace de travail. Vous pouvez l’utiliser à des fins de surveillance et pour recevoir des notifications. Vous pouvez surveiller les métriques de SQL Database et des pools élastiques de plusieurs abonnements Azure. De plus, vous pouvez utiliser les pools élastiques pour identifier les problèmes à chaque couche d’une pile d’applications.
+Les [journaux d'activité Azure Monitor](../azure-monitor/insights/azure-sql.md) vous permettent de collecter et de visualiser des indicateurs de performance clés Azure SQL, prenant en charge jusqu’à 150 000 bases de données SQL et 5 000 pools élastiques SQL par espace de travail. Vous pouvez l’utiliser à des fins de surveillance et pour recevoir des notifications. Vous pouvez surveiller les métriques de SQL Database et des pools élastiques de plusieurs abonnements Azure. De plus, vous pouvez utiliser les pools élastiques pour identifier les problèmes à chaque couche d’une pile d’applications.
 
 ### <a name="i-am-noticing-performance-issues-how-does-my-sql-database-troubleshooting-methodology-differ-from-sql-server"></a>Je constate des problèmes de performances : En quoi ma méthodologie de résolution de problèmes SQL Database est-elle différente de celle de SQL Server
 

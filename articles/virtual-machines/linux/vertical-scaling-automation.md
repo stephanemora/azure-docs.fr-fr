@@ -4,7 +4,7 @@ description: Mettre à l’échelle une machine virtuelle Linux en réponse aux 
 services: virtual-machines-linux
 documentationcenter: ''
 author: singhkays
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: dcee199e-fa25-44d5-9b25-df564cee9b45
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 04/18/2019
 ms.author: kasing
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e7190f13f9d41afffcbbc1104f533b0d0586a0d6
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: e0317344fd8ee1eb415b61d4f5035219e649b18d
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67486029"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67695474"
 ---
 # <a name="vertically-scale-azure-linux-virtual-machine-with-azure-automation"></a>Évolution verticale des machines virtuelles Linux Azure avec Azure Automation
 La mise à l’échelle verticale consiste à augmenter ou à réduire les ressources d’un ordinateur en réponse à la charge de travail. Dans Azure, cette opération est possible en modifiant la taille de la machine virtuelle. Cela peut vous aider dans les scénarios suivants
@@ -55,7 +55,7 @@ Vous pouvez choisir d’effectuer une mise à l’échelle entre les paires de t
 
 ### <a name="a-series"></a>Série A
 
-| Taille initiale | Taille de mise à l’échelle | 
+| Taille initiale | Taille du scale up | 
 | --- | --- |
 | Basic_A0 | Basic_A1 |
 | Basic_A1 | Basic_A2 |
@@ -77,7 +77,7 @@ Vous pouvez choisir d’effectuer une mise à l’échelle entre les paires de t
 
 ### <a name="b-series"></a>Série B
 
-| Taille initiale | Taille de mise à l’échelle | 
+| Taille initiale | Taille du scale up | 
 | --- | --- |
 | Standard_B1s | Standard_B2s |
 | Standard_B1ms | Standard_B2ms |
@@ -86,7 +86,7 @@ Vous pouvez choisir d’effectuer une mise à l’échelle entre les paires de t
 
 ### <a name="d-series"></a>Série D
 
-| Taille initiale | Taille de mise à l’échelle | 
+| Taille initiale | Taille du scale up | 
 | --- | --- |
 | D1 standard | D2 standard |
 | D2 standard | D3 standard |
@@ -128,7 +128,7 @@ Vous pouvez choisir d’effectuer une mise à l’échelle entre les paires de t
 
 ### <a name="e-series"></a>Série E
 
-| Taille initiale | Taille de mise à l’échelle | 
+| Taille initiale | Taille du scale up | 
 | --- | --- |
 | Standard_E2_v3 | Standard_E4_v3 |
 | Standard_E4_v3 | Standard_E8_v3 |
@@ -145,7 +145,7 @@ Vous pouvez choisir d’effectuer une mise à l’échelle entre les paires de t
 
 ### <a name="f-series"></a>Série F
 
-| Taille initiale | Taille de mise à l’échelle | 
+| Taille initiale | Taille du scale up | 
 | --- | --- |
 | Standard_F1 | Standard_F2 |
 | Standard_F2 | Standard_F4 |
@@ -164,7 +164,7 @@ Vous pouvez choisir d’effectuer une mise à l’échelle entre les paires de t
 
 ### <a name="g-series"></a>Série G
 
-| Taille initiale | Taille de mise à l’échelle | 
+| Taille initiale | Taille du scale up | 
 | --- | --- |
 | Standard_G1 | Standard_G2 |
 | Standard_G2 | Standard_G3 |
@@ -177,14 +177,14 @@ Vous pouvez choisir d’effectuer une mise à l’échelle entre les paires de t
 
 ### <a name="h-series"></a>Série H
 
-| Taille initiale | Taille de mise à l’échelle | 
+| Taille initiale | Taille du scale up | 
 | --- | --- |
 | Standard_H8 | Standard_H16 |
 | Standard_H8m | Standard_H16m |
 
 ### <a name="l-series"></a>Série L
 
-| Taille initiale | Taille de mise à l’échelle | 
+| Taille initiale | Taille du scale up | 
 | --- | --- |
 | Standard_L4s | Standard_L8s |
 | Standard_L8s | Standard_L16s |
@@ -196,7 +196,7 @@ Vous pouvez choisir d’effectuer une mise à l’échelle entre les paires de t
 
 ### <a name="m-series"></a>Série M
 
-| Taille initiale | Taille de mise à l’échelle | 
+| Taille initiale | Taille du scale up | 
 | --- | --- |
 | Standard_M8ms | Standard_M16ms |
 | Standard_M16ms | Standard_M32ms |
@@ -209,7 +209,7 @@ Vous pouvez choisir d’effectuer une mise à l’échelle entre les paires de t
 
 ### <a name="n-series"></a>Série N
 
-| Taille initiale | Taille de mise à l’échelle | 
+| Taille initiale | Taille du scale up | 
 | --- | --- |
 | Standard_NC6 | Standard_NC12 |
 | Standard_NC12 | Standard_NC24 |

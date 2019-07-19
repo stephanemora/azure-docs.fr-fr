@@ -14,12 +14,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 06/18/2019
 ms.author: shvija
-ms.openlocfilehash: 3eb20013a6b3afaddce10f2e4652add0edf22a9a
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: c46b333f2cc304cc12ddf78670b60940c7bc0db3
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67276526"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827652"
 ---
 # <a name="scaling-with-event-hubs"></a>Mise à l’échelle avec Event Hubs
 
@@ -48,14 +48,14 @@ Le service Event Hubs augmente le débit quand la charge dépasse le seuil minim
 Pour plus d’informations sur la fonctionnalité d’augmentation automatique, consultez [Mettre à l’échelle automatiquement les unités de débit](event-hubs-auto-inflate.md).
 
 ## <a name="partitions"></a>Partitions
+[!INCLUDE [event-hubs-partitions](../../includes/event-hubs-partitions.md)]
 
-Les partitions vous permettent de mettre à l’échelle en fonction du traitement en aval. En raison du modèle de consommateur partitionné offert par Event Hubs avec les partitions, vous pouvez effectuer un scale-out pendant le traitement simultané de vos événements. Un hub d’événements peut avoir jusqu’à 32 partitions.
+### <a name="partition-key"></a>Clé de partition
 
-Nous vous recommandons d’équilibrer 1:1 les partitions et les unités de débit pour obtenir un dimensionnement optimal. Une partition unique offre une garantie d’entrée et de sortie pouvant aller jusqu’à 1 unité de débit. Bien que vous puissiez atteindre un débit plus élevé sur une partition, les performances ne sont pas garanties. C’est pourquoi nous vous recommandons vivement de faire en sorte que le nombre de partitions dans un hub d’événements soit supérieur ou égal au nombre d’unités de débit.
+Vous pouvez utiliser une [clé de partition](event-hubs-programming-guide.md#partition-key) pour mapper des données d’événement entrant dans des partitions spécifiques dans le cadre de l’organisation des données. La clé de partition est une valeur fournie par l’expéditeur transmise dans un concentrateur d’événements. Elle est traitée par le biais d’une fonction de hachage statique, qui crée l’affectation de la partition. Si vous ne spécifiez aucune clé de partition lors de la publication d’un événement, une affectation de type tourniquet (round robin) est utilisée.
 
-Étant donné le débit total dont vous prévoyez d’avoir besoin, vous connaissez le nombre d’unités de débit nécessaires et le nombre minimal de partitions, mais combien de partitions devez-vous avoir ? Choisissez le nombre de partitions en fonction du parallélisme en aval que vous souhaitez atteindre, ainsi que de vos besoins futurs en matière de débit. Il n’y a aucun frais lié au nombre de partitions que vous avez au sein d’un hub d’événements.
+L’éditeur d’événements est uniquement informé de sa clé de partition, et non de la partition sur laquelle les événements sont publiés. Grâce à cette dissociation de la clé et de la partition, l’expéditeur n’a pas besoin de connaître trop d’informations sur le traitement en aval. Une identité par appareil ou unique à l'utilisateur constitue une bonne clé de partition, mais d'autres attributs tels que la géographie, peuvent également être utilisés pour regrouper des événements liés dans une seule partition.
 
-Pour obtenir des informations de tarification détaillées des concentrateurs d’événements, consultez [Tarification des concentrateurs d’événements](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :

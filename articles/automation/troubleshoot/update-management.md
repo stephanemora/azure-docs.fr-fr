@@ -2,18 +2,18 @@
 title: Résoudre les erreurs avec Update Management
 description: Découvrez comment résoudre les problèmes rencontrés avec Update Management.
 services: automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 05/31/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 9bcc871ecc9413f02545e6aec4caa6342d563b44
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.openlocfilehash: 23139755af812f99bce8c2c255805eaf9e30b2da
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66474575"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477057"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Résolution des problèmes rencontrés avec Update Management
 
@@ -44,10 +44,10 @@ Cette erreur peut être due aux raisons suivantes :
 
 1. Pour savoir quelles adresses et quels ports doivent être autorisés pour le fonctionnement d’Update Management, consultez [Planification du réseau](../automation-hybrid-runbook-worker.md#network-planning).
 2. Si vous utilisez une image clonée :
-   1. Dans votre espace de travail Analytique de journal, supprimez la machine virtuelle à partir de la recherche enregistrée pour la Configuration d’étendue `MicrosoftDefaultScopeConfig-Updates` si elle est affichée. Les recherches enregistrées se trouvent sous la section **Général** de votre espace de travail.
+   1. Dans votre espace de travail Log Analytics, supprimez la machine virtuelle de la recherche enregistrée pour la configuration d’étendue `MicrosoftDefaultScopeConfig-Updates` si celle-ci apparaît. Les recherches enregistrées se trouvent sous la section **Général** de votre espace de travail.
    2. Exécutez `Remove-Item -Path "HKLM:\software\microsoft\hybridrunbookworker" -Recurse -Force`
    3. Exécutez `Restart-Service HealthService` pour redémarrer `HealthService`. Cela recréera la clé et générera un nouvel UUID.
-   4. Si cela ne fonctionne pas, l’image de sysprep premier et installer l’agent MMA après coup.
+   4. Si cela ne fonctionne pas, commencez par exécuter sysprep sur l’image et installez l’agent MMA ensuite.
 
 ### <a name="multi-tenant"></a>Scénario : Vous recevez une erreur d’abonnement lié lors de la création d’un déploiement de mise à jour pour les machines d’un autre client Azure.
 
@@ -78,42 +78,42 @@ $s = New-AzureRmAutomationSchedule -ResourceGroupName mygroup -AutomationAccount
 New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
 ```
 
-### <a name="nologs"></a>Scénario : Machines n’apparaissent pas dans le portail de gestion de la mise à jour
+### <a name="nologs"></a>Scénario : Les machines ne s’affichent pas dans le portail sous Update Management
 
 #### <a name="issue"></a>Problème
 
-Vous pouvez exécuter sur les scénarios suivants :
+Vous pourriez rencontrer les scénarios suivants :
 
-* Votre ordinateur s’affiche **ne pas configuré** à partir de la vue de gestion de la mise à jour d’une machine virtuelle
+* Votre machine affiche l’état **Non configuré** dans la vue Update Management d’une machine virtuelle
 
-* Vos machines sont manquants dans la vue de gestion de la mise à jour de votre compte Automation
+* Vos machines ne s’affichent pas dans la vue Update Management de votre compte Automation
 
-* Vous avez des machines avec la mention **non évalué** sous **conformité**, mais vous voyez les données de pulsation dans les journaux Azure Monitor pour les workers hybrides, mais pas Update Management.
+* Vous avez des machines avec la mention **Non évaluée** sous **Conformité**, par contre vous voyez les données de pulsation dans les journaux Azure Monitor pour le Runbook Worker hybride, mais pas pour Update Management.
 
 #### <a name="cause"></a>Cause :
 
-Cela peut résulter des éventuels problèmes de configuration local ou de Configuration d’étendue configurés incorrectement.
+Cela peut provenir de problèmes de configuration locaux éventuels ou d’une configuration d’étendue incorrecte.
 
 Il est possible que le Runbook Worker hybride doive être réinscrit et réinstallé.
 
-Vous avez défini un quota dans votre espace de travail qui a été atteints et arrêt des données du stockage.
+Vous avez peut-être défini un quota dans votre espace de travail qui a été atteint et a provoqué l’arrêt du stockage des données.
 
 #### <a name="resolution"></a>Résolution :
 
-* Assurez-vous que votre ordinateur est signalé à l’espace de travail correct. Vérifiez quel espace de travail rapports à votre ordinateur. Pour obtenir des instructions sur la façon de vérifier cela, consultez [vérifier la connectivité de l’agent pour l’Analytique de journal](../../azure-monitor/platform/agent-windows.md#verify-agent-connectivity-to-log-analytics). Ensuite, assurez-vous qu’est l’espace de travail qui est lié à votre compte Azure Automation. Pour vérifier cela, accédez à votre compte Automation, puis cliquez sur **espace de travail lié** sous **les ressources associées**.
+* Assurez-vous que votre machine est associée à l’espace de travail approprié. Vérifiez l’espace de travail auquel votre machine est associée. Pour savoir comment faire, consultez l’article [Vérifier la connectivité de l’agent à Log Analytics](../../azure-monitor/platform/agent-windows.md#verify-agent-connectivity-to-log-analytics). Ensuite, assurez-vous qu’il s’agit de l’espace de travail associé à votre compte Azure Automation. Pour vérifier cela, rendez-vous dans votre compte Automation et sous **Ressources connexes**, sélectionnez **Espace de travail lié**.
 
-* Vérifiez que les ordinateurs apparaissent dans votre espace de travail Analytique de journal. Exécutez la requête suivante dans votre espace de travail Analytique de journal qui est lié à votre compte Automation. Si vous ne voyez pas votre ordinateur dans les résultats de requête, votre ordinateur n’est pas pulsation, ce qui signifie qu’il est très probablement un problème de configuration local. Vous pouvez exécuter la résolution des problèmes pour [Windows](update-agent-issues.md#troubleshoot-offline) ou [Linux](update-agent-issues-linux.md#troubleshoot-offline) selon le système d’exploitation, ou vous pouvez [réinstaller l’agent](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows). Si votre ordinateur s’affiche dans les résultats de requête, vous devrez très la configuration de l’étendue spécifiée dans la puce suivante.
+* Vérifiez que les machines apparaissent dans votre espace de travail Log Analytics. Exécutez la requête suivante dans l’espace de travail Log Analytics lié à votre compte Automation. Si vous ne voyez pas votre machine dans les résultats de requête, c’est qu’elle n’a pas de pulsation, ce qui signifie qu’il existe très probablement un problème de configuration local. Vous pouvez exécuter l’utilitaire de résolution des problèmes pour [Windows](update-agent-issues.md#troubleshoot-offline) ou [Linux](update-agent-issues-linux.md#troubleshoot-offline) selon le système d’exploitation utilisé, ou vous pouvez [réinstaller l’agent](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows). Si votre machine s’affiche dans les résultats de requête, vérifiez la configuration d’étendue, tel qu’indiqué dans l’élément de liste suivant.
 
   ```loganalytics
   Heartbeat
   | summarize by Computer, Solutions
   ```
 
-* Recherchez les problèmes de configuration d’étendue. [Configuration de l’étendue](../automation-onboard-solutions-from-automation-account.md#scope-configuration) détermine quels ordinateurs obtient configurées pour la solution. Si votre ordinateur ne s’affichent dans votre espace de travail mais n’est pas affichaient vous devez configurer la configuration d’étendue pour cibler les ordinateurs. Pour savoir comment procéder, consultez [intégrer des machines dans l’espace de travail](../automation-onboard-solutions-from-automation-account.md#onboard-machines-in-the-workspace).
+* Recherchez les problèmes de configuration d’étendue. La [configuration d’étendue](../automation-onboard-solutions-from-automation-account.md#scope-configuration) détermine les machines configurées pour la solution. Si votre machine s’affiche dans votre espace de travail, mais pas ailleurs, vous devrez configurer les étendues pour qu’elles ciblent les machines concernées. Pour savoir comment procéder, consultez [Intégrer des machines dans l’espace de travail](../automation-onboard-solutions-from-automation-account.md#onboard-machines-in-the-workspace).
 
-* Si les étapes ci-dessus ne résolvent pas votre problème, suivez les étapes indiquées dans [déployer un Runbook Worker hybride de Windows](../automation-windows-hrw-install.md) pour réinstaller le Worker hybride pour Windows ou [déployer un Runbook Worker hybride de Linux](../automation-linux-hrw-install.md) pour Linux.
+* Si les étapes ci-dessus ne résolvent pas votre problème, suivez les étapes de la section [Déployer un Runbook Worker hybride Windows](../automation-windows-hrw-install.md) pour réinstaller le Worker hybride sous Windows ou celles de la section [Déployer un Runbook Worker hybride Linux](../automation-linux-hrw-install.md) pour Linux.
 
-* Dans votre espace de travail, exécutez la requête suivante. Si vous voyez le résultat `Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota` disposer d’un quota défini sur votre espace de travail qui a été atteinte et a cessé de données ne sont pas enregistrées. Dans votre espace de travail, accédez à **l’utilisation et estimation des coûts** > **gestion du volume de données** et vérifier votre quota ou supprimer le quota que vous avez.
+* Dans votre espace de travail, exécutez la requête suivante. Si vous voyez le résultat `Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota`, un quota défini sur votre espace de travail a été atteint, entraînant l’arrêt de l’enregistrement des données. Dans votre espace de travail, accédez à la section **Utilisation et estimation des coûts** > **Gestion du volume de données** et vérifiez le quota défini ou supprimez-le.
 
   ```loganalytics
   Operation
@@ -189,11 +189,11 @@ Le Runbook Worker hybride n’a pas pu générer de certificat auto-signé.
 
 Vérifiez que le compte système a accès en lecture au dossier **C:\ProgramData\Microsoft\Crypto\RSA**, puis réessayez.
 
-### <a name="failed-to-start"></a>Scénario : Un ordinateur indique l’échec du démarrage dans un déploiement de mises à jour
+### <a name="failed-to-start"></a>Scénario : Une machine indique l’échec du démarrage dans un déploiement de mise à jour
 
 #### <a name="issue"></a>Problème
 
-Un ordinateur a le statut **Échec du démarrage** pour un ordinateur. Lorsque vous affichez les détails spécifiques de la machine affiche l’erreur suivante :
+Une machine présente l’état **Échec du démarrage**. Lorsque vous affichez les détails spécifiques de la machine, vous voyez l’erreur suivante :
 
 ```error
 Failed to start the runbook. Check the parameters passed. RunbookName Patch-MicrosoftOMSComputer. Exception You have requested to create a runbook job on a hybrid worker group that does not exist.
@@ -201,21 +201,21 @@ Failed to start the runbook. Check the parameters passed. RunbookName Patch-Micr
 
 #### <a name="cause"></a>Cause :
 
-Cette erreur peut se produire en raison d’une des raisons suivantes :
+Cette erreur peut se produire pour l’une des raisons suivantes :
 
-* L’ordinateur n’existe plus.
-* L’ordinateur est désactivé hors tension et inaccessible.
-* L’ordinateur a un problème de connectivité réseau et le worker hybride sur l’ordinateur est inaccessible.
-* Il a été mise à jour l’Agent de surveillance de Microsoft qui a modifié le SourceComputerId
-* Exécution de votre mise à jour peut avoir été limitée si vous atteignez la limite de 2 000 tâches simultanées dans un compte Automation. Chaque déploiement est considéré comme une tâche et chaque ordinateur dans un nombre de déploiements de mise à jour en tant que tâche. N’importe quel autre travail ou mise à jour déploiement automation en cours d’exécution dans votre nombre de compte Automation dans le nombre maximal de tâches simultanées.
+* La machine n’existe plus.
+* La machine est éteinte et injoignable.
+* La machine présente un problème de connectivité réseau et le worker hybride de cette dernière est injoignable.
+* Microsoft Monitoring Agent a été mis à jour, ce qui a modifié le paramètre SourceComputerId
+* L’exécution de la mise à jour peut avoir été limitée si vous avez atteint la limite de 2 000 tâches simultanées dans un compte Automation. Chaque déploiement est considéré comme une tâche et chaque machine dans un déploiement de mise à jour est considéré comme une tâche également. Toutes les autres tâches d’automatisation ou de déploiement de mise à jour en cours d’exécution dans votre compte Automation comptent dans la limite des tâches qu’il est possible d’effectuer simultanément.
 
 #### <a name="resolution"></a>Résolution :
 
-Lorsque applicables à l’utilisation [groupes dynamiques](../automation-update-management.md#using-dynamic-groups) pour vos déploiements de mise à jour.
+Lorsque c’est possible, utilisez les [groupes dynamiques](../automation-update-management.md#using-dynamic-groups) pour vos déploiements de mise à jour.
 
-* Vérifiez que l’ordinateur existe toujours et est accessible. Si elle n’existe pas, modifiez votre déploiement et supprimez l’ordinateur.
-* Consultez la section sur [planification réseau](../automation-update-management.md#ports) pour obtenir la liste des ports et des adresses qui sont nécessaires pour la gestion de la mise à jour et vérifiez que votre ordinateur répond à ces exigences.
-* Exécutez la requête suivante dans le journal Analytique pour rechercher les ordinateurs dans votre environnement dont `SourceComputerId` modifié. Recherchez les ordinateurs qui ont le même `Computer` valeur, mais différentes `SourceComputerId` valeur. Une fois que vous trouvez les ordinateurs affectés, vous devez modifier les déploiements de mises à jour qui ciblent ces machines et supprimer et rajouter les machines afin que la `SourceComputerId` reflète la valeur correcte.
+* Vérifiez que la machine existe toujours et qu’elle est accessible. Si elle n’existe pas, modifiez votre déploiement et supprimez-la.
+* Pour obtenir une liste des ports et adresses requis avec Update Management et savoir comment vérifier si votre machine répond à ces exigences, consultez la section sur la [planification réseau](../automation-update-management.md#ports).
+* Exécutez la requête suivante dans Log Analytics pour rechercher les machines de votre environnement dont le paramètre `SourceComputerId` a été modifié. Recherchez les ordinateurs présentant la même valeur `Computer`, mais une valeur `SourceComputerId` différente. Une fois les machines affectées identifiées, vous devez modifier les déploiements de mise à jour ciblant ces machines, puis supprimer et rajouter les machines afin que la valeur `SourceComputerId` soit correcte.
 
    ```loganalytics
    Heartbeat | where TimeGenerated > ago(30d) | distinct SourceComputerId, Computer, ComputerIP
@@ -240,12 +240,12 @@ Double-cliquez sur l’exception affichée en rouge pour voir le message d’exc
 |`Exception from HRESULT: 0x……C`     | Recherchez le code d’erreur pertinent dans la [liste des codes d’erreur de Windows Update](https://support.microsoft.com/help/938205/windows-update-error-code-list) pour obtenir des détails supplémentaires sur la cause de l’exception.        |
 |`0x8024402C`</br>`0x8024401C`</br>`0x8024402F`      | Ces erreurs sont des problèmes de connectivité réseau. Assurez-vous que votre machine dispose de la connectivité réseau appropriée pour Update Management. Consultez la section sur la [planification réseau](../automation-update-management.md#ports) pour obtenir la liste des ports et des adresses nécessaires.        |
 |`0x8024001E`| L’opération de mise à jour a échoué, car le service ou le système était en cours d’arrêt.|
-|`0x8024002E`| Service de mise à jour de Windows est désactivé.|
+|`0x8024002E`| Le service Windows Update est désactivé.|
 |`0x8024402C`     | Si vous utilisez un serveur WSUS, assurez-vous que les valeurs de Registre de `WUServer` et `WUStatusServer` sous la clé de Registre `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` utilisent le bon serveur WSUS.        |
 |`The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`     | Assurez-vous que le service Windows Update (wuauserv) est en cours d’exécution et qu’il n’est pas désactivé.        |
 |Toute autre exception générique     | Faites une recherche sur Internet pour découvrir les solutions possibles et contactez votre support technique local.         |
 
-Examiner les `windowsupdate.log` peut vous aider à essayer de déterminer la cause possible ainsi. Pour plus d’informations sur la façon de lire le journal, consultez [comment lire le fichier Windowsupdate.log](https://support.microsoft.com/en-ca/help/902093/how-to-read-the-windowsupdate-log-file).
+Examiner le fichier `windowsupdate.log` peut également vous aider à essayer de déterminer la cause possible. Pour savoir comment lire le journal, consultez l’article [Comment faire pour lire le fichier Windowsupdate.log](https://support.microsoft.com/en-ca/help/902093/how-to-read-the-windowsupdate-log-file).
 
 En outre, vous pouvez télécharger et exécuter l’[utilitaire de résolution des problèmes de Windows Update](https://support.microsoft.com/help/4027322/windows-update-troubleshooter) pour vérifier si l’ordinateur présente des problèmes Windows Update.
 

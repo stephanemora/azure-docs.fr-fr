@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: minxia
-author: mx-iao
+ms.author: maxluk
+author: maxluk
 ms.reviewer: peterlu
 ms.date: 06/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8def58eb003fcc817c21151416744cf391b5f38f
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: d9c953eeecedf14a8f3fae43c5d4713252d58b4c
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443925"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67840083"
 ---
 # <a name="train-and-register-pytorch-models-at-scale-with-azure-machine-learning-service"></a>Entraîner et inscrire des modèles PyTorch à l’échelle avec Azure Machine Learning service
 
@@ -28,7 +28,7 @@ Que vous développiez un modèle PyTorch de A à Z ou importiez un modèle exist
 
 ## <a name="prerequisites"></a>Prérequis
 
-Exécutez ce code sur l’un des environnements :
+Exécutez ce code sur l’un de ces environnements :
 
  - Machine virtuelle de Notebook Azure Machine Learning : pas d’installation ou de téléchargement nécessaire
 
@@ -45,7 +45,7 @@ Exécutez ce code sur l’un des environnements :
 
 ## <a name="set-up-the-experiment"></a>Configurer l’expérience
 
-Cette section configure l’expérience de formation via le chargement des packages Python requis, l’initialisation d’un espace de travail, la création d’une expérience et le chargement des données et des scripts de formation.
+Cette section configure l’expérience d’apprentissage via le chargement des packages Python requis, l’initialisation d’un espace de travail, la création d’une expérience et le chargement des données et des scripts d’apprentissage.
 
 ### <a name="import-packages"></a>Importer des packages
 
@@ -162,7 +162,7 @@ Lorsque l’exécution est lancée, il effectue les étapes suivantes :
 
 - **Running** : tous les scripts dans le dossier de script sont chargés dans la cible de calcul, les magasins de données sont montés ou copiés, puis entry_script est exécuté. Les sorties issues de stdout et du dossier ./logs sont transmises en continu à l’historique des exécutions et peuvent être utilisées pour surveiller l’exécution.
 
-- **Post-traitement** : Le dossier ./outputs de l’exécution est copiée dans l’historique des exécutions.
+- **Post-traitement** : le dossier ./outputs de l’exécution est copié dans l’historique des exécutions.
 
 ## <a name="register-or-download-a-model"></a>Inscrire ou télécharger un modèle
 

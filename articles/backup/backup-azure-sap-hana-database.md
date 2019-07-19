@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: raynew
-ms.openlocfilehash: a16ed7134fc9f3c159715f58f116de3fb30e8aca
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 1c5c38e9af58aa9468fb0e22491327d3a35f0dda
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67481140"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67656658"
 ---
 # <a name="back-up-an-sap-hana-database"></a>Sauvegarder une base de données SAP HANA
 
@@ -26,7 +26,7 @@ Le service [Sauvegarde Azure](backup-overview.md) prend en charge la sauvegarde 
 
 **Support** | **Détails**
 --- | ---
-**Zones géographiques prises en charge** | Australie Sud-Est, Australie Est <br> Brésil Sud <br> Canada Centre, Canada Est <br> Asie Sud-Est, Asie Est <br> USA Est, USA Est 2, USA Centre-Ouest, USA Ouest, USA Ouest 2, USA Centre Nord, USA Centre, USA Centre Sud<br> Inde Centre, Inde Sud <br> Japon Est, Japon Ouest<br> Centre de la Corée, Corée du Sud <br> Europe Nord, Europe Ouest <br> Royaume-Uni Sud, Royaume-Uni Ouest
+**Zones géographiques prises en charge** | Australie Sud-Est, Australie Est <br> Brésil Sud <br> Canada Centre, Canada Est <br> Asie Sud-Est, Asie Est <br> USA Est, USA Est 2, USA Centre-Ouest, USA Ouest, USA Ouest 2, USA Centre Nord, USA Centre, USA Centre Sud<br> Inde Centre, Inde Sud <br> Japon Est, Japon Ouest<br> Centre de la Corée, Corée du Sud <br> Europe Nord, Europe Ouest <br> Royaume-Uni Sud, Royaume-Uni Ouest
 **Systèmes d’exploitation de machine virtuelle pris en charge** | SLES 12 avec SP2 ou SP3
 **Versions HANA prises en charge** | SDC sur HANA 1.x, MDC sur HANA 2.x <= SPS03
 

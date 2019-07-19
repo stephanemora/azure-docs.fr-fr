@@ -8,15 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/26/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.custom: seodec18
-ms.openlocfilehash: 08bf1363f3c6c9b68243cc10ffb2785f53e02107
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 684ddcd49d3cd3c3d4f0a8d6f4675e1e27bdb7b9
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342190"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604885"
 ---
 # <a name="text-to-speech-rest-api"></a>API REST de synthèse vocale
 
@@ -46,7 +45,7 @@ Le point de terminaison `voices/list` vous permet d’obtenir une liste complèt
 |--------|----------|
 | Australie Est | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Brésil Sud | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Canada Centre | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Centre du Canada | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | USA Centre | `https://centralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Asie Est | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | USA Est | `https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
@@ -54,13 +53,13 @@ Le point de terminaison `voices/list` vous permet d’obtenir une liste complèt
 | France Centre | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Inde Centre | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Japon Est | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Corée Centre | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Centre de la Corée | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | USA Centre Nord | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Europe Nord | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | USA Centre Sud | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Asie Sud-Est | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Royaume-Uni Sud | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Europe Ouest | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Sud du Royaume-Uni | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Europe de l'Ouest | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | USA Ouest | `https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | USA Ouest 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 
@@ -225,7 +224,7 @@ Le code d’état HTTP de chaque réponse indique la réussite ou des erreurs co
 | 400 | Demande incorrecte | Un paramètre obligatoire est manquant, vide ou présente une valeur Null. Il est également possible que la valeur transmise à un paramètre obligatoire ou facultatif ne soit pas valide. Ce problème est généralement dû à un en-tête trop long. |
 | 401 | Non autorisé | La demande n’est pas autorisée. Vérifiez que votre clé d’abonnement ou votre jeton est valide et dans la région appropriée. |
 | 413 | Entité de requête trop volumineuse | L’entrée SSML comporte plus de 1 024 caractères. |
-| 415 | Type de média non pris en charge | Il est possible que le `Content-Type` indiqué était incorrect. `Content-Type` doit être définie sur `application/ssml+xml`. | 
+| 415 | Type de média non pris en charge | Il est possible que le `Content-Type` indiqué était incorrect. `Content-Type` doit être définie sur `application/ssml+xml`. |
 | 429 | Trop de demandes | Vous avez dépassé le quota ou le taux de requêtes autorisé pour votre abonnement. |
 | 502 | Passerelle incorrecte | Problème de réseau ou côté serveur. Cette erreur peut également signaler des en-têtes non valides. |
 

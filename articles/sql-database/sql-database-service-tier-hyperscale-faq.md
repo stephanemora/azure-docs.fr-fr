@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 05/06/2019
-ms.openlocfilehash: 38d9ad007b67756bdca0c6f98267aa16ba38ee9d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 49d1e171d4d4b2210a98c59332f4842e23a2f2b9
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65791429"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537841"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Questions fréquentes (FAQ) sur les bases de données SQL Azure Hyperscale
 
@@ -38,7 +38,7 @@ Le niveau de service Hyperscale est disponible seulement pour les bases de donn�
 
 ### <a name="how-does-the-hyperscale-service-tier-differ-from-the-general-purpose-and-business-critical-service-tiers"></a>En quoi le niveau de service Hyperscale diffère-t-il des niveaux de service Usage général et Critique pour l’entreprise ?
 
-Les niveaux de service vCore diffèrent principalement en disponibilité, type de stockage et IOPS.
+Les niveaux de service basés sur des vCore diffèrent principalement en disponibilité, type de stockage et IOPS.
 
 - Le niveau de service Usage général est approprié pour la plupart des charges de travail métier, offrant un ensemble équilibré d’options de calcul et de stockage, où les temps de latence des E/S et de basculement ne sont pas la priorité.
 - Le niveau de service Hyperscale est optimisé pour les charges de travail des bases de données très volumineuses.
@@ -53,7 +53,7 @@ Les niveaux de service vCore diffèrent principalement en disponibilité, type d
 | **Type de stockage** | Tous |Stockage distant Premium (par instance) | Stockage découplé avec cache disque SSD local (par instance) | Stockage SSD local ultra-rapide (par instance) |
 | **Taille de stockage** | Base de données unique / pool élastique | 5 Go - 4 To | Jusqu’à 100 To | 5 Go - 4 To |
 | | Instance gérée  | 32 Go - 8 To | N/A | 32 Go - 4 To |
-| **Débit d’E/S** | Base de données unique** | 500 IOPS par vCore avec 7000 IOPS au maximum | Inconnu jusqu’ici | 5 000 IOPS avec un maximum de 200 000 IOPS|
+| **Débit d’E/S** | Base de données unique** | 500 IOPS par vCore avec 7000 IOPS au maximum | L’architecture hyperscale est une architecture à plusieurs niveaux avec une mise en cache sur plusieurs niveaux. L’efficacité des IOPS dépend de la charge de travail. | 5 000 IOPS avec un maximum de 200 000 IOPS|
 | | Instance gérée | Dépend de la taille de fichier | N/A | instance managée : Dépend de la taille de fichier|
 |**Disponibilité**|Tous|1 réplica, pas d’échelle lecture, pas de cache local | Plusieurs réplicas, jusqu’à 15 échelles lecture, cache local partiel | 3 réplicas, 1 échelle lecture, haute disponibilité redondante interzone, cache local complet |
 |**Sauvegardes**|Tous|RA-GRS, 7 à 35 jours (7 jours par défaut)| RA-GRS, 7 à 35 jours (7 jours par défaut), récupération jusqu’à une date et heure (PITR) à durée constante | RA-GRS, 7 à 35 jours (7 jours par défaut) |
@@ -79,7 +79,7 @@ Le niveau de service Hyperscale d’Azure SQL Database est actuellement disponib
 
 Oui. Pour plus d’informations et pour connaître les limites quant au nombre de bases de données Hyperscale par serveur logique, consultez [Limites des ressources de SQL Database pour les bases de données uniques et mises en pool en pool sur un serveur logique](sql-database-resource-limits-logical-server.md).
 
-### <a name="what-are-the-performance-characteristic-of-a-hyperscale-database"></a>Quelles sont les caractéristiques en matière de performances d’une base de données Hyperscale ?
+### <a name="what-are-the-performance-characteristics-of-a-hyperscale-database"></a>Quelles sont les caractéristiques en matière de performances d’une base de données Hyperscale ?
 
 L’architecture de SQL Database Hyperscale fournit des performances et des débits élevés avec la prise en charge de bases de données de grande taille. 
 
@@ -94,7 +94,7 @@ SQL Database Hyperscale offre une scalabilité rapide en fonction de la demande 
 
   Avec Hyperscale, vous avec également la possibilité de provisionner un ou plusieurs nœuds de calcul supplémentaires, que vous pouvez utiliser pour répondre à vos demandes de lecture. Cela signifie que vous pouvez utiliser ces nœuds de calcul supplémentaires comme nœuds en lecture seule pour déporter votre charge de travail de lecture en dehors de la capacité de calcul principale. En plus des opérations en lecture seule, ces nœuds servent également comme serveur de secours en cas de basculement à partir du serveur principal.
 
-  Le provisionnement de chacun de ces nœuds de calcul supplémentaires peut être effectué en durée constante et est une opération en ligne. Vous pouvez vous connecter à ces nœuds de calcul supplémentaires en lecture seule en définissant l’argument `ApplicationIntent` de votre chaîne de connexion sur `read_only`. Les connexions marquées avec `read-only` sont automatiquement routées vers un des nœuds de calcul supplémentaires en lecture seule.
+  Le provisionnement de chacun de ces nœuds de calcul supplémentaires peut être effectué en durée constante et est une opération en ligne. Vous pouvez vous connecter à ces nœuds de calcul supplémentaires en lecture seule en définissant l’argument `ApplicationIntent` de votre chaîne de connexion sur `readonly`. Les connexions marquées avec `readonly` sont automatiquement routées vers un des nœuds de calcul supplémentaires en lecture seule.
 
 ## <a name="deep-dive-questions"></a>Questions approfondies
 
@@ -140,7 +140,7 @@ Non.
 
 ### <a name="how-many-read-scale-replicas-are-supported"></a>Combien de réplicas en échelle lecture sont pris en charge ?
 
-Les bases de données Hyperscale sont créées par défaut avec un seul réplica à l’échelle lecture (deux réplicas au total). Vous pouvez mettre à l’échelle le nombre de réplicas en lecture seule entre 0 et 4 à l’aide du [portail Azure](https://portal.azure.com), de [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current), de [Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase), ou encore de la [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update).
+Les bases de données Hyperscale sont créées par défaut avec un seul réplica à l’échelle lecture (deux réplicas au total). Vous pouvez mettre à l’échelle le nombre de réplicas en lecture seule entre 0 et 4 à l’aide du [portail Azure](https://portal.azure.com), de [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current), de [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase), ou encore de l’interface [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update).
 
 ### <a name="for-high-availability-do-i-need-to-provision-additional-compute-nodes"></a>Pour la haute disponibilité, dois-je provisionner des nœuds de calcul supplémentaires ?
 
@@ -349,7 +349,7 @@ Utilisateur final. Pas automatique.
 
 Oui. La base de données temporaire augmente automatiquement lors du scale-up de la capacité de calcul.  
 
-### <a name="can-i-provision-multiple-primary-computes-such-as-a-multi-master-system-where-multiple-primary-compute-heads-can-drive-a-higher-level-of-concurrency"></a>Puis-je provisionner plusieurs capacités de calcul principales, comme un système multimaître où plusieurs têtes de capacité de calcul principales peuvent gérer un niveau d’accès concurrentiel plus élevé ?
+### <a name="can-i-provision-multiple-primary-compute-nodes-such-as-a-multi-master-system-where-multiple-primary-compute-heads-can-drive-a-higher-level-of-concurrency"></a>Puis-je approvisionner plusieurs nœuds de calcul principaux, comme un système multimaître où plusieurs têtes de calcul principales peuvent gérer un niveau de concurrence plus élevé ?
 
 Non. Seul le nœud de calcul principal accepte les demandes de lecture/écriture. Les nœuds de calcul secondaires acceptent seulement les demandes en lecture seule.
 
@@ -361,7 +361,7 @@ Nous créons par défaut deux réplicas pour les bases de données Hyperscale. S
 
 ### <a name="how-do-i-connect-to-these-secondary-compute-nodes"></a>Comment se connecter à ces nœuds de calcul secondaires ?
 
-Vous pouvez vous connecter à ces nœuds de calcul supplémentaires en lecture seule en définissant l’argument `ApplicationIntent` de votre chaîne de connexion sur `read_only`. Les connexions marquées avec `read-only` sont automatiquement routées vers un des nœuds de calcul supplémentaires en lecture seule.  
+Vous pouvez vous connecter à ces nœuds de calcul supplémentaires en lecture seule en définissant l’argument `ApplicationIntent` de votre chaîne de connexion sur `readonly`. Les connexions marquées avec `readonly` sont automatiquement routées vers un des nœuds de calcul supplémentaires en lecture seule.  
 
 ### <a name="can-i-create-a-dedicated-endpoint-for-the-read-scale-replica"></a>Puis-je créer un point de terminaison dédié pour le réplica en échelle lecture ?
 
@@ -369,11 +369,11 @@ Non. Vous pouvez vous connecter au réplica en échelle lecture uniquement en sp
 
 ### <a name="does-the-system-do-intelligent-load-balancing-of-the-read-workload"></a>Est-ce que le système effectue un équilibrage de charge intelligent de la charge de travail de lecture ?
 
-Non. La charge de travail en lecture seule est redirigée vers un réplica en échelle lecture choisi de façon aléatoire.
+Non. La charge de travail en lecture seule est redirigée vers un réplica avec échelle lecture choisi de façon aléatoire.
 
 ### <a name="can-i-scale-updown-the-secondary-compute-nodes-independently-of-the-primary-compute"></a>Puis-je effectuer un scale-up/down des nœuds de calcul secondaires indépendamment de la capacité de calcul principale ?
 
-Non. Les nœuds de calcul secondaires sont également utilisés pour la haute disponibilité ; ils doivent donc avoir la même configuration que le réplica principal, en cas de basculement.
+Non. Les nœuds de calcul secondaires sont également utilisés pour la haute disponibilité, ils doivent donc avoir la même configuration que le réplica principal, en cas de basculement.
 
 ### <a name="do-i-get-different-temp-db-sizing-for-my-primary-compute-and-my-additional-secondary-compute-nodes"></a>Le dimensionnement de la base de données temporaire est-il différent pour ma capacité de calcul principale et pour mes nœuds de calcul secondaires supplémentaires ?
 

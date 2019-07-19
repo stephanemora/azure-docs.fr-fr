@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: mbullwin
-ms.openlocfilehash: 3c0c670cf9d6ea9ff8ada292777211c69b3edb2a
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: a233299b86100c7e43291ffb6448d576ef6072f0
+ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445908"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68302560"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Suivi des dépendances dans Azure Application Insights 
 
@@ -33,7 +33,7 @@ Les SDK Application Insights pour .NET et .NET Core sont fournis avec `Dependenc
 |---------------|-------|
 |HTTP/HTTPS | Appels HTTP/HTTPS locaux ou distants |
 |Appels WCF| Suivi automatique uniquement si les liaisons HTTP sont utilisées.|
-|SQL | Appels effectués avec `SqlClient`. Consultez [cet article](##advanced-sql-tracking-to-get-full-sql-query) pour capturer une requête SQL.  |
+|SQL | Appels effectués avec `SqlClient`. Consultez [cet article](#advanced-sql-tracking-to-get-full-sql-query) pour capturer une requête SQL.  |
 |[Stockage Azure (Blob, Table, File d’attente)](https://www.nuget.org/packages/WindowsAzure.Storage/) | Appels effectués avec le client Stockage Azure. |
 |[SDK client EventHub](https://www.nuget.org/packages/Microsoft.Azure.EventHubs) | Versions 1.1.0 et ultérieures. |
 |[Kit de développement logiciel (SDK) client ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)| Versions 3.0.0 et ultérieures. |
@@ -104,7 +104,7 @@ Pour les applications ASP.NET, la requête SQL complète est collectée par le b
 | --- | --- |
 | Application web Azure |Dans le Panneau de configuration de l’application web, [ouvrez le panneau Application Insights](../../azure-monitor/app/azure-web-apps.md) et activez les commandes SQL dans .NET |
 | Serveur IIS (machine virtuelle Azure, locale, etc.) | [Installez Status Monitor sur le serveur où l’application est exécutée](../../azure-monitor/app/monitor-performance-live-website-now.md), puis redémarrez IIS.
-| Service cloud Azure | Ajoutez une [tâche de démarrage pour installer StatusMonitor](../../azure-monitor/app/cloudservices.md#set-up-status-monitor-to-collect-full-sql-queries-optional) <br> Votre application doit être intégrée au SDK ApplicationInsights au moment de la build en installant les packages NuGet pour les applications [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) ou [ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core.) |
+| Service cloud Azure | Ajoutez une [tâche de démarrage pour installer StatusMonitor](../../azure-monitor/app/cloudservices.md#set-up-status-monitor-to-collect-full-sql-queries-optional) <br> Votre application doit être intégrée au SDK ApplicationInsights au moment de la build en installant les packages NuGet pour les applications [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) ou [ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) |
 | IIS Express | Non pris en charge
 
 Dans les cas ci-dessus, la bonne pratique pour vérifier que ce moteur d’instrumentation est correctement installé est de vous assurer que la version du SDK du `DependencyTelemetry` collecté est « rddp ». « rdddsd » ou « rddf » indique que les dépendances sont collectées par le biais de rappels de DiagnosticSource ou d’EventSource. La requête SQL complète n’est donc pas capturée.

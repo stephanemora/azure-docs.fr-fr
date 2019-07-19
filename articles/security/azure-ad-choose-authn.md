@@ -4,17 +4,17 @@ description: Ce guide s’adresse aux directeurs d’entreprise, directeurs des 
 services: active-directory
 keywords: ''
 author: martincoetzer
-ms.author: martincoetzer
+ms.author: martinco
 ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: 26fca12060363f4ad05baaeceb6fb800a0d76216
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: c0faeb211860391c93563200f509d60876a504b9
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449268"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786694"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Choisir la méthode d’authentification adaptée à votre solution d’identité hybride Azure Active Directory 
 
@@ -94,7 +94,7 @@ Détails relatifs aux questions de décision :
 
 * **Scénarios avancés**. Les organisations peuvent choisir d’utiliser les insights des identités avec les rapports Azure AD Identity Protection avec Azure AD Premium P2, par exemple le rapport sur les informations d’identification divulguées. Windows Hello Entreprise a des [exigences spécifiques quand vous utilisez la synchronisation de hachage du mot de passe](https://docs.microsoft.com/windows/access-protection/hello-for-business/hello-identity-verification). [Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync) nécessite la synchronisation de hachage de mot de passe pour fournir aux utilisateurs leurs informations d’identification dans le domaine managé.
 
-    Les organisations qui requièrent une authentification multifacteur avec synchronisation de hachage de mot de passe doivent utiliser l’authentification multifacteur Azure AD ou les [contrôles personnalisés d’accès conditionnel](https://docs.microsoft.com/azure/active-directory/conditional-access/controls#custom-controls). Elles ne peuvent pas utiliser des méthodes d’authentification multifacteur tierces ou locales qui reposent sur la fédération.
+    Les organisations qui requièrent une authentification multifacteur avec synchronisation de hachage de mot de passe doivent utiliser l’authentification multifacteur Azure AD ou les [contrôles personnalisés d’accès conditionnel](https://docs.microsoft.com/azure/active-directory/conditional-access/controls#custom-controls-preview). Elles ne peuvent pas utiliser des méthodes d’authentification multifacteur tierces ou locales qui reposent sur la fédération.
 
 > [!NOTE]
 > L’accès conditionnel Azure AD requiert des licences [Azure AD Premium P1](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -118,7 +118,7 @@ Pour obtenir les étapes de déploiement, consultez [Implémentation de la synch
 
 * **Scénarios avancés**. L’authentification directe applique la stratégie de compte local au moment de la connexion. Par exemple, l’accès est refusé quand l’état d’un compte d’utilisateur local indique que le compte est désactivé, verrouillé, que le [mot de passe a expiré](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-faq#what-happens-if-my-users-password-has-expired-and-they-try-to-sign-in-by-using-pass-through-authentication) ou que les heures de connexion associées au compte ne correspondent pas aux heures d’ouverture de session autorisées de l’utilisateur. 
 
-    Les organisations qui requièrent une authentification multifacteur avec l’authentification directe doivent utiliser Azure Multi-Factor Authentication (MFA) ou des [contrôles personnalisés d’accès conditionnel](https://docs.microsoft.com/azure/active-directory/conditional-access/controls#custom-controls). Ces organisations ne peuvent pas utiliser des méthodes d’authentification multifacteur tierces ou locales qui reposent sur la fédération. Les fonctionnalités avancées nécessitent le déploiement de la synchronisation de hachage du mot de passe (que vous choisissiez l’authentification directe ou non). C’est le cas notamment du rapport sur la fuite des informations d’identification généré par Identity Protection.
+    Les organisations qui requièrent une authentification multifacteur avec l’authentification directe doivent utiliser Azure Multi-Factor Authentication (MFA) ou des [contrôles personnalisés d’accès conditionnel](https://docs.microsoft.com/azure/active-directory/conditional-access/controls#custom-controls-preview). Ces organisations ne peuvent pas utiliser des méthodes d’authentification multifacteur tierces ou locales qui reposent sur la fédération. Les fonctionnalités avancées nécessitent le déploiement de la synchronisation de hachage du mot de passe (que vous choisissiez l’authentification directe ou non). C’est le cas notamment du rapport sur la fuite des informations d’identification généré par Identity Protection.
 
 * **Continuité des activités**. Nous vous recommandons de déployer deux agents d’authentification directe supplémentaires. Ces agents complètent le premier agent sur le serveur Azure AD Connect. Ce déploiement supplémentaire garantit la haute disponibilité des demandes d’authentification. Quand trois agents sont déployés et que l’un d’eux est hors service pour maintenance, l’échec d’un agent n’a aucune incidence. 
 

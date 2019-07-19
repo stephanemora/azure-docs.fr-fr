@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 04/08/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: ecb7030fa3652525a36ce15d66ea6e5daf9c3296
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: b16fecd6db1f4bed319c832795a2252f8de96c6c
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304219"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67607135"
 ---
 # <a name="extend-support-for-sql-server-2008-and-sql-server-2008-r2-with-azure"></a>Étendre la prise en charge pour SQL Server 2008 et SQL Server 2008 R2 avec Azure
 
@@ -43,7 +43,7 @@ Les images déployées par le biais de la Place de marché sont fournies avec l�
 ## <a name="licensing"></a>Gestion des licences
 Les déploiements de SQL Server 2008 R2 avec paiement à l’utilisation peuvent être convertis en [Azure Hybrid Benefit (AHB)](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
-Pour convertir une licence Software Assurance (SA) en paiement à l’utilisation, les clients doivent s’inscrire auprès du [fournisseur de ressources](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-sql-resource-provider) de machines virtuelles SQL. Une fois inscrit auprès de ce fournisseur de ressources, les types de licences SQL (AHB et paiement à l’utilisation) sont interchangeables.
+Pour convertir une licence Software Assurance (SA) en paiement à l’utilisation, les clients doivent s’inscrire auprès du [fournisseur de ressources](virtual-machines-windows-sql-register-with-resource-provider.md) de machines virtuelles SQL. Une fois inscrit auprès de ce fournisseur de ressources, les types de licences SQL (AHB et paiement à l’utilisation) sont interchangeables.
 
 Les instances SQL Server 2008 ou SQL Server 2008 R2 installées automatiquement sur une machine virtuelle Azure peuvent être inscrites auprès du fournisseur de ressources SQL et convertir leur type de licence pour un paiement à l’utilisation.
 
@@ -69,7 +69,7 @@ Les solutions de récupération d’urgence pour SQL Server en fin de support su
 - **Azure Site Recovery** : Vous pouvez répliquer votre machine virtuelle entre les zones et les régions par l’intermédiaire de la réplication d’Azure Site Recovery. Les captures instantanées de cohérence d’application sont indispensables à SQL Server pour garantir la récupération en cas de sinistre. Azure Site Recovery offre un RPO d’une heure minimum, et un RTO de deux heures + temps de récupération SQL Server, pour SQL Server DR en fin de support.
 
 ## <a name="security-patching"></a>Correctifs de sécurité
-Les mises à jour de sécurité étendues pour les machines virtuelles SQL Server seront distribuées via les canaux de Microsoft Update une fois la machine virtuelle SQL Server inscrite auprès du [fournisseur de ressources](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-sql-resource-provider) SQL. Les correctifs peuvent être téléchargés manuellement ou automatiquement.
+Les mises à jour de sécurité étendues pour les machines virtuelles SQL Server seront distribuées via les canaux de Microsoft Update une fois la machine virtuelle SQL Server inscrite auprès du [fournisseur de ressources](virtual-machines-windows-sql-register-with-resource-provider.md) SQL. Les correctifs peuvent être téléchargés manuellement ou automatiquement.
 
 **Automated patching** est activée par défaut. La mise à jour corrective automatisée permet à Azure de corriger automatiquement SQL Server et le système d’exploitation. Vous pouvez spécifier un jour de la semaine, une heure et une durée pour la fenêtre de maintenance si l’extension IaaS SQL est installée. Azure effectue la mise à jour corrective dans cette fenêtre de maintenance. La planification de la fenêtre de maintenance utilise les paramètres régionaux de la machine virtuelle pour l’heure.  Pour plus d’informations, consultez [Mise à jour corrective automatisée pour SQL Server dans les machines virtuelles Azure](virtual-machines-windows-sql-automated-patching.md).
 

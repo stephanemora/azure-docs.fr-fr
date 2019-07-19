@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/16/2019
-ms.openlocfilehash: b0f513462f1e09718dc18e9ce454b82e8978961f
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 88df7ae0d4e6054d82302ad5f0adabcf656cb0f5
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67329610"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620813"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Exemples de requête pour les modes d’utilisation courants dans Stream Analytics
 
@@ -509,7 +509,7 @@ Par exemple, supposons qu’à la suite d’un bogue, le poids de toutes les voi
 | "2014-01-01T06:01:10" |3 |
 | "2014-01-01T06:01:15" |4 |
 | "2014-01-01T06:01:30" |5\. |
-| "2014-01-01T06:01:35" |6\. |
+| "2014-01-01T06:01:35" |6 |
 
 **Sortie (10 premières lignes)** :
 
@@ -522,9 +522,9 @@ Par exemple, supposons qu’à la suite d’un bogue, le poids de toutes les voi
 | 2014-01-01T14:01:20.000Z |2014-01-01T14:01:15.000Z |4 |
 | 2014-01-01T14:01:25.000Z |2014-01-01T14:01:15.000Z |4 |
 | 2014-01-01T14:01:30.000Z |2014-01-01T14:01:30.000Z |5\. |
-| 2014-01-01T14:01:35.000Z |2014-01-01T14:01:35.000Z |6\. |
-| 2014-01-01T14:01:40.000Z |2014-01-01T14:01:35.000Z |6\. |
-| 2014-01-01T14:01:45.000Z |2014-01-01T14:01:35.000Z |6\. |
+| 2014-01-01T14:01:35.000Z |2014-01-01T14:01:35.000Z |6 |
+| 2014-01-01T14:01:40.000Z |2014-01-01T14:01:35.000Z |6 |
+| 2014-01-01T14:01:45.000Z |2014-01-01T14:01:35.000Z |6 |
 
 **Solution**:
 
@@ -718,6 +718,6 @@ Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https:/
 * [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)
 * [Prise en main d’Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Mise à l’échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
-* [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Références sur le langage des requêtes d'Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

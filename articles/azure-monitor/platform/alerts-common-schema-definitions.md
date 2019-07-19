@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: anantr
-ms.component: alerts
-ms.openlocfilehash: 5f351dd7fddb4c15b28954eccf8ada3bfc14dbca
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.subservice: alerts
+ms.openlocfilehash: c37ecfbadd7345fea347ff488895f16ba505c818
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447651"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594376"
 ---
 # <a name="common-alert-schema-definitions"></a>Définitions de schéma d’alerte courant
 
@@ -80,7 +80,7 @@ Toute instance d’alerte décrit **la ressource qui a été affectée** et **la
 |:---|:---|
 | alertId | GUID qui identifie de façon unique l’instance d’alerte. |
 | alertRule | Nom de la règle d’alerte qui a généré l’instance d’alerte. |
-| Severity | Gravité de l’alerte. Valeurs possibles : Sev0, Sev1, Sev2, Sev3, Sev4 |
+| severity | Gravité de l’alerte. Valeurs possibles : Sev0, Sev1, Sev2, Sev3, Sev4 |
 | signalType | Identifie le signal sur lequel la règle d’alerte a été définie. Valeurs possibles : Metric, Log, Activity Log |
 | monitorCondition | Quand une alerte se déclenche, la condition de supervision de l’alerte est définie sur « Fired ». Quand la condition sous-jacente qui provoque le déclenchement de l’alerte disparaît, la condition de supervision de l’alerte est définie sur « Resolved ».   |
 | monitoringService | La solution ou le service de supervision qui a généré l’alerte. Les champs du contexte de l’alerte dépendent du service de supervision. |

@@ -1,6 +1,6 @@
 ---
 title: FAQ sur l’utilisation d’Azure Database Migration Service | Microsoft Docs
-description: Découvrez les questions fréquemment posées sur l’utilisation d’Azure Database Migration Service pour effectuer des migrations de base de données.
+description: Découvrez les questions fréquemment posées sur l’utilisation d’Azure Database Migration Service pour effectuer des migrations de bases de données.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -12,15 +12,15 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 05/24/2019
 ms.openlocfilehash: 856eee294eaa1426bc7c06661ac62ed0f9824dcb
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66225343"
 ---
 # <a name="faq-about-using-the-azure-database-migration-service"></a>FAQ sur l’utilisation d’Azure Database Migration Service
 
-Cet article répertorie les questions fréquemment posées sur l’utilisation d’Azure Database Migration Service ainsi que les réponses associées.
+Cet article répertorie les questions fréquemment posées sur l’utilisation d’Azure Database Migration Service, ainsi que les réponses associées.
 
 ### <a name="q-what-is-azure-database-migration-service"></a>Q. Qu’est-ce qu’Azure Database Migration Service ?
 
@@ -32,7 +32,7 @@ Azure Database Migration Service est un service entièrement géré conçu pour 
 
 ### <a name="q-what-source-target-pairs-does-the-azure-database-migration-service-currently-support"></a>Q. Quelles sont les paires source-cible actuellement prises en charge par Azure Database Migration Service ?
 
-Le service prend actuellement en charge un certain nombre de scénarios de migration. Pour obtenir la liste complète des états de chaque scénario de migration disponible, consultez l’article [État des scénarios de migration pris en charge par Azure Database Migration Service](https://docs.microsoft.com/azure/dms/resource-scenario-status). Autres scénarios de migration sont en version préliminaire et nécessitent de soumettre une candidature via le site d’aperçu de DMS. Pour obtenir une liste complète des scénarios en version préliminaire et pour vous inscrire pour participer à une de ces offres, consultez le [site DMS Preview](https://aka.ms/dms-preview/).
+Le service prend actuellement en charge un certain nombre de scénarios de migration. Pour obtenir la liste complète des états de chaque scénario de migration disponible, consultez l’article [État des scénarios de migration pris en charge par Azure Database Migration Service](https://docs.microsoft.com/azure/dms/resource-scenario-status). D’autres scénarios de migration sont disponibles en préversion et nécessitent l’envoi d’une demande via le site DMS Preview. Pour obtenir la liste complète des scénarios en préversion et vous inscrire pour participer à une de ces offres, consultez le [site DMS Preview](https://aka.ms/dms-preview/).
 
 ### <a name="q-how-does-the-azure-database-migration-service-compare-to-other-microsoft-database-migration-tools-such-as-the-database-migration-assistant-dma-or-sql-server-migration-assistant-ssma"></a>Q. Comment Azure Database Migration Service se distingue-t-il des autres outils de migration de bases de données Microsoft tels que l’Assistant Migration de bases de données ou l’Assistant Migration SQL Server ?
 
@@ -64,8 +64,8 @@ Il existe plusieurs conditions préalables requises pour vous garantir qu’Azur
 
 Les conditions préalables associées à Azure Database Migration Service communes à tous les scénarios de migration pris en charge incluent le besoin de :
 
-* Créer un réseau virtuel pour Azure Database Migration Service en utilisant le modèle de déploiement Azure Resource Manager, qui fournit une connectivité de site à site à vos serveurs de sources locales à l’aide [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou [ VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-* Vérifiez que votre réseau virtuel de Azure (VNet) les règles de groupe de sécurité réseau ne bloquent pas les éléments suivants ports de communication 443, 53, 9354, 445 et 12000. Pour plus d’informations sur le filtrage du trafic de groupe de sécurité réseau de réseau virtuel Azure, consultez l’article [Filtrer le trafic réseau avec les groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+* Créez un réseau virtuel pour Azure Database Migration Service à l’aide du modèle de déploiement Azure Resource Manager, qui fournit une connectivité de site à site à vos serveurs sources locaux à l’aide de la fonction [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+* Assurez-vous que les règles de groupe de sécurité Réseau virtuel Microsoft Azure ne bloquent pas les ports de communication suivants : 443, 53, 9354, 445, 12000. Pour plus d’informations sur le filtrage du trafic de groupe de sécurité réseau de réseau virtuel Azure, consultez l’article [Filtrer le trafic réseau avec les groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 * Lorsque vous utilisez une appliance de pare-feu devant vos bases de données sources, vous devrez peut-être ajouter des règles de pare-feu pour permettre à Azure Database Migration Service d’accéder aux bases de données sources pour la migration.
 
 Pour obtenir la liste de toutes les conditions préalables requises pour mener à bien des scénarios de migration spécifiques à l’aide d’Azure Database Migration Service, consultez les didacticiels connexes dans la [documentation](https://docs.microsoft.com/azure/dms/dms-overview) d’Azure Database Migration Service sur docs.microsoft.com.
@@ -107,9 +107,9 @@ Même si plusieurs didacticiels Microsoft peuvent vous présenter le processus d
 
 Si l’utilisateur arrête de manière explicite Azure Database Migration Service (DMS) ou si le service est inactif pendant une période de 24 heures, le service est dans un état arrêté ou de pause automatique. Dans tous les cas, le service est indisponible et dans un état arrêté.  Pour reprendre les migrations actives, redémarrez le service.
 
-### <a name="q-where-can-i-leave-feedback-about-azure-database-migration-service"></a>Q. Où puis-je laisser des commentaires sur Azure Database Migration Service ?
+### <a name="q-where-can-i-leave-feedback-about-azure-database-migration-service"></a>Q. Où peut-on donner son avis sur Azure Database Migration Service ?
 
-Nous attendons vos remarques ! Veuillez n’envoyer vos commentaires et / idées que vous disposez sur le Service de Migration de base de données Azure via User Voice, [ici](https://feedback.azure.com/forums/906100-azure-database-migration-service), ou en contactant l’équipe [poser de Migrations de base de données Azure](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
+Nous attendons vos remarques ! Veuillez soumettre vos avis et suggestions concernant Azure Database Migration Service via User Voice, [ici](https://feedback.azure.com/forums/906100-azure-database-migration-service) ou en contactant l’équipe ([Contribuer à Azure Database Migration](mailto:AskAzureDatabaseMigrations@service.microsoft.com)).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

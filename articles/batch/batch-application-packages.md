@@ -16,10 +16,10 @@ ms.date: 04/26/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: c17835a4155e97395e8ae1b8e9ba6d2a42433f71
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66298744"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Déployer des applications sur les nœuds avec des packages d’applications Batch
@@ -114,11 +114,11 @@ Cette fenêtre affiche l’ID de chaque application dans votre compte et les pro
 * **Version par défaut** : version d’application installée si vous n’indiquez pas de version lorsque vous spécifiez l’application pour un pool. Ce paramètre est facultatif.
 * **Autoriser les mises à jour** : valeur spécifiant si les mises à jour, les suppressions et les ajouts de packages sont autorisés. Si ce paramètre présente la valeur **Non**, les mises à jour et les suppressions de packages sont désactivées pour l’application. Seules les nouvelles versions de package d’application pourront être ajoutées. La valeur par défaut de ce paramètre est **Oui**.
 
-Si vous souhaitez voir la structure des fichiers du package d’application sur votre nœud de calcul, accédez à votre compte Batch dans le portail. À partir de votre compte Batch, accédez à **Pools**. Sélectionnez le pool qui contient les nœuds de calcul que vous intéresse.
+Si vous souhaitez voir la structure des fichiers du package d’application sur votre nœud de calcul, accédez à votre compte Batch dans le portail. À partir de votre compte Batch, naviguez jusqu’à **Pools**. Sélectionnez le pool qui contient le(s) nœud(s) de calcul qui vous intéresse(nt).
 
 ![Nœuds dans le pool][13]
 
-Une fois que vous avez sélectionné votre pool, accédez au nœud de calcul installée sur le package d’application. À partir de là, les détails du package d’application se trouvent dans le **applications** dossier. Dossiers supplémentaires sur le nœud de calcul contiennent d’autres fichiers, tels que les tâches de démarrage, les fichiers de sortie, sortie d’erreur, etc.
+Une fois que vous avez sélectionné votre pool, naviguez jusqu’au nœud de calcul sur lequel le package d’application est installé. À partir de là, les détails du package d’application se trouvent dans le dossier **applications**. Les dossiers supplémentaires du nœud de calcul contiennent d’autres fichiers, tels que les tâches de démarrage, les fichiers de sortie, la sortie d’erreur, etc.
 
 ![Fichiers sur le nœud][14]
 
@@ -176,7 +176,7 @@ Pour ajouter une version du package d’application pour une application existan
 
 ![Panneau Ajouter un package d’application dans le Portail Azure][8]
 
-Comme vous pouvez le voir, les champs correspondent à celles de la **nouvelle application** fenêtre, mais la **ID d’Application** zone est désactivée. Comme vous l’avez fait pour la nouvelle application, spécifiez la **version** de votre nouveau package, accédez au fichier .zip de votre **package d’application**, puis cliquez sur **OK** pour charger le package.
+Comme vous pouvez le voir, les champs correspondent à ceux de la fenêtre **Nouvelle application**, mais la boîte **ID d’application** est désactivée. Comme vous l’avez fait pour la nouvelle application, spécifiez la **version** de votre nouveau package, accédez au fichier .zip de votre **package d’application**, puis cliquez sur **OK** pour charger le package.
 
 ### <a name="update-or-delete-an-application-package"></a>Mettre à jour ou supprimer un package d’application
 Pour mettre à jour ou supprimer un package d’application existant, ouvrez les détails de l’application, cliquez sur **Packages**, cliquez sur **ellipse** dans la ligne du package d’application que vous voulez modifier, puis sélectionnez l’action à exécuter.
@@ -261,7 +261,7 @@ Windows:
 AZ_BATCH_APP_PACKAGE_APPLICATIONID#version
 ```
 
-Sur des nœuds Linux, le format est légèrement différent. Les points (.), les tirets (-) et les signes dièse (#) sont aplatis en traits de soulignement dans la variable d’environnement. En outre, notez que la casse de l’ID d’application est conservée. Exemple :
+Sur des nœuds Linux, le format est légèrement différent. Les points (.), les tirets (-) et les signes dièse (#) sont aplatis en traits de soulignement dans la variable d’environnement. En outre, notez que la casse de l’ID d’application est conservée. Par exemple :
 
 ```
 Linux:
@@ -379,5 +379,5 @@ Grâce aux packages d’application, vous pouvez aider vos clients à sélection
 [10]: ./media/batch-application-packages/app_pkg_10.png "Panneau Sélectionner un compte de stockage dans le Portail Azure"
 [11]: ./media/batch-application-packages/app_pkg_11.png "Panneau Mettre à jour un package dans le Portail Azure"
 [12]: ./media/batch-application-packages/app_pkg_12.png "Boîte de dialogue de confirmation de la suppression d’un package dans le Portail Azure"
-[13]: ./media/batch-application-packages/package-file-structure.png "Dans le portail Azure, les informations sur les nœuds de calcul"
-[14]: ./media/batch-application-packages/package-file-structure-node.png "Fichiers sur le nœud de calcul affiché dans le portail Azure"
+[13]: ./media/batch-application-packages/package-file-structure.png "Informations sur le nœud de calcul dans le Portail Azure"
+[14]: ./media/batch-application-packages/package-file-structure-node.png "Fichiers sur le nœud de calcul dans le Portail Azure"

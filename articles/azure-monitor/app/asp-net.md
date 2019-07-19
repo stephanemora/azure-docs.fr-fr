@@ -13,23 +13,23 @@ ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: mbullwin
 ms.openlocfilehash: 5b719566ce42639c0c435a8d631e12541d0a0e9d
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66256625"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Configurer Application Insights pour votre site web ASP.NET
 
 Cette procédure configure votre application web ASP.NET pour l’envoi de données de télémétrie au service [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md). Elle fonctionne pour les applications ASP.NET hébergées sur votre propre serveur IIS local ou dans le cloud. Vous obtenez des graphiques et un langage de requête puissant, qui vous aident à comprendre les performances de votre application et son utilisation, ainsi que des alertes automatiques sur les défaillances ou les problèmes de performances. De nombreux développeurs trouvent ces fonctionnalités exceptionnelles telles quelles, mais vous pouvez également étendre et personnaliser les données de télémétrie si vous en avez besoin.
 
-L’installation se fait en seulement quelques clics dans Visual Studio. Vous avez la possibilité d’éviter des frais en limitant le volume de données de télémétrie. Cette fonctionnalité vous permet de tester et de déboguer, ou pour surveiller un site avec peu d’utilisateurs. Si vous décidez plus tard de vous lancer et de surveiller votre site de production, il sera facile d’augmenter la limite.
+L’installation se fait en seulement quelques clics dans Visual Studio. Vous avez la possibilité d’éviter des frais en limitant le volume de données de télémétrie. Cette fonctionnalité vous permet de tester et de déboguer, ou de surveiller un site avec peu d’utilisateurs. Si vous décidez plus tard de vous lancer et de surveiller votre site de production, il sera facile d’augmenter la limite.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Pour Application Insights à votre site web ASP.NET, vous devez :
 
-- Installer [Visual Studio 2019 pour Windows](https://www.visualstudio.com/downloads/) avec des charges de travail suivantes :
-    - Développement web et ASP.NET (ne décochez pas les composants facultatifs)
+- Installez [Visual Studio 2019 pour Windows](https://www.visualstudio.com/downloads/) avec les charges de travail suivantes :
+    - Développement ASP.NET et web (ne décochez pas les composants optionnels)
     - Développement Azure
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
@@ -37,9 +37,9 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 ## <a name="ide"></a> Étape 1 : Ajouter le Kit SDK Application Insights
 
 > [!IMPORTANT]
-> Les captures d’écran dans cet exemple sont en fonction de Visual Studio 2017 version 15.9.9 et versions ultérieures. L’expérience pour ajouter Application Insights varie en fonction des versions de Visual Studio, ainsi que par type de modèle ASP.NET. Les versions antérieures peuvent avoir un texte de remplacement tels que « Configurer Application Insights ».
+> Les captures d’écran de cet exemple sont basées sur Visual Studio 2017 version 15.9.9 ou ultérieure. L’expérience d’ajout d’Application Insights varie selon les versions de Visual Studio et le type de modèle ASP.NET. Les versions plus anciennes peuvent comporter du texte de remplacement tel que « Configurer Application Insights ».
 
-Cliquez sur le nom de votre application web dans l’Explorateur de solutions, puis choisissez **ajouter** > **les données de télémétrie Application Insights**
+Faites un clic droit sur le nom de votre application web dans l’Explorateur de solutions, puis choisissez **Ajouter** > **Application Insights Telemetry**
 
 ![Capture d’écran de l’Explorateur de solutions, avec l’option Configurer Application Insights en surbrillance](./media/asp-net/add-telemetry-new.png)
 
@@ -102,7 +102,7 @@ Dans le portail, cliquez sur n’importe quelle mosaïque ou n’importe quel gr
 ## <a name="step-4-publish-your-app"></a>Étape 4 : Publier votre application
 Publiez votre application sur votre serveur IIS ou sur Azure. Vérifiez [Live Metrics Stream (Flux continu de mesures)](../../azure-monitor/app/metrics-explorer.md#live-metrics-stream) pour vous assurer que tout fonctionne correctement.
 
-Vos builds télémétrie inscrire dans le portail Application Insights, où vous pouvez surveiller les métriques, rechercher vos données de télémétrie. Vous pouvez également utiliser la puissante [langue de requête Kusto](/azure/kusto/query/) pour analyser l’utilisation et les performances ou rechercher des événements spécifiques.
+Vos données de télémétrie s’affichent dans le portail Application Insights, où vous pouvez surveiller les mesures et effectuer une recherche dans vos données de télémétrie. Vous pouvez également utiliser la puissante [langue de requête Kusto](/azure/kusto/query/) pour analyser l’utilisation et les performances ou rechercher des événements spécifiques.
 
 Vous pouvez également continuer à analyser vos données de télémétrie dans [Visual Studio](../../azure-monitor/app/visual-studio.md) à l’aide d’outils comme la recherche de diagnostic et les [tendances](../../azure-monitor/app/visual-studio-trends.md).
 
@@ -113,7 +113,7 @@ Vous pouvez également continuer à analyser vos données de télémétrie dans 
 
 ## <a name="land"></a> Vous êtes prêt.
 
-Félicitations ! Vous avez installé le package Application Insights dans votre application et l’avez configuré pour envoyer des données de télémétrie au service Application Insights dans Azure.
+Félicitations ! Vous avez installé le package Application Insights dans votre application et l’avez configuré pour envoyer des données de télémétrie au service Application Insights dans Azure.
 
 La ressource Azure qui reçoit les données de télémétrie de votre application est identifiée par une *clé d’instrumentation*. Vous trouverez cette clé dans le fichier ApplicationInsights.config.
 
@@ -150,7 +150,7 @@ Vous pouvez consulter d’autres rubriques selon les aspects qui vous intéresse
 
 * [Tests de disponibilité](../../azure-monitor/app/monitor-web-app-availability.md) : créez des tests pour vous assurer que votre site est visible sur le web.
 * [Diagnostics intelligents](../../azure-monitor/app/proactive-diagnostics.md) : ces tests s’exécutent automatiquement, sans que vous n’ayez rien à faire pour les configurer. Ils vous indiquent si votre application affiche un taux inhabituel de demandes ayant échoué.
-* [Alertes de métriques](../../azure-monitor/app/alerts.md) : Définir des alertes pour vous avertir si une métrique dépasse un seuil. Vous pouvez définir des mesures personnalisées que vous codez dans votre application.
+* [Alertes de métriques](../../azure-monitor/app/alerts.md) : Définissez des alertes qui vous avertissent si un indicateur de performance dépasse un seuil. Vous pouvez définir des mesures personnalisées que vous codez dans votre application.
 
 ### <a name="automation"></a>Automatisation
 

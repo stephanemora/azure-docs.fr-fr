@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.date: 12/18/2018
 ms.reviewer: yossiy
 ms.author: mbullwin
-ms.openlocfilehash: cfa00504cd2a05985fde2af3357418eac8baceeb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 46944603fdf45a2a7a14641086959bf61b3f773e
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61299057"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67465883"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Détection intelligente des anomalies de type échec
 [Application Insights](../../azure-monitor/app/app-insights-overview.md) vous avertit automatiquement en temps quasi-réel si une augmentation anormale du taux des requêtes en échec est détectée dans votre application web. Il détecte une augmentation inhabituelle du nombre de demandes HTTP ou d’appels de dépendance signalés comme défaillants. Les demandes ayant échoué sont généralement celles dont le code de réponse est supérieur ou égal à 400. Pour vous aider à prioriser et à diagnostiquer le problème, la notification s’accompagne d’une analyse des caractéristiques des requêtes ayant échoué et de la télémétrie connexe. Elle fournit également des liens vers le portail Application Insights pour un diagnostic plus poussé. La fonctionnalité ne requiert ni installation ni configuration, puisqu’elle utilise des algorithmes d’apprentissage automatique pour prédire le taux d’échec normal.
 
-Cette fonctionnalité est utilisée pour les applications web Java et ASP.NET, hébergées dans le cloud ou sur vos propres serveurs. Elle sert également pour n’importe quelle application qui génère de la télémétrie de demande ou de dépendance : par exemple, si vous avez un rôle de travail qui appelle [TrackRequest()](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest) ou [TrackDependency()](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency).
+Cette fonctionnalité fonctionne pour n’importe quelle application web hébergée sur le cloud ou sur vos propres serveurs qui génère de la télémétrie de demande ou de dépendance : par exemple, si vous avez un rôle de travail qui appelle [TrackRequest()](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest) ou [TrackDependency()](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency).
 
 Après que vous avez configuré [Application Insights pour votre projet](../../azure-monitor/app/app-insights-overview.md), et sous réserve que votre application génère une certaine quantité minimale de données de télémétrie, 24 heures sont nécessaires à la détection intelligente des anomalies de type échec pour découvrir le comportement normal de votre application avant d’être activée et de pouvoir envoyer des alertes.
 
@@ -43,6 +43,26 @@ Notez qu’il vous indique :
 * un modèle caractéristique associé aux échecs. Cet exemple contient un code de réponse, un nom de demande (opération) et une version d’application spécifiques. Ces informations vous indiquent immédiatement où commencer la recherche dans votre code. Les autres possibilités peuvent être un type de navigateur ou un système d’exploitation client spécifique ;
 * l’exception, le suivi des journaux et l’échec de dépendance (bases de données ou autres composants externes) qui semblent associés à des défaillances identifiées ;
 * les liens directs aux recherches pertinentes sur la télémétrie dans Application Insights.
+
+## <a name="failure-anomalies-v2"></a>Défaillances v2
+Une nouvelle version de la règle d’alerte Défaillances est maintenant disponible. Cette version est en cours d’exécution sur la nouvelle plateforme d’alertes Azure et propose de nombreuses améliorations par rapport à la version existante.
+
+### <a name="whats-new-in-this-version"></a>Nouveautés de cette version
+- Détection plus rapide des problèmes
+- Un ensemble plus riche d’actions : la règle d’alerte est créée avec un [groupe d’actions](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) associé nommé « Détection intelligente Application Insights » qui contient des actions de webhook et de messagerie, et peut être étendue pour déclencher des actions supplémentaires lorsque l’alerte se déclenche.
+- Des notifications plus ciblées : les notifications par e-mail envoyées à partir de cette règle d’alerte sont désormais envoyées par défaut aux utilisateurs associés aux rôles Lecteur d’analyse et Contributeur de surveillance de l’abonnement. Davantage d’informations à ce sujet sont disponibles [ici](https://docs.microsoft.com/azure/azure-monitor/app/proactive-email-notification).
+- Configuration facilitée via des modèles ARM : voir l’exemple [ici](https://docs.microsoft.com/azure/azure-monitor/app/proactive-arm-config).
+- Prise en charge des schémas d’alerte courants : les notifications envoyées à partir de cette règle d’alerte suivent le [schéma d’alerte courant](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema).
+- Modèle d’e-mail unifié : les notifications par e-mail envoyées à partir de cette règle d’alerte ont une apparence et un comportement cohérents avec les autres types d’alerte. Avec cette modification, l’option pour recevoir des alertes de défaillances avec des informations de diagnostic détaillées n’est plus disponible.
+
+### <a name="how-do-i-get-the-new-version"></a>Comment obtenir la nouvelle version ?
+- Les ressources Application Insights nouvellement créées sont désormais configurées avec la nouvelle version de la règle d’alerte Défaillances.
+- Les ressources Application Insights existantes avec la version classique de la règle d’alerte Défaillances recevront la nouvelle version une fois leur abonnement d’hébergement migré vers la nouvelle plateforme d’alertes dans le cadre du [processus de suppression des alertes classiques](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement).
+
+> [!NOTE]
+> La nouvelle version de la règle d’alerte Défaillances restera gratuite. En outre, les actions de webhook et de messagerie déclenchées par le groupe d’actions « Détection intelligente Application Insights » sont également gratuites.
+> 
+> 
 
 ## <a name="benefits-of-smart-detection"></a>Avantages de la détection intelligente
 Les [alertes de mesure](../../azure-monitor/app/alerts.md) ordinaires vous indiquent un problème potentiel. Mais la détection intelligente démarre le travail de diagnostic à votre place, effectue la majeure partie de l’analyse que vous auriez à effectuer vous-même. Vous obtenez les résultats clairement empaquetés, ce qui vous permet d’accéder rapidement à l’origine du problème.

@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/30/2019
+ms.date: 06/28/2019
 ms.author: magoedte
-ms.openlocfilehash: a50f080ee4d72ad098ca87f5b3a62b42f8cd5907
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8f2b74c4c091aed0a1b5889b0a07d44d450d1922
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65142746"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477079"
 ---
 # <a name="configure-service-map-in-azure"></a>Configurer Service Map dans Azure
 
@@ -100,22 +100,18 @@ La section suivante répertorie les systèmes d’exploitation pris en charge pa
 | 16.04 | 4.4.\*<br>4.8.\*<br>4.10.\*<br>4.11.\*<br>4.13.\* |
 | 14.04 | 3.13.\*<br>4.4.\* |
 
-### <a name="suse-linux-11-enterprise-server"></a>SUSE Linux 11 Enterprise Server
+#### <a name="suse-linux-12-enterprise-server"></a>SUSE Linux 12 Enterprise Server
 
 | Version du SE | Version du noyau
 |:--|:--|
-| 11 SP4 | 3.0.* |
-
-### <a name="suse-linux-12-enterprise-server"></a>SUSE Linux 12 Enterprise Server
-
-| Version du SE | Version du noyau
-|:--|:--|
-| 12 SP2 | 4.4.* |
-| 12 SP3 | 4.4.* |
+|12 SP2 | 4.4.* |
+|12 SP3 | 4.4.* |
+|12 SP4 | 4.4.* |
+|12 SP4 | Kernel optimisé pour Azure |
 
 ## <a name="dependency-agent-downloads"></a>Téléchargements de l’agent de dépendances
 
-| Fichier | SE | Version | SHA-256 |
+| Fichier | OS | Version | SHA-256 |
 |:--|:--|:--|:--|
 | [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.8.1 | 622C99924385CBF539988D759BCFDC9146BB157E7D577C997CDD2674E27E08DD |
 | [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.8.1 | 3037934A5D3FB7911D5840A9744AE9F980F87F620A7F7B407F05E276FE7AE4A8 |
@@ -279,7 +275,7 @@ Pour afficher la liste des indicateurs d’installation, exécutez le programme 
 
 Les fichiers de l’agent de dépendances sont placés dans les répertoires suivants :
 
-| Fichiers | Lieu |
+| Fichiers | Location |
 |:--|:--|
 | Fichiers principaux | /opt/microsoft/dependency-agent |
 | Fichiers journaux | /var/opt/microsoft/dependency-agent/log |

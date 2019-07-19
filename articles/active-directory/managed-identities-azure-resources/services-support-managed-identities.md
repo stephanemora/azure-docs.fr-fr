@@ -3,19 +3,19 @@ title: Services Azure prenant en charge les identités managées pour ressources
 description: Liste des services qui prennent en charge les identités managées pour ressources Azure et l’authentification Azure AD
 services: active-directory
 author: MarkusVi
-ms.author: priyamo
+ms.author: markvi
 ms.date: 06/19/2019
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22c67f1dad55d5d8710a997394e247793943cd21
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: e6869602b7d4aff6d779d189f0b6444dde2055d4
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67293497"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68261903"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Services Azure qui prennent en charge les identités managées pour ressources Azure
 
@@ -228,10 +228,10 @@ Reportez-vous à la liste suivante pour configurer l’accès à Azure Resource 
 
 | Cloud | ID de ressource | Statut |
 |--------|------------|--------|
-| Azure Global | `https://storage.azure.com/` | Disponible |
-| Azure Government | `https://storage.azure.com/` | Disponible |
-| Azure Germany | `https://storage.azure.com/` | Disponible |
-| Azure China 21Vianet | `https://storage.azure.com/` | Disponible |
+| Azure Global | `https://storage.azure.com/` <br /><br />`https://<account>.blob.core.windows.net` <br /><br />`https://<account>.queue.core.windows.net` | Disponible |
+| Azure Government | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.windows.net` <br /><br />`https://<account>.queue.core.windows.net` | Disponible |
+| Azure Germany | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.windows.net` <br /><br />`https://<account>.queue.core.windows.net` | Disponible |
+| Azure China 21Vianet | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.windows.net` <br /><br />`https://<account>.queue.core.windows.net` | Disponible |
 
 ### <a name="azure-analysis-services"></a>Azure Analysis Services
 

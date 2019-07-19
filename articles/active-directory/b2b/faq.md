@@ -1,5 +1,5 @@
 ---
-title: B2B collaboration FAQ - Azure Active Directory | Microsoft Docs
+title: FAQ sur la collaboration B2B - Azure Active Directory | Microsoft Docs
 description: Trouvez les réponses aux questions les plus fréquentes sur Azure Active Directory B2B Collaboration.
 services: active-directory
 ms.service: active-directory
@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b40fc631e84336b684f981a2fef1515a1febec0
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.openlocfilehash: 523f1adc94870f79d198366059f33ad52f5dad68
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65811908"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67293073"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>FAQ sur Azure Active Directory B2B Collaboration
 
@@ -42,28 +42,28 @@ Oui. Les utilisateurs invités peuvent réinitialiser leur méthode d’authenti
 L’organisation à l’origine de l’invitation effectue l’authentification multifacteur. Elle doit s’assurer que l’organisation dispose d’un nombre suffisant de licences pour ses utilisateurs B2B qui utilisent l’authentification multifacteur.
 
 ### <a name="what-if-a-partner-organization-already-has-multi-factor-authentication-set-up-can-we-trust-their-multi-factor-authentication-and-not-use-our-own-multi-factor-authentication"></a>Que se passe-t-il si une organisation partenaire a déjà configuré l’authentification multifacteur ? Pouvons-nous faire confiance à son authentification multifacteur et ne pas utiliser notre propre authentification multifacteur ?
-Cette fonctionnalité est planifiée pour une version ultérieure : vous pourrez alors sélectionner des partenaires à exclure de votre authentification multifacteur (celle de l’organisation à l’origine de l’invitation).
+Cette fonctionnalité n’est pas prise en charge pour l’instant. Si l’accès aux ressources de votre organisation nécessite une authentification multifacteur, l’organisation partenaire doit s’inscrire pour l’authentification multifacteur dans votre organisation (celle qui invite).
 
 ### <a name="how-can-i-use-delayed-invitations"></a>Comment utiliser les invitations différées ?
 Une organisation peut souhaiter ajouter des utilisateurs B2B Collaboration et les approvisionner pour les applications au fil des besoins, avant d'envoyer des invitations. Vous pouvez utiliser l’API d’invitation B2B Collaboration pour personnaliser le workflow d’intégration.
 
 ### <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>Puis-je rendre les utilisateurs invités visibles dans la liste d’adresses globale Exchange ?
-Oui. Objets invité ne sont pas visibles dans la liste d’adresses globale (LAG) de votre organisation par défaut, mais vous pouvez utiliser Azure Active Directory PowerShell pour les rendre visibles. Consultez [puis-je rendre des objets invité visible dans la liste d’adresses globale ?](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups#can-i-make-guest-objects-visible-in-the-global-address-list)
+Oui. Par défaut, les objets invités ne sont pas visibles dans la liste d’adresses globale (GAL) de votre organisation, mais vous pouvez utiliser Azure Active Directory PowerShell pour les rendre visibles. Consultez [Puis-je rendre les objets invités visibles dans la liste d’adresses globale ?](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups#can-i-make-guest-objects-visible-in-the-global-address-list)
 
 ### <a name="can-i-make-a-guest-user-a-limited-administrator"></a>Peut-on faire d’un utilisateur invité un administrateur limité ?
 Absolument. Pour plus d’informations, consultez [Ajouter des utilisateurs invités à un rôle](add-guest-to-role.md).
 
 ### <a name="does-azure-ad-b2b-collaboration-allow-b2b-users-to-access-the-azure-portal"></a>Azure AD B2B Collaboration permet-il aux utilisateurs B2B d’accéder au Portail Azure ?
-Sauf si un utilisateur est affecté le rôle d’administrateur limité, les utilisateurs de B2B collaboration ne requièrent l’accès au portail Azure. Toutefois, les utilisateurs de collaboration B2B auxquels a été attribués le rôle d’administrateur limité peuvent accéder au portail. En outre, si un utilisateur invité qui ne possède aucun de ces rôles Administrateur accède au portail, il peut être en mesure d’accéder à certaines parties de l’expérience. Le rôle utilisateur invité possède quelques autorisations dans le répertoire.
+À moins que le rôle d’administrateur limité ne leur soit assigné, les utilisateurs de collaboration B2B n’ont pas besoin d’accéder au portail Azure. Toutefois, les utilisateurs de collaboration B2B qui disposent du rôle d’administrateur limité peuvent accéder au portail. En outre, si un utilisateur invité qui ne possède aucun de ces rôles Administrateur accède au portail, il peut être en mesure d’accéder à certaines parties de l’expérience. Le rôle utilisateur invité possède quelques autorisations dans le répertoire.
 
 ### <a name="can-i-block-access-to-the-azure-portal-for-guest-users"></a>Puis-je bloquer l’accès au portail Azure pour les utilisateurs invités ?
- Oui. Lorsque vous configurez cette stratégie, faites attention à ne pas bloquer accidentellement l’accès aux membres et aux administrateurs.
-Pour bloquer l’accès d’un utilisateur invité au [portail Azure](https://portal.azure.com), utilisez une stratégie d’accès conditionnel dans l’API Modèle de déploiement Azure Classic :
+Oui. Lorsque vous configurez cette stratégie, faites attention à ne pas bloquer accidentellement l’accès aux membres et aux administrateurs.
+Pour bloquer l’accès d’un utilisateur invité au [portail Azure](https://portal.azure.com), utilisez une stratégie d’accès conditionnel dans l’API de modèle de déploiement Windows Azure Classic :
 1. Modifiez le groupe **Tous les utilisateurs** pour qu’il contienne uniquement les membres.
-   ![Capture d’écran montrant groupe tous les utilisateurs où UserType n’est pas égale invité](media/faq/modify-all-users-group.png)
+   ![Capture d’écran montrant le groupe Tous les utilisateurs où UserType (Type d’utilisateur) n’est pas égal à Guest (Invité)](media/faq/modify-all-users-group.png)
 2. Créez un groupe dynamique contenant des utilisateurs invités.
-   ![Capture d’écran montrant un nouveau groupe de tous les utilisateurs invités](media/faq/group-with-guest-users.png)
-3. Configurez une stratégie d’accès conditionnel pour empêcher les utilisateurs invités d’accéder au portail, comme le montre la vidéo suivante :
+   ![Capture d’écran montrant un nouveau groupe Tous les utilisateurs invités](media/faq/group-with-guest-users.png)
+3. Configurez une stratégie d’accès conditionnel pour empêcher les utilisateurs invités d’accéder au portail, comme le montre la vidéo suivante :
   
    > [!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user/Player] 
 
@@ -108,10 +108,10 @@ Si le partenaire a un client Azure AD qui est fédéré à l’infrastructure d�
 Nous supprimons les différences entre B2B et B2C (des entreprises aux particuliers) Collaboration en ce qui concerne la prise en charge des identités. L’identité utilisée n’est pas un bon critère de choix entre B2B et B2C. Pour plus d’informations sur le choix de l’option de collaboration, consultez la page [Comparer B2C et B2B Collaboration dans Azure Active Directory](compare-with-b2c.md).
 
 ### <a name="what-applications-and-services-support-azure-b2b-guest-users"></a>Quelles applications et services prennent en charge les utilisateurs invités Azure B2B ?
-Toutes les applications Azure intégrée à Active Directory peuvent prendre en charge les utilisateurs invités Azure B2B, mais ils doivent utiliser un point de terminaison configuré en tant que client pour authentifier les utilisateurs invités. Vous devrez peut-être également [personnaliser les revendications](claims-mapping.md) dans le jeton SAML émis lorsqu’un utilisateur invité s’authentifie auprès de l’application. 
+Toutes les applications intégrées Azure AD peuvent prendre en charge les utilisateurs invités Azure B2B, mais elles doivent utiliser un point de terminaison configuré comme locataire pour authentifier les utilisateurs invités. Vous devrez peut-être également [personnaliser les revendications](claims-mapping.md) dans le jeton SAML émis lorsqu’un utilisateur invité s’authentifie auprès de l’application. 
 
 ### <a name="can-we-force-multi-factor-authentication-for-b2b-guest-users-if-our-partners-dont-have-multi-factor-authentication"></a>Pouvons-nous forcer l’authentification multifacteur pour les utilisateurs invités B2B si nos partenaires n’ont pas l’authentification multifacteur ?
-Oui. Pour plus d’informations, consultez la page [Accès conditionnel pour les utilisateurs B2B Collaboration](conditional-access.md).
+Oui. Pour plus d’informations, consultez [Accès conditionnel pour les utilisateurs de collaboration B2B](conditional-access.md).
 
 ### <a name="in-sharepoint-you-can-define-an-allow-or-deny-list-for-external-users-can-we-do-this-in-azure"></a>Dans SharePoint, il est possible de définir une liste « allow (autoriser) » ou « deny (refuser) » pour les utilisateurs externes. Peut-on faire cela dans Azure ?
 Oui. Azure AD B2B Collaboration prend en charge les listes autorisées et refusées. 

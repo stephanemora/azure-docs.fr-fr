@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2018
 ms.author: pepogors
-ms.openlocfilehash: 680c141e32333c4747ee69919229bd9381f536a4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 60b634b0b927804249148737ee7a99c0e86dd7d6
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60393745"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537768"
 ---
 # <a name="develop-c-service-fabric-applications-with-visual-studio-code"></a>Développer des applications Service Fabric en C# avec Visual Studio Code
 
@@ -77,6 +77,17 @@ Une fois que vous avez généré l’application, vous pouvez la déployer sur l
 4. Une fois que vous avez vérifié que l’application est en cours d’exécution, lancez un navigateur et ouvrez cette page : http:\//localhost:31002. Il s’agit du frontend web de l’application. Actualisez la page pour afficher la valeur actuelle du compteur quand elle est incrémentée.
 
    ![Application Counter Service dans le navigateur](./media/service-fabric-develop-csharp-applications-with-vs-code/counter-service-running.png)
+
+## <a name="publish-the-application-to-an-azure-service-fabric-cluster"></a>Publier une application sur un cluster Azure Service Fabric
+En même temps que le déploiement de l’application sur le cluster local, vous pouvez également publier l’application sur un cluster Azure Service Fabric distant. 
+
+1. Vérifiez que vous avez créé votre application en suivant les instructions ci-dessus. Mettez à jour le fichier config généré `Cloud.json` avec les détails du cluster distant sur lequel vous souhaitez publier.
+
+2. Dans la **Palette de commandes**, sélectionnez la commande **Service Fabric : publier une application**. La sortie du processus d’installation est envoyée au terminal intégré.
+
+   ![Commande Publier une application dans VS Code](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-publish-application.png)
+
+3. Quand le déploiement est terminé, lancez un navigateur et ouvrez Service Fabric Explorer : `https:<clusterurl>:19080/Explorer`. Vous devez voir que l’application est en cours d’exécution. Cette opération pouvant prendre un certain temps, soyez patient. 
 
 ## <a name="debug-the-application"></a>Déboguer l’application
 Quand vous déboguez une application dans VS Code, celle-ci doit être en cours d’exécution sur un cluster local. Vous pouvez ajouter des points d’arrêt au code.

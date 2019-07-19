@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56ddc2738305600c611cab1e09d654164f78b3d6
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 3fca84a71e1ede572e3889f973248db158115bec
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509434"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655496"
 ---
 # <a name="how-to-plan-your-conditional-access-deployment-in-azure-active-directory"></a>Procédure : Planifier votre déploiement d’accès conditionnel Azure Active Directory
 
@@ -135,7 +135,7 @@ Une des premières décisions que vous devez prendre pour les scénarios BYOD (a
 
 ### <a name="block-legacy-authentication"></a>Bloquer l’authentification héritée
 
-Azure AD prend en charge plusieurs protocoles d’authentification et d’autorisation parmi ceux les plus couramment utilisés, notamment l’authentification héritée. Comment pouvez-vous empêcher les applications utilisant l’authentification héritée d’accéder aux ressources de votre locataire ? Il est simplement recommandé de les bloquer à l’aide d’une stratégie d’accès conditionnel. Si nécessaire, vous pouvez autoriser uniquement certains utilisateurs et des emplacements réseau spécifiques à utiliser les applications s’appuyant sur l’authentification héritée. Pour plus d’informations, consultez [Comment bloquer l’authentification héritée sur Azure AD avec l’accès conditionnel](block-legacy-authentication.md).
+Azure AD prend en charge plusieurs protocoles d’authentification et d’autorisation parmi ceux les plus couramment utilisés, notamment l’authentification héritée. Comment pouvez-vous empêcher les applications utilisant l’authentification héritée d’accéder aux ressources de votre locataire ? Il est recommandé de les bloquer à l’aide d’une stratégie d’accès conditionnel, tout simplement. Si nécessaire, vous pouvez autoriser uniquement certains utilisateurs et des emplacements réseau spécifiques à utiliser les applications s’appuyant sur l’authentification héritée. Pour plus d’informations, consultez [Comment bloquer l’authentification héritée sur Azure AD avec l’accès conditionnel](block-legacy-authentication.md).
 
 ## <a name="test-your-policy"></a>Tester votre stratégie
 
@@ -162,7 +162,7 @@ Le plan de test est important pour comparer les résultats attendus et les résu
 |---|---|---|---|
 |[Exiger l’authentification multifacteur en dehors du bureau](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)|L’utilisateur autorisé se connecte à l’*application* quand il est dans un emplacement approuvé ou au bureau|L’utilisateur n’est pas invité à utiliser l’authentification multifacteur| |
 |[Exiger l’authentification multifacteur en dehors du bureau](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)|L’utilisateur autorisé se connecte à l’*application* quand il n’est pas dans un emplacement approuvé ou au bureau|L’utilisateur est invité à utiliser l’authentification multifacteur et peut se connecter| |
-|[Exiger l’authentification multifacteur (pour les administrateurs)](https://docs.microsoft.com/azure/active-directory/conditional-access/baseline-protection#require-mfa-for-admins)|L’administrateur général se connecte à l’*application*|L’administrateur est invité à utiliser l’authentification multifacteur| |
+|[Exiger l’authentification multifacteur (pour les administrateurs)](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-baseline-protect-administrators)|L’administrateur général se connecte à l’*application*|L’administrateur est invité à utiliser l’authentification multifacteur| |
 |[Connexions risquées](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-sign-in-risk-policy)|L’utilisateur se connecte à l’*application* à l’aide d’un [navigateur Tor](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection-playbook)|L’administrateur est invité à utiliser l’authentification multifacteur| |
 |[Gestion des appareils](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)|L’utilisateur autorisé tente de se connecter à partir d’un appareil autorisé|Accès accordé| |
 |[Gestion des appareils](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)|L’utilisateur autorisé tente de se connecter à partir d’un appareil non autorisé|Accès bloqué| |

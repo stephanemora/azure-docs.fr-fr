@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: b8f6a2d12e1a9920421e6491432b516520ae110b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 71a8a0e268c1b264a0a1a7f955f310bfddc830d2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60730145"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67439937"
 ---
 # <a name="profile-live-azure-app-service-apps-with-application-insights"></a>Profiler des applications Azure App Service en production avec Application Insights
 
@@ -58,6 +58,14 @@ Voici les paramètres nécessaires pour activer le profileur :
 
 Vous pouvez définir ces valeurs à l’aide de [modèles Azure Resource Manager](../../azure-monitor/app/azure-web-apps.md#app-service-application-settings-with-azure-resource-manager), d’[Azure PowerShell](https://docs.microsoft.com/powershell/module/az.websites/set-azwebapp) et d’[Azure CLI](https://docs.microsoft.com/cli/azure/webapp/config/appsettings?view=azure-cli-latest).
 
+### <a name="enabling-profiler-for-other-clouds-manually"></a>Activation manuelle de Profiler pour d’autres clouds
+
+Si vous souhaitez activer Profiler pour d’autres clouds, utilisez les paramètres d’application ci-dessous.
+
+|Paramètre d'application    | US Government Values| China Cloud |   
+|---------------|---------------------|-------------|
+|ApplicationInsightsProfilerEndpoint         | https://agent.serviceprofiler.azure.us    | https://profiler.applicationinsights.azure.cn |
+|ApplicationInsightsEndpoint | https://dc.applicationinsights.us | https://dc.applicationinsights.azure.cn |
 
 ## <a name="disable-profiler"></a>Désactiver Profiler
 

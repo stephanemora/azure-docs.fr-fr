@@ -6,16 +6,16 @@ author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: workload management
+ms.subservice: workload-management
 ms.date: 06/20/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: d1983f0842f8c04d627e66727ddddf618969992d
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 548271e888344eeb0d111c074153ef7492af5b33
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303299"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595532"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Gestion des charges de travail avec des classes de ressources dans Azure SQL Data Warehouse
 
@@ -36,7 +36,7 @@ La capacité de performances d’une requête est déterminée par la classe de 
 
 La capacité de performances d’une requête est déterminée par la classe de ressources de cette dernière.  Les classes de ressources sont des limites de ressources prédéterminées dans Azure SQL Data Warehouse, qui régissent les ressources de calcul et la concurrence lors de l’exécution des requêtes. Les classes de ressources peuvent vous aider à gérer votre charge de travail en définissant des limites quant au nombre de requêtes qui s’exécutent simultanément et sur les ressources de calcul qui leur sont respectivement attribuées.  Il faut faire un compromis entre la mémoire et la concurrence.
 
-- Des classes de ressources plus petites réduisent la mémoire maximale par requête, mais augmentent la concurrence.
+- Des classes de ressources plus petites réduisent la mémoire maximale par requête, mais augmentent la simultanéité.
 - Des classes de ressources plus grandes augmentent la mémoire maximale par requête, mais réduisent la concurrence.
 
 Il existe deux types de classes de ressources :

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: 8ba4763e8d4835911d33d21c0f5bb431851a649b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: fe0af4ca7b6860fff19f4df3165a975c42b54a03
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444713"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277777"
 ---
 # <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Planification et mise à l’échelle de la capacité pour Azure Service Fabric
 
@@ -80,15 +80,6 @@ Une fois les propriétés de nœud et les contraintes de placement déclarées, 
 4. Répétez les étapes 1 à 3 selon vos besoins, mais ne faites jamais descendre en puissance le nombre d’instances sur les types de nœuds principaux sur une valeur inférieure à celle garantie par le niveau de fiabilité. Pour obtenir la liste des instances recommandées, consultez [Planification de la capacité du cluster Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
 5. Une fois que toutes les machines virtuelles ont disparu (représentées comme « Down ») fabric:/System/InfrastructureService/[nom du nœud] indique un état d’erreur. Ensuite, vous pouvez mettre à jour la ressource de cluster pour supprimer le type de nœud. Vous pouvez utiliser le déploiement du modèle ARM ou modifier la ressource de cluster par le biais d’[Azure Resource Manager](https://resources.azure.com). Cela démarre une mise à niveau du cluster qui supprimera le service fabric:/System/InfrastructureService/[type du nœud] qui est en état d’erreur.
  6. Après cela, vous pouvez supprimer le groupe de machines virtuelles identiques, mais vous verrez toujours les nœuds comme « Down » depuis la vue de Service Fabric Explorer. La dernière étape consiste à les effacer avec la commande `Remove-ServiceFabricNodeState`.
-
-### <a name="example-scenario"></a>Exemple de scénario
-Exemple de scénario pris en charge si vous souhaitez exécuter une opération de mise à l’échelle verticale : vous souhaitez migrer votre cluster et application Service Fabric d’un disque non managé à des disques managés sans interrompre l’application. 
-
-Vous pouvez approvisionner un nouveau groupe de machines virtuelles identiques avec des disques managés, et effectuez une mise à niveau de l’application avec des contraintes de placement ciblant la capacité approvisionnée. Votre cluster Service Fabric peut ensuite planifier votre charge de travail sur la capacité de nœud de cluster configurée transférée la mise à niveau du domaine sans interruption de l’application. 
-
-Les points de terminaison du pool back-end pour la [référence SKU de base Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus) peuvent être des machines virtuelles dans un groupe à haute disponibilité ou un groupe de machines virtuelles identiques. Cela signifie que vous ne pouvez pas utiliser un équilibreur de charge de référence SKU de base si vous déplacez votre application de systèmes Service Fabric entre groupes identiques, sans bloquer temporairement l’accès à votre point de terminaison de gestion du cluster Service Fabric. Cela est vrai même si le cluster et son application sont en cours d’exécution.
-
-Les utilisateurs approvisionnent couramment un équilibreur de charge de référence SKU Standard lorsqu’ils effectuent un échange d’adresse IP virtuelle (VIP) entre des ressources des équilibreurs de charge de référence SKU de base et Standard. Cette technique limite toute future inaccessibilité à environ 30 secondes, nécessaire pour l’échange d’adresse IP virtuelle.
 
 ## <a name="horizontal-scaling"></a>Mise à l’échelle horizontale
 

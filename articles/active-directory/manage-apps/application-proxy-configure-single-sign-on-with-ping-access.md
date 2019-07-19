@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c43498a7829a43fad331841aca045f52ae680be
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 54a99d001f8cb59af3042ce8b6849a2cd9480e99
+ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67481471"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67724001"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Authentification basée sur l’en-tête pour une authentification unique avec le proxy d’application et PingAccess
 
@@ -53,10 +53,11 @@ Si vous avez activé le proxy d’application et déjà activé et installé un 
 Le connecteur de proxy d’application est un service Windows Server qui dirige le trafic de vos employés distants vers vos applications publiées. Pour obtenir des instructions d’installation plus détaillées, consultez [Tutoriel : Ajouter une application locale pour un accès à distance via le service Proxy d'application d'Azure Active Directory](application-proxy-add-on-premises-application.md).
 
 1. Connectez-vous au [portail Azure Active Directory](https://aad.portal.azure.com/) en tant qu’administrateur d’application. La page du **Centre d’administration Azure Active Directory** s’affiche.
-2. Sélectionnez **Azure Active Directory** > **Proxy d’application** > **Télécharger le service de connecteur**. La page **Téléchargement du connecteur Proxy d’application** s’affiche.
+1. Sélectionnez **Azure Active Directory** > **Proxy d’application** > **Télécharger le service de connecteur**. La page **Téléchargement du connecteur Proxy d’application** s’affiche.
 
    ![Téléchargement du connecteur Proxy d’application](./media/application-proxy-configure-single-sign-on-with-ping-access/application-proxy-connector-download.png)
-3. Suivez les instructions d’installation.
+
+1. Suivez les instructions d’installation.
 
 Le téléchargement du connecteur doit activer automatiquement le proxy d’application pour votre annuaire, mais si ce n’est pas le cas, vous pouvez sélectionner **Activer le proxy d’application**.
 
@@ -205,7 +206,7 @@ Exemple d’insertion d’adresse e-mail dans l’élément access_token que Pin
 
 ### <a name="use-of-claims-mapping-policy-optional"></a>Utilisation d’une stratégie de mappage de revendications (facultatif)
 
-[Stratégie de mappage de revendications (préversion)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-claims-mapping#claims-mapping-policy-properties/) pour les attributs qui n’existent pas dans Azure AD. Le mappage de revendications vous permet de migrer les anciennes applications locales vers le cloud en ajoutant des revendications personnalisées supplémentaires qui sont soutenues par vos objets ADFS ou utilisateur.
+[Stratégie de mappage de revendications (préversion)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-claims-mapping#claims-mapping-policy-properties) pour les attributs qui n’existent pas dans Azure AD. Le mappage de revendications vous permet de migrer les anciennes applications locales vers le cloud en ajoutant des revendications personnalisées supplémentaires qui sont soutenues par vos objets ADFS ou utilisateur.
 
 Pour que votre application utilise une revendication personnalisée et comprenne des champs supplémentaires, [créez une stratégie de mappage de revendications personnalisées et attribuez-la à l’application](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
 
