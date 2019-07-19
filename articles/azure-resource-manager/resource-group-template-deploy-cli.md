@@ -1,23 +1,17 @@
 ---
 title: Déployer des ressources avec Azure CLI et un modèle | Microsoft Docs
-description: Utilisez Azure Resource Manager et Azure CLI pour déployer des ressources dans Azure. Les ressources sont définies dans un modèle Resource Manager.
-services: azure-resource-manager
-documentationcenter: na
+description: Utilisez Azure Resource Manager et Azure CLI pour déployer des ressources sur Azure. Les ressources sont définies dans un modèle Resource Manager.
 author: tfitzmac
-ms.assetid: 493b7932-8d1e-4499-912c-26098282ec95
 ms.service: azure-resource-manager
-ms.devlang: azurecli
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 03/28/2019
 ms.author: tomfitz
-ms.openlocfilehash: 6cccae343e0a06af88c2e996c37910de72138c60
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.openlocfilehash: 11d5b174dc21392df89def8e91847e8a0dd12562
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66475041"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206543"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Déployer des ressources à l’aide de modèles Resource Manager et dAzure CLI
 
@@ -27,25 +21,25 @@ Cet article explique comment utiliser Azure CLI avec les modèles Resource Manag
 
 Si Azure CLI n’est pas installé, vous pouvez utiliser le [Cloud Shell](#deploy-template-from-cloud-shell).
 
-## <a name="deployment-scope"></a>Portée de déploiement
+## <a name="deployment-scope"></a>Étendue du déploiement
 
-Vous pouvez cibler votre déploiement à un abonnement Azure ou un groupe de ressources au sein d’un abonnement. Dans la plupart des cas, vous allez cibler le déploiement vers un groupe de ressources. Utilisez des déploiements d’abonnement pour appliquer des stratégies et des attributions de rôles sur l’abonnement. Déploiements d’abonnement permet également de créer un groupe de ressources et déployer des ressources sur celui-ci. Selon l’étendue du déploiement, vous utilisez des commandes différentes.
+Vous pouvez cibler votre déploiement au niveau d’un abonnement Azure, ou d’un groupe de ressources dans un abonnement. Dans la plupart des cas, un déploiement cible un groupe de ressources. Effectuez des déploiements au niveau de l’abonnement pour appliquer des stratégies et des attributions de rôles dans tout l’abonnement. Utilisez également ce type de déploiement pour créer un groupe de ressources et y déployer des ressources. Les commandes à utiliser diffèrent en fonction de l’étendue du déploiement.
 
-Pour déployer sur un **groupe de ressources**, utilisez [créer de déploiement de groupe az](/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create):
+Pour un déploiement dans un **groupe de ressources**, utilisez [az group deployment create](/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create) :
 
 ```azurecli
 az group deployment create --resource-group <resource-group-name> --template-file <path-to-template>
 ```
 
-Pour déployer sur un **abonnement**, utilisez [az déploiement créer](/cli/azure/deployment?view=azure-cli-latest#az-deployment-create):
+Pour un déploiement dans un **abonnement**, utilisez [az deployment create](/cli/azure/deployment?view=azure-cli-latest#az-deployment-create) :
 
 ```azurecli
 az deployment create --location <location> --template-file <path-to-template>
 ```
 
-Actuellement, les déploiements de groupes de gestion sont uniquement pris en charge via l’API REST. Consultez [déployer des ressources avec des modèles Resource Manager et les REST API Resource Manager](resource-group-template-deploy-rest.md).
+Actuellement, les déploiements dans les groupes d’administration sont uniquement pris en charge avec l’API REST. Consultez [Déployer des ressources à l’aide de modèles Resource Manager et de l’API REST Resource Manager](resource-group-template-deploy-rest.md).
 
-Les exemples de cet article utilisent des déploiements de groupes de ressources. Pour plus d’informations sur les déploiements d’abonnement, consultez [créer des groupes de ressources et des ressources au niveau de l’abonnement](deploy-to-subscription.md).
+Les exemples de cet article illustrent des déploiements dans des groupes de ressources. Pour plus d’informations sur les déploiements dans des abonnements, consultez [Créer des groupes de ressources et des ressources au niveau de l’abonnement](deploy-to-subscription.md).
 
 ## <a name="deploy-local-template"></a>Déployer un modèle local
 
@@ -74,7 +68,7 @@ Le déploiement peut prendre plusieurs minutes. Au terme, vous voyez un message 
 "provisioningState": "Succeeded",
 ```
 
-## <a name="deploy-remote-template"></a>Déployer le modèle à distance
+## <a name="deploy-remote-template"></a>Déployer un modèle distant
 
 Au lieu de stocker les modèles Resource Manager sur votre ordinateur local, vous pouvez les stocker dans un emplacement externe. Vous pouvez stocker des modèles dans un dépôt de contrôle de code source (par exemple, GitHub). Vous pouvez aussi les stocker dans un compte de stockage Azure pour mettre en place un accès partagé dans votre organisation.
 
@@ -104,12 +98,12 @@ az group deployment create --resource-group examplegroup \
 
 ## <a name="redeploy-when-deployment-fails"></a>Redéploiement en cas d’échec du déploiement
 
-Cette fonctionnalité est également appelé *restauration en cas d’erreur*. En cas d'échec du déploiement, vous pouvez automatiquement relancer un déploiement antérieur réussi à partir de votre historique de déploiement. Pour spécifier le redéploiement, utilisez le paramètre `--rollback-on-error` dans la commande de déploiement. Cette fonctionnalité est utile si vous avez un état correct connu pour votre déploiement de l’infrastructure et que vous souhaitez revenir à cet état. Il existe un certain nombre de restrictions mises en garde :
+Cette fonctionnalité est également appelée *Annulation en cas d'erreur*. En cas d'échec du déploiement, vous pouvez automatiquement relancer un déploiement antérieur réussi à partir de votre historique de déploiement. Pour spécifier le redéploiement, utilisez le paramètre `--rollback-on-error` dans la commande de déploiement. Cette fonctionnalité est utile si le déploiement de votre infrastructure était dans un état correct connu et que vous souhaitez le restaurer à cet état. Il existe toutefois un certain nombre de restrictions et mises en garde :
 
-- Le redéploiement est exécuté exactement tel qu’il a été exécuté précédemment avec les mêmes paramètres. Vous ne pouvez pas modifier les paramètres.
-- Le déploiement précédent est exécuté à l’aide de la [mode complet](./deployment-modes.md#complete-mode). Toutes les ressources non inclus dans le déploiement précédent sont supprimés, et les configurations de ressources sont définies sur leur état précédent. Assurez-vous que vous comprenez le [modes de déploiement](./deployment-modes.md).
-- Le redéploiement affecte uniquement les ressources, les modifications de données ne sont pas affectées.
-- Cette fonctionnalité est uniquement pris en charge sur les déploiements de groupe de ressources, pas les déploiements de niveau abonnement. Pour plus d’informations sur le déploiement au niveau d’abonnement, consultez [créer des groupes de ressources et des ressources au niveau de l’abonnement](./deploy-to-subscription.md).
+- Le redéploiement est exécuté exactement comme le déploiement précédent, avec les mêmes paramètres. Vous ne pouvez pas changer les paramètres.
+- Le déploiement précédent avait été exécuté en [mode complet](./deployment-modes.md#complete-mode). Les ressources qui n’étaient pas incluses dans le déploiement précédent sont supprimées, et les configurations de ressources sont définies à leur état précédent. Veillez à bien comprendre les différents [modes de déploiement](./deployment-modes.md).
+- Le redéploiement concerne uniquement les ressources ; il n’inclut pas les modifications de données.
+- Cette fonctionnalité est prise en charge sur les déploiements dans des groupes de ressources, mais pas sur les déploiements au niveau de l’abonnement. Pour plus d’informations sur le déploiement au niveau de l’abonnement, consultez [Créer des groupes de ressources et des ressources au niveau de l’abonnement](./deploy-to-subscription.md).
 
 Pour utiliser cette option, vos déploiements doivent avoir des noms uniques afin de pouvoir être identifiés dans l’historique. Si les noms ne sont pas uniques, le déploiement actuellement en échec peut remplacer le déploiement réussi précédemment dans l’historique. Vous pouvez uniquement utiliser cette option avec les déploiements de niveau racine. Les déploiements à partir d’un modèle imbriqué ne sont pas disponibles pour le redéploiement.
 

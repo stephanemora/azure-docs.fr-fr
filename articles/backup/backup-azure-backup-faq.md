@@ -2,18 +2,18 @@
 title: Forum aux questions sur Sauvegarde Azure
 description: 'Réponses aux questions courantes sur : les fonctionnalités de la sauvegarde Azure, y compris les coffres Recovery Services ce qu’il peut sauvegarder, son fonctionnement, son chiffrement, et ses limites. '
 services: backup
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.author: raynew
-ms.openlocfilehash: a0a2bc58603a81ba23ff3f1feb05f4d2350cfe72
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
-ms.translationtype: MT
+ms.author: dacurwin
+ms.openlocfilehash: c4e79d166d92a88934e5c5330ca852da8900c6f3
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66688728"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275548"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Sauvegarde Azure - Forum Aux Questions
 Cet article répond aux questions courantes sur le service Sauvegarde Azure.
@@ -40,7 +40,7 @@ Non. Dans un coffre Recovery Services, vous pouvez uniquement changer les option
 
 ### <a name="can-i-do-an-item-level-restore-ilr-for-vms-backed-up-to-a-recovery-services-vault"></a>Puis-je effectuer une restauration de niveau élément (ILR) pour les machines virtuelles sauvegardées dans un coffre Recovery Services ?
 - La restauration de niveau élément est prise en charge pour les machines virtuelles Azure sauvegardées par la sauvegarde de machine virtuelle Azure. Pour plus d’informations, consultez cet [article](backup-azure-restore-files-from-vm.md)
-- Récupération au niveau élément n’est pas prise en charge de points de récupération en ligne des machines virtuelles locales sauvegardées par le serveur de sauvegarde Azure ou de System Center DPM.
+- La restauration de niveau élément n’est pas prise en charge pour les points de récupération en ligne des machines virtuelles locales sauvegardées par le serveur de sauvegarde Azure ou System Center DPM.
 
 
 ## <a name="azure-backup-agent"></a>Agent Azure Backup
@@ -93,7 +93,7 @@ Oui.
 ### <a name="what-operating-systems-are-supported-for-backup"></a>Quels sont les systèmes d’exploitation pris en charge par la sauvegarde ?
 Sauvegarde Azure prend en charge les systèmes d’exploitation suivants pour la sauvegarde des dossiers et des fichiers, ainsi que des applications protégées par Azure Backup Server et DPM.
 
-**OS** | **Référence (SKU)** | **Détails**
+**SE** | **Référence (SKU)** | **Détails**
 --- | --- | ---
 Station de travail | |
 Windows 10 64 bits | Entreprise, Professionnel, Familiale | Les machines virtuelles doivent utiliser les derniers service packs et les dernières mises à jour.
@@ -101,7 +101,7 @@ Windows 8.1 64 bits | Entreprise, Professionnel | Les machines virtuelles doiv
 Windows 8 64 bits | Entreprise, Professionnel | Les machines virtuelles doivent utiliser les derniers service packs et les dernières mises à jour.
 Windows 7 64 bits | Édition Intégrale, Entreprise, Professionnel, Édition Familiale Premium, Édition Familiale Basique, Édition Starter | Les machines virtuelles doivent utiliser les derniers service packs et les dernières mises à jour.
 Serveur | |
-Windows Server 2019 64 bits | Standard, Datacenter, Essentials | Avec les derniers Service packs et dernières mises à jour.
+Windows Server 2019 64 bits | Standard, Datacenter, Essentials | Avec les derniers Service packs et dernières mises à jour.
 Windows Server 2016 64 bits | Standard, Datacenter, Essentials | Avec les derniers Service packs et dernières mises à jour.
 Windows Server 2012 R2 64 bits | Standard, Datacenter, Foundation | Avec les derniers Service packs et dernières mises à jour.
 Windows Server 2012 64 bits | Datacenter, Foundation, Standard | Avec les derniers Service packs et dernières mises à jour.

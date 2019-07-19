@@ -1,6 +1,6 @@
 ---
-title: Ligne de base stratégie bloc authentification hérités (version préliminaire) - Azure Active Directory
-description: Stratégie d’accès conditionnel aux protocoles d’authentification hérités de bloc
+title: Stratégie de base de référence pour bloquer l’authentification héritée (préversion) - Azure Active Directory
+description: Stratégie d’accès conditionnel pour bloquer les protocoles d’authentification héritée
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -11,113 +11,110 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7eebc68ae8a55d636f3bc85e179bd7d6813be8d
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: b8e9ea8956d87e2ec47cc65495e81d8a0f0ad8cb
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235553"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67560924"
 ---
-# <a name="baseline-policy-block-legacy-authentication-preview"></a>Stratégie de référence : Authentification hérités de bloc (version préliminaire)
+# <a name="baseline-policy-block-legacy-authentication-preview"></a>Stratégie de base de référence : Bloquer l’authentification héritée (préversion)
 
-Pour permettre à vos utilisateurs d’accéder facilement à vos applications cloud, Azure Active Directory (Azure AD) prend en charge un large éventail de protocoles d’authentification, notamment l’authentification héritée. L’authentification héritée est un terme qui fait référence à une demande d’authentification effectuée par :
+Pour permettre à vos utilisateurs d’accéder facilement à vos applications cloud, Azure Active Directory (Azure AD) prend en charge un large éventail de protocoles d’authentification, notamment l’authentification héritée. L’authentification héritée est un terme qui fait référence à une requête d’authentification effectuée par :
 
-* Clients Office plus anciens qui n’utilisent pas l’authentification moderne (par exemple, le client Office 2010)
+* D’anciennes versions de clients Office qui n’utilisent pas l’authentification moderne (par exemple, le client Office 2010)
 * Tout client qui utilise des protocoles de messagerie hérités tels que IMAP/SMTP/POP3
 
-Aujourd'hui, majorité des tentatives de connexion compromettre tous les proviennent de l’authentification héritée. L’authentification héritée ne prend pas en charge l’authentification multifacteur (MFA). Même si vous avez une stratégie d’authentification Multifacteur activée sur votre annuaire, un acteur peut s’authentifier à l’aide d’un protocole hérité et contourner l’authentification Multifacteur.
+Aujourd’hui, la majorité des tentatives de connexion compromettantes ont pour origine l’authentification héritée. L’authentification héritée ne prend pas en charge l’authentification multifacteur (MFA). Même si l’une de vos stratégies d’authentification multifacteur est activée dans votre annuaire, un individu mal intentionné peut s’authentifier à l’aide d’un protocole hérité et contourner l’authentification multifacteur.
 
-La meilleure façon de protéger votre compte à partir de demandes d’authentification malveillants effectuées par les protocoles hérités est de bloquer ces tentatives tous ensemble. Pour faciliter de bloquer toutes les demandes de connexion effectuées par les protocoles hérités, nous avons créé une stratégie de base qui a précisément cette.
+La meilleure façon de protéger votre compte contre les requêtes d’authentification malveillantes provenant de protocoles hérités est de bloquer toutes les requêtes de ce type. Pour faciliter le blocage de toutes les requêtes de connexion provenant de protocoles hérités, nous avons créé une stratégie de base de référence spécialement conçue à cet effet.
 
-![Authentification héritée de bloc avec l’accès conditionnel](./media/howto-baseline-protect-legacy-auth/baseline-policy-block-legacy-authentication.png)
+**Bloquer l’authentification héritée** est une [stratégie de base de référence](concept-baseline-protection.md) qui bloque toutes les requêtes d’authentification provenant de protocoles hérités. Tous les utilisateurs doivent employer l’authentification moderne pour se connecter. Si vous utilisez cette stratégie conjointement à d’autres stratégies de base de référence, toutes les requêtes provenant de protocoles hérités seront bloquées et tous les utilisateurs devront s’authentifier avec l’authentification multifacteur (MFA) chaque fois que nécessaire. Cette stratégie ne bloque pas Exchange ActiveSync.
 
-**L’authentification héritée de bloc** est [stratégie de référence](concept-baseline-protection.md) qui bloque toutes les demandes d’authentification effectuées à partir des protocoles hérités. L’authentification moderne doit être utilisée pour vous connecter avec succès pour tous les utilisateurs. Utilisé conjointement avec les autres stratégies de base, toutes les demandes provenant des protocoles hérités seront bloqués et tous les utilisateurs devront MFA chaque fois que nécessaire. Cette stratégie ne bloque pas Exchange ActiveSync.
+## <a name="identify-legacy-authentication-use"></a>Identifier l’utilisation de l’authentification héritée
 
-## <a name="identify-legacy-authentication-use"></a>Identifier, utilisez l’authentification hérités
+Avant de pouvoir bloquer l’authentification héritée dans votre annuaire, vous devez savoir si vos utilisateurs disposent d’applications qui utilisent l’authentification héritée, puis déterminer quel impact cela a sur l’ensemble de votre annuaire. Les journaux de connexion Azure AD peuvent servir à déterminer si vous utilisez une authentification héritée.
 
-Avant que vous pouvez bloquer l’authentification héritée dans votre annuaire, vous devez d’abord comprendre si vos utilisateurs disposent d’applications qui utilisent l’authentification héritée et comment il affecte votre annuaire global. Journaux de connexion AD Azure peuvent servir à comprendre si vous utilisez l’authentification héritée.
+1. Accédez au **portail Azure** > **Azure Active Directory** > **Connexions**.
+1. Si elle n’est pas affichée, ajoutez la colonne Application cliente en cliquant sur **Colonnes** > **Application cliente**.
+1. Filtrez les résultats par **Application cliente** > **Autres Clients**, puis cliquez sur **Appliquer**.
 
-1. Accédez à la **Azure portal** > **Azure Active Directory** > **connexions**.
-1. Ajouter la colonne de l’application cliente si elle n’est pas affichée en cliquant sur **colonnes** > **application cliente**.
-1. Filtrer par **application cliente** > **autres Clients** et cliquez sur **appliquer**.
+Grâce au filtrage, vous afficherez uniquement les tentatives de connexion effectuées via des protocoles d’authentification héritée. Cliquez sur chaque tentative de connexion pour afficher des détails supplémentaires. Le champ **Application cliente** affiché sous l’onglet **Informations de base** indique quel protocole d’authentification héritée a été utilisé.
 
-Filtrage va uniquement afficher vous connectez-vous tentatives qui ont été apportées par les protocoles d’authentification hérités. Cliquez sur chaque tentative de connexion individuelle afficher des détails supplémentaires. Le **application cliente** champ sous le **informations de base** onglet permet d’indiquer quel protocole d’authentification hérité a été utilisée.
-
-Ces journaux indique quels utilisateurs sont toujours en fonction d’authentification héritée et les applications qui utilisent les protocoles hérités pour effectuer des demandes d’authentification. Pour les utilisateurs qui n’apparaissent pas dans ces journaux et sont confirmées ne pas utiliser l’authentification héritée, implémenter une stratégie d’accès conditionnel ou activer la **stratégie de référence : authentification hérités de bloc** pour ces utilisateurs uniquement.
+Ces journaux identifient les utilisateurs qui continuent de tirer parti de la fonction d’authentification héritée, ainsi que les applications qui utilisent les protocoles hérités pour effectuer des requêtes d’authentification. Pour les utilisateurs qui ne figurent pas dans ces journaux et dont vous êtes certain qu’ils n’utilisent pas l’authentification héritée, implémentez une stratégie d’accès conditionnel, ou activez la **Stratégie de base de référence : Bloquer l’authentification héritée** uniquement pour ces utilisateurs.
 
 ## <a name="moving-away-from-legacy-authentication"></a>Abandon de l’authentification héritée
 
-Une fois que vous avez une meilleure idée de la personne qui utilise l’authentification héritée dans votre répertoire et les applications qui en dépendent, l’étape suivante est la mise à niveau vos utilisateurs pour utiliser l’authentification moderne. L’authentification moderne est une méthode de gestion des identités qui offre la plus sécurisée de l’authentification des utilisateurs et d’autorisation. Si vous avez une stratégie d’authentification Multifacteur en place sur votre annuaire, l’authentification moderne permet de s’assurer que l’utilisateur est invité pour l’authentification Multifacteur si nécessaire. Il est l’alternative la plus sécurisée pour les protocoles d’authentification hérités.
+Une fois que vous savez qui utilise l’authentification héritée dans votre annuaire et quelles applications en dépendent, l’étape suivante consiste à effectuer une mise à niveau pour que vos utilisateurs utilisent l’authentification moderne. L’authentification moderne est une méthode de gestion des identités qui offre plus de sécurité pour l’authentification et l’autorisation des utilisateurs. Si vous disposez d’une stratégie d’authentification multifacteur dans votre annuaire, l’authentification moderne garantit que l’utilisateur sera invité à s’authentifier par le biais de l’authentification multifacteur chaque fois que nécessaire. Il s’agit de l’alternative la plus sécurisée aux protocoles d’authentification hérités.
 
-Cette section fournit une présentation détaillée sur la façon de mettre à jour votre environnement pour l’authentification moderne. Lire les étapes ci-dessous avant d’activer une authentification hérités blocage de stratégie dans votre organisation.
+Cette section explique chacune des étapes nécessaires à la mise à jour de votre environnement vers l’authentification moderne. Avant d’activer une stratégie de blocage de l’authentification héritée au sein de votre organisation, lisez les étapes ci-dessous.
 
-### <a name="step-1-enable-modern-authentication-in-your-directory"></a>Étape 1 : Activer l’authentification moderne dans votre répertoire
+### <a name="step-1-enable-modern-authentication-in-your-directory"></a>Étape 1 : Activer l’authentification moderne dans votre annuaire
 
-Activation de l’authentification moderne, la première étape consiste à s’assurer de que votre annuaire prend en charge l’authentification moderne. L’authentification moderne est activée par défaut pour les répertoires créés l’ou après le 1er août 2017. Si votre annuaire a été créé avant cette date, vous devez activer manuellement l’authentification moderne pour votre annuaire en procédant comme suit :
+Lorsque vous activez l’authentification moderne, la première étape consiste à vérifier que votre annuaire prend en charge l’authentification moderne. L’authentification moderne est activée par défaut dans les annuaires depuis le 1er août 2017. Si votre annuaire a été créé avant cette date, vous devrez activer manuellement l’authentification moderne en procédant de la façon suivante :
 
-1. Vérifiez si votre répertoire prend déjà en charge l’authentification moderne en exécutant `Get-CsOAuthConfiguration` à partir de la [Skype entreprise Online PowerShell module](https://docs.microsoft.com/office365/enterprise/powershell/manage-skype-for-business-online-with-office-365-powershell).
-1. Si votre commande vide `OAuthServers` propriété, l’authentification moderne est désactivée. Mettre à jour le paramètre pour activer l’authentification moderne à l’aide `Set-CsOAuthConfiguration`. Si votre `OAuthServers` propriété contient une entrée, vous êtes fin prêt.
+1. Vérifiez si votre annuaire prend déjà en charge l’authentification moderne en exécutant `Get-CsOAuthConfiguration` à partir du [module PowerShell de Skype Entreprise sur le web](https://docs.microsoft.com/office365/enterprise/powershell/manage-skype-for-business-online-with-office-365-powershell).
+1. Si votre commande retourne une propriété `OAuthServers` vide, l’authentification moderne est désactivée. Mettez à jour le paramètre pour activer l’authentification moderne à l’aide de `Set-CsOAuthConfiguration`. Si votre propriété `OAuthServers` contient une entrée, vous êtes prêt.
 
-Veillez à effectuer cette étape avant de poursuivre. Il est essentiel que les configurations de votre répertoire sont modifiées tout d’abord, car ils déterminent le protocole sera utilisé par tous les clients Office. Même si vous utilisez des clients Office qui prennent en charge l’authentification moderne, ils seront par défaut des protocoles hérités si l’authentification moderne est désactivée sur votre annuaire.
+Veillez à effectuer cette étape avant de poursuivre. Il est essentiel de modifier les configurations de votre annuaire en premier, car ce sont elles qui déterminent le protocole qui sera utilisé par tous les clients Office. Même si vous utilisez des clients Office qui prennent en charge l’authentification moderne, ceux-ci utiliseront par défaut les protocoles hérités si l’authentification moderne est désactivée dans votre annuaire.
 
 ### <a name="step-2-office-applications"></a>Étape 2 : Applications Office
 
-Une fois que vous avez activé l’authentification moderne dans votre annuaire, vous pouvez commencer la mise à jour des applications en activant l’authentification moderne pour les clients Office. Office 2016 clients ou version ultérieure prend en charge l’authentification moderne par défaut. Aucune étape supplémentaire est nécessaire.
+Une fois que vous avez activé l’authentification moderne dans votre annuaire, vous pouvez commencer la mise à jour des applications en activant l’authentification moderne pour les clients Office. Les clients Office 2016 ou version ultérieure prennent en charge l’authentification moderne par défaut. Aucune étape supplémentaire n’est nécessaire.
 
-Si vous n’utilisez pas les clients Office 2013 Windows ou une version antérieure, nous vous recommandons de la mise à niveau vers Office 2016 ou version ultérieure. Même après la fin de l’étape précédente de l’activation de l’authentification moderne dans votre annuaire, les applications Office plus anciennes continueront à utiliser les protocoles d’authentification hérités. Si vous utilisez des clients Office 2013 et que vous ne pouvez pas immédiatement la mise à niveau vers Office 2016 ou version ultérieure, suivez les étapes décrites dans l’article suivant pour [activer l’authentification moderne Office 2013 sur les appareils Windows](https://docs.microsoft.com/office365/admin/security-and-compliance/enable-modern-authentication). Pour aider à protéger votre compte pendant que vous utilisez l’authentification héritée, nous recommandons à l’aide de mots de passe forts sur votre annuaire. Découvrez [protection de mot de passe Azure AD](../authentication/concept-password-ban-bad.md) à exclure des mots de passe faibles sur votre annuaire.
+Si vous n’utilisez pas les clients Windows Office 2013 (ou version antérieure), nous vous recommandons d’effectuer une mise à niveau vers Office 2016 ou version ultérieure. Même après l’activation de l’authentification moderne dans votre annuaire, les anciennes versions d’applications Office continueront à utiliser les protocoles d’authentification hérités. Si vous utilisez des clients Office 2013 et n’êtes pas encore en mesure d’effectuer une mise à niveau vers Office 2016 ou une version ultérieure, suivez les étapes décrites dans l’article suivant : [Activer l’authentification moderne pour Office 2013 sur les appareils Windows](https://docs.microsoft.com/office365/admin/security-and-compliance/enable-modern-authentication). Pour protéger votre compte lorsque vous utilisez l’authentification héritée, nous vous recommandons d’utiliser des mots de passe forts dans l’ensemble de votre annuaire. Pour interdire les mots de passe faibles dans votre annuaire, consultez [Protection de mot de passe Azure AD](../authentication/concept-password-ban-bad.md).
 
-Office 2010 ne prend pas en charge l’authentification moderne. Vous devez mettre à niveau de tous les utilisateurs avec Office 2010 vers une version plus récente de Microsoft Office. Nous vous recommandons de la mise à niveau vers Office 2016 ou version ultérieure, comme il bloque l’authentification héritée par défaut.
+Office 2010 ne prend pas en charge l’authentification moderne. Vous devez effectuer une mise à niveau pour tous les utilisateurs d’Office 2010. Nous vous recommandons d’effectuer une mise à niveau vers Office 2016 ou une version ultérieure, car il bloque par défaut l’authentification héritée.
 
-Si vous utilisez MacOS, nous vous recommandons de mettre à niveau vers Office pour Mac 2016 ou version ultérieure. Si vous utilisez le client de messagerie native, vous devrez avoir MacOS version 10.14 ou version ultérieure sur tous les appareils.
+Si vous utilisez MacOS, nous vous recommandons d’effectuer une mise à niveau vers Office pour Mac 2016 ou une version ultérieure. Si vous utilisez le client de messagerie natif, MacOS version 10.14 ou version ultérieure devra être installé sur tous les appareils.
 
 ### <a name="step-3-exchange-and-sharepoint"></a>Étape 3 : Exchange et SharePoint
 
-Pour que les clients Outlook basée sur Windows utilisent l’authentification moderne, Exchange Online doit être l’authentification moderne activée ainsi. Si l’authentification moderne est désactivée pour Exchange Online, les clients Outlook basée sur Windows qui prennent en charge l’authentification moderne (Outlook 2013 ou version ultérieure) utilisera l’authentification de base pour se connecter aux boîtes aux lettres Exchange Online.
+Pour que les clients Outlook Windows utilisent l’authentification moderne, l’authentification moderne doit également être activée dans Exchange Online. Si ce n’est pas le cas, les clients Outlook Windows qui prennent en charge l’authentification moderne (Outlook 2013 ou version ultérieure) utiliseront l’authentification de base pour se connecter aux boîtes aux lettres Exchange Online.
 
-SharePoint Online est activé par défaut de l’authentification moderne. Pour les répertoires créés après le 1er août 2017, l’authentification moderne est activée par défaut dans Exchange Online. Toutefois, si vous aviez précédemment désactivé l’authentification moderne ou si vous utilisez un répertoire créé avant cette date, suivez les étapes décrites dans l’article suivant pour [activer l’authentification moderne dans Exchange Online](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online).
+L’authentification moderne est activée par défaut dans SharePoint Online. Pour les annuaires créés après le 1er août 2017, l’authentification moderne est activée par défaut dans Exchange Online. Toutefois, si vous aviez précédemment désactivé l’authentification moderne ou si vous utilisez un annuaire ayant été créé avant cette date, suivez les étapes décrites dans l’article suivant : [Activer l’authentification moderne dans Exchange Online](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online).
 
 ### <a name="step-4-skype-for-business"></a>Étape 4 : Skype Entreprise
 
-Pour empêcher les requêtes d’authentification hérités effectuées par Skype pour entreprises, il est nécessaire activer l’authentification moderne pour Skype entreprise Online. Pour les répertoires créés après le 1er août 2017, l’authentification moderne pour Skype pour entreprises est activée par défaut.
+Si vous souhaitez bloquer les requêtes d’authentification héritée provenant de Skype Entreprise, vous devez activer l’authentification moderne pour Skype Entreprise sur le web. Pour les annuaires créés après le 1er août 2017, l’authentification moderne est activée par défaut dans Skype Entreprise.
 
-Pour activer l’authentification moderne dans Skype pour entreprises, nous vous suggérons de transition vers Microsoft Teams, qui prend en charge l’authentification moderne par défaut. Toutefois, si vous ne parvenez pas à tr à ce stade, vous devez activer l’authentification moderne pour Skype entreprise Online afin que Skype pour les clients entreprise démarre à l’aide de l’authentification moderne. Suivez ces étapes dans l’article [Skype pour les topologies Business pris en charge avec l’authentification moderne](https://docs.microsoft.com/skypeforbusiness/plan-your-deployment/modern-authentication/topologies-supported), pour savoir comment activer l’authentification moderne pour Skype for Business.
+Pour activer l’authentification moderne dans Skype Entreprise, nous vous suggérons de passer à Microsoft Teams, qui prend en charge l’authentification moderne par défaut. Toutefois, si vous ne pouvez pas encore passer à Microsoft Teams, vous devrez activer l’authentification moderne pour Skype Entreprise sur le web, afin que les clients Skype Entreprise puissent commencer à utiliser l’authentification moderne. Pour savoir comment activer l’authentification moderne dans Skype Entreprise, suivez les étapes de l’article [Topologies Skype Entreprise prenant en charge l’authentification moderne](https://docs.microsoft.com/skypeforbusiness/plan-your-deployment/modern-authentication/topologies-supported).
 
-En plus de permettre l’authentification moderne pour Skype entreprise Online, nous vous recommandons de moderne authentification être activée pour Exchange Online, lorsque vous activez l’authentification moderne pour Skype for Business. Ce processus aidera à synchroniser l’état de l’authentification moderne dans Exchange Online et Skype entreprise online et empêche plusieurs invites de connexion pour Skype pour les clients d’entreprise.
+Après avoir activé l’authentification moderne pour Skype Entreprise sur le web, nous vous recommandons d’activer l’authentification moderne pour Exchange Online lorsque vous l’activez pour Skype Entreprise. Vous pourrez ainsi synchroniser l’état de l’authentification moderne d’Exchange Online avec celui de Skype Entreprise sur le web, et éviter ainsi l’affichage de plusieurs invites de connexion à Skype Entreprise.
 
-### <a name="step-5-using-mobile-devices"></a>Étape 5 : À l’aide d’appareils mobiles
+### <a name="step-5-using-mobile-devices"></a>Étape 5 : Utilisation des appareils mobiles
 
-Applications sur votre appareil mobile doivent bloquer l’authentification héritée. Nous vous recommandons d’utiliser Outlook pour Mobile. Outlook Mobile prend en charge l’authentification moderne par défaut et répondra aux autres stratégies de protection de base MFA.
+Les applications de votre appareil mobile doivent elles aussi bloquer l’authentification héritée. Nous vous recommandons d’utiliser Outlook pour mobile. Outlook pour mobile prend en charge l’authentification moderne par défaut, et respecte d’autres stratégies de protection de base de référence MFA.
 
-Pour pouvoir utiliser le client de messagerie iOS native, vous devrez exécuter iOS version 11.0 ou version ultérieure pour garantir que le client de messagerie a été mis à jour pour bloquer l’authentification héritée.
+Pour utiliser le client de messagerie iOS natif, vous devrez exécuter iOS version 11.0 ou ultérieure afin de garantir que le client de messagerie bloquera l’authentification héritée.
 
-### <a name="step-6-on-premises-clients"></a>Étape 6 : Clients locaux
+### <a name="step-6-on-premises-clients"></a>Étape 6 : Clients locaux
 
-Si vous êtes un client de hybride à l’aide d’Exchange Server en local et Skype entreprise en local, les deux services doivent être mis à jour pour activer l’authentification moderne. Lorsque vous utilisez l’authentification moderne dans un environnement hybride, vous êtes toujours l’authentification des utilisateurs en local. L’histoire d’autoriser leur accès aux ressources (fichiers ou des e-mails) change.
+Si vous êtes un client hybride utilisant à la fois Exchange Server et Skype Entreprise localement, vous devez mettre à jour ces deux services afin qu’ils permettent l’authentification moderne. Lorsque vous utilisez l’authentification moderne dans un environnement hybride, l’authentification des utilisateurs se fait toujours localement. La méthode qui est employée pour les autoriser à accéder aux ressources (fichiers ou e-mails) n’est plus la même.
 
-Avant de commencer l’activation de l’authentification moderne en local, veillez à ce que vous remplissez theIf vous remplissez les conditions, vous êtes maintenant prêt à activer l’authentification moderne en local.
+Avant d’activer l’authentification moderne localement, vérifiez que vous répondez à toutes les exigences. Si c’est le cas, vous êtes prêt à activer l’authentification moderne localement.
 
-Pour activer l’authentification moderne, voir les articles suivants :
+Pour connaître les étapes nécessaires à l’activation de l’authentification moderne, consultez les articles suivants :
 
-* [Comment configurer Exchange Server en local pour utiliser l’authentification moderne hybride](https://docs.microsoft.com/office365/enterprise/configure-exchange-server-for-hybrid-modern-authentication)
-* [Comment utiliser l’authentification moderne (ADAL) avec Skype entreprise](https://docs.microsoft.com/skypeforbusiness/manage/authentication/use-adal)
+* [Guide pratique pour configurer Exchange Server localement en vue d’utiliser l’authentification moderne hybride](https://docs.microsoft.com/office365/enterprise/configure-exchange-server-for-hybrid-modern-authentication)
+* [Guide pratique pour utiliser l’authentification moderne (ADAL) avec Skype Entreprise](https://docs.microsoft.com/skypeforbusiness/manage/authentication/use-adal)
 
-## <a name="enable-the-baseline-policy"></a>Activer la stratégie de référence
+## <a name="enable-the-baseline-policy"></a>Activer la stratégie de base de référence
 
-La stratégie **stratégie de référence : Authentification hérités de bloc (version préliminaire)** est préconfigurée et s’affichera en haut lorsque vous accédez au panneau d’accès conditionnel dans le portail Azure.
+La **Stratégie de base de référence : Bloquer l’authentification héritée (préversion)** est préconfigurée, et s’affiche dans la partie supérieure de la fenêtre lorsque vous accédez au panneau Accès conditionnel du portail Azure.
 
 Pour activer cette stratégie et protéger votre organisation :
 
-1. Se connecter à la **Azure portal** en tant qu’administrateur général, administrateur de sécurité ou administrateur de l’accès conditionnel.
-1. Accédez à **Azure Active Directory** > **accès conditionnel**.
-1. Dans la liste des stratégies, sélectionnez **stratégie de référence : Authentification hérités de bloc (version préliminaire)** .
-1. Définissez **activer la stratégie** à **utiliser immédiatement la stratégie**.
-1. Ajoutez les exclusions d’utilisateur en cliquant sur **utilisateurs** > **sélectionner les utilisateurs exclus** et en choisissant les utilisateurs qui doivent être exclues. Cliquez sur **sélectionnez** puis **fait**.
-1. Cliquez sur **enregistrer**.
+1. Connectez-vous au  **portail Azure**  en tant qu’administrateur général, administrateur de la sécurité ou administrateur de l’accès conditionnel.
+1. Accédez à **Azure Active Directory** > **Accès conditionnel**.
+1. Dans la liste des stratégies, sélectionnez **Stratégie de base de référence : Bloquer l’authentification héritée (préversion)** .
+1. Définissez **Activer la stratégie** sur **Utiliser la stratégie immédiatement**.
+1. Cliquez sur  **Enregistrer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d'informations, consultez les pages suivantes :
 
-* [Stratégies de protection d’accès conditionnel de base](concept-baseline-protection.md)
+* [Stratégies de protection de base de référence pour l’accès conditionnel](concept-baseline-protection.md)
 * [Cinq étapes pour sécuriser votre infrastructure d’identité](../../security/azure-ad-secure-steps.md)
-* [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](overview.md)
+* [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](overview.md)

@@ -1,6 +1,6 @@
 ---
-title: Combinée d’inscription pour Azure AD SSPR et une authentification multifacteur (version préliminaire) - Azure Active Directory
-description: L’authentification multifacteur Azure AD et le mot de passe libre-service de réinitialisation d’inscription (version préliminaire)
+title: Inscription combinée pour Azure AD SSPR et l'authentification multifacteur (préversion) - Azure Active Directory
+description: Inscription à l’authentification multifacteur et à la réinitialisation de mot de passe en libre-service Azure AD (préversion)
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,134 +11,136 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 572f8694d31728a3ca570f6ddb60475e13d71e80
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: fc0e80ec7a378d44000565034ce47d95c78b777e
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235584"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537013"
 ---
-# <a name="combined-security-information-registration-preview"></a>Inscription d’informations de sécurité combinée (version préliminaire)
+# <a name="combined-security-information-registration-preview"></a>Inscription d’informations de sécurité combinée (préversion)
 
-Avant l’inscription combinée, utilisateurs inscrits des méthodes d’authentification pour Azure multi-Factor Authentication et de réinitialisation de mot de passe libre-service (SSPR) séparément. Personnes ont été confondus que des méthodes similaires ont été utilisés pour l’authentification multifacteur et SSPR, mais ils devaient s’inscrire pour ces deux fonctionnalités. Désormais, avec l’enregistrement combiné, inscription des utilisateurs qu’une seule fois et bénéficiez des avantages de l’authentification multifacteur et SSPR.
+Avant l’inscription combinée, les utilisateurs s’inscrivaient séparément à des méthodes d’authentification pour Azure Multi-Factor Authentication et la réinitialisation de mot de passe en libre-service (SSPR). Certains étaient troublés par le fait que des méthodes similaires servaient pour l’authentification multifacteur et la réinitialisation SSPR, mais qu’ils devaient s’inscrire aux deux fonctionnalités. Désormais, avec l’inscription combinée, les utilisateurs peuvent s’inscrire une seule fois et bénéficier des avantages de l’authentification multifacteur et de la réinitialisation SSPR.
 
-![Affichage de mon profil inscrit les informations de sécurité pour un utilisateur](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
+![Page Mon profil affichant les informations de sécurité d’un utilisateur inscrit](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
 
-Avant d’activer la nouvelle expérience, consultez cette documentation axée sur l’administrateur et la documentation orienté utilisateur afin de bien que comprendre les fonctionnalités et les effets de cette fonctionnalité. Baser votre formation sur le [documentation utilisateur](../user-help/user-help-security-info-overview.md) pour préparer vos utilisateurs de la nouvelle expérience et permet de garantir un déploiement réussi.
+Avant d’activer la nouvelle expérience, passez en revue cette documentation axée sur l’administrateur et la documentation orientée utilisateur pour vous assurer de bien comprendre les fonctions et l’effet de cette fonctionnalité. Basez votre formation sur la [documentation pour les utilisateurs](../user-help/user-help-security-info-overview.md) afin de préparer vos utilisateurs à cette nouvelle expérience et de favoriser un déploiement réussi.
 
-Azure AD associé à l’inscription n’est pas disponible actuellement sur des clouds nationaux tels que Azure US Government, Azure Allemagne ou Azure China 21Vianet des informations de sécurité.
+L’inscription combinée d’informations de sécurité Azure AD n’est pas disponible actuellement sur les clouds nationaux tels qu’Azure US Government, Azure Allemagne et Azure China 21Vianet.
 
 |     |
 | --- |
-| L’inscription d’informations de sécurité combinée pour l’authentification multifacteur et de réinitialisation de mot de passe libre-service d’Azure Active Directory (Azure AD) est une fonctionnalité en préversion publique d’Azure AD. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
+| L’inscription combinée d’informations de sécurité pour la réinitialisation de mot de passe en libre-service Azure Active Directory (Azure AD) et l’authentification multifacteur est une fonctionnalité d’évaluation publique d’Azure AD. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
 |     |
 
 > [!IMPORTANT]
-> Les utilisateurs qui sont activées pour la version préliminaire d’origine et l’expérience d’inscription combiné améliorée voient le nouveau comportement. Les utilisateurs qui sont activés pour les deux expériences verront la nouvelle expérience de mon profil. Le nouveau profil de mon s’aligne sur l’apparence de l’enregistrement combiné et offre une expérience transparente pour les utilisateurs. Les utilisateurs peuvent voir mon profil en accédant à [ https://myprofile.microsoft.com ](https://myprofile.microsoft.com).
+> Les utilisateurs activés pour la préversion d’origine et l’expérience d’inscription combinée améliorée voient le nouveau comportement. Les utilisateurs activés pour les deux expériences voient uniquement la nouvelle expérience de la page Mon profil. La nouvelle page Mon profil s’aligne sur l’apparence de l’inscription combinée et offre une expérience transparente pour les utilisateurs. Les utilisateurs peuvent voir la page Mon profil en accédant à [https://myprofile.microsoft.com ](https://myprofile.microsoft.com).
 
-Mes pages de profil sont localisés en fonction des paramètres de langue de l’ordinateur d’accéder à la page. Microsoft stocke la langue la plus récente utilisée dans le cache du navigateur, afin que les tentatives suivantes pour accéder aux pages continue à afficher dans la dernière langue utilisée. Si vous effacez le cache, les pages seront réaffiché. Si vous souhaitez forcer une langue spécifique, vous pouvez ajouter `?lng=<language>` à la fin de l’URL, où `<language>` est le code de la langue que vous souhaitez restituer.
+Les pages Mon profil sont localisées sur la base des paramètres de langue de l’ordinateur qui accède à ces pages. Microsoft stocke la dernière langue utilisée dans le cache du navigateur, afin que les tentatives suivantes d’accès aux pages continuent de s’afficher dans la dernière langue utilisée. Si vous effacez le cache, les pages seront réaffichées. Pour imposer l’utilisation d’une langue spécifique, vous pouvez ajouter `?lng=<language>` à la fin de l’URL, où `<language>` est le code de la langue que vous souhaitez utiliser.
 
-![Configurer SSPR ou d’autres méthodes de vérification de sécurité](media/howto-registration-mfa-sspr-combined/combined-security-info-my-profile.png)
+![Configurer la réinitialisation SSPR ou d’autres méthodes de vérification de sécurité](media/howto-registration-mfa-sspr-combined/combined-security-info-my-profile.png)
 
-## <a name="methods-available-in-combined-registration"></a>Méthodes disponibles dans l’enregistrement combiné
+## <a name="methods-available-in-combined-registration"></a>Méthodes disponibles dans l’inscription combinée
 
-Combiné prend en charge l’inscription méthodes d’authentification suivantes et les actions :
+L’inscription combinée prend en charge les méthodes et les actions d’authentification suivantes :
 
-|   | Register  | Modifier | Supprimer |
+|   | Register | Modifier | Supprimer |
 | --- | --- | --- | --- |
-| Microsoft Authenticator | Oui (jusqu'à 5) | Non | Oui |
-| Autres application authenticator | Oui (jusqu'à 5) | Non  | Oui |
-| module de sécurité matériel | Non  | Non  | Oui |
-| Phone | Oui | OUI | Oui |
-| Autre téléphone | Oui | OUI | Oui |
-| Téléphone de bureau | Non  | Non  | Non  |
-| Email | Oui | OUI | Oui |
-| Questions de sécurité | Oui | Non  | Oui |
-| Mots de passe d'application | Oui | Non  | Oui |
+| Microsoft Authenticator | Oui (jusqu'à 5) | Non | OUI |
+| Autre application d’authentification | Oui (jusqu'à 5) | Non | OUI |
+| Jeton matériel | Non | Non | OUI |
+| Téléphone | OUI | OUI | OUI |
+| Autre téléphone | OUI | OUI | OUI |
+| Téléphone de bureau | Non | Non | Non |
+| Email | OUI | OUI | OUI |
+| Questions de sécurité | OUI | Non | OUI |
+| Mots de passe d'application | OUI | Non | OUI |
 
 > [!NOTE]
-> Mots de passe d’application sont disponibles uniquement pour les utilisateurs qui ont été appliquées pour l’authentification multifacteur. Mots de passe ne sont pas disponibles pour les utilisateurs qui sont activés pour l’authentification multifacteur via une stratégie d’accès conditionnel.
+> Les mots de passe d’application sont disponibles uniquement pour les utilisateurs qui ont été paramétrés pour l’authentification multifacteur. Les mots de passe d’application ne sont pas disponibles pour les utilisateurs activés pour l’authentification multifacteur via une stratégie d’accès conditionnel.
 
-Les utilisateurs peuvent définir une des options suivantes en tant que la méthode d’authentification multifacteur par défaut :
+Les utilisateurs peuvent définir l’une des options suivantes comme méthode d’authentification multifacteur par défaut :
 
 - Microsoft Authenticator – notification.
-- Application d’authentification ou de matériel de jeton : le code.
+- Application d’authentification ou jeton matériel – code.
 - Appel téléphonique.
-- message texte.
+- SMS.
 
-Comme nous continuons d’ajouter plusieurs méthodes d’authentification à Azure AD, ces méthodes seront disponibles dans une inscription combinée.
+Au fur et à mesure que nous ajouterons de nouvelles méthodes d’authentification à Azure AD, ces méthodes seront disponibles dans le cadre d’une inscription combinée.
 
-## <a name="combined-registration-modes"></a>Modes d’enregistrement combiné
+## <a name="combined-registration-modes"></a>Modes d’inscription combinée
 
-Il existe deux modes d’enregistrement combiné : interrompre et à gérer.
+Il existe deux modes d’inscription combinée : le mode d’interruption et le mode de gestion.
 
-- **Mode d’interruption** est une expérience de type Assistant, présentée aux utilisateurs lorsqu’ils s’inscrire ou actualiser les informations de sécurité à la connexion.
+- Le **mode d’interruption** est une expérience de type Assistant, présentée aux utilisateurs lorsqu’ils s’inscrivent ou actualisent les informations de sécurité à la connexion.
 
-- **Gérer le mode** fait partie du profil utilisateur et permet aux utilisateurs de gérer leurs informations de sécurité.
+- Le **mode de gestion** fait partie du profil utilisateur et permet aux utilisateurs de gérer leurs informations de sécurité.
 
-Pour les deux modes, les utilisateurs qui se sont inscrits précédemment une méthode qui peut être utilisée pour l’authentification multifacteur devrez effectuer une authentification multifacteur avant de pouvoir accéder à leurs informations de sécurité.
+Pour ces deux modes, les utilisateurs qui se sont inscrits précédemment à une méthode pouvant être utilisée pour l’authentification multifacteur doivent effectuer une authentification multifacteur avant de pouvoir accéder à leurs informations de sécurité.
 
 ### <a name="interrupt-mode"></a>Mode d’interruption
 
-Inscription combinée respecte les stratégies multi-Factor Authentication et SSPR, si les deux sont activés pour votre client. Ces stratégies contrôlent si un utilisateur est interrompu pour l’inscription pendant la connexion et quelles méthodes sont disponibles pour l’inscription.
+L’inscription combinée respecte les stratégies d’authentification multifacteur et de réinitialisation SSPR, si les deux sont activées pour votre locataire. Ces stratégies contrôlent le fait que l’inscription d’un utilisateur est interrompue ou non pendant la connexion, ainsi que les méthodes d’inscription disponibles.
 
-Voici plusieurs scénarios dans lesquels les utilisateurs peuvent être invités à enregistrer ou actualiser les informations de sécurité :
+Voici plusieurs scénarios dans lesquels les utilisateurs peuvent être invités à s’inscrire à leurs informations de sécurité, ou à les actualiser :
 
-- Inscription à l’authentification multifacteur appliquée via Identity Protection : Les utilisateurs sont invités à s’inscrire pendant la connexion. Ils s’inscrivent de méthodes d’authentification multifacteur et SSPR (si l’utilisateur est activé pour SSPR).
-- Inscription à l’authentification multifacteur appliquée via l’authentification multifacteur par utilisateur : Les utilisateurs sont invités à s’inscrire pendant la connexion. Ils s’inscrivent de méthodes d’authentification multifacteur et SSPR (si l’utilisateur est activé pour SSPR).
-- Inscription à l’authentification multifacteur appliquée via l’accès conditionnel ou d’autres stratégies : Les utilisateurs sont invités à s’inscrire lorsqu’ils utilisent une ressource qui nécessite une authentification multifacteur. Ils s’inscrivent de méthodes d’authentification multifacteur et SSPR (si l’utilisateur est activé pour SSPR).
-- Inscription SSPR appliquée : Les utilisateurs sont invités à s’inscrire pendant la connexion. Ils s’inscrivent uniquement les méthodes SSPR.
-- Actualisation SSPR appliquée : Les utilisateurs doivent vérifier leurs informations de sécurité à la fréquence définie par l’administrateur. Les utilisateurs sont affichés à leurs informations et peuvent confirmer les informations actuelles ou apporter des modifications si nécessaire.
+- Inscription à l’authentification multifacteur appliquée via Identity Protection : les utilisateurs sont invités à s’inscrire lors de la connexion. Ils s’inscrivent à des méthodes d’authentification multifacteur et de réinitialisation SSPR (si l’utilisateur est activé pour SSPR).
+- Inscription à l’authentification multifacteur appliquée via l’authentification multifacteur par utilisateur : les utilisateurs sont invités à s’inscrire lors de la connexion. Ils s’inscrivent à des méthodes d’authentification multifacteur et de réinitialisation SSPR (si l’utilisateur est activé pour SSPR).
+- Inscription à l’authentification multifacteur appliquée via l’accès conditionnel ou d’autres stratégies : les utilisateurs sont invités à s’inscrire lorsqu’ils utilisent une ressource qui nécessite l’authentification multifacteur. Ils s’inscrivent à des méthodes d’authentification multifacteur et de réinitialisation SSPR (si l’utilisateur est activé pour SSPR).
+- Inscription à la réinitialisation SSPR appliquée : les utilisateurs sont invités à s’inscrire lors de la connexion. Ils s’inscrivent uniquement aux méthodes SSPR.
+- Actualisation SSPR appliquée : les utilisateurs doivent vérifier leurs informations de sécurité à la fréquence définie par l’administrateur. Les informations sont montrées aux utilisateurs et ces derniers peuvent confirmer les informations actuelles ou apporter des modifications si nécessaire.
 
-Si l’inscription a été appliquée, les utilisateurs sont affichés le nombre minimal de méthodes nécessaires pour être conformes aux stratégies de l’authentification multifacteur et SSPR, à partir de la plupart à la moins sécurisée.
+Lorsque l’inscription est appliquée, les utilisateurs peuvent voir le nombre minimal de méthodes nécessaires pour être conformes aux stratégies d’authentification multifacteur et SSPR, de la plus à la moins sécurisée.
 
-Exemple :
+Par exemple :
 
-- Un utilisateur est activé pour SSPR. La stratégie SSPR requis de deux méthodes pour réinitialiser et a activé les téléphone, e-mail et le code de l’application mobile.
-   - Cet utilisateur est requis pour enregistrer les deux méthodes.
-      - L’utilisateur voit Authenticator et téléphone par défaut.
-      - L’utilisateur peut choisir d’inscrire e-mail au lieu d’application d’authentification ou téléphone.
+- Un utilisateur est activé pour la réinitialisation SSPR. La stratégie SSPR nécessitait deux méthodes pour réinitialiser et activait le code de l’application mobile, le courrier et le téléphone.
+   - Cet utilisateur est tenu de s’inscrire à deux méthodes.
+      - L’utilisateur voit l’application d’authentification et le téléphone par défaut.
+      - L’utilisateur peut choisir de s’inscrire par e-mail à la place de l’application d’authentification ou du téléphone.
 
-Cet organigramme décrit quelles méthodes sont affichés à un utilisateur lorsque interrompu pour inscrire pendant la connexion :
+Cet organigramme décrit les méthodes qui sont montrées à un utilisateur lorsque son inscription est interrompue pendant la connexion :
 
 ![Organigramme des informations de sécurité combinée](media/concept-registration-mfa-sspr-combined/combined-security-info-flow-chart.png)
 
-Si vous avez une authentification multifacteur et SSPR est activé, nous vous recommandons d’appliquer l’inscription de l’authentification multifacteur.
+Si vous avez activé l’authentification multifacteur et la réinitialisation SSPR, nous vous recommandons d’appliquer l’inscription à l’authentification multifacteur.
 
-Si la stratégie SSPR nécessite que les utilisateurs de vérifier leurs informations de sécurité à intervalles réguliers, les utilisateurs sont interrompues pendant la connexion et indiqués toutes leurs méthodes inscrites. Ils peuvent confirmer les informations actuelles s’il est à jour, ou ils peuvent apporter des modifications si nécessaire.
+Si la stratégie SSPR nécessite que les utilisateurs vérifient leurs informations de sécurité à intervalles réguliers, les utilisateurs sont interrompus pendant la connexion et toutes leurs méthodes inscrites leur sont montrées. Ils peuvent confirmer les informations actuelles si elle sont à jour, ou apporter des modifications si nécessaire.
 
-### <a name="manage-mode"></a>Gérer le mode
+### <a name="manage-mode"></a>Mode de gestion
 
-Les utilisateurs peuvent accéder à gérer le mode en accédant à [ https://aka.ms/mysecurityinfo ](https://aka.ms/mysecurityinfo) ou en sélectionnant **des informations de sécurité** à partir de mon profil. À partir de là, les utilisateurs peuvent ajouter des méthodes, supprimer ou modifier les méthodes existantes, modifier la méthode par défaut et bien plus encore.
+Les utilisateurs peuvent accéder au mode de gestion en accédant à [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) ou en sélectionnant **Informations de sécurité** dans Mon profil. Là, les utilisateurs peuvent ajouter des méthodes, supprimer ou modifier les méthodes existantes, modifier la méthode par défaut et bien plus encore.
 
 ## <a name="key-usage-scenarios"></a>Principaux scénarios d’utilisation
 
 ### <a name="set-up-security-info-during-sign-in"></a>Configurer les informations de sécurité pendant la connexion
 
-Un administrateur a mis en application d’inscription.
+Un administrateur a appliqué l’inscription.
 
-Un utilisateur n’a pas configuré toutes les informations de sécurité requises et accède au portail Azure. Après avoir entré le nom d’utilisateur et le mot de passe, l’utilisateur est invité à configurer les informations de sécurité. Ensuite, l’utilisateur suit les étapes indiquées dans l’Assistant pour configurer les informations de sécurité requis. Si vos paramètres permettent, l’utilisateur peut choisir définir des méthodes autres que celles affichées par défaut. À l’issue de l’Assistant, les utilisateurs passez en revue les méthodes qu'ils configurent et leur méthode par défaut pour l’authentification multifacteur. Pour terminer le processus d’installation, l’utilisateur confirme les informations et continue vers le portail Azure.
+Un utilisateur n’a pas configuré toutes les informations de sécurité requises et accède au portail Azure. Après avoir entré le nom d’utilisateur et le mot de passe, l’utilisateur est invité à configurer les informations de sécurité. Ensuite, l’utilisateur suit les étapes indiquées dans l’Assistant pour configurer les informations de sécurité requises. Si vos paramètres le permettent, l’utilisateur peut choisir de configurer d’autres méthodes que celles affichées par défaut. À l’issue de l’Assistant, les utilisateurs passent en revue les méthodes qu'ils configurent et leur méthode par défaut pour l’authentification multifacteur. Pour terminer le processus de configuration, l’utilisateur confirme les informations et continue vers le portail Azure.
 
-### <a name="set-up-security-info-from-my-profile"></a>Configurer des informations de sécurité à partir de mon profil
+### <a name="set-up-security-info-from-my-profile"></a>Configurer les informations de sécurité à partir de Mon profil
 
-Un administrateur n’a pas a appliqué l’inscription.
+Un administrateur n’a pas appliqué l’inscription.
 
-Un utilisateur qui n’a pas encore configuré de toutes les informations de sécurité requis se [ https://myprofile.microsoft.com ](https://myprofile.microsoft.com). L’utilisateur sélectionne **des informations de sécurité** dans le volet gauche. À partir de là, l’utilisateur choisit d’ajouter une méthode, sélectionne une des méthodes disponibles et suit les étapes pour configurer cette méthode. Lorsque vous avez terminé, l’utilisateur voit la méthode que vous venez de paramétrer sur la page d’informations de sécurité.
+Un utilisateur qui n’a pas encore configuré toutes les informations de sécurité requises accède à [https://myprofile.microsoft.com](https://myprofile.microsoft.com). L’utilisateur sélectionne **Informations de sécurité** dans le volet gauche. Là, l’utilisateur choisit d’ajouter une méthode, sélectionne une des méthodes disponibles et suit la procédure requise pour configurer cette méthode. Une fois terminé, l’utilisateur voit la méthode qui vient d’être configurée sur la page Informations de sécurité.
 
-### <a name="delete-security-info-from-my-profile"></a>Supprimer les informations de sécurité à partir de mon profil
+### <a name="delete-security-info-from-my-profile"></a>Supprimer les informations de sécurité à partir de Mon profil
 
-Un utilisateur qui a créé précédemment au moins une méthode accède à [ https://aka.ms/mysecurityinfo ](https://aka.ms/mysecurityinfo). L’utilisateur choisit de supprimer une des méthodes précédemment enregistrés. Lorsque vous avez terminé, l’utilisateur ne détecte plus cette méthode sur la page d’informations de sécurité.
+Un utilisateur qui a configuré précédemment au moins une méthode accède à [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo). L’utilisateur choisit de supprimer une des méthodes précédemment inscrites. Une fois terminé, l’utilisateur ne voit plus cette méthode sur la page Informations de sécurité.
 
-### <a name="change-the-default-method-from-my-profile"></a>Modifier la méthode par défaut de mon profil
+### <a name="change-the-default-method-from-my-profile"></a>Modifier la méthode par défaut à partir de Mon profil
 
-Un utilisateur qui a créé précédemment au moins une méthode qui peut être utilisée pour l’authentification multifacteur accède à [ https://aka.ms/mysecurityinfo ](https://aka.ms/mysecurityinfo). L’utilisateur modifie la méthode par défaut actuelle à une autre méthode par défaut. Lorsque vous avez terminé, l’utilisateur voit la nouvelle méthode par défaut sur la page d’informations de sécurité.
+Un utilisateur qui a configuré précédemment au moins une méthode pouvant être utilisée pour l’authentification multifacteur accède à [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo). L’utilisateur remplace la méthode par défaut actuelle par une autre méthode par défaut. Une fois terminé, l’utilisateur voit la nouvelle méthode par défaut sur la page Informations de sécurité.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Activer l’inscription de combiné dans votre client](howto-registration-mfa-sspr-combined.md)
+[Activer une inscription combinée dans votre locataire](howto-registration-mfa-sspr-combined.md)
 
-[Méthodes disponibles pour l’authentification multifacteur et SSPR](concept-authentication-methods.md)
+[Rapport d’utilisation et d’insights SSPR et MFA](howto-authentication-methods-usage-insights.md)
 
-[Configurer la réinitialisation du mot de passe libre-service](howto-sspr-deployment.md)
+[Méthodes disponibles pour l'authentification multifacteur et la réinitialisation de mot de passe en libre-service](concept-authentication-methods.md)
 
-[Configurer l’authentification multifacteur Azure](howto-mfa-getstarted.md)
+[Configurer la réinitialisation du mot de passe en libre-service](howto-sspr-deployment.md)
+
+[Configurer Azure Multi-Factor Authentication](howto-mfa-getstarted.md)

@@ -3,17 +3,17 @@ title: Utilisation de l’approvisionnement automatique du service Azure IoT Hub
 description: Utilisation de l’approvisionnement automatique du service Azure IoT Hub Device Provisioning pour inscrire le DevKit IoT MXChip auprès d’IoT Hub.
 author: liydu
 ms.author: liydu
-ms.date: 12/18/2018
+ms.date: 06/25/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: jeffya
-ms.openlocfilehash: 80e4895e0b276e701a6d7f10d8fc67649db0f188
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c809077b0ec14240d231e9b281285080f68596b3
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62122814"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67439503"
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>Utiliser l’approvisionnement automatique du service Azure IoT Hub Device Provisioning pour inscrire le DevKit IoT MXChip auprès d’IoT Hub
 
@@ -30,7 +30,7 @@ Le [IoT MXChip DevKit](https://aka.ms/iot-devkit) est une carte tout-en-un compa
 
 Pour effectuer les étapes de ce didacticiel, commencez par exécuter les tâches suivantes :
 
-* Configurez le Wi-Fi de votre DevKit et préparez votre environnement de développement en suivant les étapes de l’article [Connecter IoT DevKit AZ3166 à Azure IoT Hub dans le cloud](/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started).
+* Configurez le Wi-Fi de votre DevKit et préparez votre environnement de développement en suivant les étapes de la section « Préparer l’environnement de développement » dans l’article [Connecter IoT DevKit AZ3166 à Azure IoT Hub dans le cloud](/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started#prepare-the-development-environment).
 * Procédez à la mise à niveau vers la dernière version du microprogramme (1.3.0 ou ultérieure) à l’aide du didacticiel [Update DevKit firmware](https://microsoft.github.io/azure-iot-developer-kit/docs/firmware-upgrading/) (Mettre à jour le microprogramme du DevKit).
 * Créez et liez un IoT Hub avec une instance du service Device Provisioning en suivant les étapes décrites dans [Configurer le service IoT Hub Device Provisioning avec le portail Azure](/azure/iot-dps/quick-setup-auto-provision).
 

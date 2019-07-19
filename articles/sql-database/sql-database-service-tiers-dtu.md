@@ -11,17 +11,17 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 5/10/2019
-ms.openlocfilehash: 5d769e2198b714d611b3004e11ccc624d4c6acdf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.openlocfilehash: 964a2931267ad2f1e2842693eadf43f8f629a084
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65546451"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357219"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Niveaux de service du modèle d’achat DTU
 
-Les niveaux de service du modèle d'achat DTU se distinguent par une plage de tailles de calcul, avec un quantité fixe de stockage inclus, une période de conservation fixe des sauvegardes, ainsi qu’un prix fixe. Tous les niveaux de service du modèle d’achat DTU permettent de changer de taille de calcul, sans nécessiter de temps d’arrêt. Les bases de données et les pools élastiques sont facturés en fonction du niveau de service et de la taille du calcul.
+Les niveaux de service du modèle d'achat DTU se distinguent par une plage de tailles de calcul, avec un quantité fixe de stockage inclus, une période de conservation fixe des sauvegardes, ainsi qu’un prix fixe. Tous les niveaux de service dans le modèle d’achat DTU offrent la flexibilité nécessaire pour modifier les tailles de calcul avec un [temps d’arrêt](https://azure.microsoft.com/support/legal/sla/sql-database/v1_2/) minimal ; toutefois, il existe un délai de basculement durant lequel la connectivité à la base de données est perdue pendant un court laps de temps, qui peut être atténué à l’aide d’une logique de nouvelle tentative. Les bases de données et les pools élastiques sont facturés en fonction du niveau de service et de la taille du calcul.
 
 > [!IMPORTANT]
 > SQL Database Managed Instance ne prend pas en charge le modèle d’achat DTU. Pour plus d’informations, consultez [Azure SQL Database Managed Instance](sql-database-managed-instance.md).

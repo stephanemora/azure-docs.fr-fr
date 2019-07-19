@@ -1,26 +1,23 @@
 ---
-title: Afficher et télécharger les informations d’utilisation et les frais Azure | Microsoft Docs
+title: Afficher et télécharger les informations d’utilisation et les frais Azure
 description: Décrit comment télécharger ou afficher vos informations d’utilisation quotidienne et vos frais Azure.
 keywords: facturation de l’utilisation, frais d’utilisation, téléchargement des informations d’utilisation, afficher l’utilisation, facture azure, utilisation d’azure
-services: billing
-documentationcenter: ''
-author: genlin
+author: bandersmsft
 manager: jureid
-editor: ''
 tags: billing
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 520d3f6a45b44ba2023dee34642f796689f48221
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7d2d7be562eaaa7dd21e63735f5697ffe5a62f8a
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60918984"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491441"
 ---
 # <a name="view-and-download-your-azure-usage-and-charges"></a>Afficher et télécharger vos informations d’utilisation et vos frais Azure
 
@@ -77,7 +74,7 @@ Si vous avez un Contrat client Microsoft, vous pouvez télécharger les informat
 ### <a name="download-usage-for-billed-charges"></a>Télécharger les informations d’utilisation pour les frais facturés
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-2. Effectuez une recherche sur **Gestion des coûts + facturation**.
+2. Recherchez *Gestion des coûts + facturation*.
 3. Sélectionnez un profil de facturation. Selon votre accès, vous devrez peut-être sélectionner au préalable un compte de facturation.
 4. Sélectionnez **Factures**.
 5. Dans la grille des factures, recherchez la ligne de la facture correspondant aux informations d’utilisation que vous souhaitez télécharger.
@@ -94,9 +91,9 @@ Si vous avez un Contrat client Microsoft, vous pouvez télécharger les informat
 Vous pouvez également télécharger les informations d’utilisation cumulée pour le mois en cours concernant la période de facturation actuelle. Il s’agit des frais d’utilisation qui n’ont pas encore été facturés.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-2. Effectuez une recherche sur **Gestion des coûts + facturation**.
+2. Recherchez *Gestion des coûts + facturation*.
 3. Sélectionnez un profil de facturation. Selon votre accès, vous devrez peut-être sélectionner au préalable un compte de facturation.
-4. Dans le panneau **Vue d’ensemble**, recherchez les liens de téléchargement sous les frais en cumul mensuel à ce jour.
+4. Dans la zone **Vue d’ensemble**, recherchez les liens de téléchargement sous les frais en cumul mensuel à ce jour.
 5. Sélectionnez **Utilisation et frais Azure**.
 
     ![Capture d’écran montrant le téléchargement à partir du panneau Vue d’ensemble](./media/billing-download-azure-usage/open-usage.png)
@@ -104,7 +101,7 @@ Vous pouvez également télécharger les informations d’utilisation cumulée p
 ## <a name="check-your-access-to-a-microsoft-customer-agreement"></a>Vérifier votre accès à un Contrat client Microsoft
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Nous contacter
+## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
 
 Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).
 

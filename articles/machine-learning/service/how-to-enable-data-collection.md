@@ -11,19 +11,19 @@ ms.author: marthalc
 author: marthalc
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: df2f0731aff6c90ef83b26041a9d383ce14974c6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f596fb3a066017f0236de5b79586891dd21efb11
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65024244"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443976"
 ---
 # <a name="collect-data-for-models-in-production"></a>Collecter des données pour des modèles en production
 
 Dans cet article, vous allez découvrir comment collecter des données de modèle d’entrée à partir des services Azure Machine Learning que vous avez déployés dans Azure Kubernetes Cluster (AKS) dans un stockage d’objets blob Azure. 
 
 Une fois la collecte activée, ces données vous aideront à :
-* Superviser les dérives de données à mesure que les données de production entrent dans votre modèle.
+* [Superviser les dérives de données](how-to-monitor-data-drift.md) à mesure que les données de production entrent dans votre modèle.
 
 * Prendre de meilleures décisions concernant le réentraînement ou l’optimisation de votre modèle.
 

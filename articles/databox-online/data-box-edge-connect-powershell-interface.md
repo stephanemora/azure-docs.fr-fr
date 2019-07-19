@@ -6,20 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 04/25/2019
+ms.date: 06/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 8cd89b21e80662ec50746e0c7721a5544cfbce30
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6af95b7f8bde6e77ba356fec9dde123e26a9a4a8
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64717501"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448618"
 ---
 # <a name="manage-an-azure-data-box-edge-device-via-windows-powershell"></a>Gérer un appareil Azure Data Box Edge via Windows PowerShell
 
 La solution Azure Data Box Edge vous permet de traiter les données et de les envoyer vers Azure via le réseau. Cet article décrit certaines des tâches de gestion et de configuration pour votre appareil Data Box Edge. Vous pouvez utiliser le portail Azure, l’interface utilisateur web locale ou l’interface Windows PowerShell pour gérer votre appareil.
 
-Cet article se concentre sur les tâches que vous effectuez à l’aide de l’interface de PowerShell.
+Cet article traite des tâches que vous effectuez à l’aide de l’interface PowerShell.
 
 Cet article inclut les procédures suivantes :
 
@@ -52,8 +52,9 @@ Vous pouvez également charger des certificats IoT Edge pour permettre une conne
 L’exemple suivant illustre l’utilisation de cette cmdlet pour installer des certificats IoT Edge :
 
 ```
-Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cert.pem" -DeviceCertificateFilePath "\\hcfs\device-ca-cert.pem\" -DeviceKeyFilePath "\\hcfs\device-key-cert.pem" -Credential "username/password"
+Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cert.pem" -DeviceCertificateFilePath "\\hcfs\device-ca-cert.pem\" -DeviceKeyFilePath "\\hcfs\device-key-cert.pem" -Credential "username"
 ```
+Lorsque vous exécutez cette cmdlet, vous devez fournir le mot de passe pour le partage réseau.
 
 Pour plus d’informations sur les certificats, consultez [Certificats Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/iot-edge-certs) ou [Installation de certificats sur une passerelle](https://docs.microsoft.com/azure/iot-edge/how-to-create-transparent-gateway#install-certificates-on-the-gateway).
 
@@ -75,13 +76,12 @@ Si le rôle de calcul est configuré sur votre appareil, vous pouvez également 
     L’exemple suivant montre comment utiliser cette cmdlet :
 
     ```powershell
-    Get-AzureDataBoxEdgeComputeRoleLogs -Path "\\hcsfs\logs\myacct" -Credential "username/password" -RoleInstanceName "IotRole" -FullLogCollection
+    Get-AzureDataBoxEdgeComputeRoleLogs -Path "\\hcsfs\logs\myacct" -Credential "username" -FullLogCollection
     ```
 
     Voici une description des paramètres utilisés pour la cmdlet :
     - `Path`: Fournir un chemin d’accès réseau au partage dans lequel vous souhaitez créer le package de journaux de calcul.
-    - `Credential`: Indiquer ensuite le nom d’utilisateur et le mot de passe pour le partage réseau.
-    - `RoleInstanceName`: Fournir cette chaîne `IotRole` pour ce paramètre.
+    - `Credential`: Indiquez le nom d’utilisateur pour le partage réseau. Lorsque vous exécutez cette cmdlet, vous devez fournir le mot de passe du partage.
     - `FullLogCollection`: Ce paramètre garantit que le package de journaux contiendra tous les journaux de calcul. Par défaut, le package de journaux contient uniquement un sous-ensemble des journaux.
 
 ## <a name="monitor-and-troubleshoot-compute-modules"></a>Supervision et dépannage des modules de calcul

@@ -9,12 +9,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/01/2019
 ms.author: kasparks
-ms.openlocfilehash: a7e82fffdd9c865de6040c05ec28bc8bd2dced61
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f91e48a532a278c95d50775e135ac6379e8d8070
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60468270"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67332055"
 ---
 # <a name="get-started-with-azure-advisor"></a>Prise en main d’Azure Advisor
 
@@ -94,9 +94,9 @@ Il se peut que vous possédiez des groupes de ressources ou des abonnements pour
 
 Cette procédure configure la règle d’utilisation moyenne du processeur pour la recommandation en cas de faible utilisation de machines virtuelles.
 
-Advisor surveille l’utilisation de votre machine virtuelle pendant 14 jours et identifie les machines virtuelles faiblement utilisées. Les machines virtuelles pour lesquelles l’utilisation moyenne du processeur est inférieure ou égale à 5 % et l’utilisation du réseau est inférieure ou égale à 7 Mo pendant quatre jours ou plus sont considérées comme des machines virtuelles faiblement utilisées.
+Advisor surveille l’utilisation de votre machine virtuelle pendant 7 jours et identifie les machines virtuelles faiblement utilisées. Les machines virtuelles sont considérées de faible utilisation si l’utilisation de leur processeur est inférieure ou égale à 5 % et l’utilisation de leur réseau est inférieure ou égale à 2 %, ou si la charge de travail actuelle peut être prise en charge par une taille de machine virtuelle plus petite.
 
-Si vous souhaitez être plus « agressif » dans l’identification des machines virtuelles faiblement utilisées, vous pouvez ajuster la règle d’utilisation moyenne du processeur par abonnement.  La règle d’utilisation moyenne du processeur peut être définie sur 5 %, 10 %, 15 % ou 20 %.
+Si vous souhaitez être plus « agressif » dans l’identification des machines virtuelles faiblement utilisées, vous pouvez ajuster la règle d’utilisation moyenne du processeur par abonnement.  La règle d’utilisation du processeur peut être définie sur 5 %, 10 %, 15 % ou 20 %.
 
 > [!NOTE]
 > Pour ajuster la règle d’utilisation moyenne du processeur aux fins d’identification des machines virtuelles faiblement utilisées, vous devez être *propriétaire* de l’abonnement.  Si vous ne disposez pas des autorisations requises pour un abonnement ou un groupe de ressources, l’option permettant de l’inclure ou de l’exclure est désactivée dans l’interface utilisateur. 

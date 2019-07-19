@@ -1,6 +1,6 @@
 ---
-title: 'Référence des API Azure Status Monitor v2 : Désactiver la surveillance | Microsoft Docs'
-description: Référence d’API v2 de moniteur d’état. Disable-ApplicationInsightsMonitoring. Surveiller les performances de site Web sans avoir à redéployer le site Web. Fonctionne avec les applications web ASP.NET hébergées en local, dans les machines virtuelles, ou sur Azure.
+title: 'Référence sur l’API Azure Status Monitor v2 : Désactiver la surveillance | Microsoft Docs'
+description: Référence sur l’API Azure Status Monitor v2. Disable-ApplicationInsightsMonitoring. Surveillez les performances de site web sans avoir à redéployer le site web. Fonctionne avec les applications web ASP.NET hébergées en local, dans des machines virtuelles ou sur Azure.
 services: application-insights
 documentationcenter: .net
 author: MS-TimothyMothra
@@ -13,25 +13,25 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
 ms.openlocfilehash: 201c5cc251896efae6b9f4639818471c0f011afe
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66514407"
 ---
-# <a name="status-monitor-v2-api-disable-applicationinsightsmonitoring-v021-alpha"></a>État du moniteur v2 API : Disable-ApplicationInsightsMonitoring (v0.2.1-alpha)
+# <a name="status-monitor-v2-api-disable-applicationinsightsmonitoring-v021-alpha"></a>API Status Monitor v2 : Disable-ApplicationInsightsMonitoring (v0.2.1-alpha)
 
-Cet article décrit une applet de commande qui est un membre de la [Az.ApplicationMonitor PowerShell module](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
+Cet article décrit une applet de commande appartenant au [module PowerShell Az.ApplicationMonitor](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
 > [!IMPORTANT]
-> État du moniteur v2 est actuellement en version préliminaire publique.
-> Cette version préliminaire est fournie sans contrat de niveau de service, et nous n’est pas recommandé pour les charges de travail de production. Certaines fonctionnalités ne peuvent pas être pris en charge, et certains peuvent avoir des fonctionnalités limitées.
+> Status Monitor v2 est actuellement en préversion publique.
+> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou n’être pas prises en charge.
 > Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="description"></a>Description
 
 Désactive l’analyse sur l’ordinateur cible.
-Cette applet de commande supprime les modifications dans le fichier applicationHost.config IIS et supprimer des clés de Registre.
+Cette applet de commande supprime les modifications apportées à l’élément applicationHost.config de l’application IIS et supprime les clés de Registre.
 
 > [!IMPORTANT] 
 > Cette applet de commande requiert une session PowerShell avec des autorisations d’administrateur.
@@ -50,7 +50,7 @@ PS C:\> Disable-ApplicationInsightsMonitoring
 ## <a name="output"></a>Sortie
 
 
-#### <a name="example-output-from-successfully-disabling-monitoring"></a>Exemple de sortie de désactiver l’analyse avec succès
+#### <a name="example-output-from-successfully-disabling-monitoring"></a>Exemple de sortie à partir d’une désactivation réussie de la surveillance
 
 ```
 Initiating Disable Process
@@ -76,5 +76,5 @@ Successfully disabled Application Insights Status Monitor
 
 ## <a name="next-steps"></a>Étapes suivantes
 
- Faire plus avec Status Monitor v2 :
- - Utilisez notre guide [dépanner](status-monitor-v2-troubleshoot.md) Status Monitor v2.
+ Plus d’opérations avec Status Monitor v2 :
+ - Utilisez notre guide pour [détecter un problème](status-monitor-v2-troubleshoot.md) dans Status Monitor v2.

@@ -1,7 +1,7 @@
 ---
-title: V2 pour la migration de l’API de V3
+title: Migration de l’API V2 vers V3
 titleSuffix: Azure Cognitive Services
-description: Le point de terminaison version 3 API ont été modifiés. Utilisez ce guide pour comprendre comment migrer vers les API du point de terminaison de version 3.
+description: Les API de point de terminaison de version 3 ont évolué. Servez-vous de ce guide pour comprendre comment migrer vers les API de point de terminaison de version 3.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,82 +9,117 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/22/2019
+ms.date: 06/24/2019
 ms.author: diberry
-ms.openlocfilehash: b7b4e25c78ef08bdf9a7c2f3faf96725fc5f5fc8
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.openlocfilehash: 4c08c95a05d4f22e2338a7264409aec0f64a4755
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66123887"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442515"
 ---
-# <a name="preview-migrate-to-api-version-3x--for-luis-apps"></a>Aperçu : Migrer vers la version d’API pour les applications LUIS 3.x
+# <a name="preview-migrate-to-api-version-3x-for-luis-apps"></a>Aperçu : Migrer vers la version 3.x de l’API pour les applications LUIS
 
-Le point de terminaison de prédiction de requête API ont été modifiés. Utilisez ce guide pour comprendre comment migrer vers les API du point de terminaison de version 3. 
+Les API de point de terminaison de prédiction de requête ont évolué. Servez-vous de ce guide pour comprendre comment migrer vers les API de point de terminaison de version 3. 
 
-Cette API V3 fournit les nouvelles fonctionnalités suivantes, qui incluent les importantes modifications de requête et/ou de réponse JSON : 
+Cette API V3 propose les nouveautés suivantes, notamment une évolution importante en matière de demandes et/ou de réponses JSON : 
 
 * [Entités externes](#external-entities-passed-in-at-prediction-time)
 * [Listes dynamiques](#dynamic-lists-passed-in-at-prediction-time)
-* [Modifications JSON prédéfini d’entité](#prebuilt-entities-with-new-json)
+* [Évolutions de JSON – Entités prédéfinies](#prebuilt-entities-with-new-json)
 
 <!--
 * [Multi-intent detection of utterance](#detect-multiple-intents-within-single-utterance)
 -->
 
-Le point de terminaison de prédiction de requête [demande](#request-changes) et [réponse](#response-changes) apportez des modifications importantes pour prendre en charge les nouvelles fonctionnalités répertoriées ci-dessus, y compris les éléments suivants :
+La [demande](#request-changes) et la [réponse](#response-changes) du point de terminaison de prédiction de requête ont évolué de façon significative afin de prendre en charge les nouvelles fonctionnalités mentionnées ci-dessus, notamment les suivantes :
 
-* [Modifications de l’objet réponse](#top-level-json-changes)
-* [Références de nom de rôle entité au lieu du nom de l’entité](#entity-role-name-instead-of-entity-name)
-* [Propriétés pour marquer des entités dans énoncés](#marking-placement-of-entities-in-utterances)
+* [Évolutions de l’objet réponse](#top-level-json-changes)
+* [Remplacement des références au nom de rôle d’entité par le nom d’entité](#entity-role-name-instead-of-entity-name)
+* [Propriétés visant à marquer les entités dans les énoncés](#marking-placement-of-entities-in-utterances)
 
-Les fonctionnalités suivantes de LUIS sont **ne pas pris en charge** dans l’API V3 :
+Les fonctionnalités LUIS suivantes ne sont **pas prises en charge** dans l’API V3 :
 
-* V7 de vérification orthographique Bing
+* Vérification orthographique Bing V7
 
-[Documentation de référence](https://aka.ms/luis-api-v3) est disponible pour V3.
+La [documentation de référence](https://aka.ms/luis-api-v3) est disponible pour V3.
 
-## <a name="prebuilt-entities-with-new-json"></a>Avec le nouveau modèle JSON des entités prédéfinies
+## <a name="endpoint-url-changes-by-slot-name"></a>Évolutions de l’URL de point de terminaison par nom d’emplacement
 
-Incluent les modifications d’objet de réponse V3 [des entités prédéfinies](luis-reference-prebuilt-entities.md). 
+Le format de l’appel HTTP de point de terminaison V3 a évolué.
+
+|MÉTHODE|URL|
+|--|--|
+|GET|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>v3.0-preview</b>/apps/<b>{APP-ID}</b>/slots/<b>{SLOT-NAME}</b>/predict?query=<b>{QUERY}</b>|
+|POST|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>v3.0-preview</b>/apps/<b>{APP-ID}</b>/slots/<b>{SLOT-NAME}</b>/predict|
+|||
+
+## <a name="endpoint-url-changes-by-version-id"></a>Évoluions de l’URL de point de terminaison par ID de version
+
+Si vous souhaitez interroger par version, vous devez d’abord [publier via l’API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c3b) avec `"directVersionPublish":true`. Interrogez le point de terminaison qui fait référence à l’ID de version plutôt qu’au nom d’emplacement.
+
+
+|MÉTHODE|URL|
+|--|--|
+|GET|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>v3.0-preview</b>/apps/<b>{APP-ID}</b>/versions/<b>{VERSION-ID}</b>/predict?query=<b>{QUERY}</b>|
+|POST|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>v3.0-preview</b>/apps/<b>{APP-ID}</b>/versions/<b>{VERSION-ID}</b>/predict|
+|||
+
+## <a name="prebuilt-entities-with-new-json"></a>Entités prédéfinies avec le nouveau JSON
+
+Parmi les évolutions de l’objet réponse V3 figurent les [entités prédéfinies](luis-reference-prebuilt-entities.md). 
 
 ## <a name="request-changes"></a>Demander des changements 
 
 ### <a name="query-string-parameters"></a>Paramètres de chaîne de requête
 
-L’API V3 a des paramètres de chaîne de requête différents.
+L’API V3 possède de différents paramètres de chaîne de requête.
 
-|Nom de paramètre|Type|Version|Objectif|
-|--|--|--|--|
-|`query`|string|V3 uniquement|**Dans V2**, l’énoncé à prédire est dans le `q` paramètre. <br><br>**Dans V3**, la fonctionnalité est passée dans le `query` paramètre.|
-|`show-all-intents`|booléenne|V3 uniquement|Retourner tous les intentions avec le score correspondant dans le **prediction.intents** objet. Intentions sont retournées en tant qu’objets dans un parent `intents` objet. Cela permet un accès par programme sans avoir à rechercher l’intention dans un tableau : `prediction.intents.give`. Dans V2, ceux-ci ont été retournés dans un tableau. |
-|`verbose`|booléenne|V2 & V3|**Dans V2**, quand la valeur à true, tout prédites intentions ont été retournées. Si vous avez besoin tout prédites intentions, utilisez le paramètre V3 de `show-all-intents`.<br><br>**Dans V3**, ce paramètre fournit des entités uniquement les informations des métadonnées de prédiction de l’entité.  |
+|Nom de paramètre|Type|Version|Default|Objectif|
+|--|--|--|--|--|
+|`log`|booléenne|V2 et V3|false|Stocker la requête dans un fichier journal.| 
+|`query`|string|V3 uniquement|Pas de valeur par défaut. Obligatoire dans la demande GET.|**Dans V2**, l’énoncé à prédire se trouve dans le paramètre `q`. <br><br>**Dans V3**, la fonctionnalité est transmise dans le paramètre `query`.|
+|`show-all-intents`|boolean|V3 uniquement|false|Retourner toutes les intentions avec le score correspondant dans l’objet **prediction.intents**. Les intentions sont retournées en tant qu’objets dans un objet `intents` parent. Cela permet un accès programmatique sans qu’il soit nécessaire de rechercher l’intention dans un tableau : `prediction.intents.give`. Dans V2, elles étaient retournées dans un tableau. |
+|`verbose`|booléenne|V2 et V3|false|**Dans V2**, quand la valeur est true, cela signifie que toutes les intentions prédites ont été retournées. Si vous avez besoin de toutes les intentions prédites, utilisez le paramètre `show-all-intents` de V3.<br><br>**Dans V3**, ce paramètre fournit uniquement les détails des métadonnées d’entité de la prédiction d’entité.  |
+
+
 
 <!--
 |`multiple-segments`|boolean|V3 only|Break utterance into segments and predict each segment for intents and entities.|
 -->
 
 
-### <a name="the-query-prediction-json-body-for-the-post-request"></a>La prédiction de requête JSON de corps pour le `POST` demande
+### <a name="the-query-prediction-json-body-for-the-post-request"></a>Corps JSON de prédiction de requête pour la demande `POST`
 
 ```JSON
 {
     "query":"your utterance here",
     "options":{
-        "timezoneOffset": "-8:00"
+        "datetimeReference": "2019-05-05T12:00:00",
+        "overridePredictions": true
     },
     "externalEntities":[],
     "dynamicLists":[]
 }
 ```
 
-## <a name="response-changes"></a>Modifications de la réponse
+|Propriété|Type|Version|Default|Objectif|
+|--|--|--|--|--|
+|`dynamicLists`|array|V3 uniquement|Non requis.|Les [listes dynamiques](#dynamic-lists-passed-in-at-prediction-time) vous permettent d’étendre une entité de liste entraînée et publiée existante, déjà présente dans l’application LUIS.|
+|`externalEntities`|array|V3 uniquement|Non requis.|Les [entités externes](#external-entities-passed-in-at-prediction-time) permettent à votre application LUIS d’identifier et d’étiqueter les entités pendant l’exécution, qui peuvent servir de fonctionnalités aux entités existantes. |
+|`options.datetimeReference`|string|V3 uniquement|Pas de valeur par défaut|Utilisé pour déterminer le [décalage de datetimeV2](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity).|
+|`options.overridePredictions`|booléenne|V3 uniquement|false|Indique si l’[entité externe (dont le nom est identique à celui de l’entité existante)](#override-existing-model-predictions) de l’utilisateur est utilisée ou si l’entité existante du modèle est utilisée pour la prédiction. |
+|`query`|string|V3 uniquement|Requis.|**Dans V2**, l’énoncé à prédire se trouve dans le paramètre `q`. <br><br>**Dans V3**, la fonctionnalité est transmise dans le paramètre `query`.|
 
-La réponse de requête JSON modifiée pour autoriser un accès par programme supérieure aux données les plus fréquemment utilisées. 
 
-### <a name="top-level-json-changes"></a>Modifications JSON de niveau supérieures
 
-Sont les premières propriétés JSON pour V2, lorsque `verbose` est définie sur true, ce qui renvoie tous les intentions et leurs scores dans le `intents` propriété :
+## <a name="response-changes"></a>Évolutions de la réponse
+
+Le JSON de réponse de requête a évolué pour permettre un accès programmatique élargi aux données les plus souvent utilisées. 
+
+### <a name="top-level-json-changes"></a>Évolutions JSON de niveau supérieur
+
+Quand `verbose` est défini sur true, ce qui retourne toutes les intentions et leurs scores dans la propriété `intents`, les principales propriétés JSON pour V2 sont les suivantes :
 
 ```JSON
 {
@@ -110,31 +145,31 @@ Les principales propriétés JSON pour V3 sont :
 }
 ```
 
-Le `intents` objet est une liste non triée. Ne supposez pas que le premier enfant dans le `intents` correspond à la `topIntent`. Au lieu de cela, utilisez le `topIntent` valeur à rechercher le score :
+L’objet `intents` est une liste non triée. Ne partez pas du principe que le premier enfant de `intents` correspond à `topIntent`. Utilisez à la place la valeur de `topIntent` pour rechercher le score :
 
 ```nodejs
 const topIntentName = response.prediction.topIntent;
 const score = intents[topIntentName];
 ```
 
-Autoriser les modifications de schéma de réponse JSON :
+Voici ce qu’autorisent les évolutions du schéma JSON de réponse :
 
-* Effacer la distinction entre énoncé d’origine, `query`et retourné de prédiction, `prediction`.
-* Accès plus facile par programme aux données prédites. Au lieu de l’énumération d’un tableau dans V2, vous pouvez accéder à valeurs par **nommé** pour les intentions et entités. Pour les rôles de l’entité prévue, le nom de rôle est retourné, car il est unique dans toute l’application.
-* Types de données déterminée, sont respectées. Valeurs numériques sont retournées ne sont plus sous forme de chaînes.
-* Distinction entre les premières informations de prédiction de priorité et des métadonnées supplémentaires retournées dans le `$instance` objet. 
+* Distinction claire entre l’énoncé d’origine, `query`, et la prédiction retournée, `prediction`.
+* Accès programmatique aux données prédites facilité. Au lieu de procéder à une énumération dans un tableau dans V2, vous pouvez accéder aux valeurs par **noms** aussi bien pour les intentions que pour les entités. Pour les rôles d’entité prédite, le nom de rôle est retourné, car il est unique dans toute l’application.
+* Les types de données, s’ils sont déterminés, sont respectés. Les valeurs numériques ne sont plus retournées sous forme de chaînes.
+* Distinction entre les informations de prédiction de première priorité et les métadonnées supplémentaires, retournées dans l’objet `$instance`. 
 
-### <a name="access-instance-for-entity-metadata"></a>Accès `$instance` pour les métadonnées d’entité
+### <a name="access-instance-for-entity-metadata"></a>Accès à `$instance` pour les métadonnées d’entité
 
-Si vous avez besoin des métadonnées d’entité, la chaîne de requête doit utiliser le `verbose=true` indicateur et la réponse contient les métadonnées dans le `$instance` objet. Exemples sont présentés dans les réponses JSON dans les sections suivantes.
+Si vous avez besoin de métadonnées d’entité, la chaîne de requête doit utiliser l’indicateur `verbose=true` et la réponse contient les métadonnées de l’objet `$instance`. Des exemples sont présentés dans les réponses JSON des sections suivantes.
 
-### <a name="each-predicted-entity-is-represented-as-an-array"></a>Chaque entité prévue est représentée sous forme de tableau
+### <a name="each-predicted-entity-is-represented-as-an-array"></a>Chaque entité prédite est représentée sous forme de tableau
 
-Le `prediction.entities.<entity-name>` objet contient un tableau, car chaque entité peut être prédite plusieurs fois dans l’énoncé. 
+L’objet `prediction.entities.<entity-name>` contient un tableau, car chaque entité peut être prédite plusieurs fois dans l’énoncé. 
 
-### <a name="list-entity-prediction-changes"></a>Liste entité prédiction change
+### <a name="list-entity-prediction-changes"></a>Évolutions des prédictions d’entité de liste
 
-Le code JSON pour une prédiction d’entité de liste a changé pour être un tableau de tableaux :
+Le JSON d’une prédiction d’entité de liste a évolué pour devenir un tableau de tableaux :
 
 ```JSON
 "entities":{
@@ -144,9 +179,9 @@ Le code JSON pour une prédiction d’entité de liste a changé pour être un t
     ]
 }
 ```
-Chaque tableau intérieur correspond au texte à l’intérieur de l’énoncé. L’objet est un tableau, car le même texte peut apparaître dans plusieurs sous-liste d’une entité de la liste. 
+Chaque tableau interne correspond au texte situé à l’intérieur de l’énoncé. L’objet interne est un tableau, car le même texte peut apparaître dans plusieurs sous-listes d’une entité de liste. 
 
-Lors du mappage entre le `entities` de l’objet à le `$instance` de l’objet, l’ordre des objets est conservé pour les prédictions d’entité de liste.
+Lors d’un mappage entre l’objet `entities` et l’objet `$instance`, l’ordre des objets est conservé pour les prédictions d’entité de liste.
 
 ```nodejs
 const item = 0; // order preserved, use same enumeration for both
@@ -154,17 +189,17 @@ const predictedCanonicalForm = entities.my_list_entity[item];
 const associatedMetadata = entities.$instance.my_list_entity[item];
 ```
 
-### <a name="entity-role-name-instead-of-entity-name"></a>Nom de rôle d’entité au lieu du nom de l’entité 
+### <a name="entity-role-name-instead-of-entity-name"></a>Le nom de rôle d’entité à la place du nom d’entité 
 
-Dans V2, la `entities` tableau retourné toutes les entités prédites avec le nom de l’entité en cours de l’identificateur unique. Dans V3, si l’entité utilise des rôles et la prédiction est pour un rôle d’entité, l’identificateur principal est le nom du rôle. Cela est possible, car les noms de rôles d’entité doivent être uniques dans l’application entière, y compris d’autres noms de modèle (intent, entity).
+Dans V2, le tableau `entities` retournait toutes les entités prédites avec le nom d’entité en guise d’identificateur unique. Dans V3, si l’entité utilise des rôles et que la prédiction porte sur un rôle d’entité, l’identificateur principal est le nom de rôle. Cela est possible, car les noms de rôle d’entité doivent être uniques dans toute l’application, y compris les autres noms de modèle (intention, entité).
 
-Dans l’exemple suivant : un énoncé qui inclut le texte, de prendre en compte `Yellow Bird Lane`. Ce texte est prédite en tant que personnalisé `Location` rôle de l’entité de `Destination`.
+L’exemple suivant contient un énoncé qui comporte le texte `Yellow Bird Lane`. Ce texte est prédit en tant que rôle `Destination` d’une entité `Location` personnalisée.
 
-|Texte de l’énoncé|Nom de l’entité|Nom de rôle|
+|Texte d’énoncé|Nom de l’entité|Nom de rôle|
 |--|--|--|
 |`Yellow Bird Lane`|`Location`|`Destination`|
 
-Dans V2, l’entité est identifiée par le _nom de l’entité_ avec le rôle en tant que propriété de l’objet :
+Dans V2, l’entité est identifiée par le _nom d’entité_ et le rôle fait office de propriété de l’objet :
 
 ```JSON
 "entities":[
@@ -179,7 +214,7 @@ Dans V2, l’entité est identifiée par le _nom de l’entité_ avec le rôle e
 ]
 ```
 
-Dans V3, l’entité est référencée par le _rôle entité_, si la prédiction est pour le rôle :
+Dans V3, l’entité est référencée par le _rôle d’entité_, si la prédiction porte sur le rôle :
 
 ```JSON
 "entities":{
@@ -189,7 +224,7 @@ Dans V3, l’entité est référencée par le _rôle entité_, si la prédiction
 }
 ```
 
-Dans V3, le même résultat avec la `verbose` indicateur pour retourner les métadonnées d’entité :
+Dans V3, le même résultat est obtenu avec l’indicateur `verbose` pour retourner les métadonnées d’entité :
 
 ```JSON
 "entities":{
@@ -213,27 +248,27 @@ Dans V3, le même résultat avec la `verbose` indicateur pour retourner les mét
 }
 ```
 
-## <a name="external-entities-passed-in-at-prediction-time"></a>Les entités externes passée au moment de la prédiction
+## <a name="external-entities-passed-in-at-prediction-time"></a>Entités externes transmises au moment de la prédiction
 
-Les entités externes permettent à votre application LUIS pour identifier et étiqueter des entités pendant l’exécution, ce qui peut être utilisée en tant que fonctionnalités aux entités existantes. Cela vous permet d’utiliser vos propres extracteurs entité distinct et personnalisé avant d’envoyer des requêtes à votre point de terminaison de prédiction. Cette opération est effectuée sur le point de terminaison de prédiction de requête, vous n’avez pas besoin reformer et publier votre modèle.
+Les entités externes permettent à votre application LUIS d’identifier et d’étiqueter les entités pendant l’exécution, qui peuvent servir de fonctionnalités aux entités existantes. Cela vous permet d’utiliser vos propres extracteurs d’entités distincts et personnalisés avant d’envoyer des requêtes à votre point de terminaison de prédiction. Cette opération étant exécutée sur le point de terminaison de prédiction de requête, vous n’avez pas besoin de réentraîner votre modèle et de le publier.
 
-L’application cliente fournit son propre extracteur d’entité en gérant l’entité mise en correspondance et déterminer l’emplacement au sein de l’énoncé de cette entité de mise en correspondance et envoyer ces informations avec la demande. 
+L’application cliente fournit son propre extracteur d’entités en gérant la mise en correspondance des entités et en déterminant l’emplacement au sein de l’énoncé des entités mises en correspondance, puis en envoyant ces informations avec la demande. 
 
-Les entités externes sont le mécanisme permettant d’étendre n’importe quel type d’entité tout en étant toujours utilisé comme signaux à d’autres modèles, tels que les rôles, composite et d’autres.
+Les entités externes constituent le mécanisme qui permet d’étendre n’importe quel type d’entité tout en étant toujours utilisées comme signaux pour d’autres modèles comme les rôles, les composites et autres.
 
-Cela est utile pour une entité qui comporte des données uniquement lors de l’exécution de prédiction de requête. Exemples de ce type de données évoluent en permanence les données ou spécifiques par utilisateur. Vous pouvez étendre une entité contact LUIS avec des informations externes à partir de la liste des contacts d’un utilisateur. 
+Cela s’avère utile pour une entité qui n’a accès à des données qu’au moment de l’exécution de la prédiction de requête. Les données qui évoluent constamment ou qui sont propres à chaque utilisateur sont des exemples de ce type de données. Vous pouvez étendre une entité de contact LUIS avec les informations externes d’une liste de contacts d’utilisateur. 
 
-### <a name="entity-already-exists-in-app"></a>Entité existe déjà dans l’application
+### <a name="entity-already-exists-in-app"></a>L’entité existe déjà dans l’application
 
-La valeur de `entityName` pour l’entité externe, transmise dans la requête de point de terminaison corps POST, doit déjà exister dans l’application formée et publiée au moment de la demande est effectuée. Peu importe le type d’entité, tous les types sont pris en charge.
+La valeur de `entityName` pour l’entité externe, qui est transmise dans le corps POST de demande du point de terminaison, doit déjà exister dans l’application entraînée et publiée au moment où la demande est effectuée. Tous les types étant pris en charge, le type d’entité n’a pas d’importance.
 
-### <a name="first-turn-in-conversation"></a>Tout d’abord activer dans la conversation
+### <a name="first-turn-in-conversation"></a>Premier tour de la conversation
 
-Prenez en compte une première énoncé dans une conversation de robot de conversation où un utilisateur entre les informations suivantes incomplètes :
+Imaginez un premier énoncé de conversation de bot conversationnel où un utilisateur entre les informations incomplètes suivantes :
 
 `Send Hazem a new message`
 
-La demande de l’agent conversationnel pour LUIS permettre passer des informations dans le corps POST sur `Hazem` afin qu’il est directement mis en correspondance comme l’un des contacts de l’utilisateur.
+La demande du bot conversationnel à LUIS peut transmettre des informations dans le corps POST à propos de `Hazem` de façon à les faire correspondre directement à l’un des contacts de l’utilisateur.
 
 ```json
     "externalEntities": [
@@ -249,15 +284,15 @@ La demande de l’agent conversationnel pour LUIS permettre passer des informati
     ]
 ```
 
-La réponse de prédiction inclut cette entité externe, avec toutes les autres prédites entités, car il est défini dans la demande.  
+La réponse de prédiction comprend cette entité externe, avec toutes les autres entités prédites, car elle est définie dans la demande.  
 
-### <a name="second-turn-in-conversation"></a>Deuxième tour de conversation
+### <a name="second-turn-in-conversation"></a>Deuxième tour de la conversation
 
-L’énoncé utilisateur suivant dans l’agent conversationnel utilise un terme plus vague :
+L’énoncé utilisateur suivant dans le bot conversationnel utilise un terme plus vague :
 
 `Send him a calendar reminder for the party.`
 
-Dans l’énoncé précédente, l’énoncé utilise `him` comme une référence à `Hazem`. Le bot conversationnel de conversation, dans le corps POST, peut mapper `him` sur la valeur de l’entité extraite à partir de la première énoncé, `Hazem`.
+Dans l’énoncé précédent, `him` sert de référence à `Hazem`. Dans le corps POST, le bot conversationnel peut mapper `him` à la valeur d’entité extraite du premier énoncé, `Hazem`.
 
 ```json
     "externalEntities": [
@@ -273,15 +308,76 @@ Dans l’énoncé précédente, l’énoncé utilise `him` comme une référence
     ]
 ```
 
-La réponse de prédiction inclut cette entité externe, avec toutes les autres prédites entités, car il est défini dans la demande.  
+La réponse de prédiction comprend cette entité externe, avec toutes les autres entités prédites, car elle est définie dans la demande.  
+
+### <a name="override-existing-model-predictions"></a>Remplacer les prédictions de modèle existantes
+
+La propriété des options `overridePredictions` indique que si l’utilisateur envoie une entité externe qui se chevauche avec une entité prédite de même nom, LUIS choisit l’entité transmise ou l’entité existant dans le modèle. 
+
+Prenons l’exemple de la requête `today I'm free`. LUIS détecte `today` comme datetimeV2 avec la réponse suivante :
+
+```JSON
+"datetimeV2": [
+    {
+        "type": "date",
+        "values": [
+            {
+                "timex": "2019-06-21",
+                "value": "2019-06-21"
+            }
+        ]
+    }
+]
+```
+
+Si l’utilisateur envoie l’entité externe :
+
+```JSON
+{
+    "entityName": "datetimeV2",
+    "startIndex": 0,
+    "entityLength": 5,
+    "resolution": {
+        "date": "2019-06-21"
+    }
+}
+```
+
+Si `overridePredictions` a la valeur `false`, LUIS retourne une réponse comme si l’entité externe n’était pas envoyée. 
+
+```JSON
+"datetimeV2": [
+    {
+        "type": "date",
+        "values": [
+            {
+                "timex": "2019-06-21",
+                "value": "2019-06-21"
+            }
+        ]
+    }
+]
+```
+
+Si `overridePredictions` a la valeur `true`, LUIS retourne une réponse comprenant ce qui suit :
+
+```JSON
+"datetimeV2": [
+    {
+        "date": "2019-06-21"
+    }
+]
+```
+
+
 
 #### <a name="resolution"></a>Résolution :
 
-Le _facultatif_ `resolution` retourne de propriété dans la réponse de prédiction, ce qui vous permet de passer dans les métadonnées associées à l’entité externe, puis recevoir reviennent dans la réponse. 
+La propriété _facultative_ `resolution` est retournée dans la réponse de prédiction, ce qui vous permet de transmettre les métadonnées associées à l’entité externe, puis de la recevoir en retour dans la réponse. 
 
-L’objectif principal consiste à étendre des entités prédéfinies, mais il n’est pas limité à ce type d’entité. 
+Le principal objectif est d’étendre les entités prédéfinies, mais il ne se limite pas à ce type d’entité. 
 
-Le `resolution` propriété peut être un nombre, une chaîne, un objet ou un tableau :
+La propriété `resolution` peut être un nombre, une chaîne, un objet ou un tableau :
 
 * "Dallas"
 * {"text": "value"}
@@ -289,20 +385,21 @@ Le `resolution` propriété peut être un nombre, une chaîne, un objet ou un ta
 * ["a", "b", "c"]
 
 
-## <a name="dynamic-lists-passed-in-at-prediction-time"></a>Les listes dynamiques passée au moment de la prédiction
 
-Les listes dynamiques permettent d’étendre une entité formé et publié la liste existante, déjà dans l’application LUIS. 
+## <a name="dynamic-lists-passed-in-at-prediction-time"></a>Listes dynamiques transmises au moment de la prédiction
 
-Utilisez cette fonctionnalité lorsque vos valeurs d’entité de liste doivent être modifiées périodiquement. Cette fonctionnalité vous permet d’étendre une entité de la liste déjà formé et publié :
+Les listes dynamiques vous permettent d’étendre une entité de liste entraînée et publiée existante, déjà présente dans l’application LUIS. 
 
-* Au moment de la demande de point de terminaison de prédiction de requête.
+Cette fonctionnalité est utile quand vos valeurs d’entité de liste doivent être modifiées périodiquement. Elle vous permet d’étendre une entité de liste déjà entraînée et publiée :
+
+* Au moment de la demande du point de terminaison de prédiction de requête.
 * Pour une demande unique.
 
-L’entité de la liste peut être vide dans l’application LUIS, mais il doit exister. L’entité de la liste dans l’application LUIS n’est pas modifiée, mais la capacité de prédiction au point de terminaison est étendue pour inclure des listes jusqu'à 2 avec plus de 1 000 éléments.
+L’entité de liste peut être vide dans l’application LUIS, mais elle doit exister. L’entité de liste n’est pas modifiée dans l’application LUIS, mais la capacité de prédiction au niveau du point de terminaison est étendue pour inclure jusqu’à 2 listes de plus de 1 000 éléments.
 
-### <a name="dynamic-list-json-request-body"></a>Corps de requête JSON de liste dynamique
+### <a name="dynamic-list-json-request-body"></a>Corps de demande JSON de liste dynamique
 
-Envoyer dans le corps JSON suivant pour ajouter une nouvelle sous-liste avec des synonymes à la liste et prévoir de l’entité de la liste pour le texte, `LUIS`, avec le `POST` requête de prédiction :
+Envoyez le corps JSON suivant pour ajouter une nouvelle sous-liste constituée de synonymes à la liste et prédire l’entité de liste pour le texte, `LUIS`, avec le demande de prédiction de requête `POST` :
 
 ```JSON
 {
@@ -329,24 +426,24 @@ Envoyer dans le corps JSON suivant pour ajouter une nouvelle sous-liste avec des
 }
 ```
 
-La réponse de prédiction inclut cette entité de la liste, avec toutes les autres prédites entités, car il est défini dans la demande. 
+La réponse de prédiction comprend cette entité de liste, comprenant toutes les autres entités prédites, car elle est définie dans la demande. 
 
-## <a name="timezoneoffset-renamed-to-datetimereference"></a>TimezoneOffset renommé en datetimeReference
+## <a name="timezoneoffset-renamed-to-datetimereference"></a>TimezoneOffset renommé datetimeReference
 
-**Dans V2**, le `timezoneOffset` [paramètre](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) est envoyé dans la requête de prédiction comme paramètre de chaîne de requête, peu importe si la demande est envoyée en tant qu’une requête GET ou POST. 
+**Dans V2**, le [paramètre](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) `timezoneOffset` est envoyé dans la demande de prédiction comme paramètre de chaîne de requête, que la demande soit envoyée en tant que demande GET ou POST. 
 
 **Dans V3**, la même fonctionnalité est fournie avec le paramètre de corps POST, `datetimeReference`. 
 
-## <a name="marking-placement-of-entities-in-utterances"></a>Marquage de sélection élective d’entités dans énoncés
+## <a name="marking-placement-of-entities-in-utterances"></a>Marquage de l’emplacement des entités dans les énoncés
 
-**Dans V2**, une entité a été marquée dans un énoncé avec le `startIndex` et `endIndex`. 
+**Dans V2**, une entité était marquée dans un énoncé avec `startIndex` et `endIndex`. 
 
 **Dans V3**, l’entité est marquée avec `startIndex` et `entityLength`.
 
 ## <a name="deprecation"></a>Dépréciation 
 
-L’API V2 ne sera pas déconseillé au moins 9 mois après la version préliminaire V3. 
+L’API V2 ne sera pas déconseillée pendant au moins 9 mois après la préversion V3. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Utilisez la documentation de l’API de V3 pour mettre à jour REST existant appelle à LUIS [point de terminaison](https://aka.ms/luis-api-v3) API. 
+Consultez la documentation de l’API V3 pour mettre à jour les appels REST existants vers les API de [point de terminaison](https://aka.ms/luis-api-v3) LUIS. 

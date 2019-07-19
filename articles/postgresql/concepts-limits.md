@@ -1,19 +1,20 @@
 ---
-title: Limitations dans Azure Database pour PostgreSQL - Serveur unique
-description: Cet article décrit les limitations dans Azure Database pour PostgreSQL - Serveur unique, telles que le nombre de connexions et les options du moteur de stockage.
+title: Limites dans Azure Database pour PostgreSQL - Serveur unique
+description: Cet article décrit les limites dans Azure Database pour PostgreSQL - Serveur unique, telles que le nombre de connexions et les options du moteur de stockage.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/05/2019
-ms.openlocfilehash: 3e1597def26c09378d3917ad2d49163ef17732f8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.custom: fasttrack-edit
+ms.openlocfilehash: e4752112acf136d9ffb19a0b7383bc3aff5de5e0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66732858"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448098"
 ---
-# <a name="limitations-in-azure-database-for-postgresql---single-server"></a>Limitations dans Azure Database pour PostgreSQL - Serveur unique
+# <a name="limits-in-azure-database-for-postgresql---single-server"></a>Limites dans Azure Database pour PostgreSQL - Serveur unique
 Les sections suivantes décrivent les limites fonctionnelles et les limites de capacités du service de base de données. Si vous souhaitez en savoir plus sur les niveaux de ressources (calcul, mémoire, stockage), consultez l'article [Niveaux de tarification](concepts-pricing-tiers.md).
 
 
@@ -34,7 +35,7 @@ Le nombre maximal de connexions par niveau tarifaire et de vCores est le suivant
 |Mémoire optimisée| 4| 500|
 |Mémoire optimisée| 8| 960|
 |Mémoire optimisée| 16| 1900|
-|Mémoire optimisée| 32| 1900|
+|Mémoire optimisée| 32| 1987|
 
 Lorsque la limite du nombre de connexions est dépassée, vous pouvez recevoir l’erreur suivante :
 > FATAL:  sorry, too many clients already
@@ -48,6 +49,9 @@ Le système Azure a besoin de cinq connexions pour effectuer le monitoring du se
 
 ### <a name="server-version-upgrades"></a>Mises à niveau de la version du serveur
 - La migration automatique entre les versions principales du moteur de base de données n’est pas prise en charge pour le moment. Si vous souhaitez mettre à niveau vers la version principale suivante, effectuez une [sauvegarde et une restauration](./howto-migrate-using-dump-and-restore.md) vers un serveur créé avec la nouvelle version du moteur.
+
+> Notez qu’avant PostgreSQL version 10, la [stratégie de gestion de versions PostgreSQL](https://www.postgresql.org/support/versioning/) considérait une mise à niveau _principale_ comme une augmentation du premier _ou_ du deuxième nombre (par exemple, 9.5 à 9.6 était considéré comme une mise à niveau de version _principale_).
+> À compter de la version 10, seule une modification du premier nombre est considérée comme une mise à niveau de version principale (par exemple, 10.0 à 10.1 est une mise à niveau de version _mineure_ et 10 à 11 est une mise à niveau de version _principale_).
 
 ### <a name="vnet-service-endpoints"></a>Points de terminaison de service VNet
 - Les points de terminaison de service de réseau virtuel sont uniquement pris en charge pour les serveurs Usage général et Mémoire optimisée.

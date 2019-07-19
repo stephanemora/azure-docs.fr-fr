@@ -1,25 +1,17 @@
 ---
 title: Lier des modèles pour un déploiement Azure | Microsoft Docs
 description: Décrit comment utiliser des modèles liés dans un modèle Azure Resource Manager afin de créer une solution de modèle modulaire. Indique comment transmettre des valeurs de paramètres, spécifier un fichier de paramètres et créer dynamiquement des URL.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
-ms.assetid: 27d8c4b2-1e24-45fe-88fd-8cf98a6bb2d2
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 05/01/2019
 ms.author: tomfitz
-ms.openlocfilehash: 95044373800441bdcc04bdb84e8485dce29f11e7
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
-ms.translationtype: MT
+ms.openlocfilehash: 4a5fe1bd2bf57fbec240ab242dd889014dde9578
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66357403"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206426"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Utilisation de modèles liés et imbriqués durant le déploiement de ressources Azure
 
@@ -91,7 +83,7 @@ Pour imbriquer le modèle dans le modèle principal, utilisez la propriété **t
 > [!NOTE]
 > Pour les modèles imbriqués, vous ne pouvez pas utiliser les paramètres ou variables définis dans le modèle imbriqué. Vous pouvez en revanche utiliser les paramètres et variables du modèle principal. Dans l’exemple précédent, `[variables('storageName')]` récupère une valeur du modèle principal, et non du modèle imbriqué. Cette restriction ne s'applique pas aux modèles externes.
 >
-> Pour les deux ressources définis à l’intérieur d’un modèle imbriqué et une ressource dépend de l’autre, la valeur de la dépendance est simplement le nom de la ressource dépendante :
+> Quand deux ressources sont définies dans un modèle imbriqué et qu’une ressource dépend de l’autre, la valeur de la dépendance est simplement le nom de la ressource dépendante :
 > ```json
 > "dependsOn": [
 >   "[variables('storageAccountName')]"
@@ -155,11 +147,11 @@ Pour passer une valeur du modèle principal au modèle lié, utilisez des **para
 ]
 ```
 
-## <a name="using-copy"></a>À l’aide de la copie
+## <a name="using-copy"></a>Utilisation de la copie
 
-Pour créer plusieurs instances d’une ressource avec un modèle imbriqué, ajoutez l’élément de copie au niveau de la **Microsoft.Resources/Deployments** ressource.
+Pour créer plusieurs instances d’une ressource avec un modèle imbriqué, ajoutez l’élément copy au niveau de la ressource **Microsoft.Resources/deployments**.
 
-Le modèle de l’exemple suivant montre comment utiliser copy avec un modèle imbriqué.
+L’exemple de modèle suivant montre comment utiliser copy avec un modèle imbriqué.
 
 ```json
 "resources": [

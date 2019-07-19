@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: rimman
 ms.openlocfilehash: 478714f48782adb138f1ed803d53c81ec48f2efd
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65967288"
 ---
 # <a name="optimize-multi-region-cost-in-azure-cosmos-db"></a>Optimiser le coût multirégion dans Azure Cosmos DB
@@ -25,7 +25,7 @@ Le débit approvisionné avec une seule région d’écriture coûte 0,008 $/heu
 
 ## <a name="costs-for-multiple-write-regions"></a>Coûts pour plusieurs régions d’écriture
 
-Dans un système multimaître, les unités de requête nettes disponibles pour les opérations d’écriture sont multipliées par `N`, où `N` est le nombre de régions d’écriture. Contrairement aux régions d’écriture uniques, toutes les régions sont désormais accessibles en écriture et doivent prendre en charge la résolution des conflits. La quantité de charges de travail en écriture a augmenté. À partir du coût de planification de point de vue, pour effectuer `M` valeur de RU/s des écritures dans le monde entier, vous devez approvisionner M `RUs` à un niveau de base de données ou le conteneur. Vous pouvez ensuite ajouter autant de régions que vous le souhaitez et les utiliser pour les écritures pour effectuer `M` RU d’écritures dans le monde entier. 
+Dans un système multimaître, les unités de requête nettes disponibles pour les opérations d’écriture sont multipliées par `N`, où `N` est le nombre de régions d’écriture. Contrairement aux régions d’écriture uniques, toutes les régions sont désormais accessibles en écriture et doivent prendre en charge la résolution des conflits. La quantité de charges de travail en écriture a augmenté. Du point de vue du coût de planification, pour effectuer `M` RU/seconde d’écritures dans le monde, vous devez approvisionner M `RUs` au niveau de la base de données ou du conteneur. Vous pouvez ensuite ajouter autant de régions que vous le souhaitez et les utiliser pour les écritures pour effectuer `M` RU d’écritures dans le monde entier. 
 
 ### <a name="example"></a>Exemples
 

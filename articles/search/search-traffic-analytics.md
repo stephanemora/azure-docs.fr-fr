@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: c30c8bae3e76778a31cdd0695acde52b5b1c6b02
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b15ae30151b22509a78b9a39d258991363a05e5b
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60749568"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295421"
 ---
 # <a name="implement-search-traffic-analytics-in-azure-search"></a>Implémenter la fonctionnalité Analytique du trafic des recherches dans la Recherche Azure
 La recherche de l’analyse du trafic est un modèle qui implémente une boucle de rétroaction pour votre service de recherche. Ce modèle décrit les données nécessaires et la manière de les collecter à l’aide d’Application Insights, l’un des leaders du secteur dans le domaine de la surveillance de services multi-plateforme.
@@ -79,7 +79,7 @@ Pour d’autres langages et plates-formes, consultez la [liste](https://docs.mic
 
     // This sample uses the Azure Search .NET SDK https://www.nuget.org/packages/Microsoft.Azure.Search
 
-    var client = new SearchIndexClient(<ServiceName>, <IndexName>, new SearchCredentials(<QueryKey>)
+    var client = new SearchIndexClient(<SearchServiceName>, <IndexName>, new SearchCredentials(<QueryKey>)
     var headers = new Dictionary<string, List<string>>() { { "x-ms-azs-return-searchid", new List<string>() { "true" } } };
     var response = await client.Documents.SearchWithHttpMessagesAsync(searchText: searchText, searchParameters: parameters, customHeaders: headers);
     IEnumerable<string> headerValues;
@@ -98,7 +98,7 @@ Pour d’autres langages et plates-formes, consultez la [liste](https://docs.mic
 
 Chaque fois qu’une requête de recherche est émise par un utilisateur, vous devez la consigner en tant qu’événement de recherche en respectant le schéma suivant sur un événement personnalisé Application Insights :
 
-**ServiceName** : (chaîne) nom du service de recherche **SearchId** : (GUID) identificateur unique de la requête de recherche (qui est fourni dans la réponse de recherche) **IndexName** : (chaîne) index du service de recherche à interroger **QueryTerms** : (chaîne) termes de recherche entrés par l’utilisateur **ResultCount** : (entier) nombre de documents qui ont été renvoyés (fourni dans la réponse de recherche) **ScoringProfile** : (chaîne) nom du profil de score utilisé, le cas échéant
+**SearchServiceName** : (chaîne) nom du service de recherche **SearchId** : (GUID) identificateur unique de la requête de recherche (qui est fourni dans la réponse de recherche) **IndexName** : (chaîne) index du service de recherche à interroger **QueryTerms** : (chaîne) termes de recherche entrés par l’utilisateur **ResultCount** : (entier) nombre de documents qui ont été renvoyés (fourni dans la réponse de recherche) **ScoringProfile** : (chaîne) nom du profil de score utilisé, le cas échéant
 
 > [!NOTE]
 > Demandez le nombre de requêtes générées par l’utilisateur en ajoutant $count=true à votre requête de recherche. Plus d’informations, cliquez [ici](https://docs.microsoft.com/rest/api/searchservice/search-documents#request)

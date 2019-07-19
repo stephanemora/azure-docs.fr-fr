@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: cff1bbefc3c54f7f9c02c646bd9eef528fe28c73
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 73ef5cc00b5154dbdbc92911d17740c7d13038ec
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64939570"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341981"
 ---
 # <a name="troubleshooting-metrics-charts"></a>Résolution des problèmes liés aux graphiques de métriques
 
@@ -73,7 +73,7 @@ La collecte des métriques de **SE invité** nécessite la configuration de l’
 
 ## <a name="error-retrieving-data-message-on-dashboard"></a>Message « Erreur durant la récupération des données » sur le tableau de bord
 
-Ce problème est courant lorsque votre tableau de bord a été créé avec une métrique qui a ensuite été déconseillée, puis supprimée d’Azure. Pour vérifier si c’est le cas, ouvrez l’onglet **Métriques** de votre ressource et examinez les métriques disponibles dans le sélecteur de métriques. Si aucune métrique n’est affichée, cela signifie que la métrique a été supprimée d’Azure. En règle générale, quand une métrique est déconseillée, une nouvelle métrique, plus efficace, offre une perspective similaire sur l’intégrité des ressources.
+Ce problème peut se produire lorsque votre tableau de bord a été créé avec une métrique qui a ensuite été dépréciée, puis supprimée dans Azure. Pour vérifier si c’est le cas, ouvrez l’onglet **Métriques** de votre ressource et examinez les métriques disponibles dans le sélecteur de métriques. Si aucune métrique n’est affichée, cela signifie que la métrique a été supprimée d’Azure. En règle générale, quand une métrique est déconseillée, une nouvelle métrique, plus efficace, offre une perspective similaire sur l’intégrité des ressources.
 
 **Solution :** Mettez à jour la vignette défaillante en choisissant une autre métrique pour votre graphique sur le tableau de bord. Vous pouvez [consulter une liste des métriques disponibles pour les services Azure](metrics-supported.md).
 
@@ -116,4 +116,4 @@ Par défaut, les métriques de SE invité sont stockées dans le compte de Stock
 * [Découvrez comment bien démarrer avec Metrics Explorer](metrics-getting-started.md).
 * [Découvrez les fonctionnalités avancées de Metrics Explorer](metrics-charts.md).
 * [Consultez la liste des métriques disponibles pour les services Azure](metrics-supported.md).
-* [Consultez des exemples de graphiques configurés](metric-chart-samples.md).
+* [Consulter des exemples de graphiques configurés](metric-chart-samples.md)

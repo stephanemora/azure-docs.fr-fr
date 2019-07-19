@@ -6,14 +6,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 04/14/2019
+ms.date: 07/0/2019
 ms.author: ramamill
-ms.openlocfilehash: 5f0578026e95378065fc68198434e347a87eb1fe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 44588fedd53b363c43a369eeb1917ccaec58d948
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62123912"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508768"
 ---
 # <a name="set-up-the-configuration-server-for-disaster-recovery-of-physical-servers-to-azure"></a>Configurer le serveur de configuration pour la récupération d’urgence de serveurs physiques sur Azure
 
@@ -24,7 +24,7 @@ Cet article décrit comment configurer votre environnement local pour lancer la 
 Cet article suppose que vous disposez déjà des éléments suivants :
 - Un coffre Recovery Services dans le [portail Azure](https://portal.azure.com "portail Azure").
 - Un ordinateur physique sur lequel installer le serveur de configuration.
-- Si vous avez désactivé TLS 1.0 sur l’ordinateur sur lequel vous installez le serveur de configuration, vérifiez que TLS 1.2 est activé et que .NET Framework version 4.6 ou ultérieure est installé sur l’ordinateur (et que le chiffrement fort est désactivé). [Plus d’informations](https://support.microsoft.com/help/4033999/how-to-resolve-azure-site-recovery-agent-issues-after-disabling-tls-1)
+- Si vous avez désactivé TLS 1.0 sur l’ordinateur sur lequel vous installez le serveur de configuration, vérifiez que TLS 1.2 est activé et que .NET Framework version 4.6 ou ultérieure est installé sur l’ordinateur (et que le chiffrement fort est activé). [Plus d’informations](https://support.microsoft.com/help/4033999/how-to-resolve-azure-site-recovery-agent-issues-after-disabling-tls-1)
 
 ### <a name="configuration-server-minimum-requirements"></a>Configuration minimale requise du serveur
 Le tableau suivant présente la configuration minimale requise pour le matériel, le logiciel et le réseau pour un serveur de configuration.

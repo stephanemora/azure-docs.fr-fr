@@ -10,21 +10,21 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/20/2017
 ms.openlocfilehash: 7be57733f9bb5936747c77aa06bde3397eb84fa1
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66302901"
 ---
 # <a name="programmatically-create-a-stream-analytics-job-monitor"></a>Créer la surveillance des tâches Stream Analytics par programmation
 
 Cet article explique comment activer la surveillance d'une tâche Stream Analytics. Par défaut, la surveillance n'est pas activée pour les travaux Stream Analytics créés par le biais des API REST, du kit de développement logiciel (SDK) Azure ou de PowerShell. Vous pouvez l’activer manuellement sur le portail Azure. Pour cela, accédez à la page Surveiller du travail et cliquez sur le bouton Activer. Vous pouvez également automatiser ce processus en suivant les étapes décrites dans cet article. Les données de surveillance sont affichées dans la zone Métriques du portail Azure pour le travail Stream Analytics.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-Avant de commencer ce processus, vous devez disposer les conditions préalables suivantes :
+Avant de commencer à lire ce processus, vous devez disposer des éléments suivants :
 
-* Visual Studio 2019 ou 2015
+* Visual Studio 2019 ou 2015
 * [kit de développement logiciel (SDK) Azure .NET](https://azure.microsoft.com/downloads/) téléchargé et installé
 * Un travail Stream Analytics existant pour lequel la surveillance doit être activée
 
@@ -137,7 +137,7 @@ Le code suivant définit les variables nécessaires et les clients de gestion.
 
 ## <a name="enable-monitoring-for-an-existing-stream-analytics-job"></a>Activation de la surveillance pour un travail Stream Analytics existant
 
-Le code suivant permet d'activer la surveillance pour un travail Stream Analytics **existant**. La première partie du code exécute une requête GET sur le service Stream Analytics pour récupérer des informations sur le travail Stream Analytics spécifique. Il utilise le *ID* propriété (récupérée à partir de la requête GET) en tant que paramètre pour la méthode Put dans la seconde moitié du code, qui envoie une commande PUT requête au service Insights afin d’activer la surveillance du travail d’Analytique de Stream.
+Le code suivant permet d'activer la surveillance pour un travail Stream Analytics **existant**. La première partie du code exécute une requête GET sur le service Stream Analytics pour récupérer des informations sur le travail Stream Analytics spécifique. Elle utilise la propriété *ID* (récupérée à partir de la requête GET) en tant que paramètre pour la méthode Put dans la seconde moitié du code qui envoie une requête PUT au service Insights afin d'activer la surveillance du travail Stream Analytics.
 
 > [!WARNING]
 > Si vous avez déjà activé la surveillance pour un travail Stream Analytics différente par le passé, via le portail Azure ou par programmation via le code ci-dessous, **nous vous recommandons de fournir le même nom de compte de stockage que celui utilisé lors de l’activation de la surveillance.**

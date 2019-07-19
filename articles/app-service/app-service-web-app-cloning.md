@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/14/2016
 ms.author: aelnably
 ms.custom: seodec18
-ms.openlocfilehash: 198fedbbd1e97dcda15c9124109e50664f58f8e7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 907816d4f44a953ae338f6ca505b8fb3e048234e
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66139719"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329646"
 ---
 # <a name="azure-app-service-app-cloning-using-powershell"></a>Clonage de l’application Azure App Service à l’aide de PowerShell
 
@@ -28,7 +28,7 @@ ms.locfileid: "66139719"
 
 Avec la publication de Microsoft Azure PowerShell version 1.1.0, une nouvelle option a été ajoutée à `New-AzWebApp`, qui permet à l’utilisateur de cloner une application App Service existante vers une application qui vient d’être créée dans une autre région ou dans la même région. Cette option permet aux utilisateurs de déployer de nombreuses applications dans différentes régions.
 
-Le clonage d’application n’est actuellement pris en charge que pour les plans de service d’application de niveau Premium. Cette nouvelle fonctionnalité utilise les mêmes limitations que la fonctionnalité de sauvegarde App Service. Consultez [Sauvegarder une application dans Azure App Service](manage-backup.md).
+Le clonage d’application est pris en charge par les plans App Service Standard, Premium, Premium V2 et Isolé. Cette nouvelle fonctionnalité utilise les mêmes limitations que la fonctionnalité de sauvegarde App Service. Consultez [Sauvegarder une application dans Azure App Service](manage-backup.md).
 
 ## <a name="cloning-an-existing-app"></a>Clonage d’une application existante
 Scénario : Vous souhaitez cloner le contenu d’une application de la région USA Centre Sud vers une nouvelle application de la région USA Centre Nord. Cela peut être effectué à l’aide de la version Azure Resource Manager de l’applet de commande PowerShell pour créer une application avec l’option `-SourceWebApp`.

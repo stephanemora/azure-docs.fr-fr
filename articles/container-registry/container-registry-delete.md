@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 04/04/2019
+ms.date: 06/17/2019
 ms.author: danlep
-ms.openlocfilehash: 1e496002c869c5d2c072773d37ed5fd5d4a5841e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c544c8ed6fbfcb859ff1ff01e7bedf46cfb21418
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60430792"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295145"
 ---
 # <a name="delete-container-images-in-azure-container-registry"></a>Supprimer des images conteneur dans Azure Container Registry
 
@@ -106,10 +106,6 @@ $ az acr repository show-manifests --name myregistry --repository acr-helloworld
 ]
 ```
 
-Le manifeste abordé ici est différent du manifeste d’image que vous voyez dans le portail Azure ou que vous obtenez avec la commande [docker manifest inspect][docker-manifest-inspect]. Dans la section suivante, « code de hachage du manifeste » fait référence au code de hachage généré par l’opération d’envoi (push), et non au *config.digest* du manifeste de l’image. Vous pouvez tirer (pull) et supprimer des images avec du **code de hachage de manifeste**, mais pas avec config.digest. L’image suivante montre deux types de code de hachage.
-
-![Code de hachage de manifeste et config.digest dans le portail Azure][manifest-digest]
-
 ### <a name="manifest-digest"></a>Code de hachage de manifeste
 
 Les manifestes sont identifiables par un code de hachage SHA-256 unique, appelé *code de hachage de manifeste*. Chaque image, qu’elle soit ou non associée à une étiquette, est identifiable par son code de hachage. La valeur du code de hachage est unique, même si les données de calque de l’image sont identiques à celles d’une autre image. Ce mécanisme permet d’envoyer (push) à plusieurs reprises des images ayant la même étiquette vers le registre. Par exemple, vous pouvez envoyer `myimage:latest` à plusieurs reprises vers votre registre sans vous tromper, car chaque image est identifiable par son propre code de hachage.
@@ -135,9 +131,9 @@ Vous pouvez supprimer les données d’image du registre de conteneurs de plusie
 
 ## <a name="delete-repository"></a>Supprimer le référentiel
 
-La suppression d’un référentiel supprime toutes les images qu’il contient, ainsi que leurs balises, calques propres et manifestes. Lorsque vous supprimez un référentiel, vous récupérez l’espace de stockage utilisé par les images qui s’y trouvaient.
+La suppression d’un référentiel supprime toutes les images qu’il contient, ainsi que leurs balises, calques propres et manifestes. Lorsque vous supprimez un référentiel, vous récupérez l’espace de stockage utilisé par les images qui font référence à des calques uniques qui s’y trouvaient.
 
-La commande suivante d’Azure CLI supprime le référentiel « acr-helloworld », ainsi que toutes les étiquettes et tous les manifestes. Si les calques référencés par les manifestes supprimés ne sont pas référencés par d’autres images du registre, les données de calques sont elles aussi supprimées.
+La commande suivante d’Azure CLI supprime le référentiel « acr-helloworld », ainsi que toutes les étiquettes et tous les manifestes. Si les calques référencés par les manifestes supprimés ne sont pas référencés par d’autres images du registre, les données de calques sont elles aussi supprimées, permettant ainsi de récupérer de l’espace de stockage.
 
 ```azurecli
  az acr repository delete --name myregistry --repository acr-helloworld
@@ -203,7 +199,7 @@ Are you sure you want to continue? (y/n): y
 
 L'image `acr-helloworld:v2` est supprimée du registre, comme le sont les données de calques propres à cette image. Si un manifeste est associé à plusieurs étiquettes, toutes les étiquettes associées sont également supprimées.
 
-### <a name="list-digests-by-timestamp"></a>Répertorier des codes de hachage par timestamp
+## <a name="delete-digests-by-timestamp"></a>Supprimer des codes de hachage par timestamp
 
 Pour limiter la taille d'un référentiel ou d'un registre, vous devrez peut-être périodiquement supprimer les codes de hachage de manifeste antérieurs à une certaine date.
 
@@ -214,12 +210,10 @@ az acr repository show-manifests --name <acrName> --repository <repositoryName> 
 --orderby time_asc -o tsv --query "[?timestamp < '2019-04-05'].[digest, timestamp]"
 ```
 
-### <a name="delete-digests-by-timestamp"></a>Supprimer des codes de hachage par timestamp
-
 Après avoir identifié les codes de hachage de manifeste obsolètes, vous pouvez exécuter le script Bash suivant pour supprimer les codes de hachage de manifeste antérieurs à un timestamp spécifié. Ce script nécessite Azure CLI et **xargs**. Par défaut, le script n’effectue aucune suppression. Remplacez la valeur `ENABLE_DELETE` par `true` pour activer la suppression des images.
 
 > [!WARNING]
-> Utilisez l'exemple de script suivant avec précaution : les données d'image supprimées ne sont PAS RÉCUPÉRABLES. Si vous disposez de systèmes qui tirent (pull) les images en fonction du code de hachage du manifeste (et non en fonction du nom de l'image), vous ne devez pas exécuter ces scripts. La suppression des codes de hachage de manifeste empêchera ces systèmes de tirer (pull) les images à partir du registre. Au lieu de tirer en fonction du manifeste, envisagez d’adopter un schéma *d’étiquetage unique* (il s’agit là d’une [bonne pratique)][tagging-best-practices]. 
+> Utilisez l'exemple de script suivant avec précaution : les données d'image supprimées ne sont PAS RÉCUPÉRABLES. Si vous disposez de systèmes qui tirent (pull) les images en fonction du code de hachage du manifeste (et non en fonction du nom de l'image), vous ne devez pas exécuter ces scripts. La suppression des codes de hachage de manifeste empêchera ces systèmes de tirer (pull) les images à partir du registre. Au lieu de tirer en fonction du manifeste, envisagez d’adopter un schéma d’*étiquetage unique* (il s’agit là d’une [bonne pratique][tagging-best-practices]). 
 
 ```bash
 #!/bin/bash
@@ -296,7 +290,7 @@ Comme mentionné dans la section [Code de hachage de manifeste](#manifest-digest
 
 Comme vous pouvez le voir dans la sortie de la dernière étape de la séquence, il existe maintenant un manifeste orphelin dont la propriété `"tags"` est une liste vide. Ce manifeste se trouve toujours dans le registre, ainsi que toutes les données des calques propres qu’il référence. **Pour supprimer ces images orphelines et leurs données de calque, vous devez supprimer en fonction du code de hachage du manifeste**.
 
-### <a name="list-untagged-images"></a>Répertorier les images sans étiquette
+## <a name="delete-all-untagged-images"></a>Supprimer toutes les images sans étiquette
 
 Vous pouvez répertorier toutes les images sans étiquette de votre référentiel à l’aide de la commande Azure CLI suivante. Remplacez `<acrName>` et `<repositoryName>` par les valeurs adaptées à votre environnement.
 
@@ -304,10 +298,10 @@ Vous pouvez répertorier toutes les images sans étiquette de votre référentie
 az acr repository show-manifests --name <acrName> --repository <repositoryName> --query "[?tags[0]==null].digest"
 ```
 
-### <a name="delete-all-untagged-images"></a>Supprimer toutes les images sans étiquette
+L’utilisation de cette commande dans un script vous permet de supprimer toutes les images sans étiquette d’un référentiel.
 
 > [!WARNING]
-> Utilisez les exemples de scripts suivants avec prudence : la suppression des données d’image est irrécupérable. Si vous disposez de systèmes qui tirent (pull) les images en fonction du code de hachage du manifeste (et non en fonction du nom de l'image), vous ne devez pas exécuter ces scripts. La suppression des images sans étiquette va empêcher ces systèmes de tirer les images à partir du registre. Au lieu de tirer en fonction du manifeste, envisagez d’adopter un schéma *d’étiquetage unique* (il s’agit là d’une [bonne pratique)][tagging-best-practices].
+> Utilisez les exemples de scripts suivants avec prudence : la suppression des données d’image est irrécupérable. Si vous disposez de systèmes qui tirent (pull) les images en fonction du code de hachage du manifeste (et non en fonction du nom de l'image), vous ne devez pas exécuter ces scripts. La suppression des images sans étiquette va empêcher ces systèmes de tirer les images à partir du registre. Au lieu de tirer en fonction du manifeste, envisagez d’adopter un schéma d’*étiquetage unique* (il s’agit là d’une [bonne pratique][tagging-best-practices]).
 
 **Azure CLI dans Bash**
 
@@ -333,7 +327,10 @@ then
     az acr repository show-manifests --name $REGISTRY --repository $REPOSITORY  --query "[?tags[0]==null].digest" -o tsv \
     | xargs -I% az acr repository delete --name $REGISTRY --image $REPOSITORY@% --yes
 else
-    echo "No data deleted. Set ENABLE_DELETE=true to enable image deletion."
+    else
+    echo "No data deleted."
+    echo "Set ENABLE_DELETE=true to enable image deletion of these images in $REPOSITORY:"
+    az acr repository show-manifests --name $REGISTRY --repository $REPOSITORY --query "[?tags[0]==null]" -o tsv
 fi
 ```
 
@@ -357,7 +354,9 @@ if ($enableDelete) {
     az acr repository show-manifests --name $registry --repository $repository --query "[?tags[0]==null].digest" -o tsv `
     | %{ az acr repository delete --name $registry --image $repository@$_ --yes }
 } else {
-    Write-Host "No data deleted. Set `$enableDelete = `$TRUE to enable image deletion."
+    Write-Host "No data deleted."
+    Write-Host "Set `$enableDelete = `$TRUE to enable image deletion."
+    az acr repository show-manifests --name $registry --repository $repository --query "[?tags[0]==null]" -o tsv
 }
 ```
 
@@ -371,7 +370,7 @@ Pour plus d’informations sur le stockage des images dans Azure Container Regis
 <!-- LINKS - External -->
 [docker-manifest-inspect]: https://docs.docker.com/edge/engine/reference/commandline/manifest/#manifest-inspect
 [portal]: https://portal.azure.com
-[tagging-best-practices]: https://blogs.msdn.microsoft.com/stevelasker/2018/03/01/docker-tagging-best-practices-for-tagging-and-versioning-docker-images/
+[tagging-best-practices]: https://stevelasker.blog/2018/03/01/docker-tagging-best-practices-for-tagging-and-versioning-docker-images/
 
 <!-- LINKS - Internal -->
 [az-acr-repository-delete]: /cli/azure/acr/repository#az-acr-repository-delete

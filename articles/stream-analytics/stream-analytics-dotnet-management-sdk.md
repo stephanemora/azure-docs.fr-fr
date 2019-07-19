@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
 ms.openlocfilehash: b2da78f5c750dbc694085bb46a6ed43e74884d45
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66303034"
 ---
 # <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>Kit de développement logiciel (SDK) .NET de gestion : Configurer et exécuter des tâches analytics à l’aide de l’API Azure Stream Analytics pour .NET
@@ -26,12 +26,12 @@ Azure Stream Analytics est un service entièrement géré permettant de traiter 
 > [!NOTE]
 > Nous avons mis à jour l’exemple de code de cet article vers la version v2.x du Kit de développement logiciel (SDK) Azure Stream Analytics Management .NET. Pour visualiser un exemple de code utilisant la version héritée (1.x) du Kit de développement logiciel (SDK), consultez [Use the Management .NET SDK v1.x for Stream Analytics (Utiliser le Kit de développement logiciel [SDK] Management .NET v1.x. pour Stream Analytics)](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-dotnet-management-sdk-v1).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Avant de commencer cet article, vous devez disposer de la configuration requise suivante :
 
-* Installer Visual Studio 2019 ou 2015.
+* Installez Visual Studio 2019 ou 2015.
 * Téléchargez et installez le [Kit SDK Azure .NET](https://azure.microsoft.com/downloads/).
-* Créez un groupe de ressources Azure dans votre abonnement. L’exemple suivant est un exemple de script Azure PowerShell. Pour obtenir des informations sur Azure PowerShell, consultez [Installation et configuration d’Azure PowerShell](/powershell/azure/overview).  
+* Créez un groupe de ressources Azure dans votre abonnement. Voici un exemple de script Azure PowerShell. Pour obtenir des informations sur Azure PowerShell, consultez [Installation et configuration d’Azure PowerShell](/powershell/azure/overview).  
 
    ```powershell
    # Log in to your Azure account
@@ -50,7 +50,7 @@ Avant de commencer cet article, vous devez disposer de la configuration requise 
 * Configurez une source d’entrée et une cible de sortie auxquelles le travail se connecte.
 
 ## <a name="set-up-a-project"></a>Configuration d’un projet
-Pour créer un travail d’analytique, utilisez l’API d’Analytique de Stream pour .NET, tout d’abord configurer votre projet.
+Pour créer une tâche d’analyse à l’aide de l’API Stream Analytics pour .NET, commencez par configurer votre projet.
 
 1. Créez une application console Visual Studio .NET C#.
 2. Dans la console du Gestionnaire de package, exécutez les commandes suivantes pour installer les packages NuGet. Le premier est le Kit de développement logiciel (SDK) .NET de gestion Azure Stream Analytics. La seconde concerne l’authentification du client Azure.
@@ -211,7 +211,7 @@ La méthode **TestConnection** teste si le travail Stream Analytics est en mesur
    ```
 
 ## <a name="create-a-stream-analytics-output-target"></a>Création d’une cible de sortie Stream Analytics
-Création d’une cible de sortie est similaire à la création d’une source d’entrée Stream Analytique. Tout comme les sources d’entrée, les cibles de sortie sont liées à une tâche spécifique. Pour utiliser la même cible de sortie pour différents travaux, vous devez appeler la méthode à nouveau et spécifier un nom de travail différent.
+La création d’une cible de sortie est similaire à la création d’une source d’entrée Stream Analytics. Tout comme les sources d’entrée, les cibles de sortie sont liées à une tâche spécifique. Pour utiliser la même cible de sortie pour différents travaux, vous devez appeler la méthode à nouveau et spécifier un nom de travail différent.
 
 Le code suivant crée une cible de sortie (base de données Azure SQL). Vous pouvez personnaliser le type de données de la cible de sortie et/ou le type de sérialisation.
 

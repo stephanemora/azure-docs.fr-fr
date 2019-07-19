@@ -1,23 +1,17 @@
 ---
 title: Fonctions de modèle Azure Resource Manager - chaîne | Microsoft Docs
 description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour travailler avec des chaînes.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-ms.assetid: ''
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 04/08/2019
 ms.author: tomfitz
-ms.openlocfilehash: 82b9403a3d5a5b6938f5b95bbfce888d1e70e451
-ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
-ms.translationtype: MT
+ms.openlocfilehash: 979474ea6b5b61935742591f8fba87d200d618e4
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66431209"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206343"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Fonctions de chaînes pour les modèles Azure Resource Manager
 
@@ -67,7 +61,7 @@ Retourne la représentation en base 64 de la chaîne d'entrée.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| chaîne_entrée |Oui |string |La valeur à retourner sous la forme d’une représentation en base64. |
+| chaîne_entrée |OUI |string |La valeur à retourner sous la forme d’une représentation en base64. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -132,7 +126,7 @@ Convertit une représentation en base64 en un objet JSON.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| base64Value |Oui |string |La représentation en base64 à convertir en un objet JSON. |
+| base64Value |OUI |string |La représentation en base64 à convertir en un objet JSON. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -197,7 +191,7 @@ Convertit une représentation en base64 en une chaîne.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| base64Value |Oui |string |La représentation en base64 à convertir en une chaîne. |
+| base64Value |OUI |string |La représentation en base64 à convertir en une chaîne. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -248,8 +242,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| base64Output | String | b25lLCB0d28sIHRocmVl |
-| toStringOutput | String | one, two, three |
+| base64Output | Chaîne | b25lLCB0d28sIHRocmVl |
+| toStringOutput | Chaîne | one, two, three |
 | toJsonOutput | Object | {"one": "a", "two": "b"} |
 
 ## <a name="concat"></a>concat
@@ -262,7 +256,7 @@ Combine plusieurs valeurs de chaîne et retourne la chaine concaténée, ou comb
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |chaîne ou tableau |La première valeur pour la concaténation. |
+| arg1 |OUI |chaîne ou tableau |La première valeur pour la concaténation. |
 | arguments supplémentaires |Non |string |Valeurs supplémentaires en ordre séquentiel pour la concaténation. |
 
 ### <a name="return-value"></a>Valeur de retour
@@ -296,7 +290,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| concatOutput | String | prefix-5yj4yjf5mbg72 |
+| concatOutput | Chaîne | prefix-5yj4yjf5mbg72 |
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-array.json) suivant montre comment combiner deux tableaux.
 
@@ -337,7 +331,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| return | Tableau | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
+| return | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
 ## <a name="contains"></a>contains
 
@@ -349,8 +343,8 @@ Vérifie si un tableau contient une valeur, un objet contient une clé ou une ch
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| conteneur |Oui |tableau, objet ou chaîne |La valeur qui contient la valeur à rechercher. |
-| itemToFind |Oui |chaîne ou entier |La valeur à trouver. |
+| conteneur |OUI |tableau, objet ou chaîne |La valeur qui contient la valeur à rechercher. |
+| itemToFind |OUI |chaîne ou entier |La valeur à trouver. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -430,7 +424,7 @@ Convertit une valeur en un URI de données.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| stringToConvert |Oui |string |Valeur à convertir en URI de données. |
+| stringToConvert |OUI |string |Valeur à convertir en URI de données. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -485,7 +479,7 @@ Convertit une valeur formatée en URI de données en chaîne.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| dataUriToConvert |Oui |string |Valeur d’URI de données à convertir. |
+| dataUriToConvert |OUI |string |Valeur d’URI de données à convertir. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -540,7 +534,7 @@ Détermine si un tableau, un objet ou une chaîne est vide.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| itemToTest |Oui |tableau, objet ou chaîne |Valeur à vérifier s’il est vide. |
+| itemToTest |OUI |tableau, objet ou chaîne |Valeur à vérifier pour voir si elle est vide. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -605,8 +599,8 @@ Détermine si une chaîne se termine par une valeur. La comparaison respecte la 
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Oui |string |La valeur qui contient l’élément à rechercher. |
-| stringToFind |Oui |string |La valeur à trouver. |
+| stringToSearch |OUI |string |La valeur qui contient l’élément à rechercher. |
+| stringToFind |OUI |string |La valeur à trouver. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -671,7 +665,7 @@ Retourne le premier caractère de la chaîne ou le premier élément du tableau.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |tableau ou chaîne |La valeur permettant de récupérer le premier élément ou caractère. |
+| arg1 |OUI |tableau ou chaîne |La valeur permettant de récupérer le premier élément ou caractère. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -710,30 +704,30 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| arrayOutput | String | one |
+| arrayOutput | Chaîne | one |
 | stringOutput | Chaîne | O |
 
 ## <a name="format"></a>format
 
 `format(formatString, arg1, arg2, ...)`
 
-Crée une chaîne mise en forme à partir de valeurs d’entrée.
+Crée une chaîne mise en forme à partir des valeurs d’entrée.
 
 ### <a name="parameters"></a>parameters
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| formatString | Oui | string | La chaîne de format composite. |
-| arg1 | Oui | chaîne, entier ou valeur booléenne | La valeur à inclure dans la chaîne mise en forme. |
+| formatString | OUI | string | Chaîne de format composite. |
+| arg1 | OUI | chaîne, entier ou valeur booléenne | Valeur à inclure dans la chaîne mise en forme. |
 | arguments supplémentaires | Non | chaîne, entier ou valeur booléenne | Valeurs supplémentaires à inclure dans la chaîne mise en forme. |
 
 ### <a name="remarks"></a>Remarques
 
-Cette fonction permet de mettre en forme une chaîne dans votre modèle. Il utilise les mêmes options de mise en forme en tant que le [System.String.Format](/dotnet/api/system.string.format) méthode dans .NET.
+Utilisez cette fonction pour mettre en forme une chaîne dans votre modèle. Cette fonction utilise les mêmes options de mise en forme que la méthode [System.String.Format](/dotnet/api/system.string.format) dans .NET.
 
 ### <a name="examples"></a>Exemples
 
-Le modèle de l’exemple suivant montre comment utiliser la fonction format.
+L’exemple de modèle suivant montre comment utiliser la fonction format.
 
 ```json
 {
@@ -768,7 +762,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| formatTest | String | Bonjour, utilisateur. Nombre mis en forme : 8,175,133 |
+| formatTest | Chaîne | Bonjour. Nombre mis en forme : 8 175 133 |
 
 ## <a name="guid"></a>GUID
 
@@ -780,14 +774,14 @@ Crée une valeur sous la forme d’un identificateur global unique basé sur les
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| baseString |Oui |string |Valeur utilisée dans la fonction de hachage pour créer le GUID. |
+| baseString |OUI |string |Valeur utilisée dans la fonction de hachage pour créer le GUID. |
 | paramètres supplémentaires le cas échéant |Non |string |Vous pouvez ajouter autant de chaînes que nécessaire pour créer la valeur qui spécifie le niveau d’unicité. |
 
 ### <a name="remarks"></a>Remarques
 
 Cette fonction est utile quand vous devez créer une valeur sous la forme d’un identificateur global unique. Vous fournissez des valeurs de paramètre qui limitent l’étendue d’unicité pour le résultat. Vous pouvez spécifier si le nom est unique pour l’abonnement, le groupe de ressources ou le déploiement.
 
-La valeur retournée n’est pas une chaîne aléatoire, mais plutôt le résultat d’une fonction de hachage sur les paramètres. La valeur renvoyée comprend 36 caractères. Il n’est pas globalement unique. Pour créer un nouveau GUID n’est pas basé sur cette valeur de hachage des paramètres, utilisez le [newGuid](#newguid) (fonction).
+La valeur retournée n’est pas une chaîne aléatoire, mais le résultat d’une fonction de hachage exécutée sur les paramètres. La valeur renvoyée comprend 36 caractères. Elle n’est pas globalement unique. Pour créer un autre GUID non basé sur cette valeur de hachage des paramètres, utilisez la fonction [newGuid](#newguid).
 
 Les exemples suivants montrent comment utiliser guid pour créer une valeur unique pour des niveaux couramment utilisés.
 
@@ -851,12 +845,12 @@ Retourne la première position d’une valeur dans une chaîne. La comparaison r
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Oui |string |La valeur qui contient l’élément à rechercher. |
-| stringToFind |Oui |string |La valeur à trouver. |
+| stringToSearch |OUI |string |La valeur qui contient l’élément à rechercher. |
+| stringToFind |OUI |string |La valeur à trouver. |
 
 ### <a name="return-value"></a>Valeur de retour
 
-Entier qui représente la position de l’élément à rechercher. La valeur est basée sur zéro. Si l’élément est introuvable, -1 est retourné.
+Entier qui représente la position de l’élément à rechercher. La valeur est basée sur zéro. Si l’élément est introuvable, la valeur -1 est retournée.
 
 ### <a name="examples"></a>Exemples
 
@@ -912,7 +906,7 @@ Retourne le dernier caractère de la chaîne ou le dernier élément du tableau.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |tableau ou chaîne |La valeur permettant de récupérer le dernier élément ou caractère. |
+| arg1 |OUI |tableau ou chaîne |La valeur permettant de récupérer le dernier élément ou caractère. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -952,7 +946,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
 | arrayOutput | Chaîne | three |
-| stringOutput | String | e |
+| stringOutput | Chaîne | e |
 
 ## <a name="lastindexof"></a>lastIndexOf
 
@@ -964,12 +958,12 @@ Retourne la dernière position d’une valeur dans une chaîne. La comparaison r
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Oui |string |La valeur qui contient l’élément à rechercher. |
-| stringToFind |Oui |string |La valeur à trouver. |
+| stringToSearch |OUI |string |La valeur qui contient l’élément à rechercher. |
+| stringToFind |OUI |string |La valeur à trouver. |
 
 ### <a name="return-value"></a>Valeur de retour
 
-Entier qui représente la dernière position de l’élément à rechercher. La valeur est basée sur zéro. Si l’élément est introuvable, -1 est retourné.
+Entier qui représente la dernière position de l’élément à rechercher. La valeur est basée sur zéro. Si l’élément est introuvable, la valeur -1 est retournée.
 
 ### <a name="examples"></a>Exemples
 
@@ -1025,7 +1019,7 @@ Retourne le nombre de caractères dans une chaîne ou le nombre d’éléments d
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |tableau ou chaîne |Tableau à utiliser pour l’obtention du nombre d’éléments, ou chaîne à utiliser pour l’obtention du nombre de caractères. |
+| arg1 |OUI |tableau ou chaîne |Tableau à utiliser pour l’obtention du nombre d’éléments, ou chaîne à utiliser pour l’obtention du nombre de caractères. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -1078,19 +1072,19 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 `newGuid()`
 
-Retourne une valeur dans le format d’un identificateur global unique. **Cette fonction peut uniquement être utilisée dans la valeur par défaut pour un paramètre.**
+Retourne une valeur sous la forme d’un identificateur global unique. **Cette fonction peut uniquement être utilisée dans la valeur par défaut d’un paramètre.**
 
 ### <a name="remarks"></a>Remarques
 
-Vous pouvez uniquement utiliser cette fonction dans une expression pour la valeur par défaut d’un paramètre. À l’aide de cette fonction n’importe où dans un modèle renvoie une erreur. La fonction n’est pas autorisée dans d’autres parties du modèle, car elle retourne une valeur différente à chaque fois qu’elle est appelée. Déploiement du même modèle avec les mêmes paramètres n’aurait pas produire fiable les mêmes résultats.
+Vous pouvez uniquement utiliser cette fonction dans une expression pour la valeur par défaut d’un paramètre. Son utilisation partout ailleurs dans un modèle retourne une erreur. La fonction n’est pas autorisée dans d’autres parties du modèle, car elle retourne une valeur différente chaque fois qu’elle est appelée. Le déploiement du même modèle avec les mêmes paramètres ne produit pas forcément les mêmes résultats.
 
-La fonction newGuid diffère la [guid](#guid) , car il n’accepte aucun paramètre de fonction. Lorsque vous appelez guid avec le même paramètre, elle retourne le même identificateur à chaque fois. Utilisez le guid lorsque vous avez besoin générer de manière fiable le même GUID pour un environnement spécifique. Utilisez newGuid lorsque vous avez besoin à un autre identificateur à chaque fois, telles que le déploiement des ressources dans un environnement de test.
+La fonction newGuid diffère de la fonction [guid](#guid), car elle ne prend aucun paramètre. Quand vous appelez la fonction guid avec le même paramètre, elle retourne toujours le même identificateur. Utilisez guid quand vous devez générer invariablement le même GUID dans un environnement spécifique. Utilisez newGuid pour générer un identificateur différent chaque fois, par exemple pour le déploiement de ressources dans un environnement de test.
 
-Si vous utilisez le [option redéployer un déploiement réussi précédemment](resource-group-template-deploy-rest.md#redeploy-when-deployment-fails)et que le déploiement antérieures inclut un paramètre qui utilise newGuid, le paramètre n’est pas réévalué. Au lieu de cela, la valeur du paramètre du déploiement antérieures est automatiquement réutilisée dans le déploiement de la restauration.
+Si vous choisissez l’[option de redéployer un déploiement précédent réussi](resource-group-template-deploy-rest.md#redeploy-when-deployment-fails) et que ce déploiement inclut un paramètre qui utilise newGuid, le paramètre n’est pas réévalué. Au lieu de cela, la valeur du paramètre du déploiement précédent est automatiquement réutilisée dans le déploiement de la restauration.
 
-Dans un environnement de test, vous devrez peut-être déployer à plusieurs reprises des ressources qui résident uniquement pendant une courte période. Au lieu de construire des noms uniques, vous pouvez utiliser newGuid avec [uniqueString](#uniquestring) pour créer des noms uniques.
+Dans un environnement de test, vous devrez peut-être déployer à plusieurs reprises des ressources utilisables uniquement pendant une courte période. Au lieu de construire des noms uniques, vous pouvez utiliser newGuid avec [uniqueString](#uniquestring) pour créer des noms uniques.
 
-Soyez prudent redéployez un modèle qui s’appuie sur la fonction newGuid pour une valeur par défaut. Lorsque vous redéployez et que vous ne fournissez pas une valeur pour le paramètre, la fonction est réévaluée. Si vous souhaitez mettre à jour une ressource existante au lieu de créer un nouveau, passez la valeur de paramètre à partir du déploiement antérieures.
+Soyez prudent quand vous redéployez un modèle basé sur la fonction newGuid pour une valeur par défaut. Si vous effectuez un tel déploiement sans fournir de valeur pour le paramètre, la fonction est réévaluée. Si vous souhaitez mettre à jour une ressource existante au lieu d’en créer une autre, passez la valeur du paramètre qui était utilisée dans le déploiement précédent.
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -1098,7 +1092,7 @@ Chaîne contenant 36 caractères sous la forme d’un identificateur global uniq
 
 ### <a name="examples"></a>Exemples
 
-L’exemple de modèle suivant illustre un paramètre avec un nouvel identificateur.
+L’exemple de modèle suivant montre un paramètre avec un nouvel identificateur.
 
 ```json
 {
@@ -1121,13 +1115,13 @@ L’exemple de modèle suivant illustre un paramètre avec un nouvel identificat
 }
 ```
 
-La sortie de l’exemple précédent varie pour chaque déploiement, mais sera semblable à :
+La sortie de l’exemple précédent varie pour chaque déploiement, mais elle sera semblable à celle-ci :
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
 | guidOutput | string | b76a51fc-bd72-4a77-b9a2-3c29e7d2e551 |
 
-L’exemple suivant utilise la fonction newGuid pour créer un nom unique pour un compte de stockage. Ce modèle peut fonctionner pour l’environnement de test dans lequel le compte de stockage existe pendant une courte période et n’est pas redéployé.
+L’exemple suivant utilise la fonction newGuid pour créer un nom unique de compte de stockage. Ce modèle peut convenir dans un environnement de test où le compte de stockage est utilisé pendant une courte période et n’est pas redéployé.
 
 ```json
 {
@@ -1164,7 +1158,7 @@ L’exemple suivant utilise la fonction newGuid pour créer un nom unique pour u
 }
 ```
 
-La sortie de l’exemple précédent varie pour chaque déploiement, mais sera semblable à :
+La sortie de l’exemple précédent varie pour chaque déploiement, mais elle sera semblable à celle-ci :
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
@@ -1181,8 +1175,8 @@ Renvoie une chaîne alignée à droite en lui ajoutant des caractères sur la ga
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| valeur_à_remplir |Oui |chaîne ou entier |Valeur à aligner à droite. |
-| longueur_totale |Oui |int |Nombre total de caractères de la chaîne renvoyée. |
+| valeur_à_remplir |OUI |chaîne ou entier |Valeur à aligner à droite. |
+| longueur_totale |OUI |int |Nombre total de caractères de la chaîne renvoyée. |
 | caractère_de_remplissage |Non |caractère unique |Caractère de remplissage à insérer sur la gauche jusqu’à ce que la longueur totale soit atteinte. La valeur par défaut est un espace. |
 
 Si la chaîne d’origine est plus longue que le nombre de caractères de remplissage, aucun caractère n’est ajouté.
@@ -1219,7 +1213,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| stringOutput | String | 0000000123 |
+| stringOutput | Chaîne | 0000000123 |
 
 ## <a name="replace"></a>replace
 
@@ -1231,9 +1225,9 @@ Renvoie une nouvelle chaîne dans laquelle toutes les instances d’une chaîne 
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| chaîne_initiale |Oui |string |La valeur qu’ont toutes les instances d’une chaîne ont été remplacées par une autre. |
-| oldString |Oui |string |Chaîne à supprimer de la chaîne initiale. |
-| newString |Oui |string |Chaîne à ajouter à la place de la chaîne supprimée. |
+| chaîne_initiale |OUI |string |La valeur qu’ont toutes les instances d’une chaîne ont été remplacées par une autre. |
+| oldString |OUI |string |Chaîne à supprimer de la chaîne initiale. |
+| newString |OUI |string |Chaîne à ajouter à la place de la chaîne supprimée. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -1271,8 +1265,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| firstOutput | String | 1231231234 |
-| secondOutput | String | 123-123-xxxx |
+| firstOutput | Chaîne | 1231231234 |
+| secondOutput | Chaîne | 123-123-xxxx |
 
 ## <a name="skip"></a>skip
 
@@ -1284,8 +1278,8 @@ Retourne une chaîne avec tous les caractères après le nombre spécifié de ca
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| originalValue |Oui |tableau ou chaîne |Tableau ou chaîne à utiliser pour ignorer les caractères. |
-| numberToSkip |Oui |int |Nombre d’éléments ou de caractères à ignorer. Si cette valeur est inférieure ou égale à 0, tous les éléments ou caractères de la valeur sont renvoyés. Si elle est supérieure à la longueur du tableau ou de chaîne, un tableau vide ou une chaîne est retournée. |
+| originalValue |OUI |tableau ou chaîne |Tableau ou chaîne à utiliser pour ignorer les caractères. |
+| numberToSkip |OUI |int |Nombre d’éléments ou de caractères à ignorer. Si cette valeur est inférieure ou égale à 0, tous les éléments ou caractères de la valeur sont renvoyés. Si elle est supérieure à la longueur du tableau ou de la chaîne, un tableau ou une chaîne vide est retourné. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -1339,7 +1333,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| arrayOutput | Tableau | ["three"] |
+| arrayOutput | Array | ["three"] |
 | stringOutput | Chaîne | two three |
 
 ## <a name="split"></a>split
@@ -1352,8 +1346,8 @@ Renvoie un tableau de chaînes qui contient les sous-chaînes de la chaîne d’
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| chaîne_entrée |Oui |string |Chaîne à fractionner. |
-| delimiter |Oui |chaîne ou tableau de chaînes |Le séparateur à utiliser pour fractionner la chaîne. |
+| chaîne_entrée |OUI |string |Chaîne à fractionner. |
+| delimiter |OUI |chaîne ou tableau de chaînes |Le séparateur à utiliser pour fractionner la chaîne. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -1398,8 +1392,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| firstOutput | Tableau | ["one", "two", "three"] |
-| secondOutput | Tableau | ["one", "two", "three"] |
+| firstOutput | Array | ["one", "two", "three"] |
+| secondOutput | Array | ["one", "two", "three"] |
 
 ## <a name="startswith"></a>startsWith
 
@@ -1411,8 +1405,8 @@ Détermine si une chaîne commence par une valeur. La comparaison respecte la ca
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Oui |string |La valeur qui contient l’élément à rechercher. |
-| stringToFind |Oui |string |La valeur à trouver. |
+| stringToSearch |OUI |string |La valeur qui contient l’élément à rechercher. |
+| stringToFind |OUI |string |La valeur à trouver. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -1477,7 +1471,7 @@ Convertit la valeur spécifiée en chaîne.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| valueToConvert |Oui | Quelconque |Valeur à convertir en chaîne. N’importe quel type de valeur peut être converti, y compris les objets et des tableaux. |
+| valueToConvert |OUI | Quelconque |Valeur à convertir en chaîne. N’importe quel type de valeur peut être converti, y compris les objets et des tableaux. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -1534,9 +1528,9 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| objectOutput | String | {"valueA":10,"valueB":"Example Text"} |
+| objectOutput | Chaîne | {"valueA":10,"valueB":"Example Text"} |
 | arrayOutput | Chaîne | ["a","b","c"] |
-| intOutput | Chaîne | 5. |
+| intOutput | Chaîne | 5\. |
 
 ## <a name="substring"></a>substring
 
@@ -1548,7 +1542,7 @@ Retourne une sous-chaîne qui commence à la position de caractère spécifiée 
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| chaîne_à_analyser |Oui |string |La chaîne d’origine de laquelle la sous-chaîne est extraite. |
+| chaîne_à_analyser |OUI |string |La chaîne d’origine de laquelle la sous-chaîne est extraite. |
 | index_début |Non |int |La position de caractère (commençant à zéro) de la sous-chaîne. |
 | length |Non |int |Le nombre de caractères de la sous-chaîne. Doit faire référence à un emplacement au sein de la chaîne. Doit être égal à zéro ou supérieur. |
 
@@ -1609,8 +1603,8 @@ Retourne une chaîne avec le nombre spécifié de caractères à partir du débu
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| originalValue |Oui |tableau ou chaîne |Tableau ou chaîne à partir duquel les éléments sont tirés. |
-| numberToTake |Oui |int |Nombre d’éléments ou de caractères à prendre. Si cette valeur est inférieure ou égale à 0, une chaîne ou un tableau vide est renvoyé. Si elle est supérieure à la longueur de la chaîne ou tableau donné, tous les éléments du tableau ou de la chaîne sont retournés. |
+| originalValue |OUI |tableau ou chaîne |Tableau ou chaîne à partir duquel les éléments sont tirés. |
+| numberToTake |OUI |int |Nombre d’éléments ou de caractères à prendre. Si cette valeur est inférieure ou égale à 0, une chaîne ou un tableau vide est renvoyé. Si elle est supérieure à la longueur du tableau ou de la chaîne, tous les éléments du tableau ou de la chaîne sont retournés. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -1664,7 +1658,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| arrayOutput | Tableau | ["one", "two"] |
+| arrayOutput | Array | ["one", "two"] |
 | stringOutput | Chaîne | sur |
 
 ## <a name="tolower"></a>toLower
@@ -1677,7 +1671,7 @@ Convertit la chaîne spécifiée en minuscules.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| chaîne_à_modifier |Oui |string |La valeur à convertir en minuscules. |
+| chaîne_à_modifier |OUI |string |La valeur à convertir en minuscules. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -1728,7 +1722,7 @@ Convertit la chaîne spécifiée en majuscules.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| chaîne_à_modifier |Oui |string |La valeur à convertir en majuscules. |
+| chaîne_à_modifier |OUI |string |La valeur à convertir en majuscules. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -1779,7 +1773,7 @@ Supprime tous les espaces de début et de fin de la chaîne indiquée.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| stringToTrim |Oui |string |La valeur à supprimer. |
+| stringToTrim |OUI |string |La valeur à supprimer. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -1813,7 +1807,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| return | String | one two three |
+| return | Chaîne | one two three |
 
 ## <a name="uniquestring"></a>uniqueString
 
@@ -1825,14 +1819,14 @@ Crée une chaîne de hachage déterministe basée sur les valeurs fournies en ta
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| baseString |Oui |string |La valeur utilisée dans la fonction de hachage pour créer une chaîne unique. |
+| baseString |OUI |string |La valeur utilisée dans la fonction de hachage pour créer une chaîne unique. |
 | paramètres supplémentaires le cas échéant |Non |string |Vous pouvez ajouter autant de chaînes que nécessaire pour créer la valeur qui spécifie le niveau d’unicité. |
 
 ### <a name="remarks"></a>Remarques
 
 Cette fonction est utile lorsque vous avez besoin de créer un nom unique pour une ressource. Vous fournissez des valeurs de paramètre qui limitent l’étendue d’unicité pour le résultat. Vous pouvez spécifier si le nom est unique pour l’abonnement, le groupe de ressources ou le déploiement. 
 
-La valeur retournée n’est pas une chaîne aléatoire, mais plutôt le résultat d’une fonction de hachage. La valeur renvoyée comprend 13 caractères. Il n’est pas globalement unique. Il se peut que vous souhaitiez associer un préfixe de votre convention d’affectation de noms à la valeur pour créer un nom explicite. L’exemple suivant montre le format de la valeur renvoyée. La valeur réelle varie en fonction des paramètres fournis.
+La valeur retournée n’est pas une chaîne aléatoire, mais le résultat d’une fonction de hachage. La valeur renvoyée comprend 13 caractères. Elle n’est pas globalement unique. Il se peut que vous souhaitiez associer un préfixe de votre convention d’affectation de noms à la valeur pour créer un nom explicite. L’exemple suivant montre le format de la valeur renvoyée. La valeur réelle varie en fonction des paramètres fournis.
 
     tcvhiyu5h2o5o
 
@@ -1856,7 +1850,7 @@ Unique limité au déploiement pour un groupe de ressources
 "[uniqueString(resourceGroup().id, deployment().name)]"
 ```
 
-L'exemple suivant montre comment créer un nom unique pour un compte de stockage basé sur votre groupe de ressources. Dans le groupe de ressources, le nom n’est pas unique si construit de la même façon.
+L'exemple suivant montre comment créer un nom unique pour un compte de stockage basé sur votre groupe de ressources. Dans le groupe de ressources, le nom n’est pas unique s’il est construit de la même façon.
 
 ```json
 "resources": [{ 
@@ -1865,7 +1859,7 @@ L'exemple suivant montre comment créer un nom unique pour un compte de stockage
     ...
 ```
 
-Si vous avez besoin créer un nouveau nom unique à chaque fois que vous déployez un modèle et n’envisagez pas de mettre à jour de la ressource, vous pouvez utiliser la [utcNow](#utcnow) avec uniqueString (fonction). Vous pouvez utiliser cette approche dans un environnement de test. Pour obtenir un exemple, consultez [utcNow](#utcnow).
+Si vous devez créer un nom unique chaque fois que vous déployez un modèle et que vous n’envisagez pas de mettre à jour la ressource, utilisez la fonction [utcNow](#utcnow) avec uniqueString. Vous pouvez utiliser cette approche dans un environnement de test. Pour obtenir un exemple, consultez [utcNow](#utcnow).
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -1903,8 +1897,8 @@ Crée un URI absolu en combinant le baseUri et la chaîne relativeUri.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| baseUri |Oui |string |La chaîne d’URI de base. |
-| relativeUri |Oui |string |La chaîne d’URI relatif à ajouter à la chaîne d’URI de base. |
+| baseUri |OUI |string |La chaîne d’URI de base. |
+| relativeUri |OUI |string |La chaîne d’URI relatif à ajouter à la chaîne d’URI de base. |
 
 La valeur du paramètre **baseUri** peut inclure un fichier spécifique, mais seul le chemin de base est utilisé lors de la construction de l’URI. Par exemple, si vous passez `http://contoso.com/resources/azuredeploy.json` comme paramètre baseUri, l’URI de base résultant est `http://contoso.com/resources/`.
 
@@ -1954,7 +1948,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
 | uriOutput | Chaîne | http://contoso.com/resources/nested/azuredeploy.json |
-| componentOutput | String | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
+| componentOutput | Chaîne | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
 | toStringOutput | Chaîne | http://contoso.com/resources/nested/azuredeploy.json |
 
 ## <a name="uricomponent"></a>uriComponent
@@ -1967,7 +1961,7 @@ Encode un URI.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| stringToEncode |Oui |string |Valeur à encoder. |
+| stringToEncode |OUI |string |Valeur à encoder. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -2022,7 +2016,7 @@ Retourne une chaîne de la valeur encodée de l’URI.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| uriEncodedString |Oui |string |Valeur encodée de l’URI à convertir en une chaîne. |
+| uriEncodedString |OUI |string |Valeur encodée de l’URI à convertir en une chaîne. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -2063,33 +2057,33 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| uriOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
+| uriOutput | Chaîne | http://contoso.com/resources/nested/azuredeploy.json |
 | componentOutput | Chaîne | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
-| toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
+| toStringOutput | Chaîne | http://contoso.com/resources/nested/azuredeploy.json |
 
 ## <a name="utcnow"></a>utcNow
 
 `utcNow(format)`
 
-Retourne la valeur de date/heure actuelle (UTC) au format spécifié. Si aucun format n’est fourni, le format ISO 8601 (AAAAMMJJThhmmssZ) est utilisé. **Cette fonction peut uniquement être utilisée dans la valeur par défaut pour un paramètre.**
+Retourne la valeur de date/heure (UTC) actuelle au format spécifié. Si aucun format n’est spécifié, le format ISO 8601 (aaaaMMjjTHHmmssZ) est utilisé. **Cette fonction peut uniquement être utilisée dans la valeur par défaut d’un paramètre.**
 
 ### <a name="parameters"></a>parameters
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| format |Non |string |Valeur encodée de l’URI à convertir en une chaîne. Utilisez [chaînes de format standard](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [chaînes de format personnalisées](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
+| format |Non |string |Valeur encodée de l’URI à convertir en une chaîne. Utilisez des [chaînes de format standard](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou des [chaînes de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 
 ### <a name="remarks"></a>Remarques
 
-Vous pouvez uniquement utiliser cette fonction dans une expression pour la valeur par défaut d’un paramètre. À l’aide de cette fonction n’importe où dans un modèle renvoie une erreur. La fonction n’est pas autorisée dans d’autres parties du modèle, car elle retourne une valeur différente à chaque fois qu’elle est appelée. Déploiement du même modèle avec les mêmes paramètres n’aurait pas produire fiable les mêmes résultats.
+Vous pouvez uniquement utiliser cette fonction dans une expression pour la valeur par défaut d’un paramètre. Son utilisation partout ailleurs dans un modèle retourne une erreur. La fonction n’est pas autorisée dans d’autres parties du modèle, car elle retourne une valeur différente chaque fois qu’elle est appelée. Le déploiement du même modèle avec les mêmes paramètres ne produit pas forcément les mêmes résultats.
 
-Si vous utilisez le [option redéployer un déploiement réussi précédemment](resource-group-template-deploy-rest.md#redeploy-when-deployment-fails)et que le déploiement antérieures inclut un paramètre qui utilise utcNow, le paramètre n’est pas réévalué. Au lieu de cela, la valeur du paramètre du déploiement antérieures est automatiquement réutilisée dans le déploiement de la restauration.
+Si vous choisissez l’[option de redéployer un déploiement précédent réussi](resource-group-template-deploy-rest.md#redeploy-when-deployment-fails) et que ce déploiement inclut un paramètre qui utilise utcNow, le paramètre n’est pas réévalué. Au lieu de cela, la valeur du paramètre du déploiement précédent est automatiquement réutilisée dans le déploiement de la restauration.
 
-Soyez prudent redéployez un modèle qui s’appuie sur la fonction utcNow pour une valeur par défaut. Lorsque vous redéployez et que vous ne fournissez pas une valeur pour le paramètre, la fonction est réévaluée. Si vous souhaitez mettre à jour une ressource existante au lieu de créer un nouveau, passez la valeur de paramètre à partir du déploiement antérieures.
+Soyez prudent quand vous redéployez un modèle basé sur la fonction utcNow pour une valeur par défaut. Si vous effectuez un tel déploiement sans fournir de valeur pour le paramètre, la fonction est réévaluée. Si vous souhaitez mettre à jour une ressource existante au lieu d’en créer une autre, passez la valeur du paramètre qui était utilisée dans le déploiement précédent.
 
 ### <a name="return-value"></a>Valeur de retour
 
-La valeur de date/heure UTC actuelle.
+Valeur de date/heure UTC actuelle.
 
 ### <a name="examples"></a>Exemples
 
@@ -2132,7 +2126,7 @@ L’exemple de modèle suivant montre des formats différents pour la valeur de 
 }
 ```
 
-La sortie de l’exemple précédent varie pour chaque déploiement, mais sera semblable à :
+La sortie de l’exemple précédent varie pour chaque déploiement, mais elle sera semblable à celle-ci :
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
@@ -2140,7 +2134,7 @@ La sortie de l’exemple précédent varie pour chaque déploiement, mais sera s
 | utcShortOutput | string | 03/05/2019 |
 | utcCustomOutput | string | 3 5 |
 
-L’exemple suivant montre comment utiliser une valeur à partir de la fonction lors de la définition d’une valeur de balise.
+L’exemple suivant montre comment utiliser une valeur de la fonction pour définir une valeur de balise.
 
 ```json
 {

@@ -3,19 +3,19 @@ title: API de traduction de texte Translator Text v2.0
 titleSuffix: Azure Cognitive Services
 description: Documentation de référence pour l’API de traduction de texte Translator Text v2.0.
 services: cognitive-services
-author: rajdeep-in
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/15/2018
-ms.author: v-pawal
-ms.openlocfilehash: d2ff61908d7901fc464b58ee1ef9b5605b3026a3
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.author: swmachan
+ms.openlocfilehash: 88503c73e2ca9cf04e64ca3a47793e9b10ca325a
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389843"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357832"
 ---
 # <a name="translator-text-api-v20"></a>API de traduction de texte Translator Text v2.0
 
@@ -28,18 +28,18 @@ Vous pouvez intégrer l’API de traduction de texte Translator Text v2 en toute
 Pour accéder à l’API de traduction de texte Translator Text, vous devez [vous inscrire à Microsoft Azure](../translator-text-how-to-signup.md).
 
 ## <a name="authorization"></a>Authorization
-Tous les appels à l’API de traduction de texte Translator Text nécessitent une clé d’abonnement pour l’authentification. L’API prend en charge trois modes d’authentification :
+Tous les appels à l’API de traduction de texte Translator Text nécessitent une clé d’abonnement pour l’authentification. L’API prend en charge trois modes d’authentification :
 
-- Un jeton d’accès. Utilisez la clé d’abonnement référencée à l’**étape** 9 pour générer un jeton d’accès en envoyant une requête POST au service d’autorisation. Pour plus d’informations, voir la documentation du service de jetons. Passer le jeton d’accès au service traducteur à l’aide de l’en-tête d’autorisation ou le `access_token` paramètre de requête. Chaque jeton d’accès est valide pendant 10 minutes. Obtenir un nouveau jeton d’accès à toutes les 10 minutes et conserver l’à l’aide de l’accès même jeton pour les requêtes répétées au cours des 10 minutes.
-- Une clé d’abonnement directement. Transmettez votre clé d’abonnement en tant que valeur dans la `Ocp-Apim-Subscription-Key` en-tête inclus avec votre demande à l’API Translator. Dans ce mode, vous n’êtes pas obligé d’appeler le service de jeton d’authentification pour générer un jeton d’accès.
-- Un [abonnement multiservice Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/). Ce mode vous permet d’utiliser une clé secrète unique pour authentifier les demandes pour plusieurs services. <br/>
-Lorsque vous utilisez une clé secrète multiservice, vous devez inclure deux en-têtes d’authentification avec votre demande. Le premier en-tête transmet la clé secrète. La deuxième en-tête spécifie la région associée à votre abonnement :
+- Un jeton d’accès. Utilisez la clé d’abonnement référencée à l’**étape** 9 pour générer un jeton d’accès en envoyant une requête POST au service d’autorisation. Pour plus d’informations, voir la documentation du service de jetons. Transmettez le jeton d’accès au service Translator à l’aide de l’en-tête d’autorisation ou du paramètre de requête `access_token`. Chaque jeton d’accès est valide pendant 10 minutes. Obtenez un nouveau jeton d’accès toutes les 10 minutes, et utilisez-le pour des requêtes répétées pendant ces 10 minutes.
+- Une clé d’abonnement utilisée directement. Transmettez votre clé d’abonnement en tant que valeur dans l’en-tête `Ocp-Apim-Subscription-Key` inclus avec votre requête adressée à l’API Translator. Dans ce mode, vous n’avez pas à appeler le service de jetons d’authentification pour générer un jeton d’accès.
+- Un [abonnement multiservice Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/). Ce mode vous permet d’utiliser une clé secrète unique pour authentifier les requêtes de plusieurs services. <br/>
+Quand vous utilisez une clé secrète multiservice, vous devez inclure deux en-têtes d’authentification avec votre requête. Le premier en-tête transmet la clé secrète. Le second en-tête spécifie la région associée à votre abonnement :
    - `Ocp-Apim-Subscription-Key`
    - `Ocp-Apim-Subscription-Region`
 
-La région est obligatoire pour l’abonnement de texte API multiservice. La région que vous sélectionnez est la seule région que vous pouvez utiliser pour la traduction de texte lors de l’utilisation de la clé d’abonnement multiservice, et doit être la même région que vous avez sélectionné lorsque vous avez souscrit votre abonnement multiservice via le portail Azure.
+La région est obligatoire pour l’abonnement à l’API Texte multiservice. La région que vous sélectionnez est la seule région que vous pouvez utiliser pour la traduction de texte lors de l’utilisation de la clé d’abonnement multiservice. En outre, il doit s’agir de la même région que celle sélectionnée lors de la souscription à votre abonnement multiservice via le portail Microsoft Azure.
 
-Les régions disponibles sont `australiaeast`, `brazilsouth`, `canadacentral`, `centralindia`, `centraluseuap`, `eastasia`, `eastus`, `eastus2`, `japaneast`, `northeurope`, `southcentralus`, `southeastasia`, `uksouth`, `westcentralus`, `westeurope`, `westus`, et `westus2`.
+Les régions disponibles sont les suivantes : `australiaeast`, `brazilsouth`, `canadacentral`, `centralindia`, `centraluseuap`, `eastasia`, `eastus`, `eastus2`, `japaneast`, `northeurope`, `southcentralus`, `southeastasia`, `uksouth`, `westcentralus`, `westeurope`, `westus` et `westus2`.
 
 Considérez votre clé d’abonnement et le jeton d’accès comme des secrets qui doivent être masqués.
 
@@ -52,7 +52,7 @@ Si vous souhaitez éviter toute vulgarité dans la traduction, indépendamment d
 |ProfanityAction    |Action |Exemple de source (japonais)  |Exemple de traduction (français)  |
 |:--|:--|:--|:--|
 |NoAction   |Par défaut. Équivaut à ne pas définir d’option. La vulgarité de la source est reflétée dans la cible.        |彼はジャッカスです。     |Il est un imbécile.   |
-|Marked     |Des mots profanes entourés de balises XML \<obscénités > et \</profanity >.       |彼はジャッカスです。 |Il est un \<obscénités > jackass\</profanity >.  |
+|Marked     |Les mots vulgaires sont entourés de balises XML \<profanity> et \</profanity>.       |彼はジャッカスです。 |C’est un \<profanity>jackass\</profanity>.  |
 |Deleted    |Les mots vulgaires sont retirés de la cible sans remplacement.     |彼はジャッカスです。 |Il est un.   |
 
     
@@ -97,7 +97,7 @@ Type de contenu de réponse : application/xml
 
 ### <a name="response-messages"></a>Messages de réponse
 
-|Code d’état HTTP|Reason|
+|Code d’état HTTP|Motif|
 |:--|:--|
 |400    |Demande incorrecte. Vérifiez les paramètres d’entrée et la réponse d’erreur détaillée.|
 |401    |Informations d’identification non valides.|
@@ -195,7 +195,7 @@ Type de contenu de réponse : application/xml
 
 ### <a name="response-messages"></a>Messages de réponse
 
-|Code d’état HTTP   |Reason|
+|Code d’état HTTP   |Motif|
 |:--|:--|
 |400    |Demande incorrecte. Vérifiez les paramètres d’entrée et la réponse d’erreur détaillée. Les erreurs courantes sont les suivantes : <ul><li>L’élément Array ne peut pas être vide</li><li>Catégorie non valide</li><li>La langue From (source) n’est pas valide</li><li>La langue To (cible) n’est pas valide</li><li>La demande contient trop d’éléments</li><li>La langue From (source) n’est pas prise en charge</li><li>La langue To (cible) n’est pas prise en charge</li><li>La demande de traduction contient trop de données</li><li>Le format du code HTML n’est pas correct</li><li>La demande de traduction contenait trop de chaînes</li></ul>|
 |401    |Informations d’identification non valides.|
@@ -209,7 +209,7 @@ Récupère les noms conviviaux des langues passées dans le paramètre `language
 
 L’URI de demande est `https://api.microsofttranslator.com/V2/Http.svc/GetLanguageNames`.
 
-Le corps de la demande inclut un tableau de chaînes représentant les codes de langue ISO 639-1 dont il s’agit de récupérer les noms conviviaux. Exemple :
+Le corps de la demande inclut un tableau de chaînes représentant les codes de langue ISO 639-1 dont il s’agit de récupérer les noms conviviaux. Par exemple :
 
 ```
 <ArrayOfstring xmlns:i="https://www.w3.org/2001/XMLSchema-instance"  xmlns="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
@@ -238,7 +238,7 @@ Type de contenu de réponse : application/xml
 
 ### <a name="response-messages"></a>Messages de réponse
 
-|Code d’état HTTP|Reason|
+|Code d’état HTTP|Motif|
 |:--|:--|
 |400    |Demande incorrecte. Vérifiez les paramètres d’entrée et la réponse d’erreur détaillée.|
 |401    |Informations d’identification non valides.|
@@ -271,7 +271,7 @@ Type de contenu de réponse : application/xml
 
 ### <a name="response-messages"></a>Messages de réponse
 
-|Code d’état HTTP|Reason|
+|Code d’état HTTP|Motif|
 |:--|:--|
 |400    |Demande incorrecte. Vérifiez les paramètres d’entrée et la réponse d’erreur détaillée.|
 |401    |Informations d’identification non valides.|
@@ -304,7 +304,7 @@ Type de contenu de réponse : application/xml
  
 ### <a name="response-messages"></a>Messages de réponse
 
-|Code d’état HTTP|Reason|
+|Code d’état HTTP|Motif|
 |:--|:--|
 |400|Demande incorrecte. Vérifiez les paramètres d’entrée et la réponse d’erreur détaillée.|
 |401|Informations d’identification non valides.|
@@ -332,7 +332,7 @@ Type de contenu de réponse : application/xml
 |:--|:--|:--|:--|:--|
 |appid|(empty)|Requis. Si l’en-tête `Authorization` ou `Ocp-Apim-Subscription-Key` est utilisé, laissez le champ appid vide. Sinon, incluez une chaîne contenant `"Bearer" + " " + "access_token"`.|query|string|
 |text|(empty)   |Requis. Chaîne contenant une ou plusieurs phrases dans la langue spécifiée, à prononcer pour le flux WAV. La taille du texte à prononcer ne peut pas dépasser 2 000 caractères.|query|string|
-|langage|(empty)   |Requis. Chaîne représentant le code de la langue prise en charge dans laquelle prononcer le texte. Le code doit être présent dans la liste des codes renvoyée par la méthode `GetLanguagesForSpeak`.|query|string|
+|Langage|(empty)   |Requis. Chaîne représentant le code de la langue prise en charge dans laquelle prononcer le texte. Le code doit être présent dans la liste des codes renvoyée par la méthode `GetLanguagesForSpeak`.|query|string|
 |format|(empty)|facultatif. Chaîne spécifiant l’ID de type de contenu. Actuellement, `audio/wav` et `audio/mp3` sont disponibles. La valeur par défaut est `audio/wav`.|query|string|
 |options|(empty)    |<ul><li>facultatif. Chaîne spécifiant les propriétés de la parole synthétisée :<li>`MaxQuality` et `MinSize` sont disponibles pour spécifier la qualité des signaux audio. Avec `MaxQuality`, vous obtenez des voix de la qualité la plus haute et avec `MinSize`, vous obtenez des voix de la qualité la plus basse. La valeur par défaut est `MinSize`.</li><li>`female` et `male` sont disponibles pour spécifier le genre souhaité de la voix. La valeur par défaut est `female`. Utilisez la barre verticale <code>\|</code> pour inclure plusieurs options. Par exemple : `MaxQuality|Male`.</li></li></ul> |query|string|
 |Authorization|(empty)|Obligatoire si le champ `appid` ou l’en-tête `Ocp-Apim-Subscription-Key` ne sont pas spécifiés. Jeton d’autorisation : `"Bearer" + " " + "access_token"`.|en-tête|string|
@@ -340,7 +340,7 @@ Type de contenu de réponse : application/xml
 
 ### <a name="response-messages"></a>Messages de réponse
 
-|Code d’état HTTP|Reason|
+|Code d’état HTTP|Motif|
 |:--|:--|
 |400    |Demande incorrecte. Vérifiez les paramètres d’entrée et la réponse d’erreur détaillée.|
 |401    |Informations d’identification non valides.|
@@ -373,7 +373,7 @@ Type de contenu de réponse : application/xml
 
 ### <a name="response-messages"></a>Messages de réponse
 
-|Code d’état HTTP|Reason|
+|Code d’état HTTP|Motif|
 |:--|:--|
 |400|Demande incorrecte. Vérifiez les paramètres d’entrée et la réponse d’erreur détaillée.|
 |401    |Informations d’identification non valides.|
@@ -427,7 +427,7 @@ Type de contenu de réponse : application/xml
 
 ### <a name="response-messages"></a>Messages de réponse
 
-|Code d’état HTTP|Reason|
+|Code d’état HTTP|Motif|
 |:--|:--|
 |400    |Demande incorrecte. Vérifiez les paramètres d’entrée et la réponse d’erreur détaillée.|
 |401    |Informations d’identification non valides.|
@@ -470,7 +470,7 @@ Type de contenu de réponse : application: xml
 
 ### <a name="response-messages"></a>Messages de réponse
 
-|Code d’état HTTP|Reason|
+|Code d’état HTTP|Motif|
 |:--|:--|
 |400    |Demande incorrecte. Vérifiez les paramètres d’entrée et la réponse d’erreur détaillée.|
 |401    |Informations d’identification non valides.|
@@ -537,7 +537,7 @@ Type de contenu de réponse : application/xml
 
 ### <a name="response-messages"></a>Messages de réponse
 
-|Code d’état HTTP|Reason|
+|Code d’état HTTP|Motif|
 |:--|:--|
 |400    |Demande incorrecte. Vérifiez les paramètres d’entrée et la réponse d’erreur détaillée.|
 |401    |Informations d’identification non valides.|
@@ -567,13 +567,13 @@ Type de contenu de réponse : application/xml
 |:--|:--|:--|:--|:--|
 |appid|(empty)  |Requis. Si l’en-tête Authorization ou Ocp-Apim-Subscription-Key est utilisé, laissez le champ appid vide. Sinon, incluez une chaîne contenant « Bearer » + « » + « access_token ».|query| string|
 |text|(empty)   |Requis. Chaîne représentant le texte à fractionner en phrases. La taille du texte ne peut pas dépasser 10 000 caractères.|query|string|
-|langage   |(empty)    |Requis. Chaîne représentant le code de langue du texte d’entrée.|query|string|
+|Langage   |(empty)    |Requis. Chaîne représentant le code de langue du texte d’entrée.|query|string|
 |Authorization|(empty)|Obligatoire si le champ appid ou l’en-tête Ocp-Apim-Subscription-Key ne sont pas spécifiés. Jeton d’autorisation :  « Porteur » + «» + « jeton_d’accès ».    |en-tête|string|
 |Ocp-Apim-Subscription-Key|(empty)|Obligatoire si le champ appid ou l’en-tête Authorization ne sont pas spécifiés.|en-tête|string|
 
 ### <a name="response-messages"></a>Messages de réponse
 
-|Code d’état HTTP|Reason|
+|Code d’état HTTP|Motif|
 |:--|:--|
 |400|Demande incorrecte. Vérifiez les paramètres d’entrée et la réponse d’erreur détaillée.|
 |401|Informations d’identification non valides.|
@@ -669,7 +669,7 @@ Type de contenu de réponse : application/xml
 
 ### <a name="response-messages"></a>Messages de réponse
 
-|Code d’état HTTP|Reason|
+|Code d’état HTTP|Motif|
 |:--|:--|
 |400    |Demande incorrecte. Vérifiez les paramètres d’entrée et la réponse d’erreur détaillée.|
 |401    |Informations d’identification non valides.|
@@ -784,7 +784,7 @@ Type de contenu de réponse : application/xml
 
 ### <a name="response-messages"></a>Messages de réponse
 
-|Code d’état HTTP|Reason|
+|Code d’état HTTP|Motif|
 |:--|:--|
 |400    |Demande incorrecte. Vérifiez les paramètres d’entrée et la réponse d’erreur détaillée.|
 |401    |Informations d’identification non valides.|

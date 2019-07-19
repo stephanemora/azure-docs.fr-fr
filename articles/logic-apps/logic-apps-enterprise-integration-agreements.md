@@ -8,16 +8,15 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.assetid: 447ffb8e-3e91-4403-872b-2f496495899d
-ms.date: 04/05/2019
-ms.openlocfilehash: 26d653b873e959f0804e0456ed87ee68c39413e5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/22/2019
+ms.openlocfilehash: 4bfee4ec442c9e7b0351b0fd0c6a2b8e163a2541
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64720678"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67330301"
 ---
-# <a name="create-and-manage-trading-partner-agreements-by-using-azure-logic-apps-and-enterprise-integration-pack"></a>Créer et gérer des accords de partenariat commercial à l'aide d'Azure Logic Apps et d'Enterprise Integration Pack
+# <a name="create-and-manage-trading-partner-agreements-in-azure-logic-apps"></a>Créer et gérer des contrats de partenariat commercial dans Azure Logic Apps
 
 Un [accord](../logic-apps/logic-apps-enterprise-integration-partners.md) 
 *de partenariat commercial* aide les organisations et les entreprises à communiquer entre elles en toute transparence en définissant le protocole standard à utiliser lors de l'échange de messages interentreprises (B2B). Les accords offrent des avantages communs, par exemple :
@@ -27,6 +26,8 @@ Un [accord](../logic-apps/logic-apps-enterprise-integration-partners.md)
 * Ils sont faciles à créer, gérer et utiliser lors de la conception de solutions d'intégration d'entreprise.
 
 Cet article explique comment créer un accord AS2, EDIFACT ou X12 que vous pouvez utiliser lors de la création de solutions d'intégration d'entreprise pour les scénarios B2B à l'aide d'[Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md) et d'[Azure Logic Apps](../logic-apps/logic-apps-overview.md). Après avoir créé un accord, vous pouvez utiliser les connecteurs AS2, EDIFACT ou X12 pour échanger des messages B2B.
+
+Pour créer des contrats pour l’échange de messages RosettaNet, consultez [Échanger des messages RosettaNet](../logic-apps/logic-apps-enterprise-integration-rosettanet.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -65,8 +66,8 @@ Dans le menu principal Azure, sélectionnez **Tous les services**. Dans la zone 
    | **Identité de l'hôte** | OUI | <*identificateur du partenaire hôte*> | Identificateur du partenaire hôte. |
    | **Partenaire invité** | OUI | <*nom du partenaire invité*> | Le partenaire invité représente l’organisation qui travaille avec le partenaire hôte. |
    | **Identité de l'invité** | OUI | <*identificateur du partenaire invité*> | Identificateur du partenaire invité. |
-   | **Paramètres de réception** | Varie | Varie | Ces propriétés spécifient comment traiter les messages entrants reçus par l'accord. Pour plus d'informations, consultez le type d'accord correspondant : <p>- [Paramètres des messages AS2](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [Paramètres des messages EDIFACT](logic-apps-enterprise-integration-edifact.md) <br>- [Paramètres des messages X12](logic-apps-enterprise-integration-x12.md) |
-   | **Paramètres d'envoi** | Varie | Varie | Ces propriétés spécifient comment traiter les messages sortants envoyés par l'accord. Pour plus d'informations, consultez le type d'accord correspondant : <p>- [Paramètres des messages AS2](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [Paramètres des messages EDIFACT](logic-apps-enterprise-integration-edifact.md) <br>- [Paramètres des messages X12](logic-apps-enterprise-integration-x12.md) |
+   | **Paramètres de réception** | Varie | Varie | Ces propriétés spécifient comment le partenaire hôte reçoit tous les messages entrants du partenaire invité dans le contrat. Pour plus d'informations, consultez le type d'accord correspondant : <p>- [Paramètres des messages AS2](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [Paramètres des messages EDIFACT](logic-apps-enterprise-integration-edifact.md) <br>- [Paramètres des messages X12](logic-apps-enterprise-integration-x12.md) |
+   | **Paramètres d'envoi** | Varie | Varie | Ces propriétés spécifient comment le partenaire hôte envoie tous les messages sortants au partenaire invité dans le contrat. Pour plus d'informations, consultez le type d'accord correspondant : <p>- [Paramètres des messages AS2](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [Paramètres des messages EDIFACT](logic-apps-enterprise-integration-edifact.md) <br>- [Paramètres des messages X12](logic-apps-enterprise-integration-x12.md) |
    |||||
 
 1. Une fois votre accord créé, sur la page **Ajouter**, choisissez **OK** et revenez à votre compte d'intégration.

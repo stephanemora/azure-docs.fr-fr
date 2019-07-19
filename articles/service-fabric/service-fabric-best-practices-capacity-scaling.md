@@ -1,5 +1,5 @@
 ---
-title: Meilleures pratiques en matière de planification et de mise à l'échelle de la capacité Azure Service Fabric | Microsoft Docs
+title: Planification et mise à l’échelle de la capacité pour Azure Service Fabric | Microsoft Docs
 description: Meilleures pratiques en matière de planification et de mise à l'échelle des clusters et applications Service Fabric
 services: service-fabric
 documentationcenter: .net
@@ -14,45 +14,52 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: 9bddb6552b11dd506ee3e2c1c416c15da11048b7
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: MT
+ms.openlocfilehash: 8ba4763e8d4835911d33d21c0f5bb431851a649b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66258750"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444713"
 ---
-# <a name="capacity-planning-and-scaling"></a>Planification et mise à l’échelle de la capacité
+# <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Planification et mise à l’échelle de la capacité pour Azure Service Fabric
 
-Avant de créer un cluster Azure Service Fabric ou de mettre à l'échelle les ressources de calcul hébergeant votre cluster, il convient d'en planifier la capacité. Pour plus d’informations sur la planification de la capacité, consultez [Planification de la capacité des clusters Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity). Pour plus de meilleure pratique des conseils pour l’extensibilité du cluster consultez [considérations d’extensibilité de Service Fabric](https://docs.microsoft.com/azure/architecture/reference-architectures/microservices/service-fabric#scalability-considerations)
+Avant de créer un cluster Azure Service Fabric ou de mettre à l’échelle les ressources de calcul hébergeant votre cluster, il convient d’en planifier la capacité. Pour plus d’informations sur la planification de la capacité, consultez [Planification de la capacité des clusters Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity). Pour plus de meilleures pratiques sur la mise à l’échelle du cluster, consultez [Considérations relatives à l’extensibilité de Service Fabric](https://docs.microsoft.com/azure/architecture/reference-architectures/microservices/service-fabric#scalability-considerations).
 
-En plus de tenir compte des caractéristiques de type et de cluster du nœud, vous devez planifier pour prendre plus d’une heure pour un environnement de production, quel que soit le nombre de machines virtuelles que vous ajoutez des opérations de mise à l’échelle.
+En plus de prendre en compte les caractéristiques de type de nœud et de cluster, prévoyez que les opérations de mise à l’échelle d’un environnement de production prendront plus d’une heure. Cette considération est vraie quel que soit le nombre de machines virtuelles que vous ajoutez.
 
-## <a name="auto-scaling"></a>Mise à l'échelle automatique
-Opérations de mise à l’échelle doit être effectuée via le déploiement du modèle de ressource Azure, car il est recommandé de traiter [des configurations de ressources en tant que code]( https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code)et à l’aide de machines virtuelles identiques à l’échelle automatique entraîne dans votre avec version gérée par modèle Resource Manager incorrectement définissant votre échelle de machine virtuelle définie nombre d’instances ; augmenter le risque de futurs déploiements à l’origine des opérations de mise à l’échelle, en général vous devez utiliser la mise à l’échelle si :
+## <a name="autoscaling"></a>Mise à l’échelle automatique
+Vous devez effectuer les opérations de mise à l’échelle via des modèles Azure Resource Manager, car il est recommandé de traiter [les configurations de ressources en tant que code]( https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code). 
+
+L’utilisation de la mise à l’échelle automatique via des groupes de machines virtuelles identiques empêchera votre modèle Resource Manager versionné de définir avec précision le nombre d’instance des groupes de machines virtuelles identiques. Une définition non précise augmente les risques d’opérations de mise à l’échelle non désirées lors de futurs déploiements. En règle générale, vous devez utiliser la mise à l’échelle automatique si :
 
 * le déploiement de vos modèles Resource Manager avec une capacité appropriée déclarée ne prend pas en charge votre cas d’utilisation.
-  * Outre la mise à l’échelle manuelle, vous pouvez configurer un [Pipeline d’intégration et livraison dans les Services Azure DevOps à l’aide de projets de déploiement de groupe de ressources Azure](https://docs.microsoft.com/azure/vs-azure-tools-resource-groups-ci-in-vsts), qui est couramment déclenché par une application logique qui s’appuie sur métriques de performances de machine virtuelle interrogées à partir de [API REST Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/rest-api-walkthrough); efficacement l’échelle automatique en fonction de toutes les mesures que vous souhaitez, tout en optimisant pour l’ajout de valeur d’Azure Resource Manager.
-* Vous devez uniquement mettre à l’échelle horizontale un nœud de groupe de machines virtuelles identiques à la fois.
-  * Pour la montée en puissance au moins 3 nœuds à la fois, vous devez [mettre à l’échelle un cluster Service Fabric arrière en ajoutant un ensemble d’échelle de machine virtuelle](https://docs.microsoft.com/azure service-fabric/virtual-machine-scale-set-scale-node-type-scale-out)et il est plus sûr à l’échelle dans et machine virtuelle identiques horizontalement 1 nœud à la fois.
-* Si vous bénéficiez d'une fiabilité Silver ou supérieure pour votre cluster Service Fabric, ainsi qu'une durabilité Silver ou supérieure pour tous les groupes identiques, vous configurez des règles de mise à l'échelle automatique.
-  * Capacité de règles de mise à l’échelle (minimum) doit être égale ou supérieure à 5 instances de machine virtuelle et doit être égale ou supérieure à minimum de votre niveau de fiabilité pour votre type de nœud principal.
+     
+   Outre la mise à l’échelle manuelle, vous pouvez configurer un [pipeline d’intégration et livraison continue dans les Services Azure DevOps à l’aide de projets de déploiement de groupe de ressources Azure](https://docs.microsoft.com/azure/vs-azure-tools-resource-groups-ci-in-vsts). Ce pipeline est couramment déclenché par une application logique qui utilise des métriques de performances de machine virtuelle interrogées depuis l’[API REST Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/rest-api-walkthrough). Le pipeline met automatiquement à l’échelle les mesures souhaitées de manière efficace, tout en optimisant les modèles Resource Manager.
+* Vous devez mettre à l’échelle horizontale uniquement un nœud de groupe de machines virtuelles identiques à la fois.
+   
+   Pour effectuer un scale out de trois nœuds ou plus à la fois, vous devez [effectuer le scale out d’un cluster Service Fabric en ajoutant un groupe de machines virtuelles identiques](virtual-machine-scale-set-scale-node-type-scale-out.md). Il est plus sûr d’effectuer un scale in et un scale out de groupe de machines virtuelles identiques à l’horizontale, un nœud à la fois.
+* Vous bénéficiez d’une fiabilité Silver ou supérieure pour votre cluster Service Fabric, ainsi qu’une durabilité Silver ou supérieure pour tous les groupes identiques, où vous configurez des règles de mise à l’échelle automatique.
+  
+   La capacité minimale pour les règles de mise à l’échelle doit être égale ou supérieure à cinq instances de machine virtuelle. Elle doit également être égale ou supérieure au minimum de votre niveau de fiabilité pour votre type de nœud principal.
 
 > [!NOTE]
-> Structure de service avec état Azure Service Fabric : / System/InfastructureService/< NODE_TYPE_NAME >, s’exécute sur chaque type de nœud qui a Silver ou une durabilité élevée, ce qui est le seul Service système qui est pris en charge pour s’exécuter dans Azure sur un de vos types de nœud de clusters .
+> L’infrastructure de service avec état Service Fabric : /System/InfastructureService/<NODE_TYPE_NAME> s’exécute sur chaque type de nœud au niveau de durabilité Silver ou une version ultérieure. Il s’agit du seul service système qui est pris en charge pour s’exécuter dans Azure sur tous vos types de nœud de clusters.
 
 ## <a name="vertical-scaling-considerations"></a>Considérations relatives à la mise à l’échelle verticale
 
-[Mise à l’échelle verticale](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out) un type de nœud dans Azure Service Fabric requiert un nombre d’étapes et considérations. Exemple :
+La [mise à l’échelle verticale](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out) d’un type de nœud dans Azure Service Fabric requiert un certain nombre d’étapes et de considérations. Par exemple :
 
-* Le cluster doit être intègre avant sa mise à l’échelle, Sinon vous serez uniquement déstabiliser le cluster davantage.
-* **Au moins au niveau de durabilité de niveau Silver** est obligatoire pour tous les types de nœud de Cluster Service Fabric qui hébergent des services avec état.
+* Le cluster doit être intègre avant sa mise à l’échelle, à défaut de quoi, vous le déstabiliserez davantage.
+* Le niveau de durabilité Silver ou supérieur est requis pour tous les types de nœuds Service Fabric Cluster hébergeant des services avec état.
 
 > [!NOTE]
-> Votre type de nœud principal qui héberge des Services système avec état Service Fabric doit être au moins au niveau de durabilité Silver. Une fois le niveau Silver activé, les opérations de cluster telles que les mises à niveau, l'ajout ou la suppression de nœuds, etc. seront plus lentes car le système privilégie la sécurité des données par rapport à la vitesse des opérations.
+> Le type de nœud principal qui héberge des services système Service Fabric avec état doit présenter un niveau de durabilité Silver ou supérieur. Une fois le niveau Silver activé, les opérations de cluster telles que les mises à niveau, l’ajout ou la suppression de nœuds, etc. seront plus lentes car le système privilégie la sécurité des données par rapport à la vitesse des opérations.
 
-Mise à l’échelle d’un jeu de mise à l’échelle de machine virtuelle à la verticale est une opération destructrice. Privilégiez une mise à l'échelle horizontale de votre cluster en ajoutant un nouveau groupe de machines virtuelles identiques avec la référence SKU souhaitée, et migrez vos services vers la référence SKU souhaitée pour procéder en toute sécurité une opération de mise à l'échelle verticale. Modification d’une ressource de jeu de mise à l’échelle de machine virtuelle référence (SKU) d’est une opération destructrice, car il une nouvelle image sur vos hôtes, ce qui supprime tous les États conservé localement.
+La mise à l’échelle verticale d’un groupe de machines virtuelles identiques est une opération destructrice. À la place, mettez à l’échelle de façon horizontale votre cluster en ajoutant un nouveau groupe identique avec la référence SKU souhaitée. Ensuite, migrez vos services vers votre référence SKU souhaitée pour effectuer une opération de mise à l’échelle verticale sûre. Modifier la référence SKU d’une ressource de groupe de machines virtuelles identiques est une opération destructrice, car cela réinitialise vos hôtes et supprime tout état persistant localement.
 
-Les [propriétés de nœud et contraintes de placement](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-cluster-description#node-properties-and-placement-constraints) de Service Fabric sont utilisées par votre cluster pour savoir où héberger vos services d'applications. Lorsque verticalement mise à l’échelle de votre type de nœud principal, déclarez les valeurs de propriété identiques pour `"nodeTypeRef"`, qui se trouve dans la mise à l’échelle de machine virtuelle définie l’Extension Service Fabric. L’extrait de modèle Resource Manager suivant affiche les propriétés que vous déclarerez, avec la même valeur pour les nouveaux groupes de machines virtuelles identiques approvisionnées, et est uniquement pris en charge en tant qu'état temporaire pour votre cluster :
+Votre cluster utilise les [propriétés de nœud et contraintes de placement](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-cluster-description#node-properties-and-placement-constraints) de Service Fabric pour savoir où héberger vos services d’applications. Lorsque vous mettez à l’échelle verticalement votre type de nœud principal, déclarez des valeurs de propriété identiques pour `"nodeTypeRef"`. Vous pouvez trouver ces valeurs dans l’extension de Service Fabric pour les groupes de machines virtuelles identiques. 
+
+L’extrait suivant d’un modèle Resource Manager présente les propriétés que vous allez déclarer. Il a la même valeur pour les groupes identiques auxquels vous effectuez la mise à l’échelle, et il est pris en charge uniquement comme un service avec état temporaire de votre cluster.
 
 ```json
 "settings": {
@@ -61,29 +68,38 @@ Les [propriétés de nœud et contraintes de placement](https://docs.microsoft.c
 ```
 
 > [!NOTE]
-> Ne laissez pas votre cluster s'exécuter avec plusieurs groupes de machines virtuelles identiques utilisant la même propriété `nodeTypeRef` au-delà du laps de temps nécessaire à l'opération de mise à l'échelle verticale.
-> Validez toujours les opérations dans des environnements de test avant de modifier l'environnement de production. Par défaut, les Services de système de Cluster Service Fabric ont une contrainte de placement pour le type de nœud principal cible uniquement.
+> Ne laissez pas votre cluster s’exécuter avec plusieurs groupes de machines virtuelles identiques utilisant la même propriété `nodeTypeRef` au-delà du laps de temps nécessaire à l’opération de mise à l’échelle verticale.
+>
+> Validez toujours les opérations dans des environnements de test avant de modifier l’environnement de production. Par défaut, les services système de cluster Service Fabric présentent une contrainte de placement pour cibler uniquement le type de nœud principal.
 
 Une fois les propriétés de nœud et les contraintes de placement déclarées, procédez comme suit sur une instance de machine virtuelle à la fois. Ceci permet d’arrêter correctement les services système (et vos services avec état) sur l’instance de machine virtuelle que vous supprimez pendant que de nouveaux réplicas sont créés ailleurs.
 
-1. À partir de PowerShell, exécutez `Disable-ServiceFabricNode` avec l'intention « RemoveNode » pour désactiver le nœud que vous vous apprêtez à supprimer. Supprimez le type de nœud présentant le nombre le plus élevé. Par exemple, en présence d'un cluster à six nœuds, supprimez l'instance de machine virtuelle « MyNodeType_5 ».
+1. À partir de PowerShell, exécutez `Disable-ServiceFabricNode` avec l’intention `RemoveNode` pour désactiver le nœud que vous vous apprêtez à supprimer. Supprimez le type de nœud présentant le nombre le plus élevé. Par exemple, en présence d’un cluster à six nœuds, supprimez l’instance de machine virtuelle « MyNodeType_5 ».
 2. Exécutez `Get-ServiceFabricNode` pour vous assurer que le nœud a bien été désactivé. Si ce n’est pas le cas, patientez jusqu'à ce que le nœud soit désactivé. Cette opération peut prendre plusieurs heures pour chaque nœud. Ne continuez pas tant que le nœud n'a pas été désactivé.
 3. Réduisez une à une le nombre de machines virtuelles dans ce type de nœud. L'instance de machine virtuelle la plus élevée va à présent être supprimée.
 4. Répétez les étapes 1 à 3 selon vos besoins, mais ne faites jamais descendre en puissance le nombre d’instances sur les types de nœuds principaux sur une valeur inférieure à celle garantie par le niveau de fiabilité. Pour obtenir la liste des instances recommandées, consultez [Planification de la capacité du cluster Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
+5. Une fois que toutes les machines virtuelles ont disparu (représentées comme « Down ») fabric:/System/InfrastructureService/[nom du nœud] indique un état d’erreur. Ensuite, vous pouvez mettre à jour la ressource de cluster pour supprimer le type de nœud. Vous pouvez utiliser le déploiement du modèle ARM ou modifier la ressource de cluster par le biais d’[Azure Resource Manager](https://resources.azure.com). Cela démarre une mise à niveau du cluster qui supprimera le service fabric:/System/InfrastructureService/[type du nœud] qui est en état d’erreur.
+ 6. Après cela, vous pouvez supprimer le groupe de machines virtuelles identiques, mais vous verrez toujours les nœuds comme « Down » depuis la vue de Service Fabric Explorer. La dernière étape consiste à les effacer avec la commande `Remove-ServiceFabricNodeState`.
 
-> [!NOTE]
-> Un scénario pris en charge pour le moment auquel effectuer une opération de mise à l’échelle verticale est : Puis-je migrer mon Cluster Service Fabric et l’Application à partir du disque non managé vers des disques gérés sans interruption de l’Application. En configurant un nouvel ordinateur virtuel groupes identiques avec disques gérés, et exécution d’une Application de la mise à niveau avec les contraintes de placement qui ciblent approvisionné capacité ; votre cluster Service Fabric peut planifier votre charge de travail sur la capacité de nœud de cluster configuré est transférée par domaine de mise à niveau sans interruption de l’Application. [Référence de base Azure des équilibreurs de charge](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus) points de terminaison de pool principal peuvent être une machine virtuelle dans un groupe à haute disponibilité ou les machines virtuelles identiques. Cela signifie que vous ne pouvez pas utiliser un équilibreur de charge de référence SKU de base si vous déplacez votre Application Service Fabric systèmes entre les groupes identiques, sans provoquer l’inaccessibilité temporaire de votre Service Fabric cluster point de terminaison de gestion, même si le cluster et son Application sont en cours d’exécution ; couramment utilisateur configurer un équilibreur de charge de référence (SKU) Standard, lorsque vous effectuez un échange d’adresse IP (VIP) virtuelles entre des ressources de base équilibreur de charge de référence (SKU) et d’équilibrage de charge de référence (SKU) Standard, pour atténuer toute future environ 30 secondes d’inaccessibilité requise pour l’adresse IP virtuelle de l’échange.
+### <a name="example-scenario"></a>Exemple de scénario
+Exemple de scénario pris en charge si vous souhaitez exécuter une opération de mise à l’échelle verticale : vous souhaitez migrer votre cluster et application Service Fabric d’un disque non managé à des disques managés sans interrompre l’application. 
+
+Vous pouvez approvisionner un nouveau groupe de machines virtuelles identiques avec des disques managés, et effectuez une mise à niveau de l’application avec des contraintes de placement ciblant la capacité approvisionnée. Votre cluster Service Fabric peut ensuite planifier votre charge de travail sur la capacité de nœud de cluster configurée transférée la mise à niveau du domaine sans interruption de l’application. 
+
+Les points de terminaison du pool back-end pour la [référence SKU de base Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus) peuvent être des machines virtuelles dans un groupe à haute disponibilité ou un groupe de machines virtuelles identiques. Cela signifie que vous ne pouvez pas utiliser un équilibreur de charge de référence SKU de base si vous déplacez votre application de systèmes Service Fabric entre groupes identiques, sans bloquer temporairement l’accès à votre point de terminaison de gestion du cluster Service Fabric. Cela est vrai même si le cluster et son application sont en cours d’exécution.
+
+Les utilisateurs approvisionnent couramment un équilibreur de charge de référence SKU Standard lorsqu’ils effectuent un échange d’adresse IP virtuelle (VIP) entre des ressources des équilibreurs de charge de référence SKU de base et Standard. Cette technique limite toute future inaccessibilité à environ 30 secondes, nécessaire pour l’échange d’adresse IP virtuelle.
 
 ## <a name="horizontal-scaling"></a>Mise à l’échelle horizontale
 
-Dans Service Fabric, la mise à l'échelle horizontale peut se faire [manuellement](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down) ou [par programmation](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-programmatic-scaling).
+Vous pouvez effectuer une mise à l’échelle horizontale [manuellement](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down) ou [par programmation](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-programmatic-scaling).
 
 > [!NOTE]
-> Si vous mettez à l’échelle un type de nœud doté d'une durabilité Silver ou Gold, le processus sera lent.
+> Si vous mettez à l’échelle un type de nœud doté d’une durabilité Silver ou Gold, le processus sera lent.
 
 ### <a name="scaling-out"></a>Montée en charge
 
-Faire évoluer un cluster Service Fabric en augmentant le nombre d’instances pour un jeu de mise à l’échelle de machine virtuelle spécifique. Cette montée en charge peut se faire par programmation, à l'aide du client Azure et de l'ID du groupe de machines virtuelles souhaité.
+Montez en charge un cluster Service Fabric en augmentant le nombre d’instances d’un groupe de machines virtuelles identiques donné. Cette montée en charge peut se faire par programmation, à l’aide d`AzureClient` et de l’ID du groupe de machines virtuelles souhaité.
 
 ```c#
 var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
@@ -91,7 +107,8 @@ var newCapacity = (int)Math.Min(MaximumNodeCount, scaleSet.Capacity + 1);
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
 ```
 
-Pour monter en charge manuellement, mettre à jour de la capacité dans la propriété de référence (SKU) de souhaité [machines virtuelles identiques](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile) ressource.
+Pour une montée en charge manuelle, mettez à jour la capacité dans la propriété de référence SKU de la ressource [Groupe de machines virtuelles identiques](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile) souhaitée.
+
 ```json
 "sku": {
     "name": "[parameters('vmNodeType0Size')]",
@@ -102,19 +119,19 @@ Pour monter en charge manuellement, mettre à jour de la capacité dans la propr
 
 ### <a name="scaling-in"></a>Mise à l'échelle
 
-La mise à l'échelle requiert une plus grande attention que la montée en charge. Exemple :
+La mise à l'échelle requiert une plus grande attention que la montée en charge. Par exemple :
 
 * Les services système Service Fabric s’exécutent sur le type de nœud principal de votre cluster. Vous ne devez jamais arrêter ou faire descendre en puissance le nombre d’instances pour ces types de nœuds sur une valeur d'instances inférieure à celle garantie par le niveau de fiabilité. 
-* Pour un service avec état, un certain nombre de nœuds doivent toujours fonctionner afin de maintenir la disponibilité et de conserver l’état de votre service. Au minimum, le nombre de nœuds doit être égal au nombre de jeux de réplicas cibles du service/de la partition.
+* Pour un service avec état, un certain nombre de nœuds doivent toujours fonctionner afin de maintenir la disponibilité et de conserver l’état de votre service. Au minimum, le nombre de nœuds doit être égal au nombre de jeux de réplicas cibles du service ou de la partition.
 
 Pour une mise à l'échelle manuelle, procédez comme suit :
 
-1. À partir de PowerShell, exécutez `Disable-ServiceFabricNode` avec l'intention « RemoveNode » pour désactiver le nœud que vous vous apprêtez à supprimer. Supprimez le type de nœud présentant le nombre le plus élevé. Par exemple, en présence d'un cluster à six nœuds, supprimez l'instance de machine virtuelle « MyNodeType_5 ».
+1. À partir de PowerShell, exécutez `Disable-ServiceFabricNode` avec l’intention `RemoveNode` pour désactiver le nœud que vous vous apprêtez à supprimer. Supprimez le type de nœud présentant le nombre le plus élevé. Par exemple, en présence d’un cluster à six nœuds, supprimez l’instance de machine virtuelle « MyNodeType_5 ».
 2. Exécutez `Get-ServiceFabricNode` pour vous assurer que le nœud a bien été désactivé. Si ce n’est pas le cas, patientez jusqu'à ce que le nœud soit désactivé. Cette opération peut prendre plusieurs heures pour chaque nœud. Ne continuez pas tant que le nœud n'a pas été désactivé.
 3. Réduisez une à une le nombre de machines virtuelles dans ce type de nœud. L'instance de machine virtuelle la plus élevée va à présent être supprimée.
-4. Répétez les étapes 1 à 3 selon vos besoins, mais ne faites jamais descendre en puissance le nombre d’instances sur les types de nœuds principaux sur une valeur inférieure à celle garantie par le niveau de fiabilité. Pour obtenir la liste des instances recommandées, consultez [Planification de la capacité du cluster Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
+4. Répétez les étapes 1 à 3 selon vos besoins, jusqu’à approvisionner la capacité souhaitée. Ne faites jamais descendre en puissance le nombre d’instances sur les types de nœuds principaux sur une valeur inférieure à celle garantie par le niveau de fiabilité. Pour obtenir la liste des instances recommandées, consultez [Planification de la capacité du cluster Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
 
-Pour mettre à l’échelle dans manuellement, mettre à jour de la capacité dans la propriété de référence (SKU) de souhaité [machines virtuelles identiques](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile) ressource.
+Pour une mise à l’échelle manuelle, mettez à jour la capacité dans la propriété de référence SKU de la ressource [Groupe de machines virtuelles identiques](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile) souhaitée.
 
 ```json
 "sku": {
@@ -124,9 +141,7 @@ Pour mettre à l’échelle dans manuellement, mettre à jour de la capacité da
 }
 ```
 
-1. Répétez les étapes 1 à 3 selon vos besoins. Ne faites jamais descendre en puissance le nombre d’instances sur les types de nœuds principaux sur une valeur inférieure à celle garantie par le niveau de fiabilité. Pour plus d’informations sur les niveaux de fiabilité et le nombre d’instances requises, consultez [Planification de la capacité du cluster Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
-
-Vous devez préparer le nœud à l'arrêt pour une mise à l'échelle par programmation. Pour ce faire, vous devez identifier le nœud à supprimer présentant l'instance la plus élevée et le désactiver. Exemple :
+Vous devez préparer le nœud à l’arrêt pour une mise à l’échelle par programmation. Recherchez le nœud à supprimer (le nœud de l’instance la plus élevée). Par exemple :
 
 ```c#
 using (var client = new FabricClient())
@@ -143,7 +158,7 @@ using (var client = new FabricClient())
         .FirstOrDefault();
 ```
 
-Après avoir identifié le nœud à supprimer, désactivez-le et supprimez-le en utilisant la même instance `FabricClient` (`client` dans le cas présent) et le même nom d'instance de nœud (`instanceIdString` dans le cas présent) que ceux utilisés dans le code ci-dessus :
+Désactivez et supprimez le nœud en utilisant la même instance `FabricClient` (`client` dans le cas présent) et la même instance de nœud (`instanceIdString` dans le cas présent) utilisés dans le code précédent :
 
 ```c#
 var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
@@ -152,7 +167,7 @@ var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
 ServiceEventSource.Current.ServiceMessage(Context, $"Disabling node {mostRecentLiveNode.NodeName}");
 await client.ClusterManager.DeactivateNodeAsync(mostRecentLiveNode.NodeName, NodeDeactivationIntent.RemoveNode);
 
-// Wait (up to a timeout) for the node to gracefully shutdown
+// Wait (up to a timeout) for the node to gracefully shut down
 var timeout = TimeSpan.FromMinutes(5);
 var waitStart = DateTime.Now;
 while ((mostRecentLiveNode.NodeStatus == System.Fabric.Query.NodeStatus.Up || mostRecentLiveNode.NodeStatus == System.Fabric.Query.NodeStatus.Disabling) &&
@@ -162,25 +177,27 @@ while ((mostRecentLiveNode.NodeStatus == System.Fabric.Query.NodeStatus.Up || mo
     await Task.Delay(10 * 1000);
 }
 
-// Decrement VMSS capacity
+// Decrement virtual machine scale set capacity
 var newCapacity = (int)Math.Max(MinimumNodeCount, scaleSet.Capacity - 1); // Check min count 
 
 scaleSet.Update().WithCapacity(newCapacity).Apply();
 ```
 
 > [!NOTE]
-> Lorsque vous mettez à l’échelle un cluster, vous verrez l’instance de nœud/la machine virtuelle supprimée affiché dans un état défectueux dans Service Fabric Explorer. Pour obtenir une explication de ce comportement, consultez [comportements que vous pouvez observer dans Service Fabric Explorer](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down#behaviors-you-may-observe-in-service-fabric-explorer). Vous pouvez :
-> * Appelez [commande Remove-ServiceFabricNodeState](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) avec le nom de nœud approprié.
-> * Déployer [application service fabric à l’échelle automatique d’assistance](https://github.com/Azure/service-fabric-autoscale-helper/) sur votre cluster, ce qui garantit la mise à l’échelle vers le bas les nœuds sont effacés du Service Fabric Explorer.
+> Lorsque vous descendez un cluster en puissance, vous verrez l’instance de nœud/la machine virtuelle supprimée qui s’affiche dans un état défectueux dans Service Fabric Explorer. Pour obtenir une explication de ce comportement, consultez [Comportements que vous pouvez observer dans Service Fabric Explorer](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down#behaviors-you-may-observe-in-service-fabric-explorer). Vous pouvez :
+> * Appelez la commande [Remove-ServiceFabricNodeState](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) avec le nom de nœud approprié.
+> * Déployez l’[application auxiliaire mise à l’échelle automatique Service Fabric](https://github.com/Azure/service-fabric-autoscale-helper/) sur votre cluster. Cette application permet de s’assurer que les nœuds diminués en puissance sont effacés de Service Fabric Explorer.
 
 ## <a name="reliability-levels"></a>Niveaux de fiabilité
 
-Le [niveau de fiabilité](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) est une propriété de votre ressource de Cluster Service Fabric et ne peut pas être configuré différemment pour différents types de nœuds. Il contrôle le facteur de réplication des services système du cluster, et correspond à un paramètre au niveau de la ressource de cluster. Le niveau de fiabilité détermine le nombre minimal de nœuds que doit contenir votre type de nœud principal. Le niveau de fiabilité peut avoir les valeurs suivantes :
+Le [niveau de fiabilité](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) est une propriété de votre ressource de cluster Service Fabric. Il ne peut pas être configuré différemment pour différents types de nœuds. Il contrôle le facteur de réplication des services système du cluster, et correspond à un paramètre au niveau de la ressource de cluster. 
 
-* Platinum : exécutez les services système avec un nombre de jeux de réplicas cible égal à sept et neuf nœuds initiaux.
-* Gold : exécutez les services système avec un nombre de jeux de réplicas cible égal à sept et sept nœuds initiaux.
-* Silver : exécutez les services système avec un nombre de jeux de réplicas cible égal à cinq et cinq nœuds initiaux.
-* Bronze : exécutez les services système avec un nombre de jeux de réplicas cible égal à trois et trois nœuds initiaux.
+Le niveau de fiabilité détermine le nombre minimal de nœuds que doit contenir votre type de nœud principal. Le niveau de fiabilité peut avoir les valeurs suivantes :
+
+* Platinum : Exécutez les services système avec un nombre de jeux de réplicas cible égal à sept et neuf nœuds initiaux.
+* Gold : Exécutez les services système avec un nombre de jeux de réplicas cible égal à sept et sept nœuds initiaux.
+* Silver : Exécutez les services système avec un nombre de jeux de réplicas cible égal à cinq et cinq nœuds initiaux.
+* Bronze : Exécutez les services système avec un nombre de jeux de réplicas cible égal à trois et trois nœuds initiaux.
 
 Le niveau de fiabilité minimal recommandé est Silver.
 
@@ -195,9 +212,11 @@ Le niveau de fiabilité est défini dans la section des propriétés de la [ress
 ## <a name="durability-levels"></a>Niveaux de durabilité
 
 > [!WARNING]
-> Les types de nœud s’exécutant avec un niveau de durabilité Bronze n’obtiennent _aucun privilège_. Cela signifie que les travaux d’infrastructure qui affectent vos charges de travail sans état ne seront ni arrêtés ni différés. Utilisez le niveau de durabilité Bronze uniquement pour les types de nœuds qui exécutent des charges de travail sans état. Pour les charges de travail de production, exécutez un niveau Silver ou supérieur pour garantir la cohérence de l'état. Sélectionnez la fiabilité qui convient en fonction des éléments contenus dans la [documentation relative à la planification de la capacité](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
+> Les types de nœud s’exécutant avec un niveau de durabilité Bronze n’obtiennent _aucun privilège_. Les travaux d’infrastructure qui affectent vos charges de travail sans état ne seront ni arrêtés ni différés, ce qui peut affecter vos charges de travail. 
+>
+> Utilisez le niveau de durabilité Bronze uniquement pour les types de nœuds qui exécutent des charges de travail sans état. Pour les charges de travail de production, exécutez un niveau Silver ou supérieur pour garantir la cohérence de l’état. Sélectionnez la fiabilité qui convient en fonction des éléments contenus dans la [documentation relative à la planification de la capacité](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
 
-Le niveau de durabilité doit être défini dans deux ressources. Le profil d’extension de la [ressources de machines virtuelles identiques](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile):
+Le niveau de durabilité doit être défini dans deux ressources. L’une est le profil d’extension de la [ressource de groupe de machines virtuelles identiques](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile) :
 
 ```json
 "extensionProfile": {
@@ -212,7 +231,7 @@ Le niveau de durabilité doit être défini dans deux ressources. Le profil d’
 }
 ```
 
-Puis, sous `nodeTypes` dans la ressource [Microsoft.ServiceFabric/clusters](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2018-02-01/clusters) 
+L’autre est sous `nodeTypes` dans la ressource [Microsoft.ServiceFabric/clusters](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2018-02-01/clusters) : 
 
 ```json
 "nodeTypes": [
@@ -225,8 +244,8 @@ Puis, sous `nodeTypes` dans la ressource [Microsoft.ServiceFabric/clusters](http
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Créez un cluster sur des machines virtuelles ou des ordinateurs exécutant Windows Server : [Création de clusters Service Fabric pour Windows Server](service-fabric-cluster-creation-for-windows-server.md)
-* Créez un cluster sur des machines virtuelles ou des ordinateurs exécutant Linux : [Créer un cluster Linux](service-fabric-cluster-creation-via-portal.md)
-* En savoir plus sur les [options de prise en charge de Service Fabric](service-fabric-support.md)
+* Créez un cluster sur des machines virtuelles ou des ordinateurs exécutant Windows Server : [Création de clusters Service Fabric pour Windows Server](service-fabric-cluster-creation-for-windows-server.md).
+* Créez un cluster sur des machines virtuelles ou des ordinateurs exécutant Linux : [Créer un cluster Linux](service-fabric-cluster-creation-via-portal.md).
+* Découvrez les [options de support de Service Fabric](service-fabric-support.md).
 
 [Image1]: ./media/service-fabric-best-practices/generate-common-name-cert-portal.png

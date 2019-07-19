@@ -11,12 +11,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 05/21/2019
 ms.author: shvija
-ms.openlocfilehash: ae970b9612154a6463c4bf44a65da71a20c81635
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
-ms.translationtype: MT
+ms.openlocfilehash: dfdeee9591b5d6ccbadadaef83c6598dd0e850d8
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65978308"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448145"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Contrôle d’accès en fonction du rôle Azure Active Directory (version préliminaire)
 
@@ -29,10 +29,10 @@ Une application qui utilise le contrôle d’accès en fonction du rôle Azure A
 ## <a name="event-hubs-roles-and-permissions"></a>Rôles et autorisations Event Hubs
 Azure fournit les rôles RBAC intégrés suivants pour autoriser l’accès à un espace de noms Event Hubs :
 
-Le [propriétaire des données Event Hubs (version préliminaire)](../role-based-access-control/built-in-roles.md#service-bus-data-owner) rôle permet l’accès à un espace de noms Event Hubs et ses entités (files d’attente, rubriques, abonnements et les filtres)
+Le rôle [Propriétaire de données Azure Event Hubs (préversion)](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner-preview) permet l’accès aux données dans un espace de noms Event Hubs et ses entités (files d’attente, rubriques, abonnements et filtres).
 
 >[!IMPORTANT]
-> Nous avons pris en charge précédemment l’Ajout d’une identité gérée pour le **propriétaire** ou **contributeur** rôle. Toutefois, des privilèges d’accès aux données **propriétaire** et **contributeur** rôle sont honorées n’est plus. Si vous utilisez le **propriétaire** ou **contributeur** rôle, commutateur à l’utilisation de la **propriétaire des données Event Hubs** rôle.
+> Auparavant, nous prenions en charge l’ajout d’une identité managée pour le rôle **Propriétaire** ou **Contributeur**. Toutefois, des privilèges d’accès aux données pour le rôle **Propriétaire** et **Contributeur** ne sont plus respectés. Si vous utilisez le rôle **Propriétaire** ou **Contributeur**, passez à l’utilisation du rôle **Propriétaire de données Azure Event Hubs (préversion)** .
 
 
 ## <a name="use-event-hubs-with-an-azure-ad-domain-user-account"></a>Utiliser Event Hubs avec un compte d’utilisateur de domaine Azure AD
@@ -49,7 +49,7 @@ Si vous souhaitez toujours créer un compte spécifique pour ce scénario, [proc
 
 ### <a name="create-an-event-hubs-namespace"></a>Créer un espace de noms Event Hubs
 
-Ensuite, [créer un espace de noms Event Hubs](event-hubs-create.md). 
+Ensuite, [créez un espace de noms Event Hubs](event-hubs-create.md). 
 
 Une fois l’espace de noms créé, accédez à la page **Contrôle d’accès (IAM)** correspondante sur le portail, puis cliquez sur **Ajouter une attribution de rôle** pour ajouter le compte d’utilisateur Azure AD au rôle de propriétaire. Si vous utilisez votre propre compte d’utilisateur et que vous avez créé l’espace de noms, vous êtes déjà dans le rôle de propriétaire. Pour ajouter un autre compte au rôle, recherchez le nom de l’application web dans le champ **Sélectionner** du panneau **Ajouter des autorisations**, puis cliquez sur l’entrée. Cliquez ensuite sur **Enregistrer**. Le compte d’utilisateur a désormais accès à l’espace de noms Event Hubs et au concentrateur d’événements que vous avez précédemment créé.
  

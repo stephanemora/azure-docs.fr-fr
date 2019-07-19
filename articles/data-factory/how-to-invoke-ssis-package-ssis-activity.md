@@ -8,26 +8,26 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 07/01/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 7287dc2fccf461cf23c45202336e3d92bc5a40aa
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f33259fff17633cc4864a342609f747ebb9902ba
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66152974"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484907"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Exécuter un package SSIS avec l’activité Exécuter le Package SSIS dans Azure Data Factory
-Cet article décrit comment exécuter un package SSIS dans un pipeline Azure Data Factory (ADF) à l’aide de l’activité Exécuter le Package SSIS. 
+Cet article décrit comment exécuter un package SQL Server Integration Services (SSIS) dans un pipeline Azure Data Factory (ADF) à l’aide de l’activité Exécuter le Package SSIS. 
 
 ## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Créez un runtime d’intégration Azure-SSIS si vous n’en avez pas encore en suivant les instructions pas à pas fournies dans le [Tutoriel : Déployer des packages SSIS vers Azure](tutorial-create-azure-ssis-runtime-portal.md).
+Créez un runtime d’intégration Azure-SSIS si vous n’en avez pas encore en suivant les instructions pas à pas fournies dans le [Tutoriel : Approvisionnement de votre IR Azure-SSIS](tutorial-create-azure-ssis-runtime-portal.md).
 
 ## <a name="run-a-package-in-the-azure-portal"></a>Exécuter un package dans le portail Azure
 Dans cette section, vous utilisez l’interface utilisateur (IU)/app ADF pour créer un pipeline Data Factory avec une activité Execute SSIS Package qui exécute un package SSIS.
@@ -51,25 +51,63 @@ Lors de cette étape, vous utilisez l’IU/app ADF pour créer un pipeline. Vous
 
    ![Définissez les propriétés sous l’onglet Général](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
 
-4. Sous l’onglet **Paramètres** de l’activité Exécuter le Package SSIS, sélectionnez votre runtime d’intégration Azure-SSIS associé à la base de données SSISDB sur laquelle le package est déployé. Si votre package utilise l’authentification Windows pour accéder à des magasins de données (par exemple, SQL Servers/partages de fichiers en local, Azure Files, etc.), cochez la case **Authentification Windows** et entrez le domaine/nom d’utilisateur/mot de passe pour l’exécution de votre package. Si votre package a besoin d’un runtime 32 bits pour fonctionner, cochez la case **Runtime 32 bits**. Concernant **Niveau de journalisation**, sélectionnez un périmètre prédéfini de journalisation pour l’exécution de votre package. Cochez la case **Personnalisé** si vous préférez entrer un nom de journalisation personnalisé. Lorsque votre Azure-SSIS IR est en cours d’exécution et que la case **Entrées manuelles** n’est pas cochée, vous pouvez parcourir et sélectionner vos dossiers/projets/packages/environnements existants dans SSISDB. Cliquez sur le bouton **Actualiser** pour récupérer vos nouveaux dossiers/projets/packages/environnements ajoutés dans SSISDB afin qu’ils soient sélectionnables lors de la navigation. 
+4. Dans l’onglet **Paramètres** pour l’activité Exécuter le package SSIS, sélectionnez un Azure-SSIS IR sur lequel exécuter votre package. Si votre package utilise l’authentification Windows pour accéder à des magasins de données (par exemple, SQL Servers/partages de fichiers en local, Azure Files, etc.), cochez la case **Authentification Windows** et entrez les valeurs pour les informations d’identification d’exécution de votre package (**Domaine**/**Nom d’utilisateur**/**Mot de passe**). Vous pouvez également utiliser les secrets stockés dans votre Azure Key Vault (AKV) en tant que valeurs. Pour ce faire, cliquez sur la case **AZURE KEY VAULT** en regard des informations d’identification pertinentes, sélectionnez/modifiez votre service lié AKV existant ou créez-en un, puis sélectionnez le nom/la version du secret pour votre valeur d’informations d’identification.  Lorsque vous créez/modifiez votre service lié AKV, vous pouvez sélectionner/modifier votre AKV existant ou en créer un, mais accordez l’accès d’identité managée ADF à votre AKV si vous ne l’avez pas déjà fait. Vous pouvez également entrer vos secrets directement au format suivant : `<AKV linked service name>/<secret name>/<secret version>`. Si votre package a besoin d’un runtime 32 bits pour fonctionner, cochez la case **Runtime 32 bits**. 
+
+   Pour **Emplacement du package**, sélectionnez **SSISDB**, **File System (Package)** (Système de fichiers (Package)) ou **File System (Project)** (Système de fichiers (Projet)). Si vous sélectionnez **SSISDB** comme emplacement pour votre package, qui est automatiquement sélectionné si Azure-SSIS IR a été provisionné avec le catalogue SSIS (SSISDB) hébergé par un serveur Azure SQL Database/Managed Instance, vous devez spécifier votre package à exécuter qui a été déployé dans SSISDB. Si votre Azure-SSIS IR est en cours d’exécution et que la case **Entrées manuelles** n’est pas cochée, vous pouvez parcourir et sélectionner vos dossiers/projets/packages/environnements existants dans SSISDB. Cliquez sur le bouton **Actualiser** pour récupérer vos nouveaux dossiers/projets/packages/environnements ajoutés dans SSISDB afin qu’ils soient sélectionnables lors de la navigation. 
+   
+   Concernant **Niveau de journalisation**, sélectionnez un périmètre prédéfini de journalisation pour l’exécution de votre package. Cochez la case **Personnalisé** si vous préférez entrer un nom de journalisation personnalisé. 
 
    ![Définir les propriétés sous l’onglet Paramètres - Automatique](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings.png)
 
-   Lorsque votre Azure-SSIS IR n’est pas en cours d’exécution ou que la case **Entrées manuelles** est cochée, vous pouvez entrer les chemins de votre package et de votre environnement directement à partir de SSISDB aux formats suivants : `<folder name>/<project name>/<package name>.dtsx` et `<folder name>/<environment name>`.
+   Si votre Azure-SSIS IR n’est pas en cours d’exécution ou que la case **Entrées manuelles** est cochée, vous pouvez entrer les chemins de votre package et de votre environnement directement à partir de SSISDB aux formats suivants : `<folder name>/<project name>/<package name>.dtsx` et `<folder name>/<environment name>`.
 
    ![Définir les propriétés sous l’onglet Paramètres - Manuel](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings2.png)
 
-5. Dans l’onglet **Paramètres SSIS** de l’activité Exécuter un package SSIS, alors que votre Azure-SSIS IR s’exécute et que la case **Entrées manuelles** de l’onglet **Paramètres** est décochée, les paramètres SSIS existants dans votre projet ou package sélectionné depuis SSISDB sont affichés pour que vous puissiez leur assigner des valeurs. Vous pouvez également les entrer un par un afin de leur assigner des valeurs manuellement - assurez-vous qu’elles existent et qu’elles sont correctement saisies pour que l’exécution de votre package soit réussie. Vous pouvez ajouter du contenu dynamique à leurs valeurs à l’aide d’expressions, de fonctions, de variables système ADF et de paramètres/variables de pipeline ADF. Vous pouvez également utiliser les secrets stockés dans votre Azure Key Vault (AKV) en tant que valeurs. Pour ce faire, cliquez sur la case **AZURE KEY VAULT** en regard du paramètre pertinent, sélectionnez/modifiez votre service lié AKV existant ou créez-en un, puis sélectionnez le nom/la version du secret pour votre valeur de paramètre.  Lorsque vous créez/modifiez votre service lié AKV, vous pouvez sélectionner/modifier votre AKV existant ou en créer un, mais accordez l’accès d’identité managée ADF à votre AKV si vous ne l’avez pas déjà fait. Vous pouvez également entrer vos secrets directement au format suivant : `<AKV linked service name>/<secret name>/<secret version>`.
+   Si vous sélectionnez **File System (Package)** (Système de fichiers (Package)) comme emplacement de votre package, qui est sélectionné automatiquement si votre Azure-SSIS IR a été provisionné sans SSISDB, vous devez spécifier votre package à exécuter en fournissant un chemin d’accès UNC à votre fichier de package (`.dtsx`) dans le **chemin d’accès du package**. Par exemple, si vous stockez votre package dans Azure Files, le chemin d’accès du package sera `\\<storage account name>.file.core.windows.net\<file share name>\<package name>.dtsx`. 
+   
+   Si vous configurez votre package dans un fichier distinct, vous devez également fournir un chemin d’accès UNC à votre fichier de configuration (`.dtsConfig`) dans le **chemin d’accès de configuration**. Par exemple, si vous stockez votre configuration dans Azure Files, son chemin d’accès de configuration sera `\\<storage account name>.file.core.windows.net\<file share name>\<configuration name>.dtsConfig`.
+
+   ![Définir les propriétés sous l’onglet Paramètres - Manuel](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings3.png)
+
+   Si vous sélectionnez **File System (Project)** (Système de fichiers (Projet)) comme emplacement de votre package, vous devez spécifier votre package à exécuter en fournissant un chemin d’accès UNC à votre fichier projet (`.ispac`) dans le **chemin d’accès du projet** et un fichier de package (`.dtsx`) de votre projet dans le **nom du package**. Par exemple, si vous stockez votre projet dans Azure Files, le chemin d’accès du projet sera `\\<storage account name>.file.core.windows.net\<file share name>\<project name>.ispac`.
+
+   ![Définir les propriétés sous l’onglet Paramètres - Manuel](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings4.png)
+
+   Ensuite, vous devez spécifier les informations d’identification pour accéder à votre projet/votre package/vos fichiers config. Si vous avez précédemment entré les valeurs de vos informations d’identification d’exécution de package (voir ci-dessus), vous pouvez les réutiliser en cochant la case **Same as package execution credentials** (Identiques aux informations d’identification pour l’exécution du package). Sinon, vous devez entrer les valeurs de vos informations d’identification d’accès au package (**Domaine**/**Nom d’utilisateur**/**Mot de passe**). Par exemple, si vous stockez votre projet/package/configuration dans Azure Files, le **domaine** est `Azure` ; le **nom d’utilisateur** est `<storage account name>` ; et le **mot de passe** est `<storage account key>`. Vous pouvez également utiliser les secrets stockés dans votre coffre AKV en tant que valeurs (voir ci-dessus). Ces informations d’identification seront utilisées pour accéder à votre package et aux packages enfants dans la tâche Exécuter le package, tous depuis leur propre chemin d’accès/le même projet, ainsi qu’aux configurations, y compris celles spécifiées dans vos packages. 
+   
+   Si vous avez utilisé le niveau de protection **EncryptAllWithPassword**/**EncryptSensitiveWithPassword** lorsque vous avez créé votre package via SQL Server Data Tools (SSDT), vous devez entrer la valeur de votre mot de passe dans le **mot de passe de chiffrement**. Vous pouvez également utiliser un secret stocké dans votre coffre AKV en tant que valeur (voir ci-dessus). Si vous avez utilisé le niveau de protection **EncryptSensitiveWithUserKey**, vous devez entrer de nouveau vos valeurs sensibles dans les fichiers config ou dans les onglets **Paramètres SSIS**/**Gestionnaires de connexions**/**Substitutions de propriété** (voir ci-dessous). Si vous avez utilisé le niveau de protection **EncryptAllWithUserKey**, celui-ci n’est pas pris en charge. Vous devez donc reconfigurer votre package pour utiliser un autre niveau de protection via SSDT ou l’utilitaire de ligne de commande `dtutil`. 
+   
+   Concernant **Niveau de journalisation**, sélectionnez un périmètre prédéfini de journalisation pour l’exécution de votre package. Cochez la case **Personnalisé** si vous préférez entrer un nom de journalisation personnalisé. Si vous souhaitez journaliser vos exécutions de package au-delà à l’aide de modules fournisseur d’informations, vous devez spécifier votre dossier de journaux en fournissant son chemin d’accès UNC dans le **chemin d’accès de journalisation**. Par exemple, si vous stockez vos journaux dans Azure Files, votre chemin d’accès de journalisation sera `\\<storage account name>.file.core.windows.net\<file share name>\<log folder name>`. Un sous-dossier est créé dans ce chemin d’accès pour chaque exécution de package individuel et nommé d’après l’ID d’exécution de l’activité Exécuter le package SSIS, dans lequel les fichiers journaux sont générés toutes les cinq minutes. 
+   
+   Enfin, vous devez également spécifier les informations d’identification pour accéder à votre dossier de journal. Si vous avez précédemment entré les valeurs de vos informations d’identification d’accès de package (voir ci-dessus), vous pouvez les réutiliser en cochant la case **Same as package access credentials** (Identiques aux informations d’identification pour l’accès au package). Sinon, vous devez entrer les valeurs de vos informations d’identification d’accès aux journaux (**Domaine**/**Nom d’utilisateur**/**Mot de passe**). Par exemple, si vous stockez vos journaux dans Azure Files, le **domaine** est `Azure` ; le **nom d’utilisateur** est `<storage account name>` ; et le **mot de passe** est `<storage account key>`. Vous pouvez également utiliser les secrets stockés dans votre coffre AKV en tant que valeurs (voir ci-dessus). Ces informations d’identification sont utilisées pour stocker vos journaux. 
+   
+   Pour tous les chemins d’accès UNC mentionnés ci-dessus, le nom de fichier complet doit être inférieur à 260 caractères et le nom du répertoire doit être inférieur à 248 caractères.
+
+5. Sous l’onglet **Paramètres SSIS** de l’activité Exécuter le package SSIS, si votre Azure-SSIS IR s’exécute, **SSISDB** est sélectionné en tant qu’emplacement du package et si la case **Entrées manuelles** de l’onglet **Paramètres** est décochée, les paramètres SSIS existants dans votre projet ou package sélectionné depuis SSISDB sont affichés pour que vous puissiez leur assigner des valeurs. Vous pouvez également les entrer un par un afin de leur assigner des valeurs manuellement - assurez-vous qu’elles existent et qu’elles sont correctement saisies pour que l’exécution de votre package soit réussie. 
+   
+   Si vous avez utilisé le niveau de protection **EncryptSensitiveWithUserKey** lorsque vous avez créé votre package via SSDT et que **File System (Package)** (Système de fichiers (Package))/**File System (Project)** (Système de fichiers (Projet)) est sélectionné en tant qu’emplacement de votre package, vous devez également entrer de nouveau vos paramètres sensibles pour y attribuer des valeurs dans les fichiers config ou dans cet onglet. 
+   
+   Lorsque vous attribuez des valeurs à vos paramètres, vous pouvez ajouter du contenu dynamique à l’aide d’expressions, de fonctions, de variables système ADF et de paramètres/variables de pipeline ADF. Vous pouvez également utiliser les secrets stockés dans votre coffre AKV en tant que valeurs (voir ci-dessus).
 
    ![Définir les propriétés sous l’onglet Paramètres SSIS](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-ssis-parameters.png)
 
-6. Dans l’onglet **Gestionnaires de connexions** de l’activité Exécuter un package SSIS, alors que votre Azure-SSIS IR s’exécute et que la case **Entrées manuelles** de l’onglet **Paramètres** est décochée, les gestionnaires de connexions existants dans votre projet ou package sélectionné depuis SSISDB sont affichés pour que vous puissiez assigner des valeurs à leurs propriétés. Vous pouvez également les entrer un par un afin d’assigner des valeurs à leurs propriétés manuellement ; assurez-vous qu’elles existent et qu’elles sont correctement saisies pour que l’exécution de votre package soit réussie. Vous pouvez ajouter du contenu dynamique à leurs valeurs de propriété à l’aide d’expressions, de fonctions, de variables système ADF et de paramètres/variables de pipeline ADF. Vous pouvez également utiliser les secrets stockés dans votre Azure Key Vault (AKV) en tant que valeurs de propriété. Pour ce faire, cliquez sur la case **AZURE KEY VAULT** en regard de la propriété pertinente, sélectionnez/modifiez votre service lié AKV existant ou créez-en un, puis sélectionnez le nom/la version du secret pour votre valeur de propriété.  Lorsque vous créez/modifiez votre service lié AKV, vous pouvez sélectionner/modifier votre AKV existant ou en créer un, mais accordez l’accès d’identité managée ADF à votre AKV si vous ne l’avez pas déjà fait. Vous pouvez également entrer vos secrets directement au format suivant : `<AKV linked service name>/<secret name>/<secret version>`.
+6. Dans l’onglet **Gestionnaires de connexions** de l’activité Exécuter un package SSIS, si votre Azure-SSIS IR s’exécute, si **SSISDB** est sélectionné en tant qu’emplacement de votre package et si la case **Entrées manuelles** de l’onglet **Paramètres** est décochée, les gestionnaires de connexions existants dans votre projet ou package sélectionné depuis SSISDB sont affichés pour que vous puissiez attribuer des valeurs à leurs propriétés. Vous pouvez également les entrer un par un afin d’assigner des valeurs à leurs propriétés manuellement ; assurez-vous qu’elles existent et qu’elles sont correctement saisies pour que l’exécution de votre package soit réussie. 
+   
+   Si vous avez utilisé le niveau de protection **EncryptSensitiveWithUserKey** lorsque vous avez créé votre package via SSDT et que **File System (Package)** (Système de fichiers (Package))/**File System (Project)** (Système de fichiers (Projet)) est sélectionné en tant qu’emplacement de votre package, vous devez également entrer de nouveau vos propriétés de gestionnaire de connexions sensibles pour y attribuer des valeurs dans les fichiers config ou dans cet onglet. 
+   
+   Lorsque vous attribuez des valeurs à vos propriétés de gestionnaire de connexions, vous pouvez ajouter du contenu dynamique à l’aide d’expressions, de fonctions, de variables système ADF et de paramètres/variables de pipeline ADF. Vous pouvez également utiliser les secrets stockés dans votre coffre AKV en tant que valeurs (voir ci-dessus).
 
    ![Définir les propriétés sous l’onglet Gestionnaires de connexions](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers.png)
 
-7. Dans l’onglet **Substitutions de propriété** pour Exécuter le Package SSIS, vous pouvez entrer les chemins des propriétés existantes dans votre package sélectionné une à une à partir de SSISDB un par un pour leur attribuer des valeurs manuellement - Veuillez vous assurer qu’elles existent et qu’elles sont correctement entrées pour que l’exécution du paquet réussisse, par exemple pour remplacer la valeur de votre variable utilisateur, entrez son chemin d’accès dans le format suivant : `\Package.Variables[User::YourVariableName].Value`. Vous pouvez également ajouter du contenu dynamique à leurs valeurs à l’aide d’expressions, de fonctions, de variables système ADF et de paramètres/variables de pipeline ADF.
+7. Sous l’onglet **Substitutions de propriété** pour l’activité Exécuter le Package SSIS, vous pouvez entrer les chemins des propriétés existantes dans votre package sélectionné un à un pour leur attribuer des valeurs manuellement. Veuillez vous assurer qu’elles existent et qu’elles sont correctement entrées pour que l’exécution du paquet réussisse, par exemple pour remplacer la valeur de votre variable utilisateur, entrez son chemin d’accès dans le format suivant : `\Package.Variables[User::<variable name>].Value`. 
+   
+   Si vous avez utilisé le niveau de protection **EncryptSensitiveWithUserKey** lorsque vous avez créé votre package via SSDT et que **File System (Package)** (Système de fichiers (Package))/**File System (Project)** (Système de fichiers (Projet)) est sélectionné en tant qu’emplacement de votre package, vous devez également entrer de nouveau vos propriétés sensibles pour y attribuer des valeurs dans les fichiers config ou dans cet onglet. 
+   
+   Lorsque vous attribuez des valeurs à vos propriétés, vous pouvez ajouter du contenu dynamique à l’aide d’expressions, de fonctions, de variables système ADF et de paramètres/variables de pipeline ADF.
 
    ![Définir les propriétés sous l’onglet Substitutions de propriété](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-property-overrides.png)
+
+   Les valeurs attribuées dans les fichiers config et dans l’onglet *Paramètres SSIS* peuvent être substituées à l’aide des onglets **Gestionnaires de connexions**/**Substitutions de propriété**, tandis que celles attribuées dans l’onglet **Gestionnaires de connexions** peuvent également être substituées à l’aide de l’onglet **Substitutions de propriété**.
 
 8. Pour valider la configuration du pipeline, cliquez sur **Valider** dans la barre d’outils. Pour fermer le **Rapport de validation de pipeline**, cliquez sur **>>** .
 
@@ -102,7 +140,7 @@ Lors de cette étape, vous utilisez l’IU/app ADF pour créer un pipeline. Vous
 
    ![Vérifier les exécutions de package](./media/how-to-invoke-ssis-package-stored-procedure-activity/verify-package-executions.png)
 
-4. Vous pouvez également obtenir l’ID de l’exécution SSISDB à partir de la sortie de l’exécution de l’activité de pipeline, et utiliser l’ID pour consulter des journaux d’activité d’exécution et des messages d’erreur plus complets dans SSMS.
+4. Vous pouvez également obtenir l’ID de l’exécution SSISDB à partir de la sortie de l’exécution de l’activité de pipeline, et utiliser l’ID pour consulter des journaux d’activité d’exécution et des messages d’erreur plus complets dans SQL Server Management Studio (SSMS).
 
    ![Obtenez l’ID de l'exécution.](media/how-to-invoke-ssis-package-ssis-activity/get-execution-id.png)
 

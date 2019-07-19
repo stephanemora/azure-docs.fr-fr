@@ -4,19 +4,19 @@ description: Découvrez comment gérer les événements Event Grid dans Azure Fu
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/04/2018
 ms.author: cshoe
-ms.openlocfilehash: b2ab07e40ac2652d97e912f8c7bd3b8893bfc114
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f48eced2ebcc4ad92c5124194ed2e2df92f64f11
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61438688"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67480662"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Déclencheur Event Grid pour Azure Functions
 
@@ -214,6 +214,7 @@ Voici le code Python :
 import logging
 import azure.functions as func
 
+
 def main(event: func.EventGridEvent):
     logging.info("Python Event Grid function processed a request.")
     logging.info("  Subject: %s", event.subject)
@@ -396,7 +397,7 @@ Ce lien ouvre la page **Créer un abonnement aux événements** sur le Portail, 
 
 Pour plus d’informations sur la création d’abonnements à l’aide du Portail Azure, consultez la section [Créer un événement personnalisé - Portail Azure](../event-grid/custom-event-quickstart-portal.md) dans la documentation Event Grid.
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>D’Azure CLI
 
 Pour créer un abonnement avec [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest), utilisez la commande [az eventgrid event-subscription create](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-create).
 
@@ -528,14 +529,14 @@ Utilisez un outil comme [Postman](https://www.getpostman.com/) ou [curl](https:/
 * Définissez un en-tête `Content-Type: application/json`.
 * Définissez un en-tête `aeg-event-type: Notification`.
 * Collez les données RequestBin dans le corps de la requête.
-* Publier sur l’URL de votre fonction de déclencheur Event Grid.
-  * Pour 2.x, utilisez le modèle suivant :
+* Publiez (POST) sur l’URL de votre fonction de déclenchement Event Grid.
+  * Pour 2.x, utilisez le modèle suivant :
 
     ```
     http://localhost:7071/runtime/webhooks/eventgrid?functionName={FUNCTION_NAME}
     ```
 
-  * Pour 1.x, utilisez :
+  * Pour 1.x, utilisez :
 
     ```
     http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={FUNCTION_NAME}
@@ -555,7 +556,7 @@ La fonction de déclenchement Event Grid s’exécute et affiche des journaux d�
 
 ## <a name="local-testing-with-ngrok"></a>Tests locaux avec ngrok
 
-Une autre possibilité, pour tester un déclencheur Event Grid en local, consiste à automatiser la connexion HTTP entre Internet et l’ordinateur de développement. Vous pouvez pour cela utiliser un outil open source nommé [ngrok](https://ngrok.com/) :
+Une autre possibilité, pour tester un déclencheur Event Grid en local, consiste à automatiser la connexion HTTP entre Internet et l’ordinateur de développement. Vous pouvez le faire avec un outil tel que [ngrok](https://ngrok.com/) :
 
 1. [Créez un point de terminaison ngrok](#create-an-ngrok-endpoint).
 1. [Exécutez la fonction de déclenchement Event Grid](#run-the-event-grid-trigger-function).

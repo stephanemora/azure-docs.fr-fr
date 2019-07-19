@@ -3,7 +3,7 @@ title: Utilisation du Kit de développement logiciel (SDK) iOS pour Azure Mobile
 description: Utilisation du Kit de développement logiciel (SDK) iOS pour Azure Mobile Apps
 services: app-service\mobile
 documentationcenter: ios
-author: conceptdev
+author: elamalani
 editor: ''
 ms.assetid: 4e8e45df-c36a-4a60-9ad4-393ec10b7eb9
 ms.service: app-service-mobile
@@ -11,24 +11,29 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 10/01/2016
-ms.author: crdun
-ms.openlocfilehash: b6f93cc3c35ab18ecd50ccd6b3090985497baabf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: 38d992e55a8e1f0a057a96f3e13c93c9dbd0c4a9
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62122453"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440388"
 ---
 # <a name="how-to-use-ios-client-library-for-azure-mobile-apps"></a>Utilisation de la bibliothèque cliente iOS pour Azure Mobile Apps
 
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
+> [!NOTE]
+> Visual Studio App Center investit dans des services nouveaux et intégrés, essentiels au développement d’applications mobiles. Les développeurs peuvent utiliser les services **Build**, **Test** et **Distribute** pour configurer le pipeline de livraison et d’intégration continues. Une fois l’application déployée, les développeurs peuvent superviser l’état et l’utilisation de leur application à l’aide des services **Analytics** et **Diagnostics**, puis interagir avec les utilisateurs à l’aide du service **Push**. Les développeurs peuvent aussi utiliser **Auth** pour authentifier leurs utilisateurs ainsi que le service **Data** pour conserver et synchroniser les données d’application dans le cloud. Découvrez [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=/app-service-mobile-ios-how-to-use-client-library) dès aujourd’hui.
+>
+
+## <a name="overview"></a>Vue d'ensemble
 Ce guide indique le déroulement de scénarios courants dans le cadre de l’utilisation du dernier [SDK iOS Azure Mobile Apps][1]. Si vous ne connaissez pas Azure Mobile Apps, consultez d’abord la section [Démarrage rapide d’Azure Mobile Apps] pour créer un backend, créer une table et télécharger un projet Xcode iOS prédéfini. Dans ce guide, nous nous concentrons sur le SDK iOS côté client. Pour en savoir plus sur le Kit de développement logiciel (SDK) côté serveur, consultez les procédures du SDK Server.
 
 ## <a name="reference-documentation"></a>Documentation de référence
 
-La documentation de référence du SDK du client iOS se trouve ici : [Référence du client iOS Azure Mobile Apps][2].
+La documentation de référence du SDK du client iOS se trouve ici : [Informations de référence sur le client iOS Azure Mobile Apps][2].
 
 ## <a name="supported-platforms"></a>Plateformes prises en charge
 
@@ -510,9 +515,9 @@ NSDictionary *iOSTemplate = @{ @"templateName": @{ @"body": @{ @"aps": @{ @"aler
 let iOSTemplate = ["templateName": ["body": ["aps": ["alert": "$(message)"]]]]
 ```
 
-Toutes les balises sont supprimées de la demande pour des raisons de sécurité.  Pour ajouter des balises à des installations ou à des modèles contenus dans une installation, consultez [Utiliser le Kit de développement logiciel (SDK) du serveur principal .NET pour Azure Mobile Apps][4].  Pour envoyer des notifications à l’aide de ces modèles inscrits, utilisez les [API Notification Hubs][3].
+Toutes les balises sont supprimées de la demande pour des raisons de sécurité.  Pour ajouter des balises à des installations ou des modèles dans des installations, consultez [Utiliser le Kit de développement logiciel (SDK) de serveur principal .NET pour Azure Mobile Apps][4].  Pour envoyer des notifications à l’aide de ces modèles inscrits, utilisez les [API Notification Hubs][3].
 
-## <a name="errors"></a>Procédure : Gérer les erreurs
+## <a name="errors"></a>Procédure : Gérer les erreurs
 
 Quand vous appelez un backend mobile Azure App Service, le bloc completion contient un paramètre `NSError` . Si une erreur se produit, ce paramètre est non-nil. Vous devez vérifier ce paramètre dans votre code et gérer les erreurs, le cas échéant, comme indiqué dans les extraits de code précédents.
 
@@ -548,7 +553,7 @@ if (error.code == MSErrorPreconditionFailed) {
 
 Vous pouvez utiliser la bibliothèque d’authentification Active Directory (ADAL) pour authentifier des utilisateurs dans votre application à l’aide d’Azure Active Directory. L’authentification par flux client à l’aide d’un SDK de fournisseur d’identité est préférable à l’utilisation de la méthode `loginWithProvider:completion:` .  L’authentification par client flux offre une interface UX native plus simple et permet une personnalisation supplémentaire.
 
-1. Si vous souhaitez configurer le serveur d’applications mobiles back-end pour utiliser la connexion AAD, suivez le didacticiel [Configurer votre application App Service pour utiliser la connexion Azure Active Directory][7]. Bien que cette étape soit facultative, veillez à inscrire une application cliente native. Pour iOS, il est recommandé d’utiliser une URI de redirection de type `<app-scheme>://<bundle-id>`. Pour plus d’informations, consultez le [didacticiel de démarrage rapide d’ADAL pour iOS][8].
+1. Si vous souhaitez configurer le backend de votre application mobile pour utiliser la connexion AAD, suivez le didacticiel [Configurer votre application App Service pour utiliser la connexion Azure Active Directory][7] . Bien que cette étape soit facultative, veillez à inscrire une application cliente native. Pour iOS, il est recommandé d’utiliser une URI de redirection de type `<app-scheme>://<bundle-id>`. Pour plus d’informations, consultez le [démarrage rapide d’ADAL pour iOS][8].
 2. Installez la bibliothèque ADAL à l’aide de Cocoapods. Modifiez votre podfile pour inclure la définition suivante, en remplaçant **YOUR-PROJECT** par le nom de votre projet Xcode :
 
         source 'https://github.com/CocoaPods/Specs.git'
@@ -635,8 +640,8 @@ func authenticate(parent: UIViewController, completion: (MSUser?, NSError?) -> V
 
 Vous pouvez utiliser le kit de développement logiciel (SDK) Facebook pour iOS pour identifier les utilisateurs sur votre application utilisant Facebook.  L’authentification par flux client est préférable à l’utilisation de la méthode `loginWithProvider:completion:` .  L’authentification par client flux offre une interface UX native plus simple et permet une personnalisation supplémentaire.
 
-1. Si vous souhaitez configurer le serveur d’applications mobiles back-end pour utiliser la connexion Facebook, suivez le didacticiel [Configurer votre application App Service pour utiliser la connexion Facebook][9].
-2. Installez le SDK Facebook pour iOS en suivant la documentation [Kit de développement logiciel (SDK) Facebook pour iOS : prise en main][10]. Au lieu de créer une application, vous pouvez ajouter la plateforme iOS à votre inscription existante.
+1. Si vous souhaitez configurer le backend d’application mobile pour la connexion Facebook, suivez le didacticiel [Guide pratique pour configurer votre application App Service pour la connexion Facebook][9].
+2. Installez le SDK Facebook pour iOS en suivant la documentation [Kit SDK Facebook pour iOS – Prise en main][10]. Au lieu de créer une application, vous pouvez ajouter la plateforme iOS à votre inscription existante.
 3. La documentation de Facebook comprend du code en Objective-C dans le délégué de l’application. Si vous utilisez **Swift**, vous pouvez vous servir des conversions suivantes pour AppDelegate.swift :
 
     ```swift

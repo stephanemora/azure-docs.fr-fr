@@ -5,31 +5,35 @@ services: app-service\mobile
 documentationcenter: javascript
 manager: crdun
 editor: ''
-author: conceptdev
+author: elamalani
 ms.assetid: 92c596a9-875c-4840-b0e1-69198817576f
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: article
-ms.date: 10/30/2016
-ms.author: crdun
-ms.openlocfilehash: 40a7552ffd0bfcab173d2e35c52313a94ec3d0bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: e6755c3fb1fca342d94fdaa96c0dce614d762172
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62114340"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443550"
 ---
 # <a name="add-push-notifications-to-your-apache-cordova-app"></a>Ajout de notifications Push à votre application Apache Cordova.
 
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
+> [!NOTE]
+> Visual Studio App Center investit dans des services nouveaux et intégrés, essentiels au développement d’applications mobiles. Les développeurs peuvent utiliser les services **Build**, **Test** et **Distribute** pour configurer le pipeline de livraison et d’intégration continues. Une fois l’application déployée, les développeurs peuvent superviser l’état et l’utilisation de leur application à l’aide des services **Analytics** et **Diagnostics**, puis interagir avec les utilisateurs à l’aide du service **Push**. Les développeurs peuvent aussi utiliser **Auth** pour authentifier leurs utilisateurs ainsi que le service **Data** pour conserver et synchroniser les données d’application dans le cloud. Découvrez [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-cordova-get-started-push) dès aujourd’hui.
+>
+
 ## <a name="overview"></a>Vue d'ensemble
 
-Dans ce didacticiel, vous ajoutez des notifications Push au projet de [démarrage rapide Apache Cordova][5] afin qu’une notification Push soit envoyée à l’appareil chaque fois qu’un enregistrement est inséré.
+Dans ce didacticiel, vous allez ajouter des notifications Push au projet de [démarrage rapide Apache Cordova][5] de sorte qu’une notification Push soit envoyée à l’appareil chaque fois qu’un enregistrement est inséré.
 
-Si vous n’utilisez pas le projet de serveur de démarrage rapide téléchargé, vous devrez disposer du package d’extension de notification Push. Pour plus d’informations, consultez l’article [Utiliser le kit SDK du serveur backend .NET pour Azure Mobile Apps][1].
+Si vous n’utilisez pas le projet de serveur de démarrage rapide téléchargé, vous devrez disposer du package d’extension de notification Push. Pour plus d’informations, consultez [Utiliser le kit SDK de serveur backend .NET pour Mobile Apps][1].
 
 ## <a name="prerequisites"></a>Configuration requise
 
@@ -37,19 +41,19 @@ Ce didacticiel repose sur l’hypothèse que vous disposez d’une application A
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
-* PC équipé de [Visual Studio Community 2015][2] ou d’une version ultérieure ;
-* [Visual Studio Tools pour Apache Cordova][4] ;
-* [compte Azure actif][3] ;
-* projet de [démarrage rapide Apache Cordova][5] terminé ;
-* (Android) [compte Google][6] avec une adresse électronique vérifiée ;
-* (iOS) [appartenance au programme pour développeurs Apple][7] et appareil iOS (le simulateur iOS ne prend pas en charge les notifications Push) ;
-* (Windows) [compte de développeur Microsoft Store][8] et appareil Windows 10
+* Un PC équipé de [Visual Studio Community 2015][2] ou d’une version ultérieure
+* [Visual Studio Tools pour Apache Cordova][4]
+* Un [compte Azure actif][3]
+* Un projet de [démarrage rapide Apache Cordova][5] terminé
+* (Android) Un [compte Google][6] avec une adresse e-mail vérifiée
+* (iOS) Une [appartenance au programme pour développeurs Apple][7] et un appareil iOS (iOS Simulator ne prend pas en charge les notifications Push)
+* (Windows) Un [compte développeur Microsoft Store][8] et un appareil Windows 10
 
 ## <a name="configure-hub"></a>Configurer un hub de notification
 
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
 
-[Visionnez une vidéo illustrant la procédure décrite dans cette section][9].
+[Regardez une vidéo illustrant les étapes de cette section][9].
 
 ## <a name="update-the-server-project"></a>Mettre à jour le projet de serveur
 
@@ -250,7 +254,7 @@ Vous pouvez désormais tester les notifications Push en exécutant l’applicati
 
     ![Gestionnaire de périphérique virtuel Android](./media/app-service-mobile-cordova-get-started-push/google-apis-avd-settings.png)
 
-    Si vous souhaitez utiliser un émulateur x86 plus rapide, [installez le pilote HAXM][11], puis configurez l’émulateur pour l’utilisation de ce pilote.
+    Si vous souhaitez utiliser un émulateur x86 plus rapide, [installez le pilote HAXM][11], puis configurez l’émulateur afin qu’il l’utilise.
 
     Ajoutez un compte Google à l’appareil Android en sélectionnant **Applications** > **Paramètres** > **Ajouter un compte**. Puis suivez les invites.
 
@@ -268,7 +272,7 @@ Cette section est dédiée à l’exécution du projet Cordova sur les appareils
 
 Avant de pouvoir exécuter une application Cordova sur iOS à l’aide de Visual Studio, suivez la procédure décrite dans le [Guide d’installation iOS][12] pour installer et exécuter l’agent de build distant.
 
-Assurez-vous que vous pouvez générer l’application pour iOS. La génération de l’application pour iOS à partir de Visual Studio requiert l’exécution de la procédure décrite dans le guide d’installation. Si vous n’avez pas de Mac, vous pouvez générer des applications pour iOS en utilisant l’agent de build distant sur un service tel que MacInCloud. Pour plus d’informations, consultez l’article [Run your iOS app in the cloud (Exécuter votre application iOS dans le cloud)][21].
+Assurez-vous que vous pouvez générer l’application pour iOS. La génération de l’application pour iOS à partir de Visual Studio requiert l’exécution de la procédure décrite dans le guide d’installation. Si vous n’avez pas de Mac, vous pouvez générer des applications pour iOS en utilisant l’agent de build distant sur un service tel que MacInCloud. Pour plus d’informations, consultez [Exécuter votre application iOS dans le cloud][21].
 
 > [!NOTE]
 > Xcode 7 ou version ultérieure est nécessaire pour utiliser le plug-in Push dans iOS.

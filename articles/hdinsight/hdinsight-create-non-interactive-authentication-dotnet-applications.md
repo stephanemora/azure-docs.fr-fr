@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 8b96c38d5bb24a267ad0203083e485d1780f28c8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9eb83c0c42bb1ba3de1aa81ab3d5f339f4d40233
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66241476"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433679"
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>Créer une application .NET HDInsight d’authentification non interactive
 Vous pouvez exécuter votre application Microsoft .NET Azure HDInsight sous l’identité de l’application (non interactive) ou sous l’identité de l’utilisateur connecté à l’application (interactive). Cet article vous présente la création d’une application .NET d’authentification non interactive pour se connecter à Azure et gérer HDInsight. Pour voir un exemple d’application interactive, consultez [Se connecter à Azure HDInsight](hdinsight-administer-use-dotnet-sdk.md#connect-to-azure-hdinsight). 
@@ -28,13 +28,13 @@ Vous pouvez exécuter votre application Microsoft .NET Azure HDInsight sous l’
 * Un cluster HDInsight. Voir le [didacticiel de prise en main](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
 
 ## <a name="assign-a-role-to-the-azure-ad-application"></a>Affecter un rôle à l’application Azure AD
-Affectez à votre application Azure AD un [rôle](../role-based-access-control/built-in-roles.md), pour lui accorder l’autorisation d’effectuer des actions. Vous pouvez définir l’étendue au niveau de l’abonnement, du groupe de ressources ou de la ressource. Les autorisations sont héritées des niveaux inférieurs de l’étendue. (Par exemple, l’ajout d’une application au rôle Lecteur pour un groupe de ressources signifie que l’application peut lire le groupe de ressources et toutes les ressources qu’il contient). Dans ce didacticiel, vous définissez la portée au niveau du groupe de ressources. Pour en savoir plus, consultez [Utiliser les attributions de rôle pour gérer l’accès à vos ressources d’abonnement Azure](../role-based-access-control/role-assignments-portal.md).
+Affectez à votre application Azure AD un [rôle](../role-based-access-control/built-in-roles.md), pour lui accorder l’autorisation d’effectuer des actions. Vous pouvez définir l’étendue au niveau de l’abonnement, du groupe de ressources ou de la ressource. Les autorisations sont héritées des niveaux inférieurs de l’étendue. (Par exemple, l’ajout d’une application au rôle Lecteur pour un groupe de ressources signifie que l’application peut lire le groupe de ressources et toutes les ressources qu’il contient). Dans cet article, vous définissez l’étendue au niveau du groupe de ressources. Pour en savoir plus, consultez [Utiliser les attributions de rôle pour gérer l’accès à vos ressources d’abonnement Azure](../role-based-access-control/role-assignments-portal.md).
 
 **Pour ajouter le rôle propriétaire à l’application Azure AD**
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Dans le menu de gauche, sélectionnez **Groupe de ressources**.
-3. Sélectionnez le groupe de ressources qui contient le cluster HDInsight sur lequel vous exécuterez votre requête Hive plus tard dans ce didacticiel. Si vous avez un grand nombre de groupes de ressources, vous pouvez utiliser le filtre pour trouver celui qui que vous intéresse.
+3. Sélectionnez le groupe de ressources qui contient le cluster HDInsight sur lequel vous exécuterez votre requête Hive plus tard dans cet article. Si vous avez un grand nombre de groupes de ressources, vous pouvez utiliser le filtre pour trouver celui qui que vous intéresse.
 4. Dans le menu du groupe de ressources, sélectionnez **Contrôle d’accès (IAM)** .
 5. Sélectionnez l’onglet **Attributions de rôles** pour voir les attributions de rôles actuelles.
 6. En haut de la page, sélectionnez **Ajouter une attribution de rôle**.

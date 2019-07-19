@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: hrasheed
 ms.openlocfilehash: c910ed9f1160d30e1d4bda2e85b029eb2ad85b02
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66237151"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Planification de la capacité pour les clusters HDInsight
@@ -105,8 +105,8 @@ Pour identifier le problème sur un cluster local à nœud unique, vous pouvez r
 Après avoir déterminé la taille, l’échelle et le type de la machine virtuelle de votre cluster cible, vérifiez les limites de capacité de quota actuelles de votre abonnement. Quand vous atteignez une limite de quota, vous risquez de ne pas pouvoir déployer de nouveaux clusters ou de faire monter en puissance des clusters existants en ajoutant des nœuds worker. La seule limite de quota est le quota de cœurs de processeur qui existe au niveau régional pour chaque abonnement. Par exemple, votre abonnement peut avoir une limite de 30 cœurs dans la région USA Est. Si vous avez besoin d’une augmentation de quota, effectuez les étapes suivantes :
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
-1. Sélectionnez **aide + support** sur le côté inférieur gauche de la page.
-1. Sélectionnez sur **nouvelle demande de support**.
+1. Sélectionnez **Aide + support** en bas à gauche de la page.
+1. Sélectionnez **Nouvelle demande de support**.
 1. Dans la page **Nouvelle demande de support**, sous l’onglet **De base**, sélectionnez les options suivantes :
    - **Type de problème** : **Limites du service et de l’abonnement (quotas)**
    - **Abonnement** : l’abonnement à modifier
@@ -115,9 +115,9 @@ Après avoir déterminé la taille, l’échelle et le type de la machine virtue
      ![Créer une demande de support pour augmenter le quota de cœurs d’HDInsight](./media/hdinsight-capacity-planning/hdinsight-quota-support-request.png)
 
 1. Sélectionnez **Suivant : Solutions >>** .
-1. Sur le **détails** , entrez une description du problème, sélectionnez la gravité du problème, votre méthode de contact préférée et les autres champs obligatoires.
+1. Dans la page **Détails**, entrez une description du problème, sélectionnez la gravité du problème, votre méthode de contact préférée et d’autres champs obligatoires.
 1. Sélectionnez **Suivant : Vérifier + créer >>** .
-1. Sur le **révision + créer** onglet, sélectionnez **créer**.
+1. Sous l’onglet **Review + create (Vérifier + créer)** , sélectionnez **Créer**.
 
 > [!NOTE]  
 > Si vous avez besoin d’augmenter le quota de cœurs d’HDInsight dans une région privée, [envoyez une demande de liste verte](https://aka.ms/canaryintwhitelist).

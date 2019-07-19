@@ -1,6 +1,6 @@
 ---
 title: Guide pratique pour visualiser les dépendances d’application avec Azure Monitor pour machines virtuelles (préversion) | Microsoft Docs
-description: Map est une fonctionnalité d’Azure Monitor pour les machines virtuelles qui détecte automatiquement les composants d’application sur les systèmes Windows et Linux et mappe la communication entre les services. Cet article fournit des informations sur son utilisation dans divers scénarios.
+description: Cartographie est une fonctionnalité d’Azure Monitor pour machines virtuelles. Elle détecte automatiquement les composants d’application sur les systèmes Windows et Linux, et cartographie la communication entre les différents services. Cet article explique comment utiliser la fonctionnalité Cartographie dans divers scénarios.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -13,117 +13,131 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2019
 ms.author: magoedte
-ms.openlocfilehash: 792c2bd02b666cd656f1df368a7a60db44ccf8c4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f6273e9b6c7ed0c4685479976343497f01201b0b
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65522171"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206761"
 ---
-# <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>Utilisation de la fonctionnalité Map d’Azure Monitor pour machines virtuelles (préversion) dans le but de comprendre les composants d’application
-Lorsque vous visualisez les composants d’application détectés sur des machines virtuelles Windows et Linux s’exécutant dans Azure, vous pouvez observer votre environnement de deux manières avec Azure Monitor pour machines virtuelles : directement à partir d’une machine virtuelle ou à l’échelle des groupes de machines virtuelles à partir d’Azure Monitor. 
+# <a name="use-the-map-feature-of-azure-monitor-for-vms-preview-to-understand-application-components"></a>Utiliser la fonctionnalité Cartographie d’Azure Monitor pour machines virtuelles (préversion) afin de mieux comprendre le fonctionnement des composants d’application
+Dans Azure Monitor pour machines virtuelles, vous pouvez voir les composants d’application qui ont été détectés sur les machines virtuelles Windows et Linux exécutées dans Azure ou votre environnement. Il existe deux manières d’observer les machines virtuelles : en affichant une carte directement à partir d’une machine virtuelle ou en affichant une carte à partir d’Azure Monitor pour voir les composants dans les groupes de machines virtuelles. Cet article vous aidera à bien comprendre ces deux méthodes de visualisation et à utiliser correctement la fonctionnalité Cartographie. 
 
-Cet article vous aide à comprendre l’expérience selon les deux perspectives et à utiliser la fonctionnalité Map. Pour plus d’informations sur la configuration d’Azure Monitor pour les machines virtuelles, consultez [Enable Azure Monitor for VMs ](vminsights-enable-overview.md)(Activer Azure Monitor pour les machines virtuelles).
+Pour plus d’informations sur la configuration d’Azure Monitor pour les machines virtuelles, consultez [Enable Azure Monitor for VMs ](vminsights-enable-overview.md)(Activer Azure Monitor pour les machines virtuelles).
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
-Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com).
+Connectez-vous au [Portail Azure](https://portal.azure.com).
 
-## <a name="introduction-to-map-experience"></a>Présentation de l’expérience avec Map
-Avant d’aborder l’affichage de Map pour une machine virtuelle unique ou un groupe de machines virtuelles, il est essentiel de procéder à une brève présentation de cette fonctionnalité, qui vous permettra de comprendre comment les informations sont présentées et ce que représentent les visualisations.  
+## <a name="introduction-to-the-map-experience"></a>Présentation de l’expérience avec la fonctionnalité Cartographie
+Avant d’entrer dans les détails de l’expérience avec la fonctionnalité Cartographie, vous devez comprendre comment cette fonctionnalité présente et affiche les informations. Que vous sélectionniez la fonctionnalité Cartographie directement à partir d’une machine virtuelle ou à partir d’Azure Monitor, cette fonctionnalité offre une expérience similaire. La seule différence est qu’à partir d’Azure Monitor, vous voyez sur une carte unique tous les membres d’un cluster ou d’une application multiniveau.
 
-Que vous sélectionniez la fonctionnalité Map directement à partir d’une machine virtuelle ou à partir d’Azure Monitor, elle offre une expérience similaire.  À partir d’Azure Monitor cependant, vous pouvez voir tous les membres d’un cluster ou d’une application multiniveau sur une seule carte.
+La fonctionnalité Cartographie affiche les dépendances de machine virtuelle en détectant les processus en cours d’exécution qui présentent : 
 
-Maps affiche les dépendances de machines virtuelles en détectant les processus en cours d’exécution avec des connexions réseau actives entre serveurs, la latence des connexions entrantes et sortantes et les ports sur n’importe quelle architecture connectée par TCP sur un intervalle de temps spécifié.  Le développement d’une machine virtuelle permet de visualiser les détails des processus. Seuls les processus qui communiquent avec la machine virtuelle sont affichés. Le nombre de clients frontaux qui se connectent à la machine virtuelle est indiqué avec le groupe de clients. Le nombre de serveurs principaux auxquels se connecte la machine virtuelle est indiqué avec les groupes de ports de serveur. Développez un groupe de ports de serveur pour afficher la liste détaillée des serveurs connectés sur ce port.  
+- Des connexions réseau actives entre serveurs.
+- Une latence des connexions entrantes et sortantes.
+- Des ports sur n’importe quelle architecture connectée par TCP sur un intervalle de temps spécifié.  
+ 
+Développez une machine virtuelle pour visualiser les détails uniquement des processus qui communiquent avec cette machine virtuelle. Le groupe de clients indique le nombre de clients front-end qui se connectent à la machine virtuelle. Les groupes de serveurs-ports affichent le nombre de serveurs back-end auxquels la machine virtuelle se connecte. Développez un groupe de serveurs-ports pour voir la liste détaillée des serveurs qui se connectent sur ce port.  
 
-Lorsque vous cliquez sur la machine virtuelle, le volet **Propriétés** se développe à droite. Il affiche les propriétés de l’élément sélectionné, par exemple les informations système rapportées par le système d’exploitation, les propriétés de la machine virtuelle Azure et un graphique en anneau synthétisant les connexions détectées. 
+Quand vous sélectionnez la machine virtuelle, le volet **Propriétés** de droite affiche les propriétés de la machine virtuelle. Les propriétés incluent les informations système retournées par le système d’exploitation, les propriétés de la machine virtuelle Azure ainsi qu’un graphique en anneau qui récapitule les connexions détectées. 
 
-![Propriétés système de l’ordinateur](./media/vminsights-maps/properties-pane-01.png)
+![Volet Propriétés](./media/vminsights-maps/properties-pane-01.png)
 
-Dans la partie droite du volet, cliquez sur l’icône **Journaux d’événements** pour afficher, dans le volet, une liste des tables envoyées à Azure Monitor par les données collectées à partir de la machine virtuelle, disponible pour interrogation.  Lorsque vous cliquez sur l’un des types d’enregistrement répertoriés, la page **Journaux d’activité** s’affiche. Elle présente les résultats correspondant à ce type avec une requête préconfigurée filtrée selon la machine virtuelle concernée.  
+Sur le côté droit du volet, sélectionnez **Événements de journal** pour afficher une liste des données que la machine virtuelle a envoyées à Azure Monitor. Ces données peuvent être interrogées.  Sélectionnez un type d’enregistrement pour ouvrir la page **Journaux**, où sont affichés les résultats trouvés pour ce type d’enregistrement. Dans cette page, vous voyez également une requête préconfigurée qui est filtrée sur la machine virtuelle sélectionnée.  
 
-![Liste de recherche dans les journaux dans le volet Propriétés](./media/vminsights-maps/properties-pane-logs-01.png)
+![Volet Événements de journal](./media/vminsights-maps/properties-pane-logs-01.png)
 
-Fermez la page **Journaux** et revenez au volet **Propriétés**. Sélectionnez **Alertes** pour afficher les alertes déclenchées pour la machine virtuelle à partir de critères d’intégrité. Map intègre les alertes Azure pour afficher les alertes déclenchées pour le serveur sélectionné pendant l’intervalle de temps sélectionné. Le serveur affiche une icône s’il existe des alertes, et le volet Alertes de la machine répertorie les alertes. 
+Fermez la page **Journaux** et revenez au volet **Propriétés**. Dans ce volet, sélectionnez **Alertes** pour voir les alertes sur les critères d’intégrité de la machine virtuelle. La fonctionnalité Cartographie intègre les alertes Azure pour afficher les alertes afférentes au serveur sélectionné sur l’intervalle de temps sélectionné. Le serveur affiche une icône pour les alertes actives, et le volet **Alertes de la machine** liste toutes les alertes. 
 
-![Alertes de la machine dans le volet Propriétés](./media/vminsights-maps/properties-pane-alerts-01.png)
+![Volet Alertes](./media/vminsights-maps/properties-pane-alerts-01.png)
 
-Pour permettre à la fonctionnalité Map d’afficher les alertes pertinentes, créez une règle d’alerte qui se déclenche pour un ordinateur spécifique. Pour créer des alertes appropriées :
-- Incluez une clause de regroupement par ordinateur (par exemple, **by Computer interval 1minute**).
-- Choisissez d’alerter des mesures de métriques.
+Pour que la fonctionnalité Cartographie affiche des alertes pertinentes, créez une règle d’alerte qui s’applique à un ordinateur spécifique :
+
+- Incluez une clause de regroupement des alertes par ordinateur (par exemple, **by Computer interval 1 minute**).
+- Créez l’alerte sur la base d’une métrique.
 
 Pour plus d’informations sur les alertes Azure et la création de règles d’alerte, consultez [Alertes unifiées dans Azure Monitor](../../azure-monitor/platform/alerts-overview.md).
 
-L’option **Légende** dans le coin supérieur droit décrit les symboles et les rôles sur une carte.  Vous pouvez faire un zoom afin d’examiner une carte plus en détail et déplacer la carte. Les contrôles de zoom en bas à droite de la page définissent le niveau de zoom et permettent d’ajuster l’affichage selon la taille de page actuelle.  
+Située dans le coin supérieur droit, l’option **Légende** décrit les symboles et les rôles cartographiés. Pour voir la carte plus en détail et vous déplacer autour, utilisez les contrôles de zoom disponibles en bas à droite. Vous pouvez définir le niveau de zoom et adapter la carte à la taille de la page.  
 
 ## <a name="connection-metrics"></a>Métriques de connexion
-Le volet **Connexions** affiche les métriques de connectivité standard pour la connexion sélectionnée de la machine virtuelle sur le port TCP. Les métriques comprennent le temps de réponse, le nombre de requêtes par minute, le débit du trafic et les liens.  
+Le volet **Connexions** affiche les métriques standard pour la connexion sélectionnée de la machine virtuelle sur le port TCP. Les métriques comprennent le temps de réponse, le nombre de requêtes par minute, le débit du trafic et les liens.  
 
-![Exemple de volet des graphiques de connectivité réseau](./media/vminsights-maps/map-group-network-conn-pane-01.png)  
+![Graphiques des connexions réseau dans le volet Connexions](./media/vminsights-maps/map-group-network-conn-pane-01.png)  
 
 ### <a name="failed-connections"></a>Connexions ayant échoué
-Les connexions qui ont échoué sont affichées dans la carte des processus et machines, avec une ligne rouge en pointillés indiquant qu’un système client ne parvient pas à atteindre un processus ou un port. Les connexions ayant échoué sont signalées par n’importe quel système disposant de Dependency Agent si ce système est celui qui a tenté d’établir de telles connexions. Map mesure ce processus en observant les sockets TCP qui ne parviennent pas à établir une connexion. Cet échec peut être dû à un pare-feu, à une configuration incorrecte du client ou du serveur, ou à l’indisponibilité d’un service distant.
+La carte affiche les connexions ayant échoué pour les processus et les ordinateurs. Une ligne rouge en pointillés indique qu’un système client n’a pas réussi à accéder à un processus ou un port. Sur les systèmes qui utilisent Dependency Agent, cet agent signale les tentatives de connexion ayant échoué. La fonctionnalité Cartographie supervise un processus en observant les sockets TCP qui ne parviennent pas à établir une connexion. Cet échec peut être dû à un pare-feu, à une configuration incorrecte du client ou du serveur, ou à un service distant non disponible.
 
-![Exemple de connexion ayant échoué sur la carte](./media/vminsights-maps/map-group-failed-connection-01.png)
+![Carte illustrant une connexion ayant échoué](./media/vminsights-maps/map-group-failed-connection-01.png)
 
-Le fait de comprendre les connexions ayant échoué peut faciliter le dépannage, la validation de la migration, l’analyse de la sécurité et la compréhension globale de l’architecture du service. Les échecs de connexion sont parfois sans incidence, mais ils dénotent souvent directement un problème tel qu’un environnement de basculement devenant subitement inaccessible ou deux couches Application incapables de communiquer entre elles après une migration vers le cloud.
+En ayant une bonne compréhension des échecs de connexions, vous pourrez plus facilement résoudre les problèmes rencontrés, valider la migration, analyser la sécurité et comprendre l’architecture globale du service. Les échecs de connexions sont parfois sans incidence, mais ils révèlent souvent un problème sous-jacent. Les connexions peuvent échouer, par exemple, quand un environnement de basculement devient subitement inaccessible ou lorsque deux niveaux d’application ne peuvent plus communiquer entre eux après une migration vers le cloud.
 
 ### <a name="client-groups"></a>Groupes de clients
-Les groupes de clients sur la carte représentent les machines clientes ayant des connexions avec la machine mappée. Un groupe de clients représente les clients d’un processus ou d’une machine.
+Sur la carte, les groupes de clients représentent les machines clientes qui se connectent à la machine cartographiée. Un groupe de clients représente les clients d’un seul processus ou d’une seule machine.
 
-![Exemples de groupes de clients sur la carte](./media/vminsights-maps/map-group-client-groups-01.png)
+![Carte illustrant un groupe de clients](./media/vminsights-maps/map-group-client-groups-01.png)
 
-Pour afficher les adresses IP et clients surveillés des systèmes d’un groupe de clients, sélectionnez le groupe. Le contenu du groupe est répertorié sous le groupe.  
+Pour voir les adresses IP et clients supervisés des systèmes dans un groupe de clients, sélectionnez le groupe. Le contenu du groupe est illustré ci-dessous.  
 
-![Exemple de liste d’adresses IP d’un groupe de clients sur la carte](./media/vminsights-maps/map-group-client-group-iplist-01.png)
+![Carte montrant la liste des adresses IP d’un groupe de clients](./media/vminsights-maps/map-group-client-group-iplist-01.png)
 
-Si le groupe inclut des clients surveillés et non surveillés, vous pouvez sélectionner la section appropriée du graphique en anneau sur le groupe pour filtrer les clients.
+Si le groupe inclut des clients supervisés et non supervisés, vous pouvez sélectionner la section appropriée dans le graphique en anneau du groupe pour filtrer les clients.
 
-### <a name="server-port-groups"></a>Groupes de ports du serveur
-Les groupes de ports de serveur représentent les ports de serveur sur les serveurs ayant des connexions entrantes à partir de la machine mappée. Le groupe inclut le port du serveur ainsi que le nombre de serveurs connectés à ce port. Sélectionnez le groupe pour répertorier chaque serveur et chaque connexion. 
+### <a name="server-port-groups"></a>Groupes de serveurs-ports
+Les groupes de serveurs-ports représentent les ports sur les serveurs qui reçoivent des connexions établies à partir de la machine cartographiée. Le groupe indique le port du serveur ainsi que le nombre de serveurs qui ont des connexions à ce port. Sélectionnez le groupe pour voir les différents serveurs et connexions. 
 
-![Exemple de groupe de ports de serveur sur la carte](./media/vminsights-maps/map-group-server-port-groups-01.png)  
+![Carte illustrant un groupe de serveurs-ports](./media/vminsights-maps/map-group-server-port-groups-01.png)  
 
-Si le groupe inclut des serveurs surveillés et non surveillés, vous pouvez sélectionner la section appropriée du graphique en anneau sur le groupe pour filtrer les serveurs.
+Si le groupe inclut des serveurs supervisés et non supervisés, vous pouvez sélectionner la section appropriée dans le graphique en anneau du groupe pour filtrer les serveurs.
 
-## <a name="view-map-directly-from-a-virtual-machine"></a>Afficher Map directement à partir d’une machine virtuelle 
+## <a name="view-a-map-from-a-vm"></a>Afficher une carte à partir d’une machine virtuelle 
 
-Pour accéder à Azure Monitor pour les machines virtuelles directement à partir d’une machine virtuelle, procédez comme suit.
+Pour accéder à Azure Monitor pour machines virtuelles directement à partir d’une machine virtuelle :
 
 1. Dans le portail Azure, sélectionnez **Machines virtuelles**. 
-2. Choisissez une machine virtuelle dans la liste, puis, dans la section **Surveillance**, sélectionnez **Insights (préversion)** .  
+2. Dans la liste, sélectionnez une machine virtuelle. Dans la section **Supervision**, choisissez **Insights (préversion)** .  
 3. Sélectionnez l’onglet **Carte**.
 
-Map affiche les dépendances de machines virtuelles, c’est-à-dire les processus et groupes de processus en cours d’exécution avec des connexions réseau actives, sur un intervalle de temps spécifié.  Par défaut, la carte affiche les 30 dernières minutes.  Le sélecteur **TimeRange** en haut à gauche permet d’effectuer des requêtes sur des intervalles de temps historiques jusqu’à une heure afin de voir l’aspect passé des dépendances (par exemple, pendant un incident ou avant une modification).  
+La carte affiche les dépendances de la machine virtuelle en détectant les processus et groupes de processus en cours d’exécution qui ont des connexions réseau actives sur l’intervalle de temps spécifié.  
+
+Par défaut, la carte affiche les 30 dernières minutes. Si vous souhaitez voir les dépendances sur une plus grande période passée, vous pouvez exécuter une requête sur un intervalle de temps historique allant jusqu’à une heure. Pour exécuter la requête, utilisez le sélecteur **TimeRange** dans le coin supérieur gauche. Vous pouvez exécuter une requête, par exemple, durant un incident ou pour afficher l’état avant une modification.  
 
 ![Vue d’ensemble de la carte de machine virtuelle directe](./media/vminsights-maps/map-direct-vm-01.png)
 
-## <a name="view-map-directly-from-a-virtual-machine-scale-set"></a>Afficher Map directement à partir d’un groupe de machines virtuelles identiques
+## <a name="view-a-map-from-a-virtual-machine-scale-set"></a>Afficher une carte à partir d’un groupe de machines virtuelles identiques
 
-Pour accéder à Azure Monitor pour machines virtuelles directement à partir d’un groupe de machines virtuelles identiques, procédez comme suit.
+Pour accéder à Azure Monitor pour machines virtuelles directement à partir d’un groupe de machines virtuelles identiques :
 
-1. Dans le portail Azure, sélectionnez **Groupes de machines virtuelles identiques**.
-2. Choisissez une machine virtuelle dans la liste, puis, dans la section **Surveillance**, sélectionnez **Insights (préversion)** .  
+1. Dans le Portail Microsoft Azure, sélectionnez **Groupes de machines virtuelles identiques**.
+2. Dans la liste, sélectionnez une machine virtuelle. Dans la section **Supervision**, choisissez **Insights (préversion)** .  
 3. Sélectionnez l’onglet **Carte**.
 
-La carte permet de visualiser toutes les instances dans le groupe identique comme un nœud de groupe avec les dépendances du groupe. Le nœud développé répertorie les instances du groupe identique ; vous pouvez les faire défiler par dix. Pour charger une carte pour une instance spécifique, sélectionnez cette instance sur la carte, puis cliquez sur les points de suspension à sa droite et choisissez **Charger la carte des serveurs**. La carte qui correspond à cette instance se charge, ce qui vous permet de voir les processus et groupes de processus avec des connexions réseau actives, sur un intervalle de temps spécifié. Par défaut, la carte affiche les 30 dernières minutes. Le sélecteur **TimeRange** vous permet d’effectuer des requêtes sur des intervalles de temps historiques jusqu’à une heure afin de voir l’aspect passé des dépendances (par exemple, pendant un incident ou avant une modification).  
+La carte affiche toutes les instances dans le groupe identique sous forme de nœud de groupe présentant toutes les dépendances du groupe. Le nœud développé liste les instances dans le groupe identique. Vous pouvez faire défiler jusqu’à 10 instances à la fois. 
+
+Pour charger la carte d’une instance spécifique, sélectionnez d’abord cette instance sur la carte. Ensuite, sélectionnez le bouton représentant des **points de suspension** (...) à droite et choisissez **Charger la carte des serveurs**. Sur la carte qui s’affiche, vous voyez tous les processus et groupes de processus qui ont des connexions réseau actives sur l’intervalle de temps spécifié. 
+
+Par défaut, la carte affiche les 30 dernières minutes. Si vous souhaitez voir les dépendances sur une plus grande période passée, vous pouvez exécuter une requête sur un intervalle de temps historique allant jusqu’à une heure. Pour exécuter la requête, utilisez le sélecteur **TimeRange**. Vous pouvez exécuter une requête, par exemple, durant un incident ou pour afficher l’état avant une modification.
 
 ![Vue d’ensemble de la carte de machine virtuelle directe](./media/vminsights-maps/map-direct-vmss-01.png)
 
 >[!NOTE]
->Vous pouvez également accéder à une carte pour une instance spécifique à partir de la vue Instances pour votre groupe de machines virtuelles identiques. Accédez à **Instances** sous la section **Paramètres**, puis choisissez **Insights (préversion)** .
+>Vous pouvez également accéder à la carte d’une instance spécifique à partir de la vue **Instances** de votre groupe de machines virtuelles identiques. Dans la section **Paramètres**, accédez à **Instances** > **Insights (préversion)** .
 
-## <a name="view-map-from-azure-monitor"></a>Afficher Map à partir d’Azure Monitor
-À partir d’Azure Monitor, la fonctionnalité Map offre une vue globale de vos machines virtuelles et de leurs dépendances.  Pour accéder à la fonctionnalité Map à partir d’Azure Monitor, procédez comme suit. 
+## <a name="view-a-map-from-azure-monitor"></a>Afficher une carte à partir d’Azure Monitor
+Dans Azure Monitor, la fonctionnalité Cartographie offre une vue globale de vos machines virtuelles et de leurs dépendances. Pour accéder à la fonctionnalité Cartographie dans Azure Monitor :
 
 1. Dans le Portail Azure, sélectionnez **Surveiller**. 
-2. Choisissez **Machines virtuelles (préversion)** dans la section **Insights**.
+2. Dans la section **Insights**, choisissez **Machines virtuelles (préversion)** .
 3. Sélectionnez l’onglet **Carte**.
 
-![Vue d’ensemble de la carte de machines virtuelles multiples dans Azure Monitor](./media/vminsights-maps/map-multivm-azure-monitor-01.png)
+   ![Carte globale d’Azure Monitor des différentes machines virtuelles](./media/vminsights-maps/map-multivm-azure-monitor-01.png)
 
-Dans le sélecteur **Espace de travail** en haut de la page, si vous avez plusieurs espaces de travail Log Analytics, choisissez celui qui est activé avec la solution et auquel des machines virtuelles envoient des rapports. Le sélecteur **Groupe** renvoie les abonnements, les groupes de ressources, les [groupes d’ordinateurs](../../azure-monitor/platform/computer-groups.md) et les groupes de machines virtuelles identiques associés à l’espace de travail sélectionné. Votre sélection s’applique seulement à la fonctionnalité Carte, et n’est pas reportée sur Performances ou Carte.
+Choisissez un espace de travail à l’aide du sélecteur **Espace de travail** en haut de la page. Si vous avez plusieurs espaces de travail Log Analytics, choisissez l’espace de travail qui est activé avec la solution et qui contient des machines virtuelles supervisées. 
 
-Par défaut, la carte affiche les 30 dernières minutes. Le sélecteur **TimeRange** permet d’effectuer des requêtes sur des intervalles de temps historiques jusqu’à une heure afin de voir l’aspect passé des dépendances (par exemple, pendant un incident ou avant une modification).   
+Le sélecteur **Groupe** affiche les abonnements, les groupes de ressources, les [groupes d’ordinateurs](../../azure-monitor/platform/computer-groups.md) et les groupes de machines virtuelles identiques qui sont associés à l’espace de travail sélectionné. Votre sélection s’applique uniquement à la fonctionnalité Cartographie, et n’est pas reportée sur la fonctionnalité Performances ou Intégrité.
+
+Par défaut, la carte affiche les 30 dernières minutes. Si vous souhaitez voir les dépendances sur une plus grande période passée, vous pouvez exécuter une requête sur un intervalle de temps historique allant jusqu’à une heure. Pour exécuter la requête, utilisez le sélecteur **TimeRange**. Vous pouvez exécuter une requête, par exemple, durant un incident ou pour afficher l’état avant une modification.  
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour savoir comment utiliser la fonctionnalité d’intégrité, consultez [View Azure VM Health](vminsights-health.md) (Afficher l’intégrité d’une machine virtuelle Azure). Pour identifier les goulots d’étranglement et les performances d’utilisation globales avec vos machines virtuelles, consultez [View Azure Monitor for VMs Performance](vminsights-performance.md) (Examiner les performances avec Azure Monitor pour les machines virtuelles). 
+- Pour savoir comment utiliser la fonctionnalité Intégrité, consultez [Afficher l’intégrité d’une machine virtuelle Azure](vminsights-health.md). 
+- Pour identifier les goulots d’étranglement, superviser les performances et comprendre l’utilisation globale de vos machines virtuelles, consultez [Afficher les performances avec Azure Monitor pour machines virtuelles](vminsights-performance.md). 

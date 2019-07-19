@@ -1,6 +1,6 @@
 ---
 title: Propriétés standard dans les enregistrements de journaux Azure Monitor | Microsoft Docs
-description: Décrit les propriétés communes à plusieurs types de données dans les journaux d’activité Azure Monitor.
+description: Décrit les propriétés communes à plusieurs types de données dans les journaux Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -12,20 +12,20 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: bwren
-ms.openlocfilehash: c01cdb967fd7f9516b4403aa4f0c76f2577d5050
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 50804e1f6ab4f352239d3f405e5b41e4e0c58d14
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60394521"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67292824"
 ---
-# <a name="standard-properties-in-azure-monitor-log-records"></a>Propriétés standard dans les enregistrements de journaux Azure Monitor
-Les données de journal dans Azure Monitor sont [stockées sous la forme d’un jeu d’enregistrements](../log-query/log-query-overview.md), chacun ayant un type de données particulier comportant un ensemble de propriétés unique. De nombreux types de données comportent des propriétés standard qui sont communes à plusieurs types. Cet article décrit ces propriétés et fournit des exemples sur la façon dont vous pouvez les utiliser dans des requêtes.
+# <a name="standard-properties-in-azure-monitor-logs"></a>Propriétés standard dans les journaux Azure Monitor
+Les données dans les journaux Azure Monitor sont [stockées sous la forme d’un jeu d’enregistrements dans un espace de travail Log Analytics ou dans une application Application Insights](../log-query/logs-structure.md), chacun ayant un type de données particulier associé à un ensemble unique de propriétés. De nombreux types de données comportent des propriétés standard qui sont communes à plusieurs types. Cet article décrit ces propriétés et fournit des exemples sur la façon dont vous pouvez les utiliser dans des requêtes.
 
 Certaines de ces propriétés sont toujours en cours d’implémentation, vous pouvez donc les voir dans certains types de données, mais pas encore dans d’autres.
 
-## <a name="timegenerated"></a>TimeGenerated
-La propriété **TimeGenerated** contient la date et l’heure auxquelles l’enregistrement a été créé. Elle fournit une propriété commune à utiliser pour le filtrage ou pour effectuer un résumé par heure. Quand vous sélectionnez un intervalle de temps pour un affichage ou un tableau de bord dans le Portail Azure, la propriété TimeGenerated est utilisée pour filtrer les résultats.
+## <a name="timegenerated-and-timestamp"></a>TimeGenerated et timestamp
+Les propriétés **TimeGenerated** (espace de travail Log Analytics) et **timestamp** (application Application Insights) contiennent la date et l’heure de création de l’enregistrement. Elle fournit une propriété commune à utiliser pour le filtrage ou pour effectuer un résumé par heure. Quand vous sélectionnez un intervalle de temps pour une vue ou un tableau de bord dans le portail Azure, la propriété TimeGenerated ou timestamp permet de filtrer les résultats.
 
 ### <a name="examples"></a>Exemples
 
@@ -39,16 +39,25 @@ Event
 | sort by TimeGenerated asc 
 ```
 
-## <a name="type"></a>Type
-La propriété **Type** contient le nom du tableau à partir duquel l’enregistrement a été récupéré, qui peut également être considéré comme le type d’enregistrement. Cette propriété est utile dans les requêtes qui combinent des enregistrements issus de plusieurs tableaux, comme ceux utilisés par l’opérateur `search`, pour distinguer les enregistrements de différents types. **$table** peut être utilisé à la place de **Type** à certains endroits.
+La requête suivante retourne le nombre d’exceptions créées chaque jour de la semaine précédente.
+
+```Kusto
+exceptions
+| where timestamp between(startofweek(ago(7days))..endofweek(ago(7days))) 
+| summarize count() by bin(TimeGenerated, 1day) 
+| sort by timestamp asc 
+```
+
+## <a name="type-and-itemtype"></a>Type et itemType
+Les propriétés **Type** (espace de travail Log Analytics) et **itemType** (application Application Insights) contiennent le nom de la table d’où l’enregistrement a été récupéré, qui peut également être considéré comme le type de l’enregistrement. Cette propriété est utile dans les requêtes qui combinent des enregistrements issus de plusieurs tableaux, comme ceux utilisés par l’opérateur `search`, pour distinguer les enregistrements de différents types. **$table** peut être utilisé à la place de **Type** à certains endroits.
 
 ### <a name="examples"></a>Exemples
 La requête suivante renvoie le nombre d’enregistrements par type collectés au cours de la dernière heure.
 
 ```Kusto
 search * 
-| where TimeGenerated > ago(1h) 
-| summarize count() by Type 
+| where TimeGenerated > ago(1h)
+| summarize count() by Type
 ```
 
 ## <a name="resourceid"></a>\_ResourceId
@@ -85,7 +94,7 @@ AzureActivity
 ) on _ResourceId  
 ```
 
-La requête suivante analyse **_ResourceId** et agrégats facturé par abonnement Azure, les volumes de données.
+La requête suivante analyse **_ResourceId** et agrège les volumes de données facturés par abonnement Azure.
 
 ```Kusto
 union withsource = tt * 
@@ -136,6 +145,26 @@ union withsource = tt *
 | summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last 
 ```
 
+Pour connaître la taille des événements facturables ingérés par abonnement, exécutez la requête suivante :
+
+```Kusto
+union withsource=table * 
+| where _IsBillable == true 
+| parse _ResourceId with "/subscriptions/" SubscriptionId "/" *
+| summarize Bytes=sum(_BilledSize) by  SubscriptionId | sort by Bytes nulls last 
+```
+
+Pour connaître la taille des événements facturables ingérés par groupe de ressources, exécutez la requête suivante :
+
+```Kusto
+union withsource=table * 
+| where _IsBillable == true 
+| parse _ResourceId with "/subscriptions/" SubscriptionId "/resourcegroups/" ResourceGroupName "/" *
+| summarize Bytes=sum(_BilledSize) by  SubscriptionId, ResourceGroupName | sort by Bytes nulls last 
+
+```
+
+
 Pour connaître le nombre d'événements ingérés par ordinateur, utilisez la requête suivante :
 
 ```Kusto
@@ -151,7 +180,7 @@ union withsource = tt *
 | summarize count() by Computer  | sort by count_ nulls last
 ```
 
-Pour connaître le nombre de types de données facturables qui ont envoyé des données à un ordinateur spécifique, utilisez la requête suivante :
+Pour connaître le nombre de types de données facturables issues d’un ordinateur spécifique, exécutez la requête suivante :
 
 ```Kusto
 union withsource = tt *
@@ -159,7 +188,6 @@ union withsource = tt *
 | where _IsBillable == true 
 | summarize count() by tt | sort by count_ nulls last 
 ```
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

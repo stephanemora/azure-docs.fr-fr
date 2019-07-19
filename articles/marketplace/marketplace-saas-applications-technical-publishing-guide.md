@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: keithcharlie
-ms.openlocfilehash: 4501a343b406f07b4775f3ad0e84d71825412a4b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d2b44b89443b5e7e82d303e1447533546d27ec9a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752728"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445745"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>Guide de publication de l’offre des applications SaaS
 
@@ -94,7 +94,7 @@ En outre, Azure Active Directory fournit un site pour vérifier la disponibilit�
 
 ## <a name="using-azure-active-directory-to-enable-trials"></a>Utilisation d’Azure Active Directory pour activer les versions d’évaluation  
 
-Microsoft authentifie tous les utilisateurs de la Place de marché auprès d’Azure AD. Par conséquent, quand un utilisateur authentifié clique sur votre annonce de version d’essai sur la Place de marché et est redirigé vers votre environnement d’essai, vous pouvez approvisionner l’utilisateur directement dans un Essai, sans qu’aucune autre étape de connexion soit nécessaire. Le jeton que votre application reçoit d’Azure AD pendant l’authentification inclut des informations utilisateur utiles que vous pouvez utiliser pour créer un compte utilisateur dans votre application, ce qui vous permet d’automatiser l’expérience d’approvisionnement et d’augmenter la probabilité de conversion. Pour plus d’informations sur le jeton, voir [Exemples de jetons](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
+Microsoft authentifie tous les utilisateurs de la Place de marché auprès d’Azure AD. Ainsi, quand un utilisateur authentifié clique sur votre annonce de version d’essai sur la Place de marché et est redirigé vers votre environnement d’essai, vous pouvez provisionner l’utilisateur directement dans un Essai, sans qu’aucune autre étape de connexion soit nécessaire. Le jeton que votre application reçoit d’Azure AD pendant l’authentification inclut des informations utilisateur utiles que vous pouvez utiliser pour créer un compte utilisateur dans votre application, ce qui vous permet d’automatiser l’expérience d’approvisionnement et d’augmenter la probabilité de conversion. Pour plus d’informations sur le jeton, voir [Exemples de jetons](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
 
 L’utilisation d’Azure AD pour activer l’authentification en un clic auprès de votre application effectue les opérations suivantes :  
 * Simplifie l’expérience utilisateur, de la Place de marché à l’Essai.  
@@ -104,7 +104,7 @@ L’utilisation d’Azure AD pour activer l’authentification en un clic auprè
 
 ## <a name="certifying-your-azure-ad-integration-for-marketplace"></a>Certification de votre intégration Azure Active Directory pour la Place de marché  
 
-Vous pouvez certifier votre intégration avec Azure AD de différentes manières, selon que votre application est à client unique ou mutualisée, et que vous utilisez déjà ou découvrez l’authentification unique fédérée (SSO) Azure AD.  
+Certifiez votre intégration avec Azure AD de différentes manières, selon que votre application est à locataire unique ou multilocataire, et que vous utilisez déjà ou découvrez l’authentification unique fédérée (SSO) Azure AD.  
 
 **Pour les applications mutualisées :**  
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c3c97e786e2147f043a63b90b886e01eb5944cb4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0a051b0e853b60dfc1f5b6c3453d9ed8361f1748
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66507673"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67438815"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Personnaliser l’interface utilisateur de votre application à l’aide d’une stratégie personnalisée dans Azure Active Directory B2C
 
@@ -79,18 +79,19 @@ Pour héberger ce contenu HTML dans le stockage Blob, procédez comme suit :
 
 Pour créer un conteneur public dans le stockage Blob, procédez comme suit :
 
-1. Cliquez sur l’onglet **Vue d’ensemble**.
-2. Cliquez sur **Conteneur**.
-3. Dans le champ **Nom**, saisissez **$root**.
-4. Définissez **Type d’accès** sur **Blob**.
-5. Cliquez sur **$root** pour ouvrir le nouveau conteneur.
+1. Sous **Service Blob** dans le menu de gauche, sélectionnez **Objets Blob**.
+2. Cliquez sur **+Conteneur**.
+3. Pour **Nom**, entrez *root*. Cela peut être un nom de votre choix, par exemple *wingtiptoys*, mais nous utilisons *root* dans cet exemple par souci de simplicité.
+4. Pour **Niveau d’accès public**, sélectionnez **Objet blob**, puis **OK**.
+5. Cliquez sur **root** pour ouvrir le nouveau conteneur.
 6. Cliquez sur **Télécharger**.
 7. Cliquez sur l’icône de dossier en regard du champ **Sélectionner un fichier**.
-8. Accédez au fichier **customize-ui.html** que vous avez précédemment créé en appliquant la procédure de la section Personnalisation de l'interface utilisateur de la page.
-9. Cliquez sur **Télécharger**.
-10. Sélectionnez le blob customize-ui.html que vous venez de charger.
-11. Cliquez sur le bouton **Copier** situé en regard du champ **URL**.
-12. Collez l’URL que vous venez de copier dans votre navigateur et accédez au site. Si le site est inaccessible, assurez-vous que le type d’accès du conteneur est configuré sur **blob**.
+8. Accédez au fichier **customize-ui.html** que vous avez précédemment créé dans la section Personnalisation de l'interface utilisateur de la page, et sélectionnez-le.
+9. Si vous souhaitez le charger dans un sous-dossier, développez **Avancé** et entrez un nom de dossier dans **Charger dans le dossier**.
+10. Sélectionnez **Télécharger**.
+11. Sélectionnez l’objet blob **customize-ui.html** que vous venez de charger.
+12. À droite de la zone de texte **URL**, sélectionnez l’icône **Copier dans le Presse-papiers** pour copier l’URL dans le Presse-papiers.
+13. Dans le navigateur web, accédez à l’URL que vous avez copiée pour vérifier que l’objet blob que vous avez chargé est accessible. S’il est inaccessible, par exemple si vous rencontrez une erreur `ResourceNotFound`, assurez-vous que le type d’accès du conteneur est défini sur **objet blob**.
 
 ## <a name="configure-cors"></a>Configuration de CORS
 
@@ -159,6 +160,7 @@ Pour configurer la personnalisation de l’interface utilisateur, copiez l’él
 
 ## <a name="reference"></a>Informations de référence
 
+### <a name="sample-templates"></a>Exemples de modèles
 Vous trouverez ici des exemples de modèles pour la personnalisation de l’interface utilisateur :
 
 ```
@@ -174,6 +176,16 @@ Le dossier sample_templates/wingtip contient les fichiers HTML suivants :
 | *selfasserted.html* | Utilisez ce fichier en tant que modèle pour une page d’inscription à un compte de réseau social, une page d’inscription à un compte local ou une page de connexion à un compte local. |
 | *unified.html* | Utilisez ce fichier en tant que modèle pour une page de connexion ou d’inscription unifiée. |
 | *updateprofile.html* | Utilisez ce fichier en tant que modèle pour une page de mise à jour de profil. |
+
+Voici les étapes indiquant comment utiliser l’exemple. 
+1. Clonez le référentiel sur votre ordinateur local. Choisissez un dossier de modèle sous sample_templates. Vous pouvez utiliser `wingtip` ou `contoso`.
+2. Chargez tous les fichiers sous les dossiers `css`, `fonts` et `images` vers le stockage d’objets blob, comme décrit dans les sections précédentes. 
+3. Ensuite, ouvrez chaque fichier \*.html dans le dossier racine `wingtip` ou `contoso` (selon celui que vous avez sélectionné dans la première étape) et remplacez toutes les instances de « http://localhost  » par les URL des fichiers css, images et de polices que vous avez téléchargés à l’étape 2.
+4. Enregistrez les fichiers \*.html et chargez-les dans le stockage d’objets blob.
+5. À présent, modifiez le fichier d’extensions, comme indiqué précédemment dans [Modifier le fichier d’extensions](#modify-the-extensions-file).
+6. Si vous voyez des polices, des images ou des feuilles de style CSS manquants, vérifiez vos références dans la stratégie d’extensions et les fichiers \*.html.
+
+### <a name="content-defintion-ids"></a>ID de définition de contenu
 
 À la section Modifier votre stratégie personnalisée d'inscription ou de connexion, vous avez configuré la définition de contenu de `api.idpselections`. L’ensemble des identifiants de définition du contenu reconnus par l’infrastructure d’expérience d’identité Azure AD B2C et leurs descriptions sont regroupés dans le tableau suivant :
 

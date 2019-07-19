@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: f372c2a85a9a03c7ead779bd4db64722891c9a4c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5b2c153646021aeb8ee0dbb787cfce41af19568d
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60201492"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443679"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Créer une solution IoT à l’aide de Stream Analytics
 
@@ -138,7 +138,8 @@ Il existe plusieurs ressources qui peuvent facilement être déployées ensemble
 10. Après quelques instants, une notification s’affiche pour confirmer la **réussite du déploiement**.
 
 ### <a name="review-the-azure-stream-analytics-tollapp-resources"></a>Passer en revue les ressources TollApp d’Azure Stream Analytics
-1. Se connecter au portail Azure.
+
+1. Connectez-vous au portail Azure.
 
 2. Localisez le groupe de ressources que vous avez nommé dans la section précédente.
 
@@ -171,7 +172,7 @@ Il existe plusieurs ressources qui peuvent facilement être déployées ensemble
    - L’entrée **Enregistrement** est une connexion du stockage d'objets blob Azure, pointant vers un fichier .json d’enregistrement statique, utilisé pour les recherches en fonction des besoins. Cette entrée de données de référence sera utilisée dans des variantes ultérieures de la syntaxe de requête.
 
 4. Examinez les sorties de l’exemple de tâche TollApp.
-   - La sortie **Cosmos DB** est une collection de base de données Cosmos qui reçoit les événements du récepteur de sortie. Notez que cette sortie est utilisée dans la clause INTO de la requête de diffusion en continu.
+   - La sortie **Cosmos DB** est un conteneur de base de données Cosmos qui reçoit les événements du récepteur de sortie. Notez que cette sortie est utilisée dans la clause INTO de la requête de diffusion en continu.
 
 ## <a name="start-the-tollapp-streaming-job"></a>Démarrer la tâche de diffusion en continu TollApp
 Suivez ces étapes pour démarrer la tâche de diffusion en continu :

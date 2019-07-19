@@ -1,6 +1,6 @@
 ---
-title: Revendications d’API REST échanges - Azure Active Directory B2C | Microsoft Docs
-description: Ajouter des échanges de revendications de l’API REST pour les stratégies personnalisées dans Active Directory B2C.
+title: Échanges de revendications de l’API REST - Azure Active Directory B2C
+description: Ajoutez des échanges de revendications de l’API REST aux stratégies personnalisées dans Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,44 +10,51 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: bc0cea765816bfac066b05aca65f668fbce0c8ef
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.openlocfilehash: 0bdef508e12a3b11143149b330da73838b53f860
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66508767"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67439016"
 ---
-# <a name="add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>Ajouter des échanges de revendications de l’API REST pour les stratégies personnalisées dans Azure Active Directory B2C
+# <a name="add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>Ajouter des échanges de revendications d’API REST aux stratégies personnalisées dans Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Vous pouvez ajouter une interaction avec une API RESTful pour votre [stratégies personnalisées](active-directory-b2c-overview-custom.md) dans Azure Active Directory (Azure AD) B2C. Cet article vous montre comment créer un parcours utilisateur Azure AD B2C qui interagit avec les services RESTful.
+Vous pouvez ajouter une interaction avec une API RESTful à vos [stratégies personnalisées](active-directory-b2c-overview-custom.md) dans Azure Active Directory (Azure AD) B2C. Cet article vous montre comment créer un parcours utilisateur Azure AD B2C qui interagit avec les services RESTful.
 
-L’interaction inclut un échange de revendications d’informations entre les revendications de l’API REST et Azure AD B2C. Échanges de revendications présentent les caractéristiques suivantes :
+Cette interaction inclut un échange de revendications d’informations entre les revendications de l’API REST et Azure AD B2C. Les échanges de revendications présentent les caractéristiques suivantes :
 
 - Peut être conçue comme une étape d’orchestration.
 - Peut déclencher une action externe. Par exemple, elle peut enregistrer un événement dans une base de données externe.
 - Peut être utilisée pour extraire une valeur puis la stocker dans la base de données utilisateur.
-- Peut modifier le flux d’exécution. 
+- Peut modifier le flux d’exécution.
 
-Le scénario est représenté dans cet article inclut les actions suivantes :
+Le scénario qui est représenté dans cet article inclut les actions suivantes :
 
 1. Rechercher l’utilisateur dans un système externe.
 2. Obtenir la ville dans laquelle cet utilisateur est inscrit.
 3. Retourner cet attribut à l’application sous forme de revendication.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 - Suivez les étapes décrites dans [Bien démarrer avec les stratégies personnalisées dans Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
-- Un point de terminaison API REST avec lequel vous allez interargir. Ce utilise article un simple Azure fonctionner comme un exemple. Pour créer la fonction Azure, consultez [créer votre première fonction dans le portail Azure](../azure-functions/functions-create-first-azure-function.md).
+- Un point de terminaison API REST avec lequel vous allez interargir. Cet article utilise une fonction Azure simple comme exemple. Pour créer la fonction Azure, consultez [Créer votre première fonction à l’aide du Portail Azure](../azure-functions/functions-create-first-azure-function.md).
 
 ## <a name="prepare-the-api"></a>Préparer l’API
 
-Dans cette section, vous préparez la fonction Azure pour recevoir une valeur pour `email`et puis renvoyer la valeur de `city` qui peut être utilisé par Azure AD B2C en tant que revendication.
+Dans cette section, vous préparez la fonction Azure pour recevoir une valeur pour `email`, puis retournez la valeur de `city` qui peut être utilisée par Azure AD B2C comme revendication.
 
-Modifiez le fichier run.csx pour la fonction Azure que vous avez créé pour utiliser le code suivant : 
+Modifiez le fichier run.csx pour la fonction Azure que vous avez créée pour utiliser le code suivant :
 
-```
+```csharp
+#r "Newtonsoft.Json"
+
+using System.Net;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Primitives;
+using Newtonsoft.Json;
+
 public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
 {
   log.LogInformation("C# HTTP trigger function processed a request.");
@@ -75,11 +82,11 @@ public class ResponseContent
 }
 ```
 
-## <a name="configure-the-claims-exchange"></a>Configuration de l’échange de revendications
+## <a name="configure-the-claims-exchange"></a>Configurer l’échange de revendications
 
-Un profil technique fournit la configuration pour l’échange de revendications. 
+Un profil technique fournit la configuration pour l’échange de revendications.
 
-Ouvrez le *TrustFrameworkExtensions.xml* fichier, puis ajoutez les éléments XML suivants à l’intérieur de la **ClaimsProvider** élément.
+Ouvrez le fichier *TrustFrameworkExtensions.xml* et ajoutez l’élément XML **ClaimsProvider** suivant dans l’élément **ClaimsProviders**.
 
 ```XML
 <ClaimsProvider>
@@ -106,11 +113,11 @@ Ouvrez le *TrustFrameworkExtensions.xml* fichier, puis ajoutez les éléments XM
 </ClaimsProvider>
 ```
 
-Le **InputClaims** élément définit les revendications qui sont envoyées au service REST. Dans cet exemple, la valeur de la revendication `givenName` est envoyé au service REST en tant que la revendication `email`. Le **OutputClaims** élément définit les revendications qui sont attendues du service REST.
+L’élément **InputClaims** définit les revendications qui sont envoyées au service REST. Dans cet exemple, la valeur de la revendication `givenName` est envoyée au service REST en tant que revendication `email`. L’élément **OutputClaims** définit les revendications qui sont attendues du service REST.
 
-## <a name="add-the-claim-definition"></a>Ajoutez la définition de revendication
+## <a name="add-the-claim-definition"></a>Ajouter la définition de revendication
 
-Ajoutez une définition pour `city` à l’intérieur de la **BuildingBlocks** élément. Vous pouvez trouver cet élément au début du fichier TrustFrameworkExtensions.xml.
+Ajoutez une définition pour `city` à l’intérieur de l’élément **BuildingBlocks**. Vous pouvez trouver cet élément au début du fichier TrustFrameworkExtensions.xml.
 
 ```XML
 <BuildingBlocks>
@@ -129,17 +136,17 @@ Ajoutez une définition pour `city` à l’intérieur de la **BuildingBlocks** �
 
 Vous pouvez utiliser l’appel de l’API REST comme étape d’orchestration dans de nombreux cas d’utilisation. Il peut par exemple être utilisé comme mise à jour pour un système externe une fois qu’un utilisateur a terminé une tâche, comme sa première inscription ou une mise à jour de son profil, afin de synchroniser les informations. Dans ce cas, il est utilisé pour transférer les informations fournies à l’application après la modification du profil.
 
-Ajoutez une étape pour le parcours utilisateur modification de profil. Une fois que l’utilisateur est authentifié (étapes d’orchestration 1 à 4 dans le code XML suivant), et l’utilisateur a fourni les informations de profil mis à jour (étape 5). Copie le profil de modifier le code XML du parcours utilisateur à partir de la *TrustFrameworkBase.xml* de fichiers à votre *TrustFrameworkExtensions.xml* de fichiers à l’intérieur de la **UserJourneys** élément. Effectuez la modification en tant qu’étape 6.
+Ajoutez une étape dans le parcours utilisateur de modification de profil. Une fois que l’utilisateur a été authentifié (étapes d’orchestration 1 à 4 du fichier XML suivant) et qu’il a fourni les informations de profil mises à jour (étape 5). Copiez le code XML du parcours utilisateur de modification de profil du fichier *TrustFrameworkBase.xml* vers votre fichier *TrustFrameworkExtensions.xml*, à l’intérieur de l’élément **UserJourneys**. Effectuez ensuite la modification dans l’étape 6.
 
 ```XML
 <OrchestrationStep Order="6" Type="ClaimsExchange">
   <ClaimsExchanges>
-    <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-LookUpLoyaltyWebHook" />
+    <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-WebHook" />
   </ClaimsExchanges>
 </OrchestrationStep>
 ```
 
-Le XML pour le parcours utilisateur final doit ressembler à cet exemple :
+Le code XML final pour le parcours utilisateur doit ressembler à l’exemple suivant :
 
 ```XML
 <UserJourney Id="ProfileEdit">
@@ -188,7 +195,7 @@ Le XML pour le parcours utilisateur final doit ressembler à cet exemple :
     <!-- Add a step 6 to the user journey before the JWT token is created-->
     <OrchestrationStep Order="6" Type="ClaimsExchange">
       <ClaimsExchanges>
-        <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-LookUpLoyaltyWebHook" />
+        <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-WebHook" />
       </ClaimsExchanges>
     </OrchestrationStep>
     <OrchestrationStep Order="7" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
@@ -197,32 +204,34 @@ Le XML pour le parcours utilisateur final doit ressembler à cet exemple :
 </UserJourney>
 ```
 
-## <a name="add-the-claim"></a>Ajoutez la revendication
+## <a name="add-the-claim"></a>Ajouter la revendication
 
-Modifier le *ProfileEdit.xml* fichier, puis ajoutez `<OutputClaim ClaimTypeReferenceId="city" />` à la **OutputClaims** élément.
+Modifiez le fichier *ProfileEdit.xml* et ajoutez `<OutputClaim ClaimTypeReferenceId="city" />` à l’élément **OutputClaims**.
 
-Après avoir ajouté la nouvelle revendication, le profil technique ressemble à cet exemple :
+Une fois que vous avez ajouté la nouvelle revendication, le profil technique ressemble à l’exemple suivant :
 
 ```XML
-<DisplayName>PolicyProfile</DisplayName>
-    <Protocol Name="OpenIdConnect" />
-    <OutputClaims>
-      <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
-      <OutputClaim ClaimTypeReferenceId="city" />
-    </OutputClaims>
-    <SubjectNamingInfo ClaimType="sub" />
+<TechnicalProfile Id="PolicyProfile">
+  <DisplayName>PolicyProfile</DisplayName>
+  <Protocol Name="OpenIdConnect" />
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
+    <OutputClaim ClaimTypeReferenceId="tenantId" AlwaysUseDefaultValue="true" DefaultValue="{Policy:TenantObjectId}" />
+    <OutputClaim ClaimTypeReferenceId="city" />
+  </OutputClaims>
+  <SubjectNamingInfo ClaimType="sub" />
 </TechnicalProfile>
 ```
 
 ## <a name="upload-your-changes-and-test"></a>Charger et tester vos modifications
 
-1. (Facultatif :) Enregistrez la version existante (en la téléchargeant) des fichiers avant de continuer.
-2. Télécharger le *TrustFrameworkExtensions.xml* et *ProfileEdit.xml* et sélectionnez cette option pour remplacer le fichier existant.
+1. (Facultatif :) Enregistrez la version existante des fichiers (en la téléchargeant) avant de continuer.
+2. Chargez *TrustFrameworkExtensions.xml* et *ProfileEdit.xml*, et sélectionnez le remplacement du fichier existant.
 3. Sélectionnez **B2C_1A_ProfileEdit**.
-4. Pour **sélectionnez application** dans la page Vue d’ensemble de la stratégie personnalisée, sélectionnez l’application web nommée *application Web 1* que vous avez inscrite précédemment. Assurez-vous que le **URL de réponse** est `https://jwt.ms`.
-4. Sélectionnez **exécuter maintenant**. Connectez-vous avec vos informations d’identification de compte, puis cliquez sur **continuer**.
+4. Pour **sélectionner une application** dans la page de présentation de la stratégie personnalisée, sélectionnez l’application web nommée *webapp1* que vous avez inscrite précédemment. Assurez-vous que l’**URL de réponse** soit `https://jwt.ms`.
+4. Sélectionnez **Exécuter maintenant**. Connectez-vous avec vos informations d’identification de compte et cliquez sur **Continuer**.
 
-Si tout est correctement configuré, le jeton inclut la nouvelle revendication `city`, avec la valeur `Redmond`.
+Si tout est bien configuré, le jeton inclut la nouvelle revendication `city`, avec la valeur `Redmond`.
 
 ```JSON
 {

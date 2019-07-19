@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services : Administrer la stratégie de gr
 description: Administrer la stratégie de groupe sur les domaines gérés par les services de domaine Azure Active Directory
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.author: mstephen
-ms.openlocfilehash: db5fd06bc4d9a923279095ab187d867a6624480a
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.author: iainfou
+ms.openlocfilehash: 3776ec6fd60ad888102cbc4992572516386fede2
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66245848"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67473097"
 ---
 # <a name="administer-group-policy-on-an-azure-ad-domain-services-managed-domain"></a>Administrer la stratégie de groupe sur un domaine géré par les services de domaine Azure Active Directory
 Azure Active Directory Domain Services inclut des objets de stratégie de groupe (GPO) intégrés pour les conteneurs « Utilisateurs AADDC » et « Ordinateurs AADDC ». Vous pouvez personnaliser ces GPO pour configurer la stratégie de groupe sur le domaine géré. De plus, les membres du groupe « AAD DC Administrators » peuvent créer leurs propres unités d’organisation personnalisées dans le domaine géré. Ils peuvent également créer des GPO personnalisés et les lier à ces unités d’organisation personnalisées. Les utilisateurs qui appartiennent au groupe « AAD DC Administrators » bénéficient de privilèges d’administration de stratégie de groupe sur le domaine géré.
@@ -125,7 +125,7 @@ Vous pouvez créer ou importer vos propres objets de stratégie de groupe. Vous 
 
 Pour plus d’informations sur l’utilisation de la [Console de gestion de stratégie de groupe](https://technet.microsoft.com/library/cc753298.aspx), consultez le site Technet.
 
-## <a name="related-content"></a>Contenu associé
+## <a name="related-content"></a>Contenu connexe
 * [Services de domaine Azure AD : guide de mise en route](create-instance.md)
 * [Joindre une machine virtuelle Windows Server à un domaine géré par les services de domaine Azure AD](active-directory-ds-admin-guide-join-windows-vm.md)
 * [Gérer un domaine Azure AD Domain Services](manage-domain.md)

@@ -6,16 +6,16 @@ ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
-ms.reviewer: divswa, LADocs
+ms.reviewer: divswa, klam, LADocs
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 06/19/2019
 tags: connectors
-ms.openlocfilehash: e5aeaa707c7a839483484c524e982204d6fe055c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 66f1d726dcfa1a077abbff0d9f028036db43cc25
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60408553"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67293088"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>Créer, superviser et gérer des fichiers FTP avec Azure Logic Apps
 
@@ -30,13 +30,31 @@ Vous pouvez utiliser des déclencheurs qui obtiennent des réponses de votre ser
 
 ## <a name="limits"></a>limites
 
-* Les actions FTP prennent uniquement en charge les fichiers de *50 Mo ou moins*, sauf si vous utilisez la [segmentation du message](../logic-apps/logic-apps-handle-large-messages.md), ce qui vous permet de dépasser cette limite. Actuellement, les déclencheurs FTP ne prennent pas en charge la segmentation.
-
 * Le connecteur FTP ne prend en charge que FTPS (FTP sur SSL en mode explicite) ; il n’est pas compatible avec le protocole FTPS implicite.
+
+* Par défaut, les actions FTP peuvent lire ou écrire des fichiers dont la taille est *inférieure ou égale à 50 Mo*. Pour gérer les fichiers dont la taille est supérieure à 50 Mo, les actions FTP prennent en charge la [segmentation des messages](../logic-apps/logic-apps-handle-large-messages.md). L’action **Obtenir le contenu du fichier** utilise implicitement la segmentation.
+
+* Les déclencheurs FTP ne prennent pas en charge la segmentation. Quand ils demandent le contenu des fichiers, les déclencheurs sélectionnent uniquement les fichiers dont la taille est inférieure ou égale à 50 Mo. Pour obtenir des fichiers supérieurs à 50 Mo, suivez ce modèle :
+
+  * Utilisez un déclencheur FTP qui retourne des propriétés de fichier comme **Quand un fichier est ajouté ou modifié (propriétés uniquement)** .
+
+  * Suivez le déclencheur avec l’action FTP **Obtenir le contenu du fichier**, qui lit le fichier complet et utilise implicitement la segmentation.
+
+## <a name="how-ftp-triggers-work"></a>Fonctionnement des déclencheurs FTP
+
+Les déclencheurs FTP fonctionnent en interrogeant le système de fichiers FTP et en recherchant tout fichier changé depuis la dernière interrogation. Certains outils permettent de conserver l’horodatage lorsque les fichiers sont modifiés. Dans ce cas, vous devez désactiver cette fonctionnalité pour permettre l’exécution du déclencheur. Voici quelques paramètres communs :
+
+| Client SFTP | Action |
+|-------------|--------|
+| Winscp | Accédez à **Options** > **Préférences** > **Transférer** > **Modifier** > **Conserver l’horodatage** > **Désactiver** |
+| FileZilla | Accédez à **Transférer** > **Conserver les horodatages des fichiers transférés** > **Désactiver** |
+|||
+
+Quand un déclencheur détecte un nouveau fichier, il vérifie que le nouveau fichier est complet et non partiellement écrit. Par exemple, un fichier peut être en cours de modification lorsque le déclencheur vérifie le serveur de fichiers. Pour éviter de retourner un fichier partiellement écrit, le déclencheur note l’horodatage du fichier qui comporte des modifications récentes, mais ne retourne pas immédiatement ce fichier. Le déclencheur retourne le fichier uniquement lors d’une nouvelle interrogation du serveur. Parfois, ce comportement peut entraîner un retard correspondant à jusqu’à deux fois l’intervalle d’interrogation du déclencheur.
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>. 
+* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/).
 
 * Vos informations d’identification de compte et adresse du serveur hôte FTP
 
@@ -56,22 +74,13 @@ Vous pouvez utiliser des déclencheurs qui obtiennent des réponses de votre ser
 
    -ou-
 
-   Pour les applications logiques existantes, sous la dernière étape où vous souhaitez ajouter une action, choisissez **Nouvelle étape**, puis sélectionnez **Ajouter une action**. 
-   Dans la zone de recherche, entrez « ftp » comme filtre. 
-   Dans la liste des actions, sélectionnez l’action souhaitée.
+   Pour les applications logiques existantes, sous la dernière étape où vous souhaitez ajouter une action, choisissez **Nouvelle étape**, puis sélectionnez **Ajouter une action**. Dans la zone de recherche, entrez « ftp » comme filtre. Dans la liste des actions, sélectionnez l’action souhaitée.
 
-   Pour ajouter une action entre des étapes, placez votre pointeur au-dessus de la flèche qui les sépare. 
-   Cliquez sur le signe plus ( **+** ) qui s’affiche, puis sélectionnez **Ajouter une action**.
+   Pour ajouter une action entre des étapes, placez votre pointeur au-dessus de la flèche qui les sépare. Choisissez le signe plus ( **+** ) qui s’affiche, puis sélectionnez **Ajouter une action**.
 
 1. Fournissez les informations nécessaires pour votre connexion, puis choisissez **Créer**.
 
 1. Fournissez les informations nécessaires pour le déclencheur ou l’action sélectionnés et continuez à générer le flux de travail de votre application logique.
-
-Quand il demande le contenu du fichier, le déclencheur n’obtient pas les fichiers supérieurs à 50 Mo. Pour obtenir des fichiers supérieurs à 50 Mo, suivez ce modèle :
-
-* Utilisez un déclencheur qui retourne des propriétés de fichier comme **Quand un fichier est ajouté ou modifié (propriétés uniquement)** .
-
-* Suivez le déclencheur avec une action qui lit le fichier complet comme **Obtenir le contenu d’un fichier à l’aide du chemin** et faites en sorte que l’action utilise la [segmentation de messages](../logic-apps/logic-apps-handle-large-messages.md).
 
 ## <a name="examples"></a>Exemples
 
@@ -79,17 +88,9 @@ Quand il demande le contenu du fichier, le déclencheur n’obtient pas les fich
 
 ### <a name="ftp-trigger-when-a-file-is-added-or-modified"></a>Déclencheur FTP : Lors de l’ajout ou de la modification d’un fichier
 
-Ce déclencheur démarre un flux de travail d’application logique quand il détecte qu’un fichier est ajouté ou modifié sur un serveur FTP. Par exemple, vous pouvez ajouter une condition qui vérifie le contenu du fichier pour savoir s’il peut être obtenu. Enfin, vous pouvez ajouter une action qui obtient le contenu du fichier et le place dans un dossier sur le serveur SFTP. 
+Ce déclencheur démarre un flux de travail d’application logique quand il détecte qu’un fichier est ajouté ou modifié sur un serveur FTP. Par exemple, vous pouvez ajouter une condition qui vérifie le contenu du fichier pour savoir s’il peut être obtenu. Enfin, vous pouvez ajouter une action qui obtient le contenu du fichier et le place dans un dossier sur le serveur SFTP.
 
 **Exemple en entreprise** : vous pouvez utiliser ce déclencheur pour superviser l’apparition dans un dossier FTP de nouveaux fichiers qui décrivent les commandes des clients. Vous pouvez ensuite utiliser une action FTP comme **Obtenir le contenu du fichier** pour pouvoir récupérer le contenu de la commande à des fins de traitement, et stocker cette commande dans une base de données de commandes.
-
-Lorsqu'ils demandent le contenu du fichier, les déclencheurs n’obtiennent pas les fichiers supérieurs à 50 Mo. Pour obtenir des fichiers supérieurs à 50 Mo, suivez ce modèle : 
-
-* Utilisez un déclencheur qui retourne des propriétés de fichier comme **Quand un fichier est ajouté ou modifié (propriétés uniquement)** .
-
-* Suivez le déclencheur avec une action qui lit le fichier complet comme **Obtenir le contenu d’un fichier à l’aide du chemin** et faites en sorte que l’action utilise la [segmentation de messages](../logic-apps/logic-apps-handle-large-messages.md).
-
-Une application de logique fonctionnelle valide nécessite un déclencheur, et au moins une action. Ainsi, assurez-vous d’ajouter une action après l’ajout d’un déclencheur.
 
 Voici un exemple illustrant ce déclencheur : **Lors de l’ajout ou de la modification d’un fichier**
 
@@ -101,8 +102,7 @@ Voici un exemple illustrant ce déclencheur : **Lors de l’ajout ou de la modi
 
 1. Fournissez les informations nécessaires pour votre connexion, puis choisissez **Créer**.
 
-   Par défaut, ce connecteur transfère les fichiers au format texte. 
-   Pour transférer des fichiers au format binaire, par exemple quand l’encodage est utilisé, sélectionnez **Transport binaire**.
+   Par défaut, ce connecteur transfère les fichiers au format texte. Pour transférer des fichiers au format binaire, par exemple quand l’encodage est utilisé, sélectionnez **Transport binaire**.
 
    ![Création d’une connexion serveur FTP](./media/connectors-create-api-ftp/create-ftp-connection-trigger.png)  
 
@@ -120,23 +120,17 @@ Voici un exemple illustrant ce déclencheur : **Lors de l’ajout ou de la modi
 
 ### <a name="ftp-action-get-content"></a>Action FTP : Get content
 
-Cette action obtient le contenu d’un fichier sur un serveur FTP quand ce fichier est ajouté ou mis à jour. Par exemple, vous pouvez ajouter le déclencheur de l’exemple précédent, et une action qui obtient le contenu du fichier après l’ajout ou la modification de celui-ci. 
-
-Lorsqu'ils demandent le contenu du fichier, les déclencheurs n’obtiennent pas les fichiers supérieurs à 50 Mo. Pour obtenir des fichiers supérieurs à 50 Mo, suivez ce modèle : 
-
-* Utilisez un déclencheur qui retourne des propriétés de fichier comme **Quand un fichier est ajouté ou modifié (propriétés uniquement)** .
-
-* Suivez le déclencheur avec une action qui lit le fichier complet comme **Obtenir le contenu d’un fichier à l’aide du chemin** et faites en sorte que l’action utilise la [segmentation de messages](../logic-apps/logic-apps-handle-large-messages.md).
+Cette action obtient le contenu d’un fichier sur un serveur FTP quand ce fichier est ajouté ou mis à jour. Par exemple, vous pouvez ajouter le déclencheur de l’exemple précédent, et une action qui obtient le contenu du fichier après l’ajout ou la modification de celui-ci.
 
 Voici un exemple illustrant cette action : **Get content**
 
-1. Sous le déclencheur ou n’importe quel autre action, choisissez **Nouvelle étape**. 
+1. Sous le déclencheur ou n’importe quel autre action, choisissez **Nouvelle étape**.
 
 1. Dans la zone de recherche, entrez « ftp » comme filtre. Dans la liste des actions, sélectionnez cette action : **Obtenir le contenu d’un fichier - FTP**
 
    ![Sélection de l’action FTP](./media/connectors-create-api-ftp/select-ftp-action.png)  
 
-1. Si vous disposez déjà d’une connexion à vos compte et serveur FTP, passez à l’étape suivante. Sinon, fournissez les informations nécessaires pour cette connexion, puis choisissez **Créer**. 
+1. Si vous disposez déjà d’une connexion à vos compte et serveur FTP, passez à l’étape suivante. Sinon, fournissez les informations nécessaires pour cette connexion, puis choisissez **Créer**.
 
    ![Création d’une connexion serveur FTP](./media/connectors-create-api-ftp/create-ftp-connection-action.png)
 
@@ -153,11 +147,6 @@ Voici un exemple illustrant cette action : **Get content**
 ## <a name="connector-reference"></a>Référence de connecteur
 
 Pour obtenir des détails techniques sur les déclencheurs, les actions et les limites, qui sont décrits par la description OpenAPI du connecteur (anciennement Swagger), consultez la [page de référence du connecteur](/connectors/ftpconnector/).
-
-## <a name="get-support"></a>Obtenir de l’aide
-
-* Si vous avez des questions, consultez le [forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Pour voter pour des idées de fonctionnalités ou pour en soumettre, visitez le [site de commentaires des utilisateurs Logic Apps](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

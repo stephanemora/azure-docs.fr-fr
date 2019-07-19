@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/25/2018
-ms.openlocfilehash: fbb2458e73330a09124c00cebe3eb7bcaba5408d
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.date: 06/26/2019
+ms.openlocfilehash: ac57e873a6948e85e78849bd4e22db85491c4bfb
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65951496"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441541"
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Prise en main des tables temporelles dans Azure SQL Database
 
@@ -109,7 +109,7 @@ WITH (DROP_EXISTING = ON);
 ## <a name="step-2-run-your-workload-regularly"></a>Étape 2 : Exécuter régulièrement votre charge de travail
 Le principal avantage des tables temporelles est que vous n’avez pas besoin de modifier ou d’ajuster votre site web de quelque façon que ce soit pour effectuer le suivi des modifications. Une fois créées, les tables temporelles conservent en toute transparence les versions précédentes des lignes chaque fois que vous effectuez des modifications sur vos données. 
 
-Pour tirer parti de suivi automatique pour ce scénario particulier, nous allons simplement mettre à jour colonne **PagesVisited** chaque fois qu’un utilisateur met fin à sa session sur le site Web :
+Pour tirer parti du suivi automatique des modifications dans ce scénario particulier, nous allons simplement mettre à jour la colonne **PagesVisited** chaque fois qu’un utilisateur met fin à sa session sur le site web :
 
 ```
 UPDATE WebsiteUserInfo  SET [PagesVisited] = 5 
@@ -195,6 +195,7 @@ Avec les tables temporelles avec versions gérées par le système, la table d�
 * [Script de nettoyage personnalisé](https://msdn.microsoft.com/library/mt637341.aspx#Anchor_3)
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur les tables temporelles, consultez la [documentation MSDN](https://msdn.microsoft.com/library/dn935015.aspx).
-Visitez Channel 9 pour écouter le [témoignage d’un client sur l’implémentation temporelle](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions) et regardez une [démonstration de table temporelle en direct](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016).
+
+- Pour plus d’informations sur les tables temporelles, consultez [Tables temporelles](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables).
+- Visitez Channel 9 pour écouter le [témoignage d’un client sur l’implémentation temporelle](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions) et regardez une [démonstration de table temporelle en direct](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016).
 

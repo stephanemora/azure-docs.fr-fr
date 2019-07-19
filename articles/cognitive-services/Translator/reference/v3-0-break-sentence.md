@@ -3,19 +3,19 @@ title: Méthode BreakSentence de l’API de traduction de texte Translator Text.
 titlesuffix: Azure Cognitive Services
 description: Utilisez la méthode BreakSentence de l’API de traduction de texte Translator Text.
 services: cognitive-services
-author: rajdeep-in
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
-ms.author: v-pawal
-ms.openlocfilehash: 0ecb620757bc58b109747f69eb3b5afe0c56bac4
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.author: swmachan
+ms.openlocfilehash: 59f6957f1781852e4ab4c0713742581b5c884f25
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66387560"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357860"
 ---
 # <a name="translator-text-api-30-breaksentence"></a>API de traduction de texte Translator Text 3.0 : BreakSentence
 
@@ -41,7 +41,7 @@ Les paramètres de demande transmis à la chaîne de requête sont les suivants�
     <td>*Paramètre de requête obligatoire*.<br/>Version de l’API demandée par le client. La valeur doit être `3.0`.</td>
   </tr>
   <tr>
-    <td>langage</td>
+    <td>Langage</td>
     <td>*Paramètre de requête facultatif*.<br/>Balise de langue identifiant la langue du texte d’entrée. Si aucun code n’est spécifié, la détection automatique de la langue est appliquée.</td>
   </tr>
   <tr>
@@ -56,7 +56,7 @@ Les en-têtes de demande sont les suivants :
   <th width="20%">headers</th>
   <th>Description</th>
   <tr>
-    <td>En-têtes d’authentification</td>
+    <td>En-tête(s) d’authentification</td>
     <td><em>En-tête de demande obligatoire</em>.<br/>Voir les <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">options disponibles pour l’authentification</a>.</td>
   </tr>
   <tr>
@@ -154,7 +154,7 @@ Voici les codes d’état HTTP qu’une demande peut retourner.
   </tr>
   <tr>
     <td>429</td>
-    <td>Le serveur a rejeté la demande, car le client a dépassé les limites de la demande.</td>
+    <td>Le serveur a rejeté la requête, car le client a dépassé les limites de requête.</td>
   </tr>
   <tr>
     <td>500</td>

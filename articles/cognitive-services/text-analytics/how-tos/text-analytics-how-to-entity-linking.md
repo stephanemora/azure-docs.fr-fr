@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: aahi
-ms.openlocfilehash: c8319dbcb8cebe51dae2a4d7e8d9749c3ab7674f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ff4f9af82024e9d39ad89a39bcb2fe4130de9101
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65231425"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67304192"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Comment utiliser une reconnaissance d’entité nommée dans Analyse de texte
 
@@ -31,7 +31,7 @@ La liaison d’entités est la possibilité d’identifier une entité présente
 ### <a name="named-entity-recognition-ner"></a>Reconnaissance d’entité nommée (NER)
 La reconnaissance d’entité nommée (NER) est la capacité d’identifier différentes entités dans du texte et de les classer en classes prédéfinies. Les classes d’entités prises en charge sont répertoriées ci-dessous.
 
-Dans Analyse de texte [version 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634), la liaison d’entités et la reconnaissance d’entité nommée (NER) sont disponibles.
+Dans Analyse de texte [version 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634), la liaison d’entités et la reconnaissance d’entité nommée (NER) sont toutes deux disponibles pour plusieurs langues. Pour plus d’informations, consultez l’article [Prise en charge linguistique](../language-support.md#sentiment-analysis-key-phrase-extraction-and-named-entity-recognition). 
 
 ### <a name="language-support"></a>Support multilingue
 
@@ -42,7 +42,7 @@ L’utilisation de la liaison d'entités dans différentes langues requiert l’
 | Type  | Subtype | Exemples |
 |:-----------   |:------------- |:---------|
 | Personne        | N/A\*         | « Jeff », « Bill Gates »     |
-| Lieu      | N/A\*         | « Redmond, Washington », « Paris »  |
+| Location      | N/A\*         | « Redmond, Washington », « Paris »  |
 | Organisation  | N/A\*         | « Microsoft »   |
 | Quantité      | Number        | « 6 », « six »     | 
 | Quantité      | Pourcentage    | « 50 % », « cinquante pour cent »| 
@@ -105,7 +105,7 @@ Vous trouverez plus d’informations sur la définition d’une demande dans [Gu
 
 ## <a name="step-2-post-the-request"></a>Étape 2 : Publier la requête
 
-L’analyse est effectuée à la réception de la demande. Le service accepte jusqu'à 100 demandes par seconde et 1 000 demandes par minute. Chaque demande peut être au maximum de 1 Mo.
+L’analyse est effectuée à la réception de la demande. Consultez la section [Limites de données](../overview.md#data-limits) dans la vue d’ensemble pour connaître la taille et le nombre de demandes que vous pouvez envoyer par minute et seconde.
 
 Rappelez-vous que le service est sans état. Aucune donnée n’est stockée dans votre compte. Les résultats sont retournés immédiatement dans la réponse.
 

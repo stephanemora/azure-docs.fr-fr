@@ -11,17 +11,17 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: c918abdc635e7a4a831e367e159354bb752e95e6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.openlocfilehash: d8949f63dfa9b409cc14fe9c3bbed70f23a73c86
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66743103"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357135"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>Mettre à l’échelle de façon dynamique les ressources de base de données moyennant un temps d’arrêt minimal
 
-Azure SQL Database vous permet d’ajouter de façon dynamique plus de ressources à votre base de données, en un temps d’arrêt minimal.
+Azure SQL Database vous permet d’ajouter de manière dynamique des ressources à votre base de données avec un [temps d’arrêt](https://azure.microsoft.com/support/legal/sla/sql-database/v1_2/) minimal ; toutefois, il existe un délai de basculement durant lequel la connectivité à la base de données est perdue pendant un court laps de temps, qui peut être atténué à l’aide d’une logique de nouvelle tentative.
 
 ## <a name="overview"></a>Vue d'ensemble
 
@@ -41,7 +41,7 @@ Azure SQL Database propose le [modèle d’achat DTU](sql-database-service-tiers
 Vous pouvez créer votre première application dans une petite base de données unique pour un coût mensuel modique avec le niveau de service De base, Standard ou Usage général, puis remplacer ce niveau de service manuellement ou par programme à tout moment par le niveau de service Premium ou Critique pour l’entreprise, afin de répondre aux besoins de votre solution. Vous pouvez ajuster les performances sans perturber le fonctionnement de votre application, ni l’expérience de vos clients. L’évolutivité dynamique permet à votre base de données de répondre en toute transparence aux besoins en ressources qui évoluent sans cesse et de payer uniquement les ressources dont vous avez besoin, lorsque vous en avez besoin.
 
 > [!NOTE]
-> La scalabilité dynamique est différente de la mise à l’échelle automatique. La mise à l’échelle survient lorsqu’un service se met à l’échelle automatiquement en fonction de critères, tandis que l’extensibilité dynamique permet la mise à l’échelle manuelle sans temps d’arrêt.
+> La scalabilité dynamique est différente de la mise à l’échelle automatique. La mise à l’échelle automatique survient quand un service se met à l’échelle automatiquement en fonction de critères, tandis que l’extensibilité dynamique permet la mise à l’échelle manuelle avec un temps d’arrêt minimal.
 
 Une base de données Azure SQL unique prend en charge la scalabilité dynamique, mais pas la mise à l’échelle automatique. Pour plus expérience plus *automatique*, envisagez d’utiliser des pools élastiques, ce qui permet aux bases de données de partager des ressources dans un pool en fonction de leurs besoins individuels.
 Toutefois, il existe des scripts qui peuvent aider à automatiser la scalabilité pour une base de données Azure SQL unique. Pour obtenir un exemple, consultez la rubrique [Utiliser PowerShell pour surveiller et mettre à l’échelle une base de données SQL](scripts/sql-database-monitor-and-scale-database-powershell.md).

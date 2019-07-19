@@ -5,14 +5,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 06/18/2019
 ms.author: sutalasi
-ms.openlocfilehash: 5fbe4fd5f85026cd62f1bd10e36561b312464054
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bc1d52a1062d1848daaaeef7977f96cd270567c8
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64690567"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203464"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>Configurer la récupération d’urgence dans Azure pour les machines virtuelles Hyper-V à l’aide de PowerShell et de Azure Resource Manager
 
@@ -114,7 +114,16 @@ Définissez le contexte d’archivage comme suit :
 
         $server =  Get-AsrFabric -Name $siteName | Get-AsrServicesProvider -FriendlyName $server-friendlyname
 
-## <a name="step-6-create-a-replication-policy"></a>Étape 6 : Créer une stratégie de réplication
+Si vous exécutez un serveur Hyper-V (installation minimale), téléchargez le fichier d’installation et effectuez les étapes suivantes :
+1. Extrayez les fichiers d’AzureSiteRecoveryProvider.exe dans un répertoire local en exécutant cette commande : ```AzureSiteRecoveryProvider.exe /x:. /q```
+2. Exécutez ```.\setupdr.exe /i``` Les résultats sont enregistrés dans %Programdata%\ASRLogs\DRASetupWizard.log.
+
+3. Inscrivez le serveur en exécutant cette commande :
+
+    ```cd  C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r /Friendlyname "FriendlyName of the Server" /Credentials "path to where the credential file is saved"```
+
+
+## <a name="step-6-create-a-replication-policy"></a>Étape 6 : Créer une stratégie de réplication
 
 Avant de commencer, notez que le compte de stockage spécifié doit se trouver dans la même région Azure que le coffre et doit utiliser la fonction de géo-réplication.
 

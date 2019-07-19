@@ -1,6 +1,6 @@
 ---
-title: Intégrer avec Azure managed identités | Microsoft Docs
-description: Découvrez comment utiliser Azure géré les identités qui doivent s’authentifier avec et accéder à la Configuration de l’application Azure
+title: S’intégrer avec des identités managées Azure | Microsoft Docs
+description: Découvrez comment utiliser des identités managées Azure pour vous authentifier auprès d’Azure App Configuration et y accéder
 services: azure-app-configuration
 documentationcenter: ''
 author: yegu-ms
@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: yegu
 ms.openlocfilehash: 3977991386dbcd07e92f21d1ac541f486b4f7f0a
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66393645"
 ---
 # <a name="integrate-with-azure-managed-identities"></a>S’intégrer avec des identités managées Azure
@@ -36,7 +36,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Accorder à une identité managée l’accès à App Configuration.
 > * Configurer votre application pour utiliser une identité managée lors de la connexion à App Configuration.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel, vous avez besoin de :
 

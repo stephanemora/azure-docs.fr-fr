@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 06/26/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: e850b915cd01b6bacd70d6df7752eeb83f7101d0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bf888b72cca806822ca7a37542e71a5be0c8d5c3
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65153858"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443720"
 ---
 # <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-using-powershell"></a>Octroyer l’accès aux données blob et de file d’attente Azure avec RBAC à l’aide de PowerShell
 
@@ -30,7 +30,7 @@ Cet article décrit comment utiliser Azure PowerShell pour répertorier les rôl
 
 [!INCLUDE [storage-auth-rbac-roles-include](../../../includes/storage-auth-rbac-roles-include.md)]
 
-## <a name="determine-resource-scope"></a>Déterminer l’étendue de la ressource 
+## <a name="determine-resource-scope"></a>Déterminer l’étendue de la ressource
 
 [!INCLUDE [storage-auth-resource-scope-include](../../../includes/storage-auth-resource-scope-include.md)]
 
@@ -54,9 +54,9 @@ Storage Queue Data Message Sender         Allows for sending of Azure Storage qu
 Storage Queue Data Reader                 Allows for read access to Azure Storage queues and queue messages
 ```
 
-## <a name="assign-an-rbac-role-to-a-user"></a>Assigner un rôle RBAC à un utilisateur
+## <a name="assign-an-rbac-role-to-a-security-principal"></a>Attribuer un rôle RBAC à un principal de sécurité
 
-Pour assigner un rôle RBAC à un utilisateur, utilisez la commande [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment). Le format de la commande peut varier selon l’étendue de l’affectation. Les exemples suivants montrent comment affecter un rôle à un utilisateur dans différentes étendues.
+Pour attribuer un rôle RBAC à un principal de sécurité, utilisez la commande [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment). Le format de la commande peut varier selon l’étendue de l’affectation. Les exemples suivants montrent comment attribuer un rôle à un utilisateur dans des étendues diverses, mais vous pouvez utiliser la même commande pour attribuer un rôle à n’importe quel principal de sécurité.
 
 ### <a name="container-scope"></a>Étendue du conteneur
 

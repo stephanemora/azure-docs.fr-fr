@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8ade695f1930c11f2d2d7ab7e0430910bd6f8705
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4ae821dc9ae0d739526b91bad76bca544cad2fb0
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508642"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203708"
 ---
 # <a name="set-up-sign-in-with-an-azure-active-directory-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurer la connexion avec un compte Azure Active Directory à l’aide de stratégies personnalisées dans Azure Active Directory B2C 
 
@@ -132,7 +132,7 @@ Pour obtenir un jeton à partir du point de terminaison Azure AD, vous devez dé
 5. Définissez la valeur de **METADATA** sur `https://login.windows.net/your-AD-tenant-name.onmicrosoft.com/.well-known/openid-configuration`, où `your-AD-tenant-name` est le nom de votre locataire Azure AD. Par exemple, `https://login.windows.net/fabrikam.onmicrosoft.com/.well-known/openid-configuration`
 6. Ouvrez votre navigateur, puis accédez à l’URL **METADATA** que vous venez de mettre à jour, recherchez l’objet **issuer**, puis copiez et collez la valeur dans **ProviderName** dans le fichier XML.
 8. Définissez **client_id** et **IdTokenAudience** sur l’ID d’application de l’inscription de l’application.
-9. Sous **CryptograhicKeys**, mettez à jour la valeur de **StorageReferenceId** sur la clé de stratégie que vous avez définie. Par exemple : `ContosoAppSecret`.
+9. Sous **CryptographicKeys**, mettez à jour la valeur de **StorageReferenceId** sur la clé de stratégie que vous avez définie. Par exemple : `ContosoAppSecret`.
 
 ### <a name="upload-the-extension-file-for-verification"></a>Télécharger le fichier d’extension pour la vérification
 

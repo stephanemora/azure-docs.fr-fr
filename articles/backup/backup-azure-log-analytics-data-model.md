@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: adigan
-ms.openlocfilehash: dd4dad2cc3e541d3b6866c02341161dc1d9e1e6c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 801516ae2cfad891098c16f8cd6e9a4c7f157a93
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61234915"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67342010"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Modèle de données Log Analytics pour les données de sauvegarde Azure
 
@@ -50,7 +50,7 @@ Ce tableau fournit plus d’informations sur les champs liés aux alertes.
 | OperationName |Texte |Nom de l’opération actuelle, par exemple, Alerte |
 | Catégorie |Texte |Catégorie de données de diagnostic envoyées (push) aux journaux Azure Monitor. Toujours AzureBackupReport |
 | Ressource |Texte |Ceci est la ressource pour laquelle les données sont collectées ; affiche le nom du coffre Recovery Services |
-| ProtectedServerUniqueId_s |Texte |Identificateur unique du serveur protégé associé à l’alerte |
+| ProtectedContainerUniqueId_s |Texte |Identificateur unique du serveur protégé associé à l’alerte (il s’agissait de ProtectedServerUniqueId_s dans V1)|
 | VaultUniqueId_s |Texte |Identificateur unique du coffre protégé associé à l’alerte |
 | SourceSystem |Texte |Système source des données actuelles - Azure |
 | ResourceId |Texte |Identificateur unique de la ressource sur laquelle les données sont collectées. Par exemple, un id de ressource de coffre Recovery Services |
@@ -67,10 +67,12 @@ Ce tableau fournit plus d’informations sur les champs liés aux éléments de 
 | --- | --- | --- |
 | EventName_s |Texte |Nom de l’événement. Toujours AzureBackupCentralReport |  
 | BackupItemUniqueId_s |Texte |Identificateur unique de l’élément de sauvegarde |
-| BackupItemId_s |Texte |Identificateur de l’élément de sauvegarde |
+| BackupItemId_s |Texte |Identificateur de l’élément de sauvegarde (ce champ ne concerne que le schéma v1) |
 | BackupItemName_s |Texte |Nom de l’élément de sauvegarde |
 | BackupItemFriendlyName_s |Texte |Nom convivial de l’élément de sauvegarde |
 | BackupItemType_s |Texte |Type d’élément de sauvegarde, par exemple, Machine virtuelle, Dossier de fichiers |
+| BackupItemProtectionState_s |Texte |État de protection de l’élément de sauvegarde |
+| BackupItemAppVersion_s |Texte |Version de l’application de l’élément de sauvegarde |
 | ProtectionState_s |Texte |État de protection actuel de l’élément de sauvegarde par exemple, Protégé, Protection arrêtée |
 | ProtectionGroupName_s |Texte | Nom du groupe de protection dans lequel l’élément de sauvegarde est protégé, pour SC DPM et MABS, le cas échéant|
 | SecondaryBackupProtectionState_s |Texte |Indique si la protection secondaire est activée pour l’élément de sauvegarde|
@@ -103,8 +105,7 @@ Ce tableau fournit des détails sur les associations d’éléments de sauvegard
 | Catégorie |Texte |Ce champ représente la catégorie des données de diagnostic transférées à Log Analytics, c’est-à-dire AzureBackupReport |
 | OperationName |Texte |Ce champ représente le nom de l’opération en cours - Association d’éléments de sauvegarde |
 | Ressource |Texte |Ceci est la ressource pour laquelle les données sont collectées ; affiche le nom du coffre Recovery Services |
-| PolicyUniqueId_g |Texte |Identificateur unique de la stratégie associée à l’élément de sauvegarde |
-| ProtectedServerUniqueId_s |Texte |Identificateur unique du serveur protégé associé à l’élément de sauvegarde |
+| ProtectedContainerUniqueId_s |Texte |Identificateur unique du serveur protégé associé à l’élément de sauvegarde (il s’agissait de ProtectedServerUniqueId_s dans V1) |
 | VaultUniqueId_s |Texte |Identificateur unique du coffre contenant l’élément de sauvegarde |
 | SourceSystem |Texte |Système source des données actuelles - Azure |
 | ResourceId |Texte |Identificateur de ressource des données collectées. Par exemple, id de ressource du coffre Recovery Services |
@@ -249,13 +250,14 @@ Ce tableau indique les champs de base relatifs aux conteneurs protégés. (Prote
 | ProtectedContainerOSType_s |Texte |Type de système d’exploitation du conteneur protégé |
 | ProtectedContainerOSVersion_s |Texte |Version du système d’exploitation du conteneur protégé |
 | AgentVersion_s |Texte |Numéro de version de l’agent de sauvegarde ou de l’agent de protection (dans le cas de SC DPM et MABS) |
-| BackupManagementType_s |Texte |Type de fournisseur exécutant la sauvegarde, par exemple, Machine virtuelle IaaS, Dossier de fichiers |
-| EntityState_s |Texte |État actuel de l’objet serveur protégé, par exemple, Actif, Supprimé |
+| BackupManagementType_s |Texte |Type de fournisseur pour effectuer la sauvegarde. Par exemple, IaaSVM, FileFolder |
+| EntityState_s |Texte |État actuel de l’objet serveur protégé. Par exemple, Actif, Supprimé |
 | ProtectedContainerFriendlyName_s |Texte |Nom convivial du serveur protégé |
 | ProtectedContainerName_s |Texte |Nom du conteneur protégé |
-| ProtectedContainerWorkloadType_s |Texte |Type du conteneur protégé sauvegardé, par exemple, IaaSVMContainer |
+| ProtectedContainerWorkloadType_s |Texte |Type du conteneur protégé sauvegardé. Par exemple, IaaSVMContainer |
 | ProtectedContainerLocation_s |Texte |Indique si le conteneur protégé est situé en local ou dans Azure |
 | ProtectedContainerType_s |Texte |Indique si le conteneur protégé est un serveur ou un conteneur |
+| ProtectedContainerProtectionState_s  |Texte |État de protection du conteneur protégé |
 
 ### <a name="storage"></a>Stockage
 
@@ -263,7 +265,7 @@ Ce tableau fournit plus d’informations sur les champs liés au stockage.
 
 | Champ | Type de données | Description |
 | --- | --- | --- |
-| CloudStorageInBytes_s |Nombre décimal |Stockage des sauvegardes dans le cloud utilisé par les sauvegardes, calculé en fonction de la dernière valeur |
+| CloudStorageInBytes_s |Nombre décimal |Stockage des sauvegardes dans le cloud utilisé par les sauvegardes, calculé en fonction de la dernière valeur (ce champ ne concerne que le schéma v1)|
 | ProtectedInstances_s |Nombre décimal |Nombre d’instances protégées utilisées pour calculer le stockage frontal dans la facturation, calculé en fonction de la dernière valeur |
 | EventName_s |Texte |Ce champ représente le nom de cet événement, qui est toujours AzureBackupCentralReport |
 | SchemaVersion_s |Texte |Ce champ indique la version actuelle du schéma, **V2** |
@@ -280,6 +282,10 @@ Ce tableau fournit plus d’informations sur les champs liés au stockage.
 | ResourceGroup |Texte |Groupe de ressources de la ressource (par ex. coffre Recovery Services) pour laquelle les données sont collectées |
 | ResourceProvider |Texte |Fournisseur de ressources pour lequel les données sont collectées. Par exemple, Microsoft.RecoveryServices |
 | ResourceType |Texte |Type de ressource pour lequel les données sont collectées. Par exemple, Coffres |
+| StorageUniqueId_s |Texte |ID unique utilisé pour identifier l’entité de stockage |
+| StorageType_s |Texte |Type de stockage, par exemple Cloud, Volume, Disque |
+| StorageName_s |Texte |Nom de l’entité de stockage, par exemple E:\ |
+| StorageTotalSizeInGBs_s |Texte |Taille totale du volume de stockage, en Go, consommé par l’entité de stockage|
 
 ### <a name="storageassociation"></a>StorageAssociation
 

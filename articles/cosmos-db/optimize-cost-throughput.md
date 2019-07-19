@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: rimman
 ms.openlocfilehash: ddbec882675dba4724406ad1ea8079df377c34fc
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65967305"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Optimiser le coût du débit approvisionné dans Azure Cosmos DB
@@ -33,7 +33,7 @@ Voici quelques indications pour choisir une stratégie de débit approvisionné�
 
 1. Vous avez quelques dizaines de conteneurs Azure Cosmos et souhaitez partager le débit sur tout ou partie de ces conteneurs. 
 
-2. Vous effectuez une migration à partir d’une base de données à locataire unique conçue pour s’exécuter sur des machines virtuelles hébergées sur IaaS ou localement, par exemple des bases de données NoSQL ou relationnelles, vers Azure Cosmos DB. Et si vous avez plusieurs collections/tables/graphiques et que vous ne souhaitez pas apporter des modifications à votre modèle de données. Notez que vous deviez compromettre certains des avantages offerts par Azure Cosmos DB si vous ne mettez pas à jour votre modèle de données lors de la migration à partir d’une base de données locale. Il est recommandé d’accéder régulièrement à votre modèle de données pour optimiser les performances et les coûts. 
+2. Vous effectuez une migration à partir d’une base de données à locataire unique conçue pour s’exécuter sur des machines virtuelles hébergées sur IaaS ou localement, par exemple des bases de données NoSQL ou relationnelles, vers Azure Cosmos DB. Vous avez un grand nombre de collections/tables/graphiques et ne souhaitez pas modifier votre modèle de données. Notez que vous devrez accepter certains compromis concernant les avantages offerts par Azure Cosmos DB si vous ne mettez pas à jour votre modèle de données lors de la migration à partir d’une base de données locale. Il est recommandé d’accéder régulièrement à votre modèle de données pour optimiser les performances et les coûts. 
 
 3. Vous souhaitez absorber les pics imprévus dans les charges de travail en regroupant le débit au niveau de la base de données qui subit un pic inattendu dans la charge de travail. 
 
@@ -58,7 +58,7 @@ Comme indiqué dans le tableau suivant, selon le choix de l’API, vous pouvez a
 |API SQL|Base de données|Conteneur|
 |API d’Azure Cosmos DB pour MongoDB|Base de données|Collection|
 |API Cassandra|Espace de clés|Table|
-|API Gremlin|Compte de base de données|Graphe|
+|API Gremlin|Compte de base de données|Graph|
 |API de table|Compte de base de données|Table|
 
 En approvisionnant le débit à différents niveaux, vous pouvez optimiser vos coûts selon les caractéristiques de votre charge de travail. Comme mentionné précédemment, vous pouvez par programmation et à tout moment réduire ou augmenter votre débit approvisionné pour des conteneurs individuels ou collectivement pour un ensemble de conteneurs. Grâce à cette mise à l'échelle flexible qui s’adapte à votre charge de travail, vous payez uniquement pour le débit que vous avez configuré. Si votre conteneur ou un ensemble de conteneurs est réparti dans plusieurs régions, la disponibilité du débit que vous configurez sur le conteneur ou l’ensemble de conteneurs est garantie dans toutes les régions.
@@ -113,7 +113,7 @@ En outre, si vous utilisez Azure Cosmos DB et savez que vous n’effectuerez pas
 
 ## <a name="optimize-by-changing-indexing-policy"></a>Optimiser en modifiant la stratégie d’indexation 
 
-Par défaut, Azure Cosmos DB indexe automatiquement chaque propriété de chaque enregistrement. Cela vise à faciliter le développement et vous assurer d’excellentes performances dans différents types de requêtes ad hoc. Si vos enregistrements volumineux contiennent des milliers de propriétés, mieux vaut éviter de payer le débit qu’entraînerait l’indexation de chaque propriété, surtout si vos recherches se limitent à 10 ou 20 de ces propriétés. À mesure que vous vous approchez de votre charge de travail finale, nous vous recommandons d’optimiser votre stratégie d’indexation. Vous trouverez plus d’informations sur la stratégie d’indexation Azure Cosmos DB [ici](indexing-policies.md). 
+Par défaut, Azure Cosmos DB indexe automatiquement chaque propriété de chaque enregistrement. Cette stratégie vise à faciliter le développement et à garantir d’excellentes performances dans différents types de requêtes ad-hoc. Si vos enregistrements volumineux contiennent des milliers de propriétés, mieux vaut éviter de payer le débit qu’entraînerait l’indexation de chaque propriété, surtout si vos recherches se limitent à 10 ou 20 de ces propriétés. À mesure que vous vous approchez de votre charge de travail finale, nous vous recommandons d’optimiser votre stratégie d’indexation. Vous trouverez plus d’informations sur la stratégie d’indexation Azure Cosmos DB [ici](indexing-policies.md). 
 
 ## <a name="monitoring-provisioned-and-consumed-throughput"></a>Surveillance du débit approvisionné et consommé 
 
@@ -159,7 +159,7 @@ Les étapes suivantes vous aider à rendre vos solutions hautement évolutives e
 
 2. Une méthode permettant d’estimer la quantité de débit réservé requis par votre application consiste à enregistrer les frais d’unité de requête associés à l’exécution des opérations courantes sur un élément représentatif utilisé par votre application (un conteneur ou une base de données Azure Cosmos), puis à évaluer le nombre d’opérations que vous prévoyez d’effectuer chaque seconde. Veillez à mesurer et à inclure également les requêtes courantes et leur utilisation. Pour savoir comment estimer le coût des RU de requêtes par programme ou à l’aide du portail, voir [Optimiser le coût des requêtes](online-backup-and-restore.md). 
 
-3. Une autre façon d’obtenir des opérations et leurs coûts en unités de requête est en activant les journaux Azure Monitor, ce qui vous donnera la répartition des/durée de l’opération et les frais de requête. Azure Cosmos DB applique des frais de requête pour chaque opération : ainsi, les frais de chaque opération peuvent être consignés dans la réponse à des fins d’analyse ultérieure. 
+3. Une autre façon d’évaluer les opérations et leur coût en unités de requête consiste à activer les journaux d’activité Azure Monitor afin d’obtenir la répartition par opération/durée et les frais de chaque requête. Azure Cosmos DB applique des frais de requête pour chaque opération : ainsi, les frais de chaque opération peuvent être consignés dans la réponse à des fins d’analyse ultérieure. 
 
 4. Vous pouvez augmenter ou réduire en toute flexibilité le débit approvisionné pour répondre aux besoins de votre charge de travail. 
 

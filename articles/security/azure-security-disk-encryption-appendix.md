@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 675ce2de91dd4e53f4945ceef3b174c33be001f6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2872d106eea56a37c362195e7a3250058336768b
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66118502"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295054"
 ---
 # <a name="appendix-for-azure-disk-encryption"></a>Annexe pour Azure Disk Encryption 
 
@@ -133,7 +133,7 @@ Le tableau suivant présente les paramètres pouvant être utilisés dans le scr
   - [Désactiver le chiffrement sur une machine virtuelle Linux en cours d’exécution](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm-without-aad) 
     - La désactivation du chiffrement est autorisée seulement sur les volumes de données pour les machines virtuelles Linux.  
 
-### <a name="encrypt-or-decrypt-vm-scale-sets"></a>Chiffrer ou déchiffrer des groupes identiques de machines virtuelles
+### <a name="encrypt-or-decrypt-virtual-machine-scale-sets"></a>Chiffrer ou déchiffrer le groupe de machines virtuelles identiques
 
 - [Activer le chiffrement de disque sur un groupe de machines virtuelles identiques Linux en cours d’exécution](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-linux)
 
@@ -206,7 +206,7 @@ Utilisez la commande [`manage-bde`](https://technet.microsoft.com/library/ff8298
 
 ### <a name="prerequisites-for-os-disk-encryption"></a>Configuration requise pour le chiffrement du lecteur du système d’exploitation
 
-* La machine virtuelle doit utiliser une distribution compatible avec le chiffrement de disque du système d’exploitation, comme indiqué dans le [Forum aux questions (FAQ) Azure Disk Encryption](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport). 
+* La machine virtuelle doit utiliser une distribution compatible avec le chiffrement de disque du système d’exploitation, comme indiqué dans le [Systèmes d’exploitation avec prise en charge d’Azure Disk Encryption : Linux](azure-security-disk-encryption-prerequisites.md#linux) 
 * La machine virtuelle doit être créée à partir de l’image Marketplace dans Azure Resource Manager.
 * Machine virtuelle Azure au moins 4 Go de RAM (la taille recommandée est de 7 Go).
 * (Pour RHEL et CentOS) Désactivez SELinux. Pour désactiver SELinux, consultez la rubrique « 4.4.2. Désactivation de SELinux » dans le [Guide d’utilisation et d’administration SELinux](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/SELinux_Users_and_Administrators_Guide/sect-Security-Enhanced_Linux-Working_with_SELinux-Changing_SELinux_Modes.html#sect-Security-Enhanced_Linux-Enabling_and_Disabling_SELinux-Disabling_SELinux) sur la machine virtuelle.

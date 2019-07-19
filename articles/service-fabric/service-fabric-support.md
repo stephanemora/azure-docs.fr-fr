@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/24/2018
 ms.author: pkc
-ms.openlocfilehash: a931de8be07d41cf4daab63aa7691973ee158452
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 667ee6a49238c1ecaabec631cb72804b0c4b2323
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60545059"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67304254"
 ---
 # <a name="azure-service-fabric-support-options"></a>Options de support d’Azure Service Fabric
 
@@ -43,7 +43,7 @@ Pour en savoir plus :
 
 ## <a name="report-production-issues-or-request-paid-support-for-standalone-service-fabric-clusters"></a>Signaler des problèmes de production ou demander un support payant pour des clusters Service Fabric autonomes
 
-Pour signaler des problèmes sur votre cluster Service Fabric déployé en local ou sur d’autres clouds, ouvrez un ticket de support professionnel sur le [portail de support Microsoft](https://support.microsoft.com/oas/default.aspx?prid=16146).
+Pour signaler des problèmes sur votre cluster Service Fabric déployé en local ou sur d’autres clouds, ouvrez un ticket de support professionnel sur le [portail de support Microsoft](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 Pour en savoir plus :
 
@@ -60,7 +60,7 @@ Signaler des problèmes avec Azure Service Fabric sur le [Référentiel Git des 
 
 ### <a name="stackoverflow-and-msdn-forums"></a>Forums StackOverflow et MSDN
 
-La [Balise Service Fabric sur StackOverflow][stackoverflow] et le [Forum Service Fabric sur MSDN][msdn-forum] sont recommandés pour poser des questions sur le fonctionnement de la plateforme et la réalisation de certaines tâches par son intermédiaire.
+La [Balise Service Fabric sur StackOverflow][stackoverflow] and the [Service Fabric forum on MSDN][msdn-forum] sont recommandés pour poser des questions sur le fonctionnement de la plateforme et la réalisation de certaines tâches par son intermédiaire.
 
 ### <a name="azure-feedback-forum"></a>Forum de commentaires Azure
 

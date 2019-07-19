@@ -6,14 +6,14 @@ author: cherylmc
 tags: azure-resource-manager
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 5/21/2019
+ms.date: 6/18/2019
 ms.author: cherylmc
-ms.openlocfilehash: 6b66a9cf28faccf5ba22bc016297f1d53febe533
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.openlocfilehash: 07bcf50a816c090ccef846909dff671486e514c4
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66157337"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203062"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Configurez une connexion point à site à un réseau virtuel à l’aide de l’authentification par certificat Azure native : Portail Azure
 
@@ -46,7 +46,7 @@ Vous pouvez utiliser ces valeurs pour créer un environnement de test ou vous y 
 * **Serveur DNS :** (facultatif) l’adresse IP du serveur DNS que vous souhaitez utiliser pour la résolution de noms.
 * **Nom de la passerelle de réseau virtuel :** VNet1GW
 * **Type de passerelle :** VPN
-* **Type de VPN :** Basé sur itinéraires
+* **Type de VPN :** basé sur la route
 * **Nom de l'adresse IP publique :** VNet1GWpip
 * **Type de connexion :** Point à site
 * **Pool d'adresses des clients :** 172.16.201.0/24<br>Les clients VPN qui se connectent au réseau virtuel à l’aide de cette connexion point à site reçoivent une adresse IP de ce pool d’adresses des clients.
@@ -98,7 +98,7 @@ Le pool d’adresses des clients est une plage d’adresses IP privées que vous
 2. Cliquez sur **Configurer** pour ouvrir la page de configuration.
 
    ![Configurer](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configurenow.png)
-3. Sur la page de la configuration de **point à site**, dans la zone **Pool d'adresses**, ajoutez la plage d’adresses IP privées que vous souhaitez utiliser. Les clients VPN reçoivent dynamiquement une adresse IP à partir de la plage que vous spécifiez. Cliquez sur **Enregistrer** pour valider et enregistrer le paramètre.
+3. Sur la page de la configuration de **point à site**, dans la zone **Pool d'adresses**, ajoutez la plage d’adresses IP privées que vous souhaitez utiliser. Les clients VPN reçoivent dynamiquement une adresse IP à partir de la plage que vous spécifiez. Le masque minimal de sous-réseau est de 29 bits pour la configuration active/passive, et de 28 bits pour la configuration active/active. Cliquez sur **Enregistrer** pour valider et enregistrer le paramètre.
 
    ![Pool d’adresses des clients](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/addresspool.png)
 
@@ -108,7 +108,7 @@ Le pool d’adresses des clients est une plage d’adresses IP privées que vous
 
 ## <a name="tunneltype"></a>7. Configurer le type de tunnel
 
-Vous pouvez sélectionner le type de tunnel. Les options de tunnel sont OpenVPN, SSTP et IKEv2. Le client strongSwan sur Android et Linux et le client VPN IKEv2 natif sur iOS et OSX n’utiliseront que le tunnel IKEv2 pour se connecter. Les clients Windows essaient IKEv2 en premier lieu. En cas d’échec de la connexion, ils utilisent SSTP. Vous pouvez utiliser le client OpenVPN pour se connecter pour le type de tunnel OpenVPN.
+Vous pouvez sélectionner le type de tunnel. Les types de tunnels disponibles sont SSTP et IKEv2. Le client strongSwan sur Android et Linux et le client VPN IKEv2 natif sur iOS et OSX n’utiliseront que le tunnel IKEv2 pour se connecter. Les clients Windows essaient IKEv2 en premier lieu. En cas d’échec de la connexion, ils utilisent SSTP. Vous pouvez utiliser le client OpenVPN pour la connexion au type de tunnel OpenVPN.
 
 ![Type de tunnel](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/tunneltype.png)
 

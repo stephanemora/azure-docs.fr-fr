@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 462a99ffab8038f34b1ffd038ce5c8e8ec9a8565
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0a6a5b0e3957141b9ea17a378a7cbeff33a0124e
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65024439"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485201"
 ---
 # <a name="create-a-basic-index-in-azure-search"></a>Créer un index de base dans la Recherche Azure
 
@@ -36,7 +36,7 @@ Avant de parvenir à une conception d’index satisfaisante, il convient d’eff
   
    Quand vous cliquez sur **Créer**, toutes les structures physiques supportant votre index sont créées dans votre service de recherche.
 
-3. Téléchargez le schéma d’index à l’aide de l’[API REST d’obtention d’index](https://docs.microsoft.com/rest/api/searchservice/get-index) et d’un outil de test web comme [Postman](search-fiddler.md). Vous disposez maintenant d’une représentation JSON de l’index que vous avez créé sur le portail. 
+3. Téléchargez le schéma d’index à l’aide de l’[API REST d’obtention d’index](https://docs.microsoft.com/rest/api/searchservice/get-index) et d’un outil de test web comme [Postman](search-get-started-postman.md). Vous disposez maintenant d’une représentation JSON de l’index que vous avez créé sur le portail. 
 
    À ce stade, vous passez à une approche basée sur le code. Le portail ne se prête pas bien à l’itération dans le sens où vous ne pouvez pas modifier un index qui a déjà été créé. En revanche, vous pouvez utiliser Postman et REST pour les tâches restantes.
 
@@ -48,7 +48,7 @@ Avant de parvenir à une conception d’index satisfaisante, il convient d’eff
 
 Comme les structures physiques sont créées dans le service, il est nécessaire de [supprimer et de recréer les index](search-howto-reindex.md) chaque fois que vous apportez des modifications importantes à une définition de champ existante. Cela signifie que pendant le développement, vous devez prévoir des regénérations fréquentes. Vous pouvez envisager de travailler sur une partie de vos données pour regénérer plus rapidement. 
 
-Pour une conception itérative, il est recommandé de privilégier une approche basée sur le code plutôt que sur le portail. Si vous utilisez le portail pour définir un index, vous devrez remplir la définition de l’index à chaque regénération. Sinon, les outils tels que [Postman et l’API REST](search-fiddler.md) s’avèrent utiles pour tester la preuve de concept aux phases initiales d’un projet de développement. Vous pouvez apporter des modifications incrémentielles à une définition d’index dans un corps de demande, puis envoyer la demande à votre service pour recréer un index en utilisant un schéma mis à jour.
+Pour une conception itérative, il est recommandé de privilégier une approche basée sur le code plutôt que sur le portail. Si vous utilisez le portail pour définir un index, vous devrez remplir la définition de l’index à chaque regénération. Sinon, les outils tels que [Postman et l’API REST](search-get-started-postman.md) s’avèrent utiles pour tester la preuve de concept aux phases initiales d’un projet de développement. Vous pouvez apporter des modifications incrémentielles à une définition d’index dans un corps de demande, puis envoyer la demande à votre service pour recréer un index en utilisant un schéma mis à jour.
 
 ## <a name="components-of-an-index"></a>Composants d’un index
 
@@ -160,16 +160,22 @@ Lorsque vous définissez votre schéma, vous devez spécifier le nom, le type et
 Pour plus d’informations sur les types de données pris en charge par le service Recherche Azure, consultez [cet article](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types).
 
 ### <a name="index-attributes"></a>Attributs d’index
+
+Dans votre index, un seul champ doit être désigné en tant que champ de **clé** qui identifie de façon unique chaque document.
+
+Les autres attributs déterminent la façon dont un champ est utilisé dans une application. Par exemple, l’attribut **Interrogeable** est affecté à tous les champs qui doivent être inclus dans une recherche en texte intégral. 
+
+Les API que vous utilisez pour créer un index ont différents comportements par défaut. Pour les [API REST](https://docs.microsoft.com/rest/api/searchservice/Create-Index), la plupart des attributs sont activés par défaut (par exemple, **Interrogeable** et **Récupérable** sont actifs pour les champs de type chaîne) et vous n’avez généralement besoin de les définir que si vous voulez les désactiver. Pour le Kit de développement logiciel (SDK) .NET, l’inverse est vrai. Pour les propriétés que vous ne définissez pas explicitement, l’option par défaut désactive le comportement de recherche correspondante, sauf si vous l’activez de façon spécifique.
+
 | Attribut | Description |
 | --- | --- |
-| *Clé* |Chaîne fournissant un ID unique à chaque document utilisé pour rechercher des documents. Chaque index doit avoir une clé. Un seul champ peut être la clé, et son type doit être défini sur Edm.String. |
-| *Affichable dans les résultats d’une recherche* |Définit si un champ peut être retourné dans un résultat de recherche. |
-| *Filtrable* |Permet d’utiliser le champ dans des requêtes de filtre. |
-| *Triable* |Permet à une requête de trier les résultats de recherche à l’aide de ce champ. |
-| *À choix multiple* |Permet d’utiliser un champ pour le filtrage autonome dans une structure de [navigation par facettes](search-faceted-navigation.md) par un utilisateur. En général, les champs contenant des valeurs répétitives que vous pouvez utiliser pour regrouper plusieurs documents (par exemple, plusieurs documents appartenant à une seule marque ou catégorie de service) sont les mieux adaptés en tant que facettes. |
-| *Possibilité de recherche* |Indique que le champ peut faire l’objet d’une recherche en texte intégral. |
+| `key` |Chaîne fournissant un ID unique à chaque document utilisé pour rechercher des documents. Chaque index doit avoir une clé. Un seul champ peut être la clé, et son type doit être défini sur Edm.String. |
+| `retrievable` |Définit si un champ peut être retourné dans un résultat de recherche. |
+| `filterable` |Permet d’utiliser le champ dans des requêtes de filtre. |
+| `Sortable` |Permet à une requête de trier les résultats de recherche à l’aide de ce champ. |
+| `facetable` |Permet d’utiliser un champ pour le filtrage autonome dans une structure de [navigation par facettes](search-faceted-navigation.md) par un utilisateur. En général, les champs contenant des valeurs répétitives que vous pouvez utiliser pour regrouper plusieurs documents (par exemple, plusieurs documents appartenant à une seule marque ou catégorie de service) sont les mieux adaptés en tant que facettes. |
+| `searchable` |Indique que le champ peut faire l’objet d’une recherche en texte intégral. |
 
-Pour plus d’informations sur les attributs d’index du service Recherche Azure, consultez [cet article](https://docs.microsoft.com/rest/api/searchservice/Create-Index).
 
 ## <a name="storage-implications"></a>Implications au niveau du stockage
 

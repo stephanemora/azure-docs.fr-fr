@@ -11,10 +11,10 @@ ms.date: 03/25/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: f7e092e27f73901810a9f7edd210e3513c54095e
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66508514"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-google-account-using-azure-active-directory-b2c"></a>Configurer l’inscription et la connexion avec un compte Google à l’aide d’Azure Active Directory B2C
@@ -24,7 +24,7 @@ ms.locfileid: "66508514"
 Pour utiliser un compte Google comme [fournisseur d’identité](active-directory-b2c-reference-oauth-code.md) dans Azure Active Directory (Azure AD) B2C, vous devez créer une application qui la représente dans votre locataire (tenant). Si vous ne disposez pas déjà d’un compte Google, vous pouvez en créer un à l’adresse [https://accounts.google.com/SignUp](https://accounts.google.com/SignUp).
 
 1. Connectez-vous à la [Console Google Developers](https://console.developers.google.com/) avec les informations d’identification de votre compte Google.
-2. Dans le coin supérieur gauche de la page, sélectionnez la liste des projets, puis **nouveau projet**.
+2. Dans le coin supérieur gauche de la page, sélectionnez la liste des projets, puis **Nouveau projet**.
 3. Entrez un **Nom du projet**, cliquez sur **Créer**, puis vérifiez que vous utilisez le nouveau projet.
 4. Sélectionnez **Informations d’identification** dans le menu de gauche, puis **Créer des informations d’identification** > **ID client OAuth**.
 5. Sous **Type d’application**, sélectionnez **Application web**.

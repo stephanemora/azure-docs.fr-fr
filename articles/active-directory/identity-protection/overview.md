@@ -17,16 +17,16 @@ ms.date: 01/29/2019
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a1154e6484ebc86743202239dcd94f0772c8011
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 660793cdba61b5438283ea54a9f7349bdfbc98e1
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67204511"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440511"
 ---
 # <a name="what-is-azure-active-directory-identity-protection"></a>Présentation d’Azure Active Directory Identity Protection
 
-Azure Active Directory Identity Protection permet aux organisations de configurer des réponses automatiques aux actions suspectes détectées liées aux identités d’utilisateur.
+Azure Active Directory [Identity](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology) Protection permet aux organisations de configurer des réponses automatiques aux actions suspectes détectées liées aux identités d’utilisateur.
 
 ## <a name="get-started"></a>Prise en main
 
@@ -69,7 +69,7 @@ Mais Azure Active Directory Identity Protection est bien plus qu’un outil de s
 
 Pour équilibrer la charge des activités de gestion en ce qui concerne votre implémentation de la protection des identités, vous pouvez attribuer plusieurs rôles. Azure AD Identity Protection prend en charge 3 rôles d’annuaire :
 
-| Rôle | Peut | Ne peut pas |
+| Role | Peut | Ne peut pas |
 | :-- | --- | --- |
 | Administrateur général | Accès complet à Identity Protection, Onboard Identity Protection| |
 | Administrateur de sécurité | Accès complet à Identity Protection | Onboard Identity Protection, réinitialiser les mots de passe pour un utilisateur |

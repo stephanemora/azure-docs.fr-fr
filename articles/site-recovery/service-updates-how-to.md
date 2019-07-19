@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/25/2019
 ms.author: rajanaki
-ms.openlocfilehash: dc15c8935cd3c20037bbed01f0f24cd2b8642045
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bde341063fb6742bbe2a92592981d4a2a437d214
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540923"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203437"
 ---
 # <a name="service-updates-in-azure-site-recovery"></a>Mises à jour de service dans Azure Site Recovery
 En tant qu’organisation, vous devez déterminer comment vous allez protéger vos données ainsi que les applications/charges de travail en cours d’exécution lors d’interruptions planifiées ou non. Azure Site Recovery contribue à la mise en œuvre de votre stratégie BCDR (continuité d’activité et reprise d’activité). En effet, en cas de panne du site, il maintient les applications en cours d’exécution sur des machines virtuelles et des serveurs physiques disponibles. Site Recovery réplique les charges de travail en cours d’exécution sur des machines virtuelles et des serveurs physiques, afin que ces charges restent disponibles à un second emplacement si jamais l’emplacement principal n’est pas disponible. Ce service récupère les charges de travail sur le site principal lorsqu’il fonctionne à nouveau.
@@ -33,6 +33,17 @@ Azure Site Recovery publie régulièrement des mises à jour de service pour ajo
 
 > [!IMPORTANT]
 > Le support officiel des mises à niveau couvre les versions allant de N-4 à N (N étant la dernière version). Si vous utilisez la version N-6, vous devez d’abord la mettre à niveau vers la version N-4, puis vers la version N.
+
+## <a name="expiry-of-components"></a>Expiration des composants
+Site Recovery informe les clients des composants proches de leur date d’expiration ou ayant déjà expiré par le biais de notifications par e-mail (si vous êtes abonné) ou sur le tableau de bord du coffre dans le portail. Dorénavant, les notifications sur le tableau de bord du coffre ne sont pas disponibles si vous protégez une machine virtuelle Hyper-V. En outre, si vous accédez à la vue d’infrastructure correspondante pour votre scénario, il y aura un bouton « mise à jour disponible » en regard du composant, qui vous redirigera vers les liens de téléchargement des dernières versions.
+
+Voici la fréquence des notifications par e-mail quand un composant est proche de sa date d’expiration.
+- 60 jours avant l’expiration du composant : une fois toutes les deux semaines
+- 53 jours suivants : une fois par semaine
+- 7 derniers jours : une fois par jour
+- Après la date d’expiration : une fois toutes les deux semaines
+
+
 
 ### <a name="upgrading-when-the-difference-between-current-version-and-latest-released-version-is-greater-than-4"></a>Mise à niveau quand la différence entre la version actuelle et la dernière version publiée est supérieure à 4
 
@@ -118,15 +129,16 @@ Un redémarrage est recommandé après chaque mise à niveau de l’agent Mobili
 
 |Correctif cumulatif  |Fournisseur  |Installation unifiée| OVF  |MARS|
 |---------|---------|---------|---------|--------|
+|[Correctif cumulatif 37](https://support.microsoft.com/help/4508614/update-rollup-37-for-azure-site-recovery)     |   5.1.4300.0  |  9.25.5241.1   |  5.1.4300.0  | 2.0.9163.0
 |[Correctif cumulatif 36](https://support.microsoft.com/en-in/help/4503156)     |   5.1.4150.0  |  9.24.5211.1   |  5.1.4150.0  | 2.0.9160.0
 |[Correctif cumulatif 35](https://support.microsoft.com/en-us/help/4494485/update-rollup-35-for-azure-site-recovery)     |   5.1.4000.0  |  9.23.5163.1   |  5.1.4000.0  | 2.0.9156.0
 |[Correctif cumulatif 34](https://support.microsoft.com/en-us/help/4490016/update-rollup-34-for-azure-site-recovery) – Correctif logiciel     |   5.1.3950.0  |  9.22.5142.1   |  5.1.3950.0  | 2.0.9155.0
 |[Correctif cumulatif 33](https://support.microsoft.com/en-us/help/4489582/update-rollup-33-for-azure-site-recovery)     |   5.1.3900.0  |  9.22.5109.1   |  5.1.3900.0  | 2.0.9155.0
 |[Correctif cumulatif 32](https://support.microsoft.com/en-us/help/4485985/update-rollup-32-for-azure-site-recovery)     |   5.1.3800.0  |  9.21.5091.1   |  5.1.3800.0  |2.0.9144.0
-|[Correctif cumulatif 31](https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery)     |     5.1.3700.0      |   9.20.5051.1      |     5.1.3700.0    |2.0.9144.0
 
 ## <a name="previous-update-rollups"></a>Correctifs cumulatifs précédents
 
+- [Correctif cumulatif 31](https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery)
 - [Correctif cumulatif 30](https://support.microsoft.com/help/4468181/azure-site-recovery-update-rollup-30)
 - [Correctif cumulatif 29](https://support.microsoft.com/help/4466466/update-rollup-29-for-azure-site-recovery)
 - [Correctif cumulatif 28](https://support.microsoft.com/help/4460079/update-rollup-28-for-azure-site-recovery)

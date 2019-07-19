@@ -1,6 +1,6 @@
 ---
-title: Authentifier l’accès aux objets blob et aux files d’attente avec des identités managées pour ressources Azure - Stockage Azure | Microsoft Docs
-description: Le stockage d’objets blob et de files d’attente Azure prend en charge l’authentification Azure Active Directory avec des identités managées pour les ressources Azure. Vous pouvez utiliser des identités managées pour ressources Azure pour authentifier l’accès à des objets blob et à des files d’attente à partir d’applications s’exécutant dans Machines virtuelles Azure, des applications de fonction, des groupes de machines virtuelles identiques, etc.
+title: Autoriser l’accès aux objets blob et files d’attente avec Azure Active Directory et les identités managées pour les ressources Azure - Stockage Azure
+description: Le stockage d’objets blob et de files d’attente Azure prend en charge l’autorisation d’accès aux ressources avec Azure Active Directory et les identités managées pour les ressources Azure. Vous pouvez utiliser des identités managées pour les ressources Azure, afin d’autoriser l’accès à des objets blob et à des files d’attente depuis des applications s’exécutant dans des machines virtuelles Azure, des applications de fonction, des groupes de machines virtuelles identiques, etc.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,14 +9,14 @@ ms.date: 04/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: f7525c3e125010bb4db9655bc214861e22dc8875
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 23e1171a8757d021b8c6d38f90bdbf720014045f
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65787974"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303415"
 ---
-# <a name="authenticate-access-to-blobs-and-queues-with-azure-active-directory-and-managed-identities-for-azure-resources"></a>Authentifier l’accès aux objets blob et files d’attente avec Azure Active Directory et les identités managées pour les ressources Azure
+# <a name="authorize-access-to-blobs-and-queues-with-azure-active-directory-and-managed-identities-for-azure-resources"></a>Autoriser l’accès aux objets blob et files d’attente avec Azure Active Directory et les identités managées pour les ressources Azure
 
 Le stockage d’objets blob et de files d’attente Azure prend en charge l’authentification Azure Active Directory (Azure AD) avec des [identités managées pour ressources Azure](../../active-directory/managed-identities-azure-resources/overview.md). Les identités managées pour ressources Azure autorisent l’accès à des objets blob et à des données de files d’attente en utilisant les informations d’identification Azure AD d’applications s’exécutant dans Machines virtuelles Azure, d’applications de fonction, de groupe de machines virtuelles identiques, et d’autres services. En utilisant des identités managées pour ressources Azure et Azure AD Authentication, vous pouvez éviter de stocker des informations d’identification avec les applications qui s’exécutent dans le cloud.  
 

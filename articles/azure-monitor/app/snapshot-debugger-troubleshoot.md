@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 03/07/2019
 ms.author: mbullwin
-ms.openlocfilehash: bf19d4f5ce60411413c21fce12f9fe9d2f391bf1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 25ccf20fc78a9ec00d4dfe23a60e824e96d12945
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60783959"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444547"
 ---
 # <a id="troubleshooting"></a> Résoudre les problèmes d’activation du Débogueur de capture instantanée Application Insights ou d’affichage d’instantanés
 Si vous avez activé le Débogueur de capture instantanée Application Insights pour votre application, mais que vous ne voyez pas de captures instantanées pour les exceptions, vous pouvez utiliser ces instructions pour résoudre les problèmes. Il peut y avoir de nombreuses raisons différentes pour lesquelles les captures instantanées ne sont pas générées. Vous pouvez exécuter le contrôle d’intégrité de capture instantanée pour identifier certaines des causes courantes possibles.
@@ -38,6 +38,10 @@ Si cela ne résout pas le problème, consultez les étapes de dépannage manuel 
 ## <a name="verify-the-instrumentation-key"></a>Vérifier la clé d’instrumentation
 
 Assurez-vous que vous utilisez la clé d’instrumentation correcte dans votre application publiée. En règle générale, la clé d’instrumentation est lue à partir du fichier ApplicationInsights.config. Vérifiez que la valeur est identique à la clé d’instrumentation de la ressource Application Insights que vous voyez dans le portail.
+
+## <a name="preview-versions-of-net-core"></a>Préversions de .NET Core
+Si l’application utilise une préversion de .NET Core et que Débogueur de capture instantanée a été activé par le biais du [volet Application Insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json) dans le portail, alors Débogueur de capture instantanée peut ne pas démarrer. Suivez d’abord les instructions dans [Activer le Débogueur de capture instantanée pour les applications .NET dans Azure Service Fabric, le service cloud et les machines virtuelles](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) pour inclure le package NuGet [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) à l’application ***en plus*** de l’activation par le biais du [volet Application Insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json).
+
 
 ## <a name="upgrade-to-the-latest-version-of-the-nuget-package"></a>Mettre à niveau vers la dernière version du package NuGet
 

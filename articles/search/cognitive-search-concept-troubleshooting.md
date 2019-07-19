@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: c97ccd82a9c09e10572733040e238443cbf777da
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c0de4d2b9ad0d009b9cd363d19a2de3f29d810d4
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64696596"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303447"
 ---
 # <a name="troubleshooting-tips-for-cognitive-search"></a>Conseils de dépannage pour la recherche cognitive
 
@@ -94,7 +94,10 @@ L’analyse d’image nécessite une grande capacité de calcul, même pour des 
 
 Le temps d’exécution maximal varie selon le niveau : de quelques minutes pour le niveau Gratuit, à une durée d’indexation de 24 heures pour les niveaux facturables. Si le traitement n’aboutit pas dans un délai de 24 heures pour un traitement à la demande, passez à une planification telle que l’indexeur reprenne le traitement là où il l’a laissé. 
 
-Pour les indexeurs planifiés, l’indexation reprend dans le délai prévu au dernier bon document connu. Avec une planification récurrente, l’indexeur peut opérer à sa manière dans le backlog d’images sur une série d’heures ou de jours, jusqu’à ce que toutes les images non traitées le soient. Pour plus d’informations sur la syntaxe de la planification, consultez [Étape 3 : Créer un indexeur](search-howto-indexing-azure-blob-storage.md#step-3-create-an-indexer).
+Pour les indexeurs planifiés, l’indexation reprend dans le délai prévu au dernier bon document connu. Avec une planification récurrente, l’indexeur peut opérer à sa manière dans le backlog d’images sur une série d’heures ou de jours, jusqu’à ce que toutes les images non traitées le soient. Pour plus d’informations sur la syntaxe de la planification, consultez [Étape 3 : Créer un indexeur](search-howto-indexing-azure-blob-storage.md#step-3-create-an-indexer) ou consultez [Guide pratique pour planifier des indexeurs pour Recherche Azure](search-howto-schedule-indexers.md).
+
+> [!NOTE]
+> Si un indexeur est défini sur une certaine planification, mais échoue à plusieurs reprises sur le même document chaque fois qu’il s’exécute, l’indexeur commence à s’exécuter à un intervalle moins fréquent (jusqu’à un maximum d’au moins une fois toutes les 24 heures) jusqu’à ce qu’il progresse correctement à nouveau.  Si vous pensez avoir résolu le problème qui provoquait le blocage de l’indexeur à un moment donné, vous pouvez effectuer une exécution à la demande de l’indexeur, et en cas de progression, l’indexeur reprend son intervalle de planification défini.
 
 Pour une indexation basée sur le portail (telle que décrite dans le démarrage rapide), le choix de l’option d’indexeur « Exécuter une fois » limite le traitement à 1 heure (`"maxRunTime": "PT1H"`). Vous pouvez étendre la fenêtre de traitement.
 

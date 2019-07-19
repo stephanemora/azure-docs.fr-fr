@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: 4ec9d5e605a2319a04dac4cb52dbe49c77354479
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 14350125f88c315a813eb64e3ce2b88dbec2aa24
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65510635"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67340195"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Kit SDK .NET Core Azure Cosmos DB pour l’API SQL : Notes de publication et ressources
 > [!div class="op_single_selector"]
@@ -50,9 +50,13 @@ Le kit de développement logiciel (SDK) .NET Core Azure Cosmos DB assure la pari
 * Prise en charge des flux.
 * Mise à jour de CosmosResponseMessage à partir du serveur pour renvoyer le code d’état, et levée d’une seule exception si aucune réponse n’est retournée.
 
+### <a name="a-name241241"></a><a name="2.4.1"/>2.4.1
+
+* Condition de concurrence de traçage de correctifs pour les requêtes ayant généré des pages vides
+
 ### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
 
-* La version de System.Net.Http du Kit de développement logiciel (SDK) correspond à celle définie dans le package NuGet.
+* La version System.Net.Http du Kit de développement logiciel (SDK) correspond à celle définie dans le package NuGet.
 * Augmentation de taille de précision décimale pour les requêtes LINQ.
 * Ajout de nouvelles classes CompositePath, CompositePathSortOrder, SpatialSpec, SpatialType et PartitionKeyDefinitionVersion
 * Ajout de TimeToLivePropertyPath à DocumentCollection
@@ -228,7 +232,7 @@ Le kit de développement logiciel (SDK) .NET Core Azure Cosmos DB assure la pari
 
 ### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
 
-* Ajout de la prise en charge des requêtes d’agrégation (COUNT, MIN, MAX, SUM et AVG). Consultez l’article [Aggregation support (Prise en charge de l’agrégation)](how-to-sql-query.md#Aggregates).
+* Ajout de la prise en charge des requêtes d’agrégation (COUNT, MIN, MAX, SUM et AVG). Consultez l’article [Aggregation support (Prise en charge de l’agrégation)](sql-query-aggregates.md).
 * Débit minimal réduit sur les collections partitionnées de 10 100 unités de demande/s à 2 500 unités de demande/s.
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
@@ -251,6 +255,7 @@ Si vous avez des questions liées à ce kit SDK, postez sur [StackOverflow](http
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
+| [2.4.1](#2.4.1) |20 juin 2019 |--- |
 | [2.4.0](#2.4.0) |5 mai 2019 |--- |
 | [2.3.0](#2.3.0) |4 avril 2019 |--- |
 | [2.2.3](#2.2.3) |11 mars 2019 |--- |

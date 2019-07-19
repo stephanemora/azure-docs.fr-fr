@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
-ms.openlocfilehash: 58315e639a54b67bdef6751004b7a768e4f92224
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f2514fff2a3bb292a86c9f4c0e92c37ed2709097
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64937517"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341038"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>FairPlay Streaming hors connexion pour iOS 
 
@@ -40,6 +40,9 @@ Outre la protection du contenu pour la diffusion en continu en ligne sur plusieu
 * Dans certains pays/régions, la disponibilité d’Internet et/ou de la bande passante est encore limitée. Les utilisateurs peuvent choisir de télécharger d’abord afin de pouvoir regarder le contenu dans une résolution suffisamment élevée pour une expérience d’affichage satisfaisante. Dans ce cas, le problème n’est généralement pas lié à la disponibilité du réseau mais à la bande passante réseau limitée. Les fournisseurs Over-the-top (OTT) ou de plateforme de vidéos en ligne (OVP) nécessitent la prise en charge du mode hors connexion.
 
 Cet article couvre la prise en charge du mode hors connexion FairPlay Streaming (FPS) ciblant les appareils exécutant iOS 10 ou version ultérieure. Cette fonctionnalité n’est pas prise en charge pour d’autres plateformes Apple, telles que watchOS, tvOS ou Safari sur macOS.
+
+> [!NOTE]
+> DRM hors connexion est uniquement facturé pour une requête unique de licence lorsque vous téléchargez le contenu. Les erreurs ne sont pas facturées.
 
 ## <a name="prerequisites"></a>Prérequis
 

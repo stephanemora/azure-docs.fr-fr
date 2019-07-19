@@ -4,20 +4,20 @@ description: Cet article décrit comment utiliser des données de référence po
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
-manager: kfile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/29/2019
-ms.openlocfilehash: 93c65429ef7581f4a7d2e268034e4056d6f000c8
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
-ms.translationtype: MT
+ms.date: 06/21/2019
+ms.openlocfilehash: e4a6d169b50eff1b0e166bea098e28e65bad8cab
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393132"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329302"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Utiliser des données de référence pour effectuer des recherches dans Stream Analytics
-Les données de référence (également appelées « tables de choix ») sont un jeu de données finies, statiques ou variant lentement au fil du temps par nature, utilisé pour effectuer des recherches ou pour se mettre en corrélation avec votre flux de données. Par exemple, dans un scénario IoT, vous pourriez stocker des métadonnées sur les capteurs (qui ne changent pas souvent) dans les données de référence et les associer à des flux de données IoT en temps réel. Azure Stream Analytics charge les données de référence dans la mémoire pour obtenir un traitement de flux à faible latence. Pour utiliser des données de référence dans votre travail Azure Stream Analytics, vous utiliserez généralement une [jointure de données de référence](https://msdn.microsoft.com/library/azure/dn949258.aspx) dans votre requête. 
+
+Les données de référence (également appelées « tables de choix ») sont un jeu de données finies, statiques ou variant lentement par nature, utilisé pour effectuer des recherches ou pour augmenter vos flux de données. Par exemple, dans un scénario IoT, vous pourriez stocker des métadonnées sur les capteurs (qui ne changent pas souvent) dans les données de référence et les associer à des flux de données IoT en temps réel. Azure Stream Analytics charge les données de référence dans la mémoire pour obtenir un traitement de flux à faible latence. Pour utiliser des données de référence dans votre travail Azure Stream Analytics, vous utiliserez généralement une [jointure de données de référence](https://msdn.microsoft.com/library/azure/dn949258.aspx) dans votre requête. 
 
 Stream Analytics prend en charge le stockage Blob Azure et Azure SQL Database comme couche de stockage pour les données de référence. Vous pouvez également transformer et/ou copier des données de référence dans le stockage d’objets Blob à partir d’Azure Data Factory pour utiliser [n’importe quel nombre de banques de données cloud et locales](../data-factory/copy-activity-overview.md).
 
@@ -43,18 +43,18 @@ Pour configurer vos données de référence, vous devez d'abord créer une entr�
 
 ### <a name="static-reference-data"></a>Données de référence statiques
 
-Si vos données de référence ne sont pas supposées changer, la prise en charge des données de référence statiques est activée en spécifiant un chemin d’accès statique dans la configuration d’entrée. Azure Stream Analytics récupère l’objet blob à partir du chemin spécifié. Les jetons de substitution {date} et {time} ne sont pas nécessaires. Les données de référence sont immuables dans Stream Analytics. Il n’est donc pas recommandé d’écraser un objet blob de données de référence statiques.
+Si vos données de référence ne sont pas supposées changer, la prise en charge des données de référence statiques est activée en spécifiant un chemin d’accès statique dans la configuration d’entrée. Azure Stream Analytics récupère l’objet blob à partir du chemin spécifié. Les jetons de substitution {date} et {time} ne sont pas nécessaires. Étant donné que les données de référence sont immuables dans Stream Analytics, le remplacement d’un objet blob de données de référence statiques n’est pas recommandé.
 
 ### <a name="generate-reference-data-on-a-schedule"></a>Générer des données de référence dans une planification
 
 Si vos données de référence sont un jeu de données variant lentement, la prise en charge de l’actualisation des données de référence peut être activée en spécifiant un modèle de chemin d’accès dans la configuration d’entrée à l’aide des jetons de substitution {date} et {time}. Stream Analytics collectera les définitions de données de référence mises à jour en fonction de ce modèle de chemin d’accès. Par exemple, un modèle `sample/{date}/{time}/products.csv` avec un format de date **« AAAA-MM-JJ »** et un format d’heure **« HH:mm »** donne pour instruction à Stream Analytics de sélectionner l’objet blob `sample/2015-04-16/17-30/products.csv` mis à jour à 17:30 le 16 avril 2015 (UTC).
 
-Azure Stream Analytics analyse automatiquement les objets blob de données de référence actualisées à un intervalle d’une minute. Si un objet blob avec l’horodatage 10:30:00 est téléchargé avec un léger décalage (par exemple, 10:30:30), vous remarquerez un petit délai dans la tâche Stream Analytique faisant référence à cet objet blob. Pour éviter de tels scénarios, il est recommandé de charger l’objet blob antérieure à l’heure effective cible (10 : 30:00 dans cet exemple) pour autoriser le travail Stream Analytique suffisamment de temps pour découvrir et charger en mémoire et effectuer des opérations. 
+Azure Stream Analytics analyse automatiquement les objets blob de données de référence actualisées à un intervalle d’une minute. Si un objet blob avec l’horodatage 10:30:00 est chargé avec un léger décalage (par exemple, 10:30:30), vous remarquerez un petit retard dans le travail Stream Analytics faisant référence à cet objet blob. Pour éviter de tels scénarios, il est recommandé de charger l’objet blob avant l’heure réelle cible (10:30:00 dans cet exemple), afin d’octroyer au travail Stream Analytics suffisamment de temps pour le découvrir et le charger en mémoire, puis d’effectuer des opérations. 
 
 > [!NOTE]
 > Actuellement, les tâches Stream Analytics recherchent l’actualisation des objets blob uniquement lorsque l’heure machine s’approche de l’heure encodée dans le nom de l’objet blob. Par exemple la tâche recherche `sample/2015-04-16/17-30/products.csv` dès que possible, mais aucune version antérieure à 17 h 30 le 16 avril 2015 (UTC). Elle ne recherche *jamais* un blob avec une heure encodée antérieure à la dernière heure détectée.
 > 
-> Par exemple, une fois que la tâche trouve l’objet blob `sample/2015-04-16/17-30/products.csv`, elle ignore tout fichier dont la date encodée est antérieure à 17 h 30 le 16 avril 2015. Donc, si un objet blob `sample/2015-04-16/17-25/products.csv` arrivant ultérieurement est créé dans le même conteneur, la tâche ne l’utilise pas.
+> Par exemple, une fois que la tâche trouve l’objet blob `sample/2015-04-16/17-30/products.csv`, elle ignore tout fichier dont la date encodée est antérieure à 17 h 30 le 16 avril 2015. Donc, si un objet blob `sample/2015-04-16/17-25/products.csv` arrivant ultérieurement est créé dans le même conteneur, la tâche ne l’utilise pas.
 > 
 > De même, si `sample/2015-04-16/17-30/products.csv` est produit uniquement à 23 h 03 16 avril 2015 alors qu’aucun objet blob avec une date antérieure n’est présent dans le conteneur, la tâche utilise ce fichier en commençant à 23 h 03 le 16 avril 2015 et les données de référence antérieures à ce moment.
 > 
@@ -78,7 +78,7 @@ Les données de référence Azure SQL Database sont récupérées par votre tâc
 
 Si vos données de référence sont un jeu de données à variation lente, vous devez régulièrement actualiser l’instantané qui est utilisé dans votre tâche. Stream Analytics vous permet de définir une fréquence de rafraîchissement lorsque vous configurez votre connexion d’entrée Azure SQL Database. Le runtime Stream Analytics va interroger votre base de données Azure SQL à l’intervalle spécifié par la fréquence d’actualisation. La fréquence de rafraîchissement la plus rapide prise en charge correspond à une fois par minute. Pour chaque actualisation, Stream Analytics stocke un nouvel instantané dans le compte de stockage fourni.
 
-Stream Analytics fournit deux options pour l’interrogation de votre base de données Azure SQL. Une requête de capture instantanée est obligatoire et doit être incluse dans chaque tâche. Stream Analytics exécute la requête de capture instantanée régulièrement selon votre intervalle d’actualisation et utilise le résultat de la requête (la capture instantanée) en tant que jeu de données de référence. La requête de capture instantanée devrait convenir à la plupart des scénarios, mais si vous rencontrez des problèmes de performances avec les jeux de données volumineux et les fréquences d’actualisation rapides, vous pouvez utiliser l’option de requête delta. Les requêtes qui prennent plus de 60 secondes pour retourner le jeu de données de référence entraîne un délai d’expiration.
+Stream Analytics fournit deux options pour l’interrogation de votre base de données Azure SQL. Une requête de capture instantanée est obligatoire et doit être incluse dans chaque tâche. Stream Analytics exécute la requête de capture instantanée régulièrement selon votre intervalle d’actualisation et utilise le résultat de la requête (la capture instantanée) en tant que jeu de données de référence. La requête de capture instantanée devrait convenir à la plupart des scénarios, mais si vous rencontrez des problèmes de performances avec les jeux de données volumineux et les fréquences d’actualisation rapides, vous pouvez utiliser l’option de requête delta. Les requêtes qui prennent plus de 60 secondes pour retourner le jeu de données de référence se traduisent par un délai d’attente.
 
 Avec l’option de requête delta, Stream Analytics exécute la requête de capture instantanée initialement pour obtenir un jeu de données de référence de ligne de base. Ensuite, Stream Analytics exécute la requête delta régulièrement selon votre intervalle d’actualisation pour récupérer les modifications incrémentielles. Ces modifications incrémentielles sont appliquées en permanence au jeu de données de référence pour le maintenir à jour. L’utilisation de requêtes delta peut permettre de réduire les coûts de stockage et les opérations d’e/s réseau.
 

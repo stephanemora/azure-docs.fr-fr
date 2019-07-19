@@ -9,29 +9,28 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/01/2019
+ms.date: 06/18/2019
 ms.author: diberry
-ms.openlocfilehash: 7315c80ad74eae07e41577fb2ac13742002e729e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7f82bf5a40df0554d4f98b2d835fcbd69279be43
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60198578"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204155"
 ---
 # <a name="using-subscription-keys-with-your-luis-app"></a>Utilisation des clés d’abonnement avec votre application LUIS
 
-Vous n’avez pas besoin de créer de clés d’abonnement pour utiliser vos 1 000 premières requêtes de point de terminaison gratuites. Une fois que ces requêtes de point de terminaison sont utilisées, créez une ressource Azure dans le [portail Azure](https://portal.azure.com), puis affectez cette ressource à une application LUIS dans le [portail LUIS](https://www.luis.ai).
-
-Si vous recevez une erreur _hors quota_ sous la forme d’une erreur HTTP 403 ou 429, vous devez créer une clé et l’affecter à votre application. 
+Lorsque vous utilisez Language Understanding (LUIS) pour la première fois, vous n’avez pas besoin de créer de clés d’abonnement. 1 000 requêtes de point de terminaison vous sont données pour commencer. 
 
 Pour des tests et des prototypes uniquement, utilisez le niveau gratuit (F0). Pour les systèmes de production, utilisez un niveau [payant](https://aka.ms/luis-price-tier). N’utilisez pas la [clé de création](luis-concept-keys.md#authoring-key) pour les requêtes de point de terminaison en production.
+
 
 <a name="create-luis-service"></a>
 <a name="create-language-understanding-endpoint-key-in-the-azure-portal"/>
 
 ## <a name="create-prediction-endpoint-runtime-resource-in-the-azure-portal"></a>Créer la ressource de runtime de point de terminaison de prédiction dans le portail Azure
 
-En savoir plus avec le guide de démarrage rapide [Générer une application](get-started-portal-build-app.md).
+Vous créez la [ressource de point de terminaison de prédiction](get-started-portal-deploy-app.md#create-the-endpoint-resource) dans le portail Microsoft Azure. Cette ressource doit être utilisée seulement pour les requêtes de prédiction du point de terminaison. N’utilisez pas cette ressource pour apporter des modifications à l’application.
 
 <a name="programmatic-key" ></a>
 <a name="authoring-key" ></a>
@@ -49,7 +48,7 @@ En savoir plus avec le guide de démarrage rapide [Générer une application](ge
 
 ## <a name="assign-resource-key-to-luis-app-in-luis-portal"></a>Affecter une clé de ressource à l’application LUIS dans le portail LUIS
 
-En savoir plus avec le guide de démarrage rapide [Déploiement](get-started-portal-deploy-app.md).
+Chaque fois que vous créez une ressource pour LUIS, vous devez [l’attribuer à l’application LUIS](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal). Une fois qu’elle est affectée, vous n’avez plus besoin d’effectuer cette étape, sauf si vous créez une nouvelle ressource. Vous pouvez être amené à créer une nouvelle ressource pour étendre les régions de votre application ou pour prendre en charge un nombre plus élevé de requêtes de prédiction.
 
 <!-- content moved to luis-reference-regions.md, need replacement links-->
 <a name="regions-and-keys"></a>
@@ -155,10 +154,30 @@ En savoir plus sur les[régions](luis-reference-regions.md) de publication, nota
     ![Vérifier votre niveau de paiement LUIS](./media/luis-usage-tiers/updated.png)
 1. N’oubliez pas d’[affecter cette clé de point de terminaison](#assign-endpoint-key) sur la page **Publier** et de l’utiliser dans toutes les requêtes de point de terminaison. 
 
-## <a name="how-to-fix-out-of-quota-errors-when-the-key-exceeds-pricing-tier-usage"></a>Comment corriger les erreurs de dépassement de quota quand la clé excède l’utilisation du niveau tarifaire
-Chaque niveau autorise des requêtes de point de terminaison pour votre compte LUIS à un débit spécifique. Si le débit de requêtes est supérieur à celui autorisé pour votre compte facturé à l’usage par minute ou par mois, les requêtes reçoivent une erreur HTTP « 429 : 429 Trop de requêtes. »
+## <a name="fix-http-status-code-403-and-429"></a>Corriger les codes d’état HTTP 403 et 429
 
-Chaque niveau permet un nombre de requêtes cumulées par mois. Si le nombre total de requêtes dépasse le débit autorisé, les requêtes reçoivent une erreur HTTP « 403 : interdit ».  
+Vous obtenez des codes d’état d’erreur 403 et 429 lorsque vous dépassez le nombre de transactions par seconde ou le nombre de transactions par mois pour votre niveau tarifaire.
+
+### <a name="when-you-receive-an-http-403-error-status-code"></a>Lorsque vous recevez un code d’état d’erreur HTTP 403
+
+Lorsque vous utilisez l’ensemble des 1 000 requêtes de point de terminaison gratuites ou quand vous dépassez le quota de transactions mensuel de votre niveau tarifaire, vous recevez un code d’état d’erreur HTTP 403. 
+
+Pour corriger cette erreur, vous devez [modifier votre niveau tarifaire](luis-how-to-azure-subscription.md#change-pricing-tier) pour en choisir un de niveau supérieur ou [créer une ressource](get-started-portal-deploy-app.md#create-the-endpoint-resource) et [l’attribuer à votre application](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal).
+
+Les solutions pour corriger cette erreur incluent :
+
+* Dans le [portail Microsoft Azure](https://portal.azure.com), sur votre ressource Language Understanding, dans **Gestion des ressources -> Niveau tarifaire**, remplacez votre niveau tarifaire par un niveau TPS supérieur. Vous n’avez aucune action à effectuer dans le portail Language Understanding si votre ressource est déjà attribuée à votre application Language Understanding.
+*  Si votre utilisation dépasse le niveau tarifaire le plus élevé, ajoutez plus de ressources Language Understanding avec un équilibreur de charge placé devant celles-ci. Le [conteneur Language Understanding](luis-container-howto.md) avec Kubernetes ou Docker Compose peut vous y aider.
+
+### <a name="when-you-receive-an-http-429-error-status-code"></a>Lorsque vous recevez un code d’état d’erreur HTTP 429
+
+Ce code d’état est renvoyé lorsque le nombre de transactions par seconde dépasse votre niveau tarifaire.  
+
+Les solutions pour corriger le problème incluent :
+
+* Vous pouvez [augmenter votre niveau tarifaire](#change-pricing-tier), si vous n’êtes pas au niveau le plus élevé.
+* Si votre utilisation dépasse le niveau tarifaire le plus élevé, ajoutez plus de ressources Language Understanding avec un équilibreur de charge placé devant celles-ci. Le [conteneur Language Understanding](luis-container-howto.md) avec Kubernetes ou Docker Compose peut vous y aider.
+* Vous pouvez réguler vos requêtes d’application cliente avec une [stratégie de nouvelles tentatives](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines) que vous implémentez lorsque vous recevez ce code d’état. 
 
 ## <a name="viewing-summary-usage"></a>Affichage résumé de l’utilisation
 Vous pouvez afficher des informations sur l’utilisation de LUIS dans Azure. La page **Vue d’ensemble** affiche des informations récapitulatives récentes, y compris les appels et les erreurs. Si vous effectuez une requête de point de terminaison LUIS, puis consultez immédiatement la **page Vue d’ensemble**, attendez cinq minutes, le temps que l’utilisation s’affiche.

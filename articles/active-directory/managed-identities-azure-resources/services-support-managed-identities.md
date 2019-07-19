@@ -4,18 +4,18 @@ description: Liste des services qui prennent en charge les identités managées 
 services: active-directory
 author: MarkusVi
 ms.author: priyamo
-ms.date: 05/09/2019
+ms.date: 06/19/2019
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0809423472bde0240145d43f4c28d9594b517928
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 22c67f1dad55d5d8710a997394e247793943cd21
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65518685"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67293497"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Services Azure qui prennent en charge les identités managées pour ressources Azure
 
@@ -147,6 +147,17 @@ Reportez-vous à la liste suivante pour configurer l'identité managée du servi
 - [Interface de ligne de commande Azure](~/articles/container-instances/container-instances-managed-identity.md)
 - [Modèle Azure Resource Manager](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-resource-manager-template)
 - [YAML](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-yaml-file)
+
+### <a name="azure-container-registry-tasks"></a>Tâches Azure Container Registry
+
+Type d'identité managée | Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | --- | --- | --- | --- |
+| Attribuée par le système | Disponible | Non disponible | Non disponible | Non disponible |
+| Attribuée par l'utilisateur | PRÉVERSION | Non disponible | Non disponible | Non disponible |
+
+Reportez-vous à la liste suivante pour configurer une identité managée pour Azure Container Registry Tasks (dans les régions où il est disponible) :
+
+- [Interface de ligne de commande Azure](~/articles/container-registry/container-registry-tasks-authentication-managed-identity.md)
 
 ## <a name="azure-services-that-support-azure-ad-authentication"></a>Services Azure qui prennent en charge l’authentification Azure AD
 

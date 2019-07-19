@@ -8,37 +8,37 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: rimman
 ms.custom: rimman
-ms.openlocfilehash: 956f63dd92c82df0998cfaca76c7ecf5b10f053e
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.openlocfilehash: 3cf075c2909b35bb08ca4cb24aaa3b99597f34c6
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65953854"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203528"
 ---
 # <a name="data-modeling-in-azure-cosmos-db"></a>Modélisation des données dans Azure Cosmos DB
 
-Bien que les bases de données sans schéma, comme Azure Cosmos DB, rendent très facile stocker et interroger des données non structurées et semi-structurées, vous devez prendre le temps de réfléchir sur votre modèle de données pour tirer le meilleur parti du service en termes de performances et l’évolutivité et la plus basse coût.
+Bien que les bases de données sans schéma, comme Azure Cosmos DB, rendent très faciles le stockage et l’interrogation des données non structurées et semi-structurées, vous devez prendre le temps de réfléchir à votre modèle de données pour tirer le meilleur parti du service en termes de niveau de performance, de scalabilité et de coût.
 
-Comment les données seront-elles stockées ? Comment votre application va-t-elle récupérer et interroger des données ? Votre application est-elle des lectures ou écritures ?
+Comment les données seront-elles stockées ? Comment votre application va-t-elle récupérer et interroger des données ? Votre application exige-t-elle de nombreuses lectures (read heavy) ou de nombreuses écritures (write heavy) ?
 
 Après avoir lu cet article, vous serez en mesure de répondre aux questions suivantes :
 
 * Qu'est-ce que la modélisation de données et pourquoi dois-je m'en soucier ?
-* Comment la modélisation des données dans Azure Cosmos DB est différent pour une base de données relationnelle ?
+* En quoi la modélisation des données dans Azure Cosmos DB et dans une base de données relationnelle diffère-t-elle ?
 * Comment exprimer les relations entre les données dans une base de données non relationnelle ?
 * Quand dois-je incorporer les données et quand dois-je créer un lien vers les données ?
 
 ## <a name="embedding-data"></a>Incorporation de données
 
-Lorsque vous démarrez la modélisation des données dans Azure Cosmos DB essayez de traiter vos entités en tant que **éléments autonomes** représenté en tant que documents JSON.
+Quand vous entamez la modélisation des données dans Azure Cosmos DB, essayez de traiter vos entités en tant qu’**éléments autonomes** représentés sous la forme de documents  JSON.
 
-Pour la comparaison, nous allons tout d’abord voir comment nous pouvons modéliser les données dans une base de données relationnelle. L'exemple suivant montre comment une personne peut être stockée dans une base de données relationnelle.
+À des fins de comparaison, nous allons tout d’abord voir comment nous pouvons modéliser les données dans une base de données relationnelle. L'exemple suivant montre comment une personne peut être stockée dans une base de données relationnelle.
 
 ![Modèle de base de données relationnelle](./media/sql-api-modeling-data/relational-data-model.png)
 
-Lorsque vous travaillez avec des bases de données relationnelles, la stratégie consiste à normaliser toutes vos données. La normalisation de vos données généralement consiste à prendre une entité, une personne, par exemple et la décomposer en composants distincts. Dans l’exemple ci-dessus, une personne peut avoir plusieurs enregistrements de détail de contact, ainsi que plusieurs enregistrements d’adresse. Les détails du contact peuvent être subdivisés en extrayant courantes champs tels qu’un type. Vaut pour l’adresse, chaque enregistrement peut être de type *accueil* ou *Business*.
+Quand vous utilisez des bases de données relationnelles, la stratégie consiste à normaliser toutes vos données. En général, la normalisation de vos données consiste à prendre une entité, une personne par exemple, et à la décomposer en composants discrets. Dans l’exemple ci-dessus, une personne peut avoir plusieurs enregistrements de coordonnées ainsi que plusieurs enregistrements d’adresse. Nous pouvons également décomposer les coordonnées en extrayant des champs communs tels qu’un type. Il en va de même pour l’adresse, chaque enregistrement pouvant être de type *personnel* ou *professionnel*.
 
-Le principe directeur lors de la normalisation des données consiste à **éviter de stocker des données redondantes** dans chaque enregistrement et à faire plutôt référence aux données. Dans cet exemple, pour lire une personne, avec toutes ses coordonnées et adresses, vous devez utiliser des jointures efficacement composer précédent (ou dénormaliser) vos données en cours d’exécution.
+Le principe directeur lors de la normalisation des données consiste à **éviter de stocker des données redondantes** dans chaque enregistrement et à faire plutôt référence aux données. Dans cet exemple, pour lire une personne, avec ses coordonnées et ses adresses, vous devez utiliser des jointures pour recomposer (dénormaliser) efficacement vos données au moment de l’exécution.
 
     SELECT p.FirstName, p.LastName, a.City, cd.Detail
     FROM Person p
@@ -48,7 +48,7 @@ Le principe directeur lors de la normalisation des données consiste à **évite
 
 La mise à jour d'une personne avec ses coordonnées et adresses nécessite des opérations d'écriture sur plusieurs tables individuelles.
 
-Maintenant examinons à présent comment nous pourrions modéliser les mêmes données comme une entité autonome dans Azure Cosmos DB.
+Examinons à présent comment nous pourrions modéliser les mêmes données comme une entité autonome dans Azure Cosmos DB.
 
     {
         "id": "1",
@@ -69,10 +69,10 @@ Maintenant examinons à présent comment nous pourrions modéliser les mêmes do
         ]
     }
 
-À l’aide de l’approche ci-dessus nous **dénormalisées** enregistrer de la personne, par **incorporation** toutes les informations relatives à cette personne, telles que ses coordonnées et les adresses, dans un *unique JSON* document.
+Avec l’approche ci-dessus, nous avons **dénormalisé** l’enregistrement de la personne, en **incorporant** toutes les informations relatives à cette personne, telles que ses coordonnées et adresses, dans un *seul document JSON*.
 En outre, étant donné que nous ne sommes pas limités à un schéma fixe, nous avons la possibilité d'avoir des coordonnées de formes entièrement différentes.
 
-Récupération d’un enregistrement complet de personne à partir de la base de données est désormais un **opération de lecture seule** par rapport à un seul conteneur et pour un seul élément. La mise à jour d’un enregistrement de personne, avec ses coordonnées et les adresses, est également un **unique l’opération d’écriture** par rapport à un seul élément.
+La récupération d’un enregistrement complet de personne dans la base de données correspond désormais à **une seule opération de lecture** sur un conteneur unique et pour un élément unique. La mise à jour d’un enregistrement de personne, avec ses coordonnées et adresses, correspond également à **une seule opération d’écriture** sur un élément unique.
 
 Avec la dénormalisation des données, votre application aura peut-être besoin d'émettre moins de requêtes et de mises à jour pour effectuer les opérations courantes.
 
@@ -80,18 +80,18 @@ Avec la dénormalisation des données, votre application aura peut-être besoin 
 
 En général, utilisez des modèles de données incorporés dans les cas suivants :
 
-* Il existe **contenus** relations entre entités.
+* Il existe des relations de type **contenu** entre des entités.
 * Il existe des relations de type **un-à-plusieurs** entre des entités.
 * Des données incorporées **changent rarement**.
-* Il existe des données incorporées ne dépassera **sans limite**.
-* Il existe des données incorporées sont **fréquemment interrogés**.
+* Des données incorporées ne croîtront pas **sans limite**.
+* Des données incorporées sont **fréquemment interrogées**.
 
 > [!NOTE]
 > Normalement, les modèles de données dénormalisés offrent de meilleures performances en **lecture** .
 
 ### <a name="when-not-to-embed"></a>Quand éviter l'incorporation
 
-Alors que la règle de base dans Azure Cosmos DB est de tout dénormaliser et d’incorporer toutes les données dans un seul élément, cela peut entraîner des situations qui doivent être évitées.
+Bien que la règle générale dans Azure Cosmos DB soit de tout dénormaliser et d’incorporer toutes les données dans un seul élément, cela peut déboucher sur des situations qui devraient être évitées.
 
 Prenons cet extrait de code JSON.
 
@@ -111,11 +111,11 @@ Prenons cet extrait de code JSON.
         ]
     }
 
-Une entité post avec commentaires incorporés pourrait avoir cet aspect si nous étions en train de modéliser un système de blog, ou CMS, classique. Dans cet exemple, le problème est que le tableau de commentaires est **illimité**, c’est-à-dire qu’il n’existe aucune limite (pratique) au nombre de commentaires possibles pour une publication. Cela peut devenir un problème car la taille de l’élément Impossible d’augmenter à l’infini.
+Une entité post avec commentaires incorporés pourrait avoir cet aspect si nous étions en train de modéliser un système de blog, ou CMS, classique. Dans cet exemple, le problème est que le tableau de commentaires est **illimité**, c’est-à-dire qu’il n’existe aucune limite (pratique) au nombre de commentaires possibles pour une publication. Cela peut devenir un problème, car la taille de l’élément peut augmenter à l’infini.
 
-Comme la taille de l’élément devient la possibilité de transmettre les données sur le câble, ainsi que la lecture et la mise à jour de l’élément, à l’échelle, sera affectée.
+L’augmentation de la taille de l’élément a une incidence sur les possibilités de transmission des données par câble, ainsi que sur les possibilités de lecture et de mise à jour de l’élément à grande échelle.
 
-Dans ce cas, il serait préférable de considérer le modèle de données suivantes.
+Dans ce cas, il serait préférable de considérer le modèle de données suivant.
 
     Post item:
     {
@@ -148,9 +148,9 @@ Dans ce cas, il serait préférable de considérer le modèle de données suivan
         ]
     }
 
-Ce modèle présente les trois commentaires les plus récents incorporés dans le conteneur de post, ce qui est un tableau avec un ensemble fixe d’attributs. Les autres commentaires sont regroupés par lots de 100 commentaires et stockés en tant qu’éléments distincts. 100 a été choisi comme taille de lot parce que notre application fictive permet à l'utilisateur de charger 100 commentaires à la fois.  
+Ce modèle présente les trois derniers commentaires incorporés dans le conteneur de publication, qui est un tableau avec un ensemble fixe d’attributs. Les autres commentaires sont regroupés par lots de 100 commentaires et stockés en tant qu’éléments distincts. 100 a été choisi comme taille de lot parce que notre application fictive permet à l'utilisateur de charger 100 commentaires à la fois.  
 
-Un autre cas où l’incorporation de données ne sont pas une bonne idée est lorsque les données incorporées sont souvent utilisées entre les éléments et changent fréquemment.
+Autre cas de figure où l’incorporation de données est déconseillée : quand les données incorporées sont souvent utilisées dans les éléments et changent fréquemment.
 
 Prenons cet extrait de code JSON.
 
@@ -176,9 +176,9 @@ Des actions *zaza* peuvent être échangées des centaines de fois au cours d’
 
 ## <a name="referencing-data"></a>Référencement des données
 
-Ainsi, l'incorporation de données fonctionne bien dans la plupart des cas, mais il est clair qu'il existe des scénarios où la dénormalisation de vos données provoque plus de problèmes qu'il n'en faudrait. Que faire, alors ?
+L’incorporation de données fonctionne bien dans la plupart des cas, mais il existe des scénarios où la dénormalisation de vos données provoque plus de problèmes qu’il n’en faudrait. Que faire, alors ?
 
-Les bases de données relationnelles ne sont pas le seul endroit où vous pouvez créer des relations entre les entités. Dans une base de données de documents, vous pouvez avoir des informations dans un document qui sont en relation avec des données dans d’autres documents. Maintenant, je ne préconise absolument pas de créer des systèmes qui seraient mieux adaptés à une base de données relationnelle dans Azure Cosmos DB, ou toute autre base de données de documents, mais de simples relations conviennent et peuvent être utiles.
+Les bases de données relationnelles ne sont pas le seul endroit où vous pouvez créer des relations entre les entités. Dans une base de données de documents, vous pouvez avoir des informations dans un document qui sont en relation avec des données dans d’autres documents. Nous ne recommandons pas de créer des systèmes qui seraient mieux adaptés à une base de données relationnelle dans Azure Cosmos DB, ou toute autre base de données de documents, mais de simples relations conviennent et peuvent être utiles.
 
 Dans le code JSON ci-dessous, nous avons choisi d'utiliser l'exemple de portefeuille d'actions précédent, mais cette fois, nous faisons référence à l'action dans le portefeuille au lieu de l'incorporer. Ainsi, lorsque l'action change fréquemment au cours de la journée, le seul document à mettre à jour est le document d'action (stock).
 
@@ -319,7 +319,7 @@ Examinons le code suivant.
     {"id": "b3", "name": "Learn about Azure Cosmos DB", "authors": ["a1"]}
     {"id": "b4", "name": "Deep Dive into Azure Cosmos DB", "authors": ["a2"]}
 
-Maintenant, si j’ai un auteur, je saurai immédiatement quels livres qu’ils ont écrits, et inversement si j’avais un document de livre chargé je connaîtrai les ID des auteurs. Cela permet de faire l'économie de cette requête intermédiaire sur la table de jointure en réduisant le nombre d'aller et retour jusqu'au serveur pour votre application.
+Maintenant, si j’ai un auteur, je saurai immédiatement quels livres il a écrits, et inversement, si j’ai un document de livre (book) chargé, je connaîtrai le ou les ID des auteurs. Cela permet de faire l'économie de cette requête intermédiaire sur la table de jointure en réduisant le nombre d'aller et retour jusqu'au serveur pour votre application.
 
 ## <a name="hybrid-data-models"></a>Modèles de données hybrides
 
@@ -374,9 +374,9 @@ Examinons le code JSON suivant.
 
 Ici nous avons suivi (principalement) le modèle incorporé, où les données des autres entités sont incorporées dans le document de niveau supérieur, mais les autres données sont référencées.
 
-Dans le document de livre (book), nous pouvons voir quelques champs intéressants lorsque nous examinons le tableau des auteurs. Il existe un `id` champ qui est le champ que nous utilisons pour faire référence à un document d’auteur, une pratique courante dans un modèle normalisé, mais nous avons également `name` et `thumbnailUrl`. Nous pourrions avoir bloqué avec `id` et a laissé l’application pour obtenir des informations supplémentaires, il est nécessaire à partir du document d’auteur respectifs à l’aide de la « liaison », mais étant donné que notre application affiche le nom de l’auteur et d’une image miniature avec chaque livre affiché, nous pouvons enregistrer un aller-retour au serveur par livre dans une liste en dénormalisant **certains** données à partir de l’auteur.
+Dans le document de livre (book), nous pouvons voir quelques champs intéressants lorsque nous examinons le tableau des auteurs. Il existe un champ `id` que nous utilisons pour faire référence à un document d’auteur (author), une pratique courante dans un modèle normalisé, mais nous avons également les champs `name` et `thumbnailUrl`. Nous aurions pu nous arrêter à l’`id` et laisser l’application obtenir les informations supplémentaires dont elle avait besoin à partir du document d’auteur (author) respectif à l’aide du « lien », mais comme notre application affiche le nom de l’auteur et une image miniature avec chaque livre, nous pouvons économiser un aller-retour par livre jusqu’au serveur en dénormalisant **certaines** données de l’auteur.
 
-Bien sûr, si le nom de l’auteur modifié ou qu’il souhaitait mettre à jour sa photo, nous devrions accéder et mettre à jour de chaque livre ils jamais publient, mais pour notre application, basée sur l’hypothèse que les auteurs ne changent pas leurs noms souvent, il s’agit d’une décision de conception acceptable.  
+Bien sûr, si le nom de l’auteur changeait ou s’il souhaitait mettre à jour sa photo, nous devrions procéder à une mise à jour sur chaque livre publié par lui ; mais pour notre application, si l’on se base sur l’hypothèse que les auteurs ne changent pas souvent de nom, il s’agit d’une décision de conception acceptable.  
 
 Dans cet exemple, il existe des valeurs **d’agrégats précalculés** pour économiser un traitement coûteux sur une opération de lecture. Dans l'exemple, certaines données incorporées dans le document d'auteur (author) sont des données calculées au moment de l'exécution. À chaque publication d’un nouveau livre, un document de type livre est créé **et** le champ countOfBooks est défini sur une valeur calculée en fonction du nombre de documents de type livre existant pour un auteur particulier. Cette optimisation serait appropriée dans les systèmes qui exigent de nombreuses lectures (read heavy), où nous pouvons nous permettre d'effectuer des calculs sur les écritures afin d'optimiser les lectures.
 
@@ -384,7 +384,7 @@ L’existence d’un modèle avec des champs précalculés est possible, car Azu
 
 ## <a name="distinguishing-between-different-document-types"></a>Faire la distinction entre les différents types de documents
 
-Dans certains scénarios, vous souhaiterez combiner différents types de documents dans la même collection ; Cela est généralement le cas lorsque vous souhaitez que plusieurs, liés se trouvent dans le même des documents [partition](partitioning-overview.md). Par exemple, vous pouvez placer les deux livres et critiques dans la même collection de livres et de partition par `bookId`. Dans ce cas, vous souhaitez généralement ajouter à vos documents avec un champ qui identifie leur type afin de les différencier.
+Dans certains scénarios, vous souhaiterez combiner différents types de documents dans la même collection ; cela est généralement le cas quand vous souhaitez que plusieurs documents connexes se trouvent dans la même [partition](partitioning-overview.md). Par exemple, vous pourriez placer les livres et les critiques de livre dans la même collection et la partitionner par `bookId`. Dans ce cas, vous souhaitez généralement ajouter à vos documents un champ qui identifie leur type afin de les différencier.
 
     Book documents:
     {

@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: d485799547644ccb3c34a8841e8b20d8a45444bf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8ffe2cfc19a7ce94e47046839f6973793b73c118
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64707356"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441412"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Configurer des stratégies Apache Hive dans HDInsight avec le Pack Sécurité Entreprise
 Découvrez comment configurer des stratégies Apache Ranger pour Apache Hive. Dans cet article, vous créez deux stratégies Ranger pour restreindre l’accès à hivesampletable. hivesampletable dispose de clusters HDInsight. Après avoir configuré les stratégies, vous utilisez Excel et le pilote ODBC pour vous connecter à des tables Hive dans HDInsight.
@@ -37,7 +37,7 @@ Découvrez comment configurer des stratégies Apache Ranger pour Apache Hive. Da
     Actuellement, Ranger fonctionne uniquement avec Yarn et Hive.
 
 ## <a name="create-domain-users"></a>Création d’utilisateurs du domaine
-Pour plus d’informations sur la façon de créer hiveruser1 et hiveuser2, consultez [Créer un cluster HDInsight avec ESP](apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp). Dans ce didacticiel, vous utilisez les deux comptes utilisateur.
+Pour plus d’informations sur la façon de créer hiveruser1 et hiveuser2, consultez [Créer un cluster HDInsight avec ESP](apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp). Dans cet article, vous utilisez les deux comptes utilisateur.
 
 ## <a name="create-ranger-policies"></a>Création de stratégies Ranger
 Dans cette section, vous créez deux stratégies Ranger pour accéder à hivesampletable. Vous accordez une autorisation select sur différents ensembles de colonnes. Les deux utilisateurs ont été créés en suivant les instructions de l’article [Créer un cluster HDInsight avec ESP](apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp). Dans la section suivante, vous allez tester les deux stratégies dans Excel.

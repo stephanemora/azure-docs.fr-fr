@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: maquaran
-ms.openlocfilehash: 8206bff765b59ddc5d6be2388145bf51e1000241
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 45e27b37ca7a1718674914fbe9203b7dc64475b1
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66256877"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67342107"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Réseaux sociaux avec Azure Cosmos DB
 
@@ -96,7 +96,7 @@ La création de flux consiste simplement à créer des documents qui peuvent con
         {"relevance":7, "post":"w34r-qeg6-ref6-8565"}
     ]
 
-Vous pourriez avoir un flux « récent » avec les publications classées par date de création. Ou vous pourriez avoir un flux « populaire » regroupant les publications ayant le plus de mentions J’aime durant les dernières 24 heures. Vous pourriez même implémenter un flux personnalisé pour chaque utilisateur basé sur une logique comme les abonnés et les centres d’intérêt. Il s’agirait toujours d’une liste de publications. La question est de savoir comment créer ces listes, mais les performances de lecture ne sont pas affectées. Une fois que vous avez obtenu une de ces listes, vous émettez une requête unique à Cosmos DB avec l’[opérateur IN](how-to-sql-query.md#WhereClause) pour obtenir plusieurs pages de publications simultanément.
+Vous pourriez avoir un flux « récent » avec les publications classées par date de création. Ou vous pourriez avoir un flux « populaire » regroupant les publications ayant le plus de mentions J’aime durant les dernières 24 heures. Vous pourriez même implémenter un flux personnalisé pour chaque utilisateur basé sur une logique comme les abonnés et les centres d’intérêt. Il s’agirait toujours d’une liste de publications. La question est de savoir comment créer ces listes, mais les performances de lecture ne sont pas affectées. Une fois que vous avez obtenu une de ces listes, vous émettez une requête unique à Cosmos DB avec le [mot clé IN](sql-query-keywords.md#in) pour obtenir plusieurs pages de publications simultanément.
 
 Les flux de commentaires peuvent être créés à l’aide des processus d’arrière-plan d’[Azure App Services](https://azure.microsoft.com/services/app-service/) : [Webjobs](../app-service/webjobs-create.md). Une fois qu’une publication est créée, le traitement en arrière-plan peut être déclenché avec des [files d’attente](../storage/queues/storage-dotnet-how-to-use-queues.md) de [Stockage Azure](https://azure.microsoft.com/services/storage/) et des tâches webjobs déclenchées avec le [SDK Azure WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki), implémentant la propagation des publications dans des flux basés sur votre propre logique personnalisée.
 

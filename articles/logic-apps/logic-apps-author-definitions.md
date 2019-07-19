@@ -10,12 +10,12 @@ ms.reviewer: klam, jehollan, LADocs
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 01/01/2018
-ms.openlocfilehash: daeb900abc3f24a408fc1b5f6e989e5181f2a463
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 121e2d2595b63a313d9307f7d47f90adacc30fc2
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60427041"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296116"
 ---
 # <a name="create-edit-or-extend-json-for-logic-app-definitions-in-azure-logic-apps"></a>Créer, modifier ou étendre JSON pour les définitions d’applications logiques dans Azure Logic Apps
 
@@ -50,6 +50,9 @@ Dans Visual Studio, vous pouvez ouvrir des applications logiques précédemment 
 3. Ouvrez le menu contextuel de la définition et du modèle de votre application logique. Sélectionnez **Ouvrir avec le Concepteur d’application logique**.
 
    ![Ouvrir une application logique dans une solution Visual Studio](./media/logic-apps-author-definitions/open-logic-app-designer.png)
+
+   > [!TIP]
+   > Si vous n’avez pas cette commande dans Visual Studio 2019, vérifiez que vous avez les dernières mises à jour pour Visual Studio.
 
 4. En bas du concepteur, choisissez **Mode Code**. 
 

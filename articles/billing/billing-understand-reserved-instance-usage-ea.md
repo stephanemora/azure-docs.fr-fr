@@ -1,5 +1,5 @@
 ---
-title: Comprendre l’utilisation des réservations Azure pour les contrats entreprise
+title: Comprendre l’utilisation des réservations Azure pour les Contrats Entreprise
 description: Découvrez comment analyser votre utilisation pour comprendre l’application de la réservation Azure pour votre Accord de Mise en Œuvre Entreprise.
 author: bandersmsft
 manager: yashar
@@ -9,147 +9,147 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/07/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: b2452580eaecc0ab922f8e7db48676f70831a8ca
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.openlocfilehash: 37d43dbdd8de66a10a94827e313679dc6ffd220d
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66126845"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490382"
 ---
-# <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>L’utilisation et les coûts de réservation de contrat entreprise
+# <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>Obtenir les données d’utilisation et de coûts de la réservation pour les Contrats Entreprise
 
-Les coûts de réservation et les données d’utilisation sont disponibles pour les clients contrat entreprise dans le portail Azure et l’API REST. Cet article vous aide à :
+Les données d’utilisation et de coûts de la réservation sont disponibles pour les clients Contrat Entreprise dans le portail Azure et les API REST. Cet article vous aide à :
 
-- Obtenir des données d’achat de réservation
-- Obtenir des données d’utilisation incomplète de réservation
-- Amortir le coût de réservation
-- Facturation interne pour l’utilisation de la réservation
-- Calculer les économies de réservation
+- Obtenir les données d’achat de réservation
+- Obtenir les données de sous-utilisation des réservations
+- Amortir les coûts des réservations
+- Rétrofacturer l’utilisation des réservations
+- Calculer les économies des réservations
 
-Frais de place de marché sont consolidés dans les données d’utilisation. Vous permet d’afficher les frais pour la première utilisation de tiers, l’utilisation de la place de marché et achats à partir d’une source de données.
+Les frais de la marketplace sont consolidés dans les données d’utilisation. Vous voyez les frais liés à l’utilisation interne, à l’utilisation de la marketplace et aux achats à partir d’une source de données unique.
 
 ## <a name="reservation-charges-in-azure-usage-data"></a>Frais de réservation dans les données d’utilisation Azure
 
-Données sont divisées en deux jeux de données distincts : _Coût réel_ et _coût amorti_. Comment ces deux jeux de données diffère :
+Les données sont divisées en deux jeux de données distincts : _Coût réel_ et _Coût amorti_. Comparons ces deux jeux de données :
 
-**Coût réel** -fournit des données au rapprochement avec votre facture mensuelle. Ces données ont réservation les coûts d’achat. Il possède zéro EffectivePrice pour l’utilisation qui a reçu la remise de réservation.
+**Coût réel** : fournit les données à rapprocher avec votre facture mensuelle. Ces données contiennent les coûts d’achat des réservations. Le prix réel (EffectivePrice) est égal à zéro pour l’utilisation qui a bénéficié de la remise de réservation.
 
-**Coût amorti** -la ressource EffectiveCost qui obtient la remise de réservation est le coût au prorata de l’instance réservée. Le jeu de données a également les coûts de réservation inutilisé. La somme du coût de réservation et réservation inutilisée fournit le coût amorti quotidien de la réservation.
+**Coût amorti** : le coût réel (EffectiveCost) d’une ressource qui obtient la remise de réservation est le coût au prorata de l’instance réservée. Le jeu de données contient également les coûts de la réservation inutilisée. La somme du coût de la réservation et de la réservation inutilisée fournit le coût amorti quotidien de la réservation.
 
-Comparaison de deux jeux de données :
+Comparaison des deux jeux de données :
 
-| Données | Jeu de données de coût réel | Jeu de données de coût amorti |
+| Données | Jeu de données du coût réel | Jeu de données du coût amorti |
 | --- | --- | --- |
-| Achats de réservation | Disponible dans cette vue.<br><br>  Pour obtenir ce filtre de données sur ChargeType = &quot;achat&quot;. <br><br> Référence à l’ID de réservation ou ReservationName savoir quels réservation le coût a trait.  | Non applicable à cette vue. <br><br> Les coûts d’acquisition ne sont pas fournis dans les données amorties. |
-| EffectivePrice | La valeur est égale à zéro pour l’utilisation qui obtient la remise de réservation. | La valeur est le coût horaire au prorata de la réservation pour l’utilisation qui a la remise de réservation. |
-| Réservation inutilisée (fournit le nombre d’heures de que la réservation ne sont pas utilisée dans une journée et la valeur monétaire des déchets) | Non applicable dans cette vue. | Disponible dans cette vue.<br><br> Pour obtenir ces données, filtrer sur ChargeType = &quot;UnusedReservation&quot;.<br><br>  Référence à l’ID de réservation ou ReservationName savoir quels réservation a été sous-utilisée. Il s’agit de la quantité de la réservation a été perdu dans pour la journée.  |
-| UnitPrice (prix de la ressource à partir de votre table de tarification) | Disponible | Disponible |
+| Achats de réservation | Disponibles dans cet affichage.<br><br>  Pour obtenir ces données, appliquez le filtre ChargeType = &quot;Purchase&quot;. <br><br> Reportez-vous à ReservationID ou ReservationName pour savoir à quelle réservation correspondent les frais.  | Non applicables à cet affichage. <br><br> Les coûts d’achat ne sont pas fournis dans les données amorties. |
+| EffectivePrice | La valeur est égale à zéro pour l’utilisation qui bénéficie de la remise de réservation. | La valeur est le coût horaire au prorata de la réservation pour l’utilisation qui bénéficie de la remise de réservation. |
+| Réservation inutilisée (fournit le nombre d’heures pendant lesquelles la réservation n’a pas été utilisée dans une journée et la valeur monétaire de la perte) | Non applicable dans cet affichage. | Disponible dans cet affichage.<br><br> Pour obtenir ces données, appliquez le filtre ChargeType = &quot;UnusedReservation&quot;.<br><br>  Reportez-vous à ReservationID ou ReservationName pour savoir quelle réservation a été sous-utilisée. Il s’agit de la quantité de la réservation qui a été perdue au cours de la journée.  |
+| UnitPrice (prix de la ressource d’après votre grille tarifaire) | Disponible | Disponible |
 
-Autres informations disponibles dans les données d’utilisation Azure a changé :
+Les autres informations disponibles dans les données d’utilisation Azure ont changé :
 
-- Produit et des informations de compteur - Azure ne remplace pas le compteur à l’origine à utiliser avec l’ID de réservation et ReservationName, comme elle le faisait auparavant.
-- ID de réservation et ReservationName - ils sont leurs propres champs dans les données. Auparavant, il auparavant disponibles uniquement sous AdditionalInfo.
-- ProductOrderId - l’ID de commande de réservation, ajouté en tant que son propre champ.
-- ProductOrderName - nom de produit de la réservation achetée.
-- Terme - 12 mois ou 36 mois.
-- RINormalizationRatio - sous AdditionalInfo. C’est le rapport où la réservation est appliquée à l’enregistrement de l’utilisation. Si la flexibilité de taille d’instance est activée sur votre réservation, puis l’appliquer à d’autres tailles. La valeur indique le rapport que la réservation a été appliquée à l’enregistrement de l’utilisation.
+- Informations sur les produits et les compteurs : Azure ne remplace plus le compteur initialement consommé par ReservationId et ReservationName.
+- ReservationId et ReservationName : ils ont leurs propres champs dans les données. Auparavant, ils étaient disponibles uniquement sous AdditionalInfo.
+- ProductOrderId : ID d’ordre de réservation, ajouté en tant que champ spécifique.
+- ProductOrderName : nom de produit de la réservation achetée.
+- Term : 12 mois ou 36 mois.
+- RINormalizationRatio : disponible sous AdditionalInfo. Il s’agit du taux d’application de la réservation à l’enregistrement d’utilisation. Si la flexibilité de la taille d’instance est activée pour votre réservation, elle peut s’appliquer à d’autres tailles. La valeur indique le taux d’application de la réservation à l’enregistrement d’utilisation.
 
-## <a name="get-azure-consumption-and-reservation-usage-data-using-api"></a>Obtenir des données d’utilisation de la consommation et de réservation Azure à l’aide API
+## <a name="get-azure-consumption-and-reservation-usage-data-using-api"></a>Obtenir les données d’utilisation des réservations et de consommation Azure à l’aide de l’API
 
-Vous pouvez obtenir les données à l’aide de l’API ou téléchargez-le à partir du portail Azure.
+Vous pouvez obtenir les données à l’aide de l’API ou les télécharger à partir du portail Azure.
 
-Vous appelez le [API détails d’utilisation](/rest/api/consumption/usagedetails/list) avec la version de l’API &quot;2019-04-01-preview&quot; pour obtenir les nouvelles données. Pour plus d’informations sur la terminologie, consultez [conditions d’utilisation](billing-understand-your-usage.md). L’appelant doit être un administrateur d’entreprise pour l’accord d’entreprise à l’aide du [portail EA](https://ea.azure.com). Les administrateurs d’entreprise en lecture seule peut également obtenir les données.
+Vous appelez l’[API Détails d’utilisation](/rest/api/consumption/usagedetails/list) avec la version d’API &quot;2019-04-01-preview&quot; pour obtenir les nouvelles données. Pour plus d’informations sur la terminologie, consultez [Termes relatifs à l’utilisation](billing-understand-your-usage.md). L’appelant doit être administrateur d’entreprise pour le contrat entreprise utilisant le [portail EA](https://ea.azure.com). Les administrateurs d’entreprise disposant d’un accès en lecture seule peuvent également obtenir les données.
 
-Les données ne sont pas disponibles dans [API de création de rapports pour les clients Enterprise - détails d’utilisation](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail).
+Les données ne sont pas disponibles dans [API de création de rapports pour les clients Enterprise - Détails d’utilisation](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail).
 
-Voici un exemple d’appel à l’API :
+Voici un exemple d’appel de l’API :
 
 ```
 https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{enrollmentId}/providers/Microsoft.Billing/billingPeriods/{billingPeriodId}/providers/Microsoft.Consumption/usagedetails?metric={metric}&amp;api-version=2019-04-01-preview&amp;$filter={filter}
 ```
 
-Pour plus d’informations sur {enrollmentId} et {billingPeriodId}, consultez le [détails d’utilisation – liste](https://docs.microsoft.com/rest/api/consumption/usagedetails/list) article sur l’API.
+Pour plus d’informations sur {enrollmentId} et {billingPeriodId}, consultez l’article sur l’API [Détails d’utilisation - Liste](https://docs.microsoft.com/rest/api/consumption/usagedetails/list).
 
-Les informations contenues dans le tableau suivant sur mesure et le filtre peut aider à résoudre les problèmes courants de réservation.
+Les informations contenues dans le tableau suivant sur metric (métrique) et filter (filtre) peuvent aider à résoudre les problèmes courants liés aux réservations.
 
-| **Type de données de l’API** | Action d’appel API |
+| **Type de données de l’API** | Action d’appel d’API |
 | --- | --- |
-| **Tous les frais (achats et l’utilisation)** | Remplacez {métrique} par ActualCost |
-| **Utilisation qui a obtenu la remise de réservation** | Remplacez {métrique} par ActualCost<br><br>Remplacez {filter} par : properties/reservationId%20ne%20 |
-| **Utilisation n’ayant pas obtenu la remise de réservation** | Remplacez {métrique} par ActualCost<br><br>Remplacez {filter} par : properties/reservationId%20eq%20 |
-| **Frais amortis (achats et l’utilisation)** | Remplacez {métrique} par AmortizedCost |
-| **Rapport de réservation inutilisées** | Remplacez {métrique} par AmortizedCost<br><br>Remplacez {filter} par : properties/ChargeType%20eq%20'UnusedReservation' |
-| **Achats de réservation** | Remplacez {métrique} par ActualCost<br><br>Remplacez {filter} par : properties/ChargeType%20eq%20'Purchase'  |
-| **Remboursements** | Remplacez {métrique} par ActualCost<br><br>Remplacez {filter} par : properties/ChargeType%20eq%20'Refund' |
+| **Tous les frais (utilisation et achats)** | Remplacez {metric} par ActualCost |
+| **Utilisation qui a bénéficié d’une remise de réservation** | Remplacez {metric} par ActualCost<br><br>Remplacez {filter} par properties/reservationId%20ne%20 |
+| **Utilisation qui n’a pas bénéficié d’une remise de réservation** | Remplacez {metric} par ActualCost<br><br>Remplacez {filter} par properties/reservationId%20eq%20 |
+| **Frais amortis (utilisation et achats)** | Remplacez {metric} par AmortizedCost |
+| **Rapport sur la réservation inutilisée** | Remplacez {metric} par AmortizedCost<br><br>Remplacez {filter} par properties/ChargeType%20eq%20'UnusedReservation' |
+| **Achats de réservation** | Remplacez {metric} par ActualCost<br><br>Remplacez {filter} par properties/ChargeType%20eq%20'Purchase'  |
+| **Remboursements** | Remplacez {metric} par ActualCost<br><br>Remplacez {filter} par properties/ChargeType%20eq%20'Refund' |
 
-## <a name="download-the-usage-csv-file-with-new-data"></a>Télécharger le fichier CSV d’utilisation avec de nouvelles données
+## <a name="download-the-usage-csv-file-with-new-data"></a>Télécharger le fichier CSV d’utilisation avec les nouvelles données
 
-Si vous êtes un administrateur EA, vous pouvez télécharger le fichier CSV qui contient les nouvelles données d’utilisation à partir du portail Azure. Ces données n’est pas disponibles à partir de la [portail EA](https://ea.azure.com).
+Si vous êtes administrateur EA, vous pouvez télécharger le fichier CSV qui contient les nouvelles données d’utilisation à partir du portail Azure. Ces données ne sont pas disponibles à partir du [portail EA](https://ea.azure.com).
 
-Dans le portail Azure, accédez à [gestion des coûts + facturation](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/BillingAccounts).
+Dans le portail Azure, accédez à [Gestion des coûts + facturation](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/BillingAccounts).
 
 1. Sélectionnez le compte de facturation.
-2. Cliquez sur **utilisation + frais**.
+2. Cliquer sur **Utilisation + frais**.
 3. Cliquez sur **Télécharger**.  
-![Exemple montrant où télécharger le fichier de données de l’utilisation de volume partagé de cluster dans le portail Azure](./media/billing-understand-reserved-instance-usage-ea/portal-download-csv.png)
-4. Dans **télécharger l’utilisation + frais** , sous **détails d’utilisation, Version 2** , sélectionnez **tous les frais (utilisation et achats)** puis cliquez sur Télécharger. Répétez ces étapes pour **amorti frais (utilisation et achats)**.
+![Exemple montrant où télécharger le fichier CSV des données d’utilisation dans le portail Azure](./media/billing-understand-reserved-instance-usage-ea/portal-download-csv.png)
+4. Dans **Télécharger l’utilisation + les frais**, sous **Détails d’utilisation version 2**, sélectionnez **Tous les frais (utilisation et achats)** puis cliquez sur Télécharger. Répétez la procédure pour **Frais amortis (utilisation et achats)** .
 
-Les fichiers CSV que vous téléchargez contiennent des coûts réels et les coûts amortis.
+Les fichiers CSV que vous téléchargez contiennent les coûts réels et les coûts amortis.
 
-## <a name="common-cost-and-usage-tasks"></a>Tâches courantes de coût et d’utilisation
+## <a name="common-cost-and-usage-tasks"></a>Tâches courantes liées aux coûts et à l’utilisation
 
-Les sections suivantes sont des tâches courantes que la plupart des gens utilisent pour afficher leurs données d’utilisation et de coût de réservation.
+Les sections suivantes décrivent les tâches couramment utilisées pour afficher les données d’utilisation et de coût des réservations.
 
-### <a name="get-reservation-purchase-costs"></a>Obtenir des coûts d’achat de réservation
+### <a name="get-reservation-purchase-costs"></a>Obtenir les coûts d’achat de réservation
 
-Coûts d’achat de réservation sont disponibles dans les données de coût réel. Filtrer les _ChargeType = bon_. Reportez-vous à ProductOrderID pour déterminer quel ordre de réservation l’achat concerne.
+Les coûts d’achat de réservation sont disponibles dans les données Coût réel. Appliquez le filtre _ChargeType = Purchase_. Reportez-vous à ProductOrderID pour déterminer quel ordre de réservation est concerné par l’achat.
 
-### <a name="get-underutilized-reservation-quantity-and-costs"></a>Obtenir la quantité de réservation sous-utilisés et les coûts
+### <a name="get-underutilized-reservation-quantity-and-costs"></a>Obtenir la quantité de réservation sous-utilisée et les coûts
 
-Obtenir des données de coût amorti et filtrer les _ChargeType_ _= UnusedReservation_. Vous obtenez la quantité de réservation inutilisé quotidienne et le coût. Vous pouvez filtrer les données pour une réservation ou une commande de réservation à l’aide _ID de réservation_ et _ProductOrderId_ champs, respectivement. Si une réservation a été utilisé à 100 %, l’enregistrement a une quantité égale à 0.
+Obtenez les données Coût amorti et appliquez le filtre _ChargeType_ _= UnusedReservation_. Vous obtenez la quantité de réservation inutilisée quotidienne et le coût. Vous pouvez filtrer les données pour une réservation ou un ordre de réservation à l’aide des champs _ReservationId_ et _ProductOrderId_, respectivement. Si une réservation a été utilisée à 100 %, l’enregistrement a une quantité égale à 0.
 
-### <a name="amortize-reservation-costs"></a>Amortir le coût de réservation
+### <a name="amortize-reservation-costs"></a>Amortir les coûts des réservations
 
-Obtenir des données de coût amorti et de filtre pour une commande de réservation à l’aide _ProductOrderID_ pour obtenir les coûts amortis quotidiennes pour une réservation.
+Obtenez les données Coût amorti et filtrez pour un ordre de réservation à l’aide de _ProductOrderID_ afin d’obtenir les coûts amortis quotidiens pour une réservation.
 
-### <a name="chargeback-for-a-reservation"></a>Facturation interne pour une réservation
+### <a name="chargeback-for-a-reservation"></a>Rétrofacturer une réservation
 
-Vous pouvez utiliser de réservation de rétrofacturation à d’autres organisations par abonnement, les groupes de ressources ou les balises. Les données de coût amorti fournissant une valeur monétaire de l’utilisation d’une réservation sur les types de données suivants :
+Vous pouvez rétrofacturer l’utilisation d’une réservation à d’autres organisations par abonnement, groupes de ressources ou étiquettes. Les données des coûts amortis fournissent une valeur monétaire de l’utilisation d’une réservation en fonction des types de données suivants :
 
 - Ressources (par exemple, une machine virtuelle)
 - Groupe de ressources
 - Balises
 - Abonnement
 
-### <a name="get-the-blended-rate-for-chargeback"></a>Obtenir le taux de combinées pour la facturation interne
+### <a name="get-the-blended-rate-for-chargeback"></a>Obtenir le taux combiné pour la rétrofacturation
 
-Pour déterminer le taux combinée, obtenir les données de coûts amortis et le coût total d’agrégation. Pour les machines virtuelles, vous pouvez utiliser les informations de nom du compteur ou ServiceType à partir de données AdditionalInfo JSON. Diviser le coût total par la quantité utilisée pour obtenir le taux combinée.
+Pour déterminer le taux combiné, obtenez les données des coûts amortis et agrégez le coût total. Pour les machines virtuelles, vous pouvez utiliser les informations MeterName ou ServiceType à partir des données JSON AdditionalInfo. Divisez le coût total par la quantité utilisée pour obtenir le taux combiné.
 
-### <a name="audit-optimum-reservation-use-for-instance-size-flexibility"></a>Réservation optimale d’audit par exemple utiliser la flexibilité de taille
+### <a name="audit-optimum-reservation-use-for-instance-size-flexibility"></a>Auditer l’utilisation optimale de la réservation pour la flexibilité de la taille d’instance
 
-La quantité de multiples avec le _RINormalizationRatio_, à partir d’AdditionalInfo. Les résultats indiquent le nombre d’heures d’utilisation de la réservation a été appliqué à l’enregistrement de l’utilisation.
+Multipliez la quantité par le _RINormalizationRatio_, à partir d’AdditionalInfo. Le résultat indique le nombre d’heures d’utilisation de la réservation appliquées à l’enregistrement de l’utilisation.
 
 ### <a name="determine-reservation-savings"></a>Déterminer les économies de réservation
 
-Obtenir les données de coûts Amortized et filtrer les données pour une instance réservée. Ensuite :
+Obtenez les données des coûts amortis et filtrez les données pour une instance réservée. Ensuite :
 
-1. Obtenir l’estimation des coûts paiement à l’utilisation. Multipliez la _UnitPrice_ valeur _quantité_ valeurs à obtenir estimé des frais de paiement à l’utilisation, si la remise de réservation ne s’applique à l’utilisation.
-2. Obtenir les coûts de réservation. Somme du _coût_ valeurs à obtenir la valeur monétaire de ce que vous avez payé pour l’instance réservée. Il inclut les coûts utilisés et non utilisés de la réservation.
-3. Soustraire les coûts de réservation à partir de l’estimation des coûts de paiement à l’utilisation pour obtenir l’estimation d’économies.
+1. Obtenez les coûts de paiement à l’utilisation estimés. Multipliez la valeur _UnitPrice_ par les valeurs _Quantity_ pour obtenir les coûts de paiement à l’utilisation estimés, si la remise de réservation n’a pas été appliquée à l’utilisation.
+2. Obtenez les coûts de réservation. Effectuez la somme des valeurs _Cost_ pour obtenir la valeur monétaire de ce que vous avez payé pour l’instance réservée. Le résultat inclut les coûts utilisés et non utilisés de la réservation.
+3. Soustrayez les coûts de réservation des coûts de paiement à l’utilisation estimés pour obtenir les économies estimées.
 
 ## <a name="reservation-purchases-and-amortization-in-azure-cost-analysis"></a>Achats de réservation et amortissement dans l’analyse des coûts Azure
 
-Coût de l’instance réservée est disponible dans [mode d’aperçu des coûts Azure analyse](https://preview.portal.azure.com/?feature.canmodifystamps=true&amp;microsoft_azure_costmanagement=stage2&amp;Microsoft_Azure_CostManagement_arm_canary=true&amp;Microsoft_Azure_CostManagement_apiversion=2019-04-01-preview&amp;Microsoft_Azure_CostManagement_amortizedCost=true#blade/Microsoft_Azure_CostManagement/Menu/costanalysis). Par défaut, la vue de données de coût est pour le coût réel. Vous pouvez basculer vers le coût amorti. Voici un exemple.
+Le coût de l’instance réservée est disponible dans l’[analyse des coûts Azure en mode préversion](https://preview.portal.azure.com/?feature.canmodifystamps=true&amp;microsoft_azure_costmanagement=stage2&amp;Microsoft_Azure_CostManagement_arm_canary=true&amp;Microsoft_Azure_CostManagement_apiversion=2019-04-01-preview&amp;Microsoft_Azure_CostManagement_amortizedCost=true#blade/Microsoft_Azure_CostManagement/Menu/costanalysis). Par défaut, l’affichage des données de coût concerne le coût réel. Vous pouvez basculer vers le coût amorti. Voici un exemple.
 
-![Exemple montrant où sélectionner coût amorti dans l’analyse des coûts](./media/billing-understand-reserved-instance-usage-ea/portal-cost-analysis-amortized-view.png)
+![Exemple montrant où sélectionner le coût amorti dans l’analyse des coûts](./media/billing-understand-reserved-instance-usage-ea/portal-cost-analysis-amortized-view.png)
 
-Appliquer des filtres pour afficher vos frais par un type de réservation ou de frais. Regrouper sur le nom de la réservation pour afficher les coûts ventilés par réservations.
+Appliquez des filtres pour afficher vos frais en fonction d’une réservation ou d’un type de frais. Regroupez par nom de réservation pour voir les coûts ventilés par réservations.
 
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
 
-Si vous avez des questions ou besoin d’aide, [créer une demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).
+Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -7,15 +7,15 @@ author: edjez
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
-ms.date: 05/07/2019
+ms.topic: concept
+ms.date: 06/24/2019
 ms.author: edjez
-ms.openlocfilehash: ebe7f9307fcfa39d6cb133203a4c17243ad390c5
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 2353b8c735602aff0386f44cc29d2be5eb9f90c4
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025500"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67340888"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Les caractéristiques sont des informations sur les actions et sur le contexte
 
@@ -41,6 +41,12 @@ Personalizer n’impose pas, ne limite pas ou ne corrige pas les caractéristiqu
 
 Personalizer prend en charge les caractéristiques de type chaîne, numérique et booléen.
 
+### <a name="how-choice-of-feature-type-affects-machine-learning-in-personalizer"></a>Impact du choix du type de fonctionnalité sur Machine Learning dans Personalizer
+
+* **Chaînes** : Pour les types de chaîne, chaque combinaison clé/valeur crée de nouveaux poids dans le modèle Machine Learning de Personalizer. 
+* **Numérique** : Vous devez utiliser des valeurs numériques lorsque le nombre doit affecter proportionnellement le résultat de personnalisation. Cela dépend beaucoup du scénario. Dans un exemple simplifié, par exemple lors de la personnalisation d’une expérience de vente, NumberOfPetsOwned pourrait constituer une fonctionnalité numérique car vous voulez peut-être que des personnes avec 2 ou 3 animaux de compagnie puissent influencer le résultat de personnalisation deux fois ou trois fois plus que pour 1 animal de compagnie. Les fonctionnalités basées sur des unités numériques mais dont le sens n’est pas linéaire (comme l’âge, la température ou taille d’une personne) sont mieux encodées en chaînes, et la qualité d’une fonctionnalité peut généralement être améliorée à l’aide de plages. Par exemple, l’âge peut être encodé de cette façon : « Age » : « 0-5 », « Age » : « 6-10 », etc.
+* Les valeurs **booléennes** envoyées avec des valeurs « false » agissent comme si elles n’avaient jamais été envoyées.
+
 Les caractéristiques qui ne sont pas présentes doivent être omises de la demande. Évitez d’envoyer des caractéristiques avec une valeur null, car elles seront traitées comme des caractéristiques existantes et avec la valeur « null » lors de l’entraînement du modèle.
 
 ## <a name="categorize-features-with-namespaces"></a>Catégoriser les caractéristiques avec des espaces de noms
@@ -64,12 +70,15 @@ Vous pouvez nommer les espaces de noms de caractéristiques suivant vos propres 
 
 Dans le JSON suivant, `user`, `state` et `device` sont des espaces de noms de caractéristiques.
 
+Les objets JSON peuvent inclure des objets JSON imbriqués et de simples valeurs/propriétés. Un tableau peut être inclus uniquement si ces éléments sont des nombres. 
+
 ```JSON
 {
     "contextFeatures": [
         { 
             "user": {
-                "name":"Doug"
+                "name":"Doug",
+                "latlong": [47.6, -122.1]
             }
         },
         {
@@ -123,7 +132,7 @@ L’intelligence artificielle et des services Cognitive Services prêts à l’e
 
 En prétraitant vos éléments avec des services d’intelligence artificielle, vous pouvez extraire automatiquement des informations susceptibles d’être pertinentes pour la personnalisation.
 
-Par exemple : 
+Par exemple :
 
 * Vous pouvez lire un fichier vidéo via [Video Indexer](https://azure.microsoft.com/services/media-services/video-indexer/) pour extraire des éléments sur les scènes, du texte, des sentiments et beaucoup d’autres attributs. Ces attributs peuvent ensuite être rendus plus denses de façon à refléter des caractéristiques que n’avaient pas les métadonnées des éléments d’origine. 
 * Des images peuvent être soumises à la détection d’objets, des visages à la détection des sentiments, etc.
@@ -190,6 +199,8 @@ Dans certains cas, le fait qu’une _action_ résultant d’un appel de l’API 
 
 Lors de l’appel de l’API de classement, vous envoyez plusieurs actions parmi lesquelles choisir :
 
+Les objets JSON peuvent inclure des objets JSON imbriqués et de simples valeurs/propriétés. Un tableau peut être inclus uniquement si ces éléments sont des nombres. 
+
 ```json
 {
     "actions": [
@@ -198,7 +209,8 @@ Lors de l’appel de l’API de classement, vous envoyez plusieurs actions parmi
       "features": [
         {
           "taste": "salty",
-          "spiceLevel": "medium"
+          "spiceLevel": "medium",
+          "grams": [400,800]
         },
         {
           "nutritionLevel": 5,
@@ -211,7 +223,8 @@ Lors de l’appel de l’API de classement, vous envoyez plusieurs actions parmi
       "features": [
         {
           "taste": "sweet",
-          "spiceLevel": "none"
+          "spiceLevel": "none",
+          "grams": [150, 300, 450]
         },
         {
           "nutritionalLevel": 2
@@ -223,7 +236,8 @@ Lors de l’appel de l’API de classement, vous envoyez plusieurs actions parmi
       "features": [
         {
           "taste": "sweet",
-          "spiceLevel": "none"
+          "spiceLevel": "none",
+          "grams": [300, 600, 900]
         },
         {
           "nutritionLevel": 5
@@ -238,7 +252,8 @@ Lors de l’appel de l’API de classement, vous envoyez plusieurs actions parmi
       "features": [
         {
           "taste": "salty",
-          "spiceLevel": "low"
+          "spiceLevel": "low",
+          "grams": [300, 600]
         },
         {
           "nutritionLevel": 8
@@ -265,6 +280,8 @@ Votre application est responsable du chargement des informations sur le contexte
 
 Le contexte est exprimé sous la forme d’un objet JSON qui est envoyé à l’API de classement :
 
+Les objets JSON peuvent inclure des objets JSON imbriqués et de simples valeurs/propriétés. Un tableau peut être inclus uniquement si ces éléments sont des nombres. 
+
 ```JSON
 {
     "contextFeatures": [
@@ -282,7 +299,9 @@ Le contexte est exprimé sous la forme d’un objet JSON qui est envoyé à l’
         {
             "device": {
                 "mobile":true,
-                "Windows":true
+                "Windows":true,
+                "screensize": [1680,1050]
+                }
             }
         }
     ]

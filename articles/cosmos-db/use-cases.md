@@ -7,10 +7,10 @@ ms.author: sngun
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.openlocfilehash: 28a4cc854842b66a9fb61134e3ca9ac9a5f38fed
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65965613"
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Cas d’utilisation courants d’Azure Cosmos DB
@@ -23,7 +23,7 @@ Après avoir lu cet article, vous serez en mesure de répondre aux questions sui
 * Quels sont les avantages de l’utilisation d’Azure Cosmos DB en tant que magasin de données pour les systèmes Internet des objets (IoT) ?
 * Quels sont les avantages de l’utilisation d’Azure Cosmos DB pour les applications web et mobiles ?
 
-## <a name="introduction"></a>Présentation
+## <a name="introduction"></a>Introduction
 [Azure Cosmos DB](../cosmos-db/introduction.md) est le service de base de données de Microsoft distribué à l’échelle mondiale. Il permet de mettre à l’échelle le débit et le stockage de façon indépendante et en toute flexibilité pour le nombre de régions géographiques de votre choix. Azure Cosmos DB est le premier service de base de données distribué à l’échelle mondiale à offrir des [contrats de niveau de service](https://azure.microsoft.com/support/legal/sla/cosmos-db/) complets englobant le débit, la latence, la disponibilité et la cohérence. 
 
 Azure Cosmos DB est une base de données multimodèle distribuée à l’échelle mondiale qui est utilisée dans un large éventail d’applications et de cas d’utilisation. Elle constitue un bon choix pour toute application [sans serveur](https://azure.com/serverless) qui a besoin de temps de réponse réduits de l’ordre des millisecondes et qui doit pouvoir évoluer rapidement et à l’échelle mondiale. Elle prend en charge plusieurs modèles de données (clé-valeur, documents, graphes et en colonnes) et de nombreuses API pour l’accès aux données, entre autres l’[API for MongoDB d’Azure Cosmos DB](mongodb-introduction.md), l’[API SQL](documentdb-introduction.md), l’[API Gremlin](graph-introduction.md) et l’[API Table](table-introduction.md) en mode natif et d’une manière extensible. 
@@ -108,7 +108,7 @@ Si vous souhaitez en savoir plus sur les clients qui utilisent Cosmos DB, consul
 * [Citrix](https://customers.microsoft.com/story/citrix). Citrix développe une solution d’authentification unique à l’aide d’Azure Service Fabric et d’Azure Cosmos DB.
 * [TEXA](https://customers.microsoft.com/story/texaspa) La solution IoT révolutionnaire de TEXA destinée aux propriétaires de véhicule permet d’économiser du temps, de l’argent, de l’essence, et même de sauver des vies.
 * [Domino's Pizza](https://www.dominos.com). Domino's Pizza Inc. est une chaîne de pizzerias américaine.
-* [Johnson Controls](https://www.johnsoncontrols.com). Johnson Controls est un technologique mondial multiples industriel leader desservant un large éventail de clients dans plus de 150 pays/régions.
+* [Johnson Controls](https://www.johnsoncontrols.com). Johnson Controls est un leader technologique mondial qui propose ses solutions à une vaste clientèle de tous secteurs dans plus de 150 pays/régions.
 * [Microsoft Windows, Universal Store, Azure IoT Hub, Xbox Live et autres services Internet](https://azure.microsoft.com/blog/how-azure-documentdb-planet-scale-nosql-helps-run-microsoft-s-own-businesses/). Découvrez comment Microsoft crée des services hautement évolutifs à l’aide d’Azure Cosmos DB.
 * [Équipe Microsoft en charge des données et des analyses](https://customers.microsoft.com/story/microsoftdataandanalytics). L’équipe Microsoft en charge des données et des analyses collecte un nombre impressionnant de données au niveau mondial avec Azure Cosmos DB.
 * [Sulekha.com](https://customers.microsoft.com/story/sulekha-uses-azure-documentdb-to-connect-customers-and-businesses-across-india). Sulekha utilise Azure Cosmos DB pour se connecter aux clients et aux entreprises en Inde.

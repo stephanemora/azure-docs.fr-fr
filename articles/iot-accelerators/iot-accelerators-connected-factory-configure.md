@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: e059762cbbf5de2ac03a8a74397e59c9b3bdb97e
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.openlocfilehash: 3ddbf5832424cdafad2c29254f51754203c7f079
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66387097"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67428316"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>Configurer l’accélérateur de solution Usine connectée
 
@@ -29,7 +29,7 @@ Chaque usine de Contoso possède des lignes de production se composant de trois 
 * Poste de test
 * Poste d’emballage
 
-Ces serveurs OPC UA comprennent des nœuds OPC UA. [OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher) envoie les valeurs de ces nœuds à Usine connectée. notamment :
+Ces serveurs OPC UA comprennent des nœuds OPC UA. [OPC Publisher](overview-opc-publisher.md) envoie les valeurs de ces nœuds à Usine connectée. notamment :
 
 * L’état opérationnel actuel, tel que la consommation d’énergie actuelle.
 * Des informations relatives à la production, telles que le nombre de produits fabriqués.
@@ -267,7 +267,7 @@ Les propriétés de cette catégorie définissent l’apparence visuelle du tabl
 * Nom
 * Description
 * Image
-* Lieu
+* Location
 * Units
 * Visible
 
@@ -282,7 +282,7 @@ Les valeurs de l’OEE/du KPI relatives à la simulation d’Usine connectée so
 * Les valeurs du nœud OPC UA à inclure dans le calcul.
 * Comment la valeur est calculée à partir des valeurs de télémétrie.
 
-Usine connectée utilise les formules OEE telles que publiées par le [ http://www.oeefoundation.org ](http://www.oeefoundation.org).
+L’Usine connectée utilise les formules OEE publiées par [http://www.oeefoundation.org](http://www.oeefoundation.org).
 
 Les objets du nœud OPC UA des postes activent le balisage pour une utilisation dans le calcul de l’OEE/du KPI. La propriété **Relevance** indique pour quelle valeur d’OEE/de KPI la valeur du nœud OPC UA doit être utilisée. La propriété **OpCode** définit la manière dont la valeur est incluse dans le calcul.
 
@@ -307,7 +307,7 @@ Pour certaines opérations, telles que la visualisation de la dernière valeur o
 
   Identifie la valeur du nœud dans le serveur OPC UA. Le format de la propriété doit être tel que défini dans la spécification OPC UA. Dans les messages ingérés, cette propriété est envoyée en tant que **NodeId**.
 
-Pour obtenir plus d’informations sur la façon dont les données de télémétrie sont intégrées à l’Usine connectée avec OPC Publisher, consultez [cette page](https://github.com/Azure/iot-edge-opc-publisher) GitHub.
+Pour plus d’informations sur la façon dont les données de télémétrie sont intégrées à l’Usine connectée, consultez [Définition d’OPC Publisher](overview-opc-publisher.md).
 
 ## <a name="example-how-kpi1-is-calculated"></a>Exemple : Mode de calcul de KPI1
 
@@ -340,4 +340,4 @@ La propriété **OpCode** de la configuration configure la logique de calcul per
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Comme étape suivante, nous vous suggérons de découvrir comment [Déployer une passerelle sur Windows ou Linux pour l’accélérateur de solution Usine connectée](iot-accelerators-connected-factory-gateway-deployment.md).
+Une étape suivante suggérée vise à savoir comment [personnaliser la solution Usine connectée](iot-accelerators-connected-factory-customize.md).

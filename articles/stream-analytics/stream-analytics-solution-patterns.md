@@ -1,191 +1,191 @@
 ---
-title: Modèles de solution Stream Analytique Azure
-description: Découvrez les modèles de solution pour Azure Stream Analytique.
+title: Modèles de solution Azure Stream Analytics
+description: Découvrez les modèles de solution pour Azure Stream Analytics.
 author: zhongc
 ms.author: zhongc
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/06/2019
-ms.openlocfilehash: 80843abe130f1388a5d4081adab7b9128446763b
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.date: 06/21/2019
+ms.openlocfilehash: 5929ff439bc31e16643e5c57868cd6b68f9cd99c
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65761989"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329572"
 ---
-# <a name="azure-stream-analytics-solution-patterns"></a>Modèles de solution Stream Analytique Azure
+# <a name="azure-stream-analytics-solution-patterns"></a>Modèles de solution Azure Stream Analytics
 
-Comme de nombreux autres services dans Azure, Stream Analytique est surtout avec d’autres services pour créer une solution de bout en bout plus volumineuse. Cet article décrit les solutions d’Analytique de Stream Azure simples et différents modèles d’architecture. Vous pouvez créer ces modèles pour développer des solutions plus complexes. Les modèles décrits dans cet article peuvent être utilisés dans un large éventail de scénarios. Exemples de modèles spécifiques de scénario sont disponibles sur [architectures de solution Azure](https://azure.microsoft.com/solutions/architecture/?product=stream-analytics).
+Comme de nombreux autres services présents dans Azure, Stream Analytics trouve sa grande utilité lorsqu’il est associé à d’autres services pour créer une solution de bout en bout plus étendue. Cet article aborde les solutions Azure Stream Analytics simples ainsi que différents modèles d’architecture. Vous pouvez vous appuyer sur ces modèles pour développer des solutions plus complexes. Les modèles décrits dans cet article sont exploitables dans un large éventail de scénarios. Des exemples de modèles propres aux scénarios sont disponibles dans les [Architectures de solution Azure](https://azure.microsoft.com/solutions/architecture/?product=stream-analytics).
 
-## <a name="create-a-stream-analytics-job-with-a-real-time-dashboard"></a>Créer un travail d’Analytique de Stream avec un tableau de bord en temps réel
+## <a name="create-a-stream-analytics-job-to-power-real-time-dashboarding-experience"></a>Créer un travail Stream Analytics pour alimenter l’expérience des tableaux de bord en temps réel
 
-Simplicité des Analytique Azure Stream d’utilisation, vous pouvez rapidement mettre en des alertes et des tableaux de bord en temps réel. Une solution simple et reçoit des événements à partir d’Event Hubs ou IoT Hub, et [le tableau de bord Power BI avec un jeu de données de diffusion en continu de flux](/power-bi/service-real-time-streaming). Pour plus d’informations, consultez le didacticiel détaillé [analyser les données d’appel téléphonique avec Analytique de Stream et visualiser les résultats dans le tableau de bord Power BI](stream-analytics-manage-job.md).
+Avec Azure Stream Analytics, vous pouvez rapidement mettre en place des alertes et des tableaux de bord en temps réel. Une solution simple ingère des événements à partir d’Event Hubs ou d’IoT Hub, puis [alimente le tableau de bord Power BI avec un jeu de données en streaming](/power-bi/service-real-time-streaming). Pour plus d’informations, consultez le tutoriel détaillé [Analyser les données d’appel téléphonique avec Stream Analytics et visualiser les résultats dans un tableau de bord Power BI](stream-analytics-manage-job.md).
 
-![Tableau de bord ASA Power BI](media/stream-analytics-solution-patterns/pbidashboard.png)
+![Tableau de bord Power BI ASA](media/stream-analytics-solution-patterns/pbidashboard.png)
 
-Cette solution peut être générée dans quelques minutes seulement à partir du portail Azure. Il est que sans beaucoup de codage impliquées et langage SQL est utilisé pour exprimer la logique métier.
+Cette solution peut être générée en quelques minutes seulement à partir du portail Azure. Aucun codage complexe n’est impliqué, et la logique métier s’exprime avec le langage SQL.
 
-Ce modèle de solution du tableau de bord en temps réel offre la plus faible latence à partir de la source d’événements au tableau de bord Power BI dans un navigateur. Azure Stream Analytique est le seul service Azure avec cette fonctionnalité intégrée.
+Ce modèle de solution offre la plus faible latence, de la source d’événements au tableau de bord Power BI dans un navigateur. Azure Stream Analytics est le seul service Azure comportant cette fonctionnalité intégrée.
 
 ## <a name="use-sql-for-dashboard"></a>Utiliser SQL pour le tableau de bord
 
-Le tableau de bord Power BI offre une latence faible, mais il ne peut pas être utilisé pour produire des rapports Power BI soit-il complètes. Un modèle de création de rapports courant consiste à tout d’abord vos données à une base de données SQL de sortie. Ensuite utiliser le connecteur SQL de Power BI à la requête SQL pour les données les plus récentes.
+Le tableau de bord Power BI offre une faible latence, mais il est inutilisable dans la production de rapports Power BI complets. Un modèle de création de rapports courant se veut tout d’abord sortir vos données dans une base de données SQL. Ainsi, utilisez le connecteur SQL de Power BI pour interroger SQL sur les données les plus récentes.
 
-![Tableau de bord ASA SQL](media/stream-analytics-solution-patterns/sqldashboard.png)
+![Tableau de bord SQL ASA](media/stream-analytics-solution-patterns/sqldashboard.png)
 
-À l’aide de SQL database vous donne plus de souplesse au détriment d’une latence plus élevée. Cette solution est optimale pour les tâches avec des conditions de latence supérieures à une seconde. Avec cette méthode, vous pouvez optimiser l’utilitaire de Power BI à une tranche supplémentaire et manipulent les données pour les rapports. Vous bénéficiez également de la souplesse d’utilisation d’autres solutions de tableau de bord comme Tableau.
+L’utilisation d’une base de données SQL vous offre plus de flexibilité, mais elle se fait au détriment d’une latence légèrement plus élevée. Cette solution est optimale pour les travaux dont les exigences en termes de latence sont supérieures à une seconde. Avec cette méthode, vous pouvez optimiser les fonctionnalités de Power BI pour segmenter et traiter les données destinées aux rapports, et de nombreuses autres options de visualisation. Vous gagnez également en flexibilité avec l’utilisation d’autres solutions de tableau de bord, telles que Tableau.
 
-SQL n’est pas un magasin de données d’un débit élevé, et le débit maximal pour une base de données SQL à partir d’Azure Stream Analytique est 24 Mo/s. Si les sources d’événements dans votre solution produisent des données à une fréquence plus élevée, vous devez utiliser la logique de traitement dans Stream Analytique afin de réduire le taux de sortie SQL. Une correspondance avec des jointures temporelles de techniques telles que le filtrage, les agrégats fenêtrés, modèle et les fonctions analytiques peuvent être utilisées. Le taux de sortie à SQL permettre être optimisé à l’aide des techniques décrites dans [sortie Azure Stream Analytique pour Azure SQL Database](stream-analytics-sql-output-perf.md).
+SQL n’est pas un magasin de données à débit élevé. Le débit maximal, vers une base de données SQL depuis Azure Stream Analytics, se situe actuellement autour de 24 Mo/s. Si les sources d’événements de votre solution produisent des données à un taux plus élevé, vous devez utiliser une logique de traitement dans Stream Analytics pour réduire le taux de sortie vers SQL. Des techniques, telles que le filtrage, les agrégats fenêtrés, les critères spéciaux avec des jointures temporelles, et des fonctions analytiques, peuvent être utilisées. Il est possible d’optimiser davantage le taux de sortie vers SQL en recourant aux techniques décrites dans l’article [Sortie d’Azure Stream Analytics dans Azure SQL Database](stream-analytics-sql-output-perf.md).
 
-## <a name="incorporate-real-time-insights-into-your-application-with-event-messaging"></a>Incorporer des informations en temps réel dans votre application avec la messagerie d’événements
+## <a name="incorporate-real-time-insights-into-your-application-with-event-messaging"></a>Incorporer des insights en temps réel dans votre application avec la messagerie d’événements
 
-L’utilisation ensuite plus populaire de Stream Analytique consiste à générer des alertes en temps réel. Dans ce modèle de solution, une logique métier dans Stream Analytique peut être utilisée pour détecter [modèles temporelles et spatiales](stream-analytics-geospatial-functions.md) ou [anomalies](stream-analytics-machine-learning-anomaly-detection.md), puis produire signaux d’alerte. Toutefois, contrairement à la solution de tableau de bord où Stream Analytique utilise Power BI comme un point de terminaison par défaut, un nombre de récepteurs de données intermédiaires permettre servir. Ces récepteurs incluent Event Hubs, Service Bus et Azure Functions. Vous, en tant que le Générateur d’applications, devez décider quel récepteur de données convient le mieux à votre scénario.
+La deuxième utilisation la plus appréciée de Stream Analytics est la création d’alertes en temps réel. Dans ce modèle de solution, vous pouvez utiliser une logique métier dans Stream Analytics afin de détecter les [modèles temporels et spatiaux](stream-analytics-geospatial-functions.md) ou les [anomalies](stream-analytics-machine-learning-anomaly-detection.md), et produire ensuite des signaux d’alerte. Toutefois, contrairement à la solution de tableau de bord dans laquelle Stream Analytics se sert de Power BI comme point de terminaison par défaut, certains récepteurs de données intermédiaires peuvent être utilisés. Ces récepteurs comprennent Event Hubs, Service Bus et Azure Functions. Vous, en tant que créateur d’applications, devez décider quel récepteur de données convient le mieux à votre scénario.
 
-Logique de consommateur d’événements en aval doit être implémentée pour générer des alertes dans votre workflow d’entreprise existant. Étant donné que vous pouvez implémenter une logique personnalisée dans Azure Functions, fonctions est le moyen le plus rapide, vous pouvez effectuer cette intégration. Un didacticiel pour l’utilisation de la fonction Azure se trouve dans la sortie pour un travail Stream Analytique [exécuter Azure Functions à partir des travaux d’Azure Stream Analytique](stream-analytics-with-azure-functions.md). Azure Functions prend également en charge divers types de notifications, y compris le texte et messagerie. Application logique peut également être utilisée pour cette intégration, avec les concentrateurs d’événements entre Stream Analytique et d’application logique.
+La logique de consommateur d’événements en aval doit être implémentée pour générer des alertes dans votre workflow d’entreprise existant. À partir du moment où vous pouvez implémenter une logique personnalisée dans Azure Functions, Azure Functions représente le moyen le plus rapide pour vous d’effectuer cette intégration. Un tutoriel sur l’utilisation d’Azure Functions en tant que sortie d’une tâche Stream Analytics est disponible dans [Exécuter Azure Functions à partir des travaux Azure Stream Analytics](stream-analytics-with-azure-functions.md). Azure Functions prend également en charge différents types de notifications, y compris le texte et les e-mails. Vous pouvez aussi utiliser Logic Apps pour ce genre d’intégration, en plaçant Event Hubs entre Stream Analytics et Logic Apps.
 
 ![Application de messagerie d’événements ASA](media/stream-analytics-solution-patterns/eventmessagingapp.png)
 
-Event Hubs, propose quant à eux, le point d’intégration plus souple. Nombreux autres services, tels que l’Explorateur de données Azure et Time Series Insight, peuvent consommer des événements à partir d’Event Hubs. Services peuvent être connectés directement au récepteur Event Hubs à partir d’Azure Stream Analytique pour compléter la solution. Event Hubs est également le plus haut débit broker de messagerie disponible sur Azure pour ces scénarios d’intégration.
+Event Hubs, par ailleurs, offre le point d’intégration le plus souple. De nombreux autres services, tels qu’Azure Data Explorer et Time Series Insights, peuvent consommer des événements à partir d’Event Hubs. Des services peuvent être connectés directement au récepteur Event Hubs à partir d’Azure Stream Analytics pour terminer la solution. Event Hubs est également le répartiteur de messagerie au débit le plus élevé, disponible sur Azure pour de tels scénarios d’intégration.
 
-## <a name="dynamic-applications-and-websites"></a>Sites Web et des applications dynamiques
+## <a name="dynamic-applications-and-websites"></a>Sites web et applications dynamiques
 
-Vous pouvez créer des visualisations personnalisées en temps réel, tels que tableau de bord ou la visualisation, de carte à l’aide d’Azure Stream Analytique et Service Azure SignalR. Les clients web à l’aide de SignalR, peuvent être mis à jour et affichent le contenu dynamique en temps réel.
+Vous pouvez créer des visualisations en temps réel personnalisées, telles que la visualisation de tableaux de bord ou de cartes, avec Azure Stream Analytics et Azure SignalR Service. L’utilisation de SignalR permet la mise à jour des clients web et l’affichage du contenu dynamique en temps réel.
 
 ![Application dynamique ASA](media/stream-analytics-solution-patterns/dynamicapp.png)
 
-## <a name="incorporate-real-time-insights-into-your-application-through-data-stores"></a>Incorporer des informations en temps réel dans votre application par le biais des magasins de données
+## <a name="incorporate-real-time-insights-into-your-application-through-data-stores"></a>Incorporer à votre application des insights en temps réel par le biais de magasins de données
 
-La plupart des services web et applications web utilisent aujourd'hui un modèle demande/réponse pour servir de la couche de présentation. Le modèle demande/réponse est simple à créer et peut être facilement mis à l’échelle avec des temps de réponse faible à l’aide d’un serveur frontal sans état et évolutives magasins, comme Cosmos DB.
+La plupart des services et applications web utilisent aujourd’hui un modèle de requête/réponse pour gérer la couche de présentation. Le modèle de requête/réponse est simple à créer et peut être facilement mis à l’échelle dans un temps de réponse faible, avec un front-end sans état et des magasins scalables, comme Cosmos DB.
 
-Volume de données haute crée souvent les goulots d’étranglement dans un système CRUD. Le [approvisionnement en modèle de solution événements](/azure/architecture/patterns/event-sourcing) est utilisé pour résoudre les goulots d’étranglement de performances. Insights et modèles temporels sont également difficile et inefficace à extraire d’une banque de données traditionnel. Piloté par les applications souvent à des données de haut volume modernes adoptent une architecture basée sur les flux de données. Azure Stream Analytique en tant que le moteur de calcul pour les données en mouvement est un "cheville ouvrière" de cette architecture.
+Les volumes importants de données génèrent souvent des goulots d’étranglement dans un système CRUD. Le [modèle de solution de provisionnement en événements](/azure/architecture/patterns/event-sourcing) s’utilise pour résoudre les goulots d’étranglement au niveau des performances. Les insights et modèles temporels sont également ardus et inefficaces pour l’extraction à partir d’un magasin de données classique. Les applications modernes basées sur les données volumineuses adoptent souvent une architecture basée sur les dataflows. Azure Stream Analytics, en tant que moteur de calcul pour les données en mouvement, est un élément central dans cette architecture.
 
-![Application d’événements d’approvisionnement ASA](media/stream-analytics-solution-patterns/eventsourcingapp.png)
+![Application de provisionnement en événements ASA](media/stream-analytics-solution-patterns/eventsourcingapp.png)
 
-Dans ce modèle de solution, les événements sont traités et agrégées dans des magasins de données par Azure Stream Analytique. La couche d’application interagit avec les magasins de données à l’aide du modèle de demande/réponse traditionnel. En raison de capacité d’Analytique de le Stream pour traiter un grand nombre d’événements en temps réel, l’application est hautement évolutive sans devoir en bloc de la couche de magasin de données. La couche de magasin de données est essentiellement une vue matérialisée dans le système. [Sortie de Stream Analytique Azure à Azure Cosmos DB](stream-analytics-documentdb-output.md) décrit l’utilisation de Cosmos DB comme une sortie Stream Analytique.
+Dans ce modèle de solution, les événements sont traités et agrégés dans des magasins de données par Azure Stream Analytics. La couche d’application interagit avec les magasins de données par l’intermédiaire du modèle de requête/réponse classique. Du fait de la capacité de Stream Analytics à traiter un grand nombre d’événements en temps réel, l’application s’en trouve extrêmement évolutive, sans nécessiter la fourniture en bloc de la couche magasin de données. La couche magasin de données est avant tout une vue matérialisée dans le système. La [sortie d’Azure Stream Analytics vers Azure Cosmos DB](stream-analytics-documentdb-output.md) décrit l’utilisation de Cosmos DB en tant que sortie Stream Analytics.
 
-Dans les applications réelles où la logique de traitement est complexe et il est nécessaire de mettre à niveau certaines parties de la logique de manière indépendante, plusieurs travaux d’Analytique de Stream peuvent être composées avec Event Hubs en tant qu’intermédiaire event broker.
+Dans les applications réelles, où la logique de traitement est complexe et où il est nécessaire de mettre à niveau certaines parties de la logique séparément, plusieurs travaux Stream Analytics peuvent être combinés ensemble avec Event Hubs, en tant que répartiteur d’événements intermédiaire.
 
-![Application de source d’événements complexes ASA](media/stream-analytics-solution-patterns/eventsourcingapp2.png)
+![Application de provisionnement d’événements complexe ASA](media/stream-analytics-solution-patterns/eventsourcingapp2.png)
 
-Ce modèle améliore la résilience et la facilité de gestion du système. Toutefois, même si Stream Analytique garantit exactement une fois le traitement, il existe une faible probabilité pour que les événements en double peuvent se retrouver dans les Hubs d’événements intermédiaire. Il est important pour le travail d’Analytique de Stream en aval pour la déduplication d’événements à l’aide de clés de logique dans une fenêtre de la boucle. Pour plus d’informations sur la livraison d’événements, consultez [garanties de remise d’événement](/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics) référence.
+Ce modèle améliore la résilience et facilite la gestion du système. Même si Stream Analytics garantit le traitement en une seule et unique fois, il existe malgré tout une faible probabilité pour que les événements en double puissent se retrouver dans l’instance Event Hubs placée en intermédiaire. Il est important pour le travail Stream Analytics en aval de dédupliquer les événements à l’aide de clés logiques dans une fenêtre de recherche arrière. Pour plus d’informations sur la remise d’événements, consultez la référence [Garanties de remise d’événements](/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics).
 
-## <a name="use-reference-data-for-application-customization"></a>Utiliser les données de référence pour la personnalisation de l’application
+## <a name="use-reference-data-for-application-customization"></a>Utiliser les données de référence pour la personnalisation des applications
 
-La fonctionnalité de données de référence Azure Stream Analytique est conçue spécifiquement pour la personnalisation de l’utilisateur final telles que la génération d’alertes de seuil, le traitement des règles, et [clôture virtuelle](geospatial-scenarios.md). La couche application peut accepter les modifications apportées aux paramètres et les stocker dans une base de données SQL. Le travail Stream Analytique interroge les modifications à partir de la base de données régulièrement et rend les paramètres de personnalisation accessible via une jointure de données de référence. Pour plus d’informations sur l’utilisation des données de référence pour la personnalisation de l’application, consultez [les données de référence SQL](sql-reference-data.md) et [jointure des données de référence](/stream-analytics-query/reference-data-join-azure-stream-analytics).
+La fonctionnalité des données de référence Azure Stream Analytics est prévue plus particulièrement pour la personnalisation de l’utilisateur final, telles que le seuil d’alerte, les règles de traitement et les [limites géographiques](geospatial-scenarios.md). La couche d’application peut accepter les modifications apportées aux paramètres et les stocker dans une base de données SQL. Le travail Stream Analytics interroge régulièrement sur les modifications à partir de la base de données, et rend les paramètres de personnalisation accessibles par le biais d’une jointure de données de référence. Pour plus d’informations sur l’utilisation des données de référence pour la personnalisation d’application, consultez [Données de référence SQL](sql-reference-data.md) et [Jointure de données de référence](/stream-analytics-query/reference-data-join-azure-stream-analytics).
 
-Ce modèle peut également être utilisé pour implémenter un moteur de règles où les seuils des règles sont définies à partir des données de référence. Pour plus d’informations sur les règles, consultez [traiter les règles de seuil configurables dans Azure Stream Analytique](stream-analytics-threshold-based-rules.md).
+Ce modèle peut être également utilisé pour implémenter un moteur de règles, où les seuils des règles sont définis à partir de données de référence. Pour plus d’informations sur les règles, consultez [Traiter des règles configurables basées sur un seuil dans Azure Stream Analytics](stream-analytics-threshold-based-rules.md).
 
 ![Application de données de référence ASA](media/stream-analytics-solution-patterns/refdataapp.png)
 
-## <a name="add-machine-learning-to-your-real-time-insights"></a>Ajouter la Machine Learning pour vos analyses en temps réel
+## <a name="add-machine-learning-to-your-real-time-insights"></a>Ajouter Machine Learning à vos insights en temps réel
 
-Intégrée des Azure Analytique Stream [modèle de détection d’anomalie](stream-analytics-machine-learning-anomaly-detection.md) est un moyen pratique d’introduire un apprentissage à votre application en temps réel. Pour les besoins d’une plage plus large de Machine Learning, consultez [Analytique de Stream Azure s’intègre avec le service de calcul de score Azure Machine Learning](stream-analytics-machine-learning-integration-tutorial.md).
+Le [modèle de détection d’anomalie](stream-analytics-machine-learning-anomaly-detection.md) intégrée d’Azure Stream Analytics est un moyen pratique pour introduire Machine Learning dans votre application en temps réel. Pour un plus large éventail des besoins Machine Learning, consultez [Azure Stream Analytics s’intègre au service de scoring d’Azure Machine Learning](stream-analytics-machine-learning-integration-tutorial.md).
 
-Pour les utilisateurs expérimentés qui souhaitent intégrer la formation en ligne et la notation dans le même pipeline d’Analytique de Stream, consultez cet exemple de comment procéder avec [régression linéaire](stream-analytics-high-frequency-trading.md).
+Pour les utilisateurs expérimentés qui souhaitent intégrer le scoring et la formation en ligne dans le même pipeline Stream Analytics, consultez cet exemple pour savoir comment procéder en utilisant la [régression linéaire](stream-analytics-high-frequency-trading.md).
 
-![Application de Machine Learning ASA](media/stream-analytics-solution-patterns/mlapp.png)
+![Application Machine Learning ASA](media/stream-analytics-solution-patterns/mlapp.png)
 
-## <a name="near-real-time-data-warehousing"></a>Près de l’entreposage de données en temps réel
+## <a name="near-real-time-data-warehousing"></a>Entreposage de données en quasi temps réel
 
-Un autre modèle courant est en temps réel entrepôts de données, également appelée entrepôt de données de diffusion en continu. Outre les événements arrivant dans Event Hubs et IoT Hub à partir de votre application, [Azure Stream Analytique est en cours d’exécution sur IoT Edge](stream-analytics-edge.md) peut être utilisé pour remplir le nettoyage des données, de la réduction des données et de la banque de données et besoins vers l’avant. Analytique de Stream en cours d’exécution sur IoT Edge peut gérer correctement les problèmes de connectivité et de limitation de bande passante dans le système. L’adaptateur de sortie SQL peut être utilisé pour la sortie vers SQL Data Warehouse ; Toutefois, le débit maximal est limité à 10 Mo/s.
+L’entreposage de données en quasi temps réel, également appelé entrepôt de données de streaming est un autre modèle courant. En plus des événements arrivant dans Event Hubs et IoT Hub depuis votre application, vous pouvez utiliser [Azure Stream Analytics running on IoT Edge](stream-analytics-edge.md) pour répondre aux besoins de nettoyage, de réduction ainsi que de stockage et transfert de données. Stream Analytics running on IoT Edge peut gérer convenablement les problèmes de connectivité et de limitation de la bande passante dans le système. Il est possible d’utiliser l’adaptateur de sortie SQL pour sortir vers SQL Data Warehouse, sachant que le débit maximal est malgré tout limité à 10 Mo/s.
 
 ![Entreposage de données ASA](media/stream-analytics-solution-patterns/datawarehousing.png)
 
-La première consiste à améliorer le débit avec certains compromis de latence d’archiver les événements dans le stockage Blob Azure, puis [les importer dans SQL Data Warehouse avec Polybase](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md). Vous devez assembler manuellement la sortie à partir de l’Analytique de Stream dans le stockage blob et entrée depuis le stockage blob vers SQL Data Warehouse par [l’archivage des données par horodatage](stream-analytics-custom-path-patterns-blob-storage-output.md) et l’importation régulièrement.
+Un moyen d’améliorer le débit en faisant quelques compromis au niveau de la latence consiste à archiver les événements dans le stockage Blob Azure, puis à [les importer dans SQL Data Warehouse avec Polybase](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md). Vous devez manuellement combiner ensemble la sortie de Stream Analytics au stockage d’objets blob, et l’entrée du stockage d’objets blob à SQL Data Warehouse, en [archivant les données par horodatage](stream-analytics-custom-path-patterns-blob-storage-output.md) et en important régulièrement.
 
-Dans ce modèle d’utilisation, Azure Stream Analytique est utilisé comme un moteur ETL quasiment en temps réel. Qui vient d’être des événements entrants sont transformés en permanence et stockées pour la consommation du service analytique en aval.
+Dans ce modèle d’utilisation, Azure Stream Analytics est utilisé comme moteur ETL en quasi temps réel. Les événements nouvellement arrivés sont en permanence transformés et stockés pour la consommation du service d’analytique en aval.
 
-![Débit élevé ASA entreposage de données](media/stream-analytics-solution-patterns/datawarehousing2.png)
+![Entreposage de données à débit élevé ASA](media/stream-analytics-solution-patterns/datawarehousing2.png)
 
-## <a name="archiving-real-time-data-for-analytics"></a>L’archivage des données en temps réel pour l’analytique
+## <a name="archiving-real-time-data-for-analytics"></a>Archivage des données en temps réel pour l’analytique
 
-La plupart des activités de science et l’analytique des données arrivent toujours hors connexion. Données peuvent être archivées par Azure Stream Analytique via Azure Data Lake Store Gen2 sortie et les formats de sortie Parquet. Cette fonctionnalité supprime la friction à un flux de données directement dans Azure Data Lake Analytique, Azure Databricks et Azure HDInsight. Azure Stream Analytique est utilisé en tant que quasiment en temps réel ETL moteur dans cette solution. Vous pouvez explorer les données archivées dans Data Lake à l’aide de différents moteurs de calcul.
+La plupart des activités d’analytique et de science des données s’effectuent encore hors connexion. Les données peuvent être archivées par Azure Stream Analytics via les formats de sortie Azure Data Lake Store Gen2 et Parquet. Cette fonctionnalité supprime la difficulté d’alimenter directement en données Azure Data Lake Analytics, Azure Databricks et Azure HDInsight. Azure Stream Analytics sert de moteur ETL en quasi temps réel dans cette solution. Vous pouvez explorer des données archivées dans Data Lake avec différents moteurs de calcul.
 
-![Analytique hors connexion ASA](media/stream-analytics-solution-patterns/offlineanalytics.png)
+![Analytique ASA en mode hors connexion](media/stream-analytics-solution-patterns/offlineanalytics.png)
 
 ## <a name="use-reference-data-for-enrichment"></a>Utiliser les données de référence pour l’enrichissement
 
-Enrichissement des données sont souvent requis pour les moteurs ETL. Azure Stream Analytique prend en charge l’enrichissement des données avec [données de référence](stream-analytics-use-reference-data.md) à partir de la base de données SQL et stockage Blob Azure. Enrichissement des données peuvent être effectuée pour les données de destination dans Azure Data Lake et SQL Data Warehouse.
+L’enrichissement des données constitue souvent une condition exigée pour les moteurs ETL. Azure Stream Analytics prend en charge l’enrichissement des données avec les [données de référence](stream-analytics-use-reference-data.md) provenant de la base de données SQL et du stockage Blob Azure. L’enrichissement des données peut être effectuée pour l’arrivage de données dans Azure Data Lake et SQL Data Warehouse.
 
-![Analytique de hors connexion ASA avec enrichissement des données](media/stream-analytics-solution-patterns/offlineanalytics.png)
+![Analytique ASA en mode hors connexion avec enrichissement des données](media/stream-analytics-solution-patterns/offlineanalytics.png)
 
-## <a name="operationalize-insights-from-archived-data"></a>Faire fonctionner des informations à partir des données archivées
+## <a name="operationalize-insights-from-archived-data"></a>Rendre des insights opérationnels à partir de données archivées
 
-Si vous combinez le modèle analytique hors connexion avec l’application en temps réel proche modèle, vous pouvez créer une boucle de rétroaction. La boucle de rétroaction permet l’application d’ajuster automatiquement pour la modification des modèles dans les données. Cette boucle de commentaires peut être aussi simple que la modification de la valeur de seuil d’alerte, ou aussi complexe que REFORMATION des modèles d’apprentissage. La même architecture de solution peut être appliquée pour les deux tâches ASA en cours d’exécution dans le cloud et sur IoT Edge.
+Si vous combinez le modèle d’analytique hors connexion avec le modèle d’application en quasi temps réel, vous pouvez créer une boucle de rétroaction. La boucle de rétroaction permet à l’application de s’ajuster automatiquement aux modifications des modèles dans les données. Cette boucle de rétroaction peut se révéler aussi simple qu’une modification de la valeur du seuil d’alerte, ou aussi complexe que le réentraînement des modèles Machine Learning. La même architecture de solution peut être appliquée autant aux travaux ASA s’exécutant dans le cloud que sur IoT Edge.
 
 ![Opérationnalisation d’insights ASA](media/stream-analytics-solution-patterns/insightsoperationalization.png)
 
-## <a name="how-to-monitor-asa-jobs"></a>Comment surveiller les travaux ASA
+## <a name="how-to-monitor-asa-jobs"></a>Guide pratique pour superviser les travaux ASA
 
-Un travail Azure Stream Analytique peut être exécuté 24/7 pour traiter les événements entrants en continu en temps réel. Son temps de disponibilité garanti est cruciale pour l’intégrité de l’application globale. Alors que Stream Analytique est le seul service analytique de diffusion en continu dans l’industrie qui offre un [garantie de disponibilité de 99,9 %](https://azure.microsoft.com/support/legal/sla/stream-analytics/v1_0/), vous risquez de subir toujours certain niveau de temps d’arrêt. Au fil des années, Stream Analytique a introduit des mesures, les journaux et les États de travail pour refléter l’intégrité des travaux. Toutes les sont exposés via le service Azure Monitor et peuvent être exportés davantage à OMS. Pour plus d’informations, consultez [Analytique de Stream comprendre comment surveiller les requêtes et surveillance du travail](stream-analytics-monitoring.md).
+Un travail Azure Stream Analytics peut s’exécuter 24/24 7/7 pour traiter des événements entrants sans interruption en temps réel. Sa garantie de durée de fonctionnement est cruciale pour l’intégrité de l’application dans son ensemble. Même si Stream Analytics est le seul service d’analytique en streaming du secteur qui offre une [garantie de disponibilité de 99,9 %](https://azure.microsoft.com/support/legal/sla/stream-analytics/v1_0/), vous risquez tout de même de connaître un certain niveau de temps d’arrêt. Au fil des années, Stream Analytics a introduit les métriques, les journaux et les états des tâches pour refléter l’intégrité des travaux. Tous sont exposés via le service Azure Monitor, et peuvent même être exportés vers OMS. Pour plus d’informations, consultez [Présentation de la supervision des travaux Stream Analytics et des requêtes](stream-analytics-monitoring.md).
 
-![Surveillance d’ASA](media/stream-analytics-solution-patterns/monitoring.png)
+![Supervision ASA](media/stream-analytics-solution-patterns/monitoring.png)
 
-Il existe deux éléments clés à surveiller :
+Il y a deux éléments clés à surveiller :
 
 - [État d’échec du travail](job-states.md)
 
-    Tout d’abord, vous devez vous assurer que le travail est en cours d’exécution. Sans le travail en cours d’exécution, aucune nouvelle métriques ou les journaux ne sont générés. Travaux peuvent changer à un état d’échec pour diverses raisons, notamment un haut niveau de l’utilisation de SU (c'est-à-dire manquer de ressources).
+    Avant toute chose, vous devez vous assurer que le travail est en cours d’exécution. Sans travail associé à un état en cours d’exécution, aucune nouvelle métrique et aucun journal n’est généré. Les travaux peuvent afficher un état d’échec pour diverses raisons, entre autres avoir un niveau élevé d’utilisation de SU (autrement dit, manquer de ressources).
 
-- [Métriques de délai de filigrane](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/)
+- [Métrique du délai en filigrane](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/)
 
-    Cette mesure reflète le retard de traitement de votre pipeline est dans le temps d’horloge (secondes). Certains du délai est attribué à la logique de traitement inhérente. Par conséquent, la surveillance de la tendance croissante est beaucoup plus important que la surveillance de la valeur absolue. Le délai de l’état stable doit être traité par la conception de votre application, pas par l’analyse ou d’alertes.
+    Cette métrique reflète le retard pris par votre pipeline de traitement en temps Horloge (secondes). Un certain délai est attribué à la logique de traitement inhérente. En conséquence, la supervision de la tendance croissante est beaucoup plus importante que la surveillance de la valeur absolue. Le délai de l’état stable devrait être corrigé par la conception de votre application, pas par la supervision ou les alertes.
 
-En cas d’échec, des journaux d’activité et [les journaux de diagnostic](stream-analytics-job-diagnostic-logs.md) sont le meilleur endroit pour commencer à rechercher des erreurs.
+En cas d’échec, les journaux d’activité et [les journaux de diagnostic](stream-analytics-job-diagnostic-logs.md) sont les meilleurs endroits où commencer à rechercher des erreurs.
 
-## <a name="build-resilient-and-mission-critical-applications"></a>Build résiliente et les applications critiques
+## <a name="build-resilient-and-mission-critical-applications"></a>Créer des applications stratégiques et résilientes
 
-Quelle que soit la garantie de contrat SLA des Analytique Azure Stream et avec prudence vous exécutez votre application de bout en bout, pannes se produisent. Si votre application est critique, vous devez être prêt pour les interruptions afin d’effectuer une récupération normale.
+Quels que soient la garantie du contrat SLA d’Azure Stream Analytics utilisé et le soin que vous apportez à exécuter votre application de bout en bout, des pannes se produisent. Si votre application est stratégique, vous devez être prêt à réagir face aux interruptions, afin de procéder à une récupération correctement.
 
-Pour alerter les applications, le plus important est de détecter l’alerte suivante. Vous pouvez choisir de redémarrer le travail à partir du temps lors de la récupération, en ignorant les alertes passées. La sémantique de heure de début de travail est par la première fois de sortie, pas la première fois d’entrée. L’entrée est rembobinée vers l’arrière d’une quantité appropriée de temps afin de garantir que la première sortie à l’heure spécifiée est complète et correcte. Vous ne sont pas obtenir les agrégats partielles et déclenchent des alertes de façon inattendue en conséquence.
+Pour les applications de génération d’alertes, le plus important est de détecter l’alerte suivante. Vous pouvez choisir de redémarrer le travail à l’heure en cours au moment de la récupération, et donc d’ignorer les alertes passées. La sémantique de l’heure de début du travail s’établit en fonction de la première heure de sortie, pas de la première heure d’entrée. L’entrée est rembobinée vers l’arrière, jusqu’à une quantité appropriée de temps permettant de garantir que la première sortie à l’heure spécifiée est complète et correcte. En procédant ainsi, vous n’obtenez aucun agrégat partiel et ne déclenchez aucune alerte de façon inattendue.
 
-Vous pouvez également choisir de démarrer la sortie à partir d’une certaine quantité de temps dans le passé. Event Hubs et de IoT Hub stratégies de rétention contiennent une quantité raisonnable de données pour autoriser le traitement dans le passé. L’inconvénient est la rapidité avec laquelle vous pouvez rattraper le retard à l’heure actuelle et commencer à générer des nouvelles alertes en temps voulu. Données perdent rapidement sa valeur au fil du temps, il est donc important de rattraper rapidement à l’heure actuelle. Il existe deux façons de rattraper rapidement :
+Vous pouvez également choisir de démarrer la sortie à partir d’une certaine quantité de temps dans le passé. Les stratégies de conservation Event Hubs et IoT Hub contiennent une quantité raisonnable de données permettant d’autoriser le traitement dans le passé. Le compromis tient dans la rapidité avec laquelle vous pouvez rattraper le retard par rapport à l’heure actuelle, et commencer à générer de nouvelles alertes dans les délais. Les données perdent rapidement leur valeur au fil du temps, il est donc important de rattraper au plus vite l’heure actuelle. Il existe deux façons de rattraper rapidement un retard :
 
-- Approvisionner davantage de ressources (SU) lorsque rattrape le retard.
+- Provisionner davantage de ressources (SU) lors du rattrapage du retard.
 - Redémarrer à partir de l’heure actuelle.
 
-Le redémarrage à partir d’actuel l’heure est simple à réaliser, l’inconvénient de devoir de laisser un écart au cours du traitement. Le redémarrage de cette façon peut être OK pour créer des alertes scénarios, mais peut être problématique pour les scénarios de tableau de bord et un non-starter pour l’archivage et de scénarios d’entreposage de données.
+Le redémarrage à l’heure actuelle est simple à réaliser, en acceptant le compromis de devoir laisser un intervalle vide lors du traitement. Le redémarrage par ce moyen peut accessoirement fonctionner pour les scénarios d’alerte, mais s’avérer problématique avec les scénarios de tableau de bord, et être voué à l’échec pour l’archivage et les scénarios d’entreposage de données.
 
-L’approvisionnement des ressources plus peut accélérer le processus, mais l’effet d’avoir une forte hausse taux de traitement est complexe.
+Le provisionnement de ressources supplémentaires peut accélérer le processus, mais l’effet d’une augmentation brutale de la vitesse de traitement est complexe.
 
-- Vérifiez que votre travail est flexible pour un plus grand nombre d’unités de streaming. Toutes les requêtes sont évolutifs. Vous devez vous assurer que votre requête est [parallélisée](stream-analytics-parallelization.md).
+- Vérifiez que votre travail peut être mis à l’échelle sur un plus grand nombre de SU. Les requêtes ne sont pas toutes adaptables. Vous devez vous assurer que votre requête est [parallélisée](stream-analytics-parallelization.md).
 
-- Assurez-vous qu’il y a suffisamment de partitions dans les concentrateurs d’événements en amont ou IoT Hub que vous pouvez ajouter davantage d’unités de débit (tu) à l’échelle le débit d’entrée. N’oubliez pas, jusqu'à chaque TU de Hubs d’événements à une vitesse de sortie de 2 Mo/s.
+- Veillez à ce qu’il existe suffisamment de partitions en amont dans les services Event Hubs ou IoT Hub pour que vous puissiez ajouter plus d’unités de débit (TU) et ainsi mettre à l’échelle le débit d’entrée. N’oubliez pas, chaque TU Event Hubs atteint la limite maximale à une vitesse de sortie de 2 Mo/s.
 
-- Assurez-vous que vous avez configuré suffisamment de ressources dans les récepteurs de sortie (base de données SQL, Cosmos DB), afin qu’ils ne pas limiter la forte hausse de sortie, qui peuvent parfois entraîner le blocage du système.
+- Assurez-vous d’avoir provisionné assez de ressources dans les récepteurs de sortie (c’est-à-dire SQL Database, Cosmos DB), afin qu’ils ne répriment pas l’afflux important en sortie, qui peut parfois entraîner le blocage du système.
 
-La chose la plus importante consiste à anticiper la modification du taux de traitement, tester ces scénarios avant la production commencée et être prêt à l’échelle le traitement correctement pendant la durée de récupération de défaillance.
+L’essentiel est plus de tout d’anticiper la modification de la vitesse de traitement, de tester ces scénarios avant la mise en production, et d’être prêt à la mise à l’échelle correcte du traitement pendant la durée de récupération après une défaillance.
 
-Dans le scénario extrême que les événements entrants sont toutes retardée, [il est possible de tous les événements différés sont supprimés](stream-analytics-time-handling.md) si vous avez appliqué une arrivée tardive à votre travail. La suppression des événements peut sembler être un comportement mystérieux au début ; Toutefois, étant donné que Stream Analytique est un moteur de traitement en temps réel, il attend des événements entrants pour être proche de la durée totale. Il doit supprimer les événements qui violent ces contraintes.
+Dans le scénario extrême où les événements entrants sont tous retardés, [il est possible que tous les événements différés soient supprimés](stream-analytics-time-handling.md) si vous avez appliqué une plage d’arrivée tardive à votre travail. La suppression des événements peut sembler un comportement étrange au début, mais si l’on considère que Stream Analytics est un moteur de traitement en temps réel, celui-ci s’attend donc à ce que les événements entrants soient proches du temps Horloge. Il doit donc supprimer les événements qui violent ces contraintes.
 
 ### <a name="backfilling-process"></a>Processus de renvoi
 
-Heureusement, le modèle d’archivage de données précédent peut être utilisé pour traiter ces événements tardifs normalement. L’idée est que le travail d’archivage traite les événements entrants dans l’heure d’arrivée et archive les événements dans le compartiment de bon moment dans les objets Blob Azure ou Azure Data Lake Store avec leur heure de l’événement. Peu importe quel moment un événement arrive, ne sont jamais supprimée. Il est alors toujours placé dans le compartiment de bon moment. Lors de la récupération, il est possible de retraiter les événements archivés et le renvoi les résultats dans le magasin de choix.
+Heureusement, le modèle d’archivage de données précédent peut être utilisé pour traiter normalement ces événements tardifs. L’idée est que le travail d’archivage traite les événements entrants à l’heure d’arrivée, et archive les événements dans le compartiment du moment opportun, dans un objet blob Azure ou dans Azure Data Lake Store, avec leur heure d’événement. Peu importe l’heure tardive à laquelle un événement arrive, il n’est jamais supprimé. Il est toujours placé dans le compartiment du moment opportun. Lors de la récupération, il est possible de retraiter les événements archivés et de renvoyer les résultats dans le magasin voulu.
 
-![Renvoi d’ASA](media/stream-analytics-solution-patterns/backfill.png)
+![Renvoi ASA](media/stream-analytics-solution-patterns/backfill.png)
 
-Le processus de renvoi doit être effectuée avec un système qui a un autre modèle de programmation que Azure Stream Analytique probablement de traitement par lots hors connexion. Cela signifie que vous devez ré-implémenter la logique de traitement entier.
+Le processus de renvoi doit être effectué avec un système de traitement par lots hors connexion ; celui-ci a probablement un autre modèle de programmation qu’Azure Stream Analytics. Cela signifie que vous devez implémenter de nouveau et en entier la logique de traitement.
 
-Pour un renvoi, il est toujours important pour au moins temporairement approvisionner que plus de ressources à la sortie récepteurs pour gérer un débit plus élevé que l’état stable des besoins de traitement.
+Pour un renvoi, il demeure important de provisionner au moins temporairement plus de ressources sur les récepteurs de sortie, afin de gérer un débit plus élevé que les besoins du traitement de l’état stable.
 
-|Scénarios  |Redémarrer à partir de maintenant uniquement  |Redémarrer à partir d’heure du dernier arrêt |Redémarrer à partir de now + renvoi avec des événements archivés|
+|Scénarios  |Redémarrer à partir de maintenant uniquement  |Redémarrer à partir de l’heure du dernier arrêt |Redémarrer à partir de maintenant + renvoyer avec des événements archivés|
 |---------|---------|---------|---------|
-|**Tableaux de bord**   |Crée l’écart    |OK pour une brève interruption de service    |Utilisation de l’interruption de longue durée |
-|**Génération d’alertes**   |Acceptable |OK pour une brève interruption de service    |N’est pas nécessaire |
-|**Application d’approvisionnement en événements** |Acceptable |OK pour une brève interruption de service    |Utilisation de l’interruption de longue durée |
-|**Entrepôt de données**   |Perte de données  |Acceptable |N’est pas nécessaire |
-|**Analytique en mode hors connexion**  |Perte de données  |Acceptable |N’est pas nécessaire|
+|**Tableaux de bord**   |Crée l’intervalle vide    |OK pour une brève interruption    |Utiliser pour une longue interruption |
+|**Alertes**   |Acceptable |OK pour une brève interruption    |Pas nécessaire |
+|**Application de provisionnement en événements** |Acceptable |OK pour une brève interruption    |Utiliser pour une longue interruption |
+|**Entrepôt de données**   |Perte de données  |Acceptable |Pas nécessaire |
+|**Analytique hors connexion**  |Perte de données  |Acceptable |Pas nécessaire|
 
 ## <a name="putting-it-all-together"></a>Exemple complet
 
-Il n’est pas difficile d’imaginer que tous les modèles de solution mentionnées ci-dessus peuvent être combinées dans un système complexe de bout en bout. Le système combiné peut inclure des tableaux de bord, alertes, application d’approvisionnement en événements, d’entreposage de données et fonctionnalités d’analytique en mode hors connexion.
+Il est facile d’imaginer que tous les modèles de solution mentionnés ci-dessus sont combinables entre eux, dans un système de bout en bout complexe. Le système composé peut inclure des fonctionnalités de tableaux de bord, d’alertes, d’application de provisionnement en événements, d’entreposage de données et d’analytique hors connexion.
 
-La clé consiste à concevoir votre système dans les modèles composables, pour chaque sous-système peut être généré, testés, mis à niveau et récupérer de manière indépendante.
+L’essentiel est de concevoir votre système dans des modèles composables, de telle sorte que chaque sous-système peut être généré, testé, mis à niveau et récupéré séparément.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous avez maintenant vu une variété de modèles de solution à l’aide d’Azure Stream Analytique. Pour approfondir ces connaissances et créer votre premier travail Stream Analytics, consultez les articles suivants :
+Vous venez de découvrir différents modèles de solution avec Azure Stream Analytics. Pour approfondir ces connaissances et créer votre premier travail Stream Analytics, consultez les articles suivants :
 
 * [Créer un travail Stream Analytics à l’aide du portail Azure](stream-analytics-quick-create-portal.md).
 * [Créer un travail Stream Analytics à l’aide d’Azure PowerShell](stream-analytics-quick-create-powershell.md).

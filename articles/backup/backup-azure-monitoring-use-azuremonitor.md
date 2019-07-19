@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: pullabhk
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 1e85b633024b5a3e85874707ae9a1f068e7a328d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7c53d8fe0ee5bbfdbe180aa4d18d8c7b7fab29c2
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66808528"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295291"
 ---
 # <a name="monitoring-at-scale-using-azure-monitor"></a>Surveillance à l’échelle avec Azure Monitor
 
@@ -29,7 +29,7 @@ L’[article sur la surveillance intégrée et les alertes](backup-azure-monitor
 ## <a name="using-log-analytics-workspace"></a>Utilisation d’un espace de travail Log Analytics
 
 > [!NOTE]
-> Des données provenant de sauvegardes de machines virtuelles Azure, de l’agent MAB, System Center DPM (SC-DPM) et de sauvegardes SQL sont pompées dans l’espace de travail Log Analytics via des paramètres de diagnostic. La prise en charge des sauvegardes de partage de fichiers Azure, Microsoft Azure Backup Server (MABS) sera bientôt disponible.
+> Des données provenant de sauvegardes de machines virtuelles Azure, de l’agent MAB, System Center DPM (SC-DPM), de sauvegardes SQL et de sauvegardes de partage de fichiers Azure sont pompées dans l’espace de travail Log Analytics via des paramètres de diagnostic. La prise en charge du serveur de sauvegarde Azure (MABS) sera bientôt disponible.
 
 Nous exploitons les fonctionnalités de deux services Azure : **Paramètres de diagnostic** (pour envoyer des données de plusieurs ressources Azure Resource Manager à une autre ressource) et **Log Analytics** (LA : pour générer des alertes personnalisées où vous pouvez définir d’autres canaux de notification à l’aide de groupes d’action) pour la surveillance à l’échelle. Les sections suivantes détaillent comment utiliser LA pour surveiller la sauvegarde Azure à l’échelle.
 
@@ -47,6 +47,9 @@ Vous pouvez sélectionner un espace de travail LA à partir d’un autre abonnem
 ### <a name="deploying-solution-to-log-analytics-workspace"></a>Déploiement d’une solution dans l’espace de travail Log Analytics
 
 Une fois que les données sont à l’intérieur de l’espace de travail LA, [déployez un modèle GitHub](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) sur LA pour les visualiser. Vérifiez que vous indiquez les mêmes groupe de ressources, nom de l’espace de travail et emplacement de l’espace de travail pour identifier correctement l’espace de travail, puis installez-y ce modèle.
+
+> [!NOTE]
+> Les utilisateurs qui n’ont pas d’alertes ou de tâches de sauvegarde/restauration dans leur espace de travail LA peuvent voir une erreur avec le code « BadArgumentError » sur le portail. Les utilisateurs peuvent ignorer cette erreur et continuer à utiliser la solution. Une fois que les données du type approprié commencent à circuler dans l’espace de travail, les visualisations sont semblables et les utilisateurs ne voient plus cette erreur.
 
 ### <a name="view-azure-backup-data-using-log-analytics-la"></a>Afficher des données de sauvegarde Azure avec Log Analytics (LA)
 

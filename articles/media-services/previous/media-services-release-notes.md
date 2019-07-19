@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: c519cf88f40928bbd556b0accfa30d9f8c5c0f11
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65991912"
 ---
 # <a name="azure-media-services-release-notes"></a>Notes de publication d'Azure Media Services
@@ -25,14 +25,14 @@ ms.locfileid: "65991912"
 Ces notes de publication pour Azure Media Services récapitulent les modifications par rapport aux précédentes versions et les problèmes connus.
 
 > [!NOTE]
-> Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consultez également [conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md)
+> Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consultez aussi [Conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md).
 
 Nous souhaitons connaître vos impressions afin de pouvoir nous consacrer à la résolution des problèmes que vous rencontrez. Pour signaler un problème ou poser des questions, publiez un billet sur le [Forum MSDN sur Azure Media Services]. 
 
 ## <a name="a-idissuescurrently-known-issues"></a><a id="issues"/>Problèmes actuellement connus
 ### <a name="a-idgeneralissuesmedia-services-general-issues"></a><a id="general_issues"/>Problèmes généraux concernant Media Services
 
-| Problème | Description  |
+| Problème | Description |
 | --- | --- |
 | Plusieurs en-têtes HTTP courants ne sont pas fournis dans l’API REST. |Si vous développez des applications Media Services à l’aide de l’API REST, vous constaterez que certains champs d’en-tête HTTP courants (notamment CLIENT-REQUEST-ID, REQUEST-ID et RETURN-CLIENT-REQUEST-ID) ne sont pas pris en charge. Les en-têtes seront ajoutés dans une prochaine mise à jour. |
 | L’encodage par pourcentage n’est pas autorisé. |Media Services utilise la valeur de la propriété IAssetFile.Name pour générer des liens URL pour la diffusion de contenu en continu (par exemple, `http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters`). Pour cette raison, l’encodage par pourcentage n’est pas autorisé. La valeur de la propriété Name ne peut pas comporter les [caractères réservés à l’encodage en pourcentage suivants](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters) : !* ’();:@&=+$,/?%#[]". En outre, il ne peut exister qu’un « . » pour l’extension de nom de fichier. |
@@ -47,11 +47,11 @@ Pour obtenir des informations sur l’historique des versions de l’API REST, c
 
 ## <a name="march-2019"></a>Mars 2019
 
-La fonctionnalité Media Hyperlapse Preview d’Azure Media Services a été déconseillée.
+L’utilisation de la fonctionnalité d’évaluation Media Hyperlapse d’Azure Media Services est déconseillée.
 
 ## <a name="december-2018"></a>Décembre 2018
 
-La fonctionnalité Media Hyperlapse Preview d’Azure Media Services est bientôt retirée. Depuis le 19 décembre 2018, Media Services n’apporte plus de changements ou d’améliorations à Media Hyperlapse. Le 29 mars 2019, elle sera mise hors service et ne sera plus disponible.
+La fonctionnalité d’évaluation Media Hyperlapse d’Azure Media Services a récemment été mise hors service. Depuis le 19 décembre 2018, Media Services n’apporte plus de changements ou d’améliorations à Media Hyperlapse. Le 29 mars 2019, elle sera mise hors service et ne sera plus disponible.
 
 ## <a name="october-2018"></a>Octobre 2018
 
@@ -409,7 +409,7 @@ Pour plus d’informations sur les modifications, consultez le [SDK Media Servic
 Les modifications suivantes ont été apportées à la version 3.0.0.3 :
 
 * Les dépendances du stockage Azure ont été mises à niveau pour utiliser la version 3.0.3.0.
-* Un problème de compatibilité descendante a été résolu pour les versions 3.0.*.* .
+* Un problème de compatibilité descendante a été résolu pour les versions 3.0. *.* .
 
 ## <a id="december_changes_13"></a>Version de décembre 2013
 ### <a name="dec_13_donnet_changes"></a>SDK .NET Media Services 3.0.0.0
@@ -504,7 +504,7 @@ Correctifs pour les problèmes détectés dans le Kit de développement logiciel
 ## <a id="november_changes_12"></a>Version de novembre 2012
 Les changements mentionnés dans cette section étaient des mises à jour incluses dans le Kit de développement logiciel (SDK) de novembre 2012 (version 2.0.0.0). Ces changements peuvent nécessiter une modification ou une réécriture du code écrit pour la préversion du SDK de juin 2012.
 
-* Ressources
+* Éléments multimédias
   
     * IAsset.Create(assetName) est la *seule* fonction de création d’actifs multimédias. IAsset.Create ne télécharge plus les fichiers dans le cadre de l'appel de la méthode. Utilisez IAssetFile pour le téléchargement.
     * La méthode IAsset.Publish et la valeur d’énumération AssetState.Publish ont été supprimées du SDK Services. Tous les codes qui dépendent de cette valeur doivent être réécrits.

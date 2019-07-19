@@ -8,12 +8,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: hrasheed
-ms.openlocfilehash: ee9b5b651f440bc7d179b1a06c7ddbd3f9137a0d
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 41313c7d484df5568fbf729b683a0e9df5325abc
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165899"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433736"
 ---
 # <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>Utiliser des nœuds de périphérie vides sur des clusters Apache Hadoop dans HDInsight
 
@@ -108,7 +108,7 @@ Dans cette section, vous allez utiliser un modèle Resource Manager pour créer 
    * **Mot de passe de la connexion au cluster** : entrez le mot de passe de l’utilisateur HTTP Hadoop.
    * **Nom d’utilisateur SSH** : entrez le nom d’utilisateur SSH. Le nom par défaut est **sshuser**.
    * **Mot de passe SSH** : entrez le mot de passe de l’utilisateur SSH.
-   * **Action du script d’installation** : conservez la valeur par défaut pour ce tutoriel.
+   * **Action du script d’installation** : conservez la valeur par défaut pour cet article.
      
      Certaines propriétés ont été codées en dur dans le modèle : type de cluster, nombre de nœuds de travail de cluster, taille de nœud de périphérie et nom de nœud de périphérie.
 4. Cochez **J’accepte les termes et conditions mentionnés ci-dessus**, puis cliquez sur **Acheter** pour créer le cluster avec le nœud de périmètre.

@@ -3,19 +3,19 @@ title: Méthode Detect de l’API de traduction de texte Translator Text
 titlesuffix: Azure Cognitive Services
 description: Utilisez la méthode Detect de l’API de traduction de texte Translator Text.
 services: cognitive-services
-author: rajdeep-in
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
-ms.author: v-pawal
-ms.openlocfilehash: 275cf91eb3bf72a612882164c24e4773edcad0f2
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.author: swmachan
+ms.openlocfilehash: 6e90626759b3c78d98c8c0f6e32d37c1440385cd
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389799"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357739"
 ---
 # <a name="translator-text-api-30-detect"></a>API de traduction de texte Translator Text 3.0 : Detect
 
@@ -48,7 +48,7 @@ Les en-têtes de demande sont les suivants :
   <th width="20%">headers</th>
   <th>Description</th>
   <tr>
-    <td>En-têtes d’authentification</td>
+    <td>En-tête(s) d’authentification</td>
     <td><em>En-tête de demande obligatoire</em>.<br/>Voir les <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">options disponibles pour l’authentification</a>.</td>
   </tr>
   <tr>
@@ -158,7 +158,7 @@ Voici les codes d’état HTTP qu’une demande peut retourner.
   </tr>
   <tr>
     <td>429</td>
-    <td>Le serveur a rejeté la demande, car le client a dépassé les limites de la demande.</td>
+    <td>Le serveur a rejeté la requête, car le client a dépassé les limites de requête.</td>
   </tr>
   <tr>
     <td>500</td>

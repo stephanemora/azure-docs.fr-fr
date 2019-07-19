@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: bwren
-ms.openlocfilehash: 105454205c0fe3a0020693a1289a65cecd2bf57b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b03109ee5cdb76247bf3be6fda97e0cf6e434f17
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65519019"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296090"
 ---
-# <a name="get-started-with-azure-monitor-log-queries"></a>Bien démarrer avec les requêtes de journal Azure Monitor
+# <a name="get-started-with-log-queries-in-azure-monitor"></a>Bien démarrer avec les requêtes de journal dans Azure Monitor
 
 
 > [!NOTE]
@@ -28,9 +28,9 @@ ms.locfileid: "65519019"
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Dans ce tutoriel, vous allez apprendre à écrire des requêtes de journal Azure Monitor. Au terme du tutoriel, vous saurez :
+Dans ce didacticiel, vous allez apprendre à écrire des requêtes de journal dans Azure Monitor. Au terme du tutoriel, vous saurez :
 
-- Comprendre la structure des requêtes
+- Comprendre la structure d’une requête
 - Trier les résultats d’une requête
 - Filtrer les résultats d’une requête
 - Spécifier un intervalle de temps
@@ -38,6 +38,8 @@ Dans ce tutoriel, vous allez apprendre à écrire des requêtes de journal Azure
 - Définir et utiliser des champs personnalisés
 - Agréger et regrouper des résultats
 
+Pour obtenir un didacticiel sur l’utilisation de Log Analytics dans le portail Azure, consultez [Bien démarrer avec Azure Monitor Log Analytics](get-started-portal.md).<br>
+Pour plus d’informations sur les requêtes de journal dans Azure Monitor, consultez [Vue d’ensemble des requêtes de journal dans Azure Monitor](log-query-overview.md).
 
 ## <a name="writing-a-new-query"></a>Écriture d’une nouvelle requête
 Les requêtes peuvent commencer par un nom de table ou la commande *search*. Vous devez commencer par un nom de table, dans la mesure où il définit une étendue précise pour la requête et améliore les performances de la requête et la pertinence des résultats.
@@ -71,8 +73,8 @@ search in (SecurityEvent) "Cryptographic"
 
 Cette requête recherche dans la table *SecurityEvent* les enregistrements qui contiennent l’expression « Cryptographic ». De ces enregistrements, dix sont retournés et affichés. Si nous omettons la partie `in (SecurityEvent)` et exécutons simplement `search "Cryptographic"`, la recherche parcourt *toutes* les tables, opération qui peut prendre plus de temps et être moins efficace.
 
-> [!NOTE]
-> Par défaut, un intervalle de temps couvrant les _dernières 24 heures_ est défini. Pour utiliser un autre intervalle, utilisez le sélecteur d’heure (situé en regard du bouton *OK*) ou ajoutez un filtre d’intervalle de temps explicite à votre requête.
+> [!WARNING]
+> Les requêtes de recherche sont généralement plus lentes que les requêtes basées sur une table car elles doivent traiter plus de données. 
 
 ## <a name="sort-and-top"></a>Sort et top
 Bien que **take** soit utile pour obtenir quelques enregistrements, les résultats ne sont pas sélectionnés et affichés dans un ordre particulier. Pour obtenir un affichage ordonné, vous pourriez **trier** (sort) en fonction de la colonne par défaut :

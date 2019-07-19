@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/11/2019
+ms.date: 06/25/2019
 ms.author: juliako
-ms.openlocfilehash: 9cbb995eb3310a2263185d6fd6dba20efce37f38
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fc5bf052a7677d76c7128404a420f8c886cf3fe1
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65550144"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67439105"
 ---
 # <a name="cloud-upload-and-storage"></a>Chargement et stockage sur le cloud
 
@@ -24,12 +24,12 @@ Pour commencer à gérer, chiffrer, coder, analyser, gérer et diffuser en conti
 
 Le compte Media Services et tous les comptes de stockage associés doivent être faire partie du même abonnement Azure. Il est fortement recommandé d’utiliser des comptes de stockage situés au même emplacement que le compte Media Services afin d’éviter des frais supplémentaires de sortie des données et une importante latence.
 
-Vous devez disposer d’un compte de stockage **principal** et vous pouvez avoir n’importe quel nombre de comptes de stockage **secondaires** associés à votre compte Media Services. Media Services prend en charge les comptes **v2 à usage général** (GPv2) ou **v1 à usage général** (GPv1). 
+Vous devez disposer d’un compte de stockage **principal** et vous pouvez avoir n’importe quel nombre de comptes de stockage **secondaires** associés à votre compte Media Services. Media Services prend en charge les comptes **v2 à usage général** (GPv2) ou **v1 à usage général** (GPv1). <br/>Les comptes Blob uniquement ne sont pas autorisés en tant que comptes **principaux**. 
 
->[!NOTE]
-> Les comptes Blob uniquement ne sont pas autorisés en tant que comptes **principaux**. 
+Nous vous recommandons d’utiliser GPv2 afin de tirer parti des dernières fonctionnalités et performances. Pour plus d’informations sur les comptes de stockage, consultez la [présentation générale du compte de stockage Azure](../../storage/common/storage-account-overview.md).
 
-Nous vous recommandons d’utiliser GPv2 pour pouvoir choisir entre des niveaux de stockage chaud ou froid. Pour plus d’informations sur les comptes de stockage, consultez la [présentation générale du compte de stockage Azure](../../storage/common/storage-account-overview.md). 
+> [!NOTE]
+> Seul le niveau d’accès chaud est pris en charge pour une utilisation avec Azure Media Services, bien que les autres niveaux d’accès puissent être utilisés pour réduire les coûts de stockage sur le contenu qui n’est pas activement utilisé.
 
 Vous pouvez choisir entre différentes références SKU pour votre compte de stockage. Pour plus d’informations, consultez [Comptes de stockage](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest). Si vous voulez faire des expériences avec des comptes de stockage, utilisez `--sku Standard_LRS`. Cependant, lors de la sélection d’une référence SKU pour la production, envisagez `--sku Standard_RAGRS`, qui offre la réplication géographique pour la continuité de l’activité. 
 

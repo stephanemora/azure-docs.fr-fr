@@ -7,16 +7,16 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 22490599b6f7a8d87c546cd84ca2fc6fbb2bfa3c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f591df0fe93336da09e9c441292c97be09f25a2e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65806160"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442092"
 ---
 # <a name="update-an-existing-offer-in-the-commercial-marketplace"></a>Mettre à jour une offre existante dans la Place de marché commerciale existante
 
-Vous pouvez afficher vos offres existantes dans l’onglet **Offres** du [portail de la Place de marché Commercial](https://partner.microsoft.com/dashboard/commercial-marketplace/offers) dans l’Espace partenaires.
+Vous pouvez afficher vos offres existantes dans l’onglet **Vue d’ensemble** du [portail de la Place de marché Commercial](https://partner.microsoft.com/dashboard/commercial-marketplace/offers) dans l’Espace partenaires.
 
 Pour mettre à jour une offre existante actuellement activée dans la Place de marché : 
 

@@ -16,17 +16,17 @@ ms.date: 05/28/2019
 ms.author: barclayn
 ms.custom: azlog
 ms.openlocfilehash: b1df35c82ffb8b98f8b7bf86c21694b62b3804e4
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66298297"
 ---
 # <a name="azure-log-integration-with-azure-diagnostics-logging-and-windows-event-forwarding"></a>Azure Log Integration avec la journalisation Diagnostics Azure et le transfert des événements Windows
 
 
 >[!IMPORTANT]
-> La fonctionnalité d’intégration Azure journal sera obsolète à 15/06/2019. Les téléchargements AzLog ont été désactivés le 27 juin 2018. Pour obtenir des conseils pour évoluer, consultez la publication [Utiliser Azure Monitor pour intégrer avec des outils SIEM](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/). 
+> La fonctionnalité d’intégration des journaux Azure sera déconseillée à partir du 15/06/2019. Les téléchargements AzLog ont été désactivés le 27 juin 2018. Pour obtenir des conseils pour évoluer, consultez la publication [Utiliser Azure Monitor pour intégrer avec des outils SIEM](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/). 
 
 Nous vous conseillons d’utiliser Azure Log Integration uniquement si un connecteur [Azure Monitor](../monitoring-and-diagnostics/monitoring-get-started.md) n’est pas disponible auprès de votre fournisseur SIEM (Security Incident and Event Management).
 
@@ -47,7 +47,7 @@ Un ordinateur physique peut s’exécuter localement ou sur un site d’héberge
 
 La machine physique ou virtuelle qui exécute le service d’intégration des journaux Azure nécessite une connexion réseau avec le cloud public Azure. Cet article fournit des détails sur la configuration requise.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Au minimum, l’installation d’Azure Log Integration nécessite les éléments suivants :
 
@@ -248,5 +248,5 @@ Pour en savoir plus sur Azure Log Integration, consultez les articles suivants :
 * [Présentation d’Azure Log Integration](security-azure-log-integration-overview.md). Cet article présente Azure Log Integration, ses principales fonctionnalités et son fonctionnement.
 * [Étapes de configuration de partenaires](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/). Ce billet de blog vous montre comment configurer Azure Log Integration pour fonctionner avec les solutions de partenaire Splunk, HP ArcSight et IBM QRadar. Il présente nos recommandations sur la configuration des composants SIEM. Contactez votre fournisseur SIEM pour plus d’informations.
 * [Questions fréquentes (FAQ) sur Azure Log Integration](security-azure-log-integration-faq.md). Ce FAQ répond aux questions courantes sur Azure Log Integration.
-* [Intégration des alertes Azure Security Center à Azure Log Integration](../security-center/security-center-integrating-alerts-with-log-integration.md). Cet article vous explique comment synchroniser les alertes Security Center et les événements de sécurité de machine virtuelle qui sont collectés par Diagnostics Azure et les journaux d’activité Azure. Vous synchronisez les journaux à l’aide de votre solution SIEM ou journaux Azure Monitor.
-* [Nouvelles fonctionnalités d’Azure Diagnostics et des journaux d’audit Azure](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/). Ce billet de blog présente les journaux d’audit Azure et d’autres fonctionnalités pour vous permettre de mieux connaître les opérations de vos ressources Azure.
+* [Intégration des alertes Azure Security Center à Azure Log Integration](../security-center/security-center-integrating-alerts-with-log-integration.md). Cet article vous explique comment synchroniser les alertes Security Center et les événements de sécurité de machine virtuelle qui sont collectés par Diagnostics Azure et les journaux d’activité Azure. Vous synchronisez les journaux d’activité à l’aide de votre solution Azure Monitor ou SIEM.
+* [Nouvelles fonctionnalités de Diagnostics Azure et des journaux d’audit Azure](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/). Ce billet de blog présente les journaux d’audit Azure et d’autres fonctionnalités pour vous permettre de mieux connaître les opérations de vos ressources Azure.

@@ -3,7 +3,7 @@ title: À propos de Mobile Apps dans Azure App Service
 description: Découvrez les avantages qu’App Service apporte à vos applications mobiles d’entreprise.
 services: app-service\mobile
 documentationcenter: ''
-author: conceptdev
+author: elamalani
 manager: yochayk
 editor: ''
 ms.assetid: 4e96cb9d-a632-4cf6-8219-0810d8ade3f9
@@ -12,16 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/01/2016
-ms.author: crdun
-ms.openlocfilehash: f3eb781e7f84e8cf03a975f7cb77f6a7ef074d44
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: 55f33821a748789fb11b44dc08c367961b4258f4
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60861373"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440290"
 ---
 # <a name="getting-started"></a>À propos de Mobile Apps dans Azure App Service
+
+> [!NOTE]
+> Visual Studio App Center investit dans des services nouveaux et intégrés, essentiels au développement d’applications mobiles. Les développeurs peuvent utiliser les services **Build**, **Test** et **Distribute** pour configurer le pipeline de livraison et d’intégration continues. Une fois l’application déployée, les développeurs peuvent superviser l’état et l’utilisation de leur application à l’aide des services **Analytics** et **Diagnostics**, puis interagir avec les utilisateurs à l’aide du service **Push**. Les développeurs peuvent aussi utiliser **Auth** pour authentifier leurs utilisateurs ainsi que le service **Data** pour conserver et synchroniser les données d’application dans le cloud. Découvrez [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-value-prop) dès aujourd’hui.
+>
+
 Azure App Service est une offre de [plateforme en tant que service](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) entièrement gérée pour les développeurs professionnels. Ce service apporte un ensemble riche de fonctionnalités pour les scénarios web, mobiles et les scénarios d’intégration. 
 
 La fonctionnalité Mobile Apps d’Azure App Service offre aux développeurs et aux intégrateurs de systèmes d’entreprise une plateforme de développement d’applications mobiles très évolutive et disponible dans le monde entier.

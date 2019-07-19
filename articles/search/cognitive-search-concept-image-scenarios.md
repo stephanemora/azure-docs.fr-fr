@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: ca9b3607041f75b1c866aa2813308312ad5d1017
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8bea47467d141869b1a668668bc57451a882a54b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65023752"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448448"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Comment traiter et extraire des informations d’images dans des scénarios de recherche cognitive
 
@@ -30,7 +30,7 @@ Cet article couvre plus en détail le traitement d’image et fournit des consei
 
 Dans le cadre du décodage d’un document, il existe un nouvel ensemble de paramètres de configuration de l’indexeur pour gérer des fichiers image ou des images incorporées dans des fichiers. Ces paramètres permettent de normaliser des images en vue d’un traitement ultérieur en aval. La normalisation des images rend celles-ci plus uniformes. Les images de grande taille sont redimensionnées à une hauteur et une largeur maximales afin de les rendre utilisables. Pour les images fournissant des métadonnées d’orientation, la rotation est ajustée pour un chargement vertical. Les ajustements de métadonnées sont capturés dans un type complexe créé pour chaque image. 
 
-Vous ne pouvez pas désactiver la normalisation d’image. Les compétences qui itèrent sur des images attendent des images normalisées.
+Vous ne pouvez pas désactiver la normalisation d’image. Les compétences qui itèrent sur des images attendent des images normalisées. L’activation de la normalisation d’image sur un indexeur nécessite l’attachement d’un ensemble de compétences à cet indexeur.
 
 | Paramètre de configuration | Description |
 |--------------------|-------------|

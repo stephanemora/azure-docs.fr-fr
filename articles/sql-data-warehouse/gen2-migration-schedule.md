@@ -10,12 +10,12 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: 999c75d07ef7e24d4d75587b6b42a4ab1b2192cf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3141f3a1d6a9f09261dee4113276af72168e35e8
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65596117"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444705"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Mettre à niveau votre entrepôt de données vers Gen2
 
@@ -67,7 +67,7 @@ Le tableau suivant récapitule par région le moment où le niveau de capacité 
 
 ## <a name="automatic-upgrade-process"></a>Processus de mise à niveau automatique
 
-Selon le graphique de disponibilité ci-dessus, nous allons planifier des mises à niveau automatisées pour vos instances Gen1. Pour éviter des interruptions inattendues sur la disponibilité de l’entrepôt de données, les mises à niveau automatiques seront planifiées pendant votre planification de maintenance. La possibilité de créer une nouvelle instance Gen1 sera désactivée dans les régions où des mise à niveau automatiques vers Gen2 sont effectuées. Pour plus d’informations sur les planifications, consultez [Afficher une planification de maintenance](viewing-maintenance-schedule.md).
+Selon le graphique de disponibilité ci-dessus, nous allons planifier des mises à niveau automatisées pour vos instances Gen1. Pour éviter des interruptions inattendues sur la disponibilité de l’entrepôt de données, les mises à niveau automatiques seront planifiées pendant votre planification de maintenance. La possibilité de créer une nouvelle instance Gen1 sera désactivée dans les régions où des mise à niveau automatiques vers Gen2 sont effectuées. Gen1 sera déconseillée une fois que les mises à niveau automatiques auront été effectuées. Pour plus d’informations sur les planifications, consultez [Afficher une planification de maintenance](viewing-maintenance-schedule.md).
 
 Le processus de mise à niveau impliquera une brève baisse de connectivité (environ 5 min) quand nous redémarrons votre entrepôt de données.  Une fois que votre entrepôt de données aura été redémarré, il sera entièrement disponible pour utilisation. Cependant, vous pouvez être confronté à une délai des performances pendant que le processus de mise à niveau continue à mettre à niveau les fichiers de données en arrière-plan. La durée totale de la dégradation des performances varie en fonction de la taille de vos fichiers de données.
 

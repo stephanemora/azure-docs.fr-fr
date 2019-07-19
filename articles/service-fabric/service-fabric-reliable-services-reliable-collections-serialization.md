@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/8/2017
 ms.author: aljo
-ms.openlocfilehash: ee19be45915b3ff1253ec721f4334fead19647b8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2445b37e8152d8f55dad6eff057d273851dc2209
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60723591"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67340692"
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Sérialisation des objets Reliable Collections dans Azure Service Fabric
 Les objets Reliable Collections répliquent et conserver leurs éléments pour permettre à ces derniers de résister aux pannes d’ordinateur et de courant.
@@ -40,7 +40,7 @@ Reliable State Manager intègre un sérialiseur pour les types suivants :
 - sbyte
 - byte[]
 - char
-- chaîne
+- string
 - décimal
 - double
 - float
@@ -55,7 +55,7 @@ Reliable State Manager intègre un sérialiseur pour les types suivants :
 
 Les sérialiseurs personnalisés sont couramment utilisés pour augmenter les performances ou pour chiffrer les données sur le réseau et sur le disque. Pour différentes raisons, les sérialiseurs personnalisés sont généralement plus efficaces que les sérialiseurs génériques, car ils n’ont pas besoin de sérialiser des informations relatives au type. 
 
-[IReliableStateManager.TryAddStateSerializer<T>](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer) permet d’inscrire un sérialiseur personnalisé pour le type T donné. Cette inscription doit intervenir dans la construction du StatefulServiceBase afin de s’assurer que, avant le début de la récupération, tous les objets Reliable Collections ont bien accès au sérialiseur approprié pour lire leurs données persistantes.
+[IReliableStateManager.TryAddStateSerializer\<T>](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer) permet d’inscrire un sérialiseur personnalisé pour le type T donné. Cette inscription doit intervenir dans la construction du StatefulServiceBase afin de s’assurer que, avant le début de la récupération, tous les objets Reliable Collections ont bien accès au sérialiseur approprié pour lire leurs données persistantes.
 
 ```csharp
 public StatefulBackendService(StatefulServiceContext context)
@@ -73,10 +73,10 @@ public StatefulBackendService(StatefulServiceContext context)
 
 ### <a name="how-to-implement-a-custom-serializer"></a>Comment implémenter un sérialiseur personnalisé
 
-Un sérialiseur personnalisé doit implémenter l’interface [IStateSerializer<T>](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.istateserializer-1).
+Un sérialiseur personnalisé doit implémenter l’interface [IStateSerializer\<T>](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.istateserializer-1).
 
 > [!NOTE]
-> IStateSerializer<T> inclut une surcharge d’écriture et de lecture qui prend une valeur de base T supplémentaire. Cette API s’applique à la sérialisation différentielle. La fonctionnalité de sérialisation différentielle n’est pas exposée pour le moment. Par conséquent, ces deux surcharges ne sont pas appelées tant que la sérialisation différentielle n’est pas exposée et activée.
+> IStateSerializer\<T> inclut une surcharge d’écriture et de lecture qui prend une valeur de base T supplémentaire. Cette API s’applique à la sérialisation différentielle. La fonctionnalité de sérialisation différentielle n’est pas exposée pour le moment. Par conséquent, ces deux surcharges ne sont pas appelées tant que la sérialisation différentielle n’est pas exposée et activée.
 
 Voici un exemple de type personnalisé appelé OrderKey qui contient quatre propriétés
 

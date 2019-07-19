@@ -1,20 +1,20 @@
 ---
-title: Fonctionnalités du moteur de règles Azure CDN de Verizon Premium | Microsoft Docs
-description: Documentation de référence pour Azure CDN de Verizon Premium les fonctionnalités de moteur de règles.
+title: Fonctionnalités du moteur de règles Azure CDN de Verizon Premium | Microsoft Docs
+description: Documentation de référence sur les fonctionnalités du moteur de règles Azure CDN de Verizon Premium.
 services: cdn
 author: mdgattuso
 ms.service: cdn
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: magattus
-ms.openlocfilehash: dab0b11a350a10a209d67ddc69db5531a2cc292c
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.openlocfilehash: 7e75a6ffe28aa74ea2fad30bbe2728317712d86b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66481473"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443491"
 ---
-# <a name="azure-cdn-from-verizon-premium-rules-engine-features"></a>Azure CDN à partir des fonctionnalités du moteur de règles Premium de Verizon
+# <a name="azure-cdn-from-verizon-premium-rules-engine-features"></a>Fonctionnalités du moteur de règles Azure CDN de Verizon Premium
 
 Cet article comprend les descriptions détaillées des fonctionnalités du [moteur de règles](cdn-verizon-premium-rules-engine.md) Azure Content Delivery Network (CDN).
 
@@ -165,20 +165,20 @@ Nom | Objectif
 [URL Redirect](#url-redirect) | Redirige les requêtes via l’en-tête Location.
 [URL Rewrite](#url-rewrite)  | Réécrit l’URL de la requête.
 
-## <a name="azure-cdn-from-verizon-premium-rules-engine-features-reference"></a>Azure CDN à partir de la référence de fonctionnalités du moteur de règles Premium de Verizon
+## <a name="azure-cdn-from-verizon-premium-rules-engine-features-reference"></a>Informations de référence sur les fonctionnalités du moteur de règles Azure CDN de Verizon Premium
 
 ---
 
 ### <a name="age-response-header"></a>En-tête de réponse Age
 
-**Objectif**: Détermine si un en-tête de réponse Age est inclus dans la réponse envoyée au demandeur.
+**Objectif** : Détermine si un en-tête de réponse Age est inclus dans la réponse envoyée au demandeur.
 
 Valeur|Résultat
 --|--
 activé | L’en-tête de réponse Age est inclus dans la réponse envoyée au demandeur.
 Désactivé | L’en-tête de réponse Age est exclu de la réponse envoyée au demandeur.
 
-**Comportement par défaut**: Désactivé.
+**Comportement par défaut** : Désactivé.
 
 [Revenir en haut](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -207,7 +207,7 @@ Désactivé|Force les points de présence à ignorer les paramètres de limitati
 
 ### <a name="bandwidth-throttling"></a>Limitation de bande passante
 
-**Objectif :** Limite la bande passante pour la réponse fournie par les points de présence.
+**Objectif :** limite la bande passante pour la réponse fournie par les points de présence.
 
 Les deux options suivantes doivent être définies pour configurer correctement la limitation de bande passante.
 
@@ -258,7 +258,7 @@ Informations essentielles :
 - Cette fonctionnalité prend uniquement en charge la méthode HTTP POST. Activez la mise en cache de réponse POST en définissant cette fonctionnalité sur `POST`.
 - Par défaut, seules les requêtes dont le corps est inférieur à 14 Ko sont mises en cache. Utilisez la fonctionnalité Taille de corps de requête pouvant être mise en cache pour définir la taille de corps de requête maximale.
 
-**Comportement par défaut :** Seules les réponses GET sont mises en cache.
+**Comportement par défaut :** seules les réponses GET sont mises en cache.
 
 [Revenir en haut](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -279,10 +279,10 @@ Informations essentielles :
     - les valeurs x-www-form-urlencoded
     - Garantir une clé de cache unique
 - La définition d’une taille de corps de requête maximale peut affecter les performances de diffusion de données.
-    - **Valeur recommandée :** 14 Ko
-    - **Valeur minimale :** 1 Ko
+    - **Valeur recommandée :** 14 Ko
+    - **Valeur minimale :** 1 Ko
 
-**Comportement par défaut :** 14 Ko
+**Comportement par défaut :** 14 Ko
 
 [Revenir en haut](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -292,7 +292,7 @@ Informations essentielles :
 
 ### <a name="cache-control-header-treatment"></a>Traitement d’en-tête de contrôle de cache
 
-**Objectif :** Contrôle la génération des `Cache-Control` en-têtes par le point de présence quand la fonctionnalité âge maximal externe est active.
+**Objectif :** contrôle la génération des en-têtes `Cache-Control` par le point de présence quand la fonctionnalité Obsolescence maximale externe est active.
 
 Pour obtenir ce type de configuration le plus simple consiste à placer les fonctionnalités Âge maximal externe et En-tête de contrôle de cache dans la même instruction.
 
@@ -303,7 +303,7 @@ Transmettre directement|Permet de garantir que l’en-tête `Cache-Control` gén
 Ajouter si manquant|Si aucun en-tête `Cache-Control` n’a été transmis par le serveur d’origine, cette option ajoute l’en-tête `Cache-Control` généré par la fonctionnalité External Max-Age. Cette option est utile pour garantir que toutes les ressources reçoivent un en-tête `Cache-Control`.
 Supprimer| Cette option permet de garantir qu’aucun en-tête `Cache-Control` ne soit inclus dans la réponse de l’en-tête. Si un en-tête `Cache-Control` a déjà été attribué, il est supprimé de la réponse de l’en-tête.
 
-**Comportement par défaut :** Remplacer.
+**Comportement par défaut :** remplacer.
 
 [Revenir en haut](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -338,14 +338,14 @@ Pour dupliquer le comportement de mise en cache de la chaîne de requête « no
 
 L’exemple d’utilisation suivant inclut un exemple de requête et la clé de cache par défaut :
 
-- **Exemple de requête :** http://wpc.0001.&lt;Domaine&gt;/800001/Origin/folder/asset.htm?sessionid=1234&language=EN&userid=01
+- **Exemple de requête :** http://wpc.0001.&lt ;Domaine&gt; /800001/Origin/folder/asset.htm?sessionid=1234&language=EN&userid=01
 - **Clé de cache par défaut :** /800001/Origin/folder/asset.htm
 
 ##### <a name="include"></a>Inclure
 
 Exemple de configuration :
 
-- **Type :** Inclure
+- **Type :** Inclure
 - **Paramètre(s) :** langue
 
 Ce type de configuration génère la clé de cache de paramètre de chaîne de requête suivante :
@@ -356,7 +356,7 @@ Ce type de configuration génère la clé de cache de paramètre de chaîne de r
 
 Exemple de configuration :
 
-- **Type :** Inclure tout
+- **Type :** Inclure tout
 
 Ce type de configuration génère la clé de cache de paramètre de chaîne de requête suivante :
 
@@ -366,8 +366,8 @@ Ce type de configuration génère la clé de cache de paramètre de chaîne de r
 
 Exemple de configuration :
 
-- **Type :** Exclure
-- **Paramètre (s) :** sessioned userid
+- **Type :** Exclure
+- **Paramètre(s) :** sessionid userid
 
 Ce type de configuration génère la clé de cache de paramètre de chaîne de requête suivante :
 
@@ -377,7 +377,7 @@ Ce type de configuration génère la clé de cache de paramètre de chaîne de r
 
 Exemple de configuration :
 
-- **Type :** Exclure tous
+- **Type :** Exclure tous
 
 Ce type de configuration génère la clé de cache de paramètre de chaîne de requête suivante :
 
@@ -402,7 +402,7 @@ Option|Description
 Chemin d’accès d’origine| Permet de définir le chemin d’accès relatif aux types de requêtes dont la clé de cache est réécrite. Un chemin d’accès relatif peut être défini en sélectionnant un chemin d’accès d’origine de base et en définissant un modèle d’expression régulière.
 Nouveau chemin d’accès|Permet de définir le chemin d’accès relatif pour la nouvelle clé de cache. Un chemin d’accès relatif peut être défini en sélectionnant un chemin d’accès d’origine de base et en définissant un modèle d’expression régulière. Ce chemin d’accès relatif peut être construit de manière dynamique au moyen de [variables HTTP](cdn-http-variables.md).
 
-**Comportement par défaut :** Clé de cache d’une requête est déterminée par l’URI de demande.
+**Comportement par défaut :** la clé de cache d’une requête est déterminée par l’URI de requête.
 
 [Revenir en haut](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -456,9 +456,9 @@ En raison du type de suivi des paramètres de cache, cette fonctionnalité ne pe
 - Adresse IP du client
 - Paramètre de cookie
 - Expression régulière de paramètre de cookie
-- Pays
+- Country
 - Appareil
-- Microsoft Edge Cname
+- Cname Microsoft Edge
 - Domaine de référence
 - Littéral d’en-tête de requête
 - Expression régulière d’en-tête de requête
@@ -516,8 +516,8 @@ Le format pour spécifier les en-têtes de requête et de réponse est défini c
 
 Type d’en-tête|Format|Exemples
 -|-|-
-En-tête de requête|%{[RequestHeader]()}[i]() | %{Accept-Encoding}i <br/> {Référent} j’ai <br/> %{Authorization}i
-En-tête de réponse|%{[ResponseHeader]()}[o]()| %{Age}o <br/> %{Content-Type}o <br/> %{Cookie}o
+En-tête de requête|`%{[RequestHeader]()}[i]()` | %{Accept-Encoding}i <br/> {Referrer}i <br/> %{Authorization}i
+En-tête de réponse|`%{[ResponseHeader]()}[o]()`| %{Age}o <br/> %{Content-Type}o <br/> %{Cookie}o
 
 Informations essentielles :
 
@@ -536,7 +536,7 @@ Informations essentielles :
 ---
 ### <a name="debug-cache-response-headers"></a>En-têtes de réponse de cache de débogage
 
-**Objectif :** Détermine si une réponse peut inclure [les en-têtes de réponse X-EC-Debug](cdn-http-debug-headers.md), qui fournit des informations sur la stratégie de cache de la ressource demandée.
+**Objectif :** détermine si une réponse peut inclure des [en-têtes de réponse X-EC-Debug](cdn-http-debug-headers.md) qui fournissent des informations sur la stratégie de cache de la ressource demandée.
 
 Les en-têtes de réponse de cache de débogage seront inclus dans la réponse lorsque les conditions suivantes sont remplies :
 
@@ -588,7 +588,7 @@ En raison du type de suivi des paramètres de cache, cette fonctionnalité ne pe
 - Adresse IP du client
 - Paramètre de cookie
 - Expression régulière de paramètre de cookie
-- Pays
+- Country
 - Appareil
 - Cname Edge
 - Domaine de référence
@@ -610,14 +610,14 @@ En raison du type de suivi des paramètres de cache, cette fonctionnalité ne pe
 
 ### <a name="deny-access-403"></a>Deny Access (403)
 
-**Objectif**: Détermine si toutes les requêtes sont rejetées avec une réponse 403 Interdit.
+**Objectif** : Détermine si toutes les requêtes sont rejetées avec une réponse 403 Interdit.
 
 Valeur | Résultat
 ------|-------
 activé| Entraîne le rejet de toutes les demandes qui répondent aux critères avec une réponse 403 Interdit.
 Désactivé| Restaure le comportement par défaut. Le comportement par défaut consiste à autoriser le serveur d’origine à déterminer le type de réponse qui sera renvoyée.
 
-**Comportement par défaut**: Désactivé
+**Comportement par défaut** : Désactivé
 
 > [!TIP]
    > Une utilisation possible de cette fonctionnalité consiste à l’associer à une condition de correspondance d’en-tête de requête pour bloquer l’accès aux référents HTTP qui utilisent des liens incorporés vers votre contenu.
@@ -715,7 +715,7 @@ En raison du type de suivi des paramètres de cache, cette fonctionnalité ne pe
 - Adresse IP du client
 - Paramètre de cookie
 - Expression régulière de paramètre de cookie
-- Pays
+- Country
 - Appareil
 - Cname Edge
 - Domaine de référence
@@ -744,7 +744,7 @@ Informations essentielles :
 - Définissez un ensemble d’extensions de noms de fichier H.264 autorisées séparé par un espace dans l’option Extensions de fichier. Cette option remplacera le comportement par défaut. Maintenez la prise en charge de MP4 et F4V en incluant ces extensions de noms de fichier lors de la définition de cette option.
 - Incluez un point lorsque vous spécifiez une extension de nom de fichier (par exemple, _.mp4_, _.f4v_).
 
-**Comportement par défaut :** Téléchargement progressif HTTP prend en charge multimédia MP4 et F4V par défaut.
+**Comportement par défaut :** le téléchargement progressif HTTP prend en charge les formats multimédia MP4 et F4V par défaut.
 
 [Revenir en haut](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -777,7 +777,7 @@ L’état du cache qui est signalé pour une requête, dont le transfert vers un
 
 ### <a name="ignore-origin-no-cache"></a>Ignorer la requête non-cache d’origine
 
-**Objectif :** Détermine si le CDN ignore les directives suivantes remises à partir d’un serveur d’origine :
+**Objectif :** détermine si le CDN ignore les directives suivantes remises par un serveur d’origine :
 
 - `Cache-Control: private`
 - `Cache-Control: no-store`
@@ -787,10 +787,10 @@ L’état du cache qui est signalé pour une requête, dont le transfert vers un
 Informations essentielles :
 
 - Configurez cette fonctionnalité en définissant une liste délimitée par un espace des codes d’état pour lequel les directives ci-dessus seront ignorées.
-- L’ensemble des codes d’état valides pour cette fonctionnalité sont : 200, 203, 300, 301, 302, 305, 307, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 500, 501, 502, 503, 504 et 505.
+- L’ensemble des codes d’état valides pour cette fonctionnalité sont les suivants : 200, 203, 300, 301, 302, 305, 307, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 500, 501, 502, 503, 504 et 505.
 - Désactivez cette fonctionnalité en lui attribuant une valeur vide.
 
-**Comportement par défaut :** Le comportement par défaut consiste à respecter les directives ci-dessus.
+**Comportement par défaut :** le comportement par défaut consiste à respecter les directives ci-dessus.
 
 #### <a name="compatibility"></a>Compatibilité
 
@@ -799,7 +799,7 @@ En raison du type de suivi des paramètres de cache, cette fonctionnalité ne pe
 - Adresse IP du client
 - Paramètre de cookie
 - Expression régulière de paramètre de cookie
-- Pays
+- Country
 - Appareil
 - Cname Edge
 - Domaine de référence
@@ -858,7 +858,7 @@ Informations essentielles :
 
 - La définition de l’unité de temps sur « Désactivé » a pour effet de désactiver cette fonctionnalité. Une ressource mise en cache ne sera pas traitée au-delà de son délai d’expiration normal.
 
-**Comportement par défaut :** Deux minutes
+**Comportement par défaut :** deux minutes
 
 #### <a name="compatibility"></a>Compatibilité
 
@@ -867,7 +867,7 @@ En raison du type de suivi des paramètres de cache, cette fonctionnalité ne pe
 - Adresse IP du client
 - Paramètre de cookie
 - Expression régulière de paramètre de cookie
-- Pays
+- Country
 - Appareil
 - Cname Edge
 - Domaine de référence
@@ -915,7 +915,7 @@ Informations essentielles :
 - Spécifiez cette valeur sous forme d’entier.
 - N’incluez pas de virgule ou de point dans la valeur spécifiée.
 
-**Valeur par défaut :** 10 000 demandes
+**Valeur par défaut :** 10 000 requêtes
 
 [Revenir en haut](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -925,7 +925,7 @@ Informations essentielles :
 
 ### <a name="modify-client-request-header"></a>Modifier l’en-tête de requête client
 
-**Objectif :** Chaque requête contient un ensemble d’en-têtes de requête qui la décrivent. Cette fonctionnalité peut soit :
+**Objectif :** chaque requête contient un ensemble d’en-têtes de requête qui la décrivent. Cette fonctionnalité peut soit :
 
 - Ajouter ou remplacer la valeur affectée à un en-tête de requête. Si l’en-tête de requête spécifié n’existe pas, cette fonctionnalité l’ajoute à la requête.
 - Supprimez un en-tête de requête de la requête.
@@ -1040,7 +1040,7 @@ Informations essentielles :
 
 - Sélectionnez « Désactivé », dans la mesure où l’unité de temps nécessite la revalidation une fois la durée de vie du contenu mis en cache expirée. Le temps ne doit pas être spécifié, et est ignoré.
 
-**Comportement par défaut :** Hors tension. La revalidation peut uniquement avoir lieu après l’expiration de la durée de vie du contenu mis en cache.
+**Comportement par défaut :** désactivé. La revalidation peut uniquement avoir lieu après l’expiration de la durée de vie du contenu mis en cache.
 
 [Revenir en haut](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -1050,7 +1050,7 @@ Informations essentielles :
 
 ### <a name="proxy-special-headers"></a>En-têtes spéciaux de proxy
 
-**Objectif :** Définit l’ensemble des [les en-têtes de demande HTTP spécifiques à Verizon](cdn-verizon-http-headers.md) qui sera être transféré à partir d’un point de présence vers un serveur d’origine.
+**Objectif :** définit l’ensemble des [en-têtes de requête HTTP spécifiques à Verizon](cdn-verizon-http-headers.md) devant être transmis depuis un point de présence vers un serveur d’origine.
 
 Informations essentielles :
 
@@ -1067,7 +1067,7 @@ Les en-têtes HTTP suivants sont inclus dans la liste par défaut :
 - X-EC-Name
 - Host
 
-**Comportement par défaut :** Tous les en-têtes de requête propres à CDN seront transférés au serveur d’origine.
+**Comportement par défaut :** tous les en-têtes de requête propres à CDN sont transmis au serveur d’origine.
 
 [Revenir en haut](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -1086,7 +1086,7 @@ Valeur|Résultat
 activé|Force le point de présence à récupérer de nouveau la ressource à partir du serveur d’origine.
 Désactivé|Restaure le comportement par défaut. Le comportement par défaut consiste à fournir des ressources de cache valides sur requête.
 
-Cette fonctionnalité n’est pas requise pour la mise en cache correcte et la distribution de contenu, mais peut être utile comme solution de contournement. Par exemple, des générateurs de contenu dynamique sur des serveurs d’origine peuvent entraîner par inadvertance l’envoi de réponses de 0 octet aux points de présence. Ces types de réponses sont généralement mis en cache par les points de réponse. Si vous savez qu’une réponse de 0 octet n’est jamais une réponse valide pour ce type de contenu, cette fonctionnalité peut empêcher ces types de ressources de servies à vos clients.
+Cette fonctionnalité n’est pas requise pour la mise en cache correcte et la distribution de contenu, mais peut être utile comme solution de contournement. Par exemple, des générateurs de contenu dynamique sur des serveurs d’origine peuvent entraîner par inadvertance l’envoi de réponses de 0 octet aux points de présence. Ces types de réponses sont généralement mis en cache par les points de réponse. Si vous savez qu’une réponse de 0 octet n’est jamais une réponse valide pour ce type de contenu, cette fonctionnalité peut empêcher le traitement de ces types de ressources sur vos clients.
 
 **Comportement par défaut :** Désactivé.
 
@@ -1107,10 +1107,10 @@ Définissez un ensemble de codes d’état souhaités séparés par un espace.
 Informations essentielles :
 
 - Activez la fonctionnalité Ignorer la requête non-cache d’origine. Si cette fonctionnalité n’est pas activée, les réponses non 200 OK ne peuvent pas être mises en cache.
-- L’ensemble des codes d’état valides pour cette fonctionnalité sont : 203, 300, 301, 302, 305, 307, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 500, 501, 502, 503, 504 et 505.
+- L’ensemble des codes d’état valides pour cette fonctionnalité sont les suivants : 203, 300, 301, 302, 305, 307, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 500, 501, 502, 503, 504 et 505.
 - Cette fonctionnalité ne peut pas être utilisée pour désactiver la mise en cache des réponses qui génèrent un code d’état 200 OK.
 
-**Comportement par défaut :** La mise en cache est activée seulement pour les réponses qui génèrent un code d’état OK 200.
+**Comportement par défaut :** la mise en cache est activée uniquement pour les réponses qui génèrent un code d’état 200 OK.
 
 [Revenir en haut](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -1120,7 +1120,7 @@ Informations essentielles :
 
 ### <a name="set-client-ip-custom-header"></a>Définir un en-tête personnalisé d’adresse IP client
 
-**Objectif :** Ajoute un en-tête personnalisé qui identifie le client demandeur par adresse IP à la demande.
+**Objectif :** ajoute un en-tête personnalisé qui identifie le client demandeur par adresse IP à la requête.
 
 L’option de nom d’en-tête définit le nom de l’en-tête de requête personnalisée où est stockée l’adresse IP du client.
 
@@ -1128,7 +1128,7 @@ Cette fonctionnalité permet à un serveur d’origine du client de trouver les 
 
 Assurez-vous que le nom d’en-tête spécifié ne correspond pas à un des noms suivants :
 
-- Noms d’en-tête de requête standard. Vous trouverez une liste de noms d’en-tête standard dans [RFC 2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
+- Noms d’en-tête de requête standard. Vous trouverez une liste de noms d’en-tête standard dans [RFC 2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
 - Noms d’en-tête réservés :
     - forwarded-for
     - host
@@ -1163,16 +1163,16 @@ Désactivé|L’erreur du serveur d’origine est transférée au demandeur.
 
 ### <a name="stale-while-revalidate"></a>Rendre obsolète pendant la revalidation
 
-**Objectif :** Améliore les performances en autorisant les points de présence de rendre obsolète le contenu pour le demandeur pendant la revalidation a lieu.
+**Objectif :** améliore les performances en permettant aux points de présence de rendre obsolète le contenu pour le demandeur pendant la revalidation.
 
 Informations essentielles :
 
 - Le comportement de cette fonctionnalité varie en fonction de l’unité de temps sélectionnée.
-    - **Unité de temps :** Spécifiez une durée, puis sélectionnez une unité de temps (par exemple, secondes, Minutes, heures, etc.) pour permettre la distribution de contenu obsolète. Ce type d’installation permet au CDN d’étendre la durée pendant laquelle il peut fournir de contenu avant de demander une validation en fonction de la formule suivante : **Durée de vie** + **obsolètes lors de la Revalidate**
-    - **Désactivé :** Sélectionnez « Désactivé » pour demander la revalidation avant une demande de contenu obsolète peut être pris en charge.
+    - **Unité de temps :** spécifiez une durée, puis sélectionnez une unité de temps (par exemple, secondes, minutes, heures, etc.) pour permettre la distribution de contenu obsolète. Ce type d’installation permet au CDN d’étendre la durée pendant laquelle il peut fournir du contenu avant de demander une validation en fonction de la formule suivante : **TTL** + **Rendre obsolète pendant la revalidation**
+    - **Off :** sélectionnez « Désactivé » pour demander la revalidation avant qu’une requête de contenu obsolète puisse être traitée.
         - Ne spécifiez pas de durée, car elle est inapplicable et sera ignorée.
 
-**Comportement par défaut :** Hors tension. La revalidation doit intervenir avant que le contenu demandé puisse être traité.
+**Comportement par défaut :** désactivé. La revalidation doit intervenir avant que le contenu demandé puisse être traité.
 
 [Revenir en haut](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -1209,7 +1209,7 @@ N’utilisez pas Token Auth avec une condition de correspondance Always.
 
 ### <a name="token-auth-denial-code"></a>Code de refus d’authentification de jeton
 
-**Objectif :** Détermine le type de réponse qui s’affichera à un utilisateur quand une demande est refusée en raison de l’authentification basée sur le jeton.
+**Objectif :** Détermine le type de réponse à retourner à un utilisateur quand une requête est refusée en raison de l’authentification basée sur les jetons.
 
 Les codes de réponse disponibles sont répertoriés dans la table suivante.
 
@@ -1315,7 +1315,7 @@ La configuration de cette fonctionnalité nécessite de définir les options sui
 Option|Description
 -|-
 Code|Sélectionnez le code de réponse qui sera renvoyé au demandeur.
-Source et modèle| Ces paramètres définissent un modèle d’URI de requête qui identifie le type de requêtes pouvant être redirigées. Seules les requêtes dont l’URL satisfait aux deux critères suivants seront redirigées : <br/> <br/> **Source (ou point d’accès au contenu) :** Sélectionnez un chemin d’accès relatif qui identifie un serveur d’origine. Il s’agit de la section _/XXXX/_ et de votre nom de point de terminaison. <br/><br/> **Source (modèle) :** Un modèle qui identifie les requêtes par le chemin d’accès relatif doit être défini. Ce modèle d’expression régulière doit définir un chemin d’accès commençant directement après le point d’accès au contenu sélectionné précédemment (voir ci-dessus). <br/> - Vérifiez que les critères d’URI de requête (c’est-à-dire, Source et Modèle) définis précédemment ne sont pas en conflit avec les conditions de correspondance définies pour cette fonctionnalité. <br/> - Spécifiez un modèle. Si vous utilisez une valeur vide comme modèle, toutes les chaînes sont mises en correspondance.
+Source et modèle| Ces paramètres définissent un modèle d’URI de requête qui identifie le type de requêtes pouvant être redirigées. Seules les requêtes dont l’URL satisfait aux deux critères suivants seront redirigées : <br/> <br/> **Source (ou point d’accès au contenu) :** sélectionnez un chemin relatif qui identifie un serveur d’origine. Il s’agit de la section _/XXXX/_ et de votre nom de point de terminaison. <br/><br/> **Source (modèle) :** un modèle qui identifie les requêtes via un chemin relatif doit être défini. Ce modèle d’expression régulière doit définir un chemin d’accès commençant directement après le point d’accès au contenu sélectionné précédemment (voir ci-dessus). <br/> - Vérifiez que les critères d’URI de requête (c’est-à-dire, Source et Modèle) définis précédemment ne sont pas en conflit avec les conditions de correspondance définies pour cette fonctionnalité. <br/> - Spécifiez un modèle. Si vous utilisez une valeur vide comme modèle, toutes les chaînes sont mises en correspondance.
 Destination| Définissez l’URL vers laquelle les requêtes ci-dessus seront redirigées. <br/><br/> Construisez dynamiquement cette URL à l’aide des éléments suivants : <br/> - Un modèle d’expression régulière <br/>- [Variables HTTP](cdn-http-variables.md) <br/><br/> Remplacez les valeurs capturées dans le modèle source dans le modèle de destination à l’aide de $_n_ où _n_ identifie une valeur par l’ordre dans lequel elle a été capturée. Par exemple, $1 représente la première valeur capturée dans le modèle source, tandis que $2 représente la deuxième valeur. <br/>
 
 Il est fortement recommandé d’utiliser une URL absolue. L’utilisation d’une URL relative peut rediriger les URL CDN vers un chemin d’accès non valide.
@@ -1360,7 +1360,7 @@ Informations essentielles :
 
 Option|Description
 -|-
- Source et modèle | Ces paramètres définissent un modèle d’URI de requête qui identifie le type de requêtes pouvant être réécrites. Seules les requêtes dont l’URL satisfait aux deux critères suivants seront réécrites : <br/><br/>  - **Source (ou point d’accès au contenu) :** Sélectionnez un chemin d’accès relatif qui identifie un serveur d’origine. Il s’agit de la section _/XXXX/_ et de votre nom de point de terminaison. <br/><br/> - **Source (modèle) :** Un modèle qui identifie les requêtes par le chemin d’accès relatif doit être défini. Ce modèle d’expression régulière doit définir un chemin d’accès commençant directement après le point d’accès au contenu sélectionné précédemment (voir ci-dessus). <br/> Vérifiez que les critères d’URI de requête (c’est-à-dire, Source et Modèle) définis précédemment ne sont pas en conflit avec les conditions de correspondance définies pour cette fonctionnalité. Spécifiez un modèle. Si vous utilisez une valeur vide comme modèle, toutes les chaînes sont mises en correspondance.
+ Source et modèle | Ces paramètres définissent un modèle d’URI de requête qui identifie le type de requêtes pouvant être réécrites. Seules les requêtes dont l’URL satisfait aux deux critères suivants seront réécrites : <br/><br/>  - **Source (ou point d’accès au contenu) :** sélectionnez un chemin relatif qui identifie un serveur d’origine. Il s’agit de la section _/XXXX/_ et de votre nom de point de terminaison. <br/><br/> - **Source (modèle) :** un modèle qui identifie les requêtes via un chemin relatif doit être défini. Ce modèle d’expression régulière doit définir un chemin d’accès commençant directement après le point d’accès au contenu sélectionné précédemment (voir ci-dessus). <br/> Vérifiez que les critères d’URI de requête (c’est-à-dire, Source et Modèle) définis précédemment ne sont pas en conflit avec les conditions de correspondance définies pour cette fonctionnalité. Spécifiez un modèle. Si vous utilisez une valeur vide comme modèle, toutes les chaînes sont mises en correspondance.
  Destination  |Définissez l’URL relative vers laquelle les requêtes ci-dessus seront réécrites en : <br/>    1. Sélectionnant un point d’accès au contenu qui identifie un serveur d’origine. <br/>    2. Définissant un chemin d’accès relatif à l’aide des éléments suivants : <br/>        - Un modèle d’expression régulière <br/>        - [Variables HTTP](cdn-http-variables.md) <br/> <br/> Remplacez les valeurs capturées dans le modèle source dans le modèle de destination à l’aide de $_n_ où _n_ identifie une valeur par l’ordre dans lequel elle a été capturée. Par exemple, $1 représente la première valeur capturée dans le modèle source, tandis que $2 représente la deuxième valeur.
 
  Cette fonctionnalité permet aux points de présence de réécrire l’URL sans effectuer de redirection classique. Cela signifie que le demandeur reçoit un code de réponse identique à celui reçu si l’URL réécrite avait été demandée.

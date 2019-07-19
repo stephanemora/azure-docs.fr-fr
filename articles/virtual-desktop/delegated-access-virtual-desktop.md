@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 250aea52de63a6397ce00e9cadcadf3a8ba39858
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 41cf5f8bcc69e181350a63d215fb0d78d43dcfdf
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60870504"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272819"
 ---
 # <a name="delegated-access-in-windows-virtual-desktop-preview"></a>Préversion de l’accès délégué dans Windows Virtual Desktop
 
@@ -42,11 +42,11 @@ L’accès délégué dans Windows Virtual Desktop a plusieurs définitions de r
 
 ## <a name="powershell-cmdlets-for-role-assignments"></a>Cmdlets Azure PowerShell pour les attributions de rôles
 
-Vous pouvez exécuter les cmdlets suivantes pour créer, afficher et modifier des attributions de rôles :
+Vous pouvez exécuter les cmdlets suivantes pour créer, afficher et supprimer des attributions de rôles :
 
 * **Get-RdsRoleAssignment** pour afficher une liste des attributions de rôles.
 * **Get-RdsRoleAssignment** pour créer une nouvelle attribution de rôle.
-* **Get-RdsRoleAssignment** pour modifier des attributions de rôles.
+* **Remove-RdsRoleAssignment** pour supprimer les attributions de rôles.
 
 ### <a name="accepted-parameters"></a>Paramètres acceptés
 

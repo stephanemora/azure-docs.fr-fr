@@ -1,5 +1,5 @@
 ---
-title: Inscrire une application SaaS | Place de marché Azure
+title: Inscrire une application SaaS | Place de marché Microsoft Azure
 description: Explique comment inscrire une application SaaS à l’aide du portail Azure.
 services: Azure, Marketplace, Cloud Partner Portal, Azure portal
 author: v-miclar
@@ -7,16 +7,16 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: evansma
-ms.openlocfilehash: abe499c081c73d42e712d5872e121262a1a50197
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: MT
+ms.openlocfilehash: 1f644dca7a057667fb37f5a79a4683c592059e7a
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66259163"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331594"
 ---
 # <a name="register-a-saas-application"></a>Inscrire une application SaaS
 
-Cet article explique comment inscrire une application SaaS à l’aide de Microsoft [Azure portal](https://portal.azure.com/).  Après une inscription réussie, vous recevrez un jeton de sécurité Azure Active Directory (Azure AD) que vous pouvez utiliser pour accéder aux API de traitement des commandes de SaaS.  Pour plus d’informations sur Azure AD, consultez [qu’est l’authentification ?](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios)
+Cet article explique comment inscrire une application SaaS à l’aide du [portail Microsoft Azure](https://portal.azure.com/).  Lorsque l’inscription réussit, vous recevez un jeton de sécurité Azure Active Directory (Azure AD) que vous pouvez utiliser pour accéder aux API de traitement des commandes SaaS.  Pour plus d’informations sur Azure AD, consultez [Qu’est-ce que l’authentification ?](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios)
 
 
 ## <a name="service-to-service-authentication-flow"></a>Flux d’authentification de service à service
@@ -25,21 +25,21 @@ Le diagramme suivant montre le flux d’abonnement d’un nouveau client et le m
 
 ![Flux de l’API de l’offre SaaS](./media/saas-offer-publish-api-flow-v1.png)
 
-Azure n’impose aucune contrainte sur l’authentification que le service SaaS expose à ses utilisateurs finaux. Toutefois, l’authentification avec les API de traitement des commandes SaaS est effectuée avec un jeton de sécurité Azure AD, généralement obtenu en enregistrant l’application SaaS via le portail Azure. 
+Azure n’impose aucune contrainte sur l’authentification que le service SaaS expose à ses utilisateurs finaux. Toutefois, l’authentification auprès des API de traitement des commandes SaaS est effectuée avec un jeton de sécurité Azure AD, généralement obtenu en inscrivant l’application SaaS via le portail Azure. 
 
 
-## <a name="register-an-azure-ad-secured-app"></a>Inscrire une application sécurisées par AD Azure
+## <a name="register-an-azure-ad-secured-app"></a>Inscrire une application sécurisée Azure AD
 
 Toute application qui souhaite utiliser les fonctionnalités d’Azure AD doit d’abord être enregistrée dans un locataire Azure AD. Le processus d’enregistrement implique de fournir à Azure AD des informations sur votre application, notamment l’URL où elle est située, l’URL à laquelle envoyer une réponse après avoir authentifié un utilisateur, l’URI qui identifie l’application, et ainsi de suite.  Pour inscrire une nouvelle application à l’aide du portail Azure, procédez comme suit :
 
 1.  Connectez-vous au [Portail Azure](https://portal.azure.com/).
-2.  Si votre compte donne accès à plusieurs, cliquez sur votre compte dans l’angle supérieur droit et votre session de portail vers Azure AD souhaité client.
+2.  Si votre compte vous propose plusieurs accès, cliquez sur votre compte en haut à droite et définissez votre session de portail pour le locataire Azure AD souhaité.
 3.  Dans le volet de navigation gauche, cliquez sur le service **Azure Active Directory**, cliquez sur **Inscriptions des applications**, puis cliquez sur **Nouvelle inscription d’application**.
 
     ![Inscriptions des applications SaaS](./media/saas-offer-app-registration-v1.png)
 
 4.  Sur la page, saisissez les informations d\'inscription de votre application :
-    -   **Nom** : saisissez un nom d’application explicite
+    -   **Nom** : saisissez un nom d’application explicite
     -   **Type d’application** : 
         - Sélectionnez **Native** pour les [applications clientes](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) installées localement sur un appareil. Ce paramètre est utilisé pour les [clients natifs](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#native-client) publics OAuth.
         - Sélectionnez **Application Web / API** pour les [applications clientes](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) et les [ressources/applications API](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#resource-server) installées sur un serveur sécurisé. Ce paramètre est utilisé pour les [clients web](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#web-client) confidentiels OAuth et les [clients basés sur un agent utilisateur](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client) publics.
@@ -49,26 +49,26 @@ Toute application qui souhaite utiliser les fonctionnalités d’Azure AD doit d
 
         ![Inscriptions des applications SaaS](./media/saas-offer-app-registration-v1-2.png)
 
-        Pour obtenir des exemples spécifiques pour les applications web ou des applications natives, consultez le Guide de démarrage rapide guidée par les configurations qui sont disponibles dans le *prise en main* section de la [Guide du développeur Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
+        Pour obtenir des exemples spécifiques d’applications web ou d’applications natives, consultez les configurations guidées de démarrage rapide disponibles dans la section *Prise en main* du [Guide du développeur Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
 
-5.  Lorsque vous avez terminé, cliquez sur **Créer**. Azure AD affecte un unique *ID d’Application* à votre application et vous\'re dirigé vers votre application\'page d’inscription principale de s. Selon que votre application est une application native ou web, différentes options sont disponibles afin d’ajouter des fonctionnalités supplémentaires à votre application.
+5.  Lorsque vous avez terminé, cliquez sur **Créer**. Azure AD attribue un *ID d’application* unique à votre application, et vous êtes \'redirigé vers la page d’inscription principale de votre application\'. Selon que votre application est une application native ou web, différentes options sont disponibles afin d’ajouter des fonctionnalités supplémentaires à votre application.
 
 >[!Note]
->Par défaut, l’application nouvellement inscrite est configurée pour autoriser uniquement les utilisateurs à partir du même locataire à se connecter à votre application.
+>Par défaut, l’application nouvellement inscrite est configurée pour autoriser uniquement les utilisateurs du même locataire à se connecter à votre application.
 
 
-## <a name="using-the-azure-ad-security-token"></a>En utilisant le jeton de sécurité Azure AD
+## <a name="using-the-azure-ad-security-token"></a>Utilisation du jeton de sécurité Azure AD
 
-Une fois que vous avez inscrit votre application, vous pouvez demander par programmation un jeton de sécurité Azure AD.  Le serveur de publication doit utiliser ce jeton et effectuer une requête pour y remédier.  Lorsque vous utilisez les API de traitement des commandes différentes, le paramètre de requête de jeton est dans l’URL lorsque l’utilisateur est redirigé vers le site Web de SaaS à partir d’Azure.  Ce jeton est uniquement valid pendant une heure.  En outre, vous devez les URL de décoder la valeur du jeton à partir du navigateur avant de l’utiliser.
+Une fois que vous avez inscrit votre application, vous pouvez demander par programmation un jeton de sécurité Azure AD.  L’éditeur doit utiliser ce jeton et effectuer une requête pour le résoudre.  Lorsque vous utilisez plusieurs API de traitement des commandes, le paramètre de requête de jeton se trouve dans l’URL lorsque l’utilisateur est redirigé vers le site web SaaS depuis Azure.  Ce jeton n’est valide que pendant une heure.  De plus, vous devez décoder de l’URL la valeur du jeton à partir du navigateur avant de l’utiliser.
 
-Pour plus d’informations sur ces jetons, consultez [jetons d’accès Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/access-tokens).
+Pour plus d’informations sur ces jetons, consultez [Jetons d’accès Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/access-tokens).
 
 
 ### <a name="get-a-token-based-on-the-azure-ad-app"></a>Obtenir un jeton basé sur l’application Azure AD
 
 Méthode HTTP
 
-`GET`
+`POST`
 
 *URL de requête*
 
@@ -103,7 +103,7 @@ Méthode HTTP
 
 *Réponse*
 
-|  **Name**  | **Type**       |  **Description**    |
+|  **Nom**  | **Type**       |  **Description**    |
 | ---------- | -------------  | ------------------- |
 | 200 OK    | TokenResponse  | Requête réussie   |
 |  |  |  |
@@ -127,4 +127,4 @@ Voici un exemple de token de réponse :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Votre application sécurisées par AD Azure permettre désormais utiliser le [SaaS Fulfillment API Version 2](./pc-saas-fulfillment-api-v2.md).
+Votre application sécurisée Azure AD peut maintenant utiliser [l’API de traitement des commandes SaaS version 2](./pc-saas-fulfillment-api-v2.md).

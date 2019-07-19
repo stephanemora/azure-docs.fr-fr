@@ -1,80 +1,85 @@
 ---
-title: Activer la sauvegarde lorsque vous créez une machine virtuelle Azure avec sauvegarde Azure
-description: Décrit comment activer la sauvegarde lorsque vous créez une machine virtuelle Azure avec sauvegarde Azure.
+title: Activer la sauvegarde quand vous créez une machine virtuelle Azure avec Sauvegarde Azure
+description: Explique comment activer la sauvegarde quand vous créez une machine virtuelle Azure avec Sauvegarde Azure.
 author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 06/13/2019
 ms.author: raynew
-ms.openlocfilehash: d96b898c8f72abd7e4eb3522ae046e9fc926f387
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: a19653f7ae3900fd7999f347ef4d3ef710be1430
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60809319"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67436338"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Activer la sauvegarde quand vous créez une machine virtuelle Azure
 
-Utiliser le service Azure Backup pour sauvegarder des machines virtuelles (VM) Azure. Machines virtuelles sont sauvegardées selon une planification spécifiée dans une stratégie de sauvegarde, et les points de récupération sont créés à partir de sauvegardes. Points de récupération sont stockés dans des coffres Recovery Services.
+Utilisez le service Sauvegarde Azure pour sauvegarder des machines virtuelles Azure. Les machines virtuelles sont sauvegardées selon une planification spécifiée dans une stratégie de sauvegarde, et les points de récupération sont créés à partir des sauvegardes. Les points de récupération sont stockés dans des coffres Recovery Services.
 
-Cet article explique comment activer la sauvegarde lorsque vous créez une machine virtuelle (VM) dans le portail Azure.  
+Cet article explique comment activer la sauvegarde quand vous créez une machine virtuelle dans le portail Azure.  
 
 ## <a name="before-you-start"></a>Avant de commencer
 
-- [Vérifiez](backup-support-matrix-iaas.md#supported-backup-actions) quels systèmes d’exploitation sont pris en charge si vous activez la sauvegarde lorsque vous créez une machine virtuelle.
+- [Vérifiez](backup-support-matrix-iaas.md#supported-backup-actions) quels systèmes d’exploitation sont pris en charge si vous activez la sauvegarde quand vous créez une machine virtuelle.
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
-Si vous n’êtes pas déjà connecté à votre compte, connectez-vous à la [Azure portal](https://portal.azure.com).
- 
+Si vous n’êtes pas connecté à votre compte, connectez-vous sur le [portail Azure](https://portal.azure.com).
+
 ## <a name="create-a-vm-with-backup-configured"></a>Créer une machine virtuelle avec sauvegarde configurée
 
-1. Dans le portail Azure, cliquez sur **créer une ressource**.
+1. Dans le portail Azure, cliquez sur **Créer une ressource**.
 
-2. Dans la place de marché Azure, cliquez sur **calcul**, puis sélectionnez une image de machine virtuelle.
+2. Dans la Place de marché Azure, cliquez sur **Calcul**, puis sélectionnez une image de machine virtuelle.
 
-3. Configurer la machine virtuelle conformément à la [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal) ou [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal) obtenir des instructions.
+3. Configurez la machine virtuelle conformément aux instructions [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal) ou [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal).
 
-4. Sur le **gestion** sous l’onglet **activer la sauvegarde**, cliquez sur **sur**.
-5. Sauvegardes de sauvegarde Azure dans un coffre Recovery Services. Cliquez sur **créer un nouveau** si vous n’avez pas un coffre existant.
-6. Acceptez le nom suggéré coffre ou spécifiez le vôtre.
-7. Spécifiez ou créez un groupe de ressources dans lequel se trouve le coffre. Le coffre de groupe de ressources peut être différent dans le groupe de ressources de machine virtuelle.
+4. Sous l’onglet **Gestion**, dans **Activer la sauvegarde**, cliquez sur **Activé**.
+5. Sauvegarde Azure sauvegarde dans un coffre Recovery Services. Cliquez sur **Créer** si vous n’avez pas de coffre.
+6. Acceptez le nom de coffre suggéré ou spécifiez le vôtre.
+7. Spécifiez ou créez un groupe de ressources dans lequel se trouvera le coffre. Le groupe de ressources du coffre peut être différent du groupe de ressources de la machine virtuelle.
 
-    ![Activer la sauvegarde d’une machine virtuelle](./media/backup-during-vm-creation/enable-backup.png) 
+    ![Activer la sauvegarde pour une machine virtuelle](./media/backup-during-vm-creation/enable-backup.png)
 
-8. Accepter la stratégie de sauvegarde par défaut ou modifier les paramètres.
-    - Une stratégie de sauvegarde spécifie la fréquence à laquelle prendre des instantanés de sauvegarde de la machine virtuelle et la durée de conservation de ces copies de sauvegarde. 
-    - Sauvegarde de la stratégie par défaut de la machine virtuelle une fois par jour.
-    - Vous pouvez personnaliser votre propre stratégie de sauvegarde pour une machine virtuelle Azure effectuer des sauvegardes quotidiennes ou hebdomadaires.
-    - [En savoir plus](backup-azure-vms-introduction.md#backup-and-restore-considerations) sur les considérations relatives à la sauvegarde des machines virtuelles Azure.
-    - [En savoir plus](backup-instant-restore-capability.md) sur le moment restaurer les fonctionnalités.
+8. Acceptez la stratégie de sauvegarde par défaut ou modifiez les paramètres.
+    - Une stratégie de sauvegarde spécifie la fréquence de prise d’instantanés de sauvegarde de la machine virtuelle et la durée pendant laquelle ces copies de sauvegarde sont conservées.
+    - La stratégie par défaut sauvegarde la machine virtuelle une fois par jour.
+    - Vous pouvez personnaliser votre propre stratégie de sauvegarde pour une machine virtuelle Azure de manière à effectuer des sauvegardes quotidiennes ou hebdomadaires.
+    - [Découvrez-en plus](backup-azure-vms-introduction.md#backup-and-restore-considerations) sur les considérations relatives à la sauvegarde des machines virtuelles Azure.
+    - [Découvrez-en plus](backup-instant-restore-capability.md) sur la fonctionnalité de restauration instantanée.
 
-      ![Stratégie de sauvegarde par défaut](./media/backup-during-vm-creation/daily-policy.png) 
+      ![Stratégie de sauvegarde par défaut](./media/backup-during-vm-creation/daily-policy.png)
 
 
-## <a name="start-a-backup-after-creating-the-vm"></a>Démarrer une sauvegarde après avoir créé la machine virtuelle 
+> [!NOTE]
+> Pour stocker l’instantané, le service Sauvegarde Azure crée un groupe de ressources distinct (autre que le groupe de ressources de la machine virtuelle). Son nom est au format **AzureBackupRG_géographie_numéro** (par exemple, AzureBackupRG_northeurope_1). Les données dans ce groupe de ressources sont conservées pendant la durée en jours spécifiée dans la section *Conserver l’instantané de récupération instantanée* de la stratégie Sauvegarde de machines virtuelles Azure.  L’application d’un verrou à ce groupe de ressources peut entraîner des échecs de sauvegarde.<br>
+Ce groupe de ressources doit également être exclu des restrictions de nom/étiquette, car une stratégie de restriction peut y empêcher la création de collections de points de ressources, entraînant de nouveau des échecs de sauvegarde.
 
-Votre sauvegarde de machine virtuelle s’exécute conformément à votre stratégie de sauvegarde. Toutefois, nous vous recommandons d’exécuter une sauvegarde initiale. 
 
-Une fois que la machine virtuelle est créée, procédez comme suit :
+## <a name="start-a-backup-after-creating-the-vm"></a>Démarrer une sauvegarde après la création de la machine virtuelle
 
-1. Dans les propriétés de la machine virtuelle, cliquez sur **sauvegarde**. L’état de la machine virtuelle est initiale sauvegarde en attente jusqu'à ce que la sauvegarde initiale s’exécute
-2. Cliquez sur **sauvegarder maintenant** pour exécuter une sauvegarde à la demande.
+Votre sauvegarde de machine virtuelle s’exécute conformément à votre stratégie de sauvegarde. Toutefois, nous vous recommandons d’exécuter une sauvegarde initiale.
 
-    ![Exécuter une sauvegarde à la demande](./media/backup-during-vm-creation/run-backup.png) 
+Une fois la machine virtuelle créée, effectuez les étapes suivantes :
+
+1. Dans les propriétés de la machine virtuelle, cliquez sur **Sauvegarde**. L’état de la machine virtuelle est « Sauvegarde initiale en attente » jusqu’à ce que la sauvegarde initiale s’exécute.
+2. Cliquez sur **Sauvegarder maintenant** pour exécuter une sauvegarde à la demande.
+
+    ![Exécuter une sauvegarde à la demande](./media/backup-during-vm-creation/run-backup.png)
 
 ## <a name="use-a-resource-manager-template-to-deploy-a-protected-vm"></a>Utiliser un modèle Resource Manager pour déployer une machine virtuelle protégée
 
-Les étapes précédentes expliquent comment utiliser le portail Azure pour créer une machine virtuelle et la protéger dans un coffre Recovery Services. Pour rapidement déployer un ou plusieurs machines virtuelles et les protéger dans un coffre Recovery Services, consultez le modèle [déployer une machine virtuelle Windows et activer la sauvegarde](https://azure.microsoft.com/resources/templates/101-recovery-services-create-vm-and-configure-backup/).
+La procédure précédente explique comment utiliser le portail Azure pour créer une machine virtuelle et la protéger dans un coffre Recovery Services. Pour déployer rapidement une ou plusieurs machines virtuelles et les protéger dans un coffre Recovery Services, consultez le modèle [Déployer une machine virtuelle Windows et activer la sauvegarde](https://azure.microsoft.com/resources/templates/101-recovery-services-create-vm-and-configure-backup/).
 
 
 
-## <a name="next-steps"></a>Étapes suivantes 
+## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez protégé votre machine virtuelle, vous apprenez à gérer et de les restaurer.
+Votre machine virtuelle étant protégée, découvrez comment la gérer et la restaurer.
 
-- [Gérer et surveiller des machines virtuelles](backup-azure-manage-vms.md) 
-- [Restaurer une machine virtuelle](backup-azure-arm-restore-vms.md) 
+- [Gérer et superviser des machines virtuelles](backup-azure-manage-vms.md)
+- [Restaurer une machine virtuelle](backup-azure-arm-restore-vms.md)
 
-Si vous rencontrez des problèmes, [Examinez](backup-azure-vms-troubleshoot.md) le guide de dépannage.
+Si vous rencontrez des problèmes, [consultez](backup-azure-vms-troubleshoot.md) le guide de dépannage.

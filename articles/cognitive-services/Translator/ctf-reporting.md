@@ -3,26 +3,26 @@ title: Compte-rendu CTF (Collaborative Translation Framework) - API de traductio
 titlesuffix: Azure Cognitive Services
 description: Explique comment utiliser le compte-rendu CTF (Collaborative Translation Framework).
 services: cognitive-services
-author: rajdeep-in
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
-ms.author: v-pawal
-ms.openlocfilehash: 166c152828a91889d7d1d7eb6f8c03dac48172f5
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.author: swmachan
+ms.openlocfilehash: 79a645b0b41f200c384c165f244efa679be65171
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389390"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443457"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>Guide pratique pour utiliser le compte-rendu CTF (Collaborative Translation Framework)
 
 > [!NOTE]
 > Cette méthode est dépréciée. Elle n’est pas disponible dans la version 3.0 de l’API de traduction de texte Translator Text.
 > 
-> L’infrastructure CTF (Collaborative Translation Framework), disponible pour la version 2.0 de l’API de traduction de texte Translator Text, a été dépréciée à compter du 1er février 2018. Les fonctions AddTranslation et AddTranslationArray permettent aux utilisateurs d’activer les corrections via l’infrastructure CTF. Depuis le 31 janvier 2018, ces deux fonctions n’ont pas accepté de nouvelles soumissions de phrases, et les utilisateurs reçoivent un message d’erreur. Ces fonctions ont été supprimées et ne seront pas remplacées.
+> L’infrastructure CTF (Collaborative Translation Framework), disponible pour la version 2.0 de l’API de traduction de texte Translator Text, a été dépréciée à compter du 1er février 2018. Les fonctions AddTranslation et AddTranslationArray permettent aux utilisateurs d’activer les corrections via l’infrastructure CTF. Depuis le 31 janvier 2018, ces deux fonctions n’ont pas accepté de nouvelles soumissions de phrases, et les utilisateurs reçoivent un message d’erreur. Ces fonctions ont été mises hors service et ne seront pas remplacées.
 
 L’API de compte-rendu de l’infrastructure CTF (Collaborative Translation Framework) retourne des statistiques et le contenu réel du magasin CTF. Cette API est différente de la méthode GetTranslations(), car elle :
 * Retourne le contenu traduit et son nombre total uniquement à partir de votre compte (compte Place de marché Microsoft Azure ou appId).

@@ -1,5 +1,5 @@
 ---
-title: Sans mot de passe connectez-vous avec l’application Microsoft Authenticator (version préliminaire) - Azure Active Directory
+title: Connexion sans mot de passe avec l’application Microsoft Authenticator (préversion) - Azure Active Directory
 description: Connexion à Azure AD à l’aide de l’application Microsoft Authenticator sans utiliser votre mot de passe (préversion publique)
 services: active-directory
 ms.service: active-directory
@@ -13,17 +13,17 @@ ms.reviewer: librown
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bb10378d890c2b7156b6764321e177a22ffc538a
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66472762"
 ---
 # <a name="password-less-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>Connexion par téléphone sans mot de passe avec l’application Microsoft Authenticator (préversion publique)
 
 L’application Microsoft Authenticator vous permet de vous connecter à n’importe quel compte Azure AD sans utiliser de mot de passe. À l’instar de la technologie de [Windows Hello Entreprise](/windows/security/identity-protection/hello-for-business/hello-identity-verification), Microsoft Authenticator a recours à l’authentification par clé pour activer une information d’identification utilisateur qui est liée à un appareil et utilise un code biométrique ou confidentiel.
 
-![Exemple d’un navigateur connectez-vous demandant pour l’utilisateur à approuver l’authentification dans](./media/howto-authentication-phone-sign-in/phone-sign-in-microsoft-authenticator-app.png)
+![Exemple de connexion dans un navigateur demandant à l’utilisateur d’approuver la connexion](./media/howto-authentication-phone-sign-in/phone-sign-in-microsoft-authenticator-app.png)
 
 Au lieu d’obtenir une invite de mot de passe après avoir entré un nom d’utilisateur, une personne qui a activé la connexion par téléphone dans l’application Microsoft Authenticator voit s’afficher un message lui demandant d’entrer un nombre dans son application. Dans l’application, l’utilisateur doit alors sélectionner le nombre correspondant, choisir Approuver, puis fournir son code confidentiel ou biométrique, ce qui achève l’authentification.
 

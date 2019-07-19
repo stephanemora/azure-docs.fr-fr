@@ -6,14 +6,14 @@ author: trinadhk
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 04/17/2019
+ms.date: 06/24/2019
 ms.author: trinadhk
-ms.openlocfilehash: ed3797183e13a00d2c5381fa6449c111c3bc9ab9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6ca4de7dfb948f49ebf1c91e29cc0537e67a3c21
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60253728"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67436200"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Utiliser le contrôle d’accès en fonction du rôle pour gérer les points de récupération Sauvegarde Azure
 Le contrôle d’accès en fonction du rôle (RBAC) Azure permet une gestion précise de l’accès pour Azure. Avec le contrôle d’accès en fonction du rôle, vous pouvez séparer les tâches au sein de votre équipe et accorder aux utilisateurs uniquement les accès nécessaires pour accomplir leur travail.
@@ -23,7 +23,7 @@ Le contrôle d’accès en fonction du rôle (RBAC) Azure permet une gestion pr�
 
 Azure Backup fournit 3 rôles intégrés pour contrôler les opérations de gestion des sauvegardes. En savoir plus sur les [rôles intégrés Azure RBAC](../role-based-access-control/built-in-roles.md)
 
-* [Contributeur de sauvegarde](../role-based-access-control/built-in-roles.md#backup-contributor) : ce rôle dispose de toutes les autorisations pour créer et gérer des sauvegardes, à l’exception de la création du coffre Recovery Services et de l’octroi d’un accès à d’autres personnes. Imaginez ce rôle comme un administrateur de gestion des sauvegardes qui peut exécuter chaque opération de gestion des sauvegardes.
+* [Contributeur de sauvegarde](../role-based-access-control/built-in-roles.md#backup-contributor) : ce rôle dispose de toutes les autorisations pour créer et gérer des sauvegardes, à l’exception de la suppression du coffre Recovery Services et de l’octroi d’un accès à d’autres personnes. Imaginez ce rôle comme un administrateur de gestion des sauvegardes qui peut exécuter chaque opération de gestion des sauvegardes.
 * [Opérateur de sauvegarde](../role-based-access-control/built-in-roles.md#backup-operator) : ce rôle dispose des autorisations généralement accordées à un contributeur à l’exception de la suppression de sauvegardes et de la gestion des stratégies de sauvegarde. Ce rôle est équivalent au contributeur, mais il ne peut pas effectuer d’opérations destructrices telles que l’arrêt de la sauvegarde avec suppression des données ou la suppression de l’enregistrement de ressources locales.
 * [Lecteur de sauvegarde](../role-based-access-control/built-in-roles.md#backup-reader) : ce rôle dispose des autorisations pour afficher toutes les opérations de gestion des sauvegardes. Imaginez ce rôle comme un responsable de surveillance.
 
@@ -36,7 +36,7 @@ Le tableau suivant répertorie les actions de gestion des sauvegardes et le rôl
 
 | Opération de gestion | Rôle RBAC minimum nécessaire | Étendue requise |
 | --- | --- | --- |
-| Créer un coffre Recovery Services | Contributeur | Groupe de ressources contenant le coffre |
+| Créer un coffre Recovery Services | Contributeur de sauvegarde | Groupe de ressources contenant le coffre |
 | Activer la sauvegarde des machines virtuelles Azure | Opérateur de sauvegarde | Groupe de ressources contenant le coffre |
 | | Contributeur de machine virtuelle | Ressource de machine virtuelle |
 | Sauvegarde de machine virtuelle à la demande | Opérateur de sauvegarde | Ressource du coffre |

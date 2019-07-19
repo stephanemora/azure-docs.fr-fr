@@ -3,26 +3,26 @@ title: Configurer la surveillance et les alertes pour les tâches Azure Stream A
 description: Cet article explique comment utiliser le portail Azure pour configurer la surveillance, ainsi que des alertes pour les tâches Azure Stream Analytics.
 services: stream-analytics
 author: jseb225
-ms.author: jeanb
+ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/05/2019
-ms.custom: seodec18
-ms.openlocfilehash: 52db8217cc1e1f84d25ab896be9b42db3bf6bd81
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 06/21/2019
+ms.openlocfilehash: 26e8e004f917b1c138bc27389cac1cc52672f3d4
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60771905"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329861"
 ---
 # <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Configuration d’alertes pour des tâches Azure Stream Analytics
 
 Vous devez superviser votre travail Azure Stream Analytics pour assurer la continuité de l’exécution du travail sans problème. Cet article décrit comment configurer des alertes pour les scénarios courants qui doivent être supervisés. 
 
-Les règles peuvent être configurées sur des métriques dans le portail ou [par programmation](https://code.msdn.microsoft.com/windowsazure/Receive-Email-Notifications-199e2c9a) sur les données des journaux d’activité des opérations.
+Vous pouvez définir des règles sur les métriques à partir des données des journaux des opérations via le portail, ainsi que [par programmation](https://code.msdn.microsoft.com/windowsazure/Receive-Email-Notifications-199e2c9a).
 
 ## <a name="set-up-alerts-in-the-azure-portal"></a>Configurer des alertes dans le portail Azure
+### <a name="get-alerted-when-a-job-stops-unexpectedly"></a>Recevoir des alertes lorsqu’un travail s’arrête de façon inattendue
 
 L’exemple suivant montre comment configurer des alertes quand votre travail entre dans un état d’échec. Cette alerte est recommandée pour tous les travaux.
 
@@ -30,7 +30,7 @@ L’exemple suivant montre comment configurer des alertes quand votre travail en
 
 2. Dans la page **Travail**, accédez à la section **Supervision**.  
 
-3. Sélectionnez **Métriques**, puis cliquez sur **Nouvelle règle d’alerte**.
+3. Sélectionnez **Métriques**, puis **Nouvelle règle d’alerte**.
 
    ![Configuration des alertes Stream Analytics sur le portail Azure](./media/stream-analytics-set-up-alerts/stream-analytics-set-up-alerts.png)  
 
@@ -38,7 +38,7 @@ L’exemple suivant montre comment configurer des alertes quand votre travail en
 
    ![Sélectionnez le nom du signal pour l’alerte Stream Analytics](./media/stream-analytics-set-up-alerts/stream-analytics-condition-signal.png)  
 
-5. Sous **Configurer la logique du signal**, définissez **Niveau d’événement** sur **Tous** et **État** sur **Échec**. Laissez vide **Événement lancé par** et cliquez sur **Terminé**.
+5. Sous **Configurer la logique du signal**, définissez **Niveau d’événement** sur **Tous** et **État** sur **Échec**. Laissez vide **Événement lancé par** et sélectionnez **Terminé**.
 
    ![Configurer la logique du signal de l’alerte Stream Analytics](./media/stream-analytics-set-up-alerts/stream-analytics-configure-signal-logic.png) 
 

@@ -14,12 +14,12 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 651dc4efa653e7a4eb77f153280579ffd87fe8f7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 408991ffc3922986234f7d40e1cd589b1d126ba1
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60289994"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476488"
 ---
 # <a name="start-using-pim"></a>Commencer à utiliser PIM
 
@@ -56,25 +56,25 @@ Pour commencer à utiliser PIM dans votre annuaire, vous devez d’abord activer
 
 1. Dans la liste, cliquez sur **Consentir à PIM**.
 
-    ![Consentir à PIM](./media/pim-getting-started/consent-pim.png)
+    ![Consentir à PIM pour activer PIM](./media/pim-getting-started/consent-pim.png)
 
 1. Cliquez sur **Vérifier mon identité** pour vérifier votre identité avec Azure MFA. Vous devez choisir un compte.
 
-    ![Choisir un compte](./media/pim-getting-started/pick-account.png)
+    ![Choisissez une fenêtre de compte pour vérifier votre identité](./media/pim-getting-started/pick-account.png)
 
 1. Si plus d’informations sont nécessaires pour la vérification, vous êtes guidé dans le processus. Pour plus d’informations, consultez [Obtenir de l’aide pour la vérification en deux étapes](https://go.microsoft.com/fwlink/p/?LinkId=708614).
 
-    ![Plus d’informations sont nécessaires](./media/pim-getting-started/more-information-required.png)
+    ![Fenêtre Plus d’informations sont nécessaires si votre organisation a besoin de plus d’informations](./media/pim-getting-started/more-information-required.png)
 
     Par exemple, une vérification par téléphone peut vous être demandée.
 
-    ![Vérification de sécurité supplémentaire](./media/pim-getting-started/additional-security-verification.png)
+    ![Page de vérification de sécurité supplémentaire vous demandant comment vous contacter](./media/pim-getting-started/additional-security-verification.png)
 
 1. Une fois que vous avez terminé le processus de vérification, cliquez sur le bouton **Consentir**.
 
 1. Dans le message qui s’affiche, cliquez sur **Oui** pour consentir au service PIM.
 
-    ![Message de consentement à PIM](./media/pim-getting-started/consent-pim-message.png)
+    ![Message de consentement à PIM pour terminer le processus de consentement](./media/pim-getting-started/consent-pim-message.png)
 
 ## <a name="sign-up-pim-for-azure-ad-roles"></a>Inscrire PIM pour les rôles Azure AD
 
@@ -100,7 +100,7 @@ Une fois que vous avez activé PIM pour votre annuaire, vous devez inscrire PIM 
 
 Une fois PIM configuré, vous pouvez effectuer vos tâches de gestion des identités.
 
-![Tâches de niveau supérieur pour PIM - capture d’écran](./media/pim-getting-started/pim-quickstart-tasks.png)
+![Fenêtre de navigation dans PIM affichant les tâches et les options de gestion](./media/pim-getting-started/pim-quickstart-tasks.png)
 
 | Tâche + Gérer | Description |
 | --- | --- |
@@ -125,11 +125,11 @@ Pour faciliter l’ouverture de PIM, vous pouvez ajouter une vignette PIM à vot
 
 1. Cochez la case **Épingler le panneau au tableau de bord** pour épingler le panneau du démarrage rapide de PIM au tableau de bord.
 
-    ![Épingler le panneau au tableau de bord](./media/pim-getting-started/pim-quickstart-pin-to-dashboard.png)
+    ![Icône de punaise pour épingler le panneau PIM au tableau de bord](./media/pim-getting-started/pim-quickstart-pin-to-dashboard.png)
 
     Dans le tableau de bord Azure, vous verrez une vignette comme celle-ci :
 
-    ![Vignette du démarrage rapide de PIM](./media/pim-getting-started/pim-quickstart-dashboard-tile.png)
+    ![Vignette de démarrage rapide de PIM sur le tableau de bord](./media/pim-getting-started/pim-quickstart-dashboard-tile.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

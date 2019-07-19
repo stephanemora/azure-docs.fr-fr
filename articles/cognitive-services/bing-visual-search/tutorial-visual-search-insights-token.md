@@ -8,27 +8,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: article
-ms.date: 04/26/2019
+ms.date: 06/18/2019
 ms.author: rosh
-ms.openlocfilehash: ebe54f5319986f0588e06a980a6f914beb6adbcc
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
-ms.translationtype: MT
+ms.openlocfilehash: 78584c2c0419bb27fb58c07eb97b1aa38501951f
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65909397"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204076"
 ---
 # <a name="find-similar-images-from-previous-searches-using-imageinsightstoken"></a>Résultats et jeton ImageInsightsToken du kit SDK Recherche visuelle Bing
 
-Le Kit de développement logiciel (SDK) de Recherche visuelle permet de rechercher des images en ligne à partir de recherches précédentes renvoyant un `ImageInsightsToken`. Cette application obtient un `ImageInsightsToken` et utilise le jeton dans une recherche ultérieure. Il envoie ensuite le `ImageInsightsToken` à Bing et renvoyer les résultats qui incluent des URL de recherche Bing et URL d’images similaires disponibles en ligne.
+Le Kit de développement logiciel (SDK) de Recherche visuelle permet de rechercher des images en ligne à partir de recherches précédentes renvoyant un `ImageInsightsToken`. Cette application obtient un `ImageInsightsToken` et utilise le jeton dans une recherche ultérieure. Elle envoie alors le `ImageInsightsToken` à Bing, puis retourne des résultats qui incluent les URL de recherche Bing et les URL des images similaires disponibles en ligne.
 
-Le code source complet pour ce didacticiel sont accessibles avec la gestion des erreurs supplémentaire et des annotations sur [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/Bing-Visual-Search/BingVisualSearchInisghtsTokens.cs).
+Le code source complet de ce didacticiel est disponible sur [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/Bing-Visual-Search/BingVisualSearchInsightsTokens.cs) avec une gestion des erreurs et des annotations supplémentaires.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-* N’importe quelle édition de [Visual Studio 2019](https://www.visualstudio.com/downloads/).
-* Si vous utilisez Linux/Mac OS, vous pouvez exécuter cette application à l’aide [Mono](https://www.mono-project.com/).
+* N’importe quelle édition de [Visual Studio 2019](https://www.visualstudio.com/downloads/).
+* Si vous utilisez Linux/MacOS, vous pouvez exécuter cette application en utilisant [Mono](https://www.mono-project.com/).
 * Les packages Recherche visuelle NuGet et Recherche d’images.
-    - À partir de l’Explorateur de solutions dans Visual Studio, cliquez sur votre projet, puis sélectionnez **gérer les Packages NuGet** à partir du menu. Installez le package `Microsoft.Azure.CognitiveServices.Search.CustomSearch` et le package `Microsoft.Azure.CognitiveServices.Search.ImageSearch`. L’installation des packages NuGet installe également les éléments suivants :
+    - Dans l’Explorateur de solutions de Visual Studio, cliquez avec le bouton droit sur votre projet et sélectionnez **Gérer les packages NuGet** dans le menu. Installez le package `Microsoft.Azure.CognitiveServices.Search.CustomSearch` et le package `Microsoft.Azure.CognitiveServices.Search.ImageSearch`. L’installation des packages NuGet installe également les éléments suivants :
         - Microsoft.Rest.ClientRuntime
         - Microsoft.Rest.ClientRuntime.Azure
         - Newtonsoft.Json
@@ -38,10 +38,10 @@ Le code source complet pour ce didacticiel sont accessibles avec la gestion des 
 
 ## <a name="get-the-imageinsightstoken-from-the-bing-image-search-sdk"></a>Obtenir le jeton ImageInsightsToken à partir du SDK API Recherche d’images Bing
 
-Cette application utilise une valeur de `ImageInsightsToken` obtenue par le biais du [SDK Recherche d’images Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-sdk-quickstart). Dans une nouvelle application console C#, créez un client pour appeler l’API en utilisant `ImageSearchAPI()`. Utilisez ensuite `SearchAsync()` avec votre requête :
+Cette application utilise une valeur de `ImageInsightsToken` obtenue par le biais du [SDK Recherche d’images Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-sdk-quickstart). Dans une nouvelle application console C#, créez un client pour appeler l’API en utilisant `ImageSearchClient()`. Utilisez ensuite `SearchAsync()` avec votre requête :
 
 ```csharp
-var client = new ImageSearchAPI(new Microsoft.Azure.CognitiveServices.Search.ImageSearch.ApiKeyServiceClientCredentials(subKey));
+var client = new ImageSearchClient(new Microsoft.Azure.CognitiveServices.Search.ImageSearch.ApiKeyServiceClientCredentials(subKey));
 var imageResults = client.Images.SearchAsync(query: "canadian rockies").Result;
 Console.WriteLine("Search images for query \"canadian rockies\"");
 ```
@@ -62,7 +62,7 @@ else
 }
 ```
 
-Cela `ImageInsightsToken` est envoyé à la recherche visuelle Bing dans une requête.
+Cette valeur `ImageInsightsToken` est envoyée à Recherche visuelle Bing dans une requête.
 
 ## <a name="add-the-imageinsightstoken-to-a-visual-search-request"></a>Ajouter le jeton ImageInsightsToken à une requête de Recherche visuelle
 
@@ -85,7 +85,7 @@ var visualSearchResults = client.Images.VisualSearchMethodAsync(knowledgeRequest
 
 ## <a name="iterate-through-the-visual-search-results"></a>Effectuer une itération dans les résultats de Recherche visuelle Bing
 
-Les résultats de Recherche visuelle sont des objets `ImageTag`. Chaque balise contient une liste d’objets `ImageAction`. Chaque `ImageAction` contient un `Data` champ, qui est une liste de valeurs qui varient selon le type d’action. Vous pouvez itérer à travers les objets `ImageTag` dans `visualSearchResults.Tags`, par exemple, et obtenir la balise `ImageAction` intégrée. L’exemple ci-dessous imprime les détails de `PagesIncluding` actions :
+Les résultats de Recherche visuelle sont des objets `ImageTag`. Chaque balise contient une liste d’objets `ImageAction`. Chaque `ImageAction` contient un champ `Data`, une liste de valeurs qui varie selon le type d’action. Vous pouvez itérer à travers les objets `ImageTag` dans `visualSearchResults.Tags`, par exemple, et obtenir la balise `ImageAction` intégrée. L’exemple ci-dessous imprime les détails d’actions `PagesIncluding` :
 
 ```csharp
 if (visualSearchResults.Tags.Count > 0)
@@ -111,7 +111,7 @@ if (visualSearchResults.Tags.Count > 0)
 
 ### <a name="pagesincluding-actiontypes"></a>ActionTypes PagesIncluding
 
-L’obtention des URL des images réelles à partir de types d’action nécessite un cast qui lit un `ActionType` comme `ImageModuleAction`, qui contient un élément `Data` avec une liste de valeurs. Chaque valeur est l’URL d’une image.  Les conversions suivantes le `PagesIncluding` type d’action à `ImageModuleAction` et lit les valeurs :
+L’obtention des URL des images réelles à partir de types d’action nécessite un cast qui lit un `ActionType` comme `ImageModuleAction`, qui contient un élément `Data` avec une liste de valeurs. Chaque valeur est l’URL d’une image.  Le code suivant convertit le type d’action `PagesIncluding` en `ImageModuleAction` et lit les valeurs :
 
 ```csharp
     if (i.ActionType == "PagesIncluding")

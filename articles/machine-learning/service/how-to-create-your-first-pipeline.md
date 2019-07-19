@@ -1,7 +1,7 @@
 ---
 title: Créer, exécuter et effectuer le suivi des pipelines ML
 titleSuffix: Azure Machine Learning service
-description: Créez et exécutez un pipeline Machine Learning avec le SDK Azure Machine Learning pour Python. Vous utilisez des pipelines pour créer et gérer les flux de travail qui combinent les phases de Machine Learning (ML). Ces phases incluent la préparation des données, apprentissage du modèle, déploiement de modèle et l’inférence/notation.
+description: Créez et exécutez un pipeline Machine Learning avec le SDK Azure Machine Learning pour Python. Vous utilisez des pipelines pour créer et gérer les flux de travail qui combinent les phases de Machine Learning (ML). Ces phases incluent la préparation des données, l’apprentissage du modèle, le déploiement du modèle et l’inférence/le scoring.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 15fa9095b8169dc1545c796421be91e89652e1c1
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.openlocfilehash: 948594a43cec92aa62386b041ce8c96a0558995e
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66165874"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67466917"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Créer et exécuter un pipeline Machine Learning à l’aide du SDK Azure Machine Learning
 
@@ -28,7 +28,7 @@ Les pipelines utilisent des cibles de calcul à distance pour le calcul et le st
 
 Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning service](https://aka.ms/AMLFree).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * [Configurez votre environnement de développement](how-to-configure-environment.md) pour installer le SDK Azure Machine Learning.
 
@@ -53,12 +53,12 @@ Créez les ressources requises pour exécuter un pipeline :
 
 * Configurez un objet `DataReference` qui pointe vers les données qui se trouvent dans un magasin de données ou qui sont accessibles à partir de ce biais.
 
-* Configurez les [cibles de calcul](concept-azure-machine-learning-architecture.md#compute-target) sur lesquelles vous souhaitez que les étapes du pipeline s’exécutent.
+* Configurez les [cibles de calcul](concept-azure-machine-learning-architecture.md#compute-targets) sur lesquelles vous souhaitez que les étapes du pipeline s’exécutent.
 
 ### <a name="set-up-a-datastore"></a>Configurer un magasin de données
 Le magasin de données stocke les données accessibles par le pipeline. Chaque espace de travail dispose d’un magasin de données par défaut. Vous pouvez inscrire des magasins de données supplémentaires. 
 
-Lorsque vous créez votre espace de travail, des éléments [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) et de [stockage d’objets Blob Azure ](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) sont joints à l’espace de travail par défaut. Azure Files représente le magasin de données par défaut pour un espace de travail, mais vous pouvez également utiliser le stockage d’objets Blob en tant que magasin de données. Pour en savoir plus , voir [Quand utiliser des fichiers Azure, des objets blob Azure, des fichiers Azure ou des disques Azure](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks). 
+Lorsque vous créez votre espace de travail, des éléments [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) et de [stockage d’objets Blob Azure ](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) sont joints à l’espace de travail par défaut. Stockage Blob Azure représente le magasin de données par défaut pour un espace de travail, mais vous pouvez également utiliser Stockage Blob en tant que magasin de données. Pour en savoir plus , voir [Quand utiliser des fichiers Azure, des objets blob Azure, des fichiers Azure ou des disques Azure](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks). 
 
 ```python
 # Default datastore (Azure file storage)
@@ -238,7 +238,7 @@ except ComputeTargetException:
 
 ## <a id="steps"></a>Composer les étapes de votre pipeline
 
-Une fois que vous avez créé et joint une cible de calcul à votre espace de travail, vous êtes prêt à définir une étape de pipeline. De nombreuses étapes intégrées sont disponibles via le SDK Azure Machine Learning. La plus simple de ces étapes est une [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py), qui s’exécute un script Python dans une cible de calcul spécifié :
+Une fois que vous avez créé et joint une cible de calcul à votre espace de travail, vous êtes prêt à définir une étape de pipeline. De nombreuses étapes intégrées sont disponibles via le SDK Azure Machine Learning. [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py) est la plus simple de ces étapes qui exécute un script Python dans une cible de calcul spécifiée :
 
 ```python
 trainStep = PythonScriptStep(
@@ -251,7 +251,7 @@ trainStep = PythonScriptStep(
 )
 ```
 
-Réutilisation des résultats précédents (`allow_reuse`) est la clé lors de l’utilisation des pipelines dans un environnement de collaboration dans la mesure où éliminant réexécutions inutiles offre une grande souplesse. Il s’agit du comportement par défaut lorsque le nom_du_script, les entrées et les paramètres d’une étape restent les mêmes. Lorsque la sortie de l’étape est réutilisée, la tâche n’est pas envoyée pour le calcul, au lieu de cela, les résultats de l’exécution précédente sont immédiatement disponibles pour l’exécution de l’étape suivante. Si la valeur est false, une nouvelle exécution sera toujours générée pour cette étape pendant l’exécution du pipeline. 
+La réutilisation des résultats précédents (`allow_reuse`) est essentielle lors de l’utilisation des pipelines dans un environnement de collaboration. En effet, cela permet de supprimer les réexécutions inutiles et ainsi d’offrir une grande souplesse. Il s’agit du comportement par défaut lorsque le nom_du_script, les entrées et les paramètres d’une étape restent les mêmes. Lorsque la sortie de l’étape est réutilisée, le travail n’est pas envoyé pour le calcul. À la place, les résultats de l’exécution précédente sont immédiatement disponibles pour l’exécution de l’étape suivante. Si la valeur est false, une nouvelle exécution sera toujours générée pour cette étape pendant l’exécution du pipeline. 
 
 Après avoir défini vos étapes, vous générez le pipeline à l’aide de tout ou partie de ces étapes.
 
@@ -287,16 +287,16 @@ steps = [dbStep]
 pipeline1 = Pipeline(workspace=ws, steps=steps)
 ```
 
-Pour plus d’informations, consultez le [étapes de pipeline azure package](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py) et [Pipeline classe](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py) référence.
+Pour plus d’informations, consultez [azureml-pipeline-steps package](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py) (package azureml-pipeline-step) et la référence [Pipeline class](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py) (Classe Pipeline).
 
 ## <a name="submit-the-pipeline"></a>Envoyer le pipeline
 
 Lorsque vous envoyez le pipeline, le service Azure Machine Learning vérifie les dépendances pour chaque étape et charge un instantané du répertoire source que vous avez spécifié. Si aucun répertoire source n’est spécifié, le répertoire local actuel est chargé. La capture instantanée est également stockée dans le cadre de l’expérience dans votre espace de travail.
 
 > [!IMPORTANT]
-> Pour empêcher les fichiers d’être inclus dans l’instantané, créez un [.gitignore](https://git-scm.com/docs/gitignore) ou `.amlignore` dans le répertoire de fichiers et de lui ajouter les fichiers. Le `.amlignore` fichier utilise la même syntaxe et les modèles en tant que le [.gitignore](https://git-scm.com/docs/gitignore) fichier. Si les deux fichiers existent, le `.amlignore` fichier est prioritaire.
+> Pour empêcher les fichiers d’être inclus dans la capture instantanée, créez un élément [.gitignore](https://git-scm.com/docs/gitignore) ou un fichier `.amlignore` dans le répertoire et ajoutez-y les fichiers. Le fichier `.amlignore` utilise les mêmes modèles et syntaxe que le fichier [.gitignore](https://git-scm.com/docs/gitignore). Si les deux fichiers existent, le fichier `.amlignore` est prioritaire.
 >
-> Pour plus d’informations, consultez [Instantanés](concept-azure-machine-learning-architecture.md#snapshot).
+> Pour plus d’informations, consultez [Instantanés](concept-azure-machine-learning-architecture.md#snapshots).
 
 ```python
 # Submit the pipeline to be run
@@ -315,11 +315,11 @@ Lorsque vous exécutez un pipeline pour la première fois, Azure Machine Learnin
 
 ![Diagramme d’exécution d’une expérience en tant que pipeline](./media/how-to-create-your-first-pipeline/run_an_experiment_as_a_pipeline.png)
 
-Pour plus d’informations, consultez le [faire des essais classe](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) référence.
+Pour plus d’informations, consultez la référence [Experiment class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) (Classe Experiment).
 
-## <a name="github-tracking-and-integration"></a>Intégration et suivi de GitHub
+## <a name="github-tracking-and-integration"></a>Intégration et suivi GitHub
 
-Lorsque vous démarrez une formation exécutée où le répertoire source est un référentiel Git local, les informations relatives au référentiel sont stockées dans l’historique des exécutions. Par exemple, l’ID de validation en cours pour le dépôt est consignée dans le cadre de l’historique.
+Lorsque vous lancez une exécution d’entraînement où le répertoire source est un répertoire Git local, les informations relatives au répertoire sont stockées dans l’historique des exécutions. Par exemple, l’ID de validation en cours pour le répertoire est consigné au sein de l’historique.
 
 ## <a name="publish-a-pipeline"></a>Publier un pipeline
 
@@ -376,14 +376,14 @@ Consultez la liste de tous vos pipelines et les détails relatifs à leur exécu
  
 1. Sélectionnez un pipeline spécifique pour afficher les résultats de l’exécution.
 
-## <a name="caching--reuse"></a>La mise en cache et réutilisation  
+## <a name="caching--reuse"></a>Mise en cache et réutilisation  
 
-Afin d’optimiser et de personnaliser le comportement de vos pipelines, vous pouvez effectuer quelques opérations autour de la mise en cache et réutiliser. Par exemple, vous pouvez choisir de :
-+ **Désactiver la réutilisation de la valeur par défaut de l’étape de sortie de l’exécution** en définissant `allow_reuse=False` pendant [étape définition](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py). Réutilisation est la clé lors de l’utilisation des pipelines dans un environnement de collaboration dans la mesure où éliminant exécutions inutiles offre une grande souplesse. Toutefois, vous pouvez refuser cette.
-+ **Étendre au-delà du script de hachage**, pour inclure également un chemin d’accès absolu ou des chemins d’accès relatifs à la répertoire_source à d’autres fichiers et les répertoires à l’aide de la `hash_paths=['<file or directory']` 
-+ **Forcez la régénération de sortie pour toutes les étapes dans une exécution** avec `pipeline_run = exp.submit(pipeline, regenerate_outputs=False)`
+Afin d’optimiser et de personnaliser le comportement de vos pipelines, vous pouvez effectuer quelques opérations autour de la mise en cache et de la réutilisation. Par exemple, vous pouvez choisir :
++ De **désactiver la réutilisation par défaut de la sortie d’exécution de l’étape** en définissant `allow_reuse=False` pendant la [définition de l’étape](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py). La réutilisation est essentielle lors de l’utilisation des pipelines dans un environnement de collaboration. En effet, cela permet de supprimer les exécutions inutiles et ainsi d’offrir une grande souplesse. Toutefois, vous pouvez refuser cela.
++ **D’étendre le hachage au-delà du script**, pour inclure également un chemin d’accès absolu ou des chemins d’accès relatifs au répertoire_source d’autres fichiers et répertoires à l’aide de `hash_paths=['<file or directory']` 
++ De **forcer la régénération de sortie pour toutes les étapes dans une exécution** avec `pipeline_run = exp.submit(pipeline, regenerate_outputs=False)`
 
-Par défaut, `allow-reuse` pour étapes est activée et seulement le fichier de script principal est haché. Par conséquent, si le script pour une étape donnée reste le même (`script_name`, entrées et les paramètres), la sortie d’une étape précédente exécution est réutilisée, la tâche n’est pas envoyée pour le calcul et les résultats à partir de l’exécution précédente sont immédiatement disponibles à l’étape suivante à la place .  
+Par défaut, l’option `allow-reuse` pour les étapes est activée, et seul le fichier de script principal est haché. Par conséquent, si le script pour une étape donnée reste le même (`script_name`, entrées et paramètres), la sortie d’une exécution d’étape précédente est réutilisée, le travail n’est pas envoyé pour le calcul et les résultats de l’exécution précédente sont immédiatement disponibles à l’étape suivante à la place.  
 
 ```python
 step = PythonScriptStep(name="Hello World", 

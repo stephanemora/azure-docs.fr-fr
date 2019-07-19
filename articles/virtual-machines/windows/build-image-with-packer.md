@@ -14,20 +14,20 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/22/2019
 ms.author: cynthn
-ms.openlocfilehash: 81dbd8082d5a7ab473cc0cbe5fcb6e564fbd750c
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.openlocfilehash: 7210f80ab1a475c944390e56647177218c896221
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65951133"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67202931"
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Comment utiliser Packer pour créer des images de machines virtuelles Windows dans Azure
 Chaque machine virtuelle dans Azure est créée à partir d’une image qui définit la distribution Windows et la version du système d’exploitation. Les images peuvent inclure des configurations et des applications pré-installées. La Place de marché Microsoft Azure fournit de nombreuses images internes et de tiers pour les systèmes d’exploitation et environnements d’application les plus courants. Vous pouvez également créer vos propres images personnalisées selon vos besoins. Cet article explique comment utiliser l’outil open source [Packer](https://www.packer.io/) pour définir et générer des images personnalisées dans Azure.
 
-Cet article a été testé dernière sur 21/2/2019 à l’aide de la [Az PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps) version 1.3.0 et [Packer](https://www.packer.io/docs/install/index.html) version 1.3.4.
+Cet article a été testé pour la dernière fois le 21/02/2019 à l’aide du [module Az PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) version 1.3.0 et de [Packer](https://www.packer.io/docs/install/index.html) version 1.3.4.
 
 > [!NOTE]
-> Azure propose désormais un service, le Générateur d’images Azure (version préliminaire), pour définir et créer vos propres images personnalisées. Générateur d’images Azure repose sur Packer, donc vous pouvez même utiliser vos scripts de fournisseur Packer shell existants avec lui. Pour vous familiariser avec le Générateur d’images Azure, consultez [créer une machine virtuelle Windows avec le Générateur d’images Azure](image-builder.md).
+> Azure propose désormais un service, le générateur d’images Azure (préversion), pour définir et créer vos propres images personnalisées. Le générateur d’images Azure repose sur Packer. Vous pouvez donc même utiliser vos scripts d’approvisionnement de shell Packer existants. Pour vous familiariser avec le générateur d’images Azure, voir [Créer une machine virtuelle Windows avec le générateur d’images Azure](image-builder.md).
 
 ## <a name="create-azure-resource-group"></a>Créer un groupe de ressources Azure
 Pendant le processus de génération, Packer crée des ressources Azure temporaires lorsqu’il génère la machine virtuelle source. Pour capturer cette machine virtuelle source afin de l’utiliser en tant qu’image, vous devez définir un groupe de ressources. La sortie du processus de génération Packer est stockée dans ce groupe de ressources.
@@ -35,7 +35,7 @@ Pendant le processus de génération, Packer crée des ressources Azure temporai
 Créez un groupe de ressources avec [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *eastus* :
 
 ```azurepowershell
-$rgName = "mypackerGroup"
+$rgName = "myResourceGroup"
 $location = "East US"
 New-AzResourceGroup -Name $rgName -Location $location
 ```
@@ -43,7 +43,7 @@ New-AzResourceGroup -Name $rgName -Location $location
 ## <a name="create-azure-credentials"></a>Créer des informations d’identification Azure
 Packer s’authentifie auprès d’Azure à l’aide d’un principal de service. Un principal de service Azure est une identité de sécurité que vous pouvez utiliser avec des applications, des services et des outils d’automatisation comme Packer. Vous contrôlez et vous définissez les opérations que le principal du service est autorisé à effectuer dans Azure.
 
-Créez un principal de service avec la commande [New-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal) et assignez au principal de service les autorisations requises pour créer et gérer des ressources avec la commande [New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment). La valeur de `-DisplayName` doit être unique ; Remplacez par votre propre valeur en fonction des besoins.  
+Créez un principal de service avec la commande [New-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal) et assignez au principal de service les autorisations requises pour créer et gérer des ressources avec la commande [New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment). La valeur de `-DisplayName` doit être unique ; remplacez-la par votre propre valeur, si nécessaire.  
 
 ```azurepowershell
 $sp = New-AzADServicePrincipal -DisplayName "PackerServicePrincipal"
@@ -52,7 +52,7 @@ $plainPassword = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($BSTR
 New-AzRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```
 
-Puis générer l’ID d’application et mot de passe.
+Générez ensuite le mot de passe et l’ID d’application.
 
 ```powershell
 $plainPassword
@@ -75,7 +75,7 @@ Créez un fichier nommé *windows.json* et collez le contenu suivant : Saisisse
 | Paramètre                           | Emplacement |
 |-------------------------------------|----------------------------------------------------|
 | *client_id*                         | Affichage de l’ID du principal de service avec `$sp.applicationId` |
-| *client_secret*                     | Afficher le mot de passe généré automatiquement avec `$plainPassword` |
+| *client_secret*                     | Affichage du mot de passe généré automatiquement avec `$plainPassword` |
 | *tenant_id*                         | Sortie de la commande `$sub.TenantId` |
 | *subscription_id*                   | Sortie de la commande `$sub.SubscriptionId` |
 | *managed_image_resource_group_name* | Nom du groupe de ressources créé lors de la première étape |
@@ -91,7 +91,7 @@ Créez un fichier nommé *windows.json* et collez le contenu suivant : Saisisse
     "tenant_id": "zzzzzzz-zzzz-zzzz-zzzz-zzzzzzzzzzzz",
     "subscription_id": "yyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyy",
 
-    "managed_image_resource_group_name": "myPackerGroup",
+    "managed_image_resource_group_name": "myResourceGroup",
     "managed_image_name": "myPackerImage",
 
     "os_type": "Windows",
@@ -130,7 +130,7 @@ Ce modèle génère une machine virtuelle Windows Server 2016, installe IIS, p
 ## <a name="build-packer-image"></a>Génération de l’image Packer
 Si Packer n’est pas encore installé sur votre ordinateur local, [suivez les instructions d’installation de Packer](https://www.packer.io/docs/install/index.html).
 
-Générez l’image en ouvrant une invite de commande et en spécifiant votre Packer fichier de modèle comme suit :
+Générez l’image en ouvrant une invite de commandes et en spécifiant votre fichier de modèle Packer de la manière suivante :
 
 ```
 ./packer build windows.json
@@ -249,4 +249,4 @@ Pour voir votre machine virtuelle, qui inclut l’installation d’IIS à partir
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Vous pouvez également utiliser les scripts existants du fournisseur Packer avec [Générateur d’images Azure](image-builder.md).
+Vous pouvez également utiliser les scripts d’approvisionnement Packer existants avec le [générateur d’images Azure](image-builder.md).

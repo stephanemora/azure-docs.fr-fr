@@ -1,8 +1,9 @@
 ---
-title: Azure SQL Database Machine Learning Services avec vue d’ensemble de R (version préliminaire)
-description: Cet article décrit la base de données de SQL Azure Machine Learning Services (avec R) et explique son fonctionnement.
+title: Présentation de Machine Learning Services avec R dans Azure SQL Database (préversion)
+description: Cet article décrit Machine Learning Services (avec R) dans Azure SQL Database et en explique le fonctionnement.
 services: sql-database
 ms.service: sql-database
+ms.subservice: machine-learning
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,41 +12,41 @@ ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
 ms.date: 03/01/2019
-ms.openlocfilehash: fe472b8a19b45d7f7b00a8f858c9179d6ee51999
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.openlocfilehash: 186b986fe1931365ee34efab2e04e58908402cc0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65951582"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67427943"
 ---
-# <a name="azure-sql-database-machine-learning-services-with-r-preview"></a>SQL Database Services Azure Machine Learning avec R (version préliminaire)
+# <a name="azure-sql-database-machine-learning-services-with-r-preview"></a>Machine Learning Services avec R dans Azure SQL Database (préversion)
 
 Machine Learning Services est une fonctionnalité Azure SQL Database pour l’exécution de scripts R dans les bases de données. La fonctionnalité inclut les packages Microsoft R pour l’analyse prédictive haute performance et le machine learning. Les données relationnelles peuvent être utilisées dans des scripts R au moyen de procédures stockées, de scripts T-SQL contenant des instructions R ou de code R contenant T-SQL.
 
 > [!IMPORTANT]
-> Azure SQL Database Machine Learning Services (avec R) est actuellement en version préliminaire publique.
+> Azure SQL Database Machine Learning Services (avec R) est actuellement en préversion publique.
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
 > Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> La version préliminaire publique est disponible pour les bases de données uniques et des pools élastiques à l’aide du modèle d’achat vCore dans le **à usage général** et **critique pour l’entreprise** niveaux de service. Dans cette préversion publique initiale, le niveau de service **Hyperscale** et l'option de déploiement **Instance gérée** ne sont pas pris en charge. Actuellement, R est le seul langage pris en charge. Il n’existe aucune prise en charge de Python pour l’instant.
+> La préversion publique est disponible pour les bases de données uniques et les pools élastiques qui utilisent le modèle d’achat vCore dans les niveaux de service **Usage général** et **Critique pour l’entreprise**. Dans cette préversion publique initiale, le niveau de service **Hyperscale** et l'option de déploiement **Instance gérée** ne sont pas pris en charge. Actuellement, R est le seul langage pris en charge. Il n’existe aucune prise en charge de Python pour l’instant.
 >
-> La version préliminaire est actuellement disponible dans les régions suivantes : Europe de l’ouest, Europe du Nord, ouest des États-Unis 2, est des États-Unis, Sud-Centre des États-Unis, Nord du centre des États-Unis, centre du Canada, Asie du Sud-est, Inde-Sud et sud-est de l’Australie.
+> La préversion est actuellement disponible dans les régions suivantes : Europe Ouest, Europe Nord, USA Ouest 2, USA Est, USA Centre Sud, USA Centre Nord, Canada Centre, Asie Sud-Est, Inde Sud et Australie Sud-Est.
 >
 > [Inscrivez-vous à la préversion](#signup) ci-après.
 
 ## <a name="what-you-can-do-with-r"></a>Fonctionnalités de R
 
-Utilisez la puissance du langage R pour fournir des fonctionnalités avancées d’analytique et de machine learning en base de données. Les calculs et le traitement sont effectués là où les données résident, éliminant ainsi la nécessité de tirer (pull) les données sur le réseau. En outre, vous pouvez exploiter la puissance de packages R d’entreprise pour fournir une analytique avancée à l’échelle.
+Utilisez la puissance du langage R pour fournir des fonctionnalités avancées d’analytique et de machine learning en base de données. Les calculs et le traitement sont effectués là où les données résident, éliminant ainsi la nécessité de tirer (pull) les données sur le réseau. Vous pouvez également exploiter la puissance des packages R d’entreprise pour fournir des fonctionnalités avancées d’analytique à grande échelle.
 
 Machine Learning Services inclut une distribution de base de R à laquelle Microsoft superpose des packages R d’entreprise. Les fonctions et algorithmes R de Microsoft sont conçus pour combiner mise à l’échelle et utilité dans les domaines suivants : analytique prédictive, modélisation statistique, visualisation des données et algorithmes de machine learning de pointe.
 
 ### <a name="r-packages"></a>Packages R
 
-Les packages R open source courants sont préinstallés dans Machine Learning Services. Les packages R suivants de Microsoft sont également inclus :
+La plupart des packages R open source courants sont préinstallés dans Machine Learning Services. Les packages R suivants de Microsoft sont également inclus :
 
 | Package R | Description|
 |-|-|
-| [Microsoft R Open](https://mran.microsoft.com/rro) | Microsoft R Open est la distribution améliorée de Microsoft R. Il est une plateforme open source complète de science de données et d’analyse statistique. Il est basé sur R et totalement compatible avec ce langage, et il inclut des capacités supplémentaires pour améliorer les performances et la reproductibilité. |
+| [Microsoft R Open](https://mran.microsoft.com/rro) | Microsoft R Open est la distribution améliorée de Microsoft R. Il s’agit d’une plate-forme open source complète pour l’analyse statistique et la science des données. Il est basé sur R et totalement compatible avec ce langage, et il inclut des capacités supplémentaires pour améliorer les performances et la reproductibilité. |
 | [RevoScaleR](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-revoscaler) | RevoScaleR est la bibliothèque principale de R évolutive. Les fonctions de cette bibliothèque sont parmi les plus utilisées. La transformation et la manipulation des données, le résumé statistique, la visualisation et de nombreuses formes de modélisation et d’analyse sont rendues possibles avec ces bibliothèques. De plus, les fonctions de ces bibliothèques répartissent automatiquement les charges de travail entre les cœurs disponibles pour un traitement parallèle, avec la possibilité de travailler sur des blocs de données qui sont coordonnés et gérés par le moteur de calcul. |
 | [MicrosoftML (R)](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-microsoftml) | MicrosoftML ajoute des algorithmes de Machine Learning pour créer des modèles personnalisés pour l’analyse de texte, l’analyse d’images et l’analyse de sentiments. |
 
@@ -61,12 +62,12 @@ Pour vous inscrire à la préversion publique, procédez comme suit :
 
 2. Envoyez un e-mail à Microsoft sur [sqldbml@microsoft.com](mailto:sqldbml@microsoft.com) pour vous inscrire à la préversion publique. La préversion publique de Machine Learning Services (avec R) dans SQL Database n’est pas activée par défaut.
 
-Une fois que vous êtes inscrit au programme, Microsoft vous intégrerons à la version préliminaire publique et activer R pour votre existante ou nouvelle base de données.
+Une fois que vous êtes inscrit dans le programme, Microsoft vous intègre à la préversion publique et active R à votre base de données existante ou nouvelle.
 
-Services machine Learning avec R n’est pas recommandée pour la charge de travail de production pendant la préversion publique.
+L’utilisation de Machine Learning Services avec R n’est pas recommandée pour des charges de travail de production avec la préversion publique.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Consultez le [principales différences à partir de SQL Server Machine Learning Services](sql-database-machine-learning-services-differences.md).
-- Pour savoir comment utiliser R pour interroger Azure SQL Database Machine Learning Services (version préliminaire), consultez le [guide de démarrage rapide](sql-database-connect-query-r.md).
-- Pour commencer avec des scripts R simples, consultez [créer et exécuter des scripts R simples dans la base de données de SQL Azure Machine Learning Services (version préliminaire)](sql-database-quickstart-r-create-script.md).
+- Prenez connaissance des [différences principales de Machine Learning SQL Services dans SQL Server](sql-database-machine-learning-services-differences.md).
+- Pour savoir comment utiliser R pour interroger Machine Learning Services dans Azure SQL Database (version préliminaire), voir le [Guide de démarrage rapide](sql-database-connect-query-r.md).
+- Pour commencer avec des scripts R simples, voir [Créer et exécuter des scripts R simples dans Azure SQL Database Machine Learning Services (préversion)](sql-database-quickstart-r-create-script.md).

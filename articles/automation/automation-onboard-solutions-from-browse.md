@@ -3,18 +3,18 @@ title: Découvrez comment intégrer les solutions Update Management, Change Trac
 description: Découvrez comment intégrer une machine virtuelle Azure avec Update Management, Change Tracking et Inventory qui font partie d’Azure Automation.
 services: automation
 ms.service: automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 04/11/2019
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: e6359d57a1f4cce6ec89fd76ef343b515cafae6e
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.openlocfilehash: 11dda62a7d8a92b17eb1d431e61086680f356195
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66133141"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476619"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Activer les solutions Update Management, Change Tracking et Inventory sur plusieurs machines virtuelles
 
@@ -51,7 +51,7 @@ Utilisez les contrôles de filtre pour sélectionner des machines virtuelles pro
 
 ![Intégrer la solution Update Management](media/automation-onboard-solutions-from-browse/onboardsolutions.png)
 
-Passez en revue les choix pour l’espace de travail Analytique de journal et le compte Automation. Un espace de travail et un compte Automation existant sont sélectionnés par défaut. Si vous souhaitez utiliser un espace de travail Log Analytics et un compte Automation différents, cliquez sur **PERSONNALISÉ** pour les sélectionner sur la page **Configuration personnalisée**. Lorsque vous choisissez un espace de travail Log Analytics, une vérification est effectuée pour déterminer si ce dernier est lié à un compte Automation. Si un compte Automation lié est trouvé, l’écran ci-après s’affiche. Une fois que vous avez terminé, cliquez sur **OK**.
+Passez en revue les options concernant l’espace de travail Log Analytics et le compte Automation. Un espace de travail et un compte Automation existant sont sélectionnés par défaut. Si vous souhaitez utiliser un espace de travail Log Analytics et un compte Automation différents, cliquez sur **PERSONNALISÉ** pour les sélectionner sur la page **Configuration personnalisée**. Lorsque vous choisissez un espace de travail Log Analytics, une vérification est effectuée pour déterminer si ce dernier est lié à un compte Automation. Si un compte Automation lié est trouvé, l’écran ci-après s’affiche. Une fois que vous avez terminé, cliquez sur **OK**.
 
 ![Sélectionner un espace de travail et un compte](media/automation-onboard-solutions-from-browse/selectworkspaceandaccount.png)
 
@@ -62,7 +62,7 @@ Si l’espace de travail sélectionné n’est pas lié à un compte Automation,
 > [!NOTE]
 > Lors de l’activation de solutions, seules certaines régions sont prises en charge pour la liaison d’un espace de travail Log Analytics et d’un compte Automation.
 >
-> Pour obtenir la liste des paires de mappage pris en charge, consultez [mappage de région pour l’espace de travail compte Automation et Log Analytique](how-to/region-mappings.md).
+> Pour obtenir la liste des paires de mappages prises en charge, consultez [Mappage de région pour un compte Automation et l’espace de travail Log Analytics](how-to/region-mappings.md).
 
 Désactivez la case à cocher en regard des machines virtuelles que vous ne souhaitez pas activer. Les machines virtuelles qui ne peuvent pas être activées sont déjà désélectionnées.
 
@@ -76,7 +76,7 @@ Les solutions ci-après sont tributaires d’un espace de travail Log Analytics 
 * [Suivi des modifications](automation-change-tracking.md)
 * [Démarrer/arrêter des machines virtuelles pendant les heures creuses](automation-solution-vm-management.md)
 
-Si vous décidez que vous ne souhaitez plus intégrer votre compte Automation à un espace de travail Analytique de journal, vous pouvez dissocier votre compte directement depuis le portail Azure. Avant toute chose, vous devez supprimer les solutions mentionnées précédemment. Sinon, la procédure ne pourra pas aboutir. Consultez l’article relatif à la solution que vous avez importée pour comprendre sa procédure de suppression.
+Si vous ne souhaitez plus intégrer votre compte Automation à un espace de travail Log Analytics, vous pouvez supprimer son lien directement dans le portail Azure. Avant toute chose, vous devez supprimer les solutions mentionnées précédemment. Sinon, la procédure ne pourra pas aboutir. Consultez l’article relatif à la solution que vous avez importée pour comprendre sa procédure de suppression.
 
 Après avoir supprimé ces solutions, vous pouvez effectuer les étapes suivantes pour supprimer le lien de votre compte Automation.
 
@@ -105,7 +105,7 @@ Si vous avez utilisé la solution Démarrer/arrêter des machines virtuelles pen
 * Start and stop VM runbooks (Démarrer et arrêter les Runbooks de machine virtuelle)
 * variables
 
-Vous pouvez également vous pouvez également dissocier votre espace de travail à partir de votre compte Automation à partir de votre espace de travail Analytique de journal. Dans votre espace de travail, sélectionnez **compte Automation** sous **les ressources associées**. Dans la page compte Automation, sélectionnez **dissocier le compte**.
+Vous pouvez également dissocier votre espace de travail de votre compte Automation à partir de votre espace de travail Log Analytics. Dans votre espace de travail, sélectionnez **Compte Automation** sous **Ressources connexes**. Sur la page du compte Automation, sélectionnez **Dissocier le compte**.
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 
@@ -137,7 +137,7 @@ Lors de l’intégration de plusieurs machines, certaines machines peuvent affic
 
 **Cause** : les machines virtuelles qui utilisent le modèle de déploiement classique ne sont pas prises en charge.
 
-**Solution**: Migrer la machine virtuelle vers le modèle de déploiement Resource Manager. Pour savoir comment procéder, consultez [Migrer des ressources d’un modèle de déploiement classique](../virtual-machines/windows/migration-classic-resource-manager-overview.md).
+**Solution**: migrez la machine virtuelle vers le modèle de déploiement de Resource Manager. Pour savoir comment procéder, consultez [Migrer des ressources d’un modèle de déploiement classique](../virtual-machines/windows/migration-classic-resource-manager-overview.md).
 
 ### <a name="vm-is-stopped-deallocated"></a>La machine virtuelle est arrêtée. (désallouée)
 

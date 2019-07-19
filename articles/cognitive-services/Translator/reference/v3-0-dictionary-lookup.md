@@ -3,19 +3,19 @@ title: Méthode de recherche dans le dictionnaire de l’API de traduction de te
 titlesuffix: Azure Cognitive Services
 description: Utilisez la méthode de recherche dans le dictionnaire de l’API de traduction de texte Microsoft Translator Text.
 services: cognitive-services
-author: rajdeep-in
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
-ms.author: v-pawal
-ms.openlocfilehash: 10ccdcf0fda424e67b993c7c9300f0b84c56121f
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.author: swmachan
+ms.openlocfilehash: 8cc37c9edd5679158f8454e00bd27a53e4491004
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389787"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357693"
 ---
 # <a name="translator-text-api-30-dictionary-lookup"></a>API de traduction de texte Translator Text 3.0 : Recherche dans le dictionnaire
 
@@ -56,7 +56,7 @@ Les en-têtes de demande sont les suivants :
   <th width="20%">headers</th>
   <th>Description</th>
   <tr>
-    <td>En-têtes d’authentification</td>
+    <td>En-tête(s) d’authentification</td>
     <td><em>En-tête de demande obligatoire</em>.<br/>Voir les <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">options disponibles pour l’authentification</a>.</td>
   </tr>
   <tr>

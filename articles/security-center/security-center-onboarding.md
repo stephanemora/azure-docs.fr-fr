@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 19/02/2019
 ms.author: v-mohabe
 ms.openlocfilehash: fe8ceb8c196f7329027502847fba481169458d86
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65966789"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Intégration d’Azure Security Center Standard pour une sécurité renforcée
@@ -33,7 +33,7 @@ Security Center Standard inclut :
 ## <a name="detecting-unprotected-resources"></a>Détection des ressources non protégées     
 Security Center détecte automatiquement les abonnements Azure ou les espaces de travail dans lesquels Security Center Standard n’est pas activé. Cela inclut les abonnements Azure utilisant Security Center Gratuit et les espaces de travail dans lesquels la solution de sécurité n’est pas activée.
 
-Vous pouvez mettre à niveau un abonnement Azure entier vers le niveau Standard, qui est hérité par toutes les ressources prises en charge dans l’abonnement. Application de la norme de couche à un espace de travail s’applique à toutes les ressources associées à l’espace de travail.
+Vous pouvez mettre à niveau un abonnement Azure entier vers le niveau Standard, qui est hérité par toutes les ressources prises en charge dans l’abonnement. L’application du niveau Standard à un espace de travail concerne toutes les ressources associées à l’espace de travail.
 
 > [!NOTE]
 > Vous pouvez gérer vos coûts et limiter la quantité de données collectées pour une solution en limitant celle-ci à un ensemble spécifique d’agents. Le [ciblage de solution](../operations-management-suite/operations-management-suite-solution-targeting.md) vous permet d’appliquer une étendue à la solution et de cibler un sous-ensemble d’ordinateurs dans l’espace de travail.  Si vous utilisez le ciblage de solution, Security Center répertorie l’espace de travail comme n’ayant pas de solution.
@@ -53,7 +53,7 @@ Pour mettre à niveau un abonnement ou un espace de travail vers Standard :
 
 
    > [!NOTE]
-   > Les fonctionnalités gratuites de Security Center sont appliquées à vos machines virtuelles Azure et les VMSS uniquement. Les fonctionnalités du niveau Gratuit ne sont pas appliquées aux ordinateurs autres qu’Azure. Si vous sélectionnez Standard, les fonctionnalités Standard sont appliquées à toutes les machines virtuelles Azure identiques de machines virtuelles et ordinateurs non Azure à l’espace de travail. Nous vous conseillons d’appliquer le niveau Standard pour offrir une sécurité avancée à vos ressources Azure et autres qu’Azure.
+   > Les fonctionnalités du niveau Gratuit de Security Center sont appliquées à vos machines virtuelles Azure et VMSS uniquement. Les fonctionnalités du niveau Gratuit ne sont pas appliquées aux ordinateurs autres qu’Azure. Si vous sélectionnez le niveau Standard, les fonctionnalités du niveau Standard sont appliquées à toutes les machines virtuelles Azure, tous les groupes identiques de machines virtuelles et à tous les ordinateurs autres qu’Azure associés à l’espace de travail. Nous vous conseillons d’appliquer le niveau Standard pour offrir une sécurité avancée à vos ressources Azure et autres qu’Azure.
    >
    >
 
@@ -65,11 +65,11 @@ Security Center peut surveiller l’état de sécurité de vos ordinateurs autre
 1. Retournez à **Prise en main**.   
 2. Sélectionnez l’onglet **Prise en main**.
 
-   ![Non Azure](./media/security-center-onboarding/non-azure.png)
+   ![Non-Azure](./media/security-center-onboarding/non-azure.png)
 
 3. Cliquez sur **Configurer** sous **Ajouter de nouveaux ordinateurs non Azure**. Une liste de vos espaces de travail Log Analytics apparaît. Elle comprend, le cas échéant, l’espace de travail par défaut créé pour vous par Security Center à l’activation de l’approvisionnement automatique. Sélectionnez cet espace de travail ou un autre espace de travail à utiliser.
 
-   ![Ajouter un ordinateur non-Azure][7]
+   ![Ajouter un ordinateur autre qu’Azure][7]
 
 Si vous avez des espaces de travail existants, ils sont répertoriés dans **Add new Non-Azure computers** (Ajouter de nouveaux ordinateurs autres qu’Azure). Vous pouvez ajouter des ordinateurs à un espace de travail existant ou créer un espace de travail. Pour créer un espace de travail, sélectionnez le lien **add a new workspace** (ajouter un nouvel espace de travail).
 
@@ -94,7 +94,7 @@ Vous pouvez ajouter un ordinateur en suivant le flux de travail du panneau **Int
 
 1. Revenez au menu principal de Security Center et au tableau de bord **Vue d’ensemble**.
 
-   ![Présentation][5]
+   ![Vue d'ensemble][5]
 
 2. Sélectionnez **Compute et applications**.
 3. Sous **Compute et applications**, sélectionnez **Ajouter des ordinateurs**.
