@@ -69,7 +69,7 @@ Blockchain Workbench retourne une réponse avec les champs suivants :
 | connectionId          | Identificateur unique de la connexion blockchain|
 | messageSchemaVersion  | Version du schéma de messagerie |
 | messageName           | **CreateUserUpdate** |
-| status                | État de la demande de création d’utilisateur.  En cas de réussite, la valeur est **Succès**. En cas d’échec, la valeur est **Échec**.     |
+| status                | État de la demande de création d’utilisateur.  En cas de réussite, la valeur est **Success**. En cas d’échec, la valeur est **Failure**.     |
 | additionalInformation | Informations supplémentaires fournies en fonction de l’état |
 
 Exemple de réponse **create user** réussie de Blockchain Workbench :
