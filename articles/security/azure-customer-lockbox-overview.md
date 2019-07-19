@@ -6,13 +6,13 @@ ms.service: security
 ms.topic: article
 ms.author: cabailey
 manager: barbkess
-ms.date: 05/07/2019
-ms.openlocfilehash: 468e392cd2c45d79cbb24f8d737a6e83fbcd2725
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/20/2019
+ms.openlocfilehash: 0ee2dde5a941d069f5b745eafb35df780f657a47
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65079269"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312618"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Customer Lockbox pour Microsoft Azure
 
@@ -97,7 +97,7 @@ Les services et les scénarios suivants sont actuellement disponibles globalemen
 ### <a name="remote-desktop-access-to-virtual-machines"></a>Accès Bureau à distance aux machines virtuelles
 
 Customer Lockbox est actuellement activé pour les demandes d’accès Bureau à distance sur les machines virtuelles. Les charges de travail suivantes sont prises en charge :
-- Platform as a Service (PaaS) - Version 1
+- Platform as a service (PaaS) - Azure Cloud Services (rôle web et rôle de travail)
 - Infrastructure as a Service (IaaS) - Windows et Linux (Azure Resource Manager uniquement)
 - Groupe de machines virtuelles identiques - Windows et Linux
 

@@ -1,38 +1,34 @@
 ---
-title: Transformation de colonne dérivée du flux de données de mappage d’Azure Data Factory
-description: Comment transformer des données à l’échelle avec la transformation de colonne dérivée du flux de données de mappage d’Azure Data Factory
+title: Transformation de colonne dérivée dans le mappage Data Flow - Azure Data Factory | Microsoft Docs
+description: Découvrez comment transformer des données à l’échelle dans Azure Data Factory avec la transformation de colonne dérivée du mappage Data Flow.
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/08/2018
-ms.openlocfilehash: 6568e5ebf356bb0e6b4ac8ff6059cd093f8da821
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 941c629fd8359edc7fc1cf364a6735314044d95e
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64917578"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312187"
 ---
-# <a name="mapping-data-flow-derived-column-transformation"></a>Transformation de colonne dérivée du flux de données de mappage
+# <a name="derived-column-transformation-in-mapping-data-flow"></a>Transformation de colonne dérivée dans le mappage Data Flow
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
 Utilisez la transformation de colonne dérivée pour générer de nouvelles colonnes dans votre flux de données ou pour modifier des champs existants.
 
-![dériver une colonne](media/data-flow/dc1.png "Colonne dérivée")
+## <a name="derived-column-settings"></a>Paramètres de la colonne dérivée
 
-Vous pouvez effectuer plusieurs actions de colonne dérivée dans une transformation de colonne dérivée unique. Cliquez sur « Ajouter une colonne » pour transformer plusieurs colonnes lors de l’étape de transformation unique.
+Pour remplacer une colonne existante, sélectionnez-la via le menu déroulant Colonne. Sinon, utilisez le champ de sélection de colonne en tant que zone de texte et tapez un nouveau nom pour votre colonne. Pour générer l’expression de la colonne dérivée, cliquez sur la zone « Entrez expression » pour ouvrir le [Générateur d’expressions Data Flow](concepts-data-flow-expression-builder.md).
 
-Dans le champ de colonne, sélectionnez une colonne existante à remplacer par une nouvelle valeur dérivée, ou cliquez sur « Créer une colonne » pour générer une nouvelle colonne avec la valeur qui vient d’être dérivée.
+![Paramètres de la colonne dérivée](media/data-flow/dc1.png "Paramètres de la colonne dérivée")
 
-La zone de texte Expression ouvre le Générateur d’expressions où vous pouvez créer l’expression pour les colonnes dérivées, à l’aide des fonctions d’expression.
+Pour ajouter des colonnes dérivées, pointez sur une colonne dérivée existante et cliquez sur « + ». Ensuite, choisissez « Ajouter une colonne » ou « Ajouter un modèle de colonne ». Les modèles de colonnes peuvent s’avérer utiles si le nom de vos colonnes est variable selon les sources. Pour plus d’informations, voir [Modèles de colonnes](concepts-data-flow-column-pattern.md).
 
-## <a name="column-patterns"></a>Modèles de colonne
-
-Si vos noms de colonnes varient en fonction de vos sources, vous souhaiterez peut-être créer des transformations à l’intérieur de la colonne dérivée à l’aide de modèles de colonne au lieu d’utiliser des colonnes nommées. Consultez l’article [Dérive de schéma](concepts-data-flow-schema-drift.md) pour plus d’informations.
-
-![modèle de colonne](media/data-flow/columnpattern.png "Modèles de colonne")
+![Nouvelle sélection de colonne dérivée](media/data-flow/columnpattern.png "Nouvelle sélection de colonne dérivée")
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur le [langage d’expression de Data Factory pour les transformations](https://aka.ms/dataflowexpressions) et le [Générateur d’expressions](concepts-data-flow-expression-builder.md)
+- En savoir plus sur le [langage d’expression de mappage Data Flow](data-flow-expression-functions.md).

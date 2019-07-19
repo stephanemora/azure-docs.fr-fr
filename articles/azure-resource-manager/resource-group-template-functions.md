@@ -1,46 +1,40 @@
 ---
 title: Fonctions des modèles Resource Manager | Microsoft Docs
 description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour récupérer des valeurs, utiliser des chaînes et des valeurs numériques, et récupérer des informations sur le déploiement.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-ms.assetid: 0644abe1-abaa-443d-820d-1966d7d26bfd
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 04/08/2019
 ms.author: tomfitz
-ms.openlocfilehash: b5a1f12a877008a3ce2ff7bd9635b9ed47b379f7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 201fea91aba2a14720a7c28df5128f94e9e327fd
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60782232"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205431"
 ---
 # <a name="azure-resource-manager-template-functions"></a>Fonctions des modèles Azure Resource Manager
-Cet article décrit toutes les fonctions que vous pouvez utiliser dans un modèle Azure Resource Manager. Pour plus d’informations sur l’utilisation des fonctions dans votre modèle, consultez [syntaxe du modèle](resource-group-authoring-templates.md#syntax).
+Cet article décrit toutes les fonctions que vous pouvez utiliser dans un modèle Azure Resource Manager. Pour plus d’informations sur l’utilisation des fonctions dans votre modèle, voir [Syntaxe du modèle](resource-group-authoring-templates.md#syntax).
 
 Pour créer vos propres fonctions, consultez [Fonctions définies par l’utilisateur](resource-group-authoring-templates.md#functions).
 
-<a id="array" />
-<a id="coalesce" />
-<a id="concatarray" />
-<a id="contains" />
-<a id="createarray" />
-<a id="empty" />
-<a id="first" />
-<a id="intersection" />
-<a id="json" />
-<a id="last" />
-<a id="length" />
-<a id="min" />
-<a id="max" />
-<a id="range" />
-<a id="skip" />
-<a id="take" />
-<a id="union" />
+<a id="array" aria-hidden="true" />
+<a id="coalesce" aria-hidden="true" />
+<a id="concatarray" aria-hidden="true" />
+<a id="contains" aria-hidden="true" />
+<a id="createarray" aria-hidden="true" />
+<a id="empty" aria-hidden="true" />
+<a id="first" aria-hidden="true" />
+<a id="intersection" aria-hidden="true" />
+<a id="json" aria-hidden="true" />
+<a id="last" aria-hidden="true" />
+<a id="length" aria-hidden="true" />
+<a id="min" aria-hidden="true" />
+<a id="max" aria-hidden="true" />
+<a id="range" aria-hidden="true" />
+<a id="skip" aria-hidden="true" />
+<a id="take" aria-hidden="true" />
+<a id="union" aria-hidden="true" />
 
 ## <a name="array-and-object-functions"></a>Fonctions de tableau et d’objet
 Resource Manager fournit les fonctions ci-après pour travailler avec des tableaux et des objets.
@@ -63,11 +57,11 @@ Resource Manager fournit les fonctions ci-après pour travailler avec des tablea
 * [take](resource-group-template-functions-array.md#take)
 * [union](resource-group-template-functions-array.md#union)
 
-<a id="equals" />
-<a id="less" />
-<a id="lessorequals" />
-<a id="greater" />
-<a id="greaterorequals" />
+<a id="equals" aria-hidden="true" />
+<a id="less" aria-hidden="true" />
+<a id="lessorequals" aria-hidden="true" />
+<a id="greater" aria-hidden="true" />
+<a id="greaterorequals" aria-hidden="true" />
 
 ## <a name="comparison-functions"></a>Fonctions de comparaison
 Resource Manager fournit plusieurs fonctions pour effectuer des comparaisons dans vos modèles.
@@ -78,9 +72,9 @@ Resource Manager fournit plusieurs fonctions pour effectuer des comparaisons dan
 * [greater](resource-group-template-functions-comparison.md#greater)
 * [greaterOrEquals](resource-group-template-functions-comparison.md#greaterorequals)
 
-<a id="deployment" />
-<a id="parameters" />
-<a id="variables" />
+<a id="deployment" aria-hidden="true" />
+<a id="parameters" aria-hidden="true" />
+<a id="variables" aria-hidden="true" />
 
 ## <a name="deployment-value-functions"></a>Fonctions de valeur de déploiement
 Resource Manager offre les fonctions ci-après pour l’obtention de valeurs à partir des sections du modèle et de valeurs associées au déploiement :
@@ -89,11 +83,11 @@ Resource Manager offre les fonctions ci-après pour l’obtention de valeurs à 
 * [parameters](resource-group-template-functions-deployment.md#parameters)
 * [variables](resource-group-template-functions-deployment.md#variables)
 
-<a id="and" />
-<a id="bool" />
-<a id="if" />
-<a id="not" />
-<a id="or" />
+<a id="and" aria-hidden="true" />
+<a id="bool" aria-hidden="true" />
+<a id="if" aria-hidden="true" />
+<a id="not" aria-hidden="true" />
+<a id="or" aria-hidden="true" />
 
 ## <a name="logical-functions"></a>Fonctions logiques
 Resource Manager fournit les fonctions suivantes pour vous permettre de travailler avec des conditions logiques :
@@ -104,16 +98,16 @@ Resource Manager fournit les fonctions suivantes pour vous permettre de travaill
 * [non](resource-group-template-functions-logical.md#not)
 * [ou](resource-group-template-functions-logical.md#or)
 
-<a id="add" />
-<a id="copyindex" />
-<a id="div" />
-<a id="float" />
-<a id="int" />
-<a id="minint" />
-<a id="maxint" />
-<a id="mod" />
-<a id="mul" />
-<a id="sub" />
+<a id="add" aria-hidden="true" />
+<a id="copyindex" aria-hidden="true" />
+<a id="div" aria-hidden="true" />
+<a id="float" aria-hidden="true" />
+<a id="int" aria-hidden="true" />
+<a id="minint" aria-hidden="true" />
+<a id="maxint" aria-hidden="true" />
+<a id="mod" aria-hidden="true" />
+<a id="mul" aria-hidden="true" />
+<a id="sub" aria-hidden="true" />
 
 ## <a name="numeric-functions"></a>Fonctions numériques
 Resource Manager fournit les expressions ci-après pour travailler avec des entiers :
@@ -129,13 +123,13 @@ Resource Manager fournit les expressions ci-après pour travailler avec des enti
 * [mul](resource-group-template-functions-numeric.md#mul)
 * [sub](resource-group-template-functions-numeric.md#sub)
 
-<a id="listkeys" />
-<a id="list" />
-<a id="providers" />
-<a id="reference" />
-<a id="resourcegroup" />
-<a id="resourceid" />
-<a id="subscription" />
+<a id="listkeys" aria-hidden="true" />
+<a id="list" aria-hidden="true" />
+<a id="providers" aria-hidden="true" />
+<a id="reference" aria-hidden="true" />
+<a id="resourcegroup" aria-hidden="true" />
+<a id="resourceid" aria-hidden="true" />
+<a id="subscription" aria-hidden="true" />
 
 ## <a name="resource-functions"></a>Fonctions de ressource
 Resource Manager offre les fonctions ci-après pour obtenir des valeurs de ressource :
@@ -148,38 +142,38 @@ Resource Manager offre les fonctions ci-après pour obtenir des valeurs de resso
 * [reference](resource-group-template-functions-resource.md#reference)
 * [resourceGroup](resource-group-template-functions-resource.md#resourcegroup)
 * [resourceId](resource-group-template-functions-resource.md#resourceid)
-* [abonnement](resource-group-template-functions-resource.md#subscription)
+* [subscription](resource-group-template-functions-resource.md#subscription)
 
-<a id="base64" />
-<a id="base64tojson" />
-<a id="base64tostring" />
-<a id="concat" />
-<a id="containsstring" />
-<a id="datauri" />
-<a id="datauritostring" />
-<a id="emptystring" />
-<a id="endswith" />
-<a id="firststring" />
-<a id="guid" />
-<a id="indexof" />
-<a id="laststring" />
-<a id="lastindexof" />
-<a id="lengthstring" />
-<a id="padleft" />
-<a id="replace" />
-<a id="skipstring" />
-<a id="split" />
-<a id="startswith" />
-<a id="string" />
-<a id="substring" />
-<a id="takestring" />
-<a id="tolower" />
-<a id="toupper" />
-<a id="trim" />
-<a id="uniquestring" />
-<a id="uri" />
-<a id="uricomponent" />
-<a id="uricomponenttostring" />
+<a id="base64" aria-hidden="true" />
+<a id="base64tojson" aria-hidden="true" />
+<a id="base64tostring" aria-hidden="true" />
+<a id="concat" aria-hidden="true" />
+<a id="containsstring" aria-hidden="true" />
+<a id="datauri" aria-hidden="true" />
+<a id="datauritostring" aria-hidden="true" />
+<a id="emptystring" aria-hidden="true" />
+<a id="endswith" aria-hidden="true" />
+<a id="firststring" aria-hidden="true" />
+<a id="guid" aria-hidden="true" />
+<a id="indexof" aria-hidden="true" />
+<a id="laststring" aria-hidden="true" />
+<a id="lastindexof" aria-hidden="true" />
+<a id="lengthstring" aria-hidden="true" />
+<a id="padleft" aria-hidden="true" />
+<a id="replace" aria-hidden="true" />
+<a id="skipstring" aria-hidden="true" />
+<a id="split" aria-hidden="true" />
+<a id="startswith" aria-hidden="true" />
+<a id="string" aria-hidden="true" />
+<a id="substring" aria-hidden="true" />
+<a id="takestring" aria-hidden="true" />
+<a id="tolower" aria-hidden="true" />
+<a id="toupper" aria-hidden="true" />
+<a id="trim" aria-hidden="true" />
+<a id="uniquestring" aria-hidden="true" />
+<a id="uri" aria-hidden="true" />
+<a id="uricomponent" aria-hidden="true" />
+<a id="uricomponenttostring" aria-hidden="true" />
 
 ## <a name="string-functions"></a>Fonctions de chaîne
 Resource Manager fournit les fonctions ci-après pour travailler avec des chaînes de caractères :
@@ -222,4 +216,4 @@ Resource Manager fournit les fonctions ci-après pour travailler avec des chaîn
 * Pour obtenir une description des sections d’un modèle Azure Resource Manager, voir [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md)
 * Pour fusionner plusieurs modèles, consultez [Utilisation de modèles liés avec Azure Resource Manager](resource-group-linked-templates.md)
 * Pour effectuer une itération un nombre de fois spécifié pendant la création d'un type de ressource, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md)
-* Pour voir comment déployer le modèle que vous avez créé, consultez [déployer une application avec le modèle Azure Resource Manager](resource-group-template-deploy.md)
+* Pour savoir comment déployer le modèle que vous avez créé, consultez [Déployer une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md)
