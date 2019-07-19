@@ -305,7 +305,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| concatOutput | Chaîne | prefix-5yj4yjf5mbg72 |
+| concatOutput | String | prefix-5yj4yjf5mbg72 |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -622,8 +622,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| arrayOutput | Chaîne | one |
-| stringOutput | Chaîne | O |
+| arrayOutput | String | one |
+| stringOutput | String | O |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -839,8 +839,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| arrayOutput | Chaîne | three |
-| stringOutput | Chaîne | e |
+| arrayOutput | String | three |
+| stringOutput | String | e |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -1196,7 +1196,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
 | arrayOutput | Array | ["three"] |
-| stringOutput | Chaîne | two three |
+| stringOutput | String | two three |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -1277,7 +1277,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
 | arrayOutput | Array | ["one", "two"] |
-| stringOutput | Chaîne | sur |
+| stringOutput | String | sur |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 

@@ -166,9 +166,9 @@ Quand vous utilisez la fonctionnalité de synchronisation hors connexion, défin
 | Attribut | Type |
 | --- | --- |
 | id | Integer 64 |
-| itemId | Chaîne |
+| itemId | String |
 | properties | Binary Data |
-| table | Chaîne |
+| table | String |
 | tableKind | Integer 16 |
 
 
@@ -178,7 +178,7 @@ Quand vous utilisez la fonctionnalité de synchronisation hors connexion, défin
 
 | Attribut | Type |
 | --- | --- |
-| id |Chaîne |
+| id |String |
 | operationId |Integer 64 |
 | properties |Binary Data |
 | tableKind |Integer 16 |
@@ -189,11 +189,11 @@ Quand vous utilisez la fonctionnalité de synchronisation hors connexion, défin
 
 | Attribut | Type |
 | --- | --- |
-| id |Chaîne |
-| key |Chaîne |
+| id |String |
+| key |String |
 | keyType |Integer 64 |
-| table |Chaîne |
-| value |Chaîne |
+| table |String |
+| value |String |
 
 ### <a name="data-table"></a>Table de données
 
@@ -201,12 +201,12 @@ Quand vous utilisez la fonctionnalité de synchronisation hors connexion, défin
 
 | Attribut | Type | Remarque |
 | --- | --- | --- |
-| id | Chaîne, marquée requise |Clé primaire dans le magasin distant |
+| id | String, marquée requise |Clé primaire dans le magasin distant |
 | terminé | Boolean | Champ d’élément de tâche |
-| text |Chaîne |Champ d’élément de tâche |
+| text |String |Champ d’élément de tâche |
 | createdAt | Date | (facultatif) Correspond à la propriété système **createdAt** |
 | updatedAt | Date | (facultatif) Correspond à la propriété système **updatedAt** |
-| version | Chaîne | (facultatif) Permet de détecter les conflits, correspond à version |
+| version | String | (facultatif) Permet de détecter les conflits, correspond à version |
 
 ## <a name="setup-sync"></a>Modification du comportement de synchronisation de l’application
 Dans cette section, vous modifiez l’application pour qu’elle ne se synchronise pas au démarrage de l’application ou quand vous insérez et mettez à jour des éléments. Elle se synchronise uniquement quand le mouvement d’actualisation est effectué.

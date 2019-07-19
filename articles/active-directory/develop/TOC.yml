@@ -81,6 +81,8 @@
       href: sample-v2-code.md
     - name: Concepts
       items:
+        - name: Principes fondamentaux de l’authentification
+          href: authentication-scenarios.md
         - name: Flux d’authentification et scénarios d’application
           href: authentication-flows-app-scenarios.md
         - name: Scénarios d’application
@@ -271,8 +273,6 @@
                       href: msal-js-known-issues-safari-browser.md
         - name: Protocole d’authentification
           items:
-            - name: Principes fondamentaux de l’authentification
-              href: authentication-scenarios.md
             - name: Types d’application et OAuth2.0
               href: v2-app-types.md
             - name: "Protocoles OAuth\_2.0 et OpenID\_Connect"

@@ -209,7 +209,7 @@ Définit les fonctions qui peuvent être exécutées dans le workflow.
 
 | Champ | Description | Obligatoire | Longueur maximale |
 |-------|-------------|:--------:|-----------:|
-| Nom | Nom unique de la fonction. Le contrat intelligent correspondant doit utiliser la même propriété **Name** pour la fonction applicable. | OUI | 50 |
+| Name | Nom unique de la fonction. Le contrat intelligent correspondant doit utiliser la même propriété **Name** pour la fonction applicable. | OUI | 50 |
 | DisplayName | Nom d’affichage convivial de la fonction. | OUI | 255 |
 | Description | Description de la fonction | Non | 255 |
 | parameters | Collection d’[identificateurs](#identifiers) correspondant aux paramètres de la fonction. | OUI | |
@@ -257,7 +257,7 @@ Collection d’états uniques au sein d’un workflow. Chaque état capture une 
 
 | Champ | Description | Obligatoire | Longueur maximale |
 |-------|-------------|:--------:|-----------:|
-| Nom | Nom unique de l’état. Le contrat intelligent correspondant doit utiliser la même propriété **Name** pour l’état applicable. | OUI | 50 |
+| Name | Nom unique de l’état. Le contrat intelligent correspondant doit utiliser la même propriété **Name** pour l’état applicable. | OUI | 50 |
 | DisplayName | Nom d’affichage convivial de l’état. | OUI | 255 |
 | Description | Description de l’état. | Non | 255 |
 | PercentComplete | Valeur entière qui apparaît dans l’interface utilisateur Blockchain Workbench pour afficher la progression dans le flux de contrôle de logique métier. | OUI | |
@@ -371,7 +371,7 @@ Les rôles d’application définissent un ensemble de rôles qui peuvent être 
 
 | Champ | Description | Obligatoire | Longueur maximale |
 |-------|-------------|:--------:|-----------:|
-| Nom | Nom unique du rôle d’application. Le contrat intelligent correspondant doit utiliser la même propriété **Name** pour le rôle applicable. Les noms de type de base sont réservés. Vous ne pouvez pas nommer un rôle d’application de la même manière que [Type](#type)| OUI | 50 |
+| Name | Nom unique du rôle d’application. Le contrat intelligent correspondant doit utiliser la même propriété **Name** pour le rôle applicable. Les noms de type de base sont réservés. Vous ne pouvez pas nommer un rôle d’application de la même manière que [Type](#type)| OUI | 50 |
 | Description | Description du rôle d’application. | Non | 255 |
 
 ### <a name="application-roles-example"></a>Exemple de rôles d’application
@@ -394,7 +394,7 @@ Les identificateurs représentent une collection d’informations utilisées pou
 
 | Champ | Description | Obligatoire | Longueur maximale |
 |-------|-------------|:--------:|-----------:|
-| Nom | Nom unique de la propriété ou du paramètre. Le contrat intelligent correspondant doit utiliser la même propriété **Name** pour la propriété ou le paramètre applicable. | OUI | 50 |
+| Name | Nom unique de la propriété ou du paramètre. Le contrat intelligent correspondant doit utiliser la même propriété **Name** pour la propriété ou le paramètre applicable. | OUI | 50 |
 | DisplayName | Nom d’affichage convivial pour la propriété ou le paramètre. | OUI | 255 |
 | Description | Description de la propriété ou du paramètre. | Non | 255 |
 
