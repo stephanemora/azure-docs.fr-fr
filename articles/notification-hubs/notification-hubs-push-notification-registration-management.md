@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.author: jowargo
 ms.date: 04/08/2019
-ms.openlocfilehash: 5a70eec15003a1f75a80740f269f6df3523012a8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fffa6784702f239e0af0e9e88a4b9937d20b86ed
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64685390"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67488630"
 ---
 # <a name="registration-management"></a>Gestion des inscriptions
 
@@ -90,6 +90,9 @@ Une installation peut contenir les propriétés suivantes. Pour obtenir la liste
 > Par défaut, les inscriptions et les installations n’expirent pas.
 
 Les inscriptions et les installations doivent contenir un handle PNS valide pour chaque appareil/canal. Comme les handles PNS peuvent être obtenus uniquement dans une application cliente sur l’appareil, l’une des méthodes consiste à effectuer l’inscription directement sur cet appareil avec l’application cliente. D’un autre côté, les considérations sur la sécurité et la logique métier associée aux balises impliquent que vous devez gérer l’inscription des appareils dans le serveur principal de l’application.
+
+> [!NOTE]
+> L’API Installations ne prend pas en charge le service Baidu (bien que l’API Registrations le fasse). 
 
 ### <a name="templates"></a>Modèles
 

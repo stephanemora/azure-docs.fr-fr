@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/29/2018
 ms.author: asgang
-ms.openlocfilehash: 86bd41d518006b0601a5c9d18e5429f76d5a4fc5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 19a1e13815f1d83f13392892dd9c87b84a40a1c1
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64926655"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551693"
 ---
 # <a name="replicate-azure-vms-to-another-azure-region"></a>Répliquer des machines virtuelles Azure dans une autre région Azure
 
@@ -56,7 +56,7 @@ Activez la réplication. Cette procédure suppose que la région principale Azur
    - **Réseau virtuel cible** : Par défaut, Site Recovery crée un réseau virtuel dans la région cible dont le nom porte un suffixe « asr ». Il est mappé à votre réseau source et utilisé pour toute protection ultérieure. [En savoir plus](site-recovery-network-mapping-azure-to-azure.md) sur le mappage réseau.
    - **Comptes de stockage cibles (la machine virtuelle source n’utilise pas de disques managés)**  : par défaut, Site Recovery crée un compte de stockage cible avec la même configuration que celle du compte de stockage de machines virtuelles source. Si le compte de stockage existe déjà, il est réutilisé.
    - **Disques managés de réplica (la machine virtuelle source utilise des disques managés)**  : Site Recovery crée des disques managés de réplica dans la région cible pour refléter les disques managés de la machine virtuelle source du même type de stockage (Standard ou Premium).
-   - **Comptes de stockage de cache** : Site Recovery a besoin d’un compte de stockage supplémentaire appelé « stockage de cache » dans la région source. Toutes les modifications effectuées sur les machines virtuelles sources sont suivies et envoyées au compte de stockage de cache avant leur réplication vers l’emplacement cible.
+   - **Comptes de stockage de cache** : Site Recovery a besoin d’un compte de stockage supplémentaire appelé « stockage de cache » dans la région source. Toutes les modifications effectuées sur les machines virtuelles sources sont suivies et envoyées au compte de stockage de cache avant leur réplication vers l’emplacement cible. Ce compte de stockage doit être Standard.
    - **Groupes à haute disponibilité cibles** : par défaut, Site Recovery crée un groupe à haute disponibilité dans la région cible dont le nom porte un suffixe « asr », pour les machines virtuelles qui font partie d’un groupe à haute disponibilité dans la région source. Si le groupe à haute disponibilité créé par Site Recovery existe déjà, il est réutilisé.
    - **Zones de disponibilité cibles** : par défaut, Site Recovery affecte à la région cible le même nombre de zones que la région source, si la région cible prend en charge les zones de disponibilité.
 
@@ -66,7 +66,7 @@ Activez la réplication. Cette procédure suppose que la région principale Azur
      >Vous ne pouvez plus modifier le type de disponibilité (instance unique, groupe à haute disponibilité ou zone de disponibilité) une fois que vous avez activé la réplication. Vous devez désactiver puis réactiver la réplication pour modifier le type de disponibilité.
      >
     
-   - **Stratégie de réplication** : définit les paramètres de l’historique de conservation des points de récupération et la fréquence des captures instantanées de cohérence des applications. Par défaut, Azure Site Recovery crée une stratégie de réplication avec les paramètres par défaut de « 24 heures » pour la rétention des points de récupération, et de « 60 minutes » pour la fréquence des captures instantanées de cohérence des applications.
+   - **Stratégie de réplication** : définit les paramètres de l’historique de conservation des points de récupération et la fréquence des captures instantanées de cohérence des applications. Par défaut, Azure Site Recovery crée une stratégie de réplication avec les paramètres par défaut de « 24 heures » pour la rétention des points de récupération, et de « 4 heures » pour la fréquence des captures instantanées de cohérence des applications.
 
      ![Activer la réplication](./media/site-recovery-replicate-azure-to-azure/enabledrwizard3.PNG)
 
@@ -82,8 +82,8 @@ Si vous ajoutez des disques à une machine virtuelle Azure pour laquelle la rép
 
 Pour activer la réplication pour un disque ajouté, effectuez les étapes suivantes :
 
-1.  Dans le coffre > **Éléments répliqués**, cliquez sur la machine virtuelle à laquelle vous avez ajouté le disque.
-2.  Cliquez sur **Disques**, puis sélectionnez le disque de données pour lequel vous voulez activer la réplication (ces disques présente un état **Non protégé**).
+1.  Dans le coffre > **Éléments répliqués**, cliquez sur la machine virtuelle à laquelle vous avez ajouté le disque.
+2.  Cliquez sur **Disques**, puis sélectionnez le disque de données pour lequel vous voulez activer la réplication (ces disques présentent un état **Non protégé**).
 3.  Dans **Détails du disque**, cliquez sur **Activer la réplication**.
 
     ![Activer la réplication pour un disque ajouté](./media/azure-to-azure-how-to-enable-replication/enabled-added.png)

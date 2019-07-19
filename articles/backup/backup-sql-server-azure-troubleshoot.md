@@ -6,14 +6,14 @@ author: anuragm
 manager: shivamg
 ms.service: backup
 ms.topic: article
-ms.date: 05/27/2019
+ms.date: 06/18/2019
 ms.author: anuragm
-ms.openlocfilehash: 8459bb451c4ff462ee816b986cafdbf776603917
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
-ms.translationtype: MT
+ms.openlocfilehash: 9ed30a35f30d1b6b9fdcd43110ed93618a10dbc3
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306971"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204192"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Résoudre les problèmes de sauvegarde SQL Server sur Azure
 
@@ -21,18 +21,17 @@ Cet article fournit des informations de dépannage pour la protection des machin
 
 ## <a name="feature-consideration-and-limitations"></a>Considérations et limitations relatives aux fonctionnalités
 
-Pour afficher la considération de fonctionnalité, consultez l’article [sauvegarde sur SQL Server dans Azure Virtual Machines](backup-azure-sql-database.md#feature-consideration-and-limitations).
+Pour afficher les considérations sur les fonctionnalités, consultez l’article [À propos de la sauvegarde SQL Server sur des machines virtuelles Azure](backup-azure-sql-database.md#feature-consideration-and-limitations).
 
 ## <a name="sql-server-permissions"></a>Autorisations SQL Server
 
-Pour configurer la protection d’une base de données SQL Server sur une machine virtuelle, l’extension **AzureBackupWindowsWorkload** doit être installée sur la machine virtuelle concernée. Si vous recevez l’erreur **UserErrorSQLNoSysadminMembership**, cela signifie que votre instance SQL n’a pas les autorisations de sauvegarde requises. Pour corriger cette erreur, suivez les étapes indiquées dans [Définir des autorisations pour les machines virtuelles SQL autres que de la Place de marché](backup-azure-sql-database.md#fix-sql-sysadmin-permissions).
-
+Pour configurer la protection d’une base de données SQL Server sur une machine virtuelle, l’extension **AzureBackupWindowsWorkload** doit être installée sur la machine virtuelle concernée. Si vous recevez l’erreur **UserErrorSQLNoSysadminMembership**, cela signifie que votre instance SQL n’a pas les autorisations de sauvegarde requises. Pour corriger cette erreur, suivez les étapes indiquées dans [Définir des autorisations pour les machines virtuelles SQL autres que de la Place de marché](backup-azure-sql-database.md#set-vm-permissions).
 
 ## <a name="backup-type-unsupported"></a>Type de sauvegarde non pris en charge
 
 | Severity | Description | Causes possibles | Action recommandée |
 |---|---|---|---|
-| Avertissement | Les paramètres actuels pour cette base de données ne gèrent pas certain type de sauvegarde types présents dans la stratégie associée. | <li>**Base de données master** : Uniquement une opération de sauvegarde de base de données complète peut être effectuée sur la base de données master ; ni **différentielle** sauvegarde ni transaction **journaux** sauvegarde est possible. </li> <li>Aucune base de données en **mode de récupération simple** n’autorise la sauvegarde de **journaux d’activité** de transaction.</li> | Modifiez les paramètres de la base de données de manière à ce que tous les types de sauvegarde de la stratégie soient pris en charge. Vous pouvez également modifier la stratégie actuelle de manière à inclure uniquement les types de sauvegarde pris en charge. Sinon, les types de sauvegarde non pris en charge seront ignorées lors de la sauvegarde planifiée ou le travail de sauvegarde échoue pour une sauvegarde ad hoc.
+| Avertissement | Les paramètres actuels de cette base de données ne prennent pas en charge certains types de sauvegarde présents dans la stratégie associée. | <li>**Base de données master** : Seule une opération de sauvegarde de base de données complète peut être effectuée sur la base de données master : aucune sauvegarde **différentielle** ou sauvegarde de **journaux d’activité** de transaction n’est possible. </li> <li>Aucune base de données en **mode de récupération simple** n’autorise la sauvegarde de **journaux d’activité** de transaction.</li> | Modifiez les paramètres de la base de données de manière à ce que tous les types de sauvegarde de la stratégie soient pris en charge. Vous pouvez également modifier la stratégie actuelle de manière à inclure uniquement les types de sauvegarde pris en charge. Sinon, les types de sauvegarde non pris en charge seront ignorés lors de la sauvegarde planifiée ou le travail de sauvegarde échouera pour une sauvegarde ad hoc.
 
 
 ## <a name="usererrorsqlpodoesnotsupportbackuptype"></a>UserErrorSQLPODoesNotSupportBackupType
@@ -52,19 +51,19 @@ Pour configurer la protection d’une base de données SQL Server sur une machin
 
 | Message d’erreur | Causes possibles | Action recommandée |
 |---|---|---|
-| Log chain is broken. (La séquence de journaux de transactions consécutifs est altérée.) | La base de données ou la machine virtuelle est sauvegardée à l’aide d’une autre solution de sauvegarde, ce qui tronque la séquence de journaux de transactions consécutifs.|<ul><li>Vérifiez si un autre script ou une autre solution de sauvegarde est en cours d’utilisation. Si c’est le cas, arrêtez l’autre solution de sauvegarde. </li><li>Si la sauvegarde a été une sauvegarde de journal ad hoc, déclencher une sauvegarde complète pour démarrer une nouvelle séquence de journaux. Pour les sauvegardes de fichier journal planifiées, aucune action n’est requise étant donné que le service Sauvegarde Azure va automatiquement déclencher une sauvegarde complète pour corriger ce problème.</li>|
+| Log chain is broken. (La séquence de journaux de transactions consécutifs est altérée.) | La base de données ou la machine virtuelle est sauvegardée à l’aide d’une autre solution de sauvegarde, ce qui tronque la séquence de journaux de transactions consécutifs.|<ul><li>Vérifiez si un autre script ou une autre solution de sauvegarde est en cours d’utilisation. Si c’est le cas, arrêtez l’autre solution de sauvegarde. </li><li>Si la sauvegarde était de type sauvegarde de fichier journal ad hoc, déclenchez une sauvegarde complète pour commencer une nouvelle séquence de journaux de transactions consécutifs. Pour les sauvegardes de fichier journal planifiées, aucune action n’est requise étant donné que le service Sauvegarde Azure va automatiquement déclencher une sauvegarde complète pour corriger ce problème.</li>|
 
 ## <a name="usererroropeningsqlconnection"></a>UserErrorOpeningSQLConnection
 
 | Message d’erreur | Causes possibles | Action recommandée |
 |---|---|---|
-| Azure Backup is not able to connect to the SQL instance. (Sauvegarde Azure n’est pas en mesure de se connecter à l’instance SQL.) | Sauvegarde Azure ne peut pas se connecter à l’instance SQL. | Utilisez les informations supplémentaires dans le menu d’erreur du Portail Azure pour mieux déterminer les causes racines. Consultez [Résoudre les problèmes de connexion au moteur de base de données SQL Server](https://docs.microsoft.com/sql/database-engine/configure-windows/troubleshoot-connecting-to-the-sql-server-database-engine) pour corriger l’erreur.<br/><ul><li>Si les paramètres SQL par défaut n’autorisent pas les connexions à distance, modifiez les paramètres. Consultez les articles suivants pour plus d’informations sur la modification des paramètres.<ul><li>[MSSQLSERVER_-1](/previous-versions/sql/sql-server-2016/bb326495(v=sql.130))</li><li>[MSSQLSERVER_2](/sql/relational-databases/errors-events/mssqlserver-2-database-engine-error)</li><li>[MSSQLSERVER_53](/sql/relational-databases/errors-events/mssqlserver-53-database-engine-error)</li></ul></li></ul><ul><li>En cas de problèmes de connexion, reportez-vous aux liens ci-dessous pour apporter les corrections :<ul><li>[MSSQLSERVER_18456](/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error)</li><li>[MSSQLSERVER_18452](/sql/relational-databases/errors-events/mssqlserver-18452-database-engine-error)</li></ul></li></ul> |
+| Azure Backup is not able to connect to the SQL instance. (Sauvegarde Azure n’est pas en mesure de se connecter à l’instance SQL.) | Sauvegarde Azure ne peut pas se connecter à l’instance SQL. | Utilisez les informations supplémentaires dans le menu d’erreur du Portail Azure pour mieux déterminer les causes racines. Consultez [Résoudre les problèmes de connexion au moteur de base de données SQL Server](https://docs.microsoft.com/sql/database-engine/configure-windows/troubleshoot-connecting-to-the-sql-server-database-engine) pour corriger l’erreur.<br/><ul><li>Si les paramètres SQL par défaut n’autorisent pas les connexions à distance, modifiez les paramètres. Pour plus d’informations sur la modification des paramètres, consultez les articles suivants.<ul><li>[MSSQLSERVER_-1](/previous-versions/sql/sql-server-2016/bb326495(v=sql.130))</li><li>[MSSQLSERVER_2](/sql/relational-databases/errors-events/mssqlserver-2-database-engine-error)</li><li>[MSSQLSERVER_53](/sql/relational-databases/errors-events/mssqlserver-53-database-engine-error)</li></ul></li></ul><ul><li>En cas de problèmes de connexion, reportez-vous aux liens ci-dessous pour apporter les corrections :<ul><li>[MSSQLSERVER_18456](/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error)</li><li>[MSSQLSERVER_18452](/sql/relational-databases/errors-events/mssqlserver-18452-database-engine-error)</li></ul></li></ul> |
 
 ## <a name="usererrorparentfullbackupmissing"></a>UserErrorParentFullBackupMissing
 
 | Message d’erreur | Causes possibles | Action recommandée |
 |---|---|---|
-| First full backup is missing for this data source. (La première sauvegarde complète est manquante pour cette source de données.) | La sauvegarde complète est manquante pour la base de données. Parent des sauvegardes différentielles et de fichier journal manquant sur une sauvegarde complète, des sauvegardes complètes doivent donc être effectuées avant de déclencher des sauvegardes différentielles ou de fichier journal. | Déclencher une sauvegarde complète ad hoc.   |
+| First full backup is missing for this data source. (La première sauvegarde complète est manquante pour cette source de données.) | La sauvegarde complète est manquante pour la base de données. Parent des sauvegardes différentielles et de fichier journal manquant sur une sauvegarde complète, des sauvegardes complètes doivent donc être effectuées avant de déclencher des sauvegardes différentielles ou de fichier journal. | Déclenchez une sauvegarde complète ad hoc.   |
 
 ## <a name="usererrorbackupfailedastransactionlogisfull"></a>UserErrorBackupFailedAsTransactionLogIsFull
 
@@ -94,7 +93,7 @@ Pour configurer la protection d’une base de données SQL Server sur une machin
 
 | Message d’erreur | Causes possibles | Action recommandée |
 |---|---|---|
-| La sauvegarde du journal utilisée pour la récupération contient des modifications journalisées en bloc. Il ne peut pas être utilisé pour arrêter à un point arbitraire dans le temps conformément aux instructions SQL. | Lorsqu’une base de données est en mode de récupération journalisé en bloc, les données entre un transactions journalisées en bloc et de la transaction de journal suivante ne peut pas être récupérées. | Choisissez un autre Point de récupération. [En savoir plus](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms186229(v=sql.105))
+| La sauvegarde de fichier journal utilisée pour la récupération contient des modifications journalisées en bloc. Elle n’est pas utilisable pour s’arrêter à un point arbitraire dans le temps conformément aux directives SQL. | Lorsqu’une base de données est en mode de récupération utilisant les journaux de transaction, les données entre une transaction journalisée en bloc et la transaction de journal suivante ne peuvent pas être récupérées. | Choisissez un autre point de récupération. [En savoir plus](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms186229(v=sql.105))
 
 
 ## <a name="fabricsvcbackuppreferencecheckfailedusererror"></a>FabricSvcBackupPreferenceCheckFailedUserError
@@ -123,36 +122,36 @@ Pour configurer la protection d’une base de données SQL Server sur une machin
 
 ## <a name="re-registration-failures"></a>Échecs de réinscription
 
-Recherchez un ou plusieurs de la [symptômes](#symptoms) avant de déclencher l’opération enregistrer à nouveau.
+Vérifiez la présence d’un ou plusieurs de ces [symptômes](#symptoms) avant de déclencher l’opération de réinscription.
 
 ### <a name="symptoms"></a>Symptômes
 
-* Toutes les opérations telles que la sauvegarde, restauration et configurez la sauvegarde échouent sur la machine virtuelle avec l’un des codes d’erreur suivants : **WorkloadExtensionNotReachable**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg**
-* Le **état de la sauvegarde** pour la sauvegarde de l’élément est visible **n’est pas accessible**. Bien que vous devez éliminer toutes les autres raisons qui peuvent également entraîner le même état :
+* Toutes les opérations telles que la sauvegarde, la restauration et la configuration de la sauvegarde échouent sur la machine virtuelle avec l’un des codes d’erreur suivants : **WorkloadExtensionNotReachable**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg**
+* L’**État de la sauvegarde** de l’élément de sauvegarde indique **Non accessible**. Mais vous devez éliminer toutes les autres raisons pouvant également être la cause de cet état :
 
-  * Absence d’autorisation pour effectuer les opérations connexes de sauvegarde sur la machine virtuelle  
-  * Machine virtuelle a été arrêté en raison de ce qui ne peut pas effectuer des sauvegardes
+  * Absence d’autorisation pour effectuer les opérations liées à la sauvegarde sur la machine virtuelle  
+  * La machine virtuelle a été arrêtée, par conséquent les sauvegardes ne peuvent pas avoir lieu
   * Problèmes de réseau  
 
-    ![RE-Register machine virtuelle](./media/backup-azure-sql-database/re-register-vm.png)
+    ![Réinscrire la machine virtuelle](./media/backup-azure-sql-database/re-register-vm.png)
 
-* En cas de groupe de disponibilité always on, les sauvegardes échouent une fois que vous avez modifié la préférence de sauvegarde ou qu’il y a un basculement
+* Avec un groupe de disponibilité Always On, les sauvegardes échouent après la modification d’une préférence de sauvegarde ou en cas de basculement
 
 ### <a name="causes"></a>Causes
-Ces problèmes peuvent survenir en raison d’une ou plusieurs des raisons suivantes :
+Ces symptômes peuvent survenir à cause d’une ou plusieurs des raisons suivantes :
 
-  * Extension a été supprimée ou désinstallée à partir du portail 
-  * Extension a été désinstallée de le **le panneau de configuration** de la machine virtuelle sous **désinstaller ou modifier un programme** l’interface utilisateur
-  * Machine virtuelle a été restaurée dans le temps à l’aide de la restauration de l’ou les disques sur place
-  * Machine virtuelle a été arrêté pendant une période prolongée en raison de laquelle la configuration d’extension dessus expiré
-  * Machine virtuelle a été supprimée et une autre machine virtuelle a été créée avec le même nom et du même groupe de ressources en tant que la machine virtuelle supprimée
-  * Un des nœuds du groupe de disponibilité n’a pas reçu la configuration de la sauvegarde complète, cela peut se produire au moment de l’inscription du groupe de disponibilité dans le coffre ou quand un nouveau nœud est ajouté  <br>
-    Dans les scénarios ci-dessus, il est recommandé pour déclencher l’opération de Re-register sur la machine virtuelle. Cette option est uniquement disponible via PowerShell et sera bientôt disponible dans le portail Azure également.
+  * Une extension a été supprimée ou désinstallée sur le portail 
+  * Une extension a été désinstallée depuis le **Panneau de configuration** de la machine virtuelle dans l’interface utilisateur **Désinstaller ou modifier un programme**
+  * La machine virtuelle a été restaurée à un point dans le temps via une restauration de disques sur place
+  * La machine virtuelle a été arrêtée pendant une période prolongée, entraînant l’expiration de la configuration d’extension qui s’y trouvait
+  * La machine virtuelle a été supprimée et une autre machine virtuelle a été créée avec le même nom et le même groupe de ressources que la machine virtuelle supprimée
+  * L’un des nœuds du groupe de disponibilité n’a pas reçu la configuration de sauvegarde complète, cela peut se produire au moment de l’inscription du groupe de disponibilité dans le coffre ou quand un nouveau nœud est ajouté  <br>
+    Dans les scénarios ci-dessus, il est recommandé de déclencher l’opération de réinscription sur la machine virtuelle. Cette option est uniquement disponible via PowerShell et sera bientôt disponible dans le portail Azure également.
 
-## <a name="files-size-limit-beyond-which-restore-happens-to-default-path"></a>Limite de taille du fichier dépasse la restauration se produit au chemin d’accès par défaut
+## <a name="files-size-limit-beyond-which-restore-happens-to-default-path"></a>La limite de taille du fichier au-delà de laquelle la restauration se produit sur le chemin d’accès par défaut
 
-La taille totale de chaîne des fichiers dépend non seulement sur le nombre de fichiers, mais également sur leurs noms et les chemins d’accès. Pour chacun des fichiers de base de données, obtenir le nom de fichier logique et le chemin d’accès physique.
-Vous pouvez utiliser la requête SQL ci-dessous :
+La taille totale de chaîne de fichiers dépend non seulement du nombre de fichiers, mais également de leurs noms et chemins d’accès. Obtenez le nom de fichier logique et le chemin d’accès physique de chacun des fichiers de base de données.
+Vous pouvez utiliser la requête SQL ci-dessous :
 
   ```
   SELECT mf.name AS LogicalName, Physical_Name AS Location FROM sys.master_files mf
@@ -160,7 +159,7 @@ Vous pouvez utiliser la requête SQL ci-dessous :
                  WHERE db.name = N'<Database Name>'"
  ```
 
-Maintenant, réorganisez-les dans le format ci-dessous :
+Réorganisez-les à présent en suivant le format ci-dessous :
 
   ```[{"path":"<Location>","logicalName":"<LogicalName>","isDir":false},{"path":"<Location>","logicalName":"<LogicalName>","isDir":false}]}
   ```
@@ -170,13 +169,13 @@ Exemple :
   ```[{"path":"F:\\Data\\TestDB12.mdf","logicalName":"TestDB12","isDir":false},{"path":"F:\\Log\\TestDB12_log.ldf","logicalName":"TestDB12_log","isDir":false}]}
   ```
 
-Si la taille de la chaîne du contenu ci-dessus dépasse 20 000 octets, puis les fichiers de base de données sont stockées différemment, et lors de la récupération, vous ne serez pas en mesure de définir le chemin d’accès du fichier cible pour la restauration. Les fichiers sont restaurés vers le chemin d’accès SQL par défaut fourni par SQL Server.
+Si la taille de la chaîne du contenu donné dépasse 20 000 octets, les fichiers de base de données sont stockés différemment, et lors de la récupération, vous ne serez pas en mesure de définir le chemin d’accès du fichier cible pour la restauration. Les fichiers sont restaurés vers le chemin d’accès SQL par défaut fourni par SQL Server.
 
 ### <a name="override-the-default-target-restore-file-path"></a>Remplacer le chemin de fichier de restauration cible par défaut
 
-Vous pouvez remplacer le chemin d’accès du fichier de restauration cible pendant l’opération de restauration en plaçant un fichier JSON qui contient le mappage du fichier de base de données pour le chemin d’accès de restauration cible. Pour cela, créez un fichier `database_name.json` et placez-le à l’emplacement *Backup\bin\plugins\SQL de charge de travail C:\Program Files\Azure*.
+Vous pouvez remplacer le chemin d’accès du fichier de restauration cible pendant l’opération de restauration en plaçant un fichier JSON contenant le mappage du fichier de base de données sur le chemin d’accès de restauration cible. Pour cela, créez un fichier `database_name.json` et placez-le à l’emplacement *C:\Program Files\Azure Workload Backup\bin\plugins\SQL*.
 
-Le contenu du fichier doit être au format ci-dessous :
+Le contenu du fichier doit être au format ci-dessous :
   ```[
     {
       "Path": "<Restore_Path>",
@@ -208,7 +207,7 @@ Exemple :
   ```
 
  
-Dans le contenu mentionné ci-dessus, vous pouvez obtenir le nom logique du fichier de base de données à l’aide de la requête SQL ci-dessous :
+Dans le contenu ci-dessus, vous pouvez obtenir le nom logique du fichier de base de données à l’aide de la requête SQL ci-dessous :
 
 ```
 SELECT mf.name AS LogicalName FROM sys.master_files mf

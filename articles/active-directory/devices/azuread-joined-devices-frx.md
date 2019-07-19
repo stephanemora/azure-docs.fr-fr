@@ -1,28 +1,22 @@
 ---
 title: Joindre un nouvel appareil Windows 10 à Azure AD lors de la première utilisation | Microsoft Docs
-description: Rubrique qui explique comment les utilisateurs peuvent configurer Azure AD Join lors de la première utilisation.
+description: Comment les utilisateurs peuvent configurer la jonction Azure AD en mode OOBE.
 services: active-directory
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-editor: ''
-ms.assetid: 06a149f7-4aa1-4fb9-a8ec-ac2633b031fb
 ms.service: active-directory
 ms.subservice: devices
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: tutorial
-ms.date: 02/03/2019
+ms.topic: conceptual
+ms.date: 06/28/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a79c5f89b14d15ffe4f3c582ac7e1e4cabbdc611
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 384157828e9c816b150e40bf3f09b74578c4a98e
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521548"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482093"
 ---
 # <a name="tutorial-join-a-new-windows-10-device-with-azure-ad-during-a-first-run"></a>Didacticiel : Joindre un nouvel appareil Windows 10 à Azure AD lors de la première utilisation
 
@@ -45,43 +39,34 @@ Dans le cadre de ce didacticiel, vous allez apprendre à joindre un appareil à 
 
 Pour joindre un appareil Windows 10, le service d’inscription des appareils doit être configuré pour vous permettre d’inscrire des appareils. En plus d’avoir l’autorisation de joindre des appareils dans votre locataire Azure AD, vous devez avoir moins d’appareils inscrits que le nombre maximal configuré. Pour plus d’informations, consultez [Configurer les paramètres de l’appareil](device-management-azure-portal.md#configure-device-settings).
 
-De plus, si votre locataire est fédéré, votre fournisseur d’identité DOIT prendre en charge le point de terminaison nom d’utilisateur/mot de passe WS-Fed et WS-Trust. Il peut s’agir de la version 1.3 ou de la version 2005. La prise en charge de ce protocole est nécessaire tant pour joindre l’appareil à Azure AD que pour ouvrir une session sur l’appareil avec un mot de passe.
+De plus, si votre locataire est fédéré, votre fournisseur d’identité DOIT prendre en charge le point de terminaison nom d’utilisateur/mot de passe WS-Fed et WS-Trust. Il peut s’agir de la version 1.3 ou de la version 2005. La prise en charge de ce protocole est nécessaire tant pour joindre l’appareil à Azure AD que pour se connecter à l’appareil avec un mot de passe.
 
 ## <a name="joining-a-device"></a>Joindre un appareil
 
 **Pour joindre un appareil Windows 10 à Azure AD lors de la première utilisation :**
 
-
 1. Lorsque vous mettez sous tension votre nouveau périphérique et démarrez le processus d'installation, le message **Préparation** s’affiche. Suivez les invites pour configurer votre appareil.
-
-2. Commencez par personnaliser votre région et votre langue. Ensuite, acceptez les termes du contrat de licence du logiciel Microsoft.
+1. Commencez par personnaliser votre région et votre langue. Ensuite, acceptez les termes du contrat de licence du logiciel Microsoft.
  
     ![Personnalisation pour votre région](./media/azuread-joined-devices-frx/01.png)
 
-3. Sélectionnez le réseau que vous souhaitez utiliser pour la connexion à Internet.
-
-4. Cliquez sur **Cet appareil appartient à mon organisation**. 
+1. Sélectionnez le réseau que vous souhaitez utiliser pour la connexion à Internet.
+1. Cliquez sur **Cet appareil appartient à mon organisation**. 
 
     ![Écran « À qui appartient cet appareil ? »](./media/azuread-joined-devices-frx/02.png)
 
-5. Entrez les informations d’identification que vous a fournies votre organisation, puis cliquez sur **Se connecter**.
+1. Entrez les informations d’identification que vous a fournies votre organisation, puis cliquez sur **Se connecter**.
 
     ![Écran de connexion](./media/azuread-joined-devices-frx/03.png)
 
-6. Votre appareil localise un locataire correspondant dans Azure AD. Si vous faites partie d’un domaine fédéré, vous êtes redirigé vers votre serveur STS (Secure Token Service) local, par exemple les services de fédération Azure Directory (AD FS).
-
-7. Si vous êtes un utilisateur dans des domaines non fédérés, entrez vos informations d'identification directement sur la page hébergée sur Azure AD. 
-
-8. Vous devrez ensuite fournir les informations nécessaires à l’authentification multifacteur. 
- 
-9. Azure AD vérifie si une inscription est exigée dans la gestion des appareils mobiles.
-
-10. Windows inscrit l’appareil dans l’annuaire de l’organisation dans Azure AD, puis l’inscrit à la gestion des appareils mobiles, si nécessaire.
-
-11. Si vous êtes :
-    - Un utilisateur géré, Windows vous redirige vers le Bureau par le biais du processus de connexion automatique.
-
-    - Un utilisateur fédéré, vous accédez à l’écran de connexion de Windows pour entrer vos informations d’identification.
+1. Votre appareil localise un locataire correspondant dans Azure AD. Si vous faites partie d’un domaine fédéré, vous êtes redirigé vers votre serveur STS (Secure Token Service) local, par exemple les services de fédération Azure Directory (AD FS).
+1. Si vous êtes un utilisateur dans des domaines non fédérés, entrez vos informations d'identification directement sur la page hébergée sur Azure AD. 
+1. Vous devrez ensuite fournir les informations nécessaires à l’authentification multifacteur. 
+1. Azure AD vérifie si une inscription est exigée dans la gestion des appareils mobiles.
+1. Windows inscrit l’appareil dans l’annuaire de l’organisation dans Azure AD, puis l’inscrit à la gestion des appareils mobiles, si nécessaire.
+1. Si vous êtes :
+   - Un utilisateur géré, Windows vous redirige vers le Bureau par le biais du processus de connexion automatique.
+   - Un utilisateur fédéré, vous accédez à l’écran de connexion de Windows pour entrer vos informations d’identification.
 
 ## <a name="verification"></a>Vérification
 
@@ -89,9 +74,7 @@ Pour vérifier si un appareil est joint à Azure AD, consultez la boîte de dial
 
 ![Accès Professionnel ou Scolaire](./media/azuread-joined-devices-frx/13.png)
 
-
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour plus d’informations, consultez [Présentation de la gestion des appareils dans Azure Active Directory](overview.md).
-
 - Pour plus d’informations sur la gestion des appareils dans le portail Azure AD, consultez [Gestion des appareils avec le portail Azure](device-management-azure-portal.md).

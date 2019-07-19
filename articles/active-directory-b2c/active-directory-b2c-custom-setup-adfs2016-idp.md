@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 4510074619ff513b7284819d88fdb2532e4ce33a
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.openlocfilehash: 2c469b333c6896d33b440bfadf0ebbdbeece71a3
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66510430"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272134"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Ajouter ADFS en tant que fournisseur d’identités SAML à l’aide de stratégies personnalisées dans Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ ms.locfileid: "66510430"
 
 Cet article explique comment autoriser la connexion d’un compte d’utilisateur ADFS à l’aide de [stratégies personnalisées](active-directory-b2c-overview-custom.md) dans Azure Active Directory (Azure AD) B2C. Vous allez activer la connexion en ajoutant un [profil technique SAML](saml-technical-profile.md) à une stratégie personnalisée.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 - Suivez les étapes de l’article [Prise en main des stratégies personnalisées dans Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
 - Assurez-vous d’avoir accès à un fichier .pfx de certificat avec une clé privée. Vous pouvez générer votre propre certificat autosigné et le charger dans Azure AD B2C. Azure AD B2C utilise ce certificat pour signer la requête SAML envoyée à votre fournisseur d’identité SAML.
@@ -33,7 +33,7 @@ Cet article explique comment autoriser la connexion d’un compte d’utilisateu
 Vous devez enregistrer votre certificat dans votre client Azure AD B2C.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
-2. Vérifiez que vous utilisez le répertoire qui contient votre locataire Azure AD B2C. Sélectionnez le **filtre Directory et abonnement** dans le menu supérieur et sélectionnez le répertoire qui contient votre client.
+2. Veillez à bien utiliser le répertoire qui contient votre locataire Azure AD B2C. Choisissez le **filtre Répertoire et abonnement** dans le menu supérieur et sélectionnez le répertoire qui contient votre locataire.
 3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
 4. Dans la page de vue d’ensemble, sélectionnez **Infrastructure d’expérience d’identité**.
 5. Sélectionnez **Clés de stratégie**, puis **Ajouter**.
@@ -102,6 +102,10 @@ Vous pouvez définir un compte ADFS en tant que fournisseur de revendications en
 2. Activez **Remplacer la stratégie si elle existe**, puis recherchez et sélectionnez le fichier *TrustFrameworkExtensions.xml*.
 3. Cliquez sur **Télécharger**.
 
+> [!NOTE]
+> L’extension B2C de code Visual Studio utilise « socialIdpUserId ». Une stratégie de réseau social est également requise pour ADFS.
+>
+
 ## <a name="register-the-claims-provider"></a>Inscription du fournisseur de revendications
 
 À ce stade, le fournisseur d’identité a été configuré, mais il n’est disponible dans aucun des écrans d’inscription ou de connexion. Pour changer cela, vous pouvez créer un doublon d’un modèle de parcours utilisateur et le modifier afin qu’il dispose également du fournisseur d’identité ADFS.
@@ -151,7 +155,7 @@ Remplacez les valeurs suivantes :
 
 - **your-tenant** par le nom de votre locataire, par exemple, your-tenant.onmicrosoft.com.
 - **your-policy** par le nom de votre stratégie. Par exemple, B2C_1A_signup_signin_adfs.
-- **votre profil de technique** par le nom de votre profil technique du fournisseur d’identité SAML. Par exemple, Contoso-SAML2.
+- **your-technical-profile** par le nom du profil technique de votre fournisseur d’identité SAML. Par exemple, Contoso-SAML2.
  
 Ouvrez un navigateur et accédez à l’URL. Veillez à taper l’URL est correcte pour avoir accès au fichier de métadonnées XML. Pour ajouter une nouvelle approbation de partie de confiance en utilisant le composant logiciel enfichable de gestion ADFS et configurer manuellement les paramètres, effectuez la procédure suivante sur un serveur de fédération. L’appartenance au groupe **Administrateurs** ou à un groupe équivalent sur l’ordinateur local est la condition minimale requise pour effectuer cette procédure.
 
@@ -167,13 +171,13 @@ Ouvrez un navigateur et accédez à l’URL. Veillez à taper l’URL est correc
 10. Dans **Modèle de règle de revendication**, sélectionnez **Envoyer les attributs LDAP en tant que revendications**.
 11. Fournissez un **Nom de règle de revendication**. Pour le **Magasin d’attributs** choisissez **Sélectionner Active Directory**, ajoutez les revendications suivantes, puis cliquez sur **Terminer** et **OK**.
 
-    | Attribut LDAP | Type de revendication sortante |
+    | Attribut LDAP | Type de revendication sortante |
     | -------------- | ------------------- |
     | User-Principal-Name | userPrincipalName |
     | Surname | family_name |
     | Given-Name | given_name |
     | E-Mail-Address | email |
-    | Display-Name | name |
+    | Display-Name | Nom |
     
 12.  Selon votre type de certificat, il se peut que vous deviez définir l’algorithme de hachage. Dans la fenêtre de propriétés de l’approbation de partie de confiance (Démo B2C), sélectionnez l’onglet **Avancé**, remplacez l’**Algorithme de hachage sécurisé** par `SHA-256`, puis cliquez sur **OK**.  
 13. Dans Gestionnaire de serveur, sélectionnez **Outils**, puis **Gestion ADFS**.

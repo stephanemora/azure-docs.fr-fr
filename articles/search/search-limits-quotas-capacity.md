@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 04/17/2019
+ms.date: 07/01/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 419c533aabd67637efa64777387c491dd890596e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b6940be7f64aa9ae16258fa936d197e2715235ab
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65024634"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485411"
 ---
 # <a name="service-limits-in-azure-search"></a>Limites de service d’Azure Search
 Les limites maximales du stockage, des charges de travail et des quantités d’index, de documents et autres objets varient selon que vous [approvisionnez le service Recherche Azure](search-create-service-portal.md) avec les niveaux tarifaires **Gratuit**, **De base**, **Standard** ou **Stockage optimisé**.
@@ -29,7 +29,7 @@ Les limites maximales du stockage, des charges de travail et des quantités d’
 + **Stockage optimisé** s’exécute sur des ordinateurs dédiés avec plus de stockage total, de bande passante de stockage et de mémoire que **Standard**. Stockage optimisé est disponible en deux niveaux : L1 et L2
 
 > [!NOTE]
-> Les niveaux de service Stockage optimisé sont actuellement disponibles sous la forme d’une préversion à tarif réduit à des fins de test et d’expérimentation, dans le but de recueillir des commentaires. La tarification finale sera annoncée ultérieurement, une fois ces niveaux généralement disponibles. Nous déconseillons l’utilisation de ces niveaux pour des applications de production.
+> À compter du 1er juillet, tous les niveaux seront à la disposition générale, y compris le niveau À stockage optimisé. Tous les tarifs sont disponibles sur la page [Détails de la tarification](https://azure.microsoft.com/pricing/details/search/).
 
   La catégorie S3 HD (S3 High Density) est conçue pour des charges de travail spécifiques : [une architecture multilocataire](search-modeling-multitenant-saas-applications.md) et de grandes quantités de petits index (un million de documents par index, trois mille index par service). Elle ne fournit pas la [fonctionnalité d’indexeur](search-indexer-overview.md). Dans S3 HD, l’ingestion des données doit tirer parti de l’approche push en appelant des API pour envoyer (push) les données de la source vers l’index. 
 

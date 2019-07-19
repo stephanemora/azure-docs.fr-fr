@@ -3,6 +3,7 @@ title: Principales différences de Machine Learning Services dans Azure SQL Data
 description: Cette rubrique décrit les principales différences entre Azure SQL Database Machine Learning Services (avec R) et SQL Server Machine Learning Services.
 services: sql-database
 ms.service: sql-database
+ms.subservice: machine-learning
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +12,12 @@ ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
 ms.date: 03/01/2019
-ms.openlocfilehash: 92785015a1ce122b8301b56fa62d122c8d95180c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ee92b598625b1346cf87c661d1867cc1cb012b60
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64725056"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67486005"
 ---
 # <a name="key-differences-between-machine-learning-services-in-azure-sql-database-preview-and-sql-server"></a>Principales différences entre Machine Learning Services dans Azure SQL Database (préversion) et Machine Learning Services dans SQL Server
 
@@ -43,12 +44,15 @@ L’installation et la gestion des packages R fonctionnent différemment pour SQ
 - Les packages ne peuvent pas effectuer d’appels réseau sortants. Cette limitation est similaire aux [règles de pare-feu par défaut de Machine Learning Services](https://docs.microsoft.com//sql/advanced-analytics/security/firewall-configuration) dans SQL Server, mais elle n’est pas modifiable dans SQL Database.
 - Les packages qui dépendent de runtimes externes (comme Java) ou dont l’installation ou l’utilisation impliquent un accès à des API de système d’exploitation ne sont pas pris en charge.
 
+## <a name="writing-to-a-temporary-table"></a>Écriture dans une table temporaire
+
+Si vous utilisez RODBC dans Azure SQL Database, vous ne pouvez pas écrire dans une table temporaire, y compris si elle est créée à l’intérieur ou en dehors de la session `sp_execute_external_script`. La solution de contournement consiste à utiliser [RxOdbcData](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxodbcdata) et [rxDataStep](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxdatastep) (avec overwrite=FALSE et append="rows") pour écrire dans une table temporaire globale créée avant la requête `sp_execute_external_script`.
+
 ## <a name="resource-governance"></a>Gouvernance des ressources
 
 Il n’est pas possible de limiter les ressources R avec [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) et les listes de ressources externes.
 
 Pendant la préversion publique, les ressources R englobent au maximum 20 % des ressources SQL Database, et le pourcentage précis dépend du niveau de service choisi. Pour plus d’informations, voir [Modèles d’achat Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers).
-
 ### <a name="insufficient-memory-error"></a>Erreur de mémoire insuffisante
 
 Si la mémoire est insuffisante pour R, un message d’erreur s’affiche. Les messages d’erreur courants sont les suivants :

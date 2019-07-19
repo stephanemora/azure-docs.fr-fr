@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 8825f1dc3b66a5c4981ba25a90813aec63975b1f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e73d4ebd3eb05f7cf217573d8112e3dbbe6d3a37
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65145132"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514079"
 ---
 # <a name="algorithm--module-reference-overview"></a>Vue d’ensemble des informations de référence sur les algorithmes et les modules
 
@@ -33,8 +33,8 @@ Les modules sont organisés par fonctionnalités :
 | --- |--- | ---- |
 | Conversion des formats de données | Convertissez des données entre différents formats de fichier utilisés dans Machine Learning, | [Convertir au format CSV](convert-to-csv.md) |
 | Entrée et sortie de données | Déplacez des données de sources cloud dans votre expérience. Écrivez vos résultats ou des données intermédiaires dans Stockage Azure, une base de données SQL, ou Hive, lors de l’exécution d’une expérience, ou utilisez le stockage cloud pour échanger des données entre des expériences.  | [Importer des données](import-data.md)<br/>[Exporter les données](export-data.md)<br/>[Entrer des données manuellement](enter-data-manually.md) |
-| Transformation des données | Opérations sur les données qui sont uniques à Machine Learning, telles que la normalisation ou le compartimentage de données, la sélection de fonctionnalité et la réduction de dimensionnalité.| [Sélectionner des colonnes dans le jeu de données](select-columns-in-dataset.md) <br/> [Modifier des métadonnées](edit-metadata.md) <br/> [Nettoyage des données manquantes](clean-missing-data.md) <br/> [Ajouter des colonnes](add-columns.md) <br/> [Ajouter des lignes](add-rows.md) <br/> [Supprimer les données en double](remove-duplicate-rows.md) <br/> [Fractionner les données](split-data.md) <br/> [Normaliser des données](normalize-data.md) <br/> [Partition et échantillon](partition-and-sample.md) |
-| Module Python | Écrivez du code et incorporez-le dans un module pour intégrer Python à votre expérience. | [Exécuter un script Python](execute-python-script.md)   <br/> [Créer un modèle Python](create-python-model.md)
+| Transformation des données | Opérations sur les données qui sont uniques à Machine Learning, telles que la normalisation ou le compartimentage de données, la sélection de fonctionnalité et la réduction de dimensionnalité.| [Sélectionner des colonnes dans le jeu de données](select-columns-in-dataset.md) <br/> [Modifier des métadonnées](edit-metadata.md) <br/> [Nettoyage des données manquantes](clean-missing-data.md) <br/> [Ajouter des colonnes](add-columns.md) <br/> [Ajouter des lignes](add-rows.md) <br/> [Supprimer les données en double](remove-duplicate-rows.md) <br/> [Joindre des données](join-data.md) <br/> [Fractionner les données](split-data.md) <br/> [Normaliser des données](normalize-data.md) <br/> [Partition et échantillon](partition-and-sample.md) |
+| Modules Python et R | Écrivez du code et incorporez-le dans un module pour intégrer Python et R à votre expérience. | [Exécuter un script Python](execute-python-script.md)   <br/> [Créer un modèle Python](create-python-model.md) <br/> [Exécuter un script R](execute-r-script.md)
 |  | **Algorithmes de Machine Learning** : | |
 | classification ; | Prédisez une classe.  Choisissez entre des algorithmes binaires (à deux classes) ou multiclasses.| [Forêt d’arbres décisionnels multiclasse](multiclass-decision-forest.md) <br/> [Régression logistique multiclasse](multiclass-logistic-regression.md)  <br/> [Réseau neuronal multiclasse](multiclass-neural-network.md)  <br/>  [Régression logistique à deux classes](two-class-logistic-regression.md)  <br/>[Perceptron moyenné à deux classes](two-class-averaged-perceptron.md) <br/> [Arbre de décision&nbsp;mis en avant&nbsp;à deux&nbsp;classes](two-class-boosted-decision-tree.md)  <br/> [Forêt d’arbres décisionnels à deux classes](two-class-decision-forest.md)  <br/> [Réseau neuronal à deux classes](two-class-neural-network.md)  <br/> [Prise en charge&nbsp;de machine&nbsp;vectorielle&nbsp;à deux classes](two-class-support-vector-machine.md) 
 | Clustering | Regroupez des données.| [Clustering k-moyennes](k-means-clustering.md)

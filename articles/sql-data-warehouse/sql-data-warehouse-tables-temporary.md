@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 04/01/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 56c15a9505b3f0e4344c9164268082da1ff7cc22
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
-ms.translationtype: MT
+ms.openlocfilehash: 32830039c62f7ff68137e704b2562269fd4ad2c7
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65851565"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67466113"
 ---
 # <a name="temporary-tables-in-sql-data-warehouse"></a>Tables temporaires dans SQL Data Warehouse
 Cet article contient des conseils de base pour l’utilisation des tables temporaires et met en évidence les principes des tables temporaires au niveau de la session. L’utilisation des informations de cet article peut vous aider à modulariser votre code, et à améliorer sa réutilisabilité et sa facilité de maintenance.
@@ -24,7 +24,7 @@ Cet article contient des conseils de base pour l’utilisation des tables tempor
 Les tables temporaires sont utiles lors du traitement des données, notamment lors d’une transformation, lorsque les résultats intermédiaires sont temporaires. Les tables temporaires se trouvent au niveau de la session dans SQL Data Warehouse.  Elles sont uniquement visibles dans la session dans laquelle elles ont été créées et sont automatiquement supprimées lorsque cette session se déconnecte.  Les tables temporaires offrent un gain de performances, car leurs résultats sont écrits en local et non dans un stockage distant.
 
 ## <a name="create-a-temporary-table"></a>Créer une table temporaire
-Les tables temporaires sont créées en faisant simplement précéder le nom de votre table de `#`.  Exemple :
+Les tables temporaires sont créées en faisant simplement précéder le nom de votre table de `#`.  Par exemple :
 
 ```sql
 CREATE TABLE #stats_ddl
@@ -81,19 +81,6 @@ GROUP BY
 ,        st.[filter_definition]
 ,        st.[has_filter]
 )
-SELECT
-    CASE @update_type
-    WHEN 1
-    THEN 'UPDATE STATISTICS '+[two_part_name]+'('+[stats_name]+');'
-    WHEN 2
-    THEN 'UPDATE STATISTICS '+[two_part_name]+'('+[stats_name]+') WITH FULLSCAN;'
-    WHEN 3
-    THEN 'UPDATE STATISTICS '+[two_part_name]+'('+[stats_name]+') WITH SAMPLE '+CAST(@sample_pct AS VARCHAR(20))+' PERCENT;'
-    WHEN 4
-    THEN 'UPDATE STATISTICS '+[two_part_name]+'('+[stats_name]+') WITH RESAMPLE;'
-    END AS [update_stats_ddl]
-,   [seq_nmbr]
-FROM    t1
 ;
 ``` 
 
@@ -215,7 +202,7 @@ DROP TABLE #stats_ddl;
 ```
 
 ## <a name="temporary-table-limitations"></a>Limitations relatives aux tables temporaires
-SQL Data Warehouse impose quelques restrictions lors de l’implémentation de tables temporaires.  Actuellement, seules les tables temporaires de la session sont prises en charge.  Les tables temporaires globales ne sont pas prises en charge.  En outre, vous ne pouvez pas créer de vues sur des tables temporaires.  Tables temporaires peuvent être créés uniquement avec la distribution de hachage ou le tourniquet (Round Robin).  Distribution de table temporaire répliquée n’est pas pris en charge. 
+SQL Data Warehouse impose quelques restrictions lors de l’implémentation de tables temporaires.  Actuellement, seules les tables temporaires de la session sont prises en charge.  Les tables temporaires globales ne sont pas prises en charge.  En outre, vous ne pouvez pas créer de vues sur des tables temporaires.  Les tables temporaires peuvent être créées uniquement avec une distribution par hachage ou par tourniquet (round robin).  La distribution de tables temporaires répliquées n’est pas prise en charge. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur le développement des tables, consultez la [Vue d’ensemble de la Table](sql-data-warehouse-tables-overview.md).

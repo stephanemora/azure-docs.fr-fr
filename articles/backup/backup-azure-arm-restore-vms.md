@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: geg
-ms.openlocfilehash: 19b249a76a339ce870609fbcdceaf70bf79a6ea2
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
-ms.translationtype: MT
+ms.openlocfilehash: 62e10f382882e70d488f9814cb00c2b86b8b9691
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65906495"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67460231"
 ---
 # <a name="restore-azure-vms"></a>Restaurer des machines virtuelles Azure
 
@@ -28,9 +28,9 @@ Sauvegarde Azure permet de restaurer une machine virtuelle de plusieurs façons.
 
 **Option de restauration** | **Détails**
 --- | ---
-**Créer une machine virtuelle** | Permet d’avoir rapidement une machine virtuelle de base opérationnelle à partir d’un point de restauration.<br/><br/> Vous pouvez spécifier un nom pour la machine virtuelle, sélectionnez le groupe de ressources et le réseau virtuel (VNet) dans laquelle elle sera placée et spécifiez un compte de stockage pour la machine virtuelle restaurée.
+**Créer une machine virtuelle** | Permet d’avoir rapidement une machine virtuelle de base opérationnelle à partir d’un point de restauration.<br/><br/> Vous pouvez nommer la machine virtuelle, sélectionner le groupe de ressources et le réseau virtuel (VNet) où elle sera placée et spécifier un type de stockage pour la machine virtuelle restaurée.
 **Restaurer un disque** | Restaure un disque de machine virtuelle que vous pouvez ensuite utiliser pour créer une machine virtuelle.<br/><br/> Sauvegarde Azure fournit un modèle pour vous aider à personnaliser et à créer une machine virtuelle. <br/><br> Le travail de restauration génère un modèle que vous pouvez télécharger et utiliser pour spécifier des paramètres de machine virtuelle personnalisés et créer une machine virtuelle.<br/><br/> Les disques sont copiés dans le compte de stockage que vous spécifiez.<br/><br/> Vous pouvez également attacher le disque à une machine virtuelle existante ou créer une machine virtuelle à l’aide de PowerShell.<br/><br/> Cette option est utile si vous souhaitez personnaliser la machine virtuelle, ajouter des paramètres de configuration qui n’existaient pas au moment de la sauvegarde ou encore ajouter des paramètres qui doivent être configurés à l’aide du modèle ou de PowerShell.
-**Remplacer l’existant** | Vous pouvez restaurer un disque et l’utiliser pour remplacer un disque sur la machine virtuelle existante.<br/><br/> La machine virtuelle actuelle doit exister. Si elle a été supprimée, vous ne pouvez pas utiliser cette option.<br/><br/> Sauvegarde Azure prend un instantané de la machine virtuelle existante avant de remplacer le disque et le stocke dans l’emplacement intermédiaire que vous spécifiez. Connecté à la machine virtuelle de disques existants sont remplacés par le point de restauration sélectionné.<br/><br/> L’instantané est copié dans le coffre et conservé conformément à la stratégie de rétention. <br/><br/> L’option Remplacer l’existant est prise en charge pour les machines virtuelles managées non chiffrées. Elle ne l’est pas pour les disques non managés, les [machines virtuelles généralisées](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource) ou les machines virtuelles [créées à l’aide d’images personnalisées](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/).<br/><br/> Si le point de restauration a plus ou moins de disques que la machine virtuelle actuelle, le nombre de disques du point de restauration reflète alors uniquement la configuration de la machine virtuelle.<br/><br/>
+**Remplacer l’existant** | Vous pouvez restaurer un disque et l’utiliser pour remplacer un disque sur la machine virtuelle existante.<br/><br/> La machine virtuelle actuelle doit exister. Si elle a été supprimée, vous ne pouvez pas utiliser cette option.<br/><br/> La Sauvegarde Azure prend un instantané de la machine virtuelle existante avant de remplacer le disque et le stocke à l’emplacement intermédiaire spécifié. Les disques existants connectés à la machine virtuelle sont remplacés par le point de restauration sélectionné.<br/><br/> L’instantané est copié dans le coffre et conservé conformément à la stratégie de conservation. <br/><br/> L’option Remplacer l’existant est prise en charge pour les machines virtuelles managées non chiffrées. Elle ne l’est pas pour les disques non managés, les [machines virtuelles généralisées](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource) ou les machines virtuelles [créées à l’aide d’images personnalisées](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/).<br/><br/> Si le point de restauration a plus ou moins de disques que la machine virtuelle actuelle, le nombre de disques du point de restauration reflète alors uniquement la configuration de la machine virtuelle.<br/><br/>
 
 
 > [!NOTE]
@@ -40,24 +40,24 @@ Sauvegarde Azure permet de restaurer une machine virtuelle de plusieurs façons.
 
 ## <a name="storage-accounts"></a>Comptes de stockage
 
-Certains détails sur les comptes de stockage :
+Informations sur les comptes de stockage :
 
-- **Créer une machine virtuelle** : Lorsque vous créez une nouvelle machine virtuelle, la machine virtuelle est placée dans le compte de stockage que vous spécifiez.
-- **Restaurer un disque**: Lorsque vous restaurez un disque, le disque est copié dans le compte de stockage que vous spécifiez. Le travail de restauration génère un modèle que vous pouvez télécharger et utiliser pour spécifier les paramètres de machine virtuelle personnalisées. Ce modèle est placé dans le compte de stockage spécifié.
-- **Remplacez le disque**: Lorsque vous remplacez un disque sur une machine virtuelle existante, Azure Backup prend un instantané de la machine virtuelle existante avant de remplacer le disque. La capture instantanée est stockée dans l’emplacement intermédiaire (compte de stockage) que vous spécifiez. Ce compte de stockage est utilisé pour stocker temporairement l’instantané pendant le processus de restauration, et nous vous recommandons de créer un nouveau compte pour ce faire, vous pouvez facilement supprimer par la suite.
-- **Emplacement du compte de stockage** : Le compte de stockage doit être dans la même région que le coffre. Seuls ces comptes sont affichés. S’il n’y a aucun compte de stockage dans l’emplacement, vous devez en créer un.
-- **Type de stockage** : Stockage d’objets BLOB n’est pas pris en charge.
-- **Redondance du stockage**: Le stockage redondant interzone (ZRS) n’est pas pris en charge. Les informations de réplication et la redondance pour le compte sont indiquées entre parenthèses après le nom du compte. 
-- **Stockage Premium**:
-    - Lorsque vous restaurez des machines virtuelles non premium, les comptes de stockage premium ne sont pas pris en charge.
-    - Lors de la restauration de machines virtuelles gérées, les comptes de stockage premium configurés avec des règles de réseau ne sont pas pris en charge.
+- **Créer une machine virtuelle** : lorsque vous créez une machine virtuelle, celle-ci est placée dans le compte de stockage que vous spécifiez.
+- **Restaurer un disque** : lorsque vous restaurez un disque, celui-ci est copié dans le compte de stockage que vous spécifiez. Le travail de restauration génère un modèle que vous pouvez télécharger et utiliser pour spécifier des paramètres de machine virtuelle personnalisés. Ce modèle est placé dans le compte de stockage spécifié.
+- **Remplacer un disque** : lorsque vous remplacez un disque sur une machine virtuelle existante, la Sauvegarde Azure prend un instantané de cette machine avant de remplacer le disque. L’instantané est stocké dans l’emplacement intermédiaire (compte de stockage) que vous spécifiez. Ce compte de stockage est utilisé pour stocker temporairement l’instantané pendant le processus de restauration. Nous vous recommandons de créer un compte à cet effet, que vous pouvez facilement supprimer par la suite.
+- **Emplacement du compte de stockage** : le compte de stockage doit se trouver dans la même région que le coffre. Seuls ces comptes sont affichés. S’il n’y a aucun compte de stockage à cet emplacement, vous devez en créer un.
+- **Type de stockage** : le stockage d'objets blob n’est pas pris en charge.
+- **Redondance du stockage** : Le stockage redondant interzone (ZRS) n’est pas pris en charge. Les informations de réplication et de redondance pour le compte sont indiquées entre parenthèses après le nom du compte. 
+- **Stockage Premium** :
+    - lorsque vous restaurez des machines virtuelles non Premium, les comptes de stockage Premium ne sont pas pris en charge.
+    - Lors de la restauration de machines virtuelles gérées, les comptes de stockage Premium configurés avec des règles de réseau ne sont pas pris en charge.
 
 
 ## <a name="before-you-start"></a>Avant de commencer
 
-Restaurer une machine virtuelle (créer une machine virtuelle) Vérifiez que vous disposez du contrôle de l’accès approprié en fonction du rôle (RBAC) [autorisations](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) pour l’opération de restauration de machine virtuelle.
+Pour restaurer une machine virtuelle (créer une machine virtuelle), vérifiez que vous disposez des [autorisations](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) appropriées de contrôle de l’accès en fonction du rôle (RBAC) pour l’opération de restauration de machine virtuelle.
 
-Si vous n’avez pas les autorisations, vous pouvez [restaurer un disque](#restore-disks), et une fois le disque est restauré, vous pouvez ensuite [utiliser le modèle](#use-templates-to-customize-a-restored-vm) qui a été généré dans le cadre de l’opération de restauration pour créer une machine virtuelle.
+Si vous n’avez pas ces autorisations, vous pouvez [restaurer un disque](#restore-disks) et, une fois le disque restauré, [utiliser le modèle](#use-templates-to-customize-a-restored-vm) généré dans le cadre de l’opération de restauration pour créer une machine virtuelle.
 
 
 
@@ -89,7 +89,7 @@ Cette [option de restauration](#restore-options) vous permet de créer rapidemen
 2. Dans **Nom de la machine virtuelle**, spécifiez une machine virtuelle qui n’existe pas dans l’abonnement.
 3. Dans **Groupe de ressources**, sélectionnez un groupe de ressources existant pour la nouvelle machine virtuelle ou créez-en un avec un nom global unique. Si vous attribuez un nom qui existe déjà, Azure attribue au groupe le même nom que celui de la machine virtuelle.
 4. Dans **Réseau virtuel**, sélectionnez le réseau virtuel dans lequel la machine virtuelle sera placée. Tous les réseaux virtuels associés à l’abonnement sont affichés. Sélectionnez le sous-réseau. Le premier sous-réseau est sélectionné par défaut.
-5. Dans **emplacement de stockage**, spécifiez le compte de stockage pour la machine virtuelle. [Plus d’informations](#storage-accounts)
+5. Dans **Emplacement de stockage**, spécifiez le compte de stockage pour la machine virtuelle. [Plus d’informations](#storage-accounts)
 
     ![Assistant Configuration de restauration](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard1.png)
 
@@ -102,7 +102,7 @@ Cette [option de restauration](#restore-options) vous permet de créer un disque
 
 - Utiliser le modèle généré durant l’opération de restauration pour personnaliser les paramètres et déclencher le déploiement de la machine virtuelle. Vous modifiez les paramètres de modèle par défaut, puis vous envoyez le modèle pour le déploiement de machine virtuelle.
 - [Attacher des disques restaurés](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) à une machine virtuelle existante.
-- [Créer une machine virtuelle](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#create-a-vm-from-restored-disks) à partir de disques restaurés à l’aide de PowerShell.
+- [Créer une machine virtuelle](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#create-a-vm-from-restored-disks) à partir des disques restaurés à l’aide de PowerShell.
 
 1. Dans **Configuration de la restauration** > **Créer** > **Type de restauration**, sélectionnez **Restaurer des disques**.
 2. Dans **Groupe de ressources**, sélectionnez un groupe de ressources existant pour les disques restaurés ou créez-en un avec un nom global unique.
@@ -112,7 +112,7 @@ Cette [option de restauration](#restore-options) vous permet de créer un disque
 
 4. Dans **Configuration de la restauration**, sélectionnez **OK**. Dans **Restaurer**, cliquez sur **Restaurer** pour déclencher l’opération de restauration.
 
-Pendant la restauration de la machine virtuelle, sauvegarde Azure n’utilise pas compte de stockage. Mais dans le cas de **restaurer des disques** et **la restauration instantanée**, compte de stockage est utilisé pour stocker le modèle.
+Pendant la restauration de la machine virtuelle, la Sauvegarde Azure n’utilise pas le compte de stockage. Mais dans le cas d’une **restauration de disques** et d’une **restauration instantanée**, le compte de stockage est utilisé pour stocker le modèle.
 
 ### <a name="use-templates-to-customize-a-restored-vm"></a>Utiliser des modèles pour personnaliser une machine virtuelle restaurée
 
@@ -140,8 +140,8 @@ Une fois le disque restauré, utilisez le modèle généré dans le cadre de l�
 Cette [option de restauration](#restore-options) vous permet de remplacer un disque de machine virtuelle existant par le point de restauration sélectionné. [Passez en revue](#restore-options) toutes les options de restauration.
 
 1. Dans **Configuration de la restauration**, cliquez sur **Remplacer l’existant**.
-2. Dans **Type de restauration**, sélectionnez **Remplacer le(s) disque(s)**. Il s’agit du point de restauration qui sera utilisé pour remplacer les disques existants de la machine virtuelle.
-3. Dans **emplacement intermédiaire**, spécifiez où les captures instantanées des disques gérés en cours doivent être enregistrées pendant le processus de restauration. [Plus d’informations](#storage-accounts)
+2. Dans **Type de restauration**, sélectionnez **Remplacer le(s) disque(s)** . Il s’agit du point de restauration qui sera utilisé pour remplacer les disques existants de la machine virtuelle.
+3. Dans **Emplacement intermédiaire**, spécifiez l’emplacement où les instantanés des disques managés actuels doivent être enregistrés pendant le processus de restauration. [Plus d’informations](#storage-accounts)
 
    ![Assistant Configuration de restauration avec l’option Replace existing (Remplacer l’existant)](./media/backup-azure-arm-restore-vms/restore-configuration-replace-existing.png)
 
@@ -154,13 +154,13 @@ Il existe un certain nombre de scénarios courants dans lesquels vous pouvez avo
 --- | ---
 **Restaurer des machines virtuelles avec Hybrid Use Benefit** | Si une machine virtuelle Windows utilise une [licence HUB (Hybrid Use Benefit)](../virtual-machines/windows/hybrid-use-benefit-licensing.md), restaurez les disques et créez une machine virtuelle à l’aide du modèle fourni (**Type de licence** ayant pour valeur **Windows_Server**) ou de PowerShell.  Vous pouvez également appliquer ce paramètre après avoir créé la machine virtuelle.
 **Restaurer des machines virtuelles en cas de défaillance du centre de données Azure** | Si le coffre utilise GRS et que le centre de données principal de la machine virtuelle tombe en panne, Sauvegarde Azure prend en charge la restauration des machines virtuelles sauvegardées sur le centre de données appairé. Sélectionnez un compte de stockage dans le centre de données appairé et restaurez-le comme d’habitude. Sauvegarde Azure utilise le service de calcul dans l’emplacement appairé pour créer la machine virtuelle restaurée. [Découvrez-en plus](../resiliency/resiliency-technical-guidance-recovery-loss-azure-region.md) sur la résilience des centres de données.
-**Restaurer une machine virtuelle contrôleur de domaine unique dans un seul domaine** | Restaurez la machine virtuelle comme n’importe quelle autre machine virtuelle. Notez les points suivants :<br/><br/> Du point de vue de l’Active Directory, la machine virtuelle Azure est comme toute autre machine virtuelle.<br/><br/> Le mode DSRM (Directory Restore Mode) étant également disponible, tous les scénarios de récupération Active Directory sont viables. [Découvrez-en plus](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/virtualized-domain-controllers-hyper-v) sur les considérations relatives à la sauvegarde et à la restauration de contrôleurs de domaine virtualisés.
-**Restaurer plusieurs machines virtuelles contrôleurs de domaine dans un seul domaine** | Si d’autres contrôleurs de domaine dans le même domaine sont accessibles via le réseau, le contrôleur de domaine peut être restauré comme toutes les machines virtuelles. S’il s’agit du dernier contrôleur de domaine dans le domaine ou si une récupération dans un réseau isolé est effectuée, utilisez une [récupération de forêt](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery).
+**Restaurer une machine virtuelle contrôleur de domaine unique dans un seul domaine** | Restaurez la machine virtuelle comme n’importe quelle autre machine virtuelle. Notez les points suivants :<br/><br/> Du point de vue d’Active Directory, la machine virtuelle Azure est semblable à toute autre machine virtuelle.<br/><br/> Le mode DSRM (Directory Restore Mode) étant également disponible, tous les scénarios de récupération Active Directory sont viables. [Découvrez-en plus](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/virtualized-domain-controllers-hyper-v) sur les considérations relatives à la sauvegarde et à la restauration de contrôleurs de domaine virtualisés.
+**Restaurer plusieurs machines virtuelles contrôleurs de domaine dans un seul domaine** | Si d’autres contrôleurs de domaine du même domaine sont accessibles sur le réseau, le contrôleur de domaine peut être restauré comme n’importe quelle machine virtuelle. S’il s’agit du dernier contrôleur de domaine dans le domaine ou si une récupération dans un réseau isolé est effectuée, utilisez une [récupération de forêt](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery).
 **Restaurer plusieurs domaines dans une forêt** | Nous recommandons une [récupération de forêt](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery).
 **Restauration complète** | La principale différence entre les machines virtuelles Azure et les hyperviseurs locaux est l’absence d’une console de machine virtuelle dans Azure. Une console est nécessaire pour certains scénarios tels que la récupération à l’aide d’une sauvegarde de type Récupération complète (BMR, Bare Metal Recovery). Toutefois, la restauration d’une machine virtuelle à partir du coffre constitue un remplacement total pour la récupération complète.
-**Restaurer des machines virtuelles avec des configurations réseau spéciales** | Les machines virtuelles qui utilisent un équilibrage de charge interne ou externe, plusieurs cartes réseau ou plusieurs adresses IP réservées sont des exemples de configurations réseau spéciales. Vous pouvez restaurer ces machines virtuelles à l’aide de l’[option de restauration de disque](#restore-disks). Cette option effectue une copie de disques durs virtuels dans le compte de stockage spécifié, et vous pouvez ensuite créer une machine virtuelle avec un [interne](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/) ou [externe](https://azure.microsoft.com/documentation/articles/load-balancer-internet-getstarted/) , l’équilibrage de charge [plusieurs cartes réseau](../virtual-machines/windows/multiple-nics.md), ou [plusieurs des adresses IP réservées](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md), conformément à votre configuration.
-**Groupe de sécurité réseau (NSG) sur la carte réseau/sous-réseau** | Sauvegarde des machines virtuelles Azure prend en charge les informations de sauvegarde et restauration de groupe de sécurité réseau au niveau de la carte réseau, de sous-réseau et de réseau virtuel.
-**Zone épinglé des machines virtuelles** | Sauvegarde Azure prend en charge la sauvegarde et restauration de machines virtuelles épinglés zonées. [En savoir plus](https://azure.microsoft.com/global-infrastructure/availability-zones/)
+**Restaurer des machines virtuelles avec des configurations réseau spéciales** | Les machines virtuelles qui utilisent un équilibrage de charge interne ou externe, plusieurs cartes réseau ou plusieurs adresses IP réservées sont des exemples de configurations réseau spéciales. Vous pouvez restaurer ces machines virtuelles à l’aide de l’[option de restauration de disque](#restore-disks). Cette option effectue une copie des disques durs virtuels dans le compte de stockage spécifié. Vous pouvez ensuite créer une machine virtuelle avec un équilibreur de charge[ interne](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/) ou [externe](https://azure.microsoft.com/documentation/articles/load-balancer-internet-getstarted/), [plusieurs cartes réseau](../virtual-machines/windows/multiple-nics.md) ou [plusieurs adresses IP réservées](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md), conformément à votre configuration.
+**Groupe de sécurité réseau sur une carte réseau/un sous-réseau.** | La sauvegarde des machines virtuelles Azure prend en charge les informations de sauvegarde et de restauration de groupe de sécurité réseau au niveau de la carte réseau, du sous-réseau et du réseau virtuel.
+**Machines virtuelles épinglées à des zones** | La Sauvegarde Azure prend en charge la sauvegarde et la restauration de machines virtuelles épinglées à des zones. [En savoir plus](https://azure.microsoft.com/global-infrastructure/availability-zones/)
 
 ## <a name="track-the-restore-operation"></a>Suivi de l’opération de restauration
 Une fois que vous déclenchez l’opération de restauration, le service de sauvegarde crée un travail à des fins de suivi. Sauvegarde Azure affiche des notifications sur le travail dans le portail. Si elles ne sont pas visibles, cliquez sur le symbole **Notifications** pour les afficher.

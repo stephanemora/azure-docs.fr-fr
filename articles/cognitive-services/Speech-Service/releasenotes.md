@@ -8,17 +8,48 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 06/26/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: f22b0fcac6099482addfcf56a20e0e828866326e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 609443a4926fabd991846faee4a0a7dffe3a696b
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65606356"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490175"
 ---
 # <a name="release-notes"></a>Notes de publication
+
+## <a name="speech-sdk-160-2019-june-release"></a>Kit de développement logiciel (SDK) Speech 1.6.0 : version de juin 2019
+
+**Exemples**
+*   Exemples de démarrage rapide pour la synthèse vocale sur UWP et Unity
+*   Exemple de démarrage rapide pour Swift sur iOS
+*   Exemples Unity supplémentaires pour Speech ainsi que la reconnaissance de l’intention et la traduction
+*   Mise à jour des exemples de démarrage rapide pour DialogServiceConnector
+
+**Améliorations/Modifications**
+* Espace de noms de boîte de dialogue :
+    * SpeechBotConnector a été renommé DialogServiceConnector
+    * BotConfig a été renommé DialogServiceConfig
+    * BotConfig::FromChannelSecret() a été remappé vers DialogServiceConfig::FromBotSecret()
+    * Tous les clients existants de Direct Line Speech seront toujours pris en charge après le changement de nom
+* Mise à jour de l’adaptateur TTS REST offrant la prise en charge des proxys et de la connexion permanente
+* Amélioration du message d’erreur en cas de transmission d’une région non valide
+* Swift/Objective-C :
+    * Amélioration du signalement des erreurs : Les méthodes susceptibles de provoquer une erreur existent désormais en deux versions : La première expose un objet `NSError` pour la gestion des erreurs, l’autre émet une exception. La première est exposée à Swift. Cette modification doit être adaptée au code Swift existant.
+    * Amélioration de la gestion des événements
+
+**Résolution des bogues**
+*   Correctif pour TTS : où le futur SpeakTextAsync est retourné sans attendre que le rendu audio soit terminé
+*   Correctif pour le marshaling des chaînes dans C# pour activer la prise en charge complète des langages
+*   Correction d’un problème d’application .NET Core relatif au chargement de la bibliothèque principale avec la version cible de .Net Framework net461 dans les exemples
+*   Correction de problèmes occasionnels pour déployer des bibliothèques natives dans le dossier de sortie dans les exemples
+*   Correctif pour fermer le socket web de façon fiable
+*   Correction des blocages éventuels lors de l’ouverture d’une connexion avec des charges très lourdes sur Linux
+*   Correction des métadonnées manquantes dans le bundle de framework pour macOS
+*   Correctif pour les problèmes de `pip install --user` sur Windows
+
 
 ## <a name="speech-sdk-151"></a>Kit de développement logiciel (SDK) de reconnaissance vocale 1.5.1
 

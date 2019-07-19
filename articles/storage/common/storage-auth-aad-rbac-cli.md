@@ -5,20 +5,20 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 06/26/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: dc2beda1ae017b5e81fddf08d0c7e88c785bcdf5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1e29b8e23927ef2ff70416d1adc76e2b2b3f2d8a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65153891"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443713"
 ---
 # <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-using-azure-cli"></a>Octroyer l’accès aux données blob et de file d’attente Azure avec RBAC à l’aide d’Azure CLI
 
-Azure Active Directory (Azure AD) autorise les droits d’accès aux ressources sécurisées via [RBAC (contrôle d’accès en fonction du rôle)](../../role-based-access-control/overview.md). Le Stockage Azure définit un ensemble de rôles RBAC intégrés qui englobent les ensembles communs d’autorisations permettant d’accéder aux données blob ou de file d’attente. 
+Azure Active Directory (Azure AD) autorise les droits d’accès aux ressources sécurisées via [RBAC (contrôle d’accès en fonction du rôle)](../../role-based-access-control/overview.md). Stockage Azure définit un ensemble de rôles RBAC intégrés qui englobent les ensembles communs d’autorisations permettant d’accéder aux données blob ou de file d’attente.
 
 Lorsqu’un rôle RBAC est attribué à un principal de sécurité Azure AD, Azure octroie l’accès à ces ressources pour ce principal de sécurité. L’accès peut être limité au niveau de l’abonnement, du groupe de ressources, du compte de stockage ou d’un conteneur ou d’une file d’attente individuelle. Un principal de sécurité Azure AD peut correspondre à un utilisateur, un groupe ou un principal du service d’application, ou à une [identité managée pour les ressources Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -40,7 +40,7 @@ Pour répertorier les rôles RBAC intégrés disponibles avec Azure CLI, utilise
 az role definition list --out table
 ```
 
-Les rôles de données Stockage Azure intégrés sont répertoriés, ainsi que d’autres rôles intégrés pour Azure :
+Les rôles de données Stockage Azure intégrés sont répertoriés, ainsi que d’autres rôles intégrés pour Azure :
 
 ```Example
 Storage Blob Data Contributor             Allows for read, write and delete access to Azure Storage blob containers and data
@@ -52,13 +52,13 @@ Storage Queue Data Message Sender         Allows for sending of Azure Storage qu
 Storage Queue Data Reader                 Allows for read access to Azure Storage queues and queue messages
 ```
 
-## <a name="assign-an-rbac-role-to-a-user"></a>Assigner un rôle RBAC à un utilisateur
+## <a name="assign-an-rbac-role-to-a-security-principal"></a>Attribuer un rôle RBAC à un principal de sécurité
 
-Pour assigner un rôle RBAC à un utilisateur, utilisez la commande [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create). Le format de la commande peut varier selon l’étendue de l’affectation. Les exemples suivants montrent comment affecter un rôle à un utilisateur dans différentes étendues.
+Pour affecter un rôle RBAC à un principal de sécurité, utilisez la commande [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create). Le format de la commande peut varier selon l’étendue de l’affectation. Les exemples suivants montrent comment attribuer un rôle à un utilisateur dans des étendues diverses, mais vous pouvez utiliser la même commande pour attribuer un rôle à n’importe quel principal de sécurité.
 
-### <a name="container-scope"></a>Étendue de conteneur
+### <a name="container-scope"></a>Étendue du conteneur
 
-Pour affecter un rôle étendu à un conteneur, spécifiez une chaîne contenant l’étendue du conteneur pour le paramètre `--scope`. L’étendue d’un conteneur a la forme :
+Pour affecter un rôle limité à un conteneur, spécifiez une chaîne contenant l’étendue du conteneur pour le paramètre `--scope`. L’étendue d’un conteneur a la forme :
 
 ```
 /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/blobServices/default/containers/<container-name>
@@ -73,15 +73,15 @@ az role assignment create \
     --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/blobServices/default/containers/sample-container"
 ```
 
-### <a name="queue-scope"></a>Étendue de file d’attente
+### <a name="queue-scope"></a>Étendue de la file d’attente
 
-Pour affecter un rôle étendu à une file d’attente, spécifiez une chaîne contenant l’étendue de la file d’attente pour le paramètre `--scope`. L’étendue d’une file d’attente a la forme :
+Pour affecter un rôle limité à une file d’attente, spécifiez une chaîne contenant l’étendue de la file d’attente pour le paramètre `--scope`. L’étendue d’une file d’attente a la forme :
 
 ```
 /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/queueServices/default/queues/<queue-name>
 ```
 
-L’exemple suivant affecte le rôle **Contributeur aux données en file d'attente du stockage** à un utilisateur, limité à une file d’attente nommée *sample-queue*. Veillez à remplacer les valeurs de l’exemple et les valeurs d’espace réservé entre les crochets par vos propres valeurs : 
+L’exemple suivant affecte le rôle **Contributeur aux données en file d’attente du stockage** à un utilisateur, limité à une file d’attente nommée *sample-queue*. Veillez à remplacer les valeurs de l’exemple et les valeurs d’espace réservé entre les crochets par vos propres valeurs : 
 
 ```azurecli-interactive
 az role assignment create \
@@ -90,7 +90,7 @@ az role assignment create \
     --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/queueServices/default/queues/sample-queue"
 ```
 
-### <a name="storage-account-scope"></a>Étendue de compte de stockage
+### <a name="storage-account-scope"></a>Étendue du compte de stockage
 
 Pour affecter un rôle limité au compte de stockage, spécifiez l’étendue de la ressource de compte de stockage pour le paramètre `--scope`. L’étendue d’un compte de stockage a la forme :
 
@@ -107,9 +107,9 @@ az role assignment create \
     --scope "/subscriptions/<subscription-id>/resourceGroups/sample-resource-group/providers/Microsoft.Storage/storageAccounts/storagesamples"
 ```
 
-### <a name="resource-group-scope"></a>Étendue de groupe de ressources
+### <a name="resource-group-scope"></a>Étendue du groupe de ressources
 
-Pour affecter un rôle limité au groupe de ressources, spécifiez le nom ou l’ID du groupe de ressources pour le paramètre `--resource-group`. L’exemple suivant affecte le rôle **Lecteur des données en file d'attente du stockage** à un utilisateur au niveau du groupe de ressources. Veillez à remplacer les valeurs de l’exemple et les valeurs d’espace réservé entre les crochets par vos propres valeurs : 
+Pour affecter un rôle limité au groupe de ressources, spécifiez le nom ou l’ID du groupe de ressources pour le paramètre `--resource-group`. L’exemple suivant affecte le rôle **Lecteur des données en file d’attente du stockage** à un utilisateur au niveau du groupe de ressources. Veillez à remplacer les valeurs de l’exemple et les valeurs d’espace réservé entre les crochets par vos propres valeurs : 
 
 ```azurecli-interactive
 az role assignment create \
@@ -120,7 +120,7 @@ az role assignment create \
 
 ### <a name="subscription-scope"></a>Étendue d’abonnement
 
-Pour affecter un rôle limité à l’abonnement, spécifiez l’étendue de l’abonnement pour le paramètre `--scope`. L’étendue d’un abonnement a la forme :
+Pour affecter un rôle limité à l’abonnement, spécifiez l’étendue de l’abonnement pour le paramètre `--scope`. L’étendue d’un abonnement a la forme :
 
 ```
 /subscriptions/<subscription>

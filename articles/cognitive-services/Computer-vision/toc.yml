@@ -53,7 +53,17 @@
               href: QuickStarts/python-thumb.md
             - name: Ruby
               href: QuickStarts/ruby-thumb.md
-        - name: Extraire le texte imprimé
+        - name: Extraire le texte (API de lecture)
+          items:
+            - name: 'C#'
+              href: QuickStarts/CSharp-hand-text.md
+            - name: Java
+              href: QuickStarts/java-hand-text.md
+            - name: JavaScript
+              href: QuickStarts/javascript-hand-text.md
+            - name: Python
+              href: QuickStarts/python-hand-text.md
+        - name: Extraire le texte imprimé (OCR)
           items:
             - name: 'C#'
               href: QuickStarts/CSharp-print-text.md
@@ -73,16 +83,6 @@
               href: QuickStarts/python-print-text.md
             - name: Ruby
               href: QuickStarts/ruby-print-text.md
-        - name: Extraire le texte manuscrit
-          items:
-            - name: 'C#'
-              href: QuickStarts/CSharp-hand-text.md
-            - name: Java
-              href: QuickStarts/java-hand-text.md
-            - name: JavaScript
-              href: QuickStarts/javascript-hand-text.md
-            - name: Python
-              href: QuickStarts/python-hand-text.md
         - name: Utiliser un modèle de domaine
           items:
             - name: PHP

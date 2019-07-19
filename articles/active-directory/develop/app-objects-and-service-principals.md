@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47626cbd8d5b8a5ddf7cc5c6ea42fb9453e5bfb2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 822990ebc2eb5edbdbc6611a4f3729bc5cfadc55
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540684"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482899"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Objets application et principal du service dans Azure Active Directory
 
@@ -45,14 +45,14 @@ Dans les sections suivantes, vous allez examiner la manière dont un modèle d�
 
 ## <a name="application-registration"></a>Inscription de l’application
 
-Lorsque vous inscrivez une application Azure AD dans le [portail Azure][AZURE-Portal], deux objets sont créés dans votre client Azure AD :
+Lorsque vous inscrivez une application Azure AD dans le [portail Azure][AZURE-Portal], deux objets sont créés dans votre locataire Azure AD :
 
 - un objet application et
 - un objet principal du service.
 
 ### <a name="application-object"></a>Objet application
 
-Une application Azure AD est définie par son seul et unique objet application, qui réside dans le client Azure AD dans lequel l’application a été inscrite, appelé client « de base » de l’application. [L’entité Application][MS-Graph-App-Entity] de Microsoft Graph définit le schéma pour les propriétés d’un objet application.
+Une application Azure AD est définie par son seul et unique objet application, qui réside dans le client Azure AD dans lequel l’application a été inscrite, appelé client « de base » de l’application. [L’entité Application][MS-Graph-App-Entity] de Microsoft Graph définit le schéma pour les propriétés d’un objet d’application.
 
 ### <a name="service-principal-object"></a>Objet principal du service
 
@@ -83,7 +83,7 @@ Le schéma suivant illustre la relation entre un objet application d’une appli
 - **Contoso** : le client utilisé par l’entreprise Contoso, qui est un consommateur de **l’application RH** ;
 - **Fabrikam** : le client utilisé par l’entreprise Fabrikam, qui est également un consommateur de **l’application RH**.
 
-![Relation entre un objet application et un objet principal du service](./media/app-objects-and-service-principals/application-objects-relationship.svg)
+![Relation entre un objet d’application et un objet de principal de service](./media/app-objects-and-service-principals/application-objects-relationship.svg)
 
 Dans cet exemple de scénario :
 
@@ -96,8 +96,8 @@ Dans cet exemple de scénario :
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Vous pouvez utiliser [l’Afficheur Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer) pour interroger à la fois les objets d’application et de principal de service.
-- Vous pouvez accéder à l’objet application d’une application via l’API Microsoft Graph, l’éditeur de manifeste d’application du [Portail Azure][AZURE-Portal] ou les [cmdlets Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), tel que représenté par son entité [Application OData][MS-Graph-App-Entity].
-- Vous pouvez accéder à l’objet principal de service d’une application via l’API Microsoft Graph ou les [cmdlets Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), tel que représenté par son [entité ServicePrincipal OData][MS-Graph-Sp-Entity].
+- Vous pouvez accéder à l’objet d’application d’une application via l’API Microsoft Graph, l’éditeur de manifeste d’application du [Portail Azure][AZURE-Portal] ou les [cmdlets Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), tel que représenté par son [entité Application][MS-Graph-App-Entity] OData.
+- Vous pouvez accéder à l’objet de principal de service d’une application via l’API Microsoft Graph ou les [cmdlets Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), tel que représenté par son [entité ServicePrincipal][MS-Graph-Sp-Entity] OData.
 
 <!--Image references-->
 

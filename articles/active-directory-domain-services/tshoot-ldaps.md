@@ -3,7 +3,7 @@ title: Dépanner le protocole LDAP sécurisé (LDAPS) dans Azure Active Director
 description: Dépanner le protocole LDAPS (LDAP sécurisé) pour un domaine managé Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 ms.assetid: 445c60da-e115-447b-841d-96739975bdf6
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
-ms.author: mstephen
-ms.openlocfilehash: c9732545e1759ea23d62c0a56379e3868ed40a0b
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.author: iainfou
+ms.openlocfilehash: a194919a488f6cb59c76315c9d8a3db1e9c1feb1
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66246628"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67472199"
 ---
 # <a name="troubleshoot-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Dépanner le protocole LDAPS (LDAP sécurisé) pour un domaine managé Azure AD Domain Services
 
@@ -45,6 +45,6 @@ Si vous ne parvenez toujours pas à vous connecter au domaine managé à l’aid
 * [Services de domaine Azure AD : guide de mise en route](create-instance.md)
 * [Gérer un domaine Azure AD Domain Services](manage-domain.md)
 * [LDAP query basics](https://technet.microsoft.com/library/aa996205.aspx)
-* [Gérer la stratégie de groupe pour les Services de domaine Azure AD](manage-group-policy.md)
+* [Gérer la stratégie de groupe pour Azure AD Domain Services](manage-group-policy.md)
 * [Groupes de sécurité réseau](../virtual-network/security-overview.md)
 * [Créer des groupes de sécurité réseau à l’aide du portail Azure](../virtual-network/tutorial-filter-network-traffic.md)

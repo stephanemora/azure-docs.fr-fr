@@ -16,12 +16,12 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47e9033b33c70a72a1685696f75a442e88eed033
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f83cb38567feb51ba7959ada7730d66ded677bf9
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60289722"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476535"
 ---
 # <a name="approve-or-deny-requests-for-azure-ad-roles-in-pim"></a>Approuver ou rejeter des demandes de rôles Azure AD dans PIM
 
@@ -41,7 +41,7 @@ En tant qu’approbateur délégué, vous recevez une notification par e-mail qu
 
 1. Cliquez sur **Approuver les demandes**.
 
-    ![Rôles PIM – Rôles](./media/azure-ad-pim-approval-workflow/pim-directory-roles-approve-requests.png)
+    ![Rôles Azure AD - Approuver les demandes](./media/azure-ad-pim-approval-workflow/pim-directory-roles-approve-requests.png)
 
     La liste des demandes en attente de votre approbation s’affiche.
 
@@ -49,27 +49,27 @@ En tant qu’approbateur délégué, vous recevez une notification par e-mail qu
 
 1. Sélectionnez les demandes que vous souhaitez approuver, puis cliquez sur **Approuver** pour ouvrir le volet Approuver des demandes sélectionnées.
 
-    ![Liste des demandes d’approbation PIM](./media/azure-ad-pim-approval-workflow/pim-approve-requests-list.png)
+    ![Approuver la liste des demandes à l’aide de l’option Approuver mise en surbrillance](./media/azure-ad-pim-approval-workflow/pim-approve-requests-list.png)
 
 1. Dans la zone **Approuver le motif**, tapez une raison.
 
-    ![PIM – Approuver des demandes sélectionnées](./media/azure-ad-pim-approval-workflow/pim-approve-selected-requests.png)
+    ![Volet Approuver des demandes sélectionnées avec option Approuver le motif](./media/azure-ad-pim-approval-workflow/pim-approve-selected-requests.png)
 
 1. Cliquez sur **Approuver**.
 
     Le symbole d’état sera actualisé avec votre approbation.
 
-    ![PIM – Approuver des demandes sélectionnées](./media/azure-ad-pim-approval-workflow/pim-approve-status.png)
+    ![Volet Approuver des demandes sélectionnées après avoir cliqué sur Approuver](./media/azure-ad-pim-approval-workflow/pim-approve-status.png)
 
 ## <a name="deny-requests"></a>Refuser des demandes
 
 1. Sélectionnez les demandes que vous souhaitez refuser, puis cliquez sur **Refuser** pour ouvrir le volet Refuser des demandes sélectionnées.
 
-    ![Liste des demandes d’approbation PIM](./media/azure-ad-pim-approval-workflow/pim-deny-requests-list.png)
+    ![Liste Approuver les demandes avec option Refuser mise en surbrillance](./media/azure-ad-pim-approval-workflow/pim-deny-requests-list.png)
 
 1. Dans la zone **Refuser le motif**, tapez une raison.
 
-    ![PIM – Refuser des demandes sélectionnées](./media/azure-ad-pim-approval-workflow/pim-deny-selected-requests.png)
+    ![Volet Refuser des demandes sélectionnées avec motif de refus](./media/azure-ad-pim-approval-workflow/pim-deny-selected-requests.png)
 
 1. Cliquez sur **Refuser**.
 

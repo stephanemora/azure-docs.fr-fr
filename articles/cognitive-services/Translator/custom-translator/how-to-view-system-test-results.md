@@ -2,19 +2,19 @@
 title: Afficher les résultats des tests système et du déploiement - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: Au terme de votre apprentissage, passez en revue les tests système pour analyser vos résultats. Si ces résultats vous conviennent, faites une demande de déploiement pour le modèle concerné.
-author: rajdeep-in
+author: swmachan
 manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-pawal
+ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 675ae10e304bd22c441740a87e8033136ff63ebd
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.openlocfilehash: ec15851ae7ff59a752fbf0d823d87aa6e68f10e9
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389312"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442477"
 ---
 # <a name="view-system-test-results"></a>Afficher les résultats de test système
 
@@ -26,7 +26,7 @@ Sélectionnez un projet, puis l’onglet Modèles de ce projet. Recherchez le mo
 
 L’onglet Test affiche ce qui suit :
 
-1.  **Résultats des tests système :** Le résultat du processus de test dans les formations. Le processus de test génère le score BLEU.
+1.  **Résultats des tests système :** résultat du processus de test lors des entraînements. Le processus de test génère le score BLEU.
 
     **Sentence Count (Nombre de phases) :** nombre de phrases parallèles utilisées dans le jeu de test.
 
@@ -80,7 +80,7 @@ Pour demander un déploiement :
 5.  Vous pouvez afficher l’état de votre modèle dans la colonne « État ».
 
 >[!Note]
->Traducteur personnalisé prend en charge 10 modèles déployés au sein d’un espace de travail à tout moment dans le temps.
+>Custom Translator prend en charge 10 modèles déployés au sein d’un espace de travail à tout moment.
 
 ## <a name="update-deployment-settings"></a>Mettre à jour les paramètres de déploiement
 

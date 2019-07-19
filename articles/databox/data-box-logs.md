@@ -1,6 +1,6 @@
 ---
-title: Effectuer le suivi et les journaux d’Azure Data Box, événements lourd de zone de données Azure | Microsoft Docs
-description: Décrit comment suivre et enregistrer des événements aux divers stades de votre commande d’Azure Data Box et lourdes de zone de données Azure.
+title: Suivi et journalisation des événements Azure Data Box, Azure Data Box Heavy | Microsoft Docs
+description: Décrit comment suivre et journaliser les événements à divers stades de votre commande Azure Data Box et Azure Data Box Heavy.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,80 +8,80 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 108d17d3e0ca5f32648f9d4f6cf4b5f9a2984d0c
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
-ms.translationtype: MT
+ms.openlocfilehash: ba08cd7fdecda99c04d5bb1007b3e5f61cd1bd5c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66495822"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446767"
 ---
-# <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy"></a>Suivi et journalisation des événements pour votre Azure Data Box et lourdes de zone de données Azure
+# <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy"></a>Suivi et journalisation des événements de votre Azure Data Box et Azure Data Box Heavy
 
-Une commande Data Box ou élevée de zone de données passe par les étapes suivantes : commander, configurer, copie des données, retourneront, chargement sur Azure et vérifier et l’effacement des données. Correspondant à chaque étape dans l’ordre, vous pouvez effectuer plusieurs actions pour contrôler l’accès à la commande, les événements d’audit, effectuer le suivi de l’ordre et interpréter les différents journaux sont générés.
+Une commande Data Box ou Data Box Heavy passe par les étapes suivantes : commande, configuration, copie des données, retour, chargement sur Azure et vérification, puis effacement des données. Lors de chaque étape de la commande, vous pouvez effectuer plusieurs actions pour contrôler l’accès à la commande, auditer les événements, suivre la commande et interpréter les différents journaux générés.
 
-Le tableau suivant récapitule les étapes de commande Data Box ou élevée de zone de données et les outils disponibles pour effectuer le suivi et d’audit de l’ordre au cours de chaque étape.
+Le tableau suivant récapitule les étapes de la commande Data Box ou Data Box Heavy ainsi que les outils disponibles pour effectuer le suivi et l’audit de la commande à chaque étape.
 
-| Stade de zone des données à l’aide de la commande       | Outil de suivi et d’audit                                                                        |
+| Étape de la commande Data Box       | Outil de suivi et d’audit                                                                        |
 |----------------------------|------------------------------------------------------------------------------------------------|
-| Créer une commande               | [Configurer le contrôle d’accès de la commande par le biais de RBAC](#set-up-access-control-on-the-order)                                                    |
-| Ordre de traitement            | [Suivre l’ordre de](#track-the-order) via <ul><li> Portail Azure </li><li> Site Web du transporteur de livraison </li><li>Notifications par e-mail</ul> |
-| Configurer l’appareil              | APPAREIL accès enregistrés dans les informations d’identification [journaux d’activité](#query-activity-logs-during-setup)                                              |
-| Copie des données sur l’appareil        | [Vue *error.xml* fichiers](#view-error-log-during-data-copy) pour la copie des données                                                             |
+| Créer la commande               | [Configurer le contrôle d’accès sur la commande via RBAC](#set-up-access-control-on-the-order)                                                    |
+| Commande traitée            | [Suivre la commande](#track-the-order) via <ul><li> Portail Azure </li><li> Site web du transporteur </li><li>Notifications par e-mail</ul> |
+| Configurer l’appareil              | Accès aux informations d’identification de l’appareil dans les [journaux d’activité](#query-activity-logs-during-setup)                                              |
+| Copie des données vers l’appareil        | [Consulter les fichiers *error.xml* ](#view-error-log-during-data-copy) pour la copie des données                                                             |
 | Préparer l’expédition            | [Inspecter les fichiers de nomenclature](#inspect-bom-during-prepare-to-ship) ou les fichiers manifeste sur l’appareil                                      |
-| Chargement des données vers Azure       | [Révision *copylogs* ](#review-copy-log-during-upload-to-azure) pour les erreurs au cours des données à charger au centre de données Azure                         |
-| Effacement des données à partir de l’appareil   | [Afficher la chaîne de responsabilité journaux](#get-chain-of-custody-logs-after-data-erasure) y compris les journaux d’audit et l’historique des commandes                                                   |
+| Chargement des données dans Azure       | [Passer en revue les fichiers *copylogs*](#review-copy-log-during-upload-to-azure) à la recherche des erreurs survenues pendant le chargement dans le centre de données Azure                         |
+| Effacement des données de l’appareil   | [Afficher les journaux d’activité de chaîne de responsabilité](#get-chain-of-custody-logs-after-data-erasure) qui incluent les journaux d’audit et l’historique des commandes                |
 
-Cet article décrit en détail les différents mécanismes ou outils disponibles pour effectuer le suivi et d’audit de commande Data Box ou élevée de zone de données. Les informations contenues dans cet article s’applique à la fois, Data Box et lourdes de zone de données. Dans les sections suivantes, toutes les références à la zone de données s’appliquent également à lourd de zone de données.
+Cet article décrit en détail les différents mécanismes ou outils disponibles pour effectuer le suivi et l’audit d’une commande Data Box ou Data Box Heavy. Les informations de cet article s’appliquent à Data Box et à Data Box Heavy. Dans les sections suivantes, toutes les références à Data Box s’appliquent également à Data Box Heavy.
 
-## <a name="set-up-access-control-on-the-order"></a>Configurer le contrôle d’accès sur l’ordre
+## <a name="set-up-access-control-on-the-order"></a>Configurer le contrôle d’accès sur la commande
 
-Vous pouvez contrôler qui peut accéder à votre commande lorsque l’ordre est créé. Configurer les rôles de contrôle d’accès en fonction du rôle (RBAC) dans différentes portées pour contrôler l’accès à la commande Data Box. Un rôle RBAC détermine le type d’accès : lecture-écriture, en lecture seule, en lecture-écriture à un sous-ensemble d’opérations.
+Vous pouvez contrôler qui peut accéder à votre commande lors de sa création. Configurez des rôles RBAC (contrôle d’accès en fonction du rôle) de diverses étendues pour contrôler l’accès à la commande Data Box. Un rôle RBAC détermine le type d’accès accordé : lecture-écriture, lecture seule, lecture-écriture sur sous-ensemble d’opérations.
 
-Les deux rôles qui peuvent être définis pour le service Azure Data Box sont :
+Les deux rôles qui peuvent être définis pour le service Azure Data Box sont les suivants :
 
-- **Lecteur de données boîte** -ont un accès en lecture seule à un ou les commandes telles que définies par l’étendue. Ils peuvent uniquement afficher les détails d’une commande. Ils ne peuvent pas accéder à tous les autres détails liés aux comptes de stockage ou modifier les détails de commande comme adresse et ainsi de suite.
-- **Contributeur de zone de données** -peut créer uniquement une commande pour transférer des données vers un compte de stockage donné *s’ils ont déjà accès en écriture à un compte de stockage*. Si elles n’ont pas accès à un compte de stockage, ils ne peuvent pas même créer une commande Data Box pour copier des données au compte. Ce rôle ne définit pas de n’importe quel compte de stockage liés autorisations ni accorde l’accès aux comptes de stockage.  
+- **Lecteur Data Box** : bénéficie d’un accès en lecture seule aux commandes, tel que défini par l’étendue. Il peut uniquement afficher les détails d’une commande. Il ne peut pas accéder aux autres informations associées aux comptes de stockage ni modifier les détails de la commande comme l’adresse, etc.
+- **Contributeur Data Box** : peut uniquement créer une commande pour transférer des données vers un compte de stockage donné *s’il dispose déjà d’un accès en écriture à un compte de stockage*. S’il n’a pas accès à un compte de stockage, il ne peut même pas créer de commande Data Box pour copier des données sur ce compte. Ce rôle ne définit aucune autorisation liée aux comptes de stockage et n’octroie pas d’accès à ces derniers.  
 
-Pour restreindre l’accès à une commande, vous pouvez :
+Pour restreindre l’accès à une commande, vous pouvez :
 
-- Affecter un rôle au niveau d’une commande. L’utilisateur a uniquement ces autorisations, comme défini par les rôles pour interagir avec cette commande Data Box spécifique uniquement et rien d’autre.
-- Affecter un rôle au niveau du groupe de ressources, l’utilisateur a accès à toutes les commandes de zone de données au sein d’un groupe de ressources.
+- Affecter un rôle au niveau d’une commande. L’utilisateur dispose uniquement des autorisations définies par son rôle pour interagir avec cette commande Data Box spécifique, et rien d’autre.
+- Affectez un rôle au niveau du groupe de ressources. L’utilisateur a accès à toutes les commandes Data Box au sein d’un groupe de ressources.
 
-Pour plus d’informations sur l’utilisation RBAC suggérée, consultez [meilleures pratiques pour RBAC](../role-based-access-control/overview.md#best-practice-for-using-rbac).
+Pour plus d’informations sur l’utilisation suggérée des rôles RBAC, consultez la page sur les [meilleures pratiques associées au contrôle d’accès en fonction du rôle](../role-based-access-control/overview.md#best-practice-for-using-rbac).
 
 ## <a name="track-the-order"></a>Suivre la commande
 
-Vous pouvez suivre votre commande via le portail Azure et via le site Web du transporteur expédition. Les mécanismes suivants sont en place pour effectuer le suivi de l’ordre de la zone de données à tout moment :
+Vous pouvez suivre votre commande via le Portail Azure et via le site web du transporteur. Les mécanismes suivants permettent de suivre la commande Data Box à tout moment :
 
-- Pour suivre l’ordre lorsque celui-ci se trouve dans le centre de données Azure ou votre site, accédez à votre **commande Data Box > vue d’ensemble** dans le portail Azure.
+- Pour suivre la commande lorsque l’appareil se trouve dans le centre de données Azure ou sur votre site, accédez à votre **Commande Data Box > Vue d’ensemble** dans le Portail Azure.
 
-    ![Afficher l’état de la commande et le numéro de suivi](media/data-box-logs/overview-view-status-1.png)
+    ![Afficher l’état de la commande et son numéro de suivi](media/data-box-logs/overview-view-status-1.png)
 
-- Pour suivre l’ordre, tandis que l’appareil est en transit, visitez le site Web à l’opérateur régional, par exemple, site Web de l’onduleur aux États-Unis. Fournir le numéro de suivi associé à votre commande.
-- Boîte de données envoie également des notifications par courrier électronique chaque fois que les changements d’état de commande basée sur les e-mails fournis lors de la commande a été créée. Pour obtenir la liste de tous les États de la commande Data Box, consultez [afficher l’état de la commande](data-box-portal-admin.md#view-order-status). Pour modifier les paramètres de notification associés à la commande, consultez [modifier les détails de la notification](data-box-portal-admin.md#edit-notification-details).
+- Pour suivre la commande pendant que l’appareil est en transit, rendez-vous sur le site web du transporteur régional, par exemple UPS aux États-Unis. Indiquez le numéro de suivi associé à votre commande.
+- Data Box envoie également des notifications électronique à chaque changement d’état de la commande aux adresses e-mail fournies lors de sa création. Pour obtenir la liste de tous les états de commande Data Box, consultez [Afficher l’état de la commande](data-box-portal-admin.md#view-order-status). Pour modifier les paramètres de notification associés à la commande, consultez [Modifier les détails de notification](data-box-portal-admin.md#edit-notification-details).
 
-## <a name="query-activity-logs-during-setup"></a>Journaux d’activité de requête pendant l’installation
+## <a name="query-activity-logs-during-setup"></a>Interroger les journaux d’activité pendant la configuration
 
-- Votre Data Box arrive sur votre serveur local dans un état verrouillé. Vous pouvez utiliser les informations d’identification de périphérique disponibles dans le portail Azure pour votre commande.  
+- Votre Data Box arrive dans vos locaux dans un état verrouillé. Vous pouvez utiliser les informations d’identification de l’appareil disponibles dans la section du Portail Azure concernant votre commande.  
 
-    Quand une zone de données est configurée, vous devrez peut-être savoir qui tous accessibles les informations d’identification de l’appareil. Pour déterminer qui a accédé à la **informations d’identification de l’appareil** panneau, vous pouvez interroger les journaux d’activité.  Toute action qui implique l’accès à **détails de l’appareil > informations d’identification** panneau est enregistré dans les journaux d’activité en tant que `ListCredentials` action.
+    Lors de la configuration de Data Box, vous aurez peut-être besoin de savoir qui a eu accès aux informations d’identification de l’appareil. Pour déterminer qui a accédé au panneau **Informations d’identification de l’appareil**, vous pouvez interroger les journaux d’activité.  Toute action qui implique l’accès au panneau **Détails sur l’appareil > Informations d’identification** est enregistrée dans les journaux d’activité en tant qu’action `ListCredentials`.
 
     ![Interroger les journaux d’activité](media/data-box-logs/query-activity-log-1.png)
 
-- Chaque connexion dans la zone de données est connecté en temps réel. Toutefois, ces informations sont uniquement disponibles dans le [journaux d’Audit](#audit-logs) une fois que la commande est terminée avec succès.
+- Chaque connexion à Data Box est enregistrée en temps réel. Toutefois, ces informations sont uniquement disponibles dans les [Journaux d’audit](#audit-logs) une fois que la commande est terminée avec succès.
 
-## <a name="view-error-log-during-data-copy"></a>Afficher le journal d’erreur pendant la copie de données
+## <a name="view-error-log-during-data-copy"></a>Afficher le journal d’erreur pendant la copie des données
 
-Lors de la copie des données dans Data Box ou élevée de zone de données, un fichier d’erreur est généré s’il existe des problèmes avec les données copiées.
+Lors de la copie des données dans Data Box ou Data Box Heavy, un fichier d’erreur est généré en cas de problème avec les données copiées.
 
-### <a name="errorxml-file"></a>Fichier de Error.Xml
+### <a name="errorxml-file"></a>Fichier Error.xml
 
-Assurez-vous que les travaux de copie est terminée sans erreurs. S’il existe des erreurs pendant le processus de copie, télécharger les journaux à partir de la **Connect et copie** page.
+Assurez-vous que les travaux de copie ont été accomplis sans erreurs. Si des erreurs se sont produites durant le processus de copie, téléchargez les journaux à partir de la page  **Connexion et copie** .
 
-- Si vous avez copié un fichier qui n’est pas de 512 octets alignés dans un dossier de disque géré dans votre boîte de données, le fichier n’est pas chargé en tant qu’objet blob de pages à votre compte de stockage intermédiaire. Vous verrez une erreur dans les journaux. Supprimez le fichier et copiez un fichier de 512 octets alignés.
-- Si vous avez copié un VHDX, ou un disque dur virtuel dynamique ou un disque dur virtuel de différenciation (ces fichiers ne sont pas pris en charge), vous verrez une erreur dans les journaux.
+- Si vous avez copié un fichier qui n’est pas de 512 octets alignés dans un dossier de disque managé sur votre Data Box, celui-ci n’est pas chargé en tant qu’objet blob de pages sur votre compte de stockage intermédiaire. Vous verrez une erreur dans les journaux. Supprimez le fichier et copiez un fichier de 512 octets alignés.
+- Si vous avez copié un fichier de disque dur virtuel (VHDX), VHD dynamique ou VHD de différenciation (ces fichiers ne sont pas pris en charge), vous verrez une erreur dans les journaux.
 
-Voici un exemple de la *error.xml* pour différentes erreurs lors de la copie vers des disques gérés.
+Voici un exemple de fichier *error.xml* contenant différentes erreurs pouvant survenir lors de la copie vers des disques managés.
 
 ```xml
 <file error="ERROR_BLOB_OR_FILE_TYPE_UNSUPPORTED">\StandardHDD\testvhds\differencing-vhd-022019.vhd</file>
@@ -90,7 +90,7 @@ Voici un exemple de la *error.xml* pour différentes erreurs lors de la copie ve
 <file error="ERROR_BLOB_OR_FILE_TYPE_UNSUPPORTED">\StandardHDD\testvhds\insidediffvhd-022019.vhd</file>
 ```
 
-Voici un exemple de la *error.xml* pour différentes erreurs lors de la copie vers des objets BLOB de page.
+Voici un exemple de fichier *error.xml* contenant différentes erreurs pouvant survenir lors de la copie vers des objets blob de pages.
 
 ```xml
 <file error="ERROR_BLOB_OR_FILE_SIZE_ALIGNMENT">\PageBlob512NotAligned\File100Bytes</file>
@@ -101,7 +101,7 @@ Voici un exemple de la *error.xml* pour différentes erreurs lors de la copie ve
 ```
 
 
-Voici un exemple de la *error.xml* pour différentes erreurs lors de la copie pour les objets BLOB de blocs.
+Voici un exemple de fichier *error.xml* contenant différentes erreurs pouvant survenir lors de la copie vers des objets blob de blocs.
 
 ```xml
 <file error="ERROR_CONTAINER_OR_SHARE_NAME_LENGTH">\ab</file>
@@ -129,7 +129,7 @@ Voici un exemple de la *error.xml* pour différentes erreurs lors de la copie po
 <file error="ERROR_BLOB_OR_FILE_NAME_CHARACTER_ILLEGAL" name_encoding="Base64">XEludmFsaWRVbmljb2RlRmlsZXNcU3BjQ2hhci01NTI5Ny3vv70=</file>
 ```
 
-Voici un exemple de la *error.xml* pour différentes erreurs lors de la copie dans Azure Files.
+Voici un exemple de fichier *error.xml* contenant différentes erreurs pouvant survenir lors de la copie vers Azure Files.
 
 ```xml
 <file error="ERROR_BLOB_OR_FILE_SIZE_LIMIT">\AzFileMorethan1TB\AzFile1.2TB</file>
@@ -147,31 +147,31 @@ Voici un exemple de la *error.xml* pour différentes erreurs lors de la copie da
 <file error="ERROR_CONTAINER_OR_SHARE_NAME_ALPHA_NUMERIC_DASH">\Starting with Capital</file>
 ```
 
-Dans chacun des cas ci-dessus, résoudre les erreurs avant de passer à l’étape suivante. Pour plus d’informations sur les erreurs reçues pendant la copie de données dans Data Box via les protocoles SMB ou NFS, accédez à [problèmes lourd de zone de données et de résoudre les problèmes de zone de données](data-box-troubleshoot.md). Pour plus d’informations sur les erreurs reçues pendant la copie de données dans la zone de données via l’API REST, accédez à [les problèmes de stockage de résoudre les problèmes de données boîte Blob](data-box-troubleshoot-rest.md).
+Dans chacun des cas ci-dessus, résolvez les erreurs avant de passer à l’étape suivante. Pour plus d’informations sur les erreurs reçues pendant la copie des données dans Data Box via les protocoles SMB ou NFS, accédez à la page [Résoudre les problèmes de Data Box et Data Box Heavy](data-box-troubleshoot.md). Pour plus d’informations sur les erreurs reçues pendant la copie des données dans Data Box via une API REST, accédez à la page [Résoudre les problèmes liés au stockage Blob Data Box](data-box-troubleshoot-rest.md).
 
-## <a name="inspect-bom-during-prepare-to-ship"></a>Inspecter la nomenclature au cours de préparer l’expédition
+## <a name="inspect-bom-during-prepare-to-ship"></a>Inspecter la nomenclature pendant la préparation de l’expédition
 
-Au cours de préparer l’expédition, une liste de fichiers connus comme la nomenclature (nomenclature) ou le fichier manifeste est créé.
+Pendant la préparation de l’expédition, une liste de fichiers connus sous le nom de nomenclature ou fichier manifeste est créée.
 
-- Utilisez ce fichier pour vérifier les noms réels et le nombre de fichiers qui ont été copiés vers la zone de données.
-- Ce fichier permet de vérifier les tailles réelles des fichiers.
-- Vérifiez que le *crc64* correspond à une chaîne non nulle. <!--A null value for crc64 indicates that there was a reparse point error)-->
+- Utilisez ce fichier pour vérifier le nom et le nombre de fichiers réels qui ont été copiés vers Data Box.
+- Ce fichier permet de vérifier la taille réelle des fichiers.
+- Vérifiez que la valeur *crc64* correspond à une chaîne non nulle. <!--A null value for crc64 indicates that there was a reparse point error)-->
 
-Pour plus d’informations sur les erreurs reçues lors de la préparer pour livrés, accédez à [problèmes lourd de zone de données et de résoudre les problèmes de zone de données](data-box-troubleshoot.md).
+Pour plus d’informations sur les erreurs reçues pendant la préparation de l’expédition, accédez à la page [Résoudre les problèmes de Data Box et Data Box Heavy](data-box-troubleshoot.md).
 
-### <a name="bom-or-manifest-file"></a>Fichier de manifeste ou BOM
+### <a name="bom-or-manifest-file"></a>Nomenclature ou fichier manifeste
 
-La nomenclature ou le fichier manifeste contient la liste de tous les fichiers sont copiés sur l’appareil Data Box. Le fichier de nomenclature a des noms de fichiers et les tailles correspondants, ainsi que la somme de contrôle. Un fichier de nomenclature distinct est créé pour les objets BLOB de blocs, objets BLOB de pages, Azure Files, pour la copie via les API REST et de la copie vers des disques gérés sur la zone de données. Vous pouvez télécharger les fichiers de nomenclature à partir du web local de l’interface utilisateur de l’appareil pendant la préparation à expédier.
+La nomenclature ou le fichier manifeste contient la liste de tous les fichiers copiés sur l’appareil Data Box. Le fichier de nomenclature contient le nom des fichiers et la taille correspondante, ainsi que la somme de contrôle. Un fichier de nomenclature distinct est créé pour les objets blob de blocs, les objets blob de pages, Azure Files, pour la copie via les API REST et pour la copie vers des disques managés sur Data Box. Vous pouvez télécharger les fichiers de nomenclature à partir de l’interface utilisateur web locale de l’appareil pendant la préparation de l’expédition.
 
-Ces fichiers se trouvent sur l’appareil Data Box également et sont chargés sur le compte de stockage associé dans le centre de données.
+Ces fichiers se trouvent également sur l’appareil Data Box et sont chargés sur le compte de stockage associé dans le centre de données Azure.
 
-### <a name="bom-file-format"></a>Format de fichier de nomenclature
+### <a name="bom-file-format"></a>Format du fichier de nomenclature
 
-Fichier de nomenclature ou manifeste a le format général suivant :
+Le fichier de nomenclature ou manifeste utilise le format général suivant :
 
 `<file size = "file-size-in-bytes" crc64="cyclic-redundancy-check-string">\folder-path-on-data-box\name-of-file-copied.md</file>`
 
-Voici un exemple de manifeste généré lorsque les données ont été copiées vers le partage de blob de bloc sur la zone de données.
+Voici un exemple de fichier manifeste généré lors de la copie les données vers le partage d’objet blob de blocs sur Data Box.
 
 ```
 <file size="10923" crc64="0x51c78833c90e4e3f">\databox\media\data-box-deploy-copy-data\connect-shares-file-explorer1.png</file>
@@ -191,27 +191,27 @@ Voici un exemple de manifeste généré lorsque les données ont été copiées 
 <file size="3220" crc64="0x7257a263c434839a">\databox\data-box-system-requirements.md</file>
 ```
 
-La nomenclature ou les fichiers manifeste sont également copiés dans le compte de stockage Azure. Vous pouvez utiliser la marque BOM ou fichiers pour vérifier que les fichiers chargés sur Azure correspondent aux données qui a été copiées dans la zone données de manifeste.
+Les fichiers de nomenclature ou manifeste sont également copiés vers le compte de stockage Azure. Vous pouvez utiliser les fichiers de nomenclature ou manifeste pour vérifier que les fichiers chargés sur Azure correspondent aux données copiées dans Data Box.
 
-## <a name="review-copy-log-during-upload-to-azure"></a>Passez en revue le journal de copie lors du chargement vers Azure
+## <a name="review-copy-log-during-upload-to-azure"></a>Consulter le journal de copie lors du chargement vers Azure
 
-Lors du téléchargement de données vers Azure, un *copylog* est créé.
+Lors du chargement des données dans Azure, un fichier *copylog* est créé.
 
 ### <a name="copylog"></a>Copylog
 
-Pour chaque commande est traitée, crée le service Data Box *copylog* dans le compte de stockage associé. Le *copylog* a le nombre total de fichiers qui ont été chargés et le nombre de fichiers qui erronées pendant les données copier à partir de la zone de données à votre compte de stockage Azure.
+Pour chaque commande traitée, le service Data Box crée un fichier *copylog* dans le compte de stockage associé. Le *copylog* contient le nombre total de fichiers chargés et le nombre de fichiers ayant rencontré des erreurs pendant la copie des données de Data Box vers votre compte de stockage Azure.
 
-Un calcul de redondance cyclique (CRC) est effectué pendant le chargement vers Azure. Les CRC à partir de la copie des données et une fois le chargement des données sont comparées. Une incompatibilité CRC indique que les fichiers correspondants Échec du téléchargement.
+Un contrôle de redondance cyclique (CRC) est effectué pendant le chargement vers Azure. Les CRC de la copie des données et post-chargement sont comparés. Une différence entre les CRC indique que les fichiers correspondants n’ont pas été chargés.
 
-Par défaut, les journaux sont écrits dans un conteneur nommé copylog. Les journaux sont stockés avec la convention d’affectation de noms suivante :
+Par défaut, les journaux sont écrits dans un conteneur nommé  `copylog`. Les journaux sont stockés avec la convention d’affectation de noms suivante :
 
 `storage-account-name/databoxcopylog/ordername_device-serial-number_CopyLog_guid.xml`.
 
-Le chemin d’accès copylog s’affiche également sur le **vue d’ensemble** panneau pour le portail.
+Le chemin d’accès au fichier copylog s’affiche également dans le panneau **Vue d’ensemble** du portail.
 
-![Chemin d’accès à copylog dans le panneau de vue d’ensemble lorsque terminée](media/data-box-logs/copy-log-path-1.png)
+![Chemin d’accès au fichier copylog dans le panneau Vue d’ensemble une fois l’opération terminée](media/data-box-logs/copy-log-path-1.png)
 
-L’exemple suivant décrit le format général d’un fichier copylog pour une zone de données de téléchargement qui s’est terminée correctement :
+L’exemple suivant décrit le format général d’un fichier copylog pour un chargement Data Box terminé correctement :
 
 ```
 <?xml version="1.0"?>
@@ -222,11 +222,11 @@ L’exemple suivant décrit le format général d’un fichier copylog pour une 
 </CopyLog>
 ```
 
-Chargement vers Azure soit terminée avec des erreurs.
+Le chargement vers Azure peut également se terminer avec des erreurs.
 
-![Chemin d’accès à copylog dans le panneau de vue d’ensemble lorsque terminée avec des erreurs](media/data-box-logs/copy-log-path-2.png)
+![Chemin d’accès au fichier copylog dans le panneau Vue d’ensemble en cas d’erreur](media/data-box-logs/copy-log-path-2.png)
 
-Voici un exemple d’un copylog où le téléchargement est terminé avec des erreurs :
+Voici un exemple de fichier copylog pour un chargement terminé avec des erreurs :
 
 ```xml
 <ErroredEntity Path="iso\samsungssd.iso">
@@ -245,17 +245,51 @@ Voici un exemple d’un copylog où le téléchargement est terminé avec des er
   <FilesErrored>2</FilesErrored>
 </CopyLog>
 ```
+Voici un exemple de fichier `copylog` où les conteneurs non conformes aux conventions d’affectation de noms Azure ont été renommés lors du chargement des données vers Azure.
 
+Les nouveaux noms uniques des conteneurs sont au format `DataBox-GUID` et les données du conteneur sont placées dans le nouveau conteneur renommé. Le `copylog` spécifie l’ancien et le nouveau nom du conteneur.
 
-## <a name="get-chain-of-custody-logs-after-data-erasure"></a>Obtenir la chaîne de journaux de responsabilité après l’effacement des données
+```xml
+<ErroredEntity Path="New Folder">
+   <Category>ContainerRenamed</Category>
+   <ErrorCode>1</ErrorCode>
+   <ErrorMessage>The original container/share/blob has been renamed to: DataBox-3fcd02de-bee6-471e-ac62-33d60317c576 :from: New Folder :because either the name has invalid character(s) or length is not supported</ErrorMessage>
+  <Type>Container</Type>
+</ErroredEntity>
+```
 
-Une fois les données sont effacées à partir des disques Data Box conformément aux instructions Revision 1 NIST SP 800-88, la chaîne de responsabilité journaux sont disponibles. Ces journaux incluent les journaux d’audit et l’historique des commandes. La nomenclature ou les fichiers manifeste sont également copiées avec les journaux d’audit.
+Voici un exemple de fichier `copylog` où les objets blob ou fichiers non conformes aux conventions d’affectation de noms Azure ont été renommés lors du chargement des données vers Azure. Les nouveaux noms des objets blob ou fichiers sont convertis avec le code de hachage SHA256 du chemin d’accès relatif au conteneur et sont chargés vers le chemin d’accès, en fonction du type de destination. Il peut s’agir d’objets blob de blocs, d’objets blob de pages ou fichiers Azure Files.
+
+Le `copylog` spécifie l’ancien et le nouveau nom de l’objet blob ou du fichier et son chemin d’accès dans Azure.
+
+```xml
+<ErroredEntity Path="TesDir028b4ba9-2426-4e50-9ed1-8e89bf30d285\Ã">
+  <Category>BlobRenamed</Category>
+  <ErrorCode>1</ErrorCode>
+  <ErrorMessage>The original container/share/blob has been renamed to: PageBlob/DataBox-0xcdc5c61692e5d63af53a3cb5473e5200915e17b294683968a286c0228054f10e :from: Ã :because either name has invalid character(s) or length is not supported</ErrorMessage>
+  <Type>File</Type>
+</ErroredEntity><ErroredEntity Path="TesDir9856b9ab-6acb-4bc3-8717-9a898bdb1f8c\Ã">
+  <Category>BlobRenamed</Category>
+  <ErrorCode>1</ErrorCode>
+  <ErrorMessage>The original container/share/blob has been renamed to: AzureFile/DataBox-0xcdc5c61692e5d63af53a3cb5473e5200915e17b294683968a286c0228054f10e :from: Ã :because either name has invalid character(s) or length is not supported</ErrorMessage>
+  <Type>File</Type>
+</ErroredEntity><ErroredEntity Path="TesDirf92f6ca4-3828-4338-840b-398b967d810b\Ã">
+  <Category>BlobRenamed</Category>
+  <ErrorCode>1</ErrorCode>
+  <ErrorMessage>The original container/share/blob has been renamed to: BlockBlob/DataBox-0xcdc5c61692e5d63af53a3cb5473e5200915e17b294683968a286c0228054f10e :from: Ã :because either name has invalid character(s) or length is not supported</ErrorMessage>
+  <Type>File</Type>
+</ErroredEntity>
+```
+
+## <a name="get-chain-of-custody-logs-after-data-erasure"></a>Obtenir les journaux d’activité de chaîne de responsabilité après l’effacement des données
+
+Une fois les données effacées des disques Data Box conformément à la norme NIST SP 800-88 Revision 1, les journaux de chaîne de responsabilité sont disponibles. Ils incluent les journaux d’audit et l’historique des commandes. Les fichiers de nomenclature ou manifeste sont également copiés avec les journaux d’audit.
 
 ### <a name="audit-logs"></a>Journaux d’audit
 
-Journaux d’audit contiennent des informations sur la mise sous tension et partager l’accès sur la zone données ou lourd de zone de données lorsqu’il est en dehors du centre de données Azure. Ces journaux sont situés à : `storage-account/azuredatabox-chainofcustodylogs`
+Les journaux d’audit contiennent des informations sur la mise sous tension et l’accès au partage sur la Data Box ou la Data Box Heavy lorsqu’elle est hors du centre de données Azure. Ces journaux d’activité se trouvent ici : `storage-account/azuredatabox-chainofcustodylogs`.
 
-Voici un exemple du journal d’audit à partir d’une zone de données :
+Voici un exemple de journal d’audit de Data Box :
 
 ```
 9/10/2018 8:23:01 PM : The operating system started at system time ‎2018‎-‎09‎-‎10T20:23:01.497758400Z.
@@ -310,15 +344,15 @@ The authentication information fields provide detailed information about this sp
 
 ## <a name="download-order-history"></a>Télécharger l’historique des commandes
 
-L’historique des commandes sont disponible dans le portail Azure. Si la commande est terminée et que le nettoyage de l’appareil (l’effacement des données à partir des disques) est terminée, accédez à votre commande de l’appareil, puis accédez à **Order details**. ** Télécharger l’historique des commandes** option est disponible. Pour plus d’informations, consultez [télécharger l’historique des commandes](data-box-portal-admin.md#download-order-history).
+L’historique des commandes est disponible dans le Portail Azure. Si la commande est terminée et que le nettoyage de l’appareil (l’effacement des données des disques) est terminé lui aussi, accédez à votre commande d’appareil, puis à **Détails de la commande**. L’option  **Télécharger l’historique des commandes**  est disponible. Pour plus d’informations, consultez [Télécharger l’historique des commandes](data-box-portal-admin.md#download-order-history).
 
-Si vous faites défiler l’historique des commandes, vous voyez :
+En faisant défiler l’historique des commandes, vous verrez les éléments suivants :
 
-- Suivi des informations relatives à votre appareil du transporteur.
-- Événements avec *SecureErase* activité. Ces événements correspondent à l’effacement des données sur le disque.
-- Liaisons de journal de zone de données. Les chemins d’accès pour le *journaux d’audit*, *copylogs*, et *BOM* fichiers sont présentés.
+- Informations de suivi du transporteur pour votre appareil.
+- Événements avec activité *SecureErase*. Ces événements correspondent à l’effacement des données sur le disque.
+- Liens vers les journaux Data Box. Les chemins d’accès aux *journaux d’audit*, *copylogs* et fichiers de *nomenclature* sont présentés.
 
-Voici un exemple du journal d’historique de commande à partir du portail Azure :
+Voici un exemple du journal d’historique des commandes disponible depuis le Portail Azure :
 
 ```
 -------------------------------
@@ -369,4 +403,4 @@ BOM Files Path       : azuredatabox-chainofcustodylogs\<GUID>\<Device-serial-no>
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez comment [résoudre les problèmes sur votre Data Box et lourdes de zone de données](data-box-troubleshoot.md).
+- Découvrez comment [résoudre les problèmes sur votre Data Box et votre Data Box Heavy](data-box-troubleshoot.md).

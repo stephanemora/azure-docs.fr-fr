@@ -9,14 +9,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 06/18/2019
 ms.author: diberry
-ms.openlocfilehash: f922f9c64f182377365192543305b48659c518da
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
-ms.translationtype: MT
+ms.openlocfilehash: 7e1e61d96b066c395668ce1dd9cdba4cb4ecb2be
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417983"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204100"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Forum aux questions (FAQ) sur Language Understanding
 
@@ -24,7 +24,7 @@ Cet article contient des réponses aux questions fréquemment posées sur Langua
 
 ## <a name="whats-new"></a>Nouveautés
 
-[En savoir plus](whats-new.md) sur les nouveautés de la reconnaissance vocale.
+[En savoir plus](whats-new.md) sur les nouveauté du service Language Understanding.
 
 <a name="luis-authoring"></a>
 
@@ -68,13 +68,13 @@ Les applications prédéfinies Cortana sont déconseillées depuis 2017. Elles n
 ### <a name="how-do-i-transfer-ownership-of-a-luis-app"></a>Comment faire pour transférer la propriété d’une application LUIS ?
 Pour transférer une application LUIS vers un autre abonnement Azure, exportez l’application LUIS et importez-la à l’aide d’un nouveau compte. Mettez à jour l’ID de l’application LUIS dans l’application cliente qui l’appelle. La nouvelle application peut renvoyer des scores LUIS légèrement différents de ceux renvoyés par l’application d’origine.
 
-### <a name="a-prebuilt-entity-is-tagged-in-an-example-utterance-instead-of-my-custom-entity-how-do-i-fix-this"></a>Une entité prédéfinie est marquée dans un énoncé exemple au lieu de mon entité personnalisée. Comment résoudre ce problème ? 
+### <a name="a-prebuilt-entity-is-tagged-in-an-example-utterance-instead-of-my-custom-entity-how-do-i-fix-this"></a>Une entité prédéfinie est marquée dans un énoncé exemple au lieu de mon entité personnalisée. Comment la corriger ? 
 
-Consultez [résolution des problèmes des entités prédéfinies](luis-concept-entity-types.md#troubleshooting-prebuilt-entities).
+Voir la section sur la [résolution des problèmes relatifs aux entités prédéfinies](luis-concept-entity-types.md#troubleshooting-prebuilt-entities).
 
-### <a name="i-tried-to-import-an-app-or-version-file-but-i-got-an-error-what-happened"></a>J’ai essayé d’importer un fichier d’application ou de version, mais j’ai obtenu une erreur, que s’est-il passé ? 
+### <a name="i-tried-to-import-an-app-or-version-file-but-i-got-an-error-what-happened"></a>J’ai essayé d’importer un fichier d’application ou de version, mais j’ai obtenu une erreur. Que s’est-il passé ? 
 
-En savoir plus sur [d’erreurs d’importation version](luis-how-to-manage-versions.md#import-errors) et [d’erreurs d’importation application](luis-how-to-start-new-app.md#import-errors).
+Voir les [erreurs d’importation de version](luis-how-to-manage-versions.md#import-errors) et les [erreurs d’importation d’application](luis-how-to-start-new-app.md#import-errors).
 
 <a name="luis-collaborating"></a>
 
@@ -189,11 +189,11 @@ Pour en savoir plus sur les différences entre la [clé de création](luis-how-t
 
 ### <a name="i-got-an-error-about-being-out-of-quota-how-do-i-fix-it"></a>J'ai rencontré une erreur de dépassement de quota. Comment la corriger ? 
 
-Pour en savoir plus, consultez [Comment corriger les erreurs de dépassement de quota quand la clé excède l'utilisation du niveau tarifaire](luis-how-to-azure-subscription.md##how-to-fix-out-of-quota-errors-when-the-key-exceeds-pricing-tier-usage).
+Voir [Corriger les codes d’état HTTP 403 et 429](luis-how-to-azure-subscription.md#fix-http-status-code-403-and-429) pour en savoir plus.
 
 ### <a name="i-need-to-handle-more-endpoint-queries-how-do-i-do-that"></a>J'ai besoin de gérer davantage de requêtes de point de terminaison. Que dois-je faire ? 
 
-Pour en savoir plus, consultez [Comment corriger les erreurs de dépassement de quota quand la clé excède l'utilisation du niveau tarifaire](luis-how-to-azure-subscription.md##how-to-fix-out-of-quota-errors-when-the-key-exceeds-pricing-tier-usage).
+Voir [Corriger les codes d’état HTTP 403 et 429](luis-how-to-azure-subscription.md#fix-http-status-code-403-and-429) pour en savoir plus.
 
 
 
@@ -288,23 +288,23 @@ Oui, vous pouvez utiliser le [conteneur](luis-container-howto.md) LUIS pour ces 
 
 ## <a name="migrating-to-the-next-version"></a>Migration vers la version suivante
 
-### <a name="how-do-i-migrate-to-preview-v3-api"></a>Comment migrer pour afficher un aperçu V3 API ? 
+### <a name="how-do-i-migrate-to-preview-v3-api"></a>Comment effectuer une migration pour afficher un aperçu de l’API V3 ? 
 
-Consultez [v2 API v3 migration guide pour les applications de LUIS](luis-migration-api-v3.md)
+Voir le [guide de migration d’API v2 vers v3 pour les applications LUIS](luis-migration-api-v3.md)
 
-## <a name="build-2019-conference-announcements"></a>Annonces de conférence 2019 de build
+## <a name="build-2019-conference-announcements"></a>Annonces pour la conférence Build 2019
 
-Les fonctionnalités suivantes ont été publiées lors de la conférence de 2019 Build :
+Les fonctionnalités suivantes ont été publiées lors de la conférence Build 2019 :
 
-* [Aperçu du guide de migration V3 API](luis-migration-api-v3.md)
-* [Tableau de bord analytique améliorée](luis-how-to-use-dashboard.md)
-* [Amélioration des domaines prédéfinis](luis-reference-prebuilt-domains.md) 
+* [Aperçu du guide de migration API V3](luis-migration-api-v3.md)
+* [Tableau de bord d’analyse amélioré](luis-how-to-use-dashboard.md)
+* [Domaines prédéfinis améliorés](luis-reference-prebuilt-domains.md) 
 * [Entités de liste dynamique](luis-migration-api-v3.md#dynamic-lists-passed-in-at-prediction-time)
 * [Entités externes](luis-migration-api-v3.md#external-entities-passed-in-at-prediction-time)
 
 Vidéos :
 
-* [Comment utiliser l’intelligence artificielle CONVERSATIONNELLE Azure à l’échelle de votre entreprise pour la prochaine génération](https://www.youtube.com/watch?v=_k97jd-csuk&feature=youtu.be)
+* [Comment utiliser l’intelligence artificielle conversationnelle Azure pour préparer votre entreprise à la prochaine génération](https://www.youtube.com/watch?v=_k97jd-csuk&feature=youtu.be)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

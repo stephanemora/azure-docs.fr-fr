@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f73756373a145375aa2b3d0bcb1c8fa0ede5cdb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2e6ac72a91ae14b6f9c513c84da6f1f06508caef
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65823489"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482220"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Plateforme d’identités Microsoft et flux d’octroi implicite
 
@@ -48,7 +48,7 @@ Toutefois, si vous préférez ne pas utiliser de bibliothèque dans votre applic
 
 Le diagramme suivant montre à quoi ressemble le flux implicite de connexion complet. Les sections qui suivent décrivent chaque étape plus en détail.
 
-![Couloirs OpenId Connect](./media/v2-oauth2-implicit-grant-flow/convergence-scenarios-implicit.svg)
+![Diagramme montrant le flux de connexion implicite](./media/v2-oauth2-implicit-grant-flow/convergence-scenarios-implicit.svg)
 
 ## <a name="send-the-sign-in-request"></a>Envoyer la requête de connexion
 
@@ -243,4 +243,4 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/logout?post_logout_redire
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Consultez les [exemples JS MSAL](sample-v2-code.md#single-page-applications-spa) pour commencer à coder.
+* Consultez les [exemples JS MSAL](sample-v2-code.md) pour commencer à coder.

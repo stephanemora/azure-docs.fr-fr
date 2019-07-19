@@ -4,17 +4,17 @@ description: Les ressources de variables sont des valeurs disponibles pour tous 
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 05/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0ac34f1d1e7fc2a967c7608f31f3b943f9380d01
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 39282e816be875e598d7e0599eeb358a79941be7
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65786205"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478062"
 ---
 # <a name="variable-assets-in-azure-automation"></a>Ressources de variables dans Azure Automation
 
@@ -28,7 +28,7 @@ Les ressources de variables sont des valeurs disponibles pour tous les Runbooks 
 
 Les variables Automation sont conservées et demeurent ainsi disponibles même si le Runbook ou la configuration DSC échoue. Ce comportement permet aussi à une valeur d’être définie par un Runbook ou une configuration DSC, puis utilisée par un autre Runbook ou configuration DSC, ou bien par le même Runbook ou configuration DSC à sa prochaine exécution.
 
-Quand une variable est créée, vous pouvez spécifier qu’elle doit être stockée de manière chiffrée. Les variables chiffrées sont stockées de manière sécurisée dans Azure Automation. Sa valeur ne peut pas être récupérée à partir de la cmdlet [Get-AzureRmAutomationVariable](/powershell/module/AzureRM.Automation/Get-AzureRmAutomationVariable), fournie dans le cadre du module Azure PowerShell. Une valeur chiffrée ne peut être récupérée que d’une seule façon, à partir de l’activité **Get-AutomationVariable** d’un Runbook ou d’une configuration DSC.
+Quand une variable est créée, vous pouvez spécifier qu’elle doit être stockée de manière chiffrée. Les variables chiffrées sont stockées de manière sécurisée dans Azure Automation. Sa valeur ne peut pas être récupérée à partir de la cmdlet [Get-AzureRmAutomationVariable](/powershell/module/AzureRM.Automation/Get-AzureRmAutomationVariable), fournie dans le cadre du module Azure PowerShell. Une valeur chiffrée ne peut être récupérée que d’une seule façon, à partir de l’activité **Get-AutomationVariable** d’un Runbook ou d’une configuration DSC. Si vous souhaitez modifier une variable chiffrée pour qu’elle soit non chiffrée, vous devez supprimer et recréer la variable sous forme non chiffrée.
 
 >[!NOTE]
 >Les ressources sécurisées dans Azure Automation incluent les informations d'identification, les certificats, les connexions et les variables chiffrées. Ces ressources sont chiffrées et stockées dans Azure Automation à l’aide d’une clé unique générée pour chaque compte Automation. Cette clé est stockée dans un coffre de clés managé par le système. Avant de stocker une ressource sécurisée, la clé est chargée à partir de Key Vault, puis utilisée pour chiffrer la ressource. Ce processus est managé par Azure Automation.

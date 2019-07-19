@@ -3,36 +3,30 @@ title: Configurer un modèle d’appareil dans une application Azure IoT Central
 description: Découvrez comment configurer un modèle d’appareil avec des mesures, des paramètres, des propriétés, des règles et un tableau de bord.
 author: viv-liu
 ms.author: viviali
-ms.date: 01/30/2019
+ms.date: 06/19/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: d1704220a13b6d6b5a48b7167d7912a38057127d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7fb0fba519a7833ac318c713dc9eb3c6ac7f8b5b
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65466510"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509550"
 ---
 # <a name="set-up-a-device-template"></a>Configurer un modèle d’appareil
 
 Un modèle d’appareil est un blueprint qui définit les caractéristiques et les comportements d’un type d’appareil se connectant à une application Azure IoT Central.
 
-Par exemple, un concepteur peut créer un modèle d’appareil pour un ventilateur connecté à IoT qui a :
+Par exemple, un concepteur peut créer un modèle d’appareil pour un ventilateur connecté qui présente les caractéristiques suivantes :
 
 - Une mesure de télémétrie de température
-
+- Mesure de l’emplacement
 - Une mesure d’événement d’erreur du moteur du ventilateur
-
 - Une mesure de l’état de fonctionnement du ventilateur
-
 - Un paramètre de vitesse du ventilateur
-
-- Une propriété d’emplacement
-
 - Des règles qui envoient des alertes
-
 - Un tableau de bord qui vous donne une vision globale de l’appareil
 
 À partir de ce modèle d’appareil, un opérateur peut créer et connecter des appareils qui sont des ventilateurs réels avec des noms comme **ventilateur-1** et **ventilateur-2**. Tous ces ventilateurs ont des mesures, des paramètres, des propriétés, des règles et un tableau de bord que les utilisateurs de votre application peuvent surveiller et gérer.
@@ -61,6 +55,7 @@ Les mesures sont les données qui proviennent de votre appareil. Vous pouvez ajo
 - Les mesures de type **télémétrie** sont les points de données numériques que votre appareil collecte au fil du temps. Elles sont représentées sous la forme d’un flux continu. La température en est un exemple.
 - Les mesures de type **événement** sont des données ponctuelles qui représentent quelque chose d’important sur l’appareil. Un niveau de gravité représente l’importance d’un événement. Il peut s’agir, par exemple, d’une erreur du moteur du ventilateur.
 - Les mesures de type **état** représentent l’état de l’appareil ou de ses composants sur une période de temps. Par exemple, vous pouvez définir le mode d’un ventilateur avec deux états possibles : **En fonctionnement** et **Arrêté**.
+- Les mesures de l’**emplacement** correspondent aux coordonnées de longitude et de latitude de l’appareil sur une période donnée. Par exemple, un ventilateur peut être déplacé d’un emplacement vers un autre.
 
 ### <a name="create-a-telemetry-measurement"></a>Créer une mesure de télémétrie
 
@@ -78,7 +73,7 @@ Pour ajouter une nouvelle mesure de télémétrie, sélectionnez **+ Nouvelle me
 
 Après avoir sélectionné **Enregistrer**, la mesure **Température** figure dans la liste des mesures. Au bout de quelques instants, vous voyez la visualisation des données de température de l’appareil simulé.
 
-Lors de l’affichage des données de télémétrie, vous pouvez choisir parmi les options d’agrégation suivantes : Moyenne, Minimum, Maximum, Somme et Nombre. **Moyenne** est sélectionnée en tant qu’agrégation par défaut sur le graphique. 
+Lors de l’affichage des données de télémétrie, vous pouvez choisir parmi les options d’agrégation suivantes : Moyenne, Minimum, Maximum, Somme et Nombre. **Moyenne** est sélectionnée en tant qu’agrégation par défaut sur le graphique.
 
 > [!NOTE]
 > La mesure de télémétrie est représentée par un nombre à virgule flottante.
@@ -127,6 +122,32 @@ Si l’appareil envoie un trop grand nombre de points de données sur une courte
 > [!NOTE]
 > Le type de données de la mesure d’état est « chaîne ».
 
+### <a name="create-a-location-measurement"></a>Créer une mesure d’emplacement
+
+Pour ajouter une mesure d’emplacement, sélectionnez **+ Nouvelle mesure**, choisissez **Emplacement** comme type de mesure, puis entrez les détails dans le formulaire **Créer une mesure**.
+
+Par exemple, vous pouvez ajouter une mesure de télémétrie d’emplacement :
+
+| Nom d’affichage        | Nom du champ    |
+| --------------------| ------------- |
+| Emplacement de la ressource      |  assetloc     |
+
+![Formulaire « Créer un emplacement » contenant la mesure d’emplacement](./media/howto-set-up-template/locationmeasurementsform.png)
+
+Une fois que vous avez sélectionné **Enregistrer**, la mesure **Emplacement** figure dans la liste des mesures. Au bout de quelques instants, vous accédez à la visualisation des données d’emplacement de l’appareil simulé.
+
+Lors de l’affichage de l’emplacement, vous pouvez choisir parmi les options suivantes : dernier emplacement et historique des emplacements. **Historique des emplacements** s’applique uniquement sur l’intervalle de temps sélectionné.
+
+Le type de données de la mesure d’emplacement est un objet qui contient la latitude, la longitude et, de manière facultative, l’altitude. L’extrait de code suivant illustre la structure JavaScript :
+
+```javascript
+assetloc: {
+  lon: floating point number,
+  lat: floating point number,
+  alt?: floating point number
+}
+```
+
 ## <a name="settings"></a>Paramètres
 
 Les paramètres contrôlent un appareil. Ils permettent aux opérateurs de fournir des entrées à l’appareil. Vous pouvez ajouter plusieurs paramètres à votre modèle d’appareil qui apparaissent sous forme de vignettes sous l’onglet **Paramètres**, que les opérateurs peuvent utiliser. Vous pouvez ajouter six types de paramètres : nombre, texte, date, bascule, liste de choix et étiquette de section.
@@ -151,12 +172,12 @@ Une fois que vous avez sélectionné **Enregistrer**, le paramètre **Vitesse du
 
 ## <a name="properties"></a>properties
 
-Les propriétés sont les métadonnées associées à l’appareil, comme l’emplacement et le numéro de série de l’appareil. Ajoutez plusieurs propriétés à votre modèle d’appareil qui apparaissent sous forme de vignettes sous l’onglet **Propriétés**. Une propriété peut avoir un type, tel que nombre, texte, date, activer/désactiver, propriété de l’appareil, étiquette ou emplacement. Un opérateur peut spécifier les valeurs des propriétés quand il crée un appareil et les modifier à tout moment. Les propriétés d’appareil sont en lecture seule et elles sont envoyées par l’appareil à l’application. Un opérateur ne peut pas changer les propriétés d’appareil. Quand un appareil physique se connecte, la vignette de propriété d’appareil est mise à jour dans l’application.
+Les propriétés sont les métadonnées associées à l’appareil, comme l’emplacement fixe et le numéro de série de l’appareil. Ajoutez plusieurs propriétés à votre modèle d’appareil qui apparaissent sous forme de vignettes sous l’onglet **Propriétés**. Une propriété peut avoir un type, tel que nombre, texte, date, activer/désactiver, propriété de l’appareil, étiquette ou emplacement fixe. Un opérateur spécifie les valeurs des propriétés quand il crée un appareil et il peut les modifier à tout moment. Les propriétés d’appareil sont en lecture seule et elles sont envoyées par l’appareil à l’application. Un opérateur ne peut pas changer les propriétés d’appareil. Quand un appareil physique se connecte, la vignette de propriété d’appareil est mise à jour dans l’application.
 
 Il existe deux catégories de propriété :
 
 - Les _propriétés d’appareil_, que l’appareil signale à l’application IoT Central. Les propriétés d’appareil sont des valeurs en lecture seule signalées par l’appareil et mises à jour dans l’application quand un appareil physique est connecté.
-- Les _propriétés d’application_, qui sont stockées dans l’application et peuvent être modifiées par l’opérateur. L’appareil ne reconnaît pas les propriétés d’application.
+- Les _propriétés d’application_, qui sont stockées dans l’application et peuvent être modifiées par l’opérateur. Les propriétés de l’application sont stockées uniquement dans l’application et ne sont jamais visibles par un appareil.
 
 Par exemple, vous pouvez ajouter la date du dernier entretien de l’appareil en tant que nouvelle propriété **Date** (une propriété d’application) sous l’onglet **Propriétés** :
 
@@ -170,14 +191,17 @@ Une fois que vous avez sélectionné **Enregistrer**, la date du dernier entreti
 
 Après avoir créé la vignette, vous pouvez changer la valeur de la propriété d’application dans **Device Explorer**.
 
-### <a name="create-a-location-property-through-azure-maps"></a>Créer une propriété d’emplacement via Azure Maps
+### <a name="create-a-location-property"></a>Créer une propriété d’emplacement
 
-Vous pouvez indiquer le contexte géographique des données d’emplacement dans Azure IoT Central et cartographier les coordonnées de latitude et de longitude d’une adresse postale. Vous pouvez aussi cartographier les coordonnées de latitude et de longitude. Azure Maps active cette fonctionnalité dans IoT Central.
+Vous pouvez indiquer le contexte géographique des données d’emplacement dans Azure IoT Central et cartographier les coordonnées de latitude et de longitude d’une adresse postale. Azure Maps active cette fonctionnalité dans IoT Central.
 
 Vous pouvez ajouter deux types de propriété d’emplacement :
 
-- L’**emplacement en tant que propriété d’application**, qui est stocké dans l’application. L’appareil ne reconnaît pas les propriétés d’application.
-- L’**emplacement en tant que propriété d’appareil**, qui est signalée par l’appareil à l’application.
+- L’**emplacement en tant que propriété d’application**, qui est stocké dans l’application. Les propriétés de l’application sont stockées uniquement dans l’application et ne sont jamais visibles par un appareil.
+- L’**emplacement en tant que propriété d’appareil**, qui est signalée par l’appareil à l’application. Ce type de propriété est préférable pour un emplacement statique.
+
+> [!NOTE]
+> L’emplacement en tant que propriété n’enregistre pas l’historique. Si vous souhaitez obtenir un historique, utilisez une mesure d’emplacement.
 
 #### <a name="add-location-as-an-application-property"></a>Ajouter un emplacement en tant que propriété d’application
 
@@ -190,7 +214,7 @@ Vous pouvez créer une propriété d’emplacement sous forme de propriété d�
 3. Configurez les champs **Nom d’affichage**, **Nom du champ** et éventuellement **Valeur initiale** pour l’emplacement.
 
     | Nom d’affichage  | Nom du champ | Valeur initiale |
-    | --------------| -----------|---------| 
+    | --------------| -----------|---------|
     | Adresse de l’installation | installAddress | Microsoft, 1 Microsoft Way, Redmond, WA 98052   |
 
    ![Formulaire « Configurer l’emplacement » contenant les détails de l’emplacement](./media/howto-set-up-template/locationcloudproperty2.png)
@@ -220,7 +244,7 @@ Vous pouvez créer une propriété d’emplacement sous forme de propriété d�
 
    ![Formulaire « Configurer les propriétés de l’appareil » contenant les détails de l’emplacement](./media/howto-set-up-template/locationdeviceproperty2.png)
 
-Une fois l’appareil physique connecté, l’emplacement que vous avez ajouté en tant que propriété d’appareil est mis à jour avec la valeur envoyée par l’appareil. Maintenant que vous avez configuré votre propriété d’emplacement, vous pouvez [ajouter une carte pour visualiser l’emplacement dans le tableau de bord de l’appareil](#add-an-azure-maps-location-in-the-dashboard).
+Une fois l’appareil physique connecté, l’emplacement que vous avez ajouté en tant que propriété d’appareil est mis à jour avec la valeur envoyée par l’appareil. Maintenant que vous avez configuré votre propriété d’emplacement, vous pouvez [ajouter une carte pour visualiser l’emplacement dans le tableau de bord de l’appareil](#add-a-location-in-the-dashboard).
 
 ## <a name="commands"></a>Commandes
 
@@ -250,7 +274,7 @@ Les règles permettent aux opérateurs de surveiller des appareils quasi en temp
 
 ## <a name="dashboard"></a>tableau de bord
 
-Le tableau de bord est l’endroit où un opérateur peut accéder à des informations sur un appareil. Comme concepteur, vous pouvez ajouter des vignettes à cette page pour aider les opérateurs à comprendre comment l’appareil se comporte. Vous pouvez ajouter plusieurs vignettes de tableau de bord à votre modèle d’appareil. Vous pouvez ajouter de nombreux types de vignettes de tableau de bord : image, graphique en courbes, graphique à barres, indicateur de performance clé (KPI), paramètres, propriétés et étiquette.
+Le tableau de bord est l’endroit où un opérateur accède à des informations sur un appareil. En tant que concepteur, vous ajoutez des vignettes à cette page pour aider les opérateurs à comprendre comment l’appareil se comporte. Vous pouvez ajouter de nombreux types de vignettes de tableau de bord : image, graphique en courbes, graphique à barres, indicateur de performance clé (KPI), paramètres, propriétés et étiquette.
 
 Par exemple, vous pouvez ajouter une vignette **Paramètres et propriétés** pour afficher une sélection des valeurs actuelles de paramètres et de propriétés en sélectionnant l’onglet **Tableau de bord** et la vignette dans la bibliothèque :
 
@@ -258,27 +282,29 @@ Par exemple, vous pouvez ajouter une vignette **Paramètres et propriétés** po
 
 Désormais, quand un opérateur affiche le tableau de bord dans **Device Explorer**, il peut voir la vignette.
 
-### <a name="add-an-azure-maps-location-in-the-dashboard"></a>Ajouter un emplacement Azure Maps dans le tableau de bord
+### <a name="add-a-location-in-the-dashboard"></a>Ajouter un emplacement dans le tableau de bord
 
-Si vous avez configuré une propriété d’emplacement, vous pouvez visualiser l’emplacement en utilisant une carte dans le tableau de bord de votre appareil.
+Si vous avez configuré une mesure d’emplacement, vous pouvez visualiser l’emplacement en utilisant une carte dans le tableau de bord de votre appareil.
 
 1. Accédez à l’onglet **Tableau de bord**.
 
 1. Dans le tableau de l’appareil, sélectionnez **Carte** dans la bibliothèque.
 
-1. Donnez un titre à la carte. L’exemple suivant s’intitule **Emplacement d’installation**. Ensuite, choisissez la propriété d’emplacement que vous avez configurée sous l’onglet **Propriétés**. Dans l’exemple suivant, **Adresse d’installation** est sélectionnée.
+1. Donnez un titre à la carte. L’exemple suivant s’intitule **Device Current Location (Emplacement actuel de l’appareil)** . Choisissez ensuite la mesure d’emplacement que vous avez configurée sous l’onglet **Mesures**. Dans l’exemple suivant, la mesure **Emplacement de la ressource** est sélectionnée :
 
    ![Formulaire « Configurer la carte » contenant les détails de la vignette et les propriétés](./media/howto-set-up-template/locationcloudproperty5map.png)
 
-4. Sélectionnez **Enregistrer**. La vignette de la carte présente maintenant l’emplacement que vous avez sélectionné.
+1. Sélectionnez **Enregistrer**. La vignette de la carte présente maintenant l’emplacement que vous avez sélectionné.
 
-Vous pouvez redimensionner la carte à la taille souhaitée. Désormais, quand un opérateur consulte le tableau de bord dans **Device Explorer**, toutes les vignettes de tableau de bord que vous avez configurées, y compris la carte d’emplacement, sont visibles.
+Vous pouvez redimensionner la mosaïque. Quand un opérateur consulte le tableau de bord dans **Device Explorer**, toutes les vignettes de tableau de bord que vous avez configurées, y compris la carte d’emplacement, sont visibles.
+
+Pour en savoir plus sur l’utilisation des vignettes dans Azure IoT Central, voir [Utiliser des vignettes de tableau de bord](howto-use-tiles.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Maintenant que vous avez appris à configurer un modèle d’appareil dans votre application Azure IoT Central, vous pouvez :
 
 > [!div class="nextstepaction"]
-> [Créer une nouvelle version de modèle d’appareil](howto-version-devicetemplate.md)
+> [Créer une nouvelle version de modèle d’appareil](howto-version-device-template.md)
 > [Connecter un appareil IoT DevKit MXChip à votre application Azure IoT Central](howto-connect-devkit.md)
 > [Connecter une application cliente générique à votre application Azure IoT Central (Node.js)](howto-connect-nodejs.md)

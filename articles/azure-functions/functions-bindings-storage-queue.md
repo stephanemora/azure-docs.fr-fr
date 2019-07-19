@@ -4,7 +4,7 @@ description: Comprendre comment utiliser la liaison de sortie et le déclencheur
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: azure functions, fonctions, traitement des événements, calcul dynamique, architecture sans serveur
 ms.service: azure-functions
 ms.devlang: multiple
@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 72460136f5fa0dcfec78716fc02e0aaf9e860840
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.openlocfilehash: 9604ef276625d1fcc9164a9b75b94ebc22cb51e1
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66472298"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67480152"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Liaisons de stockage File d’attente Azure pour Azure Functions
 
@@ -305,9 +305,9 @@ Le déclencheur de la file d’attente empêche automatiquement une fonction de 
 
 ## <a name="trigger---hostjson-properties"></a>Déclencheur - propriétés de host.json
 
-Le fichier [host.json](functions-host-json.md#queues) contient les paramètres qui contrôlent le comportement du déclencheur de file d’attente. Consultez le [host.json paramètres](#hostjson-settings) section pour plus d’informations concernant les paramètres disponibles.
+Le fichier [host.json](functions-host-json.md#queues) contient les paramètres qui contrôlent le comportement du déclencheur de file d’attente. Consultez la section [Paramètres host.json](#hostjson-settings) pour plus d’informations concernant les paramètres disponibles.
 
-## <a name="output"></a>Sortie
+## <a name="output"></a>Output
 
 Utilisez la liaison de sortie Stockage File d’attente Azure pour écrire des messages dans une file d’attente.
 
@@ -533,7 +533,7 @@ Dans les fonctions JavaScript, utilisez `context.bindings.<name>` pour accéder 
 
 ## <a name="exceptions-and-return-codes"></a>Exceptions et codes de retour
 
-| Liaison |  Référence |
+| Liaison |  Informations de référence |
 |---|---|
 | File d'attente | [Codes d’erreur de file d’attente](https://docs.microsoft.com/rest/api/storageservices/queue-service-error-codes) |
 | Objet blob, Table, File d’attente | [Codes d’erreur de stockage](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
@@ -566,10 +566,10 @@ Cette section décrit les paramètres de configuration globale disponibles pour 
 
 |Propriété  |Default | Description |
 |---------|---------|---------|
-|maxPollingInterval|00:00:01|Intervalle maximal entre les interrogations de la file d’attente. Au minimum est 00:00:00.100 (100 ms) et incrémente jusqu'à 00:01:00 (1 minute). |
+|maxPollingInterval|00:00:01|Intervalle maximal entre les interrogations de la file d’attente. L’intervalle minimum est de 00:00:00.100 (100 ms) et il est augmenté par incréments de 00:01:00 (1 minute). |
 |visibilityTimeout|00:00:00|Intervalle de temps entre les nouvelles tentatives en cas d’échec du traitement d’un message. |
 |batchSize|16|Le nombre de messages de file d’attente que le runtime Functions récupère simultanément et traite en parallèle. Quand le nombre de messages en cours de traitement descend à `newBatchThreshold`, le runtime obtient un autre lot et commence à traiter ces messages. Par conséquent, le nombre maximal de messages traités simultanément par fonction est `batchSize` plus `newBatchThreshold`. Cette limite s’applique séparément à chaque fonction déclenchée par une file d’attente. <br><br>Si vous souhaitez éviter les exécutions parallèles pour les messages reçus sur une file d’attente, vous pouvez définir `batchSize` sur 1. Toutefois, ce paramètre évite les opérations simultanées uniquement pendant l’exécution de votre application de fonction sur une machine virtuelle unique. Si l’application de fonction augmente la taille des instances sur plusieurs machines virtuelles, chaque machine virtuelle peut exécuter une instance de chaque fonction déclenchée par une file d’attente.<br><br>La valeur `batchSize` maximale est de 32. |
-|maxDequeueCount|5.|Nombre de tentatives de traitement d’un message avant de le placer dans la file d’attente de messages incohérents.|
+|maxDequeueCount|5\.|Nombre de tentatives de traitement d’un message avant de le placer dans la file d’attente de messages incohérents.|
 |newBatchThreshold|batchSize/2|Quand le nombre de messages traités simultanément passe en dessous de cette valeur, le runtime récupère un autre lot.|
 
 ## <a name="next-steps"></a>Étapes suivantes

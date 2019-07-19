@@ -3,19 +3,19 @@ title: Méthode Languages de l’API de traduction de texte Translator Text
 titlesuffix: Azure Cognitive Services
 description: Utilisez la méthode Languages de l’API de traduction de texte Translator Text.
 services: cognitive-services
-author: rajdeep-in
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
-ms.author: v-pawal
-ms.openlocfilehash: 415093610bfbc314e569eeeb658508bdfb021d9c
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.author: swmachan
+ms.openlocfilehash: 7bac97b7edbfa0f7a03a65e462106b33160c6d1a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389726"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67435074"
 ---
 # <a name="translator-text-api-30-languages"></a>API de traduction de texte Translator Text 3.0 : Languages
 
@@ -40,7 +40,7 @@ Les paramètres de demande transmis à la chaîne de requête sont les suivants�
     <td><em>Paramètre obligatoire</em>.<br/>Version de l’API demandée par le client. La valeur doit être `3.0`.</td>
   </tr>
   <tr>
-    <td>portée</td>
+    <td>scope</td>
     <td>*Paramètre facultatif*.<br/>Liste de noms séparée par des virgules définissant le groupe de langues à renvoyer. Les noms de groupe autorisés sont les suivants : `translation`, `transliteration` et `dictionary`. Si aucune étendue n’est fournie, tous les groupes sont renvoyés, ce qui équivaut à transmettre `scope=translation,transliteration,dictionary`. Pour déterminer si l’ensemble des langues prises en charge est approprié dans le cadre de votre scénario, consultez la description de [l’objet de réponse](#response-body).</td>
   </tr>
 </table> 
@@ -263,7 +263,7 @@ Voici les codes d’état HTTP qu’une demande peut retourner.
   </tr>
   <tr>
     <td>429</td>
-    <td>Le serveur a rejeté la demande, car le client a dépassé les limites de la demande.</td>
+    <td>Le serveur a rejeté la requête, car le client a dépassé les limites de requête.</td>
   </tr>
   <tr>
     <td>500</td>

@@ -15,12 +15,12 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f645b7077ef43dc7eb4d70261b6b601b5e4af1b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9d2e8b4ae1a01cd299d910c4e88655885c7d00dc
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60288472"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476383"
 ---
 # <a name="approve-or-deny-requests-for-azure-resource-roles-in-pim"></a>Approuver ou rejeter les demandes de rôles de ressources Azure dans PIM
 
@@ -38,15 +38,15 @@ En tant qu’approbateur délégué, vous recevez une notification par e-mail qu
 
 1. Cliquez sur **Approuver les demandes**.
 
-    ![Ressources Azure - Approuver les demandes](./media/pim-resource-roles-approval-workflow/resources-approve-requests.png)
+    ![Approuver les demandes : page Ressources Azure montrant une demande de révision](./media/pim-resource-roles-approval-workflow/resources-approve-requests.png)
 
     Dans la section **Demandes d’activations de rôles**, vous voyez la liste des demandes en attente d’approbation.
 
 ## <a name="approve-requests"></a>Approuver les demandes
 
-1. Recherchez et cliquez sur la demande que vous souhaitez approuver. Un volet d’approbation s’affiche.
+1. Recherchez et cliquez sur la demande que vous souhaitez approuver. Un volet Approuver ou refuser s’affiche.
 
-    ![Volet Approuver les demandes](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
+    ![Approuver les demandes : volet Approuver ou refuser avec des détails et la zone Justification](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
 
 1. Dans la zone **Justification**, tapez une raison.
 
@@ -54,13 +54,13 @@ En tant qu’approbateur délégué, vous recevez une notification par e-mail qu
 
     Une notification s’affiche avec votre approbation.
 
-    ![Approuver une notification](./media/pim-resource-roles-approval-workflow/resources-approve-notification.png)
+    ![Notification d’approbation montrant que la demande a été approuvée](./media/pim-resource-roles-approval-workflow/resources-approve-notification.png)
 
 ## <a name="deny-requests"></a>Refuser des demandes
 
-1. Recherchez et cliquez sur la demande que vous souhaitez refuser. Un volet d’approbation s’affiche.
+1. Recherchez et cliquez sur la demande que vous souhaitez refuser. Un volet Approuver ou refuser s’affiche.
 
-    ![Volet Approuver les demandes](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
+    ![Approuver les demandes : volet Approuver ou refuser avec des détails et la zone Justification](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
 
 1. Dans la zone **Justification**, tapez une raison.
 

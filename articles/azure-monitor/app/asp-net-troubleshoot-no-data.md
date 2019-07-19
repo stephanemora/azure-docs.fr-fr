@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: cf818756f583974a8a9b53a9a0cce31dd93d042b
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
-ms.translationtype: MT
+ms.openlocfilehash: 2966f90dcb381e439c00a6540ef9a01bd24f8743
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66299298"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561189"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Guide de dépannage : Application Insights pour .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Certaines de mes données télémétriques manquent
@@ -26,15 +26,15 @@ ms.locfileid: "66299298"
 * Si vous voyez régulièrement la même fraction, cela est probablement causé par [l’échantillonnage](../../azure-monitor/app/sampling.md) adaptatif. Pour vérifier cela, ouvrez la recherche (dans le panneau de vue d’ensemble) et recherchez une instance d’une demande ou d’autres événements. En bas de la section Propriétés, cliquez sur «... » pour obtenir des détails de propriété complets. Si le nombre de requêtes est supérieur à 1, l’échantillonnage est en cours.
 * Dans le cas contraire, il est possible que vous rencontriez une [limite de débit](../../azure-monitor/app/pricing.md#limits-summary) pour votre plan tarifaire. Ces limites sont appliquées par minute.
 
-*Je rencontre une perte de données au hasard.*
+*Je perds des données de manière aléatoire.*
 
-* Vérifiez si vous rencontrez une perte de données au [canal de télémétrie](telemetry-channels.md#does-applicationinsights-channel-offer-guaranteed-telemetry-delivery-or-what-are-the-scenarios-where-telemetry-can-be-lost)
+* Vérifiez si vous subissez des pertes de données dans le [canal de télémétrie](telemetry-channels.md#does-the-application-insights-channel-guarantee-telemetry-delivery-if-not-what-are-the-scenarios-in-which-telemetry-can-be-lost)
 
-* Recherchez les problèmes connus dans le canal de télémétrie [référentiel Github](https://github.com/Microsoft/ApplicationInsights-dotnet/issues)
+* Recherchez les problèmes connus dans le [référentiel Github](https://github.com/Microsoft/ApplicationInsights-dotnet/issues) du canal de télémétrie
 
-*Je rencontre une perte de données dans une application Console ou sur une application Web lors de l’application est sur le point d’arrêt.*
+*Je subis une perte de données dans une application console ou sur une application web lorsqu’elle est sur le point de s’arrêter.*
 
-* Canal SDK conserve les données de télémétrie dans la mémoire tampon et les envoie par lots. Si l’application est en cours d’arrêt, vous devez appeler explicitement [Flush()](api-custom-events-metrics.md#flushing-data). Comportement de `Flush()` dépend de la véritable [canal](telemetry-channels.md#built-in-telemetrychannels) utilisé.
+* Le canal du kit de développement logiciel (SDK) conserve les données de télémétrie dans la mémoire tampon et les envoie par lots. Si l’application est en cours d’arrêt, il peut être nécessaire d’appeler explicitement [Flush()](api-custom-events-metrics.md#flushing-data). Le comportement de `Flush()` dépend du véritable [canal](telemetry-channels.md#built-in-telemetry-channels) utilisé.
 
 ## <a name="no-data-from-my-server"></a>Aucune donnée de mon serveur
 *J’ai installé l’application sur mon serveur web et maintenant je ne vois pas les données de télémétrie à partir de celui-ci. Cela a fonctionné correctement sur mon ordinateur de développement.*
@@ -52,7 +52,7 @@ ms.locfileid: "66299298"
 * Les outils ne prennent pas en charge tous les types de projets .NET. Les projets Web et WCF sont pris en charge. Pour les autres types de projets, notamment les applications de bureau ou de service, vous avez toujours la possibilité [d’ajouter un kit de développement logiciel Application Insights à votre projet manuellement](../../azure-monitor/app/windows-desktop.md).
 * Vérifiez que vous disposez de [Visual Studio 2013 Update 3 ou version ultérieure](https://docs.microsoft.com/visualstudio/releasenotes/vs2013-update3-rtm-vs). Il est préinstallé avec les outils d’analyse développeur, qui fournissent le Kit de développement logiciel (SDK) Application Insights.
 * Sélectionnez **Outils**, **Extensions et mises à jour**, puis vérifiez l’installation et l’activation des outils **Analyse développeur**. Dans ce cas, cliquez sur **Mises à jour** pour voir si une mise à jour est disponible.
-* Ouvrez la boîte de dialogue Nouveau projet et sélectionnez l’application Web ASP.NET. Si vous voyez l’option Application Insights à cet endroit, les outils sont installés. Si ce n’est pas le cas, essayez de désinstaller puis réinstaller le Developer Analytics Tools.
+* Ouvrez la boîte de dialogue Nouveau projet et sélectionnez l’application Web ASP.NET. Si vous voyez l’option Application Insights à cet endroit, les outils sont installés. Si ce n’est pas le cas, essayez de désinstaller, puis de réinstaller Developer Analytics Tools.
 
 ## <a name="q02"></a>Échec de l’ajout d’Application Insights
 *Lorsque j’essaie d’ajouter Application Insights à un projet existant, je reçois un message d’erreur.*
@@ -94,7 +94,7 @@ Correctif :
 * Sélectionnez **Outils**, **Extensions et mises à jour**, puis vérifiez l’installation et l’activation des outils **Analyse développeur**. Dans ce cas, cliquez sur **Mises à jour** pour voir si une mise à jour est disponible.
 * Cliquez avec le bouton droit sur l’Explorateur de solutions. Si vous voyez la commande **Application Insights > Configurer Application Insights**, utilisez-la pour raccorder votre projet à la ressource dans le service Application Insights.
 
-Sinon, votre type de projet n’est pas directement pris en charge par les outils d’Analytique de développeur. Pour voir votre télémétrie, connectez-vous au [portail Azure](https://portal.azure.com), cliquez sur Application Insights dans la barre de navigation de gauche, puis sélectionnez votre application.
+Dans le cas contraire, votre type de projet n’est pas directement pris en charge par les outils Developer Analytics Tools. Pour voir votre télémétrie, connectez-vous au [portail Azure](https://portal.azure.com), cliquez sur Application Insights dans la barre de navigation de gauche, puis sélectionnez votre application.
 
 ## <a name="access-denied-on-opening-application-insights-from-visual-studio"></a>« Accès refusé » lors de l’ouverture d’Application Insights dans Visual Studio
 *La commande de menu « Ouvrir Application Insights » m’amène vers le portail Azure, mais j’obtiens une erreur « Accès refusé ».*
@@ -215,7 +215,9 @@ Suivez ces instructions pour capturer les journaux d’activité de dépannage d
 
 ### <a name="net-core"></a>.NET Core
 
-1. Installer le [Microsoft.AspNetCore.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNetCore.ApplicationInsights.HostingStartup) package à partir de NuGet. La version que vous installez doit correspondre à la version actuellement installée de `Microsoft.ApplicationInsights`
+1. Installez le package [Microsoft.AspNet.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) à partir de NuGet. La version que vous installez doit correspondre à la version actuellement installée de `Microsoft.ApplicationInsights`
+
+Microsoft.ApplicationInsights.AspNetCore 2.7.1 est la version la plus récente et elle fait référence à Microsoft.ApplicationInsights 2.10. Par conséquent, vous devez installer Microsoft.AspNet.ApplicationInsights.HostingStartup 2.10.0.
 
 2. Modifiez la méthode `ConfigureServices` dans votre classe `Startup.cs` :
 
@@ -232,6 +234,27 @@ Suivez ces instructions pour capturer les journaux d’activité de dépannage d
 3. Redémarrez le processus pour que ces nouveaux paramètres soient récupérés par le kit de développement logiciel (SDK)
 
 4. Dès que vous avez terminé, annulez ces modifications.
+
+
+## <a name="PerfView"></a> Collecter des journaux avec PerfView
+[PerfView](https://github.com/Microsoft/perfview) est un outil d’analyse des performances et de diagnostic gratuit qui aide à isoler le processeur, la mémoire et d’autres problèmes en collectant et en visualisant des informations relatives aux diagnostics provenant de nombreuses sources.
+
+Le kit de développement logiciel (SDK) Application Insights enregistre les journaux EventSource de résolution automatique des problèmes qui peuvent être capturés par PerfView.
+
+Pour collecter des journaux, téléchargez PerfView et exécutez la commande suivante :
+```cmd
+PerfView.exe collect -MaxCollectSec:300 -NoGui /onlyProviders=*Microsoft-ApplicationInsights-Core,*Microsoft-ApplicationInsights-Data,*Microsoft-ApplicationInsights-WindowsServer-TelemetryChannel,*Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Dependency,*Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Web,*Microsoft-ApplicationInsights-Extensibility-DependencyCollector,*Microsoft-ApplicationInsights-Extensibility-HostingStartup,*Microsoft-ApplicationInsights-Extensibility-PerformanceCollector,*Microsoft-ApplicationInsights-Extensibility-PerformanceCollector-QuickPulse,*Microsoft-ApplicationInsights-Extensibility-Web,*Microsoft-ApplicationInsights-Extensibility-WindowsServer,*Microsoft-ApplicationInsights-WindowsServer-Core,*Microsoft-ApplicationInsights-Extensibility-EventSourceListener,*Microsoft-ApplicationInsights-AspNetCore
+```
+
+Vous pouvez modifier ces paramètres en fonction de vos besoins :
+- **MaxCollectSec**. Définissez ce paramètre de manière à empêcher l’exécution permanente de PerfView, ce qui affecterait les performances de votre serveur.
+- **OnlyProviders**. Définissez ce paramètre afin de collecter uniquement les journaux à partir du kit de développement logiciel (SDK). Vous pouvez personnaliser cette liste en fonction de vos enquêtes spécifiques. 
+- **NoGui**. Définissez ce paramètre pour collecter les journaux sans l’interface utilisateur graphique.
+
+
+Pour plus d’informations, consultez :
+- [Enregistrement des traces de performances avec PerfView](https://github.com/dotnet/roslyn/wiki/Recording-performance-traces-with-PerfView).
+- [Sources de l’événement Application Insights](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/ETW)
 
 ## <a name="still-not-working"></a>Ne fonctionne toujours pas...
 * [Forum Application Insights](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)

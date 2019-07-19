@@ -3,20 +3,20 @@ title: Base de connaissances - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: Une base de connaissances QnA Maker est composée d’un ensemble de paires de questions/réponses (QnA) et de métadonnées facultatives associées à chaque paire QnA.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/04/2019
-ms.author: tulasim
+ms.date: 06/25/2019
+ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 02111ac90fe97ddaddbd41ad42410e7e76f1c405
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b9562a1686c4de4f4e2ef57a7d91bbf18dce63ef
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61379258"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447595"
 ---
 # <a name="what-is-a-qna-maker-knowledge-base"></a>Qu’est-ce qu’une base de connaissances QnA Maker ?
 
@@ -37,6 +37,28 @@ Une seule entité QnA, représentée par un ID numérique de QnA, a plusieurs va
 Quand vous ingérez du contenu riche dans une base de connaissances, QnA Maker tente de le convertir en Markdown. Pour comprendre les formats Markdown compréhensibles par la plupart des clients de conversation, consultez [ce](https://aka.ms/qnamaker-docs-markdown-support) blog.
 
 Les champs de métadonnées sont composés de paires clé-valeur séparées par un signe deux-points **(Product:Shredder)** . La clé et la valeur doivent être uniquement du texte. La clé de métadonnées ne doit pas contenir d’espace. Les métadonnées ne prennent en charge qu’une seule valeur par clé.
+
+## <a name="how-qna-maker-processes-a-user-query-to-select-the-best-answer"></a>Comment QnA Maker traite une requête de l’utilisateur pour sélectionner la meilleure réponse
+
+Le base de connaissances QnA Maker entraînée et [publiée](/quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) reçoit une requête de l’utilisateur, à partir d’un robot ou d’une autre application cliente, au niveau de l’[API GenerateAnswer](/how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api). Le diagramme suivant illustre le processus enclenché lors de la réception de la requête de l’utilisateur.
+
+![Processus de classement par ordre de priorité pour une requête de l’utilisateur](../media/qnamaker-concepts-knowledgebase/rank-user-query-first-with-azure-search-then-with-qna-maker.png)
+
+Le processus est expliqué dans le tableau suivant :
+
+|Étape|Objectif|
+|--|--|
+|1|L’application cliente envoie la requête de l’utilisateur vers l’[API GenerateAnswer](/how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api).|
+|2|Prétraitement QnA Maker de la requête de l’utilisateur avec détection de la langue, vérificateurs d’orthographe et analyseurs lexicaux.|
+|3|Ce prétraitement modifie la requête de l’utilisateur afin d’offrir de meilleurs résultats de recherche.|
+|4|Cette requête modifiée est envoyée à l’Index Recherche Azure et reçoit le nombre de résultats `top`. Si la réponse correcte n’est pas dans ces résultats, augmentez légèrement la valeur de `top`. En règle générale, une valeur de 10 pour `top` fonctionne dans 90 % des requêtes.|
+|5\.|QnA Maker s’applique à une personnalisation avancée afin de déterminer l’exactitude des résultats Recherche Azure récupérés pour la requête de l’utilisateur. |
+|6\.|Le modèle d’outil de classement entraîné utilise le score de fonctionnalité, de l’étape 5, pour classer les résultats Recherche Azure.|
+|7|Les nouveaux résultats sont renvoyés vers l’application cliente selon l’ordre de classement.|
+|||
+
+Les fonctionnalités utilisées incluent, mais sans s’y limiter, la sémantique au niveau des mots, l’importance des termes dans un corpus et les modèles sémantiques ayant fait l’objet d’un apprentissage profond pour déterminer la similarité et la pertinence entre deux chaînes de texte.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

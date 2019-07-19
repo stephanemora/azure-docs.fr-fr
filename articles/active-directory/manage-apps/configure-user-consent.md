@@ -12,12 +12,12 @@ ms.date: 10/22/2018
 ms.author: mimart
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd84b44c89c856036640757b7760d7c10bd36173
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4951984d05e75b0271cf6592c77c54ad13678994
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65824841"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476555"
 ---
 # <a name="configure-the-way-end-users-consent-to-an-application-in-azure-active-directory"></a>Configurer le consentement de l'utilisateur final pour une application dans Azure Active Directory
 Découvrez comment configurer la manière dont les utilisateurs accordent leur consentement pour les autorisations d’application. Vous pouvez simplifier l’expérience utilisateur en accordant le consentement de l’administrateur. Cet article présente les différentes façons de configurer le consentement de l’utilisateur. Les méthodes s’appliquent à tous les utilisateurs finaux de votre client Azure Active Directory (Azure AD). 
@@ -38,9 +38,10 @@ Pour accorder le consentement de l’administrateur à une application d’entre
 2. Cliquez sur **All services** (Tous les services) en haut du menu de navigation de gauche. Le panneau **Extension Azure Active Directory** apparaît.
 3. Dans la zone de recherche de filtre, tapez **« Azure Active Directory »** , puis sélectionnez l’élément **Azure Active Directory**.
 4. Dans le menu de navigation, cliquez sur **Applications d’entreprise**.
-5. Cliquez sur **Grant Admin Consent** (Accorder un consentement d’administrateur). Vous serez invité à vous connecter pour administrer l’application.
-6. Connectez-vous avec un compte disposant des autorisations d’accorder le consentement de l’administrateur pour l’application. 
-7. Accordez les autorisations de l’application.
+5. Sélectionnez l’application requérant un consentement.
+6. Sélectionnez **Autorisations**, puis cliquez sur **Accorder le consentement administrateur**. Vous serez invité à vous connecter pour administrer l’application.
+7. Connectez-vous avec un compte disposant des autorisations d’accorder le consentement de l’administrateur pour l’application. 
+8. Accordez les autorisations de l’application.
 
 Cette option fonctionne uniquement si l’application est : 
 
@@ -54,8 +55,8 @@ Pour accorder le consentement de l’administrateur lors de l’inscription d’
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur.
 2. Accédez au panneau **Inscriptions des applications**.
 3. Sélectionnez l’application à autoriser.
-4. Sélectionnez **Autorisations requises**.
-5. Cliquez sur **Accorder des autorisations** en haut du panneau.
+4. Sélectionnez **Autorisations de l’API**.
+5. Cliquez sur **Accorder le consentement administrateur**.
 
 
 ## <a name="grant-admin-consent-through-a-url-request"></a>Accorder le consentement de l’administrateur via une demande d’URL

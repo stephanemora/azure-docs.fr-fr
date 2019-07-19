@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
-ms.openlocfilehash: 95a1055df283765b24322f6f8efe3efcb9b19022
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 38d3c61acee9dca18ab1f863d878e02f7437a600
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64707980"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433718"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Configurer la réplication de cluster Apache HBase dans les réseaux virtuels Azure
 
@@ -21,7 +21,7 @@ Découvrez comment configurer la réplication [Apache HBase](https://hbase.apach
 
 La réplication en cluster utilise une méthodologie par émission de données source. Un cluster HBase peut être une source, une destination ou jouer les deux rôles à la fois. La réplication est asynchrone. L'objectif de la réplication est une cohérence éventuelle. Quand la source reçoit une modification apportée à une famille de colonnes lorsque la réplication activée, cette modification est propagée à tous les clusters de destination. Quand les données sont répliquées d’un cluster à un autre, le cluster source et tous les clusters qui ont déjà utilisé les données font l’objet d’un suivi afin d’empêcher les boucles de réplication.
 
-Dans ce didacticiel, vous configurez une réplication source-destination. Pour d'autres topologies de cluster, consultez le [Guide de référence d'Apache HBase](https://hbase.apache.org/book.html#_cluster_replication).
+À l’aide de cet article, vous allez configurer une réplication source-destination. Pour d'autres topologies de cluster, consultez le [Guide de référence d'Apache HBase](https://hbase.apache.org/book.html#_cluster_replication).
 
 Cas d’utilisation de la réplication HBase pour un seul réseau virtuel :
 
@@ -39,7 +39,7 @@ Cas d’utilisation de la réplication HBase pour deux réseaux virtuels :
 Vous pouvez répliquer des clusters à l’aide de scripts [d’action de script](../hdinsight-hadoop-customize-cluster-linux.md) disponibles dans [GitHub](https://github.com/Azure/hbase-utils/tree/master/replication).
 
 ## <a name="prerequisites"></a>Prérequis
-Avant de commencer ce didacticiel, vous devez disposer d’un abonnement Azure. Consultez [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+Avant de commencer cet article, vous devez disposer d’un abonnement Azure. Consultez [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ## <a name="set-up-the-environments"></a>Configurer les environnements
 
@@ -68,7 +68,7 @@ Voici quelques-unes des valeurs codées en dur dans le modèle :
 
 | Propriété | Valeur |
 |----------|-------|
-| Lieu | USA Ouest |
+| Location | USA Ouest |
 | Nom du réseau virtuel | &lt;ClusterNamePrevix>-vnet1 |
 | Préfixe de l’espace d’adressage | 10.1.0.0/16 |
 | Nom du sous-réseau | subnet 1 |
@@ -85,7 +85,7 @@ Voici quelques-unes des valeurs codées en dur dans le modèle :
 
 | Propriété | Valeur |
 |----------|-------|
-| Lieu | USA Est |
+| Location | USA Est |
 | Nom du réseau virtuel | &lt;ClusterNamePrevix>-vnet2 |
 | Préfixe de l’espace d’adressage | 10.2.0.0/16 |
 | Nom du sous-réseau | subnet 1 |
@@ -396,7 +396,7 @@ La section `print_usage()` du [script](https://raw.githubusercontent.com/Azure/h
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez vu comment configurer la réplication Apache HBase dans un réseau virtuel ou entre deux réseaux virtuels. Pour plus d’informations sur HDInsight et Apache HBase, consultez les articles suivants :
+Dans cet article, vous avez vu comment configurer la réplication Apache HBase dans un réseau virtuel ou entre deux réseaux virtuels. Pour plus d’informations sur HDInsight et Apache HBase, consultez les articles suivants :
 
 * [Didacticiel HBase : prise en main de HBase avec Hadoop dans HDInsight Linux](./apache-hbase-tutorial-get-started-linux.md)
 * [Vue d’ensemble de HDInsight Apache HBase](./apache-hbase-overview.md)

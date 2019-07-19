@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: e10717b0fe14d2ed6ee720a2414e753bdd2474f1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: 8c7f6695880cfdb0a350edc37d61e771d03b92df
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708899"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543714"
 ---
 # <a name="analyze-twitter-data-using-apache-hive-and-apache-hadoop-on-hdinsight"></a>Analyser des données Twitter avec Apache Hive et Apache Hadoop sur HDInsight
 
@@ -21,8 +21,6 @@ Découvrez comment utiliser [Apache Hive](https://hive.apache.org/) pour traiter
 
 > [!IMPORTANT]  
 > Les étapes décrites dans ce document ont été testées sur HDInsight 3.6.
->
-> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="get-the-data"></a>Obtenir les données
 
@@ -69,7 +67,7 @@ Le code Python suivant télécharge 10 000 tweets à partir de Twitter et les e
 
     Pour en savoir plus, voir [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-3. Utilisez les commandes suivantes pour installer [Tweepy](https://www.tweepy.org/), [barre de progression](https://pypi.python.org/pypi/progressbar/2.2)et les autres packages requis :
+3. Utilisez les commandes suivantes pour installer [Tweepy](https://www.tweepy.org/), la [barre de progression](https://pypi.python.org/pypi/progressbar/2.2) et d’autres packages requis :
 
    ```bash
    sudo apt install python-dev libffi-dev libssl-dev
@@ -324,7 +322,7 @@ Ces commandes stockent les données dans un emplacement accessible à tous les n
 Vous avez appris à transformer un jeu de données JSON non structuré en une table [Apache Hive](https://hive.apache.org/) structurée. Pour en savoir plus sur Hive avec HDInsight, consultez les documents suivants :
 
 * [Prise en main de HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
-* [Analyse des données sur les retards de vol avec HDInsight](hdinsight-analyze-flight-delay-data-linux.md)
+* [Analyse des données sur les retards de vol avec HDInsight](/azure/hdinsight/interactive-query/interactive-query-tutorial-analyze-flight-data)
 
 [curl]: https://curl.haxx.se
 [curl-download]: https://curl.haxx.se/download.html

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/13/2019
 ms.author: banders
-ms.openlocfilehash: 872837c774368820527b12778b1a7dd4ddc5c7af
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 21bf96866c14615009a17279ff2fdd04bf4116ad
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60369171"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490268"
 ---
 # <a name="view-azure-reservations-in-the-azure-portal"></a>Afficher les réservations Azure dans le portail Azure
 
@@ -32,7 +32,7 @@ Pour plus d’informations, consultez la rubrique [Ajouter ou modifier les utili
 Pour afficher une réservation en tant que propriétaire ou lecteur, procédez comme suit :
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-2. Effectuez une recherche sur **réservations**.
+2. Recherchez **Réservations**.
     ![Capture d’écran montrant une recherche dans le portail Azure](./media/billing-view-reservation/portal-reservation-search.png)  
 3. La liste répertorie toutes les réservations sur lesquelles vous avez le rôle propriétaire ou lecteur. Chaque réservation affiche le dernier pourcentage d’utilisation connu.  
     ![Exemple montrant une liste des réservations](./media/billing-view-reservation/view-reservations.png)
@@ -49,7 +49,7 @@ Si vous avez besoin de modifier la portée d’une réservation, de la fractionn
 Pour afficher les transactions de réservation dans le portail Azure, procédez comme suit :
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-1. Effectuez une recherche sur **Gestion des coûts + facturation**.
+1. Recherchez **Gestion des coûts + facturation**.
 
     ![Capture d’écran montrant la recherche dans le portail Azure](./media/billing-view-reservation/portal-cm-billing-search.png)
 
@@ -77,7 +77,7 @@ Acheter un plan de service :
 Acheter un abonnement logiciel :
 
 - [Prépayer des abonnements logiciels Red Hat dans Réservations Azure](../virtual-machines/linux/prepay-rhel-software-charges.md)
-- [Prépayer des logiciels SUSE dans Réservations Azure](../virtual-machines/linux/prepay-suse-software-charges.md)
+- [Prépayer des logiciels SUSE avec des réservations Azure](../virtual-machines/linux/prepay-suse-software-charges.md)
 
 Comprendre l’utilisation :
 

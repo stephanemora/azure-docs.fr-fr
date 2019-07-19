@@ -9,13 +9,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
-ms.date: 05/02/2019
-ms.openlocfilehash: c7f4b6d8aa614a460772fb7af11f9b83dc3fc979
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/20/2019
+ms.openlocfilehash: 4a3ab9094080ab257a885bb7a745fc83948327c2
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65800809"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331680"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Entraîner automatiquement un modèle de prévision de série chronologique
 
@@ -26,6 +26,14 @@ Dans cet article, vous allez apprendre à former un modèle de régression de pr
 * Exécuter des prédictions avec les données de série chronologique
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GW]
+
+Vous pouvez utiliser ML automatisé pour combiner des techniques et des approches afin d’obtenir des prévisions de séries chronologiques recommandées et de qualité. Une expérience de séries chronologiques automatisée est traitée comme un problème de régression multivariable. Les précédentes valeurs de séries chronologiques « pivotent » pour devenir des dimensions supplémentaires pour le régresseur, avec les autres prédicteurs. 
+
+Contrairement aux méthodes de séries chronologiques classique, cette méthode présente l’avantage d’incorporer naturellement plusieurs variables contextuelles et leurs relations entre elles pendant l’apprentissage. Dans les applications de prévisions du monde réel, plusieurs facteurs peuvent influencer une prévision. Par exemple, lors de la prévision des ventes, les interactions des tendances historiques, des taux de change et des prix déterminent conjointement le résultat de ventes. Un autre avantage est que toutes les innovations récentes dans les modèles de régression appliquent immédiatement aux prévisions.
+
+Vous pouvez [configurer](#config) l’horizon souhaité pour la prévision, ainsi que des retards et bien plus encore. ML automatisé entraîne un modèle unique, mais comportant souvent des branches en interne pour tous les éléments du jeu de données et des horizons de prédiction. Plus de données sont donc disponibles pour estimer les paramètres du modèle, et il devient possible de généraliser des séries inconnues. 
+
+Les fonctionnalités extraites les données d’apprentissage jouent un rôle capital. ML automatisé effectue les étapes de prétraitement standard et génère des fonctionnalités supplémentaires de séries chronologiques pour capturer les effets saisonniers et optimiser la précision des prévisions. 
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -69,6 +77,7 @@ y_test = X_test.pop("sales_quantity").values
 > [!NOTE]
 > Lors de l’entraînement d’un modèle pour la prévision de valeurs futures, assurez-vous que toutes les fonctionnalités utilisées pour l’entraînement peuvent être utilisées lors de l’exécution de prédictions à l’horizon prévu. Par exemple, lorsque vous créez une prévision de la demande, l’intégration d’une fonctionnalité pour le prix actuel du stock peut augmenter considérablement la précision de l’apprentissage. Toutefois, si vous prévoyez à un horizon lointain, vous ne pourrez peut-être pas prévoir avec précision les futures valeurs d’actions correspondant aux points de séries chronologiques futures et la précision du modèle pourrait en pâtir.
 
+<a name="config"></a>
 ## <a name="configure-and-run-experiment"></a>Configurer et exécuter des expériences
 
 Pour les tâches de prévision, le Machine Learning automatisé utilise des étapes de prétraitement et d’estimation qui sont spécifiques aux données de séries chronologiques. Les étapes de prétraitement suivantes seront exécutées :
@@ -85,7 +94,7 @@ L’objet `AutoMLConfig` définit les paramètres et les données nécessaires p
 |-------|-------|-------|
 |`time_column_name`|Permet de spécifier la colonne DateHeure dans les données d’entrée utilisées pour la génération de la série chronologique et la déduction de sa fréquence.|✓|
 |`grain_column_names`|Nom(s) définissant des groupes de séries individuelles dans les données d’entrée. Si le grain n’est pas défini, le jeu de données est considéré être une série chronologique.||
-|`max_horizon`|Horizon maximal de prévision souhaité en unités de fréquence de série chronologique.|✓|
+|`max_horizon`|Définit l’horizon maximal de prévision souhaité en unités de fréquence de série chronologique. Les unités sont basées sur l’intervalle de temps de vos données d’apprentissage (par exemple, mensuelles, hebdomadaires) que l’analyste doit prévoir.|✓|
 |`target_lags`|*n* périodes pour décaler vers l’avant les valeurs cibles avant l’entraînement du modèle.||
 |`target_rolling_window_size`|*n* périodes historiques à utiliser pour générer des valeurs prédites, < = taille du jeu d’apprentissage. En cas d’omission, *n* est la taille du jeu d’apprentissage complet.||
 

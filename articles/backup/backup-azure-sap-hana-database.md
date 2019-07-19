@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: raynew
-ms.openlocfilehash: 5ed41013535e4591d88bff5c017c1fcf4c4053cc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a16ed7134fc9f3c159715f58f116de3fb30e8aca
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65237806"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67481140"
 ---
 # <a name="back-up-an-sap-hana-database"></a>Sauvegarder une base de données SAP HANA
 
@@ -22,15 +22,13 @@ Le service [Sauvegarde Azure](backup-overview.md) prend en charge la sauvegarde 
 > [!NOTE]
 > Cette fonctionnalité est actuellement disponible en préversion publique. Pour l’instant, elle n’est pas prête pour la production et elle n’offre pas de Contrat de niveau de service (SLA) garanti. 
 
-
 ## <a name="scenario-support"></a>Prise en charge du scénario
 
 **Support** | **Détails**
 --- | ---
 **Zones géographiques prises en charge** | Australie Sud-Est, Australie Est <br> Brésil Sud <br> Canada Centre, Canada Est <br> Asie Sud-Est, Asie Est <br> USA Est, USA Est 2, USA Centre-Ouest, USA Ouest, USA Ouest 2, USA Centre Nord, USA Centre, USA Centre Sud<br> Inde Centre, Inde Sud <br> Japon Est, Japon Ouest<br> Centre de la Corée, Corée du Sud <br> Europe Nord, Europe Ouest <br> Royaume-Uni Sud, Royaume-Uni Ouest
 **Systèmes d’exploitation de machine virtuelle pris en charge** | SLES 12 avec SP2 ou SP3
-**Versions HANA prises en charge** | SSDC sur HANA 1.x, MDC sur HANA 2.x <= SPS03
-
+**Versions HANA prises en charge** | SDC sur HANA 1.x, MDC sur HANA 2.x <= SPS03
 
 ### <a name="current-limitations"></a>Limitations actuelles
 
@@ -39,12 +37,9 @@ Le service [Sauvegarde Azure](backup-overview.md) prend en charge la sauvegarde 
 - Vous ne pouvez sauvegarder les bases de données qu’en mode Montée en puissance.
 - Vous pouvez sauvegarder les journaux de base de données toutes les 15 minutes. Les sauvegardes de fichiers journaux ne commencent à s’effectuer qu’en cas de réussite d’une sauvegarde complète de la base de données.
 - Vous pouvez exécuter des sauvegardes complètes ou différentielles. Pour l’instant, les sauvegardes incrémentielles ne sont pas prises en charge.
-- Après avoir appliqué une stratégie de sauvegarde aux sauvegardes SAP HANA, vous ne pouvez plus la modifier. Si vous souhaitez modifier les paramètres de sauvegarde, créez ou attribuez une autre stratégie. 
-    - Pour créer une autre stratégie, dans le coffre, cliquez sur **Stratégies** > **Stratégies de sauvegarde** >  **+Ajouter** > **SAP HANA dans les machines virtuelles Azure**, puis spécifiez les paramètres de stratégie.
-    - Pour attribuer une autre stratégie, dans les propriétés de la machine virtuelle qui exécute la base de données, cliquez sur le nom de la stratégie actuelle. Ensuite, dans la page **Stratégie de sauvegarde**, sélectionnez une autre stratégie à utiliser pour la sauvegarde.
-
-
-
+- Après avoir appliqué une stratégie de sauvegarde aux sauvegardes SAP HANA, vous ne pouvez plus la modifier. Si vous souhaitez modifier les paramètres de sauvegarde, créez ou attribuez une autre stratégie.
+  - Pour créer une autre stratégie, dans le coffre, cliquez sur **Stratégies** > **Stratégies de sauvegarde** >  **+Ajouter** > **SAP HANA dans les machines virtuelles Azure**, puis spécifiez les paramètres de stratégie.
+  - Pour attribuer une autre stratégie, dans les propriétés de la machine virtuelle qui exécute la base de données, cliquez sur le nom de la stratégie actuelle. Ensuite, dans la page **Stratégie de sauvegarde**, sélectionnez une autre stratégie à utiliser pour la sauvegarde.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -57,14 +52,16 @@ Avant de configurer les sauvegardes, prenez soin d’effectuer les opérations s
 
         ![Options d’installation du package](./media/backup-azure-sap-hana-database/hana-package.png)
 
-2.  Sur la machine virtuelle, installez et activez les packages de pilotes ODBC à partir du package/média SUSE Linux Enterprise Server (SLES) officiels à l’aide de zypper, en procédant comme suit :
+2. Sur la machine virtuelle, installez et activez les packages de pilotes ODBC à partir du package/média SUSE Linux Enterprise Server (SLES) officiels à l’aide de zypper, en procédant comme suit :
 
-    ``` 
+    ```unix
     sudo zypper update
     sudo zypper install unixODBC
     ```
-4.  Autorisez la connectivité à Internet de la machine virtuelle pour permettre à cette dernière d’atteindre Azure, comme décrit dans la procédure ci-dessous.
 
+3. Autorisez la connectivité à Internet de la machine virtuelle pour permettre à cette dernière d’atteindre Azure, comme décrit dans la procédure [ci-dessous](#set-up-network-connectivity).
+
+4. Exécutez le script de préinscription dans la machine virtuelle où HANA est installé en tant qu’utilisateur racine. Le script est fourni [sur le portail](#discover-the-databases) dans le flux et il est nécessaire pour configurer les [autorisations adéquates](backup-azure-sap-hana-database-troubleshoot.md#setting-up-permissions).
 
 ### <a name="set-up-network-connectivity"></a>Configurer la connectivité réseau
 
@@ -80,7 +77,7 @@ Exécutez la procédure d’intégration à la préversion publique ci-après :
 - Dans le portail, inscrivez votre ID d’abonnement auprès du fournisseur de services Recovery Services en [suivant les instructions de cet article](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors#solution-3---azure-portal). 
 - Pour PowerShell, exécutez cette cmdlet. Ce processus doit s’achever en présentant la mention « Inscrit ».
 
-    ```
+    ```powershell
     PS C:>  Register-AzProviderFeature -FeatureName "HanaBackup" –ProviderNamespace Microsoft.RecoveryServices
     ```
 
@@ -89,7 +86,6 @@ Exécutez la procédure d’intégration à la préversion publique ci-après :
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
 ## <a name="discover-the-databases"></a>Détecter les bases de données
-
 
 1. Dans le coffre, à la section **Prise en main**, cliquez sur **Sauvegarde**. Dans la zone **Où s’exécute votre charge de travail ?** , sélectionnez **SAP HANA dans les machines virtuelles Azure**.
 2. Cliquez sur **Démarrer la découverte**. Cette opération lance la détection des machines virtuelles Linux non protégées dans la région du coffre.
@@ -104,7 +100,7 @@ Exécutez la procédure d’intégration à la préversion publique ci-après :
 6. Le service Sauvegarde Azure détecte toutes les bases de données SAP HANA résidant sur la machine virtuelle. Lors de la détection, le service Sauvegarde Azure inscrit la machine virtuelle auprès du coffre et y installe une extension. Aucun agent n’est installé sur la base de données.
 
     ![Détection des bases de données SAP HANA](./media/backup-azure-sap-hana-database/hana-discover.png)
-    
+
 ## <a name="configure-backup"></a>Configurer une sauvegarde  
 
 Maintenant, activez la sauvegarde.
@@ -116,6 +112,7 @@ Maintenant, activez la sauvegarde.
 5. Suivez la progression de la configuration de la sauvegarde dans la zone  **Notifications**  du portail.
 
 ### <a name="create-a-backup-policy"></a>Créer une stratégie de sauvegarde
+
 Une stratégie de sauvegarde définit le moment auquel les sauvegardes sont effectuées, ainsi que leur durée de rétention.
 
 - Une stratégie est créée au niveau du coffre.
@@ -189,6 +186,5 @@ Si vous souhaitez effectuer une sauvegarde locale (à l’aide de HANA Studio) d
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+[En savoir plus sur](backup-azure-sap-hana-database-troubleshoot.md) la résolution des erreurs courantes lors de l’utilisation de la sauvegarde SAP HANA sur des machines virtuelles Azure.
 [Apprenez-en davantage](backup-azure-arm-vms-prepare.md) sur la sauvegarde des machines virtuelles Azure.
-
-

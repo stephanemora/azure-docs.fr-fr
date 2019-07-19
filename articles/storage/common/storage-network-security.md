@@ -9,12 +9,12 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 56a25c95d9bc01078b3eff3729a8a693ee3cf510
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f6422bf2ccc42c12d8f2d20a5a7ece8d37e8b48e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65520253"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449727"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurer des pare-feux et des réseaux virtuels dans Stockage Azure
 
@@ -23,6 +23,8 @@ Stockage Azure fournit un modèle de sécurité en couche. Ce modèle vous perme
 Une application qui accède à un compte de stockage alors que des règles de réseau sont en vigueur requiert une autorisation appropriée sur la demande. L’autorisation est prise en charge avec les informations d’identification Azure Active Directory (Azure AD) pour les objets blob et les files d’attente, avec une clé d’accès de compte valide ou un jeton SAS.
 
 > [!IMPORTANT]
+> Azure File Sync ne prend pas encore en charge les pare-feux et les réseaux virtuels. Si vous utilisez Azure File Sync sur votre compte de stockage et que vous activez ces éléments, Azure File Sync ne sera pas synchronisé.
+>
 > L’activation des règles de pare-feu pour votre compte de stockage bloque les demandes entrantes pour les données par défaut, sauf si les demandes proviennent d’un service qui fonctionne au sein d’un réseau virtuel (VNet) Azure. Les demandes qui sont bloquées comprennent les demandes émanant d’autres services Azure, du portail Azure, des services de journalisation et de métriques, etc.
 >
 > Vous pouvez accorder l’accès aux services Azure qui fonctionnent à partir d’un réseau virtuel en autorisant le sous-réseau de l’instance de service. Activez un nombre limité de scénarios via le mécanisme [Exceptions](#exceptions) décrit dans la section suivante. Pour accéder au portail Azure, vous devez utiliser un ordinateur qui se trouve dans la limite de confiance (IP ou réseau virtuel) que vous avez définie.

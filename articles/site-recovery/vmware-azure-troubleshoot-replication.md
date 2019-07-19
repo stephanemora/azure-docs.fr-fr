@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 06/27/2019
 ms.author: mayg
-ms.openlocfilehash: 3221b2bd18b8b0756f280d88fffc6016d0498b8f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c005dcee78e2a9338dc7a816e06d9a78a2f355b6
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64924828"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491674"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Résoudre les problèmes de réplication pour les serveurs physiques et machines virtuelles VMware
 
@@ -77,6 +77,13 @@ Après vous être assuré de l’absence de problèmes de connectivité, de band
         - Service VSS
         - Fournisseur VSS d’Azure Site Recovery
         - Service VDS (Virtual Disk Service)
+
+- Si vous exécutez des charges de travail SQL ou Exchange, recherchez les échecs dans les journaux de ces créateurs d’applications. Les erreurs fréquentes et leur résolution sont répertoriées dans les articles suivants :
+    -  [L’option de fermeture automatique de la base de données SQL Server est définie sur TRUE](https://support.microsoft.com/help/4504104)
+    - [SQL Server 2008 R2 levant une erreur non renouvelable](https://support.microsoft.com/help/4504103)
+    - [Problème connu dans SQL Server 2016 et 2017](https://support.microsoft.com/help/4493364)
+    - [Problème courant avec les serveurs Exchange Server 2013 et 2016](https://support.microsoft.com/help/4037535)
+
 
 ### <a name="source-machines-with-high-churn-error-78188"></a>Machines sources à taux d’évolution élevé [erreur 78188]
 

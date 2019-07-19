@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: tamram
 ms.subservice: tables
-ms.openlocfilehash: a428abd95f955a16d03c4ab86f05644f6db65da5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 63a81e390c113d10378973f928ffb58d71e8628e
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62101425"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295116"
 ---
 # <a name="table-design-patterns"></a>Modèles de conception de table
 Cet article décrit certains modèles adaptés aux solutions de service de Table. Par ailleurs, il explique comment traiter certains problèmes et compromis abordés dans les autres articles de conception de stockage de table. Le diagramme suivant récapitule les relations entre les différents modèles :  
@@ -574,7 +574,25 @@ if (retrieveResult.Result != null)
 Notez que cet exemple part du principe que l’entité extraite doit être de type **EmployeeEntity**.  
 
 ### <a name="retrieving-multiple-entities-using-linq"></a>Récupération de plusieurs entités à l’aide de LINQ
-Vous pouvez extraire plusieurs entités à l’aide de LINQ avec la bibliothèque cliente de stockage et en spécifiant une requête avec une clause **where** . Pour éviter une analyse de table, vous devez toujours inclure la valeur de **PartitionKey** dans la clause where, et si possible la valeur de **RowKey** afin d’éviter les analyses de table et de partition. Le service de Table prend en charge un ensemble limité d'opérateurs de comparaison (greater than, greater than or equal, less than or equal, equal et not equal) (supérieur à, supérieure ou égal à, inférieur ou égal à, égal et différent de). L’extrait de code C# suivant recherche tous les employés dont le nom commence par « B » (en supposant que la **RowKey** stocke le nom de famille) dans le service des ventes (en supposant que la **PartitionKey** stocke le nom du service) :  
+Vous pouvez utiliser LINQ pour récupérer plusieurs entités à partir du service de Table lorsque vous travaillez avec la bibliothèque standard de tables Microsoft Azure Cosmos. 
+
+```cli
+dotnet add package Microsoft.Azure.Cosmos.Table
+```
+
+Pour que les exemples ci-dessous fonctionnent, vous devez inclure des espaces de noms :
+
+```csharp
+using System.Linq;
+using Microsoft.Azure.Cosmos.Table;
+using Microsoft.Azure.Cosmos.Table.Queryable;
+```
+
+EmployeeTable est un objet CloudTable qui implémente une méthode CreateQuery<ITableEntity>(), qui renvoie un élément TableQuery<ITableEntity>. Les objets de ce type implémentent IQueryable et permettent d’utiliser la syntaxe de notation par points et les expressions de requête LINQ.
+
+Vous pouvez récupérer plusieurs entités en spécifiant une requête avec une clause **where**. Pour éviter une analyse de table, vous devez toujours inclure la valeur de **PartitionKey** dans la clause where, et si possible la valeur de **RowKey** afin d’éviter les analyses de table et de partition. Le service de Table prend en charge un ensemble limité d'opérateurs de comparaison (greater than, greater than or equal, less than or equal, equal et not equal) (supérieur à, supérieure ou égal à, inférieur ou égal à, égal et différent de). 
+
+L’extrait de code C# suivant recherche tous les employés dont le nom commence par « B » (en supposant que la **RowKey** stocke le nom de famille) dans le service des ventes (en supposant que la **PartitionKey** stocke le nom du service) :  
 
 ```csharp
 TableQuery<EmployeeEntity> employeeQuery = employeeTable.CreateQuery<EmployeeEntity>();

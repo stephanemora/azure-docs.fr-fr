@@ -11,10 +11,10 @@ ms.date: 01/25/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: 2b5e9bfe6eaa9b84e259d941760792635a2994f4
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66512854"
 ---
 # <a name="relyingparty"></a>RelyingParty
@@ -104,7 +104,7 @@ L’élément **DefaultUserJourney** contient l’attribut suivant :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| ReferenceId | Oui | Identificateur du parcours utilisateur dans la stratégie. Pour plus d’informations, consultez [Parcours utilisateur](userjourneys.md) |
+| ReferenceId | OUI | Identificateur du parcours utilisateur dans la stratégie. Pour plus d’informations, consultez [Parcours utilisateur](userjourneys.md) |
 
 ## <a name="userjourneybehaviors"></a>UserJourneyBehaviors
 
@@ -124,8 +124,8 @@ L’élément **SingleSignOn** contient l’attribut suivant :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| `Scope` | Oui | Étendue du comportement d’authentification unique. Valeurs possibles : `Suppressed`, `Tenant`, `Application` ou `Policy`. La valeur `Suppressed` indique que le comportement est supprimé. Par exemple, dans le cas d’une session d’authentification unique, aucune session n’est conservée pour l’utilisateur et celui-ci est toujours invité à sélectionner un fournisseur d’identité. La valeur `TrustFramework` indique que le comportement est appliqué pour toutes les stratégies dans l’infrastructure de confiance. Par exemple, un utilisateur suivant deux parcours de stratégie pour une infrastructure de confiance n’est pas invité à sélectionner un fournisseur d’identité. La valeur `Tenant` indique que le comportement est appliqué à toutes les stratégies dans le locataire. Par exemple, un utilisateur suivant deux parcours de stratégie pour un locataire n’est pas invité à sélectionner un fournisseur d’identité. La valeur `Application` indique que le comportement est appliqué à toutes les stratégies pour l’application qui effectue la requête. Par exemple, un utilisateur suivant deux parcours de stratégie pour une application n’est pas invité à sélectionner un fournisseur d’identité. La valeur `Policy` indique que le comportement s’applique uniquement à une stratégie. Par exemple, un utilisateur suivant deux parcours de stratégie pour une infrastructure de confiance est invité à sélectionner un fournisseur d’identité en cas de basculement d’une stratégie à une autre. |
-| KeepAliveInDays | Oui | Contrôle la durée pendant laquelle l’utilisateur reste connecté. Affecter la valeur 0 désactive la fonctionnalité KMSI. Pour plus d’informations, consultez [Maintenir la connexion](active-directory-b2c-reference-kmsi-custom.md). |
+| Étendue | OUI | Étendue du comportement d’authentification unique. Valeurs possibles : `Suppressed`, `Tenant`, `Application` ou `Policy`. La valeur `Suppressed` indique que le comportement est supprimé. Par exemple, dans le cas d’une session d’authentification unique, aucune session n’est conservée pour l’utilisateur et celui-ci est toujours invité à sélectionner un fournisseur d’identité. La valeur `TrustFramework` indique que le comportement est appliqué pour toutes les stratégies dans l’infrastructure de confiance. Par exemple, un utilisateur suivant deux parcours de stratégie pour une infrastructure de confiance n’est pas invité à sélectionner un fournisseur d’identité. La valeur `Tenant` indique que le comportement est appliqué à toutes les stratégies dans le locataire. Par exemple, un utilisateur suivant deux parcours de stratégie pour un locataire n’est pas invité à sélectionner un fournisseur d’identité. La valeur `Application` indique que le comportement est appliqué à toutes les stratégies pour l’application qui effectue la requête. Par exemple, un utilisateur suivant deux parcours de stratégie pour une application n’est pas invité à sélectionner un fournisseur d’identité. La valeur `Policy` indique que le comportement s’applique uniquement à une stratégie. Par exemple, un utilisateur suivant deux parcours de stratégie pour une infrastructure de confiance est invité à sélectionner un fournisseur d’identité en cas de basculement d’une stratégie à une autre. |
+| KeepAliveInDays | OUI | Contrôle la durée pendant laquelle l’utilisateur reste connecté. Affecter la valeur 0 désactive la fonctionnalité KMSI. Pour plus d’informations, consultez [Maintenir la connexion](active-directory-b2c-reference-kmsi-custom.md). |
 
 ## <a name="journeyinsights"></a>JourneyInsights
 
@@ -133,12 +133,12 @@ L’élément **JourneyInsights** contient les attributs suivants :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| TelemetryEngine | Oui | La valeur doit être `ApplicationInsights`. | 
-| InstrumentationKey | Oui | Chaîne qui contient la clé d’instrumentation pour l’élément application insights. |
-| DeveloperMode | Oui | Valeurs possibles : `true` ou `false`. Si `true`, Application Insights envoie la télémétrie par le biais du pipeline de traitement. Ce paramètre convient pour le développement, mais il est limité à des volumes élevés. Les journaux d’activité détaillés sont conçues pour aider au développement de stratégies personnalisées. N’utilisez pas le mode de développement en production. Les journaux d’activité recueillent toutes les revendications envoyées par et aux fournisseurs d’identité au cours du développement. En cas d’utilisation en production, le développeur assume la responsabilité des informations d’identification personnelle (PII) recueillies dans le journal Application Insights dont il est propriétaire. Ces journaux d’activité détaillés sont recueillis uniquement quand cette valeur est `true`.|
-| ClientEnabled | Oui | Valeurs possibles : `true` ou `false`. Si `true`, envoie le script côté client Application Insights pour le suivi des affichages de page et des erreurs côté client. | 
-| ServerEnabled | Oui | Valeurs possibles : `true` ou `false`. Si `true`, envoie le JSON UserJourneyRecorder existant en tant qu’événement personnalisé à Application Insights. | 
-| TelemetryVersion | Oui | La valeur doit être `1.0.0`. | 
+| TelemetryEngine | OUI | La valeur doit être `ApplicationInsights`. | 
+| InstrumentationKey | OUI | Chaîne qui contient la clé d’instrumentation pour l’élément application insights. |
+| DeveloperMode | OUI | Valeurs possibles : `true` ou `false`. Si `true`, Application Insights envoie la télémétrie par le biais du pipeline de traitement. Ce paramètre convient pour le développement, mais il est limité à des volumes élevés. Les journaux d’activité détaillés sont conçues pour aider au développement de stratégies personnalisées. N’utilisez pas le mode de développement en production. Les journaux d’activité recueillent toutes les revendications envoyées par et aux fournisseurs d’identité au cours du développement. En cas d’utilisation en production, le développeur assume la responsabilité des informations d’identification personnelle (PII) recueillies dans le journal Application Insights dont il est propriétaire. Ces journaux d’activité détaillés sont recueillis uniquement quand cette valeur est `true`.|
+| ClientEnabled | OUI | Valeurs possibles : `true` ou `false`. Si `true`, envoie le script côté client Application Insights pour le suivi des affichages de page et des erreurs côté client. | 
+| ServerEnabled | OUI | Valeurs possibles : `true` ou `false`. Si `true`, envoie le JSON UserJourneyRecorder existant en tant qu’événement personnalisé à Application Insights. | 
+| TelemetryVersion | OUI | La valeur doit être `1.0.0`. | 
 
 Pour plus d’informations, consultez [Collecte de journaux d’activité](active-directory-b2c-troubleshoot-custom.md).
 
@@ -160,7 +160,7 @@ L’élément **ContentDefinitionParameter** contient l’attribut suivant :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| Name | Oui | Nom de la paire clé/valeur. |
+| Name | OUI | Nom de la paire clé/valeur. |
 
 Pour plus d’informations, consultez [Configurer l’interface utilisateur avec du contenu dynamique à l’aide de stratégies personnalisées](active-directory-b2c-ui-customization-custom-dynamic.md).
 
@@ -170,7 +170,7 @@ L’élément **TechnicalProfile** contient l’attribut suivant :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- | 
-| Id | Oui | La valeur doit être `PolicyProfile`. |
+| ID | OUI | La valeur doit être `PolicyProfile`. |
 
 L’élément **TechnicalProfile** contient les éléments suivants :
 
@@ -178,7 +178,7 @@ L’élément **TechnicalProfile** contient les éléments suivants :
 | ------- | ----------- | ----------- |
 | DisplayName | 0:1 | Chaîne qui contient le nom du profil technique présenté aux utilisateurs. |
 | Description | 0:1 | Chaîne qui contient la description du profil technique présentée aux utilisateurs. |
-| Protocol | 1:1 | Protocole utilisé pour la fédération. |
+| Protocole | 1:1 | Protocole utilisé pour la fédération. |
 | Métadonnées | 0:1 | Collection d’*éléments* de paires clé/valeur utilisée par le protocole pour communiquer avec le point de terminaison durant une transaction afin de configurer l’interaction entre la partie de confiance et les autres participants de la communauté. |
 | OutputClaims | 0:1 | Liste de types de revendications qui sont pris comme sortie dans le profil technique. Chacun de ces éléments contient une référence à un **ClaimType** déjà défini dans la section **ClaimsSchema** ou dans une stratégie dont hérite ce fichier de stratégie. |
 | SubjectNamingInfo | 0:1 | Nom du sujet utilisé dans les jetons. |
@@ -187,7 +187,7 @@ L’élément **Protocol** contient l’attribut suivant :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| Name | Oui | Nom d’un protocole valide pris en charge par Azure AD B2C et utilisé dans le cadre du profil technique. Valeurs possibles : `OpenIdConnect` ou `SAML2`. La valeur `OpenIdConnect` représente la norme de protocole OpenID Connect 1.0 conformément à la spécification OpenID Foundation. `SAML2` représente la norme de protocole SAML 2.0 conformément à la spécification OASIS. N’utilisez pas de jeton SAML en production. |
+| Name | OUI | Nom d’un protocole valide pris en charge par Azure AD B2C et utilisé dans le cadre du profil technique. Valeurs possibles : `OpenIdConnect` ou `SAML2`. La valeur `OpenIdConnect` représente la norme de protocole OpenID Connect 1.0 conformément à la spécification OpenID Foundation. `SAML2` représente la norme de protocole SAML 2.0 conformément à la spécification OASIS. N’utilisez pas de jeton SAML en production. |
 
 ## <a name="outputclaims"></a>OutputClaims
 
@@ -201,21 +201,21 @@ L’élément **OutputClaim** contient les attributs suivants :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| ClaimTypeReferenceId | Oui | Référence à un **ClaimType** déjà défini dans la section **ClaimsSchema** du fichier de stratégie. |
+| ClaimTypeReferenceId | OUI | Référence à un **ClaimType** déjà défini dans la section **ClaimsSchema** du fichier de stratégie. |
 | DefaultValue | Non | Valeur par défaut qui peut être utilisée si la valeur de revendication est vide. |
 | PartnerClaimType | Non | Envoie la revendication sous un autre nom, tel que configuré dans la définition de ClaimType. |
 
 ### <a name="subjectnaminginfo"></a>SubjectNamingInfo
 
 Avec l’élément **SubjectNameingInfo**, vous contrôlez la valeur du sujet du jeton :
-- **Jeton JWT** - le `sub` de revendication. Il s’agit d’un principal sur lequel portent les assertions d’informations du jeton, comme l’utilisateur d’une application. Cette valeur est immuable et ne peut pas être réattribuée ou réutilisée. Vous pouvez l’utiliser pour effectuer des vérifications d’autorisation en toute sécurité, par exemple quand le jeton est utilisé pour accéder à une ressource. Par défaut, la revendication de l’objet est remplie avec l’ID d’objet de l’utilisateur dans le répertoire. Pour plus d’informations, consultez [Configuration du jeton, de la session et de l’authentification unique](active-directory-b2c-token-session-sso.md).
+- **Jeton JWT** : la revendication `sub`. Il s’agit d’un principal sur lequel portent les assertions d’informations du jeton, comme l’utilisateur d’une application. Cette valeur est immuable et ne peut pas être réattribuée ou réutilisée. Vous pouvez l’utiliser pour effectuer des vérifications d’autorisation en toute sécurité, par exemple quand le jeton est utilisé pour accéder à une ressource. Par défaut, la revendication de l’objet est remplie avec l’ID d’objet de l’utilisateur dans le répertoire. Pour plus d’informations, consultez [Configuration du jeton, de la session et de l’authentification unique](active-directory-b2c-token-session-sso.md).
 - **Jeton SAML** : élément `<Subject><NameID>` qui identifie l’élément de sujet.
 
 L’élément **SubjectNamingInfo** contient l’attribut suivant :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| ClaimType | Oui | Référence au **PartnerClaimType** d’une revendication de sortie. Les revendications de sortie doivent être définies dans la collection **OutputClaims** de la stratégie de partie de confiance. |
+| ClaimType | OUI | Référence au **PartnerClaimType** d’une revendication de sortie. Les revendications de sortie doivent être définies dans la collection **OutputClaims** de la stratégie de partie de confiance. |
 
 L’exemple suivant montre comment définir une partie de confiance OpenId Connect. Les informations de nom de sujet sont configurées en tant qu’`objectId` :
 

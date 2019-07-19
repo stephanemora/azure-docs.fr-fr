@@ -1,6 +1,6 @@
 ---
-title: Créer des images de Machine virtuelle partagée pour Windows à l’aide du portail | Microsoft Docs
-description: Découvrez comment utiliser le portail Azure pour créer et partager des images de machine virtuelle.
+title: Créer des images de machine virtuelle Azure partagées pour Windows à l’aide du portail | Microsoft Docs
+description: Découvrez comment utiliser le Portail Azure pour créer et partager des images de machine virtuelle.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 05/06/2019
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: f63b705f7967eeddaf522941d6db9be5d9f2719d
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: 93734045cd06f279f37d7725aa573a59c4ec0be9
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244986"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67465713"
 ---
-# <a name="create-a-shared-image-gallery-using-the-azure-portal"></a>Créer une galerie d’images partagé à l’aide du portail Azure
+# <a name="create-a-shared-image-gallery-using-the-azure-portal"></a>Créer une galerie d’images partagées à l’aide du Portail Azure
 
 Une [galerie d’images partagées](shared-image-galleries.md) simplifie considérablement le partage d’images personnalisées dans votre organisation. Les images personnalisées sont comme des images de la Place de marché, sauf que vous les créez vous-même. Les images personnalisées peuvent être utilisées pour amorcer des tâches de déploiement comme le préchargement des applications, les configurations d’application et d’autres configurations de système d’exploitation. 
 
@@ -43,7 +43,7 @@ La fonctionnalité Galerie d’images partagées présente plusieurs types de re
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Pour suivre l’exemple de cet article, vous devez avoir l’image managée. Vous pouvez suivre le [Tutoriel : créer une image personnalisée d’une machine virtuelle Azure avec Azure PowerShell](tutorial-custom-images.md) si nécessaire. Si l’image managée contient un disque de données, la taille de disque de données ne peut pas être supérieur à 1 To.
+Pour suivre l’exemple de cet article, vous devez avoir l’image managée. Vous pouvez suivre le [Tutoriel : créer une image personnalisée d’une machine virtuelle Azure avec Azure PowerShell](tutorial-custom-images.md) si nécessaire. Si l’image managée contient un disque de données, la taille du disque de données ne peut pas être supérieure à 1 To.
 
 Au cours de cet article, remplacez les noms du groupe de ressources et de la machine virtuelle si nécessaire.
 
@@ -54,19 +54,22 @@ Au cours de cet article, remplacez les noms du groupe de ressources et de la mac
 
 Une fois que la version de l’image est complète, vous pouvez créer une ou plusieurs nouvelles machines virtuelles. 
 
+> [!IMPORTANT]
+> Vous ne pouvez pas utiliser le portail pour déployer une machine virtuelle à partir d’une image dans un autre locataire Azure. Pour créer une machine virtuelle à partir d’une image partagée entre des locataires, vous devez utiliser l’interface [Azure CLI](../linux/shared-images.md#create-a-vm) ou [PowerShell](shared-images.md#create-vms-from-an-image).
+
 Cet exemple crée une machine virtuelle nommée *myVMfromImage*, dans le groupe *myResourceGroup* dans le centre de données *USA Est*.
 
-1. Sur la page de votre version de l’image, sélectionnez **créer une machine virtuelle** dans le menu en haut de la page.
-1. Pour **groupe de ressources**, sélectionnez **créer** et type *myResourceGroup* pour le nom.
-1. Dans **nom de machine virtuelle**, type *myVM*.
-1. Pour **région**, sélectionnez *est des États-Unis*.
-1. Pour **options de disponibilité**, conservez la valeur par défaut *aucune redondance de l’infrastructure requise*.
-1. La valeur de **Image** doit être automatiquement renseigné si vous avez démarré à partir de la page pour la version de l’image.
-1. Pour **taille**, choisissez une taille de machine virtuelle dans la liste des tailles disponibles, puis sur « Select ».
+1. Sur la page de votre version d’image, sélectionnez **Créer une machine virtuelle** dans le menu en haut de la page.
+1. Pour **Groupe de ressources**, sélectionnez **Créer** et entrez *myResourceGroup* comme nom.
+1. Dans **Nom de la machine virtuelle**, tapez *myVM*.
+1. Pour **Région**, sélectionnez *USA Est*.
+1. Pour **Options de disponibilité**, conservez la valeur par défaut *Aucune redondance d’infrastructure nécessaire*.
+1. La valeur sous **Image** doit être automatiquement renseignée si vous avez démarré à partir de la page de la version d’image.
+1. Pour **Taille**, choisissez une taille de machine virtuelle dans la liste des tailles disponibles, puis cliquez sur « Sélectionner ».
 1. Sous **Compte d’administrateur**, indiquez un nom d’utilisateur (par exemple, *azureuser*) et un mot de passe. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](faq.md#what-are-the-password-requirements-when-creating-a-vm).
-1. Si vous souhaitez autoriser l’accès à distance à la machine virtuelle, sous **ports d’entrée publics**, choisissez **autoriser les ports sélectionnés** , puis sélectionnez **RDP (3389)** à partir de la liste déroulante. Si vous ne souhaitez pas autoriser l’accès à distance à la machine virtuelle, laissez **aucun** sélectionné pour **ports d’entrée publics**.
-1. Lorsque vous avez terminé, sélectionnez le **révision + créer** bouton en bas de la page.
-1. Une fois la machine virtuelle passe la validation, sélectionnez **créer** en bas de la page pour commencer le déploiement.
+1. Si vous souhaitez autoriser l’accès à distance à la machine virtuelle, sous **Ports d’entrée publics**, choisissez **Autoriser les ports sélectionnés**, puis sélectionnez **RDP (3389)** dans la liste déroulante. Si vous ne souhaitez pas autoriser l’accès à distance à la machine virtuelle, conservez la sélection **Aucun** pour **Ports d’entrée publics**.
+1. Lorsque vous avez terminé, sélectionnez le bouton **Vérifier + créer** en bas de la page.
+1. Une fois la machine virtuelle validée, sélectionnez **Créer** en bas de la page pour démarrer le déploiement.
 
 
 
@@ -74,7 +77,7 @@ Cet exemple crée une machine virtuelle nommée *myVMfromImage*, dans le groupe 
 
 Dès que vous n’en avez plus besoin, vous pouvez supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées. Pour cela, sélectionnez le groupe de ressources de la machine virtuelle, sélectionnez **Supprimer**, puis confirmez le nom du groupe de ressources à supprimer.
 
-Si vous souhaitez supprimer des ressources individuelles, vous devez les supprimer dans l’ordre inverse. Par exemple, pour supprimer une définition de l’image, vous devez supprimer toutes les versions de l’image créées à partir de cette image.
+Si vous souhaitez supprimer des ressources individuelles, vous devez les supprimer dans l’ordre inverse. Par exemple, pour supprimer une définition d’image, vous devez supprimer toutes les versions de l’image créées à partir de cette image.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

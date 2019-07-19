@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 04/29/2019
 ms.author: rolyon
 ms.custom: include file
-ms.openlocfilehash: 364d4a11772e6bb72e2e258503f3cce49dc61453
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.openlocfilehash: d791c4ba46587ac5709d72cb31bc76f087118b03
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66112253"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476252"
 ---
-## <a name="create-one-or-more-access-reviews"></a>Créer un ou plusieurs révisions d’accès
+## <a name="create-one-or-more-access-reviews"></a>Créer une ou plusieurs révisions d’accès
 
-1. Cliquez sur **New** pour créer une nouvelle révision d’accès.
+1. Cliquez sur **Nouveau** pour créer une révision d’accès.
 
 1. Nommez la révision d’accès. Si vous le souhaitez, vous pouvez fournir une description de cette révision. Les réviseurs ont accès au nom et à la description de la révision.
 
@@ -25,39 +25,39 @@ ms.locfileid: "66112253"
 
 1. Définissez la **Date de début**. Par défaut, une révision d’accès se produit une seule fois, démarre le jour même de sa création et s’arrête un mois plus tard. Vous pouvez modifier les dates de début et de fin pour que la révision d’accès démarre ultérieurement et dure le nombre de jours souhaité.
 
-    ![Créer une révision d’accès - Dates de début et de fin](./media/active-directory-privileged-identity-management-access-reviews/start-end-dates.png)
+    ![Date de début, fréquence, durée, fin, nombre de tentatives et date de fin](./media/active-directory-privileged-identity-management-access-reviews/start-end-dates.png)
 
-1. Pour que la révision d’accès périodique, modifiez le **fréquence** définir à partir de **une fois** à **hebdomadaire**, **mensuel**,  **Tous les trimestres**, **une fois par an**, ou **semestrielle**. Utilisez le **durée** curseur ou zone de texte pour définir le nombre de jours chaque révision de la série périodique sera ouvre pour l’entrée des réviseurs. Par exemple, la durée maximale d’une révision mensuelle est de 27 jours, ce qui permet d’éviter le chevauchement des révisions.
+1. Pour que la révision d’accès soit périodique, modifiez le paramètre **Fréquence** en remplaçant la valeur **Une fois** par **Hebdomadaire**, **Mensuel**, **Trimestriel**, **Annuel** ou **Semestriel**. Utilisez la zone de texte ou le curseur **Durée** pour définir le nombre de jours pendant lequel chaque révision de la série périodique pourra être modifiée par les réviseurs. Par exemple, la durée maximale d’une révision mensuelle est de 27 jours, ce qui permet d’éviter le chevauchement des révisions.
 
-1. Utilisez le paramètre **Fin** pour spécifier comment mettre fin à la série de révisions d’accès récurrentes. Les séries accès récurrentes peuvent se terminer de trois façons : elles peuvent s’exécuter de façon continue pour démarrer des révisions indéfiniment, s’exécuter jusqu’à une date spécifique ou s’exécuter jusqu’à ce qu’un nombre défini d’occurrences se soient produites. Vous, un autre administrateur de l’utilisateur ou un autre administrateur général arrêter la série après la création en modifiant la date dans **paramètres**, afin qu’elle se termine à cette date.
+1. Utilisez le paramètre **Fin** pour spécifier comment mettre fin à la série de révisions d’accès récurrentes. Les séries accès récurrentes peuvent se terminer de trois façons : elles peuvent s’exécuter de façon continue pour démarrer des révisions indéfiniment, s’exécuter jusqu’à une date spécifique ou s’exécuter jusqu’à ce qu’un nombre défini d’occurrences se soient produites. Un autre administrateur d’utilisateur, ou un autre administrateur d’entreprise ou vous-même pouvez arrêter la série après sa création en modifiant la date définie dans la zone **Paramètres**, afin qu’elle s’arrête à cette date.
 
-1. Dans le **utilisateurs** , sélectionnez un ou plusieurs rôles que vous souhaitez examiner l’appartenance de.
+1. Dans la section **Utilisateurs**, sélectionnez un ou plusieurs rôles dont vous souhaitez vérifier l’appartenance.
 
-    ![Créer une révision d’accès - utilisateurs](./media/active-directory-privileged-identity-management-access-reviews/users.png)
+    ![Étendue des utilisateurs pour la révision d’une appartenance à un rôle](./media/active-directory-privileged-identity-management-access-reviews/users.png)
 
     > [!NOTE]
-    > En sélectionnant plusieurs rôles créera plusieurs révisions d’accès. Par exemple, en sélectionnant des cinq rôles créera cinq révisions d’accès distincts.
+    > La sélection de plusieurs rôles crée plusieurs révisions d’accès. Par exemple, en sélectionnant cinq rôles, vous créez cinq révisions d’accès distinctes.
 
-    Si vous créez une révision d’accès des rôles Azure AD, ce qui suit montre un exemple de la liste d’appartenance de révision.
+    Si vous créez une révision d’accès des rôles Azure AD, l’exemple suivant présente une liste Révision d’appartenance.
 
-    ![Créer une révision d’accès - appartenance au rôle de révision](./media/active-directory-privileged-identity-management-access-reviews/review-membership.png)
+    ![Volet Révision d’appartenance répertoriant les rôles Azure AD que vous pouvez sélectionner](./media/active-directory-privileged-identity-management-access-reviews/review-membership.png)
 
-    Si vous créez une révision d’accès des rôles de ressources Azure, ce qui suit montre un exemple de la liste d’appartenance de révision.
+    Si vous créez une révision d’accès des rôles de ressource Azure, l’exemple suivant présente une liste Révision d’appartenance.
 
-    ![Créer une révision d’accès - appartenance au rôle de révision](./media/active-directory-privileged-identity-management-access-reviews/review-membership-azure-resource-roles.png)
+    ![Volet Révision d’appartenance répertoriant les rôles de ressource Azure que vous pouvez sélectionner](./media/active-directory-privileged-identity-management-access-reviews/review-membership-azure-resource-roles.png)
 
-1. Dans le **réviseurs** , sélectionnez une ou plusieurs personnes pour passer en revue tous les utilisateurs. Sinon, vous pouvez choisir de faire en sorte que les membres vérifient leur propre accès.
+1. Dans la section **Réviseurs**, sélectionnez une ou plusieurs personnes pour vérifier tous les utilisateurs. Sinon, vous pouvez choisir de faire en sorte que les membres vérifient leur propre accès.
 
-    ![Créer une révision d’accès - Réviseurs](./media/active-directory-privileged-identity-management-access-reviews/reviewers.png)
+    ![Liste pour les réviseurs des utilisateurs ou membres sélectionnés (auto)](./media/active-directory-privileged-identity-management-access-reviews/reviewers.png)
 
-    - **Les utilisateurs sélectionnés** -Utilisez cette option lorsque vous ne savez pas qui doit accéder. Avec cette option, vous pouvez affecter la révision à un propriétaire de ressource ou un responsable de groupe.
-    - **Membres (auto)** -Utilisez cette option pour demander aux utilisateurs de réviser leurs propres affectations de rôle.
+    - **Utilisateurs sélectionnés** : utilisez cette option lorsque vous ne savez pas qui a besoin de l’accès. Avec cette option, vous pouvez affecter la révision à un propriétaire de ressource ou un responsable de groupe.
+    - **Membres (auto)** : utilisez cette option pour demander aux utilisateurs de réviser leurs propres attributions de rôles.
 
 ### <a name="upon-completion-settings"></a>Paramètres de saisie semi-automatique
 
 1. Pour spécifier ce qui se passe après la fin d’une révision, développez la section **Paramètres de saisie semi-automatique**.
 
-    ![Paramètres de saisie semi-automatique](./media/active-directory-privileged-identity-management-access-reviews/upon-completion-settings.png)
+    ![Paramètres de saisie semi-automatique pour appliquer automatiquement et « Le réviseur ne doit pas répondre »](./media/active-directory-privileged-identity-management-access-reviews/upon-completion-settings.png)
 
 1. Si vous voulez supprimer automatiquement l’accès pour les utilisateurs qui ont été refusés, définissez **Appliquer automatiquement les résultats à ressource** sur **Activer**. Si vous voulez appliquer manuellement les résultats quand la révision est terminée, cliquez sur **Désactiver**.
 
@@ -72,7 +72,7 @@ ms.locfileid: "66112253"
 
 1. Pour spécifier d’autres paramètres, développez la section **Paramètres avancés**.
 
-    ![Paramètres avancés](./media/active-directory-privileged-identity-management-access-reviews/advanced-settings.png)
+    ![Paramètres avancés pour afficher des recommandations, exiger la raison lors de l’approbation, notifications par courrier électronique et rappels](./media/active-directory-privileged-identity-management-access-reviews/advanced-settings.png)
 
 1. Définissez **Afficher les recommandations** sur **Activer** pour montrer aux réviseurs les recommandations du système basées sur les informations des accès de l’utilisateur.
 

@@ -1,24 +1,30 @@
 ---
-title: Visualiser les données à partir de l’Explorateur de données Azure à l’aide de Grafana
+title: Visualiser des données Azure Data Explorer avec Grafana
 description: Dans ce guide pratique, vous allez apprendre à configurer Azure Data Explorer en tant que source de données pour Grafana, puis à visualiser les données d’un exemple de cluster.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 12/05/2018
-ms.openlocfilehash: 135f8f1c9c352f9d2307a8bf9ad1bec892aac179
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
-ms.translationtype: MT
+ms.date: 6/30/2019
+ms.openlocfilehash: 0f148a97b25afb9135223ff92afb898d4734c586
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399915"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537794"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-grafana"></a>Visualiser des données Azure Data Explorer dans Grafana
 
 Grafana est une plateforme d’analytique qui vous permet d’interroger et de visualiser des données, puis de créer et partager des tableaux de bord selon vos visualisations. Grafana propose un *plug-in* Azure Data Explorer, qui vous permet de vous connecter à des données et de les visualiser à partir d’Azure Data Explorer. Dans cet article, vous allez apprendre à configurer Azure Data Explorer en tant que source de données pour Grafana, puis à visualiser les données d’un exemple de cluster.
 
-## <a name="prerequisites"></a>Conditions préalables
+À l’aide de la vidéo suivante, vous pouvez apprendre à utiliser le plug-in Azure Data Explorer de Grafana, à configurer Azure Data Explorer comme source de données pour Grafana, puis à visualiser les données. 
+
+> [!VIDEO https://www.youtube.com/embed/fSR_qCIFZSA]
+
+Vous pouvez également [configurer la source de données](#configure-the-data-source) et [visualiser les données](#visualize-data) comme expliqué dans l’article ci-dessous.
+
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce guide pratique, vous avez besoin des éléments suivants :
 
@@ -56,7 +62,7 @@ Vous pouvez créer le principal de service dans le [portail Azure](#azure-portal
 
     ![ID d’abonnement - portail](media/grafana/subscription-id-portal.png)
 
-#### <a name="azure-cli"></a>Azure CLI
+#### <a name="azure-cli"></a>D’Azure CLI
 
 1. Créer un principal de service. Définissez une étendue appropriée et le type de rôle `reader`.
 
@@ -121,7 +127,7 @@ Maintenant que vous avez un principal de service, ajoutez-le au rôle *observate
 
 1. Dans le portail Azure, accédez à votre cluster Azure Data Explorer, puis sélectionnez **Requête**.
 
-    ![Interroger](media/grafana/query.png)
+    ![Requête](media/grafana/query.png)
 
 1. Exécutez la commande suivante dans la fenêtre de requête. Utiliser l’ID d’application et l’ID de locataire à partir du portail Azure ou de l’interface CLI.
 
@@ -151,7 +157,7 @@ Maintenant que le principal de service est affecté au rôle *observateurs*, vou
 
     ![Propriétés de connexion](media/grafana/connection-properties.png)
 
-    | Interface utilisateur de Grafana | Portail Azure | Azure CLI |
+    | Interface utilisateur de Grafana | Portail Azure | D’Azure CLI |
     | --- | --- | --- |
     | ID d’abonnement | ID D’ABONNEMENT | SubscriptionId |
     | ID client | ID du répertoire | locataire |

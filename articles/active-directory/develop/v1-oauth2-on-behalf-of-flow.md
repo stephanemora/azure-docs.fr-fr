@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f4ab484b76bb536dd4e9d3c4fff2c85d93e4a41
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: 51fd5c8f406ea54c7fc8e81c674e41b30d7ad406
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235204"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482411"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Appels de service à service utilisant l’identité utilisateur déléguée dans le flux On-Behalf-Of
 
@@ -38,7 +38,7 @@ Le flux On-Behalf-Of (OBO) OAuth 2.0 permet à une application qui appelle un se
 
 Le flux OBO commence après que l’utilisateur a été authentifié sur une application qui utilise le [flux d’octroi de code d’autorisation OAuth 2.0](v1-protocols-oauth-code.md). À ce stade, l’application envoie un jeton d’accès (jeton A) à l’API web de niveau intermédiaire (API A) contenant les revendications de l’utilisateur et le consentement pour accéder à l’API A. Ensuite, l’API A fait une demande authentifiée à l’API web en aval (API B).
 
-Ces étapes constituent le flux On-Behalf-Of : ![Flux Pour le compte de OAuth 2.0](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
+Ces étapes constituent le flux On-Behalf-Of : ![Indique les étapes dans le flux On-Behalf-Of OAuth 2.0](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
 
 1. L’application cliente fait une demande à l’API A avec le jeton A.
 1. L’API A s’authentifie auprès du point de terminaison d’émission de jeton Azure AD et demande un jeton pour accéder à l’API B.
@@ -58,32 +58,32 @@ Inscrivez le service de niveau intermédiaire et l’application cliente dans Az
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 1. Dans la barre du haut, sélectionnez votre compte et, sous la liste **Annuaire**, sélectionnez un locataire Active Directory pour votre application.
 1. Dans le volet gauche, sélectionnez **Plus de services** et choisissez **Azure Active Directory**.
-1. Sélectionnez **inscriptions** , puis **nouvelle inscription**.
+1. Sélectionnez **Inscriptions d’applications**, puis **Nouvelle inscription**.
 1. Entrez un nom convivial pour l’application, puis sélectionnez le type d’application.
 1. Sous **Types de comptes pris en charge**, sélectionnez **Comptes dans un annuaire organisationnel et comptes personnels Microsoft**.
-1. Définir l’URI de redirection vers l’URL de base.
+1. Définir l’URI de redirection sur l’URL de base.
 1. Sélectionnez **Inscrire** pour créer l’application.
 1. Générez une clé secrète du client avant de quitter le portail Azure.
-1. Dans le portail Azure, choisissez votre application et sélectionnez **certificats et clés secrètes**.
-1. Sélectionnez **nouvelle clé secrète client** et ajouter un secret avec une durée de 1 an ou de deux ans.
-1. Lorsque vous enregistrez cette page, le portail Azure affiche la valeur du secret. Copiez et enregistrez la valeur du secret dans un emplacement sûr.
+1. Dans le portail Azure, choisissez votre application, puis sélectionnez **Certificats et secrets**.
+1. Sélectionnez **Nouvelle clé secrète client** et ajouter un secret avec une durée d’un ou deux ans.
+1. Lorsque vous enregistrez cette page, le portail Azure affiche la valeur du secret. Copiez et enregistrez la valeur du secret dans un endroit sûr.
 
 > [!IMPORTANT]
-> Vous avez besoin de la clé secrète pour configurer les paramètres d’application dans votre implémentation. Cette valeur secrète n’est pas affichée à nouveau, et il n’est pas récupérable par tout autre moyen. Enregistrez-la dès qu’elle est visible dans le portail Azure.
+> Vous avez besoin du secret pour configurer les paramètres de l’application dans votre implémentation. Cette valeur de secret ne sera plus affichée et elle n’est récupérable par aucun autre moyen. Enregistrez-la dès qu’elle est visible dans le portail Azure.
 
 ### <a name="register-the-client-application"></a>Inscrire l’application cliente
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 1. Dans la barre du haut, sélectionnez votre compte et, sous la liste **Annuaire**, sélectionnez un locataire Active Directory pour votre application.
 1. Dans le volet gauche, sélectionnez **Plus de services** et choisissez **Azure Active Directory**.
-1. Sélectionnez **inscriptions** , puis **nouvelle inscription**.
+1. Sélectionnez **Inscriptions d’applications**, puis **Nouvelle inscription**.
 1. Entrez un nom convivial pour l’application, puis sélectionnez le type d’application.
 1. Sous **Types de comptes pris en charge**, sélectionnez **Comptes dans un annuaire organisationnel et comptes personnels Microsoft**.
-1. Définir l’URI de redirection vers l’URL de base.
+1. Définir l’URI de redirection sur l’URL de base.
 1. Sélectionnez **Inscrire** pour créer l’application.
-1. Configurez les autorisations pour votre application. Dans **autorisations d’API**, sélectionnez **ajouter une autorisation** , puis **mes API**.
+1. Configurez les autorisations pour votre application. Dans **Autorisations des API**, sélectionnez **Ajouter une autorisation**, puis **Mes API**.
 1. Tapez le nom du service de niveau intermédiaire dans le champ de texte.
-1. Choisissez **sélectionner les autorisations** , puis sélectionnez **accès <service name>** .
+1. Choisissez **Sélectionner les autorisations**, puis sélectionnez **Accéder à <service name>** .
 
 ### <a name="configure-known-client-applications"></a>Configurer les applications clientes connues
 
@@ -150,7 +150,7 @@ Une demande de jeton d’accès de service à service avec un certificat contien
 | client_id |required | ID d’application affecté au service appelant lors de l’inscription auprès d’Azure AD. Pour rechercher l’ID d’application dans le portail Azure, sélectionnez **Active Directory**, choisissez l’annuaire, puis sélectionnez le nom de l’application. |
 | client_assertion_type |required |La valeur doit être `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
 | client_assertion |required | Jeton web JSON que vous créez et que vous signez avec le certificat inscrit comme informations d’identification pour votre application. Pour plus d’informations sur le format de l’assertion et sur la façon d’inscrire votre certificat, consultez [Informations d’identification des certificats](active-directory-certificate-credentials.md).|
-| ressource |required | URI de l’ID d’application du service de destination (ressource sécurisée). Pour rechercher l’ID d’application dans le portail Azure, sélectionnez **Active Directory**, puis choisissez l’annuaire. Sélectionnez le nom de l’application, choisissez **Tous les paramètres**, puis sélectionnez **Propriétés**. |
+| resource |required | URI de l’ID d’application du service de destination (ressource sécurisée). Pour rechercher l’ID d’application dans le portail Azure, sélectionnez **Active Directory**, puis choisissez l’annuaire. Sélectionnez le nom de l’application, choisissez **Tous les paramètres**, puis sélectionnez **Propriétés**. |
 | requested_token_use |required | Spécifie comment la demande doit être traitée. Dans le flux Pour le compte de, la valeur doit être **on_behalf_of**. |
 | scope |required | Liste des étendues (séparées par des espaces) pour la demande de jeton. Pour OpenID Connect, l’étendue **openid** doit être spécifiée.|
 
@@ -184,10 +184,10 @@ Une réponse correspondant à une réussite est une réponse JSON OAuth 2.0 avec
 | Paramètre | Description |
 | --- | --- |
 | token_type |Indique la valeur du type de jeton. Le seul type de jeton pris en charge par Azure AD est le **jeton porteur**. Pour plus d’informations sur les jetons du porteur, consultez le [Framework d’autorisation OAuth 2.0 : Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
-| portée |Étendue de l’accès accordé dans le jeton. |
+| scope |Étendue de l’accès accordé dans le jeton. |
 | expires_in |Durée de validité du jeton d’accès (en secondes). |
 | expires_on |L’heure d’expiration du jeton d’accès. La date est représentée en nombre de secondes à partir du 1er janvier 1970 (1970-01-01T0:0:0Z) UTC jusqu’au moment de l’expiration. Cette valeur est utilisée pour déterminer la durée de vie des jetons en cache. |
-| ressource |URI de l’ID d’application du service de destination (ressource sécurisée). |
+| resource |URI de l’ID d’application du service de destination (ressource sécurisée). |
 | access_token |Le jeton d’accès demandé. Le service web appelant peut utiliser ce jeton pour s’authentifier auprès du service destinataire. |
 | id_token |Jeton d’ID demandé. Le service appelant peut utiliser ce jeton pour vérifier l’identité de l’utilisateur et démarrer une session avec lui. |
 | refresh_token |Jeton d’actualisation pour le jeton d’accès demandé. Le service appelant peut utiliser ce jeton pour demander un autre jeton d’accès après l’expiration du jeton d’accès actuel. |
@@ -213,7 +213,7 @@ L’exemple suivant illustre une réponse affirmative à une demande de jeton d�
 
 ### <a name="error-response-example"></a>Exemple de réponse d’erreur
 
-Le point de terminaison de jeton Azure AD renvoie une réponse d’erreur quand il tente d’acquérir un jeton d’accès pour une API en aval qui est définie avec une stratégie d’accès conditionnel (par exemple l’authentification multifacteur). Le service de niveau intermédiaire doit faire apparaître cette erreur à l’application cliente afin que celle-ci puisse fournir une interaction utilisateur pour satisfaire la stratégie d’accès conditionnel.
+Le point de terminaison de jeton Azure AD renvoie une réponse d’erreur quand il tente d’acquérir un jeton d’accès pour une API en aval qui est définie avec une stratégie d’accès conditionnel (par exemple l’authentification multifacteur). Le service de niveau intermédiaire doit faire apparaître cette erreur sur l’application cliente afin que celle-ci puisse fournir une interaction utilisateur pour satisfaire la stratégie d’accès conditionnel.
 
 ```
 {
@@ -275,10 +275,10 @@ La réponse contient un jeton SAML encodé en UTF8 et Base64url.
 | Paramètre | Description |
 | --- | --- |
 | token_type |Indique la valeur du type de jeton. Le seul type de jeton pris en charge par Azure AD est le **jeton porteur**. Pour plus d’informations sur les jetons du porteur, consultez le [Framework d’autorisation OAuth 2.0 : Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
-| portée |Étendue de l’accès accordé dans le jeton. |
+| scope |Étendue de l’accès accordé dans le jeton. |
 | expires_in |Durée de validité du jeton d’accès (en secondes). |
 | expires_on |L’heure d’expiration du jeton d’accès. La date est représentée en nombre de secondes à partir du 1er janvier 1970 (1970-01-01T0:0:0Z) UTC jusqu’au moment de l’expiration. Cette valeur est utilisée pour déterminer la durée de vie des jetons en cache. |
-| ressource |URI de l’ID d’application du service de destination (ressource sécurisée). |
+| resource |URI de l’ID d’application du service de destination (ressource sécurisée). |
 | access_token |Paramètre qui retourne l’assertion SAML. |
 | refresh_token |Le jeton d’actualisation. Le service appelant peut utiliser ce jeton pour demander un autre jeton d’accès après l’expiration de l’instruction d’assertion SAML actuelle. |
 

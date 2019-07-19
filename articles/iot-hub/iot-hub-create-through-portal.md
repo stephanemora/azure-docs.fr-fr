@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: robinsh
-ms.openlocfilehash: 21758d112cd7eaf45b8b279cf2a6f6060c44c9c1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6f070462dca6e835504a33014a7ed48e9949f874
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64571054"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67432627"
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>Création d’un IoT Hub à l’aide du portail Azure
 
@@ -50,13 +50,15 @@ Cliquez sur **Ajouter** pour ouvrir le panneau **Ajouter une stratégie d’acc�
 
 ![Capture d’écran montrant l’ajout d’une stratégie d’accès partagé](./media/iot-hub-create-through-portal/iot-hub-add-shared-access-policy.png)
 
-* Les stratégies **Lecture de registre** et **Écriture de registre** accordent les autorisations en lecture et en écriture au registre d’identité. Le choix de l'option en écriture active automatiquement l'option en lecture.
+* Les stratégies **Lecture de registre** et **Écriture de registre** accordent les autorisations en lecture et en écriture au registre d’identité. Ces autorisations sont utilisées par les services cloud principaux pour gérer les identités des appareils. Le choix de l'option en écriture active automatiquement l'option en lecture.
 
-* La stratégie de **connexion de service** autorise l’accès aux points de terminaison de service tels que la **réception appareil-à-cloud**. 
+* La stratégie de **connexion de service** autorise l’accès aux points de terminaison de service. Cette autorisation est utilisée par les services cloud principaux pour envoyer et recevoir des messages à partir d’appareils. Elle permet également de mettre à jour et lire les données de jumeaux d’appareil et de jumeaux de module.
 
-* La stratégie de **connexion d’appareil** accorde des autorisations pour envoyer et recevoir des messages à l’aide des points de terminaison côté appareil de IoT Hub.
+* La stratégie de **connexion d’appareil** accorde des autorisations pour envoyer et recevoir des messages à l’aide des points de terminaison côté appareil de IoT Hub. Cette autorisation est utilisée par les appareils afin d’envoyer et de recevoir des messages à partir d’un hub IoT. Elle permet aussi de mettre à jour et lire les données de jumeaux d’appareil et de jumeaux de module, ainsi que de mettre à jour les fichiers.
 
 Cliquez sur **Créer** pour ajouter la stratégie créée à la liste existante.
+
+Pour plus d’informations sur les accès accordés par des autorisations spécifiques, consultez [Autorisations IoT Hub](./iot-hub-devguide-security.md#iot-hub-permissions).
 
 ## <a name="message-routing-for-an-iot-hub"></a>Routage des messages pour un hub IoT
 

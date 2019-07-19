@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 5/5/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c4928050f945ac88dd1f86e2a13b5d26d385e55a
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.openlocfilehash: 91ec65e17b77ccb3864fce45e30729ff420a48b6
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190031"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542644"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Objectifs de performance et d’extensibilité d'Azure Files
 
@@ -30,28 +30,38 @@ La ressource parente d’un partage de fichiers Azure est un compte de stockage 
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
 
 > [!Important]  
-> Utilisation du compte de stockage à usage général à partir d’autres services de stockage affecte vos partages de fichiers Azure dans votre compte de stockage. Par exemple, si vous atteignez la capacité de compte de stockage maximale avec un stockage Blob Azure, vous ne pouvez plus créer de fichiers sur votre partage de fichiers Azure, même si sa taille est inférieure à la taille maximale de partage.
+> L’utilisation d’un compte de stockage à usage général provenant d’autres services de stockage affecte les partages de fichiers Azure dans votre compte de stockage. Par exemple, si vous atteignez la capacité de compte de stockage maximale avec un stockage Blob Azure, vous ne pouvez plus créer de fichiers sur votre partage de fichiers Azure, même si sa taille est inférieure à la taille maximale de partage.
 
 ## <a name="azure-files-scale-targets"></a>Objectifs de mise à l’échelle Azure Files
 
-### <a name="premium-scale-targets"></a>Objectifs de mise à l’échelle Premium
+Il existe trois catégories de limitations à prendre en compte pour Azure Files : les comptes de stockage, les partages et les fichiers.
 
-Il existe trois catégories de limitations à prendre en compte pour les partages de fichiers premium : comptes de stockage et partages de fichiers.
+Par exemple :  Avec des partages de fichiers premium, un partage unique peut atteindre 100 000 IOPS et un seul fichier peut scale up jusqu’à 5 000 IOPS. Par conséquent, si vous avez trois fichiers dans un partage, celui-ci peut vous permettre d’obtenir jusqu’à 15 000 IOPS.
 
-Par exemple :  Un partage unique peut atteindre 100 000 e/s et un seul fichier peut évoluer jusqu'à 5 000 e/s. Par conséquent, par exemple, si vous avez trois fichiers dans un partage, les IOPS maximum, vous pouvez obtenir à partir de ce partage est de 15 000.
+### <a name="standard-storage-account-limits"></a>Limites d’un compte de stockage standard
 
-### <a name="premium-filestorage-account-limits"></a>Limites de compte Premium FileStorage
+Consultez la section [Objectifs de mise à l’échelle d’un compte de stockage Azure](#azure-storage-account-scale-targets) pour en savoir plus sur ces limites.
 
-Partages de fichiers Premium sont approvisionnées dans un compte de stockage spécial appelé **filestorage (version préliminaire)**. Ce compte dispose des cibles de mise à l’échelle légèrement différent que le compte de stockage utilisé pour les partages de fichiers standard. Pour les cibles de mise à l’échelle de compte de stockage, reportez-vous à la table dans le [objectifs de mise à l’échelle de compte de stockage Azure](#azure-storage-account-scale-targets) section.
+### <a name="premium-filestorage-account-limits"></a>Limites d’un compte FileStorage premium
+
+[!INCLUDE [azure-storage-limits-filestorage](../../../includes/azure-storage-limits-filestorage.md)]
 
 > [!IMPORTANT]
-> Limites de compte de stockage s’appliquent à tous les partages. Mise à l’échelle jusqu'à la valeur maximale pour les comptes de stockage n’est réalisable s’il en existe qu’un seul partage par compte de stockage.
+> Limites d’un compte de stockage s’appliquent à tous les partages. Vous pouvez scale up des comptes FileStorage au maximum uniquement si vous ne disposez que d’un seul partage par compte FileStorage.
+
+### <a name="file-share-and-file-scale-targets"></a>Partage de fichiers et objectifs de mise à l’échelle des fichiers
+
+> [!NOTE]
+> Les partages de fichiers standard d’une taille supérieure à 5 Tio sont en préversion et présentent certaines limitations.
+> Pour obtenir la liste des limitations et s’inscrire à la préversion de ces tailles de partage de fichiers plus importantes, consultez la section [Partages de fichiers standard](storage-files-planning.md#standard-file-shares) du guide de planification.
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
+[!INCLUDE [storage-files-premium-scale-targets](../../../includes/storage-files-premium-scale-targets.md)]
+
 ## <a name="azure-file-sync-scale-targets"></a>Objectifs de mise à l’échelle d’Azure File Sync
 
-Avec Azure File Sync, nous nous sommes efforcés de proposer un usage illimité, mais cela n’est pas toujours possible. Le tableau ci-dessous indique les limites de nos tests et les limites matérielles de nos objectifs :
+Azure File Sync a été conçu pour proposer un usage illimité, mais cela n’est pas toujours possible. Le tableau suivant indique les limites de tests réalisés par Microsoft, ainsi que les cibles constituant des limites matérielles :
 
 [!INCLUDE [storage-sync-files-scale-targets](../../../includes/storage-sync-files-scale-targets.md)]
 
@@ -77,8 +87,8 @@ Pour vous aider à planifier votre déploiement pour chacune des phases, voici l
 | Provisionnement initial unique  |  |
 |-|-|
 | Nombre d’objets | 25 millions d’objets |
-| Taille du jeu de données| ~4.7 TIO |
-| Taille de fichier moyenne | ~ 200 Kio (plus grand fichier : 100 Gio) |
+| Taille du jeu de données| ~4,7 Tio |
+| Taille de fichier moyenne | ~200 Kio (plus gros fichier : 100 Gio) |
 | Débit de chargement | 20 objets par seconde |
 | Débit de téléchargement d’espace de noms* | 400 objets par seconde |
 

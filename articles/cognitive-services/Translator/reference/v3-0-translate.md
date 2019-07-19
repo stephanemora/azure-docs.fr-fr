@@ -3,19 +3,19 @@ title: Méthode Translate de l’API de traduction de texte Translator Text
 titleSuffix: Azure Cognitive Services
 description: Utilisez la méthode Translate de l’API de traduction de texte Translator Text.
 services: cognitive-services
-author: rajdeep-in
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
-ms.author: v-pawal
-ms.openlocfilehash: be61d8932288b9a6b2cc96e53d3630124ec0f610
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.author: swmachan
+ms.openlocfilehash: e63670504dedf426829778e154b2d5c2b69d98a0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389749"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67435067"
 ---
 # <a name="translator-text-api-30-translate"></a>API de traduction de texte Translator Text 3.0 : Translate
 
@@ -54,7 +54,7 @@ Les paramètres de demande transmis à la chaîne de requête sont les suivants�
   </tr>
   <tr>
     <td>category</td>
-    <td><em>Paramètre facultatif</em>.<br/>Chaîne spécifiant la catégorie (domaine) de la traduction. Ce paramètre est utilisé pour obtenir des traductions d’un système personnalisé créé avec <a href="../customization.md">Custom Translator</a>. Ajoutez l’ID de catégorie à partir de votre traducteur personnalisé <a href="https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/how-to-create-project#view-project-details">détails du projet</a> à ce paramètre pour utiliser votre déployé personnalisé système. La valeur par défaut est <code>general</code>.</td>
+    <td><em>Paramètre facultatif</em>.<br/>Chaîne spécifiant la catégorie (domaine) de la traduction. Ce paramètre est utilisé pour obtenir des traductions d’un système personnalisé créé avec <a href="../customization.md">Custom Translator</a>. Ajoutez l’ID de catégorie de vos <a href="https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/how-to-create-project#view-project-details">détails de projet</a> Custom Translator à ce paramètre pour utiliser votre système personnalisé déployé. La valeur par défaut est <code>general</code>.</td>
   </tr>
   <tr>
     <td>ProfanityAction</td>
@@ -97,7 +97,7 @@ Les en-têtes de demande sont les suivants :
   <th width="20%">headers</th>
   <th>Description</th>
   <tr>
-    <td>En-têtes d’authentification</td>
+    <td>En-tête(s) d’authentification</td>
     <td><em>En-tête de demande obligatoire</em>.<br/>Voir les <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">options disponibles pour l’authentification</a>.</td>
   </tr>
   <tr>
@@ -213,7 +213,7 @@ Voici les codes d’état HTTP qu’une demande peut retourner.
   </tr>
   <tr>
     <td>429</td>
-    <td>Le serveur a rejeté la demande, car le client a dépassé les limites de la demande.</td>
+    <td>Le serveur a rejeté la requête, car le client a dépassé les limites de requête.</td>
   </tr>
   <tr>
     <td>500</td>
@@ -401,7 +401,7 @@ Pour <code>ProfanityMarker=Tag</code>, les mots vulgaires sont entourés de bali
   </tr>
 </table> 
 
-Exemple :
+Par exemple :
 
 # <a name="curltabcurl"></a>[curl](#tab/curl)
 

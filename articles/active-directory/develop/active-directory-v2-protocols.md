@@ -1,6 +1,6 @@
 ---
-title: En savoir plus sur les protocoles d’autorisation pris en charge par la plateforme d’identité Microsoft | Azure
-description: Un guide pour les protocoles OAuth 2.0 et OpenID Connect qui sont pris en charge par le point de terminaison Microsoft identity platform.
+title: En savoir plus sur les protocoles d’autorisation pris en charge par la plateforme d’identités Microsoft | Azure
+description: Un guide relatif aux protocoles OAuth 2.0 et OpenID Connect pris en charge par le point de terminaison de la plateforme d’identités Microsoft.
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -18,44 +18,44 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cfc9c027806cb1a3f65e67eda771894a7250ee67
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
-ms.translationtype: MT
+ms.openlocfilehash: b7ffef5c3a7c8dd21654b6364013b1718bea1292
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417650"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482984"
 ---
-# <a name="microsoft-identity-platform-protocols"></a>Protocoles de plateforme d’identité Microsoft
+# <a name="microsoft-identity-platform-protocols"></a>Protocoles de la plateforme d’identités Microsoft
 
-Microsoft identity plateforme point de terminaison pour l’identité-as-a-service avec les protocoles standard, OpenID Connect et OAuth 2.0. Bien que ce service soit conforme aux normes, vous pouvez constater de subtiles différences entre deux implémentations différentes de ces protocoles. Les informations fournies ici vous seront utiles si vous choisissez d’écrire votre code en envoyant et en traitant directement des requêtes HTTP ou si vous utilisez une bibliothèque open source tierce, plutôt qu’en utilisant l’une de nos [bibliothèques open source](reference-v2-libraries.md).
+Le point de terminaison de la plateforme d’identités Microsoft pour l’identité en tant que service avec les protocoles standard, OpenID Connect et OAuth 2.0. Bien que ce service soit conforme aux normes, vous pouvez constater de subtiles différences entre deux implémentations différentes de ces protocoles. Les informations fournies ici vous seront utiles si vous choisissez d’écrire votre code en envoyant et en traitant directement des requêtes HTTP ou si vous utilisez une bibliothèque open source tierce, plutôt qu’en utilisant l’une de nos [bibliothèques open source](reference-v2-libraries.md).
 
 > [!NOTE]
-> Pas tous les scénarios Azure AD et les fonctionnalités sont prises en charge par le point de terminaison Microsoft identity platform. Pour déterminer si vous devez utiliser le point de terminaison Microsoft identity plateforme, consultez les [limitations de plateforme d’identité Microsoft](active-directory-v2-limitations.md).
+> Le point de terminaison de la plateforme d’identités Microsoft ne prend pas en charge l’intégralité des scénarios et fonctionnalités d’Azure AD. Pour déterminer si vous devez utiliser le point de terminaison de la plateforme d’identités Microsoft, consultez les [limitations de la plateforme d’identités Microsoft](active-directory-v2-limitations.md).
 
 ## <a name="the-basics"></a>Concepts de base
 
 Dans presque tous les flux OAuth 2.0 et OpenID Connect, quatre parties sont concernées par l’échange :
 
-![Rôles OAuth 2.0](./media/active-directory-v2-flows/protocols-roles.svg)
+![Diagramme montrant les rôles OAuth 2.0](./media/active-directory-v2-flows/protocols-roles.svg)
 
-* Le **serveur d’autorisation** est le point de terminaison Microsoft identity platform et responsable de l’identité l’utilisateur, l’octroi et de révocation de l’accès aux ressources et d’émission de jetons. Le serveur d’autorisation est également connu sous le nom du fournisseur d’identité. Il traite de manière sécurisée les informations de l’utilisateur, leur accès et les relations de confiance entre les parties d’un flux.
+* Le **Serveur d’autorisation** est le point de terminaison de la plateforme d’identités Microsoft qui est chargé de garantir l’identité de l’utilisateur, l’octroi et la révocation de l’accès aux ressources ainsi que l’émission de jetons. Le serveur d’autorisation est également connu sous le nom du fournisseur d’identité. Il traite de manière sécurisée les informations de l’utilisateur, leur accès et les relations de confiance entre les parties d’un flux.
 * Le **Propriétaire de la ressource** est généralement l’utilisateur final. Il s’agit de la partie détentrice des données, qui a le pouvoir d’autoriser les tierces parties à accéder à ces données ou à cette ressource.
 * Le **Client OAuth** est votre application, identifiée par son ID d’application. Le client OAuth, qui est en général la partie avec laquelle l’utilisateur final interagit, demande des jetons provenant du serveur d’autorisation. Le client doit se voir octroyer une autorisation d’accès à la ressource par le propriétaire de cette dernière.
-* Le **serveur de ressources** héberge la ressource ou les données. Il approuve le serveur d’autorisation pour authentifier et autoriser le OAuth Client en toute sécurité et utilise des jetons d’accès du porteur pour garantir que l’accès à une ressource peut être accordé.
+* Le **serveur de ressources** héberge la ressource ou les données. Il approuve le serveur d’autorisation pour authentifier et autoriser de manière sûre le client OAuth et utilise les jetons d’accès du porteur pour garantir l’octroi de l’accès à une ressource.
 
 ## <a name="app-registration"></a>Inscription d’application
 
-Chaque application qui souhaite accepter à la fois personnelles et comptes professionnels ou scolaires doive être inscrits via le **inscriptions** d’expérience dans le [portail Azure](https://aka.ms/appregistrations) avant il peut se connecter à ces utilisateurs à l’aide d’OAuth 2.0 ou OpenID Connect. Le processus d’inscription des applications collecte quelques valeurs et les affecte à votre application :
+Chaque application souhaitant accepter les comptes personnels ainsi que les comptes professionnels ou scolaires doit être inscrite via l’expérience **Inscriptions d’applications** dans le [portail Azure](https://aka.ms/appregistrations) avant de pouvoir connecter ces utilisateurs à l’aide d’OAuth 2.0 ou d’OpenID Connect. Le processus d’inscription des applications collecte quelques valeurs et les affecte à votre application :
 
 * un **ID d’application** qui identifie de manière unique votre application ;
-* Un **URI de redirection** (facultatif) qui peut être utilisé pour diriger les réponses à votre application
+* un **URI de redirection** (facultatif) pouvant être utilisé pour diriger les réponses vers votre application ;
 * quelques valeurs spécifiques au scénario.
 
 Pour plus d’informations, découvrez comment [inscrire une application](quickstart-register-app.md).
 
 ## <a name="endpoints"></a>Points de terminaison
 
-Une fois inscrit, l’application communique avec la plateforme d’identité Microsoft en envoyant des requêtes au point de terminaison :
+Une fois inscrite, l’application communique avec la plateforme d’identités Microsoft en transmettant les requêtes au point de terminaison :
 
 ```
 https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize
@@ -74,17 +74,17 @@ Où le `{tenant}` peut prendre l’une de quatre valeurs différentes :
 Pour savoir comment interagir avec ces points de terminaison, choisissez un type particulier d’application dans la section [Protocoles](#protocols) et suivez les liens.
 
 > [!TIP]
-> N’importe quelle application inscrite dans Azure AD peut utiliser le point de terminaison Microsoft identity platform, même si elles ne vous connectez des comptes personnels.  De cette façon, vous pouvez migrer des applications existantes vers la plateforme d’identité Microsoft et [MSAL](reference-v2-libraries.md) sans recréer votre application.  
+> N’importe quelle application inscrite dans Azure AD peut utiliser le point de terminaison de la plateforme d’identités Microsoft, même si elle n’utilise pas de compte personnel pour la connexion.  De cette façon, vous pouvez migrer des applications existantes vers la plateforme d’identités Microsoft et [MSAL](reference-v2-libraries.md) sans recréer votre application.  
 
 ## <a name="tokens"></a>Jetons
 
-L’implémentation de plateforme d’identité Microsoft de OAuth 2.0 et OpenID Connect utilisent beaucoup les jetons du porteur, y compris ceux représentés sous forme de Jwt. Un jeton porteur est un jeton de sécurité léger qui octroie l’accès à une ressource protégée au « porteur ». En ce sens, le « porteur » désigne toute partie qui peut présenter le jeton. Si un tiers doit tout d’abord s’authentifier avec la plateforme d’identité Microsoft pour recevoir le jeton du porteur, si les étapes requises pour sécuriser le jeton dans la transmission et du stockage ne sont pas prises, il peut être interceptée et utilisé par un tiers indésirable. Bien que certains jetons de sécurité intègrent un mécanisme de protection contre l’utilisation par des parties non autorisées, les jetons porteurs n’en sont pas dotés et doivent donc être acheminés sur un canal sécurisé, par exemple à l’aide du protocole TLS (HTTPS). Si un jeton porteur est transmis en clair, une partie malveillante peut utiliser une attaque d’intercepteur pour s’approprier le jeton et l’utiliser afin d’accéder sans autorisation à une ressource protégée. Les mêmes principes de sécurité s’appliquent au stockage ou à la mise en cache des jetons porteurs pour une utilisation ultérieure. Veillez systématiquement à ce que votre application transmette et stocke les jetons porteurs de manière sécurisée. Pour en savoir plus sur les aspects de sécurité des jetons porteurs, consultez [RFC 6750 Section 5](https://tools.ietf.org/html/rfc6750).
+L’implémentation d’OAuth 2.0 et d’OpenID Connect par la plateforme d’identités Microsoft utilise massivement les jetons du porteur, y compris ceux représentés sous forme de JWT. Un jeton porteur est un jeton de sécurité léger qui octroie l’accès à une ressource protégée au « porteur ». En ce sens, le « porteur » désigne toute partie qui peut présenter le jeton. Bien qu’une partie doive d’abord s’authentifier auprès de la plateforme d’identités Microsoft pour recevoir le jeton porteur, si les mécanismes nécessaires à la sécurité du jeton lors de la transmission et du stockage ne sont pas en place, il peut être intercepté et utilisé par une partie non autorisée. Bien que certains jetons de sécurité intègrent un mécanisme de protection contre l’utilisation par des parties non autorisées, les jetons porteurs n’en sont pas dotés et doivent donc être acheminés sur un canal sécurisé, par exemple à l’aide du protocole TLS (HTTPS). Si un jeton porteur est transmis en clair, une partie malveillante peut utiliser une attaque d’intercepteur pour s’approprier le jeton et l’utiliser afin d’accéder sans autorisation à une ressource protégée. Les mêmes principes de sécurité s’appliquent au stockage ou à la mise en cache des jetons porteurs pour une utilisation ultérieure. Veillez systématiquement à ce que votre application transmette et stocke les jetons porteurs de manière sécurisée. Pour en savoir plus sur les aspects de sécurité des jetons porteurs, consultez [RFC 6750 Section 5](https://tools.ietf.org/html/rfc6750).
 
-Plus d’informations de différents types de jetons utilisés dans le Microsoft endpoint de plateforme d’identité est disponible dans [la référence de jeton de point de terminaison de plateforme d’identité Microsoft](v2-id-and-access-tokens.md).
+Vous trouverez plus d’informations sur les différents types de jetons utilisés dans la plateforme d’identités Microsoft dans [la référence sur les jetons de point de terminaison de la plateforme d’identités Microsoft](v2-id-and-access-tokens.md).
 
 ## <a name="protocols"></a>Protocoles
 
-Si vous êtes prêt à voir des exemples de demandes, entamez l’un des didacticiels ci-dessous. Chacun d’eux correspond à un scénario d’authentification particulier. Si vous avez besoin d’aide pour déterminer qui est le flux pour vous, consultez [les types d’applications que vous pouvez créer avec la plateforme d’identité Microsoft](v2-app-types.md).
+Si vous êtes prêt à voir des exemples de demandes, entamez l’un des didacticiels ci-dessous. Chacun d’eux correspond à un scénario d’authentification particulier. Si vous avez besoin d’aide pour déterminer le flux qui vous convient, consultez les [types d’applications que vous pouvez créer avec le point de terminaison de la plateforme d’identités Microsoft](v2-app-types.md).
 
 * [Générer une application mobile et native avec OAuth 2.0](v2-oauth2-auth-code-flow.md)
 * [Générer des applications web avec OpenID Connect](v2-protocols-oidc.md)

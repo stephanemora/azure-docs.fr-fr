@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 06/06/2019
+ms.date: 07/01/2019
 ms.author: tomfitz
-ms.openlocfilehash: 99fd4215de4dd118558acc008fcfa6490ea0093d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 22317372a7d954286ebcb0b59aea293c746b2a58
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66807368"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508174"
 ---
 # <a name="resource-property-or-variable-iteration-in-azure-resource-manager-templates"></a>Itération de variable, de propriété ou de ressource dans les modèles Azure Resource Manager
 
@@ -50,6 +50,8 @@ Si vous devez spécifier si une ressource est déployée, consultez la page rela
 Pour spécifier le nombre d’itérations, vous devez fournir une valeur pour la propriété count. Le nombre ne peut pas dépasser 800.
 
 Le nombre ne peut pas être négatif. Si vous déployez un modèle avec la version **2019-05-10** ou une version ultérieure de l’API REST, vous pouvez définir le nombre à zéro. Les versions antérieures de l’API REST ne prennent pas en charge le nombre zéro. Actuellement, Azure CLI et PowerShell ne prennent pas en charge le nombre zéro, mais cette option sera ajoutée dans une version ultérieure.
+
+Soyez prudent lorsque vous utilisez le [déploiement en mode Complet](deployment-modes.md) avec des copies. Si vous redéployez dans un groupe de ressources en mode Complet, toutes les ressources qui ne sont pas spécifiées dans le modèle après la résolution de la boucle de copie sont supprimées.
 
 Les limites pour le nombre sont les mêmes, qu’il soit utilisé pour une ressource, une variable ou une propriété.
 

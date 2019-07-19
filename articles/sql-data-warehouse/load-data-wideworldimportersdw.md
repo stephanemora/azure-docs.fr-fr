@@ -1,6 +1,6 @@
 ---
 title: 'Didacticiel : Chargement de données dans Azure SQL Data Warehouse | Microsoft Docs'
-description: Ce tutoriel utilise le portail Azure et SQL Server Management Studio pour charger l’entrepôt de données WideWorldImportersDW depuis un objet blob Azure public vers Azure SQL Data Warehouse.
+description: Ce didacticiel utilise le portail Azure et SQL Server Management Studio pour charger l’entrepôt de données WideWorldImportersDW depuis un objet blob Azure global vers Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -10,12 +10,12 @@ ms.subservice: load data
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: a8bca6c1e56595e4a7d64f9f388c9daca0b166ac
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: a4f52c2bd0040efef9e12a8feec0bfc779105ad4
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66242923"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461861"
 ---
 # <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>Didacticiel : Chargement de données dans Azure SQL Data Warehouse
 
@@ -38,9 +38,9 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 Avant de commencer ce didacticiel, téléchargez et installez la dernière version de [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
 
-## <a name="log-in-to-the-azure-portal"></a>Se connecter au portail Azure.
+## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
-Connectez-vous au [portail Azure](https://portal.azure.com/).
+Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
 ## <a name="create-a-blank-sql-data-warehouse"></a>Créer un entrepôt de données SQL vide
 
@@ -67,7 +67,7 @@ Suivez ces étapes pour créer un entrepôt de données SQL vide.
 
 4. Cliquez sur **Serveur** pour créer et configurer un serveur pour votre nouvelle base de données. Remplissez le **formulaire de nouveau serveur** avec les informations suivantes : 
 
-    | Paramètre | Valeur suggérée |  Description | 
+    | Paramètre | Valeur suggérée | DESCRIPTION | 
     | ------- | --------------- | ----------- |
     | **Nom du serveur** | Nom globalement unique | Pour les noms de serveur valides, consultez [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Conventions d’affectation de nom). | 
     | **Connexion d’administrateur du serveur** | Nom valide | Pour les noms de connexion valides, consultez [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificateurs de base de données).|
@@ -132,7 +132,7 @@ Vous pouvez maintenant vous connecter au serveur SQL et à ses entrepôts de don
 
 Obtenez le nom complet de votre serveur SQL dans le portail Azure. Vous utilisez le nom complet du serveur par la suite pour vous connecter au serveur.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 2. Sélectionnez **Bases de données SQL** dans le menu de gauche, puis cliquez sur votre base de données dans la page **Bases de données SQL**. 
 3. Dans le volet **Essentials** de la page du portail Azure pour votre base de données, recherchez et copiez le **nom du serveur**. Dans cet exemple, le nom complet est mynewserver-20171113.database.windows.net. 
 
@@ -158,7 +158,7 @@ Cette section utilise [SQL Server Management Studio](/sql/ssms/download-sql-serv
 
 4. Cliquez sur **Connecter**. La fenêtre Explorateur d’objets s’ouvre dans SSMS. 
 
-5. Dans l’Explorateur d’objets, développez **Bases de données**. Ensuite, développez **Bases de données système** et **master** pour afficher les objets de la base de données master.  Développez **mySampleDatabase** pour afficher les objets dans votre nouvelle base de données.
+5. Dans l’Explorateur d’objets, développez **Bases de données**. Ensuite, développez **Bases de données système** et **master** pour afficher les objets de la base de données master.  Développez **SampleDW** pour afficher les objets dans votre nouvelle base de données.
 
     ![objets de base de données](media/load-data-wideworldimportersdw/connected.png) 
 
@@ -217,7 +217,7 @@ La première étape du chargement des données consiste à se connecter en tant 
 
 Vous êtes prêt à commencer le processus de chargement des données dans votre nouvel entrepôt de données. Pour vous y référer ultérieurement, pour savoir comment charger vos données dans un Stockage Blob Azure ou pour les charger directement à partir de votre source dans SQL Data Warehouse, consultez la [présentation du chargement](sql-data-warehouse-overview-load.md).
 
-Exécutez les scripts SQL suivants pour spécifier les informations sur les données que vous voulez charger. Ces informations sont notamment l’emplacement des données, le format du contenu des données et la définition de table pour les données. Les données se trouvent dans un objet blob Azure public.
+Exécutez les scripts SQL suivants pour spécifier les informations sur les données que vous voulez charger. Ces informations sont notamment l’emplacement des données, le format du contenu des données et la définition de table pour les données. Les données se trouvent dans un objet blob Azure global.
 
 1. Dans la section précédente, vous vous êtes connecté à votre entrepôt de données en tant que LoaderRC60. Dans SSMS, cliquez avec le bouton droit sur **SampleDW** sous votre connexion LoaderRC60 et sélectionnez **Nouvelle requête**.  Une nouvelle fenêtre de requête s’affiche. 
 
@@ -231,7 +231,7 @@ Exécutez les scripts SQL suivants pour spécifier les informations sur les donn
     CREATE MASTER KEY;
     ```
 
-4. Exécutez l’instruction [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) suivante pour définir l’emplacement de l’objet blob Azure. Il s’agit de l’emplacement des données externes de taxi cab.  Pour exécuter une commande que vous avez ajoutée à la fenêtre de requête, mettez en surbrillance les commandes que vous voulez exécuter, puis cliquez sur **Exécuter**.
+4. Exécutez l’instruction [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) suivante pour définir l’emplacement de l’objet blob Azure. Il s’agit de l’emplacement des données des importeurs mondiaux externes.  Pour exécuter une commande que vous avez ajoutée à la fenêtre de requête, mettez en surbrillance les commandes que vous voulez exécuter, puis cliquez sur **Exécuter**.
 
     ```sql
     CREATE EXTERNAL DATA SOURCE WWIStorage
@@ -540,13 +540,13 @@ Exécutez les scripts SQL suivants pour spécifier les informations sur les donn
     );
     ```
 
-8. Dans l’Explorateur d’objets, développez SampleDW pour afficher la liste des tables externes que vous venez de créer.
+8. Dans l’Explorateur d’objets, développez SampleDW pour afficher la liste des tables externes que vous avez créées.
 
     ![Afficher les tables externes](media/load-data-wideworldimportersdw/view-external-tables.png)
 
 ## <a name="load-the-data-into-your-data-warehouse"></a>Charger les données dans votre entrepôt de données
 
-Cette section utilise les tables externes que vous venez de définir pour charger les exemples de données d’Azure Blob dans SQL Data Warehouse.  
+Cette section utilise les tables externes que vous avez définies pour charger les exemples de données d’Azure Blob dans SQL Data Warehouse.  
 
 > [!NOTE]
 > Ce didacticiel charge directement les données dans la table finale. Dans un environnement de production, vous utilisez généralement l’instruction CREATE TABLE AS SELECT pour procéder au chargement dans une table de mise en lots. Lorsque les données se trouvent dans la table de mise en lots, vous pouvez effectuer toutes les transformations nécessaires. Pour ajouter les données de la table de mise en lots à une table de production, vous pouvez utiliser l’instruction INSERT...SELECT. Pour plus d’informations, voir [Insertion de données dans une table de production](guidance-for-loading-data.md#inserting-data-into-a-production-table).
@@ -554,7 +554,7 @@ Cette section utilise les tables externes que vous venez de définir pour charge
 
 Le script utilise l’instruction T-SQL [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) pour charger les données d’Azure Storage Blob dans de nouvelles tables de votre entrepôt de données. CTAS crée une table en fonction des résultats d’une instruction select. La nouvelle table propose les mêmes colonnes et les mêmes types de données que les résultats de l’instruction select. Quand l’instruction select effectue une sélection dans une table externe, SQL Data Warehouse importe les données dans une table relationnelle de l’entrepôt de données. 
 
-Ce script ne charge pas les données dans les tables wwi.dimension_Date et wwi.fact_Sales. Ces tables sont générées lors d’une étape ultérieure pour que les tables aient un nombre de lignes important.
+Ce script ne charge pas les données dans les tables wwi.dimension_Date et wwi.fact_Sale. Ces tables sont générées lors d’une étape ultérieure pour que les tables aient un nombre de lignes important.
 
 1. Exécutez le script suivant pour charger les données dans de nouvelles tables de votre entrepôt de données.
 
@@ -750,7 +750,7 @@ Ce script ne charge pas les données dans les tables wwi.dimension_Date et wwi.f
 
 ## <a name="create-tables-and-procedures-to-generate-the-date-and-sales-tables"></a>Créer des tables et procédures pour générer les tables Sales et Date
 
-Cette section crée les tables wwi.dimension_Date et wwi.fact_Sales. Elle crée également des procédures stockées qui peuvent générer des millions de lignes dans les tables wwi.dimension_Date et wwi.fact_Sales.
+Cette section crée les tables wwi.dimension_Date et wwi.fact_Sale. Elle crée également des procédures stockées qui peuvent générer des millions de lignes dans les tables wwi.dimension_Date et wwi.fact_Sale.
 
 1. Créez les tables dimension_Date et fact_Sale.  
 
@@ -893,7 +893,7 @@ Cette section crée les tables wwi.dimension_Date et wwi.fact_Sales. Elle crée 
     DROP table #days;
     END;
     ```
-4. Créez cette procédure qui remplit les tables wwi.dimension_Date et wwi.fact_Sales. Elle appelle [wwi].[PopulateDateDimensionForYear] pour remplir wwi.dimension_Date.
+4. Créez cette procédure qui remplit les tables wwi.dimension_Date et wwi.fact_Sale. Elle appelle [wwi].[PopulateDateDimensionForYear] pour remplir wwi.dimension_Date.
 
     ```sql
     CREATE PROCEDURE [wwi].[Configuration_PopulateLargeSaleTable] @EstimatedRowsPerDay [bigint],@Year [int] AS
@@ -949,7 +949,7 @@ Cette section crée les tables wwi.dimension_Date et wwi.fact_Sales. Elle crée 
     ```
 
 ## <a name="generate-millions-of-rows"></a>Générer des millions de lignes
-Utilisez les procédures stockées que vous avez créées pour générer des millions de lignes dans la table wwi.fact_Sales et les données correspondantes dans la table wwi.dimension_Date. 
+Utilisez les procédures stockées que vous avez créées pour générer des millions de lignes dans la table wwi.fact_Sale et les données correspondantes dans la table wwi.dimension_Date. 
 
 
 1. Exécutez cette procédure pour amorcer [wwi].[seed_Sale] avec plus de lignes.
@@ -958,7 +958,7 @@ Utilisez les procédures stockées que vous avez créées pour générer des mil
     EXEC [wwi].[InitialSalesDataPopulation]
     ```
 
-2. Exécutez cette procédure pour remplir wwi.fact_Sales avec 100 000 lignes par jour pour chaque jour de l’année 2000.
+2. Exécutez cette procédure pour remplir wwi.fact_Sale avec 100 000 lignes par jour pour chaque jour de l’année 2000.
 
     ```sql
     EXEC [wwi].[Configuration_PopulateLargeSaleTable] 100000, 2000
@@ -1094,7 +1094,7 @@ Vous êtes facturé en fonction des ressources de calcul et des données que vou
 
 Suivez ces étapes pour nettoyer les ressources selon vos besoins.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com), cliquez sur votre entrepôt de données.
+1. Connectez-vous au [portail Azure](https://portal.azure.com) et cliquez sur votre entrepôt de données.
 
     ![Supprimer des ressources](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
@@ -1123,4 +1123,4 @@ Voici les étapes que vous avez effectuées :
 Passez à la vue d’ensemble du développement pour savoir comment migrer une base de données existante vers SQL Data Warehouse.
 
 > [!div class="nextstepaction"]
->[Décisions de conception pour migrer une base de données existante vers SQL Data Warehouse](sql-data-warehouse-overview-develop.md)
+>[Concevoir des décisions pour migrer une base de données existante vers SQL Data Warehouse](sql-data-warehouse-overview-develop.md)

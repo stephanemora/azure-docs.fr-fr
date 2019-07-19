@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 04/26/2019
-ms.openlocfilehash: 74a52df4eab8a3e471e541889cde74846af00fb8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/01/2019
+ms.openlocfilehash: 8c99ae1aa96e41173fb6e4d7303979d8fc167003
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64574188"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491604"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Prépayer des ressources de calcul SQL Database avec une capacité réservée Azure SQL Database
 
@@ -28,7 +28,7 @@ Vous n'êtes pas tenu d'affecter la réservation à des instances SQL Database s
 
 Vous pouvez acheter une capacité réservée Azure SQL Database sur le [portail Azure](https://portal.azure.com). Pour acheter une capacité réservée SQL Database :
 
-- Vous devez disposer du rôle de propriétaire sur au moins un abonnement Entreprise ou un abonnement Paiement à l’utilisation.
+- Vous devez disposer du rôle Propriétaire sur au moins un abonnement Entreprise ou individuel avec des tarifs de paiement à l’utilisation.
 - Pour les abonnements Entreprise, **Add Reserved Instances** (Ajouter des instances réservées) doit être activé dans le [portal EA](https://ea.azure.com). Si ce paramètre est désactivé, vous devez être administrateur EA de l'abonnement.
 - Pour ce qui est du programme des fournisseurs de solutions cloud, seuls les agents d’administration ou les agents commerciaux peuvent acheter une capacité réservée SQL Database.
 
@@ -52,7 +52,7 @@ Par exemple, supposons que vous exécutez un processeur Gen5, option Usage gén
     | Champ      | Description|
     |:------------|:--------------|
     |Nom        |Nom de cette réservation.|
-    |Abonnement|Abonnement utilisé pour payer la réservation de capacité réservée SQL Database. Les coûts initiaux de la réservation de capacité réservée SQL Database sont facturés selon le mode de paiement défini sur l’abonnement. Le type d'abonnement doit être un Contrat Entreprise (numéro de l'offre : MS-AZR-0017P ou MS-AZR-0148P) ou Paiement à l’utilisation (numéros de l’offre : MS-AZR-0003P ou MS-AZR-0023P). Pour un abonnement Entreprise, les frais sont déduits du solde d’engagement monétaire de l’inscription ou facturés comme un dépassement. Pour un abonnement Paiement à l’utilisation, les frais sont facturés sur le mode de paiement par carte de crédit ou par facture défini sur l’abonnement.|
+    |Abonnement|Abonnement utilisé pour payer la réservation de capacité réservée SQL Database. Les coûts initiaux de la réservation de capacité réservée SQL Database sont facturés selon le mode de paiement défini sur l’abonnement. Le type d’abonnement doit être Accord Entreprise (numéros de l’offre : MS-AZR-0017P ou MS-AZR-0148p) ou un accord individuel avec paiement à l’utilisation (numéros de l’offre : MS-AZR-0003P ou MS-AZR-0023P). Pour un abonnement Entreprise, les frais sont déduits du solde d’engagement monétaire de l’inscription ou facturés comme un dépassement. Pour un abonnement individuel avec paiement à l’utilisation, les frais sont facturés sur le mode de paiement par carte de crédit ou par facture sur l’abonnement.|
     |Étendue       |L’étendue de la réservation vCore peut couvrir un seul abonnement ou plusieurs abonnements (étendue partagée). Si vous sélectionnez : <br/><br/>**Abonnement unique** : la remise de réservation vCore est appliquée aux instances SQL Database incluses dans cet abonnement. <br/><br/>**Abonnement partagé** : la remise de réservation vCore est appliquée aux instances SQL Database en cours d’exécution dans tous les abonnements de votre contexte de facturation. Pour les clients Entreprise, l'étendue partagée correspond à l'inscription et inclut tous les abonnements compris dans l'inscription. Pour les clients Paiement à l’utilisation, l’étendue partagée correspond à tous les abonnements Paiement à l’utilisation créés par l’administrateur de compte.|
     |Région      |Région Azure couverte par la réservation de capacité réservée SQL Database.|
     |Type de déploiement|Type de ressource SQL pour laquelle vous voulez acheter la réservation.|
@@ -77,6 +77,10 @@ Pour plus d’informations sur l’échange ou le remboursement des réservation
 
 La flexibilité de la taille vCore vous permet de vous mettre à l’échelle au sein d’un niveau de performances et d’une région, sans perdre le bénéfice de la capacité réservée. Grâce à la capacité réservée SQL Database, vous avez également la possibilité de déplacer temporairement vos bases de données à chaud entre des pools et des bases de données uniques dans le cadre de vos opérations normales (au sein du même niveau de performances et de la même région), sans perdre le bénéfice de la capacité réservée. En conservant une mémoire tampon non appliquée dans votre réservation, vous pouvez gérer efficacement les pics de performances sans dépasser votre budget.
 
+## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Nous contacter
+
+Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 La remise de réservation vCore est appliquée automatiquement au nombre d’instances SQL Database qui correspondent à l’étendue et aux attributs de la réservation de capacité réservée SQL Database. Vous pouvez mettre à jour l’étendue de la réservation de capacité réservée SQL Database par le biais du [portail Azure](https://portal.azure.com), de PowerShell, de CLI ou de l’API.
@@ -91,7 +95,3 @@ Pour plus d’informations sur les réservations Azure, consultez les articles s
 - [Comprendre l’utilisation d’une réservation pour votre abonnement avec paiement à l’utilisation](../billing/billing-understand-reserved-instance-usage.md)
 - [Comprendre l’utilisation d’une réservation pour votre Accord de Mise en Œuvre Entreprise](../billing/billing-understand-reserved-instance-usage-ea.md)
 - [Réservations Azure dans le cadre du programme Fournisseur de solutions Cloud de l’Espace partenaires](https://docs.microsoft.com/partner-center/azure-reservations)
-
-## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Nous contacter
-
-Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

@@ -1,99 +1,249 @@
 ---
-title: Guide de déploiement de réinitialisation de mot de passe libre-service - Azure Active Directory
-description: Conseils pour réussir le lancement de la réinitialisation du mot de passe libre-service Azure AD
+title: Plan de déploiement de réinitialisation de mot de passe en libre-service - Azure Active Directory
+description: Stratégie pour réussir l’implémentation de la réinitialisation du mot de passe en libre-service Azure AD
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 06/24/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c254ef3a71e95b33df2a779c728d47fff3c3759
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8b566bfc3f6c49f6cb9fe31f166356f6ae351e38
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65190369"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440939"
 ---
-# <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Comment réussir le lancement de la réinitialisation de mot de passe en libre-service
+# <a name="deploy-azure-ad-self-service-password-reset"></a>Déployer la réinitialisation de mot de passe en libre-service Azure AD
 
-Pour garantir le déploiement sans problèmes de la fonctionnalité de réinitialisation du mot de passe libre-service (SSPR) d’Azure Active Directory (Azure AD), les clients procèdent généralement comme suit :
+La réinitialisation de mot de passe en libre-service (SSPR) est une fonctionnalité d’Azure Active Directory qui permet aux employés de réinitialiser leurs mots de passe sans devoir contacter le personnel informatique. Les employés doivent s’inscrire ou être inscrits à ce service avant de l’utiliser. Pendant l’inscription, l’employé choisit une ou plusieurs méthodes d’authentification activées par son organisation.
 
-> [!VIDEO https://www.youtube.com/embed/OZn5btP6ZXw]
+SSPR permet aux employés de rapidement débloquer leur compte et de continuer à travailler, quels que soient l’heure ou l’endroit où ils se trouvent. En permettant aux utilisateurs de débloquer leur compte eux-mêmes, votre organisation peut réduire les pertes de productivité et les coûts de support élevés pour les problèmes les plus courants liés aux mots de passe.
 
-1. Effectuez un déploiement pilote avec un petit sous-ensemble de votre organisation.
-   * Des informations sur la façon de mener cette opération sont disponibles dans le [Tutoriel : Effectuer un déploiement pilote de réinitialisation de mot de passe en libre-service pour Azure AD](tutorial-sspr-pilot.md).
-1. Formez votre support technique.
-   * Comment vont-ils aider vos utilisateurs ?
-   * Obligerez-vous les utilisateurs à utiliser SSPR et interdisez-vous à votre support technique d’aider les utilisateurs ?
-   * Leur avez-vous fourni les URL pour l’inscription et la réinitialisation ?
-      * Inscription : https://aka.ms/ssprsetup
-      * Réinitialisation : https://aka.ms/sspr
+Aidez les utilisateurs à s’inscrire rapidement en déployant SSPR parallèlement à une autre application ou service dans votre organisation. Cette action génère un grand nombre de connexions et booste les inscriptions.
 
-   > [!WARNING]
-   > L’utilisation de la case à cocher « L’utilisateur doit changer mot de passe à la prochaine ouverture de session » dans les outils d’administration d’Active Directory locaux, comme Active Directory Users and Computers ou le Centre d’administration d’Active Directory n’est pas prise en charge. Lorsque vous modifiez un mot de passe local, ne cochez pas cette option. 
+Avant de déployer SSPR, les organisations ont tout intérêt à déterminer le nombre d’appels reçus par le support technique concernant la réinitialisation de mot de passe au fil du temps et le coût moyen de chaque appel. Elles peuvent utiliser ces données après le déploiement pour connaître la valeur ajoutée de SSPR.  
 
-1. Formez vos utilisateurs.
-   * Les sections suivantes de ce document comprennent les exemples de communication, les portails de mot de passe, l’application d’inscription, et le remplissage de données d’authentification.
-   * Le groupe de produits Azure Active Directory a créé un [plan de déploiement étape par étape](https://aka.ms/SSPRDeploymentPlan) que les organisations peuvent utiliser en parallèle avec la documentation disponible sur ce site pour effectuer une étude de cas et un plan de déploiement de la réinitialisation de mot de passe en libre-service.
-1. Activez la réinitialisation du mot de passe en libre-service pour toute votre organisation.
-   * Lorsque vous êtes prêt, activez la réinitialisation du mot de passe pour tous les utilisateurs en définissant le commutateur **Réinitialisation du mot de passe en libre-service activée** sur **Tout le monde**.
+## <a name="how-sspr-works"></a>Fonctionnement de SSPR
 
-## <a name="sample-communication"></a>Exemple de communication
+1. Lorsqu’un utilisateur tente de réinitialiser un mot de passe, il doit valider la méthode d’authentification précédemment inscrite pour prouver son identité.
+1. Ensuite, l’utilisateur entre un nouveau mot de passe.
+   1. Pour les utilisateurs cloud uniquement, le nouveau mot de passe est stocké dans Azure Active Directory. Pour plus d’informations, consultez l’article [Fonctionnement de SSPR](concept-sspr-howitworks.md#how-does-the-password-reset-portal-work).
+   1. Pour les utilisateurs hybrides, le mot de passe est réécrit en local sur Active Directory via le service Azure AD Connect. Pour plus d’informations, consultez l’article [Fonctionnement de la réécriture du mot de passe](concept-sspr-writeback.md#how-password-writeback-works).
 
-De nombreux clients estiment qu’une campagne par courrier électronique incluant des instructions simples d’utilisation constitue le moyen le plus simple pour que les utilisateurs aient recours à la réinitialisation du mot de passe libre-service. [Nous avons créé des e-mails simples et d’autres collatéraux que vous pouvez utiliser comme modèles pour vous aider dans votre lancement](https://www.microsoft.com/download/details.aspx?id=56768) :
+## <a name="licensing-considerations"></a>Considérations relatives aux licences
 
-* **Bientôt disponible** : modèle d’e-mail à utiliser dans les semaines ou les jours précédant le lancement, pour informer les utilisateurs qu’ils doivent effectuer certaines actions.
-* **Disponible dès maintenant** : modèle d’e-mail à utiliser le jour du lancement du programme pour inciter les utilisateurs à s’inscrire et à confirmer leurs données d’authentification. En s’inscrivant maintenant, les utilisateurs pourront utiliser la réinitialisation du mot de passe libre-service lorsqu’ils en auront besoin.
-* **Rappel d’inscription** : modèle d’e-mail à utiliser dans les jours ou les semaines qui suivent le déploiement pour rappeler aux utilisateurs de s’inscrire et de confirmer leurs données d’authentification.
-* **Affiches SSPR** : affiches que vous pouvez personnaliser et montrer dans votre organisation dans les jours et semaines précédant votre lancement, et après celui-ci.
-* **Chevalets de table SSPR** : cartes que vous pouvez placer dans la salle à manger, les salles de conférence, ou dans les bureaux pour encourager vos utilisateurs à effectuer l’inscription.
-* **Autocollants SSPR** : modèles de vignette que vous pouvez personnaliser et imprimer pour les coller sur les ordinateurs portables, les écrans, les claviers ou les téléphones portables pour se rappeler comment accéder à SSPR.
+Azure Active Directory fonctionne sur la base d’une licence unique par utilisateur, c’est-à-dire que chaque utilisateur doit disposer d’une licence appropriée pour les fonctionnalités qu’il utilise.
 
-![Exemples d’e-mail SSPR pour le déploiement auprès des utilisateurs][Email]
+- La réinitialisation de mot de passe en libre-service pour les utilisateurs cloud uniquement est disponible avec Azure AD Basic ou une version supérieure.
+- La réinitialisation de mot de passe en libre-service avec écriture différée en local pour les environnements hybrides nécessite Azure AD Premium P1 ou supérieur.
 
-## <a name="create-your-own-password-portal"></a>Création de votre propre portail de mot de passe
+Pour plus d’informations sur les licences, consultez la [page des tarifs Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
-Nombre de nos clients choisissent d’héberger une page web et de créer une entrée DNS racine, comme https://passwords.contoso.com. Ils remplissent cette page avec des liens vers les informations suivantes :
+## <a name="enable-combined-registration-for-sspr-and-mfa"></a>Activer une inscription combinée pour SSPR et MFA
 
-* [Portail de réinitialisation du mot de passe Azure AD - https://aka.ms/sspr](https://aka.ms/sspr)
-* [Portail d’inscription à la réinitialisation de mot de passe Azure AD - https://aka.ms/ssprsetup](https://aka.ms/ssprsetup)
-* [Portail de modification de mot de passe Azure AD - https://account.activedirectory.windowsazure.com/ChangePassword.aspx](https://account.activedirectory.windowsazure.com/ChangePassword.aspx)
-* Autres informations spécifiques à l’organisation
+Microsoft recommande aux organisations d’activer l’expérience combinée d’inscription à SSPR et MFA (authentification multifacteur). Lorsque vous activez cette expérience d’inscription combinée, les utilisateurs ne doivent sélectionner qu’une fois leurs informations d’inscription pour activer ces deux fonctionnalités.
 
-Dans toutes vos communications par courrier électronique ou prospectus, vous pouvez inclure une URL de marque, facile à retenir que les utilisateurs peuvent suivre quand ils doivent utiliser les services. Pour votre bénéfice, nous avons créé une [page d’exemple de réinitialisation du mot de passe](https://github.com/ajamess/password-reset-page) que vous pouvez utiliser et personnaliser pour les besoins de votre organisation.
+![Inscription d’informations de sécurité combinée](./media/howto-sspr-deployment/combined-security-info.png)
 
-## <a name="use-enforced-registration"></a>Utilisation de l’inscription forcée
+L’expérience d’inscription combinée n’oblige pas les organisations à activer SSPR et Azure MFA. L’inscription combinée fournit aux organisations une meilleure expérience utilisateur par rapport aux composants individuels traditionnels. Vous trouverez plus d’informations sur l’inscription combinée dans l’article [Inscription d’informations de sécurité combinée (préversion)](concept-registration-mfa-sspr-combined.md).
 
-Si vous souhaitez que vos utilisateurs s’inscrivent pour la réinitialisation du mot de passe, vous pouvez les obliger à s’inscrire lorsqu’ils se connectent via Azure AD. Vous pouvez activer cette option dans le volet **Réinitialisation de mot de passe** de votre répertoire en activant l’option **Demander aux utilisateurs de s’inscrire lorsqu’ils se connectent** dans l’onglet **Inscription**.
+## <a name="plan-the-configuration"></a>Planifier la configuration
 
-Les administrateurs peuvent demander aux utilisateurs de se réinscrire après une période spécifique. Ils peuvent définir l’option **Nombre de jours avant que les utilisateurs ne soient invités à reconfirmer leurs informations d’authentification** sur 0 à 730 jours.
+Les paramètres suivants sont requis pour activer SSPR avec les valeurs recommandées.
 
-Une fois que vous avez activé cette option, lorsque les utilisateurs se connectent, un message les informe que leur administrateur leur a demandé de vérifier leurs informations d’authentification.
+| Domaine | Paramètre | Valeur |
+| --- | --- | --- |
+| **Propriétés SSPR** | Réinitialisation de mot de passe en libre-service activée | Groupe **sélectionné** pour le projet pilote / **Tous** pour la production |
+| **Méthodes d’authentification** | Méthodes d’authentification requises pour l’inscription | Toujours 1 de plus que nécessaire pour la réinitialisation |
+|   | Méthodes d’authentification requises pour la réinitialisation | Une ou deux |
+| **Inscription** | Obliger les utilisateurs à s’inscrire durant la connexion ? | OUI |
+|   | Nombre de jours avant que les utilisateurs ne soient invités à reconfirmer leurs informations d’authentification | 90 à 180 jours |
+| **Notifications** | Notifier les utilisateurs lors des réinitialisations de mot de passe ? | OUI |
+|   | Notifier tous les administrateurs quand d’autres administrateurs réinitialisent leur mot de passe ? | OUI |
+| **Personnalisation** | Personnaliser le lien du support technique | OUI |
+|   | URL ou adresse e-mail personnalisée du support technique | Adresse e-mail ou site du support technique |
+| **Intégration locale** | Écriture différée des mots de passe dans AD en local | OUI |
+|   | Autoriser les utilisateurs à déverrouiller leur compte sans réinitialiser leur mot de passe | OUI |
 
-## <a name="populate-authentication-data"></a>Renseigner les données d’authentification
+### <a name="sspr-properties-recommendations"></a>Recommandations pour les propriétés SSPR
 
-Vous devez envisager de [remplir au préalable quelques données d’authentification pour vos utilisateurs](howto-sspr-authenticationdata.md). De cette façon, les utilisateurs n’ont pas besoin de s’inscrire pour la réinitialisation du mot de passe avant de pouvoir utiliser la fonctionnalité SSPR. Tant que leurs données d’authentification sont conformes à la stratégie de réinitialisation de mot de passe que vous avez définie, les utilisateurs sont en mesure de réinitialiser leurs mots de passe.
+Lorsque vous activez la réinitialisation de mot de passe en libre-service, choisissez un groupe de sécurité à utiliser pendant la phase pilote.
 
-## <a name="disable-self-service-password-reset"></a>Désactiver la réinitialisation du mot de passe libre-service
+Lorsque vous prévoyez d’étendre le service, nous vous recommandons d’utiliser l’option Tous afin de renforcer SSPR pour tous les membres de l’organisation. Si vous ne pouvez pas définir la valeur Tous, sélectionnez le groupe de sécurité Azure AD approprié ou le groupe AD synchronisé avec Azure AD.
 
-Si votre organisation décide de désactiver la réinitialisation du mot de passe libre-service, c’est un processus simple. Ouvrez votre locataire Azure AD et accédez à **Réinitialisation de mot de passe** > **Propriétés**, puis sélectionnez **Aucun** sous **Réinitialisation de mot de passe en libre-service activée**. Les utilisateurs conserveront leurs méthodes d’authentification inscrites pour un usage ultérieur.
+### <a name="authentication-methods"></a>Méthodes d’authentification
+
+Définissez les méthodes d’authentification requises pour l’inscription ; il doit y en avoir au moins une de plus que le nombre requis pour la réinitialisation. Plus vous en définissez, plus les utilisateurs ont de flexibilité lorsqu’ils doivent réinitialiser leur mot de passe.
+
+Définissez le **nombre de méthodes requises pour la réinitialisation** sur un niveau approprié pour votre organisation. Le plus simple est d’en choisir une seule, tandis que deux peuvent améliorer l’état de la sécurité.
+
+Consultez la [présentation des méthodes d’authentification](concept-authentication-methods.md) pour obtenir plus d’informations sur les méthodes d'authentification disponibles pour SSPR, les questions de sécurité prédéfinies et la création de questions de sécurité personnalisées.
+
+### <a name="registration-settings"></a>Paramètres d’inscription
+
+Définissez l’option **Obliger les utilisateurs à s’inscrire durant la connexion** sur **Oui**. Ce paramètre signifie que les utilisateurs sont obligés de s’inscrire durant la connexion, garantissant ainsi leur protection.
+
+Définissez le **nombre de jours avant que les utilisateurs soient invités à reconfirmer leurs informations d’authentification** sur une valeur comprise entre **90** et **180** jours, sauf si votre organisation dispose d’une entreprise exige une période plus courte.
+
+### <a name="notifications-settings"></a>Paramètres de notifications
+
+Configurer les paramètres **Notifier les utilisateurs lors des réinitialisations de mot de passe** et **Notifier tous les administrateurs quand d’autres administrateurs réinitialisent leur mot de passe** sur **Oui**. En sélectionnant **Oui** pour les deux paramètres, vous augmentez la sécurité en vous assurant que les utilisateurs soient informés lorsque leur mot de passe est réinitialisé, et que tous les administrateurs soient avertis lorsqu’un administrateur modifie un mot de passe. Si les utilisateurs ou les administrateurs reçoivent une notification et qu’ils ne sont pas à l’origine de la modification, ils peuvent signaler immédiatement une violation de sécurité potentielle.
+
+### <a name="customization"></a>Personnalisation
+
+Il est essentiel de personnaliser l’**adresse e-mail ou URL du support technique** pour garantir les utilisateurs qui rencontrent des problèmes puissent obtenir rapidement de l’aide. Définissez cette option sur une page web ou une adresse e-mail de support technique courante que vos utilisateurs connaissent.
+
+### <a name="on-premises-integration"></a>Intégration locale
+
+Si vous avez un environnement hybride, vérifiez que l’option **Écriture différée des mots de passe dans AD en local** est définie sur **Oui**. Définissez également l’option Autoriser les utilisateurs à déverrouiller leur compte sans réinitialiser leur mot de passe sur Oui, car cela leur laisse davantage de flexibilité.
+
+### <a name="changingresetting-passwords-of-administrators"></a>Modification/réinitialisation des mots de passe des administrateurs
+
+Les comptes d’administrateur sont des comptes spéciaux avec des autorisations élevées. Pour les sécuriser, les restrictions suivantes s’appliquent à la modification des mots de passe des administrateurs :
+
+- Les administrateurs d’entreprise en local ou les administrateurs de domaine ne peuvent pas réinitialiser leur mot de passe via SSPR. Ils peuvent uniquement modifier leur mot de passe dans leur environnement local. Par conséquent, nous vous recommandons de ne pas synchroniser les comptes d’administrateur AD locaux avec Azure AD.
+- Un administrateur ne peut pas utiliser les questions/réponses secrètes comme méthode pour réinitialiser le mot de passe.
+
+### <a name="environments-with-multiple-identity-management-systems"></a>Environnements avec plusieurs systèmes de gestion de l’identité
+
+S’il existe plusieurs systèmes de gestion de l’identité dans un environnement tel que les gestionnaires d’identité locaux (par exemple, Oracle AM, SiteMinder ou d’autres systèmes), il faudra peut-être synchroniser les mots de passe écrits dans Active Directory avec les autres systèmes à l’aide d’un outil tel que le service de notification de modification de mot de passe (PCNS) avec Microsoft Identity Manager (MIM). Pour plus d’informations sur ce scénario plus complexe, consultez l’article [Déployer le service de notification de modification de mot de passe MIM sur un contrôleur de domaine](https://docs.microsoft.com/microsoft-identity-manager/deploying-mim-password-change-notification-service-on-domain-controller).
+
+## <a name="plan-deployment-and-support-for-sspr"></a>Planifier le déploiement et le support de SSPR
+
+### <a name="engage-the-right-stakeholders"></a>Impliquer les parties prenantes appropriées
+
+Lorsque des projets technologiques échouent, cela est généralement dû à des attentes qui ne correspondent pas à l’impact, aux résultats et aux responsabilités réels. Pour éviter ces pièges, veillez à impliquer les parties prenantes appropriées et à ce qu’elles comprennent bien leurs rôles dans le projet. Pour ce faire, dressez une liste de leurs contributions et de leurs responsabilités.
+
+### <a name="communications-plan"></a>Plan de communication
+
+La communication est essentielle à la réussite de tout nouveau service. Communiquez de façon proactive avec les utilisateurs sur l’utilisation du service et la manière d’obtenir de l’aide si quelque chose ne fonctionne pas comme prévu. Consultez les [documents sur le déploiement de la réinitialisation de mot de passe en libre-service dans le centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=56768). Vous y trouverez des suggestions pour planifier votre stratégie de communication avec les utilisateurs finaux.
+
+### <a name="testing-plan"></a>Plan de test
+
+Pour vous assurer que le déploiement fonctionne comme prévu, vous devez prévoir un ensemble de cas de test pour valider l’implémentation. Le tableau suivant inclut quelques scénarios de test utiles que vous pouvez utiliser pour documenter les résultats attendus par votre organisation en fonction de vos stratégies.
+
+| Cas métier | Résultat attendu |
+| --- | --- |
+| Le portail SSPR est accessible à partir du réseau d’entreprise | Déterminé par votre organisation |
+| Le portail SSPR est accessible en dehors du réseau d’entreprise | Déterminé par votre organisation |
+| Réinitialiser le mot de passe utilisateur à partir du navigateur lorsque l’utilisateur n’est pas activé pour la réinitialisation de mot de passe | L’utilisateur n’est pas en mesure d’accéder aux flux de réinitialisation de mot de passe |
+| Réinitialiser le mot de passe utilisateur à partir du navigateur lorsque l’utilisateur n’est pas inscrit pour la réinitialisation de mot de passe | L’utilisateur n’est pas en mesure d’accéder aux flux de réinitialisation de mot de passe |
+| L’utilisateur se connecte lorsque l’inscription à la réinitialisation de mot de passe est appliquée | L’utilisateur est invité à inscrire ses informations de sécurité |
+| L’utilisateur se connecte lorsque l’inscription à la réinitialisation de mot de passe est terminée | L’utilisateur n’est pas invité à inscrire ses informations de sécurité |
+| Le portail SSPR est accessible lorsque l’utilisateur ne dispose pas d’une licence | Accessible |
+| Réinitialiser le mot de passe utilisateur à partir de l’écran de verrouillage d’appareil Windows 10 AADJ ou H+AADJ une fois que l’utilisateur est inscrit | L’utilisateur peut réinitialiser le mot de passe |
+| Les données d’utilisation et d’inscription SSPR sont disponibles pour les administrateurs quasiment en temps réel | Disponible via les journaux d’audit |
+
+### <a name="support-plan"></a>Plan de support
+
+Bien que SSPR ne crée généralement pas de problèmes pour l’utilisateur, il est important d’avoir un personnel préparé à gérer les éventuels soucis.
+
+Même si un administrateur peut modifier ou réinitialiser le mot de passe des utilisateurs finaux via le portail Azure AD, il est préférable de résoudre le problème via un processus de support en libre-service.
+
+Dans la section du guide opérationnel de ce document, créez une liste de cas de support et de leurs causes probables, et indiquez comment résoudre ces problèmes.
+
+### <a name="auditing-and-reporting"></a>Audit et création de rapports
+
+Après le déploiement, de nombreuses organisations souhaitent savoir comment ou si la réinitialisation de mot de passe en libre-service (SSPR) est réellement utilisée. La fonctionnalité de création de rapports fournie par Azure Active Directory (Azure AD) vous aide à répondre aux questions à l’aide de rapports prédéfinis.
+
+Les journaux d’audit pour l’inscription et la réinitialisation de mot de passe sont disponibles pendant 30 jours. Par conséquent, si l’audit de sécurité au sein d’une entreprise nécessite une rétention plus longue, les journaux doivent être exportés et utilisés dans un outil SIEM comme [Azure Sentinel](../../sentinel/connect-azure-active-directory.md), Splunk ou ArcSight.
+
+Dans un tableau, comme celui ci-dessous, documentez le calendrier de sauvegarde, le système et les parties responsables. Vous n’aurez peut-être pas besoin de sauvegardes séparées pour les audits et les rapports, mais vous devez disposer d’une sauvegarde distincte à partir de laquelle récupérer les données en cas de problème.
+
+|   | Fréquence de téléchargement | Système cible | Partie responsable |
+| --- | --- | --- | --- |
+| Sauvegarde d’audit |   |   |   |
+| Sauvegarde de rapport |   |   |   |
+| Sauvegarde de récupération d'urgence |   |   |   |
+
+## <a name="implementation"></a>Implémentation
+
+L’implémentation s’effectue en trois étapes :
+
+- Configurer les utilisateurs et les licences
+- Configure Azure AD SSPR pour l’inscription et le libre-service
+- Configurer Azure AD Connect pour la réécriture du mot de passe
+
+### <a name="communicate-the-change"></a>Communiquer le changement
+
+Commencez l’implémentation du plan de communication que vous avez développé durant la phase de planification.
+
+### <a name="ensure-groups-are-created-and-populated"></a>Vérifier que les groupes sont créés et remplis
+
+Consultez la section sur la planification des méthodes d'authentification par mot de passe. Veillez à ce que les groupes de l’implémentation pilote ou de production soient disponibles, et vérifiez que tous les utilisateurs appropriés sont ajoutés aux groupes.
+
+### <a name="apply-licenses"></a>Appliquer les licences
+
+Les groupes que vous vous apprêtez à implémenter doivent avoir la licence Premium Azure AD. Vous pouvez attribuer des licences directement au groupe ou utiliser des stratégies de licence existantes (par exemple, via PowerShell ou en fonction du groupe).
+
+Vous trouverez plus d’informations sur l’attribution de licences à des groupes d’utilisateurs dans l’article [Affecter des licences aux utilisateurs par appartenance aux groupes dans Azure Active Directory](../users-groups-roles/licensing-groups-assign.md).
+
+### <a name="configure-sspr"></a>Configurer SSPR
+
+#### <a name="enable-groups-for-sspr"></a>Activer les groupes pour SSPR
+
+1. Accédez au portail Azure avec un compte administrateur.
+1. Sélectionnez Tous les services et, dans la zone de texte Filtre, saisissez Azure Active Directory, puis sélectionnez Azure Active Directory.
+1. Dans le panneau Active Directory, sélectionnez Réinitialisation de mot de passe.
+1. Dans le volet Propriétés, choisissez Sélectionné. Si vous souhaitez activer tous les utilisateurs, sélectionner Tout.
+1. Dans le panneau Stratégie de réinitialisation de mot de passe par défaut, saisissez le nom du premier groupe, sélectionnez-le et cliquez sur Sélectionner en bas de l’écran, puis sélectionnez Enregistrer en haut de l’écran.
+1. Répétez ce processus pour chaque groupe.
+
+#### <a name="configure-the-authentication-methods"></a>Configurer les méthodes d’authentification
+
+Consultez votre planification à la section Planification des méthodes de l’authentification par mot de passe de ce document.
+
+1. Sélectionnez Inscription et, sous Demander à l’utilisateur de s’inscrire lors de la connexion, sélectionnez Oui. Ensuite, définissez le nombre de jours avant l’expiration, puis sélectionnez Enregistrer.
+1. Sélectionnez Notification et configurez les paramètres selon votre plan, puis sélectionnez Enregistrer.
+1. Sélectionnez Personnalisation et configurez les paramètres selon votre plan, puis sélectionnez Enregistrer.
+1. Sélectionnez Intégration locale et configurez les paramètres selon votre plan, puis sélectionnez Enregistrer.
+
+### <a name="enable-sspr-in-windows"></a>Activer SSPR sous Windows
+
+Les appareils Windows 10 exécutant la version 1803 ou une version supérieure et qui sont joints à Azure AD ou joints à Azure AD hybride peuvent réinitialiser leurs mots de passe sur l’écran de connexion Windows. Vous trouverez les informations et les étapes nécessaires pour configurer cette fonctionnalité dans l’article [Réinitialisation du mot de passe Azure AD depuis l’écran de connexion](tutorial-sspr-windows.md).
+
+### <a name="configure-password-writeback"></a>Configuration de l’écriture différée du mot de passe
+
+Les étapes requises pour configurer l’écriture différée de mot de passe pour votre organisation sont disponibles dans l’article [Procédure : Configuration de l’écriture différée du mot de passe](howto-sspr-writeback.md).
+
+## <a name="manage-sspr"></a>Gérer SSPR
+
+Rôles requis pour gérer les fonctionnalités associées à la réinitialisation de mot de passe en libre-service.
+
+| Rôle métier/personnage | Rôle Azure AD (si nécessaire) |
+| :---: | :---: |
+| Support technique de niveau 1 | Administrateur de mots de passe |
+| Support technique de niveau 2 | Administrateur d’utilisateurs |
+| Administrateur SSPR | Administrateur général |
+
+### <a name="support-scenarios"></a>Ses scénarios de support
+
+Pour garantir le succès de votre équipe de support technique, vous pouvez créer une FAQ en fonction des questions que vous recevez de la part des utilisateurs. Le tableau suivant contient des scénarios courants de support.
+
+| Scénarios | Description |
+| --- | --- |
+| L’utilisateur ne dispose pas de méthodes d’authentification inscrites. | Un utilisateur essaie de se réinitialiser son mot de passe, mais aucune des méthodes d’authentification qu’il a inscrites n’est disponible (par exemple, il a laissé son téléphone portable à la maison et ne peut pas accéder à ses e-mails). |
+| L’utilisateur ne reçoit pas un SMS ou un appel sur son téléphone mobile ou professionnel. | Un utilisateur tente de confirmer son identité par SMS ou via un appel, mais ne reçoit pas le SMS/l’appel. |
+| L’utilisateur n’a pas accès au portail de réinitialisation de mot de passe. | Un utilisateur souhaite réinitialiser son mot de passe, mais n’est pas activé pour la réinitialisation de mot de passe. Par conséquent, il ne peut pas accéder à la page pour mettre à jour les mots de passe. |
+| L’utilisateur ne peut pas définir un nouveau mot de passe. | Un utilisateur termine la vérification pendant le flux de réinitialisation de mot de passe, mais ne peut pas définir un nouveau mot de passe. |
+| L’utilisateur ne voit pas de lien Réinitialiser le mot de passe sur un appareil Windows 10. | Un utilisateur tente de réinitialiser le mot de passe à partir de l’écran de verrouillage Windows 10, mais l’appareil n’est pas joint à Azure AD, ou la stratégie d’appareil Intune n’est pas activée. |
+
+Vous pouvez également inclure les informations suivantes pour la résolution de problèmes supplémentaires.
+
+- Groupes activés pour SSPR.
+- Méthodes d’authentification configurées.
+- Stratégies d’accès associées au réseau d’entreprise.
+- Étapes de résolution des problèmes pour les scénarios courants.
+
+Vous pouvez également consulter notre documentation en ligne sur la résolution des problèmes de mot de passe en libre-service pour connaître les étapes générales des scénarios SSPR courants.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Réinitialiser ou modifier votre mot de passe](../user-help/active-directory-passwords-update-your-own-password.md)
-* [S’inscrire pour la réinitialisation du mot de passe en libre-service](../user-help/active-directory-passwords-reset-register.md)
-* [Activer l’inscription convergée pour Azure Multi-Factor Authentication et la réinitialisation de mot de passe en libre-service Azure AD](concept-registration-mfa-sspr-converged.md)
-* [Vous avez une question relative à la licence ?](concept-sspr-licensing.md)
-* [Quelles données sont utilisées par la réinitialisation de mot de passe en libre-service et quelles données vous devez renseigner pour vos utilisateurs ?](howto-sspr-authenticationdata.md)
-* [Quelles sont les options de stratégie disponibles avec la réinitialisation de mot de passe en libre-service ?](concept-sspr-policy.md)
-* [Quelle est l’écriture différée de mot de passe et pourquoi dois-je m’y intéresser ?](howto-sspr-writeback.md)
-* [Comment puis-je générer des rapports sur l’activité dans la réinitialisation de mot de passe en libre-service ?](howto-sspr-reporting.md)
-* [Quelles sont toutes les options disponibles dans la réinitialisation de mot de passe en libre-service et que signifient-elles ?](concept-sspr-howitworks.md)
-* [Je pense qu’il y a une panne quelque part. Comment puis-je résoudre les problèmes de la réinitialisation de mot de passe en libre-service ?](active-directory-passwords-troubleshoot.md)
-* [J’ai une question à laquelle je n’ai pas trouvé de réponse ailleurs](active-directory-passwords-faq.md)
+- [Envisager d’implémenter la protection par mot de passe Azure AD](concept-password-ban-bad.md)
 
-[Email]: ./media/howto-sspr-deployment/sspr-emailtemplates.png "Personnalisez ces modèles de messages électroniques en fonction des exigences de votre organisation"
+- [Envisager d’implémenter le verrouillage intelligent Azure AD](howto-password-smart-lockout.md)

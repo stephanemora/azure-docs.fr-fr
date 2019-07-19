@@ -8,22 +8,22 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: qianw211
-ms.openlocfilehash: e7867d5ea95cd3142a6f617a5554858b7a72cbc9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7a6a4c1366f23336072e00d1af59bbaa4bd5c7a4
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64937666"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442065"
 ---
 # <a name="publishing-guide-by-offer-type"></a>Guide de publication par Type d’offre
 
 Après [avoir choisi une option de publication](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type), vous êtes prêt à sélectionner le type d’offre qui sera utilisé pour présenter votre offre. 
 
-L’offre est l’objet de publication que vous allez créer, publier et gérer dans le [Portail Cloud Partner](https://cloudpartner.azure.com). Le *type d’offre* définit la structure de l’offre, qui inclut les métadonnées, les artefacts et autre contenu utilisés pour présenter l’offre dans la place de marché.
+ Le *type d’offre* définit la structure de l’offre, qui inclut les métadonnées, les artefacts et autre contenu utilisés pour présenter l’offre dans la place de marché.
 
 Avant de pouvoir créer une offre, vous devez choisir un type d’offre. Le type d’offre correspond au type de l’offre de solution, d’application ou de service que vous souhaitez publier, ainsi qu’à son alignement sur les produits et services Microsoft. 
 
-Un type d’offre unique peut être configuré différemment dans le portail Cloud Partner pour proposer différents appels à l’action, options de publication, configurations et tarifs. L’option de publication et la configuration du type d’offre s’alignent également sur les exigences techniques et les conditions d’éligibilité de l’offre. 
+Un type d’offre unique peut être configuré différemment pour proposer différents appels à l’action, options de publication, configurations et tarifs. L’option de publication et la configuration du type d’offre s’alignent également sur les exigences techniques et les conditions d’éligibilité de l’offre. 
 
 Avant de créer votre offre, prenez connaissance des conditions d’éligibilité pour la vitrine et le type d’offre ainsi que les exigences techniques de publication.
 
@@ -39,8 +39,8 @@ Le tableau ci-dessous liste les différents types d’offres de la Place de marc
 | [**Applications SaaS**](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide) | Utilisez le type d’offre Applications SaaS pour permettre à votre client d’acheter votre solution technique SaaS sous la forme d’un abonnement. |
 | [**Offres Conteneur**](https://docs.microsoft.com/azure/marketplace/marketplace-containers) | Utilisez le type d’offre Conteneur si votre solution est une image de conteneur Docker approvisionnée en tant que service de conteneur Azure Kubernetes. |
 | [**Modules Azure IoT Edge**](https://docs.microsoft.com/azure/marketplace/iot-edge-module) | Les modules Azure IoT Edge sont les plus petites unités de calcul gérées par IoT Edge. Ils peuvent contenir des services Microsoft (par exemple, Azure Stream Analytics), des services tiers ou votre propre code de solution. |
-| [**Services de conseil**](https://docs.microsoft.com/azure/marketplace/consulting-services) | Les services de conseil de la Place de marché Azure aident les clients à se connecter aux services pour gérer et étendre leur utilisation d’Azure. |
-| [**Offres AppSource**](https://docs.microsoft.com/azure/marketplace/appsource-offer-publishing-guide) | La vitrine AppSource comprend des offres qui s’appuient sur Dynamics 365, Office 365, Power BI et Power Apps, ou les étendent. |
+| [**Services de conseil**](https://docs.microsoft.com/azure/marketplace/consulting-services) | Les services de conseil aident les clients à se connecter aux services pour gérer et étendre leur utilisation des services Azure, Dynamics 365 ou Power Suite.|
+
 
 Enfin, consultez les [**exigences Azure AD**](https://docs.microsoft.com/azure/marketplace/enable-appsource-marketplace-using-azure-ad) par option de référencement et type d’offre pour obtenir des informations complémentaires sur les exigences d’authentification unique.
 
@@ -48,4 +48,4 @@ Enfin, consultez les [**exigences Azure AD**](https://docs.microsoft.com/azure/
 
 *   Passez en revue les conditions d’éligibilité dans la section relative aux options de publication par type d’offre pour finaliser la sélection et la configuration de votre offre.
 *   Passez en revue les modèles de publication par vitrine pour obtenir des exemples sur la manière dont votre solution correspond à un type d’offre et à une configuration.
-*   Connectez-vous au [portail Cloud Partner](https://cloudpartner.azure.com) pour créer et configurer votre offre.
+

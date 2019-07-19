@@ -7,12 +7,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: 5ffbee1b4fdfc08b111e199e73baae19341b1022
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.openlocfilehash: 85753e788284396262053aad8cf567ad5cd71fee
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65775679"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509286"
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Sources de données prises en charge dans Azure Data Catalog
 
@@ -30,7 +30,7 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
        <td><b>Remarques</b></td>
     </tr>
     <tr>
-      <td>Répertoire Azure Data Lake Store (génération 1 uniquement)</td>
+      <td>Répertoire Azure Data Lake Store (Gen 1 uniquement)</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -38,7 +38,7 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
       <td></td>
     </tr>
     <tr>
-      <td>Fichier Azure Data Lake Store (génération 1 uniquement)</td>
+      <td>Fichier Azure Data Lake Store (Gen 1 uniquement)</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -152,7 +152,7 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
       <td></td>
     </tr>
     <tr>
-      <td>Vue SQL Data Warehouse</td>
+      <td>Affichage Azure SQL Data Warehouse</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -165,7 +165,7 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td></td>
+      <td>SQL Server 2008 et versions ultérieures.</td>
     </tr>
     <tr>
       <td>Indicateur de performance clé de SQL Server Analysis Services</td>
@@ -173,7 +173,7 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td></td>
+      <td>SQL Server 2008 et versions ultérieures.</td>
     </tr>
     <tr>
       <td>Mesure SQL Server Analysis Services</td>
@@ -181,7 +181,7 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td></td>
+      <td>SQL Server 2008 et versions ultérieures.</td>
     </tr>
     <tr>
       <td>Table SQL Server Analysis Services</td>
@@ -189,7 +189,7 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td></td>
+      <td>SQL Server 2008 et versions ultérieures.</td>
     </tr>
     <tr>
       <td>Rapport SQL Server Reporting Services</td>
@@ -197,15 +197,15 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
       <td>✓</td>
       <td>✓</td>
       <td>Browser</td>
-      <td>Serveurs en mode natif uniquement. Le mode SharePoint n’est pas pris en charge.</td>
+      <td>Serveurs en mode natif uniquement. Le mode SharePoint n’est pas pris en charge. SQL Server 2008 et versions ultérieures uniquement</td>
     </tr>
     <tr>
-      <td>Table SQL Server</td>
+      <td>Table SQL Server</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop, SQL Server Data Tools</td>
-      <td></td>
+      <td>SQL Server 2008 et versions ultérieures.</td>
     </tr>
     <tr>
       <td>Vue SQL Server</td>
@@ -213,7 +213,7 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop, SQL Server Data Tools</td>
-      <td></td>
+      <td>SQL Server 2008 et versions ultérieures.</td>
     </tr>
     <tr>
       <td>Table Teradata</td>
@@ -237,7 +237,7 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
       <td>✓</td>
       <td>✓</td>
       <td></td>
-      <td>Fonctionne uniquement en anglais. Les mesures sont non pris en charge.</td>
+      <td>Fonctionne uniquement en anglais. Les mesures ne sont pas prises en charge.</td>
     </tr>
     <tr>
       <td>Vue SAP HANA</td>

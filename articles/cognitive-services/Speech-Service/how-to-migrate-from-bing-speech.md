@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: gracez
-ms.openlocfilehash: 6324da55c8af4934185fa39a106939844788adba
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 33907437ab330278bdf7b023f6a93bd96e78cbad
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60653714"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561338"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Migrer de la Reconnaissance vocale Bing vers le Service Speech
 
@@ -69,7 +69,7 @@ Les protocoles WebSocket des services Speech sont également compatibles avec ce
 
 Si vous utilisez une bibliothèque de client Reconnaissance vocale Bing pour un langage de programmation spécifique, la migration vers le [Kit de développement logiciel (SDK) Speech](speech-sdk.md) nécessite l’apport de modifications à votre application, car l’API est différente. Le kit de développement logiciel (SDK) Speech peut simplifier votre code tout en vous donnant accès à de nouvelles fonctionnalités.
 
-Actuellement, le Kit de développement logiciel (SDK) Speech prend en charge C# (Windows 10, UWP, .NET Standard), Java (Android et appareils personnalisés), Objective C (iOS), C++ (Windows et Linux) et JavaScript. Les API sont similaires sur toutes les plateformes, et facilitent le développement multi-plateforme.
+Actuellement, le kit de développement logiciel (SDK) Speech prend en charge C# ([plus de détails ici](https://aka.ms/csspeech)), Java (Android et appareils personnalisés), Objective C (iOS), C++ (Windows et Linux) et JavaScript. Les API sont similaires sur toutes les plateformes, et facilitent le développement multi-plateforme.
 
 Les services Speech n’offrent pas de point de terminaison global. Vous devez déterminer si votre application fonctionne efficacement lorsqu’elle utilise un point de terminaison régional unique pour tout son trafic. Autrement, utilisez la géolocalisation pour déterminer le point de terminaison plus efficace. Vous devez disposer d’un abonnement Service Services distinct dans chaque région que vous utilisez.
 

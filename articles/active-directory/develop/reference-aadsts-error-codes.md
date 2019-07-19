@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 287e4ee53a108d1e2b83d4a8b11a98a2c7727721
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.openlocfilehash: 3d6ed5c80d5c3241a9a328a2427ed8b920790635
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545588"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482486"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>Codes d’erreur d’authentification et d’autorisation
 
@@ -31,7 +31,7 @@ Vous souhaitez en savoir plus sur les codes d’erreur AADSTS retournés par le 
 > [!NOTE]
 > Ces informations sont provisoires et peuvent être modifiées. Vous avez une question ou vous ne trouvez pas ce que vous recherchez ? Créez un problème GitHub ou consultez [Options d’aide et de support pour les développeurs](active-directory-develop-help-support.md) pour en savoir plus sur les autres méthodes vous permettant d’obtenir de l’aide et un support.
 >
-> Cette documentation est fournie pour les développeurs et des conseils d’administration, mais ne doit jamais être utilisée par le client lui-même. Codes d’erreur sont susceptibles de changer à tout moment afin de fournir des messages d’erreur plus précis qui sont destinés à aider le développeur lors de la création de leur application. Les applications qui prennent une dépendance sur les numéros de code d’erreur ou de texte sera rompues au fil du temps.  
+> Cette documentation fournit des conseils aux développeurs et aux administrateurs ; elle ne doit jamais être utilisée par le client lui-même. Les codes d’erreur sont susceptibles d’être modifié à tout moment afin de fournir des messages d’erreur plus granulaires destinés à aider les développeurs lors de la création de leur application. Les applications qui dépendent des numéros de code d’erreur ou de texte seront endommagées au fil du temps.  
 
 ## <a name="aadsts-error-codes"></a>Codes d’erreur AADSTS
 
@@ -58,7 +58,7 @@ Vous souhaitez en savoir plus sur les codes d’erreur AADSTS retournés par le 
 | AADSTS50007 | PartnerEncryptionCertificateMissing : le certificat de chiffrement partenaire est introuvable pour cette application. [Ouvrez un ticket de support](../fundamentals/active-directory-troubleshooting-support-howto.md) auprès de Microsoft pour résoudre ce problème. |
 | AADSTS50008 | InvalidSamlToken : l’assertion SAML est manquante ou configurée de façon incorrecte dans le jeton. Contactez votre fournisseur de fédération. |
 | AADSTS50010 | AudienceUriValidationFailed : la validation de l’URI d’audience pour l’application a échoué, car aucune audience de jeton n’a été configurée. |
-| AADSTS50011 | InvalidReplyTo : l’adresse de réponse est manquante, configurée de façon incorrecte ou elle ne correspond pas aux adresses de réponse configurées pour l’application.  Une résolution à vérifier pour ajouter cette adresse de réponse manquant à l’application Azure Active Directory ou un utilisateur bénéficiant des autorisations pour gérer votre application dans Active Directory ont à faire pour vous.|
+| AADSTS50011 | InvalidReplyTo : l’adresse de réponse est manquante, configurée de façon incorrecte ou elle ne correspond pas aux adresses de réponse configurées pour l’application.  Pour la résolution, assurez-vous d’ajouter cette adresse de réponse manquante à l’application Azure Active Directory ou demandez à quelqu’un qui dispose des autorisations nécessaires pour gérer votre application dans Active Directory de le faire votre place.|
 | AADSTS50012 | AuthenticationFailed : échec de l’authentification pour l’une des raisons suivantes :<ul><li>Le nom du sujet du certificat de signature n’est pas autorisé</li><li>Aucune stratégie d’une autorité de confiance correspondante n’est trouvable pour le nom du sujet autorisé</li><li>La chaîne de certificats n'est pas valide</li><li>Le certificat de signature n’est pas valide</li><li>La stratégie n’est pas configurée sur le locataire</li><li>L’empreinte du certificat de signature n’est pas autorisée</li><li>L’assertion du client contient une signature non valide</li></ul> |
 | AADSTS50013 | InvalidAssertion : l’assertion n’est pas valide pour différentes raisons : l’émetteur du jeton ne correspond pas à la version d’API dans l’intervalle de temps valide (expiré, format incorrect). Le jeton d’actualisation dans l’assertion n’est pas un jeton d’actualisation principal. |
 | AADSTS50014 | GuestUserInPendingState : le remboursement de l’utilisateur est en attente. Le compte d’utilisateur invité n’a pas encore été entièrement créé. |
@@ -70,7 +70,7 @@ Vous souhaitez en savoir plus sur les codes d’erreur AADSTS retournés par le 
 | AADSTS50032 | WeakRsaKey : indique la tentative erronée de l’utilisateur pour utiliser une clé RSA faible. |
 | AADSTS50033 | RetryableError : indique une erreur temporaire qui n’est pas liée aux opérations de base de données. |
 | AADSTS50034 | UserAccountNotFound : pour se connecter à cette application, le compte doit être ajouté au répertoire. |
-| AADSTS50042 | UnableToGeneratePairwiseIdentifierWithMissingSalt - la valeur salt nécessaire pour générer un identificateur par paire est manquante en principe. Contactez l’administrateur du locataire. |
+| AADSTS50042 | UnableToGeneratePairwiseIdentifierWithMissingSalt : la valeur salt nécessaire pour générer un identificateur par paire est manquante dans le principe. Contactez l’administrateur du locataire. |
 | AADSTS50043 | UnableToGeneratePairwiseIdentifierWithMultipleSalts |
 | AADSTS50048 | SubjectMismatchesIssuer : l’objet ne correspond pas à la revendication d’émetteur dans l’assertion du client. Contactez l’administrateur du locataire. |
 | AADSTS50049 | NoSuchInstanceForDiscovery : instance inconnue ou non valide. |
@@ -135,7 +135,7 @@ Vous souhaitez en savoir plus sur les codes d’erreur AADSTS retournés par le 
 | AADSTS51006 | ForceReauthDueToInsufficientAuth : l’authentification Windows intégrée est nécessaire. L’utilisateur s’est connecté à l’aide d’un jeton de session ne contenant pas la revendication de l’authentification Windows intégrée. Demandez à l’utilisateur de se connecter à nouveau. |
 | AADSTS52004 | DelegationDoesNotExistForLinkedIn : l’utilisateur n’a pas donné son consentement pour l’accès aux ressources de LinkedIn. |
 | AADSTS53000 | DeviceNotCompliant : une stratégie d’accès conditionnel nécessite un appareil conforme, or l’appareil n’est pas conforme. L’utilisateur doit inscrire ses appareils auprès d’un fournisseur approuvé de gestion des périphériques mobiles, comme Intune. |
-| AADSTS53001 | DeviceNotDomainJoined : une stratégie d’accès conditionnel nécessite un appareil de jonction de domaine, or l’appareil n’est pas conforme. Demandez à l’utilisateur d’utiliser un appareil de jonction de domaine. |
+| AADSTS53001 | DeviceNotDomainJoined : une stratégie d’accès conditionnel nécessite un appareil de jonction de domaine, or l’appareil n’est pas joint au domaine. Demandez à l’utilisateur d’utiliser un appareil de jonction de domaine. |
 | AADSTS53002 | ApplicationUsedIsNotAnApprovedApp : l’application utilisée n’est pas une application approuvée pour l’accès conditionnel. L’utilisateur doit utiliser une des options de la liste des applications approuvées afin d’obtenir l’accès. |
 | AADSTS53003 | BlockedByConditionalAccess : l’accès a été bloqué par des stratégies d’accès conditionnel. La stratégie d’accès n’autorise pas l’émission de jeton. |
 | AADSTS53004 | ProofUpBlockedDueToRisk : l’utilisateur doit terminer le processus d’inscription de l’authentification multifacteur pour accéder à ce contenu. L’utilisateur doit s’inscrire à l’authentification multifacteur. |
@@ -215,6 +215,7 @@ Vous souhaitez en savoir plus sur les codes d’erreur AADSTS retournés par le 
 | AADSTS90093 | GraphUserUnauthorized : graphique retourné avec un code d’erreur interdit pour la demande. |
 | AADSTS90094 | AdminConsentRequired : le consentement de l’administrateur est requis. |
 | AADSTS90100 | InvalidRequestParameter : le paramètre est vide ou non valide. |
+| AADSTS901002 | AADSTS901002 : Le paramètre de requête « resource » n’est pas pris en charge. |
 | AADSTS90101 | InvalidEmailAddress : les données fournies ne correspondent pas à une adresse e-mail valide. L’adresse e-mail doit être au format `someone@example.com`. |
 | AADSTS90102 | InvalidUriParameter : la valeur doit être un URI absolu valide. |
 | AADSTS90107 | InvalidXml : la demande n’est pas valide. Assurez-vous que vos données ne comportent aucun caractère non valide.|
@@ -257,7 +258,7 @@ Vous souhaitez en savoir plus sur les codes d’erreur AADSTS retournés par le 
 | AADSTS221000 | DeviceOnlyTokensNotSupportedByResource : la ressource n’est pas configurée pour accepter des jetons d’appareil uniquement. |
 | AADSTS240001 | BulkAADJTokenUnauthorized : l’utilisateur n’est pas autorisé à inscrire des appareils dans Azure AD. |
 | AADSTS240002 | RequiredClaimIsMissing : id_token ne peut pas être utilisé comme octroi `urn:ietf:params:oauth:grant-type:jwt-bearer`.|
-| AADSTS530032 | BlockedByConditionalAccessOnSecurityPolicy - l’administrateur client a configuré une stratégie de sécurité qui empêche cette demande. Vérifiez les stratégies de sécurité qui sont définis au niveau du client pour déterminer si votre demande répond aux exigences de la stratégie. |
+| AADSTS530032 | BlockedByConditionalAccessOnSecurityPolicy : l’administrateur de locataire a configuré une stratégie de sécurité qui bloque cette requête. Vérifiez les stratégies de sécurité définies au niveau du locataire pour déterminer si votre requête répond aux exigences de la stratégie. |
 | AADSTS700016 | UnauthorizedClient_DoesNotMatchRequest : l’application est introuvable dans le répertoire/locataire. Cela peut se produire si l’application n’a pas été installée par l’administrateur du locataire ni acceptée par un utilisateur dans le locataire. Vous avez peut-être configuré de manière incorrecte la valeur d’identificateur de l’application ou envoyé votre requête d’authentification à un locataire incorrect. |
 | AADSTS700020 | InteractionRequired : l’octroi d’accès nécessite une interaction. |
 | AADSTS700022 | InvalidMultipleResourcesScope : la valeur fournie pour l’étendue du paramètre d’entrée n’est pas valide car elle contient plusieurs ressources. |

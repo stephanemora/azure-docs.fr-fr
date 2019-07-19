@@ -11,10 +11,10 @@ ms.date: 05/01/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: 984d8ffa9f901437f1413e1d5d3145cabba80883
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65954975"
 ---
 # <a name="t-sql-statements-supported-in-azure-sql-data-warehouse"></a>Instructions T-SQL prises en charge dans Azure SQL Data Warehouse
@@ -40,7 +40,7 @@ Liens vers la documentation des instructions T-SQL prises en charge dans Azure S
 * [CREATE TABLE](https://msdn.microsoft.com/library/mt203953.aspx)
 * [CREATE TABLE AS SELECT](https://msdn.microsoft.com/library/mt204041.aspx)
 * [CREATE VIEW](https://msdn.microsoft.com/library/ms187956.aspx)
-* [CRÉER LE CLASSIFIEUR DE CHARGE DE TRAVAIL](/sql/t-sql/statements/create-workload-classifier-transact-sql)
+* [CREATE WORKLOAD CLASSIFIER](/sql/t-sql/statements/create-workload-classifier-transact-sql)
 * [DROP EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/mt146367.aspx)
 * [DROP EXTERNAL FILE FORMAT](https://msdn.microsoft.com/library/mt146379.aspx)
 * [DROP EXTERNAL TABLE](https://msdn.microsoft.com/library/mt130698.aspx)
@@ -50,9 +50,9 @@ Liens vers la documentation des instructions T-SQL prises en charge dans Azure S
 * [DROP TABLE](https://msdn.microsoft.com/library/ms173790.aspx)
 * [DROP SCHEMA](https://msdn.microsoft.com/library/ms186751.aspx)
 * [DROP VIEW](https://msdn.microsoft.com/library/ms173492.aspx)
-* [SUPPRIMER LE CLASSIFIEUR DE CHARGE DE TRAVAIL](/sql/t-sql/statements/drop-workload-classifier-transact-sql)
+* [DROP WORKLOAD CLASSIFIER](/sql/t-sql/statements/drop-workload-classifier-transact-sql)
 * [RENAME](https://msdn.microsoft.com/library/mt631611.aspx)
-* [ENSEMBLE RESULT_SET_CACHING](/sql/t-sql/statements/set-result-set-caching-transact-sql) (version préliminaire)
+* [SET RESULT_SET_CACHING](/sql/t-sql/statements/set-result-set-caching-transact-sql) (préversion)
 * [TRUNCATE TABLE](https://msdn.microsoft.com/library/ms177570.aspx)
 * [UPDATE STATISTICS](https://msdn.microsoft.com/library/ms187348.aspx)
 

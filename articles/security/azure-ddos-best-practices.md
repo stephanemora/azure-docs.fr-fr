@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
 ms.author: barclayn
-ms.openlocfilehash: 11f3dcefd283ada00e915c2d6cb8abf654590ec1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b8d5d1b3c3f505b66e07f7aa226cfa001af94af8
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60588081"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449342"
 ---
 # <a name="azure-ddos-protection-best-practices-and-reference-architectures"></a>Azure DDoS Protection : Bonnes pratiques et architectures de référence
 
@@ -224,6 +224,8 @@ Azure DDoS Protection Standard identifie et atténue les attaques DDoS sans aucu
 - Vous planifiez un événement viral qui peut accroître considérablement votre trafic réseau.
 
 - Un acteur menace de lancer une attaque DDoS sur vos ressources.
+
+- Si vous devez valider des adresses IP ou plage d’adresses IP à partir du service Protection DDos Standard Azure, un scénario courant consiste à ajouter l’adresse IP à la liste verte si le trafic est acheminé à partir d’un pare-feu d’applications web de cloud externe WAF vers Azure. 
 
 Pour les attaques ayant un impact critique sur l’entreprise, créez un [ticket de support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) avec un niveau de gravité A.
 

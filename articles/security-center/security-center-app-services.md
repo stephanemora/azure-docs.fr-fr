@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/27/2019
 ms.author: v-mohabe
-ms.openlocfilehash: b18267b1443b257a575bf2e1199b9f8fa8c419fc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6a6b5b6e247bd7c105286b86257a6ae11c1d1c60
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65966814"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551857"
 ---
 # <a name="protect-app-service-with-azure-security-center"></a>Protéger App Service avec Azure Security Center
 Cet article vous aide à utiliser Azure Security Center pour surveiller et protéger vos applications s’exécutant au-dessus d’App Service.
@@ -47,9 +47,8 @@ Security Center étant intégré en mode natif avec App Service, aucun déploiem
 ## <a name="enabling-monitoring-and-protection-of-app-service"></a>Activation de la surveillance et la protection d’App Service
 
 1. Dans Azure, choisissez le Security Center.
-2. Accédez à **Stratégie de sécurité**, puis choisissez un abonnement.
-3. À la fin de la ligne de l’abonnement, cliquez sur **Modifier les paramètres**.
-4. Sous **Niveau tarifaire**, dans la ligne **App Service**, définissez votre plan sur **Activé**.
+2. Accédez à **Tarifs et paramètres**, puis choisissez un abonnement.
+3. Sous **Niveau tarifaire**, dans la ligne **App Service**, définissez votre plan sur **Activé**.
 
 ![activation/désactivation d’app service](./media/security-center-app-services/app-services-toggle.png)
 

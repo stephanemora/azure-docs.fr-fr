@@ -1,5 +1,5 @@
 ---
-title: Termes du contrat de Service et déclaration de confidentialité pour les applications | Azure
+title: Conditions d’utilisation du service et déclaration de confidentialité pour les applications | Azure
 description: Découvrez comment vous pouvez configurer les conditions d’utilisation et la déclaration de confidentialité des applications inscrites pour utiliser Azure AD.
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,14 +17,14 @@ ms.author: ryanwi
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 399f72c7819378ddc1566c2bdde94801b2c71687
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: b0a01b50573405964b09339d03e84c62dbdd8582
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235325"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482862"
 ---
-# <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Activation Configurer les termes du contrat de service et déclaration de confidentialité pour une application
+# <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Activation Configuration des conditions d’utilisation du service et de la déclaration de confidentialité d’une application
 
 Les développeurs qui génèrent et gèrent des applications qui s’intègrent à Azure Active Directory (Azure AD) et à des comptes Microsoft doivent ajouter des liens vers les conditions d’utilisation et la déclaration de confidentialité de ces applications. Les conditions d’utilisation et la déclaration de confidentialité sont présentées aux utilisateurs par le biais de l’expérience de consentement de l’utilisateur. Elles permettent à vos utilisateurs de savoir qu’ils peuvent faire confiance à votre application. Les conditions d’utilisation et la déclaration de confidentialité sont particulièrement importantes pour les applications multilocataires accessibles aux utilisateurs (applications utilisées par plusieurs annuaires ou disponibles pour n’importe quel compte Microsoft).
 
@@ -60,16 +60,16 @@ Quand les conditions d’utilisation et la déclaration de confidentialité sont
 * [À l’aide de l’objet JSON de l’application](#app-object-json)
 * [À l’aide de l’API REST de MSGraph version bêta](#msgraph-beta-rest-api)
 
-### <a name="azure-portal"></a>À l’aide du portail Azure
-Suivez ces étapes dans le portail Azure.
+### <a name="azure-portal"></a>À l’aide du Portail Azure
+Suivez les étapes ci-dessous dans le portail Azure.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 2. Accédez à la section **Inscriptions d’applications** et sélectionnez votre application.
-3. Ouvrez le **Branding** volet.
+3. Ouvrez le volet **Personnalisation**.
 4. Remplissez les champs **URL des conditions d’utilisation** et **URL de la déclaration confidentialité**.
 5. Enregistrez vos modifications.
 
-    ![Section des propriétés de l’application avec les URL des conditions d’utilisation et de la déclaration de confidentialité](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
+    ![Les propriétés de l’application contiennent les URL des conditions d’utilisation du service et de la déclaration de confidentialité](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
 
 ### <a name="app-object-json"></a>À l’aide de l’objet JSON de l’application
 

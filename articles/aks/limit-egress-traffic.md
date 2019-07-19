@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/06/2019
 ms.author: iainfou
-ms.openlocfilehash: 43ba7593336372bbbd7a3a4bb9821665a42bbf29
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 52a9ba20b60e8ef6cdb743546cd842e4ee24b3fd
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752178"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441916"
 ---
 # <a name="preview---limit-egress-traffic-for-cluster-nodes-and-control-access-to-required-ports-and-services-in-azure-kubernetes-service-aks"></a>Préversion - Limiter le trafic de sortie des nœuds de cluster et contrôler l’accès aux ports et services requis dans Azure Kubernetes Service (AKS)
 
@@ -23,20 +23,23 @@ Cet article décrit en détail les ports réseau et les noms de domaine complet 
 > [!IMPORTANT]
 > Les fonctionnalités d’évaluation AKS sont en libre-service et font l’objet d’un abonnement. Elles sont fournies pour que notre communauté puisse faire part de ses commentaires et des bogues éventuels. En préversion, ces fonctionnalités ne sont pas destinées à une utilisation en production. Les fonctionnalités en préversion publique font l’objet d’un support relatif. L’assistance des équipes de support technique AKS est disponible pendant les heures de bureau du fuseau horaire Heure du Pacifique uniquement. Pour obtenir des informations supplémentaires, veuillez lire les articles de support suivants :
 >
-> * [Stratégie de support AKS][aks-support-policies]
+> * [Stratégies de support AKS][aks-support-policies]
 > * [FAQ du support Azure][aks-faq]
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Azure CLI 2.0.66 (ou version ultérieure) doit être installé et configuré. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installer Azure CLI 2.0][install-azure-cli].
+Azure CLI 2.0.66 (ou version ultérieure) doit être installé et configuré. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][install-azure-cli].
 
-Pour créer un cluster AKS qui peut limiter le trafic de sortie, commencez par activer un indicateur de fonctionnalité sur votre abonnement. L’inscription de cette fonctionnalité permet de configurer tous les clusters AKS créés pour utiliser des images de conteneur système de base à partir de MCR ou ACR. Pour enregistrer l’indicateur de fonctionnalité *AKSLockingDownEgressPreview*, utilisez la commande [az feature register][az-feature-register], comme indiqué dans l’exemple suivant :
+Pour créer un cluster AKS qui peut limiter le trafic de sortie, commencez par activer un indicateur de fonctionnalité sur votre abonnement. L’inscription de cette fonctionnalité permet de configurer tous les clusters AKS créés pour utiliser des images de conteneur système de base à partir de MCR ou ACR. Pour enregistrer l’indicateur de fonctionnalité *AKSLockingDownEgressPreview*, utilisez la commande [az feature register][az-feature-register], comme indiqué dans l’exemple suivant :
+
+> [!CAUTION]
+> Lorsque vous inscrivez une fonctionnalité sur un abonnement, vous ne pouvez actuellement pas désinscrire cette fonctionnalité. Après avoir activé des fonctionnalités d’évaluation, des valeurs par défaut peuvent être utilisées pour tous les clusters AKS créés ultérieurement dans l’abonnement. N’activez pas les fonctionnalités d’évaluation sur les abonnements de production. Utilisez un abonnement distinct pour tester les fonctionnalités d’évaluation et recueillir des commentaires.
 
 ```azurecli-interactive
 az feature register --name AKSLockingDownEgressPreview --namespace Microsoft.ContainerService
 ```
 
-Quelques minutes sont nécessaires pour que l’état s’affiche *Registered* (Inscrit). Vous pouvez vérifier l’état de l’enregistrement à l’aide de la commande [az feature list][az-feature-list] :
+Quelques minutes sont nécessaires pour que l’état s’affiche *Registered* (Inscrit). Vous pouvez vérifier l’état de l’inscription à l’aide de la commande [az feature list][az-feature-list] :
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSLockingDownEgressPreview')].{Name:name,State:properties.state}"

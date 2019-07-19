@@ -19,12 +19,12 @@ ms.author: ryanwi
 ms.reviewer: sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05b3d749eb3e2bc767889831b4c1ff01833a3f39
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a2ae83b655bfe607b1061168649ec74f02ab4064
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65544669"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483175"
 ---
 # <a name="how-to-use-the-azure-ad-graph-api"></a>Activation Utiliser l’API Azure AD Graph
 
@@ -65,7 +65,7 @@ Vous pouvez utiliser l'Afficheur Graph Azure AD pour que l’API Graph Azure AD
 
 La capture d’écran suivante représente la sortie que vous pouvez obtenir si vous devez accéder à l’Afficheur Graph Azure AD, vous connecter, puis entrer `https://graph.windows.net/GraphDir1.OnMicrosoft.com/users?api-version=1.6` pour afficher tous les utilisateurs figurant dans l’annuaire de l’utilisateur connecté :
 
-![explorateur api graph Azure AD](./media/active-directory-graph-api-quickstart/graph_explorer.png)
+![Exemple de sortie dans l’explorateur de l’API Graph Azure AD](./media/active-directory-graph-api-quickstart/graph_explorer.png)
 
 **Charger l’Afficheur Graph Azure AD** : Pour charger l’outil, accédez à [https://graphexplorer.azurewebsites.net/](https://graphexplorer.azurewebsites.net/). Cliquez sur **Connexion** et connectez-vous avec vos informations d’identification de compte Azure AD pour exécuter l’Afficheur Graph Azure AD par rapport à votre abonné. Si vous exécutez l'Afficheur Graph Azure AD par rapport à votre propre abonné, vous ou votre administrateur devrez donner votre consentement lors de la connexion. Si vous avez un abonnement à Office 365, vous disposez automatiquement d’un client Azure AD. Les informations d'identification que vous utilisez pour vous connecter à Office 365 sont, en fait, des comptes Azure AD. Vous pouvez les utiliser avec l'Afficheur Graph Azure AD.
 

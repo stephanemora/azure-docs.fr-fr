@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 85eaa81a0cfd7ccfe8ad3ae818f89966280d279e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9d81e5e69837f6074d94278f4e54f9178a656335
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64730366"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433787"
 ---
 # <a name="create-apache-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Créer des clusters Apache HBase sur HDInsight dans un réseau virtuel Azure
 Découvrez comment créer des clusters Apache HBase Azure HDInsight dans un [réseau virtuel Azure][1].
@@ -25,7 +25,7 @@ Avec l’intégration du réseau virtuel, les clusters Apache HBase peuvent êtr
 * Capacité de traitement des informations critiques de façon plus sécurisée sans exposer de points de terminaison publics.
 
 ### <a name="prerequisites"></a>Prérequis
-Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
+Avant de commencer cet article, vous devez disposer des éléments suivants :
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Un poste de travail sur lequel est installé Azure PowerShell**. Consultez la page [Installation et utilisation d’Azure PowerShell](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
@@ -63,7 +63,7 @@ Dans cette section, vous allez créer un cluster Apache HBase basé sur Linux av
    * **J’accepte les termes et conditions mentionnés ci-dessus** : (Sélectionner)
 3. Cliquez sur **Achat**. La création d’un cluster prend environ 20 minutes. Une fois le cluster créé, vous pouvez cliquer sur le panneau du cluster dans le portail pour l’ouvrir.
 
-Après avoir terminé ce didacticiel, vous souhaiterez peut-être supprimer le cluster. Avec HDInsight, vos données sont stockées Azure Storage, pour que vous puissiez supprimer un cluster en toute sécurité s’il n’est pas en cours d’utilisation. Vous devez également payer pour un cluster HDInsight, même lorsque vous ne l’utilisez pas. Étant donné que les frais pour le cluster sont bien plus élevés que les frais de stockage, économique, mieux vaut supprimer les clusters lorsqu’ils ne sont pas utilisés. Pour obtenir des instructions sur la suppression d’un cluster, consultez [Gestion des clusters Apache Hadoop dans HDInsight au moyen du portail Azure](../hdinsight-administer-use-portal-linux.md#delete-clusters).
+Après avoir terminé ce tutoriel, vous devriez peut-être supprimer le cluster. Avec HDInsight, vos données sont stockées Azure Storage, pour que vous puissiez supprimer un cluster en toute sécurité s’il n’est pas en cours d’utilisation. Vous devez également payer pour un cluster HDInsight, même lorsque vous ne l’utilisez pas. Étant donné que les frais pour le cluster sont bien plus élevés que les frais de stockage, économique, mieux vaut supprimer les clusters lorsqu’ils ne sont pas utilisés. Pour obtenir des instructions sur la suppression d’un cluster, consultez [Gestion des clusters Apache Hadoop dans HDInsight au moyen du portail Azure](../hdinsight-administer-use-portal-linux.md#delete-clusters).
 
 Pour commencer à utiliser votre nouveau cluster HBase, vous pouvez utiliser les procédures figurant dans la rubrique [Bien démarrer avec l’utilisation d’Apache HBase et d’Apache Hadoop dans HDInsight](./apache-hbase-tutorial-get-started-linux.md).
 
@@ -233,7 +233,7 @@ Pour utiliser ces informations dans une application Java, vous pouvez suivre la 
 > Pour plus d’informations sur la résolution de noms dans des réseaux virtuels Azure, y compris sur la façon d’utiliser votre propre serveur DNS, consultez [Résolution de noms pour les machines virtuelles et les instances de rôle](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce tutoriel, vous avez appris à créer un cluster Apache HBase. Pour plus d'informations, consultez les rubriques suivantes :
+Dans cet article, vous avez appris à créer un cluster Apache HBase. Pour plus d'informations, consultez les rubriques suivantes :
 
 * [Prise en main de HDInsight](../hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [Utiliser des nœuds de périphérie vides dans HDInsight](../hdinsight-apps-use-edge-node.md)

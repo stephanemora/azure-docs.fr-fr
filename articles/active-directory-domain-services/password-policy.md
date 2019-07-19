@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services : Stratégie de mot de passe | Mi
 description: Comprendre les stratégies de mot de passe sur les domaines managés
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 ms.assetid: 1a14637e-b3d0-4fd9-ba7a-576b8df62ff2
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2019
-ms.author: mstephen
-ms.openlocfilehash: 71511fd83f9c00f768f5f7bedb3516fef8599e70
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.author: iainfou
+ms.openlocfilehash: ecf38543b2c4e5187aa5c6593c3bccf6668b8a8a
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66246838"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67472761"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>Stratégies de mot de passe et de verrouillage de compte sur les domaines managés
 Cet article explique les stratégies de mot de passe par défaut sur un domaine managé. Il décrit également comment configurer ces stratégies.

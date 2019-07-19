@@ -1,6 +1,6 @@
 ---
-title: Prise en main d’Azure Search dans Node.js - Recherche Azure
-description: Guide de création d’une application de recherche sur un service de recherche Azure hébergé dans le cloud en utilisant le langage de programmation Node.js.
+title: 'Démarrage rapide avec Node.js : créer, charger et interroger des index à l’aide des API REST Recherche Azure – Recherche Azure'
+description: Explique comment créer un index, charger des données et exécuter des requêtes à l’aide de Node.js et des API REST Recherche Azure.
 author: jj09
 manager: jlembicz
 services: search
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.date: 04/26/2017
 ms.author: jjed
 ms.custom: seodec2018
-ms.openlocfilehash: 1b37b3c52abd3750c3452a46bdf5b0c5954de4dd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 44b7f1f49d6764418dcc0e72cb667e17a2b920c6
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61289182"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67450037"
 ---
-# <a name="get-started-with-azure-search-in-nodejs"></a>Prise en main d’Azure Search dans Node.js
+# <a name="quickstart-create-an-azure-search-index-in-nodejs"></a>Démarrage rapide : créer un index Recherche Azure en Node.js
 > [!div class="op_single_selector"]
 > * [Portal](search-get-started-portal.md)
 > * [.NET](search-howto-dotnet-sdk.md)
@@ -32,7 +32,7 @@ Pour exécuter cet exemple, vous devez disposer d’un service Azure Search auqu
 ## <a name="about-the-data"></a>À propos des données
 Cet exemple d'application utilise des données de l’ [USGS (United States Geological Services)](https://geonames.usgs.gov/domestic/download_data.htm), concernant l'État de Rhode Island pour réduire la taille du jeu de données. Nous allons utiliser ces données pour créer une application de recherche qui renvoie des bâtiments importants, tels que les hôpitaux et les écoles, ainsi que des caractéristiques géologiques, telles que les ruisseaux, les lacs et les sommets.
 
-Dans cette application, le programme **DataIndexer** crée et charge l’index avec une construction de type [Index](https://msdn.microsoft.com/library/azure/dn798918.aspx), en récupérant le jeu de données USGS filtré d’une base de données Azure SQL publique. Les informations d'identification et de connexion à la source de données en ligne sont fournies dans le code du programme. Aucune configuration supplémentaire n'est nécessaire.
+Dans cette application, le programme **DataIndexer** crée et charge l’index avec une construction de type [Indexeur](https://msdn.microsoft.com/library/azure/dn798918.aspx), en récupérant le jeu de données USGS filtré d’une base de données Azure SQL Database. Les informations d'identification et de connexion à la source de données en ligne sont fournies dans le code du programme. Aucune configuration supplémentaire n'est nécessaire.
 
 > [!NOTE]
 > Nous avons appliqué un filtre à ce jeu de données pour ne pas dépasser la limite de 10 000 documents du niveau de tarification gratuit. Si vous utilisez le niveau standard, cette limite ne s'applique pas. Pour plus d’informations sur la capacité de chaque niveau de tarification, consultez la page [Limites de service d’Azure Search](search-limits-quotas-capacity.md).

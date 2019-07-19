@@ -3,23 +3,23 @@ title: Utiliser des ensembles d’appareils dans votre application Azure IoT Cen
 description: En tant qu’opérateur, comment utiliser des ensembles d’appareils dans votre application Azure IoT Central.
 author: ellenfosborne
 ms.author: elfarber
-ms.date: 02/05/2019
+ms.date: 06/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: a28cf68eb449b563d93a139b830752748c448dd6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: e1e7b91e0808b9e23e653acd43b95f24a46c7d27
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60517318"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67503211"
 ---
 # <a name="use-device-sets-in-your-azure-iot-central-application"></a>Utiliser des ensembles d’appareils dans votre application Azure IoT Central
 
 Cet article décrit comment, en tant qu’opérateur, utiliser des ensembles d’appareils dans votre application Azure IoT Central.
 
-Un ensemble d’appareils est une liste d’appareils qui sont regroupés, car ils correspondent à certains critères spécifiés. Les ensembles d’appareils vous permettent de gérer, de visualiser et d’analyser des appareils à grande échelle en regroupant les appareils dans des groupes logiques plus petits. Par exemple, vous créez une liste de tous les appareils de climatisation à Seattle pour permettre à la technicienne de Seattle de rechercher tous les appareils dont elle est responsable. Cet article vous explique comment créer et configurer des ensembles d’appareils.
+Un ensemble d’appareils est une liste d’appareils qui sont regroupés, car ils correspondent à certains critères spécifiés. Les ensembles d’appareils vous permettent de gérer, de visualiser et d’analyser des appareils à grande échelle en regroupant les appareils dans des groupes logiques plus petits. Par exemple, vous pouvez créer un ensemble d’appareils répertoriant tous les appareils de climatisation à Seattle pour permettre à un technicien de rechercher les appareils dont il est responsable. Cet article vous explique comment créer et configurer des ensembles d’appareils.
 
 ## <a name="create-a-device-set"></a>Créer un ensemble d’appareils
 
@@ -27,7 +27,7 @@ Pour créer un ensemble d’appareils :
 
 1. Choisissez **Ensembles d’appareils** dans le menu de navigation gauche.
 
-1. Sélectionnez **+ nouveau**.
+1. Sélectionnez **+Nouveau**.
 
     ![Nouvel ensemble d’appareils](media/howto-use-device-sets/image1.png)
 
@@ -44,7 +44,7 @@ Pour créer un ensemble d’appareils :
 
 ## <a name="configure-the-dashboard-for-your-device-set"></a>Configurer le tableau de bord pour votre ensemble d’appareils
 
-Après avoir créé votre ensemble d’appareils, vous pouvez configurer ses **tableaux de bord**. Le **tableau de bord** est la page d’accueil où vous pouvez placer des images et des liens. Vous pouvez également ajouter des grilles qui répertorient les appareils de l’ensemble d’appareils.
+Après avoir créé votre ensemble d’appareils, vous pouvez configurer ses **tableaux de bord**. Le **tableau de bord** est la page d’accueil où vous placez des images et des liens. Vous pouvez également ajouter des grilles qui répertorient les appareils de l’ensemble d’appareils.
 
 1. Choisissez **Ensembles d’appareils** dans le menu de navigation gauche.
 
@@ -61,7 +61,7 @@ Après avoir créé votre ensemble d’appareils, vous pouvez configurer ses **t
 1. Ajoutez une vignette de lien :
     1. Choisissez **Lien** dans le volet droit.
     1. Donnez un **Titre** à votre lien.
-    1. Choisir une URL à ouvrir lorsque le lien est sélectionné.
+    1. Choisissez une URL à ouvrir quand l’utilisateur clique sur le lien.
     1. Donnez à votre lien une description qui s’affiche sous le **Titre**.
     1. Choisissez **Enregistrer**.
 
@@ -85,19 +85,20 @@ Après avoir créé votre ensemble d’appareils, vous pouvez configurer ses **t
   
     1. Sélectionnez **Terminé**.
 
-### <a name="configuring-location-map-in-your-device-sets-dashboard"></a>Configuration de la carte des emplacements dans votre tableau de bord d’ensembles d’appareils
+Pour en savoir plus sur l’utilisation des vignettes dans Azure IoT Central, voir [Utiliser des vignettes de tableau de bord](howto-use-tiles.md).
 
-Vous pouvez ajouter une carte des emplacements pour visualiser l’emplacement de vos ensembles d’appareils sur une carte.
+### <a name="configure-a-location-map-in-your-device-sets-dashboard"></a>Configurer une carte des emplacements dans votre tableau de bord d’ensembles d’appareils
 
-Pour ajouter une carte des emplacements à votre tableau de bord d’ensembles d’appareils, vous devez avoir configuré une propriété d’emplacement dans votre modèle d’appareil. Consultez [Créer une propriété d’emplacement optimisée par Azure Maps](howto-set-up-template.md).
+Vous pouvez ajouter une carte pour visualiser l’emplacement des appareils de vos ensembles d’appareils.
 
-1. Dans votre tableau de bord des ensembles d’appareils, sélectionnez le mappage dans la bibliothèque.
-2. Donnez un titre et choisissez la propriété d’emplacement que vous avez déjà configurée dans votre propriété d’appareil.
-3. Enregistrez pour afficher la mosaïque de la carte indiquant l’emplacement de vos appareils dans l’ensemble d’appareils.
-4. À présent, lorsqu’un opérateur affiche le tableau de bord des ensembles d’appareils, il peut voir toutes les mosaïques que vous avez configurées, y compris la carte des emplacements, et visualiser ainsi en un clin d’œil l’emplacement de tous les appareils.
+Pour ajouter une carte au tableau de bord de vos ensembles d’appareils, vous devez avoir configuré une mesure de l’emplacement ou la propriété d’emplacement dans votre modèle d’appareil. Pour plus d’informations, consultez [Créer une mesure d’emplacement](howto-set-up-template.md) ou [Créer une propriété d’emplacement](howto-set-up-template.md).
 
-> [!NOTE]
-> Vous pouvez redimensionner la carte à la taille souhaitée. Sélection d’un code confidentiel dans la carte affiche les informations sur l’appareil, le nom et l’emplacement. Vous pouvez sélectionner la fenêtre contextuelle pour accéder à la page de propriétés d’appareil.
+1. Dans le **tableau de bord** des ensembles d’appareils, sélectionnez **Mappage** dans la bibliothèque.
+2. Ajoutez un titre et choisissez la mesure ou la propriété de l’emplacement que vous avez configurée précédemment.
+3. Sélectionnez **Enregistrer** : la mosaïque affiche les derniers emplacements connus des appareils dans votre ensemble d’appareils.
+4. Lorsqu’un opérateur affiche le tableau de bord des ensembles d’appareils, il voit toutes les mosaïques que vous avez configurées, y compris la carte des emplacements.
+
+Vous pouvez redimensionner la mosaïque sur le tableau de bord. La sélection d’une épingle sur la carte affiche les informations sur l’appareil, ainsi que son nom et son emplacement. Sélectionnez le menu contextuel pour accéder à la page de propriétés de l’appareil.
 
 ## <a name="configure-the-list-for-your-device-set"></a>Configurer la liste pour votre ensemble d’appareils
 

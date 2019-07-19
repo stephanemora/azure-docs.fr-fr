@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f80ecf02a7e517300c41e84986659a66cfa11c90
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c0d04db6e9ccedc1e67ed0cdfd914ab42ebea0b1
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60414934"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67536947"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Résoudre les messages d’erreur liés à l’extension NPS pour Azure Multi-Factor Authentication
 
@@ -31,7 +31,7 @@ Si vous rencontrez des erreurs au niveau de l’extension NPS pour Azure Multi-F
 | **ESTS_TOKEN_ERROR** | Suivez les instructions de [Résolution des problèmes liés à l’extension NPS pour MFA](howto-mfa-nps-extension.md#troubleshooting) pour explorer les problèmes de certificat client et de jeton ADAL. |
 | **HTTPS_COMMUNICATION_ERROR** | Le serveur NPS ne reçoit pas les réponses d’Azure MFA. Vérifiez que vos pare-feu sont ouverts en mode bidirectionnel et qu’ils autorisent le trafic vers et depuis https://adnotifications.windowsazure.com |
 | **HTTP_CONNECT_ERROR** | Sur le serveur qui exécute l’extension de serveur NPS, vérifiez que vous pouvez atteindre https://adnotifications.windowsazure.com et https://login.microsoftonline.com/. Si ces sites ne se chargent pas, résolvez les problèmes de connectivité sur ce serveur. |
-| **Extension NPS pour Azure MFA :** <br> Extension NPS pour Azure MFA effectue uniquement l’authentification secondaire pour les demandes Radius à l’état AccessAccept. Demande reçue pour l’utilisateur « nom d’utilisateur » avec l’état de réponse AccessReject (demande ignorée). | Cette erreur reflète généralement un échec d’authentification dans AD ou le fait que le serveur NPS est incapable de recevoir des réponses d’Azure AD. Vérifiez que vos pare-feu sont ouverts en mode bidirectionnel et qu’ils autorisent le trafic vers et depuis https://adnotifications.windowsazure.com et https://login.microsoftonline.com sur les ports 80 et 443. Il est également important de vérifier que sous l’onglet DIAL-IN (Numérotation) d’Autorisation d’accès réseau, le paramètre est défini sur « Contrôler l’accès via la Stratégie d’accès à distance ». |
+| **Extension NPS pour Azure MFA :** <br> Extension NPS pour Azure MFA effectue uniquement l’authentification secondaire pour les demandes Radius à l’état AccessAccept. Demande reçue pour l’utilisateur « nom d’utilisateur » avec l’état de réponse AccessReject (demande ignorée). | Cette erreur reflète généralement un échec d’authentification dans AD ou le fait que le serveur NPS est incapable de recevoir des réponses d’Azure AD. Vérifiez que vos pare-feu sont ouverts en mode bidirectionnel et qu’ils autorisent le trafic vers et depuis https://adnotifications.windowsazure.com et https://login.microsoftonline.com sur les ports 80 et 443. Il est également important de vérifier que sous l’onglet DIAL-IN (Numérotation) d’Autorisation d’accès réseau, le paramètre est défini sur « Contrôler l’accès via la Stratégie d’accès à distance ». Cette erreur peut également se déclencher si l’utilisateur ne possède pas de licence. |
 | **REGISTRY_CONFIG_ERROR** | Une clé est manquante dans le registre de l’application. Un [script PowerShell](howto-mfa-nps-extension.md#install-the-nps-extension) n’a peut-être pas été exécuté après l’installation. Ce message d’erreur doit inclure la clé manquante. Assurez-vous que la clé se trouve dans HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa. |
 | **REQUEST_FORMAT_ERROR** <br> Attribut userName\Identifier Radius obligatoire manquant dans la demande Radius. Vérifiez que le serveur NPS reçoit les demandes RADIUS. | Cette erreur indique généralement un problème d’installation. L’extension NPS doit être installée sur des serveurs NPS pouvant recevoir des demandes RADIUS. Les serveurs NPS installés en tant que dépendances de services comme RDG et RRAS ne reçoivent pas les demandes RADIUS. L’extension NPS ne fonctionne pas dans le cadre d’une telle installation et renvoie une erreur, car elle ne peut pas lire les détails de la demande d’authentification. |
 | **REQUEST_MISSING_CODE** | Assurez-vous que le protocole de chiffrement du mot de passe entre les serveurs NPS et NAS prend en charge la méthode d’authentification secondaire que vous utilisez. **PAP** prend en charge toutes les méthodes d’authentification de l’authentification multifacteur Azure dans le cloud : appel téléphonique, message texte à sens unique, notification de l’application mobile et code de vérification de l’application mobile. **CHAPv2** et **EAP** prennent en charge l’appel téléphonique et la notification d’application mobile. |

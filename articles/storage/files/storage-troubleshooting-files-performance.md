@@ -1,6 +1,6 @@
 ---
 title: Guide de résolution des problèmes de niveau de performance d’Azure Files
-description: Problèmes de niveau de performance connus avec les partages de fichiers Azure premium (préversion) et solutions de contournement associées.
+description: Problèmes de niveau de performance connus avec les partages de fichiers Azure et les solutions de contournement associées.
 services: storage
 author: gunjanj
 ms.service: storage
@@ -8,22 +8,22 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 5ae0bb736a7cc0bbc38df5905abc5d8a71f60eb9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8c35501f3afbeed519fb5304229f25be1cbd5f9b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65190050"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445671"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Résoudre les problèmes de niveau de performance d’Azure Files
 
-Cet article répertorie certains problèmes courants liés à des partages de fichiers Azure premium (préversion). Il indique des causes potentielles et des solutions de contournement lorsque ces problèmes surviennent.
+Cet article répertorie certains problèmes courants liés à des partages de fichiers Azure. Il indique des causes potentielles et des solutions de contournement lorsque ces problèmes surviennent.
 
 ## <a name="high-latency-low-throughput-and-general-performance-issues"></a>Latence élevée, débit faible et problèmes généraux de niveau de performance
 
 ### <a name="cause-1-share-experiencing-throttling"></a>Cause 1 : Limitation de bande passante lors du partage
 
-Le quota par défaut sur un partage est de 100 Gio, ce qui fournit 100 IOPS de ligne de base (avec un nombre potentiel de rafales pouvant atteindre 300 en une heure). Pour plus d’informations sur la fourniture et sa relation avec les IOPS, consultez la section [Partages approvisionnés](storage-files-planning.md#provisioned-shares) du guide de planification.
+Le quota par défaut sur un partage premium est de 100 Gio, ce qui fournit 100 IOPS de ligne de base (avec un nombre potentiel en rafale pouvant atteindre 300 en une heure). Pour plus d’informations sur la fourniture et sa relation avec les IOPS, consultez la section [Partages approvisionnés](storage-files-planning.md#provisioned-shares) du guide de planification.
 
 Pour confirmer la limitation de votre partage, vous pouvez utiliser les métriques Azure dans le portail.
 
@@ -39,7 +39,7 @@ Pour confirmer la limitation de votre partage, vous pouvez utiliser les métriqu
 
 1. Sélectionnez **Transactions** comme métrique.
 
-1. Ajoutez un filtre pour **ResponseType** et vérifiez si toutes les demandes ont un code de réponse **SuccessWithThrottling**.
+1. Ajoutez un filtre pour **ResponseType** et vérifiez si toutes les requêtes ont un code de réponse **SuccessWithThrottling** (pour SMB) ou **ClientThrottlingError** (pour REST).
 
 ![Options de métriques pour les partages de fichiers premium](media/storage-troubleshooting-premium-fileshares/metrics.png)
 
@@ -72,11 +72,11 @@ Si l’application utilisée par le client est à thread unique, cela peut entra
 
 ### <a name="cause"></a>Cause :
 
-La machine virtuelle cliente peut se trouver dans une autre région que le partage de fichiers premium.
+la machine virtuelle cliente peut se trouver dans une autre région que le partage de fichiers.
 
 ### <a name="solution"></a>Solution
 
-- Exécutez l’application à partir d’une machine virtuelle qui se trouve dans la même région que le partage de fichiers premium.
+- Exécutez l’application à partir d’une machine virtuelle qui se trouve dans la même région que le partage de fichiers.
 
 ## <a name="client-unable-to-achieve-maximum-throughput-supported-by-the-network"></a>Impossible pour le client d’atteindre le débit maximal pris en charge par le réseau
 
@@ -121,6 +121,10 @@ Une profondeur d’E/S supérieure à 1 n’est pas prise en charge sur CentOS/R
 
 - Mettez à niveau vers CentOS 8/RHEL 8.
 - Passez à Ubuntu.
+
+## <a name="slow-file-copying-to-and-from-azure-files-in-linux"></a>Ralentissement des copies de fichiers vers et à partir d’Azure Files dans Linux
+
+Si vous rencontrez des ralentissements lorsque vous copiez des fichiers vers et à partir d’Azure Files, consultez la section [Ralentissement des copies de fichiers vers et à partir d’Azure Files dans Linux](storage-troubleshoot-linux-file-connection-problems.md#slow-file-copying-to-and-from-azure-files-in-linux) du guide de résolution des problèmes de Linux.
 
 ## <a name="jitterysaw-tooth-pattern-for-iops"></a>Modèle instable/en dents de scie pour les IOPS
 

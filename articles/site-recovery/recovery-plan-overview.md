@@ -8,19 +8,18 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: ea2399572177cc10006a5d9ee715190fff4a347b
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.openlocfilehash: 0df9e4b41ff89dd295fe644900b78640a083e985
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66471442"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514566"
 ---
 # <a name="about-recovery-plans"></a>À propos des plans de récupération
 
 Cet article décrit les plans de récupération dans [Azure Site Recovery](site-recovery-overview.md).
 
-Un plan de récupération rassemble les machines dans des groupes de récupération. Vous pouvez personnaliser un plan en y ajoutant un ordre, des instructions et des tâches. Lorsqu’un plan est défini, vous pouvez basculer vers celui-ci.
-
+Un plan de récupération rassemble les machines dans des groupes de récupération. Vous pouvez personnaliser un plan en y ajoutant un ordre, des instructions et des tâches. Lorsqu’un plan est défini, vous pouvez basculer vers celui-ci.  Les machines peuvent être référencées dans plusieurs plans de récupération, dans lesquels les plans suivants ignoreront le déploiement/démarrage de la machine si elle a été déployée au préalable via un autre plan de récupération.
 
 
 ## <a name="why-use-a-recovery-plan"></a>Pourquoi utiliser un plan de récupération ?
@@ -61,11 +60,11 @@ Avec cette personnalisation, voici ce qui se passe lorsque vous exécutez un bas
 
 La récupération d’applications de grande taille peut être une tâche complexe. Les étapes manuelles du processus sont source d’erreurs et la personne qui exécute le basculement n’a peut-être pas connaissance de toutes les subtilités de l’application. Vous pouvez utiliser un plan de récupération pour imposer un ordre et automatiser les actions nécessaires à chaque étape, à l’aide de runbooks Azure Automation pour le basculement vers Azure, ou de scripts. Pour les tâches qui ne peuvent pas être automatisées, vous pouvez insérer des pauses pour des actions manuelles dans les plans de récupération. Vous pouvez configurer deux types de tâches :
 
-* **Tâches sur la machine virtuelle Azure après le basculement** : quand vous basculez vers Azure, vous devez généralement effectuer des actions afin de pouvoir vous connecter à la machine virtuelle après le basculement. Exemple : 
+* **Tâches sur la machine virtuelle Azure après le basculement** : quand vous basculez vers Azure, vous devez généralement effectuer des actions afin de pouvoir vous connecter à la machine virtuelle après le basculement. Par exemple : 
     * Créer une adresse IP publique sur la machine virtuelle Azure.
     * Associer un groupe de sécurité réseau à la carte réseau de la machine virtuelle Azure.
     * Ajouter un équilibreur de charge à un groupe à haute disponibilité
-* **Tâches dans la machine virtuelle après le basculement** : ces tâches reconfigurent généralement l’application exécutée sur la machine afin qu’elle continue à fonctionner correctement dans le nouvel environnement. Exemple :
+* **Tâches dans la machine virtuelle après le basculement** : ces tâches reconfigurent généralement l’application exécutée sur la machine afin qu’elle continue à fonctionner correctement dans le nouvel environnement. Par exemple :
     * Modifier la chaîne de connexion de base de données dans la machine.
     * Modifier les règles ou la configuration du serveur web
 
@@ -84,7 +83,7 @@ Vous pouvez utiliser un plan de récupération pour déclencher un test de bascu
 
 ## <a name="watch-the-video"></a>Regarder la vidéo
 
-Regardez une vidéo d’exemple montrant un basculement en un clic pour une application de WordPress à deux niveaux.
+Regardez une courte vidéo d’exemple montrant un basculement en un clic pour une application WordPress à deux niveaux.
     
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/One-click-failover-of-a-2-tier-WordPress-application-using-Azure-Site-Recovery/player]
 

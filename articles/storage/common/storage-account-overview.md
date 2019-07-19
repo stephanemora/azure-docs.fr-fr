@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/07/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 00b94174debf915fac3ae5fb37f382c0dc46abfb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 157a421ce2cb4442597bfb0f75ae042a10a8ee03
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66754992"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443751"
 ---
 # <a name="azure-storage-account-overview"></a>Vue d’ensemble des comptes de stockage Azure
 
@@ -68,7 +68,7 @@ Par comparaison avec des comptes à usage général v2 et de stockage d’objets
 
 Les comptes de stockage d’objets blob de blocs ne prennent actuellement pas en charge la hiérarchisation en niveau d’accès chaud, froid ou archive.
 
-### <a name="filestorage-preview-storage-accounts"></a>Compte de stockage FileStorage (préversion)
+### <a name="filestorage-storage-accounts"></a>Comptes de stockage FileStorage
 
 Un compte de stockage FileStorage est un compte de stockage spécialisée utilisé pour stocker et créer des partages de fichiers premium. Les comptes de stockage FileStorage offrent des caractéristiques de performances dédiées uniques, telles que l’éclatement d’IOPS de rupture. Pour plus d’informations sur ces caractéristiques, consultez la section [Niveaux de performances de partage de fichiers](../files/storage-files-planning.md#file-share-performance-tiers) du guide de planification des fichiers.
 
@@ -88,7 +88,7 @@ Les comptes de stockage universels peuvent être configurés avec l’un des niv
 
 Les comptes de stockage d’objet blob de blocs fournissent un niveau de performances premium pour stocker des objets blob de blocs et ajouter des objets blob.
 
-Les comptes de stockage FileStorage (préversion) fournissent un niveau de performances premium pour les partages de fichiers Azure.
+Les comptes de stockage FileStorage fournissent un niveau de performances premium pour les partages de fichiers Azure.
 
 ## <a name="access-tiers-for-block-blob-data"></a>Niveaux d’accès pour les données d’objets blob de blocs
 

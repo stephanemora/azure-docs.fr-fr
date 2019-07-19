@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/25/2019
 ms.author: genli
-ms.openlocfilehash: 116748d7887ebf2ad821e3159c7c1bdcc2428121
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: e60188496e060eeea14fc7b7f1cc9a662551b286
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "64684755"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485173"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Erreurs de démarrage BitLocker dans une machine virtuelle Azure
 
@@ -48,7 +48,7 @@ Pour résoudre ce problème, arrêtez et libérez la machine virtuelle, et puis 
 Si cette méthode ne résout pas le problème, effectuez les étapes suivantes pour restaurer le fichier BEK manuellement :
 
 1. Prenez un instantané du disque système de la machine virtuelle affectée en guise de sauvegarde. Pour plus d’informations, consultez [Créer un instantané](../windows/snapshot-copy-managed-disk.md).
-2. [Attachez le disque système à une machine virtuelle de récupération](troubleshoot-recovery-disks-portal-windows.md) chiffrée par BitLocker. Ceci est nécessaire pour exécuter la commande [manage-bde](https://docs.microsoft.com/windows-server/administration/windows-commands/manage-bde) qui est uniquement disponible sur la machine virtuelle chiffrée par BitLocker.
+2. [Attachez le disque système à une machine virtuelle de récupération](troubleshoot-recovery-disks-portal-windows.md). Pour exécuter la commande [manage-bde](https://docs.microsoft.com/windows-server/administration/windows-commands/manage-bde) de l’étape 7, la fonction de **chiffrement de lecteur BitLocker** doit être activée dans la machine virtuelle de récupération.
 
     Lorsque vous attachez un disque managé, vous pouvez recevoir un message d’erreur du type « Contient des paramètres de chiffrement et ne peut donc pas être utilisé comme disque de données ». Dans ce cas, exécutez le script suivant pour réessayer d’attacher le disque :
 
@@ -106,7 +106,7 @@ Si cette méthode ne résout pas le problème, effectuez les étapes suivantes p
 
     Si le **Content Type** (Type de contenu) est **Wrapped BEK** (Clé BEK wrappée), accédez aux [scénarios impliquant des clés KEK (clés de chiffrement principales)](#key-encryption-key-scenario).
 
-    Maintenant que vous connaissez le nom du fichier BEK pour le lecteur, vous devez créer le fichier secret-file-name.BEK pour déverrouiller le lecteur. 
+    Maintenant que vous connaissez le nom du fichier BEK pour le lecteur, vous devez créer le fichier secret-file-name.BEK pour déverrouiller le lecteur.
 
 6.  Téléchargez le fichier BEK sur le disque de récupération. L’exemple suivant enregistre le fichier BEK dans le dossier C:\BEK. Vérifiez que le chemin `C:\BEK\` existe avant d’exécuter les scripts.
 
@@ -120,7 +120,7 @@ Si cette méthode ne résout pas le problème, effectuez les étapes suivantes p
     [System.IO.File]::WriteAllBytes($path,$bekFileBytes)
     ```
 
-7.  Pour déverrouiller le disque attaché à l’aide du fichier BEK, exécutez la commande suivante :
+7.  Pour déverrouiller le disque attaché à l’aide du fichier BEK, exécutez la commande suivante.
 
     ```powershell
     manage-bde -unlock F: -RecoveryKey "C:\BEK\EF7B2F5A-50C6-4637-9F13-7F599C12F85C.BEK

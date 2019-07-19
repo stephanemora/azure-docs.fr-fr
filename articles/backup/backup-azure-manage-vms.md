@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: sogup
-ms.openlocfilehash: aa953440f03137f3359276bc9e06cb0c73f0ab4a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: add2c72535b5be0edcbc00c077dfe20a6deaa3e0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61219088"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67434177"
 ---
 # <a name="manage-azure-vm-backups"></a>Gérer les sauvegardes de machines virtuelles Azure
 
@@ -103,25 +103,36 @@ Pour suivre la progression du travail, sur le tableau de bord du coffre, sélect
 
 Il existe deux façons d’arrêter la protection d’une machine virtuelle :
 
-- Arrêter tous les travaux de sauvegarde à venir et supprimer tous les points de récupération. Dans ce cas, vous ne pourrez pas restaurer la machine virtuelle.
-- Arrêter tous les travaux de sauvegarde à venir et conserver les points de récupération. Bien que vous deviez payer pour conserver les points de récupération dans le coffre, vous pouvez restaurer la machine virtuelle si nécessaire. Pour plus d’informations, consultez [Tarification Sauvegarde Azure](https://azure.microsoft.com/pricing/details/backup/).
+* **Arrêter la protection et conserver les données de sauvegarde**. Cette option empêche toutes les tâches de sauvegarde futures de protéger votre machine virtuelle. Toutefois, le service Sauvegarde Azure conserve les points de récupération qui ont été sauvegardés.  Vous devrez payer pour conserver ces points de récupération dans le coffre (consultez l’article [Tarification de Sauvegarde Azure](https://azure.microsoft.com/pricing/details/backup/) pour en savoir plus). Vous serez en mesure de restaurer la machine virtuelle si nécessaire. Si vous décidez de reprendre la protection des machines virtuelles, vous pourrez utiliser l’option *Reprendre la sauvegarde*.
+* **Arrêter la protection et supprimer les données de sauvegarde**. Cette option empêche toutes les futures tâches de sauvegarde de protéger votre machine virtuelle et supprime tous les points de récupération. Vous ne pourrez pas restaurer la machine virtuelle, ni utiliser l’option *Reprendre la sauvegarde*.
 
 >[!NOTE]
 >Si vous supprimez une source de données sans arrêter les sauvegardes, les nouvelles sauvegardes sont vouées à l’échec. Les anciens points de récupération expirent conformément à la stratégie, mais un dernier point de récupération est conservé jusqu’à ce que vous arrêtiez les sauvegardes et supprimiez les données.
 >
 
-Pour arrêter la protection d’une machine virtuelle :
+### <a name="stop-protection-and-retain-backup-data"></a>Arrêter la protection et conserver les données de sauvegarde
+
+Pour arrêter la protection et conserver les données d’une machine virtuelle :
 
 1. Sur le [tableau de bord de l’élément de coffre](#view-vms-on-the-dashboard), sélectionnez **Arrêter la sauvegarde**.
-2. Indiquez si vous souhaitez conserver ou supprimer les données de sauvegarde et confirmez votre choix si nécessaire. Ajoutez un commentaire si vous le souhaitez. Si vous n’êtes pas sûr du nom de l’élément, survolez le point d’exclamation pour en afficher le nom.
+2. Choisissez **Conserver les données de sauvegarde** et confirmez votre choix si nécessaire. Ajoutez un commentaire si vous le souhaitez. Si vous n’êtes pas sûr du nom de l’élément, survolez le point d’exclamation pour en afficher le nom.
 
-    ![Arrêter la protection](./media/backup-azure-manage-vms/retain-or-delete-option.png)
+    ![Conserver les données de sauvegarde](./media/backup-azure-manage-vms/retain-backup-data.png)
 
-     Une notification vous informe que les travaux de sauvegarde ont été interrompus.
+Une notification vous informe que les travaux de sauvegarde ont été interrompus.
+
+### <a name="stop-protection-and-delete-backup-data"></a>Arrêter la protection et supprimer les données de sauvegarde
+
+Pour arrêter la protection et supprimer les données d’une machine virtuelle :
+
+1. Sur le [tableau de bord de l’élément de coffre](#view-vms-on-the-dashboard), sélectionnez **Arrêter la sauvegarde**.
+2. Choisissez **Supprimer les données de sauvegarde** et confirmez votre choix si nécessaire. Entrez le nom de l’élément de sauvegarde et ajoutez un commentaire si vous le souhaitez.
+
+    ![Supprimer les données de sauvegarde](./media/backup-azure-manage-vms/delete-backup-data1.png)
 
 ## <a name="resume-protection-of-a-vm"></a>Reprendre la protection d’une machine virtuelle
 
-Si vous conservez les données de sauvegarde quand vous arrêtez la machine virtuelle, vous pouvez reprendre la protection ultérieurement. Si vous supprimez les données de sauvegarde, vous ne pouvez pas reprendre la protection.
+Si vous aviez choisi l’option [Arrêter la protection et conserver les données de sauvegarde](#stop-protection-and-retain-backup-data) lors de la configuration de l’arrêt de la protection de la machine virtuelle, vous pourrez utiliser l’option **Reprendre la sauvegarde**. Cette option n’est pas disponible si vous aviez choisi [Arrêter la protection et supprimer les données de sauvegarde](#stop-protection-and-delete-backup-data) ou [Supprimer les données de sauvegarde](#delete-backup-data).
 
 Pour reprendre la protection d’une machine virtuelle :
 
@@ -134,23 +145,25 @@ Pour reprendre la protection d’une machine virtuelle :
 
 ## <a name="delete-backup-data"></a>Supprimer les données de sauvegarde
 
-Vous pouvez supprimer les données de sauvegarde d’une machine virtuelle pendant le travail **Arrêter la sauvegarde** ou une fois le travail de sauvegarde terminé. Avant de supprimer les données de sauvegarde, gardez à l’esprit les détails ci-après :
+Il existe deux façons de supprimer les données de sauvegarde d’une machine virtuelle :
 
-- Il peut être judicieux d’attendre plusieurs jours ou semaines avant de supprimer les points de récupération.
-- Contrairement au processus de restauration des points de récupération, quand vous supprimez des données de sauvegarde, vous ne pouvez pas choisir des points de récupération spécifiques à supprimer. Si vous supprimez vos données de sauvegarde, vous supprimez tous les points de récupération associés.
+- À partir du tableau de bord d’un élément du coffre, sélectionnez Arrêter la sauvegarde et suivez les instructions pour [Arrêter la protection et supprimer les données de sauvegarde](#stop-protection-and-delete-backup-data).
 
-Une fois que vous arrêtez ou désactivez le travail de sauvegarde de la machine virtuelle, vous pouvez supprimer les données de sauvegarde :
+  ![Sélectionner Arrêter la sauvegarde](./media/backup-azure-manage-vms/stop-backup-buttom.png)
 
+- Dans le tableau de bord d’un élément du coffre, sélectionnez Supprimer les données de sauvegarde. Cette option est disponible si vous aviez choisi [Arrêter la protection et conserver les données de sauvegarde](#stop-protection-and-retain-backup-data) lors de la configuration de l’arrêt de la protection de la machine virtuelle.
 
-1. Sur le [tableau de bord de l’élément de coffre](#view-vms-on-the-dashboard), sélectionnez **Supprimer les données de sauvegarde**.
+  ![Sélectionner l’option de suppression de la sauvegarde](./media/backup-azure-manage-vms/delete-backup-buttom.png)
 
-    ![Sélectionner l’option de suppression de la sauvegarde](./media/backup-azure-manage-vms/delete-backup-buttom.png)
+  - Sur le [tableau de bord de l’élément de coffre](#view-vms-on-the-dashboard), sélectionnez **Supprimer les données de sauvegarde**.
+  - Tapez le nom de l’élément de sauvegarde pour confirmer la suppression des points de récupération.
 
-1. Tapez le nom de l’élément de sauvegarde pour confirmer la suppression des points de récupération.
+    ![Supprimer les données de sauvegarde](./media/backup-azure-manage-vms/delete-backup-data1.png)
 
-    ![Confirmer que vous souhaitez supprimer les points de récupération](./media/backup-azure-manage-vms/item-verification-box.png)
+  - Pour supprimer les données de sauvegarde relatives à l’élément, sélectionnez **Supprimer**. Un message de notification vous informe que les données de sauvegarde ont été supprimées.
 
-1. Pour supprimer les données de sauvegarde relatives à l’élément, sélectionnez **Supprimer**. Un message de notification vous informe que les données de sauvegarde ont été supprimées.
+  > [!NOTE]
+  > Lorsque vous supprimez les données de sauvegarde, vous supprimez tous les points de récupération associés. Vous ne pouvez pas choisir des points de récupération spécifiques à supprimer.
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Découvrez comment [sauvegarder une machine virtuelle Azure à partir des paramètres de celle-ci](backup-azure-vms-first-look-arm.md).

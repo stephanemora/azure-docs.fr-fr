@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: travisw
-ms.openlocfilehash: 8427417c9b579c7dfa21f834ce1ca77099159eb2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2c669f00ae65667f85976aca218ce51d630159ee
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65072619"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67465498"
 ---
 # <a name="voice-first-virtual-assistants-preview-frequently-asked-questions"></a>Aperçu des assistants virtuels « voice-first » : Questions fréquentes (FAQ)
 
@@ -25,7 +25,7 @@ Si vous ne trouvez pas de réponses à vos questions dans ce document, consultez
 
 **Q : Qu’est-ce que Direct Line Speech ?**
 
-**R :** Le `SpeechBotConnector` du SDK Speech met fournit une communication bidirectionnelle et asynchrone aux bots qui sont connectés au canal Direct Line Speech sur le Bot Framework. Ce canal fournit un accès coordonné à la reconnaissance vocale et à la synthèse vocale à partir des services Speech Azure qui permettent aux bots de se transformer en expériences de conversation vocales entrantes et sortantes. Avec la prise en charge des mots déclencheurs et la Vérification de mot déclencheur, cette solution permet de créer des assistants virtuels « voice first » hautement personnalisables pour votre marque ou produit.
+**R :** Le `DialogServiceConnector` du SDK Speech met fournit une communication bidirectionnelle et asynchrone aux bots qui sont connectés au canal Direct Line Speech sur le Bot Framework. Ce canal fournit un accès coordonné à la reconnaissance vocale et à la synthèse vocale à partir des services Speech Azure qui permettent aux bots de se transformer en expériences de conversation vocales entrantes et sortantes. Avec la prise en charge des mots déclencheurs et la Vérification de mot déclencheur, cette solution permet de créer des assistants virtuels « voice first » hautement personnalisables pour votre marque ou produit.
 
 **Q : Comment faire pour démarrer ?**
 
@@ -35,7 +35,7 @@ Si vous ne trouvez pas de réponses à vos questions dans ce document, consultez
 
 **Q : Je reçois une erreur 401 lors de la connexion et rien ne fonctionne. Je sais que ma clé d’abonnement Speech est valide. Que se passe-t-il ?**
 
-**R :** Dans la préversion, Direct Line Speech présente des limitations très spécifiques sur l’abonnement utilisé. Vérifiez que vous utilisez la ressource **Speech** (Microsoft.CognitiveServicesSpeechServices, « Speech ») et *pas* la ressource **Cognitive Services** (Microsoft.CognitiveServicesAllInOne, « Tous les services Cognitive Services »). En outre, notez que seule la région **westus2** est actuellement prise en charge.
+**R :** Dans la préversion, Direct Line Speech présente des limitations très spécifiques sur les abonnements que vous pouvez utiliser. Vérifiez que vous utilisez la ressource **Speech** (Microsoft.CognitiveServicesSpeechServices, « Speech ») et *non* la ressource **Cognitive Services** (Microsoft.CognitiveServicesAllInOne, « Tous les services Cognitive Services »). Seul [un sous-ensemble de régions pour les services Speech](regions.md#voice-first-virtual-assistants) est actuellement pris en charge pour Direct Line Speech.
 
 ![abonnement correct pour direct line speech](media/voice-first-virtual-assistants/faq-supported-subscription.png "exemple d’un abonnement Speech compatible")
 
@@ -43,9 +43,9 @@ Si vous ne trouvez pas de réponses à vos questions dans ce document, consultez
 
 **R :** Cette erreur indique un problème de communication entre le bot et Direct Line Speech. Vérifiez que vous avez [connecté le canal Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech), [ajouté la prise en charge du protocole de streaming](https://aka.ms/botframework/addstreamingprotocolsupport) à votre bot (avec la prise en charge WebSocket connexe), puis vérifiez que votre bot répond aux demandes entrantes provenant du canal.
 
-**Q : Cela ne fonctionne toujours pas et/ou j’obtiens une erreur différente lorsque j’utilise SpeechBotConnector et je ne sais pas quoi faire. Que *dois-je* faire ?**
+**Q : Ce code ne fonctionne toujours pas et/ou j’obtiens une erreur différente lorsque j’utilise DialogServiceConnector. Que dois-je faire ?**
 
-**R :** La journalisation basée sur fichier fournit beaucoup plus de détails et peut accélérer le traitement des demandes de support. Pour l’activer, consultez [comment utiliser la journalisation basée sur fichier](how-to-use-logging.md).
+**R :** La journalisation basée sur fichier fournit beaucoup plus de détails et peut accélérer le traitement des demandes de support. Pour activer cette fonctionnalité, consultez [comment utiliser la journalisation basée sur fichier](how-to-use-logging.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

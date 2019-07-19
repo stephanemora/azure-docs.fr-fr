@@ -7,14 +7,14 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 03/20/2019
+ms.date: 06/27/2019
 ms.author: kgremban
-ms.openlocfilehash: 6c22680102c57fdfc3d25beb19e5bc9847995b28
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f7004edf2bab0e22d4d1e4c1200d6e8b8ef729b3
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65152726"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485948"
 ---
 # <a name="install-azure-iot-edge-runtime-on-linux-arm32v7armhf"></a>Installer le runtime Azure IoT Edge sur Linux (ARM32v7/armhf)
 
@@ -27,7 +27,11 @@ Cet article répertorie les étapes pour installer le runtime Azure IoT Edge sur
 >[!NOTE]
 >Chaque package des référentiels de logiciels Linux est soumis aux termes du contrat de licence qu’il contient (/usr/share/doc/*nom_package*). Lisez les termes du contrat de licence avant d’utiliser le package. Le fait d’installer et d’utiliser le package revient à accepter ces termes. Si vous n’acceptez pas les termes du contrat de licence, n’utilisez pas le package.
 
-## <a name="install-the-container-runtime"></a>Installer le runtime de conteneur
+## <a name="install-the-latest-version"></a>Installer la dernière version
+
+À l’aide des sections suivantes, vous pourrez installer la version la plus récente du service Azure IoT Edge sur vos appareils Linux ARM. 
+
+### <a name="install-the-container-runtime"></a>Installer le runtime de conteneur
 
 Azure IoT Edge s’appuie sur un runtime de conteneur [compatible avec OCI](https://www.opencontainers.org/). Pour les scénarios en production, nous vous recommandons vivement d’utiliser le moteur [basé sur Moby](https://mobyproject.org/) fourni ci-dessous. C’est le seul moteur de conteneur officiellement pris en charge avec Azure IoT Edge. Les images conteneur Docker CE/EE sont compatibles avec le runtime Moby.
 
@@ -47,7 +51,7 @@ curl -L https://aka.ms/moby-cli-armhf-latest -o moby_cli.deb && sudo dpkg -i ./m
 sudo apt-get install -f
 ```
 
-## <a name="install-the-iot-edge-security-daemon"></a>Installer le démon de sécurité IoT Edge
+### <a name="install-the-iot-edge-security-daemon"></a>Installer le démon de sécurité IoT Edge
 
 Le **démon de sécurité IoT Edge** fournit et gère les standards de sécurité sur l’appareil IoT Edge. Le démon se lance à chaque démarrage et amorce l’appareil en démarrant le reste du runtime IoT Edge. 
 
@@ -66,7 +70,17 @@ curl -L https://aka.ms/iotedged-linux-armhf-latest -o iotedge.deb && sudo dpkg -
 sudo apt-get install -f
 ```
 
-## <a name="connect-your-device-to-an-iot-hub"></a>Connectez votre appareil à un IoT Hub 
+Une fois IoT Edge installé avec succès, la sortie vous invitera à mettre à jour le fichier config. Suivez les étapes de la section [Configurer le démon de sécurité Azure IoT Edge](#configure-the-azure-iot-edge-security-daemon) pour terminer l’approvisionnement de votre appareil. 
+
+## <a name="install-a-specific-version"></a>Installer une version spécifique
+
+Si vous souhaitez installer une version spécifique d’Azure IoT Edge, vous pouvez cibler les fichiers de composant directement dans le référentiel GitHub d’IoT Edge. Utiliser les mêmes commandes `curl` que celles répertoriées dans les sections précédentes pour obtenir tous les composants IoT Edge sur votre appareil : le moteur et l’interface CLI Moby, le fichier libiothsm et enfin le démon de sécurité IoT Edge. Il existe cependant une différence. Vous remplacez les URL **aka.ms** par des liens redirigeant directement vers la version de chacun des composants que vous souhaitez utiliser.
+
+Accédez aux [versions d’Azure IoT Edge](https://github.com/Azure/azure-iotedge/releases)et recherchez celle que vous souhaitez cibler. Développez la section **Actifs** pour trouver la version, puis choisissez les fichiers correspondant à l’architecture de votre appareil IoT Edge. Chaque version d’IoT Edge contient les fichiers **iotedge** et **libiothsm**. Toutes les versions ne contiennent pas les fichiers **moby-engine** ou **moby-cli**. Si le moteur de conteneur Moby n’est pas installé sur votre appareil, recherchez les versions antérieures jusqu’à ce que vous trouviez celle qui contient les composants Moby. 
+
+Une fois IoT Edge installé avec succès, la sortie vous invitera à mettre à jour le fichier config. Suivez les étapes décrites dans la section suivante pour terminer l’approvisionnement de votre appareil. 
+
+## <a name="configure-the-azure-iot-edge-security-daemon"></a>Configurer le démon de sécurité Azure IoT Edge
 
 Configurez le runtime IoT Edge pour lier votre appareil physique à une identité d’appareil existante dans un IoT Hub Azure. 
 

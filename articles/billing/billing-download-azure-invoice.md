@@ -1,26 +1,23 @@
 ---
-title: Afficher et télécharger votre facture Microsoft Azure | Microsoft Docs
-description: Explique comment afficher et télécharger votre facture Microsoft Azure
+title: Afficher et télécharger votre facture Microsoft Azure
+description: Explique comment afficher et télécharger votre facture Microsoft Azure.
 keywords: facturation, facture, téléchargement de facture, facture Azure, utilisation d’Azure
-services: billing
-documentationcenter: ''
-author: genlin
+author: bandersmsft
 manager: jureid
-editor: ''
 tags: billing
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: f71fe9b02765e0fc8fd5f3b7abbd54c87b08132f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 052232f922abf16a2690dcbe64c1b59999aedeab
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60617927"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491369"
 ---
 # <a name="view-and-download-your-microsoft-azure-invoice"></a>Afficher et télécharger votre facture Microsoft Azure
 
@@ -32,11 +29,11 @@ Si vous avez un [Contrat client Microsoft](#check-your-access-to-a-microsoft-cus
 
 ## <a name="download-your-azure-invoices-pdf"></a>Télécharger vos factures Azure (.pdf)
 
-Pour la plupart des abonnements, vous pouvez télécharger votre facture à partir du portail Azure. Si vous avez un Contrat client Microsoft, consultez Télécharger les factures pour un profil de facturation.
+Pour la plupart des abonnements, vous pouvez télécharger votre facture à partir du portail Azure. Si vous avez un Contrat client Microsoft, consultez [Télécharger les factures pour un Contrat Client Microsoft](#download-invoices-for-a-microsoft-customer-agreement).
 
 ### <a name="download-invoices-for-an-individual-subscription"></a>Télécharger les factures pour un abonnement individuel
 
-1. Sélectionnez votre abonnement dans la [page Abonnements](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) du portail Azure en tant qu’[utilisateur ayant accès aux factures](billing-manage-access.md).
+1. Sélectionnez votre abonnement dans la [page Abonnements](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) du Portail Azure en tant qu’[utilisateur ayant accès aux factures](billing-manage-access.md).
 
 2. Sélectionnez **Factures**.
 
@@ -52,10 +49,10 @@ Pour plus d’informations sur votre facture, consultez la page [Comprendre votr
 
 ### <a name="download-invoices-for-a-microsoft-customer-agreement"></a>Télécharger les factures pour un Contrat client Microsoft
 
-Les factures sont générées pour chaque [profil de facturation](billing-mca-overview.md#understand-billing-profiles) dans le Contrat client Microsoft. Vous devez être Gestionnaire de factures, Propriétaire, Contributeur ou Lecteur de profil de facturation pour télécharger des factures à partir du portail Azure.
+Les factures sont générées pour chaque [profil de facturation](billing-mca-overview.md#billing-profiles) dans le Contrat client Microsoft. Vous devez être Gestionnaire de factures, Propriétaire, Contributeur ou Lecteur de profil de facturation pour télécharger des factures à partir du portail Azure.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-1. Effectuez une recherche sur **Gestion des coûts + facturation**.
+1. Recherchez *Gestion des coûts + facturation*.
 1. Sélectionnez un profil de facturation. Selon votre accès, vous devrez peut-être sélectionner au préalable un compte de facturation.
 1. Sélectionnez **Factures**.
 1. Dans la grille des factures, recherchez la ligne de la facture que vous souhaitez télécharger.
@@ -69,36 +66,36 @@ Si vous ne voyez pas de facture pour la dernière période de facturation, consu
 
 ## <a name="get-your-invoice-in-email-pdf"></a>Obtenir votre facture par e-mail (.pdf)
 
-Vous pouvez choisir de configurer des destinataires supplémentaires qui recevront votre facture Azure par e-mail. Cette fonctionnalité n’est peut-être pas disponible pour certains abonnements tels que les offres de support, les contrats Entreprise ou Azure dans Open. Si vous avez un contrat client Microsoft, consultez Obtenir les factures liées à votre profil de facturation par e-mail.
+Vous pouvez choisir de configurer des destinataires supplémentaires qui recevront votre facture Azure par e-mail. Cette fonctionnalité n’est peut-être pas disponible pour certains abonnements tels que les offres de support, les contrats Entreprise ou Azure dans Open. Si vous avez un Contrat Client Microsoft, consultez la section suivante, [Obtenir les factures liées à votre profil de facturation par e-mail](#get-your-subscriptions-invoices-in-email).
 
 ### <a name="get-your-subscriptions-invoices-in-email"></a>Obtenir les factures de votre abonnement par e-mail
 
-1. Sélectionnez votre abonnement sur la [page Abonnements](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Choisissez cette option pour chacun de vos abonnements. Cliquez sur **Factures** pour sélectionner **l’envoi de votre facture par E-mail**.
+1. Sélectionnez votre abonnement dans la [page Abonnements](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Choisissez cette option pour chacun de vos abonnements. Cliquez sur **Factures** pour sélectionner **l’envoi de votre facture par E-mail**.
 
     ![Capture d’écran montrant le processus d’abonnement](./media/billing-download-azure-invoice-daily-usage-date/InvoicesDeepLink.PNG)
 
 2. Cliquez sur **Activation** et acceptez les termes du contrat.
 
-    ![Capture d’écran montrant l’étape 2 du flux de l’adhésion](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep2.PNG)
- 
+    ![Capture d’écran montrant l’étape 2 du processus d’abonnement](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep2.PNG)
+
 3. Une fois que vous avez accepté le contrat, vous pouvez configurer des destinataires supplémentaires. Quand un destinataire est supprimé, l’adresse e-mail n’est plus stockée. Si vous changez d’avis, vous devez les ajouter à nouveau.
 
-    ![Capture d’écran montrant l’étape 3 du flux de l’adhésion](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep3.PNG)
+    ![Capture d’écran montrant l’étape 3 du processus d’abonnement](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep3.PNG)
 
 Si vous n’obtenez pas de courrier électronique une fois ces étapes terminées, assurez-vous que votre adresse de messagerie est correcte dans les [préférences de communication sur votre profil](https://account.windowsazure.com/profile).
 
 ### <a name="opt-out-of-getting-your-subscriptions-invoices-in-email"></a>Ne pas adhérer à l’obtention des factures de votre abonnement par e-mail
 
-Vous pouvez ne pas adhérer à l’obtention de votre facture par e-mail en suivant les étapes ci-dessus et en cliquant sur **Désactiver l’envoi de facture par e-mail**. Cette option supprime toutes les adresses e-mail définies pour recevoir les factures par e-mail. Vous pouvez reconfigurer les destinataires si vous réadhérez.
+Pour annuler votre adhésion à l’obtention de votre facture par e-mail, suivez les étapes précédentes et cliquez sur **Désactiver l’envoi de facture par e-mail**. Cette option supprime toutes les adresses e-mail définies pour recevoir les factures par e-mail. Vous pouvez reconfigurer les destinataires si vous réadhérez.
 
- ![Capture d’écran montrant le flux de l’adhésion](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep4.PNG)
+ ![Capture d’écran montrant le processus de désabonnement](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep4.PNG)
 
 ### <a name="get-your-microsoft-customer-agreement-invoices-in-email"></a>Obtenir les factures de votre Contrat client Microsoft par e-mail
 
 Si vous avez un Contrat client Microsoft, vous pouvez adhérer à l’obtention de votre facture par e-mail. Tous les Gestionnaires de factures, Propriétaires, Contributeurs et Lecteurs de profil de facturation obtiennent la facture par e-mail. Les lecteurs ne peuvent pas mettre à jour la préférence d’envoi par e-mail de la facture.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-1. Effectuez une recherche sur **Gestion des coûts + facturation**.
+1. Recherchez **Gestion des coûts + facturation**.
 1. Sélectionnez un profil de facturation. Selon votre accès, vous devrez peut-être sélectionner au préalable un compte de facturation.
 1. Sous **Paramètres**, sélectionnez **Propriétés**.
 1. Sous **Facture par e-mail**, sélectionnez **Mettre à jour la préférence d’envoi par e-mail de la facture**.
@@ -110,7 +107,7 @@ Si vous avez un Contrat client Microsoft, vous pouvez adhérer à l’obtention 
 
 ### <a name="opt-out-of-getting-your-microsoft-customer-agreement-invoices-in-email"></a>Ne pas adhérer à l’obtention des factures de votre Contrat client Microsoft par e-mail
 
-Vous pouvez ne pas adhérer à l’obtention de votre facture par e-mail en suivant les étapes ci-dessus et en cliquant sur **Désactiver**. Tous les Gestionnaires de factures, Propriétaires, Contributeurs et Lecteurs seront également exclus de l’adhésion à l’obtention de la facture par e-mail. Si vous êtes lecteur, vous ne pouvez pas changer la préférence d’envoi par e-mail de la facture.
+Pour annuler votre adhésion à l’obtention de votre facture par e-mail, suivez les étapes précédentes et cliquez sur **Désactiver**. Tous les Gestionnaires de factures, Propriétaires, Contributeurs et Lecteurs sont également exclus de l’adhésion à l’obtention de la facture par e-mail. Si vous êtes lecteur, vous ne pouvez pas changer la préférence d’envoi par e-mail de la facture.
 
 ### <a name="noinvoice"></a> Pourquoi ne puis-je pas voir de facture pour la dernière période de facturation ?
 
@@ -127,9 +124,9 @@ Si vous ne voyez pas de facture, cela peut être pour plusieurs raisons :
 ## <a name="check-your-access-to-a-microsoft-customer-agreement"></a>Vérifier votre accès à un Contrat client Microsoft
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Nous contacter
+## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
 
-Si vous avez des questions ou besoin d’aide, créez une [demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).
+Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

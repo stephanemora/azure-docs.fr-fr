@@ -9,12 +9,12 @@ ms.subservice: anomaly-detector
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: 766d009be3cd664d928a3c12f5fea38c26bbbdde
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1ad4a67d7737733e4c910d3495be29860769f27e
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64692199"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477808"
 ---
 # <a name="best-practices-for-using-the-anomaly-detector-api"></a>Bonnes pratiques pour l’utilisation de l’API Détecteur d’anomalies
 
@@ -51,7 +51,7 @@ Voici le même jeu de données avec la détection d’anomalies par lots. Le mod
 
 ## <a name="data-preparation"></a>Préparation des données
 
-L’API Détecteur d’anomalies accepte la série chronologique mise en forme dans un objet de demande JSON. Une série chronologique peut être n’importe quel type de données numériques enregistrées au fil du temps dans l’ordre séquentiel. Vous pouvez envoyer des fenêtres de vos données de série chronologique au point de terminaison de l’API Détecteur d’anomalies pour améliorer les performances de l’API. Le nombre minimum de points de données que vous pouvez envoyer est de 12, et le nombre maximum est de 8 640 points. 
+L’API Détecteur d’anomalies accepte la série chronologique mise en forme dans un objet de demande JSON. Une série chronologique peut être n’importe quel type de données numériques enregistrées au fil du temps dans l’ordre séquentiel. Vous pouvez envoyer des fenêtres de vos données de série chronologique au point de terminaison de l’API Détecteur d’anomalies pour améliorer les performances de l’API. Le nombre minimum de points de données que vous pouvez envoyer est de 12, et le nombre maximum est de 8 640 points. La [granularité](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.granularity?view=azure-dotnet-preview) est définie comme la vitesse à laquelle vos données sont échantillonnées. 
 
 Les points de données envoyés à l’API Détecteur d'anomalies doivent avoir un timestamp de temps universel coordonné (UTC) et une valeur numérique. 
 
@@ -68,6 +68,15 @@ Les points de données envoyés à l’API Détecteur d'anomalies doivent avoir 
         "value": 29615278
       },
     ]
+}
+```
+
+Si vos données sont échantillonnées à un intervalle de temps non standard, vous pouvez le spécifier en ajoutant l’attribut `customInterval` dans votre requête. Par exemple, si votre série est échantillonnée toutes les 5 minutes, vous pouvez ajouter les éléments suivants à votre requête JSON :
+
+```json
+{
+    "granularity" : "minutely", 
+    "customInterval" : 5
 }
 ```
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: ed3d89bc15f960947a48ac4364bd14f3fdf50cc2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7a547efb7af69c58f8e04615d24dd7c230f0c8b0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60505564"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444644"
 ---
 # <a name="enable-or-disable-a-firewall-rule-on-an-azure-vm-guest-os"></a>Activer ou désactiver une règle de pare-feu sur un système d’exploitation invité d’une machine virtuelle Azure
 
@@ -99,7 +99,7 @@ Si la machine virtuelle est en ligne et accessible sur une autre machine virtuel
 
 1.  Sur la machine virtuelle de dépannage, démarrez l’éditeur de Registre (regedit.exe), puis sélectionnez **Fichier** > **Connexion au Registre réseau**.
 
-2.  Ouvrez la branche  *MACHINE CIBLE*\SYSTEM, puis spécifiez les valeurs suivantes :
+2.  Ouvrez la branche *MACHINE CIBLE*\SYSTEM, puis spécifiez les valeurs suivantes :
 
     * Pour activer une règle, ouvrez la valeur de Registre suivante :
     
@@ -123,26 +123,26 @@ Si la machine virtuelle est en ligne et accessible sur une autre machine virtuel
 
 Si vous ne pouvez pas accéder à la machine virtuelle par n’importe quelle méthode, Extension de script personnalisée échoue, et vous devrez travailler en mode HORS CONNEXION directement via le disque système.
 
-Avant de suivre ces étapes, prenez un instantané du disque système de la machine virtuelle affectée comme sauvegarde. Pour plus d’informations, consultez  [Créer un instantané](../windows/snapshot-copy-managed-disk.md).
+Avant de suivre ces étapes, prenez un instantané du disque système de la machine virtuelle affectée comme sauvegarde. Pour plus d’informations, consultez [Créer un instantané](../windows/snapshot-copy-managed-disk.md).
 
 1.  [Attachez le disque système à une machine virtuelle de récupération](troubleshoot-recovery-disks-portal-windows.md).
 
 2.  Établissez une connexion Bureau à distance avec la machine virtuelle de récupération.
 
-3.  Vérifiez que le disque est marqué comme **En ligne** dans la console Gestion des disques. Notez la lettre de lecteur affectée au disque système attaché.
+3.  Vérifiez que le disque est marqué comme étant **En ligne** dans la console Gestion des disques. Notez la lettre de lecteur affectée au disque système attaché.
 
 4.  Avant d’effectuer des changements, créez une copie du dossier \windows\system32\config au cas où vous souhaiteriez annuler les changements.
 
 5.  Sur la machine virtuelle de dépannage, démarrez l’éditeur de Registre (regedit.exe).
 
-6.  Mettez en surbrillance la clé **HKEY_LOCAL_MACHINE** , puis sélectionnez  **Fichier** > **Charger Hive**  à partir du menu.
+6.  Mettez en surbrillance la clé **HKEY_LOCAL_MACHINE**, puis sélectionnez **Fichier** > **Charger Hive** dans le menu.
 
     ![Regedit](./media/enable-or-disable-firewall-rule-guest-os/load-registry-hive.png)
 
 7.  Recherchez et ouvrez le fichier \windows\system32\config\SYSTEM. 
 
     > [!Note]
-    > Vous êtes invité à saisir un nom. Entrez  **BROKENSYSTEM**, puis développez  **HKEY_LOCAL_MACHINE**. Vous voyez maintenant une clé supplémentaire nommée **BROKENSYSTEM**. Pour cette procédure de dépannage, nous montons ces ruches défectueuses en tant que  **BROKENSYSTEM**.
+    > Vous êtes invité à saisir un nom. Entrez **BROKENSYSTEM**, puis développez **HKEY_LOCAL_MACHINE**. Vous voyez maintenant une clé supplémentaire nommée**BROKENSYSTEM**. Pour cette procédure de dépannage, nous montons ces ruches défectueuses en tant que **BROKENSYSTEM**.
 
 8.  Sur la branche BROKENSYSTEM, apportez les modifications suivantes :
 
@@ -164,7 +164,7 @@ Avant de suivre ces étapes, prenez un instantané du disque système de la mach
         
         **v2.22|Action=Allow|Active=FALSE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=\@FirewallAPI.dll,-28775|Desc=\@FirewallAPI.dll,-28756|EmbedCtxt=\@FirewallAPI.dll,-28752|**
 
-9.  Mettez en surbrillance  **BROKENSYSTEM**, puis sélectionnez  **Fichier** > **Décharger Hive**  à partir du menu.
+9.  Mettez la clé **BROKENSYSTEM** en surbrillance, puis sélectionnez **Fichier** > **Charger la ruche** dans le menu.
 
 10. [Détachez le disque système et recréez la machine virtuelle](troubleshoot-recovery-disks-portal-windows.md).
 

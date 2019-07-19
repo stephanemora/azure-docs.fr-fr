@@ -5,15 +5,15 @@ services: expressroute
 author: ganesr
 ms.service: expressroute
 ms.topic: article
-ms.date: 09/26/2018
+ms.date: 07/01/2019
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 0515b5e85c3bcf56f1f238620d6036d1be0bec7e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 55b5207e4c05712b4d96d4272f9ae193cc4c1720
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60839276"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508609"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>Configurer des filtres de routage pour le peering Microsoft : Portail Azure
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ Si vous avez besoin de connectivité à tous les services, de nombreux préfixes
 
 Lorsque l’homologation Microsoft est configurée sur votre circuit ExpressRoute, les routeurs de périphérie Microsoft établissent une paire de sessions BGP avec les routeurs de périphérie (les vôtres ou ceux de votre fournisseur de connectivité). Aucun routage n’est publié sur votre réseau. Pour activer les annonces de routage sur votre réseau, vous devez associer un filtre de routage.
 
-Un filtre de routage vous permet d’identifier les services que vous souhaitez utiliser via l’homologation Microsoft de votre circuit ExpressRoute. Il s’agit essentiellement d’une liste blanche de toutes les valeurs de communauté BGP. Une fois qu’une ressource de filtre de routage est définie et jointe à un circuit ExpressRoute, tous les préfixes qui mappent aux valeurs de communauté BGP sont publiés sur votre réseau.
+Un filtre de routage vous permet d’identifier les services que vous souhaitez utiliser via l’homologation Microsoft de votre circuit ExpressRoute. Il s’agit essentiellement d’une liste de toutes les valeurs de communauté BGP que vous souhaitez autoriser. Une fois qu’une ressource de filtre de routage est définie et jointe à un circuit ExpressRoute, tous les préfixes qui mappent aux valeurs de communauté BGP sont publiés sur votre réseau.
 
 Pour être en mesure de joindre des filtres de routage à des services Office 365, vous devez être autorisé à utiliser les services Office 365 via ExpressRoute. Si vous n’êtes pas autorisé à utiliser les services Office 365 via ExpressRoute, la jointure des filtres de routage échoue. Pour plus d’informations sur le processus d’autorisation, consultez [Azure ExpressRoute pour Office 365](https://support.office.com/article/Azure-ExpressRoute-for-Office-365-6d2534a2-c19c-4a99-be5e-33a0cee5d3bd). La connectivité aux services Dynamics 365 ne nécessite pas d’autorisation préalable.
 
@@ -79,7 +79,7 @@ Les valeurs de communauté BGP associées aux services accessibles via l’homol
 
 ### <a name="2-make-a-list-of-the-values-that-you-want-to-use"></a>2. Dresser la liste des valeurs que vous souhaitez utiliser
 
-Dressez la liste des valeurs de communauté BGP que vous souhaitez utiliser dans le filtre de routage. Par exemple, la valeur de communauté BGP pour les services Dynamics 365 est 12076:5040.
+Dressez la liste des [valeurs de communauté BGP](expressroute-routing.md#bgp) que vous souhaitez utiliser dans le filtre de routage. 
 
 ## <a name="filter"></a>Étape 2 : Créer un filtre de routage et une règle de filtre
 
@@ -137,7 +137,7 @@ Vous pouvez mettre à jour la liste des valeurs de communauté BGP jointe à un 
 
 ### <a name="detach"></a>Détacher un filtre de routage d’un circuit ExpressRoute
 
-Pour détacher un circuit du filtre de routage, cliquez avec le bouton droit sur le circuit, puis cliquez sur « dissocier ».
+Pour détacher un circuit du filtre de routage, cliquez avec le bouton droit sur le circuit, puis cliquez sur « Dissocier ».
 
 ![Créer un filtre de routage](./media/how-to-routefilter-portal/DetachRouteFilter.png) 
 
@@ -150,4 +150,6 @@ Vous pouvez supprimer un filtre de routage en sélectionnant le bouton Supprimer
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d'informations sur ExpressRoute, consultez la [FAQ sur ExpressRoute](expressroute-faqs.md).
+* Pour plus d'informations sur ExpressRoute, consultez la [FAQ sur ExpressRoute](expressroute-faqs.md).
+
+* Pour plus d’informations sur les exemples de configuration de routeur, consultez [Exemples de configuration de routeur pour configurer et gérer le routage](expressroute-config-samples-routing.md). 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e4a9931fa6e2edf8989036eb8dbfbef3638cbbe0
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.openlocfilehash: 9ae2894f9f442bca1e6029b7e7d8e07824abf7fb
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66507525"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051726"
 ---
 # <a name="applications-types-that-can-be-used-in-active-directory-b2c"></a>Types d’applications pouvant être utilisés dans Azure Active Directory B2C
 
@@ -98,7 +98,7 @@ Une API web peut recevoir des jetons de tous types de clients, notamment des app
 6. Le `access_token` et le `refresh_token` sont retournés au serveur web.
 7. L’API web est appelée avec le `access_token` dans un en-tête d’autorisation.
 8. L’API web valide le jeton.
-9. Les données sécurisées sont retournées au serveur web.
+9. Les données sécurisées sont retournées à l’application web.
 
 Pour plus d’informations sur les codes d’autorisation, les jetons d’actualisation et les étapes d’obtention des jetons, voir l’article concernant le [protocole OAuth 2.0](active-directory-b2c-reference-oauth-code.md).
 

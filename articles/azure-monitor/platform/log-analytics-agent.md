@@ -11,16 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/06/2019
+ms.date: 07/01/2019
 ms.author: magoedte
-ms.openlocfilehash: 436685f3bba58ed7d06dfe834d808e7fe422176b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 583845b2ea63efd42f382c9c150de650f34bafed
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66751988"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514107"
 ---
-# <a name="collect-log-data-with-the-azure-log-analytics-agent"></a>Collecter des données de journal avec l'agent Azure Log Analytics
+# <a name="collect-log-data-with-the-log-analytics-agent"></a>Collecter des données de journal avec l’agent Log Analytics
 
 L'agent Azure Log Analytics, précédemment appelé Microsoft Monitoring Agent (MMA) ou agent OMS Linux, a été développé fournir une gestion complète sur plusieurs machines locales, ordinateurs surveillés par [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/) et machines virtuelles situées dans un cloud. Les agents Windows et Linux accèdent à Azure Monitor et stockent des données de journaux collectés à partir de différentes sources dans votre espace de travail Log Analytics, ainsi qu’à des journaux ou métriques uniques tels que définis dans une solution de surveillance. 
 
@@ -34,11 +34,11 @@ Avant d’analyser et d’exploiter les données collectées, vous devez commenc
 
 L’agent pour Linux et Windows communique en sortie avec le service Azure Monitor via le port TCP 443. Si la machine se connecte via un pare-feu ou un serveur proxy pour communiquer sur Internet, consultez les exigences ci-dessous pour connaître la configuration réseau nécessaire. Si vos stratégies de sécurité informatique n’autorisent pas les ordinateurs du réseau à se connecter à Internet, vous pouvez configurer une [passerelle Log Analytics](gateway.md), puis configurer l’agent pour qu’il se connecte aux journaux Azure Monitor via la passerelle. L’agent peut ensuite recevoir des informations de configuration et envoyer les données collectées en fonction des règles de collecte de données et des solutions de surveillance que vous avez activées dans votre espace de travail. 
 
-Si vous surveillez un ordinateur avec System Center Operations Manager 2012 R2 ou ultérieur, il peut être multihébergé avec le service Azure Monitor pour collecter des données et les transférer au service, tandis [qu’Operations Manager](../../azure-monitor/platform/om-agents.md) poursuit la surveillance. Avec des ordinateurs Linux, l’agent n’inclut pas de composant de service de contrôle d’intégrité comme l’agent Windows, et les informations sont collectées et traitées par un serveur d’administration en son nom. Étant donné que les ordinateurs Linux sont surveillés différemment avec Operations Manager, ils ne reçoivent pas de configuration et ne collectent pas de données directement, et effectuent des transferts via le groupe d’administration, comme le fait un système géré par l’agent Windows. Par conséquent, ce scénario n’est pas pris en charge pour les ordinateurs Linux associés à Operations Manager.  
+Si vous surveillez un ordinateur avec System Center Operations Manager 2012 R2 ou ultérieur, il peut être multihébergé avec le service Azure Monitor pour collecter des données et les transférer au service, tandis [qu’Operations Manager](../../azure-monitor/platform/om-agents.md) poursuit la surveillance. Avec des ordinateurs Linux, l’agent n’inclut pas de composant de service de contrôle d’intégrité comme l’agent Windows, et les informations sont collectées et traitées par un serveur d’administration en son nom. Étant donné que les ordinateurs Linux sont surveillés différemment avec Operations Manager, ils ne reçoivent pas de configuration et ne collectent pas de données directement, et effectuent des transferts via le groupe d’administration, comme le fait un système géré par l’agent Windows. Par conséquent, ce scénario n’est pas pris en charge sur les ordinateurs Linux qui envoient des rapports à Operations Manager. Vous devez également configurer l’ordinateur Linux de manière à [envoyer un rapport à un groupe d’administration Operations Manager](../platform/agent-manage.md#configure-agent-to-report-to-an-operations-manager-management-group) ainsi qu’un espace de travail Log Analytics en deux étapes.
 
 L’agent Windows peut envoyer des rapports à quatre espaces de travail Log Analytics, contre un seul pour l’agent Linux.  
 
-L’agent pour Linux et Windows ne sert pas seulement à la connexion à Azure Monitor. Il prend également en charge la connexion à Azure Automation pour héberger le rôle Runbook Worker hybride, ainsi que d’autres services tels que [Change Tracking](../../automation/change-tracking.md) et [Update Management](../../automation/automation-update-management.md). Pour plus d’informations sur le rôle Runbook Worker hybride, consultez la page [Runbook Worker hybride d’Azure Automation](../../automation/automation-hybrid-runbook-worker.md).  
+L’agent pour Linux et Windows ne sert pas seulement à la connexion à Azure Monitor. Il prend également en charge la connexion à Azure Automation pour héberger le rôle de travail Runbook Worker hybride, ainsi que d’autres services tels que [Change Tracking](../../automation/change-tracking.md), [Update Management](../../automation/automation-update-management.md) et [Azure Security Center](../../security-center/security-center-intro.md). Pour plus d’informations sur le rôle Runbook Worker hybride, consultez la page [Runbook Worker hybride d’Azure Automation](../../automation/automation-hybrid-runbook-worker.md).  
 
 ## <a name="supported-windows-operating-systems"></a>Systèmes d’exploitation Windows pris en charge
 Les versions suivantes du système d’exploitation Windows sont officiellement prises en charge pour l’agent Windows :
@@ -68,7 +68,7 @@ Cette section fournit des détails sur les distributions Linux prises en charge.
 * Red Hat Enterprise Linux Server 6 (x86/x64) et 7 (x64)
 * Debian GNU/Linux 8 et 9 (x86/x64)
 * Ubuntu 14.04 LTS (x86/x64), 16.04 LTS (x86/x64) et 18.04 LTS (x64)
-* SUSE Linux Enterprise Server 12 (x64)
+* SUSE Linux Enterprise Server 12 (x64) et 15 (x64)
 
 >[!NOTE]
 >OpenSSL 1.1.0 est uniquement pris en charge sur les plateformes x86_x64 (64 bits), tandis qu’OpenSSL antérieur à 1.x n’est pris en charge sur aucune plateforme.

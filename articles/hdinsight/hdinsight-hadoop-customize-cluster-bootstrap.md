@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/19/2019
-ms.openlocfilehash: 7f9100686eaab8c4c75e3d862026b18b6c46ed09
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 50db9a588cd953bbd0e912ec942194a8deeffe4c
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65203704"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484036"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Personnalisation de clusters HDInsight à l’aide de Bootstrap
 
@@ -150,11 +150,8 @@ Vous pouvez utiliser Bootstrap dans un modèle Resource Manager :
 
 Ce script PowerShell permet de créer un cluster HDInsight et de personnaliser un paramètre Hive. Veillez à entrer des valeurs pour `$nameToken`, `$httpPassword` et `$sshPassword`.
 
-> [!IMPORTANT]  
-> Les valeurs de `DefaultStorageAccount` et `DefaultStorageContainer` ne sont pas renvoyées à partir de [Get-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster) lorsque l’option de [transfert sécurisé](../storage/common/storage-require-secure-transfer.md) est activée sur le compte de stockage.
-
 > [!WARNING]  
-> Le type de compte de stockage `BlobStorage` ne peut pas être utilisé pour les clusters HDInsight.
+> Le genre de compte de stockage `BlobStorage` ne peut pas être utilisé pour des clusters HDInsight.
 
 
 ```powershell

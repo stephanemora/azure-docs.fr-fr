@@ -8,29 +8,30 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 6ad6f9414df17f9edff7565752ef3845e0d3c88e
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.openlocfilehash: c2bf19a2599d59b9ff2b3d189b26134f1528a878
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66116199"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448566"
 ---
 # <a name="understand-azure-policy-effects"></a>Comprendre les effets d’Azure Policy
 
 Chaque définition de stratégie dans Azure Policy a un effet unique. Cet effet détermine ce qu’il se passe lorsque la règle de stratégie est évaluée pour une mise en correspondance. Les effets se comportent différemment selon qu’ils concernent une nouvelle ressource, une ressource mise à jour ou une ressource existante.
 
-Une définition de stratégie prend en charge les six effets suivants :
+Une définition de stratégie prend en charge ces effets :
 
-- Append
-- Audit
-- AuditIfNotExists
-- Refuser
-- DeployIfNotExists
-- Désactivé
+- [Append](#append)
+- [Audit](#audit)
+- [AuditIfNotExists](#auditifnotexists)
+- [Deny](#deny)
+- [DeployIfNotExists](#deployifnotexists)
+- [Désactivé](#disabled)
+- [EnforceRegoPolicy](#enforceregopolicy) (préversion)
 
 ## <a name="order-of-evaluation"></a>Ordre d’évaluation
 
-Pour créer ou mettre à jour une ressource via Azure Resource Manager, les demandes sont évaluées en premier par Azure Policy. Stratégie Azure crée une liste de toutes les attributions qui s’appliquent à la ressource et évalue ensuite la ressource par rapport à chaque définition. Azure Policy traite plusieurs effets avant de transmettre la demande au fournisseur de ressources approprié. Cela permet d’éviter un traitement inutile par un fournisseur de ressources lorsqu’une ressource ne respecte pas les contrôles de gouvernance conçue d’Azure Policy.
+Les requêtes pour créer ou mettre à jour une ressource via Azure Resource Manager sont évaluées en premier par Azure Policy. Azure Policy répertorie toutes les affectations qui s’appliquent à la ressource, puis évalue la ressource en fonction de chaque définition. Azure Policy traite plusieurs effets avant de transmettre la requête au fournisseur de ressources approprié. Cela empêche un fournisseur de ressources d’effectuer un traitement inutile de la ressource lorsque celle-ci ne satisfait pas aux contrôles de gouvernance d’Azure Policy.
 
 - **Désactivé** est vérifié en premier pour déterminer si la règle de stratégie doit être évaluée.
 - **Append** est ensuite évalué. Comme Append risque de modifier la requête, une modification apportée par Append peut empêcher le déclenchement d’un effet Audit ou Deny.
@@ -38,6 +39,8 @@ Pour créer ou mettre à jour une ressource via Azure Resource Manager, les dema
 - **Audit** est alors évalué avant que la requête ne soit envoyée au fournisseur de ressources.
 
 Une fois que le fournisseur de ressources a retourné un code de réussite, **AuditIfNotExists** et **DeployIfNotExists** déterminent si une journalisation de conformité ou une action supplémentaire est requise.
+
+Il n’existe pas actuellement d’ordre d’évaluation pour l’effet **EnforceRegoPolicy**.
 
 ## <a name="disabled"></a>Désactivé
 
@@ -88,7 +91,7 @@ Exemple 2 : deux paires **champ/valeur** à ajouter à une balise.
 }
 ```
 
-Exemple 3 : Seul **champ/valeur** jumelé à l’aide de non -**[\*]** [alias](definition-structure.md#aliases) avec un tableau **valeur** pour définir des règles d’adresses IP sur un compte de stockage. Lorsque l’alias non-**[\*]** est un tableau, l’effet ajoute la **value** comme tableau entier. Si le tableau existe déjà, un événement de refus se produit à partir du conflit.
+Exemple 3 : paire **champ/valeur** unique utilisant un [alias](definition-structure.md#aliases) non- **[\*]** avec un tableau **value** afin de définir des règles IP sur un compte de stockage. Lorsque l’alias non- **[\*]** est un tableau, l’effet ajoute la **value** comme tableau entier. Si le tableau existe déjà, un événement de refus se produit à partir du conflit.
 
 ```json
 "then": {
@@ -103,7 +106,7 @@ Exemple 3 : Seul **champ/valeur** jumelé à l’aide de non -**[\*]** [alias]
 }
 ```
 
-Exemple 4 : paire **champ/valeur** unique utilisant un [alias](definition-structure.md#aliases) **[\*]** avec un tableau **value** afin de définir des règles IP sur un compte de stockage. En utilisant l’alias **[\*]**, l’effet ajoute la **value** à un tableau potentiellement préexistant. Si le tableau n’existe pas, il est créé.
+Exemple 4 : paire **champ/valeur** unique utilisant un [alias](definition-structure.md#aliases) **[\*]** avec un tableau **value** afin de définir des règles IP sur un compte de stockage. En utilisant l’alias **[\*]** , l’effet ajoute la **value** à un tableau potentiellement préexistant. Si le tableau n’existe pas, il est créé.
 
 ```json
 "then": {
@@ -118,7 +121,7 @@ Exemple 4 : paire **champ/valeur** unique utilisant un [alias](definition-stru
 }
 ```
 
-## <a name="deny"></a>Refuser
+## <a name="deny"></a>Deny
 
 Deny empêche l’exécution d’une requête de ressource qui ne correspond pas aux normes définies via une définition de stratégie et qui fait échouer la requête.
 
@@ -148,7 +151,7 @@ Audit permet de créer un événement d’avertissement dans le journal d’acti
 
 ### <a name="audit-evaluation"></a>Évaluation Audit
 
-L’audit est le dernier effet vérifié par Azure Policy pendant la création ou la mise à jour d’une ressource. Azure Policy envoie ensuite la ressource pour le fournisseur de ressources. Audit fonctionne de la même façon pour une requête de ressource et un cycle d’évaluation. La stratégie Azure ajoute un `Microsoft.Authorization/policies/audit/action` opération dans le journal d’activité et la marque comme non conformes.
+Audit est le dernier effet vérifié par Azure Policy pendant la création ou la mise à jour d’une ressource. Azure Policy envoie ensuite la ressource au fournisseur de ressources. Audit fonctionne de la même façon pour une requête de ressource et un cycle d’évaluation. Azure Policy ajoute une opération `Microsoft.Authorization/policies/audit/action` dans le journal d’activité et marque la ressource comme non conforme.
 
 ### <a name="audit-properties"></a>Propriétés d’Audit
 
@@ -170,7 +173,7 @@ AuditIfNotExists active l’audit sur des ressources qui satisfont à la conditi
 
 ### <a name="auditifnotexists-evaluation"></a>Évaluation AuditIfNotExists
 
-AuditIfNotExists s’exécute après qu’un fournisseur de ressources a traité une requête de création ou de mise à jour de ressource et a renvoyé un code d’état de réussite. L’effet Audit est déclenché s’il n’existe pas de ressources connexes ou si les ressources définies par **ExistenceCondition** ne retournent pas de valeur true. La stratégie Azure ajoute un `Microsoft.Authorization/policies/audit/action` opération à l’activité de se connecter à la même façon que l’effet d’audit. Dans ce cas, la ressource qui a rempli la condition **if** est en fait la ressource qui est marquée comme non conforme.
+AuditIfNotExists s’exécute après qu’un fournisseur de ressources a traité une requête de création ou de mise à jour de ressource et a renvoyé un code d’état de réussite. L’effet Audit est déclenché s’il n’existe pas de ressources connexes ou si les ressources définies par **ExistenceCondition** ne retournent pas de valeur true. Azure Policy ajoute une opération `Microsoft.Authorization/policies/audit/action` au journal d’activité de la même façon que l’effet Audit. Dans ce cas, la ressource qui a rempli la condition **if** est en fait la ressource qui est marquée comme non conforme.
 
 ### <a name="auditifnotexists-properties"></a>Propriétés d’AuditIfNotExists
 
@@ -178,10 +181,10 @@ La propriété **details** des effets AuditIfNotExists possède toutes les sous-
 
 - **Type** [obligatoire]
   - Spécifie le type de la ressource connexe à évaluer.
-  - Si **details.type** est un type de ressource sous la **si** condition ressource, la stratégie de requêtes pour les ressources de ce **type** dans l’étendue de la ressource évaluée. Sinon, requêtes de stratégie dans le même groupe de ressources que la ressource évaluée.
+  - Si **details.type** est un type de ressource sous la ressource de condition **if**, la stratégie envoie des requêtes pour les ressources de ce **type** dans l’étendue de la ressource évaluée. Sinon, la stratégie envoie des requêtes dans le même groupe de ressources que la ressource évaluée.
 - **Name** (facultatif)
   - Spécifie le nom exact de la ressource à tester et amène la stratégie à extraire une ressource spécifique au lieu de toutes les ressources du type spécifié.
-  - Lorsque la condition de valeurs pour **if.field.type** et **then.details.type** correspondent, puis **nom** devient _requis_ et doit être `[field('name')]`. Toutefois, un [audit](#audit) effet doit être considéré comme à la place.
+  - Lorsque les valeurs de condition pour **if.field.type** et **then.details.type** correspondent, **Name** devient _required_ et doit être `[field('name')]`. Toutefois, un effet [audit](#audit) doit être considéré à la place.
 - **ResourceGroupName** (facultatif)
   - Permet l’évaluation de la ressource connexe provenant d’un groupe de ressources différent.
   - Ne s’applique pas si **type** est une ressource qui serait située sous la ressource de condition **if**.
@@ -252,7 +255,7 @@ La propriété **details** des effets DeployIfNotExists possède toutes les sous
   - Commence par tenter d’extraire une ressource sous la ressource de condition **if**, puis effectue une requête dans le même groupe de ressources que la ressource de condition **if**.
 - **Name** (facultatif)
   - Spécifie le nom exact de la ressource à tester et amène la stratégie à extraire une ressource spécifique au lieu de toutes les ressources du type spécifié.
-  - Lorsque la condition de valeurs pour **if.field.type** et **then.details.type** correspondent, puis **nom** devient _requis_ et doit être `[field('name')]`.
+  - Lorsque les valeurs de condition pour **if.field.type** et **then.details.type** correspondent, **Name** devient _required_ et doit être `[field('name')]`.
 - **ResourceGroupName** (facultatif)
   - Permet l’évaluation de la ressource connexe provenant d’un groupe de ressources différent.
   - Ne s’applique pas si **type** est une ressource qui serait située sous la ressource de condition **if**.
@@ -337,9 +340,61 @@ Exemple : évalue les bases de données SQL Server pour déterminer si transpar
 }
 ```
 
+## <a name="enforceregopolicy"></a>EnforceRegoPolicy
+
+Cet effet est utilisé avec une définition de stratégie *mode* de `Microsoft.ContainerService.Data`. Il sert à transmettre des règles de contrôle d’admission définies avec [Rego](https://www.openpolicyagent.org/docs/how-do-i-write-policies.html#what-is-rego) à [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) sur [Azure Kubernetes Service](../../../aks/intro-kubernetes.md).
+
+> [!NOTE]
+> [Azure Policy pour Kubernetes](rego-for-aks.md) est en préversion publique et prend uniquement en charge les définitions de stratégie intégrées.
+
+### <a name="enforceregopolicy-evaluation"></a>Évaluation d’EnforceRegoPolicy
+
+Le contrôleur d’admission Open Policy Agent évalue les nouvelles requêtes sur le cluster en temps réel.
+Toutes les 5 minutes, une analyse complète du cluster est réalisée, et les résultats sont renvoyés sur Azure Policy.
+
+### <a name="enforceregopolicy-properties"></a>Propriétés d’EnforceRegoPolicy
+
+La propriété **details** de l’effet EnforceRegoPolicy contient les sous-propriétés qui décrivent la règle de contrôle d’admission Rego.
+
+- **policyId** [required]
+  - Nom unique transmis en tant que paramètre à la règle de contrôle d’admission Rego.
+- **policy** [required]
+  - Spécifie l’URI de la règle de contrôle d’admission Rego.
+- **policyParameters** [optional]
+  - Définit des paramètres et des valeurs à transmettre à la stratégie Rego.
+
+### <a name="enforceregopolicy-example"></a>Exemple EnforceRegoPolicy
+
+Exemple : Règle de contrôle d’admission Rego pour autoriser uniquement les images de conteneur spécifiées dans AKS.
+
+```json
+"if": {
+    "allOf": [
+        {
+            "field": "type",
+            "equals": "Microsoft.ContainerService/managedClusters"
+        },
+        {
+            "field": "location",
+            "equals": "westus2"
+        }
+    ]
+},
+"then": {
+    "effect": "EnforceRegoPolicy",
+    "details": {
+        "policyId": "ContainerAllowedImages",
+        "policy": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/KubernetesService/container-allowed-images/limited-preview/gatekeeperpolicy.rego",
+        "policyParameters": {
+            "allowedContainerImagesRegex": "[parameters('allowedContainerImagesRegex')]"
+        }
+    }
+}
+```
+
 ## <a name="layering-policies"></a>Superposition de stratégies
 
-Une ressource peut subir les effets de plusieurs affectations. Ces affectations peuvent se situer dans la même portée ou dans des portées différentes. Chaque affectation est également susceptible d’avoir un effet différent. La condition et l’effet de chaque stratégie sont évalués indépendamment. Exemple :
+Une ressource peut subir les effets de plusieurs affectations. Ces affectations peuvent se situer dans la même portée ou dans des portées différentes. Chaque affectation est également susceptible d’avoir un effet différent. La condition et l’effet de chaque stratégie sont évalués indépendamment. Par exemple :
 
 - Stratégie 1
   - Restreint l’emplacement de la ressource à 'westus'
@@ -368,9 +423,9 @@ Chaque affectation est évaluée individuellement. Par conséquent, une ressourc
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Passez en revue les exemples à l’adresse [exemples Azure Policy](../samples/index.md).
+- Consultez des exemples à la page [Exemples Azure Policy](../samples/index.md).
 - Consultez la [Structure de définition Azure Policy](definition-structure.md).
-- Comprendre comment [créer par programmation des stratégies](../how-to/programmatically-create.md).
+- Découvrez comment [créer des stratégies par programmation](../how-to/programmatically-create.md).
 - Découvrez comment [obtenir des données de conformité](../how-to/getting-compliance-data.md).
-- Découvrez comment [corriger les ressources non conformes](../how-to/remediate-resources.md).
-- Examinez un groupe d’administration avec [organiser vos ressources avec des groupes d’administration Azure](../../management-groups/overview.md).
+- Découvrez comment [corriger des ressources non conformes](../how-to/remediate-resources.md).
+- Pour en savoir plus sur les groupes d’administration, consultez [Organiser vos ressources avec des groupes d’administration Azure](../../management-groups/overview.md).

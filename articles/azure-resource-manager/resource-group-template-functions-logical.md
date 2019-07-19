@@ -1,23 +1,17 @@
 ---
 title: Fonctions de modèle Azure Resource Manager - logiques | Documents Microsoft
 description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour déterminer les valeurs logiques.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-ms.assetid: ''
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 04/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4684c38fe506ed912c6827f1e60b94b847024347
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
-ms.translationtype: MT
+ms.openlocfilehash: 2487cf928685423e4b60bb2923fc7e348eaff0c3
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65405671"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447970"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Fonctions logiques pour les modèles Azure Resource Manager
 
@@ -27,7 +21,7 @@ Resource Manager fournit plusieurs fonctions pour effectuer des comparaisons dan
 * [bool](#bool)
 * [si](#if)
 * [non](#not)
-* [ou Gestionnaire de configuration](#or)
+* [ou](#or)
 
 ## <a name="and"></a>and
 
@@ -37,11 +31,11 @@ Vérifie si toutes les valeurs de paramètres sont true.
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Obligatoire | Type | Description  |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |booléenne |La première valeur pour vérifier si c’est true. |
-| arg2 |Oui |booléenne |La deuxième valeur pour vérifier si c’est true. |
-| arguments supplémentaires |Non |booléenne |Arguments supplémentaires pour vérifier si les valeurs sont égales à true. |
+| arg1 |OUI |booléenne |La première valeur pour vérifier si c’est true. |
+| arg2 |OUI |booléenne |La deuxième valeur pour vérifier si c’est true. |
+| arguments supplémentaires |Non |boolean |Arguments supplémentaires pour vérifier si les valeurs sont égales à true. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -89,9 +83,9 @@ Convertit le paramètre en valeur booléenne.
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Obligatoire | Type | Description  |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |chaîne ou entier |La valeur à convertir en booléen. |
+| arg1 |OUI |chaîne ou entier |La valeur à convertir en booléen. |
 
 ### <a name="return-value"></a>Valeur de retour
 Valeur booléenne de la valeur convertie.
@@ -143,11 +137,11 @@ Retourne une valeur indiquant si une condition est true ou false.
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Obligatoire | Type | Description  |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| condition |Oui |booléenne |Valeur à vérifier s’il est true ou false. |
-| trueValue |Oui | chaîne, int, objet ou tableau |La valeur à retourner lorsque la condition est true. |
-| falseValue |Oui | chaîne, int, objet ou tableau |La valeur à retourner lorsque la condition est false. |
+| condition |OUI |boolean |La valeur pour vérifier si c’est true ou false. |
+| trueValue |OUI | chaîne, int, objet ou tableau |La valeur à retourner lorsque la condition est true. |
+| falseValue |OUI | chaîne, int, objet ou tableau |La valeur à retourner lorsque la condition est false. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -155,7 +149,7 @@ Retourne le deuxième paramètre lorsque le premier paramètre est **True** ; s
 
 ### <a name="remarks"></a>Remarques
 
-Lorsque la condition est **True**, seule la valeur true est évaluée. Lorsque la condition est **False**, seule la valeur false est évaluée. Avec le **si** (fonction), vous pouvez inclure des expressions qui sont uniquement valides de manière conditionnelle. Par exemple, vous pouvez référencer une ressource qui existe sous une condition, mais pas sous l’autre condition. Un exemple de manière conditionnelle l’évaluation des expressions est indiqué dans la section suivante.
+Lorsque la condition est **True**, seule la valeur true est évaluée. Lorsque la condition est **False**, seule la valeur false est évaluée. Avec la fonction **si**, vous pouvez inclure des expressions qui sont uniquement valides de manière conditionnelle. Par exemple, vous pouvez référencer une ressource qui existe sous une condition, mais pas sous l’autre condition. Vous trouverez un exemple illustrant des expressions évaluant de manière conditionnelle dans la section suivante.
 
 ### <a name="examples"></a>Exemples
 
@@ -189,10 +183,10 @@ La sortie de l’exemple précédent est :
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
 | yesOutput | Chaîne | Oui |
-| noOutput | Chaîne | non |
+| noOutput | Chaîne | no |
 | objectOutput | Object | { "test": "value1" } |
 
-Ce qui suit [exemple de modèle](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/conditionWithReference.json) montre comment utiliser cette fonction avec des expressions qui sont uniquement valides de manière conditionnelle.
+L’[exemple de modèle](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/conditionWithReference.json) suivant montre comment utiliser cette fonction avec des expressions qui sont uniquement valides de manière conditionnelle.
 
 ```json
 {
@@ -248,9 +242,9 @@ Convertit la valeur booléenne à sa valeur opposée.
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Obligatoire | Type | Description  |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |booléenne |La valeur à convertir. |
+| arg1 |OUI |boolean |La valeur à convertir. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -320,10 +314,10 @@ Vérifie si l’une des valeurs du paramètre est true.
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Obligatoire | Type | Description  |
+| Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Oui |booléenne |La première valeur pour vérifier si c’est true. |
-| arg2 |Oui |booléenne |La deuxième valeur pour vérifier si c’est true. |
+| arg1 |OUI |boolean |La première valeur pour vérifier si c’est true. |
+| arg2 |OUI |booléenne |La deuxième valeur pour vérifier si c’est true. |
 | arguments supplémentaires |Non |booléenne |Arguments supplémentaires pour vérifier si les valeurs sont égales à true. |
 
 ### <a name="return-value"></a>Valeur de retour

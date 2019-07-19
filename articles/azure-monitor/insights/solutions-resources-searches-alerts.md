@@ -179,7 +179,7 @@ Les propriétés des ressources d’action d’alerte sont décrites dans les ta
 | type | OUI | Type de l’action.  **Alert** pour les actions d’alerte. |
 | name | OUI | Nom d’affichage de l’alerte.  Il s’agit du nom qui s’affiche dans la console pour la règle d’alerte. |
 | description | Non | La description facultative de l’alerte. |
-| Severity | OUI | La gravité de l’enregistrement d’alerte selon les valeurs suivantes :<br><br> **critical**<br>**warning**<br>**informational**
+| severity | OUI | La gravité de l’enregistrement d’alerte selon les valeurs suivantes :<br><br> **critical**<br>**warning**<br>**informational**
 
 
 #### <a name="threshold"></a>Seuil

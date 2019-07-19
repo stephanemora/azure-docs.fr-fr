@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 04/18/2019
 ms.author: kasing
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 44243f97b6c431578185fcdeb1ddcabc548d927f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 581471bb20b0774625dda8a5fa1fdd27d571a5b5
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60580995"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483876"
 ---
 # <a name="vertically-scale-windows-vms-with-azure-automation"></a>Mettre à l’échelle verticalement des machines virtuelles Windows avec Azure Automation
 
@@ -37,55 +37,193 @@ Les grandes lignes des étapes sont présentées ci-dessous.
 3. Ajouter un webhook à votre runbook
 4. Ajouter une alerte à votre machine virtuelle
 
-> [!NOTE]
-> En raison de la taille de la première machine virtuelle, les différentes tailles de mise à l’échelle peuvent être limitées en fonction de la disponibilité des autres tailles dans le cluster dans lequel la machine virtuelle actuelle est déployée. Dans les runbooks publiés et utilisés dans cet article, nous nous chargeons de ce cas et appliquons uniquement la mise à l’échelle dans les paires de machines virtuelles suivantes. Cela signifie qu’une machine virtuelle Standard_D1v2 ne peut pas de suite être convertie en Standard_G5 ou Basic_A0. Également la Machine virtuelle tailles échelle / n’est pas pris en charge. Vous pouvez choisir d’effectuer une mise à l’échelle entre les paires de tailles suivantes :
-> 
-> | Paires de mise à l’échelle des machines virtuelles |  |
-> | --- | --- |
-> | Basic_A0 |Basic_A4 |
-> | Standard_A0 |Standard_A4 |
-> | Standard_A5 |Standard_A7 |
-> | Standard_A8 |Standard_A9 |
-> | Standard_A10 |Standard_A11 |
-> | Standard_A1_v2 |Standard_A8_v2 |
-> | Standard_A2m_v2 |Standard_A8m_v2  |
-> | Standard_B1s |Standard_B2s |
-> | Standard_B1ms |Standard_B8ms |
-> | D1 standard |D4 standard |
-> | D11 standard |D14 standard |
-> | Standard_DS1 |Standard_DS4 |
-> | Standard_DS11 |Standard_DS14 |
-> | Standard_D1_v2 |Standard_D5_v2 |
-> | Standard_D11_v2 |Standard_D14_v2 |
-> | Standard_DS1_v2 |Standard_DS5_v2 |
-> | Standard_DS11_v2 |Standard_DS14_v2 |
-> | Standard_D2_v3 |Standard_D64_v3 |
-> | Standard_D2s_v3 |Standard_D64s_v3 |
-> | Standard_DC2s |Standard_DC4s |
-> | Standard_E2v3 |Standard_E64v3 |
-> | Standard_E2sv3 |Standard_E64sv3 |
-> | Standard_F1 |Standard_F16 |
-> | Standard_F1s |Standard_F16s |
-> | Standard_F2sv2 |Standard_F72sv2 |
-> | Standard_G1 |Standard_G5 |
-> | Standard_GS1 |Standard_GS5 |
-> | Standard_H8 |Standard_H16 |
-> | Standard_H8m |Standard_H16m |
-> | Standard_L4s |Standard_L32s |
-> | Standard_L8s_v2 |Standard_L80s_v2 |
-> | Standard_M8ms  |Standard_M128ms |
-> | Standard_M32ls  |Standard_M64ls |
-> | Standard_M64s  |Standard_M128s |
-> | Standard_M64  |Standard_M128 |
-> | Standard_M64m  |Standard_M128m |
-> | Standard_NC6 |Standard_NC24 |
-> | Standard_NC6s_v2 |Standard_NC24s_v2 |
-> | Standard_NC6s_v3 |Standard_NC24s_v3 |
-> | Standard_ND6s |Standard_ND24s |
-> | Standard_NV6 |Standard_NV24 |
-> | Standard_NV6s_v2 |Standard_NV24s_v2 |
-> 
-> 
+## <a name="scale-limitations"></a>Limitations relatives à la mise à l’échelle
+
+En raison de la taille de la première machine virtuelle, les différentes tailles de mise à l’échelle peuvent être limitées en fonction de la disponibilité des autres tailles dans le cluster dans lequel la machine virtuelle actuelle est déployée. Dans les runbooks publiés et utilisés dans cet article, nous nous chargeons de ce cas et appliquons uniquement la mise à l’échelle dans les paires de machines virtuelles suivantes. Cela signifie qu’une machine virtuelle Standard_D1v2 ne peut pas de suite être convertie en Standard_G5 ou Basic_A0. Le scale-up/scale-down des tailles de machines virtuelles contraintes n’est pas pris en charge non plus. 
+
+Vous pouvez choisir d’effectuer une mise à l’échelle entre les paires de tailles suivantes :
+
+* [Série A](#a-series)
+* [Série B](#b-series)
+* [Série D](#d-series)
+* [Série E](#e-series)
+* [Série F](#f-series)
+* [Série G](#g-series)
+* [Série H](#h-series)
+* [Série L](#l-series)
+* [Série M](#m-series)
+* [Série N](#n-series)
+
+### <a name="a-series"></a>Série A
+
+| Taille initiale | Taille du scale up | 
+| --- | --- |
+| Basic_A0 | Basic_A1 |
+| Basic_A1 | Basic_A2 |
+| Basic_A2 | Basic_A3 |
+| Basic_A3 | Basic_A4 |
+| Standard_A0 | Standard_A1 |
+| Standard_A1 | Standard_A2 |
+| Standard_A2 | Standard_A3 |
+| Standard_A3 | Standard_A4 |
+| Standard_A5 | Standard_A6 |
+| Standard_A6 | Standard_A7 |
+| Standard_A8 | Standard_A9 |
+| Standard_A10 | Standard_A11 |
+| Standard_A1_v2 | Standard_A2_v2 |
+| Standard_A2_v2 | Standard_A4_v2 |
+| Standard_A4_v2 | Standard_A8_v2 |
+| Standard_A2m_v2 | Standard_A4m_v2 |
+| Standard_A4m_v2 | Standard_A8m_v2 |
+
+### <a name="b-series"></a>Série B
+
+| Taille initiale | Taille du scale up | 
+| --- | --- |
+| Standard_B1s | Standard_B2s |
+| Standard_B1ms | Standard_B2ms |
+| Standard_B2ms | Standard_B4ms |
+| Standard_B4ms | Standard_B8ms |
+
+### <a name="d-series"></a>Série D
+
+| Taille initiale | Taille du scale up | 
+| --- | --- |
+| D1 standard | D2 standard |
+| D2 standard | D3 standard |
+| D3 standard | D4 standard |
+| D11 standard | D12 standard |
+| D12 standard | D13 standard |
+| D13 standard | D14 standard |
+| Standard_DS1 | Standard_DS2 |
+| Standard_DS2 | Standard_DS3 |
+| Standard_DS3 | Standard_DS4 |
+| Standard_DS11 | Standard_DS12 |
+| Standard_DS12 | Standard_DS13 |
+| Standard_DS13 | Standard_DS14 |
+| Standard_D1_v2 | Standard_D2_v2 |
+| Standard_D2_v2 | Standard_D3_v2 |
+| Standard_D3_v2 | Standard_D4_v2 |
+| Standard_D4_v2 | Standard_D5_v2 |
+| Standard_D11_v2 | Standard_D12_v2 |
+| Standard_D12_v2 | Standard_D13_v2 |
+| Standard_D13_v2 | Standard_D14_v2 |
+| Standard_DS1_v2 | Standard_DS2_v2 |
+| Standard_DS2_v2 | Standard_DS3_v2 |
+| Standard_DS3_v2 | Standard_DS4_v2 |
+| Standard_DS4_v2 | Standard_DS5_v2 |
+| Standard_DS11_v2 | Standard_DS12_v2 |
+| Standard_DS12_v2 | Standard_DS13_v2 |
+| Standard_DS13_v2 | Standard_DS14_v2 |
+| Standard_D2_v3 | Standard_D4_v3 |
+| Standard_D4_v3 | Standard_D8_v3 |
+| Standard_D8_v3 | Standard_D16_v3 |
+| Standard_D16_v3 | Standard_D32_v3 |
+| Standard_D32_v3 | Standard_D64_v3 |
+| Standard_D2s_v3 | Standard_D4s_v3 |
+| Standard_D4s_v3 | Standard_D8s_v3 |
+| Standard_D8s_v3 | Standard_D16s_v3 |
+| Standard_D16s_v3 | Standard_D32s_v3 |
+| Standard_D32s_v3 | Standard_D64s_v3 |
+| Standard_DC2s | Standard_DC4s |
+
+### <a name="e-series"></a>Série E
+
+| Taille initiale | Taille du scale up | 
+| --- | --- |
+| Standard_E2_v3 | Standard_E4_v3 |
+| Standard_E4_v3 | Standard_E8_v3 |
+| Standard_E8_v3 | Standard_E16_v3 |
+| Standard_E16_v3 | Standard_E20_v3 |
+| Standard_E20_v3 | Standard_E32_v3 |
+| Standard_E32_v3 | Standard_E64_v3 |
+| Standard_E2s_v3 | Standard_E4s_v3 |
+| Standard_E4s_v3 | Standard_E8s_v3 |
+| Standard_E8s_v3 | Standard_E16s_v3 |
+| Standard_E16s_v3 | Standard_E20s_v3 |
+| Standard_E20s_v3 | Standard_E32s_v3 |
+| Standard_E32s_v3 | Standard_E64s_v3 |
+
+### <a name="f-series"></a>Série F
+
+| Taille initiale | Taille du scale up | 
+| --- | --- |
+| Standard_F1 | Standard_F2 |
+| Standard_F2 | Standard_F4 |
+| Standard_F4 | Standard_F8 |
+| Standard_F8 | Standard_F16 |
+| Standard_F1s | Standard_F2s |
+| Standard_F2s | Standard_F4s |
+| Standard_F4s | Standard_F8s |
+| Standard_F8s | Standard_F16s |
+| Standard_F2s_v2 | Standard_F4s_v2 |
+| Standard_F4s_v2 | Standard_F8s_v2 |
+| Standard_F8s_v2 | Standard_F16s_v2 |
+| Standard_F16s_v2 | Standard_F32s_v2 |
+| Standard_F32s_v2 | Standard_F64s_v2 |
+| Standard_F64s_v2 | Standard_F7s_v2 |
+
+### <a name="g-series"></a>Série G
+
+| Taille initiale | Taille du scale up | 
+| --- | --- |
+| Standard_G1 | Standard_G2 |
+| Standard_G2 | Standard_G3 |
+| Standard_G3 | Standard_G4 |
+| Standard_G4 | Standard_G5 |
+| Standard_GS1 | Standard_GS2 |
+| Standard_GS2 | Standard_GS3 |
+| Standard_GS3 | Standard_GS4 |
+| Standard_GS4 | Standard_GS5 |
+
+### <a name="h-series"></a>Série H
+
+| Taille initiale | Taille du scale up | 
+| --- | --- |
+| Standard_H8 | Standard_H16 |
+| Standard_H8m | Standard_H16m |
+
+### <a name="l-series"></a>Série L
+
+| Taille initiale | Taille du scale up | 
+| --- | --- |
+| Standard_L4s | Standard_L8s |
+| Standard_L8s | Standard_L16s |
+| Standard_L16s | Standard_L32s |
+| Standard_L8s_v2 | Standard_L16s_v2 |
+| Standard_L16s_v2 | Standard_L32s_v2 |
+| Standard_L32s_v2 | Standard_L64s_v2 |
+| Standard_L64s_v2 | Standard_L80s_v2 |
+
+### <a name="m-series"></a>Série M
+
+| Taille initiale | Taille du scale up | 
+| --- | --- |
+| Standard_M8ms | Standard_M16ms |
+| Standard_M16ms | Standard_M32ms |
+| Standard_M32ms | Standard_M64ms |
+| Standard_M64ms | Standard_M128ms |
+| Standard_M32ls | Standard_M64ls |
+| Standard_M64s | Standard_M128s |
+| Standard_M64 | Standard_M128 |
+| Standard_M64m | Standard_M128m |
+
+### <a name="n-series"></a>Série N
+
+| Taille initiale | Taille du scale up | 
+| --- | --- |
+| Standard_NC6 | Standard_NC12 |
+| Standard_NC12 | Standard_NC24 |
+| Standard_NC6s_v2 | Standard_NC12s_v2 |
+| Standard_NC12s_v2 | Standard_NC24s_v2 |
+| Standard_NC6s_v3 | Standard_NC12s_v3 |
+| Standard_NC12s_v3 | Standard_NC24s_v3 |
+| Standard_ND6 | Standard_ND12 |
+| Standard_ND12 | Standard_ND24 |
+| Standard_NV6 | Standard_NV12 |
+| Standard_NV12 | Standard_NV24 |
+| Standard_NV6s_v2 | Standard_NV12s_v2 |
+| Standard_NV12s_v2 | Standard_NV24s_v2 |
 
 ## <a name="setup-azure-automation-to-access-your-virtual-machines"></a>Configuration d’Azure Automation pour accéder à vos machines virtuelles
 La première chose à faire est de créer un compte Azure Automation qui hébergera les runbooks utilisés pour mettre à l’échelle une machine virtuelle. Depuis peu, le service Automation dispose de la fonctionnalité « Compte d'identification » qui facilite la configuration du Principal du service permettant d'exécuter automatiquement les runbooks au nom de l’utilisateur de façon très simple. Pour en savoir plus à ce sujet, consultez l’article ci-dessous :

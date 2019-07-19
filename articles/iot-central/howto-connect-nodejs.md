@@ -3,17 +3,17 @@ title: Connecter une application cliente Node.js générique à Azure IoT Centra
 description: En tant que développeur d’appareils, comment connecter un appareil Node.js générique à votre application Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/05/2019
+ms.date: 06/14/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 5497e4956fbdc74eced302867c33a66d07d6a184
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 90e4a061e38fdd3a13a640363069fae3a18e0b49
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60888912"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444245"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Connecter une application cliente Node.js générique à votre application Azure IoT Central (Node.js)
 
@@ -68,6 +68,18 @@ Ajoutez l’événement suivant dans la page **Mesures** :
 
 > [!NOTE]
 > Le type de données de la mesure Événement est « chaîne ».
+
+### <a name="location-measurements"></a>Mesures d’emplacement
+
+Ajoutez la mesure d’emplacement suivante à la page **Mesures** :
+
+| Nom d’affichage | Nom du champ  |
+| ------------ | ----------- |
+| Location     | location    |
+
+Le type de données de la mesure d’emplacement comporte deux nombres à virgule flottante pour la latitude et la longitude et un nombre à virgule flottante facultatif pour l’altitude.
+
+Entrez les noms des champs dans le modèle d’appareil exactement comme ils figurent dans le tableau. Si les noms des champs ne correspondent pas aux noms des propriétés dans le code de l’appareil correspondant, l’emplacement ne peut pas être affiché dans l’application.
 
 ### <a name="device-properties"></a>Propriétés de l’appareil
 
@@ -144,12 +156,14 @@ Les étapes suivantes montrent comment créer une application cliente qui implé
     ```javascript
     var connectionString = '{your device connection string}';
     var targetTemperature = 0;
+    var locLong = -122.1215;
+    var locLat = 47.6740;
     var client = clientFromConnectionString(connectionString);
     ```
 
     Remplacez l’espace réservé `{your device connection string}` par la [chaîne de connexion de l’appareil](tutorial-add-device.md#generate-connection-string). Dans cet exemple, vous initialisez `targetTemperature` à zéro, mais vous pourriez utiliser la valeur actuelle lue sur l’appareil ou une valeur du jumeau d’appareil.
 
-1. Pour envoyer des mesures de télémétrie, d’état et d’événement à votre application Azure IoT Central, ajoutez la fonction suivante au fichier :
+1. Pour envoyer des mesures de télémétrie, d’état, d’événement et d’emplacement à votre application Azure IoT Central, ajoutez la fonction suivante au fichier :
 
     ```javascript
     // Send device measurements.
@@ -158,12 +172,18 @@ Les étapes suivantes montrent comment créer une application cliente qui implé
       var humidity = 70 + (Math.random() * 10);
       var pressure = 90 + (Math.random() * 5);
       var fanmode = 0;
+      var locationLong = locLong - (Math.random() / 100);
+      var locationLat = locLat - (Math.random() / 100);
       var data = JSON.stringify({
         temperature: temperature,
         humidity: humidity,
         pressure: pressure,
         fanmode: (temperature > 25) ? "1" : "0",
-        overheat: (temperature > 35) ? "ER123" : undefined });
+        overheat: (temperature > 35) ? "ER123" : undefined,
+        location: {
+            lon: locationLong,
+            lat: locationLat }
+        });
       var message = new Message(data);
       client.sendEvent(message, (err, res) => console.log(`Sent message: ${message.getData()}` +
         (err ? `; error: ${err.toString()}` : '') +
@@ -320,6 +340,10 @@ En tant qu’opérateur dans votre application Azure IoT Central, pour votre app
 * Voir la télémétrie dans la page **Mesures** :
 
     ![Afficher les données de télémétrie](media/howto-connect-nodejs/viewtelemetry.png)
+
+* Afficher la télémétrie sur la page **Mesures** :
+
+    ![Afficher les mesures d’emplacement](media/howto-connect-nodejs/viewlocation.png)
 
 * Voir les valeurs de propriété d’appareil envoyées depuis votre appareil dans la page **Propriétés**. Les vignettes de propriétés de l’appareil se mettent à jour quand l’appareil se connecte :
 

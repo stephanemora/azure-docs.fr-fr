@@ -15,12 +15,12 @@ ms.date: 05/21/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ef72f1649c3f3e0af7fba53b2e8dbcee49d4b59
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c83a38b68fcc2e70b4e17bd62e11ac429dd32950
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66734560"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67471920"
 ---
 # <a name="create-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Créer une révision d’accès de groupes ou d’applications dans Azure AD
 
@@ -43,7 +43,7 @@ Pour en savoir plus, consultez la section relative à [l’identification des ut
 
 1. Cliquez sur **Nouvelle révision d’accès** pour créer une révision d’accès.
 
-    ![Révision d’accès - Contrôles](./media/create-access-review/access-reviews.png)
+    ![Volet des révisions d’accès dans Gouvernance des identités](./media/create-access-review/access-reviews.png)
 
 1. Nommez la révision d’accès. Si vous le souhaitez, vous pouvez fournir une description de cette révision. Les réviseurs ont accès au nom et à la description de la révision.
 
@@ -91,7 +91,7 @@ Pour en savoir plus, consultez la section relative à [l’identification des ut
 
 1. Pour spécifier ce qui se passe après la fin d’une révision, développez la section **Paramètres de saisie semi-automatique**.
 
-    ![Paramètres de saisie semi-automatique](./media/create-access-review/upon-completion-settings.png)
+    ![Créer une révision d’accès : paramètres de saisie semi-automatique](./media/create-access-review/upon-completion-settings.png)
 
 1. Si vous voulez supprimer automatiquement l’accès pour les utilisateurs qui ont été refusés, définissez **Appliquer automatiquement les résultats à ressource** sur **Activer**. Si vous voulez appliquer manuellement les résultats quand la révision est terminée, cliquez sur **Désactiver**.
 
@@ -106,7 +106,7 @@ Pour en savoir plus, consultez la section relative à [l’identification des ut
 
 1. Pour spécifier d’autres paramètres, développez la section **Paramètres avancés**.
 
-    ![Paramètres avancés](./media/create-access-review/advanced-settings.png)
+    ![Créer une révision d’accès : paramètres avancés](./media/create-access-review/advanced-settings.png)
 
 1. Définissez **Afficher les recommandations** sur **Activer** pour montrer aux réviseurs les recommandations du système basées sur les informations des accès de l’utilisateur.
 
@@ -122,7 +122,7 @@ Pour en savoir plus, consultez la section relative à [l’identification des ut
 
 Une fois que vous avez spécifié les paramètres pour une révision d’accès, cliquez sur **Démarrer**. La révision d’accès s’affiche dans votre liste, avec un indicateur de son état.
 
-![Liste des révisions d’accès](./media/create-access-review/access-reviews-list.png)
+![Liste des révisions d’accès et de leur état](./media/create-access-review/access-reviews-list.png)
 
 Par défaut, Azure AD envoie un e-mail aux réviseurs peu de temps après le démarrage de la révision. Si vous ne souhaitez pas qu’Azure AD envoie cet e-mail, veillez à informer les réviseurs qu’une révision d’accès leur a été assignée. Vous pouvez leur montrer les instructions relatives à la [révision d’accès aux groupes ou aux applications](perform-access-review.md). Si votre révision s’adresse à des invités qui doivent réviser leur propre accès, donnez-leur des instructions sur la méthode à suivre pour [réviser leur accès à des groupes ou à des applications](review-your-access.md).
 

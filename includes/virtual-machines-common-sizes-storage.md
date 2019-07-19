@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/17/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: de998265188b1482be22225bba3c6ab3d58e562b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b98aebfd7bef3edff8e046d7ef1c388ea57afa04
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66755609"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67501229"
 ---
 Les tailles de machines virtuelles à stockage optimisé offrent un débit de disque et d’E/S élevé. Elles sont idéales pour les bases de données Big Data, SQL, NoSQL ainsi que pour l’entreposage de données et les grandes bases de données transactionnelles.  Cassandra, MongoDB, Cloudera et Redis en sont des exemples. Cet article fournit des informations sur le nombre de processeurs virtuels, de disques de données et de cartes réseau ainsi que sur le débit de stockage local et la bande passante réseau pour chaque taille optimisée.
 
@@ -35,11 +35,12 @@ Premium Storage : Pris en charge
 
 Mise en cache du Stockage Premium : Non pris en charge
 
-| Taille          | Processeurs virtuels | Mémoire (Gio) | Disque temporaire<sup>1</sup> (Gio) | Disques NVMe<sup>2</sup> | Débit de disque NVMe <sup>3</sup> (IOPS de lecture / Mbits/s) | Débit maximal de disque de données sans mise en cache (IOPS / Mbits/s)<sup>4</sup> | Nombre max de disques de données | Nombre max de cartes réseau / Bande passante réseau attendue (MBps) |
+| Size          | Processeurs virtuels | Mémoire (Gio) | Disque temporaire<sup>1</sup> (Gio) | Disques NVMe<sup>2</sup> | Débit de disque NVMe <sup>3</sup> (IOPS de lecture / Mbits/s) | Débit maximal de disque de données sans mise en cache (IOPS / Mbits/s)<sup>4</sup> | Nombre max de disques de données | Nombre max de cartes réseau / Bande passante réseau attendue (MBps) |
 |---------------|-----------|-------------|--------------------------|----------------|---------------------------------------------------|-------------------------------------------|------------------------------|------------------------------| 
-| Standard_L8s_v2   |  8 |  64 |  80 |  1 x 1,92 To  | 400 000 / 2 000 | 8 000/160 | 16 | 2 / 3 200  |
-| Standard_L16s_v2  | 16 | 128 | 160 |  2 x 1,92 To  | 800 000 / 4 000 | 16 000/320 | 32 | 4 / 6 400  |
-| Standard_L32s_v2  | 32 | 256 | 320 |  4 x 1,92 To  | 1,5M / 8 000    | 32 000/640 | 32 | 8 / 12 800 |
+| Standard_L8s_v2   |  8 |  64 |  80 |  1 x 1,92 To  | 400 000 / 2 000  | 8 000/160   | 16 | 2 / 3 200  |
+| Standard_L16s_v2  | 16 | 128 | 160 |  2 x 1,92 To  | 800 000 / 4 000  | 16 000/320  | 32 | 4 / 6 400  |
+| Standard_L32s_v2  | 32 | 256 | 320 |  4 x 1,92 To  | 1,5M / 8 000    | 32 000/640  | 32 | 8 / 12 800 |
+| Standard_L48s_v2  | 48 | 384 | 480 |  6 x 1,92 To  | 2,2 M / 14000   | 48000/960  | 32 | 8 / 16 000+ |
 | Standard_L64s_v2  | 64 | 512 | 640 |  8 x 1,92 To  | 2,9 M / 16 000   | 64 000/1 280 | 32 | 8 / 16 000+ |
 | Standard_L80s_v2<sup>5</sup> | 80 | 640 | 800 | 10 x 1,92 To   | 3,8 M / 20000   | 80000/1400 | 32 | 8 / 16 000+ |
 

@@ -4,7 +4,7 @@ description: Découvrez comment utiliser des déclencheurs et des liaisons Azure
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: azure functions, fonctions, traitement des événements, calcul dynamique, architecture sans serveur
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.service: azure-functions
@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: 199ce2fe24d76595493dc2128cebb3fcb642fcab
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: 46e6858376fa70b4b57b6106f8292b842f206d01
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66241144"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67480231"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Liaisons Azure Service Bus pour Azure Functions
 
@@ -148,7 +148,7 @@ let Run(myQueueItem: string, log: ILogger) =
 
 ### <a name="trigger---java-example"></a>Déclencheur - exemple Java
 
-La fonction Java suivante utilise le `@ServiceBusQueueTrigger` annotation à partir de la [Java fonctions de bibliothèque runtime](/java/api/overview/azure/functions/runtime) pour décrire la configuration d’un déclencheur de file d’attente Service Bus. La fonction récupère le message placé dans la file d’attente et l’ajoute dans les journaux.
+La fonction Java suivante utilise l’annotation `@ServiceBusQueueTrigger` provenant de la [bibliothèque runtime de fonctions Java](/java/api/overview/azure/functions/runtime) afin de décrire la configuration d’un déclencheur de file d’attente Service Bus. La fonction récupère le message placé dans la file d’attente et l’ajoute dans les journaux.
 
 ```java
 @FunctionName("sbprocessor")
@@ -162,7 +162,7 @@ La fonction Java suivante utilise le `@ServiceBusQueueTrigger` annotation à par
  }
 ```
 
-Fonctions Java peuvent également être déclenchées lorsqu’un message est ajouté à une rubrique Service Bus. L’exemple suivant utilise le `@ServiceBusTopicTrigger` annotation pour décrire la configuration du déclencheur.
+Les fonctions Java peuvent également être déclenchées lorsqu’un message est ajouté à une rubrique Service Bus. L’exemple suivant utilise l’annotation `@ServiceBusTopicTrigger` pour décrire la configuration du déclencheur.
 
 ```java
 @FunctionName("sbtopicprocessor")
@@ -330,7 +330,7 @@ Le déclencheur Service Bus fournit plusieurs [propriétés de métadonnées](./
 |`CorrelationId`|`string`|L’ID de corrélation.|
 
 > [!NOTE]
-> Déclencheur de bus de Service qui fonctionne avec les abonnements et les files d’attente activée dans la session est actuellement en version préliminaire. Veuillez suivre [cet élément](https://github.com/Azure/azure-webjobs-sdk/issues/529#issuecomment-491113458) des mises à jour supplémentaires au sujet de ce. 
+> Le déclencheur Service Bus qui fonctionne avec les abonnements et les files d’attente activées dans la session est actuellement en préversion. Veuillez suivre [cet élément](https://github.com/Azure/azure-webjobs-sdk/issues/529#issuecomment-491113458) pour toute mise à jour supplémentaire concernant cette fonctionnalité. 
 
 Consultez les [exemples de code](#trigger---example) qui utilisent ces propriétés précédemment dans cet article.
 
@@ -354,7 +354,7 @@ Le fichier [host.json](functions-host-json.md#servicebus) contient les paramètr
 |prefetchCount|n/a|Valeur PrefetchCount par défaut qui est utilisée par l’instance MessageReceiver sous-jacente.|
 |maxAutoRenewDuration|00:05:00|Durée maximale pendant laquelle le verrouillage de message doit être renouvelé automatiquement.|
 
-## <a name="output"></a>Sortie
+## <a name="output"></a>Output
 
 Utilisez la liaison de sortie Azure Service Bus pour envoyer des messages de file d’attente ou de rubrique.
 
@@ -488,7 +488,7 @@ public String pushToQueue(
 
  Dans la [bibliothèque du runtime des fonctions Java](/java/api/overview/azure/functions/runtime), utilisez l’annotation `@QueueOutput` sur les paramètres de fonction dont la valeur serait écrite dans une file d’attente Service Bus.  Le type de paramètre doit être `OutputBinding<T>`, où T désigne n’importe quel type Java natif d’un POJO.
 
-Fonctions Java peuvent également écrire dans une rubrique Service Bus. L’exemple suivant utilise le `@ServiceBusTopicOutput` annotation pour décrire la configuration pour la liaison de sortie. 
+Les fonctions Java peuvent également écrire dans une rubrique Service Bus. L’exemple suivant utilise l’annotation `@ServiceBusTopicOutput` afin de décrire la configuration pour la liaison de sortie. 
 
 ```java
 @FunctionName("sbtopicsend")
@@ -623,7 +623,7 @@ Dans JavaScript, accédez à la file d’attente ou la rubrique à l’aide de `
 
 ## <a name="exceptions-and-return-codes"></a>Exceptions et codes de retour
 
-| Liaison | Référence |
+| Liaison | Informations de référence |
 |---|---|
 | Service Bus | [Codes d’erreur de Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-exceptions) |
 | Service Bus | [Limites de Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas) |

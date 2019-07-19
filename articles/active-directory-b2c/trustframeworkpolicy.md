@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1102aee9d7fa5fe3df0e048398cdc8bd71ff0a3c
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.openlocfilehash: 5a0ba48acf6ec3d221d9c4b5e95b380a2154171f
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66512300"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537041"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
@@ -40,11 +40,11 @@ L’élément **TrustFrameworkPolicy** contient les attributs suivants :
 
 | Attribut | Obligatoire | Description |
 |---------- | -------- | ----------- |
-| PolicySchemaVersion | Oui | Version du schéma à utiliser pour exécuter la stratégie. La valeur doit être `0.3.0.0`. |
+| PolicySchemaVersion | OUI | Version du schéma à utiliser pour exécuter la stratégie. La valeur doit être `0.3.0.0`. |
 | TenantObjectId | Non | Identificateur d’objet unique du locataire Azure Active Directory (Azure AD) B2C. |
-| TenantId | Oui | Identificateur unique du locataire auquel appartient cette stratégie. |
-| `PolicyId` | Oui | Identificateur unique de la stratégie. Cet identificateur doit avoir le préfixe *B2C_1A_* . |
-| PublicPolicyUri | Oui | URI de la stratégie, qui est une combinaison de l’ID de locataire et de l’ID de stratégie. |
+| TenantId | OUI | Identificateur unique du locataire auquel appartient cette stratégie. |
+| PolicyId | OUI | Identificateur unique de la stratégie. Cet identificateur doit avoir le préfixe *B2C_1A_* . |
+| PublicPolicyUri | OUI | URI de la stratégie, qui est une combinaison de l’ID de locataire et de l’ID de stratégie. |
 | DeploymentMode | Non | Valeurs possibles : `Production`, `Debugging` ou `Development`. `Production` est la valeur par défaut. Cette propriété permet de déboguer votre stratégie. Pour plus d’informations, voir [Collecte de journaux d’activité](active-directory-b2c-troubleshoot-custom.md). |
 | UserJourneyRecorderEndpoint | Non | Point de terminaison utilisé quand **DeploymentMode** est défini sur `Development`. La valeur doit être `urn:journeyrecorder:applicationinsights`. Pour plus d’informations, voir [Collecte de journaux d’activité](active-directory-b2c-troubleshoot-custom.md). |
 
@@ -91,7 +91,7 @@ L’élément **BasePolicy** contient les éléments suivants :
 | Élément | Occurrences | Description |
 | ------- | ----------- | --------|
 | TenantId | 1:1 | Identificateur de votre locataire Azure AD B2C. |
-| `PolicyId` | 1:1 | Identificateur de la stratégie parente. |
+| PolicyId | 1:1 | Identificateur de la stratégie parente. |
 
 
 L’exemple suivant montre comment spécifier une stratégie de base. Cette stratégie **B2C_1A_TrustFrameworkExtensions** est dérivée de la stratégie **B2C_1A_TrustFrameworkBase**. 
@@ -116,7 +116,7 @@ L’exemple suivant montre comment spécifier une stratégie de base. Cette stra
 
 ## <a name="policy-execution"></a>Exécution de stratégie
 
-Une application par partie de confiance, telle qu’une application web, mobile ou de bureau, appelle la [stratégie de partie de confiance](relyingparty.md). Le fichier de stratégie de partie de confiance exécute une tâche spécifique, telle qu’une connexion, une réinitialisation de mot de passe ou une modification de profil. La stratégie de partie de confiance configure la liste des revendications que l’application par partie de confiance reçoit dans le jeton émis. Plusieurs applications peuvent utiliser la même stratégie. Toutes les applications reçoivent le même jeton avec les revendications et l’utilisateur parcourt le même parcours utilisateur. Une application unique peut utiliser plusieurs stratégies.
+Une application par partie de confiance, telle qu’une application web, mobile ou de bureau, appelle la [stratégie de partie de confiance](relyingparty.md). Le fichier de stratégie de partie de confiance exécute une tâche spécifique, telle qu’une connexion, une réinitialisation de mot de passe ou une modification de profil. La stratégie de partie de confiance configure la liste des revendications que l’application par partie de confiance reçoit dans le jeton émis. Plusieurs applications peuvent utiliser la même stratégie. Toutes les applications reçoivent le même jeton contenant des revendications, et l’utilisateur suit le même parcours utilisateur. Une application unique peut utiliser plusieurs stratégies.
 
 Dans le fichier de stratégie de partie de confiance, vous spécifiez l’élément **DefaultUserJourney** qui pointe vers le [UserJourney](userjourneys.md). Le parcours utilisateur est généralement défini dans le fichier de stratégie de base ou d’extensions.
 
@@ -132,13 +132,13 @@ B2C_1A_TrustFrameWorkBase ou B2C_1A_TrustFrameworkExtensionPolicy :
 
 ```XML
 <UserJourneys>
-  <UserJourney Id="SignOrSignIn">
+  <UserJourney Id="SignUpOrSignIn">
   ...
 ```
 
 Un parcours utilisateur définit la logique métier des étapes qu’un utilisateur suit. Chaque parcours utilisateur est un ensemble d’étapes d’orchestration qui effectuent une série d’actions, de façon séquentielle, en termes d’authentification et de collecte d’informations. 
 
-Le fichier de stratégie **SocialAndLocalAccounts** dans le [pack de démarrage](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom#download-starter-pack-and-modify-policies) contient les parcours utilisateur SignUpOrSignIn, ProfileEdit et PasswordReset. Vous pouvez ajouter plus de parcours utilisateur pour d’autres scénarios, tels que la modification d’une adresse de messagerie ou de liaison et de la dissociation d’un compte de réseau social. 
+Le fichier de stratégie **SocialAndLocalAccounts** dans le [pack de démarrage](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom#download-starter-pack-and-modify-policies) contient les parcours utilisateur SignUpOrSignIn, ProfileEdit et PasswordReset. Vous pouvez ajouter des parcours utilisateur pour d’autres scénarios, tels que la modification d’une adresse e-mail ou l’association et la dissociation d’un compte de réseau social. 
 
 Les étapes d’orchestration peuvent appeler un [profil technique](technicalprofiles.md). Un profil technique fournit une infrastructure avec un mécanisme intégré pour communiquer avec différents types de parties. Par exemple, un profil technique peut effectuer, entre autres, les actions suivantes :
 

@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: sumeet.mittal
 ms.custom: ''
-ms.openlocfilehash: 73621c3bbab7f0c49feacab29e1e5de1792b80e4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 54178ae8988266c751ae0e23ae8c5e6ef7a16f20
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61032571"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67544159"
 ---
 # <a name="virtual-network-service-endpoints"></a>Points de terminaison de service de réseau virtuel
 
@@ -43,6 +43,7 @@ Cette fonctionnalité est disponible pour les services et régions Azure suivant
 **Préversion publique**
 
 - **[Azure Container Registry](../container-registry/container-registry-vnet.md)**  : préversion disponible dans toutes les régions Azure où Azure Container Registry est disponible.
+- **[Azure App Service](https://docs.microsoft.com/en-us/azure/app-service/app-service-ip-restrictions)** : disponible en préversion dans toutes les régions Azure où App Service est disponible.
 
 Pour obtenir les notifications les plus récentes, vérifiez la page [Mises à jour du réseau virtuel Microsoft Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 
@@ -61,7 +62,7 @@ Les points de terminaison de service fournissent les avantages suivants :
 - La fonctionnalité est disponible uniquement pour les réseaux virtuels déployés à l’aide du modèle de déploiement Azure Resource Manager.
 - Les points de terminaison sont activés sur les sous-réseaux configurés dans les réseaux virtuels Azure. Les points de terminaison ne peuvent pas être utilisés pour le trafic à partir de votre réseau local vers les services Azure. Pour plus d’informations, consultez la section relative à la [sécurisation de l’accès au service en local](#securing-azure-services-to-virtual-networks)
 - Pour Azure SQL, un point de terminaison de service concerne uniquement le trafic de service Azure dans la région d’un réseau virtuel. Pour prendre en charge les trafics RA-GRS et GRS pour le stockage Azure, les points de terminaison incluent également les régions appariées dans lesquelles le réseau virtuel est déployé. En savoir plus sur les [régions appariées Azure.](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions).
-- Avec ADLS Gen 1, la fonctionnalité d’intégration au réseau virtuel est uniquement disponible pour les réseaux virtuels situés dans une même région.
+- Avec ADLS Gen 1, la fonctionnalité d’intégration au réseau virtuel est uniquement disponible pour les réseaux virtuels situés dans une même région. Notez également que l’intégration au réseau virtuel dans Azure Data Lake Storage Gen1 fait appel à la sécurité des points de terminaison de service de réseau virtuel entre votre réseau virtuel et Azure Active Directory (Azure AD) afin de générer des revendications de sécurité supplémentaires dans le jeton d’accès. Ces revendications permettent ensuite d’authentifier votre réseau virtuel à votre compte Data Lake Storage Gen1 et d’y accéder. La balise « Microsoft.AzureActiveDirectory » répertoriée sous les services prenant en charge les points de terminaison de service est uniquement utilisée pour gérer ces derniers dans ADLS Gen 1. Azure Active Directory (Azure AD) ne prend pas en charge les points de terminaison de service en mode natif. En savoir plus sur [l’intégration au réseau virtuel dans Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## <a name="securing-azure-services-to-virtual-networks"></a>Sécurisation des services Azure pour des réseaux virtuels
 
@@ -120,7 +121,7 @@ Une fois que les points de terminaison de service sont configurés pour un servi
 
 ## <a name="provisioning"></a>Approvisionnement
 
-Les points de terminaison de service peuvent être configurés indépendamment sur les réseaux virtuels par un utilisateur avec accès en écriture à un réseau virtuel. Afin de sécuriser les ressources du service Azure pour un réseau virtuel, l’utilisateur doit disposer des autorisations pour *Microsoft.Network/JoinServicetoaSubnet* pour les sous-réseaux à ajouter. Cette autorisation est incluse par défaut dans les rôles d’administrateur de service fédérés et peut être modifiée en créant des rôles personnalisés.
+Les points de terminaison de service peuvent être configurés indépendamment sur les réseaux virtuels par un utilisateur avec accès en écriture à un réseau virtuel. Pour sécuriser les ressources du service Azure pour un réseau virtuel, l’utilisateur doit disposer des autorisations sur *Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action* pour les sous-réseaux à ajouter. Cette autorisation est incluse par défaut dans les rôles d’administrateur de service fédérés et peut être modifiée en créant des rôles personnalisés.
 
 Apprenez-en davantage sur les [rôles intégrés](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) et l’affectation d’autorisations spécifiques aux [rôles personnalisés](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 

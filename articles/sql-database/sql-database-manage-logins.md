@@ -13,12 +13,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/26/2019
-ms.openlocfilehash: b1e952d9af474e2318ef91a6bdcc2605a3c30018
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: af6cec22ae455e6a6ead4c45fead2d7ff5b708d2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60702316"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070508"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>Contrôle et autorisation d’accès aux bases de données SQL Database et SQL Data Warehouse
 
@@ -27,7 +27,7 @@ Une fois que les règles de pare-feu ont été configurées, vous pouvez vous co
 > [!NOTE]  
 > Cette rubrique s’applique au serveur SQL Azure, ainsi qu’aux bases de données SQL Database et SQL Data Warehouse créées sur le serveur SQL Azure. Par souci de simplicité, la base de données SQL est utilisée pour faire référence à SQL Database et SQL Data Warehouse. 
 > [!TIP]
-> Pour obtenir un didacticiel, consultez [Sécuriser votre base de données Azure SQL Database](sql-database-security-tutorial.md). Ce tutoriel ne s’applique pas à **Azure SQL Database Managed Instance**.
+> Pour un tutoriel, consultez [Sécuriser votre base de données Azure SQL](sql-database-security-tutorial.md). Ce tutoriel ne s’applique pas à **Azure SQL Database Managed Instance**.
 
 ## <a name="unrestricted-administrative-accounts"></a>Comptes d’administration non restreints
 
@@ -64,7 +64,7 @@ Quand le pare-feu au niveau du serveur est configuré pour une plage d’adresse
 
 Lorsque le pare-feu au niveau du serveur est correctement configuré, l’**administrateur de serveur SQL** et l’**administrateur Azure Active Directory** peuvent se connecter à l’aide des outils clients tels que SQL Server Management Studio ou SQL Server Data Tools. Seuls les outils les plus récents fournissent toutes les fonctionnalités et capacités. Le diagramme suivant illustre une configuration classique avec deux comptes d’administrateur.
 
-![Chemin d’accès administrateur](./media/sql-database-manage-logins/1sql-db-administrator-access.png)
+![configuration des deux comptes d’administration](./media/sql-database-manage-logins/1sql-db-administrator-access.png)
 
 Lorsque vous utilisez un port ouvert dans le pare-feu au niveau du serveur, les administrateurs peuvent se connecter à n’importe quelle base de données SQL.
 

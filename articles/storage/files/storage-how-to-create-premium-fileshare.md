@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 05/05/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 265a1cf0a8a5e1e099a4ec7a9f0d674e0c474dd4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 63caf9a08acb04bab3712891701d32c21c22e9fc
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65190092"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449892"
 ---
 # <a name="how-to-create-an-premium-azure-file-share"></a>Créer un partage de fichiers premium via le portail Azure
-Les partages de fichiers premium (en version préliminaire) sont proposés sur les supports de stockage SSD et sont utiles pour les charges de travail gourmandes en E/S, notamment l’hébergement de bases de données et le calcul haute performance (HPC). Les partages de fichiers premium sont hébergés dans un type de compte de stockage spécial, appelé compte FileStorage. Les partages de fichiers premium sont conçus pour les applications d’entreprise évolutives et à hautes performances, en fournissant des partages à latence faible et homogène, nombre élevé d’IOPS et débit élevé.
+Les partages de fichiers premium sont proposés sur les supports de stockage SSD et sont utiles pour les charges de travail gourmandes en E/S, notamment l’hébergement de bases de données et le calcul haute performance (HPC). Les partages de fichiers premium sont hébergés dans un type de compte de stockage spécial, appelé compte FileStorage. Les partages de fichiers premium sont conçus pour les applications d’entreprise évolutives et à hautes performances, en fournissant des partages à latence faible et homogène, nombre élevé d’IOPS et débit élevé.
 
 Cet article vous montre comment créer ce nouveau type de compte en utilisant le [portail Azure](https://portal.azure.com/), Azure PowerShell et Azure CLI.
 
@@ -30,7 +30,7 @@ Pour accéder aux ressources Azure, dont les partages de fichiers Azure premium,
 
 Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
-### <a name="create-a-filestorage-preview-storage-account"></a>Créer un compte de stockage FileStorage (version préliminaire)
+### <a name="create-a-filestorage-storage-account"></a>Créer un compte de stockage FileStorage
 
 À présent, vous êtes prêt à créer votre compte de stockage.
 
@@ -47,10 +47,10 @@ Chaque compte de stockage doit appartenir à un groupe de ressources Azure. Un g
 1. Ensuite, entrez un nom pour votre compte de stockage. Le nom choisi doit être unique dans tout Azure. Le nom doit aussi contenir entre 3 et 24 caractères, et uniquement des lettres minuscules et des chiffres.
 1. Sélectionnez l’emplacement de votre compte de stockage ou utilisez l’emplacement par défaut.
 1. Pour **Performances**, sélectionnez **Premium**.
-1. Sélectionnez **Type de compte** et choisissez **FileStorage (version préliminaire)** .
+1. Sélectionnez **Type de compte** et choisissez **FileStorage**.
 1. Laissez **Réplication** défini sur sa valeur par défaut, **Stockage localement redondant (LRS)** .
 
-    ![Création d'un compte de stockage pour un partage de fichiers premium](media/storage-how-to-create-premium-fileshare/premium-files-storage-account.png)
+    ![Création d'un compte de stockage pour un partage de fichiers premium](media/storage-how-to-create-premium-fileshare/create-filestorage-account.png)
 
 1. Cliquez sur **Vérifier + créer** pour passer en revue vos paramètres de compte de stockage et créer le compte.
 1. Sélectionnez **Créer**.
@@ -59,7 +59,7 @@ Une fois que votre ressource de compte de stockage a été créée, accédez-y.
 
 ### <a name="create-a-premium-file-share"></a>Créer un partage de fichiers premium
 
-1. Dans le menu de gauche du compte de stockage, faites défiler jusqu’à la section **Service de fichiers**, puis sélectionnez **Fichiers (aperçu)** .
+1. Dans le menu de gauche du compte de stockage, faites défiler jusqu’à la section **Service de fichiers**, puis sélectionnez **Fichiers**.
 1. Sélectionnez **+Partage de fichiers** pour créer un partage de fichiers premium.
 1. Saisissez un nom et le quota souhaité pour votre partage de fichiers, puis sélectionnez **Créer**.
 
@@ -82,14 +82,14 @@ Ensuite, mettez à niveau votre module PowerShell, connectez-vous à votre abonn
 
 ### <a name="upgrade-your-powershell-module"></a>Mettre à niveau votre module PowerShell
 
-Pour interagir avec un partage de fichiers de premium à partir de PowerShell, vous devrez installer le dernier module Az.Storage.
+Pour interagir avec un partage de fichiers premium à partir de PowerShell, vous devrez installer le module Az.Storage 1.4.0 ou la version la plus récente.
 
 Commencez par ouvrir une session PowerShell avec des autorisations élevées.
 
 Installez le module Az.Storage :
 
 ```powershell
-Install-Module Az.Storage -Repository PSGallery -AllowPrerelease -AllowClobber -Force
+Install-Module Az.Storage -Repository PSGallery -AllowClobber -Force
 ```
 
 ### <a name="sign-in-to-your-azure-subscription"></a>Se connecter à votre abonnement Azure
@@ -112,9 +112,9 @@ $location = "westus2"
 New-AzResourceGroup -Name $resourceGroup -Location $location
 ```
 
-### <a name="create-a-filestorage-preview-storage-account"></a>Créer un compte de stockage FileStorage (version préliminaire)
+### <a name="create-a-filestorage-storage-account"></a>Créer un compte de stockage FileStorage
 
-Pour créer un compte de stockage FileStorage (version préliminaire) à partir de PowerShell, utilisez la commande [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) :
+Pour créer un compte de stockage FileStorage à partir de PowerShell, utilisez la commande [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) :
 
 ```powershell
 $storageAcct = New-AzStorageAccount -ResourceGroupName $resourceGroup -Name "fileshowto" -SkuName "Premium_LRS" -Location "westus2" -Kind "FileStorage"
@@ -145,15 +145,11 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 Pour démarrer Azure Cloud Shell, connectez-vous au [portail Azure](https://portal.azure.com).
 
-Si vous souhaitez vous connecter à votre installation locale de la CLI, exécutez la commande de connexion :
+Si vous souhaitez vous connecter à votre installation locale de l’interface CLI, vérifiez tout d’abord que vous avez la version la plus récente, puis exécutez la commande de connexion :
 
 ```cli
 az login
 ```
-
-### <a name="add-the-preview-storage-cli-extension"></a>Ajouter l’extension CLI de version préliminaire au stockage
-
-Étant donné que les partages de fichiers premium sont une fonctionnalité en version préliminaire, vous devrez ajouter l’extension de version préliminaire à votre interpréteur de commandes. Pour ce faire, entrez la commande ci-après à l’aide de Cloud Shell ou d’un interpréteur de commandes local : `az extension add --name storage-preview`
 
 ### <a name="create-a-resource-group"></a>Créer un groupe de ressources
 

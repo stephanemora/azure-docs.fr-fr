@@ -2,18 +2,18 @@
 title: Résoudre les erreurs avec les runbooks Azure Automation
 description: Découvrez comment résoudre les problèmes avec les runbooks Azure Automation
 services: automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 65de80004dd05e3eb29f3313bc17405c40450d7a
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
-ms.translationtype: MT
+ms.openlocfilehash: 5a9bd554ec3b7ae4f84d6a0a4726af7ffea89e89
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66397123"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477469"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Résoudre les erreurs avec les runbooks
 
@@ -137,7 +137,7 @@ Pour utiliser un certificat avec les applets de commande de modèle de déploiem
 
 #### <a name="issue"></a>Problème
 
-Vous recevez l’erreur suivante lors de l’appel d’un runbook enfant avec le `-Wait` le flux de sortie et de commutateur contient et de l’objet :
+Vous recevez l’erreur suivante lorsque vous appelez un runbook enfant avec le commutateur `-Wait` et que le flux de sortie contient un objet :
 
 ```error
 Object reference not set to an instance of an object
@@ -303,9 +303,9 @@ Cette erreur se produit en raison d’un des problèmes suivants :
 
 3. Module incompatible. Cette erreur peut se produire si les dépendances de module ne sont pas correctes. Dans ce cas, votre runbook retourne généralement un message « Commande introuvable » ou « Impossible de lier le paramètre ».
 
-4. Votre runbook a tenté d’appeler un fichier exécutable ou de sous-processus dans un runbook qui s’exécute dans un bac à sable Azure. Ce scénario n’est pas pris en charge dans les bacs à sable Azure.
+4. Votre runbook a tenté d’appeler un fichier exécutable ou un sous-processus dans un runbook qui s’exécute dans un bac à sable Azure. Ce scénario n’est pas pris en charge dans les bacs à sable Azure.
 
-5. Votre runbook a tenté d’écrire des données d’exception trop au flux de sortie.
+5. Votre runbook a tenté d’écrire trop de données d’exception dans le flux de sortie.
 
 #### <a name="resolution"></a>Résolution :
 
@@ -319,7 +319,7 @@ Une des solutions suivantes corrige ce problème :
 
 * S'il vous faut appeler un processus (par exemple, .exe ou subprocess.call) dans un runbook, vous devez exécuter le runbook sur un [Runbook Worker hybride](../automation-hrw-run-runbooks.md).
 
-* Il existe une limite de 1 Mo sur le flux de sortie de travail. Assurez-vous que vous placez les appels à un fichier exécutable ou un sous-processus dans un bloc try/catch. Si elles lèvent une exception, écrire le message à partir de cette exception dans une variable Automation. Cela l’empêchera pas d’écrire dans le flux de sortie de travail.
+* Il existe une limite de 1 Mo sur le flux de sortie de travail. Assurez-vous que vous placez les appels à un fichier exécutable ou à un sous-processus dans un bloc try/catch. En cas d’exception, écrivez le message de cette exception dans une variable Automation. Cela l’empêchera d’être écrite dans le flux de sortie de travail.
 
 ### <a name="fails-deserialized-object"></a>Scénario : Le runbook échoue à cause d’un objet désérialisé
 
@@ -488,11 +488,11 @@ Il existe deux façons de résoudre cette erreur :
 * Modifiez le runbook et réduisez le nombre de flux de tâches émis.
 * Réduisez le nombre de flux à récupérer lors de l’exécution de la cmdlet. Pour suivre ce comportement, vous pouvez spécifier le paramètre `-Stream Output` sur l’applet de commande `Get-AzureRmAutomationJobOutput` afin de ne récupérer que les flux de sortie. 
 
-### <a name="cannot-invoke-method"></a>Scénario : Tâche PowerShell échoue avec l’erreur : Impossible d’appeler la méthode
+### <a name="cannot-invoke-method"></a>Scénario : Le travail PowerShell échoue avec l’erreur : Impossible d’appeler la méthode
 
 #### <a name="issue"></a>Problème
 
-Quand vous démarrez un Job de PowerShell dans un runbook en cours d’exécution dans Azure, le message d’erreur suivant s’affiche :
+Vous recevez le message d’erreur suivant lorsque vous démarrez un travail PowerShell dans un runbook exécuté dans Azure :
 
 ```error
 Exception was thrown - Cannot invoke method. Method invocation is supported only on core types in this language mode.
@@ -500,16 +500,16 @@ Exception was thrown - Cannot invoke method. Method invocation is supported only
 
 #### <a name="cause"></a>Cause :
 
-Cette erreur peut se produire lorsque vous démarrez un travail dans un runbook est exécuté dans Azure de PowerShell. Ce comportement peut se produire, car les procédures opérationnelles a été exécuté dans Azure bac à sable ne peut-être pas s’exécuter en le [mode langage complet](/powershell/module/microsoft.powershell.core/about/about_language_modes)).
+Cette erreur peut se produire lorsque vous démarrez un travail PowerShell dans un runbook exécuté dans Azure. Ce comportement peut s’expliquer par le fait que les runbooks exécutés dans un bac à sable Azure peuvent ne pas s’exécuter en [mode langage complet](/powershell/module/microsoft.powershell.core/about/about_language_modes).
 
 #### <a name="resolution"></a>Résolution :
 
 Il existe deux façons de résoudre cette erreur :
 
-* Au lieu d’utiliser `Start-Job`, utilisez `Start-AzureRmAutomationRunbook` pour démarrer un runbook
-* Si votre runbook possède ce message d’erreur, exécutez-le sur un Runbook Worker hybride
+* Au lieu d’utiliser `Start-Job`, utilisez `Start-AzureRmAutomationRunbook` pour démarrer un runbook.
+* Si votre runbook rencontre ce message d’erreur, exécutez-le sur un runbook Worker hybride.
 
-Pour en savoir plus sur ce comportement et d’autres comportements de Runbooks Azure Automation, consultez [Runbook comportement](../automation-runbook-execution.md#runbook-behavior).
+Pour en savoir plus sur ce comportement et sur d’autres comportements des runbooks Azure Automation, consultez [Comportement des runbooks](../automation-runbook-execution.md#runbook-behavior).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

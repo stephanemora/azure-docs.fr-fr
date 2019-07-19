@@ -5,45 +5,80 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 06/28/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c0f19e3ea4f5952ac96b589fa267a2136c85e4f3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 86c4bf328430bbc623d8e493eec5db520d50ef82
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64711653"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485973"
 ---
 # <a name="monitor-azure-file-sync"></a>Superviser Azure File Sync
 
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
 
-Cet article explique comment surveiller votre déploiement Azure File Sync à l'aide du portail Azure et de Windows Server.
+Cet article explique comment surveiller votre déploiement Azure File Sync à l’aide d’Azure Monitor, de Storage Sync Service et de Windows Server.
 
 Les options de surveillance suivantes sont actuellement disponibles.
 
-## <a name="azure-portal"></a>Portail Azure
+## <a name="azure-monitor"></a>Azure Monitor
 
-Dans le portail Azure, vous pouvez afficher l’intégrité du serveur inscrit, l’intégrité du point de terminaison de serveur (intégrité de synchronisation) et des métriques.
+Utilisez [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) pour afficher les métriques et configurer des alertes pour la synchronisation, la hiérarchisation cloud et la connectivité du serveur.  
 
-### <a name="storage-sync-service"></a>Service de synchronisation de stockage
+### <a name="metrics"></a>Mesures
+
+Les métriques pour Azure File Sync sont activées par défaut et sont envoyées à Azure Monitor toutes les 15 minutes.
+
+Pour afficher les métriques Azure File Sync dans Azure Monitor, sélectionnez le type de ressource **Services de synchronisation de stockage**.
+
+Les métriques suivantes pour Azure File Sync sont disponibles dans Azure Monitor :
+
+| Nom de métrique | Description |
+|-|-|
+| Octets synchronisés | Taille des données transférées (chargement et téléchargement).<br><br>Unité : Octets<br>Type d’agrégation : Somme<br>Dimensions applicables : Nom du point de terminaison de serveur, sens de la synchronisation, nom du groupe de synchronisation |
+| Rappel de hiérarchisation cloud | Taille des données rappelées.<br><br>**Remarque**: cette métrique sera supprimée ultérieurement. Utilisez la métrique de taille de rappel de la hiérarchisation cloud pour surveiller la taille des données rappelées.<br><br>Unité : Octets<br>Type d’agrégation : Somme<br>Dimension applicable : Nom du serveur |
+| Taille de rappel de la hiérarchisation cloud | Taille des données rappelées.<br><br>Unité : Octets<br>Type d’agrégation : Somme<br>Dimension applicable : Nom du serveur, nom du groupe de synchronisation |
+| Taille de rappel de hiérarchisation cloud par application | Taille des données rappelées par application.<br><br>Unité : Octets<br>Type d’agrégation : Somme<br>Dimension applicable : Nom de l’application, nom du serveur, nom du groupe de synchronisation |
+| Débit de rappel de la hiérarchisation cloud | Taille de débit de rappel des données.<br><br>Unité : Octets<br>Type d’agrégation : Somme<br>Dimension applicable : Nom du serveur, nom du groupe de synchronisation |
+| Fichiers ne se synchronisant pas | Nombre de fichiers qui ne peuvent pas être synchronisés.<br><br>Unité : Nombre<br>Type d’agrégation : Somme<br>Dimensions applicables : Nom du point de terminaison de serveur, sens de la synchronisation, nom du groupe de synchronisation |
+| Fichiers synchronisés | Nombre de fichiers transférés (chargement et téléchargement).<br><br>Unité : Nombre<br>Type d’agrégation : Somme<br>Dimensions applicables : Nom du point de terminaison de serveur, sens de la synchronisation, nom du groupe de synchronisation |
+| État du serveur en ligne | Nombre de pulsations reçues du serveur.<br><br>Unité : Nombre<br>Type d’agrégation : Maximale<br>Dimension applicable : Nom du serveur |
+| Résultat de session de synchronisation | Résultat de session de synchronisation (1 = session de synchronisation réussie ; 0 = session de synchronisation ayant échoué)<br><br>Unité : Nombre<br>Types d’agrégation : Maximale<br>Dimensions applicables : Nom du point de terminaison de serveur, sens de la synchronisation, nom du groupe de synchronisation |
+
+### <a name="alerts"></a>Alertes
+
+Pour configurer des alertes dans Azure Monitor, sélectionnez le service de synchronisation de stockage, puis sélectionnez la [métrique Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-monitoring#metrics) à utiliser pour l’alerte.  
+
+Le tableau suivant répertorie quelques exemples de scénarios destinés à la surveillance ainsi que la métrique appropriée à utiliser pour l’alerte :
+
+| Scénario | Mesure à utiliser pour l’alerte |
+|-|-|
+| L’intégrité du point de terminaison de serveur dans le portail = erreur | Résultat de session de synchronisation |
+| La synchronisation des fichiers avec le serveur ou le point de terminaison cloud échoue | Fichiers ne se synchronisant pas |
+| Le serveur inscrit ne parvient pas à communiquer avec le service de synchronisation de stockage | État du serveur en ligne |
+| La taille de rappel de la hiérarchisation cloud a dépassé 500 Gio en une journée  | Taille de rappel de la hiérarchisation cloud |
+
+Pour en savoir plus sur la configuration des alertes dans Azure Monitor, consultez [Vue d’ensemble des alertes dans Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
+
+## <a name="storage-sync-service"></a>Service de synchronisation de stockage
 
 Pour afficher l'intégrité du serveur inscrit ainsi que l'intégrité et les métriques du point de terminaison du serveur, accédez au service de synchronisation de stockage sur le portail Azure. Vous pouvez consulter l'intégrité du serveur inscrit dans le panneau **Serveurs enregistrés** et l'intégrité du point de terminaison du serveur dans le panneau **Groupes de synchronisation**.
 
-Intégrité du serveur inscrit :
+### <a name="registered-server-health"></a>Intégrité du serveur inscrit
 
 - Si l'état du **serveur inscrit** est défini sur **En ligne**, cela signifie que le serveur communique avec le service.
 - Si l'état du **serveur inscrit** est défini sur **Apparaît hors connexion**, vérifiez que le processus de surveillance de la synchronisation du stockage (AzureStorageSyncMonitor.exe) est en cours d'exécution sur le serveur. Si le serveur se trouve derrière un pare-feu ou un proxy, consultez [cet article](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy) pour configurer le pare-feu et le proxy.
 
-Intégrité du point de terminaison du serveur :
+### <a name="server-endpoint-health"></a>Intégrité du point de terminaison de serveur
 
 - L’intégrité du point de terminaison de serveur dans le portail est basée sur les événements de synchronisation qui sont enregistrés dans le journal d’événements de télémétrie sur le serveur (ID 9102 et 9302). Si une session de synchronisation échoue à cause d'une erreur transitoire, telle qu'une erreur annulée, la synchronisation peut apparaître comme saine sur le portail tant que la session de synchronisation progresse. L'ID d'événement 9302 est utilisé pour déterminer si les fichiers sont appliqués. Pour plus d'informations, consultez [Intégrité de la synchronisation](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) et [Progression de la synchronisation](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session).
 - Si le portail affiche une erreur de synchronisation parce que la synchronisation ne progresse pas, consultez la [documentation de dépannage](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#common-sync-errors) pour obtenir des conseils.
 
-Métriques :
+### <a name="metric-charts"></a>Graphiques de métrique
 
-- Les métriques suivantes sont visibles sur le portail du service de synchronisation de stockage :
+- Les graphiques de métrique suivants sont visibles sur le portail du service de synchronisation de stockage :
 
   | Nom de métrique | Description | Nom du panneau |
   |-|-|-|
@@ -57,23 +92,6 @@ Métriques :
 
   > [!Note]  
   > Un intervalle de temps de 24 heures s'applique aux graphiques du portail du service de synchronisation de stockage. Pour afficher d'autres intervalles de temps ou dimensions, utilisez Azure Monitor.
-
-### <a name="azure-monitor"></a>Azure Monitor
-
-Utilisez [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) pour surveiller la synchronisation, la hiérarchisation cloud et la connectivité du serveur. Les métriques pour Azure File Sync sont activées par défaut et sont envoyées à Azure Monitor toutes les 15 minutes.
-
-Pour afficher les métriques Azure File Sync dans Azure Monitor, sélectionnez le type de ressource **Services de synchronisation de stockage**.
-
-Les métriques suivantes pour Azure File Sync sont disponibles dans Azure Monitor :
-
-| Nom de métrique | Description |
-|-|-|
-| Octets synchronisés | Taille des données transférées (chargement et téléchargement).<br><br>Unité : Octets<br>Type d’agrégation : Somme<br>Dimensions applicables : Nom du point de terminaison de serveur, sens de la synchronisation, nom du groupe de synchronisation |
-| Rappel de hiérarchisation cloud | Taille des données rappelées.<br><br>Unité : Octets<br>Type d’agrégation : Somme<br>Dimension applicable : Nom du serveur |
-| Fichiers ne se synchronisant pas | Nombre de fichiers qui ne peuvent pas être synchronisés.<br><br>Unité : Nombre<br>Type d’agrégation : Somme<br>Dimensions applicables : Nom du point de terminaison de serveur, sens de la synchronisation, nom du groupe de synchronisation |
-| Fichiers synchronisés | Nombre de fichiers transférés (chargement et téléchargement).<br><br>Unité : Nombre<br>Type d’agrégation : Somme<br>Dimensions applicables : Nom du point de terminaison de serveur, sens de la synchronisation, nom du groupe de synchronisation |
-| État du serveur en ligne | Nombre de pulsations reçues du serveur.<br><br>Unité : Nombre<br>Type d’agrégation : Maximale<br>Dimension applicable : Nom du serveur |
-| Résultat de session de synchronisation | Résultat de session de synchronisation (1 = session de synchronisation réussie ; 0 = session de synchronisation ayant échoué)<br><br>Unité : Nombre<br>Types d’agrégation : Maximale<br>Dimensions applicables : Nom du point de terminaison de serveur, sens de la synchronisation, nom du groupe de synchronisation |
 
 ## <a name="windows-server"></a>Windows Server
 

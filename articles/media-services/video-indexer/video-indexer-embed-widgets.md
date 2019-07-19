@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 06/05/2019
+ms.date: 06/30/2019
 ms.author: juliako
-ms.openlocfilehash: 6b5422e2eb67eb309c086c023df9f733940e5e44
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 937dc6eefbbfc37aaeee0801f410f9f99cb0c787
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66735070"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67488683"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>Incorporer des widgets Video Indexer dans vos applications
 
@@ -32,6 +32,8 @@ Un widget **Insight cognitifs** inclut tous les insights visuels extraits à par
 |Nom|Définition|Description|
 |---|---|---|
 |widgets|Chaînes séparées par des virgules|Vous permet de contrôler les insights dont vous voulez faire le rendu. <br/>Exemple : `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` affichera uniquement les insights d’IU des marques (brands) et des personnes (people)<br/>Options disponibles : personnes (people), mots clés (keywords), annotations, marques (brands), sentiments, transcription (transcript), recherche (search).<br/>non pris en charge via l’URL dans la version=2<br/><br/>**Remarque :** Le paramètre d’URL des widgets n’est pas pris en charge dans la version 2. |
+|locale|Code de langue court|Contrôle la langue des insights. La valeur par défaut est `en`. Par exemple : `language=de`.|
+|tab|Onglet sélectionné par défaut|Contrôle l’onglet insights affiché par défaut. `tab=timeline` affiche les insights avec l’onglet de chronologie sélectionné.|
 
 ### <a name="player-widget"></a>Widget Lecteur
 
@@ -39,12 +41,12 @@ Un widget **Lecteur** vous permet de diffuser la vidéo en continu à l’aide d
 
 |Nom|Définition|Description|
 |---|---|---|
-|t|Secondes depuis le début|Fait démarrer le lecteur à partir d’un instant donné.<br/>Exemple : t=60|
-|captions|Code de langue|Extrait les sous-titres dans la langue spécifiée pendant le chargement du widget pour les rendre disponibles dans le menu des sous-titres.<br/>Exemple : captions=en-US|
-|showCaptions|Une valeur booléenne|Permet de charger le lecteur avec les sous-titres déjà activés.<br/>Exemple : showCaptions=true|
-|Type||Active une apparence du lecteur audio (la partie vidéo est supprimée).<br/>Exemple : type=audio|
-|autoplay|Une valeur booléenne|Indique si le lecteur doit commencer la lecture de la vidéo après le chargement (la valeur par défaut est true).<br/>Exemple : autoplay=false|
-|Langage|Code de langue|Détermine la langue du lecteur (la valeur par défaut est en-US)<br/>Exemple : language=de-DE|
+|t|Secondes écoulées depuis le début|Fait démarrer le lecteur à partir d’un instant donné.<br/>Exemple : `t=60`.|
+|captions|Code de langue|Extrait les sous-titres dans la langue spécifiée pendant le chargement du widget pour les rendre disponibles dans le menu des sous-titres.<br/>Exemple : `captions=en-US`.|
+|showCaptions|Une valeur booléenne|Permet de charger le lecteur avec les sous-titres déjà activés.<br/>Exemple : `showCaptions=true`.|
+|Type||Active une apparence du lecteur audio (la partie vidéo est supprimée).<br/>Exemple : `type=audio`.|
+|autoplay|Une valeur booléenne|Indique si le lecteur doit commencer la lecture de la vidéo après le chargement (la valeur par défaut est true).<br/>Exemple : `autoplay=false`.|
+|Langage|Code de langue|Détermine la langue du lecteur (la valeur par défaut est en-US)<br/>Exemple : `language=de-DE`.|
 
 ## <a name="embedding-public-content"></a>Incorporation de contenu public
 

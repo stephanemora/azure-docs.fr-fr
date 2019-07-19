@@ -3,15 +3,15 @@ title: Activer la réplication des machines virtuelles VMware pour la récupéra
 description: Cet article décrit la procédure d’activation de la réplication de machines virtuelles VMware sur Azure pour la récupération d’urgence à l’aide d’Azure Site Recovery.
 author: Rajeswari-Mamilla
 ms.service: site-recovery
-ms.date: 05/10/2019
+ms.date: 06/28/2019
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: add0f8252bdae6857b28deeb7de4c1d09973e452
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3f4e4afb4d94a7b2e2a6b246a371cf6234577463
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540758"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491729"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Activer la réplication des machines virtuelles VMware dans Azure
 
@@ -37,11 +37,13 @@ Lorsque vous répliquez des machines virtuelles VMware, gardez les informations 
 ## <a name="enable-replication"></a>Activer la réplication
 
 Avant de suivre la procédure décrite dans cette section, notez les informations ci-après :
-* Désormais, Azure Site Recovery effectue la réplication directement sur les disques managés pour toutes les nouvelles réplications. Le serveur de processus écrit les journaux de réplication sur un compte de stockage de cache dans la région cible. Ces journaux sont utilisés pour la création de points de récupération dans les disques managés de réplica.
+* Désormais, Azure Site Recovery effectue la réplication directement sur les disques managés pour toutes les nouvelles réplications. Le serveur de processus écrit les journaux de réplication sur un compte de stockage de cache dans la région cible. Ces journaux sont utilisés pour la création de points de récupération dans les disques managés de réplica qui présentent la convention d’affectation de noms asrseeddisk.
+* La prise en charge PowerShell pour la réplication vers des disques managés est disponible à partir de [Az.RecoveryServices 2.0.0](https://www.powershellgallery.com/packages/Az.RecoveryServices/2.0.0-preview) 
 * Lors du basculement, le point de récupération que vous sélectionnez sert à créer le disque managé cible.
 * Les machines virtuelles précédemment configurées pour la réplication sur les comptes de stockage cibles ne sont pas affectées.
 * La réplication d’une nouvelle machine virtuelle sur les comptes de stockage est uniquement disponible par le biais d’une API REST (Representational State Transfer) et de Powershell. Utilisez la version d’API REST Azure 2016-08-10 ou 2018-01-10 pour la réplication sur les comptes de stockage.
 
+Suivez les étapes ci-dessous pour activer la réplication :
 1. Accédez à **l’étape 2 : Répliquer l’application** > **Source**. Après avoir activé la réplication pour la première fois, sélectionnez **+Répliquer** dans le coffre afin d’activer la réplication de machines virtuelles supplémentaires.
 2. Dans la page **Source** > **Source**, sélectionnez le serveur de configuration.
 3. Pour la zone **Type de machine**, sélectionnez **Machines virtuelles** ou **Machines physiques**.

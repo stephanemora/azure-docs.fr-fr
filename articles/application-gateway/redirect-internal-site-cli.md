@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
-ms.openlocfilehash: e44beed592e013a089011c2a774b7300f2b3f854
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 25c50d400a68cdbfb9110a9e8e9d66477ad4710a
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66133746"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67513369"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-the-azure-cli"></a>Créer une passerelle d’application avec redirection interne à l’aide d’Azure CLI
 
-Vous pouvez utiliser l’interface CLI Azure pour configurer une [redirection du trafic web](multiple-site-overview.md) lors de la création d’une [passerelle d’application](overview.md). Dans ce didacticiel, vous définissez un pool backend à l’aide d’un groupe de machines virtuelles identiques. Vous configurez ensuite des écouteurs et des règles en fonction de domaines qui vous appartiennent pour vérifier que le trafic web arrive au pool approprié. Ce tutoriel, qui part du principe que vous possédez plusieurs domaines, utilise *www\.contoso.com* et *www\.contoso.org* en guise d’exemples.
+Vous pouvez utiliser l’interface CLI Azure pour configurer une [redirection du trafic web](multiple-site-overview.md) lors de la création d’une [passerelle d’application](overview.md). Dans ce didacticiel, vous définissez un pool backend à l’aide d’un groupe de machines virtuelles identiques. Vous configurez ensuite des écouteurs et des règles en fonction de domaines qui vous appartiennent pour vérifier que le trafic web arrive au pool approprié. Ce didacticiel, qui part du principe que vous possédez plusieurs domaines, utilise *www\.contoso.com* and *www\.contoso.org* en guise d’exemples.
 
 Dans cet article, vous apprendrez comment :
 
@@ -213,11 +213,11 @@ az network public-ip show \
 
 ## <a name="test-the-application-gateway"></a>Tester la passerelle d’application
 
-Entrez votre nom de domaine dans la barre d’adresse de votre navigateur. Par exemple, http://www.contoso.com.
+Entrez votre nom de domaine dans la barre d’adresse de votre navigateur. Par exemple : http:\//www.contoso.com.
 
 ![Tester le site contoso dans la passerelle d’application](./media/redirect-internal-site-cli/application-gateway-nginxtest.png)
 
-Remplacez l’adresse par celle de votre autre domaine, par exemple http://www.contoso.org. Vous devriez alors remarquer que le trafic est redirigé vers l’écouteur pour www\. contoso.com.
+Remplacez l’adresse par celle de votre autre domaine, par exemple http:\//www.contoso.org. Vous devriez alors remarquer que le trafic est redirigé vers l’écouteur pour www\.contoso.com.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

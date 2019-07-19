@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/26/2019
+ms.date: 07/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 481b19d0121e93c84d123579e91bcbfb9fb50815
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
-ms.translationtype: MT
+ms.openlocfilehash: 3f7bf3ce8c01e82fa69b3b041b573b4b31a719d2
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66356971"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514088"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copier des données à partir et vers Dynamics 365 (Common Data Service) ou Dynamics CRM à l’aide d’Azure Data Factory
 
@@ -27,7 +27,13 @@ Cet article explique comment utiliser l’activité de copie dans Azure Data Fac
 
 Vous pouvez copier des données à partir de Dynamics 365 (Common Data Service) ou Dynamics CRM vers toute banque de données réceptrice prise en charge. Vous pouvez également copier des données à partir de n’importe quelle banque de données source prise en charge vers Dynamics 365 (Common Data Service) ou Dynamics CRM. Pour obtenir la liste des magasins de données pris en charge en tant que sources ou récepteurs pour l’activité de copie, consultez le tableau [Magasins de données pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).
 
-Ce connecteur Dynamics prend en charge les versions et les types d’authentification de Dynamics ci-dessous : (IFD est l’abréviation d’« Internet Facing Deployment ») (déploiement avec accès via Internet).
+Ce connecteur Dynamics prend en charge Dynamics 7.x à 9.x, aussi bien en ligne qu’en local. Plus précisément :
+
+- La version 7.x mappe vers Dynamics CRM 2015
+- La version 8.x mappe vers Dynamics CRM 2016 et la version anticipée de Dynamics 365
+- La version 9.x mappe vers la dernière version de Dynamics 365
+
+Consultez le tableau suivant sur les configurations et les types d’authentification pris en charge pour en savoir plus sur les versions/produits Dynamics respectifs. (IFD est l’abréviation d’« Internet Facing Deployment ») (déploiement avec accès via Internet).
 
 | Versions de Dynamics | Types d’authentification | Exemples de services liés |
 |:--- |:--- |:--- |
@@ -43,6 +49,8 @@ Plus spécifiquement pour Dynamics 365, les types d’applications suivants sont
 - Dynamics 365 pour le marketing
 
 Les autres types d’applications, par exemple, Finance and Operations, Talent, etc., ne sont pas pris en charge par ce connecteur.
+
+Ce connecteur Dynamics se base sur les [outils Dynamics XRM](https://docs.microsoft.com/dynamics365/customer-engagement/developer/build-windows-client-applications-xrm-tools).
 
 >[!TIP]
 >Pour copier des données issues de **Dynamics 365 for Finance and Operations**, vous pouvez utiliser le [connecteur Dynamics AX](connector-dynamics-ax.md).
@@ -61,11 +69,11 @@ Les propriétés prises en charge pour le service lié Dynamics sont les suivant
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type doit être définie sur **Dynamics**. | Oui |
-| deploymentType | Type de déploiement de l’instance Dynamics. Il doit être **« en ligne »** pour Dynamics en ligne. | Oui |
-| serviceUri | L’URL de service de votre instance Dynamics, par exemple `https://adfdynamics.crm.dynamics.com`. | Oui |
-| authenticationType | Type d’authentification pour se connecter à un serveur Dynamics. Spécifiez **« Office365 »** pour Dynamics en ligne. | Oui |
-| username | Indiquez le nom d'utilisateur à utiliser pour se connecter à Dynamics. | Oui |
+| Type | La propriété type doit être définie sur **Dynamics**. | OUI |
+| deploymentType | Type de déploiement de l’instance Dynamics. Il doit être **« en ligne »** pour Dynamics en ligne. | OUI |
+| serviceUri | L’URL de service de votre instance Dynamics, par exemple `https://adfdynamics.crm.dynamics.com`. | OUI |
+| authenticationType | Type d’authentification pour se connecter à un serveur Dynamics. Spécifiez **« Office365 »** pour Dynamics en ligne. | OUI |
+| username | Indiquez le nom d'utilisateur à utiliser pour se connecter à Dynamics. | OUI |
 | password | Indiquez le mot de passe du compte d’utilisateur défini pour le nom d’utilisateur. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
 | connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. | Non pour la source, oui pour le récepteur si le service lié à la source n’a pas de runtime d’intégration |
 
@@ -104,14 +112,14 @@ Les propriétés prises en charge pour le service lié Dynamics sont les suivant
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type doit être définie sur **Dynamics**. | Oui |
-| deploymentType | Type de déploiement de l’instance Dynamics. Cela doit être **« OnPremisesWithIfd »** pour Dynamics local avec IFD.| Oui |
-| hostName | Nom d’hôte du serveur Dynamics local. | Oui |
+| Type | La propriété type doit être définie sur **Dynamics**. | OUI |
+| deploymentType | Type de déploiement de l’instance Dynamics. Cela doit être **« OnPremisesWithIfd »** pour Dynamics local avec IFD.| OUI |
+| hostName | Nom d’hôte du serveur Dynamics local. | OUI |
 | port | Port du serveur Dynamics local. | Non, la valeur par défaut est 443 |
-| organizationName | Nom d’organisation de l’instance Dynamics. | Oui |
-| authenticationType | Type d’authentification pour se connecter au serveur Dynamics. Spécifiez **« Ifd »** pour Dynamics local avec IFD. | Oui |
-| username | Indiquez le nom d'utilisateur à utiliser pour se connecter à Dynamics. | Oui |
-| password | Indiquez le mot de passe du compte d’utilisateur défini pour le nom d’utilisateur. Vous pouvez choisir de marquer ce champ comme SecureString pour le stocker en toute sécurité dans le fichier de définition d’application, ou stocker le mot de passe dans Azure Key Vault et laisser l’activité de copie en tirer (pull) les données lors de la copie. Pour plus d’informations, consultez la page [Stocker des informations d’identification dans Key Vault](store-credentials-in-key-vault.md). | Oui |
+| organizationName | Nom d’organisation de l’instance Dynamics. | OUI |
+| authenticationType | Type d’authentification pour se connecter au serveur Dynamics. Spécifiez **« Ifd »** pour Dynamics local avec IFD. | OUI |
+| username | Indiquez le nom d'utilisateur à utiliser pour se connecter à Dynamics. | OUI |
+| password | Indiquez le mot de passe du compte d’utilisateur défini pour le nom d’utilisateur. Vous pouvez choisir de marquer ce champ comme SecureString pour le stocker en toute sécurité dans le fichier de définition d’application, ou stocker le mot de passe dans Azure Key Vault et laisser l’activité de copie en tirer (pull) les données lors de la copie. Pour plus d’informations, consultez la page [Stocker des informations d’identification dans Key Vault](store-credentials-in-key-vault.md). | OUI |
 | connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. | Non pour Source, Oui pour Récepteur |
 
 **Exemple : Dynamics local avec IFD utilisant l’authentification IFD**
@@ -150,13 +158,13 @@ Pour copier des données depuis et vers Dynamics, définissez la propriété de 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété de type du jeu de données doit être définie sur **DynamicsEntity**. |Oui |
+| Type | La propriété de type du jeu de données doit être définie sur **DynamicsEntity**. |OUI |
 | entityName | Nom logique de l’entité à récupérer. | Non pour la source (si « query » est spécifié dans la source de l’activité) ; Oui pour le récepteur |
 
 > [!IMPORTANT]
->- Lorsque vous copiez des données à partir de Dynamics, la section « structure » est facultatif mais fortement recommandé dans le jeu de données Dynamics pour garantir un résultat déterministe de copie. Il définit le nom de colonne et le type de données pour les données Dynamics que vous souhaitez copier. Pour en savoir plus, consultez [Dataset structure](concepts-datasets-linked-services.md#dataset-structure-or-schema) (Structure du jeu de données) et [Mappage de type de données pour Dynamics](#data-type-mapping-for-dynamics).
->- Quand vous importez un schéma dans l’interface utilisateur de création, ADF déduit le schéma en échantillonnant les premières lignes du résultat de requête Dynamics pour initialiser la construction de la structure, dans laquelle les colonnes de cas sans valeurs seront omises. Le même comportement s’applique pour copier des exécutions s’il n’existe aucune définition de structure explicite. Vous pouvez examiner le schéma/la structure du jeu de données Dynamics et y ajouter des colonnes si nécessaire, ce qui sera respecté pendant l’exécution de la copie.
->- Lorsque vous copiez des données vers Dynamics, la section « structure » est facultative dans le jeu de données Dynamics. Les colonnes à copier sont déterminées par le schéma de données source. Si votre source est un fichier CSV sans en-tête, spécifiez la « structure » dans le jeu de données d’entrée avec le nom de colonne et le type de données. Ils sont mappés aux champs dans le fichier CSV un par un dans l’ordre.
+>- Quand vous copiez des données à partir de Dynamics, la section « structure » est facultative, mais vivement recommandée dans le jeu de données Dynamics pour garantir un résultat de copie déterministe. Il définit le nom de colonne et le type de données pour les données Dynamics que vous souhaitez copier. Pour en savoir plus, consultez [Dataset structure](concepts-datasets-linked-services.md#dataset-structure-or-schema) (Structure du jeu de données) et [Mappage de type de données pour Dynamics](#data-type-mapping-for-dynamics).
+>- Quand vous importez un schéma dans l’interface utilisateur de création, ADF déduit le schéma en échantillonnant les premières lignes du résultat de requête Dynamics pour initialiser la construction de la structure, dans laquelle les colonnes de cas sans valeurs seront omises. Le même comportement s’applique aux exécutions de copies s’il n’existe aucune définition de structure explicite. Vous pouvez examiner le schéma/la structure du jeu de données Dynamics et y ajouter des colonnes si nécessaire, ce qui sera respecté pendant l’exécution de la copie.
+>- Lorsque vous copiez des données vers Dynamics, la section « structure » est facultative dans le jeu de données Dynamics. Les colonnes dans lesquelles vous devez copier sont déterminées par le schéma de données sources. Si votre source est un fichier CSV sans en-tête, spécifiez la « structure » dans le jeu de données d’entrée avec le nom de colonne et le type de données. Ils sont mappés aux champs dans le fichier CSV un par un dans l’ordre.
 
 **Exemple :**
 
@@ -204,8 +212,8 @@ Pour copier des données de Dynamics, définissez le type de source dans l’act
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété de type de la source de l’activité de copie doit être définie sur **DynamicsSource**. | Oui |
-| query | FetchXML est un langage de requête propriétaire qui est utilisé dans Dynamics (en ligne et local). Consultez l’exemple qui suit. Pour plus d’informations, consultez [générer des requêtes avec FetchXML](https://msdn.microsoft.com/library/gg328332.aspx). | Non (si « entityName » est spécifié dans le jeu de données) |
+| Type | La propriété de type de la source de l’activité de copie doit être définie sur **DynamicsSource**. | OUI |
+| query | FetchXML est un langage de requête propriétaire qui est utilisé dans Dynamics (en ligne et local). Consultez l’exemple qui suit. Pour en savoir plus, consultez [Générer des requêtes avec FetchXML](https://msdn.microsoft.com/library/gg328332.aspx). | Non (si « entityName » est spécifié dans le jeu de données) |
 
 >[!NOTE]
 >La colonne PK sera toujours copiée, même si la projection de colonne que vous avez configurée dans la requête FetchXML ne la contient pas.
@@ -268,8 +276,8 @@ Pour copier des données vers Dynamics, définissez le type de récepteur dans l
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété de type du récepteur d’activité de copie doit être définie sur **DynamicsSink**. | Oui |
-| writeBehavior | Comportement d’écriture de l’opération.<br/>La valeur autorisée est **« Upsert »** . | Oui |
+| Type | La propriété de type du récepteur d’activité de copie doit être définie sur **DynamicsSink**. | OUI |
+| writeBehavior | Comportement d’écriture de l’opération.<br/>La valeur autorisée est **« Upsert »** . | OUI |
 | writeBatchSize | Nombre de lignes de données écrites dans Dynamics pour chaque lot. | Non (valeur par défaut : 10) |
 | ignoreNullValues | Indique si les valeurs Null des données d’entrée (à l’exception des champs clés) doivent être ignorées pendant une opération d’écriture.<br/>Les valeurs autorisées sont **true** et **false**.<br>- **True** : Laisser inchangées les données dans l’objet de destination quand vous effectuez une opération upsert/mise à jour. Insérer une valeur définie par défaut lorsque vous effectuez une opération insert.<br/>- **False** : Mettre à jour les données dans l’objet de destination quand vous effectuez une opération upsert/mise à jour. Insérer une valeur NULL lorsque vous effectuez une opération insert. | Non (valeur par défaut : false) |
 
@@ -325,7 +333,7 @@ Configurez le type de données Data Factory correspondant dans la structure du j
 | AttributeTypeCode.BigInt | long | ✓ | ✓ |
 | AttributeTypeCode.Boolean | Boolean | ✓ | ✓ |
 | AttributeType.Customer | Guid | ✓ | |
-| AttributeType.DateTime | DateTime | ✓ | ✓ |
+| AttributeType.DateTime | Datetime | ✓ | ✓ |
 | AttributeType.Decimal | Decimal | ✓ | ✓ |
 | AttributeType.Double | Double | ✓ | ✓ |
 | AttributeType.EntityName | Chaîne | ✓ | ✓ |
@@ -341,9 +349,8 @@ Configurez le type de données Data Factory correspondant dans la structure du j
 | AttributeType.State | Int32 | ✓ | ✓ |
 | AttributeType.Status | Int32 | ✓ | ✓ |
 
-
 > [!NOTE]
-> Les types de données Dynamics AttributeType.CalendarRules et AttributeType.PartyList ne sont pas pris en charge.
+> Les types de données AttributeType.CalendarRules, AttributeType.MultiSelectPicklist et AttributeType.PartyList de Dynamics ne sont pas pris en charge.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [Banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).

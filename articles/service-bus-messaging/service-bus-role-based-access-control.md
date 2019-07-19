@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2018
 ms.author: aschhab
-ms.openlocfilehash: e4571a8918b7877b728b54129e47ffcf4af9b46a
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
-ms.translationtype: MT
+ms.openlocfilehash: 6f5390162ce56a0e77ef41740d7e88f3546c5530
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65979639"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444732"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Contrôle d’accès en fonction du rôle Azure Active Directory (version préliminaire)
 
@@ -31,18 +31,18 @@ Une application qui utilise le contrôle d’accès en fonction du rôle Azure A
 
 ## <a name="service-bus-roles-and-permissions"></a>Rôles et autorisations Service Bus
 
-Azure fournit la ci-dessous les rôles RBAC intégrés pour autoriser l’accès à un espace de noms Service Bus :
+Azure fournit les rôles RBAC intégrés ci-dessous pour autoriser l’accès à un espace de noms Service Bus :
 
-* [Propriétaire de données Service Bus (version préliminaire)](../role-based-access-control/built-in-roles.md#service-bus-data-owner): Permet l’accès à l’espace de noms Service Bus et ses entités (files d’attente, rubriques, abonnements et les filtres)
+* [Propriétaire de données Azure Service Bus (préversion)](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner-preview) : Permet l’accès aux données sur l’espace de noms Service Bus et ses entités (files d’attente, rubriques, abonnements et filtres)
 
 >[!IMPORTANT]
-> Nous avons pris en charge précédemment l’Ajout d’une identité gérée pour le **« Propriétaire »** ou **« Collaborateur »** rôle.
+> Auparavant, nous prenions en charge l’ajout d’une identité managée pour le rôle **« Propriétaire »** ou **« Contributeur »** .
 >
-> Toutefois, des privilèges d’accès aux données **« Propriétaire »** et **« Collaborateur »** rôle n’est plus sera honorée. Si vous utilisiez le **« Propriétaire »** ou **« Collaborateur »** rôle, puis ceux devra être adaptés pour utiliser le **« Service Bus de données propriétaire »** rôle.
+> Toutefois, des privilèges d’accès aux données pour le rôle **« Propriétaire »** et **« Contributeur »** ne sont plus respectés. Si vous utilisiez le rôle **« Propriétaire »** ou **« Contributeur »** , ces derniers devront être adaptés de manière à utiliser le rôle **« Propriétaire de données Azure Service Bus (préversion) »** .
 
 ## <a name="use-service-bus-with-an-azure-ad-domain-user-account"></a>Utiliser Service Bus avec un compte d’utilisateur de domaine Azure AD
 
-La section suivante décrit les étapes requises pour créer et exécuter un exemple d’application qui invite à entrer un Azure interactif utilisateur AD pour vous connecter, comment accorder l’accès de Service Bus à ce compte d’utilisateur et comment utiliser cette identité pour accéder aux Event Hubs.
+La section suivante décrit les étapes requises pour créer et exécuter un exemple d’application qui invite un utilisateur Azure AD interactif à se connecter, comment accorder à ce compte d’utilisateur l’accès à Service Bus et comment utiliser cette identité pour accéder aux Event Hubs.
 
 Cette présentation décrit une application console simple, [dont le code se trouve sur GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/RoleBasedAccessControl).
 
@@ -54,7 +54,7 @@ Si vous souhaitez toujours créer un compte spécifique pour ce scénario, [proc
 
 ### <a name="create-a-service-bus-namespace"></a>Création d’un espace de noms Service Bus
 
-Ensuite, [créer un espace de noms Service Bus Messaging](service-bus-create-namespace-portal.md).
+Ensuite, [créez un espace de noms Service Bus Messaging](service-bus-create-namespace-portal.md).
 
 Une fois l’espace de noms créé, accédez à la page **Contrôle d’accès (IAM)** correspondante sur le portail, puis cliquez sur **Ajouter une attribution de rôle** pour ajouter le compte d’utilisateur Azure AD au rôle de propriétaire. Si vous utilisez votre propre compte d’utilisateur et que vous avez créé l’espace de noms, vous êtes déjà dans le rôle de propriétaire. Pour ajouter un autre compte au rôle, recherchez le nom de l’application web dans le champ **Sélectionner** du panneau **Ajouter des autorisations**, puis cliquez sur l’entrée. Cliquez ensuite sur **Enregistrer**.
 

@@ -1,5 +1,5 @@
 ---
-title: Diriger le trafic Azure vers Azure SQL Database et SQL Data Warehouse | Microsoft Docs
+title: Architecture de connectivité Azure SQL Database et SQL Data Warehouse | Microsoft Docs
 description: Ce document décrit l’architecture de connectivité Azure SQL pour les connexions de base de données à l’intérieur et à l’extérieur d’Azure.
 services: sql-database
 ms.service: sql-database
@@ -7,17 +7,17 @@ ms.subservice: development
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: srdan-bozovic-msft
-ms.author: srbozovi
-ms.reviewer: carlrab
+author: rohitnayakmsft
+ms.author: rohitna
+ms.reviewer: carlrab, vanto
 manager: craigg
-ms.date: 04/03/2019
-ms.openlocfilehash: 4ff6cc0ba18074f353eb5b99af7052edd658a80e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/02/2019
+ms.openlocfilehash: 8441e64981b7157e91a56124a08c0aa02a9b1db0
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66164443"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537932"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Architecture de la connectivité Azure SQL
 
@@ -57,48 +57,47 @@ Si vous vous connectez en dehors d'Azure, la stratégie de connexion par défaut
 
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Adresses IP de la passerelle Azure SQL Database
 
-Pour vous connecter à une base de données Azure SQL à partir de ressources locales, vous devez autoriser le trafic réseau sortant vers la passerelle Azure SQL Database pour votre région Azure. Les connexions transitent uniquement via la passerelle en cas d'utilisation du mode `Proxy`, qui est le mode par défaut lors d'une connexion à partir de ressources locales.
+Le tableau ci-dessous répertorie les adresses IP des passerelles par région. Pour vous connecter à une base de données SQL Azure, vous devez autoriser le trafic réseau en direction et en provenance de **toutes** les passerelles pour la région.
 
-Le tableau suivant répertorie les adresses IP principales et secondaires de la passerelle Azure SQL Database pour toutes les régions de données. Pour certaines régions, il existe deux adresses IP. Dans ces régions, l’adresse IP principale est l’adresse IP actuelle de la passerelle et la deuxième adresse IP est une adresse IP de basculement. L’adresse de basculement est l’adresse vers laquelle nous pouvons déplacer votre serveur pour maintenir la haute disponibilité du service. Pour ces régions, nous vous conseillons d’autoriser le trafic sortant vers les deux adresses IP. La deuxième adresse IP est détenue par Microsoft et n’écoute pas les services tant qu’elle n’est pas activée par Azure SQL Database de manière à accepter les connexions.
+À l’avenir, nous allons ajouter des passerelles dans chaque région et mettre hors service les passerelles dans la colonne Adresse IP de passerelle désactivée dans le tableau ci-dessous. Pour en savoir plus sur le processus de désactivation, consultez l’article suivant : [Migration du trafic des bases de données SQL Azure Database vers des passerelles plus récentes](sql-database-gateway-migration.md)
 
-| Nom de la région | Adresse IP principale | Adresse IP secondaire |
-| --- | --- |--- |
-| Australie Est | 13.75.149.87 | 40.79.161.1 |
-| Sud-Est de l’Australie | 191.239.192.109 | 13.73.109.251 |
-| Brésil Sud | 104.41.11.5 | |
-| Centre du Canada | 40.85.224.249 | |
-| Est du Canada | 40.86.226.166 | |
-| USA Centre | 23.99.160.139 | 13.67.215.62 |
-| Chine Est 1 | 139.219.130.35 | |
-| Chine Est 2 | 40.73.82.1 | |
-| Chine Nord 1 | 139.219.15.17 | |
-| Chine Nord 2 | 40.73.50.0 | |
-| Asie Est | 191.234.2.139 | 52.175.33.150 |
-| USA Est 1 | 191.238.6.43 | 40.121.158.30 |
-| USA Est 2 | 191.239.224.107 | 40.79.84.180 * |
-| France Centre | 40.79.137.0 | 40.79.129.1 |
-| Centre de l’Allemagne | 51.4.144.100 | |
-| Nord-Est de l’Allemagne | 51.5.144.179 | |
-| Inde Centre | 104.211.96.159 | |
-| Sud de l’Inde | 104.211.224.146 | |
-| Inde Ouest | 104.211.160.80 | |
-| Japon Est | 191.237.240.43 | 13.78.61.196 |
-| Japon Ouest | 191.238.68.11 | 104.214.148.156 |
-| Centre de la Corée | 52.231.32.42 | |
-| Corée du Sud | 52.231.200.86 |  |
-| USA Centre Nord | 23.98.55.75 | 23.96.178.199 |
-| Europe Nord | 191.235.193.75 | 40.113.93.91 |
-| USA Centre Sud | 23.98.162.75 | 13.66.62.124 |
-| Asie Sud-Est | 23.100.117.95 | 104.43.15.0 |
-| Sud du Royaume-Uni | 51.140.184.11 | |
-| Ouest du Royaume-Uni | 51.141.8.11| |
-| USA Centre-Ouest | 13.78.145.25 | |
-| Europe Ouest | 191.237.232.75 | 40.68.37.158 |
-| USA Ouest 1 | 23.99.34.75 | 104.42.238.205 |
-| USA Ouest 2 | 13.66.226.202 | |
-||||
 
-\* **REMARQUE :** *USA Est 2* possède également l'adresse IP tertiaire `52.167.104.0`.
+| Nom de la région          | Adresse IP de la passerelle | Passerelle désactivée </br> Adresse IP| Remarques sur la désactivation | 
+| --- | --- | --- | --- |
+| Australie Est       | 13.75.149.87, 40.79.161.1 | | |
+| Sud-Est de l’Australie | 191.239.192.109, 13.73.109.251 | | |
+| Brésil Sud         | 104.41.11.5        |                 | |
+| Centre du Canada       | 40.85.224.249      |                 | |
+| Est du Canada          | 40.86.226.166      |                 | |
+| USA Centre           | 13.67.215.62, 52.182.137.15 | 23.99.160.139 | Aucune connexion après le 1er septembre 2019 |
+| Chine Est 1         | 139.219.130.35     |                 | |
+| Chine Est 2         | 40.73.82.1         |                 | |
+| Chine Nord 1        | 139.219.15.17      |                 | |
+| Chine Nord 2        | 40.73.50.0         |                 | |
+| Asie Est            | 191.234.2.139, 52.175.33.150 |       | |
+| USA Est 1            | 40.121.158.30, 40.79.153.12 | 191.238.6.43 | Aucune connexion après le 1er septembre 2019 |
+| USA Est 2            | 40.79.84.180, 52.177.185.181, 52.167.104.0 | 191.239.224.107    | Aucune connexion après le 1er septembre 2019 |
+| France Centre       | 40.79.137.0, 40.79.129.1 |           | |
+| Centre de l’Allemagne      | 51.4.144.100       |                 | |
+| Nord-Est de l’Allemagne   | 51.5.144.179       |                 | |
+| Inde Centre        | 104.211.96.159     |                 | |
+| Sud de l’Inde          | 104.211.224.146    |                 | |
+| Inde Ouest           | 104.211.160.80     |                 | |
+| Japon Est           | 13.78.61.196, 40.79.184.8, 13.78.106.224 | 191.237.240.43 | Aucune connexion après le 1er septembre 2019 |
+| Japon Ouest           | 104.214.148.156, 40.74.100.192 | 191.238.68.11 | Aucune connexion après le 1er septembre 2019 |
+| Centre de la Corée        | 52.231.32.42       |                 | |
+| Corée du Sud          | 52.231.200.86      |                 | |
+| USA Centre Nord     | 23.96.178.199      | 23.98.55.75     | Aucune connexion après le 1er septembre 2019 |
+| Europe Nord         | 40.113.93.91       | 191.235.193.75  | Aucune connexion après le 1er septembre 2019 |
+| USA Centre Sud     | 13.66.62.124       | 23.98.162.75    | Aucune connexion après le 1er septembre 2019 |
+| Asie Sud-Est      | 104.43.15.0        | 23.100.117.95   | Aucune connexion après le 1er septembre 2019 |
+| Sud du Royaume-Uni             | 51.140.184.11      |                 | |
+| Ouest du Royaume-Uni              | 51.141.8.11        |                 | |
+| USA Centre-Ouest      | 13.78.145.25       |                 | |
+| Europe Ouest          | 191.237.232.75, 40.68.37.158 |       | |
+| USA Ouest 1            | 23.99.34.75, 104.42.238.205 |        | |
+| USA Ouest 2            | 13.66.226.202      |                 | |
+|                      |                    |                 | |
 
 ## <a name="change-azure-sql-database-connection-policy"></a>Modifier la stratégie de connexion Azure SQL Database
 
@@ -111,10 +110,7 @@ Pour changer la stratégie de connexion Azure SQL Database pour un serveur Azure
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont destinés au module Az.Sql. Pour ces cmdlets, consultez [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments des commandes dans le module Az et dans les modules AzureRm sont sensiblement identiques.
-
-> [!IMPORTANT]
-> Ce script nécessite le [module Azure PowerShell](/powershell/azure/install-az-ps).
+> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont destinés au module Az.Sql. Pour ces cmdlets, consultez [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments des commandes dans le module Az et dans les modules AzureRm sont sensiblement identiques. Le script suivant nécessite le [module Azure PowerShell](/powershell/azure/install-az-ps).
 
 Le script PowerShell suivant montre comment modifier la stratégie de connexion.
 
@@ -137,20 +133,43 @@ Set-AzResource -ResourceId $id -Properties @{"connectionType" = "Proxy"} -f
 > [!IMPORTANT]
 > Ce script nécessite [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-Le script CLI suivant montre comment modifier la stratégie de connexion.
+### <a name="azure-cli-in-a-bash-shell"></a>Azure CLI dans un interpréteur de commandes Bash
+
+> [!IMPORTANT]
+> Ce script nécessite [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+
+Le script CLI suivant montre comment modifier la stratégie de connexion dans un interpréteur de commandes Bash.
 
 ```azurecli-interactive
 # Get SQL Server ID
 sqlserverid=$(az sql server show -n sql-server-name -g sql-server-group --query 'id' -o tsv)
 
 # Set URI
-id="$sqlserverid/connectionPolicies/Default"
+ids="$sqlserverid/connectionPolicies/Default"
 
 # Get current connection policy
-az resource show --ids $id
+az resource show --ids $ids
 
 # Update connection policy
-az resource update --ids $id --set properties.connectionType=Proxy
+az resource update --ids $ids --set properties.connectionType=Proxy
+```
+
+### <a name="azure-cli-from-a-windows-command-prompt"></a>Azure CLI à partir d’une invite de commandes Windows
+
+> [!IMPORTANT]
+> Ce script nécessite [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+
+Le script CLI suivant montre comment modifier la stratégie de connexion à partir d’une invite de commandes Windows (avec Azure CLI installée).
+
+```azurecli
+# Get SQL Server ID and set URI
+FOR /F "tokens=*" %g IN ('az sql server show --resource-group myResourceGroup-571418053 --name server-538465606 --query "id" -o tsv') do (SET sqlserverid=%g/connectionPolicies/Default)
+
+# Get current connection policy
+az resource show --ids %sqlserverid%
+
+# Update connection policy
+az resource update --ids %sqlserverid% --set properties.connectionType=Proxy
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
