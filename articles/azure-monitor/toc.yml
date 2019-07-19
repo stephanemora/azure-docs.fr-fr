@@ -179,7 +179,7 @@
                   displayname: 'ASP.NET, c#, csharp, .NET, NET, dotnet'
                   href: app/asp-net.md
                 - name: Console .NET
-                  displayname: 'console, .NET, dotnet console, dotenet, c#, csharp, NET'
+                  displayname: 'console, .NET, dotnet console, dotnet, c#, csharp, NET'
                   href: app/console.md
                 - name: ILogger
                   displayname: 'ilogger, logging, log'
@@ -295,7 +295,7 @@
                 - name: Tests de performances
                   href: app/performance-testing.md
                 - name: Résolution de problèmes
-                  displayname: 'availability, troublshoot, troubleshoot availability'
+                  displayname: 'availability, troubleshoot, troubleshoot availability'
                   href: app/troubleshoot-availability.md
             - name: Traçage distribué
               items:
@@ -497,6 +497,8 @@
                   href: insights/container-insights-alerts.md
                 - name: Gestion des agents
                   href: insights/container-insights-manage-agent.md
+                - name: Configurer les paramètres de collection de l’agent
+                  href: insights/container-insights-agent-config.md
                 - name: Mettre à jour pour activer les métriques
                   href: insights/container-insights-update-metrics.md
                 - name: Résolution de problèmes
@@ -612,8 +614,6 @@
                   href: insights/vminsights-workbooks.md
                 - name: Analyser des données avec des requêtes de journal
                   href: insights/vminsights-log-search.md
-                - name: Configurer les paramètres de collection de l’agent
-                  href: insights/container-insights-agent-config.md
                 - name: Désactiver l’analyse
                   href: insights/vminsights-optout.md
             - name: Solution Capacité et performances

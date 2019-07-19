@@ -15,28 +15,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: ee64d25afcb2be73bed26c6c4dec87f216a0fd82
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.openlocfilehash: 96b9d90ce942b7755feae8298a408f46f20bf04d
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66383866"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461687"
 ---
 # <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>Capturer des événements avec Azure Event Hubs dans le stockage Blob Azure ou Azure Data Lake Storage
-Azure Event Hubs vous permet de capturer automatiquement les données de streaming dans Event Hubs vers un compte de [Stockage Blob Azure](https://azure.microsoft.com/services/storage/blobs/) ou [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/) de votre choix, tout en vous permettant de spécifier un intervalle de temps ou de taille. La configuration de l’outil Capture est rapide : il n’existe aucun coût d’administration pour son exécution et il s’adapte automatiquement à vos [unités de débit](event-hubs-features.md#throughput-units) Event Hubs. Event Hubs Capture représente le moyen le plus simple de charger les données pour la diffusion en continu dans Azure et vous permet de vous concentrer sur le traitement des données plutôt que sur la capture de données.
+Azure Event Hubs vous permet de capturer automatiquement les données de streaming dans Event Hubs vers un compte de [Stockage Blob Azure](https://azure.microsoft.com/services/storage/blobs/) ou [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/) de votre choix, tout en vous permettant de spécifier un intervalle de temps ou de taille. La configuration de l’outil Capture est rapide : il n’existe aucun coût d’administration pour son exécution et il s’adapte automatiquement à vos [unités de débit](event-hubs-scalability.md#throughput-units) Event Hubs. Event Hubs Capture représente le moyen le plus simple de charger les données pour la diffusion en continu dans Azure et vous permet de vous concentrer sur le traitement des données plutôt que sur la capture de données.
 
 Event Hubs Capture vous permet de traiter des pipelines basés sur des lots et en temps réel sur le même flux. Cela vous permet de créer des solutions capables d’évoluer avec vos besoins au fil du temps. Que vous créiez des systèmes basés sur des lots dès aujourd’hui en pensant au traitement en temps réel à l’avenir, ou que vous souhaitiez ajouter un chemin à froid efficace vers une solution existante en temps réel, Event Hubs Capture facilite la tâche avec les données diffusées en continu.
 
 > [!NOTE]
-> Actuellement, la fonctionnalité Event Hubs Capture prend en charge uniquement Gen 1 d’Azure Data Lake Store, pas Gen 2. 
+> Actuellement, la fonctionnalité Event Hubs Capture prend en charge uniquement Azure Data Lake Store Gen 1, et pas Gen 2. 
 
 ## <a name="how-event-hubs-capture-works"></a>Fonctionnement d’Azure Event Hubs Capture
 
-Event Hubs est une mémoire tampon durable de rétention temporelle pour l’entrée de télémétrie, similaire à un journal distribué. La clé de la mise à l’échelle dans Event Hubs est le [modèle de consommateur partitionné](event-hubs-features.md#partitions). Chaque partition est un segment de données indépendant, et est utilisée de manière indépendante. Au fil du temps ces données vieillissent, en fonction de la période de rétention configurable. Par conséquent, un hub d’événements donné n’est jamais « saturé ».
+Event Hubs est une mémoire tampon durable de rétention temporelle pour l’entrée de télémétrie, similaire à un journal distribué. La clé de la mise à l’échelle dans Event Hubs est le [modèle de consommateur partitionné](event-hubs-scalability.md#partitions). Chaque partition est un segment de données indépendant, et est utilisée de manière indépendante. Au fil du temps ces données vieillissent, en fonction de la période de rétention configurable. Par conséquent, un hub d’événements donné n’est jamais « saturé ».
 
 Event Hubs Capture vous permet de spécifier votre propre compte Stockage Blob Azure ou Azure Data Lake Store, ainsi qu’un conteneur qui est utilisé pour stocker les données capturées. Ces comptes peuvent se trouver dans la même région que votre hub d’événements ou dans une autre région, ce qui ajoute à la flexibilité de la fonctionnalité Event Hubs Capture.
 
-Les données capturées sont écrites au format [Apache Avro][Apache Avro] : un format compact, rapide et binaire qui fournit des structures de données riches avec un schéma inclus. Ce format est largement utilisé dans l’écosystème Hadoop, Stream Analytics et Azure Data Factory. Vous trouverez plus d’informations sur l’utilisation d’Avro plus loin dans cet article.
+Les données capturées sont écrites au format [Apache Avro][Apache Avro] : un format compact, rapide et binaire qui fournit des structures de données riches avec un schéma inclus. Ce format est largement utilisé dans l’écosystème Hadoop, Stream Analytics et Azure Data Factory. Vous trouverez plus d’informations sur l’utilisation d’Avro plus loin dans cet article.
 
 ### <a name="capture-windowing"></a>Fenêtrage de Capture
 
@@ -52,9 +52,11 @@ Notez que les valeurs de date contiennent des zéros. Par exemple :
 https://mystorageaccount.blob.core.windows.net/mycontainer/mynamespace/myeventhub/0/2017/12/08/03/03/17.avro
 ```
 
+Si votre objet blob de stockage Azure est temporairement indisponible, Event Hubs Capture conservera vos données pendant la période de rétention de données configurée sur votre Event Hub et remplira les données une fois que votre compte de stockage sera à nouveau disponible.
+
 ### <a name="scaling-to-throughput-units"></a>Mise à l’échelle des unités de débit
 
-Le trafic Event Hubs est contrôlé par les [unités de débit](event-hubs-features.md#throughput-units). Une unité de débit autorise 1 Mo/s ou 1 000 événements par seconde d’entrée et 2 000 événements par seconde de sortie. Les concentrateurs d’événements Standard peuvent être configurés avec 1 à 20 unités de débit, et vous pouvez en acheter d’autres en soumettant une [demande de support][support request] d’augmentation de quota. L’utilisation au-delà des unités de débit que vous avez achetées est limitée. Event Hubs Capture copie les données directement depuis le stockage Event Hubs interne, en contournant les quotas de sortie des unités de débit et en enregistrant votre sortie pour d’autres lecteurs de traitement tels que Stream Analytics ou Spark.
+Le trafic Event Hubs est contrôlé par les [unités de débit](event-hubs-scalability.md#throughput-units). Une unité de débit autorise 1 Mo/s ou 1 000 événements par seconde d’entrée et 2 000 événements par seconde de sortie. Les concentrateurs d’événements Standard peuvent être configurés avec 1 à 20 unités de débit et vous pouvez en acheter d’autres en soumettant une [demande de support][support request] d’augmentation de quota. L’utilisation au-delà des unités de débit que vous avez achetées est limitée. Event Hubs Capture copie les données directement depuis le stockage Event Hubs interne, en contournant les quotas de sortie des unités de débit et en enregistrant votre sortie pour d’autres lecteurs de traitement tels que Stream Analytics ou Spark.
 
 Une fois configuré, Event Hubs Capture s’exécute automatiquement lorsque vous envoyez votre premier événement et continue de s’exécuter. Pour que votre traitement en aval sache plus facilement que le processus fonctionne, les Event Hubs écrivent des fichiers vides en l’absence de données. Ce processus fournit une cadence prévisible et un marqueur qui peuvent alimenter vos processeurs de traitement par lots.
 
@@ -74,11 +76,11 @@ Les fichiers générés par Event Hubs Capture présentent le schéma Avro suiva
 
 ![Schéma Avro][3]
 
-Un moyen facile d’explorer les fichiers Avro consiste à utiliser la boîte à [outils Avro][Avro Tools] d’Apache. Vous pouvez également utiliser [Apache Drill][Apache Drill] pour bénéficier d’une expérience pilotée par SQL légère ou [Apache Spark][Apache Spark] pour effectuer un traitement distribué complexe sur les données ingérées. 
+Vous pouvez explorer les fichiers Avro en toute simplicité à l’aide des [outils Avro][Avro Tools] jar from Apache. You can also use [Apache Drill][Apache Drill] pour bénéficier d’une expérience légère pilotée par SQL ou [Apache Spark][Apache Spark] pour effectuer un traitement distribué complexe sur les données ingérées. 
 
 ### <a name="use-apache-drill"></a>Utiliser Apache Drill
 
-[Apache Drill][Apache Drill] est un « moteur de requête SQL open source pour l’exploration de Big Data » capable d’interroger des données structurées et semi-structurées quel que soit leur emplacement. Le moteur peut s’exécuter en tant que nœud autonome ou en tant que cluster énorme pour bénéficier d’excellentes performances.
+[Apache Drill][Apache Drill] est un « moteur de requête SQL open source pour l’exploration de Big Data » capable d’interroger des données structurées et semi-structurées quel que soit leur emplacement. Le moteur peut s’exécuter en tant que nœud autonome ou en tant que cluster énorme pour bénéficier d’excellentes performances.
 
 Une prise en charge native de Stockage Blob Azure est disponible, ce qui facilite l’interrogation des données dans un fichier Avro, comme décrit dans la documentation :
 
@@ -94,7 +96,7 @@ Un exemple complet de bout en bout est disponible dans le dépôt Streaming at S
 
 ### <a name="use-apache-spark"></a>Utiliser Apache Spark
 
-[Apache Spark][Apache Spark] est un « moteur d’analytique unifié pour le traitement des données à grande échelle ». Il prend en charge différents langages, notamment SQL, et vous pouvez accéder facilement au Stockage Blob Azure. Il existe deux options pour exécuter Apache Spark dans Azure, et toutes deux fournissent un accès facile au Stockage Blob Azure :
+[Apache Spark][Apache Spark] est un « moteur d’analytique unifié pour le traitement des données à grande échelle ». Il prend en charge différents langages, notamment SQL, et vous pouvez accéder facilement au Stockage Blob Azure. Il existe deux options pour exécuter Apache Spark dans Azure, et toutes deux fournissent un accès facile au Stockage Blob Azure :
 
 - [HDInsight : adressage des fichiers dans le stockage Azure][HDInsight: Address files in Azure storage]
 - [Azure Databricks : Stockage Blob Azure][Azure Databricks: Azure Blob Storage]
@@ -130,11 +132,13 @@ Vous pouvez également utiliser les outils Avro pour convertir le fichier au for
 
 Pour effectuer un traitement plus avancé, téléchargez et installez Avro pour la plateforme de votre choix. Au moment de la rédaction de cet article, les implémentations sont disponibles pour C, C++, C\#, Java, NodeJS, Perl, PHP, Python et Ruby.
 
-Apache Avro propose des guides de mise en route complets pour [Java][Java] et [Python][Python]. Vous pouvez également lire l’article [Prise en main d’Event Hubs Capture](event-hubs-capture-python.md).
+Apache Avro propose des guides de prise en main complets pour [Java][Java] and [Python][Python]. Vous pouvez également lire l’article [Prise en main d’Event Hubs Capture](event-hubs-capture-python.md).
 
 ## <a name="how-event-hubs-capture-is-charged"></a>Chargement d’Azure Event Hubs Capture
 
 Event Hubs Capture est mesuré de la même façon que les unités de débit, au tarif horaire. La facturation est directement proportionnelle au nombre d’unités de débit achetées pour l’espace de noms. En même temps que les unités de débit augmentent et diminuent, Event Hubs Capture augmente et diminue pour fournir des performances adaptées. Les compteurs se produisent en même temps. Pour plus d’informations sur les prix appliqués, consultez [Tarification d’Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/). 
+
+Notez que Capture n’utilise pas de quota de sortie puisqu’il est facturé séparément. 
 
 ## <a name="integration-with-event-grid"></a>Intégration à Event Grid 
 
@@ -147,7 +151,7 @@ Event Hubs Capture est la solution la plus simple pour charger des données dans
 Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
 
 * [Bien démarrer avec l’envoi et la réception d’événements](event-hubs-dotnet-framework-getstarted-send.md)
-* [Vue d’ensemble des hubs d’événements][Event Hubs overview]
+* [Vue d’ensemble d’Event Hubs][Event Hubs overview]
 
 [Apache Avro]: https://avro.apache.org/
 [Apache Drill]: https://drill.apache.org/
@@ -162,4 +166,4 @@ Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
 [HDInsight: Address files in Azure storage]:https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-blob-storage#address-files-in-azure-storage
 [Azure Databricks: Azure Blob Storage]:https://docs.databricks.com/spark/latest/data-sources/azure/azure-storage.html
 [Apache Drill: Azure Blob Storage Plugin]:https://drill.apache.org/docs/azure-blob-storage-plugin/
-[Streaming at Scale : Event Hubs Capture]:https://github.com/yorek/streaming-at-scale/tree/master/event-hubs-capture
+[Streaming at Scale : Event Hubs Capture]: https://github.com/yorek/streaming-at-scale/tree/master/event-hubs-capture

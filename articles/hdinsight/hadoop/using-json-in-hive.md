@@ -1,22 +1,22 @@
 ---
 title: Analyser et traiter des documents JSON avec Apache Hive dans Azure HDInsight
-description: Découvrez comment utiliser des documents JSON et les analyser à l’aide de Apache Hive dans Azure HDInsight.
+description: Découvrez comment utiliser et analyser des documents JSON avec Apache Hive dans Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 904a6a2af4c92c374d5afe4148f50e853e5d1fb2
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.openlocfilehash: 5ec766cea2135f7c00df032ad0df4ada033d6293
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66479597"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461990"
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>Traiter et analyser des documents JSON avec Apache Hive dans Azure HDInsight
 
-Découvrez comment traiter et analyser des fichiers JSON (JavaScript Object Notation) avec Apache Hive dans Azure HDInsight. Cet article utilise le document JSON suivant :
+Découvrez comment traiter et analyser des fichiers JSON (JavaScript Object Notation) avec Apache Hive dans Azure HDInsight. Cet article utilise le document JSON suivant :
 
 ```json
 {
@@ -57,7 +57,7 @@ Découvrez comment traiter et analyser des fichiers JSON (JavaScript Object Nota
 
 Le fichier se trouve à l’emplacement suivant : `wasb://processjson@hditutorialdata.blob.core.windows.net/`. Pour plus d’informations sur l’utilisation du stockage Blob Azure avec HDInsight, consultez [Utiliser le stockage Blob Azure compatible HDFS avec Apache Hadoop dans HDInsight](../hdinsight-hadoop-use-blob-storage.md). Vous pouvez copier le fichier dans le conteneur par défaut de votre cluster.
 
-Dans ce tutoriel, vous utilisez la console Apache Hive. Pour obtenir des instructions sur la façon d’ouvrir la console Hive, consultez [utiliser Apache Ambari la vue Hive avec Apache Hadoop dans HDInsight](apache-hadoop-use-hive-ambari-view.md).
+Dans cet article, vous utilisez la console Apache Hive. Pour obtenir des instructions sur l’ouverture de la console Hive, consultez [Utiliser l’affichage Apache Ambari Hive avec Apache Hadoop sur HDInsight](apache-hadoop-use-hive-ambari-view.md).
 
 ## <a name="flatten-json-documents"></a>Aplatir des documents JSON
 Pour les méthodes listées dans la section suivante, le document JSON doit se composer d’une seule ligne. Par conséquent, vous devez aplatir le document JSON pour le réduire à une chaîne. Si votre document JSON est déjà aplati, vous pouvez ignorer cette étape et passer directement à la section suivante sur l’analyse des données JSON. Pour aplatir le document JSON, exécutez le script suivant :
@@ -81,7 +81,7 @@ SELECT CONCAT_WS(' ',COLLECT_LIST(textcol)) AS singlelineJSON
 SELECT * FROM StudentsOneLine
 ```
 
-Le fichier JSON brut se trouve dans `wasb://processjson@hditutorialdata.blob.core.windows.net/`. La table Hive **StudentsRaw** pointe vers le document JSON brut qui n’est pas aplati.
+Le fichier JSON brut se trouve à l’emplacement suivant : `wasb://processjson@hditutorialdata.blob.core.windows.net/`. La table Hive **StudentsRaw** pointe vers le document JSON brut qui n’est pas aplati.
 
 La table Hive **StudentsOneLine** stocke les données dans le système de fichiers HDInsight par défaut sous le chemin d’accès **/json/students/** .
 
@@ -99,7 +99,7 @@ Hive propose trois mécanismes différents pour exécuter des requêtes sur des 
 * Utiliser la fonction UDF get_json_object.
 * Utiliser la fonction UDF json_tuple.
 * Utiliser le sérialiseur/désérialiseur personnalisé (SerDe).
-* Vous pouvez écrire votre propre fonction définie par l’utilisateur (UDF) avec Python ou d’autres langages. Pour plus d’informations sur l’exécution de votre propre code Python avec Hive, consultez [Python UDF avec Apache Hive et Apache Pig] [hdinsight-python].
+* Vous pouvez écrire votre propre fonction définie par l’utilisateur (UDF) avec Python ou d’autres langages. Pour plus d’informations sur l’exécution de votre propre code Python avec Hive, consultez [Utiliser des fonctions définies par l’utilisateur (UDF) Python avec Apache Hive et Apache Pig][hdinsight-python].
 
 ### <a name="use-the-getjsonobject-udf"></a>Utiliser la fonction définie par l’utilisateur get_json_object
 Hive intègre une fonction UDF appelée [get_json_object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object) qui permet d’exécuter des requêtes sur un document JSON pendant l’exécution. Cette méthode accepte deux arguments : d’une part, le nom de la table et le nom de la méthode contenant le document JSON aplati et d’autre part, le champ JSON à analyser. Prenons un exemple pour examiner de plus près cette fonction UDF.
@@ -141,7 +141,7 @@ Sortie de ce script dans la console Hive :
 La fonction UDF json_tuple utilise la syntaxe [lateral view](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) dans Hive, ce qui permet à json\_tuple de créer une table virtuelle en appliquant la fonction UDT à chaque ligne de la table d’origine. Les documents JSON complexes deviennent trop lourds en raison de l’utilisation répétée de **LATERAL VIEW**. De plus, **JSON_TUPLE** ne peut pas gérer les documents JSON imbriqués.
 
 ### <a name="use-a-custom-serde"></a>Utiliser un SerDe personnalisé
-SerDe constitue le meilleur moyen d’analyser des documents JSON imbriqués. Il vous permet de définir le schéma JSON qui vous servira à analyser les documents. Pour obtenir des instructions, consultez [Guide pratique pour utiliser un SerDe JSON personnalisé avec Microsoft Azure HDInsight](https://web.archive.org/web/20190217104719/ https://blogs.msdn.microsoft.com/bigdatasupport/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight/).
+SerDe constitue le meilleur moyen d’analyser des documents JSON imbriqués. Il vous permet de définir le schéma JSON qui vous servira à analyser les documents. Pour obtenir des instructions, consultez [Guide pratique pour utiliser un SerDe JSON personnalisé avec Microsoft Azure HDInsight](https://web.archive.org/web/20190217104719/https://blogs.msdn.microsoft.com/bigdatasupport/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight/).
 
 ## <a name="summary"></a>Résumé
 En conclusion, le type d'opérateur JSON que vous choisissez dans Hive dépend de votre scénario. Si vous avez un document JSON simple avec un seul champ à rechercher, vous pouvez choisir d’utiliser la fonction UDF Hive get_json_object. Si la recherche porte sur plusieurs clés, vous pouvez utiliser json_tuple. Enfin, si vous disposez d'un document imbriqué, il est recommandé d'utiliser le SerDe JSON.
@@ -151,5 +151,5 @@ En conclusion, le type d'opérateur JSON que vous choisissez dans Hive dépend d
 Articles associés :
 
 * [Utiliser Apache Hive et HiveQL avec Apache Hadoop dans HDInsight pour l’analyse d’un exemple de fichier Apache log4j](../hdinsight-use-hive.md)
-* [Analyser des données sur les retards des vols avec Apache Hive dans HDInsight](../hdinsight-analyze-flight-delay-data-linux.md)
+* [Analyser des données sur les retards des vols avec Interactive Query dans HDInsight](../interactive-query/interactive-query-tutorial-analyze-flight-data.md)
 * [Analyser des données Twitter avec Apache Hive dans HDInsight](../hdinsight-analyze-twitter-data-linux.md)

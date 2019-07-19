@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2019
 ms.author: sharadag
-ms.openlocfilehash: 256435dfd016ebbd86dbbe49f4abbb346fb1cd19
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 37ec8a611f94b869c8277c135f8e6dc5d2108392
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60736664"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442899"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door-service"></a>Questions fréquentes (FAQ) sur Azure Front Door Service
 
@@ -61,7 +61,7 @@ Azure Front Door Service prend en charge HTTP, HTTPS et HTTP/2.
 
 La prise en charge du protocole HTTP/2 est disponible pour les clients se connectant uniquement à Azure Front Door Service. La communication vers les back-ends dans le pool de back-ends s’effectue sur HTTP/1.1. La prise en charge d’HTTP/2 est activée par défaut.
 
-### <a name="what-resources-are-supported-today-as-part-of-backend-pool"></a>Quelles sont les ressources actuellement prises en charge dans le pool de back-ends ?
+### <a name="what-resources-are-supported-today-as-part-of-backend-pool"></a>Quelles sont les ressources actuellement prises en charge dans le pool backend ?
 
 Les pools de back-ends peuvent être composés d’instances de Kubernetes, de Stockage, de Web App ou tout autre nom d’hôte personnalisé qui dispose d’une connectivité publique. Azure Front Door Service exige que les back-ends soient définis par le biais d’une adresse IP publique ou d’un nom d’hôte DNS pouvant être résolu publiquement. Les membres des pools de back-ends peuvent être dans différentes zones ou régions, ou même en dehors d’Azure tant qu’ils disposent d’une connectivité IP.
 
@@ -75,29 +75,38 @@ Azure Front Door Service a la même liste d’emplacements de points de présenc
 
 ### <a name="is-azure-front-door-service-a-dedicated-deployment-for-my-application-or-is-it-shared-across-customers"></a>Azure Front Door Service est-il un déploiement dédié à mon application ou est-il partagé entre les clients ?
 
-Azure Front Door Service est un service multilocataire distribué à l’échelle mondiale. L’infrastructure pour Front Door est donc partagée entre tous ses clients. Toutefois, en créant une porte d’entrée, vous définissez la configuration spécifique requise pour votre application. 
+Azure Front Door Service est un service multilocataire distribué à l’échelle mondiale. L’infrastructure pour Front Door est donc partagée entre tous ses clients. Toutefois, en créant un profil Front Door, vous définissez la configuration spécifique requise pour votre application et aucune modification apportée à votre porte d’entrée n’impacte d’autres configurations Front Door.
 
 ### <a name="is-http-https-redirection-supported"></a>La redirection HTTP->HTTPS est-elle prise en charge ?
 
-Front Door ne prend pas en charge la redirection d’URL à l’heure actuelle.
+Oui. En fait, Azure Front Door Service prend en charge la redirection de chaîne de requête, de chemin et d’hôte ainsi qu’une partie de la redirection d’URL. Découvrez-en plus sur la [redirection d’URL](front-door-url-redirect.md). 
 
 ### <a name="in-what-order-are-routing-rules-processed"></a>Dans quel ordre les règles de routage sont-elles traitées ?
 
 Les routes pour votre porte d’entrée ne sont pas ordonnées, et une route spécifique est sélectionnée en fonction de la meilleure correspondance. Découvrez [comment Front Door fait correspondre les requêtes à une règle de routage](front-door-route-matching.md).
 
-### <a name="how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door-service"></a>Comment restreindre l’accès à mon back-end uniquement à Azure Front Door Service ?
+### <a name="how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door"></a>Comment faire pour restreindre l’accès à mon back-end uniquement à Azure Front Door ?
 
-Vous pouvez configurer des listes de contrôle d’accès d’adresses IP pour vos back-ends de manière à accepter uniquement le trafic provenant d’Azure Front Door Service. Vous pouvez limiter votre application pour qu’elle accepte les connexions entrantes provenant uniquement de l’espace d’adressage IP back-end d’Azure Front Door Service. Nous œuvrons actuellement pour l’intégration avec les [balises de service et les plages d’adresses IP Azure](https://www.microsoft.com/download/details.aspx?id=56519), mais pour l’heure vous pouvez faire référence aux plages d’adresses IP comme indiqué ci-dessous :
+Pour verrouiller votre application afin de n’accepter que le trafic en provenant de votre porte d’entrée spécifique, vous devez configurer les ACL IP pour votre back-end, puis restreindre l’ensemble des valeurs acceptées pour l’en-tête « X-Forwarded-Host » envoyé par Azure Front Door. Voici le détail de ces étapes :
+
+- Configurez les ACL IP pour vos back-ends de manière à accepter le trafic en provenance uniquement de l’espace d’adressage IP back-end d’Azure Front Door et des services d’infrastructure d’Azure. Nous œuvrons actuellement pour l’intégration avec les [balises de service et les plages d’adresses IP Azure](https://www.microsoft.com/download/details.aspx?id=56519), mais pour l’heure vous pouvez faire référence aux plages d’adresses IP comme indiqué ci-dessous :
  
-- **IPv4** - `147.243.0.0/16`
-- **IPv6** - `2a01:111:2050::/44`
+    - Espace IP back-end **IPv4** de Front Door : `147.243.0.0/16`
+    - Espace IP back-end **IPv6** de Front Door : `2a01:111:2050::/44`
+    - [Services d’infrastructure de base](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) d’Azure par le biais des adresses IP hôte virtualisées : `168.63.129.16` et `169.254.169.254`
 
-> [!WARNING]
-> Notre espace IP back-end pourra changer ultérieurement, mais avant cela nous ferons en sorte d’avoir procédé à l’intégration avec les [balises de service et les plages d’adresses IP Azure](https://www.microsoft.com/download/details.aspx?id=56519). Nous vous recommandons de vous abonner aux [balises de service et aux plages d’adresses IP Azure](https://www.microsoft.com/download/details.aspx?id=56519) pour vous tenir informé des modifications ou mises à jour. 
+    > [!WARNING]
+    > L’espace IP back-end de Front Door pourra changer ultérieurement, mais avant cela nous ferons en sorte d’avoir procédé à l’intégration avec les [balises de service et les plages d’adresses IP Azure](https://www.microsoft.com/download/details.aspx?id=56519). Nous vous recommandons de vous abonner aux [balises de service et aux plages d’adresses IP Azure](https://www.microsoft.com/download/details.aspx?id=56519) pour vous tenir informé des modifications ou mises à jour.
+
+-   Filtrez sur les valeurs acceptables pour l’en-tête entrant « **X-Forwarded-Host** » envoyé par Front Door. Les seules valeurs autorisées pour l’en-tête doivent être tous les hôtes front-end tels que définis dans la configuration de votre porte d’entrée. Plus précisément, il s’agit uniquement des noms des hôtes en provenance desquels vous souhaitez accepter le trafic sur votre back-end spécifique.
+    - Supposons, par exemple, que la configuration de votre porte d’entrée a les hôtes front-end _`contoso.azurefd.net`_ (A), _`www.contoso.com`_ (B), _ (C) et _`notifications.contoso.com`_ (D). Supposons que vous disposez de deux back-ends : X et Y. 
+    - Le back-end X ne doit accepter que le trafic en provenance des noms d’hôte A et B, tandis que le back-end Y peut accepter le trafic en provenance de A, C et D.
+    - Ainsi, sur le back-end X, vous ne devez accepter que le trafic dont l’en-tête « **X-Forwarded-Host** » est défini sur _`contoso.azurefd.net`_ ou _`www.contoso.com`_ . Dans tous les autres cas, le back-end X doit refuser le trafic.
+    - De même, sur le back-end Y, vous ne devez accepter que le trafic dont l’en-tête « **X-Forwarded-Host** » est défini sur _`contoso.azurefd.net`_ , _`api.contoso.com`_ ou _`notifications.contoso.com`_ . Dans tous les autres cas, le back-end Y doit refuser le trafic.
 
 ### <a name="can-the-anycast-ip-change-over-the-lifetime-of-my-front-door"></a>L’adresse IP anycast peut-elle changer pendant la durée de vie de ma porte d’entrée ?
 
-L’adresse IP anycast front-end de votre porte d’entrée ne devrait généralement pas changer, et peut rester statique pendant toute la durée de vie de Front Door. Toutefois, il n’existe **aucune garantie** à ce sujet. Veillez à ne créer aucune dépendance directe envers l’adresse IP.  
+L’adresse IP anycast front-end de votre porte d’entrée ne devrait généralement pas changer, et peut rester statique pendant toute la durée de vie de Front Door. Toutefois, il n’existe **aucune garantie** à ce sujet. Veillez à ne créer aucune dépendance directe envers l’adresse IP.
 
 ### <a name="does-azure-front-door-service-support-static-or-dedicated-ips"></a>Azure Front Door Service prend-il en charge les adresses IP statiques ou dédiées ?
 
@@ -142,6 +151,11 @@ Front Door prend en charge les versions TLS 1.0, 1.1 et 1.2. TLS 1.3 n’est p
 Pour permettre au protocole HTTPS de distribuer le contenu de manière sécurisée sur un domaine personnalisé Front Door, vous pouvez choisir d’utiliser un certificat managé par Azure Front Door Service ou votre propre certificat.
 L’option managée par Front Door provisionne un certificat SSL standard délivré par le biais de Digicert et stocké dans le coffre de clés Front Door. Si vous choisissez d’utiliser votre propre certificat, vous pouvez intégrer un certificat délivré par une autorité de certification prise en charge ; il peut s’agir d’un certificat SSL standard, d’un certificat de validation étendue ou même d’un certificat générique. Les certificats auto-signés ne sont pas pris en charge. Découvrez [comment activer le protocole HTTPS pour un domaine personnalisé](https://aka.ms/FrontDoorCustomDomainHTTPS).
 
+### <a name="does-front-door-support-autorotation-of-certificates"></a>Front Door prend-il en charge la rotation automatique des certificats ?
+
+Concernant l’option de certificat managé Front Door, Front Door assure la rotation automatique des certificats. Si vous utilisez un certificat géré Front Door et que vous voyez que la date d’expiration du certificat est inférieure à 60 jours, envoyez un ticket de support.
+</br>Pour votre propre certificat SSL personnalisé, la rotation automatique n’est pas prise en charge. À l’image de sa configuration initiale pour un domaine personnalisé donné, vous devez pointer Front Door sur la version de certificat appropriée dans votre coffre de clés et vous assurer que le principal de service pour Front Door a toujours accès au coffre de clés. Cette opération de déploiement de certificat mis à jour par Front Door est atomique et n’a aucun impact sur la production, à condition que le nom de l’objet ou le SAN pour le certificat ne change pas.
+
 ### <a name="what-are-the-current-cipher-suites-supported-by-azure-front-door-service"></a>Quelles sont les suites de chiffrement actuellement prises en charge par Azure Front Door Service ?
 
 Voici les suites de chiffrement actuellement prises en charge par Azure Front Door Service :
@@ -171,7 +185,7 @@ Oui, Azure Front Door Service prend en charge le déchargement SSL et le protoco
 
 ### <a name="can-i-configure-ssl-policy-to-control-ssl-protocol-versions"></a>Puis-je configurer la stratégie SSL pour gérer les versions du protocole SSL ?
 
-Non, actuellement Front Door ne prend pas en charge le refus de versions spécifiques de TLS, ni la définition des versions TLS minimales. 
+Non, actuellement Front Door ne prend pas en charge le refus de versions spécifiques de TLS, ni la définition de la version TLS minimale. 
 
 ### <a name="can-i-configure-front-door-to-only-support-specific-cipher-suites"></a>Puis-je configurer Front Door pour prendre en charge uniquement des suites de chiffrement spécifiques ?
 
