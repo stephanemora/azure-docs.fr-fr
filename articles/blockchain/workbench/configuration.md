@@ -55,7 +55,7 @@ La logique métier d’une application peut être modélisée comme une machine 
 
 | Champ | Description | Obligatoire | Longueur maximale |
 |-------|-------------|:--------:|-----------:|
-| Nom | Nom unique du workflow. Le contrat intelligent correspondant doit utiliser la même propriété **Name** pour la classe de contrat applicable. | OUI | 50 |
+| Name | Nom unique du workflow. Le contrat intelligent correspondant doit utiliser la même propriété **Name** pour la classe de contrat applicable. | OUI | 50 |
 | DisplayName | Nom d’affichage convivial du workflow. | OUI | 255 |
 | Description | Description du workflow. | Non | 255 |
 | Initiateurs | Collection d’[ApplicationRoles](#application-roles). Rôles attribués aux utilisateurs qui sont autorisés à créer des contrats dans le workflow. | OUI | |
