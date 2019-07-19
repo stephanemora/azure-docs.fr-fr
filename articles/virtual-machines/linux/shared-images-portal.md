@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/25/2019
+ms.date: 06/27/2019
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: 1b760612d8d9a5ed0817ce662ed190f3477cd125
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e5518d019800d2d194369225a060b9b728e21520
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65235853"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67465446"
 ---
 # <a name="create-a-shared-image-gallery-using-the-azure-portal"></a>Créer une galerie d’images partagées à l’aide du Portail Azure
 
@@ -53,6 +53,10 @@ Au cours de cet article, remplacez les noms du groupe de ressources et de la mac
 ## <a name="create-vms-from-an-image"></a>Créer des machines virtuelles à partir d’une image
 
 Une fois que la version de l’image est complète, vous pouvez créer une ou plusieurs nouvelles machines virtuelles. 
+
+> [!IMPORTANT]
+> Vous ne pouvez pas utiliser le portail pour déployer une machine virtuelle à partir d’une image dans un autre locataire Azure. Pour créer une machine virtuelle à partir d’une image partagée entre des locataires, vous devez utiliser l’[interface Azure CLI](shared-images.md#create-a-vm) ou [PowerShell](../windows/shared-images.md#create-vms-from-an-image).
+
 
 Cet exemple crée une machine virtuelle nommée *myVMfromImage*, dans le groupe *myResourceGroup* dans le centre de données *USA Est*.
 

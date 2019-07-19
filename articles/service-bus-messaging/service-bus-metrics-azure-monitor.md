@@ -1,5 +1,5 @@
 ---
-title: Métriques d’Azure Service Bus dans Azure Monitor (préversion) | Microsoft Docs
+title: Métriques d’Azure Service Bus dans Azure Monitor | Microsoft Docs
 description: Utiliser Azure Monitor pour surveiller des entités Service Bus
 services: service-bus-messaging
 documentationcenter: .NET
@@ -10,14 +10,14 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 11/06/2018
 ms.author: aschhab
-ms.openlocfilehash: fdb0152ef398dbd53a8a2a99a10d90254252908b
-ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
-ms.translationtype: MT
+ms.openlocfilehash: 80a4b1e60202b88f6ed3c1574bd4684575a9b153
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65921236"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67538059"
 ---
-# <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Métriques Azure Service Bus dans Azure Monitor (préversion)
+# <a name="azure-service-bus-metrics-in-azure-monitor"></a>Métriques Azure Service Bus dans Azure Monitor
 
 Les métriques Service Bus vous donnent l’état des ressources dans votre abonnement Azure. Avec un ensemble complet de données de métriques, vous pouvez évaluer l’intégrité globale des ressources de Service Bus, non seulement au niveau de l’espace de noms, mais également au niveau de l’entité. Ces statistiques peuvent être importantes, car elles vous aident à surveiller l’état de Service Bus. Les métriques peuvent également vous aider à résoudre les problèmes constituant des causes premières sans avoir à contacter le support technique Azure.
 
@@ -28,7 +28,7 @@ Azure Monitor fournit des interfaces utilisateur unifiées pour la surveillance 
 
 ## <a name="access-metrics"></a>Accéder aux mesures
 
-Azure Monitor propose plusieurs méthodes d’accès aux mesures. Vous pouvez accéder à ces métriques via le [Azure portal](https://portal.azure.com), ou utiliser les API Azure Monitor (REST et .NET) et les solutions d’analyse comme les journaux Azure Monitor et Event Hubs. Pour plus d’informations, consultez [métriques dans Azure Monitor](../azure-monitor/platform/data-platform-metrics.md).
+Azure Monitor propose plusieurs méthodes d’accès aux mesures. Vous pouvez accéder aux métriques via le [portail Azure](https://portal.azure.com), ou bien utiliser les API Azure Monitor (REST et .NET) et des solutions d’analyse comme les journaux Azure Monitor et Event Hubs. Pour plus d’informations, consultez [Mesures dans Azure Monitor](../azure-monitor/platform/data-platform-metrics.md).
 
 Les métriques sont activées par défaut, et vous pouvez accéder aux 30 derniers jours de données. Si vous souhaitez conserver des données sur une période plus longue, vous pouvez archiver les données de mesures dans un compte de stockage Azure. Cette valeur est configurée dans les [paramètres de diagnostic](../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) dans Azure Monitor.
 
@@ -38,7 +38,7 @@ Vous pouvez surveiller les mesures au fil du temps dans le [portail Azure](https
 
 ![][1]
 
-Vous pouvez également accéder aux métriques directement via l’espace de noms. Pour ce faire, sélectionnez votre espace de noms, puis **Métriques (préversion)**. Pour afficher les métriques filtrées à l’étendue de l’entité, sélectionnez l’entité, puis cliquez sur **Métriques (préversion)**.
+Vous pouvez également accéder aux métriques directement via l’espace de noms. Pour ce faire, sélectionnez votre espace de noms, puis cliquez sur **Métriques**. Pour afficher les métriques filtrées à l’étendue de l’entité, sélectionnez l’entité, puis cliquez sur **Métriques**.
 
 ![][2]
 
@@ -46,7 +46,9 @@ Pour les mesures prenant en charge des dimensions, vous devez filtrer avec la va
 
 ## <a name="billing"></a>Facturation
 
-L’utilisation de mesures dans Azure Monitor est gratuite pendant la période de préversion. Toutefois, si vous utilisez des solutions supplémentaires absorbant des données de métriques, vous pouvez être facturé par ces solutions. Par exemple, vous êtes facturé par Stockage Azure si vous archivez des données de mesures pour un compte de stockage Azure. Vous êtes également facturé par les journaux d’Azure Monitor, si vous diffusez des données de métriques dans les journaux d’Azure Monitor pour une analyse avancée.
+Les métriques et alertes Azure Monitor sont facturés par alerte. Ces frais sont disponibles sur le portail lorsque l’alerte est configurée et avant de l’enregistrer. 
+
+Les solutions supplémentaires ingèrent les données de métriques sont facturées directement par ces solutions. Par exemple, vous êtes facturé par Stockage Azure si vous archivez des données de mesures pour un compte de stockage Azure. Vous êtes également facturé par Log Analytics si vous diffusez des données de métriques vers Log Analytics pour une analyse avancée.
 
 Les métriques suivantes vous donnent une vue d’ensemble de l’intégrité de votre service. 
 
@@ -59,13 +61,13 @@ Toutes les valeurs de métriques sont envoyées à Azure Monitor toutes les minu
 
 Compte le nombre de requêtes d’opérations de données et de gestion.
 
-| Nom de métrique | Description  |
+| Nom de métrique | Description |
 | ------------------- | ----------------- |
-| Demandes entrantes (préversion) | Le nombre de requêtes effectuées auprès de Service Bus sur une période spécifiée. <br/><br/> Unité : Nombre <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
-|Requêtes ayant réussi (préversion)|Le nombre de requêtes réussies effectuées auprès de Service Bus sur une période spécifiée.<br/><br/> Unité : Nombre <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
-|Erreurs du serveur (préversion)|Le nombre de requêtes non traitées en raison d’une erreur sur Service Bus sur une période spécifiée.<br/><br/> Unité : Nombre <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
-|Erreurs d’utilisateur (préversion - voir la sous-section suivante)|Le nombre de demandes non traitées en raison d’erreurs utilisateur sur une période spécifiée.<br/><br/> Unité : Nombre <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
-|Demandes limitées (préversion)|Le nombre de demandes qui ont été limitées car l’utilisation a été dépassée.<br/><br/> Unité : Nombre <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
+| Demandes entrantes| Le nombre de requêtes effectuées auprès de Service Bus sur une période spécifiée. <br/><br/> Unité : Nombre <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
+|Requêtes ayant réussi|Le nombre de requêtes réussies effectuées auprès de Service Bus sur une période spécifiée.<br/><br/> Unité : Nombre <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
+|Erreurs de serveur|Le nombre de requêtes non traitées en raison d’une erreur sur Service Bus sur une période spécifiée.<br/><br/> Unité : Nombre <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
+|Erreurs d’utilisateur (voir la sous-section suivante)|Le nombre de demandes non traitées en raison d’erreurs utilisateur sur une période spécifiée.<br/><br/> Unité : Nombre <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
+|Demandes limitées|Le nombre de demandes qui ont été limitées car l’utilisation a été dépassée.<br/><br/> Unité : Nombre <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
 
 ### <a name="user-errors"></a>Erreurs d’utilisateur
 
@@ -77,36 +79,36 @@ Les deux types d’erreurs suivants sont classées dans la catégorie des erreur
 
 ## <a name="message-metrics"></a>Métriques de message
 
-| Nom de métrique | Description  |
+| Nom de métrique | Description |
 | ------------------- | ----------------- |
-|Messages entrants (préversion)|Le nombre d’événements ou de messages envoyés à Service Bus sur une période spécifiée.<br/><br/> Unité : Nombre <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
-|Messages sortants (préversion)|Le nombre d’événements ou de messages reçus à partir de Service Bus sur une période spécifiée.<br/><br/> Unité : Nombre <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
-| Messages (préversion) | Nombre de messages dans une file d’attente/rubrique. <br/><br/> Unité : Nombre <br/> Type d’agrégation : Moyenne <br/> Dimension : EntityName |
-| ActiveMessages (préversion) | Nombre de messages actifs dans une file d’attente/rubrique. <br/><br/> Unité : Nombre <br/> Type d’agrégation : Moyenne <br/> Dimension : EntityName |
-| Messages mortes (version préliminaire) | Nombre de mortes des messages dans une file d’attente/rubrique. <br/><br/> Unité : Nombre <br/> Type d’agrégation : Moyenne <br/>Dimension : EntityName |
-| Messages planifiés (version préliminaire) | Nombre de messages planifiés dans une file d’attente/rubrique. <br/><br/> Unité : Nombre <br/> Type d’agrégation : Moyenne  <br/> Dimension : EntityName |
+|Messages entrants|Le nombre d’événements ou de messages envoyés à Service Bus sur une période spécifiée.<br/><br/> Unité : Nombre <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
+|Messages sortants|Le nombre d’événements ou de messages reçus à partir de Service Bus sur une période spécifiée.<br/><br/> Unité : Nombre <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
+| Messages| Nombre de messages dans une file d’attente/rubrique. <br/><br/> Unité : Nombre <br/> Type d’agrégation : Moyenne <br/> Dimension : EntityName |
+| ActiveMessages| Nombre de messages actifs dans une file d’attente/rubrique. <br/><br/> Unité : Nombre <br/> Type d’agrégation : Moyenne <br/> Dimension : EntityName |
+| Messages de lettres mortes| Nombre de messages de lettres mortes dans une file d’attente/rubrique. <br/><br/> Unité : Nombre <br/> Type d’agrégation : Moyenne <br/>Dimension : EntityName |
+| Messages planifiés| Nombre de messages planifiés dans une file d’attente/rubrique. <br/><br/> Unité : Nombre <br/> Type d’agrégation : Moyenne  <br/> Dimension : EntityName |
 
 ## <a name="connection-metrics"></a>Métriques de connexion
 
-| Nom de métrique | Description  |
+| Nom de métrique | Description |
 | ------------------- | ----------------- |
-|ActiveConnections (préversion)|Le nombre de connexions actives sur un espace de noms ainsi que sur une entité.<br/><br/> Unité : Nombre <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
+|ActiveConnections|Le nombre de connexions actives sur un espace de noms ainsi que sur une entité.<br/><br/> Unité : Nombre <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
 
 ## <a name="resource-usage-metrics"></a>Métriques d’utilisation des ressources
 
 > [!NOTE] 
 > Les métriques suivantes sont disponibles uniquement avec le niveau **Premium**. 
 
-| Nom de métrique | Description  |
+| Nom de métrique | Description |
 | ------------------- | ----------------- |
-|Utilisation du processeur par espace de noms (préversion)|Le pourcentage d’utilisation du processeur de l’espace de noms.<br/><br/> Unité : Percent <br/> Type d’agrégation : Maximale <br/> Dimension : EntityName|
-|Utilisation de la taille mémoire par espace de noms (préversion)|Le pourcentage d’utilisation de mémoire de l’espace de noms.<br/><br/> Unité : Percent <br/> Type d’agrégation : Maximale <br/> Dimension : EntityName|
+|Utilisation du processeur par espace de noms|Le pourcentage d’utilisation du processeur de l’espace de noms.<br/><br/> Unité : Pourcentage <br/> Type d’agrégation : Maximale <br/> Dimension : EntityName|
+|Utilisation de la taille mémoire par espace de noms|Le pourcentage d’utilisation de mémoire de l’espace de noms.<br/><br/> Unité : Pourcentage <br/> Type d’agrégation : Maximale <br/> Dimension : EntityName|
 
 ## <a name="metrics-dimensions"></a>Dimensions de mesures
 
 Azure Service Bus prend en charge les dimensions suivantes pour les mesures dans Azure Monitor. L’ajout de dimensions à vos métriques est facultatif. Si vous n’ajoutez pas de dimensions, les métriques sont spécifiées au niveau de l’espace de noms. 
 
-|Nom de la dimension|Description |
+|Nom de la dimension|Description|
 | ------------------- | ----------------- |
 |EntityName| Service Bus prend en charge les entités de messagerie sous l’espace de noms.|
 
@@ -115,16 +117,16 @@ Azure Service Bus prend en charge les dimensions suivantes pour les mesures dans
 1. Dans l’onglet **Métriques** de la page **Espace de noms Service Bus**, sélectionnez **Configurer les alertes**. 
 
     ![Page Métriques - menu Configurer les alertes](./media/service-bus-metrics-azure-monitor/metrics-page-configure-alerts-menu.png)
-2. Sélectionnez le **sélectionner une cible** option et effectuer les actions suivantes sur le **sélectionner une ressource** page : 
+2. Choisissez l’option **Sélectionner la cible**, puis effectuez les actions suivantes dans la page **Sélectionner une ressource** : 
     1. Sélectionnez **Espace de noms Service Bus** pour le champ **Filtrer par type de ressource**. 
     2. Sélectionnez votre abonnement pour le champ **Filtrer par abonnement**.
     3. Sélectionnez l’**Espace de noms Service Bus** dans la liste. 
     4. Sélectionnez **Terminé**. 
     
-        ![Sélectionner un espace de noms](./media/service-bus-metrics-azure-monitor/select-namespace.png)
+        ![Sélectionnez un espace de noms](./media/service-bus-metrics-azure-monitor/select-namespace.png)
 1. Sélectionnez **Ajouter des critères**, puis effectuez les actions suivantes dans la page **Configurer la logique du signal** :
     1. Sélectionnez **Métriques** comme **Type de signal**. 
-    2. Sélectionnez un signal. Exemple : **Erreurs du service (préversion)**. 
+    2. Sélectionnez un signal. Par exemple :  **Erreurs de service**. 
 
         ![Sélectionnez Erreurs de serveur](./media/service-bus-metrics-azure-monitor/select-server-errors.png)
     1. Sélectionnez **Supérieur à** sous **Condition**.
@@ -160,7 +162,7 @@ Azure Service Bus prend en charge les dimensions suivantes pour les mesures dans
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez le [vue d’ensemble d’Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).
+Consultez la [vue d’ensemble d’Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).
 
 [1]: ./media/service-bus-metrics-azure-monitor/service-bus-monitor1.png
 [2]: ./media/service-bus-metrics-azure-monitor/service-bus-monitor2.png

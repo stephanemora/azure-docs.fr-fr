@@ -7,55 +7,59 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 58552914f369c49eed33ccefbb7736cf8dbf1fc6
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.openlocfilehash: c4fe05c96b1006a7d110caa019619ce8be396fe8
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66475647"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491556"
 ---
-# <a name="preview---automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Preview - automatiquement à l’échelle un cluster pour répondre aux besoins de l’application sur Azure Kubernetes Service (AKS)
+# <a name="preview---automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Préversion : Mettre à l’échelle automatiquement un cluster pour répondre à des demandes applicatives d’Azure Kubernetes Service (AKS)
 
 Pour suivre le rythme des demandes applicatives d’Azure Kubernetes Service (ACS), vous devrez peut-être ajuster le nombre de nœuds qui exécutent vos charges de travail. Le composant programme de mise à l’échelle automatique de cluster peut surveiller les pods de votre cluster qui ne peuvent pas être planifiés en raison de contraintes de ressources. Lorsque des problèmes sont détectés, le nombre de nœuds est augmenté pour répondre à la demande applicative. Les pods exécutés sont également régulièrement vérifiés sur les nœuds dont le nombre est réduit au besoin. Cette possibilité d’augmenter ou de réduire automatiquement le nombre de nœuds dans votre cluster AKS vous permet d’exécuter un cluster efficace et économique.
 
-Cet article vous montre comment activer et gérer le programme de mise à l’échelle automatique de cluster dans un cluster AKS. Cluster autoscaler doit uniquement être testé en version préliminaire sur les clusters AKS avec un pool de nœud unique.
+Cet article vous montre comment activer et gérer le programme de mise à l’échelle automatique de cluster dans un cluster AKS. L’autoscaler de cluster ne doit être testé qu’en préversion sur les clusters AKS avec un pool de nœuds unique.
 
 > [!IMPORTANT]
-> Fonctionnalités de préversion AKS sont en libre-service, participer. Elles sont fournies pour recueillir des commentaires et des bogues à partir de notre communauté. Dans la version préliminaire, ces fonctionnalités ne sont pas destinées à des fins de production. Fonctionnalités en version préliminaire publique relèvent du « meilleur effort » la prise en charge. L’assistance des équipes de support technique AKS est disponible pendant les heures de bureau PST fuseau horaire (PST) uniquement. Pour plus d’informations, consultez les éléments suivants prennent en charge des articles :
+> Les fonctionnalités d’évaluation AKS sont en libre-service et font l’objet d’un abonnement. Elles sont fournies pour que notre communauté puisse faire part de ses commentaires et des bogues éventuels. En préversion, ces fonctionnalités ne sont pas destinées à une utilisation en production. Les fonctionnalités en préversion publique font l’objet d’un support relatif. L’assistance des équipes de support technique AKS est disponible pendant les heures de bureau du fuseau horaire Heure du Pacifique uniquement. Pour obtenir des informations supplémentaires, veuillez lire les articles de support suivants :
 >
-> * [Stratégies de prise en charge AKS][aks-support-policies]
-> * [FAQ du Support Azure][aks-faq]
+> * [Stratégies de support AKS][aks-support-policies]
+> * [FAQ du support Azure][aks-faq]
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Cet article nécessite que vous exécutiez Azure CLI version 2.0.65 ou version ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installer Azure CLI 2.0][azure-cli-install].
+Pour les besoins de cet article, vous devez utiliser Azure CLI version 2.0.65 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][azure-cli-install].
 
 ### <a name="install-aks-preview-cli-extension"></a>Installer l’extension CLI de préversion d’aks
 
-Les clusters AKS qui prennent en charge l’autoscaler de cluster doivent utiliser des machines virtuelles identiques et exécutent la version de Kubernetes *1.12.7* ou version ultérieure. Cette prise en charge des groupes identiques est en préversion. Pour accepter et créer des clusters utilisant des groupes identiques, installez tout d’abord l’extension d’Azure CLI *aks-preview* à l’aide de la commande [az extension add][az-extension-add], comme indiqué dans l’exemple suivant :
+Pour utiliser l’autoscaler de cluster, vous aurez besoin de l’extension de CLI *aks-preview* version 0.4.1 ou version ultérieure. Installez l’extension d’Azure CLI *aks-preview* à l’aide de la commande [az extension add][az-extension-add]command, then check for any available updates using the [az extension update][az-extension-update] :
 
 ```azurecli-interactive
+# Install the aks-preview extension
 az extension add --name aks-preview
-```
 
-> [!NOTE]
-> Si vous avez installé précédemment le *aks-preview* extension, installez toutes des mises à jour à l’aide de la `az extension update --name aks-preview` commande.
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
 
 ### <a name="register-scale-set-feature-provider"></a>Inscrire le fournisseur de fonctionnalités de groupe identique
 
-Pour créer un AKS qui utilise des groupes identiques, vous devez également activer un indicateur de fonctionnalité sur votre abonnement. Pour enregistrer l’indicateur de fonctionnalité *VMSSPreview*, utilisez la commande [az feature register][az-feature-register], comme indiqué dans l’exemple suivant :
+Pour créer un AKS qui utilise des groupes identiques, vous devez également activer un indicateur de fonctionnalité sur votre abonnement. Pour enregistrer l’indicateur de fonctionnalité *VMSSPreview*, utilisez la commande [az feature register][az-feature-register], comme indiqué dans l’exemple suivant :
+
+> [!CAUTION]
+> Lorsque vous inscrivez une fonctionnalité sur un abonnement, vous ne pouvez actuellement pas désinscrire cette fonctionnalité. Après avoir activé des fonctionnalités d’évaluation, des valeurs par défaut peuvent être utilisées pour tous les clusters AKS ensuite créés dans l’abonnement. N’activez pas les fonctionnalités d’évaluation sur les abonnements de production. Utilisez un abonnement distinct pour tester les fonctionnalités d’évaluation et recueillir des commentaires.
 
 ```azurecli-interactive
 az feature register --name VMSSPreview --namespace Microsoft.ContainerService
 ```
 
-Quelques minutes sont nécessaires pour que l’état s’affiche *Registered* (Inscrit). Vous pouvez vérifier l'état de l'enregistrement à l'aide de la commande [az feature list][az-feature-list] :
+Quelques minutes sont nécessaires pour que l’état s’affiche *Registered* (Inscrit). Vous pouvez vérifier l’état de l’enregistrement à l’aide de la commande [az feature list][az-feature-list] :
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/VMSSPreview')].{Name:name,State:properties.state}"
 ```
 
-Lorsque vous êtes prêt, actualisez l’inscription du fournisseur de ressources *Microsoft.ContainerService* à l’aide de la commande [az provider register][az-provider-register] :
+Lorsque vous êtes prêt, actualisez l’inscription du fournisseur de ressources *Microsoft.ContainerService* à l’aide de la commande [az provider register][az-provider-register] :
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -63,10 +67,9 @@ az provider register --namespace Microsoft.ContainerService
 
 ## <a name="limitations"></a>Limites
 
-Les limitations suivantes s’appliquent lorsque vous créez et gérez les clusters AKS qui utilisent l’autoscaler de cluster :
+Les limitations suivantes s’appliquent lorsque vous créez et gérez des clusters AKS qui utilisent l’autoscaler de cluster :
 
-* Le module complémentaire de routage application HTTP ne peut pas être utilisé.
-* Plusieurs pools de nœuds (actuellement en version préliminaire dans ACS) actuellement ne peut pas être utilisés.
+* Le module complémentaire de routage d’application HTTP ne peut pas être utilisé.
 
 ## <a name="about-the-cluster-autoscaler"></a>À propos du programme de mise à l’échelle automatique de cluster
 
@@ -83,7 +86,7 @@ Ces deux programmes de mise à l’échelle automatique peuvent également rédu
 * Un budget d’interruption de pods est trop restrictif et n’autorise pas la diminution du nombre de pods au-dessous d’un certain seuil.
 * Un pod utilise des sélecteurs de nœud ou l’anti-affinité qui ne peuvent pas être respectés s’ils sont planifiés sur un autre nœud.
 
-Pour plus d’informations sur l’incapacité du programme de mise à l’échelle automatique de cluster à réduire le nombre de nœuds, consultez l’article [What types of pods can prevent the cluster autoscaler from removing a node?][autoscaler-scaledown] (Quels sont les types de pods pouvant empêcher la suppression d’un nœud par le programme de mise à l’échelle automatique de cluster ?).
+Pour plus d’informations sur l’incapacité du programme de mise à l’échelle automatique de cluster à réduire le nombre de nœuds, consultez l’article [What types of pods can prevent the cluster autoscaler from removing a node?][autoscaler-scaledown] (Quels sont les types de pods pouvant empêcher la suppression d’un nœud par le programme de mise à l’échelle automatique de cluster ?)
 
 Le programme de mise à l’échelle automatique de cluster utilise des paramètres de démarrage pour des éléments tels que les intervalles de temps entre les événements de mise à l’échelle et les seuils de ressources. Ces paramètres sont définis par la plateforme Azure et ne sont pas exposés actuellement pour que vous les ajustiez. Pour plus d’informations sur les paramètres utilisés par le programme de mise à l’échelle automatique de cluster, consultez l’article [What are the cluster autoscaler parameters?][autoscaler-parameters] (Quels sont les paramètres du programme de mise à l’échelle automatique de cluster ?).
 
@@ -170,7 +173,7 @@ Vous pouvez mettre à l’échelle manuellement votre cluster à l’aide de la 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Cet article vous a montré comment mettre automatiquement à l’échelle le nombre de nœuds AKS. Vous pouvez également utiliser le programme de mise à l’échelle automatique de pods élastique pour ajuster automatiquement le nombre de pods qui exécutent votre application. Pour obtenir des instructions sur l’utilisation du programme de mise à l’échelle automatique de pods élastique, consultez l’article [Didacticiel : Mettre à l’échelle des applications dans Azure Kubernetes Service (AKS)][aks-scale-apps].
+Cet article vous a montré comment mettre automatiquement à l’échelle le nombre de nœuds AKS. Vous pouvez également utiliser le programme de mise à l’échelle automatique de pods élastique pour ajuster automatiquement le nombre de pods qui exécutent votre application. Pour obtenir des instructions sur l’utilisation du programme de mise à l’échelle automatique de pods élastique, consultez l’article [Mettre à l’échelle des applications dans Azure Kubernetes Service (AKS)][aks-scale-apps].
 
 <!-- LINKS - internal -->
 [aks-upgrade]: upgrade-cluster.md
@@ -185,9 +188,10 @@ Cet article vous a montré comment mettre automatiquement à l’échelle le nom
 [az-provider-register]: /cli/azure/provider#az-provider-register
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update
 
 <!-- LINKS - external -->
 [az-aks-update]: https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview
-[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 [autoscaler-scaledown]: https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-types-of-pods-can-prevent-ca-from-removing-a-node
 [autoscaler-parameters]: https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-the-parameters-to-ca

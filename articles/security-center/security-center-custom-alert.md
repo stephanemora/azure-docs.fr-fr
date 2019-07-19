@@ -14,32 +14,31 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
 ms.author: rkarlin
-ms.openlocfilehash: a5deee4209001d8c2212033c2d547d7c4199bd25
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 984bd4d5db210679884655721be0cbcdac8c1705
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65192624"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485280"
 ---
 # <a name="custom-alert-rules-in-azure-security-center-preview"></a>Règles d’alerte personnalisées dans Azure Security Center (préversion)
 Ce document est conçu pour vous aider à créer des règles d’alerte dans Azure Security Center.
 
 > [!NOTE]
-> Les alertes personnalisées seront supprimées le 30 juin 2019.
+> Les alertes personnalisées ont été retirées de Security Center. 
 
 ## <a name="retirement-of-custom-alert-rules-in-azure-security-center"></a>Retrait des règles d’alerte personnalisées dans Azure Security Center
 
-Les alertes personnalisées seront retirées le 30 juin 2019 en raison de la suppression de l’infrastructure sous-jacente sur lesquelles elles sont basées. Jusqu’à la dépréciation, les utilisateurs pourront modifier les règles d’alerte personnalisées existantes, mais ils ne pourront plus en ajouter de nouvelles.
+Les alertes personnalisées ont été retirées le 30 juin 2019 en raison de la suppression de l’infrastructure sous-jacente sur laquelle elles étaient basées. Toutes les alertes personnalisées configurées avant le retraitement ne sont pas prises en compte et les alertes de sécurité basées sur ces règles d’alerte personnalisées ne sont pas générées. Vous pouvez toujours afficher les requêtes des règles d’alerte personnalisées dans Security Center afin de les recréer dans les alternatives présentées ci-dessous :
+
 Nous vous recommandons aux utilisateurs de procéder de l’une des façons suivantes :
-- Activer [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) avec l’intégration en un seul clic pour migrer automatiquement leurs alertes existantes et en créer de nouvelles
+- Activez [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) et utilisez sa fonctionnalité [Analytics](https://docs.microsoft.com/azure/sentinel/tutorial-detect-threats) intégrée pour recréer leurs règles d’alerte.
 - Recréer leurs alertes avec les alertes de journal Azure Monitor
                                      
-Pour conserver vos alertes existantes et les migrer vers Azure Sentinel, veuillez [lancer Azure Sentinel](https://portal.azure.com/#create/Microsoft.ASI/preview). Lors d’une première étape, sélectionnez l’espace de travail où sont stockées vos alertes personnalisées, puis sélectionnez l’élément de menu « Analytics » pour migrer automatiquement vos alertes.
+Pour conserver vos alertes existantes et les créer à nouveau dans Azure Sentinel, veuillez [lancer Azure Sentinel](https://portal.azure.com/#create/Microsoft.ASI/preview). Lors d’une première étape, sélectionnez l’espace de travail où sont stockées vos alertes personnalisées, puis sélectionnez l’élément de menu « Analytics » pour configurer vos règles d’alerte personnalisées. Pour plus d’informations, consultez la [documentation](https://docs.microsoft.com/azure/sentinel/tutorial-detect-threats).
 
 > [!NOTE]
-> La migration des alertes personnalisées vers Azure Sentinel est une migration unique de toutes vos alertes personnalisées dans l’espace de travail sélectionné. Une fois la migration terminée, les alertes personnalisées pour l’espace de travail sélectionné ne seront pas accessibles via Azure Security Center.
->
-> Les alertes personnalisées utilisant les requêtes d’instructions [Recherche](https://docs.microsoft.com/azure/azure-monitor/log-query/search-queries) ou [Union](https://docs-analytics-eus.azurewebsites.net/queryLanguage/query_language_unionoperator.html) ne sont pas prises en charge dans Azure Sentinel et ne seront pas migrées. Modifiez ces alertes avant d’effectuer la migration.
+> Les alertes personnalisées utilisant les requêtes d’instructions [Recherche](https://docs.microsoft.com/azure/azure-monitor/log-query/search-queries) ou [Union](https://docs-analytics-eus.azurewebsites.net/queryLanguage/query_language_unionoperator.html) ne sont pas prises en charge dans Azure Sentinel. Modifiez ces alertes avant d’effectuer la migration.
 
 Pour recréer vos alertes à l’aide d’alertes de journal Azure Monitor, consultez : [Créer, afficher et gérer des alertes de journal à l’aide d’Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) pour obtenir des instructions sur la façon de créer des alertes de journal. Pour une vue d’ensemble générale des alertes de journal dans Azure Monitor, cliquez [ici](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log).
 

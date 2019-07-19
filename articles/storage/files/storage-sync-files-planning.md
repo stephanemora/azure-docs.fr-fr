@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7cbb934b87440d23e65fce53d7da40c5ffbd3150
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a745fefa5ceb0f81cf8d66e7af9e308c0ecb40b9
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65597075"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449869"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planification d’un déploiement de synchronisation de fichiers Azure
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -73,7 +73,7 @@ Cette section traite de la configuration requise et de l’interopérabilité de
 Avant de déployer l’agent Azure File Sync, vous devez évaluer s’il est compatible avec votre système à l’aide de l’outil d’évaluation Azure File Sync. Cet outil est une applet de commande Azure PowerShell qui recherche les problèmes potentiels liés à votre système de fichiers et à votre jeu de données, comme des caractères non pris en charge ou une version de système d’exploitation non prise en charge. Notez que ses vérifications couvrent la plupart des fonctionnalités mentionnées ci-dessous, mais pas toutes. Nous vous conseillons de lire attentivement le reste de cette section pour garantir le bon déroulement de votre déploiement. 
 
 #### <a name="download-instructions"></a>Instructions de téléchargement
-1. Vérifier que la dernière version de PackageManagement et de PowerShellGet sont installées (cela vous permet d’installer les modules de préversion)
+1. Vérifier que la dernière version de PackageManagement et de PowerShellGet sont est installée (cela vous permet d’installer les modules de préversion)
     
     ```powershell
         Install-Module -Name PackageManagement -Repository PSGallery -Force
@@ -170,10 +170,25 @@ Le clustering de basculement Windows Server est pris en charge par Azure File Sy
 
 ### <a name="data-deduplication"></a>Déduplication des données
 **Agent version 5.0.2.0**   
-La déduplication des données est prise en charge sur les volumes avec hiérarchisation cloud sur Windows Server 2016 et Windows Server 2019. L’activation de la déduplication sur un volume avec hiérarchisation cloud vous permet de mettre en cache plusieurs fichiers en local sans approvisionner davantage de stockage.
+La déduplication des données est prise en charge sur les volumes avec hiérarchisation cloud sur Windows Server 2016 et Windows Server 2019. Le fait d’activer la déduplication sur un volume pour lequel la hiérarchisation cloud est activée permet de mettre en cache plus de fichiers en local sans avoir à approvisionner davantage de stockage. Notez que ces économies de volume s’appliquent uniquement en local. Vos données dans Azure Files ne seront pas dédupliquées. 
 
 **Windows Server 2012 R2 ou versions d’agent plus anciennes**  
 Pour les volumes sur lesquels la hiérarchisation cloud n’est pas activée, Azure File Sync prend en charge la déduplication des données Windows Server quand elle est activée sur le volume.
+
+**Remarques**
+- Si la déduplication des données est installée avant d’installer l’agent Azure File Sync, un redémarrage est nécessaire pour prendre en charge la déduplication des données et la hiérarchisation cloud sur le même volume.
+- Si la déduplication des données est activée sur un volume une fois la hiérarchisation cloud activée, la tâche d’optimisation de la déduplication initiale permettra d’optimiser les fichiers qui ne sont pas déjà hiérarchisés dans le volume et aura l’impact suivant sur la hiérarchisation cloud :
+    - La stratégie d’espace disponible continuera à hiérarchiser les fichiers en fonction de l’espace disponible sur le volume à l’aide de la carte thermique.
+    - La stratégie de date ignorera la hiérarchisation des fichiers qui ont été éligibles pour la hiérarchisation en raison de l’accès de la tâche d’optimisation de la déduplication aux fichiers.
+- En ce qui concerne les tâches d’optimisation de la déduplication en cours, la hiérarchisation cloud avec la stratégie de date sera retardée par le paramètre [MinimumFileAgeDays](https://docs.microsoft.com/powershell/module/deduplication/set-dedupvolume?view=win10-ps) de déduplication des données, si le fichier n’est pas déjà hiérarchisé. 
+    - Exemple : Si la valeur du paramètre MinimumFileAgeDays est de 7 jours et la valeur de la stratégie de date de la hiérarchisation cloud est de 30 jours, la stratégie de date hiérarchisera les fichiers après 37 jours.
+    - Remarque : Une fois un fichier hiérarchisé par Azure File Sync, la tâche d’optimisation de la déduplication ignorera le fichier.
+- Si un serveur exécutant Windows Server 2012 R2 avec l’agent Azure File Sync installé est mis à niveau vers Windows Server 2016 ou Windows Server 2019, les étapes suivantes doivent être effectuées pour prendre en charge la déduplication des données et la hiérarchisation cloud sur le même volume :  
+    - Désinstallez l’agent Azure File Sync pour Windows Server 2012 R2 et redémarrez le serveur.
+    - Téléchargez l’agent Azure File Sync pour la nouvelle version du système d’exploitation serveur (Windows Server 2016 ou Windows Server 2019).
+    - Installez l’agent Azure File Sync et redémarrez le serveur.  
+    
+    Remarque : Les paramètres de configuration Azure File Sync sur le serveur sont conservés lorsque l’agent est désinstallé et réinstallé.
 
 ### <a name="distributed-file-system-dfs"></a>Système de fichiers DFS
 Azure File Sync prend en charge l’interopérabilité avec les espaces de noms DFS (DFS-N) et la réplication DFS (DFS-R).
@@ -188,21 +203,24 @@ Azure File Sync prend en charge l’interopérabilité avec les espaces de noms 
 
 Pour qu’Azure File Sync et DFS-R fonctionnent côte à côte :
 
-1. La hiérarchisation cloud d’Azure File Sync doit être désactivée sur les volumes avec des dossiers répliqués DFS-R.
+1. La hiérarchisation cloud d’Azure File Sync doit être désactivée sur les volumes avec des dossiers répliqué DFS-R.
 2. Les points de terminaison de serveur ne doivent pas être configurés sur des dossiers de réplication DFS-R en lecture seule.
 
 Pour plus d’informations, consultez [Vue d’ensemble de la réplication DFS](https://technet.microsoft.com/library/jj127250).
 
 ### <a name="sysprep"></a>Sysprep
-L’utilisation de sysprep sur un serveur sur lequel l’agent Azure File Sync est installé n’est pas prise en charge et peut produire des résultats inattendus. L’installation de l’agent et l’inscription du serveur doivent être effectuées après avoir déployé l’image du serveur et terminé la mini-configuration de sysprep.
+L’utilisation de sysprep sur un serveur sur lequel l’agent Azure File Sync est installé n’est pas prise en charge et peut produire des résultats inattendus. L’installation de l’agent et l’inscription du serveur doivent être effectués après avoir déployé l’image du serveur et terminé la mini-configuration de sysprep.
 
 ### <a name="windows-search"></a>Recherche Windows
 Si la hiérarchisation cloud est activée sur un point de terminaison de serveur, les fichiers qui sont hiérarchisés sont ignorés et ne sont pas indexés par Windows Search. Les fichiers non hiérarchisés sont indexés correctement.
 
 ### <a name="antivirus-solutions"></a>Solutions antivirus
-Du fait que les antivirus analysent les fichiers pour détecter la présence éventuelle de code malveillant connu, ils peuvent provoquer le rappel de fichiers hiérarchisés. Dans les versions 4.0 et ultérieures de l'agent Azure File Sync, les fichiers hiérarchisés sont dotés de l'attribut Windows sécurisé FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS. Nous vous recommandons de contacter l'éditeur de votre logiciel pour savoir comment configurer la solution de manière à ignorer la lecture des fichiers dotés cet attribut (la plupart le font automatiquement).
+Du fait que les antivirus analysent les fichiers pour détecter la présence éventuelle de code malveillant connu, ils peuvent provoquer le rappel de fichiers hiérarchisés. Dans les versions 4.0 et ultérieures de l'agent Azure File Sync, les fichiers hiérarchisés sont dotés de l'attribut Windows sécurisé FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS. Nous vous recommandons de contacter l'éditeur de votre logiciel pour savoir comment configurer la solution de manière à ignorer la lecture des fichiers dotés cet attribut (la plupart le font automatiquement). 
 
 Les solutions antivirus internes de Microsoft, Windows Defender et System Center Endpoint Protection (SCEP), ignorent automatiquement la lecture des fichiers dotés de cet attribut. Nous les avons testés et y avons détecté un problème mineur : lorsque vous ajoutez un serveur à un groupe de synchronisation existant, les fichiers de moins de 800 octets sont rappelés (téléchargés) sur le nouveau serveur. Ces fichiers resteront sur le nouveau serveur et ne seront pas hiérarchisés, car ils ne respectent pas les exigences de taille de niveau (> à 64 Ko).
+
+> [!Note]  
+> Les fournisseurs de logiciels antivirus peuvent vérifier la compatibilité entre leur produit et Azure File Sync à l’aide de la [suite de tests de compatibilité des antivirus Azure File Sync] (https://www.microsoft.com/download/details.aspx?id=58322), qui est disponible au téléchargement dans le Centre de téléchargement Microsoft.
 
 ### <a name="backup-solutions"></a>Solutions de sauvegarde
 Tout comme les solutions antivirus, les solutions de sauvegarde peuvent provoquer le rappel de fichiers hiérarchisés. Pour sauvegarder le partage de fichiers Azure, nous vous recommandons d’utiliser une solution de sauvegarde cloud au lieu d’un produit de sauvegarde locale.
@@ -256,18 +274,15 @@ Azure File Sync est disponible uniquement dans les régions suivantes :
 | Asie Sud-Est | Singapour |
 | Sud du Royaume-Uni | Londres |
 | Ouest du Royaume-Uni | Cardiff |
-| US Gov Arizona (péversion) | Arizona |
-| US Gov Texas (préversion) | Texas |
-| US Gov Virginie (préversion) | Virginie |
+| Gouvernement des États-Unis – Arizona | Arizona |
+| Gouvernement des États-Unis – Texas | Texas |
+| Gouvernement américain - Virginie | Virginie |
 | Europe Ouest | Pays-bas |
 | USA Centre-Ouest | Wyoming |
 | USA Ouest | Californie |
 | USA Ouest 2 | Washington |
 
 Azure File Sync prend en charge la synchronisation uniquement avec un partage de fichiers Azure qui est situé dans la même région que le service de synchronisation de stockage.
-
-> [!Note]  
-> Azure File Sync est actuellement uniquement disponible en préversion privée pour les régions du gouvernement. Consultez nos [notes de publication](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#agent-version-5020) pour obtenir des instructions sur l’inscription au programme de préversion.
 
 ### <a name="azure-disaster-recovery"></a>Reprise d’activité après sinistre Azure
 Pour une protection contre la perte d’une région Azure, Azure File Sync s’intègre à l’option de [redondance du stockage géoredondant](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (GRS). Le stockage GRS fonctionne en utilisant la réplication de blocs asynchrone entre le stockage dans la région primaire, avec laquelle vous interagissez normalement, et le stockage dans la région secondaire associée. En cas de sinistre entraînant la mise hors connexion temporaire ou définitive d'une région Azure, Microsoft bascule le stockage vers la région associée. 
@@ -302,7 +317,7 @@ Pour prendre en charge l’intégration du basculement entre le stockage géored
 | Ouest du Royaume-Uni             | Sud du Royaume-Uni           |
 | Gouvernement des États-Unis – Arizona      | Gouvernement des États-Unis – Texas       |
 | US Gov Iowa         | Gouvernement américain - Virginie    |
-| US Gov Virgini      | Gouvernement des États-Unis – Texas       |
+| Gouvernement américain - Virginie      | Gouvernement des États-Unis – Texas       |
 | Europe Ouest         | Europe Nord       |
 | USA Centre-Ouest     | USA Ouest 2          |
 | USA Ouest             | USA Est            |

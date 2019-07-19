@@ -1,47 +1,42 @@
 ---
-title: Suivre le solde de crédit Azure d'un Contrat client Microsoft | Microsoft Docs
-description: Découvrez comment vérifier le solde de crédit Azure d'un Contrat client Microsoft.
-services: ''
-documentationcenter: ''
-author: amberbhargava
+title: Suivre le solde de crédit Azure d’un Contrat client Microsoft
+description: Découvrez comment vérifier le solde de crédit Azure d’un Contrat client Microsoft.
+author: bandersmsft
 manager: amberb
-editor: banders
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/28/2019
-ms.author: amberb
-ms.openlocfilehash: 1e8c3e6863b9cd8f2f5ced18a57918c32c865e75
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 07/01/2019
+ms.author: banders
+ms.openlocfilehash: 352737b3ea61a51a39e066d4211c8f4ceae74184
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60372257"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490964"
 ---
-# <a name="track-azure-credit-balance-for-microsoft-customer-agreement"></a>Suivre le solde de crédit Azure d'un Contrat client Microsoft
+# <a name="track-microsoft-customer-agreement-azure-credit-balance"></a>Suivre le solde de crédit Azure d’un Contrat client Microsoft
 
-Vous pouvez vérifier le solde de crédit Azure d'un Contrat client Microsoft dans le portail Azure. Vous utilisez des crédits pour payer les produits couverts par les crédits.
+Vous pouvez vérifier le solde de crédit Azure d'un Contrat client Microsoft dans le portail Azure. Vous utilisez des crédits pour payer les frais couverts par les crédits.
 
-Vous êtes facturé lorsque vous utilisez les produits non couverts par les crédits ou lorsque votre utilisation dépasse votre solde de crédit. Pour plus d’informations, consultez [Produits non couverts par les crédits Azure](#products-that-arent-covered-by-azure-credits).
+Vous êtes facturé lorsque vous utilisez les produits non couverts par les crédits ou lorsque votre utilisation dépasse votre solde de crédit. Pour plus d’informations, consultez [Produits non couverts par les crédits Azure.(#products-that-arent-covered-by-azure-credits).
 
-Cet article s’applique à un compte de facturation associé à un Contrat client Microsoft. [Vérifiez que vous avez accès à un Contrat client Microsoft](#check-access-to-a-microsoft-customer-agreement).
+Cet article s'applique à un compte de facturation associé à un contrat client Microsoft. [Vérifiez que vous avez accès à un contrat client Microsoft](#check-access-to-a-microsoft-customer-agreement).
 
-## <a name="check-credit-balance-in-the-azure-portal"></a>Consulter le solde de crédit dans le portail Azure
+## <a name="check-your-credit-balance"></a>Vérifier votre solde de crédit
 
 1. Connectez-vous au [Portail Azure]( https://portal.azure.com).
 
-2. Effectuez une recherche sur **Gestion des coûts + facturation**.
+2. Recherchez **Gestion des coûts + facturation**.
 
-   ![Capture d’écran montrant la recherche dans le portail pour gestion des coûts + facturation](./media/billing-mca-check-azure-credits-balance/billing-search-cost-management-billing.png)
+    ![Capture d’écran montrant la recherche dans le portail pour gestion des coûts + facturation](./media/billing-mca-check-azure-credits-balance/billing-search-cost-management-billing.png)
 
-3. Accédez au profil de facturation. Selon votre accès, vous devrez peut-être sélectionner un compte de facturation. Dans le compte de facturation, sélectionnez **Profils de facturation**, puis un profil de facturation.
+3.  Sélectionnez **Crédits Azure** dans la partie gauche. Selon votre accès, vous devrez peut-être sélectionner un compte ou profil de facturation, puis sélectionner **Crédits Azure**.
 
-4. Sélectionnez **Crédits Azure**.
-
-5. La page Crédits Azure affiche les informations suivantes :
+4. La page Crédits Azure affiche les informations suivantes :
 
    ![Capture d’écran d'un solde de crédit et de transactions pour un profil de facturation](./media/billing-mca-check-azure-credits-balance/billing-mca-credits-overview.png)
 
@@ -57,16 +52,18 @@ Cet article s’applique à un compte de facturation associé à un Contrat clie
 
    ![Capture d’écran des listes de crédits d'un profil de facturation](./media/billing-mca-check-azure-credits-balance/billing-mca-credits-list.png)
 
-   | Terme                 | Définition                           |
-   |----------------------|--------------------------------------------------------|
-   | Source               | Source d’acquisition du crédit |
-   | Date de début           | Date d'acquisition du crédit |
-   | Date d'expiration      | Date d’expiration du crédit |
-   | Balance              | Solde depuis votre dernière facture |
-   | Montant d’origine      | Montant d'origine du crédit |
-   | Statut               | État actuel du crédit. Cet état peut être actif, utilisé, expiré ou en cours d'expiration |
+   | Terme | Définition |
+   |---|---|
+   | Solde estimé | Le montant du crédit Azure dont vous disposez après avoir soustrait les frais éligibles de crédit non facturés de votre solde actuel|
+   | Solde actuel | Le montant du crédit Azure dont vous disposez avant de considérer les frais éligibles de crédit non facturés. Il est calculé en ajoutant les nouveaux crédits Azure que vous avez reçu au solde de crédit au moment de votre dernière facture|
+   | Source | Source d’acquisition du crédit |
+   | Date de début | Date d'acquisition du crédit |
+   | Date d'expiration | Date d’expiration du crédit |
+   | Balance | Solde depuis votre dernière facture |
+   | Montant d’origine | Montant d'origine du crédit |
+   | Statut | État actuel du crédit. Cet état peut être actif, utilisé, expiré ou en cours d'expiration |
 
-## <a name="how-credits-are-used-in-microsoft-customer-agreement"></a>Utilisation de crédits d'un Contrat client Microsoft
+## <a name="how-credits-are-used"></a>Utilisation des crédits
 
 Dans un compte de facturation pour un Contrat client Microsoft, vous utilisez les profils de facturation pour gérer vos factures et modes de paiement. Une facture mensuelle est générée pour chaque profil de facturation et les modes de paiement permettent de payer la facture.
 
@@ -78,7 +75,7 @@ Les crédits Azure constituent l'un de ces modes de paiement. Vous obtenez un cr
 
 - Canonical
 - Citrix XenApp Essentials
-- Citrix XenDesktop 
+- Citrix XenDesktop
 - Utilisateur inscrit
 - Openlogic
 - Utilisateur inscrit de Remote Access Rights XenApp Essentials
@@ -93,7 +90,7 @@ Les crédits Azure constituent l'un de ces modes de paiement. Vous obtenez un cr
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Vérifier l’accès à un Contrat client Microsoft
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contacter le support technique
+## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contactez le support technique.
 
 Si vous avez toujours besoin d’aide, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème.
 

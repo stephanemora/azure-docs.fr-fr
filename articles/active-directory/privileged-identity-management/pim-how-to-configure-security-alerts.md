@@ -14,18 +14,18 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce0d99fb283be8cbeba6f8a7954ff49161a2d511
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6875ab8f184c67b02c91d1a8e312959f3ba9553b
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60288540"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476412"
 ---
 # <a name="configure-security-alerts-for-azure-ad-roles-in-pim"></a>Configurer des alertes de sécurité pour les rôles Azure AD dans PIM
 
 Azure Active Directory (Azure AD) Privileged Identity Management (PIM) génère des alertes en cas d’activité suspecte ou non fiable dans votre environnement. Lorsqu’une alerte est déclenchée, elle s’affiche sur le tableau de bord PIM. Sélectionnez l’alerte pour obtenir un rapport qui répertorie les utilisateurs ou les rôles à l’origine de son déclenchement.
 
-![Alertes de sécurité PIM - capture d’écran](./media/pim-how-to-configure-security-alerts/pim-directory-alerts.png)
+![Rôles Azure AD : volet Alertes répertoriant les alertes et le niveau de gravité](./media/pim-how-to-configure-security-alerts/pim-directory-alerts.png)
 
 ## <a name="security-alerts"></a>Alertes de sécurité
 
@@ -122,11 +122,11 @@ Vous pouvez personnaliser certaines alertes de sécurité dans PIM selon votre e
 
 1. Cliquez sur **Paramètres**, puis sur **Alertes**.
 
-    ![Accès aux paramètres des alertes de sécurité](./media/pim-how-to-configure-security-alerts/settings-alerts.png)
+    ![Rôles Azure AD : paramètres avec les alertes sélectionnées](./media/pim-how-to-configure-security-alerts/settings-alerts.png)
 
 1. Cliquez sur le nom d’une alerte pour configurer le paramètre de cette alerte.
 
-    ![Paramètres d'alerte de sécurité](./media/pim-how-to-configure-security-alerts/security-alert-settings.png)
+    ![Pour l’alerte sélectionnée, volet Paramètres d’alerte de sécurité](./media/pim-how-to-configure-security-alerts/security-alert-settings.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

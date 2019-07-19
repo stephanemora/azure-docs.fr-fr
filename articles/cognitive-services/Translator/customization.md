@@ -3,19 +3,19 @@ title: Personnalisation de la traduction - API de traduction de texte Translator
 titlesuffix: Azure Cognitive Services
 description: Utilisez Microsoft Translator Hub pour générer votre propre système de traduction automatique à l’aide de la terminologie et du style de votre choix.
 services: cognitive-services
-author: rajdeep-in
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
-ms.author: v-pawal
-ms.openlocfilehash: cb15ae375f412a66b9d7939b6a580ebb95f2f7a8
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.author: swmachan
+ms.openlocfilehash: 87c47fc970ccb96419818e3b3e39c939201708f0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515102"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447333"
 ---
 # <a name="customize-your-text-translations"></a>Personnaliser vos traductions de texte
 
@@ -43,7 +43,7 @@ Vous trouverez plus de détails sur les différents niveaux de personnalisation 
 ## <a name="microsoft-translator-hub"></a>Hub Microsoft Translator
 
 > [!NOTE]
-> Microsoft Translator Hub hérité sera retiré le 17 mai 2019. [Afficher des dates et des informations sur la migration important](https://www.microsoft.com/translator/business/hub/).  
+> L’ancien hub Microsoft Translator sera supprimé le 17 mai 2019. [Affichez des dates et des informations importantes sur la migration](https://www.microsoft.com/translator/business/hub/).  
 
 ## <a name="custom-translator-versus-hub"></a>Custom Translator ou hub
 
@@ -51,10 +51,10 @@ Vous trouverez plus de détails sur les différents niveaux de personnalisation 
 |:-----|:----:|:----:|
 |État de la fonctionnalité de personnalisation   | Disponibilité générale  | Disponibilité générale |
 | Version de l'API de texte  | V2 uniquement   | V3 uniquement |
-| Personnalisation TA statistique | Oui   | Non |
-| Personnalisation TA neuronale | Non    | Oui |
-| Nouvelle personnalisation unifiée des services vocaux | Non    | Oui |
-| [Sans trace](https://www.aka.ms/notrace) | Oui  | Oui |
+| Personnalisation TA statistique | OUI   | Non |
+| Personnalisation TA neuronale | Non    | OUI |
+| Nouvelle personnalisation unifiée des services vocaux | Non    | OUI |
+| [Sans trace](https://www.aka.ms/notrace) | OUI  | OUI |
 
 ## <a name="collaborative-translations-framework"></a>Infrastructure de traductions collaboratives
 

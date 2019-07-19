@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: e1fc7809ad94d589483b87c638d027a39098164e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 85a8840ccf6f6fe6390b5eeaccd715d87169f157
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65209534"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476029"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>Démarrage rapide - Configurer un environnement de cloud privé
 
@@ -33,7 +33,7 @@ Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.az
 
 5. Dans le portail CloudSimple, fournissez un nom pour votre cloud privé
 6. Sélectionnez l’**emplacement** de votre cloud privé
-7. Sélectionnez le **type de nœud** que vous avez acheté sur Azure.  Vous pouvez choisir l’[option CS28 ou CS36](cloudsimple-node.md#vmware-solution-by-cloudsimple-nodes-sku). Cette dernière option inclut la capacité de calcul et de mémoire maximale.
+7. Sélectionnez le **Type de nœud** que vous avez configuré sur Azure.  Vous pouvez choisir l’[option CS28 ou CS36](cloudsimple-node.md#vmware-solution-by-cloudsimple-nodes-sku). Cette dernière option inclut la capacité de calcul et de mémoire maximale.
 8. Spécifiez le **nombre de nœuds**.  Un minimum de trois nœuds est requis pour créer un cloud privé
 
     ![Créer un cloud privé - Informations de base](media/create-private-cloud-basic-info.png)
@@ -187,7 +187,10 @@ Vous pouvez trouver le nom de domaine complet (FQDN) et l’adresse IP de NSX Ma
 
     ![Rechercher le nom de domaine complet de NSX Manager](media/private-cloud-nsx-manager-fqdn.png)
 
-Pour modifier le mot de passe, suivez les instructions de l’article [Installation de NSX Manager](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.2/com.vmware.nsxt.install.doc/GUID-A65FE3DD-C4F1-47EC-B952-DEDF1A3DD0CF.html).
+Pour modifier le mot de passe, suivez les instructions de l’article [Gérer le mot de passe d’un utilisateur](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.4/administration/GUID-DB31B304-66A5-4516-9E55-2712D12B4F27.html).
+
+> [!WARNING]
+> Par défaut, le mot de passe administrateur NSX expire au bout de 90 jours.
 
 ## <a name="create-a-port-group"></a>Créer un groupe de ports
 

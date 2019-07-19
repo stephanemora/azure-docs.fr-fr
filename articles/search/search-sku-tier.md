@@ -7,31 +7,31 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/08/2019
+ms.date: 07/01/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 00422209302bbcc2139be4f6b490f0bb2816c051
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 892a79f898e2448096ad4b252a18e0713bb32e52
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65539284"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485309"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Choisir un niveau tarifaire pour Recherche Azure
 
 Lorsque vous créez un service Recherche Azure, une [ressource est créée](search-create-service-portal.md) à un niveau tarifaire ou une référence SKU qui sont fixes pendant toute la durée de vie du service. Les niveaux disponibles sont : Gratuit, De base, Standard et À stockage optimisé. Les niveaux Standard et À stockage optimisé sont proposés dans diverses configurations et capacités.
 
-La plupart des clients commencent par le niveau Gratuit qui leur permet d’évaluer le service. Ensuite, ils passent à l’un des niveaux supérieurs pour les déploiements de développement et de production. Au niveau Gratuit, vous pouvez effectuer tous les démarrages rapides et suivre tous les tutoriels, notamment ceux qui concernent la recherche cognitive nécessitant de nombreuses ressources.
+La plupart des clients commencent par le niveau Gratuit qui leur permet d’évaluer le service. Une fois l’évaluation terminée, il est courant de créer un deuxième service à l’un des niveaux supérieurs pour les déploiements de développement et de production. Au niveau Gratuit, vous pouvez effectuer tous les démarrages rapides et suivre tous les tutoriels, notamment ceux qui concernent la recherche cognitive nécessitant de nombreuses ressources.
 
 > [!NOTE]
-> Microsoft propose actuellement les niveaux de service À stockage optimisé sous la forme d’une préversion à tarif réduit à des fins de test et d’expérimentation, dans le but de recueillir des commentaires. La tarification finale sera annoncée ultérieurement, une fois ces niveaux généralement disponibles. Nous déconseillons l’utilisation de ces niveaux pour des applications de production.
+> À compter du 1er juillet, tous les niveaux seront à la disposition générale, y compris le niveau À stockage optimisé. Tous les tarifs sont disponibles sur la page [Détails de la tarification](https://azure.microsoft.com/pricing/details/search/).
 
 Les niveaux reflètent les caractéristiques du matériel qui héberge le service (plutôt que les fonctionnalités) et se distinguent en fonction de ce qui suit :
 
 + nombre d’index que vous pouvez créer ;
 + taille et vitesse des partitions (stockage physique).
 
-Bien que tous les niveaux, y compris le niveau Gratuit, offrent généralement la parité des fonctionnalités, des charges de travail plus importantes peuvent nécessiter des niveaux supérieurs. Par exemple, [l’indexation IA avec Cognitive Services](cognitive-search-concept-intro.md) implique des qualifications à long terme qui dépassent le délai d’attente sur un service gratuit, sauf si le jeu de données est restreint.
+Bien que tous les niveaux, y compris le niveau Gratuit, offrent généralement la parité des fonctionnalités, des charges de travail plus importantes peuvent nécessiter des niveaux supérieurs. Par exemple, [l’enrichissement de l’IA avec Cognitive Services](cognitive-search-concept-intro.md) implique des qualifications à long terme qui dépassent le délai d’attente sur un service gratuit, sauf si le jeu de données est restreint.
 
 > [!NOTE] 
 > Les [indexeurs](search-indexer-overview.md), qui ne sont pas disponibles sur S3 HD, constituent une exception à la parité des fonctionnalités.
@@ -60,7 +60,11 @@ Le tableau ci-après répertorie les niveaux disponibles. Des informations compl
 
 ## <a name="how-billing-works"></a>Comment la facturation fonctionne
 
-Les frais du service Recherche Azure sont facturables de trois manières et comportent des composants fixes et variables. Cette section décrit les trois composants de facturation : coûts de base du service, frais de sortie de données et indexation IA.
+Il existe trois façons d’entraîner des coûts dans Recherche Azure. Cette section décrit les trois composants de facturation : 
+
++ coût de service core
++ frais de sortie de données (ou bande passante)
++ enrichissement de l’IA
 
 ### <a name="core-service-costs-fixed-and-variable"></a>Coûts de base du service (fixes et variables)
 
@@ -98,9 +102,9 @@ L’utilisation [d’indexeurs Recherche Azure](search-indexer-overview.md) peut
 
 Des frais s’appliquent pour les données sortantes si les services sont situés dans des régions différentes. Ces frais ne figurent pas sur votre facture Recherche Azure. Ils sont mentionnés ici, car si vous utilisez des données ou des indexeurs IA pour extraire les données de différentes régions, les coûts associés apparaîtront sur votre facture globale.
 
-### <a name="ai-enriched-indexing-with-cognitive-services"></a>Indexation IA avec Cognitive Services
+### <a name="ai-enrichments-with-cognitive-services"></a>Enrichissement de l’IA avec Cognitive Services
 
-Pour [l’indexation IA avec Cognitive Services](cognitive-search-concept-intro.md), prévoyez d’attacher une ressource Azure Cognitive Services facturable dans la même région que le service Recherche Azure, au niveau tarifaire S0 pour le traitement du paiement à l’utilisation. L’attachement de Cognitive Services n’entraîne aucun coût fixe. Vous payez uniquement pour le traitement dont vous avez besoin.
+Pour [l’enrichissement de l’IA avec Cognitive Services](cognitive-search-concept-intro.md), prévoyez d’attacher une ressource Azure Cognitive Services facturable dans la même région que le service Recherche Azure, au niveau tarifaire S0 pour le traitement du paiement à l’utilisation. L’attachement de Cognitive Services n’entraîne aucun coût fixe. Vous payez uniquement pour le traitement dont vous avez besoin.
 
 L’extraction d’images au cours du craquage de document est une opération facturable du service Recherche Azure. Elle est facturée en fonction du nombre d’images extraites de vos documents. L’extraction de texte est actuellement gratuite.
 

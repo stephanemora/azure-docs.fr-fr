@@ -2,40 +2,31 @@
 title: Que sont les conditions dans l’accès conditionnel Azure Active Directory ? | Microsoft Docs
 description: Découvrez comment les conditions sont utilisées dans l’accès conditionnel Azure Active Directory pour déclencher une stratégie.
 services: active-directory
-keywords: accès conditionnel aux applications, accès conditionnel à Azure AD, accès sécurisé aux ressources d’entreprise, stratégies d’accès conditionnel
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-editor: ''
-ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
 ms.date: 05/17/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2caedeb5cd4d0f920ffa49b33b0dca8bea9938cb
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
-ms.translationtype: MT
+ms.openlocfilehash: 8e6c18b7ffca83c8e0fe9576ec275f89b6db7b4f
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65861544"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509020"
 ---
 # <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Que sont les conditions dans l’accès conditionnel Azure Active Directory ?
 
-Vous pouvez contrôler la façon dont les utilisateurs accèdent à vos applications cloud avec l’[accès conditionnel Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal). Dans une stratégie d’accès conditionnel, vous définissez la réponse (« Ensuite faire ») sur la raison du déclenchement de votre stratégie (« Quand cela se produit »).
+Vous pouvez contrôler la façon dont les utilisateurs accèdent à vos applications cloud avec l’[accès conditionnel Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal). Dans une stratégie d’accès conditionnel, vous définissez la réponse (« Ensuite faire ») sur la raison du déclenchement de votre stratégie (« Quand cela se produit »).
 
 ![Raison et réponse](./media/conditions/10.png)
-
 
 Dans le contexte de l’accès conditionnel, **Lorsque cela se produit** est appelé une **condition**. **Faire** est un **contrôle d’accès**. Une stratégie d’accès conditionnel combine des conditions et des contrôles d’accès.
 
 ![Stratégie d’accès conditionnel](./media/conditions/61.png)
-
 
 Les conditions que vous n’avez pas configurées dans une stratégie d’accès conditionnel ne sont pas appliquées. Certaines conditions sont [obligatoires](best-practices.md) pour appliquer une stratégie d’accès conditionnel à un environnement.
 
@@ -52,28 +43,26 @@ Lorsque vous sélectionnez **Tous les utilisateurs**, votre stratégie est appli
 Lorsque vous **sélectionnez des utilisateurs et des groupes**, vous pouvez définir les options suivantes :
 
 * L’option **Tous les utilisateurs invités** permet de cibler une stratégie sur des utilisateurs invités B2B. Cette condition recherche tous les comptes d’utilisateur dont l’attribut **userType** a la valeur **invité**. Utilisez ce paramètre quand une stratégie doit être appliquée dès la création du compte dans un flux d’invitation dans Azure AD.
-
 * Les **rôles d’annuaire** permettent de cibler une stratégie selon l’attribution de rôle d’un utilisateur. Cette condition prend en charge les rôles d’annuaire comme **administrateur général** ou **administrateur de mots de passe**.
-
 * L’option **Utilisateurs et groupes** cible des ensembles spécifiques d’utilisateurs. Par exemple, vous pouvez sélectionner un groupe qui contient tous les membres du service RH lorsqu’une application RH est sélectionnée en tant qu’application cloud. Un groupe peut être n’importe quel type de groupe dans Azure AD, y compris les groupes de sécurité et de distribution dynamiques ou affectés.
 
 Vous pouvez également exclure des utilisateurs ou groupes spécifiques d’une stratégie. Les comptes de service sont un cas d’utilisation courant si votre stratégie met en œuvre l’authentification multifacteur (MFA).
 
 Le ciblage d’ensembles spécifiques d’utilisateurs est utile pour le déploiement d’une nouvelle stratégie. Dans une nouvelle stratégie, vous devez cibler uniquement un ensemble initial d’utilisateurs pour valider le comportement de stratégie.
 
-## <a name="cloud-apps-and-actions"></a>Applications cloud et les actions
+## <a name="cloud-apps-and-actions"></a>Applications cloud et actions
 
-Une application cloud est un site Web, un service ou un point de terminaison protégés par le Proxy d’Application Azure AD. Pour une description détaillée des applications cloud prises en charge, consultez [Affectations des applications cloud](technical-reference.md#cloud-apps-assignments). Le **Cloud des applications ou des actions** condition est obligatoire dans une stratégie d’accès conditionnel. Dans votre stratégie, vous pouvez soit sélectionner **toutes les applications cloud** ou spécifier les applications avec **sélectionner les applications**.
+Une application cloud est un site web, un service ou un point de terminaison protégé par le proxy d’application Azure AD. Pour une description détaillée des applications cloud prises en charge, consultez [Affectations des applications cloud](technical-reference.md#cloud-apps-assignments). La condition **Applications de cloud ou actions** est obligatoire dans une stratégie d’accès conditionnel. Dans votre stratégie, vous pouvez sélectionner **Toutes les applications cloud** ou spécifier des applications avec **Sélectionner des applications**.
 
-Les organisations peuvent choisir parmi les options suivantes :
+Les organisations peuvent choisir parmi les options suivantes :
 
-* **Toutes les applications cloud** lors de l’application des stratégies de base à appliquer à toute l’organisation. Utilisez cette sélection pour les stratégies qui requièrent l’authentification multifacteur lors de la détection de risque de connexion pour n’importe quelle application cloud. Une stratégie appliquée à toutes les applications cloud s’applique à l’accès à tous les sites Web et services. Ce paramètre n’est pas limité aux applications cloud qui apparaissent dans la liste des applications Select.
+* **Toutes les applications cloud** lorsque vous appliquez des stratégies de base à toute l’organisation. Procédez ainsi pour les stratégies qui requièrent l’authentification multifacteur lorsqu’un risque à la connexion est détecté sur une application cloud. Une stratégie appliquée à Toutes les applications cloud concerne l’accès à tous les services et sites web. Ce paramètre n’est pas limité aux applications cloud de la liste Sélection des applications.
 * **Sélectionnez des applications** pour cibler des services spécifiques avec votre stratégie. Par exemple, vous pouvez demander aux utilisateurs d’avoir un appareil conforme pour accéder à SharePoint Online. Cette stratégie s’applique aussi à d’autres services lorsqu’ils accèdent à des contenus SharePoint. Microsoft Teams en est un exemple.
 
 > [!NOTE]
 > Vous pouvez exclure des applications spécifiques d’une stratégie. Toutefois, ces applications sont toujours soumises aux stratégies appliquées aux services auxquels elles accèdent.
 
-**Actions de l’utilisateur** sont des tâches qui peuvent être effectuées par un utilisateur. La seule action actuellement pris en charge est **enregistrer les informations de sécurité (version préliminaire)**, ce qui permet la stratégie d’accès conditionnel à appliquer lorsque les utilisateurs qui sont activés pour l’inscription combinée tentent d’inscrire leur sécurité plus d’informations. Vous trouverez plus d’informations dans l’article [activer combinée d’inscription des informations de sécurité (version préliminaire)](../authentication/howto-registration-mfa-sspr-combined.md).
+Les **actions utilisateur** sont des tâches qui peuvent être effectuées par un utilisateur. La seule action actuellement prise en charge est **Enregistrer les informations de sécurité (préversion)** , qui permet d’appliquer la stratégie d’accès conditionnel lorsque les utilisateurs pour lesquels l’inscription combinée est activée tentent d’enregistrer leurs informations de sécurité. Vous trouverez plus d’informations dans l’article [Autoriser l’enregistrement des informations de sécurité combinées (préversion)](../authentication/howto-registration-mfa-sspr-combined.md).
 
 ## <a name="sign-in-risk"></a>Risque à la connexion
 
@@ -94,20 +83,15 @@ Pour plus d’informations, consultez [Bloquer l’accès lorsqu’un risque de 
 
 La plateforme d’appareils se caractérise par le système d’exploitation qui s’exécute sur votre appareil. Azure AD identifie la plateforme à l’aide des informations fournies par l’appareil, telles que l’agent utilisateur. Ces informations ne sont pas vérifiées. Nous recommandons d’appliquer une stratégie à toutes les plateformes. La stratégie doit bloquer l’accès, veiller à la conformité avec les stratégies Microsoft Intune ou exiger que l’appareil soit joint à un domaine. Le comportement par défaut consiste à appliquer une stratégie à toutes les plateformes d’appareils. 
 
-
 ![Configurer des plateformes d’appareils](./media/conditions/24.png)
 
 Pour obtenir la liste des plateformes d’appareils prises en charge, consultez [Condition de plateforme d’appareil](technical-reference.md#device-platform-condition).
 
-
 Un cas d’usage commun pour cette condition est une stratégie qui limite l’accès à vos applications cloud aux [appareils gérés](require-managed-devices.md). Pour d’autres scénarios, y compris les conditions de plateforme d’appareil, consultez [Accès conditionnel basé sur les applications Azure Active Directory](app-based-conditional-access.md).
 
+## <a name="device-state"></a>État de l’appareil
 
-
-## <a name="device-state"></a>État de l'appareil
-
-La condition d’état de l’appareil exclut les appareils hybrides joints à Azure AD et les appareils marqués comme conformes d’une stratégie d’accès conditionnel. 
-
+La condition d’état de l’appareil exclut les appareils hybrides joints à Azure AD et les appareils marqués comme conformes d’une stratégie d’accès conditionnel. 
 
 ![Configurer l’état de l’appareil](./media/conditions/112.png)
 
@@ -122,25 +106,21 @@ En utilisant les emplacements, vous pouvez définir des conditions en fonction d
 Les cas d’utilisation courants pour cette condition sont des stratégies qui offrent les protections suivantes :
 
 - Exigez l’authentification multifacteur pour les utilisateurs accédant à un service lorsqu’ils sont en dehors du réseau d’entreprise.  
-
 - Bloquez l’accès pour les utilisateurs accédant à un service à partir de pays ou régions spécifiques. 
 
-Pour plus d’informations, consultez [Qu’est-ce que la condition d’emplacement dans l’accès conditionnel Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-locations).
-
+Pour plus d’informations, consultez [Qu’est-ce que la condition d’emplacement dans l’accès conditionnel Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-locations).
 
 ## <a name="client-apps"></a>Applications clientes
 
-Par défaut, une stratégie d’accès conditionnel s’applique aux applications suivantes :
+Par défaut, une stratégie d’accès conditionnel s’applique aux applications suivantes :
 
 - **[Applications de navigateur](technical-reference.md#supported-browsers)** - Parmi les applications de navigateur figurent les sites web qui utilisent le protocole d’authentification unique web SAML, WS-Federation ou OpenID Connect. Cette stratégie s’applique également à tout site ou service web inscrit en tant que client confidentiel OAuth. Par exemple : le site web Office 365 SharePoint. 
-
 - **[Applications de bureau et mobiles utilisant l’authentification moderne](technical-reference.md#supported-mobile-applications-and-desktop-clients)** - Parmi ces applications figurent les applications de bureau et de téléphone Office. 
 
 
 Vous pouvez également cibler une stratégie à des applications clientes spécifiques qui n’utilisent pas l’authentification moderne, par exemple :
 
 - **[Clients Exchange ActiveSync](conditions.md#exchange-activesync-clients)** - Quand une stratégie bloque l’utilisation d’Exchange ActiveSync, les utilisateurs affectés reçoivent un e-mail de quarantaine leur indiquant pourquoi ils sont bloqués. Si nécessaire, l’e-mail fournit des instructions sur l’inscription d’appareils à Intune.
-
 - **[Autres clients](block-legacy-authentication.md)** - Parmi ces applications figurent les clients qui utilisent l’authentification de base avec des protocoles de messagerie comme IMAP, MAPI, POP et SMTP ainsi que les applications Office plus anciennes qui n’utilisent pas l’authentification moderne. Pour plus d’informations, consultez [Fonctionnement de l’authentification moderne pour les applications clientes Office 2013 et Office 2016](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016).
 
 ![Applications clientes](./media/conditions/41.png)
@@ -148,19 +128,13 @@ Vous pouvez également cibler une stratégie à des applications clientes spéci
 Les cas d’utilisation courants pour cette condition sont des stratégies avec les exigences suivantes :
 
 - **[Exiger un appareil géré](require-managed-devices.md)** pour les applications mobiles et de bureau qui téléchargent des données sur un appareil. En même temps, autorisez l’accès au navigateur à partir de n’importe quel appareil. Ce scénario empêche l’enregistrement et la synchronisation des documents sur un appareil non géré. Avec cette méthode, vous pouvez réduire le risque de perte de données si l’appareil est perdu ou volé.
-
 - **[Exiger un appareil géré](require-managed-devices.md)** pour les applications utilisant ActiveSync pour accéder à Exchange Online.
-
 - **[Bloquer l’authentification héritée](block-legacy-authentication.md)** à Azure AD (autres clients)
-
 - Bloquez l’accès aux applications web, mais autorisez l’accès à partir des applications de bureau et mobiles.
-
-
 
 ### <a name="exchange-activesync-clients"></a>Clients Exchange ActiveSync
 
 Vous pouvez uniquement sélectionner **Clients Exchange ActiveSync** si :
-
 
 - Microsoft Office 365 Exchange Online est la seule application cloud que vous avez sélectionnée.
 
@@ -170,7 +144,6 @@ Vous pouvez uniquement sélectionner **Clients Exchange ActiveSync** si :
  
     ![Appliquer la stratégie uniquement aux plateformes prises en charge](./media/conditions/33.png)
 
-
 Quand l’accès est bloqué du fait qu’un [appareil géré](require-managed-devices.md) est exigé, les utilisateurs affectés reçoivent un message les invitant à utiliser Intune. 
 
 Si une application approuvée est exigée, les utilisateurs affectés reçoivent des instructions pour installer et utiliser le client mobile Outlook.
@@ -179,18 +152,12 @@ Dans d’autres cas, par exemple si MFA est exigé, les utilisateurs affectés s
 
 Vous pouvez cibler uniquement ce paramètre à des utilisateurs et à des groupes. Il ne prend pas en charge les invités et les rôles. Si une condition relative à un invité ou un rôle est configurée, tous les utilisateurs sont bloqués dans la mesure où l’accès conditionnel ne peut pas déterminer si la stratégie doit s’appliquer à l’utilisateur ou non.
 
+Pour plus d'informations, consultez les pages suivantes :
 
- Pour plus d'informations, consultez les pages suivantes :
-
-- [Configurer SharePoint Online et Exchange Online pour l’accès conditionnel Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-no-modern-authentication)
- 
-- [Accès conditionnel basé sur les applications Azure Active Directory](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access) 
-
-
+- [Configurer SharePoint Online et Exchange Online pour l’accès conditionnel Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-no-modern-authentication).
+- [Accès conditionnel basé sur les applications Azure Active Directory](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour apprendre à configurer une stratégie d’accès conditionnel, consultez [Démarrage rapide : Exiger une authentification multifacteur (MFA) pour des applications spécifiques disposant d’un accès conditionnel Azure Active Directory](app-based-mfa.md).
-
+- Pour apprendre à configurer une stratégie d’accès conditionnel, consultez [Démarrage rapide : Exiger une authentification multifacteur (MFA) pour des applications spécifiques disposant d’un accès conditionnel à Azure Active Directory](app-based-mfa.md).
 - Pour configurer des stratégies d’accès conditionnel pour votre environnement, consultez les [meilleures pratiques pour l’accès conditionnel dans Azure Active Directory](best-practices.md). 
-

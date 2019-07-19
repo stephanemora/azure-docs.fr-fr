@@ -4,19 +4,19 @@ description: Comprendre comment utiliser les déclencheurs et les liaisons Stock
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: azure functions, fonctions, traitement des événements, calcul dynamique, architecture sans serveur
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/15/2018
 ms.author: cshoe
-ms.openlocfilehash: f54da6e350b2cf9027b6e9e02ace2a90e292e1ce
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.openlocfilehash: ad927de0274d415ac268d3a29abf2c135ee22d52
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66472347"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67480212"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Liaisons Stockage Blob Azure pour Azure Functions
 
@@ -211,6 +211,7 @@ Voici le code Python :
 ```python
 import logging
 import azure.functions as func
+
 
 def main(myblob: func.InputStream):
     logging.info('Python Blob trigger function processed %s', myblob.name)
@@ -426,7 +427,7 @@ Azure Functions stocke les reçus d’objet blob dans un conteneur appelé *azur
 * Nom de l’objet blob
 * Étiquette d’entité (identificateur de version de l’objet blob, par exemple : « 0x8D1DC6E70A277EF »)
 
-Pour forcer le retraitement d’un objet blob, supprimez manuellement le reçu de l’objet blob du conteneur *azure-webjobs-hosts*. Pendant le retraitement n’ait pas lieu immédiatement, il a la garantie se produise à un moment ultérieur dans le temps.
+Pour forcer le retraitement d’un objet blob, supprimez manuellement le reçu de l’objet blob du conteneur *azure-webjobs-hosts*. Si le retraitement n’a pas lieu immédiatement, il se produira ultérieurement.
 
 ## <a name="trigger---poison-blobs"></a>Déclencheur - objets blob incohérents
 
@@ -450,7 +451,7 @@ Les fonctions JavaScript et Java chargent l’objet blob entier en mémoire et l
 
 ## <a name="trigger---polling"></a>Déclencheur : interrogation
 
-Si le conteneur d’objets blob surveillé contient plus de 10 000 objets BLOB (parmi tous les conteneurs), le runtime Functions analyse fichiers journaux pour surveiller les objets BLOB nouveaux ou modifiés. Ce processus peut entraîner des retards. Il se peut qu’une fonction ne se déclenche que quelques minutes ou plus après la création de l’objet blob.
+Si le conteneur d’objets blob surveillé contient plus de 10 000 objets blob (sur tous les conteneurs), le runtime Functions recherche les objets blob nouveaux ou modifiés dans les fichiers journaux. Ce processus peut entraîner des retards. Il se peut qu’une fonction ne se déclenche que quelques minutes ou plus après la création de l’objet blob.
 
 > [!WARNING]
 > En outre, les [journaux d’activité de stockage sont créés selon le principe du meilleur effort](/rest/api/storageservices/About-Storage-Analytics-Logging). Il n’existe aucune garantie que tous les événements sont capturés. Dans certaines conditions, des journaux d’activité peuvent être omis.
@@ -631,6 +632,7 @@ Voici le code Python :
 import logging
 import azure.functions as func
 
+
 def main(queuemsg: func.QueueMessage, inputblob: func.InputStream) -> func.InputStream:
     logging.info('Python Queue trigger function processed %s', inputblob.name)
     return inputblob
@@ -735,7 +737,7 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 |**direction** | n/a | Cette propriété doit être définie sur `in`. Les exceptions sont notées à la section [utilisation](#input---usage). |
 |**name** | n/a | Nom de la variable qui représente l’objet blob dans le code de la fonction.|
 |**path** |**BlobPath** | Chemin de l’objet blob. |
-|**Connexion** |**Connection**| Nom d’un paramètre d’application comportant la [chaîne de connexion de stockage](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-azure-storage-account) à utiliser pour cette liaison. Si le nom du paramètre d’application commence par « AzureWebJobs », vous ne pouvez spécifier que le reste du nom ici. Par exemple, si vous définissez `connection` sur « MyStorage », le runtime Functions recherche un paramètre d’application qui est nommé « AzureWebJobsMyStorage ». Si vous laissez `connection` vide, le runtime Functions utilise la chaîne de connexion de stockage par défaut dans le paramètre d’application nommé `AzureWebJobsStorage`.<br><br>La chaîne de connexion doit être pour un compte de stockage à usage général, et non pour un [compte de stockage d’objets blob uniquement](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
+|**Connexion** |**Connection**| Nom d’un paramètre d’application comportant la [chaîne de connexion de stockage](../storage/common/storage-configure-connection-string.md) à utiliser pour cette liaison. Si le nom du paramètre d’application commence par « AzureWebJobs », vous ne pouvez spécifier que le reste du nom ici. Par exemple, si vous définissez `connection` sur « MyStorage », le runtime Functions recherche un paramètre d’application qui est nommé « AzureWebJobsMyStorage ». Si vous laissez `connection` vide, le runtime Functions utilise la chaîne de connexion de stockage par défaut dans le paramètre d’application nommé `AzureWebJobsStorage`.<br><br>La chaîne de connexion doit être pour un compte de stockage à usage général, et non pour un [compte de stockage d’objets blob uniquement](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 |n/a | **y accéder** | Indique si vous lirez ou écrirez. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -763,7 +765,7 @@ La liaison à `string` ou `Byte[]` est recommandée uniquement si la taille de l
 
 Dans JavaScript, accédez aux données de l’objet blob en utilisant `context.bindings.<name from function.json>`.
 
-## <a name="output"></a>Sortie
+## <a name="output"></a>Output
 
 Utilisez les liaisons de sortie de stockage blob pour écrire des objets blob.
 
@@ -954,6 +956,7 @@ Voici le code Python :
 import logging
 import azure.functions as func
 
+
 def main(queuemsg: func.QueueMessage, inputblob: func.InputStream,
          outputblob: func.Out[func.InputStream]):
     logging.info('Python Queue trigger function processed %s', inputblob.name)
@@ -1068,7 +1071,7 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 |**type** | n/a | Cette propriété doit être définie sur `blob`. |
 |**direction** | n/a | Cette propriété doit être définie sur `out` pour une liaison de type sortie. Les exceptions sont notées à la section [utilisation](#output---usage). |
 |**name** | n/a | Nom de la variable qui représente l’objet blob dans le code de la fonction.  La valeur doit être `$return` pour faire référence à la valeur de retour de la fonction.|
-|**path** |**BlobPath** | Le chemin d’accès pour le conteneur d’objets blob. |
+|**path** |**BlobPath** | Chemin du conteneur d’objet blob. |
 |**Connexion** |**Connection**| Nom d’un paramètre d’application comportant la chaîne de connexion de stockage à utiliser pour cette liaison. Si le nom du paramètre d’application commence par « AzureWebJobs », vous ne pouvez spécifier que le reste du nom ici. Par exemple, si vous définissez `connection` sur « MyStorage », le runtime Functions recherche un paramètre d’application qui est nommé « AzureWebJobsMyStorage ». Si vous laissez `connection` vide, le runtime Functions utilise la chaîne de connexion de stockage par défaut dans le paramètre d’application nommé `AzureWebJobsStorage`.<br><br>La chaîne de connexion doit être pour un compte de stockage à usage général, et non pour un [compte de stockage d’objets blob uniquement](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 |n/a | **y accéder** | Indique si vous lirez ou écrirez. |
 
@@ -1105,7 +1108,7 @@ Dans JavaScript, accédez aux données de l’objet blob en utilisant `context.b
 
 ## <a name="exceptions-and-return-codes"></a>Exceptions et codes de retour
 
-| Liaison |  Référence |
+| Liaison |  Informations de référence |
 |---|---|
 | Blob | [Codes d’erreur du service BLOB](https://docs.microsoft.com/rest/api/storageservices/fileservices/blob-service-error-codes) |
 | Objet blob, Table, File d’attente |  [Codes d’erreur de stockage](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |

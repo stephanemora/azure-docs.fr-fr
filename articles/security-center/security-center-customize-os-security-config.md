@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: d9dc9f3a4ab964b66e3a2cb03f4aad442c5665e9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7095992253fbbe5aafce1eab889965250f5d59a8
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64573604"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551367"
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>Personnaliser les configurations de la sécurité du système d’exploitation dans Azure Security Center (version préliminaire)
 
@@ -56,13 +56,11 @@ Pour personnaliser la configuration par défaut de la sécurité du système d�
 
 1.  Ouvrez le tableau de bord **Security Center**.
 
-2.  Dans le volet gauche, sélectionnez **Stratégie de sécurité**.      
+2.  Dans le volet gauche, sélectionnez **Tarifs et paramètres**.
 
     ![Liste des stratégies de sécurité](media/security-center-customize-os-security-config/manual-provision.png)
 
-3.  Dans la ligne de l’abonnement que vous souhaitez personnaliser, cliquez sur **Modifier les paramètres**.
-
-4. Sélectionnez **Modifier les configurations de la sécurité**.  
+4. Sélectionnez l’abonnement applicable, puis sélectionnez **Modifier les configurations de sécurité**.  
 
     ![La fenêtre Modifier les configurations de la sécurité](media/security-center-customize-os-security-config/blade.png)
 

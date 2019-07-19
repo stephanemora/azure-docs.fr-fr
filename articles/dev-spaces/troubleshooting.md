@@ -9,18 +9,18 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Développement Kubernetes rapide avec des conteneurs et des microservices sur Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s '
-ms.openlocfilehash: 693abccd7e54a1dfef92cd57a715ac96bfd56a8c
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: 651ae9d9f9a622724e1ee606219ba940995aa555
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66234002"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441747"
 ---
 # <a name="troubleshooting-guide"></a>Guide de résolution des problèmes
 
 Ce guide contient des informations sur les problèmes courants que vous êtes susceptible de rencontrer en utilisant Azure Dev Spaces.
 
-Si vous avez un problème lors de l’utilisation des espaces de développement Azure, créez un [problème dans le référentiel GitHub d’espaces Azure Dev](https://github.com/Azure/dev-spaces/issues).
+Si vous rencontrez un problème avec Azure Dev Spaces, créez un [problème dans le dépôt GitHub Azure Dev Spaces](https://github.com/Azure/dev-spaces/issues).
 
 ## <a name="enabling-detailed-logging"></a>Activation de la journalisation détaillée
 
@@ -36,24 +36,26 @@ Actuellement, Azure Dev Spaces fonctionne mieux lors du débogage d’une seule 
 
 ## <a name="error-failed-to-create-azure-dev-spaces-controller"></a>Erreur « Échec de la création du contrôleur Azure Dev Spaces »
 
+### <a name="reason"></a>Motif
 Vous pouvez voir cette erreur lorsqu’il y a un problème de création du contrôleur. Dans le cas d’une erreur temporaire, supprimez et recréez le contrôleur pour la corriger.
 
-### <a name="try"></a>Essayez de procéder comme suit :
+### <a name="try"></a>Essai
 
-Pour supprimer le contrôleur, utilisez Azure Dev Spaces CLI. Il n’est pas possible de le faire dans Visual Studio ou dans Cloud Shell. Pour installer AZDS CLI, installez tout d’abord Azure CLI, puis exécutez cette commande :
+Supprimez le contrôleur :
+
+```bash
+azds remove -g <resource group name> -n <cluster name>
+```
+
+Vous devez utiliser l’interface CLI Azure Dev Spaces pour supprimer un contrôleur. La suppression d’un contrôleur n’est pas possible à partir de Visual Studio. Vous ne pouvez pas non plus supprimer un contrôleur à partir d’Azure Cloud Shell étant donné que vous ne pouvez pas installer la CLI Azure Dev Spaces dans Azure Cloud Shell.
+
+Si vous n’avez pas installé la CLI Azure Dev Spaces, installez-la à l’aide de la commande suivante avant de supprimer le contrôleur :
 
 ```cmd
 az aks use-dev-spaces -g <resource group name> -n <cluster name>
 ```
 
-Exécutez ensuite cette commande pour supprimer le contrôleur :
-
-```cmd
-azds remove -g <resource group name> -n <cluster name>
-```
-
-La recréation du contrôleur est possible à partir de CLI ou de Visual Studio. Suivez les instructions dans les tutoriels, comme si vous démarriez pour la première fois.
-
+La recréation du contrôleur est possible à partir de CLI ou de Visual Studio. Pour obtenir des exemples, consultez les guides de démarrage rapide [Développement en équipe](quickstart-team-development.md) ou [Développer avec .NET Core](quickstart-netcore-visualstudio.md).
 
 ## <a name="error-service-cannot-be-started"></a>Erreur « Impossible de démarrer le service »
 
@@ -157,7 +159,7 @@ Vous risquez de voir cette erreur si azds.exe n’est pas installé ou configur�
 
 ### <a name="try"></a>Essayez de procéder comme suit :
 
-1. Vérifiez l’emplacement %ProgramFiles%/Microsoft SDKs\Azure\Azure Dev espaces CLI pour azds.exe. S’il y figure, ajoutez cet emplacement à la variable d’environnement PATH.
+1. Vérifiez l’emplacement %ProgramFiles%/Microsoft SDKs\Azure\Azure Dev Spaces CLI pour azds.exe. S’il y figure, ajoutez cet emplacement à la variable d’environnement PATH.
 2. Si azds.exe n’est pas installé, exécutez la commande suivante :
 
     ```cmd
@@ -211,7 +213,7 @@ Le démarrage du débogueur VS Code peut parfois générer cette erreur.
 L’exécution du débogueur VS Code signale l’erreur : `Failed to find debugger extension for type:coreclr.`
 
 ### <a name="reason"></a>Motif
-L’extension VS Code pour C# n’est pas installée sur votre ordinateur de développement. Le C# extension inclut la prise en charge de .NET Core (CoreCLR) de débogage.
+L’extension VS Code pour C# n’est pas installée sur votre ordinateur de développement. L’extension C# inclut la prise en charge du débogage pour .NET Core (CoreCLR).
 
 ### <a name="try"></a>Essayez de procéder comme suit :
 Installez [l’extension VS Code pour C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
@@ -264,7 +266,7 @@ az provider register --namespace Microsoft.DevSpaces
 ## <a name="dev-spaces-times-out-at-waiting-for-container-image-build-step-with-aks-virtual-nodes"></a>Dev Spaces expire à l’étape *En attente de la build de l’image conteneur...* avec des nœuds virtuels AKS
 
 ### <a name="reason"></a>Motif
-Ce délai d’attente se produit lorsque vous essayez d’utiliser des espaces de développement pour exécuter un service qui est configuré pour s’exécuter un [nœud virtuel AKS](https://docs.microsoft.com/azure/aks/virtual-nodes-portal). Actuellement, Dev Spaces ne gère pas les services de build ou de débogage sur des nœuds virtuels.
+Ce délai d’attente se produit quand vous essayez d’utiliser Dev Spaces afin d’exécuter un service configuré pour s’exécuter sur un [nœud virtuel AKS](https://docs.microsoft.com/azure/aks/virtual-nodes-portal). Actuellement, Dev Spaces ne gère pas les services de build ou de débogage sur des nœuds virtuels.
 
 Si vous exécutez `azds up` avec le commutateur `--verbose` ou si vous activez la journalisation détaillée dans Visual Studio, vous obtenez des informations supplémentaires :
 
@@ -278,7 +280,7 @@ Streaming build container logs for service 'mywebapi' failed with: Timed out aft
 Container image build failed
 ```
 
-La commande ci-dessus indique que les PODS du service a été assigné à *virtuel-nœud-aci-linux*, qui est un nœud virtuel.
+La commande ci-dessus indique que le pod du service a été assigné à *virtual-node-aci-linux*, qui est un nœud virtuel.
 
 ### <a name="try"></a>Essayez de procéder comme suit :
 Mettez à jour le graphique Helm du service pour supprimer toutes les valeurs *nodeSelector* et/ou *tolerations* qui permettent au service de s’exécuter sur un nœud virtuel. Ces valeurs sont généralement définies dans le fichier `values.yaml` du graphique.
@@ -293,20 +295,20 @@ Cette erreur se produit lorsque le client Helm ne peut plus communiquer avec le 
 ### <a name="try"></a>Essayez de procéder comme suit :
 Le fait de redémarrer les nœuds d’agent de votre cluster permet généralement de résoudre ce problème.
 
-## <a name="error-release-azds-identifier-spacename-servicename-failed-services-servicename-already-exists-or-pull-access-denied-for-servicename-repository-does-not-exist-or-may-require-docker-login"></a>« Erreur : publication azds -\<identificateur\>-\<spacename\>-\<servicename\> a échoué : services'\<servicename\>' existe déjà » ou « extraire accès refusé pour \<servicename\>, référentiel n’existe pas ou peut nécessiter des « docker login » »
+## <a name="error-release-azds-identifier-spacename-servicename-failed-services-servicename-already-exists-or-pull-access-denied-for-servicename-repository-does-not-exist-or-may-require-docker-login"></a>« Erreur : échec de la mise en production du service azds-\<identificateur\>-\<nomespace\>-\<nomservice\> : '\<nomservice\>' existe déjà » ou « Refus de l’accès pull pour \<nomservice\> ; le référentiel n’existe pas ou nécessite 'docker login' »
 
-### <a name="reason"></a>Reason
-Ces erreurs peuvent se produire si vous combinez des commandes Helm directs en cours d’exécution (tel que `helm install`, `helm upgrade`, ou `helm delete`) avec les commandes de développement espaces (tel que `azds up` et `azds down`) à l’intérieur du même espace de développement. Elles se produisent, car les espaces de développement a sa propre instance Tiller, qui est en conflit avec votre propre instance de Tiller s’exécutant dans le même espace de développement.
+### <a name="reason"></a>Motif
+Ces erreurs peuvent se produire si vous exécutez une combinaison de commandes Helm directes (comme `helm install`, `helm upgrade` ou `helm delete`) et de commandes Dev Spaces (comme `azds up` et `azds down`) dans le même espace de développement. Ces erreurs sont dues au fait que Dev Spaces utilise sa propre instance Tiller, qui est en conflit avec votre instance Tiller exécutée dans le même espace de développement.
 
 ### <a name="try"></a>Essayez de procéder comme suit :
-Il est possible d’utiliser les commandes Helm et commandes de développement espaces sur le même cluster AKS, mais chaque espace de noms prenant en charge les espaces de développement doit utiliser une ou l’autre.
+Il est possible d’utiliser à la fois des commandes Helm et des commandes Dev Spaces dans le même cluster AKS, mais chaque espace de noms où Dev Spaces est activé doit utiliser l’une ou l’autre de ces commandes.
 
-Par exemple, supposons que vous utilisez une commande Helm pour exécuter votre application entière dans un espace de développement parent. Vous pouvez créer enfant espaces dev désactiver ce parent, utilisez des espaces de développement pour exécuter des espaces de développement de services individuels à l’intérieur de l’enfant et tester les services ensemble. Lorsque vous êtes prêt à archiver vos modifications, utilisez une commande Helm pour déployer le code mis à jour à l’espace de développement parent. N’utilisez pas `azds up` pour exécuter le service de mise à jour de la page parente espace de développement, car il est en conflit avec le service à l’aide de Helm pour la première exécution.
+Par exemple, supposons que vous utilisez une commande Helm pour exécuter votre application entière dans un espace de développement parent. Vous pouvez créer des espaces de développement enfants à partir de ce parent, utiliser ensuite Dev Spaces pour exécuter individuellement les services dans ces espaces de développement enfants, puis tester tous les services ensemble. Quand vous êtes prêt à enregistrer vos modifications, utilisez une commande Helm pour déployer le code mis à jour dans l’espace de développement parent. N’utilisez pas `azds up` pour exécuter le service mis à jour dans l’espace de développement parent, car cela provoquerait un conflit avec le service initialement exécuté à l’aide d’une commande Helm.
 
 ## <a name="azure-dev-spaces-proxy-can-interfere-with-other-pods-running-in-a-dev-space"></a>Le proxy Azure Dev Spaces peut interférer avec d'autres pods en cours d’exécution dans un espace de développement
 
 ### <a name="reason"></a>Motif
-Lorsque vous activez Dev Spaces sur un espace de noms de votre cluster AKS, un conteneur supplémentaire appelé _mindaro-proxy_ est installé dans chaque pod en cours d'exécution dans cet espace de noms. Ce conteneur intercepte les appels aux services dans le pod, ce qui fait partie intégrante des fonctionnalités de développement en équipe de Dev Spaces. Toutefois, il peut interférer avec certains services en cours d’exécution dans ces pods. Il est connu d’interférer avec les pods en cours d’exécution du Cache Azure pour Redis, entraînant des erreurs de connexion et des échecs de communication de base de données primaire/secondaire.
+Lorsque vous activez Dev Spaces sur un espace de noms de votre cluster AKS, un conteneur supplémentaire appelé _mindaro-proxy_ est installé dans chaque pod en cours d'exécution dans cet espace de noms. Ce conteneur intercepte les appels aux services dans le pod, ce qui fait partie intégrante des fonctionnalités de développement en équipe de Dev Spaces. Toutefois, il peut interférer avec certains services en cours d’exécution dans ces pods. Il est connu pour interférer avec les pods exécutant Cache Azure pour Redis, ce qui provoque des erreurs de connexion et des échecs dans la communication principale/secondaire.
 
 ### <a name="try"></a>Essayez de procéder comme suit :
 Vous pouvez déplacer les pods concernés vers un espace de noms situé à l’intérieur du cluster dans lequel Dev Spaces n’est _pas_ activé. Le reste de votre application peut continuer à s’exécuter à l’intérieur d’un espace de noms où Dev Spaces est activé. Dev Spaces n’installe pas le conteneur _mindaro-proxy_ dans les espaces de noms qui ne le prennent pas en charge.
@@ -327,85 +329,113 @@ configurations:
       dockerfile: Dockerfile.develop
 ```
 
-## <a name="error-internal-watch-failed-watch-enospc-when-attaching-debugging-to-a-nodejs-application"></a>Erreur « watch interne a échoué : regardez ENOSPC » lors de l’attachement du débogage pour une application Node.js
+## <a name="error-internal-watch-failed-watch-enospc-when-attaching-debugging-to-a-nodejs-application"></a>Erreur « Échec de la surveillance interne : regardez ENOSPC » lors de l’attachement d’un débogueur à une application Node.js
 
 ### <a name="reason"></a>Motif
 
-Le nœud qui exécute le pod avec l’application Node.js que vous tentez d’attacher à un débogueur a dépassé le *fs.inotify.max_user_watches* valeur. Dans certains cas, [la valeur par défaut *fs.inotify.max_user_watches* est peut-être trop petite pour gérer l’attachement d’un débogueur directement à un pod](https://github.com/Azure/AKS/issues/772).
+Le nœud qui exécute le pod avec l’application Node.js à laquelle vous tentez d’attacher un débogueur a dépassé la valeur *fs.inotify.max_user_watches*. Dans certains cas, [la valeur par défaut *fs.inotify.max_user_watches* est trop petite pour gérer l’attachement direct d’un débogueur à un pod](https://github.com/Azure/AKS/issues/772).
 
 ### <a name="try"></a>Essai
-Une solution de contournement temporaire pour ce problème consiste à augmenter la valeur de *fs.inotify.max_user_watches* sur chaque nœud du cluster et redémarrer ce nœud pour que les modifications entrent en vigueur.
+Une solution de contournement temporaire pour ce problème consiste à augmenter la valeur de *fs.inotify.max_user_watches* sur chaque nœud du cluster, puis à redémarrer ce nœud pour appliquer les changements.
 
-## <a name="new-pods-are-not-starting"></a>Nouveaux pods ne démarrent pas
+## <a name="new-pods-are-not-starting"></a>Les nouveaux pods ne démarrent pas
 
 ### <a name="reason"></a>Motif
 
-L’initialiseur de Kubernetes ne peut pas appliquer le PodSpec pour les nouveaux pods en raison de modifications de l’autorisation RBAC pour le *administrateur de cluster* rôle dans le cluster. Le nouveau module peut-être également avoir un PodSpec non valide, par exemple le compte de service associé avec le pod n’existe plus. Pour voir les pods qui se trouvent dans un *en attente* état en raison du problème d’initialiseur, utilisez le `kubectl get pods` commande :
+L’initialiseur Kubernetes ne peut pas appliquer le PodSpec pour les nouveaux pods en raison des changements d’autorisation RBAC apportés au rôle *administrateur de cluster* dans le cluster. Le nouveau pod a peut-être également un PodSpec non valide ; par exemple, le compte de service associé au pod n’existe plus. Pour voir les pods qui sont *En attente* en raison du problème d’initialiseur, utilisez la commande `kubectl get pods` :
 
 ```bash
 kubectl get pods --all-namespaces --include-uninitialized
 ```
 
-Ce problème peut affecter les pods dans *tous les espaces de noms* dans le cluster, y compris les espaces de noms où les espaces de développement Azure n’est pas activé.
+Ce problème peut impacter les pods dans *tous les espaces de noms* sur le cluster, y compris les espaces de noms où Azure Dev Spaces n’est pas activé.
 
 ### <a name="try"></a>Essai
 
-[La mise à jour de l’interface CLI espaces de développement vers la dernière version](./how-to/upgrade-tools.md#update-the-dev-spaces-cli-extension-and-command-line-tools) et en supprimant le *azds InitializerConfiguration* à partir du contrôleur d’espaces de développement Azure :
+[Mettez à jour la CLI Dev Spaces avec la dernière version](./how-to/upgrade-tools.md#update-the-dev-spaces-cli-extension-and-command-line-tools), puis supprimez *azds InitializerConfiguration* dans le contrôleur Azure Dev Spaces :
 
 ```bash
 az aks get-credentials --resource-group <resource group name> --name <cluster name>
 kubectl delete InitializerConfiguration azds
 ```
 
-Une fois que vous avez supprimé le *azds InitializerConfiguration* à partir du contrôleur d’espaces de développement Azure, utilisez `kubectl delete` à supprimer n’importe quel nombre de pods dans un *en attente* état. Après tout, en attente de pods ont été supprimés, redéployer vos PODS sera supprimé.
+Une fois que vous avez supprimé *azds InitializerConfiguration* du contrôleur Azure Dev Spaces, utilisez `kubectl delete` pour supprimer tous les pods ayant l’état *En attente*. Après cela, redéployez vos pods.
 
-Si les nouveaux pods sont toujours bloqués dans une *en attente* état après un redéploiement, utilisez `kubectl delete` à supprimer n’importe quel nombre de pods dans un *en attente* état. Après tout en attente de pods ont été supprimés, supprimer le contrôleur à partir du cluster et le réinstaller :
+Si les nouveaux pods sont toujours bloqués dans l’état *En attente* après un redéploiement, utilisez `kubectl delete` pour supprimer tous les pods *En attente*. Quand vous avez supprimé tous les pods en attente, supprimez le contrôleur dans le cluster, puis réinstallez-le :
 
 ```bash
 azds remove -g <resource group name> -n <cluster name>
 azds controller create --name <cluster name> -g <resource group name> -tn <cluster name>
 ```
 
-Une fois que votre contrôleur est réinstallé, redéployez vos PODS sera supprimé.
+Après avoir réinstallé votre contrôleur, redéployez vos pods.
 
-## <a name="incorrect-rbac-permissions-for-calling-dev-spaces-controller-and-apis"></a>Autorisations RBAC incorrectes pour l’appel d’API et contrôleur d’espaces de développement
+## <a name="incorrect-rbac-permissions-for-calling-dev-spaces-controller-and-apis"></a>Autorisations RBAC incorrectes pour appeler les API et le contrôleur Dev Spaces
 
-### <a name="reason"></a>Reason
-L’utilisateur l’accès au contrôleur d’espaces de développement Azure doit avoir accès en lecture de l’administrateur *kubeconfig* sur le cluster AKS. Par exemple, cette autorisation est disponible dans le [rôle d’administrateur intégré Azure Kubernetes Service Cluster](../aks/control-kubeconfig-access.md#available-cluster-roles-permissions). L’utilisateur l’accès au contrôleur d’espaces de développement Azure doit également avoir le *contributeur* ou *propriétaire* rôle RBAC pour le contrôleur.
+### <a name="reason"></a>Motif
+L’utilisateur qui tente d’accéder au contrôleur Azure Dev Spaces doit avoir un accès en lecture sur le *kubeconfig* administrateur dans le cluster AKS. Par exemple, cette autorisation est disponible dans le [rôle administrateur intégré de cluster du service Azure Kubernetes](../aks/control-kubeconfig-access.md#available-cluster-roles-permissions). Pour accéder au contrôleur Azure Dev Spaces, l’utilisateur doit également avoir le rôle RBAC *Contributeur* ou *Propriétaire* sur le contrôleur.
 
 ### <a name="try"></a>Essai
-Plus de détails sur la mise à jour des autorisations d’un utilisateur pour un cluster AKS [ici](../aks/control-kubeconfig-access.md#assign-role-permissions-to-a-user-or-group).
+Pour plus d’informations sur la mise à jour des autorisations utilisateur dans un cluster AKS, consultez [cet article](../aks/control-kubeconfig-access.md#assign-role-permissions-to-a-user-or-group).
 
-Mettre à jour le rôle RBAC de l’utilisateur pour le contrôleur :
+Pour mettre à jour le rôle RBAC d’un utilisateur sur le contrôleur :
 
 1. Connectez-vous au portail Azure sur https://portal.azure.com.
-1. Accédez au groupe de ressources qui contient le contrôleur, qui est généralement le même que votre cluster AKS.
-1. Activer la *afficher les types masqués* case à cocher.
+1. Accédez au groupe de ressources contenant le contrôleur, qui est généralement le même que votre cluster AKS.
+1. Cochez la case *Afficher les types masqués*.
 1. Cliquez sur le contrôleur.
-1. Ouvrez le *contrôle d’accès (IAM)* volet.
-1. Cliquez sur le *attributions de rôles* onglet.
-1. Cliquez sur *ajouter* puis *ajouter une attribution de rôle*.
-    * Pour *rôle* sélectionnez *contributeur* ou *propriétaire*.
-    * Pour *attribuer l’accès à* sélectionnez *utilisateur, groupe ou principal du service Azure AD*.
-    * Pour *sélectionnez* recherche pour l’utilisateur que vous souhaitez accorder des autorisations.
+1. Ouvrez le volet *Contrôle d’accès (IAM)* .
+1. Cliquez sur l’onglet *Attributions de rôles*.
+1. Cliquez sur *Ajouter*, puis sur *Ajouter une attribution de rôle*.
+    * Dans *Rôle*, sélectionnez *Contributeur* ou *Propriétaire*.
+    * Dans *Attribuer l’accès à*, sélectionnez *Utilisateur, groupe ou principal du service Azure AD*.
+    * Dans *Sélectionner*, recherchez l’utilisateur auquel vous souhaitez accorder des autorisations.
 1. Cliquez sur *Enregistrer*.
 
-## <a name="controller-create-failing-due-to-controller-name-length"></a>Contrôleur créer échouent en raison de la longueur du nom de contrôleur
+## <a name="controller-create-failing-due-to-controller-name-length"></a>Échec de la création du contrôleur en raison de la longueur du nom de contrôleur
 
-### <a name="reason"></a>Reason
-Nom du contrôleur d’un Azure Dev espaces ne peut pas comporter plu de 31 caractères. Si le nom de votre contrôleur dépasse 31 caractères lorsque vous activez les espaces de développement sur un cluster AKS ou créez un contrôleur, vous recevrez une erreur telle que :
+### <a name="reason"></a>Motif
+Le nom d’un contrôleur Azure Dev Spaces ne peut pas comporter plus de 31 caractères. Si le nom de votre contrôleur dépasse cette limite de caractères, quand vous activez Dev Spaces sur un cluster AKS ou créez un contrôleur, vous recevez une erreur similaire à celle-ci :
 
-*Impossible de créer un contrôleur d’espaces de développement pour le cluster 'a-controller-name-that-is-way-too-long-aks-east-us' : Nom de contrôleur d’espaces de développement Azure 'a-controller-name-that-is-way-too-long-aks-east-us' n’est pas valide. Violé de contraintes : Les noms de contrôleur d’espaces de développement Azure ne peut au maximum 31 caractères*
+*Échec de la création du contrôleur Dev Spaces 'nom-de-contrôleur-qui-est-trop-long-aks-usa-est' dans le cluster : Le nom de contrôleur Azure Dev Spaces 'nom-de-contrôleur-qui-est-trop-long-aks-usa-est' n’est pas valide. Violation de contrainte(s) : Les noms de contrôleur Azure Dev Spaces peuvent contenir 31 caractères au maximum*
 
 ### <a name="try"></a>Essai
 
-Créer un contrôleur avec un autre nom :
+Créez un contrôleur en choisissant un autre nom :
 
 ```cmd
 azds controller create --name my-controller --target-name MyAKS --resource-group MyResourceGroup
 ```
 
-## <a name="enabling-dev-spaces-failing-when-windows-node-pools-are-added-to-an-aks-cluster"></a>L’activation de développement espaces tombe en panne lorsque les pools de nœuds Windows sont ajoutés à un cluster AKS
+## <a name="enabling-dev-spaces-failing-when-windows-node-pools-are-added-to-an-aks-cluster"></a>Échec de l’activation de Dev Spaces quand des pools de nœuds Windows sont ajoutés à un cluster AKS
 
-### <a name="reason"></a>Reason
-Actuellement, les espaces de développement Azure vise à s’exécutent sur Linux pods et nœuds uniquement. À ce stade, vous ne pouvez pas activer Azure Dev espaces sur un cluster AKS avec un pool de nœuds Windows.
+### <a name="reason"></a>Motif
+Actuellement, Azure Dev Spaces peut uniquement être exécuté sur des pods et nœuds Linux. Lorsque vous disposez d’un cluster AKS avec un pool de nœuds Windows, vous devez vous assurer que les pods Azure Dev Spaces sont planifiés uniquement sur des nœuds Linux. Si un pod Azure Dev Spaces est planifié pour s’exécuter sur un nœud Windows, ce pod ne démarre pas et l’activation de Dev Spaces échoue.
+
+### <a name="try"></a>Essai
+[Ajoutez une teinte](../aks/operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations) à votre cluster AKS pour vous assurer que les pods Linux ne sont pas planifiés pour être exécutés sur un nœud Windows.
+
+## <a name="error-found-no-untainted-linux-nodes-in-ready-state-on-the-cluster-there-needs-to-be-at-least-one-untainted-linux-node-in-ready-state-to-deploy-pods-in-azds-namespace"></a>Erreur « Aucun nœud Linux non teinté trouvé à l’état Prêt sur le cluster. Il doit exister au moins un nœud Linux non teinté à l’état Prêt pour déployer des pods dans l’espace de noms « azds ». »
+
+### <a name="reason"></a>Motif
+
+Azure Dev Spaces ne peut pas créer de contrôleur sur votre cluster AKS, car il n’a pas trouvé de nœud non teinté à l’état *Prêt* sur lequel planifier des pods. Azure Dev Spaces requiert au moins un nœud Linux à l’état *Prêt* permettant la planification des pods sans spécifier de tolérances.
+
+### <a name="try"></a>Essai
+[Mettez à jour la configuration de teinte](../aks/operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations) sur votre cluster AKS pour vous assurer qu’au moins un nœud Linux permet la planification de pods sans spécifier de tolérances. Assurez-vous qu’au moins un nœud Linux permettant la planification des pods sans spécifier de tolérances est à l’état *Prêt*. Si votre nœud prend beaucoup de temps à atteindre l’état *Prêt*, vous pouvez essayer de redémarrer le nœud.
+
+## <a name="error-azure-dev-spaces-cli-not-installed-properly-when-running-az-aks-use-dev-spaces"></a>Erreur « Interface CLI Azure Dev Spaces pas correctement installée » lors de l’exécution de `az aks use-dev-spaces`
+
+### <a name="reason"></a>Motif
+Une mise à jour de l’interface CLI Azure Dev Spaces a modifié le chemin d’accès de l’installation. Si vous utilisez une version de l’interface Azure CLI antérieure à 2.0.63, cette erreur peut s’afficher. Pour afficher votre version de l’interface CLI, utilisez `az --version`.
+
+```bash
+$ az --version
+azure-cli                         2.0.60 *
+...
+```
+
+L’installation peut réussir malgré le message d’erreur lors de l’exécution de `az aks use-dev-spaces` avec une version d’Azure CLI antérieure à 2.0.63. Vous pouvez continuer à utiliser `azds` sans aucun problème.
+
+### <a name="try"></a>Essai
+Mettez à jour votre installation de l’interface [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) vers 2.0.63 ou une version ultérieure. Cela permettra de résoudre le message d’erreur que vous recevez lors de l’exécution de `az aks use-dev-spaces`. Vous pouvez également continuer à utiliser votre version actuelle de l’interface Azure CLI et de l’interface CLI Azure Dev Spaces.

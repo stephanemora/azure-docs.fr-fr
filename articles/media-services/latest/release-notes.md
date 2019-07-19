@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 06/04/2019
+ms.date: 06/07/2019
 ms.author: juliako
-ms.openlocfilehash: e34e0f9fee1d09e66dcdd5069e800dc1f3f750cb
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
-ms.translationtype: MT
+ms.openlocfilehash: b3e772ebb05f79abb70e58e63a93c3336a413e38
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66688649"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542547"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notes de publication Azure Media Services v3
 
@@ -34,50 +34,63 @@ Pour vous informer des développements les plus récents, cet article détaille 
 
 Pour plus d’informations, consultez [Conseils de migration pour le passage de Media Services v2 à Media Services v3](migrate-from-v2-to-v3.md#known-issues).
 
+## <a name="june-2019"></a>Juin 2019
+
+### <a name="video-subclipping"></a>Sous-découpage de vidéos
+
+Vous pouvez désormais découper ou sous-découper une vidéo lors de son encodage à l’aide d’un [travail](https://docs.microsoft.com/rest/api/media/jobs). 
+
+Cette fonctionnalité peut être utilisée avec n’importe quelle [transformation](https://docs.microsoft.com/rest/api/media/transforms) qui est générée en utilisant les présélections [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset)ou [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset). 
+
+Consultez les exemples :
+
+* [Sous-découper une vidéo avec .NET](subclip-video-dotnet-howto.md)
+* [Sous-découper une vidéo avec REST](subclip-video-rest-howto.md)
+
 ## <a name="may-2019"></a>Mai 2019
 
-### <a name="azure-monitor-support-for-media-services-diagnostic-logs-and-metrics"></a>Prise en charge de Azure Monitor pour les journaux de diagnostic de Media Services et les mesures
+### <a name="azure-monitor-support-for-media-services-diagnostic-logs-and-metrics"></a>Prise en charge Azure Monitor pour les journaux de diagnostic et métriques Media Services
 
-Vous pouvez maintenant utiliser Azure Monitor pour afficher les données de télémétrie données émis par Media Services.
+Vous pouvez désormais utiliser Azure Monitor pour afficher les données de télémétrie émises par Media Services.
 
-* Utilisez les journaux de diagnostic Azure Monitor pour surveiller les demandes envoyées par le point de terminaison de fourniture de clé Media Services. 
-* Surveiller les mesures émises par Media Services [les points de terminaison de diffusion en continu](streaming-endpoint-concept.md).   
+* Utilisez les journaux de diagnostic Azure Monitor pour surveiller les requêtes envoyées par le point de terminaison de remise des clés Media Services. 
+* Surveillez les métriques émises par les [points de terminaison de streaming](streaming-endpoint-concept.md) Media Services.   
 
-Pour plus d’informations, consultez [métriques de surveillance des Services de support et journaux de diagnostic](media-services-metrics-diagnostic-logs.md).
+Pour plus d’informations, consultez [Superviser les métriques et les journaux de diagnostic Media Services](media-services-metrics-diagnostic-logs.md).
 
-### <a name="multi-audio-tracks-support-in-dynamic-packaging"></a>Plusieurs pistes audio prennent en charge dans l’empaquetage dynamique 
+### <a name="multi-audio-tracks-support-in-dynamic-packaging"></a>Prise en charge de plusieurs pistes audio dans l’empaquetage dynamique 
 
-Lors de la diffusion en continu de ressources qui ont plusieurs pistes audio avec plusieurs langues, et les codecs [empaquetage dynamique](dynamic-packaging-overview.md) prend désormais en charge les pistes audio multiples pour la sortie HLS (version 4 ou version ultérieure).
+L’[empaquetage dynamique](dynamic-packaging-overview.md) prend en charge plusieurs pistes audio pour la sortie HLS (version 4 ou ultérieure) pour le streaming des actifs multimédias qui ont plusieurs pistes audio avec plusieurs langues et codecs.
 
-### <a name="korea-regional-pair-is-open-for-media-services"></a>Paire régionale Corée est ouvert pour Media Services 
+### <a name="korea-regional-pair-is-open-for-media-services"></a>La paire régionale de Corée est ouverte pour Media Services 
 
-Media Services est désormais disponible dans les régions de Corée et Corée du Sud. 
+Media Services est maintenant disponible dans les régions Corée Centre et Corée Sud. 
 
-Pour plus d’informations, consultez [Clouds et des régions dans Media Services v3 existe](azure-clouds-regions.md).
+Pour plus d’informations, consultez [Clouds et régions dans lesquels Media Services v3 est présent](azure-clouds-regions.md).
 
 ### <a name="performance-improvements"></a>Amélioration des performances
 
-Ajout des mises à jour qui incluent des améliorations de performances de Media Services.
+Ajout de mises à jour incluant l’amélioration des performances Media Services.
 
-* La taille de fichier maximale prise en charge pour le traitement a été mis à jour. Consultez, [Quotas et limitations](limits-quotas-constraints.md).
-* [Améliorations des vitesses de codage](media-reserved-units-cli-how-to.md#choosing-between-different-reserved-unit-types).
+* La taille maximale du fichier pris en charge pour le traitement a été mise à jour. Consultez [Quotas et limitations](limits-quotas-constraints.md).
+* [Améliorations des vitesses d’encodage](media-reserved-units-cli-how-to.md#choosing-between-different-reserved-unit-types).
 
 ## <a name="april-2019"></a>Avril 2019
 
-### <a name="new-presets"></a>Nouveaux paramètres prédéfinis
+### <a name="new-presets"></a>Nouvelles présélections
 
-* [FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset) a été ajouté aux présélections d’analyseur intégrés.
-* [ContentAwareEncodingExperimental](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset) a été ajoutée pour les présélections d’encodeur intégré. Pour plus d’informations, consultez [encodage de contenu prenant en charge](cae-experimental.md). 
+* [FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset) a été ajouté aux présélections d’analyseur intégrées.
+* [ContentAwareEncodingExperimental](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset) a été ajouté aux présélections d’encodeur intégrées. Pour plus d’informations, consultez [Encodage sensible au contenu](cae-experimental.md). 
 
 ## <a name="march-2019"></a>Mars 2019
 
-Maintenant l’empaquetage dynamique prend en charge les Atmos de Dolby. Pour plus d’informations, consultez [codecs Audio pris en charge par l’empaquetage dynamique](dynamic-packaging-overview.md#audio-codecs-supported-by-dynamic-packaging).
+L’empaquetage dynamique prend désormais en charge Dolby Atmos. Pour plus d’informations, consultez [Codecs audio pris en charge par l’empaquetage dynamique](dynamic-packaging-overview.md#audio-codecs).
 
-Vous pouvez maintenant spécifier une liste de filtres de compte d’actif ou, s’applique également à votre localisateur de diffusion en continu. Pour plus d’informations, consultez [associer des filtres de localisateur de diffusion en continu](filters-concept.md#associating-filters-with-streaming-locator).
+Vous pouvez désormais spécifier une liste de filtres de comptes ou d’actifs, qui s’applique à votre localisateur de streaming. Pour plus d’informations, consultez [Associer des filtres avec le localisateur de streaming](filters-concept.md#associating-filters-with-streaming-locator).
 
 ## <a name="february-2019"></a>Février 2019
 
-Media Services v3 est maintenant pris en charge dans les clouds Azure nationaux. Toutes les fonctionnalités ne sont pas encore disponibles dans tous les clouds. Pour en savoir plus, consultez [Clouds et régions dans lesquels Azure Media Services v3 existe](azure-clouds-regions.md).
+Media Services v3 est désormais pris en charge dans les clouds nationaux Azure. Toutes les fonctionnalités ne sont pas encore disponibles dans tous les clouds. Pour en savoir plus, consultez [Clouds et régions dans lesquels Azure Media Services v3 existe](azure-clouds-regions.md).
 
 L'événement [Microsoft.Media.JobOutputProgress](media-services-event-schemas.md#monitoring-job-output-progress) a été ajouté aux schémas Azure Event Grid de Media Services.
 
@@ -223,7 +236,7 @@ Si vous avez créé des filtres d’éléments multimédias ou de comptes entre 
 
 ### <a name="net-sdk"></a>Kit de développement logiciel (SDK) .NET
 
-Les fonctionnalités suivantes sont présentes dans le kit SDK .NET :
+Les fonctionnalités suivantes sont présentes dans le Kit de développement logiciel (SDK) .NET :
 
 * **Transformations** et **Travaux** pour encoder ou analyser le contenu du média. Pour obtenir des exemples, consultez [Diffuser des fichiers](stream-files-tutorial-with-api.md) et [Analyser](analyze-videos-tutorial-with-api.md).
 * **StreamingLocators** pour la publication et la diffusion en continu de contenu sur les appareils de l’utilisateur final
@@ -242,4 +255,4 @@ Découvrez l’article [Communauté Azure Media Services](media-services-communi
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Vue d’ensemble](media-services-overview.md)
+[Vue d'ensemble](media-services-overview.md)

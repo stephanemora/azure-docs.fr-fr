@@ -3,7 +3,7 @@ title: Créer une liaison à l’aide du protocole LDAP sécurisé (LDAPS) à un
 description: Créer une liaison à un domaine managé Azure AD Domain Services à l’aide du protocole LDAP sécurisé (LDAPS)
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 ms.assetid: 6871374a-0300-4275-9a45-a39a52c65ae4
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/20/2019
-ms.author: mstephen
-ms.openlocfilehash: 47c9553b4191fe6dbae8d92d75dfae83f191a063
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.date: 06/28/2019
+ms.author: iainfou
+ms.openlocfilehash: df0b3d27eec478280a33be831a2431eccdf05a74
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66234852"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483387"
 ---
 # <a name="bind-to-an-azure-ad-domain-services-managed-domain-using-secure-ldap-ldaps"></a>Créer une liaison à un domaine managé Azure AD Domain Services à l’aide du protocole LDAP sécurisé (LDAPS)
 
@@ -35,6 +35,11 @@ Tout d’abord, ouvrez LDP, puis connectez-vous au domaine managé. Cliquez sur 
 
 Ensuite, créez une liaison avec le domaine managé. Cliquez sur **Connexion**, puis cliquez sur **Lier…** dans le menu. Fournissez les informations d’identification d’un compte d’utilisateur appartenant au groupe Administrateurs AAD DC.
 
+> [!IMPORTANT]
+> Les utilisateurs (et comptes de service) ne peuvent pas effectuer des liaisons simples LDAP si vous avez désactivé la synchronisation de hachage de mot de passe NTLM sur votre instance Azure AD Domain Services.  Pour plus d’informations sur la désactivation de la synchronisation de hachage de mot de passe NTLM, consultez [Sécuriser votre domaine managé Azure AD DOmain Services](secure-your-domain.md).
+>
+>
+
 Sélectionnez **Afficher**, puis sélectionnez **Arborescence** dans le menu. Laissez vide le champ Nom unique de base, puis cliquez sur OK. Accédez au conteneur dans lequel effectuer des recherches, cliquez dessus avec le bouton droit, puis sélectionnez Rechercher.
 
 > [!TIP]
@@ -43,7 +48,7 @@ Sélectionnez **Afficher**, puis sélectionnez **Arborescence** dans le menu. La
 >
 >
 
-Pour plus d’informations : [LDAP query basics](https://technet.microsoft.com/library/aa996205.aspx) (Concepts de base sur les requêtes LDAP)
+Pour plus d’informations : [LDAP query basics](https://docs.microsoft.com/windows/desktop/ad/creating-a-query-filter) (Concepts de base sur les requêtes LDAP)
 
 
 ## <a name="task-6-lock-down-secure-ldap-access-to-your-managed-domain-over-the-internet"></a>Tâche 6 : Verrouiller l’accès LDAP sécurisé à votre domaine managé via Internet
@@ -66,8 +71,8 @@ L’exemple de groupe de sécurité réseau dans le tableau suivant verrouille l
 ## <a name="related-content"></a>Contenu connexe
 * [Services de domaine Azure AD : guide de mise en route](create-instance.md)
 * [Gérer un domaine Azure AD Domain Services](manage-domain.md)
-* [LDAP query basics](https://technet.microsoft.com/library/aa996205.aspx)
-* [Gérer la stratégie de groupe pour les Services de domaine Azure AD](manage-group-policy.md)
+* [LDAP query basics](https://docs.microsoft.com/windows/desktop/ad/creating-a-query-filter)
+* [Gérer la stratégie de groupe pour Azure AD Domain Services](manage-group-policy.md)
 * [Groupes de sécurité réseau](../virtual-network/security-overview.md)
 * [Créer des groupes de sécurité réseau à l’aide du portail Azure](../virtual-network/tutorial-filter-network-traffic.md)
 

@@ -9,18 +9,18 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: 773d4dd28da3165261d75e4f800750c1f54377d0
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: 26fca12060363f4ad05baaeceb6fb800a0d76216
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64702301"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449268"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Choisir la méthode d’authentification adaptée à votre solution d’identité hybride Azure Active Directory 
 
 Cet article est le premier d’une série visant à aider les organisations à implémenter une solution d’identité hybride Azure Active Directory (Azure AD) complète. Cette solution a été présentée dans le cadre du [Hybrid Identity Digital Transformation Framework](https://aka.ms/aadframework). Elle traite des projections commerciales et des objectifs sur lesquels les organisations doivent se concentrer pour implémenter une solution d’identité hybride fiable et sécurisée. 
 
-La première projection commerciale du framework énonce la nécessité pour les organisations de sécuriser le processus d’authentification utilisé par les utilisateurs pour accéder à des applications cloud. Le premier objectif commercial de la projection d’une authentification sécurisée est la possibilité pour les utilisateurs de se connecter à des applications cloud avec leurs nom d’utilisateur et mot de passe locaux. Ce processus d’authentification et de connexion permet de tous les éléments dans le cloud.
+La première projection commerciale du framework énonce la nécessité pour les organisations de sécuriser le processus d’authentification utilisé par les utilisateurs pour accéder à des applications cloud. Le premier objectif commercial de la projection d’une authentification sécurisée est la possibilité pour les utilisateurs de se connecter à des applications cloud avec leurs nom d’utilisateur et mot de passe locaux. Ce processus de connexion et d’authentification ouvre les portes du cloud.
 
 La première étape pour les organisations souhaitant migrer leurs applications vers le cloud est de choisir une méthode d’authentification appropriée. Cette décision ne doit pas être prise à la légère, et ce pour les raisons suivantes :
 
@@ -49,7 +49,7 @@ Azure AD prend en charge les méthodes d’authentification suivantes pour les s
 ### <a name="cloud-authentication"></a>Authentification cloud
 Quand vous choisissez cette méthode d’authentification, Azure AD gère le processus de connexion des utilisateurs. Si vous l’associez à une authentification unique (SSO) fluide, les utilisateurs peuvent se connectent aux applications cloud sans avoir à retaper leurs informations d’identification. L’authentification cloud propose deux options : 
 
-**Synchronisation de hachage de mot de passe Azure AD**. Il s’agit du moyen le plus simple d’activer l’authentification pour les objets d’annuaire locaux dans Azure AD. Elle permet aux utilisateurs d’utiliser les mêmes nom d’utilisateur et mot de passe qu’ils utilisent localement sans avoir à déployer une infrastructure supplémentaire. Certaines fonctionnalités premium d’Azure AD, telles que la Protection d’identité et [Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync), nécessitent la synchronisation de hachage de mot de passe, quelle que soit la méthode d’authentification que vous choisissez.
+**Synchronisation de hachage de mot de passe Azure AD**. Il s’agit du moyen le plus simple d’activer l’authentification pour les objets d’annuaire locaux dans Azure AD. Elle permet aux utilisateurs d’utiliser les mêmes nom d’utilisateur et mot de passe qu’ils utilisent localement sans avoir à déployer une infrastructure supplémentaire. Certaines fonctionnalités Premium d’Azure AD, comme Identity Protection et [Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync), nécessitent la synchronisation de hachage du mot de passe, quelle que soit la méthode d’authentification choisie.
 
 > [!NOTE] 
 > Les mots de passe ne sont jamais stockés en texte clair ni chiffrés avec un algorithme réversible dans Azure AD. Pour plus d’informations sur le processus réel de la synchronisation de hachage du mot de passe, consultez [Implémenter la synchronisation de hachage du mot de passe avec la synchronisation Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization). 
@@ -81,7 +81,7 @@ Détails relatifs aux questions de décision :
    * Solution d’authentification locale multisite.
 5. Quelle que soit la méthode de connexion choisie, pour générer le rapport *Utilisateurs avec des informations d’identification divulguées*, Azure AD Identity Protection nécessite une synchronisation du hachage de mot de passe. Les organisations peuvent basculer vers une synchronisation du hachage de mot de passe si leur méthode de connexion principale échoue alors qu’elle a été configurée avant l’événement d’échec.
 
->[!NOTE]
+> [!NOTE]
 > Azure AD Identity Protection nécessite des licences [Azure AD Premium P2](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="detailed-considerations"></a>Considérations détaillées
@@ -92,16 +92,19 @@ Détails relatifs aux questions de décision :
 
 * **Expérience utilisateur**. Pour améliorer l’expérience de connexion des utilisateurs, déployez l’authentification unique transparente avec synchronisation de hachage du mot de passe. L’authentification unique transparente élimine les invites inutiles quand les utilisateurs sont connectés.
 
-* **Scénarios avancés**. Les organisations peuvent choisir d’utiliser les insights des identités avec les rapports Azure AD Identity Protection avec Azure AD Premium P2, par exemple le rapport sur les informations d’identification divulguées. Windows Hello entreprise a [des exigences spécifiques lorsque vous utilisez la synchronisation de hachage de mot de passe](https://docs.microsoft.com/windows/access-protection/hello-for-business/hello-identity-verification). [Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync) nécessitent une synchronisation de hachage de mot de passe pour configurer des utilisateurs avec leurs informations d’identification d’entreprise dans le domaine géré.
+* **Scénarios avancés**. Les organisations peuvent choisir d’utiliser les insights des identités avec les rapports Azure AD Identity Protection avec Azure AD Premium P2, par exemple le rapport sur les informations d’identification divulguées. Windows Hello Entreprise a des [exigences spécifiques quand vous utilisez la synchronisation de hachage du mot de passe](https://docs.microsoft.com/windows/access-protection/hello-for-business/hello-identity-verification). [Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync) nécessite la synchronisation de hachage de mot de passe pour fournir aux utilisateurs leurs informations d’identification dans le domaine managé.
 
-    Les organisations qui requièrent une authentification multifacteur avec synchronisation de hachage de mot de passe doivent utiliser l’authentification multifacteur Azure AD. Elles ne peuvent pas utiliser des méthodes d’authentification multifacteur tierces ou locales.
+    Les organisations qui requièrent une authentification multifacteur avec synchronisation de hachage de mot de passe doivent utiliser l’authentification multifacteur Azure AD ou les [contrôles personnalisés d’accès conditionnel](https://docs.microsoft.com/azure/active-directory/conditional-access/controls#custom-controls). Elles ne peuvent pas utiliser des méthodes d’authentification multifacteur tierces ou locales qui reposent sur la fédération.
+
+> [!NOTE]
+> L’accès conditionnel Azure AD requiert des licences [Azure AD Premium P1](https://azure.microsoft.com/pricing/details/active-directory/).
 
 * **Continuité des activités**. La synchronisation de hachage du mot de passe avec authentification cloud est un service cloud hautement disponible qui s’adapte à tous les centres de données Microsoft. Pour vous assurer que la synchronisation de hachage du mot de passe ne baisse pas pendant de longues périodes, déployez un second serveur Azure AD Connect en mode préproduction dans une configuration de secours.
 
 * **Considérations**. À l’heure actuelle, la synchronisation de hachage du mot de passe n’applique pas immédiatement les changements aux états des comptes locaux. Cela signifie qu’un utilisateur a accès aux applications cloud jusqu’à ce que l’état du compte utilisateur soit synchronisé avec Azure AD. Pour contourner cette limitation, les organisations peuvent exécuter un nouveau cycle de synchronisation après les mises à jour en bloc effectuées par les administrateurs sur les états des comptes locaux, par exemple la désactivation de comptes.
 
 > [!NOTE]
-> Les états indiquant un mot de passe expiré et un compte verrouillé ne sont pas synchronisés avec Azure AD à l’aide d’Azure AD Connect. 
+> Les états indiquant un mot de passe expiré et un compte verrouillé ne sont pas synchronisés avec Azure AD à l’aide d’Azure AD Connect. Lorsque vous modifiez le mot de passe d’un utilisateur et configurez l’indicateur *L’utilisateur doit changer de mot de passe à la prochaine ouverture de session*, le hachage de mot de passe n’est pas synchronisé avec Azure AD et Azure AD Connect, tant que l’utilisateur n’aura pas modifié son mot de passe.
 
 Pour obtenir les étapes de déploiement, consultez [Implémentation de la synchronisation de hachage du mot de passe](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization).
 
@@ -115,7 +118,7 @@ Pour obtenir les étapes de déploiement, consultez [Implémentation de la synch
 
 * **Scénarios avancés**. L’authentification directe applique la stratégie de compte local au moment de la connexion. Par exemple, l’accès est refusé quand l’état d’un compte d’utilisateur local indique que le compte est désactivé, verrouillé, que le [mot de passe a expiré](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-faq#what-happens-if-my-users-password-has-expired-and-they-try-to-sign-in-by-using-pass-through-authentication) ou que les heures de connexion associées au compte ne correspondent pas aux heures d’ouverture de session autorisées de l’utilisateur. 
 
-    Les organisations qui requièrent une authentification multifacteur avec l’authentification directe doivent utiliser Azure Multi-Factor Authentication (MFA). Elles ne peuvent pas utiliser une méthode d’authentification multifacteur tierce ou locale. Les fonctionnalités avancées nécessitent le déploiement de la synchronisation de hachage du mot de passe (que vous choisissiez l’authentification directe ou non). C’est le cas notamment du rapport sur la fuite des informations d’identification généré par Identity Protection.
+    Les organisations qui requièrent une authentification multifacteur avec l’authentification directe doivent utiliser Azure Multi-Factor Authentication (MFA) ou des [contrôles personnalisés d’accès conditionnel](https://docs.microsoft.com/azure/active-directory/conditional-access/controls#custom-controls). Ces organisations ne peuvent pas utiliser des méthodes d’authentification multifacteur tierces ou locales qui reposent sur la fédération. Les fonctionnalités avancées nécessitent le déploiement de la synchronisation de hachage du mot de passe (que vous choisissiez l’authentification directe ou non). C’est le cas notamment du rapport sur la fuite des informations d’identification généré par Identity Protection.
 
 * **Continuité des activités**. Nous vous recommandons de déployer deux agents d’authentification directe supplémentaires. Ces agents complètent le premier agent sur le serveur Azure AD Connect. Ce déploiement supplémentaire garantit la haute disponibilité des demandes d’authentification. Quand trois agents sont déployés et que l’un d’eux est hors service pour maintenance, l’échec d’un agent n’a aucune incidence. 
 
@@ -136,7 +139,7 @@ Pour obtenir les étapes de déploiement à suivre, consultez [Implémentation d
 * **Scénarios avancés**. Une solution d’authentification fédérée est généralement requise lorsque les clients ont une exigence d’authentification non prise en charge par Azure AD en mode natif. Affichez des informations détaillées pour vous aider à [choisir l’option de connexion adaptée](https://blogs.msdn.microsoft.com/samueld/2017/06/13/choosing-the-right-sign-in-option-to-connect-to-azure-ad-office-365/). Examinez les exigences courantes suivantes :
 
   * Authentification nécessitant des cartes à puce ou des certificats.
-  * Serveurs MFA locaux ou fournisseurs d’authentification multifacteur tiers.
+  * Les serveurs MFA locaux ou fournisseurs d’authentification multifacteur tiers nécessitent un fournisseur d’identité fédéré.
   * Authentification à l’aide de solutions d’authentification tierces. Consultez la [liste de compatibilité de fédération Azure AD](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-compatibility).
   * Connexion nécessitant un sAMAccountName, par exemple DOMAINE\nomutilisateur, et non avec un nom d’utilisateur principal (UPN) comme user@domain.com.
 
@@ -161,7 +164,7 @@ Les diagrammes suivants présentent les composants architecturaux de haut niveau
 
     ![Identité hybride Azure AD avec synchronisation de hachage de mot de passe](media/azure-ad/azure-ad-authn-image2.png)
 
-* Configuration requise de l’agent d’authentification directe, à l’aide de deux agents pour assurer la redondance :
+* Configuration requise de l’agent d’authentification directe, à l’aide de deux agents pour la redondance :
 
     ![Identité hybride Azure AD avec authentification directe](media/azure-ad/azure-ad-authn-image3.png)
 
@@ -176,9 +179,9 @@ Les diagrammes suivants présentent les composants architecturaux de haut niveau
 |Où l’authentification se produit-elle ?|Dans le cloud|Dans le cloud, après un échange de vérification de mot de passe sécurisé avec l’agent d’authentification local|Local|
 |Quelles sont les exigences pour le serveur local au-delà du système de provisionnement : Azure AD Connect ?|Aucun|Un serveur par agent d’authentification supplémentaire|Deux ou plusieurs serveurs AD FS<br><br>Deux ou plusieurs serveurs WAP dans le réseau de périmètre/DMZ|
 |Quelles sont les exigences Internet et réseau locales au-delà du système de provisionnement ?|Aucun|[Accès Internet sortant](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-quick-start) à partir des serveurs exécutant des agents d’authentification|[Accès Internet entrant](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-requirements) pour les serveurs WAP dans le périmètre<br><br>Accès réseau entrant aux serveurs AD FS à partir des serveurs WAP dans le périmètre<br><br>Équilibrage de charge réseau|
-|Y a-t-il une exigence de certificat SSL ?|Non |Non |Oui|
+|Y a-t-il une exigence de certificat SSL ?|Non|Non|OUI|
 |Existe-t-il une solution de supervision de l’intégrité ?|Non requis|État de l’agent fourni par le [Centre d’administration Azure Active Directory](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-pass-through-authentication)|[Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-adfs)|
-|Les utilisateurs obtiennent-ils une authentification unique auprès des ressources cloud à partir d’appareils joints au domaine au sein du réseau d’entreprise ?|Oui avec [authentification unique fluide](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)|Oui avec [authentification unique fluide](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)|Oui|
+|Les utilisateurs obtiennent-ils une authentification unique auprès des ressources cloud à partir d’appareils joints au domaine au sein du réseau d’entreprise ?|Oui avec [authentification unique fluide](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)|Oui avec [authentification unique fluide](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)|OUI|
 |Quels types de connexion sont pris en charge ?|UserPrincipalName + mot de passe<br><br>Authentification Windows intégrée avec [authentification unique transparente](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)<br><br>[ID de connexion de substitution](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-custom)|UserPrincipalName + mot de passe<br><br>Authentification Windows intégrée avec [authentification unique transparente](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)<br><br>[ID de connexion de substitution](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-faq)|UserPrincipalName + mot de passe<br><br>sAMAccountName + mot de passe<br><br>Authentification Windows intégrée<br><br>[Authentification par certificat et carte à puce](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)<br><br>[ID de connexion de substitution](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)|
 |Windows Hello Entreprise est-il pris en charge ?|[Modèle de confiance de clé](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)|[Modèle de confiance de clé](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br>*Nécessite le niveau fonctionnel de domaine Windows Server 2016*|[Modèle de confiance de clé](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[Modèle de certificat de confiance ](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-key-trust-adfs)|
 |Quelles sont les options d’authentification multifacteur ?|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Contrôles personnalisés avec accès conditionnel*](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Contrôles personnalisés avec accès conditionnel*](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Serveur Azure MFA](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-deploy)<br><br>[MFA tiers](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-additional-authentication-methods-for-ad-fs)<br><br>[Contrôles personnalisés avec accès conditionnel*](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)|
@@ -204,7 +207,7 @@ Utilisez ou activez la synchronisation de hachage du mot de passe, quelle que so
 
    * Les organisations qui avaient auparavant activé la synchronisation de hachage du mot de passe ont modifié leur méthode d’authentification pour utiliser la synchronisation de hachage du mot de passe. Ils étaient de nouveau en ligne après quelques heures. En accédant aux e-mails par le biais d’Office 365, elles ont pu résoudre les problèmes et accéder à d’autres charges de travail sur le cloud.
 
-   * Les organisations qui n’a pas auparavant activé la synchronisation de hachage de mot de passe devaient recourir à des systèmes de messagerie externes non fiables pour les communications résoudre les problèmes. Dans ce cas, il a fallu les semaines à restaurer leur infrastructure d’identité en local, avant que les utilisateurs pouvaient se connecter aux applications en nuage à nouveau.
+   * Les organisations n’ayant pas auparavant activé la synchronisation de hachage du mot de passe ont dû faire appel à des systèmes de messagerie externes non fiables pour la communication et la résolution des problèmes. Dans ce cas, il leur a fallu des semaines pour restaurer leur infrastructure d’identité locale, avant que les utilisateurs ne puissent se connecter à nouveau aux applications basées sur le Cloud.
 
 3. **Protection des identités**. Azure AD Identity Protection avec Azure AD Premium P2 est un des meilleurs moyens de protéger les utilisateurs dans le cloud. Microsoft analyse en permanence Internet à la recherche de listes d’utilisateurs et de mots de passe vendues et mises à disposition sur le « dark web » par des utilisateurs malveillants. Azure AD peut utiliser ces informations pour vérifier si les noms d’utilisateur et les mots de passe de votre organisation sont compromis. Il est donc essentiel d’activer la synchronisation de hachage du mot de passe, et ce quelle que soit la méthode d’authentification vous utilisez (fédérée ou directe). Les informations d’identification divulguées sont présentées sous forme de rapport. Utilisez ces informations pour bloquer ou forcer les utilisateurs à modifier leurs mots de passe lorsqu’ils tentent de se connecter avec des mots de passe divulgués.
 

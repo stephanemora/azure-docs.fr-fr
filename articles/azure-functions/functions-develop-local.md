@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/04/2018
 ms.author: glenga
-ms.openlocfilehash: 1f430454bf994f9aac4ad6c113937f3798392319
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
-ms.translationtype: MT
+ms.openlocfilehash: abb807262d976419a0c7700046bd8ad58322fc90
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66492857"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537073"
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Coder et tester Azure Functions localement
 
@@ -27,9 +27,9 @@ La façon dont vous développez des fonctions sur votre ordinateur local dépend
 
 |Environnement                              |Languages         |Description|
 |-----------------------------------------|------------|---|
-| [Invite de commandes terminal](functions-run-local.md) | [C# (bibliothèque de classes)](functions-dotnet-class-library.md), [C# script (.csx)](functions-reference-csharp.md), [JavaScript](functions-reference-node.md) | [Azure Functions Core Tools] fournit le runtime core et des modèles de création de fonctions qui permettent le développement local. La version 2.x prend en charge le développement sur Linux, MacOS et Windows. Tous les environnements s’appuient sur les outils de base pour le runtime Functions local. |
-|[Visual Studio Code](functions-create-first-function-vs-code.md)| [C# (bibliothèque de classes)](functions-dotnet-class-library.md), [C# script (.csx)](functions-reference-csharp.md), [JavaScript](functions-reference-node.md) | L’[extension Azure Functions pour VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) ajoute la prise en charge de Functions à VS Code. Requiert les outils de base. Prend en charge le développement sur Linux, MacOS et Windows, lorsque vous utilisez la version 2.x des outils de base. Pour en savoir plus, voir [Créer votre première fonction à l’aide de Visual Studio Code](functions-create-first-function-vs-code.md). |
-| [Visual Studio 2019](functions-develop-vs.md) | [C# (bibliothèque de classes)](functions-dotnet-class-library.md) | Les outils Azure Functions sont inclus dans le **développement Azure** charge de travail de [Visual Studio 2019](https://www.visualstudio.com/vs/) et versions ultérieures. Vous permet de compiler les fonctions dans une bibliothèque de classes et de publier le fichier .dll dans Azure. Inclut les principaux outils pour effectuer des test en local. Pour en savoir plus, voir [Développer Azure Functions à l’aide de Visual Studio](functions-develop-vs.md). |
+|[Visual Studio Code](functions-develop-vs-code.md)| [C# (bibliothèque de classes)](functions-dotnet-class-library.md), [Script C# (.csx)](functions-reference-csharp.md), [JavaScript](functions-reference-node.md), [PowerShell](functions-create-first-function-powershell.md), [Python](functions-reference-python.md) | L’[extension Azure Functions pour VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) ajoute la prise en charge de Functions à VS Code. Requiert les outils de base. Prend en charge le développement sur Linux, MacOS et Windows, lorsque vous utilisez la version 2.x des outils de base. Pour en savoir plus, voir [Créer votre première fonction à l’aide de Visual Studio Code](functions-create-first-function-vs-code.md). |
+| [Invite de commandes terminal](functions-run-local.md) | [C# (bibliothèque de classes)](functions-dotnet-class-library.md), [Script C# (.csx)](functions-reference-csharp.md), [JavaScript](functions-reference-node.md), [PowerShell](functions-reference-powershell.md), [Python](functions-reference-python.md) | [Azure Functions Core Tools] fournit le runtime et les modèles principaux de création de fonctions, ce qui permet le développement local. La version 2.x prend en charge le développement sur Linux, MacOS et Windows. Tous les environnements s’appuient sur les outils de base pour le runtime Functions local. |
+| [Visual Studio 2019](functions-develop-vs.md) | [C# (bibliothèque de classes)](functions-dotnet-class-library.md) | Les outils Azure Functions sont inclus dans la charge de travail de **développement Azure** de [Visual Studio 2019](https://www.visualstudio.com/vs/) et des versions ultérieures. Vous permet de compiler les fonctions dans une bibliothèque de classes et de publier le fichier .dll dans Azure. Inclut les principaux outils pour effectuer des test en local. Pour en savoir plus, voir [Développer Azure Functions à l’aide de Visual Studio](functions-develop-vs.md). |
 | [Maven](functions-create-first-java-maven.md) (divers) | [Java](functions-reference-java.md) | S’intègre avec les outils principaux pour permettre le développement de fonctions Java. La version 2.x prend en charge le développement sur Linux, MacOS et Windows. Pour en savoir plus, consultez [Créer votre première fonction dans Azure avec Java et Maven](functions-create-first-java-maven.md). Prend également en charge le développement en utilisant [Eclipse](functions-create-maven-eclipse.md) et [IntelliJ IDEA](functions-create-maven-intellij.md) |
 
 [!INCLUDE [Don't mix development environments](../../includes/functions-mixed-dev-environments.md)]
@@ -38,8 +38,8 @@ Chacun de ces environnements de développement local vous permet de créer des p
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-+ Pour en savoir plus sur le développement local de compilé C# fonctions à l’aide de Visual Studio 2019, consultez [développer Azure Functions à l’aide de Visual Studio](functions-develop-vs.md).
-+ Pour en savoir plus sur le développement local de fonctions à l’aide de VS Code sur un ordinateur Mac, Linux ou Windows, consultez la [documentation VS Code pour Azure Functions](https://docs.microsoft.com/azure/azure-functions/tutorial-javascript-vscode-get-started).
++ Pour en savoir plus sur le développement local de fonctions C# précompilées à l’aide de Visual Studio 2019, consultez [Développer Azure Functions à l’aide de Visual Studio](functions-develop-vs.md).
++ Pour en savoir plus sur le développement local de fonctions à l’aide de VS Code sur un ordinateur Mac, Linux ou Windows, consultez la [documentation VS Code pour Azure Functions](https://code.visualstudio.com/tutorials/functions-extension/getting-started).
 + Pour en savoir plus sur le développement de fonctions à partir de l’invite de commandes ou d’un terminal, consultez [Coder et tester Azure Functions localement](functions-run-local.md).
 
 <!-- LINKS -->

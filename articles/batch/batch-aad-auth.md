@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/18/2018
 ms.author: lahugh
-ms.openlocfilehash: 0ca22cfe99e77cd2ed3c5a966fb2412444103d71
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5cda3f99a263e8eef13ee2e8d8e6453eda0f4cb6
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64922438"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341171"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Authentification de solutions de service Batch avec Active Directory
 
@@ -64,7 +64,7 @@ Utilisez le **point de terminaison de ressource Azure Batch** pour obtenir un je
 
 ## <a name="register-your-application-with-a-tenant"></a>Inscrire votre application avec un client
 
-La première étape d’utilisation d’Azure AD pour l’authentification consiste à inscrire votre application dans un client Azure AD. L’inscription de l’application vous permet d’appeler la [Bibliothèque d’authentification Active Directory][aad_adal] (ADAL) Azure à partir de votre code. La bibliothèque ADAL fournit une API pour l’authentification avec Azure AD à partir de votre application. L’inscription de votre application est nécessaire si vous prévoyez d’utiliser l’authentification intégrée ou un principal de service.
+La première étape d’utilisation d’Azure AD pour l’authentification consiste à inscrire votre application dans un client Azure AD. L’inscription de votre application vous permet d’appeler la [Bibliothèque d’authentification Active Directory][aad_adal] (ADAL) Azure à partir de votre code. La bibliothèque ADAL fournit une API pour l’authentification avec Azure AD à partir de votre application. L’inscription de votre application est nécessaire si vous prévoyez d’utiliser l’authentification intégrée ou un principal de service.
 
 Lorsque vous inscrivez votre application, vous fournissez des informations sur votre application à Azure AD. Azure AD fournit ensuite un ID d’application (également appelé *ID client*) que vous utilisez pour associer votre application à Azure AD lors de l’exécution. Pour en savoir plus sur l’ID d’application, consultez [Objets application et principal du service dans Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).
 
@@ -324,31 +324,31 @@ from azure.common.credentials import ServicePrincipalCredentials
 Lorsque vous utilisez un principal de service, vous devez indiquer un ID d’abonné. Pour récupérer l’ID client, suivez les étapes décrites dans [Obtenir l’ID client pour Azure Active Directory](#get-the-tenant-id-for-your-active-directory) :
 
 ```python
-TENANT_ID = "<tenant-id>";
+TENANT_ID = "<tenant-id>"
 ```
 
 Référencez le point de terminaison de ressource de service Batch :  
 
 ```python
-RESOURCE = "https://batch.core.windows.net/";
+RESOURCE = "https://batch.core.windows.net/"
 ```
 
 Référencez votre compte Batch :
 
 ```python
-BATCH_ACCOUNT_URL = "https://myaccount.mylocation.batch.azure.com";
+BATCH_ACCOUNT_URL = "https://myaccount.mylocation.batch.azure.com"
 ```
 
 Spécifiez l’ID d’application (ID client) pour votre application. L’ID d’application est disponible dans votre inscription d’application dans le portail Azure :
 
 ```python
-CLIENT_ID = "<application-id>";
+CLIENT_ID = "<application-id>"
 ```
 
 Spécifiez la clé secrète que vous avez copiée à partir du portail Azure :
 
 ```python
-SECRET = "<secret-key>";
+SECRET = "<secret-key>"
 ```
 
 Créez un objet **ServicePrincipalCredentials** :

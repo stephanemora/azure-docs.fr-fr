@@ -4,39 +4,39 @@ description: Indique les types de ressources Azure qui prennent en charge les é
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 05/10/2019
+ms.date: 06/07/2019
 ms.author: tomfitz
-ms.openlocfilehash: 7ef37323fb8150e3a6b52800bfafa2585ae328c2
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
-ms.translationtype: MT
+ms.openlocfilehash: 4f1bc1415fbb875120d7b64128cae69e1e3f442c
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523234"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67339842"
 ---
 # <a name="tag-support-for-azure-resources"></a>Prise en charge des étiquettes pour les ressources Azure
-Cet article indique si un type de ressource prend en charge les [étiquettes](resource-group-using-tags.md). La colonne intitulée **prend en charge les balises** indique si le type de ressource a une propriété pour la balise. La colonne intitulée **balise dans le rapport de coût** indique si ce type de ressource transmet la balise pour le rapport de coût.
+Cet article indique si un type de ressource prend en charge les [étiquettes](resource-group-using-tags.md). La colonne intitulée **Prend en charge les balises** indique si le type de ressource a une propriété pour la balise. La colonne intitulée **Balise dans le rapport des coûts** indique si ce type de ressource transmet la balise au rapport des coûts.
 
 Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des virgules, téléchargez [tag-tag-support.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/tag-support.csv).
 
 ## <a name="microsoftaad"></a>Microsoft.AAD
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| DomainServices | Oui | Oui |
+| DomainServices | OUI | OUI |
 | DomainServices/oucontainer | Non | Non |
 
 ## <a name="microsoftaadiam"></a>microsoft.aadiam
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
 | diagnosticSettings | Non |  Non |
 | diagnosticSettingsCategories | Non |  Non |
 
 ## <a name="microsoftaddons"></a>Microsoft.Addons
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
 | supportProviders | Non |  Non |
 
 ## <a name="microsoftadhybridhealthservice"></a>Microsoft.ADHybridHealthService
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
 | aadsupportcases | Non |  Non |
 | addsservices | Non |  Non |
@@ -44,19 +44,19 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 | anonymousapiusers | Non |  Non |
 | configuration | Non |  Non |
 | journaux d’activité | Non |  Non |
-| rapports | Non |  Non |
+| reports | Non |  Non |
 | services | Non |  Non |
 
 ## <a name="microsoftadvisor"></a>Microsoft.Advisor
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
 | configurations | Non |  Non |
 | generateRecommendations | Non |  Non |
-| recommandations | Non |  Non |
+| de films | Non |  Non |
 | suppressions | Non |  Non |
 
 ## <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
 | actionRules | Non |  Non |
 | alertes | Non |  Non |
@@ -68,30 +68,30 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 | smartGroups | Non |  Non |
 
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| serveurs | Oui | Oui |
+| servers | OUI | OUI |
 
 ## <a name="microsoftapimanagement"></a>Microsoft.ApiManagement
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
 | reportFeedback | Non |  Non |
-| service | Oui | Oui |
+| service | OUI | OUI |
 | validateServiceName | Non |  Non |
 
 ## <a name="microsoftattestation"></a>Microsoft.Attestation
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
 | attestationProviders | Non |  Non |
 
 ## <a name="microsoftauthorization"></a>Microsoft.Authorization
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
 | classicAdministrators | Non |  Non |
 | denyAssignments | Non |  Non |
 | elevateAccess | Non |  Non |
 | locks | Non |  Non |
-| autorisations | Non |  Non |
+| Autorisations | Non |  Non |
 | policyAssignments | Non |  Non |
 | policyDefinitions | Non |  Non |
 | policySetDefinitions | Non |  Non |
@@ -100,17 +100,17 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 | roleDefinitions | Non |  Non |
 
 ## <a name="microsoftautomation"></a>Microsoft.Automation
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| automationAccounts | Oui | Oui |
-| automationAccounts/configurations | Oui | Oui |
+| automationAccounts | OUI | OUI |
+| automationAccounts/configurations | OUI | OUI |
 | automationAccounts/jobs | Non |  Non |
-| automationAccounts/runbooks | Oui | Oui |
+| automationAccounts/runbooks | OUI | OUI |
 | automationAccounts/softwareUpdateConfigurations | Non | Non |
 | automationAccounts/webhooks | Non |  Non |
 
 ## <a name="microsoftazuregeneva"></a>Microsoft.Azure.Geneva
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
 | environments | Non |  Non |
 | environments/accounts | Non |  Non |
@@ -118,24 +118,24 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 | environments/accounts/namespaces/configurations | Non |  Non |
 
 ## <a name="microsoftazureactivedirectory"></a>Microsoft.AzureActiveDirectory
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| b2cDirectories | Oui | Non |
+| b2cDirectories | OUI | Non |
 
 ## <a name="microsoftazurestack"></a>Microsoft.AzureStack
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| registrations | Oui | Oui |
+| registrations | OUI | OUI |
 | registrations/customerSubscriptions | Non |  Non |
 | registrations/products | Non |  Non |
 
 ## <a name="microsoftbatch"></a>Microsoft.Batch
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| batchAccounts | Oui | Oui |
+| batchAccounts | OUI | OUI |
 
 ## <a name="microsoftbilling"></a>Microsoft.Billing
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
 | billingAccounts | Non |  Non |
 | billingAccounts/billingProfiles | Non |  Non |
@@ -189,18 +189,18 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 | usagePlans | Non |  Non |
 
 ## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| mapApis | Oui | Oui |
+| mapApis | OUI | OUI |
 | updateCommunicationPreference | Non |  Non |
 
 ## <a name="microsoftbiztalkservices"></a>Microsoft.BizTalkServices
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| BizTalk | Oui | Oui |
+| BizTalk | OUI | OUI |
 
 ## <a name="microsoftblueprint"></a>Microsoft.Blueprint
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
 | blueprintAssignments | Non |  Non |
 | blueprintAssignments/assignmentOperations | Non |  Non |
@@ -211,20 +211,20 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 | blueprints/versions/artifacts | Non |  Non |
 
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| botServices | Oui | Oui |
+| botServices | OUI | OUI |
 | botServices/channels | Non |  Non |
 | botServices/connections | Non |  Non |
 
 ## <a name="microsoftcache"></a>Microsoft.Cache
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| Redis | Oui | Oui |
+| Redis | OUI | OUI |
 | RedisConfigDefinition | Non |  Non |
 
 ## <a name="microsoftcapacity"></a>Microsoft.Capacity
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
 | appliedReservations | Non |  Non |
 | calculatePrice | Non |  Non |
@@ -239,28 +239,28 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 | reservationOrders/split | Non |  Non |
 | reservationOrders/swap | Non |  Non |
 | reservations | Non |  Non |
-| ressources | Non |  Non |
+| les ressources | Non |  Non |
 | validateReservationOrder | Non |  Non |
 
 ## <a name="microsoftcdn"></a>Microsoft.Cdn
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
 | edgenodes | Non |  Non |
-| profiles | Oui | Oui |
-| profiles/endpoints | Oui | Oui |
+| profiles | OUI | OUI |
+| profiles/endpoints | OUI | OUI |
 | profiles/endpoints/customdomains | Non |  Non |
 | profiles/endpoints/origins | Non |  Non |
 | validateProbe | Non |  Non |
 
 ## <a name="microsoftcertificateregistration"></a>Microsoft.CertificateRegistration
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| certificateOrders | Oui | Oui |
+| certificateOrders | OUI | OUI |
 | certificateOrders/certificates | Non |  Non |
 | validateCertificateRegistrationInformation | Non |  Non |
 
 ## <a name="microsoftclassiccompute"></a>Microsoft.ClassicCompute
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
 | capabilities | Non |  Non |
 | domainNames | Non |  Non |
@@ -279,12 +279,12 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 | virtualMachines/diagnosticSettings | Non |  Non |
 
 ## <a name="microsoftclassicinfrastructuremigrate"></a>Microsoft.ClassicInfrastructureMigrate
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
 | classicInfrastructureResources | Non |  Non |
 
 ## <a name="microsoftclassicnetwork"></a>Microsoft.ClassicNetwork
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
 | capabilities | Non |  Non |
 | expressRouteCrossConnections | Non |  Non |
@@ -298,7 +298,7 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 | virtualNetworks/virtualNetworkPeerings | Non |  Non |
 
 ## <a name="microsoftclassicstorage"></a>Microsoft.ClassicStorage
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
 | capabilities | Non |  Non |
 | disks | Non |  Non |
@@ -314,31 +314,31 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 | vmImages | Non |  Non |
 
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| comptes | Oui | Oui |
+| accounts | OUI | OUI |
 
 ## <a name="microsoftcommerce"></a>Microsoft.Commerce
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
 | RateCard | Non |  Non |
 | UsageAggregates | Non |  Non |
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| availabilitySets | Oui | Oui |
-| disks | Oui | Oui |
-| images | Oui | Oui |
-| restorePointCollections | Oui | Oui |
+| availabilitySets | OUI | OUI |
+| disks | OUI | OUI |
+| images | OUI | OUI |
+| restorePointCollections | OUI | OUI |
 | restorePointCollections/restorePoints | Non |  Non |
-| sharedVMImages | Oui | Oui |
-| sharedVMImages/versions | Oui | Oui |
-| captures instantanées | Oui | Oui |
-| virtualMachines | Oui | Oui |
+| sharedVMImages | OUI | OUI |
+| sharedVMImages/versions | OUI | OUI |
+| snapshots | OUI | OUI |
+| virtualMachines | OUI | OUI |
 | virtualMachines/diagnosticSettings | Non |  Non |
-| virtualMachines/extensions | Oui | Oui |
-| virtualMachineScaleSets | Oui | Oui |
+| virtualMachines/extensions | OUI | OUI |
+| virtualMachineScaleSets | OUI | OUI |
 | virtualMachineScaleSets/extensions | Non |  Non |
 | virtualMachineScaleSets/networkInterfaces | Non |  Non |
 | virtualMachineScaleSets/publicIPAddresses | Non |  Non |
@@ -346,7 +346,7 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 | virtualMachineScaleSets/virtualMachines/networkInterfaces | Non |  Non |
 
 ## <a name="microsoftconsumption"></a>Microsoft.Consumption
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
 | AggregatedCost | Non |  Non |
 | Balances | Non |  Non |
@@ -365,23 +365,23 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 | ReservationSummaries | Non |  Non |
 | ReservationTransactions | Non |  Non |
 | Balises | Non |  Non |
-| Conditions générales | Non |  Non |
+| Termes | Non |  Non |
 | UsageDetails | Non |  Non |
 
 ## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| containerGroups | Oui | Oui |
+| containerGroups | OUI | OUI |
 | serviceAssociationLinks | Non |  Non |
 
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| registries | Oui | Oui |
+| registries | OUI | OUI |
 | registries/builds | Non |  Non |
 | registries/builds/cancel | Non |  Non |
 | registries/builds/getLogLink | Non |  Non |
-| registries/buildTasks | Oui | Oui |
+| registries/buildTasks | OUI | OUI |
 | registries/buildTasks/steps | Non |  Non |
 | registries/eventGridFilters | Non |  Non |
 | registries/getBuildSourceUploadUrl | Non |  Non |
@@ -390,51 +390,51 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 | registries/queueBuild | Non |  Non |
 | registries/regenerateCredential | Non |  Non |
 | registries/regenerateCredentials | Non |  Non |
-| registries/replications | Oui | Oui |
+| registries/replications | OUI | OUI |
 | registries/runs | Non |  Non |
 | registries/runs/cancel | Non |  Non |
 | registries/scheduleRun | Non |  Non |
-| registries/tasks | Oui | Oui |
+| registries/tasks | OUI | OUI |
 | registries/updatePolicies | Non |  Non |
-| registries/webhooks | Oui | Oui |
+| registries/webhooks | OUI | OUI |
 | registries/webhooks/getCallbackConfig | Non |  Non |
 | registries/webhooks/ping | Non |  Non |
 
 ## <a name="microsoftcontainerservice"></a>Microsoft.ContainerService
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| containerServices | Oui | Oui |
-| managedclusters | Oui | Oui |
+| containerServices | OUI | OUI |
+| managedclusters | OUI | OUI |
 
 ## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| applications | Oui | Oui |
+| applications | OUI | OUI |
 | updateCommunicationPreference | Non |  Non |
 
 ## <a name="microsoftcortanaanalytics"></a>Microsoft.CortanaAnalytics
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| comptes | Oui | Oui |
+| accounts | OUI | OUI |
 
 ## <a name="microsoftcostmanagement"></a>Microsoft.CostManagement
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
 | Alertes | Non |  Non |
 | BillingAccounts | Non |  Non |
-| Connecteurs | Oui | Oui |
+| Connecteurs | OUI | OUI |
 | Departments | Non |  Non |
 | Dimensions | Non |  Non |
 | EnrollmentAccounts | Non |  Non |
-| Interroger | Non |  Non |
+| Requête | Non |  Non |
 | inscription | Non |  Non |
 | Reportconfigs | Non |  Non |
 | Rapports | Non |  Non |
 
 ## <a name="microsoftcustomerinsights"></a>Microsoft.CustomerInsights
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| hubs | Oui | Oui |
+| hubs | OUI | OUI |
 | hubs/authorizationPolicies | Non |  Non |
 | hubs/connectors | Non |  Non |
 | hubs/connectors/mappings | Non |  Non |
@@ -449,79 +449,79 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 | hubs/widgetTypes | Non |  Non |
 
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| tâches | Oui | Oui |
+| jobs | OUI | OUI |
 
 ## <a name="microsoftdataboxedge"></a>Microsoft.DataBoxEdge
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| DataBoxEdgeDevices | Oui | Oui |
+| DataBoxEdgeDevices | OUI | OUI |
 
 ## <a name="microsoftdatabricks"></a>Microsoft.Databricks
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| workspaces | Oui | Non |
+| workspaces | OUI | Non |
 | workspaces/virtualNetworkPeerings | Non |  Non |
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| catalogs | Oui | Oui |
+| catalogs | OUI | OUI |
 
 ## <a name="microsoftdataconnect"></a>Microsoft.DataConnect
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| connectionManagers | Oui | Oui |
+| connectionManagers | OUI | OUI |
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| dataFactories | Oui | Non |
+| dataFactories | OUI | Non |
 | dataFactories/diagnosticSettings | Non |  Non |
 | dataFactorySchema | Non |  Non |
-| factories | Oui | Non |
+| factories | OUI | Non |
 | factories/integrationRuntimes | Non |  Non |
 
 ## <a name="microsoftdatalakeanalytics"></a>Microsoft.DataLakeAnalytics
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| comptes | Oui | Oui |
+| accounts | OUI | OUI |
 | accounts/dataLakeStoreAccounts | Non |  Non |
 | accounts/storageAccounts | Non |  Non |
 | accounts/storageAccounts/containers | Non |  Non |
 
 ## <a name="microsoftdatalakestore"></a>Microsoft.DataLakeStore
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| comptes | Oui | Oui |
+| accounts | OUI | OUI |
 | accounts/eventGridFilters | Non |  Non |
 | accounts/firewallRules | Non |  Non |
 
 ## <a name="microsoftdatamigration"></a>Microsoft.DataMigration
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| services | Oui | Oui |
-| services/projects | Oui | Oui |
+| services | OUI | OUI |
+| services/projects | OUI | OUI |
 
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| serveurs | Oui | Oui |
+| servers | OUI | OUI |
 | servers/recoverableServers | Non |  Non |
 | servers/virtualNetworkRules | Non |  Non |
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| serveurs | Oui | Oui |
+| servers | OUI | OUI |
 | servers/recoverableServers | Non |  Non |
 | servers/virtualNetworkRules | Non |  Non |
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| serveurs | Oui | Oui |
+| servers | OUI | OUI |
 | servers/advisors | Non |  Non |
 | servers/queryTexts | Non |  Non |
 | servers/recoverableServers | Non |  Non |
@@ -530,63 +530,63 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 | servers/waitStatistics | Non |  Non |
 
 ## <a name="microsoftdevices"></a>Microsoft.Devices
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| IoTHubs | Oui | Oui |
+| IoTHubs | OUI | OUI |
 | IotHubs/eventGridFilters | Non |  Non |
-| ProvisioningServices | Oui | Oui |
+| ProvisioningServices | OUI | OUI |
 | usages | Non |  Non |
 
 ## <a name="microsoftdevspaces"></a>Microsoft.DevSpaces
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| Contrôleurs | Oui | Oui |
+| controllers | OUI | OUI |
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| labs | Oui | Oui |
-| labs/serviceRunners | Oui | Oui |
-| labs/virtualMachines | Oui | Oui |
-| schedules | Oui | Oui |
+| labs | OUI | OUI |
+| labs/serviceRunners | OUI | OUI |
+| labs/virtualMachines | OUI | OUI |
+| schedules | OUI | OUI |
 
 ## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
 | databaseAccountNames | Non |  Non |
-| databaseAccounts | Oui | Oui |
+| databaseAccounts | OUI | OUI |
 
 ## <a name="microsoftdomainregistration"></a>Microsoft.DomainRegistration
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| domaines | Oui | Oui |
+| domaines | OUI | OUI |
 | domains/domainOwnershipIdentifiers | Non |  Non |
 | generateSsoRequest | Non |  Non |
 | topLevelDomains | Non |  Non |
 | validateDomainRegistrationInformation | Non |  Non |
 
 ## <a name="microsoftdynamicslcs"></a>Microsoft.DynamicsLcs
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
 | lcsprojects | Non |  Non |
 | lcsprojects/clouddeployments | Non |  Non |
 | lcsprojects/connectors | Non |  Non |
 
 ## <a name="microsofteventgrid"></a>Microsoft.EventGrid
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| domaines | Oui | Non |
+| domaines | OUI | Non |
 | domains/topics | Non |  Non |
 | eventSubscriptions | Non |  Non |
 | extensionTopics | Non |  Non |
-| topics | Oui | Non |
+| topics | OUI | Non |
 | topicTypes | Non |  Non |
 
 ## <a name="microsofteventhub"></a>Microsoft.EventHub
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| clusters | Oui | Non |
-| espaces de noms | Oui | Non |
+| clusters | OUI | Non |
+| namespaces | OUI | Non |
 | namespaces/authorizationrules | Non |  Non |
 | namespaces/disasterrecoveryconfigs | Non |  Non |
 | namespaces/eventhubs | Non |  Non |
@@ -594,15 +594,15 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 | namespaces/eventhubs/consumergroups | Non |  Non |
 
 ## <a name="microsoftfeatures"></a>Microsoft.Features
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
 | features | Non |  Non |
 | fournisseurs | Non |  Non |
 
 ## <a name="microsoftgallery"></a>Microsoft.Gallery
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| inscrire | Non |  Non |
+| enroll | Non |  Non |
 | galleryitems | Non |  Non |
 | generateartifactaccessuri | Non |  Non |
 | myareas | Non |  Non |
@@ -612,33 +612,33 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 | myareas/areas/galleryitems | Non |  Non |
 | myareas/galleryitems | Non |  Non |
 | inscription | Non |  Non |
-| ressources | Non |  Non |
+| les ressources | Non |  Non |
 | retrieveresourcesbyid | Non |  Non |
 
 ## <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
 | guestConfigurationAssignments | Non |  Non |
 | software | Non |  Non |
 
 ## <a name="microsofthanaonazure"></a>Microsoft.HanaOnAzure
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| hanaInstances | Oui |  Oui |
+| hanaInstances | OUI |  OUI |
 
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| clusters | Oui | Oui |
+| clusters | OUI | OUI |
 | clusters/applications | Non |  Non |
 
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| tâches | Oui | Oui |
+| jobs | OUI | OUI |
 
 ## <a name="microsoftinformationprotection"></a>Microsoft.InformationProtection
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
 | labelGroups | Non |  Non |
 | labelGroups/labels | Non |  Non |
@@ -647,16 +647,16 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 | labelGroups/labels/subLabels/conditions | Non |  Non |
 
 ## <a name="microsoftinsights"></a>microsoft.insights
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| actiongroups | Oui | Oui |
-| activityLogAlerts | Oui | Oui |
-| alertrules | Oui | Oui |
+| actiongroups | OUI | OUI |
+| activityLogAlerts | OUI | OUI |
+| alertrules | OUI | OUI |
 | automatedExportSettings | Non |  Non |
-| autoscalesettings | Oui | Oui |
+| autoscalesettings | OUI | OUI |
 | baseline | Non |  Non |
 | calculatebaseline | Non |  Non |
-| components | Oui | Oui |
+| components | OUI | OUI |
 | components/events | Non |  Non |
 | components/pricingPlans | Non |  Non |
 | components/query | Non |  Non |
@@ -668,126 +668,126 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 | logDefinitions | Non |  Non |
 | logprofiles | Non |  Non |
 | journaux d’activité | Non |  Non |
-| metricAlerts | Oui | Oui |
+| metricAlerts | OUI | OUI |
 | migrateToNewPricingModel | Non |  Non |
 | myWorkbooks | Non |  Non |
 | queries | Non |  Non |
 | rollbackToLegacyPricingModel | Non |  Non |
-| scheduledqueryrules | Oui | Oui |
+| scheduledqueryrules | OUI | OUI |
 | vmInsightsOnboardingStatuses | Non |  Non |
-| webtests | Oui | Oui |
-| classeurs | Oui | Oui |
+| webtests | OUI | OUI |
+| workbooks | OUI | OUI |
 
 ## <a name="microsoftintune"></a>Microsoft.Intune
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
 | diagnosticSettings | Non |  Non |
 | diagnosticSettingsCategories | Non |  Non |
 
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| IoTApps | Oui | Oui |
+| IoTApps | OUI | OUI |
 
 ## <a name="microsoftiotspaces"></a>Microsoft.IoTSpaces
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| Graphe | Oui | Oui |
+| Graph | OUI | OUI |
 
 ## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
 | deletedVaults | Non |  Non |
-| vaults | Oui | Oui |
+| vaults | OUI | OUI |
 | vaults/accessPolicies | Non |  Non |
 | vaults/secrets | Non |  Non |
 
 ## <a name="microsoftkusto"></a>Microsoft.Kusto
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| clusters | Oui | Oui |
+| clusters | OUI | OUI |
 | clusters/databases | Non |  Non |
 | clusters/databases/dataconnections | Non |  Non |
 | clusters/databases/eventhubconnections | Non |  Non |
 
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| labaccounts | Oui | Oui |
-| utilisateurs  | Non |  Non |
+| labaccounts | OUI | OUI |
+| users | Non |  Non |
 
 ## <a name="microsoftlocationbasedservices"></a>Microsoft.LocationBasedServices
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| comptes | Oui | Oui |
+| accounts | OUI | OUI |
 
 ## <a name="microsoftlocationservices"></a>Microsoft.LocationServices
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| comptes | Oui | Oui |
+| accounts | OUI | OUI |
 
 ## <a name="microsoftloganalytics"></a>Microsoft.LogAnalytics
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
 | journaux d’activité | Non |  Non |
 
 ## <a name="microsoftlogic"></a>Microsoft.Logic
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| integrationAccounts | Oui | Oui |
-| workflows | Oui | Oui |
+| integrationAccounts | OUI | OUI |
+| workflows | OUI | OUI |
 
 ## <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| commitmentPlans | Oui | Oui |
-| webServices | Oui | Oui |
-| Workspaces | Oui | Oui |
+| commitmentPlans | OUI | OUI |
+| webServices | OUI | OUI |
+| Workspaces | OUI | OUI |
 
 ## <a name="microsoftmachinelearningexperimentation"></a>Microsoft.MachineLearningExperimentation
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| comptes | Oui | Oui |
-| accounts/workspaces | Oui | Oui |
-| accounts/workspaces/projects | Oui | Oui |
-| teamAccounts | Oui | Oui |
-| teamAccounts/workspaces | Oui | Oui |
-| teamAccounts/workspaces/projects | Oui | Oui |
+| accounts | OUI | OUI |
+| accounts/workspaces | OUI | OUI |
+| accounts/workspaces/projects | OUI | OUI |
+| teamAccounts | OUI | OUI |
+| teamAccounts/workspaces | OUI | OUI |
+| teamAccounts/workspaces/projects | OUI | OUI |
 
 ## <a name="microsoftmachinelearningmodelmanagement"></a>Microsoft.MachineLearningModelManagement
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| comptes | Oui | Oui |
+| accounts | OUI | OUI |
 
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| workspaces | Oui | Oui |
+| workspaces | OUI | OUI |
 | workspaces/computes | Non |  Non |
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| Identités | Non |  Non |
-| userAssignedIdentities | Oui | 
+| Identities | Non |  Non |
+| userAssignedIdentities | OUI | 
 
 ## <a name="microsoftmanagement"></a>Microsoft.Management
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
 | getEntities | Non |  Non |
 | managementGroups | Non |  Non |
-| ressources | Non |  Non |
+| les ressources | Non |  Non |
 | startTenantBackfill | Non |  Non |
 | tenantBackfillStatus | Non |  Non |
 
 ## <a name="microsoftmaps"></a>Microsoft.Maps
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| comptes | Oui | Oui |
+| accounts | OUI | OUI |
 | accounts/eventGridFilters | Non |  Non |
 
 ## <a name="microsoftmarketplace"></a>Microsoft.Marketplace
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
 | offers | Non |  Non |
 | offerTypes | Non |  Non |
@@ -801,55 +801,55 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 | products | Non |  Non |
 
 ## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| classicDevServices | Oui | Oui |
+| classicDevServices | OUI | OUI |
 | updateCommunicationPreference | Non |  Non |
 
 ## <a name="microsoftmarketplaceordering"></a>Microsoft.MarketplaceOrdering
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
 | agreements | Non |  Non |
 | offertypes | Non |  Non |
 
 ## <a name="microsoftmedia"></a>Microsoft.Media
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| mediaservices | Oui | Oui |
+| mediaservices | OUI | OUI |
 | mediaservices/accountFilters | Non |  Non |
 | mediaservices/assets | Non |  Non |
 | mediaservices/assets/assetFilters | Non |  Non |
 | mediaservices/contentKeyPolicies | Non |  Non |
 | mediaservices/eventGridFilters | Non |  Non |
 | mediaservices/liveEventOperations | Non |  Non |
-| mediaservices/liveEvents | Oui | Oui |
+| mediaservices/liveEvents | OUI | OUI |
 | mediaservices/liveEvents/liveOutputs | Non |  Non |
 | mediaservices/liveOutputOperations | Non |  Non |
 | mediaservices/streamingEndpointOperations | Non |  Non |
-| mediaservices/streamingEndpoints | Oui | Oui |
+| mediaservices/streamingEndpoints | OUI | OUI |
 | mediaservices/streamingLocators | Non |  Non |
 | mediaservices/streamingPolicies | Non |  Non |
 | mediaservices/transforms | Non |  Non |
 | mediaservices/transforms/jobs | Non |  Non |
 
 ## <a name="microsoftmigrate"></a>Microsoft.Migrate
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| projects | Oui | Oui |
+| projects | OUI | OUI |
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| applicationGateways | Oui | Non |
-| applicationSecurityGroups | Oui | Oui |
+| applicationGateways | OUI | Non |
+| applicationSecurityGroups | OUI | OUI |
 | azureFirewallFqdnTags | Non |  Non |
-| azureFirewalls | Oui | Non |
+| azureFirewalls | OUI | Non |
 | bgpServiceCommunities | Non |  Non |
-| connexions | Oui | Oui |
-| ddosCustomPolicies | Oui | Oui |
-| ddosProtectionPlans | Oui | Oui |
+| connections | OUI | OUI |
+| ddosCustomPolicies | OUI | OUI |
+| ddosProtectionPlans | OUI | OUI |
 | dnsOperationStatuses | Non |  Non |
-| dnszones | Oui | Oui |
+| dnszones | OUI | OUI |
 | dnszones/A | Non |  Non |
 | dnszones/AAAA | Non |  Non |
 | dnszones/all | Non |  Non |
@@ -862,70 +862,74 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 | dnszones/SOA | Non |  Non |
 | dnszones/SRV | Non |  Non |
 | dnszones/TXT | Non |  Non |
-| expressRouteCircuits | Oui  | Non |
+| expressRouteCircuits | OUI  | Non |
 | expressRouteServiceProviders | Non |  Non |
-| portes d'entrée | Oui | Oui |
-| frontdoorWebApplicationFirewallPolicies | Oui | Oui |
+| frontdoors | Oui, mais limitée (voir la [remarque ci-dessous](#frontdoor)) | OUI |
+| frontdoorWebApplicationFirewallPolicies | Oui, mais limitée (voir la [remarque ci-dessous](#frontdoor)) | OUI |
 | getDnsResourceReference | Non |  Non |
-| interfaceEndpoints | Oui | Oui |
+| interfaceEndpoints | OUI | OUI |
 | internalNotify | Non |  Non |
-| loadBalancers | Oui | Non |
-| localNetworkGateways | Oui | Oui |
-| natGateways | Oui | Oui |
-| networkIntentPolicies | Oui | Oui |
-| networkInterfaces | Oui | Oui |
-| networkProfiles | Oui | Oui |
-| networkSecurityGroups | Oui | Oui |
-| networkWatchers | Oui | Non |
-| networkWatchers/connectionMonitors | Oui | Non |
-| networkWatchers/lenses | Oui | Non |
-| networkWatchers/pingMeshes | Oui | Non |
-| privateLinkServices | Oui | Oui |
-| publicIPAddresses | Oui | Oui |
-| publicIPPrefixes | Oui | Oui |
-| routeFilters | Oui | Oui |
-| routeTables | Oui | Oui |
-| serviceEndpointPolicies | Oui | Oui |
+| loadBalancers | OUI | Non |
+| localNetworkGateways | OUI | OUI |
+| natGateways | OUI | OUI |
+| networkIntentPolicies | OUI | OUI |
+| networkInterfaces | OUI | OUI |
+| networkProfiles | OUI | OUI |
+| networkSecurityGroups | OUI | OUI |
+| networkWatchers | OUI | Non |
+| networkWatchers/connectionMonitors | OUI | Non |
+| networkWatchers/lenses | OUI | Non |
+| networkWatchers/pingMeshes | OUI | Non |
+| privateLinkServices | OUI | OUI |
+| publicIPAddresses | OUI | OUI |
+| publicIPPrefixes | OUI | OUI |
+| routeFilters | OUI | OUI |
+| routeTables | OUI | OUI |
+| serviceEndpointPolicies | OUI | OUI |
 | trafficManagerGeographicHierarchies | Non |  Non |
-| trafficmanagerprofiles | Oui | Oui |
+| trafficmanagerprofiles | OUI | OUI |
 | trafficmanagerprofiles/heatMaps | Non |  Non |
-| virtualHubs | Oui | Oui |
-| virtualNetworkGateways | Oui | Non |
-| virtualNetworks | Oui | Oui |
+| virtualHubs | OUI | OUI |
+| virtualNetworkGateways | OUI | Non |
+| virtualNetworks | OUI | OUI |
 | virtualNetworks/subnets | Non |  Non |
-| virtualNetworkTaps | Oui | Oui |
-| virtualWans | Oui | Oui |
-| vpnGateways | Oui | Non |
-| vpnSites | Oui | Oui |
-| webApplicationFirewallPolicies | Oui | Oui |
+| virtualNetworkTaps | OUI | OUI |
+| virtualWans | OUI | OUI |
+| vpnGateways | OUI | Non |
+| vpnSites | OUI | OUI |
+| webApplicationFirewallPolicies | OUI | OUI |
+
+<a id="frontdoor" />
+
+Pour Azure Front Door Service, vous pouvez appliquer des balises lors de la création de la ressource, mais la mise à jour ou l’ajout de balises n’est actuellement pas pris en charge.
 
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| espaces de noms | Oui | Non |
-| namespaces/notificationHubs | Oui | Non |
+| namespaces | OUI | Non |
+| namespaces/notificationHubs | OUI | Non |
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| appareils | Non |  Non |
+| périphériques | Non |  Non |
 | linkTargets | Non |  Non |
 | storageInsightConfigs | Non |  Non |
-| workspaces | Oui | Oui |
+| workspaces | OUI | OUI |
 | workspaces/dataSources | Non |  Non |
 | workspaces/linkedServices | Non |  Non |
 | workspaces/query | Non |  Non |
 
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
 | managementassociations | Non |  Non |
-| managementconfigurations | Oui | Oui |
-| solutions | Oui | Oui |
-| views | Oui | Oui |
+| managementconfigurations | OUI | OUI |
+| solutions | OUI | OUI |
+| views | OUI | OUI |
 
 ## <a name="microsoftpolicyinsights"></a>Microsoft.PolicyInsights
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
 | policyEvents | Non |  Non |
 | policyStates | Non |  Non |
@@ -933,37 +937,37 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 | remediations | Non |  Non |
 
 ## <a name="microsoftportal"></a>Microsoft.Portal
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
 | consoles | Non |  Non |
-| dashboards | Oui | Oui |
+| dashboards | OUI | OUI |
 | userSettings | Non |  Non |
 
 ## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| workspaceCollections | Oui | Oui |
+| workspaceCollections | OUI | OUI |
 
 ## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| capacities | Oui | Oui |
+| capacities | OUI | OUI |
 
 ## <a name="microsoftprojectoxford"></a>Microsoft.ProjectOxford
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| comptes | Oui | Oui |
+| accounts | OUI | OUI |
 
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
 | backupProtectedItems | Non |  Non |
-| vaults | Oui | Oui |
+| vaults | OUI | OUI |
 
 ## <a name="microsoftrelay"></a>Microsoft.Relay
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| espaces de noms | Oui | Oui |
+| namespaces | OUI | OUI |
 | namespaces/authorizationrules | Non |  Non |
 | namespaces/hybridconnections | Non |  Non |
 | namespaces/hybridconnections/authorizationrules | Non |  Non |
@@ -971,32 +975,32 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 | namespaces/wcfrelays/authorizationrules | Non |  Non |
 
 ## <a name="microsoftresourcegraph"></a>Microsoft.ResourceGraph
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| ressources | Non |  Non |
+| les ressources | Non |  Non |
 | subscriptionsStatus | Non |  Non |
 
 ## <a name="microsoftresourcehealth"></a>Microsoft.ResourceHealth
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
 | availabilityStatuses | Non |  Non |
 | childAvailabilityStatuses | Non |  Non |
 | childResources | Non |  Non |
 | événements | Non |  Non |
 | impactedResources | Non |  Non |
-| notifications | Non |  Non |
+| Notifications | Non |  Non |
 
 ## <a name="microsoftresources"></a>Microsoft.Resources
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| déploiements | Non |  Non |
+| deployments | Non |  Non |
 | deployments/operations | Non |  Non |
 | links | Non |  Non |
 | notifyResourceJobs | Non |  Non |
 | fournisseurs | Non |  Non |
 | resourceGroups | Non |  Non |
-| ressources | Non |  Non |
-| abonnements | Non |  Non |
+| les ressources | Non |  Non |
+| subscriptions | Non |  Non |
 | subscriptions/providers | Non |  Non |
 | subscriptions/resourceGroups | Non |  Non |
 | subscriptions/resourcegroups/resources | Non |  Non |
@@ -1006,25 +1010,25 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 | tenants | Non |  Non |
 
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| applications | Oui | Oui |
+| applications | OUI | OUI |
 | saasresources | Non |  Non |
 
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| flux | Oui | Oui |
-| jobcollections | Oui | Oui |
+| flows | OUI | OUI |
+| jobcollections | OUI | OUI |
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
 | resourceHealthMetadata | Non |  Non |
-| searchServices | Oui | Oui |
+| searchServices | OUI | OUI |
 
 ## <a name="microsoftsecurity"></a>Microsoft.Security
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
 | advancedThreatProtectionSettings | Non |  Non |
 | alertes | Non |  Non |
@@ -1059,15 +1063,15 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 | workspaceSettings | Non |  Non |
 
 ## <a name="microsoftsecuritygraph"></a>Microsoft.SecurityGraph
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
 | diagnosticSettings | Non |  Non |
 | diagnosticSettingsCategories | Non |  Non |
 
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| espaces de noms | Oui | Non |
+| namespaces | OUI | Non |
 | namespaces/authorizationrules | Non |  Non |
 | namespaces/disasterrecoveryconfigs | Non |  Non |
 | namespaces/eventgridfilters | Non |  Non |
@@ -1080,39 +1084,39 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 | premiumMessagingRegions | Non |  Non |
 
 ## <a name="microsoftservicefabric"></a>Microsoft.ServiceFabric
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| clusters | Oui | Oui |
+| clusters | OUI | OUI |
 | clusters/applications | Non |  Non |
 
 ## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| applications | Oui | Oui |
-| gateways | Oui | Oui |
-| Réseaux | Oui | Oui |
-| secrets | Oui | Oui |
-| volumes | Oui | Oui |
+| applications | OUI | OUI |
+| gateways | OUI | OUI |
+| networks | OUI | OUI |
+| secrets | OUI | OUI |
+| volumes | OUI | OUI |
 
 ## <a name="microsoftsignalrservice"></a>Microsoft.SignalRService
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| SignalR | Oui | Oui |
+| SignalR | OUI | OUI |
 
 ## <a name="microsoftsolutions"></a>Microsoft.Solutions
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| applianceDefinitions | Oui | Oui |
-| appliances | Oui | Oui |
-| applicationDefinitions | Oui | Oui |
-| applications | Oui | Oui |
-| jitRequests | Oui | Oui |
+| applianceDefinitions | OUI | OUI |
+| appliances | OUI | OUI |
+| applicationDefinitions | OUI | OUI |
+| applications | OUI | OUI |
+| jitRequests | OUI | OUI |
 
 ## <a name="microsoftsql"></a>Microsoft.SQL
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| managedInstances | Oui | Oui |
-| managedInstances/databases | Oui (voir la remarque ci-dessous) | Oui |
+| managedInstances | OUI | OUI |
+| managedInstances/databases | Oui (voir la remarque ci-dessous) | OUI |
 | managedInstances/databases/backupShortTermRetentionPolicies | Non | Non |
 | managedInstances/databases/schemas/tables/columns/sensitivityLabels | Non | Non |
 | managedInstances/databases/vulnerabilityAssessments | Non | Non |
@@ -1121,10 +1125,10 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 | managedInstances/keys | Non | Non |
 | managedInstances/restorableDroppedDatabases/backupShortTermRetentionPolicies | Non | Non |
 | managedInstances/vulnerabilityAssessments | Non | Non |
-| serveurs | Oui | Oui |
+| servers | OUI | OUI |
 | servers/administrators | Non |  Non |
 | servers/communicationLinks | Non |  Non |
-| servers/databases | Oui (voir la remarque ci-dessous) | Oui |
+| servers/databases | Oui (voir la remarque ci-dessous) | OUI |
 | servers/encryptionProtector | Non |  Non |
 | servers/firewallRules | Non |  Non |
 | servers/keys | Non |  Non |
@@ -1137,16 +1141,16 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 
 
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| SqlVirtualMachineGroups | Oui | Oui |
+| SqlVirtualMachineGroups | OUI | OUI |
 | SqlVirtualMachineGroups/AvailabilityGroupListeners | Non |  Non |
-| SqlVirtualMachines | Oui | Oui |
+| SqlVirtualMachines | OUI | OUI |
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| storageAccounts | Oui | Oui |
+| storageAccounts | OUI | OUI |
 | storageAccounts/blobServices | Non |  Non |
 | storageAccounts/fileServices | Non |  Non |
 | storageAccounts/queueServices | Non |  Non |
@@ -1155,9 +1159,9 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 | usages | Non |  Non |
 
 ## <a name="microsoftstoragesync"></a>Microsoft.StorageSync
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| storageSyncServices | Oui | Oui |
+| storageSyncServices | OUI | OUI |
 | storageSyncServices/registeredServers | Non |  Non |
 | storageSyncServices/syncGroups | Non |  Non |
 | storageSyncServices/syncGroups/cloudEndpoints | Non |  Non |
@@ -1165,54 +1169,54 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 | storageSyncServices/workflows | Non |  Non |
 
 ## <a name="microsoftstorsimple"></a>Microsoft.StorSimple
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| managers | Oui | Oui |
+| managers | OUI | OUI |
 
 ## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| streamingjobs | Oui (voir la remarque ci-dessous) | Oui |
+| streamingjobs | Oui (voir la remarque ci-dessous) | OUI |
 | streamingjobs/diagnosticSettings | Non |  Non |
 
 > [!NOTE]
 > Vous ne pouvez pas ajouter une balise lorsque streamingjobs est en cours d’exécution. Arrêtez la ressource pour pouvoir ajouter une balise.
 
 ## <a name="microsoftsubscription"></a>Microsoft.Subscription
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
 | CreateSubscription | Non |  Non |
 | SubscriptionDefinitions | Non |  Non |
 | SubscriptionOperations | Non |  Non |
 
 ## <a name="microsoftsupport"></a>microsoft.support
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
 | supporttickets | Non |  Non |
 
 ## <a name="microsoftterraformoss"></a>Microsoft.TerraformOSS
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| providerRegistrations | Oui | Oui |
-| ressources | Oui | Oui |
+| providerRegistrations | OUI | OUI |
+| les ressources | OUI | OUI |
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| environments | Oui | Non |
+| environments | OUI | Non |
 | environments/accessPolicies | Non |  Non |
-| environments/eventsources | Oui | Non |
-| environments/referencedatasets | Oui | Non |
+| environments/eventsources | OUI | Non |
+| environments/referencedatasets | OUI | Non |
 
 ## <a name="microsoftvisualstudio"></a>microsoft.visualstudio
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| compte | Oui | Oui |
-| account/extension | Oui | Oui |
-| account/project | Oui | Oui |
+| account | OUI | OUI |
+| account/extension | OUI | OUI |
+| account/project | OUI | OUI |
 
 ## <a name="microsoftweb"></a>Microsoft.Web
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
 | apiManagementAccounts | Non |  Non |
 | apiManagementAccounts/apiAcls | Non |  Non |
@@ -1225,32 +1229,32 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 | apiManagementAccounts/connectionAcls | Non |  Non |
 | apiManagementAccounts/connections | Non |  Non |
 | billingMeters | Non |  Non |
-| certificats | Oui | Oui |
-| connectionGateways | Oui | Oui |
-| connexions | Oui | Oui |
-| customApis | Oui | Oui |
+| certificates | OUI | OUI |
+| connectionGateways | OUI | OUI |
+| connections | OUI | OUI |
+| customApis | OUI | OUI |
 | deletedSites | Non |  Non |
 | functions | Non |  Non |
-| hostingEnvironments | Oui | Non |
+| hostingEnvironments | OUI | OUI |
 | hostingEnvironments/multiRolePools | Non |  Non |
 | hostingEnvironments/multiRolePools/instances | Non |  Non |
 | hostingEnvironments/workerPools | Non |  Non |
 | hostingEnvironments/workerPools/instances | Non |  Non |
 | publishingUsers | Non |  Non |
-| recommandations | Non |  Non |
+| de films | Non |  Non |
 | resourceHealthMetadata | Non |  Non |
 | runtimes | Non |  Non |
-| serverFarms | Oui | Oui |
+| serverFarms | OUI | OUI |
 | serverFarms/workers | Non |  Non |
-| sites | Oui | Oui |
+| sites | OUI | OUI |
 | sites/domainOwnershipIdentifiers | Non |  Non |
 | sites/hostNameBindings | Non |  Non |
 | sites/instances | Non |  Non |
 | sites/instances/extensions | Non |  Non |
-| sites/premieraddons | Oui | Oui |
+| sites/premieraddons | OUI | OUI |
 | sites/recommendations | Non |  Non |
 | sites/resourceHealthMetadata | Non |  Non |
-| sites/slots | Oui | Oui |
+| sites/slots | OUI | OUI |
 | sites/slots/hostNameBindings | Non |  Non |
 | sites/slots/instances | Non |  Non |
 | sites/slots/instances/extensions | Non |  Non |
@@ -1259,25 +1263,25 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 | verifyHostingEnvironmentVnet | Non |  Non |
 
 ## <a name="microsoftwindowsdefenderatp"></a>Microsoft.WindowsDefenderATP
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
 | diagnosticSettings | Non |  Non |
 | diagnosticSettingsCategories | Non |  Non |
 
 ## <a name="microsoftwindowsiot"></a>Microsoft.WindowsIoT
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
-| DeviceServices | Oui | Oui |
+| DeviceServices | OUI | OUI |
 
 ## <a name="microsoftworkloadmonitor"></a>Microsoft.WorkloadMonitor
-| Type de ressource | Prend en charge les étiquettes | Appliquer des balises dans le rapport de coût |
+| Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 | ------------- | ----------- | ----------- |
 | components | Non |  Non |
 | componentsSummary | Non |  Non |
 | monitorInstances | Non |  Non |
 | monitorInstancesSummary | Non |  Non |
 | monitors | Non |  Non |
-| notificationSettings | Non |  Non  |
+| notificationSettings | Non |  Non |
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour savoir comment appliquer des étiquettes aux ressources, consultez [Utiliser des étiquettes pour organiser vos ressources Azure](resource-group-using-tags.md).

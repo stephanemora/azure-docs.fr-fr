@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 05/30/2019
+ms.date: 06/30/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 9979cb97ec578a59ba8263f2eb1fe53d41db862f
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
-ms.translationtype: MT
+ms.openlocfilehash: 36c109e083873e9c4ec63ebe34f5c5c0cfb6eeb1
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399461"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491809"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Questions courantes sur la reprise d’activité d’Hyper-V sur Azure
 
@@ -26,6 +26,10 @@ Pour plus d’informations, consultez [Tarification Site Recovery ](https://azur
 
 ### <a name="how-do-i-pay-for-azure-vms"></a>Comment payer les machines virtuelles Azure ?
 Lors de la réplication, les données sont répliquées vers le stockage Azure et vous ne payez aucune modification de machine virtuelle. Quand vous exécutez un basculement vers Azure, Site Recovery crée automatiquement des machines virtuelles Azure IaaS. Vous êtes ensuite facturé pour les ressources de calcul que vous consommez dans Azure.
+
+### <a name="is-there-any-difference-in-cost-when-replicating-to-general-purpose-v2-storage-account"></a>Existe-t-il une différence de coût en ce qui concerne la réplication vers le compte de stockage à usage général v2 ?
+
+Vous verrez généralement une augmentation du coût des transactions effectuées sur les comptes de stockage GPv2 dans la mesure où Azure Site Recovery comporte un nombre important de transactions. [En savoir plus](../storage/common/storage-account-upgrade.md#pricing-and-billing) pour estimer les modifications.
 
 ## <a name="azure"></a>Azure
 
@@ -68,7 +72,7 @@ Non, Site Recovery n’intercepte pas les données répliquées et n’a pas d�
 
 Le logiciel Site Recovery est certifié conforme aux normes ISO 27001:2013, 27018, HIPAA et DPA. Il fait actuellement l’objet d’une évaluation de conformité aux exigences SOC2 et JAB FedRAMP.
 
-### <a name="can-we-keep-on-premises-metadata-within-a-geographic-region"></a>Pouvons-nous conserver des métadonnées en local dans une région géographique ?
+### <a name="can-we-keep-on-premises-metadata-within-a-geographic-region"></a>Pouvons-nous conserver des métadonnées en local dans une région géographique ?
 Oui. Quand vous créez un coffre dans une région, nous garantissons que toutes les métadonnées utilisées par Site Recovery restent dans les limites géographiques de cette région.
 
 ### <a name="does-site-recovery-encrypt-replication"></a>Site Recovery chiffre-t-il la réplication ?
@@ -100,7 +104,7 @@ Oui, Site Recovery prend en charge les hôtes Hyper-V en cluster. Notez les poin
 - Tous les nœuds du cluster doivent être inscrits dans le même coffre.
 - Si vous n’utilisez pas VMM, tous les hôtes Hyper-V du cluster doivent être ajoutés au même site Hyper-V.
 - Vous installez le fournisseur Azure Site Recovery et l’agent Recovery Services sur chaque hôte Hyper-V du cluster et ajoutez chaque hôte à un site Hyper-V.
-- Aucuns étapes spécifiques ne doivent être effectuées sur le cluster.
+- Aucune étape spécifique ne doit être effectuée sur le cluster.
 - Si vous exécutez l’outil Planificateur de déploiement pour Hyper-V, l’outil collecte les données de profil à partir du nœud qui est en cours d’exécution et où la machine virtuelle est également en cours d’exécution. L’outil ne peut pas collecter de données à partir d’un nœud qui est hors tension, mais il suivra ce nœud. Une fois que le nœud est en cours d’exécution, l’outil démarre la collecte des données de profil de machine virtuelle à partir de celui-ci (si la machine virtuelle fait partie de la liste de machines virtuelles du profil et est en cours d’exécution sur le nœud).
 - Si une machine virtuelle sur un hôte Hyper-V dans un coffre Site Recovery est migrée vers un autre hôte Hyper-V du même cluster, ou vers un hôte autonome, sa réplication n’est pas affectée. L’hôte Hyper-V doit satisfaire aux [conditions préalables](hyper-v-azure-support-matrix.md#on-premises-servers) et être configuré dans un coffre Site Recovery. 
 
@@ -152,7 +156,7 @@ Oui, vous pouvez utiliser ExpressRoute pour répliquer des machines virtuelles v
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>Pourquoi ne puis-je pas répliquer via VPN ?
 
-Lorsque vous répliquez vers Azure, le trafic de réplication atteint les points de terminaison publics d’un compte de stockage Azure. Par conséquent, vous pouvez uniquement répliquer via l’internet public avec ExpressRoute (homologation publique) et VPN ne fonctionne pas. 
+Lorsque vous répliquez vers Azure, le trafic de réplication atteint les points de terminaison publics d’un compte de stockage Azure. Par conséquent, vous pouvez uniquement répliquer uniquement via les réseaux Internet publics avec ExpressRoute (homologation publique) et VPN ne fonctionne pas. 
 
 ### <a name="what-are-the-replicated-vm-requirements"></a>Quelle est la configuration requise d’une machine virtuelle répliquée ?
 
@@ -212,7 +216,7 @@ Après un basculement, vous pouvez accéder aux machines virtuelles Azure via un
 Azure est conçu pour la résilience. Site Recovery est prévu pour assurer le basculement vers un centre de données Azure secondaire, dans le respect du contrat SLA Azure. En cas de basculement, nous nous assurons que vos métadonnées et vos coffres restent dans la même région géographique que vous avez choisie pour votre coffre.
 
 ### <a name="is-failover-automatic"></a>Le basculement est-il automatique ?
-Le [basculement](site-recovery-failover.md) n’est pas automatique. Vous lancez les basculements avec un seul clic dans le portail, ou vous pouvez utiliser [PowerShell](/powershell/module/az.recoveryservices) pour déclencher un basculement.
+Le [basculement](site-recovery-failover.md) n’est pas automatique. Vous lancez les basculements d’un seul clic dans le portail, ou vous pouvez utiliser [PowerShell](/powershell/module/az.recoveryservices) pour déclencher un basculement.
 
 ### <a name="how-do-i-fail-back"></a>Comment effectuer une restauration automatique ?
 
@@ -224,7 +228,7 @@ Une fois votre infrastructure locale à nouveau opérationnelle, vous pouvez eff
     - Téléchargement complet : avec cette option, les données sont synchronisées pendant le basculement. Cette option télécharge la totalité du disque. L’opération est plus rapide, car aucune somme de contrôle n’est calculée, mais un temps d’arrêt a lieu. Utilisez cette option si vous avez exécuté les machines virtuelles Azure de réplication pendant un certain temps ou que la machine virtuelle locale a été supprimée.
 
 2. Vous pouvez choisir d’effectuer une restauration automatique sur la même machine virtuelle ou sur une autre. Vous pouvez spécifier que Site Recovery doit créer la machine virtuelle si elle n’existe pas déjà.
-3. Une fois la synchronisation initiale terminée, vous procédez au basculement. Une fois terminé, connectez-vous à la machine virtuelle en local pour vérifier que tout fonctionne comme prévu. Dans le portail Azure, vous pouvez voir que les machines virtuelles Azure ont été arrêtées.
+3. Une fois la synchronisation initiale terminée, vous procédez au basculement. Une fois celui-ci terminé, vous pouvez vous connecter à la machine virtuelle locale pour vérifier que tout fonctionne comme prévu. Dans le portail Azure, vous pouvez voir que les machines virtuelles Azure ont été arrêtées.
 4. Vous validez le basculement pour terminer, puis accédez à la charge de travail à partir de la machine virtuelle locale.
 5. Une fois les charges de travail restaurées automatiquement, vous activez la réplication inverse, afin que les machines virtuelles locales soient répliquées vers Azure à nouveau.
 

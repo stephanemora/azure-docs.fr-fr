@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/31/2018
+ms.date: 06/28/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c81a9f3891130f1c6fc2f1a665d7065fb983227
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 150ecbdfcc21ee7ec0bf54fd5b824bc93e0c76ce
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60358116"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483316"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Verrouillage intelligent Azure Active Directory
 
@@ -41,7 +41,9 @@ Le verrouillage intelligent peut être intégré aux déploiements hybrides à l
 Lorsque vous utilisez [l’authentification directe](../hybrid/how-to-connect-pta.md), vous devez vérifier que :
 
 * Le seuil de verrouillage d’Azure AD est **inférieur** au seuil de verrouillage de compte Active Directory. Définissez les valeurs de sorte que le seuil de verrouillage de compte Active Directory soit au moins deux ou trois fois supérieur au seuil de verrouillage d’Azure AD. 
-* La durée de verrouillage d’Azure AD, **exprimée en secondes**, est **plus longue** que la durée après laquelle réinitialiser le compteur de verrouillage de compte Active Directory, **exprimée en minutes**.
+* La durée de verrouillage d’Azure AD doit être plus longue que la durée après laquelle réinitialiser le compteur de verrouillage de compte Active Directory. N’oubliez pas que la durée d’Azure AD est définie en secondes, tandis que la durée d’AD est définie en minutes. 
+
+Par exemple, si vous souhaitez que votre compteur Azure AD soit supérieur à celui d’AD, Azure AD doit être de 120 secondes (2 minutes) tandis que votre AD local doit être défini sur 1 minute (60 secondes).
 
 > [!IMPORTANT]
 > Actuellement, un administrateur ne peut pas déverrouiller les comptes cloud des utilisateurs si ceux-ci ont été verrouillés à l’aide de la fonctionnalité Verrouillage intelligent. L’administrateur doit attendre que la durée de verrouillage expire.

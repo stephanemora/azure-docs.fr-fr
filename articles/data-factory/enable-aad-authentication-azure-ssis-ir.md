@@ -12,12 +12,12 @@ ms.date: 5/14/2019
 author: swinarko
 ms.author: sawinark
 manager: craigg
-ms.openlocfilehash: a67436f09d6e28db8d19679e446ac4cf98383709
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f3d0aaee624bdba169f13313bb57a3ebe8075592
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65593798"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490070"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>Activer l’authentification Azure Active Directory pour Azure-SSIS Integration Runtime
 
@@ -146,17 +146,7 @@ Azure SQL Database Managed Instance prend en charge la création directe d’une
 
 ### <a name="configure-azure-ad-authentication-for-azure-sql-database-managed-instance"></a>Configurer l’authentification Azure AD pour Azure SQL Database Managed Instance
 
-1.   Dans le portail Azure, dans le volet de navigation gauche, sélectionnez **Tous les services** -> **Serveurs SQL**.
-
-2.   Sélectionnez votre Managed Instance à configurer avec l’authentification Azure AD.
-
-3.   Dans la section **Paramètres** du panneau, sélectionnez **Administrateur Active Directory**.
-
-4.   Dans la barre de commandes, sélectionnez **Définir l’administrateur**.
-
-5.   Sélectionnez un compte d’utilisateur Azure AD à désigner comme administrateur du serveur, puis choisissez **Sélectionner**.
-
-6.   Dans la barre de commandes, sélectionnez **Enregistrer**.
+Suivez les étapes décrites dans [Approvisionner un administrateur d’Azure Active Directory pour votre instance gérée](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure#provision-an-azure-active-directory-administrator-for-your-managed-instance).
 
 ### <a name="add-the-managed-identity-for-your-adf-as-a-user-in-azure-sql-database-managed-instance"></a>Ajouter l’identité managée pour votre ADF comme utilisateur dans Azure SQL Database Managed Instance
 
@@ -164,7 +154,7 @@ Pour cette nouvelle étape, vous avez besoin de  [Microsoft SQL Server Manageme
 
 1.  Démarrez SSMS.
 
-2.  Connectez-vous à votre Managed Instance à l’aide de votre compte d’administrateur SQL/Active Directory.
+2.  Connectez-vous à votre instance Managed Instance à l’aide d’un compte SQL Server qui est un **administrateur système**. Il s’agit d’une limitation temporaire qui sera levée une fois que les principaux de serveur (connexions) Azure AD d’Azure SQL Database Managed Instance deviendront des comptes en disponibilité générale. L’erreur suivante s’affiche si vous essayez d’utiliser un compte d’administrateur Azure AD pour créer la connexion : Msg 15247, Niveau 16, État 1, Ligne 1 L’utilisateur n’est pas autorisé à effectuer cette action.
 
 3.  Dans l’**Explorateur d’objets**, développez le dossier **Bases de données** -> **Bases de données système**.
 

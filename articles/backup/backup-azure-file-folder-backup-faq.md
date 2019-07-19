@@ -5,34 +5,30 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/28/2019
+ms.date: 07/02/2019
 ms.author: dacurwin
-ms.openlocfilehash: 56dc87b1cdf36d761c46133004a05f8fa225a091
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d4d1044a30d4ebc551cf1305993aba2a201c4c94
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66808303"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514447"
 ---
-# <a name="common-questions-about-backing-up-files-and-folders"></a>Questions courantes sur la sauvegarde de fichiers et de dossiers 
+# <a name="common-questions-about-backing-up-files-and-folders"></a>Questions courantes sur la sauvegarde de fichiers et de dossiers
 
 Dans cet article, nous répondons aux questions courantes concernant la sauvegarde de fichiers et de dossiers avec l’agent Microsoft Azure Recovery Services (MARS) dans le service [Sauvegarde Microsoft Azure](backup-overview.md).
 
 ## <a name="general"></a>Généralités
 
-### <a name="why-does-the-mars-agent-need-net-framework-452-or-higher"></a>Pourquoi l’agent MARS a-t-il besoin de .NET Framework 4.5.2 ou plus ?
-
-Une nouvelle fonctionnalité disponible dans la [restauration instantanée](backup-azure-restore-windows-server.md#use-instant-restore-to-recover-data-to-the-same-machine) a besoin de .NET Framework 4.5.2 ou plus.
-
 ## <a name="configure-backups"></a>Configurer des sauvegardes
 
-### <a name="where-can-i-download-the-latest-version-of-the-mars-agent"></a>Où puis-je télécharger la dernière version de l’agent MARS ? 
-Vous pouvez [télécharger ici](https://aka.ms/azurebackup_agent) la dernière version de l’agent MARS utilisé lors de la sauvegarde de machines Windows Server et System Center DPM, et du serveur de Sauvegarde Microsoft Azure. 
+### <a name="where-can-i-download-the-latest-version-of-the-mars-agent"></a>Où puis-je télécharger la dernière version de l’agent MARS ?
+Vous pouvez [télécharger ici](https://aka.ms/azurebackup_agent) la dernière version de l’agent MARS utilisé lors de la sauvegarde de machines Windows Server et System Center DPM, et du serveur de Sauvegarde Microsoft Azure.
 
 ### <a name="how-long-are-vault-credentials-valid"></a>Combien de temps les informations d’identification restent-elles valides ?
 Les informations d’identification du coffre expirent au bout de 48 heures. Si le fichier d’informations d’identification arrive à expiration, retéléchargez-le à partir du Portail Microsoft Azure.
 
-### <a name="from-what-drives-can-i-back-up-files-and-folders"></a>Sur quels types de lecteurs puis-je sauvegarder des fichiers et des dossiers ? 
+### <a name="from-what-drives-can-i-back-up-files-and-folders"></a>Sur quels types de lecteurs puis-je sauvegarder des fichiers et des dossiers ?
 
 Vous ne pouvez pas sauvegarder de données sur les types de lecteurs et volumes suivants :
 
@@ -45,24 +41,15 @@ Vous ne pouvez pas sauvegarder de données sur les types de lecteurs et volumes 
 
 ### <a name="what-file-and-folder-types-are-supported"></a>Quels sont les types de fichiers et dossiers pris en charge ?
 
-Les types suivants sont pris en charge :
-
-* Chiffré
-* Compressé
-* Partiellement alloué
-* Compressé + partiellement alloué
-* Liens physiques : non pris en charge, ignorés
-* Point d’analyse : non pris en charge, ignoré
-* Chiffré + partiellement alloué : non pris en charge, ignoré
-* Flux compressé : non pris en charge, ignoré
-* Points d’analyse, y compris les liens DFS et les points de jonction
-
+[En savoir plus](backup-support-matrix-mars-agent.md#supported-file-types-for-backup) sur les types de fichiers et dossiers pris en charge pour la sauvegarde.
 
 ### <a name="can-i-use-the-mars-agent-to-back-up-files-and-folders-on-an-azure-vm"></a>Puis-je utiliser l’agent MARS pour sauvegarder des fichiers et des dossiers sur une machine virtuelle Azure ?  
-Oui. La Sauvegarde Azure assure la sauvegarde au niveau de la machine virtuelle des machines virtuelles Azure à l’aide de l’extension de machine virtuelle de l’agent de machine virtuelle Azure. Si vous souhaitez sauvegarder des fichiers et des dossiers sur le système d’exploitation Windows invité de la machine virtuelle, vous pouvez installer l’agent MARS. 
+Oui. La Sauvegarde Azure assure la sauvegarde au niveau de la machine virtuelle des machines virtuelles Azure à l’aide de l’extension de machine virtuelle de l’agent de machine virtuelle Azure. Si vous souhaitez sauvegarder des fichiers et des dossiers sur le système d’exploitation Windows invité de la machine virtuelle, vous pouvez installer l’agent MARS.
 
-### <a name="can-i-use-the-mars-agent-to-back-up-files-and-folders-on-temporary-storage-for-the-azure-vm"></a>Puis-je utiliser l’agent MARS pour sauvegarder des fichiers et des dossiers dans un espace de stockage temporaire de la machine virtuelle Azure ? 
-Oui. Installez l’agent MARS et sauvegardez les fichiers et dossiers sur le système d’exploitation Windows invité, dans un espace de stockage temporaire. - Les opérations de sauvegarde échouent lorsque les données du stockage temporaire ont été effacées.
+### <a name="can-i-use-the-mars-agent-to-back-up-files-and-folders-on-temporary-storage-for-the-azure-vm"></a>Puis-je utiliser l’agent MARS pour sauvegarder des fichiers et des dossiers dans un espace de stockage temporaire de la machine virtuelle Azure ?
+Oui. Installez l’agent MARS et sauvegardez les fichiers et dossiers sur le système d’exploitation Windows invité, dans un espace de stockage temporaire.
+
+- Les opérations de sauvegarde échouent lorsque les données du stockage temporaire sont effacées.
 - Si les données du stockage temporaire sont supprimées, vous pouvez uniquement restaurer le stockage non volatile.
 
 ### <a name="how-do-i-register-a-server-to-another-region"></a>Comment faire pour inscrire un serveur dans une autre région ?
@@ -80,7 +67,7 @@ Lorsque vous renommez un ordinateur Windows, toutes les sauvegardes actuellement
 
 - Vous devez enregistrer le nouveau nom de l’ordinateur dans le coffre de sauvegarde.
 - Lorsque vous enregistrez le nouveau nom dans le coffre, la première opération de sauvegarde est une sauvegarde *complète*.
-- Si vous devez récupérer des données sauvegardées dans le coffre avec le nom de l’ancien serveur, utilisez l’option permettant de restaurer les données à un autre emplacement dans l’Assistant Récupération de données. [Plus d’informations](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) 
+- Si vous devez récupérer des données sauvegardées dans le coffre avec le nom de l’ancien serveur, utilisez l’option permettant de restaurer les données à un autre emplacement dans l’Assistant Récupération de données. [Plus d’informations](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine)
 
 ### <a name="what-is-the-maximum-file-path-length-for-backup"></a>Quelle est la longueur maximale autorisée pour le chemin d’accès au fichier de sauvegarde ?
 L’agent MARS s’appuie sur NTFS et utilise la spécification de longueur de chemin d’accès définie par [l’API Windows](/windows/desktop/FileIO/naming-a-file#fully-qualified-vs-relative-paths). Si les fichiers que vous souhaitez protéger sont plus longs que la valeur autorisée, sauvegardez le dossier parent ou le lecteur de disque.  
@@ -143,8 +130,8 @@ Les attributs suivants ou leurs combinaisons ne sont pas pris en charge pour le 
 Le dossier du cache et les métadonnées du disque dur virtuel ne possèdent les attributs nécessaires pour l’agent de sauvegarde Azure.
 
 ### <a name="is-there-a-way-to-adjust-the-amount-of-bandwidth-used-for-backup"></a>Existe-t-il un moyen d’adapter la quantité de bande passante utilisée pour la sauvegarde ?
- 
-Oui. Vous pouvez utiliser l’option **Modifier les propriétés** de l’agent MARS pour régler la bande passante et la durée. [En savoir plus](backup-configure-vault.md#enable-network-throttling)**.
+
+Oui. Vous pouvez utiliser l’option **Modifier les propriétés** de l’agent MARS pour régler la bande passante et la durée. [Plus d’informations](backup-configure-vault.md#enable-network-throttling)
 
 ## <a name="restore"></a>Restore
 

@@ -3,7 +3,7 @@ title: Configurer Azure Active Directory pour l’authentification des clients d
 description: Découvrez comment configurer Azure Active Directory (Azure AD) pour authentifier les clients des clusters Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: chackdan
 ms.assetid: 15d0ab67-fc66-4108-8038-3584eeebabaa
@@ -12,37 +12,37 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/15/2019
-ms.author: aljo
-ms.openlocfilehash: c02e38880fdf8e8f1a2229f009b343d6431af853
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 6/28/2019
+ms.author: atsenthi
+ms.openlocfilehash: 6c195357c4a037534307571a53589b2ae861d88b
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62125134"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67486018"
 ---
 # <a name="set-up-azure-active-directory-for-client-authentication"></a>Configuration d’Azure Active Directory pour l’authentification des clients
 
 Pour les clusters exécutés sur Azure, il est recommandé d’utiliser Azure Active Directory (Azure AD) pour sécuriser l’accès aux points de terminaison de gestion.  Cet article explique comment configurer Azure AD pour authentifier les clients d’un cluster Service Fabric, ce qui doit être effectué avant de [créer le cluster](service-fabric-cluster-creation-via-arm.md).  Azure AD permet aux organisation (appelées locataires) de gérer l’accès utilisateur aux applications. Ces dernières se composent d’applications avec une interface utilisateur de connexion web et d’applications avec une expérience client natif. 
 
-Un cluster Service Fabric offre différents points d’entrée pour leurs fonctionnalités de gestion, notamment les outils [Service Fabric Explorer][service-fabric-visualizing-your-cluster] et [Visual Studio][service-fabric-manage-application-in-visual-studio]. Par conséquent, vous allez créer deux applications Azure AD pour contrôler l’accès au cluster : une application web et une application native.  Après avoir créé les applications, vous devez affecter les utilisateurs aux rôles en lecture seule et administrateur.
+Un cluster Service Fabric offre plusieurs points d’entrée pour ses fonctionnalités de gestion, notamment les outils web [Service Fabric Explorer][service-fabric-visualizing-your-cluster] and [Visual Studio][service-fabric-manage-application-in-visual-studio]. Par conséquent, vous allez créer deux applications Azure AD pour contrôler l’accès au cluster : une application web et une application native.  Après avoir créé les applications, vous devez affecter les utilisateurs aux rôles en lecture seule et administrateur.
 
 > [!NOTE]
 > Vous devez exécuter les étapes suivantes avant de créer le cluster. Étant donné que les scripts attendent des noms de cluster et des points de terminaison, ces valeurs doivent être des valeurs planifiées et non celles que vous avez déjà créées.
 
 ## <a name="prerequisites"></a>Prérequis
-Dans cet article, nous partons du principe que vous avez déjà créé un locataire. Si ce n’est pas le cas, commencez par lire [Obtention d’un client Azure Active Directory][active-directory-howto-tenant].
+Dans cet article, nous partons du principe que vous avez déjà créé un locataire. Si ce n’est pas le cas, commencez par lire [Guide pratique pour obtenir un locataire Azure Active Directory][active-directory-howto-tenant].
 
 Pour simplifier certaines des étapes impliquées dans la configuration d’Azure AD avec un cluster Service Fabric, nous avons créé un ensemble de scripts Windows PowerShell.
 
-1. [Téléchargez les scripts](https://github.com/robotechredmond/Azure-PowerShell-Snippets/tree/master/MicrosoftAzureServiceFabric-AADHelpers/AADTool) sur votre ordinateur.
-2. Cliquez avec le bouton sur le fichier zip, sélectionnez **Propriétés**, activez la case à cocher **Débloquer**, puis cliquez sur **Appliquer**.
-3. Extrayez le fichier zip.
+1. [Clonez le référentiel](https://github.com/Azure-Samples/service-fabric-aad-helpers) sur votre ordinateur.
+2. [Assurez-vous d’avoir réuni toutes les conditions préalables](https://github.com/Azure-Samples/service-fabric-aad-helpers#getting-started) pour les scripts installés.
 
 ## <a name="create-azure-ad-applications-and-assign-users-to-roles"></a>Créer des applications Azure AD et attribuer des rôles aux utilisateurs
-Créez deux applications Azure AD pour contrôler l’accès au cluster : une application web et une application native. Une fois que vous avez créé les applications pour représenter votre cluster, attribuez à vos utilisateurs les [rôles pris en charge par Service Fabric](service-fabric-cluster-security-roles.md) : lecture seule et administrateur.
 
-Exécutez `SetupApplications.ps1`, puis entrez l'ID du locataire, le nom du cluster et l'URL de réponse de l'application web en tant que paramètres.  Spécifiez également les noms d'utilisateur et les mots de passe des utilisateurs.  Par exemple :
+Nous allons utiliser les scripts pour créer deux applications Azure AD afin de contrôler l’accès au cluster : une application web et une application native. Une fois que vous avez créé des applications pour représenter votre cluster, vous allez créer des utilisateurs pour les [rôles pris en charge par Service Fabric](service-fabric-cluster-security-roles.md) : lecture seule et administrateur.
+
+Exécutez `SetupApplications.ps1`, puis entrez l'ID du locataire, le nom du cluster et l'URL de réponse de l'application web en tant que paramètres.  Spécifiez également les noms d'utilisateur et les mots de passe des utilisateurs. Par exemple :
 
 ```powershell
 $Configobj = .\SetupApplications.ps1 -TenantId '0e3d2646-78b3-4711-b8be-74a381d9890c' -ClusterName 'mysftestcluster' -WebApplicationReplyUrl 'https://mysftestcluster.eastus.cloudapp.azure.com:19080/Explorer/index.html' -AddResourceAccess
@@ -61,7 +61,7 @@ Le paramètre *WebApplicationReplyUrl* est le point de terminaison par défaut q
 
 https://&lt;cluster_domain&gt;:19080/Explorer
 
-Vous êtes invité à vous connecter à un compte qui dispose de privilèges d’administration pour le locataire Azure AD. Une fois que vous vous êtes connecté, le script crée les applications web et native pour représenter votre cluster Service Fabric. Si vous examinez les applications du client dans le [Portail Azure][azure-portal], vous devez voir deux nouvelles entrées :
+Vous êtes invité à vous connecter à un compte qui dispose de privilèges d’administration pour le locataire Azure AD. Une fois que vous vous êtes connecté, le script crée les applications web et native pour représenter votre cluster Service Fabric. Si vous regardez les applications du locataire dans le [portail Azure][azure-portal], vous devez voir deux nouvelles entrées :
 
    * *ClusterName*\_Cluster
    * *ClusterName*\_Client
@@ -125,7 +125,7 @@ Pour plus d’informations, consultez l’applet de commande [Connect-ServiceFab
 Oui. Cependant, n’oubliez pas d’ajouter l’URL de Service Fabric Explorer à votre application en cluster (web). Si vous ne le faites pas, Service Fabric Explorer ne fonctionnera pas.
 
 ### <a name="why-do-i-still-need-a-server-certificate-while-azure-ad-is-enabled"></a>Pourquoi dois-je disposer d’un certificat de serveur lorsqu’Azure AD est activé ?
-FabricClient et FabricGateway effectuent une authentification mutuelle. Pendant l’authentification Azure AD, l’intégration Azure AD fournit une identité de client au serveur et le certificat de serveur est utilisé pour vérifier l’identité du serveur. Pour plus d’informations sur les certificats Service Fabric, consultez [Certificats X.509 et Service Fabric][x509-certificates-and-service-fabric]
+FabricClient et FabricGateway effectuent une authentification mutuelle. Pendant l’authentification Azure AD, l’intégration Azure AD fournit une identité de client au serveur et le certificat de serveur est utilisé pour vérifier l’identité du serveur. Pour plus d’informations sur les certificats Service Fabric, consultez [Certificats X.509 et Service Fabric][x509-certificates-and-service-fabric].
 
 ## <a name="next-steps"></a>Étapes suivantes
 Après avoir configuré les applications Azure Active Directory et défini les rôles des utilisateurs, [configurez et déployez un cluster](service-fabric-cluster-creation-via-arm.md).

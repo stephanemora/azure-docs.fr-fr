@@ -4,17 +4,17 @@ description: Cet article décrit la gestion des mises à jour pour les machines 
 services: automation
 ms.service: automation
 ms.subservice: update-management
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 04/02/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 16fe2d23fdd07f8f150cc010b0a1d232c761c77f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 0a4990673479c913777a5a7c410460d3d3b31264
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61300044"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478316"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gérer les mises à jour pour plusieurs ordinateurs
 
@@ -25,7 +25,7 @@ Vous pouvez utiliser la solution de gestion des mises à jour pour gérer les mi
 - Planifier l’installation des mises à jour requises
 - Passez en revue les résultats du déploiement pour vérifier que les mises à jour ont été appliquées correctement à toutes les machines virtuelles pour lesquelles la gestion des mises à jour est activée
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour utiliser la gestion des mises à jour, vous devez avoir :
 
@@ -69,9 +69,9 @@ Une fois que l’intégration est terminée, la gestion des mises à jour est ac
 
 ## <a name="enable-update-management-for-non-azure-virtual-machines-and-computers"></a>Activer la gestion des mises à jour pour les machines et ordinateurs virtuels non Azure
 
-Pour savoir comment activer la gestion de la mise à jour pour Windows Azure non - machines et ordinateurs virtuels, consultez [des ordinateurs Windows de se connecter au service Azure Monitor dans Azure](../log-analytics/log-analytics-windows-agent.md).
+Pour apprendre à activer Update Management pour les machines et ordinateurs virtuels Windows non Azure, consultez [Connecter des ordinateurs Windows au service Azure Monitor dans Azure](../log-analytics/log-analytics-windows-agent.md).
 
-Pour savoir comment activer la gestion de la mise à jour pour les ordinateurs et les machines virtuelles de Linux non Azure, consultez [connecter des ordinateurs Linux dans Azure Monitor journaux](../log-analytics/log-analytics-agent-linux.md).
+Pour apprendre à activer Update Management pour les machines et ordinateurs virtuels Linux non Azure, consultez [Connecter vos ordinateurs Linux aux journaux Azure Monitor](../log-analytics/log-analytics-agent-linux.md).
 
 ## <a name="view-computers-attached-to-your-automation-account"></a>Afficher les ordinateurs attachés à votre compte Automation
 
@@ -85,7 +85,7 @@ Les ordinateurs pour lesquels la gestion des mises à jour a été récemment ac
 
 - **Non conforme** : ordinateurs avec des mises à jour critiques ou de sécurité manquantes.
 
-- **Non évalué** : l’ordinateur n’a transmis aucune donnée d’évaluation de mise à jour dans le délai prévu. Pour les ordinateurs Linux, le délai prévu est au cours des 3 dernières heures. Pour les ordinateurs Windows, le délai prévu est au cours des 12 dernières heures.
+- **Non évalué** : l’ordinateur n’a transmis aucune donnée d’évaluation de mise à jour dans le délai prévu. Pour les ordinateurs Linux, le délai prévu est au cours de la dernière heure. Pour les ordinateurs Windows, le délai prévu est au cours des 12 dernières heures.
 
 Pour afficher l’état de l’agent, cliquez sur le lien dans la colonne **PRÉPARATION À LA MISE À JOUR DE L’AGENT**. Cette action ouvre le volet **Worker hybride** qui indique l’état du worker hybride. L’illustration suivante montre un exemple d’agent qui n’a pas été connecté à la gestion des mises à jour pendant une période prolongée :
 
@@ -105,18 +105,18 @@ Le tableau suivant décrit les sources connectées prises en charge par cette so
 
 | Source connectée | Prise en charge | Description |
 | --- | --- | --- |
-| Agents Windows |Oui |La gestion des mises à jour collecte des informations sur les mises à jour système des agents Windows et lance l’installation des mises à jour obligatoires. |
-| Agents Linux |Oui |La gestion des mises à jour collecte des informations sur les mises à jour système des agents Linux et lance l’installation des mises à jour obligatoires sur les distributions prises en charge. |
-| Groupe d’administration d’Operations Manager |Oui |La gestion des mises à jour collecte des informations sur les mises à jour système des agents dans un groupe d’administration connecté. |
-| Compte de Stockage Azure |Non  |Le stockage Azure n’inclut aucune information sur les mises à jour système. |
+| Agents Windows |OUI |La gestion des mises à jour collecte des informations sur les mises à jour système des agents Windows et lance l’installation des mises à jour obligatoires. |
+| Agents Linux |OUI |La gestion des mises à jour collecte des informations sur les mises à jour système des agents Linux et lance l’installation des mises à jour obligatoires sur les distributions prises en charge. |
+| Groupe d’administration d’Operations Manager |OUI |La gestion des mises à jour collecte des informations sur les mises à jour système des agents dans un groupe d’administration connecté. |
+| Compte de Stockage Azure |Non |Le stockage Azure n’inclut aucune information sur les mises à jour système. |
 
 ### <a name="collection-frequency"></a>Fréquence de collecte
 
-Une fois un ordinateur effectue une analyse de conformité de mise à jour, l’agent transfère les informations en bloc dans les journaux d’Azure Monitor. Sur une machine Windows, l’analyse de conformité est effectuée toutes les 12 heures par défaut.
+Après qu’une machine a terminé l’analyse de conformité de la mise à jour, l’agent transfère les informations en bloc aux journaux Azure Monitor. Sur une machine Windows, l’analyse de conformité est effectuée toutes les 12 heures par défaut.
 
 En plus de l’analyse planifiée, l’analyse de conformité de mise à jour est lancée dans les 15 minutes si MMA est redémarré, avant et après l’installation de la mise à jour.
 
-Sur un ordinateur Linux, l’analyse de conformité est effectuée toutes les 3 heures par défaut. Si l’agent MMA est redémarré, une analyse de conformité est lancée dans les 15 minutes.
+Sur un ordinateur Linux, l’analyse de conformité est effectuée toutes les heures par défaut. Si l’agent MMA est redémarré, une analyse de conformité est lancée dans les 15 minutes.
 
 L’affichage sur le tableau de bord des données mises à jour provenant des ordinateurs gérés peut prendre entre 30 minutes et 6 heures.
 
@@ -131,7 +131,7 @@ Dans le volet **Nouveau déploiement de mises à jour**, spécifiez les informat
 - **Nom** : entrez un nom unique pour identifier le déploiement de mises à jour.
 - **Système d’exploitation** : sélectionnez **Windows** ou **Linux**.
 - **Groupes à mettre à jour (préversion)**  : Définissez une requête basée sur une combinaison de l’abonnement, des groupes de ressources, des emplacements et des étiquettes pour créer un groupe dynamique de machines virtuelles Azure à inclure dans votre déploiement. Pour plus d’informations, consultez [Groupes dynamiques](automation-update-management.md#using-dynamic-groups)
-- **Machines à mettre à jour** : sélectionnez Recherche enregistrée, Groupe importé ou Machines pour choisir les machines que vous souhaitez mettre à jour. Si vous choisissez **Machines**, l’état de préparation de la machine est indiqué dans la colonne **PRÉPARATION À LA MISE À JOUR DE L’AGENT**. Vous pouvez afficher l’état d’intégrité de la machine avant de planifier le déploiement des mises à jour. Pour en savoir plus sur les différentes méthodes de création de groupes d’ordinateurs dans les journaux d’activité Azure Monitor, consultez [Groupes d’ordinateurs dans les journaux d’activité Azure Monitor](../azure-monitor/platform/computer-groups.md).
+- **Machines à mettre à jour** : sélectionnez Recherche enregistrée, Groupe importé ou Machines pour choisir les machines que vous souhaitez mettre à jour. Si vous choisissez **Machines**, l’état de préparation de la machine est indiqué dans la colonne **PRÉPARATION À LA MISE À JOUR DE L’AGENT**. Vous pouvez afficher l’état d’intégrité de la machine avant de planifier le déploiement des mises à jour. Pour en savoir plus sur les différentes méthodes de création de groupes d’ordinateurs dans les journaux Azure Monitor, consultez [Groupes d’ordinateurs dans les journaux Azure Monitor](../azure-monitor/platform/computer-groups.md).
 
   ![Volet Nouveau déploiement de mises à jour](./media/manage-update-multi/update-select-computers.png)
 

@@ -1,6 +1,6 @@
 ---
 title: Service de métadonnées d’instance Azure | Microsoft Docs
-description: Interface rESTful permettant d’obtenir des informations sur les de Linux VM calcul, réseau et les événements de maintenance à venir.
+description: Une interface RESTful permettant d’obtenir des informations sur le calcul, le réseau et les événements de maintenance à venir d’une machine virtuelle Linux.
 services: virtual-machines-linux
 documentationcenter: ''
 author: KumariSupriya
@@ -15,23 +15,23 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: 88de601caf984d2511229cd68190554086c3da38
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.openlocfilehash: e527d9c35ccc87f270755947cd969c7acee380b0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65779553"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449183"
 ---
 # <a name="azure-instance-metadata-service"></a>Service de métadonnées d’instance Azure
 
 Le service de métadonnées d’instance Azure fournit des informations sur les instances de machine virtuelle en cours d’exécution qui peuvent être utilisées pour gérer et configurer vos machines virtuelles.
-Cela inclut des informations telles que la référence (SKU), la configuration réseau et les événements de maintenance à venir. Pour plus d’informations sur le type d’informations est disponible, consultez [API de métadonnées](#metadata-apis).
+Cela inclut des informations telles que la référence (SKU), la configuration réseau et les événements de maintenance à venir. Pour plus d’informations sur le type d’informations disponibles, consultez [API de métadonnées](#metadata-apis).
 
 Le service de métadonnées d’instance d’Azure est un point de terminaison REST accessible à toutes les machines virtuelles IaaS créées via [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/).
 Le point de terminaison est disponible à une adresse IP non routable bien connue (`169.254.169.254`) accessible uniquement à partir de la machine virtuelle.
 
 > [!IMPORTANT]
-> Ce service est **mis à la disposition générale** dans toutes les régions Azure.  Il reçoit régulièrement des mises à jour pour exposer de nouvelles informations sur les instances de machine virtuelle. Cette page reflète les récentes [API de métadonnées](#metadata-apis) disponibles.
+> Ce service est **mis à la disposition générale** dans toutes les régions Azure.  Il reçoit régulièrement des mises à jour pour exposer de nouvelles informations sur les instances de machine virtuelle. Cette page reflète les [API de métadonnées](#metadata-apis) à jour disponibles.
 
 ## <a name="service-availability"></a>Disponibilité du service
 
@@ -41,14 +41,14 @@ Régions                                        | Disponibilité ?             
 -----------------------------------------------|-----------------------------------------------|-----------------
 [Toutes les régions Azure globales généralement disponibles](https://azure.microsoft.com/regions/)     | Mise à la disposition générale | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Mise à la disposition générale | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
-[Azure Chine](https://www.azure.cn/)                                                     | Mise à la disposition générale | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
+[Azure Chine](https://azure.microsoft.com/global-infrastructure/china/)                  | Mise à la disposition générale | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
 [Azure Allemagne](https://azure.microsoft.com/overview/clouds/germany/)                    | Mise à la disposition générale | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
 [Public USA Centre-Ouest](https://azure.microsoft.com/regions/)                           | Mise à la disposition générale | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01
 
 Ce tableau est mis à jour lors des mises à jour du service et lorsque de nouvelles versions prises en charge sont disponibles.
 
 > [!NOTE]
-> 2019-02-01 est actuellement prise transférée et sera disponible dans d’autres régions peu de temps. 
+> 2019-02-01 est en cours de déploiement et sera bientôt disponible dans d’autres régions. 
 
 Pour tester le service de métadonnées d’instance, créez une machine virtuelle à partir d’[Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) ou du [portail Azure](https://portal.azure.com) dans les régions ci-dessus, puis suivez les exemples ci-dessous.
 
@@ -62,7 +62,7 @@ Au fur et à mesure que des versions plus récentes sont ajoutées, les versions
 
 Si aucune version n’est spécifiée, une erreur est retournée avec une liste des versions plus récentes prises en charge.
 
-> [!NOTE] 
+> [!NOTE]
 > La réponse est une chaîne JSON. L’exemple de réponse suivant est imprimé avec soin par souci de lisibilité.
 
 **Requête**
@@ -110,14 +110,14 @@ API | Format de données par défaut | Autres formats
 /scheduledevents | json | Aucun
 /attested | json | Aucun
 
-Pour accéder à un format de réponse autre que le format par défaut, spécifiez le format demandé en tant que paramètre de chaîne de requête dans la demande. Exemple :
+Pour accéder à un format de réponse autre que le format par défaut, spécifiez le format demandé en tant que paramètre de chaîne de requête dans la demande. Par exemple :
 
 ```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
 ```
 
 > [!NOTE]
-> Pour les nœuds terminaux le `format=json` ne fonctionne pas. Pour ces requêtes `format=text` doit être spécifié explicitement si le format par défaut est json.
+> Pour les nœuds terminaux, `format=json` ne fonctionne pas. Pour ces requêtes, `format=text` doit être spécifié explicitement si le format par défaut est json.
 
 ### <a name="security"></a>Sécurité
 
@@ -131,8 +131,8 @@ S’il existe un élément de données introuvable ou une requête mal formée, 
 Code d’état HTTP | Motif
 ----------------|-------
 200 OK |
-400 Demande incorrecte | Manquant `Metadata: true` en-tête ou manquante au format lors de l’interrogation d’un nœud terminal
-404 Non trouvé | L’élément demandé n’existe pas
+400 Demande incorrecte | En-tête `Metadata: true` manquant ou format manquant lors de l’interrogation d’un nœud terminal
+404 Introuvable | L’élément demandé n’existe pas
 405 Méthode non autorisée | Seules les demandes `GET` et `POST` sont prises en charge
 429 Trop de demandes | L’API prend actuellement en charge un maximum de 5 requêtes par seconde
 500 Erreur de service     | Recommencez l’opération plus tard
@@ -140,7 +140,7 @@ Code d’état HTTP | Motif
 ### <a name="examples"></a>Exemples
 
 > [!NOTE]
-> Toutes les réponses de l’API sont des chaînes JSON. Tous les exemples suivants de réponses sont imprimés avec pour une meilleure lisibilité.
+> Toutes les réponses de l’API sont des chaînes JSON. Tous les exemples de réponses suivants sont imprimés avec soin par souci de lisibilité.
 
 #### <a name="retrieving-network-information"></a>Récupération des informations réseau
 
@@ -205,7 +205,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2018
 ```json
 {
   "compute": {
-    "azEnvironment": "AZUREPUBLICCLOUD",
+    "azEnvironment": "AzurePublicCloud",
     "location": "centralus",
     "name": "negasonic",
     "offer": "lampstack",
@@ -283,7 +283,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 ```json
 {
   "compute": {
-    "azEnvironment": "AZUREPUBLICCLOUD",
+    "azEnvironment": "AzurePublicCloud",
     "location": "centralus",
     "name": "negasonic",
     "offer": "lampstack",
@@ -338,38 +338,38 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 
 ## <a name="metadata-apis"></a>API de métadonnées
 
-#### <a name="the-following-apis-are-available-through-the-metadata-endpoint"></a>Les API suivantes sont disponibles via le point de terminaison de métadonnées :
+#### <a name="the-following-apis-are-available-through-the-metadata-endpoint"></a>Les API suivantes sont disponibles via le point de terminaison de métadonnées :
 
 Données | Description | Version introduite
 -----|-------------|-----------------------
 attested | Voir [Données attestées](#attested-data) | 01-10-2018
 identité | Identités managées pour les ressources Azure. Consulter [Obtenir un jeton d’accès](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
-instance | Consultez [API d’Instance](#instance-api) | 2017-04-02
+instance | Consulter [API Instance](#instance-api) | 2017-04-02
 scheduledevents | Consultez [Événements planifiés](scheduled-events.md). | 2017-08-01
 
-#### <a name="instance-api"></a>API de l’instance
-##### <a name="the-following-compute-categories-are-available-through-the-instance-api"></a>Les catégories de calcul suivantes sont disponibles via l’API d’Instance :
+#### <a name="instance-api"></a>API Instance
+##### <a name="the-following-compute-categories-are-available-through-the-instance-api"></a>Les catégories de calcul suivantes sont disponibles via l’API Instance :
 
 > [!NOTE]
-> Via le point de terminaison de métadonnées, les catégories suivantes sont accessibles via l’instance/calcul
+> Grâce au point de terminaison de métadonnées, les catégories suivantes sont accessibles via l’instance/le calcul
 
 Données | Description | Version introduite
 -----|-------------|-----------------------
-azEnvironment | Environnement Azure dans lequel la machine virtuelle est en cours d’exécution dans | 01-10-2018
-customData | Consultez [données personnalisées](#custom-data) | 2019-02-01
+azEnvironment | Environnement Azure dans lequel s’exécute la machine virtuelle | 01-10-2018
+customData | Consulter [Données personnalisées](#custom-data) | 2019-02-01
 location | Région Azure dans laquelle la machine virtuelle est en cours d’exécution | 2017-04-02
 Nom | Nom de la machine virtuelle | 2017-04-02
-offer | Fournir des informations pour l’image de machine virtuelle et est présent uniquement pour les images déployée à partir de la galerie d’images Azure | 2017-04-02
+offer | Fournit des informations pour l’image de machine virtuelle et ne sont présentes que pour les images déployées à partir de la galerie d’images Azure | 2017-04-02
 osType | Linux ou Windows | 2017-04-02
 placementGroupId | [Groupe de placement](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) de votre groupe de machines virtuelles identiques | 2017-08-01
-Plan | [Plan](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) contenant le nom, le produit et serveur de publication pour une machine virtuelle si son une Image de place de marché Azure | 2018-04-02
+Plan | [Plan](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) contenant le nom, le produit et l’éditeur d’une machine virtuelle s’il s’agit d’une image de la Place de marché Azure | 2018-04-02
 platformUpdateDomain |  [Domaine de mise à jour](manage-availability.md) dans lequel la machine virtuelle est en cours d’exécution | 2017-04-02
 platformFaultDomain | [Domaine par défaut](manage-availability.md) dans lequel la machine virtuelle est en cours d’exécution | 2017-04-02
-fournisseur | Fournisseur de la machine virtuelle | 01-10-2018
-publicKeys | [Collection de clés publiques](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey) affecté à la machine virtuelle et les chemins d’accès | 2018-04-02
+provider | Fournisseur de la machine virtuelle | 01-10-2018
+publicKeys | [Collection de clés publiques](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey) affectée à la machine virtuelle et aux chemins | 2018-04-02
 publisher | Éditeur de l’image de machine virtuelle | 2017-04-02
 resourceGroupName | [Groupe de ressources](../../azure-resource-manager/resource-group-overview.md) de votre machine virtuelle | 2017-08-01
-référence (SKU) | Référence (SKU) spécifique pour l’image de machine virtuelle | 2017-04-02
+sku | Référence (SKU) spécifique pour l’image de machine virtuelle | 2017-04-02
 subscriptionId | Abonnement Azure pour la machine virtuelle | 2017-08-01
 tags | [Étiquettes](../../azure-resource-manager/resource-group-using-tags.md) de votre machine virtuelle  | 2017-08-01
 version | Version de l’image de machine virtuelle | 2017-04-02
@@ -378,10 +378,10 @@ vmScaleSetName | [Nom du groupe identique de machine virtuelle](../../virtual-ma
 vmSize | [Taille de la machine virtuelle](sizes.md) | 2017-04-02
 zone | [Zone de disponibilité](../../availability-zones/az-overview.md) de votre machine virtuelle | 2017-12-01
 
-##### <a name="the-following-network-categories-are-available-through-the-instance-api"></a>Les catégories de réseau suivantes sont disponibles via l’API d’Instance :
+##### <a name="the-following-network-categories-are-available-through-the-instance-api"></a>Les catégories de réseau suivantes sont disponibles via l’API Instance :
 
 > [!NOTE]
-> Via le point de terminaison de métadonnées, les catégories suivantes sont accessibles via l’interface/réseau/instance
+> Grâce au point de terminaison de métadonnées, les catégories suivantes sont accessibles via l’instance/le réseau/l’interface
 
 Données | Description | Version introduite
 -----|-------------|-----------------------
@@ -537,12 +537,20 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/azEnviro
 
 **Réponse**
 ```bash
-AZUREPUBLICCLOUD
+AzurePublicCloud
 ```
+Le cloud et les valeurs de l’environnement Azure sont répertoriés ci-dessous.
 
-### <a name="getting-the-tags-for-the-vm"></a>Obtenir les balises pour la machine virtuelle
+ Cloud   | Environnement Azure
+---------|-----------------
+[Toutes les régions Azure globales généralement disponibles](https://azure.microsoft.com/regions/)     | AzurePublicCloud
+[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | AzureUSGovernmentCloud
+[Azure Chine](https://azure.microsoft.com/global-infrastructure/china/)                  | AzureChinaCloud
+[Azure Allemagne](https://azure.microsoft.com/overview/clouds/germany/)                    | AzureGermanCloud
 
-Balises ont peuvent être appliqués à votre machine virtuelle Azure pour les organiser logiquement dans une taxonomie. Les balises assignées à une machine virtuelle peuvent être récupérées à l’aide de la requête ci-dessous.
+### <a name="getting-the-tags-for-the-vm"></a>Obtenir les balises de la machine virtuelle
+
+Des balises peuvent être appliqués à votre machine virtuelle Azure pour les organiser de manière logique dans une taxonomie. Les balises affectées à une machine virtuelle peuvent être récupérées à l’aide de la requête ci-dessous.
 
 **Requête**
 
@@ -557,7 +565,7 @@ Department:IT;Environment:Test;Role:WebRole
 ```
 
 > [!NOTE]
-> Les balises sont séparées par des points-virgules. Si un analyseur est écrits pour extraire par programme les balises, les noms de balise et les valeurs ne doivent pas contenir des points-virgules afin que l’Analyseur de fonctionner correctement.
+> Les balises sont séparées par des points-virgules. Si un analyseur est configuré pour extraire par programmation les balises, les noms et valeurs de balises ne doivent pas contenir de points-virgules pour que l’analyseur puisse fonctionner correctement.
 
 ### <a name="validating-that-the-vm-is-running-in-azure"></a>Avoir la garantie que la machine virtuelle s’exécute dans Azure
 
@@ -604,7 +612,7 @@ Verification successful
 }
 ```
 
-Données | Description 
+Données | Description
 -----|------------
 nonce | Chaîne facultative fournie par l’utilisateur avec la requête. Si aucune valeur nonce n’a été fournie dans la requête, l’horodatage UTC actuel est renvoyé.
 Plan | [Plan](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) pour une machine virtuelle d’une image de la Place de marché Microsoft Azure, contient le nom, le produit et l’éditeur
@@ -619,11 +627,11 @@ Après avoir obtenu la signature ci-dessus, vous pouvez vérifier qu’elle éma
 > [!NOTE]
 > Le certificat est différent pour le cloud public et le cloud souverain.
 
- Régions | Certificat
+ Cloud | Certificat
 ---------|-----------------
 [Toutes les régions Azure globales généralement disponibles](https://azure.microsoft.com/regions/)     | metadata.azure.com
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | metadata.azure.us
-[Azure Chine](https://www.azure.cn/)                                                           | metadata.azure.cn
+[Azure Chine](https://azure.microsoft.com/global-infrastructure/china/)                  | metadata.azure.cn
 [Azure Allemagne](https://azure.microsoft.com/overview/clouds/germany/)                    | metadata.microsoftazure.de
 
 ```bash
@@ -640,7 +648,7 @@ openssl x509 -noout -issuer -in intermediate.pem
 openssl verify -verbose -CAfile /etc/ssl/certs/Baltimore_CyberTrust_Root.pem -untrusted intermediate.pem signer.pem
 ```
 
-Dans les cas où le certificat intermédiaire ne peut pas être téléchargé en raison des contraintes de réseau pendant la validation, le certificat intermédiaire peut être épinglé. Toutefois, Azure sera remplacé les certificats conformément aux pratiques d’infrastructure à clé publique standard. Les certificats épinglés doit être mis à jour en cas de mise à niveau. Chaque fois qu’une modification apportée à mettre à jour le certificat intermédiaire est planifiée, le blog Azure sera mis à jour et les clients Azure seront avertis. Vous pouvez trouver les certificats intermédiaires [ici](https://www.microsoft.com/pki/mscorp/cps/default.htm). Les certificats intermédiaires pour chacune des régions peuvent être différents.
+Lorsque le certificat intermédiaire ne peut pas être téléchargé en raison de contraintes réseau pendant la validation, le certificat intermédiaire peut être épinglé. Azure remplacera toutefois les certificats conformément à la pratique PKI standard. Les certificats épinglés doivent être mis à jour en cas de remplacement. Si une mise à jour du certificat intermédiaire est planifiée, le blog Azure sera mis à jour et les clients Azure en seront informés. Vous pouvez trouver les certificats intermédiaires [ici](https://www.microsoft.com/pki/mscorp/cps/default.htm). Les certificats intermédiaires de chaque région peuvent être différents.
 
 ### <a name="failover-clustering-in-windows-server"></a>Clustering de basculement dans Windows Server
 
@@ -688,23 +696,23 @@ route add 169.254.169.254/32 10.0.1.10 metric 1 -p
 ```
 
 ### <a name="custom-data"></a>Données personnalisées
-Instance Metadata Service offre la possibilité de la machine virtuelle d’accéder à ses données personnalisées. Les données binaires doivent être inférieure à 64 Ko et sont fournies à la machine virtuelle sous forme de codé en base64.
+Instance Metadata Service permet à la machine virtuelle d’accéder à ses données personnalisées. Les données binaires doivent être inférieures à 64 Ko et sont fournies à la machine virtuelle sous forme encodée en base64.
 
-Azure données personnalisées peuvent être insérées à la machine virtuelle via l’API REST, PowerShell Cmdlets, Azure Interface de ligne de commande (CLI) ou un modèle ARM.
+Des données personnalisées Azure peuvent être insérées sur la machine virtuelle via des API REST, des applets de commande PowerShell, l’interface de ligne de commande (CLI) Azure ou un modèle ARM.
 
-Pour obtenir un exemple d’Interface de ligne de commande Azure, consultez [données personnalisées et Cloud-Init sur Microsoft Azure](https://azure.microsoft.com/blog/custom-data-and-cloud-init-on-windows-azure/).
+Pour obtenir un exemple d’interface de ligne de commande Azure, consultez [Données personnalisées et Cloud-Init sur Microsoft Azure](https://azure.microsoft.com/blog/custom-data-and-cloud-init-on-windows-azure/).
 
-Pour obtenir un exemple de modèle ARM, consultez [déployer une Machine virtuelle avec CustomData](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata).
+Pour obtenir un exemple de modèle ARM, consultez [Déployer une machine virtuelle avec CustomData](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata).
 
-Données personnalisées sont disponibles pour tous les processus en cours d’exécution dans la machine virtuelle. Il est recommandé que les clients n’insérez pas d’informations confidentielles dans des données personnalisées.
+Les données personnalisées sont disponibles pour tous les processus en cours d’exécution dans la machine virtuelle. Il est recommandé aux clients de ne pas insérer d’informations confidentielles dans des données personnalisées.
 
-Actuellement, les données personnalisées sont garanties pour être disponible pendant l’amorçage d’une machine virtuelle. Si des mises à jour sont apportées à la machine virtuelle comme l’ajout de disques ou de redimensionnement de la machine virtuelle, Service de métadonnées d’Instance ne fournira pas de données personnalisées. Qui fournit des données personnalisées permanence par le biais de Service de métadonnées Instance est en cours.
+La disponibilité des données personnalisées est actuellement garantie pendant le démarrage d’une machine virtuelle. Si des mises à jour sont apportées à la machine virtuelle, comme l’ajout de disques ou le redimensionnement de la machine virtuelle, Instance Metadata Service ne fournira pas de données personnalisées. La fourniture de données personnalisées en continu via Instance Metadata Service est actuellement en cours de développement.
 
-#### <a name="retrieving-custom-data-in-virtual-machine"></a>Récupération des données personnalisées dans une Machine virtuelle
-Instance Metadata Service fournit des données personnalisées à la machine virtuelle sous forme de codé en base64. L’exemple suivant décode la chaîne encodée en base64.
+#### <a name="retrieving-custom-data-in-virtual-machine"></a>Récupération de données personnalisées dans la machine virtuelle
+Instance Metadata Service fournit des données personnalisées à la machine virtuelle sous forme encodée en base64. L’exemple suivant décode la chaîne encodée en base64.
 
 > [!NOTE]
-> Les données personnalisées dans cet exemple sont interprétées comme une chaîne ASCII qui lit, « Mes données personnalisées. ».
+> Les données personnalisées dans cet exemple sont interprétées comme une chaîne ASCII qui indique « Mes données personnalisées. ».
 
 **Requête**
 

@@ -1,23 +1,21 @@
 ---
-title: Prépayer les machines virtuelles Azure pour réaliser des économies | Microsoft Docs
+title: Prépayer les machines virtuelles Azure pour réaliser des économies
 description: Découvrez comment acheter des instances Azure Reserved Virtual Machine Instances pour réduire vos coûts de calcul.
 services: virtual-machines-windows
-documentationcenter: ''
 author: yashar
 manager: yashar
-editor: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/13/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: e0fc5935790640cd30bbd52a2d2f93d18a7249f2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cc7248cfbd0f8ab4998b787086655c2d977fc183
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60406864"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67489912"
 ---
 [!INCLUDE [virtual-machines-buy-compute-reservations](../../../includes/virtual-machines-common-prepay-reserved-vm-instances.md)]
