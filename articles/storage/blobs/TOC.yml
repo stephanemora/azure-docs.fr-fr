@@ -553,10 +553,6 @@
           href: ../blobs/data-lake-storage-data-scenarios.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Démarrages rapides
       items:
-        - name: Créer un compte de stockage
-          href: ../blobs/data-lake-storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Gérer des données avec l’Explorateur Stockage
-          href: ../blobs/data-lake-storage-explorer.md
         - name: Analyser des données avec Databricks
           href: ../blobs/data-lake-storage-quickstart-create-databricks-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Tutoriels
@@ -601,6 +597,16 @@
           href: storage-blob-event-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Procédures
       items:
+        - name: Créer et gérer les comptes de stockage
+          items:
+            - name: Créer un compte de stockage à usage général
+              href: ../blobs/data-lake-storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Gérer un compte de stockage
+              href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Gérer des données avec l’Explorateur Stockage
+              href: ../blobs/data-lake-storage-explorer.md
+            - name: Mettre à niveau un compte de stockage
+              href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Réception de données
           items:
             - name: AzCopy
