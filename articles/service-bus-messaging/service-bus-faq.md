@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 8461764a3f1f682ffb97420a4efdf2803f518872
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 26609e7b21af8804a4b43039c84c04597035721c
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64707135"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706208"
 ---
 # <a name="service-bus-faq"></a>FAQ Service Bus
 
@@ -86,7 +86,7 @@ Si vous utilisez la redondance de zone pour votre espace de noms, vous devez sui
 
 ## <a name="best-practices"></a>Bonnes pratiques
 ### <a name="what-are-some-azure-service-bus-best-practices"></a>Présentation des meilleures pratiques Azure Service Bus
-Consultez [Meilleures pratiques relatives aux améliorations de performances avec Service Bus][Best practices for performance improvements using Service Bus] : cet article explique comment optimiser les performances de l’échange de messages.
+Consultez [Meilleures pratiques relatives aux améliorations du niveau de performance avec Service Bus][Best practices for performance improvements using Service Bus] : cet article explique comment optimiser le niveau de performance lors de l’échange de messages.
 
 ### <a name="what-should-i-know-before-creating-entities"></a>Quelles sont les informations à connaître pour pouvoir créer des entités ?
 Les propriétés suivantes de file d’attente et de rubrique sont immuables. Tenez compte de cette restriction lorsque vous configurez vos entités, dans la mesure où ces propriétés ne peuvent pas être modifiées sans créer une nouvelle entité de remplacement.
@@ -114,14 +114,14 @@ Non, Service Bus ne facture pas le stockage ? Toutefois, il existe un quota lim
 
 ## <a name="quotas"></a>Quotas
 
-Pour obtenir une liste des limites et des quotas Service Bus, consultez [Vue d’ensemble des quotas Service Bus][Quotas overview].
+Pour obtenir la liste des limites et des quotas Service Bus, consultez [Vue d’ensemble des quotas Service Bus][Quotas overview].
 
 ### <a name="does-service-bus-have-any-usage-quotas"></a>Service Bus fixe-t-il des quotas d’utilisation ?
 Par défaut, pour n’importe quel service cloud, Microsoft définit un quota d’utilisation agrégée mensuel calculé avec tous les abonnements d’un client. Si vos besoins dépassent ces limites, vous pouvez contacter le service client à tout moment, afin de nous permettre d’ajuster ces limites en fonction de vos exigences. Pour Service Bus, le quota d’utilisation agrégée est de 5 milliards de messages par mois.
 
 Microsoft se réserve le droit de désactiver un compte client ayant dépassé son quota d’utilisation pour un mois donné. Des notifications par e-mail sont envoyées plusieurs fois pour contacter le client avant de procéder à quoi que ce soit. Les clients qui dépassent ces quotas restent responsables de frais de dépassement occasionnés.
 
-À l’instar d’autres services sur Azure, Service Bus applique un ensemble de quotas spécifiques pour assurer une utilisation juste des ressources. Pour plus d’informations sur ces quotas, consultez la page [Quotas Service Bus][Quotas overview].
+À l’instar d’autres services sur Azure, Service Bus applique un ensemble de quotas spécifiques pour assurer une utilisation juste des ressources. Pour plus d’informations sur ces quotas, consultez [Quotas Service Bus][Quotas overview].
 
 ### <a name="how-to-handle-messages-of-size--1-mb"></a>Comment gérer les messages de taille > à 1 Mo ?
 Les services de messagerie Service Bus (files d’attente et rubriques/abonnements) permettent à l'application d'envoyer des messages dont la taille peut aller jusqu'à 256 Ko (niveau standard) ou 1 Mo (niveau Premium). En présence de messages de taille supérieure à 1 Mo, utilisez le modèle de vérification des requêtes décrit dans [ce billet de blog](https://www.serverless360.com/blog/deal-with-large-service-bus-messages-using-claim-check-pattern).
@@ -131,7 +131,7 @@ Les services de messagerie Service Bus (files d’attente et rubriques/abonnemen
 Lorsque vous supprimez un espace de noms d’un abonnement, patientez pendant 4 heures avant de le recréer avec le même nom dans un autre abonnement. Sinon, le message d’erreur suivant peut s’afficher : `Namespace already exists`. 
 
 ### <a name="what-are-some-of-the-exceptions-generated-by-azure-service-bus-apis-and-their-suggested-actions"></a>Quelles sont les exceptions générées par les API Azure Service Bus et les actions recommandées ?
-Pour obtenir la liste des exceptions Service Bus potentielles, consultez la page [Vue d’ensemble des exceptions][Exceptions overview].
+Pour obtenir la liste des exceptions Service Bus potentielles, consultez [Vue d’ensemble des exceptions][Exceptions overview].
 
 ### <a name="what-is-a-shared-access-signature-and-which-languages-support-generating-a-signature"></a>Qu’est-ce qu’une signature d’accès partagé et quels langages prennent en charge la génération d’une signature ?
 Les signatures d’accès partagé sont un mécanisme d’authentification basé sur des hachages sécurisés SHA-256 ou des URI. Pour plus d’informations sur la génération de vos propres signatures en Node.js, PHP, Java et C\#, consultez l’article [Signatures d’accès partagé][Shared Access Signatures].
@@ -143,7 +143,7 @@ Vous pouvez déplacer un espace de noms d’un abonnement Azure vers un autre, �
 
 #### <a name="portal"></a>Portail
 
-Pour utiliser le Portail Azure et migrer les espaces de noms Service Bus vers un autre abonnement, suivez les instructions décrites [ici](../azure-resource-manager/resource-group-move-resources.md#use-portal). 
+Pour utiliser le Portail Azure et migrer les espaces de noms Service Bus vers un autre abonnement, suivez les instructions décrites [ici](../azure-resource-manager/resource-group-move-resources.md#use-the-portal). 
 
 #### <a name="powershell"></a>PowerShell
 

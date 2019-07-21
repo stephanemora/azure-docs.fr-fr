@@ -4,15 +4,15 @@ description: Décrit comment configurer le script de mise à l’échelle automa
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: e9f500e3ab965b9dbfc5e395a6572497c85f6f8f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3b98db361a8ec888eb8bf9e1bf3658a7e38111c6
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66755129"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620418"
 ---
 # <a name="automatically-scale-session-hosts"></a>Mettre automatiquement à l’échelle vos hôtes de session
 
@@ -75,7 +75,7 @@ Ensuite, vous devez créer des informations d’identification stockées en tout
     Par exemple, **Set-Variable -Name KeyPath -Scope Global -Value "c:\\scaling-HostPool1"**
 5. Exécutez la cmdlet **New-StoredCredential -KeyPath \$KeyPath**. Lorsque vous y êtes invité, entrez vos informations d’identification Windows Virtual Desktop avec des autorisations pour interroger le pool d’hôtes (le pool d’hôtes est spécifié dans le fichier **config.xml**).
     - Si vous utilisez différents principaux de service ou un compte standard, exécutez la cmdlet **New-StoredCredential -KeyPath \$KeyPath** une fois pour chaque compte pour créer des informations d’identification stockées localement.
-6. Exécutez **Get-StoredCredentials -List** pour confirmer que les informations d’identification ont bien été créées.
+6. Exécutez **Get-StoredCredential -List** pour confirmer que les informations d’identification ont bien été créées.
 
 ### <a name="configure-the-configxml-file"></a>Configurer le fichier config.xml
 

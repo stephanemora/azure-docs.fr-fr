@@ -2,27 +2,27 @@
 title: Consulter les journaux d’activité kubelet dans Azure Kubernetes Service (AKS)
 description: Découvrez comment afficher des informations de dépannage dans les journaux kubelet à partir des nœuds du service AKS (Azure Kubernetes Service)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 03/05/2019
-ms.author: iainfou
-ms.openlocfilehash: b381145fef7e6fb399fac3387ab01fdc9a51b154
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: mlearned
+ms.openlocfilehash: 65b16b3ddc209ef5d2f6287a04cfe402c3b205c6
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60465017"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67615183"
 ---
 # <a name="get-kubelet-logs-from-azure-kubernetes-service-aks-cluster-nodes"></a>Accéder aux journaux d’activité kubelet à partir de nœuds serveur Azure Kubernetes Service (AKS)
 
-Dans le cadre de l’utilisation d’un cluster AKS, vous devrez peut-être consulter les journaux pour résoudre un problème. La possibilité d’afficher les journaux pour les [composants maîtres AKS][aks-master-logs] ou [conteneurs dans un cluster AKS][azure-container-logs] est intégrée au portail Azure. Il vous arrive parfois de devoir récupérer les journaux *kubelet* à partir d’un nœud AKS à des fins de dépannage.
+Dans le cadre de l’utilisation d’un cluster AKS, vous devrez peut-être consulter les journaux pour résoudre un problème. La possibilité d’afficher les journaux pour les [composants maîtres AKS][aks-master-logs] est or [containers in an AKS cluster][azure-container-logs]intégrée au portail Azure. Il vous arrive parfois de devoir récupérer les journaux *kubelet* à partir d’un nœud AKS à des fins de dépannage.
 
 Cet article vous montre comment vous pouvez utiliser `journalctl` pour afficher les journaux *kubelet* sur un nœud AKS.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Cet article suppose que vous avez un cluster AKS existant. Si vous avez besoin d’un cluster AKS, consultez le guide de démarrage rapide d’AKS [avec Azure CLI][aks-quickstart-cli] ou [avec le portail Azure][aks-quickstart-portal].
+Cet article suppose que vous avez un cluster AKS existant. Si vous avez besoin d’un cluster AKS, consultez le guide de démarrage rapide d’AKS [avec Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
 ## <a name="create-an-ssh-connection"></a>Créer une connexion SSH
 

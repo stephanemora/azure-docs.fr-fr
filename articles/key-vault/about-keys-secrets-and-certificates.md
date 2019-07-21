@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: b50f98c4abaeda3ac1805b73aa18fe6c29596426
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 52a0bc1b07ebf1aed55551e37ecc122ff393c0f7
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64708690"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67703921"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>À propos des clés, des secrets et des certificats
 
@@ -198,7 +198,7 @@ Vous pouvez spécifier des métadonnées spécifiques à l’application supplé
 
 Le contrôle d’accès pour les clés gérées par Key Vault est fourni au niveau d’un coffre de clés qui fait office de conteneur de clés. La stratégie de contrôle d’accès pour les clés est différente de la stratégie de contrôle d’accès pour les secrets dans un même coffre de clés. Les utilisateurs peuvent créer un ou plusieurs coffres pour stocker les clés et doivent maintenir une segmentation et une gestion des clés appropriées au scénario. Le contrôle d’accès pour les clés est indépendant du contrôle d’accès pour les secrets.  
 
-Les autorisations suivantes peuvent être accordées, par utilisateur/principal du service, dans l’entrée du contrôle d’accès aux clés sur un coffre. Ces autorisations reflètent précisément les opérations autorisées sur un objet clé :  
+Les autorisations suivantes peuvent être accordées, par utilisateur/principal du service, dans l’entrée du contrôle d’accès aux clés sur un coffre. Ces autorisations reflètent précisément les opérations autorisées sur un objet clé.  L’octroi de l’accès à un principal de service dans le coffre de clés est une opération unique et demeure identique pour tous les abonnements Azure. Vous pouvez l’utiliser pour déployer autant de certificats que vous le souhaitez. 
 
 - Autorisations pour les opérations de gestion de clés
   - *get* : lire la partie publique d’une clé, ainsi que ses attributs
@@ -476,5 +476,4 @@ Pour plus d’informations, consultez [Informations de référence sur les opér
 ## <a name="see-also"></a>Voir aussi
 
 - [Authentification, requêtes et réponses](authentication-requests-and-responses.md)
-- [Versions de Key Vault](key-vault-versions.md)
 - [Guide du développeur Key Vault](/azure/key-vault/key-vault-developers-guide)

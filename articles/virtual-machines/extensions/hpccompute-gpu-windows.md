@@ -4,7 +4,7 @@ description: Extension Microsoft Azure pour l’installation des pilotes GPU NVI
 services: virtual-machines-windows
 documentationcenter: ''
 author: vermagit
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-windows
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: roiyz
-ms.openlocfilehash: 5adc86b161770f2502b6ef9cf5ec2189ec3d4f99
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 004d6125de6762303db91f3a5ef9ffa16e6e501f
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60388673"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705955"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>Extension du pilote GPU NVIDIA pour Windows
 
@@ -27,6 +27,7 @@ ms.locfileid: "60388673"
 
 Cette extension installe des pilotes GPU NVIDIA sur des machines virtuelles Windows de gamme N. En fonction de la famille de machine virtuelle, l’extension installe des pilotes CUDA ou GRID. Lorsque vous installez des pilotes NVIDIA à l’aide de cette extension, vous acceptez les termes du [contrat de licence utilisateur final NVIDIA](https://go.microsoft.com/fwlink/?linkid=874330). Pendant le processus d’installation, la machine virtuelle peut redémarrer pour terminer l’installation du pilote.
 
+Des instructions sur l’installation manuelle des pilotes et les versions actuellement prises en charge sont disponibles [ici](https://docs.microsoft.com/azure/virtual-machines/windows/n-series-driver-setup).
 Une extension est également disponible pour installer les pilotes GPU NVIDIA sur [des machines virtuelles de gamme N Linux](hpccompute-gpu-linux.md).
 
 ## <a name="prerequisites"></a>Prérequis
@@ -37,7 +38,7 @@ Cette extension prend en charge les systèmes d’exploitation suivants :
 
 | Distribution | Version |
 |---|---|
-| Windows 10 (jusqu’à la version 1803)| Core |
+| Windows 10 | Core |
 | Windows Server 2016 | Core |
 | Windows Server 2012 R2 | Core |
 
@@ -124,7 +125,7 @@ Set-AzVMExtension
     }'
 ```
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>D’Azure CLI
 
 ```azurecli
 az vm extension set `

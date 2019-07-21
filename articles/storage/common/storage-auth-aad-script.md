@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 04/19/2019
+ms.date: 07/03/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 41ca1c5f413e5e15691f336d203edb918f21dc1a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 80ab896e1393d6c68b22a61d1b96acd507aa6994
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65147294"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249907"
 ---
 # <a name="run-azure-cli-or-powershell-commands-with-azure-ad-credentials-to-access-blob-or-queue-data"></a>Exécuter des commandes Azure CLI ou PowerShell avec des informations d’identification Azure AD pour accéder aux données d’objet blob ou de file d’attente
 
@@ -26,7 +26,7 @@ Vous pouvez attribuer des autorisations aux données d’objet blob et de file d
 
 Les extensions sont prises en charge pour les opérations sur les conteneurs et les files d’attente. Les opérations que vous pouvez appeler dépendent des autorisations accordées au principal de sécurité Azure AD avec lequel vous vous connectez à Azure CLI ou PowerShell. Les autorisations sur les conteneurs ou les files d’attente Stockage Azure sont attribuées via le contrôle d’accès en fonction du rôle (RBAC). Par exemple, si le rôle **Lecteur des données Blob** vous est attribué, vous pouvez exécuter des commandes de script qui lisent les données d’un conteneur ou d’une file d’attente. Si le rôle **Contributeur aux données Blob** vous est attribué, vous pouvez exécuter des commandes de script qui lisent, écrivent ou suppriment un conteneur ou une file d’attente, ou les données qu’ils contiennent. 
 
-Pour plus d’informations sur les autorisations requises pour chaque opération Stockage Azure sur un conteneur ou une file d’attente, consultez [Autorisations pour appeler les opérations REST](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations).  
+Pour plus d’informations sur les autorisations requises pour chaque opération Stockage Azure sur un conteneur ou une file d’attente, consultez [Appeler des opérations de stockage avec des jetons OAuth](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#call-storage-operations-with-oauth-tokens).  
 
 ## <a name="call-cli-commands-using-azure-ad-credentials"></a>Appeler des commandes CLI à l’aide des informations d’identification Azure AD
 
@@ -44,8 +44,8 @@ L’exemple suivant montre comment créer un conteneur dans un nouveau compte de
     ```azurecli
     az login
     ```
-    
-1. Spécifiez l’abonnement souhaité. Créez un groupe de ressources à l’aide de la commande [az group create](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create). Créez un compte de stockage au sein de ce groupe de ressources à l’aide de la commande [az storage account create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create) : 
+
+1. Spécifiez l’abonnement souhaité. Créez un groupe de ressources à l’aide de la commande [az group create](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create). Créez un compte de stockage au sein de ce groupe de ressources à l’aide de la commande [az storage account create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create) :
 
     ```azurecli
     az account set --subscription <subscription-id>
@@ -61,12 +61,12 @@ L’exemple suivant montre comment créer un conteneur dans un nouveau compte de
         --sku Standard_LRS \
         --encryption-services blob
     ```
-    
+
 1. Avant de créer le conteneur, attribuez-vous le rôle [Contributeur aux données Blob du stockage](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor). Même si vous êtes le propriétaire du compte, vous avez besoin d’autorisations explicites pour effectuer des opérations de données sur le compte de stockage. Pour plus d’informations sur l’attribution de rôles RBAC, consultez [Octroyer l’accès aux données blob et de file d’attente Azure avec RBAC dans le Portail Azure](storage-auth-aad-rbac.md).
 
     > [!IMPORTANT]
     > La propagation des attributions de rôles RBAC peut prendre plusieurs minutes.
-    
+
 1. Appelez la commande [az storage container create](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create) avec le paramètre `--auth-mode` défini sur `login` pour créer le conteneur à l’aide de vos informations d’identification Azure AD :
 
     ```azurecli
@@ -91,7 +91,7 @@ L’exemple suivant montre comment créer un conteneur dans un nouveau compte de
     ```powershell
     Connect-AzAccount
     ```
-    
+
 1. Créez un groupe de ressources Azure en appelant [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). 
 
     ```powershell

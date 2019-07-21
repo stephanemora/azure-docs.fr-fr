@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd44dda06b2f6fc48538f2fb74c0bf8e04d0362b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3624f4e859081e53ee27b6f8415eb3f9b5a2a5fa
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65074634"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67785459"
 ---
 # <a name="web-app-that-calls-web-apis---call-a-web-api"></a>Application web qui appelle des API web - Appeler une API web
 
@@ -28,7 +28,18 @@ Maintenant que vous avez un jeton, vous pouvez appeler une API web protégée.
 
 ## <a name="aspnet-core"></a>ASP.NET Core
 
-Voici un code simplifié de l’action de `HomeController`. Ce code obtient un jeton pour appeler Microsoft Graph. Ce code de temps a été ajouté, montrant comment appeler Microsoft Graph comme une API REST.
+Voici un code simplifié de l’action de `HomeController`. Ce code obtient un jeton pour appeler Microsoft Graph. Ce code de temps a été ajouté, montrant comment appeler Microsoft Graph comme une API REST. L’URL de l’API Graph est fournie dans le fichier `appsettings.json` et lit une variable nommée `webOptions` :
+
+```JSon
+{
+  "AzureAd": {
+    "Instance": "https://login.microsoftonline.com/",
+    ...
+  },
+  ...
+  "GraphApiUrl": "https://graph.microsoft.com"
+}
+```
 
 ```CSharp
 public async Task<IActionResult> Profile()

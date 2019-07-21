@@ -16,19 +16,18 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e9b043b27f624a3d9f38fb2299f9e49f0ffedda
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 037e005993a54e525560571a6d893197af99b6a0
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65783434"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807776"
 ---
 # <a name="access-your-on-premises-applications-through-microsoft-teams"></a>Accéder aux applications locales via Microsoft Teams
 
-Le proxy d’application Azure Active Directory vous donne une authentification unique auprès des applications locales, où que vous soyez. Microsoft Teams rationalise vos efforts de collaboration à un seul emplacement. L’intégration de ces deux éléments signifie que vos utilisateurs peuvent être productifs avec leurs coéquipiers quelle que soit la situation. 
+Le proxy d’application Azure Active Directory vous donne une authentification unique auprès des applications locales, où que vous soyez. Microsoft Teams rationalise vos efforts de collaboration à un seul emplacement. L’intégration de ces deux éléments signifie que vos utilisateurs peuvent être productifs avec leurs coéquipiers quelle que soit la situation.
 
 Vos utilisateurs peuvent ajouter des applications cloud à leurs canaux Teams [en utilisant des onglets](https://support.office.com/article/Video-Using-Tabs-7350a03e-017a-4a00-a6ae-1c9fe8c497b3?ui=en-US&rs=en-US&ad=US), mais que se passe-t-il si les sites SharePoint ou l’outil de planification sont hébergés localement ? Le proxy d’application est la solution. Ils peuvent ajouter les applications publiées via le proxy d’application à leurs canaux en utilisant les mêmes URL externes qu’ils utilisent toujours pour accéder à leurs applications à distance. Et, comme le proxy d’application s’authentifie via Azure Active Directory, les utilisateurs obtiennent une expérience d’authentification unique.
-
 
 ## <a name="install-the-application-proxy-connector-and-publish-your-app"></a>Installer le connecteur du proxy d’application et publier votre application
 
@@ -42,19 +41,19 @@ Une fois que vous avez publié l’application via le proxy d’application, inf
 
 1. Accédez au canal Teams où vous souhaitez ajouter cette application et sélectionnez **+** pour ajouter un onglet.
 
-   ![Sélectionner Ajouter un onglet](./media/application-proxy-integrate-with-teams/add-tab.png)
+   ![Sélectionner + pour ajouter un onglet dans Teams](./media/application-proxy-integrate-with-teams/add-tab.png)
 
-2. Sélectionnez **Site web** parmi les options d’onglet.
+1. Sélectionnez **Site web** parmi les options d’onglet.
 
-   ![Ajouter un site web](./media/application-proxy-integrate-with-teams/website.png)
+   ![Sélectionner le site Web à partir de l'écran Ajouter un onglet](./media/application-proxy-integrate-with-teams/website.png)
 
-3. Donnez un nom à l’onglet et définissez l’URL sur l’URL externe du proxy d’application. 
+1. Donnez un nom à l’onglet et définissez l’URL sur l’URL externe du proxy d’application.
 
-   ![Configurer le nom et l’URL de l’onglet](./media/application-proxy-integrate-with-teams/tab-name-url.png)
+   ![Nommer l'onglet et ajouter une URL externe](./media/application-proxy-integrate-with-teams/tab-name-url.png)
 
-Une fois qu’un membre d’une équipe a ajouté l’onglet, celui-ci s’affiche pour tout le monde dans le canal. Tous les utilisateurs qui ont accès à l’application bénéficient de l’authentification unique avec les informations d’identification qu’ils utilisent pour Microsoft Teams. Les utilisateurs qui n’ont pas accès à l’application peuvent voir l’onglet dans Teams, mais sont bloqués jusqu’à ce que vous leur accordiez l’autorisation d’accéder à l’application locale et à la version de l’application publiée sur le portail Azure. 
+Une fois qu’un membre d’une équipe a ajouté l’onglet, celui-ci s’affiche pour tout le monde dans le canal. Tous les utilisateurs qui ont accès à l’application bénéficient de l’authentification unique avec les informations d’identification qu’ils utilisent pour Microsoft Teams. Les utilisateurs qui n’ont pas accès à l’application peuvent voir l’onglet dans Teams, mais sont bloqués jusqu’à ce que vous leur accordiez l’autorisation d’accéder à l’application locale et à la version de l’application publiée sur le portail Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Découvrez comment [publier des sites SharePoint locaux](application-proxy-integrate-with-sharepoint-server.md) avec le proxy d’application.
-- Configurez vos applications pour utiliser des [domaines personnalisés](application-proxy-configure-custom-domain.md) pour leur URL externe. 
+- Configurez vos applications pour utiliser des [domaines personnalisés](application-proxy-configure-custom-domain.md) pour leur URL externe.

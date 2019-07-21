@@ -4,7 +4,7 @@ description: Déployer une application dans Cloud Foundry sur Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: seanmck
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: ''
 keywords: ''
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/14/2017
 ms.author: seanmck
-ms.openlocfilehash: 5a43ce3f09ce9695fa5add58b52271a46e2a271a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fe510865e687b6a44538627e4ef9025b41416841
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60388481"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67668342"
 ---
 # <a name="deploy-your-first-app-to-cloud-foundry-on-microsoft-azure"></a>Déployer votre première application dans Cloud Foundry sur Microsoft Azure
 
@@ -31,7 +31,7 @@ ms.locfileid: "60388481"
 
 Il existe plusieurs façons de créer un environnement Cloud Foundry sur Azure :
 
-- Utilisez [l’offre Pivotal Cloud Foundry][pcf-azuremarketplace] disponible sur la Place de marché Microsoft Azure pour créer un environnement standard qui inclut PCF Ops Manager et Azure Service Broker. Vous trouverez des [instructions complètes][pcf-azuremarketplace-pivotaldocs] pour déployer l’offre de la Place de marché dans la documentation Pivotal.
+- Utilisez l'[offre Pivotal Cloud Foundry][pcf-azuremarketplace] in the Azure Marketplace to create a standard environment that includes PCF Ops Manager and the Azure Service Broker. You can find [complete instructions][pcf-azuremarketplace-pivotaldocs] pour déployer l’offre de la Place de marché dans la documentation Pivotal.
 - Créez un environnement personnalisé en [déployant manuellement Pivotal Cloud Foundry][pcf-custom].
 - [Déployez les packages open source Cloud Foundry directement][oss-cf-bosh] en configurant un directeur [BOSH](https://bosh.io) (une machine virtuelle qui coordonne le déploiement de l’environnement Cloud Foundry).
 
@@ -40,7 +40,7 @@ Il existe plusieurs façons de créer un environnement Cloud Foundry sur Azure 
 
 ## <a name="connect-to-the-cloud-controller"></a>Connexion au Cloud Controller
 
-Le Cloud Controller est le point d’entrée principal vers un environnement Cloud Foundry pour déployer et gérer des applications. L’API principale du Cloud Controller (CCAPI) est une API REST, mais elle est accessible par le biais de différents outils. Dans le cas présent, nous interagissons avec cette API par le biais de [l’interface CLI Cloud Foundry][cf-cli]. Vous pouvez installer l’interface CLI sur Linux, MacOS ou Windows, mais si vous préférez ne pas l’installer, elle est disponible en version pré-installée dans [Azure Cloud Shell][cloudshell-docs].
+Le Cloud Controller est le point d’entrée principal vers un environnement Cloud Foundry pour déployer et gérer des applications. L’API principale du Cloud Controller (CCAPI) est une API REST, mais elle est accessible par le biais de différents outils. Dans le cas présent, nous interagissons avec cette API par le biais de [l’interface CLI Cloud Foundry][cf-cli]. You can install the CLI on Linux, MacOS, or Windows, but if you'd prefer not to install it at all, it is available pre-installed in the [Azure Cloud Shell][cloudshell-docs].
 
 Pour vous connecter, ajoutez le préfixe `api` à l’URL SYSTEMDOMAINURL que vous avez obtenue à partir du déploiement de la Place de marché. Étant donné que le déploiement par défaut utilise un certificat auto-signé, vous devez également inclure le commutateur `skip-ssl-validation`.
 
@@ -73,7 +73,7 @@ cf target -o testorg -s dev
 Désormais, lorsque vous déployez une application, elle est automatiquement créée dans la nouvelle organisation et le nouvel espace. Pour vérifier qu’il n’existe actuellement aucune application dans la nouvelle organisation/le nouvel espace, tapez `cf apps` à nouveau.
 
 > [!NOTE] 
-> Pour plus d’informations sur les organisations et les espaces et sur la façon dont ils peuvent être utilisés pour le contrôle d’accès en fonction du rôle (RBAC, role-based access control), consultez la [documentation Cloud Foundry][cf-orgs-spaces-docs].
+> Pour plus d’informations sur les organisations et les espaces et la façon dont ils peuvent être utilisés pour le contrôle d’accès en fonction du rôle (RBAC, role-based access control), consultez la [documentation Cloud Foundry][cf-orgs-spaces-docs].
 
 ## <a name="deploy-an-application"></a>Déployer une application
 
@@ -113,7 +113,7 @@ Pour afficher l’application hello-spring-cloud, ouvrez l’URL fournie dans vo
 ![Interface utilisateur par défaut pour Hello Spring Cloud][hello-spring-cloud-basic]
 
 > [!NOTE] 
-> Pour plus d’informations sur les effets de la commande `cf push`, consultez [How Applications Are Staged][cf-push-docs] (Indexation des applications) dans la documentation Cloud Foundry.
+> Pour plus d’informations sur les effets de la commande `cf push`, consultez [Indexation des applications][cf-push-docs] dans la documentation Cloud Foundry.
 
 ## <a name="view-application-logs"></a>Affichage des journaux des applications
 
@@ -144,9 +144,9 @@ L’exécution de la commande `cf app` sur l’application montre que Cloud Foun
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Lisez la documentation Cloud Foundry][cloudfoundry-docs].
-- [Configurez le plug-in Azure DevOps Services pour Cloud Foundry][vsts-plugin]
-- [Configurez l’injecteur Microsoft Log Analytics pour Cloud Foundry][loganalytics-nozzle].
+- [Lire la documentation Cloud Foundry][cloudfoundry-docs]
+- [Configurer le plug-in Azure DevOps Services pour Cloud Foundry][vsts-plugin]
+- [Configurer l’injecteur Microsoft Log Analytics pour Cloud Foundry][loganalytics-nozzle]
 
 <!-- LINKS -->
 

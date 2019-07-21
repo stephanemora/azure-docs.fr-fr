@@ -2,17 +2,17 @@
 title: Contrôler les ressources de cluster avec RBAC et Azure AD dans Azure Kubernetes Service
 description: Découvrez comment utiliser l’appartenance de groupe Azure Active Directory pour restreindre l’accès aux ressources de cluster à l’aide du contrôle d’accès en fonction du rôle (RBAC) dans Azure Kubernetes Service (ACS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 04/16/2019
-ms.author: iainfou
-ms.openlocfilehash: e974c47d1dfb04f66b622c64a7143d00de87c4cb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: mlearned
+ms.openlocfilehash: fba54fd23fefbe0029b9a809b23568490f05b23e
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60467542"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67616165"
 ---
 # <a name="control-access-to-cluster-resources-using-role-based-access-control-and-azure-active-directory-identities-in-azure-kubernetes-service"></a>Contrôler l’accès aux ressources de cluster à l’aide du contrôle d’accès en fonction du rôle et des identités Azure Active Directory dans Azure Kubernetes Service
 
@@ -22,9 +22,9 @@ Cet article montre comment utiliser l’appartenance de groupe Azure AD pour con
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Cet article part du principe que vous disposez d’un cluster AKS existant activé avec l’intégration d’Azure AD. Si vous avez besoin d’un cluster AKS, voir [Intégrer Azure Active Directory avec AKS][azure-ad-aks-cli].
+Cet article part du principe que vous disposez d’un cluster AKS existant activé avec l’intégration d’Azure AD. Si vous avez besoin d’un cluster AKS, consultez [Intégrer Azure Active Directory à AKS][azure-ad-aks-cli].
 
-Azure CLI 2.0.61 ou version ultérieure doit être installé et configuré. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installer Azure CLI 2.0][install-azure-cli].
+L’interface de ligne de commande Azure (Azure CLI) version 2.0.61 ou une version ultérieure doit avoir été installée et configurée. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][install-azure-cli].
 
 ## <a name="create-demo-groups-in-azure-ad"></a>Créer des groupes de démonstration dans Azure AD
 
@@ -392,9 +392,9 @@ az ad group delete --group opssre
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur la sécurisation des clusters Kubernetes, voir [Options d’accès et d’identité pour Azure Kubernetes Service (AKS)][rbac-authorization].
+Pour plus d’informations sur la sécurisation des clusters Kubernetes, consultez [Options d’accès et d’identité pour Azure Kubernetes Service (AKS)][rbac-authorization].
 
-Pour découvrir les meilleures pratiques de contrôle des identités et des ressources, voir [Meilleurs pratiques relatives à l’authentification et à l’autorisation dans Azure Kubernetes Service (AKS)][operator-best-practices-identity].
+Pour découvrir les meilleures pratiques de contrôle des identités et des ressources, consultez [Meilleurs pratiques relatives à l’authentification et à l’autorisation dans Azure Kubernetes Service (AKS)][operator-best-practices-identity].
 
 <!-- LINKS - external -->
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create

@@ -9,33 +9,20 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: article
 ms.date: 12/07/2017
-ms.openlocfilehash: 2bcbf9d145d9b8b5a3c42893235906d24516405c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d36a2c6379a95cc67a55c2cc266ced94b4a0179a
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65792631"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672233"
 ---
 # <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics : Questions courantes
 
 Cet article répertorie les principales questions relatives à Microsoft Genomics. Pour plus d’informations sur le service Microsoft Genomics, voir [Qu’est-ce que Microsoft Genomics ?](overview-what-is-genomics.md). Pour plus d’informations sur la résolution des problèmes, consultez notre [Guide de résolution des problèmes](troubleshooting-guide-genomics.md). 
 
-## <a name="what-is-the-microsoft-genomics-service-gatk-4-promotion"></a>Qu'est-ce que la promotion GATK4 du service Microsoft Genomics ?
-Jusqu’au 30 juin 2019, le service Microsoft Genomics propose gratuitement 20 exécutions WGS avec GATK4. Pour bénéficier de cette offre, inscrivez-vous [ici](https://aka.ms/msgatk4). 
 
-### <a name="what-are-the-common-issues-i-might-encounter-while-running-the-microsoft-genomics-service-gatk4-promotion"></a>Quels sont les problèmes que je suis susceptible de rencontrer lors de l'exécution de la promotion GATK4 du service Microsoft Genomics ?
-Voici la liste des principales erreurs que vous pouvez rencontrer et leur résolution recommandée :
-
-| **Message**                                                                                                                                                                                    | **Cause**                                                                                                    | **Résolution :**                                                                                                                                                                                                       |
-|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `gatk4-promo` n'est pas activée pour votre compte. Pour plus d’informations, consultez https://docs.microsoft.com/azure/genomics/frequently-asked-questions-genomics                               | Vous essayez d'exécuter des flux de travail GATK4 avec le service Microsoft Genomics sans être activé.       | Rendez-vous [ici](https://aka.ms/msgatk4) pour activer votre compte. Notez que l’essai gratuit prend fin le 30 juin 2019. Passé cette date, vous ne pourrez plus activer les exécutions promotionnelles sur votre compte. |
-| Merci d'avoir essayé `gatk4-promo`. Votre période d'essai est terminée. Pour plus d'informations, https://docs.microsoft.com/azure/genomics/frequently-asked-questions-genomics                  | L'essai gratuit de GATK4 a expiré à la fin de l'année civile, et vous essayez d'appeler `gatk4-promo` process_name.  | Remplacez le paramètre process_name par `gatk4`, au lieu de `gatk4-promo`. Ceci est la version officielle de GATK4. Si vous utilisez ce paramètre, votre flux de travail sera facturé.                                         |
-| Merci d'avoir essayé `gatk4-promo`. Vous avez utilisé toutes les exécutions allouées. Pour plus d’informations, consultez https://docs.microsoft.com/azure/genomics/frequently-asked-questions-genomics | Vous avez soumis avec succès vos 20 exécutions promotionnelles pour GATK4.                               | Soumettez les éventuelles nouvelles exécutions de GATK4 avec l'argument process_name défini sur `gatk4` au lieu de `gatk4-promo`. Si vous utilisez ce paramètre, votre flux de travail sera facturé.                                                          |        
-
-
-## <a name="can-i-run-gatk4-workflows-on-microsoft-genomics-without-signing-up-for-the-gatk4-promotion"></a>Puis-je exécuter des flux de travail GATK4 sur Microsoft Genomics sans m'inscrire à la promotion GATK4 ?
-Oui, dans le fichier config.txt du service Microsoft Genomics, définissez l'argument process_name sur `gatk4`. Notez que vous serez facturé au tarif standard et que les 20 exécutions gratuites ne s'appliqueront pas à votre compte Microsoft Genomics.
-
+## <a name="how-do-i-run-gatk4-workflows-on-microsoft-genomics"></a>Comment exécuter des flux de travail GATK4 sur Microsoft Genomics ?
+Dans le fichier config.txt du service Microsoft Genomics, définissez l'argument process_name sur `gatk4`. Notez que vous serez facturé au tarif standard.
 
 
 ## <a name="what-is-the-sla-for-microsoft-genomics"></a>Quel contrat de niveau de service utiliser pour Microsoft Genomics ?

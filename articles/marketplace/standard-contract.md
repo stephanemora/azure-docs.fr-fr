@@ -5,14 +5,14 @@ services: Azure, Marketplace, Compute, Storage, Networking
 author: qianw211
 ms.service: marketplace
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 07/05/2019
 ms.author: ellacroi
-ms.openlocfilehash: 13f1fb79babf98673c49c417576f16d6d106f2d2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 80c157423572d356026f257e81d52650ce01d3e8
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64937766"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620364"
 ---
 # <a name="standard-contract"></a>Contrat standard
 
@@ -24,5 +24,35 @@ Les termes et conditions des offres sont définies sous l’onglet Place de marc
 
 >[!Note] 
 >Si vous choisissez d’utiliser le contrat Standard, d’autres conditions générales sont encore nécessaires pour le [canal CSP](./cloud-solution-providers.md).
+
+## <a name="standard-contract-amendments"></a>Contrat Standard | Modifications
+
+Les modifications de contrat Standard permettent aux éditeurs de sélectionner le contrat Standard par souci de simplicité, et avec des conditions personnalisées pour leur produit ou entreprise.  Les clients sont invités à examiner les modifications apportées au contrat, puis à accepter le contrat Standard de Microsoft.
+
+Deux types de modifications sont proposées aux éditeurs de la Place de marché Azure :
+
+* Modifications universelles : Ces modifications sont appliquées de manière universelle au contrat Standard de tous les clients. Les modifications universelles s'affichent pour chaque client du produit dans le flux d’achat.
+
+![Modifications universelles](media/marketplace-publishers-guide/universal-amendaments.png)
+
+* Modifications personnalisées : La Place de marché Azure propose également des modifications personnalisées destinées aux locataires. Il s'agit de modifications spéciales apportées au contrat Standard qui ciblent certains clients uniquement. Les éditeurs peuvent choisir le locataire qu'ils souhaitent cibler. Les clients de ce locataire achètent le produit selon les conditions du contrat Standard et les modifications ciblées.
+
+![Modifications personnalisées](media/marketplace-publishers-guide/custom-amendaments.png)
+
+>[!Note] 
+>Les clients ciblés par les modifications personnalisées reçoivent aussi la modification universelle apportée aux conditions standard lors de l'achat.
+
+>[!Note]
+>Les types d’offres suivants prennent en charge les modifications du contrat Standard : applications Azure (modèles de solution et applications managées), machines virtuelles, conteneurs, applications de conteneur.
+
+### <a name="customer-experience"></a>Expérience client
+
+Lors du processus d’achat sur le portail Azure, les clients peuvent voir les conditions du contrat associé au produit en tant que contrat Standard de Microsoft, ainsi que les modifications.
+
+![Expérience client sur le portail Azure.](media/marketplace-publishers-guide/ibiza-customer-experience.png)
+
+### <a name="api"></a>API
+
+Les clients peuvent utiliser `Get-AzureRmMarketplaceTerms` pour récupérer les conditions d’une offre et l’accepter. Le contrat Standard et les modifications qui s'y rapportent sont renvoyés dans la sortie de la cmdlet.
 
 ---

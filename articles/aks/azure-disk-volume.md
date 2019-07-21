@@ -2,32 +2,32 @@
 title: Créer un volume statique pour des pods sur Azure Kubernetes Service (AKS)
 description: Découvrez comment créer manuellement un volume avec des disques Azure pour une utilisation avec un pod sur Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 03/01/2019
-ms.author: iainfou
-ms.openlocfilehash: b166f70186b063782fb2c2245e351d6dfca6f978
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: 9017c8cf721fbb9c493dc18da769b9d6e83ddf05
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65072153"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67616135"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Créer manuellement et utiliser un volume avec des disques Azure sur Azure Kubernetes Service (AKS)
 
 Les applications basées sur des conteneurs doivent souvent consulter et conserver des données dans un volume de données externe. Si un pod unique a besoin d’accéder au stockage, vous pouvez utiliser des disques Azure pour présenter un volume natif pour une utilisation de l’application. Cet article vous montre comment créer manuellement un disque Azure et comment l’attacher à un pod sur AKS.
 
 > [!NOTE]
-> Un disque Azure ne peut être monté que sur un pod unique à la fois. Si vous avez besoin de partager un volume persistant entre plusieurs pods, utilisez [Azure Files][azure-files-volume].
+> Un disque Azure ne peut être monté que sur un pod unique à la fois. S'il vous faut partager un volume persistant entre plusieurs pods, utilisez [Azure Files][azure-files-volume].
 
 Pour plus d’informations sur les volumes Kubernetes, consultez [Options de stockage pour les applications dans AKS][concepts-storage].
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Cet article suppose que vous avez un cluster AKS existant. Si vous avez besoin d’un cluster AKS, consultez le guide de démarrage rapide d’AKS [avec Azure CLI][aks-quickstart-cli] ou [avec le portail Azure][aks-quickstart-portal].
+Cet article suppose que vous avez un cluster AKS existant. Si vous avez besoin d’un cluster AKS, consultez le guide de démarrage rapide d’AKS [avec Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
-Azure CLI 2.0.59 (ou une version ultérieure) doit également être installé et configuré. Exécutez  `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez  [Installation d’Azure CLI 2.0][install-azure-cli].
+Azure CLI 2.0.59 (ou une version ultérieure) doit également être installé et configuré. Exécutez  `az --version` pour trouver la version. Si vous devez installer ou mettre votre version à niveau, consultez  [Installation d’Azure CLI][install-azure-cli].
 
 ## <a name="create-an-azure-disk"></a>Créer un disque Azure
 
@@ -52,7 +52,7 @@ az disk create \
 ```
 
 > [!NOTE]
-> Les disques Azure sont facturés par référence (SKU) pour une taille donnée. Ces références SKU vont de 32 Gio pour les disques S4 ou P4 à 32 Tio pour les disques S80 ou P80 (en préversion). Le débit et les performances d’E/S d’un disque managé Premium dépendent à la fois de la référence SKU et de la taille d’instance des nœuds dans le cluster AKS. Consultez [Tarification et performances de la fonctionnalité Disques managés][managed-disk-pricing-performance].
+> Les disques Azure sont facturés par référence (SKU) pour une taille donnée. Ces références SKU vont de 32 Gio pour les disques S4 ou P4 à 32 Tio pour les disques S80 ou P80 (en préversion). Le débit et les performances d’E/S d’un disque managé Premium dépendent à la fois de la référence SKU et de la taille d’instance des nœuds dans le cluster AKS. Consultez [Tarification et niveau de performance des disques managés][managed-disk-pricing-performance].
 
 L’ID de ressource de disque s’affiche une fois la commande complétée avec succès, comme illustré dans l’exemple de sortie suivant. Cet ID de disque est utilisé pour monter le disque à l’étape suivante.
 
@@ -128,7 +128,7 @@ Events:
 
 Pour connaître les meilleures pratiques associées, consultez [Meilleures pratiques relatives au stockage et aux sauvegardes dans Azure Kubernetes Service (AKS)][operator-best-practices-storage].
 
-Pour plus d’informations à propos de l’interaction entre les clusters AKS et les disques Azure, consultez le [Plug-in Kubernetes pour les disques Azure][kubernetes-disks].
+Pour plus d’informations sur l’interaction des clusters AKS avec les disques Azure, consultez le [Plug-in Kubernetes pour les disques Azure][kubernetes-disks].
 
 <!-- LINKS - external -->
 [kubernetes-disks]: https://github.com/kubernetes/examples/blob/master/staging/volumes/azure_disk/README.md

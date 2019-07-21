@@ -4,7 +4,7 @@ description: Guide de configuration de haute disponibilité pour SAP NetWeaver m
 services: virtual-machines-windows, virtual-network, storage
 documentationcenter: saponazure
 author: goraco
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fe9b70d74e326166afae366becc47fbcc8b2ea56
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fddb0f7cceea167885f56cf6ff5e8639bec1d937
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66120263"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67710349"
 ---
 # <a name="create-an-sap-netweaver-multi-sid-configuration"></a>Créer une configuration SAP NetWeaver multi-SID
 
@@ -242,12 +242,12 @@ Le processus complet d’installation d’un deuxième système SAP SID2 est dé
 
 La procédure détaillée est la suivante :
 
-1. [Installez le premier nœud de cluster SAP][sap-ha-guide-9.1.2].  
+1. [Installer le premier nœud de cluster SAP][sap-ha-guide-9.1.2].  
  Dans cette étape, vous installez SAP avec une instance ASCS/SCS à haute disponibilité sur le **nœud de cluster WSFC existant 1**.
 
-2. [Modifiez le profil SAP de l’instance ASCS/SCS][sap-ha-guide-9.1.3].
+2. [Modifier le profil SAP de l’instance ASCS/SCS][sap-ha-guide-9.1.3].
 
-3. [Configurez un port de sonde][sap-ha-guide-9.1.4].  
+3. [Configurer un port de sonde][sap-ha-guide-9.1.4].  
  Dans cette étape, vous configurez le port de sonde SAP-SID2-IP d’une ressource de cluster SAP à l’aide de PowerShell. Exécutez cette configuration sur un des nœuds de cluster SAP ASCS/SCS.
 
 4. [Installer l’instance de base de données][sap-ha-guide-9.2].  
@@ -271,5 +271,5 @@ La procédure détaillée est la suivante :
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Limites de mise en réseau : Azure Resource Manager][networking-limits-azure-resource-manager]
-- [Adresses IP virtuelles multiples pour l’équilibrage de charge Azure][load-balancer-multivip-overview]
+- [Adresses IP virtuelles multiples pour Azure Load Balancer][load-balancer-multivip-overview]
 - [Guide de haute disponibilité SAP NetWeaver sur des machines virtuelles Windows][sap-ha-guide]

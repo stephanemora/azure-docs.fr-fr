@@ -2,17 +2,17 @@
 title: Adresse IP statique pour le trafic de sortie dans Azure Kubernetes Service (ACS)
 description: Découvrez comment créer et utiliser une adresse IP publique statique pour le trafic de sortie dans un cluster Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.author: iainfou
-ms.openlocfilehash: 6612d801804cdd1e092b50977230f24b378e64ba
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: mlearned
+ms.openlocfilehash: 094a696a12025dcfd575ce3f035b12b4a04aba10
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60466424"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67615569"
 ---
 # <a name="use-a-static-public-ip-address-for-egress-traffic-in-azure-kubernetes-service-aks"></a>Utiliser une adresse IP publique statique pour le trafic de sortie dans Azure Kubernetes Service (AKS)
 
@@ -22,9 +22,9 @@ Cet article vous montre comment créer et utiliser une adresse IP publique stati
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Cet article suppose que vous avez un cluster AKS existant. Si vous avez besoin d’un cluster AKS, consultez le guide de démarrage rapide d’AKS [avec Azure CLI][aks-quickstart-cli] ou [avec le portail Azure][aks-quickstart-portal].
+Cet article suppose que vous avez un cluster AKS existant. Si vous avez besoin d’un cluster AKS, consultez le guide de démarrage rapide d’AKS [avec Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
-Azure CLI 2.0.59 ou version ultérieure doit également être installé et configuré. Exécutez  `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez  [Installation d’Azure CLI 2.0][install-azure-cli].
+Azure CLI 2.0.59 (ou une version ultérieure) doit également être installé et configuré. Exécutez  `az --version` pour trouver la version. Si vous devez installer ou mettre votre version à niveau, consultez  [Installation d’Azure CLI][install-azure-cli].
 
 ## <a name="egress-traffic-overview"></a>Vue d’ensemble du trafic de sortie
 

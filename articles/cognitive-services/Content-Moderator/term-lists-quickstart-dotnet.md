@@ -7,17 +7,17 @@ author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: quickstart
-ms.date: 10/10/2018
+ms.topic: conceptual
+ms.date: 07/03/2019
 ms.author: sajagtap
-ms.openlocfilehash: da8ad71ccf8b58ddf3ef7cc6a2f9e9c732913caa
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 0ab11d8ef9fd481d2b3ea7029664a1ec2778cf4b
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55858397"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604085"
 ---
-# <a name="quickstart-check-text-against-a-custom-term-list-in-c"></a>Démarrage rapide : Vérifier du texte par rapport à une liste de termes personnalisée en C#
+# <a name="check-text-against-a-custom-term-list-in-c"></a>Vérifier du texte par rapport à une liste de termes personnalisée en C#
 
 La liste générale de termes par défaut d’Azure Content Moderator est suffisante pour la plupart des besoins de modération de contenu. Toutefois, vous devrez probablement rechercher des termes spécifiques à votre organisation. Par exemple, vous voudrez peut-être identifier les noms de concurrents pour un examen approfondi. 
 
@@ -373,7 +373,7 @@ static void DeleteTermList (ContentModeratorClient client, string list_id)
 }
 ```
 
-## <a name="putting-it-all-together"></a>Exemple complet
+## <a name="compose-the-main-method"></a>Composer la méthode Main
 
 Ajoutez la définition de méthode **Main** à la classe **Program** de l’espace de noms **TermLists**. Pour finir, fermez la classe **Program** et l’espace de noms **TermLists**.
 
@@ -415,9 +415,9 @@ static void Main(string[] args)
 
 ## <a name="run-the-application-to-see-the-output"></a>Exécuter l’application pour voir la sortie
 
-Votre sortie ressemblera à ce qui suit, mais les données peuvent varier.
+La sortie de votre console se présente comme suit :
 
-```
+```console
 Creating term list.
 Term list created. ID: 252.
 Updating information for term list with ID 252.

@@ -7,21 +7,21 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: danlep
-ms.openlocfilehash: 3c1c83bb0c3e46a7eaab519050d9c556e2cc1a7a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2be640c8c7773ebd1fb5c83e67e3f0762d011e85
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60563084"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657572"
 ---
 # <a name="mount-a-secret-volume-in-azure-container-instances"></a>Monter un volume secret dans Azure Container Instances
 
 Vous pouvez utiliser un volume *secret* pour fournir des informations sensibles aux conteneurs d’un groupe de conteneurs. Le volume *secret* stocke vos secrets spécifiés dans les fichiers du volume, auxquels les conteneurs de votre groupe de conteneurs peuvent accéder. En stockant les secrets d’un volume *secret*, vous pouvez éviter de placer des données sensibles telles que des clés SSH ou des informations d’identification sur une base de données dans votre code d’application.
 
-Tous les volumes *secrets* sont sauvegardés par [tmpfs][tmpfs], un système de fichiers reposant sur la RAM ; leur contenu n’est jamais écrit sur un stockage non volatile.
+Tous les volumes *secrets* sont sauvegardés par [tmpfs][tmpfs], un système de fichiers reposant sur la RAM ; leur contenu n’est jamais écrit sur un stockage non volatile.
 
 > [!NOTE]
-> Les volumes *secrets* sont actuellement restreints aux conteneurs Linux. Découvrez comment transmettre des variables d’environnement sécurisées pour les conteneurs Windows et Linux dans [Définir des variables d’environnement](container-instances-environment-variables.md). Nous travaillons actuellement à proposer toutes les fonctionnalités dans les conteneurs Windows. En attendant, vous retrouverez les différences actuelles entre les plateformes dans [Disponibilité des régions et quotas d’Azure Container Instances](container-instances-quotas.md).
+> Les volumes *secrets* sont actuellement restreints aux conteneurs Linux. Découvrez comment transmettre des variables d’environnement sécurisées pour les conteneurs Windows et Linux dans [Définir des variables d’environnement](container-instances-environment-variables.md). Nous travaillons actuellement à proposer toutes ces fonctionnalités dans des conteneurs Windows. En attendant, nous vous invitons à découvrir les différences actuelles de la plateforme dans la [Vue d’ensemble](container-instances-overview.md#linux-and-windows-containers).
 
 ## <a name="mount-secret-volume---azure-cli"></a>Monter un volume secret : Azure CLI
 
@@ -60,7 +60,7 @@ Lorsque vous déployez avec un modèle YAML, les valeurs de secret doivent être
 Le modèle YAML suivant définit un groupe de conteneurs avec un seul conteneur montant un volume *secret* sur `/mnt/secrets`. Le volume secret possède deux secrets, « mysecret1 » et « mysecret2 ».
 
 ```yaml
-apiVersion: '2018-06-01'
+apiVersion: '2018-10-01'
 location: eastus
 name: secret-volume-demo
 properties:
@@ -88,7 +88,7 @@ tags: {}
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-Pour déployer grâce au modèle YAML, enregistrez le YAML précédent dans un fichier nommé `deploy-aci.yaml`, puis exécutez la commande [az container create][az-container-create] avec le paramètre `--file` :
+Pour effectuer un déploiement avec le modèle YAML, enregistrez le YAML précédent dans un fichier nommé `deploy-aci.yaml`, puis exécutez la commande [az container create][az-container-create] avec le paramètre `--file` :
 
 ```azurecli-interactive
 # Deploy with YAML template
@@ -108,7 +108,7 @@ Le modèle Resource Manager suivant définit un groupe de conteneurs avec un con
 <!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-secret.json -->
 [!code-json[volume-secret](~/azure-docs-json-samples/container-instances/aci-deploy-volume-secret.json)]
 
-Pour déployer grâce au modèle Resource Manager, enregistrez le JSON précédent dans un fichier nommé `deploy-aci.json`, puis exécutez la commande [az container create][az-group-deployment-create] avec le paramètre `--template-file` :
+Pour effectuer un déploiement avec le modèle Resource Manager, enregistrez le JSON précédent dans un fichier nommé `deploy-aci.json`, puis exécutez la commande [az container create][az-group-deployment-create] avec le paramètre `--template-file` :
 
 ```azurecli-interactive
 # Deploy with Resource Manager template
