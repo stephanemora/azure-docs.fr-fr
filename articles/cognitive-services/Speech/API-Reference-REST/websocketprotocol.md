@@ -508,10 +508,10 @@ La métrique `Connection` spécifie des détails sur les tentatives de connexion
 
 | Champ | Description | Usage |
 | ----- | ----------- | ----- |
-| Nom | `Connection` | Obligatoire |
-| ID | Valeur d’identificateur de connexion qui a été utilisée dans l’en-tête *X-ConnectionId* pour cette demande de connexion | Obligatoire |
-| Démarrer | Heure à laquelle le client a envoyé la demande de connexion | Obligatoire |
-| Terminer | Heure à laquelle le client a reçu la notification selon laquelle la connexion a été établie ou, en cas d’erreur, heure de son rejet, refus ou échec | Obligatoire |
+| Name | `Connection` | Obligatoire |
+| Id | Valeur d’identificateur de connexion qui a été utilisée dans l’en-tête *X-ConnectionId* pour cette demande de connexion | Obligatoire |
+| Start | Heure à laquelle le client a envoyé la demande de connexion | Obligatoire |
+| End | Heure à laquelle le client a reçu la notification selon laquelle la connexion a été établie ou, en cas d’erreur, heure de son rejet, refus ou échec | Obligatoire |
 | Error | Description de l’erreur qui s’est produite, le cas échéant. Si la connexion a réussi, les clients doivent omettre ce champ. La longueur maximale de ce champ est de 50 caractères. | Obligatoire pour les cas d’erreur, omis sinon |
 
 La description de l’erreur ne doit pas dépasser 50 caractères et doit idéalement être une des valeurs répertoriées dans le tableau suivant. Si la condition d’erreur ne correspond pas à une des valeurs suivantes, les clients peuvent utiliser une description succincte de la condition d’erreur en recourant à la [technique du camel case](https://en.wikipedia.org/wiki/Camel_case) sans espace blanc. L’envoi d’un message de *télémétrie* supposant une connexion au service, seules les conditions d’erreur passagères ou temporaires peuvent être signalées dans ce message. Les conditions d’erreur qui empêchent *définitivement* un client d’établir une connexion au service l’empêche d’envoyer un message au service, y compris les messages de *télémétrie*.
