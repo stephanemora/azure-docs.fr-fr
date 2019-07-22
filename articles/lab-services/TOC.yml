@@ -56,8 +56,6 @@
           href: best-practices-distributive-collaborative-development-environment.md
         - name: Intégration avec Azure DevOps
           href: devtest-lab-dev-ops.md
-        - name: Utiliser les fonctionnalités de revendication
-          href: devtest-lab-use-claim-capabilities.md
         - name: Scénarios
           items:
             - name: Scénarios courants d’utilisation de DevTest Labs
@@ -68,6 +66,8 @@
               href: devtest-lab-test-env.md
             - name: Utiliser des laboratoires à des fins de formation
               href: devtest-lab-training-lab.md
+            - name: Scénarios d’utilisation de machines virtuelles revendicables
+              href: devtest-lab-use-claim-capabilities.md
 - name: Guides pratiques
   items:
     - name: Laboratoires de salle de classe
@@ -158,11 +158,11 @@
           items:
             - name: Créer une machine virtuelle - Portail Azure
               href: devtest-lab-add-vm.md
-            - name: Créer une machine virtuelle avec Azure PowerShell
+            - name: Créer une machine virtuelle - Azure PowerShell
               href: devtest-lab-vm-powershell.md
-            - name: Créer et gérer des machines virtuelles avec Azure CLI
+            - name: Créer une machine virtuelle - Azure CLI
               href: devtest-lab-vmcli.md
-            - name: Créer une machine virtuelle à partir d’un modèle Resource Manager
+            - name: Créer une machine virtuelle - Modèle Resource Manager
               href: devtest-lab-use-resource-manager-template.md
             - name: Démarrer ou arrêter une machine virtuelle avec PowerShell ou CLI
               href: use-command-line-start-stop-virtual-machines.md
@@ -172,6 +172,8 @@
               href: devtest-lab-resize-vm.md
             - name: Redéploiement d’une machine virtuelle
               href: devtest-lab-redeploy-vm.md
+            - name: Configurer l’arrêt automatique d’une machine virtuelle
+              href: devtest-lab-auto-shutdown-vm.md
             - name: Créer et gérer des machines virtuelles revendicables
               href: devtest-lab-add-claimable-vm.md
             - name: Configurer des secrets
@@ -210,9 +212,9 @@
               items:
                 - name: Créer une image personnalisée à partir d’une machine virtuelle
                   href: devtest-lab-create-custom-image-from-vm-using-portal.md
-                - name: Créer une image personnalisée à partir d’un disque dur virtuel à l’aide du portail Azure
+                - name: Créer une image personnalisée à partir d’un disque dur virtuel - Portail Azure
                   href: devtest-lab-create-template.md
-                - name: Créer une image personnalisée à partir d’un disque dur virtuel à l’aide de PowerShell
+                - name: Créer une image personnalisée à partir d’un disque dur virtuel - PowerShell
                   href: devtest-lab-create-custom-image-from-vhd-using-powershell.md
                 - name: Charger un fichier de disque dur virtuel à l’aide d’AzCopy
                   href: devtest-lab-upload-vhd-using-azcopy.md

@@ -217,8 +217,8 @@
         - name: Entraîner automatiquement un modèle de prévision
           displayName: time series
           href: how-to-auto-train-forecast.md
-        - name: Afficher des métriques de précision
-          href: how-to-understand-accuracy-metrics.md
+        - name: Comprendre les graphiques et les métriques
+          href: how-to-understand-automated-ml.md
     - name: Déployer et traiter des modèles
       items:
         - name: Où et comment déployer
