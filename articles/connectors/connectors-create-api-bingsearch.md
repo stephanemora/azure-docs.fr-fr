@@ -55,10 +55,10 @@ Ou bien, si votre connexion existe déjà, fournissez les informations nécessai
 
    | Propriété | Obligatoire | Value | Description |
    |----------|----------|-------|-------------|
-   | Requête de recherche | OUI | <*search-words*> | Entrez les mots clés de recherche à utiliser. |
-   | Marché | OUI | <*locale*> | Les paramètres régionaux de recherche. La valeur par défaut est « en-US », mais vous pouvez sélectionner une autre valeur. |
-   | Recherche sécurisée | OUI | <*search-level*> | Le niveau de filtre d’exclusion du contenu pour adultes. La valeur par défaut est « Modéré », mais vous pouvez sélectionner un autre niveau. |
-   | Nombre | Non | <*results-count*> | Retourne le nombre spécifié de résultats. La valeur par défaut est 20, mais vous pouvez spécifier une autre valeur. Le nombre réel de résultats retournés peut être inférieur au nombre spécifié. |
+   | Search Query | OUI | <*search-words*> | Entrez les mots clés de recherche à utiliser. |
+   | Market | OUI | <*locale*> | Les paramètres régionaux de recherche. La valeur par défaut est « en-US », mais vous pouvez sélectionner une autre valeur. |
+   | Safe Search | OUI | <*search-level*> | Le niveau de filtre d’exclusion du contenu pour adultes. La valeur par défaut est « Modéré », mais vous pouvez sélectionner un autre niveau. |
+   | Count | Non | <*results-count*> | Retourne le nombre spécifié de résultats. La valeur par défaut est 20, mais vous pouvez spécifier une autre valeur. Le nombre réel de résultats retournés peut être inférieur au nombre spécifié. |
    | Offset | Non | <*skip-value*> | Le nombre de résultats à ignorer avant de retourner les résultats |
    |||||
 
