@@ -78,7 +78,7 @@ Content-Length: 0
 
 Les informations d’en-tête suivantes sont requises pour l’accès au moyen d’un jeton.
 
-| Nom | Format | Description |
+| Name | Format | Description |
 |----|----|----|
 | Ocp-Apim-Subscription-Key | ASCII | Votre clé d’abonnement |
 
@@ -548,9 +548,9 @@ La valeur d’heure *End* de la métrique `Microphone` enregistre l’heure à l
 
 | Champ | Description | Usage |
 | ----- | ----------- | ----- |
-| Nom | Microphone | Obligatoire |
-| Démarrer | Heure à laquelle le client a commencé à utiliser l’entrée audio du microphone ou un autre flux audio ou a reçu un déclencheur du détecteur de mots clés | Obligatoire |
-| Terminer | Heure à laquelle le client a arrêté d’utiliser le microphone ou le flux audio | Obligatoire |
+| Name | Microphone | Obligatoire |
+| Start | Heure à laquelle le client a commencé à utiliser l’entrée audio du microphone ou un autre flux audio ou a reçu un déclencheur du détecteur de mots clés | Obligatoire |
+| End | Heure à laquelle le client a arrêté d’utiliser le microphone ou le flux audio | Obligatoire |
 | Error | Description de l’erreur qui s’est produite, le cas échéant. En cas d’échec des opérations de microphone, les clients doivent omettre ce champ. La longueur maximale de ce champ est de 50 caractères. | Obligatoire pour les cas d’erreur, omis sinon |
 
 ### <a name="metric-listeningtrigger"></a>Métrique `ListeningTrigger`
@@ -568,9 +568,9 @@ Appuyez-vous sur les exemples suivants pour enregistrer les valeurs d’heure *S
 
 | Champ | Description | Usage |
 | ----- | ----------- | ----- |
-| Nom | ListeningTrigger | Facultatif |
-| Démarrer | Heure à laquelle a démarré le déclencheur d’écoute du client | Obligatoire |
-| Terminer | Heure à laquelle a terminé le déclencheur d’écoute du client | Obligatoire |
+| Name | ListeningTrigger | Facultatif |
+| Start | Heure à laquelle a démarré le déclencheur d’écoute du client | Obligatoire |
+| End | Heure à laquelle a terminé le déclencheur d’écoute du client | Obligatoire |
 | Error | Description de l’erreur qui s’est produite, le cas échéant. Si l’opération du déclencheur a réussi, les clients doivent omettre ce champ. La longueur maximale de ce champ est de 50 caractères. | Obligatoire pour les cas d’erreur, omis sinon |
 
 #### <a name="sample-message"></a>Exemple de message

@@ -245,3 +245,5 @@
       href: 'https://docs.microsoft.com/azure/architecture/best-practices/api-design?toc=%2Fazure%2Fapi-management%2Ftoc.json'
     - name: Recommandations relatives à l’implémentation de l’API
       href: 'https://docs.microsoft.com/azure/architecture/best-practices/api-implementation?toc=%2Fazure%2Fapi-management%2Ftoc.json'
+    - name: Résoudre une erreur d’échec de mise à jour de noms d’hôte
+      href: api-management-troubleshoot-cannot-add-custom-domain.md

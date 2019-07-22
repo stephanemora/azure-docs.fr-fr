@@ -65,7 +65,7 @@ Tout d’abord, créez une fonction déclenchée via HTTP qui démarre une orche
 
     ![Choisir le modèle de starter HTTP](./media/quickstart-js-vscode/create-function-choose-template.png)
 
-3. Conservez le nom par défaut (`DurableFunctionsHttpStart`) et appuyez sur ****Entrée**, puis sélectionnez l’authentification **Anonyme**.
+3. Conservez le nom par défaut (`DurableFunctionsHttpStart`) et appuyez sur ** **Entrée**, puis sélectionnez l’authentification **Anonyme**.
 
     ![Choisir une authentification anonyme](./media/quickstart-js-vscode/create-function-anonymous-auth.png)
 

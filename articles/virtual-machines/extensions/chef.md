@@ -4,7 +4,7 @@ description: Déployez le client Chef sur une machine virtuelle à l’aide de l
 services: virtual-machines-linux
 documentationcenter: ''
 author: roiyz-msft
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: roiyz
-ms.openlocfilehash: 6bd3ea4e664523fe8014be40c51d573ed5158ecf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e72536cc6f9ec3b94016d16de8502e70bc7107aa
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60800267"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706082"
 ---
 # <a name="chef-vm-extension-for-linux-and-windows"></a>Extension de machine virtuelle Chef pour Linux et Windows
 
@@ -69,10 +69,10 @@ Le JSON suivant illustre le schéma de l’extension de machine virtuelle Chef. 
 ### <a name="core-property-values"></a>Valeurs de propriétés principales
 
 | Nom | Valeur/Exemple | Type de données
-| ---- | ---- | ---- 
+| ---- | ---- | ----
 | apiVersion | `2017-12-01` | string (date) |
-| publisher | `Chef.Bootstrap.WindowsAzure` | chaîne |
-| type | `LinuxChefClient` (Linux), `ChefClient` (Windows) | chaîne |
+| publisher | `Chef.Bootstrap.WindowsAzure` | string |
+| type | `LinuxChefClient` (Linux), `ChefClient` (Windows) | string |
 | typeHandlerVersion | `1210.12` | string (double) |
 
 ### <a name="settings"></a>Paramètres
@@ -80,14 +80,14 @@ Le JSON suivant illustre le schéma de l’extension de machine virtuelle Chef. 
 | Nom | Valeur/Exemple | Type de données | Requis ?
 | ---- | ---- | ---- | ----
 | settings/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | string (url) | O |
-| settings/bootstrap_options/validation_client_name | `myorg-validator` | chaîne | O |
-| settings/runlist | `recipe[mycookbook::default]` | chaîne | O |
+| settings/bootstrap_options/validation_client_name | `myorg-validator` | string | O |
+| settings/runlist | `recipe[mycookbook::default]` | string | O |
 
 ### <a name="protected-settings"></a>Paramètres protégés
 
 | Nom | Exemples | Type de données | Requis ?
 | ---- | ---- | ---- | ---- |
-| protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | chaîne | O |
+| protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | string | O |
 
 <!--
 ### Linux-specific settings
@@ -105,7 +105,7 @@ Le JSON suivant illustre le schéma de l’extension de machine virtuelle Chef. 
 
 Les extensions de machines virtuelles Azure peuvent être déployées avec des modèles Azure Resource Manager. Vous pouvez utiliser des modèles pour déployer une ou plusieurs machines virtuelles, installer le client Chef, vous connecter au serveur Chef et effectuer la configuration initiale sur le serveur, comme définie par [Run-list](https://docs.chef.io/run_lists.html)
 
-Un exemple de modèle Resource Manager qui inclut l’extension de machine virtuelle Chef est disponible dans la [galerie des guides de démarrage rapide Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/chef-json-parameters-linux-vm).
+Un exemple de modèle Resource Manager qui inclut l’extension de machine virtuelle Chef est disponible dans la [galerie de démarrage rapide Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/chef-json-parameters-linux-vm).
 
 La configuration JSON pour une extension de machine virtuelle peut être imbriquée à l’intérieur de la ressource de machine virtuelle ou placée à la racine ou au niveau supérieur d’un modèle de Resource Manager JSON. Le positionnement de la configuration JSON affecte la valeur du nom de la ressource et son type. Pour plus d’informations, consultez [Définition du nom et du type des ressources enfants](../../azure-resource-manager/resource-manager-template-child-resource.md).
 

@@ -4,7 +4,7 @@ description: Haute disponibilité multi-SID pour des instances SAP ASCS/SCS avec
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a840deb2349d952b1ef4faeab4ee860e6b0b99df
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 32905f6d505f83ead805550205df0daf6be501e5
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60651622"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67710113"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -463,8 +463,8 @@ Installez le système SGBD et les serveurs d’applications SAP comme décrit pr
 
 * [Installation d'une instance ASCS/SCS sur un cluster de basculement sans disques partagés][sap-official-ha-file-share-document] : Recommandations SAP officielles pour un partage de fichiers à haute disponibilité
 
-* [Espaces de stockage directs dans Windows Server 2016][s2d-in-win-2016]
+* [Espaces de stockage direct dans Windows Server 2016][s2d-in-win-2016]
 
-* [Vue d’ensemble des serveurs de fichiers évolutifs pour données d’applications][sofs-overview]
+* [Vue d’ensemble des serveurs de fichiers avec montée en puissance parallèle pour les données d’application][sofs-overview]
 
 * [Nouveautés du stockage dans Windows Server 2016][new-in-win-2016-storage]
