@@ -1,6 +1,6 @@
 ---
-title: Architecture de réseau de transit global WAN virtuel Azure | Microsoft Docs
-description: En savoir plus sur l’architecture de réseau global de transit pour le WAN virtuel
+title: Architecture du réseau de transit global Azure Virtual WAN | Microsoft Docs
+description: En savoir plus sur l’architecture du réseau de transit global pour Virtual WAN
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -9,102 +9,102 @@ ms.date: 05/20/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand global transit network architecture as it relates to Virtual WAN.
 ms.openlocfilehash: 114d11f98c6181a03f5ce52527b5e2efea468c42
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65965970"
 ---
-# <a name="global-transit-network-architecture-and-virtual-wan"></a>Architecture de réseau global de transit et WAN virtuel
+# <a name="global-transit-network-architecture-and-virtual-wan"></a>Architecture du réseau de transit global Virtual WAN
 
-Architecture de réseau global de transit est adoptée par les entreprises à consolider, connectez et contrôlez l’entreprise moderne orientée cloud empreinte informatique. Dans une entreprise moderne orientée sur le cloud, le trafic réseau n’a pas besoin être backhauled au siège social. Architecture de réseau global de transit est basé sur les concepts de mise en réseau familiers et de nouveaux concepts qui sont propres au cloud et les architectures basées sur le cloud.
+L’architecture du réseau de transit global est adoptée par les entreprises pour consolider, connecter et contrôler l’empreinte informatique de l’entreprise moderne tournée vers le cloud. Dans une entreprise moderne centrée sur le cloud, le trafic réseau n’a pas besoin d’être renvoyé au siège social. L’architecture du réseau de transit global est basée sur des concepts de mise en réseau familiers et de nouveaux concepts qui sont propres au cloud et aux architectures basées sur le cloud.
 
 ![architecture](./media/virtual-wan-global-transit-network-architecture/architecture2.png)
 
-**Figure 1 : Réseau de transit global avec WAN virtuel**
+**Figure 1 : Réseau de transit global avec Virtual WAN**
 
-Les entreprises modernes nécessitent une connectivité omniprésente entre hyper distributed applications, données et les utilisateurs sur le cloud et locales. WAN virtuel Azure permet une architecture de réseau global de transit en permettant la connectivité omniprésente, à tout entre des jeux distribués dans le monde entier de réseaux virtuels, sites, applications et utilisateurs. WAN virtuel Azure est un service géré par Microsoft. Tous les composants de mise en réseau que ce service est composé de sont hébergées et gérées par Microsoft. Pour plus d’informations sur le WAN virtuel, consultez le [présentation du WAN virtuel](virtual-wan-about.md) article.
+Les entreprises modernes ont besoin d’une connectivité omniprésente entre les applications hyper-distribuées, les données et les utilisateurs dans le cloud et en local. Azure Virtual WAN permet une architecture du réseau de transit global en fournissant une connectivité omniprésente, universelle, entre des ensembles de VNets, sites, applications et utilisateurs distribués mondialement. Azure Virtual WAN est un service managé par Microsoft. Tous les composants réseau qui composent ce service sont hébergés et managés par Microsoft. Pour plus d’informations sur Azure Virtual WAN, consultez [Vue d’ensemble d’Azure Virtual WAN](virtual-wan-about.md).
 
-Dans l’architecture WAN virtuel Azure, des régions Azure servent de concentrateurs à laquelle vous pouvez choisir de connecter vos branches. Une fois que les branches sont connectés, vous pouvez tirer parti à la dorsale principale d’Azure pour établir une branche à réseau virtuel et, éventuellement, connectivité de succursale à succursale.
+Dans l’architecture Virtual WAN d’Azure, les régions d’Azure servent de hubs auxquels vous pouvez choisir de connecter vos branches. Une fois les branches connectées, vous pouvez utiliser la dorsale principale d’Azure pour établir une connectivité de branche à réseau et, éventuellement, de branche à branche.
 
-Vous pouvez établir un WAN virtuel en créant un seul hub WAN virtuel dans la région qui a le plus grand nombre de rayons (branches, réseaux virtuels, les utilisateurs), puis en connectant les rayons situés dans d’autres régions au hub. Si rayons (spokes) est répartis géographiquement, vous pouvez également instancier des hubs régionaux et les hubs d’interconnexion. Les hubs font tous partie de la même WAN virtuel, mais ils peuvent être associées aux stratégies régionaux différents.
+Vous pouvez établir un WAN virtuel en créant un seul hub Virtual WAN dans la région qui possède le plus grand nombre de rayons (branches, VNets, utilisateurs), puis en connectant au hub les rayons qui sont dans d’autres régions. Si les rayons sont géographiquement distribués, vous pouvez aussi instancier des hubs régionaux et interconnecter les hubs. Les hubs font tous partie du même réseau WAN virtuel, mais ils peuvent être associés à des politiques régionales différentes.
 
-## <a name="hub"></a>Transit de hub-and-spoke
+## <a name="hub"></a>Transit de réseau en étoile
 
-L’architecture de réseau global de transit est basé sur un modèle classique connectivité hub-and-spoke où le réseau de nuage hébergé « hub » permet une connectivité transitive entre les points de terminaison qui peut être répartie sur différents types de « spokes ».
+L’architecture du réseau de transit global est basée sur un modèle classique de connectivité en étoile où le « hub » du réseau hébergé sur le cloud permet une connectivité transitive entre les terminaux qui peut être répartie sur différents types de « rayons ».
   
 Dans ce modèle, un rayon peut être :
 
-* Réseau virtuel (Vnet)
-* Site de succursale physique
+* Un réseau virtuel (VPN)
+* Site de branche physique
 * Utilisateur distant
 * Internet
 
-![diagramme de transit global hub- and -spoke](./media/virtual-wan-global-transit-network-architecture/architecture.png)
+![diagramme de transit global en étoile](./media/virtual-wan-global-transit-network-architecture/architecture.png)
 
-**Figure 2 : Hub-and-spoke**
+**Figure 2 : Réseau en étoile**
 
-Figure 2 montre la vue logique du réseau global dans lequel les utilisateurs géographiquement dispersés, des sites physiques et des réseaux virtuels sont interconnectés via un concentrateur réseau hébergé dans le cloud. Cette architecture permet une connectivité de transit d’un saut logiques entre les points de terminaison de mise en réseau. Les rayons sont connectés au concentrateur par différents services réseau Azure comme ExpressRoute ou site à site-VPN pour les succursales physiques, homologation de réseaux virtuels et des VPN de point-to-site pour les utilisateurs distants.
+La Figure 2 montre la vue logique du réseau global où les utilisateurs géographiquement répartis, les sites physiques et les VNets sont interconnectés via un hub réseau hébergé dans le cloud. Cette architecture permet une connectivité de transit à un seul tronçon logique entre les points de terminaison du réseau. Les rayons sont connectés au hub par différents services réseau Azure comme ExpressRoute ou un VPN de site à site pour les branches physiques, le VNet Peering pour les réseaux virtuels et les VPN de point à site pour les utilisateurs distants.
 
-## <a name="crossregion"></a>Connectivité dans plusieurs régions
+## <a name="crossregion"></a>Connectivité inter-régions
 
-Pour une entreprise, un encombrement du cloud suit généralement l’encombrement physique. La plupart des entreprises accéder au cloud à partir d’une région proche de leur site physique et les utilisateurs. Un des principaux de clé de l’architecture de réseau global consiste à activer la connectivité entre les régions entre des entités réseau et des points de terminaison. Un encombrement du cloud peut s’étendre sur plusieurs régions. Cela signifie que le trafic à partir d’une branche qui est connecté au cloud dans une région peut atteindre une autre branche ou un réseau virtuel dans une autre région à l’aide de la connectivité de hub-hub qui est actuellement en version préliminaire.
+Pour une entreprise, une empreinte cloud suit généralement une empreinte physique. La plupart des entreprises accèdent au cloud à partir d’une région proche de leur site physique et des utilisateurs. Un des principes clés de l’architecture du réseau global consiste à activer la connectivité inter-régions entre des entités réseau et des points de terminaison. Une empreinte cloud peut s’étendre sur plusieurs régions. Cela signifie que le trafic à partir d’une branche connectée au cloud dans une région peut atteindre une autre branche ou un réseau virtuel dans une autre région à l’aide de la connectivité de hub à hub qui est actuellement en préversion.
 
-## <a name="any"></a>Connectivité à tout
+## <a name="any"></a>Connexion universelle
 
-Architecture de réseau de transit global permet *any-connectivité* via un concentrateur réseau central. Cette architecture élimine ou réduit le besoin de maillage complet ou maillage partiel des modèles de connectivité qui sont plus complexes pour créer et gérer. En outre, le contrôle du routage dans le hub-and-spoke et réseaux de maille est plus facile à configurer et maintenir.
+L’architecture du réseau de transit global permet une *connectivité universelle* via un hub réseau central. Cette architecture élimine ou réduit le besoin de maillage complet ou maillage partiel des modèles de connectivité qui sont plus complexes à créer et gérer. En outre, comparativement aux réseaux maillés, le contrôle du routage dans le réseau en étoile est plus facile à configurer et gérer.
 
-Connectivité à tout, dans le contexte d’une architecture globale, permet à une entreprise avec les utilisateurs dispersés dans le monde entier, des branches, centres de données, des réseaux virtuels et applications de se connecter entre eux via le concentrateur de transit. Le hub de transit agit en tant que le système global de transit.
+La connectivité universelle, dans le contexte d’une architecture globale, permet à permet à une entreprise dont les utilisateurs, les branches, les centres de données, les réseaux virtuels et les applications sont répartis partout dans le monde, de les connecter entre eux via son hub de transit. Le hub de transit agit en tant que le système de transit global.
 
-![chemins de trafic](./media/virtual-wan-global-transit-network-architecture/trafficpath.png)
+![chemins d’accès du trafic](./media/virtual-wan-global-transit-network-architecture/trafficpath.png)
 
-**Figure 3 : Chemins d’accès le trafic WAN virtuel**
+**Figure 3 : Chemins d’accès du trafic Virtual WAN**
 
-WAN virtuel Azure prend en charge les chemins de connectivité de transit global suivants. Les lettres entre parenthèses mappent à la Figure 3.
+Azure Virtual WAN prend en charge les chemins d’accès de connectivité de transit global suivants : Les lettres entre parenthèses renvoient à la Figure 3.
 
-* Branche-to-VNet (a)  
-* Branche branche (b)
-* Utilisateur-à-réseau virtuel distant (c)
-* Utilisateur-à-branche distante (d)
-* Réseau virtuel-à-réseau virtuel à l’aide de l’homologation de réseau virtuel (e)
-* Portée mondiale ExpressRoute 
+* Branche à réseau virtuel (a)  
+* Branche à branche (b)
+* Utilisateur distant à réseau virtuel (c)
+* Utilisateur distant à branche (d)
+* Réseau virtuel à réseau virtuel à l’aide du VNet Peering (e)
+* ExpressRoute Global Reach 
 
-### <a name="branchvnet"></a>Branch-to-VNet
+### <a name="branchvnet"></a>Branche à réseau virtuel
 
-Branche-à-réseau virtuel est le chemin d’accès primaire pris en charge par Azure WAN virtuel. Ce chemin d’accès vous permet de connecter des branches aux charges de travail IAAS Azure enterprise qui sont déployés dans des réseaux virtuels Azure. Branches peuvent être connectés au réseau virtuel étendu via ExpressRoute ou VPN de site à site. Les transits de trafic à des réseaux virtuels qui sont connectés aux hubs WAN virtuels via des connexions de réseau virtuel.
+Branche à réseau virtuel est le principal chemin d’accès pris en charge par Azure Virtual WAN. Ce chemin d’accès vous permet de connecter des branches aux charges de travail d’entreprise Azure IAAS déployées dans Azure VNets. Les branches peuvent être connectées au WAN virtuel via ExpressRoute ou un VPN site à site. Le trafic transite vers des réseaux virtuels connectés aux hubs Virtual WAN via des connexions de réseau virtuel.
 
-### <a name="branchbranch"></a>Branch-to-branch
+### <a name="branchbranch"></a>Branche à branche
 
-Branches peuvent être connectés à un concentrateur Azure WAN virtuel à l’aide de circuits ExpressRoute et/ou des connexions VPN de site à site. Vous pouvez connecter les branches au hub WAN virtuel qui se trouve dans la région la plus proche de la branche.
+Les branches peuvent être connectées à un hub Azure Virtual WAN à l’aide de circuits ExpressRoute et/ou des connexions VPN de site à site. Vous pouvez connecter les branches au hub Virtual WAN qui se trouve dans la région la plus proche de la branche.
 
-Cette option permet aux entreprises de tirer parti de la dorsale principale d’Azure pour vous connecter de branches. Toutefois, même si cette fonctionnalité est disponible, vous devez peser les avantages de connexion des branches via le WAN virtuel Azure par rapport à l’aide d’un réseau privé étendu.
+Cette option permet aux entreprises de tirer parti de la dorsale principale d’Azure pour connecter des branches. Toutefois, même si cette fonctionnalité est disponible, vous devez comparer les avantages de la connexion des branches via Azure Virtual WAN à l’utilisation d’un réseau WAN privé.
 
-### <a name="usertovnet"></a>Utilisateur-à-réseau virtuel distant
+### <a name="usertovnet"></a>Utilisateur distant à réseau virtuel
 
-Vous pouvez activer l’accès à distance direct et sécurisé à Azure à l’aide de connexions de point-to-site d’un client de l’utilisateur distant à un réseau virtuel étendu. Les utilisateurs distants d’entreprise n’ont plus à EPINGLE vers le cloud à l’aide d’un VPN d’entreprise.
+Vous pouvez activer l’accès à distance direct et sécurisé à Azure à l’aide de connexions point à site depuis un client utilisateur distant vers un réseau WAN virtuel. Les utilisateurs distants d’entreprise n’ont plus besoin d’accéder au cloud en utilisant un VPN d’entreprise.
 
-### <a name="usertobranch"></a>Utilisateur de branche distante
+### <a name="usertobranch"></a>Utilisateur distant à branche
 
-Le chemin d’accès utilisateur à branche distante permet des utilisateurs distants qui utilisent une connexion point-to-site aux charges de travail accès Azure en local et aux applications en transit à travers le cloud. Ce chemin d’accès permet aux utilisateurs distants aux charges de travail d’accès sont déployés dans Azure et locales. Les entreprises peuvent activer service central basé sur le cloud accès à distance sécurisé dans Azure le WAN virtuel.
+Le chemin d’accès utilisateur distant à branche permet aux utilisateurs distants qui utilisent une connexion point à site sur Azure d’accéder aux charges de travail locales et aux applications en transit à travers le cloud. Ce chemin d’accès offre aux utilisateurs distants la flexibilité d’accéder aux charges de travail qui sont déployées à la fois dans Azure et en local. Les entreprises peuvent activer un service central d’accès distant sécurisé basé sur le cloud dans Azure Virtual WAN.
 
-### <a name="vnetvnet"></a>Transit de réseau virtuel à réseau virtuel à l’aide de l’homologation
+### <a name="vnetvnet"></a>Transit de réseau virtuel à réseau virtuel à l’aide du VNet Peering
 
-Pour connecter des réseaux virtuels entre eux pour prendre en charge des applications à plusieurs niveaux qui sont implémentées sur plusieurs réseaux virtuels, utilisez l’homologation de réseau virtuel. Un scénario de transit réseau virtuel à réseau virtuel via un WAN virtuel Azure n’est actuellement pas pris en charge, mais se trouve sur la feuille de route Azure. Connexion de réseaux virtuels via l’homologation de réseau virtuel est la solution recommandée pour les réseaux virtuels qui doivent être connectés entre eux. [Le transit par passerelle](../virtual-network/virtual-network-peering-overview.md#gateways-and-on-premises-connectivity) (dans le contexte d’homologation) n’est pas requis pour le WAN virtuel, car le WAN virtuel active automatiquement le transit par passerelle.
+Pour connecter des réseaux virtuels les uns aux autres afin de prendre en charge les applications multiniveau implémentées sur plusieurs réseaux virtuels, utilisez le VNet Peering. Un scénario de transit de réseau virtuel à réseau virtuel via Azure Virtual WAN n’est actuellement pas pris en charge, mais est intégré à la feuille de route Azure. Si vous devez connecter vos réseaux virtuels les uns aux autres, nous vous recommandons d’opter pour une connexion par VNet Peering. Le [transit par passerelle](../virtual-network/virtual-network-peering-overview.md#gateways-and-on-premises-connectivity) (dans le contexte du VNet Peering) n’est pas requis pour Virtual WAN, car ce dernier active automatiquement le transit par passerelle.
 
-### <a name="globalreach"></a>Portée mondiale ExpressRoute
+### <a name="globalreach"></a>ExpressRoute Global Reach
 
-ExpressRoute est privé et résiliente permet de connecter vos réseaux locaux au Cloud Microsoft. Portée mondiale ExpressRoute est une fonctionnalité du module complémentaire pour ExpressRoute. Avec une portée mondiale, vous pouvez lier des circuits ExpressRoute afin de rendre un réseau privé entre vos réseaux locaux. Les branches qui sont connectés à Azure WAN virtuel à l’aide d’ExpressRoute nécessitent la portée mondiale ExpressRoute communiquer entre eux.
+ExpressRoute vous permet de connecter vos réseaux locaux à Microsoft Cloud de manière privée et résiliente. ExpressRoute Global Reach est une fonctionnalité de module complémentaire pour ExpressRoute. Avec Global Reach, vous pouvez associer des circuits ExpressRoute afin de constituer un réseau privé entre vos réseaux locaux. Les branches connectées à Azure Virtual WAN à l’aide d’ExpressRoute nécessitent ExpressRoute Global Reach pour communiquer entre elles.
 
-Dans ce modèle, chaque branche est connecté au concentrateur WAN virtuel à l’aide d’ExpressRoute peut se connecter à des réseaux virtuels utilisant le chemin d’accès de la branche à réseau virtuel. Le trafic de branche à branche ne transit du hub, car la portée mondiale ExpressRoute permet un chemin d’accès plus optimale sur Azure WAN.
+Dans ce modèle, chaque branche connectée au hub Virtual WAN à l’aide d’ExpressRoute peut se connecter à des réseaux virtuels utilisant le chemin d’accès « Branche à réseau virtuel ». Le trafic de branche à branche ne transite pas par le hub, car ExpressRoute Global Reach offre un meilleur chemin d’accès sur Azure WAN.
 
-## <a name="security"></a>Sécurité et la stratégie de contrôle
+## <a name="security"></a>Contrôle de la sécurité et de la stratégie
 
-Le hub de réseau virtuel interconnexions et potentiellement voit tous les faire transiter le trafic. Il peut être l’emplacement pour les fonctions de mise en réseau central hôte et de services tels que ces un routage de cloud, stratégie de réseau et la sécurité et contrôle d’accès Internet.
+Le hub du réseau virtuel interconnecte et voit potentiellement tout le trafic de transit. Il peut être l’endroit idéal pour héberger des fonctions et des services réseau centraux tels que le contrôle du routage cloud, de la stratégie et de la sécurité réseau et de l’accès à Internet.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Créer une connexion à l’aide de WAN virtuel.
+Créer une connexion à l’aide de Virtual WAN.
 
-* [Connexions de site à site à l’aide de WAN virtuel](virtual-wan-site-to-site-portal.md)
-* [Connexions de point à site à l’aide de WAN virtuel](virtual-wan-point-to-site-portal.md)
-* [Connexions ExpressRoute à l’aide du WAN virtuel](virtual-wan-expressroute-portal.md)
+* [Connexions de site à site à l’aide de Virtual WAN](virtual-wan-site-to-site-portal.md)
+* [Connexions de point à site à l’aide de Virtual WAN](virtual-wan-point-to-site-portal.md)
+* [Connexions ExpressRoute à l’aide du Virtual WAN](virtual-wan-expressroute-portal.md)
