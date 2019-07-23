@@ -220,8 +220,6 @@
           href: ../hdinsight-virtual-network-architecture.md
         - name: Utiliser un pare-feu pour limiter le trafic sortant
           href: ../hdinsight-restrict-outbound-traffic.md
-        - name: HDInsight dans le réseau virtuel Azure
-          href: ../hdinsight-extend-hadoop-virtual-network.md
         - name: Connecter HDInsight à un réseau local
           href: ../connect-on-premises-network.md
     - name: Supervision de l’utilisation des journaux d’activité Azure Monitor
