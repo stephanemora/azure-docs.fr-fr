@@ -1,39 +1,39 @@
 ---
-title: Proposer en permanence des mises à jour de code fonction à l’aide d’Azure DevOps
-description: Découvrez comment configurer un pipeline Azure DevOps ciblant Azure Functions.
+title: Proposer en permanence des mises à jour de code fonction à l’aide d’Azure DevOps - Azure Functions
+description: Découvrez comment configurer un pipeline Azure DevOps qui cible Azure Functions.
 author: ahmedelnably
 manager: jeconnoc
 ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: aelnably
-ms.custom: ''
-ms.openlocfilehash: 9806a982982971b1b3ac9c28454e17813b2ad2a5
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 0fdad0caa2deef0d7d55b30a85632f72f4ff0ecc
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67479881"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594455"
 ---
-# <a name="continuous-delivery-using-azure-devops"></a>Livraison continue à l’aide d’Azure DevOps
+# <a name="continuous-delivery-by-using-azure-devops"></a>Livraison continue à l’aide d’Azure DevOps
 
-Vous pouvez déployer automatiquement votre fonction sur une application de fonction Azure à l’aide d’[Azure Pipelines](/azure/devops/pipelines/).
-Pour définir votre pipeline, vous pouvez utiliser les éléments suivants :
+Vous pouvez déployer automatiquement votre fonction sur une application Azure Functions à l’aide d’[Azure Pipelines](/azure/devops/pipelines/).
 
-- Fichier YAML : ce fichier décrit le pipeline. Il peut comporter une section relative aux étapes de génération et une autre relative à la mise en production. Le fichier YAML doit être dans le même référentiel que l’application.
+Vous avez deux possibilités pour définir votre pipeline :
 
-- Modèles : les modèles sont des tâches prêtes à l’emploi qui créent ou déploient votre application.
+- **Fichier YAML :** un fichier YAML décrit le pipeline. Ce fichier peut avoir une section d’étapes de création et une section de mise en production. Le fichier YAML doit se trouver dans le même référentiel que l’application.
+- **Modèle** : les modèles sont des tâches prêtes à l’emploi qui créent ou déploient votre application.
 
 ## <a name="yaml-based-pipeline"></a>Pipeline basé sur le fichier YAML
 
+Pour créer un pipeline YAML, commencez par créer votre application et ensuite déployez-la.
+
 ### <a name="build-your-app"></a>Générer votre application
 
-La génération de votre application dans Azure Pipelines varie selon le langage de programmation de votre application.
-Chaque langage possède des étapes de génération spécifiques pour créer un artefact de déploiement, qui peut être utilisé pour déployer votre application de fonction dans Azure.
+La façon dont vous créez votre application dans Azure Pipelines varie en fonction du langage de programmation de votre application. Chaque langage possède des étapes spécifiques qui créent un artefact de déploiement. Un artefact de déploiement est utilisé pour déployer votre application Functions dans Azure.
 
 #### <a name="net"></a>.NET
 
-Vous pouvez utiliser l’exemple suivant pour créer votre fichier YAML pour générer votre application .NET.
+Vous pouvez utiliser l’exemple suivant pour créer un fichier YAML pour générer votre application .NET :
 
 ```yaml
 pool:
@@ -64,7 +64,7 @@ steps:
 
 #### <a name="javascript"></a>JavaScript
 
-Vous pouvez utiliser l’exemple suivant pour créer votre fichier YAML pour générer votre application JavaScript :
+Vous pouvez utiliser l’exemple suivant pour créer un fichier YAML pour générer votre application JavaScript :
 
 ```yaml
 pool:
@@ -92,7 +92,7 @@ steps:
 
 #### <a name="python"></a>Python
 
-Vous pouvez utiliser l’exemple suivant pour créer votre fichier YAML pour générer votre application Python. Python est uniquement pris en charge pour Linux Azure Functions :
+Vous pouvez utiliser l’exemple suivant pour créer un fichier YAML pour générer votre application Python. Python est pris en charge uniquement pour Azure Functions sur Linux.
 
 ```yaml
 pool:
@@ -125,7 +125,7 @@ steps:
 ```
 #### <a name="powershell"></a>PowerShell
 
-Vous pouvez utiliser l’exemple suivant pour créer votre fichier YAML pour générer votre application PowerShell. PowerShell est uniquement pris en charge pour Windows Azure Functions :
+Vous pouvez utiliser l’exemple suivant pour créer un fichier YAML pour générer une application PowerShell. PowerShell est pris en charge uniquement Azure Functions sur Windows.
 
 ```yaml
 pool:
@@ -145,11 +145,11 @@ steps:
 
 ### <a name="deploy-your-app"></a>Déployer votre application
 
-Selon le système d’exploitation hôte, vous devez inclure l’exemple YAML suivant dans votre fichier YAML.
+Vous devez inclure l’exemple YAML suivant dans votre fichier YAML, selon le système d’exploitation hôte.
 
 #### <a name="windows-function-app"></a>Application de fonction Windows
 
-L’extrait de code suivant peut être utilisé pour effectuer un déploiement sur une application de fonction Windows
+Vous pouvez utiliser l’extrait de code suivant pour effectuer un déploiement sur une application de fonction Windows :
 
 ```yaml
 steps:
@@ -166,7 +166,7 @@ steps:
 
 #### <a name="linux-function-app"></a>Application de fonction Linux
 
-L’extrait de code suivant peut être utilisé pour effectuer un déploiement sur une application de fonction Linux
+Vous pouvez utiliser l’extrait de code suivant pour effectuer un déploiement sur une application de fonction Linux  :
 
 ```yaml
 steps:
@@ -184,61 +184,59 @@ steps:
 
 ## <a name="template-based-pipeline"></a>Pipeline basé sur un modèle
 
-Les modèles dans Azure, DevOps, sont des groupes prédéfinis de tâches qui génèrent ou déploient une application.
+Les modèles dans Azure DevOps sont des groupes prédéfinis de tâches qui génèrent ou déploient une application.
 
 ### <a name="build-your-app"></a>Générer votre application
 
-La génération de votre application dans Azure Pipelines varie selon le langage de programmation de votre application. Chaque langage possède des étapes de génération spécifiques pour créer un artefact de déploiement, qui peut être utilisé pour mettre à jour votre application de fonction dans Azure.
-Pour utiliser les modèles de build intégrés, lors de la création d’un nouveau pipeline de build, choisissez **Utiliser l’éditeur classique** pour créer un pipeline à l’aide des modèles de concepteur
+La façon dont vous créez votre application dans Azure Pipelines varie en fonction du langage de programmation de votre application. Chaque langage possède des étapes spécifiques qui créent un artefact de déploiement. Un artefact de déploiement est utilisé pour mettre à jour votre application Functions dans Azure.
 
-![Éditeur classique d’Azure Pipelines](media/functions-how-to-azure-devops/classic-editor.png)
+Pour utiliser les modèles intégrés, lors de la création d’un nouveau pipeline de build, sélectionnez **Utiliser l’éditeur classique** pour créer un pipeline à l’aide des modèles de concepteur.
 
-Après avoir configuré la source de votre code, recherchez les modèles de build Azure Functions et choisissez le modèle qui correspond au langage de votre application.
+![Sélectionner l’éditeur classique d’Azure Pipelines](media/functions-how-to-azure-devops/classic-editor.png)
 
-![Modèles de build Azure Functions](media/functions-how-to-azure-devops/build-templates.png)
+Après avoir configuré la source de votre code, recherchez les modèles de build Azure Functions. Sélectionnez le modèle qui correspond au langage de votre application.
 
-Dans certains cas, les artefacts de build ont une structure de dossiers spécifiques et vous devrez peut-être cocher l’option **Placer le nom du dossier racine au début des chemins d’archives**.
+![Sélectionner un modèle de build Azure Functions](media/functions-how-to-azure-devops/build-templates.png)
 
-![Placer le nom du dossier racine au début](media/functions-how-to-azure-devops/prepend-root-folder.png)
+Dans certains cas, les artefacts de build ont une structure de dossier spécifique. Vous devrez peut-être activer la case à cocher **Placer le nom du dossier racine au début des chemins d’archives**.
+
+![Option pour placer le nom du dossier racine au début](media/functions-how-to-azure-devops/prepend-root-folder.png)
 
 #### <a name="javascript-apps"></a>Applications JavaScript
 
-Si votre application JavaScript a une dépendance à l’égard des modules natifs Windows, vous devez mettre à jour les éléments suivants :
+Si votre application JavaScript a une dépendance sur des modules natifs de Windows, vous devez mettre à jour la version du pool d’agents vers **Hosted VS2017**.
 
-- La version de Pool Agent sur **Hosted VS2017**
-
-  ![Modifier le système d’exploitation de l’agent de build](media/functions-how-to-azure-devops/change-agent.png)
+![Mise à jour la version du pool d’agents](media/functions-how-to-azure-devops/change-agent.png)
 
 ### <a name="deploy-your-app"></a>Déployer votre application
 
 Lorsque vous créez un nouveau pipeline de mise en production, recherchez le modèle de mise en production d’Azure Functions.
 
-![](media/functions-how-to-azure-devops/release-template.png)
+![Rechercher le modèle de mise en production Azure Functions](media/functions-how-to-azure-devops/release-template.png)
 
 Le déploiement vers un emplacement de déploiement n’est pas pris en charge dans le modèle de mise en production.
 
-## <a name="creating-an-azure-pipeline-using-the-azure-cli"></a>Créer un pipeline Azure à l’aide de l’interface de ligne de commande Azure
+## <a name="create-a-build-pipeline-by-using-the-azure-cli"></a>Création d’un pipeline de build à l’aide de l’interface de ligne de commande Azure
 
-La [commande](/cli/azure/functionapp/devops-pipeline#az-functionapp-devops-pipeline-create) `az functionapp devops-pipeline create` permet de créer un pipeline Azure pour générer et publier des modifications de code dans votre référentiel. La commande génère un nouveau fichier YAML qui définit le pipeline de génération et de mise en production et le valide dans votre référentiel. Le déploiement vers un emplacement de déploiement n’est pas pris en charge par l’interface de ligne de commande Azure.
-Les conditions préalables de cette commande varient selon l’emplacement de votre code :
+Pour créer un pipeline de build dans Azure, utilisez la [commande](/cli/azure/functionapp/devops-pipeline#az-functionapp-devops-pipeline-create) `az functionapp devops-pipeline create`. Le pipeline de build est créé pour créer et mettre en production toutes les modifications du code de votre référentiel. Cette commande génère un nouveau fichier YAML qui définit le pipeline de génération et de mise en production et le valide dans votre référentiel. Les conditions préalables de cette commande varient selon l’emplacement de votre code.
 
 - Si votre code se trouve dans GitHub :
 
-    - Vous devez disposer d’une autorisation en **écriture** dans votre abonnement.
+    - Vous devez disposer des autorisations en **écriture** dans votre abonnement.
 
-    - Vous êtes l’administrateur de projet dans Azure DevOps.
+    - Vous devez être l’administrateur de projet dans Azure DevOps.
 
-    - Vous êtes autorisé à créer un jeton d’accès personnel GitHub disposant d’autorisations suffisantes. [Autorisations requises du jeton d’accès personnel GitHub.](https://aka.ms/azure-devops-source-repos)
+    - Vous devez disposer des autorisations nécessaires pour créer un jeton d’accès personnel GitHub disposant d’autorisations suffisantes. Pour plus d’informations, consultez [Autorisations requises du jeton d’accès personnel GitHub](https://aka.ms/azure-devops-source-repos).
 
-    - Vous êtes autorisé à valider dans la branche principale de votre référentiel GitHub pour valider le fichier YAML généré automatiquement.
+    - Vous devez disposer des autorisations nécessaires pour valider dans la branche principale de votre référentiel GitHub pour valider le fichier YAML généré automatiquement.
 
 - Si votre code se trouve dans Azure Repos :
 
-    - Vous devez disposer d’une autorisation en **écriture** dans votre abonnement.
+    - Vous devez disposer des autorisations en **écriture** dans votre abonnement.
 
-    - Vous êtes l’administrateur de projet dans Azure DevOps.
+    - Vous devez être l’administrateur de projet dans Azure DevOps.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-+ [Vue d’ensemble d’Azure Functions](functions-overview.md)
-+ [Vue d’ensemble d’Azure DevOps](/azure/devops/pipelines/)
+- Consultez la [vue d’ensemble d’Azure Functions](functions-overview.md)
+- Consultez la [vue d’ensemble d’Azure DevOps](/azure/devops/pipelines/).

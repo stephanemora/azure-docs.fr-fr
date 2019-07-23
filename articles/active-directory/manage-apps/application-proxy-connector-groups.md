@@ -14,47 +14,50 @@ ms.date: 11/08/2018
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d896a45931512b925491e05ff6e5eef8a856d83d
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 574ce6def407f302439f6c53356fe69259240b2e
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67481322"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67702480"
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Publier des applications sur des réseaux et emplacements distincts à l’aide de groupes de connecteurs
 
-Les clients utilisent le proxy d’application Azure AD pour obtenir toujours plus de scénarios et d’applications. C’est pourquoi nous avons rendu le proxy d’application encore plus flexible en activant davantage de topologies. Vous pouvez créer des groupes de connecteurs de proxy d’application pour attribuer des connecteurs spécifiques permettant de servir des applications spécifiques. Cette fonctionnalité vous offre davantage de contrôle et de méthodes pour optimiser votre déploiement de proxy d’application. 
+Les clients utilisent le proxy d’application Azure AD pour obtenir toujours plus de scénarios et d’applications. C’est pourquoi nous avons rendu le proxy d’application encore plus flexible en activant davantage de topologies. Vous pouvez créer des groupes de connecteurs de proxy d’application pour attribuer des connecteurs spécifiques permettant de servir des applications spécifiques. Cette fonctionnalité vous offre davantage de contrôle et de méthodes pour optimiser votre déploiement de proxy d’application.
 
-Chaque connecteur de proxy d’application est attribué à un groupe de connecteurs. Tous les connecteurs qui appartiennent au même groupe de connecteurs agissent comme une unité distincte pour la haute disponibilité et l’équilibrage de charge. Tous les connecteurs appartiennent à un groupe de connecteurs. Si vous ne créez pas de groupes, tous vos connecteurs se trouvent dans un groupe par défaut. Votre administrateur peut créer des groupes et leur attribuer des connecteurs dans le portail Azure. 
+Chaque connecteur de proxy d’application est attribué à un groupe de connecteurs. Tous les connecteurs qui appartiennent au même groupe de connecteurs agissent comme une unité distincte pour la haute disponibilité et l’équilibrage de charge. Tous les connecteurs appartiennent à un groupe de connecteurs. Si vous ne créez pas de groupes, tous vos connecteurs se trouvent dans un groupe par défaut. Votre administrateur peut créer des groupes et leur attribuer des connecteurs dans le portail Azure.
 
 Toutes les applications sont affectées à un groupe de connecteurs. Si vous ne créez pas de groupes, toutes vos applications sont affectées à un groupe par défaut. Mais si vous organisez vos connecteurs en groupes, vous pouvez définir chaque application de façon à ce qu’elle fonctionne avec un groupe de connecteurs spécifique. Dans ce cas, seuls les connecteurs de ce groupe servent l’application sur demande. Cette fonctionnalité s’avère utile si vos applications sont hébergées à des emplacements différents. Vous pouvez créer des groupes de connecteurs en fonction de l’emplacement, afin que les applications soient toujours servies par les connecteurs qui leur sont physiquement proches.
 
->[!TIP] 
->Si vous avez un grand déploiement de proxy d’application, n’affectez aucune application au groupe de connecteurs par défaut. Ainsi, les nouveaux connecteurs ne reçoivent pas de trafic live tant que vous ne les affectez pas à un groupe de connecteurs actif. Cette configuration vous permet également de passer des connecteurs en mode inactif en les réintégrant au groupe par défaut, pour que vous puissiez en effectuer la maintenance sans impacter vos utilisateurs.
+> [!TIP]
+> Si vous avez un grand déploiement de proxy d’application, n’affectez aucune application au groupe de connecteurs par défaut. Ainsi, les nouveaux connecteurs ne reçoivent pas de trafic live tant que vous ne les affectez pas à un groupe de connecteurs actif. Cette configuration vous permet également de passer des connecteurs en mode inactif en les réintégrant au groupe par défaut, pour que vous puissiez en effectuer la maintenance sans impacter vos utilisateurs.
 
 ## <a name="prerequisites"></a>Prérequis
+
 Pour regrouper vos connecteurs, vous devez vous assurer que vous avez [installé plusieurs connecteurs](application-proxy-add-on-premises-application.md). Lorsque vous installez un nouveau connecteur, il est automatiquement ajouté au groupe de connecteurs **par défaut**.
 
 ## <a name="create-connector-groups"></a>Créer des groupes de connecteurs
-Procédez comme suit pour créer autant de groupes de connecteurs que vous le souhaitez. 
+
+Procédez comme suit pour créer autant de groupes de connecteurs que vous le souhaitez.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 1. Sélectionnez **Azure Active Directory** > **Applications d’entreprise** > **Proxy d’application**.
-2. Sélectionnez **Nouveau groupe de connecteurs**. Le panneau Nouveau groupe de connecteurs s’affiche.
+1. Sélectionnez **Nouveau groupe de connecteurs**. Le panneau Nouveau groupe de connecteurs s’affiche.
 
    ![Il comporte l’écran permettant de sélectionner un nouveau groupe de connecteurs](./media/application-proxy-connector-groups/new-group.png)
 
-3. Donnez un nom à votre nouveau groupe de connecteurs, puis utilisez le menu déroulant pour sélectionner les connecteurs qui appartiennent à ce groupe.
-4. Sélectionnez **Enregistrer**.
+1. Donnez un nom à votre nouveau groupe de connecteurs, puis utilisez le menu déroulant pour sélectionner les connecteurs qui appartiennent à ce groupe.
+1. Sélectionnez **Enregistrer**.
 
 ## <a name="assign-applications-to-your-connector-groups"></a>Affecter des applications à vos groupes de connecteurs
-Procédez comme suit pour chaque application que vous avez publiée avec le proxy d’application. Vous pouvez affecter une application à un groupe de connecteurs lors de sa première publication, ou bien vous pouvez utiliser ces étapes pour modifier l’affectation à tout moment.   
+
+Procédez comme suit pour chaque application que vous avez publiée avec le proxy d’application. Vous pouvez affecter une application à un groupe de connecteurs lors de sa première publication, ou bien vous pouvez utiliser ces étapes pour modifier l’affectation à tout moment.
 
 1. Dans le tableau de bord de gestion de votre répertoire, sélectionnez **Applications d’entreprise** > **Toutes les applications** > l’application que vous souhaitez affecter à un groupe de connecteurs > **Proxy d’application**.
-2. Utilisez le menu déroulant **Groupe de connecteurs** pour sélectionner le groupe que l’application doit utiliser.
-3. Sélectionnez **Enregistrer** pour appliquer la modification.
+1. Utilisez le menu déroulant **Groupe de connecteurs** pour sélectionner le groupe que l’application doit utiliser.
+1. Sélectionnez **Enregistrer** pour appliquer la modification.
 
-## <a name="use-cases-for-connector-groups"></a>Cas d’utilisation des groupes de connecteurs 
+## <a name="use-cases-for-connector-groups"></a>Cas d’utilisation des groupes de connecteurs
 
 Les groupes de connecteurs sont utiles dans divers scénarios, notamment les suivants :
 
@@ -64,11 +67,11 @@ De nombreuses organisations possèdent plusieurs centres de données interconnec
 
 ### <a name="applications-installed-on-isolated-networks"></a>Applications installées sur des réseaux isolés
 
-Les applications peuvent être hébergées sur des réseaux qui ne font pas partie du réseau d’entreprise principal. Vous pouvez utiliser des groupes de connecteurs pour installer des connecteurs dédiés sur des réseaux isolés afin d’isoler les applications sur le réseau. Cela se produit généralement lorsqu’un fournisseur tiers gère une application spécifique pour votre organisation. 
+Les applications peuvent être hébergées sur des réseaux qui ne font pas partie du réseau d’entreprise principal. Vous pouvez utiliser des groupes de connecteurs pour installer des connecteurs dédiés sur des réseaux isolés afin d’isoler les applications sur le réseau. Cela se produit généralement lorsqu’un fournisseur tiers gère une application spécifique pour votre organisation.
 
 Les groupes de connecteurs vous permettent d’installer des connecteurs dédiés aux réseaux qui publient uniquement des applications spécifiques, ce qui permet de sous-traiter la gestion des applications à des fournisseurs tiers plus facilement et en toute sécurité.
 
-### <a name="applications-installed-on-iaas"></a>Applications installées sur IaaS 
+### <a name="applications-installed-on-iaas"></a>Applications installées sur IaaS
 
 Pour les applications installées sur IaaS pour l’accès au cloud, les groupes de connecteurs fournissent un service commun pour sécuriser l’accès à toutes les applications. Les groupes de connecteurs ne créent pas de dépendances supplémentaires sur votre réseau d’entreprise, et ne fragmentent pas l’expérience de l’application. Les connecteurs peuvent être installés sur chaque centre de données du cloud et servir uniquement les applications qui se trouvent sur ce réseau. Vous pouvez installer plusieurs connecteurs pour atteindre une haute disponibilité.
 
@@ -95,7 +98,7 @@ Il existe deux approches différentes que vous pouvez utiliser avec un site de r
 
 ### <a name="serve-multiple-companies-from-a-single-tenant"></a>Traiter plusieurs entreprises à partir d’un seul client
 
-Il existe différentes manières d’implémenter un modèle dans lequel un fournisseur de services unique déploie et gère les services relatifs à Azure AD pour plusieurs entreprises. Les groupes de connecteurs aident l’administrateur à séparer les connecteurs et les applications en différents groupes. Une méthode, qui est appropriée pour les petites entreprises, est d’avoir un seul client Azure AD tandis que les différentes entreprises ont leurs propres nom de domaine et réseaux. Cela vaut également pour les scénarios et les situations M&A où une division informatique unique sert plusieurs entreprises pour des raisons réglementaires ou professionnelles. 
+Il existe différentes manières d’implémenter un modèle dans lequel un fournisseur de services unique déploie et gère les services relatifs à Azure AD pour plusieurs entreprises. Les groupes de connecteurs aident l’administrateur à séparer les connecteurs et les applications en différents groupes. Une méthode, qui est appropriée pour les petites entreprises, est d’avoir un seul client Azure AD tandis que les différentes entreprises ont leurs propres nom de domaine et réseaux. Cela vaut également pour les scénarios et les situations M&A où une division informatique unique sert plusieurs entreprises pour des raisons réglementaires ou professionnelles.
 
 ## <a name="sample-configurations"></a>Exemples de configurations
 
@@ -113,7 +116,7 @@ Cette configuration est suffisante pour les tests et les petits déploiements. E
 
 Cette configuration est une évolution de la configuration par défaut, dans laquelle une application spécifique s’exécute sur un réseau isolé, comme un réseau virtuel IaaS :
 
-![Exemple : AzureAD Aucun groupe de connecteurs](./media/application-proxy-connector-groups/application-proxy-sample-config-2.png)
+![Exemple : AzureAD Aucun groupe de connecteurs et réseau isolé](./media/application-proxy-connector-groups/application-proxy-sample-config-2.png)
 
 ### <a name="recommended-configuration--several-specific-groups-and-a-default-group-for-idle"></a>Configuration recommandée : plusieurs groupes spécifiques et un groupe par défaut inactif
 

@@ -5,14 +5,14 @@ author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 07/01/2019
+ms.date: 07/03/2019
 ms.author: banders
-ms.openlocfilehash: 7ffb575d7f962232604a4ad6930b804d2619b488
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: cd0a70aa0fb5096c5b0157ae078c961da03109bc
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67490595"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565300"
 ---
 # <a name="what-are-azure-reservations"></a>Qu’est-ce qu’une réservation Azure ?
 
@@ -42,17 +42,53 @@ Les clients EA peuvent limiter les achats aux administrateurs EA en désactivant
 
 Une remise de réservation s’applique uniquement aux ressources associées aux abonnements achetés via des forfaits d’entreprise, de fournisseurs de services cloud et individuels avec paiement à l’utilisation.
 
-## <a name="reservation-scope"></a>Étendue de la réservation
+## <a name="scope-reservations"></a>Réservations d’étendue
 
-Une étendue de réservation détermine les ressources auxquelles la remise de réservation s’applique. Une étendue de réservation peut présenter les valeurs suivantes :
+Vous pouvez étendre une réservation à un groupe de ressources ou à un groupe d’abonnement. La définition de l’étendue d’une réservation sélectionne où les économies de la réservation s’appliquent. Lorsque vous étendez la réservation d’un groupe de ressources, les remises de réservation s’appliquent uniquement au groupe de ressources, pas à l’ensemble de l’abonnement.
 
-**Étendue partagée** : la remise de réservation est appliquée aux ressources correspondantes dans les abonnements éligibles du contexte de facturation.
+### <a name="reservation-scoping-options"></a>Options d’étendue de réservation
 
-- Pour les clients Contrat Entreprise, le contexte de facturation correspond à l’inscription. Pour les clients disposant de forfaits individuels Paiement à l’utilisation, l’étendue de facturation correspond à tous les abonnements éligibles créés par l’administrateur de compte.
+Avec l’étendue de réservation des groupes de ressources, vous disposez de trois options pour étendre une réservation, selon vos besoins :
 
-**Abonnement unique** : la remise de réservation est appliquée aux ressources correspondantes incluses dans l’abonnement sélectionné.
+- **Étendue de groupe de ressources unique** : applique la remise de réservation aux ressources correspondantes incluses dans le groupe de ressources sélectionné uniquement.
+- **Étendue d’abonnement unique** : applique la remise de réservation aux ressources correspondantes incluses dans l’abonnement sélectionné.
+- **Étendue partagée** : applique la remise de réservation aux ressources correspondantes dans les abonnements éligibles inclus dans le contexte de facturation. Pour les clients Contrat Entreprise, le contexte de facturation correspond à l’inscription. Pour les abonnements individuels utilisant les tarifs du paiement à l’utilisation, l’étendue de facturation correspond à tous les abonnements éligibles créés par l’administrateur de compte.
 
-Vous pouvez [mettre à jour l'étendue après avoir acheté une réservation](billing-manage-reserved-vm-instance.md#change-the-reservation-scope).
+Lors de l’application des remises de réservation sur votre utilisation, Azure traite la réservation dans l’ordre suivant :
+
+1. Réservations limitées à un groupe de ressources
+2. Réservations à étendue unique
+3. Réservations à étendue partagée
+
+Un seul groupe de ressources peut obtenir des remises de réservation de plusieurs réservations, en fonction de la façon dont vous étendez vos réservations.
+
+### <a name="scope-a-reservation-to-a-resource-group"></a>Étendue d’une réservation à un groupe de ressources
+
+Vous pouvez étendre la réservation à un groupe de ressources lorsque vous achetez la réservation ou vous définissez l’étendue après l’achat. Vous devez être propriétaire d’un abonnement pour étendre la réservation à un groupe de ressources.
+
+Pour définir l’étendue, accédez à la page [Acheter une réservation](https://ms.portal.azure.com/#blade/Microsoft\_Azure\_Reservations/CreateBlade/referrer/Browse\_AddCommand) sur le portail Azure. Ensuite, sélectionnez le type de réservation que vous voulez acheter. Dans le formulaire de sélection **Sélectionnez le produit que vous voulez acheter**, remplacez la valeur **Étendue** par **Groupe de ressources seul** et sélectionnez un groupe de ressources.
+
+![Exemple illustrant la sélection de l’achat de réservation de machine virtuelle](./media/billing-save-compute-costs-reservations/select-product-to-purchase.png)
+
+Les recommandations d’achat pour le groupe de ressources dans la réservation de la machine virtuelle sont présentées. Ces recommandations sont calculées à partir de l’analyse de votre utilisation sur les 30 derniers jours. Une recommandation d’achat est proposée si le coût d’exécution des ressources avec les instances réservées est moins chère que le coût d’exécution des ressources avec le paiement à l’utilisation. Pour plus d’informations sur les recommandations d’achat de réservation, consultez le billet de blog [Obtenir des recommandations d’achat d’instances réservées en fonction de vos habitudes d’utilisation](https://azure.microsoft.com/blog/get-usage-based-reserved-instance-recommendations).
+
+Vous pouvez modifier l’étendue après l’achat d’une réservation. Pour ce faire, accédez à la réservation, cliquez sur **Configuration** et redéfinissez la réservation. La modification de l’étendue de la réservation n’est pas une transaction commerciale. Le terme de votre réservation n’est pas modifié. Pour plus d’informations sur la mise à jour de l’étendue, consultez [Mettre à jour la portée après avoir acheté une réservation](billing-manage-reserved-vm-instance.md#change-the-reservation-scope).
+
+![Exemple illustrant la modification d’une étendue de réservation](./media/billing-save-compute-costs-reservations/rescope-reservation-resource-group.png)
+
+### <a name="monitor-and-optimize-reservation-usage"></a>Surveiller et optimiser l’utilisation de la réservation
+
+Vous pouvez surveiller l’utilisation de la réservation de plusieurs façons : via le portail Azure, via l’API ou via les données d’utilisation. Pour voir toutes les réservations auxquelles vous avez accès, accédez à **Réservations** dans le portail Azure. La grille de réservations affiche le dernier pourcentage d’utilisation enregistré pour la réservation. Cliquez sur la réservation pour voir l’utilisation à long terme de la réservation.
+
+Vous pouvez également obtenir les informations d’utilisation de la réservation avec les [API](billing-reservation-apis.md#see-reservation-usage) et vos [données d’utilisation](billing-understand-reserved-instance-usage-ea.md#common-cost-and-usage-tasks) si vous êtes un client avec un contrat entreprise.
+
+Si vous remarquez que l’utilisation de la réservation de votre groupe de ressources est faible, vous pouvez mettre à jour l’étendue de réservation vers un abonnement unique ou le partager dans le contexte de facturation. Vous pouvez également fractionner la réservation et appliquer les réservations qui en résultent à différents groupes de ressources.
+
+### <a name="other-considerations"></a>Autres points à considérer
+
+Si vous n’avez pas les ressources correspondantes dans un groupe de ressources, la réservation sera sous-utilisée. La réservation ne s’applique pas automatiquement à un autre groupe de ressources ou à un autre abonnement où il existe une faible utilisation.
+
+L’étendue de réservation ne se met automatiquement à jour si vous déplacez le groupe de ressources d’un abonnement à un autre. Vous devrez redéfinir la portée de la réservation. Sinon, la réservation sera sous-utilisée.
 
 ## <a name="discounted-subscription-and-offer-types"></a>Types d'abonnements et d'offres remisés
 

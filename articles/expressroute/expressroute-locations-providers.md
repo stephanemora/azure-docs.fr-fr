@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/02/2019
+ms.date: 07/08/2019
 ms.author: jaredr80
-ms.openlocfilehash: 90b18a2181dae7474141c478725b0c6f829b2ea8
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 7fb591d94380e403a021f9aaed598b6d96417e3f
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67537990"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67670735"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partenaires ExpressRoute et emplacements d’homologation
 
@@ -77,9 +77,9 @@ Les **régions Azure locales** sont celles auxquelles [ExpressRoute Local](expre
 | **Lieu** | **Propriétaire de l’emplacement d’homologation** | **Régions Azure locales** | **Fournisseurs de services** |
 | --- | --- | --- | --- |
 | **Amsterdam** | Equinix | Europe Ouest | Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Interxion, KPN, IX Reach, Level 3 Communications, Megaport, NTT Communications, Orange, Tata Communications, TeleCity Group, Telefonica, Telenor, Telia Carrier, Verizon, Zayo |
-| **Amsterdam2** | Interxion | Europe Ouest | DE-CIX, Interxion, Vodafone |
+| **Amsterdam2** | Interxion | Europe Ouest | CenturyLink Cloud Connect, DE-CIX, Interxion, Vodafone |
 | **Atlanta** | Equinix | n/a | Equinix, Megaport |
-| **Auckland** | Vocus | n/a | Devoli, Megaport |
+| **Auckland** | Vocus | n/a | Devoli, Kordia, Megaport |
 | **Busan** |LG CNS | Corée du Sud | LG CNS |
 | **Canberra** | CDC | Centre de l’Australie | CDC |
 | **Canberra2** | CDC | Centre de l’Australie 2| CDC |
@@ -100,7 +100,7 @@ Les **régions Azure locales** sont celles auxquelles [ExpressRoute Local](expre
 | **Londres** | Equinix | Sud du Royaume-Uni | AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc, Level 3 Communications, Megaport, MTN, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Telehouse - KDDI, Telenor, Telia Carrier, Verizon, Vodafone, Zayo |
 | **Londres2** | Telehouse | Sud du Royaume-Uni | IX Reach, Equinix |
 | **Los Angeles** | CoreSite | n/a | CoreSite, Equinix, Megaport, Neutrona Networks, NTT, Zayo |
-| **Marseille** |Interxion | France Sud | Interxion, Jaguar Network |
+| **Marseille** |Interxion | France Sud | DE-CIX, Interxion, Jaguar Network |
 | **Melbourne** | NextDC | Australie Sud-Est | AARNet, Devoli, Equinix, Megaport, NEXTDC, Optus, Telstra Corporation, TPG Telecom |
 | **Miami** | Equinix | n/a | C3ntro+, Equinix, Megaport, Neutrona Networks |
 | **Montréal** | Cologix | n/a | Bell Canada, Cologix, Telus, Zayo |
@@ -109,7 +109,7 @@ Les **régions Azure locales** sont celles auxquelles [ExpressRoute Local](expre
 | **New York** | Equinix | n/a | CenturyLink Cloud Connect, Coresite, Equinix, InterCloud, Megaport, Packet, Zayo |
 | **Newport (Nouvelle-Galles du Sud)** | Next Generation Data | Ouest du Royaume-Uni | British Telecom, Colt, Level 3 Communications, Next Generation Data |
 | **Osaka** | Equinix | Japon Ouest | Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, NTT SmartConnect, Softbank |
-| **Paris** | Interxion | France Centre | Colt, Equinix, Intercloud, Interxion, Orange, Telia Carrier, Zayo |
+| **Paris** | Interxion | France Centre | CenturyLink Cloud Connect, Colt, Equinix, Intercloud, Interxion, Orange, Telia Carrier, Zayo |
 | **Perth** | NextDC | n/a | Megaport, NextDC |
 | **Québec** | 4Degrees | Est du Canada | Bell Canada, Megaport |
 | **San Antonio** | CyrusOne | USA Centre Sud | CenturyLink Cloud Connect, Megaport |
@@ -142,7 +142,7 @@ Les **régions Azure locales** sont celles auxquelles [ExpressRoute Local](expre
 | **San Antonio** | CenturyLink Cloud Connect, Megaport |
 | **Silicon Valley** | Equinix, Level 3 Communications, Verizon |
 | **Seattle** | Equinix, Megaport |
-| **Washington DC** |AT&T NetBond, Equinix, Level 3 Communications, Megaport, Verizon |
+| **Washington DC** |AT&T NetBond, CenturyLink Cloud Connect, Equinix, Level 3 Communications, Megaport, Verizon |
 
 ### <a name="china"></a>Chine
 | **Lieu** | **Fournisseurs de services** |

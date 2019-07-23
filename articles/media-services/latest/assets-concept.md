@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 07/02/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: e88863fbbc29287baaf1c3c98dbdae04539e08e5
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: d0a81d5d7ce8e7569b77007b6ad9c322cf626f16
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67542594"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67670696"
 ---
 # <a name="assets"></a>Éléments multimédias
 
@@ -93,7 +93,7 @@ Le tableau suivant montre comment les propriétés de l’[élément multimédia
 
 |Propriétés de v3|Propriétés de v2|
 |---|---|
-|id : (unique) chemin d’accès complet à Azure Resource Manager<br/>`"id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Media/mediaservices/contosomedia/assets/ClimbingMountLogan"`||
+|id : (unique) chemin d’accès complet à Azure Resource Manager, voir les exemples dans [Ressource](https://docs.microsoft.com/rest/api/media/assets/createorupdate)||
 |nom : (unique) consultez [Convention d’affectation de noms](media-services-apis-overview.md#naming-conventions) ||
 |alternateId|AlternateId|
 |assetId|Id : valeur (unique) commençant par le préfixe `nb:cid:UUID:`.|
@@ -101,7 +101,7 @@ Le tableau suivant montre comment les propriétés de l’[élément multimédia
 |description|Nom|
 |lastModified|LastModified|
 |storageAccountName|StorageAccountName|
-|storageEncryptionFormat| Options : options de création|
+|storageEncryptionFormat| Options (options de création)|
 |Type||
 
 ## <a name="storage-side-encryption"></a>Chiffrement côté stockage
