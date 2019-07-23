@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/18/2019
+ms.date: 6/6/2019
 ms.author: borisb
-ms.openlocfilehash: fb3c0e46324a22bdd95bf7d93c28e69c195927e8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: b40f62a90dbe7c822b95476abe6ec25cf3fb21d6
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60542439"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070029"
 ---
 # <a name="red-hat-enterprise-linux-images-in-azure"></a>Images Red Hat Enterprise Linux dans Azure
 Cet article décrit les images Red Hat Enterprise Linux (RHEL) disponibles sur la Place de marché Azure, ainsi que les stratégies relatives à leur dénomination et à leur rétention.
@@ -63,9 +63,9 @@ az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:7-RAW:lat
 > En règle générale, la comparaison des versions pour déterminer la dernière version suit les règles de la [méthode CompareTo](https://msdn.microsoft.com/library/a5ts8tb6.aspx).
 
 ### <a name="current-naming-convention"></a>Convention d’affectation de noms actuelle
-Toutes les images RHEL actuellement publiées utilisent le modèle de paiement à l’utilisation et sont connectées à [Red Hat Update Infrastructure (RHUI) dans Azure](https://aka.ms/rhui-update). En raison d’une limitation de la conception de RHUI, une nouvelle convention d’affectation de noms a été adoptée pour les images de la famille RHEL 7. La dénomination de la famille RHEL 6 n’a pas changé pour l’instant.
+Toutes les images RHEL actuellement publiées utilisent le modèle de paiement à l’utilisation et sont connectées à [Red Hat Update Infrastructure (RHUI) dans Azure](https://aka.ms/rhui-update). Une nouvelle convention d’affectation de noms a été adoptée pour les images de la famille RHEL 7 dans lesquelles le schéma de partitionnement de disque (raw, LVM) est spécifié dans la référence (SKU) au lieu de la version. La version de l’image RHEL contiendra 7-RAW ou 7-LVM. La dénomination de la famille RHEL 6 n’a pas changé pour l’instant.
 
-La limitation réside dans le fait que, quand une commande `yum update` non sélective est exécutée sur une machine virtuelle connectée à RHUI, la version RHEL est mise à jour vers la dernière version de la famille en cours. Pour plus d'informations, consultez [ce lien](https://aka.ms/rhui-update). Cela peut entraîner une confusion lorsqu’une image RHEL 7.2 provisionnée devient une image RHEL 7.6 après une mise à jour. Vous pouvez toujours provisionner à partir d’une image plus ancienne, comme illustré dans les exemples ci-dessus, en spécifiant explicitement la version requise. Si la version requise n’est pas spécifiée lors du provisionnement d’une nouvelle image RHEL 7, la dernière image est provisionnée.
+Il y aura 2 types de références (SKU) d’images RHEL 7 dans cette convention d’affectation de noms : Références (SKU) qui indiquent la version mineure et références (SKU) qui ne le font pas. Si vous souhaitez utiliser une référence (SKU) 7-RAW ou 7-LVM , vous pouvez spécifier la version mineure RHEL que vous souhaitez déployer dans la version. Si vous choisissez la « dernière » version, la dernière version mineure de RHEL sera approvionnée.
 
 >[!NOTE]
 > Dans RHEL pour l’ensemble SAP d’images, la version RHEL reste fixe. Par conséquent, leur convention d’affectation de noms inclut une version particulière dans la référence SKU.
@@ -73,28 +73,65 @@ La limitation réside dans le fait que, quand une commande `yum update` non sél
 >[!NOTE]
 > L’ensemble RHEL 6 d’images n’a pas été déplacé vers la nouvelle convention d’affectation de noms.
 
+## <a name="extended-update-support-eus"></a>Extended Update Support (EUS)
+Les images RHEL associées aux référentiels Extended Update Support (EUS) par défaut sont disponibles depuis le mois d’avril 2019. Vous trouverez plus d’informations sur la technologie EUS RHEL dans la [documentation de Red Hat](https://access.redhat.com/articles/rhel-eus).
+
+Découvrez comment basculer votre machine virtuelle vers la technologie EUS et obtenez plus d’informations sur les dates de fin de prise en charge [ici](https://aka.ms/rhui-update#rhel-eus-and-version-locking-rhel-vms).
+
+>[!NOTE]
+> La technologie EUS n’est pas prise en charge par RHEL Extras. Cela signifie que vous ne pourrez pas, sur EUS, installer un package généralement disponible à partir du canal RHEL Extras. Le cycle de vie des produits Red Hat Extras est détaillé [ici](https://access.redhat.com/support/policy/updates/extras/).
+
+### <a name="for-customers-that-want-to-use-eus-images"></a>Pour les clients qui veulent utiliser des images EUS :
+Les clients qui souhaitent utiliser des images associées à des référentiels EUS doivent utiliser l’image RHEL qui contient un numéro de version mineure RHEL dans la référence (SKU). Ces images seront partitionnées au format brut (autrement dit, non LVM).
+
+Par exemple, vous pouvez voir les 2 images RHEL 7.4 suivantes disponibles :
+```bash
+RedHat:RHEL:7-RAW:7.4.2018010506
+RedHat:RHEL:7.4:7.4.2019041718
+```
+Dans ce cas, `RedHat:RHEL:7.4:7.4.2019041718` est associé aux référentiels EUS par défaut, et `RedHat:RHEL:7-RAW:7.4.2018010506` aux référentiels non EUS par défaut.
+
+### <a name="for-customers-that-dont-want-to-use-eus-images"></a>Pour les clients qui ne veulent pas utiliser d’images EUS :
+Si vous ne souhaitez pas utiliser d’image connectée à EUS par défaut, effectuez le déploiement à l’aide d’une image qui ne contient pas de numéro de version mineure dans la référence (SKU).
+
+#### <a name="rhel-images-with-eus"></a>Images RHEL avec EUS
+Le tableau suivant s’applique aux images RHEL qui contiennent une version mineure dans la référence (SKU).
+
+>[!NOTE]
+> Au moment de la rédaction, seules les versions mineures RHEL 7.4 et ultérieures sont compatibles EUS. La technologie EUS n’est plus prise en charge pour RHEL version 7.3 et antérieures.
+
+Version secondaire |Exemple d’image EUS              |État EUS                                                   |
+:-------------|:------------------------------|:------------------------------------------------------------|
+RHEL 7.4      |RedHat:RHEL:7.4:7.4.2019041718 | Les images publiées en avril 2019 et après cette date seront compatibles EUS par défaut|
+RHEL 7.5      |RedHat:RHEL:7.5:7.5.2019060305 | Les images publiées en juin 2019 et après cette date seront compatibles EUS par défaut |
+RHEL 7.6      |RedHat:RHEL:7.6:7.6.2019052206 | Les images publiées en mai 2019 et après cette date seront compatibles EUS par défaut  |
+RHEL 8.0      |N/A                            | Aucune image actuellement au format EUS n’est actuellement disponible                 |
+
+
+## <a name="list-of-rhel-images-available"></a>Liste des images RHEL disponibles
 Les offres suivantes sont les références SKU actuellement disponibles pour une utilisation générale :
 
 Offre| SKU | Partitionnement | Approvisionnement | Notes
 :----|:----|:-------------|:-------------|:-----
-RHEL | 7-RAW | RAW | Agent Linux | Famille d’images RHEL 7
-| | 7-LVM | LVM | Agent Linux | Famille d’images RHEL 7
-| | 7-RAW-CI | RAW-CI | Cloud-Init | Famille d’images RHEL 7
-| | 6.7 | RAW | Agent Linux | Images RHEL 6.7, ancienne convention d’affectation de noms
-| | 6.8 | RAW | Agent Linux | Identique à ce qui précède pour RHEL 6.8
-| | 6.9 | RAW | Agent Linux | Identique à ce qui précède pour RHEL 6.9
-| | 6.10 | RAW | Agent Linux | Identique à ce qui précède pour RHEL 6.10
-| | 7,2 | RAW | Agent Linux | Identique à ce qui précède pour RHEL 7.2
-| | 7.3 | RAW | Agent Linux | Identique à ce qui précède pour RHEL 7.3
-| | 7.4 | RAW | Agent Linux | Identique à ce qui précède pour RHEL 7.4
-| | 7.5 | RAW | Agent Linux | Identique à ce qui précède pour RHEL 7.5
-RHEL-SAP | 7.4 | LVM | Agent Linux | RHEL 7.4 pour SAP HANA et les applications métiers
-| | 7.5 | LVM | Agent Linux | RHEL 7.5 pour SAP HANA et les applications métiers
-RHEL-SAP-HANA | 6.7 | RAW | Agent Linux | RHEL 6.7 pour SAP HANA
-| | 7,2 | LVM | Agent Linux | RHEL 7.2 pour SAP HANA
-| | 7.3 | LVM | Agent Linux | RHEL 7.3 pour SAP HANA
-RHEL-SAP-APPS | 6.8 | RAW | Agent Linux | RHEL 6.8 pour applications métiers SAP
-| | 7.3 | LVM | Agent Linux | RHEL 7.3 pour applications métiers SAP
+RHEL          | 7-RAW    | RAW    | Agent Linux | Famille d’images RHEL 7. <br> Pas associée à des référentiels EUS par défaut.
+|             | 7-LVM    | LVM    | Agent Linux | Famille d’images RHEL 7. <br> Pas associé à des référentiels EUS par défaut.
+|             | 7-RAW-CI | RAW-CI | Cloud-Init  | Famille d’images RHEL 7. <br> Pas associé à des référentiels EUS par défaut.
+|             | 6.7      | RAW    | Agent Linux | Images RHEL 6.7, ancienne convention d’affectation de noms
+|             | 6.8      | RAW    | Agent Linux | Identique à ce qui précède pour RHEL 6.8
+|             | 6.9      | RAW    | Agent Linux | Identique à ce qui précède pour RHEL 6.9
+|             | 6.10     | RAW    | Agent Linux | Identique à ce qui précède pour RHEL 6.10
+|             | 7,2      | RAW    | Agent Linux | Identique à ce qui précède pour RHEL 7.2
+|             | 7.3      | RAW    | Agent Linux | Identique à ce qui précède pour RHEL 7.3
+|             | 7.4      | RAW    | Agent Linux | Identique à ce qui précède pour RHEL 7.4 <br> Attaché à des référentiels EUS par défaut à compter d’avril 2019
+|             | 7.5      | RAW    | Agent Linux | Identique à ce qui précède pour RHEL 7.5. <br> Attaché à des référentiels EUS par défaut à compter de juin 2019
+|             | 7.6      | RAW    | Agent Linux | Identique à ce qui précède pour RHEL 7.6. <br> Attaché à des référentiels EUS par défaut à compter de mai 2019
+RHEL-SAP      | 7.4      | LVM    | Agent Linux | RHEL 7.4 pour SAP HANA et les applications métiers
+|             | 7.5      | LVM    | Agent Linux | RHEL 7.5 pour SAP HANA et les applications métiers
+RHEL-SAP-HANA | 6.7      | RAW    | Agent Linux | RHEL 6.7 pour SAP HANA
+|             | 7,2      | LVM    | Agent Linux | RHEL 7.2 pour SAP HANA
+|             | 7.3      | LVM    | Agent Linux | RHEL 7.3 pour SAP HANA
+RHEL-SAP-APPS | 6.8      | RAW    | Agent Linux | RHEL 6.8 pour applications métiers SAP
+|             | 7.3      | LVM    | Agent Linux | RHEL 7.3 pour applications métiers SAP
 
 ### <a name="old-naming-convention"></a>Ancienne convention d’affectation de noms
 La famille RHEL 7 d’images et la famille RHEL 6 d’images utilisaient des versions spécifiques dans leurs références SKU jusqu’à l’application du changement de convention d’affectation de noms expliqué ci-dessus.

@@ -1,6 +1,6 @@
 ---
-title: Restreindre l’accès - Azure App Service | Microsoft Docs
-description: Comment utiliser les Restrictions d’accès avec Azure App Service
+title: Restrictions d’accès - Azure App Service | Microsoft Docs
+description: Comment utiliser des restrictions d’accès avec Azure App Service
 author: ccompy
 manager: stefsch
 editor: ''
@@ -12,65 +12,65 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 05/28/2019
+ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: e408439c4868a9fadfd15ab8ae303b2d881c481e
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
-ms.translationtype: MT
+ms.openlocfilehash: 2b0892fb107827cd9060a36855e9b8bf4416463c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66494261"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069431"
 ---
-# <a name="azure-app-service-access-restrictions"></a>Restrictions d’accès Azure App Service #
+# <a name="azure-app-service-access-restrictions"></a>Restrictions d’accès dans Azure App Service #
 
-Restrictions d’accès permettent de définir une liste ordonnée/de refus priorité qui contrôle l’accès réseau à votre application. La liste peut inclure des adresses IP ou sous-réseaux de réseau virtuel Azure. Lorsqu’il existe une ou plusieurs entrées, il est ensuite implicite « refuser tout » qui existe à la fin de la liste.
+Les restrictions d’accès permettent de définir une liste verte/d’exclusion classée par ordre de priorité qui contrôle l’accès réseau à votre application. La liste peut inclure des adresses IP ou des sous-réseaux de Réseau virtuel Microsoft Azure. Lorsqu’il y a une ou plusieurs entrées, il existe une règle implicite « Tout refuser » qui se trouve à la fin de la liste.
 
-La fonctionnalité de Restrictions d’accès fonctionne avec tous les App Service, charge de travail hébergé, y compris ; applications Web, applications API, applications Linux, les applications de conteneur Linux et fonctions.
+La fonctionnalité Restrictions d’accès peut être utilisée avec toutes les charges de travail hébergées par App Service, notamment les applications web, les applications API, les applications Linux, les applications de conteneur Linux et Functions.
 
-Lorsqu’une demande est faite à votre application, l’adresse est recherchée dans les règles d’adresses IP dans votre liste de restrictions d’accès. Si l’adresse est dans un sous-réseau qui est configuré avec les points de terminaison de service à Microsoft.Web, puis les sous-réseaux source sont comparé les règles de réseau virtuel dans votre liste de restrictions d’accès. Si l’adresse n’est pas autorisée à y accéder selon les règles définies dans la liste, le service répond avec le code d’état [HTTP 403](https://en.wikipedia.org/wiki/HTTP_403).
+Lorsqu’une demande est envoyée à votre application, l’adresse dont provient la demande est vérifiée par rapport aux règles d’adresses IP de votre liste de restriction des accès. Si l’adresse dont provient la demande se trouve dans un sous-réseau configuré avec des points de terminaison de service sur Microsoft.Web, le sous-réseau source est comparé aux règles de réseau virtuel de votre liste des restrictions d’accès. Si l’adresse n’est pas autorisée à y accéder selon les règles définies dans la liste, le service répond avec le code d’état [HTTP 403](https://en.wikipedia.org/wiki/HTTP_403).
 
-La fonctionnalité de restrictions d’accès est implémentée dans les rôles frontaux App Service, qui sont en amont des hôtes de travail dans lequel votre code s’exécute. Par conséquent, les restrictions d’accès sont effectivement ACL réseau.
+La fonctionnalité de restriction des accès est implémentée dans les rôles frontend App Service, qui sont en amont des hôtes de travail où votre code s’exécute. C’est pourquoi les restrictions d’accès sont comparables à des listes de contrôle d’accès (ACL) réseau.
 
-La possibilité de restreindre l’accès à votre application web à partir d’un réseau virtuel de Azure (VNet) est appelée [points de terminaison de service][serviceendpoints]. Points de terminaison de service permettent de restreindre l’accès à un service mutualisé à partir de sous-réseaux sélectionnés. Il doit être activé sur le côté de mise en réseau ainsi que le service activé avec. Il ne fonctionne pas pour limiter le trafic vers les applications qui sont hébergées dans un environnement App Service.  Si vous êtes dans un environnement App Service, vous pouvez contrôler l’accès à votre application avec des règles d’adresses IP.
+La possibilité de restreindre l’accès à votre application web à partir d’un réseau virtuel Azure (VNet) est appelée [points de terminaison de service][serviceendpoints]. Les points de terminaison de service vous permettent de restreindre l’accès à un service multilocataire à partir de sous-réseaux sélectionnés. Le point de terminaison de service doit être activé côté réseau et côté service avec lequel il est activé. Il n’est pas destiné à limiter le trafic vers les applications hébergées dans un environnement App Service Environment.  Si vous êtes dans un environnement App Service Environment, vous pouvez contrôler l’accès à votre application avec des règles d’adresses IP.
 
 ![flux de restrictions d’accès](media/app-service-ip-restrictions/access-restrictions-flow.png)
 
-## <a name="adding-and-editing-access-restriction-rules-in-the-portal"></a>Ajout et modification des règles de Restriction d’accès dans le portail ##
+## <a name="adding-and-editing-access-restriction-rules-in-the-portal"></a>Ajout et modification des règles de restriction d’accès dans le portail ##
 
-Pour ajouter une règle de restriction d’accès à votre application, utilisez le menu pour ouvrir **réseau**>**Restrictions d’accès** , puis cliquez sur **configurer des Restrictions d’accès**
+Pour ajouter une règle de restriction d’accès à votre application, dans le menu, ouvrez **Réseau**>**Restrictions d’accès**, puis cliquez sur **Configurer des restrictions d’accès**.
 
 ![Options réseau d’App Service](media/app-service-ip-restrictions/access-restrictions.png)  
 
-À partir de l’interface utilisateur de Restrictions d’accès, vous pouvez consulter la liste des règles de restriction d’accès définis pour votre application.
+Dans l’interface utilisateur Restrictions d’accès, vous pouvez consulter la liste des règles de restriction d’accès définies pour votre application.
 
-![restrictions d’accès de liste](media/app-service-ip-restrictions/access-restrictions-browse.png)
+![répertorier les restrictions d’accès](media/app-service-ip-restrictions/access-restrictions-browse.png)
 
-La liste affiche toutes les restrictions actuelles qui se trouvent sur votre application. Si vous avez une restriction de réseau virtuel sur votre application, la table affiche si les points de terminaison de service sont activés pour Microsoft.Web. Lorsqu’il n’y a aucune restriction définie sur votre application, votre application sera accessible depuis n’importe où.  
+La liste affiche l’ensemble des restrictions actuelles de votre application. Si une restriction de réseau virtuel s’applique à votre application, le tableau indique si des points de terminaison de service sont activés pour Microsoft.Web. En l’absence de restriction appliquée à votre application, votre application est accessible depuis n’importe où.  
 
-Vous pouvez cliquer sur **[+] ajouter** pour ajouter une nouvelle règle de restriction d’accès. Quand vous ajoutez une règle, celle-ci est appliquée immédiatement. Les règles sont appliquées par ordre de priorité, du chiffre le moins élevé au chiffre le plus élevé. Il existe une règle implicite « Tout refuser » qui s’applique dès que vous ajoutez une règle.
+## <a name="adding-ip-address-rules"></a>Ajout de règles d’adresses IP
 
-### <a name="adding-ip-address-rules"></a>Ajout de règles d’adresses IP
+Vous pouvez cliquer sur **[+] Ajouter** pour ajouter une nouvelle règle de restriction d’accès. Quand vous ajoutez une règle, celle-ci est appliquée immédiatement. Les règles sont appliquées par ordre de priorité, du chiffre le moins élevé au chiffre le plus élevé. Il existe une règle implicite « Tout refuser » qui s’applique dès que vous ajoutez une règle.
 
-![Ajouter une règle de restriction d’accès IP](media/app-service-ip-restrictions/access-restrictions-ip-add.png)
+Lorsque vous créez une règle, vous devez sélectionner autoriser/refuser, ainsi que le type de règle. Vous devez également indiquer la valeur de priorité et l’élément sur lequel porte la restriction d’accès.  Vous pouvez éventuellement ajouter un nom et une description à la règle.  
 
-Lorsque vous créez une règle, vous devez sélectionner autoriser ou refuser, ainsi que le type de règle. Vous devez également fournir la valeur de priorité et ce que vous pouvez réserver l’accès.  Vous pouvez éventuellement ajouter un nom et une description à la règle.  
+![ajouter une règle de restriction d’accès IP](media/app-service-ip-restrictions/access-restrictions-ip-add.png)
 
-Règle basée sur pour définir une adresse IP, sélectionnez un type de IPv4 ou IPv6. Pour les adresses IPv4 et IPv6, la notation CIDR doit être utilisée. Pour spécifier une adresse exacte, vous pouvez utiliser le format 1.2.3.4/32, où les quatre premiers octets représentent votre adresse IP, et /32 correspond au masque. La notation CIDR IPv4 est 0.0.0.0/0 pour toutes les adresses. Pour plus d’informations sur la notation CIDR, consultez [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). 
+Pour définir une règle reposant sur une adresse IP, sélectionnez le type IPv4 ou IPv6. Pour les adresses IPv4 et IPv6, la notation CIDR doit être utilisée. Pour spécifier une adresse exacte, vous pouvez utiliser le format 1.2.3.4/32, où les quatre premiers octets représentent votre adresse IP, et /32 correspond au masque. La notation CIDR IPv4 est 0.0.0.0/0 pour toutes les adresses. Pour plus d’informations sur la notation CIDR, consultez [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). 
 
-### <a name="service-endpoints"></a>Points de terminaison de service
+## <a name="service-endpoints"></a>Points de terminaison de service
 
-![Ajouter une règle de restriction d’accès réseau virtuel](media/app-service-ip-restrictions/access-restrictions-vnet-add.png)
+Les points de terminaison de service vous permettent de restreindre l’accès à une sélection de sous-réseaux de réseau virtuel Azure. Pour restreindre l’accès à un sous-réseau spécifique, créez une règle de restriction dont le type est Réseau virtuel. Vous pouvez choisir l’abonnement, le réseau virtuel et le sous-réseau avec lequel vous souhaitez autoriser ou refuser l’accès. Si les points de terminaison de service ne sont pas encore activés avec Microsoft.Web pour le sous-réseau sélectionné, ils le seront automatiquement pour vous, sauf si vous cochez la case demandant de ne pas le faire. Le fait de vouloir les activer sur l’application, mais pas sur le sous-réseau est lié en grande partie au fait de détenir ou non les autorisations d’activer les points de terminaison de service sur le sous-réseau. Si vous avez besoin que quelqu’un d’autre active des points de terminaison de service sur le sous-réseau, vous pouvez cocher la case et faire en sorte que votre application soit configurée pour les points de terminaison de service en prévision que celle-ci soit activée ultérieurement sur le sous-réseau. 
 
-Pour restreindre l’accès à des sous-réseaux sélectionnées, sélectionnez un type de réseau virtuel. Ci-dessous, vous serez en mesure de sélectionner l’abonnement, le réseau virtuel et le sous-réseau que vous souhaitez autoriser ou refuser l’accès avec. Si les points de terminaison de service ne sont pas encore activés avec Microsoft.Web pour le sous-réseau que vous avez sélectionné, il est automatiquement activé pour vous, sauf si vous cochez la case demandant ne pas à le faire. La situation où vous souhaiteriez activer sur l’application, mais pas le sous-réseau en grande partie concerne si vous disposez des autorisations pour activer les points de terminaison de service sur le sous-réseau ou non. Si vous avez besoin obtenir de quelqu'un d’autre pour activer les points de terminaison de service sur le sous-réseau, vous pouvez la case à cocher et que votre application configurée pour les points de terminaison de service en prévision de celle-ci en cours d’activation ultérieurement sur le sous-réseau. 
+![ajouter une règle de restriction d’accès de réseau virtuel](media/app-service-ip-restrictions/access-restrictions-vnet-add.png)
 
-Points de terminaison de service ne peut pas être utilisés pour restreindre l’accès aux applications qui s’exécutent dans un environnement App Service. Lorsque votre application se trouve dans un environnement App Service, vous pouvez contrôler l’accès à votre application avec des règles d’accès IP. 
+Les points de terminaison de service ne peuvent pas être utilisés pour restreindre l’accès aux applications qui s’exécutent dans un environnement App Service Environment. Si votre application se trouve dans un environnement App Service Environment, vous pouvez contrôler l’accès à votre application avec des règles d’accès IP. 
 
-Avec les points de terminaison de service, vous pouvez configurer votre application avec les passerelles d’Application ou d’autres appareils de WAF. Vous pouvez également configurer des applications à plusieurs niveaux avec les serveurs principaux sécurisés. Pour plus d’informations sur quelques-unes des possibilités, consultez [App Service et les fonctionnalités de mise en réseau](networking-features.md).
+Avec les points de terminaison de service, vous pouvez configurer votre application avec les passerelles d’application ou d’autres appareils WAF. Vous pouvez également configurer des applications à plusieurs niveaux avec des serveurs principaux sécurisés. Pour plus d’informations sur certaines possibilités, consultez [Fonctionnalités de mise en réseau et App Service](networking-features.md).
 
-### <a name="managing-access-restriction-rules"></a>Gestion des règles de restriction d’accès
+## <a name="managing-access-restriction-rules"></a>Gestion des règles de restriction d’accès
 
-Vous pouvez cliquer sur n’importe quelle ligne pour modifier une règle de restriction d’accès existante. Les modifications sont appliquées immédiatement, y compris les changements de priorité.
+Vous pouvez cliquer sur n’importe quelle ligne pour modifier une règle existante de restriction d’accès. Les modifications sont appliquées immédiatement, y compris les changements de priorité.
 
 ![modifier une règle de restriction d’accès](media/app-service-ip-restrictions/access-restrictions-ip-edit.png)
 
@@ -80,25 +80,25 @@ Lorsque vous modifiez une règle, vous ne pouvez pas modifier le type entre une 
 
 Pour supprimer une règle, cliquez sur les trois points ( **...** ) dans votre règle, puis cliquez sur **Supprimer**.
 
-![supprimer la règle de restriction d’accès](media/app-service-ip-restrictions/access-restrictions-delete.png)
+![supprimer une règle de restriction d’accès](media/app-service-ip-restrictions/access-restrictions-delete.png)
 
-### <a name="blocking-a-single-ip-address"></a>Blocage d’une seule adresse IP ##
+## <a name="blocking-a-single-ip-address"></a>Bloquer une adresse IP unique ##
 
-Lorsque vous ajoutez votre première règle de Restriction d’adresse IP, le service va ajouter explicite **refuser tout** règle avec une priorité de 2147483647. Dans la pratique, explicite **refuser tout** règle sera la dernière règle exécutée et bloquera l’accès à n’importe quelle adresse IP qui n’est pas autorisé de manière explicite à l’aide un **autoriser** règle.
+Lorsque vous ajoutez votre première règle de restriction IP, le service ajoute une règle **tout refuser** ayant la priorité 2147483647. Dans la pratique, la règle explicite **Tout refuser** est la dernière règle exécutée et bloque l’accès à toute adresse IP n’étant pas autorisée de manière explicite par une règle **Autoriser**.
 
-Pour le scénario où les utilisateurs souhaitent bloquer explicitement une seule adresse IP ou le bloc d’adresses IP, mais autoriser tout autre accès, il est nécessaire d’ajouter un texte explicite **autoriser tous les** règle.
+Lorsque les utilisateurs souhaitent bloquer explicitement une seule adresse IP ou le bloc d’adresses IP, mais autoriser tout autre accès, il est nécessaire d’ajouter une règle explicite **Tout autoriser**.
 
-![adresse ip unique de bloc](media/app-service-ip-restrictions/block-single-address.png)
+![bloquer une adresse IP unique](media/app-service-ip-restrictions/block-single-address.png)
 
-### <a name="scm-site"></a>Site SCM 
+## <a name="scm-site"></a>Site GCL 
 
-Outre la possibilité de contrôler l’accès à votre application, vous pouvez également restreindre l’accès au site scm utilisé par votre application. Le site scm est le web déployer le point de terminaison, ainsi que la console Kudu. Vous pouvez séparément adjoindre des restrictions d’accès au site scm à partir de l’application ou utiliser les mêmes pour l’application et le site scm. Lorsque vous activez la case pour ont les mêmes restrictions que votre application, tout ce dont s’affiche en grisé. Si vous décochez la case, les paramètres que vous aviez précédemment sur le site scm sont appliquées. 
+Outre la possibilité de contrôler l’accès à votre application, vous pouvez également restreindre l’accès au site gcl utilisé par votre application. Le site gcl est le point de terminaison de déploiement web, ainsi que la console Kudu. Vous pouvez affecter séparément des restrictions d’accès au site gcl à partir de l’application ou utiliser le même ensemble pour l’application et le site gcl. Lorsque vous cochez la case pour avoir les mêmes restrictions que votre application, tout s’affiche en grisé. Si vous décochez la case, les paramètres dont vous disposiez précédemment sur le site gcl sont appliqués. 
 
-![restrictions d’accès de liste](media/app-service-ip-restrictions/access-restrictions-scm-browse.png)
+![répertorier les restrictions d’accès](media/app-service-ip-restrictions/access-restrictions-scm-browse.png)
 
 ## <a name="programmatic-manipulation-of-access-restriction-rules"></a>Manipulation par programmation des règles de restriction d’accès ##
 
-Il n’existe actuellement aucune interface CLI ou PowerShell pour la nouvelle fonctionnalité de Restrictions d’accès, mais les valeurs peuvent être définies manuellement avec une opération PUT sur la configuration d’application dans le Gestionnaire de ressources. Par exemple, vous pouvez utiliser resources.azure.com et modifier le bloc ipSecurityRestrictions pour ajouter le code JSON nécessaire.
+Il n’existe aucune interface CLI ou PowerShell pour la nouvelle fonctionnalité Restrictions d’accès. Toutefois, vous pouvez définir les valeurs manuellement à l’aide d’une opération PUT dans la configuration d’application de Resource Manager. Par exemple, vous pouvez utiliser resources.azure.com et modifier le bloc ipSecurityRestrictions pour ajouter le code JSON nécessaire.
 
 Dans Resource Manager, ces informations se trouvent à l’emplacement suivant :
 
@@ -116,9 +116,9 @@ La syntaxe JSON de l’exemple précédent est la suivante :
       }
     ],
 
-## <a name="function-app-ip-restrictions"></a>Restrictions d’adresse IP d’application de fonction
+## <a name="function-app-ip-restrictions"></a>Restrictions d’adresse IP Function App
 
-Restrictions d’adresse IP sont disponibles pour les deux applications de fonction avec les mêmes fonctionnalités que les plans App Service. L’activation des restrictions d’adresse IP désactive l’éditeur de code de portail pour les adresses IP non autorisé.
+Les restrictions d’adresse IP sont disponibles pour les deux applications de fonctions avec la même fonctionnalité que les plans App Service. L’activation des restrictions d’adresse IP désactive l’éditeur de code du portail pour les adresses IP non autorisées.
 
 [En savoir plus ici](../azure-functions/functions-networking-options.md#inbound-ip-restrictions)
 

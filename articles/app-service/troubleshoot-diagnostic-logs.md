@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 37455c278d665d05636ec120ca91b76153e53d16
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: c21a923f06a768c0a9a0f2843a24583df7a7821d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60835695"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059650"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Activer la journalisation des diagnostics pour les applications dans Azure App Service
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 Azure fournit des diagnostics intégrés pour aider au débogage d’une [application App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Cet article vous explique comment activer la journalisation de diagnostic et ajouter la fonctionnalité d’instrumentation à votre application, et comment accéder aux informations enregistrées par Azure.
 
 Cet article utilise le [portail Azure](https://portal.azure.com) et Azure CLI pour l’exploitation des journaux de diagnostic. Pour plus d’informations sur l’utilisation de journaux de diagnostic avec Visual Studio, consultez [Résolution des problèmes Azure dans Visual Studio](troubleshoot-dotnet-visual-studio.md).
@@ -34,12 +34,12 @@ App Service fournit des fonctionnalités de diagnostic pour les informations de
 ### <a name="web-server-diagnostics"></a>Diagnostics de serveur web
 Vous pouvez activer ou désactiver les types de journaux d’activité suivants :
 
-* **Erreur détaillés** -des informations détaillées pour toute demande ayant entraîné dans le code d’état HTTP 400 ou supérieur. Il peut s’agir d’informations permettant de déterminer la raison pour laquelle le serveur a renvoyé le code d’erreur. Un fichier HTML est généré pour chaque erreur dans le système de fichiers de l’application et jusqu'à 50 erreurs (fichiers) sont conservés. Lorsque le nombre de fichiers HTML dépasse 50, les fichiers de 26 plus anciens sont automatiquement supprimés.
-* **Suivi des demandes ayant échoué** : informations détaillées sur les demandes qui ont échoué, y compris une trace des composants IIS utilisés pour traiter la demande et la durée dans chaque composant. Ces informations sont utiles si vous souhaitez améliorer les performances du site ou isoler une erreur HTTP spécifique. Un dossier est généré pour chaque erreur dans le système de fichiers de l’application. Stratégies de rétention de fichier sont les mêmes que l’enregistrement ci-dessus détaillé des erreurs.
+* **Journalisation des erreurs détaillée** - Informations détaillées pour toute demande ayant entraîné un code d’état HTTP 400 ou supérieur. Il peut s’agir d’informations permettant de déterminer la raison pour laquelle le serveur a renvoyé le code d’erreur. Un fichier HTML est généré pour chaque erreur dans le système de fichiers de l’application et jusqu’à 50 erreurs (fichiers) sont conservés. Lorsque le nombre de fichiers HTML dépasse 50, les 26 fichiers les plus anciens sont automatiquement supprimés.
+* **Suivi des demandes ayant échoué** : informations détaillées sur les demandes qui ont échoué, y compris une trace des composants IIS utilisés pour traiter la demande et la durée dans chaque composant. Ces informations sont utiles si vous souhaitez améliorer les performances du site ou isoler une erreur HTTP spécifique. Un dossier est généré pour chaque erreur dans le système de fichiers de l’application. Les stratégies de rétention de fichier sont les mêmes que la journalisation des erreurs détaillée ci-dessus.
 * **Journalisation du serveur Web** : informations sur les transactions HTTP à l’aide du [format de fichier journal étendu W3C](/windows/desktop/Http/w3c-logging). Ces informations peuvent se révéler utiles pour déterminer les métriques globales d’un site, comme le nombre de requêtes traitées ou le nombre de requêtes émanant d’une adresse IP spécifique.
 
 ### <a name="application-diagnostics"></a>Diagnostic d'application
-Le diagnostic d'application vous permet de capturer des informations générées par une application Web. Les applications ASP.NET peuvent utiliser la classe [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace) pour enregistrer des informations dans le journal de diagnostic d'application. Par exemple : 
+Le diagnostic d'application vous permet de capturer des informations générées par une application Web. Les applications ASP.NET peuvent utiliser la classe [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace) pour enregistrer des informations dans le journal de diagnostic d'application. Par exemple :
 
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
@@ -75,7 +75,7 @@ Pour **Journalisation du serveur web**, vous pouvez sélectionner **Stockage** o
 
 Si vous stockez les journaux d’activité sur le système de fichiers, vous pouvez accéder à ces fichiers par FTP ou les télécharger sous forme d’archive ZIP en utilisant Azure PowerShell ou Azure CLI.
 
-Par défaut, les journaux d’activité ne sont pas automatiquement supprimés (à l’exception du **Journal des applications (Système de fichiers)**). Pour supprimer automatiquement les journaux d’activité, définissez le champ **Période de rétention (jours)**.
+Par défaut, les journaux d’activité ne sont pas automatiquement supprimés (à l’exception du **Journal des applications (Système de fichiers)** ). Pour supprimer automatiquement les journaux d’activité, définissez le champ **Période de rétention (jours)** .
 
 > [!NOTE]
 > Si vous [régénérez les clés d’accès de votre compte de stockage](../storage/common/storage-create-storage-account.md), vous devez réinitialiser la configuration de journalisation correspondante pour utiliser les clés mises à jour. Pour ce faire :
@@ -98,11 +98,11 @@ Les informations de diagnostic stockées dans le système de fichiers d’applic
 
 La structure de répertoires dans laquelle les journaux d’activité sont stockés est la suivante :
 
-* **Journaux d'application** : /LogFiles/Application/. Ce dossier contient un ou plusieurs fichiers texte contenant des informations générées dans le cadre de la journalisation des applications.
+* **Journaux d’activité d’application** : /LogFiles/Application/. Ce dossier contient un ou plusieurs fichiers texte contenant des informations générées dans le cadre de la journalisation des applications.
 * **Suivi des demandes ayant échoué** : /LogFiles/W3SVC#########/. Ce dossier contient un fichier XSL et un ou plusieurs fichiers XML. Assurez-vous de télécharger le fichier XSL dans le même répertoire que le(s) fichier(s) XML, car le fichier XSL possède des attributs permettant de formater et de filtrer le contenu de fichiers XML lorsqu'ils sont affichés dans Internet Explorer.
-* **Journaux d'erreurs détaillés** : /LogFiles/DetailedErrors/. Ce dossier contient un ou plusieurs fichiers .htm fournissant des informations détaillées sur toute erreur HTTP qui s'est produite.
-* **Journaux des serveurs Web** : /LogFiles/http/RawLogs. Ce dossier contient un ou plusieurs fichiers texte au format [de fichier journal étendu W3C](/windows/desktop/Http/w3c-logging).
-* **Journaux de déploiement** : /LogFiles/Git. Ce dossier contient les journaux d’activité générés par les processus de déploiement internes utilisés par Azure App Service, ainsi que les journaux d’activité des déploiements Git. Vous trouverez également les journaux d’activité de déploiement sous D:\home\site\deployments.
+* **Journaux d’activité d’erreurs détaillés** : /LogFiles/DetailedErrors/. Ce dossier contient un ou plusieurs fichiers .htm fournissant des informations détaillées sur toute erreur HTTP qui s'est produite.
+* **Journaux d’activité des serveurs Web** : /LogFiles/http/RawLogs. Ce dossier contient un ou plusieurs fichiers texte au format [de fichier journal étendu W3C](/windows/desktop/Http/w3c-logging).
+* **Journaux d’activité de déploiement** : /LogFiles/Git. Ce dossier contient les journaux d’activité générés par les processus de déploiement internes utilisés par Azure App Service, ainsi que les journaux d’activité des déploiements Git. Vous trouverez également les journaux d’activité de déploiement sous D:\home\site\deployments.
 
 ### <a name="ftp"></a>FTP
 
@@ -115,7 +115,7 @@ Pour télécharger les fichiers journaux à l’aide de l’interface de ligne d
 
     az webapp log download --resource-group resourcegroupname --name appname
 
-Cette commande enregistre les journaux de l’application nommée « appname » dans un fichier nommé **webapp_logs.zip** dans le répertoire actif.
+Cette commande enregistre les journaux d’activité de l’application nommée « appname » dans un fichier **webapp_logs.zip** du répertoire actif.
 
 > [!NOTE]
 > Si vous n’avez pas installé ou configuré Azure CLI de manière à utiliser votre abonnement Azure, consultez la page [Guide pratique pour utiliser Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
@@ -152,11 +152,11 @@ Pour diffuser des informations de journalisation, ouvrez une nouvelle session d'
 
 Cette commande établie une connexion avec l’application nommée « appname », puis diffuse les informations vers la fenêtre à mesure que des événements de journalisation se produisent sur l’application. Toute information enregistrée dans un fichier ayant l’extension .txt, .log ou .htm et stocké dans le répertoire /LogFiles (d:/home/logfiles) est diffusée vers la console locale.
 
-Pour filtrer des événements spécifiques, tels que des erreurs, utilisez le paramètre **--Filter** . Par exemple : 
+Pour filtrer des événements spécifiques, tels que des erreurs, utilisez le paramètre **--Filter** . Par exemple :
 
     az webapp log tail --name appname --resource-group myResourceGroup --filter Error
 
-Pour filtrer des types de journaux spécifiques, tels que HTTP, utilisez le paramètre **--Path** . Par exemple : 
+Pour filtrer des types de journaux spécifiques, tels que HTTP, utilisez le paramètre **--Path** . Par exemple :
 
     az webapp log tail --name appname --resource-group myResourceGroup --path http
 
@@ -205,7 +205,7 @@ Les données stockées dans un objet blob peuvent se présenter comme suit :
     2014-01-30T16:36:52,Error,mywebapp,6ee38a,635266966128818593,0,3096,9,An error occurred
 
 > [!NOTE]
-> Pour ASP.NET Core, la journalisation s’effectue à l’aide du fournisseur [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices). Ce fournisseur dépose des fichiers journaux supplémentaires dans le conteneur blob. Pour plus d’informations, consultez l’article [ASP.NET Core logging in Azure](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#logging-in-azure) (Journalisation ASP.NET Core dans Azure).
+> Pour ASP.NET Core, la journalisation s’effectue à l’aide du fournisseur [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices). Ce fournisseur dépose des fichiers journaux supplémentaires dans le conteneur blob. Pour plus d’informations, consultez l’article [ASP.NET Core logging in Azure](/aspnet/core/fundamentals/logging) (Journalisation ASP.NET Core dans Azure).
 >
 >
 
@@ -215,7 +215,7 @@ Le suivi des demandes ayant échoué est stocké dans des fichiers XML nommés *
 ![affichage d'une demande ayant échoué dans le navigateur](./media/web-sites-enable-diagnostic-log/tws-failedrequestinbrowser.png)
 
 > [!NOTE]
-> Un moyen simple pour afficher les traces de la mise en forme des demandes ayant échoué est pour accéder à la page de votre application dans le portail. Dans le menu de gauche, sélectionnez **diagnostiquer et résoudre les problèmes**, puis recherchez **Échec de suivi des journaux de demandes de**, puis cliquez sur l’icône pour parcourir et afficher la trace que vous souhaitez.
+> Un moyen simple d’afficher les traces des requêtes ayant échoué est pour accéder à la page de votre application dans le portail. Dans le menu de gauche, sélectionnez **Diagnostiquer et résoudre les problèmes**, puis recherchez **Journaux de traçage des requêtes ayant échoué**, puis cliquez sur l’icône pour parcourir et afficher la trace que vous souhaitez.
 >
 
 ### <a name="detailed-error-logs"></a>Journaux d’activité d’erreurs détaillés

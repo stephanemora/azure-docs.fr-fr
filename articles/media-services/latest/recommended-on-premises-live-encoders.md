@@ -6,15 +6,15 @@ keywords: encodage;encodeurs;média
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 01/17/2019
+ms.date: 06/12/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 50b22cefccf620d7b79202a5c432e2e6a4e3e3be
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
-ms.translationtype: MT
+ms.openlocfilehash: 1bede8ff7c33988a4e11a84d3a51ca098a608f33
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65550054"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055284"
 ---
 # <a name="recommended-live-streaming-encoders"></a>Encodeurs de streaming en direct recommandés
 
@@ -24,7 +24,7 @@ Dans Azure Media Services, un [Événement en temps réel](https://docs.microsof
 
   > [!NOTE]
   > L’utilisation d’une méthode pass-through est le moyen le plus économique de diffuser une vidéo en flux continu.
-
+ 
 * Un encodeur live local envoie un flux à débit unique à l'Événement en temps réel activé pour effectuer un encodage en temps réel avec Media Services dans l'un des formats suivants : RTMP ou Smooth Streaming (MP4 fragmenté). L'Événement en temps réel procède ensuite à l'encodage en temps réel du flux à débit unique entrant en flux vidéo multidébit (adaptatif).
 
 Pour des informations détaillées sur l’encodage en temps réel avec Media Services, voir [Streaming en direct avec Media Services v3](live-streaming-overview.md).
@@ -61,7 +61,7 @@ Media Services recommande l’utilisation d’un des encodeurs live suivants, qu
 - Media Excel Hero Live et Hero 4K (UHD/HEVC)
 
 > [!TIP]
->  Si vous diffusez en continu des événements en direct dans plusieurs langues (par exemple, une seule piste audio en anglais et une piste audio espagnole), vous pouvez y parvenir avec l’encodeur dynamique Media Excel configuré pour envoyer le flux temps réel à un événement en direct pass-through.
+>  L’encodeur live Media Excel configuré pour envoyer du flux en temps réel à un événement en direct transmis directement permet de diffuser en continu des événements en direct dans plusieurs langues (par exemple, une piste audio en anglais et une piste audio en espagnol).
 
 ## <a name="configuring-on-premises-live-encoder-settings"></a>Configuration des paramètres de l'encodeur live local
 
@@ -127,7 +127,7 @@ Suivez les mêmes étapes que pour la [Vérification d’un Événement en temps
 
 ### <a name="email-your-recorded-settings"></a>Envoi par e-mail de vos paramètres enregistrés
 
-Enfin, envoyez par e-mail vos paramètres enregistrés et paramètres d’archivage en direct à Azure Media Services à l’adresse amsstreaming@microsoft.com en guise de notification indiquant que tous les contrôles de vérification automatique ont réussi. Incluez également vos informations de contact à des fins de suivi. Vous pouvez contacter l’équipe Azure Media Services pour toute question sur ce processus.
+Enfin, envoyez par e-mail vos paramètres enregistrés et paramètres d’archivage en direct à Azure Media Services à l’adresse amslived@microsoft.com en guise de notification indiquant que tous les contrôles de vérification automatique ont réussi. Incluez également vos informations de contact à des fins de suivi. Vous pouvez contacter l’équipe Azure Media Services pour toute question sur ce processus.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

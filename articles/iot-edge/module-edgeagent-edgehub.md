@@ -4,23 +4,29 @@ description: Passez en revue les propriétés spécifiques et les valeurs des ju
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 09/21/2018
+ms.date: 06/17/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: b6eb0c5b0d52bba3d34c9853a73b1f3e07b112a7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e8a8170023c8f529894522e27a4c6231325089af
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61322703"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190985"
 ---
 # <a name="properties-of-the-iot-edge-agent-and-iot-edge-hub-module-twins"></a>Propriétés des jumeaux de module de l’agent IoT Edge et du hub IoT Edge
 
 L’agent IoT Edge et le hub IoT Edge sont les deux modules qui constituent le runtime IoT Edge. Pour plus d’informations sur les rôles de chaque module, consultez [Présentation du runtime Azure IoT Edge et de son architecture](iot-edge-runtime.md). 
 
-Cet article fournit les propriétés souhaitées et signalées des jumeaux de module du runtime. Pour plus d’informations sur le déploiement de modules sur des appareils IoT Edge, consultez [Déploiement et supervision](module-deployment-monitoring.md).
+Cet article fournit les propriétés souhaitées et signalées des jumeaux de module du runtime. Pour plus d’informations sur le déploiement de modules sur des appareils IoT Edge, consultez [Déployer des modules et établir des itinéraires dans IoT Edge](module-composition.md).
+
+Un jumeau de module inclut les éléments suivants : 
+
+* **Propriétés souhaitées (Desired)** . Le backend de solution peut définir les propriétés souhaitées, et le module peut les lire. Le module peut également recevoir des notifications sur les changements des propriétés souhaitées. Les propriétés souhaitées sont utilisées en même temps que les propriétés signalées pour synchroniser une configuration ou une condition de module.
+
+* **Propriétés signalées (Reported)** . Le module peut définir les propriétés signalées, et le backend de solution peut les lire et les interroger. Les propriétés signalées sont utilisées en même temps que les propriétés souhaitées pour synchroniser une configuration ou une condition de module. 
 
 ## <a name="edgeagent-desired-properties"></a>Propriétés souhaitées pour EdgeAgent
 
@@ -48,7 +54,7 @@ Le jumeau de module de l’agent IoT Edge est appelé `$edgeAgent` et coordonne 
 | modules.{moduleId}.version | Chaîne définie par l’utilisateur représentant la version de ce module. | OUI |
 | modules.{moduleId}.type | Doit être "docker" | OUI |
 | modules.{moduleId}.status | {"running" \| "stopped"} | OUI |
-| modules.{moduleId}.restartPolicy | {"never" \| "on-failed" \| "on-unhealthy" \| "always"} | OUI |
+| modules.{moduleId}.restartPolicy | {"never" \| "on-failure" \| "on-unhealthy" \| "always"} | OUI |
 | modules.{moduleId}.settings.image | URI de l’image du module. | OUI |
 | modules.{moduleId}.settings.createOptions | Champ de chaîne JSON contenant les options de création du conteneur de module. [Options de création Docker](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | Non |
 | modules.{moduleId}.configuration.id | ID du déploiement ayant déployé ce module. | IoT Hub définit cette propriété quand le manifeste est appliqué à l’aide d’un déploiement. Ne fait pas partie d’un manifeste de déploiement. |
@@ -61,7 +67,7 @@ Les propriétés signalées pour l’agent IoT Edge incluent trois informations 
 2. L’état des modules en cours d’exécution sur l’appareil, comme signalé par l’agent IoT Edge
 3. une copie des propriétés souhaitées en cours d’exécution sur l’appareil.
 
-Cette dernière information est utile au cas où les dernières propriétés souhaitées ne seraient pas appliquées avec succès par le runtime, et que l’appareil exécuterait encore un manifeste de déploiement précédent.
+Cette dernière information, une copie des propriétés souhaitées actuelles, est utile pour déterminer si l’appareil a appliqué les dernières propriétés souhaitées ou exécute encore le manifeste de déploiement précédent.
 
 > [!NOTE]
 > Les propriétés signalées de l’agent IoT Edge sont utiles, car elles peuvent être interrogées avec le [langage de requête IoT Hub](../iot-hub/iot-hub-devguide-query-language.md) afin de connaître l’état des déploiements à grande échelle. Pour plus d’informations sur l’utilisation des propriétés de l’agent IoT Edge pour l’état, consultez [Comprendre les déploiements IoT Edge pour les appareils uniques ou à grande échelle](module-deployment-monitoring.md).
@@ -71,7 +77,7 @@ Le tableau suivant n’inclut pas les informations copiées à partir des propri
 | Propriété | Description |
 | -------- | ----------- |
 | lastDesiredVersion | Cet entier référence la dernière version des propriétés souhaitées traitées par l’agent IoT Edge. |
-| lastDesiredStatus.code | Il s’agit du code d’état référençant les dernières propriétés souhaitées observées par l’agent IoT Edge. Valeurs autorisées : `200` Réussite, `400` Configuration non valide, `412` Version de schéma non valide, `417` les propriétés souhaitées sont vides, `500` Échec |
+| lastDesiredStatus.code | Ce code d’état fait référence aux dernières propriétés souhaitées observées par l’agent IoT Edge. Valeurs autorisées : `200` Réussite, `400` Configuration non valide, `412` Version de schéma non valide, `417` les propriétés souhaitées sont vides, `500` Échec |
 | lastDesiredStatus.description | Texte de description de l’état |
 | deviceHealth | `healthy` si l’état du runtime de tous les modules est `running` ou `stopped`, sinon, `unhealthy` |
 | configurationHealth.{deploymentId}.health | `healthy` si l’état du runtime de tous les modules définis par le déploiement {deploymentId} est `running` ou `stopped`, sinon, `unhealthy` |
@@ -88,7 +94,7 @@ Le tableau suivant n’inclut pas les informations copiées à partir des propri
 | systemModules.edgeHub.restartCount | Nombre de redémarrages de ce module dans le cadre de la stratégie de redémarrage. |
 | modules.{moduleId}.runtimeStatus | État du module : { "running" \| "stopped" \| "failed" \| "backoff" \| "unhealthy" } |
 | modules.{moduleId}.statusDescription | Texte de description de l’état du module si celui-ci est non sain. |
-| modules.{moduleId}.exitCode | En cas de sortie, le code de sortie signalé par le conteneur de module |
+| modules.{moduleId}.exitCode | En cas de sortie, le code de sortie signalé par le conteneur du module. |
 | modules.{moduleId}.startTimeUtc | Heure du dernier démarrage du module |
 | modules.{moduleId}.lastExitTimeUtc | Heure de la dernière sortie du module |
 | modules.{moduleId}.lastRestartTimeUtc | Heure du dernier redémarrage du module |
@@ -101,19 +107,19 @@ Le jumeau de module du hub IoT Edge est appelé `$edgeHub` et coordonne les comm
 | Propriété | Description | Requise dans le manifeste de déploiement |
 | -------- | ----------- | -------- |
 | schemaVersion | Doit être "1.0" | OUI |
-| routes.{routeName} | Chaîne représentant la route d’un hub IoT Edge. | L’élément `routes` peut être présent mais vide. |
-| storeAndForwardConfiguration.timeToLiveSecs | Durée, en secondes, pendant laquelle le hub IoT Edge conserve les messages en cas de points de terminaison de routage déconnectés (par exemple, déconnectés d’IoT Hub ou d’un module local) | OUI |
+| routes.{routeName} | Chaîne représentant la route d’un hub IoT Edge. Pour plus d’informations, consultez [Déclarer des itinéraires](module-composition.md#declare-routes). | L’élément `routes` peut être présent mais vide. |
+| storeAndForwardConfiguration.timeToLiveSecs | Durée en secondes pendant laquelle le hub IoT Edge conserve les messages en cas de points de terminaison de routage déconnectés, par exemple, déconnectés d’IoT Hub ou d’un module local. La valeur peut être un entier positif. | OUI |
 
 ## <a name="edgehub-reported-properties"></a>Propriétés signalées pour EdgeHub
 
 | Propriété | Description |
 | -------- | ----------- |
 | lastDesiredVersion | Cet entier référence la dernière version des propriétés souhaitées traitées par le hub IoT Edge. |
-| lastDesiredStatus.code | Il s’agit du code d’état référençant les dernières propriétés souhaitées observées par le hub IoT Edge. Valeurs autorisées : `200` Réussite, `400` Configuration non valide, `500` Échec |
-| lastDesiredStatus.description | Texte de description de l’état |
+| lastDesiredStatus.code | Ce code d’état fait référence aux dernières propriétés souhaitées observées par le hub IoT Edge. Valeurs autorisées : `200` Réussite, `400` Configuration non valide, `500` Échec |
+| lastDesiredStatus.description | Texte de description de l’état. |
 | clients.{device or moduleId}.status | État de connectivité de cet appareil ou module. Valeurs possibles {"connected" \| "disconnected"}. Seules les identités de module peuvent être à l’état déconnecté. Les appareils en aval se connectant au hub IoT Edge ne s’affichent que lorsqu’ils sont connectés. |
-| clients.{device or moduleId}.lastConnectTime | Dernière connexion de l’appareil ou du module |
-| clients.{device or moduleId}.lastDisconnectTime | Dernière déconnexion de l’appareil ou du module |
+| clients.{device or moduleId}.lastConnectTime | Dernière connexion de l’appareil ou du module. |
+| clients.{device or moduleId}.lastDisconnectTime | Dernière déconnexion de l’appareil ou du module. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

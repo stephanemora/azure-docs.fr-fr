@@ -1,6 +1,6 @@
 ---
 title: Azure Operational Security | Microsoft Docs
-description: Découvrez les journaux Microsoft Azure Monitor, ses services, et son fonctionnement.
+description: Découvrez les journaux Microsoft Azure Monitor, ses services et son fonctionnement.
 services: security
 documentationcenter: na
 author: UnifyCloud
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: ab5b50433b85416ff471546171998e992293b0ea
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: bb0726fdddf6d20a9c8c5f20d6cec0cae68322ce
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60586924"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67119258"
 ---
 # <a name="azure-operational-security"></a>Azure Operational Security
-## <a name="introduction"></a>Présentation
+## <a name="introduction"></a>Introduction
 
-### <a name="overview"></a>Présentation
+### <a name="overview"></a>Vue d'ensemble
 Nous savons que la sécurité est la priorité dans le cloud et combien il est important que vous trouviez des informations précises et à jour sur la sécurité Azure. L’une des meilleures raisons d’utiliser Azure pour vos applications et services consiste à tirer parti de la large gamme de fonctionnalités et d’outils de sécurité disponibles. Ces outils et fonctionnalités permettent de créer des solutions sécurisées sur la plateforme Azure sécurisée. Windows Azure doit assurer la confidentialité, l’intégrité et la disponibilité des données client, tout en permettant la gestion transparente des responsabilités.
 
 Le présent livre blanc « Azure Operational Security » propose une vue complète des fonctions de sécurité opérationnelle de Windows Azure pour aider les clients à mieux comprendre les nombreux contrôles de sécurité implémentés dans Microsoft Azure, en prenant en compte les perspectives opérationnelles de Microsoft et celles du client.
@@ -55,15 +55,15 @@ Ce livre blanc décrit l’approche de Microsoft en matière de sécurité opér
 
 ## <a name="microsoft-azure-monitor-logs"></a>Journaux Microsoft Azure Monitor
 
-Journaux Microsoft Azure Monitor est la solution de gestion informatique pour le cloud hybride. Utilisé seul, ou pour étendre votre déploiement de System Center existant, des journaux d’Azure Monitor vous donne la flexibilité et le contrôle pour la gestion de votre infrastructure cloud.
+Microsoft Azure Monitor est la solution de gestion informatique pour le cloud hybride. Utilisés seuls ou pour étendre votre déploiement System Center existant, les journaux Azure Monitor vous donnent le maximum de flexibilité et de contrôle pour gérer votre infrastructure sur le cloud.
 
 ![Journaux d’activité Azure Monitor](./media/azure-operational-security/azure-operational-security-fig1.png)
 
-Avec les journaux d’Azure Monitor, vous pouvez gérer n’importe quelle instance dans n’importe quel cloud, notamment en local, Azure, AWS, Windows Server, Linux, VMware et OpenStack, à moindre coût que les solutions concurrentes. Conçu pour les environnements cloud, les journaux Azure Monitor offre une nouvelle approche de gestion de votre entreprise est le moyen le plus rapide, plus économique pour répondre aux nouveaux défis commerciaux et de prendre en charge de nouvelles charges de travail, applications et les environnements de cloud.
+Avec les journaux Azure Monitor, vous pouvez gérer n’importe quelle instance dans n’importe quel cloud, notamment local, Azure, AWS, Windows Server, Linux, VMware et OpenStack, à moindre coût par rapport aux solutions concurrentes. Conçu pour les environnements cloud, les journaux Azure Monitor offrent une nouvelle approche de la gestion de votre entreprise, qui constitue le moyen le plus rapide et le plus économique pour répondre aux nouveaux défis métiers et pour gérer les nouvelles charges de travail, applications et environnements cloud.
 
-### <a name="azure-monitor-services"></a>Surveillance des services Azure
+### <a name="azure-monitor-services"></a>Services Azure Monitor
 
-La fonctionnalité principale des journaux d’Azure Monitor est fournie par un ensemble de services qui s’exécutent dans Azure. Chaque service assure une fonction de gestion spécifique, et vous pouvez combiner plusieurs services pour mettre en œuvre différents scénarios de gestion.
+Les fonctionnalités fondamentales des journaux Azure Monitor sont fournies par un ensemble de services qui s’exécutent dans Azure. Chaque service assure une fonction de gestion spécifique, et vous pouvez combiner plusieurs services pour mettre en œuvre différents scénarios de gestion.
 
 | de diffusion en continu  | Description|
 | :------------- | :-------------|
@@ -74,7 +74,7 @@ La fonctionnalité principale des journaux d’Azure Monitor est fournie par un 
 
 ### <a name="azure-monitor-logs"></a>Journaux d’activité Azure Monitor
 
-[Journaux d’analyse Azure](https://azure.microsoft.com/documentation/services/log-analytics) fournit des services de surveillance en collectant des données à partir de ressources managées dans un référentiel central. Ces données peuvent comprendre des événements, des données de performances ou des données personnalisées fournies par le biais de l’API. Une fois collectées, les données sont disponibles pour les fonctions de génération d’alertes, d’analyse et d’exportation.
+Les [journaux Azure Monitor](https://azure.microsoft.com/documentation/services/log-analytics) assurent des services de surveillance en collectant les données des ressources managées et en les regroupant dans un référentiel central. Ces données peuvent comprendre des événements, des données de performances ou des données personnalisées fournies par le biais de l’API. Une fois collectées, les données sont disponibles pour les fonctions de génération d’alertes, d’analyse et d’exportation.
 
 
 Cette méthode vous permet de consolider les données issues de différentes sources et de combiner ainsi des données de vos services Azure avec votre environnement local existant. En outre, cette approche dissocie clairement la collecte des données de l’exécution d’actions sur ces dernières, de sorte que toutes les actions sont disponibles sur tous les types de données.
@@ -82,7 +82,7 @@ Cette méthode vous permet de consolider les données issues de différentes sou
 
 ![Journaux d’activité Azure Monitor](./media/azure-operational-security/azure-operational-security-fig2.png)
 
-Le service Azure Monitor gère vos données basées sur le cloud en toute sécurité à l’aide des méthodes suivantes :
+Le service Azure Monitor gère vos données basées sur le cloud en toute sécurité en utilisant les méthodes suivantes :
 -   ségrégation des données
 -   conservation des données
 -   sécurité physique
@@ -92,22 +92,22 @@ Le service Azure Monitor gère vos données basées sur le cloud en toute sécur
 
 ### <a name="azure-backup"></a>Sauvegarde Azure
 
-[Sauvegarde Azure](https://azure.microsoft.com/documentation/services/backup) fournit des données de sauvegarde et restauration des services et fait partie de la suite d’Azure Monitor de produits et services.
+Le composant [Sauvegarde Azure](https://azure.microsoft.com/documentation/services/backup) fournit des services de sauvegarde et de restauration des données et fait partie de la suite Azure Monitor de produits et services.
 Il protège les données de vos applications et les conserve des années durant, sans nécessiter aucun investissement en capital et moyennant des frais d’exploitation minimes. Cette solution permet de sauvegarder des données à partir de serveurs Windows physiques et virtuels, en plus des charges de travail des applications telles que SQL Server et SharePoint. Elle peut également être utilisée par [System Center Data Protection Manager (DPM)](https://en.wikipedia.org/wiki/System_Center_Data_Protection_Manager) afin de répliquer les données protégées vers Azure pour la redondance et le stockage à long terme.
 
 
 Les données protégées dans le service Sauvegarde Azure sont stockées dans un archivage de sauvegarde situé dans une zone géographique spécifique. Les données sont répliquées dans la même région et, selon le type d’archivage, peuvent également être répliquées vers une autre région afin d’accroître la résilience.
 
 ### <a name="management-solutions"></a>Solutions de gestion
-[Azure Monitor](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) est basée sur le cloud solution de gestion informatique de Microsoft qui vous permet de gérer et de protéger votre réseau local et d’infrastructure cloud.
+[Azure Monitor](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) est une solution de gestion informatique basée sur le cloud de Microsoft qui vous permet de gérer et de protéger votre infrastructure locale et cloud.
 
 
-[Solutions de gestion](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions) constituent des ensembles de logiques prépackagés qui implémentent un scénario de gestion spécifique à l’aide d’un ou plusieurs services Azure Monitor. Différentes solutions sont disponibles à partir de Microsoft et de partenaires que vous pouvez facilement ajouter à votre abonnement Azure pour augmenter la valeur de votre investissement dans Azure Monitor. En tant que partenaire, vous pouvez créer vos propres solutions pour prendre en charge vos applications et services et les fournir aux utilisateurs par le biais de la plateforme Place de marché Azure ou des modèles de démarrage rapide.
+Les [solutions de gestion](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions) constituent des ensembles de logiques prépackagés qui implémentent un scénario de gestion spécifique utilisant un ou plusieurs services Azure Monitor. Microsoft et ses partenaires mettent à votre disposition différentes solutions que vous pouvez facilement ajouter à votre abonnement Azure pour augmenter la valeur de votre investissement dans Azure Monitor. En tant que partenaire, vous pouvez créer vos propres solutions pour prendre en charge vos applications et services et les fournir aux utilisateurs par le biais de la plateforme Place de marché Azure ou des modèles de démarrage rapide.
 
 
 ![Solutions de gestion](./media/azure-operational-security/azure-operational-security-fig4.png)
 
-La [solution Gestion des mises à jour](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-update-management) constitue un bon exemple de solution utilisant plusieurs services pour offrir des fonctionnalités supplémentaires. Cette solution utilise le [Azure Monitor enregistre](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) agent pour Windows et Linux à collecter des informations requises sur chaque agent, les mises à jour. Il écrit ces données dans le référentiel de journaux Azure Monitor où vous pouvez l’analyser avec un tableau de bord inclus.
+La [solution Gestion des mises à jour](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-update-management) constitue un bon exemple de solution utilisant plusieurs services pour offrir des fonctionnalités supplémentaires. Cette solution utilise les journaux [Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) pour Windows et Linux afin de collecter les informations relatives aux mises à jour requises sur chaque agent. Elle écrit ces données dans le référentiel des journaux Azure Monitor qui vous permet de les analyser à l’aide du tableau de bord inclus.
 
 Lorsque vous créez un déploiement, le système utilise les runbooks d’[Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro) pour installer les mises à jour requises. Vous gérez la totalité de ce processus dans le portail et n’avez pas à vous soucier des détails sous-jacents.
 
@@ -164,7 +164,7 @@ Le Centre de sécurité Azure collecte des copies éphémères de vos fichiers d
 
 ## <a name="azure-monitor"></a>Azure Monitor
 
-Le [Azure Monitor journaux sécurité](https://docs.microsoft.com/azure/operations-management-suite/oms-security-monitoring-resources) et d’Audit permet de solution informatique permettant de surveiller activement toutes les ressources, ce qui peuvent aider à réduire l’impact des incidents de sécurité. Journaux d’analyse Azure Security and Audit ont des domaines de sécurité qui peuvent être utilisées pour la surveillance des ressources. Le domaine de sécurité fournit un accès rapide à des options pour la surveillance de la sécurité. Les domaines suivants sont abordés plus en détail :
+La solution [Azure Monitor logs Security and Audit](https://docs.microsoft.com/azure/operations-management-suite/oms-security-monitoring-resources) permet au service informatique de surveiller activement toutes les ressources, ce qui peut aider à réduire l’impact des incidents de sécurité. Cette solution possède des domaines de sécurité qui peuvent être utilisés pour la surveillance des ressources. Le domaine de sécurité fournit un accès rapide à des options pour la surveillance de la sécurité. Les domaines suivants sont abordés plus en détail :
 
 -   Évaluation des logiciels malveillants
 -   Update assessment (Évaluation des mises à jour)
@@ -233,7 +233,7 @@ Network Watcher propose actuellement les fonctionnalités suivantes :
 
 -   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview">Affichage des groupes de sécurité</a>** - Obtient les règles de sécurité appliquées et effectives d’une machine virtuelle.
 
--   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview">Journalisation des flux de groupe de sécurité réseau</a>** - Les journaux de flux pour les groupes de sécurité réseau vous permettent de capturer les journaux relatifs au trafic autorisé ou refusé par les règles de sécurité dans le groupe. Le flux est défini par des informations à 5 tuples : adresse IP source, adresse IP de destination, port source, port de destination et protocole.
+-   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview">Journalisation des flux de groupe de sécurité réseau</a>** - Les journaux de flux pour les groupes de sécurité réseau vous permettent de capturer les journaux d’activité relatifs au trafic autorisé ou refusé par les règles de sécurité dans le groupe. Le flux est défini par des informations à 5 tuples : adresse IP source, adresse IP de destination, port source, port de destination et protocole.
 
 ## <a name="azure-storage-analytics"></a>Azure Storage Analytics
 
@@ -313,7 +313,7 @@ Cet article explique comment protéger votre vie privée et sécuriser vos donn�
 
 Cet article explique
 
--   Comment les données sont collectées, traitées et sécurisées dans la suite d’Azure Monitor.
+-   Comment les données sont collectées, traitées et sécurisées dans la suite Azure Monitor.
 
 -   Comment analyser rapidement les événements de plusieurs sources de données. Comment identifier les risques de sécurité et comprendre la portée et l’impact des menaces et des attaques pour atténuer les dommages d’une violation de la sécurité.
 
@@ -336,7 +336,7 @@ Cet article explique
 
 Microsoft place la sécurité au cœur de la conception de ses services et de ses logiciels pour s’assurer de la résilience de son infrastructure de cloud et de sa capacité à se défendre contre les attaques de sécurité.
 
-- [Journaux d’Azure Monitor | Sécurité et conformité](https://www.microsoft.com/cloud-platform/security-and-compliance)
+- [Journaux Azure Monitor | Sécurité et conformité](https://www.microsoft.com/cloud-platform/security-and-compliance)
 
 Utilisez les données et les fonctions d’analyse de sécurité de Microsoft pour une détection des menaces plus intelligente et plus efficace.
 

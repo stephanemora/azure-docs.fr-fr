@@ -1,6 +1,6 @@
 ---
 title: Diagnostic des problèmes de performances graphiques dans le Bureau à distance - Azure
-description: Cet article décrit comment utiliser les compteurs graphiques RemoteFX dans les sessions de protocole Bureau à distance pour diagnostiquer les problèmes de performances avec des graphiques dans un bureau virtuel Windows.
+description: Cet article décrit comment utiliser les compteurs graphiques RemoteFX dans les sessions de protocole Bureau à distance pour diagnostiquer les problèmes de performances liés aux graphiques dans Windows Virtual Desktop.
 services: virtual-desktop
 author: ChJenk
 ms.service: virtual-desktop
@@ -8,103 +8,103 @@ ms.topic: troubleshoot
 ms.date: 05/23/2019
 ms.author: v-chjenk
 ms.openlocfilehash: 0b4113f1e0024415135aa99d1fb4e881efe448a3
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66499263"
 ---
-# <a name="diagnose-graphics-performance-issues-in-remote-desktop"></a>Diagnostiquer les problèmes de performances graphiques dans le Bureau à distance
+# <a name="diagnose-graphics-performance-issues-in-remote-desktop"></a>Diagnostic des problèmes de performances graphiques dans le Bureau à distance
 
-Lorsque le système n’effectue pas comme prévu, il est important d’identifier la source du problème. Cet article vous aide à identifier et résoudre les goulots d’étranglement des performances graphiques liés au cours de sessions de protocole RDP (Remote Desktop).
+Lorsque les performances du système ne sont pas celles attendues, il est important d’identifier la source du problème. Cet article permet d’identifier et de résoudre les goulots d’étranglement liés aux performances graphiques au cours de sessions RDP.
 
-## <a name="find-your-remote-session-name"></a>Le nom de votre session à distance
+## <a name="find-your-remote-session-name"></a>Rechercher le nom de la session à distance
 
-Vous aurez besoin de votre nom de session à distance pour identifier les compteurs de performances graphiques. Suivez les instructions dans cette section pour identifier le nom de votre session à distance de Windows Virtual Desktop Preview.
+Vous aurez besoin du nom de la session à distance pour identifier les compteurs de performances graphiques. Suivez les instructions de cette section pour identifier le nom de votre session à distance Windows Virtual Desktop en préversion.
 
 1. Ouvrez l’invite de commandes Windows à partir de votre session à distance.
-2. Exécutez le **qwinsta** commande.
-    - Si votre session est hébergée dans une machine virtuelle de session multiples (VM) : Le suffixe pour chaque nom de compteur est le même suffixe de nom de votre session, tels que « rdp-tcp 37. »
-    - Si votre session est hébergée dans une machine virtuelle qui prend en charge virtuel Graphics unités de traitement (vGPU) : Les compteurs sont stockés sur le serveur et non sur votre machine virtuelle. Les instances du compteur incluent le nom de machine virtuelle au lieu du numéro dans le nom de la session, tels que « Win8 Enterprise machine virtuelle. »
+2. Exécutez la commande **qwinsta**.
+    - Si votre session est hébergée dans une machine virtuelle multisession : le suffixe de chaque nom de compteur est le même que celui du nom de votre session, par exemple « rdp-tcp 37 ».
+    - Si votre session est hébergée dans une machine virtuelle prenant en charge des processeurs virtuels (vGPU) : Les compteurs sont stockés sur le serveur et non sur votre machine virtuelle. Les instances de compteur incluent le nom de la machine virtuelle au lieu du numéro dans le nom de la session, par exemple « Win8 Enterprise VM ».
 
 >[!NOTE]
-> Bien que les compteurs de RemoteFX dans leurs noms, ils incluent des graphiques de bureau à distance dans les scénarios de vGPU également.
+> Tandis que les compteurs comportent le terme « RemoteFX » dans leur nom, ils incluent également des graphiques de bureau à distance dans les scénarios vGPU.
 
 ## <a name="access-performance-counters"></a>Accéder aux compteurs de performances
 
-Compteurs de performances dans les graphiques de RemoteFX vous aider à détecter les goulots d’étranglement en vous aidant à effectuer le suivi des éléments tels que frame encodage et ignorés cadres.
+Les compteurs de performances de RemoteFX Graphics permettent de détecter les goulots d’étranglement par le suivi des éléments, tels que la durée de codage et les images ignorées.
 
-Une fois que vous avez déterminé le nom de votre session à distance, suivez ces instructions pour collecter les compteurs de performances graphiques de RemoteFX pour votre session à distance.
+Une fois que vous avez déterminé le nom de votre session à distance, suivez ces instructions pour collecter les compteurs de performances RemoteFX Graphics de votre session à distance.
 
-1. Sélectionnez **Démarrer** > **outils d’administration** > **Analyseur de performances**.
-2. Dans le **Analyseur de performances** boîte de dialogue, développez **outils d’analyse**, sélectionnez **Analyseur de performances**, puis sélectionnez **ajouter**.
-3. Dans le **ajouter des compteurs** boîte de dialogue, à partir de la **compteurs disponibles** liste, développez l’objet compteur de performances pour les graphiques de RemoteFX.
-4. Sélectionnez les compteurs à surveiller.
-5. Dans le **Instances de l’objet sélectionné** , sélectionnez les instances spécifiques à surveiller pour les compteurs sélectionnés, puis sélectionnez **ajouter**. Pour sélectionner toutes les instances de compteur disponibles, sélectionnez **toutes les instances**.
+1. Sélectionnez **Démarrer** > **Outils d’administration** > **Analyseur de performances**.
+2. Dans la boîte de dialogue **Analyseur de performances**, développez **Outils d’analyse**, sélectionnez **Analyseur de performances**, puis **Ajouter**.
+3. Dans la boîte de dialogue **Ajouter des compteurs**, à partir de la liste **Compteurs disponibles**, développez l’objet compteur de performances pour RemoteFX Graphics.
+4. Sélectionnez les compteurs à analyser.
+5. Dans la liste **Instances de l’objet sélectionné**, sélectionnez les instances spécifiques à analyser pour les compteurs sélectionnés, puis sélectionnez **Ajouter**. Pour sélectionner toutes les instances de compteur disponibles, sélectionnez **Toutes les instances**.
 6. Après avoir ajouté les compteurs, sélectionnez **OK**.
 
-Les compteurs de performances sélectionnés seront affiche sur l’écran de l’Analyseur de performances.
+Les compteurs de performances sélectionnés s’affichent sur l’écran de l’Analyseur de performances.
 
 >[!NOTE]
->Chaque session active sur un ordinateur hôte possède sa propre instance de chaque compteur de performance.
+>Chaque session active sur un ordinateur hôte possède sa propre instance pour chaque compteur de performances.
 
 ## <a name="diagnosis"></a>Diagnostic
 
-Problèmes de performances graphiques liés se répartissent généralement en quatre catégories :
+Les problèmes de performances graphiques se répartissent généralement en quatre catégories :
 
-- Fréquence d’images faible
-- Blocages aléatoires
-- Latence élevée d’entrée
+- Faible fréquence d’images
+- Interruptions aléatoires
+- Latence d’entrée élevée
 - Qualité d’image médiocre
 
-Commencez par adressage basse fréquence d’images, places aléatoire et une latence élevée d’entrée. La section suivante vous indique quels compteurs de performance mesurent chaque catégorie.
+Commencez par traiter les problèmes liés à la faible fréquence d’images, aux interruptions aléatoires et à la latence d’entrée élevée. La section suivante vous indique quels compteurs de performance mesurent chaque catégorie.
 
 ### <a name="performance-counters"></a>Compteurs de performances
 
-Cette section vous permet d’identifier les goulots d’étranglement.
+Cette section permet d’identifier les goulots d’étranglement.
 
-Vérifiez tout d’abord le compteur Frames/Second de sortie. Il mesure le nombre de frames accordé au client. Si cette valeur est inférieure au compteur d’entrée Frames/Second, cadres sont ignorées. Pour identifier le goulot d’étranglement, utilisez les Frames les compteurs ignorés par seconde.
+Vérifiez tout d’abord le compteur Images de sortie/seconde. celui-ci mesure le nombre d’images accordées au client. Si cette valeur est inférieure au compteur Images d’entrée/seconde, les images sont ignorées. Pour identifier le goulot d’étranglement, utilisez les compteurs Images ignorées/seconde.
 
-Il existe trois types de cadres ignorés/seconde compteurs :
+Il existe trois types de compteurs Images ignorées/seconde :
 
-- Cadres ignorés par seconde (ressources réseau insuffisante)
-- Cadres ignorés par seconde (ressources insuffisantes Client)
-- Cadres ignorés par seconde (ressources serveur insuffisantes)
+- Images ignorées/seconde (ressources réseau insuffisantes)
+- Images ignorées/seconde (ressources client insuffisantes)
+- Images ignorées/seconde (ressources serveur insuffisantes)
 
-Une valeur élevée pour tous les cadres ignorés/seconde compteurs implique que le problème est lié à la ressource du compteur effectue le suivi. Par exemple, si le client ne décoder et cadres présents à la même vitesse, le serveur fournit les frames, le compteur de cadres ignorés par seconde (Client ressources insuffisantes) sera élevé.
+La valeur élevée d’un compteur Images ignorées/seconde signifie que le problème est lié à la ressource analysée par le compteur. Par exemple, si le client ne décode pas et ne présente pas les images à la vitesse à laquelle celles-ci sont fournies au serveur, le compteur Images ignorées/seconde (ressources client insuffisantes) sera élevé.
 
-Si le compteur Frames/Second de sortie correspond au compteur d’entrée Frames/Second, encore persistent lag inhabituel ou bloquées, le problème peut être le temps moyen de codage. Encodage est un processus synchrone qui se produit sur le serveur dans le scénario de session unique (vGPU) et sur la machine virtuelle dans le scénario de session multiples. Temps moyen de codage doit être sous 33 ms. Si le temps moyen de codage est sous 33 ms, mais vous avez toujours des problèmes de performances, il peut y avoir un problème avec l’application ou le système d’exploitation que vous utilisez.
+Si le compteur Images de sortie/seconde correspond au compteur Images d’entrée/seconde, bien qu’un temps de latence ou une interruption inhabituelle subsiste, le problème peut être lié à la durée moyenne de codage. Le codage est un processus synchrone qui se produit sur le serveur dans un scénario de session unique (vGPU) et sur la machine virtuelle dans un scénario multisession. La durée moyenne de codage doit être inférieure à 33 ms. Si tel est le cas et que des problèmes de performances subsistent, le problème peut être lié à l’application ou au système d’exploitation que vous utilisez.
 
-Pour plus d’informations sur le diagnostic des problèmes liés à l’application, consultez [les compteurs de performances de délai d’entrée utilisateur](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters).
+Pour plus d’informations sur le diagnostic des problèmes liés aux applications, consultez [Compteurs de performances de retard d’entrée utilisateur](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters).
 
-Étant donné que RDP prend en charge un temps moyen de codage de 33 ms, il prend en charge une fréquence d’images d’entrée jusqu'à 30 images/seconde. Notez que 33 ms est la fréquence d’images pris en charge maximale. Dans de nombreux cas, la fréquence d’images rencontrée par l’utilisateur sera inférieure, selon la fréquence à laquelle un frame est fourni pour le protocole RDP par la source. Par exemple, les tâches telles que regarder une vidéo nécessitent une fréquence d’images d’entrée de 30 images/seconde, mais moins de tâches nécessitant beaucoup de ressources rarement modification d’un document word ne nécessitent pas un tel taux de trames d’entrée par seconde pour une expérience utilisateur optimale.
+Étant donné que le protocole RDP (Remote Desktop Protocol) prend en charge une durée moyenne d’encodage de 33 ms, il prend en charge une fréquence d’images d’entrée pouvant atteindre 30 images/seconde. Notez que 33 ms est la fréquence d’images maximale prise en charge. Dans de nombreux cas, la fréquence d’images dont bénéficie l’utilisateur est inférieure, selon la fréquence à laquelle l’image est fournie au protocole RDP par la source. Par exemple, la lecture d’une vidéo nécessite une fréquence d’images d’entrée complète de 30 images/seconde, tandis que les tâches moins gourmandes en ressources, telles que la modification ponctuelle d’un document Word, ne nécessitent pas une telle fréquence d’images d’entrée par seconde pour une expérience utilisateur optimale.
 
-Utilisez le compteur de qualité des images pour diagnostiquer les problèmes de qualité d’image. Ce compteur exprime la qualité de l’image de sortie sous forme de pourcentage de la qualité de l’image source. La perte de qualité peut être dû à RemoteFX, ou il peut être inhérente à la source de graphiques. Si RemoteFX a provoqué la perte de qualité, le problème peut être un manque de ressources réseau ou serveur d’envoyer le contenu d’une meilleure fidélité.
+Utilisez le compteur de qualité des images pour diagnostiquer les problèmes de qualité d’image. Ce compteur exprime la qualité de l’image de sortie sous forme de pourcentage de qualité de l’image source. La perte de qualité peut être due à RemoteFX, ou peut être inhérente à la source graphique. Si RemoteFX a provoqué une perte de qualité, cela peut être dû au fait que les ressources réseau ou serveur ne sont pas parvenues à envoyer un contenu de plus haute fidélité.
 
 ## <a name="mitigation"></a>Atténuation
 
-Si les ressources serveur sont à l’origine le goulot d’étranglement, essayez l’une des opérations suivantes pour améliorer les performances :
+Si les ressources serveur sont à du goulot d’étranglement, essayez l’une des opérations suivantes pour améliorer les performances :
 
 - Réduisez le nombre de sessions par hôte.
-- Augmentez la mémoire et des ressources sur le serveur de calcul.
-- Supprimer la résolution de la connexion.
+- Augmentez la mémoire et les ressources de calcul sur le serveur.
+- Supprimez la résolution de la connexion.
 
-Si les ressources réseau sont à l’origine du goulot d’étranglement, essayez l’une des opérations suivantes pour améliorer la disponibilité du réseau par session :
+Si les ressources réseau sont à l’origine du goulot d’étranglement, essayez l’une des opérations suivantes pour améliorer la disponibilité du réseau par session :
 
 - Réduisez le nombre de sessions par hôte.
-- Supprimer la résolution de la connexion.
+- Supprimez la résolution de la connexion.
 - Utilisez un réseau à bande passante supérieure.
 
-Si les ressources client sont à l’origine du goulot d’étranglement, effectuez au moins des opérations suivantes pour améliorer les performances :
+Si les ressources serveur sont à l’origine du goulot d’étranglement, essayez l’une des opérations suivantes pour améliorer les performances :
 
-- Installer le client Bureau à distance la plus récent.
-- Augmentez la mémoire et des ressources sur l’ordinateur client de calcul.
+- Installez le client Bureau à distance le plus récent.
+- Augmentez la mémoire et les ressources de calcul sur la machine cliente.
 
 > [!NOTE]
-> Nous n’actuellement en charge le compteur Source Frames/Second. Pour l’instant, le compteur Source Frames/Second sera toujours être défini sur 0.
+> Nous ne prenons pas en charge actuellement le compteur Images source/seconde. Pour l’instant, le compteur Images source/seconde reste défini sur 0.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour créer une machine virtuelle GPU optimisé, consultez [configurer l’accélération graphique (GPU) pour l’environnement de version préliminaire de Windows Virtual Desktop de traitement graphique](https://docs.microsoft.com/azure/virtual-desktop/configure-vm-gpu).
-- Pour une vue d’ensemble des pistes de résolution des problèmes et d’escalade de verrous, consultez [résolution des problèmes de vue d’ensemble, commentaires et support](https://docs.microsoft.com/azure/virtual-desktop/troubleshoot-set-up-overview).
-- Pour en savoir plus sur le service en version préliminaire, consultez [environnement en version préliminaire de Windows Desktop](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
+- Pour créer une machine virtuelle Azure optimisée pour le GPU, consultez [Configurer l’accélération du GPU pour l’environnement Windows Virtual Desktop en préversion](https://docs.microsoft.com/azure/virtual-desktop/configure-vm-gpu).
+- Pour découvrir une vue d’ensemble de la résolution des problèmes et des procédures d’escalade, consultez l’article [Vue d’ensemble du dépannage, commentaires et support](https://docs.microsoft.com/azure/virtual-desktop/troubleshoot-set-up-overview).
+- Pour plus d’informations sur le service en préversion, voir [Environnement de bureau Windows en préversion](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).

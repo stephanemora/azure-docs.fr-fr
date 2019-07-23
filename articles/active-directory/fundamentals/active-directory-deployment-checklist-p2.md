@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b0844030d069fba40bfd2fdf55252d8b9e3b1c2
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: e668a5238859d8cd8c2a7797200a12197ce72be9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235123"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110469"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Guide de déploiement des fonctionnalités d’Azure Active Directory
 
@@ -26,7 +26,7 @@ Une infrastructure d’identités correctement planifiée et exécutée offre un
 
 Par ailleurs, les clients peuvent vérifier leur [degré de sécurisation d’identité](identity-secure-score.md) pour voir s’ils sont conformes aux bonnes pratiques de Microsoft. Vérifiez votre degré de sécurisation avant et après l’implémentation de ces recommandations, pour voir si vous faites mieux (ou moins bien) que les autres organisations de votre secteur ou de même taille que la vôtre.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 La plupart des recommandations de ce guide peuvent être implémentées avec Azure AD Free, Basic ou sans licence. Quand une licence est obligatoire, nous indiquons l’édition minimum nécessaire pour accomplir la tâche.
 
@@ -47,7 +47,7 @@ Dans cette étape, les administrateurs activent des fonctionnalités de sécurit
 | [Utiliser des rôles d’administrateur non généraux si possible](../users-groups-roles/directory-assign-admin-roles.md) | Donnez à vos administrateurs uniquement l’accès dont ils ont besoin et uniquement aux zones auxquelles ils doivent accéder. Les administrateurs ne doivent pas nécessairement tous être des administrateurs généraux. | Azure AD Gratuit |
 | [Activer Privileged Identity Management pour suivre l’utilisation du rôle d’administrateur](../privileged-identity-management/pim-getting-started.md) | Activez Privileged Identity Management pour commencer à suivre l’utilisation du rôle d’administrateur. | Azure AD Premium P2 |
 | [Déployer la réinitialisation du mot de passe en libre-service](../authentication/howto-sspr-deployment.md) | Réduisez les appels au support technique pour les réinitialisations de mot de passe en autorisant le personnel à réinitialiser leur propre mot de passe à l’aide de stratégies que vous contrôlez en tant qu’administrateur. | Azure AD Standard |
-| [Créer une liste de mots de passe interdits personnalisé spécifique d’organisation](../authentication/howto-password-ban-bad-configure.md) | Empêchez les utilisateurs de créer des mots de passe comprenant des mots ou des expressions courantes de votre organisation ou de votre zone. | Azure AD Standard |
+| [Créer une liste de mots de passe interdits personnalisée propre à l’organisation](../authentication/howto-password-ban-bad-configure.md) | Empêchez les utilisateurs de créer des mots de passe comprenant des mots ou des expressions courantes de votre organisation ou de votre zone. | Azure AD Standard |
 | [Activer l’intégration locale à la protection de mot de passe Azure AD](../authentication/concept-password-ban-bad-on-premises.md) | Étendez la liste de mots de passe interdits à votre répertoire local, pour garantir que les mots de passe définis localement sont également conformes à la liste de mots de passe interdits générale et à celle de chaque locataire. | Azure AD Premium P1 |
 | [Activer l’aide de Microsoft sur les mots de passe](https://www.microsoft.com/research/publication/password-guidance/) | Cessez de demander aux utilisateurs de changer leur mot de passe selon un calendrier défini et désactivez les exigences de complexité pour que vos utilisateurs soient plus aptes à retenir leur mot de passe et le garde en lieu sûr. | Azure AD Gratuit |
 | [Désactiver les réinitialisations de mot de passe périodiques pour les comptes d’utilisateur dans le cloud](../authentication/concept-sspr-policy.md#set-a-password-to-never-expire) | Les réinitialisations de mot de passe périodiques encouragent vos utilisateurs à incrémenter leur mot de passe existant. Utilisez les instructions de la documentation d’aide de Microsoft sur les mots de passe et appliquez votre stratégie locale aux utilisateurs exclusivement dans le cloud. | Azure AD Gratuit |

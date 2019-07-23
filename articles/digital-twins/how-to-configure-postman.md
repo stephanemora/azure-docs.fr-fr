@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 06/05/2019
 ms.author: v-adgera
-ms.openlocfilehash: 31944c08bad503c20832ea7e4e682c0063ab0f9f
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
-ms.translationtype: MT
+ms.openlocfilehash: cd67f1065f47b758f2a7e0e5be3c60169c30273e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66735050"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67116564"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Guide pratique pour configurer Postman pour Azure Digital Twins
 
@@ -39,15 +39,15 @@ Configurez votre application Azure Active Directory pour utiliser le flux d’oc
 
 1. Sous **Autorisations requises**, sélectionnez **Ajouter**, puis entrez **Azure Digital Twins** sous **Ajouter un accès d’API**. Si votre recherche ne trouve pas cette API, sélectionnez **Azure Smart Spaces** à la place. Ensuite, sélectionnez **Accorder des autorisations > Autorisations déléguées**, puis **Terminé**.
 
-    [![Ajouter des inscriptions d’application Azure Active Directory api](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png#lightbox)
+    [![Api d’ajout d’inscription d’application Azure Active Directory](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png#lightbox)
 
-1. Cliquez sur **Manifeste** pour ouvrir le manifeste d’application pour votre application. Définissez *oauth2AllowImplicitFlow* sur `true`.
+1. Sélectionnez **Manifeste** pour ouvrir le manifeste d’application pour votre application. Définissez *oauth2AllowImplicitFlow* sur `true`.
 
-    [![Flux implicite d’Azure Active Directory](media/how-to-configure-postman/implicit-flow.png)](media/how-to-configure-postman/implicit-flow.png#lightbox)
+    [![Flux implicite Azure Active Directory](media/how-to-configure-postman/implicit-flow.png)](media/how-to-configure-postman/implicit-flow.png#lightbox)
 
 1. Configurez une **URL de réponse** sur `https://www.getpostman.com/oauth2/callback`.
 
-    [![URL de réponse d’Azure Active Directory](media/how-to-configure-postman/reply-url.png)](media/how-to-configure-postman/reply-url.png#lightbox)
+    [![URL de réponse Azure Active Directory](media/how-to-configure-postman/reply-url.png)](media/how-to-configure-postman/reply-url.png#lightbox)
 
 1. Copiez et conservez l’**ID d’application** de votre application Azure Active Directory. Vous l’utiliserez lors des étapes qui suivent.
 
@@ -74,13 +74,13 @@ Ensuite, configurez Postman pour obtenir un jeton Azure Active Directory. Après
     | URL de rappel | `https://www.getpostman.com/oauth2/callback` |
     | URL d’authentification | Utilisez l’**URL d’autorisation** de l’étape 2 |
     | ID client | Utilisez l’**ID d’application** de l’application Azure Active Directory qui a été créée ou réaffectée dans la section précédente |
-    | `Scope` | Laisser vide |
+    | Étendue | Laisser vide |
     | État | Laisser vide |
     | Authentification du client | `Send as Basic Auth header` |
 
 1. Le client doit maintenant se présenter comme suit :
 
-    [![Exemple de client postman](media/how-to-configure-postman/postman-oauth-token.png)](media/how-to-configure-postman/postman-oauth-token.png#lightbox)
+    [![Exemple de client Postman](media/how-to-configure-postman/postman-oauth-token.png)](media/how-to-configure-postman/postman-oauth-token.png#lightbox)
 
 1. Sélectionnez **Jeton de demande**.
 
@@ -104,14 +104,14 @@ Après avoir effectué les étapes précédentes, configurez Postman pour effect
 1. Sous l’onglet **Corps**, ajoutez chaque fichier en assignant un nom de **clé** et en sélectionnant `file` ou `text`.
 1. Ensuite, sélectionnez chaque fichier à l’aide du bouton **Choisir un fichier**.
 
-   [![Exemple de client postman](media/how-to-configure-postman/form-body.png)](media/how-to-configure-postman/form-body.png#lightbox)
+   [![Exemple de client Postman](media/how-to-configure-postman/form-body.png)](media/how-to-configure-postman/form-body.png#lightbox)
 
    >[!NOTE]
    > * Le client Postman n’exige pas que les segments multipart aient un **Content-Type** ou **Content-Disposition** affecté manuellement.
    > * Vous n’avez pas besoin de spécifier ces en-têtes pour chaque partie.
    > * Vous devez sélectionner `multipart/mixed` ou un autre **Content-Type** approprié pour l’ensemble de la requête.
 
-1. Pour finir, cliquez sur **Envoyer** pour envoyer votre requête HTTP POST multipart.
+1. Pour finir, sélectionnez **Envoyer** pour envoyer votre requête HTTP POST multipart.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

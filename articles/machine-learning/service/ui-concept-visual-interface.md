@@ -1,7 +1,7 @@
 ---
 title: Interface visuelle
 titleSuffix: Azure Machine Learning service
-description: En savoir plus sur les termes du contrat, les concepts et les flux de travail qui composent l’interface visuelle (version préliminaire) pour le service Azure Machine Learning.
+description: En savoir plus sur les termes, les concepts et le workflow qui composent l’interface visuelle (préversion) pour Azure Machine Learning service.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,72 +9,72 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 05/15/2019
-ms.openlocfilehash: 0b158a1d713e0de8f3d1b2672aed442fce66e724
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
-ms.translationtype: MT
+ms.openlocfilehash: be07e0f3438ea93312d4eb440e7e63b8f98e11b8
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65917159"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077374"
 ---
-# <a name="what-is-the-visual-interface-for-azure-machine-learning-service"></a>Qu’est l’interface visuelle pour le service Azure Machine Learning ? 
+# <a name="what-is-the-visual-interface-for-azure-machine-learning-service"></a>Qu’est-ce que l’interface visuelle pour Azure Machine Learning service ? 
 
-L’interface visuelle (version préliminaire) pour le service Azure Machine Learning vous permet de préparation des données, former, tester, déployer, gérer et suivre les modèles d’apprentissage automatique sans écrire de code.
+L’interface visuelle (préversion) pour Azure Machine Learning service permet de préparer des données, d’entraîner, de tester, de déployer et de suivre les modèles d’apprentissage automatique sans écrire de code.
 
-Il n’existe aucune programmation, vous vous connectez visuellement [jeux de données](#dataset) et [modules](#module) pour construire votre modèle.
+Aucune programmation n’est nécessaire : il suffit de visualiser la connexion des [jeux de donnée](#dataset)s et des [modules](#module) pour construire votre modèle.
 
-L’interface visuelle utilise votre service Azure Machine Learning [espace de travail](concept-workspace.md) à :
+L’interface visuelle utilise votre [espace de travail](concept-workspace.md) d’Azure Machine Learning service pour :
 
-+ Écrire des artefacts de [faire des essais](#experiment) s’exécute dans l’espace de travail.
-+ Accès [jeux de données](#dataset).
-+ Utilisez le [des ressources de calcul](#compute) dans l’espace de travail pour exécuter l’expérience. 
-+ Inscrire [modèles](concept-azure-machine-learning-architecture.md#model).
-+ [Déployer](#deployment) modèles comme services web sur les ressources dans l’espace de travail de calcul.
++ Écrivez des artefacts d’exécutions [expérimentales](#experiment) dans l’espace de travail.
++ Accéder aux [jeux de données](#dataset).
++ Utilisez les [ressources de calcul](#compute) dans l’espace de travail pour exécuter l’expérience. 
++ Inscrivez les [modèles](concept-azure-machine-learning-architecture.md#models).
++ [Déployez](#deployment) les modèles sous forme de services web sur des ressources de calcul dans l’espace de travail.
 
 ![Vue d’ensemble de l’interface visuelle](media/ui-concept-visual-interface/overview.png)
 
 ## <a name="workflow"></a>Workflow
 
-L’interface visuelle vous donne un canevas interactif, visual pour rapidement générer, tester et effectuer une itération sur un modèle. 
+L’interface visuelle offre un canevas visuel interactif pour générer, tester et effectuer une itération rapidement sur un modèle. 
 
-+ Vous faites glisser-déplacer [modules](#module) sur le canevas.
-+ Connecter les modules ensemble pour former un [faire des essais](#experiment).
-+ Exécutez l’expérience à l’aide de la ressource de calcul de l’espace de travail du Service Machine Learning.
-+ Effectuer une itération sur la conception de votre modèle en modifiant l’expérience et l’exécuter à nouveau.
-+ Lorsque vous êtes prêt, convertir votre **expérience de formation** à un **expérience prédictive**.
-+ [Déployer](#deployment) l’expérience prédictive comme un site web de service afin que votre modèle est accessible par d’autres utilisateurs.
++ Vous glissez-déplacez les [modules](#module) sur le canevas.
++ Associez les modules pour former une [expérience](#experiment).
++ Exécutez l’expérience à l’aide de la ressource de calcul de l’espace de travail Machine Learning Service.
++ Effectuez une itération sur la conception de votre modèle en modifiant l’expérience et en l’exécutant à nouveau.
++ Lorsque vous êtes prêt, convertissez votre **expérience de formation** en **expérience prédictive**.
++ [Déployez](#deployment) l’expérience prédictive sous forme de service web afin que votre modèle soit accessible par d’autres.
 
 ## <a name="experiment"></a>Expérience
 
-Création d’une expérience à partir de zéro, ou utiliser un exemple d’expérience existante comme modèle.  Chaque fois que vous exécutez une expérience, les artefacts sont stockés dans votre espace de travail.
+Créez une expérience à partir de zéro, ou utilisez un exemple d’expérience existante comme modèle.  Chaque fois que vous exécutez une expérience, des artefacts sont stockés dans votre espace de travail.
 
-Une expérience se compose de jeux de données et les modules d’analyse que vous connectez ensemble pour construire un modèle. En particulier, une expérience valide a les caractéristiques suivantes :
+Une expérience se compose de jeux de données et de modules d’analyse que vous connectez ensemble pour construire un modèle. En particulier, une expérience valide a les caractéristiques suivantes :
 
-* Jeux de données peut-être être connectés uniquement à des modules.
-* Modules peuvent être connectés à des jeux de données ou d’autres modules.
-* Tous les ports d’entrée pour les modules doivent comporter une connexion au flux de données.
-* Tous les requis paramètres pour chaque module doivent être définis.
+* Il est possible de connecter des jeux de données uniquement à des modules.
+* Les modules peuvent être connectés à des jeux de données ou à d’autres modules.
+* Tous les ports d’entrée des modules doivent comporter une connexion au flux de données.
+* Tous les paramètres obligatoires de chaque module doivent être configurés.
 
-Pour obtenir un exemple d’une expérience simple, consultez [Guide de démarrage rapide : Préparer et visualiser les données sans écrire de code dans Azure Machine Learning](ui-quickstart-run-experiment.md).
+Pour obtenir un exemple de l’utilisation d’une expérience, consultez le [Guide de démarrage rapide : Préparer et visualiser des données sans écrire de code dans Azure Machine Learning](ui-quickstart-run-experiment.md).
 
-Pour obtenir une description plus complète d’une solution d’analytique prédictive, consultez [didacticiel : Prédire le prix des véhicules automobiles avec l’interface visuelle](ui-tutorial-automobile-price-train-score.md).
+Pour obtenir une description plus complète d’une solution d’analyse prédictive, consultez [Tutoriel : Prédire le prix de voitures à l’aide de l’interface visuelle](ui-tutorial-automobile-price-train-score.md).
 
 ## <a name="dataset"></a>Jeu de données
 
-Un jeu de données est des données qui ont été téléchargées vers l’interface visuelle à utiliser dans le processus de modélisation. Un certain nombre de jeux de données exemple sont inclus pour vous permettent d’expérimenter, et vous pouvez charger plusieurs jeux de données comme vous en avez besoin.
+Un jeu de données sont des données chargées sur l’interface visuelle à utiliser dans le processus de modélisation. Divers exemples de jeux de données utilisables pour vos expériences sont fournis ; vous pouvez télécharger vers le serveur d’autres jeux de données si vous en avez besoin.
 
 ## <a name="module"></a>Module
 
-Un module est un algorithme que vous appliquez à vos données. L’interface visuelle a un nombre de modules, allant des fonctions d’entrée de données pour la formation, notation et les processus de validation.
+Un module est un algorithme que vous appliquez à vos données. L’interface visuelle comporte divers modules, allant de fonctions de saisie des données à des procédures de formation, de notation et de validation.
 
-Un module peut comporter un ensemble de paramètres utilisables pour configurer les algorithmes internes du module. Lorsque vous sélectionnez un module sur le canevas, ses paramètres sont affichés dans le volet de propriétés à droite de la zone de dessin. Vous pouvez modifier les paramètres figurant dans ce volet pour affiner votre modèle.
+Un module peut comporter un ensemble de paramètres utilisables pour configurer les algorithmes internes du module. Quand vous sélectionnez un module dans le canevas, ses paramètres sont affichés dans le volet Propriétés à droite du canevas. Vous pouvez modifier les paramètres figurant dans ce volet pour affiner votre modèle.
 
 ![Propriétés du module](media/ui-concept-visual-interface/properties.png)
 
-Pour une aide pour la navigation via la bibliothèque d’algorithmes d’apprentissage automatique disponibles, consultez [algorithmes et les modules de vue d’ensemble de référence](../algorithm-module-reference/module-reference.md)
+Pour obtenir de l’aide relative à la navigation dans la bibliothèque d’algorithmes d’apprentissage automatique disponibles, consultez [Vue d’ensemble des informations de référence relatives aux algorithmes et aux modules](../algorithm-module-reference/module-reference.md)
 
 ## <a name="compute"></a> Ressources de calcul
 
-Utilisation des ressources à partir de votre espace de travail pour exécuter votre expérience ou un hôte vos modèles déployés en tant que services web de calcul. Les cibles de calcul prises en charge sont les suivantes :
+Utilisation des ressources de calcul à partir de votre espace de travail pour exécuter votre expérience ou héberger vos modèles déployés en tant que services web. Les cibles de calcul prises en charge sont les suivantes :
 
 
 | Cible de calcul | Formation | Déploiement |
@@ -82,22 +82,22 @@ Utilisation des ressources à partir de votre espace de travail pour exécuter v
 | Capacité de calcul Azure Machine Learning | ✓ | |
 | Azure Kubernetes Service | | ✓ |
 
-Calcul des cibles sont attachés à votre Machine Learning [espace de travail](concept-workspace.md). Vous gérez vos cibles de calcul dans votre espace de travail dans le [Azure portal](https://portal.azure.com).
+Les cibles de calcul sont associées à votre [espace de travail](concept-workspace.md) de Machine Learning. Vous gérez vos cibles de calcul dans votre espace de travail du [portail Azure](https://portal.azure.com).
 
 ## <a name="deployment"></a>Déploiement
 
-Une fois que votre modèle d’analytique prédictive est prêt, déployez-la comme un service web directement à partir de l’interface visuelle.
+Une fois votre modèle d’analyse prédictive prêt, vous pouvez le déployer comme un service web directement à partir de l’interface visuelle.
 
-Les services web fournissent une interface entre une application et votre modèle de notation. Une application externe peut communiquer avec le modèle de score en temps réel. Un appel à un service web renvoie les résultats de prédiction à une application externe. Pour générer cet appel, vous transmettez une clé API créée au moment du déploiement du service web. Le service web est basé sur REST, un choix d’architecture populaires pour les projets de programmation web.
+Les services web fournissent une interface entre une application et votre modèle de notation. Une application externe peut communiquer en temps réel avec le modèle de scoring. Un appel à un service web renvoie les résultats de prédiction à une application externe. Pour générer cet appel, vous transmettez une clé API créée au moment du déploiement du service web. Le service web s’appuie sur l’architecture REST, souvent choisie pour les projets de programmation web.
 
-Pour savoir comment déployer votre modèle, consultez [didacticiel : Déployer un modèle d’apprentissage automatique avec l’interface visuelle](ui-tutorial-automobile-price-deploy.md).
+Pour savoir comment déployer votre modèle, consultez [Tutoriel : Déployer un modèle Machine Learning avec l’interface visuelle](ui-tutorial-automobile-price-deploy.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Découvrez les principes fondamentaux de l’analytique prédictive et apprentissage automatique avec [Guide de démarrage rapide : Préparer et visualiser les données sans écrire de code dans Azure Machine Learning](ui-quickstart-run-experiment.md).
-* Utiliser un des exemples et les modifier à la suite de vos besoins :
-    * [Exemple 1 : régression : Prédire le prix](ui-sample-regression-predict-automobile-price-basic.md)
-    * [Exemple 2 - régression : Prédire le prix et comparer des algorithmes](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
-    * [Exemple 3 - Classification : Prédire le risque de crédit](ui-sample-classification-predict-credit-risk-basic.md)
-    * [Exemple 4 : Classification : Prédire le risque de crédit (coût sensible)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
-    * [Exemple 5 - Classification : Prédire l’évolution, appétence et la vente incitative](ui-sample-classification-predict-churn.md)
+* Découvrez les principes fondamentaux de l’analytique prédictive et du Machine Learning à l’aide du [Guide de démarrage rapide : Préparer et visualiser des données sans écrire de code dans Azure Machine Learning](ui-quickstart-run-experiment.md).
+* Utilisez un des exemples et modifiez-le selon vos besoins :
+    * [Exemple 1 - Régression : Prédire le prix](ui-sample-regression-predict-automobile-price-basic.md)
+    * [Exemple 2 - Régression : Algorithmes de prédiction de prix et de comparaison](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
+    * [Exemple 3 - Classification : prédire le risque de crédit](ui-sample-classification-predict-credit-risk-basic.md)
+    * [Exemple 4 - Classification : prédire le risque de crédit (sensible au coût)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
+    * [Exemple 5 - Classification : Prédire l’évolution, l’appétence et la vente incitative](ui-sample-classification-predict-churn.md)

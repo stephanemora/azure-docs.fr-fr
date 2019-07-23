@@ -1,24 +1,24 @@
 ---
-title: Créer et utiliser des règles de pare-feu d’applications Web (WAF) Azure personnalisé
-description: Cet article fournit des informations sur la création de règles de pare-feu d’applications Web (WAF) personnalisé dans Azure Application Gateway.
+title: Créer et utiliser les règles personnalisées du pare-feu d’applications web (WAF) Azure v2
+description: Cet article fournit des informations sur la création des règles personnalisées de pare-feu d’applications web (WAF) v2 dans Application Gateway.
 services: application-gateway
 ms.topic: article
 author: vhorne
 ms.service: application-gateway
-ms.date: 6/5/2019
+ms.date: 6/18/2019
 ms.author: victorh
-ms.openlocfilehash: bb8c50664261814c7d994c9b879972b1e8b846e4
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
-ms.translationtype: MT
+ms.openlocfilehash: 86ddb0b608cd17814cbcbb902f0b2905fe61094a
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66689030"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164669"
 ---
-# <a name="create-and-use-web-application-firewall-custom-rules"></a>Créer et utiliser des règles de pare-feu d’applications Web personnalisées
+# <a name="create-and-use-web-application-firewall-v2-custom-rules"></a>Créer et utiliser les règles personnalisées du pare-feu d’applications web v2
 
-Le pare-feu d’applications web (WAF) Azure Application Gateway fournit une protection pour les applications web. Cette protection est fournie par l’Open Web Application Security Project (OWASP) Core règle définie (CRS). Dans certains cas, vous devrez peut-être créer vos propres règles personnalisées pour répondre à vos besoins spécifiques. Pour plus d’informations sur les règles de pare-feu d’applications Web personnalisées, consultez [présentation des règles de pare-feu personnalisé web application](custom-waf-rules-overview.md).
+Le pare-feu d’applications web (WAF) v2 Azure Application Gateway fournit une protection pour les applications web. Cette protection est fournie par le jeu de règles (Core Rule Set, CRS) de l’Open Web Application Security Project (OWASP). Dans certains cas, vous devrez peut-être créer vos propres règles personnalisées pour répondre à vos besoins spécifiques. Pour plus d’informations sur les règles de pare-feu d’applications web personnalisées, consultez [Vue d’ensemble des règles personnalisées pour un pare-feu d’applications web](custom-waf-rules-overview.md).
 
-Cet article vous montre quelques exemples de règles personnalisé que vous pouvez créer et utiliser avec votre WAF. Pour savoir comment déployer un pare-feu d’applications Web avec une règle personnalisée à l’aide d’Azure PowerShell, consultez [règles personnalisées de configurer le pare-feu d’applications Web à l’aide d’Azure PowerShell](configure-waf-custom-rules.md).
+Cet article montre quelques exemples de règles personnalisées que vous pouvez créer et utiliser avec votre pare-feu d’applications web v2. Pour savoir comment déployer un pare-feu d’applications web avec une règle personnalisée à l’aide d’Azure PowerShell, consultez [Configurer les règles personnalisées du pare-feu d’applications web à l’aide d’Azure PowerShell](configure-waf-custom-rules.md).
 
 >[!NOTE]
 > Si votre passerelle Application Gateway n’utilise pas la couche WAF, l’option de mise à niveau de la passerelle Application Gateway vers la couche WAF s’affiche dans le volet de droite.
@@ -27,9 +27,9 @@ Cet article vous montre quelques exemples de règles personnalisé que vous pouv
 
 ## <a name="example-1"></a>Exemple 1
 
-Vous savez qu’un robot nommé *evilbot* que vous souhaitez bloquer à partir de l’analyse de votre site Web. Dans ce cas, vous devez bloquer sur l’Agent utilisateur *evilbot* dans les en-têtes de demande.
+Vous souhaitez empêcher un robot nommé *evilbot* d’analyser votre site web. Dans ce cas, le blocage doit porter sur *evilbot* de l’agent utilisateur dans les en-têtes de requête.
 
-Logique : p
+Logique : p
 
 ```azurepowershell
 $variable = New-AzApplicationGatewayFirewallMatchVariable `
@@ -51,7 +51,7 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
    -Action Block
 ```
 
-Et Voici le JSON correspondant :
+Voici le JSON correspondant :
 
 ```json
   {
@@ -75,11 +75,11 @@ Et Voici le JSON correspondant :
   }
 ```
 
-Pour voir un pare-feu d’applications Web déployée à l’aide de cette règle personnalisée, consultez [configurer une règle personnalisée du pare-feu d’applications Web à l’aide d’Azure PowerShell](configure-waf-custom-rules.md).
+Pour voir un pare-feu d’applications web déployé à l’aide de cette règle personnalisée, consultez [Configurer une règle personnalisée du pare-feu d’applications web à l’aide d’Azure PowerShell](configure-waf-custom-rules.md).
 
-### <a name="example-1a"></a>Exemple 1
+### <a name="example-1a"></a>Exemple 1a
 
-Vous pouvez accomplir la même chose à l’aide d’une expression régulière :
+Vous pouvez accomplir la même chose à l’aide d’une expression régulière :
 
 ```azurepowershell
 $variable = New-AzApplicationGatewayFirewallMatchVariable `
@@ -101,7 +101,7 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
    -Action Block
 ```
 
-Et le JSON correspondant :
+Voici le JSON correspondant :
 
 ```json
   {
@@ -127,11 +127,11 @@ Et le JSON correspondant :
 
 ## <a name="example-2"></a>Exemple 2
 
-Vous souhaitez bloquer toutes les demandes provenant d’adresses IP dans la plage 198.168.5.4/24.
+Vous souhaitez bloquer toutes les requêtes provenant d’adresses IP comprises dans la plage 198.168.5.4/24.
 
-Dans cet exemple, vous devez bloquer tout le trafic qui provient d’une plage d’adresses IP. Le nom de la règle est *MaRègle1* et la priorité est définie sur 100.
+Dans cet exemple, vous allez bloquer tout le trafic provenant d’une plage d’adresses IP. Le nom de la règle est *myrule1* et la priorité est définie sur 100.
 
-Logique : p
+Logique : p
 
 ```azurepowershell
 $variable1 = New-AzApplicationGatewayFirewallMatchVariable `
@@ -151,7 +151,7 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
    -Action Block
 ```
 
-Voici le JSON correspondant :
+Voici le JSON correspondant :
 
 ```json
   {
@@ -175,13 +175,13 @@ Voici le JSON correspondant :
   }
 ```
 
-Règle CRS correspondante : `SecRule REMOTE_ADDR "@ipMatch 192.168.5.4/24" "id:7001,deny"`
+Règle CRS correspondante : `SecRule REMOTE_ADDR "@ipMatch 192.168.5.4/24" "id:7001,deny"`
 
 ## <a name="example-3"></a>Exemple 3
 
-Pour cet exemple, vous souhaitez bloquer User-Agent *evilbot*et le trafic dans la plage 192.168.5.4/24. Pour ce faire, vous pouvez créer deux conditions de correspondance distinct et les placer à la fois dans la même règle. Cela garantit que les deux *evilbot* dans l’en-tête User-Agent **et** des adresses IP à partir de la plage 192.168.5.4/24 sont bloquées.
+Pour cet exemple, vous souhaitez bloquer *evilbot* de l’en-tête User-Agent et le trafic compris dans la plage 192.168.5.4/24. Pour ce faire, vous pouvez créer deux conditions de correspondance distinctes et les placer dans la même règle. Cela garantit le blocage d’*evilbot* de l’en-tête User-Agent **et** des adresses IP de la plage 192.168.5.4/24.
 
-Logique : p **et** q
+Logique : p **and** q
 
 ```azurepowershell
 $variable1 = New-AzApplicationGatewayFirewallMatchVariable `
@@ -212,7 +212,7 @@ $condition2 = New-AzApplicationGatewayFirewallCondition `
    -Action Block
 ```
 
-Voici le JSON correspondant :
+Voici le JSON correspondant :
 
 ```json
 { 
@@ -251,9 +251,9 @@ Voici le JSON correspondant :
 
 ## <a name="example-4"></a>Exemple 4
 
-Pour cet exemple, vous souhaitez bloquer si la demande est en dehors de la plage d’adresses IP *192.168.5.4/24*, ou la chaîne d’agent utilisateur n’est pas *chrome* (ce qui signifie que l’utilisateur n’est pas en utilisant le navigateur Chrome). Étant donné que cette logique utilise **ou**, les deux conditions sont dans des règles distinctes, comme illustré dans l’exemple suivant. *MaRègle1* et *MaRègle2* les deux doivent correspondre pour bloquer le trafic.
+Pour cet exemple, vous souhaitez l’activation du blocage si la demande est en dehors de la plage d’adresses IP *192.168.5.4/24*, ou si la chaîne de l’agent utilisateur n’est pas *chrome* (ce qui signifie que l’utilisateur n’utilise pas le navigateur Chrome). Étant donné que cette logique utilise **ou**, les deux conditions se trouvent dans des règles distinctes, comme cela a été abordé dans l’exemple suivant. *myrule1* et *myrule2* doivent toutes deux correspondre pour bloquer le trafic.
 
-Logique : **pas** (p **et** q) = **pas** p **ou non** q.
+Logique : **not** (p **and** q) = **not** p **or not** q.
 
 ```azurepowershell
 $variable1 = New-AzApplicationGatewayFirewallMatchVariable `
@@ -291,7 +291,7 @@ $rule2 = New-AzApplicationGatewayFirewallCustomRule `
    -Action Block
 ```
 
-Et le JSON correspondant :
+Voici le JSON correspondant :
 
 ```json
 {
@@ -338,9 +338,9 @@ Et le JSON correspondant :
 
 ## <a name="example-5"></a>Exemple 5
 
-Vous souhaitez bloquer SQLI personnalisé. Depuis la logique utilisée ici est **ou**, et toutes les valeurs sont dans le *RequestUri*, tous les de la *MatchValues* peuvent se trouver dans une liste séparée par des virgules.
+Vous souhaitez bloquer du code SQLI personnalisé. Dans la mesure où la logique utilisée ici est **or**, et où toutes les valeurs se trouvent dans *RequestUri*, toutes les *MatchValues* peuvent se trouver dans une liste séparée par des virgules.
 
-Logique : p **ou** q **ou** r
+Logique : p **or** q **or** r
 
 ```azurepowershell
 $variable1 = New-AzApplicationGatewayFirewallMatchVariable `
@@ -359,7 +359,7 @@ $rule1 = New-AzApplicationGatewayFirewallCustomRule `
    -Action Block
 ```
 
-JSON correspondante :
+Voici le JSON correspondant :
 
 ```json
   {
@@ -385,7 +385,7 @@ JSON correspondante :
   }
 ```
 
-Autre Azure PowerShell :
+Autre Azure PowerShell :
 
 ```azurepowershell
 $variable1 = New-AzApplicationGatewayFirewallMatchVariable `
@@ -436,7 +436,7 @@ $rule3 = New-AzApplicationGatewayFirewallCustomRule `
    -Action Block
 ```
 
-JSON correspondante :
+Voici le JSON correspondant :
 
 ```json
   {
@@ -493,7 +493,7 @@ JSON correspondante :
   }
 ```
 
-Règle ModSecurity correspondante :
+Règle ModSecurity correspondante :
 
 `SecRule REQUEST_URI "@contains 1-1" "id:7001,deny"`
 
@@ -503,6 +503,6 @@ Règle ModSecurity correspondante :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après avoir créé vos règles personnalisées, vous pouvez apprendre à afficher vos journaux WAF. Pour plus d’informations, consultez [Diagnostics Application Gateway](application-gateway-diagnostics.md#diagnostic-logging).
+Après avoir créé vos règles personnalisées, vous pouvez apprendre à afficher vos journaux d’activité WAF. Pour plus d’informations, consultez [Diagnostics Application Gateway](application-gateway-diagnostics.md#diagnostic-logging).
 
 [fig1]: ./media/application-gateway-customize-waf-rules-portal/1.png

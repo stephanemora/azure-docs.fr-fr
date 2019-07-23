@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 06/11/2019
 ms.author: spelluru
-ms.openlocfilehash: 494c285f1c096a84925d9d9a4fb98409960e5230
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 67faf268d265fd045c21b75b6f64840511a371d3
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60703688"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067298"
 ---
 # <a name="configure-usage-settings-and-policies"></a>Configurer des paramètres et des stratégies d’utilisation
 Cet article explique comment ajouter des utilisateurs au labo, comment les inscrire au labo, comment contrôler le nombre d’heures qu’ils peuvent utiliser la machine virtuelle, et bien plus encore. 
@@ -38,13 +38,13 @@ Si l’option **Restreindre l’accès** est activée, ajoutez des utilisateurs 
 
     ![Liste des utilisateurs](../media/how-to-configure-student-usage/users-list-new.png)
 
-## <a name="share-registration-link-with-students"></a>Partager un lien d’inscription avec les étudiants
-Pour envoyer le lien d’inscription aux étudiants, utilisez une des méthodes suivantes. La première méthode vous montre comment envoyer des courriers électroniques aux étudiants avec le lien d’inscription et un message facultatif. La deuxième méthode vous montre comment obtenir le lien d’inscription que vous pouvez partager avec d’autres personnes comme vous le souhaitez. 
+## <a name="share-registration-link-with-students"></a>Partager un lien d’inscription avec des étudiants
+Pour envoyer le lien d’inscription à des étudiants, utilisez une des méthodes suivantes. La première méthode montre comment envoyer des e-mails aux étudiants avec le lien d’inscription et un message facultatif. La deuxième méthode montre comment obtenir le lien d’inscription que vous pouvez partager avec d’autres personnes comme vous le souhaitez. 
 
 Si l’option **Restreindre l’accès** est activée pour le labo, seuls les utilisateurs figurant dans la liste des utilisateurs peuvent utiliser le lien d’inscription pour s’inscrire au labo. Cette option est activée par défaut. 
 
 ### <a name="send-email-to-users"></a>Envoyer un e-mail aux utilisateurs
-Azure Lab Services permet aux enseignants d’invitations de laboratoire à l’ensemble de la messagerie ou sélectionné les étudiants sans avoir à utiliser un autre client de messagerie. Les enseignants peuvent pointer sur individuels des étudiants dans la liste pour voir l’icône de courrier électronique pour chaque étudiant ou sélectionnez les étudiants d’un ou plusieurs et utiliser **envoyer une invitation** sur la barre d’outils. Cette fonctionnalité envoie un e-mail avec un lien d’inscription et un message (le cas échéant) est ajouté par le formateur. Une fois l’invitation est envoyée, l’état de l’invitation passe à **Invitation envoyée** afin que les enseignants peuvent effectuer le suivi des étudiants ont déjà reçu le lien d’inscription et la date d’expédition.
+Azure Lab Services permet aux enseignants d’envoyer des invitations à des laboratoires par e-mail à l’ensemble ou une partie des étudiants sans avoir à utiliser un autre client de messagerie. Les enseignants peuvent survoler chaque étudiant de la liste pour afficher l’icône de messagerie correspondant à celui-ci ou sélectionner un ou plusieurs étudiants et utiliser **Envoyer une invitation** sur la barre d’outils. Cette fonctionnalité permet d’envoyer un e-mail avec un lien d’inscription et un message (le cas échéant) ajouté par le formateur. Une fois l’invitation envoyée, l’état de l’invitation passe à **Invitation envoyée** afin que les enseignants puissent effectuer le suivi des étudiants ayant déjà reçu le lien d’inscription et de la date d’expédition.
 
 1. Basculez vers la vue **Utilisateurs** si vous n’y êtes pas déjà. 
 2. Sélectionnez des utilisateurs spécifiques ou tous les utilisateurs dans la liste. Pour sélectionner des utilisateurs spécifiques, activez les cases à cocher dans la première colonne de la liste. Pour sélectionner tous les utilisateurs, sélectionnez la case à cocher devant le titre de la première colonne (**Nom**) ou sélectionnez toutes les cases à cocher pour tous les utilisateurs figurant dans la liste. Vous pouvez voir l’**état de l’invitation** dans cette liste.  Dans l’image suivante, l’état de l’invitation pour tous les étudiants est défini sur **Invitation non envoyée**. 
@@ -68,7 +68,7 @@ Azure Lab Services permet aux enseignants d’invitations de laboratoire à l’
 
     ![Lien d’inscription de l’étudiant](../media/tutorial-setup-classroom-lab/registration-link.png)
 2. Dans la boîte de dialogue **Enregistrement de l’utilisateur**, sélectionnez **Fermer**. 
-4. Partage le **lien d’inscription** avec un étudiant afin que les étudiants peuvent s’inscrire à la classe. 
+4. Partagez le **lien d’inscription** avec un étudiant afin que ce dernier puisse s’inscrire à la classe. 
 
 ## <a name="view-users-registered-with-the-lab"></a>Afficher les utilisateurs inscrits au laboratoire
 
@@ -80,19 +80,24 @@ Dans le menu de gauche, sélectionnez **Utilisateurs** pour afficher la liste de
 Vous pouvez définir des quotas par utilisateur en effectuant les étapes suivantes : 
 
 1. Sélectionnez **Utilisateurs** dans le menu de gauche.
-2. Sélectionnez **Quota par utilisateur : illimité** dans la barre d’outils. 
-3. Dans la page **Quota par utilisateur**, sélectionnez l’une des options suivantes : 
-    1. **Aucun**. Les utilisateurs ne peuvent employer leurs machines virtuelles que pendant les heures planifiées ou lorsque le propriétaire du laboratoire active les machines virtuelles pour eux.
-    2. **Illimité (valeur par défaut)**. Les utilisateurs peuvent employer leurs machines virtuelles sans aucune restriction de temps.
-    3. **Spécifiez le nombre d’heures par utilisateur**. Les utilisateurs peuvent employer leurs machines virtuelles pendant le nombre d'heures défini (spécifié ci-dessous) en plus de l'heure planifiée. Si vous sélectionnez cette option, entrez le **nombre d’heures** dans la zone de texte. 
+2. Sélectionnez **Quota par utilisateur :** dans la barre d’outils. 
+3. Sur la page **Quota par utilisateur**, spécifiez le nombre d’heures que vous souhaitez donner à chaque utilisateur (étudiant) : 
+    1. **0 heure (heures planifiées uniquement)** . Les utilisateurs peuvent utiliser leurs machines virtuelles uniquement pendant les heures planifiées, ou quand vous, en tant que le propriétaire de laboratoire, activez leurs machines virtuelles.
+
+        ![Zéro heure - uniquement aux heures planifiées](../media/how-to-configure-student-usage/zero-hours.png)
+    1. **Nombre total d’heures de laboratoire par utilisateur**. Les utilisateurs peuvent employer leurs machines virtuelles pendant le nombre d’heures défini (spécifié pou ce champ) **en plus de l’heure planifiée**. Si vous sélectionnez cette option, entrez le **nombre d’heures** dans la zone de texte. 
 
         ![Nombre d’heures par utilisateur](../media/how-to-configure-student-usage/number-of-hours-per-user.png)
     4. Sélectionnez **Enregistrer**. 
-5. Les valeurs modifiées figurent maintenant dans la barre d’outils : **Quota par utilisateur : &lt;nombre d’heures&gt;**. 
+5. Les valeurs modifiées figurent maintenant dans la barre d’outils : **Quota par utilisateur : &lt;nombre d’heures&gt;** . 
 
     ![Quota par utilisateur](../media/how-to-configure-student-usage/quota-per-user.png)
 
+
+
 > [!IMPORTANT]
+> Avant d’envoyer le lien d’inscription aux étudiants, les enseignants doivent définir la planification de la classe s’ils choisissent un quota horaire égal à 0 ou spécifier un quota horaire pour le laboratoire.
+>
 > Le [temps d’exécution planifié des machines virtuelles](how-to-create-schedules.md) ne compte pas dans le quota alloué à un utilisateur. Le quota s'applique au temps qu'un étudiant consacre aux machines virtuelles en dehors des heures planifiées. 
 
 ### <a name="add-users-by-uploading-a-csv-file"></a>Ajouter des utilisateurs en chargeant un fichier CSV

@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: mbullwin
 ms.openlocfilehash: 6567d7f2ebaab5bd7b5bc8fb7b5a62970f169161
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66476170"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Annotations sur les graphiques de métriques dans Application Insights
@@ -38,7 +38,7 @@ Pour pouvoir créer des annotations de version, vous devez installer l’une des
 1. Connectez-vous à votre [Azure DevOps Services](https://azure.microsoft.com/services/devops/) projet.
 2. Dans Visual Studio Marketplace, [obtenez l’extension Annotations de version](https://marketplace.visualstudio.com/items/ms-appinsights.appinsightsreleaseannotations)et ajoutez-la à votre organisation Azure DevOps Services.
 
-![Sélectionnez une organisation Azure DevOps, puis installez.](./media/annotations/1-install.png)
+![Sélectionnez une organisation Azure DevOps et procédez à l’installation.](./media/annotations/1-install.png)
 
 Il vous suffit de le faire une seule fois pour votre organisation Azure DevOps Services. Des annotations de version peuvent désormais être configurées pour n’importe quel projet de votre organisation.
 
@@ -46,8 +46,8 @@ Il vous suffit de le faire une seule fois pour votre organisation Azure DevOps S
 
 Vous devez obtenir une clé API distincte pour chaque modèle de version Azure DevOps Services.
 
-1. Se connecter à la [portail Microsoft Azure](https://portal.azure.com) et ouvrez la ressource Application Insights qui surveille votre application. (Ou [créez-en une maintenant](../../azure-monitor/app/app-insights-overview.md)si vous ne l’avez pas encore fait.)
-2. Ouvrez le **accès à l’API** onglet et copie le **ID d’Application Insights**.
+1. Connectez-vous au [portail Microsoft Azure](https://portal.azure.com) et ouvrez la ressource Application Insights qui surveille votre application. (Ou [créez-en une maintenant](../../azure-monitor/app/app-insights-overview.md)si vous ne l’avez pas encore fait.)
+2. Ouvrez l’onglet **Accès à l’API** et copiez l’**ID d’Application Insights**.
    
     ![Dans portal.azure.com, ouvrez votre ressource Application Insights, puis choisissez Paramètres. Ouvrir Accès API. Copier l’ID de l’application](./media/annotations/2-app-id.png)
 
@@ -55,17 +55,17 @@ Vous devez obtenir une clé API distincte pour chaque modèle de version Azure D
    
     Ajoutez une tâche, sélectionnez la tâche d’annotation de version d’Application Insights à partir du menu.
 
-   ![Cliquez sur le signe plus pour ajouter une tâche, puis sélectionnez Annotation de version Application Insights. Collez l’ID Application Insights.](./media/annotations/3-add-task.png)
+   ![Cliquez sur le signe plus pour ajouter une tâche, puis sélectionnez la tâche d’annotation de version d’Application Insights. Collez l’ID Application Insights.](./media/annotations/3-add-task.png)
 
-    Coller le **ID d’Application** que vous avez copiée à partir de l’onglet accès aux API.
+    Collez **l’ID de l’application** que vous avez copié à partir de l’onglet Accès API.
    
-    ![Collez l’ID d’Application Insights](./media/annotations/4-paste-app-id.png)
+    ![Coller l’ID Application Insights](./media/annotations/4-paste-app-id.png)
 
 5. De retour dans la fenêtre Azure, créez une clé API et copiez-la.
    
-    ![Dans l’onglet accès aux API dans la fenêtre Azure, cliquez sur Créer une clé API.](./media/annotations/5-create-api-key.png)
+    ![Dans l’onglet Accès API de la fenêtre Azure, cliquez sur Créer une clé API.](./media/annotations/5-create-api-key.png)
 
-    ![Dans l’onglet clés d’API de création fournir vos commentaires, cochez écrire des annotations, cliquez sur Générer une clé. Copiez la nouvelle clé.](./media/annotations/6-create-api-key.png)
+    ![Fournissez un commentaire dans l’onglet Créer une clé API, cochez Écrire des annotations, puis cliquez sur Générer une clé. Copiez la nouvelle clé.](./media/annotations/6-create-api-key.png)
 
 6. Ouvrez l’onglet Configuration du modèle de version.
    
@@ -73,14 +73,14 @@ Vous devez obtenir une clé API distincte pour chaque modèle de version Azure D
    
     Collez votre clé API pour la définition de la variable APIKey.
    
-    ![Dans la fenêtre Services de DevOps Azure, sélectionnez l’onglet Variable, et cliquez sur Ajouter. Définissez le nom apikey et dans la valeur, collez la clé que vous avez généré et cliquez sur l’icône de verrou.](./media/annotations/7-paste-api-key.png)
+    ![Dans la fenêtre Azure DevOps Services, sélectionnez l’onglet Variable, puis cliquez sur Ajouter. Définissez le nom ApiKey et, dans Valeur, collez la clé que vous avez générée, puis cliquez sur l’icône de verrouillage.](./media/annotations/7-paste-api-key.png)
 1. Enfin, **enregistrez** le pipeline de mise en production.
 
 
 ## <a name="view-annotations"></a>Afficher les annotations
 Désormais, lorsque vous utilisez le modèle de version pour déployer une nouvelle version, une annotation est envoyée à Application Insights. Les annotations figureront sur les graphiques Metrics Explorer.
 
-Cliquez sur un marqueur d’annotation (flèche gris clair) pour ouvrir les détails sur la version, notamment le demandeur, la branche de contrôle de code source, mise en production de pipeline, l’environnement et bien plus encore.
+Cliquez sur un marqueur d’annotation (flèche gris clair) pour ouvrir les détails sur la version, notamment le demandeur, la branche de contrôle de code source, le pipeline de mise en production, l’environnement et bien plus encore.
 
 ![Cliquez sur un marqueur d’annotation de version.](./media/annotations/8-release.png)
 
@@ -90,7 +90,7 @@ Vous pouvez également créer des annotations à partir du processus de votre ch
 
 1. Créez une copie locale du [script Powershell à partir de GitHub](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1).
 
-2. Obtenir l’ID d’Application et créez une clé API à partir de l’onglet accès aux API.
+2. Obtenez l’ID d’application et créez une clé API à partir de l’onglet Accès d’API.
 
 3. Appelez le script comme suit :
 

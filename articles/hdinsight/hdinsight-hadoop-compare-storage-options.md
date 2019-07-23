@@ -6,17 +6,17 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/08/2019
-ms.openlocfilehash: 320b8f948d08e46c43085e174dfbe838f44bac79
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.date: 06/17/2019
+ms.openlocfilehash: b0d963e212e66bf96ec42ec2a5c0fd5005f7a889
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66479166"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165892"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Comparer les options de stockage à utiliser avec les clusters Azure HDInsight
 
-Vous pouvez choisir entre quelques services de stockage Azure différent lors de la création des clusters HDInsight :
+Vous pouvez choisir parmi plusieurs services de stockage Azure lors de la création de clusters HDInsight :
 
 * Stockage Azure
 * Azure Data Lake Storage Gen2
@@ -24,38 +24,38 @@ Vous pouvez choisir entre quelques services de stockage Azure différent lors de
 
 Cet article fournit une vue d’ensemble de ces types de stockage, ainsi que de leurs caractéristiques uniques.
 
-Le tableau suivant récapitule les services de stockage Azure qui sont pris en charge avec différentes versions de HDInsight :
+Le tableau suivant récapitule les services de stockage Azure pris en charge avec les différentes versions de HDInsight :
 
-| Service de stockage | Type de compte | Type de Namespace | Services pris en charge | Niveaux de performances pris en charge | Niveaux d’accès pris en charge | Version de HDInsight | Type de cluster |
+| Service de stockage | Type de compte | Type d’espace de noms | Services pris en charge | Niveaux de performances pris en charge | Niveaux d’accès pris en charge | Version de HDInsight | Type de cluster |
 |---|---|---|---|---|---|---|---|
-|Azure Data Lake Storage Gen2| Universel v2 | Hiérarchique (système de fichiers) | Blob | standard | À chaud, froid, Archive | 3.6+ | Tous |
-|Stockage Azure| Universel v2 | Object | Blob | standard | À chaud, froid, Archive | 3.6+ | Tous |
-|Stockage Azure| Universel v1 | Object | Blob | standard | S.O. | Tous | Tous |
-|Stockage Azure| Stockage d’objets BLOB ** | Object | Objet blob de blocs | standard | À chaud, froid, Archive | Tous | Tous |
-|Azure Data Lake Storage Gen1| S.O. | Hiérarchique (système de fichiers) | S.O. | N/A | S.O. | 3.6 uniquement | Tout sauf HBase |
+|Azure Data Lake Storage Gen2| Universel v2 | Hiérarchique (système de fichiers) | Blob | standard | Chaud, froid, archive | 3.6+ | Tous |
+|Stockage Azure| Universel v2 | Object | Blob | standard | Chaud, froid, archive | 3.6+ | Tous |
+|Stockage Azure| Universel v1 | Object | Blob | standard | N/A | Tous | Tous |
+|Stockage Azure| Stockage Blob** | Object | Objet blob de blocs | standard | Chaud, froid, archive | Tous | Tous |
+|Azure Data Lake Storage Gen1| N/A | Hiérarchique (système de fichiers) | N/A | N/A | N/A | 3.6 uniquement | Tout sauf HBase |
 
-** Pour les clusters HDInsight, seuls les comptes de stockage secondaire peuvent être de type BlobStorage.
+** Pour les clusters HDInsight, seuls les comptes de stockage secondaires peuvent être de type BlobStorage.
 
-Pour plus d’informations sur les types de comptes de stockage Azure, consultez [vue d’ensemble du compte de stockage Azure](../storage/common/storage-account-overview.md)
+Pour plus d’informations sur les types de comptes de stockage Azure, consultez l’article [Vue d’ensemble des comptes de stockage Azure](../storage/common/storage-account-overview.md).
 
-Pour plus d’informations sur les niveaux d’accès de stockage Azure, consultez [stockage Blob Azure : Premium (version préliminaire), les niveaux de stockage chaud, froid et Archive](../storage/blobs/storage-blob-storage-tiers.md)
+Pour plus d’informations sur les niveaux d’accès du stockage Azure, consultez [Stockage Blob Azure : niveaux de stockage Premium (préversion), chaud, froid et archive](../storage/blobs/storage-blob-storage-tiers.md)
 
-Vous pouvez créer un cluster à l’aide de différentes combinaisons de services pour le stockage secondaire principal et facultatif. Le tableau suivant résume les configurations de stockage de cluster qui sont actuellement pris en charge dans HDInsight :
+Vous pouvez créer un cluster à l’aide de différentes combinaisons de services pour le stockage secondaire principal et facultatif. Le tableau suivant résume les configurations de stockage de cluster actuellement prises en charge dans HDInsight :
 
 | Version de HDInsight | Stockage principal | Stockage secondaire | Pris en charge |
 |---|---|---|---|
-| 3.6 & 4.0 | Usage général V1, usage général V2 | Usage général V1, V2 à usage général, BlobStorage (objets BLOB de blocs) | Oui |
-| 3.6 & 4.0 | Usage général V1, usage général V2 | Data Lake Storage Gen2 | Non |
-| 3.6 & 4.0 | Usage général V1, usage général V2 | Data Lake Storage Gen 1 | Oui |
-| 3.6 & 4.0 | Data Lake Storage Gen2 * | Data Lake Storage Gen2 | Oui |
-| 3.6 & 4.0 | Data Lake Storage Gen2 * | Usage général V1, V2 à usage général, BlobStorage (objets BLOB de blocs) | Oui |
-| 3.6 & 4.0 | Data Lake Storage Gen2 | Data Lake Storage Gen 1 | Non |
-| 3.6 | Data Lake Storage Gen 1 | Data Lake Storage Gen 1 | Oui |
-| 3.6 | Data Lake Storage Gen 1 | Usage général V1, V2 à usage général, BlobStorage (objets BLOB de blocs) | Oui |
+| 3.6 et 4.0 | Usage général V1, usage général V2 | Usage général V1, usage général V2, BlobStorage (objets BLOB de blocs) | OUI |
+| 3.6 et 4.0 | Usage général V1, usage général V2 | Data Lake Storage Gen2 | Non |
+| 3.6 et 4.0 | Usage général V1, usage général V2 | Data Lake Storage Gen 1 | OUI |
+| 3.6 et 4.0 | Data Lake Storage Gen2* | Data Lake Storage Gen2 | OUI |
+| 3.6 et 4.0 | Data Lake Storage Gen2* | Usage général V1, usage général V2, BlobStorage (objets BLOB de blocs) | OUI |
+| 3.6 et 4.0 | Data Lake Storage Gen2 | Data Lake Storage Gen 1 | Non |
+| 3.6 | Data Lake Storage Gen 1 | Data Lake Storage Gen 1 | OUI |
+| 3.6 | Data Lake Storage Gen 1 | Usage général V1, usage général V2, BlobStorage (objets BLOB de blocs) | OUI |
 | 3.6 | Data Lake Storage Gen 1 | Data Lake Storage Gen2 | Non |
 | 4.0 | Data Lake Storage Gen 1 | Quelconque | Non |
 
-* = Cela peut être un ou plusieurs comptes Data Lake Storage Gen2, tant qu’ils sont tous les paramètres à utiliser la même identité gérée pour l’accès au cluster.
+\* = Peut être un ou plusieurs comptes Data Lake Storage Gen2, tant qu’ils sont tous configurés pour utiliser la même identité gérée pour l’accès au cluster.
 
 ## <a name="use-azure-data-lake-storage-gen2-with-apache-hadoop-in-azure-hdinsight"></a>Utiliser Azure Data Lake Storage Gen2 avec des clusters Apache Hadoop dans Azure HDInsight
 
@@ -121,9 +121,9 @@ Pour plus d’informations, consultez [Utiliser l’URI d’Azure Data Lake Stor
 
 Stockage Azure est une solution de stockage à la fois robuste et polyvalente qui s’intègre en toute transparence à HDInsight. HDInsight peut utiliser un conteneur d’objets blob dans le stockage Azure comme système de fichiers par défaut pour le cluster. Grâce à une interface HDFS, l’ensemble des composants de HDInsight peut opérer directement sur les données structurées ou non structurées stockées en tant qu’objets blob.
 
-Nous vous recommandons d’utiliser des conteneurs de stockage distinct pour votre stockage de cluster par défaut et vos données d’entreprise, pour isoler les journaux de HDInsight et les fichiers temporaires à partir de vos propres données d’entreprise. Nous vous recommandons également de supprimer le conteneur d’objets blob par défaut, qui contient les journaux des applications et système, après chaque utilisation pour réduire le coût de stockage. Assurez-vous de récupérer les journaux d’activité avant de supprimer le conteneur.
+Nous vous recommandons d’utiliser des conteneurs de stockage distincts pour votre stockage de cluster par défaut et vos données d’entreprise, pour isoler les journaux de HDInsight et les fichiers temporaires de vos propres données d’entreprise. Nous recommandons également de supprimer le conteneur d’objets blob par défaut, qui contient les journaux des applications et système, après chaque utilisation pour réduire le coût de stockage. Assurez-vous de récupérer les journaux d’activité avant de supprimer le conteneur.
 
-Si vous choisissez votre compte de stockage avec le **les pare-feux et réseaux virtuels** restrictions sur **réseaux sélectionnés**, veillez à activer l’exception **autoriser fiables Microsoft Services...**  afin que HDInsight puisse accéder à votre compte de stockage.
+Si vous choisissez de sécuriser votre compte de stockage à l’aide des restrictions de **pare-feu et réseaux virtuels** sur des **réseaux sélectionnés**, veillez à activer l’exception **Autoriser les services approuvés de Microsoft...** afin que HDInsight puisse accéder à votre compte de stockage.
 
 ### <a name="hdinsight-storage-architecture"></a>Architecture de stockage HDInsight
 

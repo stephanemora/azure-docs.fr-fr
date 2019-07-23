@@ -1,6 +1,6 @@
 ---
-title: Connecter des ordinateurs Windows à Azure Log Analytics | Microsoft Docs
-description: Cet article décrit la connexion d’ordinateurs Windows hébergés dans d’autres clouds ou localement à Log Analytics avec Microsoft Monitoring Agent (MMA).
+title: Connecter des ordinateurs Windows à Azure Monitor | Microsoft Docs
+description: Cet article décrit la connexion d’ordinateurs Windows hébergés dans d’autres clouds ou localement à Azure Monitor avec l’agent Log Analytics pour Windows.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -11,20 +11,20 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 06/14/2019
 ms.author: magoedte
-ms.openlocfilehash: 2d57e619ec17e183bc8c9bb155f3e111f43b85f1
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.openlocfilehash: 7f562959ac6022539ccf7137f352a2e9507758dc
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65952473"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67146346"
 ---
-# <a name="connect-windows-computers-to-azure-monitor"></a>Connecter des ordinateurs de Windows à Azure Monitor
+# <a name="connect-windows-computers-to-azure-monitor"></a>Connecter des ordinateurs Windows à Azure Monitor
 
-Pour surveiller et gérer des ordinateurs virtuels ou physiques dans votre centre de données local ou un autre environnement cloud avec Azure Monitor, vous devez déployer l’agent Log Analytique (également appelée en tant que Microsoft Monitoring Agent (MMA)) et le configurer pour qu’il rapport à un ou plusieurs espaces de travail Analytique de journal. L’agent prend également en charge le rôle Runbook Worker hybride pour Azure Automation.  
+Pour surveiller et gérer des machines virtuelles ou des ordinateurs physiques de votre centre de données local ou d’un environnement cloud avec Azure Monitor, vous devez déployer l’agent Log Analytics (également appelé Microsoft Monitoring Agent - MMA) et le configurer pour qu’il rende compte à un ou plusieurs espaces de travail Log Analytics. L’agent prend également en charge le rôle Runbook Worker hybride pour Azure Automation.  
 
-Sur un ordinateur Windows surveillé, l’agent est répertorié en tant que service Microsoft Monitoring Agent. Le service Microsoft Monitoring Agent collecte les événements à partir des fichiers journaux et du journal des événements Windows, les données de performances et autres données de télémétrie. Même lorsque l’agent ne peut pas communiquer avec Azure Monitor auquel il rend compte, l’agent continue à s’exécuter et les files d’attente les données collectées sur le disque de l’ordinateur analysé. Quand la connexion est restaurée, le service Microsoft Monitoring Agent envoie les données collectées au service.
+Sur un ordinateur Windows surveillé, l’agent est répertorié en tant que service Microsoft Monitoring Agent. Le service Microsoft Monitoring Agent collecte les événements à partir des fichiers journaux et du journal des événements Windows, les données de performances et autres données de télémétrie. Même si l’agent ne parvient pas à communiquer avec le service Azure Monitor auquel il rend compte, il continue à s’exécuter et place en file d’attente les données collectées sur le disque de l’ordinateur surveillé. Quand la connexion est restaurée, le service Microsoft Monitoring Agent envoie les données collectées au service.
 
 L’agent peut être installé à l’aide d’une des méthodes suivantes. La plupart des installations utilisent une combinaison de ces méthodes pour installer différents groupes d’ordinateurs, selon les besoins.  Des détails sur l’utilisation de chaque méthode sont fournis plus loin dans l’article.
 
@@ -34,15 +34,15 @@ L’agent peut être installé à l’aide d’une des méthodes suivantes. La p
 * Modèle du Gestionnaire des ressources pour les machines virtuelles exécutant Windows localement dans Azure Stack. 
 
 >[!NOTE]
->Azure Security Center (ASC) dépend de l’agent Microsoft Monitoring Agent (également appelés à l’agent Windows d’Analytique de journal) et installer et configurer qu’il rende compte à un espace de travail Analytique de journal dans le cadre de son déploiement. ASC inclut une option de provisionnement automatique qui permet l’installation automatique de l’agent Windows d’Analytique de journal sur toutes les machines virtuelles dans votre abonnement et configure qu’il rende compte à un espace de travail spécifique. Pour plus d’informations sur cette option, consultez [activer l’approvisionnement automatique de l’agent Log Analytique](../../security-center/security-center-enable-data-collection.md#enable-automatic-provisioning-of-microsoft-monitoring-agent-).
+>Azure Security Center (ASC) dépend de Microsoft Monitoring Agent (également appelé agent Log Analytics Windows) et l’installe et le configure de sorte qu’il rende compte à un espace de travail Log Analytics dans le cadre de son déploiement. ASC inclut une option d’approvisionnement automatique qui permet l’installation automatique de l’agent Log Analytics Windows sur toutes les machines virtuelles de votre abonnement et le configure de sorte qu’il rende compte à un espace de travail spécifique. Pour plus d’informations sur cette option, consultez [Activer l’approvisionnement automatique de l’agent Log Analytics](../../security-center/security-center-enable-data-collection.md#enable-automatic-provisioning-of-microsoft-monitoring-agent-).
 >
 
-Si vous avez besoin configurer l’agent pour signaler à plus d’un espace de travail, cette opération ne peut pas être effectuée pendant l’installation initiale, uniquement par la suite à la mise à jour les paramètres dans le panneau de configuration ou de PowerShell comme décrit dans [Ajout ou suppression d’un espace de travail](agent-manage.md#adding-or-removing-a-workspace).  
+Si vous avez besoin de configurer l’agent pour qu’il rende compte à plusieurs espaces de travail, cette opération ne peut être effectuée pendant l’installation initiale, mais uniquement plus tard en mettant à jour les paramètres dans le panneau de configuration ou PowerShell comme décrit dans [Ajout ou suppression d’un espace de travail](agent-manage.md#adding-or-removing-a-workspace).  
 
 Pour comprendre la configuration prise en charge, consultez les pages [Prise en charge des systèmes d’exploitation Windows](log-analytics-agent.md#supported-windows-operating-systems) et [Configuration du pare-feu réseau](log-analytics-agent.md#network-firewall-requirements).
 
 ## <a name="obtain-workspace-id-and-key"></a>Obtenir l’ID et la clé d’espace de travail
-Avant d’installer l’agent Log Analytics pour Windows, vous devez disposer de l’ID et de la clé de votre espace de travail Log Analytics.  Ces informations sont requises lors de l’installation à partir de chaque méthode d’installation pour configurer correctement l’agent et qu’il puisse communiquer avec Azure Monitor dans Azure commercial et de cloud du gouvernement. 
+Avant d’installer l’agent Log Analytics pour Windows, vous devez disposer de l’ID et de la clé de votre espace de travail Log Analytics.  Quelle que soit la méthode d’installation utilisée, ces informations sont nécessaires pendant l’installation afin que l’agent soit configuré correctement et qu’il puisse communiquer avec Azure Monitor dans le cloud Azure Commercial et le cloud du gouvernement des États-Unis. 
 
 1. Dans le portail Azure, cliquez sur **Tous les services**. Dans la liste de ressources, saisissez **Log Analytics**. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Log Analytics**.
 2. Dans la liste des espaces de travail Log Analytics, sélectionnez celui auquel vous envisagez que l’agent rende compte.
@@ -54,9 +54,9 @@ Avant d’installer l’agent Log Analytics pour Windows, vous devez disposer de
 Pour configurer l’utilisation du protocole [TLS 1.2](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings#tls-12) dans les communications entre l’agent Windows et le service Log Analytics, vous pouvez suivre les étapes ci-dessous afin de l’activer avant ou après l’installation de l’agent sur la machine virtuelle.   
 
 1. Localisez les sous-clés de registre suivantes : **HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols**
-2. Créez une sous-clé sous **protocoles** pour TLS 1.2 **HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2**
-3. Créez une sous-clé **Client** sous la sous-clé de version du protocole TLS 1.2 que vous venez de créer. Par exemple, **1. 2\client HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS**.
-4. Créez les valeurs DWORD suivantes sous **1. 2\client HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS**:
+2. Créez une sous-clé sous **Protocoles** pour TLS 1.2 : **HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2**.
+3. Créez une sous-clé **Client** sous la sous-clé de version du protocole TLS 1.2 que vous venez de créer. Par exemple, **HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client**.
+4. Créez les valeurs DWORD suivantes sous **HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client** :
 
     * **Enabled** [Valeur = 1]
     * **DisabledByDefault** [Valeur = 0]  
@@ -70,7 +70,7 @@ Configurez .NET Framework 4.6 (ou version ultérieure) de façon à prendre en c
 5. Redémarrez le système pour que les paramètres s’appliquent. 
 
 ## <a name="install-the-agent-using-setup-wizard"></a>Installer l’agent à l’aide de l’Assistant Installation
-Les étapes suivantes, installer et configurer l’agent d’Analytique de journal dans le cloud Azure et Azure Government à l’aide de l’Assistant Installation de l’agent sur votre ordinateur. Pour apprendre à configurer l’agent de façon à ce qu’il rende également des comptes à un groupe d’administration System Center Operations Manager, voir [Déployer l’Agent Operations Manager avec l’Assistant Installation de l’agent](https://docs.microsoft.com/system-center/scom/manage-deploy-windows-agent-manually#to-deploy-the-operations-manager-agent-with-the-agent-setup-wizard).
+Les étapes suivantes installent et configurent l’agent Log Analytics dans le cloud Azure et Azure Government en utilisant l’Assistant Installation de l’agent sur votre ordinateur. Pour apprendre à configurer l’agent de façon à ce qu’il rende également des comptes à un groupe d’administration System Center Operations Manager, voir [Déployer l’Agent Operations Manager avec l’Assistant Installation de l’agent](https://docs.microsoft.com/system-center/scom/manage-deploy-windows-agent-manually#to-deploy-the-operations-manager-agent-with-the-agent-setup-wizard).
 
 1. Revenez sur la page **Serveurs Windows** de votre espace de travail Log Analytics et sélectionnez l’option **Télécharger l’agent Windows** correspondant à la version adaptée à l’architecture du processeur du système d’exploitation Windows.   
 2. Exécutez le programme d’installation pour installer l’agent sur votre ordinateur.
@@ -110,14 +110,16 @@ Le tableau suivant répertorie les paramètres spécifiques pris en charge par l
 2. Pour installer l’agent en mode silencieux et le configurer pour qu’il rende compte à un espace de travail dans le cloud Azure Commercial, à partir du dossier dans lequel vous avez extrait les fichiers d’installation, tapez : 
    
      ```dos
-    setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=0 OPINSIGHTS_WORKSPACE_ID=<your workspace ID> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1
+    setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=0 OPINSIGHTS_WORKSPACE_ID="<your workspace ID>" OPINSIGHTS_WORKSPACE_KEY="<your workspace key>" AcceptEndUserLicenseAgreement=1
     ```
 
    ou, pour configurer l’agent afin qu’il rende compte au cloud du gouvernement des États-Unis, tapez : 
 
      ```dos
-    setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=1 OPINSIGHTS_WORKSPACE_ID=<your workspace ID> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1
+    setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=1 OPINSIGHTS_WORKSPACE_ID="<your workspace ID>" OPINSIGHTS_WORKSPACE_KEY="<your workspace key>" AcceptEndUserLicenseAgreement=1
     ```
+    >[!NOTE]
+    >Les valeurs de chaîne des paramètres *OPINSIGHTS_WORKSPACE_ID* et *OPINSIGHTS_WORKSPACE_KEY* doivent être encapsulées dans des guillemets doubles pour indiquer à Windows Installer de les interpréter comme des options valides pour le package. 
 
 ## <a name="install-the-agent-using-dsc-in-azure-automation"></a>Installer l’agent à l’aide de DSC dans Azure Automation
 
@@ -186,11 +188,11 @@ Pour récupérer le code de produit du package d’installation de l’agent dir
 
 À partir de l’ordinateur, dans le **Panneau de configuration**, recherchez l’élément **Microsoft Monitoring Agent**.  Sélectionnez-le. Sous l'onglet **Azure Log Analytics**, l’agent doit afficher le message suivant : **Microsoft Monitoring Agent s’est connecté au service Microsoft Operations Management Suite**.<br><br> ![État de la connexion MMA à Log Analytics](media/agent-windows/log-analytics-mma-laworkspace-status.png)
 
-Vous pouvez également effectuer une requête de journal simple dans le portail Azure.  
+Vous pouvez également effectuer une recherche simple dans les journaux dans le portail Azure.  
 
 1. Dans le portail Azure, cliquez sur **Tous les services**. Dans la liste des ressources, tapez **Azure Monitor**. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Azure Monitor**.  
-2. Sélectionnez **journaux** dans le menu. 
-2. Dans le volet des journaux, dans le type de champ de requête :  
+2. Sélectionnez **Journaux** dans le menu. 
+2. Dans le volet Journaux, dans le champ de requête, tapez :  
 
     ```
     Heartbeat 
@@ -202,4 +204,6 @@ Dans les résultats de recherche retournés, vous devez voir des enregistrements
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez [Gestion et maintenance de l’agent Log Analytics sous Windows et Linux](agent-manage.md) pour en savoir plus sur la gestion de l’agent pendant le cycle de vie de son déploiement sur vos machines.  
+- Consultez [Gestion et maintenance de l’agent Log Analytics sous Windows et Linux](agent-manage.md) pour en savoir plus sur la gestion de l’agent pendant le cycle de vie de son déploiement sur vos machines.  
+
+- Consultez [Résolution des problèmes de l’agent Windows](agent-windows-troubleshoot.md) si vous rencontrez des problèmes lors de l’installation ou de la gestion de l’agent.

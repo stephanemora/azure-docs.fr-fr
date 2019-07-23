@@ -11,10 +11,10 @@ ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: e09c4530fc6dce00e6d807908c7de598422a440b
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66511867"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
@@ -44,7 +44,7 @@ L’élément **ClaimType** contient l’attribut suivant :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| Id | Oui | Identificateur utilisé pour le type de revendication. D’autres éléments peuvent utiliser cet identificateur dans la stratégie. |
+| ID | OUI | Identificateur utilisé pour le type de revendication. D’autres éléments peuvent utiliser cet identificateur dans la stratégie. |
 
 L’élément **ClaimType** contient les éléments suivants :
 
@@ -65,14 +65,14 @@ PredicateValidationReference| 0:1 | Référence à un élément **PredicateValid
 
 | Élément | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| Protocol | 0:n | Liste de protocoles avec leur nom de type de revendication de partenaire par défaut. |
+| Protocole | 0:n | Liste de protocoles avec leur nom de type de revendication de partenaire par défaut. |
 
 L’élément **Protocol** contient les attributs suivants :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| Name | Oui | Nom d’un protocole valide pris en charge par Azure AD B2C. Les valeurs possibles sont les suivantes :  OAuth1, OAuth2, SAML2, OpenIdConnect, WsFed ou WsTrust. |
-| PartnerClaimType | Oui | Nom du type de revendication à utiliser. |
+| Name | OUI | Nom d’un protocole valide pris en charge par Azure AD B2C. Les valeurs possibles sont les suivantes :  OAuth1, OAuth2, SAML2, OpenIdConnect, WsFed ou WsTrust. |
+| PartnerClaimType | OUI | Nom du type de revendication à utiliser. |
 
 Dans l’exemple suivant, quand l’Infrastructure d’expérience d’identité interagit avec un fournisseur d’identité SAML2 ou une application de confiance, la revendication **surname** est mappée à `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`. Avec OpenIdConnect et OAuth2, la revendication est mappée à `family_name`.
 
@@ -106,7 +106,7 @@ L’élément **Mask** contient les attributs suivants :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| `Type` | Oui | Type du masque de revendication. Valeurs possibles : `Simple` ou `Regex`. La valeur `Simple` indique qu’un masque de texte simple est appliqué à la partie gauche d’une revendication de chaîne. La valeur `Regex` indique qu’une expression régulière est appliquée à la revendication de chaîne dans son ensemble.  Si la valeur `Regex` est spécifiée, un attribut facultatif doit également être défini avec l’expression régulière à utiliser. |
+| `Type` | OUI | Type du masque de revendication. Valeurs possibles : `Simple` ou `Regex`. La valeur `Simple` indique qu’un masque de texte simple est appliqué à la partie gauche d’une revendication de chaîne. La valeur `Regex` indique qu’une expression régulière est appliquée à la revendication de chaîne dans son ensemble.  Si la valeur `Regex` est spécifiée, un attribut facultatif doit également être défini avec l’expression régulière à utiliser. |
 | `Regex` | Non | Si **`Type`** a la valeur `Regex`, spécifiez l’expression régulière à utiliser.
 
 L’exemple suivant configure une revendication **PhoneNumber** avec le masque `Simple` :
@@ -153,7 +153,7 @@ L’élément **Restriction** contient les éléments suivants :
 | Élément | Occurrences | Description |
 | ------- | ----------- | ----------- |
 | Énumération | 1:n | Options que l’utilisateur peut sélectionner dans l’interface utilisateur pour une revendication, telles qu’une valeur dans une liste déroulante. |
-| Motif | 1:1 | Expression régulière à utiliser. |
+| Modèle | 1:1 | Expression régulière à utiliser. |
 
 ### <a name="enumeration"></a>Énumération
 
@@ -161,8 +161,8 @@ L’élément **Enumeration** contient les attributs suivants :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| Text | Oui | Chaîne d’affichage présentée à l’utilisateur dans l’interface utilisateur pour cette option. |
-|Valeur | Oui | Valeur de revendication associée à la sélection de cette option. |
+| Texte | OUI | Chaîne d’affichage présentée à l’utilisateur dans l’interface utilisateur pour cette option. |
+|Valeur | OUI | Valeur de revendication associée à la sélection de cette option. |
 | SelectByDefault | Non | Indique si cette option doit être sélectionnée par défaut dans l’interface utilisateur. Valeurs possibles : True ou False. |
 
 L’exemple suivant configure une revendication de liste déroulante **city** avec une valeur par défaut définie sur `New York` :
@@ -184,13 +184,13 @@ Liste déroulante de villes avec New York comme valeur par défaut :
 ![Liste déroulante de villes](./media/claimsschema/dropdownsingleselect.png)
 
 
-### <a name="pattern"></a>Motif
+### <a name="pattern"></a>Modèle
 
 L’élément **Pattern** peut contenir les attributs suivants :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| RegularExpression | Oui | Expression régulière auxquelles les revendications de ce type doivent correspondre pour être valides. |
+| RegularExpression | OUI | Expression régulière auxquelles les revendications de ce type doivent correspondre pour être valides. |
 | HelpText | Non | Modèle ou expression régulière pour cette revendication. |
 
 L’exemple suivant configure une revendication **email** avec validation de l’entrée d’expression régulière et texte d’aide :

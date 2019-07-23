@@ -9,13 +9,13 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
-ms.author: martincoetzer
-ms.openlocfilehash: 8e9101a1e23d361e66c5c30969069cbd4b971590
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.author: martinco
+ms.openlocfilehash: a3a1542279077ffb949fbfd9c8cb7236827803d9
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236763"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67588897"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinq étapes pour sécuriser votre infrastructure d’identité
 
@@ -64,7 +64,7 @@ La fonctionnalité [mot de passe interdit dynamiquement](https://docs.microsoft.
 Microsoft recommande d’adopter la stratégie de mot de passe moderne suivante conformément à l’[aide NIST](https://pages.nist.gov/800-63-3/sp800-63b.html) :
 
 1. Exiger des mots de passe comptant au moins 8 caractères. Un mot de passe plus long n’est pas forcément mieux adapté, car les utilisateurs choisissent alors des mots de passe prévisibles, enregistrent leurs mots de passe dans des fichiers ou les notent quelque part.
-2. Désactiver les règles d’expiration, qui inciter les utilisateurs à deviner les mots de passe comme **Spring2019 !**
+2. Désactivez les règles d’expiration, qui incitent les utilisateurs à choisir des mots de passe faciles à deviner comme **Spring2019!** .
 3. Désactivez les exigences de composition de caractères et empêchez les utilisateurs de choisir des mots de passe fréquemment attaqués, car cela incite les utilisateurs à choisir des substitutions de caractères prévisibles dans les mots de passe.
 
 Vous pouvez utiliser [PowerShell pour empêcher l’expiration des mots de passe](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy) des utilisateurs en créant des identités directement dans Azure AD. Les organisations hybrides doivent implémenter ces stratégies à l’aide de [paramètres de stratégie de groupe de domaine](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/hh994572(v%3dws.10)) ou de [Windows PowerShell](https://docs.microsoft.com/powershell/module/addsadministration/set-addefaultdomainpasswordpolicy).
