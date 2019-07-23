@@ -1,6 +1,6 @@
 ---
-title: Migrer à partir de l’accord entreprise aux API de contrat de client de Microsoft - Azure | Microsoft Docs
-description: Cet article vous aide à comprendre les conséquences de la migration d’un contrat d’entreprise Microsoft (EA) vers un contrat de client de Microsoft.
+title: Migrer depuis des API Enterprise Agreement vers des API Microsoft Customer Agreement : Azure | Microsoft Docs
+description: Cet article vous aide à comprendre les conséquences de la migration d’un Contrat Entreprise Microsoft vers un Contrat Client Microsoft.
 services: cost-management
 keywords: ''
 author: bandersmsft
@@ -11,93 +11,93 @@ ms.service: cost-management
 manager: micflan
 ms.custom: ''
 ms.openlocfilehash: c3fb1f430076b26f7b5dd83e167371ac6d957ac4
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65967243"
 ---
-# <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>Migrer à partir de l’accord entreprise aux API de contrat de client de Microsoft
+# <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>Migrer depuis des API Enterprise Agreement vers des API Microsoft Customer Agreement
 
-Cet article vous aide à comprendre la structure de données, les API et les autres différences d’intégration système entre les comptes contrat entreprise (EA) et le contrat de client de Microsoft (MCA). Azure Cost Management prend en charge les API pour les deux types de compte. Examinez le [configurer le compte de facturation pour](../billing/billing-mca-setup-account.md) article de contrat de client de Microsoft avant de continuer.
+Cet article vous aide à comprendre la structure de données, l’API et les autres différences d’intégration de système entre les comptes de Contrat Entreprise Microsoft (ou EA pour Enterprise Agreement) et de Contrat Client Microsoft (ou MCA, pour Microsoft Customer Agreement). Azure Cost Management prend en charge les API pour ces deux types de compte. Avant de continuer, veuillez lire l’article [Découvrez comment configurer votre compte de facturation associé à un Contrat Client Microsoft](../billing/billing-mca-setup-account.md).
 
-Les organisations avec un compte EA existant doivent vérifier cet article conjointement avec la configuration d’un compte MCA. Auparavant, le renouvellement d’un compte EA devait certains un minimum de travail pour déplacer à partir d’une ancienne inscription vers un autre. Toutefois, la migration vers un compte MCA nécessite des efforts supplémentaires. Effort supplémentaire est en raison de modifications dans le sous-système de facturation sous-jacent, qui affectent toutes les API liées au coût et les offres de service.
+Nous recommandons aux organisations ayant déjà un compte EA de lire attentivement cet article lors de la phase de configuration de leur compte MCA. Auparavant, le renouvellement d’un compte EA nécessitait un minimum de travail pour passer d’une ancienne inscription vers une nouvelle. Quant à la migration vers un compte MCA, elle nécessitait encore plus d’efforts. Ces efforts supplémentaires étaient dus aux modifications du sous-système de facturation sous-jacent, impactant toutes les API liées et les offres de service liés aux coûts.
 
-## <a name="mca-apis-and-integration"></a>API de MCA et intégration
+## <a name="mca-apis-and-integration"></a>API et intégration MCA
 
-API de MCA et nouvelle intégration permettent :
+La nouvelle intégration et les API MCA vous permettent de :
 
-- Avoir disponibilité complète des API par le biais des API Azure natives.
+- Disposer d’une disponibilité complète via des API Azure natives.
 - Configurer plusieurs factures dans un seul compte de facturation.
-- Accéder à une API combinée avec l’utilisation des services Azure, l’utilisation de la place de marché tierce et achats Marketplace.
-- Afficher les coûts sur la facturation des profils (le même que les inscriptions) à l’aide d’Azure Cost Management.
-- Accéder aux nouvelles API pour afficher les coûts, soyez averti lorsque les coûts dépassent des seuils prédéfinis et exporter des données brutes automatiquement.
+- Pouvoir accéder à une API combinée avec l’utilisation des services Azure, ainsi qu’avec l’utilisation et les achats d’une place de marché tierce.
+- Pouvoir afficher les coûts sur des profils de facturation (tout comme pour les inscriptions) à l’aide d’Azure Cost Management.
+- Pouvoir accéder aux nouvelles API pour afficher les coûts, être averti lorsque les coûts dépassent des seuils prédéfinis, et exporter des données brutes automatiquement.
 
-## <a name="migration-checklist"></a>Liste de contrôle de migration
+## <a name="migration-checklist"></a>Liste des éléments à vérifier pour la migration
 
-L’aide d’éléments suivante que transition vers les API MCA.
+Les éléments suivants vous aideront à d’effectuer votre transition vers les API MCA.
 
-- Familiarisez-vous avec la nouvelle [contrat de client Microsoft compte de facturation](../billing/billing-mca-overview.md).
-- Déterminer les API que vous utilisez et voir celles qui est remplacées dans la section suivante.
-- Familiarisez-vous avec [API REST Azure Resource Manager](/rest/api/azure).
-- Si vous n’utilisez pas déjà des API Azure Resource Manager, [inscrire votre application cliente auprès d’Azure AD](/rest/api/azure/#register-your-client-application-with-azure-ad).
-- Mettre à jour le code de programmation pour [utiliser l’authentification Azure AD](/rest/api/azure/#create-the-request).
-- Mettre à jour le code de programmation pour remplacer les appels d’API EA avec les appels d’API de MCA.
-- Mettre à jour pour utiliser les nouveaux codes d’erreur de gestion des erreurs.
-- Passez en revue les offres d’intégration supplémentaires, telles que Cloudyn et Power BI, pour d’autres nécessaire action.
+- Familiarisez-vous avec le contenu de l’article [Prise en main de votre compte de facturation dans le cadre d’un Contrat Client Microsoft](../billing/billing-mca-overview.md).
+- Déterminez les API que vous utilisez et affichez celles qui sont remplacées dans la section suivante.
+- Familiarisez-vous avec les [API REST Azure Resource Manager](/rest/api/azure).
+- Si vous n’utilisez pas déjà des API Azure Resource Manager, [inscrivez votre application cliente auprès d’Azure AD](/rest/api/azure/#register-your-client-application-with-azure-ad).
+- Mettez à jour le code de programmation pour [utiliser l’authentification Azure AD](/rest/api/azure/#create-the-request).
+- Mettez à jour le code de programmation pour remplacer les appels d’API EA par les appels d’API MCA.
+- Mettez à jour la gestion des erreurs pour utiliser de nouveaux codes d’erreur.
+- Passez en revue les offres d’intégration supplémentaires, telles que Cloudyn et Power BI, pour d’autres actions requises.
 
-## <a name="ea-apis-replaced-with-mca-apis"></a>API EA remplacé par les API MCA
+## <a name="ea-apis-replaced-with-mca-apis"></a>API EA remplacées par les API MCA
 
-API de EA utilisent une clé API pour l’authentification et l’autorisation. API de MCA utilisent l’authentification Azure AD.
+Les API EA utilisent une clé d’API pour l’authentification et l’autorisation. Les API MCA utilisent l’authentification Azure AD.
 
-| Objectif | API EA | API DE MCA |
+| Objectif | API EA | API MCA |
 | --- | --- | --- |
 | Solde et crédits | [/balancesummary](/rest/api/billing/enterprise/billing-enterprise-api-balance-summary) | Microsoft.Billing/billingAccounts/billingProfiles/availableBalanceussae |
 | Utilisation (JSON) | [/usagedetails](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#json-format)[/usagedetailsbycustomdate](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#json-format) | [Microsoft.Consumption/usageDetails](/rest/api/consumption/usagedetails)<sup>1</sup> |
 | Utilisation (CSV) | [/usagedetails/download](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#csv-format)[/usagedetails/submit](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#csv-format) | [Microsoft.Consumption/usageDetails/download](/rest/api/consumption/usagedetails)<sup>1</sup> |
-| Utilisation de la place de marché (CSV) | [/marketplacecharges](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge)[/marketplacechargesbycustomdate](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge) | [Microsoft.Consumption/usageDetails/download](/rest/api/consumption/usagedetails)<sup>1</sup> |
-| Billing periods | [/billingperiods](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) | Microsoft.Billing/billingAccounts/billingProfiles/invoices |
-| Price sheet | [/pricesheet](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) | Microsoft.Billing/billingAccounts/billingProfiles/pricesheet/default/download format=json|csv Microsoft.Billing/billingAccounts/…/billingProfiles/…/invoices/… /pricesheet/default/download format=json|csv Microsoft.Billing/billingAccounts/../billingProfiles/../providers/Microsoft.Consumption/pricesheets/download  |
+| Utilisation de la Place de marché (CSV) | [/marketplacecharges](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge)[/marketplacechargesbycustomdate](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge) | [Microsoft.Consumption/usageDetails/download](/rest/api/consumption/usagedetails)<sup>1</sup> |
+| Périodes de facturation | [/billingperiods](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) | Microsoft.Billing/billingAccounts/billingProfiles/invoices |
+| Grille tarifaire | [/pricesheet](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) | Microsoft.Billing/billingAccounts/billingProfiles/pricesheet/default/download format=json|csv Microsoft.Billing/billingAccounts/…/billingProfiles/…/invoices/… /pricesheet/default/download format=json|csv Microsoft.Billing/billingAccounts/../billingProfiles/../providers/Microsoft.Consumption/pricesheets/download  |
 | Achats de réservation | [/reservationcharges](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-charges) | Microsoft.Billing/billingAccounts/billingProfiles/transactions |
-| Reservation recommendations | [/SharedReservationRecommendations](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-shared-reserved-instance-recommendations)[/](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-single-reserved-instance-recommendations)[SingleReservationRecommendations](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-single-reserved-instance-recommendations) | [Microsoft.Consumption/reservationRecommendations](/rest/api/consumption/reservationrecommendations/list) |
+| Recommandations de réservation | [/SharedReservationRecommendations](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-shared-reserved-instance-recommendations)[/](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-single-reserved-instance-recommendations)[SingleReservationRecommendations](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-single-reserved-instance-recommendations) | [Microsoft.Consumption/reservationRecommendations](/rest/api/consumption/reservationrecommendations/list) |
 | Utilisation de la réservation | [/reservationdetails](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage#request-for--reserved-instance-usage-details)[/reservationsummaries](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) | [Microsoft.Consumption/reservationDetails](/rest/api/consumption/reservationsdetails)[Microsoft.Consumption/reservationSummaries](/rest/api/consumption/reservationssummaries) |
 
-<sup>1</sup> service azure et l’utilisation de la place de marché de fournisseurs tiers sont disponibles avec la [API détails d’utilisation](/rest/api/consumption/usagedetails).
+<sup>1</sup> Le service Azure et l’utilisation de la Place de marché par des tiers sont disponibles avec l’[API Détails d’utilisation](/rest/api/consumption/usagedetails).
 
 Les API suivantes sont disponibles pour les comptes de facturation MCA :
 
-| Objectif | API de contrat (MCA) de client de Microsoft |
+| Objectif | API Microsoft Customer Agreement (MCA) |
 | --- | --- |
-| Comptes de facturation<sup>2</sup> | Microsoft.Billing/billingAccounts |
+| Compte de facturation<sup>2</sup> | Microsoft.Billing/billingAccounts |
 | Profils de facturation<sup>2</sup> | Microsoft.Billing/billingAccounts/billingProfiles |
 | Sections de facture<sup>2</sup> | Microsoft.Billing/billingAccounts/invoiceSections |
 | Factures | Microsoft.Billing/billingAccounts/billingProfiles/invoices |
 | Abonnements de facturation | {scope}/billingSubscriptions |
 
-<sup>2</sup> API retournent des listes d’objets, qui sont des portées, où les expériences de gestion des coûts dans le portail Azure et API fonctionnent. Pour plus d’informations sur les étendues de gestion des coûts, consultez [comprendre et utiliser des étendues](understand-work-scopes.md).
+<sup>2</sup> Les APIs renvoient des listes d’objets, qui sont des étendues, où fonctionnent les expériences Cost Management dans le Portail Microsoft Azure, ainsi que les API. Pour plus d’informations sur les étendues Cost Management, consultez [Comprendre et utiliser les étendues](understand-work-scopes.md).
 
-Si vous utilisez des API EA existante, vous devez les mettre à jour pour prendre en charge les comptes de facturation MCA. Le tableau suivant présente les autres modifications de l’intégration :
+Si vous utilisez déjà des API EA, vous devez les mettre à jour pour prendre en charge les comptes de facturation MCA. Le tableau suivant présente les autres modifications de l’intégration :
 
-| Objectif | Ancien offre | Nouvelle offre |
+| Objectif | Ancienne offre | Nouvelle offre |
 | --- | --- | --- |
 | Cloudyn | [Cloudyn.com](https://www.cloudyn.com) | [Azure Cost Management](https://azure.microsoft.com/services/cost-management/) |
-| Power BI | [Informations sur la consommation Microsoft](/power-bi/desktop-connect-azure-consumption-insights) pack et connecteur de contenu | [Application Insights Power BI de Microsoft Azure consommation](https://appsource.microsoft.com/product/power-bi/pbi_azureconsumptioninsights.pbi-azure-consumptioninsights?tab=overview) et [connecteur d’Azure Consumption Insights](/power-bi/desktop-connect-azure-consumption-insights) |
+| Power BI | [Microsoft Consumption Insights](/power-bi/desktop-connect-azure-consumption-insights) pack de contenu et connecteur | [Application Microsoft Azure Consumption Insights Power BI](https://appsource.microsoft.com/product/power-bi/pbi_azureconsumptioninsights.pbi-azure-consumptioninsights?tab=overview) et connecteur [Azure Consumption Insights](/power-bi/desktop-connect-azure-consumption-insights) |
 
 ## <a name="apis-to-get-balance-and-credits"></a>API pour obtenir le solde et crédits
 
-Le [obtenir le résumé de solde](/rest/api/billing/enterprise/billing-enterprise-api-balance-summary) API vous donne un résumé mensuel des :
+L’API [Get Balance Summary](/rest/api/billing/enterprise/billing-enterprise-api-balance-summary) (Obtenir le résumé du solde) vous fournit un résumé mensuel des :
 
-- Balances
+- Soldes
 - Nouveaux achats
-- Frais de service place de marché Azure
+- Frais du service Place de marché Azure
 - Ajustements
-- Frais de dépassement du service
+- Frais de dépassement de service
 
-Toutes les API de consommation sont remplacés par des API Azure natives qui utilisent Azure AD pour l’authentification et l’autorisation. Pour plus d’informations sur appeler des API REST Azure, consultez [mise en route avec REST](/rest/api/azure/#create-the-request).
+Toutes les API de consommation sont remplacées par des API Azure natives qui utilisent Azure AD pour l’authentification et l’autorisation. Pour plus d’informations sur l’appel des API REST Azure, consultez [Prise en main de REST](/rest/api/azure/#create-the-request).
 
-L’API de résumé de solde Get est remplacé par l’API Microsoft.Billing/billingAccounts/billingProfiles/availableBalance.
+L’API Get Balance Summary est remplacée par l’API Available Balance (Solde disponible) (Microsoft.Billing/billingAccounts/billingProfiles/availableBalance).
 
-Pour obtenir des soldes disponibles avec l’API de solde disponible :
+Pour obtenir les soldes disponibles avec l’API Available Balance :
 
 | Méthode | URI de demande |
 | --- | --- |
@@ -105,37 +105,37 @@ Pour obtenir des soldes disponibles avec l’API de solde disponible :
 
 ## <a name="apis-to-get-cost-and-usage"></a>API pour obtenir le coût et utilisation
 
-Obtenir une répartition quotidienne des coûts à partir de l’utilisation des services Azure, l’utilisation de la place de marché tierce et autres achats Marketplace avec les API suivantes. Les API distinctes suivantes ont été fusionnées pour les services Azure et de l’utilisation de la place de marché tierce. Les anciennes API sont remplacés par le [Microsoft.Consumption/usageDetails](/rest/api/consumption/usagedetails) API. Il ajoute les achats de la place de marché, qui ont été précédemment uniquement affichées dans le solde résumés jusqu'à ce jour.
+Permet d’obtenir une décomposition quotidienne des coûts à partir de l’utilisation des services Azure, de l’utilisation de la Place de marché par des tiers et d’autres achats de la Place de marché avec les API suivantes. Les API suivantes ont été fusionnées pour les services Azure et l’utilisation de la Place de marché par des tiers. Les anciennes API sont remplacés par l’API Usage Details (Détails d’utilisation) ([Microsoft.Consumption/usageDetails](/rest/api/consumption/usagedetails)). Elle ajoute les achats de la Place de marché, qui étaient précédemment affichés uniquement dans le résumé du solde.
 
-- [Obtenir les détails de l’utilisation/téléchargement](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#csv-format)
+- [Get usage detail/download](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#csv-format)
 - [Obtenir les détails de l’utilisation/envoyer](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#csv-format)
-- [Obtenir des détails d’utilisation/usagedetails](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#json-format)
-- [Obtenir des détails d’utilisation/usagedetailsbycustomdate](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#json-format)
-- [Obtenir le magasin de la place de marché frais/marketplacecharges](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge)
-- [Obtenir le magasin de la place de marché frais/marketplacechargesbycustomdate](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge)
+- [Get usage detail/usagedetails](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#json-format)
+- [Get usage detail/usagedetailsbycustomdate](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#json-format)
+- [Get marketplace store charge/marketplacecharges](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge)
+- [Get marketplace store charge/marketplacechargesbycustomdate](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge)
 
-Toutes les API de consommation sont remplacés par des API Azure natives qui utilisent Azure AD pour l’authentification et l’autorisation. Pour plus d’informations sur appeler des API REST Azure, consultez [mise en route avec REST](/rest/api/azure/#create-the-request).
+Toutes les API de consommation sont remplacées par des API Azure natives qui utilisent Azure AD pour l’authentification et l’autorisation. Pour plus d’informations sur l’appel des API REST Azure, consultez [Prise en main de REST](/rest/api/azure/#create-the-request).
 
-Toutes les API précédentes sont remplacées par l’API de détails d’utilisation/consommation.
+Toutes les API précédentes sont remplacées par l’API Consumption/Usage Details.
 
-Pour obtenir des détails d’utilisation avec l’API de détails d’utilisation :
+Pour obtenir des détails d’utilisation avec l’API Usage Details :
 
 | Méthode | URI de demande |
 | --- | --- |
 | GET | `https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDetails?api-version=2019-01-01` |
 
-L’API de détails d’utilisation, comme avec toutes les API de gestion des coûts, est disponible pour plusieurs étendues. Des coûts facturés, comme vous recevriez traditionnellement au niveau de l’inscription, utilisez l’étendue de profil de facturation.  Pour plus d’informations sur les étendues de gestion des coûts, consultez [comprendre et utiliser des étendues](understand-work-scopes.md).
+L’API Usage Details, comme avec toutes les API Cost Management, est disponible pour plusieurs étendues. Pour les coûts facturés, utilisez l’étendue du profil de facturation, comme vous le feriez normalement pour un niveau d’accord de mise en œuvre.  Pour plus d’informations sur les étendues Cost Management, consultez [Comprendre et utiliser les étendues](understand-work-scopes.md).
 
 | Type | Format d’ID |
 | --- | --- |
 | Compte de facturation | `/Microsoft.Billing/billingAccounts/{billingAccountId}` |
 | Profil de facturation | `/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}` |
-| Abonnement | `/subscriptions/{subscriptionId}` |
-| Groupe de ressources | `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}` |
+| Subscription | `/subscriptions/{subscriptionId}` |
+| Resource group | `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}` |
 
-Utiliser les paramètres de chaîne de requête suivant pour mettre à jour le code de programmation.
+Utilisez les paramètres de chaîne de requête suivant pour mettre à jour le code de programmation.
 
-| Paramètres de l’ancien | Nouveaux paramètres |
+| Anciens paramètres | Nouveaux paramètres |
 | --- | --- |
 | `billingPeriod={billingPeriod}` | Non pris en charge |
 | `endTime=yyyy-MM-dd` | `endDate=yyyy-MM-dd` |
@@ -143,7 +143,7 @@ Utiliser les paramètres de chaîne de requête suivant pour mettre à jour le c
 
 Le corps de la réponse est également modifié.
 
-Ancien corps de réponse :
+Ancien corps de la réponse :
 
 ```
 {
@@ -153,7 +153,7 @@ Ancien corps de réponse :
 }
 ```
 
-Nouveau corps de réponse :
+Nouveau corps de la réponse :
 
 ```
 {
@@ -168,142 +168,142 @@ Nouveau corps de réponse :
 }
 ```
 
-Le nom de propriété contenant le tableau d’enregistrements d’utilisation a été remplacée par les données à _valeurs_. Chaque enregistrement est utilisé pour avoir une liste plate de propriétés détaillées. Toutefois, chaque enregistrement maintenant tous les détails se trouvent maintenant dans une propriété imbriquée nommée _propriétés_, à l’exception des balises. La nouvelle structure est cohérente avec d’autres API Azure. Certains noms de propriété ont changé. Le tableau suivant présente les propriétés correspondantes.
+Le nom de propriété contenant le tableau d’enregistrements d’utilisation est passé de data à _values_. Chaque enregistrement est utilisé pour avoir une liste plate des propriétés détaillées. Toutefois, tous les détails de chaque enregistrement se trouvent maintenant dans une propriété imbriquée nommée _properties_, à l’exception des balises. La nouvelle structure est cohérente avec d’autres API Azure. Certains noms de propriété ont changé. Le tableau suivant présente les propriétés correspondantes.
 
 | Ancienne propriété | Nouvelle propriété | Notes |
 | --- | --- | --- |
-| ID du compte | N/A | Le créateur de l’abonnement n’est pas suivi. Utilisez invoiceSectionId (identique à departmentId). |
+| AccountId | N/A | Le créateur de l’abonnement n’est pas suivi. Utilisez invoiceSectionId (identique à departmentId). |
 | AccountNameAccountOwnerId et AccountOwnerEmail | N/A | Le créateur de l’abonnement n’est pas suivi. Utilisez invoiceSectionName (identique à departmentName). |
-| Informations supplémentaires | additionalInfo | &nbsp;  |
-| ChargesBilledSeparately | isAzureCreditEligible | Notez que ces propriétés sont contraires. Si isAzureCreditEnabled a la valeur true, ChargesBilledSeparately est false. |
-| Quantité consommée | quantité | &nbsp; |
-| Service consommé | consumedService | Les valeurs de chaîne exacte peuvent différer. |
-| ID du service consommé | Aucun | &nbsp; |
-| Centre de coûts | costCenter | &nbsp; |
+| AdditionalInfo | additionalInfo | &nbsp;  |
+| ChargesBilledSeparately | isAzureCreditEligible | Notez que ces propriétés sont opposées. Si isAzureCreditEnabled a la valeur true, ChargesBilledSeparately a la valeur false. |
+| ConsumedQuantity | quantité | &nbsp; |
+| ConsumedService | consumedService | Les valeurs précises des chaînes peuvent différer. |
+| ConsumedServiceId | Aucun | &nbsp; |
+| CostCenter | costCenter | &nbsp; |
 | Date et usageStartDate | date | &nbsp;  |
 | jour | Aucun | Analyse le jour à partir de la date. |
-| ID du service | invoiceSectionId | Les valeurs exactes diffèrent. |
-| DepartmentName | invoiceSectionName | Les valeurs de chaîne exacte peuvent différer. Configurer les sections de facture en fonction des départements, si nécessaire. |
-| ExtendedCost et coût | costInBillingCurrency | &nbsp;  |
+| DepartmentId | invoiceSectionId | Les valeurs précises diffèrent. |
+| DepartmentName | invoiceSectionName | Les valeurs précises des chaînes peuvent différer. Permet de configurer les sections de vos factures en fonction des services impliqués, si nécessaire. |
+| ExtendedCost et Cost | costInBillingCurrency | &nbsp;  |
 | InstanceId | resourceId | &nbsp;  |
-| Il s'agit de frais récurrents | Aucun | &nbsp;  |
-| Lieu | location | &nbsp;  |
-| Catégorie du compteur | meterCategory | Les valeurs de chaîne exacte peuvent différer. |
-| ID du compteur | meterId | Les valeurs de chaîne exacte diffèrent. |
-| Nom du compteur | meterName | Les valeurs de chaîne exacte peuvent différer. |
-| Région du compteur | meterRegion | Les valeurs de chaîne exacte peuvent différer. |
-| Sous-catégorie du compteur | meterSubCategory | Les valeurs de chaîne exacte peuvent différer. |
-| Mois | Aucun | Analyse le mois de date. |
-| Nom de l'offre | Aucun | Utilisez publisherName et productOrderName. |
+| Is Recurring Charge | Aucun | &nbsp;  |
+| Location | location | &nbsp;  |
+| MeterCategory | meterCategory | Les valeurs précises des chaînes peuvent différer. |
+| ID du compteur | meterId | Les valeurs précises des chaînes diffèrent. |
+| MeterName | meterName | Les valeurs précises des chaînes peuvent différer. |
+| MeterRegion | meterRegion | Les valeurs précises des chaînes peuvent différer. |
+| MeterSubCategory | meterSubCategory | Les valeurs précises des chaînes peuvent différer. |
+| Mois | Aucun | Analyse le mois à partir de la date. |
+| Nom de l’offre | Aucun | Utilisez publisherName et productOrderName. |
 | OfferId | Aucun | &nbsp;  |
-| Numéro de commande | Aucun | &nbsp;  |
-| PartNumber | Aucun | Utilisez meterId et productOrderName pour identifier de manière unique les prix. |
-| Nom du plan | productOrderName | &nbsp;  |
+| Order Number | Aucun | &nbsp;  |
+| PartNumber | Aucun | Utilisez meterId et productOrderName pour identifier les prix de manière unique. |
+| Plan Name | productOrderName | &nbsp;  |
 | Produit | Produit |   |
-| ID du produit | productId | Les valeurs de chaîne exacte diffèrent. |
-| Nom de l'éditeur | publisherName | &nbsp;  |
+| ProductId | productId | Les valeurs précises des chaînes diffèrent. |
+| Nom de l’éditeur | publisherName | &nbsp;  |
 | ResourceGroup | resourceGroupName | &nbsp;  |
-| ResourceGuid | meterId | Les valeurs de chaîne exacte diffèrent. |
-| Emplacement des ressources | resourceLocation | &nbsp;  |
-| ID d'emplacement des ressources | Aucun | &nbsp;  |
-| Taux de ressources | effectivePrice | &nbsp;  |
-| ID de l'administrateur de service | N/A | &nbsp;  |
-| Informations de service 1 | serviceInfo1 | &nbsp;  |
-| Informations de service 2 | serviceInfo2 | &nbsp;  |
-| ServiceName | meterCategory | Les valeurs de chaîne exacte peuvent différer. |
-| ServiceTier | meterSubCategory | Les valeurs de chaîne exacte peuvent différer. |
-| Identificateur du service Store | N/A | &nbsp;  |
-| Guid d'abonnement | subscriptionId | &nbsp;  |
+| ResourceGuid | meterId | Les valeurs précises des chaînes diffèrent. |
+| ResourceLocation | resourceLocation | &nbsp;  |
+| ResourceLocationId | Aucun | &nbsp;  |
+| ResourceRate | effectivePrice | &nbsp;  |
+| ServiceAdministratorId | N/A | &nbsp;  |
+| ServiceInfo1 | serviceInfo1 | &nbsp;  |
+| ServiceInfo2 | serviceInfo2 | &nbsp;  |
+| ServiceName | meterCategory | Les valeurs précises des chaînes peuvent différer. |
+| ServiceTier | meterSubCategory | Les valeurs précises des chaînes peuvent différer. |
+| StoreServiceIdentifier | N/A | &nbsp;  |
+| SubscriptionGuid | subscriptionId | &nbsp;  |
 | SubscriptionId | subscriptionId | &nbsp;  |
-| Nom de l'abonnement | subscriptionName | &nbsp;  |
-| Balises | balises | La propriété tags s’applique à l’objet racine, pas à la propriété de propriétés imbriquées. |
-| Unité de mesure | unitOfMeasure | Les valeurs de chaîne exacte diffèrent. |
+| SubscriptionName | subscriptionName | &nbsp;  |
+| Balises | tags | La propriété des balises s’appliquent à l’objet racine, pas à la propriété de propriétés imbriquées. |
+| UnitOfMeasure | unitOfMeasure | Les valeurs précises des chaînes diffèrent. |
 | usageEndDate | date | &nbsp;  |
-| Year | Aucun | Analyse l’année de date. |
+| Year | Aucun | Analyse l’année à partir de la date. |
 | (nouveau) | billingCurrency | Devise utilisée pour les frais. |
 | (nouveau) | billingProfileId | ID unique pour le profil de facturation (identique à l’inscription). |
 | (nouveau) | billingProfileName | Nom du profil de facturation (identique à l’inscription). |
-| (nouveau) | chargeType | Permet de différencier l’utilisation des services Azure, l’utilisation de la place de marché et les achats. |
-| (nouveau) | invoiceId | ID unique de la facture. Vide pour le mois en cours, ouvrez. |
+| (nouveau) | chargeType | Permet de différencier l’utilisation des services Azure, l’utilisation de la Place de marché et les achats. |
+| (nouveau) | invoiceId | ID unique de la facture. Vide pour le mois ouvert en cours. |
 | (nouveau) | publisherType | Type de serveur de publication pour les achats. Vide pour l’utilisation. |
 | (nouveau) | serviceFamily | Type d’achat. Vide pour l’utilisation. |
 | (nouveau) | servicePeriodEndDate | Date de fin pour le service acheté. |
 | (nouveau) | servicePeriodStartDate | Date de début pour le service acheté. |
 
-## <a name="billing-periods-api-replaced-by-invoices-api"></a>API périodes remplacée par les API de factures facturation
+## <a name="billing-periods-api-replaced-by-invoices-api"></a>Remplacement de l’API Billing Periods par l’API Invoices
 
-N’utilisent pas les comptes de facturation MCA périodes de facturation. Au lieu de cela, ils utilisent des factures pour les coûts d’étendue pour les périodes de facturation spécifiques. Le [API périodes de facturation](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) est remplacé par l’API de factures. Toutes les API de consommation sont remplacés par des API Azure natives qui utilisent Azure AD pour l’authentification et l’autorisation. Pour plus d’informations sur appeler des API REST Azure, consultez [mise en route avec REST](/rest/api/azure/#create-the-request).
+Les comptes de facturation MCA n’utilisent pas de périodes de facturation. Au lieu de cela, ils utilisent des factures pour définir l’étendue des coûts de périodes de facturation spécifiques. L’API [Billing Periods](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) (Périodes de facturation) est remplacé par l’API Invoices (Factures). Toutes les API de consommation sont remplacées par des API Azure natives qui utilisent Azure AD pour l’authentification et l’autorisation. Pour plus d’informations sur l’appel des API REST Azure, consultez [Prise en main de REST](/rest/api/azure/#create-the-request).
 
-Pour obtenir les factures avec l’API de factures :
+Pour obtenir des factures avec l’API Invoices :
 
 | Méthode | URI de demande |
 | --- | --- |
 | GET | `https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/invoices?api-version=2018-11-01-preview` |
 
-## <a name="price-sheet-apis"></a>API de feuille de prix
+## <a name="price-sheet-apis"></a>API Price Sheet
 
-Cette section décrit les API de feuille de prix existantes et fournit des recommandations pour la déplacer vers l’API grille tarifaire pour les contrats de client de Microsoft. Il décrit l’API grille tarifaire pour les contrats de client de Microsoft et explique les champs dans les tables de tarification. Le [Enterprise obtenir la table de tarification](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) et [Enterprise obtenir périodes de facturation](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) API sont remplacés par l’API grille tarifaire pour les contrats de client de Microsoft (Microsoft.Billing/billingAccounts/billingProfiles / grille tarifaire). La nouvelle API prend en charge JSON et CSV met en forme, dans des formats REST asynchrones. Toutes les API de consommation sont remplacés par des API Azure natives qui utilisent Azure AD pour l’authentification et l’autorisation. Pour plus d’informations sur appeler des API REST Azure, consultez [mise en route avec REST](/rest/api/azure/#create-the-request).
+Cette section décrit les versions de l’API Price Sheet (Grille tarifaire) existantes et fournit des suggestions pour utiliser l’API Price Sheet avec les contrats client Microsoft (MCA). Elle décrit également l’API Price Sheet pour les contrats client Microsoft (MCA) et présente les champs des grilles tarifaires. Les API [Enterprise Get Price Sheet](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) et [Enterprise Get Billing Periods](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) sont remplacés par l’API Price Sheet pour les contrats client Microsoft (Microsoft.Billing/billingAccounts/billingProfiles/pricesheet). La nouvelle API prend en charge les formats JSON et CSV, dans des formats REST asynchrones. Toutes les API de consommation sont remplacées par des API Azure natives qui utilisent Azure AD pour l’authentification et l’autorisation. Pour plus d’informations sur l’appel des API REST Azure, consultez [Prise en main de REST](/rest/api/azure/#create-the-request).
 
-### <a name="billing-enterprise-apis"></a>API d’entreprise de facturation
+### <a name="billing-enterprise-apis"></a>Versions de l’API Billing Enterprise (Facturation d’entreprise)
 
-Vous avez utilisé les API d’entreprise facturation avec les inscriptions d’entreprise pour obtenir les prix et les informations de période de facturation. Authentification et autorisation utilisé des jetons web Azure Active Directory.
+Les versions de l’API Billing Enterprise étaient utilisées conjointement aux accords de mise en œuvre Entreprise pour obtenir des informations sur les prix et la période de facturation. Les jetons web Azure Active Directory étaient utilisés pour l’authentification et l’autorisation.
 
-Pour obtenir les prix applicables pour l’inscription d’entreprise spécifiée avec la table de tarification et les API de période de facturation :
+Pour obtenir les prix applicables pour l’accord de mise en œuvre d’entreprise spécifié avec les API Price Sheet et Billing Period :
 
 | Méthode | URI de demande |
 | --- | --- |
 | GET | `https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/pricesheet` |
 | GET | `https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/billingPeriods/{billingPeriod}/pricesheet` |
 
-### <a name="price-sheet-api-for-microsoft-customer-agreements"></a>API de grille tarifaire pour les contrats de client de Microsoft
+### <a name="price-sheet-api-for-microsoft-customer-agreements"></a>API Price Sheet pour les contrats client Microsoft
 
-Utiliser l’API de la grille tarifaire pour les contrats de client Microsoft pour afficher les prix pour tous les services de consommation de consommation Azure et à la place de marché. Les prix indiqués pour le profil de facturation s’appliquent à tous les abonnements qui appartiennent au profil de facturation.
+Utilisez l’API Price Sheet pour les contrats client Microsoft, afin d’afficher les prix pour tous les services Azure Consumption, ainsi que la consommation de la Place de marché. Les prix indiqués dans le profil de facturation s’appliquent à tous les abonnements qui appartiennent au profil de facturation.
 
-Utilisez l’API grille tarifaire pour afficher toutes les données de table de tarification de services de consommation Azure au format CSV :
+Utiliser l’API Price Sheet pour afficher toutes les données de grille tarifaire Azure Consumption au format CSV :
 
 | Méthode | URI de demande |
 | --- | --- |
 | POST | `https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/pricesheet/default/download?api-version=2018-11-01-preview&startDate=2019-01-01&endDate=2019-01-31&format=csv` |
 
-Utilisez l’API grille tarifaire pour afficher toutes les données de table de tarification de services de consommation Azure au format JSON :
+Utiliser l’API Price Sheet pour afficher toutes les données de grille tarifaire Azure Consumption au format JSON :
 
 | Méthode | URI de demande |
 | --- | --- |
 | POST | `https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/pricesheet/default/download?api-version=2018-11-01-preview&startDate=2019-01-01&endDate=2019-01-31&format=json` |
 
-À l’aide de l’API retourne la table de tarification pour l’intégralité du compte. Toutefois, vous pouvez également obtenir une version condensée de la table de tarification au format PDF. Le résumé inclut des services de consommation de consommation Azure et la place de marché qui sont facturés pour une facture spécifique. La facture est identifiée par le n° {facture}, qui est le même que le **numéro de facture** indiqué dans les fichiers PDF de résumé de facture. Voici un exemple.
+Utilise l’API pour retourner la grille tarifaire de l’intégralité du compte. Toutefois, vous pouvez également obtenir une version condensée de la grille tarifaire au format PDF. Ce résumé inclut les services Azure Consumption, ainsi que la consommation de la Place de marché, qui sont facturés pour une facture spécifique. La facture est identifiée par le un élément {invoiceId}, qui correspond au **Numéro de facture** indiqué dans les fichiers PDF Invoice Summary (Récapitulatif de la facture). Voici un exemple.
 
-![Image d’un exemple montrant le numéro de facture qui correspond à la n° de facture](./media/migrate-cost-management-api/invoicesummary.png)
+![Capture d’écran représentant le numéro de facture correspondant à l’élément InvoiceId](./media/migrate-cost-management-api/invoicesummary.png)
 
-Pour afficher les informations de facturation avec l’API grille tarifaire au format CSV :
+Pour afficher les informations de facturation avec l’API Price Sheet au format CSV :
 
 | Méthode | URI de demande |
 | --- | --- |
 | POST | `https://management.azure.com/providers/Microsoft.Billing/billingAccounts/2909cffc-b0a2-5de1-bb7b-5d3383764184/billingProfiles/2dcffe0c-ee92-4265-8647-515b8fe7dc78/invoices/{invoiceId}/pricesheet/default/download?api-version=2018-11-01-preview&format=csv` |
 
-Pour afficher les informations de facturation avec l’API grille tarifaire au Format JSON :
+Pour afficher les informations de facturation avec l’API Price Sheet au format JSON :
 
 | Méthode | URI de demande |
 | --- | --- |
 | POST | `https://management.azure.com/providers/Microsoft.Billing/billingAccounts/2909cffc-b0a2-5de1-bb7b-5d3383764184/billingProfiles/2dcffe0c-ee92-4265-8647-515b8fe7dc78/invoices/{invoiceId}/pricesheet/default/download?api-version=2018-11-01-preview&format=json` |
 
-Vous pouvez également voir les prix estimés pour n’importe quel service de consommation de consommation Azure ou à la place de marché dans le cycle de facturation actuel ouvert ou d’un point de service.
+Vous pouvez également voir les prix estimés pour n’importe quel service Azure Consumption, ainsi que la consommation de la Place de marché, dans le cycle de facturation ou la période du service en cours.
 
-Pour afficher les prix estimés pour les services de la consommation avec l’API grille tarifaire au format CSV :
+Pour afficher les prix estimés pour les services de consommation avec l’API Price Sheet au format CSV :
 
 | Méthode | URI de demande |
 | --- | --- |
 | POST | `https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billing AccountId}/billingProfiles/{billingProfileId}/pricesheet/default/download?api-version=2018-11-01-preview&format=csv` |
 
-Pour afficher les prix estimés pour les services de la consommation avec l’API grille tarifaire au format JSON :
+Pour afficher les prix estimés pour les services de consommation avec l’API Price Sheet au format JSON :
 
 | Méthode | URI de demande |
 | --- | --- |
 | POST | `https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billing AccountId}/billingProfiles/{billingProfileId}/pricesheet/default/download?api-version=2018-11-01-preview&format=json` |
 
-Les API de feuille de prix Microsoft client accord sont *API REST asynchrones*. Les réponses pour les API modifié à partir des anciennes API synchrones. Le corps de la réponse de l’API est également modifié.
+Les version de l’API Microsoft Customer Agreement Price Sheet sont des *API REST asynchrones*. Les réponses pour les API ont changé par rapport aux API synchrones précédentes. Le corps de la réponse de l’API a aussi changé.
 
-#### <a name="old-response-body"></a>Ancien corps de réponse
+#### <a name="old-response-body"></a>Ancien corps de la réponse
 
 Voici un exemple de la réponse de l’API REST synchrone :
 
@@ -324,9 +324,9 @@ Voici un exemple de la réponse de l’API REST synchrone :
     ]
 ```
 
-#### <a name="new-response-body"></a>Nouveau corps de réponse
+#### <a name="new-response-body"></a>Nouveau corps de la réponse
 
-Les API prennent en charge la [Azure REST asynchrones](../azure-resource-manager/resource-manager-async-operations.md) format. Appeler l’API à l’aide de GET, et vous recevez la réponse suivante :
+Les API prennent en charge le format [Azure REST asynchrone](../azure-resource-manager/resource-manager-async-operations.md). Si vous appelez l’API à l’aide de la méthode GET, vous recevez la réponse suivante :
 
 ```
 No Response Body
@@ -334,7 +334,7 @@ No Response Body
 HTTP Status 202 Accepted
 ```
 
-Les en-têtes suivants sont envoyés avec l’emplacement de la sortie :
+Les en-têtes suivants sont envoyés à l’emplacement de la sortie :
 
 ```
 Location:https://management.azure.com/providers/Microsoft.Consumption/operationresults/{operationId}?sessiontoken=XZDFSnvdkbkdsb==
@@ -347,7 +347,7 @@ OData-EntityId: {operationId}
 
 ```
 
-Appeler une autre fonction GET à l’emplacement. La réponse à l’appel GET est la même jusqu'à ce que l’opération atteigne un état d’achèvement ou l’échec. Une fois terminé, la réponse à l’emplacement d’appel GET retourne l’URL de téléchargement. Comme si l’opération a été exécutée en même temps. Voici un exemple :
+Effectuez un autre appel GET vers l’emplacement. La réponse de l’appel GET est la même, jusqu’à ce que l’opération atteigne un état d’achèvement ou d’échec. Une fois achevé, la réponse à l’appel GET vers l’emplacement retourne l’URL de téléchargement. Comme si l’opération était exécutée simultanément. Voici un exemple :
 
 ```
 HTTP Status 200
@@ -363,155 +363,155 @@ HTTP Status 200
                      }
 ```
 
-Le client peut également appeler GET la `Azure-AsyncOperation`. Le point de terminaison retourne l’état de l’opération.
+Le client peut également effectuer un appel GET pour `Azure-AsyncOperation`. Le point de terminaison retourne l’état de l’opération.
 
-Le tableau suivant affiche les champs dans l’ancienne API feuille de prix obtenir de l’entreprise. Il inclut les champs correspondants dans la nouvelle table de tarification pour les contrats de client de Microsoft :
+Le tableau suivant affiche les champs de l’ancienne grille tarifaire de l’API Enterprise Get. Il inclut les champs correspondants dans la nouvelle grille tarifaire des contrats client Microsoft :
 
 | Ancienne propriété | Nouvelle propriété | Notes |
 | --- | --- | --- |
-| billingPeriodId  | _Non applicable_ | Non applicable. Pour les contrats de client de Microsoft, la facture et la table de tarification associé remplacé le concept de billingPeriodId. |
+| billingPeriodId  | _Non applicable_ | Non applicable. Pour les contrats client Microsoft, la facture et grille tarifaire associée ont remplacé le concept de billingPeriodId. |
 | meterId  | meterId | &nbsp;  |
-| unitOfMeasure  | unitOfMeasure | Les valeurs de chaîne exacte peuvent différer. |
-| includedQuantity  | includedQuantity | Non applicable pour les services dans les contrats de client de Microsoft. |
+| unitOfMeasure  | unitOfMeasure | Les valeurs précises des chaînes peuvent différer. |
+| includedQuantity  | includedQuantity | Non applicable pour les services dans les contrats client Microsoft. |
 | partNumber  | _Non applicable_ | Au lieu de cela, utilisez une combinaison de productOrderName (identique à offerId) et meterid. |
-| unitPrice  | unitPrice | Prix unitaire est applicable pour les services utilisés dans les contrats de client de Microsoft. |
-| currencyCode  | pricingCurrency | Accords de clients Microsoft ont des représentations de prix dans les devises tarification et facturation. Le currencyCode correspond à la pricingCurrency dans les contrats de client de Microsoft. |
-| offerId | productOrderName | Au lieu de OfferId, vous pouvez utiliser productOrderName, mais n’est pas identique à OfferId. Toutefois, productOrderName et compteur déterminent la tarification contrats client de Microsoft liées à meterId et l’Offerid dans les inscriptions héritées. |
+| unitPrice  | unitPrice | L’élément unitPrice (prix unitaire) est applicable pour les services utilisés dans les contrats client Microsoft. |
+| currencyCode  | pricingCurrency | Les contrats client Microsoft représentent les prix dans les devises de tarification et de facturation. L’élément currencyCode (Code de la devise) correspond à l’élément pricingCurrency (Devise de tarification) dans les contrats client Microsoft. |
+| offerId | productOrderName | Au lieu de OfferId, vous pouvez utiliser productOrderName. Cependant, cet élément n’est pas identique à OfferId. Toutefois, les éléments productOrderName et meter déterminent la tarification dans les contrats client Microsoft liées aux éléments meterId et Offerid dans les accords de mise en œuvre hérités. |
 
-## <a name="consumption-price-sheet-api-operations"></a>Opérations d’API grille tarifaire consommation
+## <a name="consumption-price-sheet-api-operations"></a>Opérations de l’API Consumption Price Sheet
 
-Pour les contrats d’entreprise, vous avez utilisé l’API de grille tarifaire consommation [obtenir](/rest/api/consumption/pricesheet/get) et [obtenir par période de facturation](/rest/api/consumption/pricesheet/getbybillingperiod) opérations pour une étendue par ID d’abonnement ou d’une période de facturation. L’API utilise l’authentification de gestion des ressources Azure.
+Pour les contrats Entreprise, vous avez utilisé les opérations [Get](/rest/api/consumption/pricesheet/get) (Obtenir) et [Get By Billing Period](/rest/api/consumption/pricesheet/getbybillingperiod) (Obtenir par période de facturation) de l’API Consumption Price Sheet pour une étendue selon l’élément subscriptionId ou pour établir une période de facturation. L’API utilise l’authentification Azure Resource Management.
 
-Pour obtenir les informations de tarification pour une étendue avec l’API grille tarifaire :
+Pour obtenir les informations grille tarifaire tarification pour une étendue avec l’API Price Sheet :
 
 | Méthode | URI de demande |
 | --- | --- |
 | GET | `https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Consumption/pricesheets/default?api-version=2018-10-01` |
 
-Pour obtenir des informations de la table de tarification par période avec l’API grille tarifaire de facturation :
+Pour obtenir des informations de grille tarifaire avec l’API Price Sheet :
 
 | Méthode | URI de demande |
 | --- | --- |
 | GET | `https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Billing/billingPeriods/{billingPeriodName}/providers/Microsoft.Consumption/pricesheets/default?api-version=2018-10-01` |
 
-Au lieu des points de terminaison API ci-dessus, utilisez les options suivantes pour les contrats de client de Microsoft :
+Au lieu des points de terminaison d’API ci-dessus, utilisez les options suivantes pour les contrats client Microsoft :
 
-**API de grille tarifaire pour les contrats de client de Microsoft (API REST asynchrone)**
+**API Price Sheet pour les contrats client Microsoft (API REST asynchrone)**
 
-Cette API est pour les contrats de client de Microsoft et fournit des attributs supplémentaires.
+Cette API est pour les contrats client Microsoft et fournit des attributs supplémentaires.
 
-**Table de tarification pour une étendue de profil de facturation dans un compte de facturation**
+**API Price Sheet pour une étendue de profil de facturation dans un compte de facturation**
 
-Cette API est l’API existante. Il a été mis à jour afin de fournir la table de tarification pour un profil de facturation dans un compte de facturation.
+Cette API est l’API existante. Elle a été mise à jour afin de fournir la grille tarifaire pour un profil de facturation dans un compte de facturation.
 
-## <a name="price-sheet-for-a-scope-by-billing-account"></a>Table de tarification pour une étendue par compte de facturation
+## <a name="price-sheet-for-a-scope-by-billing-account"></a>API Price Sheet pour une étendue par compte de facturation
 
-Azure Resource Manager est utilisée lorsque vous obtenez la table de tarification dans la portée de l’inscription dans un compte de facturation.
+L’authentification Azure Resource Manager est utilisée lorsque vous obtenez l’API Price Sheet au niveau de l’étendue d’accord de mise en œuvre dans un compte de facturation.
 
-Pour obtenir la table de tarification au niveau du compte d’inscription dans un compte de facturation :
+Pour obtenir l’API Price Sheet pour le compte d’accord de mise en œuvre dans une table de tarification dans un compte de facturation :
 
 | Méthode | URI de demande |
 | --- | --- |
 | GET | `/providers/Microsoft.Billing/billingAccounts/65085863/providers/Microsoft.Consumption/pricesheets/download?api-version=2019-01-01` |
 
-Pour un contrat de client de Microsoft, utilisez les informations dans la section suivante. Il fournit les propriétés de champ utilisées pour les contrats de Microsoft Customer.
+Pour un contrat client Microsoft, utilisez les informations dans la section suivante. Vous y trouverez les propriétés de champ utilisées pour les contrats client Microsoft.
 
-### <a name="price-sheet-for-a-billing-profile-scope-in-a-billing-account"></a>Table de tarification pour une étendue de profil de facturation dans un compte de facturation
+### <a name="price-sheet-for-a-billing-profile-scope-in-a-billing-account"></a>API Price Sheet pour une étendue de profil de facturation dans un compte de facturation
 
-La table de tarification de mise à jour par le compte de facturation API Obtient la table de tarification au format CSV. Pour obtenir la table de tarification dans l’étendue de profil de facturation pour un MCA :
+L’API Price Sheet mise à jour par l’API Billing Account obtient la grille tarifaire au format CSV. Pour obtenir la grille tarifaire dans l’étendue de profil de facturation pour un MCA :
 
 | Méthode | URI de demande |
 | --- | --- |
 | GET | `/providers/Microsoft.Billing/billingAccounts/28ae4b7f-41bb-581e-9fa4-8270c857aa5f/billingProfiles/ef37facb-cd6f-437a-9261-65df15b673f9/providers/Microsoft.Consumption/pricesheets/download?api-version=2019-01-01` |
 
-Portée de l’EA d’inscription, la réponse de l’API et les propriétés sont identiques. Les propriétés correspondent aux propriétés MCA mêmes.
+Au niveau de la portée de l’accord de mise en œuvre, la réponse et les propriétés de l’API sont identiques. Les propriétés correspondent aux mêmes propriétés MCA.
 
-Les propriétés du dossier pour [API de feuille de prix Azure Resource Manager](/rest/api/consumption/pricesheet) et les mêmes propriétés de nouveau se trouvent dans le tableau suivant.
+Le tableau suivant répertorie les anciennes propriétés des versions de l’API [Azure Resource Manager Price Sheet](/rest/api/consumption/pricesheet) et les nouvelles propriétés équivalentes.
 
-| Ancienne Azure Resource Manager prix feuille API propriété  | Nouvelle propriété de l’API de grille tarifaire Microsoft client contrat   | Description  |
+| Ancienne propriété de l’API Azure Resource Manager Price Sheet  | Nouvelle propriété de l’API Microsoft Customer Agreement Price Sheet   | Description |
 | --- | --- | --- |
-| ID du compteur | _meterId_ | Identificateur unique pour le compteur. Identique au meterId. |
-| Nom du compteur | meterName | Nom du compteur. Compteur représente la ressource de service Azure pouvant être déployées. |
-| Catégorie du compteur  | service | Nom de la catégorie de classification pour le compteur. Même que le service dans la table de tarification du contrat de client Microsoft. Les valeurs de chaîne exacte diffèrent. |
-| Sous-catégorie du compteur | meterSubCategory | Nom de la catégorie du compteur sous-classification. En fonction de la classification de différenciation d’ensemble de haut niveau de fonctionnalité dans le service. Par exemple, base SQL DB ou base de données SQL Standard. |
+| ID du compteur | _meterId_ | Identificateur unique du compteur. Identique à meterId. |
+| Nom du compteur | meterName | Nom du compteur. Le compteur représente la ressource déployable d’un service Azure. |
+| Catégorie du compteur  | service | Nom de la catégorie de classification du compteur. Identique au service de Microsoft Customer Agreement Price Sheet. Les valeurs précises des chaînes diffèrent. |
+| Sous-catégorie du compteur | meterSubCategory | Nom de la catégorie de sous-classification du compteur. Basé sur la classification de la différenciation des jeux de caractéristiques de haut niveau dans le service. Par exemple, base de données SQL de Base et base de données SQL standard. |
 | Région du compteur | meterRegion | &nbsp;  |
-| Unité | _Non applicable_ | Peut être analysé à partir d’unitOfMeasure. |
+| Unité | _Non applicable_ | Peut être analysé à partir de l’élément unitOfMeasure. |
 | Unité de mesure | unitOfMeasure | &nbsp;  |
-| Référence pièce | _Non applicable_ | Au lieu du numéro de référence, utilisez productOrderName et MeterId pour identifier de façon unique le prix pour un profil de facturation. Les champs sont répertoriés sur la facture MCA plutôt que le numéro de référence dans les factures MCA. |
-| Prix unitaire | unitPrice | Prix unitaire de contrat de client de Microsoft. |
-| Code de devise | pricingCurrency | Accords de clients Microsoft représentent les prix de la tarification de devise et la devise de facturation. Code de devise est identique à la pricingCurrency dans les contrats de client de Microsoft. |
-| Quantité incluse | includedQuantity | Non applicable aux services dans les contrats de client de Microsoft. Afficher les valeurs nulles. |
-|  Proposer un ID  | productOrderName | Au lieu de OfferId, utilisez productOrderName. Pas identique à OfferId, toutefois le productOrderName et le compteur déterminent la tarification dans les contrats de client de Microsoft. Le lien meterId et l’Offerid inscriptions héritées. |
+| Numéro de référence | _Non applicable_ | Au lieu de partNumber, utilisez productOrderName et MeterId pour identifier de façon unique le prix pour un profil de facturation. Les champs sont répertoriés sur la facture MCA plutôt que le partNumber dans les factures MCA. |
+| Prix unitaire | unitPrice | Prix unitaire du contrat client Microsoft. |
+| Code devise | pricingCurrency | Les contrats client Microsoft représentent les prix dans les devises de tarification et de facturation. Le code de la devise correspond à l’élément pricingCurrency (Devise de tarification) dans les contrats client Microsoft. |
+| Quantité incluse | includedQuantity | Non applicable aux services dans les contrats client Microsoft. S’affiche avec des valeurs égales à zéro. |
+|  ID de l’offre  | productOrderName | Au lieu de OfferId, utilisez productOrderName. Diffère de l’élément OfferId. Cependant les éléments productOrderName et meter (compteur) déterminent la tarification dans les contrats client Microsoft. Lié aux éléments meterId et Offerid dans les accords de mise en œuvre hérités. |
 
-Le prix pour les contrats de client de Microsoft est défini différemment des contrats entreprise. Le prix pour services lors de l’inscription de l’entreprise est unique pour le produit, un numéro de référence, compteur et offre. Le numéro de référence n’est pas utilisé dans les contrats de client de Microsoft.
+Le prix pour les contrats client Microsoft n’est pas défini comme celui des contrats Entreprise. Le prix des services lors de l’accord de mise en œuvre Entreprise est unique pour les éléments product (produit), PartNumber (Référence), meter (mesure) et offer (offre). L’élément PartNumber n’est pas utilisé dans les contrats client Microsoft.
 
-Le prix de service de consommation Azure qui fait partie d’un contrat de client de Microsoft est unique pour productOrderName et meterId. Ils représentent le compteur de service et le plan de produit.
+Le prix du service Azure Consumption qui fait partie d’un contrat client Microsoft est unique pour les éléments productOrderName et meterId. Ils représentent le compteur de service et l’offre du produit.
 
-Pour rapprocher entre la table de tarification et l’utilisation de l’API de détails d’utilisation, vous pouvez utiliser le productOrderName et meterId.
+Pour concilier la grille tarifaire et son utilisation dans l’API Usage Details, vous pouvez utiliser les éléments productOrderName et meterID.
 
-Les utilisateurs qui ont facturation propriétaire, collaborateur, lecteur de profil et facturer les droits de gestionnaire peuvent télécharger la table de tarification.
+Les utilisateurs qui ont des droits de propriétaire de profil de facturation, de contributeur, de lecteur et de gestionnaire de facture peuvent télécharger la grille tarifaire.
 
-La table de tarification inclut les prix pour les services dont le prix est basé sur l’utilisation. Les services incluent la consommation Azure et la place de marché. Le prix le plus récent à la fin de chaque période de service est verrouillé et appliqué à l’utilisation dans une période de service unique. Pour les services de consommation Azure, la période de service est généralement un mois calendaire.
+La grille tarifaire inclut les prix des services basés sur leur utilisation. Les services incluent Azure Consumption et la consommation de la Place de marché. Le dernier prix à la fin de chaque période de service est verrouillé et appliqué à l’utilisation au cours d’une seule période de service. Pour les services Azure Consumption, la période de service est généralement d’un mois calendaire.
 
-### <a name="retired-price-sheet-api-fields"></a>Champs API grille tarifaire mis hors service
+### <a name="retired-price-sheet-api-fields"></a>Champs de l’API Price Sheet supprimés
 
-Les champs suivants ne sont pas disponibles dans l’API de feuille de prix Microsoft client contrat ou avoir les mêmes champs.
+Les champs suivants ne sont pas disponibles dans l’API Microsoft Customer Agreement Price Sheet ou correspondent à des champs identiques.
 
-|Champ mis hors service| Description |
+|Champ supprimé| Description|
 |---|---|
-| billingPeriodId | Non applicable. Correspond aux n° facture pour MCA. |
-| offerId | Non applicable. Correspond à productOrderName dans MCA. |
-| meterCategory  | Non applicable. Correspond au Service dans MCA. |
-| unité | Non applicable. Peut être analysé à partir d’unitOfMeasure. |
-| currencyCode | Identique à la pricingCurrency dans MCA. |
-| meterLocation | Identique à la meterRegion dans MCA. |
-| numéro de référence de numéro de référence | Non applicable, car le numéro de référence n’est pas répertorié dans les factures MCA. Au lieu du numéro de référence, utilisez la combinaison de meterId et productOrderName pour identifier de manière unique les prix. |
+| billingPeriodId | Non applicable. Correspond à l’élément InvoiceId pour un MCA. |
+| offerId | Non applicable. Correspond à l’élément productOrderName pour un MCA. |
+| meterCategory  | Non applicable. Correspond au à l’élément Service pour un MCA. |
+| unité | Non applicable. Peut être analysé à partir de l’élément unitOfMeasure. |
+| currencyCode | Identique à l’élément pricingCurrency pour un MCA. |
+| meterLocation | Identique à l’élément meterRegion pour un MCA. |
+| partNumber (numéro de référence) | Non applicable, car le numéro de référence n’est pas répertorié dans les factures MCA. Au lieu du numéro de référence, utilisez la combinaison des éléments meterId et productOrderName pour identifier les prix de manière unique. |
 | totalIncludedQuantity | Non applicable. |
 | pretaxStandardRate  | Non applicable. |
 
-## <a name="reservation-instance-charge-api-replaced"></a>API de frais d’Instance de réservation remplacé
+## <a name="reservation-instance-charge-api-replaced"></a>Remplacement de l’API Reservation Instance Charge
 
-Vous pouvez obtenir de facturation des transactions d’achat de réservation avec les [API d’Instance réservée de frais](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-charges). La nouvelle API inclut tous les achats, y compris des offres de la place de marché tierce. Toutes les API de consommation sont remplacés par des API Azure natives qui utilisent Azure AD pour l’authentification et l’autorisation. Pour plus d’informations sur appeler des API REST Azure, consultez [mise en route avec REST](/rest/api/azure/#create-the-request). L’API de frais d’Instance réservée est remplacé par l’API de Transactions.
+L’[API Reserved Instance Charge](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-charges) (Frais d’instance réservés) permet d’obtenir les transactions de facturation pour les achats de réservation. La nouvelle API inclut tous les achats, y compris des offres tierces de la Place de marché. Toutes les API de consommation sont remplacées par des API Azure natives qui utilisent Azure AD pour l’authentification et l’autorisation. Pour plus d’informations sur l’appel des API REST Azure, consultez [Prise en main de REST](/rest/api/azure/#create-the-request). L’API Reserved Instance Charge est remplacée par l’API Transactions.
 
-Pour obtenir des transactions avec l’API de Transactions d’achat de réservation :
+Pour obtenir des transactions d’achats de réservations avec l’API Transactions :
 
 | Méthode | URI de demande |
 | --- | --- |
 | GET | `https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/transactions?api-version=2018-11-01-preview` |
 
-## <a name="recommendations-apis-replaced"></a>Recommandations API remplacé
+## <a name="recommendations-apis-replaced"></a>Remplacement des versions de l’API Recommendations
 
-Réservé API de recommandations d’achat Instance fournissent l’utilisation de la machine virtuelle sur les derniers 7, 30 ou 60 jours. API fournissent également des recommandations d’achat de réservation. À savoir :
+Les versions de l’API Reserved Instance Purchase Recommendations fournissent des informations sur l’utilisation de la machine virtuelle sur les 7, 30 ou 60 derniers jours. Les versions de cette API fournissent également des recommandations d’achats de réservations. À savoir :
 
-- [Partagé des API d’Instance réservée de recommandation](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-shared-reserved-instance-recommendations)
-- [API de recommandations unique Instance réservée](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-single-reserved-instance-recommendations)
+- [API Shared Reserved Instance Recommendation](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-shared-reserved-instance-recommendations) (Recommandation relative à l’instance réservée partagée)
+- [API Single Reserved Instance Recommendations](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-single-reserved-instance-recommendations) (Recommandation relative à l’instance réservée unique)
 
-Toutes les API de consommation sont remplacés par des API Azure natives qui utilisent Azure AD pour l’authentification et l’autorisation. Pour plus d’informations sur appeler des API REST Azure, consultez [mise en route avec REST](/rest/api/azure/#create-the-request). Les recommandations de réservation API répertoriées précédemment sont remplacées par le [Microsoft.Consumption/reservationRecommendations](/rest/api/consumption/reservationrecommendations/list) API.
+Toutes les API de consommation sont remplacées par des API Azure natives qui utilisent Azure AD pour l’authentification et l’autorisation. Pour plus d’informations sur l’appel des API REST Azure, consultez [Prise en main de REST](/rest/api/azure/#create-the-request). Les API de recommandations de réservations répertoriées précédemment sont remplacées par l’API [Microsoft.Consumption/reservationRecommendations](/rest/api/consumption/reservationrecommendations/list).
 
-Pour obtenir des recommandations de réservation avec l’API de recommandations de réservation :
+Pour obtenir des suggestions de réservations avec l’API Reservation Recommendations :
 
 | Méthode | URI de demande |
 | --- | --- |
 | GET | `https://management.azure.com/providers/Microsoft.Consumption/reservationRecommendations?api-version=2019-01-01` |
 
-## <a name="reservation-usage-apis-replaced"></a>API d’utilisation de réservation remplacé
+## <a name="reservation-usage-apis-replaced"></a>Remplacement de l’API Reservation Usage
 
-Vous pouvez obtenir l’utilisation de la réservation dans une inscription avec l’API d’utilisation de l’Instance réservée. S’il existe plusieurs instances réservées dans une inscription, vous pouvez également obtenir l’utilisation de tous les achats de l’instance réservée à l’aide de cette API.
+L’API Reserved Instance Usage permet d’obtenir des informations sur l’utilisation des réservations dans un accord de mise en œuvre. S’il existe plusieurs instances réservées dans un accord de mise en œuvre, vous pouvez également obtenir l’utilisation de tous les achats de l’instance réservée à l’aide de cette API.
 
 À savoir :
 
-- [Détails de l’utilisation d’Instance réservée](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage#request-for--reserved-instance-usage-details)
-- [Résumé de l’utilisation d’Instance réservée](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage)
+- [Détails de l’utilisation de l’instance réservée](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage#request-for--reserved-instance-usage-details)
+- [Résumé de l’utilisation de l’instance réservée](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage)
 
-Toutes les API de consommation sont remplacés par des API Azure natives qui utilisent Azure AD pour l’authentification et l’autorisation. Pour plus d’informations sur appeler des API REST Azure, consultez [mise en route avec REST](/rest/api/azure/#create-the-request). Les recommandations de réservation API répertoriées précédemment sont remplacées par le [Microsoft.Consumption/reservationDetails](/rest/api/consumption/reservationsdetails) et [Microsoft.Consumption/reservationSummaries](/rest/api/consumption/reservationssummaries) API.
+Toutes les API de consommation sont remplacées par des API Azure natives qui utilisent Azure AD pour l’authentification et l’autorisation. Pour plus d’informations sur l’appel des API REST Azure, consultez [Prise en main de REST](/rest/api/azure/#create-the-request). Les API de suggestions de réservation répertoriées précédemment sont remplacées par les API [Microsoft.Consumption/reservationDetails](/rest/api/consumption/reservationsdetails) et [Microsoft.Consumption/reservationSummaries](/rest/api/consumption/reservationssummaries).
 
-Pour obtenir les détails de la réservation avec l’API de détails de réservation :
+Pour obtenir les détails des réservations avec l’API Reservation Details :
 
 | Méthode | URI de demande |
 | --- | --- |
 | GET | `https://management.azure.com/providers/Microsoft.Consumption/reservationDetails?api-version=2019-01-01` |
 
-Pour obtenir des résumés de réservation avec l’API de résumés de réservation :
+Pour obtenir des résumés des réservations avec l’API Reservation Summaries :
 
 | Méthode | URI de demande |
 | --- | --- |
@@ -519,32 +519,32 @@ Pour obtenir des résumés de réservation avec l’API de résumés de réserva
 
 
 
-## <a name="move-from-cloudyn-to-cost-management"></a>Déplacer à partir de Cloudyn pour la gestion des coûts
+## <a name="move-from-cloudyn-to-cost-management"></a>Migrer de Cloudyn à Cost Management
 
-Les organisations qui utilisent [Cloudyn](https://cloudyn.com) doit commencer à utiliser [Azure Cost Management](https://azure.microsoft.com/services/cost-management/) pour les besoins de gestion des coûts. Gestion des coûts est disponible dans le portail Azure avec aucune intégration et une latence de huit heures. Pour plus d’informations, consultez le [documentation de la gestion des coûts](index.yml).
+Nous recommandons aux organisations qui utilisent [Cloudyn](https://cloudyn.com) de commencer à utiliser [Azure Cost Management](https://azure.microsoft.com/services/cost-management/) pour répondre à leurs besoins de gestion des coûts. Cost Management est disponible dans le Portail Microsoft Azure sans intégration et avec une latence de huit heures. Pour plus d’informations, consultez la page [Documentation de Cost Management](index.yml).
 
-Avec Azure Cost Management, vous pouvez :
+Grâce à Azure Cost Management, vous pouvez :
 
-- Afficher les coûts au fil du temps par rapport à un budget prédéfini. Analyser tous les jours des modèles de coût pour identifier et arrêter des anomalies de dépense. Décomposer les coûts par balises, groupe de ressources, service et l’emplacement.
-- Créer des budgets pour définir des limites sur l’utilisation et les coûts et recevez une notification lors de l’approche de seuils importants. Configurer automation avec des groupes d’actions pour déclencher des événements personnalisés et d’appliquer des limites matérielles sur vos propres conditions.
-- Optimiser les coûts et l’utilisation avec des recommandations d’Azure Advisor. Découvrez les optimisations d’achat avec des réservations, réduire les machines virtuelles sous-utilisées et supprimer des ressources inutilisées pour respecter les budgets.
-- Planifier une exportation de données de coût et d’utilisation pour publier un fichier CSV à votre compte de stockage, tous les jours. Automatiser l’intégration avec les systèmes externes pour conserver les données de facturation synchronisés et à jour.
+- Afficher les coûts au fil du temps par rapport à un budget prédéfini. Analyser tous les jours des modèles de coûts pour identifier et arrêter les dépenses anormales. Décomposer les coûts par balises, groupe de ressources, service et emplacement.
+- Créer des budgets pour définir des limites d’utilisation et de coûts, mais aussi recevoir une notification lors de l’approche de seuils importants. Automatiser des groupes d’actions pour déclencher des événements personnalisés et appliquer des limites strictes selon vos conditions.
+- Optimiser les coûts et l’utilisation grâce à des suggestions d’Azure Advisor. Découvrir des optimisations d’achat de réservations, éviter la sous-utilisation de vos machines virtuelles et supprimer des ressources inutilisées pour respecter vos budgets.
+- Planifier quotidiennement une exportation de données de coût et d’utilisation pour publier un fichier CSV vers votre compte de stockage. Automatiser l’intégration avec des systèmes externes pour conserver les données de facturation synchronisées et à jour.
 
 ## <a name="power-bi-integration"></a>Intégration Power BI
 
-Si vous utilisez Power BI pour les rapports de coût, vous devez passer à ce qui suit :
+Si vous utilisez Power BI pour les rapports de coûts, vous devez migrer vers :
 
-- Microsoft Azure consommation Insights application Power BI
-- Connecteur de bureau Azure Consumption Insights
+- L’application Microsoft Azure Consumption Insights Power BI
+- Le connecteur de bureau Azure Consumption Insights
 
 
-Le connecteur est recommandé pour les organisations souhaitant la plus grande souplesse. Toutefois, l’application Power BI est également disponible pour une installation rapide.
+Nous recommandons le connecteur aux organisations ayant de d’importants besoins en matière de flexibilité. Toutefois, l’application Power BI peut également être installée rapidement.
 
-- Installer le [Microsoft Azure Consumption Insights Power BI app](https://appsource.microsoft.com/product/power-bi/pbi_azureconsumptioninsights.pbi-azure-consumptioninsights?tab=overview)
-- [Se connecter avec le connecteur Azure Consumption Insights](/power-bi/desktop-connect-azure-consumption-insights)
+- Installez l’application [Microsoft Azure Consumption Insights Power BI](https://appsource.microsoft.com/product/power-bi/pbi_azureconsumptioninsights.pbi-azure-consumptioninsights?tab=overview)
+- [Exploitez la puissance du connecteur Azure Consumption Insights](/power-bi/desktop-connect-azure-consumption-insights)
 
-Le pack de contenu d’informations sur la consommation et le connecteur antérieure a travaillé au niveau de l’inscription. Il nécessitait l’accès lecture au moins. La nouvelle application de la consommation Insights Power BI et le nouveau connecteur Azure Consumption Insights sont disponibles pour les utilisateurs de profil facturation. Équipes qui ont besoin d’options supplémentaires pour l’examen des coûts ou afficher les coûts sur les profils de facturation doivent utiliser dans [analyse des coûts](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/Menu/costanalysis) le portail Azure.
+L’ancien pack de contenu et le connecteur Consumption Insights fonctionnaient au niveau de l’accord de mise en œuvre. Il nécessitait au minimum un accès en lecture. La nouvelle application Consumption Insights Power BI et le nouveau connecteur Azure Consumption Insights sont disponibles pour les utilisateurs de profil de facturation. Les équipes qui ont besoin d’options supplémentaires pour l’examen des coûts ou l’affichage des coûts sur les profils de facturation doivent utiliser l’[analyse des coûts](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/Menu/costanalysis) dans le Portail Microsoft Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Lire le [documentation de la gestion des coûts](index.yml) pour apprendre à surveiller et contrôler les dépenses Azure. Ou, si vous souhaitez optimiser l’utilisation des ressources avec la gestion des coûts.
+- Consultez la [documentation de Cost Management](index.yml) pour apprendre à surveiller et contrôler les dépenses Azure. Cette documentation est aussi utile si vous souhaitez optimiser l’utilisation de vos ressources avec Cost Management.
