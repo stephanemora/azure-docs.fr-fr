@@ -4,12 +4,12 @@ ms.service: storage
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
-ms.openlocfilehash: 6911e06dc023027ab32b99387b9f7d3f5e708f86
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: fe4ecc237b56575f99844d3ec074225fadb69d3c
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67176742"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673326"
 ---
 ## <a name="configure-your-application-to-access-azure-storage"></a>Configuration de votre application pour accéder à Azure Storage
 Il existe deux manières d’authentifier votre application pour accéder aux services de stockage :
@@ -38,11 +38,11 @@ Voici un exemple de chaîne de connexion utilisant l’authentification par clé
 
 ### <a name="shared-access-signatures-sas"></a>Signatures d’accès partagé (SAP)
 Pour une application mobile, la méthode recommandée pour authentifier une demande d’un client par rapport au service de stockage Azure consiste à utiliser une signature d’accès partagé (SAP). Une SAP vous permet d’accorder un accès client à une ressource pour une période spécifiée, avec un jeu d’autorisations spécifié.
-En tant que propriétaire du compte de stockage, vous devez générer une SAP que vos clients mobiles pourront consommer. Pour ce faire, vous souhaiterez probablement écrire un service séparé qui génère les SAP à distribuer à vos clients. À des fins de test, vous pouvez utiliser [l’Explorateur de stockage Microsoft Azure](http://storageexplorer.com) ou le [Portail Azure](https://portal.azure.com) pour générer une SAP. Lorsque vous créez la SAP, vous pouvez spécifier l’intervalle de temps pendant lequel elle est valide et les autorisations qu’elle accorde au client.
+En tant que propriétaire du compte de stockage, vous devez générer une SAP que vos clients mobiles pourront consommer. Pour ce faire, vous souhaiterez probablement écrire un service séparé qui génère les SAP à distribuer à vos clients. À des fins de test, vous pouvez utiliser [l’Explorateur de stockage Microsoft Azure](https://storageexplorer.com) ou le [Portail Azure](https://portal.azure.com) pour générer une SAP. Lorsque vous créez la SAP, vous pouvez spécifier l’intervalle de temps pendant lequel elle est valide et les autorisations qu’elle accorde au client.
 
 L’exemple suivant montre comment utiliser l’Explorateur de stockage Microsoft Azure pour générer une SAP.
 
-1. Si ce n’est déjà fait, [installez l’Explorateur de stockage Microsoft Azure](http://storageexplorer.com)
+1. Si ce n’est déjà fait, [installez l’Explorateur de stockage Microsoft Azure](https://storageexplorer.com)
 2. Connectez-vous à votre abonnement.
 3. Cliquez sur votre compte de stockage puis sur l’onglet « Actions » en bas à gauche. Cliquez sur « Obtenir une signature d’accès partagé » afin de générer une « chaîne de connexion » pour votre SAS.
 4. Voici un exemple de chaîne de connexion SAS qui accorde des autorisations en lecture et écriture au niveau du service, du conteneur et de l’objet pour le service blob du compte de stockage.

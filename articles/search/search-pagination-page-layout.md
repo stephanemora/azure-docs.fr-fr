@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 73f0dc98d7d2c3e7aa77f6414cbd58e58599eae7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bb86a75be464cb78a16170626bc96778d43bb8b6
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67068829"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67974621"
 ---
 # <a name="how-to-work-with-search-results-in-azure-search"></a>Guide pratique pour utiliser les résultats de la recherche dans la Recherche Azure
 Cet article explique comment implémenter les éléments standard d’une page de résultats de recherche, comme les totaux, l’extraction de documents, les ordres de tri et la navigation. Les options de page qui fournissent des données ou des informations aux résultats de recherche sont spécifiées par le biais des demandes [Recherche de documents](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) envoyées au service Recherche Azure. 
@@ -40,15 +40,15 @@ Dans Azure Search, vous utilisez les paramètres `$count`, `$top` et `$skip` po
 
 Récupérez des documents par groupes de 15 et affichez le nombre total de résultats à partir de la première page :
 
-    GET /indexes/online-catalog/docs?search=*$top=15&$skip=0&$count=true
+    GET /indexes/online-catalog/docs?search=*&$top=15&$skip=0&$count=true
 
 La pagination des résultats nécessite `$top` et `$skip`, où `$top` indique le nombre d’éléments à renvoyer dans un lot, et `$skip` spécifie le nombre d’éléments à ignorer. Dans l’exemple suivant, chaque page affiche les 15 éléments suivants, conformément aux sauts incrémentiels indiqués dans le paramètre `$skip` .
 
-    GET /indexes/online-catalog/docs?search=*$top=15&$skip=0&$count=true
+    GET /indexes/online-catalog/docs?search=*&$top=15&$skip=0&$count=true
 
-    GET /indexes/online-catalog/docs?search=*$top=15&$skip=15&$count=true
+    GET /indexes/online-catalog/docs?search=*&$top=15&$skip=15&$count=true
 
-    GET /indexes/online-catalog/docs?search=*$top=15&$skip=30&$count=true
+    GET /indexes/online-catalog/docs?search=*&$top=15&$skip=30&$count=true
 
 ## <a name="layout"></a>Disposition
 

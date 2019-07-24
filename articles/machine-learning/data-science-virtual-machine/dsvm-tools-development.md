@@ -17,10 +17,10 @@ ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
 ms.openlocfilehash: c4e101e45dc1641c5731e246f7fdeeb37ebc0823
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65864416"
 ---
 # <a name="development-tools-on-the-data-science-virtual-machine"></a>Outils de développement sur la machine virtuelle DSVM
@@ -35,7 +35,7 @@ La machine virtuelle DSVM fournit un environnement de développement productif e
 | Versions DSVM prises en charge      | Windows      |
 | Utilisations classiques      | Développement de logiciels    |
 | Comment est-il configuré / installé sur la machine virtuelle DSVM ?      | Charge de travail Science des données (outils Python et R), charge de travail Azure (Hadoop, Data Lake), Node.js, outils SQL Server, [Azure Machine Learning pour Visual Studio Code](https://github.com/Microsoft/vs-tools-for-ai)    |
-| Comment l’utiliser/l’exécuter ?      | Raccourci sur le Bureau (`C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\devenv.exe`)    |
+| Comment l’utiliser/l’exécuter ?      | Raccourci sur le Bureau (`C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\devenv.exe`)    |
 | Outils connexes sur la machine virtuelle DSVM      |     Visual Studio Code, RStudio, Juno  |
 
 ## <a name="visual-studio-code"></a>Visual Studio Code 
@@ -45,8 +45,8 @@ La machine virtuelle DSVM fournit un environnement de développement productif e
 | Qu’est-ce que c’est ?   | IDE à usage général      |
 | Versions DSVM prises en charge      | Windows, Linux     |
 | Utilisations classiques      | Éditeur de code et Intégration de Git   |
-| Comment l’utiliser/l’exécuter ?      | Raccourci sur le Bureau (`C:\Program Files (x86)\Microsoft VS Code\Code.exe`) dans Windows, raccourci sur le Bureau ou terminal (`code`) dans Linux    |
-| Outils connexes sur la machine virtuelle DSVM      |     Visual Studio 2019, RStudio, Juno  |
+| Comment l’utiliser/l’exécuter ?      | Raccourci sur le Bureau (`C:\Program Files (x86)\Microsoft VS Code\Code.exe`) dans Windows, raccourci sur le Bureau ou terminal (`code`) dans Linux    |
+| Outils connexes sur la machine virtuelle DSVM      |     Visual Studio 2019, RStudio, Juno  |
 
 ## <a name="rstudio--desktop"></a>RStudio Desktop 
 
@@ -55,7 +55,7 @@ La machine virtuelle DSVM fournit un environnement de développement productif e
 | Qu’est-ce que c’est ?   | IDE client pour R    |
 | Versions DSVM prises en charge      | Windows, Linux      |
 | Utilisations classiques      |  Développement R     |
-| Comment l’utiliser/l’exécuter ?      | Raccourci sur le Bureau (`C:\Program Files\RStudio\bin\rstudio.exe`) dans Windows, raccourci sur le Bureau (`/usr/bin/rstudio`) dans Linux      |
+| Comment l’utiliser/l’exécuter ?      | Raccourci sur le Bureau (`C:\Program Files\RStudio\bin\rstudio.exe`) dans Windows, raccourci sur le Bureau (`/usr/bin/rstudio`) dans Linux      |
 | Outils connexes sur la machine virtuelle DSVM      |   Visual Studio 2019, Visual Studio Code, Juno      |
 
 ## <a name="rstudio--server"></a>RStudio Server 
@@ -65,7 +65,7 @@ La machine virtuelle DSVM fournit un environnement de développement productif e
 | Qu’est-ce que c’est ?   | IDE basé sur le web pour R    |
 | Versions DSVM prises en charge      | Linux      |
 | Utilisations classiques      |  Développement R     |
-| Comment l’utiliser/l’exécuter ?      | Activez le service avec _systemctl enable rstudio-server_, puis démarrez-le avec _systemctl start rstudio-server_. Vous pouvez ensuite se connecter à RStudio Server http :\// votre-vm-ip:8787.       |
+| Comment l’utiliser/l’exécuter ?      | Activez le service avec _systemctl enable rstudio-server_, puis démarrez-le avec _systemctl start rstudio-server_. Vous pouvez ensuite vous connecter à RStudio Server à l’adresse http:\//adresse_IP_de_votre_machine_virtuelle:8787.       |
 | Outils connexes sur la machine virtuelle DSVM      |   Visual Studio 2019, Visual Studio Code, RStudio Desktop      |
 
 ## <a name="juno"></a>Juno 
@@ -75,8 +75,8 @@ La machine virtuelle DSVM fournit un environnement de développement productif e
 | Qu’est-ce que c’est ?   | IDE client pour le langage Julia   |
 | Versions DSVM prises en charge      | Windows, Linux      |
 | Utilisations classiques      |  Développement Julia     |
-| Comment l’utiliser/l’exécuter ?      | Raccourci sur le Bureau (`C:\JuliaPro-0.5.1.1\Juno.bat`) dans Windows, raccourci sur le Bureau (`/opt/JuliaPro-VERSION/Juno`) dans Linux      |
-| Outils connexes sur la machine virtuelle DSVM      |   Visual Studio 2019, le Code de Visual Studio, RStudio      |
+| Comment l’utiliser/l’exécuter ?      | Raccourci sur le Bureau (`C:\JuliaPro-0.5.1.1\Juno.bat`) dans Windows, raccourci sur le Bureau (`/opt/JuliaPro-VERSION/Juno`) dans Linux      |
+| Outils connexes sur la machine virtuelle DSVM      |   Visual Studio 2019, Visual Studio Code, RStudio      |
 
 ## <a name="pycharm"></a>Pycharm
 
@@ -85,8 +85,8 @@ La machine virtuelle DSVM fournit un environnement de développement productif e
 | Qu’est-ce que c’est ?   | IDE client pour le langage Python    |
 | Versions DSVM prises en charge      | Linux      |
 | Utilisations classiques      |  Développement Python     |
-| Comment l’utiliser/l’exécuter ?      | Raccourci sur le Bureau (`/usr/bin/pycharm`) dans Linux      |
-| Outils connexes sur la machine virtuelle DSVM      |   Visual Studio 2019, le Code de Visual Studio, RStudio      |
+| Comment l’utiliser/l’exécuter ?      | Raccourci sur le Bureau (`/usr/bin/pycharm`) dans Linux      |
+| Outils connexes sur la machine virtuelle DSVM      |   Visual Studio 2019, Visual Studio Code, RStudio      |
 
 
 
@@ -97,6 +97,6 @@ La machine virtuelle DSVM fournit un environnement de développement productif e
 | Qu’est-ce que c’est ?   | Outil de décisionnel et de visualisation interactive des données    |
 | Versions DSVM prises en charge      | Windows  |
 | Utilisations classiques      |  Visualisation des données et création de tableaux de bord   |
-| Comment l’utiliser/l’exécuter ?      | Raccourci sur le Bureau (`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`)      |
+| Comment l’utiliser/l’exécuter ?      | Raccourci sur le Bureau (`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`)      |
 | Outils connexes sur la machine virtuelle DSVM      |   Visual Studio 2019, Visual Studio Code, Juno      |
 

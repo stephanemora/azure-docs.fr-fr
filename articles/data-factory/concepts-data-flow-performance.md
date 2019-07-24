@@ -1,129 +1,135 @@
 ---
-title: Mappage de flux de données de performances et réglage guide dans Azure Data Factory | Microsoft Docs
-description: En savoir plus sur les facteurs clés qui affectent les performances de flux de données dans Azure Data Factory lorsque vous utilisez le mappage de flux de données.
+title: Guide des performances et du réglage du mappage de flux de données dans Azure Data Factory | Microsoft Docs
+description: En savoir plus sur les facteurs clés ayant des répercussions sur les performances des flux de données dans Azure Data Factory lorsque vous utilisez le mappage de flux de données.
 author: kromerm
 ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.date: 05/16/2019
-ms.openlocfilehash: 46be01c57be0e4f5fa74f8e8b0d91db3d78f441c
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.openlocfilehash: bbbc2bc5c47821469ecf15a27195b1bf0c12e6e5
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480420"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190623"
 ---
-# <a name="mapping-data-flows-performance-and-tuning-guide"></a>Mappage des performances de flux de données et guide d’optimisation
+# <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guide des performances et du réglage du mappage de flux de données
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-Azure Data Factory mappage de flux de données fournissent une interface de navigateur sans code pour concevoir, déployer et orchestrer des transformations de données à grande échelle.
+Le mappage de flux de données Azure Data Factory fournit une interface de navigateur sans code pour concevoir, déployer et orchestrer des transformations de données à l’échelle.
 
 > [!NOTE]
-> Si vous n’êtes pas familiarisé avec les flux de données de mappage ADF en général, consultez [vue d’ensemble des flux de données](concepts-data-flow-overview.md) avant de lire cet article.
+> Si vous n’êtes pas familiarisé avec le mappage de flux de données ADF, consultez [Vue d’ensemble des flux de données](concepts-data-flow-overview.md) avant de lire cet article.
 >
 
 > [!NOTE]
-> Lorsque vous concevez et testez des flux de données à partir de l’UI ADF, veillez à activer le commutateur de débogage afin que vous pouvez exécuter dans votre flux de données en temps réel sans attendre d’un cluster pour le préchauffage.
+> Lorsque vous concevez et testez des flux de données à partir de l’interface utilisateur ADF, veillez à activer le commutateur de débogage de façon à pouvoir exécuter vos flux de données en temps réel sans attendre le préchauffage d’un cluster.
 >
 
-![Bouton de débogage](media/data-flow/debugb1.png "déboguer")
+![Bouton de débogage](media/data-flow/debugb1.png "Déboguer")
 
-## <a name="monitor-data-flow-performance"></a>Surveiller les performances de flux de données
+## <a name="monitor-data-flow-performance"></a>Analyser les performances des flux de données
 
-Pendant la conception de vos données de mappage de flux dans le navigateur, vous pouvez test unitaire chaque transformation individuelle en cliquant sur l’onglet d’aperçu de données dans le volet de paramètres en bas de chaque transformation. L’étape suivante, que vous devez effectuer consiste à tester vos données flux de bout en bout dans le Concepteur de pipeline. Ajouter une activité d’exécution de flux de données et utilisez le bouton de débogage pour tester les performances de votre flux de données. Dans le volet inférieur de la fenêtre de pipeline, vous verrez une icône de lunettes sous « actions » :
+Pendant la conception de vos flux de données de mappage dans le navigateur, vous pouvez effectuer un test unitaire de chaque transformation individuelle en cliquant sur l’onglet d’aperçu des données dans le volet inférieur des paramètres de chaque transformation. L’étape suivante que vous devriez effectuer consiste à tester votre flux de données de bout en bout dans le concepteur de pipeline. Ajoutez une activité Exécuter Data Flow et utilisez le bouton Déboguer pour tester les performances de votre flux de données. Dans le volet inférieur de la fenêtre de pipeline, vous voyez une icône de lunettes sous « actions » :
 
-![Analyse de flux de données](media/data-flow/mon002.png "moniteur 2 du flux de données")
+![Analyse de flux de données](media/data-flow/mon002.png "Analyse de flux de données 2")
 
-Cliquez sur cette icône Afficher le plan d’exécution et le profil de performance suivants de votre flux de données. Vous pouvez utiliser ces informations pour évaluer les performances de votre flux de données avec des sources de données de taille différente. Notez que vous pouvez supposer que 1 minute de la moment de la configuration de cluster de l’exécution du travail dans vos calculs de performance globale et si vous utilisez la valeur par défaut du Runtime d’intégration Azure, vous devrez peut-être ajouter 5 minutes d’ainsi les temps d’accès de cluster.
+Cliquez sur cette icône pour afficher le plan d'exécution et le profil de performance de votre flux de données qui en résulte. Vous pouvez utiliser ces informations pour évaluer les performances de votre flux de données avec des sources de données de tailles différentes. Notez que vous pouvez vous baser sur 1 minute d’exécution du travail de cluster pour l’ensemble de vos calculs de performance et que, si vous utilisez la valeur par défaut d’Azure Integration Runtime, vous devrez peut-être ajouter 5 minutes pour la mise en place du cluster.
 
-![Analyse du flux de données](media/data-flow/mon003.png "moniteur 3 de flux de données")
+![Analyse de flux de données](media/data-flow/mon003.png "Analyse de flux de données 3")
 
-## <a name="optimizing-for-azure-sql-database-and-azure-sql-data-warehouse"></a>Optimisation de la base de données SQL Azure et Azure SQL Data Warehouse
+## <a name="optimizing-for-azure-sql-database-and-azure-sql-data-warehouse"></a>Optimisation pour Azure SQL Database et Azure SQL Data Warehouse
 
-![Partie source](media/data-flow/sourcepart2.png "partie Source")
+![Partie source](media/data-flow/sourcepart3.png "Partie Source")
 
-### <a name="partition-your-source-data"></a>Partitionner vos données source
+### <a name="partition-your-source-data"></a>Partitionner vos données sources
 
-* Accédez à « Optimisation » et sélectionnez « Source ». Définir une colonne de table spécifique ou un type dans une requête.
-* Si vous avez choisi « colonne », puis choisissez la colonne de partition.
-* En outre, définissez le nombre maximal de connexions à votre base de données SQL Azure. Vous pouvez essayer un paramètre plus élevé pour obtenir des connexions parallèles à votre base de données. Toutefois, certains cas peuvent entraîner des performances plus rapides avec un nombre limité de connexions.
-* Vos tables de base de données source n’avez pas besoin d’être partitionnées.
-* La définition d’une requête dans votre transformation Source qui correspond au schéma de partitionnement de votre table de base de données permettra le moteur de base de données source tirer parti d’élimination de partition.
-* Si votre source n’est pas déjà partitionné, ADF utiliseront toujours le partitionnement des données dans l’environnement de transformation Spark basé sur la clé que vous sélectionnez dans la transformation Source.
+* Accédez à « Optimiser » et sélectionnez « Source ». Définissez une colonne de table spécifique ou un type dans une requête.
+* Si vous avez choisi « colonne », choisissez la colonne de partition.
+* Définissez également le nombre maximum de connexions à votre base de données Azure SQL. Vous pouvez essayer d’utiliser un paramètre plus élevé pour obtenir des connexions parallèles à votre base de données. Toutefois, dans certains cas ceci peut entraîner des performances plus rapides avec un nombre limité de connexions.
+* Vos tables de base de données sources n’ont pas besoin d’être partitionnées.
+* La définition d’une requête dans votre transformation source qui correspond au schéma de partitionnement de votre table de base de données permettra au moteur de base de données source de tirer parti de la suppression de la partition.
+* Si votre source n’est pas encore partitionnée, ADF utilise toujours le partitionnement des données dans l’environnement de transformation Spark basé sur la clé sélectionnée dans la transformation source.
 
-### <a name="set-batch-size-and-query-on-source"></a>Définir la taille du lot et requête sur la source
+### <a name="set-batch-size-and-query-on-source"></a>Définissez la taille de lot et la requête sur la source
 
 ![Source](media/data-flow/source4.png "Source")
 
-* Définir la taille de lot indiquera ADF pour stocker les données dans les jeux en mémoire au lieu de la ligne par ligne. Il s’agit d’un paramètre facultatif et vous pouvez exécuter plus de ressources sur les nœuds de calcul si elles ne sont pas dimensionnées correctement.
-* Définition d’une requête peut vous permettre filtrer le droit des lignes à la source avant leur arrivée même pour les flux de données pour le traitement, ce qui peut rendre l’acquisition initiale des données plus rapide.
-* Si vous utilisez une requête, vous pouvez ajouter des indicateurs de requête facultatif pour votre Azure SQL DB, par exemple, READ UNCOMMITTED
+* La définition de la taille de lot indique à ADF qu’elle doit stocker les données dans les ensembles en mémoire et non pas ligne par ligne. Il s’agit d’un paramètre facultatif. Il est possible que vous manquiez de ressources sur les nœuds de calcul s’il est mal dimensionné.
+* La définition d’une requête peut vous permettre de filtrer des lignes à la source avant même qu’elles n’arrivent dans le flux de données pour être traitées, ce qui peut accélérer l’acquisition initiale des données.
+* Si vous utilisez une requête, vous pouvez ajouter des indicateurs de requêtes facultatifs pour votre base de données Azure SQL, c’est à dire READ UNCOMMITTED.
 
-### <a name="set-sink-batch-size"></a>Définir la taille de lot de récepteur
+### <a name="set-isolation-level-on-source-transformation-settings-for-sql-datasets"></a>Définir le niveau d’isolement sur les paramètres de transformation de source pour les jeux de données SQL.
 
-![Récepteur](media/data-flow/sink4.png "récepteur")
+* La lecture non validée fournira des résultats plus rapides suite à une requête concernant la transformation de la source.
 
-* Afin d’éviter un traitement ligne par ligne de votre flux de données, définissez la « taille de lot » dans les paramètres de récepteur de base de données SQL Azure. Cela indiquera QU'ADF pour le processus de base de données écrit par lots en fonction de la taille fournie.
+![Niveau d’isolement](media/data-flow/isolationlevel.png "Niveau d’isolement")
 
-### <a name="set-partitioning-options-on-your-sink"></a>Définir les options sur votre récepteur de partitionnement
+### <a name="set-sink-batch-size"></a>Définir la taille de lot du récepteur
 
-* Même si vous n’avez pas vos données partitionnées dans vos tables de base de données SQL Azure de destination, accédez à l’onglet de l’optimiser et partitionnement du jeu.
-* Très souvent, signale simplement ADF à utiliser le partitionnement sur les clusters de l’exécution de Spark entraîne le chargement au lieu de forcer toutes les connexions à partir d’une nœud unique/partition de données beaucoup plus rapides de répétition alternée.
+![Récepteur](media/data-flow/sink4.png "Récepteur")
 
-### <a name="increase-size-of-your-compute-engine-in-azure-integration-runtime"></a>Augmentez la taille de votre moteur de calcul dans le Runtime d’intégration Azure
+* Afin d’éviter un traitement ligne par ligne de vos flux de données, définissez la « taille de lot » dans les paramètres du récepteur de la base de données Azure SQL. Ceci indique à ADF qu’elle doit traiter les écritures de base de données par lots en fonction de la taille fournie.
 
-![Nouveau runtime d’intégration](media/data-flow/ir-new.png "nouveau runtime d’intégration")
+### <a name="set-partitioning-options-on-your-sink"></a>Définissez des options de partitionnement sur votre récepteur
 
-* Augmenter le nombre de cœurs, ce qui augmentera le nombre de nœuds et vous fournir plus de puissance de traitement pour interroger et d’écrire dans votre base de données SQL Azure.
-* Essayez les options « Calcul optimisé », « mémoire » à appliquer davantage de ressources à vos nœuds de calcul.
+* Même si vos données ne sont pas partitionnées dans vos tables de base de données Azure SQL de destination, accédez à l’onglet Optimiser et définissez le partitionnement.
+* Très souvent, le simple fait d’indiquer à ADF qu’elle doit utiliser le partitionnement en tourniquet (round robin) sur les clusters d’exécution Spark entraîne un chargement beaucoup plus rapide des données au lieu de forcer toutes les connexions à partir d’un nœud/d’une partition uniques.
+
+### <a name="increase-size-of-your-compute-engine-in-azure-integration-runtime"></a>Augmenter la taille de votre moteur de calcul dans Azure Integration Runtime
+
+![Nouveau runtime d’intégration](media/data-flow/ir-new.png "Nouveau runtime d’intégration")
+
+* Augmentez le nombre de cœurs, ce qui augmentera le nombre de nœuds et vous fournira plus de puissance de traitement pour interroger et d’écrire dans votre base de données SQL Azure.
+* Essayez les options « Optimisé pour le calcul » et « À mémoire optimisée » pour appliquer davantage de ressources à vos nœuds de calcul.
 
 ### <a name="unit-test-and-performance-test-with-debug"></a>Test unitaire et test de performances avec le débogage
 
-* Lorsque unit test des flux de données, la valeur est le bouton « Données de flux de débogage » ON.
-* Dans le Concepteur de flux de données, utilisez l’onglet Aperçu des données sur les transformations pour afficher les résultats de votre logique de transformation.
-* Test unitaire vos données circulent à partir du Concepteur de pipeline en plaçant une activité de flux de données sur la conception de pipeline canevas et permet de tester le bouton « Debug ».
-* Test en mode débogage fonctionnera dans un environnement de cluster chauffés en direct sans devoir attendre pour un cluster de juste-à-temps en place.
+* Lors du test unitaire des flux de données, mettez le bouton « Déboguer le flux de données » sur ACTIVÉ.
+* Au sein du concepteur de flux de données, utilisez l’onglet Aperçu des données sur les transformations pour afficher les résultats de votre logique de transformation.
+* Effectuez un test unitaire de vos flux de données à partir du concepteur de pipeline en plaçant une activité de flux de données sur le canevas de conception de pipeline, et utilisez le bouton « Déboguer » pour tester.
+* Les tests en mode de débogage fonctionneront dans un environnement de cluster chauffé en direct sans devoir attendre un préchauffage juste-à-temps du cluster.
 
-### <a name="disable-indexes-on-write"></a>Désactiver l’index lors de l’écriture
-* Utiliser une activité de procédure stockée de pipeline ADF avant votre activité de flux de données qui désactive les index sur les tables cible qui sont écrits dans votre récepteur de.
-* Après votre activité de flux de données, ajoutez une autre activité de procédure stockée qui activé ces index.
+### <a name="disable-indexes-on-write"></a>Désactivez les index lors de l’écriture
+* Utilisez une activité de procédure stockée du pipeline ADF avant votre activité de flux de données qui désactive les index sur vos tables cibles lors de l’écriture sur ces dernières à partir de votre récepteur.
+* Après votre activité de flux de données, ajoutez une autre activité de traitement stockée qui a activé ces index.
 
-### <a name="increase-the-size-of-your-azure-sql-db"></a>Augmenter la taille de votre base de données SQL Azure
-* Planifier un redimensionnement de votre source et récepteur Azure SQL DB avant que votre limite de votre pipeline pour augmenter le débit et réduire la limitation Azure une fois que vous atteignez DTU l’exécution.
-* Une fois terminée l’exécution de votre pipeline, vous pouvez redimensionner vos bases de données à leur fréquence d’exécution normale.
+### <a name="increase-the-size-of-your-azure-sql-db"></a>Augmentez la taille de votre base de données SQL Azure
+* Planifiez un redimensionnement de votre base de données SQL Azure de source et de récepteur Azure avant d’exécuter votre pipeline pour augmenter le débit et réduire la limitation de requêtes Azure une fois que vous aurez atteint les limites DTU.
+* Une fois l’exécution de votre pipeline terminée, vous pouvez redimensionner vos bases de données à leur fréquence d’exécution normale.
 
 ## <a name="optimizing-for-azure-sql-data-warehouse"></a>Optimisation pour Azure SQL Data Warehouse
 
-### <a name="use-staging-to-load-data-in-bulk-via-polybase"></a>Utiliser la mise en lots pour charger des données en bloc par le biais de Polybase
+### <a name="use-staging-to-load-data-in-bulk-via-polybase"></a>Utilisez la mise en lots pour charger des données en bloc par le biais de Polybase
 
-* Afin d’éviter un traitement ligne par ligne de votre flux de données, définissez l’option de « Intermédiaire » dans les paramètres de récepteur afin que ADF peut tirer parti de Polybase pour éviter les insertions de ligne par ligne dans l’entrepôt de données. Cela indiquera ADF pour utiliser Polybase afin que les données peuvent être chargées en bloc.
-* Lorsque vous exécutez votre activité de flux de données à partir d’un pipeline, avec mise en lots est activé, vous devez sélectionner l’emplacement de magasin d’objets Blob de vos données de zone de transit pour le chargement en masse.
+* Pour éviter un traitement ligne par ligne de vos flux de données, définissez l’option « Mise en lots » dans les paramètres de récepteur de telle manière qu’ADF puisse tirer parti de Polybase pour éviter les insertions ligne par ligne dans l’entrepôt de données. Ceci indiquera à ADF qu’elle doit utiliser Polybase afin que ces données puissent être chargées en bloc.
+* Lorsque vous exécutez votre activité de flux de données à partir d’un pipeline avec la mise en lots activée, vous devez sélectionner l’emplacement de magasin d’objets Blob de vos données mises en lots pour le chargement en masse.
 
-### <a name="increase-the-size-of-your-azure-sql-dw"></a>Augmenter la taille de votre entrepôt de données SQL Azure
+### <a name="increase-the-size-of-your-azure-sql-dw"></a>Augmentez la taille de votre entrepôt de données SQL Azure
 
-* Planifier un redimensionnement de votre source et récepteur Azure SQL Data Warehouse avant d’exécuter votre pipeline pour augmenter le débit et réduire la limitation Azure une fois que vous atteignez les limites DWU.
+* Planifiez un redimensionnement de votre entrepôt de données SQL Azure de source et de récepteur Azure avant d’exécuter votre pipeline pour augmenter le débit et réduire la limitation de requêtes Azure une fois que vous aurez atteint les limites DWU.
 
-* Une fois terminée l’exécution de votre pipeline, vous pouvez redimensionner vos bases de données à leur fréquence d’exécution normale.
+* Une fois l’exécution de votre pipeline terminée, vous pouvez redimensionner vos bases de données à leur fréquence d’exécution normale.
 
-## <a name="optimize-for-files"></a>Optimiser pour les fichiers
+## <a name="optimize-for-files"></a>Optimiser les fichiers
 
-* Vous pouvez contrôler le nombre de partitions que ADF utilisera. Sur chaque transformation Source et récepteur, ainsi que chaque transformation individuelles, vous pouvez définir un schéma de partitionnement. Pour les fichiers plus petits, vous pouvez trouver la sélection « Partition unique » peut parfois fonctionne mieux et plus rapidement que si vous demandez de Spark pour partitionner vos fichiers de petite taille.
-* Si vous n’avez pas suffisamment d’informations sur votre source de données, vous pouvez choisir « Tourniquet » de partitionnement et de définir le nombre de partitions.
-* Si vous explorez vos données et que vous trouvez que des colonnes qui peuvent être des clés de hachage bon, utilisez l’option de partitionnement par hachage.
+* Vous pouvez contrôler le nombre de partitions qu’ADF utilisera. Sur chaque transformation de source et de récepteur, ainsi que sur chaque transformation individuelle, vous pouvez définir un schéma de partitionnement. Pour les fichiers plus petits, vous pouvez trouver que sélectionner « Partition unique » fonctionne parfois mieux et plus rapidement que si vous demandez à Spark de partitionner vos fichiers de petite taille.
+* Si vous n’avez pas suffisamment d’informations sur vos données sources, vous pouvez choisir le partitionnement en tourniquet (round robin) et définir le nombre de partitions.
+* Si vous explorez vos données et que vous trouvez que vous avez des colonnes qui feraient de bonnes clés de code de hachage, utilisez l’option Partitionnement de hachage.
 
-### <a name="file-naming-options"></a>Options d’affectation de noms de fichiers
+### <a name="file-naming-options"></a>Options d’attribution de noms de fichiers
 
-* La nature de la valeur par défaut de l’écriture des données transformées dans le flux de données de mappage ADF consiste à écrire dans un jeu de données qui a un objet Blob ou le Service lié ADLS. Vous devez définir ce jeu de données pour pointer vers un dossier ou un conteneur, pas un fichier nommé.
-* Utilisation de flux de données Azure Databricks Spark pour l’exécution, ce qui signifie que votre sortie sera réparti sur plusieurs fichiers basés sur soit par défaut Spark partitionnement ou le partitionnement de schéma que vous avez choisi explicitement.
-* Une opération très courante dans les flux de données ADF consiste à choisir « Output à fichier unique » afin que tous vos fichiers de partie de sortie sont fusionnés dans un fichier de sortie unique.
-* Toutefois, cette opération nécessite que la sortie est réduit à une partition unique sur un seul nœud du cluster.
-* Gardez cela à l’esprit lorsque vous choisissez cette option populaires. Vous pouvez exécuter plus de ressources de nœud de cluster si vous combinez le nombre de fichiers source volumineux dans une partition de fichier de sortie unique.
-* Pour éviter d’épuiser les ressources de nœud de calcul, vous pouvez conserver la valeur par défaut ou schéma de partitionnement explicite dans ADF, ce qui optimise les performances, et puis ajoutez une activité de copie suivantes dans le pipeline qui fusionne toutes de la partie des fichiers à partir du dossier de sortie pour un seul nouveau fichier. Pour l’essentiel, cette technique sépare l’action de transformation de fusion de fichier et obtenir le même résultat que la définition de « sortie à fichier unique ».
+* La nature de la valeur par défaut de l’écriture de données transformées dans le mappage des flux de données d’ADF consiste à écrire dans un jeu de données qui a un objet Blob ou un service lié ADLS. Vous devez définir ce jeu de données de manière qu’il pointe vers un dossier ou un conteneur, pas vers un fichier nommé.
+* Les flux de données utilisent Azure Databricks Spark pour l’exécution, ce qui signifie que votre sortie sera réparti sur plusieurs fichiers basés soit sur le partitionnement Spark par défaut, soit sur le schéma de partitionnement que vous avez explicitement choisi.
+* Une opération très courante dans les flux de données ADF consiste à choisir « Sortie vers un fichier unique » afin que tous vos fichiers de partie de sortie soient fusionnés dans un fichier de sortie unique.
+* Toutefois, cette opération nécessite que la sortie soit réduite à une partition unique sur un seul nœud de cluster.
+* Pensez-y lorsque vous choisissez cette option populaire. Il est possible que vous n’ayez plus de ressources de nœud de cluster si vous combinez de nombreux fichiers sources dans un seul partitionnement de fichier de sortie.
+* Pour éviter d’épuiser les ressources de nœud de calcul, vous pouvez conserver le schéma par défaut ou le schéma de partitionnement explicite dans ADF, ce qui optimise les performances, puis ajouter une activité de copie suivante dans le pipeline qui fusionne tous les fichiers de PARTIE du dossier de sortie vers un nouveau fichier unique. Pour l’essentiel, cette technique sépare l’action de transformation de la fusion de fichiers et donne le même résultat que la définition sur « sortir dans un fichier unique ».
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez les autres articles du flux de données :
+Consultez les autres articles sur les flux de données consacrés aux performances :
 
-- [Vue d’ensemble du flux de données](concepts-data-flow-overview.md)
-- [Activité de flux de données](control-flow-execute-data-flow-activity.md)
-- [Surveiller les performances de flux de données](concepts-data-flow-monitoring.md)
+- [Onglet Optimiser le flux de données](concepts-data-flow-optimize-tab.md)
+- [Activité Data Flow](control-flow-execute-data-flow-activity.md)
+- [Analyser les performances des flux de données](concepts-data-flow-monitoring.md)

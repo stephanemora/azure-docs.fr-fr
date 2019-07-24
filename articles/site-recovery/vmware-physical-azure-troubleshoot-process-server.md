@@ -1,6 +1,6 @@
 ---
-title: Dépannage du serveur de processus Azure Site Recovery
-description: Cet article décrit comment résoudre les problèmes avec le serveur de processus Azure Site Recovery
+title: Dépanner le serveur de traitement Azure Site Recovery
+description: Cet article décrit comment résoudre les problèmes avec le serveur de traitement Azure Site Recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
@@ -8,184 +8,184 @@ ms.topic: troubleshooting
 ms.date: 04/29/2019
 ms.author: raynew
 ms.openlocfilehash: 6e31308800f72d60381f1e4ecd540482ba263851
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65969371"
 ---
-# <a name="troubleshoot-the-process-server"></a>Dépannage du serveur de processus
+# <a name="troubleshoot-the-process-server"></a>Dépanner le serveur de traitement
 
-Le [Site Recovery](site-recovery-overview.md) serveur de processus est utilisé lorsque vous configurez la récupération d’urgence vers Azure pour les machines virtuelles VMware en local et des serveurs physiques. Cet article décrit comment résoudre les problèmes avec le serveur de processus, y compris les problèmes de connectivité et de réplication.
+Le serveur de traitement [Site Recovery](site-recovery-overview.md) est utilisé pour la configuration d’une reprise après sinistre vers Azure de machines virtuelles VMware et de serveurs physiques. Cet article décrit comment résoudre les problèmes avec le serveur de traitement, y compris les problèmes de réplication et de connectivité.
 
-[En savoir plus](vmware-physical-azure-config-process-server-overview.md) sur le serveur de processus.
+[En savoir plus](vmware-physical-azure-config-process-server-overview.md) sur le serveur de traitement.
 
 ## <a name="before-you-start"></a>Avant de commencer
 
-Avant de commencer la résolution des problèmes :
+Avant de commencer le dépannage :
 
-1. Assurez-vous que vous comprenez comment [surveiller les serveurs de processus](vmware-physical-azure-monitor-process-server.md).
-2. Passez en revue les meilleures pratiques ci-dessous.
-3. Assurez-vous que vous respectez [considérations relatives à la capacité](site-recovery-plan-capacity-vmware.md#capacity-considerations)et utiliser le Guide de dimensionnement pour les [serveur de configuration](site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-configuration-server-and-inbuilt-process-server) ou [serveurs de processus autonomes](site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-process-server).
+1. Assurez-vous de bien comprendre comment [surveiller les serveurs de traitement](vmware-physical-azure-monitor-process-server.md).
+2. Consultez les bonnes pratiques ci-dessous.
+3. Veuillez tenir compte des [considérations sur la capacité](site-recovery-plan-capacity-vmware.md#capacity-considerations) et utiliser le guide de dimensionnement du [serveur de configuration](site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-configuration-server-and-inbuilt-process-server) ou des [serveurs de traitement autonomes](site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-process-server).
 
-## <a name="best-practices-for-process-server-deployment"></a>Meilleures pratiques pour le déploiement de serveur de processus
+## <a name="best-practices-for-process-server-deployment"></a>Bonnes pratiques de déploiement du serveur de traitement
 
-Pour optimiser les performances des serveurs de processus, nous avons résumé un nombre des meilleures pratiques générales.
+Pour des performances optimales des serveurs de traitement, nous avons résumé un certain nombre de bonnes pratiques générales.
 
-**Il est recommandé** | **Détails**
+**Bonne pratique** | **Détails**
 --- |---
-**Utilisation** | Assurez-vous que le serveur de processus de configuration/server (autonome) sont utilisés uniquement pour le rôle prévu. N’exécutez pas rien d’autre sur l’ordinateur.
-**Adresse IP** | Assurez-vous que le serveur de processus a une adresse IPv4 statique et n’a pas configuré pour NAT.
-**Contrôler l’utilisation de mémoire/processeur** |Conserver sous utilisation du processeur et mémoire à 70 %.
-**Garantir un espace libre** | Espace libre fait référence à l’espace disque de cache sur le serveur de processus. Les données de réplication sont stockées dans le cache avant d’être téléchargée vers Azure.<br/><br/> Gardez à l’espace libre supérieur à 25 %. Si elle est inférieure à 20 %, la réplication est limitée pour les machines répliquées qui sont associés au serveur de processus.
+**Utilisation** | Assurez-vous que le serveur de configuration/serveur de traitement autonome n'est utilisé que pour l'usage prévu. Ne lancez aucune autre tâche sur la machine.
+**Adresse IP** | Assurez-vous que le serveur de traitement comporte une adresse IPv4 statique et n'a aucun réseau NAT configuré.
+**Contrôle de l’utilisation de la mémoire et du processeur** |Maintenez l'utilisation du processeur et de la mémoire en dessous de 70 %.
+**Garantir suffisamment d’espace libre** | L'espace libre fait référence à l'espace disque du cache sur le serveur de traitement. Les données de réplication sont stockées dans le cache avant d'être chargées vers Azure.<br/><br/> Conservez un espace libre supérieur à 25 %. S’il descend en dessous de 20 %, la réplication est limitée pour les machines répliquées associées au serveur de traitement.
 
-## <a name="check-process-server-health"></a>Vérifier l’intégrité du serveur de processus
+## <a name="check-process-server-health"></a>Vérifier l'état d’intégrité du serveur de traitement
 
-La première étape de dépannage consiste à vérifier l’intégrité et l’état du serveur de processus. Pour ce faire, passez en revue toutes les alertes, vérifiez que les services requis sont en cours d’exécution et vérifiez qu’il existe une pulsation du serveur de traitement. Ces étapes sont résumées dans le graphique suivant, suivie de différentes procédures pour vous aider à effectuer les étapes.
+La première étape du dépannage consiste à vérifier l’intégrité et l’état du serveur de traitement. Pour cela, consultez toutes les alertes, vérifiez que les services requis sont en cours d'exécution et que le serveur de traitement émet des pulsations. Ces étapes sont résumées dans le graphique suivant, suivies de procédures pour vous aider à les exécuter.
 
-![Résoudre les problèmes d’intégrité du serveur de processus](./media/vmware-physical-azure-troubleshoot-process-server/troubleshoot-process-server-health.png)
+![Détecter un problème d’intégrité du serveur de traitement](./media/vmware-physical-azure-troubleshoot-process-server/troubleshoot-process-server-health.png)
 
-## <a name="step-1-troubleshoot-process-server-health-alerts"></a>Étape 1 : Résoudre les alertes d’intégrité du serveur processus
+## <a name="step-1-troubleshoot-process-server-health-alerts"></a>Étape 1 : Résoudre les alertes d’intégrité du serveur de traitement
 
-Le serveur de traitement génère un nombre d’alertes d’intégrité. Ces alertes et les actions recommandées, sont résumées dans le tableau suivant.
+Le serveur de traitement génère un certain nombre d’alertes d’intégrité. Ces alertes et les mesures recommandées sont résumées dans le tableau suivant.
 
 **Type d’alerte** | **Error** | **Résolution des problèmes**
 --- | --- | --- 
-![Healthy][green] | Aucun  | Serveur de processus est connecté et sain.
-![Avertissement][yellow] | Services spécifiés ne sont pas en cours d’exécution. | 1. Vérifiez que les services sont en cours d’exécution.<br/> 2. Si les services s’exécutent comme prévu, suivez les instructions ci-dessous pour [résoudre les problèmes de connectivité et de réplication](#check-connectivity-and-replication).
-![Avertissement][yellow]  | Processeur utilisation > 80 % au cours des 15 dernières minutes. | 1. Ne pas ajouter les nouveaux ordinateurs.<br/>2. Vérifiez que le nombre de machines virtuelles en utilisant le serveur de processus s’aligne sur [limites définies](site-recovery-plan-capacity-vmware.md#capacity-considerations)et envisagez de configurer un [serveur de traitement supplémentaire](vmware-azure-set-up-process-server-scale.md).<br/>3. Suivez les instructions ci-dessous pour [résoudre les problèmes de connectivité et de réplication](#check-connectivity-and-replication).
-![Critique][red] |  Processeur utilisation > 95 % pendant les 15 dernières minutes. | 1. Ne pas ajouter les nouveaux ordinateurs.<br/>2. Vérifiez que le nombre de machines virtuelles en utilisant le serveur de processus s’aligne sur [limites définies](site-recovery-plan-capacity-vmware.md#capacity-considerations)et envisagez de configurer un [serveur de traitement supplémentaire](vmware-azure-set-up-process-server-scale.md).<br/>3. Suivez les instructions ci-dessous pour [résoudre les problèmes de connectivité et de réplication](#check-connectivity-and-replication).<br/> 4. Si le problème persiste, exécutez le [Deployment Planner](https://aka.ms/asr-v2a-deployment-planner) pour la réplication de serveur physique/VMware.
-![Avertissement][yellow] | Utilisation de mémoire > 80 % au cours des 15 dernières minutes. |  1. Ne pas ajouter les nouveaux ordinateurs.<br/>2. Vérifiez que le nombre de machines virtuelles en utilisant le serveur de processus s’aligne sur [limites définies](site-recovery-plan-capacity-vmware.md#capacity-considerations)et envisagez de configurer un [serveur de traitement supplémentaire](vmware-azure-set-up-process-server-scale.md).<br/>3. Suivez les instructions associées à l’avertissement.<br/> 4. Si le problème persiste, suivez les instructions ci-dessous pour [résoudre les problèmes de connectivité et de réplication](#check-connectivity-and-replication).
-![Critique][red] | Utilisation de mémoire > 95 % des 15 dernières minutes. | 1. Ne pas ajouter de nouveaux ordinateurs et que vous envisagez de configurer un [serveur de traitement supplémentaire](vmware-azure-set-up-process-server-scale.md).<br/> 2. Suivez les instructions associées à l’avertissement.<br/> 3. 4. Si le problème persiste, suivez les instructions ci-dessous pour [résoudre les problèmes de connectivité et de réplication](#check-connectivity-and-replication).<br/> 4. Si le problème persiste, exécutez le [Deployment Planner](https://aka.ms/asr-v2a-deployment-planner) de problèmes de réplication de serveur physique/VMware.
-![Avertissement][yellow] | Cache dossier espace libre < 30 % au cours des 15 dernières minutes. | 1. Ne pas ajouter de nouveaux ordinateurs et envisagez de configurer un [serveur de traitement supplémentaire](vmware-azure-set-up-process-server-scale.md).<br/>2. Vérifiez que le nombre de machines virtuelles en utilisant le serveur de processus s’aligne sur [instructions](site-recovery-plan-capacity-vmware.md#capacity-considerations).<br/> 3. Suivez les instructions ci-dessous pour [résoudre les problèmes de connectivité et de réplication](#check-connectivity-and-replication).
-![Critique][red] |  Espace libre < 25 % au cours des 15 minutes | 1. Suivez les instructions associées à l’avertissement pour ce problème.<br/> 2. 3. Suivez les instructions ci-dessous pour [résoudre les problèmes de connectivité et de réplication](#check-connectivity-and-replication).<br/> 3. Si le problème persiste, exécutez le [Deployment Planner](https://aka.ms/asr-v2a-deployment-planner) pour la réplication de serveur physique/VMware.
-![Critique][red] | Aucune pulsation du serveur de traitement pour 15 minutes ou plus. Le service tmansvs ne communique pas avec le serveur de configuration. | (1) Vérifiez que le serveur de processus est en cours d’exécution.<br/> 2. Vérifiez que le tmassvc s’exécute sur le serveur de processus.<br/> 3. Suivez les instructions ci-dessous pour [résoudre les problèmes de connectivité et de réplication](#check-connectivity-and-replication).
+![Healthy][green] | Aucun  | Le serveur de traitement est connecté et en bonne santé.
+![Avertissement][yellow] | Les services spécifiés ne fonctionnent pas. | 1. Vérifiez que les services sont en cours d’exécution.<br/> 2. Si les services fonctionnent comme prévu, suivez les instructions ci-dessous pour [détecter les problèmes de connectivité et de réplication ](#check-connectivity-and-replication).
+![Avertissement][yellow]  | Utilisation du processeur > 80 % durant les 15 dernières minutes. | 1. N'ajoutez pas de nouvelles machines.<br/>2. Vérifiez que le nombre de machines virtuelles utilisant le serveur de traitement correspond aux [limites définies](site-recovery-plan-capacity-vmware.md#capacity-considerations), et installez un [serveur de traitement supplémentaire](vmware-azure-set-up-process-server-scale.md) si nécessaire.<br/>3. Suivez les instructions ci-dessous pour [détecter les problèmes de connectivité et de réplication ](#check-connectivity-and-replication).
+![Critique][red] |  Utilisation du processeur > 95 % durant les 15 dernières minutes. | 1. N'ajoutez pas de nouvelles machines.<br/>2. Vérifiez que le nombre de machines virtuelles utilisant le serveur de traitement correspond aux [limites définies](site-recovery-plan-capacity-vmware.md#capacity-considerations), et installez un [serveur de traitement supplémentaire](vmware-azure-set-up-process-server-scale.md) si nécessaire.<br/>3. Suivez les instructions ci-dessous pour [détecter les problèmes de connectivité et de réplication ](#check-connectivity-and-replication).<br/> 4. Si le problème persiste, exécutez le [Planificateur de déploiement](https://aka.ms/asr-v2a-deployment-planner) pour la réplication VMware ou du serveur physique.
+![Avertissement][yellow] | Utilisation de la mémoire > 80 % durant les 15 dernières minutes. |  1. N'ajoutez pas de nouvelles machines.<br/>2. Vérifiez que le nombre de machines virtuelles utilisant le serveur de traitement correspond aux [limites définies](site-recovery-plan-capacity-vmware.md#capacity-considerations), et installez un [serveur de traitement supplémentaire](vmware-azure-set-up-process-server-scale.md) si nécessaire.<br/>3. Suivez toutes les instructions liées à l'avertissement.<br/> 4. Si le problème persiste, suivez les instructions ci-dessous pour [détecter les problèmes de connectivité et de réplication ](#check-connectivity-and-replication).
+![Critique][red] | Utilisation de la mémoire > 95 % durant les 15 dernières minutes. | 1. N'ajoutez pas de nouvelles machines et installez un [serveur de traitement supplémentaire](vmware-azure-set-up-process-server-scale.md) si nécessaire.<br/> 2. Suivez toutes les instructions liées à l'avertissement.<br/> 3. 4. Si le problème persiste, suivez les instructions ci-dessous pour [détecter les problèmes de connectivité et de réplication ](#check-connectivity-and-replication).<br/> 4. Si le problème persiste, exécutez le [Planificateur de déploiement](https://aka.ms/asr-v2a-deployment-planner) pour résoudre les problèmes de réplication VMware ou du serveur physique.
+![Avertissement][yellow] | Espace libre du dossier cache < 30 % durant les 15 dernières minutes. | 1. N'ajoutez pas de nouvelles machines et installez un [serveur de traitement supplémentaire](vmware-azure-set-up-process-server-scale.md) si nécessaire.<br/>2. Vérifiez que le nombre de machines virtuelles utilisant le serveur de traitement correspond aux [instructions](site-recovery-plan-capacity-vmware.md#capacity-considerations).<br/> 3. Suivez les instructions ci-dessous pour [détecter les problèmes de connectivité et de réplication ](#check-connectivity-and-replication).
+![Critique][red] |  Espace libre < 25 % durant les 15 dernières minutes | 1. Suivez les instructions liées à l'avertissement pour ce problème.<br/> 2. 3. Suivez les instructions ci-dessous pour [détecter les problèmes de connectivité et de réplication ](#check-connectivity-and-replication).<br/> 3. Si le problème persiste, exécutez le [Planificateur de déploiement](https://aka.ms/asr-v2a-deployment-planner) pour la réplication VMware ou du serveur physique.
+![Critique][red] | Le serveur de traitement n’a émis aucune pulsation pendant 15 minutes ou plus. Le service tmansvs ne communique pas avec le serveur de configuration. | 1) Vérifiez que le serveur de traitement est opérationnel.<br/> 2. Vérifiez que le service tmassvc est en cours d’exécution sur le serveur de traitement.<br/> 3. Suivez les instructions ci-dessous pour [détecter les problèmes de connectivité et de réplication ](#check-connectivity-and-replication).
 
 
 ![Clé de table](./media/vmware-physical-azure-troubleshoot-process-server/table-key.png)
 
 
-## <a name="step-2-check-process-server-services"></a>Étape 2 : Vérifier les services de serveur de processus
+## <a name="step-2-check-process-server-services"></a>Étape 2 : Vérifier les services du serveur de traitement
 
-Les services qui doivent être en cours d’exécution sur le serveur de processus sont résumées dans le tableau suivant. Il existe de légères différences dans les services, en fonction de la façon dont le serveur de processus est déployé. 
+Les services qui devraient être exécutés sur le serveur de traitement sont résumés dans le tableau suivant. Il existe de légères différences entre les services, selon la façon dont le serveur de traitement est déployé. 
 
-Pour tous les services à l’exception de l’Agent Microsoft Azure Recovery Services (obengine), vérifiez que le StartType est défini sur **automatique** ou **automatique (début différé)**.
+Pour tous les services à l'exception de Microsoft Azure Recovery Services Agent (obengine), vérifiez que StartType est défini sur **Automatique** ou **Automatique (démarrage différé)** .
  
 **Déploiement** | **Services en cours d’exécution**
 --- | ---
-**Serveur de traitement sur le serveur de configuration** | ProcessServer ; ProcessServerMonitor ; cxprocessserver ; InMage PushInstall ; Service de téléchargement de journal (LogUpload) ; InMage Scout Application Service ; Microsoft Azure Recovery Services Agent (obengine) ; InMage Scout VX Agent-Sentinel/Outpost (svagents) ; tmansvc ; World Wide Web (W3SVC) ; de Service de publication MySQL ; Service Microsoft Azure Site Recovery (dra)
-**Serveur de processus en cours d’exécution en tant que serveur autonome** | ProcessServer ; ProcessServerMonitor ; cxprocessserver ; InMage PushInstall ; Service de téléchargement de journal (LogUpload) ; InMage Scout Application Service ; Microsoft Azure Recovery Services Agent (obengine) ; InMage Scout VX Agent-Sentinel/Outpost (svagents) ; tmansvc.
-**Serveur de processus déployé dans Azure pour la restauration automatique** | ProcessServer ; ProcessServerMonitor ; cxprocessserver ; InMage PushInstall ; Service de téléchargement de journal (LogUpload)
+**Serveur de traitement sur le serveur de configuration** | ProcessServer; ProcessServerMonitor; cxprocessserver; InMage PushInstall; Log Upload Service (LogUpload); InMage Scout Application Service; Microsoft Azure Recovery Services Agent (obengine); InMage Scout VX Agent-Sentinel/Outpost (svagents); tmansvc; World Wide Web Publishing Service (W3SVC); MySQL; Microsoft Azure Site Recovery Service (dra)
+**Serveur de traitement fonctionnant en tant que serveur autonome** | ProcessServer; ProcessServerMonitor; cxprocessserver; InMage PushInstall; Log Upload Service (LogUpload); InMage Scout Application Service; Microsoft Azure Recovery Services Agent (obengine); InMage Scout VX Agent-Sentinel/Outpost (svagents); tmansvc.
+**Serveur de traitement déployé sur Azure à des fins de restauration automatique** | ProcessServer; ProcessServerMonitor; cxprocessserver; InMage PushInstall; Log Upload Service (LogUpload)
 
 
-## <a name="step-3-check-the-process-server-heartbeat"></a>Étape 3 : Vérification de pulsation du serveur de processus
+## <a name="step-3-check-the-process-server-heartbeat"></a>Étape 3 : Vérifier les pulsations du serveur de traitement
 
-S’il n’existe aucune pulsation du serveur de traitement (code d’erreur 806), procédez comme suit :
+Si le serveur de traitement n’émet aucune pulsation (code d'erreur 806), procédez comme suit :
 
-1. Vérifiez que la machine virtuelle du serveur de processus est en cours d’exécution.
-2. Vérifiez ces journaux d’erreurs.
+1. Vérifiez que la machine virtuelle du serveur de traitement est opérationnelle.
+2. Recherchez d’éventuelles erreurs dans ces journaux d’activité.
 
-    C:\ProgramData\ASR\home\svsystems\eventmanager *.log C\ProgramData\ASR\home\svsystems\monitor_protection*.log
+    C:\ProgramData\ASR\home\svsystems\eventmanager *.log  C\ProgramData\ASR\home\svsystems\monitor_protection*.log
 
-## <a name="check-connectivity-and-replication"></a>Vérifiez la connectivité et la réplication
+## <a name="check-connectivity-and-replication"></a>Vérifier la connectivité et la réplication
 
- Échecs de réplication initiales et actuelles sont souvent provoquées par des problèmes de connectivité entre les ordinateurs source et le serveur de processus, ou entre le serveur de processus et Azure. Ces étapes sont résumées dans le graphique suivant, suivie de différentes procédures pour vous aider à effectuer les étapes.
+ Les défaillances de réplication initiales et en cours résultent souvent de problèmes de connectivité entre les machines source et le serveur de traitement, ou entre ce dernier et Azure. Ces étapes sont résumées dans le graphique suivant, suivies de procédures pour vous aider à les exécuter.
 
-![Résoudre les problèmes de connectivité et réplication](./media/vmware-physical-azure-troubleshoot-process-server/troubleshoot-connectivity-replication.png)
-
-
-## <a name="step-4-verify-time-sync-on-source-machine"></a>Étape 4 : Vérifier la synchronisation de l’heure sur l’ordinateur source
-
-Assurez-vous que la date/heure système de la machine répliquée est synchronisée. [En savoir plus](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time)
-
-## <a name="step-5-check-anti-virus-software-on-source-machine"></a>Étape 5 : Vérifier un logiciel antivirus sur l’ordinateur source
-
-Vérifiez qu’aucun logiciel antiviru sur l’ordinateur répliquée ne bloque la récupération de Site. Si vous avez besoin exclure la récupération de Site à partir de programmes antivirus, passez en revue [cet article](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program).
-
-## <a name="step-6-check-connectivity-from-source-machine"></a>Étape 6 : Vérifiez la connectivité à partir de la machine source
+![Détecter les problèmes de connectivité et de réplication](./media/vmware-physical-azure-troubleshoot-process-server/troubleshoot-connectivity-replication.png)
 
 
-1. Installer le [client Telnet](https://technet.microsoft.com/library/cc771275(v=WS.10).aspx) sur la machine source, si vous avez besoin. N’utilisez pas Ping.
-2. À partir de la machine source, un test ping sur le serveur de processus sur le port HTTPS avec Telnet. Par défaut 9443 est le port HTTPS pour le trafic de réplication.
+## <a name="step-4-verify-time-sync-on-source-machine"></a>Étape 4 : Vérifier la synchronisation de l'heure sur la machine source
+
+Assurez-vous que la date et l’heure système de la machine répliquée sont synchronisées. [En savoir plus](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time)
+
+## <a name="step-5-check-anti-virus-software-on-source-machine"></a>Étape 5 : Vérifier le logiciel antivirus de la machine source
+
+Vérifiez qu'aucun logiciel antivirus sur la machine répliquée ne bloque Site Recovery. Si vous devez exclure Site Recovery des programmes antivirus, consultez [cet article](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program).
+
+## <a name="step-6-check-connectivity-from-source-machine"></a>Étape 6 : Vérifier la connectivité de la machine source
+
+
+1. Installez le [client Telnet](https://technet.microsoft.com/library/cc771275(v=WS.10).aspx) sur la machine source si nécessaire. N’utilisez pas Ping.
+2. Depuis la machine source, effectuez un test ping sur le serveur de traitement sur le port HTTPS avec Telnet. Par défaut, le port 9443 est le port HTTPS pour le trafic de réplication.
 
     `telnet <process server IP address> <port>`
 
-3. Vérifiez si la connexion est établie.
+3. Vérifiez si la connexion a réussi.
 
 
 **Connectivité** | **Détails** | **Action**
 --- | --- | ---
-**Réussie** | Telnet affiche un écran vide, et le serveur de processus est accessible. | Aucune autre action requise.
-**Ayant échoué** | Vous ne pouvez pas vous connecter | Assurez-vous que le port entrant 9443 est autorisé sur le serveur de processus. Par exemple, si vous avez un réseau de périmètre ou un sous-réseau filtré. Vérifiez la connectivité à nouveau.
-**Partiellement réussie** | Vous pouvez vous connecter, mais la machine source indique que le serveur de processus ne peut pas être atteint. | Poursuivez la procédure de dépannage suivante.
+**Réussi** | Telnet affiche un écran vide, et le serveur de traitement est accessible. | Aucune action supplémentaire n’est requise.
+**Échec** | Vous n’arrivez pas à vous connecter | Vérifiez que le port d'entrée 9443 est autorisé sur le serveur de traitement. Par exemple, si vous utilisez un réseau de périmètre ou un sous-réseau filtré. Revérifiez la connectivité.
+**Réussite partielle** | Vous pouvez vous connecter, mais la machine source signale que le serveur de traitement est inaccessible. | Passez à la procédure de dépannage suivante.
 
-## <a name="step-7-troubleshoot-an-unreachable-process-server"></a>Étape 7 : Résoudre les problèmes d’un serveur de processus inaccessible
+## <a name="step-7-troubleshoot-an-unreachable-process-server"></a>Étape 7 : Dépanner un serveur de traitement inaccessible
 
-Si le serveur de processus n’est pas accessible à partir de la machine source, erreur 78186 s’affichera. Si ne pas traité, ce problème entraîne à la fois à cohérence des applications et des points de récupération cohérents d’incident ne pas en cours de génération comme prévu.
+Si le serveur de traitement est inaccessible depuis la machine source, l'erreur 78186 s’affiche. Si le problème n’est pas résolu, les points de récupération cohérents après incident et cohérents au niveau application ne sont pas générés comme prévu.
 
-Résoudre les problèmes en vérifiant si la machine source peut atteindre l’adresse IP du serveur de processus et exécutez l’outil de cxpsclient sur l’ordinateur source, pour vérifier la connexion de bout en bout.
+Pour résoudre ce problème, vérifiez si la machine source peut atteindre l'adresse IP du serveur de traitement, puis exécutez l'outil cxpsclient sur la machine source pour tester la connexion de bout en bout.
 
 
-### <a name="check-the-ip-connection-on-the-process-server"></a>Vérifiez la connexion IP sur le serveur de processus
+### <a name="check-the-ip-connection-on-the-process-server"></a>Vérifier la connexion IP sur le serveur de traitement
 
-Si telnet réussit mais que la machine source signale que le serveur de processus ne peut pas être atteint, vérifiez si vous pouvez atteindre l’adresse IP du serveur de processus.
+Si telnet réussit mais que la machine source signale que le serveur de traitement est inaccessible, vérifiez si vous pouvez atteindre l'adresse IP de ce serveur.
 
-1. Dans un navigateur web, essayez d’atteindre IP adresse https://<PS_IP>:<PS_Data_Port>/.
-2. Si cette vérification indique une erreur de certificat HTTPS, qui est normal. Si vous ignorez l’erreur, vous devez voir un 400 – demande incorrecte. Cela signifie que le serveur ne peut pas traiter la demande de navigateur, et que la connexion HTTPS standard convient.
-3. Si cette vérification ne fonctionne pas, puis notez le message d’erreur de navigateur. Par exemple, une erreur 407 indique un problème avec l’authentification du proxy.
+1. Dans un navigateur Web, essayez d'atteindre l'adresse IP https://<IP_PS>:<Port_Données_PS>/.
+2. Cette vérification génère une erreur de certificat HTTPS ? C'est normal. Si vous ignorez l'erreur, une erreur « 400 - Requête incorrecte » devrait apparaître. Cela signifie que le serveur ne peut pas répondre à la requête du navigateur, et que la connexion HTTPS standard fonctionne correctement.
+3. Si cette vérification ne fonctionne pas, notez le message d'erreur du navigateur. Par exemple, une erreur 407 indiquera un problème d'authentification proxy.
 
-### <a name="check-the-connection-with-cxpsclient"></a>Vérifiez la connexion avec cxpsclient
+### <a name="check-the-connection-with-cxpsclient"></a>Vérifier la connexion avec cxpsclient
 
-En outre, vous pouvez exécuter l’outil cxpsclient pour vérifier la connexion de bout en bout.
+Vous pouvez également exécuter l'outil cxpsclient pour vérifier la connexion de bout en bout.
 
-1. Exécutez l’outil comme suit :
+1. Exécutez l'outil comme suit :
 
     ```
     <install folder>\cxpsclient.exe -i <PS_IP> -l <PS_Data_Port> -y <timeout_in_secs:recommended 300>
     ```
 
-2. Sur le serveur de processus, vérifiez les journaux générés dans ces dossiers :
+2. Sur le serveur de traitement, vérifiez les journaux d’activité générés dans ces dossiers :
 
     C:\ProgramData\ASR\home\svsystems\transport\log\cxps.err  C:\ProgramData\ASR\home\svsystems\transport\log\cxps.xfer
 
 
 
-### <a name="check-source-vm-logs-for-upload-failures-error-78028"></a>Vérifier le chargement des journaux de machine virtuelle de source pour les échecs (erreur 78028)
+### <a name="check-source-vm-logs-for-upload-failures-error-78028"></a>Vérifier si les journaux d’activité des machines virtuelles source contiennent des erreurs de chargement (erreur 78028)
 
-Problème avec les téléchargements de données bloqué à partir de machines sources pour le service de processus peut entraîner les deux points de récupération cohérents d’incident et cohérence des applications ne pas en cours de génération. 
+Un problème de blocage des chargements de données depuis les machines sources vers le service de traitement peut empêcher la génération de points de récupération cohérents après incident et cohérents au niveau application. 
 
-1. Pour résoudre les échecs de téléchargement de réseau, vous pouvez rechercher des erreurs dans ce journal :
+1. Pour résoudre les problèmes de chargement sur le réseau, vous pouvez rechercher d’éventuelles erreurs dans ce journal d’activité :
 
-    C:\Program fichiers (x86) \Microsoft Azure Site Recovery\agent\svagents*.log 
+    C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\svagents*.log 
 
-2. Utilisez le reste des procédures de cet article peut vous aider à résoudre les problèmes de chargement de données.
+2. Les autres procédures de cet article peuvent vous aider à résoudre les problèmes de chargement des données.
 
 
 
-## <a name="step-8-check-whether-the-process-server-is-pushing-data"></a>Étape 8 : Vérifiez si le serveur de processus/envoie des données
+## <a name="step-8-check-whether-the-process-server-is-pushing-data"></a>Étape 8 : Vérifier si le serveur de traitement transmet activement des données
 
-Vérifiez si le serveur de traitement transmet activement des données vers Azure.
+Vérifiez si le serveur de traitement transmet activement des données à Azure.
 
   1. Sur le serveur de processus, ouvrez le Gestionnaire des tâches (appuyez sur Ctrl+Maj+Échap).
-  2. Sélectionnez le **performances** onglet > **ouvrir le moniteur de ressource**.
-  3. Dans **moniteur de ressource** page, sélectionnez le **réseau** onglet. Sous **processus avec activité réseau**, vérifiez si cbengine.exe envoie un vNotolume volumineux de données.
+  2. Sélectionnez l’onglet **Performances** > **Ouvrir le Moniteur de ressources**.
+  3. Dans la page **Moniteur de ressources**, sélectionnez l’onglet **Réseau**. Sous **Processus avec activité réseau**, vérifiez si cbengine.exe envoie activement un volume important de données.
 
-       ![Volumes sous les processus avec activité réseau](./media/vmware-physical-azure-troubleshoot-process-server/cbengine.png)
+       ![Volumes sous Processus avec activité réseau](./media/vmware-physical-azure-troubleshoot-process-server/cbengine.png)
 
   Si cbengine.exe n’envoie pas un volume important de données, procédez de la manière décrite dans les sections suivantes.
 
-## <a name="step-9-check-the-process-server-connection-to-azure-blob-storage"></a>Étape 9 : Vérifiez la connexion du serveur de processus vers le stockage blob Azure
+## <a name="step-9-check-the-process-server-connection-to-azure-blob-storage"></a>Étape 9 : Vérifier la connexion du serveur de traitement au Stockage Blob Azure
 
-1. Dans le moniteur de ressource, sélectionnez **cbengine.exe**.
-2. Sous **connexions TCP**, vérifiez s’il existe une connectivité entre le serveur de processus et le stockage Azure.
+1. Dans Moniteur de ressources, sélectionnez **cbengine.exe**.
+2. Sous **Connexions TCP**, vérifiez s’il y a une connectivité du serveur de traitement au Stockage Azure.
 
-  ![Connectivité entre cbengine.exe et l’URL de stockage d’objets Blob Azure](./media/vmware-physical-azure-troubleshoot-process-server/rmonitor.png)
+  ![Connectivité entre cbengine.exe et l’URL du Stockage Blob Azure](./media/vmware-physical-azure-troubleshoot-process-server/rmonitor.png)
 
 ### <a name="check-services"></a>Vérifier les services
 
-S’il n’existe pas de connectivité entre le serveur de processus à l’URL de stockage d’objets blob Azure, vérifiez que les services sont en cours d’exécution.
+À défaut de connectivité du serveur de traitement à l’URL du Stockage Blob Azure, vérifiez que les services sont en cours d’exécution.
 
-1. Dans le panneau de configuration, sélectionnez **Services**.
+1. Dans le Panneau de configuration, sélectionnez **Services**.
 2. Vérifiez que les services suivants sont en cours d’exécution :
 
     - cxprocessserver
@@ -195,53 +195,53 @@ S’il n’existe pas de connectivité entre le serveur de processus à l’URL 
     - tmansvc
 
 3. Démarrez ou redémarrez tout service qui n’est pas en cours d’exécution.
-4. Vérifiez que le serveur de processus est connecté et accessible. 
+4. Vérifiez que le serveur de traitement est connecté et accessible. 
 
-## <a name="step-10-check-the-process-server-connection-to-azure-public-ip-address"></a>Étape 10 : vérifier la connexion de serveur de processus à l’adresse IP publique Azure
+## <a name="step-10-check-the-process-server-connection-to-azure-public-ip-address"></a>Étape 10 : vérifier la connexion du serveur de traitement à l'adresse IP publique Azure
 
-1. Sur le serveur de traitement dans **%programfiles%\Microsoft Azure Recovery Services Agent\Temp**, ouvrez le dernier fichier CBEngineCurr.errlog.
-2. Dans le fichier, recherchez **443**, ou pour la chaîne **tentative de connexion a échoué**.
+1. Sur le serveur de traitement, dans **%programfiles%\Microsoft Azure Recovery Services Agent\Temp**, ouvrez le dernier fichier CBEngineCurr.errlog.
+2. Dans le fichier, recherchez **443** ou la chaîne **Échec de la tentative de connexion**.
 
-  ![Journaux d’erreurs dans le dossier Temp](./media/vmware-physical-azure-troubleshoot-process-server/logdetails1.png)
+  ![Journaux d'erreurs dans le dossier Temp](./media/vmware-physical-azure-troubleshoot-process-server/logdetails1.png)
 
-3. Si vous voyez des problèmes, trouve votre adresse IP publique Azure dans le fichier du fichier CBEngineCurr.currLog via le port 443 :
+3. En cas de problèmes, vous trouverez votre adresse IP publique Azure dans le fichier CBEngineCurr.currLog via le port 443 :
 
   `telnet <your Azure Public IP address as seen in CBEngineCurr.errlog>  443`
 
-5. Sur la ligne de commande sur le serveur de processus, utilisez Telnet pour un test ping sur votre adresse IP publique Azure.
-6. Si vous ne pouvez pas vous connecter, suivez la procédure suivante.
+5. Dans la ligne de commande du serveur de traitement, utilisez Telnet pour effectuer un test ping sur votre adresse IP publique Azure.
+6. Si vous ne parvenez pas à vous connecter, procédez comme suit.
 
-## <a name="step-11-check-process-server-firewall-settings"></a>Étape 11 : Vérifiez les paramètres de pare-feu de serveur de processus. 
+## <a name="step-11-check-process-server-firewall-settings"></a>Étape 11 : Vérifier les paramètres du pare-feu du serveur de traitement. 
 
-Vérifiez si le pare-feu fondées sur l’adresse IP sur le serveur de processus bloque l’accès.
+Vérifiez si le pare-feu basé sur l’adresse IP sur le serveur de processus bloque l’accès.
 
-1. Pour les règles de pare-feu fondées sur l’adresse IP :
+1. Pour les règles de pare-feu basées sur une adresse IP :
 
-    (a) Télécharger la liste complète des [plages IP de centre de données Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653).
+    a) Téléchargez la liste complète des [plages d’adresses IP de centre de données Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 
-    (b) ajouter des plages d’adresses IP à votre configuration du pare-feu, pour vous assurer que le pare-feu autorise les communications vers Azure (et le port HTTPS par défaut, 443).
+    b) Ajoutez les plages d’adresses IP à la configuration de votre pare-feu pour vous assurer que celui-ci autorise les communications vers Azure (et le port HTTPS par défaut, 443).
 
-    Autoriser (c) plages d’adresses IP pour la région de votre abonnement Azure et pour la région Azure ouest des États-Unis (utilisées pour la gestion d’identité et contrôle d’accès).
+    c) Autorisez les plages d’adresses IP correspondant à la région Azure de votre abonnement et à la région Azure USA Ouest (utilisée pour le contrôle d’accès et la gestion des identités).
 
-2. Si un pare-feu basé sur l’URL, ajoutez les URL répertoriées dans le tableau suivant pour la configuration du pare-feu.
+2. Pour les pare-feu basés sur une URL, ajoutez les URL répertoriées dans le tableau suivant à la configuration du pare-feu.
 
     [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]  
 
 
-## <a name="step-12-verify-process-server-proxy-settings"></a>Étape 12 : Vérifiez les paramètres de proxy de serveur de processus 
+## <a name="step-12-verify-process-server-proxy-settings"></a>Étape 12 : Vérifier les paramètres de proxy du serveur de traitement 
 
-1. Si vous utilisez un serveur proxy, vérifiez que son nom est résolu par le serveur DNS. Vérifiez la valeur que vous avez fourni lorsque vous configurez le serveur de configuration dans la clé de Registre **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure Site Recovery\ProxySettings**.
-2. Assurez-vous que les mêmes paramètres sont utilisés par l’agent Azure Site Recovery pour envoyer des données.
+1. Si vous utilisez un serveur proxy, vérifiez que son nom est résolu par le serveur DNS. Vérifiez la valeur que vous avez fournie lors de la configuration du serveur de configuration dans la clé de Registre **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure Site Recovery\ProxySettings**.
+2. Assurez-vous que les mêmes paramètres sont utilisés par l’agent Azure Site Recovery pour l’envoi de données.
 
-    (a) recherchez **sauvegarde Microsoft Azure**.
+    a) Recherchez **Sauvegarde Microsoft Azure**.
 
-    (b) Ouvrez **sauvegarde Microsoft Azure**, puis sélectionnez **Action** > **modifier les propriétés**.
+    b) Ouvrez **Sauvegarde Microsoft Azure**, puis sélectionnez **Action** > **Modifier les propriétés**.
 
-    c) dans le **Configuration du Proxy** onglet, l’adresse de proxy doit être identique à l’adresse de proxy qui est indiqué dans les paramètres du Registre. Si ce n’est pas le cas, modifiez-la.
+    c) Dans l’onglet **Configuration du proxy**, l’adresse du proxy doit être identique à celle indiquée dans les paramètres du Registre. Si ce n’est pas le cas, modifiez-la.
 
 ## <a name="step-13-check-bandwidth"></a>Étape 13 : Vérifier la bande passante
 
-Augmenter la bande passante entre le serveur de processus et Azure et vérifiez si le problème persiste.
+Augmentez la bande passante entre le serveur de traitement et Azure, puis vérifiez si le problème persiste.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

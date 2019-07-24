@@ -7,19 +7,20 @@ author: rkarlin
 manager: rkarlin
 editor: ''
 ms.assetid: 77af84f9-47bc-418e-8ce2-4414d7b58c0c
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/17/2019
 ms.author: rkarlin
-ms.openlocfilehash: 4e6ed18a49a77f8061c975bdf3ecb085ebf71317
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 1c79aad557efb85a8797584c33c74983ef645d07
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190762"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67611312"
 ---
 # <a name="connect-your-domain-name-server"></a>Connecter votre serveur de noms de domaine
 
@@ -63,7 +64,7 @@ La solution collecte des données liées aux inventaires DNS et aux événements
 
 2. Si votre ordinateur DNS n’est pas une machine virtuelle Azure :
     1. Cliquez sur **Installer l’agent sur les machines non Azure**.
-    1. Dans la fenêtre **Agent direct**, sélectionnez **Télécharger l’agent Windows (64 bits)** ou **Télécharger l’agent Windows (32 bits)** .
+    1. Dans la fenêtre **Agent direct**, sélectionnez **Télécharger l’agent Windows (64 bits)** ou **Télécharger l’agent Windows (32 bits)** .
     1. Installez l’agent sur votre ordinateur DNS. Copiez l’**ID de l’espace de travail**, la **clé primaire** et la **clé secondaire**, et utilisez-les lorsque vous y êtes invité pendant l’installation.
 
 3. Pour utiliser le schéma pertinent dans Log Analytics pour les journaux DNS, recherchez **DnsEvents**.

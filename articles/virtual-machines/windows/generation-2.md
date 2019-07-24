@@ -4,7 +4,7 @@ description: Vue d’ensemble de la prise en charge Azure pour les machines virt
 services: virtual-machines-windows
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2019
 ms.author: lahugh
-ms.openlocfilehash: d8991a6e3137953aae18b91f9cc19e81f0440c75
-ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
+ms.openlocfilehash: 7abc1b7cd3be775af03aeaf558f631060cc6f81c
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151210"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722729"
 ---
 # <a name="support-for-generation-2-vms-preview-on-azure"></a>Prise en charge des machines virtuelles de 2e génération (préversion) sur Azure
 
@@ -41,7 +41,7 @@ Les machines virtuelles de 1ère génération sont prises en charge dans toutes 
 * Séries [Dsv2](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general#dsv2-series) et [Dsv3](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general#dsv3-series-1)
 * [Série Esv3](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory#esv3-series)
 * [Série Fsv2](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-compute#fsv2-series-1)
-* [Série GS](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory#gs-series)
+* [Série GS](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-previous-gen#gs-series)
 * Séries [Ls](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-previous-gen#ls-series) et [Lsv2](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-storage#lsv2-series)
 * [Série Mv2](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory#mv2-series)
 
@@ -121,9 +121,9 @@ Vous pouvez également créer des machines virtuelles de 2e génération à l’
    Non.
 
 * **Comment augmenter la taille du disque du système d’exploitation ?**  
-  Les disques d’une taille supérieure à 2 To sont nouveaux pour les machines virtuelles de 2e génération. Par défaut, les disques de système d’exploitation sont inférieurs à 2 To pour les machines virtuelles de 2e génération. Vous pouvez augmenter la taille du disque jusqu’à la taille maximum recommandée de 4 To. Utilisez Azure CLI ou le portail Azure pour augmenter la taille du disque. Pour en savoir sur comment étendre des disques par programmation, consultez [Redimensionner un disque](expand-os-disk.md).
+  Les disques d’une taille supérieure à 2 To sont nouveaux pour les machines virtuelles de 2e génération. Par défaut, les disques de système d’exploitation sont inférieurs à 2 To pour les machines virtuelles de 2e génération. Vous pouvez augmenter la taille du disque jusqu’à la taille maximum recommandée de 4 To. Utilisez Azure CLI ou le portail Azure pour augmenter la taille du disque. Pour en savoir sur comment étendre des disques par programmation, consultez [Redimensionner un disque](expand-os-disk.md).
 
-  Pour augmenter la taille du disque du système d’exploitation à partir du portail Azure :
+  Pour augmenter la taille du disque du système d’exploitation à partir du portail Azure :
 
   1. Accédez à la page des propriétés de la machine virtuelle dans le portail Azure.
   1. Pour arrêter et libérer la machine virtuelle, sélectionnez le bouton **Arrêter**.
@@ -136,13 +136,13 @@ Vous pouvez également créer des machines virtuelles de 2e génération à l’
 * **Les machines virtuelles de 2e génération prennent-elles en charge la mise en réseau accélérée ?**  
     Oui. Pour en savoir plus, consultez [Créer une machine virtuelle avec mise en réseau accélérée](../../virtual-network/create-vm-accelerated-networking-cli.md).
 
-* **La 2e génération prend-elle en charge VHDX ?**  
+* **La 2e génération prend-elle en charge VHDX ?**  
     Non, les machines virtuelles de 2e génération prennent en charge uniquement un disque dur virtuel.
 
 * **Les machines virtuelles de 2e génération prennent-elles en charge les disques de stockage Ultra Azure ?**  
     Oui.
 
-* **Puis-je migrer une machine virtuelle à partir de la 1ère génération à la 2e génération ?**  
+* **Puis-je migrer une machine virtuelle à partir de la 1ère génération à la 2e génération ?**  
     Non, vous ne pouvez pas modifier la génération d’une machine virtuelle après sa création. Si vous avez besoin de passer d’une génération à une autre, créez une machine virtuelle de la génération souhaitée.
 
 ## <a name="next-steps"></a>Étapes suivantes

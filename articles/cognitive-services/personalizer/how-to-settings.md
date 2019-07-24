@@ -1,5 +1,5 @@
 ---
-title: Configurer les paramètres
+title: Configurer les paramètres - Personalizer
 titleSuffix: Azure Cognitive Services
 description: La configuration du service porte sur la façon dont le service traite les récompenses, la fréquence à laquelle le service effectue une exploration, la fréquence à laquelle le modèle est réentraîné et la quantité de données stockées.
 services: cognitive-services
@@ -7,15 +7,15 @@ author: edjez
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: 976830232453eee0993e64ac445c2e6a2f7e20ef
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 6f5028f093a9fd8c17928c2167039599d4db897c
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66478579"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722338"
 ---
 # <a name="personalizer-settings"></a>Paramètres de Personalizer
 
@@ -35,7 +35,7 @@ Créez une ressource Personalizer pour chaque boucle de rétroaction.
 1. Recherchez votre ressource Personalizer. 
 1. Dans la section **Gestion des ressources**, sélectionnez **Paramètres**.
 
-    Avant de quitter le portail Azure, copiez l’une de vos clés de ressource à partir de la page **Clés**. Vous en aurez besoin pour utiliser le [SDK Personalizer](https://go.microsoft.com/fwlink/?linkid=2092353).
+    Avant de quitter le portail Azure, copiez l’une de vos clés de ressource à partir de la page **Clés**. Vous en aurez besoin pour utiliser le [SDK Personalizer](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.personalizer).
 
 ### <a name="configure-reward-settings-for-the-feedback-loop-based-on-use-case"></a>Configurer les paramètres de récompense pour la boucle de rétroaction en fonction du cas d’usage
 

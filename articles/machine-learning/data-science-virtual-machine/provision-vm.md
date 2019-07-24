@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2019
 ms.author: gokuma
-ms.openlocfilehash: 64642da88850e9a0a17173bc50ae9e750cab55a2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 57768fc463f5ea1d2f1ec386f3f0975758220013
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235097"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626394"
 ---
 # <a name="provision-a-windows-data-science-virtual-machine-on-azure"></a>Provisionner une machine virtuelle DSVM Windows sur Azure
 
@@ -61,13 +61,13 @@ Les scientifiques des données utilisent plusieurs outils pour effectuer ces tâ
 
 La DSVM vous permet de démarrer rapidement votre projet d’analytique. Vous pouvez travailler sur des tâches basées sur différents langages, notamment R, Python, SQL et C#. Visual Studio fournit un environnement de développement intégré (IDE) facile à utiliser pour développer et tester votre code. Le SDK Azure est inclus dans la machine virtuelle, ce qui vous permet de créer des applications à l’aide de divers services disponibles sur la plateforme cloud de Microsoft.
 
-Cette image de machine virtuelle de science des données ne génère pas de frais. Vous payez uniquement les frais d’utilisation pour Azure. Ces derniers dépendent de la taille de la machine virtuelle que vous approvisionnez. Vous trouverez plus d’informations sur les frais de calcul dans la section **Abonnements + tarification** de la page [Data Science Virtual Machine - Windows 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.windows-data-science-vm?tab=PlansAndPrice).
+Cette image de machine virtuelle de science des données ne génère pas de frais. Vous payez uniquement les frais d’utilisation pour Azure. Ces derniers dépendent de la taille de la machine virtuelle que vous approvisionnez. Vous trouverez plus d’informations sur les frais de calcul dans la section **Abonnements + tarification** de la page [Data Science Virtual Machine - Windows 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows).
 
 ### <a name="other-dsvm-versions"></a>Autres versions de la machine virtuelle DSVM
 
 * Une image [Ubuntu](dsvm-ubuntu-intro.md). Elle possède de nombreux outils similaires à la machine virtuelle DSVM et compte quelques infrastructures d’apprentissage profond supplémentaires.
 * Une image [Linux CentOS](linux-dsvm-intro.md).
-* [L’édition Windows Server 2012](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.standard-data-science-vm) de la machine virtuelle Data Science Virtual Machine. Certains outils sont disponibles uniquement sur l’édition Windows Server 2016. Sinon, cet article s’applique également à l’édition Windows Server 2012.
+* [L’édition Windows Server 2012](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows) de la machine virtuelle Data Science Virtual Machine. Certains outils sont disponibles uniquement sur l’édition Windows Server 2016. Sinon, cet article s’applique également à l’édition Windows Server 2012.
 
 ## <a name="prerequisite"></a>Configuration requise
 

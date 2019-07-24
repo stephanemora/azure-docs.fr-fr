@@ -9,13 +9,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/21/2019
-ms.author: tyao;kumud
-ms.openlocfilehash: 146d17fe457751fb950f723c34826e43516e4e86
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.author: kumud
+ms.reviewer: tyao
+ms.openlocfilehash: 657dc3a43302d16bc403d790bf2c34c2d147dd6c
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165375"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67846365"
 ---
 # <a name="configure-a-custom-response-for-azure-web-application-firewall"></a>Configurer une réponse personnalisée pour le pare-feu d’applications web Azure
 

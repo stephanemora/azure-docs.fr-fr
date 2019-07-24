@@ -9,17 +9,17 @@ ms.date: 05/10/2019
 ms.author: anavin
 ms.custom: include file
 ms.openlocfilehash: 5aeb0e01192c0635def8eef0c73aa2d14b7921e2
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66170775"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176986"
 ---
 ## <a name="os-config"></a>Ajouter des adresses IP à un système d’exploitation de machine virtuelle
 
 Connectez-vous à une machine virtuelle que vous avez créée à l’aide de plusieurs adresses IP privées. Vous devez ajouter manuellement toutes les adresses IP privées (y compris l’adresse principale) que vous avez ajoutées à la machine virtuelle. Effectuez les étapes suivantes dans le système d’exploitation de votre machine virtuelle.
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 1. Tapez *ipconfig /all*à l’invite de commandes.  Seule l’adresse IP privée *principale* est visible (via DHCP).
 2. Saisissez *ncpa.cpl* dans l’invite de commandes pour ouvrir la fenêtre **Connexions réseau**.
@@ -27,11 +27,11 @@ Connectez-vous à une machine virtuelle que vous avez créée à l’aide de plu
 4. Double-cliquez sur Internet Protocol version 4 (IPv4).
 5. Cliquez sur **Utiliser l’adresse IP suivante** et entrez les valeurs suivantes :
 
-    * **Adresse IP** : Entrez le *principal* adresse IP privée
-    * **Masque de sous-réseau**: Jeu en fonction de votre sous-réseau. Par exemple, si le sous-réseau est un sous-réseau /24, le masque de sous-réseau est 255.255.255.0.
-    * **Passerelle par défaut**: La première adresse IP du sous-réseau. Si votre sous-réseau est 10.0.0.0/24, l’adresse IP de la passerelle est 10.0.0.1.
+    * **Adresse IP** : entrez l’adresse IP privée *principale*.
+    * **Masque de sous-réseau** : définissez cette option en fonction de votre sous-réseau. Par exemple, si le sous-réseau est un sous-réseau /24, le masque de sous-réseau est 255.255.255.0.
+    * **Passerelle par défaut** : première adresse IP du sous-réseau. Si votre sous-réseau est 10.0.0.0/24, l’adresse IP de la passerelle est 10.0.0.1.
     * Sélectionnez **Utiliser l’adresse de serveur DNS suivante** et saisissez les valeurs ci-dessous :
-        * **Serveur DNS préféré**: Si vous n’utilisez pas votre propre serveur DNS, saisissez 168.63.129.16.  Si vous utilisez votre propre serveur DNS, entrez l’adresse IP de votre serveur.
+        * **Serveur DNS préféré** : saisissez 168.63.129.16 si vous n’utilisez pas votre propre serveur DNS.  Si vous utilisez votre propre serveur DNS, entrez l’adresse IP de votre serveur.
     * Sélectionnez le bouton **Avancé** et ajoutez des adresses IP supplémentaires. Ajoutez chaque adresse IP privée secondaire que vous avez ajoutée à l’interface réseau Azure dans une étape précédente, à l’interface réseau Windows à laquelle est attribuée l’adresse IP principale assignée à l’interface réseau Azure.
 
         Vous ne devez jamais assigner manuellement l’adresse IP publique assignée à une machine virtuelle Azure au sein du système d’exploitation de la machine virtuelle. Lorsque vous définissez manuellement l’adresse IP dans le système d’exploitation, assurez-vous qu’il s’agit de la même adresse que l’adresse IP privée assignée à [l’interface réseau](../articles/virtual-network/virtual-network-network-interface-addresses.md#change-ip-address-settings) Azure, ou vous pouvez perdre la connectivité à la machine virtuelle. En savoir plus sur les paramètres [d’adresse IP privée](../articles/virtual-network/virtual-network-network-interface-addresses.md#private). Vous ne devez jamais attribuer une adresse IP publique Azure au sein du système d’exploitation.
@@ -52,7 +52,7 @@ ping -S 10.0.0.5 hotmail.com
 >Pour les configurations IP secondaires, vous pouvez uniquement exécuter une commande ping sur Internet si une adresse IP publique est associée à la configuration. Pour les configurations IP principales, une adresse IP publique n’est pas requise pour exécuter une commande ping sur Internet.
 
 ### <a name="linux-ubuntu-1416"></a>Linux (Ubuntu 14/16)
-Nous vous recommandons d’examiner la dernière version de la documentation de votre distribution Linux. 
+Nous vous recommandons de jeter un œil à la documentation récente relative pour votre distribution Linux. 
 
 1. Ouvrez une fenêtre de terminal.
 2. Assurez-vous d’être l’utilisateur root. Si ce n’est pas le cas, saisissez la commande suivante :
