@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: cfa94fc1c75bcd1eaa9a076cfe63369f60ce5f1c
-ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66693086"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Synchroniser des données sur plusieurs bases de données cloud et locales avec SQL Data Sync
@@ -32,7 +32,7 @@ Data Sync est utile dans les cas où les données doivent être mises à jour en
 
 - **Synchronisation de données hybride :** avec Data Sync, vous pouvez maintenir la synchronisation de données entre vos bases de données locales et les bases de données Azure SQL pour activer des applications hybrides. Cette fonctionnalité peut intéresser les clients qui envisagent de passer au cloud et souhaiteraient placer une partie de leur application dans Azure.
 - **Applications distribuées :** dans de nombreux cas, il est recommandé de séparer les différentes charges de travail entre plusieurs bases de données. Par exemple, si vous possédez une base de données de production de grande taille, mais que vous devez également exécuter un rapport ou une charge de travail analytique de ces données, il est utile de disposer d’une seconde base de données pour cette charge de travail supplémentaire. Cette approche réduit l’impact sur les performances de votre charge de travail de production. Vous pouvez utiliser Data Sync afin de maintenir la synchronisation de ces deux bases de données.
-- **Applications distribuées globalement :** De nombreuses entreprises s’étendent sur plusieurs régions et même dans plusieurs pays/régions. Afin de réduire la latence du réseau, il est préférable de conserver vos données dans une région proche. Avec Data Sync, vous pouvez facilement synchroniser des bases de données dans différentes régions partout dans le monde.
+- **Applications distribuées globalement :** de nombreuses entreprises sont présentes dans plusieurs régions et même dans plusieurs pays/régions. Afin de réduire la latence du réseau, il est préférable de conserver vos données dans une région proche. Avec Data Sync, vous pouvez facilement synchroniser des bases de données dans différentes régions partout dans le monde.
 
 Data Sync n’est pas la solution préconisée pour les scénarios suivants :
 
@@ -91,8 +91,8 @@ Un groupe de synchronisation dispose des propriétés suivantes :
 
 ### <a name="set-up-data-sync-with-powershell"></a>Configurer Data Sync avec PowerShell
 
-- [Utilisez PowerShell pour la synchronisation entre plusieurs bases de données SQL Azure](scripts/sql-database-sync-data-between-sql-databases.md)
-- [Utiliser PowerShell pour la synchronisation entre une base de données SQL Azure et une base de données locale SQL Server](scripts/sql-database-sync-data-between-azure-onprem.md)
+- [Utilisez PowerShell pour la synchronisation entre plusieurs bases de données Azure SQL](scripts/sql-database-sync-data-between-sql-databases.md)
+- [Utiliser PowerShell pour la synchronisation entre une base de données Azure SQL et une base de données locale SQL Server](scripts/sql-database-sync-data-between-azure-onprem.md)
 
 ### <a name="review-the-best-practices-for-data-sync"></a>Consultez les bonnes pratiques pour Data Sync
 
@@ -129,7 +129,7 @@ Le provisionnement et le déprovisionnement lors de la création, la mise à jou
 - Les noms des objets (bases de données, tables et colonnes) ne peuvent pas contenir les caractères imprimables suivants : point (.), crochet gauche ou crochet droit (]).
 - L’authentification Azure Active Directory n’est pas prise en charge.
 - Les tables avec le même nom mais avec un schéma différent (par exemple dbo.customers et sales.customers) ne sont pas prises en charge.
-- Colonnes avec des Types de données définis par l’utilisateur ne sont pas pris en charge.
+- Les colonnes avec des type de données définis par l’utilisateur ne sont pas prises en charge.
 
 #### <a name="unsupported-data-types"></a>Types de données non pris en charge
 
@@ -149,9 +149,9 @@ Data Sync ne peut pas synchroniser des colonnes en lecture seule ou générées 
 
 | **Dimensions**                                                      | **Limite**              | **Solution de contournement**              |
 |-----------------------------------------------------------------|------------------------|-----------------------------|
-| Nombre maximal de groupes de synchronisation auquel peut appartenir une base de données.       | 5.                      |                             |
+| Nombre maximal de groupes de synchronisation auquel peut appartenir une base de données.       | 5\.                      |                             |
 | Nombre maximal de points de terminaison dans un seul groupe de synchronisation              | 30                     |                             |
-| Nombre maximal de points de terminaison locaux dans un seul groupe de synchronisation. | 5.                      | Créer plusieurs groupes de synchronisation |
+| Nombre maximal de points de terminaison locaux dans un seul groupe de synchronisation. | 5\.                      | Créer plusieurs groupes de synchronisation |
 | Noms de la base de données, de la table, du schéma et des colonnes                       | 50 caractères par nom |                             |
 | Tables dans un groupe de synchronisation                                          | 500                    | Créer plusieurs groupes de synchronisation |
 | Colonnes d’une table dans un groupe de synchronisation                              | 1 000                   |                             |
@@ -229,7 +229,7 @@ Vous devez mettre à jour le schéma d’une base de données dans un groupe de 
 
 SQL Data Sync s’exécute-t-il comme prévu ? Pour surveiller l’activité et résoudre les problèmes, consultez les articles suivants :
 
-- [Surveiller Azure SQL Data Sync avec les journaux d’Azure Monitor](sql-database-sync-monitor-oms.md)
+- [Superviser Azure SQL Data Sync avec des journaux Azure Monitor](sql-database-sync-monitor-oms.md)
 - [Résoudre les problèmes liés à Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
 
 ### <a name="learn-more-about-azure-sql-database"></a>En savoir plus sur Azure SQL Database

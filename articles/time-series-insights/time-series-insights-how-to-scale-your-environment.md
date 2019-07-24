@@ -6,18 +6,18 @@ services: time-series-insights
 author: ashannon7
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: be06fd5a6f05d750e6ca9801a6004f7180a12d5c
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: ce29336c6e5dc187eb2ef713cd5dfeafdc8a003f
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66238988"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165649"
 ---
 # <a name="how-to-scale-your-time-series-insights-environment"></a>Mise à l’échelle de votre environnement Time Series Insights
 
@@ -61,4 +61,4 @@ Les capacités sont mises à l’échelle de façon linéaire. Par conséquent, 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Vérifiez que la nouvelle capacité est [suffisantes pour éviter la limitation](time-series-insights-diagnose-and-solve-problems.md).
+- Vérifiez que la nouvelle capacité est [suffisante pour éviter la limitation](time-series-insights-diagnose-and-solve-problems.md).

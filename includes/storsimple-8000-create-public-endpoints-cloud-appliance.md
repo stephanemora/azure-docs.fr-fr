@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 1cf5bbdad555c50c418851904f36a578522843b2
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66159639"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177125"
 ---
 #### <a name="to-create-public-endpoints-on-the-cloud-appliance"></a>Pour créer des points de terminaison publics sur l’appliance cloud
 
@@ -31,7 +31,7 @@ ms.locfileid: "66159639"
 
         Dans le panneau Ajouter une règle de sécurité de trafic entrant :
 
-        1. Pour le **nom**, tapez le nom du point de terminaison suivant : WinRMHttps.
+        1. Pour **Nom**, tapez le nom de point de terminaison suivant : WinRMHttps.
         
         2. Pour **Priorité**, sélectionnez un nombre inférieur à 1 000 (qui est la priorité de la règle par défaut). Plus la valeur est élevée, plus la priorité est faible.
 

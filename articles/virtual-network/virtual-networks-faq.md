@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: f4facdf8fc530c35ba02620f451a00a8da36d982
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
-ms.translationtype: MT
+ms.openlocfilehash: fcc26d0d42576e8d39407f2af5bafe6de24db19f
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66497105"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154498"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>FAQ sur les réseaux virtuels Azure
 
@@ -67,9 +67,9 @@ Oui. Pour plus d’informations sur les plages d’adresses IP publiques, consul
 Oui. Pour plus d’informations, consultez [Limites de mise en réseau](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Les espaces d’adressage de sous-réseau ne peuvent pas se chevaucher.
 
 ### <a name="are-there-any-restrictions-on-using-ip-addresses-within-these-subnets"></a>Existe-t-il des restrictions sur l’utilisation des adresses IP au sein de ces sous-réseaux ?
-Oui. Azure réserve 5 adresses IP dans chaque sous-réseau. Il s’agit de x.x.x.0-x.x.x.3 et la dernière adresse du sous-réseau.    
-- x.x.x.0 et la dernière adresse du sous-réseau est réservée à la conformité du protocole.
-- 1-x.x.x.3 est réservée dans chaque sous-réseau pour les services Azure.
+Oui. Azure réserve 5 adresses IP dans chaque sous-réseau. Il s’agit des adresses x.x.x.0-x.x.x.3 et de la dernière adresse du sous-réseau.    
+- x.x.x.0 et la dernière adresse du sous-réseau sont réservées à la conformité au protocole.
+- Dans chaque sous-réseau, la plage x.x.x.1-x.x.x.3 est réservée aux services Azure.
 
 ### <a name="how-small-and-how-large-can-vnets-and-subnets-be"></a>Quelle taille peuvent avoir les réseaux virtuels et les sous-réseaux ?
 Le plus petit sous-réseau pris en charge est /29 et le plus grand est /8 (à l’aide de définitions de sous-réseau CIDR).
@@ -180,18 +180,18 @@ Oui. Toutes les machines virtuelles et instances de rôle de services cloud dép
 ## <a name="azure-services-that-connect-to-vnets"></a>Services Azure qui se connectent à des réseaux virtuels
 
 ### <a name="can-i-use-azure-app-service-web-apps-with-a-vnet"></a>Puis-je utiliser Azure App Service Web Apps avec un réseau virtuel ?
-Oui. Vous pouvez déployer des applications Web à l’intérieur d’un réseau virtuel à l’aide d’un environnement ASE (App Service Environment), connectez le serveur principal de vos applications sur vos réseaux virtuels avec l’intégration de réseau virtuel et verrouiller le trafic entrant à votre application avec les points de terminaison de service. Pour plus d’informations, consultez les articles suivants :
+Oui. Vous pouvez déployer des applications Web à l’intérieur d’un réseau virtuel à l’aide d’un environnement ASE (App Service Environment). Connectez le serveur principal de vos applications à vos réseaux virtuels avec la fonction d’intégration au réseau virtuel, puis verrouillez le trafic entrant vers votre application avec les points de terminaison de service. Pour plus d’informations, consultez les articles suivants :
 
 * [Fonctionnalités de mise en réseau App Service](../app-service/networking-features.md)
 * [Création d'applications web dans un environnement App Service](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 * [Intégrer une application à un réseau virtuel Azure](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-* [Restrictions d’accès App Service](../app-service/app-service-ip-restrictions.md)
+* [App Service access restriction](../app-service/app-service-ip-restrictions.md) (Restrictions d’accès dans App Service)
 
 ### <a name="can-i-deploy-cloud-services-with-web-and-worker-roles-paas-in-a-vnet"></a>Puis-je déployer des services cloud avec les rôles web et de travail (PaaS) dans un réseau virtuel ?
 Oui. Vous pouvez déployer (facultatif) des instances de rôle de services cloud dans des réseaux virtuels. Pour cela, vous spécifiez le nom de réseau virtuel et les mappages rôle/sous-réseau dans la section de configuration réseau de votre configuration de service. Il est inutile de mettre à jour vos fichiers binaires.
 
-### <a name="can-i-connect-a-virtual-machine-scale-set-to-a-vnet"></a>Puis-je connecter des machines virtuelles identiques à un réseau virtuel ?
-Oui. Vous devez vous connecter un machine virtuelle identique à un réseau virtuel.
+### <a name="can-i-connect-a-virtual-machine-scale-set-to-a-vnet"></a>Puis-je connecter un groupe de machines virtuelles identiques à un réseau virtuel ?
+Oui. Vous devez connecter un groupe de machines virtuelles identiques à un réseau virtuel.
 
 ### <a name="is-there-a-complete-list-of-azure-services-that-can-i-deploy-resources-from-into-a-vnet"></a>Existe-t-il une liste complète des services Azure à partir desquels je peux déployer des ressources dans un réseau virtuel ?
 Oui. Pour plus d’informations, consultez [Intégration d’un réseau virtuel pour les services Azure](virtual-network-for-azure-services.md).
@@ -220,7 +220,7 @@ Oui. Pour plus d’informations, consultez [Présentation de la sécurité rése
 ## <a name="apis-schemas-and-tools"></a>API, schémas et outils
 
 ### <a name="can-i-manage-vnets-from-code"></a>Puis-je gérer les réseaux virtuels à partir du code ?
-Oui. Vous pouvez utiliser l’API REST pour les réseaux virtuels dans le [Azure Resource Manager](/rest/api/virtual-network) et [classic](https://go.microsoft.com/fwlink/?LinkId=296833) modèles de déploiement.
+Oui. Vous pouvez utiliser des API REST pour les réseaux virtuels dans les modèles de déploiement [Azure Resource Manager](/rest/api/virtual-network) et [classique](https://go.microsoft.com/fwlink/?LinkId=296833).
 
 ### <a name="is-there-tooling-support-for-vnets"></a>Existe-t-il une prise en charge des outils pour les réseaux virtuels ?
 Oui. En savoir plus sur l’utilisation des éléments suivants :
@@ -234,26 +234,26 @@ Oui. En savoir plus sur l’utilisation des éléments suivants :
 L’appairage VNet (ou appairage de réseau virtuel) permet de connecter des réseaux virtuels. Une connexion d’appairage VNet entre réseaux virtuels vous permet d’acheminer le trafic entre eux de façon privée par le biais d’adresses IPv4. Les machines virtuelles dans les réseaux virtuels appairés peuvent communiquer entre elles comme si elles se trouvaient dans le même réseau. Ces réseaux virtuels peuvent se situer dans la même région ou dans des régions différentes (Global VNet Peering). Il est également possible de créer des connexions d’appairage VNet dans les abonnements Azure.
 
 ### <a name="can-i-create-a-peering-connection-to-a-vnet-in-a-different-region"></a>Puis-je créer une connexion d’homologation pour un réseau virtuel dans une autre région ?
-Oui. Global VNet Peering vous permet d’homologuer des réseaux virtuels dans différentes régions. Global VNet peering est disponible dans toutes les régions publiques Azure, les régions de cloud de Chine et régions de cloud Government. Vous ne pouvez pas globalement homologuer à partir des régions publiques Azure aux régions de cloud national.
+Oui. Global VNet Peering vous permet d’homologuer des réseaux virtuels dans différentes régions. Global VNet Peering est disponible dans toutes les régions publiques Azure, dans les régions cloud de Chine et dans les régions cloud Government. Vous ne pouvez pas procéder au peering mondial à partir de régions publiques Azure vers des régions cloud nationales.
 
-### <a name="what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers"></a>Quelles sont les contraintes liées aux équilibreurs de charge et de Global VNet Peering ?
-Si les deux réseaux virtuels sont dans une autre région (Global VNet Peering), vous ne pouvez pas vous connecter aux ressources qui utilisent l’équilibreur de charge. Vous pouvez vous connecter aux ressources qui utilisent l’équilibrage de charge Standard.
-Les ressources suivantes utilisent base équilibreurs de charge, ce qui signifie que vous ne pouvez communiquer leur entre Global VNet Peering :
-- Machines virtuelles derrière des équilibreurs de charge de base
-- Machines virtuelles identiques avec base équilibreurs de charge 
+### <a name="what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers"></a>Quelles sont les contraintes liées aux équilibreurs de charge et à Global VNet Peering ?
+Si les deux réseaux virtuels se trouvent dans une autre région (Global VNet Peering), vous ne pouvez pas vous connecter aux ressources qui utilisent l’équilibreur de charge de base. Vous pouvez vous connecter aux ressources qui utilisent l’équilibreur Standard Load Balancer.
+Les ressources suivantes utilisent des équilibreurs de charge de base, ce qui signifie que vous ne pouvez pas communiquer avec eux via Global VNet Peering :
+- Machines virtuelles sur lesquelles reposent les équilibreurs de charge de base
+- Groupes de machines virtuelles identiques avec des équilibreurs de charge de base 
 - Cache Redis 
-- Passerelle d’application (v1) référence (SKU)
+- Référence SKU Application Gateway (v1)
 - Service Fabric
 - SQL MI
 - Gestion des API
-- Service de domaine Active Directory (AD DS)
+- Active Directory Domain Services (ADDS)
 - Logic Apps
 - HDInsight
 -   Azure Batch
 - AKS
 - Environnement App Service
 
-Vous pouvez vous connecter à ces ressources via ExpressRoute ou réseau via des passerelles de réseau virtuel.
+Vous pouvez vous connecter à ces ressources via ExpressRoute ou une connexion entre deux réseaux virtuels, par l’intermédiaire de VNet Gateway.
 
 ### <a name="can-i-enable-vnet-peering-if-my-virtual-networks-belong-to-subscriptions-within-different-azure-active-directory-tenants"></a>Puis-je activer l’homologation de réseau virtuel si mes réseaux virtuels font partie d’abonnements de différents locataires Azure Active Directory ?
 Oui. Il est possible d’établir une homologation de réseau virtuel (locale ou globale) si vos abonnements appartiennent à différents locataires Azure Active Directory. Vous pouvez faire cela via PowerShell ou Azure CLI. Le portail n’est pas encore pris en charge.
@@ -285,13 +285,13 @@ Non. L’homologation transitive n’est pas pris en charge. Pour qu’ils le so
 ### <a name="are-there-any-bandwidth-limitations-for-peering-connections"></a>Des restrictions de bande passante s’appliquent-elles aux connexions d’homologation ?
 Non. L’homologation de réseau virtuel, qu’elle soit locale ou globale, n’impose aucune restriction de bande passante. La bande passante n’est limitée que par les ressources de la machine virtuelle ou de calcul.
 
-### <a name="how-can-i-troubleshoot-vnet-peering-issues"></a>Comment puis-je résoudre des problèmes de l’homologation de réseau virtuel ?
-Voici un [guide de résolution des problèmes](https://support.microsoft.com/en-us/help/4486956/troubleshooter-for-virtual-network-peering-issues) vous pouvez essayer.
+### <a name="how-can-i-troubleshoot-vnet-peering-issues"></a>Comment résoudre les problèmes liés à VNet Peering ?
+Voici un [guide sur un utilitaire de résolution des problèmes](https://support.microsoft.com/en-us/help/4486956/troubleshooter-for-virtual-network-peering-issues) qui peut vous y aider.
 
 ## <a name="virtual-network-tap"></a>TAP de réseau virtuel
 
 ### <a name="which-azure-regions-are-available-for-virtual-network-tap"></a>Quelles régions Azure sont disponibles pour le TAP de réseau virtuel ?
-Version préliminaire TAP de réseau virtuel est disponible dans toutes les régions Azure. Les interfaces réseau supervisées, la ressource TAP de réseau virtuel, ainsi que la solution du collecteur ou d’analyse doivent être déployées dans la même région.
+La préversion du TAP de réseau virtuel est disponible dans toutes les régions Azure. Les interfaces réseau supervisées, la ressource TAP de réseau virtuel, ainsi que la solution du collecteur ou d’analyse doivent être déployées dans la même région.
 
 ### <a name="does-virtual-network-tap-support-any-filtering-capabilities-on-the-mirrored-packets"></a>Le TAP de réseau virtuel prend-il en charge des fonctionnalités de filtrage sur les paquets mis en miroir ?
 Les fonctionnalités de filtrage ne sont pas prises en charge avec la préversion du TAP de réseau virtuel. Quand une configuration TAP est ajoutée à une interface réseau, une copie complète de tout le trafic entrant et sortant sur l’interface réseau est diffusée en continu vers la destination TAP.
@@ -304,7 +304,7 @@ Oui. La même ressource TAP de réseau virtuel peut être utilisée pour agrége
 
 ### <a name="are-there-any-performance-considerations-on-production-traffic-if-i-enable-a-virtual-network-tap-configuration-on-a-network-interface"></a>Existe-t-il des considérations relatives aux performances sur le trafic de production si j’active une configuration TAP de réseau virtuel sur une interface réseau ?
 
-Réseau virtuel TAP est disponible en version préliminaire. Pendant la période de préversion, il n’existe aucun contrat de niveau de service. La fonctionnalité ne doit pas être utilisée pour des charges de travail de production. Quand une interface réseau de machine virtuelle est activée avec une configuration TAP, les mêmes ressources sur l’hôte Azure allouées à la machine virtuelle pour envoyer le trafic de production sont utilisées pour exécuter la fonction de mise en miroir et envoyer les paquets mis en miroir. Sélectionnez la taille de machine virtuelle [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Windows](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) appropriée pour garantir que suffisamment de ressources sont disponibles pour que la machine virtuelle envoie le trafic de production et le trafic mis en miroir.
+Le TAP de réseau virtuel est disponible en préversion. Pendant la période de préversion, il n’existe aucun contrat de niveau de service. La fonctionnalité ne doit pas être utilisée pour des charges de travail de production. Quand une interface réseau de machine virtuelle est activée avec une configuration TAP, les mêmes ressources sur l’hôte Azure allouées à la machine virtuelle pour envoyer le trafic de production sont utilisées pour exécuter la fonction de mise en miroir et envoyer les paquets mis en miroir. Sélectionnez la taille de machine virtuelle [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Windows](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) appropriée pour garantir que suffisamment de ressources sont disponibles pour que la machine virtuelle envoie le trafic de production et le trafic mis en miroir.
 
 ### <a name="is-accelerated-networking-for-linuxcreate-vm-accelerated-networking-climd-or-windowscreate-vm-accelerated-networking-powershellmd-supported-with-virtual-network-tap"></a>La mise en réseau accélérée pour [Linux](create-vm-accelerated-networking-cli.md) ou [Windows](create-vm-accelerated-networking-powershell.md) est-elle prise en charge avec le TAP de réseau virtuel ?
 
@@ -376,19 +376,23 @@ La suppression d’un compte de service Azure est une opération indépendante p
 Quand des points de terminaison de service de réseau virtuel sont activés, les adresses IP sources des ressources du sous-réseau de votre réseau virtuel n’utilisent plus des adresses IPV4 publiques mais des adresses IP privées sur le réseau virtuel Azure pour le trafic vers le service Azure. Notez que cela peut entraîner la panne de pare-feu IP spécifiques préalablement configurés sur une adresse IPV4 publique sur les services Azure. 
 
 ### <a name="does-service-endpoint-route-always-take-precedence"></a>L’itinéraire du point de terminaison de service est-il toujours prioritaire ?
-Les points de terminaison de service ajoutent un itinéraire système prioritaire sur les itinéraires BGP et offrent un routage optimal pour le trafic de point de terminaison de service. Les points de terminaison de service acheminent toujours le trafic de service directement à partir de votre réseau virtuel vers le service sur le réseau principal de Microsoft Azure. Pour plus d’informations sur la façon dont Azure sélectionne un itinéraire, consultez [le routage du trafic réseau virtuel Azure](virtual-networks-udr-overview.md).
+Les points de terminaison de service ajoutent un itinéraire système prioritaire sur les itinéraires BGP et offrent un routage optimal pour le trafic de point de terminaison de service. Les points de terminaison de service acheminent toujours le trafic de service directement à partir de votre réseau virtuel vers le service sur le réseau principal de Microsoft Azure. Pour en savoir plus sur la façon dont Azure sélectionne un itinéraire, voir [Routage du trafic de réseau virtuel Azure](virtual-networks-udr-overview.md).
  
 ### <a name="how-does-nsg-on-a-subnet-work-with-service-endpoints"></a>Comment le groupe de sécurité réseau d’un sous-réseau fonctionne-t-il avec les points de terminaison de service ?
 Pour atteindre le service Azure, les groupes de sécurité réseau doivent autoriser la connectivité sortante. Si vos groupes de sécurité réseau sont ouverts à tout le trafic Internet sortant, le trafic de point de terminaison de service doit fonctionner. Vous pouvez également limiter le trafic sortant aux adresses IP de service en utilisant uniquement les balises de service.  
  
 ### <a name="what-permissions-do-i-need-to-set-up-service-endpoints"></a>De quelles autorisations ai-je besoin pour configurer des points de terminaison de service ?
-Les points de terminaison de service peuvent être configurés indépendamment sur un réseau virtuel par un utilisateur avec accès en écriture au réseau virtuel. Afin de sécuriser les ressources du service Azure pour un réseau virtuel, l’utilisateur doit disposer des autorisations pour **Microsoft.Network/JoinServicetoaSubnet** pour les sous-réseaux à ajouter. Cette autorisation est incluse par défaut dans le rôle d’administrateur de service intégré et peut être modifiée en créant des rôles personnalisés. Apprenez-en davantage sur les rôles intégrés et l’affectation d’autorisations spécifiques aux [rôles personnalisés](https://docs.microsoft.com/azure/role-based-access-control/custom-roles?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Les points de terminaison de service peuvent être configurés indépendamment sur un réseau virtuel par un utilisateur avec accès en écriture au réseau virtuel. Pour sécuriser les ressources du service Azure pour un réseau virtuel, l’utilisateur doit disposer des autorisations sur **Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action** pour les sous-réseaux à ajouter. Cette autorisation est incluse par défaut dans le rôle d’administrateur de service intégré et peut être modifiée en créant des rôles personnalisés. Apprenez-en davantage sur les rôles intégrés et l’affectation d’autorisations spécifiques aux [rôles personnalisés](https://docs.microsoft.com/azure/role-based-access-control/custom-roles?toc=%2fazure%2fvirtual-network%2ftoc.json).
  
 
 ### <a name="can-i-filter-virtual-network-traffic-to-azure-services-allowing-only-specific-azure-service-resources-over-vnet-service-endpoints"></a>Puis-je filtrer le trafic de réseau virtuel vers les services Azure, en autorisant uniquement des ressources de service Azure spécifiques, sur les points de terminaison de service ? 
 
 Les stratégies de points de terminaison de service de réseau virtuel permettent de filtrer le trafic de réseau virtuel vers les services Azure, en autorisant uniquement des ressources de service Azure spécifiques, sur les points de terminaison de service. Les stratégies de points de terminaison fournissent un contrôle d’accès granulaire du trafic de réseau virtuel vers les services Azure. Plus d’informations sur les stratégies de point de terminaison de service sont disponibles [ici](virtual-network-service-endpoint-policies-overview.md).
- 
+
+### <a name="does-azure-active-directory-azure-ad-support-vnet-service-endpoints"></a>Le logiciel Azure Active Directory (Azure AD) prend-il en charge les points de terminaison de service du réseau virtuel ?
+
+Azure Active Directory (Azure AD) ne prend pas en charge les points de terminaison de service en mode natif. La liste complète des services Azure prenant en charge les points de terminaison de service du réseau virtuel est accessible [ici](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview). Notez que la balise « Microsoft.AzureActiveDirectory » répertoriée sous les services prenant en charge les points de terminaison de service est utilisée pour gérer ces derniers dans ADLS génération 1. Pour ADLS génération 1, l’intégration au réseau virtuel dans Azure Data Lake Storage Gen1 fait appel à la sécurité des points de terminaison de service de réseau virtuel entre votre réseau virtuel et Azure Active Directory (Azure AD) afin de générer des revendications de sécurité supplémentaires dans le jeton d’accès. Ces revendications permettent ensuite d’authentifier votre réseau virtuel à votre compte Data Lake Storage Gen1 et d’y accéder. Accédez à des informations sur [l’intégration au réseau virtuel Azure Data Lake Store Gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+
 ### <a name="are-there-any-limits-on-how-many-vnet-service-endpoints-i-can-set-up-from-my-vnet"></a>Le nombre de points de terminaison de service de réseau virtuel que je peux configurer à partir de mon réseau virtuel est-il limité ?
 Il n’existe aucune limite sur le nombre total de points de terminaison de service de réseau virtuel dans un réseau virtuel. Pour une ressource de service Azure (par exemple, un compte de stockage Azure), les services peuvent appliquer des limites sur le nombre de sous-réseaux utilisés pour la sécurisation de la ressource. Le tableau suivant présente des exemples des limites qui s’appliquent : 
 

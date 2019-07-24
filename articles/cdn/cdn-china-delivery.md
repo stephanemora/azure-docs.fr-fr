@@ -16,10 +16,10 @@ ms.date: 05/16/2018
 ms.author: magattus
 ms.custom: mvc
 ms.openlocfilehash: da59e9bb5cfffea734cb1dc4725cef9ea6296aa2
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65872932"
 ---
 # <a name="china-content-delivery-with-azure-cdn"></a>Distribution de contenu en Chine avec Azure CDN
@@ -38,7 +38,7 @@ Azure CDN Monde et Azure CDN Chine proposent les fonctionnalités suivantes :
 
      - Effectue la distribution de contenu en dehors de la Chine
 
-     - Quatre niveaux de tarification : Microsoft standard, Verizon standard, premium de Verizon et Akamai standard
+     - Quatre niveaux tarifaires : Microsoft Standard, Verizon Standard, Verizon Premium et Akamai Standard
 
      - [Documentation](https://docs.microsoft.com/azure/cdn/)
 
@@ -48,7 +48,7 @@ Azure CDN Monde et Azure CDN Chine proposent les fonctionnalités suivantes :
 
      - Effectue la distribution de contenu au sein de la Chine
 
-     - Deux niveaux tarifaires : Standard et premium
+     - Deux niveaux tarifaires : Standard et Premium
 
      - [Documentation](https://docs.azure.cn/en-us/cdn/)
  

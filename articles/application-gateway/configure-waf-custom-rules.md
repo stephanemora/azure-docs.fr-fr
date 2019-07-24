@@ -1,26 +1,26 @@
 ---
-title: Configurer des règles personnalisées de pare-feu d’applications web à l’aide d’Azure PowerShell
-description: Découvrez comment configurer des règles personnalisées WAF à l’aide d’Azure PowerShell
+title: Configurer des règles personnalisées de pare-feu d’applications web v2 à l’aide d’Azure PowerShell
+description: Découvrez comment configurer des règles personnalisées WAF v2 à l’aide d’Azure PowerShell
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 6/7/2019
+ms.date: 6/18/2019
 ms.author: victorh
-ms.openlocfilehash: f7215c4f35d36486b8dda483f34bc487cc16fc69
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f4d2fd7342e0efe95a1bc69e0dba77692053cf14
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66743059"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164747"
 ---
-# <a name="configure-web-application-firewall-with-a-custom-rule-using-azure-powershell"></a>Configurer le pare-feu d’applications web avec une règle personnalisée à l’aide d’Azure PowerShell
+# <a name="configure-web-application-firewall-v2--with-a-custom-rule-using-azure-powershell"></a>Configurer le pare-feu d’applications web v2 avec une règle personnalisée à l’aide d’Azure PowerShell
 
 <!--- If you make any changes to the PowerShell in this article, also make the change in the corresponding Sample file: azure-docs-powershell-samples/application-gateway/waf-rules/waf-custom-rules.ps1 --->
 
-Les règles personnalisées vous permettent de créer vos propres règles évaluées pour chaque requête qui passe par le pare-feu d'applications Web (WAF). Ces règles ont une priorité plus élevée que les autres règles des ensembles de règles gérés. Les règles personnalisées ont une action (autoriser ou bloquer), une condition de correspondance, et un opérateur pour permettre une personnalisation complète.
+Les règles personnalisées vous permettent de créer vos propres règles évaluées pour chaque requête qui passe par le pare-feu d’applications web (WAF) v2. Ces règles ont une priorité plus élevée que les autres règles des ensembles de règles gérés. Les règles personnalisées ont une action (autoriser ou bloquer), une condition de correspondance, et un opérateur pour permettre une personnalisation complète.
 
-Cet article crée un pare-feu d'applications Web (WAF) Application Gateway qui utilise une règle personnalisée. Les règles personnalisées bloquent le trafic si l’en-tête de la requête contient User-Agent *evilbot*.
+Cet article crée un pare-feu d’applications web (WAF) v2 Application Gateway qui utilise une règle personnalisée. Les règles personnalisées bloquent le trafic si l’en-tête de la requête contient User-Agent *evilbot*.
 
 Pour voir d’autres exemples de règle personnalisée, consultez [Créer et utiliser des règles de pare-feu d’applications web personnalisées](create-custom-waf-rules.md)
 

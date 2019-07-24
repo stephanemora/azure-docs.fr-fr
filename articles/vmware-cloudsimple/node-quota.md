@@ -8,16 +8,16 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 26a5876971749a1a63447ef813219dad8485781c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fd1416befb74a7299136ea497eccc8a06b7f0f6a
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65160169"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164861"
 ---
 # <a name="cloudsimple-node-quota-limits"></a>Limites de quota de nœuds CloudSimple
 
-Quatre nœuds est la quantité par défaut disponible à l’achat, lorsque votre abonnement est activé pour le service CloudSimple.  Vous pouvez acheter tout [type de nœud](cloudsimple-node.md) à partir du portail Azure.  Un minimum de trois nœuds de la même référence SKU est requis pour créer un cloud privé.  Si vous avez acheté les nœuds, vous pourriez voir une erreur lorsque vous tentez d’acheter des nœuds supplémentaires.
+Quatre nœuds est la quantité par défaut disponible à l’approvisionnement lorsque votre abonnement est activé pour le service CloudSimple.  Vous pouvez approvisionner tout [type de nœud](cloudsimple-node.md) à partir du portail Azure.  Un minimum de trois nœuds de la même référence SKU est requis pour créer un cloud privé.  Si vous avez approvisionné les nœuds, vous pourriez voir une erreur lorsque vous tentez d’approvisionner des nœuds supplémentaires.
 
 ## <a name="quota-increase"></a>Augmentation de quota
 
@@ -40,5 +40,5 @@ Vous pouvez également contacter votre responsable de compte Microsoft à [azure
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Acheter des nœuds](create-nodes.md)
+* [Approvisionner les nœuds](create-nodes.md)
 * [Vue d’ensemble des nœuds CloudSimple](cloudsimple-node.md)

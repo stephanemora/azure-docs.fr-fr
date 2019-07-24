@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 12/06/2017
 ms.author: dekapur
 ms.openlocfilehash: db515454c68fe3a7eb1a4616c3278d9fc93ddb2c
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66258662"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Gérer des applications et services en tant que ressources Azure Resource Manager
@@ -28,8 +28,8 @@ Vous pouvez déployer des applications et services sur votre cluster Service Fab
 Nous vous recommandons cette méthode pour déployer toutes les applications de configuration, de gouvernance ou de gestion de cluster nécessaires dans votre cluster. Cela inclut [l’application d’orchestration des correctifs](service-fabric-patch-orchestration-application.md), les agents de surveillance ou toute application qui doit être en cours d’exécution dans votre cluster avant que d’autres applications ou services ne soient déployés. 
 
 Le cas échéant, gérez vos applications en tant que ressources Resource Manager pour améliorer les scénarios suivants :
-* Piste d’audit : Resource Manager audite chaque opération et conserve un détaillées *journal d’activité* qui pourront vous aider à suivre les modifications apportées à ces applications et de votre cluster.
-* Contrôle d’accès en fonction du rôle (RBAC) : Gérer l’accès aux clusters, ainsi que des applications déployées sur le cluster peut être effectuée via le même modèle Resource Manager.
+* Piste d’audit : Resource Manager audite chaque opération et conserve un *journal d’activité* détaillé qui peut vous aider à suivre les modifications apportées à ces applications et à votre cluster.
+* Contrôle d’accès en fonction du rôle (RBAC) : la gestion de l’accès aux clusters, ainsi qu’aux applications déployées sur le cluster, peut être effectuée par le biais du même modèle Resource Manager.
 * Azure Resource Manager (par le biais du portail Azure) devient un guichet unique pour la gestion de votre cluster et des déploiements d’applications critiques.
 
 L’extrait de code suivant montre les différents types de ressources qui peuvent être gérés au moyen d’un modèle :
@@ -259,15 +259,15 @@ L’extrait de code suivant montre les différents types de ressources qui peuve
 
 5. Déployez ! 
 
-## <a name="remove-service-fabric-resource-provider-application-resource"></a>Supprimer les ressources de l’Application de fournisseur de ressources de Fabric Service
-Les éléments suivants déclenchera le package d’application pour être non déployé à partir du cluster, et cela permet de nettoyer l’espace disque utilisé :
+## <a name="remove-service-fabric-resource-provider-application-resource"></a>Supprimer la ressource de l’application du fournisseur de ressources Fabric Service
+La procédure suivante déclenchera l’annulation de l’approvisionnement du package d’application dans le cluster, ce qui permet de nettoyer l’espace disque utilisé :
 ```powershell
 Get-AzureRmResource -ResourceId /subscriptions/{sid}/resourceGroups/{rg}/providers/Microsoft.ServiceFabric/clusters/{cluster}/applicationTypes/{apptType}/versions/{version} -ApiVersion "2017-07-01-preview" | Remove-AzureRmResource -Force -ApiVersion "2017-07-01-preview"
 ```
-L’Application sera Annuler approvisionnement pas simplement supprimer Microsoft.ServiceFabric/clusters/application à partir de votre modèle ARM
+Supprimer Microsoft.ServiceFabric/clusters/application du modèle ARM ne suffit pas pour annuler l’approvisionnement de l’application.
 
 >[!NOTE]
-> Une fois la suppression terminée vous ne verrez pas la version du package dans SFX ou ARM plus. Vous ne pouvez pas supprimer la ressource de version de type application que l’application est en cours d’exécution ARM/SFRP empêche cela. Si vous essayez d’annuler la configuration du package en cours d’exécution, runtime de SF empêche.
+> Une fois la suppression terminée, la version du package ne s’affichera plus dans SFX ou ARM. Vous ne pouvez pas supprimer la ressource de la version de type d’application que l’application utilise pour fonctionner, car ARM/SFRP vous en empêche. Si vous essayez d’annuler l’approvisionnement du package en cours d’exécution, le runtime SF vous en empêchera.
 
 
 ## <a name="manage-an-existing-application-via-resource-manager"></a>Gérer une application existante par le biais de Resource Manager
@@ -275,7 +275,7 @@ L’Application sera Annuler approvisionnement pas simplement supprimer Microsof
 Si votre cluster est déjà disponible et que des applications que vous souhaitez gérer en tant que ressources Resource Manager y sont déjà déployées, au lieu de supprimer les applications et de les redéployer, vous pouvez utiliser un appel PUT avec les mêmes API pour que les applications soient reconnues en tant que ressources Resource Manager. 
 
 > [!NOTE]
-> Pour permettre une mise à niveau de cluster pour ignorer les applications non intègre le client peut spécifier « maxPercentUnhealthyApplications : 100" dans la section « upgradeDescription/healthPolicy » ; les descriptions détaillées de tous les paramètres sont dans [documentation sur les stratégies de mise à niveau de Service infrastructures REST API Cluster](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterupgradepolicy).
+> Pour permettre une mise à niveau du cluster destinée à ignorer les applications non saines, le client peut spécifier « maxPercentUnhealthyApplications: 100 » dans la section « upgradeDescription/healthPolicy ». Les descriptions détaillées de tous les paramètres se trouvent dans la [documentation sur les stratégies de mise à niveau de cluster pour les API REST de Service Fabric](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterupgradepolicy).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

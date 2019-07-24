@@ -2,17 +2,17 @@
 title: Créer des nœuds virtuels à l’aide de l’interface de ligne de commande Azure dans Azure Kubernetes Service (AKS)
 description: Découvrez comment utiliser l’interface de ligne de commande Azure pour créer un cluster Azure Kubernetes Service (AKS) qui s’appuie sur des nœuds virtuels pour exécuter des pods.
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.topic: conceptual
 ms.service: container-service
 ms.date: 05/06/2019
-ms.author: iainfou
-ms.openlocfilehash: b149ba2bccb4bfb6f459b177096afcccbbfc3051
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: a6acdd6255278123ff13a8597cadd2a386536bd4
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66742783"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67613792"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Créer et configurer un cluster Azure Kubernetes Service (AKS) pour utiliser des nœuds virtuels à l’aide de l’interface de ligne de commande Azure
 
@@ -49,7 +49,7 @@ az provider register --namespace Microsoft.ContainerInstance
 Les régions suivantes sont prises en charge pour les déploiements de nœuds virtuels :
 
 * Australie Est (australiaeast)
-* Centre des États-Unis (centralus)
+* USA Centre (centralus)
 * USA Est (eastus)
 * USA Est 2 (eastus2)
 * Japon Est (japaneast)
@@ -190,7 +190,7 @@ az aks enable-addons \
 
 ## <a name="connect-to-the-cluster"></a>Connexion au cluster
 
-Exécutez la commande [az aks get-credentials][az-aks-get-credentials] pour configurer `kubectl` afin de vous connecter à votre cluster Kubernetes. Cette étape télécharge les informations d’identification et configure l’interface de ligne de commande Kubernetes pour leur utilisation.
+Pour configurer `kubectl` afin de vous connecter à votre cluster Kubernetes, exécutez la commande [az aks get-credentials][az-aks-get-credentials]. Cette étape télécharge les informations d’identification et configure l’interface de ligne de commande Kubernetes pour leur utilisation.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -214,7 +214,7 @@ aks-agentpool-14693408-0      Ready     agent     32m       v1.11.2
 
 ## <a name="deploy-a-sample-app"></a>Déployer un exemple d’application
 
-Créez un fichier nommé `virtual-node.yaml` et copiez-y le YAML suivant. Pour planifier le conteneur au niveau du nœud, [nodeSelector][node-selector] et [toleration][toleration] sont définis.
+Créez un fichier nommé `virtual-node.yaml` et copiez-y le YAML suivant. Pour planifier le conteneur au niveau du nœud, [nodeSelector][node-selector] and [toleration][toleration] sont définis.
 
 ```yaml
 apiVersion: apps/v1
@@ -354,7 +354,7 @@ Les nœuds virtuels constituent souvent l’un des composants d’une solution d
 - [Utiliser l’autoscaler de pods élastique Kubernetes][aks-hpa]
 - [Utiliser l’autoscaler de cluster Kubernetes][aks-cluster-autoscaler]
 - [Consultez l’exemple de mise à l’échelle automatique pour les nœuds virtuels][virtual-node-autoscale]
-- [En savoir plus sur la bibliothèque open source de Virtual Kubelet][virtual-kubelet-repo]
+- [Découvrez-en plus sur la bibliothèque open source de Virtual Kubelet][virtual-kubelet-repo]
 
 <!-- LINKS - external -->
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get

@@ -10,10 +10,10 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: cb72949c0bb543885498b1b997fa0b4a644c204a
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65956965"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Préparer le déploiement en production d’une solution IoT Edge
@@ -134,7 +134,7 @@ Dans les tutoriels et autres documents, nous prescrivons d’utiliser les mêmes
 
 ### <a name="use-tags-to-manage-versions"></a>Utiliser des balises pour gérer les versions
 
-Une balise est un concept de docker que vous pouvez utiliser pour faire la distinction entre les versions de conteneurs docker. Ce sont des suffixes comme **1.0**, ajoutés à la fin d’un référentiel de conteneur. Exemple : **mcr.microsoft.com/azureiotedge-agent:1.0**. Les balises étant mutables et modifiables pour pointer vers un autre conteneur à tout moment, il est essentiel que votre équipe se mette d’accord sur une convention à suivre pour mettre à jour vos images de module par la suite. 
+Une balise est un concept Docker servant à faire la distinction entre les versions des conteneurs Docker. Ce sont des suffixes comme **1.0**, ajoutés à la fin d’un référentiel de conteneur. Exemple : **mcr.microsoft.com/azureiotedge-agent:1.0**. Les balises étant mutables et modifiables pour pointer vers un autre conteneur à tout moment, il est essentiel que votre équipe se mette d’accord sur une convention à suivre pour mettre à jour vos images de module par la suite. 
 
 Les balises aident également à appliquer des mises à jour sur les appareils IoT Edge. Lorsque vous envoyez une version mise à jour d’un module à votre registre de conteneurs, incrémentez la balise. Ensuite, transmettez un nouveau déploiement sur vos appareils avec la balise incrémentée. Le moteur de conteneur la reconnaîtra comme une nouvelle version et extraira la dernière version du module sur l’appareil. 
 
@@ -172,7 +172,7 @@ Cette liste de vérification est un point de départ pour les règles de pare-fe
    | \*.azurecr.io | 443 | Registres de conteneurs personnels et tiers |
    | \*.blob.core.windows.net | 443 | Téléchargement de deltas d’image | 
    | \*.azure-devices.net | 5671, 8883, 443 | Accès IoT Hub |
-   | \*.docker.io  | 443 | Accès du Hub docker (facultatif) |
+   | \*.docker.io  | 443 | Accès Docker Hub (facultatif) |
 
 ### <a name="configure-communication-through-a-proxy"></a>Configurer la communication via un proxy
 
@@ -186,7 +186,7 @@ Si vos appareils sont destinés à être déployés sur un réseau qui utilise u
 
 ### <a name="set-up-logs-and-diagnostics"></a>Configurer les journaux d’activité et les diagnostics
 
-Sur Linux, le démon IoT Edge utilise les journaux en tant que le pilote de journalisation par défaut. Vous pouvez vous servir de l’outil en ligne de commande `journalctl` pour interroger les journaux d’activité du démon. Sous Windows, le démon IoT Edge utilise les diagnostics PowerShell. Interrogez les journaux d’activité du démon avec `Get-IoTEdgeLog`. Modules IoT Edge utilisent le pilote JSON pour la journalisation, qui est la valeur par défaut.  
+Sous Linux, le démon IoT Edge utilise des journaux comme pilote de journalisation par défaut. Vous pouvez vous servir de l’outil en ligne de commande `journalctl` pour interroger les journaux d’activité du démon. Sous Windows, le démon IoT Edge utilise les diagnostics PowerShell. Interrogez les journaux d’activité du démon avec `Get-IoTEdgeLog`. Les modules IoT Edge utilisent le pilote par défaut JSON pour la journalisation.  
 
 ```powershell
 . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
@@ -196,11 +196,11 @@ Lorsque vous testez un déploiement IoT Edge, vous pouvez généralement accéde
 
 ### <a name="place-limits-on-log-size"></a>Placer les limites de taille de journal
 
-Par défaut le moteur de conteneur Moby ne définit pas de limites de taille de journal de conteneur. Au fil du temps, cela peut entraîner à l’appareil à remplir avec les journaux et l’espace disque est insuffisant. Envisagez les options suivantes pour éviter ce problème :
+Par défaut, le moteur de conteneur Moby ne définit pas de limites de taille pour le journal de conteneur. Au fil du temps, cela peut amener l’appareil à se remplir de journaux et à manquer d’espace disque. Envisagez les options suivantes pour éviter cet écueil :
 
-**Option : Définir les limites globales qui s’appliquent à tous les modules de conteneur**
+**Option : Définir des limites globales qui s’appliquent à tous les modules de conteneur**
 
-Vous pouvez limiter la taille de tous les fichiers de journaux de conteneur dans les options de journal de moteur de conteneur. L’exemple suivant définit le pilote de journal `json-file` (recommandé) avec des limites de taille et le nombre de fichiers :
+Vous pouvez limiter la taille de tous les fichiers de journaux de conteneur dans les options de journal de moteur de conteneur. L’exemple suivant définit le pilote de journal `json-file` (recommandé) avec des limites de taille et de nombre de fichiers :
 
     {
         "log-driver": "json-file",
@@ -210,18 +210,18 @@ Vous pouvez limiter la taille de tous les fichiers de journaux de conteneur dans
         }
     }
 
-Ajouter (ou ajouter) ces informations dans un fichier nommé `daemon.json` et placez-le à l’emplacement approprié pour votre plateforme d’appareil.
+Ajoutez ces informations dans un fichier nommé `daemon.json` et placez-le à l’emplacement approprié pour votre plateforme d’appareil.
 
 | Plateforme | Lieu |
 | -------- | -------- |
 | Linux | `/etc/docker/` |
 | Windows | `C:\ProgramData\iotedge-moby\config\` |
 
-Le moteur de conteneur doit être redémarré pour que les modifications entrent en vigueur.
+Vous devez redémarrer le moteur de conteneur pour que les modifications entrent en vigueur.
 
-**Option : Ajuster les paramètres de journal pour chaque module de conteneur**
+**Option : Ajuster les paramètres de journal pour chaque module de conteneur**
 
-Vous pouvez effectuer dans le **createOptions** de chaque module. Par exemple : 
+Vous pouvez le faire dans **createOptions** au sein de chaque module. Par exemple :
 
     "createOptions": {
         "HostConfig": {
@@ -238,9 +238,9 @@ Vous pouvez effectuer dans le **createOptions** de chaque module. Par exemple :
 
 **Options supplémentaires sur les systèmes Linux**
 
-* Configurer le moteur de conteneur pour envoyer des journaux à `systemd` [feuille](https://docs.docker.com/config/containers/logging/journald/) en définissant `journald` en tant que le pilote de journalisation par défaut. 
+* Configurez le moteur de conteneur pour envoyer des journaux au `systemd` [journal](https://docs.docker.com/config/containers/logging/journald/) en définissant `journald` en tant que pilote de journalisation par défaut. 
 
-* Supprimer régulièrement les anciens journaux à partir de votre appareil en installant un outil logrotate. Utilisez la spécification de fichier suivante : 
+* Supprimez régulièrement les anciens journaux d’activité de votre appareil en installant un outil logrotate. Utilisez la spécification de fichier suivante : 
 
    ```
    /var/lib/docker/containers/*/*-json.log{

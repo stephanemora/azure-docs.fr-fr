@@ -6,14 +6,14 @@ author: kasinh
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 08/18/2017
+ms.date: 07/09/2019
 ms.author: kasinh
-ms.openlocfilehash: d1fb3434f0d3954a07980963866bcd7cce004379
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 770baeeacb5f3808eba05f9e262bcbca75c6baad
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60650808"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705227"
 ---
 # <a name="recover-data-from-azure-backup-server"></a>Récupérer des données depuis Azure Backup Server
 Vous pouvez utiliser Azure Backup Server pour récupérer les données sauvegardées dans un coffre Recovery Services. Le processus pour cette opération est intégré dans la console de gestion Azure Backup Server et est similaire au flux de travail de récupération pour les autres composants Azure Backup.
@@ -83,21 +83,13 @@ Pour récupérer des données depuis un serveur de sauvegarde Azure :
 | Non. | Message d’erreur | Étapes de dépannage |
 |:---:|:--- |:--- |
 | 1. |Ce serveur n'est pas enregistré dans le coffre spécifié par les informations d'identification de coffre. |**Cause :** cette erreur apparaît lorsque le fichier des informations d’identification du coffre sélectionné n’appartient pas au coffre Recovery Services associé au serveur de sauvegarde Azure sur lequel la récupération est tentée. <br> **Résolution :** téléchargez le fichier des informations d’identification du coffre Recovery Services pour lequel le serveur de sauvegarde Azure est inscrit. |
-| 2. |Les données récupérables ne sont pas disponibles ou le serveur sélectionné n'est pas un serveur DPM. |**Cause :** aucun autre serveur de sauvegarde Azure n’est inscrit auprès du coffre Recovery Services ou les serveurs n’ont pas encore chargé les métadonnées ou le serveur sélectionné n’est pas un serveur de sauvegarde Azure (également appelé serveur Windows Server ou client Windows). <br> **Résolution :** s’il existe d’autres serveurs de sauvegarde Azure inscrits auprès du coffre Recovery Services, assurez-vous que le dernier agent Sauvegarde Azure est installé. <br>S’il existe d’autres serveurs Azure Backup inscrits auprès du coffre Recovery Services, patientez un jour après l’installation pour lancer le processus de récupération. Le travail nocturne chargera les métadonnées de toutes les sauvegardes protégées dans le cloud. Les données seront disponibles pour la récupération. |
+| 2. |Les données récupérables ne sont pas disponibles ou le serveur sélectionné n'est pas un serveur DPM. |**Cause :** aucun autre serveur de sauvegarde Azure n’est inscrit auprès du coffre Recovery Services ou les serveurs n’ont pas encore chargé les métadonnées ou le serveur sélectionné n’est pas un serveur de sauvegarde Azure (utilisant Windows Server ou le Client Windows). <br> **Résolution :** s’il existe d’autres serveurs de sauvegarde Azure inscrits auprès du coffre Recovery Services, assurez-vous que le dernier agent Sauvegarde Azure est installé. <br>S’il existe d’autres serveurs Azure Backup inscrits auprès du coffre Recovery Services, patientez un jour après l’installation pour lancer le processus de récupération. Le travail nocturne chargera les métadonnées de toutes les sauvegardes protégées dans le cloud. Les données seront disponibles pour la récupération. |
 | 3. |Aucun autre serveur DPM n'est inscrit auprès de ce coffre. |**Cause :** aucun autre serveur de sauvegarde Azure n’est enregistré dans le coffre à partir duquel la récupération est tentée.<br>**Résolution :** s’il existe d’autres serveurs de sauvegarde Azure inscrits auprès du coffre Recovery Services, assurez-vous que le dernier agent Sauvegarde Azure est installé.<br>S’il existe d’autres serveurs Azure Backup inscrits auprès du coffre Recovery Services, patientez un jour après l’installation pour lancer le processus de récupération. Le travail nocturne charge les métadonnées de toutes les sauvegardes protégées dans le cloud. Les données seront disponibles pour la récupération. |
 | 4. |La phrase secrète saisie ne correspond pas à la phrase secrète associée au serveur suivant : **\<nom du serveur>** |**Cause :** la phrase secrète de chiffrement utilisée dans le processus de chiffrement des données à partir des données du serveur de sauvegarde Azure en cours de récupération ne correspond pas à la phrase secrète de chiffrement fournie. L'agent ne peut pas déchiffrer les données. Par conséquent, la récupération échoue.<br>**Résolution :** veuillez fournir la phrase secrète de chiffrement associée au serveur de sauvegarde Azure pour lequel les données sont en cours de récupération. |
 
-## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
+## <a name="next-steps"></a>Étapes suivantes
 
-### <a name="why-cant-i-add-an-external-dpm-server-after-installing-ur7-and-latest-azure-backup-agent"></a>Pourquoi ne puis-je pas ajouter un serveur DPM externe après avoir installé UR7 et le dernier agent Azure Backup ?
+Lire les autres forums aux questions :
 
-Pour les serveurs DPM avec des sources de données protégées dans le cloud (en utilisant un correctif cumulatif antérieur au correctif cumulatif 7), vous devez attendre au moins un jour après l'installation d’UR7 et du dernier agent Azure Backup avant de démarrer**Ajouter un serveur DPM externe**. La période d’une journée est nécessaire pour charger les métadonnées des groupes de protection DPM dans Azure. Les métadonnées du groupe de protection sont chargées la première fois pendant une tâche nocturne.
-
-### <a name="what-is-the-minimum-version-of-the-microsoft-azure-recovery-services-agent-needed"></a>Qu’est la version minimale de l’agent Microsoft Azure Recovery Services nécessaire ?
-
-La version minimale de l’agent Microsoft Azure Recovery Services ou un agent Azure Backup, requise pour activer cette fonctionnalité est 2.0.8719.0.  Pour connaitre la version de l’agent : ouvrez Panneau de configuration **>** Tous les éléments du Panneau de configuration **>** Programmes et fonctionnalités **>** Agent Microsoft Azure Recovery Services. Si la version est inférieure à 2.0.8719.0, chargez et installez le [dernier agent Azure Backup](https://go.microsoft.com/fwLink/?LinkID=288905).
-
-![Effacer un serveur DPM externe](./media/backup-azure-alternate-dpm-server/external-dpm-azurebackupagentversion.png)
-
-## <a name="next-steps"></a>Étapes suivantes :
-•    [Sauvegarde Azure - FAQ](backup-azure-backup-faq.md)
+- [Questions courantes](backup-azure-vm-backup-faq.md) sur la sauvegarde des machines virtuelles Azure
+- [Questions courantes](backup-azure-file-folder-backup-faq.md) sur l’agent Sauvegarde Azure.

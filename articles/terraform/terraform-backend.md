@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: tarcher
 ms.openlocfilehash: a88ad25e335026d5172c7997f62629d5ada46f6e
-ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66693299"
 ---
 # <a name="store-terraform-state-in-azure-storage"></a>Stocker l’état de Terraform dans le stockage Azure
@@ -79,7 +79,7 @@ export ARM_ACCESS_KEY=$(az keyvault secret show --name terraform-backend-key --v
 
 Pour configurer Terraform afin d’utiliser le serveur principal, vous devez inclure une configuration de *serveur principal* avec un type d’*azurerm* à l’intérieur de la configuration de Terraform. Ajoutez les valeurs *storage_account_name*, *container_name*, et *key* au bloc de configuration.
 
-L’exemple suivant configure un serveur principal Terraform et crée un groupe de ressources Azure. Remplacez les valeurs avec les valeurs de votre environnement.
+L’exemple suivant configure un back-end Terraform et crée un groupe de ressources Azure. Remplacez les valeurs avec les valeurs de votre environnement.
 
 ```json
 terraform {
@@ -102,7 +102,7 @@ resource "azurerm_resource_group" "state-demo-secure" {
 
 Lorsque vous utilisez un blob Azure Storage Blob pour le stockage de l’état, l’objet blob est automatiquement verrouillé avant toute opération d’écriture de l’état. Cette configuration empêche plusieurs opérations d’état simultanées, lesquelles peuvent entraîner une corruption. Pour plus d’informations, consultez le [Verrouillage d’état][terraform-state-lock] dans la documentation Terraform.
 
-Le verrou peut être consulté lors de l’examen de l’objet blob par le biais du portail Azure ou d’autres outils de gestion Azure.
+Le verrou peut être vu lorsque vous examinez l’objet blob via le portail Azure ou d’autres outils de gestion Azure.
 
 ![Blob Azure avec verrou](media/terraform-backend/lock.png)
 

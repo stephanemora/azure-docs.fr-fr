@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 05/26/2019
 ms.author: tomfitz
 ms.openlocfilehash: 3d0a6d97440404904c041369a4631fdd3fb618b4
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66257563"
 ---
 # <a name="create-azure-portal-user-interface-for-your-managed-application"></a>Créer une interface utilisateur de portail Azure pour votre application managée
@@ -48,7 +48,7 @@ Le schéma de la propriété des paramètres dépend de la version et du gestion
 
 L’inclusion de `$schema` est recommandée, mais facultative. Si la valeur de `version` est spécifiée, celle-ci doit correspondre à la version figurant dans l’`$schema` URI.
 
-Vous pouvez utiliser un éditeur JSON pour créer votre définition de l’interface utilisateur, ou vous pouvez utiliser le bac à sable de la définition de l’interface utilisateur pour créer et afficher un aperçu de la définition de l’interface utilisateur. Pour plus d’informations sur le bac à sable, consultez [tester votre interface de portail pour les Applications gérées Azure](test-createuidefinition.md).
+Vous pouvez utiliser un éditeur JSON pour créer votre définition d’IU, ou vous pouvez utiliser le bac à sable de définition d’IU pour créer et afficher un aperçu de la définition d’interface utilisateur. Pour plus d’informations sur le bac à sable, consultez [Tester votre interface de portail pour les Applications managées Azure](test-createuidefinition.md).
 
 ## <a name="basics"></a>Concepts de base
 L’étape relative aux concepts de base est toujours la première étape de l’Assistant généré quand le portail Azure analyse le fichier. Outre le fait d’afficher des éléments spécifiés dans `basics`, le portail injecte des éléments permettant aux utilisateurs de choisir l’abonnement, le groupe de ressources et l’emplacement du déploiement. En règle générale, les éléments demandant des paramètres concernant le déploiement, comme le nom d’un cluster ou des informations d’identification administrateur, doivent figurer dans cette étape.
@@ -61,7 +61,7 @@ La propriété steps peut contenir zéro ou plusieurs des étapes supplémentair
 ## <a name="outputs"></a>Outputs
 Le portail Azure utilise la propriété `outputs` pour mettre en correspondance des éléments issus de `basics` et `steps` avec les paramètres du modèle de déploiement Azure Resource Manager. Les clés de ce dictionnaire sont les noms des paramètres du modèle et les valeurs sont les propriétés des objets de sortie issues des éléments référencés.
 
-Pour définir le nom de ressource d’application managée, vous devez inclure une valeur nommée `applicationResourceName` dans la propriété des sorties. Si vous ne définissez pas cette valeur, l’application affecte un GUID pour le nom. Vous pouvez inclure une zone de texte dans l’interface utilisateur afin de demander un nom à l’utilisateur.
+Pour définir le nom de ressource d’application managée, vous devez inclure une valeur nommée `applicationResourceName` dans la propriété des sorties. Si vous ne définissez pas cette valeur, l’application affecte un GUID au nom. Vous pouvez inclure une zone de texte dans l’interface utilisateur afin de demander un nom à l’utilisateur.
 
 ```json
 "outputs": {
@@ -74,7 +74,7 @@ Pour définir le nom de ressource d’application managée, vous devez inclure u
 ```
 
 ## <a name="functions"></a>Fonctions
-Comme pour les fonctions de modèle dans Azure Resource Manager (à la fois dans la syntaxe et des fonctionnalités), CreateUiDefinition propose des fonctions pour l’utilisation des entrées et des sorties et des fonctionnalités telles que les conditions des éléments.
+Semblable aux fonctions de modèle dans Azure Resource Manager (à la fois en termes de syntaxe et de fonctionnalité), CreateUiDefinition propose des fonctions permettant de travailler avec les entrées et sorties des éléments, et des fonctionnalités telles que des logiques conditionnelles.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Le fichier createUiDefinition.json proprement dit a un schéma simple. Sa profondeur réelle provient de tous les éléments et fonctions pris en charge. Ces éléments sont décrits plus en détail dans :

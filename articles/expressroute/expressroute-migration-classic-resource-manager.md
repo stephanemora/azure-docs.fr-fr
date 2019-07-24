@@ -2,18 +2,18 @@
 title: 'Migrer les réseaux virtuels du déploiement classique vers Resource Manager - ExpressRoute : Azure : PowerShell | Microsoft Docs'
 description: Cette page explique comment migrer des réseaux virtuels associés à ExpressRoute vers Resource Manager après avoir déplacé votre circuit.
 services: expressroute
-author: ganesr
+author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 01/17/2019
-ms.author: ganesr;cherylmc
+ms.date: 06/13/2019
+ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 2e33454ac0ee97385386043706f4b8b73090f57a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 9f15431015e847d882e51b8d88c5b8a8c121d0ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60363850"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67115422"
 ---
 # <a name="migrate-expressroute-associated-virtual-networks-from-classic-to-resource-manager"></a>Migrer des réseaux virtuels associés à ExpressRoute d’un déploiement classique vers Resource Manager
 
@@ -23,7 +23,7 @@ Cet article explique comment migrer des réseaux virtuels associés à ExpressRo
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* Vérifiez que vous disposez de la dernière version des modules Azure PowerShell. Pour plus d’informations, consultez [Installer et configurer Azure PowerShell](/powershell/azure/overview).
+* Vérifiez que vous disposez des dernières versions des modules Azure PowerShell. Pour plus d’informations, consultez [Installer et configurer Azure PowerShell](/powershell/azure/overview). Pour installer le module PowerShell Service Management (qui est nécessaire pour le modèle de déploiement classique), consultez [Installer le module Azure PowerShell Service Management](/powershell/azure/servicemanagement/install-azure-ps).
 * Veillez à consulter les [conditions préalables](expressroute-prerequisites.md), la [configuration requise pour le routage](expressroute-routing.md) et les [flux de travail](expressroute-workflows.md) avant de commencer la configuration.
 * Examinez les informations fournies sous [Transfert des circuits ExpressRoute du modèle de déploiement classique vers le modèle de déploiement Resource Manager](expressroute-move.md). Vous devez avoir bien compris les limites et les limitations.
 * Vérifiez que le circuit est totalement opérationnel dans le modèle de déploiement classique.

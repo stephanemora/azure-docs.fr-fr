@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 06/10/2019
 ms.author: jingwang
-ms.openlocfilehash: de472cd25997b0c48f258927b2617c2399b2bb21
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 70ce03834910447e92f0272fc67034caa59c43f2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60405441"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074080"
 ---
 # <a name="copy-data-from-salesforce-marketing-cloud-using-azure-data-factory-preview"></a>Copier des données de Salesforce Marketing Cloud avec Azure Data Factory (préversion)
 
@@ -30,7 +30,7 @@ Cet article explique comment utiliser l’activité de copie dans Azure Data F
 
 Il est possible de copier des données de Salesforce Marketing Cloud vers n’importe quel magasin de données récepteur pris en charge. Pour obtenir la liste des banques de données prises en charge en tant que sources ou récepteurs par l’activité de copie, consultez le tableau [Banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
 
-Azure Data Factory fournit un pilote intégré qui permet la connexion. Vous n’avez donc pas besoin d’installer manuellement un pilote à l’aide de ce connecteur.
+Le connecteur Salesforce Marketing Cloud prend en charge l’authentification OAuth 2. Il repose sur l’[API REST Salesforce Marketing Cloud](https://developer.salesforce.com/docs/atlas.en-us.mc-apis.meta/mc-apis/index-api.htm).
 
 >[!NOTE]
 >Ce connecteur ne prend pas en charge la récupération d'objets personnalisés ou d'extensions de données personnalisées.
@@ -47,12 +47,12 @@ Les propriétés prises en charge pour le service lié Salesforce Marketing Clou
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type doit être définie sur : **SalesforceMarketingCloud** | Oui |
-| clientId | ID client associé à l’application Salesforce Marketing Cloud.  | Oui |
-| clientSecret | Clé secrète client associée à l’application Salesforce Marketing Cloud. Vous pouvez choisir de marquer ce champ comme SecureString pour le stocker en toute sécurité dans le fichier de définition d'application, ou stocker le mot de passe dans Azure Key Vault et laisser l'activité de copie ADF en tirer (pull) les données lors de la copie. Pour plus d'informations, consultez la page [Stocker des informations d'identification dans Key Vault](store-credentials-in-key-vault.md). | Oui |
-| useEncryptedEndpoints | Indique si les points de terminaison de la source de données sont chiffrés suivant le protocole HTTPS. La valeur par défaut est true.  | Non  |
-| useHostVerification | Indique si le nom d’hôte du certificat du serveur doit correspondre à celui du serveur en cas de connexion SSL. La valeur par défaut est true.  | Non  |
-| usePeerVerification | Indique s’il faut vérifier l’identité du serveur en cas de connexion SSL. La valeur par défaut est true.  | Non  |
+| type | La propriété type doit être définie sur : **SalesforceMarketingCloud** | OUI |
+| clientId | ID client associé à l’application Salesforce Marketing Cloud.  | OUI |
+| clientSecret | Clé secrète client associée à l’application Salesforce Marketing Cloud. Vous pouvez choisir de marquer ce champ comme SecureString pour le stocker en toute sécurité dans le fichier de définition d'application, ou stocker le mot de passe dans Azure Key Vault et laisser l'activité de copie ADF en tirer (pull) les données lors de la copie. Pour plus d'informations, consultez la page [Stocker des informations d'identification dans Key Vault](store-credentials-in-key-vault.md). | OUI |
+| useEncryptedEndpoints | Indique si les points de terminaison de la source de données sont chiffrés suivant le protocole HTTPS. La valeur par défaut est true.  | Non |
+| useHostVerification | Indique si le nom d’hôte du certificat du serveur doit correspondre à celui du serveur en cas de connexion SSL. La valeur par défaut est true.  | Non |
+| usePeerVerification | Indique s’il faut vérifier l’identité du serveur en cas de connexion SSL. La valeur par défaut est true.  | Non |
 
 **Exemple :**
 
@@ -84,7 +84,7 @@ Pour copier des données à partir de Salesforce Marketing Cloud, affectez la va
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type du jeu de données doit être définie sur : **SalesforceMarketingCloudObject** | Oui |
+| Type | La propriété type du jeu de données doit être définie sur : **SalesforceMarketingCloudObject** | OUI |
 | tableName | Nom de la table. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
@@ -113,7 +113,7 @@ Pour copier des données à partir de Salesforce Marketing Cloud, affectez la va
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type de la source d’activité de copie doit être définie sur : **SalesforceMarketingCloudSource** | Oui |
+| Type | La propriété type de la source d’activité de copie doit être définie sur : **SalesforceMarketingCloudSource** | OUI |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM MyTable"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**

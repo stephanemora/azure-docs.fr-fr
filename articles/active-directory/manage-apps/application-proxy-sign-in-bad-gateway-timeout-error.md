@@ -17,17 +17,17 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7499dbe1f3f0b89a11814ad1b65a52bb9ba9fd05
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66016073"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>Erreur « Impossible d’accéder à cette application d’entreprise » lors de l’utilisation d’une application Proxy d’application
 
 Cet article vous aide à résoudre les problèmes couramment associés à l’erreur « Impossible d’accéder à cette application d’entreprise » sur une application Proxy d’application Azure AD.
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 Lorsque vous voyez cette erreur, recherchez le code d’état indiqué dans la page. Ce code est généralement l’un des suivants :
 
 -   **Dépassement du délai de la passerelle** : le service Proxy d’application ne peut pas atteindre le connecteur. Cette erreur indique généralement un problème lié à l’attribution du connecteur, au connecteur proprement dit ou aux règles de mise en réseau régissant le connecteur.
@@ -69,7 +69,7 @@ Si vous confirmez que l’utilisateur est affecté à l’application dans Azure
 
 ## <a name="check-the-applications-internal-url"></a>Vérifier l’URL interne de l’application
 
-La première chose à faire consiste à vérifier l’URL interne et à la corriger si nécessaire. Pour cela, ouvrez l’application par le biais d’**Applications d’entreprise**, puis sélectionnez le menu **Proxy d’application**. Vérifiez que l’URL interne est celle utilisée à partir de votre réseau local pour accéder à l’application.
+La première chose à faire consiste à vérifier l’URL interne et à la corriger si nécessaire. Pour cela, ouvrez l’application par le biais d’**Applications d’entreprise**, puis sélectionnez le menu **Proxy d’application**. Vérifiez qu’il s’agit bien de l’URL interne utilisée sur votre réseau local pour accéder à l’application.
 
 ## <a name="check-the-application-is-assigned-to-a-working-connector-group"></a>Vérifier que l’application est affectée à un groupe de connecteurs opérationnel
 
@@ -77,7 +77,7 @@ Pour vérifier que l’application est affectée à un groupe de connecteurs op�
 
 1. Ouvrez l’application dans le portail. Pour cela, accédez à **Azure Active Directory**, cliquez sur **Applications d’entreprise**, puis sur **Toutes les applications**. Ouvrez l’application, puis sélectionnez **Proxy d’application** dans le menu gauche.
 
-2. Examinez le champ Groupe de connecteurs. Si le groupe ne comprend aucun connecteur actif, un avertissement s’affiche. Si vous ne voyez aucun avertissement, passez à vérifier tous les ports nécessaires sont autorisés.
+2. Examinez le champ Groupe de connecteurs. Si le groupe ne comprend aucun connecteur actif, un avertissement s’affiche. Si vous ne voyez aucun avertissement, passez à la vérification de l’autorisation de tous les ports nécessaires.
 
 3. Si le mauvais groupe de connecteurs apparaît, utilisez la liste déroulante pour sélectionner le bon groupe et vérifiez l’absence d’avertissements. Si le groupe de connecteurs souhaité apparaît, cliquez sur le message de l’avertissement pour ouvrir la page dans l’outil de gestion des connecteurs.
 
@@ -87,11 +87,11 @@ Pour vérifier que l’application est affectée à un groupe de connecteurs op�
 
    * Télécharger un nouveau connecteur pour ce groupe : cette page contient un lien pour [télécharger un nouveau connecteur](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/Download). Installez le connecteur sur une machine avec une ligne de vue directe sur l’application backend. En règle générale, le connecteur est installé sur le même serveur que l’application. Utilisez le lien Télécharger le connecteur pour télécharger un connecteur sur l’ordinateur cible. Cliquez ensuite sur le connecteur, puis utilisez la liste déroulante « Groupe de connecteurs » pour vérifier qu’il appartient au bon groupe.
 
-   * Résoudre le problème d’un connecteur inactif : si un connecteur est répertorié comme étant inactif, il ne peut pas atteindre le service. Cette erreur vient généralement du fait que certains ports nécessaires sont bloqués. Pour résoudre ce problème, passez à vérifier tous les ports nécessaires sont autorisés.
+   * Résoudre le problème d’un connecteur inactif : si un connecteur est répertorié comme étant inactif, il ne peut pas atteindre le service. Cette erreur vient généralement du fait que certains ports nécessaires sont bloqués. Pour résoudre ce problème, passez à la vérification de l’autorisation de tous les ports nécessaires.
 
 Après avoir suivi ces étapes pour vérifier que l’application est affectée à un groupe comprenant des connecteurs opérationnels, retestez l’application. Si elle ne fonctionne toujours pas, passez à la section suivante.
 
-## <a name="check-all-required-ports-are-open"></a>Vérifiez tous les ports nécessaires sont ouverts
+## <a name="check-all-required-ports-are-open"></a>Vérifier que tous les ports nécessaires sont ouverts
 
 Pour vérifier que tous les ports nécessaires sont ouverts, consultez la documentation sur l’ouverture des ports. Si tous les ports nécessaires sont ouverts, passez à la section suivante.
 

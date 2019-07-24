@@ -8,21 +8,21 @@ ms.topic: article
 ms.date: 05/31/2019
 ms.author: iainfou
 ms.openlocfilehash: 2cadd4b33cb52307599ce1e83eee8370ef9850fe
-ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66692780"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Mise à jour d’un cluster Azure Kubernetes Service (AKS)
 
-Dans le cadre du cycle de vie d’un cluster AKS, vous devez souvent opérer une mise à niveau vers la dernière version de Kubernetes. Il est important d’appliquer les dernières publications de sécurité de Kubernetes, ou d’opérer une mise à niveau pour obtenir les dernières fonctionnalités. Cet article vous montre comment mettre à niveau les composants maîtres ou un seul pool de nœud par défaut dans un cluster AKS.
+Dans le cadre du cycle de vie d’un cluster AKS, vous devez souvent opérer une mise à niveau vers la dernière version de Kubernetes. Il est important d’appliquer les dernières publications de sécurité de Kubernetes, ou d’opérer une mise à niveau pour obtenir les dernières fonctionnalités. Cet article vous montre comment mettre à niveau les composants principaux ou un pool de nœud unique par défaut dans un cluster AKS.
 
-Pour AKS clusters qui utilisent plusieurs pools de nœuds ou des nœuds de serveur Windows (les deux actuellement en version préliminaire dans ACS), consultez [mise à niveau d’un pool de nœuds dans ACS][nodepool-upgrade].
+Pour en savoir plus sur les clusters AKS utilisant plusieurs pools de nœuds ou des nœuds Windows Server (les deux sont actuellement en préversion dans ACS), consultez [Mettre à niveau à niveau un pool de nœuds dans ACS][nodepool-upgrade].
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Cet article nécessite que vous exécutiez Azure CLI version 2.0.65 ou version ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installer Azure CLI 2.0][azure-cli-install].
+Pour les besoins de cet article, vous devez utiliser Azure CLI version 2.0.65 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installer Azure CLI 2.0][azure-cli-install].
 
 ## <a name="check-for-available-aks-cluster-upgrades"></a>Recherchez les mises à niveau du cluster AKS disponibles
 
@@ -33,11 +33,11 @@ az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --outpu
 ```
 
 > [!NOTE]
-> Lors de la mise à niveau d’un cluster AKS, les versions mineures de Kubernetes ne peuvent pas être ignorées. Par exemple, la mise à niveau entre *1.11.x* -> *1.12.x* ou *1.12.x* -> *1.13.x* sont cependant autorisées *1.11.x* -> *1.13.x* n’est pas.
+> Lors de la mise à niveau d’un cluster AKS, les versions mineures de Kubernetes ne peuvent pas être ignorées. Par exemple, les mises à niveau *1.11.x* -> *1.12.x* ou *1.12.x* -> *1.13.x* sont autorisées, mais pas *1.11.x* -> *1.13.x*.
 >
-> Pour mettre à niveau, à partir de *1.11.x* -> *1.13.x*, la première mise à niveau à partir de *1.11.x* -> *1.12.x*, puis mettez à niveau à partir de *1.12.x* -> *1.13.x*.
+> Pour opérer une mise à niveau *1.11.x* -> *1.13.x*, commencez par une mise à niveau *1.11.x* -> *1.12.x*, puis effectuez la mise à niveau *1.12.x* -> *1.13.x*.
 
-L’exemple de sortie suivant montre que le cluster peut être mis à niveau vers la version *1.12.7* ou *1.12.8*:
+L’exemple de sortie suivant montre que le cluster peut être mis à niveau vers la version *1.12.7* ou *1.12.8* :
 
 ```console
 Name     ResourceGroup    MasterVersion  NodePoolVersion  Upgrades
@@ -47,9 +47,9 @@ default  myResourceGroup  1.11.9         1.11.9           1.12.7, 1.12.8
 
 ## <a name="upgrade-an-aks-cluster"></a>Mettre à niveau un cluster AKS
 
-Avec une liste des versions disponibles pour votre cluster AKS, utilisez la commande [az aks upgrade] [ az-aks-upgrade] pour opérer la mise à niveau. Pendant le processus de mise à niveau, AKS ajoute un nouveau nœud au cluster qui exécute la version de Kubernetes spécifiée, puis soigneusement [DRAIN et cordon diminue] [ kubernetes-drain] un des nœuds ancien pour limiter les perturbations pour l’exécution applications. Lorsque le nouveau nœud est confirmé comme pods d’application en cours d’exécution, l’ancien nœud est supprimé. Ce processus se répète jusqu'à ce que tous les nœuds du cluster ont été mis à niveau.
+Avec une liste des versions disponibles pour votre cluster AKS, utilisez la commande [az aks upgrade] [ az-aks-upgrade] pour opérer la mise à niveau. Pendant le processus de mise à niveau, AKS ajoute un nouveau nœud au cluster exécutant la version de Kubernetes indiquée, puis il [isole et draine][kubernetes-drain] précautionneusement l’un des anciens nœuds afin de perturber le moins possible les applications en cours d’exécution. Une fois que l’exécution des pods d’application par le nouveau nœud est confirmée, l’ancien nœud est supprimé. Ce processus se répète jusqu’à ce que tous les nœuds du cluster soient mis à niveau.
 
-L’exemple suivant met à niveau un cluster à la version *1.12.8*:
+L’exemple suivant met à niveau le cluster vers la version *1.12.8* :
 
 ```azurecli-interactive
 az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.12.8
@@ -63,7 +63,7 @@ Pour vérifier si la mise à niveau a réussi, utilisez la commande [az aks show
 az aks show --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 
-L’exemple de sortie suivant montre que le cluster s’exécute désormais *1.12.8*:
+L’exemple de sortie suivant montre que le cluster exécute à présent *1.12.8* :
 
 ```json
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn

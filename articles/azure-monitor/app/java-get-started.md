@@ -10,18 +10,18 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 03/14/2019
+ms.date: 05/24/2019
 ms.author: lagayhar
-ms.openlocfilehash: 4cc1456aa9928cbd4a24c203eab62e3e75b4d7c1
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: MT
+ms.openlocfilehash: a453e82f47bb9eed25c8d5caf986bc854085e8ac
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66256179"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061221"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Prise en main d'Application Insights dans un projet web Java
 
-[Application Insights](https://azure.microsoft.com/services/application-insights/) est un service d’analyse extensible pour développeurs web qui vous permet de comprendre les performances et l’utilisation de votre application en direct. Utilisez-le pour [automatiquement instrument demande, suivi des dépendances et les compteurs de performances collecter](auto-collect-dependencies.md#java), diagnostiquer les problèmes de performances et les exceptions, et [écrire du code] [ api] pour suivre ce que les utilisateurs font avec votre application. 
+[Application Insights](https://azure.microsoft.com/services/application-insights/) est un service d’analyse extensible pour développeurs web qui vous permet de comprendre les performances et l’utilisation de votre application en direct. Utilisez-le pour [instrumenter automatiquement les requêtes, effectuer le suivi des dépendances et recueillir les compteurs de performances](auto-collect-dependencies.md#java), diagnostiquer les problèmes de performances et les exceptions, et [écrire du code][api] pour suivre l’utilisation de votre application par les utilisateurs. 
 
 ![Capture d’écran des exemples de données de vue d’ensemble](./media/java-get-started/overview-graphs.png)
 
@@ -71,7 +71,7 @@ Actualisez ensuite les dépendances du projet pour télécharger les fichiers bi
 ```
 
 * *Des erreurs de validation de build ou de somme de contrôle ?* Essayez d’utiliser une version spécifique, telle que : `<version>2.0.n</version>`. Vous trouverez la version la plus récente dans les [notes de publication du Kit de développement logiciel (SDK)](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) ou dans les [artefacts Maven](https://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
-* *Besoin de mettre à jour vers un nouveau Kit de développement logiciel (SDK) ?*  Actualisez les dépendances de votre projet.
+* *Besoin de mettre à jour vers un nouveau Kit de développement logiciel (SDK) ?* Actualisez les dépendances de votre projet.
 
 #### <a name="if-youre-using-gradle-a-namegradle-setup-"></a>Si vous utilisez Gradle... <a name="gradle-setup" />
 Si votre projet est déjà configuré pour être assemblé avec Gradle, fusionnez le code suivant dans votre fichier build.gradle.xml.
@@ -310,7 +310,7 @@ Les données des demandes HTTP apparaissent dans le panneau Vue d’ensemble. (S
 
 Cliquez sur un des graphiques pour afficher des métriques agrégées plus détaillées.
 
-![Volet des échecs de application Insights avec des graphiques](./media/java-get-started/006-barcharts.png)
+![Volet Échecs d’Application Insights avec des graphiques](./media/java-get-started/006-barcharts.png)
 
 > Application Insights repose sur l’hypothèse que le format des requêtes HTTP pour les applications MVC est le suivant : `VERB controller/action`. Par exemple, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` et `GET Home/Product/sdf96vws` sont regroupés dans `GET Home/Product`. Ceci permet l’agrégation correcte des demandes, par exemple le nombre de demandes et le temps moyen d’exécution des demandes.
 >
@@ -319,7 +319,7 @@ Cliquez sur un des graphiques pour afficher des métriques agrégées plus déta
 ### <a name="instance-data"></a>Données d’instance
 Cliquez sur un type de demande spécifique pour afficher les instances individuelles.
 
-![Explorez un exemple spécifique de vue](./media/java-get-started/007-instance.png)
+![Explorer un exemple de vue spécifique](./media/java-get-started/007-instance.png)
 
 ### <a name="analytics-powerful-query-language"></a>Analytics : Tirez parti d’un puissant langage de requête.
 En accumulant toujours plus de données, vous pouvez exécuter des requêtes à la fois pour agréger les données et pour rechercher des instances individuelles.  [Analytics](../../azure-monitor/app/analytics.md) est un outil puissant qui permet non seulement de comprendre les performances et l’utilisation, mais également d’effectuer des diagnostics.
@@ -342,9 +342,9 @@ Publiez maintenant votre application sur le serveur, laissez le temps aux usager
 
     (Cette opération active les compteurs de performances.)
 
-## <a name="azure-app-service-config-spring-boot"></a>Azure App Service config (Spring Boot)
+## <a name="azure-app-service-config-spring-boot"></a>Configuration d’Azure App Service (Spring Boot)
 
-Applications de démarrage de Spring qui s’exécutent sur Windows nécessitent une configuration supplémentaire pour s’exécuter sur Azure App Services. Modifier **web.config** et ajoutez le code suivant :
+Les applications Spring Boot qui s’exécutent sur Windows nécessitent une configuration supplémentaire pour s’exécuter sur Azure App Services. Modifiez le fichier **web.config** et ajoutez l’élément suivant :
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -360,7 +360,7 @@ Applications de démarrage de Spring qui s’exécutent sur Windows nécessitent
 ```
 
 ## <a name="exceptions-and-request-failures"></a>Exceptions et échecs de requêtes
-Exceptions non gérées sont collectées automatiquement.
+Les exceptions non prises en charge sont collectées automatiquement.
 
 Pour collecter les données concernant d’autres exceptions, vous disposez de deux options :
 
@@ -379,9 +379,9 @@ La configuration entrante du SDK est expliquée plus en détail dans notre artic
 La configuration sortante du SDK est définie dans le fichier [AI-Agent.xml](java-agent.md).
 
 ## <a name="performance-counters"></a>Compteurs de performances
-Ouvrez **examiner**, **métriques**pour afficher une plage de compteurs de performance.
+Ouvrez **Examiner**, **Métriques** afin d’afficher un ensemble de compteurs de performances.
 
-![Capture d’écran du volet mesures avec les octets privés du processus sélectionné](./media/java-get-started/011-perf-counters.png)
+![Capture d’écran du volet Métriques avec les octets privés du processus sélectionnés](./media/java-get-started/011-perf-counters.png)
 
 ### <a name="customize-performance-counter-collection"></a>Personnaliser la collecte des compteurs de performances
 Pour désactiver la collecte du jeu standard de compteurs de performances, ajoutez le code suivant sous le nœud racine du fichier ApplicationInsights.xml :
@@ -471,12 +471,12 @@ Vous pouvez utiliser Application Insights pour traiter les journaux d’activit�
 Maintenant que vous avez installé le Kit de développement logiciel (SDK), vous pouvez utiliser l'API pour envoyer votre propre télémétrie.
 
 * [Suivez des événements et des mesures personnalisés][api] pour savoir ce que les utilisateurs font avec votre application.
-* [Recherchez les événements et les journaux][diagnostic] pour diagnostiquer les problèmes.
+* [Recherchez les événements et les journaux d’activité][diagnostic] pour diagnostiquer les problèmes.
 
 ## <a name="availability-web-tests"></a>Tests web de disponibilité
 Application Insights peut tester votre site web à intervalles réguliers pour vérifier qu’il fonctionne et répond correctement.
 
-[En savoir plus sur la configuration de tests web de disponibilité.][availability]
+[En savoir plus sur la configuration des tests web de disponibilité.][availability]
 
 ## <a name="questions-problems"></a>Des questions ? Des problèmes ?
 [Résolution des problèmes Java](java-troubleshoot.md)

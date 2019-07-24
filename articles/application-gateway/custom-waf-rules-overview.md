@@ -1,22 +1,22 @@
 ---
-title: Règles personnalisées du pare-feu d’applications web (WAF) Azure
-description: Cet article fournit une vue d’ensemble des règles personnalisées du pare-feu d’applications web (WAF) pour la passerelle Azure Application Gateway.
+title: Règles personnalisées du pare-feu d’applications web (WAF) v2 Azure
+description: Cet article fournit une vue d’ensemble des règles personnalisées du pare-feu d’applications web (WAF) v2 pour la passerelle Azure Application Gateway.
 services: application-gateway
 ms.topic: article
 author: vhorne
 ms.service: application-gateway
-ms.date: 6/5/2019
+ms.date: 6/18/2019
 ms.author: victorh
-ms.openlocfilehash: d35e1dc96f65e51ab14c4962d1824334cbdb1616
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f6ea831771a8ffecfdd4c7c0d6374c16894e25ed
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752028"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164662"
 ---
-# <a name="custom-rules-for-web-application-firewall"></a>Règles personnalisées du pare-feu d’applications web
+# <a name="custom-rules-for-web-application-firewall-v2"></a>Règles personnalisées du pare-feu d’applications web v2
 
-Le pare-feu d’applications web Azure Application Gateway (WAF) est fourni avec un ensemble de règles préconfigurées, géré une plateforme, qui offre une protection contre de nombreux types d’attaques. Ces attaques comprennent l’exécution de scripts de site à site, l’injection de code SQL etc. Si vous êtes un administrateur de pare-feu d’applications web, vous souhaiterez peut-être écrire vos propres règles pour augmenter les règles CRS. Vos règles peuvent bloquer ou autoriser le trafic demandé en fonction de critères de correspondance.
+Le pare-feu d’applications web (WAF) v2 Azure Application Gateway est fourni avec un ensemble de règles préconfigurées, géré une plateforme, qui offre une protection contre de nombreux types d’attaques. Ces attaques comprennent l’exécution de scripts de site à site, l’injection de code SQL etc. Si vous êtes un administrateur de pare-feu d’applications web, vous souhaiterez peut-être écrire vos propres règles pour augmenter les règles CRS. Vos règles peuvent bloquer ou autoriser le trafic demandé en fonction de critères de correspondance.
 
 Les règles personnalisées vous permettent de créer vos propres règles évaluées pour chaque requête passant par le pare-feu d’applications Web (WAF). Ces règles ont une priorité plus élevée que les autres règles des ensembles de règles gérés. Les règles personnalisées contiennent un nom de règle, une priorité de règle et un tableau des conditions de correspondance. Si ces conditions sont remplies, une action est entreprise (pour autoriser ou bloquer).
 

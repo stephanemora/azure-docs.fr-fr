@@ -11,12 +11,12 @@ ms.reviewer: klam, LADocs
 ms.topic: overview
 ms.custom: mvc
 ms.date: 6/29/2018
-ms.openlocfilehash: 2892dc3b8f25624e7925c9b4aa86110c167ad616
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 90287ab45341f203905aaf32eb6325edd3687231
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66299107"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68273146"
 ---
 # <a name="what-is-azure-logic-apps"></a>Qu’est-ce qu’Azure Logic Apps ?
 
@@ -29,7 +29,7 @@ Par exemple, voici quelques charges de travail que vous pouvez automatiser avec 
 * Déplacer des fichiers chargés depuis un serveur SFTP ou FTP vers Stockage Azure. 
 * Surveiller des tweets sur un sujet spécifique, analyser les sentiments et créer des alertes ou des tâches pour les éléments à examiner.
 
-Pour créer des solutions d’intégration d’entreprise avec Azure Logic Apps, vous pouvez faire votre choix dans une galerie grandissante qui contient plus de [200 connecteurs](../connectors/apis-list.md), notamment d’autres services tels que Azure Service Bus, Functions et Stockage ; SQL, Office 365, Dynamics, Salesforce, BizTalk, SAP, Oracle DB, partages de fichiers et plus encore. Les [connecteurs](#logic-app-concepts) fournissent des [déclencheurs](#logic-app-concepts), des [actions](#logic-app-concepts), ou les deux, pour créer des applications logiques qui accèdent et traitent les données de manière sécurisée et en temps réel.
+Pour créer des solutions d’intégration d’entreprise avec Azure Logic Apps, vous pouvez faire votre choix dans une galerie grandissante qui contient des [centaines de connecteurs faciles à utiliser](../connectors/apis-list.md), qui incluent des services tels que Azure Service Bus, Functions et Stockage, ainsi que SQL, Office 365, Dynamics, Salesforce, BizTalk, SAP, Oracle DB, des partages de fichiers et plus encore. Les [connecteurs](#logic-app-concepts) fournissent des [déclencheurs](#logic-app-concepts), des [actions](#logic-app-concepts), ou les deux, pour créer des applications logiques qui accèdent et traitent les données de manière sécurisée et en temps réel.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Introducing-Azure-Logic-Apps/player]
 

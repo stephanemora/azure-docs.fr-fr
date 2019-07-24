@@ -1,7 +1,7 @@
 ---
-title: Exemple de script Azure PowerShell - points de terminaison de réseau virtuel IPv6 configurer (version préliminaire)
+title: Exemple de script Azure PowerShell - Configurer des points de terminaison de réseau virtuel IPv6 (préversion)
 titlesuffix: Azure Virtual Network
-description: Activer les points de terminaison IPv6 à l’aide de Powershell dans Azure Virtual Network
+description: Activer les points de terminaison IPv6 à l’aide de Powershell dans un réseau virtuel Azure
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -13,28 +13,28 @@ ms.workload: infrastructure-services
 ms.date: 04/22/2019
 ms.author: kumud
 ms.openlocfilehash: 627ff40361b562630f05c70823e9ad2c7ef711e0
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66002226"
 ---
-# <a name="configure-ipv6-endpoints-in-virtual-network-script-sample-preview"></a>Configurer des points de terminaison IPv6 dans l’exemple de script de réseau virtuel (version préliminaire)
+# <a name="configure-ipv6-endpoints-in-virtual-network-script-sample-preview"></a>Exemple de script de configuration de points de terminaison IPv6 dans un réseau virtuel (préversion)
 
-Cet article vous montre comment déployer une application de double pile (IPv4 + IPv6) dans Azure, qui inclut un réseau virtuel de pile double avec un sous-réseau de pile double, un équilibreur de charge avec les configurations frontales double (IPv4 + IPv6), les machines virtuelles avec des cartes réseau qui ont une configuration IP double, règles de groupe de sécurité réseau double et deux adresses IP publiques.
+Cet article montre comment déployer dans Azure une application double pile (IPv4 + IPv6) incluant un réseau virtuel double pile avec un sous-réseau double pile, un équilibreur de charge avec des configurations frontales doubles (IPv4 + IPv6), des machines virtuelles dont les cartes réseau ont une configuration double IP, des règles de Groupe de sécurité réseau doubles et des adresses IP publiques doubles.
 
-Vous pouvez exécuter le script à partir d’Azure [Cloud Shell](https://shell.azure.com/powershell) ou à partir d’une installation PowerShell locale. Si vous utilisez PowerShell localement, ce script nécessite le Az module Azure PowerShell version 1.0.0 ou une version ultérieure. Pour trouver la version installée, exécutez `Get-Module -ListAvailable Az`. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzAccount` pour créer une connexion avec Azure.
+Vous pouvez exécuter le script à partir d’Azure [Cloud Shell](https://shell.azure.com/powershell) ou à partir d’une installation PowerShell locale. Si vous utilisez PowerShell en local, vous devez exécuter le module Az Azure PowerShell version 1.0.0 ou ultérieure pour les besoins de ce script. Pour trouver la version installée, exécutez `Get-Module -ListAvailable Az`. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzAccount` pour créer une connexion avec Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Conditions préalables
-Avant de déployer une application de pile double dans Azure, vous devez configurer votre abonnement en une seule fois pour cette fonctionnalité en version préliminaire à l’aide de la commande Azure PowerShell suivante :
+## <a name="prerequisites"></a>Prérequis
+Avant de déployer une application double pile dans Azure, vous devez configurer votre abonnement une seule fois pour cette fonctionnalité d’évaluation à l’aide de la commande Azure PowerShell suivante :
 
-Enregistrer comme suit :
+Effectuez l’inscription comme suit :
 ```azurepowershell
 Register-AzProviderFeature -FeatureName AllowIPv6VirtualNetwork -ProviderNamespace Microsoft.Network
 ```
-Il faut compter 30 minutes pour l’inscription de la fonctionnalité. Vous pouvez vérifier votre statut d’enregistrement en exécutant la commande Azure PowerShell suivante : Vérifier l’inscription comme suit :
+Il faut compter 30 minutes pour l’inscription de la fonctionnalité. Vous pouvez vérifier le statut de l’inscription en exécutant la commande Azure PowerShell suivante : Vérifiez l’inscription en procédant comme suit :
 ```azurepowershell
 Get-AzProviderFeature -FeatureName AllowIPv6VirtualNetwork -ProviderNamespace Microsoft.Network
 ```
@@ -260,7 +260,7 @@ Ce script utilise les commandes suivantes pour créer un groupe de ressources, u
 | [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) | Crée un groupe de sécurité réseau qui représente une frontière de sécurité entre Internet et la machine virtuelle. |
 | [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig) | Crée une règle de groupe de sécurité réseau permettant d’autoriser le trafic entrant. Dans cet exemple, le port 22 est ouvert pour le trafic SSH. |
 | [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) | Crée une carte réseau virtuelle et l’associe au réseau virtuel, au sous-réseau et au groupe de sécurité réseau. |
-| [New-AzAvailabilitySet](/powershell/module/az.compute/new-azavailabilityset) | Crée un groupe à haute disponibilité. Haute disponibilité garantissent la disponibilité des applications en répartissant les machines virtuelles sur les ressources physiques telles qu’en cas de défaillance, l’ensemble n’est pas affectée. |
+| [New-AzAvailabilitySet](/powershell/module/az.compute/new-azavailabilityset) | Crée un groupe à haute disponibilité. Les groupes à haute disponibilité garantissent le temps de fonctionnement des applications en répartissant les machines virtuelles sur les ressources physiques de sorte que, en cas d’échec, l’ensemble du groupe ne soit pas affecté. |
 | [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig) | Crée une configuration de machine virtuelle. Cette configuration inclut des informations telles que le nom de la machine virtuelle, le système d’exploitation et les informations d’identification d’administration. La configuration est utilisée lors de la création de machines virtuelles. |
 | [New-AzVM](/powershell/module/az.compute/new-azvm)  | Crée la machine virtuelle et l’associe à la carte réseau, au réseau virtuel, au sous-réseau et au groupe de sécurité réseau. Cette commande spécifie également l’image de machine virtuelle à utiliser ainsi que les informations d’identification d’administration.  |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 04/01/2019
+ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: ea9a2df1f06ba6836ef88bc57dc3f95fd31e1ee9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a03a1224451411617f38c8cecafbef008aa08916
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66124224"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68276206"
 ---
 # <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>Didacticiel : Extraire des noms avec une entité simple et une liste d’expressions
 
@@ -58,7 +58,7 @@ Par exemple, examinez les énoncés suivants provenant d’un bot conversationne
 |Envoyez mon CV pour le poste d’ingénieur.|ingénieur|
 |Remplissez l’application pour le poste 123456|123456|
 
-Le nom du travail est difficile à déterminer, car un intitulé peut être un nom, un verbe ou une expression de plusieurs mots. Par exemple : 
+Le nom du travail est difficile à déterminer, car un intitulé peut être un nom, un verbe ou une expression de plusieurs mots. Par exemple :
 
 |Tâches|
 |--|
@@ -83,7 +83,7 @@ Une fois les entités marquées dans les exemples d’énoncés, il est importan
 
 2. Importez le code JSON dans une nouvelle application.
 
-3. À partir de la section **Manage (Gérer)**, sous l’onglet **Versions**, clonez la version et nommez-la `simple`. Le clonage est un excellent moyen de manipuler diverses fonctionnalités de LUIS sans affecter la version d’origine. Étant donné que le nom de la version est utilisé dans le cadre de la route d’URL, il ne peut pas contenir de caractères qui ne sont pas valides dans une URL.
+3. À partir de la section **Manage (Gérer)** , sous l’onglet **Versions**, clonez la version et nommez-la `simple`. Le clonage est un excellent moyen de manipuler diverses fonctionnalités de LUIS sans affecter la version d’origine. Étant donné que le nom de la version est utilisé dans le cadre de la route d’URL, il ne peut pas contenir de caractères qui ne sont pas valides dans une URL.
 
 ## <a name="mark-entities-in-example-utterances-of-an-intent"></a>Marquer des entités dans des exemples d’énoncés d’une intention
 
@@ -229,7 +229,7 @@ Ouvrez le document [jobs-phrase-list.csv](https://github.com/Azure-Samples/cogni
 
 1. Sélectionnez **Créer une liste d’expressions**. 
 
-1. Nommez la nouvelle liste d’expressions `JobNames` et copiez la liste depuis jobs-phrase-list.csv vers la zone de texte **Valeurs**. Sélectionnez Enter (Entrer). 
+1. Nommez la nouvelle liste d’expressions `JobNames` et copiez la liste depuis jobs-phrase-list.csv vers la zone de texte **Valeurs**.
 
     [![Capture d’écran de boîte de dialogue contextuelle de création de liste d’expressions](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "Capture d’écran de boîte de dialogue contextuelle de création de liste d’expressions")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
 
@@ -237,7 +237,7 @@ Ouvrez le document [jobs-phrase-list.csv](https://github.com/Azure-Samples/cogni
 
     Laissez la case **Ces valeurs sont interchangeables** cochée, car ces valeurs doivent être traitées comme des synonymes pour les postes. Découvrez-en plus sur les [concepts de liste d’expressions](luis-concept-feature.md#how-to-use-phrase-lists) interchangeables et non interchangeables.
 
-1. Sélectionnez **Enregistrer** pour activer la liste d’expressions.
+1. Sélectionnez **Terminé** pour activer la liste d’expressions.
 
     [![Capture d’écran de boîte de dialogue contextuelle de création de liste d’expressions avec des mots dans la zone de valeurs de liste d’expressions](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "Capture d’écran de boîte de dialogue contextuelle de création de liste d’expressions avec des mots dans la zone de valeurs de liste d’expressions")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
 

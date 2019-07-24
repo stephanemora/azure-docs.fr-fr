@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: spelluru
 ms.openlocfilehash: b4bfdd3e9cdf99314dc55907ba163adc6cd39423
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65952889"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Distribution et nouvelle tentative de distribution de messages avec Azure Grid
@@ -24,7 +24,7 @@ Actuellement, Event Grid envoie chaque événement individuellement aux abonnés
 
 ## <a name="retry-schedule-and-duration"></a>Planification d’un nouvel essai et durée
 
-Event Grid attend 30 secondes pour une réponse après la distribution d’un message. Après 30 secondes, si le point de terminaison n’a pas répondu, le message est en attente de nouvelle tentative. Event Grid utilise une stratégie de nouvelle tentative d’interruption exponentielle pour la distribution des événements. Event Grid tente à nouveau remise selon la planification suivante sur la mesure du possible :
+Event Grid attend une réponse pendant 30 secondes après la distribution d’un message. Après 30 secondes, si le point de terminaison n’a pas répondu, le message est mis en file d’attente en vue d’une nouvelle tentative. Event Grid utilise une stratégie de nouvelle tentative d’interruption exponentielle pour la distribution des événements. Dans la mesure du possible, Event Grid tente une nouvelle livraison selon la planification suivante :
 
 - 10 secondes
 - 30 secondes
@@ -33,13 +33,13 @@ Event Grid attend 30 secondes pour une réponse après la distribution d’un me
 - 10 minutes
 - 30 minutes
 - 1 heure
-- Toutes les heures pour jusqu'à 24 heures
+- Toutes les heures jusqu’à 24 heures
 
-Si le point de terminaison répond dans les 3 minutes, Event Grid tente de supprimer l’événement de la file d’attente de nouvelle tentative sur une mesure du possible, mais les doublons peuvent toujours être reçus.
+Si le point de terminaison répond dans les 3 minutes, Event Grid tente de supprimer l’événement de la file d’attente de nouvelle tentative dans la mesure du possible, mais des doublons peuvent toujours être reçus.
 
-Event Grid ajoute une petite randomisation à toutes les étapes de nouvelle tentative et peut ignorer façon opportuniste certaines nouvelles tentatives si un point de terminaison est systématiquement défectueux, vers le bas pour une longue période, ou être submergée.
+Event Grid ajoute une légère randomisation à toutes les étapes de nouvelle tentative et peut ignorer de façon opportuniste certaines nouvelles tentatives si un point de terminaison est systématiquement non sain, inactif pendant une longue période ou semble être surchargé.
 
-Pour un comportement déterministe, définissez la durée de l’événement de vie et de tentatives de remise max dans le [stratégies de nouvelle tentative d’abonnement](manage-event-delivery.md).
+Pour un comportement déterministe, définissez la durée de l’événement de durée de vie et de nombre maximum de tentatives de remise dans les [stratégies de nouvelle tentative d’abonnement](manage-event-delivery.md).
 
 Par défaut, Event Grid fait expirer tous les événements qui ne sont pas distribués dans les 24 heures. Vous pouvez [personnaliser la stratégie de nouvelle tentative](manage-event-delivery.md) lors de la création d’un abonnement à un événement. Vous fournissez le nombre maximal de tentatives de remise (par défaut, 30) et la durée de vie de l’événement (par défaut, 1 440 minutes).
 
@@ -74,7 +74,7 @@ Les codes de réponse HTTP suivants indiquent un échec de la tentative de distr
 
 - 400 Demande incorrecte
 - 401 Non autorisé
-- 404 Non trouvé
+- 404 Introuvable
 - 408 Délai d’expiration de la demande
 - 413 Entité de demande trop grande
 - 414 URI trop long

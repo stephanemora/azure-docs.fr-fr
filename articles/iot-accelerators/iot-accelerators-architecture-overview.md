@@ -1,6 +1,6 @@
 ---
 title: Architecture de référence des accélérateurs de solution IoT - Azure | Microsoft Docs
-description: Découvrez l’architecture de référence d’accélérateurs de solution Azure IoT. Les accélérateurs de solution existants reposent sur cette architecture de référence. Vous pouvez également utiliser l'architecture de référence pour créer vos propres solutions IoT personnalisées.
+description: Familiarisez-vous avec l’architecture de référence des accélérateurs de solution Azure IoT. Les accélérateurs de solution existants reposent sur cette architecture de référence. Vous pouvez également utiliser l'architecture de référence pour créer vos propres solutions IoT personnalisées.
 author: dominicbetts
 ms.author: dobett
 ms.date: 12/04/2018
@@ -9,20 +9,20 @@ ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: philmea
-ms.openlocfilehash: 1e3ec677f2c3ce2a7f942c47269fe1f70885ac02
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
-ms.translationtype: MT
+ms.openlocfilehash: 01349dbc5fe98fd69ce7219ef6f2029d7bb815d0
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466454"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067906"
 ---
 # <a name="introduction-to-the-azure-iot-reference-architecture"></a>Introduction à l'architecture de référence Azure IoT
 
 Cet article présente l'[architecture de référence Azure IoT](https://aka.ms/iotrefarchitecture) et fournit des exemples sur la façon dont les [accélérateurs de solution Azure IoT](about-iot-accelerators.md) suivent ses recommandations.
 
-Les accélérateurs de solution open source [Supervision à distance](iot-accelerators-remote-monitoring-sample-walkthrough.md) et [Usine connectée](iot-accelerators-connected-factory-sample-walkthrough.md) suivent la plupart des recommandations de l'architecture de référence. Vous pouvez utiliser les accélérateurs de solution comme point de départ de votre propre solution IoT ou comme outils d'apprentissage.
+Les accélérateurs de solution open source [Supervision à distance](iot-accelerators-remote-monitoring-sample-walkthrough.md) et [Usine connectée](iot-accelerators-connected-factory-features.md) suivent la plupart des recommandations de l'architecture de référence. Vous pouvez utiliser les accélérateurs de solution comme point de départ de votre propre solution IoT ou comme outils d'apprentissage.
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 L'architecture de référence décrit les éléments qui constituent une solution IoT, comme les principes technologiques, la composition des services Azure IoT et les appareils. L'architecture effectue également des recommandations sur les technologies d'implémentation.
 

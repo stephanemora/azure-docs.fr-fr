@@ -1,5 +1,5 @@
 ---
-title: Résolution des problèmes de collaboration B2B - Azure Active Directory | Microsoft Docs
+title: Résolution des problèmes de B2B Collaboration - Azure Active Directory | Microsoft Docs
 description: Solutions pour les problèmes courants liés à Azure Active Directory B2B Collaboration
 services: active-directory
 ms.service: active-directory
@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4185d29ff1770ed9549b4b63a2e5da579bcf054f
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65767152"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Résolution des problèmes d’Azure Active Directory B2B Collaboration
@@ -49,7 +49,7 @@ Les erreurs courantes sont les suivantes :
 
 Si vous invitez des utilisateurs dont l’organisation utilise un Azure Active Directory dans lequel le compte d’utilisateur spécifique n’existe pas (par exemple, l’utilisateur n’existe pas dans Azure AD contoso.com). L’administrateur de contoso.com peut avoir mis en place une stratégie empêchant la création d'utilisateurs. L’utilisateur doit contacter son administrateur pour déterminer si les utilisateurs externes sont autorisés. L’administrateur de l’utilisateur externe devra peut-être autoriser les utilisateurs vérifiés par e-mail dans son domaine (consultez cet [article](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0) sur l’autorisation d’utilisateurs vérifiés par e-mail).
 
-![Les utilisateurs validés de d’erreur indiquant que le client n’autorise pas l’e-mail](media/troubleshoot/allow-email-verified-users.png)
+![Erreur indiquant que le locataire n’autorise pas les utilisateurs vérifiés par e-mail](media/troubleshoot/allow-email-verified-users.png)
 
 ### <a name="external-user-does-not-exist-already-in-a-federated-domain"></a>L'utilisateur externe n’existe pas déjà dans un domaine fédéré
 
@@ -80,13 +80,13 @@ Si ce scénario est important pour vous, vous pouvez supprimer l’API qui envoi
 
 ## <a name="you-receive-an-aadsts65005-error-when-you-try-to-log-in-to-an-azure-resource"></a>Vous recevez une erreur « AADSTS65005 » lorsque vous essayez de vous connecter à une ressource Azure
 
-Un utilisateur disposant d’un compte invité ne peut pas ouvrir une session et reçoit le message d’erreur suivant :
+Un utilisateur disposant d’un compte invité ne peut pas ouvrir de session et reçoit le message d’erreur suivant :
 
     AADSTS65005: Using application 'AppName' is currently not supported for your organization contoso.com because it is in an unmanaged state. An administrator needs to claim ownership of the company by DNS validation of contoso.com before the application AppName can be provisioned.
 
-L’utilisateur dispose d’un compte d’utilisateur Azure et est un locataire viral qui a été abandonné ou non géré. Il existe en outre, ne global ou dans le client, les administrateurs d’entreprise.
+L’utilisateur dispose d’un compte d’utilisateur Azure et est un locataire viral qui a été abandonné ou non managé. En outre, il n’existe aucun administrateur global ou d’entreprise dans le locataire.
 
-Pour résoudre ce problème, vous devez effectuer sur le locataire abandonné. Reportez-vous à [reprendre un répertoire non géré en tant qu’administrateur dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover). Vous devez également accéder à la DNS accessibles sur internet pour le suffixe de domaine en question afin de fournir la preuve directe que vous êtes dans le contrôle de l’espace de noms. Une fois que le client est renvoyé à un état géré, veuillez prendre contact avec le client si en laissant les utilisateurs et nom de domaine vérifié est la meilleure option pour leur organisation.
+Pour résoudre ce problème, vous devez prendre le contrôle du locataire abandonné. Reportez-vous à [Prendre le contrôle d’un annuaire non géré en tant qu’administrateur dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover). Vous devez également accéder au DNS accessible sur internet pour le suffixe de domaine en question afin de fournir la preuve directe que vous contrôlez l’espace de noms. Une fois que le client est renvoyé à un état géré, demandez au client si le fait de laisser les utilisateurs et les noms de domaine vérifiés est la meilleure option pour son organisation.
 
 ## <a name="a-guest-user-with-a-just-in-time-or-viral-tenant-is-unable-to-reset-their-password"></a>Un utilisateur invité avec locataire de type juste-à-temps ou « viral » ne peut pas réinitialiser son mot de passe
 

@@ -6,35 +6,35 @@ services: time-series-insights
 author: ashannon7
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.reviewer: v-mamcge, jasonh, kfile
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: dfc04397b1d7e9f3256810cbe469067ae52c99bd
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: df60429a8b3d6fbdc504a7605d1502b4e084d386
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66238974"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165299"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Partager une vue personnalisée à l’aide d’une URL paramétrable
 
-Pour partager une vue personnalisée dans l’Explorateur Time Series Insights, vous pouvez créer par programmation une URL paramétrable de la vue personnalisée.
+Pour partager une vue personnalisée dans l’Explorateur Azure Time Series Insights, vous pouvez créer, par programmation, une URL paramétrable de la vue personnalisée.
 
-L’Explorateur Time Series Insights prend en charge les paramètres de requête d’URL pour spécifier des vues dans l’expérience directement à partir de l’URL. Par exemple, en utilisant l’URL uniquement, vous pouvez spécifier un environnement cible, un prédicat de recherche et la durée désirée. Lorsqu’un utilisateur clique sur l’URL personnalisée, l’interface fournit directement un lien vers la ressource dans le portail Time Series Insights. Les stratégies d’accès aux données s’appliquent.
+Cet Explorateur prend en charge les paramètres de requête d’URL pour spécifier des vues dans l’expérience et ce, directement à partir de l’URL. Par exemple, en utilisant l’URL uniquement, vous pouvez spécifier un environnement cible, un prédicat de recherche et la durée désirée. Lorsqu’un utilisateur sélectionne l’URL personnalisée, l’interface fournit directement un lien vers la ressource dans le portail Time Series Insights. Les stratégies d’accès aux données s’appliquent.
 
 > [!TIP]
-> * Afficher la version gratuite [Time Series Insights démonstration](https://insights.timeseries.azure.com/samples).
-> * Lire l’accompagnement [Explorateur Time Series Insights](./time-series-insights-explorer.md) documentation.
+> * Affichez la [démonstration Time Series Insights](https://insights.timeseries.azure.com/samples) gratuite.
+> * Lisez la documentation [Explorateur Time Series Insights](./time-series-insights-explorer.md) connexe.
 
 ## <a name="environment-id"></a>ID de l’environnement
 
-Le paramètre `environmentId=<guid>` spécifie l’ID de l’environnement cible. C’est un composant de l’accès aux données nom de domaine complet, et vous pouvez le trouver dans l’angle supérieur droit de la vue d’ensemble de l’environnement dans le portail Azure. Cela correspond à tous les éléments précédant `env.timeseries.azure.com`.
+Le paramètre `environmentId=<guid>` spécifie l’ID de l’environnement cible. Il s’agit d’un composant du nom de domaine complet pour l’accès aux données. Vous le trouverez dans l’angle supérieur droit de l’écran présentation de l’environnement, sur le portail Azure. Cela correspond à tous les éléments précédant `env.timeseries.azure.com`.
 
 Exemple de paramètre d’ID de l’environnement : `?environmentId=10000000-0000-0000-0000-100000000108`.
 
-## <a name="time"></a>Time
+## <a name="time"></a>Temps
 
 Vous pouvez spécifier des valeurs de temps absolues ou relatives avec une URL paramétrable.
 
@@ -53,20 +53,20 @@ Dans le cas d’une valeur de temps relative, utilisez l’élément `relativeMi
 
 Par exemple, l’élément `&relativeMillis=3600000` affiche les dernières 60 minutes de données.
 
-Valeurs acceptées correspondent à l’Explorateur Time Series Insights **accélérer le délai** menu et incluent :
+Les valeurs acceptées correspondent au menu **Quick Time** de l’Explorateur Time Series Insights, et insérez :
 
 * `1800000` (30 dernières minutes)
-* `3600000` (Dernières 60 minutes)
+* `3600000` (60 dernières minutes)
 * `10800000` (3 dernières heures)
 * `21600000` (6 dernières heures)
 * `43200000` (12 dernières heures)
-* `86400000` (Dernières 24 heures)
+* `86400000` (24 dernières heures)
 * `604800000` (7 derniers jours)
 * `2592000000` (30 dernières heures)
 
 ### <a name="optional-parameters"></a>Paramètres facultatifs
 
-Le `timeSeriesDefinitions=<collection of term objects>` paramètre spécifie les conditions d’une vue Time Series Insights :
+Le paramètre `timeSeriesDefinitions=<collection of term objects>` indique les conditions d’une vue Time Series Insights :
 
 | Paramètre | Élément d’URL | Description |
 | --- | --- | --- |
@@ -74,36 +74,36 @@ Le `timeSeriesDefinitions=<collection of term objects>` paramètre spécifie les
 | **splitBy** | `\<string>` | nom de colonne pour le *fractionnement* ; |
 | **measureName** | `\<string>` | nom de colonne de *mesure* ; |
 | **predicate** | `\<string>` | clause *where* pour le filtrage côté serveur. |
-| **useSum** | `true` | Un paramètre facultatif qui spécifie l’utilisation de sum pour votre mesure. </br>  Notez que si `Events` est la mesure sélectionnée, nombre est sélectionné par défaut.  </br>  Si `Events` est ne pas sélectionnée, la moyenne est sélectionnée par défaut. |
+| **useSum** | `true` | Paramètre facultatif qui spécifie l’utilisation de la somme pour la mesure. </br>  Notez que si `Events` est la mesure sélectionnée, le nombre est sélectionné par défaut.  </br>  Si `Events` n’est pas sélectionné, la moyenne est sélectionnée par défaut. |
 
-* Le `multiChartStack=<true/false>` paire clé-valeur permet l’empilement dans le graphique.
-* Le `multiChartSameScale=<true/false>` paire clé-valeur permet à la même échelle d’axe des ordonnées entre les termes au sein d’un paramètre facultatif.  
-* Le `timeBucketUnit=<Unit>&timeBucketSize=<integer>` vous permet d’ajuster le curseur intervalle pour fournir plus précis ou plus lisse, plus agrégées vue du graphique.  
-* Le `timezoneOffset=<integer>` paramètre vous permet de définir le fuseau horaire pour le graphique à afficher en tant qu’offset UTC.
+* La paire clé-valeur `multiChartStack=<true/false>` permet l’empilement dans le graphique.
+* La paire clé-valeur `multiChartSameScale=<true/false>` permet la même échelle de l’axe des ordonnées entre les termes au sein d’un paramètre facultatif.  
+* `timeBucketUnit=<Unit>&timeBucketSize=<integer>` permet d’ajuster le curseur intervalle pour générer une vue plus granulaire, plus simple, ou plus globale du graphique.  
+* Le paramètre `timezoneOffset=<integer>` vous permet de définir le fuseau horaire pour le graphique afin qu’il s’affiche en tant qu’offset de fuseau horaire UTC.
 
-| Ou des paires | Description |
+| Paire(s) | Description |
 | --- | --- |
-| `multiChartStack=false` | `true` est activé par défaut donc passez `false` à la pile. |
-| `multiChartStack=false&multiChartSameScale=true` | L’empilement doit être activé pour pouvoir utiliser la même échelle de l’axe des ordonnées entre les termes.  Il a `false` par défaut, par conséquent, en passant 'true' active cette fonctionnalité. |
+| `multiChartStack=false` | `true` est activée par défaut donc passez sur `false` pour empiler. |
+| `multiChartStack=false&multiChartSameScale=true` | L’empilement doit être activé pour pouvoir utiliser la même échelle de l’axe des ordonnées entre les termes.  `false` est activé par défaut, donc passer sur « True » pour activer cette fonctionnalité. |
 | `timeBucketUnit=<Unit>&timeBucketSize=<integer>` | Unités = jours, heures, minutes, secondes, millisecondes.  Mettez toujours les unités en majuscules. </br> Définissez le nombre d’unités en passant l’entier souhaité pour timeBucketSize.  Notez que vous simplifiez jusqu'à 7 jours.  |
-| `timezoneOffset=-<integer>` | L’entier est toujours en millisecondes. </br> Notez que cette fonctionnalité est légèrement différente de celle que nous proposons dans l’Explorateur Time Series Insights, où nous vous permettons de choisir le local (heure du navigateur) ou l’heure UTC. |
+| `timezoneOffset=-<integer>` | L’entier est toujours en millisecondes. </br> Notez que cette fonctionnalité est légèrement différente de celle que nous proposons dans l’Explorateur TSI, dans lequel nous vous permettons de choisir l’heure locale (l’heure du navigateur) ou l’heure UTC. |
 
 ### <a name="examples"></a>Exemples
 
-Pour ajouter des définitions time series à un environnement Time Series Insights comme un paramètre d’URL, ajoutez :
+Pour ajouter des définitions de série chronologique dans un environnement Time Series Insights en tant que paramètre URL, ajoutez :
 
 ```plaintext
 &timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},
 {"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]
 ```
 
-Utilisez les définitions exemple time series pour :
+Utilisez ces exemples de définitions de série chronologique pour :
 
-* L’ID de l’environnement
-* Cours des 60 dernières minutes de données
-* Les termes (F1PressureID, F2TempStation et F3VibrationPL) qui comprennent les paramètres facultatifs
+* l’ID de l’environnement,
+* les 60 dernières minutes de données,
+* les termes (F1PressureID, F2TempStation et F3VibrationPL) qui composent des paramètres facultatifs.
 
-Vous pouvez construire l’URL paramétrable suivante pour obtenir une vue :
+Vous pouvez construire l’URL paramétrable suivante pour une vue :
 
 ```plaintext
 https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},{"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]
@@ -114,14 +114,14 @@ https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0
 
 L’URL ci-dessus décrit et génère la vue Explorateur Time Series Insights :
 
-[![Termes de temps série Insights explorer](media/parameterized-url/url1.png)](media/parameterized-url/url1.png#lightbox)
+[![Termes de l’Explorateur Time Series Insights](media/parameterized-url/url1.png)](media/parameterized-url/url1.png#lightbox)
 
-Vue d’ensemble (y compris le graphique) :
+Vue complète (y compris le graphique) :
 
-[![Vue graphique](media/parameterized-url/url2.png)](media/parameterized-url/url2.png#lightbox)
+[![Vue de graphique](media/parameterized-url/url2.png)](media/parameterized-url/url2.png#lightbox)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Découvrez comment [à l’aide de données de requête C# ](time-series-insights-query-data-csharp.md).
+* Découvrez comment [interroger des données avec C#](time-series-insights-query-data-csharp.md).
 
-* En savoir plus sur la [temps série Insights Explorer](./time-series-insights-explorer.md).
+* Plus d’informations sur l’[Explorateur Time Series Insights](./time-series-insights-explorer.md).

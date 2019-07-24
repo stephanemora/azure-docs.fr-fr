@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0cfaea53156b78fad024046bb6f55229f8ad6536
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66236267"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Résolution des problèmes de configuration de la délégation Kerberos contrainte pour le proxy d’application
@@ -41,7 +41,7 @@ Cet article repose sur les hypothèses suivantes :
 
 -   L’application est publiée dans un locataire Azure où la pré-authentification est activée. Les utilisateurs doivent s’authentifier auprès d'Azure via des formulaires d'authentification. Les scénarios d’authentification client enrichis ne sont pas couverts par cet article. Ils y seront peut-être ajoutés ultérieurement.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Le proxy d'application Azure AD peut être déployé dans de nombreux types d’infrastructures ou d'environnements. L'architecture varie d’une organisation à l’autre. Les causes les plus courantes des problèmes de délégation Kerberos contrainte (KCD) ne sont pas liées aux environnements. La plupart des problèmes sont dus à de simples erreurs de configuration ou à des erreurs générales.
 
@@ -177,7 +177,7 @@ Si le problème persiste, contactez le support technique Microsoft. Émettez un 
 
 ## <a name="other-scenarios"></a>Autres scénarios
 
-- Le proxy d’application Azure demande un ticket Kerberos avant d’envoyer sa demande à une application. Certaines applications tierces n’aime pas cette méthode d’authentification. Ces applications préfèrent les négociations plus conventionnelles. La première demande est anonyme, ce qui permet à l’application de répondre avec les types d’authentification qu’elle prend en charge via une erreur 401.
+- Le proxy d’application Azure demande un ticket Kerberos avant d’envoyer sa demande à une application. Certaines applications tierces n’aiment pas cette méthode d’authentification. Ces applications préfèrent les négociations plus conventionnelles. La première demande est anonyme, ce qui permet à l’application de répondre avec les types d’authentification qu’elle prend en charge via une erreur 401.
 
 - L'authentification à tronçons multiples est couramment utilisée dans les scénarios où une application est hiérarchisée, avec un serveur principal et un serveur frontal requérant tous les deux une authentification, comme SQL Server Reporting Services. Pour configurer le scénario à tronçons multiples, consultez l’article de support [La délégation Kerberos contrainte peut nécessiter une transition de protocole dans les scénarios à tronçons multiples](https://support.microsoft.com/help/2005838/kerberos-constrained-delegation-may-require-protocol-transition-in-mul).
 

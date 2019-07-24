@@ -9,11 +9,11 @@ ms.date: 01/17/2019
 ms.author: avneet723
 ms.custom: include file
 ms.openlocfilehash: 1f567b3d083853f9bb342bfad462e8545caa6480
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66111701"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177496"
 ---
 ## <a name="download-the-source-code"></a>Télécharger le code source
 
@@ -59,7 +59,7 @@ Si vous n’avez pas encore créé les ressources Azure nécessaires, procédez 
 
      Le script crée un groupe de ressources dans Azure avec le nom de votre solution. Ce groupe de ressources contient les ressources Azure qu’utilise l’accélérateur de solution. Vous pouvez supprimer ce groupe de ressources dès que vous n’avez plus besoin des ressources correspondantes.
 
-     Le script ajoute également un ensemble de variables d'environnement dotées du préfixe **PCS** sur votre ordinateur local. Ces variables d’environnement fournissent les détails de surveillance à distance être en mesure de lire à partir d’une ressource Azure Key Vault. Cette ressource Key Vault est où la surveillance à distance lira à partir de ses valeurs de configuration.
+     Le script ajoute également un ensemble de variables d'environnement dotées du préfixe **PCS** sur votre ordinateur local. Ces variables d’environnement fournissent les détails de supervision à distance nécessaires pour lire à partir d’une ressource Azure Key Vault. La supervision à distance lira ses valeurs de configuration à partir de cette ressource Key Vault.
 
      > [!TIP]
      > Quand le script s’exécute, il enregistre également les variables d’environnement dans un fichier appelé **\<votre dossier de base\>\\.pcs\\\<nom de la solution\>.env**. Vous pouvez les utiliser pour de futurs déploiements d’accélérateurs de solutions. Notez que l'ensemble de variables d'environnement de votre ordinateur local se substitue aux valeurs du fichier **services\\scripts\\local\\.env** lorsque vous exécutez **docker-compose**.
@@ -69,11 +69,11 @@ Si vous n’avez pas encore créé les ressources Azure nécessaires, procédez 
 ### <a name="use-existing-azure-resources"></a>Utiliser les ressources Azure existantes
 
 Si vous avez déjà créé les ressources Azure requises, créez les variables d'environnement correspondantes sur votre ordinateur local.
-Définissez les variables d’environnement pour les éléments suivants :
-* **PCS_KEYVAULT_NAME** -nom de la ressource Azure Key Vault
-* **PCS_AAD_APPID** -AAD de l’ID d’application
-* **PCS_AAD_APPSECRET** -clé secrète d’application le AAD
+Définissez les variables d’environnement suivantes :
+* **PCS_KEYVAULT_NAME** : nom de la ressource Azure Key Vault
+* **PCS_AAD_APPID** : ID d’application AAD
+* **PCS_AAD_APPSECRET** : secret d’application AAD
 
-Valeurs de configuration seront lue à partir de cette ressource Azure Key Vault. Ces variables d’environnement peuvent être enregistrées dans le  **\<votre dossier de base\>\\.pcs\\\<nom de la solution\>.env** fichier à partir du déploiement. Notez que l'ensemble de variables d'environnement de votre ordinateur local se substitue aux valeurs du fichier **services\\scripts\\local\\.env** lorsque vous exécutez **docker-compose**.
+Les valeurs de configuration seront lues à partir de cette ressource Azure Key Vault. Vous pouvez enregistrer ces variables d’environnement dans le fichier **\<votre dossier de base\>\\.pcs\\\<nom de la solution\>.env** du déploiement. Notez que l'ensemble de variables d'environnement de votre ordinateur local se substitue aux valeurs du fichier **services\\scripts\\local\\.env** lorsque vous exécutez **docker-compose**.
 
-Certaines configurations requises par le microservice est stocké dans une instance de **Key Vault** qui a été créé sur le déploiement initial. Les variables correspondants dans le coffre de clés doivent être modifiés en fonction des besoins.
+Certaines configurations requises par le microservice sont stockées dans une instance de **Key Vault** qui a été créée lors du déploiement initial. Les variables correspondantes dans keyvault doivent être modifiées en fonction des besoins.

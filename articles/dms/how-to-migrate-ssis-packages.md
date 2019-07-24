@@ -1,6 +1,6 @@
 ---
-title: Migrer des packages SQL Server Integration Services vers Azure | Microsoft Docs
-description: Découvrez comment Migrer des packages SQL Server Integration Services vers Azure.
+title: Redéployer des packages SQL Server Integration Services vers Azure SQL Database | Microsoft Docs
+description: Découvrez comment migrer des packages SQL Server Integration Services vers Azure SQL Database.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -10,66 +10,66 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 03/12/2019
-ms.openlocfilehash: 884af4624c1e92ee765353c90fd189220664381d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 06/08/2019
+ms.openlocfilehash: 603a9df8e3f499c832bbfdcbef966de86003d6b7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60532376"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080631"
 ---
-# <a name="migrate-sql-server-integration-services-packages-to-azure"></a>Migrer des packages SQL Server Integration Services vers Azure
-Si vous utilisez SQL Server Integration Services (SSIS) et souhaitez migrer vos projets/packages SSIS à partir de la source SSISDB hébergée par SQL Server vers la destination SSISDB hébergée par un serveur Azure SQL Database ou une instance Azure SQL Database Managed Instance, vous pouvez les redéployer à l’aide de l’Assistant Déploiement d’Integration Services. Vous pouvez lancer l’Assistant à partir de SQL Server Management Studio (SSMS).
+# <a name="redeploy-sql-server-integration-services-packages-to-azure-sql-database"></a>Redéployer des packages SQL Server Integration Services vers Azure SQL Database
+
+Si vous utilisez SQL Server Integration Services (SSIS) et souhaitez migrer vos projets/packages SSIS à partir de la source SSISDB hébergée par SQL Server vers la destination SSISDB hébergée par Azure SQL Database, vous pouvez les redéployer à l’aide de l’Assistant Déploiement d’Integration Services. Vous pouvez lancer l’Assistant à partir de SQL Server Management Studio (SSMS).
 
 Si la version de SSIS que vous utilisez est antérieure à 2012, avant de redéployer vos projets/packages SSIS dans le modèle de déploiement de projet, vous devez les convertir à l’aide de l’Assistant Conversion de projet d’Integration Services, qui peut également être lancé à partir de SSMS. Pour plus d’informations, voir l’article [Conversion de projets en modèle de déploiement de projet](https://docs.microsoft.com/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages?view=sql-server-2017#convert).
 
 > [!NOTE]
-> Azure Database Migration Service (DMS) ne prend actuellement pas en charge la migration d’une SSISDB source, mais vous pouvez redéployer vos projets/packages SSIS en procédant comme suit. 
+> Azure Database Migration Service (DMS) ne prend actuellement pas en charge la migration d’une SSISDB source vers un serveur Azure SQL Database, mais vous pouvez redéployer vos projets/packages SSIS en procédant comme suit.
 
 Dans cet article, vous apprendrez comment :
 > [!div class="checklist"]
+>
 > * Évaluer des projets/packages SSIS sources.
 > * Migrer des projets/packages SSIS vers Azure.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
+
 Pour effectuer cette procédure, vous avez besoin de :
 
-- SSMS version 17.2 ou ultérieure.
-- Une instance de votre serveur de base de données cible pour héberger SSISDB.
- 
-  Si vous n’en avez pas encore :
-    - Pour Azure SQL Database, créez un serveur Azure SQL Database (sans base de données) à l’aide du portail Microsoft Azure en accédant au [formulaire](https://ms.portal.azure.com/#create/Microsoft.SQLServer) SQL Server (serveur logique uniquement).
-    - Pour Azure SQL Database Managed Instance, suivez les indications détaillées dans [Créer une instance Azure SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started).
-
-- SSIS doit être provisionné dans une instance Azure Data Factory (ADF) contenant Azure-SSIS Integration Runtime avec la SSISDB de destination hébergée par l’instance du serveur Azure SQL Database (comme décrit dans l’article [Provisionner le runtime d’intégration Azure-SSIS dans Azure Data Factory](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure)) ou Azure SQL Database Managed Instance (comme décrit dans l’article [Créer le runtime d’intégration Azure-SSIS dans Azure Data Factory](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime)). 
+* SSMS version 17.2 ou ultérieure.
+* Une instance de votre serveur de base de données cible pour héberger SSISDB. Si vous n’en avez pas déjà un, créez un serveur Azure SQL Database (sans base de données) à l’aide du portail Azure en accédant au [formulaire](https://ms.portal.azure.com/#create/Microsoft.SQLServer) SQL Server (serveur logique uniquement).
+* SSIS doit être approvisionné dans une instance Azure Data Factory (ADF) contenant Azure-SSIS Integration Runtime avec la SSISDB de destination hébergée par l’instance du serveur Azure SQL Database (comme décrit dans l’article [Provisionner le runtime d’intégration Azure-SSIS dans Azure Data Factory](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure)).
 
 ## <a name="assess-source-ssis-projectspackages"></a>Évaluer des projets/packages SSIS sources
-Bien que l’évaluation de la SSISDB source ne soit pas encore intégrée dans l’Assistant Migration de base de données (DMA) ou Azure Database Migration Service (DMS), vos projets/packages SSIS seront évalués/validés lors de leur redéploiement vers la SSISDB de destination hébergée sur un serveur Azure SQL Database ou une Azure SQL Database Managed Instance.
+
+Bien que l’évaluation de la SSISDB source ne soit pas encore intégrée dans l’Assistant Migration de base de données (DMA) ou Azure Database Migration Service (DMS), vos projets/packages SSIS seront évalués/validés lors de leur redéploiement vers la SSISDB de destination hébergée sur un serveur Azure SQL Database.
 
 ## <a name="migrate-ssis-projectspackages"></a>Migrer des projets/packages SSIS
-Pour migrer des projets/packages SSIS vers un serveur Azure SQL Database ou à l’instance Azure SQL Database Managed Instance, procédez comme suit.
 
-1.  Ouvrez SSMS, puis sélectionnez **Options** pour afficher la boîte de dialogue **Se connecter au serveur**.
+Pour migrer des projets/packages SSIS vers un serveur Azure SQL Database, procédez comme suit.
 
-2.  Sous l’onglet **Connexion**, spécifiez les informations nécessaires pour se connecter au serveur Azure SQL Database ou à l’instance Azure SQL Database Managed Instance hébergeant la SSISDB de destination.
+1. Ouvrez SSMS, puis sélectionnez **Options** pour afficher la boîte de dialogue **Se connecter au serveur**.
+
+2. Sous l’onglet **Connexion**, spécifiez les informations nécessaires pour se connecter au serveur Azure SQL Database qui hébergera la SSISDB de destination.
 
     ![Onglet Connexion SSIS](media/how-to-migrate-ssis-packages/dms-ssis-login-tab.png)
- 
-3.  Sous l’onglet **Propriétés de connexion**, dans la zone de texte **Se connecter à une base de données**, sélectionnez ou entrez **SSISDB**, puis choisissez **Se connecter**.
+
+3. Sous l’onglet **Propriétés de connexion**, dans la zone de texte **Se connecter à une base de données**, sélectionnez ou entrez **SSISDB**, puis choisissez **Se connecter**.
 
     ![Onglet Propriétés de connexion SSIS](media/how-to-migrate-ssis-packages/dms-ssis-conncetion-properties-tab.png)
 
-4.  Dans l’Explorateur d’objets SSMS, développez le nœud **Catalogues Integration Services**, développez **SSISDB**, puis, s’il n’y a aucun dossier, cliquez avec le bouton droit sur **SSISDB**, puis créez un dossier.
+4. Dans l’Explorateur d’objets SSMS, développez le nœud **Catalogues Integration Services**, développez **SSISDB**, puis, s’il n’y a aucun dossier, cliquez avec le bouton droit sur **SSISDB**, puis créez un dossier.
 
-5.  Sous **SSISDB**, développez un dossier quelconque, cliquez avec le bouton droit sur **Projets**, puis sélectionnez **Déployer le projet**.
+5. Sous **SSISDB**, développez un dossier quelconque, cliquez avec le bouton droit sur **Projets**, puis sélectionnez **Déployer le projet**.
 
     ![Nœud SSIS SSISDB développé](media/how-to-migrate-ssis-packages/dms-ssis-ssisdb-node-expanded.png)
 
-6.  Dans l’Assistant Déploiement d’Integration Services, dans la page **Introduction**, examiner les informations, puis sélectionnez **Suivant**.
+6. Dans l’Assistant Déploiement d’Integration Services, dans la page **Introduction**, examiner les informations, puis sélectionnez **Suivant**.
 
     ![Page d’Introduction de l’Assistant Déploiement](media/how-to-migrate-ssis-packages/dms-deployment-wizard-introduction-page.png)
 
-7.  Dans la page **Sélectionner une source**, spécifiez le projet SSIS existant à déployer.
+7. Dans la page **Sélectionner une source**, spécifiez le projet SSIS existant à déployer.
 
     Si SSMS est également connecté au SQL Server hébergeant la SSISDB source, sélectionnez **Catalogue Integration Services**, puis entrez le nom du serveur et le chemin d’accès du projet dans votre catalogue pour déployer votre projet directement.
 
@@ -77,19 +77,19 @@ Pour migrer des projets/packages SSIS vers un serveur Azure SQL Database ou à l
 
     ![Page Sélectionner la source de l’Assistant Déploiement](media/how-to-migrate-ssis-packages/dms-deployment-wizard-select-source-page.png)
  
-8.  Sélectionnez **Suivant**.
-9.  Dans la page **Sélectionner la destination**, spécifiez la destination pour votre projet.
+8. Sélectionnez **Suivant**.
+9. Dans la page **Sélectionner la destination**, spécifiez la destination pour votre projet.
 
-       a. Dans la zone de texte Nom du serveur, entrez le nom complet du serveur Azure SQL Database (<nom_serveur>. database.windows.net) ou le nom de l’Azure SQL Database Managed Instance (<nom_serveur.préfixe_dns>. database.windows.net).
- 
-       b. Fournissez les informations d’authentification, puis sélectionnez **Connexion**.
-    
-       ![Page Sélectionner la destination de l’Assistant Déploiement](media/how-to-migrate-ssis-packages/dms-deployment-wizard-select-destination-page.png)
+    a. Dans la zone de texte Nom du serveur, entrez le nom du serveur Azure SQL Database complet (<nom_serveur>.database.windows.net).
 
-    c. Sélectionnez Parcourir pour spécifier le dossier de destination dans SSISDB, puis choisissez Suivant.
+    b. Fournissez les informations d’authentification, puis sélectionnez **Connexion**.
+
+    ![Page Sélectionner la destination de l’Assistant Déploiement](media/how-to-migrate-ssis-packages/dms-deployment-wizard-select-destination-page.png)
+
+    c. Sélectionnez **Parcourir** pour spécifier le dossier de destination dans SSISDB, puis sélectionnez **Suivant**.
 
     > [!NOTE]
-    > Le bouton **Suivant** est activé uniquement après sélection de **Connexion**. 
+    > Le bouton **Suivant** est activé uniquement après sélection de **Connexion**.
 
 10. Dans la page **Valider**, affichez les erreurs/avertissements et, si nécessaire, modifiez vos packages en conséquence.
 
@@ -100,7 +100,7 @@ Pour migrer des projets/packages SSIS vers un serveur Azure SQL Database ou à l
 12. Dans la page **Révision**, examinez vos paramètres de déploiement.
 
     > [!NOTE]
-    > Vous pouvez modifier vos paramètres en sélectionnant Précédent ou en choisissant un lien d’étape dans le volet gauche.
+    > Vous pouvez modifier vos paramètres en sélectionnant **Précédent** ou en choisissant un lien d’étape dans le volet gauche.
 
 13. Sélectionnez **Déployer** pour démarrer le processus de déploiement.
 
@@ -113,4 +113,5 @@ Pour migrer des projets/packages SSIS vers un serveur Azure SQL Database ou à l
 Si le déploiement de votre projet réussit sans défaillance, vous pouvez sélectionner tous les packages qu’il contient pour s’exécuter sur votre IR Azure-SSIS IR.
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Lisez l’aide à la migration du [Guide de migration de bases de données](https://datamigration.microsoft.com/) de Microsoft.
+
+* Lisez l’aide à la migration du [Guide de migration de bases de données](https://datamigration.microsoft.com/) de Microsoft.

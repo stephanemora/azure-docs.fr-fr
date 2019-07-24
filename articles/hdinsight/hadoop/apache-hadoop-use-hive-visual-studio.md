@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: hrasheed
 ms.openlocfilehash: 7480dafe435e555bfba81ebd9242bb5724c0bf3f
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65861594"
 ---
 # <a name="run-apache-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Exécution de requêtes Apache Hive à l’aide des outils Data Lake pour Visual Studio
@@ -21,7 +21,7 @@ Découvrez comment utiliser les outils Data Lake pour Visual Studio pour interro
 
 ## <a id="prereq"></a>Configuration requise
 
-* Un cluster Apache Hadoop sur HDInsight. Consultez [prise en main HDInsight sous Linux](./apache-hadoop-linux-tutorial-get-started.md).
+* Un cluster Apache Hadoop sur HDInsight. Consultez [Bien démarrer avec HDInsight sur Linux](./apache-hadoop-linux-tutorial-get-started.md).
 
 * Visual Studio (l'une des versions suivantes) :
 
@@ -39,25 +39,25 @@ Vous pouvez créer et exécuter des requêtes Hive de deux façons :
 
 ### <a name="ad-hoc"></a>Ad hoc
 
-Requêtes ad hoc peuvent être exécutées dans le **Batch** ou **Interactive** mode.
+Les requêtes ad hoc peuvent être exécutées dans le mode **Batch** ou **Interactive**.
 
 1. Ouvrez **Visual Studio**.
 
-2. À partir de **Explorateur de serveurs**, accédez à **Azure** > **HDInsight**.
+2. À partir de l’**Explorateur de serveurs**, accédez à **Azure** > **HDInsight**.
 
-3. Développez **HDInsight**et cliquez sur le cluster où vous souhaitez exécuter la requête, puis sélectionnez **écrire une requête Hive**.
+3. Développez **HDInsight** et cliquez avec le bouton droit sur le cluster dans lequel vous souhaitez exécuter la requête, puis sélectionnez **Écrire une requête Hive**.
 
-4. Entrez la requête hive suivante :
+4. Exécutez la requête Hive suivante :
 
     ```hql
     SELECT * FROM hivesampletable;
     ```
 
-5. Sélectionnez **Exécuter**. Notez que le mode d’exécution est défini par défaut pour **Interactive**.
+5. Sélectionnez **Exécuter**. Notez que le mode d’exécution est défini par défaut sur **Interactive**.
 
     ![Capture d’écran d’exécution de requêtes Hive interactives](./media/apache-hadoop-use-hive-visual-studio/vs-execute-hive-query.png)
 
-6. Pour exécuter la même requête **Batch** mode, la liste d’activer/désactiver la liste déroulante à partir de **Interactive** à **Batch**. Notez que le bouton d’exécution passe de **Execute** à **envoyer**.
+6. Pour exécuter la même requête dans le mode **Batch**, utilisez la liste déroulante pour passer de **Interactive** à **Batch**. Notez que le bouton d’exécution **Exécuter** devient **Envoyer**.
 
     ![Capture d’écran de soumission d’une requête Hive](./media/apache-hadoop-use-hive-visual-studio/vs-batch-query.png)
 
@@ -67,21 +67,21 @@ Requêtes ad hoc peuvent être exécutées dans le **Batch** ou **Interactive** 
    
     ![Capture d’écran de l’exemple 2 d’IntelliSense dans HDInsight Visual Studio Tools](./media/apache-hadoop-use-hive-visual-studio/vs-intellisense-column-name.png "IntelliSense U-SQL")
 
-7. Sélectionnez **Envoyer** ou **Envoyer (Avancé)**.
+7. Sélectionnez **Envoyer** ou **Envoyer (Avancé)** .
 
    Si vous sélectionnez l’option d’envoi avancé, configurez les éléments **Nom de la tâche**, **Arguments**, **Configurations supplémentaires** et **Répertoire d’état** pour le script :
 
     ![Capture d’écran de la Requête HDInsight Hadoop Hive](./media/apache-hadoop-use-hive-visual-studio/hdinsight.visual.studio.tools.submit.jobs.advanced.png "Soumettre des requêtes")
 
-### <a name="hive-application"></a>Application de la ruche
+### <a name="hive-application"></a>Application Hive
 
 1. Ouvrez **Visual Studio**.
 
-2. À partir de la barre de menus, accédez à **fichier** > **New** > **projet**.
+2. À partir de la barre de menus, accédez à **Fichier** > **Nouveau** > **Projet**.
 
-3. À partir de la **nouveau projet** fenêtre, accédez à **modèles** > **Azure Data Lake** > **HIVE (HDInsight)**  >  **Hive Application**. 
+3. À partir de la fenêtre **Nouveau projet**, accédez à **Modèles** > **Azure Data Lake** > **HIVE (HDInsight)**  >  **Application Hive**. 
 
-4. Fournissez un nom pour ce projet, puis sélectionnez **OK**.
+4. Donnez un nom au projet, puis sélectionnez **OK**.
 
 5. Ouvrez le fichier **Script.hql** créé avec ce projet et collez les instructions HiveQL suivantes :
 
@@ -125,11 +125,11 @@ Requêtes ad hoc peuvent être exécutées dans le **Batch** ou **Interactive** 
 
 ### <a name="additional-example"></a>Exemple supplémentaire
 
-Cet exemple s’appuie sur le `log4jLogs` table créée à l’étape précédente.
+Cet exemple s’appuie sur la table `log4jLogs` créée à l’étape précédente.
 
-1. À partir de **Explorateur de serveurs**, avec le bouton droit de votre cluster et sélectionnez **écrire une requête Hive**.
+1. À partir de l’**Explorateur de serveurs**, faites un clic droit sur votre cluster et sélectionnez **Écrire une requête Hive**.
 
-2. Entrez la requête hive suivante :
+2. Exécutez la requête Hive suivante :
 
     ```hql
     set hive.execution.engine=tez;
@@ -148,7 +148,7 @@ Cet exemple s’appuie sur le `log4jLogs` table créée à l’étape précéden
     
     * `INSERT OVERWRITE ... SELECT`: Sélectionne des lignes de la table `log4jLogs` qui contiennent `[ERROR]`, puis insère les données dans la table `errorLogs`.
 
-3. Exécutez la requête dans **Batch** mode.
+3. Exécutez la requête en mode **Batch**.
 
 4. Pour vérifier que le travail a créé une table, utilisez **Explorateur de serveurs** et développez **Azure** > **HDInsight** > votre cluster HDInsight > **Bases de données Hive** > **par défaut**. La table **errorLogs** et la table **log4jLogs** sont répertoriées.
 

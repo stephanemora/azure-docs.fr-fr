@@ -9,10 +9,10 @@ ms.date: 11/28/2018
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 30c7c1c50e59162817d7cfab0d852d8e034457d0
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65969410"
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Quand utiliser des objets BLOB Azure, des fichiers Azure ou des disques Azure
@@ -46,7 +46,7 @@ Le tableau suivant compare les fichiers Azure et les objets blob Azure.
 |Débit|Jusqu’à 60 Mio/s par objet blob de blocs|Jusqu’à 60 Mio/s par partage|  
 |Taille de l’objet|Jusqu'à environ 4,75 Tio par objet blob de blocs|Jusqu'à 1 Tio par fichier|  
 |Capacité facturée|En fonction des octets écrits|En fonction de la taille de fichier|  
-|Bibliothèques clientes|Multilingue|Multilingue|  
+|Bibliothèques clientes|Plusieurs langages|Plusieurs langages|  
   
 ## <a name="comparison-files-and-disks"></a>Comparaison : fichiers et disques
 
@@ -57,14 +57,14 @@ Le tableau suivant compare les fichiers Azure et les disques Azure.
 ||||  
 |-|-|-|  
 |**Attribut**|**Disques Azure**|**Azure Files**|  
-|`Scope`|Exclusif à une seule machine virtuelle|Accès partagé entre plusieurs machines virtuelles|  
-|Captures instantanées et copie|Oui|Oui|  
+|Étendue|Exclusif à une seule machine virtuelle|Accès partagé entre plusieurs machines virtuelles|  
+|Captures instantanées et copie|OUI|OUI|  
 |Configuration|Connexion au démarrage de la machine virtuelle|Connexion après le démarrage de la machine virtuelle|  
-|Authentication|Intégré|Configuration avec net use|  
+|Authentication|Intégration|Configuration avec net use|  
 |Accès à l’aide de REST|Les fichiers du disque dur virtuel ne sont pas accessibles|Les fichiers stockés dans un partage sont accessibles|  
-|Taille maximum|32 TIO disque|Partage de fichiers de 5 Tio et fichier de 1 Tio au sein du partage|  
-|Nombre maximal d’IOPS|20 000 e/s|1 000 E/S par seconde|  
-|Débit|Jusqu'à 900 Mio/s par disque|La cible est de 60 Mio/s par partage de fichiers (pouvant être plus élevée pour des tailles d’e/s plus élevées)|  
+|Taille maximale|Disque de 32 Tio|Partage de fichiers de 5 Tio et fichier de 1 Tio au sein du partage|  
+|Nombre maximal d’IOPS|20 000 IOPS|1 000 E/S par seconde|  
+|Débit|Jusqu’à 900 Mio/s par disque|La cible est de 60 Mio/s par partage de fichiers (pouvant être plus élevée pour des tailles d’e/s plus élevées)|  
 
 ## <a name="next-steps"></a>Étapes suivantes
 

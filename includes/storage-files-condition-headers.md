@@ -9,24 +9,24 @@ ms.date: 05/17/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 0486b595bffd18b06d54e8377b24deab04e2aa93
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66159867"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177131"
 ---
-## <a name="error-conditionheadersnotsupported-from-a-web-application-using-azure-files-from-browser"></a>ConditionHeadersNotSupported d’erreur à partir d’une Application Web à l’aide d’Azure Files à partir du navigateur
+## <a name="error-conditionheadersnotsupported-from-a-web-application-using-azure-files-from-browser"></a>Erreur ConditionHeadersNotSupported sur une application web utilisant Azure Files à partir du navigateur
 
-Lorsque l’accès au contenu hébergé dans Azure Files via une application qui permet d’utiliser des en-têtes conditionnels, comme un navigateur web, l’accès échoue, affiche une erreur ConditionHeadersNotSupported.
+Lorsque vous accédez à du contenu hébergé dans Azure Files via une application utilisant des en-têtes conditionnels (par exemple, un navigateur web), l’accès échoue et le message d’erreur ConditionHeadersNotSupported s’affiche.
 
-![Erreur de ConditionHeaderNotSupported](media/storage-files-condition-headers/conditionalerror.png)
+![Erreur ConditionHeaderNotSupported](media/storage-files-condition-headers/conditionalerror.png)
 
 ### <a name="cause"></a>Cause :
 
-En-têtes conditionnels ne sont pas encore pris en charge. Vous devez les mettre en œuvre des applications demander le fichier complet chaque fois que le fichier est accessible.
+Les en-têtes conditionnels ne sont pas encore pris en charge. Les applications qui utilisent ces en-têtes doivent demander le fichier complet pour chaque accès au fichier.
 
 ### <a name="workaround"></a>Solution de contournement
 
-Quand un nouveau fichier est chargé, la propriété de contrôle de cache par défaut est « no-cache ». Pour forcer l’application pour demander le fichier chaque fois, la propriété du fichier cache-control doit être mis à jour à partir de « no-cache » pour « no-cache, no-store, must-revalidate ». Vous pouvez le faire à l’aide de [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
+Quand un nouveau fichier est chargé, la propriété cache-control est définie sur « no-cache » par défaut. Pour forcer l’application à demander le fichier à chaque fois, la valeur « no-cache » de la propriété cache-control du fichier doit être remplacée par « no-cache, no-store, must-revalidate ». Vous pouvez le faire en utilisant [Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/).
 
-![Modification de cache de contenu de l’Explorateur de stockage](media/storage-files-condition-headers/storage-explorer-cache.png)
+![Modification du cache de contenu de l’explorateur de stockage](media/storage-files-condition-headers/storage-explorer-cache.png)

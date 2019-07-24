@@ -1,5 +1,5 @@
 ---
-title: 'Kit de développement logiciel (SDK) .NET : Compte des opérations de gestion sur Azure Data Lake Storage Gen1 | Microsoft Docs'
+title: 'Kit de développement logiciel (SDK) .NET : Opérations de gestion des comptes sur Azure Data Lake Storage Gen1 | Microsoft Docs'
 description: Utiliser le Kit de développement logiciel (SDK) NET Azure Data Lake Storage Gen1 pour effectuer des opérations de gestion des comptes dans Azure Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 8da40aa04381542c8c750c8d7e33c9a29879371d
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65900883"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Opérations de gestion des comptes sur Azure Data Lake Storage Gen1 à l’aide du SDK .NET
@@ -31,15 +31,15 @@ Dans cet article, vous allez découvrir comment réaliser des opérations de ges
 
 Pour obtenir des instructions sur l’exécution des opérations de gestion des données sur Data Lake Storage Gen1 à l’aide du kit de développement logiciel (SDK) .NET, consultez la section relative aux [opérations du système de fichiers sur Data Lake Storage Gen1 à l’aide du kit de développement logiciel (SDK) .NET](data-lake-store-data-operations-net-sdk.md).
 
-## <a name="prerequisites"></a>Conditions préalables
-* **Visual Studio 2013 ou version ultérieure**. Les instructions ci-dessous utilisent Visual Studio 2019.
+## <a name="prerequisites"></a>Prérequis
+* **Visual Studio 2013 ou version ultérieure**. Les instructions ci-dessous reposent sur Visual Studio 2019.
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="create-a-net-application"></a>Créer une application .NET
-1. Dans Visual Studio, sélectionnez le **fichier** menu, **New**, puis **projet**.
-2. Choisissez **application Console (.NET Framework)**, puis sélectionnez **suivant**.
-3. Dans **nom_projet**, entrez `CreateADLApplication`, puis sélectionnez **créer**.
+1. Dans Visual Studio, sélectionnez le menu **Fichier**, puis **Nouveau** et **Projet**.
+2. Choisissez **Application console (.NET Framework)** , puis sélectionnez **Suivant**.
+3. Dans **Nom du projet**, entrez `CreateADLApplication`, puis sélectionnez **Créer**.
 
 4. Ajoutez les packages NuGet à votre projet.
 

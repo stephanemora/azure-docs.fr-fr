@@ -5,15 +5,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 5/7/2019
+ms.date: 07/17/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: bcbbb63206a443d87afa656ace6f141c6567d17d
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 6d12b006583c004d12c50bda171c82397ff7949f
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192682"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68276606"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>Démarrage rapide : Diriger le trafic web avec Azure Application Gateway - Portail Azure
 
@@ -30,82 +30,113 @@ Connectez-vous au [portail Azure](https://portal.azure.com) avec votre compte Az
 
 ## <a name="create-an-application-gateway"></a>Créer une passerelle Application Gateway
 
-Azure a besoin d’un réseau virtuel pour communiquer avec les différentes ressources que vous créez. Vous pouvez créer un réseau virtuel ou en utiliser un. Dans cet exemple, vous allez créer un réseau virtuel. Vous créez un réseau virtuel en même temps que la passerelle d’application. Les instances Application Gateway sont créées dans des sous-réseaux séparés. Vous créez deux sous-réseaux dans cet exemple : un pour la passerelle d’application et un autre pour les serveurs back-end.
-
 1. Sélectionnez **Créer une ressource** dans le menu de gauche du portail Azure. La fenêtre **Nouvelle** apparaît.
 
 2. Sélectionnez **Mise en réseau**, puis sélectionnez **Application Gateway** dans la liste **Sélection**.
 
-### <a name="basics-page"></a>Page De base
+### <a name="basics-tab"></a>Onglet Informations de base
 
-1. Dans la page **De base**, entrez ces valeurs pour les paramètres de passerelle d’application suivants :
+1. Sous l’onglet **Informations de base**, entrez ces valeurs pour les paramètres de passerelle d’application suivants :
 
-   - **Nom** : entrez *myAppGateway* comme nom de passerelle d’application.
    - **Groupe de ressources** : sélectionnez **myResourceGroupAG** comme nom de groupe de ressources. Si ce groupe n’existe pas encore, sélectionnez **Créer** pour le créer.
+   - **Nom de passerelle d’application** : entrez *myAppGateway* comme nom de passerelle d’application.
 
-     ![Créer une nouvelle passerelle d’application](./media/application-gateway-create-gateway-portal/application-gateway-create.png)
+     ![Créer une passerelle d’application : Concepts de base](./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png)
 
-2. Acceptez les valeurs par défaut des autres paramètres, puis sélectionnez **OK**.
+2.  Azure a besoin d’un réseau virtuel pour communiquer avec les différentes ressources que vous créez. Vous pouvez créer un réseau virtuel ou en utiliser un. Dans cet exemple, vous allez créer un réseau virtuel en même temps que la passerelle d’application. Les instances Application Gateway sont créées dans des sous-réseaux séparés. Vous créez deux sous-réseaux dans cet exemple : un pour la passerelle d’application et un autre pour les serveurs back-end.
 
-### <a name="settings-page"></a>Page Paramètres
+    Sous **Configurer le réseau virtuel**, créez un réseau virtuel en sélectionnant **Créer nouveau**. Dans la fenêtre **Créer un réseau virtuel** qui s’ouvre, entrez les valeurs suivantes pour créer le réseau virtuel et deux sous-réseaux :
 
-1. Dans la page **Paramètres**, sous **Configuration du sous-réseau**, sélectionnez **Choisir un réseau virtuel**. <br>
+    - **Nom** : entrez *myVNet* comme nom de réseau virtuel.
 
-2. Dans la page **Choisir un réseau virtuel**, sélectionnez **Créer**, puis entrez les valeurs des paramètres de réseau virtuel suivants :
+    - **Nom de sous-réseau** (sous-réseau Application Gateway) : La grille **Sous-réseaux** affiche un sous-réseau nommé *Par défaut*. Remplacez le nom de ce sous-réseau par *myAGSubnet*.<br>Le sous-réseau de passerelle d’application peut contenir uniquement des passerelles d’application. Aucune autre ressource n’est autorisée.
 
-   - **Nom** : entrez *myVNet* comme nom de réseau virtuel.
+    - **Nom de sous-réseau** (sous-réseau de serveur principal) : Dans la deuxième ligne de la grille **Sous-réseaux**, entrez *myBackendSubnet* dans la colonne **Nom de sous-réseau**.
 
-   - **Espace d’adressage** : entrez *10.0.0.0/16* pour l’espace d’adressage du réseau virtuel.
+    - **Plage d’adresses** (sous-réseau de serveur principal) : Dans la deuxième ligne de la grille **Sous-réseaux**, entrez une plage d’adresses qui ne chevauche pas la plage d’adresses de *myAGSubnet*. Par exemple, si la plage d’adresses de *myAGSubnet* est 10.0.0.0/24, entrez *10.0.1.0/24* pour la plage d’adresses de *myBackendSubnet*.
 
-   - **Nom du sous-réseau** : entrez *myAGSubnet* comme nom de sous-réseau.<br>Le sous-réseau de passerelle d’application peut contenir uniquement des passerelles d’application. Aucune autre ressource n’est autorisée.
+    Sélectionnez **OK** pour fermer la fenêtre **Créer un réseau virtuel** et enregistrez les paramètres du réseau virtuel.
 
-   - **Plage d’adresses de sous-réseau** : entrez *10.0.0.0/24* pour la plage d’adresses du sous-réseau.
+     ![Créer une passerelle d’application : réseau virtuel](./media/application-gateway-create-gateway-portal/application-gateway-create-vnet.png)
+    
+3. Sous l’onglet **Informations de base**, acceptez les valeurs par défaut des autres paramètres, puis sélectionnez **Suivant : Front-ends**.
 
-     ![Création d’un réseau virtuel](./media/application-gateway-create-gateway-portal/application-gateway-vnet.png)
+### <a name="frontends-tab"></a>Onglet Front-ends
 
-3. Sélectionnez **OK** pour revenir à la page **Paramètres**.
-
-4. Choisissez la **configuration IP frontale**. Sous **Configuration d’adresse IP frontale**, vérifiez que **Type d’adresse IP** a la valeur **Public**. Sous **Adresse IP publique**, vérifiez que l’option **Créer** est sélectionnée. <br>Vous pouvez l’adresse IP frontale pour qu’elle soit publique ou privée conformément à votre cas d’utilisation. Dans cet exemple, vous allez choisir une adresse IP front-end publique.
+1. Sous l’onglet **Front-ends**, vérifiez que **Type d’adresse IP de front-end** est défini sur **Publique**. <br>Vous pouvez l’adresse IP frontale pour qu’elle soit publique ou privée conformément à votre cas d’utilisation. Dans cet exemple, vous allez choisir une adresse IP front-end publique.
    > [!NOTE]
-   > Pour la référence SKU Application Gateway v2, vous pouvez uniquement choisir la configuration d’une adresse IP front-end **publique**. La configuration d’une adresse IP front-end privée n’est pas activée pour la référence SKU v2.
+   > Pour la référence SKU Application Gateway v2, vous pouvez uniquement choisir la configuration d’une adresse IP front-end **publique**. La configuration d’une adresse IP de front-end privée n’est pas activée pour la référence SKU v2.
 
-5. Entrez *myAGPublicIPAddress* comme nom d’adresse IP publique. 
+2. Choisissez **Créer nouveau** pour **Adresse IP publique**, puis entrez *myAGPublicIPAddress* comme nom d’adresse IP publique, puis sélectionnez **OK**. 
 
-6. Acceptez les valeurs par défaut des autres paramètres, puis sélectionnez **OK**.<br>Vous allez choisir les valeurs par défaut de cet article pour rester simple, mais vous pouvez configurer des valeurs personnalisées pour les autres paramètres en fonction de votre cas d’usage. 
+     ![Créer une passerelle d’application : front-ends](./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png)
 
-### <a name="summary-page"></a>Page de résumé
+3. Sélectionnez **Suivant : Back-ends**.
 
-Passez en revue les paramètres dans la page **Résumé**, puis sélectionnez **OK** pour créer le réseau virtuel, l’adresse IP publique et la passerelle d’application. La création de la passerelle d’application par Azure peut prendre plusieurs minutes. Patientez jusqu’à ce que le déploiement soit terminé avant de passer à la section suivante.
+### <a name="backends-tab"></a>Onglet Back-ends
 
-## <a name="add-backend-pool"></a>Ajouter le pool principal
+Le pool de back-ends est utilisé pour router les demandes vers les serveurs back-end qui les traitent. Les pools back-end peuvent être composés de cartes d’interface réseau, de groupes de machines virtuelles identiques, d’adresses IP publiques, d’adresses IP internes, de noms de domaine complets et de serveurs back-end multi-locataires comme Azure App Service. Dans cet exemple, vous allez créer un pool de back-ends vide avec votre passerelle d’application, puis ajouter des cibles de back-end au pool.
 
-Le pool de back-ends est utilisé pour router les demandes vers les serveurs back-end qui les traitent. Les pools back-end peuvent être composés de cartes d’interface réseau, de groupes de machines virtuelles identiques, d’adresses IP publiques, d’adresses IP internes, de noms de domaine complets et de serveurs back-end multi-locataires comme Azure App Service. Vous allez ajouter vos cibles back-end à un pool de back-ends.
+1. Sous l’onglet **Backends**, sélectionnez **+Ajouter un pool de back-ends**.
+
+2. Dans la fenêtre **Ajouter un pool de back-ends** qui s’ouvre, entrez les valeurs suivantes pour créer un pool de back-ends vide :
+
+    - **Nom** : Entrez *myBackendPool* comme nom du pool de back-ends.
+    - **Ajouter un pool backend sans cible** : Sélectionnez **Oui** pour créer un pool de back-ends sans cible. Vous ajouterez des cibles de back-end après avoir créé la passerelle d’application.
+
+3. Dans la fenêtre **Ajouter un pool de back-ends**, sélectionnez  **Ajouter** pour enregistrer la configuration du pool de back-ends et revenir à l’onglet **Back-ends**.
+
+     ![Créer une passerelle d’application : back-ends](./media/application-gateway-create-gateway-portal/application-gateway-create-backends.png)
+
+4. Sous l’onglet **Back-ends**, sélectionnez **Suivant : Configuration**.
+
+### <a name="configuration-tab"></a>Onglet Configuration
+
+Sous l’onglet **Configuration**, vous allez connecter le front-end et le pool de back-ends que vous avez créés à l’aide d’une règle de routage.
+
+1. Sélectionnez **Ajouter une règle** dans la colonne **Règles de routage**.
+
+2. Dans la fenêtre **Ajouter une règle de routage** qui s’ouvre, entrez *myRoutingRule* pour **Nom de la règle**.
+
+3. Une règle de routage requiert un écouteur. Sous l’onglet **Écouteur** dans la fenêtre **Ajouter une règle de routage**, entrez les valeurs suivantes pour l’écouteur :
+
+    - **Nom de l’écouteur** : Entrez *myListener* comme nom pour l’écouteur.
+    - **Adresse IP du front-end** : Sélectionnez **Publique** pour choisir l’adresse IP publique que vous avez créée pour le front-end.
+  
+      Acceptez les valeurs par défaut pour les autres paramètres sous l’onglet **Écouteur**, puis sélectionnez l’onglet **Cibles de back-end** pour configurer le reste de la règle de routage.
+
+   ![Créer une passerelle d’application : écouteur](./media/application-gateway-create-gateway-portal/application-gateway-create-rule-listener.png)
+
+4. Sous l’onglet **Cibles de back-end**, sélectionnez **myBackendPool** pour la **Cible de back-end**.
+
+5. Pour **Paramètre HTTP**, sélectionnez **Créer nouveau** pour créer un nouveau paramètre HTTP. Le paramètre HTTP détermine le comportement de la règle de routage. Dans la fenêtre **Ajouter un paramètre HTTP** qui s’ouvre, entrez *myHTTPSetting* pour le **Nom du paramètre HTTP**. Acceptez les valeurs par défaut pour les autres paramètres de la fenêtre **Ajouter un paramètre HTTP**, puis sélectionnez **Ajouter** pour revenir à la fenêtre **Ajouter une règle de routage**. 
+
+     ![Créer une passerelle d’application : Paramètre HTTP](./media/application-gateway-create-gateway-portal/application-gateway-create-httpsetting.png)
+
+6. Dans la fenêtre **Ajouter une règle de routage**, sélectionnez **Ajouter** pour enregistrer la règle de routage et revenir à l’onglet **Configuration**.
+
+     ![Créer une passerelle d’application : règle de routage](./media/application-gateway-create-gateway-portal/application-gateway-create-rule-backends.png)
+
+7. Sélectionnez **Suivant : Balises**, puis sur **Suivant : Vérifier + créer**.
+
+### <a name="review--create-tab"></a>Onglet Vérifier + créer
+
+Examinez les paramètres sous l’onglet **Vérifier + créer**, puis sélectionnez **Créer** pour créer le réseau virtuel, l’adresse IP publique et la passerelle d’application. La création de la passerelle d’application par Azure peut prendre plusieurs minutes. Patientez jusqu’à ce que le déploiement soit terminé avant de passer à la section suivante.
+
+## <a name="add-backend-targets"></a>Ajouter des cibles de back-end
 
 Dans cet exemple, vous allez utiliser des machines virtuelles comme back-end cible. Vous pouvez utiliser des machines virtuelles existantes ou en créer de nouvelles. Vous allez créer deux machines virtuelles qu’Azure va utiliser comme serveurs back-end pour la passerelle d’application.
 
 Pour ce faire, vous allez effectuer les opérations suivantes :
 
-1. Créez un sous-réseau, *myBackendSubnet*, dans lequel les machines virtuelles seront créées.
-2. Créez deux machines virtuelles, *myVM* et *myVM2*, à utiliser comme serveurs back-end.
-3. Installer IIS sur les machines virtuelles pour vérifier que la passerelle d’application a bien été créée.
-4. Ajoutez les serveurs principaux au pool principal.
-
-### <a name="add-a-subnet"></a>Ajouter un sous-réseau
-
-Ajoutez un sous-réseau au réseau virtuel que vous avez créé en suivant ces étapes :
-
-1. Sélectionnez **Toutes les ressources** dans le menu de gauche du portail Azure, entrez *myVNet* dans la zone de recherche, puis sélectionnez **myVNet** dans les résultats de la recherche.
-
-2. Sélectionnez **Sous-réseaux** dans le menu de gauche, puis sélectionnez **+ Sous-réseau**. 
-
-   ![Créer un sous-réseau](./media/application-gateway-create-gateway-portal/application-gateway-subnet.png)
-
-3. Dans la page **Ajouter un sous-réseau**, entrez *myBackendSubnet* comme **Nom** de sous-réseau, puis sélectionnez **OK**.
+1. Créez deux machines virtuelles, *myVM* et *myVM2*, à utiliser comme serveurs back-end.
+2. Installer IIS sur les machines virtuelles pour vérifier que la passerelle d’application a bien été créée.
+3. Ajoutez les serveurs principaux au pool principal.
 
 ### <a name="create-a-virtual-machine"></a>Création d'une machine virtuelle
 
 1. Dans le portail Azure, sélectionnez **Créer une ressource**. La fenêtre **Nouvelle** apparaît.
-2. Sélectionnez **Compute**, puis sélectionnez **Windows Server 2016 Datacenter** dans la liste **Sélection**. La page **Créer une machine virtuelle** s’affiche.<br>Application Gateway peut acheminer le trafic vers n’importe quel type de machine virtuelle utilisée dans son pool principal. Dans cet exemple, vous utilisez un serveur Windows Server 2016 Datacenter.
+2. Sélectionnez **Compute**, puis **Windows Server 2016 Datacenter** dans la liste **Populaire**. La page **Créer une machine virtuelle** s’affiche.<br>Application Gateway peut acheminer le trafic vers n’importe quel type de machine virtuelle utilisée dans son pool principal. Dans cet exemple, vous utilisez un serveur Windows Server 2016 Datacenter.
 3. Sous l’onglet **De base**, entrez ces valeurs pour les paramètres de machine virtuelle suivants :
 
     - **Groupe de ressources** : sélectionnez **myResourceGroupAG** comme nom de groupe de ressources.
@@ -147,9 +178,9 @@ Dans cet exemple, vous allez installer IIS sur les machines virtuelles uniquemen
 
 1. Sélectionnez **Toutes les ressources**, puis **myAppGateway**.
 
-2. Sélectionnez **Pools principaux** dans le menu de gauche. Azure a automatiquement créé un pool par défaut, appelé **appGatewayBackendPool**, quand vous avez créé la passerelle d’application. 
+2. Sélectionnez **Pools principaux** dans le menu de gauche.
 
-3. Sélectionnez **appGatewayBackendPool**.
+3. Sélectionnez **MyBackendPool**.
 
 4. Sous **Cibles**, sélectionnez **Machine virtuelle** dans la liste déroulante.
 
@@ -158,6 +189,8 @@ Dans cet exemple, vous allez installer IIS sur les machines virtuelles uniquemen
     ![Ajouter des serveurs principaux](./media/application-gateway-create-gateway-portal/application-gateway-backend.png)
 
 6. Sélectionnez **Enregistrer**.
+
+7. Attendez que le déploiement se termine avant de passer à l’étape suivante.
 
 ## <a name="test-the-application-gateway"></a>Tester la passerelle d’application
 

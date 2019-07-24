@@ -11,10 +11,10 @@ ms.date: 11/13/2018
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: 33b379a03c92b81885f7adfc70f7025a85ce9057
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66511666"
 ---
 # <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Activer la vérification de l'âge dans Azure Active Directory B2C
@@ -25,13 +25,13 @@ ms.locfileid: "66511666"
 
 La vérification de l’âge dans Azure Active Directory (Azure AD) B2C vous permet d’identifier les mineurs qui souhaitent utiliser votre application. Vous pouvez choisir d’empêcher un mineur de se connecter à l’application. Les utilisateurs peuvent également revenir à l’application et indiquer leur tranche âge et l’état de leur consentement parental. Azure AD B2C peut bloquer les mineurs n’ayant pas de consentement parental. Vous pouvez également configurer Azure AD B2C pour que l’application gère elle-même les mineurs.
 
-Après avoir activé l’âge de régulation dans votre [flux utilisateur](active-directory-b2c-reference-policies.md), les utilisateurs sont invités quand ils sont nés et quel pays/région ceux-ci se trouvent dans. Si un utilisateur qui se connecte n’a pas précédemment entré ces informations, il devra le faire à sa prochaine connexion. Les règles sont appliquées chaque fois qu’un utilisateur se connecte.
+Après avoir activé la vérification de l’âge dans votre [flux utilisateur](active-directory-b2c-reference-policies.md), les utilisateurs sont invités à entrer leur date de naissance et leur pays/région de résidence. Si un utilisateur qui se connecte n’a pas précédemment entré ces informations, il devra le faire à sa prochaine connexion. Les règles sont appliquées chaque fois qu’un utilisateur se connecte.
 
 Azure AD B2C utilise les informations indiquées par l’utilisateur pour déterminer s’il est mineur. Le champ **ageGroup** est ensuite mis à jour dans son compte. La valeur peut être `null`, `Undefined`, `Minor`, `Adult` ou `NotAdult`.  Les champs **ageGroup** et **consentProvidedForMinor** sont ensuite utilisés pour calculer la valeur de **legalAgeGroupClassification**.
 
 La vérification de l’âge implique deux valeurs d’âge : l’âge auquel un utilisateur n’est plus considéré comme mineur et l’âge auquel un mineur doit obtenir un accord parental. Le tableau suivant liste les règles d’âge utilisées pour déterminer si un utilisateur est mineur et s’il a besoin d’un accord parental.
 
-| Pays/région | Nom de pays/région | Accord parental | Majorité |
+| Pays/région | Nom du pays/de la région | Accord parental | Majorité |
 | -------------- | ------------------- | ----------------- | --------- |
 | Default | Aucun | Aucun | 18 |
 | AE | Émirats Arabes Unis | Aucun | 21 |

@@ -15,19 +15,19 @@ ms.workload: na
 ms.date: 3/26/2019
 ms.author: v-mohabe
 ms.openlocfilehash: 60bb1c3b81ef990993a2ce659a2b189c9d8a0eba
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65967973"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Utiliser les recommandations Azure Security Center pour améliorer la sécurité
 Vous pouvez réduire les risques d’un incident de sécurité en configurant une stratégie de sécurité, puis en implémentant les recommandations fournies par Azure Security Center. Cet article explique comment utiliser les stratégies de sécurité et les recommandations d'Azure Security Center pour prévenir une attaque de sécurité. 
 
-Security Center s’exécute automatiquement des analyses en continu pour analyser l’état de sécurité de vos ressources Azure. Quand Security Center identifie des failles de sécurité potentielles, des recommandations sont créées. Celles-ci vous guident tout au long du processus de configuration des contrôles de sécurité nécessaires. Security Center met à jour ses recommandations dans les 24 heures, avec les exceptions suivantes :
+Security Center exécute automatiquement des analyses en continu pour examiner l’état de sécurité de vos ressources Azure. Quand Security Center identifie des failles de sécurité potentielles, des recommandations sont créées. Celles-ci vous guident tout au long du processus de configuration des contrôles de sécurité nécessaires. Security Center met à jour ses recommandations dans les 24 heures, avec les exceptions suivantes :
 
-- Recommandations de configuration de sécurité de système d’exploitation sont mis à jour dans les 48 heures
-- Recommandations de problèmes de Protection de point de terminaison sont mis à jour dans les 8 heures
+- Les recommandations de configuration de sécurité du système d’exploitation sont mises à jour dans les 48 heures
+- Les recommandations en lien avec les problèmes de protection du point de terminaison sont mises à jour dans les 8 heures
 
 ## <a name="scenario"></a>Scénario
 Ce scénario vous montre comment utiliser Security Center pour réduire les risques d’incident en supervisant les recommandations de Security Center et en prenant les mesures nécessaires. Le scénario utilise la société fictive Contoso et les rôles présentés dans le [Guide de planification et de fonctionnement](security-center-planning-and-operations-guide.md#security-roles-and-access-controls) de Security Center. Dans ce scénario, nous nous concentrons sur les rôles des personnages suivants :

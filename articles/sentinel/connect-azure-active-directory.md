@@ -7,19 +7,20 @@ author: rkarlin
 manager: rkarlin
 editor: ''
 ms.assetid: 0a8f4a58-e96a-4883-adf3-6b8b49208e6a
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 06/17/2019
 ms.author: rkarlin
-ms.openlocfilehash: 357435b8a4ac396c1548c89206f269730e871f6b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5784101c9f2e0dc238ac48c5d0f6fbe4c0dc596f
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65204498"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620679"
 ---
 # <a name="connect-data-from-azure-active-directory"></a>Connecter des données à partir de Azure Active Directory
 
@@ -34,6 +35,8 @@ Azure Sentinel vous permet de collecter des données à partir d’[Azure Active
 - Si vous souhaitez exporter des données de connexion à partir d’Active Directory, vous devez disposer d’une licence Azure AD P1 ou P2.
 
 - Un utilisateur disposant des autorisations d’administrateur globale ou d’administrateur de la sécurité sur le locataire à partir duquel vous souhaitez diffuser les journaux.
+
+- Pour afficher l’état de connexion, vous devez être autorisé à accéder aux journaux de diagnostic d’Azure AD. 
 
 
 ## <a name="connect-to-azure-ad"></a>Se connecter à Azure AD
@@ -50,4 +53,4 @@ Azure Sentinel vous permet de collecter des données à partir d’[Azure Active
 ## <a name="next-steps"></a>Étapes suivantes
 Dans ce document, vous avez appris à connecter Azure AD à Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
 - Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
-- Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats.md).
+- Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats.md).

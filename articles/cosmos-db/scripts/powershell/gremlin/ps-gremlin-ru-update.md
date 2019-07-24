@@ -1,19 +1,19 @@
 ---
-title: Script Azure PowerShell - Azure Cosmos DB Update RU/s pour l’API Gremlin
-description: Script Azure PowerShell - Azure Cosmos DB Update RU/s pour l’API Gremlin
+title: Script Azure PowerShell - Mise à jour du débit (RU/s) dans Azure Cosmos DB pour l’API Gremlin
+description: Script Azure PowerShell - Mise à jour du débit (RU/s) dans Azure Cosmos DB pour l’API Gremlin
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: samples
 ms.date: 05/18/2019
 ms.author: mjbrown
 ms.openlocfilehash: 30a7b4b9151496a753d31568411e436930ec0f55
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66247468"
 ---
-# <a name="update-rus-for-a-database-or-graph-for-azure-cosmos-db---gremlin-api"></a>Mettre à jour de RU/s pour une base de données ou un graphique pour l’API Azure Cosmos DB - Gremlin
+# <a name="update-rus-for-a-database-or-graph-for-azure-cosmos-db---gremlin-api"></a>Mettre à jour le débit (RU/s) d’une base de données ou d’un graphique pour Azure Cosmos DB - API Gremlin
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

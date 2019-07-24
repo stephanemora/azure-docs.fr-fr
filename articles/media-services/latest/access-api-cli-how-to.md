@@ -13,26 +13,26 @@ ms.custom: mvc
 ms.date: 05/15/2019
 ms.author: juliako
 ms.openlocfilehash: 5dbcf446a609adcd0f1902fcca2ac19ad87f17b1
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65779667"
 ---
 # <a name="access-azure-media-services-api-with-the-azure-cli"></a>Accéder à l’API Azure Media Services avec Azure CLI
  
-Pour utiliser l’authentification de principal du service Azure AD pour se connecter à l’API Azure Media Services, votre application doit demander un jeton Azure AD qui possède les paramètres suivants :
+Pour utiliser l’authentification du principal du service Azure AD afin de vous connecter à l’API Azure Media Services, votre application doit demander un jeton Azure AD qui possède les paramètres suivants :
 
 * Point de terminaison de locataire Azure AD
 * URI de ressource Media Services
 * URI de ressource pour REST Media Services
 * Valeurs de l’application Azure AD : ID client et clé secrète client
 
-Pour une explication détaillée, consultez [l’accès à Media Services v3 API](media-services-apis-overview.md#accessing-the-azure-media-services-api).
+Pour une explication détaillée, consultez [Accès aux API Media Services v3](media-services-apis-overview.md#accessing-the-azure-media-services-api).
 
 Cet article vous montre comment utiliser Azure CLI pour créer une application et un principal de service Azure AD afin d’obtenir les valeurs nécessaires pour accéder aux ressources Azure Media Services.
 
-## <a name="prerequisites"></a>Conditions préalables 
+## <a name="prerequisites"></a>Prérequis 
 
 [Créer un compte Media Services](create-account-cli-how-to.md).
 
@@ -59,7 +59,7 @@ Veillez à mémoriser les valeurs que vous avez utilisées pour le nom du groupe
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Le point de terminaison de diffusion en continu à partir de laquelle vous souhaitez diffuser du contenu doit être en cours d’exécution. La commande CLI suivante démarre votre point de terminaison de diffusion en continu par défaut :
+Le point de terminaison de streaming à partir duquel vous souhaitez diffuser du contenu doit se trouver dans l’état En cours d’exécution. La commande CLI suivante démarre votre point de terminaison de streaming par défaut :
 
 `az ams streaming-endpoint start -n default -a <amsaccount> -g <amsResourceGroup>`
 

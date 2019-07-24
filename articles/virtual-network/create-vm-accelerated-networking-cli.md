@@ -17,10 +17,10 @@ ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
 ms.openlocfilehash: 1e5513b28c1ae64fc8c87bb7a949596feab4623e
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65873414"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Créer une machine virtuelle Linux avec mise en réseau accélérée
@@ -43,15 +43,15 @@ Les avantages d’une mise en réseau accélérée s’appliquent uniquement à 
 ## <a name="supported-operating-systems"></a>Systèmes d’exploitation pris en charge
 Les distributions suivantes sont prises en charge sans configuration supplémentaire à partir de la galerie Azure : 
 * **Ubuntu 14.04 avec le noyau linux-azure**
-* **Ubuntu 16.04 ou version ultérieure** 
-* **Sous SLES12 SP3 ou version ultérieure** 
+* **Ubuntu 16.04 ou version ultérieure** 
+* **SLES12 SP3 ou version ultérieure** 
 * **RHEL 7.4 ou version ultérieure**
-* **CentOS 7.4 ou version ultérieures**
+* **CentOS 7.4 ou version ultérieure**
 * **CoreOS Linux**
 * **Debian « Stretch » with backports kernel**
-* **Oracle Linux 7.4 et versions ultérieur avec Red Hat compatibles du noyau (RHCK)**
-* **Oracle Linux 7.5 et versions ultérieur avec UEK version 5**
-* **FreeBSD 10.4, 11.1 & 12.0**
+* **Oracle Linux 7.4 et versions ultérieures avec Red Hat Compatible Kernel (RHCK)**
+* **Oracle Linux 7.5 et versions ultérieures avec UEK version 5**
+* **FreeBSD 10.4, 11.1 et 12.0**
 
 ## <a name="limitations-and-constraints"></a>Limitations et restrictions
 
@@ -75,13 +75,13 @@ Aucun déploiement des machines virtuelles (classiques) n’est possible avec la
 
 ## <a name="create-a-linux-vm-with-azure-accelerated-networking"></a>Créer une machine virtuelle Linux avec mise en réseau accélérée Azure
 ## <a name="portal-creation"></a>Création de portail
-Bien que cet article fournit des étapes pour créer une machine virtuelle avec mise en réseau accélérée à l’aide de l’interface CLI d’Azure, vous pouvez également [Créer une machine virtuelle avec mise en réseau accélérée via le portail Azure](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Lorsque vous créez une machine virtuelle dans le portail, dans le **créer une machine virtuelle** panneau, choisissez la **mise en réseau** onglet.  Dans cet onglet, il existe une option pour **mise en réseau accélérée**.  Si vous avez choisi un [pris en charge du système d’exploitation](#supported-operating-systems) et [taille de machine virtuelle](#supported-vm-instances), cette option est automatiquement rempli sur « Activé ».  Si ce n’est pas le cas, il sera remplir l’option « Off » pour la mise en réseau accélérée et donner à l’utilisateur une raison pourquoi il n’est pas être activé.   
+Bien que cet article fournit des étapes pour créer une machine virtuelle avec mise en réseau accélérée à l’aide de l’interface CLI d’Azure, vous pouvez également [Créer une machine virtuelle avec mise en réseau accélérée via le portail Azure](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Lorsque vous créez une machine virtuelle dans le portail, dans le panneau **Créer une machine virtuelle**, choisissez l’onglet **Mise en réseau**.  Dans cet onglet, il existe une option de **Mise en réseau accélérée**.  Si vous avez choisi un [système d’exploitation pris en charge](#supported-operating-systems) et une [taille de machine virtuelle](#supported-vm-instances), cette option est automatiquement définie sur « Activé ».  Dans le cas contraire, l’option est définie sur « Désactivé » pour la Mise en réseau accélérée et l’utilisateur est informé de la raison pour laquelle elle ne peut pas être activée.   
 
-* *Remarque :* Seuls les systèmes d’exploitation pris en charge peut être activés via le portail.  Si vous utilisez une image personnalisée, et que votre image prend en charge la mise en réseau accélérée, créez votre machine virtuelle à l’aide de CLI ou Powershell. 
+* *Remarque :* Seuls les systèmes d’exploitation pris en charge peuvent être activés via le portail.  Si vous utilisez une image personnalisée, et que votre image prend en charge la Mise en réseau accélérée, créez votre machine virtuelle à l’aide de CLI ou Powershell. 
 
-Une fois que la machine virtuelle est créée, vous pouvez confirmer la mise en réseau accélérée est activée en suivant les instructions dans le [confirmer que la mise en réseau accélérée est activée](#confirm-that-accelerated-networking-is-enabled).
+Une fois la machine virtuelle créée, vous pouvez confirmer l’activation de la Mise en réseau accélérée en suivant les instructions de la section [Confirmer l’activation de la Mise en réseau accélérée](#confirm-that-accelerated-networking-is-enabled).
 
-## <a name="cli-creation"></a>Création de l’interface CLI
+## <a name="cli-creation"></a>Création de CLI
 ### <a name="create-a-virtual-network"></a>Créez un réseau virtuel
 
 Installez la dernière version [d’Azure CLI](/cli/azure/install-azure-cli) et connectez-vous à un compte Azure avec [az login](/cli/azure/reference-index). Dans les exemples suivants, remplacez les exemples de noms de paramètre par vos propres valeurs. Les noms de paramètre sont par exemple *myResourceGroup*, *myNic* et *myVm*.
@@ -226,8 +226,8 @@ vf_tx_dropped: 0
 La mise en réseau accélérée est maintenant activée pour votre machine virtuelle.
 
 ## <a name="handle-dynamic-binding-and-revocation-of-virtual-function"></a>Gérer la liaison dynamique et la révocation de fonction virtuelle 
-Applications doivent s’exécuter sur la carte réseau synthétique qui est exposée dans la machine virtuelle. Si l’application s’exécute directement sur la carte réseau VF, il ne reçoit pas **tous les** les paquets destinés à la machine virtuelle, dans la mesure où certains paquets apparaissent sur l’interface synthétique.
-Si vous exécutez une application sur la carte réseau synthétique, elle garantit que l’application reçoit **tous les** les paquets destinés à ce dernier. Il s’assure également que l’application continue à s’exécuter, même si la fonction virtuelle est révoqué lorsque l’hôte est en cours de maintenance. Applications de liaison à la carte réseau synthétique sont une **obligatoire** exigence pour toutes les applications en tirant parti de **mise en réseau accélérée**.
+Les applications doivent s’exécuter via la carte réseau synthétique qui est exposée dans la machine virtuelle. Si l’application s’exécute directement via la carte réseau de fonction virtuelle, elle ne reçoit pas **tous** les paquets destinés à la machine virtuelle, car certains paquets s’affichent via l’interface synthétique.
+Si vous exécutez une application via la carte réseau synthétique, ceci garantit que l’application reçoit **tous** les paquets qui lui sont destinés. Il est par ailleurs certain que l’application continuera à s’exécuter, même si la fonction virtuelle est révoquée lorsque l’hôte est en cours de maintenance. La liaison des applications à la carte réseau synthétique est une exigence **obligatoire** pour toutes les applications tirant parti de la **mise en réseau accélérée**.
 
 ## <a name="enable-accelerated-networking-on-existing-vms"></a>Activer la mise en réseau accélérée sur des machines virtuelles existantes
 Si vous avez créé une machine virtuelle sans mise en réseau accélérée, vous pouvez activer cette fonctionnalité sur une machine virtuelle existante.  La machine virtuelle doit prendre en charge la mise en réseau accélérée et remplir les prérequis suivants (ces prérequis ont déjà été décrits plus haut) :

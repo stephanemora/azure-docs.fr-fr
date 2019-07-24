@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9a3468d720cb04e73cb284abb20c7bcf6a392dd
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
-ms.translationtype: MT
+ms.openlocfilehash: 4790dc7ebeeee3407e89bcf38d7e3f25699ed328
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65859524"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108406"
 ---
 # <a name="compare-remote-access-solutions"></a>Comparer les solutions d’accès à distance
 
@@ -34,29 +34,29 @@ Ce tableau vous permettra de comparer les solutions Threat Management Gateway (T
 
 | Fonctionnalité | TMG | UAG | WAP | AP |
 | ------- | --- | --- | --- | --- |
-| Authentification par certificat | Oui | Oui | - | - |
-| Publier de manière sélective les applications de navigateur | Oui | OUI | OUI | Oui |
-| Préauthentification et authentification unique | Oui | OUI | OUI | Oui | 
-| Pare-feu de couche 2/3 | Oui | Oui | - | - |
-| Transférer des fonctionnalités de proxy | Oui | - | - | - |
-| Fonctionnalités VPN | Oui | Oui | - | - |
-| Prise en charge du protocole riche | - | Oui | Oui, en cas d’exécution sur HTTP | Oui, en cas d’exécution sur HTTP ou via la passerelle des services Bureau à distance |
-| Sert de serveur proxy AD FS | - | Oui | Oui | - |
-| Un portail pour l’accès de l’application | - | Oui | - | Oui |
-| Traduction du lien de corps de réponse | Oui | OUI | - | Oui | 
-| Authentification avec des en-têtes | - | Oui | - | Oui, avec PingAccess | 
-| Sécurité à l’échelle du cloud | - | - | - | Oui | 
-| Accès conditionnel | - | Oui | - | Oui |
-| Aucun composant dans la zone démilitarisée (DMZ) | - | - | - | Oui |
-| Aucune connexion entrante | - | - | - | Oui |
+| Authentification par certificat | OUI | OUI | - | - |
+| Publier de manière sélective les applications de navigateur | OUI | OUI | OUI | OUI |
+| Préauthentification et authentification unique | OUI | OUI | OUI | OUI | 
+| Pare-feu de couche 2/3 | OUI | OUI | - | - |
+| Transférer des fonctionnalités de proxy | OUI | - | - | - |
+| Fonctionnalités VPN | OUI | OUI | - | - |
+| Prise en charge du protocole riche | - | OUI | Oui, en cas d’exécution sur HTTP | Oui, en cas d’exécution sur HTTP ou via la passerelle des services Bureau à distance |
+| Sert de serveur proxy AD FS | - | OUI | OUI | - |
+| Un portail pour l’accès de l’application | - | OUI | - | OUI |
+| Traduction du lien de corps de réponse | OUI | OUI | - | OUI | 
+| Authentification avec des en-têtes | - | OUI | - | Oui, avec PingAccess | 
+| Sécurité à l’échelle du cloud | - | - | - | OUI | 
+| Accès conditionnel | - | OUI | - | OUI |
+| Aucun composant dans la zone démilitarisée (DMZ) | - | - | - | OUI |
+| Aucune connexion entrante | - | - | - | OUI |
 
-La plupart des scénarios, nous vous recommandons de Proxy d’Application Azure AD en tant que la solution moderne. Le proxy d’application Web est uniquement recommandé dans les scénarios qui requièrent un serveur proxy pour AD FS, et que vous ne pouvez pas utiliser de domaines personnalisés dans Azure Active Directory. 
+Pour la plupart des scénarios, nous vous recommandons d’utiliser la solution moderne de proxy d’application Azure AD. Le proxy d’application Web est uniquement recommandé dans les scénarios qui requièrent un serveur proxy pour AD FS, et que vous ne pouvez pas utiliser de domaines personnalisés dans Azure Active Directory. 
 
 Le proxy d’application Azure AD offre des avantages uniques par rapport à des produits similaires, notamment :
 
 - L’extension d’Azure AD à des ressources locales
    - La protection et la sécurité à l’échelle du cloud
-   - Des fonctionnalités telles que l’accès conditionnel et Multi-Factor Authentication faciles à activer
+   - Des fonctionnalités telles que l’accès conditionnel et l’authentification multifacteur faciles à activer
 - Aucun composant dans la zone démilitarisée
 - Aucune connexion entrante nécessaire
 - Un panneau d’accès dans lequel vos utilisateurs peuvent se rendre pour toutes leurs applications, y compris les applications SaaS intégrées à Azure AD, les applications O365 et vos applications web locales. 

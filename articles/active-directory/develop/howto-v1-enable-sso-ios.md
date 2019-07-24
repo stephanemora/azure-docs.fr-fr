@@ -17,10 +17,10 @@ ms.reviewer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 19b010091ebd909745b272fca704bb87adf7924b
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65962626"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Activation Activer l’authentification unique entre applications sur iOS à l’aide de la bibliothèque ADAL
@@ -40,11 +40,11 @@ Cette procédure s’applique à :
 * Azure Active Directory B2B
 * Accès conditionnel Azure Active Directory
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Cette procédure suppose que vous savez comment :
 
-* Configurer votre application à l’aide du portail hérité pour Azure AD. Pour plus d’informations, consultez [inscrire une application](quickstart-register-app.md)
+* Configurer votre application à l’aide du portail hérité pour Azure AD. Pour plus d’informations, consultez [Inscrire une application](quickstart-register-app.md)
 * Intégrer votre application à [Kit de développement logiciel (SDK) iOS d’Azure AD](https://github.com/AzureAD/azure-activedirectory-library-for-objc).
 
 ## <a name="single-sign-on-concepts"></a>Concepts de l’authentification unique
@@ -165,7 +165,7 @@ Les Kits de développement logiciel (SDK) prennent en charge une grande partie d
 
 Pour activer l’authentification unique sur l’ensemble des applications que vous possédez, vous devez effectuer les opérations suivantes :
 
-1. Assurez-vous que toutes vos applications utilisent le même ID Client ou ID d’Application.
+1. Vérifiez que l’ensemble de vos applications utilisent le même ID client ou ID d’application.
 2. Vérifiez que l’ensemble de vos applications partagent le même certificat de signature fourni par Apple, de manière à ce que vous puissiez partager les trousseaux.
 3. Demandez la même éligibilité de trousseau pour l’ensemble de vos applications.
 4. Indiquez aux Kits de développement logiciel le trousseau partagé que vous souhaitez utiliser.
@@ -231,7 +231,7 @@ Une fois que vous disposez des droits appropriés, un fichier nommé `entitlemen
 </plist>
 ```
 
-Une fois que vous avez l’éligibilité de trousseau activée dans chacune de vos applications, et vous êtes prêt à utiliser l’authentification unique, informez l’identité du Kit de développement logiciel votre trousseau de clés à l’aide de la définition dans votre `ADAuthenticationSettings` avec le paramètre suivant :
+Une fois que l’éligibilité au trousseau a été activée dans chacune de vos applications et que vous êtes prêt à utiliser l’authentification unique, communiquez votre trousseau au Kit de développement logiciel (SDK) d’identité en utilisant le paramètre suivant dans votre `ADAuthenticationSettings`, à l’aide du paramètre ci-dessous :
 
 ```
 defaultKeychainSharingGroup=@"com.myapp.mycache";

@@ -1,6 +1,6 @@
 ---
-title: Tableau des limites de Service Azure SignalR
-description: Décrit les limites du système pour le Service Azure SignalR.
+title: Tableau des limites d’Azure SignalR Service
+description: Décrit les limites du système pour le service Azure SignalR.
 services: signalr
 documentationcenter: signalr
 author: sffamily
@@ -14,18 +14,18 @@ ms.workload: TBD
 ms.date: 09/24/2018
 ms.author: zhshang
 ms.openlocfilehash: 1d87439b7afeb946fd37c468a0853adcb674ee5a
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66238812"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177464"
 ---
 | Ressource | Limite par défaut | Limite maximale | 
 | --- | --- | --- |
-| Les unités de SignalR Service Azure par instance pour le niveau gratuit |1 |1 |
-| Unités de SignalR Service Azure par instance pour le niveau Standard |100 |100 |
-| Les unités de SignalR Service Azure par abonnement par région pour le niveau gratuit|5. |5. |
-| Le nombre total d’unités Service Azure SignalR par abonnement par région |150 |Illimité |
+| Unités du service Azure SignalR par instance pour le niveau gratuit |1 |1 |
+| Unités du service Azure SignalR par instance pour le niveau Standard |100 |100 |
+| Unités du service Azure SignalR par abonnement par région pour le niveau gratuit|5\. |5\. |
+| Total des unités de service Azure SignalR par abonnement par région |150 |Illimité |
 | Connexions par unité par jour pour le niveau gratuit |20 |20 |
 | Connexions par unité par jour pour le niveau Standard |1 000 |1 000|
 | Messages inclus par unité par jour pour le niveau gratuit|20 000 |20 000 |

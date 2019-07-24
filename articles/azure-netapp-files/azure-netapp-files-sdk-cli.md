@@ -1,6 +1,6 @@
 ---
-title: Kits de développement logiciel des fichiers NetApp Azure | Microsoft Docs
-description: Répertorie les kits SDK Azure NetApp Files prend-il en charge.
+title: Kits SDK Azure NetApp Files | Microsoft Docs
+description: Répertorie les kits SDK pris en charge par Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -15,21 +15,21 @@ ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: b-juche
 ms.openlocfilehash: 44cacc388b8cb9977bdf36d4d1a86f8d15211608
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65957879"
 ---
 # <a name="azure-netapp-files-sdks"></a>Kits SDK Azure NetApp Files
 
-Cet article répertorie les kits SDK Azure NetApp Files prend-il en charge.
+Cet article répertorie les kits SDK pris en charge par Azure NetApp Files.
 
 ## <a name="supported-sdks"></a>Kits SDK pris en charge 
 
-Le tableau ci-dessous répertorie les kits de développement pris en charge.  Vous trouverez plus d’informations sur les kits de développement pris en charge à leurs emplacements publiées dans GitHub.  
+Le tableau ci-dessous liste les kits SDK pris en charge.  Vous trouverez plus d’informations sur les kits SDK pris en charge à leurs emplacements publiés dans GitHub.  
 
-|    Langue    |    Emplacement de publication du Kit de développement logiciel    |
+|    Langage    |    Emplacement de publication du kit SDK    |
 |------------------|--------------------------------------------------------------------------------------------|
 |    [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/src/SDKs/)    |    `https://github.com/Azure/azure-sdk-for-net/tree/master/src/SDKs/NetApp`    |
 |    [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-mgmt-netapp)    |    `https://github.com/Azure/azure-sdk-for-python/tree/master/azure-mgmt-netapp`    |
@@ -40,4 +40,4 @@ Le tableau ci-dessous répertorie les kits de développement pris en charge.  Vo
 <!-- ## Command-line tools -->
 
 ## <a name="next-steps"></a>Étapes suivantes   
- [Téléchargez les kits de développement logiciel Azure](https://azure.microsoft.com/downloads/)
+ [Télécharger des kits SDK Azure](https://azure.microsoft.com/downloads/)

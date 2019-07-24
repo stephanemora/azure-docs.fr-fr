@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
-ms.date: 06/12/2019
+ms.date: 07/02/2019
 ms.author: hrasheed
-ms.openlocfilehash: e178326c4a165a9bebbef6b0162cc79c1f9a0727
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: f92cb247afb25562a96373c28534549a2f16d8c9
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67459513"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67805583"
 ---
 # <a name="quickstart-create-apache-hadoop-cluster-in-azure-hdinsight-using-azure-portal"></a>Démarrage rapide : créer un cluster Apache Hadoop dans Azure HDInsight à l’aide du portail Azure
 
@@ -41,12 +41,12 @@ Cette section vous permet de créer un cluster Hadoop dans HDInsight à l’ai
     |Propriété  |Description  |
     |---------|---------|
     |Nom du cluster   | Entrez un nom pour le cluster Hadoop. Étant donné que tous les clusters HDInsight partagent le même espace de noms DNS, ce nom doit être unique. Le nom peut comporter jusqu’à 59 caractères, dont des lettres, des chiffres et des traits d’union. Le premier caractère et le dernier caractère du nom ne peuvent pas être des traits d’union. |
-    |Abonnement    |  Sélectionnez votre abonnement Azure. |
+    |Subscription    |  Sélectionnez votre abonnement Azure. |
     |Type de cluster     | Ignorez ceci pour le moment. Vous renseignerez cette entrée à l’étape suivante de cette procédure.|
     |Nom d’utilisateur et mot de passe du cluster    | Le nom de connexion par défaut est **admin**. Le mot de passe doit comporter au moins 10 caractères et inclure au moins un chiffre, une lettre majuscule, une lettre minuscule et un caractère non alphanumérique (à l’exception de ’ " ` \). Veillez à **ne pas indiquer** des mots de passe courants comme « Pass@word1 ».|
     |Nom d’utilisateur SSH (Secure Shell) | Le nom d’utilisateur par défaut est **sshuser**.  Vous pouvez fournir un autre nom pour le nom d’utilisateur SSH. |
     |Utiliser le mot de passe de connexion au cluster pour SSH| Cochez cette case pour utiliser le même mot de passe utilisateur SSH que celui fourni pour l’utilisateur de connexion au cluster.|
-    |Groupe de ressources     | Sélectionnez un groupe de ressources existant ou créez-en un.  Un groupe de ressources est un conteneur de composants Azure.  Dans ce cas, le groupe de ressources contient le cluster HDInsight et le compte de stockage Azure dépendant. |
+    |Resource group     | Sélectionnez un groupe de ressources existant ou créez-en un.  Un groupe de ressources est un conteneur de composants Azure.  Dans ce cas, le groupe de ressources contient le cluster HDInsight et le compte de stockage Azure dépendant. |
     |Location    | Sélectionnez l’emplacement Azure où vous souhaitez créer votre cluster.  Choisissez un emplacement proche de vous pour obtenir des performances optimales. |
 
     ![Bien démarrer avec HDInsight Linux en renseignant les informations de base du cluster](./media/apache-hadoop-linux-create-cluster-get-started-portal/quick-create-basics.png "Renseigner les informations de base pour la création d’un cluster HDInsight")
@@ -68,7 +68,7 @@ Cette section vous permet de créer un cluster Hadoop dans HDInsight à l’ai
     |---------|---------|
     |Type de stockage principal    | Pour cet article, sélectionnez Stockage Azure pour utiliser Azure Storage Blob en tant que compte de stockage par défaut. Vous pouvez aussi utiliser Azure Data Lake Storage comme stockage par défaut. |
     |Méthode de sélection     |  Pour cet article, sélectionnez **Mes abonnements** pour utiliser un compte de stockage à partir de votre abonnement Azure. Pour utiliser un compte de stockage à partir d’autres abonnements, sélectionnez **Clé d’accès**, puis indiquez la clé d’accès à ce compte. |
-    |Sélectionner un compte de stockage   | Sélectionnez **Sélectionner un compte de stockage** pour sélectionner un compte de stockage existant, ou sélectionnez **Créer nouveau**.|
+    |Sélectionner un compte de stockage   | Sélectionnez **Sélectionner un compte de stockage** pour sélectionner un compte de stockage existant, ou sélectionnez **Créer nouveau**. Si vous créez un compte, son nom doit contenir entre 3 et 24 caractères alphanumériques minuscules.|
 
     Acceptez toutes les autres valeurs par défaut, puis sélectionnez **Suivant** pour aller à la page de résumé.
 

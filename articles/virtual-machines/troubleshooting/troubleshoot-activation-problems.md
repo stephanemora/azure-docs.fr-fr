@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: 18cd5a86cc2f52567c5f320719d1a9f21b377ed4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bc058cb3f27545b9e4ad8ef1062ca4d2fa4c9fa8
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60921269"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155149"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Résoudre des problèmes liés à l’activation de machines virtuelles Windows Azure
 
@@ -51,11 +51,9 @@ En règle générale, les problèmes d’activation de machines virtuelles Azure
 >
 >Si vous utilisez le service ExpressRoute et possédez un itinéraire publié par défaut, consultez l’article [Azure VM may fail to activate over ExpressRoute](https://blogs.msdn.com/b/mast/archive/2015/12/01/azure-vm-may-fail-to-activate-over-expressroute.aspx) (Une machine virtuelle Azure peut être incapable d’activer ExpressRoute).
 
-### <a name="step-1-configure-the-appropriate-kms-client-setup-key-for-windows-server-2016-and-windows-server-2012-r2"></a>Étape 1 : Configurer la bonne clé d’installation client KMS (pour Windows Server 2016 et Windows Server 2012 R2)
+### <a name="step-1-configure-the-appropriate-kms-client-setup-key"></a>Étape 1 : configurer la bonne clé d’installation client KMS
 
-Pour la machine virtuelle créée à partir d’une image personnalisée de Windows Server 2016 ou Windows Server 2012 R2, vous devez configurer la clé d’installation client KMS adéquate pour la machine virtuelle.
-
-Cette étape ne s’applique pas pour Windows 2012 ou Windows 2008 R2. Elle utilise la fonctionnalité d’activation automatique de machine virtuelle (AVMA). Cette dernière est uniquement prise en charge par Windows Server 2016 et Windows Server 2012 R2.
+Pour la machine virtuelle créée à partir d’une image personnalisée, vous devez configurer la clé d’installation client KMS adéquate pour la machine virtuelle.
 
 1. Exécutez **slmgr.vbs /dlv** dans une invite de commandes avec élévation de privilèges. Dans la sortie, vérifiez la valeur Description. Ensuite, déterminez si cette valeur a été créée à partir de la vente au détail (Canal de vente au détail) ou d’un support de licence en volume (VOLUME_KMSCLIENT) :
   

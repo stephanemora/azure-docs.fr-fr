@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 842d3146bf1927871e29eb750cde09e9029b7c12
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66242101"
 ---
 # <a name="view-activity-logs-for-rbac-changes-to-azure-resources"></a>Afficher les journaux d’activité des changements de contrôle d’accès en fonction du rôle apportés aux ressources Azure
@@ -110,7 +110,7 @@ az monitor activity-log list --resource-provider "Microsoft.Authorization" --sta
 
 ## <a name="azure-monitor-logs"></a>Journaux d’activité Azure Monitor
 
-[Journaux d’analyse Azure](../log-analytics/log-analytics-overview.md) est un autre outil, vous pouvez utiliser pour collecter et analyser les modifications RBAC pour toutes vos ressources Azure. Journaux d’analyse Azure présente les avantages suivants :
+[Les journaux Azure Monitor](../log-analytics/log-analytics-overview.md) sont un autre outil que vous pouvez utiliser pour collecter et analyser les changements RBAC de toutes vos ressources Azure. Les journaux Azure Monitor possèdent les avantages suivants :
 
 - Écriture de requêtes et d’une logique complexes
 - Intégration aux alertes, à Power BI et à d’autres outils
@@ -123,9 +123,9 @@ Voici les étapes de base pour bien démarrer :
 
 1. [Configurez la solution Activity Log Analytics](../azure-monitor/platform/activity-log-collect.md#activity-logs-analytics-monitoring-solution) pour vos espaces de travail.
 
-1. [Affichez les journaux d’activité](../azure-monitor/platform/activity-log-collect.md#activity-logs-analytics-monitoring-solution). Un moyen rapide d’accéder à la page de vue d’ensemble de solution Analytique de journal d’activité consiste à cliquer sur le **Analytique de journal** option.
+1. [Affichez les journaux d’activité](../azure-monitor/platform/activity-log-collect.md#activity-logs-analytics-monitoring-solution). Un moyen rapide d’accéder à la page Vue d’ensemble de la solution Activity Log Analytics consiste à cliquer sur l’option **Log Analytics**.
 
-   ![Option de journaux Azure Monitor dans le portail](./media/change-history-report/azure-log-analytics-option.png)
+   ![Option journaux Azure Monitor dans le portail](./media/change-history-report/azure-log-analytics-option.png)
 
 1. Éventuellement, utilisez la page [Recherche dans les journaux d’activité](../log-analytics/log-analytics-log-search.md) ou le [portal Analytique avancée](../azure-monitor/log-query/get-started-portal.md) pour interroger et afficher les journaux d’activité. Pour plus d’informations sur ces deux options, consultez la [page Recherche dans les journaux ou le portail Analytique avancée](../azure-monitor/log-query/portals.md).
 

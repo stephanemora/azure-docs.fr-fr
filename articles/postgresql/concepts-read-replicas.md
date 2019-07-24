@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/05/2019
-ms.openlocfilehash: 75a3c8a9912fe9ace70e411983996167da755128
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/14/2019
+ms.openlocfilehash: c98247b0ba8b670a59dec9aa3ec87e949f1dda78
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66734650"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147923"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Réplicas en lecture dans Azure Database pour PostgreSQL - Serveur unique
 
@@ -122,6 +122,9 @@ Un réplica est créé à partir de la même configuration que celle du serveur 
 Avec PostgreSQL, la valeur du paramètre `max_connections` sur le réplica en lecture doit être supérieure ou égale à la valeur du serveur maître. Sinon, le réplica ne démarre pas. Dans Azure Database pour PostgreSQL, la valeur du paramètre `max_connections` est basée sur la référence (SKU). Pour plus d’informations, consultez [Limites d’Azure Database pour PostgreSQL](concepts-limits.md). 
 
 Si vous tentez de mettre à jour les valeurs du serveur sans respecter les limites, vous recevez un message d’erreur.
+
+### <a name="maxpreparedtransactions"></a>max_prepared_transactions
+Avec [PostgreSQL](https://www.postgresql.org/docs/10/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS), la valeur du paramètre `max_prepared_transactions` sur le réplica en lecture doit être supérieure ou égale à la valeur du serveur maître. Sinon, le réplica ne démarre pas. Si vous souhaitez modifier `max_prepared_transactions` sur le serveur maître, modifiez-le d’abord sur les réplicas.
 
 ### <a name="stopped-replicas"></a>Réplicas arrêtés
 Si vous arrêtez la réplication entre un serveur maître et un réplica en lecture, le réplica redémarre pour permettre l’application du changement. Le réplica arrêté devient un serveur autonome qui accepte les lectures et les écritures. Le serveur autonome ne peut pas être retransformé en réplica.

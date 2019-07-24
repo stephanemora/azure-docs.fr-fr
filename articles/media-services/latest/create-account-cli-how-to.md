@@ -13,10 +13,10 @@ ms.custom: seodec18
 ms.date: 05/19/2019
 ms.author: juliako
 ms.openlocfilehash: f2cb2e2ee6393a59125ee879f2058516eb50d6b1
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65956708"
 ---
 # <a name="create-an-azure-media-services-account"></a>Créer un compte Azure Media Services
@@ -28,7 +28,7 @@ Pour commencer à chiffrer, coder, analyser, gérer et diffuser en continu du co
 
 Cet article décrit les étapes à suivre pour créer un compte Azure Media Services à l’aide d’Azure CLI.  
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Un abonnement Azure actif. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avant de commencer.
 
@@ -46,7 +46,7 @@ az account set --subscription mySubscriptionId
  
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Accéder aux API de v3](access-api-cli-how-to.md)
+* [Accéder aux API v3](access-api-cli-how-to.md)
 * [Diffuser un fichier](stream-files-dotnet-quickstart.md)
 * [Attacher un stockage secondaire à un compte Media Services](https://docs.microsoft.com/cli/azure/ams/account/storage?view=azure-cli-latest#az-ams-account-storage-add)
 

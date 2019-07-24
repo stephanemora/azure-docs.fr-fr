@@ -4,12 +4,12 @@ ms.service: application-gateway
 ms.topic: include
 ms.date: 6/5/2019
 ms.author: victorh
-ms.openlocfilehash: 592e1973344b231693077f8286a41dfd67a8d188
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9a8d925e5d72500817028b913a80255a4339255c
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66689104"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67148418"
 ---
 | Ressource | Limite maximale/par défaut | Remarque |
 | --- | --- | --- |
@@ -23,7 +23,7 @@ ms.locfileid: "66689104"
 | Paramètres HTTP du serveur principal |100<sup>1</sup> | |
 | Instances par passerelle |32 | |
 | Certificats SSL |100<sup>1</sup> |1 par écouteur HTTP |
-| Taille maximale du certificat SSL |RÉFÉRENCE SKU V1 : 10 Ko<br>RÉFÉRENCE SKU V2 : 25 Ko| |
+| Taille maximale du certificat SSL |RÉFÉRENCE SKU V1 : 10 Ko<br>RÉFÉRENCE SKU V2 : 16 Ko| |
 | Certificats d’authentification |100 | |
 | Certificats racines approuvés |100 | |
 | Délai minimum d’expiration de la demande |1 seconde | |

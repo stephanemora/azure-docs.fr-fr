@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: dc07b4eea553e6cb3d9b522826e860ddbfbc1513
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e3ab53466cae5bd39d85f8d846c8e59ad94f1f2d
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64577044"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165740"
 ---
 # <a name="cloudsimple-private-cloud-overview"></a>Vue d’ensemble des clouds privés CloudSimple
 
@@ -63,7 +63,7 @@ Les utilisateurs consomment la pile par le biais des outils VMware natifs, tels 
 
 Vous pouvez déployer des nœuds dédiés aux emplacements Azure. Vous pouvez ensuite les gérer avec Azure et CloudSimple. Un cloud privé se compose d’un ou de plusieurs clusters vSphere, qui contiennent chacun entre 3 et 16 nœuds.
 
-Vous pouvez créer un cloud privé à l’aide de nœuds achetés :
+Vous pouvez créer un cloud privé à l’aide de nœuds approvisionnés :
 
 * Nœuds avec paiement à l’utilisation
 * Nœuds dédiés réservés
@@ -121,7 +121,7 @@ Le tableau ci-après indique les limites de nœud sur les ressources d’un clou
 
 | Ressource | Limite |
 |----------|-------|
-| Nombre minimal de nœuds pour la création d’un cloud privé | 3 |
+| Nombre minimal de nœuds pour la création d'un cloud privé | 3 |
 | Nombre maximal de nœuds dans un cluster sur un cloud privé | 16 |
 | Nombre maximal de nœuds dans un cloud privé | 64 |
 | Nombre minimal de nœuds sur un nouveau cluster | 3 |

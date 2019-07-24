@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: c8d5df0f83a7ae37b9f06a5e255e9809288b6d67
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bcbdd5fd8395cb0a47038595127e9b20118bdf1b
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64917037"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147703"
 ---
 # <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>Réplication transactionnelle avec des bases de données uniques, mises en pool, et d’instance dans Azure SQL Database
 
@@ -66,11 +66,10 @@ Il existe différents [types de réplications](https://docs.microsoft.com/sql/re
 
 | Réplication | Bases de données uniques et mises en pool | Bases de données d’instance|
 | :----| :------------- | :--------------- |
-| [**Transactionnelle**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Oui (uniquement en tant qu’Abonné) | OUI | 
+| [**Transactionnelle standard**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Oui (uniquement en tant qu’Abonné) | OUI | 
 | [**Capture instantanée**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Oui (uniquement en tant qu’Abonné) | OUI|
 | [**Réplication de fusion**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | Non | Non|
 | [**Pair à pair**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | Non | Non|
-| **Unidirectionnelle** | OUI | OUI|
 | [**Bidirectionnelle**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | Non | OUI|
 | [**Abonnements pouvant être mis à jour**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | Non | Non|
 | &nbsp; | &nbsp; | &nbsp; |

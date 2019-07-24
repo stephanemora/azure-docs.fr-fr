@@ -1,6 +1,6 @@
 ---
-title: Solution d’Analytique de mise en réseau Azure dans Azure Monitor | Microsoft Docs
-description: Vous pouvez utiliser la solution d’Analytique de mise en réseau Azure dans Azure Monitor pour passer en revue les journaux de groupes de sécurité réseau Azure et des journaux Azure Application Gateway.
+title: Solution Azure SQL Analytics dans Azure Monitor | Microsoft Docs
+description: Vous pouvez utiliser la solution d’analytique du réseau Azure dans Azure Monitor pour examiner les journaux d’activité de passerelle d’application et de groupes de sécurité réseau Azure.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: bwren
-ms.openlocfilehash: 244df90a9db2a2b0d5f6ca6e1874bce94fc7f5bf
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
-ms.translationtype: MT
+ms.openlocfilehash: 13908706f8dcec0eb2d1773bcef2ee622b4ebcc1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506413"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67048638"
 ---
-# <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Surveillance des solutions dans Azure Monitor de mise en réseau Azure
+# <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Solutions de supervision réseau Azure dans Azure Monitor
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Azure Monitor propose les solutions suivantes pour la surveillance de vos réseaux :
+Azure Monitor propose les solutions suivantes pour la supervision de vos réseaux :
 * Analyseur de performances réseau (NPM) pour
     * Surveiller l’intégrité de votre réseau
 * Azure Application Gateway Analytics à passer en revue
@@ -46,15 +46,15 @@ Pour plus d’informations, consultez l’[Analyseur de performances réseau](ht
 
 ## <a name="azure-application-gateway-and-network-security-group-analytics"></a>Azure Application Gateway et Network Security Group Analytics
 Pour utiliser les solutions :
-1. Ajouter la solution de gestion à Azure Monitor, et
-2. Activer les diagnostics diriger les diagnostics vers un espace de travail Analytique de journal dans Azure Monitor. Il n’est pas nécessaire d’écrire les journaux d’activité dans le stockage Blob Azure.
+1. Ajoutez la solution de gestion dans Azure Monitor, et
+2. Activez les diagnostics pour les orienter vers un espace de travail Log Analytics dans Azure Monitor. Il n’est pas nécessaire d’écrire les journaux d’activité dans le stockage Blob Azure.
 
 Vous pouvez activer les diagnostics et la solution correspondante pour Application Gateway, Networking Security Groups ou les deux.
 
 Si vous n’activez pas la journalisation des diagnostics pour un type de ressource en particulier, mais que vous installez la solution, les panneaux du tableau de bord de cette ressource sont vides et affichent un message d’erreur.
 
 > [!NOTE]
-> En janvier 2017, le mode d’envoi des journaux à partir des passerelles d’Application et les groupes de sécurité réseau à un espace de travail Analytique de journal modifiée. Si vous voyez la solution **Azure Networking Analytics (déconseillée)**, consultez [Migration à partir de l’ancienne solution Azure Networking](#migrating-from-the-old-networking-analytics-solution) pour connaître les étapes à suivre.
+> En janvier 2017, la méthode prise en charge pour envoyer des journaux d’activité dans un espace de travail Log Analytics à partir d’Application Gateways et de Network Security Groups a été modifiée. Si vous voyez la solution **Azure Networking Analytics (déconseillée)** , consultez [Migration à partir de l’ancienne solution Azure Networking](#migrating-from-the-old-networking-analytics-solution) pour connaître les étapes à suivre.
 >
 >
 
@@ -86,23 +86,23 @@ Les métriques prises en charge pour les passerelles d’application sont les su
 ### <a name="install-and-configure-the-solution"></a>Installer et configurer la solution
 Pour installer et configurer la solution d’analytique Azure Application Gateway, suivez les instructions suivantes :
 
-1. Activer la solution d’analytique Azure Application Gateway à partir de [place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureAppGatewayAnalyticsOMS?tab=Overview) ou à l’aide de la procédure décrite dans [solutions ajouter Azure Monitor à partir de la galerie de Solutions](../../azure-monitor/insights/solutions.md).
+1. Activez la solution Azure Application Gateway Analytics depuis la [Place de marché Microsoft Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureAppGatewayAnalyticsOMS?tab=Overview) ou en procédant de la manière décrite dans [Ajouter des solutions Azure Monitor à partir de la galerie de solutions](../../azure-monitor/insights/solutions.md).
 2. Activez la journalisation des diagnostics pour les [Application Gateways](../../application-gateway/application-gateway-diagnostics.md) que vous voulez surveiller.
 
 #### <a name="enable-azure-application-gateway-diagnostics-in-the-portal"></a>Activer les diagnostics Azure Application Gateway dans le portail
 
-1. Dans le portail Azure, accédez à la ressource de passerelle d’Application à surveiller.
-2. Sélectionnez *les journaux de diagnostic* pour ouvrir la page suivante.
+1. Dans le Portail Azure, accédez à la ressource Application Gateway à surveiller.
+2. Sélectionnez *Journaux de diagnostic* pour ouvrir la page suivante.
 
    ![Image de la ressource Azure Application Gateway](media/azure-networking-analytics/log-analytics-appgateway-enable-diagnostics01.png)
-3. Cliquez sur *activer les diagnostics* pour ouvrir la page suivante.
+3. Cliquez sur *Activer les diagnostics* pour ouvrir la page suivante.
 
    ![Image de la ressource Azure Application Gateway](media/azure-networking-analytics/log-analytics-appgateway-enable-diagnostics02.png)
-4. Pour activer les diagnostics, cliquez sur *sur* sous *état*.
-5. Cliquez sur la case à cocher pour *envoyer à Log Analytique*.
-6. Sélectionnez un espace de travail Analytique de journal existant ou créer un espace de travail.
-7. Cliquez sur la case à cocher sous **journal** pour chacun des types de journaux à collecter.
-8. Cliquez sur *enregistrer* pour activer la journalisation des diagnostics pour Azure Monitor.
+4. Pour activer les diagnostics, cliquez sur *Activé* sous *État*.
+5. Cochez la case à côté de l’option *Envoyer à Log Analytics*.
+6. Sélectionnez un espace de travail Log Analytics existant ou créez-en un.
+7. Cochez la case sous **Journal** pour chacun des types de journaux à collecter.
+8. Cliquez sur *Enregistrer* pour activer la journalisation des diagnostics dans Azure Monitor.
 
 #### <a name="enable-azure-network-diagnostics-using-powershell"></a>Activez les diagnostics de réseau Azure avec PowerShell
 
@@ -157,7 +157,7 @@ Les fichiers journaux d’activité suivants sont pris en charge pour les groupe
 ### <a name="install-and-configure-the-solution"></a>Installer et configurer la solution
 Pour installer et configurer la solution d’analytique du réseau Azure, suivez les instructions suivantes :
 
-1. Activez la solution d’analytique Azure Network Security Group depuis [place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureNSGAnalyticsOMS?tab=Overview) ou à l’aide de la procédure décrite dans [solutions ajouter Azure Monitor à partir de la galerie de Solutions](../../azure-monitor/insights/solutions.md).
+1. Activez la solution Azure Network Security Group Analytics depuis la [Place de marché Microsoft Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureNSGAnalyticsOMS?tab=Overview) ou en procédant de la manière décrite dans [Ajouter des solutions Azure Monitor à partir de la galerie de solutions](../../azure-monitor/insights/solutions.md).
 2. Activez la journalisation des diagnostics pour les ressources [Network Security Group](../../virtual-network/virtual-network-nsg-manage-log.md) que vous voulez surveiller.
 
 ### <a name="enable-azure-network-security-group-diagnostics-in-the-portal"></a>Activer les diagnostics Azure Network Security Group dans le portail
@@ -205,29 +205,29 @@ Sur le tableau de bord **d’analytique Azure Network Security Group**, consulte
 Sur l’une des pages de recherche de journal, vous pouvez afficher les résultats par date, les résultats détaillés et votre historique de recherches de journaux. Vous pouvez également filtrer par facettes pour affiner les résultats.
 
 ## <a name="migrating-from-the-old-networking-analytics-solution"></a>Migration à partir de l’ancienne solution Azure Networking
-En janvier 2017, le mode d’envoi des journaux à partir d’Azure Application Gateways et Azure Network Security Groups à un espace de travail Analytique de journal modifiée. Ces modifications présentent les avantages suivants :
-+ Journaux sont écrits directement dans Azure Monitor sans la nécessité d’utiliser un compte de stockage
-+ Moins de latence à partir du moment que lorsque les journaux sont générés pour les cours disponibles dans Azure Monitor
+En janvier 2017, la méthode prise en charge pour envoyer des journaux d’activité dans un espace de travail Log Analytics à partir d’Azure Application Gateways et Azure Network Security Groups a été modifiée. Ces modifications présentent les avantages suivants :
++ Les journaux d’activité sont écrits directement dans Azure Monitor sans avoir besoin d’utiliser un compte de stockage.
++ La durée de latence est plus courte entre le moment où les journaux d’activité sont générés et celui où ils deviennent disponibles dans Azure Monitor.
 + Le nombre d’étapes de configuration est réduit.
 + Tous les types de diagnostics Azure sont au même format.
 
 Pour utiliser les solutions mises à jour :
 
-1. [Configurez les diagnostics pour être envoyées directement à Azure Monitor à partir d’Azure Application Gateways](#enable-azure-application-gateway-diagnostics-in-the-portal)
-2. [Configurez les diagnostics pour être envoyées directement à Azure Monitor à partir d’Azure Network Security Groups](#enable-azure-network-security-group-diagnostics-in-the-portal)
-2. Activer la *Analytique de passerelle d’Application Azure* et *Analytique de groupe de sécurité de réseau Azure* solution à l’aide de la procédure décrite dans [solutions ajouter Azure Monitor à partir de la Galerie de solutions](solutions.md)
+1. [Configurez les diagnostics pour qu’ils soient directement envoyés à Azure Monitor à partir d’Azure Application Gateways](#enable-azure-application-gateway-diagnostics-in-the-portal).
+2. [Configurez les diagnostics pour qu’ils soient directement envoyés à Azure Monitor à partir d’Azure Network Security Groups](#enable-azure-network-security-group-diagnostics-in-the-portal).
+2. Activez la solution *d’analytique Azure Application Gateway* et *d’analytique Azure Network Security Group* en procédant de la manière décrite dans [Ajouter des solutions Azure Monitor à partir de la galerie de solutions](solutions.md).
 3. Mettez à jour les requêtes, les tableaux de bord et les alertes enregistrés pour qu’ils utilisent le nouveau type de données.
    + Le type doit être AzureDiagnostics. Vous pouvez utiliser ResourceType pour filtrer les journaux d’activité réseaux Azure.
 
      | Au lieu du paramètre... | Utilisez : |
      | --- | --- |
-     | NetworkApplicationgateways &#124; où OperationName=="ApplicationGatewayAccess" | AzureDiagnostics &#124; où ResourceType="APPLICATIONGATEWAYS" et OperationName=="ApplicationGatewayAccess" |
-     | NetworkApplicationgateways &#124; où OperationName=="ApplicationGatewayPerformance" | AzureDiagnostics &#124; où ResourceType=="APPLICATIONGATEWAYS" et OperationName=ApplicationGatewayPerformance |
+     | NetworkApplicationgateways &#124; où OperationName=="ApplicationGatewayAccess" | AzureDiagnostics &#124; où ResourceType=="APPLICATIONGATEWAYS" et OperationName=="ApplicationGatewayAccess" |
+     | NetworkApplicationgateways &#124; où OperationName=="ApplicationGatewayPerformance" | AzureDiagnostics &#124; où ResourceType=="APPLICATIONGATEWAYS" et OperationName=="ApplicationGatewayPerformance" |
      | NetworkSecuritygroups | AzureDiagnostics &#124; où ResourceType=="NETWORKSECURITYGROUPS" |
 
    + Pour tous les champs dont le suffixe est \_s, \_d ou \_g, remplacez le premier caractère du nom par une lettre minuscule.
    + Pour tous les champs dont le suffixe est \_o, les données sont réparties en plusieurs champs, selon les noms de champs imbriqués.
-4. Supprimez la solution *Azure Networking Analytics (déconseillée)*.
+4. Supprimez la solution *Azure Networking Analytics (déconseillée)* .
    + Si vous utilisez PowerShell, utilisez `Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "AzureNetwork" -Enabled $false`.
 
 Les données collectées avant la modification ne seront pas visibles dans la nouvelle solution. Vous pouvez continuer à interroger ces données à l’aide de l’ancien type et des anciens noms de champs.
@@ -236,4 +236,4 @@ Les données collectées avant la modification ne seront pas visibles dans la no
 [!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Utilisez [journal des requêtes dans Azure Monitor](../log-query/log-query-overview.md) pour afficher des données de diagnostics Azure détaillées.
+* Utilisez les [requêtes de journaux dans Azure Monitor](../log-query/log-query-overview.md) pour afficher des diagnostics détaillés Azure.

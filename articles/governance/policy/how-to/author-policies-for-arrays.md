@@ -1,6 +1,6 @@
 ---
-title: Créer des stratégies pour les propriétés du groupe de ressources Azure
-description: Apprenez à créer des paramètres de tableau, de créer des expressions de langage de règles pour le tableau, d’évaluer l’alias [*] et pour ajouter des éléments à un tableau existant avec des règles de définition Azure Policy.
+title: Créer des stratégies pour les propriétés de tableau sur des ressources Azure
+description: Apprenez à créer des paramètres de tableau et des règles pour des expressions de langage de tableau, à évaluer l’alias [*] et à ajouter des éléments à un tableau existant avec des règles de définition de stratégie Azure.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/06/2019
@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.openlocfilehash: 479f77791a0b035f2d1de6085dfb12f5196288ee
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65979327"
 ---
-# <a name="author-policies-for-array-properties-on-azure-resources"></a>Créer des stratégies pour les propriétés du groupe de ressources Azure
+# <a name="author-policies-for-array-properties-on-azure-resources"></a>Créer des stratégies pour les propriétés de tableau sur des ressources Azure
 
-Azure Resource Manager propriétés sont généralement définies comme des chaînes et des valeurs booléennes. Lorsqu’une relation un-à-plusieurs existe, propriétés complexes sont définies à la place en tant que tableaux. Dans Azure Policy, les tableaux sont utilisées de différentes manières :
+Les propriétés Azure Resource Manager sont généralement définies comme des chaînes et des valeurs booléennes. Lorsqu’il existe une relation un-à-plusieurs, des propriétés complexes sont plutôt définies comme des tableaux. Dans Azure Policy, les tableaux sont utilisés de différentes manières :
 
-- Le type d’un [paramètre de définition de](../concepts/definition-structure.md#parameters), pour fournir plusieurs options
-- Partie d’un [règle de stratégie](../concepts/definition-structure.md#policy-rule) à l’aide de conditions **dans** ou **notIn**
-- Partie d’une règle de stratégie qui évalue le [ \[ \* \] alias](../concepts/definition-structure.md#understanding-the--alias) pour évaluer les scénarios spécifiques, telles que **aucun**, **tout**, ou  **Tous les**
-- Dans le [Ajouter effet](../concepts/effects.md#append) pour remplacer ou ajouter à un tableau existant
+- Le type d’un [paramètre de définition](../concepts/definition-structure.md#parameters), pour fournir plusieurs options
+- Une partie d’une [règle de stratégie](../concepts/definition-structure.md#policy-rule) utilisant les conditions **In** ou **notIn**
+- Une partie d’une règle de stratégie qui évalue l’alias [\[\*\]](../concepts/definition-structure.md#understanding-the--alias) pour évaluer des scénarios spécifiques comme **None**, **Any**, ou **All**
+- Dans [l’effet Append](../concepts/effects.md#append) pour remplacer ou ajouter à un tableau existant
 
 Cet article traite chaque utilisation par Azure Policy et fournit plusieurs exemples de définitions.
 
@@ -29,8 +29,8 @@ Cet article traite chaque utilisation par Azure Policy et fournit plusieurs exem
 
 ### <a name="define-a-parameter-array"></a>Définir un tableau de paramètres
 
-Définition d’un paramètre sous forme de tableau permet de la flexibilité de la stratégie lorsque plusieurs valeurs est nécessaire.
-Cette définition de stratégie permet à n’importe quel emplacement unique pour le paramètre **allowedLocations** et la valeur par défaut est _eastus2_:
+La définition d’un paramètre sous forme de tableau permet une flexibilité de la stratégie lorsque plusieurs valeurs sont nécessaires.
+Cette définition de stratégie permet de régler n’importe quel emplacement unique pour le paramètre **allowedLocations** et les valeurs par défaut sur _eastus2_:
 
 ```json
 "parameters": {
@@ -46,9 +46,9 @@ Cette définition de stratégie permet à n’importe quel emplacement unique po
 }
 ```
 
-En tant que **type** a été _chaîne_uniquement une seule valeur peut être définie lorsque l’affectation de la stratégie. Si cette stratégie est affectée, les ressources dans l’étendue sont autorisés uniquement dans une seule région Azure. La plupart des définitions de stratégies doivent autoriser pour obtenir la liste des options approuvées, par exemple pour autoriser _eastus2_, _eastus_, et _westus2_.
+Comme le **type** était _chaîne_, une seule valeur peut être définie lors de l’affectation de la stratégie. Si cette stratégie est affectée, les ressources dans l’étendue sont autorisées uniquement dans une seule région Azure. La plupart des définitions de stratégies doivent autoriser une liste des options approuvées, par exemple pour autoriser _eastus2_, _eastus_, et _westus2_.
 
-Pour créer la définition de stratégie pour autoriser plusieurs options, utilisez le _tableau_ **type**. La même stratégie peut être réécrit comme suit :
+Pour créer la définition de stratégie visant à autoriser plusieurs options, utilisez le **type** _tableau_. La même stratégie peut être réécrite comme suit :
 
 ```json
 "parameters": {
@@ -71,17 +71,17 @@ Pour créer la définition de stratégie pour autoriser plusieurs options, utili
 ```
 
 > [!NOTE]
-> Une fois une définition de stratégie est enregistrée, le **type** propriété sur un paramètre ne peut pas être modifiée.
+> Lorsqu’une définition de stratégie est enregistrée, la propriété **type** sur un paramètre ne peut pas être modifiée.
 
-Cette nouvelle définition de paramètre accepte plusieurs valeurs lors de l’attribution de stratégie. Avec la propriété du tableau **allowedValues** défini, les valeurs disponibles lors de l’affectation sont encore plus limité à la liste prédéfinie de choix. Utilisation de **allowedValues** est facultatif.
+Cette nouvelle définition de paramètre accepte plusieurs valeurs lors de l’affectation de stratégie. Avec la propriété de tableau **allowedValues** définie, les valeurs disponibles lors de l’affectation sont limitées à la liste prédéfinie de choix. L’utilisation de **allowedValues** est facultative.
 
 ### <a name="pass-values-to-a-parameter-array-during-assignment"></a>Passer des valeurs à un tableau de paramètres lors de l’attribution
 
-Lors de l’affectation de la stratégie via le portail Azure, un paramètre de **type** _tableau_ s’affiche comme une zone de texte unique. L’indicateur indique « utiliser ; pour séparer les valeurs. (par exemple, Londres ; New York) ». Pour passer les valeurs d’emplacement autorisées de _eastus2_, _eastus_, et _westus2_ au paramètre, utilisez la chaîne suivante :
+Lors de l’affectation de la stratégie via le portail Azure, un paramètre de **type** _tableau_ s’affiche comme une zone de texte unique. L’indicateur indique « Utiliser ’;’ pour séparer des valeurs. (par exemple, Londres;New York) ». Pour passer les valeurs d’emplacement autorisées de _eastus2_, _eastus_ et _westus2_ au paramètre, utilisez la chaîne suivante :
 
 `eastus2;eastus;westus2`
 
-Le format de la valeur du paramètre est différent lorsque vous utilisez Azure CLI, Azure PowerShell ou l’API REST. Les valeurs sont transmises à une chaîne JSON qui inclut également le nom du paramètre.
+Le format de la valeur du paramètre est différent lorsque vous utilisez Azure CLI, Azure PowerShell ou l’API REST. Les valeurs sont transmises via une chaîne JSON qui inclut également le nom du paramètre.
 
 ```json
 {
@@ -95,18 +95,18 @@ Le format de la valeur du paramètre est différent lorsque vous utilisez Azure 
 }
 ```
 
-Pour utiliser cette chaîne avec chaque kit de développement logiciel, utilisez les commandes suivantes :
+Pour utiliser cette chaîne avec chaque kit SDK, utilisez les commandes suivantes :
 
-- Interface de ligne de commande Azure : Commande [créer d’attribution de stratégie az](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create) avec le paramètre **params**
+- Interface de ligne de commande Azure : Commande [az policy assignment create](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create) avec le paramètre **params**
 - Azure PowerShell : Applet de commande [New-AzPolicyAssignment](/powershell/module/az.resources/New-Azpolicyassignment) avec le paramètre **PolicyParameter**
-- API REST : Dans le _PUT_ [créer](/rest/api/resources/policyassignments/create) opération en tant que partie intégrante du corps de demande comme valeur de la **properties.parameters** propriété
+- API REST : Dans l’opération _PUT_ [create](/rest/api/resources/policyassignments/create) en tant que partie intégrante du corps de la demande en tant que valeur d’une propriété **properties.parameters**
 
-## <a name="policy-rules-and-arrays"></a>Tableaux et les règles de stratégie
+## <a name="policy-rules-and-arrays"></a>Règles de stratégie et tableaux
 
 ### <a name="array-conditions"></a>Conditions de tableau
 
-La règle de stratégie [conditions](../concepts/definition-structure.md#conditions) qui un _tableau_
-**type** du paramètre peut être utilisé avec est limité à `in` et `notIn`. Prendre la définition de stratégie suivante avec la condition `equals` par exemple :
+La règle de stratégie [conditions](../concepts/definition-structure.md#conditions) avec laquelle un _type_
+**tableau** du paramètre peut être utilisé est limitée à `in` et `notIn`. Prenez la définition de stratégie suivante avec la condition `equals` comme exemple :
 
 ```json
 {
@@ -134,20 +134,20 @@ La règle de stratégie [conditions](../concepts/definition-structure.md#conditi
 }
 ```
 
-Tentative de création de cette définition de stratégie via le portail Azure de prospects à une erreur telle que ce message d’erreur :
+Une tentative de création de cette définition de stratégie via le portail Azure entraîne une erreur telle que ce message d’erreur :
 
-- « La stratégie '{GUID}' Impossible de paramétrer en raison d’erreurs de validation. Vérifiez si les paramètres de stratégie sont correctement définies. L’exception interne 'd’évaluation de résultat de l’expression de langage '[parameters('allowedLocations')]' est de type « Array », type attendu : 'String' '. »
+- « La stratégie '{GUID}' ne peut pas être paramétrée en raison d’erreurs de validation. Vérifiez si les paramètres de stratégie sont correctement définis. L’exception interne « Résultat d’évaluation de l’expression de langage '[parameters('allowedLocations')]' est de type « Tableau », le type attendu est « String ». »
 
-Attendu **type** de condition `equals` est _chaîne_. Dans la mesure où **allowedLocations** est défini comme **type** _tableau_, le moteur de stratégie évalue l’expression de langage et génère l’erreur. Avec le `in` et `notIn` condition, le moteur de stratégie attend le **type** _tableau_ dans l’expression de langage. Pour résoudre ce message d’erreur, modifiez `equals` soit `in` ou `notIn`.
+Le **type** attendu de la condition `equals` est _chaîne_. Dans la mesure où **allowedLocations** est défini de **type** _Tableau_, le moteur de stratégie évalue l’expression de langage et génère l’erreur. Avec les conditions `in` et `notIn`, le moteur de stratégie attend le **type** _Tableau_ dans l’expression de langage. Pour résoudre ce message d’erreur, remplacez `equals` par `in` ou `notIn`.
 
-### <a name="evaluating-the--alias"></a>L’évaluation de l’alias [*]
+### <a name="evaluating-the--alias"></a>Évaluation de l’alias [*]
 
-Alias ayant **[\*]** attaché à leur nom d’indiquer le **type** est un _tableau_. Au lieu d’évaluer la valeur de l’intégralité du tableau, **[\*]** rend possible évaluer chaque élément du tableau. Il existe trois scénarios dans que cela par évaluation de l’élément est utile : None, une et tous.
+Les alias ayant **[\*]** attaché à leur nom indiquent que le **type** est un _tableau_. Au lieu d’évaluer la valeur de l’intégralité du tableau, **[\*]** permet d’en évaluer chaque élément. Il existe trois scénarios au sein desquels cette évaluation par élément est utile : « None », « Any », et « All ».
 
-Les déclencheurs de moteur de stratégie le **effet** dans **puis** uniquement lorsque le **si** règle est évaluée sur true.
-Ce point est important de comprendre dans le contexte de la façon **[\*]** évalue chaque élément individuel du tableau.
+Le moteur de stratégie déclenche l’**effet** dans **then** uniquement lorsque la règle **if** est évaluée comme True.
+Il est important de comprendre ce point dans le contexte de la façon dont **[\*]** évalue chaque élément individuel du tableau.
 
-La règle de stratégie d’exemple pour la table de scénario ci-dessous :
+L’exemple de règle de stratégie pour la table de scénario ci-dessous :
 
 ```json
 "policyRule": {
@@ -166,7 +166,7 @@ La règle de stratégie d’exemple pour la table de scénario ci-dessous :
 }
 ```
 
-Le **ipRules** tableau est comme suit pour le tableau de scénario ci-dessous :
+Pour la table de scénario ci-dessous, le tableau des **ipRules** se présente de la façon suivante :
 
 ```json
 "ipRules": [
@@ -181,35 +181,35 @@ Le **ipRules** tableau est comme suit pour le tableau de scénario ci-dessous :
 ]
 ```
 
-Pour chaque exemple de condition ci-dessous, remplacez `<field>` avec `"field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value"`.
+Pour chaque exemple de condition ci-dessous, remplacez `<field>` par `"field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value"`.
 
-Les résultats suivants sont le résultat de la combinaison de la condition et l’exemple de règle de stratégie et le tableau de valeurs existantes ci-dessus :
+Les résultats suivants viennent de la combinaison de la condition et de l’exemple de règle de stratégie et le tableau des valeurs existantes ci-dessus :
 
 |Condition |Résultat |Explication |
 |-|-|-|
-|`{<field>,"notEquals":"127.0.0.1"}` |Nothing |Un élément de tableau est évaluée comme fausse (127.0.0.1 ! = 127.0.0.1) et l’autre comme true (127.0.0.1 ! = 192.168.1.1), la **notEquals** condition est _false_ et l’effet n’est pas déclenché. |
-|`{<field>,"notEquals":"10.0.4.1"}` |Effet de la stratégie |Les deux éléments de tableau est évaluée comme vraie (10.0.4.1 ! = 127.0.0.1 et 10.0.4.1 ! = 192.168.1.1), la **notEquals** condition est _true_ et l’effet est déclenchée. |
-|`"not":{<field>,"Equals":"127.0.0.1"}` |Effet de la stratégie |Un élément de tableau est évaluée sur true (127.0.0.1 == 127.0.0.1) et l’autre comme false (127.0.0.1 == 192.168.1.1), la **est égal à** condition est _false_. L’opérateur logique est évaluée sur true (**pas** _false_), de sorte que l’effet est déclenchée. |
-|`"not":{<field>,"Equals":"10.0.4.1"}` |Effet de la stratégie |Les deux éléments de tableau est évaluée comme false (10.0.4.1 == 127.0.0.1 et 10.0.4.1 == 192.168.1.1), la **est égal à** condition est _false_. L’opérateur logique est évaluée sur true (**pas** _false_), de sorte que l’effet est déclenchée. |
-|`"not":{<field>,"notEquals":"127.0.0.1" }` |Effet de la stratégie |Un élément de tableau est évaluée comme fausse (127.0.0.1 ! = 127.0.0.1) et l’autre comme true (127.0.0.1 ! = 192.168.1.1), la **notEquals** condition est _false_. L’opérateur logique est évaluée sur true (**pas** _false_), de sorte que l’effet est déclenchée. |
-|`"not":{<field>,"notEquals":"10.0.4.1"}` |Nothing |Les deux éléments de tableau est évaluée comme vraie (10.0.4.1 ! = 127.0.0.1 et 10.0.4.1 ! = 192.168.1.1), la **notEquals** condition est _true_. L’opérateur logique est évaluée comme fausse (**pas** _true_), de sorte que l’effet n’est pas déclenché. |
-|`{<field>,"Equals":"127.0.0.1"}` |Nothing |Un élément de tableau est évaluée sur true (127.0.0.1 == 127.0.0.1) et l’autre comme false (127.0.0.1 == 192.168.1.1), la **est égal à** condition est _false_ et l’effet n’est pas déclenché. |
-|`{<field>,"Equals":"10.0.4.1"}` |Nothing |Les deux éléments de tableau est évaluée comme false (10.0.4.1 == 127.0.0.1 et 10.0.4.1 == 192.168.1.1), la **est égal à** condition est _false_ et l’effet n’est pas déclenché. |
+|`{<field>,"notEquals":"127.0.0.1"}` |Rien |Un élément du tableau est évalué comme false (127.0.0.1 ! = 127.0.0.1) et un autre comme true (127.0.0.1 ! = 192.168.1.1), donc la condition **notEquals** est _false_ et l’effet n’est pas déclenché. |
+|`{<field>,"notEquals":"10.0.4.1"}` |Effet de la stratégie |Les éléments du tableau sont évalués comme true (10.0.4.1 != 127.0.0.1 et 10.0.4.1 != 192.168.1.1), donc la condition **notEquals** est _true_ et l’effet est déclenché. |
+|`"not":{<field>,"Equals":"127.0.0.1"}` |Effet de la stratégie |Un élément du tableau est évalué comme true (127.0.0.1 == 127.0.0.1) et un autre comme false (127.0.0.1 == 192.168.1.1), donc la condition **Equals** est _false_. L’opérateur logique est évalué comme true (**pas** _false_), de sorte que l’effet est déclenché. |
+|`"not":{<field>,"Equals":"10.0.4.1"}` |Effet de la stratégie |Les deux éléments du tableau sont évalués comme false (10.0.4.1 == 127.0.0.1 et 10.0.4.1 == 192.168.1.1), donc la condition **Equals** est _false_. L’opérateur logique est évalué comme true (**pas** _false_), de sorte que l’effet est déclenché. |
+|`"not":{<field>,"notEquals":"127.0.0.1" }` |Effet de la stratégie |Un élément du tableau est évalué comme false (127.0.0.1 != 127.0.0.1) et un autre comme true (127.0.0.1 != 192.168.1.1), donc la condition **notEquals** est _false_. L’opérateur logique est évalué comme true (**pas** _false_), de sorte que l’effet est déclenché. |
+|`"not":{<field>,"notEquals":"10.0.4.1"}` |Rien |Les deux éléments du tableau sont évalués comme false (10.0.4.1 != 127.0.0.1 et 10.0.4.1 != 192.168.1.1), donc la condition **notEquals** est _true_. L’opérateur logique est évalué comme false (**pas** _true_), de sorte que l’effet est déclenché. |
+|`{<field>,"Equals":"127.0.0.1"}` |Rien |Un élément du tableau est évalué comme true (127.0.0.1 == 127.0.0.1) et un autre comme true (127.0.0.1 == 192.168.1.1), donc la condition **Equals** est _false_ et l’effet n’est pas déclenché. |
+|`{<field>,"Equals":"10.0.4.1"}` |Rien |Les deux éléments du tableau sont évalués comme false (10.0.4.1 == 127.0.0.1 et 10.0.4.1 == 192.168.1.1), donc la condition **Equals** est _false_ et l’effet n’est pas déclenché. |
 
-## <a name="the-append-effect-and-arrays"></a>L’effet de l’ajout et les tableaux
+## <a name="the-append-effect-and-arrays"></a>L’effet Append et les tableaux
 
-Le [Ajouter effet](../concepts/effects.md#append) se comporte différemment selon que le **details.field** est un **[\*]** alias ou non.
+L’[effet Append](../concepts/effects.md#append) se comporte différemment selon que **details.field** est un alias **[\*]** ou non.
 
-- Lorsque pas un **[\*]** alias, ajoutez remplace l’intégralité du tableau avec la **valeur** propriété
-- Quand un **[\*]** ajouter des alias, ajoute le **valeur** propriété à l’objet de tableau ou crée le tableau
+- Lorsqu’il ne s’agit pas d’un alias **[\*]** , Append remplace le tableau entier avec la propriété **value**
+- Lorsqu’il s’agit d’un alias **[\*]** , Append ajoute la propriété **value** au tableau existant ou crée le nouveau tableau
 
-Pour plus d’informations, consultez le [append, exemples](../concepts/effects.md#append-examples).
+Pour plus d’informations, consultez ces [exemples Append](../concepts/effects.md#append-examples).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Passez en revue les exemples à l’adresse [exemples Azure Policy](../samples/index.md).
+- Consultez des exemples à la page [Exemples Azure Policy](../samples/index.md).
 - Consultez la [Structure de définition Azure Policy](../concepts/definition-structure.md).
 - Consultez la page [Compréhension des effets de Policy](../concepts/effects.md).
-- Comprendre comment [créer par programmation des stratégies](programmatically-create.md).
-- Découvrez comment [corriger les ressources non conformes](remediate-resources.md).
-- Examinez un groupe d’administration avec [organiser vos ressources avec des groupes d’administration Azure](../../management-groups/overview.md).
+- Découvrez comment [créer des stratégies par programmation](programmatically-create.md).
+- Découvrez comment [corriger des ressources non conformes](remediate-resources.md).
+- Pour en savoir plus sur les groupes d’administration, consultez [Organiser vos ressources avec des groupes d’administration Azure](../../management-groups/overview.md).

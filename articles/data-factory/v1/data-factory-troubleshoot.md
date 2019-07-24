@@ -15,10 +15,10 @@ ms.reviewer: maghan
 manager: craigg
 robots: noindex
 ms.openlocfilehash: 5f2627932eb2fd427d934eba322230222b5e6958
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66002945"
 ---
 # <a name="troubleshoot-data-factory-issues"></a>Résolution des problèmes liés à Data Factory
@@ -48,9 +48,9 @@ Si vous recevez cette erreur, cela signifie que le fournisseur de ressources Azu
 ### <a name="problem-unauthorized-error-when-running-a-data-factory-cmdlet"></a>Problème : Erreur non autorisée lors de l’exécution d’une applet de commande Data Factory
 Vous n’utilisez probablement pas le compte ou l’abonnement Azure correct pour Azure PowerShell. Utilisez les applets de commande suivantes pour sélectionner le compte et l’abonnement Azure corrects à utiliser avec Azure PowerShell.
 
-1. Se connecter-AzAccount - utilisez l’ID d’utilisateur et mot de passe
-2. Get-AzSubscription - afficher tous les abonnements associés au compte.
-3. Sélectionnez-AzSubscription &lt;nom de l’abonnement&gt; -sélectionner l’abonnement approprié. Utilisez le même que celui que vous utilisez pour créer une fabrique de données sur le portail Azure.
+1. Connect-AzAccount : utilisez l’ID d’utilisateur et le mot de passe corrects
+2. Get-AzSubscription : affichez tous les abonnements du compte.
+3. Select-AzSubscription &lt;nom de l’abonnement&gt; - Sélectionnez l’abonnement correct. Utilisez le même que celui que vous utilisez pour créer une fabrique de données sur le portail Azure.
 
 ### <a name="problem-fail-to-launch-data-management-gateway-express-setup-from-azure-portal"></a>Problème : Échec du lancement de l’installation rapide de la passerelle de gestion des données à partir du portail Azure
 L’installation rapide de la passerelle de gestion des données nécessite Internet Explorer ou un navigateur web compatible avec Microsoft ClickOnce. Si le programme d'installation rapide ne démarre pas, effectuez l'une des opérations suivantes :

@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/19/2019
+ms.date: 05/29/2019
 ms.author: rolyon
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6d9220cd2162b4c8cb77c1e7abd0372052f5454
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a5988f4723f1ef73cf0767ef8ac1b9adf3c1435d
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64541614"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190238"
 ---
 # <a name="create-and-manage-a-catalog-in-azure-ad-entitlement-management-preview"></a>Créer et gérer un catalogue dans la gestion des droits d’utilisation Azure AD (préversion)
 
@@ -60,9 +60,9 @@ Un catalogue est un conteneur de ressources et de packages d’accès. Vous cré
 
 ## <a name="add-resources-to-a-catalog"></a>Ajouter des ressources à un catalogue
 
-Pour inclure des ressources dans un package d’accès, les ressources doivent exister dans un catalogue. Les types de ressources que vous pouvez ajouter sont des groupes, des applications et des sites SharePoint Online.
+Pour inclure des ressources dans un package d’accès, les ressources doivent exister dans un catalogue. Les types de ressources que vous pouvez ajouter sont des groupes, des applications et des sites SharePoint Online. Pour les groupes, il peut s’agir de groupes Office 365 ou de groupes de sécurité Azure AD créés sur le cloud. Pour les applications, il peut s’agir d’applications d’entreprise Azure AD, ce qui inclut les applications SaaS et vos propres applications fédérées avec Azure AD. Pour les sites, il peut s’agir de sites ou de collection de sites SharePoint Online.
 
-**Rôle prérequis :** Administrateur d’utilisateurs ou propriétaire de catalogue
+**Rôle prérequis :** Voir [Rôles requis pour ajouter des ressources à un catalogue](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog)
 
 1. Dans le portail Azure, cliquez sur **Azure Active Directory**, puis sur **Identity Governance**.
 
@@ -74,9 +74,7 @@ Pour inclure des ressources dans un package d’accès, les ressources doivent e
 
 1. Cliquez sur un type de ressources : **Groupes**, **Applications** ou **Sites SharePoint**.
 
-    En tant que créateur de catalogue, vous pouvez ajouter à votre catalogue n’importe quel groupe Office 365 ou groupe de sécurité Azure AD que vous possédez. Si vous souhaitez affecter un groupe à des utilisateurs, mais que vous n’êtes pas propriétaire du groupe, un administrateur d’utilisateurs devra ajouter ce groupe à votre catalogue.
-
-    En tant que créateur de catalogue, vous pouvez ajouter à votre catalogue n’importe quelle application d’entreprise Azure AD que vous possédez, y compris des applications SaaS et vos propres applications fédérées avec Azure AD. Si vous souhaitez affecter une application à des utilisateurs, mais que vous ne la possédez pas, un administrateur d’utilisateurs devra ajouter cette application à votre catalogue. Lorsque l’application est incluse dans le catalogue, vous pouvez sélectionner un des rôles d’application dans un package d’accès.
+    Si vous ne voyez aucune ressource que vous souhaitez ajouter ou si vous ne pouvez pas ajouter de ressource, vérifiez que vous possédez le rôle d’annuaire Azure AD et le rôle de gestion des droits d’utilisation requis. Vous devrez peut-être demander à quelqu’un avec les rôles requis d’ajouter la ressource à votre catalogue. Pour plus d’informations, consultez [Rôles requis pour ajouter des ressources à un catalogue](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog).
 
 1. Sélectionnez une ou plusieurs ressources du type que vous souhaitez ajouter au catalogue.
 
@@ -88,7 +86,7 @@ Pour inclure des ressources dans un package d’accès, les ressources doivent e
 
 Vous pouvez supprimer des ressources d’un catalogue. Une ressource ne peut être supprimée d’un catalogue que si elle n’est pas utilisée dans un des packages d’accès du catalogue.
 
-**Rôle prérequis :** Administrateur d’utilisateurs ou propriétaire de catalogue
+**Rôle prérequis :** Voir [Rôles requis pour ajouter des ressources à un catalogue](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog)
 
 1. Dans le portail Azure, cliquez sur **Azure Active Directory**, puis sur **Identity Governance**.
 
@@ -99,22 +97,6 @@ Vous pouvez supprimer des ressources d’un catalogue. Une ressource ne peut êt
 1. Sélectionnez les ressources que vous souhaitez supprimer.
 
 1. Cliquez sur **Supprimer** (ou cliquez sur le bouton de sélection ( **...** ), puis sur **Supprimer la ressource**).
-
-## <a name="add-catalog-owners-or-access-package-managers"></a>Ajouter des propriétaires de catalogue ou des gestionnaires de package d’accès
-
-Si vous souhaitez déléguer la gestion du catalogue ou des packages accès dans le catalogue, ajoutez des propriétaires de catalogue ou des gestionnaires de package d’accès. La personne qui crée un catalogue en devient le premier propriétaire.
-
-**Rôle prérequis :** Administrateur d’utilisateurs ou propriétaire de catalogue
-
-1. Dans le portail Azure, cliquez sur **Azure Active Directory**, puis sur **Identity Governance**.
-
-1. Dans le menu de gauche, cliquez sur **Catalogues**, puis ouvrez le catalogue auquel vous souhaitez ajouter des administrateurs.
-
-1. Dans le menu de gauche, cliquez sur **Rôles et administrateurs**.
-
-1. Cliquez sur **Ajouter des propriétaires** ou **Ajouter des gestionnaires de package d’accès** pour sélectionner les membres de ces rôles.
-
-1. Cliquez sur **Sélectionner** pour ajouter ces membres.
 
 ## <a name="edit-a-catalog"></a>Modifier un catalogue
 
@@ -148,4 +130,5 @@ Vous pouvez supprimer un catalogue, mais seulement s’il ne contient pas de pac
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+- [Ajouter un créateur de catalogue](entitlement-management-delegate.md#add-a-catalog-creator)
 - [Créer et gérer un package d’accès](entitlement-management-access-package-create.md)

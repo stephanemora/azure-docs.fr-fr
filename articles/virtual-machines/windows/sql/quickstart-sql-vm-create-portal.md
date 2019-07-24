@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 1c1317726cf29f23e4729c67a5a5794fa459220b
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: fb35cc99164cc8da047e8309d63bf7909abf4815
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65410861"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67846028"
 ---
 # <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>Démarrage rapide : Créer une machine virtuelle Windows SQL Server 2017 dans le portail Azure
 
@@ -59,12 +59,12 @@ Sous l’onglet **De base**, fournissez les informations suivantes :
 
 1. Dans la section **Détails du projet**, sélectionnez votre abonnement Azure, puis sélectionnez **Créer** pour créer un groupe de ressources. Tapez _SQLVM-RG_ pour le nom.
 
-   ![Abonnement](media/quickstart-sql-vm-create-portal/basics-project-details.png)
+   ![Subscription](media/quickstart-sql-vm-create-portal/basics-project-details.png)
 
 1. Sous **Détails de l’instance** :
     1. Tapez _SQLVM_ pour le **Nom de la machine virtuelle**. 
     1. Choisissez un emplacement pour votre **Région**. 
-    1. Pour les besoins de ce guide, laissez **Options de disponibilité** défini sur _Aucune redondance d’infrastructure requise_. Pour plus d’informations sur les options de disponibilité, consultez [Régions Azure et disponibilité](../../windows/regions-and-availability.md). 
+    1. Pour les besoins de ce guide, laissez **Options de disponibilité** défini sur _Aucune redondance d’infrastructure requise_. Pour plus d’informations sur les options de disponibilité, voir [Disponibilité](../../windows/availability.md). 
     1. Dans la liste **Image**, sélectionnez _Licence SQL Server gratuite : SQL Server 2017 Developer sous Windows Server 2016_. 
     1. Choisissez **Modifier la taille** pour la **taille** de la machine virtuelle, puis sélectionnez l’offre **A2 de base**. Nettoyez vos ressources lorsque vous n’en avez plus besoin afin d’éviter des frais imprévus. 
 

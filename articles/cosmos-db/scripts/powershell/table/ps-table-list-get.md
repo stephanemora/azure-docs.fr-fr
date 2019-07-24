@@ -1,19 +1,19 @@
 ---
-title: Script PowerShell Azure - Azure Cosmos DB répertorier et obtenir les opérations d’API de Table
-description: Script PowerShell Azure - Azure Cosmos DB répertorier et obtenir les opérations d’API de Table
+title: Script Azure PowerShell - Azure Cosmos DB - Répertorier et obtenir les opérations pour l’API Table
+description: Script Azure PowerShell - Azure Cosmos DB - Répertorier et obtenir les opérations pour l’API Table
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: samples
 ms.date: 05/18/2019
 ms.author: mjbrown
 ms.openlocfilehash: 320d2ff57275648657a15f843a2f32dcb6722bf9
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66247048"
 ---
-# <a name="list-and-get-tables-for-azure-cosmos-db---table-api"></a>Répertorier et obtenir des tables pour l’API Azure Cosmos DB - Table
+# <a name="list-and-get-tables-for-azure-cosmos-db---table-api"></a>Répertorier et obtenir des tables pour Azure Cosmos DB - API Table
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

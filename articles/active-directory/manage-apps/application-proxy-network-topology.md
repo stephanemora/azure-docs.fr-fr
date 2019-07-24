@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf8e7fed30a9b25b2960e3321eca5c4398911f35
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: 7e236d3142ba4410b6942f9e8069e1429aae5378
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66236245"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108427"
 ---
 # <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>Considérations sur la topologie du réseau lors de l’utilisation du proxy d’application Azure Active Directory
 
@@ -39,7 +39,7 @@ Lorsqu’une application est publiée via le proxy d’application Azure AD, le 
 
 ## <a name="tenant-location-and-application-proxy-service"></a>Emplacement du locataire et service de proxy d’application
 
-Lorsque vous vous inscrivez pour un locataire Azure AD, la région de votre client est déterminée par le pays/région que vous spécifiez. Lorsque vous activez le service de proxy d’application, les instances du service de proxy d’application de votre locataire sont sélectionnées ou créées dans la même région que votre locataire Azure AD, ou la région la plus proche de ce dernier.
+Lorsque vous vous inscrivez pour un locataire Azure AD, la région de votre locataire est déterminée par le pays/la région que vous spécifiez. Lorsque vous activez le service de proxy d’application, les instances du service de proxy d’application de votre locataire sont sélectionnées ou créées dans la même région que votre locataire Azure AD, ou la région la plus proche de ce dernier.
 
 Par exemple, si le pays ou la région de votre locataire Azure AD est le Royaume-Uni, tous vos connecteurs de proxy d’application utilisent des instances de service dans des centres de données de l’Union européenne. Lorsque vos utilisateurs accèdent à des applications publiées, leur trafic passe par les instances du service de proxy d’application à cet emplacement.
 
@@ -78,7 +78,7 @@ Si vous disposez d’une liaison VPN ou ExpressRoute dédiée entre Azure et vot
 
 ## <a name="focus-your-optimization-strategy"></a>Concentrer votre stratégie d’optimisation
 
-Vous avez peu de latitude pour contrôler la connexion entre vos utilisateurs et le service du proxy d’application. Les utilisateurs peuvent accéder à vos applications à partir d’un réseau domestique, un café ou un autre pays/région. Au lieu de cela, vous pouvez optimiser les connexions entre le service de proxy d’application et les connecteurs de proxy d’application vers les applications. Envisagez d’intégrer les modèles suivants dans votre environnement.
+Vous avez peu de latitude pour contrôler la connexion entre vos utilisateurs et le service du proxy d’application. Les utilisateurs peuvent accéder à vos applications à partir d’un réseau domestique, d’un café ou d’un autre pays/une autre région. Au lieu de cela, vous pouvez optimiser les connexions entre le service de proxy d’application et les connecteurs de proxy d’application vers les applications. Envisagez d’intégrer les modèles suivants dans votre environnement.
 
 ### <a name="pattern-1-put-the-connector-close-to-the-application"></a>Modèle 1 : Placer le connecteur à proximité de l’application
 

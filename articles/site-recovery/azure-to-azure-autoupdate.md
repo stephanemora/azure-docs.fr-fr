@@ -1,6 +1,6 @@
 ---
-title: Mise à jour automatique du service mobilité dans la récupération d’urgence Azure vers Azure | Microsoft Docs
-description: Vue d’ensemble de la mise à jour automatique du service mobilité lors de la réplication des machines virtuelles Azure à l’aide d’Azure Site Recovery.
+title: Mise à jour automatique du service Mobilité dans la récupération d’urgence interne à Azure | Microsoft Docs
+description: Vue d’ensemble de la mise à jour automatique du service Mobilité lors de la réplication de machines virtuelles Azure à l’aide d’Azure Site Recovery.
 services: site-recovery
 author: rajani-janaki-ram
 manager: rochakm
@@ -9,64 +9,64 @@ ms.topic: article
 ms.date: 05/20/2019
 ms.author: rajanaki
 ms.openlocfilehash: 1d36145b2a38c0f1106b4468eab226996e270ae1
-ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65922083"
 ---
-# <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Mise à jour automatique du service mobilité dans la réplication Azure vers Azure
+# <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Mise à jour automatique du service Mobilité dans la réplication interne à Azure
 
-Azure Site Recovery utilise une cadence de publication mensuelle pour résoudre les problèmes et améliorer les fonctionnalités existantes ou ajouter de nouveaux. Pour rester à jour avec le service, vous devez planifier le déploiement de correctifs chaque mois. Pour éviter la surcharge associée à chaque mise à niveau, vous pouvez à la place autoriser Site Recovery gérer les mises à jour de composant.
+Azure Site Recovery utilise une cadence de publication mensuelle pour résoudre les problèmes et améliorer les fonctionnalités existantes ou en ajouter de nouvelles. Pour rester à jour avec le service, vous devez planifier le déploiement de correctifs chaque mois. Pour éviter la surcharge associée à chaque mise à niveau, vous pouvez à la place autoriser Site Recovery à gérer les mises à jour de composant.
 
-Comme mentionné dans [architecture de récupération d’urgence Azure vers Azure](azure-to-azure-architecture.md), le service mobilité est installé sur toutes les machines virtuelles (VM) pour lesquels la réplication est activée, lors de la réplication des machines virtuelles à partir d’une région Azure vers un autre. Lorsque vous utilisez des mises à jour automatiques, chaque nouvelle version met à jour l’extension du service mobilité.
+Comme mentionné dans l’[architecture de récupération d’urgence interne à Azure](azure-to-azure-architecture.md), le service Mobilité est installé sur toutes les machines virtuelles pour lesquelles la réplication est activée lors de la réplication des machines virtuelles d’une région Azure à une autre. Lorsque vous utilisez des mises à jour automatiques, chaque nouvelle version met à jour l’extension du service Mobilité.
  
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="how-automatic-updates-work"></a>Travail de mises à jour automatique
+## <a name="how-automatic-updates-work"></a>Fonctionnement des mises à jour automatiques
 
-Lorsque vous utilisez Site Recovery pour gérer les mises à jour, elle déploie un runbook global (utilisé par les services Azure) via un compte automation, créé dans le même abonnement que le coffre. Chaque coffre utilise un seul compte automation. Le runbook vérifie pour chaque machine virtuelle dans un coffre pour les mises à jour automatiques actives et met à niveau de l’extension de service de mobilité si une version plus récente est disponible.
+Lorsque vous utilisez Site Recovery pour gérer les mises à jour, il déploie un runbook global (utilisé par les services Azure) via un compte Automation créé dans le même abonnement que le coffre. Chaque coffre utilise un seul compte Automation. Le runbook recherche pour chaque machine virtuelle présente dans un coffre les mises à jour automatiques et lance une mise à niveau de l’extension du service Mobilité si une version plus récente est disponible.
 
-La planification du runbook par défaut se répète tous les jours à 12 h 00 dans le fuseau horaire de zone géographique de machine virtuelle répliquée. Vous pouvez également modifier la planification du runbook via le compte automation.
+La planification du runbook par défaut se répète tous les jours à 12h00 dans le fuseau horaire de la zone géographique de la machine virtuelle répliquée. Vous pouvez également modifier la planification du runbook via le compte Automation.
 
 > [!NOTE]
-> À partir de 35 de correctif cumulatif de mise à jour, vous pouvez choisir un compte automation existant à utiliser pour les mises à jour. Avant cette mise à jour, Site Recovery créé ce compte par défaut. Cette option est disponible lorsque vous activez la réplication pour une machine virtuelle. Si vous modifiez le paramètre, il s’applique pour toutes les machines virtuelles de Azure protégées dans le même coffre.
+> Depuis le correctif cumulatif de mise à jour 35, vous pouvez choisir un compte Automation existant à utiliser pour les mises à jour. Avant cette mise à jour, Site Recovery créait ce compte par défaut. Cette option est disponible lorsque vous activez la réplication pour une machine virtuelle. Si vous modifiez le paramètre, il s’applique pour toutes les machines virtuelles Azure protégées dans le même coffre.
  
-> Activation des mises à jour automatiques ne requiert un redémarrage de vos machines virtuelles Azure ou affectent la réplication en cours.
+> L’activation des mises à jour automatiques ne nécessite pas un redémarrage de vos machines virtuelles Azure ni n’affecte la réplication en cours.
 
-> Travail de facturation dans le compte automation est basé sur le nombre de minutes d’exécution de travail utilisé dans un mois. Par défaut, 500 minutes sont inclus en tant qu’unités gratuites pour un compte automation. L’exécution du travail prend quelques secondes environ une minute chaque jour et est couvert en tant qu’unités gratuites.
+> La facturation du travail dans le compte Automation est basée sur le nombre de minutes d’exécution de travail réellement utilisées au cours d’un mois. Par défaut, 500 minutes sont incluses en tant qu’unités gratuites pour un compte Automation. L’exécution du travail prend quelques secondes à une minute environ chaque jour et elle est couverte en tant qu’unités gratuites.
 
 | Unités gratuites incluses (chaque mois) | Prix |
 |---|---|
-| Exécution de travaux 500 minutes | ₹0.14 / minute
+| Exécution de travail de 500 minutes | 0,14 ₹/minute
 
 ## <a name="enable-automatic-updates"></a>Activation des mises à jour automatiques
 
-Vous pouvez autoriser la récupération de Site gérer les mises à jour de plusieurs manières.
+Vous pouvez autoriser Site Recovery à gérer les mises à jour comme suit.
 
-### <a name="manage-as-part-of-the-enable-replication-step"></a>Gérer en tant que partie de l’étape de la réplication enable
+### <a name="manage-as-part-of-the-enable-replication-step"></a>Gérer dans le cadre de l’étape d’activation de la réplication
 
-Lorsque vous activez la réplication pour une machine virtuelle lançant [à partir de la vue de la machine virtuelle](azure-to-azure-quickstart.md) ou [à partir du coffre recovery services](azure-to-azure-how-to-enable-replication.md), vous pouvez soit autoriser la récupération de Site gérer les mises à jour pour l’extension Site Recovery ou gérer manuellement.
+Lorsque vous activez la réplication pour une machine virtuelle [à partir de la vue de la machine virtuelle](azure-to-azure-quickstart.md) ou [à partir du coffre Recovery Services](azure-to-azure-how-to-enable-replication.md), vous pouvez autoriser Site Recovery à gérer les mises à jour de l’extension Site Recovery ou les gérer manuellement.
 
-![Paramètres d'extension](./media/azure-to-azure-autoupdate/enable-rep.png)
+![Paramètres d’extension](./media/azure-to-azure-autoupdate/enable-rep.png)
 
 ### <a name="toggle-the-extension-update-settings-inside-the-vault"></a>Activer/désactiver les paramètres de mise à jour de l’extension dans le coffre
 
-1. Dans le coffre, accédez à **gérer** > **Infrastructure Site Recovery**.
-2. Sous **pour les Machines virtuelles Azure** > **paramètres de mise à jour l’Extension**, allumez le **autoriser la récupération de Site pour gérer les** activer/désactiver. Pour gérer manuellement, désactivez-le. 
+1. Dans le coffre, accédez à **Gérer** > **Infrastructure Site Recovery**.
+2. Sous **For Azure Virtual Machines** (Pour les machines virtuelles Azure) > **Extension Update Settings** (Paramètres de mise à jour de l’extension), activez l’option **Allow Site Recovery to manage** (Autoriser Site Recovery à gérer). Pour gérer manuellement, désactivez-la. 
 3. Sélectionnez **Enregistrer**.
 
-![Paramètres de mise à jour de l'extension](./media/azure-to-azure-autoupdate/vault-toggle.png)
+![Paramètres de mise à jour de l’extension](./media/azure-to-azure-autoupdate/vault-toggle.png)
 
 > [!Important]
-> Lorsque vous choisissez **autoriser la récupération de Site pour gérer les**, le paramètre est appliqué à toutes les machines virtuelles dans le coffre correspondant.
+> Lorsque vous choisissez **Allow Site Recovery to manage** (Autoriser Site Recovery à gérer), le paramètre est appliqué à toutes les machines virtuelles dans le coffre correspondant.
 
 
 > [!Note]
-> Des deux options vous informe du compte automation utilisé pour la gestion des mises à jour. Si vous utilisez cette fonctionnalité dans un coffre pour la première fois, un nouveau compte automation est créé par défaut. Alternativement, vous pouvez personnaliser le paramètre et choisir un compte automation existant. Toutes les réplications enable suivantes dans le même coffre utilisent celui créé précédemment.
+> Chaque option vous informe du compte Automation utilisé pour la gestion des mises à jour. Si vous activez cette fonctionnalité dans un coffre pour la première fois, un nouveau compte Automation est créé par défaut. Vous pouvez également personnaliser le paramètre et choisir un compte Automation existant. Toutes les activations de réplications suivantes dans le même coffre utilisent celui créé précédemment.
 
-Pour un compte automation personnalisés, utilisez le script suivant :
+Pour un compte Automation personnalisé, utilisez le script suivant :
 
 ```azurepowershell
 param(
@@ -505,44 +505,44 @@ Write-Tracing -Level Succeeded -Message ("Modify cloud pairing completed.") -Dis
 
 ### <a name="manage-updates-manually"></a>Gérer les mises à jour manuellement
 
-1. S’il existe de nouvelles mises à jour pour le service mobilité est installé sur vos machines virtuelles, vous verrez la notification suivante : « Le nouveau Site recovery réplication agent mise à jour est disponible. Cliquez pour installer »
+1. Si de nouvelles mises à jour pour le service Mobilité sont installées sur vos machines virtuelles, vous verrez la notification suivante : « Une nouvelle mise à jour de l’agent de réplication Site Recovery est disponible. Cliquez pour installer »
 
      ![Fenêtre Éléments répliqués](./media/vmware-azure-install-mobility-service/replicated-item-notif.png)
 2. Sélectionnez la notification pour ouvrir la page de sélection de machine virtuelle.
-3. Choisissez les machines virtuelles que vous voulez mettre à niveau, puis sélectionnez **OK**. Démarre le service mobilité de la mise à jour pour chaque machine virtuelle sélectionnée.
+3. Choisissez les machines virtuelles que vous voulez mettre à niveau, puis sélectionnez **OK**. Le service de mise à jour de la Mobilité démarre pour chaque machine virtuelle sélectionnée.
 
      ![Éléments répliqués - Liste des machines virtuelles](./media/vmware-azure-install-mobility-service/update-okpng.png)
 
 
-## <a name="common-issues-and-troubleshooting"></a>Problèmes courants et dépannage
+## <a name="common-issues-and-troubleshooting"></a>Problèmes courants et résolutions
 
-S’il existe un problème avec les mises à jour automatique, vous verrez une notification d’erreur sous **problèmes de Configuration** dans le tableau de bord du coffre.
+En cas de problème lié aux mises à jour automatiques, vous voyez une notification d’erreur sous **Problèmes de configuration** dans le tableau de bord du coffre.
 
-Si vous n’a pas pu activer les mises à jour automatiques, consultez les erreurs courantes et les actions recommandées :
+Si vous n’a pas pu activer les mises à jour automatiques, consultez les erreurs courantes et actions recommandées suivantes :
 
 - **Erreur** : Vous n’avez pas les autorisations nécessaires pour créer un compte d’identification Azure (principal du service) et octroyer le rôle Contributeur au principal du service.
 
-   **Action recommandée**: Vérifiez que le compte de connexion est affecté en tant que contributeur, puis réessayez. Reportez-vous à la section autorisations requises dans [utiliser le portail pour créer un compte Azure AD principal d’application et de service pouvant accéder aux ressources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) pour plus d’informations sur l’attribution d’autorisations.
+   **Action recommandée** : Vérifiez que le compte de connexion est affecté en tant que Contributeur et réessayez. Reportez-vous à la section des autorisations requises dans [Utiliser le portail pour créer une application et un principal du service Azure AD pouvant accès aux ressources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) pour plus d’informations sur l’attribution d’autorisations.
  
-   Pour résoudre la plupart des problèmes après avoir activé les mises à jour automatiques, sélectionnez **réparation**. Si le bouton Réparer n’est pas disponible, consultez le message d’erreur affiché dans le volet de paramètres d’extension mise à jour.
+   Pour résoudre la plupart des problèmes après avoir activé les mises à jour automatiques, sélectionnez **Réparer**. Si le bouton de réparation n’est pas disponible, consultez le message d’erreur affiché dans le volet des paramètres de mise à jour de l’extension.
 
-   ![Bouton de réparation de service de récupération dans les paramètres de mise à jour l’extension de site](./media/azure-to-azure-autoupdate/repair.png)
+   ![Bouton de réparation du service Site Recovery dans les paramètres de mise à jour de l’extension](./media/azure-to-azure-autoupdate/repair.png)
 
 - **Erreur** : le compte d’identification n’a pas l’autorisation d’accéder à la ressource Recovery Services.
 
-    **Action recommandée**: Supprimer, puis [recréer le compte Exécuter en tant que](https://docs.microsoft.com/azure/automation/automation-create-runas-account). Ou bien, assurez-vous qu’application Azure Active Directory de Automation exécuter en tant que du compte a accès à la ressource recovery services.
+    **Action recommandée** : Supprimez puis [recréez le compte d’identification](https://docs.microsoft.com/azure/automation/automation-create-runas-account). Ou vérifiez que le compte d’identification Automation de l’application Azure Active Directory a accès à la ressource Recovery Services.
 
 - **Erreur** : le compte d’identification est introuvable. Un de ces éléments a été supprimé ou n’a pas été créé : Application Azure Active Directory, Principal du service, Rôle, Ressource de certificat Automation, Ressource de connexion Automation, ou l’empreinte numérique n’est pas identique entre le certificat et la connexion. 
 
-    **Action recommandée**: Supprimer, puis [recréer le compte Exécuter en tant que](https://docs.microsoft.com/azure/automation/automation-create-runas-account).
+    **Action recommandée** : Supprimez puis [recréez le compte d’identification](https://docs.microsoft.com/azure/automation/automation-create-runas-account).
 
--  **Erreur** : L’exécution de Azure en tant que certificat utilisé par le compte automation va bientôt expirer. 
+-  **Erreur** : Le certificat d’identification d’Azure utilisé par le compte Automation va bientôt expirer. 
 
-    Le certificat auto-signé est créé pour le compte d’identification expire un an à partir de la date de création. Vous pouvez le renouveler à tout moment avant qu’il n’expire. Si vous êtes inscrit pour les notifications par courrier électronique, vous recevrez également des messages électroniques lorsqu’une action est requise à partir de votre côté. Cette erreur s’affichera les 2 mois avant la date d’expiration et passe une erreur critique si le certificat a expiré. Une fois que le certificat a expiré, la mise à jour automatique ne sera pas fonctionnelle jusqu'à ce que vous renouvelez la même.
+    Le certificat auto-signé créé pour le compte d’identification expire un an après la date de création. Vous pouvez le renouveler à tout moment avant qu’il n’expire. Si vous êtes inscrit aux notifications par e-mail, vous recevrez également des e-mails lorsqu’une action de votre part est requise. Cette erreur s’affiche 2 mois avant la date d’expiration et devient une erreur critique si le certificat a expiré. Une fois que le certificat a expiré, la mise à jour automatique ne fonctionne plus tant que vous ne le renouvelez pas.
 
-   **Action recommandée**: Cliquez sur « Réparer », puis renouveler le certificat pour résoudre ce problème.
+   **Action recommandée** : Cliquez sur « Réparer », puis sur « Renouveler le certificat » pour résoudre ce problème.
     
    ![renew-cert](media/azure-to-azure-autoupdate/automation-account-renew-runas-certificate.PNG)
 
 > [!NOTE]
-> Une fois que vous renouvelez le certificat, actualisez la page afin que l’état actuel est mis à jour.
+> Lorsque vous avez renouvelé le certificat, actualisez la page afin que l’état actuel soit mis à jour.

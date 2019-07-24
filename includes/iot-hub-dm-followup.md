@@ -9,11 +9,11 @@ ms.date: 02/17/2019
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: 69fdc6cf678107ef64ea1fe7b819738fd4a4ff4f
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66156374"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177165"
 ---
 ## <a name="customize-and-extend-the-device-management-actions"></a>Personnaliser et étendre les actions de gestion d’appareils
 
@@ -27,6 +27,6 @@ En règle générale, vous configurez des appareils pour effectuer des actions �
 
 Dans ce didacticiel, vous avez utilisé une méthode directe pour déclencher un redémarrage à distance sur un appareil. Vous avez utilisé les propriétés signalées pour indiquer le moment du dernier redémarrage de l’appareil et vous avez interrogé le jumeau d’appareil pour découvrir l’heure du dernier redémarrage de l’appareil à partir du cloud.
 
-Pour continuer la mise en route avec IoT Hub et les modèles de gestion de périphérique, comme la mise à jour du microprogramme de distance, consultez [comment effectuer une mise à jour du microprogramme](../articles/iot-hub/tutorial-firmware-update.md)
+Pour poursuivre votre découverte d’IoT Hub et des modèles de gestion d’appareils, comme la mise à jour du microprogramme à distance, consultez [Mettre à jour un microprogramme](../articles/iot-hub/tutorial-firmware-update.md).
 
-Pour savoir comment étendre votre solution et planification appels de méthode sur plusieurs appareils de IoT, consultez [planifier et diffuser des travaux](../articles/iot-hub/iot-hub-node-node-schedule-jobs.md).
+Pour savoir comment étendre votre solution IoT et planifier des appels de méthode sur plusieurs appareils, consultez [Planifier et diffuser des travaux](../articles/iot-hub/iot-hub-node-node-schedule-jobs.md).

@@ -1,5 +1,5 @@
 ---
-title: Résolution des problèmes - de réinitialisation de mot de passe libre-service Azure Active Directory
+title: 'Résolution des problèmes relatifs à la réinitialisation de mot de passe libre-service : Azure AD'
 description: Résolution des problèmes relatifs à la réinitialisation de mot de passe libre-service d’Azure AD
 services: active-directory
 ms.service: active-directory
@@ -13,10 +13,10 @@ ms.reviewer: sahenry
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 89c76ad0739edea4c0541ace76ca2311453de71d
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65963027"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Résoudre les problèmes relatifs à la réinitialisation de mot de passe libre-service
@@ -75,14 +75,14 @@ Vous rencontrez un problème avec la réinitialisation de mot de passe libre-ser
 | L’utilisateur rencontre une erreur durant la validation de son numéro de téléphone. | Cette erreur se produit quand le numéro de téléphone entré ne correspond pas au numéro de téléphone enregistré. Assurez-vous que l’utilisateur entre le numéro de téléphone complet, y compris le code de zone et de pays, quand il essaie d’utiliser une méthode par téléphone pour la réinitialisation du mot de passe. |
 | Une erreur s’est produite pendant le traitement de la demande. | Cela peut être dû à de nombreux problèmes, mais en général, cette erreur est due à une panne ou à un problème de configuration du service. Si cette erreur se produit et qu’elle affecte votre entreprise, contactez Microsoft pour obtenir une assistance supplémentaire. |
 | Violation de la stratégie locale | Le mot de passe ne respecte pas la stratégie de mot de passe Active Directory locale. |
-| Le mot de passe n’est pas conforme à une stratégie approximative. | Le mot de passe qui a été utilisé s’affiche dans le [la liste de mots de passe interdite](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad#how-are-passwords-evaluated) et ne peut pas être utilisé. |
+| Le mot de passe n’est pas conforme à une stratégie approximative. | Le mot de passe qui a été utilisé fait partie de la [liste des mots de passe interdits](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad#how-are-passwords-evaluated) et ne peut-être pas être utilisé. |
 
 ## <a name="troubleshoot-password-writeback"></a>Résoudre les problèmes d’écriture différée du mot de passe
 
 | Error | Solution |
 | --- | --- |
 | Le service de réinitialisation de mot de passe ne démarre pas localement. L’erreur 6800 apparaît dans le journal des événements de l’application de la machine Azure AD Connect. <br> <br> Après l’intégration, les utilisateurs fédérés ou qui ont recours à la synchronisation du hachage de mot de passe ou à l’authentification directe ne parviennent pas à réinitialiser leurs mots de passe. | Quand la réécriture du mot de passe est activée, le moteur de synchronisation appelle la bibliothèque de réécriture pour effectuer la configuration (intégration) en communiquant avec le service d’intégration cloud. Toutes les erreurs rencontrées au cours de l’intégration ou pendant le démarrage du point de terminaison WCF (Windows Communication Foundation) pour la réécriture du mot de passe entraînent une consignation dans le journal des événements de votre machine Azure AD Connect. <br> <br> Pendant le redémarrage du service Azure AD Sync (ADSync), si l’écriture différée a été configurée, le point de terminaison WCF démarre. Mais, si le démarrage du point de terminaison échoue, l’événement 6800 est journalisé et le service de synchronisation peut démarrer. La présence de cet événement signifie que le point de terminaison de la réécriture du mot de passe n’a pas démarré. Les détails du journal des événements pour cet événement 6800, ainsi que les entrées du journal des événements générées par le composant PasswordResetService, indiquent pour quelles raisons vous ne pouvez pas démarrer le point de terminaison. Passez en revue les erreurs du journal des événements et essayez de redémarrer Azure AD Connect si la réécriture du mot de passe ne fonctionne toujours pas. Si le problème persiste, essayez de désactiver, puis de réactiver la réécriture du mot de passe.
-| Lorsqu’un utilisateur tente de réinitialiser un mot de passe ou de déverrouiller un compte avec l’écriture différée du mot de passe activée, l’opération échoue. <br> <br> De plus, un événement est consigné dans le journal des événements d’Azure AD Connect : « Synchronization Engine returned an error (Le moteur de synchronisation a retourné une erreur) hr=800700CE, message=L’extension ou le nom de fichier est trop long » après l’opération de déverrouillage. | Rechercher le compte Active Directory pour Azure AD Connect et réinitialiser le mot de passe pour qu’il contienne pas plus de 256 caractères. Ensuite, ouvrez le **Service de synchronisation** dans le menu **Démarrer**. Accédez à **Connecteurs** et recherchez le **Connecteur Active Directory**. Sélectionnez-le, puis sélectionnez **Propriétés**. Accédez à la page **Informations d’identification** et entrez le nouveau mot de passe. Cliquez sur **OK** pour fermer la page. |
+| Lorsqu’un utilisateur tente de réinitialiser un mot de passe ou de déverrouiller un compte avec l’écriture différée du mot de passe activée, l’opération échoue. <br> <br> De plus, un événement est consigné dans le journal des événements d’Azure AD Connect : « Synchronization Engine returned an error (Le moteur de synchronisation a retourné une erreur) hr=800700CE, message=L’extension ou le nom de fichier est trop long » après l’opération de déverrouillage. | Parcourez le compte Active Directory pour trouver Azure AD Connect et réinitialisez le mot de passe de sorte qu’il ne contienne pas plus de 256 caractères. Ensuite, ouvrez le **Service de synchronisation** dans le menu **Démarrer**. Accédez à **Connecteurs** et recherchez le **Connecteur Active Directory**. Sélectionnez-le, puis sélectionnez **Propriétés**. Accédez à la page **Informations d’identification** et entrez le nouveau mot de passe. Cliquez sur **OK** pour fermer la page. |
 | À la dernière étape du processus d’installation d’Azure AD Connect, une erreur indique que la réécriture du mot de passe n’a pas pu être configurée. <br> <br> Le journal des événements de l’application Azure AD Connect contient l’erreur 32009 avec le texte « Erreur lors de l’obtention du jeton d’authentification ». | Cette erreur se produit dans les deux cas suivants : <br><ul><li>Vous avez spécifié un mot de passe incorrect pour le compte d’administrateur général spécifié au début du processus d’installation d’Azure AD Connect.</li><li>Vous avez tenté d’utiliser un utilisateur fédéré pour le compte d’administrateur général spécifié au début du processus d’installation d’Azure AD Connect.</li></ul> Pour résoudre ce problème, assurez-vous que vous n’utilisez pas un compte fédéré pour l’administrateur général que vous avez spécifié au début du processus d’installation. Vérifiez également que le mot de passe spécifié est correct. |
 | Le journal des événements de la machine Azure AD Connect contient l’erreur 32002 qui est levée en exécutant PasswordResetService. <br> <br> Le message d’erreur : « Erreur de connexion à ServiceBus. Le fournisseur de jetons n’a pas pu fournir de jeton de sécurité. » | Votre environnement local n’est pas en mesure de se connecter au point de terminaison Service Bus dans le cloud. Cette erreur est due à une règle de pare-feu qui bloque une connexion sortante vers une adresse web ou un port spécifique. Consultez [Prérequis de connectivité](../hybrid/how-to-connect-install-prerequisites.md) pour plus d’informations. Une fois que vous avez mis à jour ces règles, redémarrez la machine Azure AD Connect. La réécriture du mot de passe doit fonctionner de nouveau. |
 | Après un certain temps, les utilisateurs fédérés ou qui ont recours à la synchronisation du hachage de mot de passe ou à l’authentification directe ne parviennent pas à réinitialiser leurs mots de passe. | Dans certains cas rares, le service de réécriture du mot de passe peut ne pas réussir à redémarrer quand Azure AD Connect a redémarré. Dans ce cas, commencez par vérifier si la réécriture du mot de passe est activée localement. Vous pouvez effectuer cette vérification à l’aide de l’Assistant Azure AD Connect ou de PowerShell (voir les procédures indiquées dans la section précédente). Si la fonctionnalité semble activée, essayez de l’activer ou de la désactiver à nouveau par le biais de l’interface utilisateur ou de PowerShell. Si le problème persiste, essayez une désinstallation et une réinstallation complètes d’Azure AD Connect. |
@@ -93,14 +93,14 @@ Vous rencontrez un problème avec la réinitialisation de mot de passe libre-ser
 
 ## <a name="password-writeback-event-log-error-codes"></a>Codes d’erreur du journal des événements de réécriture du mot de passe
 
-Une meilleure pratique lors de la résolution des problèmes avec l’écriture différée de mot de passe consiste à examiner le journal des événements application, sur votre ordinateur Azure AD Connect. Ce journal des événements contient des événements issus de deux sources d’intérêt pour la réécriture du mot de passe. La source PasswordResetService décrit les opérations et les problèmes liés au fonctionnement de la réécriture du mot de passe. La source ADSync décrit les opérations et les problèmes liés à la définition des mots de passe dans votre environnement Active Directory.
+Pour résoudre les problèmes liés à la réécriture du mot de passe, nous vous recommandons d’examiner le journal des événements de l’application sur votre machine Azure AD Connect. Ce journal des événements contient des événements issus de deux sources d’intérêt pour la réécriture du mot de passe. La source PasswordResetService décrit les opérations et les problèmes liés au fonctionnement de la réécriture du mot de passe. La source ADSync décrit les opérations et les problèmes liés à la définition des mots de passe dans votre environnement Active Directory.
 
 ### <a name="if-the-source-of-the-event-is-adsync"></a>Si la source de l’événement est ADSync
 
 | Code | Nom ou message | Description |
 | --- | --- | --- |
 | 6329 | BAIL : MMS(4924) 0x80230619 : « Une restriction empêche le mot de passe d’être remplacé par le mot de passe actuel spécifié. » | Cet événement se produit quand le service de réécriture du mot de passe tente de définir un mot de passe sur votre annuaire local qui ne respecte pas les critères d’ancienneté, d’historique, de complexité ou de filtrage du domaine. <br> <br> S’il existe une ancienneté minimale pour un mot de passe alors que vous l’avez changé avant le terme de cette ancienneté, vous ne pouvez pas le remodifier tant qu’il n’a pas atteint l’ancienneté spécifiée dans votre domaine. À des fins de test, l’ancienneté minimale doit être définie sur 0. <br> <br> Si des critères d’historique de mot de passe sont activés, vous devez sélectionner un mot de passe qui n’a pas été utilisé au cours des *N* dernières fois, où *N* est le paramètre d’historique du mot de passe. Si vous sélectionnez un mot de passe qui a été utilisé au cours des *N* dernières fois, un échec se produit. À des fins de test, l’historique de mot de passe doit être défini sur 0. <br> <br> S’il existe des critères de complexité des mots de passe, ils sont tous appliqués quand l’utilisateur tente de modifier ou réinitialiser un mot de passe. <br> <br> Si des filtres de mots de passe sont activés et qu’un utilisateur sélectionne un mot de passe qui ne répond pas aux critères de filtrage, l’opération de réinitialisation ou de modification échoue. |
-| 6329 | MMS(3040) : admaexport.cpp(2837) : le serveur ne contient pas le contrôle de stratégie de mot de passe LDAP. | Ce problème se produit si le contrôle LDAP_SERVER_POLICY_HINTS_OID (1.2.840.113556.1.4.2066) n’est pas activé sur les contrôleurs de domaine. Pour utiliser la fonctionnalité d’écriture différée du mot de passe, vous devez activer le contrôle. Pour ce faire, les contrôleurs de domaine doivent être sur Windows Server 2008 R2 ou version ultérieure. |
+| 6329 | MMS(3040) : admaexport.cpp(2837) : le serveur ne contient pas le contrôle de stratégie de mot de passe LDAP. | Ce problème se produit si le contrôle LDAP_SERVER_POLICY_HINTS_OID (1.2.840.113556.1.4.2066) n’est pas activé sur les contrôleurs de domaine. Pour utiliser la fonctionnalité d’écriture différée du mot de passe, vous devez activer le contrôle. Pour cela, les contrôleurs de domaine doivent se trouver sur Windows Server 2008 R2 ou version ultérieure. |
 | HR 8023042 | Le moteur de synchronisation a renvoyé une erreur hr=80230402, message = Une tentative visant à obtenir un objet a échoué, car il existe des entrées en double avec le même point d’ancrage. | Cette erreur se produit quand le même identifiant utilisateur est activé dans plusieurs domaines. C’est, par exemple, le cas si vous synchronisez des forêts de comptes et de ressources et que le même identifiant utilisateur est présent et activé pour chacune des forêts. <br> <br> Cette erreur peut également se produire si vous utilisez un attribut d’ancrage non unique (comme un alias ou un UPN) et que deux utilisateurs partagent ce même attribut d’ancrage. <br> <br> Pour résoudre ce problème, assurez-vous de ne pas avoir d’utilisateurs en double dans vos domaines et d’utiliser un attribut d’ancrage unique pour chaque utilisateur. |
 
 ### <a name="if-the-source-of-the-event-is-passwordresetservice"></a>Si la source de l’événement est PasswordResetService
@@ -183,7 +183,7 @@ Pour résoudre les problèmes de connectivité ou d’autres problèmes temporai
 1. Recherchez l’entrée **Microsoft Azure AD Sync**.
 1. Cliquez avec le bouton droit sur l’entrée du service, sélectionnez **Redémarrer**, puis attendez que l’opération soit terminée.
 
-   ![Redémarrez le service Azure AD Sync à l’aide de l’interface utilisateur graphique][Service restart]
+   ![Redémarrer le service de synchronisation Azure AD à l’aide de l’interface graphique utilisateur][Service restart]
 
 Ces étapes vont rétablir votre connexion au service cloud et résoudre toute interruption à laquelle vous pouvez être confronté. Si le redémarrage du service ADSync ne résout pas votre problème, nous vous recommandons d’essayer de le désactiver, puis de réactiver la fonctionnalité de réécriture du mot de passe.
 
@@ -229,27 +229,27 @@ Azure AD Connect a besoin de l’autorisation Active Directory **Réinitialiser 
 
 1. Connectez-vous au serveur Azure AD Connect et démarrez **Synchronization Service Manager** en sélectionnant **Démarrer** > **Service de synchronisation**.
 1. Sous l’onglet **Connecteurs**, sélectionnez le connecteur **Active Directory Domain Services**, puis sélectionnez **Propriétés**.  
-   ![Gestionnaire de Service de synchronisation montrant comment modifier les propriétés](./media/active-directory-passwords-troubleshoot/checkpermission01.png)  
+   ![Gestionnaire de service de synchronisation montrant comment modifier des propriétés](./media/active-directory-passwords-troubleshoot/checkpermission01.png)  
   
 1. Dans la fenêtre indépendante, sélectionnez l’onglet **Se connecter à la forêt Active Directory** et prenez note de la propriété **Nom d’utilisateur**. Cette propriété est le compte AD DS utilisé par Azure AD Connect pour effectuer la synchronisation d’annuaire. Pour qu’Azure AD Connect effectue une écriture différée du mot de passe, il faut que le compte des services AD DS dispose de l’autorisation de réinitialiser le mot de passe.  
 
-   ![Recherche le compte d’utilisateur service synchronisation Active Directory](./media/active-directory-passwords-troubleshoot/checkpermission02.png) 
+   ![Rechercher le compte d’utilisateur Active Directory du service synchronisation](./media/active-directory-passwords-troubleshoot/checkpermission02.png) 
   
 1. Connectez-vous à un contrôleur de domaine local et démarrez l’application **Utilisateurs et ordinateurs Active Directory**.
 1. Sélectionnez **Affichage** et vérifiez que l’option **Fonctionnalités avancées** est activée.  
 
-   ![Active Directory Users and Computers affichent les fonctionnalités avancées](./media/active-directory-passwords-troubleshoot/checkpermission03.png) 
+   ![Utilisateurs et ordinateurs Active Directory montrant les fonctionnalités avancées](./media/active-directory-passwords-troubleshoot/checkpermission03.png) 
   
 1. Recherchez le compte d’utilisateur Active Directory à vérifier. Cliquez avec le bouton droit sur le nom du compte et sélectionnez **Propriétés**.  
 1. Dans la fenêtre indépendante, accédez à l’onglet **Sécurité** et sélectionnez **Avancé**.  
 1. Dans la fenêtre indépendante **Paramètres de sécurité avancés pour Administrateur**, accédez à l’onglet **Accès effectif**.
 1. Sélectionnez **Sélectionner un utilisateur**, sélectionnez le compte AD DS utilisé par Azure AD Connect (consultez l’étape 3), puis sélectionnez **Afficher l’accès effectif**.
 
-   ![Onglet accès autorisations effectives montrant le compte de synchronisation](./media/active-directory-passwords-troubleshoot/checkpermission06.png) 
+   ![Onglet Accès effectif montrant le compte de synchronisation](./media/active-directory-passwords-troubleshoot/checkpermission06.png) 
   
 1. Faites défiler vers le bas et recherchez **Réinitialiser le mot de passe**. Si l’entrée a une coche, le compte AD DS est autorisé à réinitialiser le mot de passe du compte d’utilisateur Active Directory sélectionné.  
 
-   ![Valider que le compte de synchronisation a l’autorisation de mot de passe de réinitialisation](./media/active-directory-passwords-troubleshoot/checkpermission07.png)  
+   ![Validation du fait que le compte de synchronisation possède l’autorisation de réinitialisation du mot de passe](./media/active-directory-passwords-troubleshoot/checkpermission07.png)  
 
 ## <a name="azure-ad-forums"></a>Forums d’Azure AD
 
@@ -270,7 +270,7 @@ Pour que nous puissions mieux vous aider, nous vous demandons de fournir autant 
 
   * Si vous êtes dans une page sans code de support dans la partie inférieure, appuyez sur F12 et recherchez le SID et le CID et envoyez ces deux résultats à l’ingénieur de support.
 * **Date, heure et fuseau horaire**. Incluez la date et l’heure précises, *avec le fuseau horaire*, d’occurrence de l’erreur.
-* **ID d’utilisateur**. Quel était l’utilisateur qui a vu l’erreur ? Par exemple, *utilisateur\@contoso.com*.
+* **ID d’utilisateur**. Quel était l’utilisateur qui a vu l’erreur ? *user\@contoso.com* en est un exemple.
    * S’agit-il d’un utilisateur fédéré ?
    * S’agit-il d’un utilisateur de l’authentification directe ?
    * S’agit-il d’un utilisateur disposant de la synchronisation du hachage de mot de passe ?

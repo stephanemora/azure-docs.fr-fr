@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/27/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c0dde4c59c2fe9cde23a9f88c69f3e2673942812
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 7976dcafe8bb3f787465e72b6a61bbc48daf4086
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59546809"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849553"
 ---
 # <a name="create-a-php-app-in-app-service-on-linux"></a>Créer une application PHP dans App Service sur Linux
 
@@ -28,7 +28,7 @@ ms.locfileid: "59546809"
 > Cet article explique comment déployer une application sur App Service sous Linux. Pour déployer sur App Service sur _Windows_, consultez [Créer une application PHP dans Azure](../app-service-web-get-started-php.md).
 >
 
-[App Service sur Linux](app-service-linux-intro.md) fournit un service d’hébergement web hautement scalable appliquant des mises à jour correctives automatiques à l’aide du système d’exploitation Linux. Ce guide de démarrage rapide vous indique comment déployer une application PHP sur Azure App Service sur Linux. Vous créez l’application avec une image intégrée à l’aide d’[Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) dans Cloud Shell, puis vous utilisez Git pour déployer le code PHP sur l’application App Service.
+[App Service sur Linux](app-service-linux-intro.md) fournit un service d’hébergement web hautement scalable appliquant des mises à jour correctives automatiques à l’aide du système d’exploitation Linux. Ce didacticiel de démarrage rapide montre comment déployer une application PHP sur Azure App Service sur Linux à l’aide de [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
 ![Exemple d’application s’exécutant dans Azure](media/quickstart-php/hello-world-in-browser.png)
 
@@ -36,7 +36,7 @@ Vous pouvez suivre les étapes de ce article en utilisant un ordinateur Mac, Win
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour suivre ce guide de démarrage rapide :
 

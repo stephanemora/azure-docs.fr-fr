@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 10/29/2018
+ms.date: 07/15/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: ece51892522721f7be3cdcadbb3b79705c9f83e4
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 9845329d30da40243751c00f7c0fa62fdcfe5a0d
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66384097"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67990094"
 ---
 # <a name="start-monitoring-your-website"></a>Démarrer la surveillance de votre site web
 
@@ -23,7 +23,7 @@ Azure Monitor Application Insights vous permet de surveiller facilement la dispo
 
 Ce guide de démarrage rapide vous accompagne tout au long du processus d’ajout du [SDK JavaScript Application Insight open source](https://github.com/Microsoft/ApplicationInsights-JS) qui vous permet de comprendre l’expérience côté client/navigateur pour les visiteurs de votre site web.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour suivre ce guide de démarrage rapide :
 
@@ -41,12 +41,14 @@ Application Insights permet de recueillir les données de télémétrie à parti
 
 1. Sélectionnez **Créer une ressource** > **Outils de gestion** > **Application Insights**.
 
+   > [!NOTE]
+   >Si c’est la première fois que vous créez une ressource Application Insights, vous pouvez en apprendre davantage en vous lisant l’article [Créer une ressource Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource).
+
    Une boîte de configuration s’affiche. Utilisez le tableau suivant pour remplir les champs d’entrée.
 
     | Paramètres        | Valeur           | Description  |
    | ------------- |:-------------|:-----|
    | **Nom**      | Valeur globalement unique | Nom identifiant l’application que vous analysez |
-   | **Type d’application** | Application générale | Type de l’application que vous analysez |
    | **Groupe de ressources**     | myResourceGroup      | Nom du nouveau groupe de ressources pour héberger les données Application Insights |
    | **Lieu** | USA Est | Choisissez un emplacement près de chez vous ou proche de l’endroit où votre application est hébergée |
 

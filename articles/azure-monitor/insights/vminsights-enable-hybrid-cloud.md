@@ -1,6 +1,6 @@
 ---
 title: Activer Azure Monitor (préversion) pour un environnement hybride | Microsoft Docs
-description: Cet article décrit comment activer des Azure Monitor pour les machines virtuelles pour un environnement de cloud hybride qui contient un ou plusieurs machines virtuelles.
+description: Cet article décrit comment activer des Azure Monitor pour machines virtuelles pour un environnement de cloud hybride contenant une ou plusieurs machines virtuelles.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -11,31 +11,31 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/09/2019
+ms.date: 06/07/2019
 ms.author: magoedte
-ms.openlocfilehash: 6b8870f0a6f14536fdf3a1ff675f2fbe3ce8aeec
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
-ms.translationtype: MT
+ms.openlocfilehash: bc26cc0654aac9416bf31ffccf426648e3a8b8d2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65524189"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67122544"
 ---
-# <a name="enable-azure-monitor-for-vms-preview-for-a-hybrid-environment"></a>Activer Azure Monitor pour les machines virtuelles (version préliminaire) pour un environnement hybride
+# <a name="enable-azure-monitor-for-vms-preview-for-a-hybrid-environment"></a>Activer Azure Monitor pour machines virtuelles (préversion) pour un environnement hybride
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Cet article explique comment activer Azure Monitor pour les machines virtuelles (version préliminaire) pour les ordinateurs virtuels ou physiques hébergé dans votre centre de données ou un autre environnement cloud. À la fin de ce processus que vous avez correctement commencée analyse vos machines virtuelles dans votre environnement et découvrez si elles rencontrent des problèmes de performances ou la disponibilité. 
+Cet article explique comment activer Azure Monitor pour machines virtuelles (préversion) pour des machines virtuelles ou des ordinateurs physiques hébergés dans votre centre de données ou un autre environnement cloud. À la fin de ce processus, vous aurez commencé à analyser vos machines virtuelles dans votre environnement et saurez reconnaître les problèmes de performances ou de disponibilité. 
 
-Avant la mise en route, veillez à consulter le [conditions préalables](vminsights-enable-overview.md) et vérifier votre abonnement et vos ressources sont conformes à la configuration requise. Passez en revue les exigences et les méthodes de déploiement pour l’[agent Log Analytique Linux et Windows](../../log-analytics/log-analytics-agent-overview.md).
+Avant de commencer, veillez à consulter les [conditions préalables](vminsights-enable-overview.md) et vérifiez que votre abonnement et vos ressources répondent aux exigences. Passez en revue les exigences et les méthodes de déploiement pour l’[agent Log Analytique Linux et Windows](../../log-analytics/log-analytics-agent-overview.md).
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
 >[!NOTE]
->L’agent Map Dependency Agent Azure Monitor pour machines virtuelles ne transmet pas de données par lui-même et ne requiert pas de modifications des pare-feu ni des ports. Log Analytics Agent transmet toujours les données Map au service Azure Monitor, directement ou par le biais de la [passerelle OMS](../../azure-monitor/platform/gateway.md), si vos stratégies de sécurité n’autorisent pas les ordinateurs du réseau à se connecter à Internet.
+>L’agent Map Dependency Agent Azure Monitor pour machines virtuelles ne transmet pas de données par lui-même et ne requiert pas de modifications des pare-feu ni des ports. Log Analytics Agent transmet toujours les données Map au service Azure Monitor, directement ou par le biais de la [passerelle Operations Management Suite](../../azure-monitor/platform/gateway.md), si vos stratégies de sécurité n’autorisent pas les ordinateurs du réseau à se connecter à Internet.
 
-Les tâches à effectuer cette tâche sont récapitulés comme suit :
+Les étapes pour effectuer cette tâche sont récapitulées comme suit :
 
-1. Installez Log Analytics Agent pour Windows ou Linux.
+1. Installez l’agent Log Analytics pour Windows ou Linux. Avant d’installer l’agent, passez en revue l’article [Présentation de l’agent Log Analytics](../platform/log-analytics-agent.md) pour comprendre les conditions requises pour le système et les méthodes de déploiement.
 
 2. Téléchargez et installez Map Dependency Agent Azure Monitor pour machines virtuelles pour [Windows](https://aka.ms/dependencyagentwindows) ou [Linux](https://aka.ms/dependencyagentlinux).
 
@@ -56,7 +56,7 @@ Le tableau suivant répertorie les paramètres pris en charge par le programme d
 | /? | Retourne la liste des options de ligne de commande. |
 | /S | Effectue une installation silencieuse sans interaction utilisateur. |
 
-Par exemple, pour exécuter le programme d’installation avec le paramètre `/?`, tapez **InstallDependencyAgent-Windows.exe /?**.
+Par exemple, pour exécuter le programme d’installation avec le paramètre `/?`, saisissez **InstallDependencyAgent-Windows.exe /?** .
 
 Par défaut, les fichiers Dependency Agent pour Windows sont installés dans le répertoire *C:\Program Files\Microsoft Dependency Agent*. Si le démarrage de l’agent de dépendances échoue une fois l’installation terminée, recherchez des informations détaillées sur l’erreur dans les journaux d’activité. Le répertoire des journaux d’activité est *%Programfiles%\Microsoft Dependency Agent\logs*.
 
@@ -73,9 +73,9 @@ Dependency Agent est installé sur les ordinateurs Linux avec *InstallDependency
 | -s | Effectuez une installation silencieuse sans invite utilisateur. |
 | --check | Vérifiez les autorisations et le système d’exploitation, sans installer l’agent. |
 
-Par exemple, pour exécuter le programme d’installation avec le paramètre `-help`, tapez **InstallDependencyAgent-Linux64.bin -help**.
+Par exemple, pour exécuter le programme d’installation avec le paramètre `-help`, saisissez **InstallDependencyAgent-Linux64.bin -help**.
 
-Installez Dependency Agent pour Linux en tant que racine en exécutant la commande suivante, `sh InstallDependencyAgent-Linux64.bin`.
+Installez Dependency Agent pour Linux en tant que racine en exécutant la commande `sh InstallDependencyAgent-Linux64.bin`.
 
 Si le démarrage de l’agent de dépendances échoue, recherchez des informations détaillées sur l’erreur dans les journaux d’activité. Sur les agents Linux, le répertoire des journaux est */var/opt/microsoft/dependency-agent/log*.
 
@@ -90,18 +90,18 @@ Les fichiers de l’agent de dépendances sont placés dans les répertoires sui
 | Fichiers de stockage binaires | /var/opt/microsoft/dependency-agent/storage |
 
 ## <a name="enable-performance-counters"></a>Activer les compteurs de performance
-Si l’espace de travail Log Analytics référencé par la solution n’est pas déjà configuré pour collecter les compteurs de performance requis par la solution, vous devez activer ces derniers. Vous pouvez le faire de deux manières :
+Si l’espace de travail Log Analytics référencé par la solution n’est pas déjà configuré pour collecter les compteurs de performance requis par la solution, vous devez activer ces derniers. Il existe deux méthodes pour le faire :
 * Manuellement, tel que décrit dans [Sources de données de performance Windows et Linux dans Log Analytics](../../azure-monitor/platform/data-sources-performance-counters.md)
 * En téléchargeant et en exécutant un script PowerShell disponible dans [Azure PowerShell Gallery](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1)
 
 ## <a name="deploy-azure-monitor-for-vms"></a>Déployer Azure Monitor pour machines virtuelles
 Cette méthode inclut un modèle JSON spécifiant la configuration requise pour activer les composants de la solution dans votre espace de travail Log Analytics.
 
-Si vous n’êtes pas familiarisé avec le déploiement de ressources à l’aide d’un modèle, consultez les rubriques suivantes :
+Si vous ne savez pas comment déployer des ressources à l’aide d’un modèle, consultez :
 * [Déployer des ressources à l’aide de modèles Resource Manager et d’Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md)
 * [Déployer des ressources à l’aide de modèles Resource Manager et de l’interface de ligne de commande Azure](../../azure-resource-manager/resource-group-template-deploy-cli.md)
 
-Si vous avez choisi d’utiliser Azure CLI, vous devez d’abord l’installer et l’utiliser localement. Vous devez exécuter Azure CLI 2.0.27 ou version ultérieure. Pour identifier votre version, exécutez `az --version`. Si vous devez installer ou mettre à niveau Azure CLI, consultez [Installer Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Pour utiliser Azure CLI, vous devez d’abord l’installer et l’utiliser localement. Vous devez exécuter Azure CLI 2.0.27 ou version ultérieure. Pour identifier votre version, exécutez `az --version`. Pour installer ou mettre à niveau Azure CLI, consultez [Installer Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ### <a name="create-and-execute-a-template"></a>Créer et exécuter un modèle
 
@@ -179,7 +179,7 @@ Si vous avez choisi d’utiliser Azure CLI, vous devez d’abord l’installer e
     New-AzResourceGroupDeployment -Name DeploySolutions -TemplateFile InstallSolutionsForVMInsights.json -ResourceGroupName ResourceGroupName> -WorkspaceName <WorkspaceName> -WorkspaceLocation <WorkspaceLocation - example: eastus>
     ```
 
-    Le changement de configuration peut prendre quelques minutes. Lorsqu’il est terminé, un message semblable à celui qui suit s’affiche avec les résultats :
+    Le changement de configuration peut prendre quelques minutes. Lorsqu’il est terminé, un message similaire à celui-ci s’affiche avec les résultats :
 
     ```powershell
     provisioningState       : Succeeded
@@ -188,4 +188,9 @@ Si vous avez choisi d’utiliser Azure CLI, vous devez d’abord l’installer e
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que l’analyse est activée pour vos machines virtuelles, ces informations sont disponibles pour l’analyse avec Azure Monitor pour les machines virtuelles. Pour savoir comment utiliser la fonctionnalité de contrôle de l’intégrité, consultez [Comprendre l’intégrité de vos machines virtuelles Azure grâce à Azure Monitor pour machines virtuelles](vminsights-health.md). Pour afficher les dépendances des applications détectées, consultez [Utilisation de la fonctionnalité Map d’Azure Monitor pour machines virtuelles dans le but de comprendre les composants d’application](vminsights-maps.md). Pour identifier les goulots d’étranglement et les performances d’utilisation globale avec vos machines virtuelles, consultez l’article indiquant comment [afficher les performances avec Azure Monitor pour les machines virtuelles](vminsights-performance.md). Pour visualiser les dépendances d’application découvertes, consultez l’article expliquant comment [afficher la fonctionnalité Map d’Azure Monitor pour les machines virtuelles](vminsights-maps.md).
+Une fois la surveillance activée pour vos machines virtuelles, ces informations peuvent être analysées par Azure Monitor pour machines virtuelles.
+ 
+- Pour savoir comment utiliser la fonctionnalité de contrôle de l’intégrité, consultez [Comprendre l’intégrité de vos machines virtuelles Azure grâce à Azure Monitor pour machines virtuelles](vminsights-health.md).
+- Pour afficher les dépendances des applications détectées, consultez [Utilisation de la fonctionnalité Map d’Azure Monitor pour machines virtuelles dans le but de comprendre les composants d’application](vminsights-maps.md).
+- Pour identifier les goulots d’étranglement et l’utilisation globale avec les performances de votre machine virtuelle, consultez [Afficher les performances des machines virtuelles Azure](vminsights-performance.md).
+- Pour afficher les dépendances des applications détectées, consultez [Utilisation de la fonctionnalité Map d’Azure Monitor pour machines virtuelles dans le but de comprendre les composants d’application](vminsights-maps.md).

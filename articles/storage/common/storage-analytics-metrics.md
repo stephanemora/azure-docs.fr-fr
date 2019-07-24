@@ -9,12 +9,12 @@ ms.date: 03/11/2019
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: f0dfed10190685c1d51822b8bec2b3c80cea7bb2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5fecced844b3580c83fd18d0c14c3a2083f7a4fc
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65153936"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165737"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Métriques Azure Storage Analytics (classique)
 
@@ -90,18 +90,27 @@ Les applets de commande qui contrôlent Storage Metrics utilisent les paramètre
 * **Service** : Collecte des mesures telles que l’entrée/sortie, la disponibilité, la latence et les pourcentages de réussite, qui sont agrégées pour les services Blob, File d’attente, Table et Fichier.
 * **ServiceAndApi** : Outre les métriques Service, collecte le même ensemble de mesures pour chaque opération de stockage de l’API du service Stockage Azure.
 
-Par exemple, la commande suivante active les métriques par minute pour le service BLOB dans votre compte de stockage par défaut avec une période de rétention de cinq jours :  
+Par exemple, la commande suivante active les métriques par minute pour le service BLOB dans votre compte de stockage avec une période de rétention de cinq jours : 
+
+> [!NOTE]
+> Cette commande part du principe que vous vous êtes connecté à votre abonnement Azure à l’aide de la commande `Connect-AzAccount`.
 
 ```  
-Set-AzureStorageServiceMetricsProperty -MetricsType Minute   
--ServiceType Blob -MetricsLevel ServiceAndApi  -RetentionDays 5  
+$storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
+
+Set-AzureStorageServiceMetricsProperty -MetricsType Minute -ServiceType Blob -MetricsLevel ServiceAndApi  -RetentionDays 5 -Context $storageAccount.Context
 ```  
+
+* Remplacez la valeur d’espace réservé `<resource-group-name>` par le nom de votre groupe de ressources.
+
+* Remplacez la valeur d’espace réservé `<storage-account-name>` par le nom de votre compte de stockage.
+
+
 
 La commande suivante récupère le niveau actuel des métriques par heure et la période de rétention en jours pour le service BLOB dans votre compte de stockage par défaut :  
 
 ```  
-Get-AzureStorageServiceMetricsProperty -MetricsType Hour   
--ServiceType Blob  
+Get-AzureStorageServiceMetricsProperty -MetricsType Hour -ServiceType Blob -Context $storagecontext.Context
 ```  
 
 Pour plus d’informations sur la configuration des applets de commande Azure PowerShell avec votre abonnement Azure et sur la sélection du compte de stockage par défaut à utiliser, consultez : [Guide pratique pour installer et configurer Azure PowerShell](https://azure.microsoft.com/documentation/articles/install-configure-powershell/).  

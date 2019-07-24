@@ -1,19 +1,19 @@
 ---
 title: Diffuser des données de surveillance Azure vers Event Hubs
-description: Découvrez comment diffuser en continu vos données de surveillance Azure vers un hub d’événements pour obtenir les données dans un SIEM partenaire ou un outil d’analytique.
-author: johnkemnetz
+description: Découvrez comment diffuser vos données de surveillance Azure vers un hub d’événements afin de les intégrer à un système SIEM ou à un outil d’analytique partenaire.
+author: nkiest
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 11/01/2018
-ms.author: johnkem
+ms.author: nikiest
 ms.subservice: ''
-ms.openlocfilehash: 72d744808d6b52ccd151645c97005bfdfe1a5541
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: 8a4de244d0fa07bfc162625f577015317fca7e6a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243468"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069335"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Diffuser des données de surveillance Azure vers un hub d’événements pour les utiliser dans un outil externe
 
@@ -33,18 +33,18 @@ Au sein de votre environnement Azure, il existe plusieurs « couches » de donn�
 - **Données de surveillance de l’abonnement Azure :** données concernant le fonctionnement et la gestion d’un abonnement Azure, mais aussi données concernant l’intégrité et le fonctionnement d’Azure. Le [journal d’activité](./../../azure-monitor/platform/activity-logs-overview.md) contient la plupart des données de surveillance d’abonnement, telles que les incidents d’intégrité de service et les audits d’Azure Resource Manager. Vous pouvez collecter ces données à l’aide d’un profil de journal.
 - **Données de surveillance du locataire Azure :** données concernant le fonctionnement des services Azure au niveau du locataire, tels qu’Azure Active Directory. Les connexions et les audits d’Azure Active Directory sont des exemples de données de surveillance de locataire. Ces données peuvent être collectées à l’aide d’un paramètre de diagnostic de locataire.
 
-Vous pouvez envoyer les données de toutes les couches vers un hub d’événements, duquel elles pourront être extraites par un outil partenaire. Certaines sources peuvent être configurés pour envoyer des données directement à un concentrateur d’événements pendant que l’autre traiter comme une application logique peuvent être nécessaire pour récupérer les données requises. Les sections suivantes expliquent comment configurer les données de chaque couche de sorte qu’elles soient diffusées vers un hub d’événements. Ces étapes supposent que cette couche contient déjà des ressources à surveiller.
+Vous pouvez envoyer les données de toutes les couches vers un hub d’événements, duquel elles pourront être extraites par un outil partenaire. Certaines sources peuvent être configurées pour envoyer des données directement à un hub d’événements, tandis qu’un autre processus comme une application logique peut être nécessaire pour récupérer les données requises. Les sections suivantes expliquent comment configurer les données de chaque couche de sorte qu’elles soient diffusées vers un hub d’événements. Ces étapes supposent que cette couche contient déjà des ressources à surveiller.
 
 ## <a name="set-up-an-event-hubs-namespace"></a>Configurer un espace de noms Event Hubs
 
 Avant de commencer, vous devez [créer un espace de noms et un hub Event Hubs](../../event-hubs/event-hubs-create.md). Cet espace de noms et ce hub d’événements constituent la destination de toutes vos données de surveillance. Un espace de noms Event Hubs est un regroupement logique de hubs d’événements qui partagent une même stratégie d’accès, tout comme un compte de stockage contient des objets blob. Notez les points suivants concernant l’espace de noms Event Hubs et les hubs d’événements que vous créez :
 * Nous recommandons d’utiliser un espace de noms Event Hubs standard.
 * En règle générale, une seule unité de débit est nécessaire. Si vous avez besoin de plus pour répondre à l’augmentation de l’utilisation de votre journal, vous pouvez augmenter manuellement le nombre d’unités de débit pour l’espace de noms ou activer l’inflation automatique.
-* Le nombre d’unités de débit vous permet d’augmenter l’échelle de débit de vos hubs d’événements. Le nombre de partitions vous permet de paralléliser la consommation sur un grand nombre de consommateurs. Une seule partition peut atteindre jusqu’à 20 Mo/s, soit environ 20 000 messages par seconde. En fonction de l’outil qui consomme les données, la consommation simultanée de plusieurs partitions risque de ne pas être prise en charge. Si vous n’êtes pas sûr du nombre de partitions à définir, il est recommandé de commencer avec quatre partitions.
+* Le nombre d’unités de débit vous permet d’augmenter l’échelle de débit de vos hubs d’événements. Le nombre de partitions vous permet de paralléliser la consommation sur un grand nombre de consommateurs. Une seule partition peut atteindre jusqu’à 20 Mbits/s, soit environ 20 000 messages par seconde. En fonction de l’outil qui consomme les données, la consommation simultanée de plusieurs partitions risque de ne pas être prise en charge. Si vous n’êtes pas sûr du nombre de partitions à définir, il est recommandé de commencer avec quatre partitions.
 * Il est également recommandé de définir la conservation des messages de votre hub d’événements sur 7 jours. Si l’outil consommateur est en panne pendant plus d’un jour, cela garantit qu’il pourra reprendre là où il s’est arrêté (pour les événements des 7 derniers jours).
 * Il est recommandé d’utiliser le groupe de consommateurs par défaut pour votre hub d’événements. Il n’est pas nécessaire de créer d’autres groupes de consommateurs ou d’utiliser un groupe de consommateurs distinct, sauf si deux outils doivent utiliser les mêmes données d’un même hub d’événements.
-* Pour le journal d’activité Azure, vous choisissez un espace de noms Event Hubs et Azure Monitor y crée un concentrateur d’événements au sein de cet espace de noms appelé « insights-logs-operationallogs ». Pour les autres types de journaux d’activité, vous pouvez soit choisir un hub d’événements existant (ce qui vous permet de réutiliser le hub d’événements insights-logs-operationallogs), soit créer un hub d’événements par catégorie de journal d’activité à l’aide d’Azure Monitor.
-* En règle générale, les ports 5671 à 5672 doivent être ouverts sur l’ordinateur qui consomme les données du hub d’événements.
+* Pour le journal des activités Azure, vous pouvez choisir un espace de noms Event Hubs pour qu’Azure Monitor y crée un hub d’événements appelé « insights-logs-operational-logs ». Pour les autres types de journaux d’activité, vous pouvez soit choisir un hub d’événements existant (ce qui vous permet de réutiliser le hub d’événements insights-logs-operational-logs), soit créer un hub d’événements par catégorie de journal d’activité à l’aide d’Azure Monitor.
+* En règle générale, les ports de sortie 5671 à 5672 doivent être ouverts sur l’ordinateur ou le réseau qui consomme les données du hub d’événements.
 
 Consultez également le [Forum aux questions (FAQ) sur Azure Event Hubs](../../event-hubs/event-hubs-faq.md).
 
@@ -117,8 +117,8 @@ Le routage de vos données de surveillance vers un hub d’événements avec Azu
 * **Serveur Syslog** : si vous souhaitez transmettre en continu les données d’Azure Monitor directement à un serveur syslog, vous pouvez consulter [ce référentiel GitHub](https://github.com/miguelangelopereira/azuremonitor2syslog/).
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Archiver le journal d’activité à un compte de stockage](../../azure-monitor/platform/archive-activity-log.md)
+* [Archiver le journal d’activité dans un compte de stockage](../../azure-monitor/platform/archive-activity-log.md)
 * [Lire la présentation du journal d’activité Azure](../../azure-monitor/platform/activity-logs-overview.md)
-* [Configurer une alerte basée sur un événement de journal d’activité](../../azure-monitor/platform/alerts-log-webhook.md)
+* [Définir une alerte basée sur un événement de journal d’activité](../../azure-monitor/platform/alerts-log-webhook.md)
 
 

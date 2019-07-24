@@ -9,15 +9,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 06/25/2018
+ms.date: 05/20/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: f57d80adc7c77f2d874d13a68214cd638a2ac2a0
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.openlocfilehash: f22cb620bf8cf56110bec60a4dd809066393a8ff
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65957290"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067659"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Automatiser des rapports personnalisés avec des données Azure Application Insights
 
@@ -92,10 +92,10 @@ availabilityResults
 
    ![Créer une nouvelle capture d’écran Function](./media/automate-custom-reports/function-app-03.png)
 
-5. Sélectionnez le **_modèle de synthèse planifié Application Insights_**.
+5. Sélectionnez le **_modèle de synthèse planifié Application Insights_** .
 
      > [!NOTE]
-     > Par défaut, les applications de fonction sont créées avec la version du runtime 2.x. Vous devez [version du runtime Azure Functions cible](https://docs.microsoft.com/azure/azure-functions/set-runtime-version) 1.x à utiliser Application Insights planifiée de modèle de synthèse.
+     > Par défaut, les applications de fonction sont créées avec la version 2.x du runtime. Vous devez [cibler la version 1.x du runtime d’Azure Functions](https://docs.microsoft.com/azure/azure-functions/set-runtime-version) pour utiliser le modèle de synthèse planifié Application Insights.
 
    ![Capture d’écran Nouvelle fonction - Application Insights - Modèle](./media/automate-custom-reports/function-app-04.png)
 
@@ -120,7 +120,7 @@ availabilityResults
      > [!NOTE]
      > Si vous ne possédez pas de compte SendGrid, vous pouvez en créer un. La documentation relative à SendGrid pour Azure Functions est disponible [ici](https://docs.microsoft.com/azure/azure-functions/functions-bindings-sendgrid). Si une brève explication concernant la configuration de SendGrid et la génération d’une clé API vous suffit, reportez-vous à la fin de cet article. 
 
-9. Sélectionnez **Integrate** et sous Sorties, cliquez sur **SendGrid ($return)**.
+9. Sélectionnez **Integrate** et sous Sorties, cliquez sur **SendGrid ($return)** .
 
      ![Capture d’écran Sortie](./media/automate-custom-reports/function-app-09.png)
 

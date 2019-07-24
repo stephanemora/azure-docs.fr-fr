@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 04/01/2019
+ms.date: 07/12/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: c6979ce5cade09d4daa4e6eddd79fb69175ec902
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d92a96f928c859fba056f1d98c07ee4852aad0f1
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58849396"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68002747"
 ---
 # <a name="start-monitoring-your-nodejs-web-application"></a>Démarrer l’analyse de votre application web Node.js
 
@@ -23,7 +23,7 @@ Azure Application Insights vous permet d’analyser facilement la disponibilité
 
 Ce guide de démarrage rapide vous accompagne tout au long de l’ajout du Kit de développement logiciel (SDK) Application Insights version 0.22 pour Node.js dans une application web Node.js existante.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour suivre ce guide de démarrage rapide :
 
@@ -45,16 +45,15 @@ Application Insights permet de recueillir les données de télémétrie à parti
 
    ![Ajout d’une ressource Application Insights](./media/nodejs-quick-start/1createresourseappinsights.png)
 
-   ![Ajout d’une ressource Application Insights](./media/nodejs-quick-start/2createnodejs.png)
+   > [!NOTE]
+   >Si c’est la première fois que vous créez une ressource Application Insights, vous pouvez en apprendre davatange en vous rendant sur la documentation [Créer une ressource Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource).
 
-
-   Une boîte de configuration s’affiche. Utilisez le tableau suivant pour remplir les champs d’entrée.
+   Une page de configuration s’affiche. Utilisez le tableau suivant pour remplir les champs d’entrée. 
 
     | Paramètres        | Valeur           | Description  |
    | ------------- |:-------------|:-----|
    | **Nom**      | Valeur globalement unique | Nom identifiant l’application que vous analysez |
    | **Type d’application** | Application Node.js | Type de l’application que vous analysez |
-   | **Groupe de ressources**     | myResourceGroup      | Nom du nouveau groupe de ressources pour héberger les données Application Insights |
    | **Lieu** | USA Est | Choisissez un emplacement près de chez vous ou proche de l’endroit où votre application est hébergée |
 
 2. Cliquez sur **Créer**.

@@ -9,13 +9,13 @@ ms.date: 04/08/2019
 ms.author: alkohli
 ms.custom: include file
 ms.openlocfilehash: d28244d75da540948093c775ffc525a80e362526
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66115424"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177280"
 ---
-Il est possible d’utiliser FedEx, UPS ou DHL pour envoyer le colis au centre de données Azure. Si vous souhaitez utiliser un opérateur autre que FedEx/DHL, contactez l’équipe des opérations de zone de données Azure à `adbops@microsoft.com`
+Il est possible d’utiliser FedEx, UPS ou DHL pour envoyer le colis au centre de données Azure. Si vous souhaitez faire appel à un autre transporteur que FedEx/DHL, contactez l’équipe des opérations Azure Data Box à l’adresse `adbops@microsoft.com`.
 
 - Vous devez indiquer un numéro de compte de transporteur FedEx, UPS ou DHL valide qui sera utilisé par Microsoft pour renvoyer les lecteurs. 
     

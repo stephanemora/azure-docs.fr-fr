@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 59701c31e461bbd5d73ec708504139347f6075f2
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66241868"
 ---
 # <a name="scaling-out-with-azure-sql-database"></a>Scale-out avec Azure SQL Database
@@ -24,7 +24,7 @@ Vous pouvez facilement effectuer un scale-out sur les bases de données Azure SQ
 
 * [Bibliothèque de client de base de données élastique](sql-database-elastic-database-client-library.md) : la bibliothèque de client est une fonctionnalité qui vous permet de créer et de gérer des bases de données partitionnées.  Voir [Prise en main des outils de base de données élastiques](sql-database-elastic-scale-get-started.md).
 * [Outil de fractionnement et de fusion de base de données élastique](sql-database-elastic-scale-overview-split-and-merge.md): cet outil vous permet de déplacer les données entre les différentes bases de données partitionnées. Cet outil est particulièrement utile pour déplacer des données d’une base de données multilocataire vers une base de données monolocataire (ou inversement). Consultez le [Didacticiel d’outil de fusion et de fractionnement de bases de données élastiques](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
-* [Bases de données élastiques](elastic-jobs-overview.md): Utilisez des tâches pour gérer un grand nombre de bases de données Azure SQL. Exécutez facilement les opérations administratives telles que les modifications de schéma, la gestion des informations d’identification, les mises à jour de données de référence, la collecte des données de performances ou la collecte télémétrique du client (customer) à l’aide des tâches.
+* [Tâches de base de données élastique](elastic-jobs-overview.md) : Utilisez des tâches pour gérer un grand nombre de bases de données Azure SQL. Exécutez facilement les opérations administratives telles que les modifications de schéma, la gestion des informations d’identification, les mises à jour de données de référence, la collecte des données de performances ou la collecte télémétrique du client (customer) à l’aide des tâches.
 * [Requête de base de données élastique](sql-database-elastic-query-overview.md) (préversion) : vous permet d’exécuter une requête Transact-SQL qui s’étend sur plusieurs bases de données. Cela permet une connexion à des outils de création de rapports comme Excel, Power BI, Tableau, etc.
 * [Transactions élastiques](sql-database-elastic-transactions-overview.md) : cette fonctionnalité vous permet d’exécuter des transactions qui s’étendent sur plusieurs bases de données dans Azure SQL Database. Ces transactions sont disponibles pour les applications .NET utilisant ADO .NET et s’intègrent à une expérience de programmation familière basée sur les [classes System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx).
 

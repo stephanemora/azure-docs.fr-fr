@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/20/2019
 ms.author: alkohli
 ms.openlocfilehash: a9daf1d59b03d283be999aaab559c6d60f6405dd
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65953128"
 ---
 # <a name="manage-compute-on-your-azure-data-box-edge"></a>Gérer le calcul sur votre Azure Data Box Edge
@@ -76,7 +76,7 @@ Pour supprimer un déclencheur, procédez comme suit sur le portail Azure.
 
 3. Cliquez sur **Oui**lorsque vous êtes invité à confirmer l’opération.
 
-    ![Confirmez la suppression](media/data-box-edge-manage-compute/add-trigger-1.png)
+    ![Confirmation de suppression](media/data-box-edge-manage-compute/add-trigger-1.png)
 
 La liste des déclencheurs est actualisée afin de refléter la suppression.
 
@@ -131,4 +131,4 @@ Pour synchroniser les clés d’accès pour votre appareil, procédez comme suit
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez comment [Edge gérer compute réseau via le portail Azure](data-box-edge-extend-compute-access-modules.md).
+- Découvrez comment [Gérer le réseau du computing en périphérie via le portail Azure](data-box-edge-extend-compute-access-modules.md).

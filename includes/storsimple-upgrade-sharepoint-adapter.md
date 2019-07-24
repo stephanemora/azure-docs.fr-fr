@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: b2dec95e0258933b50d4437f1cb317639b62883d
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66155836"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177106"
 ---
 ### <a name="upgrade-sharepoint-2010-to-sharepoint-2013-and-then-install-the-storsomple-adapter-for-sharepoint"></a>Effectuez une mise à niveau de SharePoint 2010 vers SharePoint 2013, puis installez l'adaptateur StorSimple pour SharePoint
 > [!IMPORTANT]
@@ -29,7 +29,7 @@ ms.locfileid: "66155836"
 > Vous devez planifier cette mise à niveau pour qu’elle se produise pendant une fenêtre de maintenance planifiée pour les raisons suivantes :
 > 
 > * Le contenu précédemment externalisé n’est pas disponible avant la réinstallation de l'adaptateur.
-> * Tout contenu téléchargé sur le site après la désinstallation de la version précédente de l'adaptateur StorSimple pour SharePoint, mais avant l'installation de la nouvelle version, est stocké dans la base de données de contenu. Vous devez déplacer ce contenu vers l’appareil StorSimple après l'installation du nouvel adaptateur. Vous pouvez utiliser Microsoft `RBS Migrate()` inclus avec SharePoint pour migrer le contenu de l’applet de commande PowerShell. Pour plus d'informations, consultez [Migration du contenu vers ou à partir de RBS](https://technet.microsoft.com/library/ff628255.aspx). 
+> * Tout contenu téléchargé sur le site après la désinstallation de la version précédente de l'adaptateur StorSimple pour SharePoint, mais avant l'installation de la nouvelle version, est stocké dans la base de données de contenu. Vous devez déplacer ce contenu vers l’appareil StorSimple après l'installation du nouvel adaptateur. Vous pouvez utiliser la cmdlet PowerShell `RBS Migrate()` Microsoft incluse avec SharePoint pour migrer le contenu. Pour plus d'informations, consultez [Migration du contenu vers ou à partir de RBS](https://technet.microsoft.com/library/ff628255.aspx). 
 > 
 > 
 

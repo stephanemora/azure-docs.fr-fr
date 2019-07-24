@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: allensu
-ms.openlocfilehash: d9b1d0624aa94884c269eb33131f8b61671e99ee
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1f7fd3398c24eb82b1a2308f3b52df382c0aab7e
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67050999"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68224665"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-using-the-azure-portal"></a>Démarrage rapide : Créer un profil Traffic Manager à l’aide du portail Azure
 
@@ -31,47 +31,30 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Connectez-vous au [Portail Azure](https://portal.azure.com).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour ce guide de démarrage rapide, vous aurez besoin de deux instances d’une application web déployée dans deux régions Azure différentes (*USA Est* et *Europe Ouest*). Chacune servira de point de terminaison principal et de point de terminaison de basculement à Traffic Manager.
 
 1. En haut à gauche de l’écran, sélectionnez **Créer une ressource** > **Web** > **Application web**.
-2. Dans **Application web**, entrez ou sélectionnez ces paramètres :
 
-    | Paramètre | Valeur |
-    | ------- | ----- |
-    | Nom de l’application | Attribuez un nom unique à votre application web.  |
-    | Abonnement | Sélectionnez l’abonnement auquel vous souhaitez appliquer l’application web. |
-    | Groupe de ressources | Sélectionnez **Créer** et entrez *myResourceGroupTM1*. |
-    | OS | Sélectionnez **Windows** comme système d’exploitation. |
-    | Publish | Sélectionnez **Code** comme format de publication. |
+1. Dans **Créer une application web**, tapez ou sélectionnez les valeurs suivantes sous l’onglet **De base** :
 
-3. Sélectionnez **Plan App Service/Emplacement**.
-4. Dans **Plan App Service**, sélectionnez **Créer**.
-5. Dans **Nouveau plan App Service**, entrez ou sélectionnez ces paramètres :
+   - **Abonnement** > **Groupe de ressources** : Sélectionnez **Créer un nouveau**, puis tapez **myResourceGroupTM1**.
+   - **Détails de l’instance** > **Nom** : Tapez *myWebAppEastUS*.
+   - **Détails de l’instance** > **Publier** : Sélectionnez **Code**.
+   - **Instance Details** > **Pile d’exécution** : Sélectionnez **ASP.net v 4.7**.
+   - **Détails de l’instance** > **Système d’exploitation** : Sélectionnez **Windows**.
+   - **Détails de l’instance** > **Région** :  Sélectionnez **USA Est**.
+   - **Plan App Service** > **Plan Windows (USA Est)**  : Sélectionnez **Créer un nouveau**, puis tapez **myAppServicePlanEastUS**
+   - **Plan App Service** > **Référence et taille** : Sélectionnez **Standard S1**.
+   
+3. Sélectionnez l’onglet **Surveillance**, ou **Suivant:Surveillance**.  Sous **Surveillance**, définissez **Application Insights** > **Activer Application Insights** sur **Non**.
 
-    | Paramètre | Valeur |
-    | ------- | ----- |
-    | Plan App Service | Entrez *myAppServicePlanEastUS*. |
-    | Location | USA Est |
-    | Niveau tarifaire | S1 Standard |
+4. Sélectionnez **Examiner et créer**.
 
-6. Sélectionnez **OK**.
+5. Vérifiez les paramètres, puis cliquez sur **Créer**.  Quand l’application web est déployé correctement, elle crée un site web par défaut.
 
-7. Dans **Application web**, sélectionnez **Créer**. Quand l’application web est déployé correctement, elle crée un site web par défaut.
-
-8. Pour créer un deuxième site web dans une autre région Azure, répétez les étapes 1 à 7 avec ces paramètres :
-
-    | Paramètre | Valeur |
-    | --------| ----- |
-    | Nom | Attribuez un nom unique à votre application web. |
-    | Abonnement | Sélectionnez l’abonnement auquel vous souhaitez appliquer l’application web. |
-    | Groupe de ressources | Sélectionnez **Créer**, puis entrez *myResourceGroupTM2*. |
-    | OS | Sélectionnez **Windows** comme système d’exploitation. |
-    | Publish | Sélectionnez **Code** comme format de publication. |
-    | Plan/lieu App Service | Entrez *myAppServicePlanWestEurope*. |
-    | Location | Europe Ouest |
-    | Niveau tarifaire | S1 Standard |
+6. Suivez les étapes pour créer une deuxième application web nommée *myWebAppWestEurope*, avec le nom de **Groupe de ressources** *myResourceGroupTM2*, la **Région** *Europe Ouest*, le nom de **Plan App Service** **myAppServicePlanWestEurope** et tous les autres paramètres identiques à *myWebAppEastUS*.
 
 ## <a name="create-a-traffic-manager-profile"></a>Créer un profil Traffic Manager
 
@@ -84,8 +67,8 @@ Créez un profil Traffic Manager qui dirige le trafic utilisateur en fonction de
     | --------| ----- |
     | Nom | Attribuez un nom unique à votre profil Traffic Manager.|
     | Méthode de routage | Sélectionnez **Priorité**.|
-    | Abonnement | Sélectionnez l’abonnement auquel vous souhaitez appliquer le profil Traffic Manager. |
-    | Groupe de ressources | Sélectionnez *myResourceGroupTM1*.|
+    | Subscription | Sélectionnez l’abonnement auquel vous souhaitez appliquer le profil Traffic Manager. |
+    | Resource group | Sélectionnez *myResourceGroupTM1*.|
     | Location |Ce paramètre fait référence à l’emplacement du groupe de ressources. Il n’a aucun effet sur le profil Traffic Manager qui sera déployé globalement.|
 
 3. Sélectionnez **Créer**.

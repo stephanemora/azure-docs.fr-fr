@@ -9,19 +9,16 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: hrasheed
-ms.openlocfilehash: b0354803a117e8e2c2382ae888bde94a502f24c6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: 74ccf2af2d379b3c1966543885df6ebe5cf0f47a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64724578"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059425"
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>Installation et utilisation de Hue sur des clusters HDInsight Hadoop
 
 Apprenez comment installer Hue sur les clusters HDInsight et utiliser le tunnel pour acheminer les demandes de Hue.
-
-> [!IMPORTANT]  
-> Les étapes décrites dans ce document nécessitent un cluster HDInsight utilisant Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="what-is-hue"></a>Qu’est-ce que Hue ?
 Hue est un ensemble d’applications web permettant d’interagir avec un cluster Apache Hadoop. Vous pouvez utiliser Hue pour parcourir le stockage associé à un cluster Hadoop (WASB, dans le cas de clusters HDInsight), exécuter les travaux Hive et les scripts Pig, etc. Les composants suivants sont disponibles avec l’installation de Hue sur un cluster HDInsight Hadoop.
@@ -94,7 +91,7 @@ Le tunneling SSH est le seul moyen d’accéder à Hue sur le cluster une fois q
         hn0-myhdi-nfebtpfdv1nubcidphpap2eq2b.ex.internal.cloudapp.net
 
     Il s’agit du nom d’hôte du nœud principal primaire sur lequel se trouve le site web Hue.
-4. Utilisez le navigateur pour ouvrir le portail Hue à l’adresse http :\//HOSTNAME:8888. Remplacez HOSTNAME par le nom que vous avez obtenu à l’étape précédente.
+4. Utilisez le navigateur pour ouvrir le portail Hue à l’adresse http:\//HOSTNAME:8888. Remplacez HOSTNAME par le nom que vous avez obtenu à l’étape précédente.
 
    > [!NOTE]  
    > Lorsque vous vous connectez pour la première fois, vous êtes invité à créer un compte pour vous connecter au portail Hue. Les informations d’identification que vous spécifiez ici seront limitées au portail et ne sont pas liées à l’administrateur ou aux informations d’identification de l’utilisateur SSH spécifié lors de la configuration du cluster.

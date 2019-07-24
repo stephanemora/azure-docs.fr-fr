@@ -1,5 +1,5 @@
 ---
-title: Mise à niveau le serveur Azure MFA - Azure Active Directory
+title: Mise à niveau vers Azure MFA Server - Azure Active Directory
 description: Étapes et aide pour la mise à niveau du serveur Azure Multi-Factor Authentication vers une version plus récente.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,18 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c01c7a22800d633696382687feb7090a4ed8b60
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: dcafa3e2f2665e84856b80cc0911d2e83df1aa65
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60358325"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67057337"
 ---
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>Mise à niveau du serveur Azure Multi-Factor Authentication vers la dernière version
 
 Cet article vous guide dans le processus de mise à niveau du serveur Azure Multi-Factor Authentication (MFA) v6.0 ou version ultérieure. Si vous avez besoin de mettre à niveau une ancienne version de l’Agent PhoneFactor, consultez la page [Mettre à niveau l’Agent PhoneFactor vers le serveur Azure Multi-Factor Authentication](howto-mfaserver-deploy-upgrade-pf.md).
 
 Si vous passez de la v6.x ou d’une version antérieure à la version 7.x ou une version plus récente, tous les composants passent de .NET 2.0 à .NET 4.5. Tous les composants requièrent également Redistribuable Microsoft Visual C++ 2015 Update 1 ou une version ultérieure. Le programme d’installation du serveur MFA installe à la fois la version x86 et la version x64 de ces composants s’ils ne sont pas encore installés. Si le portail utilisateur et le service web de l’application mobile s’exécutent sur des serveurs distincts, vous devez installer ces packages avant de mettre à niveau ces composants. Vous pouvez rechercher la dernière mise à jour de Redistribuable Microsoft Visual C++ 2015 sur le [Centre de téléchargement Microsoft](https://www.microsoft.com/download/). 
+
+> [!IMPORTANT]
+> À compter du 1er juillet 2019, Microsoft ne proposera plus le serveur MFA pour les nouveaux déploiements. Les nouveaux clients qui veulent demander à leurs clients de procéder à une authentification multifacteur doivent utiliser la fonction Azure Multi-Factor Authentication basée sur le cloud. Les clients existants qui ont activé le serveur MFA avant le 1er juillet pourront télécharger la dernière version et les futures mises à jour et générer des informations d’identification d’activation comme d’habitude.
 
 Aperçu des étapes de mise à niveau :
 

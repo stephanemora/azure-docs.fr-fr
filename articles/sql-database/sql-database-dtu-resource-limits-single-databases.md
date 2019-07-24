@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 03/20/2019
 ms.openlocfilehash: 0e4d87ee0d0d09a84e960d511ded87dc226515ea
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65762662"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-based-purchasing-model"></a>Limites de ressources pour des bases de données uniques suivant le modèle d’achat DTU
@@ -30,13 +30,13 @@ Pour connaître les limites de ressources des pools élastiques du modèle d’a
 Les tableaux suivants indiquent les ressources disponibles pour une base de données unique à chaque niveau de service et taille de calcul. Vous pouvez définir le niveau de service, la taille de calcul et la quantité de stockage pour une base de données unique à l’aide du [Portail Azure](sql-database-single-databases-manage.md#manage-an-existing-sql-database-server), de [Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-sql-database-servers-and-single-databases), de [PowerShell](sql-database-single-databases-manage.md#powershell-manage-sql-database-servers-and-single-databases), [d’Azure CLI](sql-database-single-databases-manage.md#azure-cli-manage-sql-database-servers-and-single-databases) ou de [l’API REST](sql-database-single-databases-manage.md#rest-api-manage-sql-database-servers-and-single-databases).
 
 > [!IMPORTANT]
-> Mise à l’échelle les instructions et des considérations, consultez [mettre à l’échelle d’une base de données](sql-database-single-database-scale.md)
+> Pour obtenir des instructions et informations sur la mise à l’échelle, consultez [Mettre à l’échelle des ressources de base de données unique dans Azure SQL Database](sql-database-single-database-scale.md)
 
 ### <a name="basic-service-tier"></a>Niveau de service De base
 
 | **Taille de calcul** | **De base** |
 | :--- | --: |
-| DTU max | 5. |
+| DTU max | 5\. |
 | Espace de stockage inclus (Go) | 2 |
 | Choix de stockage maximum (Go) | 2 |
 | Stockage In-Memory OLTP maximal (Go) |N/A |
@@ -73,19 +73,19 @@ Les tableaux suivants indiquent les ressources disponibles pour une base de donn
 | **Taille de calcul** | **P1** | **P2** | **P4** | **P6** | **P11** | **P15** |
 | :--- |---:|---:|---:|---:|---:|---:|
 | DTU max | 125 | 250 | 500 | 1 000 | 1 750 | 4000 |
-| Espace de stockage inclus (Go) | 500 | 500 | 500 | 500 | 4096* | 4096* |
-| Choix de stockage maximum (Go) | 500, 750, 1 024 | 500, 750, 1 024 | 500, 750, 1 024 | 500, 750, 1 024 | 4096* | 4096* |
+| Espace de stockage inclus (Go) | 500 | 500 | 500 | 500 | 4 096* | 4 096* |
+| Choix de stockage maximum (Go) | 500, 750, 1 024 | 500, 750, 1 024 | 500, 750, 1 024 | 500, 750, 1 024 | 4 096* | 4 096* |
 | Stockage In-Memory OLTP maximal (Go) | 1 | 2 | 4 | 8 | 14 | 32 |
 | Nombre maximal d’ouvriers simultanés (demandes)| 200 | 400 | 800 | 1 600 | 2 400 | 6 400 |
 | Nombre maximal de sessions simultanées | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
 |||||||
 
-\* À partir de 1 024 Go jusqu'à 4 096 Go par incréments de 256 Go
+\* De 1 024 à 4 096 Go par incréments de 256 Go
 
 > [!IMPORTANT]
 > Un espace de stockage supérieur à 1 To au niveau Premium est actuellement disponible dans les toutes régions sauf les suivantes : Chine Est, Chine Nord, Allemagne Centre, Allemagne Nord-Est, USA Centre-Ouest, US DoD et Gouvernement US Centre. Dans ces régions, l’espace de stockage maximal au niveau Premium est limité à 1 To.  Pour plus d’informations, voir les [limitations actuelles P11-P15](sql-database-single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).  
 > [!NOTE]
-> Pour `tempdb` les limites, consultez [limites tempdb](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database).
+> Pour les limites `tempdb`, consultez [Limites tempdb](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

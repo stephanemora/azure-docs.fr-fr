@@ -15,18 +15,18 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: 08d1f69294c4e330db79a1b5fecdb259dffe33cb
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66121655"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177243"
 ---
-Rendre votre application excellent :
+Pour créer une application géniale :
 
-- Activer [journalisation](../articles/active-directory/develop/msal-logging.md).
-- Activer la télémétrie.
+- Activez la [journalisation](../articles/active-directory/develop/msal-logging.md).
+- Activez la télémétrie.
 - Activez les [proxys et personnalisez les clients HTTP](../articles/active-directory/develop/msal-net-provide-httpclient.md).
 
-Tester votre intégration :
+Pour tester votre intégration :
 
-- Utilisez le [liste de vérification de l’intégration à plateforme Microsoft identity](../articles/active-directory/develop/identity-platform-integration-checklist.md).
+- Suivez la [check-list de l’intégration à la plateforme d’identités Microsoft](../articles/active-directory/develop/identity-platform-integration-checklist.md).

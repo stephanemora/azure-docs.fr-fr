@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 06/14/2019
 ms.author: dariagrigoriu;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b879036dcd79901cb634fa197932e833cb22d12a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e66c625c3f30580715762d2dd3f48eeaa6e548dc
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65956066"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67143956"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Déploiement Git local vers Azure App Service
 
@@ -52,47 +52,42 @@ Pour permettre un déploiement Git local pour votre application avec le serveur 
 
 [!INCLUDE [Configure a deployment user](../../includes/configure-deployment-user-no-h.md)]
 
+> [!NOTE]
+> En substitution des informations d’identification au niveau du compte, vous pouvez également déployer à l’aide des informations d’identification au niveau de l’application qui sont générées automatiquement pour chaque application.
+>
+
 ### <a name="enable-local-git-with-kudu"></a>Activer Git local avec Kudu
 
 Pour permettre un déploiement Git local pour votre application avec le serveur de build Kudu, exécutez [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git) dans Cloud Shell.
 
 ```azurecli-interactive
-az webapp deployment source config-local-git --name <app_name> --resource-group <group_name>
+az webapp deployment source config-local-git --name <app-name> --resource-group <group-name>
 ```
 
 Pour créer une application Git, exécutez [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) dans Cloud Shell avec le paramètre `--deployment-local-git`.
 
 ```azurecli-interactive
-az webapp create --name <app_name> --resource-group <group_name> --plan <plan_name> --deployment-local-git
-```
-
-La sortie de la commande `az webapp create` doit ressembler à ceci :
-
-```json
-Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git'
-{
-  "availabilityState": "Normal",
-  "clientAffinityEnabled": true,
-  "clientCertEnabled": false,
-  "cloningInfo": null,
-  "containerSize": 0,
-  "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "<app_name>.azurewebsites.net",
-  "deploymentLocalGitUrl": "https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git",
-  "enabled": true,
-  < JSON data removed for brevity. >
-}
+az webapp create --name <app-name> --resource-group <group-name> --plan <plan-name> --deployment-local-git
 ```
 
 ### <a name="deploy-your-project"></a>Déployez votre projet
 
-De retour dans la _fenêtre du terminal local_, ajoutez un référentiel distant Azure dans votre référentiel Git local. Remplacez _\<url>_ par l’URL du Git distant de la section [Activer Git pour votre application](#enable-local-git-with-kudu).
+De retour dans la _fenêtre du terminal local_, ajoutez un référentiel distant Azure dans votre référentiel Git local. Remplacez _\<username>_ par l’utilisateur du déploiement dans [Configurer un utilisateur de déploiement](#configure-a-deployment-user) et _\<app-name>_ par le nom de l’application dans [Activer Git pour votre application](#enable-local-git-with-kudu).
 
 ```bash
-git remote add azure <url>
+git remote add azure https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git
 ```
 
-Effectuez une transmission de type push vers le référentiel distant Azure pour déployer votre application à l’aide de la commande suivante. Lorsque vous êtes invité à saisir un mot de passe, veillez à utiliser celui que vous avez créé dans [Configurer un utilisateur de déploiement](#configure-a-deployment-user), et non pas celui vous permettant de vous connecter au portail Azure.
+> [!NOTE]
+> Pour déployer avec les informations d’identification au niveau de l’application, récupérez les informations d’identification propres à votre application en exécutant la commande suivante dans Cloud Shell :
+>
+> ```azurecli-interactive
+> az webapp deployment list-publishing-credentials -n <app-name> -g <group-name> --query scmUri --output tsv
+> ```
+>
+> Utilisez ensuite la sortie de la commande pour exécuter `git remote add azure <url>` comme indiqué ci-dessus.
+
+Effectuez une transmission de type push vers le référentiel distant Azure pour déployer votre application à l’aide de la commande suivante. Lorsque vous êtes invité à saisir un mot de passe, veillez à utiliser celui que vous avez créé dans [Configurer un utilisateur de déploiement](#configure-a-deployment-user), et non celui vous permettant de vous connecter au portail Azure.
 
 ```bash
 git push azure master

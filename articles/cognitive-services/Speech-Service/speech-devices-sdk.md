@@ -8,15 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.custom: seodec18
-ms.openlocfilehash: 5f3b0094834b1ca547ba5ddf9726068c9ea36079
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 341f35d04c7f3f591198acbbf05ac32afe84e95c
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65409103"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718545"
 ---
 # <a name="about-the-speech-devices-sdk"></a>À propos du kit de développement logiciel (SDK) de dispositifs vocaux
 
@@ -33,6 +32,22 @@ Le SDK Speech Devices consomme le [SDK Speech](speech-sdk.md). Il l’utilise po
 Vous pouvez également utiliser le SDK Speech Devices pour créer des appareils ambiants disposant de votre propre [mot déclencheur personnalisé](speech-devices-sdk-create-kws.md), afin que le signal qui déclenche l’interaction utilisateur soit propre à votre marque.
 
 Le SDK Speech Devices facilite différents scénarios vocaux, tels que les [assistants virtuels « voice first » personnalisés](https://aka.ms/bots/speech/va), les systèmes de commande au volant, la [transcription de conversation](conversation-transcription-service.md) et les haut-parleurs intelligents. Vous pouvez répondre aux utilisateurs avec du texte, leur répondre en utilisant la voix par défaut ou une [voix personnalisée](how-to-customize-voice-font.md), fournir des résultats de recherche, [traduire](speech-translation.md) dans d’autres langues, et bien plus encore. Nous avons hâte de découvrir vos créations !
+
+## <a name="get-the-speech-devices-sdk"></a>Obtenir le Kit de développement logiciel (SDK) de dispositifs vocaux
+
+### <a name="android"></a>Android
+
+Pour des appareils Android, téléchargez la dernière version du [SDK Speech Devices Android](https://aka.ms/sdsdk-download-android).
+
+### <a name="windows"></a>Windows
+
+Pour Windows, l’exemple d’application est fourni en tant qu’application Java multiplateforme. Téléchargez la dernière version du [SDK Speech Devices JRE](https://aka.ms/sdsdk-download-JRE).
+L’application est créée avec le package du SDK Speech et l’IDE Eclipse Java (v4) sur Windows 64 bits. Elle s’exécute sur un environnement d’exécution Java 8 (JRE) 64 bits.
+
+### <a name="linux"></a>Linux
+
+Pour Linux, l’exemple d’application est fourni en tant qu’application Java multiplateforme. Téléchargez la dernière version du [SDK Speech Devices JRE](https://aka.ms/sdsdk-download-JRE).
+L’application est créée avec le package du SDK Speech et l’IDE Eclipse Java (v4) sur Linux 64 bits (Ubuntu 16.04, Ubuntu 18.04, Debian 9). Elle s’exécute sur un environnement d’exécution Java 8 (JRE) 64 bits.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

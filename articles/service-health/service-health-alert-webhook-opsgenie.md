@@ -1,20 +1,19 @@
 ---
-title: Configurer des alertes sur l’intégrité du service Azure avec OpsGenie | Microsoft Docs
+title: Envoyer des alertes sur l’intégrité du service Azure avec OpsGenie à l’aide de webhooks
 description: Obtenir des notifications personnalisées sur les événements d’intégrité du service sur votre instance OpsGenie.
 author: stephbaron
 ms.author: stbaron
 ms.topic: article
 ms.service: service-health
-ms.workload: Supportability
-ms.date: 11/14/2017
-ms.openlocfilehash: 79a77fff206831c0f9b3bb73ad33f951d99e2c81
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 06/10/2019
+ms.openlocfilehash: fab99b7093ac3f18f6313273d21905e0a3ed7e5b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60782191"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067167"
 ---
-# <a name="configure-service-health-alerts-with-opsgenie"></a>Configurer des alertes sur l’intégrité de service avec OpsGenie
+# <a name="send-azure-service-health-alerts-with-opsgenie-using-webhooks"></a>Envoyer des alertes sur l’intégrité du service Azure avec OpsGenie à l’aide de webhooks
 
 Cet article vous explique comment configurer les alertes sur l’intégrité du service Azure avec OpsGenie à l’aide d’un Webhook. L’intégration de l’intégrité du service Azure d’[OpsGenie](https://www.opsgenie.com/) permet de transférer les alertes d’intégrité du service Azure à OpsGenie. OpsGenie peut déterminer les personnes à notifier selon des planifications d’appel, via e-mail, SMS, appel téléphonique, notification Push iOS et Android et en remontant les alertes jusqu’à leur prise en compte ou leur clôture.
 

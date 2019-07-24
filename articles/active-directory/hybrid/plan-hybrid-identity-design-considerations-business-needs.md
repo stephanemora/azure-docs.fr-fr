@@ -18,18 +18,18 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9ecc90e13f49c231d8d3ab0cff1de91443b80f21
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65950902"
 ---
 # <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>Déterminer les besoins d’identité pour votre solution d’identités hybrides
 La première étape dans la conception d’une solution d’identités hybrides consiste à déterminer les exigences de l’entreprise qui va exploiter cette solution.  L’identité hybride démarre comme un rôle de support (elle prend en charge toutes les autres solutions cloud en assurant l’authentification), et continue en proposant des fonctionnalités nouvelles et intéressantes qui révèlent de nouvelles charges de travail pour les utilisateurs.  Ces charges de travail ou les services que vous souhaitez adopter pour vos utilisateurs déterminent les exigences pour la conception d’identités hybrides.  Ces services et charges de travail doivent exploiter l’identité hybride à la fois en local et dans le cloud.  
 
-Vous devez parcourir ces aspects essentiels de l’entreprise pour comprendre ce qui est désormais obligatoire et ce que l’entreprise prévoit pour l’avenir. Si vous ne disposez pas d’une visibilité de la stratégie à long terme pour la conception d’identités hybrides, votre solution ne suivra sans doute pas l’évolution et la mutation des besoins métier. Le diagramme ci-dessous montre un exemple d’architecture d’identités hybrides et les charges de travail révélées pour les utilisateurs. Il s’agit simplement d’un exemple de toutes les nouvelles possibilités qui peuvent être révélées et proposées avec une stratégie solide d’identités hybrides. 
+Vous devez parcourir ces aspects essentiels de l’entreprise pour comprendre ce qui est désormais obligatoire et ce que l’entreprise prévoit pour l’avenir. Si vous ne disposez pas d’une visibilité de la stratégie à long terme pour la conception d’identités hybrides, votre solution ne suivra sans doute pas l’évolution et la mutation des besoins métier. Le schéma ci-dessous présente un exemple d’architecture d’identités hybrides et les charges de travail révélées pour les utilisateurs. Il s’agit simplement d’un exemple de toutes les nouvelles possibilités qui peuvent être révélées et proposées avec une stratégie solide d’identités hybrides. 
 
-Certains composants qui font partie de l’architecture d’identité hybride ![architecture d’identités hybrides](./media/plan-hybrid-identity-design-considerations/hybrid-identity-architechture.png)
+Certains composants faisant partie de l’architecture d’identités hybrides ![architecture d’identités hybrides ](./media/plan-hybrid-identity-design-considerations/hybrid-identity-architechture.png)
 
 ## <a name="determine-business-needs"></a>Déterminer les besoins métier
 Les entreprises auront toutes des exigences différentes, même si elles appartiennent au même secteur ; les exigences concrètes peuvent varier. Vous pouvez toujours tirer parti des meilleures pratiques du secteur mais, en fin de compte, ce sont les besoins métier de l’entreprise qui vous permettront de définir les exigences pour la conception d’identités hybrides. 

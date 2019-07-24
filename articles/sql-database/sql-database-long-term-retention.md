@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 04/23/2019
-ms.openlocfilehash: 0f764ebbad53185f46c7166011e05493ed261d6a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 05/18/2019
+ms.openlocfilehash: 6549892bfd04065bf83ab50fa5f5b439c35c4238
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64696656"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190543"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Stocker les sauvegardes Azure SQL Database jusqu’à une durée de 10 ans
 
@@ -59,8 +59,8 @@ W=12 semaines (84 jours), M=12 mois (365 jours), Y=10 ans (3 650 jours), WeekOfY
 
 Si vous modifiez la stratégie ci-dessus et définissez W=0 (aucune sauvegarde hebdomadaire), la cadence des copies de sauvegarde sera modifiée comme indiqué dans le tableau ci-dessus par les dates en surbrillance. La quantité de stockage nécessaire pour conserver ces sauvegardes diminuerait en conséquence. 
 
-> [!NOTE]
-> Le calendrier des sauvegardes LTR individuelles est contrôlé par Azure SQL Database. Vous ne pouvez pas créer manuellement une sauvegarde LTR ni contrôler le calendrier de création de sauvegarde.
+> [!IMPORTANT]
+> Le calendrier des sauvegardes LTR individuelles est contrôlé par Azure SQL Database. Vous ne pouvez pas créer manuellement une sauvegarde LTR ni contrôler le calendrier de création de sauvegarde. Après avoir configuré une stratégie de rétention à long terme (LTR), vous devrez peut-être patienter jusqu’à sept jours avant que la première sauvegarde LTR n’apparaisse dans la liste des sauvegardes disponibles.  
 > 
 
 ## <a name="geo-replication-and-long-term-backup-retention"></a>Géo-réplication et conservation de sauvegarde à long terme

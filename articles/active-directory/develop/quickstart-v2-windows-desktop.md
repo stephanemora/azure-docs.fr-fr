@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/11/2019
+ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35c71262b1338a2e9d471d16368fd90ea4c6d059
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: fe90e5a70779857f0045baf27abc59a75289c39c
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67565399"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68276821"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>Démarrage rapide : Acquérir un jeton et appeler l’API Microsoft Graph à partir d’une application de bureau Windows
 
@@ -70,7 +70,7 @@ Dans ce démarrage rapide, vous allez apprendre comment concevoir une applicatio
 
 #### <a name="step-2-download-your-visual-studio-project"></a>Étape 2 : Télécharger votre projet Visual Studio
 
-[Télécharger le projet Visual Studio](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip) ([Afficher le projet sur Github](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/))
+[Télécharger le projet Visual Studio](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip) ([Afficher le projet sur GitHub](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/))
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>Étape 3 : Configurer votre projet Visual Studio
 
@@ -152,7 +152,7 @@ authResult = await App.PublicClientApp.AcquireTokenInteractive(_scopes)
 
 #### <a name="get-a-user-token-silently"></a>Obtenir un jeton d’utilisateur en mode silencieux
 
-Vous ne voulez pas obliger l’utilisateur à valider ses informations d’identification à chaque fois qu’il doit accéder à une ressource. La plupart du temps, vous souhaitez que les acquisitions et renouvellements de jetons se fassent sans aucune interaction de l’utilisateur. Vous pouvez utiliser la méthode `AcquireTokenSilentAsync` pour obtenir des jetons pour accéder aux ressources protégées après la méthode `AcquireTokenInteractive` initiale :
+Vous ne voulez pas obliger l’utilisateur à valider ses informations d’identification à chaque fois qu’il doit accéder à une ressource. La plupart du temps, vous souhaitez que les acquisitions et renouvellements de jetons se fassent sans aucune interaction de l’utilisateur. Vous pouvez utiliser la méthode `AcquireTokenSilent` pour obtenir des jetons pour accéder aux ressources protégées après la méthode `AcquireTokenInteractive` initiale :
 
 ```csharp
 var accounts = await App.PublicClientApp.GetAccountsAsync();

@@ -1,5 +1,5 @@
 ---
-title: Examiner les alertes avec la version préliminaire d’Azure Sentinel | Microsoft Docs
+title: Examiner les alertes avec la préversion d’Azure Sentinel | Microsoft Docs
 description: Utilisez ce didacticiel pour apprendre à examiner les alertes avec Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -7,27 +7,28 @@ author: rkarlin
 manager: rkarlin
 editor: ''
 ms.assetid: b5fbc5ac-68b2-4024-9c1b-bd3cc41a66d0
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 6cb40f8c9f1ee85848b5e3db311d0fb652ec1bc3
-ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
-ms.translationtype: MT
+ms.openlocfilehash: e20f6fc0dc8dbe02b09490f62ce84af12aa31b87
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65921814"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621235"
 ---
-# <a name="tutorial-detect-threats-with-azure-sentinel-preview"></a>Didacticiel : Détectez les menaces avec la version préliminaire d’Azure Sentinel
+# <a name="tutorial-detect-threats-with-azure-sentinel-preview"></a>Didacticiel : Détecter les menaces avec la préversion d’Azure Sentinel
 
 > [!IMPORTANT]
 > Azure Sentinel est actuellement disponible en préversion publique.
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Après avoir [vos sources de données connectées](quickstart-onboard.md) à Azure Sentinel, vous souhaitez être averti en cas de quelque chose suspectes. Pour vous permettre de procéder, Sentinel Azure vous permet de que créer des avancées règles d’alerte, qui génèrent des cas que vous pouvez affecter et les utiliser pour examiner profondément les anomalies et menaces dans votre environnement. 
+Après avoir [connecté vos sources de données](quickstart-onboard.md) à Azure Sentinel, vous souhaitez être averti en cas d’activité suspecte. Pour vous permettre de l’être, Azure Sentinel vous permet de créer des règles d’alerte avancées, qui génèrent des cas que vous pouvez attribuer et utiliser pour examiner en détail les anomalies et les menaces dans votre environnement. 
 
 Ce didacticiel vous aide à détecter les menaces avec Azure Sentinel.
 > [!div class="checklist"]
@@ -39,21 +40,21 @@ Ce didacticiel vous aide à détecter les menaces avec Azure Sentinel.
 Pour examiner les cas, vous devez d’abord créer des règles de détection. 
 
 > [!NOTE]
-> Alertes générées dans Azure Sentinel sont disponibles via [Microsoft Graph Security](https://aka.ms/securitygraphdocs). Reportez-vous à la [documentation sur les alertes Microsoft Graph Security](https://aka.ms/graphsecurityreferencebetadocs) des détails supplémentaires et des partenaires d’intégration.
+> Les alertes générées dans Azure Sentinel sont disponibles via [Microsoft Graph Security](https://aka.ms/securitygraphdocs). Reportez-vous à la [documentation sur les alertes Microsoft Graph Security](https://aka.ms/graphsecurityreferencebetadocs)pour obtenir des informations supplémentaires et connaître les partenaires d’intégration.
 
-Règles de détection sont basées sur les types de menaces et anomalies qui pourraient être suspectes dans votre environnement que vous souhaitez savoir sur tout de suite, en vous assurant qu’ils sont exposés, examinés et mis à jour. 
+Les règles de détection sont basées sur les types de menaces et d’anomalies qui pourraient être suspectes dans votre environnement et pour lesquelles vous souhaitez être averti tout de suite, en vous assurant qu’elles sont exposées, examinées et corrigées. 
 
-1. Dans le portail Azure sous Azure Sentinel, sélectionnez **Analytique**.
+1. Dans le portail Azure, sous Azure Sentinel, sélectionnez **Analytique**.
 
-   ![Analyse](./media/tutorial-detect-threats/alert-rules.png)
+   ![Analytics](./media/tutorial-detect-threats/alert-rules.png)
 
-2. Dans la barre de menus supérieure, cliquez sur **+ ajouter**.  
+2. Dans la barre de menus supérieure, cliquez sur **+Ajouter**.  
 
-   ![Créer une règle d'alerte](./media/tutorial-detect-threats/create-alert-rule.png)
+   ![Créer une règle d’alerte](./media/tutorial-detect-threats/create-alert-rule.png)
 
-3. Sous **créer une règle d’alerte**, fournissez un nom descriptif et définir le **gravité** en fonction des besoins. 
+3. Sous **Créer une règle d’alerte**, fournissez un nom descriptif et définissez le paramètre **Gravité** en fonction des besoins. 
 
-4. Créer la requête dans Log Analytique et collez-la dans la **ensemble une règle d’alerte** champ. Voici un exemple de requête qui serait vous alerte quand un nombre anormal de ressources est créé dans activité Azure.
+4. Créez la requête dans Log Analytics et collez-la dans le champ **Set alert rule** (Définir une règle d’alerte). Voici un exemple de requête qui vous avertit quand un nombre anormal de ressources est créé dans Activité Azure.
 
         AzureActivity
         | where OperationName == "Create or Update Virtual Machine" or OperationName == "Create Deployment"
@@ -61,42 +62,42 @@ Règles de détection sont basées sur les types de menaces et anomalies qui pou
         | make-series dcount(ResourceId)  default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller
 
    > [!NOTE]
-   > La longueur de la requête doit être comprise entre 1 et 10 000 caractères et ne peut pas contenir « search * » et « union * ».
+   > La longueur de la requête doit être comprise entre 1 et 10 000 caractères et qui ne peut pas contenir « search * » ni « union * ».
 
 
-5. Dans le **mappage d’entité** section, utilisez les champs sous **type d’entité** pour mapper les colonnes dans votre requête pour les champs d’entité reconnues par Azure Sentinel. Pour chaque champ, mappez la colonne concernée dans la requête que vous avez créé dans le journal Analytique, pour le champ d’entité appropriée. Sélectionnez le nom de la colonne appropriée sous le **propriété**. Chaque entité inclut plusieurs champs, par exemple SID, GUID, etc. Vous pouvez mapper l’entité selon l’un des champs, pas seulement l’entité de niveau supérieure.
+5. Dans la section **Mappage d’entités**, utilisez les champs sous **Type d’entité** pour mapper les colonnes dans votre requête aux champs d’entité reconnus par Azure Sentinel. Pour chaque champ, mappez la colonne concernée dans la requête que vous avez créée dans Log Analytics, au champ de l’entité appropriée. Sélectionnez le nom de la colonne appropriée sous la **propriété**. Chaque entité inclut plusieurs champs, par exemple SID, GUID, etc. Vous pouvez mapper l’entité à n’importe quel champ, pas seulement à l’entité de niveau supérieur.
 
-6. Définir des conditions de déclenchement d’alerte sous **de déclenchement d’alerte**. Définit les conditions qui déclenchent l’alerte. 
+6. Définissez des conditions de déclencheur d’alerte sous **Alert trigger** (Déclencheur d’alerte). Cela permet de définir les conditions qui déclenchent l’alerte. 
 
-7. Définir le **fréquence** pour la fréquence à laquelle la requête est exécutée - comme fréquemment toutes les 5 minutes ou très rarement une fois par jour. 
+7. Définissez le paramètre **Fréquence** pour déterminer la fréquence d’exécution de la requête - fréquemment, toutes les 5 minutes ou rarement, une fois par jour. 
 
-8. Définir le **période** pour contrôler la fenêtre de temps pour la quantité de données la requête s’exécute sur - par exemple, il peut s’exécuter toutes les heures sur 60 minutes de données.
+8. Définissez le paramètre **Période** pour contrôler la fenêtre de temps de la quantité de données sur laquelle la requête s’exécute - par exemple, elle peut s’exécuter toutes les heures sur 60 minutes de données.
 
-9. Vous pouvez également définir le **Suppression**. La suppression est utile lorsque vous souhaitez arrêter les alertes en double à partir de déclenchement pour le même incident. De cette façon, vous pouvez arrêter les alertes de déclenchement pendant une période spécifique. Cela peut vous aider à éviter les alertes en double pour le même incident et vous permet de supprimer les alertes consécutives pour une période donnée. Par exemple, si le **planification d’alerte** **fréquence** est définie sur 60 minutes et le **période de planification d’alerte** est fixée à deux heures, et les résultats de requête dépassé défini seuil, il déclenche une alerte à deux reprises, une fois quand il est tout d’abord détectée au cours des 60 dernières minutes, et à nouveau lorsqu’il est le premier des 60 dernières minutes des 2-heures de données échantillonnées. Nous recommandons que si une alerte est déclenchée, la suppression doit être la durée définie dans la période d’alerte. Dans notre exemple, vous souhaiterez définie suppression pendant 60 minutes, afin que les alertes sont déclenchées uniquement pour les événements qui se sont produites pendant l’heure la plus récente.
+9. Vous pouvez également définir le paramètre **Suppression**. Celui-ci est utile lorsque vous souhaitez arrêter le déclenchement d’alertes en double pour le même incident. De cette façon, vous pouvez arrêter le déclenchement d’alertes pendant une période donnée. Cela peut vous aider à éviter les alertes en double pour le même incident et vous permettre de supprimer les alertes consécutives pour une période donnée. Par exemple, si les paramètres **Alert scheduling** (Planification d’alerte) **Fréquence** sont définis sur 60 minutes et que le paramètre **Alert scheduling Period** (Période de planification d’alerte) est défini sur deux heures, et que les résultats de la requête ont dépassé le seuil défini, une alerte est déclenchée à deux reprises : une première fois quand le dépassement est détecté après les 60 dernières minutes et une seconde fois lors des premières 60 minutes des deux heures de l’échantillonnage des données. Si une alerte est déclenchée, nous vous recommandons de définir la suppression sur la quantité de temps définie dans la période d’alerte. Dans notre exemple, vous souhaitez définir la suppression pour 60 minutes, de façon que les alertes soient uniquement déclenchées pour les événements qui ont eu lieu au cours de la dernière heure.
 
-8. Une fois que vous collez votre requête dans le **ensemble une règle d’alerte** champ, vous pouvez immédiatement voir une simulation de l’alerte sous **simulation alerte logique** afin que vous puissiez obtenir la présentation de la quantité de données sera généré sur un intervalle de temps spécifique de l’alerte que vous avez créé. Cela dépend de ce que vous définissez pour **fréquence** et **seuil**. Si vous voyez qu’en moyenne, votre alerte est déclenchée trop fréquemment, vous pouvez définir le nombre de résultats supérieur afin qu’il soit au-dessus de votre ligne de base de la moyenne.
+8. Après avoir collé votre requête dans le champ **Set alert rule** (Définir une règle d’alerte), vous pouvez tout de suite voir une simulation de l’alerte sous **Logic alert simulation** (Simulation d’alerte logique) afin de comprendre quelle quantité de données sera générée après un intervalle de temps spécifique pour l’alerte que vous avez créée. Cela va dépendre de ce que vous définissez pour **Fréquence** et **Seuil**. Si vous voyez qu’en moyenne, votre alerte est déclenchée trop fréquemment, vous pouvez définir un nombre de résultats plus élevé, de façon qu’il soit au-dessus de votre référence moyenne.
 
-9. Cliquez sur **créer** pour initialiser votre règle d’alerte. Une fois que l’alerte est créée, un incident est créé qui contient l’alerte. Vous pouvez voir les règles de détection défini sous forme de lignes dans le **Analytique de sécurité** onglet. Vous pouvez également voir le nombre de correspondances pour chaque règle - les alertes déclenchées. Dans cette liste, que vous pouvez activer, désactiver ou supprimer chaque règle. Vous pouvez également droit-sélectionnez les points de suspension (...) à la fin de la ligne pour chaque alerte à modifier, désactiver, cloner, afficher les correspondances ou supprimer une règle. Le **Analytique** page est une galerie de toutes vos règles d’alerte actives, y compris les modèles vous activez et vous créez en fonction des modèles de règles d’alerte.
+9. Cliquez sur **Créer** pour initialiser votre règle d’alerte. Une fois que l’alerte est créée, un cas contenant l’alerte est créé. Vous pouvez voir les règles de détection définies sous forme de lignes dans l’onglet **Security Analytics** (Analyse de sécurité). Vous pouvez également voir le nombre de correspondances pour chaque règle - les alertes déclenchées. Dans cette liste, vous pouvez activer, désactiver ou supprimer chaque règle. Vous pouvez également faire un clic droit sur les points de suspension (...) à la fin de la ligne pour chaque alerte, afin de modifier, de désactiver, de cloner, d’afficher les correspondances ou de supprimer une règle. La page **	Analyse** est une galerie de toutes vos règles d’alerte actives, y compris des modèles que vous activez et des règles d’alerte que vous créez en fonction des modèles.
 
-1. Les résultats les règles d’alerte peuvent être consultés dans le **cas** page, où vous pouvez trier, [examiner les cas](tutorial-investigate-cases.md), et contrer les menaces.
+1. Les résultats des règles d’alerte peuvent être consultés sur la page **Cas**, depuis laquelle vous pouvez trier, [examiner les cas](tutorial-investigate-cases.md) et corriger les menaces.
 
 
 
 ## <a name="respond-to-threats"></a>Répondre aux menaces
 
-Sentinel Azure vous offre deux options principales pour répondre aux menaces à l’aide de règles. Vous pouvez définir un playbook pour exécuter automatiquement lorsqu’une alerte est déclenchée, ou vous pouvez exécuter manuellement un manuel en réponse à une alerte.
+Azure Sentinel vous offre deux options principales pour répondre aux menaces à l’aide de playbooks. Vous pouvez définir un playbook pour qu’il soit exécuté automatiquement lorsqu’une alerte est déclenchée, ou vous pouvez en exécuter un manuellement en réponse à une alerte.
 
-- Définir un playbook pour exécuter automatiquement lorsqu’une alerte est déclenchée lorsque vous configurez le playbook. 
+- Lors de la configuration d’un playbook, vous pouvez faire qu’il s’exécute automatiquement lorsqu’une alerte est déclenchée. 
 
-- Exécuter manuellement un manuel à partir d’à l’intérieur de l’alerte, en cliquant sur **afficher playbooks** , puis en sélectionnant un playbook à exécuter.
+- Exécutez un playbook manuellement depuis l’intérieur de l’alerte, en cliquant sur **Afficher les playbooks**, puis en sélectionnant un playbook à exécuter.
 
 
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce didacticiel, vous avez appris comment commencer à détecter des menaces à l’aide d’Azure Sentinel. 
+Dans ce didacticiel, vous avez appris à prendre en main la détection des menaces en utilisant Azure Sentinel. 
 
-Pour apprendre à automatiser vos réponses aux menaces, [comment répondre aux menaces à l’aide de règles automatisées](tutorial-respond-threats-playbook.md).
+Pour apprendre à automatiser vos réponses aux menaces, consultez le didacticiel expliquant [comment répondre aux menaces à l’aide de playbooks automatisés](tutorial-respond-threats-playbook.md).
 > [!div class="nextstepaction"]
 > [Répondre aux menaces](tutorial-respond-threats-playbook.md) pour automatiser vos réponses aux menaces.
 

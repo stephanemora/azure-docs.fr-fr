@@ -1,6 +1,6 @@
 ---
-title: Attributs de sécurité courants pour la messagerie Azure Service Bus
-description: Une liste de vérification des attributs de sécurité courants pour l’évaluation de messagerie Azure Service Bus
+title: Attributs de sécurité communs pour la messagerie Azure Service Bus
+description: Check-list des attributs de sécurité couramment utilisés pour l’évaluation de la messagerie Azure Service Bus
 services: service-bus-messaging
 ms.service: service-bus-messaging
 documentationcenter: ''
@@ -10,61 +10,61 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: mbaldwin
 ms.openlocfilehash: d68ffe6561da6a23c288dfabd1d3eb6b34099bb3
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66003107"
 ---
-# <a name="security-attributes-for-azure-service-bus-messaging"></a>Attributs de sécurité de messagerie Azure Service Bus
+# <a name="security-attributes-for-azure-service-bus-messaging"></a>Attributs de sécurité pour la messagerie Azure Service Bus
 
-Cet article décrit les attributs de sécurité intégrées à la messagerie Azure Service Bus.
+Cet article décrit les attributs de sécurité intégrés à la messagerie Azure Service Bus.
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
 ## <a name="preventative"></a>Préventif
 
-| Attribut de sécurité | Oui/non | Notes |
+| Attribut de sécurité | Oui/Non | Notes |
 |---|---|--|
-| Chiffrement au repos :<ul><li>Chiffrement côté serveur</li><li>Chiffrement côté serveur avec des clés gérées par le client</li><li>Autres fonctionnalités de chiffrement (côté client, Always Encrypted, etc.)</ul>|  Oui pour le chiffrement au repos côté serveur par défaut. | Les clés gérées par le client et du BYOK ne sont pas prises en charge encore. Chiffrement côté client est la responsabilité du client |
-| Chiffrement en transit :<ul><li>Chiffrement Express Route</li><li>Dans le chiffrement du réseau virtuel</li><li>Chiffrement de réseau virtuel à réseau virtuel</ul>| Oui | Prend en charge du mécanisme HTTPS/TLS standard. |
-| Gestion de clé de chiffrement (clé CMK, BYOK, etc.).| Non |   |
-| Chiffrement au niveau colonne (Services de données Azure)| N/A | |
-| Appels d’API chiffrés| Oui | Appels d’API sont effectuées via [Azure Resource Manager](../azure-resource-manager/index.yml) et HTTPS. |
+| Chiffrement au repos :<ul><li>Chiffrement côté serveur</li><li>Chiffrement côté serveur avec des clés gérées par le client</li><li>Autres fonctionnalités de chiffrement (côté client, Always Encrypted, etc.)</ul>|  Oui pour le chiffrement côté serveur au repos par défaut. | Les clés gérées par le client et du BYOK ne sont pas encore prises en charge. Le chiffrement côté client est sous la responsabilité du client |
+| Chiffrement en transit :<ul><li>Chiffrement Express Route</li><li>Chiffrement dans le réseau virtuel</li><li>Chiffrement de réseau virtuel à réseau virtuel</ul>| OUI | Prend en charge le mécanisme HTTPS/TLS standard. |
+| Gestion des clés de chiffrement (CMK, BYOK, etc.)| Non |   |
+| Chiffrement au niveau des colonnes (Azure Data Services)| N/A | |
+| Appels d’API chiffrés| OUI | Les appels d’API sont effectués via [Azure Resource Manager](../azure-resource-manager/index.yml) et HTTPS. |
 
 ## <a name="network-segmentation"></a>Segmentation du réseau
 
-| Attribut de sécurité | Oui/non | Notes |
+| Attribut de sécurité | Oui/Non | Notes |
 |---|---|--|
-| Prise en charge du point de terminaison de service| Oui (niveau Premium uniquement) | Points de terminaison de service réseau virtuel sont pris en charge pour [niveau de Service Bus Premium](service-bus-premium-messaging.md) uniquement. |
-| Prise en charge l’injection de réseau virtuel| Non | |
-| Prise en charge des pare-feu et l’isolement réseau| Oui (niveau Premium uniquement) |  |
-| Prise en charge de tunneling de forcé| Non |  |
+| Prise en charge du point de terminaison de service| Oui (niveau Premium uniquement) | Les points de terminaison de service de réseau virtuel sont uniquement pris en charge pour le [niveau Service Bus Premium](service-bus-premium-messaging.md). |
+| Prise en charge de l’injection de réseau virtuel| Non | |
+| Prise en charge de l’isolement réseau et de l’installation de pare-feu| Oui (niveau Premium uniquement) |  |
+| Prise en charge du tunneling forcé| Non |  |
 
 ## <a name="detection"></a>Détection
 
-| Attribut de sécurité | Oui/non | Notes|
+| Attribut de sécurité | Oui/Non | Notes|
 |---|---|--|
-| Prise en charge (analytique de journal, application insights, etc.) de surveillance Azure| Oui | Prise en charge par le biais de [Azure Monitor et alertes](service-bus-metrics-azure-monitor.md). |
+| Prise en charge de la supervision Azure (Log analytics, App insights, etc.)| OUI | Prise en charge par le biais de [Azure Monitor and Alerts](service-bus-metrics-azure-monitor.md). |
 
 ## <a name="identity-and-access-management"></a>Gestion de l’identité et de l’accès
 
-| Attribut de sécurité | Oui/non | Notes|
+| Attribut de sécurité | Oui/Non | Notes|
 |---|---|--|
-| Authentication| Oui | Géré par le biais [Azure Active Directory Managed Service Identity](service-bus-managed-service-identity.md); consultez [authentification et autorisation Service Bus](service-bus-authentication-and-authorization.md).|
-| Authorization| Oui | Prend en charge d’autorisation via [RBAC](service-bus-role-based-access-control.md) (version préliminaire) et SAS token ; consultez [authentification et autorisation Service Bus](service-bus-authentication-and-authorization.md). |
+| Authentication| OUI | Géré par le biais de [l’identité de service managé Azure Active Directory ](service-bus-managed-service-identity.md); consultez [Authentification et autorisation Service Bus](service-bus-authentication-and-authorization.md).|
+| Authorization| OUI | Prend en charge l’autorisation via [RBAC](service-bus-role-based-access-control.md) (préversion) et jeton SAS ; consultez [Authentification et autorisation Service Bus](service-bus-authentication-and-authorization.md). |
 
 
 
 ## <a name="audit-trail"></a>Piste d'audit
 
-| Attribut de sécurité | Oui/non | Notes|
+| Attribut de sécurité | Oui/Non | Notes|
 |---|---|--|
-| Audit et consignation de plan de contrôle et de gestion| Oui | Journaux des opérations sont disponibles ; consultez [les journaux de diagnostic de Service Bus](service-bus-diagnostic-logs.md).  |
-| Audit et consignation de plan de données| Non |  |
+| Journalisation et audit du plan de gestion et de contrôle| OUI | Les journaux des opérations sont disponibles ; consultez [Journaux de diagnostic Service Bus](service-bus-diagnostic-logs.md).  |
+| Journalisation et audit du plan de données| Non |  |
 
 ## <a name="configuration-management"></a>Gestion des configurations
 
-| Attribut de sécurité | Oui/non | Notes|
+| Attribut de sécurité | Oui/Non | Notes|
 |---|---|--|
-| Prise en charge de configuration management (gestion des versions de configuration, etc.).| Oui | Prend en charge le contrôle de version du fournisseur de ressources via les [API Azure Resource Manager](/rest/api/resources/).|
+| Prise en charge de la gestion de la configuration (gestion de version de la configuration, etc.)| OUI | Prend en charge le contrôle de version du fournisseur de ressources via l’[API Azure Resource Manager](/rest/api/resources/).|

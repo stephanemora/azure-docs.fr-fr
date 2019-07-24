@@ -11,17 +11,17 @@ ms.date: 04/30/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: 19a06d0fdff324dc3bee246ef7a5a7011c089872
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65851595"
 ---
 # <a name="using-identity-to-create-surrogate-keys-in-azure-sql-data-warehouse"></a>Utilisation de la propriété IDENTITY pour créer des clés de substitution dans Azure SQL Data Warehouse
 
 Suggestions et exemples d’utilisation de la propriété IDENTITY pour créer des clés de substitution dans des tables Azure SQL Data Warehouse.
 
-## <a name="what-is-a-surrogate-key"></a>Qu’est une clé de substitution
+## <a name="what-is-a-surrogate-key"></a>Qu’est-ce qu’une clé de substitution ?
 
 Une clé de substitution dans une table est une colonne avec un identificateur unique pour chaque ligne. La clé n’est pas générée à partir des données de la table. Les modélisateurs de données aiment créer des clés de substitution sur leurs tables lorsqu’ils conçoivent des modèles d’entrepôt de données. Vous pouvez utiliser la propriété IDENTITY pour atteindre cet objectif de manière simple et efficace, sans affecter les performances de chargement.  
 
@@ -241,5 +241,5 @@ AND     tb.name = 'T1'
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Vue d’ensemble des tables](/azure/sql-data-warehouse/sql-data-warehouse-tables-overview)
-- [CRÉER une TABLE (Transact-SQL) IDENTITY (propriété)](/sql/t-sql/statements/create-table-transact-sql-identity-property?view=azure-sqldw-latest)
+- [CREATE TABLE (Transact-SQL) IDENTITY (Propriété)](/sql/t-sql/statements/create-table-transact-sql-identity-property?view=azure-sqldw-latest)
 - [DBCC CHECKINDENT](/sql/t-sql/database-console-commands/dbcc-checkident-transact-sql)

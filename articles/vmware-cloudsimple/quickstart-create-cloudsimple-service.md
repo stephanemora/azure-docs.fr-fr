@@ -1,6 +1,6 @@
 ---
 title: Démarrage rapide de la solution Azure VMware de CloudSimple - Créer le service
-description: En savoir plus sur la création du service CloudSimple, l’achat et la réservation de nœuds
+description: En savoir plus sur la création du service CloudSimple, l’approvisionnement et la réservation de nœuds
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 04/10/2019
@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 9b3b95db24f4b0f9a0cf8f5102dfeea5dc51e29f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5732ea726bdecc10d0757224870ee5d8be83a2b2
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64577569"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164217"
 ---
 # <a name="quickstart---create-service"></a>Démarrage rapide - Créer le service
 
@@ -21,7 +21,7 @@ Pour commencer, créez la Solution Azure VMware de CloudSimple dans le portail A
 
 ## <a name="vmware-solution-by-cloudsimple---service-overview"></a>Solution VMware de CloudSimple - Vue d’ensemble du service
 
-Le service CloudSimple vous permet d'utiliser la Solution Azure VMware de CloudSimple.  En créant ce service, vous pouvez acheter, réserver des nœuds et créer des clouds privés.  Vous ajoutez le service de CloudSimple à chaque région Azure où ce service est disponible.  Le service définit le réseau de périmètre de la Solution Azure VMware de CloudSimple.  Ce réseau de périmètre est destiné aux services comprenant une connectivité VPN, ExpressRoute et Internet vers vos clouds privés.
+Le service CloudSimple vous permet d'utiliser la Solution Azure VMware de CloudSimple.  En créant ce service, vous pouvez approvisionner, réserver des nœuds et créer des clouds privés.  Vous ajoutez le service de CloudSimple à chaque région Azure où ce service est disponible.  Le service définit le réseau de périmètre de la Solution Azure VMware de CloudSimple.  Ce réseau de périmètre est destiné aux services comprenant une connectivité VPN, ExpressRoute et Internet vers vos clouds privés.
 
 Pour ajouter le service CloudSimple, vous devez créer un sous-réseau de passerelle. Le sous-réseau de passerelle est utilisé lors de la création du réseau de périmètre et requiert un bloc CIDR /28. L’espace d’adressage du sous-réseau de passerelle doit être unique. Il ne peut pas chevaucher un de vos espaces d'adressage de réseau local ni l'espace d'adressage du réseau virtuel Azure.
 
@@ -47,9 +47,6 @@ Suivez les étapes ci-dessous pour activer le fournisseur de ressources du servi
 
 ## <a name="create-the-service"></a>Créer le service
 
->[!NOTE]
-> Le service CloudSimple doit être activé sur votre abonnement. Si votre abonnement n’est pas activé, une erreur s'affiche lorsque vous tentez de créer le service.  Pour activer le service, suivez la procédure décrite dans l'article [Activer le service CloudSimple](https://docs.azure.cloudsimple.com/enable-cloudsimple-service).
-
 1. Sélectionnez **Tous les services**.
 2. Recherchez le **service CloudSimple**.
 
@@ -71,7 +68,7 @@ Suivez les étapes ci-dessous pour activer le fournisseur de ressources du servi
 
 Le service est créé et ajouté à la liste des services.
 
-## <a name="purchase-nodes"></a>Acheter des nœuds
+## <a name="provision-nodes"></a>Nœuds d'approvisionnement
 
 Pour configurer la capacité avec paiement à l'utilisation d'un environnement de cloud privé CloudSimple, commencez par approvisionner des nœuds dans le portail Azure.
 
@@ -85,7 +82,7 @@ Pour configurer la capacité avec paiement à l'utilisation d'un environnement d
 
     ![Ajouter des nœuds CloudSimple](media/create-cloudsimple-node-add.png)
 
-5. Sélectionnez l’abonnement dans lequel vous souhaitez acheter des nœuds CloudSimple.
+5. Sélectionnez l’abonnement dans lequel vous souhaitez approvisionner des nœuds CloudSimple.
 6. Sélectionnez le groupe de ressources pour vos nœuds. Pour ajouter un nouveau groupe de ressources, cliquez sur **Créer**.
 7. Entrez le préfixe pour identifier les nœuds.
 8. Sélectionnez l’emplacement des ressources de nœud.

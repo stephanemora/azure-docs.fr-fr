@@ -1,6 +1,6 @@
 ---
-title: Application mobile par appels web API - obtention d’un jeton pour l’application | Plateforme d’identité Microsoft
-description: Découvrez comment créer une application mobile qui appelle des API (obtention d’un jeton pour l’application) web
+title: Application mobile qui appelle des API web - acquisition d’un jeton pour l’application | Plateforme d’identités Microsoft
+description: Découvrez comment générer une application mobile qui appelle des API web (acquisition d’un jeton pour l’application)
 services: active-directory
 documentationcenter: dev-center-name
 author: danieldobalian
@@ -16,22 +16,22 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81770b6ec4eacad10cd88978952688c29eff452d
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.openlocfilehash: 590184c25fa0aa3cb3219aa9c185a31e62090ba9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962417"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111146"
 ---
-# <a name="mobile-app-that-calls-web-apis---get-a-token"></a>Application mobile qui appelle des API - web obtenir un jeton
+# <a name="mobile-app-that-calls-web-apis---get-a-token"></a>Application mobile qui appelle des API web - acquisition d’un jeton
 
-Avant de commencer l’appel protégé API web, votre application devez un jeton d’accès. Cet article vous guide tout au long du processus permettant d’obtenir un jeton à l’aide de la bibliothèque d’authentification Microsoft (MSAL).
+Avant de commencer à appeler des API web protégées, votre application doit disposer d’un jeton d’accès. Cet article vous guide dans la procédure d’acquisition d’un jeton à l’aide de la bibliothèque d’authentification Microsoft (MSAL).
 
-## <a name="scopes-to-request"></a>Demander des étendues
+## <a name="scopes-to-request"></a>Étendues à demander
 
-Lorsque vous demandez un jeton, vous devez définir une étendue. L’étendue détermine les données que votre application peut accéder.  
+Lorsque vous demandez un jeton, vous devez définir une étendue. L’étendue détermine les données auxquelles votre application peut accéder.  
 
-L’approche la plus simple consiste à combiner le de l’API web souhaitée `App ID URI` avec l’étendue `.default`. Cela indique la plateforme d’identité Microsoft dont votre application a besoin de toutes les étendues définies dans le portail.
+L’approche la plus simple consiste à combiner l’`App ID URI` de l’API web souhaitée avec l’étendue `.default`. Cela indique à la plateforme d’identités Microsoft que votre application a besoin de toutes les étendues définies dans le portail.
 
 #### <a name="android"></a>Android
 ```Java
@@ -52,7 +52,7 @@ var scopes = new [] {"https://graph.microsoft.com/.default"};
 
 ### <a name="via-msal"></a>Via MSAL
 
-MSAL permet aux applications d’acquérir des jetons en mode silencieux et de manière interactive. Suffit d’appeler ces méthodes et MSAL retourne un jeton d’accès pour les étendues demandées. Le modèle correct consiste à effectuer une demande en mode silencieux et revenir à une requête interactive.
+MSAL permet aux applications d’acquérir des jetons en mode silencieux et de manière interactive. Il suffit d’appeler ces méthodes pour que MSAL retourne un jeton d’accès pour les étendues demandées. La bonne procédure consiste à effectuer une demande en mode silencieux, puis de revenir à une demande interactive.
 
 #### <a name="android"></a>Android
 
@@ -163,11 +163,11 @@ catch(MsalUiRequiredException e)
 
 ### <a name="via-the-protocol"></a>Via le protocole
 
-Nous ne recommandons pas l’aide du protocole directement. Si vous le faites, l’application ne prend en charge certains authentification unique (SSO), gestion des appareils et scénarios d’accès conditionnel.
+Nous ne recommandons pas d’utiliser le protocole directement. Si vous le faites, l’application ne prendra pas en charge certains scénarios d’authentification unique (SSO), de gestion des périphériques et d’accès conditionnel.
 
-Lorsque vous utilisez le protocole pour obtenir des jetons pour les applications mobiles, vous devez effectuer deux requêtes : obtenir un code d’autorisation et d’échanger contre un jeton.
+Lorsque vous utilisez le protocole pour acquérir des jetons pour les applications mobiles, vous devez envoyer deux demandes : une pour obtenir un code d’autorisation, l’autre pour échanger ce dernier contre un jeton.
 
-#### <a name="get-authorization-code"></a>Obtenir le code d'autorisation
+#### <a name="get-authorization-code"></a>Obtenir un code d’autorisation
 
 ```Text
 https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
@@ -179,7 +179,7 @@ client_id=<CLIENT_ID>
 &state=12345
 ```
 
-#### <a name="get-access-and-refresh-token"></a>Obtenir un jeton accès et actualisation
+#### <a name="get-access-and-refresh-token"></a>Obtenir un jeton d’accès et d’actualisation
 
 ```Text
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1
@@ -196,4 +196,4 @@ client_id=<CLIENT_ID>
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Appeler une API web](scenario-mobile-call-api.md)
+> [Appel d’une API web](scenario-mobile-call-api.md)

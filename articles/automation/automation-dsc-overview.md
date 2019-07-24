@@ -11,10 +11,10 @@ ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: b486c30827ee67b58cbdc0027c8221cceed02e51
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66235940"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Vue d’ensemble d’Azure Automation State Configuration
@@ -39,15 +39,15 @@ Azure Automation State Configuration apporte la même couche de gestion à la [c
 
 ### <a name="import-reporting-data-into-azure-monitor-logs"></a>Importer des données de création de rapports dans les journaux Azure Monitor
 
-Les nœuds gérés dans Azure Automation State Configuration envoient des données détaillées sur l’état de création de rapports au serveur collecteur intégré. Vous pouvez configurer Azure Automation State Configuration de façon à envoyer ces données à votre espace de travail Log Analytics. Pour savoir comment envoyer des données d’état de Configuration d’état à votre espace de travail Analytique de journal, consultez [transférer Azure Automation la Configuration d’état données de rapport dans les journaux d’Azure Monitor](automation-dsc-diagnostics.md).
+Les nœuds gérés dans Azure Automation State Configuration envoient des données détaillées sur l’état de création de rapports au serveur collecteur intégré. Vous pouvez configurer Azure Automation State Configuration de façon à envoyer ces données à votre espace de travail Log Analytics. Pour savoir comment envoyer des données d’état State Configuration à votre espace de travail Log Analytics, consultez [Transférer des données de rapport Azure Automation State Configuration à des journaux Azure Monitor](automation-dsc-diagnostics.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-Veuillez prendre en compte les exigences suivantes lors de l’utilisation d’Azure Automation état Configuration (DSC).
+Veuillez prendre en compte les exigences suivantes lors de l’utilisation d’Azure Automation State Configuration (DSC).
 
 ### <a name="operating-system-requirements"></a>Configuration requise du système d’exploitation
 
-Pour les nœuds exécutant Windows, les versions suivantes sont prises en charge :
+Pour les nœuds exécutant Windows, les versions suivantes sont prises en charge :
 
 - Windows Server 2019
 - Windows Server 2016
@@ -58,39 +58,39 @@ Pour les nœuds exécutant Windows, les versions suivantes sont prises en charge
 - Windows 8.1
 - Windows 7
 
-Pour les nœuds Linux en cours d’exécution, les distributions/versions suivantes sont prises en charge :
+Pour les nœuds exécutant Linux, les distributions/versions suivantes sont prises en charge :
 
-L’extension DSC Linux prend en charge toutes les distributions Linux [approuvées sur Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) , à l’exception :
+L’extension DSC Linux prend en charge toutes les distributions Linux [approuvées sur Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros), à l’exception des suivantes :
 
 Distribution | Version
 -|-
 Debian  | toutes les versions
 Ubuntu  | 18,04
 
-### <a name="dsc-requirements"></a>Exigences de DSC
+### <a name="dsc-requirements"></a>Configuration requise de DSC
 
-Pour tous les nœuds de Windows s’exécutant dans Azure, [WMF 5.1](https://docs.microsoft.com/powershell/wmf/setup/install-configure) sera installé lors de l’intégration.  Pour les nœuds exécutant Windows Server 2012 et Windows 7, [sera activé WinRM](https://docs.microsoft.com/powershell/dsc/troubleshooting/troubleshooting#winrm-dependency).
+Pour tous les nœuds Windows s’exécutant dans Azure, [WMF 5.1](https://docs.microsoft.com/powershell/wmf/setup/install-configure) sera installé lors de l’intégration.  Pour les nœuds exécutant Windows Server 2012 et Windows 7, [WinRM sera activé](https://docs.microsoft.com/powershell/dsc/troubleshooting/troubleshooting#winrm-dependency).
 
 Pour tous les nœuds Linux s’exécutant dans Azure, [DSC PowerShell pour Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux) sera installé lors de l’intégration.
 
 ### <a name="network-planning"></a>Configurer des réseaux privés
 
-Si vos nœuds sont situés dans un réseau privé, le port et les URL suivantes sont requises pour état de Configuration (DSC) pour communiquer avec Automation :
+Si vos nœuds sont situés dans un réseau privé, les ports et URL suivants sont requis pour permettre à State Configuration (DSC) de communiquer avec Automation :
 
 * Port : seul le port TCP 443 est nécessaire pour l’accès Internet sortant.
 * URL globale : *.azure-automation.net
 * URL globale d’US Gov Virginie : *.azure-automation.us
 * Service de l’agent : https://\<ID_espace_de_travail\>.agentsvc.azure-automation.net
 
-#### <a name="proxy-support"></a>Prise en charge du proxy
+#### <a name="proxy-support"></a>Prise en charge de proxy
 
-Prise en charge de proxy pour l’agent DSC est disponible dans Windows version 1809 et versions ultérieure.
-Pour configurer cette option, affectez la valeur de **ProxyURL** et **ProxyCredential** dans le [métaconfiguration script](automation-dsc-onboarding.md#generating-dsc-metaconfigurations) utilisé pour enregistrer des nœuds.
-Proxy n’est pas disponible dans DSC pour les versions précédentes de Windows.
+La prise en charge de proxy pour l’agent DSC est disponible dans Windows version 1809 et versions ultérieures.
+Pour configurer cette option, définissez les valeurs **ProxyURL** et **ProxyCredential** dans le [script de métaconfiguration](automation-dsc-onboarding.md#generating-dsc-metaconfigurations) utilisé pour inscrire des nœuds.
+Le proxy n’est pas disponible dans DSC pour les versions antérieures de Windows.
 
-Pour les nœuds Linux, l’agent DSC prend en charge de proxy et utilisera la variable http_proxy pour déterminer l’url.
+Pour les nœuds Linux, l’agent DSC prend en charge le proxy et utilisera la variable http_proxy pour déterminer l’URL.
 
-#### <a name="azure-state-configuration-network-ranges-and-namespace"></a>Espace de noms et les plages de réseau de Configuration état azure
+#### <a name="azure-state-configuration-network-ranges-and-namespace"></a>Plages et espace de noms de réseaux d’Azure State Configuration
 
 Il est recommandé d’utiliser les adresses répertoriées lors de la définition des exceptions. Pour les adresses IP, vous pouvez télécharger les [Plages d’adresses IP du centre de données Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). Ce fichier, qui est mis à jour chaque semaine, possède les plages actuellement déployées et tous les changements à venir des plages d’adresses IP.
 

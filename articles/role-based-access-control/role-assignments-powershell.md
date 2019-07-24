@@ -1,6 +1,6 @@
 ---
 title: Gérer l'accès aux ressources Azure à l'aide du contrôle d'accès en fonction du rôle (RBAC) et d'Azure PowerShell | Microsoft Docs
-description: Découvrez comment gérer l’accès aux ressources Azure pour les utilisateurs, groupes et applications à l’aide du contrôle d’accès en fonction du rôle (RBAC) et Azure PowerShell. Apprenez notamment à lister, à accorder et à supprimer des accès.
+description: Apprenez à gérer la façon dont les utilisateurs, les groupes et les applications accèdent aux ressources Azure à l’aide du contrôle d’accès en fonction du rôle (RBAC) et d’Azure PowerShell. Apprenez notamment à lister, à accorder et à supprimer des accès.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/17/2019
+ms.date: 06/12/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 002ebcbe8ba14b9f15ddea6deb21f0f2bc201ab0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: deb7864c9f59427d6da9d27ede349c7532bf40d5
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66160315"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074021"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Gérer l'accès aux ressources Azure à l'aide du contrôle RBAC et d'Azure PowerShell
 
@@ -27,7 +27,7 @@ Le [contrôle d'accès en fonction du rôle (RBAC)](overview.md) vous permet de 
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour gérer les accès, il vous faudra l’un des éléments suivants :
 
@@ -81,11 +81,11 @@ NotDataActions   : {}
 AssignableScopes : {/}
 ```
 
-## <a name="list-a-role-definition"></a>Liste d’une définition de rôle
+## <a name="list-a-role-definition"></a>Lister les définitions de rôle
 
-### <a name="list-a-role-definition-in-json-format"></a>Liste d’une définition de rôle au format JSON
+### <a name="list-a-role-definition-in-json-format"></a>Lister les définitions de rôle au format JSON
 
-Pour répertorier une définition de rôle au format JSON, utilisez [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
+Pour lister des définitions de rôle au format JSON, utilisez [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
 
 ```azurepowershell
 Get-AzRoleDefinition <role_name> | ConvertTo-Json
@@ -267,18 +267,18 @@ ObjectType         : User
 CanDelegate        : False
 ```
 
-### <a name="create-a-role-assignment-using-the-unique-role-id"></a>Créer une attribution de rôle à l’aide de l’ID unique de rôle
+### <a name="create-a-role-assignment-using-the-unique-role-id"></a>Créer une affectation de rôle à l’aide de l’ID unique de rôle
 
-Il existe plusieurs fois quand un nom de rôle peut changer, par exemple :
+Un nom de rôle peut changer dans certaines circonstances, par exemple :
 
-- Vous utilisez vos propres rôles personnalisés et vous décidez de modifier le nom.
-- Vous utilisez un rôle d’aperçu a **(version préliminaire)** dans le nom. Lorsque le rôle est publié, le rôle est renommé.
+- Vous utilisez vos propres rôles personnalisés et vous décidez d’en modifier le nom.
+- Vous utilisez un rôle en préversion dont le nom contient **(préversion)** . Lorsque le rôle est publié, le rôle est renommé.
 
 > [!IMPORTANT]
-> Une version d’évaluation est fournie sans contrat de niveau de service, et il n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
+> La préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail en production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
 > Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Même si un rôle est renommé, l’ID de rôle ne change pas. Si vous utilisez des scripts ou l’automatisation pour créer vos attributions de rôles, il est recommandé d’utiliser l’ID de rôle unique au lieu du nom de rôle. Par conséquent, si un rôle est renommé, vos scripts sont plus susceptibles de fonctionner.
+Même si un rôle est renommé, l’ID de rôle ne change pas. Si vous utilisez des scripts ou une automatisation pour créer vos attributions de rôles, il est recommandé d’utiliser l’ID de rôle unique au lieu du nom de rôle. Par conséquent, si un rôle est renommé, vos scripts sont plus susceptibles de fonctionner.
 
 Pour créer une attribution de rôle à l’aide de l’ID de rôle unique au lieu du nom de rôle, utilisez [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment).
 
@@ -286,7 +286,7 @@ Pour créer une attribution de rôle à l’aide de l’ID de rôle unique au li
 New-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionId <role_id> -ResourceGroupName <resource_group_name>
 ```
 
-L’exemple suivant affecte la [collaborateur de Machine virtuelle](built-in-roles.md#virtual-machine-contributor) rôle *alain@example.com* utilisateur à la *pharma-sales* étendue de groupe de ressources. Pour obtenir l’ID unique de rôle, vous pouvez utiliser [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) ou consultez [rôles intégrés pour les ressources Azure](built-in-roles.md).
+L’exemple suivant attribue le rôle [Contributeur de machine virtuelle](built-in-roles.md#virtual-machine-contributor) à l’utilisateur *alain@example.com* dans l’étendue du groupe de ressources *pharma-sales*. Pour obtenir l’ID unique de rôle, vous pouvez utiliser [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) ou consulter la liste des [rôles intégrés pour les ressources Azure](built-in-roles.md).
 
 ```Example
 PS C:\> New-AzRoleAssignment -ObjectId 44444444-4444-4444-4444-444444444444 -RoleDefinitionId 9980e02c-c2be-4d73-94e8-173b1dc7cf3c -Scope /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
@@ -355,7 +355,7 @@ ObjectType         : ServicePrincipal
 CanDelegate        : False
 ```
 
-## <a name="remove-access"></a>Supprimer l'accès
+## <a name="remove-access"></a>Suppression d'accès
 
 Pour supprimer l’accès dans RBAC, supprimez une attribution de rôle en utilisant [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment).
 
@@ -366,6 +366,8 @@ Remove-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionName <role_name> -S
 ```Example
 PS C:\> Remove-AzRoleAssignment -SignInName alain@example.com -RoleDefinitionName "Virtual Machine Contributor" -ResourceGroupName pharma-sales
 ```
+
+Si vous obtenez le message d’erreur : « Les informations fournies ne dirigent pas à une attribution de rôle », veillez à vérifier que vous avez aussi spécifié les paramètres `-Scope` ou `-ResourceGroupName`. Pour plus d’informations, consultez [Résoudre des problèmes liés au contrôle d’accès en fonction du rôle pour les ressources Azure](troubleshooting.md#role-assignments-without-a-security-principal).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

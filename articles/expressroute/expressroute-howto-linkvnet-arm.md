@@ -9,10 +9,10 @@ ms.date: 05/20/2018
 ms.author: ganesr
 ms.custom: seodec18
 ms.openlocfilehash: 620eff5468d7d3b4bf8ddeea62fa67b39609fce6
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65950370"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>Connecter un réseau virtuel à un circuit ExpressRoute
@@ -176,11 +176,11 @@ Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connecti
 
 La plage de *RoutingWeight* est de 0 à 32000. La valeur par défaut est 0.
 
-## <a name="configure-expressroute-fastpath"></a>Configurer le chemin d’accès rapide ExpressRoute 
-Vous pouvez activer [ExpressRoute FastPath](expressroute-about-virtual-network-gateways.md) si votre circuit ExpressRoute se trouve sur [ExpressRoute Direct](expressroute-erdirect-about.md) et votre passerelle de réseau virtuel est très hautes performances ou ErGw3AZ. Chemin d’accès rapide permet d’améliorer des performances de chemin d’accès de données telles que les paquets par seconde et connexions par seconde entre votre réseau local et votre réseau virtuel. 
+## <a name="configure-expressroute-fastpath"></a>Configurer ExpressRoute FastPath 
+Vous pouvez activer [ExpressRoute FastPath](expressroute-about-virtual-network-gateways.md) si votre circuit ExpressRoute se trouve sur [ExpressRoute Direct](expressroute-erdirect-about.md) et votre passerelle de réseau virtuel est Très hautes performances ou ErGw3AZ. FastPath améliore les performances de chemin d’accès de données comme le nombre de paquets et de connexions par seconde entre votre réseau local et votre réseau virtuel. 
 
 > [!NOTE] 
-> Si vous disposez d’une connexion de réseau virtuel déjà mais que vous n’avez pas activé de chemin d’accès rapide, vous devez supprimer la connexion de réseau virtuel et créez-en un. 
+> Si vous disposez d’une connexion de réseau virtuel sans avoir activé FastPath, vous devez supprimer la connexion de réseau virtuel et créez-en une. 
 > 
 >  
 

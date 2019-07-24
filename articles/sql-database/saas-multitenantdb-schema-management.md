@@ -13,10 +13,10 @@ ms.reviewer: billgib, sstein
 manager: craigg
 ms.date: 12/18/2018
 ms.openlocfilehash: 07e8fce5fd8db5d2070b8e382a0eba2ae7187b0d
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66242786"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>Gérer un schéma dans une application SaaS qui utilise des bases de données SQL mutualisées partitionnées
@@ -41,10 +41,10 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 > * Mettre à jour les données de référence dans toutes les bases de données client.
 > * Créer un index sur une table dans toutes les bases de données de locataire.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 - L’application de bases de données mutualisées Wingtip Tickets doit déjà être déployée :
-    - Pour obtenir des instructions, consultez le premier didacticiel qui introduit l’application de bases de données mutualisées SaaS Wingtip Tickets :<br />[Déployer et explorer une application mutualisée partitionnée qui utilise Azure SQL Database](saas-multitenantdb-get-started-deploy.md).
+    - Pour obtenir des instructions, consultez le premier didacticiel qui introduit l’application de bases de données mutualisées SaaS Wingtip Tickets :<br />[Déployer et explorer une application multilocataire partitionnée qui utilise Azure SQL Database](saas-multitenantdb-get-started-deploy.md).
         - Le processus de déploiement dure moins de cinq minutes.
     - Vous devez avoir la version *mutualisée partitionnée* de Wingtip installée. Les versions *Autonome* et *Base de données par client* ne prennent pas en charge ce didacticiel.
 
@@ -53,7 +53,7 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 - Azure PowerShell doit être installé. Pour plus d’informations, consultez [Prise en main d’Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
 > [!NOTE]
-> Ce tutoriel utilise des fonctionnalités du service Azure SQL Database en préversion limitée ([tâches de base de données élastiques](sql-database-elastic-database-client-library.md)). Si vous souhaitez réaliser ce didacticiel, indiquez votre ID d’abonnement à *SaaSFeedback\@microsoft.com* avec l’objet = préversion des travaux élastiques. Une fois que vous avez reçu la confirmation que votre abonnement a été activé, [téléchargez et installez les dernières applets de commande pour les travaux en version préliminaire](https://github.com/jaredmoo/azure-powershell/releases). Cette préversion est limitée, par conséquent, contactez *SaaSFeedback\@microsoft.com* pour toute question ou associée prise en charge.
+> Ce tutoriel utilise des fonctionnalités du service Azure SQL Database en préversion limitée ([tâches de base de données élastiques](sql-database-elastic-database-client-library.md)). Si vous souhaitez réaliser ce didacticiel, envoyez votre ID d’abonnement à *SaaSFeedback\@microsoft.com* avec l’objet Préversion des travaux élastiques. Une fois que vous avez reçu la confirmation que votre abonnement a été activé, [téléchargez et installez les dernières applets de commande pour les travaux en version préliminaire](https://github.com/jaredmoo/azure-powershell/releases). Cette préversion est limitée. Contactez *SaaSFeedback\@microsoft.com* pour toute question ou demande de support associée.
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>Présentation des modèles de gestion de schéma SaaS
 
@@ -172,5 +172,5 @@ Dans ce tutoriel, vous avez appris à effectuer les opérations suivantes :
 > * Mettre à jour les données de référence dans toutes les bases de données de locataire
 > * Créer un index sur une table dans toutes les bases de données de locataire
 
-Ensuite, essayez le [didacticiel sur les rapports Ad hoc](saas-multitenantdb-adhoc-reporting.md) pour Explorer l’exécution des requêtes distribuées entre les clients de bases de données.
+Ensuite, consultez le [didacticiel de génération d’états ad hoc](saas-multitenantdb-adhoc-reporting.md) pour explorer l’exécution de requêtes distribuées dans les bases de données de locataire.
 

@@ -1,24 +1,24 @@
 ---
 title: Ingérer des données Event Hub dans Azure Data Explorer
-description: Dans cet article, vous allez apprendre à ingérer (charger) des données dans l’Explorateur de données Azure à partir du concentrateur d’événements.
+description: Dans cet article, vous allez apprendre à ingérer (charger) des données dans Azure Data Explorer depuis Event Hub.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: c68662fbcc73d6c91d3fd40dc67804baa9205e53
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
-ms.translationtype: MT
+ms.openlocfilehash: cafceb0c7ee6b165ee03727e1dff76db00d2863b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66494809"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077342"
 ---
 # <a name="ingest-data-from-event-hub-into-azure-data-explorer"></a>Ingérer des données Event Hub dans Azure Data Explorer
 
-L’Explorateur de données Azure est un service d’exploration de données rapide et hautement évolutive pour les données des journaux et les données de télémétrie. L’Explorateur de données Azure offre une ingestion (chargement de données) à partir d’Event Hubs, plateforme de streaming de big data et service d’ingestion d’événements. [Event Hubs](/azure/event-hubs/event-hubs-about) peut traiter des millions d’événements par seconde en quasi-temps réel. Dans cet article, vous créez un concentrateur d’événements, s’y connecter à partir de l’Explorateur de données Azure et voir le flux de données via le système.
+L’Explorateur de données Azure est un service d’exploration de données rapide et hautement évolutive pour les données des journaux et les données de télémétrie. L’Explorateur de données Azure offre une ingestion (chargement de données) à partir d’Event Hubs, plateforme de streaming de big data et service d’ingestion d’événements. [Event Hubs](/azure/event-hubs/event-hubs-about) peut traiter des millions d’événements par seconde en quasi-temps réel. Dans cet article, vous créez un Event Hub, vous vous y connectez à partir d’Azure Data Explorer et vous voyez le flux de données via le système.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
@@ -34,11 +34,11 @@ Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
 ## <a name="create-an-event-hub"></a>Créer un hub d’événements
 
-Dans cet article, vous générez des exemples de données et l’envoyez à un concentrateur d’événements. La première étape consiste à créer un hub d’événements. Pour cela, utilisez un modèle Azure Resource Manager (ARM) dans le portail Azure.
+Dans cet article, vous générez des exemples de données et les envoyez à un Event Hub. La première étape consiste à créer un hub d’événements. Pour cela, utilisez un modèle Azure Resource Manager (ARM) dans le portail Azure.
 
 1. Pour créer un hub d’événements, utilisez le bouton suivant pour démarrer le déploiement. Cliquez avec le bouton droit et sélectionnez **Ouvrir dans une nouvelle fenêtre** pour pouvoir suivre le reste des étapes de l’article.
 
-    [![Déployer sur Azure](media/ingest-data-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstarts-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
+    [![Déployer sur Azure](media/ingest-data-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
     Le bouton **Déployer sur Azure** vous amène dans le portail Azure pour remplir un formulaire de déploiement.
 
@@ -58,7 +58,7 @@ Dans cet article, vous générez des exemples de données et l’envoyez à un c
     |---|---|---|
     | Abonnement | Votre abonnement | Sélectionnez l’abonnement Azure que vous souhaitez utiliser pour votre hub d’événements.|
     | Groupe de ressources | *test-hub-rg* | Créez un groupe de ressources. |
-    | Lieu | *USA Ouest* | Sélectionnez *ouest des États-Unis* pour cet article. Pour un système de production, sélectionnez la région qui répond le mieux à vos besoins. Pour des performances optimales, créez l’espace de noms Event Hub au même emplacement que le cluster Kusto (en particulier pour les espaces de noms Event Hub ayant un débit élevé).
+    | Lieu | *USA Ouest* | Pour cet article, sélectionnez *USA Ouest*. Pour un système de production, sélectionnez la région qui répond le mieux à vos besoins. Pour des performances optimales, créez l’espace de noms Event Hub au même emplacement que le cluster Kusto (en particulier pour les espaces de noms Event Hub ayant un débit élevé).
     | Nom de l’espace de noms | Nom unique de l’espace de noms | Choisissez un nom unique qui identifie votre espace de noms. Par exemple, *mytestnamespace*. Le nom de domaine *servicebus.windows.net* est ajouté au nom que vous fournissez. Le nom ne peut contenir que des lettres, des chiffres et des traits d’union. Le nom doit commencer par une lettre et se terminer par une lettre ou un chiffre. La valeur doit être comprise entre 6 et 50 caractères.
     | Nom du hub d’événements | *test-hub* | Le hub d’événements se trouve sous l’espace de noms, qui fournit un conteneur d’étendue unique. Le hub d’événements doit être unique dans l’espace de noms. |
     | Nom du groupe de consommateurs | *test-group* | Les groupes de consommateurs permettent que chacune des applications de consommation ait une vue distincte du flux d’événements. |
@@ -205,4 +205,4 @@ Si vous ne prévoyez pas de réutiliser votre hub d’événements, nettoyez **t
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Interroger des données dans l’Explorateur de données Azure](web-query-data.md)
+* [Interroger des données dans Azure Data Explorer](web-query-data.md)

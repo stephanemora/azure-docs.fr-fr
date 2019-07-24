@@ -12,10 +12,10 @@ ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
 ms.openlocfilehash: 92ca09040836dfc55a9d709b12a0ee01192d6bac
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65957389"
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Comment gérer une Function App dans le portail Azure 
@@ -26,23 +26,23 @@ Commencez par accéder au [portail Azure](https://portal.azure.com) et connectez
 
 ![Vue d’ensemble de Function App dans le portail Azure](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
 
-Vous pouvez accéder à tout ce dont vous avez besoin pour gérer votre application de fonction à partir de la page Vue d’ensemble, en particulier le **[paramètres d’Application](#settings)** et **[fonctionnalitésdelaplateforme](#platform-features)**.
+Vous pouvez accéder à tout ce dont vous avez besoin pour gérer votre application de fonction à partir de la page Vue d’ensemble, en particulier les **[paramètres de l’application](#settings)** et les **[fonctionnalités de la plateforme](#platform-features)** .
 
 ## <a name="settings"></a>Paramètres de l’application
 
-Le **paramètres d’Application** onglet conserve les paramètres qui sont utilisés par votre application de fonction.
+L’onglet **Paramètres de l’application** conserve les paramètres qui sont utilisés par votre application de fonction.
 
-![Paramètres Function app dans le portail Azure.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-settings-tab.png)
+![Paramètres de l’application de fonction sur le portail Azure.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-settings-tab.png)
 
-Ces paramètres sont chiffrées et stockées, et vous devez sélectionner **afficher les valeurs** pour afficher les valeurs dans le portail.
+Ces paramètres sont chiffrés et stockés, et vous devez sélectionner **Afficher les valeurs** pour afficher les valeurs dans le portail.
 
-Pour ajouter un paramètre, sélectionnez **nouveau paramètre d’application** et ajoutez la nouvelle paire clé-valeur.
+Pour ajouter un paramètre, sélectionnez **Nouveau paramètre d’application** et ajoutez la nouvelle paire clé-valeur.
 
 [!INCLUDE [functions-environment-variables](../../includes/functions-environment-variables.md)]
 
 Lorsque vous développez une application de fonction localement, ces valeurs sont conservées dans le fichier de projet local.settings.json.
 
-## <a name="platform-features"></a>Fonctionnalités de la plateforme
+## <a name="platform-features"></a>Fonctionnalités de la plate-forme
 
 ![Onglet Fonctionnalités de la plate-forme de Function App.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-features-tab.png)
 

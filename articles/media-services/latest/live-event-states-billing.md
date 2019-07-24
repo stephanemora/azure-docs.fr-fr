@@ -13,18 +13,18 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: 17fead25840e45f98478a6eb6c146bcc261dfe75
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 2907b5be7f8d5fda3d510484179e80b065ab64b0
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322316"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074894"
 ---
 # <a name="live-event-states-and-billing"></a>États et facturation des événements en direct
 
 Dans Azure Media Services, la facturation d’un événement en direct commence dès que son état passe à **En cours d’exécution**. Pour interrompre la facturation de l’événement en direct, vous devez arrêter cet événement.
 
-Quand la valeur **LiveEventEncodingType** de votre [événement en direct](https://docs.microsoft.com/rest/api/media/liveevents) est définie sur Standard, Media Services met automatiquement fin aux événements en direct **En cours d’exécution** 12 heures après la perte du flux d’entrée et l’absence de **sorties en direct** en cours d’exécution. Toutefois, vous serez toujours facturé pour la durée pendant laquelle l’événement en direct était dans l’état **En cours d’exécution**.
+Quand la valeur **LiveEventEncodingType** de votre [événement en direct](https://docs.microsoft.com/rest/api/media/liveevents) est définie sur Standard ou Premium1080p, Media Services met automatiquement fin aux événements en direct **En cours d’exécution** 12 heures après la perte du flux d’entrée et l’absence de **sorties en direct** en cours d’exécution. Toutefois, vous serez toujours facturé pour la durée pendant laquelle l’événement en direct était dans l’état **En cours d’exécution**.
 
 ## <a name="states"></a>États
 

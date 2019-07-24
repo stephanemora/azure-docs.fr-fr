@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: 23cd77d4a2d0c8203670039dd44c878bf7217fd3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fe163fc2370e884bed58bfffe5baffa5642b6d90
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799119"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147998"
 ---
 # <a name="public-ip-address-prefix"></a>Préfixe d’adresse IP publique
 
@@ -32,7 +32,7 @@ Vous créez un préfixe d’adresse IP publique dans une région et un abonneme
 
 ## <a name="why-create-a-public-ip-address-prefix"></a>Pourquoi créer un préfixe d’adresse IP publique ?
 
-Quand vous créez des ressources d’adresse IP publique, Azure attribue une adresse IP publique disponible à partir d’une des plages utilisées dans une région. Une fois qu’Azure attribue l’adresse, vous connaissez cette dernière, mais tant qu’Azure n’attribue pas l’adresse, vous ne savez pas quelle adresse peut être affectée. Cela peut se révéler problématique quand, par exemple, vous ou vos partenaires commerciaux configurez des règles de pare-feu qui autorisent des adresses IP spécifiques. Chaque fois que vous attribuez une nouvelle adresse IP publique à une ressource, l’adresse doit être ajoutée à la règle de pare-feu. Quand vous attribuez des adresses à vos ressources à partir d’un préfixe d’adresse IP publique, il n’est pas nécessaire de mettre à jour les règles de pare-feu chaque fois que vous attribuez l’une des adresses, car la totalité de la plage peut être ajoutée à une règle.
+Quand vous créez des ressources d’adresse IP publique, Azure attribue une adresse IP publique disponible à partir d’une des plages utilisées dans la région. Une fois qu’Azure attribue l’adresse, vous connaissez cette dernière, mais tant qu’Azure n’attribue pas l’adresse, vous ne savez pas quelle adresse peut être affectée. Cela peut se révéler problématique quand, par exemple, vous ou vos partenaires commerciaux configurez des règles de pare-feu qui autorisent des adresses IP spécifiques. Chaque fois que vous attribuez une nouvelle adresse IP publique à une ressource, l’adresse doit être ajoutée à la règle de pare-feu. Quand vous attribuez des adresses à vos ressources à partir d’un préfixe d’adresse IP publique, il n’est pas nécessaire de mettre à jour les règles de pare-feu chaque fois que vous attribuez l’une des adresses, car la totalité de la plage peut être ajoutée à une règle.
 
 ## <a name="benefits"></a>Avantages
 

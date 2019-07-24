@@ -12,19 +12,19 @@ ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: glenga
 ms.openlocfilehash: 19a5fe4c087d477ff15d2237a36d1c4ecaa0e070
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65908127"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Utiliser Azure Functions pour se connecter à une base de données Azure SQL Database
 
-Cet article vous montre comment utiliser Azure Functions pour créer un travail planifié qui se connecte à une instance Azure SQL Database. Le code de fonction nettoie les lignes d’une table de la base de données. La nouvelle C# fonction est créée selon un modèle de déclencheur de minuteur prédéfini dans Visual Studio 2019. Pour prendre en charge ce scénario, vous devez également définir une chaîne de connexion de base de données comme paramètre d’application dans l’application de fonction. Ce scénario utilise une opération en bloc sur la base de données. 
+Cet article vous montre comment utiliser Azure Functions pour créer un travail planifié qui se connecte à une instance Azure SQL Database. Le code de fonction nettoie les lignes d’une table de la base de données. La fonction C# est créée selon un modèle de déclencheur de minuteur prédéfini dans Visual Studio 2019. Pour prendre en charge ce scénario, vous devez également définir une chaîne de connexion de base de données comme paramètre d’application dans l’application de fonction. Ce scénario utilise une opération en bloc sur la base de données. 
 
 Si c’est la première fois que vous utilisez Azure Functions pour C#, vous devez consulter les [Informations de référence pour les développeurs C# sur Azure Functions](functions-dotnet-class-library.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 + Suivez les étapes de l’article [Créer votre première fonction à l’aide de Visual Studio](functions-create-your-first-function-visual-studio.md) pour créer une application de fonction locale qui cible le runtime version 2.x. Vous devez également avoir publié votre projet sur une application de fonction dans Azure.
 
@@ -139,6 +139,6 @@ Si vous envisagez de [publier cette fonction](functions-develop-vs.md#publish-to
 Pour plus d’informations sur Functions, consultez les articles suivants :
 
 + [Informations de référence pour les développeurs sur Azure Functions](functions-reference.md)  
-   Référence du programmeur pour le codage de fonctions et la définition de déclencheurs et de liaisons.
+  Référence du programmeur pour le codage de fonctions et la définition de déclencheurs et de liaisons.
 + [Test d’Azure Functions](functions-test-a-function.md)  
-   décrit plusieurs outils et techniques permettant de tester vos fonctions.  
+  décrit plusieurs outils et techniques permettant de tester vos fonctions.  

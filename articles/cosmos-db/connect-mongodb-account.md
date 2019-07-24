@@ -9,21 +9,21 @@ ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
 ms.openlocfilehash: dabce19d60a380b47d3583dedb5c11303f416ce7
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65978721"
 ---
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Connecter une application MongoDB à Azure Cosmos DB
-Découvrez comment connecter votre application MongoDB à une instance Azure Cosmos DB à l’aide d’une chaîne de connexion MongoDB. Vous pouvez ensuite utiliser une base de données Azure Cosmos en tant que les données de magasin pour votre application MongoDB. 
+Découvrez comment connecter votre application MongoDB à une instance Azure Cosmos DB à l’aide d’une chaîne de connexion MongoDB. Vous pouvez ensuite utiliser une base de données Azure Cosmos en tant que magasin de données pour votre application MongoDB. 
 
 Ce didacticiel fournit deux façons de récupérer les informations de la chaîne de connexion :
 
 - [Méthode du guide de démarrage rapide](#QuickstartConnection), à utiliser avec les pilotes .NET, Node.js, MongoDB Shell, Java et Python
 - [Méthode de la chaîne de connexion personnalisée](#GetCustomConnection), à utiliser avec d’autres pilotes.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 - Un compte Azure. Si vous ne possédez pas de compte Azure, vous pouvez créer un [compte Azure gratuit](https://azure.microsoft.com/free/) dès maintenant. 
 - Un compte Cosmos. Pour obtenir des instructions, consultez [Générer une application web en utilisant l’API pour MongoDB d’Azure Cosmos DB et le kit SDK .NET](create-mongodb-dotnet.md).
@@ -32,7 +32,7 @@ Ce didacticiel fournit deux façons de récupérer les informations de la chaîn
 1. Dans un navigateur Internet, connectez-vous au [portail Azure](https://portal.azure.com).
 2. Dans le panneau **Azure Cosmos DB**, sélectionnez l’API. 
 3. Dans le volet gauche du panneau Compte, cliquez sur **Démarrage rapide**. 
-4. Choisissez votre plateforme (**.NET**, **Node.js**, **MongoDB Shell**, **Java** ou **Python**). Si votre pilote ou outil n’est pas répertorié, ne vous inquiétez pas, nous développons en permanence de nouveaux extraits de code de connexion. Entrez ci-dessous un commentaire sur ce que vous voudriez voir. Pour savoir comment créer votre propre connexion, lisez [Obtenir les informations de chaîne de connexion du compte](#GetCustomConnection).
+4. Choisissez votre plateforme ( **.NET**, **Node.js**, **MongoDB Shell**, **Java** ou **Python**). Si votre pilote ou outil n’est pas répertorié, ne vous inquiétez pas, nous développons en permanence de nouveaux extraits de code de connexion. Entrez ci-dessous un commentaire sur ce que vous voudriez voir. Pour savoir comment créer votre propre connexion, lisez [Obtenir les informations de chaîne de connexion du compte](#GetCustomConnection).
 5. Copiez et collez l’extrait de code dans votre application MongoDB.
 
     ![Panneau Démarrage rapide](./media/connect-mongodb-account/QuickStartBlade.png)

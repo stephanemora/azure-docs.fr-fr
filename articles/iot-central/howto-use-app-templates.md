@@ -1,5 +1,5 @@
 ---
-title: Utiliser des modèles d’application dans Azure IoT Central | Microsoft Docs
+title: Utiliser des modèles Application dans Azure IoT Central | Microsoft Docs
 description: En tant qu’opérateur, comment utiliser des ensembles d’appareils dans votre application Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
@@ -9,64 +9,64 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: a26f70c5a61f3855a3de991072a7e84103e87b69
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66499218"
 ---
 # <a name="use-application-templates"></a>Utiliser des modèles d’application
 
-Cet article décrit comment, en tant que solution gestionnaire, pour créer et utiliser des modèles d’application.
+Cet article explique comment, en tant que gestionnaire de solution, créer et utiliser des modèles d’application.
 
-Lorsque vous créez une application Azure IoT Central, vous avez le choix des exemples intégrés de modèle. Vous pouvez également créer vos propres modèles d’application à partir des applications IoT Central existantes. Vous pouvez ensuite utiliser vos propres modèles d’application lorsque vous créez des applications.
+Lorsque vous créez une application Azure IoT Central, vous avez un choix de plusieurs exemples de modèles intégrés. Vous pouvez également créer vos propres modèles d’application à partir des applications IoT Central existantes. Vous pouvez ensuite utiliser vos propres modèles d’application lorsque vous créez des applications.
 
-Lorsque vous créez un modèle d’application, il inclut les éléments suivants à partir de votre application existante :
+Lorsque vous créez un modèle d’application, il comprend les éléments suivants de votre application existante :
 
-- Par défaut application tableau de bord, y compris la mise en page du tableau de bord et toutes les vignettes que vous avez définies.
-- Modèles de périphériques, y compris les mesures, les paramètres, les propriétés, les commandes et tableau de bord.
-- Règles. Toutes les définitions de règle sont incluses. Toutefois, les actions, à l’exception des actions de messagerie, ne sont pas incluses.
-- Jeux d’appareil, y compris leurs conditions et les tableaux de bord.
+- Le tableau de bord par défaut de l’application, dont la disposition et toutes les vignettes que vous avez définies.
+- Les modèles d’appareil, dont les mesures, les paramètres, les propriétés, les commandes et le tableau de bord.
+- Les règles. Toutes les définitions de règle sont incluses. Toutefois, les actions, à l’exception des actions de messagerie, ne sont pas incluses.
+- Les ensembles d’appareils, dont leurs conditions et leurs tableaux de bord.
 
 > [!WARNING]
-> Si un tableau de bord inclut des vignettes qui affichent des informations sur des appareils spécifiques, puis affichent ces vignettes **la ressource demandée est introuvable** dans la nouvelle application. Vous devez reconfigurer ces vignettes pour afficher des informations sur les appareils dans votre nouvelle application.
+> Si un tableau de bord inclut des vignettes qui affichent des informations d’appareils spécifiques, ces vignettes affichent alors **La ressource demandée est introuvable** dans la nouvelle application. Vous devez reconfigurer ces vignettes pour qu’elles affichent des informations sur les appareils de votre nouvelle application.
 
 Lorsque vous créez un modèle d’application, il n’inclut pas les éléments suivants :
 
 - Appareils
 - Utilisateurs
 - Définitions des travaux
-- Définitions d’exportation continue des données
+- Définitions des exportations de données continues
 
-Ajouter manuellement des ces éléments dans les applications créées à partir d’un modèle d’application.
+Ajoutez ces éléments manuellement à toutes les applications créées depuis un modèle d’application.
 
 ## <a name="create-an-application-template"></a>Créer un modèle d’application
 
 Pour créer un modèle d’application à partir d’une application IoT Central existante :
 
-1. Accédez à la **Administration** section dans votre application.
-1. Sélectionnez **exportation de modèle d’Application**.
-1. Sur le **exporter des modèles d’Application** , entrez un nom et une description pour votre modèle.
-1. Sélectionnez le **exporter** bouton permettant de créer le modèle d’application. Vous pouvez maintenant copier la **lien partageable** qui permet à un utilisateur de créer une nouvelle application à partir du modèle :
+1. Accédez à la section **Administration** de votre application.
+1. Sélectionnez **Exportation de modèle d’application**.
+1. Sur la page **Exportation de modèle d’application**, entrez un nom et une description pour votre modèle.
+1. Sélectionnez le bouton **Exporter** pour créer le modèle d’application. Vous pouvez désormais copier le **Lien de partage** pour permettre à quelqu’un de créer une application depuis le modèle :
 
 ![Créer un modèle d’application](media/howto-use-app-templates/create-template.png)
 
 ## <a name="use-an-application-template"></a>Utiliser un modèle d’application
 
-Pour utiliser un modèle d’application pour créer une application IoT Central, vous devez créé précédemment **lien partageable**. Coller le **lien partageable** dans la barre d’adresses de votre navigateur. Le **créer une application** page s’affiche avec votre modèle d’application personnalisée sélectionnée :
+Pour utiliser un modèle d’application afin de créer une application IoT Central, vous devez d’abord avoir créé un **Lien de partage**. Collez le **Lien de partage** dans la barre d’adresse de votre navigateur. La page **Créer une application** s’affiche avec les modèles d’application personnalisés sélectionnés :
 
 ![Créer une application à partir d’un modèle](media/howto-use-app-templates/create-app.png)
 
-Sélectionnez votre plan de paiement et renseignez les autres champs sur le formulaire. Puis sélectionnez **créer** pour créer une nouvelle application IoT Central à partir du modèle d’application.
+Sélectionnez votre plan de paiement et remplissez les autres champs du formulaire. Sélectionnez ensuite **Créer** pour créer une application IoT Central à partir d’un modèle d’application.
 
-## <a name="manage-application-templates"></a>Gérer les modèles d’application
+## <a name="manage-application-templates"></a>Gérer des modèles d’application
 
-Sur le **exporter des modèles d’Application** page, vous pouvez supprimer ou mettre à jour le modèle d’application.
+Sur la page **Exportation de modèle d’application**, vous pouvez supprimer ou mettre à jour le modèle d’application.
 
-Si vous supprimez un modèle d’application, vous pouvez ne plus utiliser le lien partageable généré précédemment à créer des applications.
+Si vous supprimez un modèle d’application, vous ne pouvez plus utiliser le lien de partage généré précédemment pour créer des applications.
 
-Pour mettre à jour votre modèle d’application, modifiez le nom du modèle ou la description sur la **exporter des modèles d’Application** page. Puis sélectionnez le **exporter** bouton à nouveau. Cette action génère une nouvelle **lien partageable** et invalide précédent **lien partageable** URL.
+Pour mettre à jour votre modèle d’application, modifiez le nom du modèle ou sa description sur la page **Exportation de modèle d’application**. Sélectionnez ensuite le bouton **Exporter**. Cette action génère un nouveau **Lien de partage** et rend non valide les **Liens de partage** précédents.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez appris comment utiliser des modèles d’application, l’étape suivante suggérée consiste à apprendre comment [gérer IoT Central à partir du portail Azure](howto-manage-iot-central-from-portal.md)
+Maintenant que vous avez appris à utiliser des modèles d’application, l’étape suivante conseillée est d’apprendre à [Gérer des applications IoT Central à partir du portail Azure](howto-manage-iot-central-from-portal.md)

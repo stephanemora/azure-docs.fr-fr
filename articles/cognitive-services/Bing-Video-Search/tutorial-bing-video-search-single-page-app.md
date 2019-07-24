@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: tutorial
-ms.date: 01/31/2019
+ms.date: 07/12/2019
 ms.author: aahi
-ms.openlocfilehash: 6ba777754990560526d7981ef497ea7f0441e1b0
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: a14954de1f8ae073780098f9286aa70502472dcd
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65798472"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67867865"
 ---
 # <a name="tutorial-single-page-video-search-app"></a>Didacticiel : Application monopage pour la recherche de vidéos
 L’API Recherche de vidéos Bing vous permet de parcourir le web et d’obtenir des résultats de vidéos relatifs à une requête de recherche. Dans ce didacticiel, nous allons générer une application web à page unique qui utilise l’API Recherche de vidéos Bing pour afficher les résultats de la recherche sur la page. L’application inclut des composants HTML, CSS et JavaScript.
@@ -373,7 +373,7 @@ La fonction de renderer :
 > * Génère les balises HTML `<a>` qui établissent un lien vers l’image et la page la contenant.
 > * Génère la description qui affiche des informations sur l’image et le site sur lequel elle se trouve.
 
-La taille des miniatures est utilisée à la fois dans la balise `<img>` et dans les champs `h` et `w` des URL de miniature. Le [service de miniature Bing](resize-and-crop-thumbnails.md) fournit alors une miniature d’exactement cette taille.
+La taille des miniatures est utilisée à la fois dans la balise `<img>` et dans les champs `h` et `w` des URL de miniature. Bing retourne [une miniature](../bing-web-search/resize-and-crop-thumbnails.md) de cette taille précise.
 
 ## <a name="persisting-client-id"></a>ID client persistant
 Les réponses provenant des API Recherche Bing peuvent inclure un en-tête `X-MSEdge-ClientID`, qui doit être renvoyé à l’API avec les requêtes suivantes. Si plusieurs API Recherche Bing sont utilisées, le même ID de client doit être employé avec toutes, si possible.
@@ -389,7 +389,7 @@ Les stratégies de sécurité de navigateur (CORS) peuvent rendre l’en-tête `
 > [!NOTE]
 > Dans une application web de production, vous devez effectuer la requête côté serveur. Dans le cas contraire, votre clé API Recherche Bing doit être incluse dans la page web, où elle est accessible à toute personne qui consulte la source. Vous êtes facturé pour toutes les utilisations associées à votre clé d’abonnement d’API, y compris les requêtes effectuées par des tiers non autorisés. Il est donc important de ne pas exposer votre clé.
 
-À des fins de développement, vous pouvez effectuer la requête d’API Recherche Web Bing via un proxy CORS. La réponse émanant d’un proxy de ce type a un en-tête `Access-Control-Expose-Headers` qui met les en-têtes de réponse sur liste verte et les rend disponibles pour JavaScript.
+À des fins de développement, vous pouvez effectuer la requête d’API Recherche Web Bing via un proxy CORS. La réponse provenant d’un proxy de ce type a un en-tête `Access-Control-Expose-Headers` qui autorise les en-têtes de réponse et les rend accessibles à JavaScript.
 
 Il est facile d’installer un proxy CORS pour autoriser l’application du didacticiel à accéder à l’en-tête d’ID client. Tout d’abord, [installez Node.js](https://nodejs.org/en/download/) si ce n’est pas déjà fait. Exécutez alors la commande suivante dans une fenêtre de commande :
 

@@ -10,18 +10,18 @@ ms.topic: overview
 ms.date: 02/20/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5cceac260979b4322d41843038eab0998c8e8ba4
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: ca9d8a8373bd73d527862864d436319eb45b5f48
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66509745"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227164"
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>Qu’est-ce qu’Azure Active Directory B2C ?
 
 Azure Active Directory (Azure AD) B2C est un service de gestion d’identités entreprise-client. Ce service vous permet de personnaliser et de contrôler la façon dont les utilisateurs interagissent de façon sécurisée avec vos applications web, de bureau, mobiles ou monopages. Avec Azure AD B2C, les utilisateurs peuvent s’inscrire, se connecter, réinitialiser les mots de passe et modifier des profils. Azure AD B2C implémente une forme des protocoles OpenID Connect et OAuth 2.0. Les jetons de sécurité et leurs revendications sont ce qu’il y a de plus important dans l’implémentation de ces protocoles : ils vous permettent de fournir un accès sécurisé aux ressources.
 
-Un *parcours utilisateur* est une demande qui spécifie une stratégie, qui contrôle le comportement de l’interaction entre l’utilisateur et votre application avec Azure AD B2C. Vous pouvez définir les parcours utilisateur dans Azure AD B2C de deux façons. 
+Un *parcours utilisateur* est une demande qui spécifie une stratégie, qui contrôle le comportement de l’interaction entre l’utilisateur et votre application avec Azure AD B2C. Vous pouvez définir les parcours utilisateur dans Azure AD B2C de deux façons.
 
 Si vous êtes développeur d’applications avec ou sans maîtrise des identités, vous pouvez choisir de définir des flux utilisateur d’identité courants avec le portail Azure. Si vous êtes un professionnel des identités, un intégrateur de systèmes, un consultant ou membre d’une équipe d’identité interne, si vous connaissez bien les flux OpenID Connect, et que vous comprenez bien les fournisseurs d’identité et l’authentification basée sur les revendications, vous pouvez choisir des stratégies personnalisées basées sur XML.
 
@@ -29,7 +29,7 @@ Avant de commencer à définir un parcours utilisateur, vous devez créer un loc
 
 ## <a name="protocols-and-tokens"></a>Protocoles et jetons
 
-Azure AD B2C prend en charge les [protocoles OpenID Connect et OAuth 2.0](active-directory-b2c-reference-protocols.md) pour les parcours utilisateur. Dans l’implémentation d’OpenID Connect par Azure AD B2C, votre application entame le parcours utilisateur en émettant des demandes d’authentification vers Azure AD B2C. 
+Azure AD B2C prend en charge les [protocoles OpenID Connect et OAuth 2.0](active-directory-b2c-reference-protocols.md) pour les parcours utilisateur. Dans l’implémentation d’OpenID Connect par Azure AD B2C, votre application entame le parcours utilisateur en émettant des demandes d’authentification vers Azure AD B2C.
 
 Le résultat d’une demande à Azure AD B2C est un jeton de sécurité, comme un [jeton d’ID ou un jeton d’accès](active-directory-b2c-reference-tokens.md). Ce jeton de sécurité définit l’identité de l’utilisateur. Les jetons sont reçus de points de terminaison Azure AD B2C, comme un point de terminaison`/token` ou `/authorize`. Avec ces jetons, vous pouvez accéder à des revendications qui peuvent être utilisées pour valider une identité et autoriser l’accès à des ressources sécurisées.
 
@@ -62,17 +62,17 @@ Les parcours utilisateur vous permettent de contrôler les comportements en conf
 - Apparence des pages
 - Informations renvoyées à l’application
 
-Les stratégies personnalisées sont des fichiers de configuration qui définissent le comportement d’[Identity Experience Framework](trustframeworkpolicy.md) dans votre locataire Azure AD B2C. Identity Experience Framework est la plateforme sous-jacente qui établit la confiance mutuelle et qui exécute les étapes d’un parcours utilisateur. 
+Les stratégies personnalisées sont des fichiers de configuration qui définissent le comportement d’[Identity Experience Framework](trustframeworkpolicy.md) dans votre locataire Azure AD B2C. Identity Experience Framework est la plateforme sous-jacente qui établit la confiance mutuelle et qui exécute les étapes d’un parcours utilisateur.
 
-Vous pouvez changer entièrement les stratégies personnalisées afin d’effectuer un grand nombre de tâches. Une stratégie personnalisée c’est un ou plusieurs fichiers au format XML qui se font mutuellement référence dans une chaîne hiérarchique. Un [pack de démarrage](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) est disponible pour les stratégies personnalisées et permet d’activer des tâches d’identité courantes. 
+Vous pouvez changer entièrement les stratégies personnalisées afin d’effectuer un grand nombre de tâches. Une stratégie personnalisée c’est un ou plusieurs fichiers au format XML qui se font mutuellement référence dans une chaîne hiérarchique. Un [pack de démarrage](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) est disponible pour les stratégies personnalisées et permet d’activer des tâches d’identité courantes.
 
 Selon vos besoins, différents types de stratégies personnalisées ou de flux utilisateur sont utilisés dans votre locataire Azure AD B2C et peuvent être réutilisés dans les applications. Cette flexibilité vous permet de définir et de modifier les expériences relatives à l’identité utilisateur avec peu ou pas de modification du code. Les stratégies sont utilisées en ajoutant un paramètre de requête spécial dans les requêtes d’authentification HTTP. Pour créer votre propre stratégie personnalisée, consultez [Bien démarrer avec les stratégies personnalisées dans Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
 
-## <a name="identity-providers"></a>Fournisseurs d’identité 
+## <a name="identity-providers"></a>Fournisseurs d’identité
 
-Dans vos applications, vous souhaiterez peut-être permettre aux utilisateurs de se connecter avec différents fournisseurs d’identité. Un *fournisseur d’identité* crée, entretient et gère les informations d’identité tout en fournissant des services d’authentification pour les applications. Vous pouvez ajouter des fournisseurs d’identité qui sont pris en charge par Azure Active Directory B2C avec le portail Azure. 
+Dans vos applications, vous souhaiterez peut-être permettre aux utilisateurs de se connecter avec différents fournisseurs d’identité. Un *fournisseur d’identité* crée, entretient et gère les informations d’identité tout en fournissant des services d’authentification pour les applications. Vous pouvez ajouter des fournisseurs d’identité qui sont pris en charge par Azure Active Directory B2C avec le portail Azure.
 
-Vous utilisez généralement un seul fournisseur d’identité dans votre application, mais vous pouvez en ajouter d’autres. Pour configurer un fournisseur d’identité dans votre locataire Azure AD B2C, vous devez d’abord créer une application sur le site de développeur du fournisseur d’identité, puis vous enregistrez l’identificateur de l’application ou l’identificateur du client, et le mot de passe ou le secret du client provenant de l’application de fournisseur d’identité que vous créez. Cet identificateur et ce mot de passe sont ensuite utilisés pour configurer votre application. 
+Vous utilisez généralement un seul fournisseur d’identité dans votre application, mais vous pouvez en ajouter d’autres. Pour configurer un fournisseur d’identité dans votre locataire Azure AD B2C, vous devez d’abord créer une application sur le site de développeur du fournisseur d’identité, puis vous enregistrez l’identificateur de l’application ou l’identificateur du client, et le mot de passe ou le secret du client provenant de l’application de fournisseur d’identité que vous créez. Cet identificateur et ce mot de passe sont ensuite utilisés pour configurer votre application.
 
 Les articles suivants décrivent les étapes nécessaires pour ajouter certains des fournisseurs d’identité communs aux flux utilisateur :
 
@@ -90,7 +90,7 @@ Pour plus d’informations, consultez [Tutoriel : Ajouter des fournisseurs d’
 
 ## <a name="page-customization"></a>Personnalisation des pages
 
-La majeure partie du contenu HTML et CSS qui est présenté aux clients dans un parcours utilisateur peut être contrôlée. Avec la personnalisation des pages, vous pouvez personnaliser l’apparence d’une stratégie personnalisée ou d’un flux utilisateur. Vous conservez également la cohérence visuelle et de la marque entre votre application et Azure AD B2C en utilisant la fonctionnalité de personnalisation. 
+La majeure partie du contenu HTML et CSS qui est présenté aux clients dans un parcours utilisateur peut être contrôlée. Avec la personnalisation des pages, vous pouvez personnaliser l’apparence d’une stratégie personnalisée ou d’un flux utilisateur. Vous conservez également la cohérence visuelle et de la marque entre votre application et Azure AD B2C en utilisant la fonctionnalité de personnalisation.
 
 Azure AD B2C exécute le code dans le navigateur de l’utilisateur et utilise une approche moderne appelée CORS (Cross-Origin Resource Sharing, Partage des ressources cross-origin). Tout d’abord, vous spécifiez une URL dans une stratégie avec du contenu HTML personnalisé. Azure AD B2C fusionne des éléments d’interface utilisateur avec le contenu HTML chargé à partir de votre URL, puis affiche la page à l’utilisateur.
 
@@ -121,7 +121,7 @@ Si vous êtes développeur d’applications monopages Node.js, configurez votre 
 
 ### <a name="javascript"></a>JavaScript
 
-Vous pouvez ajouter votre propre code côté client JavaScript à vos applications Azure Active Directory B2C. Pour configurer JavaScript dans votre application, vous définissez un [contrat de page](page-contract.md) et vous activez [JavaScript](javascript-samples.md) dans vos flux utilisateur ou vos stratégies personnalisées.
+Vous pouvez ajouter votre propre code côté client JavaScript à vos applications Azure Active Directory B2C. Pour configurer JavaScript dans votre application, vous définissez une [disposition de page](page-layout.md) et activez [JavaScript](javascript-samples.md) dans vos flux d’utilisateurs ou stratégies personnalisées.
 
 ### <a name="user-accounts"></a>Comptes d'utilisateurs
 

@@ -5,31 +5,33 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 10/01/2018
+ms.date: 06/27/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: c1ae8e1d06fca79b586208a3eaee0c5d26975ea1
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: dc12d77e9a57938051300277940b6e5107e45496
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67177534"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234534"
 ---
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 ### <a name="azure-subscription"></a>Abonnement Azure
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 ### <a name="azure-roles"></a>Rôles Azure
-Pour créer des instances Data Factory, le compte d’utilisateur que vous utilisez pour vous connecter à Azure doit être membre des rôles *Contributeur* ou *Propriétaire*, ou *administrateur* de l’abonnement Azure. Pour visualiser les autorisations dont vous disposez dans l’abonnement, sélectionnez votre nom d’utilisateur dans le coin supérieur droit du Portail Azure, puis sélectionnez **Autorisations**. Si vous avez accès à plusieurs abonnements, sélectionnez l’abonnement approprié. 
+Pour créer des instances Data Factory, le compte d’utilisateur que vous utilisez pour vous connecter à Azure doit être membre des rôles *Contributeur* ou *Propriétaire*, ou *administrateur* de l’abonnement Azure. Pour visualiser les autorisations dont vous disposez dans l’abonnement, accédez au [portail Azure](https://portal.azure.com), sélectionnez votre nom d’utilisateur dans l’angle supérieur droit, choisissez **Autres options** (...), puis sélectionnez **Mes autorisations**. Si vous avez accès à plusieurs abonnements, sélectionnez l’abonnement approprié.
 
 Les exigences applicables à la création et à la gestion des ressources enfants pour Data Factory (jeux de données, services liés, pipelines, déclencheurs et runtimes d’intégration) sont les suivantes :
+
 - Pour créer et gérer des ressources enfants dans le Portail Azure, vous devez appartenir au rôle **Contributeurs de Data Factory** au niveau du groupe de ressources ou à un niveau supérieur.
 - Pour créer et gérer des ressources enfants à l’aide de PowerShell ou du Kit de développement logiciel (SDK), le rôle **Contributeur** au niveau du groupe de ressources ou à un niveau supérieur est suffisant.
 
 Pour découvrir des exemples d’instructions concernant l’ajout d’un utilisateur à un rôle, consultez l’article décrivant comment [ajouter des rôles](../articles/billing/billing-add-change-azure-subscription-administrator.md).
 
 Pour plus d’informations, consultez les articles suivants :
+
 - [Rôle Contributeurs de fabrique de données](../articles/role-based-access-control/built-in-roles.md#data-factory-contributor)
 - [Roles and permissions for Azure Data Factory](../articles/data-factory/concepts-roles-permissions.md) (Rôles et autorisations pour Azure Data Factory)
 
@@ -39,51 +41,41 @@ Dans ce guide de démarrage rapide, vous allez utiliser un compte Stockage Azure
 #### <a name="get-the-storage-account-name-and-account-key"></a>Obtenir le nom de compte de stockage et la clé de compte
 Pour ce guide de démarrage rapide, vous devez disposer du nom et de la clé de votre compte de stockage Azure. La procédure suivante détaille les étapes à suivre pour obtenir le nom et la clé de votre compte de stockage : 
 
-1. Dans un navigateur web, accédez au [portail Azure](https://portal.azure.com). Connectez-vous avec votre nom d’utilisateur et votre mot de passe Azure. 
-2. Dans le menu de gauche, sélectionnez **Tous les services**, filtrez les services à l’aide du mot clé **Stockage**, puis sélectionnez **Comptes de stockage**.
-
-   ![Rechercher un compte de stockage](media/data-factory-quickstart-prerequisites/search-storage-account.png)
-3. Dans la liste des comptes de stockage, appliquez un filtre pour votre compte de stockage (si nécessaire), puis sélectionnez votre compte de stockage. 
-4. Sur la page **Compte de stockage**, sélectionnez **Clés d’accès** dans le menu.
+1. Dans un navigateur web, accédez au [portail Azure](https://portal.azure.com) et connectez-vous à l’aide de vos nom d’utilisateur et mot de passe Azure.
+2. Sélectionnez **Tous les services** > **Stockage** > **Comptes de stockage**.
+3. Dans la page **Comptes de stockage**, appliquez un filtre pour votre compte de stockage (si nécessaire), puis sélectionnez votre compte de stockage. 
+4. Dans la barre latérale de la page *\<Nom du compte>*  - **Compte de stockage**, accédez à l’étiquette **Paramètres** et sélectionnez **Clés d’accès**. La page *\<Nom du compte>*  - **Clés d’accès** s’affiche.
 
    ![Obtenir le nom et la clé du compte de stockage](media/data-factory-quickstart-prerequisites/storage-account-name-key.png)
 5. Copiez les valeurs des champs **Nom du compte de stockage** et **key1** dans le presse-papiers. Collez-les dans un bloc-notes ou tout autre éditeur et enregistrez le fichier. Vous les utiliserez ultérieurement dans ce guide de démarrage rapide.   
 
-#### <a name="create-the-input-folder-and-files"></a>Créer les fichiers et le dossier d’entrée
-Dans cette section, vous allez créer un conteneur d’objets blob nommé **adftutorial** dans un stockage Blob Azure. Ensuite, vous créerez un dossier nommé **input** (entrée) dans le conteneur et chargerez un exemple de fichier dans ce dossier. 
+#### <a name="create-a-blob-container"></a>Création d’un conteneur d’objets blob
+Dans cette section, vous allez créer un conteneur d’objets blob nommé **adftutorial** dans un stockage Blob Azure.
 
-1. Sur la page **Compte de stockage**, basculez vers **Vue d’ensemble**, puis sélectionnez **Objets blob**. 
+1. Dans la barre latérale de la page *\<Nom du compte>*  - **Clés d’accès**, sélectionnez **Vue d’ensemble** > **Objets blob**.
+2. Dans la barre d’outils de la page *\<Nom du compte>*  - **Objets blob**, sélectionnez **Conteneur**.
+3. Dans la boîte de dialogue **Nouveau conteneur**, saisissez le nom **adftutorial**, puis sélectionnez **OK**. La page *\<Nom du compte>*  - **Objets blob** est mise à jour pour inclure **adftutorial** dans la liste des conteneurs.
 
-   ![Sélection de l’option Objets blob](media/data-factory-quickstart-prerequisites/select-blobs.png)
-2. Dans la page **Service BLOB**, sélectionnez **+ Conteneur** dans la barre d’outils. 
+   ![Liste des conteneurs](media/data-factory-quickstart-prerequisites/list-of-containers.png)
 
-   ![Bouton d’ajout de conteneur](media/data-factory-quickstart-prerequisites/add-container-button.png)    
-3. Dans la boîte de dialogue **Nouveau conteneur**, saisissez le nom **adftutorial**, puis sélectionnez **OK**. 
+#### <a name="add-an-input-folder-and-file-for-the-blob-container"></a>Ajouter un dossier et un fichier d’entrée pour le conteneur d’objets blob
+Dans cette section, vous créez un dossier nommé **input** (entrée) dans le conteneur que vous venez de créer, puis chargez un exemple de fichier dans ce dossier. Avant de commencer, ouvrez un éditeur de texte tel que **Bloc-notes**, puis créez un fichier nommé **emp.txt** avec le contenu suivant :
 
-   ![Saisie du nom du conteneur](media/data-factory-quickstart-prerequisites/new-container-dialog.png)
-4. Sélectionnez **adftutorial** dans la liste des conteneurs. 
+```emp.txt
+John, Doe
+Jane, Doe
+```
 
-   ![Sélection du conteneur](media/data-factory-quickstart-prerequisites/select-adftutorial-container.png)
-5. Sur la page **Conteneur**, sélectionnez **Charger** dans la barre d’outils.  
+Enregistrez-le dans le dossier **C:\ADFv2QuickStartPSH** (si le dossier n’existe pas, créez-le). Revenez ensuite au portail Azure et procédez comme suit :
 
-   ![Bouton Télécharger](media/data-factory-quickstart-prerequisites/upload-toolbar-button.png)
-6. Sur la page **Charger l’objet blob**, sélectionnez **Avancé**.
+1. Dans la page *\<Nom du compte>*  - **Objets blob**, là où vous vous êtes arrêté, sélectionnez **adftutorial** dans la liste mise à jour des conteneurs (si vous avez fermé la fenêtre ou accédé à une autre page, reconnectez-vous au [portail Azure](https://portal.azure.com), sélectionnez **Tous les services** > **Stockage** > **Comptes de stockage**, sélectionnez votre compte de stockage, puis sélectionnez **Objets blob** > **adftutorial**).
+2. Dans la barre d’outils de la page du conteneur **adftutorial**, sélectionnez **Charger**.
+3. Dans la page **Charger l’objet blob**, sélectionnez la zone **Fichiers**, puis recherchez et sélectionnez le fichier **emp.txt**.
+4. Développez le titre **Avancé**. La page s’affiche à présent comme indiqué :
 
    ![Sélectionner le lien Avancé](media/data-factory-quickstart-prerequisites/upload-blob-advanced.png)
-7. Ouvrez le **Bloc-notes** et créez un fichier nommé **emp.txt** avec le contenu suivant. Enregistrez-le dans le dossier **c:\ADFv2QuickStartPSH**. S’il n’existe pas déjà, créez le dossier **ADFv2QuickStartPSH**.
-    
-   ```
-   John, Doe
-   Jane, Doe
-   ```    
-8. Dans le portail Azure, sur la page **Charger l’objet blob**, recherchez et sélectionnez le fichier **emp.txt** pour le champ **Fichiers**. 
-9. Entrez **input** dans le champ **Charger dans le dossier**. 
+5. Dans la zone **Charger dans le dossier**, entrez **input**.
+6. Cliquez sur le bouton **Charger**. Vous devriez voir le fichier **emp.txt** et l’état du chargement dans la liste.
+7. Sélectionnez l’icône **Fermer** (**X**) pour fermer la page **Charger l’objet blob**.
 
-    ![Paramètres de chargement de l’objet blob](media/data-factory-quickstart-prerequisites/upload-blob-settings.png)    
-10. Vérifiez que le dossier est **input** et que le fichier est **emp.txt**, puis sélectionnez **Charger**.
-    
-    Vous devriez voir le fichier **emp.txt** et l’état du chargement dans la liste. 
-12. Fermez la page **Charger l’objet blob** en cliquant sur **X** en haut à droite. 
-
-    ![Fermeture de la page Charger l’objet blob](media/data-factory-quickstart-prerequisites/close-upload-blob.png)
-1. Laissez la page **Conteneur** ouverte. Vous l’utiliserez pour vérifier la sortie à la fin de ce guide de démarrage rapide.
+Laissez la page du conteneur **adftutorial** ouverte. Vous l’utiliserez pour vérifier la sortie à la fin de ce guide de démarrage rapide.

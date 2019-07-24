@@ -11,136 +11,77 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/25/2016
 ms.author: glenga
-ms.openlocfilehash: cb3f3ad3bb7b42429654ea4bf9b49f7e230db1da
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.openlocfilehash: 2dc5fab0966c2ead0276cd8b23ea764bd4f9ef59
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64943883"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190472"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Déploiement continu pour Azure Functions
-Azure Functions rend plus facile à déployer votre application de fonction à l’aide de l’intégration continue. Functions s’intègre avec les référentiels de code principal et les sources de déploiement. Cette intégration permet un flux de travail où le code de la fonction mises à jour effectuée via un de ces services qui déclenchent le déploiement vers Azure. Si vous débutez avec Azure Functions, commencez par le [vue d’ensemble d’Azure Functions](functions-overview.md).
 
-Déploiement continu est une option intéressante pour les projets dans laquelle vous intégrez plusieurs et les contributions de fréquentes. Il vous permet également de conserver le contrôle de source sur votre code de fonction. Azure Functions prend en charge les sources de déploiement suivantes :
+Azure Functions vous permet de déployer votre code en continu via l’[intégration du contrôle de code source](functions-deployment-technologies.md#source-control). Cela permet d’exploiter un flux de travail où les mises à jour du code déclenchent un déploiement sur Azure. Si vous ne connaissez pas Azure Functions, commencez par consulter l’article [Vue d’ensemble d’Azure Functions](functions-overview.md).
 
-* [Bitbucket](https://bitbucket.org/)
-* [Dropbox](https://www.dropbox.com/)
-* Référentiel externe (Git ou Mercurial)
-* [Référentiel Git local](../app-service/deploy-local-git.md)
+Le déploiement continu est une option intéressante pour les projets auxquels vous intégrez plusieurs contributions fréquentes. Il vous permet également de conserver une seule source de vérité pour votre code de fonction. Vous pouvez configurer un déploiement continu dans Azure Functions à partir des emplacements de code source suivants :
+
+* [Azure Repos](https://azure.microsoft.com/services/devops/repos/)
 * [GitHub](https://github.com)
-* [OneDrive](https://onedrive.live.com/)
-* [Azure DevOps](https://azure.microsoft.com/services/devops/)
+* [Bitbucket](https://bitbucket.org/)
 
-Les déploiements sont configurés au cas par cas, selon les Function Apps. Une fois le déploiement continu activé, l’accès au code de fonction dans le portail est défini sur *lecture seule*.
+L’unité de déploiement pour Azure Functions est la Function App. Cela signifie que toutes les fonctions d’une Function App sont déployées simultanément. Une fois le déploiement continu activé, l’accès au code de fonction dans le portail Azure est configuré sur *lecture seule*, car la source de vérité est définie sur un autre emplacement.
 
-## <a name="requirements-for-continuous-deployment"></a>Configuration requise pour le déploiement continu
+## <a name="requirements-for-continuous-deployment"></a>Exigences pour le déploiement continu
 
-Avant de configurer un déploiement continu, vous devez disposer de votre source de déploiement configuré et votre code de fonction dans la source du déploiement. Dans un déploiement d’application de fonction, chaque fonction est dans un sous-répertoire nommé, où le nom du répertoire est le nom de la fonction.  
+Pour effectuer le déploiement continu avec succès, votre structure de répertoires doit être compatible avec la structure de dossiers de base suivante qui est attendue par Azure Functions :
 
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
-Pour pouvoir déployer à partir d’Azure DevOps, vous devez commencer par lier votre organisation Azure DevOps avec votre abonnement Azure. Pour plus d’informations, voir [Configurer la facturation pour votre organisation Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/billing/set-up-billing-for-your-organization-vs?view=vsts#set-up-billing-via-the-azure-portal).
+## <a name="credentials"></a>Configurer un déploiement continu
 
-## <a name="set-up-continuous-deployment"></a>Configurer un déploiement continu
-Utilisez cette procédure pour configurer le déploiement continu d’une Function App existante. Les étapes suivantes présentent l’intégration avec un référentiel GitHub, mais des étapes similaires s’appliquent à Azure DevOps ou à d’autres services de déploiement.
+Utilisez cette procédure pour configurer le déploiement continu d’une Function App existante. Les étapes suivantes présentent l’intégration à un référentiel GitHub, mais des étapes similaires s’appliquent à Azure Repos ou à d’autres référentiels de code source.
 
-1. Dans votre function app dans le [Azure portal](https://portal.azure.com), sélectionnez **fonctionnalités de la plateforme** > **options de déploiement**. 
-   
-    ![Sélections pour l’ouverture des options de déploiement](./media/functions-continuous-deployment/setup-deployment.png)
- 
-1. Sur le **déploiements** panneau, sélectionnez **le programme d’installation**.
- 
-    ![Panneau déploiements](./media/functions-continuous-deployment/setup-deployment-1.png)
-   
-1. Sur le **source de déploiement** panneau, sélectionnez **choisir une source**. Renseignez les informations de votre source de déploiement choisi, puis sélectionnez **OK**.
-   
-    ![Choix d’une source de déploiement](./media/functions-continuous-deployment/choose-deployment-source.png)
+1. Dans votre Function App, dans le [portail Azure](https://portal.azure.com), sélectionnez **Fonctionnalités de la plateforme** > **Centre de déploiement**.
 
-Après avoir défini un déploiement continu, toutes les modifications de fichier dans votre source de déploiement sont copiées vers l’application de fonction et un déploiement complet de site est déclenché. Le site est redéployé lorsque les fichiers de la source sont mis à jour.
+    ![Ouvrir le centre de déploiement](./media/functions-continuous-deployment/platform-features.png)
+
+2. Dans le **Centre de déploiement**, sélectionnez **GitHub**, puis sélectionnez **Autoriser**. Le cas échéant, si vous avez déjà autorisé GitHub, sélectionnez **Continuer**. 
+
+    ![Centre de déploiement](./media/functions-continuous-deployment/github.png)
+
+3. Dans GitHub, sélectionnez **Autoriser AzureAppService**. 
+
+    ![Autorisation](./media/functions-continuous-deployment/authorize.png)
+    
+    Dans le **Centre de déploiement** du portail Azure, sélectionnez **Continuer**.
+
+4. Sélectionnez l’un des fournisseurs de build suivants :
+
+    * **Service de build App Service** : recommandé lorsque vous n’avez pas besoin d’une build ou si vous avez besoin d’une build générique.
+    * **Pipelines Azure (préversion)** : recommandé lorsque vous avez besoin de bénéficier d’un meilleur contrôle sur la build. Ce fournisseur est actuellement en préversion.
+
+    ![Sélectionner un fournisseur de build](./media/functions-continuous-deployment/build.png)
+
+5. Configurez les informations spécifiques à l’option de contrôle de code source que vous avez spécifiée. Pour GitHub, vous devez fournir l’**organisation**, le **référentiel**, et la **branche** où se trouve votre code. Sélectionnez ensuite **Continuer**.
+
+    ![Configurer GitHub](./media/functions-continuous-deployment/github-specifics.png)
+
+6. Enfin, vérifiez tous les détails et sélectionnez **Terminer** pour terminer la configuration de votre déploiement.
+
+    ![Résumé](./media/functions-continuous-deployment/summary.png)
+
+Une fois le processus terminé, tout le code de la source spécifiée est déployé sur votre application. À ce stade, les modifications apportées à la source de déploiement déclenchent un déploiement de ces modifications sur votre Function App dans Azure.
 
 ## <a name="deployment-scenarios"></a>Scénarios de déploiement
 
-Scénarios de déploiement classiques incluent la création d’un déploiement intermédiaire et le déplacement des fonctions existantes pour le déploiement continu.
-
-<a name="staging"></a>
-### <a name="create-a-staging-deployment"></a>Créer un déploiement intermédiaire
-
-Applications de fonction ne prend encore en charge les emplacements de déploiement. Mais vous pouvez toujours gérer les déploiements intermédiaire et de production distincts à l’aide de l’intégration continue.
-
-Voici à quoi ressemble généralement le processus pour configurer et travailler avec un déploiement intermédiaire :
-
-1. Créer deux applications de fonction dans votre abonnement : un pour le code de production et un pour l’environnement intermédiaire. 
-
-1. Créez une source de déploiement, si vous n’en avez pas déjà. Cet exemple utilise [GitHub].
-
-1. Pour votre Function App de production, effectuez les étapes décrites ci-dessus dans la section [Configurer un déploiement continu](#set-up-continuous-deployment), puis définissez la branche de déploiement sur la branche principale de votre référentiel GitHub.
-   
-    ![Sélections pour choisir une branche de déploiement](./media/functions-continuous-deployment/choose-deployment-branch.png)
-
-1. Répétez l’étape 3 pour l’application de fonction intermédiaire, mais sélectionnez la branche intermédiaire au lieu de cela dans votre référentiel GitHub. Si votre source de déploiement ne prend pas en charge la création de branches, utilisez un autre dossier.
-    
-1. Mettre à jour votre code dans la branche ou un dossier intermédiaire et vérifiez que le déploiement intermédiaire reflète ces modifications.
-
-1. Après vérification, fusionnez les modifications de la branche intermédiaire dans la branche principale. Cette opération déclenche le déploiement de la Function App de production. Si votre source de déploiement ne prend pas en charge les branches, remplacez les fichiers dans le dossier de production par les fichiers du dossier intermédiaire.
-
 <a name="existing"></a>
 ### <a name="move-existing-functions-to-continuous-deployment"></a>Déplacer des fonctions existantes pour un déploiement continu
-Lorsque vous disposez de fonctions existantes que vous avez créées et conservées dans le portail, vous devez télécharger vos fichiers de code de fonction à l’aide de FTP ou le référentiel Git local avant que vous pouvez définir un déploiement continu comme décrit précédemment. Faire cela dans les paramètres d’Azure App Service pour votre function app. Après avoir téléchargé les fichiers, vous pouvez les télécharger à votre source de déploiement continu choisi.
+
+Si vous avez déjà écrit des fonctions dans le [portail Azure](https://portal.azure.com) et que vous souhaitez télécharger le contenu de votre application avant de basculer sur un déploiement continu, vous devez naviguer jusqu’à l’onglet **Vue d’ensemble** de votre Function App, puis cliquer sur le bouton **Télécharger le contenu de l’application**.
+
+![Télécharger le contenu de l’application](./media/functions-continuous-deployment/download.png)
 
 > [!NOTE]
 > Après avoir configuré l’intégration continue, vous ne pouvez plus modifier vos fichiers sources dans le portail Functions.
-
-<a name="credentials"></a>
-#### <a name="configure-deployment-credentials"></a>configurer les informations d’identification de déploiement
-Avant de pouvoir télécharger des fichiers à partir de votre application de fonction à l’aide de FTP ou un référentiel Git local, vous devez configurer vos informations d’identification pour accéder au site. Informations d’identification sont définies au niveau de l’application de fonction. Utilisez la procédure suivante pour définir les informations d’identification de déploiement dans le portail Azure :
-
-1. Dans votre function app dans le [Azure portal](https://portal.azure.com), sélectionnez **fonctionnalités de la plateforme** > **informations d’identification de déploiement**.
-   
-1. Entrez un nom d’utilisateur et un mot de passe, puis sélectionnez **enregistrer**. 
-
-   ![Sélections pour définir les informations d’identification de déploiement local](./media/functions-continuous-deployment/setup-deployment-credentials.png)
-
-Vous pouvez désormais utiliser ces informations d’identification pour accéder à votre application de fonction à partir du FTP ou du référentiel Git intégré.
-
-<a name="downftp"></a>
-#### <a name="download-files-by-using-ftp"></a>Télécharger des fichiers à l’aide de FTP
-
-1. Dans votre function app dans le [Azure portal](https://portal.azure.com), sélectionnez **fonctionnalités de la plateforme** > **propriétés**. Ensuite, copiez les valeurs de **utilisateur FTP/déploiement**, **nom d’hôte FTP**, et **nom d’hôte FTPS**.  
-
-   La valeur **Utilisateur FTP/déploiement** doit être entrée telle qu’elle est affichée dans le portail et inclure le nom de l’application afin de fournir le contexte approprié pour le serveur FTP.
-   
-   ![Sélections pour obtenir des informations de votre déploiement](./media/functions-continuous-deployment/get-deployment-credentials.png)
-
-1. À partir de votre client FTP, utilisez les informations de connexion que vous avez recueillies pour vous connecter à votre application et de télécharger les fichiers sources pour vos fonctions.
-
-<a name="downgit"></a>
-#### <a name="download-files-by-using-a-local-git-repository"></a>Télécharger des fichiers à l’aide d’un référentiel Git local
-
-1. Dans votre function app dans le [Azure portal](https://portal.azure.com), sélectionnez **fonctionnalités de la plateforme** > **options de déploiement**. 
-   
-    ![Sélections pour l’ouverture des options de déploiement](./media/functions-continuous-deployment/setup-deployment.png)
- 
-1. Ensuite, sous la **déploiements** panneau, sélectionnez **le programme d’installation**.
- 
-    ![Panneau déploiements](./media/functions-continuous-deployment/setup-deployment-1.png)
-   
-1. Sur le **source de déploiement** panneau, sélectionnez **référentiel Git Local** > **OK**.
-
-1. Dans **fonctionnalités de la plateforme**, sélectionnez **propriétés** et notez la valeur de l’URL Git. 
-   
-    ![Sélections pour l’obtention de l’URL Git](./media/functions-continuous-deployment/get-local-git-deployment-url.png)
-
-1. Clonez le référentiel sur votre ordinateur local à l’aide d’une invite de commandes prenant en charge Git ou votre outil Git favori. La commande de clone Git se présente comme suit :
-   
-        git clone https://username@my-function-app.scm.azurewebsites.net:443/my-function-app.git
-
-1. Récupérez les fichiers à partir de votre application de fonction sur le clone de votre ordinateur local, comme dans l’exemple suivant :
-   
-        git pull origin master
-   
-    Si nécessaire, fournissez vos [informations d’identification de déploiement configurées](#credentials).  
-
-[GitHub]: https://github.com/
 
 ## <a name="next-steps"></a>Étapes suivantes
 

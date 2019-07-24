@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/19/2019
+ms.date: 06/14/2019
 ms.author: haroldw
-ms.openlocfilehash: d8a9b82e51c837af6343ddf851545d02299aa527
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 834484278bb597bba4a5e1821d0b6572913a761d
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61473883"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147004"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-in-azure"></a>Prérequis courants pour déployer OpenShift dans Azure
 
@@ -69,7 +69,7 @@ az group create --name keyvaultrg --location eastus
 ```
 
 ## <a name="create-a-key-vault"></a>Création d’un coffre de clés
-Créez un coffre de clés pour stocker les clés SSH du cluster avec la commande [az keyvault create](/cli/azure/keyvault). Le nom du coffre de clés doit être globalement unique.
+Créez un coffre de clés pour stocker les clés SSH du cluster avec la commande [az keyvault create](/cli/azure/keyvault). Le nom du coffre de clés doit être unique à l’échelle globale et être activé pour le déploiement de modèle. Sinon, le déploiement échoue et le message d’erreur « KeyVaultParameterReferenceSecretRetrieveFailed » s’affiche.
 
 L’exemple suivant crée un coffre de clés nommé *keyvault* dans le groupe de ressources *keyvaultrg* :
 

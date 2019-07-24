@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/25/2019
+ms.date: 07/16/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4a4c4ca1925a501b10cb86a2cf60646af1e5b57
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 14c7495653f369d7a51cab6fedb136268b7b3378
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544245"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277927"
 ---
 # <a name="token-cache-serialization-in-msalnet"></a>Sérialisation du cache de jetons dans MSAL.NET
 Une fois qu’un [jeton est acquis](msal-acquire-cache-tokens.md), il est mis en cache par Microsoft Authentication Library (MSAL).  Le code de l’application doit d’abord essayer d’obtenir un jeton à partir du cache, avant de l’acquérir par une autre méthode.  Cet article décrit la sérialisation par défaut et personnalisée du cache de jetons dans MSAL.NET.
@@ -49,8 +49,8 @@ Les classes et interfaces suivantes sont utilisées dans la sérialisation du ca
   ![Diagramme de classes](media/msal-net-token-cache-serialization/class-diagram.png)
 
 > [!IMPORTANT]
-> MSAL.NET crée les caches de jetons automatiquement et vous fournit le cache `IToken` quand vous appelez les méthodes `GetUserTokenCache` et `GetAppTokenCache` d’une application. Vous n’êtes pas censé implémenter l’interface vous-même. Votre responsabilité, lorsque vous implémentez une sérialisation du cache de jetons personnalisée, consiste à :
-> - Réagir aux « événements » `BeforeAccess` et `AfterAccess`. Le délégué `BeforeAccess` se charge de désérialiser le cache, tandis que le délégué `AfterAccess` est responsable de la sérialisation du cache.
+> MSAL.NET crée les caches de jetons automatiquement et vous fournit le cache `IToken` quand vous appelez les propriétés `UserTokenCache` et `AppTokenCache` d’une application. Vous n’êtes pas censé implémenter l’interface vous-même. Votre responsabilité, lorsque vous implémentez une sérialisation du cache de jetons personnalisée, consiste à :
+> - Réagir aux « événements » `BeforeAccess` et `AfterAccess` (ou à leurs versions Async). Le délégué `BeforeAccess` se charge de désérialiser le cache, tandis que le délégué `AfterAccess` est responsable de la sérialisation du cache.
 > - Une partie de ces événements stockent ou chargent des objets blob, lesquels sont transmis par le biais de l’argument de l’événement au stockage voulu.
 
 Les stratégies diffèrent selon que vous écrivez une sérialisation du cache de jetons pour une [application cliente publique](msal-client-applications.md) (bureau) ou une [application cliente confidentielle](msal-client-applications.md) (application/API web, application de démon).
@@ -164,7 +164,7 @@ namespace CommonCacheMsalV3
  static class FilesBasedTokenCacheHelper
  {
   /// <summary>
-  /// Get the user token cache
+  /// Enables the serialization of the token cache
   /// </summary>
   /// <param name="adalV3CacheFileName">File name where the cache is serialized with the
   /// ADAL V3 token cache format. Can
@@ -175,20 +175,14 @@ namespace CommonCacheMsalV3
   /// ADAL V4 and MSAL V2 and above, and also across ADAL/MSAL on the same platform.
   ///  Should not be <c>null</c></param>
   /// <returns></returns>
-  public static void EnableSerialization(ITokenCache cache, string unifiedCacheFileName, string adalV3CacheFileName)
+  public static void EnableSerialization(ITokenCache tokenCache, string unifiedCacheFileName, string adalV3CacheFileName)
   {
-   usertokenCache = cache;
    UnifiedCacheFileName = unifiedCacheFileName;
    AdalV3CacheFileName = adalV3CacheFileName;
 
-   usertokenCache.SetBeforeAccess(BeforeAccessNotification);
-   usertokenCache.SetAfterAccess(AfterAccessNotification);
+   tokenCache.SetBeforeAccess(BeforeAccessNotification);
+   tokenCache.SetAfterAccess(AfterAccessNotification);
   }
-
-  /// <summary>
-  /// Token cache
-  /// </summary>
-  static ITokenCache usertokenCache;
 
   /// <summary>
   /// File path where the token cache is serialized with the unified cache format

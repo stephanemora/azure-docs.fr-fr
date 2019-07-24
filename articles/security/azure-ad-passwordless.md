@@ -9,12 +9,12 @@ ms.date: 07/09/2019
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: 00f66b6010bead3de131095a47ba1e419d2511c0
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: c1f1fc4a09cba469edfea060afea47053cb87ac4
+ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67723333"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68302167"
 ---
 # <a name="a-world-without-passwords-with-azure-active-directory"></a>Un monde sans mot de passe avec Azure Active Directory
 
@@ -49,28 +49,6 @@ Windows Hello Entreprise est idéal pour les professionnels de l’information q
 ### <a name="windows-hello-for-business-deployment-considerations"></a>Considérations relatives au déploiement de Windows Hello Entreprise
 
 Windows Hello Entreprise est un système distribué qui utilise plusieurs composants à des fins d'inscription, d'approvisionnement et d’authentification des appareils. Dès lors, son déploiement implique une bonne planification au sein des différentes équipes de l'organisation. Le [guide de planification](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-planning-guide) Windows Hello Entreprise peut vous aider à déterminer le type de déploiement de Windows Hello Entreprise dont vous avez besoin, ainsi que les options à prendre en compte.
-
-Pour les déploiements hybrides ou locaux, vous devez disposer de ce qui suit :
-
-* Réseau connecté et fonctionnel
-
-* Accès à Internet
-
-* Serveur Multi-Factor Authentication pour prendre en charge MFA lors de l'approvisionnement de Windows Hello Entreprise
-
-* Résolution de noms (noms internes et externes)
-
-* Active Directory et un nombre adapté de contrôleurs de domaine par site pour l’authentification
-
-* Services de certificats Active Directory 2012 ou version ultérieure
-
-* Une ou plusieurs stations de travail exécutant Windows 10, version 1903
-
-Tous les types de déploiements de Windows Hello Entreprise utilisant des certificats émis par l’entreprise pour les contrôleurs de domaine en tant que racine de confiance, vous pouvez renouveler automatiquement les certificats arrivés à expiration en [configurant l’inscription automatique des certificats serveur et utilisateur](https://docs.microsoft.com/windows-server/networking/core-network-guide/cncg/server-certs/configure-server-certificate-autoenrollment). Pour les déploiements locaux, le fournisseur d'identité correspond au serveur local exécutant le rôle Windows Server AD FS (services de fédération Active Directory). Les systèmes fédérés nécessitent généralement un groupe de serveurs à charge équilibrée, également appelé « batterie de serveurs ». Cette batterie est configurée dans une topologie de réseau interne et de réseau de périmètre pour garantir la haute disponibilité des demandes d’authentification.
-
-Lorsque vous définissez une stratégie de groupe imposant Windows Hello Entreprise dans l'espace de travail, vous pouvez préparer les utilisateurs de votre organisation en leur expliquant comment utiliser Windows Hello. Par exemple, lorsqu'un utilisateur configure un nouvel appareil, il lui est demandé de choisir entre **Cet appareil appartient à mon organisation** ou **Il s'agit de mon propre appareil personnel** . Pour les appareils d’entreprise, il doit sélectionner la première option. L'utilisateur doit également connaître l'option de connexion à sélectionner : **Joindre à Azure AD** ou **Configurer un compte local (avec jonction de domaine ultérieure)** .
-
-Les utilisateurs habitués à utiliser la biométrie pour s'authentifier quotidiennement finissent par oublier leur code confidentiel. Pour éviter à ces mêmes utilisateurs de devoir contacter le support technique, il est conseillé de leur offrir la possibilité de réinitialiser leurs [ mots de passe](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-deployment) et [codes confidentiels](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-features#pin-reset) oubliés.
 
 Lorsque vous déployez Windows Hello Entreprise, vous pouvez choisir parmi de nombreuses options. Ce large éventail d'options permet à la plupart des organisations de déployer Windows Hello Entreprise. Examinez les types de déploiements pris en charge suivants :
 

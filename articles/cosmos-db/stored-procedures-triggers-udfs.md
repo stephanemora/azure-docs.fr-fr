@@ -4,15 +4,15 @@ description: 'Cet article présente les concepts suivants : procédures stockée
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 06/14/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 40d120fe5fcc79721923d3493e74b5195ecc129c
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.openlocfilehash: 529c536d9ea3b898745f03c80b63702b2af485da
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65965707"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165576"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Procédures stockées, déclencheurs et fonctions définies par l’utilisateur
 
@@ -75,7 +75,7 @@ Les fonctions JavaScript sont également soumises à la [capacité de débit pro
 
 ## <a name="triggers"></a>Déclencheurs
 
-Cette section décrit les deux types de déclencheurs :
+Azure Cosmos DB prend en charge deux types de déclencheurs :
 
 ### <a name="pre-triggers"></a>Prédéclencheurs
 
@@ -84,6 +84,9 @@ Azure Cosmos DB fournit des déclencheurs qui peuvent être appelés par l’ex�
 ### <a name="post-triggers"></a>Post-déclencheurs
 
 Comme pour les prédéclencheurs, les post-déclencheurs sont également associés à une opération sur un élément Azure Cosmos DB et ils ne nécessitent aucun paramètre d’entrée. Ils sont exécutés *après* la fin de l’opération et ont accès au message de réponse qui est envoyé au client. Pour obtenir des exemples, consultez l’article [Guide pratique pour écrire des déclencheurs](how-to-write-stored-procedures-triggers-udfs.md#triggers).
+
+> [!NOTE]
+> Les déclencheurs inscrits ne s’exécutent pas automatiquement lorsque leurs opérations correspondantes (créer / supprimer / remplacer / mettre à jour) sont effectuées. Ils doivent être appelés explicitement lors de l’exécution de ces opérations. Pour plus d’informations, consultez l’article [Comment exécuter des déclencheurs](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers).
 
 ## <a id="udfs"></a>Fonctions définies par l’utilisateur
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 5e6548a5a04e32b374a8a9c29d2ca5f89fd65c78
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 62511118edb4f8b5061f90138bac2aa2b5d3cfe3
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65160184"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165152"
 ---
 # <a name="private-cloud-vmware-components"></a>Composants VMware de cloud privé
 
@@ -37,7 +37,7 @@ Une pile VMware de cloud privé se déploie avec la version logicielle suivante.
 
 ## <a name="esxi"></a>ESXi
 
-VMware ESXi est installé sur les nœuds CloudSimple achetés lors de la création d’un cloud privé.  ESXi fournit l’hyperviseur permettant de déployer des machines virtuelles de charge de travail.  Les nœuds offrent une infrastructure hyperconvergée (calcul et stockage) sur le cloud privé.  Ils font partie du cluster vSphere sur le cloud privé.  Chaque nœud possède quatre interfaces de réseaux physiques connectées au réseau sous-jacent.  Deux sont utilisées pour créer un **commutateur réparti vSphere (VDS)** sur vCenter et deux pour créer un **commutateur réparti virtuel géré par NSX (N-VDS)** .  Les interfaces réseau sont configurées en mode actif-actif pour la haute disponibilité.
+VMware ESXi est installé sur les nœuds CloudSimple approvisionnés lors de la création d’un cloud privé.  ESXi fournit l’hyperviseur permettant de déployer des machines virtuelles de charge de travail.  Les nœuds offrent une infrastructure hyperconvergée (calcul et stockage) sur le cloud privé.  Ils font partie du cluster vSphere sur le cloud privé.  Chaque nœud possède quatre interfaces de réseaux physiques connectées au réseau sous-jacent.  Deux sont utilisées pour créer un **commutateur réparti vSphere (VDS)** sur vCenter et deux pour créer un **commutateur réparti virtuel géré par NSX (N-VDS)** .  Les interfaces réseau sont configurées en mode actif-actif pour la haute disponibilité.
 
 En savoir plus sur VMware ESXi
 

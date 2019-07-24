@@ -6,18 +6,18 @@ services: time-series-insights
 author: ashannon7
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 05/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6151af941b89198812f2a33a522b30ff0a8796a0
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: 129476c833e596d40daa7081e23c0fd6d1b93b30
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66242074"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165763"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Surveiller et réduire la limitation afin d'éviter la latence dans Azure Time Series Insights
 
@@ -34,7 +34,7 @@ Vous êtes susceptible de rencontrer une latence et une limitation lorsque vous 
 
 ## <a name="video"></a>Vidéo
 
-### <a name="learn-about-time-series-insights-data-ingress-behavior-and-how-to-plan-for-itbr"></a>En savoir plus sur le comportement d’entrée Time Series Insights données et la planification pour celle-ci.</br>
+### <a name="learn-about-time-series-insights-data-ingress-behavior-and-how-to-plan-for-itbr"></a>Apprenez-en plus sur le comportement d’entrée de données Time Series Insights et comment le planifier.</br>
 
 > [!VIDEO https://www.youtube.com/embed/npeZLAd9lxo]
 
@@ -42,13 +42,13 @@ Vous êtes susceptible de rencontrer une latence et une limitation lorsque vous 
 
 Les alertes peuvent vous aider à diagnostiquer et réduire les problèmes de latence dus à votre environnement.
 
-1. Dans le portail Azure, cliquez sur **Mesures**.
+1. Dans le portail Azure, sélectionnez **Métriques**.
 
    [![Métriques](media/environment-mitigate-latency/add-metrics.png)](media/environment-mitigate-latency/add-metrics.png#lightbox)
 
-1. Cliquez sur **Ajouter une alerte de mesure**.  
+1. Sélectionnez **Ajouter une alerte Métrique**.  
 
-   [![Ajouter une alerte métrique](media/environment-mitigate-latency/add-metric-alert.png)](media/environment-mitigate-latency/add-metric-alert.png#lightbox)
+   [![Ajouter une alerte Métrique](media/environment-mitigate-latency/add-metric-alert.png)](media/environment-mitigate-latency/add-metric-alert.png#lightbox)
 
 À partir de là, vous pouvez configurer des alertes à l’aide des mesures suivantes :
 
@@ -64,15 +64,15 @@ Les alertes peuvent vous aider à diagnostiquer et réduire les problèmes de la
 
 ![Latence](media/environment-mitigate-latency/latency.png)
 
-* Si vous êtes limité, vous verrez une valeur pour le *entrée reçu Message décalage dans le temps*, qui vous informe du nombre de secondes derrière votre TSI est à partir de l’heure réelle du message atteint la source d’événements (à l’exception de délai d’indexation de. 30 à 60 secondes).  Le champ *Décalage de nombre des messages reçus en entrée* doit également comporter une valeur, vous octroyant une visibilité sur le nombre de messages de retard que vous accusez.  Le moyen le plus simple de rattraper le retard est d’augmenter la capacité de votre environnement à une taille qui vous permettra de combler la différence.  
+* Si vous êtes limité, une valeur s’affichera pour la mesure *Retard des messages reçus en entrée*, vous informant du décalage en secondes entre votre TSI et l’horodatage réel de l’arrivée du message dans la source d’événement (sans tenir compte du délai d’indexation d’environ. 30 à 60 secondes).  Le champ *Décalage de nombre des messages reçus en entrée* doit également comporter une valeur, vous octroyant une visibilité sur le nombre de messages de retard que vous accusez.  Le moyen le plus simple de rattraper le retard est d’augmenter la capacité de votre environnement à une taille qui vous permettra de combler la différence.  
 
-  Par exemple, si vous disposez d’un environnement unique unité S1 et il y a un décalage de 5 000 000 de message, vous pouvez augmenter la taille de votre environnement à 6 unités durant environ une journée de rattraper.  Vous pouvez même augmenter davantage pour rattraper plus vite le retard. La période de rattrapage se produit souvent lors du provisionnement initial d’un environnement, plus particulièrement lorsque vous le connectez à une source d’événement qui présente déjà des événements ou quand vous chargez de manière groupée de gros volumes de données d’historique.
+  Par exemple, si vous disposez d’un environnement S1 à une seule unité et constatez un décalage de 5 000 000 de messages, vous avez intérêt à augmenter la taille de votre environnement à 6 unités durant environ une journée pour refaire votre retard.  Vous pouvez même augmenter davantage pour rattraper plus vite le retard. La période de rattrapage se produit souvent lors du provisionnement initial d’un environnement, plus particulièrement lorsque vous le connectez à une source d’événement qui présente déjà des événements ou quand vous chargez de manière groupée de gros volumes de données d’historique.
 
 * Une autre technique est de définir une alerte d’**événements stockés en entrée** >= à un seuil légèrement inférieur à la capacité totale de votre environnement pour une période de 2 heures.  Cette alerte peut vous aider à comprendre si vous êtes en permanence à votre capacité maximale, ce qui implique une forte probabilité de latence. 
 
   Par exemple, si vous avez trois unités S1 configurées (ou 2 100 événements de capacité d’entrée par minute), vous pouvez définir une alerte d’**événements stockés en entrée** pour >= 1 900 événements pendant 2 heures. Si vous dépassez en permanence ce seuil et par conséquent, vous déclenchez l’alerte, vous êtes probablement sous-configuré.  
 
-* Si vous pensez que vous êtes limité, vous pouvez comparer votre **Messages reçus en entrée** avec votre événement source du messages de sortie.  Si l’entrée dans votre Event Hub est supérieure à vos **messages reçus en entrée**, vos informations Time Series Insights sont probablement limitées.
+* Si vous pensez que vous êtes limité, vous pouvez comparer vos **messages reçus en entrée** avec les messages de sortie de votre source d’événement.  Si l’entrée dans votre Event Hub est supérieure à vos **messages reçus en entrée**, vos informations Time Series Insights sont probablement limitées.
 
 ## <a name="improving-performance"></a>Améliorer les performances
 

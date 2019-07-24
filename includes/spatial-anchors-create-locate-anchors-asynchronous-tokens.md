@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 18f76ea4acc99038939a2653bb66875154529126
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66110667"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176756"
 ---
-Si vous avez besoin exécuter le travail asynchrone dans votre gestionnaire, vous pouvez différer la définition du jeton en demandant un `deferral` objet et ensuite comment la compléter, comme dans l’exemple suivant.
+Si vous avez besoin d’exécuter des tâches asynchrones dans votre gestionnaire, vous pouvez remettre à plus tard la définition du jeton en demandant un objet `deferral`, puis en le terminant comme indiqué dans l’exemple suivant.

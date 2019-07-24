@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 69e51f23980aa1d4225f2e5062470f94e5ca9008
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
-ms.translationtype: MT
+ms.openlocfilehash: 4888ea8473c50b8774add7a930612c585fc9cbde
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66753788"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074344"
 ---
 # <a name="azure-service-fabric-security"></a>Sécurité de Microsoft Azure Service Fabric 
 
@@ -188,7 +188,7 @@ principalid=$(az resource show --id /subscriptions/<YOUR SUBSCRIPTON>/resourceGr
 az role assignment create --assignee $principalid --role 'Contributor' --scope "/subscriptions/<YOUR SUBSCRIPTION>/resourceGroups/<YOUR RG>/providers/<PROVIDER NAME>/<RESOURCE TYPE>/<RESOURCE NAME>"
 ```
 
-Dans votre code d’application Service Fabric, [obtenir un jeton d’accès](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token#get-a-token-using-http) pour Azure Resource Manager en effectuant une REST similaires à ce qui suit :
+Dans le code de votre application Service Fabric, [obtenez un jeton d’accès](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token#get-a-token-using-http) pour Azure Resource Manager à l’aide d’une REST similaire à la suivante :
 
 ```bash
 access_token=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -H Metadata:true | python -c "import sys, json; print json.load(sys.stdin)['access_token']")
@@ -201,11 +201,17 @@ L’exemple suivant montre comment faire pour une ressource Cosmos DB :
 ```bash
 cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBSCRIPTION>/resourceGroups/<YOUR RG>/providers/Microsoft.DocumentDB/databaseAccounts/<YOUR ACCOUNT>/listKeys?api-version=2016-03-31' -X POST -d "" -H "Authorization: Bearer $access_token" | python -c "import sys, json; print(json.load(sys.stdin)['primaryMasterKey'])")
 ```
-## <a name="windows-security-baselines"></a>Lignes de base de sécurité de Windows
-[Nous vous recommandons d’implémenter une configuration standard de l’industrie qui est largement connue et bien testée, telles que des bases de sécurité de Microsoft, par opposition à la création d’une ligne de base vous-même](https://docs.microsoft.com/windows/security/threat-protection/windows-security-baselines); une option pour l’approvisionnement sur votre Machine virtuelle Identiques consiste à utiliser le Gestionnaire d’extensions Azure Desired State Configuration (DSC), pour configurer les machines virtuelles comme ils sont fournis en ligne, afin qu’elles exécutent le logiciel en production.
+## <a name="windows-security-baselines"></a>Lignes de base de la sécurité Windows
+[Nous vous recommandons d’implémenter une configuration répondant aux normes du secteur largement connue et bien testée, telle que des lignes de base de sécurité Microsoft, plutôt que de créer une ligne de base vous-même](https://docs.microsoft.com/windows/security/threat-protection/windows-security-baselines) ; une option pour l’approvisionnement sur vos groupes de machines virtuelles identiques consiste à utiliser le gestionnaire d’extension DSC (Desired State Configuration) pour configurer les machines virtuelles comme elles sont fournies en ligne, afin qu’elles exécutent le logiciel en production.
 
 ## <a name="azure-firewall"></a>Pare-feu Azure
-[Pare-feu Azure est un service de sécurité réseau géré, basé sur le cloud qui protège vos ressources de réseau virtuel Azure. Il est entièrement de pare-feu en tant que service avec une haute disponibilité intégrée et l’évolutivité de cloud non restreint. ](https://docs.microsoft.com/azure/firewall/overview); Cela permet de limiter le trafic HTTP/S sortant vers une liste spécifiée des noms de domaine complet (FQDN), y compris les caractères génériques. Cette fonctionnalité ne nécessite pas d’arrêt SSL. Son recommandé d’exploiter [balises Azure Firewall FQDN](https://docs.microsoft.com/azure/firewall/fqdn-tags) des mises à jour de Windows et pour activer le trafic réseau à Microsoft Windows Update les points de terminaison peuvent transiter par votre pare-feu. [Déployer le pare-feu d’Azure à l’aide d’un modèle](https://docs.microsoft.com/azure/firewall/deploy-template) propose un exemple de définition de modèle de ressource Microsoft.Network/azureFirewalls. Deux règles de pare-feu sont communes aux Applications Service Fabric est de permettre à votre réseau de clusters communiquer avec * download.microsoft.com, et * servicefabric.azure.com ; pour extraire les mises à jour de Windows et le code d’extension de Machine virtuelle de calcul du Service Fabric.
+[Pare-feu Azure est un service de sécurité réseau informatique managé qui protège vos ressources Réseau virtuel Azure. Il s’agit d’un service de pare-feu entièrement avec état, pourvu d’une haute disponibilité intégrée et de l’extensibilité du cloud sans limites.](https://docs.microsoft.com/azure/firewall/overview) ; cela permet de limiter le trafic HTTP/S sortant à une liste spécifiée des noms de domaine complet (FQDN), y compris les caractères génériques. Cette fonctionnalité ne nécessite pas d’arrêt SSL. Nous vous recommandons d’exploiter les [balises FQDN Pare-feu Azure](https://docs.microsoft.com/azure/firewall/fqdn-tags) pour Windows Update et pour activer le trafic réseau pour que les points de terminaison Microsoft Windows Update puissent transiter par votre pare-feu. [Déployer Pare-feu Azure à l’aide d’un modèle](https://docs.microsoft.com/azure/firewall/deploy-template) propose un exemple de définition de modèle de ressource Microsoft.Network/azureFirewalls. Les règles de pare-feu communes aux applications Service Fabric autorisent notamment les éléments suivants pour votre réseau virtuel de clusters :
+
+- *download.microsoft.com
+- *servicefabric.azure.com
+- *.core.windows.net
+
+Ces règles de pare-feu complètent vos groupes de sécurité réseau sortant autorisés, comprenant Service Fabric et Stockage, en tant que destinations autorisées depuis votre réseau virtuel.
 
 ## <a name="tls-12"></a>TLS 1.2
 [TSG](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/TLS%20Configuration.md)
@@ -243,6 +249,18 @@ Par défaut, l’antivirus Windows Defender est installé sur Windows Server 20
 
 > [!NOTE]
 > Si vous n’utilisez pas Windows Defender, reportez-vous à la documentation de votre logiciel anti-programme malveillant pour les règles de configuration. Windows Defender n’est pas pris en charge sur Linux.
+
+## <a name="platform-isolation"></a>Isolement de la plateforme
+Par défaut, les applications Service Fabric ont accès au runtime Service Fabric, qui se manifeste sous différentes formes : des [variables d’environnement](service-fabric-environment-variables-reference.md) pointant vers les chemins d’accès sur l’hôte correspondant à l’application et aux fichiers Fabric, un point de terminaison de communication inter-processus qui accepte les demandes spécifiques à l’application et le certificat client que Fabric prévoit que l’application utilisera pour s’authentifier. Dans l’éventualité que le service héberge lui-même du code non fiable, il est conseillé de désactiver cet accès au runtime SF, sauf si explicitement nécessaire. L’accès au runtime est supprimé via la déclaration suivante dans la section Stratégies du manifeste de l’application : 
+
+```xml
+<ServiceManifestImport>
+    <Policies>
+        <ServiceFabricRuntimeAccessPolicy RemoveServiceFabricRuntimeAccess="true"/>
+    </Policies>
+</ServiceManifestImport>
+
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

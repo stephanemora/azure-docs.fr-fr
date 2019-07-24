@@ -1,5 +1,5 @@
 ---
-title: Configurer des applications SaaS pour la collaboration B2B - Azure Active Directory | Microsoft Docs
+title: Configurer des applications SaaS pour B2B Collaboration - Azure Active Directory | Microsoft Docs
 description: Code et exemples PowerShell pour Azure Active Directory B2B Collaboration
 services: active-directory
 ms.service: active-directory
@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 35dad420aa004e27ec974c494dc66e9b8e13c733
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65811941"
 ---
 # <a name="configure-saas-apps-for-b2b-collaboration"></a>Configurer des applications SaaS pour B2B Collaboration
@@ -81,7 +81,7 @@ Vous pouvez autoriser les utilisateurs à authentifier les utilisateurs invités
 
    ![Capture d’écran montrant les paramètres de configuration de l’authentification unique](media/configure-saas-apps/configure-box-sso.png)
 
-   a. Dans la zone **URL de connexion**, vérifiez que l’URL de connexion est définie correctement pour Box dans le portail Azure. Cette URL est celle de votre client Box.com. Elle doit suivre la convention d’affectation de noms *https://.box.com*.  
+   a. Dans la zone **URL de connexion**, vérifiez que l’URL de connexion est définie correctement pour Box dans le portail Azure. Cette URL est celle de votre client Box.com. Elle doit suivre la convention d’affectation de noms *https://.box.com* .  
    L’**Identificateur** ne s’applique pas à cette application, mais apparaît toujours comme un champ obligatoire.
 
    b. Dans la zone **Identificateur d’utilisateur**, entrez **user.mail** (pour l’authentification unique des comptes d’invité).

@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: 2871a4a0efaa40d20148ede7f0402a0dd874126c
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65957312"
 ---
 # <a name="manage-your-azure-maps-account"></a>Gérer votre compte Azure Maps
@@ -21,7 +21,7 @@ Vous pouvez gérer votre compte Azure Maps par le biais du portail Azure. Une fo
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="create-a-new-account"></a>Créer un compte
+## <a name="create-a-new-account"></a>Créer un nouveau compte
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 
@@ -43,7 +43,7 @@ Une page de confirmation s’affiche. Vous pouvez confirmer la suppression de vo
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Configurer l’authentification avec Azure Maps :
+Configurez l’authentification avec Azure Maps :
 > [!div class="nextstepaction"]
 > [Gérer l’authentification](how-to-manage-authentication.md)
 

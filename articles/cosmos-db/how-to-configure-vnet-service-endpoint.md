@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: govindk
 ms.openlocfilehash: 375e79d2fe70e0988d8c58997a746f77b21d7f50
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66241999"
 ---
 # <a name="configure-access-from-virtual-networks-vnet"></a>Configurer l’accès à partir de réseaux virtuels (VNet)
@@ -53,9 +53,9 @@ Les sections suivantes expliquent comment configurer un point de terminaison de 
 > Les autorisations d’abonnement suivantes sont nécessaires pour activer les points de terminaison de service de réseau virtuel :
 >   * Abonnement avec un réseau virtuel : Contributeur de réseau
 >   * Abonnement avec un compte Azure Cosmos DB : Contributeur de compte DocumentDB
->   * Si votre réseau virtuel et un compte Azure Cosmos DB se trouvent dans différents abonnements, vérifiez que l’abonnement qui a le réseau virtuel a également `Microsoft.DocumentDB` fournisseur de ressources inscrit. Pour inscrire un fournisseur de ressources, consultez [les types et les fournisseurs de ressources Azure](../azure-resource-manager/resource-manager-supported-services.md) article. 
+>   * Si votre réseau virtuel et votre compte Azure Cosmos DB se trouvent dans des abonnements différents, assurez-vous que l’abonnement contenant le réseau virtuel possède également le fournisseur de ressources `Microsoft.DocumentDB` inscrit. Pour inscrire un fournisseur de ressources, consultez l’article [Fournisseurs et types de ressources Azure](../azure-resource-manager/resource-manager-supported-services.md). 
 
-Voici les instructions d’inscription d’abonnement avec le fournisseur de ressources.
+Voici les instructions pour inscrire un abonnement avec le fournisseur de ressources.
 
 ### <a name="configure-a-service-endpoint-for-a-new-azure-virtual-network-and-subnet"></a>Configurer un point de terminaison de service pour un nouveau réseau virtuel et un nouveau sous-réseau Azure
 

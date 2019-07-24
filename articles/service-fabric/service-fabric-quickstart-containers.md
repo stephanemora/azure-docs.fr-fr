@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/31/2019
+ms.date: 07/10/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 4795952faa91d62b76f267795660db5ab4075e79
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: ebc3d988afd9257bbdf045814877ab70012836aa
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66734498"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68225109"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Démarrage rapide : déployer des conteneurs Windows sur Service Fabric
 
@@ -40,11 +40,11 @@ Dans ce guide de démarrage rapide, vous apprenez à :
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * Un abonnement Azure (vous pouvez créer un [ compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)).
 * Un ordinateur de développement exécutant :
-  * Visual Studio 2015 ou Windows 2019.
+  * Visual Studio 2019 ou Windows 2019.
   * [Outils et SDK Service Fabric](service-fabric-get-started.md).
 
 ## <a name="package-a-docker-image-container-with-visual-studio"></a>Placer un conteneur d’images Docker avec Visual Studio dans un package
@@ -53,7 +53,7 @@ Le kit de développement logiciel Service Fabric fournit un modèle de service p
 
 Démarrez Visual Studio en tant qu’administrateur.  Sélectionnez **Fichier** > **Nouveau** > **Projet**.
 
-Sélectionnez **Service Fabric application** (Application Service Fabric), nommez-la « MyFirstContainer », puis cliquez sur **OK**.
+Sélectionnez **Service Fabric application** (Application Service Fabric), nommez-la « MyFirstContainer », puis cliquez sur **Créer**.
 
 Sélectionnez **Conteneur** dans les modèles **Conteneurs et applications hébergés**.
 

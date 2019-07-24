@@ -11,10 +11,10 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: 62c4273a02e02aff268a96e1b13483088ba33f87
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65861674"
 ---
 # <a name="assigning-variables-in-azure-sql-data-warehouse"></a>Affectation de variables dans Azure SQL Data Warehouse
@@ -63,7 +63,7 @@ Avec l’instruction SET, vous pouvez uniquement définir une variable à la fo
 
 ## <a name="limitations"></a>Limites
 
-Vous ne pouvez pas utiliser la mise à jour pour l’attribution de variable.
+Vous ne pouvez pas utiliser l’instruction UPDATE pour attribuer des variables.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1130885cc3168582935264ffaad9fd7a8ba3c60b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 36ca46d6df9c32f23d3051d1205c3c6b39e69f5a
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64920260"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164718"
 ---
 # <a name="integrate-linkedin-account-connections-in-azure-active-directory"></a>Intégrer des connexions de compte LinkedIn dans Azure Active Directory
 
@@ -44,7 +44,7 @@ Vous pouvez activer les connexions au compte LinkedIn pour les utilisateurs de v
 1. Sous **Connexions au compte LinkedIn**, autorisez des utilisateurs à se connecter à leur compte pour accéder à leur connexions LinkedIn dans certaines applications Microsoft. Aucune donnée n’est partagée tant que l’utilisateur n’a pas consenti à la connexion à son compte.
 
     * Sélectionnez **Oui** pour activer le service pour tous les utilisateurs de votre organisation
-    * Choisissez **Sélectionnés** pour activer le service pour un groupe d’utilisateurs sélectionnés au sein de votre organisation
+    * Choisissez **Groupe sélectionné** pour activer le service uniquement pour un groupe d’utilisateurs sélectionnés au sein de votre organisation
     * Sélectionnez **Non** pour retirer le consentement de tous les utilisateurs au sein de votre organisation
 
     ![Intégrer les connexions au compte LinkedIn dans l’organisation](./media/linkedin-integration/linkedin-integration.png)
@@ -72,9 +72,9 @@ Nous avons remplacé l’option « Sélectionnés » qui spécifie une liste d
 
 ### <a name="move-the-currently-selected-individual-users-to-a-group"></a>Déplacer les utilisateurs individuels sélectionnés vers un groupe
 
-1. Lancez PowerShell.
+1. Lancement de PowerShell
 1. Installez le module Azure AD en exécutant `Install-Module AzureAD`.
-1. Exécutez le script suivant :
+1. Exécutez le script qui suit :
 
   ``` PowerShell
   $groupId = "GUID of the target group"

@@ -1,5 +1,5 @@
 ---
-title: Meilleures pratiques de sécurité - Microsoft Azure de base de données
+title: Meilleures pratiques de sécurité des bases de données - Microsoft Azure
 description: Cet article fournit un ensemble de meilleures pratiques pour la sécurité des bases de données Azure.
 services: security
 documentationcenter: na
@@ -15,18 +15,18 @@ ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
 ms.openlocfilehash: 9cd02172af5246c60b93a6e4696988268abed506
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66258680"
 ---
 # <a name="azure-database-security-best-practices"></a>Meilleures pratiques en matière de sécurité pour les bases de données Azure
-Cet article décrit les meilleures pratiques pour la sécurité de la base de données.
+Cet article décrit les meilleures pratiques pour la sécurité des bases de données.
 
-Ces meilleures pratiques font l’objet d’un consensus et sont compatibles avec les capacités et fonctionnalités actuelles de la plateforme Azure. Les opinions et avis évoluent au fil du temps, et cet article est mis à jour régulièrement afin de refléter ces modifications.
+Ces meilleures pratiques font l’objet d’un consensus et sont compatibles avec les capacités et fonctionnalités actuelles de la plateforme Azure. Les opinions et technologies évoluent au fil du temps ; cet article est régulièrement mis à jour de manière à tenir compte de ces changements.
 
-## <a name="secure-databases"></a>Bases de données sécurisées
+## <a name="secure-databases"></a>Sécuriser les bases de données
 La sécurité est une préoccupation majeure pour la gestion des bases de données, et elle a toujours été une priorité pour [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/). Vos bases de données peuvent être étroitement sécurisées pour permettre de répondre aux exigences réglementaires ou de sécurité, notamment HIPAA, ISO 27001/27002 et PCI DSS Level 1. Une liste à jour des certifications de conformité en matière de sécurité est disponible sur le [site du Centre de gestion de la confidentialité Microsoft](https://azure.microsoft.com/support/trust-center/services/). Vous pouvez également choisir de placer vos bases de données dans des centres de données Azure spécifiques, en fonction des exigences réglementaires.
 
 ## <a name="use-firewall-rules-to-restrict-database-access"></a>Utiliser des règles de pare-feu pour restreindre l’accès aux bases de données
@@ -148,12 +148,12 @@ La protection contre les menaces va au-delà de la détection. La protection con
 **Détail** : Classez les données dans votre base de données SQL en activant le service [Découverte et classification des données](../sql-database/sql-database-data-discovery-and-classification.md) dans Azure SQL Database. Vous pouvez superviser l’accès à vos données sensibles dans le tableau de bord Azure ou télécharger des rapports.
 
 **Bonne pratique** : Suivre les vulnérabilités de base de données afin de pouvoir améliorer la sécurité de votre base de données de façon proactive.   
-**Détail** : Utilisez le service [Évaluation des vulnérabilités](../sql-database/sql-vulnerability-assessment.md) Azure SQL Database, qui analyse les vulnérabilités de base de données potentielles. Le service s’appuie sur une base de connaissances de règles qui signale les vulnérabilités de sécurité et indique les écarts par rapport aux bonnes pratiques, notamment les erreurs de configuration, les autorisations excessives et les données sensibles non protégées.
+**Détail** : Utilisez le service [Évaluation des vulnérabilités](../sql-database/sql-vulnerability-assessment.md) d’Azure SQL Database, qui analyse les vulnérabilités de base de données potentielles. Le service s’appuie sur une base de connaissances de règles qui signale les vulnérabilités de sécurité et indique les écarts par rapport aux bonnes pratiques, notamment les erreurs de configuration, les autorisations excessives et les données sensibles non protégées.
 
 Les règles sont basées sur les bonnes pratiques Microsoft et se concentrent sur les problèmes de sécurité qui présentent des risques majeurs pour votre base de données et ses données importantes. Elles couvrent les problèmes au niveau de la base de données et les problèmes de sécurité au niveau du serveur, comme les paramètres de pare-feu de serveur et les autorisations au niveau du serveur. Ces règles représentent également les nombreuses exigences à respecter, provenant d’organismes de réglementation.
 
 **Bonne pratique** : Activer la détection des menaces.  
-**Détail** :  Activez le service [Détection des menaces](../sql-database/sql-database-threat-detection.md) Azure SQL Database pour obtenir des alertes de sécurité, ainsi que des suggestions pour examiner et corriger les menaces. Vous obtenez des alertes sur les activités de base de données suspectes, les vulnérabilités potentielles et les attaques par injection de code SQL, ainsi que des modèles de requêtes et d’accès anormaux à la base de données.
+**Détail** :  Activez le service [Détection des menaces](../sql-database/sql-database-threat-detection.md) d’Azure SQL Database pour obtenir des alertes de sécurité, ainsi que des suggestions pour examiner et corriger les menaces. Vous obtenez des alertes sur les activités de base de données suspectes, les vulnérabilités potentielles et les attaques par injection de code SQL, ainsi que des modèles de requêtes et d’accès anormaux à la base de données.
 
 La [Protection avancée contre les menaces](../sql-database/sql-advanced-threat-protection.md) est un package unifié de fonctionnalités de sécurité SQL avancées. Il inclut les services mentionnés précédemment : Détection des menaces, Découverte et classification des données et Évaluation des vulnérabilités. Il vous permet d’activer et de gérer ces fonctionnalités à partir d’un seul et même emplacement.
 
@@ -166,9 +166,9 @@ L’activation de ces fonctionnalités vous permet d’effectuer les opérations
 
 De plus, le service Détection des menaces intègre les alertes avec Azure Security Center pour une vue centralisée de l’état de sécurité de toutes vos ressources Azure.
 
-## <a name="enable-feature-restrictions"></a>Activer les restrictions de fonctionnalité
+## <a name="enable-feature-restrictions"></a>Activer les restrictions des fonctionnalités
 
-Les données contenues dans vos bases de données peuvent être exposées à des personnes malveillantes à l’aide de vecteurs d’attaque qui tirent parti des erreurs de base de données et les temps d’exécution de requête. Base de données SQL Azure fournit plusieurs mécanismes de restriction de fonctionnalité pour protéger votre base de données. Pour plus d’informations, consultez [Restrictions des fonctionnalités de base de données SQL](../sql-database/sql-database-feature-restrictions.md).
+Les données contenues dans vos bases de données peuvent être exposées à des personnes malveillantes à l’aide de vecteurs d’attaque qui tirent parti des erreurs de base de données et des temps d’exécution de requête. Azure SQL Database fournit plusieurs mécanismes de restriction de fonctionnalité pour protéger votre base de données. Pour en savoir plus, consultez [Restrictions des fonctionnalités de SQL Database](../sql-database/sql-database-feature-restrictions.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez l’article [Bonnes pratiques et tendances Azure relatives à la sécurité](security-best-practices-and-patterns.md) pour découvrir d’autres bonnes pratiques en matière de sécurité à appliquer dans le cadre de la conception, du déploiement et de la gestion de vos solutions cloud avec Azure.

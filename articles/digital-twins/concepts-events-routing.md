@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: alinast
-ms.openlocfilehash: b7ace0718ea0fad0b746a40c90acff487ae314d5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 7dfda00aca403f7f95f0c56d1db28c3c609bebd2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60926264"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080658"
 ---
 # <a name="routing-events-and-messages"></a>Routage des événements et des messages
 
@@ -21,7 +21,7 @@ Les solutions IoT unifient souvent plusieurs services puissants, incluant le sto
 
 ## <a name="route-types"></a>Types de routage  
 
-Azure Digital Twins propose deux façons d’intégrer les événements IoT à d’autres applications métier ou services Azure :
+Azure Digital Twins propose deux façons de relier des événements IoT à d’autres services ou applications métier Azure :
 
 * **Routage des événements Azure Digital Twins** : Un changement d’objet du graphe spatial, la réception de données de télémétrie ou une notification basée sur des conditions prédéfinies créée par une fonction définie par l’utilisateur peut déclencher des événements Azure Digital Twins. Les utilisateurs peuvent envoyer ces événements à [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), à des [rubriques Azure Service Bus](https://azure.microsoft.com/services/service-bus/) ou à [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) pour les traiter ultérieurement.
 

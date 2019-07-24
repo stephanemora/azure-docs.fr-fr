@@ -9,17 +9,17 @@ ms.date: 01/22/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 268467796e67caf2d20fedb44d83fd455a09b83e
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66147817"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177050"
 ---
 **Transferts de données sortants** : [transferts de données sortants](https://azure.microsoft.com/pricing/details/bandwidth/) (données sortant des centres de données Azure) sont facturés en fonction de la bande passante utilisée.
 
-**Transactions** : vous êtes facturé pour le nombre de transactions effectuées sur un disque managé standard. Pour les disques SSD standard, chaque opération d’e/s inférieure ou égale à 256 Kio du débit est considéré comme une seule opération d’e/s. Plus de 256 Kio des opérations d’e/s de débit sont considérés comme plusieurs e/s de taille 256 Kio. Pour les disques durs Standard, chaque opération d’e/s est considérée comme une transaction unique, indépendamment de la taille d’e/s.
+**Transactions** : vous êtes facturé pour le nombre de transactions effectuées sur un disque managé standard. Pour les disques SSD Standard, chaque opération d’E/S inférieure ou égale à 256 Kio de débit est considérée comme une seule opération d’E/S. Les opérations d’E/S supérieures à 256 Kio de débit sont considérées comme plusieurs opérations d’E/S de 256 Kio chacune. Pour les disques SSD Standard, chaque opération d’E/S est considérée comme une seule transaction, indépendamment de la taille des E/S.
 
-Pour plus d’informations sur la tarification des disques gérés, notamment les coûts de transaction, consultez [Managed Disks tarification](https://azure.microsoft.com/pricing/details/managed-disks).
+Pour plus d’informations sur la tarification d’Azure Disques managés (dont les coûts de transaction), consultez la page [Tarification de la fonctionnalité Disques managés](https://azure.microsoft.com/pricing/details/managed-disks).
 
 ### <a name="ultra-ssd-vm-reservation-fee"></a>Frais de réservation de machine virtuelle avec un disque Ultra SSD
 

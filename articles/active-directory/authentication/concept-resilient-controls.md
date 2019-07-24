@@ -1,5 +1,5 @@
 ---
-title: Créer une stratégie de gestion de contrôle des accès résilientes - Azure Active Directory
+title: Créer une stratégie de gestion du contrôle d’accès résiliente - Azure Active Directory
 description: Ce document fournit des conseils sur les stratégies à adopter par une organisation pour faire preuve de résilience et réduire le risque de verrouillage en cas d'interruption de service imprévue.
 services: active-directory
 author: martincoetzer
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/19/2018
 ms.author: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e1fa72f8c7edf76ec46663fd62ee40a3a16e8cd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: ff59b93603af61fd8ea571966a3c43a06929ae04
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60414951"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113487"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Créer une stratégie de gestion du contrôle d'accès résiliente avec Azure Active Directory
 
@@ -37,8 +37,8 @@ Ce document fournit des conseils sur les stratégies à adopter par une organisa
 Les quatre points à retenir dans ce document sont les suivants :
 
 * Éviter le verrouillage de l'administrateur en utilisant des comptes d'accès d'urgence
-* Implémenter une authentification multifacteur basée sur l'accès conditionnel plutôt qu'une authentification multifacteur par utilisateur
-* Atténuer le verrouillage des utilisateurs en utilisant plusieurs types de contrôle d'accès conditionnel
+* Implémenter une authentification multifacteur basée sur l’accès conditionnel plutôt qu’une authentification multifacteur par utilisateur.
+* Atténuer le verrouillage des utilisateurs en utilisant plusieurs types de contrôle d’accès conditionnel.
 * Atténuer le verrouillage des utilisateurs en fournissant plusieurs méthodes d'authentification ou des méthodes équivalentes pour chaque utilisateur
 
 ## <a name="before-a-disruption"></a>Avant une interruption
@@ -58,11 +58,11 @@ Pour déverrouiller l'accès administrateur à votre locataire, vous devez crée
 
 ### <a name="mitigating-user-lockout"></a>Atténuer le risque de verrouillage des utilisateurs
 
- Pour atténuer le risque de verrouillage des utilisateurs, utilisez des stratégies d'accès conditionnel avec plusieurs contrôles pour permettre aux utilisateurs de choisir leur mode d'accès aux applications et ressources. Par exemple, en permettant à l'utilisateur de choisir de se connecter à l'aide de l'authentification multifacteur, **à** partir d'un appareil géré **ou** à partir du réseau d'entreprise, si l'un des contrôles d'accès est indisponible, l'utilisateur disposera d'autres options pour continuer à travailler.
+ Pour atténuer le risque de verrouillage des utilisateurs, utilisez des stratégies d’accès conditionnel avec plusieurs contrôles pour permettre aux utilisateurs de choisir leur mode d’accès aux applications et ressources. Par exemple, en permettant à l'utilisateur de choisir de se connecter à l'aide de l'authentification multifacteur, **à** partir d'un appareil géré **ou** à partir du réseau d'entreprise, si l'un des contrôles d'accès est indisponible, l'utilisateur disposera d'autres options pour continuer à travailler.
 
 #### <a name="microsoft-recommendations"></a>Recommandations de Microsoft
 
-Intégrez les contrôles d'accès suivants aux stratégies d'accès conditionnel existantes de votre organisation :
+Intégrez les contrôles d’accès suivants aux stratégies d’accès conditionnel existantes de votre organisation :
 
 1. Fournissez à chaque utilisateur plusieurs méthodes d'authentification basées sur différents canaux de communication, par exemple l'application Microsoft Authenticator (basée sur Internet), le jeton OATH (généré sur l'appareil) et les SMS (téléphoniques).
 2. Déployez Windows Hello Entreprise sur les appareils Windows 10 pour répondre aux exigences d'authentification multifacteur dès la connexion de l'appareil.
@@ -109,7 +109,7 @@ Le fait de savoir à quoi vous vous exposez en cas d'interruption vous aidera à
 
 #### <a name="microsoft-recommendations"></a>Recommandations de Microsoft
 
-Une stratégie d'accès conditionnel d'urgence est une **stratégie désactivée** qui ignore toute authentification multifacteur Azure ou tierce ainsi que les contrôles basés sur les risques ou sur l'appareil. Ensuite, lorsque votre organisation décide d'activer son plan d'urgence, les administrateurs peuvent activer la stratégie et désactiver les stratégies standard basées sur les contrôles.
+Une stratégie d’accès conditionnel d’urgence est une **stratégie désactivée** qui ignore toute authentification multifacteur Azure ou tierce ainsi que les contrôles basés sur les risques ou sur l’appareil. Ensuite, lorsque votre organisation décide d'activer son plan d'urgence, les administrateurs peuvent activer la stratégie et désactiver les stratégies standard basées sur les contrôles.
 
 >[!IMPORTANT]
 > La désactivation des stratégies de protection de vos utilisateurs, même temporairement, réduira votre niveau de sécurité tant que le plan d'urgence sera en place.
@@ -117,7 +117,7 @@ Une stratégie d'accès conditionnel d'urgence est une **stratégie désactivée
 * Configurez un jeu de stratégies de secours si une interruption au niveau d'un type d'informations d'identification ou d'un mécanisme de contrôle d'accès affecte l'accès à vos applications. Configurez une stratégie désactivée exigeant la jonction de domaine pour le contrôle, comme une sauvegarde pour une stratégie active exigeant un fournisseur d'authentification multifacteur tiers.
 * Protégez vos mots de passe des personnes malintentionnées, lorsque l'authentification multifacteur n'est pas exigée, en suivant les pratiques décrites dans le livre blanc [Conseils sur les mots de passe](https://aka.ms/passwordguidance).
 * Déployez la [Réinitialisation du mot de passe libre-service (SSPR) Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr) et la [Protection par mot de passe Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-deploy) pour veiller à ce que les utilisateurs n'utilisent pas les mêmes mots de passe ni les termes que vous choisissez d'interdire.
-* Si un certain niveau d'authentification n'est pas atteint, utilisez des stratégies limitant l'accès au sein des applications plutôt que de revenir à un accès total. Par exemple : 
+* Si un certain niveau d'authentification n'est pas atteint, utilisez des stratégies limitant l'accès au sein des applications plutôt que de revenir à un accès total. Par exemple :
   * Configurez une stratégie de sauvegarde qui envoie la demande de session restreinte à Exchange et SharePoint.
   * Si votre organisation utilise Microsoft Cloud App Security, n'hésitez pas à avoir recours à une stratégie qui tire parti de MCAS. MCAS autorisera un accès en lecture seule, mais pas les chargements.
 * Nommez vos stratégies pour être certain qu’il soit facile de les trouver pendant une interruption. Incluez les éléments suivants dans le nom de la stratégie :
@@ -137,7 +137,7 @@ EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions
 
 L’exemple suivant permet : **Exemple A - Stratégie d'accès conditionnel d'urgence pour restaurer l'accès aux applications de collaboration stratégiques** constitue une urgence d'entreprise typique. Dans ce scénario, l'organisation exige généralement l'authentification multifacteur pour tous les accès Exchange Online et SharePoint Online, et dans ce cas, l'interruption est due à une panne du fournisseur d'authentification multifacteur du client (il peut s'agir de l'authentification multifacteur Azure, d'un fournisseur d'authentification multifacteur local ou d'une authentification multifacteur tierce). Cette stratégie atténue cette panne en permettant aux utilisateurs ciblés d'accéder à ces applications à partir d'appareils Windows approuvés et de leur réseau d'entreprise approuvé. Elle exclut également les comptes d'urgence et les administrateurs principaux de ces restrictions. Les utilisateurs ciblés accéderont alors à Exchange Online et SharePoint Online, tandis que les autres utilisateurs n’auront toujours pas accès aux applications en raison de la panne. Cet exemple nécessite un emplacement réseau **CorpNetwork** et un groupe de sécurité **ContingencyAccess** pour les utilisateurs cibles, un groupe **CoreAdmins** pour les administrateurs principaux et un groupe **EmergencyAccess** pour les comptes d'accès d'urgence. Le plan d'urgence requiert quatre stratégies pour fournir l'accès souhaité. 
 
-**Exemple A - Stratégies d'accès conditionnel d'urgence pour restaurer l'accès aux applications de collaboration stratégiques :** 
+**Exemple A - Stratégies d'accès conditionnel d'urgence pour restaurer l'accès aux applications de collaboration stratégiques :**
 
 * Stratégie 1 : exiger des appareils joints au domaine pour Exchange et SharePoint
   * Nom : EM001 - ACTIVER EN CAS D’URGENCE : Interruption MFA [1/4] - Exchange SharePoint - Exiger la jonction Azure AD Hybride
@@ -247,7 +247,7 @@ Une fois le service responsable de l’interruption restauré, annulez les modif
 
 ## <a name="emergency-options"></a>Options d'urgence
 
- En cas d'urgence et si votre organisation n'a pas encore implémenté de plan d'atténuation ou d'urgence, suivez les recommandations de la section [Plan d'urgence en cas de verrouillage des utilisateurs](#contingencies-for-user-lockout) si des stratégies d'accès conditionnel sont déjà utilisées pour appliquer l'authentification multifacteur.
+ En cas d’urgence et si votre organisation n’a pas encore implémenté de plan d’atténuation ou d’urgence, suivez les recommandations de la section [Plan d’urgence en cas de verrouillage des utilisateurs](#contingencies-for-user-lockout) si des stratégies d’accès conditionnel sont déjà utilisées pour appliquer l’authentification multifacteur.
 Si votre organisation utilise des stratégies d'authentification multifacteur héritées par utilisateur, vous pouvez envisager l'alternative suivante :
 
 1. Si vous disposez de l'adresse IP sortante du réseau d'entreprise, vous pouvez l'ajouter en tant qu'adresse IP approuvée pour activer l'authentification sur le réseau d'entreprise uniquement.
@@ -268,5 +268,5 @@ Si votre organisation utilise des stratégies d'authentification multifacteur h�
 * [Comment configurer des appareils hybrides joints à Azure Active Directory](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan)
 * [Guide de déploiement de Windows Hello Entreprise](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
   * [Aide sur les mots de passe - Microsoft Research](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf)
-* [Que sont les conditions dans l'accès conditionnel Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)
-* [Que sont les contrôles d'accès dans l'accès conditionnel Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)
+* [Que sont les conditions dans l’accès conditionnel Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)
+* [Que sont les contrôles d’accès dans l’accès conditionnel Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)

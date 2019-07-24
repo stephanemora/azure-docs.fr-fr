@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: barclayn
 ms.openlocfilehash: dba1fe91a635f467f4a3aeeaa048897065822869
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66236639"
 ---
 # <a name="azure-key-vault-availability-and-redundancy"></a>Disponibilité et redondance d’Azure Key Vault
@@ -26,7 +26,7 @@ En cas d’échec de composants du service Key Vault, d’autres composants de l
 
 Dans les rares cas d’indisponibilité d’une région Azure entière, les demandes d’Azure Key Vault effectuées dans cette région sont automatiquement acheminées (*basculées*) vers une région secondaire. Lorsque la région principale est de nouveau disponible, les demandes sont réacheminées (*basculées*) vers la région principale. Vous n’avez pas besoin d’agir dans la mesure où tout se passe automatiquement.
 
-Dans cette conception haute disponibilité, Azure Key Vault nécessite sans temps d’arrêt pour les activités de maintenance.
+Dans cette conception haute disponibilité, Azure Key Vault n’exige aucun temps d’arrêt pour les activités de maintenance.
 
 Il convient toutefois de prendre quelques précautions :
 

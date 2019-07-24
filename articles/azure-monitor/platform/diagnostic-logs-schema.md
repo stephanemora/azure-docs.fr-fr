@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 10/11/2018
 ms.author: robb
 ms.subservice: logs
-ms.openlocfilehash: 21eec5ee2fef185a927f6a416732303765e02b1c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 468bcdb6aa688157196bb9cba8added623a857d3
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65789320"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155309"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Services, schémas et catégories pris en charge pour les journaux de diagnostic Azure
 
@@ -55,7 +55,7 @@ Le schéma des journaux de diagnostic des ressources varie en fonction de la res
 | Azure Batch |[Journalisation des diagnostics Azure Batch](../../batch/batch-diagnostics.md) |
 | Azure Database pour MySQL | [Journaux de diagnostic Azure Database pour MySQL](../../mysql/concepts-server-logs.md#diagnostic-logs) |
 | Azure Database pour PostgreSQL | [Journaux de diagnostic Azure Database pour PostgreSQL](../../postgresql/concepts-server-logs.md#diagnostic-logs) |
-| Cognitive Services | Schéma non disponible. |
+| Cognitive Services | [Journalisation des diagnostics pour Azure Cognitive Services](../../cognitive-services/diagnostic-logging.md) |
 | Réseau de distribution de contenu | [Journaux de diagnostic Azure pour CDN](../../cdn/cdn-azure-diagnostic-logs.md) |
 | CosmosDB | [Journalisation Azure Cosmos DB](../../cosmos-db/logging.md) |
 | Data Factory | [Surveiller les fabriques de données à l’aide d’Azure Monitor](../../data-factory/monitor-using-azure-monitor.md) |
@@ -209,4 +209,3 @@ Le schéma des journaux de diagnostic des ressources varie en fonction de la res
 * [Diffuser en continu les journaux de diagnostic des ressources vers **Event Hubs**](../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)
 * [Modifier les paramètres de diagnostic des ressources via l’API REST Azure Monitor](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings)
 * [Analyser les journaux d’activité du stockage Azure avec Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md)
-

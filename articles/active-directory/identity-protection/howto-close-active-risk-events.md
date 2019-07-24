@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e003aec8fa5aeab587fa07acdae3a13b370a535
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 55c56674b04c4359fba741d10176fc91e3a991eb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60453446"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67109025"
 ---
 # <a name="how-to-close-active-risk-events"></a>Procédure : Fermer les événements à risque actifs
 

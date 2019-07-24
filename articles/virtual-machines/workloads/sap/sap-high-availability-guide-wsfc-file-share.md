@@ -4,7 +4,7 @@ description: Découvrez comment mettre en cluster une instance SAP ASCS/SCS sur 
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 28b3851a52ec5fe69eaa531e2e08f66fb73cb1e0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1d26df6aeb09934408b9081ac077af52ffc24d66
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60936192"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709055"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -310,11 +310,11 @@ Si vous souhaitez utiliser un partage de fichiers avec montée en puissance para
 * Vous devez utiliser des disques Azure Premium.
 * Nous vous recommandons d’utiliser Azure Disques managés.
 * Nous vous recommandons de formater les volumes à l’aide du système ReFS (Resilient File System).
-    * Pour plus d’informations, consultez le document [SAP Note 1869038 - SAP support for ReFs filesystem][1869038] (Note SAP n° 1869038 - Prise en charge SAP du système de fichiers ReFs) et la section [Choix du système de fichiers][planning-volumes-s2d-choosing-filesystem] de l’article Planification des volumes dans les espaces de stockage direct.
+    * Pour plus d’informations, consultez le chapitre [SAP Note 1869038 - SAP support for ReFs filesystem][1869038]and the [Choosing the file system][planning-volumes-s2d-choosing-filesystem] de l’article Planification des volumes dans les espaces de stockage direct.
     * Veillez à installer la [mise à jour cumulative Microsoft KB4025334][kb4025334].
 * Vous pouvez utiliser les tailles de machines virtuelles Azure séries DS ou séries DSv2.
 * Pour obtenir de bonnes performances réseau entre les machines virtuelles (nécessaires pour la synchronisation des disques d’espaces de stockage direct), utilisez un type de machine virtuelle disposant au moins d’une bande passante réseau élevée.
-    Pour plus d’informations, consultez les spécifications des [séries DSv2][dv2-series] et des [séries DS][ds-series].
+    Pour plus d’informations, consultez les spécifications des [séries DSv2][dv2-series]and [DS-Series][ds-series].
 * Nous vous recommandons de réserver une capacité non allouée dans le pool de stockage. Vous laisserez ainsi aux volumes suffisamment d’espace pour effectuer une réparation « sur place » en cas d’échec d’un disque. Cette méthode améliore les performances et la sécurité des données.  Pour plus d’informations, consultez la rubrique [Choix de la taille des volumes][choosing-the-size-of-volumes-s2d].
 * Les machines virtuelles Azure de partage de fichiers avec montée en puissance parallèle doivent être déployées dans leur propre groupe à haute disponibilité Azure.
 * Vous n’avez pas besoin de configurer l’équilibreur de charge interne Azure avec le nom réseau du partage de fichiers avec montée en puissance parallèle, comme pour \<l’hôte global SAP\>. Cette opération s’effectue pour le \<nom d’hôte virtuel ASCS/SCS\> de l’instance SAP ASCS/SCS ou pour le système de gestion de base de données (SGBD). Un partage de fichiers avec montée en puissance parallèle fait monter en charge l’ensemble des nœuds de cluster. \<L’hôte global SAP\> utilise l’adresse IP locale pour tous les nœuds de cluster.
@@ -360,4 +360,4 @@ Dans ce cas, vous pouvez utiliser une solution SIOS tierce en tant que disque pa
 * [Installation de la haute disponibilité SAP NetWeaver sur un cluster de basculement Windows et un disque partagé pour une instance SAP (A)SCS][sap-high-availability-installation-wsfc-shared-disk]
 * [Déployer un serveur de fichiers à deux nœuds Storage Spaces Direct réparti pour le stockage UPD dans Azure][deploy-sofs-s2d-in-azure]
 * [Storage Spaces Direct dans Windows Server 2016][s2d-in-win-2016]
-* [Présentation approfondie : volumes dans les espaces de stockage direct][deep-dive-volumes-in-s2d]
+* [Présentation approfondie : Columes dans les espaces de stockage direct][deep-dive-volumes-in-s2d]

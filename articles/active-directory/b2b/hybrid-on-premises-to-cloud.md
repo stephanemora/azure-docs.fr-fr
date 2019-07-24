@@ -1,5 +1,5 @@
 ---
-title: Synchroniser les comptes de partenaires local vers le cloud en tant qu’utilisateurs B2B - Azure Active Directory | Microsoft Docs
+title: Synchroniser des comptes de partenaires locaux vers le cloud en tant qu’utilisateurs B2B - Azure Active Directory | Microsoft Docs
 description: Octroyez aux partenaires externes gérés localement un accès à la fois aux ressources locales et aux ressources cloud à l’aide des mêmes informations d’identification avec Azure AD B2B Collaboration.
 services: active-directory
 ms.service: active-directory
@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2ae75311ab61449f37ccea15a0bcb88fed80c3ed
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65767352"
 ---
 # <a name="grant-locally-managed-partner-accounts-access-to-cloud-resources-using-azure-ad-b2b-collaboration"></a>Octroyer aux comptes de partenaires gérés localement un accès aux ressources cloud à l’aide d’Azure AD B2B Collaboration
@@ -32,7 +32,7 @@ Avant d’activer la synchronisation de l’attribut UserType, vous devez d’ab
 Pour ce faire, les deux approches communes sont les suivantes :
 
 - Vous pouvez désigner un attribut Active Directory local inutilisé (par exemple, extensionAttribute1) à utiliser en tant qu’attribut source. 
-- Vous pouvez également dériver la valeur de l’attribut de UserType à partir d’autres propriétés. Par exemple, vous souhaitez synchroniser tous les utilisateurs en tant qu’invité si leur attribut de UserPrincipalName Active Directory local se termine par le domaine  *\@partners.contoso.com*.
+- Vous pouvez également dériver la valeur de l’attribut de UserType à partir d’autres propriétés. Par exemple, vous souhaitez synchroniser tous les utilisateurs en tant qu’Invité si leur attribut UserPrincipalName Active Directory local se termine par le domaine *\@partners.contoso.com*.
  
 Pour plus d’informations sur les conditions requises pour les attributs, consultez [Activer la synchronisation de UserType](../hybrid/how-to-connect-sync-change-the-configuration.md#enable-synchronization-of-usertype). 
 

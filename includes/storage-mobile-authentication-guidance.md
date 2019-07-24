@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ms.openlocfilehash: 6911e06dc023027ab32b99387b9f7d3f5e708f86
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66158604"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176742"
 ---
 ## <a name="configure-your-application-to-access-azure-storage"></a>Configuration de votre application pour accéder à Azure Storage
 Il existe deux manières d’authentifier votre application pour accéder aux services de stockage :
 
-* Clé partagée : Utilisez la clé partagée uniquement à des fins de test
-* Signature d’accès partagé (SAP) : Utilisez la signature pour les applications de production
+* Clé partagée : utilisez la clé partagée à des fins de test uniquement
+* Signature d’accès partagé (SAP) : utilisez cette fonctionnalité pour les applications de production
 
 ### <a name="shared-key"></a>Clé partagée
 L’authentification par clé partagée signifie que votre application utilisera votre nom de compte et votre clé de compte pour accéder aux services de stockage. Afin de vous montrer rapidement comment utiliser cette bibliothèque, nous allons utiliser l’authentification par clé partagée dans cet article de prise en main.
@@ -49,5 +49,5 @@ L’exemple suivant montre comment utiliser l’Explorateur de stockage Microsof
    
    `"SharedAccessSignature=sv=2015-04-05&ss=b&srt=sco&sp=rw&se=2016-07-21T18%3A00%3A00Z&sig=3ABdLOJZosCp0o491T%2BqZGKIhafF1nlM3MzESDDD3Gg%3D;BlobEndpoint=https://youraccount.blob.core.windows.net"`
 
-Comme vous pouvez le voir, lorsque vous utilisez une SAP, vous n’exposez pas votre clé de compte dans votre application. Plus d’informations sur les associations de sécurité et meilleures pratiques d’utilisation de SAP en consultant [Signatures d’accès partagé : Présentation du modèle SAP](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Comme vous pouvez le voir, lorsque vous utilisez une SAP, vous n’exposez pas votre clé de compte dans votre application. Vous pouvez en savoir plus sur les SAP et les meilleures pratiques en matière d’utilisation de SAP en consultant [Signatures d’accès partagé : Présentation du modèle SAP](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md).
 

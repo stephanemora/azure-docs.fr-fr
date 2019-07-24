@@ -18,10 +18,10 @@ ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: efa14e88eeb8ab43f998a32aaa0c14220acab03a
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66235335"
 ---
 # <a name="support-and-help-options-for-developers"></a>Options d’aide et de support pour les développeurs
@@ -51,7 +51,7 @@ Sachant que *{Your Search Terms}* correspond aux mots clés de votre recherche.
 
 ## <a name="use-the-development-support-tools"></a>Utiliser les outils de support de développement
 
-| Tool  | Description  |
+| Outil  | Description  |
 |---------|---------|
 | [jwt.ms](https://jwt.ms) | Collez un ID ou un jeton d'accès pour décoder les noms et les valeurs des revendications. |
 | [Afficheur Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer)| Cet outil vous permet de soumettre des requêtes et de voir les réponses par rapport à l'API Microsoft Graph. |
@@ -81,10 +81,10 @@ Les publications suivantes de Stack Overflow contiennent des conseils sur la for
 
 Si vous découvrez un bogue ou un problème lié à nos bibliothèques, signalez-le dans nos référentiels GitHub. Nos bibliothèques étant open source, vous pouvez également soumettre une demande de tirage (pull request).
 
-Pour obtenir la liste des bibliothèques et de leurs référentiels GitHub, consultez les rubriques suivantes :
+Pour obtenir la liste des bibliothèques et de leurs référentiels GitHub, consultez les informations suivantes :
 
 * Bibliothèques et référentiels GitHub [ADAL](active-directory-authentication-libraries.md)
-* [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md), [MSAL. Android](https://github.com/AzureAD/microsoft-authentication-library-for-android), et [MSAL.obj_c](https://github.com/AzureAD/microsoft-authentication-library-for-objc) bibliothèques et dépôts GitHub
+* Bibliothèques [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md), [MSAL.Android](https://github.com/AzureAD/microsoft-authentication-library-for-android) et [MSAL.obj_c](https://github.com/AzureAD/microsoft-authentication-library-for-objc) et référentiels GitHub
 
 ## <a name="open-a-support-request"></a>Ouverture d’une demande de support
 

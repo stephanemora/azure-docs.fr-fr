@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: iainfou
 ms.openlocfilehash: 334e56db97213206d9ab7ed5ef4d1d96ab9325d6
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65956479"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Créer et utiliser un volume persistant de manière dynamique avec des disques Azure sur Azure Kubernetes Service (AKS)
@@ -21,13 +21,13 @@ Un volume persistant représente un élément de stockage provisionné pour une 
 > [!NOTE]
 > Un disque Azure peut être monté uniquement avec le type de *mode d’accès* *ReadWriteOnce*, qui le rend disponible sur un seul pod dans AKS. Si vous avez besoin de partager un volume persistant entre plusieurs pods, utilisez [Azure Files][azure-files-pvc].
 
-Pour plus d’informations sur les volumes Kubernetes, consultez [des options de stockage pour les applications dans ACS][concepts-storage].
+Pour plus d’informations sur les volumes Kubernetes, consultez [Options de stockage pour les applications dans AKS][concepts-storage].
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
 Cet article suppose que vous avez un cluster AKS existant. Si vous avez besoin d’un cluster AKS, consultez le guide de démarrage rapide d’AKS [avec Azure CLI][aks-quickstart-cli] ou [avec le portail Azure][aks-quickstart-portal].
 
-Vous également besoin d’Azure CLI version 2.0.59 ou ultérieur installé et configuré. Exécutez  `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez  [Installation d’Azure CLI 2.0][install-azure-cli].
+Azure CLI 2.0.59 (ou une version ultérieure) doit également être installé et configuré. Exécutez  `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez  [Installation d’Azure CLI 2.0][install-azure-cli].
 
 ## <a name="built-in-storage-classes"></a>Classes de stockage intégrées
 
@@ -40,7 +40,7 @@ Chaque cluster AKS comprend deux classes de stockage précréées, toutes deux c
 * La classe de stockage *Premium managée* provisionne un disque Azure Premium.
     * Les disques Premium reposent sur un disque SSD à faible latence et hautes performances. Ils conviennent parfaitement aux machines virtuelles exécutant une charge de travail en production. Si les nœuds AKS dans votre cluster utilisent le stockage Premium, sélectionnez la classe *Premium managée*.
     
-Ces classes de stockage par défaut ne vous permettent de mettre à jour de la taille du volume après sa créée. Pour activer cette fonctionnalité, ajoutez le *allowVolumeExpansion : true* trait à une des classes de stockage par défaut ou créer votre classe de stockage personnalisé propre. Vous pouvez modifier une classe de stockage existant à l’aide du `kubectl edit sc` commande. Pour plus d’informations sur les classes de stockage et de création youor propre, consultez [des options de stockage pour les applications dans ACS][storage-class-concepts].
+Ces classes de stockage par défaut ne vous permettent de mettre à jour la taille du volume après la création. Pour activer cette fonctionnalité, ajoutez la ligne *allowVolumeExpansion: true* à l’une des classes de stockage par défaut ou créez votre propre classe de stockage personnalisée. Vous pouvez modifier une classe de stockage existant à l’aide de la commande `kubectl edit sc`. Pour plus d’informations sur les classes de stockage et la création de votre propre classe, consultez [Options de stockage pour les applications dans AKS][storage-class-concepts].
 
 Utilisez la commande [kubectl get sc][kubectl-get] pour afficher les classes de stockage créées au préalable. L’exemple suivant montre les classes de stockage pré-créées disponibles au sein d’un cluster AKS :
 
@@ -53,7 +53,7 @@ managed-premium     kubernetes.io/azure-disk   1h
 ```
 
 > [!NOTE]
-> Les revendications de volume persistant sont spécifiées dans Gio mais les disques managés Azure sont facturés par référence SKU pour une taille spécifique. Ces références (SKU) comprise 32GiB pour S4 ou P4 disques à 32TiB pour les disques S80 ou P80 (en version préliminaire). Le débit et les performances d’E/S d’un disque managé Premium dépendent à la fois de la référence SKU et de la taille d’instance des nœuds dans le cluster AKS. Pour plus d’informations, consultez [Tarification et performances de la fonctionnalité Disques managés][managed-disk-pricing-performance].
+> Les revendications de volume persistant sont spécifiées dans Gio mais les disques managés Azure sont facturés par référence SKU pour une taille spécifique. Ces références SKU vont de 32 Gio pour les disques S4 ou P4 à 32 Tio pour les disques S80 ou P80 (en préversion). Le débit et les performances d’E/S d’un disque managé Premium dépendent à la fois de la référence SKU et de la taille d’instance des nœuds dans le cluster AKS. Pour plus d’informations, consultez [Tarification et performances de la fonctionnalité Disques managés][managed-disk-pricing-performance].
 
 ## <a name="create-a-persistent-volume-claim"></a>Créer une revendication de volume persistant
 
@@ -88,7 +88,7 @@ persistentvolumeclaim/azure-managed-disk created
 
 ## <a name="use-the-persistent-volume"></a>Utiliser le volume persistant
 
-Une fois la revendication de volume persistant créée, et le disque provisionné convenablement, un pod peut être créé avec un accès au disque. Le manifeste suivant crée un pod NGINX de base qui utilise la revendication de volume persistant nommé *azure-managed-disk* pour monter le disque Azure à l’emplacement `/mnt/azure`. Pour Windows Server conteneurs (actuellement en version préliminaire dans ACS), spécifiez un *mountPath* à l’aide de la convention de chemin d’accès Windows, tel que *« D: »*.
+Une fois la revendication de volume persistant créée, et le disque provisionné convenablement, un pod peut être créé avec un accès au disque. Le manifeste suivant crée un pod NGINX de base qui utilise la revendication de volume persistant nommé *azure-managed-disk* pour monter le disque Azure à l’emplacement `/mnt/azure`. Pour les conteneurs Windows Server (actuellement en préversion dans AKS), spécifiez un *chemin d’accès de montage* en utilisant la convention de chemin d’accès Windows, tel que *« D: »* .
 
 Créez un fichier nommé `azure-pvc-disk.yaml` et copiez-y le manifeste suivant.
 
@@ -253,7 +253,7 @@ Volumes:
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour les recommandations associées, consultez [meilleures pratiques pour le stockage et les sauvegardes dans ACS][operator-best-practices-storage].
+Pour connaître les meilleures pratiques associées, consultez [Meilleures pratiques relatives au stockage et aux sauvegardes dans Azure Kubernetes Service (AKS)][operator-best-practices-storage].
 
 Découvrez plus en détail les volumes persistants Kubernetes utilisant des disques Azure.
 

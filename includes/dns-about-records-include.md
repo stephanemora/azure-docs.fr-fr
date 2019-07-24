@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: victorh
 ms.openlocfilehash: f7fa018225d82e2db4a3c51b333aea6fcb9a1514
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66160933"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177693"
 ---
 ### <a name="record-names"></a>Noms d’enregistrement
 
@@ -21,7 +21,7 @@ Un enregistrement *apex* est un enregistrement DNS à la racine (ou *apex*) d’
 
 Chaque enregistrement DNS a un nom et un type. Les enregistrements sont organisés selon différents types, en fonction des données qu’ils contiennent. Le type le plus courant est un enregistrement « A » qui mappe un nom à une adresse IPv4. Un autre type courant est un enregistrement « MX » qui mappe un nom à un serveur de messagerie.
 
-Azure DNS prend en charge tous les types d’enregistrement DNS courants : A, AAAA, CAA, CNAME, MX, NS, PTR, SOA, SRV et TXT. Notez que les [enregistrements SPF sont représentés à l’aide d’enregistrements TXT](../articles/dns/dns-zones-records.md#spf-records).
+Azure DNS prend en charge tous les types d’enregistrement DNS courants : A, AAAA, CAA, CNAME, MX, NS, PTR, SOA, SRV et TXT. Notez que les [enregistrements SPF sont représentés à l’aide d’enregistrements TXT](../articles/dns/dns-zones-records.md#spf-records).
 
 ### <a name="record-sets"></a>Jeux d’enregistrements
 

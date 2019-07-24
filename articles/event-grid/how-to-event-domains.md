@@ -7,16 +7,16 @@ ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
 ms.date: 01/17/2019
-ms.openlocfilehash: 73c837897f4a104fabb4143d4b49fa3fbc258bb4
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
-ms.translationtype: MT
+ms.openlocfilehash: 0042b0bd8c6ed9e9d253c44151dcf0588c742b48
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66305024"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67137841"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>Gérer des rubriques et publier des événements à l’aide de domaines de l’événement
 
-Cet article explique comment :
+Cet article montre comment :
 
 * Créer un domaine Event Grid
 * S’abonner aux rubriques de grille d’événement
@@ -194,11 +194,11 @@ Ensuite, publiez vos événements sur votre domaine Event Grid en effectuant une
 
 ## <a name="search-lists-of-topics-or-subscriptions"></a>Listes de recherche de rubriques ou abonnements
 
-Pour faciliter la recherche et la gestion d’un grand nombre de rubriques ou abonnements, les API de Event Grid prendre en charge la liste une pagination.
+Pour la recherche et la gestion d’un nombre important de rubriques et d’abonnements, les API Event Grid prennent en charge le référencement et la pagination.
 
 ### <a name="using-cli"></a>Utiliser l'interface CLI
 
-Pour utiliser il Assurez-vous que vous utilisez la version d’extension Azure CLI Event Grid 0.4.1 ou une version ultérieure.
+Pour l’utiliser, veillez à utiliser l’extension Event Grid d’Azure CLI version 0.4.1 ou plus récente.
 
 ```azurecli-interactive
 # If you haven't already installed the extension, do it now.

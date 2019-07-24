@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: babanisa
 ms.openlocfilehash: 87cfce6045ce84f83ca651472635227547c26ee9
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66117021"
 ---
 # <a name="event-grid-security-and-authentication"></a>Sécurité et authentification Azure Event Grid 
@@ -41,12 +41,12 @@ Si vous utilisez un autre type de point de terminaison, comme une fonction Azure
 
    À partir de la version 2018-05-01-preview, Event Grid prend en charge l'établissement d'une liaison de validation manuel. Si vous créez un abonnement aux événements à l'aide d'un kit de développement logiciel (SDK) ou d'un outil qui utilise l'API 2018-05-01-preview ou version ultérieure, Event Grid envoie une propriété `validationUrl` dans la partie données de l'événement de validation de l'abonnement. Pour terminer l'établissement de la liaison, recherchez cette URL dans les données d'événement et envoyez-lui manuellement une requête GET. Vous pouvez utiliser un client REST ou votre navigateur web.
 
-   L’URL fournie est valide pendant 5 minutes. Pendant ce temps, l’état d’approvisionnement de l’abonnement aux événements est `AwaitingManualAction`. Si vous n’effectuez pas la validation manuelle dans les 5 minutes, l’état d’approvisionnement a `Failed`. Vous devez recréer l’abonnement aux événements avant de commencer la validation manuelle.
+   L’URL fournie est valable pendant 5 minutes. Pendant ce temps, l’état d’approvisionnement de l’abonnement aux événements est `AwaitingManualAction`. Si vous n’effectuez pas la validation manuelle dans les 5 minutes, l’état d’approvisionnement est défini sur `Failed`. Vous devez recréer l’abonnement aux événements avant de commencer la validation manuelle.
 
-    Ce mécanisme d’authentification requiert également le point de terminaison webhook pour retourner un code d’état HTTP 200 afin qu’il sache que la publication pour l’événement de validation a été acceptée avant qu’il peut être placée dans le mode de validation manuelle. En d’autres termes, si le point de terminaison renvoie 200 mais ne renvoyer une réponse de validation par programmation, le mode est transmise pour le mode de validation manuelle. S’il existe une opération GET sur l’URL de la validation dans les 5 minutes, le protocole de transfert de validation est considérée comme réussie.
+    Ce mécanisme d’authentification requiert également que le point de terminaison webhook retourne un code d’état HTTP 200 afin qu’il sache que le POST pour l’événement de validation a été accepté avant qu’il ne puisse être placé dans le mode de validation manuelle. En d’autres termes, si le point de terminaison renvoie un code 200 mais ne renvoie pas une réponse de validation par programmation, le mode est transmis au mode de validation manuelle. S’il y a une opération GET sur l’URL de validation dans les 5 minutes, l’établissement de liaison de validation est considéré comme réussi.
 
 > [!NOTE]
-> À l’aide de certificats auto-signés pour la validation n’est pas pris en charge. Utilisez un certificat signé d’une autorité de certification (CA) à la place.
+> L’utilisation de certificats auto-signés pour la validation n’est pas prise en charge. Utilisez plutôt un certificat signé auprès d’une autorité de certification (AC).
 
 ### <a name="validation-details"></a>Détails de validation
 
@@ -93,7 +93,7 @@ Pour accéder à un exemple de gestion d'établissement de liaison de validation
 
 ### <a name="checklist"></a>Liste de contrôle
 
-Au cours de l’événement création de l’abonnement, si vous voyez un message d’erreur tel que « la tentative de valider le point de terminaison fourni https :\//your-endpoint-here a échoué. Pour plus d’informations, visitez https :\//aka.ms/esvalidation », il indique qu’il existe une défaillance dans le protocole de transfert de validation. Pour résoudre cette erreur, vérifiez les points suivants :
+Lors de la création de l’abonnement aux événements, si vous voyez un message d’erreur indiquant que la tentative de validation a échoué pour le point de terminaison https:\//your-endpoint-here failed. et vous invitant à rechercher plus d’informations dans https:\//aka.ms/esvalidation, cela signifie qu’il existe une défaillance dans l’établissement de liaison de validation. Pour résoudre cette erreur, vérifiez les points suivants :
 
 * Contrôlez-vous le code d’application dans le point de terminaison cible ? Par exemple, si vous écrivez un déclencheur HTTP basé sur Azure Function, avez-vous accès au code d’application pour apporter des modifications ?
 * Si vous avez accès au code d’application, implémentez le mécanisme d’établissement de liaison ValidationCode comme dans l’exemple ci-dessus.

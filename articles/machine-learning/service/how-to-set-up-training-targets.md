@@ -9,20 +9,20 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 06/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: a815ec4ac97f8476403f773aeedb19ff84092b03
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
-ms.translationtype: MT
+ms.openlocfilehash: 0b35ef5ca3aaa7ad4169f99e2830ebea76d2759e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66752977"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074947"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Configurer des cibles de calcul pour l’entraînement des modèles 
 
-Azure Machine Learning service vous permet de former votre modèle sur une variété de ressources ou d’environnements, appelés collectivement [__cibles de calcul__](concept-azure-machine-learning-architecture.md#compute-target). Une cible de calcul peut être un ordinateur local ou une ressource cloud telle qu’une capacité de calcul Azure Machine Learning, Azure HDInsight ou une machine virtuelle distante.  Vous pouvez également créer des cibles de calcul pour le déploiement de modèle, comme décrit dans [« Déployer des modèles avec le service Azure Machine Learning »](how-to-deploy-and-where.md).
+Azure Machine Learning service vous permet de former votre modèle sur une variété de ressources ou d’environnements, appelés collectivement [__cibles de calcul__](concept-azure-machine-learning-architecture.md#compute-targets). Une cible de calcul peut être un ordinateur local ou une ressource cloud telle qu’une capacité de calcul Azure Machine Learning, Azure HDInsight ou une machine virtuelle distante.  Vous pouvez également créer des cibles de calcul pour le déploiement de modèle, comme décrit dans [« Déployer des modèles avec le service Azure Machine Learning »](how-to-deploy-and-where.md).
 
-Vous pouvez créer et gérer une cible de calcul à l’aide du SDK Azure Machine Learning, portail Azure, l’extension Azure CLI ou Azure Machine Learning VS Code. Si vous avez des cibles de calcul qui ont été créées via un autre service (par exemple un cluster HDInsight), vous pouvez les utiliser en les attachant à votre espace de travail du service Azure Machine Learning.
+Vous pouvez créer et gérer une cible de calcul avec le SDK Azure Machine Learning, Azure CLI, le portail Azure ou l’extension Azure Machine Learning VS Code. Si vous avez des cibles de calcul qui ont été créées via un autre service (par exemple un cluster HDInsight), vous pouvez les utiliser en les attachant à votre espace de travail du service Azure Machine Learning.
  
 Cet article explique comment utiliser les différentes cibles de calcul pour l’entraînement des modèles.  Pour toutes les cibles de calcul, le flux de travail est identique :
 1. __Créez__ une cible de calcul si vous n’en avez pas encore.
@@ -31,7 +31,7 @@ Cet article explique comment utiliser les différentes cibles de calcul pour l�
 
 
 >[!NOTE]
-> Code de cet article a été testé avec Azure Machine Learning SDK version 1.0.39.
+> Le code présenté dans cet article a été testé avec le SDK Azure Machine Learning version 1.0.39.
 
 ## <a name="compute-targets-for-training"></a>Cibles de calcul pour l’entraînement
 
@@ -75,7 +75,7 @@ Le code suivant présente un exemple de configuration d’exécutions d’appren
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/runconfig.py?name=run_user_managed)]
   
-## <a name="set-up-compute-targets-with-python"></a>Configurer des cibles de calcul avec Python
+## <a name="set-up-in-python"></a>Configurer dans Python
 
 Reportez-vous aux sections ci-dessous pour configurer ces cibles de calcul :
 
@@ -111,7 +111,7 @@ Vous pouvez créer un environnement Compute Azure Machine Learning à la demande
 Vous pouvez créer une capacité de calcul Azure Machine Learning en tant que cible de calcul au moment de l’exécution. La capacité de calcul est automatiquement créée pour votre exécution. La capacité de calcul est automatiquement supprimée une fois l’exécution terminée. 
 
 > [!NOTE]
-> Pour spécifier le nombre maximal de nœuds à utiliser, vous définiriez normalement `node_count` au nombre de nœuds. Il existe actuellement (04/04/2019) un bogue qui empêche cela de fonctionner. Pour résoudre ce problème, utilisez le `amlcompute._cluster_max_node_count` propriété de la configuration d’exécution. Par exemple : `run_config.amlcompute._cluster_max_node_count = 5`.
+> Pour spécifier le nombre maximal de nœuds à utiliser, vous définissez normalement `node_count` sur le nombre de nœuds. Il existe actuellement (au 4 avril 2019) un bogue qui empêche cela de fonctionner. Pour résoudre ce problème, utilisez la propriété `amlcompute._cluster_max_node_count` de la configuration d’exécution. Par exemple : `run_config.amlcompute._cluster_max_node_count = 5`.
 
 > [!IMPORTANT]
 > La création de la capacité de calcul Azure Machine Learning basée sur l’exécution est actuellement en préversion. N’utilisez pas la création basée sur l’exécution si vous utilisez l’optimisation automatisée des hyperparamètres ou le machine learning automatisé. Pour utiliser un réglage d’hyperparamètre ou un apprentissage automatique, créez plutôt un cible de [calcul persistante](#persistent).
@@ -237,13 +237,13 @@ Azure HDInsight est une plateforme populaire pour l’analytique de Big Data. El
 
 ### <a id="azbatch"></a>Azure Batch 
 
-Azure Batch est utilisé pour exécuter efficacement des applications à grande échelle parallèles et haute performance computing (HPC) dans le cloud. AzureBatchStep peut être utilisé dans un Pipeline Azure Machine Learning pour envoyer des travaux à un pool Azure Batch de machines.
+Azure Batch sert à exécuter efficacement des applications de calcul haute performance (HPC) en parallèle et à grande échelle dans le cloud. AzureBatchStep peut être utilisé dans un pipeline Azure Machine Learning pour envoyer des travaux à un pool de machines Azure Batch.
 
-Pour joindre Azure Batch comme cible de calcul, vous devez utiliser le Kit de développement logiciel Azure Machine Learning et fournissez les informations suivantes :
+Pour attacher Azure Batch comme cible de calcul, vous devez utiliser le Kit de développement logiciel Azure Machine Learning et fournir les informations suivantes :
 
--   **Nom de calcul Azure Batch**: Un nom convivial à utiliser pour le calcul au sein de l’espace de travail
--   **Nom du compte Azure Batch**: Le nom du compte Azure Batch
--   **Groupe de ressources** : Le groupe de ressources qui contient le compte Azure Batch.
+-   **Nom de calcul Azure Batch** : Nom convivial à utiliser pour le calcul au sein de l’espace de travail
+-   **Nom du compte Azure Batch** : Nom du compte Azure Batch
+-   **Groupe de ressources** : Groupe de ressources qui contient le compte Azure Batch.
 
 Le code suivant montre comment attacher Azure Batch comme cible de calcul :
 
@@ -271,7 +271,7 @@ except ComputeTargetException:
 print("Using Batch compute:{}".format(batch_compute.cluster_resource_id))
 ```
 
-## <a name="set-up-compute-in-the-azure-portal"></a>Configurer la capacité de calcul dans le portail Azure
+## <a name="set-up-in-azure-portal"></a>Configuré dans le portail Azure
 
 Vous pouvez accéder aux cibles de calcul associées à votre espace de travail à partir du portail Azure.  Vous pouvez utiliser le portail pour :
 
@@ -357,7 +357,7 @@ Suivez la procédure décrite plus haut pour afficher la liste des cibles de cal
 1. Sélectionnez __Attacher__. 
 1. Pour afficher l’état de l’opération d’attachement, sélectionnez la cible de calcul dans la liste.
 
-## <a name="set-up-compute-with-the-cli"></a>Configurer une capacité de calcul avec l’interface CLI
+## <a name="set-up-with-cli"></a>Configurer avec l’interface CLI
 
 Vous pouvez accéder aux cibles de calcul associées à votre espace de travail à l’aide de l’[extension CLI](reference-azure-machine-learning-cli.md) pour Azure Machine Learning service.  Vous pouvez utiliser l’interface CLI pour :
 
@@ -367,9 +367,9 @@ Vous pouvez accéder aux cibles de calcul associées à votre espace de travail 
 
 Pour plus d’informations, voir [Gestion des ressources](reference-azure-machine-learning-cli.md#resource-management).
 
-## <a name="set-up-compute-with-vs-code"></a>Configurer le calcul avec VS Code
+## <a name="set-up-with-vs-code"></a>Configurer avec VS Code
 
-Vous pouvez accéder, créer et gérer les cibles de calcul qui sont associés à votre espace de travail à l’aide de la [extension VS Code](how-to-vscode-tools.md#create-and-manage-compute-targets) pour le service Azure Machine Learning.
+Vous pouvez accéder aux cibles de calcul associées à votre espace de travail, et les créer et les gérer à l’aide de l’[extension VS Code](how-to-vscode-tools.md#create-and-manage-compute-targets) pour Azure Machine Learning service.
 
 ## <a id="submit"></a>Soumettre une série de tests d’apprentissage
 
@@ -380,11 +380,11 @@ Après avoir créé une configuration de série de tests, vous l’utilisez pour
 1. Attendez la fin de l’exécution.
 
 > [!IMPORTANT]
-> Lorsque vous soumettez l’exécution de la formation, un instantané du répertoire qui contient vos scripts de formation est créé et envoyé à la cible de calcul. Il est également stocké dans le cadre de l’expérience dans votre espace de travail. Si vous modifiez des fichiers et que vous soumettez l’exécution là encore, que les fichiers modifiés seront téléchargés.
+> Quand vous soumettez la série de tests d’apprentissage, un instantané du répertoire contenant vos scripts d’apprentissage est créé et envoyé à la cible de calcul. Il est également stocké dans le cadre de l’expérience dans votre espace de travail. Si vous modifiez des fichiers et que vous soumettez à nouveau l’exécution, seuls les fichiers modifiés seront téléchargés.
 >
-> Pour empêcher les fichiers d’être inclus dans l’instantané, créez un [.gitignore](https://git-scm.com/docs/gitignore) ou `.amlignore` dans le répertoire de fichiers et de lui ajouter les fichiers. Le `.amlignore` fichier utilise la même syntaxe et les modèles en tant que le [.gitignore](https://git-scm.com/docs/gitignore) fichier. Si les deux fichiers existent, le `.amlignore` fichier est prioritaire.
+> Pour empêcher les fichiers d’être inclus dans la capture instantanée, créez un élément [.gitignore](https://git-scm.com/docs/gitignore) ou un fichier `.amlignore` dans le répertoire et ajoutez-y les fichiers. Le fichier `.amlignore` utilise les mêmes modèles et syntaxe que le fichier [.gitignore](https://git-scm.com/docs/gitignore). Si les deux fichiers existent, le fichier `.amlignore` est prioritaire.
 > 
-> Pour plus d’informations, consultez [Instantanés](concept-azure-machine-learning-architecture.md#snapshot).
+> Pour plus d’informations, consultez [Instantanés](concept-azure-machine-learning-architecture.md#snapshots).
 
 ### <a name="create-an-experiment"></a>Création d'une expérience
 
@@ -412,11 +412,11 @@ Vous pouvez également :
 
 * Soumettre l’expérience avec un objet `Estimator`, comme indiqué dans [Former des modèles ML avec des estimateurs](how-to-train-ml-models.md).
 * Soumettre une expérience [à l’aide de l’extension CLI](reference-azure-machine-learning-cli.md#experiments).
-* Soumettre une expérimentation via le [extension VS Code](how-to-vscode-tools.md#train-and-tune-models).
+* Soumettre une expérience via l’[extension VS Code](how-to-vscode-tools.md#train-and-tune-models).
 
-## <a name="github-tracking-and-integration"></a>Intégration et suivi de GitHub
+## <a name="github-tracking-and-integration"></a>Intégration et suivi GitHub
 
-Lorsque vous démarrez une formation exécutée où le répertoire source est un référentiel Git local, les informations relatives au référentiel sont stockées dans l’historique des exécutions. Par exemple, l’ID de validation en cours pour le dépôt est consignée dans le cadre de l’historique.
+Lorsque vous lancez une exécution d’entraînement où le répertoire source est un répertoire Git local, les informations relatives au répertoire sont stockées dans l’historique des exécutions. Par exemple, l’ID de validation en cours pour le répertoire est consigné au sein de l’historique.
 
 ## <a name="notebook-examples"></a>Exemples de notebooks
 
@@ -429,7 +429,7 @@ Pour des exemples d’apprentissage avec différentes cibles de calcul, voir les
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Tutoriel : Former un modèle](tutorial-train-models-with-aml.md) utilise une cible de calcul gérée pour former un modèle.
-* Découvrez comment [régler efficacement les hyperparamètres](how-to-tune-hyperparameters.md) pour générer des modèles plus efficaces.
+* Découvrez comment [optimiser efficacement les hyperparamètres](how-to-tune-hyperparameters.md) afin de générer des modèles plus efficaces.
 * Une fois le modèle formé, découvrez [comment et où déployer les modèles](how-to-deploy-and-where.md).
 * Consultez la documentation de référence du Kit de développement logiciel (SDK) de la [classe RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py).
 * [Utiliser Azure Machine Learning service avec des réseaux virtuels Azure](how-to-enable-virtual-network.md)

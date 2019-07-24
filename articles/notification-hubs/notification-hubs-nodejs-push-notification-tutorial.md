@@ -15,18 +15,18 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: bdeba401e99ad16555b9f6ea00017fc525302983
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: bc5266bc37a0b58913feb08452e173949b64c112
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61457859"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061601"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Envoi de notifications Push avec Azure Notification Hubs et Node.js
 
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 > [!IMPORTANT]
 > Pour suivre ce didacticiel, vous avez besoin d'un compte Azure actif. Si vous n’avez pas de compte, vous pouvez créer un compte d’essai gratuit en quelques minutes par le biais de l’[essai gratuit Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-nodejs-how-to-use-notification-hubs).
@@ -80,7 +80,7 @@ var notificationHubService = azure.createNotificationHubService('hubname','conne
 Obtenez la valeur de connexion `connectionstring` à partir du [portail Azure] en effectuant les étapes suivantes :
 
 1. Dans le volet de navigation de gauche, cliquez sur **Parcourir**.
-2. Sélectionnez **Notification Hubs**, puis recherchez le hub à utiliser pour l’exemple. Vous pouvez faire référence à la [didacticiel Windows Store mise en route](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) si vous avez besoin d’aide à la création d’un concentrateur de Notification.
+2. Sélectionnez **Notification Hubs**, puis recherchez le hub à utiliser pour l’exemple. Si vous avez besoin d’aide pour créer un hub de notification, vous pouvez consulter le [didacticiel de prise en main de Windows Store](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).
 3. Sélectionnez **Paramètres**.
 4. Cliquez sur **Stratégies d’accès**. Vous pouvez voir les chaînes de connexion d’accès total et partagé.
 
@@ -106,7 +106,7 @@ L’objet `GcmService` fournit une méthode `send` que vous pouvez utiliser pour
 - **Payload** : charge utile JSON ou de chaîne brute du message.
 - **Callback** : fonction de rappel.
 
-Pour plus d’informations sur le format de charge utile, consultez la section **Charge utile** du document relatif à [l’implémentation du serveur GCM](https://developer.android.com/google/gcm/server.html#payload) .
+Pour plus d’informations sur le format de charge utile, consultez la section **Charge utile** du document relatif à [l’implémentation du serveur GCM](https://developers.google.com/cloud-messaging/) .
 
 Le code suivant utilise l’instance `GcmService` exposée par `NotificationHubService` pour envoyer une notification Push à tous les clients inscrits.
 

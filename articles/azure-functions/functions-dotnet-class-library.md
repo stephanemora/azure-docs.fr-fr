@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 09/12/2018
 ms.author: glenga
 ms.openlocfilehash: 2a6d670ba9f2f496cc94d2790eb6f66d46305746
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65872797"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Informations de référence pour les développeurs C# sur Azure Functions
@@ -29,16 +29,16 @@ Azure Functions prend en charge le langage de programmation C#, mais également 
 Cet article suppose que vous avez déjà lu les articles suivants :
 
 * [Guide de développement Azure Functions](functions-reference.md)
-* [Outils de Visual Studio 2019 Azure Functions](functions-develop-vs.md)
+* [Outils Azure Functions Visual Studio 2019](functions-develop-vs.md)
 
 ## <a name="functions-class-library-project"></a>Projet de bibliothèque de classes Azure Functions
 
 Dans Visual Studio, le modèle de projet **Azure Functions** crée un projet de bibliothèque de classes C# qui contient les fichiers suivants :
 
 * [host.json](functions-host-json.md) : stocke les paramètres de configuration qui affectent toutes les fonctions dans le projet au cours d’une exécution locale ou dans Azure.
-* [local.settings.json](functions-run-local.md#local-settings-file) : stocke les paramètres de l’application et les chaînes de connexion utilisés au cours d’une exécution locale. Ce fichier contient des secrets et n’est pas publié dans votre application de fonction dans Azure. Au lieu de cela, [ajouter des paramètres de l’application à votre application de fonction](functions-develop-vs.md#function-app-settings).
+* [local.settings.json](functions-run-local.md#local-settings-file) : stocke les paramètres de l’application et les chaînes de connexion utilisés au cours d’une exécution locale. Ce fichier contient des secrets et n’est pas publié dans votre application de fonction dans Azure. À la place, [ajoutez des paramètres d’application à votre Function App](functions-develop-vs.md#function-app-settings).
 
-Lorsque vous générez le projet, une structure de dossiers qui ressemble à l’exemple suivant est généré dans le répertoire de sortie :
+Lorsque vous créez le projet, une structure de dossiers qui ressemble à l’exemple suivant est générée dans le répertoire de sortie de build :
 
 ```
 <framework.version>
@@ -72,7 +72,7 @@ public static class SimpleExample
 } 
 ```
 
-L’attribut `FunctionName` marque une méthode comme point d’entrée de la fonction. Le nom doit être unique au sein d’un projet, commencer par une lettre et contenir uniquement des lettres, des chiffres, `_`, et `-`, jusqu'à 127 caractères. Les modèles de projets créent souvent une méthode nommée `Run`, mais le nom de la méthode peut être n’importe quel nom de méthode C# valide.
+L’attribut `FunctionName` marque une méthode comme point d’entrée de la fonction. Le nom doit être unique au sein d’un projet, commencer par une lettre et ne contenir que des lettres, des chiffres, `_` et `-`, jusqu’à 127 caractères. Les modèles de projets créent souvent une méthode nommée `Run`, mais le nom de la méthode peut être n’importe quel nom de méthode C# valide.
 
 L’attribut de déclencheur spécifie le type de déclencheur et lie les données d’entrée à un paramètre de méthode. L’exemple de fonction est déclenché par un message de file d’attente, qui est lui-même transmis à la méthode dans le paramètre `myQueueItem`.
 
@@ -181,7 +181,7 @@ Le même package est utilisé pour les versions 1.x et 2.x du runtime Functions.
 </ItemGroup>
 ```
 
-Parmi les dépendances de package `Sdk` figurent les déclencheurs et les liaisons. Un projet 1.x fait référence aux liaisons et déclencheurs 1.x parce que ces déclencheurs et liaisons de ciblent le .NET Framework, tandis que les liaisons et les déclencheurs 2.x ciblent .NET Core.
+Parmi les dépendances de package `Sdk` figurent les déclencheurs et les liaisons. Un projet 1.x fait référence à des déclencheurs et des liaisons 1.x parce que ceux-ci ciblent le .NET Framework, alors que les déclencheurs et liaisons 2.x ciblent .NET Core.
 
 Le package `Sdk` dépend également de [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json) et indirectement de [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage). Ces dépendances garantissent que votre projet utilise des versions de package compatibles avec la version du runtime Functions qui est ciblée par le projet. Par exemple, `Newtonsoft.Json` a la version 11 pour .NET Framework 4.6.1, mais le runtime Functions qui cible .NET Framework 4.6.1 est compatible uniquement avec `Newtonsoft.Json` 9.0.1. Par conséquent, le code de fonction de votre projet doit également utiliser `Newtonsoft.Json` 9.0.1.
 
@@ -373,7 +373,7 @@ public static class IBinderExample
 
 ### <a name="multiple-attribute-example"></a>Exemple d’attributs multiples
 
-L’exemple précédent obtient le paramètre d’application pour la chaîne de connexion du compte de stockage principal de l’application de fonction (à savoir `AzureWebJobsStorage`). Vous pouvez spécifier un paramètre d’application personnalisé à utiliser pour le compte de stockage en ajoutant l’attribut [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) et en transmettant le tableau d’attributs dans `BindAsync<T>()`. Utilisez un paramètre `Binder`, et non `IBinder`.  Par exemple : 
+L’exemple précédent obtient le paramètre d’application pour la chaîne de connexion du compte de stockage principal de l’application de fonction (à savoir `AzureWebJobsStorage`). Vous pouvez spécifier un paramètre d’application personnalisé à utiliser pour le compte de stockage en ajoutant l’attribut [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) et en transmettant le tableau d’attributs dans `BindAsync<T>()`. Utilisez un paramètre `Binder`, et non `IBinder`.  Par exemple :
 
 ```cs
 public static class IBinderExampleMultipleAttributes

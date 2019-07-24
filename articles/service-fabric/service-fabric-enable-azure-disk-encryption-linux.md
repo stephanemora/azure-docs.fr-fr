@@ -1,6 +1,6 @@
 ---
-title: Activer le chiffrement de disque pour les clusters Azure Service Fabric Linux | Microsoft Docs
-description: Cet article décrit comment activer le chiffrement de disque pour les nœuds de cluster Azure Service Fabric sous Linux à l’aide d’Azure Resource Manager et Azure Key Vault.
+title: Activer le chiffrement de disque pour les clusters Linux Azure Service Fabric | Microsoft Docs
+description: Cet article décrit comment activer le chiffrement de disque pour les nœuds de cluster Azure Service Fabric dans Linux en utilisant Azure Resource Manager et Azure Key Vault.
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
@@ -14,55 +14,55 @@ ms.workload: NA
 ms.date: 03/22/2019
 ms.author: aljo
 ms.openlocfilehash: 47b07188d1757708fb494c6a66e93379657e806a
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66258758"
 ---
-# <a name="enable-disk-encryption-for-azure-service-fabric-cluster-nodes-in-linux"></a>Activer le chiffrement de disque pour les nœuds de cluster Azure Service Fabric sous Linux 
+# <a name="enable-disk-encryption-for-azure-service-fabric-cluster-nodes-in-linux"></a>Activer le chiffrement de disque pour les nœuds de cluster Azure Service Fabric dans Linux 
 > [!div class="op_single_selector"]
 > * [Chiffrement de disque pour Linux](service-fabric-enable-azure-disk-encryption-linux.md)
 > * [Chiffrement de disque pour Windows](service-fabric-enable-azure-disk-encryption-windows.md)
 >
 >
 
-Dans ce didacticiel, vous allez apprendre à activer le chiffrement de disque sur les nœuds de cluster Azure Service Fabric sous Linux. Vous devez suivre ces étapes pour chacun des types de nœuds et machines virtuelles identiques. Pour chiffrer les nœuds, nous allons utiliser la fonctionnalité de chiffrement de disque Azure sur les machines virtuelles identiques.
+Dans ce didacticiel, vous allez apprendre à activer le chiffrement de disque sur les nœuds de cluster Azure Service Fabric dans Linux. Vous devez effectuer ces étapes pour chacun des types de nœuds et groupes de machines virtuelles identiques. Pour chiffrer les nœuds, nous allons utiliser les fonctionnalités d’Azure Disk Encryption sur les groupes de machines virtuelles identiques.
 
-Ce guide couvre les rubriques suivantes :
+Le guide aborde les thèmes suivants :
 
-* Concepts clés à connaître lorsque l’activation du chiffrement disque sur l’échelle de machines virtuelles du cluster Service Fabric définit dans Linux.
-* Étapes à suivre avant d’activer le chiffrement de disque sur Service Fabric nœuds de cluster dans Linux.
-* Étapes à suivre pour activer le chiffrement de disque sur les nœuds de cluster Service Fabric sous Linux.
+* Concepts clés à connaître lors de l’activation du chiffrement de disque sur des groupes de machines virtuelles identiques de cluster Service Fabric dans Linux.
+* Étapes à suivre avant d’activer le chiffrement de disque sur les nœuds de cluster Service Fabric dans Linux.
+* Étapes à suivre pour activer le chiffrement de disque sur les nœuds de cluster Service Fabric dans Linux.
 
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
  **Inscription automatique**
 
-Version d’évaluation de chiffrement de disque pour les machines virtuelles identiques nécessite l’inscription automatique. Procédez comme suit :
+La préversion du chiffrement de disque des groupes de machines virtuelles identiques nécessite une inscription automatique. Procédez comme suit :
 
 1. Exécutez la commande suivante : 
     ```powershell
     Register-AzProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
     ```
-2. Attendez environ 10 minutes jusqu'à ce que l’état lit *Registered*. Vous pouvez vérifier l’état en exécutant la commande suivante :
+2. Attendez 10 minutes environ jusqu’à ce que l’état indique *Inscrit*. Vous pouvez vérifier l’état en exécutant la commande suivante :
     ```powershell
     Get-AzProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "UnifiedDiskEncryption"
     Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
     ```
 **Azure Key Vault**
 
-1. Créez un coffre de clés dans le même abonnement et la même région que le groupe identique. Puis sélectionnez le **EnabledForDiskEncryption** stratégie sur le coffre de clés d’accès à l’aide de son applet de commande PowerShell. Vous pouvez également définir la stratégie à l’aide de l’interface utilisateur de coffre de clé dans le portail Azure avec la commande suivante :
+1. Créez un coffre de clés dans le même abonnement et la même région que le groupe identique. Sélectionnez ensuite la stratégie d’accès **EnabledForDiskEncryption** sur le coffre de clés à l’aide de sa cmdlet PowerShell. Vous pouvez également définir la stratégie à l’aide de l’interface utilisateur Key Vault dans le portail Azure à l’aide de la commande suivante :
     ```powershell
     Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -EnabledForDiskEncryption
     ```
-2. Installez la dernière version de la [Azure CLI](/cli/azure/install-azure-cli), qui a les nouvelles commandes de chiffrement.
+2. Installez la dernière version d’[Azure CLI](/cli/azure/install-azure-cli), qui inclut les nouvelles commandes de chiffrement.
 
-3. Installez la dernière version de la [Kit de développement à partir d’Azure PowerShell](https://github.com/Azure/azure-powershell/releases) mise en production. Voici les machines virtuelles identiques Azure Disk Encryption des applets de commande pour activer ([définir](/powershell/module/az.compute/set-azvmssdiskencryptionextension)) chiffrement, récupérer ([obtenir](/powershell/module/az.compute/get-azvmssvmdiskencryption)) état de chiffrement et remove ([désactiver](/powershell/module/az.compute/disable-azvmssdiskencryption)) le chiffrement sur l’échelle défini instance.
+3. Installez la dernière version du [Kit de développement logiciel (SDK) Azure d’Azure PowerShell](https://github.com/Azure/azure-powershell/releases). Voici les cmdlets Azure Disk Encryption de groupe de machines virtuelles identiques pour activer ([set](/powershell/module/az.compute/set-azvmssdiskencryptionextension)) le chiffrement, récupérer ([get](/powershell/module/az.compute/get-azvmssvmdiskencryption)) l’état du chiffrement et supprimer ([disable](/powershell/module/az.compute/disable-azvmssdiskencryption)) le chiffrement sur une instance de groupe identique.
 
 
 | Commande | Version |  Source  |
@@ -76,18 +76,18 @@ Version d’évaluation de chiffrement de disque pour les machines virtuelles id
 
 
 ## <a name="supported-scenarios-for-disk-encryption"></a>Scénarios pris en charge pour le chiffrement de disque
-* Chiffrement pour les machines virtuelles identiques est pris en charge uniquement pour les groupes identiques créés avec des disques gérés. Il ne l’est pas pour les groupes identiques de disques natifs (ou non managés).
-* Chiffrement et désactivation du chiffrement sont pris en charge pour les volumes du système d’exploitation et des données dans des machines virtuelles identiques dans Linux. 
-* Opérations de réinitialisation et mise à niveau de machine virtuelle (VM) pour les machines virtuelles identiques ne sont pas prises en charge dans la version préliminaire actuelle.
+* Le chiffrement de groupes de machines virtuelles identiques est pris en charge uniquement pour les groupes identiques créés avec des disques managés. Il ne l’est pas pour les groupes identiques de disques natifs (ou non managés).
+* Le chiffrement et la désactivation du chiffrement sont pris en charge pour les volumes de système d’exploitation et de données dans des groupes de machines virtuelles identiques dans Linux. 
+* Les opérations de réimageage et de mise à niveau de machine virtuelle de groupes de machines virtuelles identiques ne sont pas prises en charge dans la préversion actuelle.
 
 
-## <a name="create-a-new-cluster-and-enable-disk-encryption"></a>Créer un nouveau cluster et activer le chiffrement de disque
+## <a name="create-a-new-cluster-and-enable-disk-encryption"></a>Créer un cluster et activer le chiffrement de disque
 
-Utilisez les commandes suivantes pour créer un cluster et activer le chiffrement de disque à l’aide d’un modèle Azure Resource Manager et un certificat auto-signé.
+Utilisez les commandes suivantes pour créer un cluster et activer le chiffrement de disque à l’aide d’un modèle Azure Resource Manager et d’un certificat auto-signé.
 
 ### <a name="sign-in-to-azure"></a>Connexion à Azure  
 
-Connectez-vous avec les commandes suivantes :
+Connectez-vous à l’aide des commandes suivantes :
 
 ```powershell
 
@@ -105,9 +105,9 @@ az account set --subscription $subscriptionId
 
 ### <a name="use-the-custom-template-that-you-already-have"></a>Utiliser le modèle personnalisé que vous possédez déjà 
 
-Si vous avez besoin de créer un modèle personnalisé, nous recommandons que vous utilisiez une des modèles sur le [exemples de modèles de création de cluster Azure Service Fabric](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master) page. 
+Si vous avez besoin de créer un modèle personnalisé, nous vous recommandons vivement d’utiliser l’un des modèles dans la page des [exemples de création de modèle Azure Service Fabric](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master). 
 
-Si vous disposez déjà d’un modèle personnalisé, vérifiez que tous les trois paramètres d’associées aux certificats dans le modèle et le fichier de paramètres sont nommés comme suit. Vérifiez également que les valeurs sont null, comme suit :
+Si vous disposez déjà d’un modèle personnalisé, vérifiez bien que les trois paramètres liés au certificat dans le modèle et le fichier de paramètres portent les noms indiqués ci-après. Vérifiez également que les valeurs sont null comme indiqué ci-dessous :
 
 ```Json
    "certificateThumbprint": {
@@ -121,7 +121,7 @@ Si vous disposez déjà d’un modèle personnalisé, vérifiez que tous les tro
     },
 ```
 
-Étant donné que le chiffrement de disque de données uniquement est pris en charge pour les machines virtuelles identiques dans Linux, vous devez ajouter un disque de données à l’aide d’un modèle Resource Manager. Mettre à jour votre modèle pour la disposition de disque de données comme suit :
+Étant donné que seul le chiffrement des disques de données est pris en charge pour les groupes de machines virtuelles identiques dans Linux, , vous devez ajouter le disque de données à l’aide du modèle Resource Manager. Mettez à jour votre modèle d’approvisionnement de disque de données comme suit :
 
 ```Json
    
@@ -163,7 +163,7 @@ New-AzServiceFabricCluster -ResourceGroupName $resourceGroupName -CertificateOut
 
 ```
 
-Voici la commande CLI équivalente. Modifiez les valeurs dans les instructions declare sur les valeurs appropriées. L’interface CLI prend en charge tous les autres paramètres qui prend en charge de la commande PowerShell ci-dessus.
+Voici la commande CLI équivalente. Modifiez les valeurs dans les instructions declare et remplacez-les par les valeurs appropriées. La CLI prend en charge tous les autres paramètres que la commande PowerShell précédente prend en charge.
 
 ```azurecli
 declare certPassword=""
@@ -182,16 +182,16 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 
 ```
 
-### <a name="mount-a-data-disk-to-a-linux-instance"></a>Monter un disque de données à une instance de Linux
-Avant de continuer avec le chiffrement sur un jeu de mise à l’échelle de machine virtuelle, vérifiez que le disque de données ajouté est monté correctement. Connectez-vous à la machine virtuelle du cluster Linux et exécuter le **LSBLK** commande. La sortie doit indiquer ce disque de données ajoutées dans le **Point de montage** colonne.
+### <a name="mount-a-data-disk-to-a-linux-instance"></a>Monter un disque de données sur une instance Linux
+Avant de procéder au chiffrement sur un groupe de machines virtuelles identiques, vérifiez que le disque de données ajouté est correctement monté. Connectez-vous à la machine virtuelle du cluster Linux et exécutez la commande **LSBLK**. La sortie doit indiquer ce disque de données ajouté dans la colonne **Point de montage**.
 
 
-### <a name="deploy-application-to-a-service-fabric-cluster-in-linux"></a>Déployer l’application sur un cluster Service Fabric sous Linux
-Pour déployer une application sur votre cluster, suivez les étapes et les instructions données à [Guide de démarrage rapide : Déployer des conteneurs Linux sur Service Fabric](service-fabric-quickstart-containers-linux.md).
+### <a name="deploy-application-to-a-service-fabric-cluster-in-linux"></a>Déployer une application sur un cluster Service Fabric dans Linux
+Pour déployer une application sur votre cluster, suivez les étapes et les instructions dans [Démarrage rapide : Déployer des conteneurs Linux sur Service Fabric](service-fabric-quickstart-containers-linux.md).
 
 
-### <a name="enable-disk-encryption-for-the-virtual-machine-scale-sets-created-previously"></a>Activer le chiffrement de disque pour les jeux de mise à l’échelle de machine virtuelle créée précédemment
-Pour activer le chiffrement de disque pour l’échelle de machine virtuelle définit que vous avez créé à travers les étapes précédentes, exécutez-les les commandes suivantes :
+### <a name="enable-disk-encryption-for-the-virtual-machine-scale-sets-created-previously"></a>Activer le chiffrement de disque pour le groupe de machines virtuelles identiques créé précédemment
+Pour activer le chiffrement de disque pour les groupes de machines virtuelles identiques que vous avez créés dans les étapes précédentes, exécutez les commandes suivantes :
  
 ```powershell
 $VmssName = "nt1vm"
@@ -211,9 +211,9 @@ az vmss encryption enable -g <resourceGroupName> -n <VMSS name> --disk-encryptio
 
 ```
 
-### <a name="validate-if-disk-encryption-is-enabled-for-a-virtual-machine-scale-set-in-linux"></a>Valider si le chiffrement de disque est activé pour les machines virtuelles identiques dans Linux
-Pour obtenir l’état d’un jeu de mise à l’échelle de machine virtuelle ou n’importe quelle instance dans un groupe identique, exécutez les commandes suivantes.
-En outre, vous pouvez vous connecter à la machine virtuelle du cluster Linux et exécuter le **LSBLK** commande. La sortie doit indiquer le disque de données ajoutées dans le **Point de montage** colonne et le **Type** colonne lise *Crypt*.
+### <a name="validate-if-disk-encryption-is-enabled-for-a-virtual-machine-scale-set-in-linux"></a>Valider si le chiffrement de disque est activé pour un groupe de machines virtuelles identiques dans Linux
+Pour obtenir l’état de l’ensemble d’un groupe de machines virtuelles identiques ou d’une instance d’un groupe identique, exécutez les commandes suivantes.
+Vous pouvez également vous connecter à la machine virtuelle du cluster Linux et exécuter la commande **LSBLK**. La sortie doit indiquer le disque de données ajouté dans la colonne **Point de montage** et la colonne **Type** doit indiquer *Crypt*.
 
 ```powershell
 
@@ -230,8 +230,8 @@ az vmss encryption show -g <resourceGroupName> -n <VMSS name>
 
 ```
 
-### <a name="disable-disk-encryption-for-a-virtual-machine-scale-set-in-a-service-fabric-cluster"></a>Désactiver le chiffrement de disque pour un machine virtuelle identique dans un cluster Service Fabric
-Désactiver le chiffrement de disque pour les machines virtuelles identiques en exécutant les commandes suivantes. Notez que la désactivation du chiffrement de disque s’applique à l’ensemble d’échelle de machine virtuelle complète et pas une instance individuelle.
+### <a name="disable-disk-encryption-for-a-virtual-machine-scale-set-in-a-service-fabric-cluster"></a>Désactiver le chiffrement de disque pour un groupe de machines virtuelles identiques dans un cluster Service Fabric
+Désactivez le chiffrement de disque pour un groupe de machines virtuelles identiques en exécutant les commandes suivantes. Notez que la désactivation du chiffrement de disque s’applique à l’ensemble du groupe de machines virtuelles identiques et non par instance individuelle.
 
 ```powershell
 $VmssName = "nt1vm"
@@ -247,4 +247,4 @@ az vmss encryption disable -g <resourceGroupName> -n <VMSS name>
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-À ce stade, vous devez avoir un cluster sécurisé et savoir comment activer et désactiver le chiffrement de disque pour les nœuds de cluster Service Fabric et les machines virtuelles identiques. Pour obtenir des recommandations similaires sur les nœuds de cluster Service Fabric sous Linux, consultez [chiffrement de disque pour Windows](service-fabric-enable-azure-disk-encryption-windows.md). 
+À ce stade, vous devez avoir un cluster sécurisé et savoir comment activer et désactiver le chiffrement de disque pour des nœuds de cluster Service Fabric et des groupes de machines virtuelles identiques. Pour obtenir des recommandations similaires sur les nœuds de cluster Service Fabric dans Windows, consultez [Chiffrement de disque pour Windows](service-fabric-enable-azure-disk-encryption-windows.md). 

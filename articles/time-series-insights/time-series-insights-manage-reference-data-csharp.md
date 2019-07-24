@@ -6,24 +6,24 @@ services: time-series-insights
 author: ashannon7
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: jasonh, kfile, anshan
+ms.reviewer: jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 50368175fbe563d5685f17e96dd41251a0494afd
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
-ms.translationtype: MT
+ms.openlocfilehash: 0a482ae44c796e1519ffad0a604510166b1ac63c
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66728993"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165608"
 ---
-# <a name="manage-ga-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>Gérer les données de référence générale pour un environnement Azure Time Series Insights à l’aideC#
+# <a name="manage-ga-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>Gérer des données de référence GA pour un environnement Azure Time Series Insights à l’aide de C#
 
 Cet article décrit un exemple de projet C# que vous pouvez compiler pour gérer des données de référence pour un environnement Azure Time Series Insights.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Effectuez les étapes suivantes avant de compiler et d'exécuter l’exemple de code :
 
@@ -36,7 +36,7 @@ Effectuez les étapes suivantes avant de compiler et d'exécuter l’exemple de 
 1. Modifiez l’exemple de code pour remplacer les exemples de constantes, désignées dans **#DUMMY#** , au début du code.
 
 > [!NOTE]
-> Afficher l’exemple de code de la disponibilité générale à [ https://github.com/Azure-Samples/Azure-Time-Series-Insights ](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample).
+> Affichez l’exemple de code GA sur [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample).
 
 ## <a name="project-dependencies"></a>Dépendances du projet
 
@@ -247,4 +247,4 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Lire le [API de données de référence](/rest/api/time-series-insights/ga-reference-data-api).
+- Consultez [API Données de référence](/rest/api/time-series-insights/ga-reference-data-api).

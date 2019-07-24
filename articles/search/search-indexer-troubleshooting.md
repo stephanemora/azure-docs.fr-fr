@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: magottei
 ms.custom: seodec2018
-ms.openlocfilehash: 256a38320c9b3ca826ee9c12ac0a437957f988e2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4ed18b5f83bdb052f2db6847a320c26a8e49f83e
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65539282"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147542"
 ---
 # <a name="troubleshooting-common-indexer-issues-in-azure-search"></a>Résoudre les problèmes courants des indexeurs dans la Recherche Azure
 
@@ -35,14 +35,11 @@ Le Stockage Azure fournit un pare-feu configurable. Par défaut, le pare-feu est
 
 Il n’y a pas de message d’erreur spécifique lorsqu’il est activé. En règle générale, les erreurs de pare-feu sont de ce type : `The remote server returned an error: (403) Forbidden`.
 
-Vous pouvez vérifier que le pare-feu est activé sur le [portal](https://docs.microsoft.com/azure/storage/common/storage-network-security#azure-portal). Si c’est le cas, il existe deux moyens de contourner ce problème :
+Vous pouvez vérifier que le pare-feu est activé sur le [portal](https://docs.microsoft.com/azure/storage/common/storage-network-security#azure-portal). La seule solution de contournement prise en charge consiste à désactiver le pare-feu en choisissant d’autoriser l’accès depuis [« Tous les réseaux »](https://docs.microsoft.com/azure/storage/common/storage-network-security#azure-portal).
 
-1. Désactiver le pare-feu en choisissant d’autoriser l’accès de [« Tous les réseaux »](https://docs.microsoft.com/azure/storage/common/storage-network-security#azure-portal).
-1. [Ajouter une exception](https://docs.microsoft.com/azure/storage/common/storage-network-security#managing-ip-network-rules) pour l’adresse IP de votre service de recherche. Pour trouver cette adresse IP, utilisez la commande suivante :
+Si aucun ensemble de compétences n’est joint à votre indexeur, vous _pouvez_ tenter d’[ajouter une exception](https://docs.microsoft.com/azure/storage/common/storage-network-security#managing-ip-network-rules) pour les adresses IP de votre service de recherche. Toutefois, ce scénario n’est pas pris en charge et n’est pas garanti de fonctionner.
 
-`nslookup <service name>.search.windows.net`
-
-Les exceptions ne fonctionnent pas pour la [recherche cognitive](cognitive-search-concept-intro.md). La seule solution de contournement consiste à désactiver le pare-feu.
+Vous trouverez l’adresse IP de votre service de recherche en effectuant un test ping de son nom de domaine complet (`<your-search-service-name>.search.windows.net`).
 
 ### <a name="cosmos-db"></a>Cosmos DB
 

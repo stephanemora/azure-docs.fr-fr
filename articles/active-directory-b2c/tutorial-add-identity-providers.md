@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 02/01/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 76e12dc6bf9bcb50dc58e7730f3a08dd6a9d4440
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.openlocfilehash: ceae908b37c825721a42c49db4503382eb35c71c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66512197"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055102"
 ---
 # <a name="tutorial-add-identity-providers-to-your-applications-in-azure-active-directory-b2c"></a>Didacticiel : Ajouter des fournisseurs d’identité à vos applications dans Azure Active Directory B2C
 
@@ -32,7 +32,7 @@ Vous utilisez généralement un seul fournisseur d’identité dans vos applicat
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 [Créez un flux d’utilisateur](tutorial-create-user-flows.md) pour permettre aux utilisateurs de s’inscrire et de se connecter à votre application. 
 
@@ -46,7 +46,7 @@ Pour autoriser la connexion des utilisateurs à partir d’Azure AD, vous devez 
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Veillez à utiliser le répertoire contenant votre locataire Azure AD en cliquant sur le **filtre Répertoire et abonnement** dans le menu du haut et en choisissant le répertoire en question.
-3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Inscriptions d’applications**.
+3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Inscriptions d’applications (héritées)** .
 4. Sélectionnez **Nouvelle inscription d’application**.
 5. Entrez un nom pour votre application. Par exemple : `Azure AD B2C App`.
 6. Pour le **Type d’application**, sélectionnez `Web app / API`.
@@ -106,7 +106,7 @@ Après avoir créé l’application pour le fournisseur d’identité que vous s
     Par exemple : `https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration`.
 
 8. Pour **ID client**, entrez l’ID d’application que vous avez enregistré précédemment et pour le **secret client**, entrez la valeur de clé que vous avez enregistrée précédemment.
-9. Entrez éventuellement une valeur pour **Domain_hint**. Par exemple : `ContosoAD`. 
+9. Entrez éventuellement une valeur pour **Domain_hint**. Par exemple : `ContosoAD`. Les indications de domaine (https://docs.microsoft.com/azure/active-directory/manage-apps/configure-authentication-for-federated-users-portal) ) sont des directives qui sont incluses dans la demande d’authentification émise par une application. Elles peuvent servir à accélérer l’utilisateur vers la page de connexion de son fournisseur d’identité fédéré. Ou elles peuvent être utilisées par une application multilocataire pour accélérer l’utilisateur directement vers la page de connexion Azure AD personnalisée pour son locataire.
 10. Cliquez sur **OK**.
 11. Sélectionnez **Mapper les revendications de ce fournisseur d’identité** et définissez les revendications suivantes :
     

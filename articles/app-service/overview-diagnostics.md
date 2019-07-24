@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/10/2017
 ms.author: jennile
 ms.custom: seodec18
-ms.openlocfilehash: 3e304df51133d53adad50e672249bde6c9960712
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f2f798be85e9c3aeb8d4b54cba89d8be059427e0
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65539709"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147332"
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Présentation des diagnostics Azure App Service
 
@@ -103,12 +103,12 @@ Comme la surveillance proactive de l’UC, la réparation automatique proactive 
 
 ![Réparation automatique proactive](./media/app-service-diagnostics/proactive-auto-healing-10.png)
 
-## <a name="change-analysis"></a>Changer d’analyse
+## <a name="change-analysis-only-for-windows-app"></a>Analyse des modifications (uniquement pour les applications Windows)
 
-Dans un environnement de développement soumis à un rythme élevé, il peut être difficile d’effectuer le suivi de toutes les modifications apportées à votre application et encore plus d’identifier une modification provoquant un comportement défaillant. L’analyse des modifications peut vous aider à circonscrire plus facilement les modifications apportées à votre application pour simplifier l’expérience de résolution des problèmes. L’analyse des modifications est incorporée au rapport de diagnostic (**Blocages de l’application** par exemple). Ainsi, vous pouvez l’utiliser conjointement avec d’autres métriques.
+Dans un environnement de développement soumis à un rythme élevé, il peut être difficile d’effectuer le suivi de toutes les modifications apportées à votre application, et encore plus d’identifier une modification provoquant un comportement non sain. L’analyse des modifications peut vous aider à circonscrire plus facilement les modifications apportées à votre application pour simplifier l’expérience de résolution des problèmes. L’analyse des modifications est située dans **Modifications de l’application** et elle est incorporée au rapport de diagnostic (**Blocages de l’application** par exemple). Ainsi, vous pouvez l’utiliser conjointement avec d’autres métriques.
+
+Vous devez activer l’analyse des modifications pour pouvoir utiliser cette fonctionnalité. Pour plus d’informations sur l’analyse des modifications, consultez [Announcing the new change analysis experience in App Service Diagnostics](https://azure.github.io/AppService/2019/05/07/Announcing-the-new-change-analysis-experience-in-App-Service-Diagnostics-Analysis.html) (Présentation de la nouvelle expérience d’analyse des modifications des diagnostics App Service).
 
 ![Page par défaut de l’analyse des modifications](./media/app-service-diagnostics/change-analysis-default-page-11.png)
 
 ![Affichage des différences](./media/app-service-diagnostics/diff-view-12.png)
-
-Vous devez activer l’analyse des modifications pour pouvoir utiliser cette fonctionnalité. Pour plus d’informations sur l’analyse des modifications, consultez [Announcing the new change analysis experience in App Service Diagnostics](https://azure.github.io/AppService/2019/05/07/Announcing-the-new-change-analysis-experience-in-App-Service-Diagnostics-Analysis.html) (Présentation de la nouvelle expérience d’analyse des modifications des diagnostics App Service).

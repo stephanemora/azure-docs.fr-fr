@@ -10,20 +10,20 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 3d5bfa2426d58fa5a09d2203272536eec7fa9c55
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65789961"
 ---
 # <a name="azure-storage-security-guide"></a>Guide de sécurité Azure Storage
 
 Stockage Azure propose un ensemble complet de fonctionnalités de sécurité qui, une fois réunies, permettent aux développeurs de créer des applications sécurisées :
 
-- Toutes les données (y compris les métadonnées) écrites dans stockage Azure sont automatiquement chiffrées à l’aide de [Storage Service Encryption (SSE)](storage-service-encryption.md). Pour plus d’informations, consultez [Annonce du chiffrement par défaut des objets blob, fichiers, tables et stockages de file d’attente Azure](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/).
+- Toutes les données (y compris les métadonnées) écrites dans le stockage Azure sont automatiquement chiffrées à l’aide de [Storage Service Encryption (SSE)](storage-service-encryption.md). Pour plus d’informations, consultez [Annonce du chiffrement par défaut des objets blob, fichiers, tables et stockages de file d’attente Azure](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/).
 - Azure Active Directory (Azure AD) et le contrôle d’accès en fonction du rôle (RBAC) sont pris en charge pour le stockage Azure pour les opérations de gestion des ressources et les opérations de données comme suit :   
     - Vous pouvez attribuer des rôles RBAC limités au compte de stockage à des principaux de sécurité et utiliser Azure AD pour autoriser les opérations de gestion des ressources telles que la gestion des clés.
-    - Intégration d’Azure AD est pris en charge pour les opérations de données blob et file d’attente. Vous pouvez attribuer des rôles RBAC limités à un abonnement, groupe de ressources, compte de stockage, ou un conteneur ou une file d’attente à un principal de sécurité ou une identité managée pour des ressources Azure. Pour plus d’informations, consultez [Authentifier l’accès au Stockage Azure à l’aide d’Azure Active Directory](storage-auth-aad.md).   
+    - L’intégration d’Azure AD est prise en charge pour les opérations de données d’objets blob et de file d’attente. Vous pouvez attribuer des rôles RBAC limités à un abonnement, groupe de ressources, compte de stockage, ou un conteneur ou une file d’attente à un principal de sécurité ou une identité managée pour des ressources Azure. Pour plus d’informations, consultez [Authentifier l’accès au Stockage Azure à l’aide d’Azure Active Directory](storage-auth-aad.md).   
 - Les données peuvent être sécurisées en transit entre une application et Azure au moyen du [chiffrement côté client](../storage-client-side-encryption.md), de HTTPS ou de SMB 3.0.  
 - Les disques de système d’exploitation et de données utilisés par les machines virtuelles Azure peuvent être chiffrés à l’aide [d’Azure Disk Encryption](../../security/azure-security-disk-encryption.md). 
 - Il est possible d’accorder un accès délégué aux objets de données d’Azure Storage en utilisant des [signatures d’accès partagé](../storage-dotnet-shared-access-signature-part-1.md).
@@ -156,7 +156,7 @@ La sécurité du plan de données fait référence aux méthodes permettant de s
 
 Trois options vous permettent d’autoriser l’accès aux objets de données dans le stockage Azure, notamment :
 
-- À l’aide d’Azure AD pour autoriser l’accès aux conteneurs et les files d’attente. Azure AD offre des avantages par rapport à d’autres approches d’autorisation, notamment la suppression de la nécessité de stocker des secret dans votre code. Pour plus d’informations, consultez [Authentifier l’accès au Stockage Azure à l’aide d’Azure Active Directory](storage-auth-aad.md). 
+- Utilisation d’Azure AD pour autoriser l’accès aux conteneurs et files d’attente. Azure AD offre des avantages par rapport à d’autres approches d’autorisation, notamment la suppression de la nécessité de stocker des secret dans votre code. Pour plus d’informations, consultez [Authentifier l’accès au Stockage Azure à l’aide d’Azure Active Directory](storage-auth-aad.md). 
 - Utilisation de vos clés de compte de stockage pour autoriser l’accès via la clé partagée. L’autorisation via la clé partagée nécessite de stocker vos clés de compte de stockage dans votre application. Lorsque cela est possible, Microsoft recommande donc d’utiliser Azure AD.
 - Utilisation de signatures d’accès partagé pour accorder des autorisations contrôlées sur des objets de données spécifiques pour une durée spécifique.
 
@@ -239,7 +239,7 @@ Pour plus d’informations sur l’utilisation des signatures d’accès partag�
   * [Construction d’un service SAP](https://msdn.microsoft.com/library/dn140255.aspx)
   * [Construction d’un compte SAP](https://msdn.microsoft.com/library/mt584140.aspx)
 
-* Il s’agit d’un didacticiel pour l’utilisation de la bibliothèque cliente .NET pour créer des Signatures d’accès partagé et stratégies d’accès stockées.
+* Il s’agit d’un didacticiel sur l’utilisation de la bibliothèque cliente .NET pour créer des signatures d’accès partagé et des stratégies d’accès stockées.
   * [Utilisation des signatures d’accès partagé (SAP)](../storage-dotnet-shared-access-signature-part-1.md)
 
     Cet article contient une description du modèle SAP, des exemples de signatures d’accès partagé et des recommandations pour une utilisation optimale de ces signatures. La révocation de l’autorisation accordée est également abordée.
@@ -302,7 +302,7 @@ Pour le chiffrement proprement dit, vous pouvez créer et gérer vos propres cl�
   Cet article explique le fonctionnement du chiffrement côté client. Il fournit des exemples d’utilisation de la bibliothèque cliente de stockage pour chiffrer et déchiffrer les ressources des quatre services de stockage. Il parle également d’Azure Key Vault.
 
 ### <a name="using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines"></a>Utilisation de la fonctionnalité Azure Disk Encryption pour chiffrer les disques utilisés par vos machines virtuelles
-Azure Disk Encryption permet de chiffrer les disques de système d’exploitation et les disques de données utilisés par une Machine virtuelle IaaS. Sur Windows, les disques sont chiffrés à l’aide de la technologie de chiffrement BitLocker standard. Sur Linux, les disques sont chiffrés à l’aide de la technologie DM-Crypt. La fonctionnalité est intégrée à Azure Key Vault pour vous permettre de contrôler et gérer les clés de chiffrement de disque.
+Azure Disk Encryption vous permet de chiffrer les disques de système d’exploitation et de données utilisés par une machine virtuelle IaaS. Sur Windows, les disques sont chiffrés à l’aide de la technologie de chiffrement BitLocker standard. Sur Linux, les disques sont chiffrés à l’aide de la technologie DM-Crypt. La fonctionnalité est intégrée à Azure Key Vault pour vous permettre de contrôler et gérer les clés de chiffrement de disque.
 
 La solution prend en charge les scénarios de machines virtuelles IaaS suivants lorsqu’ils sont activés dans Microsoft Azure :
 
@@ -341,7 +341,7 @@ Cette fonctionnalité garantit que toutes les données sur les disques de vos ma
 
 #### <a name="iaas-vms-and-their-vhd-files"></a>Machines virtuelles IaaS et fichiers VHD associés
 
-Pour les disques de données utilisés par des machines virtuelles IaaS, nous vous recommandons d’utiliser le chiffrement Azure Disk Encryption. Si vous créez une machine virtuelle avec des disques non managés à l’aide d’une image issue de la Place de marché Microsoft, Azure effectue une [copie superficielle](https://en.wikipedia.org/wiki/Object_copying) de l’image pour votre compte de stockage dans le Stockage Azure qui n’est pas chiffrée, même si vous êtes compatible SSE. SSE commence le chiffrement des données après avoir créé la machine virtuelle et démarré la mise à jour de l’image. Pour cette raison, il est conseillé d’utiliser Azure Disk Encryption sur des machines virtuelles avec des disques non managés créés à partir d’images dans la Place de marché Azure si vous souhaitez qu’elles soient complètement chiffrées. Si vous créez une machine virtuelle avec des disques managés, SSE chiffre toutes les données par défaut à l’aide de clés managées de la plate-forme. 
+Pour les disques de données utilisés par des machines virtuelles IaaS, nous vous recommandons d’utiliser le chiffrement Azure Disk Encryption. Si vous créez une machine virtuelle avec des disques non managés à l’aide d’une image issue de la Place de marché Microsoft, Azure effectue une [copie superficielle](https://en.wikipedia.org/wiki/Object_copying) de l’image pour votre compte de stockage dans le Stockage Azure qui n’est pas chiffrée, même si vous êtes compatible SSE. SSE commence le chiffrement des données après avoir créé la machine virtuelle et démarré la mise à jour de l’image. Pour cette raison, il est conseillé d’utiliser Azure Disk Encryption sur des machines virtuelles avec des disques non managés créés à partir d’images dans la Place de marché Azure si vous souhaitez qu’elles soient complètement chiffrées. Si vous créez une machine virtuelle avec la fonctionnalité Disques managés, SSE chiffre toutes les données par défaut à l’aide de clés managées de la plate-forme. 
 
 Si vous ajoutez une machine virtuelle déjà chiffrée dans Azure à partir d’un emplacement local, vous pouvez charger les clés de chiffrement dans Azure Key Vault et continuer à utiliser le chiffrement qui était utilisé localement pour cette machine virtuelle. Dans ce scénario, le chiffrement Azure Disk Encryption est activé.
 

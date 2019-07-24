@@ -1,6 +1,6 @@
 ---
-title: Glossaire du développeur Microsoft identity plateforme | Azure
-description: Une liste de termes concernant les concepts de développement de plateforme Microsoft identity et fonctionnalités couramment utilisées.
+title: Glossaire du développeur de la plateforme d’identité Microsoft | Azure
+description: Liste de termes liés aux concepts et fonctionnalités de développeur de la plateforme d’identité Microsoft couramment utilisés.
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -19,15 +19,15 @@ ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 314d7a8e8cf6837e2b22446ba23fee03d539bf35
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66235349"
 ---
-# <a name="microsoft-identity-platform-developer-glossary"></a>Glossaire du développeur Microsoft identity platform
+# <a name="microsoft-identity-platform-developer-glossary"></a>Glossaire du développeur de la plateforme d’identité Microsoft
 
-Cet article contient des définitions pour certains des principaux concepts de développement et la terminologie, qui sont utiles lors de l’apprentissage sur le développement d’applications à l’aide de la plateforme d’identité Microsoft.
+Cet article contient des définitions pour certains des principaux concepts et terminologies de développeur, qui s’avèrent utiles lors de l’apprentissage du développement d’applications à l’aide de la plateforme d’identité Microsoft.
 
 ## <a name="access-token"></a>access token
 
@@ -38,11 +38,11 @@ Les jetons d’accès sont parfois qualifiés de « utilisateur + Application »
 * [L’octroi d’autorisation « code d’autorisation »](#authorization-grant), l’utilisateur final s’authentifie tout d’abord en tant que propriétaire de la ressource, délégant l’autorisation d’accès à la ressource au client. Le client s’authentifie après, lors de l’obtention du jeton d’accès. Le jeton est alors parfois désigné plus spécifiquement sous le nom de jeton « utilisateur + application », car il représente à la fois l’utilisateur qui a autorisé l’application cliente et l’application.
 * [L’octroi d’autorisation « informations d’identification du client »](#authorization-grant), le client fournit l’authentification unique, fonctionnant sans authentification/autorisation du propriétaire des ressources. Le jeton est alors parfois désigné sous le nom de jeton « d’application uniquement ».
 
-Consultez [référence de jeton de plateforme d’identité Microsoft] [ AAD-Tokens-Claims] pour plus d’informations.
+Consultez [Informations de référence sur les jetons de la plateforme d’identité Microsoft][AAD-Tokens-Claims] pour en savoir plus.
 
 ## <a name="application-id-client-id"></a>ID d’application (ID client)
 
-L’identificateur unique Azure AD est émis pour une inscription d’application qui identifie une application spécifique et les configurations associées. Cet ID d’application ([ID client](https://tools.ietf.org/html/rfc6749#page-15)) est utilisé lors de l’exécution de l’authentification de demande et est fourni pour les bibliothèques d’authentification dans le temps de développement. L’ID d’application (ID client) n’est pas une clé secrète.
+L’identificateur unique Azure AD est émis pour une inscription d’application qui identifie une application spécifique et les configurations associées. Cet ID d’application ([ID client](https://tools.ietf.org/html/rfc6749#page-15)) est utilisé lors de l’exécution de requêtes d’authentification et est fourni aux bibliothèques d’authentification pendant le développement. L’ID d’application (ID client) n’est pas secret.
 
 ## <a name="application-manifest"></a>manifeste d’application
 
@@ -59,7 +59,7 @@ Pour plus d’informations, consultez [Application and Service Principal Objects
 Afin de pouvoir s’intégrer à Azure AD et déléguer à ce service les fonctions de gestion de l’identité et de l’accès, l’application doit être inscrite auprès d’un [client](#tenant)Azure AD. Lorsque vous inscrivez votre application auprès d’Azure AD, vous fournissez une configuration d’identité pour votre application, ce qui permet à cette dernière de s’intégrer à Azure AD et d’utiliser des fonctionnalités telles que :
 
 * Gestion robuste de l’authentification unique à l’aide de la gestion d’Azure AD Identity Management et de l’implémentation du protocole [OpenID Connect][OpenIDConnect] ;
-* Accès réparti [des ressources protégées](#resource-server) par [les applications clientes](#client-application), via OAuth 2.0 [serveur d’autorisation](#authorization-server)
+* Accès réparti des [applications clientes](#client-application) aux [ressources protégées](#resource-server) via le [serveur d’autorisation](#authorization-server) OAuth 2.0 ;
 * [Infrastructure de consentement](#consent) pour la gestion de l’accès client aux ressources protégées en fonction de l’autorisation du propriétaire des ressources.
 
 Pour plus d’informations, consultez [Integrating applications with Azure Active Directory (Intégration d’applications dans Azure Active Directory)][AAD-Integrating-Apps].
@@ -93,15 +93,15 @@ Informations d’identification représentant [l’autorisation](#authorization)
 
 Comme le définit [l’infrastructure d’autorisation OAuth2][OAuth2-Role-Def], serveur responsable de l’émission de jetons d’accès pour le [client](#client-application) après avoir authentifié le [propriétaire des ressources](#resource-owner) et obtenu son autorisation. Une [application cliente](#client-application) interagit avec le serveur d’autorisation lors de l’exécution via ses points de terminaison [d’autorisation](#authorization-endpoint) et de [jeton](#token-endpoint), conformément aux [octrois d’autorisation](#authorization-grant) définis par l’infrastructure d’autorisation OAuth2.
 
-Dans le cas d’intégration d’applications plateforme Microsoft identity, plateforme d’identité Microsoft implémente le rôle de serveur d’autorisation pour les applications Azure AD et Microsoft API de service, par exemple [API Microsoft Graph] [Microsoft-Graph].
+Dans le cas de l’intégration d’applications de plateforme d’identité Microsoft, cette dernière implémente le rôle de serveur d’autorisation pour les applications Azure AD et les API de service Microsoft, par exemple les [API Graph Microsoft][Microsoft-Graph].
 
 ## <a name="claim"></a>revendication
 
 Un [jeton de sécurité](#security-token) contient des revendications qui fournissent des assertions sur une entité (telle qu’une [application cliente](#client-application) ou un [propriétaire de ressources](#resource-owner)) à une autre entité (telle que le [serveur de ressources](#resource-server)). Les revendications sont des paires nom/valeur qui relaient des informations sur le sujet du jeton (par exemple, le principal de sécurité authentifié par le [serveur d’autorisation](#authorization-server)). Les revendications présentes dans un jeton donné dépendent de plusieurs variables, notamment le type de jeton, le type d’informations d’identification utilisées pour authentifier le sujet et la configuration de l’application.
 
-Consultez [référence de jeton de plate-forme Microsoft identity] [ AAD-Tokens-Claims] pour plus d’informations.
+Consultez [Informations de référence sur les jetons de la plateforme d’identité Microsoft][AAD-Tokens-Claims] pour en savoir plus.
 
-## <a name="client-application"></a>application cliente
+## <a name="client-application"></a>d’application cliente
 
 Comme le définit [l’infrastructure d’autorisation OAuth2][OAuth2-Role-Def], application qui effectue des demandes de ressources protégées au nom du [propriétaire des ressources](#resource-owner). Le terme « cliente » n’implique pas de caractéristiques d’implémentation matérielle particulières (par exemple, si l’application s’exécute sur un serveur, un ordinateur de bureau ou d’autres appareils).
 
@@ -117,7 +117,7 @@ Consultez l’[infrastructure de consentement](consent-framework.md) pour plus d
 
 [Jeton de sécurité](#security-token)[OpenID Connect][OpenIDConnect-ID-Token] fourni par le [point de terminaison d’autorisation](#authorization-endpoint) d’un [serveur d’autorisation](#authorization-server) et contenant des [revendications](#claim) se rapportant à l’authentification d’un [propriétaire de ressources](#resource-owner) utilisateur final. Comme un jeton d’accès, un jeton d’ID est représenté sous forme de jeton [JSON Web Token (JWT)][JWT] signé numériquement. À la différence d’un jeton d’accès cependant, les revendications d’un jeton d’ID ne sont pas utilisés à des fins liées à l’accès aux ressources et plus particulièrement pour le contrôle d’accès.
 
-Consultez [référence de jeton de plate-forme Microsoft identity] [ AAD-Tokens-Claims] pour plus d’informations.
+Consultez [Informations de référence sur les jetons de la plateforme d’identité Microsoft][AAD-Tokens-Claims] pour en savoir plus.
 
 ## <a name="microsoft-identity-platform"></a>Plateforme d’identité Microsoft
 
@@ -142,7 +142,7 @@ Une [application cliente](#client-application) accède à un [serveur de ressour
 
 Elles apparaissent également pendant le processus de [consentement](#consent) , donnant à l’administrateur ou au propriétaire des ressources la possibilité d’autoriser/de refuser l’accès client aux ressources de son client.
 
-Demandes d’autorisation sont configurés sur le **autorisations d’API** page pour une application dans le [portail Azure][AZURE-portal], en sélectionnant le souhaitée « autorisations déléguées » et » Autorisations d’application » (ces dernières nécessitent l’appartenance au rôle Administrateur général). Du fait qu’un [client public](#client-application) ne peut pas conserver de façon sécurisée les informations d’identification, il peut demander uniquement des autorisations déléguées, alors qu’un [client confidentiel](#client-application) peut demander des autorisations déléguées et des autorisations d’application. L’[objet application](#application-object) du client stocke les autorisations déclarées dans sa [propriété requiredResourceAccess][AAD-Graph-App-Entity].
+Vous pouvez configurer des requêtes d’autorisation dans la page **Autorisations de l’API** d’une application dans le [portail Azure][AZURE-portal] en sélectionnant les « Autorisations déléguées » et les « Autorisations d’application » souhaitées (ces dernières nécessitent l’appartenance au rôle Administrateur général). Du fait qu’un [client public](#client-application) ne peut pas conserver de façon sécurisée les informations d’identification, il peut demander uniquement des autorisations déléguées, alors qu’un [client confidentiel](#client-application) peut demander des autorisations déléguées et des autorisations d’application. L’[objet application](#application-object) du client stocke les autorisations déclarées dans sa [propriété requiredResourceAccess][AAD-Graph-App-Entity].
 
 ## <a name="resource-owner"></a>propriétaire de la ressource
 
@@ -220,7 +220,7 @@ Type d’ [application cliente](#client-application) qui exécute tout le code s
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Le [Guide du développeur Microsoft identity plateforme] [ AAD-Dev-Guide] est la page d’accueil à utiliser pour tous les Microsoft identity plateforme liées au développement sujets, y compris une vue d’ensemble de [application intégration] [ AAD-How-To-Integrate] et les principes fondamentaux de [Microsoft identity plateforme authentication et scénarios d’authentification pris en charge][AAD-Auth-Scenarios]. Vous trouverez également des exemples de code et des tutoriels qui vous permettront d'être rapidement opérationnel sur [GitHub](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
+Le [Guide du développeur de la plateforme d’identité Microsoft][AAD-Dev-Guide] est la page d’accueil rassemblant toutes les rubriques liées au développement de la plateforme d’identité Microsoft, notamment une présentation de l’[intégration d’applications][AAD-How-To-Integrate] et les principes de base de l’[’authentification de la plateforme d’identité Microsoft et des scénarios d’authentification pris en charge][AAD-Auth-Scenarios]. Vous trouverez également des exemples de code et des tutoriels qui vous permettront d'être rapidement opérationnel sur [GitHub](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
 
 Utilisez la section des commentaires suivante pour fournir des commentaires et nous aider à affiner et à présenter notre contenu, y compris les demandes de nouvelles définitions ou la mise à jour de définitions existantes !
 

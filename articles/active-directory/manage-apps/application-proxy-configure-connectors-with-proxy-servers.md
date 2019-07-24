@@ -13,10 +13,10 @@ ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6cc0b3a9a02c023678691921100443436cdf0011
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66015473"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Travailler avec des serveurs proxy locaux existants
@@ -112,7 +112,7 @@ Autorisez l'accès aux URL suivantes :
 | mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | Azure utilise ces URL pour vérifier les certificats |
 | login.windows.net<br>login.microsoftonline.com | Le connecteur utilise ces URL lors du processus d'inscription. |
 
-Si votre pare-feu ou proxy vous permet de configurer des listes d’autorisation DNS, vous pouvez autoriser les connexions à \*. msappproxy.net et \*. servicebus.windows.net. Si ce n’est pas le cas, vous devez autoriser l’accès aux [plages d’adresses IP du centre de données Azure](https://www.microsoft.com/download/details.aspx?id=41653). Ces dernières sont mises à jour chaque semaine.
+Si votre pare-feu ou proxy vous permet de configurer la mise en liste verte de DN, vous pouvez autoriser les connexions à \*.msappproxy.net et \*.servicebus.windows.net. Si ce n’est pas le cas, vous devez autoriser l’accès aux [plages d’adresses IP du centre de données Azure](https://www.microsoft.com/download/details.aspx?id=41653). Ces dernières sont mises à jour chaque semaine.
 
 
 Si vous ne pouvez pas autoriser la connectivité par le nom de domaine complet et devez spécifier des plages d’adresses IP à la place, utilisez ces options :
@@ -152,7 +152,7 @@ Pour commencer la résolution des problèmes, procédez comme suit :
    ![Service de connecteur de proxy d’application Azure AD dans services.msc](./media/application-proxy-configure-connectors-with-proxy-servers/services-local.png)
 
 2. Exécutez Message Analyser en tant qu’administrateur.
-3. Sélectionnez **Start local trace (Démarrer la trace locale)**.
+3. Sélectionnez **Start local trace (Démarrer la trace locale)** .
 
    ![Démarrer la capture réseau](./media/application-proxy-configure-connectors-with-proxy-servers/start-local-trace.png)
 

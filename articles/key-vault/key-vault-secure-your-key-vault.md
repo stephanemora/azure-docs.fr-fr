@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
-ms.openlocfilehash: a88451403f242c39212c80e3c7425a901c6819cc
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: 67925f2123f2a4f2524002eb075754c38fad4b42
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64725288"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67118979"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Sécuriser l’accès à un coffre de clés
 
@@ -53,12 +53,12 @@ Le tableau suivant présente les points de terminaison pour les plans de gestion
 
 | Plan&nbsp;d’accès | Points de terminaison d’accès | Opérations | Mécanisme de contrôle&nbsp;d’accès |
 | --- | --- | --- | --- |
-| Plan de gestion | **Mondial :**<br> management.azure.com:443<br><br> **Azure China 21Vianet:**<br> management.chinacloudapi.cn:443<br><br> **Azure US Government :**<br> management.usgovcloudapi.net:443<br><br> **Azure Germany :**<br>  management.microsoftazure.de:443 | Créer, lire, mettre à jour et supprimer des coffres de clés<br><br>Définir des stratégies d’accès Key Vault<br><br>Définir des étiquettes Key Vault | RBAC Azure Resource Manager |
+| Plan de gestion | **Mondial :**<br> management.azure.com:443<br><br> **Azure China 21Vianet:**<br> management.chinacloudapi.cn:443<br><br> **Azure US Government :**<br> management.usgovcloudapi.net:443<br><br> **Azure Germany :**<br> management.microsoftazure.de:443 | Créer, lire, mettre à jour et supprimer des coffres de clés<br><br>Définir des stratégies d’accès Key Vault<br><br>Définir des étiquettes Key Vault | RBAC Azure Resource Manager |
 | Plan de données | **Mondial :**<br> &lt;nom du coffre&gt;.vault.azure.net:443<br><br> **Azure China 21Vianet:**<br> &lt;nom du coffre&gt;.vault.azure.cn:443<br><br> **Azure US Government :**<br> &lt;nom du coffre&gt;.vault.usgovcloudapi.net:443<br><br> **Azure Germany :**<br> &lt;nom du coffre&gt;.vault.microsoftazure.de:443 | Clés : déchiffrer, chiffrer,<br> unwrapper, wrapper, vérifier, signer,<br> obtenir, lister, mettre à jour, créer,<br> importer, supprimer, sauvegarder, restaurer<br><br> Secrets : obtenir, lister, définir, supprimer | Stratégie d’accès au coffre de clés |
 
 ## <a name="management-plane-and-rbac"></a>Plan de gestion et RBAC
 
-Dans le plan de gestion, vous utilisez RBAC (contrôle d’accès basé sur rôle) pour autoriser les opérations qu’un appelant peut exécuter. Dans le modèle RBAC, chaque abonnement Azure a une instance d’Azure AD. Vous accordez l’accès aux utilisateurs, groupes et applications de ce répertoire. L’accès accordé permet de gérer les ressources de l’abonnement Azure qui reposent sur le modèle de déploiement Azure Resource Manager. Pour accorder l’accès, utilisez le [portail Azure](https://portal.azure.com/), l’interface [Azure CLI](../cli-install-nodejs.md), [Azure PowerShell](/powershell/azureps-cmdlets-docs) ou les [API REST Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn906885.aspx).
+Dans le plan de gestion, vous utilisez le contrôle d’accès en fonction du rôle (RBAC) pour autoriser les opérations qu’un appelant peut exécuter. Dans le modèle RBAC, chaque abonnement Azure a une instance d’Azure AD. Vous accordez l’accès aux utilisateurs, groupes et applications de ce répertoire. L’accès accordé permet de gérer les ressources de l’abonnement Azure qui reposent sur le modèle de déploiement Azure Resource Manager. Pour accorder l’accès, utilisez le [portail Azure](https://portal.azure.com/), l’interface [Azure CLI](../cli-install-nodejs.md), [Azure PowerShell](/powershell/azureps-cmdlets-docs) ou les [API REST Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn906885.aspx).
 
 Vous créez un coffre de clés dans un groupe de ressources et gérez l’accès à l’aide d’Azure AD. Vous autorisez des utilisateurs ou des groupes à gérer les coffres de clés dans un groupe de ressources. Vous accordez l’accès à un niveau d’étendue spécifique en attribuant les rôles RBAC appropriés. Pour permettre à un utilisateur de gérer des coffres de clés, vous attribuez un rôle `key vault Contributor` prédéfini à l’utilisateur dans une étendue spécifique. Les niveaux d’étendue suivants peuvent être attribués à un rôle RBAC :
 
@@ -125,7 +125,7 @@ Le tableau suivant récapitule les autorisations d’accès pour nos rôles et n
 
 | Rôle | Autorisations de plan de gestion | Autorisations de plan de données |
 | --- | --- | --- |
-| Équipe de sécurité | Contributeur Key Vault | Clés : sauvegarder, créer, supprimer, obtenir, importer, énumérer, restaurer<br>Secrets : toutes les opérations |
+| Équipe de sécurité | Contributeur Key Vault | Clés : sauvegarde, création, suppression, obtention, importation, énumération, restauration<br>Secrets : toutes les opérations |
 | Développeurs et&nbsp;opérateurs | Autorisation de déploiement Key Vault<br><br> **Remarque**: Cette autorisation permet aux machines virtuelles déployées de récupérer les secrets d’un coffre de clés. | Aucun |
 | Auditeurs | Aucun | Clés : énumération<br>Secrets : énumération<br><br> **Remarque**: Cette autorisation permet aux auditeurs d’inspecter les attributs (étiquettes, dates d’activation, dates d’expiration) pour les clés et secrets non émis dans les journaux d’activité. |
 | Application | Aucun | Clés : énumération<br>Secrets : obtention |

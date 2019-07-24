@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6f512911811535818f4ad857c5c3b956870f619
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0ae638f8cbef29c5d167a3ab59188169cbd934ef
+ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65074544"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67150225"
 ---
 # <a name="web-app-that-signs-in-users---app-registration"></a>Application web qui connecte des utilisateurs - Inscription d’application
 
@@ -48,14 +48,14 @@ Si vous accédez à ce lien, vous pouvez lancer la création de votre applicatio
 1. Si votre compte vous propose un accès à plusieurs locataires, sélectionnez votre compte en haut à droite et définissez votre session de portail sur le locataire Azure AD souhaité.
 1. Dans le volet de navigation de gauche, sélectionnez le service **Azure Active Directory**, puis **Inscriptions d’applications** > **Nouvelle inscription**.
 1. Lorsque la page **Inscrire une application** s’affiche, saisissez les informations d’inscription de votre application :
-   - Choisissez les types de comptes pris en charge par votre application (voir [Types de comptes pris en charge](./v2-supported-account-types.md)).
-   - Dans la section **Nom**, saisissez un nom d’application cohérent qui s’affichera pour les utilisateurs de l’application, par exemple `AspNetCore-WebApp`.
-   - Dans **URL de réponse**, ajoutez l’URL de réponse de votre application, par exemple `https://localhost:44321/`, puis sélectionnez **Inscrire**.
+   1. Choisissez les types de comptes pris en charge par votre application (voir [Types de comptes pris en charge](./v2-supported-account-types.md)).
+   1. Dans la section **Nom**, saisissez un nom d’application cohérent qui s’affichera pour les utilisateurs de l’application, par exemple `AspNetCore-WebApp`.
+   1. Dans **URI de redirection**, ajoutez le type d’application et la destination d’URI qui acceptera les réponses de jeton retournées après une authentification réussie. Par exemple : `https://localhost:44321/`.  Sélectionnez **Inscription**.
 1. Sélectionnez le menu **Authentification** et ajoutez les informations suivantes :
-- Dans **URL de réponse**, ajoutez `https://localhost:44321/signin-oidc` et sélectionnez **Inscrire**.
-- Dans la section **Paramètres avancés**, définissez l’**URL de déconnexion** sur `https://localhost:44321/signout-oidc`.
-- Sous **Octroi implicite**, cochez **Jetons d’ID**.
-- Sélectionnez **Enregistrer**.
+   1. Dans **URL de réponse**, ajoutez `https://localhost:44321/signin-oidc`.
+   1. Dans la section **Paramètres avancés**, définissez **URL de déconnexion** sur `https://localhost:44321/signout-oidc`.
+   1. Sous **Octroi implicite**, cochez **Jetons d’ID**.
+   1. Sélectionnez **Enregistrer**.
 
 ### <a name="register-an-app-using-powershell"></a>Inscrire une application avec PowerShell
 

@@ -14,14 +14,14 @@ ms.date: 11/19/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 0db301109da657083d121cc8b986372adcb54171
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66389043"
 ---
 # <a name="move-data-from-odbc-data-stores-using-azure-data-factory"></a>Transfert de données à partir de magasins de données ODBC à l’aide d’Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version 1](data-factory-odbc-connector.md)
 > * [Version 2 (version actuelle)](../connector-odbc.md)
 
@@ -67,13 +67,13 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| type |La propriété type doit être définie sur : **OnPremisesOdbc** |Oui |
-| connectionString |Partie de la chaîne de connexion ne contenant pas les informations d’accès, avec des informations d’identification chiffrées facultatives. Consultez les exemples dans les sections suivantes. <br/><br/>Vous pouvez spécifier la chaîne de connexion avec un modèle comme `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`, ou utiliser le système DSN (Data Source Name) que vous avez configuré sur l’ordinateur passerelle avec `"DSN=<name of the DSN>;"` (vous devez toujours spécifier la partie informations d’identification dans le service lié comme il convient). |Oui |
+| type |La propriété type doit être définie sur : **OnPremisesOdbc** |OUI |
+| connectionString |Partie de la chaîne de connexion ne contenant pas les informations d’accès, avec des informations d’identification chiffrées facultatives. Consultez les exemples dans les sections suivantes. <br/><br/>Vous pouvez spécifier la chaîne de connexion avec un modèle comme `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`, ou utiliser le système DSN (Data Source Name) que vous avez configuré sur l’ordinateur passerelle avec `"DSN=<name of the DSN>;"` (vous devez toujours spécifier la partie informations d’identification dans le service lié comme il convient). |OUI |
 | credential |Partie de la chaîne de connexion contenant les informations d’accès, spécifiée dans un format de valeurs de propriété spécifique au pilote. Exemple : `"Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;"`. |Non |
-| authenticationType |Type d’authentification utilisé pour se connecter au magasin de données ODBC. Les valeurs possibles sont les suivantes : Anonymous et Basic. |Oui |
-| userName |Spécifiez le nom d’utilisateur si vous utilisez l’authentification de base. |Non  |
-| password |Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. |Non  |
-| gatewayName |Nom de la passerelle que le service Data Factory doit utiliser pour se connecter au magasin de données ODBC. |Oui |
+| authenticationType |Type d’authentification utilisé pour se connecter au magasin de données ODBC. Les valeurs possibles sont les suivantes : Anonymous et Basic. |OUI |
+| userName |Spécifiez le nom d’utilisateur si vous utilisez l’authentification de base. |Non |
+| password |Indiquez le mot de passe du compte d’utilisateur défini pour userName. |Non |
+| gatewayName |Nom de la passerelle que le service Data Factory doit utiliser pour se connecter au magasin de données ODBC. |OUI |
 
 ### <a name="using-basic-authentication"></a>Utilisation de l’authentification de base
 
@@ -95,7 +95,7 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
 }
 ```
 ### <a name="using-basic-authentication-with-encrypted-credentials"></a>Utilisation de l’authentification de base avec des informations d’identification chiffrées
-Vous pouvez chiffrer les informations d’identification à l’aide de la [New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) applet de commande (1.0 version d’Azure PowerShell) ou [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) (version 0.9 ou antérieure de Azure PowerShell).
+Vous pouvez chiffrer les informations d’identification à l’aide de l’applet de commande [New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) (version 1.0 d’Azure PowerShell) ou [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) (version 0.9 ou antérieure d’Azure PowerShell).
 
 ```json
 {
@@ -139,7 +139,7 @@ La section **typeProperties** est différente pour chaque type de jeu de donnée
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| tableName |Nom de la table dans le magasin de données ODBC. |Oui |
+| tableName |Nom de la table dans le magasin de données ODBC. |OUI |
 
 ## <a name="copy-activity-properties"></a>Propriétés de l’activité de copie
 Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l’article [Création de pipelines](data-factory-create-pipelines.md). Les propriétés comme le nom, la description, les tables d'entrée et de sortie et les différentes stratégies sont disponibles pour tous les types d'activités.
@@ -150,7 +150,7 @@ Dans l’activité de copie, quand la source est de type **RelationalSource** (c
 
 | Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
-| query |Utilise la requête personnalisée pour lire des données. |Chaîne de requête SQL. Par exemple : select * from MyTable. |Oui |
+| query |Utilise la requête personnalisée pour lire des données. |Chaîne de requête SQL. Par exemple : select * from MyTable. |OUI |
 
 
 ## <a name="json-example-copy-data-from-odbc-data-store-to-azure-blob"></a>Exemple JSON : copier des données d’un magasin de données ODBC vers Stockage Blob Azure

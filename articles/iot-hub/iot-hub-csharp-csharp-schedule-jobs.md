@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/06/2018
 ms.author: robinsh
 ms.openlocfilehash: f21f1eed6babee52f30c6eccc79f88dc7bee5d58
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65864476"
 ---
 # <a name="schedule-and-broadcast-jobs-netnet"></a>Planifier et diffuser des travaux (.NET/.NET)
@@ -29,9 +29,9 @@ Un travail encapsule l’une de ces actions et suit l’exécution sur un ensemb
 
 Pour plus d’informations sur chacune de ces fonctionnalités, consultez les pages :
 
-* Jumeau d’appareil et propriétés : [Bien démarrer avec les jumeaux d’appareil](iot-hub-csharp-csharp-twin-getstarted.md) et [didacticiel : Comment utiliser les propriétés des représentations](tutorial-device-twins.md)
+* Jumeau d’appareil et propriétés : [Prise en main des jumeaux d’appareils](iot-hub-csharp-csharp-twin-getstarted.md) et [Didacticiel : Guide pratique pour utiliser des propriétés de jumeau d’appareil](tutorial-device-twins.md)
 
-* Méthodes directes : [Guide du développeur IoT Hub - méthodes directes](iot-hub-devguide-direct-methods.md) et [didacticiel : Utiliser des méthodes directes](quickstart-control-device-dotnet.md)
+* Méthodes directes : [Guide du développeur IoT Hub - méthodes directes](iot-hub-devguide-direct-methods.md) et [Didacticiel : Utiliser des méthodes directes](quickstart-control-device-dotnet.md)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -72,7 +72,7 @@ Dans cette section, vous allez créer une application console .NET qui répond �
    
     ![Nouvelle application pour appareil Windows classique Visual C#](./media/iot-hub-csharp-csharp-schedule-jobs/create-device-app.png)
     
-2. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **SimulateDeviceMethods**, puis cliquez sur **Gérer les packages NuGet...**.
+2. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **SimulateDeviceMethods**, puis cliquez sur **Gérer les packages NuGet...** .
 
 3. Dans la fenêtre **Gestionnaire de package NuGet**, sélectionnez **Parcourir**, puis recherchez **Microsoft.Azure.Devices.Client**. Sélectionnez **Installer** pour installer le package **Microsoft.Azure.Devices.Client**, puis acceptez les conditions d’utilisation. Cette procédure télécharge, installe et ajoute une référence au package NuGet [Azure IoT device SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/) et ses dépendances.
    
@@ -159,7 +159,7 @@ Dans cette section, vous allez créer une application console .NET (en C#) qui u
 
     ![Nouveau projet Visual C# Bureau classique Windows](./media/iot-hub-csharp-csharp-schedule-jobs/createnetapp.png)
 
-2. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **ScheduleJob**, puis cliquez sur **Gérer les packages NuGet...**.
+2. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **ScheduleJob**, puis cliquez sur **Gérer les packages NuGet...** .
 
 3. Dans la fenêtre **Gestionnaire de package NuGet**, cliquez sur **Parcourir**, puis recherchez **Microsoft.Azure.Devices**. Cliquez ensuite sur **Installer** pour installer le package **Microsoft.Azure.Devices**, puis acceptez les conditions d’utilisation. Cette étape lance le téléchargement et l’installation et ajoute une référence au [package Azure IoT Service SDK NuGet](https://www.nuget.org/packages/Microsoft.Azure.Devices/) et ses dépendances.
 
@@ -291,6 +291,6 @@ Vous êtes maintenant prêt à exécuter les applications.
 
 Dans ce didacticiel, vous avez utilisé un travail pour planifier une méthode directe sur un appareil et la mise à jour des propriétés de représentation de l’appareil.
 
-Pour continuer la mise en route avec IoT Hub et les modèles de gestion de périphérique, comme la mise à jour du microprogramme air, lire [didacticiel : Comment effectuer une mise à jour du microprogramme](tutorial-firmware-update.md).
+Pour approfondir la prise en main d’IoT Hub et des modèles de gestion d’appareils, comme la mise à jour du microprogramme à distance, consultez [Didacticiel : Mettre à jour un microprogramme](tutorial-firmware-update.md).
 
 Pour en savoir plus sur le déploiement de l’intelligence artificielle sur des appareils de périphérie avec Azure IoT Edge, consultez [Bien démarrer avec IoT Edge](../iot-edge/tutorial-simulate-device-linux.md).

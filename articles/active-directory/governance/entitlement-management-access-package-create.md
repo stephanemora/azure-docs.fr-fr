@@ -1,6 +1,6 @@
 ---
-title: Créer un nouveau package d’accès dans la gestion des droits Azure AD (version préliminaire) - Azure Active Directory
-description: Découvrez comment créer un nouveau package d’accès de ressources que vous souhaitez partager dans la gestion des droits Azure Active Directory (version préliminaire).
+title: Créer un package d’accès dans la gestion des droits d’utilisation d’Azure Active Directory (préversion) - Azure Active Directory
+description: Découvrez comment créer un package d’accès de ressources que vous souhaitez partager dans la gestion des droits d’utilisation Azure Active Directory (préversion).
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -16,115 +16,116 @@ ms.date: 05/16/2019
 ms.author: rolyon
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 312658bd653d94f3e1a32204b3c5ae4ae290558e
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
-ms.translationtype: MT
+ms.openlocfilehash: 1b5ff842d1645d2b47a436eca4fc8dc614a9fb63
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65832742"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190375"
 ---
-# <a name="create-a-new-access-package-in-azure-ad-entitlement-management-preview"></a>Créer un nouveau package d’accès dans la gestion des droits Azure AD (version préliminaire)
+# <a name="create-a-new-access-package-in-azure-ad-entitlement-management-preview"></a>Créer un package d’accès dans la gestion des droits d’utilisation Azure AD (préversion)
 
 > [!IMPORTANT]
-> Gestion des habilitations Azure Active Directory (Azure AD) est actuellement en version préliminaire publique.
+> La gestion des droits d’utilisation Azure Active Directory (Azure AD) est actuellement en préversion publique.
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
 > Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Un package d’accès vous permet de vous permettent d’effectuer une installation unique des ressources et des stratégies qui administre automatiquement l’accès pour la durée de vie du package d’accès. Cet article décrit comment créer un nouveau package d’accès.
+Un package d’accès vous permet d’effectuer une configuration unique des ressources et des stratégies qui gèrent automatiquement l’accès pendant toute la durée de vie du package d’accès. Cet article décrit comment créer un package d’accès.
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
-Tous les packages d’accès doivent être placés dans un conteneur appelé un catalogue. Un catalogue définit les ressources auxquelles vous pouvez ajouter à votre package d’accès. Si vous ne spécifiez pas un catalogue, votre package d’accès est placé dans le catalogue général. Actuellement, vous ne pouvez pas déplacer un package d’accès existant à un autre catalogue.
+Tous les packages d’accès doivent être placés dans un conteneur appelé catalogue. Un catalogue définit les ressources que vous pouvez ajouter à votre package d’accès. Si vous ne spécifiez aucun catalogue, votre package d’accès est placé dans le catalogue Général. Actuellement, vous ne pouvez pas déplacer un package d’accès existant vers un autre catalogue.
 
-Tous les packages d’accès doivent avoir au moins une stratégie. Stratégies de spécifient qui peut demander le package de l’accès et également les paramètres d’approbation et d’expiration. Lorsque vous créez un nouveau package d’accès, vous pouvez créer une stratégie initiale pour les utilisateurs dans votre répertoire, pour les utilisateurs non inclus dans votre annuaire, les affectations directes d’administrateur uniquement, ou vous pouvez choisir de créer la stratégie ultérieurement.
+Tous les packages d’accès doivent avoir au moins une stratégie. Les stratégies spécifient qui peut demander le package d’accès, ainsi que les paramètres d’approbation et d’expiration. Lorsque vous créez un nouveau package d’accès, vous pouvez créer une stratégie initiale pour les utilisateurs présents dans votre répertoire, pour les utilisateurs non présents dans votre répertoire, pour les attributions directes d’administrateur uniquement, ou vous pouvez choisir de créer la stratégie ultérieurement.
 
-Le diagramme suivant illustre la procédure à suivre pour créer un nouveau package d’accès.
+Le diagramme suivant montre le processus de haut niveau permettant de créer un package d’accès.
 
 ![Créer un processus de package d’accès](./media/entitlement-management-access-package-create/access-package-process.png)
 
 ## <a name="start-new-access-package"></a>Démarrer le nouveau package d’accès
 
-**Rôle :** Utilisateur administrateur ou propriétaire du catalogue
+**Rôle prérequis :** Administrateur d’utilisateurs ou propriétaire de catalogue
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 
-1. Cliquez sur **Azure Active Directory** puis cliquez sur **gouvernance des identités**.
+1. Cliquez sur **Azure Active Directory**, puis sur **Identity Governance**.
 
-1. Dans le menu de gauche, cliquez sur **accéder aux packages**.
+1. Dans le menu gauche, cliquez sur **Packages d’accès**.
 
-    ![Gestion des habilitations dans le portail Azure](./media/entitlement-management-shared/elm-access-packages.png)
+    ![Gestion des droits d’utilisation dans le portail Azure](./media/entitlement-management-shared/elm-access-packages.png)
 
-1. Cliquez sur **nouveau package accès**.
+1. Cliquez sur **Nouveau package d’accès**.
 
 ## <a name="basics"></a>Concepts de base
 
-Sur le **notions de base** onglet, vous nommez le package de l’accès, puis spécifier quel catalogue pour créer le package d’accès dans.
+Sur l’onglet **Concepts de base**, vous donnez un nom au package d’accès et spécifiez le catalogue dans lequel vous le créez.
 
-1. Entrez un nom d’affichage et une description pour le package de l’accès. Les utilisateurs verront ces informations lorsqu’ils envoient une demande pour le package de l’accès.
+1. Entrez un nom d’affichage et une description pour le package d’accès. Les utilisateurs voient ces informations lorsqu’ils envoient une demande pour le package d’accès.
 
-1. Dans le **catalogue** liste déroulante, sélectionnez le catalogue que vous souhaitez créer l’accès au package dans. Par exemple, vous pouvez avoir un propriétaire du catalogue qui gère toutes les ressources marketing qui peuvent être demandées. Dans ce cas, vous pouvez sélectionner le catalogue de marketing.
+1. Dans la liste déroulante **Catalogue**, sélectionnez le catalogue dans lequel vous souhaitez créer le package d’accès. Par exemple, vous pouvez avoir un propriétaire du catalogue qui gère toutes les ressources marketing qui peuvent être demandées. Dans ce cas, vous pouvez sélectionner le catalogue marketing.
 
-    Vous verrez seulement les catalogues vous êtes autorisé à créer des packages d’accès dans. Pour créer le package de l’accès dans un catalogue existant, vous devez être au moins un administrateur de l’utilisateur, le propriétaire du catalogue ou le Gestionnaire de package de l’accès.
+    Vous verrez seulement les catalogues dans lesquels vous êtes autorisé à créer des packages d’accès. Pour créer le package d’accès dans un catalogue existant, vous devez être au moins un administrateur d’utilisateurs, le propriétaire du catalogue ou le gestionnaire de package d’accès.
 
-    ![Package d’accès - principes de base](./media/entitlement-management-access-package-create/basics.png)
+    ![Package d’accès - Concepts de base](./media/entitlement-management-access-package-create/basics.png)
 
-    Si vous souhaitez créer votre package d’accès dans un nouveau catalogue, cliquez sur **créer un nouveau**. Entrez le nom du catalogue et la description, puis activez **créer**.
+    Si vous souhaitez créer votre package d’accès dans un nouveau catalogue, cliquez sur **Créer**. Entrez le nom du catalogue et sa description, puis cliquez sur **Créer**.
 
-    Le package d’accès que vous créez et toutes les ressources qu’il seront ajoutés dans le nouveau catalogue. En outre, vous deviendrez alors automatiquement le premier propriétaire du catalogue. Vous pouvez ajouter des propriétaires de catalogue supplémentaires.
+    Le package d’accès que vous créez et toutes les ressources incluses sont ajoutés dans le nouveau catalogue. En outre, vous deviendrez alors automatiquement le premier propriétaire du catalogue. Vous pouvez ajouter d’autres propriétaires de catalogue.
 
-    Pour créer un nouveau catalogue, vous devez être au moins un administrateur de l’utilisateur ou le créateur du catalogue.
+    Pour créer un nouveau catalogue, vous devez être au moins un administrateur d’utilisateurs ou le créateur du catalogue.
 
 1. Cliquez sur **Suivant**.
 
 ## <a name="resource-roles"></a>Rôles de ressources
 
-Sur le **rôles de ressources** onglet, vous sélectionnez les ressources à inclure dans le package de l’accès.
+Sous l’onglet **Rôles de ressources**, sélectionnez les ressources à inclure dans le package d’accès.
 
-1. Cliquez sur le type de ressource que vous souhaitez ajouter (**groupes**, **Applications**, ou **sites SharePoint**).
+1. Cliquez sur le type de ressource que vous souhaitez ajouter (**Groupes**, **Applications**, ou **Sites SharePoint**).
 
 1. Dans le volet de sélection qui s’affiche, sélectionnez une ou plusieurs ressources dans la liste.
 
-    ![Package d’accès - rôles de ressources](./media/entitlement-management-access-package-create/resource-roles.png)
+    ![Package d’accès - Rôles des ressources](./media/entitlement-management-access-package-create/resource-roles.png)
 
-    Si vous créez le package d’accès dans le catalogue général ou un nouveau catalogue, vous serez en mesure de récupérer n’importe quelle ressource à partir du répertoire que vous possédez. Vous devez être au moins un administrateur de l’utilisateur ou le créateur du catalogue.
+    Si vous créez le package d’accès dans le catalogue Général ou dans un nouveau catalogue, vous pouvez récupérer n’importe quelle ressource à partir du répertoire que vous possédez. Vous devez être au moins un administrateur d’utilisateurs ou le créateur du catalogue.
 
-    Si vous créez le package d’accès dans un catalogue existant, vous pouvez sélectionner n’importe quelle ressource est déjà dans le catalogue, sans être propriétaire d’elle.
+    Si vous créez le package d’accès dans un catalogue existant, vous pouvez sélectionner n’importe quelle ressource déjà présente dans le catalogue sans avoir à en être propriétaire.
 
-    Si vous êtes un administrateur de l’utilisateur ou le propriétaire du catalogue, vous avez la possibilité supplémentaire de la sélection de ressources que vous possédez et qui ne sont pas encore dans le catalogue. Si vous sélectionnez ressources pas actuellement dans le catalogue sélectionné, ces ressources seront également ajoutés au catalogue des autres administrateurs de catalogue créer des packages avec accès. Si vous souhaitez uniquement sélectionner les ressources qui se trouvent actuellement dans le catalogue sélectionné, vérifiez le **uniquement voir** case à cocher en haut de la sélectionnez panoramique.
+    Si vous êtes un administrateur d’utilisateurs ou un propriétaire de catalogue, vous avez également la possibilité de sélectionner des ressources que vous possédez et qui ne sont pas encore dans le catalogue. Si vous sélectionnez des ressources qui ne sont actuellement pas présentes dans le catalogue sélectionné, ces ressources sont ajoutées au catalogue pour que d’autres administrateurs du catalogue puissent créer des packages d’accès à partir de ces dernières. Si vous souhaitez uniquement sélectionner les ressources qui se trouvent actuellement dans le catalogue sélectionné, cochez la case **Voir uniquement** en haut du volet Sélectionner.
 
-1. Une fois que vous avez sélectionné les ressources, dans le **rôle** liste, sélectionnez le rôle que vous souhaitez que les utilisateurs à affecter pour la ressource.
+1. Une fois que vous avez sélectionné les ressources, dans la liste **Rôle**, sélectionnez le rôle à assigner aux utilisateurs pour les ressources.
 
-    ![Package d’accès - sélection du rôle de ressources](./media/entitlement-management-access-package-create/resource-roles-role.png)
+    ![Package d’accès - Sélection du rôle des ressources](./media/entitlement-management-access-package-create/resource-roles-role.png)
 
 1. Cliquez sur **Suivant**.
 
 ## <a name="policy"></a>Stratégie
 
-Sur le **stratégie** onglet, vous créez la première stratégie pour spécifier qui peut demander le package de l’accès et également les paramètres d’approbation et d’expiration. Une version ultérieure, vous pouvez créer des stratégies plus afin d’autoriser d’autres groupes d’utilisateurs pour demander le package de l’accès avec leurs propres paramètres d’approbation et d’expiration. Vous pouvez également choisir de créer la stratégie ultérieurement.
+Sous l’onglet **Stratégie**, vous créez la première stratégie afin de spécifier qui peut demander le package d’accès, ainsi que les paramètres d’approbation et d’expiration. Plus tard, vous pourrez créer plus de stratégies afin d’autoriser des groupes d’utilisateurs supplémentaires à demander le package d’accès avec leurs propres paramètres d’approbation et d’expiration. Vous pouvez également choisir de créer une stratégie plus tard.
 
-1. Définir le **créer la première stratégie** activer/désactiver pour **maintenant** ou **ultérieurement**.
+1. Définissez **Créer la première stratégie** sur **Maintenant** ou **Plus tard**.
 
-    ![Package - stratégie d’accès](./media/entitlement-management-access-package-create/policy.png)
+    ![Package d’accès - Stratégie](./media/entitlement-management-access-package-create/policy.png)
 
-1. Si vous sélectionnez **ultérieurement**, passez à la [révision + créer](#review--create) section pour créer votre package d’accès.
+1. Si vous sélectionnez **Plus tard**, passez à la section [Vérifier + créer](#review--create) afin de créer votre package d’accès.
 
-1. Si vous sélectionnez **maintenant**, effectuez les étapes de l’une des sections suivantes de la stratégie.
+1. Si vous sélectionnez **Maintenant**, suivez les étapes d’une des sections relatives aux stratégies suivantes.
 
 [!INCLUDE [Entitlement management policy](../../../includes/active-directory-entitlement-management-policy.md)]
 
 ## <a name="review--create"></a>Vérifier + créer
 
-Sur le **examiner + créer** onglet, vous pouvez consulter vos paramètres et la vérification des erreurs de validation.
+Sous l’onglet **Vérifier + créer**, vous pouvez consulter vos paramètres et vérifier qu’ils ne contiennent aucune erreur de validation.
 
-1. Passez en revue les paramètres du package de l’accès
+1. Vérifier les paramètres du package d’accès
 
-    ![Package d’accès - activer la stratégie de paramètre de stratégie](./media/entitlement-management-access-package-create/review-create.png)
+    ![Package d’accès - Stratégie - Paramètre Activer la stratégie](./media/entitlement-management-access-package-create/review-create.png)
 
-1. Cliquez sur **créer** pour créer le package de l’accès.
+1. Cliquez sur **Créer** pour créer le package d’accès.
 
     Le nouveau package d’accès apparaît dans la liste des packages d’accès.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Modifier et gérer un package d’accès existant](entitlement-management-access-package-edit.md)
+- [Ajouter un propriétaire de catalogue ou un gestionnaire de package d’accès](entitlement-management-delegate.md#add-a-catalog-owner-or-an-access-package-manager)
 - [Créer et gérer un catalogue](entitlement-management-catalog-create.md)

@@ -4,14 +4,14 @@ description: Décrit les concepts relatifs aux applications gérées Azure
 author: tfitzmac
 ms.service: managed-applications
 ms.topic: overview
-ms.date: 05/31/2019
+ms.date: 07/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: 5b6cb030c6eba5d80dfd046f1c3950609da1ed73
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 97d6a229651f1c3fbcdbb79c7ae7d1c1f855882b
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66479828"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234754"
 ---
 # <a name="azure-managed-applications-overview"></a>Vue d’ensemble des applications gérées Azure
 
@@ -68,6 +68,8 @@ Le consommateur dispose d’un accès complet au groupe de ressources et l’uti
 ### <a name="managed-resource-group"></a>Groupe de ressources géré
 
 Ce groupe de ressources contient toutes les ressources exigées par l’application managée. Il contient par exemple les machines virtuelles, les comptes de stockage et les réseaux virtuels pour la solution. Le consommateur dispose d’un accès limité à ce groupe de ressources, car il ne gère pas les ressources individuelles pour l’application managée. L’accès de l’éditeur à ce groupe de ressources correspond au rôle spécifié dans la définition de l’application managée. Par exemple, l’éditeur peut demander le rôle Propriétaire ou Contributeur pour ce groupe de ressources. L’accès est limité de façon permanente ou à une période spécifique.
+
+Lors de la publication de l’[application managée sur la Place de marché](publish-marketplace-app.md), l’éditeur peut donner aux consommateurs la possibilité d’effectuer des actions spécifiques sur les ressources du groupe de ressources managé. Par exemple, l’éditeur peut spécifier que les consommateurs peuvent redémarrer des machines virtuelles. Toutes les autres actions autres que les actions de lecture sont encore refusées.
 
 Quand le consommateur supprime l’application managée, le groupe de ressources managé est également supprimé.
 

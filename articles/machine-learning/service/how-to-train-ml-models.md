@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 04/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 98f7dc2e295c0c994db9a0189814b0ef2a19b758
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.openlocfilehash: 689d7dcd57c513479c7bc08a45094670242ef6a5
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66153610"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075035"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Former des modèles avec Azure Machine Learning à l’aide de l’estimateur
 
@@ -59,14 +59,14 @@ Cet extrait de code spécifie les paramètres suivants au constructeur `Estimato
 Paramètre | Description
 --|--
 `source_directory`| Répertoire local qui contient l’ensemble du code nécessaire à la tâche d’entraînement. Ce dossier est copié de votre ordinateur local vers la cible de calcul distante 
-`script_params`| Dictionnaire en spécifiant les arguments de ligne de commande à votre script de formation `entry_script`, sous la forme de < argument de ligne de commande, valeur > paires. Pour spécifier un indicateur verbose dans `script_params`, utilisez `<command-line argument, "">`.
+`script_params`| Dictionnaire spécifiant les arguments de ligne de commande de votre script d’entraînement `entry_script`, sous la forme de paires <argument de ligne de commande, valeur>. Pour spécifier un indicateur détaillé dans `script_params`, utilisez `<command-line argument, "">`.
 `compute_target`| Cible de calcul à distance sur laquelle votre script de formation s’exécute, ici un cluster de capacité de calcul Machine Learning Azure ([AmlCompute](how-to-set-up-training-targets.md#amlcompute)). (Veuillez noter que même si le cluster AmlCompute est la cible couramment utilisée, il est également possible de choisir d’autres types de cibles de calcul, tels que des machines virtuelles Azure, voire un ordinateur local.)
 `entry_script`| Chemin de fichier (relatif à `source_directory`) du script d’entraînement à exécuter sur la cible de calcul distante. Ce fichier et tous les autres fichiers dont il dépend doivent se trouver dans ce dossier
 `conda_packages`| Liste des packages Python à installer via conda et dont a besoin votre script d’entraînement.  
 
 Le constructeur possède un autre paramètre appelé `pip_packages` que vous pouvez utiliser pour tous les packages pip nécessaires
 
-Maintenant que vous avez créé votre objet `Estimator`, soumettez la tâche d’entraînement à exécuter sur la cible de calcul à distance avec un appel à la fonction `submit` sur votre objet [Expérience](concept-azure-machine-learning-architecture.md#experiment) `experiment`. 
+Maintenant que vous avez créé votre objet `Estimator`, soumettez la tâche d’entraînement à exécuter sur la cible de calcul à distance avec un appel à la fonction `submit` sur votre objet [Expérience](concept-azure-machine-learning-architecture.md#experiments) `experiment`. 
 
 ```Python
 run = experiment.submit(sk_est)
@@ -120,18 +120,18 @@ run = experiment.submit(estimator)
 print(run.get_portal_url())
 ```
 
-## <a name="github-tracking-and-integration"></a>Intégration et suivi de GitHub
+## <a name="github-tracking-and-integration"></a>Intégration et suivi GitHub
 
-Lorsque vous démarrez une formation exécutée où le répertoire source est un référentiel Git local, les informations relatives au référentiel sont stockées dans l’historique des exécutions. Par exemple, l’ID de validation en cours pour le dépôt est consignée dans le cadre de l’historique.
+Lorsque vous lancez une exécution d’entraînement où le répertoire source est un dépôt Git local, les informations relatives au dépôt sont stockées dans l’historique des exécutions. Par exemple, l’ID de validation en cours pour le dépôt est consigné au sein de l’historique.
 
 ## <a name="examples"></a>Exemples
-Pour un notebook qui montre les fonctions de base du modèle d’estimateur :
+Pour un notebook qui montre les fonctions de base du modèle d’estimateur, consultez :
 * [how-to-use-azureml/training-with-deep-learning/how-to-use-estimator](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb)
 
-Pour un notebook qui forme un modèle scikit-learn à l’aide de l’estimateur, consultez :
+Pour un notebook qui entraîne un modèle scikit-learn à l’aide de l’estimateur, consultez :
 * [tutorials/img-classification-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
 
-Pour les notebooks sur les modèles de formation avec des estimateurs spécifiques deep-learning-framework, consultez :
+Pour les notebooks d’entraînement des modèles à l’aide d’estimateurs spécifiques deep-learning-framework, consultez :
 * [how-to-use-azureml/training-with-deep-learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]

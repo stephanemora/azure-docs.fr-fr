@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: c6271b5bb64eacf66c771b84139cead722a2e7b3
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
-ms.translationtype: MT
+ms.openlocfilehash: 23c4d5ee5ac1de9522cbf89a6de39578cf65347e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64869396"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073561"
 ---
 # <a name="use-playready-andor-widevine-dynamic-common-encryption"></a>Utilisation du chiffrement commun dynamique PlayReady et/ou Widevine
 
 > [!NOTE]
-> Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).   > Nouvelle fonctionnalité ni aucune ne sont ajoutées à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consultez également [conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md)
+> Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).   > Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consultez aussi [Conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md).
 >   
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
  Media Services vous permet de fournir des flux MPEG-DASH, Smooth Streaming et HLS (HTTP Live Streaming) protégés par [la gestion des droits numériques (DRM) PlayReady](https://www.microsoft.com/playready/overview/). Vous pouvez également l’utiliser pour diffuser des flux DASH chiffrés avec des licences Widevine DRM. PlayReady et Widevine sont chiffrés conformément à la spécification de chiffrement commun (ISO/IEC 23001-7 CENC). Vous pouvez utiliser le [SDK .NET Media Services](https://www.nuget.org/packages/windowsazure.mediaservices/) (à compter de la version 3.5.1) ou une API REST pour configurer votre AssetDeliveryConfiguration afin d’utiliser Widevine.
 
@@ -563,7 +563,7 @@ namespace DynamicEncryptionWithDRM
             // Get a reference to the streaming manifest file from the 
             // collection of files in the asset.
 
-            var assetFile = asset.AssetFiles.Where(f => f.Name.ToLower().
+            var assetFile = asset.AssetFiles.ToList().Where(f => f.Name.ToLower().
                          EndsWith(".ism")).
                          FirstOrDefault();
 

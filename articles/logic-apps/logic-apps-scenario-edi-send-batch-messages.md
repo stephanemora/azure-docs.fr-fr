@@ -9,11 +9,11 @@ ms.reviewer: estfan, LADocs
 ms.topic: article
 ms.date: 08/19/2018
 ms.openlocfilehash: d6d3a7111f3a5e49e32eba8ca4f09d692538cb87
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60427878"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "64715790"
 ---
 # <a name="send-edi-messages-in-batches-to-trading-partners-with-azure-logic-apps"></a>Envoyer des messages EDI par lots aux partenaires commerciaux avec Azure Logic Apps
 
@@ -84,7 +84,7 @@ Pour ce récepteur de lots, vous devez spécifier le mode et le nom du lot, les 
 
    1. Sous le déclencheur Lot, sélectionnez **Nouvelle étape**.
 
-   2. Dans la zone de recherche, entrez « X 12 batch » comme filtre, puis sélectionnez cette action (toute version) : **Encodage par lots <*version*>-X12** 
+   2. Dans la zone de recherche, entrez « lot X12 » en tant que filtre et sélectionnez cette action (quelle que soit la version) : **Encodage par lots <*version*> - X12** 
 
       ![Sélection de l’action d’encodage par lots X12](./media/logic-apps-scenario-EDI-send-batch-messages/add-batch-encode-action.png)
 

@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 05/06/2019
-ms.openlocfilehash: e999e4d96dcb5a1042806c0905ce331dc0a4dc0b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 05/18/2019
+ms.openlocfilehash: 11b3e7724f34a7929d9851dbc8034829f020868b
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65522854"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190707"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Utiliser les groupes de basculement automatique pour permettre le basculement transparent et coordonné de plusieurs bases de données
 
@@ -42,7 +42,10 @@ Pour assurer vraiment la continuité des activités, l’ajout d’une redondanc
 
 - **Groupe de basculement (FOG)**
 
-  Un groupe de basculement est un groupe de bases de données gérées par un même serveur SQL Database ou dans une même instance gérée, et qui peut basculer entièrement vers une autre région lorsqu’une partie ou la totalité des bases de données primaires devient indisponible en raison d’une panne dans la région primaire. Lorsqu’il est créé dans le cadre d’instances gérées, un groupe de basculement contient toutes les bases de données utilisateur de l’instance. Ainsi, il n’est possible de configurer qu’un seul groupe de basculement par instance.
+  Un groupe de basculement est un groupe nommé de bases de données gérées par un même serveur SQL Database ou dans une même instance gérée, et qui peut basculer entièrement vers une autre région lorsqu’une partie ou la totalité des bases de données primaires devient indisponible en raison d’une panne dans la région primaire. Lorsqu’il est créé dans le cadre d’instances gérées, un groupe de basculement contient toutes les bases de données utilisateur de l’instance. Ainsi, il n’est possible de configurer qu’un seul groupe de basculement par instance.
+  
+  > [!IMPORTANT]
+  > Le nom du groupe de basculement doit être unique à l’échelle globale dans le domaine `.database.windows.net`.
 
 - **Serveurs SQL Database**
 

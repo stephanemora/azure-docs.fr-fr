@@ -6,17 +6,17 @@ services: time-series-insights
 author: ashannon7
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1018b449047e40a67ea843e8506fb43f6e1093a6
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: bcab20c654657483fd37322de7ec0827fb171c01
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66239049"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165706"
 ---
 # <a name="create-a-new-time-series-insights-environment-in-the-azure-portal"></a>Créer un nouvel environnement de Time Series Insights dans le portail Azure
 
@@ -51,7 +51,7 @@ Procédez comme suit pour créer un environnement :
    Niveau tarifaire | S1 | Choisissez le débit nécessaire. Pour des coûts inférieurs et une capacité de démarrage, sélectionnez S1.
    Capacité | 1 | La capacité est le multiplicateur qui s’applique à la vitesse d’entrée, à la capacité de stockage et au coût associé à la référence (SKU) sélectionnée.  Vous pouvez modifier la capacité d’un environnement après sa création. Pour obtenir des coûts plus bas, sélectionnez une capacité de 1. 
   
-1. Cochez **Épingler au tableau de bord** pour accéder plus facilement à votre environnement Time Series à l’avenir.
+1. Cochez **Épingler au tableau de bord** pour accéder facilement à votre environnement Time Series à l’avenir.
 
    ![Créer l’épingle Time Series Insights sur le tableau de bord](media/time-series-insights-get-started/3-pin-create.png)
 

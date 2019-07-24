@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bd117b79c2d103225e8f1f29b63eb6ae341031d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3b4879093ed80a554219b053cc5a2bc895126725
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64917656"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67702889"
 ---
 # <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Protection par mot de passe Azure AD en local - Questions fréquentes (FAQ)
 
@@ -26,7 +26,7 @@ ms.locfileid: "64917656"
 
 Les conseils de Microsoft sur ce sujet se trouvent sur le lien suivant :
 
-[Conseils pour le choix du mot de passe Microsoft](https://www.microsoft.com/en-us/research/publication/password-guidance)
+[Conseils pour le choix du mot de passe Microsoft](https://www.microsoft.com/research/publication/password-guidance)
 
 **Q : La protection par mot de passe Azure AD en local est-elle prise en charge sur les clouds non publics ?**
 
@@ -43,6 +43,10 @@ Une modification de mot de passe survient lorsqu’un utilisateur choisit un nou
 Une définition de mot de passe (parfois appelée une réinitialisation de mot de passe) survient lorsqu’un administrateur remplace le mot de passe d’un compte par un nouveau mot de passe, par exemple à l’aide de l’outil de gestion Utilisateurs et ordinateurs Active Directory. Cette opération requiert un niveau élevé de privilèges (généralement, administrateur de domaine), et la personne qui effectue l’opération n’a généralement pas connaissance de l’ancien mot de passe. C’est souvent le cas dans les scénarios de support technique (par exemple, lorsque vous aidez un utilisateur qui a oublié son mot de passe). Vous rencontrez également des situations de définition de mot de passe lorsqu’un compte d’utilisateur est créé pour la première fois avec un mot de passe.
 
 Le comportement de la stratégie de validation de mot de passe est toujours identique, qu’il s’agisse d’une modification de mot de passe ou d’une définition de mot de passe. Le service d’agent du contrôleur de domaine pour la protection par mot de passe Azure AD consigne différents événements afin de vous informer en cas de modification ou de définition de mot de passe.  Voir [Supervision et journalisation dans la protection par mot de passe Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor).
+
+**Q : Pourquoi des événements de mot de passe rejetés sont-ils consignés en double lorsque je tente de définir un mot de passe faible à l’aide du composant logiciel enfichable Utilisateurs et ordinateurs Active Directory ?**
+
+Le composant logiciel enfichable Utilisateurs et ordinateurs Active Directory essaie d’abord de définir le nouveau mot de passe à l’aide du protocole Kerberos. En cas d’échec, le composant logiciel enfichable fera une seconde tentative de définition du mot de passe à l’aide d’un protocole hérité (SAM RPC - les protocoles spécifiques utilisés ne sont pas importants). Si le nouveau mot de passe est considéré comme faible par la Protection de mots de passe Azure AD, cela engendre la journalisation de deux ensembles d’événements de rejet de réinitialisation de mot de passe.
 
 **Q : L’installation de la protection par mot de passe Azure AD simultanément avec d’autres produits basés sur le filtrage par mot de passe est-elle prise en charge ?**
 

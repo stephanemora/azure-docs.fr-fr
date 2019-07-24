@@ -11,10 +11,10 @@ ms.date: 01/28/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: 4d70fe3f3f19723cd37080ae09dce97bfd8f3d34
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66511695"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>Paramétrer les URL de redirection sur b2clogin.com pour Azure Active Directory B2C
@@ -27,11 +27,11 @@ L’utilisation de b2clogin.com vous offre des avantages supplémentaires, tels 
 - Vos URL n’incluent plus de référence à Microsoft. Par exemple : `https://your-tenant-name.b2clogin.com/tenant-id/oauth2/authresp`.
 
 >[!NOTE]
-> Vous pouvez utiliser le nom du client et le GUID du locataire comme suit :
-> * `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com` (ce qui fait toujours référence à `onmicrosoft.com`)
-> * `https://your-tenant-name.b2clogin.com/your-tenant-guid` (auquel cas il n’existe aucune référence à Microsoft du tout)
+> Vous pouvez utiliser le nom du locataire et son identificateur global unique comme suit :
+> * `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com` (qui fait toujours référence à `onmicrosoft.com`)
+> * `https://your-tenant-name.b2clogin.com/your-tenant-guid` (s’il n’y a aucune référence à Microsoft)
 >
-> Toutefois, vous ne pouvez pas utiliser un _domaine personnalisé_ pour votre Azure Active Directory B2C de locataire, par exemple, `https://your-tenant-name.b2clogin.com/your-custom-domain-name` serait _pas_ fonctionne.
+> Toutefois, vous ne pouvez pas utiliser de _domaine personnalisé_ pour votre locataire Azure Active Directory B2C. Par exemple, `https://your-tenant-name.b2clogin.com/your-custom-domain-name` ne _fonctionne pas_.
 
 Tenez compte du fait que ces paramètres devront peut-être être modifiés lors de l’utilisation de b2clogin.com :
 

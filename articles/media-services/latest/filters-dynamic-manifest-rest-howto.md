@@ -11,27 +11,27 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/03/2019
+ms.date: 06/13/2019
 ms.author: juliako
-ms.openlocfilehash: 01c1711fb70d31fe84c7e20272de0eb7ce82c879
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
-ms.translationtype: MT
+ms.openlocfilehash: 447116267e53f8c4df1e882ca30c6a2e906d314c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66494234"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67114287"
 ---
 # <a name="creating-filters-with-media-services-rest-api"></a>Créer des filtres avec l’API REST Media Services
 
 Quand vous transmettez votre contenu à un client (événements de streaming en direct ou vidéo à la demande), le fichier manifeste de l’élément multimédia par défaut ne permet pas toujours au client d’interagir avec le contenu comme il le voudrait. Avec Azure Media Services, vous pouvez définir des filtres de compte et d’élément multimédia à appliquer à votre contenu. 
 
-Pour obtenir une description détaillée de cette fonctionnalité et les scénarios où il est utilisé, consultez [manifestes dynamiques](filters-dynamic-manifest-overview.md) et [filtres](filters-concept.md).
+Pour obtenir une description détaillée de cette fonctionnalité et des scénarios dans lesquels elle est utilisée, consultez [Manifestes dynamiques](filters-dynamic-manifest-overview.md) et [Filtres](filters-concept.md).
 
 Cette rubrique explique comment définir un filtre pour un élément multimédia Vidéo à la demande et utiliser les API REST pour créer des [Filtres de compte](https://docs.microsoft.com/rest/api/media/accountfilters) et des [Filtres d’élément multimédia](https://docs.microsoft.com/rest/api/media/assetfilters). 
 
 > [!NOTE]
 > Veillez à consulter [presentationTimeRange](filters-concept.md#presentationtimerange).
 
-## <a name="prerequisites"></a>Conditions préalables 
+## <a name="prerequisites"></a>Prérequis 
 
 Pour suivre les étapes décrites dans cette rubrique, vous devez :
 
@@ -116,6 +116,24 @@ Sélectionnez **Envoyer**.
 Le filtre d’élément multimédia a été créé.
 
 Pour savoir comment créer ou mettre à jour des filtres d’élément multimédia, voir [Créer ou mettre à jour](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate). Voir aussi [Exemples de filtres JSON](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate#create_an_asset_filter). 
+
+## <a name="associate-filters-with-streaming-locator"></a>Associer des filtres à un localisateur de streaming
+
+Vous pouvez spécifier une liste de filtres de comptes ou de ressources qui s’appliquent à votre localisateur de streaming. Le [packager dynamique (point de terminaison de streaming)](dynamic-packaging-overview.md) applique cette liste de filtres avec ceux spécifiés par votre client dans l’URL. Cette combinaison génère un [manifeste dynamique](filters-dynamic-manifest-overview.md) qui est basé sur les filtres spécifiés dans l’URL ainsi que sur ceux que vous spécifiez dans le localisateur de streaming. Nous vous recommandons d’utiliser cette fonctionnalité si vous voulez appliquer des filtres, mais que vous ne voulez pas exposer les noms de filtre dans l’URL.
+
+Pour créer des filtres et les associer à un localisateur de streaming à l’aide de REST, utilisez l’API [Créer un localisateur de streaming](https://docs.microsoft.com/rest/api/media/streaminglocators/create) et spécifiez `properties.filters` dans le [corps de la demande](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body).
+                                
+## <a name="stream-using-filters"></a>Diffuser en continu à l’aide de filtres
+
+Lorsque vous définissez des filtres, vos clients peuvent les utiliser dans l'URL de diffusion en continu. Il serait possible d’appliquer des filtres à des protocoles de streaming à débit adaptatif : HLS (HTTP Live Streaming) Apple, MPEG-DASH et Smooth Streaming.
+
+Le tableau suivant présente des exemples d’URL utilisant des filtres :
+
+|Protocole|Exemples|
+|---|---|
+|HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`|
+|MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
+|Smooth Streaming|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

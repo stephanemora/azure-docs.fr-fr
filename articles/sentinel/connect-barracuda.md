@@ -1,6 +1,6 @@
 ---
-title: Connectez les données de Barracuda pour Azure en version préliminaire Sentinel | Microsoft Docs
-description: Découvrez comment connecter les données Barracuda pour Azure Sentinel.
+title: Connecter des données Barracuda à Azure Sentinel en préversion | Microsoft Docs
+description: Découvrez comment connecter des données Barracuda à Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,46 +12,46 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 06/17/2019
 ms.author: rkarlin
-ms.openlocfilehash: dd45be69ec29fdcd00710b7366348846f325b151
-ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
-ms.translationtype: MT
+ms.openlocfilehash: 350d2c6253a417637c7ec8f2e38919dc4b969340
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65921987"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190789"
 ---
-# <a name="connect-your-barracuda-appliance"></a>Se connecter à votre appliance Barracuda 
+# <a name="connect-your-barracuda-appliance"></a>Connecter votre appliance Barracuda 
 
 > [!IMPORTANT]
 > Azure Sentinel est actuellement disponible en préversion publique.
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Connecteur de pare-feu d’applications Web (WAF) Barracuda vous permet de connecter facilement vos journaux Barracuda avec votre Azure Sentinel, pour afficher des tableaux de bord, créer des alertes personnalisées et améliore l’examen. Cela vous donne plus d’informations sur le réseau de votre organisation et améliore vos capacités d’opération de sécurité. Sentinel Azure tire parti de l’intégration native entre **Barracuda** et Microsoft Monitoring Agent pour fournir une intégration transparente. 
+Le connecteur du pare-feu d’applications web (WAF) Barracuda vous permet de connecter facilement vos journaux Barracuda à Azure Sentinel, de consulter des tableaux de bord, de créer des alertes personnalisées et d’améliorer les enquêtes. Cela vous donne plus d’informations sur le réseau de votre organisation et améliore vos capacités d’opération de sécurité. Azure Sentinel tire parti de l’intégration native entre **Barracuda** et Microsoft Monitoring Agent afin de fournir une intégration fluide. 
 
 
 > [!NOTE]
-> Données seront stockées dans l’emplacement géographique de l’espace de travail sur lequel vous exécutez Azure Sentinel.
+> Les données seront stockées dans l’emplacement géographique de l’espace de travail sur lequel vous exécutez Azure Sentinel.
 
-## <a name="configure-and-connect-barracuda-waf"></a>Configurer et connecter WAF Barracuda
-Pare-feu d’applications Web Barracuda peut intégrer et exporter les journaux directement vers Azure Sentinel via Microsoft Monitoring Agent.
-1. Accédez à [flux de configuration WAF Barracuda](https://campus.barracuda.com/product/webapplicationfirewall/doc/73696965/configure-the-barracuda-web-application-firewall-to-integrate-with-the-oms-server-and-export-logs/)et suivez les instructions pour configurer la connexion à l’aide de ces paramètres :
-    - **ID de l’espace de travail**: copiez la valeur de votre ID d’espace de travail à partir de la page du connecteur Azure Sentinel Barracuda.
-    - **Clé primaire**: copiez la valeur de votre clé primaire à partir de la page du connecteur Azure Sentinel Barracuda.
-2. Dans le portail Azure Sentinel, accédez à l’espace de travail sur lequel vous avez déployé Azure Sentinel et sélectionnez les points de suspension (...) à la fin de la ligne et sélectionnez **paramètres avancés**. 
-1. Sélectionnez **données** , puis **Syslog**.
-1. Vérifiez que la fonctionnalité que vous définissez dans Barracuda existe et définie le niveau de gravité et cliquez sur **enregistrer**.
-6. Pour utiliser le schéma pertinent dans Analytique de journal pour les événements de Barracuda, recherchez **CommonSecurityLog**.
+## <a name="configure-and-connect-barracuda-waf"></a>Configurer et connecter le pare-feu d’applications web Barracuda
+Le pare-feu d’applications web Barracuda peut intégrer et exporter des journaux directement dans Azure Sentinel via Microsoft Monitoring Agent.
+1. Accédez à [Flux de configuration du pare-feu d’applications web Barracuda](https://campus.barracuda.com/product/webapplicationfirewall/doc/73696965/configure-the-barracuda-web-application-firewall-to-integrate-with-the-oms-server-and-export-logs/) et suivez les instructions pour configurer la connexion à l’aide de ces paramètres :
+    - **ID de l’espace de travail** : copiez la valeur de l’ID de votre espace de travail à partir de la page du connecteur Azure Sentinel Barracuda.
+    - **Clé primaire** : copiez la valeur de votre clé primaire à partir de la page du connecteur Azure Sentinel Barracuda.
+2. Dans le portail Azure Sentinel, accédez à l’espace de travail sur lequel vous avez déployé Azure Sentinel et sélectionnez les points de suspension (...) à la fin de la ligne, puis **Paramètres avancés**. 
+1. Sélectionnez **Données**, puis **Syslog**.
+1. Veillez à ce que l’installation dans laquelle vous définissez Barracuda existe, définissez la gravité puis cliquez sur **Enregistrer**.
+6. Pour utiliser le schéma approprié dans Log Analytics pour les événements Barracuda, recherchez **CommonSecurityLog** et **barracuda_CL**.
 
 
 ## <a name="validate-connectivity"></a>Valider la connectivité
 
-Il peut prendre plus de 20 minutes jusqu'à ce que vos journaux commencent à apparaître dans le journal Analytique. 
+Plus de 20 minutes peuvent être nécessaires avant que vos journaux ne commencent à apparaître dans Log Analytics. 
 
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce document, vous avez appris à connecter des appliances de Barracuda pour Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
-- Découvrez comment [obtenez une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
-- Prise en main [détecter des menaces avec Azure Sentinel](tutorial-detect-threats.md).
+Dans ce document, vous avez appris à connecter les appliances Barracuda à Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
+- Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
+- Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats.md).
 

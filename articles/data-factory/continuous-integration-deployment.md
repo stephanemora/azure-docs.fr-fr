@@ -13,10 +13,10 @@ ms.author: gamal
 ms.reviewer: maghan
 manager: craigg
 ms.openlocfilehash: 76962975705ff53a292f41a0a54e42c5f2991a2c
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66002779"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Intégration et livraison continues (CI/CD) dans Azure Data Factory
@@ -164,7 +164,7 @@ Il existe deux moyens de gérer les secrets :
     ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
 ### <a name="grant-permissions-to-the-azure-pipelines-agent"></a>Accorder des autorisations à l’agent Azure Pipelines
-La tâche Azure Key Vault peut échouer à l’heure d’exécution fIntegration avec une erreur accès refusé. Téléchargez les journaux d’activité de la version, puis recherchez le fichier `.ps1` avec la commande pour accorder des autorisations à l’agent Azure Pipelines. Vous pouvez exécuter la commande directement, ou vous pouvez copier l’ID du principal à partir du fichier et ajouter manuellement la stratégie d’accès dans le portail Azure. (*Get* et *List* sont les autorisations minimales requises).
+La tâche Azure Key Vault peut échouer la première fois avec une erreur Accès refusé. Téléchargez les journaux d’activité de la version, puis recherchez le fichier `.ps1` avec la commande pour accorder des autorisations à l’agent Azure Pipelines. Vous pouvez exécuter la commande directement, ou vous pouvez copier l’ID du principal à partir du fichier et ajouter manuellement la stratégie d’accès dans le portail Azure. (*Get* et *List* sont les autorisations minimales requises).
 
 ### <a name="update-active-triggers"></a>Mettre à jour les déclencheurs actifs
 Le déploiement peut échouer si vous tentez de mettre à jour les déclencheurs actifs. Pour mettre à jour les déclencheurs actifs, vous devez les arrêter manuellement et les démarrer après le déploiement. Vous pouvez ajouter une tâche Azure Powershell à cet effet, comme indiqué dans l’exemple suivant :
@@ -850,29 +850,29 @@ else {
 
 ## <a name="use-custom-parameters-with-the-resource-manager-template"></a>Utiliser des paramètres personnalisés avec le modèle Resource Manager
 
-Si vous êtes en mode GIT, vous pouvez remplacer les propriétés par défaut dans votre modèle Resource Manager pour définir les propriétés qui sont paramétrables dans le modèle et les propriétés qui sont codées en dur. Vous souhaiterez peut-être remplacer le modèle de paramétrage par défaut dans ces scénarios :
+Si vous êtes en mode GIT, vous pouvez remplacer les propriétés par défaut dans votre modèle Resource Manager pour définir des propriétés paramétrables dans le modèle et des propriétés codées en dur. Vous souhaiterez peut-être remplacer le modèle de paramétrage par défaut dans les scénarios suivants :
 
-* Vous utilisez CI/CD automatisé et à modifier certaines propriétés pendant le déploiement de Resource Manager, mais les propriétés ne sont pas paramétrables par défaut.
-* Votre fabrique est tellement importante que le modèle de gestionnaire de ressources par défaut n’est pas valide car il comporte plus de la valeur maximale autorisée de paramètres (256).
+* Vous utilisez CI/CD automatisé et souhaitez modifier certaines propriétés pendant le déploiement de Resource Manager, mais les propriétés ne sont pas paramétrables par défaut.
+* Votre fabrique est si volumineuse que le modèle Resource Manager par défaut n’est pas valide car il dépasse le nombre maximum autorisé de paramètres (256).
 
-Dans ces conditions, pour remplacer le modèle de paramétrage par défaut, créez un fichier nommé *arm-modèle-paramètres-definition.json* dans le dossier racine du référentiel. Le nom de fichier doit correspondre exactement. Fabrique de données tente de lire ce fichier à partir de quelle que soit la branche sur lequel vous êtes actuellement dans le portail Azure Data Factory, pas uniquement à partir de la branche de collaboration. Vous pouvez créer ou modifier le fichier à partir d’une branche privée, où vous pouvez tester vos modifications à l’aide de la **les modèles ARM exporter** dans l’interface utilisateur. Ensuite, vous pouvez fusionner le fichier dans la branche de collaboration. Si aucun fichier n’est trouvée, le modèle par défaut est utilisé.
+Dans ces conditions, pour remplacer le modèle de paramétrage par défaut, créez un fichier nommé  *arm-template-parameters-definition.json*  dans le dossier racine du référentiel. Le nom de fichier doit correspondre exactement. Data Factory tente de lire ce fichier à partir de la branche dans laquelle vous vous trouvez actuellement dans le portail Azure Data Factory, et pas uniquement à partir de la branche de collaboration. Vous pouvez créer ou modifier le fichier à partir d’une branche privée, dans laquelle vous pouvez tester vos modifications à l’aide du **modèle Export ARM** dans l’interface utilisateur. Vous pouvez ensuite fusionner le fichier dans la branche de collaboration. Si aucun fichier n’est trouvé, le modèle par défaut est utilisé.
 
 
 ### <a name="syntax-of-a-custom-parameters-file"></a>Syntaxe d’un fichier de paramètres personnalisés
 
-Voici quelques indications à utiliser lorsque vous créez le fichier de paramètres personnalisés. Le fichier se compose d’une section pour chaque type d’entité : déclencheur, pipeline, service lié, jeu de données, integrationruntime et ainsi de suite.
-* Entrez le chemin d’accès de propriété sous le type d’entité pertinente.
-* Lorsque vous définissez un nom de propriété sur «\*'', vous indiquez que vous souhaitez paramétrer toutes les propriétés dans cette section (uniquement jusqu’au premier niveau, pas de manière récursive). Vous pouvez également fournir toutes les exceptions à cela.
-* Lorsque vous définissez la valeur d’une propriété sous forme de chaîne, vous indiquez que vous souhaitez paramétrer la propriété. Utilisez le format `<action>:<name>:<stype>`.
-   *  `<action>` peut être un des caractères suivants :
-      * `=` moyen de conserve la valeur actuelle en tant que la valeur par défaut pour le paramètre.
-      * `-` signifie ne pas conserve la valeur par défaut pour le paramètre.
-      * `|` est un cas spécial pour les clés secrètes dans Azure Key Vault pour les chaînes de connexion ou de clés.
-   * `<name>` Est le nom du paramètre. Si elle est vide, il prend le nom de la propriété. Si la valeur commence par un `-` caractère, le nom est raccourci. Par exemple, `AzureStorage1_properties_typeProperties_connectionString` serait ramenée à `AzureStorage1_connectionString`.
-   * `<stype>` est le type de paramètre. Si `<stype>` est vide, le type par défaut est `string`. Valeurs prises en charge : `string`, `bool`, `number`, `object`, et `securestring`.
-* Lorsque vous spécifiez un tableau dans le fichier de définition, vous indiquez que la propriété correspondante dans le modèle est un tableau. Data Factory effectue une itération dans tous les objets dans le tableau à l’aide de la définition qui est spécifiée dans l’objet de Runtime d’intégration du tableau. Le second objet, une chaîne, correspond alors au nom de la propriété et sert de nom au paramètre pour chaque itération.
-* Il n’est pas possible d’avoir une définition spécifique pour une instance de ressource. Toute définition s’applique à toutes les ressources de ce type.
-* Par défaut, toutes les chaînes sécurisées, telles que les secrets de coffre de clés et les chaînes sécurisées, telles que des chaînes de connexion, les clés et les jetons, sont paramétrables.
+Voici quelques recommandations à suivre lorsque vous créez le fichier de paramètres personnalisés. Le fichier comprend une section pour chaque type d’entité : déclencheur, pipeline, service lié, jeu de données, runtime d’intégration, etc.
+* Entrez le chemin d’accès de propriété sous le type d’entité correspondant.
+* Lorsque vous définissez un nom de propriété sur « \* », vous indiquez que vous souhaitez paramétrer toutes les propriétés dans celle-ci (uniquement jusqu’au premier niveau, pas de manière récursive). Vous pouvez également fournir toutes les exceptions à ceci.
+* Lorsque vous définissez la valeur d’une propriété sous forme de chaîne, vous indiquez que vous souhaitez paramétrer la propriété. Utilisez le format  `<action>:<name>:<stype>`.
+   *  `<action>` peut être l’un des caractères suivants :
+      * `=` permet de conserver la valeur actuelle en tant que valeur par défaut pour le paramètre.
+      * `-` permet de ne pas conserver la valeur par défaut pour le paramètre.
+      * `|` est un cas particulier pour les secrets Azure Key Vault pour les chaînes de connexion ou les clés.
+   * `<name>` correspond au nom du paramètre. S’il est vide, il prend le nom du paramètre. Si la valeur commence par un caractère `-`, le nom est abrégé. Par exemple, `AzureStorage1_properties_typeProperties_connectionString` serait abrégé en `AzureStorage1_connectionString`.
+   * `<stype>` correspond au type de paramètre. Si  `<stype>`  est vide, le type par défaut est `string`. Valeurs prises en charge : `string`, `bool`, `number`, `object` et `securestring`.
+* Lorsque vous spécifiez un tableau spécifique dans le fichier de définition, vous indiquez que la propriété correspondante dans le modèle correspond à un tableau. Data Factory itère dans tous les objets du tableau en utilisant la définition spécifiée dans l’objet de runtime d’intégration du tableau. Le second objet, une chaîne, correspond alors au nom de la propriété et sert de nom au paramètre pour chaque itération.
+* Il n’est pas possible d’avoir une définition spécifique à une instance de ressource. Toute définition s’applique à toutes les ressources de ce type.
+* Par défaut, toutes les chaînes sécurisées, telles que les secrets Key Vault, et les chaînes sécurisées, telles que les chaînes de connexion, les clés et les jetons, sont paramétrables.
  
 ## <a name="sample-parameterization-template"></a>Exemple de modèle de paramétrage
 
@@ -936,33 +936,33 @@ Voici quelques indications à utiliser lorsque vous créez le fichier de paramè
 }
 ```
 
-### <a name="explanation"></a>Explication :
+### <a name="explanation"></a>Explication :
 
 #### <a name="pipelines"></a>Pipelines
     
-* N’importe quelle propriété dans le chemin d’accès typeProperties/activités/waitTimeInSeconds est paramétrable. Cela signifie que toutes les activités dans un pipeline qui a une propriété de niveau de code nommée `waitTimeInSeconds` (par exemple, le `Wait` activité) est paramétrée comme un nombre, avec un nom par défaut. Toutefois, il n’aura une valeur par défaut dans le modèle Resource Manager. Il s’agit d’une entrée obligatoire lors du déploiement de Resource Manager.
-* De même, une propriété appelée `headers` (par exemple, dans un `Web` activité) est paramétrée avec type `object` (JObject). Il a la valeur par défaut, qui est la même valeur que dans la fabrique de source.
+* Toute propriété dans le chemin d’accès activities/typeProperties/waitTimeInSeconds est paramétrable. Cela signifie que toutes les activités dans un pipeline qui a une propriété au niveau du code nommée `waitTimeInSeconds` (par exemple, l’activité `Wait`) est paramétrable en tant que nombre, avec un nom par défaut. Toutefois, elle n’aura une valeur par défaut dans le modèle Resource Manager. Il s’agit d’une entrée obligatoire lors du déploiement de Resource Manager.
+* De même, une propriété appelée `headers` (par exemple, dans une activité `Web`) est paramétrable avec le type `object` (JObject). Elle a une valeur par défaut, la même que dans la fabrique source.
 
 #### <a name="integrationruntimes"></a>IntegrationRuntimes
 
-* Seules les propriétés et toutes les propriétés, sous le chemin d’accès `typeProperties` sont paramétrés et leurs valeurs par défaut respectifs. Par exemple, à compter de schéma d’aujourd'hui, il existe deux propriétés sous **IntegrationRuntimes** propriétés de type : `computeProperties` et `ssisProperties`. Les deux types de propriété sont créés avec leurs valeurs par défaut respectives et les types (objet).
+* Seules les propriétés, et toutes les propriétés, sous le chemin d’accès `typeProperties` sont paramétrables avec des valeurs par défaut respectives. Par exemple, comme dans le schéma d’aujourd’hui, deux propriétés existent sous les propriétés de type **IntegrationRuntimes** : `computeProperties` et `ssisProperties`. Les deux types de propriété sont créés avec leurs valeurs et types (objet) par défaut respectifs.
 
 #### <a name="triggers"></a>Déclencheurs
 
-* Sous `typeProperties`, deux propriétés sont paramétrables. Le premier est `maxConcurrency`, qui est spécifié avec une valeur par défaut et le type serait `string`. Il porte le nom de paramètre par défaut de `<entityName>_properties_typeProperties_maxConcurrency`.
-* Le `recurrence` propriété également est paramétrable. Dans cette section, toutes les propriétés à ce niveau sont spécifiées pour être paramétrés sous forme de chaînes avec les valeurs par défaut et les noms de paramètres. Une exception est le `interval` propriété, qui est paramétrée en tant que type nombre et avec le nom du paramètre avec le suffixe `<entityName>_properties_typeProperties_recurrence_triggerSuffix`. De même, le `freq` propriété est une chaîne et est paramétrée en tant que chaîne. Toutefois, le `freq` propriété est paramétrable, sans valeur par défaut. Le nom est abrégé et le suffixe. Par exemple : `<entityName>_freq`.
+* Sous `typeProperties`, deux propriétés sont paramétrables. La première est `maxConcurrency`, qui est spécifiée pour avoir une valeur par défaut et dont le type serait `string`. Elle porte le nom de paramètre par défaut `<entityName>_properties_typeProperties_maxConcurrency`.
+* La propriété `recurrence` est également paramétrable. Sous celle-ci, toutes les propriétés à ce niveau sont spécifiées pour être paramétrables sous forme de chaînes, avec des valeurs et noms de paramètres par défaut. La propriété `interval` est une exception. Elle est paramétrable en tant que type de nombre, et le nom du paramètre est suivi du suffixe `<entityName>_properties_typeProperties_recurrence_triggerSuffix`. De même, la propriété `freq` est une chaîne et peut être paramétrée en tant que chaîne. La propriété `freq` est toutefois paramétrable sans valeur par défaut. Le nom est abrégé et suivi d’un suffixe. Par exemple : `<entityName>_freq`.
 
 #### <a name="linkedservices"></a>LinkedServices
 
-* Services liés est unique. Étant donné que les services liés et des jeux de données peut être de plusieurs types, vous pouvez fournir la personnalisation spécifique au type. Par exemple, vous pouvez dire que, pour tous les services de type liés `AzureDataLakeStore`, un modèle spécifique sera appliqué et pour tous les autres (via \*) un autre modèle sera appliqué.
-* Dans l’exemple précédent, le `connectionString` propriété est paramétrée comme un `securestring` valeur, il n’aura une valeur par défaut, et il a un nom de paramètre abrégé est suivi du suffixe `connectionString`.
-* La propriété `secretAccessKey`, toutefois, se trouve être une `AzureKeyVaultSecret` (par exemple, un `AmazonS3` service lié). Par conséquent, il est automatiquement paramétré comme un secret Azure Key Vault, et il est extrait du coffre de clés configuré avec dans la fabrique de source. Vous pouvez également paramétrer le coffre de clés lui-même.
+* Les services liés sont uniques. Étant donné que les services liés et les jeux de données peuvent être de plusieurs types, vous pouvez fournir une personnalisation spécifique au type. Par exemple, vous pouvez dire que, pour tous les services liés de type `AzureDataLakeStore`, un modèle spécifique sera appliqué, et pour tous les autres (via \*) qu’un autre modèle sera appliqué.
+* Dans l’exemple précédent, la propriété `connectionString` pourra être paramétrée en tant que valeur `securestring`, qu’elle n’aura de valeur par défaut, et qu’elle aura un nom de paramètre abrégé suivi du suffixe `connectionString`.
+* La propriété `secretAccessKey`, toutefois, se trouve être un `AzureKeyVaultSecret` (par exemple, un service lié `AmazonS3`). Par conséquent, elle est automatiquement paramétrée en tant que secret Azure Key Vault, et est extraite du coffre de clés avec lequel elle est configurée dans la fabrique source. Vous pouvez également paramétrer le coffre de clés lui-même.
 
 #### <a name="datasets"></a>Groupes de données
 
-* Bien que la personnalisation spécifique au type est disponible pour les jeux de données, la configuration peut être fournie sans avoir explicitement un \*-configuration du niveau. Dans l’exemple précédent, toutes les propriétés du dataset sous `typeProperties` sont paramétrables.
+* Bien que la personnalisation spécifique au type soit disponible pour les jeux de données, la configuration peut être fournie sans avoir explicitement de configuration au niveau \*. Dans l’exemple précédent, toutes les propriétés du jeu de données sous `typeProperties` sont paramétrables.
 
-Le modèle de paramétrage par défaut peut modifier, mais il s’agit du modèle actuel. Cela sera utile si vous devez simplement ajouter une propriété supplémentaire en tant que paramètre, mais également si vous ne souhaitez pas perdre les paramétrages existants et devez recréer les.
+Le modèle de paramétrage par défaut peut changer, mais il s’agit du modèle actuel. Cela sera utile si vous devez simplement ajouter une propriété supplémentaire en tant que paramètre, mais également si vous ne souhaitez pas perdre les paramétrages existants et devoir les recréer.
 
 
 ```json
@@ -1070,7 +1070,7 @@ Le modèle de paramétrage par défaut peut modifier, mais il s’agit du modèl
 }
 ```
 
-**Exemple**: Ajouter un ID de cluster Databricks Interactive (à partir d’un Service lié Databricks) pour le fichier de paramètres :
+**Exemple**: Ajouter un ID de cluster Databricks Interactive (à partir d’un service lié Databricks) au fichier de paramètres :
 
 ```
 {

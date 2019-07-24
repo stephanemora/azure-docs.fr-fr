@@ -8,10 +8,10 @@ ms.author: markscu
 ms.date: 05/28/2019
 ms.topic: conceptual
 ms.openlocfilehash: b0a9d04fccce7ccbacb700f7af5126c6ae05140a
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66357757"
 ---
 # <a name="check-for-pool-and-node-errors"></a>Rechercher les erreurs des pools et des nœuds
@@ -84,15 +84,15 @@ Vous pouvez spécifier un ou plusieurs packages d’application pour un pool. Ba
 
 La propriété [errors](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) du nœud rapporte un échec du téléchargement et de décompression d’un package d’application. Batch définit l’état du nœud sur **inutilisable**.
 
-### <a name="container-download-failure"></a>Échec de téléchargement de conteneur
+### <a name="container-download-failure"></a>Échec du téléchargement du conteneur
 
-Vous pouvez spécifier une ou plusieurs références de conteneur sur un pool. Lot télécharge les conteneurs spécifiés dans chaque nœud. Le nœud [erreurs](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) propriété signale un échec de télécharger un conteneur et définit l’état du nœud **inutilisable**.
+Vous pouvez spécifier une ou plusieurs références de conteneur sur un pool. Batch télécharge les conteneurs spécifiés pour chaque nœud. La propriété [erreurs](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) du nœud signale l’échec de téléchargement d’un conteneur et définit l’état du nœud sur **inutilisable**.
 
 ### <a name="node-in-unusable-state"></a>Nœud dans un état inutilisable
 
 Azure Batch peut définir [l’état du nœud](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate) sur **inutilisable** pour de nombreuses raisons. Quand l’état du nœud est défini sur **inutilisable**, il n’est pas possible de planifier des tâches pour le nœud, mais il continue d’entraîner la facturation de frais.
 
-Nœuds dans un **unsuable**, mais sans [erreurs](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) état signifie que le lot est incapable de communiquer avec la machine virtuelle. Dans ce cas, Batch toujours tente de récupérer la machine virtuelle. Batch ne tente pas automatiquement de la récupération de machines virtuelles qui n’a pas pu installer les packages d’applications ou des conteneurs, même si leur état est **inutilisable**.
+Lorsque des nœuds sont en état **inutilisable** sans état [erreurs](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror), cela signifie que Batch n’est pas en mesure de communiquer avec la machine virtuelle. Dans ce cas, Batch tente toujours de récupérer la machine virtuelle. Batch ne tente pas automatiquement de récupérer les machines virtuelles qui n’ont pas réussi à installer les packages d’applications ou les conteneurs, même si leur état est **inutilisable**.
 
 Si Batch peut déterminer la cause de l’erreur, Batch la signale à l’aide de la propriété [errors](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror).
 
@@ -102,7 +102,7 @@ Voici des exemples supplémentaires de causes aboutissant à des nœuds **inutil
 
 - Une machine est déplacée en raison d’une défaillance de l’infrastructure ou d’une mise à niveau de bas niveau. Batch récupère le nœud.
 
-- Une image de machine virtuelle a été déployée sur du matériel qui ne prend en charge. Par exemple une « HPC » image de machine virtuelle en cours d’exécution sur un matériel non-HPC. Par exemple, que vous tentez d’exécuter une image CentOS HPC un [Standard_D1_v2](../virtual-machines/linux/sizes-general.md#dv2-series) machine virtuelle.
+- Une image de machine virtuelle a été déployée sur un matériel qui ne la prend pas en charge. Par exemple, une image de machine virtuelle « HPC » qui s’exécute sur un matériel non HPC. Par exemple, si vous essayez d’exécuter une image HPC CentOS sur une machine virtuelle [Standard_D1_v2](../virtual-machines/linux/sizes-general.md#dv2-series).
 
 - Les machines virtuelles sont dans un [réseau virtuel Azure](batch-virtual-network.md), et le trafic a été bloqué pour les ports principaux.
 

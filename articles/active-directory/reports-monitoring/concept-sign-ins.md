@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b69dca5abddd56b29abf3e482e51b3d2a41612e7
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
-ms.translationtype: MT
+ms.openlocfilehash: 81b7030d0f45222a1641e34b341885d2ecc051e3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65864470"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107661"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Rapports d’activité de connexion dans le portail Azure Active Directory
 
@@ -37,7 +37,7 @@ L’architecture de création de rapports dans Azure Active Directory (Azure 
 
 Cette rubrique présente une vue d’ensemble du rapport de connexions.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 ### <a name="who-can-access-the-data"></a>Qui peut accéder aux données ?
 * Les utilisateurs ayant le rôle Administrateur de sécurité, Lecteur Sécurité et Lecteur de rapports
@@ -126,7 +126,7 @@ Les valeurs possibles sont les suivantes :
 
 - 1 mois
 - 7 jours
-- 24 heures
+- 24 heures
 - Intervalle de temps personnalisé
 
 Lorsque vous sélectionnez une plage personnalisée, vous pouvez configurer une heure de début et une heure de fin.
@@ -135,28 +135,28 @@ Si vous ajoutez des champs à votre affichage de connexions, ils sont automatiqu
 ![Activité de connexion](./media/concept-sign-ins/12.png "Activité de connexion")
 
 - **Browser**  
-    Ce filtre montre tous les événements où tentatives de connexion ont été effectuées à l’aide de flux de navigateur.
+    Ce filtre montre tous les événements où des tentatives de connexion ont été effectuées à l’aide des flux de navigateur.
 - **Exchange ActiveSync (pris en charge)**  
-    Ce filtre affiche toutes les tentatives de connexion où le protocole Exchange ActiveSync (EAS) a été tenté à partir des plateformes prises en charge, comme iOS, Android et Windows Phone.
+    Ce filtre affiche toutes les tentatives de connexion où le protocole Exchange ActiveSync (EAS) a été tenté depuis des plateformes prises en charge comme iOS, Android et Windows Phone.
 - **Exchange ActiveSync (non pris en charge)**  
-    Ce filtre affiche toutes les tentatives de connexion où le protocole EAS a été tenté à partir des plateformes non prises en charge, par exemple, les distributions Linux.
-- **Les applications mobiles et clients de bureau** ce filtre affiche toutes les tentatives de connexion qui ne contenait pas de flux de navigateur. Il peut s’agir des applications mobiles à partir de n’importe quelle plateforme à l’aide de n’importe quel protocole ou d’applications de bureau client telles que Office sur Windows ou MacOS.
+    Ce filtre affiche toutes les tentatives de connexion où le protocole EAS a été tenté depuis des plateformes non prises en charge comme les distributions Linux.
+- **Clients Mobile Apps et Desktop** : ce filtre affiche toutes les tentatives de connexion qui n’utilisaient pas de flux de navigateur. Il peut s’agir d’applications mobiles de n’importe quelle plateforme utilisant n’importe quel protocole ou de n’importe quelle application cliente Desktop comme Office sur Windows ou MacOS.
   
 - **Autres clients**
     - **IMAP**  
-        Un client de messagerie hérité à l’aide d’IMAP pour récupérer le courrier électronique.
+        Un client de messagerie hérité qui utilise IMAP pour récupérer le courrier électronique.
     - **MAPI**  
-        Office 2013, où la bibliothèque ADAL est activée et il est à l’aide de MAPI.
+        Office 2013, où la bibliothèque ADAL est activée et utilise MAPI.
     - **Clients Office plus anciens**  
-        Office 2013 dans sa configuration par défaut où la bibliothèque ADAL n’est pas activée et il est à l’aide de MAPI ou Office 2016, où la bibliothèque ADAL a été désactivée.
+        Office 2013 dans sa configuration par défaut où la bibliothèque ADAL n’est pas activée et utilise MAPI, ou Office 2016, où la bibliothèque ADAL a été désactivée.
     - **POP**  
-        Un client de messagerie hérité à l’aide de POP3 pour récupérer le courrier électronique.
+        Un client de messagerie hérité qui utilise POP3 pour récupérer le courrier électronique.
     - **SMTP**  
-        Un client de messagerie hérité à l’aide de SMTP pour envoyer un e-mail.
+        Un client de messagerie hérité qui utilise SMTP pour envoyer le courrier électronique.
 
 ## <a name="download-sign-in-activities"></a>Télécharger les activités de connexion
 
-Vous pouvez [télécharger les données de connexion](quickstart-download-sign-in-report.md) pour les utiliser en dehors du portail Azure. En cliquant sur **télécharger** vous donne la possibilité de créer un fichier CSV ou JSON des enregistrements de 250 000 plus récents.  
+Vous pouvez [télécharger les données de connexion](quickstart-download-sign-in-report.md) pour les utiliser en dehors du portail Azure. Cliquer sur **Télécharger** vous donne la possibilité de créer un fichier CSV ou JSON des 250 000 enregistrements plus récents.  
 
 ![Télécharger](./media/concept-sign-ins/71.png "Télécharger")
 
@@ -175,7 +175,7 @@ En plus d’Azure AD, le portail Azure vous offre d’autres points d’entré
 
 ### <a name="users-sign-ins-data-in-identity-security-protection"></a>Données de connexion des utilisateurs dans la protection de la sécurité des identités
 
-Le graphique des connexions utilisateur dans le **Identity protection de sécurité** page Vue d’ensemble présente les agrégations hebdomadaires des connexions pour tous les utilisateurs dans une période donnée. La valeur par défaut de cette période est de 30 jours.
+Le graphique des connexions des utilisateurs figurant sur la page **Protection de la sécurité des identités** affiche les agrégations hebdomadaires des connexions de tous les utilisateurs au cours d’une période donnée. La valeur par défaut de cette période est de 30 jours.
 
 ![Activité de connexion](./media/concept-sign-ins/06.png "Activité de connexion")
 
@@ -190,7 +190,7 @@ Chaque ligne de la liste des activités de connexion affiche :
 
 En cliquant sur un élément, vous obtenez plus d’informations sur l’opération de connexion :
 
-- ID utilisateur
+- ID d'utilisateur
 - Utilisateur
 - Nom d’utilisateur
 - ID de l'application
@@ -221,7 +221,7 @@ Les 3 principales applications de votre organisation dans le rapport sur les 30 
 
 ![Activité de connexion](./media/concept-sign-ins/10.png "Activité de connexion")
 
-L’application utilisation graphique les agrégations hebdomadaires des connexions pour vos 3 principales applications dans une période donnée. La valeur par défaut de cette période est de 30 jours.
+Le graphique d’utilisation des applications affiche les agrégations hebdomadaires des connexions pour vos 3 principales applications au cours d’une période donnée. La valeur par défaut de cette période est de 30 jours.
 
 ![Activité de connexion](./media/concept-sign-ins/47.png "Activité de connexion")
 
@@ -237,7 +237,7 @@ L’option **Connexions** vous fournit une vue d’ensemble complète de tous le
 
 ## <a name="office-365-activity-logs"></a>Journaux d’activité Office 365
 
-Vous pouvez afficher les journaux d’activité Office 365 à partir de la [centre d’administration Microsoft 365](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Même si Office 365 Azure AD activité et journaux partagent un grand nombre de ressources du répertoire, uniquement le centre d’administration Microsoft 365 fournit une vue complète des journaux d’activité Office 365. 
+Vous pouvez consulter les journaux d’activité Office 365 dans le [centre d’administration Microsoft 365](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Bien que les journaux d’activité Office 365 et Azure AD partagent une grande partie des ressources du répertoire, seul le centre d’administration Microsoft 365 offre une vue complète des journaux d’activité Office 365. 
 
 Vous pouvez également accéder par programme aux journaux d’activité d’Office 365 avec l’[API de gestion Office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
 

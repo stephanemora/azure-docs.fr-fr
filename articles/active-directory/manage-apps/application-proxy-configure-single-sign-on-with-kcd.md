@@ -17,10 +17,10 @@ ms.reviewer: japere
 ms.custom: H1Hack27Feb2017, it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 545906af882be6e53297bf7a9ff2cd12e86d55f0
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65859624"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Délégation contrainte Kerberos pour l’authentification unique à vos applications avec le proxy d’application
@@ -30,20 +30,20 @@ Vous pouvez fournir l’authentification unique pour les applications locales pu
 Vous pouvez activer l’authentification unique pour vos applications avec l’authentification Windows intégrée en attribuant aux connecteurs du proxy d’application dans Active Directory l’autorisation d’emprunter l’identité des utilisateurs. Les connecteurs utilisent cette autorisation pour envoyer et recevoir des jetons en leur nom.
 
 ## <a name="how-single-sign-on-with-kcd-works"></a>Fonctionnement de l’authentification unique avec KCD
-Ce diagramme explique le flux quand un utilisateur tente d’accéder à une application locale qui utilise l’authentification Windows intégrée.
+Ce diagramme explique le flux quand un utilisateur tente d’accéder à une application locale qui utilise I’authentification Windows intégrée.
 
 ![Diagramme de flux de l’authentification Microsoft AAD](./media/application-proxy-configure-single-sign-on-with-kcd/AuthDiagram.png)
 
-1. L’utilisateur entre l’URL pour accéder à l’application locale via le Proxy d’Application.
+1. L’utilisateur entre l’URL pour accéder à l’application locale via le proxy d’application.
 2. Le proxy d’application redirige la demande vers les services d’authentification d’Azure AD pour effectuer la préauthentification. À ce stade, Azure AD applique les stratégies d’authentification et d’autorisation applicables, comme l’authentification multifacteur. Si l’utilisateur est validé, Azure AD crée un jeton et l’envoie à l’utilisateur.
 3. L’utilisateur transmet le jeton au proxy d’application.
-4. Le Proxy d’application valide le jeton et récupère le nom Principal utilisateur (UPN) à partir de celui-ci, puis le connecteur extrait l’UPN et le nom Principal de Service (SPN) via un canal sécurisé doublement authentifié.
-5. Le connecteur effectue une négociation de la délégation Kerberos (KCD) avec l’Active Directory, en empruntant l’identité de l’utilisateur pour obtenir un jeton Kerberos pour l’application local.
+4. Le proxy d’application valide le jeton et y récupère le nom d’utilisateur principal (UPN), puis le connecteur obtient l’UPN et le nom de principal du service (SPN) via un canal sécurisé doublement authentifié.
+5. Le connecteur effectue une négociation de délégation Kerberos contrainte avec Active Directory local, en empruntant l’identité de l’utilisateur pour obtenir un jeton Kerberos pour l’application.
 6. Active Directory envoie le jeton Kerberos de l’application au connecteur.
 7. Le connecteur envoie la demande d’origine au serveur d’applications, en utilisant le jeton Kerberos reçu d’Active Directory.
 8. L’application envoie la réponse au connecteur, qui est ensuite retournée au service de proxy d’application et enfin à l’utilisateur.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Avant de commencer avec l’authentification unique pour les applications IWA, assurez-vous que votre environnement est prêt à l’aide des configurations et paramètres suivants :
 
 * Vos applications, comme les applications web SharePoint, sont configurées pour utiliser l’authentification Windows intégrée. Pour plus d’informations, consultez [Activer la prise en charge de l’authentification Kerberos](https://technet.microsoft.com/library/dd759186.aspx) ou, pour SharePoint, consultez [Planifier l’authentification Kerberos dans SharePoint 2013](https://technet.microsoft.com/library/ee806870.aspx).
@@ -59,7 +59,7 @@ La configuration d’Active Directory varie selon que votre connecteur de proxy 
 2. Sélectionnez le serveur exécutant le connecteur.
 3. Cliquez avec le bouton droit, puis sélectionnez **Properties** > **Délégation**.
 4. Sélectionnez **N’approuver cet ordinateur que pour la délégation aux services spécifiés**. 
-5. Sélectionnez **utiliser tout protocole d’authentification**.
+5. Sélectionnez **Utiliser tout protocole d’authentification**.
 6. Sous **Services auxquels ce compte peut présenter des informations d’identification déléguées**, ajoutez la valeur de l’identité du nom de principal du service (SPN) du serveur d’applications. Ceci permet au connecteur de proxy d’application d’emprunter l’identité des utilisateurs dans Active Directory pour les applications définies dans la liste.
 
    ![Capture d’écran de la fenêtre Propriétés du connecteur-SVR](./media/application-proxy-configure-single-sign-on-with-kcd/Properties.jpg)
@@ -119,7 +119,7 @@ Grâce à cette fonctionnalité, de nombreuses organisations disposant d’ident
 * disposent de plusieurs domaines en interne (joe@us.contoso.com, joe@eu.contoso.com) et d’un domaine unique dans le cloud (joe@contoso.com) ;
 * disposent d’un nom de domaine non routable en interne (joe@contoso.usa) et d’un nom de domaine légal dans le cloud ;
 * n’utilisent pas de noms de domaine en interne (joe) ;
-* Utilisez des alias différents en local et dans le cloud. Par exemple, joe-johns@contoso.com et joej@contoso.com  
+* utilisent différents alias localement et dans le cloud. Par exemple, joe-johns@contoso.com et joej@contoso.com  
 
 Avec le proxy d’application, vous pouvez sélectionner l’identité à utiliser pour obtenir le ticket Kerberos. Ce paramètre est à configurer application par application. Certaines de ces options sont adaptées pour les systèmes qui n’acceptent pas le format d’adresse de messagerie, tandis que d’autres sont conçues pour les connexions alternatives.
 

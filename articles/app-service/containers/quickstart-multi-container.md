@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 543ba3ee4e72c5d31708e9b4983e7889421940ca
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: fce819e84d5c532777ffee91ed4e75a0b65dec9b
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59546230"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67853700"
 ---
 # <a name="create-a-multi-container-preview-app-using-a-docker-compose-configuration"></a>Créer une application à plusieurs conteneurs (préversion) à l’aide d’une configuration Docker Compose
 
@@ -102,7 +102,7 @@ Lorsque le plan App Service est créé, l’interface Azure CLI affiche des in
 
 ## <a name="create-a-docker-compose-app"></a>Création d’une application Docker Compose
 
-Dans Cloud Shell, créez une [application web](app-service-linux-intro.md) multiconteneur dans le plan App Service `myAppServicePlan` avec la commande [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). N’oubliez pas de remplacer _\<app_name>_ par un nom d’application unique.
+Dans Cloud Shell, créez une [application web](app-service-linux-intro.md) multiconteneur dans le plan App Service `myAppServicePlan` avec la commande [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). N’oubliez pas de remplacer _\<app-name>_ par un nom d’application unique (les caractères valides sont `a-z`, `0-9` et `-`).
 
 ```bash
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --multicontainer-config-type compose --multicontainer-config-file compose-wordpress.yml

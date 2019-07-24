@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 05/20/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 490b96698268fb8717bc1169c2cceb932aad913c
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 70f6e26d423781ba53865304a3fe8440fb120a7a
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273785"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705169"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métriques prises en charge avec Azure Monitor
 
@@ -908,15 +908,19 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 
 |Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
-|ClusterDataCapacityFactor|Utilisation du cache|Pourcentage|Moyenne|Niveau d’utilisation dans l’étendue du cluster|Aucune dimension|
-|QueryDuration|Durée de la requête|Millisecondes|Moyenne|Durée des requêtes en secondes|QueryStatus|
-|IngestionsLoadFactor|Utilisation de l’ingestion|Pourcentage|Moyenne|Ratio d’emplacements d’ingestion utilisés dans le cluster|Aucune dimension|
-|IsEngineAnsweringQuery|Connexion persistante|Nombre|Moyenne|Contrôle d’intégrité indiquant que le cluster répond aux requêtes|Aucune dimension|
-|IngestCommandOriginalSizeInMb|Volume d’ingestion (en Mo)|Nombre|Total|Volume total de données ingérées dans le cluster (en Mo)|Aucune dimension|
-|IngestedEventAgeSeconds|Latence d’ingestion (en secondes)|Secondes|Moyenne|Durée d’ingestion entre la source (par ex., message dans Event Hub) et le cluster en secondes|Aucune dimension|
-|EventRecievedFromEventHub|Événements traités (pour Event Hubs)|Nombre|Total|Nombre d’événements traités par le cluster lors de l’ingestion à partir d’Event Hub|Aucune dimension|
-|IngestionResult|Résultat de l’ingestion|Nombre|Nombre|Nombre d’opérations d’ingestion|IngestionResultDetails|
-|EngineCPU|UC|Pourcentage|Moyenne|Niveau d’utilisation de l’UC|Aucune dimension|
+|CacheUtilization|Utilisation du cache|Pourcentage|Moyenne|Niveau d’utilisation dans l’étendue du cluster|Aucun|
+|QueryDuration|Durée de la requête|Millisecondes|Moyenne|Durée des requêtes en secondes|Interroger l’état|
+|IngestionUtilization|Utilisation de l’ingestion|Pourcentage|Moyenne|Ratio d’emplacements d’ingestion utilisés dans le cluster|Aucun|
+|KeepAlive|Connexion persistante|Nombre|Moyenne|Contrôle d’intégrité indiquant que le cluster répond aux requêtes|Aucun|
+|IngestionVolumeInMB|Volume d’ingestion (en Mo)|Nombre|Total|Volume total de données ingérées dans le cluster (en Mo)|Base de données|
+|IngestionLatencyInSeconds|Latence d’ingestion (en secondes)|Secondes|Moyenne|Durée d’ingestion entre la source (par ex., message dans Event Hub) et le cluster en secondes|Aucun|
+|EventProcessedForEventHubs|Événements traités (pour Event Hubs)|Nombre|Total|Nombre d’événements traités par le cluster lors de l’ingestion à partir d’Event Hub|Aucun|
+|IngestionResult|Résultat de l’ingestion|Nombre|Nombre|Nombre d’opérations d’ingestion|Statut|
+|UC|UC|Pourcentage|Moyenne|Niveau d’utilisation de l’UC|Aucun|
+| ContinuousExportNumOfRecordsExported | Nombre d’enregistrements exportés dans l’exportation continue | Nombre | Total | Nombre d’enregistrements exportés pour chaque artefact de stockage écrit pendant l’opération d’exportation  | Aucun |
+| ExportUtilization | Utilisation de l’exportation | Pourcentage | Maximale | Utilisation de l’exportation | Aucun |
+| ContinuousExportPendingCount | Nombre en attente d’exportations continues | Nombre | Maximale | Nombre de travaux d’exportation continue en attente prêts pour l’exécution | Aucun |
+| ContinuousExportMaxLatenessMinutes | Minutes de retard max. pour l’exportation continue | Nombre | Maximale | Durée maximale en minutes de toutes les exportations continues en attente et prêtes pour l’exécution | Aucun |
 
 ## <a name="microsoftlocationbasedservicesaccounts"></a>Microsoft.LocationBasedServices/accounts
 

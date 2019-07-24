@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f935b1b2815501710444e3f921a157ba02e3215
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7814ff6b7575fedc19e63676ce3353c2a62a62b4
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65544081"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154434"
 ---
 # <a name="instantiate-a-confidential-client-application-with-configuration-options-using-msalnet"></a>Instancier une application cliente confidentielle avec des options de configuration à l’aide de MSAL.NET
 
@@ -62,12 +62,12 @@ Une configuration d’application ASP.NET Core est décrite dans un fichier *app
 }
 ```
 
-À partir de MSAL.NET v3.x, vous pouvez configurer votre application cliente confidentielle à partir du fichier config. Les classes liées à la configuration de l’application se trouvent dans l’espace de noms `Microsoft.Identity.Client.AppConfig`.
+À partir de MSAL.NET v3.x, vous pouvez configurer votre application cliente confidentielle à partir du fichier config.
 
-Dans la classe où vous souhaitez configurer et instancier votre application, vous devez déclarer un objet `ConfidentialClientApplicationOptions`.  Liez la configuration lue à partir de source (y compris le fichier appconfig.json) à l’instance des options d’application :
+Dans la classe où vous souhaitez configurer et instancier votre application, vous devez déclarer un objet `ConfidentialClientApplicationOptions`.  Liez la configuration lue dans la source (y compris le fichier appconfig.json) à l’instance des options d’application. Pour cela, utilisez la méthode `IConfigurationRoot.Bind()` à partir du [package NuGet Microsoft.Extensions.Configuration.Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder) :
 
 ```csharp
-using Microsoft.Identity.Client.AppConfig;
+using Microsoft.Identity.Client;
 
 private ConfidentialClientApplicationOptions _applicationOptions;
 _applicationOptions = new ConfidentialClientApplicationOptions();

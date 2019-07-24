@@ -9,13 +9,13 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 07/09/2019
-ms.openlocfilehash: d3236f4782cc4fd9113329f03e36515a91bad528
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.date: 07/11/2019
+ms.openlocfilehash: 6138df5b80f479a54683ec0408b832dd78bff8e4
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798768"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67847077"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-c-using-the-net-sdk"></a>Démarrage rapide : Créer un index Recherche Azure en C# à l’aide du kit SDK .NET
 > [!div class="op_single_selector"]
@@ -33,13 +33,11 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 > [!NOTE]
 > Le code de démonstration dans cet article utilise les méthodes synchrones du SDK .NET Recherche Azure pour plus de simplicité. Toutefois, pour les scénarios de production, nous recommandons d’utiliser les méthodes asynchrones dans vos propres applications pour les rendre scalables et réactives. Par exemple, vous pouvez utiliser `CreateAsync` et `DeleteAsync` au lieu de `Create` et `Delete`.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
-Voici les services, outils et données utilisés dans ce guide de démarrage rapide. 
+Les services et outils suivants sont indispensables dans ce guide de démarrage rapide.
 
 + [Visual Studio](https://visualstudio.microsoft.com/downloads/), toute édition. L’exemple de code et les instructions ont été testés dans l’édition Communauté gratuite.
-
-+ Un exemple d’index et des documents sont fournis dans cet article ainsi que dans la [solution Visual Studio](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart) pour ce démarrage rapide.
 
 + [Créez un service Recherche Azure](search-create-service-portal.md) ou [recherchez un service existant](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) dans votre abonnement actuel. Vous pouvez utiliser un service gratuit pour ce guide de démarrage rapide.
 
@@ -195,11 +193,14 @@ L’index des hôtels se compose de champs simples et complexes, où un champ si
     }
     ```
 
-    Les attributs du champ déterminent la façon dont il est utilisé dans une application. Par exemple, l’attribut `IsSearchable` est affecté à tous les champs qui doivent être inclus dans une recherche en texte intégral. Dans le kit SDK .NET, la valeur par défaut consiste à désactiver des comportements de champ qui ne sont pas activés explicitement.
+    Les attributs du champ déterminent la façon dont il est utilisé dans une application. Par exemple, l’attribut `IsSearchable` doit être affecté à tous les champs qui doivent être inclus dans une recherche en texte intégral. 
+    
+    > [!NOTE]
+    > Dans le kit de développement logiciel (SDK) .NET, les champs doivent être explicitement attribués en tant que [`IsSearchable`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.issearchable?view=azure-dotnet), [`IsFilterable`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.isfilterable?view=azure-dotnet), [`IsSortable`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.issortable?view=azure-dotnet) et [`IsFacetable`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.isfacetable?view=azure-dotnet). Ce comportement contraste avec l’API REST qui active implicitement l’attribution en fonction du type de données (par exemple, les champs de chaîne simple peuvent automatiquement faire l’objet d’une recherche).
 
     Dans votre index, un seul champ de type `string` doit être désigné en tant que champ de *clé* qui identifie de façon unique chaque document. Dans ce schéma, la clé est `HotelId`.
 
-    Dans cet index, les champs de description utilisent la propriété de l’analyseur facultative, spécifiée lorsque vous souhaitez remplacer l’analyseur Lucene standard par défaut. Le champ `description_fr` utilise l’analyseur Lucene en français ([FrLucene](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername.frlucene?view=azure-dotnet)), car il stocke le texte en français. Le champ `description` utilise l’analyseur de langue Microsoft facultatif ([EnMicrosoft](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername.enmicrosoft?view=azure-dotnet)).
+    Dans cet index, les champs de description utilisent la propriété [`analyzer`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.analyzer?view=azure-dotnet) facultative, spécifiée lorsque vous souhaitez remplacer l’analyseur Lucene standard par défaut. Le champ `description_fr` utilise l’analyseur Lucene en français ([FrLucene](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername.frlucene?view=azure-dotnet)), car il stocke le texte en français. Le champ `description` utilise l’analyseur de langue Microsoft facultatif ([EnMicrosoft](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername.enmicrosoft?view=azure-dotnet)).
 
 1. Dans Program.cs, créez une instance de la classe [`SearchServiceClient`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient?view=azure-dotnet) pour vous connecter au service, à l’aide de valeurs qui sont stockées dans le fichier de configuration de l’application (appsettings.json). 
 

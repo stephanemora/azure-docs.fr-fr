@@ -1,6 +1,6 @@
 ---
-title: Propriétés d’un B2B invité utilisateur - Azure Active Directory | Microsoft Docs
-description: Propriétés de l’utilisateur Active Directory B2B invité et états avant et après l’échange d’invitation Azure
+title: Propriétés d’un utilisateur invité B2B - Azure Active Directory | Microsoft Docs
+description: Propriétés et états d’utilisateur invité Active Directory B2B avant et après l’acceptation d’invitation
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -13,15 +13,15 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b1416dacd65024457e713547223f5c35290b3d15
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65768168"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Propriétés d’un utilisateur Azure Active Directory B2B Collaboration
 
-Cet article décrit les propriétés et les États de l’objet d’utilisateur invité B2B dans Azure Active Directory (Azure AD) avant et après l’échange d’invitation. Utilisateur Azure AD business-to-business (B2B) collaboration est un utilisateur avec UserType = invité. Cet utilisateur invité appartient généralement à une organisation partenaire et dispose par défaut de privilèges limités dans l’annuaire qui invite.
+Cet article décrit les propriétés et les états de l’objet d’utilisateur invité B2B dans Azure Active Directory (Azure AD) avant et après l’acceptation d’invitation. Un utilisateur Azure AD B2B (interentreprises) Collaboration présente la propriété UserType = Invité. Cet utilisateur invité appartient généralement à une organisation partenaire et dispose par défaut de privilèges limités dans l’annuaire qui invite.
 
 Selon les besoins de l’organisation qui émet l’invitation, un utilisateur Azure AD B2B Collaboration peut présenter l’un des états de compte suivants :
 
@@ -33,7 +33,7 @@ Selon les besoins de l’organisation qui émet l’invitation, un utilisateur A
 
 - État 4 : Hébergé dans l’instance Azure AD de l’organisation hôte avec la propriété UserType = Invité et des informations d’identification gérées par l’organisation hôte.
 
-  ![Diagramme illustrant les États quatre utilisateur](media/user-properties/redemption-diagram.png)
+  ![Diagramme illustrant les quatre états d’utilisateur](media/user-properties/redemption-diagram.png)
 
 
 À présent, voyons à quoi ressemble un utilisateur Azure AD B2B Collaboration dans Azure AD.
@@ -42,7 +42,7 @@ Selon les besoins de l’organisation qui émet l’invitation, un utilisateur A
 
 Les comptes dans l’état 1 et l’état 2 sont le résultat de l’invitation d’utilisateurs invités à collaborer à l’aide des informations d’identification des utilisateurs invités. Quand l’invitation est initialement envoyée à l’utilisateur invité, un compte est créé dans votre annuaire. Ce compte n’est pas associé à des informations d’identification, car l’authentification est effectuée par le fournisseur d’identité de l’utilisateur invité. La propriété **Source** du compte d’utilisateur invité dans votre annuaire est définie avec la valeur **Utilisateur invité**. 
 
-![Capture d’écran montrant les propriétés de l’utilisateur avant l’échange d’offre](media/user-properties/before-redemption.png)
+![Capture d’écran montrant les propriétés de l’utilisateur avant l’acceptation de l’offre](media/user-properties/before-redemption.png)
 
 ### <a name="after-invitation-redemption"></a>Après l'utilisation de l'invitation
 
@@ -98,7 +98,7 @@ Dans certains cas, vous souhaiterez peut-être donner aux utilisateurs invités 
 
 Il est possible de désactiver les limitations par défaut afin qu’un utilisateur invité dans l’annuaire de la société ait les mêmes autorisations qu’un utilisateur membre.
 
-![Capture d’écran montrant les utilisateurs externes d’option dans les paramètres utilisateur](media/user-properties/remove-guest-limitations.png)
+![Capture d’écran montrant l’option Utilisateurs externes dans les paramètres utilisateur](media/user-properties/remove-guest-limitations.png)
 
 ## <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>Puis-je rendre les utilisateurs invités visibles dans la liste d’adresses globale Exchange ?
 Oui. Par défaut, les objets invités ne sont pas visibles dans la liste d’adresses globale de votre organisation, mais vous pouvez utiliser Azure Active Directory PowerShell pour les rendre visibles. Pour plus d’informations, consultez **Puis-je rendre les objets invités visibles dans la liste d’adresses globale ?** dans [Gérer l’accès invité dans les groupes Office 365](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?redirectSourcePath=%252fen-us%252farticle%252fmanage-guest-access-in-office-365-groups-9de497a9-2f5c-43d6-ae18-767f2e6fe6e0&view=o365-worldwide#faq). 

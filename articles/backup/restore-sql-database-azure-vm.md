@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: raynew
-ms.openlocfilehash: d8ade598e4f1b6331367e8bd04ad59951ef5de8f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 856f45f448aa843e9dc04ec3b6a60841cfe33227
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242372"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704859"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Restaurer des bases de données SQL Server sur des machines virtuelles Azure
 
@@ -156,7 +156,7 @@ Si vous avez sélectionné **Complète et différentielle** comme type de restau
 
 ### <a name="restore-databases-with-large-number-of-files"></a>Restaurer des bases de données comprenant un grand nombre de fichiers
 
-Si la taille totale de la chaîne des fichiers dans une base de données dépasse une [limite spécifique](backup-sql-server-azure-troubleshoot.md#files-size-limit-beyond-which-restore-happens-to-default-path), Sauvegarde Azure stocke la liste des fichiers de base de données dans un composant pit différent, de sorte que vous ne serez pas en mesure de définir le chemin d’accès de restauration cible pendant l’opération de restauration. Au lieu de cela, les fichiers seront restaurés vers le chemin d’accès SQL par défaut.
+Si la taille totale de la chaîne des fichiers dans une base de données dépasse une [limite spécifique](backup-sql-server-azure-troubleshoot.md#size-limit-for-files), Sauvegarde Azure stocke la liste des fichiers de base de données dans un composant pit différent, de sorte que vous ne serez pas en mesure de définir le chemin d’accès de restauration cible pendant l’opération de restauration. Au lieu de cela, les fichiers seront restaurés vers le chemin d’accès SQL par défaut.
 
   ![Restaurer une base de données avec des fichiers volumineux](./media/backup-azure-sql-database/restore-large-files.jpg)
 

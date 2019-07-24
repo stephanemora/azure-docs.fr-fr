@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 78f54e9e86de7a8b1b80300e0ed79a5e54f29282
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.openlocfilehash: 5affcd5ee1e51ac754d8a9bb81560a6cc3626860
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074200"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055617"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Bonnes pratiques relatives aux fonctionnalités avancées du planificateur dans Azure Kubernetes Service (AKS)
 
@@ -31,14 +31,14 @@ Cet article traite des bonnes pratiques relatives aux fonctionnalités de planif
 
 Quand vous créez votre cluster AKS, vous pouvez déployer des nœuds avec prise en charge des unités centrales graphiques (GPU) ou un grand nombre de processeurs puissants. Ces nœuds sont souvent utilisés pour les charges de travail de traitement de données volumineuses, notamment celles liées au machine learning (ML) ou à l’intelligence artificielle (IA). Ce type de matériel étant généralement une ressource de nœud coûteuse à déployer, limitez les charges de travail qui peuvent être planifiées sur ces nœuds. Au lieu de cela, vous pouvez dédier certains nœuds du cluster à l’exécution de services d’entrée et empêcher les autres charges de travail.
 
-Cette prise en charge pour différents nœuds est fourni à l’aide de plusieurs pools de nœuds. Un cluster AKS fournit un ou plusieurs pools de nœud. Prise en charge de plusieurs pools de nœuds dans ACS est actuellement en version préliminaire.
+Cette prise en charge pour différents nœuds est fournie à l’aide de plusieurs pools de nœuds. Un cluster AKS fournit un ou plusieurs pools de nœud. La prise en charge de plusieurs pools de nœuds dans AKS est actuellement en préversion.
 
 Le planificateur Kubernetes peut utiliser des teintes et des tolérances pour restreindre les charges de travail qui peuvent s’exécuter sur des nœuds.
 
 * Quand une **teinte** est appliquée à un nœud, seuls des pods spécifiques peuvent être planifiés sur le nœud.
 * Une **tolérance** est ensuite appliquée à un pod pour lui permettre de *tolérer* la teinte d’un nœud.
 
-Quand vous déployez un pod sur un cluster AKS, Kubernetes planifie uniquement des pods sur les nœuds où une tolérance est alignée avec la teinte. Par exemple, prenons un pool de nœuds dans votre cluster AKS pour les nœuds avec GPU prend en charge. Vous définissez un nom, comme *gpu*, puis une valeur pour la planification. Si vous affectez à cette valeur *NoSchedule*, le planificateur Kubernetes ne peut pas planifier de pods sur le nœud si le pod ne définit pas la tolérance appropriée.
+Quand vous déployez un pod sur un cluster AKS, Kubernetes planifie uniquement des pods sur les nœuds où une tolérance est alignée avec la teinte. Par exemple, vous avez un pool de nœuds dans votre cluster AKS pour les nœuds avec prise en charge des GPU. Vous définissez un nom, comme *gpu*, puis une valeur pour la planification. Si vous affectez à cette valeur *NoSchedule*, le planificateur Kubernetes ne peut pas planifier de pods sur le nœud si le pod ne définit pas la tolérance appropriée.
 
 ```console
 kubectl taint node aks-nodepool1 sku=gpu:NoSchedule
@@ -75,24 +75,24 @@ Quand vous appliquez des teintes, collaborez avec les développeurs et propriét
 
 Pour plus d’informations sur les teintes et les tolérances, consultez [Application de teintes et de tolérances][k8s-taints-tolerations].
 
-Pour plus d’informations sur l’utilisation de plusieurs pools de nœuds dans ACS, consultez [créer et gérer plusieurs pools de nœuds pour un cluster dans AKS][use-multiple-node-pools].
+Pour en savoir plus sur l’utilisation de plusieurs pools de nœuds dans AKS, consultez [Créer et gérer plusieurs pools de nœuds pour un cluster dans AKS][use-multiple-node-pools].
 
-### <a name="behavior-of-taints-and-tolerations-in-aks"></a>Comportement du soleil et tolerations dans ACS
+### <a name="behavior-of-taints-and-tolerations-in-aks"></a>Comportement des teintes et des tolérances dans AKS
 
-Lorsque vous mettez à niveau un pool de nœuds dans ACS, de soleil et tolerations suivent un modèle de jeu comme ils sont appliqués aux nouveaux nœuds :
+Lorsque vous mettez à niveau un pool de nœuds dans AKS, les teintes et les tolérances suivent un modèle défini lorsqu’elles sont appliquées à de nouveaux nœuds :
 
-- **Par défaut des clusters sans prise en charge de mise à l’échelle de machine virtuelle**
-  - Supposons que vous avez un cluster à deux nœuds - *node1* et *node2*. Lorsque vous mettez à niveau, un nœud supplémentaire (*node3*) est créé.
-  - Le soleil à partir de *node1* sont appliquées aux *node3*, puis *node1* est ensuite supprimée.
-  - Un autre nœud est créé (nommé *node1*, depuis le dernier *node1* a été supprimée) et le *node2* contamination est appliquées au nouvel *node1*. Ensuite, *node2* est supprimé.
-  - En substance *node1* devient *node3*, et *node2* devient *node1*.
+- **Clusters par défaut sans prise en charge de groupe de machine virtuelle identique**
+  - Partons du principe que nous disposons d’un cluster à deux nœuds : *node1* et *node2*. Lorsque vous le mettez à niveau, un nœud supplémentaire (*node3*) est créé.
+  - Les teintes du *node1* sont appliquées au *node3*, avant que *node1* soit supprimé.
+  - Un nouveau nœud est créé (nommé *node1*, car le précédent *node1* a été supprimé), et les teintes du *node2* sont appliquées au nouveau *node1*. Ensuite, *node2* est supprimé.
+  - Fondamentalement, *node1* devient *node3* et *node2* devient *node1*.
 
-- **Clusters qui utilisent des machines virtuelles identiques** (actuellement en version préliminaire dans ACS)
-  - Là encore, supposons que vous avez un cluster à deux nœuds - *node1* et *node2*. Vous mettez à niveau le pool de nœud.
-  - Deux nœuds supplémentaires sont créés, *node3* et *node4*, et le soleil est passés sur respectivement.
-  - La version d’origine *node1* et *node2* sont supprimés.
+- **Clusters qui utilisent des groupes de machines virtuelles identiques** (actuellement en préversion dans AKS)
+  - Encore une fois, partons du principe que nous disposons d’un cluster à deux nœuds : *node1* et *node2*. Vous mettez à niveau le pool de nœuds.
+  - Deux nœuds supplémentaires sont créés, *node3* et *node4*, et les teintes y sont envoyées.
+  - Les *node1* et *node2* originaux sont supprimés.
 
-Lorsque vous faites évoluer d’un pool de nœuds dans ACS, de soleil et tolerations ne transmettent pas en charge par conception.
+Lorsque vous faites évoluer un pool de nœuds dans AKS, les teintes et les tolérances ne sont pas transmises par défaut.
 
 ## <a name="control-pod-scheduling-using-node-selectors-and-affinity"></a>Contrôler la planification des pods à l’aide de sélecteurs de nœud et de l’affinité de nœud
 
@@ -157,11 +157,11 @@ spec:
   affinity:
     nodeAffinity:
       requiredDuringSchedulingIgnoredDuringExecution:
-      nodeSelectorTerms:
-      - matchExpressions:
-        - key: hardware
-          operator: In
-          values: highmem
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: hardware
+            operator: In
+            values: highmem
 ```
 
 La partie *IgnoredDuringExecution* du paramètre indique que le pod ne doit pas être supprimé du nœud si ses étiquettes viennent à changer. Le planificateur Kubernetes n’utilise les étiquettes de nœud mises à jour que pour les nouveaux pods en cours de planification, pas pour ceux déjà planifiés sur les nœuds.
@@ -172,7 +172,7 @@ Pour plus d’informations, consultez [Affinité et anti-affinité][k8s-affinity
 
 Une dernière approche, employée par le planificateur Kubernetes pour isoler logiquement des charges de travail, consiste à utiliser l’affinité ou l’anti-affinité entre pods. Les paramètres définissent si *oui* ou *non* des pods peuvent être planifiés sur un nœud ayant un pod correspondant. Par défaut, le planificateur Kubernetes essaie de planifier plusieurs pods dans un jeu de réplicas sur les nœuds. Vous pouvez définir des règles plus spécifiques autour de ce comportement.
 
-Un bon exemple est une application web qui utilise également un Cache Azure pour Redis. Vous pouvez utiliser des règles d’anti-affinité de pod pour demander au planificateur Kubernetes de distribuer les réplicas sur les nœuds. Vous pouvez ensuite utiliser les règles d’affinités pour vous assurer que chaque composant d’application web est planifiée sur le même hôte comme un cache correspondant. La distribution des pods sur les nœuds est similaire à celle de l’exemple suivant :
+Un bon exemple est une application web qui utilise également un Cache Azure pour Redis. Vous pouvez utiliser des règles d’anti-affinité de pod pour demander au planificateur Kubernetes de distribuer les réplicas sur les nœuds. Vous pouvez ensuite utiliser des règles d’affinité pour que chaque composant de l’application web soit planifié sur le même hôte qu’un cache correspondant. La distribution des pods sur les nœuds est similaire à celle de l’exemple suivant :
 
 | **Nœud 1** | **Nœud 2** | **Nœud 3** |
 |------------|------------|------------|

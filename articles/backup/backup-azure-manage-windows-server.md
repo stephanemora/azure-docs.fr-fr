@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/21/2018
+ms.date: 07/08/2019
 ms.author: raynew
-ms.openlocfilehash: f7d97866bb3ae895f83fff248ceec2e83dd60bf9
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
-ms.translationtype: MT
+ms.openlocfilehash: b447290a6910d144703bb796290908d0fc21b924
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66688902"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705134"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Surveiller et gérer les coffres Recovery Services
 
@@ -100,7 +100,7 @@ Par défaut, toutes les informations, à l’exception de **l’heure de la dern
 * Alerte
 * Élément de sauvegarde
 * Serveur protégé
-* Severity
+* severity
 * Duration
 * Heure de création
 * Statut
@@ -260,21 +260,6 @@ Dans le tableau de bord, la vignette Stockage de sauvegarde indique le stockage 
 * L’utilisation du stockage cloud LRS associée au coffre
 * L’utilisation du stockage cloud GRS associée au coffre
 
-
-## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
-
-### <a name="how-long-does-it-take-for-the-azure-backup-agent-job-status-to-reflect-in-the-portal"></a>Combien de temps faut-il pour que l’état du travail de l’agent de sauvegarde Azure apparaisse dans le portail ?
-Une quinzaine de minutes peuvent être nécessaires avant que l’état du travail de l’agent de sauvegarde Azure ne s’affiche dans le portail.
-
-### <a name="when-a-backup-job-fails-how-long-does-it-take-to-raise-an-alert"></a>En cas d’échec d’un travail de sauvegarde, au bout de combien de temps l’alerte est-elle déclenchée ?
-Une alerte est générée dans les 20 minutes qui suivent l’échec de la sauvegarde Azure.
-
-### <a name="is-there-a-case-where-an-email-wont-be-sent-if-notifications-are-configured"></a>Est-il possible qu’aucun e-mail ne soit envoyé alors que les notifications sont activées ?
-Oui. Dans les cas suivants, les notifications ne sont pas envoyées :
-
-* Si les notifications sont configurées sur une base horaire, et qu’une alerte est déclenchée et résolue dans l’heure
-* Si un travail est annulé
-* Si un travail de sauvegarde secondaire a échoué, parce que le travail de sauvegarde principal est en cours
 
 ## <a name="troubleshooting-monitoring-issues"></a>Résolution des problèmes de surveillance
 

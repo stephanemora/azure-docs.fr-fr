@@ -10,10 +10,10 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.custom: seodec18
 ms.openlocfilehash: f99a54f5623100e057e0c02249f5886f46656a21
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66355926"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Résumé des fonctionnalités de demande de données client
@@ -68,8 +68,8 @@ Pour plus d’informations, consultez [Configuration de la conservation des donn
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* En savoir plus sur [lui accordant l’accès aux données à votre environnement TSI](./time-series-insights-data-access.md).
+* En savoir plus sur l’[octroi de l’accès aux données à votre environnement TSI](./time-series-insights-data-access.md).
 
-* Afficher le [Explorateur Azure Time Series Insights](time-series-insights-explorer.md).
+* Affichez l’[explorateur Azure Time Series Insights](time-series-insights-explorer.md).
 
-* En savoir plus sur [configuration de la conservation dans Time Series Insights](time-series-insights-how-to-configure-retention.md).
+* En savoir plus sur la [Configuration de la conservation des données dans Time Series Insights](time-series-insights-how-to-configure-retention.md).
