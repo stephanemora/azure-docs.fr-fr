@@ -156,8 +156,8 @@
         - name: API Train
           href: 'https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train'
       href: 'https://go.microsoft.com/fwlink/?linkid=2092179'
-    - name: Forum Aux Questions
-      href: faqs.md
+    - name: Résolution de problèmes
+      href: troubleshooting.md
     - name: limites
       href: limits.md
     - name: Glossaire

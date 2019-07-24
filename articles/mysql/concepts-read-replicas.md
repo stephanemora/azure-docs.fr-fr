@@ -7,20 +7,20 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 04/30/2019
 ms.openlocfilehash: 2d70e1b5434b2fb263d1f4587888d4758fac2828
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66225361"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Réplicas en lecture dans Azure Database pour MySQL
 
-La fonctionnalité de réplica en lecture vous permet de répliquer les données d’un serveur Azure Database pour MySQL à un serveur en lecture seule. Vous pouvez répliquer à partir du serveur maître à jusqu'à cinq réplicas. Les réplicas sont mis à jour en mode asynchrone à l’aide de la technologie de réplication basée sur la position de fichier de journal binaire natif (binlog) du moteur MySQL. Pour en savoir plus sur la réplication binlog, consultez la [vue d’ensemble de la réplication binlog MySQL](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
+La fonctionnalité de réplica en lecture vous permet de répliquer les données d’un serveur Azure Database pour MySQL sur un serveur en lecture seule. Vous pouvez effectuer la réplication à partir du serveur maître vers cinq réplicas au maximum. Les réplicas sont mis à jour de manière asynchrone à l’aide de la technologie de réplication selon la position du fichier journal binaire (binlog) native au moteur MySQL. Pour en savoir plus sur la réplication binlog, consultez la [vue d’ensemble de la réplication binlog MySQL](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
 
 > [!IMPORTANT]
-> Vous pouvez créer un réplica en lecture dans la même région que votre serveur principal, ou dans n’importe quelle autre région Azure de votre choix. La réplication entre les régions est actuellement en version préliminaire publique.
+> Vous pouvez créer un réplica en lecture dans la même région que votre serveur maître ou dans n’importe quelle autre région Azure de votre choix. La réplication entre plusieurs régions est actuellement disponible en préversion publique.
 
-Les réplicas sont de nouveaux serveurs que vous gérez similaire à régulière de la base de données Azure pour les serveurs MySQL. Pour chaque réplica en lecture, vous êtes facturé en fonction de la capacité de calcul provisionnée dans les vCores et du stockage provisionné en Go/mois.
+Les réplicas sont de nouveaux serveurs que vous gérez de manière similaire aux serveurs Azure Database pour MySQL classiques. Pour chaque réplica en lecture, vous êtes facturé en fonction de la capacité de calcul provisionnée dans les vCores et du stockage provisionné en Go/mois.
 
 Pour découvrir plus en détail les fonctionnalités et les problèmes de la réplication MySQL, consultez la [documentation de la réplication MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html).
 
@@ -34,15 +34,15 @@ Dans la mesure où les réplicas sont en lecture seule, ils ne réduisent pas di
 
 La fonctionnalité de réplica en lecture utilise la réplication asynchrone MySQL. La fonctionnalité n’est pas destinée aux scénarios de réplication synchrone. Il y aura un délai mesurable entre le maître et le réplica. Les données du réplica finissent par devenir cohérentes avec les données du serveur maître. Utilisez cette fonctionnalité pour les charges de travail pouvant s’adapter à ce délai.
 
-Les réplicas en lecture peuvent améliorer votre plan de récupération d’urgence. S’il existe un sinistre régional et votre serveur principal n’est pas disponible, vous pouvez diriger votre charge de travail vers un réplica dans une autre région. Pour ce faire, tout d’abord que le réplica acceptent les écritures en utilisant la fonction de réplication de mots vides. Vous pouvez ensuite rediriger votre application en mettant à jour la chaîne de connexion. En savoir plus, consultez le [arrêter la réplication](#stop-replication) section.
+Les réplicas en lecture peuvent améliorer votre plan de récupération d’urgence. En cas de sinistre régional et si votre serveur maître n’est pas disponible, vous pouvez diriger votre charge de travail vers un réplica dans une autre région. Pour ce faire, permettez d’abord au réplica d’accepter des écritures en utilisant la fonction Arrêter la réplication. Vous pouvez ensuite rediriger l’application en mettant à jour la chaîne de connexion. Découvrez plus d’informations dans la section relative à [l’arrêt de la réplication](#stop-replication).
 
 ## <a name="create-a-replica"></a>Créer un réplica
 
-Si un serveur maître n’a aucun serveur de réplica existant, le maître sera tout d’abord redémarrer pour se préparer pour la réplication.
+Si un serveur maître ne dispose d’aucun serveur réplica, le serveur maître redémarre tout d’abord afin de se préparer pour la réplication.
 
-Lorsque vous démarrez le flux de travail de réplica de créer, un vide serveur Azure Database pour MySQL est créé. Le nouveau serveur est rempli avec les données qui se trouvaient sur le serveur maître. Le temps de création dépend de la quantité de données présentes sur le serveur maître et du temps écoulé depuis la dernière sauvegarde complète hebdomadaire. Le temps nécessaire peut aller de quelques minutes à plusieurs heures.
+Quand vous démarrez le workflow de création de réplica, un serveur Azure Database pour MySQL vide est créé. Le nouveau serveur est rempli avec les données qui se trouvaient sur le serveur maître. Le temps de création dépend de la quantité de données présentes sur le serveur maître et du temps écoulé depuis la dernière sauvegarde complète hebdomadaire. Le temps nécessaire peut aller de quelques minutes à plusieurs heures.
 
-Chaque réplica est activé pour le stockage [la croissance automatique](concepts-pricing-tiers.md#storage-auto-grow). La fonctionnalité de croissance automatique permet au réplica de suivre les données répliquées sur elle et empêcher une interruption dans la réplication a provoqué par des erreurs de stockage.
+Chaque réplica est activé pour la [croissance automatique](concepts-pricing-tiers.md#storage-auto-grow) du stockage. La fonctionnalité de croissance automatique permet au réplica de suivre les données qui sont répliquées sur lui et d’empêcher toute interruption à cause d’une erreur de saturation du stockage.
 
 Découvrez comment [créer un réplica en lecture dans le portail Azure](howto-read-replicas-portal.md).
 
@@ -52,7 +52,7 @@ Quand vous créez un réplica, il n’hérite pas des règles de pare-feu ni du 
 
 Le réplica hérite du compte Administrateur du serveur maître. Tous les comptes d’utilisateur sur le serveur maître sont répliqués sur les réplicas en lecture. Vous pouvez uniquement vous connecter à un réplica en lecture à l’aide des comptes d’utilisateur disponibles sur le serveur maître.
 
-Vous pouvez vous connecter au réplica à l’aide de son nom d’hôte et un compte d’utilisateur valide, comme vous le feriez sur un régulière serveur Azure Database pour MySQL. Pour un serveur nommé **myreplica** avec le nom d’utilisateur administrateur **myadmin**, vous pouvez vous connecter au réplica à l’aide de l’interface CLI de mysql :
+Vous pouvez vous connecter au réplica à l’aide de son nom d’hôte et d’un compte d’utilisateur valide, comme vous le faites sur un serveur Azure Database pour MySQL classique. Sur un serveur nommé **myreplica**, à l’aide du nom d’utilisateur administrateur **myadmin**, vous pouvez vous connecter au réplica via l’interface de ligne de commande mysql :
 
 ```bash
 mysql -h myreplica.mysql.database.azure.com -u myadmin@myreplica -p
@@ -62,17 +62,17 @@ mysql -h myreplica.mysql.database.azure.com -u myadmin@myreplica -p
 
 ## <a name="monitor-replication"></a>Superviser la réplication
 
-Azure Database pour MySQL fournit le **décalage de réplication en secondes** métrique dans Azure Monitor. Cette métrique est disponible pour les réplicas uniquement.
+Azure Database pour MySQL fournit la métrique **Décalage de la réplication en secondes** dans Azure Monitor. Cette métrique est disponible pour les réplicas uniquement.
 
-Cette mesure est calculée à l’aide de la `seconds_behind_master` métrique disponible dans de MySQL `SHOW SLAVE STATUS` commande.
+Cette métrique est calculée à l’aide de la métrique `seconds_behind_master` disponible dans la commande `SHOW SLAVE STATUS` de MySQL.
 
-Définir une alerte pour vous informer lorsque le décalage de réplication atteint une valeur qui n’est pas acceptable pour votre charge de travail.
+Définissez une alerte qui vous informe quand le décalage de la réplication atteint une valeur inacceptable pour votre charge de travail.
 
 ## <a name="stop-replication"></a>Arrêter la réplication
 
 Vous pouvez arrêter la réplication entre un serveur maître et un réplica. Une fois la réplication arrêtée entre un serveur maître et un réplica en lecture, celui-ci devient un serveur autonome. Les données du serveur autonome sont les données disponibles sur le réplica au lancement de la commande d’arrêt de la réplication. Le serveur autonome ne se met pas au même niveau que le serveur maître.
 
-Lorsque vous choisissez d’arrêter la réplication vers un réplica, il perd toutes les liaisons à son maître précédente et d’autres réplicas. Il n’existe aucun basculement automatique entre un serveur maître et son réplica.
+Lorsque vous décidez d’arrêter la réplication pour un réplica, celui-ci perd tous les liens avec son serveur maître précédent et d’autres réplicas. Il n’existe aucun basculement automatique entre un serveur maître et son réplica.
 
 > [!IMPORTANT]
 > Le serveur autonome ne peut pas être retransformé en réplica.
@@ -88,22 +88,22 @@ Les réplicas en lecture ne sont actuellement disponibles que dans les niveaux t
 
 ### <a name="master-server-restart"></a>Redémarrage du serveur maître
 
-Lorsque vous créez un réplica pour un maître qui a des réplicas existants, le maître va redémarrer tout d’abord pour se préparer pour la réplication. Veuillez prendre cela en compte et effectuer ces opérations pendant une période creuse.
+Lorsque vous créez un réplica pour un serveur maître qui ne dispose d’aucun réplica existant, le serveur maître commence par redémarrer pour se préparer pour la réplication. Veuillez prendre cela en compte et effectuer ces opérations pendant une période creuse.
 
 ### <a name="new-replicas"></a>Nouveaux réplicas
 
-Un réplica en lecture est créé comme un nouveau serveur Azure Database pour MySQL. Un serveur existant ne peut pas être transformé en réplica. Vous ne pouvez pas créer un réplica d’un autre réplica en lecture.
+Un réplica en lecture est créé en tant que serveur Azure Database pour MySQL. Un serveur existant ne peut pas être transformé en réplica. Vous ne pouvez pas créer un réplica d’un autre réplica en lecture.
 
 ### <a name="replica-configuration"></a>Configuration du réplica
 
-Un réplica est créé à partir de la même configuration que celle du serveur maître. Une fois un réplica est créé, plusieurs paramètres sont modifiables indépendamment à partir du serveur maître : génération de VCORE, stockage, la période de rétention de sauvegarde et de MySQL version du moteur de calcul. Le niveau tarifaire peut également être changé indépendamment, sauf vers ou depuis le niveau De base.
+Un réplica est créé à partir de la même configuration que celle du serveur maître. Une fois le réplica créé, vous pouvez changer plusieurs paramètres indépendamment du serveur maître : génération de calcul, vCores, stockage, période de rétention de sauvegarde et version du moteur MySQL. Le niveau tarifaire peut également être changé indépendamment, sauf vers ou depuis le niveau De base.
 
 > [!IMPORTANT]
 > Avant de mettre à jour une configuration de serveur maître avec de nouvelles valeurs, mettez à jour la configuration du réplica avec des valeurs égales ou supérieures. Ainsi, vous avez la garantie que le réplica peut suivre les changements apportés au maître.
 
 ### <a name="stopped-replicas"></a>Réplicas arrêtés
 
-Si vous arrêtez la réplication entre un serveur maître et un réplica en lecture, le réplica arrêté devient un serveur autonome qui accepte les lectures et écritures. Le serveur autonome ne peut pas être retransformé en réplica.
+Si vous arrêtez la réplication entre un serveur maître et un réplica en lecture, le réplica arrêté devient un serveur autonome qui accepte aussi bien les lectures que les écritures. Le serveur autonome ne peut pas être retransformé en réplica.
 
 ### <a name="deleted-master-and-standalone-servers"></a>Serveurs maîtres et autonomes supprimés
 
@@ -115,13 +115,13 @@ Les utilisateurs sur le serveur maître sont répliqués sur les réplicas en le
 
 ### <a name="server-parameters"></a>Paramètres de serveur
 
-Pour empêcher les données de devenir désynchronisés et afin d’éviter le potentiel de perte de données ou de corruption, certains paramètres de serveur sont verrouillés à partir de la mise à jour à l’aide de lire des réplicas.
+Pour empêcher les données de se désynchroniser et pour éviter leur perte ou leur endommagement potentiels, certains paramètres de serveur sont verrouillés et ne peuvent pas être mis à jour lors de l’utilisation des réplicas en lecture.
 
-Les paramètres de serveur suivants sont verrouillés sur les serveurs maîtres et de réplica :
+Les paramètres de serveur suivants sont verrouillés sur les serveurs maîtres et réplicas :
 - [`innodb_file_per_table`](https://dev.mysql.com/doc/refman/5.7/en/innodb-multiple-tablespaces.html) 
 - [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators)
 
-Le [ `event_scheduler` ](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_event_scheduler) paramètre est verrouillé sur le serveur de réplication. 
+Le paramètre [`event_scheduler`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_event_scheduler) est verrouillé sur les serveurs réplicas. 
 
 ### <a name="other"></a>Autres
 
