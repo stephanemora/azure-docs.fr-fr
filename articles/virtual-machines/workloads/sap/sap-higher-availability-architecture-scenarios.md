@@ -4,7 +4,7 @@ description: Utiliser le redémarrage de la machine virtuelle d’infrastructure
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cda0b1c0774ed33bf550e0edf329cc22a2807be3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d99f704d05dea88f7fa29afea99cbbdb00d09c24
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60825671"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709886"
 ---
 # <a name="utilize-azure-infrastructure-vm-restart-to-achieve-higher-availability-of-an-sap-system"></a>Utiliser le redémarrage de la machine virtuelle d’infrastructure Azure pour permettre une plus haute disponibilité d’un système SAP
 
@@ -239,7 +239,7 @@ Pour les composants SAP critiques, vous avez obtenu jusqu’ici ce qui suit :
 
 * La haute disponibilité des serveurs d’applications SAP
 
-    Les instances de serveur d’applications SAP sont des composants redondants. Chaque instance de serveur d’applications SAP est déployé sur sa propre machine virtuelle, qui s’exécute dans un domaine d’erreur et de mise à niveau Azure différent. Pour plus d’informations, consultez les sections [Domaines d’erreur][planning-guide-3.2.1] et [Domaines de mise à niveau][planning-guide-3.2.2]. 
+    Les instances de serveur d’applications SAP sont des composants redondants. Chaque instance de serveur d’applications SAP est déployé sur sa propre machine virtuelle, qui s’exécute dans un domaine d’erreur et de mise à niveau Azure différent. Pour plus d’informations, consultez les sections [Domaines d’erreur][planning-guide-3.2.1] and [Upgrade domains][planning-guide-3.2.2]. 
 
     Vous pouvez garantir cette configuration à l’aide de groupes à haute disponibilité Azure. Pour plus d’informations, consultez la section [Groupes à haute disponibilité Azure][planning-guide-3.2.3]. 
 

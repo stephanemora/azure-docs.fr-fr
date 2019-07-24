@@ -118,7 +118,7 @@ Pour copier des données du service web Amazon Marketplace, définissez **Amazon
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur : **AmazonMWSSource** | OUI |
+| type | La propriété type de la source d’activité de copie doit être définie sur : **AmazonMWSSource** | OUI |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM Orders where  Amazon_Order_Id = 'xx'"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**

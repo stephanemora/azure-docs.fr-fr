@@ -5,6 +5,7 @@
     - name: "À propos d’Azure\_Digital\_Twins"
       href: about-digital-twins.md
 - name: Démarrages rapides
+  expanded: true
   items:
     - name: Rechercher des salles disponibles
       href: quickstart-view-occupancy-dotnet.md

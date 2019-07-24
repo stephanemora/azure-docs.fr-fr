@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/02/2019
-ms.author: monhaber
-ms.openlocfilehash: 5487b4f49f5dbf7b968cd45d40555c69b54c329a
-ms.sourcegitcommit: 1e347ed89854dca2a6180106228bfafadc07c6e5
+ms.author: v-mohabe
+ms.openlocfilehash: f23865fc0a1943a5157e4ff8eb8de10a71ef0883
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67571283"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68295791"
 ---
 # <a name="threat-detection-for-vms--servers-in-azure-security-center"></a>Détection des menaces pour les machines virtuelles et les serveurs dans Azure Security Center
 
@@ -68,7 +68,7 @@ Avec la détection des attaques sans fichier, les techniques d’investigation a
 Elle trouve des preuves de l’exploitation, de l’injection de code et de l’exécution de charges utiles malveillantes. La détection des attaques sans fichier génère des alertes de sécurité détaillées afin d’accélérer le tri des alertes, la corrélation et le temps de réponse en aval. Cette approche complète les solutions EDR basées sur les événements en élargissant la couverture de détection.
 
 > [!NOTE]
-> Vous pouvez simuler des alertes Windows en téléchargeant le document [Azure Security Center Playbook: Security Alerts](https://gallery.technet.microsoft.com/Azure-Security-Center-0ac8a5ef) et en suivant les instructions fournies.
+> Vous pouvez simuler des alertes Windows en téléchargeant le document [Azure Security Center Playbook: Security Alerts et en suivant les instructions fournies.
 
 > [!div class="mx-tableFixed"]
 

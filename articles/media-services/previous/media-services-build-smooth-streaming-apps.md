@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: b8c1513838fb848388946e18698a0410aa7a0332
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65949628"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Génération d'une application Windows Store de diffusion en continu lisse  
@@ -32,7 +32,7 @@ Le didacticiel se compose de quatre leçons :
 3. Sélection des flux de diffusion en continu lisse
 4. Sélection des pistes de diffusion en continu lisse
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 > [!NOTE]
 > Les projets Windows Store version 8.1 et versions antérieures ne sont pas pris en charge dans Visual Studio 2017.  Pour en savoir plus, consultez [Plateforme cible et compatibilité dans Visual Studio 2017](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs).
 
@@ -77,7 +77,7 @@ Pour plus d'informations sur le développement d'une application Windows Store, 
 
 1. Cliquez sur **OK**.
 
-### <a name="to-add-a-reference-to-the-smooth-streaming-client-sdk"></a>Pour ajouter une référence au SDK de Client de diffusion en continu lisse
+### <a name="to-add-a-reference-to-the-smooth-streaming-client-sdk"></a>Pour ajouter une référence au Kit de développement logiciel (SDK) du client Smooth Streaming
 
 1. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur **SSPlayer**, puis cliquez sur **Ajouter une référence**.
 1. Tapez ou sélectionnez les valeurs suivantes :
@@ -85,7 +85,7 @@ Pour plus d'informations sur le développement d'une application Windows Store, 
     | Nom | Valeur |
     | --- | --- |
     | Groupe de référence |Windows/Extensions |
-    | Référence |Sélectionnez le Kit de développement logiciel (SDK) du client de diffusion en continu lisse pour Windows 8 et le package Runtime Microsoft Visual C++ |
+    | Informations de référence |Sélectionnez le Kit de développement logiciel (SDK) du client de diffusion en continu lisse pour Windows 8 et le package Runtime Microsoft Visual C++ |
 
 1. Cliquez sur **OK**. 
 
@@ -239,7 +239,7 @@ Cette leçon aborde les procédures suivantes :
 5. Ajout du code lié à la barre de curseur
 6. Compilation et test de l’application
 
-### <a name="to-register-the-smooth-streaming-byte-stream-handler-and-pass-the-propertyset"></a>Pour inscrire le Gestionnaire de flux d’octets de diffusion en continu lisse et transmettre le paramètre propertyset
+### <a name="to-register-the-smooth-streaming-byte-stream-handler-and-pass-the-propertyset"></a>Pour enregistrer le gestionnaire de flux d’octets Smooth Streaming et transmettre le paramètre PropertySet
 
 1. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur **MainPage.xaml**, puis cliquez sur **Afficher le code**.
 2. Au début du fichier, ajoutez l'instruction using suivante :
@@ -284,7 +284,7 @@ Cette leçon aborde les procédures suivantes :
    ```
 6. Appuyez sur **Ctrl+S** pour enregistrer le fichier.
 
-### <a name="to-add-the-adaptive-source-manager-level-event-handler"></a>Pour ajouter le Gestionnaire d’événements au niveau de manager source adaptative
+### <a name="to-add-the-adaptive-source-manager-level-event-handler"></a>Pour ajouter le gestionnaire d’événements au niveau d’AdaptiveSourceManager
 
 1. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur **MainPage.xaml**, puis cliquez sur **Afficher le code**.
 2. Dans la classe **MainPage** , ajoutez le membre de données suivant :
@@ -312,7 +312,7 @@ Cette leçon aborde les procédures suivantes :
    ```
 5. Appuyez sur **Ctrl+S** pour enregistrer le fichier.
 
-### <a name="to-add-adaptive-source-level-event-handlers"></a>Pour ajouter des gestionnaires d’événements au niveau source adaptative
+### <a name="to-add-adaptive-source-level-event-handlers"></a>Pour ajouter des gestionnaires d’événements au niveau de la source adaptative
 
 1. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur **MainPage.xaml**, puis cliquez sur **Afficher le code**.
 2. Dans la classe **MainPage** , ajoutez le membre de données suivant :
@@ -399,7 +399,7 @@ Les mêmes événements sont également disponibles sur AdaptiveSourceManager, q
    ```
 4. Appuyez sur **Ctrl+S** pour enregistrer le fichier.
 
-### <a name="to-add-slider-bar-related-code"></a>Pour ajouter la barre du curseur de code connexes
+### <a name="to-add-slider-bar-related-code"></a>Pour ajouter le code lié à la barre de curseur
 
 1. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur **MainPage.xaml**, puis cliquez sur **Afficher le code**.
 2. Au début du fichier, ajoutez l'instruction using suivante :
@@ -507,7 +507,7 @@ Les mêmes événements sont également disponibles sur AdaptiveSourceManager, q
    ```
 
    > [!NOTE]
-   > CoreDispatcher permet d'apporter des modifications au thread d'interface utilisateur à partir d'un autre type de thread. En cas de goulot d’étranglement sur le thread du répartiteur, le développeur peut choisir d’utiliser le répartiteur fourni par l’interface utilisateur-élément, ils ont l’intention de mettre à jour.  Exemple :
+   > CoreDispatcher permet d'apporter des modifications au thread d'interface utilisateur à partir d'un autre type de thread. En cas de goulot d’étranglement sur le thread du répartiteur, le développeur peut choisir d’utiliser le répartiteur fourni par l’élément d’interface utilisateur à mettre à jour.  Par exemple :
 
    ```csharp
          await sliderProgress.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => { TimeSpan 
@@ -819,7 +819,7 @@ La diffusion en continu lisse permet de diffuser du contenu en continu proposant
 
 Vous avez terminé la leçon 3.  Dans cette leçon, vous avez ajouté la fonctionnalité permettant de choisir des flux.
 
-## <a name="lesson-4-select-smooth-streaming-tracks"></a>Leçon 4 : Sélectionner des pistes de diffusion en continu lisse
+## <a name="lesson-4-select-smooth-streaming-tracks"></a>Leçon 4 : Sélectionner des pistes Smooth Streaming
 
 Une présentation de diffusion en continu lisse peut contenir plusieurs fichiers vidéo encodés comportant des niveaux de qualité (débit) et des résolutions différents. Cette leçon vous expliquera comment permettre aux utilisateurs de sélectionner des pistes. Cette leçon aborde les procédures suivantes :
 
@@ -847,7 +847,7 @@ Une présentation de diffusion en continu lisse peut contenir plusieurs fichiers
          </ListBox>
          </StackPanel>
    ```
-3. Appuyez sur **CTRL + S** pour enregistrer les modifications
+3. Appuyez sur **Ctrl+S** pour enregistrer les modifications
 
 ### <a name="to-modify-the-code-behind-file"></a>Pour modifier le fichier code-behind
 

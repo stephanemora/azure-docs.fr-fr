@@ -6,15 +6,15 @@ author: edjez
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 06/07/2019
 ms.author: edjez
-ms.openlocfilehash: d0a0a6101d876493188426d19f2fa845d20ee274
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 38480d3cc32d53084b79af627e4f7e6ae7dcc03d
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055462"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722361"
 ---
 # <a name="how-personalizer-works"></a>Fonctionnement de Personalizer
 
@@ -140,7 +140,7 @@ Cet exemple montre comment utiliser la fonctionnalité Personnalisation pour fai
 
 * Faites des appels de l’API de classement de Personalizer chaque fois qu’il est nécessaire de lever une ambiguïté, par opposition à la mise en cache des résultats pour chaque utilisateur. Le résultat de la désambiguïsation de l’intention peut changer au fil du temps pour une personne, et le fait de permettre à l’API de classement d’explorer les changements accélérera l’apprentissage global.
 * Choisissez une interaction commune à de nombreux utilisateurs afin de disposer de suffisamment de données à personnaliser. Par exemple, des questions préliminaires peuvent être plus adaptées que des clarifications demandées à un stade de la conversation que de rares utilisateurs atteignent.
-* Utilisez des appels de l’API de classement pour permettre des conversations de type « la première suggestion est la bonne », où l’utilisateur est invité à répondre à la question « Voulez-vous ceci ? » ou « Voulez-vous dire cela ? » en se contenant de donner une confirmation, par opposition au fait de proposer à l’utilisateur des options qu’il doit choisir dans un menu. Par exemple, si l’utilisateur dit « Je souhaiterais un café », le bot peut lui demander « Voulez-vous un double espresso ? ». De cette façon, le signal de récompense est également fort parce qu’il se rapporte directement à la suggestion.
+* Utiliser le classement par ordre de priorité des appels d’API pour activer des conversations de la « première suggestion est bonne », où l’utilisateur se fait demander : « vous aimeriez X ? » ou « vouliez vous dire X ? » et l’utilisateur peut simplement confirmer ; par opposition aux options de l’utilisateur à partir d’un menu. Par exemple, si l’utilisateur dit « Je souhaiterais un café », le bot peut lui demander « Voulez-vous un double espresso ? ». De cette façon, le signal de récompense est également fort parce qu’il se rapporte directement à la suggestion.
 
 ## <a name="how-to-use-personalizer-with-a-recommendation-solution"></a>Comment utiliser Personalizer avec une solution de recommandation
 

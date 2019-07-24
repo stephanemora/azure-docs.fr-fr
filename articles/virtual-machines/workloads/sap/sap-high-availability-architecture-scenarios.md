@@ -4,7 +4,7 @@ description: Scénarios et architecture de haute disponibilité pour SAP NetWeav
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 01/21/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 37f5040585681a53743fb3426b7f7ffac36de51c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f6c329a2b50c946e873391db431c1cd5ff30ab4f
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60936220"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709087"
 ---
 # <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>Scénarios et architecture de haute disponibilité pour SAP NetWeaver
 
@@ -316,12 +316,12 @@ Les données dans votre compte de stockage sont toujours répliquées pour garan
 
 Stockage Azure conservant trois images des données par défaut, l’utilisation de RAID 5 ou RAID 1 sur plusieurs disques Azure n’est pas nécessaire.
 
-Pour plus d’informations, consultez [Réplication de Stockage Azure][azure-storage-redundancy].
+Pour plus d’informations, consultez l’article [Réplication de Stockage Azure][azure-storage-redundancy].
 
 ### <a name="azure-managed-disks"></a>Azure Disques managés
 Les disques managés sont des ressources dans Azure Resource Manager qui peuvent être utilisées à la place des disques durs virtuels (VHD) stockés dans les comptes de stockage Azure. Les disques managés sont automatiquement alignés sur un groupe à haute disponibilité de la machine virtuelle à laquelle ils sont attachés. Ils améliorent la disponibilité de votre machine virtuelle et des services qui sont exécutés sur celle-ci.
 
-Pour plus d’informations, consultez [Vue d’ensemble d’Azure Disques managés][azure-storage-managed-disks-overview].
+Pour plus d’informations, consultez [Vue d’ensemble des disques managés Azure][azure-storage-managed-disks-overview].
 
 Nous vous recommandons d’utiliser des disques managés, car ils simplifient le déploiement et la gestion de vos machines virtuelles.
 
@@ -396,7 +396,7 @@ Vous pouvez utiliser une solution WSFC pour protéger l’instance SAP ASCS/SCS.
 
 > ![Linux][Logo_Linux] Linux
 > 
-> Pour plus d’informations sur le clustering de l’instance SAP ASCS/SCS à l’aide de l’infrastructure de cluster SLES, consultez [Haute disponibilité pour SAP NetWeaver sur les machines virtuelles Azure sur SUSE Linux Enterprise Server pour les applications SAP][sap-suse-ascs-ha]. Pour connaître une autre architecture HA sur SLES ne nécessitant pas de système NFS à haute disponibilité, consultez le [Guide de haute disponibilité pour SAP NetWeaver sur SUSE Linux Enterprise Server avec Azure NetApp Files pour les applications SAP][sap-suse-ascs-ha-anf].
+> Pour plus d’informations sur le clustering de l’instance SAP ASCS/SCS à l’aide de l’infrastructure de cluster SLES, consultez [Haute disponibilité pour SAP NetWeaver sur les machines virtuelles Azure sur SUSE Linux Enterprise Server pour les applications SAP][sap-suse-ascs-ha]. For alternative HA architecture on SLES, which doesn't require highly available NFS see [High-availability guide for SAP NetWeaver on SUSE Linux Enterprise Server with Azure NetApp Files for SAP applications][sap-suse-ascs-ha-anf].
 
 Pour plus d’informations sur le clustering de l’instance SAP ASCS/SCS à l’aide du framework de cluster Red Hat, consultez [Haute disponibilité des machines virtuelles Azure pour SAP NetWeaver sur Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel)
 

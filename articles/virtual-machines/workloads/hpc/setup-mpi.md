@@ -4,7 +4,7 @@ description: Découvrez comment configurer MPI pour HPC sur Azure.
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines
@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: amverma
-ms.openlocfilehash: 5356a033dbc3d989dd27019f03b1fe36035ff9a4
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 541e42a72ea604c4d71dc546b14dea2f0857bcc1
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441646"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797514"
 ---
 # <a name="set-up-message-passing-interface-for-hpc"></a>Configurer l’interface de transmission de messages pour HPC
 
@@ -126,7 +126,7 @@ L’épinglage de processus fonctionne correctement pour 15, 30 et 60 PPN par d�
 
 ## <a name="osu-mpi-benchmarks"></a>OSU MPI Benchmarks
 
-[Téléchargez OSU MPI Benchmarks] [http://mvapich.cse.ohio-state.edu/benchmarks/](http://mvapich.cse.ohio-state.edu/benchmarks/) et décompressez le fichier.
+[Téléchargez OSU MPI Benchmarks](http://mvapich.cse.ohio-state.edu/benchmarks/) et décompressez le fichier.
 
 ```bash
 wget http://mvapich.cse.ohio-state.edu/download/mvapich/osu-micro-benchmarks-5.5.tar.gz
@@ -146,7 +146,7 @@ MPI Benchmarks se trouve dans le dossier `mpi/`.
 
 ## <a name="discover-partition-keys"></a>Découvrir les clés de partition
 
-Découvrir les clés de partition (p-keys) pour la communication avec d’autres machines virtuelles.
+Découvrez les clés de partition (p-keys) pour communiquer avec d’autres machines virtuelles au sein du même locataire (groupe à haute disponibilité ou groupe identique de machines virtuelles).
 
 ```bash
 /sys/class/infiniband/mlx5_0/ports/1/pkeys/0
@@ -164,13 +164,15 @@ cat /sys/class/infiniband/mlx5_0/ports/1/pkeys/1
 
 Utiliser une partition autre que de la clé de partition par défaut (0x7fff). UCX requiert l’effacement de l’octet le plus significatif de la p-key. Par exemple, définissez UCX_IB_PKEY comme étant 0x000b pour 0x800b.
 
+Notez également que tant que le locataire (AVSet ou VMSS) existe, les PKEYs restent les mêmes. Cela est vrai même lorsque les nœuds sont ajoutés ou supprimés. Les nouveaux locataires obtiennent des PKEYs différents.
+
 
 ## <a name="set-up-user-limits-for-mpi"></a>Configurez un nombre limite d’utilisateurs pour MPI
 
 Configurez un nombre limite d’utilisateurs pour MPI.
 
 ```bash
-cat << EOF >> /etc/security/limits.conf
+cat << EOF | sudo tee -a /etc/security/limits.conf
 *               hard    memlock         unlimited
 *               soft    memlock         unlimited
 *               hard    nofile          65535

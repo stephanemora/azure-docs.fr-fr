@@ -9,11 +9,11 @@ ms.date: 04/25/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
 ms.openlocfilehash: 1476830313296615591a69a2cadd04bcc56b22bc
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66158699"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177000"
 ---
 Si vous rencontrez des problèmes en exécutant des opérations sur les galeries d’images partagées, les définitions d’image et les versions d’image, réexécutez la commande ayant échoué en mode débogage. Le mode débogage est activé avec le commutateur **-debug** dans l’interface CLI et le commutateur **-Debug** dans PowerShell. Une fois que vous avez localisé l’erreur, suivez ce document pour corriger les erreurs.
 
@@ -24,7 +24,7 @@ Causes possibles :
 
 *Le nom de la galerie n’est pas valide.*
 
-Les caractères autorisés pour le nom de galerie sont les lettres majuscules ou minuscules, les chiffres et les points. Le nom de la galerie ne peut pas contenir de tirets. Changez le nom de galerie, puis réessayez. 
+Les caractères autorisés pour le nom de galerie sont les lettres majuscules ou minuscules, les chiffres et les points. Le nom de galerie ne peut pas contenir de tirets. Changez le nom de galerie, puis réessayez. 
 
 *Le nom de galerie n’est pas unique dans votre abonnement.*
 
@@ -37,7 +37,7 @@ Causes possibles :
 
 *Le nom de définition d’image n’est pas valide.*
 
-Caractères autorisés pour la définition de l’image sont des périodes, des chiffres, des points, des tirets et des lettres majuscules ou minuscules. Changez le nom de définition d’image, puis réessayez.
+Les caractères autorisés pour la définition d’image sont les lettres majuscules ou minuscules, les chiffres, les tirets et les points. Changez le nom de définition d’image, puis réessayez.
 
 *Les propriétés obligatoires pour créer une définition d’image ne sont pas remplies.*
 
@@ -52,7 +52,7 @@ Causes possibles :
 
 *Le nom de version d’image n’est pas valide.*
 
-Les caractères autorisés pour la version d’image sont les nombres et les points. Les nombres doivent être un entier 32 bits. Format: *MajorVersion.MinorVersion.Patch*. Changez le nom de version d’image, puis réessayez.
+Les caractères autorisés pour la version d’image sont les nombres et les points. Les nombres doivent être un entier 32 bits. Format : *MajorVersion.MinorVersion.Patch*. Changez le nom de version d’image, puis réessayez.
 
 *L’image managée source à partir de laquelle la version d’image est créée est introuvable.* 
 
@@ -62,7 +62,7 @@ Vérifiez si l’image source existe et qu’elle est dans la même région que 
 
 Vérifiez que l’état de provisionnement de l’image managée source est **Réussi**.
 
-*La liste des régions cible n’inclut pas la région source.*
+*La liste des régions cibles ne doit pas inclure la région source.*
 
 La liste des régions cibles doit inclure la région source de la version d’image. Vérifiez que vous avez inclus la région source dans la liste des régions cibles où vous voulez qu’Azure réplique votre version d’image.
 
@@ -84,11 +84,11 @@ Vérifiez que la région dans laquelle vous essayez de créer une machine virtue
 
 *La création de la machine virtuelle ou du groupe de machines virtuelles identiques prend beaucoup de temps.*
 
-Vérifiez que la valeur **OSType** de la version d’image à partir de laquelle vous tentez de créer la machine virtuelle ou le groupe de machines virtuelles identiques est identique à celle de l’image managée source que vous avez utilisée pour créer la version d’image. **** 
+Vérifiez que la valeur **OSType** de la version d’image à partir de laquelle vous tentez de créer la machine virtuelle ou le groupe de machines virtuelles identiques est identique à celle de l’image managée source que vous avez utilisée pour créer la version d’image. 
 
 ## <a name="unable-to-share-resources"></a>Impossible de partager les ressources
 
-Le partage de la galerie d’images partagé, la définition de l’image et ressources de la version image entre abonnements est activé à l’aide de [contrôle d’accès en fonction du rôle](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles) (RBAC). 
+Le partage des ressources de galerie d’images partagées, de définition d’image et de version d’image entre abonnements est activé à l’aide du [contrôle d’accès en fonction du rôle](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles) (RBAC). 
 
 ## <a name="replication-is-slow"></a>La réplication est lente
 

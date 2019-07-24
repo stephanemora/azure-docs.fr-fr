@@ -4,7 +4,7 @@ description: Haute disponibilité de SAP HANA sur les machines virtuelles Azure 
 services: virtual-machines-linux
 documentationcenter: ''
 author: MSSedusch
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: 3d59fc48f1f6f6931ca18e09a420fdbccc7d53dc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 78d14add09a89b7ec4d4844a12ffa0434d714b3a
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64922286"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709098"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Haute disponibilité de SAP HANA sur les machines virtuelles Azure sur SUSE Linux Enterprise Server
 
@@ -71,8 +71,8 @@ Commencez par lire les notes et publications SAP suivantes :
 * La note SAP [401162] a des informations sur la façon d’éviter le message « adresse déjà utilisée » quand vous configurez la réplication de système HANA.
 * Le [WIKI de la communauté SAP](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) contient toutes les notes SAP requises pour Linux.
 * [Plateformes IaaS certifiées SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
-* Guide de [planification et implémentation de machines virtuelles Azure pour SAP sur Linux][planning-guide].
-* [Déploiement de Machines virtuelles Azure pour SAP sur Linux][deployment-guide] (cet article).
+* Guide [Planification et implémentation de machines virtuelles Azure pour SAP sur Linux][planning-guide].
+* [Déploiement de machines virtuelles Azure pour SAP sur Linux][deployment-guide] (cet article).
 * Guide de [déploiement SGBD de machines virtuelles Azure pour SAP sur Linux][dbms-guide].
 * [Guides des meilleures pratiques de SUSE Linux Enterprise Server pour applications SAP 12 SP3][sles-for-sap-bp]
   * Configuration d’une infrastructure à performances optimisées SAP HANA SR (SLES pour les applications SAP 12 SP1). Le guide contient toutes les informations requises pour configurer la réplication système SAP HANA en développement local. Utilisez ce guide comme référence.
@@ -101,8 +101,8 @@ La Place de marché Azure contient une image de SUSE Linux Enterprise Server fo
 Vous pouvez utiliser un des modèles de démarrage rapide disponibles sur GitHub pour déployer toutes les ressources nécessaires. Le modèle déploie les machines virtuelles, l’équilibrage de charge, le groupe à haute disponibilité, etc.
 Suivez ces étapes pour déployer le modèle :
 
-1. Ouvrez le [modèle de base de données][template-multisid-db] ou [modèle convergé][template-converged] sur le portail Azure. 
-    Le modèle de base de données crée les règles d’équilibrage de charge pour une base de données uniquement. Le modèle convergent crée également les règles d’équilibrage de charge pour une instance ASCS/SCS et ERS (Linux uniquement). Si vous prévoyez d’installer un système SAP NetWeaver et souhaitez installer l’instance ASC/SCS sur les mêmes machines, utilisez le [modèle convergé][template-converged].
+1. Ouvrez le [modèle de base de données][template-multisid-db] or the [converged template][template-converged] on the Azure portal. 
+    The database template creates the load-balancing rules for a database only. The converged template also creates the load-balancing rules for an ASCS/SCS and ERS (Linux only) instance. If you plan to install an SAP NetWeaver-based system and you want to install the ASCS/SCS instance on the same machines, use the [converged template][template-converged].
 
 1. Entrez les paramètres suivants :
     - **ID du système SAP** : Entrez l’ID du système SAP que vous souhaitez installer. Cet ID est utilisé comme préfixe pour les ressources déployées.

@@ -1,6 +1,6 @@
 - name: Documentation Service Bus Relay
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: "Qu’est-ce que Relay\_?"
       href: relay-what-is-it.md
@@ -48,8 +48,6 @@
       items:
         - name: Créer un espace de noms
           href: relay-create-namespace-portal.md
-        - name: Utiliser WCF Relay pour exposer les services WCF aux clients externes
-          href: relay-wcf-dotnet-get-started.md
         - name: API disponibles
           href: relay-api-overview.md
           items:
