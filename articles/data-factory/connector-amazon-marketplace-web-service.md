@@ -88,7 +88,7 @@ Pour copier des données du service web Amazon Marketplace, affectez la valeur *
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur : **AmazonMWSObject** | OUI |
+| type | La propriété type du jeu de données doit être définie sur : **AmazonMWSObject** | OUI |
 | tableName | Nom de la table. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
