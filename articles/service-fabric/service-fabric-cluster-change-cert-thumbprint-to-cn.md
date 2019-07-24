@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 01/01/2019
 ms.author: aljo
 ms.openlocfilehash: a94fda5a1f3aedd5842bad92b5348a77177b4137
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66302458"
 ---
 # <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>Modifier un cluster pour qu’il passe de l’utilisation d’une empreinte de certificat à l’utilisation d’un nom commun
@@ -102,7 +102,7 @@ Update-AzVmss -ResourceGroupName $VmssResourceGroupName -Verbose `
 > Vous ne pouvez pas utiliser un même ID de ressource pour deux secrets de groupes identiques, puisque chaque secret constitue une ressource unique avec sa propre version. 
 
 ## <a name="download-and-update-the-template-from-the-portal"></a>Télécharger et mettre à jour le modèle à partir du portail
-Le certificat a été installé sur le groupe identique sous-jacent, mais vous devez également mettre à jour le cluster Service Fabric pour qu’il utilise ce certificat et son nom commun.  À présent, téléchargez le modèle de déploiement du cluster.  Se connecter à la [Azure portal](https://portal.azure.com) et accédez au groupe de ressources qui héberge le cluster.  Dans **Paramètres**, sélectionnez **Déploiements**.  Sélectionnez le déploiement le plus récent, puis cliquez sur **Afficher le modèle**.
+Le certificat a été installé sur le groupe identique sous-jacent, mais vous devez également mettre à jour le cluster Service Fabric pour qu’il utilise ce certificat et son nom commun.  À présent, téléchargez le modèle de déploiement du cluster.  Connectez-vous au [Portail Microsoft Azure](https://portal.azure.com), puis accédez au groupe de ressources qui héberge le cluster.  Dans **Paramètres**, sélectionnez **Déploiements**.  Sélectionnez le déploiement le plus récent, puis cliquez sur **Afficher le modèle**.
 
 ![Afficher les modèles][image1]
 
@@ -127,7 +127,7 @@ Ouvrez le fichier de modèle dans un éditeur de texte et effectuez trois mises 
     },
     ```
 
-    Envisagez également de supprimer le *certificateThumbprint*, il peut ne plus être référencée dans le modèle Resource Manager.
+    Pensez également à supprimer le paramètre *certificateThumbprint*, il se peut qu’il ne soit plus référencé dans le modèle Resource Manager.
 
 2. Dans la ressource **Microsoft.Compute/virtualMachineScaleSets**, mettez à jour l’extension de machine virtuelle pour utiliser le nom commun dans les paramètres du certificat au lieu de l’empreinte.  Dans **virtualMachineProfile**->**extensionProfile**->**extensions**->**properties**->**settings**->**certificate**, ajoutez `"commonNames": ["[parameters('certificateCommonName')]"],` et supprimez `"thumbprint": "[parameters('certificateThumbprint')]",`.
     ```json

@@ -6,13 +6,13 @@ author: yijenj
 ms.service: marketplace
 ms.topic: article
 ms.date: 10/29/2018
-ms.author: yijenj
-ms.openlocfilehash: 225a4936bbbb8d068caa0ee2a3280c395dbd490e
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.author: pabutler
+ms.openlocfilehash: 4986f888abca94549e921bfe5400d68f6d28c01f
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65964121"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876690"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Services de conseil dans la Place de marché Azure et AppSource
 Les services de conseil dans la Place de marché Azure et AppSource permettent aux partenaires Microsoft de connecter les clients à des services pour gérer et étendre leur utilisation d’Azure en fonction de leurs besoins professionnels. 
@@ -41,7 +41,7 @@ Les offres de services qui sont basées sur Microsoft Dynamics 365, Office 365 e
 > [!TIP]
 > Pour publier une offre dans la vitrine Place de marché, vous effectuerez cette sélection en choisissant « Azure » dans le menu déroulant « Primary Product » (Produit principal) du Portail Cloud Partner. Pour publier une offre sur AppSource, vous procéderez à cette sélection en choisissant « Dynamics 365 », « Power BI » ou « Power Apps » dans le menu déroulant « Primary Product » (Produit principal) du Portail Cloud Partner.
 
-## <a name="eligible-partners-and-supported-countriesregions"></a>Les partenaires éligibles et pays/régions pris en charge
+## <a name="eligible-partners-and-supported-countriesregions"></a>Partenaires éligibles et pays/région pris en charge
 
 Les partenaires doivent avoir une **compétence Silver ou Gold** dans le domaine de leur service. 
 
@@ -67,17 +67,17 @@ Les partenaires doivent avoir une **compétence Silver ou Gold** dans le domaine
 <b>Pour plus d’informations, consultez les [compétences via Microsoft Partner Network](https://partner.microsoft.com/membership/competencies). </b>
  
 
-**Partenaires intégrateurs de systèmes peuvent envoyer des offres de services de Conseil pour les 18 pays suivants**
+**Les partenaires intégrateurs de systèmes peuvent envoyer des offres de services de conseil pour les 18 pays/régions suivant(e)s**
 
 |Pays/régions éligibles |   |   |   |
 |---------|----------|----------|----------|
 |Australie |France  |     Mexique          |Espagne       |
-|Belgique   |Allemagne |     Pays-Bas     |Suède       |
+|Belgique   |Allemagne |     Pays-bas     |Suède       |
 |Canada    |Inde   |     Nouvelle-Zélande     |Royaume-Uni  |
 |Danemark   |Italie   |     Norvège          |États-Unis |
 |Finlande   |Japon   |     Pologne          
 
-Le lancement des services de conseil sera effectué dans une région géographique spécifique. Le premier lancement aura lieu dans les régions suivantes : États-Unis, Canada, Royaume-Uni et Australie. Les catalogues pour les autres pays/régions seront lancés une fois qu’un nombre significatif et qu’une sélection des offres de service attrayante ont été envoyés par les partenaires et approuvés par Microsoft.
+Le lancement des services de conseil sera effectué dans une région géographique spécifique. Le premier lancement aura lieu dans les régions suivantes : États-Unis, Canada, Royaume-Uni et Australie. Les catalogues pour les autres pays/régions seront lancés une fois qu’un nombre significatif et qu’une sélection attrayante d’offres de services auront été envoyés par les partenaires et approuvés par Microsoft.
 
 ## <a name="how-to-register-for-consulting-services-in-azure-marketplace-and-appsource"></a>Comment s’inscrire aux services de conseil dans la Place de marché Azure et AppSource
 Commencez par [inscrire](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) votre entreprise dans la Place de marché. Les éditeurs peuvent consulter [Devenir éditeur sur la Place de marché](https://docs.microsoft.com/azure/marketplace/become-publisher), pour obtenir une liste de vérification complète des conditions d’inscription. 
@@ -117,7 +117,7 @@ Le référencement de votre offre de services de conseil dans la Place de march�
 3. **Envoi** : fournissez les informations nécessaires qui sont indiquées dans les instructions. Tout le contenu et les documents de prise en charge doivent être envoyés en anglais. 
 4. **Révision** : notre équipe marketing et éditoriale examine votre envoi et optimise sa lisibilité, sa syntaxe et sa fluidité. 
 5. **Préproduction** : votre envoi vous est renvoyé pour révision. 
-6. **Publication** : une fois que Microsoft et vous-même êtes satisfaits du contenu intermédiaire, votre référencement est prêt à être mis en ligne sur la place de marché. La date de lancement de votre annonce varie selon le pays/région qui est spécifiée dans votre offre. Si le catalogue pour votre pays/région sélectionné est déjà en ligne sur la place de marché Azure ou AppSource, votre annonce dans quelques heures. Sinon, l’annonce s’affiche dès que le catalogue est en ligne.
+6. **Publication** : une fois que Microsoft et vous-même êtes satisfaits du contenu intermédiaire, votre référencement est prêt à être mis en ligne sur la place de marché. La date de lancement de votre annonce varie selon le pays/la région spécifié(e) dans votre offre. Si le catalogue pour le pays/la région sélectionné(e) est déjà en ligne sur la Place de marché Azure ou AppSource, votre référencement s’affiche au bout de quelques heures. Sinon, l’annonce s’affiche dès que le catalogue est en ligne.
 
 ## <a name="offer-listings-and-content-review-criteria"></a>Référencements des offres et critères de révision du contenu
 Les offres doivent correspondre à l’un des cinq types de services suivants (vous pouvez en répertorier plus d’un) : 
@@ -149,7 +149,7 @@ Exemples :
 
 Lors de la révision des descriptions et des résumés des offres, l’équipe applique les critères suivants :
 
-|Type d’offre  |Requis |Recommandé  |
+|Type d’offre  |Obligatoire |Recommandé  |
 |---------|---------|---------|
 |**Évaluation**    |   Incluez un agenda détaillé des évaluations de plusieurs jours ou plusieurs semaines et formulez les livrables dont le client bénéficiera.      |    Optimisez le résumé de votre offre à l’aide de mots clés garantissant l’optimisation du référencement de votre site auprès d’un moteur de recherche.     |
 |**Réunion d’information**    |   Formulez les livrables dont le client bénéficiera. N’oubliez pas que le service Réunion doit être offert en personne. Si vous proposez un service virtuel, choisissez un autre type d’offre.    |  Optimisez le résumé de votre offre à l’aide de mots clés garantissant l’optimisation du référencement de votre site auprès d’un moteur de recherche.       |
@@ -166,7 +166,7 @@ Dans le Portail Cloud Partner, vous pouvez ajouter une mise en forme à votre r�
 * ### <a name="space-for-heading-ex-spaceagendadeliverables"></a>espace pour le titre (par ex. : ###(space)Agenda/Deliverables)
 * Saut de ligne après le titre
 * ** = gras 
-* * Résumé de l’offre en italique
+* \* Résumé de l’offre en italique
 
 
 ## <a name="next-steps"></a>Étapes suivantes

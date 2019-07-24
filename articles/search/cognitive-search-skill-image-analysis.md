@@ -12,10 +12,10 @@ ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: f10ac45266eefac41f3ba9ac442c3be3f5106ef3
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66388411"
 ---
 #   <a name="image-analysis-cognitive-skill"></a>Compétence cognitive Analyse d’image
@@ -38,8 +38,8 @@ Les paramètres respectent la casse.
 | Nom du paramètre     | Description |
 |--------------------|-------------|
 | defaultLanguageCode   |  Chaîne indiquant la langue à retourner. Le service retourne les résultats de la reconnaissance dans une langue donnée. Si ce paramètre n’est pas spécifié, la valeur par défaut est « en ». <br/><br/>Les langues prises en charge sont les suivantes : <br/>*en* : anglais (par défaut) <br/> *zh* : chinois simplifié|
-|visualFeatures |   Tableau de chaînes qui indique les types de caractéristiques visuelles à retourner. Les types de caractéristiques visuelles valides sont les suivants :  <ul><li> *categories* : classe le contenu de l’image en fonction d’une taxonomie définie dans la [documentation](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy) Cognitive Services.</li><li> *tags* : balise l’image avec une liste détaillée de mots liés au contenu de l’image.</li><li>*Description* -décrit le contenu avec une phrase en anglais complète de l’image.</li><li>*Visages* -détecte si les visages sont présents. Si tel est le cas, génère des coordonnées, ainsi que des paramètres d’âge et de sexe.</li><li> *ImageType* -détecte si l’image est une image clipart ou un dessin au trait.</li><li>  *Couleur* -détermine la couleur d’accentuation, couleur dominante, et si une image est noir et blanc.</li><li>*Réservé aux adultes* -détecte si l’image est pornographique par nature (illustre nudité ou un acte de sexe). Le contenu sexuellement suggestif est également détecté.</li></ul> Les noms des caractéristiques visuelles respectent la casse.|
-| détails   | Tableau de chaînes indiquant les détails spécifiques à un domaine à retourner. Les types de caractéristiques visuelles valides sont les suivants : <ul><li>*Célébrités* -identifie les célébrités si détecté dans l’image.</li><li>*Points de repère* -identifie les points de repère si détecté dans l’image.</li></ul>
+|visualFeatures |   Tableau de chaînes qui indique les types de caractéristiques visuelles à retourner. Les types de caractéristiques visuelles valides sont les suivants :  <ul><li> *categories* : classe le contenu de l’image en fonction d’une taxonomie définie dans la [documentation](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy) Cognitive Services.</li><li> *tags* : balise l’image avec une liste détaillée de mots liés au contenu de l’image.</li><li>*description* : décrit le contenu de l’image avec une phrase en anglais complète.</li><li>*faces* : détecte si des visages sont présents. Si tel est le cas, génère des coordonnées, ainsi que des paramètres d’âge et de sexe.</li><li> *imageType* : détecte si l’image est de type clipart ou un dessin au trait.</li><li>  *color* : détermine la couleur d’accentuation, la couleur dominante, et si une image est en noir et blanc.</li><li>*adult* : détecte si l’image est de nature pornographique (nudité ou acte sexuel). Le contenu sexuellement suggestif est également détecté.</li></ul> Les noms des caractéristiques visuelles respectent la casse.|
+| details   | Tableau de chaînes indiquant les détails spécifiques à un domaine à retourner. Les types de caractéristiques visuelles valides sont les suivants : <ul><li>*celebrities* : identifie les célébrités éventuellement détectées dans l’image.</li><li>*landmarks* : identifie les paysages éventuellement détectés dans l’image.</li></ul>
  |
 
 ## <a name="skill-inputs"></a>Entrées de la compétence
@@ -85,7 +85,7 @@ Les paramètres respectent la casse.
             ]
         }
 ```
-### <a name="sample-index-for-only-the-categories-description-faces-and-tags-fields"></a>Exemple d’index (pour seulement les champs description, faces, catégories et les balises)
+### <a name="sample-index-for-only-the-categories-description-faces-and-tags-fields"></a>Exemple d’index (uniquement pour les champs categories, description, faces et tags)
 ```json
 {
     "fields": [

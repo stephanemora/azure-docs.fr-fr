@@ -9,10 +9,10 @@ ms.topic: reference
 ms.date: 11/19/2018
 ms.author: ramkris
 ms.openlocfilehash: 74eddadd7fd967daa1eebb9d7cb223fdc708025f
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66471426"
 ---
 # <a name="net-bulk-executor-library-download-information"></a>Bibliothèque d’exécuteurs en bloc .NET : Télécharger des informations 
@@ -44,15 +44,15 @@ ms.locfileid: "66471426"
 
 ### <a name="a-name230-preview2230-preview2"></a><a name="2.3.0-preview2"/>2.3.0-preview2
 
-* Prise en charge ajoutée pour l’exécuteur en bloc de graphique accepter la durée de vie sur les vertex et bords
+* Ajout de la prise en charge de l’exécuteur graphique en masse pour accepter ttl sur les sommets et les bords
 
 ### <a name="a-name220-preview2220-preview2"></a><a name="2.2.0-preview2"/>2.2.0-preview2
 
-* Résolution du problème, qui ont provoqué des exceptions lors de l’échelle élastique d’Azure Cosmos DB lors de l’exécution en mode passerelle. Ce correctif est fonctionnellement équivalent à 1.4.1 mise en production.
+* Correction d’un problème qui causait des exceptions lors de la mise à l’échelle élastique d’Azure Cosmos DB lors de l’exécution en mode Passerelle. Ce correctif le rend fonctionnellement équivalent à la version 1.4.1.
 
 ### <a name="a-name210-preview2210-preview2"></a><a name="2.1.0-preview2"/>2.1.0-preview2
 
-* Ajout de suppressions en bloc prennent en charge pour les comptes d’API SQL accepter la clé de partition, les tuples d’id de document à supprimer. Cette modification rend fonctionnellement équivalent à 1.4.0 mise en production.
+* Ajout de la prise en charge de BulkDelete pour les comptes de l’API SQL afin d’accepter les clés de partition et les tuples d’ID de document à supprimer. Cette modification le rend fonctionnellement équivalent à la version 1.4.0.
 
 ### <a name="a-name200-preview2200-preview2"></a><a name="2.0.0-preview2"/>2.0.0-preview2
 
@@ -64,19 +64,19 @@ ms.locfileid: "66471426"
 
 ### <a name="a-name160160"></a><a name="1.6.0"/>1.6.0
 
-* Mise à jour de l’exécuteur en bloc pour à présent utiliser la dernière version du SDK Azure Cosmos DB .NET (2.4.0)
+* Mise à jour d’exécuteur en bloc pour utiliser la dernière version du Kit de développement logiciel (SDK) Azure Cosmos DB.NET (2.4.0)
 
 ### <a name="a-name150150"></a><a name="1.5.0"/>1.5.0
 
-* Prise en charge ajoutée pour l’exécuteur en bloc de graphique accepter la durée de vie sur les vertex et bords
+* Ajout de la prise en charge de l’exécuteur graphique en masse pour accepter ttl sur les sommets et les bords
 
 ### <a name="a-name141141"></a><a name="1.4.1"/>1.4.1
 
-* Résolution du problème, qui ont provoqué des exceptions lors de l’échelle élastique d’Azure Cosmos DB lors de l’exécution en mode passerelle.
+* Correction d’un problème qui causait des exceptions lors de la mise à l’échelle élastique d’Azure Cosmos DB lors de l’exécution en mode Passerelle.
 
 ### <a name="a-name140140"></a><a name="1.4.0"/>1.4.0
 
-* Ajout de suppressions en bloc prennent en charge pour les comptes d’API SQL accepter la clé de partition, les tuples d’id de document à supprimer.
+* Ajout de la prise en charge de BulkDelete pour les comptes de l’API SQL afin d’accepter les clés de partition et les tuples d’ID de document à supprimer.
 
 ### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
 

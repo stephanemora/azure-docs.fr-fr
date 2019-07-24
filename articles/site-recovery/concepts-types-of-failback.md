@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/19/2019
 ms.author: raynew
 ms.openlocfilehash: 1e5dc91018df822c72381e4a162c5af5d74ed83c
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66399470"
 ---
 # <a name="failback-after-disaster-recovery-of-vmware-vms"></a>Restauration automatique après la récupération d’urgence des machines virtuelles VMware
@@ -25,7 +25,7 @@ Une fois que vous avez basculé vers Azure dans le cadre du processus de récup�
 Si vous avez basculé une machine virtuelle VMware, vous pouvez procéder à une restauration automatique sur la même machine virtuelle source si elle existe toujours. Dans ce scénario, seules les modifications sont restaurées automatiquement. Ce scénario est appelé **récupération dans l’emplacement d’origine**. Si la machine virtuelle locale n’existe pas, le scénario est une **récupération dans un autre emplacement**.
 
 > [!NOTE]
-> Vous pouvez uniquement restaurer le vCenter d’origine et le serveur de Configuration. Vous ne pouvez pas déployer un nouveau serveur de configuration et procéder à une restauration automatique au moyen de celui-ci. Par ailleurs, vous ne pouvez pas ajouter de nouveau serveur vCenter au serveur de configuration existant, puis procéder à une restauration automatique vers le nouveau serveur vCenter.
+> Vous pouvez procéder à une restauration automatique uniquement vers le serveur vCenter et le serveur de configuration d’origine. Vous ne pouvez pas déployer un nouveau serveur de configuration et procéder à une restauration automatique au moyen de celui-ci. Par ailleurs, vous ne pouvez pas ajouter de nouveau serveur vCenter au serveur de configuration existant, puis procéder à une restauration automatique vers le nouveau serveur vCenter.
 
 ## <a name="original-location-recovery-olr"></a>Récupération dans l’emplacement d’origine
 Si vous décidez de procéder à une restauration automatique vers la machine virtuelle d’origine, vous devez respecter les conditions suivantes :

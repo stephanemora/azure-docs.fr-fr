@@ -17,17 +17,17 @@ ms.author: arvinh
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 10d5ceedfd1f0fad0c6f03feba2150968aecf02b
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65964228"
 ---
 # <a name="tutorial-configure-asana-for-automatic-user-provisioning"></a>Didacticiel : Configurer Asana pour le provisionnement automatique d’utilisateurs
 
 L’objectif de ce didacticiel est de présenter les étapes à suivre dans Asana et Azure Active Directory (Azure AD) pour attribuer et désattribuer automatiquement des comptes d’utilisateurs d’Azure AD vers Asana.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
@@ -40,7 +40,7 @@ Le scénario décrit dans ce didacticiel part du principe que vous disposez des 
 
 ## <a name="assign-users-to-asana"></a>Affecter des utilisateurs à Asana
 
-Azure AD utilise un concept appelé *affectations* pour déterminer quels utilisateurs devant recevoir l’accès aux applications sélectionnées. Dans le cadre du provisionnement automatique des comptes utilisateur, seuls les utilisateurs affectés à une application dans Azure AD sont synchronisés.
+Azure AD utilise un concept appelé *affectations* pour déterminer les utilisateurs devant recevoir l’accès aux applications sélectionnées. Dans le cadre du provisionnement automatique des comptes utilisateur, seuls les utilisateurs affectés à une application dans Azure AD sont synchronisés.
 
 Avant de configurer et d’activer le service d’attribution, vous devez déterminer quels utilisateurs d’Azure AD ont besoin d’accéder à votre application Asana. Vous pouvez affecter ces utilisateurs à votre application Asana en suivant ces instructions :
 

@@ -1,19 +1,19 @@
 ---
-title: Script PowerShell Azure - Azure Cosmos DB répertorier et les opérations get pour SQL API (principale)
-description: Script PowerShell Azure - Azure Cosmos DB répertorier et les opérations get pour SQL API (principale)
+title: Script Azure PowerShell - Azure Cosmos DB - Répertorier et obtenir les opérations pour l’API SQL (Core)
+description: Script Azure PowerShell - Azure Cosmos DB - Répertorier et obtenir les opérations pour l’API SQL (Core)
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: samples
 ms.date: 05/18/2019
 ms.author: mjbrown
 ms.openlocfilehash: a2bcf8a123ffd19c84e2d39b38d0c9612ba43afb
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66247348"
 ---
-# <a name="list-and-get-databases-and-containers-for-azure-cosmos-db---sql-core-api"></a>Répertorier et obtenir des bases de données et des conteneurs pour Azure Cosmos DB - SQL API (principale)
+# <a name="list-and-get-databases-and-containers-for-azure-cosmos-db---sql-core-api"></a>Répertorier et obtenir des bases de données et des conteneurs Azure Cosmos DB - API SQL (Core)
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

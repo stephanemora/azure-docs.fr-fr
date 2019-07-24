@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 5/8/2018
 ms.author: saurse
 ms.openlocfilehash: 18f84062bcaf2766ee0abd5248f876c3d8acef3f
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66304016"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>Flux de travail de la sauvegarde hors connexion pour DPM et le serveur de sauvegarde Azure
@@ -69,7 +69,7 @@ Les informations de cette section vous permettent d’effectuer le flux de trava
 
     ![Écran d’importation](./media/backup-azure-backup-import-export/offlineBackupscreenInputs.png)
 
-    Voici l’écran correspondant dans System Center Data Protection Manager :  <br/>
+    Voici l’écran correspondant dans System Center Data Protection Manager : <br/>
     ![Écran d’importation de Microsoft System Center Data Protection Manager et du serveur de sauvegarde Azure](./media/backup-azure-backup-import-export/dpmoffline.png)
 
     Les champs sont décrits ci-dessous :

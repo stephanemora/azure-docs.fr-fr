@@ -1,19 +1,19 @@
 ---
-title: Script Azure PowerShell - Azure Cosmos DB créer la table de l’API de Table
-description: Script Azure PowerShell - Azure Cosmos DB créer la table de l’API de Table
+title: Script Azure PowerShell - Créer une table dans Azure Cosmos DB pour l’API Table
+description: Script Azure PowerShell - Créer une table dans Azure Cosmos DB pour l’API Table
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: d159ea7c4b48f7b028ed2c3774713fc1d1384153
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: 23b80befc8859916958a0004eecde3fabdf85c5e
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66247318"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67602084"
 ---
-# <a name="create-a-table-for-azure-cosmos-db---table-api"></a>Créer une table pour l’API Azure Cosmos DB - Table
+# <a name="create-a-table-for-azure-cosmos-db---table-api"></a>Créer une table dans Azure Cosmos DB pour l’API Table
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

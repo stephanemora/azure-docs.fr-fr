@@ -18,10 +18,10 @@ ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 24e933399454942f4ee50440cffd791599679074
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66299142"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Activation Ajouter des rôles d’application dans votre application et les recevoir dans le jeton
@@ -51,9 +51,9 @@ Ces rôles d’application sont définis dans le [portail Azure](https://portal.
 1. Modifiez le manifeste d’application en recherchant le paramètre `appRoles` et en ajoutant tous vos rôles d'application.
 
      > [!NOTE]
-     > Chaque définition de rôle d’application dans ce manifeste doit avoir un GUID valid différent pour le `id` propriété. 
+     > Chaque définition de rôle d’application dans ce manifeste doit avoir un GUID valide différent pour la propriété `id`. 
      > 
-     > Le `value` propriété de chaque définition de rôle d’application doit correspondre exactement les chaînes qui sont utilisés dans le code de l’application. Le `value` propriété ne peut pas contenir d’espaces. Si tel est le cas, vous recevrez une erreur lorsque vous enregistrez le manifeste.
+     > La propriété `value` de chaque définition de rôle d’application doit correspondre exactement aux chaînes qui sont utilisées dans le code de l’application. La propriété `value` ne peut pas contenir d’espaces. Si tel est le cas, vous recevrez une erreur lors de l’enregistrement du manifeste.
      
 1. Enregistrez le manifeste.
 
@@ -103,7 +103,7 @@ Vous pouvez définir des rôles d’application pour cibler `users`, `applicatio
 "availableToOtherTenants": false,
 ```
 
-Le nombre de rôles définis affecte les limites qui comporte le manifeste d’application. Ils ont été abordés en détail sur le [manifeste limites](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#manifest-limits) page.
+Le nombre de rôles définis affecte les limites du manifeste d’application. Ils ont été présentés en détail sur la page [Limites du manifeste](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#manifest-limits).
 
 ### <a name="assign-users-and-groups-to-roles"></a>Affecter des utilisateurs et des groupes à des rôles
 

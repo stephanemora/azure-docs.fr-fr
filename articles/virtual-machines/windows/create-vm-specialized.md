@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2018
 ms.author: cynthn
-ms.openlocfilehash: b015b52e3fc806834f12e98c30b6b4e53cb6d659
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: d9390323a5a1af7a5b8ef1a3d0b5f87c27a42c7c
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/14/2019
 ms.locfileid: "64726254"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>Créer une machine virtuelle Windows à partir d’un disque spécialisé à l’aide de PowerShell
@@ -205,7 +205,7 @@ $snapShot = New-AzSnapshot `
 ```
 
 
-Pour utiliser cet instantané pour créer une machine virtuelle qui doit être hautes performances, ajoutez le paramètre `-AccountType Premium_LRS` à la commande New-AzSnapshotConfig. Ce paramètre crée la capture instantanée et la stocke en tant que disque managé Premium. Les disques managés Premium sont plus chers que les disques Standard. Vérifiez donc que vous avez besoin de disques Premium avant d’utiliser ce paramètre.
+Pour utiliser cette capture instantanée afin de créer une machine virtuelle hautement performante, ajoutez le paramètre `-AccountType Premium_LRS` à la commande New-AzSnapshot. Ce paramètre crée la capture instantanée et la stocke en tant que disque managé Premium. Les disques managés Premium sont plus chers que les disques Standard. Vérifiez donc que vous avez besoin de disques Premium avant d’utiliser ce paramètre.
 
 ### <a name="create-a-new-disk-from-the-snapshot"></a>Créer un disque à partir de la capture instantanée
 

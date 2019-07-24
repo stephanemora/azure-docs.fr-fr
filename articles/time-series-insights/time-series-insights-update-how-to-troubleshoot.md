@@ -11,23 +11,23 @@ ms.topic: conceptual
 ms.date: 04/30/2019
 ms.custom: seodec18
 ms.openlocfilehash: d18f8f4808d5ca9dd7eca1561b1ee08c2073f5fa
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66237540"
 ---
 # <a name="diagnose-and-troubleshoot"></a>Diagnostiquer et résoudre les problèmes
 
 Cet article résume plusieurs problèmes courants que vous pourriez rencontrer lorsque vous travaillez avec votre environnement Azure Time Series Insights en préversion. L’article décrit également les causes et solutions potentielles de chaque problème.
 
-## <a name="problem-i-cant-find-my-environment-in-the-preview-explorer"></a>Problème : Impossible de trouver mon environnement dans l’Explorateur de l’aperçu
+## <a name="problem-i-cant-find-my-environment-in-the-preview-explorer"></a>Problème : Mon environnement est introuvable dans l’explorateur en préversion
 
 Ce problème peut se produire si vous n’êtes pas autorisé à accéder à l’environnement Time Series Insights. Les utilisateurs ont besoin d’un rôle d’accès de niveau lecteur pour visualiser leur environnement Time Series Insights. Pour vérifier les niveaux d’accès actuels et accorder un accès supplémentaire, consultez la section Stratégies d’accès aux données sur la ressource Insights Time Series du [portail Azure](https://portal.azure.com/).
 
   [![Environnement](media/v2-update-diagnose-and-troubleshoot/environment.png)](media/v2-update-diagnose-and-troubleshoot/environment.png#lightbox)
 
-## <a name="problem-no-data-is-seen-in-the-preview-explorer"></a>Problème : aucune donnée n’apparaît dans l’Explorateur de l’aperçu
+## <a name="problem-no-data-is-seen-in-the-preview-explorer"></a>Problème : aucune donnée n’apparaît dans l’explorateur en préversion
 
 Il existe plusieurs raisons pour lesquelles vous ne pouvez pas voir vos données dans [l’explorateur Azure Time Series Insights en préversion](https://insights.timeseries.azure.com/preview).
 
@@ -35,7 +35,7 @@ Il existe plusieurs raisons pour lesquelles vous ne pouvez pas voir vos données
 
     Vérifiez que votre source d’événement, qui est un event Hub ou un hub IoT, reçoit des données de vos balises ou instances. Pour ce faire, rendez-vous sur la page d’aperçu de votre ressource dans le portail Azure.
 
-    [![Tableau de bord-insights](media/v2-update-diagnose-and-troubleshoot/dashboard-insights.png)](media/v2-update-diagnose-and-troubleshoot/dashboard-insights.png#lightbox)
+    [![Dashboard-insights](media/v2-update-diagnose-and-troubleshoot/dashboard-insights.png)](media/v2-update-diagnose-and-troubleshoot/dashboard-insights.png#lightbox)
 
 - Vos données sources d’événements ne sont pas au format JSON.
 
@@ -62,7 +62,7 @@ Il existe plusieurs raisons pour lesquelles vous ne pouvez pas voir vos données
 
     Ce problème peut survenir si la propriété Time Series ID (ID de série chronologique) est mal configurée au moment de l’approvisionnement de l’environnement. Pour plus d’informations, consultez [Meilleures pratiques pour le choix d’un ID Time Series](./time-series-insights-update-how-to-id.md). Pour le moment, vous ne pouvez pas mettre à jour un environnement Time Series Insights existant pour utiliser un ID de série chronologique différent.
 
-## <a name="problem-some-data-shows-but-some-is-missing"></a>Problème : certaines données montre, mais certains est manquant
+## <a name="problem-some-data-shows-but-some-is-missing"></a>Problème : certaines données s’affichent, mais d’autres manquent
 
 Il se peut que vous envoyiez des données sans l’ID de série chronologique.
 
@@ -73,7 +73,7 @@ Il se peut que vous envoyiez des données sans l’ID de série chronologique.
     > [!NOTE]
     > À l’heure actuelle, Time Series Insights prend en charge un taux d’ingestion maximal de 6 Mbit/s.
 
-## <a name="problem-my-event-sources-timestamp-property-name-doesnt-work"></a>Problème : nom de la propriété Timestamp ma source d’événement ne fonctionne pas
+## <a name="problem-my-event-sources-timestamp-property-name-doesnt-work"></a>Problème : le nom de la propriété Timestamp de ma source d’événement ne fonctionne pas
 
 Vérifiez que le nom et la valeur répondent aux critères suivants :
 
@@ -88,7 +88,7 @@ La méthode la plus simple pour vous assurer que votre nom de propriété Timest
 
 Si la propriété Timestamp n’est pas explicitement spécifiée, l’horodatage par défaut est l’heure de mise en file d’attente du hub IoT ou du hub Event.
 
-## <a name="problem-i-cant-view-or-edit-my-time-series-model"></a>Problème : Impossible d’afficher ou modifier mon modèle de série chronologique
+## <a name="problem-i-cant-view-or-edit-my-time-series-model"></a>Problème : je n’arrive pas à afficher ou à modifier mon modèle de série chronologique
 
 - Vous accédez peut-être à un environnement Time Series Insights S1 ou S2.
 
@@ -100,7 +100,7 @@ Si la propriété Timestamp n’est pas explicitement spécifiée, l’horodatag
 
    Les utilisateurs ont besoin d’un accès de niveau contributeur pour modifier et visualiser leur modèle de série chronologique. Pour vérifier les niveaux d’accès actuels et accorder un accès supplémentaire, consultez la section Stratégies d’accès aux données sur votre ressource Insights Time Series du portail Azure.
 
-## <a name="problem-all-my-instances-in-the-preview-explorer-lack-a-parent"></a>Problème : toutes les instances de mon dans l’Explorateur de l’aperçu ne disposent pas de parent
+## <a name="problem-all-my-instances-in-the-preview-explorer-lack-a-parent"></a>Problème : toutes mes instances dans l’explorateur en préversion n’ont pas de parent
 
 Ce problème peut se produire si votre environnement n’a pas de hiérarchie Time Series Model définie. Pour plus d’informations, consultez [Utiliser des modèles de série chronologique](./time-series-insights-update-how-to-tsm.md).
 
@@ -110,4 +110,4 @@ Ce problème peut se produire si votre environnement n’a pas de hiérarchie Ti
 
 - Consultez [Utiliser des modèles de série chronologique](./time-series-insights-update-how-to-tsm.md).
 
-- En savoir plus sur [pris en charge de structures JSON](./how-to-shape-query-json.md).
+- En savoir plus sur les [formes JSON prises en charge](./how-to-shape-query-json.md).

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.custom: seodec18
 ms.openlocfilehash: 3e6e8ae76c0ae6f688dd4a039b34c52af16b6e0f
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66244027"
 ---
 # <a name="time-series-model"></a>Modèle de série chronologique
@@ -25,7 +25,7 @@ En règle générale, les données collectées à partir d’appareils IoT manqu
 
 Les modèles de série chronologique jouent un rôle essentiel dans les requêtes et la navigation en contextualisant les entités destinées ou non à des appareils. Les données persistantes d’un modèle de série chronologique alimentent les calculs de la requête de série chronologique en tirant parti des formules qui y sont stockées.
 
-[![Vue d’ensemble du modèle de série de temps](media/v2-update-tsm/tsm.png)](media/v2-update-tsm/tsm.png#lightbox)
+[![Aperçu du modèle de la série chronologique](media/v2-update-tsm/tsm.png)](media/v2-update-tsm/tsm.png#lightbox)
 
 ## <a name="key-capabilities"></a>Fonctionnalités clés
 
@@ -37,13 +37,13 @@ Pour faciliter la gestion de la contextualisation, la préversion d’Azure Time
 
 ## <a name="entity-components"></a>Composants de l’entité
 
-Modèles de série chronologique a trois composants principaux :
+Les modèles de série chronologique ont trois composants principaux :
 
-* <a href="#time-series-model-types">Types de modèle de série heure</a>
+* <a href="#time-series-model-types">Types de modèles de série chronologique</a>
 * <a href="#time-series-model-hierarchies">Hiérarchies de modèle de série de temps</a>
-* <a href="#time-series-model-instances">Instances de modèle de série heure</a>
+* <a href="#time-series-model-instances">Instances de modèle de série chronologique</a>
 
-Ces composants sont combinés pour spécifier un modèle de série chronologique et d’organiser vos données Azure Time Series Insights.
+Ces composants sont combinés pour spécifier un modèle de série chronologique et pour organiser vos données Azure Time Series Insights.
 
 ## <a name="time-series-model-types"></a>Types de modèles de série chronologique
 
@@ -82,13 +82,13 @@ Les types Time Series Insights contiennent des variables qui représentent des c
 
 La matrice suivante sert de légende pour les définitions de variables :
 
-[![Table de définition de la variable de type](media/v2-update-tsm/table.png)](media/v2-update-tsm/table.png#lightbox)
+[![Tableau de définitions de variables de type](media/v2-update-tsm/table.png)](media/v2-update-tsm/table.png#lightbox)
 
 | Définition | Description |
 | --- | ---|
-| Variable kind |  *Numérique* et *agrégation* types sont pris en charge |
+| Variable kind |  Les types *Numérique* et *Agrégat* sont pris en charge |
 | Variable filter | Les variables filter spécifient une clause de filtre facultative pour restreindre le nombre de lignes utilisées pour un calcul en fonction des conditions. |
-| Variable value | Les variables value doivent être utilisées dans le calcul. Le champ approprié pour faire référence à pour le point de données en question. |
+| Variable value | Les variables value doivent être utilisées dans le calcul. Champ auquel se référer pour le point de données en question. |
 | Variable aggregation | Fonction d’agrégation de la variable qui gère une partie du calcul. Time Series Insights prend en charge les agrégats standard (à savoir, *min*, *max*, *avg*, *sum* et *count*). |
 
 ## <a name="time-series-model-hierarchies"></a>Hiérarchies de modèle de série de temps
@@ -134,7 +134,7 @@ Selon les *champs d’instance*, les attributs et les valeurs de la hiérarchie 
 | ID4 | “building” = “1000”, “floor” = “10”  |
 | ID5 | Aucune des valeurs “building”, “floor” ou “room” n’est définie |
 
-Dans l’exemple précédent, **ID1** et **ID4** afficher en tant que partie de la hiérarchie H1 dans l’Explorateur Azure Time Series Insights, et le reste sont classés sous *Instances non apparenté* car elles ne sont pas conformes à la hiérarchie de données spécifié.
+Dans l’exemple précédent, **ID1** et **ID4** font partie de la hiérarchie H1 dans l’explorateur Azure Time Series Insights, et les autres attributs sont classés sous *Instances non apparentées* car ils ne correspondent pas à la hiérarchie de données spécifiée.
 
 ## <a name="time-series-model-instances"></a>Instances de modèle de série chronologique
 
@@ -144,7 +144,7 @@ Les instances sont définies par *typeId*, *timeSeriesId*, *name*, *description*
 
 *instanceFields* représentent des propriétés d’une instance et toutes les données statiques qui définissent une instance. Ils définissent les valeurs des propriétés d’une hiérarchie ou non et prennent en charge l’indexation pour effectuer des opérations de recherche.
 
-Le *nom* propriété est facultative et respect de la casse. Si *name* n’est pas disponible, la valeur par défaut est l’ID de série chronologique. Si *name* est fourni, l’ID de la série chronologique est toujours disponible dans le puits (grille sous les graphiques dans l’explorateur).
+La propriété *name* est facultative et sensible à la casse. Si *name* n’est pas disponible, la valeur par défaut est l’ID de série chronologique. Si *name* est fourni, l’ID de la série chronologique est toujours disponible dans le puits (grille sous les graphiques dans l’explorateur).
 
 ### <a name="time-series-model-instance-json-example"></a>Exemple JSON d’une instance de modèle de série chronologique
 

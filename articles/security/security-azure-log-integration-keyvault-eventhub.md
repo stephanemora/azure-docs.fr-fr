@@ -12,16 +12,16 @@ ms.date: 05/28/2019
 ms.author: Barclayn
 ms.custom: AzLog
 ms.openlocfilehash: 5614cc6fa01ddd10d670fdf429051a8e024550fc
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66298202"
 ---
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Tutoriel Azure Log Integration : Traiter les événements Azure Key Vault avec Event Hubs
 
 >[!IMPORTANT]
-> La fonctionnalité d’intégration Azure journal sera obsolète à 15/06/2019. Les téléchargements AzLog ont été désactivés le 27 juin 2018. Pour obtenir des conseils pour évoluer, consultez la publication [Utiliser Azure Monitor pour intégrer avec des outils SIEM](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/). 
+> La fonctionnalité d’intégration des journaux Azure sera déconseillée à partir du 15/06/2019. Les téléchargements AzLog ont été désactivés le 27 juin 2018. Pour obtenir des conseils pour évoluer, consultez la publication [Utiliser Azure Monitor pour intégrer avec des outils SIEM](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/). 
 
 Vous pouvez utiliser la solution d’intégration des journaux Azure pour récupérer des événements journalisés et les rendre accessibles à votre système de gestion des événements et des informations de sécurité (SIEM, Security Information and Event Management). Ce didacticiel montre comment utiliser Azure Log Integration pour traiter les fichiers journaux d’activité qui sont acquis par le service Azure Event Hubs.
 
@@ -65,13 +65,13 @@ Pour exécuter la procédure décrite dans cet article, vous devez disposer des 
 
 * Si vous souhaitez fournir des informations de télémétrie, laissez la case cochée. Si vous préférez ne pas envoyer d’informations d’utilisation à Microsoft, décochez la case.
 
-   Pour plus d’informations sur Azure Log Integration et sur son installation, consultez l’article [Intégration des journaux Azure avec Azure Diagnostics Logging et Windows Event Forwarding](security-azure-log-integration-get-started.md).
+   Pour plus d’informations sur Azure Log Integration et sur son installation, consultez l’article [Intégration des journaux Azure avec la journalisation Diagnostics Azure et Windows Event Forwarding](security-azure-log-integration-get-started.md).
 
 * La dernière version de PowerShell.
 
    Si vous avez installé Windows Server 2016, vous disposez au moins de PowerShell 5.0. Si vous utilisez une autre version de Windows Server, il est possible que vous possédiez une version antérieure de PowerShell. Pour vérifier la version que vous utilisez, tapez ```get-host``` dans une fenêtre PowerShell. Si vous n’avez pas installé PowerShell 5.0, vous pouvez [le télécharger](https://www.microsoft.com/download/details.aspx?id=50395).
 
-   Une fois que vous avez au moins PowerShell 5.0, vous pouvez passer à installer la dernière version en suivant les instructions dans [installer Azure PowerShell](/powershell/azure/install-az-ps).
+   Après avoir installé PowerShell 5.0, vous pouvez procéder à l’installation de la dernière version en suivant les instructions dans [Installer Azure PowerShell](/powershell/azure/install-az-ps).
 
 
 ## <a name="create-supporting-infrastructure-elements"></a>Créer les éléments d’infrastructure sous-jacents
@@ -120,7 +120,7 @@ Pour exécuter la procédure décrite dans cet article, vous devez disposer des 
     a. ```$locationObjects = Get-AzLocation```    
     b. ```$locations = @('global') + $locationobjects.location```
     
-    Si vous entrez `$locations` à ce stade, vous verrez les noms d’emplacement sans les informations supplémentaires renvoyées par Get-AzLocation.
+    Si vous tapez `$locations` à ce stade, vous verrez apparaître les noms d’emplacement sans les informations supplémentaires renvoyées par Get-AzLocation.
 1. Créez un profil de journal Azure Resource Manager : 
     
     ```Add-AzLogProfile -Name $name -ServiceBusRuleId $sbruleid -Locations $locations```
@@ -128,7 +128,7 @@ Pour exécuter la procédure décrite dans cet article, vous devez disposer des 
     Pour plus d’informations sur le profil de journal Azure, consultez l’article [Présentation du journal d’activité Azure](../azure-monitor/platform/activity-logs-overview.md).
 
 > [!NOTE]
-> Il est possible que vous obteniez un message d’erreur lorsque vous essayez de créer un profil de journal. Vous pouvez alors consulter la documentation pour Get-AzLogProfile et Remove-AzLogProfile. Si vous exécutez Get-AzLogProfile, des informations sur le profil de journal. Vous pouvez supprimer le profil de journal existant en entrant la commande ```Remove-AzLogProfile -name 'Log Profile Name'```.
+> Il est possible que vous obteniez un message d’erreur lorsque vous essayez de créer un profil de journal. Vous pouvez alors consulter la documentation des commandes Get-AzLogProfile et Remove-AzLogProfile. Si vous exécutez Get-AzLogProfile, vous obtenez des informations sur le profil de journal. Vous pouvez supprimer le profil de journal existant en entrant la commande ```Remove-AzLogProfile -name 'Log Profile Name'```.
 >
 >![Erreur de profil Resource Manager](./media/security-azure-log-integration-keyvault-eventhub/rm-profile-error.png)
 

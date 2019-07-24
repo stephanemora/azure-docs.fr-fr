@@ -1,5 +1,5 @@
 ---
-title: Créer des galeries d’images partagé avec l’interface CLI Azure | Microsoft Docs
+title: Créer des galeries d’images partagées avec l’interface de ligne de commande Azure | Microsoft Docs
 description: Dans cet article, vous allez apprendre à utiliser l’interface de ligne de commande Azure pour créer une image partagée d’une machine virtuelle dans Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -17,10 +17,10 @@ ms.date: 05/06/2019
 ms.author: akjosh; cynthn
 ms.custom: ''
 ms.openlocfilehash: bb6db6e5d5e33b7c7b5ba5a8711a06d6394b71f2
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66226042"
 ---
 # <a name="create-a-shared-image-gallery-with-the-azure-cli"></a>Créer une galerie d’images partagées avec l’interface de ligne de commande Azure
@@ -46,7 +46,7 @@ La fonctionnalité Galerie d’images partagées présente plusieurs types de re
 
 ## <a name="create-a-vm"></a>Créer une machine virtuelle
 
-Créer une machine virtuelle à partir de la dernière version image via [créer az vm](/cli/azure/vm#az-vm-create).
+Créez une machine virtuelle à partir de la dernière version de l’image en utilisant [az vm create](/cli/azure/vm#az-vm-create).
 
 ```azurecli-interactive 
 az vm create\
@@ -56,16 +56,16 @@ az vm create\
    --generate-ssh-keys
 ```
 
-Vous pouvez également utiliser une version spécifique à l’aide de l’ID de version d’image pour le `--image` paramètre. Par exemple, pour utiliser la version de l’image *1.0.0* type : `--image "/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"`.
+Vous pouvez également utiliser une version spécifique en utilisant l’ID de version de l’image pour le paramètre `--image`. Par exemple, pour utiliser la version de l’image *1.0.0* tapez : `--image "/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"`.
 
 [!INCLUDE [virtual-machines-common-gallery-list-cli](../../../includes/virtual-machines-common-gallery-list-cli.md)]
 
 [!INCLUDE [virtual-machines-common-shared-images-update-delete-cli](../../../includes/virtual-machines-common-shared-images-update-delete-cli.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Générateur d’images Azure (aperçu)](image-builder-overview.md) peut aider à automatiser la création d’images version, vous pouvez même l’utiliser pour mettre à jour et [créer une nouvelle version de l’image à partir d’une version existante de l’image](image-builder-gallery-update-image-version.md). 
+[Générateur d’image Azure (préversion)](image-builder-overview.md) permet d’automatiser la création d’une version de l’image. Vous pouvez même l’utiliser pour mettre à jour et [créer une nouvelle version de l’image à partir d’une image existante](image-builder-gallery-update-image-version.md). 
 
-Vous pouvez également créer des ressources de galerie d’images partagé à l’aide de modèles. Plusieurs modèles de démarrage rapide Azure sont disponibles : 
+Vous pouvez également créer les ressources Shared Image Gallery à l’aide de modèles. Plusieurs modèles de démarrage rapide Azure sont disponibles : 
 
 - [Créer une galerie d’images partagées](https://azure.microsoft.com/resources/templates/101-sig-create/)
 - [Créer une définition d’image dans une galerie d’images partagées](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)

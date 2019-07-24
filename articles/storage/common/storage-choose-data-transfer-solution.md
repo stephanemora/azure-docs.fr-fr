@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 06/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 56470c08f0ac940dae42821ae61846f1c86d52eb
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66479514"
 ---
 # <a name="choose-an-azure-solution-for-data-transfer"></a>Choisir une solution Azure pour le transfert de données
@@ -65,9 +65,9 @@ Répondez aux questions suivantes pour sélectionner une solution de transfert d
     Si oui, utilisez les options qui sont décrites dans le [Scénario 4 : Transfert régulier de données](storage-solution-periodic-data-transfer.md).
  
 
-## <a name="data-transfer-feature-in-azure-portal"></a>Fonctionnalité de transfert de données dans le portail Azure
+## <a name="data-transfer-feature-in-azure-portal"></a>Fonctionnalité de transfert de données dans le Portail Microsoft Azure
 
-Vous pouvez également accéder à votre compte de stockage Azure dans le portail Azure et sélectionnez le **transfert de données** fonctionnalité. Fournir la bande passante réseau dans votre environnement, la taille des données à transférer et la fréquence des transferts de données. Vous verrez les données optimales et transférer des solutions correspondant aux informations que vous avez fournies. 
+Vous pouvez également vous rendre sur votre compte Stockage Azure dans le Portail Microsoft Azure et sélectionner la fonctionnalité **Transfert de données**. Indiquez la bande passante réseau dans votre environnement, la taille des données que vous souhaitez transférer et la fréquence du transfert de données. Vous verrez les solutions optimales de transfert de données correspondant aux informations que vous avez fournies. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

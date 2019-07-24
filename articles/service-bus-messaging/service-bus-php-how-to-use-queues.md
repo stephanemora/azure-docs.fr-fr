@@ -15,26 +15,26 @@ ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
 ms.openlocfilehash: 92ea3c71dda011c5f7b19682d9bdea6c226ae5d2
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65992078"
 ---
 # <a name="how-to-use-service-bus-queues-with-php"></a>Utilisation des files d’attente Service Bus avec PHP
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-Dans ce didacticiel, vous allez apprendre à créer des applications PHP pour envoyer des messages à et de recevoir des messages à partir d’une file d’attente Service Bus. 
+Dans ce tutoriel, vous allez apprendre à créer des applications PHP afin d’envoyer des messages à une file d’attente Service Bus. 
 
-## <a name="prerequisites"></a>Conditions préalables
-1. Un abonnement Azure. Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Vous pouvez activer votre [avantages pour les abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou vous inscrire pour un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Si vous n’avez pas une file d’attente pour travailler avec, suivez les étapes de la [utiliser le portail Azure pour créer une file d’attente Service Bus](service-bus-quickstart-portal.md) article pour créer une file d’attente.
-    1. Lire le plus rapide pour **vue d’ensemble** de Service Bus **files d’attente**. 
-    2. Créer un Service Bus **espace de noms**. 
-    3. Obtenir le **chaîne de connexion**. 
+## <a name="prerequisites"></a>Prérequis
+1. Un abonnement Azure. Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Vous pouvez [activer les avantages de votre abonnement MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou [vous inscrire pour un compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Si vous n’avez pas de file d’attente avec laquelle travailler, suivez les étapes de l’article [Utiliser le Portail Azure pour créer une file d’attente Service Bus](service-bus-quickstart-portal.md) pour créer une file d’attente.
+    1. Consultez la **vue d’ensemble** rapide des **files d’attente Service Bus**. 
+    2. Créez un **espace de noms** Service Bus. 
+    3. Obtenez la **chaîne de connexion**. 
 
         > [!NOTE]
-        > Vous allez créer un **file d’attente** dans l’espace de noms Service Bus à l’aide de PHP dans ce didacticiel. 
+        > Dans ce tutoriel, vous allez créer un **file d’attente** dans l’espace de noms Service Bus à l’aide du PHP. 
 3. [Kit de développement logiciel (SDK) Azure pour PHP](../php-download-sdk.md)
 
 ## <a name="create-a-php-application"></a>Création d'une application PHP
@@ -43,7 +43,7 @@ Le référencement de classes issues du [Kit de développement logiciel (SDK) Az
 > [!NOTE]
 > [L’extension OpenSSL](https://php.net/openssl) doit également être installée et activée dans votre installation PHP.
 
-Dans ce guide, vous allez utiliser les fonctionnalités de service, qui peuvent être appelées dans une application PHP localement ou dans le code en cours d’exécution au sein d’un rôle web Azure, le rôle de travail ou le site Web.
+Dans ce guide, vous allez utiliser les fonctionnalités du service qui peuvent être appelées dans une application PHP en local, ou dans le code s’exécutant dans un rôle web, un rôle de travail ou un site web Azure.
 
 ## <a name="get-the-azure-client-libraries"></a>Obtention des bibliothèques clientes Azure
 [!INCLUDE [get-client-libraries](../../includes/get-client-libraries.md)]
@@ -96,7 +96,7 @@ $connectionString = "Endpoint=[yourEndpoint];SharedAccessKeyName=RootManageShare
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 ```
 
-## <a name="create-a-queue"></a>Créer une file d'attente
+## <a name="create-a-queue"></a>Créer une file d’attente
 Vous pouvez effectuer des opérations de gestion pour les files d’attente Service Bus en utilisant la classe `ServiceBusRestProxy`. Un objet `ServiceBusRestProxy` est construit via la méthode d’usine `ServicesBuilder::createServiceBusService` avec une chaîne de connexion appropriée qui encapsule les autorisations de jeton pour le gérer.
 
 L’exemple suivant montre comment instancier un `ServiceBusRestProxy` et appeler `ServiceBusRestProxy->createQueue` pour créer une file d’attente nommée `myqueue` dans un espace de noms de service `MySBNamespace` :
@@ -163,7 +163,7 @@ catch(ServiceException $e){
 }
 ```
 
-Messages envoyés aux données reçues à partir) Service Bus (et files d’attente sont des instances de la [BrokeredMessage][BrokeredMessage] classe. Les objets [BrokeredMessage][BrokeredMessage] possèdent un ensemble de propriétés standard qui stockent des propriétés personnalisées propres à une application, ainsi qu’un corps de données d’application arbitraires.
+Les messages envoyés aux files d’attente Service Bus (et reçus de celles-ci) sont des instances de la classe [BrokeredMessage][BrokeredMessage]. Les objets [BrokeredMessage][BrokeredMessage] possèdent un ensemble de propriétés standard qui stockent des propriétés personnalisées propres à une application, ainsi qu’un corps de données d’application arbitraires.
 
 Les files d’attente Service Bus prennent en charge une taille de message maximale de 256 Ko dans le [niveau Standard](service-bus-premium-messaging.md) et d’1 Mo dans le [niveau Premium](service-bus-premium-messaging.md). L’en-tête, qui comprend les propriétés d’application standard et personnalisées, peut avoir une taille maximale de 64 Ko. Si une file d'attente n'est pas limitée par le nombre de messages qu'elle peut contenir, elle l'est en revanche par la taille totale des messages qu'elle contient. La taille maximale de la file d'attente est de 5 Go.
 
@@ -224,7 +224,7 @@ De même, il faut savoir qu'un message verrouillé dans une file d'attente est a
 Si l’application se bloque après le traitement du message mais avant l’émission de la demande `deleteMessage`, le message est à nouveau transmis à l’application lorsqu’elle redémarre. Ce traitement est souvent appelé *Au moins une fois*. Chaque message est traité au moins une fois, mais dans certaines circonstances, un même message peut être transmis une nouvelle fois. Si le scénario ne peut pas tolérer le traitement en double,l'ajout d'une logique supplémentaire à vos applications pour traiter la remise de messages en double est recommandé. Ceci, grâce à la méthode `getMessageId` du message, qui reste constante entre les tentatives de transmission.
 
 > [!NOTE]
-> Vous pouvez gérer les ressources de Service Bus avec [Explorateur Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/). L’Explorateur Service Bus permet aux utilisateurs de se connecter à un espace de noms Service Bus et administrer les entités de messagerie de manière simple. L’outil fournit des fonctionnalités avancées telles que la fonctionnalité d’importation/exportation ou de la possibilité de tester une rubrique, files d’attente, abonnements, services de relais, hubs de notification et hubs d’événements. 
+> Vous pouvez gérer les ressources Service Bus à l'aide de [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer permet aux utilisateurs de se connecter à un espace de noms Service Bus et de gérer les entités de messagerie en toute simplicité. L’outil fournit des fonctionnalités avancées telles que la fonction d’importation/exportation ou la possibilité de tester une rubrique, des files d’attente, des abonnements, des services de relais, des hubs de notification et des hubs d’événements. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous connaissez les principes de base des files d’attente Service Bus, consultez [Files d’attente, rubriques et abonnements][Queues, topics, and subscriptions] pour plus d’informations.

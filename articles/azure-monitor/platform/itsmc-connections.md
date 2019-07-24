@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
 ms.openlocfilehash: ffd9c4bfc934faff1664ff39c0e979a9d6c09487
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66399778"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Connecter des produits/services ITSM à IT Service Management Connector
@@ -37,7 +37,7 @@ Les produits/services ITSM suivants sont pris en charge. Sélectionnez le produi
 
 Les sections suivantes fournissent des détails sur la connexion de votre produit System Center Service Manager au connecteur ITSM dans Azure.
 
-### <a name="prerequisites"></a>Conditions préalables
+### <a name="prerequisites"></a>Prérequis
 
 Vérifiez que les prérequis suivants sont remplis :
 
@@ -103,7 +103,7 @@ Exécutez le script en fournissant les informations requises suivantes :
 
 - Détails de l’abonnement Azure
 - Nom de groupe ressources
-- Lieu
+- Location
 - Détails du serveur Service Manager (nom du serveur, domaine, nom d’utilisateur et mot de passe)
 - Préfixe de nom de site pour votre application Web
 - Espace de noms ServiceBus.
@@ -182,16 +182,16 @@ L’image d’exemple suivante présente les détails d’une connexion réussie
 
 Les sections suivantes fournissent des détails sur la connexion de votre produit ServiceNow au connecteur ITSM dans Azure.
 
-### <a name="prerequisites"></a>Conditions préalables
+### <a name="prerequisites"></a>Prérequis
 Vérifiez que les prérequis suivants sont remplis :
 - Connecteur ITSM installé. Plus d’informations : [Ajout de la solution Connecteur de gestion des services informatiques](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution).
-- Versions prises en charge par ServiceNow : Madrid, Londres, Kingston, Jakarta, Istanbul, Helsinki, Geneva.
+- Versions prises en charge par ServiceNow : Madrid, London, Kingston, Jakarta, Istanbul, Helsinki, Geneva.
 
 **Les administrateurs ServiceNow doivent procéder comme suit dans leur instance ServiceNow** :
 - Générer l’ID client et la clé secrète client pour le produit ServiceNow. Pour plus d’informations sur la génération d’ID client et de secret, consultez les informations suivantes :
 
     - [Configurer OAuth pour Madrid](https://docs.servicenow.com/bundle/madrid-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
-    - [Configurer OAuth pour Londres](https://docs.servicenow.com/bundle/london-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
+    - [Configurer OAuth pour London](https://docs.servicenow.com/bundle/london-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Configurer OAuth pour Kingston](https://docs.servicenow.com/bundle/kingston-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Configurer OAuth pour Jakarta](https://docs.servicenow.com/bundle/jakarta-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Configurer OAuth pour Istanbul](https://docs.servicenow.com/bundle/istanbul-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
@@ -287,7 +287,7 @@ Une fois l’utilisateur créé, l’état de l’option **Liste de vérificatio
 Les sections suivantes fournissent des détails sur la connexion de votre produit Provance au connecteur ITSM dans Azure.
 
 
-### <a name="prerequisites"></a>Conditions préalables
+### <a name="prerequisites"></a>Prérequis
 
 Vérifiez que les prérequis suivants sont remplis :
 
@@ -340,7 +340,7 @@ En savoir plus : [Créer des éléments de travail ITSM à partir d’alertes Az
 
 Les sections suivantes fournissent des détails sur la connexion de votre produit Cherwell au connecteur ITSM dans Azure.
 
-### <a name="prerequisites"></a>Conditions préalables
+### <a name="prerequisites"></a>Prérequis
 
 Vérifiez que les prérequis suivants sont remplis :
 

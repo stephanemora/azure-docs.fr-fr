@@ -11,10 +11,10 @@ ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 9520cbb9973071bf1c52266d7718837607c1d10f
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66256128"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Métriques basées sur le journal et pré-agrégées dans Application Insights
@@ -63,7 +63,7 @@ La collecte des dimensions des métriques personnalisées est désactivée par d
 
 ## <a name="creating-charts-and-exploring-log-based-and-standard-pre-aggregated-metrics"></a>Création de graphiques et exploration des métriques pré-agrégées standard et basées sur le journal
 
-Utilisez [Azure Monitor Metrics Explorer](../platform/metrics-getting-started.md) pour tracer des graphiques à partir des mesures agrégées au préalable et basé sur journal et auteur des tableaux de bord avec des graphiques. Après avoir sélectionné la ressource Application Insights souhaitée, utilisez le sélecteur d’espace de noms pour basculer entre les métriques standard (préversion) et basées sur le journal, ou sélectionnez un espace de noms de métrique personnalisée :
+Utilisez [Azure Monitor Metrics Explorer](../platform/metrics-getting-started.md) pour tracer des graphiques à partir des métriques pré-agrégées et basées sur le journal et créez des tableaux de bord avec des graphiques. Après avoir sélectionné la ressource Application Insights souhaitée, utilisez le sélecteur d’espace de noms pour basculer entre les métriques standard (préversion) et basées sur le journal, ou sélectionnez un espace de noms de métrique personnalisée :
 
 ![Espace de noms de la métrique](./media/pre-aggregated-metrics-log-metrics/002-metric-namespace.png)
 

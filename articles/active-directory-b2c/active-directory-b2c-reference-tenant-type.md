@@ -11,10 +11,10 @@ ms.date: 04/10/2017
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: 30f13a3b85e68babcaef62b9200a296105b3ce83
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66509006"
 ---
 # <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C : Disponibilité des régions et résidence des données
@@ -37,7 +37,7 @@ Azure Active Directory B2C conserve les données des utilisateurs aux États-Uni
 
 La résidence des données est déterminée selon le pays/la région sélectionné lors de la [création d’un client Azure Active Directory B2C](active-directory-b2c-get-started.md).
 
-![Capture d’écran d’un aperçu du client](./media/active-directory-b2c-reference-tenant-type/data-residency-b2c-tenant.png)
+![Capture d’écran d’un client de la préversion](./media/active-directory-b2c-reference-tenant-type/data-residency-b2c-tenant.png)
 
 Les données des pays/régions suivants sont conservées aux États-Unis :
 
@@ -45,7 +45,7 @@ Les données des pays/régions suivants sont conservées aux États-Unis :
 
 Les données des pays/régions suivants sont conservées en Europe :
 
-> Algérie, Autriche, Azerbaïdjan, Bahreïn, Bélarus, Belgique, Bulgarie, Croatie, Chypre, République tchèque, Danemark, Égypte, Estonie, Finlande, France, Allemagne, Grèce, Hongrie, Islande, Irlande, Israël, Italie, Jordanie, Kazakhstan, Kenya, Koweït, la Lettonie, Liban, Liechtenstein, Lituanie, Luxembourg, Macédoine du Nord, Malte, Monténégro, Maroc, pays-bas, Nigeria, Norvège, Oman, Pakistan, Pologne, Portugal, Qatar, Roumanie, Russie, Arabie saoudite, Serbie, Slovaquie, Slovénie, Afrique du Sud, Espagne, Suède, Suisse, Tunisie, Turquie, Ukraine, Émirats Arabes Unis et Royaume-Uni.
+> Algérie, Autriche, Azerbaïdjan, Bahreïn, Bélarus, Belgique, Bulgarie, Croatie, Chypre, République tchèque, Danemark, Égypte, Estonie, Finlande, France, Allemagne, Grèce, Hongrie, Islande, Irlande, Israël, Italie, Jordanie, Kazakhstan, Kenya, Koweït, Lettonie, Liban, Liechtenstein, Lituanie, Luxembourg, Macédoine du Nord, Malte, Monténégro, Maroc, Pays-Bas, Nigeria, Norvège, Oman, Pakistan, Pologne, Portugal, Qatar, Roumanie, Russie, Arabie saoudite, Serbie, Slovaquie, Slovénie, Afrique du Sud, Espagne, Suède, Suisse, Tunisie, Turquie, Ukraine, Émirats Arabes Unis et Royaume-Uni.
 
 Les autres pays/régions sont en cours d’ajout à cette liste.  Pour le moment, vous pouvez toujours utiliser Azure Active Directory B2C en choisissant l’un des pays ci-dessus.
 
@@ -58,4 +58,4 @@ Si vous avez créé un client B2C pendant la période d’évaluation d’Azure 
 > Il n’existe aucun chemin de migration à partir d’un client B2C de la version préliminaire vers un client B2C de mise à l’échelle pour production. Notez qu’il existe des problèmes connus liés à la suppression d’un client B2C en version préliminaire et à la recréation d’un client B2C de mise à l’échelle pour production portant le même nom de domaine. Vous devez créer un client B2C de mise à l’échelle pour production portant un nom de domaine différent.
 
 
-![Capture d’écran d’un aperçu du client](./media/active-directory-b2c-reference-tenant-type/preview-b2c-tenant.png)
+![Capture d’écran d’un client de la préversion](./media/active-directory-b2c-reference-tenant-type/preview-b2c-tenant.png)

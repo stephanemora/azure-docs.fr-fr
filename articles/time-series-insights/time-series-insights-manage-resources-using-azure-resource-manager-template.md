@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/08/2019
 ms.custom: seodec18
 ms.openlocfilehash: ba7d412e9bfc29a53cd0aa47a926f60580b45490
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66237654"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Créer des ressources Time Series Insights à l’aide de modèles Azure Resource Manager
@@ -26,12 +26,12 @@ Time Series Insights prend en charge les ressources suivantes :
 
    | Ressource | Description |
    | --- | --- |
-   | Environnement | Un environnement Time Series Insights est un regroupement logique des événements qui sont de lire à partir de répartiteurs, stockés et disponibles pour la requête. Pour plus d’informations, consultez [planifier votre environnement Azure Time Series Insights](time-series-insights-environment-planning.md) |
+   | Environnement | Un environnement Time Series Insights est un regroupement logique d’événements lus à partir de répartiteurs, stockés et rendus interrogeables. Pour plus d’informations, consultez la page [Planifier votre environnement Azure Time Series Insights](time-series-insights-environment-planning.md) |
    | Source de l’événement | Une source d’événement est une connexion à un répartiteur d’événements à partir de laquelle Time Series Insights lit et ingère des événements dans l’environnement. Sont actuellement pris en charge IoT Hub et Event Hub. |
    | Jeu de données de référence | Les jeux de données de référence fournissent des métadonnées sur les événements de l’environnement. Les métadonnées des jeux de données de référence seront jointes à des événements au cours de l’entrée. Les jeux de données de référence sont définis comme des ressources par leurs propriétés de clé d’événement. Les métadonnées qui composent le jeu de données de référence sont chargées ou modifiées par le biais d’API de plan de données. |
-   | Stratégie d’accès | Les stratégies d’accès accordent l’autorisation de générer des requêtes de données, de manipuler les données de référence dans l’environnement et de partager des requêtes enregistrées et des perspectives associées à l’environnement. Pour plus d’informations, consultez [accorder l’accès aux données dans un environnement Time Series Insights à l’aide du portail Azure](time-series-insights-data-access.md) |
+   | Stratégie d’accès | Les stratégies d’accès accordent l’autorisation de générer des requêtes de données, de manipuler les données de référence dans l’environnement et de partager des requêtes enregistrées et des perspectives associées à l’environnement. Pour plus d’informations, consultez [Accorder l’accès aux données d’un environnement Time Series Insights à l’aide du Portail Microsoft Azure](time-series-insights-data-access.md) |
 
-Un modèle Resource Manager est un fichier JSON qui définit l’infrastructure et la configuration de ressources dans un groupe de ressources. Les documents suivants décrivent les fichiers de modèle de façon plus détaillée :
+Un modèle Resource Manager est un fichier JSON qui définit l’infrastructure et la configuration de ressources dans un groupe de ressources. Les documents suivants décrivent plus en détail les fichiers modèles :
 
 - [Vue d’ensemble d’Azure Resource Manager – Template deployment](../azure-resource-manager/resource-group-overview.md#template-deployment)
 - [Déployer des ressources à l’aide de modèles Resource Manager et d’Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
@@ -41,7 +41,7 @@ Le modèle de démarrage rapide [201-timeseriesinsights-environment-with-eventhu
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="specify-deployment-template-and-parameters"></a>Spécifier les paramètres et modèle de déploiement
+## <a name="specify-deployment-template-and-parameters"></a>Spécifier le modèle et les paramètres de déploiement
 
 La procédure suivante explique comment utiliser PowerShell pour déployer un modèle Azure Resource Manager qui crée un environnement Time Series Insights, une source d’événement enfant configurée pour consommer des événements à partir d’un hub d’événements, et des stratégies qui accordent l’accès aux données de l’environnement. Si aucun hub d’événements existant n’est spécifié, il en sera créé un avec le déploiement.
 
@@ -64,8 +64,8 @@ La procédure suivante explique comment utiliser PowerShell pour déployer un mo
      | eventHubNamespaceName | Espace de noms du hub de la source de l’événement. |
      | eventHubName | Nom du hub de la source de l’événement. |
      | consumerGroupName | Nom du groupe de consommation que le service Time Series Insights utilisera pour lire les données à partir du hub d’événements. **REMARQUE :** Pour éviter les conflits de ressources, ce groupe de consommateurs doit être dédié au service Time Series Insights et ne pas être partagé avec d'autres lecteurs. |
-     | environmentName | Nom de l’environnement. Le nom ne peut pas inclure : `<`, `>`, `%`, `&`, `:`, `\\`, `?`, `/`, et aucun caractère de contrôle. Tous les autres caractères sont autorisés.|
-     | eventSourceName | Nom de la ressource enfant de la source de l’événement. Le nom ne peut pas inclure : `<`, `>`, `%`, `&`, `:`, `\\`, `?`, `/`, et aucun caractère de contrôle. Tous les autres caractères sont autorisés. |
+     | environmentName | Nom de l’environnement. Il ne peut pas inclure : `<`, `>`, `%`, `&`, `:`, `\\`, `?`, `/`, ni aucun caractère de contrôle. Tous les autres caractères sont autorisés.|
+     | eventSourceName | Nom de la ressource enfant de la source de l’événement. Il ne peut pas inclure : `<`, `>`, `%`, `&`, `:`, `\\`, `?`, `/`, ni aucun caractère de contrôle. Tous les autres caractères sont autorisés. |
 
     <div id="optional-parameters"></div>
 
@@ -77,12 +77,12 @@ La procédure suivante explique comment utiliser PowerShell pour déployer un mo
      | environmentDisplayName | Nom convivial facultatif à afficher dans les outils et les interfaces utilisateur à la place du nom de l’environnement. |
      | environmentSkuName | Nom du la référence SKU. Pour plus d’informations, consultez la page [Prix de Time Series Insights](https://azure.microsoft.com/pricing/details/time-series-insights/).  |
      | environmentSkuCapacity | Capacité unitaire de la référence SKU. Pour plus d’informations, consultez la page [Prix de Time Series Insights](https://azure.microsoft.com/pricing/details/time-series-insights/).|
-     | environmentDataRetentionTime | Période minimale durant laquelle les événements de l’environnement seront interrogeables. La valeur doit être spécifiée dans le format ISO 8601, par exemple `P30D` pour une stratégie de rétention de 30 jours. |
+     | environmentDataRetentionTime | Période minimale durant laquelle les événements de l’environnement seront interrogeables. La valeur doit être spécifiée au format ISO 8601, par exemple, `P30D` pour une stratégie de rétention de 30 jours. |
      | eventSourceDisplayName | Nom convivial facultatif à afficher dans les outils et les interfaces utilisateur à la place du nom de la source de l’événement. |
      | eventSourceTimestampPropertyName | Propriété de l’événement qui sera utilisée comme horodateur de la source de l’événement. Si aucune valeur n’est spécifiée pour timestampPropertyName, ou si la valeur Null ou une chaîne vide est spécifiée, l’heure de création de l’événement sera utilisée. |
      | eventSourceKeyName | Nom de la clé d’accès partagé que le service Time Series Insights utilisera pour se connecter au hub d’événements. |
-     | accessPolicyReaderObjectIds | Liste des ID objet des utilisateurs et des applications d’Azure AD qui doivent avoir l’accès Lecteur à l’environnement. L’objectId du principal de service peut être obtenu en appelant le **Get-AzADUser** ou **Get-AzADServicePrincipal** applets de commande. La création d’une stratégie d’accès n’est pas encore prise en charge pour les groupes Azure AD. |
-     | accessPolicyContributorObjectIds | Liste des ID objet des utilisateurs ou des applications d’Azure AD qui doivent avoir l’accès Collaborateur à l’environnement. L’objectId du principal de service peut être obtenu en appelant le **Get-AzADUser** ou **Get-AzADServicePrincipal** applets de commande. La création d’une stratégie d’accès n’est pas encore prise en charge pour les groupes Azure AD. |
+     | accessPolicyReaderObjectIds | Liste des ID objet des utilisateurs et des applications d’Azure AD qui doivent avoir l’accès Lecteur à l’environnement. L’ID objet du principal du service s’obtient en appelant la cmdlet **Get-AzADUser** ou la cmdlet **Get-AzADServicePrincipal**. La création d’une stratégie d’accès n’est pas encore prise en charge pour les groupes Azure AD. |
+     | accessPolicyContributorObjectIds | Liste des ID objet des utilisateurs ou des applications d’Azure AD qui doivent avoir l’accès Collaborateur à l’environnement. L’ID objet du principal du service s’obtient en appelant la cmdlet **Get-AzADUser** ou la cmdlet **Get-AzADServicePrincipal**. La création d’une stratégie d’accès n’est pas encore prise en charge pour les groupes Azure AD. |
 
    * Par exemple, le fichier de paramètres suivant serait utilisé pour créer un environnement et une source d’événement qui lirait les événements à partir d’un hub d’événements existant. Il crée également deux stratégies qui accordent l’accès Collaborateur à l’environnement.
 
@@ -124,7 +124,7 @@ La procédure suivante explique comment utiliser PowerShell pour déployer un mo
 ## <a name="deploy-the-quickstart-template-locally-using-powershell"></a>Déployer le modèle de démarrage rapide localement avec PowerShell
 
 > [!IMPORTANT]
-> Les opérations de ligne de commande affichées ci-dessous décrivent le [Az PowerShell module](https://docs.microsoft.com/powershell/azure/overview).
+> Les opérations de ligne de commande affichées ci-dessous décrivent le [Module Az PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 
 1. Dans PowerShell, connectez-vous à votre compte Azure.
 
@@ -148,7 +148,7 @@ La procédure suivante explique comment utiliser PowerShell pour déployer un mo
 
 1. Créez un groupe de ressources s'il n'en existe pas.
 
-   * Si vous n’avez pas d’une ressource existante, créer un nouveau groupe de ressources avec le **New-AzResourceGroup** commande. Indiquez le nom du groupe de ressources et l'emplacement que vous souhaitez utiliser. Exemple :
+   * Si vous n’avez pas de groupe de ressources, créez-en un avec la commande **New-AzResourceGroup**. Indiquez le nom du groupe de ressources et l'emplacement que vous souhaitez utiliser. Par exemple :
 
      ```powershell
      New-AzResourceGroup -Name MyDemoRG -Location "West US"

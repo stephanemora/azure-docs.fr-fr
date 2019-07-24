@@ -6,12 +6,13 @@ author: vhorne
 ms.service: dns
 ms.date: 4/3/2019
 ms.author: victorh
-ms.openlocfilehash: 00ff5636f97b24c656ee4e5d8ceb2f6b22524538
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.topic: conceptual
+ms.openlocfilehash: b65b70e7a994d7d49b2282d7e193fe6e7b84cfca
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515351"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612765"
 ---
 # <a name="import-and-export-a-dns-zone-file-using-the-azure-cli"></a>Importer et exporter un fichier de zone DNS en utilisant l’interface CLI Azure
 
@@ -153,7 +154,7 @@ Après avoir vérifié que la zone a été importée correctement, vous devez me
 
 ## <a name="export-a-dns-zone-file-from-azure-dns"></a>Exportation d’un fichier de zone DNS à partir d’Azure DNS
 
-Le format de la commande CLI Azure pour exporter une zone DNS est :
+Le format de la commande de l’interface de ligne de commande Azure pour exporter une zone DNS est :
 
 ```azurecli
 az network dns zone export -g <resource group> -n <zone name> -f <zone file name>

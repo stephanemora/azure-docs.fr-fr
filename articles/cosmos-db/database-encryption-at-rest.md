@@ -8,17 +8,17 @@ ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
 ms.openlocfilehash: b88b32b3ae2d4939d26fc268e25c87b1fb70eee5
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66237220"
 ---
 # <a name="data-encryption-in-azure-cosmos-db"></a>Chiffrement des données dans Azure Cosmos DB 
 
 Le chiffrement au repos est une expression qui se réfère en général au chiffrement des données situées sur des appareils de stockage non volatile, comme des disques SSD et des lecteurs de disques durs. Cosmos DB stocke ses bases de données primaires sur des SSD. Ses pièces jointes multimédias et ses sauvegardes sont stockées dans le Stockage Blob Azure, qui est généralement sauvegardé sur des disques durs. Avec l’apparition du chiffrement au repos pour Cosmos DB, toutes vos bases de données, pièces jointes multimédias et sauvegardes sont maintenant chiffrées. Vos données sont désormais chiffrées pendant le transit (sur le réseau) et au repos (stockage non volatile), ce qui vous donne un chiffrement de bout en bout.
 
-Cosmos DB, en tant que service PaaS, est très facile à utiliser. Comme toutes les données utilisateur stockées dans Cosmos DB sont chiffrées au repos et lors du transport, vous n’avez aucune action à effectuer. En d’autres termes, le chiffrement au repos est « activé » par défaut. Il n’existe aucun contrôle à activer ou à désactiver. Azure Cosmos DB utilise le chiffrement AES-256 sur toutes les régions où le compte est en cours d’exécution. Nous fournissons cette fonctionnalité dans le cadre de nos efforts pour respecter notre [contrat SLA de disponibilité et de performances](https://azure.microsoft.com/support/legal/sla/cosmos-db).
+Cosmos DB, en tant que service PaaS, est très facile à utiliser. Comme toutes les données utilisateur stockées dans Cosmos DB sont chiffrées au repos et lors du transport, vous n’avez aucune action à effectuer. En d’autres termes, le chiffrement au repos est « activé » par défaut. Il n’existe aucun contrôle à activer ou à désactiver. Azure Cosmos DB utilise le chiffrement AES-256 dans toutes les régions où le compte est exécuté. Nous fournissons cette fonctionnalité dans le cadre de nos efforts pour respecter notre [contrat SLA de disponibilité et de performances](https://azure.microsoft.com/support/legal/sla/cosmos-db).
 
 ## <a name="implementation-of-encryption-at-rest-for-azure-cosmos-db"></a>Implémentation du chiffrement au repos pour Azure Cosmos DB
 

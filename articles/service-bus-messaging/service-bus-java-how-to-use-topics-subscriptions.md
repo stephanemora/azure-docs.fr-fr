@@ -15,26 +15,26 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
 ms.openlocfilehash: 578fd0caa8986c48b3fd50a7890bb66b14bee2f4
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65991723"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-java"></a>Utilisation des rubriques et abonnements Service Bus avec Java
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-Dans ce démarrage rapide, vous écrire du code Java pour envoyer des messages à une rubrique Service Bus et alors recevoir des messages à partir des abonnements à cette rubrique. 
+Dans ce guide de démarrage rapide, vous écrivez du code Java pour envoyer des messages à un sujet Service Bus, puis vous recevez les messages des abonnements à ce sujet. 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-1. Un abonnement Azure. Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Vous pouvez activer votre [avantages pour les abonnés Visual Studio ou MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou inscrivez-vous pour ouvrir un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Suivez les étapes de la [Guide de démarrage rapide : utiliser le portail Azure pour créer une rubrique Service Bus et des abonnements à cette rubrique](service-bus-quickstart-topics-subscriptions-portal.md) pour effectuer les tâches suivantes :
-    1. Créer un Service Bus **espace de noms**.
-    2. Obtenir le **chaîne de connexion**.
-    3. Créer un **rubrique** dans l’espace de noms.
-    4. Créer **trois abonnements** à la rubrique dans l’espace de noms.
+1. Un abonnement Azure. Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Vous pouvez activer les [avantages de votre abonnement Visual Studio ou MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou vous inscrire pour créer un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Suivez les étapes du document [Démarrage rapide : utiliser le portail Azure pour créer une rubrique Service Bus et des abonnements à cette rubrique](service-bus-quickstart-topics-subscriptions-portal.md) pour effectuer les tâches suivantes :
+    1. Créez un **espace de noms** Service Bus.
+    2. Obtenez la **chaîne de connexion**.
+    3. Créez une **rubrique** dans l’espace de noms.
+    4. Créez **trois abonnements** à la rubrique dans l’espace de noms.
 3. [Kit de développement logiciel (SDK) Azure pour Java][Azure SDK for Java].
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Configuration de votre application pour l’utilisation de Service Bus
@@ -455,7 +455,7 @@ Message sending: Id = 9
 ```
 
 > [!NOTE]
-> Vous pouvez gérer les ressources de Service Bus avec [Explorateur Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/). L’Explorateur Service Bus permet aux utilisateurs de se connecter à un espace de noms Service Bus et administrer les entités de messagerie de manière simple. L’outil fournit des fonctionnalités avancées telles que la fonctionnalité d’importation/exportation ou de la possibilité de tester une rubrique, files d’attente, abonnements, services de relais, hubs de notification et hubs d’événements. 
+> Vous pouvez gérer les ressources Service Bus à l'aide de [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer permet aux utilisateurs de se connecter à un espace de noms Service Bus et de gérer les entités de messagerie en toute simplicité. L’outil fournit des fonctionnalités avancées telles que la fonction d’importation/exportation ou la possibilité de tester une rubrique, des files d’attente, des abonnements, des services de relais, des hubs de notification et des hubs d’événements. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations, voir [Files d’attente, rubriques et abonnements Service Bus][Service Bus queues, topics, and subscriptions].
