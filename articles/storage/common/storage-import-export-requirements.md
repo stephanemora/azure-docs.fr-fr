@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: bc244ecb62655d1e95046fb0eb8548fdacdcc2a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4d002a82e3968e0462e5f6e775ec147669c01b0d
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61478587"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147948"
 ---
 # <a name="azure-importexport-system-requirements"></a>Configuration système requise du service Azure Import/Export
 
@@ -41,7 +41,7 @@ Pour préparer les disques durs à l’aide de l’outil WAImportExport, un cert
 
 Le service Azure Import/Export prend en charge les types de comptes de stockage suivants :
 
-- Comptes de stockage v2 à usage général (recommandés pour la plupart des scénarios)
+- Comptes de stockage v2 à usage général standard (recommandés pour la plupart des scénarios)
 - Comptes de stockage d’objets blob
 - Comptes de stockage v1 à usage général (déploiements Classic ou Azure Resource Manager) 
 
@@ -72,7 +72,7 @@ Dans le cadre du service Azure Import/Export, vous avez besoin de disques pris e
 Les types de disques suivants sont pris en charge avec le service Azure Import/Export.
 
 
-|Type de disque  |Taille  |Pris en charge |Non pris en charge  |
+|Type de disque  |Size  |Pris en charge |Non pris en charge  |
 |---------|---------|---------|---------|
 |SSD    |   2,5"      |SATA III          |  USB       |
 |HDD     |  2,5"<br>3,5"       |SATA II, SATA III         |Disque dur externe avec adaptateur USB intégré <br> Disque situé à l’intérieur du boîtier d’un disque dur externe         |

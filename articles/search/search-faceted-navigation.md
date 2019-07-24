@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: c032dbc528ed5034280d0ecb4c95700b51869991
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6fc1e1aaaa3b2489dd4083f56d45ab0abc2b6892
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65793623"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165971"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Implémentation de la navigation à facettes dans Azure Search
 La navigation à facettes est un mécanisme de filtrage qui fournit une navigation autonome d'extraction dans les applications de recherche. Le terme « navigation à facettes » peut vous sembler peu familier, mais vous l’avez très certainement déjà utilisé. Comme l'indique l'exemple ci-dessous, la navigation à facettes correspond tout simplement aux catégories utilisées pour filtrer les résultats.
@@ -401,5 +401,5 @@ Regardez la [Présentation approfondie de la Recherche Azure](https://channel9.m
 Pour plus d'informations sur les principes de conception pour la navigation à facettes, nous vous recommandons les liens suivants :
 
 * [Modèles de conception : Navigation à facettes](https://alistapart.com/article/design-patterns-faceted-navigation)
-* [Problèmes de serveur frontal lors de l’implémentation de la recherche à facettes – Partie 1](https://articles.uie.com/faceted_search2/)
+* [Problèmes de serveur frontal lors de l’implémentation de la recherche à facettes - Partie 1](https://articles.uie.com/faceted_search2/)
 

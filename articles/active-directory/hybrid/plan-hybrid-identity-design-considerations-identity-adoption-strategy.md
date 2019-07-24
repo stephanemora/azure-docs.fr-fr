@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c55dc0cbc175542d0b208bbe72566a0adb55a371
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
-ms.translationtype: MT
+ms.openlocfilehash: e662d2c6d7939756dee6eb25ca62fef171b7d6d0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66496738"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67109333"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Définir une stratégie d’adoption des identités hybrides
 Dans le cadre de cette tâche, vous définissez la stratégie d’adoption des identités hybrides pour que votre solution d’identités hybrides réponde aux exigences de l’entreprise évoquées dans les articles suivants :
@@ -111,14 +111,14 @@ Au fil des années, plusieurs outils de synchronisation ont existé et ont été
 ### <a name="supported-topologies"></a>Topologies prises en charge
 Lorsque vous définissez une stratégie de synchronisation, la topologie qui est utilisée doit être déterminée. Selon les informations qui ont été déterminées à l’étape 2, vous pouvez déterminer la topologie adaptée à utiliser. La forêt unique, topologie Azure AD unique, est la plus courante et se compose d’une forêt Active Directory unique et d’une seule instance d’Azure AD.  Ces éléments seront utilisés dans la majorité des scénarios et constituent la topologie attendue lors de l’utilisation de l’installation Express Azure AD Connect comme indiqué dans la figure ci-dessous.
 
-![Topologies prises en charge](./media/plan-hybrid-identity-design-considerations/single-forest.png) scénario de forêt unique il est courant que même les petites et grandes entreprises d’avoir plusieurs forêts, comme illustré à la Figure 5.
+![Topologies prises en charge](./media/plan-hybrid-identity-design-considerations/single-forest.png) Scénario de forêt unique Les grandes entreprises, et même les petites, disposent couramment de plusieurs forêts, comme illustré à la figure 5.
 
 > [!NOTE]
 > Pour plus d’informations sur les différentes topologies locales et Azure AD avec la synchronisation Azure AD Connect, consultez l’article [Topologies pour Azure AD Connect](plan-connect-topologies.md).
 > 
 > 
 
-![topologie à forêts multiples](./media/plan-hybrid-identity-design-considerations/multi-forest.png) 
+![Topologie de forêts multiples](./media/plan-hybrid-identity-design-considerations/multi-forest.png) 
 
 Scénario de forêts multiples
 
@@ -140,7 +140,7 @@ La topologie Azure AD unique à plusieurs forêts doit être envisagée si les 
 
 Si la partie ci-dessus n’est pas vraie et que vous avez plus d’un compte actif ou plusieurs boîtes aux lettres, Azure AD Connect choisira un élément et ignorera les autres.  Si vous avez lié des boîtes aux lettres, mais aucun autre compte, ces comptes ne seront pas exportés vers Azure AD et cet utilisateur ne sera membre d’aucun groupe.  La situation a évolué avec DirSync et l’intention est de mieux prendre en charge ces scénarios de forêts multiples. Un scénario de forêts multiples est illustré dans la figure ci-dessous.
 
-![Plusieurs locataires Azure AD](./media/plan-hybrid-identity-design-considerations/multiforest-multipleAzureAD.png) 
+![Plusieurs clients Azure AD](./media/plan-hybrid-identity-design-considerations/multiforest-multipleAzureAD.png) 
 
 **Scénario Azure AD de plusieurs forêts multiples**
 
@@ -148,7 +148,7 @@ Il est recommandé de disposer seulement d’un répertoire unique dans Azure A
 
 Il est possible et pris en charge de connecter une instance locale d’Active Directory à plusieurs répertoires Azure AD, comme illustré dans la figure ci-dessous :
 
-![filtrage de forêt unique](./media/plan-hybrid-identity-design-considerations/single-forest-flitering.png) 
+![Une seule forêt filtrée](./media/plan-hybrid-identity-design-considerations/single-forest-flitering.png) 
 
 **Scénario de filtrage d’une forêt unique**
 

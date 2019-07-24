@@ -14,12 +14,12 @@ ms.author: gamal
 ms.reviewer: maghan
 manager: craigg
 robots: noindex
-ms.openlocfilehash: 5f2627932eb2fd427d934eba322230222b5e6958
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cc880885777cbca67d6fb39b90feadc889339f76
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66002945"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836176"
 ---
 # <a name="troubleshoot-data-factory-issues"></a>Résolution des problèmes liés à Data Factory
 > [!NOTE]
@@ -119,14 +119,14 @@ Consultez la page [Déboguer un pipeline avec une activité personnalisée](data
 
 ## <a name="use-azure-portal-to-troubleshoot"></a>Utilisation du portail Azure pour résoudre les problèmes
 ### <a name="using-portal-blades"></a>Utilisation des panneaux du portail
-Consultez la page [Surveiller le pipeline](data-factory-build-your-first-pipeline-using-editor.md#monitor-a-pipeline) pour obtenir la procédure.
+Consultez la page [Surveiller le pipeline](data-factory-monitor-manage-pipelines.md) pour obtenir la procédure.
 
 ### <a name="using-monitor-and-manage-app"></a>Utilisation de l’application Surveillance et gestion
 Consultez [Surveiller et gérer les pipelines Data Factory à l’aide de l’application Surveillance et gestion](data-factory-monitor-manage-app.md) pour plus d’informations.
 
 ## <a name="use-azure-powershell-to-troubleshoot"></a>Utiliser Azure PowerShell pour résoudre les problèmes
 ### <a name="use-azure-powershell-to-troubleshoot-an-error"></a>Utiliser Azure PowerShell pour résoudre une erreur
-Consultez la page [Surveiller les pipelines Data Factory à l’aide d’Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md#monitor-pipeline) pour plus d’informations.
+Consultez la page [Surveiller les pipelines Data Factory à l’aide d’Azure PowerShell](data-factory-monitor-manage-pipelines.md) pour plus d’informations.
 
 [adfgetstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
 [use-custom-activities]: data-factory-use-custom-activities.md

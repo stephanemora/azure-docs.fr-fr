@@ -4,7 +4,7 @@ description: En savoir plus sur la prise en charge de la préversion de la taill
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines
@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: amverma
-ms.openlocfilehash: f96a1179c103dd9dfb4d358572f9a9adbe24b977
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6cdb539846104f70dabf684925685fb062fea8af
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66809871"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797545"
 ---
 # <a name="hc-series-virtual-machine-overview"></a>Vue d’ensemble des machines virtuelles série HC
 
@@ -31,7 +31,7 @@ La topologie ci-dessus s’applique aussi à la configuration de l’hyperviseur
 
 La machine virtuelle ne sait pas que les pCores 0-1 et 24-25 ne lui ont pas été attribués. Par conséquent, elle expose chaque vNUMA comme si elle avait 22 cœurs en mode natif.
 
-Les UC Intel Xeon Platinum, Gold et Silver inaugurent également un réseau maillé 2D on-die pour la communication interne et externe au socket de l’UC. Nous recommandons vivement le brochage de processus (process pinning) à des fins de performances optimales. Le brochage de processus fonctionne sur les machines virtuelles série HC, car le silicium sous-jacent est exposé comme tel à la machine virtuelle invitée. Plus d’informations sur l’architecture Intel Xeon SP à l’adresse : https://bit.ly/2RCYkiE
+Les UC Intel Xeon Platinum, Gold et Silver inaugurent également un réseau maillé 2D on-die pour la communication interne et externe au socket de l’UC. Nous recommandons vivement le brochage de processus (process pinning) à des fins de performances optimales. Le brochage de processus fonctionne sur les machines virtuelles série HC, car le silicium sous-jacent est exposé comme tel à la machine virtuelle invitée. Pour plus d’informations, consultez [Architecture Intel Xeon SP](https://bit.ly/2RCYkiE).
 
 Le diagramme suivant illustre la répartition des cœurs réservés pour l’hyperviseur Azure et la machine virtuelle série HC.
 

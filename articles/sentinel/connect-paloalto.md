@@ -7,19 +7,20 @@ author: rkarlin
 manager: rkarlin
 editor: ''
 ms.assetid: a4b21d67-1a72-40ec-bfce-d79a8707b4e1
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 40ee73b8cc9b95a4e2030ac38a6c322918dc878e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bcc9c9db3a89b5bd088f4c546a3415dba4f295e3
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389094"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67611360"
 ---
 # <a name="connect-your-palo-alto-networks-appliance"></a>Connecter votre appliance Palo Alto Networks
 
@@ -30,7 +31,7 @@ ms.locfileid: "66389094"
 Vous pouvez connecter Azure Sentinel à n’importe quelle appliance Palo Alto Networks en enregistrant les fichiers journaux au format CEF Syslog. Avec l’intégration à Azure Sentinel, vous pouvez facilement exécuter des fonctions d’analytique et des requêtes sur les données des fichiers journaux à partir de Palo Alto Networks. Pour plus d’informations sur la façon dont Azure Sentinel ingère les données au format CEF, consultez [Connecter des appliances CEF](connect-common-event-format.md).
 
 > [!NOTE]
-> Les données seront stockées dans l’emplacement géographique de l’espace de travail sur lequel vous exécutez Azure Sentinel.
+> Les données seront stockées à l’emplacement géographique de l’espace de travail sur lequel vous exécutez Azure Sentinel.
 
 ## <a name="step-1-connect-your-palo-alto-networks-appliance-using-an-agent"></a>Étape 1 : Connecter votre appliance Palo Alto Networks à l’aide d’un agent
 
@@ -72,7 +73,7 @@ Pour voir un diagramme réseau des deux options, consultez [Connecter des source
               2. Téléchargez et installez le [fichier config security_events](https://aka.ms/asi-syslog-config-file-linux) qui configure l’agent Syslog pour écouter sur le port 25226. `sudo wget -O /etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"`, où {0} doit être remplacé par le GUID de votre espace de travail.
 
               3. Redémarrez le démon Syslog `sudo service syslog-ng restart`
-      2. Redémarrez l’agent Syslog à l’aide de cette commande : `sudo /opt/microsoft/omsagent/bin/service_control restart [{workspace GUID}]`
+      2. Redémarrez l’agent Syslog à l’aide de cette commande : `sudo /opt/microsoft/omsagent/bin/service_control restart [{workspace GUID}]`
       1. Confirmez qu’il n’existe aucune erreur dans le journal de l’agent en exécutant cette commande : `tail /var/opt/microsoft/omsagent/log/omsagent.log`
 
 ### <a name="deploy-the-agent-on-an-on-premises-linux-server"></a>Déployer l’agent sur un serveur Linux local
@@ -117,7 +118,7 @@ Configurez Palo Alto Networks pour transférer les messages Syslog au format CEF
 
 ## <a name="step-3-validate-connectivity"></a>Étape 3 : Valider la connectivité
 
-Plus de 20 minutes peuvent être nécessaires avant que vos journaux ne commencent à apparaître dans Log Analytics. 
+L’affichage de vos journaux dans Log Analytics peut prendre plus de 20 minutes. 
 
 1. Vérifiez que vous utilisez la fonctionnalité correcte. Elle doit être identique dans votre appliance et dans Azure Sentinel. Vous pouvez vérifier quel fichier de fonctionnalité vous utilisez dans Azure Sentinel et le modifier dans le fichier `security-config-omsagent.conf`. 
 
@@ -125,7 +126,7 @@ Plus de 20 minutes peuvent être nécessaires avant que vos journaux ne commence
 
 3. Vérifiez que les journaux que vous envoyez sont conformes à la [RFC 5424](https://tools.ietf.org/html/rfc542).
 
-4. Sur l’ordinateur exécutant l’agent Syslog, vérifiez que les ports 514, 25226 sont ouverts et à l’écoute à l’aide de la commande `netstat -a -n:`. Pour en savoir plus sur l’utilisation de cette commande, voir [netstat(8) - Linux man page](https://linux.die.net/man/8/netstat). S’ils sont à l’écoute correctement, voici ce que vous voyez :
+4. Sur l’ordinateur exécutant l’agent Syslog, vérifiez que les ports 514, 25226 et 25226 sont ouverts et à l’écoute à l’aide de la commande `netstat -a -n:`. Pour en savoir plus sur l’utilisation de cette commande, voir [netstat(8) - Linux man page](https://linux.die.net/man/8/netstat). S’ils sont à l’écoute correctement, voici ce que vous voyez :
 
    ![Ports Azure Sentinel](./media/connect-cef/ports.png) 
 
@@ -149,7 +150,7 @@ Plus de 20 minutes peuvent être nécessaires avant que vos journaux ne commence
              };
      Pour en savoir plus, voir [imudp: UDP Syslog Input Module](Pour en savoir plus, voir [syslog-ng Open Source Edition 3.16 - Administration Guide](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.16/administration-guide/19#TOPIC-956455).
 
-1. Vérifiez qu’il existe une communication entre le démon Syslog et l’agent. Exécutez cette commande sur la machine de l’agent Syslog : `tcpdump -A -ni any  port 25226 -vv` Cette commande affiche les fichiers journaux diffusés en continu à partir de l’appareil sur la machine Syslog. Assurez-vous que l’agent reçoit également les journaux.
+1. Vérifiez qu’il existe une communication entre le démon Syslog et l’agent. Exécutez cette commande sur l’ordinateur de l’agent Syslog : `tcpdump -A -ni any  port 25226 -vv` Cette commande affiche les fichiers journaux diffusés en continu à partir de l’appareil sur la machine Syslog. Assurez-vous que l’agent reçoit également les journaux.
 
 6. Si ces deux commandes ont fourni des résultats satisfaisants, vérifiez Log Analytics pour voir si vos journaux arrivent. Tous les événements transmis à partir de ces appliances apparaissent sous forme brute dans Log Analytics sous le type `CommonSecurityLog`.
 

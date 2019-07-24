@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 06/14/2019
 ms.author: victorh
-ms.openlocfilehash: 9d79ed28bd331b723755e1c17233aa82421ad1d7
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 6603929fa7b4c597a846fc299577a9682d8f54e0
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147877"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67854132"
 ---
 # <a name="create-an-azure-dns-private-zone-using-azure-powershell"></a>Créer une zone privée Azure DNS à l’aide d’Azure PowerShell
 
@@ -53,6 +53,8 @@ Une zone DNS est créée à l’aide de l’applet de commande `New-AzPrivateDns
 L’exemple suivant crée un réseau virtuel nommé **myAzureVNet**. Il crée ensuite une zone DNS nommée **private.contoso.com** dans le groupe de ressources **MyAzureResourceGroup**, puis il lie la zone DNS au réseau virtuel **MyAzureVnet** et active l’inscription automatique.
 
 ```azurepowershell
+Install-Module -Name Az.PrivateDns -force
+
 $backendSubnet = New-AzVirtualNetworkSubnetConfig -Name backendSubnet -AddressPrefix "10.2.0.0/24"
 $vnet = New-AzVirtualNetwork `
   -ResourceGroupName MyAzureResourceGroup `

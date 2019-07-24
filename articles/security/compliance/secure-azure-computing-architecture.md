@@ -1,119 +1,119 @@
 ---
 title: Sécuriser l’architecture de calcul Azure
-description: Cette architecture de référence pour une architecture de réseau de périmètre au niveau de l’entreprise utilise des appliances virtuelles réseau et autres outils. Cette architecture a été conçue pour satisfaire Secure Cloud Computing Architecture exigences du ministère de la défense fonctionnelles. Il peut également être utilisé pour toute organisation. Cette référence inclut deux options automatisées qui utilisent des appliances Citrix ou F5.
+description: Cette architecture de référence pour une architecture DMZ d'entreprise utilise des appliances virtuelles réseau et d'autres outils. Cette architecture a été conçue pour répondre aux exigences fonctionnelles de l'architecture Secure Cloud Computing du Département de la Défense des États-Unis. Elle peut également être utilisée pour n'importe quelle organisation. Cette référence comprend deux options automatisées qui utilisent les appliances Citrix ou F5.
 author: jahender
 ms.author: jahender
 ms.date: 4/9/2019
 ms.topic: article
 ms.service: security
 ms.openlocfilehash: 017a26d5672f666d4d8eaf629a0f53fe0cfe517f
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65963240"
 ---
 # <a name="secure-azure-computing-architecture"></a>Sécuriser l’architecture de calcul Azure
 
-Données Ministère de la défense (DoD) des clients qui déploient des charges de travail vers Azure ont demandé des conseils pour configurer des réseaux virtuels sécurisés et configurer les outils de sécurité et les services qui sont stipulés par les pratiques et des normes DoD. 
+Données Les clients du Département de la Défense des États-Unis (Department of Defense ou DoD) qui déploient des charges de travail chez Azure ont demandé des conseils pour mettre en place des réseaux virtuels sécurisés et configurer les outils et services de sécurité exigés par les normes et pratiques DoD. 
 
-L’outil défense informations système Agency (DISA) publié le [Secure Cloud Computing Architecture (SCCA) fonctionnel exigences Document (domaine racine de forêt)](https://iasecontent.disa.mil/stigs/pdf/SCCA_FRD_v2-9.pdf) en 2017. SCCA décrit les objectifs fonctionnels pour la sécurisation des points de connexion fournisseur de la défense des informations système et de réseau (DISN) cloud commercial. SCCA décrit également comment les propriétaires de mission sécurisés aux applications du cloud à la limite de connexion. Chaque entité DoD qui se connecte au cloud commercial doit suivre les instructions stipulées dans le FRD SCCA.
+La Defense Information System Agency (DISA) a publié le document [Secure Cloud Computing Architecture (SCCA) Functional Requirements Document (FRD)](https://iasecontent.disa.mil/stigs/pdf/SCCA_FRD_v2-9.pdf) en 2017. SCCA décrit les objectifs fonctionnels de sécurisation des points de connexion du réseau DISN (Defense Information System Network) et des fournisseurs commerciaux de cloud computing. SCCA décrit également comment les chargés de mission sécurisent les applications dans le cloud aux limites de la connexion. Chaque entité DoD qui se connecte au cloud commercial doit suivre les directives énoncées dans le document FRD SCCA.
  
-Le SCCA possède quatre composants :
+SCCA comporte quatre composants :
  
-- Point d’accès Cloud limite (BCAP)
-- Pile de sécurité de centre de données virtuel (VDSS)
-- Centre de données virtuel Managed Service (VDM)
-- Approuvé Cloud Credential Manager (TCCM) 
+- Boundary Cloud Access Point (BCAP)
+- Virtual Datacenter Security Stack (VDSS)
+- Virtual Datacenter Managed Service (VDMS)
+- Trusted Cloud Credential Manager (TCCM) 
 
-Microsoft a développé une solution qui répond aux exigences du SCCA IL4 et IL5 les charges de travail qui s’exécutent dans Azure. Cette solution Azure spécifique est appelée le sécuriser Azure Computing Architecture (SACA). Les clients qui déploient SACA sont en conformité avec la FRD SCCA. Ils peuvent activer les clients DoD déplacer des charges de travail dans Azure une fois qu’ils sont connectés.
+Microsoft a développé une solution qui répond aux exigences SCCA pour les charges de travail IL4 et IL5 exécutées dans Azure. Cette solution spécifique à Azure est appelée Secure Azure Computing Architecture (SACA). Les clients qui déploient SACA sont en conformité avec le document FRD SCCA. Ils peuvent autoriser les clients DoD connectés à déplacer des charges de travail vers Azure.
 
-Architectures et des conseils SCCA concernent les clients DoD, mais les dernières révisions à des clients civils de SACA aide sont conformes aux instructions de connexion (TIC) internet approuvé. Les dernières révisions également aident les clients commerciaux que vous souhaitez implémenter un réseau de périmètre sécurisé pour protéger leurs environnements Azure.
+Les directives et les architectures SCCA sont spécifiques aux clients DoD, mais les dernières révisions SACA aident les clients civils à se conformer aux directives sur les connexions Internet de confiance (TIC). Les dernières révisions aident également les clients commerciaux qui veulent implémenter une DMZ sécurisée pour protéger leurs environnements Azure.
 
 
-## <a name="secure-cloud-computing-architecture-components"></a>Sécuriser les composants de l’Architecture de Cloud Computing
+## <a name="secure-cloud-computing-architecture-components"></a>Composants Secure Cloud Computing Architecture
 
 ### <a name="bcap"></a>BCAP
 
-L’objectif de la BCAP consiste à protéger le DISN contre les attaques provenant de l’environnement de cloud. BCAP effectue la prévention et détection d’intrusion. Il filtre également le trafic non autorisé. Ce composant peut être colocalisé avec d’autres composants de la SCCA. Nous vous recommandons de déployer ce composant à l’aide de matériel physique. Exigences de sécurité BCAP sont répertoriées dans le tableau suivant.
+Le but du BCAP est de protéger le DISN contre les attaques provenant de l'environnement dans le cloud. Le BCAP gère la détection et la prévention des intrusions. Il filtre également le trafic non autorisé. Ce composant peut être regroupé avec d'autres composants SCCA. Nous vous recommandons de déployer ce composant en utilisant du matériel physique. Les exigences de sécurité BCAP sont énumérées dans le tableau suivant.
 
-#### <a name="bcap-security-requirements"></a>Exigences de sécurité BCAP
+#### <a name="bcap-security-requirements"></a>Conditions de sécurité BCAP
 
 ![Matrice des exigences BCAP](media/bcapreqs.png)
 
 
 ### <a name="vdss"></a>VDSS
 
-Le VDSS vise à protéger les applications de propriétaire de la mission DoD qui sont hébergées dans Azure. VDSS effectue la majeure partie des opérations de sécurité dans le SCCA. Il effectue le contrôle du trafic pour sécuriser les applications qui s’exécutent dans Azure. Ce composant peut être fourni au sein de votre environnement Azure.
+Le but du VDSS est de protéger les applications des propriétaires de mission DoD hébergées dans Azure. Le VDSS gère la majeure partie des opérations de sécurité au sein de SCCA. Il inspecte le trafic pour sécuriser les applications qui s'exécutent dans Azure. Ce composant peut être fourni dans votre environnement Azure.
 
-#### <a name="vdss-security-requirements"></a>Exigences de sécurité VDSS
+#### <a name="vdss-security-requirements"></a>Conditions de sécurité VDSS
 
 ![Matrice des exigences VDSS](media/vdssreqs.png)
 
 ### <a name="vdms"></a>VDMS
 
-L’objectif de VDM consiste à assurer la sécurité de l’hôte et services de centre de données partagés. Les fonctions de VDM peuvent exécuter dans le hub de votre SCCA ou le propriétaire de la mission peut déployer des parties de celui-ci dans leur propre abonnement Azure spécifique. Ce composant peut être fourni au sein de votre environnement Azure.
+Le but du VDMS est d'assurer la sécurité de l'hôte et de fournir des services de centre de données partagés. Les fonctions du VDMS peuvent être exécutées dans le hub de votre architecture SCCA, ou le propriétaire de la mission peut en déployer certaines parties dans son propre abonnement Azure spécifique. Ce composant peut être fourni dans votre environnement Azure.
 
-#### <a name="vdms-security-requirements"></a>Exigences de sécurité VDM
+#### <a name="vdms-security-requirements"></a>Conditions de sécurité VDMS
 
-![Matrice des exigences de VDM](media/vdmsreqs.png)
+![Matrice des exigences VDMS](media/vdmsreqs.png)
 
 
 ### <a name="tccm"></a>TCCM
 
-TCCM est un rôle d’entreprise. Cette personne est responsable de la gestion de la SCCA. Leurs fonctions sont les suivants : 
+TCCM est un rôle métier. Cette personne est responsable de la gestion de l’architecture SCCA. Sa mission consiste à : 
 
-- Établissez des plans et les stratégies d’accès de compte à l’environnement de cloud. 
-- Assurez-vous que la gestion des identités et des accès fonctionne correctement. 
-- Mettre à jour le Plan de gestion des informations d’identification de Cloud. 
+- Établir des plans et des stratégies pour l'accès des comptes à l'environnement dans le cloud. 
+- S'assurer que la gestion des identités et des accès fonctionne correctement. 
+- Maintenir le plan de gestion des informations d'identification dans le cloud. 
 
-Cette personne est désignée par l’agent d’autorisation. Les BCAP, VDSS et VDM fournissent les fonctionnalités dont la TCCM a besoin pour effectuer leur travail.
+Cette personne est nommée par le responsable autorisé. Le BCAP, le VDSS et le VDMS fournissent les capacités dont le TCCM a besoin pour effectuer son travail.
 
-#### <a name="tccm-security-requirements"></a>Exigences de sécurité TCCM
+#### <a name="tccm-security-requirements"></a>Conditions de sécurité TCCM
 
 ![Matrice des exigences TCCM](media/tccmreqs.png) 
 
-## <a name="saca-components-and-planning-considerations"></a>Composants SACA et considérations de planification 
+## <a name="saca-components-and-planning-considerations"></a>Considérations sur les composants SACA et la planification 
 
-L’architecture de référence SACA est conçu pour déployer les composants VDSS et VDM dans Azure et pour activer la TCCM. Cette architecture est modulaire. Tous les éléments de VDSS et VDM peuvent résider dans un hub centralisé. Certains contrôles peuvent être satisfaits dans l’espace du propriétaire de la mission ou même localement. Microsoft recommande que vous colocalisez les composants VDSS et VDM dans un réseau virtuel central que tous les propriétaires de mission peuvent se connecter via. Le diagramme suivant illustre cette architecture : 
+L'architecture de référence SACA est conçue pour déployer les composants VDSS et VDMS sur Azure et pour activer le TCCM. Cette architecture est modulaire. Tous les éléments du VDSS et du VDMS peuvent coexister dans un hub centralisé. Certains des contrôles peuvent être effectués dans l'espace du propriétaire de la mission ou même sur place. Microsoft vous recommande de regrouper les composants VDSS et VDMS dans un réseau virtuel central auquel tous les responsables de mission peuvent se connecter. Le diagramme qui suit montre cette architecture : 
 
 
-![Diagramme d’architecture de référence SACA](media/sacav2generic.png)
+![Diagramme de l'architecture de référence SACA](media/sacav2generic.png)
 
-Lorsque vous planifiez votre stratégie de conformité SCCA et l’architecture technique, envisagez les rubriques suivantes à partir du début, car elles affectent tous les clients. Les problèmes suivants ont développé avec les clients DoD et ont tendance à ralentir la planification et l’exécution. 
+Lorsque vous planifiez votre stratégie de conformité SCCA et votre architecture technique, tenez compte d’emblée des points suivants car ils affectent chaque client. Les problèmes suivants sont apparus chez les clients DoD et ont tendance à ralentir la planification et l'exécution. 
 
-#### <a name="which-bcap-will-your-organization-use"></a>Le BCAP utiliser par votre organisation ?
-   - DISA BCAP :
-        - DISA a deux BCAPs opérationnelles à la pentagone et à Camp Roberts, autorité de certification. Une troisième est prévue seront bientôt disponibles en ligne. 
-        - BCAPs du DISA qu'ont tous les circuits Azure ExpressRoute vers Azure, ce qui peut être utilisé par les clients DoD pour la connectivité. 
-        - DISA a une session d’homologation Microsoft de niveau entreprise pour les clients DoD qui souhaitent s’abonner aux logiciels Microsoft en tant qu’un outils de service (SaaS), telles qu’Office 365. À l’aide de la DISA BCAP, vous pouvez activer la connectivité et l’homologation à votre instance SACA. 
-    - Créer votre propre BCAP :
-        - Cette option vous oblige à louer de l’espace dans un centre de données colocalisée et configurer un circuit ExpressRoute vers Azure. 
+#### <a name="which-bcap-will-your-organization-use"></a>Quel BCAP votre organisation utilisera-t-elle ?
+   - BCAP DISA :
+        - DISA dispose de deux BCAP opérationnels au Pentagone et à Camp Roberts en Californie. Un troisième devrait être disponible prochainement. 
+        - Les BCAP de DISA ont tous des circuits Azure ExpressRoute vers Azure, qui peuvent être utilisés par les clients DoD à des fins de connectivité. 
+        - DISA dispose d'une session d’homologation Microsoft de niveau professionnel pour les clients DoD qui souhaitent s'abonner aux outils Microsoft Software as a Service (SaaS) comme Office 365. En utilisant le BCAP DISA, vous pouvez activer la connectivité et l’homologation avec votre instance SACA. 
+    - Créez votre propre BCAP :
+        - Cette option vous oblige à louer de l'espace dans un centre de données colocalisé et à installer un circuit ExpressRoute vers Azure. 
         - Cette option nécessite une approbation supplémentaire. 
-        - En raison de l’approbation supplémentaire et une build physique-out, cette option utilise le plus de temps. 
-    - Nous vous recommandons d’utiliser le BCAP DISA. Cette option est immédiatement disponible, intègre la redondance et a des clients qui opèrent sur celui-ci dès aujourd'hui en production.
-- Espace d’adresse IP routable DoD :
-    - Vous devez utiliser l’espace d’adressage IP routable DoD sur votre périphérie. La possibilité d’utiliser NAT pour connecter ces espaces pour espace IP privé dans Azure est disponible.
-    - Contactez le centre d’informations de réseau (NIC) DoD pour obtenir l’espace d’adressage IP. Vous en avez besoin dans le cadre de votre envoi réseau ou système d’approbation processus SNAP () avec DISA. 
-    - Si vous envisagez d’utiliser NAT pour connecter l’espace d’adressage privé dans Azure, vous devez au minimum une taille/24 sous-réseau de l’espace d’adressage attribué à partir de la carte réseau pour chaque région où vous envisagez de déployer de SACA.
+        - En raison de l'approbation supplémentaire et d'une construction physique, cette option prend le plus de temps. 
+    - Nous vous recommandons d’utiliser le BCAP DISA. Cette option est facilement disponible, offre une redondance intégrée, et des clients l'utilisent dès aujourd'hui en production.
+- Espace d’adressage IP routable DoD :
+    - Vous devez utiliser l'espace d’adressage IP routable DoD à votre périphérie. Vous pouvez également utiliser NAT pour connecter ces espaces à un espace d’adressage IP privé dans Azure.
+    - Contactez le centre d'information du réseau DoD (NIC) pour obtenir un espace d’adressage IP. Vous en avez besoin dans le cadre de votre demande d'approbation du système/réseau (SNAP) auprès de DISA. 
+    - Si vous comptez utiliser NAT pour connecter l'espace d'adressage privé dans Azure, vous avez besoin au minimum d'un sous-réseau /24 d'espace d'adressage attribué par le NIC pour chaque région où vous prévoyez de déployer SACA.
 - Redondance :
-    - Déployer une instance SACA sur au moins deux régions. Dans le cloud DoD, déployez-la sur les deux régions DoD disponibles.
-    - Se connecter au moins deux BCAPs par le biais des circuits ExpressRoute distincts. Les deux connexions ExpressRoute peuvent ensuite être liées à instance SACA de chaque région. 
-- Configuration requise spécifique au composant de DoD :
-    - Votre entreprise utilise-t-elle des exigences spécifiques en dehors de la configuration requise SCCA ? Certaines organisations ont des exigences d’adresses IP spécifiques.
-- Il s’agit d’une architecture modulaire de SACA :
-    - Utiliser uniquement les composants que vous avez besoin pour votre environnement. 
-        - Déployer des appliances virtuelles réseau dans un seul ou plusieurs niveaux.
-        - Utiliser des adresses IP intégrée ou apportez votre propre des adresses IP.
-- Niveau d’impact DoD de vos applications et les données :
-    - S’il est possible d’applications s’exécutant dans Microsoft IL5 régions, créez votre instance SACA dans IL5. L’instance peut être utilisé devant les applications IL4 et IL5. Une instance IL4 SACA devant une application IL5 probablement ne recevront pas accréditation.
+    - Déployez une instance SACA dans au moins deux régions. Dans le nuage DoD, vous la déployez dans les deux régions DoD disponibles.
+    - Connectez-vous à au moins deux BCAP via des circuits ExpressRoute distincts. Les deux connexions ExpressRoute peuvent alors être associées à l'instance SACA de chaque région. 
+- Exigences spécifiques aux composants DoD :
+    - Votre organisation a-t-elle des exigences particulières autres que celles de SCCA ? Certaines organisations ont des exigences IPS spécifiques.
+- SACA est une architecture modulaire :
+    - N'utilisez que les composants dont vous avez besoin pour votre environnement. 
+        - Déployez des appliances virtuelles réseau sur un ou plusieurs niveaux.
+        - Utilisez l'IPS intégré ou fournissez votre propre IPS.
+- Niveau d'impact DoD de vos applications et données :
+    - S'il y a une possibilité que les applications s’exécutent dans des régions Microsoft IL5, construisez votre instance SACA dans IL5. L'instance peut être utilisée devant des applications IL4 et IL5. Une instance SACA IL4 devant une application IL5 ne recevra probablement pas d'accréditation.
 
-#### <a name="which-network-virtual-appliance-vendor-will-you-use-for-vdss"></a>Le fournisseur d’appliance virtuelle réseau utiliserez-vous pour VDSS ?
-Comme mentionné précédemment, vous pouvez créer cette référence SACA à l’aide d’une variété d’appareils et services Azure. Microsoft a automatisé des modèles de solution pour déployer l’architecture SACA avec F5 et Citrix. Ces solutions sont traitées dans la section suivante.
+#### <a name="which-network-virtual-appliance-vendor-will-you-use-for-vdss"></a>Quel fournisseur d'appliance virtuelle réseau allez-vous utiliser pour VDSS ?
+Comme mentionné précédemment, vous pouvez construire cette référence SACA en utilisant toute une gamme d’appliances et de services Azure. Microsoft a automatisé des modèles de solution pour déployer l'architecture SACA avec F5 et Citrix. Ces solutions sont traitées dans la section suivante.
 
-#### <a name="which-azure-services-will-you-use"></a>Quels services Azure allez-vous utiliser ?
-- Il existe des services Azure capable de répondre aux conditions requises pour l’analytique de journal, la protection basée sur l’hôte et fonctionnalités des ID. Il est possible que certains services ne sont pas à la disposition générale dans les régions Microsoft IL5. Dans ce cas, vous devrez peut-être utiliser des outils tiers si ces services Azure ne peut pas répondre à vos besoins. Examinons les outils que vous êtes familiarisé avec et la possibilité d’utiliser les outils Azure natifs.
-- Nous vous recommandons d’utiliser des outils natifs Azure autant que possible. Ils sont générés avec la sécurité du cloud à l’esprit et intégrant en toute transparence avec le reste de la plateforme Azure. Pour répondre aux différentes exigences en matière de SCCA, utilisez les outils natifs Azure dans la liste suivante :
+#### <a name="which-azure-services-will-you-use"></a>Quels services Azure allez-vous utiliser ?
+- Il existe des services Azure capables de répondre aux exigences en matière d'analyse des journaux, de protection basée sur l'hôte et de fonctionnalité IDS. Il est possible que certains services ne soient généralement pas disponibles dans les régions Microsoft IL5. Dans ce cas, vous pourriez avoir besoin d'utiliser des outils tiers si ces services Azure ne répondent à vos besoins. Examinez les outils avec lesquels vous êtes à l'aise et la possibilité d'utiliser les outils natifs Azure.
+- Nous vous recommandons d'utiliser autant d'outils natifs Azure que possible. Ces outils ont été conçus en tenant compte de la sécurité dans le cloud et s'intègrent de façon transparente au reste de la plateforme Azure. Utilisez les outils natifs Azure de la liste suivante pour répondre aux différentes exigences SCCA :
 
     - [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview )
     - [Centre de sécurité Azure](https://docs.microsoft.com/azure/security-center/security-center-intro) 
@@ -122,74 +122,74 @@ Comme mentionné précédemment, vous pouvez créer cette référence SACA à l�
     - [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)
     - [Application Gateway Azure](https://docs.microsoft.com/azure/application-gateway/overview)
     - [Pare-feu Azure](https://docs.microsoft.com/azure/firewall/overview) 
-    - [Porte d’entrée Azure](https://docs.microsoft.com/azure/frontdoor/front-door-overview)
+    - [Azure Front Door](https://docs.microsoft.com/azure/frontdoor/front-door-overview)
     - [Groupes de sécurité Azure](https://docs.microsoft.com/azure/virtual-network/security-overview)
     - [Azure DDoS Protection](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview)
-    - [Sentinel Azure](https://docs.microsoft.com/azure/sentinel/overview)
+    - [Azure Sentinel](https://docs.microsoft.com/azure/sentinel/overview)
 - Dimensionnement
-    - Un exercice de dimensionnement doit être effectué. Regardez le nombre de connexions simultanées, que vous devrez peut-être par l’intermédiaire de l’instance SACA et les exigences de débit du réseau. 
-    - Cette étape est essentielle. Cela permet de dimensionner les machines virtuelles et identifier les licences qui sont nécessaires sur les différents fournisseurs que vous utilisez dans votre instance SACA. 
-    - Une analyse des coûts bon ne peut pas être effectuée sans cet exercice de dimensionnement. Dimensionnement correct permet également de meilleures performances. 
+    - Un exercice de dimensionnement doit être effectué. Examinez le nombre de connexions simultanées possibles via l'instance SACA ainsi que les exigences de débit du réseau. 
+    - Cette étape est essentielle. Elle vous aide à dimensionner les machines virtuelles et à identifier les licences requises des différents fournisseurs que vous utilisez dans votre instance SACA. 
+    - Cet exercice de dimensionnement est indispensable pour obtenir une bonne analyse des coûts. Un bon dimensionnement permet également d'optimiser les performances. 
 
 
-## <a name="most-common-deployment-scenario"></a>Scénario de déploiement courante
+## <a name="most-common-deployment-scenario"></a>Scénario de déploiement le plus courant
 
- Plusieurs clients de Microsoft sont passées via le déploiement complet ou au moins les étapes de planification de leurs environnements de SACA. Leurs expériences a révélé un aperçu dans le scénario de déploiement le plus courant. Le diagramme suivant illustre l’architecture courant : 
-
-
-![Diagramme d’architecture de référence SACA](media/sacav2commonscenario.png) 
+ Plusieurs clients Microsoft sont passés par le déploiement complet ou du moins par les étapes de planification de leurs environnements SACA. À partir de leurs expériences, nous avons pu définir le scénario de déploiement le plus courant. Le diagramme suivant montre l'architecture la plus courante : 
 
 
-Comme vous pouvez le voir dans le diagramme, les clients DoD s’abonner généralement de deux de la BCAPs DISA. Un d’eux se trouve sur la côte ouest des États-Unis et d’autres la vie sur la côte est. Un homologue privé ExpressRoute est activé pour Azure à chaque emplacement DISA BCAP. Ces homologues ExpressRoute sont ensuite liés à la passerelle de réseau virtuel dans les régions DoD est et Azure centrale DoD. Une instance SACA est déployée dans les régions DoD est et Azure centrale DoD. Tous les trafics entrant et sortant flux de trafic par son intermédiaire vers et à partir de la connexion ExpressRoute pour la DISA BCAP.
+![Diagramme de l'architecture de référence SACA](media/sacav2commonscenario.png) 
 
-Propriétaire de la mission applications puis choisissez les régions Azure dans lequel ils envisagent de déployer leurs applications. Ils utilisent d’homologation de réseaux virtuels pour connecter le réseau virtuel de l’application sur le réseau virtuel de SACA. Il force tout le trafic via l’instance VDSS du tunnel.
 
-Nous recommandons cette architecture, car il répond aux exigences de SCCA. Il est hautement disponible et très évolutives. Elle simplifie également le déploiement et la gestion.
+Comme vous pouvez le voir sur le diagramme, les clients DoD s'abonnent généralement à deux des BCAP DISA. L'un d'eux vit sur la côte ouest et l'autre sur la côte est des États-Unis. Un homologue privé ExpressRoute est activé pour Azure sur chaque site BCAP DISA. Ces homologues ExpressRoute sont ensuite associés à la passerelle réseau virtuelle dans les régions Azure DoD Est et DoD Centre. Une instance SACA est déployée dans les régions Azure DoD Est et DoD Centre. Tout le trafic d'entrée et de sortie est acheminé vers et depuis la connexion ExpressRoute vers le BCAP DISA.
 
-## <a name="automated-saca-deployment-options"></a>Options de déploiement automatisées SACA
+Les applications du propriétaire de la mission choisissent ensuite les régions Azure dans lesquelles ils prévoient de déployer leurs applications. Ils utilisent l’homologation de réseau virtuel pour connecter le réseau virtuel de leur application au réseau virtuel SACA. Puis ils tunnélisent de force tout leur trafic via l'instance VDSS.
 
- Comme mentionné précédemment, Microsoft a conclu un partenariat avec deux fournisseurs pour créer un modèle d’infrastructure SACA automatisé. Les deux modèles déploient les composants Azure suivants : 
+Nous recommandons cette architecture car elle répond aux exigences SCCA. Elle est hautement disponible et facilement évolutive. Elle simplifie également le déploiement et la gestion.
 
-- Réseau virtuel de SACA
+## <a name="automated-saca-deployment-options"></a>Options de déploiement SACA automatisé
+
+ Comme mentionné précédemment, Microsoft s'est associé à deux fournisseurs pour créer un modèle automatisé d'infrastructure SACA. Ces deux modèles déploient les composants Azure suivants : 
+
+- Réseau virtuel SACA
     - Sous-réseau de gestion
-        - Ce sous-réseau est où les machines virtuelles de gestion et de services sont déployés, également appelé un saut de zones.
-        - Sous-réseau de VDM
-            - Ce sous-réseau est où les machines virtuelles et services utilisés pour les VDM sont déployés.
-        - Sous-réseaux et non approuvées
-            - Ces sous-réseaux est où les appliances virtuelles sont déployées.
+        - Ce sous-réseau est l'endroit où les machines virtuelles et les services de gestion sont déployés, également connu sous le nom de « jump box ».
+        - Sous-réseau VDMS
+            - Ce sous-réseau est l'endroit où les machines virtuelles et les services utilisés pour VDMS sont déployés.
+        - Sous-réseaux fiables et non fiables
+            - Ces sous-réseaux sont les endroits où les appliances virtuelles sont déployées.
         - Sous-réseau de passerelle
-            - Ce sous-réseau est où la passerelle ExpressRoute est déployée.
-- Ordinateurs virtuels de gestion reroutage boîte
-    - Ils sont utilisés pour la gestion hors bande de l’environnement.
+            - Ce sous-réseau est l'endroit où la passerelle ExpressRoute est déployée.
+- Machines virtuelles Jump Box de gestion
+    - Elles sont utilisées pour la gestion hors-bande de l'environnement.
 - Appliances virtuelles réseau
-    - Vous utilisez soit Citrix ou F5 basé sur le modèle que vous déployez.
+    - Vous utilisez Citrix ou F5 selon le modèle que vous déployez.
 - Adresses IP publiques
-    - Ils sont utilisés pour le front-end jusqu'à ce que ExpressRoute est mis en ligne. Ces adresses IP se traduire par le back-end espace d’adressage privé Azure.
-- Tables d'itinéraires 
-    - Appliqué lors de l’automatisation, qui achemine tables forcer le tunnel tout le trafic via l’appliance virtuelle.
-- Équilibreurs de charge Azure - référence (SKU) Standard
-    - Elles sont utilisées pour équilibrer le trafic entre les appareils.
+    - Elles sont utilisées pour le serveur frontal jusqu'à ce que ExpressRoute soit mis en ligne. Ces adresses IP sont traduites vers l'espace d'adressage privé back-end Azure.
+- Tables de routage 
+    - Appliquées lors de l'automatisation, ces tables de routage forcent la tunnélisation de tout le trafic via l'appliance virtuelle.
+- Équilibreurs de charge Azure - Référence SKU standard
+    - Ils sont utilisés pour équilibrer le trafic entre les appliances.
 - Groupes de sécurité réseau
-    - Elles sont utilisées pour contrôler les types de trafic peuvent traverser à certains points de terminaison.
+    - Ils sont utilisés pour identifier les types de trafic capable d’atteindre certains points de terminaison.
 
 
-### <a name="citrix-saca-deployment"></a>Déploiement de Citrix SACA
+### <a name="citrix-saca-deployment"></a>Déploiement SACA Citrix
 
-Un modèle de déploiement de Citrix déploie deux couches d’appliances de Citrix ADC hautement disponibles. Cette architecture répond aux exigences de VDSS. 
+Un modèle de déploiement Citrix déploie deux couches d'appliances Citrix ADC hautement disponibles. Cette architecture répond aux exigences VDSS. 
 
-![Diagramme de Citrix SACA](media/citrixsaca.png)
-
-
-Pour la documentation Citrix et le script de déploiement, consultez [ce lien GitHub](https://github.com/citrix/netscaler-azure-templates/tree/master/templates/saca).
+![Diagramme SACA Citrix](media/citrixsaca.png)
 
 
- ### <a name="f5-saca-deployment"></a>Déploiement de SACA de F5
+Pour la documentation Citrix et le script de déploiement, voir [ce lien GitHub](https://github.com/citrix/netscaler-azure-templates/tree/master/templates/saca).
 
-Deux modèles de déploiement F5 distincts couvrent deux architectures différentes. Le premier modèle ne possède qu’une seule couche d’appliances de F5 dans une configuration hautement disponible actif-actif. Cette architecture répond aux exigences du VDSS. Le deuxième modèle ajoute une deuxième couche de F5s haut actif-actif. Cette deuxième couche permet aux clients d’ajouter leur propres adresses IP distincte de F5 entre les couches de F5. Pas tous les composants de DoD ont prescrite pour l’utilisation des adresses IP spécifiques. Si tel est le cas, la seule couche de F5 appliances fonctionne pour la plupart étant donné que cette architecture inclut les adresses IP sur les appareils F5.
 
-![Diagramme de SACA de F5](media/f5saca.png)
+ ### <a name="f5-saca-deployment"></a>Déploiement SACA F5
 
-Pour la documentation de F5 et le script de déploiement, consultez [ce lien GitHub](https://github.com/f5devcentral/f5-azure-saca).
+Deux modèles de déploiement F5 distincts couvrent deux architectures différentes. Le premier modèle ne comporte qu'une seule couche d'appliances F5 dans une configuration active-active hautement disponible. Cette architecture répond aux exigences VDSS. Le deuxième modèle ajoute une deuxième couche d’appliances F5 actives-actives hautement disponibles. Cette deuxième couche permet aux clients d'ajouter leur propre IPS séparément de l’appliance F5 entre les couches F5. Tous les composants DoD n'ont pas d’IPS spécifique dont l'utilisation est prescrite. Si c'est le cas, la couche unique des appliances F5 fonctionne pour la plupart de ces composants car cette architecture inclut IPS sur les appareils F5.
+
+![Diagramme SACA F5](media/f5saca.png)
+
+Pour la documentation F5 et le script de déploiement, voir [ce lien GitHub](https://github.com/f5devcentral/f5-azure-saca).
 
 
 
