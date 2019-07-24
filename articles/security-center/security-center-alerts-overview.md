@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/02/2019
-ms.author: monhaber
-ms.openlocfilehash: 06f41bbfd97d5deb59e7bfd08615b2f28e256070
-ms.sourcegitcommit: 1e347ed89854dca2a6180106228bfafadc07c6e5
+ms.author: v-mohabe
+ms.openlocfilehash: 91dd397095718b3b43e41767af422801fd50b7f1
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67571311"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68295686"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Alertes de sécurité dans Azure Security Center
 
@@ -27,7 +27,7 @@ Cet article présente les différents types d’alertes de sécurité disponible
 
 ## <a name="what-are-security-alerts"></a>Que sont les alertes de sécurité ?
 
-Les alertes sont les notifications que Security Center génère quand il détecte des menaces sur vos ressources. Il hiérarchise et liste les alertes ainsi que les informations vous permettant d’analyser rapidement le problème. Security Center fournit également des recommandations sur la manière dont vous pouvez corriger les problèmes liés à une attaque.
+Les alertes sont les notifications que Security Center génère lorsqu'il détecte des menaces sur vos ressources. Il hiérarchise et répertorie les alertes ainsi que les informations vous permettant d’analyser rapidement le problème. Security Center fournit également des recommandations sur la manière dont vous pouvez corriger les problèmes liés à une attaque.
 
 ## <a name="how-does-security-center-detect-threats"></a>Comment Security Center détecte-t-il les menaces ?
 

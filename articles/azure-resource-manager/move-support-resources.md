@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 7/9/2019
 ms.author: tomfitz
-ms.openlocfilehash: 093c20407cb6210125106189f36566f539de0dcc
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 22493ad7998e9014c88c79e6ac5eee3bf1216119
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67721121"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68226817"
 ---
 # <a name="move-operation-support-for-resources"></a>Prise en charge de l’opération de déplacement pour les ressources
 Cet article indique si un type de ressource Azure donné prend en charge l’opération de déplacement. Il fournit également des informations sur les conditions spéciales à prendre en compte lors du déplacement d’une ressource.
@@ -913,9 +913,9 @@ Accédez à un espace de noms du fournisseur de ressources :
 ## <a name="microsoftsql"></a>Microsoft.Sql
 | Type de ressource | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| instancepools | OUI | OUI |
-| managedinstances | OUI | OUI |
-| managedinstances/databases | OUI | OUI |
+| instancepools | Non | Non |
+| managedinstances | Non | Non |
+| managedinstances/databases | Non | Non |
 | servers | OUI | OUI |
 | servers/databases | OUI | OUI |
 | servers/elasticpools | OUI | OUI |

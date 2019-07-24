@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 7/11/2019
+ms.date: 7/17/2019
 ms.author: victorh
-ms.openlocfilehash: e188a5dda8f936ad369aa2b9222bc726bb0d6a5e
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: 6dbc855fb1eb2ee9bcd292c896706b31f819aa5a
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67786582"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68253125"
 ---
 # <a name="configure-azure-firewall-application-rules-with-sql-fqdns"></a>Configurer des règles d’application de pare-feu Azure avec des noms de domaine complets SQL
 
@@ -46,6 +46,8 @@ Si vous utilisez des ports qui ne sont pas par défaut pour le trafic IaaS SQL, 
 3. Configurer une règle d’application avec des noms de domaine complet SQL pour autoriser l’accès à un serveur SQL :
 
    ```azurecli
+   az extension add -n azure-firewall
+
    az network firewall application-rule create \
    -g FWRG \
    -f azfirewall \

@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/02/2019
-ms.author: monhaber
-ms.openlocfilehash: 805c770f1a7e9bb4e0619b27ac937a2451421dc6
-ms.sourcegitcommit: 1e347ed89854dca2a6180106228bfafadc07c6e5
+ms.author: v-mohabe
+ms.openlocfilehash: 64a636cc4452de1ef4a2d0e94629e7d8e3a5878d
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67571331"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68295732"
 ---
 # <a name="security-center-integration-with-azure-security-products-in-asc"></a>Intégration de Security Center aux produits de sécurité Azure dans ASC
 
