@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.date: 05/13/2019
 ms.author: anavin
 ms.openlocfilehash: 26d8ee34c735cab8f1033a9aad897ec0b1bed524
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65952679"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Créer, changer ou supprimer un préfixe d’adresse IP publique
 
-Découvrez les préfixes d’adresse IP publique et comment en créer, changer et supprimer un. Un préfixe d’adresse IP publique est une plage d’adresses contiguë basée sur le nombre d’adresses IP publiques spécifiées. Les adresses sont attribuées à votre abonnement. Lorsque vous créez une ressource d’adresse IP publique, vous pouvez affecter une adresse IP publique statique à partir du préfixe et associer l’adresse de machines virtuelles, équilibreurs de charge ou autres ressources, pour activer la connectivité internet. Si vous n’êtes pas familiarisé avec les préfixes d’adresse IP publique, consultez [Vue d’ensemble des préfixes d’adresse IP publique](public-ip-address-prefix.md)
+Découvrez les préfixes d’adresse IP publique et comment en créer, changer et supprimer un. Un préfixe d’adresse IP publique est une plage d’adresses contiguë basée sur le nombre d’adresses IP publiques spécifiées. Les adresses sont attribuées à votre abonnement. Lorsque vous créez une ressource d’adresse IP publique, vous pouvez attribuer une adresse IP publique statique à partir du préfixe et l’associer à des machines virtuelles, à des équilibreurs de charge ou à d’autres ressources afin d’activer la connectivité Internet. Si vous n’êtes pas familiarisé avec les préfixes d’adresse IP publique, consultez [Vue d’ensemble des préfixes d’adresse IP publique](public-ip-address-prefix.md)
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -47,11 +47,11 @@ Les préfixes d’adresse IP publique ont un coût. Pour en savoir plus, consult
 
    |Paramètre|Requis ?|Détails|
    |---|---|---|
-   |Abonnement|Oui|Doit exister dans le même [abonnement](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) que la ressource à laquelle vous voulez associer l’adresse IP publique.|
-   |Groupe de ressources|Oui|Peut exister dans un [groupe de ressources](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) identique ou différent de celui de la ressource à laquelle vous voulez associer l’adresse IP publique.|
+   |Abonnement|OUI|Doit exister dans le même [abonnement](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) que la ressource à laquelle vous voulez associer l’adresse IP publique.|
+   |Groupe de ressources|OUI|Peut exister dans un [groupe de ressources](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) identique ou différent de celui de la ressource à laquelle vous voulez associer l’adresse IP publique.|
    |Nom|OUI|Le nom doit être unique au sein du groupe de ressources que vous avez sélectionné.|
-   |Région|Oui|Il doit exister dans la même [région](https://azure.microsoft.com/regions) que les adresses IP publiques auxquelles vous attribuez des adresses de la plage.|
-   |Taille de préfixe|Oui| Taille du préfixe dont vous avez besoin. La valeur par défaut est une adresse IP A/28 ou 16.
+   |Région|OUI|Il doit exister dans la même [région](https://azure.microsoft.com/regions) que les adresses IP publiques auxquelles vous attribuez des adresses de la plage.|
+   |Taille de préfixe|OUI| Taille du préfixe dont vous avez besoin. La valeur par défaut est une adresse IP A/28 ou 16.
 
 **Commandes**
 
@@ -70,13 +70,13 @@ Une fois que vous avez créé un préfixe, vous devez créer des adresses IP sta
 
    |Paramètre|Requis ?|Détails|
    |---|---|---|
-   |Nom|Oui|Le nom de l’adresse IP publique doit être unique au sein du groupe de ressources sélectionné.|
-   |Délai d'inactivité (minutes)|Non|Durée (en minutes) de maintien d’une connexion TCP ou HTTP ouverte sans utiliser les clients pour envoyer des messages keep-alive. |
+   |Nom|OUI|Le nom de l’adresse IP publique doit être unique au sein du groupe de ressources sélectionné.|
+   |Délai d’inactivité (minutes)|Non|Durée (en minutes) de maintien d’une connexion TCP ou HTTP ouverte sans utiliser les clients pour envoyer des messages keep-alive. |
    |Étiquette du nom DNS|Non|Elle doit être unique dans la région Azure où vous créez le nom (pour tous les abonnements et tous les clients). Azure inscrit automatiquement le nom et l’adresse IP dans son DNS pour que vous puissiez vous connecter à une ressource avec le nom. Azure ajoute un sous-réseau par défaut de type *emplacement.cloudapp.azure.com* (où emplacement est l’emplacement que vous fournissez) pour créer le nom DNS complet. Pour plus d’informations, consultez [Utiliser Azure DNS avec une adresse IP publique Azure](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address).|
 
-Vous pouvez également utiliser l’interface CLI et PS commandes ci-dessous avec--public-ip-prefix (CLI) et de ressource d’adresse - PublicIpPrefix (PS) paramètres, pour créer une adresse IP publique. 
+Vous pouvez également utiliser l’interface CLI et les commandes PS ci-dessous avec les paramètres --public-ip-prefix (CLI) et -PublicIpPrefix (PS), afin de créer une ressource d’adresse IP publique. 
 
-|Tool|Commande|
+|Outil|Commande|
 |---|---|
 |Interface de ligne de commande|[az network public-ip create](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create)|
 |PowerShell|[New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress?view=azps-2.0.0)|
@@ -94,7 +94,7 @@ Vous pouvez également utiliser l’interface CLI et PS commandes ci-dessous ave
 |Outil|Commande|
 |---|---|
 |Interface de ligne de commande|[az network public-ip prefix list](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-list) pour lister les adresses IP publiques, [az network public-ip prefix show](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-show) pour montrer les paramètres, [az network public-ip prefix update](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-update) pour mettre à jour, [az network public-ip prefix delete](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-delete) pour supprimer|
-|PowerShell|[Get-AzPublicIpPrefix](/powershell/module/az.network/get-azpublicipprefix) pour récupérer un objet d’adresse IP publique et afficher ses paramètres, [Set-AzPublicIpPrefix](/powershell/module/az.network/set-azpublicipprefix) pour mettre à jour des paramètres ; [Remove-AzPublicIpPrefix](/powershell/module/az.network/remove-azpublicipprefix) à supprimer|
+|PowerShell|[Get-AzPublicIpPrefix](/powershell/module/az.network/get-azpublicipprefix) pour récupérer un objet d’adresse IP publique et afficher ses paramètres, [Set-AzPublicIpPrefix](/powershell/module/az.network/set-azpublicipprefix) pour mettre à jour les paramètres et [Remove-AzPublicIpPrefix](/powershell/module/az.network/remove-azpublicipprefix) pour supprimer|
 
 ## <a name="permissions"></a>Autorisations
 

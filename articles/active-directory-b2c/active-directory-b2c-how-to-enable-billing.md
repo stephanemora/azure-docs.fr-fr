@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 01/24/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d2440b638a9c8eb27505b747d26917de8032e6cd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9d3ce15ac9899fe09d907296976db15ed0babb35
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510120"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612481"
 ---
 # <a name="link-an-azure-subscription-to-an-azure-active-directory-b2c-tenant"></a>Lier un abonnement Azure à un locataire Azure Active Directory B2C
 
@@ -81,6 +81,14 @@ Vous pouvez utiliser cette ressource pour :
 - déplacer votre ressource de locataire Azure AD B2C vers un autre abonnement Azure ou un autre groupe de ressources.
 
 ![Paramètres de ressource B2C](./media/active-directory-b2c-how-to-enable-billing/b2cresourcesettings.png)
+
+## <a name="change-the-azure-ad-b2c-tenant-billing-subscription"></a>Changer l’abonnement de facturation du locataire Azure AD B2C
+
+Les locataires Azure AD B2C peuvent être déplacés vers un autre abonnement si les abonnements source et de destination existent au sein du même locataire Azure Active Directory.
+
+Pour savoir comment déplacer des ressources Azure telles que votre locataire Azure AD B2C vers un autre abonnement, consultez [Déplacer des ressources vers un nouveau groupe de ressources ou un nouvel abonnement](../azure-resource-manager/resource-group-move-resources.md).
+
+Avant de lancer le déplacement, veillez à lire la totalité de l’article pour bien comprendre les limitations et les exigences liées à un déplacement de ce type. En plus des instructions pour déplacer les ressources, il inclut des informations critiques, comme une check-list à consulter avant le déplacement et la validation de l’opération de déplacement.
 
 ## <a name="known-issues"></a>Problèmes connus
 

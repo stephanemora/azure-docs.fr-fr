@@ -10,10 +10,10 @@ ms.date: 11/22/2017
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 38bafdb4753b41a9c8acd599e6b7215e1777c6cd
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65779467"
 ---
 # <a name="develop-for-azure-files-with-net"></a>Développer pour Azure Files avec .NET
@@ -46,20 +46,20 @@ API | Quand utiliser | Notes
 Dans Visual Studio, créez une application de console Windows. Les étapes suivantes vous montrent comment créer une application de console dans Visual Studio 2017. Les étapes sont similaires à celles des autres versions de Visual Studio.
 
 1. Sélectionnez **Fichier** > **Nouveau** > **Projet**
-2. Sélectionnez **Installé** > **Modèles** > **Visual C#** > **Bureau classique Windows**
+2. Sélectionnez **Installé** > **Modèles** > **Visual C#**  > **Bureau classique Windows**
 3. Sélectionnez **Application console (.NET Framework)**
 4. Entrez un nom pour votre application dans le champ **Nom :**
 5. Sélectionnez **OK**.
 
 Tous les exemples de code figurant dans ce didacticiel peuvent être ajoutés à la méthode `Main()` du fichier `Program.cs` de votre application de console.
 
-Vous pouvez utiliser la bibliothèque cliente de stockage Azure dans n’importe quel type d’application .NET, notamment une application web ou service cloud Azure et les applications de bureau et mobiles. Dans ce guide, nous utilisons une application console pour plus de simplicité.
+Vous pouvez utiliser la bibliothèque cliente d’Azure Storage dans n’importe quelle application .NET, y compris un service cloud Azure, une application web, une application de bureau ou une application mobile. Dans ce guide, nous utilisons une application console pour plus de simplicité.
 
 ## <a name="use-nuget-to-install-the-required-packages"></a>Utiliser NuGet pour installer les packages requis
 Vous devez référencer deux packages dans votre projet pour terminer ce didacticiel :
 
-* [Bibliothèque commune de stockage Microsoft Azure pour .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/): Ce package fournit un accès par programme aux ressources communes dans votre compte de stockage.
-* [Bibliothèque d’objets Blob de stockage Microsoft Azure pour .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/): Ce package fournit un accès par programme aux ressources Blob dans votre compte de stockage.
+* [Bibliothèque commune Microsoft Azure Stockage pour .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/) : ce package fournit un accès programmatique aux ressources communes de votre compte de stockage.
+* [Bibliothèque Microsoft Azure Storage Blob pour .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/) : ce package fournit un accès programmatique aux ressources Blob de votre compte de stockage.
 * [Bibliothèque Microsoft Azure Configuration Manager pour .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/) : ce package fournit une classe pour l’analyse d’une chaîne de connexion à partir d’un fichier config, quel que soit l’emplacement d’exécution de votre application.
 
 Vous pouvez utiliser NuGet pour obtenir ces deux packages. Procédez comme suit :
@@ -402,7 +402,7 @@ CloudFileShare mySnapshot = fClient.GetShareReference(baseShareName, snapshotTim
 ## <a name="troubleshooting-azure-files-using-metrics"></a>Résolution des problèmes d’Azure Files à l’aide de métriques
 Azure Storage Analytics prend à présent en charge les métriques pour Azure Files. Avec les données de métriques, vous pouvez suivre les demandes et diagnostiquer les problèmes.
 
-Vous pouvez activer les métriques pour Azure Files à partir de la [Azure portal](https://portal.azure.com). Vous pouvez également activer les métriques par programmation en appelant l’opération de définition des propriétés du service de fichiers via l’API REST ou l’un de ses analogues dans la bibliothèque cliente de stockage.
+Vous pouvez activer les métriques pour Azure Files par le biais du [Portail Azure](https://portal.azure.com). Vous pouvez également activer les métriques par programmation en appelant l’opération de définition des propriétés du service de fichiers via l’API REST ou l’un de ses analogues dans la bibliothèque cliente de stockage.
 
 L’exemple de code suivant explique comment utiliser la bibliothèque cliente de stockage pour .NET afin d’activer les métriques pour Azure Files.
 
@@ -470,7 +470,7 @@ Consultez ces liens pour en savoir plus sur Azure Files.
 * [Utilisation de la CLI Microsoft Azure avec Microsoft Azure Storage](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
 * [Résolution des problèmes liés à Azure Files](https://docs.microsoft.com/azure/storage/storage-troubleshoot-file-connection-problems)
 
-### <a name="reference"></a>Référence
+### <a name="reference"></a>Informations de référence
 * [Référence de la bibliothèque cliente de stockage pour .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)
 * [Référence de l’API REST du service de fichiers](https://msdn.microsoft.com/library/azure/dn167006.aspx)
 

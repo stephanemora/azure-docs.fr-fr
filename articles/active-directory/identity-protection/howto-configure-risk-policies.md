@@ -17,12 +17,12 @@ ms.date: 02/07/2019
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cdacdf604ab7a4ded7ddf302a217084630f60b31
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: cc6f822f20da55488c559c081129c3f177367123
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60295577"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108966"
 ---
 # <a name="how-to-configure-risk-policies-in-azure-active-directory-identity-protection-refreshed"></a>Procédure : Configurer les stratégies en matière de risque dans Azure Active Directory Identity Protection (version actualisée)
 
@@ -41,7 +41,7 @@ Azure AD analyse chaque connexion d’un utilisateur. L’objectif de l’analys
 
 La stratégie de connexion à risque est une réponse automatisée que vous pouvez configurer pour un niveau de risque de connexion spécifique. Dans votre réponse, vous pouvez bloquer l’accès à vos ressources ou exiger la résolution d’un test de l’authentification multifacteur pour obtenir l’accès.
 
-Lorsqu’un utilisateur a effectué une invite d’authentification Multifacteur déclenchée par la stratégie de risque de connexion, elle fournit des commentaires à Identity Protection et l’authentification dans provenant d’un utilisateur légitime. Par conséquent, l’événement de risque de connexion qui a déclenché l’invite d’authentification Multifacteur sera automatiquement fermée et Identity Protection empêche cet événement qui contribuent à l’élévation de risque de l’utilisateur. Activation de la stratégie de risque de connexion peut réduire les éléments superflus dans la vue risquées en permettant aux utilisateurs de corrige automatiquement lorsque vous y êtes invité pour l’authentification Multifacteur et en fermant ensuite automatiquement l’associé à risque connectez-vous.
+Lorsqu’un utilisateur exécute une invite MFA déclenchée par la stratégie de connexion à risque, il fournit des commentaires à Identity Protection et indique que la connexion provient de l’utilisateur légitime. Ainsi, l’événement de connexion à risque qui a déclenché l’invite MFA est automatiquement fermé, et Identity Protection empêche cet événement de contribuer à l’élévation des risques utilisateur. L’activation de la stratégie de connexion à risque peut réduire la bruyance dans la vue des connexions à risque en permettant aux utilisateurs d’effectuer des corrections automatiques lors des invites MFA, puis en fermant automatiquement la connexion à risque associée.
 
 ## <a name="how-do-i-access-the-sign-in-risk-policy"></a>Comment faire pour accéder à la stratégie de connexion à risque ?
    
@@ -114,7 +114,7 @@ Pour une obtenir une vue d’ensemble de l’expérience utilisateur, consultez�
 
 ## <a name="what-is-a-user-risk-policy"></a>Qu’est-ce qu’une stratégie de risque utilisateur ?
 
-Azure AD analyse chaque connexion d’un utilisateur. L’objectif de l’analyse est de détecter les actions suspectes se produisant dans le cadre de la connexion. Dans Azure AD, une action suspecte pouvant être détectée par le système est également appelée un événement à risque. Bien que certains événements à risque puissent être détectés en temps réel, pour d’autres, la détection peut prendre plus de temps. Par exemple, pour détecter une navigation impossible vers des emplacements inhabituels, le système nécessite une période d’apprentissage initiale de 14 jours pour en savoir plus sur le comportement normal d’un utilisateur. Il existe plusieurs options pour résoudre les événements à risque détectés. Par exemple, vous pouvez résoudre manuellement des événements à risque, ou vous pouvez utiliser une stratégie d’accès conditionnel de risque utilisateur ou de risque de connexion pour le faire.
+Azure AD analyse chaque connexion d’un utilisateur. L’objectif de l’analyse est de détecter les actions suspectes se produisant dans le cadre de la connexion. Dans Azure AD, une action suspecte pouvant être détectée par le système est également appelée un événement à risque. Bien que certains événements à risque puissent être détectés en temps réel, pour d’autres, la détection peut prendre plus de temps. Par exemple, pour détecter une navigation impossible vers des emplacements inhabituels, le système nécessite une période d’apprentissage initiale de 14 jours pour en savoir plus sur le comportement normal d’un utilisateur. Il existe plusieurs options pour résoudre les événements à risque détectés. Par exemple, vous pouvez résoudre manuellement des événements à risque ou vous pouvez utiliser une stratégie d’accès conditionnel de risque utilisateur ou de connexion à risque pour le faire.
 
 Tous les événements à risque qui ont été détectés pour un utilisateur et qui n’ont pas été résolus sont appelés événements à risque actifs. Les événements à risque actifs qui sont associés à un utilisateur sont appelés risque utilisateur. En fonction du risque utilisateur, Azure AD calcule la probabilité (faible, moyenne, élevée) selon laquelle un utilisateur a été compromis. Cette probabilité est appelée niveau de risque utilisateur.
 

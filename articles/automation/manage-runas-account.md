@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/24/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6fceee819762e10809a94f72d944e7625cb7e67c
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 49b8554f6064f036d4305cf7a5c1450c2f18c48d
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478565"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798473"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Gérer les comptes d’identification Azure Automation
 
@@ -104,7 +104,7 @@ Ce script PowerShell prend en charge les configurations suivantes :
 
 1. Enregistrez le script suivant sur votre ordinateur. Dans cet exemple, enregistrez-le sous le nom de fichier *New-RunAsAccount.ps1*.
 
-   Le script utilise plusieurs applets de commande Azure Resource Manager pour créer des ressources. Le tableau suivant liste les applets de commande et les autorisations qu’elles nécessitent.
+   Le script utilise plusieurs applets de commande Azure Resource Manager pour créer des ressources. Le tableau des [autorisations](#permissions) précédent liste les applets de commande et les autorisations qu’elles nécessitent.
 
     ```powershell
     #Requires -RunAsAdministrator
@@ -368,15 +368,37 @@ Pour renouveler le certificat, procédez comme suit :
 
 1. Pour suivre la progression du renouvellement du certificat, accédez à l’onglet **Notifications** du menu.
 
-## <a name="limiting-run-as-account-permissions"></a>Limiter les autorisations de compte d’identification
+## <a name="limiting-run-as-account-permissions"></a>Limitation des autorisations de compte d’identification
 
-Pour contrôler le ciblage de l’automatisation sur des ressources dans Azure Automation, des droits de contributeur sont accordés au compte d’identification dans l’abonnement. Si vous devez limiter ce que peut faire le principal de service RunAs, vous pouvez supprimer le compte du rôle de contributeur à l’abonnement et l’ajouter comme contributeur aux groupes de ressources que vous voulez spécifier.
+Pour contrôler le ciblage de l’automatisation sur des ressources dans Azure, vous pouvez exécuter le script [Update-AutomationRunAsAccountRoleAssignments.ps1](https://aka.ms/AA5hug8) dans PowerShell Gallery pour changer votre principal du service de compte d’identification existant afin de créer et d’utiliser une définition de rôle personnalisée. Ce rôle disposera d’autorisations sur toutes les ressources, à l’exception du service [Key Vault](https://docs.microsoft.com/azure/key-vault/). 
 
-Dans le portail Azure, sélectionnez **Abonnements**, puis choisissez l’abonnement de votre compte Automation. Sélectionnez **Contrôle d’accès (IAM)** , puis l’onglet **Attributions de rôles** . Recherchez le principal de service pour votre compte Automation (il ressemble à \<AutomationAccountName\>_identificateur unique). Sélectionnez le compte, puis cliquez sur **Supprimer** pour le supprimer de l’abonnement.
+> [!IMPORTANT]
+> Après l’exécution du script `Update-AutomationRunAsAccountRoleAssignments.ps1`, les runbooks qui accèdent à KeyVault par le biais de l’utilisation de comptes d’identification ne fonctionneront plus. Vous devez examiner les runbooks de votre compte pour détecter les appels à Azure Key Vault.
+>
+> Pour activer l’accès à Key Vault à partir des runbooks Azure Automation, vous devez [ajouter le compte d’identification aux autorisations de KeyVault](#add-permissions-to-key-vault).
 
-![Contributeurs d’abonnement](media/manage-runas-account/automation-account-remove-subscription.png)
+Si vous devez limiter ce que le principal du service de compte d’identification peut faire par la suite, vous pouvez ajouter d’autres types de ressources à l’élément `NotActions` de la définition de rôle personnalisée. L’exemple suivant restreint l’accès à `Microsoft.Compute`. Si vous l’ajoutez à l’élément **NotActions** de la définition de rôle, ce rôle ne sera pas en mesure d’accéder à une ressource de calcul. Pour en savoir plus sur les définitions de rôle, consultez [Comprendre les définitions de rôle relatives aux ressources Azure](../role-based-access-control/role-definitions.md).
 
-Pour ajouter le principal de service à un groupe de ressources, sélectionnez le groupe de ressources dans le portail Azure, puis sélectionnez **Contrôle d’accès (IAM)** . Sélectionnez **Ajouter une attribution de rôle**. La page **Ajouter une attribution de rôle** s’ouvre alors. Pour **Rôle**, sélectionnez **Contributeur**. Dans la zone de texte **Sélectionner**, tapez le nom du principal de service pour votre compte d’identification, puis sélectionnez-le dans la liste. Cliquez sur **Enregistrer** pour enregistrer les modifications. Effectuez cette opération pour les groupes de ressources auxquels vous voulez accorder l’accès à votre principal de service d’identification Azure Automation.
+```powershell
+$roleDefinition = Get-AzureRmRoleDefinition -Name 'Automation RunAs Contributor'
+$roleDefinition.NotActions.Add("Microsoft.Compute/*")
+$roleDefinition | Set-AzureRMRoleDefinition
+```
+
+Pour déterminer si le principal du service utilisé par votre compte d’identification se trouve dans le rôle **Collaborateur** ou dans une définition de rôle personnalisée, accédez à votre compte Automation et sous **Paramètres du compte**, sélectionnez **Comptes d’identification** > **Compte d’identification Azure**. Sous **Rôle**, vous trouverez la définition de rôle en cours d’utilisation. 
+
+[![](media/manage-runas-account/verify-role.png "Vérifier le rôle du compte d’identification")](media/manage-runas-account/verify-role-expanded.png#lightbox)
+
+Pour déterminer la définition de rôle utilisée par les comptes d’identification Automation pour plusieurs abonnements ou comptes Automation, vous pouvez utiliser le script [Check-AutomationRunAsAccountRoleAssignments.ps1](https://aka.ms/AA5hug5) dans PowerShell Gallery.
+
+### <a name="add-permissions-to-key-vault"></a>Ajouter des autorisations à Key Vault
+
+Si vous souhaitez autoriser Azure Automation à gérer Key Vault et que votre principal du service de compte d’identification utilise une définition de rôle personnalisée, vous devez prendre des mesures supplémentaires pour autoriser ce comportement :
+
+* Accorder les autorisations à Key Vault
+* Définir la stratégie d’accès
+
+Vous pouvez utiliser le script [Extend-AutomationRunAsAccountRoleAssignmentToKeyVault.ps1](https://aka.ms/AA5hugb) dans PowerShell Gallery pour donner à votre compte d’identification des autorisations sur KeyVault, ou consulter [Accorder à des applications l’accès à un coffre de clés](../key-vault/key-vault-group-permissions-for-apps.md) pour plus d’informations sur la définition d’autorisations sur KeyVault.
 
 ## <a name="misconfiguration"></a>Configuration incorrecte
 

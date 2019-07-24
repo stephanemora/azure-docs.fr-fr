@@ -10,16 +10,16 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 06/26/2019
 ms.author: dapine
-ms.openlocfilehash: 45a03a0912681b4fc33ef8df88fa00fd5458f720
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 288894705e1108d6dd511b60cd2bc3bcee4c6d41
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445832"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704344"
 ---
-# <a name="deploy-and-run-container-on-azure-container-instance-aci"></a>Déployer et exécuter un conteneur dans une instance de conteneur Azure -(AVI)
+# <a name="deploy-and-run-container-on-azure-container-instance"></a>Déployer et exécuter un conteneur sur Azure Container Instances
 
-Avec les étapes suivantes, mettez facilement à l’échelle des applications Azure Cognitive Services dans le cloud avec une [instance de conteneur](https://docs.microsoft.com/azure/container-instances/) Azure (AVI). Plutôt que de gérer l’infrastructure, consacrez-vous pleinement à la création de votre application.
+Avec les étapes suivantes, mettez facilement à l’échelle des applications Azure Cognitive Services dans le cloud avec Azure [Container Instances](https://docs.microsoft.com/azure/container-instances/). Plutôt que de gérer l’infrastructure, consacrez-vous pleinement à la création de votre application.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -35,7 +35,7 @@ Cette solution fonctionne avec n’importe quel conteneur Cognitive Services. La
 
 Toutes les variables entre chevrons, `<>`, doivent être remplacées par vos propres valeurs. Ce remplacement inclut les chevrons.
 
-[!INCLUDE [Create a Text Analytics Containers on Azure Container Instances (ACI)](./includes/create-aci-resource.md)]
+[!INCLUDE [Create a Text Analytics Containers on Azure Container Instances](includes/create-container-instances-resource.md)]
 
 ## <a name="use-the-container-instance"></a>Utiliser l’instance de conteneur
 

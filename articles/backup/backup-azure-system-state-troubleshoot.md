@@ -1,109 +1,132 @@
 ---
-title: Résoudre les problèmes de sauvegarde de l’état du système avec sauvegarde Azure
-description: Résoudre les problèmes de sauvegarde de l’état système.
+title: Résoudre les problèmes de sauvegarde de l’état du système avec le service Sauvegarde Azure
+description: Résolvez les problèmes de sauvegarde de l’état du système.
 services: backup
 author: srinathvasireddy
 manager: sivan
-keywords: Comment sauvegarder ; état du système de sauvegarde
+keywords: mode de sauvegarde ; sauvegarder l’état du système
 ms.service: backup
 ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: srinathvasireddy
-ms.openlocfilehash: 53b9f8fb58a6e70a4bd2cd02adb9ce824466d7de
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.openlocfilehash: c9e5645fef952257580d74eb6e11911e2286bd79
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66481593"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165115"
 ---
 # <a name="troubleshoot-system-state-backup"></a>Résoudre les problèmes de sauvegarde de l’état du système
 
-Cet article décrit les solutions aux problèmes que vous pouvez rencontrer lors de l’utilisation de sauvegarde de l’état système.
+Cet article décrit les solutions aux problèmes que vous pouvez rencontrer lors de l’utilisation de la sauvegarde de l’état du système.
+
+## <a name="basic-troubleshooting"></a>Dépannage de base
+Nous vous recommandons d’effectuer les validations ci-dessous avant de résoudre les problèmes de sauvegarde de l’état du système :
+
+- [Vérifiez que Microsoft Azure Recovery Services (MARS) Agent est à jour](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
+- [Vérifiez la connectivité réseau entre l’agent MARS et Azure](https://aka.ms/AB-A4dp50)
+- Assurez-vous que Microsoft Azure Recovery Services est en cours d’exécution (dans la console de service). Si nécessaire, redémarrez le système et recommencez l’opération
+- [Vérifiez qu’il existe entre 5 et 10 % d’espace de volume disponible à l’emplacement du dossier de travail](https://aka.ms/AB-AA4dwtt)
+- [Vérifiez si un autre processus ou logiciel antivirus interfère avec le service Sauvegarde Azure](https://aka.ms/AB-AA4dwtk)
+- [La sauvegarde planifiée échoue, mais la sauvegarde manuelle fonctionne](https://aka.ms/ScheduledBackupFailManualWorks)
+- Assurez-vous que votre système d’exploitation dispose des dernières mises à jour
+- [Vérifiez que les lecteurs non pris en charge et les fichiers avec des attributs non pris en charge sont exclus de la sauvegarde](backup-support-matrix-mars-agent.md#supported-drives-or-volumes-for-backup)
+- Vérifiez que l’**horloge système** sur le système protégé est configurée sur le bon fuseau horaire <br>
+- [Vérifiez que le serveur dispose au minimum de .NET Framework version 4.5.2 et versions ultérieures](https://www.microsoft.com/download/details.aspx?id=30653)<br>
+- Si vous essayez de **réinscrire votre serveur** à un coffre : <br>
+  - Vérifiez si l’agent est désinstallé sur le serveur et s’il est supprimé du portail <br>
+  - Utilisez la même phrase secrète que celle initialement utilisée pour l’inscription du serveur <br>
+- En cas de sauvegarde hors connexion, assurez-vous qu’Azure PowerShell version 3.7.0 est installé sur l’ordinateur source et de copie avant de lancer l’opération de sauvegarde.
+- [Éléments à prendre en compte lorsque l’agent de sauvegarde est en cours d’exécution sur une machine virtuelle Azure](https://aka.ms/AB-AA4dwtr)
+
+### <a name="limitation"></a>Limitation
+- La récupération vers un autre composant matériel à l’aide de la fonction de récupération de l’état du système n’est pas recommandée par Microsoft
+- La fonctionnalité de sauvegarde de l’état du système prend actuellement en charge les serveurs Windows « en local ». Elle n’est pas disponible pour les machines virtuelles Azure.
 
 ## <a name="pre-requisite"></a>Conditions préalables
 
-Avant de nous résoudre les problèmes de sauvegarde de l’état système avec sauvegarde Azure, assurez-vous de vous effectuer la ci-dessous les conditions préalables vérifier.  
+Avant de résoudre les problèmes de sauvegarde de l’état du système avec le service Sauvegarde Azure, veillez à effectuer la vérification des conditions préalables indiquées ci-dessous.  
 
-### <a name="verify-windows-server-backup-is-installed"></a>Vérifier la que sauvegarde Windows Server est installée
+### <a name="verify-windows-server-backup-is-installed"></a>Vérifier que la fonctionnalité Sauvegarde Windows Server est installée
 
-Vérifiez que sauvegarde Windows Server est installée et activée sur le serveur. Pour vérifier l’état d’installation, exécutez la commande PowerShell ci-dessous :
+Assurez-vous que la fonctionnalité Sauvegarde Windows Server est installée et activée sur le serveur. Pour vérifier l’état de l’installation, exécutez la commande PowerShell ci-dessous :
 
  ```
  PS C:\> Get-WindowsFeature Windows-Server-Backup
  ```
-Si la sortie affiche le **état d’installation** comme **disponible**, cela signifie que la fonctionnalité de sauvegarde de Windows Server est disponible pour l’installation, mais n’est pas installée sur le serveur. Toutefois si la sauvegarde de Windows Server n’est pas installée, puis utilisez une des méthodes ci-dessous pour l’installer.
+Si la sortie affiche **l’état d’installation** **disponible**, cela signifie que la fonctionnalité Sauvegarde Windows Server est disponible pour l’installation, mais qu’elle n’est pas installée sur le serveur. Toutefois, si elle n’est pas installée, utilisez l’une des méthodes ci-dessous pour l’installer.
 
-**Méthode 1 : Installer la sauvegarde de Windows Server à l’aide de PowerShell**
+**Méthode 1 : installer la fonctionnalité Sauvegarde Windows Server à l’aide de PowerShell**
 
-Pour installer la sauvegarde de Windows Server à l’aide de PowerShell, exécutez la commande ci-dessous :
+Pour installer la fonctionnalité Sauvegarde Windows Server à l’aide de PowerShell, exécutez la commande ci-dessous :
 
   ```
   PS C:\> Install-WindowsFeature -Name Windows-Server-Backup
   ```
 
-**Méthode 2 : Installer à l’aide du Gestionnaire de serveur de sauvegarde de Windows Server**
+**Méthode 2 : installer la fonctionnalité Sauvegarde Windows Server à l’aide du Gestionnaire de serveur**
 
-Pour installer la sauvegarde de Windows Server à l’aide du Gestionnaire de serveur, effectuez la ci-dessous :
+Pour installer la fonctionnalité Sauvegarde Windows Server à l’aide de PowerShell, procédez comme suit :
 
-1. Dans le **Manager Server** et cliquez sur **ajouter des rôles et fonctionnalités**. Le **Assistant Ajout de rôles et fonctionnalités** s’affiche.
+1. Dans le **Gestionnaire de serveur**, cliquez sur **Ajouter des rôles et des fonctionnalités**. **L’Assistant Ajout de rôles et de fonctionnalités** s’affiche.
 
     ![tableau de bord](./media/backup-azure-system-state-troubleshoot/server_management.jpg)
 
-2. Sélectionnez **Type d’Installation** et cliquez sur **suivant**.
+2. Sélectionnez **Type d’installation**, puis cliquez sur **Suivant**.
 
     ![Type d’installation](./media/backup-azure-system-state-troubleshoot/install_type.jpg)
 
-3. Sélectionnez un serveur du pool de serveurs, cliquez sur **suivant**. Dans le rôle de serveur, conservez la sélection par défaut et cliquez sur **suivant**.
-4. Sélectionnez **sauvegarde Windows Server** dans **fonctionnalités** onglet et cliquez sur **suivant**.
+3. Sélectionnez un serveur dans le pool de serveurs, puis cliquez sur **Suivant**. Dans l’onglet Rôles de serveurs, laissez la sélection par défaut, puis cliquez sur **Suivant**.
+4. Sélectionnez **Sauvegarde Windows Server** dans l’onglet **Fonctionnalités**, puis cliquez sur **Suivant**.
 
     ![features](./media/backup-azure-system-state-troubleshoot/features.png)
 
-5. Dans le **Confirmation** , cliquez sur **installer** pour démarrer le processus d’installation.
-6. Dans le **résultats** onglet, il affichera la sauvegarde Windows Server composant est correctement installé sur votre serveur Windows.
+5. Dans l’onglet **Confirmation**, cliquez sur **Installer** pour démarrer le processus d’installation.
+6. L’onglet **Résultats** affiche la fonctionnalité Sauvegarde Windows Server qui a été installée sur Windows Server.
 
     ![result](./media/backup-azure-system-state-troubleshoot/results.jpg)
 
 
-### <a name="system-volume-information-permission"></a>Autorisation des informations de Volume système
+### <a name="system-volume-information-permission"></a>Autorisation sur le dossier System Volume Information
 
-Assurez-vous que le système Local dispose d’un contrôle total sur **System Volume Information** dossier se trouve dans le volume où windows est installé. Il s’agit généralement **C:\System Volume Information**. Sauvegarde de Windows Server peut échouer si les autorisations ci-dessus ne sont pas définies correctement
+Assurez-vous que le système local dispose d’un contrôle total sur le dossier **System Volume Information** situé dans le volume où Windows est installé. Il s’agit généralement de **C:\System Volume Information**. La fonctionnalité Sauvegarde Windows Server peut échouer si les autorisations indiquées ci-dessus ne sont pas définies correctement.
 
 ### <a name="dependent-services"></a>Services dépendants
 
-Vérifiez les services ci-dessous sont en cours d’exécution :
+Vérifiez que les services indiqués ci-dessous sont en cours d’exécution :
 
-**Nom du service** | **Type de démarrage**
+**Nom du service** : | **Type de démarrage**
 --- | ---
-Appel de procédure distante | Automatique
-Événements de COM + System(EventSystem) | Automatique
-Service(SENS) de Notification d’événement système | Automatique
-Copy(VSS) de clichés instantanés de volume | Manuel
-Provider(SWPRV) de copie de clichés instantanés logiciels Microsoft | Manuel
+Appel de procédure distante (RPC) | Automatique
+Système d’événement COM+ (EventSystem) | Automatique
+Service de notification d’événements système (SENS) | Automatique
+Cliché instantané des volumes (VSS) | Manuel
+Fournisseur de cliché instantané de logiciel Microsoft (SWPRV) | Manuel
 
-### <a name="validate-windows-server-backup-status"></a>Valider l’état de la sauvegarde de Windows Server
+### <a name="validate-windows-server-backup-status"></a>Valider l’état de la fonctionnalité Sauvegarde Windows Server
 
-Pour valider l’état de la sauvegarde de Windows Server, effectuer le ci-dessous :
+Pour valider l’état de la fonctionnalité Sauvegarde Windows Server, procédez comme suit :
 
   * Vérifiez que WSB PowerShell s’exécute.
 
-    -   Exécutez `Get-WBJob` PowerShell avec élévation de privilèges et vérifiez que, elle ne retourne pas l’erreur suivante :
+    -   Exécutez la commande `Get-WBJob` à partir d’une invite PowerShell avec élévation de privilèges et vérifiez qu’elle ne retourne pas l’erreur suivante :
 
     > [!WARNING]
-    > Get-WBJob : Le terme 'Get-WBJob' n’est pas reconnu comme le nom de l’applet de commande, fonction, fichier de script ou programme exécutable. Vérifiez l’orthographe du nom ou, si un chemin d’accès a été inclus, vérifiez que le chemin d’accès est correct et réessayez.
+    > Get-WBJob : Le terme Get-WBJob n’est pas reconnu comme nom de cmdlet, fonction, fichier de script ou programme exécutable. Vérifiez l’orthographe du nom ou, si un chemin d’accès a été inclus, vérifiez que le chemin d’accès est correct et réessayez.
 
-    -   Si elle échoue avec cette erreur puis réinstallez la fonctionnalité sauvegarde Windows Server sur l’ordinateur serveur, comme indiqué dans les conditions préalables de l’étape 1.
+    -   Si la commande échoue avec cette erreur, réinstallez la fonctionnalité Sauvegarde Windows Server sur l’ordinateur serveur, comme indiqué dans les conditions préalables de l’étape 1.
 
-  * Garantir la sauvegarde de la sauvegarde Windows Server fonctionne correctement, en exécutant la commande à partir de l’invite de commandes avec élévation de privilèges ci-dessous :
+  * Assurez-vous que la fonctionnalité Sauvegarde Windows Server fonctionne correctement en exécutant la commande ci-dessous à partir d’une invite de commandes avec élévation de privilèges :
 
-      ` wbadmin start systemstatebackup -backuptarget:X: -quiet `
+      `wbadmin start systemstatebackup -backuptarget:X: -quiet`
 
       > [!NOTE]
-      >Remplacez les X par la lettre de lecteur du volume où vous voulez stocker l’état du système sauvegarder d’image.
+      >Remplacez X par la lettre du lecteur du volume où vous voulez stocker l’image de sauvegarde de l’état du système.
 
-    - Vérifier régulièrement l’état du travail en exécutant `Get-WBJob` commande à partir de PowerShell avec élévation de privilèges        
-    - Une fois le travail de sauvegarde se termine vérifier l’état final du travail en exécutant `Get-WBJob -Previous 1` commande
+    - Vérifiez régulièrement l’état du travail en exécutant la commande `Get-WBJob` à partir d’une invite PowerShell avec élévation de privilèges.        
+    - Une fois le travail de sauvegarde terminé, vérifiez son état final en exécutant la commande `Get-WBJob -Previous 1`.
 
-Si le travail échoue, il indique un problème de sauvegarde Windows Server, ce qui entraînerait l’agent MARS échec des sauvegardes d’état du système.
+Si le travail échoue, cela indique un problème de Sauvegarde Windows Server, qui entraînerait l’échec des sauvegardes de l’état du système de Microsoft Azure Recovery Services (MARS) Agent.
 
 ## <a name="common-errors"></a>Erreurs courantes
 
@@ -111,23 +134,23 @@ Si le travail échoue, il indique un problème de sauvegarde Windows Server, ce 
 
 | Symptôme | Cause : | Résolution :
 | -- | -- | --
-| -L’agent MARS échoue avec le message d’erreur : « Échec de la tâche de sauvegarde Windows Server avec des erreurs VSS. Vérifiez les journaux des événements VSS pour résoudre l’échec »<br/><br/> -Erreur suivante journal est présent dans les journaux des événements Application VSS : « Un enregistreur VSS a rejeté un événement avec l’erreur 0x800423f2, délai d’expiration de l’enregistreur a expiré entre les événements de blocage et déblocage ».| Enregistreur VSS est impossible d’effectuer dans le temps en raison d’un manque de ressources processeur et mémoire sur l’ordinateur <br/><br/> Un autre logiciel de sauvegarde est déjà à l’aide de l’enregistreur VSS, par conséquent l’opération d’instantané n'a pas pu terminer pour cette sauvegarde | Attente de processeur/mémoire libérés sur le système ou abandonner le processus prend trop de ressources mémoire/processeur et recommencez l’opération <br/><br/>  Attendez que la sauvegarde en cours se termine, recommencez l’opération ultérieurement lorsqu’aucune sauvegarde n’est en cours d’exécution sur l’ordinateur
+| - MARS Agent échoue avec le message d’erreur suivant : « La tâche Sauvegarde Windows Server a échoué avec des erreurs VSS. Consultez les journaux d’événements VSS pour résoudre l’échec ».<br/><br/> - Le journal des erreurs suivant est présent dans les journaux d’événements d’application VSS : « Un enregistreur VSS a rejeté un événement avec l’erreur 0x800423f2. Le délai de l’enregistreur a expiré entre les événements Freeze et Thaw. »| L’enregistreur VSS ne peut pas terminer la tâche à temps en raison d’un manque de ressources d’UC et de mémoire sur la machine. <br/><br/> Comme un autre logiciel de sauvegarde utilise déjà l’enregistreur VSS, l’opération de capture instantanée n’a pas pu se terminer pour cette sauvegarde. | Attendez que des ressources d’UC/de mémoire se libèrent sur le système ou abandonnez les processus qui en consomment trop, puis réessayez l’opération. <br/><br/>  Attendez que la sauvegarde en cours se termine, puis recommencez l’opération ultérieurement lorsque aucune sauvegarde n’est en cours d’exécution sur la machine.
 
 
-### <a name="insufficient-disk-space-to-grow-shadow-copies"></a>Espace disque insuffisant pour augmenter les clichés instantanés
+### <a name="insufficient-disk-space-to-grow-shadow-copies"></a>Espace disque insuffisant pour augmenter le volume de clichés instantanés
 
 | Symptôme | Résolution :
 | -- | --
-| -L’agent MARS échoue avec le message d’erreur : Sauvegarde a échoué car le volume de clichés instantanés ne peut pas augmenter en raison d’un espace disque insuffisant sur les volumes contenant les fichiers système <br/><br/> -Journal d’erreur / d’avertissement à la suite est présente dans les journaux des événements système volsnap : « Il était un espace disque insuffisant sur le volume C: pour augmenter le stockage des clichés instantanés pour les clichés instantanés du lecteur C: en raison de cet échec tous les clichés instantanés de volume C: sont exposés en cours de suppression » | -Libérer de l’espace dans le volume en surbrillance dans le journal des événements afin que l’espace est suffisant pour les clichés instantanés de croître pendant la sauvegarde en cours <br/><br/> -Lorsque vous configurez l’espace de clichés instantanés nous pouvons limiter la quantité d’espace utilisé pour le cliché instantané, pour plus d’informations voir [article](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc788050(v=ws.11)#syntax)
+| - MARS Agent échoue avec le message d’erreur suivant : La sauvegarde a échoué, car le volume de clichés instantanés ne peut pas augmenter en raison d’un espace disque insuffisant sur les volumes contenant les fichiers système. <br/><br/> - Le journal des erreurs/avertissements suivant est présent dans les journaux d’événements système volsnap : « Espace disque insuffisant sur le volume C: pour agrandir l’espace de stockage des clichés instantanés de C:. Suite à cette défaillance, tous les clichés instantanés du volume C: risquent d’être supprimés. » | - Libérez de l’espace dans le volume mis en surbrillance dans le journal des événements afin que l’espace disque soit suffisant pour augmenter le volume des clichés instantanés pendant la sauvegarde en cours. <br/><br/> - Nous pouvons limiter la quantité d’espace utilisé pour les clichés instantanés lors de la configuration de cet espace. Pour plus d’informations, consultez cet [article](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc788050(v=ws.11)#syntax).
 
 
 ### <a name="efi-partition-locked"></a>Partition EFI verrouillée
 
 | Symptôme | Résolution :
 | -- | --
-| Échec de l’agent MARS avec le message d’erreur : « État du système précédent a échoué car la partition système EFI est verrouillée. Cela peut être en raison d’accès de la partition par un tiers de sécurité ou un logiciel de sauvegarde » | -Si le problème est dû à un logiciel de sécurité tiers, vous devez contacter le fournisseur d’antivirus afin qu’il autorise l’agent MARS <br/><br/> -Si un logiciel de sauvegarde tiers est en cours d’exécution, puis attendez qu’elle se termine, puis réessayez arrière des
+| \- MARS Agent échoue avec le message d’erreur suivant : « La sauvegarde de l’état système a échoué, car la partition système EFI est verrouillée. Cela peut être causé par un logiciel de sécurité ou de sauvegarde tiers qui accède à la partition système. » | - Si le problème est dû à un logiciel de sécurité tiers, vous devez contacter le fournisseur de l’antivirus afin qu’il autorise MARS Agent. <br/><br/> - Si un logiciel de sauvegarde tiers est en cours d’exécution, attendez qu’elle se termine, puis recommencez la sauvegarde.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour plus d’informations sur l’état du système Windows dans un déploiement Resource Manager, consultez [sauvegarde d’état du système Windows Server](backup-azure-system-state.md)
+- Pour plus d’informations sur l’état du système Windows dans un déploiement Resource Manager, consultez [Sauvegarder l’état du système Windows dans un déploiement Resource Manager](backup-azure-system-state.md).

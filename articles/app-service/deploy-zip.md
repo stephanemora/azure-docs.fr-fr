@@ -15,10 +15,10 @@ ms.date: 03/07/2018
 ms.author: cephalin;sisirap
 ms.custom: seodec18
 ms.openlocfilehash: aac60d3d4fd154847bdfae3dfb590b947e861e9e
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65978816"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>Déployer votre application sur Azure App Service avec un fichier ZIP ou WAR
@@ -31,7 +31,7 @@ Ce déploiement de fichier ZIP utilise le même service Kudu que celui qui pilot
 - Option pour activer le processus de génération par défaut, qui inclut la restauration de package
 - [Personnalisation du déploiement](https://github.com/projectkudu/kudu/wiki/Configurable-settings#repository-and-deployment-related-settings), notamment exécution de scripts de déploiement  
 - Journaux d’activité de déploiement 
-- Une limite de taille de 2 048 Mo.
+- La taille de fichier ne doit pas dépasser 2 048 Mo.
 
 Pour plus d’informations, consultez la [documentation Kudu](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file).
 
@@ -39,7 +39,7 @@ Le fichier [WAR](https://wikipedia.org/wiki/WAR_(file_format)) est déployé sur
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour accomplir les étapes décrites dans cet article :
 
@@ -81,7 +81,7 @@ az webapp deployment source config-zip --resource-group myResourceGroup --name <
 
 Cette commande déploie les fichiers et répertoires du fichier ZIP vers votre dossier d’applications App Service par défaut (`\home\site\wwwroot`), puis redémarre l’application.
 
-Par défaut, le moteur de déploiement suppose qu’un fichier ZIP est prêt à s’exécuter en tant que-est et ne s’exécute pas l’automatisation de build. Pour activer la même build automation comme dans un [déploiement Git](deploy-local-git.md), définissez le `SCM_DO_BUILD_DURING_DEPLOYMENT` paramètre d’application en exécutant la commande suivante dans le [Cloud Shell](https://shell.azure.com):
+Par défaut, le moteur de déploiement suppose qu’un fichier ZIP est prêt à s’exécuter en l’état et n’effectue aucune automatisation de build. Pour permettre la même automatisation de build que dans un [déploiement Git](deploy-local-git.md), définissez le paramètre d’application `SCM_DO_BUILD_DURING_DEPLOYMENT` en exécutant la commande suivante dans [Azure Cloud Shell](https://shell.azure.com) :
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true

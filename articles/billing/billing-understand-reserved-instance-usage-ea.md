@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 37d43dbdd8de66a10a94827e313679dc6ffd220d
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: b0c7c38ebabfdd142394152f735d40320a98dced
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67490382"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798151"
 ---
 # <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>Obtenir les données d’utilisation et de coûts de la réservation pour les Contrats Entreprise
 
@@ -119,9 +119,9 @@ Obtenez les données Coût amorti et filtrez pour un ordre de réservation à l�
 Vous pouvez rétrofacturer l’utilisation d’une réservation à d’autres organisations par abonnement, groupes de ressources ou étiquettes. Les données des coûts amortis fournissent une valeur monétaire de l’utilisation d’une réservation en fonction des types de données suivants :
 
 - Ressources (par exemple, une machine virtuelle)
-- Groupe de ressources
+- Resource group
 - Balises
-- Abonnement
+- Subscription
 
 ### <a name="get-the-blended-rate-for-chargeback"></a>Obtenir le taux combiné pour la rétrofacturation
 
@@ -139,13 +139,13 @@ Obtenez les données des coûts amortis et filtrez les données pour une instanc
 2. Obtenez les coûts de réservation. Effectuez la somme des valeurs _Cost_ pour obtenir la valeur monétaire de ce que vous avez payé pour l’instance réservée. Le résultat inclut les coûts utilisés et non utilisés de la réservation.
 3. Soustrayez les coûts de réservation des coûts de paiement à l’utilisation estimés pour obtenir les économies estimées.
 
-## <a name="reservation-purchases-and-amortization-in-azure-cost-analysis"></a>Achats de réservation et amortissement dans l’analyse des coûts Azure
+## <a name="reservation-purchases-and-amortization-in-cost-analysis"></a>Achats de réservation et amortissement dans l’analyse des coûts
 
-Le coût de l’instance réservée est disponible dans l’[analyse des coûts Azure en mode préversion](https://preview.portal.azure.com/?feature.canmodifystamps=true&amp;microsoft_azure_costmanagement=stage2&amp;Microsoft_Azure_CostManagement_arm_canary=true&amp;Microsoft_Azure_CostManagement_apiversion=2019-04-01-preview&amp;Microsoft_Azure_CostManagement_amortizedCost=true#blade/Microsoft_Azure_CostManagement/Menu/costanalysis). Par défaut, l’affichage des données de coût concerne le coût réel. Vous pouvez basculer vers le coût amorti. Voici un exemple.
+Les coûts des réservations sont disponibles dans l’[analyse des coûts](https://aka.ms/costanalysis). Par défaut, l’analyse des coûts montre le **Coût réel**, qui est ce qui apparaîtra sur votre facture. Pour voir les achats des réservations ventilés et associés aux ressources qui ont utilisé l’avantage, passez au **Coût amorti** :
 
 ![Exemple montrant où sélectionner le coût amorti dans l’analyse des coûts](./media/billing-understand-reserved-instance-usage-ea/portal-cost-analysis-amortized-view.png)
 
-Appliquez des filtres pour afficher vos frais en fonction d’une réservation ou d’un type de frais. Regroupez par nom de réservation pour voir les coûts ventilés par réservations.
+Regroupez par type de coût pour voir une ventilation de l’utilisation, des achats et des remboursements, ou regroupez par réservation pour une ventilation de la réservation et des coûts à la demande. Rappelez-vous que les seuls coûts de réservation que vous voyez en examinant le coût réel sont des achats, mais que les coûts sont alloués aux ressources individuelles qui ont utilisé l’avantage quand vous regardez le coût amorti. Vous voyez aussi un nouveau type de coût, **UnusedReservation**, quand vous regardez le coût amorti.
 
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
 

@@ -6,37 +6,37 @@ services: time-series-insights
 author: ashannon7
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: jasonh, kfile, anshan
+ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: e3336df30873b40d2b8a464d1f866b524f76776d
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: dc192b1e8f5492cdfbfb434b5efb573182c51bb1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66236997"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164578"
 ---
-# <a name="understand-data-retention-in-azure-time-series-insights"></a>Comprendre la conservation des données dans Azure Time Series Insights
+# <a name="understand-data-retention-in-azure-time-series-insights"></a>Comprendre la procédure de conservation des données dans Azure Time Series Insights
 
 Cet article décrit deux paramètres qui affectent la conservation des données dans votre environnement Azure Time Series Insights.
 
 ## <a name="video"></a>Vidéo
 
-### <a name="the-following-video-summarizes-time-series-insights-data-retention-and-how-to-plan-for-itbr"></a>La vidéo suivante résume la rétention des données Time Series Insights et comment il planifier.</br>
+### <a name="the-following-video-summarizes-time-series-insights-data-retention-and-how-to-plan-for-itbr"></a>Dans cette vidéo, nous traitons de la conservation des données dans Time Series Insights et de sa planification.</br>
 
 > [!VIDEO https://www.youtube.com/embed/03x6zKDQ6DU]
 
-Chacun de vos environnements Azure Time Series a un paramètre qui contrôle **durée de conservation des données**. La valeur est comprise entre 1 et 400 jours. Les données sont supprimées en fonction de la capacité de stockage d’environnement ou de la durée de rétention, le premier prévalant.
+Chacun de vos environnements Azure Time Series inclut un paramètre qui contrôle la **durée de conservation des données**. La valeur est comprise entre 1 et 400 jours. Les données sont supprimées en fonction de la capacité de stockage ou de la durée de conservation de l’environnement, selon ce qui se présente en premier.
 
-En outre, votre environnement Azure Time Series a un **comportement de limite de stockage dépassée** paramètre. Il contrôle en entrée et vider le comportement lorsque la capacité maximale d’un environnement est atteinte. Il existe deux comportements proposées lors de sa configuration :
+De plus, votre environnement Azure Time Series inclut un paramètre **Comportement de limite de stockage dépassée**. Il contrôle le comportement relatif aux entrées et à la purge lorsque la capacité maximale d’un environnement est atteinte. Vous pouvez choisir entre deux comportements lors de la configuration :
 
 - **Vidage des données anciennes** (par défaut)  
 - **Suspendre l’entrée**
 
 > [!NOTE]
-> Par défaut, lorsque vous créez un nouvel environnement, la conservation est configurée sur **Vidage des données anciennes**. Ce paramètre peut être activé ou désactivé en fonction des besoins après l’heure de création à l’aide du portail Azure, sur le **configurer** page de l’environnement Time Series Insights.
+> Par défaut, lorsque vous créez un nouvel environnement, la conservation est configurée sur **Vidage des données anciennes**. Ce paramètre peut être activé ou désactivé après la création à l’aide du portail Microsoft Azure, sur la page **Configurer** de l’environnement Time Series Insights.
 
 Pour plus d’informations sur la commutation des comportements de conservation, consultez [Configuration de la conservation dans Time Series Insights](time-series-insights-how-to-configure-retention.md).
 
@@ -44,20 +44,20 @@ Comparez le comportement de conservation des données :
 
 ## <a name="purge-old-data"></a>Vidage des données anciennes
 
-- Ce comportement est le comportement par défaut pour les environnements Time Series Insights.  
-- Ce comportement est préférable lorsque les utilisateurs souhaitent toujours voir leur *données les plus récentes* dans leur environnement Time Series Insights.
+- Il s’agit du comportement par défaut pour les environnements Time Series Insights.  
+- Ce comportement est préférable lorsque les utilisateurs souhaitent voir systématiquement leurs *données les plus récentes* dans leur environnement Time Series Insights.
 - Ce comportement *vide* les données une fois que les limites de l’environnement (durée de conservation, taille ou nombre, selon ce qui se présente en premier) sont atteintes. Par défaut, la conservation est définie sur 30 jours.
 - Les données ingérées les plus anciennes sont vidées en premier (approche FIFO).
 
-### <a name="example-one"></a>Exemple 1
+### <a name="example-one"></a>Premier exemple
 
 Prenons l’exemple d’un environnement configuré avec le comportement de conservation **Poursuivre l’entrée et vider les données anciennes** :
 
-**Durée de conservation des données** est définie sur 400 jours. La **Capacité** est définie sur l’unité S1, avec une capacité totale de 30 Go.   Supposons que les données entrantes atteignent en moyenne 500 Mo par jour. Cet environnement ne peut conserver que 60 jours de données étant donné le taux de données entrantes, la capacité maximale étant atteinte après 60 jours. Les données entrantes s’accumulent comme suit : 500 Mo chaque jour x 60 jours = 30 Go.
+La **durée de conservation des données** est définie sur 400 jours. La **Capacité** est définie sur l’unité S1, avec une capacité totale de 30 Go.   Supposons que les données entrantes atteignent en moyenne 500 Mo par jour. Cet environnement ne peut conserver que 60 jours de données étant donné le taux de données entrantes, la capacité maximale étant atteinte après 60 jours. Les données entrantes s’accumulent comme suit : 500 Mo chaque jour x 60 jours = 30 Go.
 
-Le 61ème jour, l’environnement affiche les données les plus récentes, mais vide les données plus anciennes, plues de 60 jours. Le vidage fait de la place pour les nouvelles données entrantes, afin qu’elles puissent toujours être explorées. Si l’utilisateur souhaite conserver les données plus longtemps, ils peut augmenter la taille de l’environnement en ajoutant des unités supplémentaires ou il peut envoyer (push) moins de données.  
+Le 61ème jour, l’environnement affiche les données les plus récentes, mais vide les données les plus anciennes, datant de plus de 60 jours. Le vidage fait de la place pour les nouvelles données entrantes, afin qu’elles puissent toujours être explorées. Si l’utilisateur souhaite conserver les données plus longtemps, ils peut augmenter la taille de l’environnement en ajoutant des unités supplémentaires ou il peut envoyer (push) moins de données.  
 
-### <a name="example-two"></a>Le deuxième exemple
+### <a name="example-two"></a>Deuxième exemple
 
 Prenons l’exemple d’un environnement configuré également avec le comportement de conservation **Poursuivre l’entrée et vider les données anciennes**. Dans cet exemple, la **Durée de conservation des données** est définie sur une valeur inférieure de 180 jours. La **Capacité** est définie sur l’unité S1, avec une capacité totale de 30 Go. Pour stocker des données durant les 180 jours complets, l’entrée quotidienne ne peut pas dépasser 0,166 Go (166 Mo) par jour.  
 
@@ -65,19 +65,19 @@ Lorsque le taux d’entrée quotidien de cet environnement dépasse 0,166 Go par
 
 ## <a name="pause-ingress"></a>Suspendre l’entrée
 
-- Le **suspendre l’entrée** paramètre est conçu pour vous assurer de données ne sont pas vidées si les limites de taille et de nombre sont atteintes avant leur période de rétention.  
-- **Suspendre l’entrée** offre plus de temps pour les utilisateurs augmenter la capacité de leur environnement avant que les données soient vidées en raison de la violation de la période de rétention
-- Il vous aide à vous protéger contre la perte de données mais que vous pouvez créer une opportunité de perte de vos données les plus récentes si l’entrée est suspendue au-delà de la période de rétention de votre source d’événements.
-- Toutefois, une fois que la capacité maximale d’un environnement est atteinte, l’environnement suspend l’entrée de données jusqu'à ce que les actions supplémentaires suivantes se produisent :
+- Le paramètre **Suspendre l’entrée** est conçu pour s’assurer que les données ne sont pas vidées si les limites de taille et de nombre sont atteintes avant leur durée de conservation.  
+- Le paramètre **Suspendre l’entrée** offre plus de temps aux utilisateurs pour augmenter la capacité de leur environnement avant que les données ne soient vidées en raison de la violation de la durée de conservation.
+- Il offre une protection contre la perte de données, mais peut créer une opportunité en cas de perte de vos données les plus récentes si l’entrée est suspendue au-delà de la durée de conservation de votre source d’événements.
+- Toutefois, lorsque la capacité maximale d’un environnement est atteinte, l’environnement suspend l’entrée des données jusqu’à ce que des actions supplémentaires se produisent :
 
-   - Vous augmentez la capacité maximale de l’environnement pour ajouter des unités d’échelle comme décrit dans [mise à l’échelle de votre environnement Time Series Insights](time-series-insights-how-to-scale-your-environment.md).
-   - La période de rétention de données est atteinte et les données sont vidées, apportant l’environnement sous sa capacité maximale.
+   - Vous augmentez la capacité maximale de l’environnement pour ajouter des unités d’échelle comme décrit dans la section [Mise à l’échelle de votre environnement Time Series Insights](time-series-insights-how-to-scale-your-environment.md).
+   - La période de conservation des données est atteinte et les données sont vidées ; l’environnement est ainsi ramené sous sa capacité maximale.
 
-### <a name="example-three"></a>Exemple trois
+### <a name="example-three"></a>Troisième exemple
 
-Prenons l’exemple d’un environnement avec le comportement de conservation configuré sur **Suspendre l’entrée**. Dans cet exemple, la **Durée de conservation des données** est configurée sur 60 jours. **Capacité** est défini sur trois (3) les unités de S1. Supposons que cet environnement connaît une entrée de données de 2 Go par jour. Dans cet environnement, l’entrée est suspendue une fois la capacité maximale atteinte.
+Prenons l’exemple d’un environnement avec le comportement de conservation configuré sur **Suspendre l’entrée**. Dans cet exemple, la **Durée de conservation des données** est configurée sur 60 jours. La **capacité** est définie sur trois (3) unités S1. Supposons que cet environnement connaît une entrée de données de 2 Go par jour. Dans cet environnement, l’entrée est suspendue une fois la capacité maximale atteinte.
 
-À ce stade, l’environnement affiche le même jeu de données jusqu'à ce que l’entrée reprenne ou jusqu'à ce que **poursuivre l’entrée** est activé (ce qui serait purger les données plus anciennes pour faire place aux nouvelles données).
+À ce stade, l’environnement affiche le même jeu de données jusqu’à ce que l’entrée reprenne ou que l’option **Poursuivre l’entrée** soit activée (vidant les données les plus anciennes pour faire de la place aux nouvelles données).
 
 Lorsque l’entrée reprend :
 
@@ -89,12 +89,12 @@ Lorsque l’entrée reprend :
 
 Dans les Event Hubs concernés, envisagez d’ajuster la propriété **Conservation des messages** afin de minimiser la perte de données lorsque l’entrée est suspendue dans Time Series Insights.
 
-[![Rétention des messages Event hub.](media/time-series-insights-contepts-retention/event-hub-retention.png)](media/time-series-insights-contepts-retention/event-hub-retention.png#lightbox)
+[![Conservation des messages Event Hub.](media/time-series-insights-contepts-retention/event-hub-retention.png)](media/time-series-insights-contepts-retention/event-hub-retention.png#lightbox)
 
-Si aucune propriété n’est configurées sur la source d’événement (`timeStampPropertyName`), Time Series Insights par défaut est l’horodatage d’arrivée dans le concentrateur d’événements en tant que l’axe des abscisses. Si `timeStampPropertyName` est configuré pour être autre chose, le recherche environnement configuré `timeStampPropertyName` dans le paquet de données lorsque les événements sont analysés.
+Si aucune propriété n’est configurée sur la source d’événements (`timeStampPropertyName`), Time Series Insights utilise par défaut l’horodatage d’arrivée dans Event Hub comme axe des abscisses. Si le paramètre `timeStampPropertyName` est configuré sur une autre valeur, l’environnement recherche la propriété `timeStampPropertyName` configurée dans le paquet de données lorsque les événements sont analysés.
 
 Si vous devez mettre votre environnement à l’échelle pour prendre en charge une capacité supplémentaire ou pour augmenter la durée de conservation, consultez [Mise à l’échelle de votre environnement Time Series Insights](time-series-insights-how-to-scale-your-environment.md) pour plus d’informations.  
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour plus d’informations sur la configuration ou la modification des paramètres de rétention de données, passez en revue [configuration de la conservation dans Time Series Insights](time-series-insights-how-to-configure-retention.md).
+- Pour en savoir plus sur la commutation ou la modification des paramètres de conservation de données, voir [Configuration de la conservation dans Time Series Insights](time-series-insights-how-to-configure-retention.md).

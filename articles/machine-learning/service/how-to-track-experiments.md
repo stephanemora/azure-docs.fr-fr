@@ -1,7 +1,7 @@
 ---
-title: Consigner les métriques pendant les exécutions d’apprentissage
+title: Consigner les métriques pendant les exécutions d’entraînement
 titleSuffix: Azure Machine Learning service
-description: Découvrez comment ajouter la journalisation à votre script d’entraînement, envoyer l’expérimentation, vérifier la progression d’une tâche en cours d’exécution et afficher les résultats d’une exécution. Vous pouvez effectuer le suivi de vos expériences et surveiller les mesures pour améliorer le processus de création de modèle.
+description: Découvrez comment ajouter la journalisation à votre script d’entraînement, envoyer l’expérimentation, vérifier la progression d’une tâche en cours d’exécution et afficher les résultats d’une exécution. Vous pouvez effectuer le suivi de vos expérimentations et superviser les métriques pour améliorer le processus de création de modèle.
 services: machine-learning
 author: heatherbshapiro
 ms.author: hshapiro
@@ -12,15 +12,15 @@ ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
 ms.openlocfilehash: d3cbc2d5be1f7addf833162b23c5db0786e9d361
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66297474"
 ---
-# <a name="log-metrics-during-training-runs-in-azure-machine-learning"></a>Métriques de journal pendant la formation s’exécute dans Azure Machine Learning
+# <a name="log-metrics-during-training-runs-in-azure-machine-learning"></a>Consigner les métriques pendant les exécutions d’entraînement dans Azure Machine Learning
 
-Dans cet article, découvrez comment ajouter la journalisation à votre script de formation, envoyer une exécution d’expérience, surveillez l’exécution et afficher les résultats d’une exécution dans le service Azure Machine Learning. Améliorer le processus de création de modèle, par le suivi de vos expériences et de métriques de surveillance. 
+Dans cet article, découvrez comment ajouter la journalisation à votre script d’entraînement, soumettre une exécution d’expérience, surveiller l’exécution et afficher les résultats d’une exécution dans le service Azure Machine Learning. Améliorez le processus de création de modèle avec le suivi de vos expériences et la supervision des métriques. 
 
 ## <a name="list-of-training-metrics"></a>Liste des métriques d’entraînement 
 
@@ -48,7 +48,7 @@ Si vous souhaitez suivre ou superviser votre expérimentation, vous devez ajoute
 ## <a name="set-up-the-workspace"></a>Configurer l’espace de travail
 Avant d’ajouter la journalisation et d’envoyer une expérience, vous devez configurer l’espace de travail.
 
-1. Chargez l’espace de travail. Pour en savoir plus sur la définition de la configuration de l’espace de travail, suivez les étapes de [créer un espace de travail du service Azure Machine Learning](setup-create-workspace.md#sdk).
+1. Chargez l’espace de travail. Pour en savoir plus sur la définition de la configuration de l’espace de travail, suivez les étapes sous [Créer un espace de travail Azure Machine Learning service](setup-create-workspace.md#sdk).
 
    ```python
    from azureml.core import Experiment, Run, Workspace
@@ -123,7 +123,7 @@ Le script se termine par ```run.complete()```, ce qui marque l’exécution comm
 
 ## <a name="option-2-use-scriptrunconfig"></a>Option 2 : Utiliser ScriptRunConfig
 
-[**ScriptRunConfig** ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) est une classe pour le paramètre des configurations pour le script s’exécute. Avec cette option, vous pouvez ajouter le code de supervision pour être informé de la fin de l’opération ou pour obtenir un widget visuel à superviser.
+[**ScriptRunConfig**](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) est une classe destinée à la définition des configurations pour les exécutions de script. Avec cette option, vous pouvez ajouter le code de supervision pour être informé de la fin de l’opération ou pour obtenir un widget visuel à superviser.
 
 Cet exemple s’appuie sur le modèle Ridge sklearn de base ci-dessus. Il effectue un simple balayage des paramètres sur les valeurs alpha du modèle pour capturer les métriques et les modèles entraînés dans les exécutions sous l’expérimentation. L’exemple est exécuté localement dans un environnement géré par l’utilisateur. 
 
@@ -219,7 +219,7 @@ Cet exemple s’appuie sur le modèle Ridge sklearn de base ci-dessus. Il effect
 
 ## <a name="manage-a-run"></a>Gérer une exécution
 
-Le [Démarrer, surveiller et annuler les exécutions d’apprentissage](how-to-manage-runs.md) article met en évidence des flux de travail Azure Machine Learning spécifiques pour savoir comment gérer vos expériences.
+L’article [Start, monitor and cancel training runs (Démarrer, surveiller et annuler des exécutions d’entraînement)](how-to-manage-runs.md) met en avant les flux de travail Azure Machine Learning spécifiques pour la gestion de vos expériences.
 
 ## <a name="view-run-details"></a>Afficher les détails de l’exécution
 
@@ -235,7 +235,7 @@ Quand vous utilisez la méthode **ScriptRunConfig** pour envoyer des exécutions
 
    ![Capture d’écran du widget de notebook Jupyter](./media/how-to-track-experiments/widgets.PNG)
 
-2. **[Pour l’exécution de Machine Learning automatisé]**  Pour accéder aux graphiques à partir d’une exécution précédente. Remplacez `<<experiment_name>>` avec le nom d’une expérience appropriée :
+2. **[Pour l’exécution de Machine Learning automatisé]**  Pour accéder aux graphiques à partir d’une exécution précédente. Remplacez `<<experiment_name>>` par le nom d’une expérience appropriée :
 
    ``` 
    from azureml.widgets import RunDetails

@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.openlocfilehash: 5701bb534d0fd0e25aab90f9d1035c96bb55c518
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66476106"
 ---
 # <a name="optimize-apache-spark-jobs"></a>Optimiser des travaux Apache Spark
@@ -23,7 +23,7 @@ Les sections suivantes décrivent des recommandations et des optimisations coura
 
 ## <a name="choose-the-data-abstraction"></a>Choisir l’abstraction des données
 
-Les versions antérieures de Spark utilisent RDD pour données abstraites, Spark 1.3, et 1.6 introduit des trames de données et des jeux de données, respectivement. Voici leurs avantages relatifs respectifs :
+Les versions antérieures de Spark utilisent des RDD pour abstraire des données ; Spark 1.3 et Spark 1.6 ont introduit respectivement les DataFrames et les DataSets. Voici leurs avantages relatifs respectifs :
 
 * **DataFrames**
     * Meilleur choix dans la plupart des cas
@@ -57,11 +57,11 @@ Le meilleur format du point de vue des performances est parquet avec *compressio
 
 Quand vous créez un cluster Spark, vous pouvez sélectionner Stockage Blob Azure ou Azure Data Lake Storage comme stockage par défaut de votre cluster. Les deux options offrent l’avantage d’un stockage à long terme pour les clusters temporaires. Ainsi, vos données ne sont pas supprimées automatiquement quand vous supprimez votre cluster. Vous pouvez recréer un cluster temporaire et encore accéder à vos données.
 
-| Type de magasin | Système de fichiers | Vitesse | Temporaire | Cas d’usage |
+| Type de magasin | Système de fichiers | Vitesse | Temporaire | Cas d'utilisation |
 | --- | --- | --- | --- | --- |
-| un stockage Azure Blob | **wasb:** //url/ | **Standard** | Oui | Cluster temporaire |
-| Azure Data Lake Storage Gen 2| **abfs[s]:** //url/ | **Plus rapide** | Oui | Cluster temporaire |
-| Azure Data Lake Storage Gen 1| **adl:** //url/ | **Plus rapide** | Oui | Cluster temporaire |
+| un stockage Azure Blob | **wasb:** //url/ | **Standard** | OUI | Cluster temporaire |
+| Azure Data Lake Storage Gen 2| **abfs[s]:** //url/ | **Plus rapide** | OUI | Cluster temporaire |
+| Azure Data Lake Storage Gen 1| **adl:** //url/ | **Plus rapide** | OUI | Cluster temporaire |
 | HDFS local | **hdfs:** //url/ | **Le plus rapide** | Non | Cluster 24/7 interactif |
 
 ## <a name="use-the-cache"></a>Utiliser le cache

@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 01/14/2018
+ms.date: 03/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: eaade5f9ec9db7e8d224305147dafc264916d9c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: c55828244d73e612da7a7da2d050252cce04aa2c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60899497"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061141"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Guide de dépannage et questions-réponses concernant Application Insights pour Java
 Vous avez des questions concernant [Azure Application Insights dans Java][java] ou vous rencontrez des problèmes ? Voici quelques conseils.
@@ -119,7 +119,7 @@ Vous pouvez également demander à l’enregistreur d’événements une sortie 
 
 ### <a name="spring-boot-starter"></a>Spring Boot Starter
 
-Pour activer la journalisation de kit de développement logiciel avec les applications Spring Boot à l’aide de l’Application Insights Spring Boot Starter, ajoutez le code suivant à la `application.properties` fichier. :
+Pour activer la journalisation du Kit de développement logiciel (SDK) avec les applications Spring Boot à l’aide d’Application Insights Spring Boot Starter, ajoutez le code suivant au fichier `application.properties` :
 
 ```yaml
 azure.application-insights.logger.type=file
@@ -129,7 +129,7 @@ azure.application-insights.logger.level=trace
 
 ### <a name="java-agent"></a>Agent Java
 
-Pour activer la journalisation de l’Agent de machine virtuelle Java la mise à jour le [AI-agent.XML fichier](java-agent.md).
+Pour activer la journalisation de l’Agent JVM, mettez à jour le [fichier AI-Agent.xml](java-agent.md).
 
 ```xml
 <AgentLogger type="FILE">

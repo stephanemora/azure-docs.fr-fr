@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 07/10/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28201e09a4025c0c8820abc6836a5923e48eb885
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f531174c889948308e27109ab4fd80a481ec6bdc
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66742292"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798183"
 ---
 # <a name="configuring-the-custom-banned-password-list"></a>Configuration de la liste de mots de passe interdits personnalisée
 
@@ -29,7 +29,7 @@ La configuration de la liste de mots de passe interdits personnalisée requiert 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com) et accédez à **Azure Active Directory**, **Méthodes d’authentification**, puis **Protection par mot de passe**.
 1. Définissez l’option **Enforce custom list** (Appliquer la liste personnalisée) sur **Oui**.
 1. Ajouter des chaînes à la **liste de mots de passe interdits personnalisée**, à raison d’une chaîne par ligne
-   * La liste de mots de passe interdits personnalisé peut contenir jusqu’à 1 000 mots.
+   * La liste de mots de passe interdits personnalisée peut contenir jusqu’à 1 000 termes.
    * La liste de mots de passe interdits personnalisée respecte la casse.
    * La liste de mots de passe interdits personnalisée prend en compte la substitution de caractères courante.
       * Exemple : « o » et « 0 » ou « a » et « \@ »
@@ -39,6 +39,9 @@ La configuration de la liste de mots de passe interdits personnalisée requiert 
 > [!NOTE]
 > L’application de la mise à jour de la liste de mots de passe interdits personnalisée peut prendre plusieurs heures.
 
+> [!NOTE]
+> La liste des mots de passe interdits personnalisée est limitée à un maximum de 1 000 termes. Elle n’est pas conçue pour bloquer des listes de mots de passe extrêmement longues. Afin de tirer pleinement parti des avantages de la liste des mots de passe interdits personnalisée, Microsoft vous recommande de commencer par passer en revue et comprendre la conception et l’utilisation prévues de la liste des mots de passe interdits personnalisée (voir [Liste des mots de passe interdits personnalisée](concept-password-ban-bad.md#custom-banned-password-list)), ainsi que l’algorithme d’évaluation des mots de passe (voir [Comment les mots de passe sont-ils évalués](concept-password-ban-bad.md#how-are-passwords-evaluated)).
+
 ![Modifier la liste de mots de passe interdits personnalisée sous Méthodes d’authentification dans le portail Azure](./media/howto-password-ban-bad/authentication-methods-password-protection.png)
 
 ## <a name="how-it-works"></a>Fonctionnement
@@ -47,9 +50,10 @@ Chaque fois qu’un utilisateur ou administrateur réinitialise ou modifie un mo
 
 ## <a name="what-do-users-see"></a>Ce que voient les utilisateurs
 
-Lorsqu’un utilisateur tente de réinitialiser un mot de passe pour le remplacer par un mot de passe interdit, le message d’erreur suivant s’affiche :
+Lorsqu’un utilisateur tente de réinitialiser un mot de passe pour le remplacer par un mot de passe interdit, le message d’erreur suivant s’affiche :
 
-Malheureusement, votre mot de passe contient un mot, une expression ou un modèle qui rend votre mot de passe facile à deviner. Réessayez avec un autre mot de passe.
+* Malheureusement, votre mot de passe contient un mot, une expression ou un modèle qui rend votre mot de passe facile à deviner. Réessayez avec un autre mot de passe.
+* Malheureusement, vous ne pouvez pas utiliser ce mot de passe, car il contient des mots ou des caractères qui ont été bloqués par votre administrateur. Réessayez avec un autre mot de passe.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

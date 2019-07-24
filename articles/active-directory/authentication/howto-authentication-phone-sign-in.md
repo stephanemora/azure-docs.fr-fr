@@ -5,21 +5,21 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 07/09/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb10378d890c2b7156b6764321e177a22ffc538a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3125de0d1fd784b30c000bb287b457397c0fbebb
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66472762"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67703036"
 ---
-# <a name="password-less-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>Connexion par téléphone sans mot de passe avec l’application Microsoft Authenticator (préversion publique)
+# <a name="passwordless-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>Connexion par téléphone sans mot de passe avec l’application Microsoft Authenticator (préversion publique)
 
 L’application Microsoft Authenticator vous permet de vous connecter à n’importe quel compte Azure AD sans utiliser de mot de passe. À l’instar de la technologie de [Windows Hello Entreprise](/windows/security/identity-protection/hello-for-business/hello-identity-verification), Microsoft Authenticator a recours à l’authentification par clé pour activer une information d’identification utilisateur qui est liée à un appareil et utilise un code biométrique ou confidentiel.
 
@@ -39,24 +39,7 @@ Pour la préversion publique, un administrateur doit commencer par ajouter une s
 
 ### <a name="steps-to-enable"></a>Procédure d’activation
 
-1. Assurez-vous de disposer de la dernière version du module PowerShell d’Azure Active Directory V2 en préversion publique. Vous pouvez effectuer une désinstallation, puis une réinstallation pour le confirmer. À cette fin, exécutez les commandes suivantes :
-
-    ```powershell
-    Uninstall-Module -Name AzureADPreview
-    Install-Module -Name AzureADPreview
-    ```
-
-2. Authentifiez-vous auprès du locataire Azure AD pour utiliser le module Azure AD PowerShell V2. Vous devez utiliser un compte d’administrateur de la sécurité ou d’administrateur général.
-
-    ```powershell
-    Connect-AzureAD
-    ```
-
-3. Créez la stratégie de connexion de l’authentificateur :
-
-    ```powershell
-    New-AzureADPolicy -Type AuthenticatorAppSignInPolicy -Definition '{"AuthenticatorAppSignInPolicy":{"Enabled":true}}' -isOrganizationDefault $true -DisplayName AuthenticatorAppSignIn
-    ```
+Suivez les étapes de l’article [Activer l’authentification sans mot de passe pour Azure AD](howto-authentication-passwordless-enable.md#enable-new-passwordless-authentication-methods) pour activer les méthodes d’authentification sans mot de passe dans votre annuaire.
 
 ## <a name="how-do-my-end-users-enable-phone-sign-in"></a>Comment mes utilisateurs finals activent-ils la connexion par téléphone ?
 
@@ -76,17 +59,19 @@ Une fois que le compte MFA avec notifications Push est configuré pour l’utili
 
 ### <a name="ad-fs-integration"></a>Intégration AD FS
 
-Lorsqu’un utilisateur a activé les informations d’identification sans mot de passe de Microsoft Authenticator, l’authentification de cet utilisateur implique toujours par défaut l’envoi d’une notification pour approbation. Cette logique empêche les utilisateurs d’un locataire hybride d’être dirigés vers ADFS pour la vérification de la connexion si ces utilisateurs ne suivent pas une étape supplémentaire consistant à cliquer sur « Utilisez votre mot de passe à la place ». Ce processus contourne également les stratégies d’accès conditionnel locales, ainsi que les flux d’authentification directe. Il existe une exception à ce processus : si un paramètre login_hint est spécifié, un utilisateur est automatiquement transféré vers AD FS et contourne la possibilité d’utiliser les informations d’identification sans mot de passe.
+Lorsqu’un utilisateur a activé l’information d’identification sans mot de passe Microsoft Authenticator, l’authentification de cet utilisateur implique toujours par défaut l’envoi d’une notification pour approbation. Cette logique empêche les utilisateurs d’un locataire hybride d’être dirigés vers ADFS pour la vérification de la connexion si ces utilisateurs ne suivent pas une étape supplémentaire consistant à cliquer sur « Utilisez votre mot de passe à la place ». Ce processus contourne également les stratégies d’accès conditionnel locales, ainsi que les flux d’authentification directe. Il existe une exception à ce processus : si un paramètre login_hint est spécifié, un utilisateur est automatiquement transféré vers AD FS et contourne la possibilité d’utiliser l’information d’identification sans mot de passe.
 
 ### <a name="azure-mfa-server"></a>Serveur Azure MFA
 
-Les utilisateurs finals qui sont activés pour l’authentification MFA par le biais d’un serveur Azure MFA local d’une organisation peuvent toujours créer et utiliser des informations d’identification de connexion par téléphone sans mot de passe. Si l’utilisateur tente de mettre à niveau plusieurs installations (supérieures à 5) de Microsoft Authenticator avec cette information d’identification, cette modification peut générer une erreur.  
+Les utilisateurs finals qui sont activés pour MFA par le biais d’un serveur Azure MFA local d’une organisation peuvent toujours créer et utiliser une information d’identification de connexion par téléphone sans mot de passe. Si l’utilisateur tente de mettre à niveau plusieurs installations (supérieures à 5) de Microsoft Authenticator avec cette information d’identification, cette modification peut générer une erreur.  
 
 ### <a name="device-registration"></a>Inscription des appareils
 
 L’une des conditions requises pour la création de cette information d’identification forte est que l’appareil sur lequel elle réside soit inscrit dans le locataire Azure AD pour un utilisateur spécifique. Du fait des restrictions en matière d’inscription d’appareil, un appareil ne peut être inscrit que dans un seul locataire. Cette limite signifie qu’un seul compte professionnel ou scolaire de l’application Microsoft Authenticator peut être activé pour la connexion par téléphone.
 
 ## <a name="next-steps"></a>Étapes suivantes
+
+[Présentation de l’authentification sans mot de passe](concept-authentication-passwordless.md)
 
 [En savoir plus sur l’inscription des appareils](../devices/overview.md#getting-devices-in-azure-ad)
 

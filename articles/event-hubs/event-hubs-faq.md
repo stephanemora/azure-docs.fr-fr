@@ -11,10 +11,10 @@ ms.custom: seodec18
 ms.date: 05/15/2019
 ms.author: shvija
 ms.openlocfilehash: c5e58f7bc89fbe2d93f6610465abf4a92fd31406
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66476119"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Forum Aux Questions (FAQ) sur Event Hubs
@@ -24,14 +24,14 @@ ms.locfileid: "66476119"
 ### <a name="what-is-an-event-hubs-namespace"></a>Qu’est-ce qu’un espace de noms Event Hubs ?
 Un espace de noms est un conteneur d’étendue pour les rubriques Event Hub/Kafka. Il vous donne une valeur unique de [nom de domaine complet](https://en.wikipedia.org/wiki/Fully_qualified_domain_name). Un espace de noms constitue un conteneur d’application qui peut héberger plusieurs rubriques Event Hub/Kafka. 
 
-### <a name="when-do-i-create-a-new-namespace-vs-use-an-existing-namespace"></a>Quand créer un nouvel espace de noms et utilisez un espace de noms existant ?
-Allocations de la capacité ([unités de débit (tu)](#throughput-units)) sont facturées au niveau de l’espace de noms. Un espace de noms est également associé à une région.
+### <a name="when-do-i-create-a-new-namespace-vs-use-an-existing-namespace"></a>À quel moment puis-je créer un espace de noms plutôt que d’en utiliser un ?
+Les allocations de capacité ([unités de débit (TU)](#throughput-units)) sont facturées au niveau de l’espace de noms. Un espace de noms est également associé à une région.
 
-Vous souhaiterez peut-être créer un nouvel espace de noms au lieu d’utiliser un existant dans un des scénarios suivants : 
+Peut-être préférerez-vous créer un espace de noms plutôt que d’en utiliser un dans l’un des scénarios suivants : 
 
-- Vous avez besoin d’un concentrateur d’événements associé à une nouvelle région.
-- Vous avez besoin d’un concentrateur d’événements associé à un autre abonnement.
-- Vous avez besoin d’un concentrateur d’événements avec une allocation de capacité distinctes (autrement dit, la capacité nécessaire pour l’espace de noms avec le hub d’événements ajouté dépasserait le seuil TU 40 et vous ne souhaitez pas accéder pour le cluster dédié)  
+- Vous avez besoin d’un Event Hub associé à une nouvelle région.
+- Vous avez besoin d’un Event Hub associé à un autre abonnement.
+- Vous avez besoin d’un Event Hub avec une allocation de capacité distincte (autrement dit, la capacité nécessaire pour l’espace de noms avec l’Event Hub ajouté dépasse le seuil de 40 TU et vous ne souhaitez pas utiliser le cluster dédié).  
 
 ### <a name="what-is-the-difference-between-event-hubs-basic-and-standard-tiers"></a>Quelle est la différence entre les niveaux De Base et Standard pour les hubs d’événements ?
 
@@ -60,46 +60,46 @@ Le niveau Standard des hubs d’événements prend actuellement en charge une p�
 ### <a name="how-do-i-monitor-my-event-hubs"></a>Comment puis-je surveiller mes Event Hubs ?
 Event Hubs émet des métriques exhaustives qui fournissent l’état de vos ressources à [Azure Monitor](../azure-monitor/overview.md). Elles vous permettent également d’évaluer l’intégrité globale du service Event Hubs non seulement au niveau de l’espace de noms mais également au niveau de l’entité. En savoir plus sur la supervision proposée pour les [Azure Event Hubs](event-hubs-metrics-azure-monitor.md).
 
-### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Quels ports dois-je ouvrir sur le pare-feu ? 
-Vous pouvez utiliser les protocoles suivants avec Azure Service Bus pour envoyer et recevoir des messages :
+### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Quels ports du pare-feu dois-je ouvrir ? 
+Vous pouvez utiliser les protocoles suivants avec Azure Service Bus pour envoyer et recevoir des messages :
 
 - Advanced Message Queuing Protocol (AMQP)
 - HTTP
 - Apache Kafka
 
-Consultez le tableau suivant pour les ports de sortie que vous devez ouvrir pour utiliser ces protocoles pour communiquer avec Azure Event Hubs. 
+Consultez le tableau suivant pour savoir quels ports de sortie vous devez ouvrir afin d’utiliser ces protocoles dans le but de communiquer avec Azure Event Hubs. 
 
-| Protocol | Ports | Détails | 
+| Protocole | Ports | Détails | 
 | -------- | ----- | ------- | 
-| AMQP | 5671 et 5672 | Consultez [guide du protocole AMQP](../service-bus-messaging/service-bus-amqp-protocol-guide.md) | 
+| AMQP | 5671 et 5672 | Consultez le [Guide du protocole AMQP](../service-bus-messaging/service-bus-amqp-protocol-guide.md) | 
 | HTTP, HTTPS | 80, 443 |  |
-| Kafka | 9093 | Consultez [utiliser Event Hubs à partir d’applications de Kafka](event-hubs-for-kafka-ecosystem-overview.md)
+| Kafka | 9093 | Voir [Utiliser Azure Event Hubs à partir d’applications Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md)
 
-### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>Quelles adresses IP dois-je à la liste verte ?
-Pour trouver les adresses IP appropriées à la liste verte pour vos connexions, procédez comme suit :
+### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>Quelles adresses IP dois-je ajouter à la liste verte ?
+Pour trouver les adresses IP à ajouter à la liste verte de vos connexions, procédez comme suit :
 
-1. À partir d’une invite de commandes, exécutez la commande suivante : 
+1. Exécutez la commande suivante depuis une invite de commandes : 
 
     ```
     nslookup <YourNamespaceName>.servicebus.windows.net
     ```
-2. Notez l’adresse IP renvoyée dans `Non-authoritative answer`. Cette adresse IP est statique. Le seul point dans le temps qu’il pourrait être modifié est que si vous restaurez l’espace de noms à un autre cluster.
+2. Notez l’adresse IP renvoyée dans `Non-authoritative answer`. Cette adresse IP est statique. La seule modification susceptible d’entraîner une conséquence serait une restauration de l’espace de noms sur un autre cluster.
 
-Si vous utilisez la redondance de zone pour votre espace de noms, vous devez effectuer quelques étapes supplémentaires : 
+Si vous utilisez la redondance de zone pour votre espace de noms, vous devez suivre quelques étapes supplémentaires : 
 
-1. Tout d’abord, vous exécutez nslookup sur l’espace de noms.
+1. Tout d’abord, exécutez nslookup sur l’espace de noms.
 
     ```
     nslookup <yournamespace>.servicebus.windows.net
     ```
-2. Notez le nom dans la **réponse ne faisant pas autorité** section, qui est dans un des formats suivants : 
+2. Notez le nom dans la section **Réponse ne faisant pas autorité**, qui se présente dans l’un des formats suivants : 
 
     ```
     <name>-s1.servicebus.windows.net
     <name>-s2.servicebus.windows.net
     <name>-s3.servicebus.windows.net
     ```
-3. Exécutez nslookup pour chacun d’eux avec des suffixes s1, s2 et s3 pour obtenir les adresses IP de tous les trois instances en cours d’exécution dans trois zones de disponibilité 
+3. Exécutez nslookup pour chacun d’eux avec des suffixes s1, s2 et s3 pour obtenir les adresses IP des 3 instances en cours d’exécution dans 3 zones de disponibilité. 
 
 ## <a name="apache-kafka-integration"></a>Intégration d’Apache Kafka
 

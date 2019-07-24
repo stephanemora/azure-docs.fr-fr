@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/19/2019
 ms.author: juliako
-ms.openlocfilehash: f26467a250314fa8a6fe401f4ec1d6a999b6bb4d
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: a951ebd46335ad4639b8499283ddd30f13edd64e
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296207"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605650"
 ---
 # <a name="live-events-and-live-outputs"></a>Événements en direct et Sorties en direct
 
@@ -142,7 +142,7 @@ Vous pouvez utiliser des URL de redirection ou de non-redirection vers un micros
 
 ## <a name="live-event-preview-url"></a>URL de l’aperçu des événements en direct
 
-Une fois que l’**événement en direct** commence à recevoir le flux de contribution, vous pouvez utiliser son point de terminaison d’aperçu pour prévisualiser et valider le flux temps réel que vous recevez avant de continuer la publication. Après avoir vérifié que le flux d’aperçu est correct, vous pouvez utiliser l’événement en direct pour rendre le flux temps réel diffusable via un ou plusieurs **points de terminaison de streaming** (créés au préalable). Pour cela, vous créez une [sortie en direct](https://docs.microsoft.com/rest/api/media/liveoutputs) sur l’**événement en direct**. 
+Une fois que l’événement en direct commence à recevoir le flux de contribution, vous pouvez utiliser son point de terminaison d’aperçu pour prévisualiser et valider le flux temps réel que vous recevez avant de continuer la publication. Après avoir vérifié que le flux d’aperçu est correct, vous pouvez utiliser l’événement en direct pour rendre le flux temps réel diffusable via un ou plusieurs points de terminaison de streaming (créés au préalable). Pour cela, vous créez une [sortie en direct](https://docs.microsoft.com/rest/api/media/liveoutputs) sur l’événement en direct. 
 
 > [!IMPORTANT]
 > Veillez à ce que la vidéo transite par l’URL d’aperçu avant de poursuivre !
@@ -158,11 +158,11 @@ Une fois que le flux transite dans l’événement en direct, vous pouvez commen
 > [!NOTE]
 > Les sorties en direct démarrent dès leur création et s’arrêtent à leur suppression. Quand vous supprimez la sortie en direct, vous ne supprimez pas l’actif multimédia sous-jacent ni le contenu de celui-ci. 
 
-La relation entre un **événement en direct** et ses **sorties en direct** est comparable à la diffusion télévisuelle traditionnelle, où un canal (**événement en direct**) représente un flux vidéo constant et un enregistrement (**sortie en direct**) est limité à une plage horaire spécifique (par exemple, un journal télévisé de 18h30 à 19h). Vous pouvez enregistrer une émission de télévision à l’aide d’un magnétoscope numérique (DVR). La fonctionnalité équivalente dans les événements en direct est gérée par la propriété **ArchiveWindowLength**. Il s’agit d’une période ISO-8601 (par exemple, PTHH:MM:SS), qui spécifie la capacité du magnétoscope numérique. Sa valeur est comprise entre 3 minutes et 25 heures.
+La relation entre un **événement en direct** et ses **sorties en direct** est comparable à la diffusion télévisuelle traditionnelle, où un canal (événement en direct) représente un flux vidéo constant et un enregistrement (sortie en direct) est limité à une plage horaire spécifique (par exemple, un journal télévisé de 18h30 à 19h). Vous pouvez enregistrer une émission de télévision à l’aide d’un magnétoscope numérique (DVR). La fonctionnalité équivalente dans les événements en direct est gérée par la propriété **archiveWindowLength**. Il s’agit d’une période ISO-8601 (par exemple, PTHH:MM:SS), qui spécifie la capacité du magnétoscope numérique. Sa valeur est comprise entre 3 minutes et 25 heures.
 
-L’objet **Sortie en direct** fonctionne comme un magnétoscope qui va capturer et enregistrer le flux temps réel dans un actif multimédia dans votre compte Media Services. Le contenu enregistré est conservé dans le compte de stockage Azure associé à votre compte, dans le conteneur défini par l’actif multimédia. La **sortie en direct** vous permet également de contrôler certaines propriétés du flux temps réel sortant, notamment la quantité du flux conservée dans l’enregistrement archive (par exemple, la capacité du magnétoscope numérique cloud) et le fait que les destinataires sont ou non autorisés à démarrer la lecture du flux. L’archive sur le disque est une archive circulaire de type « fenêtre » qui stocke uniquement la quantité de contenu spécifiée dans la propriété **archiveWindowLength** de la **sortie en direct**. Le contenu qui dépasse cette fenêtre d’archive est automatiquement supprimé du conteneur de stockage et n’est pas récupérable. Vous pouvez créer plusieurs **sorties en direct** (trois maximum) sur un **événement en direct** avec différents paramètres et longueurs de fenêtre d’archive.  
+L’objet Sortie en direct fonctionne comme un magnétoscope qui va capturer et enregistrer le flux temps réel dans un actif multimédia dans votre compte Media Services. Le contenu enregistré est conservé dans le compte de stockage Azure associé à votre compte, dans le conteneur défini par l’actif multimédia. La sortie en direct vous permet également de contrôler certaines propriétés du flux temps réel sortant, notamment la quantité du flux conservée dans l’enregistrement archive (par exemple, la capacité du magnétoscope numérique cloud) et le fait que les destinataires sont autorisés ou non à démarrer la lecture du flux. L’archive sur le disque est une archive circulaire de type « fenêtre » qui stocke uniquement la quantité de contenu spécifiée dans la propriété archiveWindowLength de la sortie en direct. Le contenu qui dépasse cette fenêtre d’archive est automatiquement supprimé du conteneur de stockage et n’est pas récupérable. Vous pouvez créer plusieurs sorties en direct (trois maximum) sur un événement en direct avec différents paramètres et longueurs de fenêtre d’archive.  
 
-Si vous avez publié l’**actif multimédia** de la **sortie en direct** à l’aide d’un **localisateur de streaming**, l’**événement en direct** (jusqu’à la longueur de la fenêtre DVR) restera visible jusqu’à l’expiration ou la suppression du localisateur de streaming, en fonction de ce qui se produit en premier.
+Si vous avez publié l’**actif multimédia** de la sortie en direct à l’aide d’un **localisateur de streaming**, l’événement en direct (jusqu’à la longueur de la fenêtre DVR) restera visible jusqu’à l’expiration ou la suppression du localisateur de streaming, en fonction de ce qui se produit en premier.
 
 Pour plus d’informations, consultez [Utilisation d’un magnétoscope numérique cloud](live-event-cloud-dvr.md).
 

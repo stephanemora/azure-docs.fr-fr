@@ -12,12 +12,12 @@ author: wenjiefu
 ms.author: wenjiefu
 ms.reviewer: sawinark
 manager: craigg
-ms.openlocfilehash: 68a5d5278e1181695695647cff187d4b95624b40
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 05723a90725992e6b955524a2d35c82d3378ee3d
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67537636"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621856"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>Résoudre les problèmes d’exécution de package dans le runtime d’intégration SSIS
 
@@ -57,11 +57,33 @@ La cause possible est que le fournisseur ADO.NET utilisé dans le package n’es
 
 Un problème connu dans les versions antérieures de SQL Server Management Studio (SSMS) peut provoquer cette erreur. Si le package contient un composant personnalisé (par exemple, le Feature Pack SSIS-Azure ou des composants partenaires) qui n’est pas installé sur l’ordinateur où SSMS est utilisé pour effectuer le déploiement, SSMS supprime ce composant et provoque l’erreur. Mettez à niveau [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) vers la dernière version dans laquelle le problème a été résolu.
 
+### <a name="error-messagessis-executor-exit-code--1073741819"></a>Message d’erreur : « Code de sortie de SSIS Executor : -1073741819 ».
+
+* Cause possible et action recommandée :
+  * Cette erreur peut être due à la limitation de la source et de la destination Excel quand plusieurs sources ou destinations Excel s’exécutent en parallèle en multithread. Vous pouvez contourner cette limitation en configurant vos composants Excel pour qu’ils s’exécutent en séquence, ou les séparer en différents packages et déclencher via « Tâche d’exécution de package » avec la propriété ExecuteOutOfProcess définie sur True.
+
 ### <a name="error-message-there-is-not-enough-space-on-the-disk"></a>Message d’erreur : « Espace insuffisant sur le disque »
 
 Cette erreur signifie que le disque local est entièrement utilisé dans le nœud de runtime d’intégration SSIS. Vérifiez si votre package ou configuration personnalisée consomme beaucoup d’espace disque :
 * Si le disque est consommé par votre package, il sera libéré une fois l’exécution du package terminée.
 * Si le disque est consommé par votre configuration personnalisée, vous devez arrêter le runtime d’intégration SSIS, modifier votre script et redémarrer le runtime d’intégration. L’ensemble du conteneur d’objets blob Azure que vous avez spécifié pour la configuration personnalisée est copié dans le nœud de runtime d’intégration SSIS. Par conséquent, vérifiez du contenu inutile se trouve sous ce conteneur.
+
+### <a name="error-message-failed-to-retrieve-resource-from-master-microsoftsqlserverintegrationservicesscalescaleoutcontractcommonmasterresponsefailedexception-code300004-descriptionload-file--failed"></a>Message d’erreur : « Échec de la récupération de la ressource du maître. Microsoft.SqlServer.IntegrationServices.Scale.ScaleoutContract.Common.MasterResponseFailedException : Code : 300004. Description : Échec du chargement du fichier « *** ».
+
+* Cause possible et action recommandée :
+  * Si l’activité SSIS exécute un package à partir du système de fichiers (fichier de package ou fichier projet), cette erreur se produit si le fichier projet, de package ou de configuration n’est pas accessible avec les informations d’identification d’accès au package que vous avez fournies dans l’activité SSIS.
+    * Si vous utilisez Azure Files :
+      * Le chemin du fichier doit commencer par \\\\\<nom du compte de stockage\>.file.core.windows.net\\\<chemin du partage de fichiers\>
+      * Le domaine doit être « Azure »
+      * Le nom d’utilisateur doit être \<nom du compte de stockage\>
+      * Le mot de passe doit être \<clé d’accès du stockage\>
+    * Si vous utilisez un fichier local, vérifiez si le réseau virtuel, les informations d’identification et l’autorisation d’accès au package sont configurés correctement pour que votre runtime d’intégration Azure-SSIS puisse accéder à votre partage de fichiers local.
+
+### <a name="error-message-the-file-name--specified-in-the-connection-was-not-valid"></a>Message d’erreur : « Le nom de fichier '...' spécifié dans la connexion n’est pas valide »
+
+* Cause possible et action recommandée :
+  * Le nom de fichier spécifié n’est pas valide
+  * Vérifiez que vous utilisez le nom de domaine complet (FQDN) au lieu du nom court dans votre gestionnaire de connexions
 
 ### <a name="error-message-cannot-open-file-"></a>Message d’erreur : « Impossible d’ouvrir le fichier '...' »
 

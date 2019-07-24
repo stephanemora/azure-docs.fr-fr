@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: anavin
-ms.openlocfilehash: 22521abbc341fa9999738dd51301d3f84c18627a
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.openlocfilehash: 100bbb6e0ed8e2ea5b35e30e7759a3b11c169b60
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919304"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077627"
 ---
 # <a name="virtual-network-peering"></a>Homologation de réseaux virtuels
 
-Homologation de réseaux virtuels vous permet de connecter de façon transparente Azure [réseaux virtuels](virtual-networks-overview.md). Une fois homologués, les réseaux virtuels apparaissent comme un seul réseau à des fins de connectivité. Le trafic entre les machines virtuelles des réseaux virtuels homologués est acheminé via l’infrastructure principale de Microsoft de façon assez semblable au trafic entre des machines virtuelles d’un même réseau virtuel via des adresses IP *privées* seulement. Supports Azure :
+Le Peering d’un réseau virtuel vous permet de connecter des [réseaux virtuels](virtual-networks-overview.md) Azure en toute transparence. Une fois homologués, les réseaux virtuels apparaissent comme un seul réseau à des fins de connectivité. Le trafic entre les machines virtuelles des réseaux virtuels homologués est acheminé via l’infrastructure principale de Microsoft de façon assez semblable au trafic entre des machines virtuelles d’un même réseau virtuel via des adresses IP *privées* seulement. Supports Azure :
 * VNET Peering : connexion de réseaux virtuels dans la même région Azure
 * Global VNET Peering : connexion de réseaux virtuels entre des régions Azure
 
@@ -63,7 +63,7 @@ Lorsque des réseaux virtuels sont homologués, vous pouvez également configure
 
 ![Transit d’homologation de réseaux virtuels](./media/virtual-networks-peering-overview/figure04.png)
 
-Transit de passerelle est pris en charge pour l’homologation de réseau virtuel et Global VNet Peering. Transit de passerelle entre réseaux virtuels créés via des modèles de déploiement différents (Resource Manager et classic) est pris en charge uniquement si la passerelle est dans le réseau virtuel (Resource Manager). Pour en savoir plus sur l’utilisation d’une passerelle pour le transit, consultez [Configure a VPN gateway for transit in a virtual network peering (Configurer une passerelle VPN pour le transit dans une homologation de réseaux virtuels)](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Le transit de la passerelle est pris en charge pour VNET Peering et pour Global VNet Peering. Le transit de la passerelle entre les réseaux virtuels créés par le biais de modèles de déploiement différents (Resource Manager et classique) est pris en charge uniquement si la passerelle se trouve dans le réseau virtuel (Resource Manager). Pour en savoir plus sur l’utilisation d’une passerelle pour le transit, consultez [Configure a VPN gateway for transit in a virtual network peering (Configurer une passerelle VPN pour le transit dans une homologation de réseaux virtuels)](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Lorsque des réseaux virtuels qui partagent une même connexion Azure ExpressRoute sont homologués, le trafic entre eux transite via la relation d’homologation (c’est-à-dire via le réseau principal Azure). Vous pouvez toujours utiliser des passerelles locales dans chaque réseau virtuel pour vous connecter au circuit local. Vous pouvez également utiliser une passerelle partagée et configurer le transit pour la connectivité locale.
 
@@ -78,7 +78,7 @@ Vous pouvez également essayer le [Utilitaire de dépannage pour les problèmes 
 ## <a name="requirements-and-constraints"></a>Exigences et contraintes
 
 Les contraintes ci-après s’appliquent uniquement quand des réseaux virtuels sont appairés à l’échelle mondiale :
-- Ressources dans un réseau virtuel ne peut pas communiquer avec l’adresse IP frontale d’un équilibreur de charge interne de base dans un réseau virtuel homologué dans le monde entier. Prise en charge pour l’équilibreur de charge existe uniquement dans la même région. Prise en charge de l’équilibreur de charge Standard existe pour à la fois, l’homologation et Global VNet Peering. Les services qui utilisent un équilibreur de charge de base qui ne fonctionne pas via une homologation de réseau virtuel Global sont documentées [ici.](virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)
+- Les ressources situées dans un réseau virtuel ne peuvent pas communiquer avec l’adresse IP frontale d’un équilibreur de charge interne de base dans un réseau virtuel appairé à l’échelle mondiale. La prise en charge d’un équilibreur de charge de base n’est proposée que dans la même région. La prise en charge d’un Standard Load Balancer existe pour VNet Peering et Global VNet Peering. Les services utilisant un équilibreur de charge de base qui ne fonctionne pas sur un Peering Global VNet Peering sont détaillés [ici.](virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)
 
 Pour en savoir plus sur les exigences et les contraintes, consultez la section correspondante de l’article [Créer, modifier ou supprimer une homologation de réseau virtuel](virtual-network-manage-peering.md#requirements-and-constraints). Pour en savoir plus sur les limites concernant le nombre d’homologations que vous pouvez créer pour un réseau virtuel, consultez [Abonnement Azure et limites, quotas et contraintes de service](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). 
 
@@ -90,7 +90,7 @@ Pour en savoir plus sur les autorisations requises pour créer une homologation 
 
 Un coût nominal s’applique pour le trafic entrant et sortant qui utilise une connexion d’homologation de réseau virtuel. Pour plus d’informations sur la tarification de VNet Peering (homologation de réseaux virtuels) et Global VNet Peering, consultez la [page des tarifs](https://azure.microsoft.com/pricing/details/virtual-network).
 
-Le transit par passerelle est une propriété d’homologation qui permet à un réseau virtuel d’exploiter la passerelle VPN du réseau virtuel homologué pour la mise en œuvre d’une connectivité intersite ou de réseau virtuel à réseau virtuel. Le trafic qui transite par une passerelle distante dans ce scénario est soumis à des [frais de passerelle VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/) et n’entraîne pas de [frais d’homologation de réseau virtuel (Virtuel Peering)](https://azure.microsoft.com/pricing/details/virtual-network). Par exemple, si VNetA a une passerelle VPN pour la connectivité locale et que VNetB est homologué pour VNetA avec les propriétés appropriées configurées, le trafic à partir de VNetB au niveau local est facturé uniquement de sortie par la tarification de passerelle VPN. Les frais d’homologation de réseau virtuel (VNet Peering) ne s’appliquent pas. Découvrez comment [configurer un transit par passerelle VPN pour l’homologation des réseaux virtuels](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Le transit de passerelle est une propriété de Peering qui permet à un réseau virtuel d’exploiter la passerelle VPN/ExpressRoute du réseau virtuel homologué pour la mise en œuvre d’une connectivité intersite ou de réseau virtuel à réseau virtuel. Le trafic qui transite par une passerelle distante dans ce scénario est soumis à des [frais de passerelle VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/) ou de passerelle ExpressRoute et n’entraîne pas de [frais d’homologation VNet Peering.](https://azure.microsoft.com/pricing/details/virtual-network) Par exemple, si VNetA a une passerelle VPN pour la connectivité locale et que VNetB est homologué pour VNetA avec les propriétés appropriées configurées, le trafic à partir de VNetB vers le système local est uniquement facturé à la sortie en fonction du prix de la passerelle VPN ou d’ExpressRoute. Les frais d’homologation de réseau virtuel (VNet Peering) ne s’appliquent pas. Découvrez comment [configurer un transit par passerelle VPN pour l’homologation des réseaux virtuels](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

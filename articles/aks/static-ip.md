@@ -2,17 +2,17 @@
 title: Utiliser une adresse IP statique avec l’équilibrage de charge d’Azure Kubernetes Service (AKS)
 description: Découvrez comment créer et utiliser une adresse IP statique avec l’équilibreur de charge d’Azure Kubernetes Service (AKS).
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.author: iainfou
-ms.openlocfilehash: d2e4314948eeda0c82c004414f894dafc4d4cff6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: 9e32715766734bcbb150d70aeed2dc5b06a4bcbb
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61031641"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614466"
 ---
 # <a name="use-a-static-public-ip-address-with-the-azure-kubernetes-service-aks-load-balancer"></a>Utiliser une adresse IP statique avec l’équilibreur de charge d’Azure Kubernetes Service (AKS)
 
@@ -22,9 +22,9 @@ Cet article vous montre comment créer une adresse IP publique statique et l’a
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Cet article suppose que vous avez un cluster AKS existant. Si vous avez besoin d’un cluster AKS, consultez le guide de démarrage rapide d’AKS [avec Azure CLI][aks-quickstart-cli] ou [avec le portail Azure][aks-quickstart-portal].
+Cet article suppose que vous avez un cluster AKS existant. Si vous avez besoin d’un cluster AKS, consultez le guide de démarrage rapide d’AKS [avec Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
-Azure CLI 2.0.59 ou version ultérieure doit également être installé et configuré. Exécutez  `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez  [Installation d’Azure CLI 2.0][install-azure-cli].
+Azure CLI 2.0.59 (ou une version ultérieure) doit également être installé et configuré. Exécutez  `az --version` pour trouver la version. Si vous devez effectuer une installation ou une mise à niveau, consultez  [Installer Azure CLI][install-azure-cli].
 
 Actuellement, seule la *référence SKU d’adresse IP de base* est prise en charge. Nous travaillons actuellement à la prise en charge de la référence SKU de ressource d’*adresse IP standard*. Pour plus d’informations, consultez [Types d’adresses IP et méthodes d’allocation dans Azure][ip-sku].
 
@@ -159,7 +159,7 @@ Events:
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus de contrôle du trafic réseau vers vos applications, vous pouvez à la place [créer un contrôleur d’entrée][aks-ingress-basic]. Vous pouvez aussi [créer un contrôleur d’entrée avec une adresse IP publique statique][aks-static-ingress].
+Pour plus de contrôle du trafic réseau vers vos applications, vous pouvez plutôt [créer un contrôleur d’entrée][aks-ingress-basic]. You can also [create an ingress controller with a static public IP address][aks-static-ingress].
 
 <!-- LINKS - External -->
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe

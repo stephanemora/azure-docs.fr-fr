@@ -1,6 +1,6 @@
 ---
-title: Démon application appeler des API web (configuration de l’application) - plateforme d’identité Microsoft
-description: Découvrez comment créer une application démon par appels web API (configuration de l’application)
+title: Application démon conçue pour appeler des API web (configuration d’application) - Plateforme d’identités Microsoft
+description: Découvrez comment générer une application démon qui appelle des API web (configuration d’application)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -16,43 +16,45 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d8d377db827a6548c380128624c21f4ae7896aff
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.openlocfilehash: fd2da6baecdce3ab85a45347f27f573bf814445d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65075324"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055750"
 ---
-# <a name="daemon-app-that-calls-web-apis---code-configuration"></a>Application démon par appels web API - configuration du code
+# <a name="daemon-app-that-calls-web-apis---code-configuration"></a>Application démon appelant des API web - Configuration du code
 
-Découvrez comment configurer le code de votre application démon appelle des API web.
+Découvrez comment configurer le code de votre application démon qui appelle des API web.
 
-## <a name="msal-libraries-supporting-daemon-apps"></a>Applications de démon de prise en charge les bibliothèques MSAL
+## <a name="msal-libraries-supporting-daemon-apps"></a>Bibliothèques MSAL prenant en charge des applications démon
 
-Les bibliothèques Microsoft prenant en charge les applications de démon sont :
+Bibliothèques Microsoft prenant en charge les applications démon :
 
   Bibliothèque MSAL | Description
   ------------ | ----------
-  ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Plateformes prises en charge pour créer une application démon sont les plateformes .NET Framework et .NET Core (pas UWP, Xamarin.iOS et Xamarin.Android en tant que ces plateformes sont utilisées pour créer des applications de client public)
-  ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL.Python | Développement en cours, en version préliminaire publique
-  ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL.Java | Développement en cours, en version préliminaire publique
+  ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Les plateformes prises en charge pour la création d’une application démon sont .NET Framework et .NET Core (et non UWP, Xamarin.iOS et Xamarin.Android, car ces plateformes sont utilisées pour créer des applications clientes publiques)
+  ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL.Python | Développement en cours, en préversion publique
+  ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL.Java | Développement en cours, en préversion publique
 
 ## <a name="configuration-of-the-authority"></a>Configuration de l’autorité
 
-Étant donné que les applications de démon n’utilisent pas les autorisations déléguées, mais les autorisations d’application, leur *pris en charge le type de compte* ne peut pas être *comptes dans n’importe quel répertoire Professionnel et personnel Microsoft comptes () par exemple, Skype, Xbox, Outlook.com)*. En effet, il n’existe aucun administrateur locataire à donner son consentement à l’application démon pour les comptes Microsoft personnels. Vous devrez choisir *des comptes de mon organisation* ou *comptes dans n’importe quelle organisation*.
+Étant donné que les applications démon n’utilisent pas d’autorisations déléguées, mais des autorisations d’application, leur *type de compte pris en charge* ne peut pas être du type *Comptes d’un répertoire organisationnel ni comptes Microsoft personnels (par exemple, Skype, Xbox, Outlook.com)* . En effet, aucun administrateur de locataire n’octroie son consentement à l’application démon pour les comptes Microsoft personnels. Vous devez choisir des *comptes dans mon organisation* ou des *comptes dans une organisation*.
 
-L’autorité spécifiée dans la configuration de l’application doit donc être locataire-ed (en spécifiant un ID de locataire ou un nom de domaine associé à votre organisation). Si vous êtes éditeur de logiciels indépendant et que vous souhaitez fournir un outil d’architecture mutualisé, vous pouvez utiliser `organizations`. Mais n’oubliez pas que vous devrez également expliquer à vos clients comment accorder le consentement de l’administrateur. Consultez [demande de consentement d’un client entier](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant) pour plus d’informations
+L’autorité spécifiée dans la configuration de l’application doit donc être locataire (en spécifiant un ID de locataire ou un nom de domaine associé à votre organisation).
 
-## <a name="application-configuration-and-instantiation"></a>Instanciation et configuration de l’application
+Si vous êtes éditeur de logiciels indépendant et souhaitez fournir un outil mutualisé, vous pouvez utiliser `organizations`. Mais n’oubliez pas que vous devrez également expliquer à vos clients comment accorder le consentement administrateur. Pour plus d’informations, consultez [Demande de consentement d’un client entier](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant). De plus, il existe actuellement une limitation dans la bibliothèque MSAL qui fait que le paramètre `organizations` est autorisé uniquement lorsque les informations d’identification du client sont un secret d’application (et non un certificat). Voir [MSAL.NET bogue n° 891](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/891)
 
-Dans les bibliothèques MSAL, les informations d’identification de client (clé secrète ou certificat) sont passées en tant que paramètre de la construction d’application client confidentiel.
+## <a name="application-configuration-and-instantiation"></a>Instanciation et configuration d’application
+
+Dans les bibliothèques MSAL, les informations d’identification de client (secret ou certificat) sont transmises en tant que paramètre de la construction d’application cliente confidentielle.
 
 > [!IMPORTANT]
-> Même si votre application est une application console en cours d’exécution en tant que service, si c’est une application démon il devra être une application cliente confidentielle.
+> Même si votre application est une application console s’exécutant en tant que service, si c’est une application démon, il devra s’agir d’une application cliente confidentielle.
 
 ### <a name="msalnet"></a>MSAL.NET
 
-Ajouter le [Microsoft.IdentityClient](https://www.nuget.org/packages/Microsoft.Identity.Client) package NuGet à votre application.
+Ajoutez le package NuGet [Microsoft.IdentityClient](https://www.nuget.org/packages/Microsoft.Identity.Client) à votre application.
 
 Utiliser l’espace de noms MSAL.NET
 
@@ -60,13 +62,13 @@ Utiliser l’espace de noms MSAL.NET
 using Microsoft.Identity.Client;
 ```
 
-Le démon sera présentée par un `IConfidentialClientApplication`
+L’application démon est présentée par un paramètre `IConfidentialClientApplication`.
 
 ```CSharp
 IConfidentialClientApplication app;
 ```
 
-Voici le code pour créer une application avec un secret d’application :
+Voici le code permettant de créer une application avec un secret d’application :
 
 ```CSharp
 app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
@@ -75,7 +77,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
            .Build();
 ```
 
-Voici le code pour générer une application avec un certificat :
+Voici le code permettant de créer une application avec un certificat :
 
 ```CSharp
 X509Certificate2 certificate = ReadCertificate(config.CertificateName);
@@ -118,4 +120,4 @@ ConfidentialClientApplication cca = ConfidentialClientApplication
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Application démon - acquisition de jetons pour l’application](./scenario-daemon-acquire-token.md)
+> [Application démon conçue pour appeler des API web - acquisition d’un jeton](./scenario-daemon-acquire-token.md)

@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.openlocfilehash: e35e86bee4dfee21d0a98867c3e0d1d7850ed0ec
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65762009"
 ---
 # <a name="connect-excel-to-apache-hadoop-by-using-power-query"></a>Connecter Excel à Apache Hadoop à l’aide de Power Query
 Une fonctionnalité clé de la solution de données volumineuses (« big data ») de Microsoft est l’intégration d’outils décisionnels (BI) Microsoft à des clusters Apche Hadoop dans Azure HDInsight. Un exemple important de cette intégration est la possibilité de connecter Excel au compte Azure Storage contenant les données associées à votre cluster Hadoop en utilisant le complément Microsoft Power Query pour Excel. Cet article vous explique comment configurer et utiliser Power Query pour interroger des données associées à un cluster Hadoop géré avec HDInsight.
 
-### <a name="prerequisites"></a>Conditions préalables
+### <a name="prerequisites"></a>Prérequis
 Avant de commencer cet article, vous devez disposer des éléments suivants :
 
 * **Un cluster HDInsight**. Pour en configurer un, consultez la section [Prise en main d’Azure HDInsight][hdinsight-get-started].
@@ -41,7 +41,7 @@ Le complément Power Query pour Excel facilite l’importation de données depui
 
    - Excel 2016
 
-     - Cliquez sur le menu **Données**, cliquez sur **Obtenir des données** à partir du ruban **Obtenir et transformer des données**, cliquez sur **Depuis Azure**, puis cliquez sur **Depuis Azure HDInsight(HDFS)**.
+     - Cliquez sur le menu **Données**, cliquez sur **Obtenir des données** à partir du ruban **Obtenir et transformer des données**, cliquez sur **Depuis Azure**, puis cliquez sur **Depuis Azure HDInsight(HDFS)** .
 
        ![HDI.PowerQuery.SelectHdiSource](./media/apache-hadoop-connect-excel-power-query/hdi.powerquery.selecthdisource.excel2016.png)
 
@@ -51,13 +51,13 @@ Le complément Power Query pour Excel facilite l’importation de données depui
    
        ![HDI.PowerQuery.SelectHdiSource][image-hdi-powerquery-hdi-source]
        
-       **Remarque :** Si vous ne voyez pas le **Power Query** menu, accédez à **fichier** > **Options** > **Add-ins**, puis sélectionnez  **Compléments COM** à partir de la liste déroulante **gérer** zone située au bas de la page. Sélectionnez le bouton **OK** et vérifiez que la case correspondant au complément Power Query pour Excel a été cochée.
+       **Remarque :** Si vous ne voyez pas le menu **Power Query**, accédez à **Fichier** > **Options** > **Compléments** et sélectionnez **Compléments COM** dans la zone déroulante **Gérer** en bas de la page. Sélectionnez le bouton **OK** et vérifiez que la case correspondant au complément Power Query pour Excel a été cochée.
        
        **Remarque :** Power Query vous permet également d’importer des données à partir de HDFS en cliquant sur **À partir d’autres sources**.
-4. Pour le champ **Nom du compte**, saisissez le nom du compte de stockage d’objets blob Azure associé à votre cluster, puis cliquez sur **OK**. Ce compte peut être le compte de stockage par défaut ou un compte de stockage lié.  Le format est *https://&lt;StorageAccountName>.blob.core.windows.net/*.
+4. Pour le champ **Nom du compte**, saisissez le nom du compte de stockage d’objets blob Azure associé à votre cluster, puis cliquez sur **OK**. Il peut s’agir du compte de stockage par défaut ou d’un compte de stockage lié.  Le format est *https://&lt;StorageAccountName>.blob.core.windows.net/* .
 5. Pour le champ **Clé du compte**, saisissez la clé du compte de stockage d’objets blob, puis cliquez sur **Enregistrer**. (Entrez les informations sur le compte uniquement la première fois que vous accédez à ce Store.)
 6. Dans le volet **Navigateur** situé à gauche de l’Éditeur de requête, double-cliquez sur le nom du conteneur de stockage d’objets Blob. Par défaut, le nom du conteneur est identique à celui du cluster.
-7. Localisez **HiveSampleData.txt** dans la colonne **Nom** (le chemin du dossier est **../hive/warehouse/hivesampletable/**), puis cliquez sur **Binaire** à gauche de HiveSampleData.txt. HiveSampleData.txt est fourni avec tout le cluster. Si vous le souhaitez, vous pouvez utiliser votre propre fichier.
+7. Localisez **HiveSampleData.txt** dans la colonne **Nom** (le chemin du dossier est **../hive/warehouse/hivesampletable/** ), puis cliquez sur **Binaire** à gauche de HiveSampleData.txt. HiveSampleData.txt est fourni avec tout le cluster. Si vous le souhaitez, vous pouvez utiliser votre propre fichier.
    
     ![HDI.PowerQuery.ImportData][image-hdi-powerquery-importdata]
 8. Le cas échéant, vous pouvez renommer le nom des colonnes. Lorsque vous êtes prêt, cliquez sur **Fermer et charger**.  Les données ont été chargées dans votre classeur :

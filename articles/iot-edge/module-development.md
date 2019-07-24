@@ -10,10 +10,10 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: 5285490ca1a27494cbcd3ea3d6527b78c7d38c8c
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65833436"
 ---
 # <a name="develop-your-own-iot-edge-modules"></a>Développer vos propres modules IoT Edge
@@ -48,7 +48,7 @@ Pour simplifier la création de routes, IoT Edge ajoute le concept de points de
 
 Pour finir, les messages appareil-à-cloud gérés par le hub Edge sont marqués avec les propriétés système suivantes :
 
-| Propriété | Description  |
+| Propriété | Description |
 | -------- | ----------- |
 | $connectionDeviceId | ID d’appareil du client ayant envoyé le message. |
 | $connectionModuleId | ID de module du module ayant envoyé le message. |
@@ -65,9 +65,9 @@ Créez une instance ModuleClient pour connecter votre module au hub IoT Edge en
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Préparer votre environnement de test et développement pour IoT Edge](development-environment.md)
+[Préparer votre environnement de développement et de test pour IoT Edge](development-environment.md)
 
-[Utiliser Visual Studio pour développer C# modules pour IoT Edge](how-to-visual-studio-develop-module.md)
+[Utiliser Visual Studio pour développer des modules C# pour IoT Edge](how-to-visual-studio-develop-module.md)
 
-[Utilisez Visual Studio Code pour développer des modules pour IoT Edge](how-to-vs-code-develop-module.md)
+[Utiliser Visual Studio Code pour développer des modules pour IoT Edge](how-to-vs-code-develop-module.md)
 

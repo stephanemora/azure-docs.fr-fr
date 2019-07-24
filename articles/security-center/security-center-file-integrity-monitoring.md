@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/13/2019
 ms.author: v-mohabe
 ms.openlocfilehash: cc0c319357b39ddb3e88d515613273a6f7dc0867
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65968805"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Supervision d’intégrité de fichier dans Azure Security Center
@@ -38,10 +38,10 @@ Security Center vous recommande des entités à surveiller, pour lesquelles vous
 > [!NOTE]
 > La fonctionnalité Monitoring d’intégrité de fichier (FIM) est prise en charge sur les ordinateurs et les machines virtuelles Windows et Linux, et est disponible dans le niveau Standard de Security Center. Consultez [Tarification](security-center-pricing.md) pour en savoir plus sur les niveaux tarifaires de Security Center. La fonctionnalité FIM charge des données dans l’espace de travail Log Analytics. Des frais de données seront appliqués en fonction de la quantité de données que vous téléchargez. Pour en savoir plus, consultez l’article [Tarification - Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
 
-La fonctionnalité FIM utilise la solution Azure Change Tracking pour identifier les modifications apportées dans votre environnement. Lors de l’analyse de l’intégrité de fichier est activée, vous avez un **Change Tracking** ressource de type **Solution**. Pour plus d’informations de fréquence de collecte de données, consultez [détails de la collection de suivi des modifications de données](https://docs.microsoft.com/azure/automation/automation-change-tracking#change-tracking-data-collection-details) pour Azure Change Tracking.
+La fonctionnalité FIM utilise la solution Azure Change Tracking pour identifier les modifications apportées dans votre environnement. Lorsque la fonctionnalité FIM est activée, vous disposez d’une ressource **Change Tracking** de type **Solution**. Pour plus d’informations sur la fréquence de collecte de données, consultez [Détails de la collecte de données de suivi des modifications](https://docs.microsoft.com/azure/automation/automation-change-tracking#change-tracking-data-collection-details) pour Azure Change Tracking.
 
 > [!NOTE]
-> Si vous supprimez le **Change Tracking** ressource, vous serez également désactiver la fonctionnalité dans Security Center analyse l’intégrité du fichier.
+> Si vous supprimez la ressource **Change Tracking**, vous désactivez également la fonctionnalité FIM dans Security Center.
 
 ## <a name="which-files-should-i-monitor"></a>Quels fichiers dois-je surveiller ?
 Sélectionnez les fichiers qui sont essentiels au fonctionnement de votre système et de vos applications. Nous vous recommandons de choisir des fichiers qui ne sont pas susceptibles d’être modifiés sans planification. La sélection de fichiers qui sont fréquemment modifiés par des applications ou le système d’exploitation (par exemple, les fichiers journaux et les fichiers texte) va surcharger le processus et compromettre la détection des attaques.
@@ -137,7 +137,7 @@ La fenêtre **Détails des modifications** s’ouvre lorsque vous saisissez une 
 
    ![Configuration de l’espace de travail][12]
 
-2. Sélectionnez une protection d’identité. Dans cet exemple, nous avons sélectionné un élément dans le Registre Windows. La fenêtre **Modification pour Change Tracking** s’affiche.
+2. Sélectionnez une protection d’identités. Dans cet exemple, nous avons sélectionné un élément dans le Registre Windows. La fenêtre **Modification pour Change Tracking** s’affiche.
 
    ![Modification pour Change Tracking][13]
 

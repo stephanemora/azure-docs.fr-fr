@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: f6b2f4ef9a4f3f1615081a422a16ea9f2e156571
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7db66f6f4efa5e48f2af9380115de8bcfb75cb86
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60861090"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786682"
 ---
 # <a name="migrate-analytics-from-excel-to-azure-machine-learning-studio"></a>Migrer l’analytique d’Excel vers Azure Machine Learning Studio
 
@@ -44,9 +44,9 @@ Nous avons calculé une *Erreur d’absolue moyenne en pourcentage* et l’avons
 Nous avons suivi ces étapes pour créer notre expérience dans Studio : 
 
 1. chargement du jeu de données dans un fichier csv vers Studio (très petit fichier) ;
-2. création d’une expérience et utilisation du module [Sélectionner des colonnes dans le jeu de données][select-columns] pour sélectionner les mêmes fonctionnalités de données que dans Excel ; 
-3. utilisation du module [Fractionner les données][split] (avec le mode *Expression relative*) pour répartir les données dans les mêmes jeux de données d’apprentissage que dans Excel ; 
-4. expériences avec le module [Régression linéaire][linear-regression] (options par défaut uniquement), documentation et comparaison des résultats à ceux de notre modèle de régression Excel.
+2. création d’une expérience et utilisation du module [Sélectionner des colonnes dans le jeu de données][select-columns] pour sélectionner les mêmes fonctionnalités de données que dans Excel 
+3. utilisation du module [Fractionner les données][split] (avec le mode *Expression relative*) pour répartir les données dans les mêmes jeux de données d’apprentissage que dans Excel 
+4. expériences avec le module [Régression linéaire][linear-regression] (options par défaut uniquement), documentation et comparaison des résultats à ceux de notre modèle de régression Excel
 
 ### <a name="review-initial-results"></a>Examen des résultats initiaux
 Dans un premier temps, le modèle Excel a clairement surpassé le modèle Studio : 
@@ -111,7 +111,7 @@ Avec le classeur ouvert, copiez vos paramètres prédéfinis dans la section de 
 ### <a name="optimization-and-further-experiments"></a>Optimisation et autres expériences
 Maintenant que nous disposions d’une référence avec notre modèle Excel, nous sommes passés à l’optimisation de notre modèle de régression linéaire Machine Learning. Nous avons utilisé le module [Sélection de caractéristiques par filtrage][filter-based-feature-selection] afin d’améliorer notre sélection des éléments de données initiaux. Cela nous a permis d’améliorer les performances de 4,6 % pour l’erreur d’absolue moyenne. Dans les projets à venir, nous utiliserons cette fonctionnalité qui pourrait nous éviter des semaines d’itération des attributs de données afin de trouver le jeu de fonctionnalités approprié pour la modélisation. 
 
-Ensuite, nous prévoyons d’inclure des algorithmes supplémentaires comme les méthodes [bayésiennes][bayesian-linear-regression] ou les [arbres de décision optimisés][boosted-decision-tree-regression] dans notre expérience afin d’en comparer les performances. 
+Ensuite, nous prévoyons d’inclure des algorithmes supplémentaires comme les méthodes [bayésiennes][bayesian-linear-regression]or [Boosted Decision Trees][boosted-decision-tree-regression] dans notre expérience afin d’en comparer les performances. 
 
 Si vous souhaitez expérimenter la régression, un bon jeu de données d’essai est l’exemple de jeu de données de régression d’efficacité énergétique, qui comporte un grand nombre d’attributs numériques. Le jeu de données est fourni dans le cadre des exemples de jeux de données de Studio. Vous pouvez utiliser de nombreux modules d’apprentissage pour prédire la charge de chauffe ou de refroidissement. Le tableau ci-dessous est une comparaison des différents apprentissages de régression à l’aide du jeu de données d’efficacité énergétique, afin de prédire la charge de refroidissement variable cible : 
 
@@ -133,7 +133,7 @@ La capacité à transférer des prévisions analytiques à partir de Studio vers
 Voici des ressources pour vous aider à utiliser la régression : 
 
 * Régression dans Excel. Si vous n’avez jamais tenté d’effectuer une régression dans Excel, ce didacticiel vous facilite la tâche : [https://www.excel-easy.com/examples/regression.html](https://www.excel-easy.com/examples/regression.html)
-* Régression et prévisions. Tyler Chessman a écrit un article de blog expliquant comment effectuer des prévisions de série chronologique dans Excel, qui contient une excellente description de la régression linéaire pour les débutants. [http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts](http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts) 
+* Régression et prévisions. Tyler Chessman a écrit un article de blog expliquant comment effectuer des prévisions de série chronologique dans Excel, qui contient une excellente description de la régression linéaire pour les débutants. [https://www.itprotoday.com/sql-server/understanding-time-series-forecasting-concepts](https://www.itprotoday.com/sql-server/understanding-time-series-forecasting-concepts) 
 * Régression linéaire (moindres carrés ordinaires) : défauts, problèmes et pièges. Pour une introduction et une description de la régression : [https://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ ](https://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
 
 <!-- Module References -->

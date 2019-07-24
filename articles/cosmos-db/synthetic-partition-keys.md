@@ -7,15 +7,15 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: rimman
 ms.openlocfilehash: 1fd436746dcd2e93a1699ac5c68965213c74580e
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65978861"
 ---
 # <a name="create-a-synthetic-partition-key"></a>Créer une clé de partition synthétique
 
-Il est recommandé d’avoir une clé de partition avec de nombreuses valeurs distinctes, telles que des centaines voire des milliers. L'objectif est de répartir vos données et votre charge de travail de manière uniforme entre les éléments associés à ces valeurs de clé de partition. Si une telle propriété n’existe pas dans vos données, vous pouvez construire un *clé de partition synthétique*. Ce document décrit plusieurs techniques de base pour générer une clé de partition synthétiques pour votre conteneur Cosmos.
+Il est recommandé de disposer d’une clé de partition comportant de nombreuses valeurs distinctes (plusieurs centaines ou plusieurs milliers). L'objectif est de répartir vos données et votre charge de travail de manière uniforme entre les éléments associés à ces valeurs de clé de partition. En l’absence d’une telle propriété dans vos données, vous pouvez construire une *clé de partition synthétique*. Ce document décrit plusieurs techniques de base permettant de générer une clé de partition synthétique pour votre conteneur Cosmos.
 
 ## <a name="concatenate-multiple-properties-of-an-item"></a>Concaténer plusieurs propriétés d’un élément
 
@@ -28,7 +28,7 @@ Vous pouvez former une clé de partition en concaténant plusieurs valeurs de pr
 }
 ```
 
-Pour le document précédent, une option consiste à définir /deviceId ou /date comme clé de partition. Utilisez cette option, si vous souhaitez partitionner votre conteneur en fonction des ID d’appareil ou date. Une autre option consiste à concaténer ces deux valeurs dans une propriété `partitionKey` synthétique utilisée comme clé de partition.
+Pour le document précédent, une option consiste à définir /deviceId ou /date comme clé de partition. Utilisez cette option si vous souhaitez partitionner votre conteneur en fonction de l’ID de périphérique ou de la date. Une autre option consiste à concaténer ces deux valeurs dans une propriété `partitionKey` synthétique utilisée comme clé de partition.
 
 ```JavaScript
 {
@@ -38,21 +38,21 @@ Pour le document précédent, une option consiste à définir /deviceId ou /date
 }
 ```
 
-Dans les scénarios en temps réel, vous pouvez avoir des milliers d’articles dans une base de données. Au lieu d’ajouter manuellement la clé synthétique, définissent la logique côté client pour concaténer les valeurs et insérer la clé synthétique dans les éléments de vos conteneurs Cosmos.
+Dans le cadre de scénarios en temps réel, une base de données peut compter des milliers d’éléments. Plutôt que d’ajouter la clé synthétique manuellement, définissez une logique côté client pour concaténer les valeurs et insérer la clé synthétique dans les éléments de vos conteneurs Cosmos.
 
 ## <a name="use-a-partition-key-with-a-random-suffix"></a>Utiliser une clé de partition avec suffixe aléatoire
 
 Pour répartir la charge de travail plus uniformément, une autre stratégie consiste à ajouter un nombre aléatoire à la fin de la valeur de la clé de partition. Cette répartition des éléments vous permet d'effectuer des opérations d'écriture parallèles sur des partitions.
 
-Par exemple, si une clé de partition représente une date. Vous pouvez choisir un nombre aléatoire compris entre 1 et 400 et concaténer en guise de suffixe pour la date. Cette méthode génère des valeurs de clé de partition comme `2018-08-09.1`,`2018-08-09.2`, et ainsi de suite, via `2018-08-09.400`. La clé de partition étant aléatoire, les opérations d'écriture effectuées quotidiennement sur le conteneur sont réparties de manière uniforme sur plusieurs partitions. Cette méthode optimise le parallélisme et le débit global.
+Par exemple, si une clé de partition représente une date. Vous pouvez choisir un nombre aléatoire compris entre  1 et 400  et le concaténer en tant que suffixe de la date. Cette méthode aboutit à des valeurs de clé de partition telles que  `2018-08-09.1`, `2018-08-09.2`, etc., jusqu’à  `2018-08-09.400`. La clé de partition étant aléatoire, les opérations d'écriture effectuées quotidiennement sur le conteneur sont réparties de manière uniforme sur plusieurs partitions. Cette méthode optimise le parallélisme et le débit global.
 
-## <a name="use-a-partition-key-with-pre-calculated-suffixes"></a>Utiliser une clé de partition avec des suffixes précalculées 
+## <a name="use-a-partition-key-with-pre-calculated-suffixes"></a>Utiliser une clé de partition avec suffixes précalculés 
 
-La stratégie de suffixe aléatoire peut améliorer considérablement le débit d’écriture, mais il est difficile à lire un élément spécifique. Vous ne connaissez pas la valeur de suffixe utilisé lorsque vous avez écrit l’élément. Pour le rendre plus facile à lire des éléments individuels, utilisez la stratégie de suffixes précalculées. Au lieu d’utiliser un nombre aléatoire pour distribuer les éléments entre les partitions, utilisez un nombre est calculé en fonction de quelque chose que vous souhaitez interroger.
+La stratégie de suffixe aléatoire peut considérablement améliorer le débit d’écriture, mais il est difficile de lire un élément spécifique. Vous ne connaissez pas la valeur de suffixe utilisée au moment où vous avez écrit l’élément. Pour faciliter la lecture d’éléments individuels, utilisez la stratégie des suffixes précalculés. Au lieu d’utiliser un nombre aléatoire pour répartir les éléments entre les partitions, utilisez un nombre calculé en fonction de ce que vous souhaitez interroger.
 
-Prenons l’exemple précédent, où un conteneur utilise une date comme clé de partition. Supposons maintenant que chaque élément a un `Vehicle-Identification-Number` (`VIN`) attribut que nous souhaitons accéder. En outre, supposons que vous exécutez souvent des requêtes pour rechercher des éléments par le `VIN`, en plus de la date. Avant que votre application n'inscrive l'élément dans le conteneur, elle peut calculer un suffixe basé sur le NIV et l'ajouter à la date de la clé de partition. Le calcul peut générer un nombre compris entre 1 et 400 est réparti uniformément. Ce résultat est similaire aux résultats générés par la méthode de stratégie de suffixe aléatoire. La valeur de la clé de partition correspond alors à la date concaténée avec le résultat calculé.
+Reprenons l’exemple précédent, dans lequel un conteneur utilise une date comme clé de partition. Supposons maintenant que chaque élément a un attribut  `Vehicle-Identification-Number` (`VIN`) auquel nous souhaitons accéder. Supposons également que vous exécutez souvent des requêtes pour rechercher des éléments par `VIN`, en plus de la date. Avant que votre application n'inscrive l'élément dans le conteneur, elle peut calculer un suffixe basé sur le NIV et l'ajouter à la date de la clé de partition. Le calcul peut générer un nombre compris entre 1 et 400, uniformément réparti. Ce résultat est semblable aux résultats obtenus avec la méthode de la stratégie de suffixe aléatoire. La valeur de la clé de partition correspond alors à la date concaténée avec le résultat calculé.
 
-Avec cette stratégie, les écritures sont uniformément réparties sur les valeurs de clé de partition et sur les partitions. Vous pouvez facilement lire un élément particulier et la date, étant donné que vous pouvez calculer la valeur de clé de partition pour un spécifique `Vehicle-Identification-Number`. L’avantage de cette méthode est que vous pouvez éviter la création d’une clé de partition à chaud unique, par exemple, une clé de partition qui prend la charge de travail. 
+Avec cette stratégie, les écritures sont uniformément réparties sur les valeurs de clé de partition et sur les partitions. Vous pouvez facilement lire un élément et une date particuliers, car vous pouvez calculer la valeur de la clé de partition pour un `Vehicle-Identification-Number` spécifique. L’avantage de cette méthode est qu’elle vous évite de créer une clé de partition à chaud unique (la clé de partition qui prend toute la charge de travail). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: hrasheed
-ms.openlocfilehash: c910ed9f1160d30e1d4bda2e85b029eb2ad85b02
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bd2284211c2fdc5a346c6ffb113f89fe311a358c
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237151"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786497"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Planification de la capacité pour les clusters HDInsight
 
@@ -82,7 +82,7 @@ L’échelle d’un cluster est déterminée par la quantité de ses nœuds de m
 
 En fonction de votre type de cluster, l’augmentation du nombre de nœuds worker ajoute de la capacité de calcul supplémentaire (par exemple, davantage de cœurs), mais peut également ajouter à la quantité totale de mémoire requise pour que l’ensemble du cluster prenne en charge le stockage en mémoire des données en cours de traitement. Comme avec le choix de la taille et du type de machine virtuelle, la sélection de l’échelle de cluster appropriée est généralement effectuée de manière empirique, à l’aide de charges de travail simulées ou de requêtes canary.
 
-Vous pouvez faire monter en puissance votre cluster afin de répondre aux pics de charge, puis annuler la montée en puissance quand les nœuds supplémentaires ne sont plus nécessaires. Pour plus d’informations, consultez la rubrique [Mettre à l’échelle les clusters HDInsight](hdinsight-scaling-best-practices.md).
+Vous pouvez faire monter en puissance votre cluster afin de répondre aux pics de charge, puis annuler la montée en puissance quand les nœuds supplémentaires ne sont plus nécessaires. La [fonctionnalité Mise à l’échelle automatique](hdinsight-autoscale-clusters.md) vous permet de mettre automatiquement à l’échelle votre cluster en fonction de métriques et de minutages prédéterminés. Pour plus d’informations sur la mise à l’échelle manuelle de vos clusters, consultez [Mettre à l’échelle des clusters HDInsight](hdinsight-scaling-best-practices.md).
 
 ### <a name="cluster-lifecycle"></a>Cycle de vie du cluster
 

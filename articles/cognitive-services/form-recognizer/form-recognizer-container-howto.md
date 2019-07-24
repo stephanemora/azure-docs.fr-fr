@@ -1,22 +1,23 @@
 ---
-title: Installer et exécuter le conteneur - Form Recognizer
+title: Guide pratique pour installer et exécuter un conteneur pour Form Recognizer
 titleSuffix: Azure Cognitive Services
 description: Découvrez comment utiliser le conteneur Form Recognizer pour analyser des données de formulaire et de table.
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: form-recognizer
+ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: f38752928832b7dee6a7e55f1d25374a64391bbe
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: a251e97d671c4aad0aebb1d6c3349cdc09444308
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441892"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718474"
 ---
 # <a name="install-and-run-form-recognizer-containers"></a>Installer et exécuter des conteneurs Form Recognizer
+
 Le service Azure Form Recognizer utilise la technologie Machine Learning pour identifier et extraire des tables et des paires clé-valeur à partir de formulaires. Il associe à celles-ci des valeurs et des entrées de table, puis génère des données structurées qui incluent les relations dans le fichier d’origine. 
 
 Pour réduire la complexité et intégrer facilement un modèle Form Recognizer personnalisé dans votre processus d’automatisation de flux de travail ou une autre application, vous pouvez appeler le modèle à l’aide d’une simple API REST. Seuls cinq formulaires (ou un formulaire vide et deux formulaires complétés) sont nécessaires pour obtenir des résultats rapides, précis et adaptés à votre contenu. Cela ne nécessite pas d’intervention manuelle et aucune expertise en science des données n’est requise. Cela ne nécessite pas davantage d’étiquetage ou d’annotation de données.
@@ -105,7 +106,7 @@ Utilisez la commande [docker run](https://docs.docker.com/engine/reference/comma
 
 | Placeholder | Valeur |
 |-------------|-------|
-|{BILLING_KEY} | Cette clé sert à démarrer le conteneur. Elle est disponible dans la page **Clés Form Recognizer** sur le portail Azure.  |
+|{BILLING_KEY} | cette clé sert à démarrer le conteneur. Elle est disponible dans la page **Clés Form Recognizer** sur le portail Azure.  |
 |{BILLING_ENDPOINT_URI} | La valeur d’URI du point de terminaison de facturation est disponible dans la page de **Présentation de Form Recognizer** sur le portail Azure.|
 |{COMPUTER_VISION_API_KEY}| La clé est disponible dans la page **Clés de l’API Vision par ordinateur** sur le portail Azure.|
 |{COMPUTER_VISION_ENDPOINT_URI}|Le point de terminaison de facturation. Si vous utilisez une ressource Vision par ordinateur basée sur le cloud, la valeur de l’URI est disponible dans la page **Présentation de l’API Vision par ordinateur** sur le portail Azure. Si vous utilisez un conteneur `cognitive-services-recognize-text`, utilisez l’URL du point de terminaison de facturation transmise au conteneur dans la commande `docker run`.|

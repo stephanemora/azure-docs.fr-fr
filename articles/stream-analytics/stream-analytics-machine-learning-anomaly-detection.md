@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: 706311e2895f311c228b55db971eb88a859530f5
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: e2fd226f1c605821f0fd595832b2cbe26d994fb4
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441678"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612339"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Détection d’anomalies dans Azure Stream Analytics
 
@@ -132,7 +132,7 @@ Le tableau suivant présente les observations de débit pour un seul nœud (6 S
 
 Le tableau suivant présente les observations de débit pour un seul nœud (6 SU) pour le cas partitionné :
 
-| Taille de l’historique (événements) | Durée de la fenêtre (ms) | Nombre total d’événements d’entrée par seconde | Nombre d'appareils |
+| Taille de l’historique (événements) | Durée de la fenêtre (ms) | Nombre total d’événements d’entrée par seconde | Nombre d’appareils |
 | --------------------- | -------------------- | -------------------------- | ------------ |
 | 60 | 1 091 | 1 100 | 10 |
 | 600 | 10 910 | 1 100 | 10 |
@@ -160,6 +160,6 @@ La vidéo suivante montre comment détecter une anomalie en temps réel à l’a
 * [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)
 * [Prise en main d’Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Mise à l’échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
-* [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.ASpx)
+* [Références sur le langage des requêtes d'Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

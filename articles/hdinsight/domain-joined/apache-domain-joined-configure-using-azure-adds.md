@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 04/23/2019
-ms.openlocfilehash: e1bc99cdc089050fbfa931bbbc7b9a6a316a3a75
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: 8699533cd64e6b1778c5e78b8c51eb1efe518c75
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66240174"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67126216"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Configurer un cluster HDInsight avec le pack Sécurité Entreprise en utilisant Azure Active Directory Domain Services
 
@@ -22,12 +22,12 @@ Les clusters Pack Sécurité Entreprise (ESP) offrent un accès multi-utilisateu
 Dans cet article, vous allez apprendre à configurer un cluster HDInsight avec ESP en utilisant Azure Active Directory Domain Services (Azure AD-DS).
 
 > [!NOTE]  
-> ESP est généralement disponible dans HDInsight 3.6 et 4.0 pour les types de cluster : Apache Spark, Interactive, Apache Hadoop et HBase. ESP pour le type de cluster Apache Kafka est disponible en version préliminaire.
+> La protection ESP est généralement disponible dans HDInsight 3.6 et 4.0 pour les types de clusters suivants : Apache Spark, Interactive, Apache Hadoop et HBase. La protection ESP du type de cluster Apache Kafka est en préversion.
 
 ## <a name="enable-azure-ad-ds"></a>Activer Azure AD-DS
 
 > [!NOTE]  
-> Seuls les administrateurs des locataires disposent des privilèges pour activer Azure AD-DS. Si le stockage de cluster est Azure Data Lake Storage (ADLS) Gen1 ou Gen2, vous devez désactiver l’authentification multifacteur (MFA) uniquement pour les utilisateurs qui doivent accéder au cluster à l’aide de la base authentifications Kerberos. Vous pouvez utiliser des [adresses IP approuvées](../../active-directory/authentication/howto-mfa-mfasettings.md#trusted-ips) ou l’[accès conditionnel](../../active-directory/conditional-access/overview.md) afin de désactiver l’authentification MFA pour des utilisateurs spécifiques UNIQUEMENT quand ils accèdent à la plage d’adresses IP sur le réseau virtuel du cluster HDInsight. Si vous utilisez l’accès conditionnel, vérifiez que ce point de terminaison de service AD est activé sur le réseau virtuel HDInsight.
+> Seuls les administrateurs des locataires disposent des privilèges pour activer Azure AD-DS. Si l’espace de stockage en cluster est Azure Data Lake Storage (ADLS) Gen1 ou Gen2, vous devez désactiver l’authentification multifacteur (MFA) uniquement pour les utilisateurs qui accèdent au cluster à l’aide d’une authentification Kerberos de base. Vous pouvez utiliser des [adresses IP approuvées](../../active-directory/authentication/howto-mfa-mfasettings.md#trusted-ips) ou [l’accès conditionnel](../../active-directory/conditional-access/overview.md) afin de désactiver l’authentification MFA pour des utilisateurs spécifiques UNIQUEMENT quand ils accèdent à la plage d’adresses IP du réseau virtuel du cluster HDInsight. Si vous utilisez l’accès conditionnel, vérifiez que ce point de terminaison de service AD est activé sur le réseau virtuel HDInsight.
 >
 > Si le stockage en cluster est Stockage Blob Azure (WASB), ne désactivez pas MFA.
 
@@ -53,7 +53,7 @@ Affichez l’état d’intégrité de vos services AAD-DS en sélectionnant **In
 
 ## <a name="create-and-authorize-a-managed-identity"></a>Créer et autoriser une identité managée
 
-Une **identité managée affectée à l’utilisateur** est utilisée pour simplifier et sécuriser les opérations de services de domaine. Lorsque vous affectez le rôle Contributeur des services de domaine HDInsight à l’identité managée, il peut lire, créer, modifier et supprimer des opérations de services de domaine. Certaines opérations telles que la création des unités d’organisation des services de domaine et principaux de service sont nécessaires pour le Package de sécurité d’entreprise HDInsight. Les identités managées peuvent être créées dans n’importe quel abonnement. Pour plus d’informations sur les gérés identités en général, consultez [gérés d’identités pour les ressources Azure](../../active-directory/managed-identities-azure-resources/overview.md). Pour plus d’informations sur la gestion des identités dans Azure HDInsight, consultez [gérés des identités dans Azure HDInsight](../hdinsight-managed-identities.md).
+Une **identité managée affectée à l’utilisateur** est utilisée pour simplifier et sécuriser les opérations de services de domaine. Lorsque vous affectez le rôle Contributeur des services de domaine HDInsight à l’identité managée, il peut lire, créer, modifier et supprimer des opérations de services de domaine. Certaines opérations telles que la création d’unités d’organisation ou de principaux de service sont nécessaires pour le Pack Sécurité Entreprise HDInsight. Les identités managées peuvent être créées dans n’importe quel abonnement. Pour plus d’informations sur les identités managées en général, consultez l’article [Identités managées pour les ressources Azure](../../active-directory/managed-identities-azure-resources/overview.md). Pour plus d’informations sur le fonctionnement des identités managées dans Azure HDInsight, consultez [Identités managées dans Azure HDInsight](../hdinsight-managed-identities.md).
 
 Pour configurer des clusters ESP, créez une identité managée affectée à l’utilisateur, si vous n’en possédez pas déjà une. Pour obtenir des instructions, voir [Créer, répertorier, supprimer ou affecter un rôle à une identité managée affectée par l’utilisateur à l’aide du portail Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). Ensuite, affectez le rôle **Contributeur de services de domaine HDInsight** à l’identité managée dans le contrôle d’accès Azure AD-DS (des privilèges d’administrateur AAD-DS sont requis pour affecter ce rôle).
 
@@ -61,7 +61,7 @@ Pour configurer des clusters ESP, créez une identité managée affectée à l�
 
 L’affectation du rôle **Contributeur des services de domaine HDInsight** permet de s’assurer que l’identité a un accès approprié (de la part de) pour effectuer les opérations de services de domaine sur le domaine AAD-DS, comme la création ou la suppression d’unités organisationnelles.
 
-Une fois l’identité managée créée et le rôle qui convient donné, l’administrateur AAD-DS peut définir qui peut utiliser cette identité managée. Pour configurer des utilisateurs pour l’identité managée, l’administrateur doit sélectionner l’identité managée dans le portail, puis cliquer sur **Contrôle d’accès (IAM)** sous **Vue d’ensemble**. Puis, sur la droite, l’administrateur doit attribuer le rôle **Opérateur d’identité managée** aux utilisateurs ou groupes qui souhaitent créer des clusters HDInsight ESP. Par exemple, l’administrateur AAD-DS peut attribuer ce rôle à la **MarketingTeam** groupe pour le **sjmsi** identité gérée comme indiqué dans l’image suivante. Cela garantit que les bonnes personnes dans l’organisation ont accès et peuvent utiliser cette identité managée pour la création de clusters ESP.
+Une fois l’identité managée créée et le rôle qui convient donné, l’administrateur AAD-DS peut définir qui peut utiliser cette identité managée. Pour configurer des utilisateurs pour l’identité managée, l’administrateur doit sélectionner l’identité managée dans le portail, puis cliquer sur **Contrôle d’accès (IAM)** sous **Vue d’ensemble**. Puis, sur la droite, l’administrateur doit attribuer le rôle **Opérateur d’identité managée** aux utilisateurs ou groupes qui souhaitent créer des clusters HDInsight ESP. Par exemple, l’administrateur AAD-DS peut attribuer ce rôle au groupe **MarketingTeam** pour l’identité managée **sjmsi** comme illustré sur l’image ci-dessous. Cela garantit que les bonnes personnes dans l’organisation ont accès et peuvent utiliser cette identité managée pour la création de clusters ESP.
 
 ![Attribution du rôle Opérateur d'identité managée HDInsight](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-managed-identity-operator-role-assignment.png)
 
@@ -98,7 +98,7 @@ Après avoir correctement configuré les étapes précédentes, l’étape suiva
 
 ![Pack Sécurité Entreprise Azure HDInsight - Validation de domaine](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-create-cluster-esp-domain-validate.png)
 
-Dès lors que vous activez ESP, les erreurs de configuration courantes en rapport avec Azure AD-DS sont automatiquement détectées et validées. Après avoir corrigé les erreurs, vous pouvez passer à l’étape suivante : 
+Dès lors que vous activez ESP, les erreurs de configuration courantes en rapport avec Azure AD-DS sont automatiquement détectées et validées. Après avoir corrigé ces erreurs, vous pouvez passer à l’étape suivante : 
 
 ![Pack Sécurité Entreprise Azure HDInsight - Échec de validation de domaine](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-create-cluster-esp-domain-validate-failed.png)
 

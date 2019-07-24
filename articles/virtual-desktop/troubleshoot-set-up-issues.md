@@ -4,15 +4,15 @@ description: Découvrez comment détecter et résoudre les problèmes de locatai
 services: virtual-desktop
 author: ChJenk
 ms.service: virtual-desktop
-ms.topic: troubleshoot
-ms.date: 04/08/2019
+ms.topic: troubleshooting
+ms.date: 07/10/2019
 ms.author: v-chjenk
-ms.openlocfilehash: 88e843c410a750387ecf58497dec79586e2a59d8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7ec4e0ffd87c0ef73a551416d8a8cc672f095483
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65523329"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786726"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Création d’un pool de locataires et d’hôtes
 
@@ -118,6 +118,17 @@ Exemple d’erreur brute :
 **Cause 2 :** Le nom de domaine est impossible à résoudre.
 
 **Correctif 2 :** Consultez la section « Error: Domain name doesn't resolve » (Erreur : Impossible de résoudre le nom de domaine) concernant les machines virtuelles qui ne sont pas jointes au domaine dans l’article [Configuration d’une machine virtuelle hôte de session](troubleshoot-vm-configuration.md).
+
+
+### <a name="error-your-deployment-failedunauthorized"></a>Error: Votre déploiement a échoué...\Non autorisé
+
+```Error
+{"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.","details":[{"code":"Unauthorized","message":"{\r\n \"Code\": \"Unauthorized\",\r\n \"Message\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\",\r\n \"Target\": null,\r\n \"Details\": [\r\n {\r\n \"Message\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\"\r\n },\r\n {\r\n \"Code\": \"Unauthorized\"\r\n },\r\n {\r\n \"ErrorEntity\": {\r\n \"ExtendedCode\": \"52020\",\r\n \"MessageTemplate\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\",\r\n \"Parameters\": [\r\n \"default\"\r\n ],\r\n \"Code\": \"Unauthorized\",\r\n \"Message\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\"\r\n }\r\n }\r\n ],\r\n \"Innererror\": null\r\n}"}]}
+```
+
+**Cause :** L’abonnement que vous utilisez est d’un type qui ne peut pas accéder aux fonctionnalités requises dans la région où le client tente de déployer. Par exemple, les abonnements MSDN, Gratuit ou Éducation peuvent afficher cette erreur.
+
+**Correctif :** Modifiez votre type d’abonnement ou votre région pour pouvoir accéder aux fonctionnalités requises.
 
 ### <a name="error-vmextensionprovisioningerror"></a>Error: VMExtensionProvisioningError
 
@@ -337,7 +348,7 @@ Si vous exécutez le modèle Resource Manager GitHub, renseignez les paramètres
 - Pour détecter les problèmes de configuration d’une machine virtuelle dans Windows Virtual Desktop, consultez l’article [Configuration d’une machine virtuelle hôte de session](troubleshoot-vm-configuration.md).
 - Pour détecter les problèmes de connexion au client Windows Virtual Desktop, consultez l’article [Connexions au client Bureau à distance](troubleshoot-client-connection.md).
 - Pour détecter les problèmes d’utilisation de PowerShell avec Windows Virtual Desktop, consultez l’article [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).
-- Pour plus d’informations sur le service en préversion, consultez l’article [Windows Desktop Preview environment](https://docs.microsoft.com/azure/virtual-desktop/environment-setup) (Environnement Windows Desktop en préversion).
-- Suivez le [Didacticiel : Résoudre les problèmes liés aux déploiements de modèles Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot).
+- Pour plus d’informations sur le service en préversion, consultez [Environnement Windows Desktop en préversion](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
+- Suivez le [Didacticiel : Détecter les problèmes liés aux déploiements de modèles Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot).
 - Pour en savoir plus sur les actions d’audit, consultez [Opérations d’audit avec Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
 - Pour en savoir plus sur les actions visant à déterminer les erreurs au cours du déploiement, consultez [Voir les opérations de déploiement](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations).

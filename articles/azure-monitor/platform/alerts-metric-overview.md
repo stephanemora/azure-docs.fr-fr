@@ -7,12 +7,12 @@ ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: alerts
-ms.openlocfilehash: 6138a9ff6bb6d34b09c49fa7b5dbb67cbf5eb1b6
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: ce65d87142df64a9f0c27f3acdb4d6f25e86fb8a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244902"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071630"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Comprendre le fonctionnement des alertes de métrique dans Azure Monitor
 
@@ -29,13 +29,15 @@ Supposons que vous avez créé une règle d’alerte de métrique de seuil stati
 - Ressource cible (ressource Azure à surveiller) : myVM
 - Mesure : Percentage CPU
 - Type de condition : statique
-- Agrégation du temps (statistique exécutée sur des valeurs de mesures brutes ; Les agrégations de temps pris en charge sont Min, Max, Avg, Total, nombre) : Moyenne
+- Agrégation du temps (statistique exécutée sur des valeurs de mesures brutes ; les agrégations de temps prises en charge sont Min, Max, Moy, Total, Nombre) : Moyenne
 - Période (fenêtre de vérification des valeurs de métrique) : Au cours des 5 dernières minutes
 - Fréquence (fréquence à laquelle l’alerte de métrique vérifie si les conditions sont remplies) : 1 minute
 - Opérateur : Supérieur à
 - Seuil : 70
 
 À partir de la création de la règle d’alerte, l’analyse s’exécute chaque minute. Elle examine les valeurs de métrique des 5 dernières minutes et vérifie si la moyenne de ces valeurs est supérieure à 70. Si la condition est remplie (autrement dit, le pourcentage d’UC moyen pour les 5 dernières minutes est supérieur à 70), la règle d’alerte déclenche une notification d’activation. Si vous avez configuré un e-mail ou une action de webhook dans le groupe d’actions associé à la règle d’alerte, vous recevrez une notification sur les deux.
+
+Si vous utilisez plusieurs conditions dans une seule règle, la règle « ajoute » les conditions ensemble.  Autrement dit, l’alerte se déclenche lorsque toutes les conditions qu’elle réunit sont évaluées comme vraies et résolues lorsque l’une des conditions n’est plus vraie. Exemple de ce type d’alerte : « UC supérieure à 90 % » et « La longueur de la file d’attente comprend plus de 300 éléments ». 
 
 ### <a name="alert-rule-with-dynamic-condition-type"></a>Règle d’alerte avec le type de condition dynamique
 
@@ -44,7 +46,7 @@ Supposons que vous avez créé une règle d’alerte de métrique de seuil dynam
 - Ressource cible (ressource Azure à surveiller) : myVM
 - Mesure : Percentage CPU
 - Type de condition : Dynamique
-- Agrégation du temps (statistique exécutée sur des valeurs de mesures brutes ; Les agrégations de temps pris en charge sont Min, Max, Avg, Total, nombre) : Moyenne
+- Agrégation du temps (statistique exécutée sur des valeurs de mesures brutes ; les agrégations de temps prises en charge sont Min, Max, Moy, Total, Nombre) : Moyenne
 - Période (fenêtre de vérification des valeurs de métrique) : Au cours des 5 dernières minutes
 - Fréquence (fréquence à laquelle l’alerte de métrique vérifie si les conditions sont remplies) : 1 minute
 - Opérateur : Supérieur à
@@ -145,37 +147,37 @@ Si vous utilisez aujourd'hui des alertes de métrique classiques et cherchez à 
 
 |Type de ressource pris en charge par les alertes de métrique classiques | Pris en charge par les alertes de métrique |
 |-------------------------------------------------|----------------------------|
-| Microsoft.ApiManagement/service | Oui |
-| Microsoft.Batch/batchAccounts| Oui|
-|Microsoft.Cache/redis| Oui |
-|Microsoft.ClassicCompute/virtualMachines | Non  |
-|Microsoft.ClassicCompute/domainNames/slots/roles | Non |
-|Microsoft.CognitiveServices/accounts | Non  |
-|Microsoft.Compute/virtualMachines | Oui|
-|Microsoft.Compute/virtualMachineScaleSets| Oui|
-|Microsoft.ClassicStorage/storageAccounts| Non  |
-|Microsoft.DataFactory/datafactories | Oui|
-|Microsoft.DBforMySQL/servers| Oui|
-|Microsoft.DBforPostgreSQL/servers| Oui|
-|Microsoft.Devices/IotHubs | Non |
-|Microsoft.DocumentDB/databaseAccounts| Oui|
-|Microsoft.EventHub/namespaces | Oui|
-|Microsoft.Logic/workflows | Oui|
-|Microsoft.Network/loadBalancers |Oui|
-|Microsoft.Network/publicIPAddresses| Oui|
-|Microsoft.Network/applicationGateways| Oui|
-|Microsoft.Network/expressRouteCircuits| Oui|
-|Microsoft.Network/trafficManagerProfiles | Oui|
-|Microsoft.Search/searchServices | Oui|
-|Microsoft.ServiceBus/namespaces| Oui |
-|Microsoft.Storage/storageAccounts | Oui|
-|Microsoft.StreamAnalytics/streamingjobs| Oui|
-|Microsoft.TimeSeriesInsights/environments | Oui|
-|Microsoft. Web/serverfarms | Oui |
-|Microsoft. Web/sites (à l’exclusion de Functions) | Oui|
+| Microsoft.ApiManagement/service | OUI |
+| Microsoft.Batch/batchAccounts| OUI|
+|Microsoft.Cache/redis| OUI |
+|Microsoft.ClassicCompute/virtualMachines | Non |
+|Microsoft.ClassicCompute/domainNames/slots/roles | Non|
+|Microsoft.CognitiveServices/accounts | Non |
+|Microsoft.Compute/virtualMachines | OUI|
+|Microsoft.Compute/virtualMachineScaleSets| OUI|
+|Microsoft.ClassicStorage/storageAccounts| Non |
+|Microsoft.DataFactory/datafactories | OUI|
+|Microsoft.DBforMySQL/servers| OUI|
+|Microsoft.DBforPostgreSQL/servers| OUI|
+|Microsoft.Devices/IotHubs | Non|
+|Microsoft.DocumentDB/databaseAccounts| OUI|
+|Microsoft.EventHub/namespaces | OUI|
+|Microsoft.Logic/workflows | OUI|
+|Microsoft.Network/loadBalancers |OUI|
+|Microsoft.Network/publicIPAddresses| OUI|
+|Microsoft.Network/applicationGateways| OUI|
+|Microsoft.Network/expressRouteCircuits| OUI|
+|Microsoft.Network/trafficManagerProfiles | OUI|
+|Microsoft.Search/searchServices | OUI|
+|Microsoft.ServiceBus/namespaces| OUI |
+|Microsoft.Storage/storageAccounts | OUI|
+|Microsoft.StreamAnalytics/streamingjobs| OUI|
+|Microsoft.TimeSeriesInsights/environments | OUI|
+|Microsoft. Web/serverfarms | OUI |
+|Microsoft. Web/sites (à l’exclusion de Functions) | OUI|
 |Microsoft. Web/hostingEnvironments/multiRolePools | Non|
 |Microsoft. Web/hostingEnvironments/workerPools| Non |
-|Microsoft.SQL/Servers | Non  |
+|Microsoft.SQL/Servers | Non |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

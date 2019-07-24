@@ -16,10 +16,10 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 70ca1e2f4fd831619cc3cd443d98018a35f4e1ef
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65963075"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Didacticiel : Créer des rapports sur le provisionnement automatique de comptes d’utilisateur
@@ -29,7 +29,7 @@ Azure Active Directory comprend un [service d’approvisionnement de comptes d�
 
 Cet article décrit comment vérifier l’état de l’approvisionnement des travaux après qu’ils ont été configurés, et résoudre les problèmes d’approvisionnement d’utilisateurs individuels et de groupes.
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Les connecteurs de provisionnement peuvent être configurés via le [portail Azure](https://portal.azure.com), en suivant la [documentation fournie](../saas-apps/tutorial-list.md) pour l’application prise en charge. Une fois configurés et opérationnels, les travaux de provisionnement peuvent faire l’objet de rapports créés à l’aide de l’une des deux méthodes suivantes :
 
@@ -43,7 +43,7 @@ Cet article utilise les termes suivants, définis ci-dessous :
 
 * **Système source** : référentiel d’utilisateurs à partir duquel le service d’approvisionnement Azure AD se synchronise. Azure Active Directory est le système source pour la majorité des connecteurs de provisionnement pré-intégrés, mais il existe des exceptions (par exemple, la synchronisation entrante Workday).
 
-* **Système cible** : référentiel des utilisateurs avec lequel le service d’approvisionnement Azure AD se synchronise. Il s’agit généralement d’une application SaaS (exemples : Salesforce, ServiceNow, G Suite, Dropbox for Business), mais dans certains cas peut être un système local tel qu’Active Directory (exemple : la synchronisation entrante Workday dans Active Directory).
+* **Système cible** : référentiel des utilisateurs avec lequel le service d’approvisionnement Azure AD se synchronise. Il s’agit généralement d’une application SaaS (exemples : Salesforce, ServiceNow, G Suite, Dropbox for Business), mais dans certains cas, cela peut être un système local comme Active Directory (par exemple, la synchronisation entrante Workday dans Active Directory).
 
 
 ## <a name="getting-provisioning-reports-from-the-azure-management-portal"></a>Obtention de rapports d’approvisionnement du portail de gestion Azure

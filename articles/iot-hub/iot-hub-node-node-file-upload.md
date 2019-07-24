@@ -9,29 +9,29 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 06/28/2017
-ms.openlocfilehash: f60236163cd88822c384bd356a1770d616639174
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d52e0e1093668a65e76bd6600329619240aee182
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65596630"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612592"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Charger des fichiers sur le cloud à partir d’un appareil avec IoT Hub
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
-Ce didacticiel s’appuie sur le code du didacticiel [Envoyer des messages du cloud vers un appareil avec IoT Hub](iot-hub-node-node-c2d.md) pour montrer comment utiliser les [fonctions de chargement de fichiers d’IoT Hub](iot-hub-devguide-file-upload.md) afin de charger un fichier sur le [Stockage Blob Azure](../storage/index.yml). Ce didacticiel explique les procédures suivantes :
+Ce tutoriel s’appuie sur le code du tutoriel [Envoyer des messages cloud-à-appareil avec IoT Hub](iot-hub-node-node-c2d.md) pour montrer comment utiliser les [fonctions de chargement de fichiers d’IoT Hub](iot-hub-devguide-file-upload.md) afin de charger un fichier sur le [Stockage Blob Azure](../storage/index.yml). Ce didacticiel explique les procédures suivantes :
 
-- Fournissez en toute sécurité à un appareil un URI d’objet blob Azure pour le chargement d’un fichier.
-- 
-- Utilisez les notifications de chargement de fichier IoT Hub pour déclencher le traitement du fichier dans votre serveur principal d’application.
+* Fournissez en toute sécurité à un appareil un URI d’objet blob Azure pour le chargement d’un fichier.
 
-Le didacticiel [Prise en main d’IoT Hub](quickstart-send-telemetry-node.md) présente les fonctionnalités de messagerie de base appareil-à-cloud d’IoT Hub. Toutefois, dans certains scénarios, vous ne pouvez pas facilement mapper les données que vos appareils envoient dans des messages appareil-à-cloud relativement petits et acceptés par IoT Hub. Par exemple :
+* Utilisez les notifications de chargement de fichier IoT Hub pour déclencher le traitement du fichier dans votre serveur principal d’application.
 
-*  Fichiers volumineux qui contiennent des images
-*  Videos
-*  Données de vibration échantillonnées à une fréquence élevée
-*  Un certain type de données prétraitées.
+Le guide de démarrage rapide [Envoyer des données de télémétrie d’un appareil à un hub IoT](quickstart-send-telemetry-node.md) présente les fonctionnalités de messages appareil-à-cloud de base d’IoT Hub. Toutefois, dans certains scénarios, vous ne pouvez pas facilement mapper les données que vos appareils envoient dans des messages appareil-à-cloud relativement petits et acceptés par IoT Hub. Par exemple :
+
+* Fichiers volumineux qui contiennent des images
+* Videos
+* Données de vibration échantillonnées à une fréquence élevée
+* Un certain type de données prétraitées.
 
 Ces fichiers sont généralement traités par lot dans le cloud à l’aide d’outils tels que [Azure Data Factory](../data-factory/introduction.md) ou de la pile [Hadoop](../hdinsight/index.yml). Lorsque vous avez besoin de charger des fichiers à partir d’un appareil, vous pouvez quand même exploiter la sécurité et la fiabilité d’IoT Hub.
 
@@ -46,7 +46,7 @@ Ces fichiers sont généralement traités par lot dans le cloud à l’aide d’
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
-* Node.js version 10.0.x ou ultérieure.
+* Node.js version 10.0.x ou ultérieure.
 
 * Un compte Azure actif. (Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) en quelques minutes seulement.)
 
@@ -216,6 +216,8 @@ Vous pouvez utiliser le portail pour afficher le fichier chargé dans le contene
 
 Dans ce didacticiel, vous avez appris à utiliser les fonctionnalités de téléchargement de fichier d’IoT Hub pour simplifier les chargements de fichiers à partir d’appareils. Vous pouvez continuer à explorer les scénarios et fonctionnalités d’IoT Hub avec les articles suivants :
 
-*  [Créer un IoT Hub par programmation](iot-hub-rm-template-powershell.md)
-*  [Présentation du SDK C](iot-hub-device-sdk-c-intro.md)
-*  [Kits de développement logiciel (SDK) Azure IoT](iot-hub-devguide-sdks.md)
+* [Créer un IoT Hub par programmation](iot-hub-rm-template-powershell.md)
+
+* [Présentation du SDK C](iot-hub-device-sdk-c-intro.md)
+
+* [Kits de développement logiciel (SDK) Azure IoT](iot-hub-devguide-sdks.md)

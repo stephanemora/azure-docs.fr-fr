@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: d714756c19b94eafc40cc0dbeffbc07704e8f94e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: efed981b500ff14a66c2355a1d14bd762000622f
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65787817"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606162"
 ---
 # <a name="sample-4---classification-predict-credit-risk-cost-sensitive"></a>Exemple 4 - Classification : Prédire le risque de crédit (sensible au coût)
 
@@ -161,6 +161,7 @@ La troisième colonne contient la valeur de précision, sensible au coût.
 Explorez les autres exemples disponibles pour l’interface visuelle :
 
 - [Exemple 1 - Régression : Prédire le prix de véhicules automobiles](ui-sample-regression-predict-automobile-price-basic.md)
-- [Exemple 2 - Régression : Comparer des algorithmes pour prédire le prix de véhicules automobiles](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
+- [Exemple 2 - Régression : comparer des algorithmes pour prédire le prix de véhicules automobiles](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
 - [Exemple 3 - Classification : Prédire le risque de crédit](ui-sample-classification-predict-credit-risk-basic.md)
 - [Exemple 5 - Classification : Prédire l’évolution](ui-sample-classification-predict-churn.md)
+- [Exemple 6 - Classification : Prédire les retards de vols](ui-sample-classification-predict-flight-delay.md)

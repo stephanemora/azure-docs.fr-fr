@@ -10,10 +10,10 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.openlocfilehash: 3b1872699b8b3ac72424f00cd74bb90b8b7be87f
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65873174"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>Prise en main de l’identité de module et du jumeau de module IoT Hub à l’aide du portail et d’un appareil .NET
@@ -26,7 +26,7 @@ Ce tutoriel vous apprendra à effectuer les opérations suivantes :
 
 1. Créer une identité de module dans le portail.
 
-2. Comment utiliser une mise à jour SDK .NET appareil jumeau de module à partir de votre appareil.
+2. Utiliser un kit de développement logiciel (SDK) .NET pour mettre à jour le jumeau de module à partir de votre appareil.
 
 > [!NOTE]
 > Pour plus d’informations sur les SDK Azure IoT que vous pouvez utiliser pour générer les deux applications qui s’exécutent sur les appareils et sur le serveur de solution principal, consultez l’article [SDK Azure IoT](iot-hub-devguide-sdks.md).
@@ -53,11 +53,11 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 Vous pouvez créer jusqu’à 20 identités de module dans une même identité d’appareil. Cliquez sur le bouton **Ajouter une identité de module** en haut de l’écran pour créer votre première identité de module, que vous appellerez **myFirstModule**.
 
-  ![Détails sur l'appareil](./media/iot-hub-portal-csharp-module-twin-getstarted/create-module-id.png)
+  ![Informations sur l’appareil](./media/iot-hub-portal-csharp-module-twin-getstarted/create-module-id.png)
 
 Enregistrez et cliquez sur l’identité de module que vous venez de créer. Vous pouvez visualiser les détails de l’identité de module. Enregistrez la clé primaire de la chaîne de connexion. Cette clé sera utilisée dans la section suivante, où vous allez configurer votre module sur l’appareil.
 
-  ![Détails sur l'appareil](./media/iot-hub-portal-csharp-module-twin-getstarted/module-details.png)
+  ![Informations sur l’appareil](./media/iot-hub-portal-csharp-module-twin-getstarted/module-details.png)
 
 ## <a name="update-the-module-twin-using-net-device-sdk"></a>Mettre à jour le jumeau de module à l’aide du SDK d’appareil .NET
 
@@ -65,19 +65,19 @@ Vous venez de créer votre identité de module dans votre IoT Hub. Vous allez ma
 
 ## <a name="create-a-visual-studio-project"></a>Créer un projet Visual Studio
 
-Dans Visual Studio, ajoutez un projet Visual C# Bureau classique Windows à la solution existante en utilisant le modèle de projet **Application console (.NET Framework)**. Assurez-vous que la version du .NET Framework est définie sur 4.6.1 ou supérieur. Nommez le projet **UpdateModuleTwinReportedProperties**.
+Dans Visual Studio, ajoutez un projet Visual C# Bureau classique Windows à la solution existante en utilisant le modèle de projet **Application console (.NET Framework)** . Assurez-vous que la version du .NET Framework est définie sur 4.6.1 ou supérieur. Nommez le projet **UpdateModuleTwinReportedProperties**.
 
   ![Créer un projet Visual Studio](./media/iot-hub-csharp-csharp-module-twin-getstarted/update-twins-csharp1.png)
 
 ## <a name="install-the-latest-azure-iot-hub-net-device-sdk"></a>Installer le dernier SDK d’appareil .NET Azure IoT Hub
 
-L’identité de module et le jumeau de module sont disponibles en préversion publique. Il est uniquement disponible dans les IoT Hub en version préliminaire kits device SDK. Dans Visual Studio, ouvrez Outils > Gestionnaire de package Nuget > Gérer les packages Nuget pour la solution. Recherchez Microsoft.Azure.Devices.Client. Assurez-vous que vous avez vérifié incluent la case à cocher en version préliminaire. Sélectionnez la version la plus récente et installez-la. Vous avez maintenant accès à toutes les fonctionnalités de module.
+L’identité de module et le jumeau de module sont disponibles en préversion publique. Ils sont uniquement disponibles dans les kits SDK d’appareil IoT Hub en préversion. Dans Visual Studio, ouvrez Outils > Gestionnaire de package Nuget > Gérer les packages Nuget pour la solution. Recherchez Microsoft.Azure.Devices.Client. Assurez-vous de cocher la case Inclure la version préliminaire. Sélectionnez la version la plus récente et installez-la. Vous avez maintenant accès à toutes les fonctionnalités de module.
 
   ![Installer le kit SDK du service NET Azure IoT Hub V1.16.0-préversion-005](./media/iot-hub-csharp-csharp-module-twin-getstarted/install-sdk.png)
 
 ## <a name="get-your-module-connection-string"></a>Obtenir votre chaîne de connexion du module
 
-Connexion à [Azure portal](https://portal.azure.com/). Accédez à votre IoT Hub, puis cliquez sur Appareils IoT. Recherchez et ouvrez myFirstDevice pour vérifier que myFirstModule a bien été créé. Copiez la chaîne de connexion du module. Vous en aurez besoin à l’étape suivante.
+Connectez-vous au [Portail Azure](https://portal.azure.com/). Accédez à votre IoT Hub, puis cliquez sur Appareils IoT. Recherchez et ouvrez myFirstDevice pour vérifier que myFirstModule a bien été créé. Copiez la chaîne de connexion du module. Vous en aurez besoin à l’étape suivante.
 
   ![Détails du module du Portail Azure](./media/iot-hub-csharp-csharp-module-twin-getstarted/module-detail.png)
 
@@ -165,6 +165,6 @@ Vous êtes maintenant prêt à exécuter les applications. Dans Visual Studio, d
 
 Pour continuer la prise en main de IoT Hub et explorer les autres scénarios IoT, consultez les articles suivants :
 
-* [Prise en main à l’aide de la sauvegarde de .NET et de périphérique .NET du jumeau d’identité et le module de module IoT Hub](iot-hub-csharp-csharp-module-twin-getstarted.md)
+* [Bien démarrer avec le jumeau de module et l’identité de module IoT Hub à l’aide d’une sauvegarde .NET et d’un appareil .NET](iot-hub-csharp-csharp-module-twin-getstarted.md)
 
 * [Bien démarrer avec IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)

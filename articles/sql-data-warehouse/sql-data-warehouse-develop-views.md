@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: d4321f8aef6e754d8a1c5b16ac82b4fa62c40949
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e8d516cfd764f947bd2fe7fc25f6394c313c0d9a
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65873606"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595501"
 ---
 # <a name="views-in-azure-sql-data-warehouse"></a>Vues dans Azure SQL Data Warehouse
 Conseils relatifs à l’utilisation de vues T-SQL dans  Azure SQL Data Warehouse dans le cadre du développement de solutions. 
@@ -23,12 +23,18 @@ Conseils relatifs à l’utilisation de vues T-SQL dans  Azure SQL Data Ware
 ## <a name="why-use-views"></a>Pourquoi utiliser des vues ?
 Des vues peuvent être utilisées de différentes façons afin d’améliorer la qualité de votre solution.  Cet article met en évidence quelques exemples montrant comment enrichir votre solution avec des vues, ainsi que les limites à prendre en considération.
 
+
+> [!IMPORTANT]
+> Consultez la nouvelle syntaxe de vue matérialisée à la page [CREATE MATERIALIZED VIEW AS SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest).  Pour plus d’informations, consultez les [notes de publication](/azure/sql-data-warehouse/release-notes-10-0-10106-0).
+>
+
+
 > [!NOTE]
 > La syntaxe de CREATE VIEW n’est pas abordée dans cet article. Pour plus d’informations, consultez la documentation [CREATE VIEW](/sql/t-sql/statements/create-view-transact-sql).
 > 
-> 
 
 ## <a name="architectural-abstraction"></a>Abstraction architecturale
+
 Un modèle d’application courant consiste à recréer des tables au moyen de la commande CREATE TABLE AS SELECT (CTAS). Ceci est suivi d’un modèle de changement de nom d’un objet lors du chargement des données.
 
 L’exemple suivant permet d’ajouter de nouveaux enregistrements de date à une dimension de date. Notez comment une nouvelle table, DimDate_New, est d’abord créée, puis renommée pour remplacer la version d’origine de la table.

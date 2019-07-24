@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: c8c813a2304797e71499a916e29c18f8bec2b389
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: aa0a1fc2acdc9687030040c23cdb1781e9529169
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65787794"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605693"
 ---
 # <a name="sample-2---regression-predict-price-and-compare-algorithms"></a>Exemple 2 - Régression : Algorithmes de prédiction de prix et de comparaison
 
@@ -60,7 +60,7 @@ Dans cette expérience, nous utilisons le module **Sélectionner des colonnes da
 
 Les problèmes d’apprentissage automatique varient. Les tâches d’apprentissage automatique courantes incluent la classification, le clustering, la régression et les systèmes de recommandation, chacun d’eux pouvant nécessiter un algorithme différent. Votre choix de l’algorithme dépend souvent de la configuration requise pour le cas d’usage. Après avoir sélectionné un algorithme, vous devez ajuster ses paramètres pour effectuer l’apprentissage d’un modèle plus précis. Vous devez ensuite évaluer tous les modèles en fonction des métriques telles que la précision, l’intelligibilité et l’efficacité.
 
-Étant donné que l’objectif de cette expérience est de prédire le prix des voitures, et puisque la colonne d’étiquette (prix) contient des nombres réels, opter pour un modèle de régression est judicieux. En considérant que le nombre de fonctionnalités est relativement bas (inférieur à 100), et que celles-ci ne sont pas éparpillées, la limite de décision est susceptible d’être non linéaire.
+Étant donné que l’objectif de cette expérience est de prédire le prix des voitures, et puisque la colonne d’étiquette (prix) contient des nombres réels, le fait d’opter pour un modèle de régression est judicieux. En considérant que le nombre de fonctionnalités est relativement bas (inférieur à 100), et que celles-ci ne sont pas éparpillées, la limite de décision est susceptible d’être non linéaire.
 
 Pour comparer les performances de différents algorithmes, nous utilisons deux algorithmes non linéaires, **Régression d’arbre de décision optimisé** et **Régression de forêt d’arbres décisionnels**, pour générer des modèles. Les deux algorithmes ont des paramètres que vous pouvez modifier, mais nous utilisons les valeurs par défaut pour cette expérience.
 
@@ -93,6 +93,7 @@ Les deux algorithmes ont un écart inférieur sur le jeu de données d’apprent
 Explorez les autres exemples disponibles pour l’interface visuelle :
 
 - [Exemple 1 - Régression : Prédire le prix de véhicules automobiles](ui-sample-regression-predict-automobile-price-basic.md)
-- [Exemple 3 - Classification : Prédire le risque de crédit](ui-sample-classification-predict-credit-risk-basic.md)
-- [Exemple 4 - Classification : Prédire le risque de crédit (sensible au coût)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
+- [Exemple 3 - Classification : prédire le risque de crédit](ui-sample-classification-predict-credit-risk-basic.md)
+- [Exemple 4 - Classification : prédire le risque de crédit (sensible au coût)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
 - [Exemple 5 - Classification : Prédire l’évolution](ui-sample-classification-predict-churn.md)
+- [Exemple 6 - Classification : Prédire les retards de vols](ui-sample-classification-predict-flight-delay.md)

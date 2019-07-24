@@ -2,17 +2,17 @@
 title: Utilisation du programme de mise à l’échelle automatique de cluster d’Azure Kubernetes Service (AKS)
 description: Découvrez comment utiliser le programme de mise à l’échelle automatique de cluster pour mettre automatiquement à l’échelle votre cluster afin de répondre aux demandes applicatives d’un cluster Azure Kubernetes Service (AKS).
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
-ms.date: 05/31/2019
-ms.author: iainfou
-ms.openlocfilehash: c4fe05c96b1006a7d110caa019619ce8be396fe8
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.date: 07/08/2019
+ms.author: mlearned
+ms.openlocfilehash: 3ce080871ff2a38efcc75f6ff6b584af14014879
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67491556"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67666005"
 ---
 # <a name="preview---automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Préversion : Mettre à l’échelle automatiquement un cluster pour répondre à des demandes applicatives d’Azure Kubernetes Service (AKS)
 
@@ -47,7 +47,7 @@ az extension update --name aks-preview
 Pour créer un AKS qui utilise des groupes identiques, vous devez également activer un indicateur de fonctionnalité sur votre abonnement. Pour enregistrer l’indicateur de fonctionnalité *VMSSPreview*, utilisez la commande [az feature register][az-feature-register], comme indiqué dans l’exemple suivant :
 
 > [!CAUTION]
-> Lorsque vous inscrivez une fonctionnalité sur un abonnement, vous ne pouvez actuellement pas désinscrire cette fonctionnalité. Après avoir activé des fonctionnalités d’évaluation, des valeurs par défaut peuvent être utilisées pour tous les clusters AKS ensuite créés dans l’abonnement. N’activez pas les fonctionnalités d’évaluation sur les abonnements de production. Utilisez un abonnement distinct pour tester les fonctionnalités d’évaluation et recueillir des commentaires.
+> Lorsque vous inscrivez une fonctionnalité sur un abonnement, vous ne pouvez actuellement pas désinscrire cette fonctionnalité. Après avoir activé des fonctionnalités préliminaires, des valeurs par défaut peuvent être utilisées pour tous les clusters AKS créés ultérieurement dans l’abonnement. N’activez pas les fonctionnalités d’évaluation sur les abonnements de production. Utilisez un abonnement distinct pour tester les fonctionnalités d’évaluation et recueillir des commentaires.
 
 ```azurecli-interactive
 az feature register --name VMSSPreview --namespace Microsoft.ContainerService
@@ -59,7 +59,7 @@ Quelques minutes sont nécessaires pour que l’état s’affiche *Registered* (
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/VMSSPreview')].{Name:name,State:properties.state}"
 ```
 
-Lorsque vous êtes prêt, actualisez l’inscription du fournisseur de ressources *Microsoft.ContainerService* à l’aide de la commande [az provider register][az-provider-register] :
+Lorsque vous êtes prêt, actualisez l’inscription du fournisseur de ressources *Microsoft.ContainerService* à l’aide de la commande [az provider register][az-provider-register] :
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -100,7 +100,7 @@ Les deux programmes de mise à l’échelle automatique peuvent fonctionner ense
 Utilisez la commande [az aks create][az-aks-create] pour créer un cluster AKS. Spécifiez un paramètre *--kubernetes-version* égal ou supérieur au numéro de version minimale requis indiqué dans la section précédente [Avant de commencer](#before-you-begin). Pour activer et configurer le programme de mise à l’échelle automatique de cluster, utilisez le paramètre *--enable-cluster-autoscaler*, puis spécifiez un *--min-count* et un *--max-count* de nœuds.
 
 > [!IMPORTANT]
-> L’autoscaler de cluster est un composant Kubernetes. Bien que le cluster AKS utilise un groupe de machines virtuelles identiques défini pour les nœuds, n’activez pas ou n’éditez pas manuellement les paramètres pour la mise à l’échelle automatique du groupe de machines virtuelles identiques dans le portail Azure ou en utilisant l’interface de ligne de commande Azure. Laissez le programme de mise à l’échelle automatique de cluster Kubernetes gérer les paramètres de mise à l’échelle requis. Pour plus d’informations, voir [Puis-je modifier les ressources AKS dans le groupe de ressources MC_ ?](faq.md#can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-mc_-resource-group)
+> L’autoscaler de cluster est un composant Kubernetes. Bien que le cluster AKS utilise un groupe de machines virtuelles identiques défini pour les nœuds, n’activez pas ou n’éditez pas manuellement les paramètres pour la mise à l’échelle automatique du groupe de machines virtuelles identiques dans le portail Azure ou en utilisant l’interface de ligne de commande Azure. Laissez le programme de mise à l’échelle automatique de cluster Kubernetes gérer les paramètres de mise à l’échelle requis. Pour plus d’informations, consultez [Puis-je modifier les ressources AKS dans le groupe de ressources de nœuds ?](faq.md#can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-node-resource-group)
 
 L’exemple suivant illustre la création d’un cluster AKS avec un groupe de machines virtuelles identiques et le programme de mise à l’échelle automatique de cluster activé. Il utilise un minimum de *1* nœud et un maximum de *3* nœuds :
 

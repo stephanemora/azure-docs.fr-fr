@@ -1,19 +1,19 @@
 ---
 title: 'Sauvegarde Azure : Créer des coffres Recovery Services'
-description: Création des coffres Recovery Services qui stocke les sauvegardes et les points de récupération
+description: création de coffres Recovery Services stockant les sauvegardes et points de récupération
 services: backup
 author: sogup
 manager: vijayts
-keywords: Coffre Recovery Services ; Sauvegarde des machines virtuelles Azure ; Restauration de machine virtuelle Azure ;
+keywords: coffre Recovery Services ; sauvegarde de machines virtuelles Azure ; restauration de machines virtuelles Azure ;
 ms.service: backup
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: sogup
 ms.openlocfilehash: 9fba7d679b7d0edb3c99207c99b23f9616c6fa0e
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66477572"
 ---
 # <a name="create-a-recovery-services-vault"></a>Créer un coffre Recovery Services
@@ -42,10 +42,10 @@ Pour créer un archivage de Recovery Services :
 
     ![Configurer le coffre Recovery Services](./media/backup-create-rs-vault/create-new-vault-dialog.png)
 
-   - **Nom** : entrez un nom convivial pour identifier le coffre. Le nom doit être unique pour l’abonnement Azure. Spécifiez un nom composé d’au moins deux caractères, mais sans dépasser 50 caractères. Il doit commencer par une lettre et ne peut être constitué que de lettres, chiffres et traits d’union.
+   - **Nom** : entrez un nom convivial pour identifier le coffre. Le nom doit être unique pour l’abonnement Azure. Spécifiez un nom composé d’au moins deux caractères, mais sans dépasser 50 caractères. Il doit commencer par une lettre et ne peut être constitué que de lettres, chiffres et traits d’union.
    - **Abonnement**: choisissez l’abonnement à utiliser. Si vous êtes membre d’un seul abonnement, son nom s’affiche. Si vous ne savez pas quel abonnement utiliser, utilisez l’abonnement par défaut (suggéré). Vous ne disposez de plusieurs choix que si votre compte professionnel ou scolaire est associé à plusieurs abonnements Azure.
    - **Groupe de ressources** : Utilisez un groupe de ressources existant ou créez-en un. Pour afficher la liste des groupes de ressources disponibles dans votre abonnement, sélectionnez **Utiliser existant**, puis sélectionnez une ressource dans la zone de liste déroulante. Pour créer un groupe de ressources, sélectionnez **Créer** et entrez le nom. Pour obtenir des informations complètes sur les groupes de ressources, consultez [Vue d’ensemble d’Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
-   - **Emplacement** : sélectionnez la région géographique du coffre. Pour créer un coffre en vue de protéger des machines virtuelles, le coffre **doit** se trouver dans la même région que les machines virtuelles.
+   - **Emplacement** : sélectionnez la région géographique du coffre. Pour créer un coffre en vue de protéger des machines virtuelles, le coffre **doit** se trouver dans la même région que les machines virtuelles.
 
       > [!IMPORTANT]
       > Si vous ne connaissez pas avec certitude l’emplacement de vos machines virtuelles, fermez la boîte de dialogue. Accédez à la liste des machines virtuelles dans le portail. Si vous possédez des machines virtuelles dans plusieurs régions, créez un coffre Recovery Services dans chacune d’elles. Créez le coffre du premier emplacement avant de créer celui d’un autre emplacement. Il est inutile de spécifier des comptes de stockage dans lesquels héberger les données de sauvegarde. Le coffre Recovery Services et le service Azure Backup gèrent cela automatiquement.
@@ -62,23 +62,23 @@ Pour créer un archivage de Recovery Services :
 
 ## <a name="set-storage-redundancy"></a>Définir la redondance du stockage
 
-Sauvegarde Azure gère automatiquement le stockage pour le coffre. Vous devez spécifier la manière dont ce stockage est répliqué.
+La Sauvegarde Azure gère automatiquement le stockage du coffre. Vous devez spécifier le mode de réplication de ce stockage.
 
-1. Dans le panneau **Coffres Recovery Services**, cliquez sur le nouveau coffre. Sous le **paramètres** , cliquez sur **propriétés**.
-2. Dans **propriétés**, sous **Configuration de la sauvegarde**, cliquez sur **mise à jour**.
+1. Dans le panneau **Coffres Recovery Services**, cliquez sur le nouveau coffre. Dans la section **Paramètres**, cliquez sur **Propriétés**.
+2. Dans **Propriétés**, sous **Configuration de la sauvegarde**, cliquez sur **Mise à jour**.
 
-3. Sélectionnez le type de réplication de stockage, puis cliquez sur **enregistrer**.
+3. Sélectionnez le type de réplication de stockage, puis cliquez sur **Enregistrer**.
 
      ![Définir la configuration de stockage du nouveau coffre](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
 
-   - Nous recommandons que si vous utilisez Azure comme un point de terminaison de stockage de sauvegarde principal, continuer à utiliser la valeur par défaut **géo-redondant** paramètre.
+   - Si vous utilisez Azure comme principal point de terminaison du stockage de sauvegarde, nous vous recommandons de continuer à utiliser le paramètre **Géoredondant** par défaut.
    - Sinon, choisissez l’option **Localement redondant**, qui réduit les coûts de stockage Azure.
-   - En savoir plus sur [géo](../storage/common/storage-redundancy-grs.md) et [local](../storage/common/storage-redundancy-lrs.md) redondance.
+   - Informez-vous sur la redondance [géo](../storage/common/storage-redundancy-grs.md) et [locale](../storage/common/storage-redundancy-lrs.md).
 
 > [!NOTE]
-> Modification **type de réplication de stockage** (localement redondant / géo-redondant) pour une récupération de coffre de services doit être effectuée avant de configurer des sauvegardes dans le coffre. Une fois que vous configurez la sauvegarde, l’option de modification est désactivée et vous ne pouvez pas modifier le **type de réplication de stockage**. 
+> Vous devez remplacer la valeur du paramètre **Type de réplication du stockage** (Localement redondant/Géoredondant) par un coffre Recovery Services avant de configurer les sauvegardes dans le coffre. Une fois que vous avez configuré la sauvegarde, l’option de modification est désactivée et vous ne pouvez pas modifier le paramètre **Type de réplication de stockage**. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[En savoir plus sur](backup-azure-recovery-services-vault-overview.md) coffres Recovery Services.
-[En savoir plus sur](backup-azure-delete-vault.md) coffres supprimer les Services de récupération.
+[Découvrez](backup-azure-recovery-services-vault-overview.md) les coffres Recovery Services.
+[Découvrez](backup-azure-delete-vault.md) comment supprimer les coffres Recovery Services.

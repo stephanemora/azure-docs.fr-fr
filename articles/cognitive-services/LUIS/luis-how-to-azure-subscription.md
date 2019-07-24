@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 06/18/2019
+ms.date: 07/10/2019
 ms.author: diberry
-ms.openlocfilehash: 7f82bf5a40df0554d4f98b2d835fcbd69279be43
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: dedc498ebc910b448b1684136c288b2045780e00
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204155"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797951"
 ---
 # <a name="using-subscription-keys-with-your-luis-app"></a>Utilisation des clés d’abonnement avec votre application LUIS
 
@@ -32,6 +32,8 @@ Pour des tests et des prototypes uniquement, utilisez le niveau gratuit (F0). Po
 
 Vous créez la [ressource de point de terminaison de prédiction](get-started-portal-deploy-app.md#create-the-endpoint-resource) dans le portail Microsoft Azure. Cette ressource doit être utilisée seulement pour les requêtes de prédiction du point de terminaison. N’utilisez pas cette ressource pour apporter des modifications à l’application.
 
+Vous pouvez créer une ressource Language Understanding ou une ressource Cognitive Services. Si vous créez une ressource Language Understanding, une bonne pratique consiste à ajouter le type de ressource au nom de la ressource. 
+
 <a name="programmatic-key" ></a>
 <a name="authoring-key" ></a>
 <a name="endpoint-key" ></a>
@@ -45,6 +47,15 @@ Vous créez la [ressource de point de terminaison de prédiction](get-started-po
 <a name="assign-endpoint-key"></a>
 <a name="assign-resource"></a>
 
+### <a name="using-resource-from-luis-portal"></a>Utilisation de la ressource à partir du portail LUIS
+
+Si vous utilisez la ressource à partir du portail LUIS, vous n’avez pas besoin de connaître votre clé et votre emplacement. Au lieu de cela, vous devez connaître le locataire de votre ressource, votre abonnement et le nom de votre ressource.
+
+Une fois que vous avez [affecté](#assign-resource-key-to-luis-app-in-luis-portal) votre ressource à votre application LUIS dans le portail LUIS, la clé et l’emplacement sont fournis dans le cadre de l’URL du point de terminaison de prédiction de requête dans la page **Paramètres des clés et points de terminaison** de la section Gérer.
+ 
+### <a name="using-resource-from-rest-api-or-sdk"></a>Utilisation de la ressource à partir de l’API ou du SDK REST
+
+Si vous utilisez la ressource à partir de l’API ou du SDK REST, vous devez connaître votre clé et votre emplacement. Ces informations sont fournies dans le cadre de l’URL du point de terminaison de prédiction de requête dans la page **Paramètres des clés et points de terminaison** de la section Gérer ainsi que dans le portail Azure, dans les pages Vue d’ensemble et Clés de la ressource.
 
 ## <a name="assign-resource-key-to-luis-app-in-luis-portal"></a>Affecter une clé de ressource à l’application LUIS dans le portail LUIS
 

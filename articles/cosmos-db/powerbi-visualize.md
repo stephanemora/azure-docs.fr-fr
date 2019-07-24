@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: sngun
 ms.openlocfilehash: 76531de279dfe6e9b73b3895f0ef63c4c88b63cd
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65979006"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>Visualiser les données Azure Cosmos DB à l’aide du connecteur Power BI
@@ -25,7 +25,7 @@ Cet article décrit les étapes requises pour connecter le compte Azure Cosmos D
 > [!NOTE]
 > La connexion à Azure Cosmos DB avec le connecteur Power BI est actuellement prise en charge uniquement pour les comptes d’API SQL Azure Cosmos DB et d’API Gremlin.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Avant de suivre les instructions de ce didacticiel Power BI, assurez-vous de disposer des ressources suivantes :
 
 * [Télécharger la dernière version de Power BI Desktop](https://powerbi.microsoft.com/desktop).
@@ -48,7 +48,7 @@ Avant de suivre les instructions de ce didacticiel Power BI, assurez-vous de dis
 
 Pour partager vos rapports dans PowerBI.com, vous devez disposer d’un compte sous PowerBI.com.  Pour en savoir plus Power BI et Power BI Pro, visitez [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing).
 
-## <a name="lets-get-started"></a>Commençons
+## <a name="lets-get-started"></a>Prise en main
 Dans ce didacticiel, imaginons que vous êtes géologue et que vous devez étudier les volcans du monde entier. Les données relatives aux volcans sont stockées dans un compte Azure Cosmos DB et le format de document JSON est semblable à ce que vous pouvez voir ci-dessous :
 
     {
@@ -122,7 +122,7 @@ Vous souhaitez récupérer les données relatives aux volcans du compte Azure Co
 8. Indiquez un nom pour la nouvelle colonne, par exemple LatLong.
 9. Spécifiez ensuite la formule personnalisée à appliquer à la nouvelle colonne.  Dans notre exemple, nous allons concaténer les valeurs de latitude et longitude séparées par une virgule, comme indiqué ci-dessous, à l’aide de la formule suivante : `Text.From([coordinates]{1})&","&Text.From([coordinates]{0})`. Cliquez sur **OK**.
    
-    Pour plus d’informations sur les Expressions DAX (Data Analysis), y compris les fonctions DAX, visitez [principes fondamentaux de DAX dans Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-quickstart-learn-dax-basics).
+    Pour plus d’informations sur le langage DAX (Data Analysis Expressions) et notamment sur les fonctions DAX, consultez la page [Principes fondamentaux de DAX dans Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-quickstart-learn-dax-basics).
    
     ![Didacticiel Power BI pour le connecteur Microsoft Azure Cosmos DB et Power BI - Ajout d’une colonne personnalisée](./media/powerbi-visualize/power_bi_connector_pbicustomlatlong.png)
 

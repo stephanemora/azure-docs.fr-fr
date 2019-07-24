@@ -16,12 +16,12 @@ ms.date: 09/10/2018
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 504c1bdeb05ecb6372be0edf023c480acac8a8a7
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.openlocfilehash: 7ee8802aeb2a760e255ab4f5e99010dfedc45e0d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956850"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108295"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Problèmes de connexion à une application Microsoft
 
@@ -31,9 +31,9 @@ Il existe trois méthodes principales pour se connecter à une application publi
 
 -   Pour les applications faisant partie d’Office 365 ou d’autres suites payantes, les utilisateurs peuvent obtenir un accès via **l’attribution de licence** directement dans leur compte d’utilisateur ou via un groupe à l’aide de la fonctionnalité d’attribution de licence de groupe.
 
--   Pour les applications publiées et fournies gratuitement par Microsoft ou par un tiers, les utilisateurs peuvent obtenir un accès via le **consentement de l’utilisateur**. Cela signifie qu’ils se connecter à l’application avec leur compte Azure AD ou votre école et lui permettent d’accéder à un jeu limité de données avec leur compte.
+-   Pour les applications publiées et fournies gratuitement par Microsoft ou par un tiers, les utilisateurs peuvent obtenir un accès via le **consentement de l’utilisateur**. Cela signifie qu’ils peuvent se connecter à l’application avec leur compte professionnel ou scolaire Azure AD et lui permettre d’accéder à certaines données de leur compte.
 
--   Pour les applications Microsoft ou un 3e partie publie gratuitement à utiliser, les utilisateurs peuvent également obtenir un accès via **consentement de l’administrateur**. Cela veut dire que l’administrateur a déterminé que l’application peut être utilisée par tous les membres de l’organisation. Dans ce cas, il se connecte à l’application avec un compte d’administrateur général et accorde l’accès à tous les membres de l’organisation.
+-   Pour les applications publiées et fournies gratuitement par Microsoft ou par un tiers, les utilisateurs peuvent également obtenir un accès via le **consentement de l’administrateur**. Cela veut dire que l’administrateur a déterminé que l’application peut être utilisée par tous les membres de l’organisation. Dans ce cas, il se connecte à l’application avec un compte d’administrateur général et accorde l’accès à tous les membres de l’organisation.
 
 Pour résoudre votre problème, lisez [Problèmes d'ordre général à prendre en considération concernant l'accès aux applications](#general-problem-areas-with-application-access-to-consider), puis Procédure pas à pas : Étapes de résolution des problèmes d'accès aux applications Microsoft afin d'obtenir plus de détails.
 
@@ -67,7 +67,7 @@ La liste ci-après répertorie les problèmes couramment rencontrés lorsque les
 
   * Vérifiez que **Multi-Factor Authentication** ne bloque pas l’accès utilisateur. [Vérifier l’état Multi-Factor Authentication d’un utilisateur](#check-a-users-multi-factor-authentication-status) ou [Vérifier les informations de contact de l’authentification d’un utilisateur](#check-a-users-authentication-contact-info)
 
-  * Vérifiez qu’une **stratégie d’accès conditionnel** ou qu’une **stratégie de protection d’identité** ne bloque pas l’accès utilisateur. [Vérifier une stratégie d’accès conditionnel](#problems-with-conditional-access-policies) ou [Vérifier la stratégie d’accès conditionnel d’une application spécifique](#check-a-specific-applications-conditional-access-policy) ou [Désactiver une stratégie d’accès conditionnel](#disable-a-specific-conditional-access-policy)
+  * Vérifiez qu’une **stratégie d’accès conditionnel** ou **stratégie de protection d’identité** ne bloque pas l’accès utilisateur. [Vérifier une stratégie d’accès conditionnel](#problems-with-conditional-access-policies) ou [Vérifier la stratégie d’accès conditionnel d’une application spécifique](#check-a-specific-applications-conditional-access-policy) ou [Désactiver une stratégie d’accès conditionnel](#disable-a-specific-conditional-access-policy)
 
   * Vérifiez que les **informations de contact d’authentification** de l’utilisateur sont à jour et permettent d’appliquer les stratégies d’accès conditionnel ou de Multi-Factor Authentication. [Vérifier l’état Multi-Factor Authentication d’un utilisateur](#check-a-users-multi-factor-authentication-status) ou [Vérifier les informations de contact de l’authentification d’un utilisateur](#check-a-users-authentication-contact-info)
 
@@ -87,7 +87,7 @@ La liste ci-après répertorie les problèmes couramment rencontrés lorsque les
 
 - Pour les **applications** Microsoft **qui ne nécessitent pas une licence**, voici quelques autres points à vérifier :
 
-  * Si l’application demande **autorisations au niveau de l’utilisateur** (par exemple « accéder à cette boîte aux lettres »), assurez-vous que l’utilisateur est connecté à l’application et qu’il a effectué une **opération de consentement de niveau utilisateur** pour permettre à l’application d’accéder à leurs données.
+  * Si l’application demande des **autorisations de niveau utilisateur** (par exemple « Accéder à la boîte aux lettres de cet utilisateur »), vérifiez que l’utilisateur s’est connecté à l’application et qu’il a effectué une **opération de consentement de niveau utilisateur** pour permettre à l’application d’accéder à ses données.
 
   * Si l’application demande des **autorisations de niveau administrateur** (par exemple « Accéder à la boîte aux lettres de tous les utilisateurs »), vérifiez qu’un administrateur général a effectué une **opération de consentement de niveau administrateur pour le compte de tous les utilisateurs** au sein de l’organisation.
 
@@ -435,7 +435,7 @@ Pour vérifier ou valider une stratégie d’accès conditionnel :
 
 6. Cliquez sur la stratégie que vous souhaitez examiner.
 
-7. Vérifier qu’il n’y a aucune des conditions spécifiques, d’affectations ou d’autres paramètres qui peuvent bloquer l’accès de l’utilisateur.
+7. Vérifiez la présence de conditions, d’affectations ou d’autres paramètres pouvant bloquer l’accès de l’utilisateur.
 
    >[!NOTE]
    >Vous pouvez temporairement désactiver cette stratégie pour vérifier qu’elle n’affecte pas les connexions. Pour ce faire, sélectionnez la valeur **Non** de l’option **Activer une stratégie**, puis cliquez sur le bouton **Enregistrer**.
@@ -456,7 +456,7 @@ Pour vérifier ou valider une stratégie d’accès conditionnel configurée dan
 
 5.  Cliquez sur **Toutes les applications**.
 
-6.  Recherchez l’application que vous êtes intéressé, ou l’utilisateur tente de se connecter pour afficher les ID de nom ou de l’application par application
+6.  Recherchez l’application qui vous intéresse ou à laquelle l’utilisateur tente de se connecter en fournissant son nom d’affichage ou son ID.
 
      >[!NOTE]
      >Si vous ne voyez pas l’application que vous recherchez, cliquez sur le bouton **Filtrer**, puis développez l’étendue de la liste sur **Toutes les applications**. Si vous souhaitez afficher plus de colonnes, cliquez sur le bouton **Colonnes** pour ajouter des détails à vos applications.

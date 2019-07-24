@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 01/12/2019
 ms.author: ellacroi
 ms.openlocfilehash: 297a6f9058b220d1f2e3a0ca69d018858218b774
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65909740"
 ---
 # <a name="your-marketplace-benefits"></a>Vos avantages sur la Place de marché
@@ -34,7 +34,7 @@ Les avantages Go-to-Market sont accessibles aux partenaires qui ont récemment p
 2. Consultation des Places de marché Microsoft : tirez parti de cette [consultation gratuite](https://support.microsoft.com/help/4010317/microsoft-marketplaces-consultation) pour vous aider à planifier l’architecture de votre application dans la place de marché.
 3. Forums de la Place de marché : posez vos questions directement à des employés de Microsoft et à d’autres partenaires de la place de marché dans le [forum de la Place de marché](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222).
 4. Support technique : utilisez le menu Aide dans le [Portail Microsoft Cloud Partner](https://cloudpartner.azure.com/) pour obtenir de l’aide sur vos questions de support liées à la Place de marché. 
-5. Intégration d’AAD et de développement et le test de parrainage : vous serez choisi dans, lorsque vous démarrez avec une transactable (déployable et facturable offre). Consultez la section suivante pour savoir comment bien démarrer avec les avantages go-to-market.
+5. Intégration et développement AAD et parrainage des tests : vous serez choisi lorsque vous publierez une offre avec transaction (offre déployable et facturable). Consultez la section suivante pour savoir comment optimiser les avantages de la commercialisation.
 
 ## <a name="go-to-market-gtm-benefits-in-the-marketplace"></a>Avantages GTM (Go-To-Market) sur la Place de marché
 
@@ -42,8 +42,8 @@ Les nouvelles annonces dans la Place de marché et AppSource sont habilitées à
 
 | Vitrine | Avantages supplémentaires disponibles |
 |:--- |:--- |
-| AppSource |  Partenaires Microsoft Gold <br> Transact offres – récompenses de la place de marché <br> Applications d’évaluation |
-| Place de marché Azure | Transact offres – récompenses de la place de marché <br> Offres d’évaluation |
+| AppSource |  Partenaires Microsoft Gold <br> Offres Transaction : récompenses de la Place de marché <br> Applications d’évaluation |
+| Place de marché Azure | Offres Transaction : récompenses de la Place de marché <br> Offres d’évaluation |
 
 Votre support commercial GTM inclut des modèles, du contenu web, des formations et des outils pour promouvoir votre entreprise.
 
@@ -52,22 +52,22 @@ Pour accéder à ces avantages, vous devez :
 1. Publier une offre sur la Place de marché ou AppSource.
 2. Vérifier que vous avez entré un contact marketing dans la partie **Informations de contact** de votre offre. Ce doit être une ressource marketing dédiée, et non un alias fourre-tout. (autrement dit, évitez d’utiliser « support\@ », « info\@ », « marketing\@ », etc.)
 
-Selon l’état de votre solution, offre en cours de la liste, version d’évaluation ou Transact-récompenses de la place de marché, vous recevrez un e-mail avec les ressources d’auto-assistance, ou une invitation à un appel de consultation avec un gestionnaire d’Engagement dédié. Vous n’avez rien à faire pour lancer l’appel : l’équipe d’intégration de la place de marché vous contacte en fonction des informations que vous fournissez dans le [Portail Microsoft Cloud Partner](https://cloudpartner.azure.com/).
+Selon l’état de votre solution (offre Liste, Version d’essai ou Transaction - récompense de la Place de marché), vous recevez un e-mail avec des ressources d’auto-assistance, ou une invitation à un appel de consultation avec un responsable de l’engagement client dédié. Vous n’avez rien à faire pour lancer l’appel : l’équipe d’intégration de la place de marché vous contacte en fonction des informations que vous fournissez dans le [Portail Microsoft Cloud Partner](https://cloudpartner.azure.com/).
 
-La portée des activités à votre disposition augmente à mesure que vous développez vos offres sur la Place de marché. Toutes les annonces reçoivent un niveau de base de recommandations d’optimisation et de promotion.  Ces listes sont également bénéficier des avantages de commercialisation supplémentaires en fonction de la place de marché solution état (liste, version d’évaluation ou Transact - récompenses de la place de marché), choisi et réalisation de compétences des partenaires Microsoft.
+La portée des activités à votre disposition augmente à mesure que vous développez vos offres sur la Place de marché. Toutes les annonces reçoivent un niveau de base de recommandations d’optimisation et de promotion.  Ces annonces peuvent également bénéficier d’avantages marketing supplémentaires selon l’état de la solution (offre Liste, Version d’essai ou Transaction - récompense de la place de marché), la place de marché choisie et le niveau de compétence du partenaire Microsoft.
 
-Le tableau ci-dessous récapitulent les conditions d’éligibilité pour la liste et des offres d’essai :
+Le tableau ci-dessous récapitule les conditions d’éligibilité pour les offres Liste et Version d’essai :
 
 ![](./media/marketplace-publishers-guide/gtm-eligibility-requirements.png)
 
 \* Nécessite une compétence de niveau Silver ou Gold. <br>
 \*\* Nécessite une compétence de niveau Gold. <br>
-\*\*\* Nécessite une compétence gold et vente conjointe prêt dans la liste des partenaires. <br>
+\*\*\* Nécessite une compétence de niveau Gold et un référencement Co-Sell Ready dans la liste des partenaires. <br>
 ^ Transaction uniquement, applicable à la Place de marché Microsoft Azure.
 
-## <a name="marketplace-rewards-for-transact-partners"></a>Récompenses de la place de marché pour les partenaires de transact
+## <a name="marketplace-rewards-for-transact-partners"></a>Récompenses de la Place de marché pour les partenaires de transaction
 
-La liste complète des avantages pour les récompenses de la place de marché peut être affichée dans le [diapositives de résumé du programme](https://onedrive.live.com/view.aspx?resid=1900675C97CA6FE0!630&ithint=file%2cpptx&authkey=!APQ6LSnDenx2FKM).
+La liste complète des avantages pour les récompenses de la place de marché apparaît sur les [diapositives de résumé du programme](https://onedrive.live.com/view.aspx?resid=1900675C97CA6FE0!630&ithint=file%2cpptx&authkey=!APQ6LSnDenx2FKM).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

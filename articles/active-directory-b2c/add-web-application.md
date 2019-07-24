@@ -11,23 +11,23 @@ ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: B2C
 ms.openlocfilehash: a1d098550c6fb733e088f8ad211d29f48f55d2d6
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66511700"
 ---
 # <a name="add-a-web-api-application-to-your-azure-active-directory-b2c-tenant"></a>Ajouter une application d'API web à votre locataire Azure Active Directory B2C
 
- Inscrire les ressources de l’API Web dans votre client afin qu’ils peuvent accepter et répondre aux requêtes par les applications clientes qui présentent un jeton d’accès. Cet article vous montre comment inscrire l’application dans Azure Active Directory (Azure AD) B2C.
+ Enregistrez les ressources des API web auprès de votre locataire afin qu’elles puissent accepter et répondre aux requêtes des applications clientes qui présentent un jeton d’accès. Cet article vous montre comment enregistrer une application dans Azure Active Directory (Azure AD) B2C.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-2. Vérifiez que vous utilisez le répertoire qui contient votre locataire Azure AD B2C. Sélectionnez le **filtre Directory et abonnement** dans le menu supérieur et sélectionnez le répertoire qui contient votre client.
+2. Veillez à bien utiliser le répertoire qui contient votre locataire Azure AD B2C. Choisissez le **filtre Répertoire et abonnement** dans le menu supérieur et sélectionnez le répertoire qui contient votre locataire.
 3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
 4. Sélectionnez **Applications**, puis **Ajouter**.
 5. Entrez un nom pour l’application. Par exemple, *webapi1*.
 6. Pour **inclure l’application web/l’API web** et **autoriser un flux implicite**, sélectionnez **Oui**.
-7. Pour l’**URL de réponse**, entrez un point de terminaison où Azure AD B2C doit retourner les jetons demandés par votre application. Dans votre application de production, vous pouvez définir l’URL de réponse à une valeur comme `https://localhost:44332`. À des fins de test, la valeur est l’URL de réponse `https://jwt.ms`.
+7. Pour l’**URL de réponse**, entrez un point de terminaison où Azure AD B2C doit retourner les jetons demandés par votre application. Dans votre application de production, vous pouvez définir l’URL de réponse sur une valeur comme `https://localhost:44332`. À des fins de test, définissez cette URL sur `https://jwt.ms`.
 8. Pour l’**L’URI de l’ID d’application**, entrez l’identificateur utilisé pour votre API web. L’identificateur complet URI, y compris le domaine, est généré pour vous. Par exemple : `https://contosotenant.onmicrosoft.com/api`.
 9. Cliquez sur **Créer**.
 10. Sur la page des propriétés, enregistrez l'ID d'application que vous utiliserez pour configurer l'application web.

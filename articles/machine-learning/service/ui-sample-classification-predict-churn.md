@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: 42724f5fcb3101015cef0d218a3d548f349646be
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7d10d996febd0e31c9085bf5cb82324cce101c80
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65785816"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606154"
 ---
 # <a name="sample-5---classification-predict-churn-appetency-and-up-selling"></a>Exemple 5 - Classification : Prédire l’évolution, l’appétence et la vente incitative 
 
@@ -76,6 +76,7 @@ Visualisez la sortie du module **Évaluer le modèle** afin d’afficher les per
 Explorez les autres exemples disponibles pour l’interface visuelle :
 
 - [Exemple 1 - Régression : Prédire le prix de véhicules automobiles](ui-sample-regression-predict-automobile-price-basic.md)
-- [Exemple 2 - Régression : Comparer des algorithmes pour prédire le prix de véhicules automobiles](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
-- [Exemple 3 - Classification : Prédire le risque de crédit](ui-sample-classification-predict-credit-risk-basic.md)
-- [Exemple 4 - Classification : Prédire le risque de crédit (sensible au coût)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
+- [Exemple 2 - Régression : comparer des algorithmes pour prédire le prix de véhicules automobiles](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
+- [Exemple 3 - Classification : prédire le risque de crédit](ui-sample-classification-predict-credit-risk-basic.md)
+- [Exemple 4 - Classification : prédire le risque de crédit (sensible au coût)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
+- [Exemple 6 - Classification : Prédire les retards de vols](ui-sample-classification-predict-flight-delay.md)

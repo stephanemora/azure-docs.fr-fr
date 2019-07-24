@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.openlocfilehash: 078c62913b903eafe9e0fcfcef4189f5ca735d0f
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66002819"
 ---
 # <a name="azure-storage-redundancy"></a>Redondance de Stockage Azure
@@ -22,7 +22,7 @@ Les données de votre compte de stockage Microsoft Azure sont toujours répliqu�
 
 La réplication garantit que votre compte de stockage répond aux exigences du [contrat de niveau de service (SLA) pour le stockage](https://azure.microsoft.com/support/legal/sla/storage/) même en cas de panne. Pour plus d’informations sur les garanties de durabilité et de disponibilité du stockage Azure, consultez le contrat de niveau de service.
 
-Stockage Azure vérifie régulièrement l’intégrité des données stockées à l’aide de contrôles de redondance cyclique (CRC). Si une altération des données est détectée, il est de réparation à l’aide des données redondantes. Stockage Azure calcule également les sommes de contrôle sur tout le trafic réseau pour détecter une altération de paquets de données lors du stockage ou de récupération de données.
+Le service Stockage Azure vérifie régulièrement l’intégrité des données stockées à l’aide de contrôles de redondance cycliques (CRC). Si une altération des données est détectée, ces données sont réparées à l’aide de données redondantes. Le service Stockage Azure calcule également des sommes de contrôle sur tout le trafic réseau afin de détecter une altération des paquets de données lors du stockage ou de la récupération des données.
 
 ## <a name="choosing-a-redundancy-option"></a>Choix d’une option de redondance
 
@@ -38,9 +38,9 @@ Le tableau suivant fournit une brève vue d’ensemble de l’étendue de la dur
 | Scénario                                                                                                 | LRS                             | ZRS                              | GRS                                  | RA-GRS                               |
 | :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
 | Indisponibilité des nœuds dans un centre de données                                                                 | OUI                             | OUI                              | OUI                                  | OUI                                  |
-| Indisponibilité d’un centre de données complet (zonal ou non)                                           | Non                               | OUI                              | OUI                                  | OUI                                  |
-| Panne à l’échelle d’une région                                                                                     | Non                               | Non                                | OUI                                  | OUI                                  |
-| Accès en lecture aux données (dans une région distante, géorépliquée) en cas d’indisponibilité à l’échelle de la région | Non                               | Non                                | Non                                    | Oui                                  |
+| Indisponibilité d’un centre de données complet (zonal ou non)                                           | Non                              | OUI                              | OUI                                  | OUI                                  |
+| Panne à l’échelle d’une région                                                                                     | Non                              | Non                               | OUI                                  | OUI                                  |
+| Accès en lecture aux données (dans une région distante, géorépliquée) en cas d’indisponibilité à l’échelle de la région | Non                              | Non                               | Non                                   | OUI                                  |
 | Conçu pour assurer une durabilité des objets \_\_ sur une année donnée                                          | Au moins 99,999999999 % (11 chiffres 9) | Au moins 99,9999999999 % (12 chiffres 9) | Au moins 99,99999999999999 % (16 chiffres 9) | Au moins 99,99999999999999 % (16 chiffres 9) |
 | Types de compte de stockage pris en charge                                                                   | GPv2, GPv1, Blob                | GPv2                             | GPv2, GPv1, Blob                     | GPv2, GPv1, Blob                     |
 | Contrat SLA de disponibilité pour les requêtes de lecture | Au moins 99,9 % (99 % pour le niveau d’accès froid) | Au moins 99,9 % (99 % pour le niveau d’accès froid) | Au moins 99,9 % (99 % pour le niveau d’accès froid) | Au moins 99,99 % (99,9 % pour le niveau d’accès froid) |
@@ -54,7 +54,7 @@ Pour obtenir des informations sur les garanties de Stockage Azure en matière de
 > Stockage Premium prend en charge uniquement un stockage localement redondant (LRS).
 
 ## <a name="changing-replication-strategy"></a>Modification de la stratégie de réplication
-Vous pouvez modifier la stratégie de réplication de votre compte de stockage à l’aide de la [portail Azure](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md), [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), ou l’un de le [client Azure bibliothèques](https://docs.microsoft.com/azure/index#pivot=sdkstools). La modification du type de réplication de votre compte de stockage n’entraîne pas de temps d’arrêt.
+Vous pouvez modifier la stratégie de réplication de votre compte de stockage à l’aide du [portail Azure](https://portal.azure.com/), [d’Azure PowerShell](storage-powershell-guide-full.md), [d’Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) ou de l’une des [bibliothèques clientes Azure](https://docs.microsoft.com/azure/index#pivot=sdkstools). La modification du type de réplication de votre compte de stockage n’entraîne pas de temps d’arrêt.
 
    > [!NOTE]
    > Actuellement, vous ne pouvez utiliser ni le portail ni une API pour convertir votre compte en stockage ZRS. Si vous souhaitez convertir la réplication de votre compte en stockage redondant interzone (ZRS), consultez [Stockage redondant interzone (ZRS)](storage-redundancy-zrs.md) pour plus d’informations.
@@ -62,9 +62,9 @@ Vous pouvez modifier la stratégie de réplication de votre compte de stockage �
 ### <a name="are-there-any-costs-to-changing-my-accounts-replication-strategy"></a>La modification de la stratégie de réplication de mon compte implique-t-elle des coûts ?
 Cela dépend de votre chemin de conversion. Voici le classement des offres de redondance de la moins coûteuse à la plus chère : LRS, ZRS, GRS et RA-GRS. Par exemple, une migration *à partir de* LRS implique des frais supplémentaires, car vous passez à un niveau de redondance plus sophistiqué. Une migration *vers* GRS ou RA-GRS entraîne des frais de sortie de la bande passante, car vos données (dans la région primaire) sont répliquées vers la région secondaire distante. Il s’agit de frais uniques dus lors de l’installation initiale. Une fois les données copiées, aucuns frais supplémentaires de conversion ne sont générés. Vous serez facturé uniquement pour répliquer des données nouvelles ou mises à jour vers des données existantes. Pour plus d’informations sur les coûts de bande passante, consultez la [page de tarification de Stockage Azure](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
-Si vous convertissez votre compte de stockage de GRS à LRS, il n’existe aucun coût supplémentaire, mais vos données répliquées sont supprimées de l’emplacement secondaire.
+Si vous convertissez votre compte de stockage géoredondant en compte de stockage localement redondant, aucun coût supplémentaire ne vous est facturé, mais vos données répliquées sont supprimées de l’emplacement secondaire.
 
-Si vous convertissez votre compte de stockage RA-GRS à GRS ou LRS, ce compte est facturé en tant que RA-GRS pendant 30 jours supplémentaires au-delà de la date à laquelle il a été converti.
+Si vous convertissez votre compte de stockage géographiquement redondant avec accès en lecture en compte de stockage géoredondant ou localement redondant, ce compte est facturé comme stockage géographiquement redondant avec accès en lecture pendant une période supplémentaire de 30 jours après la date de sa conversion.
 
 ## <a name="see-also"></a>Voir aussi
 
@@ -73,5 +73,5 @@ Si vous convertissez votre compte de stockage RA-GRS à GRS ou LRS, ce compte es
 - [Stockage géo-redondant (GRS) : réplication interrégion pour Stockage Azure](storage-redundancy-grs.md)
 - [Objectifs de performance et d’extensibilité du Stockage Azure](storage-scalability-targets.md)
 - [Conception d’applications hautement disponibles à l’aide du stockage RA-GRS](../storage-designing-ha-apps-with-ragrs.md)
-- [Microsoft Azure Storage redondance accès en lecture et les options de stockage géo-redondant](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
+- [Options de redondance et stockage géo-redondant avec accès en lecture de Stockage Microsoft Azure](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
 - [Document SOSP - Stockage Azure : service de stockage cloud hautement disponible à cohérence forte](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)

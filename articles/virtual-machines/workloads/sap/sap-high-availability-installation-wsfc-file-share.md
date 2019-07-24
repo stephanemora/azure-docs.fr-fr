@@ -18,10 +18,10 @@ ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 95cde28bc4789346aabd58b5f7b543e1bbc989c1
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66357695"
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Installer la haute disponibilité SAP NetWeaver sur un cluster de basculement Windows et un partage de fichiers pour des instances SAP ASCS/SCS sur Azure
@@ -204,15 +204,15 @@ Cet article décrit comment installer et configurer un système SAP à haute dis
 
 Avant de commencer l’installation, consultez les articles suivants :
 
-* [Guide d'architecture : Cluster une instance SAP ASCS/SCS sur un cluster de basculement Windows à l’aide du partage de fichiers][sap-high-availability-guide-wsfc-file-share]
+* [Guide d'architecture : Mettre en cluster une instance SAP ASCS/SCS sur un cluster de basculement Windows à l’aide d’un partage de fichiers][sap-high-availability-guide-wsfc-file-share]
 
 * [Préparation d’infrastructure Azure pour la haute disponibilité SAP à l’aide de cluster de basculement Windows et de partage de fichiers pour une instance SAP (A)SCS][sap-high-availability-infrastructure-wsfc-file-share]
 
-* [Haute disponibilité pour SAP NetWeaver sur machines virtuelles Azure][high-availability-guide]
+* [Haute disponibilité pour SAP NetWeaver sur des machines virtuelles Azure][high-availability-guide]
 
 Vous avez besoin des exécutables et DLL suivants de SAP :
-* SAP Software Provisioning Manager (SWPM) version de l’outil installation SPS25 ou version ultérieure.
-* SAP Kernel 7.49 ou version ultérieure
+* Outil d’installation SAP Software Provisioning Manager (SWPM) version SPS25 (ou ultérieure).
+* Noyau SAP 7.49 ou version ultérieure
 
 > [!IMPORTANT]
 > Le clustering d’instances SAP ASCS/SCS avec le partage de fichiers est pris en charge pour SAP NetWeaver 7.40 (et versions ultérieures), avec SAP Kernel 7.49 (et versions ultérieures).
@@ -232,7 +232,7 @@ Il n’existe pas de considérations particulières lorsque différents services
 
 Créez le partage de volume et de fichiers suivant sur le cluster SOFS :
 
-* Fichier SAP GLOBALHOST `C:\ClusterStorage\Volume1\usr\sap\<SID>\SYS\` sur le cluster SOFS volume partagé (CSV)
+* Structure `C:\ClusterStorage\Volume1\usr\sap\<SID>\SYS\` de fichier SAP GLOBALHOST sur le volume partagé de cluster (CSV) SOFS
 
 * Partage de fichiers SAPMNT
 
@@ -294,13 +294,13 @@ Set-Acl $UsrSAPFolder $Acl -Verbose
 Créez un nom réseau du cluster SAP ASCS/SCS (par exemple, **pr1-ascs [10.0.6.7]** ) comme décrit dans la section [Créer un nom d’hôte virtuel pour l’instance SAP ASCS/SCS en cluster][sap-high-availability-installation-wsfc-shared-disk-create-ascs-virt-host].
 
 
-## <a name="install-an-ascsscs-and-ers-instances-in-the-cluster"></a>Installer une instance ASCS/SCS et ERS dans le cluster
+## <a name="install-an-ascsscs-and-ers-instances-in-the-cluster"></a>Installer des instances ASCS/SCS et ERS dans le cluster
 
 ### <a name="install-an-ascsscs-instance-on-the-first-ascsscs-cluster-node"></a>Installer une instance ASCS/SCS sur le premier nœud de cluster ASCS/SCS
 
-Installez une instance SAP ASCS/SCS sur le premier nœud de cluster. Pour installer l’instance, dans l’outil d’installation SAP SWPM, accédez à :
+Installez une instance ASCS/SCS SAP sur le premier nœud de cluster. Pour installer l’instance, dans l’outil d’installation SAP SWPM, accédez à :
 
-**\<Produit >**  >  **\<SGBD >**  > **Installation** > **Application Server ABAP** () ou **Java**) > **système à haute disponibilité** > **instance ASCS/SCS** > **premier nœud de cluster**.
+**\<Produit>**  >  **\<SGBD>**  > **Installation** > **Application Server ABAP** (ou **Java**) > **High-Availability System (Système haute disponibilité)**  > **Instance ASCS/SCS** > **First cluster node (Premier nœud de cluster)** .
 
 ### <a name="add-a-probe-port"></a>Ajouter un port de sonde
 
@@ -308,14 +308,14 @@ Configurez le port de sonde SAP-SID-IP (ressource de cluster SAP) à l’aide de
 
 ### <a name="install-an-ascsscs-instance-on-the-second-ascsscs-cluster-node"></a>Installer une instance ASCS/SCS sur le deuxième nœud de cluster ASCS/SCS
 
-Installez une instance SAP ASCS/SCS sur le deuxième nœud de cluster. Pour installer l’instance, dans l’outil d’installation SAP SWPM, accédez à :
+Installez une instance ASCS/SCS SAP sur le deuxième nœud de cluster. Pour installer l’instance, dans l’outil d’installation SAP SWPM, accédez à :
 
-**\<Produit >**  >  **\<SGBD >**  > **Installation** > **Application Server ABAP** () ou **Java**) > **système à haute disponibilité** > **instance ASCS/SCS** > **nœud de cluster supplémentaire** .
+**\<Produit>**  >  **\<SGBD>**  > **Installation** > **Application Server ABAP** (ou **Java**) > **High-Availability System (Système haute disponibilité)**  > **Instance ASCS/SCS** > **Additional cluster node (Nœud de cluster supplémentaire)** .
 
 
 ## <a name="update-the-sap-ascsscs-instance-profile"></a>Mettre à jour le profil d’instance SAP ASCS/SCS
 
-Mettre à jour les paramètres dans le profil d’instance SAP ASCS/SCS \<SID >_ASCS/SCS\<Nr >_ \<hôte >.
+Mettez à jour les paramètres dans le profil d’instance ASCS/SCS SAP \<SID>_ASCS/SCS\<Nr>_ \<Hôte>.
 
 
 | Nom du paramètre | Valeur du paramètre |
@@ -324,7 +324,7 @@ Mettre à jour les paramètres dans le profil d’instance SAP ASCS/SCS \<SID >_
 | enque/encni/set_so_keepalive  | **true** |
 | service/ha_check_node | **1** |
 
-Redémarrez l’instance SAP ASCS/SCS. Définissez `KeepAlive` paramètres sur les deux nœuds de cluster SAP ASCS/SCS suivent les instructions pour [définir des entrées de Registre sur les nœuds de cluster de l’instance SAP ASCS/SCS][high-availability-guide]. 
+Redémarrez l’instance SAP ASCS/SCS. Définissez les paramètres `KeepAlive` sur les deux nœuds de cluster SAP ASCS/SCS en suivant les instructions indiquées dans [Set registry entries on the cluster nodes of the SAP ASCS/SCS instance (Définir des entrées de Registre sur les nœuds de cluster de l’instance SAP ASCS/SCS)][high-availability-guide]. 
 
 ## <a name="install-a-dbms-instance-and-sap-application-servers"></a>Installer une instance de SGBD et les serveurs d’applications SAP
 

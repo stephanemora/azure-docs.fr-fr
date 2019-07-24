@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60eeb420c723e22b771b4b86b55c2ce7d6a23659
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 98b0ec2e1defc4701bff798b2fa93900ec8a9a64
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67536818"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595159"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Activation Fournir des revendications facultatives à votre application Azure AD
 
@@ -193,7 +193,7 @@ En plus de l’ensemble de revendications facultatives standard, vous pouvez con
 
 > [!Note]
 > - Les extensions de schéma d’annuaire sont une fonctionnalité spécifique d’Azure AD. Par conséquent, si le manifeste de votre application demande une extension personnalisée et qu’un utilisateur MSA se connecte à votre application, ces extensions ne sont pas retournées.
-> - Des revendications facultatives AD Azure fonctionnent uniquement avec l’extension Azure AD, et non avec l’extension d’annuaire Microsoft Graph. Les deux API nécessitent l’autorisation `Directory.ReadWriteAll` qui ne peut être accordée que par des administrateurs.
+> - Des revendications facultatives AD Azure fonctionnent uniquement avec l’extension Azure AD, et non avec l’extension d’annuaire Microsoft Graph. Les deux API nécessitent l’autorisation `Directory.ReadWriteAll` qui ne peut être accordée que par des administrateurs.
 
 ### <a name="directory-extension-formatting"></a>Mise en forme d’extension d’annuaire
 

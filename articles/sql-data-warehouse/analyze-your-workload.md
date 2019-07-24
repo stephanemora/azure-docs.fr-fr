@@ -1,5 +1,5 @@
 ---
-title: Analyser votre charge de travail dans Azure SQL Data Warehouse | Microsoft Docs
+title: Analyser la charge de travail dans Azure SQL Data Warehouse | Microsoft Docs
 description: Techniques d’analyse des priorités de requête de votre charge de travail dans Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ronortloff
@@ -11,10 +11,10 @@ ms.date: 03/13/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.openlocfilehash: f470670ae3d526f3b66badf219a01a471c24db0d
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66242240"
 ---
 # <a name="analyze-your-workload-in-azure-sql-data-warehouse"></a>Analyser la charge de travail dans Azure SQL Data Warehouse
@@ -23,7 +23,7 @@ Techniques d’analyse de votre charge de travail dans Azure SQL Data Warehouse.
 
 ## <a name="resource-classes"></a>Classes de ressources
 
-SQL Data Warehouse fournit des classes de ressources pour affecter des ressources système pour les requêtes.  Pour plus d’informations sur les classes de ressources, consultez [gestion des ressources de classes et de la charge de travail](resource-classes-for-workload-management.md).  Requêtes attendra si la classe de ressources affectée à une requête a besoin de davantage de ressources sont actuellement disponibles.
+SQL Data Warehouse fournit des classes de ressources pour affecter des ressources système aux requêtes.  Pour plus d’informations sur les classes de ressources, consultez [Classes de ressources et gestion des charges de travail](resource-classes-for-workload-management.md).  Les requêtes attendront si la classe de ressources affectée à une requête nécessite plus de ressources que de ressources actuellement disponibles.
 
 ## <a name="queued-query-detection-and-other-dmvs"></a>Détection des requêtes en file d’attente et autres vues de gestion dynamique
 
@@ -67,7 +67,7 @@ SQL Data Warehouse offre les types d’attente suivants :
 * **LocalQueriesConcurrencyResourceType** : requêtes qui figurent à l’extérieur de l’infrastructure d’emplacements de concurrence. Les requêtes DMV et les fonctions système telles que `SELECT @@VERSION` sont des exemples de requête locale.
 * **UserConcurrencyResourceType** : requêtes qui figurent à l’intérieur de l’infrastructure d’emplacements de concurrence. Les requêtes exécutées sur des tables d’utilisateurs finaux sont des exemples de requêtes qui doivent utiliser ce type de ressource.
 * **DmsConcurrencyResourceType** : attentes résultant d’opérations de déplacement des données.
-* **BackupConcurrencyResourceType** : cette attente indique qu’une base de données est en cours de sauvegarde. La valeur maximale de ce type de ressource est égale à 1. Si plusieurs sauvegardes ont été demandées en même temps, les autres sont placées en file d’attente. En général, nous recommandons une durée minimale entre deux instantanés consécutifs de 10 minutes. 
+* **BackupConcurrencyResourceType** : cette attente indique qu’une base de données est en cours de sauvegarde. La valeur maximale de ce type de ressource est égale à 1. Si plusieurs sauvegardes ont été demandées en même temps, les autres sont placées en file d’attente. En général, nous recommandons une durée minimale de 10 minutes entre deux instantanés consécutifs. 
 
 Vous pouvez utiliser la DMV `sys.dm_pdw_waits` pour connaître les ressources attendues par une demande.
 
@@ -106,7 +106,7 @@ WHERE    w.[session_id] <> SESSION_ID()
 ;
 ```
 
-Le `sys.dm_pdw_resource_waits` DMV affiche les informations d’attente pour une requête donnée. Ressource attendre des mesures de temps le temps d’attente pour les ressources doivent être fournies. Délai d’attente de signal est le temps que nécessaire pour les serveurs SQL sous-jacents planifier la requête dans le processeur.
+La DMV `sys.dm_pdw_resource_waits` affiche les informations d’attente pour une requête donnée. Le temps d’attente d’une ressource mesure le temps d’attente avant que la ressource soit fournie. Le temps d’attente du signal désigne le temps nécessaire pour que les serveurs SQL sous-jacents planifient la requête dans l’UC.
 
 ```sql
 SELECT  [session_id]

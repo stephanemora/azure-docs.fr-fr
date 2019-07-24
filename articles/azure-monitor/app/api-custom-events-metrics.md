@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: mbullwin
-ms.openlocfilehash: 5194b9e6f40dbcd5e48b33c12db4b3cd94f75de3
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.openlocfilehash: dd4690e27be38c3fef3053562ebee773698a70d7
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66478403"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154770"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API Application Insights pour les événements et les mesures personnalisés
 
@@ -153,7 +153,7 @@ telemetry.trackEvent({name: "WinGame"});
 
 La télémétrie est disponible dans la table `customEvents` dans [Application Insights - Analytique](analytics.md). Chaque ligne représente un appel à `trackEvent(..)` dans votre application.
 
-Si un [échantillonnage](../../azure-monitor/app/sampling.md) est en cours, la propriété itemCount affiche une valeur supérieure à 1. Par exemple, itemCount==10 signifie que sur 10 appels à trackEvent(), le processus d’échantillonnage n’en a transmis qu’un seul. Pour obtenir un nombre correct d’événements personnalisés, vous devez donc utiliser le code `customEvents | summarize sum(itemCount)`.
+Si un [échantillonnage](../../azure-monitor/app/sampling.md) est en cours, la propriété itemCount affiche une valeur supérieure à 1. Par exemple, itemCount==10 signifie que sur 10 appels à trackEvent(), le processus d’échantillonnage n’en a transmis qu’un seul. Pour obtenir un nombre correct d’événements personnalisés, vous devez donc utiliser un code similaire à `customEvents | summarize sum(itemCount)`.
 
 ## <a name="getmetric"></a>GetMetric
 
@@ -249,7 +249,7 @@ namespace User.Namespace.Example01
 ## <a name="trackmetric"></a>TrackMetric
 
 > [!NOTE]
-> L’utilisation de Microsoft.ApplicationInsights.TelemetryClient.TrackMetric est déconseillée dans le Kit de développement logiciel (SDK) .NET. Les métriques doivent toujours être pré-agrégés au cours d’une période spécifique avant d’être envoyés. Utilisez l’une des surcharges GetMetric(..) afin d’obtenir un objet de métrique pour accéder aux fonctionnalités de pré-agrégation du Kit de développement logiciel (SDK). Si vous implémentez votre propre logique de pré-agrégation, vous pouvez utiliser la méthode Track(ITelemetry metricTelemetry) pour envoyer les agrégats résultants. Si votre application requiert l’envoi systématique d’un élément de télémétrie distinct sans agrégation au fil du temps, il s’agit probablement d’un cas d’usage de télémétrie d’événement ; consultez la méthode TelemetryClient.TrackEvent (Microsoft.Applicationlnsights.DataContracts.EventTelemetry).
+> La méthode Microsoft.ApplicationInsights.TelemetryClient.TrackMetric n’est pas la méthode recommandée pour l’envoi de mesures. Les métriques doivent toujours être pré-agrégés au cours d’une période spécifique avant d’être envoyés. Utilisez l’une des surcharges GetMetric(..) afin d’obtenir un objet de métrique pour accéder aux fonctionnalités de pré-agrégation du Kit de développement logiciel (SDK). Si vous implémentez votre propre logique de pré-agrégation, vous pouvez utiliser la méthode TrackMetric() pour envoyer les agrégats résultants. Si votre application requiert l’envoi systématique d’un élément de télémétrie distinct sans agrégation au fil du temps, il s’agit probablement d’un cas d’usage de télémétrie d’événement ; consultez la méthode TelemetryClient.TrackEvent (Microsoft.Applicationlnsights.DataContracts.EventTelemetry).
 
 Application Insight peut représenter des mesures qui ne sont pas associées à des événements particuliers. Par exemple, vous pouvez analyser la longueur d’une file d'attente à des intervalles réguliers. Avec les mesures, les mesures individuelles sont moins intéressantes que les variations et tendances, ainsi les graphiques statistiques sont utiles.
 
@@ -712,7 +712,7 @@ dependencies
 
 ## <a name="flushing-data"></a>Vidage des données
 
-Normalement, le SDK envoie des données à intervalles réguliers (généralement 30 secondes), ou chaque fois que la mémoire tampon est complète (en général, les éléments de 500). Toutefois, dans certains cas vous pouvez vider la mémoire tampon - par exemple, si vous utilisez le kit SDK dans une application qui s'arrête.
+Normalement, le Kit de développement logiciel (SDK) envoie des données à intervalles réguliers (généralement 30 secondes), ou chaque fois que la mémoire tampon est saturée (en général, lorsqu’elle inclut plus de 500 éléments). Toutefois, dans certains cas vous pouvez vider la mémoire tampon - par exemple, si vous utilisez le kit SDK dans une application qui s'arrête.
 
 *C#*
 
@@ -1084,7 +1084,7 @@ TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = True
 
 *Node.JS*
 
-Pour Node.js, vous pouvez activer le mode développeur en activant la journalisation interne via `setInternalLogging` et paramètre `maxBatchSize` à 0, ce qui entraîne de vos données de télémétrie être envoyés dès qu’elles sont collectées.
+Pour Node.js, vous pouvez activer le mode développeur en activant la journalisation interne via `setInternalLogging` et en définissant le paramètre `maxBatchSize` sur 0, ce qui entraîne l’envoi de votre télémétrie dès qu’elle est collectée.
 
 ```js
 applicationInsights.setup("ikey")
@@ -1212,5 +1212,5 @@ Pour déterminer la durée de conservation des données, consultez [Rétention d
 
 ## <a name="next"></a>Étapes suivantes
 
-* [Recherche d’événements et de journaux](../../azure-monitor/app/diagnostic-search.md)
+* [Recherche d’événements et de journaux d’activité](../../azure-monitor/app/diagnostic-search.md)
 * [Dépannage](../../azure-monitor/app/troubleshoot-faq.md)

@@ -1,5 +1,5 @@
 ---
-title: Mise en route avec le contrôle de carte web dans Azure Maps | Microsoft Docs
+title: Bien démarrer avec le contrôle de carte web dans Azure Maps | Microsoft Docs
 description: Découvrez comment utiliser la bibliothèque JavaScript côté client Azure Maps Map Control.
 author: walsehgal
 ms.author: v-musehg
@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: aa923fa7e2d5e673e6a2db2b349e54d433d1817b
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65957276"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Utiliser le Map Control Azure Maps
@@ -68,7 +68,7 @@ Vous pouvez intégrer une carte dans une page web à l’aide de la bibliothèqu
     </body>
     ```
 
-5. Pour initialiser le contrôle de carte, définissez une nouvelle section dans le corps HTML et créez un script. Passez dans le `id` de la carte `<div>` ou un `HTMLElement` (par exemple, `document.getElementById('myMap')`) comme premier paramètre lors de la création d’une instance de la `Map` classe. Utilisez votre propre clé de compte Azure Maps ou vos identifiants Azure Active Directory (AAD) pour authentifier la carte à l’aide des [options d’authentification](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions). Si vous devez créer un compte ou rechercher votre clé, consultez la section [Guide de gestion de votre compte et de vos clés Azure Maps](how-to-manage-account-keys.md). L’option **language** spécifie la langue à utiliser pour les étiquettes de carte et les contrôles. Pour plus d’informations sur les langues prises en charge, consultez [Langues prises en charge](supported-languages.md). En cas d’utilisation d’une clé d’abonnement pour l’authentification.
+5. Pour initialiser le contrôle de carte, définissez une nouvelle section dans le corps HTML et créez un script. Transmettez `id` dans la carte `<div>` ou un `HTMLElement` (par exemple, `document.getElementById('myMap')`) comme premier paramètre lors de la création d’une instance de classe `Map`. Utilisez votre propre clé de compte Azure Maps ou vos identifiants Azure Active Directory (AAD) pour authentifier la carte à l’aide des [options d’authentification](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions). Si vous devez créer un compte ou rechercher votre clé, consultez la section [Guide de gestion de votre compte et de vos clés Azure Maps](how-to-manage-account-keys.md). L’option **language** spécifie la langue à utiliser pour les étiquettes de carte et les contrôles. Pour plus d’informations sur les langues prises en charge, consultez [Langues prises en charge](supported-languages.md). En cas d’utilisation d’une clé d’abonnement pour l’authentification.
 
     ```HTML
     <script type="text/javascript">
@@ -102,7 +102,7 @@ Vous pouvez intégrer une carte dans une page web à l’aide de la bibliothèqu
     </script>
     ```
 
-    Pour plus d’informations, consultez [l’authentification avec Azure Maps](azure-maps-authentication.md) pour plus d’informations.
+    Pour plus d’informations, consultez [Authentification avec Azure Maps](azure-maps-authentication.md).
 
 6. Si vous le souhaitez, vous pouvez ajouter les éléments de balises META suivants à l’en-tête de votre page :
 
@@ -114,7 +114,7 @@ Vous pouvez intégrer une carte dans une page web à l’aide de la bibliothèqu
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     ```
 
-7. Vue d’ensemble votre fichier HTML doit ressembler à ce qui suit :
+7. Dans l’ensemble, votre fichier HTML devrait ressembler au code suivant :
 
     ```HTML
     <!DOCTYPE html>
@@ -164,9 +164,9 @@ Vous pouvez intégrer une carte dans une page web à l’aide de la bibliothèqu
     </html>
     ```
 
-8. Ouvrez le fichier dans votre navigateur web et consultez la carte ayant fait l’objet du rendu. Il doit ressembler le code suivant :
+8. Ouvrez le fichier dans votre navigateur web et consultez la carte ayant fait l’objet du rendu. Elle doit ressembler au code suivant :
 
-    <iframe height="700" style="width: 100%;" scrolling="no" title="Comment utiliser le contrôle de carte" src="//codepen.io/azuremaps/embed/yZpEYL/?height=557&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">Consultez le stylet <a href='https://codepen.io/azuremaps/pen/yZpEYL/'>comment utiliser le contrôle de carte</a> par Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
+    <iframe height="700" style="width: 100%;" scrolling="no" title="Comment utiliser le contrôle de carte" src="//codepen.io/azuremaps/embed/yZpEYL/?height=557&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">Consultez la section <a href='https://codepen.io/azuremaps/pen/yZpEYL/'>Comment utiliser le contrôle de carte</a> par Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
     </iframe>
 
 ## <a name="next-steps"></a>Étapes suivantes

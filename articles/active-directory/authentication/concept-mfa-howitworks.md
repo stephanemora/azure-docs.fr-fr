@@ -1,5 +1,5 @@
 ---
-title: Azure multi-Factor Authentication - fonctionnement - Azure Active Directory
+title: Microsoft Azure Multi-Factor Authentication - Fonctionnement - Azure Active Directory
 description: Azure Multi-Factor Authentication contribue à sécuriser l'accès aux données et aux applications tout en répondant à la demande de l'utilisateur d'un processus d'authentification simple.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa25e8a965b89c4e97263e3767a9400079fcad7a
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
-ms.translationtype: MT
+ms.openlocfilehash: ff8f27d727768f3f1135f8929310d5cfeffe874b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66496803"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113538"
 ---
 # <a name="how-it-works-azure-multi-factor-authentication"></a>Fonctionnement : Azure Multi-Factor Authentication
 
@@ -28,7 +28,7 @@ La sécurité de la vérification en deux étapes repose sur son approche en cou
 
 <center>
 
-![Image de méthodes d’authentification conceptuel](./media/concept-mfa-howitworks/methods.png)</center>
+![Image conceptuelle des méthodes d’authentification](./media/concept-mfa-howitworks/methods.png)</center>
 
 Azure Multi-Factor Authentication (MFA) participe à la sécurisation de l’accès aux données et aux applications tout en maintenant une simplicité de gestion pour les utilisateurs. MFA fournit une sécurité supplémentaire en exigeant une deuxième forme d’authentification, et procure une authentification renforcée par le biais d’un éventail de [méthodes d’authentification](concept-authentication-methods.md) faciles à utiliser. Les utilisateurs peuvent devoir s'authentifier via MFA selon les choix de configuration de l'administrateur.
 
@@ -36,9 +36,9 @@ Azure Multi-Factor Authentication (MFA) participe à la sécurisation de l’acc
 
 Le service Multi-Factor Authentication est fourni avec les offres suivantes :
 
-* **Azure Active Directory Premium** ou **Microsoft 365 entreprise** -complet de l’utilisation d’Azure multi-Factor Authentication à l’aide de stratégies d’accès conditionnel pour exiger une authentification multifacteur.
+* **Azure Active Directory Premium** ou **Microsoft 365 Business** : utilisation complète d’Azure Multi-Factor Authentication basé sur des stratégies d’accès conditionnel pour exiger une authentification multifacteur.
 
-* **Azure AD gratuit**, **Azure AD Basic**, ou de manière autonome **Office 365** licences - utilisez créé au préalable [stratégies de protection d’accès conditionnel de base](../conditional-access/concept-baseline-protection.md) pour exiger une authentification multifacteur pour vos utilisateurs et administrateurs.
+* Licences **Azure AD Free**, **Azure AD Basic** ou **Office 365** autonomes : utilisez des [stratégies de protection de base d’accès conditionnel](../conditional-access/concept-baseline-protection.md) pour exiger une authentification multifacteur pour vos utilisateurs et administrateurs.
 
 * **Administrateurs généraux Azure Active Directory** - Une sélection de fonctionnalités Azure Multi-Factor Authentication disponibles comme moyen de protection des comptes d’administrateur général.
 
@@ -50,10 +50,10 @@ Le service Multi-Factor Authentication est fourni avec les offres suivantes :
 Dans la mesure où la plupart des utilisateurs sont habitués à utiliser uniquement les mots de passe pour s’authentifier, il est important que votre organisation informe l’ensemble des utilisateurs sur ce processus. Le fait d’en être averti peut réduire la probabilité que les utilisateurs appellent votre support technique pour des problèmes mineurs liés à l’authentification MFA. Toutefois, pour certains scénarios, il est nécessaire de désactiver provisoirement l’authentification Multifacteur. Suivez les indications suivantes pour comprendre comment gérer ces scénarios :
 
 * Formez le personnel de votre support technique à la gestion de scénarios dans lesquels l’utilisateur ne parvient pas à se connecter, car il n’a pas accès à ses méthodes d’authentification, ou parce que celles-ci ne fonctionnent pas correctement.
-   * À l’aide de stratégies d’accès conditionnel pour le service Azure MFA, votre personnel du support technique peut ajouter un utilisateur à un groupe qui est exclu d’une stratégie nécessitant MFA.
-* Envisagez d’utiliser l’accès conditionnel emplacements nommés que les invites de des manières de réduire la vérification en deux étapes. Avec cette fonctionnalité, les administrateurs peuvent contourner la vérification en deux étapes pour les utilisateurs qui se connectent à partir d’un emplacement réseau autorisé sécurisé tel qu’un réseau segment utilisé pour l’intégration des nouveaux utilisateurs.
+   * À l’aide des stratégies d’accès conditionnel pour le service Azure MFA, votre personnel du support technique peut ajouter un utilisateur à un groupe qui est exclu d’une stratégie nécessitant MFA.
+* Pensez à utiliser des emplacements nommés à l’aide de l’accès conditionnel comme moyen de réduire les invites de vérification en deux étapes. Avec cette fonctionnalité, les administrateurs peuvent contourner la vérification en deux étapes des utilisateurs qui se connectent à partir d’un emplacement réseau approuvé sécurisé tel qu’un segment réseau utilisé pour l’intégration de nouveaux utilisateurs.
 * Déployez [Azure AD Identity Protection](../active-directory-identityprotection.md) et déclenchez la vérification en deux étapes en fonction des événements à risque.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Déploiement d’Azure multi-Factor Authentication étape par étape](howto-mfa-getstarted.md)
+- [Step-by-step Azure Multi-Factor Authentication deployment](howto-mfa-getstarted.md) (Déploiement pas à pas de Microsoft Azure Multi-Factor Authentication)

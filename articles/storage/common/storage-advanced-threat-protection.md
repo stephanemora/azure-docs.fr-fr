@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: ed263fec271801ac9c46bbc3125c71ca15b9a330
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8cea4b3fb78f3430fdd92e40552d687501af4be8
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65153967"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621973"
 ---
 # <a name="advanced-threat-protection-for-azure-storage"></a>Advanced Threat Protection pour le stockage Azure
 
@@ -111,7 +111,7 @@ Les alertes sont générées en cas de détection de tentatives d’accès ou d�
 
 ### <a name="anomalous-access-pattern-alerts"></a>Alertes de modèle d’accès anormal
 
-* **Accès à partir d’un emplacement inhabituel** : Cette alerte est déclenchée en cas de changement dans le modèle d’accès à un compte de stockage. Cela peut être le cas, par exemple, quand quelqu’un a accédé à un compte de stockage à partir d’un emplacement géographique inhabituel.
+* **Accès à partir d’un emplacement inhabituel** : Cette alerte est déclenchée quand quelqu’un a accédé à un compte de stockage à partir d’un emplacement géographique inhabituel.
 Causes potentielles :
    * Un attaquant a accédé à votre compte de stockage
    * Un utilisateur légitime a accédé à votre compte de stockage à partir d’un nouvel emplacement
@@ -120,10 +120,16 @@ Causes potentielles :
    * Un attaquant a accédé à votre compte de stockage à l’aide d’une nouvelle application.
    * Un utilisateur légitime a utilisé une nouvelle application/un nouveau navigateur pour accéder à votre compte de stockage.
 
-* **Accès anonyme** : Cette alerte indique un changement dans le modèle d’accès à un compte de stockage. Par exemple, ce compte a fait l’objet d’un accès anonyme (c’est-à-dire sans authentification), ce qui est inattendu comparé au modèle d’accès récent à ce compte.
+* **Accès anonyme** : Cette alerte indique que ce compte a fait l’objet d’un accès anonyme (c’est-à-dire sans authentification), ce qui est inattendu comparé au modèle d’accès récent à ce compte.
 Causes potentielles :
    * Un attaquant a exploité l’accès en lecture public à un conteneur.
    * Un utilisateur ou une application légitime a utilisé un accès en lecture public à un conteneur.
+
+* **Anomalie Tor** : cette alerte indique que ce compte a fait l’objet d’un accès à partir d’une adresse IP connue comme étant un nœud de sortie actif de Tor (proxy d’anonymisation). La gravité de cette alerte considère le type d’authentification utilisé (le cas échéant) et le fait qu’il s’agit ou non du premier cas de ce type d’accès.
+Causes potentielles :
+   * Un attaquant a accédé à votre compte de stockage à l’aide de Tor.
+   * Un utilisateur légitime a accédé à votre compte de stockage à l’aide de Tor.
+
 
 ### <a name="anomalous-extractupload-alerts"></a>Alertes d’extraction/de chargement anormal(e)
 

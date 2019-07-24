@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 7db9c6400ac7d235153a59965e34e30d9b809a81
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: cd2406bb4825ac295a6f9a3a18ba466cdc20c55d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60338805"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67120853"
 ---
 # <a name="how-to-use-azure-sql-database"></a>Utilisation d’Azure SQL Database
 
@@ -25,7 +25,7 @@ Dans cette section, vous trouverez des guides, des scripts et des explications p
 
 ## <a name="load-data"></a>Charger des données
 
-- [Copier une base de données unique ou en pool dans Azure](sql-database-copy.md)
+- [Copier une base de données unique ou mise en pool dans Azure](sql-database-copy.md)
 - [Importer une base de données depuis un fichier BACPAC](sql-database-import.md)
 - [Exporter une base de données vers un fichier BACPAC](sql-database-export.md)
 - [Chargement des données avec BCP](sql-database-load-from-csv-with-bcp.md)

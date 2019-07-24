@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: load data
+ms.subservice: load-data
 ms.date: 05/10/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: de5649498dddcec8c65f2cfca6dcb39fa20a9267
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: fa688f40f8eb968f2c388601b387e4f584951a91
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66242260"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595607"
 ---
 # <a name="designing-a-polybase-data-loading-strategy-for-azure-sql-data-warehouse"></a>Conception d’une stratégie de chargement de données PolyBase pour Azure SQL Data Warehouse
 
@@ -49,15 +49,15 @@ L’extraction des données à partir de votre système source dépend de l’em
 
 ### <a name="polybase-external-file-formats"></a>Formats des fichiers externes PolyBase
 
-PolyBase charge les données à partir de fichiers texte encodés avec UTF-8 et UTF-16. En plus des fichiers texte délimités, il charge des données à partir des fichiers aux formats Hadoop, RC, ORC et Parquet. PolyBase peut également charger des données à partir de fichiers compressés Gzip et Snappy. PolyBase ne prend actuellement pas en charge le codage ASCII étendu, le format de largeur fixe et les formats imbriqués tels que WinZip, JSON et XML. Si vous exportez des données à partir de SQL Server, vous pouvez utiliser l’[outil en ligne de commande bcp](/sql/tools/bcp-utility) pour exporter les données dans des fichiers texte délimités. Le Parquet au mappage de type de données SQL Data Warehouse est la suivante :
+PolyBase charge les données à partir de fichiers texte encodés avec UTF-8 et UTF-16. En plus des fichiers texte délimités, il charge des données à partir des fichiers aux formats Hadoop, RC, ORC et Parquet. PolyBase peut également charger des données à partir de fichiers compressés Gzip et Snappy. PolyBase ne prend actuellement pas en charge le codage ASCII étendu, le format de largeur fixe et les formats imbriqués tels que WinZip, JSON et XML. Si vous exportez des données à partir de SQL Server, vous pouvez utiliser l’[outil en ligne de commande bcp](/sql/tools/bcp-utility) pour exporter les données dans des fichiers texte délimités. Le mappage Parquet au type de données SQL Data Warehouse est le suivant :
 
-| **Type de données parquet** |                      **Type de données SQL**                       |
+| **Type de données Parquet** |                      **Type de données SQL**                       |
 | :-------------------: | :----------------------------------------------------------: |
 |        tinyint        |                           tinyint                            |
 |       smallint        |                           smallint                           |
 |          int          |                             int                              |
 |        bigint         |                            bigint                            |
-|        booléenne        |                             bit                              |
+|        boolean        |                             bit                              |
 |        double         |                            float                             |
 |         float         |                             real                             |
 |        double         |                            money                             |
@@ -73,8 +73,8 @@ PolyBase charge les données à partir de fichiers texte encodés avec UTF-8 et 
 |       timestamp       |                          datetime2                           |
 |       timestamp       |                           datetime                           |
 |       timestamp       |                             time                             |
-|       date        | (1) à charger en tant qu’int, convertie en date </br> (2) [utiliser le connecteur de l’entrepôt de données SQL Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse#load-data-into-azure-sql-data-warehouse) avec </br> spark.conf.set( "spark.sql.parquet.writeLegacyFormat", "true" ) </br> (**mettre à jour sera bientôt disponible**) |
-|        décimal        | [Utiliser le connecteur de l’entrepôt de données SQL Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse#load-data-into-azure-sql-data-warehouse) avec </br> spark.conf.set( "spark.sql.parquet.writeLegacyFormat", "true" ) </br> (**mettre à jour sera bientôt disponible**) |
+|       date        | (1) Charger en tant que paramètres Int et Cast to date </br> (2) [Utiliser le connecteur d’Azure Databricks SQL DW](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse#load-data-into-azure-sql-data-warehouse) avec </br> spark.conf.set( "spark.sql.parquet.writeLegacyFormat", "true" ) </br> (**mise à jour prochaine**) |
+|        décimal        | [Utiliser le connecteur d’Azure Databricks SQL DW](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse#load-data-into-azure-sql-data-warehouse) avec </br> spark.conf.set( "spark.sql.parquet.writeLegacyFormat", "true" ) </br> (**mise à jour prochaine**) |
 
 ## <a name="2-land-the-data-into-azure-blob-storage-or-azure-data-lake-store"></a>2. Placer les données dans le stockage Blob Azure ou Azure Data Lake Store
 
@@ -123,7 +123,7 @@ Pour charger des données avec PolyBase, vous pouvez utiliser l’une des option
 - [PolyBase avec T-SQL](load-data-from-azure-blob-storage-using-polybase.md) fonctionne bien lorsque vos données se trouvent dans le stockage Blob Azure ou dans Azure Data Lake Store. Il vous offre un contrôle optimal sur le processus de chargement, mais nécessite également que vous définissiez des objets de données externes. Les autres méthodes définissent ces objets en arrière-plan pendant que vous mappez les tables sources vers les tables de destination.  Pour orchestrer les chargements T-SQL, vous pouvez utiliser Azure Data Factory, SSIS ou les fonctions Azure. 
 - [PolyBase avec SSIS](/sql/integration-services/load-data-to-sql-data-warehouse) fonctionne bien lorsque vos données sources se trouvent dans SQL Server, que ce soit SQL Server sur site ou dans le cloud. SSIS définit le mappage de la table « source vers destination » et orchestre aussi le chargement. Si vous disposez déjà de packages SSIS, vous pouvez modifier les packages pour travailler avec le nouvel entrepôt de données de destination. 
 - [PolyBase avec Azure Data Factory (ADF)](sql-data-warehouse-load-with-data-factory.md) est un autre outil d’orchestration.  Il définit un pipeline et planifie les travaux. 
-- [PolyBase avec Azure DataBricks](../azure-databricks/databricks-extract-load-sql-data-warehouse.md) transfère les données à partir d’une table SQL Data Warehouse vers une tramedonnées Databricks et/ou écrit des données d’une tramedonnées Databricks dans une table SQL Data Warehouse à l’aide de PolyBase.
+- [PolyBase avec Azure DataBricks](../azure-databricks/databricks-extract-load-sql-data-warehouse.md) transfère les données d’une table SQL Data Warehouse vers une trame de données Databricks ou écrit des données d’une trame de données Databricks dans une table SQL Data Warehouse à l’aide de la technologie PolyBase.
 
 ### <a name="non-polybase-loading-options"></a>Options de chargement non-PolyBase
 

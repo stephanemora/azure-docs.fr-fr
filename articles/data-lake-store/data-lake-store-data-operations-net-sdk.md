@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 0771c9c5311e264fb996bbac1c540f9ed11873cb
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65908061"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Opérations de gestion du système de fichiers sur Azure Data Lake Storage Gen1 à l’aide de .NET
@@ -31,8 +31,8 @@ Dans cet article, vous allez découvrir comment réaliser des opérations de ges
 
 Pour obtenir des instructions sur l’exécution des opérations de gestion des comptes sur Data Lake Storage Gen1 à l’aide du kit de développement logiciel (SDK) .NET, consultez la section relative aux [opérations de gestion des comptes sur Data Lake Storage Gen1 à l’aide du kit de développement logiciel (SDK) .NET](data-lake-store-get-started-net-sdk.md).
 
-## <a name="prerequisites"></a>Conditions préalables
-* **Visual Studio 2013 ou version ultérieure**. Les instructions ci-dessous utilisent Visual Studio 2019.
+## <a name="prerequisites"></a>Prérequis
+* **Visual Studio 2013 ou version ultérieure**. Les instructions ci-dessous reposent sur Visual Studio 2019.
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -41,9 +41,9 @@ Pour obtenir des instructions sur l’exécution des opérations de gestion des 
 ## <a name="create-a-net-application"></a>Créer une application .NET
 L’exemple de code disponible [sur GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted) vous guide tout au long du processus de création de fichiers dans le magasin, de concaténation de fichiers, de téléchargement d’un fichier et de suppression de certains fichiers du compte. Cette section de l’article vous guide tout au long des principales parties du code.
 
-1. Dans Visual Studio, sélectionnez le **fichier** menu, **New**, puis **projet**.
-2. Choisissez **application Console (.NET Framework)**, puis sélectionnez **suivant**.
-3. Dans **nom_projet**, entrez `CreateADLApplication`, puis sélectionnez **créer**.
+1. Dans Visual Studio, sélectionnez le menu **Fichier**, puis **Nouveau** et **Projet**.
+2. Choisissez **Application console (.NET Framework)** , puis sélectionnez **Suivant**.
+3. Dans **Nom du projet**, entrez `CreateADLApplication`, puis sélectionnez **Créer**.
 
 4. Ajoutez les packages NuGet à votre projet.
 
@@ -131,7 +131,7 @@ L’extrait de code suivant permet de lire le contenu d’un fichier dans un com
         }
     }
 
-## <a name="get-file-properties"></a>Obtenir les propriétés du fichier
+## <a name="get-file-properties"></a>Obtenir les propriétés de fichier
 L’extrait de code suivant permet de renvoyer les propriétés associées à un fichier ou un répertoire.
 
     // Get file properties

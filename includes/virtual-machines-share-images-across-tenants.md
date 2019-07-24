@@ -9,56 +9,56 @@ ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 499aeccdf00980eeb66ac6ee06e45267fd515143
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66145883"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177027"
 ---
-Galeries d’images partagé vous permettent d’images de partage à l’aide de RBAC. Vous pouvez utiliser RBAC pour partager des images au sein de votre client et même aux personnes en dehors de votre client. Toutefois, si vous souhaitez partager des images en dehors de votre client Azure, à grande échelle, vous devez créer une inscription d’application pour faciliter le partage.  À l’aide d’une inscription d’application peut activer des scénarios de partage plus complexes, telles que : 
+Les galeries Shared Image Gallery vous permettent de partager des images à l’aise du contrôle d’accès en fonction du rôle (RBAC). Vous pouvez utiliser le contrôle d’accès en fonction du rôle (RBAC) pour partager des images au sein de votre locataire, voire avec d’autres personnes en dehors. Toutefois, si vous souhaitez partager à grande échelle des images hors de votre locataire Azure, vous devez créer une inscription d’application pour faciliter le partage.  À l’aide d’une inscription d’application, vous pouvez activer des scénarios de partage plus complexes, comme : 
 
-* La gestion d’images partagées lors de l’acquisition d’un autre, et l’infrastructure Azure est réparti entre les locataires séparés. 
-* Les partenaires Azure gérer l’infrastructure Azure pour le compte de leurs clients. Personnalisation d’images s’effectue au sein du client de partenaires, mais les déploiements d’infrastructure se produira dans le client. 
+* la gestion d’images partagées lorsqu’une entreprise en acquiert une autre, ou la répartition de l’infrastructure Azure entre plusieurs locataires distincts. 
+* Les partenaires Azure gèrent l’infrastructure Azure pour le compte de leurs clients. Les images sont personnalisées au sein du locataire des partenaires, mais les déploiements d’infrastructure s’effectuent dans celui du client. 
 
 
 ## <a name="create-the-app-registration"></a>Créer l’inscription d’application
 
-Créer une inscription d’application qui servira par les deux clients de partager les ressources de galerie d’image.
-1. Ouvrez le [inscriptions d’application (version préliminaire) dans le portail Azure](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType//sourceType/).    
-1. Sélectionnez **nouvelle inscription** dans le menu en haut de la page.
-1. Dans **nom**, type *myGalleryApp*.
-1. Dans **pris en charge les types de comptes**, sélectionnez **comptes dans n’importe quel annuaire d’organisation et les comptes Microsoft personnels**.
-1. Dans **URI de redirection**, type *https://www.microsoft.com* , puis sélectionnez **inscrire**. Une fois l’inscription d’application a été créée, la page de vue d’ensemble s’ouvre.
-1. Dans la page Vue d’ensemble, copiez la **ID d’Application (client)** et l’enregistrer pour une utilisation ultérieure.   
-1. Sélectionnez **certificats et clés secrètes**, puis sélectionnez **nouvelle clé secrète client**.
-1. Dans **Description**, type *partagé image galerie inter-clients secret de l’application*.
-1. Dans **expiration**, conservez la valeur par défaut **dans 1 an** , puis sélectionnez **ajouter**.
-1. Copiez la valeur de la clé secrète et enregistrez-le dans un endroit sûr. Vous ne pouvez pas récupérer une fois que vous quittez la page.
+Créez une inscription d’application qui sera utilisée par les deux locataires pour partager les ressources des galeries d’images.
+1. Accédez à la fonction [Inscriptions d’applications (préversion) dans le portail Microsoft Azure](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType//sourceType/).    
+1. Sélectionnez l’option **Nouvelle inscription** dans le menu situé en haut de la page.
+1. Dans **Nom**, saisissez *myGalleryApp*.
+1. Dans **Types de comptes pris en charge**, sélectionnez **Comptes dans un annuaire organisationnel et comptes personnels Microsoft**.
+1. Dans **URI de redirection**, saisissez *https://www.microsoft.com* et sélectionnez **Inscrire**. Une fois l’inscription d’application créée, la page Vue d’ensemble s’ouvre.
+1. Sur cette page, copiez **l’ID d’application (client)** et enregistrez-le pour une utilisation ultérieure.   
+1. Sélectionnez **Certificats et secrets**, puis sélectionnez **Nouveau secret client**.
+1. Dans **Description**, saisissez *Secret d’application proposé entre plusieurs locataires dans la galerie d’images partagées*.
+1. Dans **Expires**, conservez la valeur par défaut, **Dans 1 n** et sélectionnez **Ajouter**.
+1. Copiez la valeur du secret et placez-la dans un endroit sûr. Vous ne pouvez pas la récupérer une fois que vous avez quitté cette page.
 
 
-Donner l’autorisation de l’inscription d’application à utiliser la galerie d’images partagé.
-1. Dans le portail Azure, sélectionnez la galerie d’images partagé que vous souhaitez partager avec un autre client.
-1. Sélectionnez **sélectionnez contrôle d’accès (IAM)**, puis, sous **ajouter une attribution de rôle** sélectionnez *ajouter*. 
-1. Sous **rôle**, sélectionnez **lecteur**.
-1. Sous **attribuer l’accès à :**, laissez-la en **utilisateur, groupe ou principal du service Azure AD**.
-1. Sous **sélectionnez**, type *myGalleryApp* et sélectionnez-le lorsqu’il s’affiche dans la liste. Lorsque vous avez terminé, sélectionnez **enregistrer**.
+Fournissez l’autorisation de l’inscription d’application pour utiliser la galerie d’images partagées.
+1. Dans le portail Azure, sélectionnez la galerie Shared Image Gallery que vous souhaitez partager avec un autre locataire.
+1. Sélectionnez **Contrôle d’accès (IAM)** et, sous **Ajouter une attribution de rôle**, sélectionnez *Ajouter*. 
+1. Sous **Rôle**, sélectionnez **Lecteur**.
+1. Sous **Attribuer l’accès à**, laissez la valeur **Utilisateur, groupe ou principal du service Azure AD**.
+1. Sous **Sélectionner**, saisissez *myGalleryApp* et sélectionnez cet élément lorsqu’il s’affiche dans la liste. Lorsque vous avez terminé, sélectionnez **Enregistrer**.
 
 
-## <a name="give-tenant-2-access"></a>Accorder l’accès du locataire 2
+## <a name="give-tenant-2-access"></a>Accorder l’accès au locataire 2
 
-Donnez l’accès client 2 à l’application en demandant une connexion à l’aide d’un navigateur. Remplacez *<Tenant2 ID>* avec l’ID de client pour le locataire que vous aimeriez partager avec votre galerie d’images. Remplacez *< ID d’Application (client) >* avec l’ID d’application de l’inscription d’application que vous avez créé. Lorsque vous avez terminé effectue les remplacements, collez l’URL dans un navigateur et suivez les invites de connexion pour se connecter à un locataire 2.
+Accordez l’accès au locataire 2 à l’application, en demandant la connexion via un navigateur. Remplacez *<Tenant2 ID>* par l’ID du locataire avec lequel que vous voulez partager votre galerie d’images. Remplacez *<ID d’application (client)>* par l’ID d’application de l’inscription d’application que vous avez créée. Lorsque vous avez effectué ces remplacements, collez l’adresse URL dans un navigateur et suivez les invites pour vous connecter au locataire 2.
 
 ```
 https://login.microsoftonline.com/<Tenant 2 ID>/oauth2/authorize?client_id=<Application (client) ID>&response_type=code&redirect_uri=https%3A%2F%2Fwww.microsoft.com%2F 
 ```
 
-Dans le [Azure portal](https://portal.azure.com) connectez-vous en tant que client 2 et donner l’accès de l’inscription d’application au groupe de ressources dans lequel vous souhaitez créer la machine virtuelle.
+Dans le [portail Microsoft Azure](https://portal.azure.com), connectez-vous en tant que locataire 2 et accordez à l’inscription d’application un accès au groupe de ressources dans lequel vous souhaitez créer la machine virtuelle.
 
-1. Sélectionnez le groupe de ressources, puis **contrôle d’accès (IAM)**. Sous **ajouter une attribution de rôle** sélectionnez **ajouter**. 
-1. Sous **rôle**, type **contributeur**.
-1. Sous **attribuer l’accès à :**, laissez-la en **utilisateur, groupe ou principal du service Azure AD**.
-1. Sous **sélectionnez** type *myGalleryApp* puis sélectionnez-la lorsqu’elle s’affiche dans la liste. Lorsque vous avez terminé, sélectionnez **enregistrer**.
+1. Sélectionnez le groupe de ressources, puis **Contrôle d’accès (IAM)** . Sous **Ajouter une attribution de rôle**, sélectionnez **Ajouter**. 
+1. Sous **Rôle**, saisissez **Contributeur**.
+1. Sous **Attribuer l’accès à**, laissez la valeur **Utilisateur, groupe ou principal du service Azure AD**.
+1. Sous **Sélectionner**, saisissez *myGalleryApp*, puis sélectionnez cet élément lorsqu’il s’affiche dans la liste. Lorsque vous avez terminé, sélectionnez **Enregistrer**.
 
 > [!NOTE]
-> Vous devez attendre que la version de l’image se termine complètement les cours de génération et de réplication avant de pouvoir utiliser la même image managée pour créer une autre version de l’image.
+> Vous devez attendre que la version d’image soit totalement intégrée et répliquée avant de pouvoir utiliser la même image managée pour créer une autre version d’image.
 

@@ -1,5 +1,5 @@
 ---
-title: Effectuer des opérations sur stockage file d’attente Azure avec PowerShell - stockage Azure
+title: Effectuer des opérations sur un Stockage File d’attente Azure avec PowerShell - Stockage Azure
 description: Guide pratique pour effectuer des opérations sur un Stockage File d’attente Azure avec PowerShell
 services: storage
 author: mhopkins-msft
@@ -10,10 +10,10 @@ ms.author: mhopkins
 ms.reviewer: cbrooks
 ms.subservice: queues
 ms.openlocfilehash: 6e8640b136c52f500de010f842ab73678acdce4f
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65991357"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Effectuer des opérations sur Stockage File d’attente Azure avec Azure PowerShell
@@ -22,7 +22,7 @@ Les files d’attente de stockage Azure sont un service permettant de stocker un
 
 > [!div class="checklist"]
 >
-> * Créer une file d'attente
+> * Créer une file d’attente
 > * Récupérer une file d’attente
 > * Ajouter un message
 > * Lire un message
@@ -77,7 +77,7 @@ $storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroup `
 $ctx = $storageAccount.Context
 ```
 
-## <a name="create-a-queue"></a>Créer une file d'attente
+## <a name="create-a-queue"></a>Créer une file d’attente
 
 L'exemple suivant établit d'abord une connexion à Azure Storage à l'aide du contexte de compte de stockage, ce qui inclut le nom de compte de stockage et sa clé d'accès. Ensuite, il appelle l’applet de commande [New-AzStorageQueue](/powershell/module/az.storage/New-AzStorageQueue) pour créer une file d’attente appelée « queuename ».
 
@@ -104,7 +104,7 @@ Get-AzStorageQueue -Context $ctx | select Name
 
 ## <a name="add-a-message-to-a-queue"></a>Ajout d'un message à une file d'attente
 
-Les opérations ayant un impact sur les messages réels dans la file d’attente utilisent la bibliothèque cliente de stockage .NET exposée dans PowerShell. Pour ajouter un message à une file d’attente, créez une nouvelle instance de l’objet de message, [Microsoft.Azure.Storage.Queue.CloudQueueMessage](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue._cloud_queue_message) classe. Appelez ensuite la méthode [AddMessage](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue._cloud_queue.addmessage) . Un CloudQueueMessage peut être créé à partir d'une chaîne (au format UTF-8) ou d'un tableau d'octets.
+Les opérations ayant un impact sur les messages réels dans la file d’attente utilisent la bibliothèque cliente de stockage .NET exposée dans PowerShell. Pour ajouter un message à une file d’attente, créez une instance de l’objet de message, la classe [Microsoft.Azure.Storage.Queue.CloudQueueMessage](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue._cloud_queue_message). Appelez ensuite la méthode [AddMessage](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue._cloud_queue.addmessage) . Un CloudQueueMessage peut être créé à partir d'une chaîne (au format UTF-8) ou d'un tableau d'octets.
 
 L’exemple suivant montre comment ajouter un message à votre file d’attente.
 
@@ -132,7 +132,7 @@ Les messages sont lus, dans la mesure du possible, dans l’ordre du premier ent
 
 Cette **période d’invisibilité** définit la durée d’invisibilité du message avant qu’il ne redevienne disponible pour traitement. La valeur par défaut est 30 secondes.
 
-Votre code lit un message dans la file d’attente en deux étapes. Lorsque vous appelez le [Microsoft.Azure.Storage.Queue.CloudQueue.GetMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage) (méthode), vous obtenez le message suivant dans la file d’attente. Un message renvoyé par **GetMessage** devient invisible par les autres codes lisant les messages de cette file d'attente. Pour terminer la suppression du message de la file d’attente, vous appelez le [Microsoft.Azure.Storage.Queue.CloudQueue.DeleteMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage) (méthode).
+Votre code lit un message dans la file d’attente en deux étapes. Quand vous appelez la méthode [Microsoft.Azure.Storage.Queue.CloudQueue.GetMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage), vous obtenez le message suivant dans la file d’attente. Un message renvoyé par **GetMessage** devient invisible par les autres codes lisant les messages de cette file d'attente. Pour finaliser la suppression du message de la file d’attente, vous devez également appeler la méthode [Microsoft.Azure.Storage.Queue.CloudQueue.DeleteMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage).
 
 Dans l’exemple suivant, vous lisez les trois messages de la file d’attente, puis attendez 10 secondes (période d’invisibilité). Ensuite, quand vous relisez les trois messages, vous les supprimez un à un en appelant **DeleteMessage**. Si vous essayez de lire la file d’attente une fois les messages supprimés, $queueMessage retourne NULL.
 
@@ -186,7 +186,7 @@ Cet article sur les procédures vous a présenté les bases de la gestion de Sto
 
 > [!div class="checklist"]
 >
-> * Créer une file d'attente
+> * Créer une file d’attente
 > * Récupérer une file d’attente
 > * Ajouter un message
 > * Lire le message suivant

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4dbe3039845b1c9160e4f4fa3007cad1f588f71e
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: ca6f79b5febdbf12c80ab85d07117bf937babef0
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67560754"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798209"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Intégrer votre infrastructure NPS existante dans Azure Multi-Factor Authentication
 
@@ -76,14 +76,14 @@ Lorsque vous installez l’extension, vous devez disposer de l’ID de répertoi
 
 Le serveur NPS (Network Policy Server) doit pouvoir communiquer avec les URL suivantes sur les ports 80 et 443.
 
-- [https://adnotifications.windowsazure.com](https://adnotifications.windowsazure.com)
-- [https://login.microsoftonline.com](https://login.microsoftonline.com)
+- https:\//adnotifications.windowsazure.com
+- https:\//login.microsoftonline.com
 
 En outre, la connectivité aux adresses URL suivantes est nécessaire pour terminer la [configuration de l’adaptateur à l’aide du script PowerShell fourni](#run-the-powershell-script).
 
-- [https://login.microsoftonline.com](https://login.microsoftonline.com)
-- [https://provisioningapi.microsoftonline.com](https://provisioningapi.microsoftonline.com)
-- [https://aadcdn.msauth.net](https://aadcdn.msauth.net)
+- https:\//login.microsoftonline.com
+- https:\//provisioningapi.microsoftonline.com
+- https:\//aadcdn.msauth.net
 
 ## <a name="prepare-your-environment"></a>Préparation de votre environnement
 
@@ -230,6 +230,14 @@ L’objectif de ce paramètre est de déterminer l’action à exécuter lorsqu�
 Vous pouvez choisir de créer cette clé et de lui affecter la valeur FALSE pour vos utilisateurs qui sont en cours d’intégration et ne sont peut-être pas encore inscrits pour l’authentification Azure MFA. Toutefois, étant donné que la définition de la clé permet aux utilisateurs qui ne sont pas inscrits pour l’authentification MFA de se connecter, vous devez supprimer cette clé avant de passer en production.
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
+
+### <a name="nps-extension-health-check-script"></a>Script de vérification de l’intégrité de l’extension NPS
+
+Le script suivant est disponible dans la galerie TechNet pour effectuer des étapes de vérification de l’intégrité de base lors de la résolution des problèmes de l’extension NPS.
+
+[MFA_NPS_Troubleshooter.ps1](https://gallery.technet.microsoft.com/Azure-MFA-NPS-Extension-648de6bb)
+
+---
 
 ### <a name="how-do-i-verify-that-the-client-cert-is-installed-as-expected"></a>Comment vérifier que le certificat client est installé comme prévu ?
 

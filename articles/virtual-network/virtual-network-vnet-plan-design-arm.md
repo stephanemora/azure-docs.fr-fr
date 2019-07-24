@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: kumud
 ms.openlocfilehash: 0a80630ffa363d2b633667d8104cc0326c4afa2e
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66478593"
 ---
 # <a name="plan-virtual-networks"></a>Planifier des réseaux virtuels
@@ -77,7 +77,7 @@ Vous pouvez filtrer le trafic réseau vers et depuis des ressources dans un rés
 - Si différentes machines virtuelles au sein d’un sous-réseau ont besoin de règles de sécurité différentes, vous pouvez associer l’interface réseau de la machine virtuelle à un ou plusieurs groupes de sécurité d’application. Une règle de sécurité peut spécifier un groupe de sécurité d’application dans sa source, sa destination, ou les deux. Cette règle ne s’applique alors qu’aux interfaces réseau qui sont membres du groupe de sécurité d’application. En savoir plus sur les [groupes de sécurité réseau](security-overview.md) et les [groupes de sécurité d’application](security-overview.md#application-security-groups).
 - Azure crée plusieurs règles de sécurité par défaut dans chaque groupe de sécurité réseau. Une règle par défaut autorise l’ensemble du trafic entre toutes les ressources dans un réseau virtuel. Pour remplacer ce comportement, utilisez des groupes de sécurité réseau, un routage personnaliser pour acheminer le trafic vers une NVA, ou les deux. Il vous est recommandé de vous familiariser avec toutes les [règles de sécurité par défaut](security-overview.md#default-security-rules) d’Azure et de comprendre comment les règles de groupe de sécurité réseau s’appliquent à une ressource.
 
-Vous pouvez afficher des exemples de conception pour l’implémentation d’un réseau de périmètre (également appelé DMZ) entre Azure et internet en utilisant un [NVA](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2Fazure%2Fvirtual-network%2Ftoc.json).
+Vous pouvez consulter des exemples de conception pour l’implémentation d’un réseau de périmètre (ou DMZ) entre Azure et Internet, à l’aide d’une [appliance virtuelle réseau](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2Fazure%2Fvirtual-network%2Ftoc.json).
 
 ### <a name="traffic-routing"></a>Routage du trafic
 

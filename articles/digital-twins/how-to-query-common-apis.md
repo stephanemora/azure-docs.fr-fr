@@ -6,14 +6,14 @@ manager: philmea
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 1/7/2019
+ms.date: 07/09/2019
 ms.author: v-adgera
-ms.openlocfilehash: 57abb005f70661d23ea90eaf801b8e5407340bb7
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: eca355a51b516311d060df09905c1df769037ec5
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67462035"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722839"
 ---
 # <a name="how-to-query-azure-digital-twins-apis-for-common-tasks"></a>Guide pratique pour interroger les API Azure Digital Twins pour les tâches courantes
 
@@ -238,4 +238,4 @@ Cette section présente quelques exemples de requêtes d’API pour la gestion d
 
 Pour savoir comment vous authentifier auprès de votre API de gestion, consultez [Authentification auprès des API](./security-authenticating-apis.md).
 
-Pour voir tous les points de terminaison d’API, consultez [Guide pratique pour utiliser Digital Twins Swagger](./how-to-use-swagger.md).
+Pour en savoir plus sur vos points de terminaison d’API, consultez [Comment utiliser Digital Twins Swagger](./how-to-use-swagger.md).

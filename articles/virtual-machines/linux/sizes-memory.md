@@ -17,10 +17,10 @@ ms.workload: infrastructure-services
 ms.date: 05/16/2019
 ms.author: jonbeck
 ms.openlocfilehash: 3201183bbd012340575ee2c117b4b2083ceea711
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65832135"
 ---
 # <a name="memory-optimized-virtual-machine-sizes"></a>Tailles de machine virtuelle à mémoire optimisée
@@ -43,4 +43,4 @@ ms.locfileid: "65832135"
 
 * Lisez-en davantage sur les [Unités de calcul Azure (ACU)](acu.md) pour découvrir comment comparer les performances de calcul entre les références Azure.
 
-* Découvrez comment [créer et gérer des machines virtuelles Linux avec l’interface CLI Azure](tutorial-manage-vm.md)
+* Découvrez comment [Créer et gérer des machines virtuelles Linux avec Azure CLI](tutorial-manage-vm.md)

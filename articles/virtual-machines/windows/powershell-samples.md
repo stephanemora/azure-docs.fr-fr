@@ -4,7 +4,7 @@ description: Exemples PowerShell pour les machines virtuelles Azure
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-service-management
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/01/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 576fe268bec12c16c7c2e2076dfa066c908693d5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9aea63b8366bf974fd89c32105bea707ad72c8a5
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60583687"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67719985"
 ---
 # <a name="azure-virtual-machine-powershell-samples"></a>Exemples PowerShell pour les machines virtuelles Azure
 
@@ -50,4 +50,5 @@ Le tableau suivant fournit des liens vers des exemples de script PowerShell qui 
 | [Chiffrer une machine virtuelle et ses disques de données](./../scripts/virtual-machines-windows-powershell-sample-encrypt-vm.md?toc=%2fpowershell%2fazure%2ftoc.json) | Crée un coffre de clés Azure, une clé de chiffrement et un principal de service, puis chiffre une machine virtuelle. |
 |**Surveiller les machines virtuelles**||
 | [Surveiller une machine virtuelle avec Azure Monitor](./../scripts/virtual-machines-windows-powershell-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Crée une machine virtuelle, installe l’agent Azure Log Analytics et inscrit la machine virtuelle auprès d’un espace de travail Log Analytics.  |
+| [Collecter plus d’informations sur toutes les machines virtuelles dans un abonnement avec PowerShell](../scripts/virtual-machines-powershell-sample-collect-vm-details.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Crée un fichier csv qui contient le nom de la machine virtuelle, le nom du groupe de ressources, la région, le réseau virtuel, le sous-réseau, l’adresse IP privée, le type de système d’exploitation et l’adresse IP publique des machines virtuelles dans l’abonnement fourni.
 | | |

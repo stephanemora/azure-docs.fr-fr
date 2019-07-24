@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
 ms.openlocfilehash: d221b828624e649a0d04a89c4394fe5a7fa857dd
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66237320"
 ---
 # <a name="networking"></a>Mise en réseau
@@ -60,7 +60,7 @@ La mise à l’échelle de l’infrastructure est requise pour activer la mise e
 
 * Pour déployer des clusters Service Fabric dans un réseau virtuel existant, suivez la procédure décrite dans [Modèles de mise en réseau de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking).
 
-* Les groupes de sécurité réseau (NSG) sont recommandés pour les types de nœuds qui limitent le trafic entrant et sortant de leur cluster. Assurez-vous que les ports nécessaires sont ouverts dans les groupes de sécurité réseau. Exemple : ![Règles de groupe de sécurité réseau Service Fabric][NSGSetup]
+* Les groupes de sécurité réseau (NSG) sont recommandés pour les types de nœuds qui limitent le trafic entrant et sortant de leur cluster. Assurez-vous que les ports nécessaires sont ouverts dans les groupes de sécurité réseau. Par exemple :  ![Règles de groupe de sécurité réseau Service Fabric][NSGSetup]
 
 * Le type de nœud principal, qui contient les services système Service Fabric n'est pas tenu d’être exposé via l’équilibreur de charge externe et peut être exposé par un [équilibreur de charge interne](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking#internal-only-load-balancer).
 
@@ -72,7 +72,7 @@ La mise à l’échelle de l’infrastructure est requise pour activer la mise e
 
 * Utilisez un proxy inversé tel que [Traefik](https://docs.traefik.io/configuration/backends/servicefabric/) ou le [proxy inversé Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy) pour exposer les ports d’application courants tels que 80 ou 443.
 
-* Pour les conteneurs Windows hébergés sur des machines air-ENTROUVERTE qui ne peut pas extraire les calques de base à partir du stockage cloud Azure, remplacer le comportement de la couche étrangère, à l’aide de la [--artefacts nondistributable autoriser](https://docs.microsoft.com/virtualization/windowscontainers/about/faq#how-do-i-make-my-container-images-available-on-air-gapped-machines) indicateur dans le démon Docker.
+* Pour les conteneurs Windows hébergés sur des machines isolées sous « air gap » qui ne peuvent pas extraire des couches de base du stockage cloud Azure, remplacez le comportement de couche étrangère, en utilisant l’indicateur [--allow-nondistributable-artifacts](https://docs.microsoft.com/virtualization/windowscontainers/about/faq#how-do-i-make-my-container-images-available-on-air-gapped-machines) dans le démon Docker.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

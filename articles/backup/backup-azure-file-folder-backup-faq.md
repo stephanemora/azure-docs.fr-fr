@@ -5,14 +5,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 07/02/2019
+ms.date: 07/09/2019
 ms.author: dacurwin
-ms.openlocfilehash: d4d1044a30d4ebc551cf1305993aba2a201c4c94
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: dd800c0eeb18fe45b44a72aeb58b500623b2b366
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514447"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705094"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>Questions courantes sur la sauvegarde de fichiers et de dossiers
 
@@ -88,9 +88,19 @@ Cet avertissement, qui peut s’afficher même si vous avez configuré une strat
 La taille du dossier du cache détermine la quantité de données que vous sauvegardez.
 - Les volumes de dossier de cache doivent disposer d’un espace disponible correspondant à 5 à 10 % minimum de la taille totale des données de sauvegarde.
 - Si le volume dispose de moins de 5 % de l’espace libre, augmentez la taille du volume, ou déplacez le dossier de cache vers un volume ayant suffisamment d’espace disponible.
-- Si vous sauvegardez l’état du système Windows, il vous faut au moins 30 à 35 Go d’espace disponible sur le volume contenant le dossier du cache.
-### <a name="how-do-i-change-the-cache-location-for-the-mars-agent"></a>Comment faire pour modifier l’emplacement du cache pour l’agent MARS ?
+- Si vous sauvegardez l’état du système Windows, il vous faut 30 à 35 Go d’espace disponible de plus sur le volume contenant le dossier du cache.
 
+### <a name="how-to-check-if-scratch-folder-is-valid-and-accessible"></a>Comment vérifier si le dossier de travail est valide et accessible ?
+
+1. Par défaut, le dossier de travail se trouve ici : `\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
+2. Vérifiez que le chemin de l’emplacement de votre dossier de travail correspond aux valeurs des entrées de clé de Registre ci-dessous :
+
+  | Chemin d’accès au Registre | Clé de Registre | Valeur |
+  | --- | --- | --- |
+  | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Emplacement du nouveau dossier de cache* |
+  | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Emplacement du nouveau dossier de cache* |
+
+### <a name="how-do-i-change-the-cache-location-for-the-mars-agent"></a>Comment faire pour modifier l’emplacement du cache pour l’agent MARS ?
 
 1. Pour arrêter le moteur de sauvegarde, exécutez cette commande dans une invite de commandes avec élévation de privilèges :
 

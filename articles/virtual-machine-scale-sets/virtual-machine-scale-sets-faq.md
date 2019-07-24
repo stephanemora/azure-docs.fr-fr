@@ -17,10 +17,10 @@ ms.date: 05/24/2019
 ms.author: manayar
 ms.custom: na
 ms.openlocfilehash: 0674d8c98f4bf37bbf9417de60ff4c60910d802a
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66258282"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>FAQ sur les groupes de machines virtuelles identiques Azure
@@ -167,7 +167,7 @@ Le code prend en charge Windows et Linux.
 Pour plus d’informations, consultez [Création ou mise à jour d’un groupe de machines virtuelles identiques](https://msdn.microsoft.com/library/mt589035.aspx).
 
 
-### <a name="how-do-i-use-self-signed-certificates-provisioned-for-azure-service-fabric-clusters"></a>Comment utiliser des certificats auto-signés configurés pour les Clusters Azure Service Fabric ?
+### <a name="how-do-i-use-self-signed-certificates-provisioned-for-azure-service-fabric-clusters"></a>Comment faire pour utiliser des certificats auto-signés approvisionnés pour les clusters Azure Service Fabric
 Pour obtenir l’exemple le plus récent, utilisez l’instruction Azure CLI suivante dans l’interpréteur de commandes Azure et lisez la documentation sur l’exemple de module CLI Service Fabrics (imprimée dans stdout) :
 
 ```bash
@@ -200,7 +200,7 @@ Incluez **osProfile** dans votre modèle :
 }
 ```
 
-Ce bloc JSON est utilisé dans [ce modèle de démarrage rapide Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
+Ce bloc JSON est utilisé dans le [modèle de démarrage rapide Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
 
 Pour plus d’informations, consultez [Création ou mise à jour d’un groupe de machines virtuelles identiques](https://msdn.microsoft.com/library/azure/mt589035.aspx#linuxconfiguration).
 
@@ -208,7 +208,7 @@ Pour plus d’informations, consultez [Création ou mise à jour d’un groupe d
 
 Pour supprimer les certificats obsolètes, supprimez l’ancien certificat dans la liste des certificats du coffre. Laissez tous les certificats que vous souhaitez garder sur votre ordinateur dans la liste. Cela ne supprime pas le certificat de toutes vos machines virtuelles. Cela n’ajoute pas non plus le certificat sur les nouvelles machines virtuelles créées dans le groupe de machines virtuelles identiques.
 
-Pour supprimer le certificat à partir de machines virtuelles existantes, utilisez une extension de script personnalisé pour supprimer manuellement les certificats du magasin de certificats.
+Pour supprimer le certificat sur des machines virtuelles existantes, utilisez une extension de script personnalisé afin de supprimer manuellement les certificats de votre magasin de certificats.
 
 ### <a name="how-do-i-inject-an-existing-ssh-public-key-into-the-virtual-machine-scale-set-ssh-layer-during-provisioning"></a>Comment injecter une clé publique SSH existante dans la couche SSH du groupe de machines virtuelles identiques lors de la configuration ?
 
@@ -231,15 +231,15 @@ Vous pouvez fournir les clés publiques SSH en texte brut lorsque vous créez un
 
 nom d’élément linuxConfiguration | Obligatoire | Type | Description
 --- | --- | --- | ---
-ssh | Non  | Collection | Spécifie la configuration de la clé SSH pour un système d’exploitation Linux
-path | Oui | String | Spécifie le chemin d’accès du fichier Linux où les clés SSH ou le certificat doivent être placés
-keyData | Oui | String | Spécifie une clé publique SSH encodée en base64
+ssh | Non | Collection | Spécifie la configuration de la clé SSH pour un système d’exploitation Linux
+chemin d’accès | OUI | Chaîne | Spécifie le chemin d’accès du fichier Linux où les clés SSH ou le certificat doivent être placés
+keyData | OUI | Chaîne | Spécifie une clé publique SSH encodée en base64
 
 Pour obtenir un exemple, consultez [le modèle de démarrage rapide GitHub 101-vm-sshkey](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
 
 ### <a name="when-i-run-update-azvmss-after-adding-more-than-one-certificate-from-the-same-key-vault-i-see-the-following-message"></a>Lorsque j’exécute `Update-AzVmss` après l’ajout de plusieurs certificats à partir du même coffre de clés, je reçois le message suivant :
 
->Update-AzVmss : Secret de la liste contient des instances répétées de /subscriptions/\<my-subscription-id > / resourceGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev, ce qui n’est pas autorisée.
+>Update-AzVmss : La zone List secret (Afficher la liste des secrets) contient des instances répétées de /subscriptions/\<id-mon-abonnement>/resourceGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev, ce qui n’est pas autorisé.
 
 Cela peut se produire si vous essayez d’ajouter à nouveau le même coffre au lieu d’utiliser un nouveau certificat de coffre pour le coffre source existant. La commande `Add-AzVmssSecret` ne fonctionne pas correctement si vous ajoutez des secrets supplémentaires.
 
@@ -311,7 +311,7 @@ Pour déployer des clés publiques .cer dans un groupe de machines virtuelles id
 
 Pour plus d’informations, consultez [Méthode X509Certificate.Export (X509ContentType, chaîne)](https://msdn.microsoft.com/library/24ww6yzk(v=vs.110.aspx)).
 
-### <a name="how-do-i-pass-in-certificates-as-base64-strings"></a>Comment passer dans les certificats en tant que chaînes base64 ?
+### <a name="how-do-i-pass-in-certificates-as-base64-strings"></a>Comment faire pour passer des certificats en tant que chaînes base64 ?
 
 Pour émuler le transfert d’un certificat sous forme de chaîne en base64, vous pouvez extraire la dernière version d’URL dans un modèle Resource Manager. Incluez la propriété JSON suivante dans votre modèle Resource Manager :
 
@@ -360,9 +360,9 @@ Update-AzVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vmssName
 
 Vous trouverez la valeur extensionName dans `$vmss`.
 
-### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-azure-monitor-logs"></a>Existe-t-il qu'une machine virtuelle modèle exemple identiques qui s’intègre avec les journaux d’Azure Monitor ?
+### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-azure-monitor-logs"></a>Existe-t-il un exemple de modèle de groupe de machines virtuelles identiques qui s’intègre aux journaux Azure Monitor ?
 
-Pour une machine virtuelle modèle exemple identiques qui s’intègre avec les journaux d’Azure Monitor, consultez le deuxième exemple dans [déployer un cluster Azure Service Fabric et activer l’analyse à l’aide des journaux Azure Monitor](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric).
+Pour obtenir un exemple de modèle de groupe de machines virtuelles identiques qui s’intègre aux journaux Azure Monitor, consultez le deuxième exemple sous [Deploy an Azure Service Fabric cluster and enable monitoring by using Azure Monitor logs](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric) (Déployer un cluster Azure Service Fabric et activer le monitoring à l’aide des journaux Azure Monitor).
 
 ### <a name="how-do-i-add-an-extension-to-all-vms-in-my-virtual-machine-scale-set"></a>Comment ajouter une extension pour toutes les machines virtuelles de mon groupe de machines virtuelles identiques ?
 
@@ -374,9 +374,9 @@ Si la stratégie de mise à jour est définie sur **manuelle**, mettez d’abord
 
 Si la définition de l’extension dans le modèle de groupe de machines virtuelles identiques est mis à jour et la propriété upgradePolicy est définie sur **automatique**, les machines virtuelles sont mises à jour. Si la propriété upgradePolicy est définie sur **manuelle**, les extensions sont signalées comme ne correspondant pas au modèle.
 
-### <a name="are-extensions-run-again-when-an-existing-machine-is-service-healed-or-reimaged"></a>Les extensions sont exécutées à nouveau lorsqu’une machine existante est corrigée par service ou réinitialisée ?
+### <a name="are-extensions-run-again-when-an-existing-machine-is-service-healed-or-reimaged"></a>Les extensions sont-elles exécutées à nouveau lorsqu’une machine existante est corrigée par service ou réinitialisée ?
 
-Si une machine virtuelle existante est corrigée par service, il s’agit d’un redémarrage, et les extensions ne sont pas exécutées à nouveau. Si une machine virtuelle est réinitialisée, le processus est similaire en remplaçant le lecteur du système d’exploitation avec l’image source. Toutes les spécialisations du modèle plus récentes, telles que les extensions, sont exécutés à nouveau.
+Si une machine virtuelle existante est corrigée par service, cela s’apparente à un redémarrage et les extensions ne sont pas exécutées à nouveau. Si elle est réinitialisée, le processus est similaire au remplacement du disque du système d’exploitation par l’image source. Toutes les spécialisations du modèle le plus récent, telles que les extensions, sont exécutées.
 
 ### <a name="how-do-i-join-a-virtual-machine-scale-set-to-an-active-directory-domain"></a>Comment joindre un groupe de machines virtuelles identiques à un domaine Active Directory ?
 
@@ -432,9 +432,9 @@ Add-AzVmssExtension -VirtualMachineScaleSet $VMSS -Name "IaaSAntimalware" -Publi
 Update-AzVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet $VMSS
 ```
 
-### <a name="how-do-i-execute-a-custom-script-thats-hosted-in-a-private-storage-account"></a>Comment exécuter un script personnalisé qui est hébergé dans un compte de stockage privé ?
+### <a name="how-do-i-execute-a-custom-script-thats-hosted-in-a-private-storage-account"></a>Comment faire pour exécuter un script personnalisé hébergé dans un compte de stockage privé ?
 
-Pour exécuter un script personnalisé qui est hébergé dans un compte de stockage privé, configurez les paramètres protégés avec le nom et la clé du compte de stockage. Pour plus d’informations, consultez [Extension de Script personnalisé](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/#template-example-for-a-windows-vm-with-protected-settings).
+Pour exécuter un script personnalisé qui est hébergé dans un compte de stockage privé, configurez les paramètres protégés avec le nom et la clé du compte de stockage. Pour plus d’informations, voir [Custom Script Extension](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/#template-example-for-a-windows-vm-with-protected-settings) (Extension de script personnalisé).
 
 ## <a name="passwords"></a>Mot de passe
 
@@ -442,7 +442,7 @@ Pour exécuter un script personnalisé qui est hébergé dans un compte de stock
 
 Il existe deux principales façons de changer le mot de passe pour les machines virtuelles dans les groupes identiques.
 
-- Changez directement le modèle de groupe de machines virtuelles identiques. Disponible avec l’API 2017-12-01 et versions ultérieures.
+- Changez directement le modèle de groupe de machines virtuelles identiques. Disponible avec l’API version 2017-12-01 et plus.
 
     Mettez à jour les informations d’identification d’administrateur directement dans le modèle de groupe identique (par exemple en utilisant Azure Resource Explorer, PowerShell ou l’interface CLI). Une fois que le groupe identique est mis à jour, toutes les nouvelles machines virtuelles disposent des nouvelles informations d’identification. Les machines virtuelles existantes ont les nouvelles informations d’identification uniquement si elles sont réinitialisées.
 
@@ -521,7 +521,7 @@ Pour déployer un groupe de machines virtuelles identiques sur un réseau virtue
 
 ### <a name="can-i-use-scale-sets-with-accelerated-networking"></a>Puis-je me servir de groupes identiques lors d’une mise en réseau accélérée ?
 
-Oui. Pour utiliser la mise en réseau accélérée, définissez enableAcceleratedNetworking sur True dans les paramètres networkInterfaceConfigurations du groupe identique. Exemple :
+Oui. Pour utiliser la mise en réseau accélérée, définissez enableAcceleratedNetworking sur True dans les paramètres networkInterfaceConfigurations du groupe identique. Par exemple :
 ```json
 "networkProfile": {
     "networkInterfaceConfigurations": [
@@ -562,7 +562,7 @@ Pour créer un groupe de machines virtuelles identiques qui attribue une adresse
 
 ### <a name="can-i-configure-a-scale-set-to-work-with-multiple-application-gateways"></a>Puis-je configurer un groupe identique à utiliser avec plusieurs passerelles Application Gateway ?
 
-Oui. Vous pouvez ajouter l’ID de ressource pour plusieurs pools d’adresses backend Application Gateway pour le _applicationGatewayBackendAddressPools_ répertorier dans le _ipConfigurations_ section de votre groupe identique définie réseau profil.
+Oui. Vous pouvez ajouter les IDs de ressource de plusieurs pools d’adresses backend Application Gateway à la liste _applicationGatewayBackendAddressPools_ dans la section _ipConfigurations_ du profil réseau du groupe identique.
 
 ## <a name="scale"></a>Scale
 
@@ -621,11 +621,11 @@ Vous bénéficiez d’une certaine flexibilité dans la façon dont vous gérez 
 
 ## <a name="patching-and-operations"></a>Application de correctifs et opérations
 
-### <a name="can-i-create-a-scale-set-in-an-existing-resource-group"></a>Puis-je créer un groupe identique dans un groupe de ressources existant ?
+### <a name="can-i-create-a-scale-set-in-an-existing-resource-group"></a>Puis-je créer un groupe identique dans un groupe de ressources existant ?
 
-Oui, vous pouvez créer un groupe identique dans un groupe de ressources existant.
+Tout-à-fait.
 
-### <a name="can-i-move-a-scale-set-to-another-resource-group"></a>Puis-je déplacer un groupe identique à un autre groupe de ressources ?
+### <a name="can-i-move-a-scale-set-to-another-resource-group"></a>Puis-je déplacer un groupe identique vers un autre groupe de ressources ?
 
 Oui, vous pouvez déplacer des ressources d’un groupe identique vers un nouvel abonnement ou un nouveau groupe de ressources.
 
@@ -637,16 +637,16 @@ Pour mettre à jour votre groupe de machines virtuelles identiques sur une nouve
 
 Oui, vous pouvez utiliser l’opération de réinitialisation pour réinitialiser une machine virtuelle sans modifier l’image. Toutefois, si votre groupe de machines virtuelles identiques référence une image de plateforme avec `version = latest`, votre machine virtuelle peut se mettre à jour vers une image de système d’exploitation ultérieure lorsque vous appelez `reimage`.
 
-### <a name="is-it-possible-to-integrate-scale-sets-with-azure-monitor-logs"></a>Il est possible d’intégrer des jeux de mise à l’échelle avec les journaux d’Azure Monitor ?
+### <a name="is-it-possible-to-integrate-scale-sets-with-azure-monitor-logs"></a>Est-il possible d’intégrer des groupes identiques aux journaux Azure Monitor ?
 
-Oui, vous pouvez en installant l’extension Azure Monitor sur l’échelle de définir les machines virtuelles. Voici un exemple d’interface de ligne de commande Azure :
+Oui, vous pouvez le faire en installant l’extension Azure Monitor sur les machines virtuelles du groupe identique. Voici un exemple d’interface de ligne de commande Azure :
 ```
 az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group Team-03 --vmss-name nt01 --settings "{'workspaceId': '<your workspace ID here>'}" --protected-settings "{'workspaceKey': '<your workspace key here'}"
 ```
 Vous trouverez les éléments workspaceId et workspaceKey requis dans l’espace de travail Log Analytics du portail Azure. Dans la page de présentation, cliquez sur la vignette Paramètres. Cliquez sur l’onglet Sources connectées, situé en haut de la page.
 
 > [!NOTE]
-> Si votre groupe identique _upgradePolicy_ est défini sur manuel, vous devez appliquer l’extension à toutes les machines virtuelles dans le jeu en appelant la mise à niveau sur ces derniers. Dans l’interface de ligne de commande, cela se traduirait par _az vmss update-instances_.
+> Si votre groupe identique _upgradePolicy_ est défini sur Manuel, vous devez appliquer l’extension à toutes les machines virtuelles du groupe, en appelant une mise à niveau. Dans l’interface de ligne de commande, cela se traduirait par _az vmss update-instances_.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -686,7 +686,7 @@ Pour obtenir des informations sur les propriétés de chaque machine virtuelle s
 
 Non, vous ne pouvez pas transférer des arguments d’extension différents à des machines virtuelles différentes dans un groupe de machines virtuelles identiques. Toutefois, les extensions peuvent agir en fonction des propriétés uniques de la machine virtuelle où elles s’exécutent, comme le nom de la machine. Les extensions peuvent aussi interroger les métadonnées d’instance sur http://169.254.169.254 pour obtenir plus d’informations sur la machine virtuelle.
 
-### <a name="why-are-there-gaps-between-my-virtual-machine-scale-set-vm-machine-names-and-vm-ids-for-example-0-1-3"></a>Pourquoi y a-t-il des écarts entre les noms de machines virtuelles de mon groupe de machines virtuelles identiques et les ID des machines virtuelles ? Exemple : 0, 1, 3...
+### <a name="why-are-there-gaps-between-my-virtual-machine-scale-set-vm-machine-names-and-vm-ids-for-example-0-1-3"></a>Pourquoi y a-t-il des écarts entre les noms de machines virtuelles de mon groupe de machines virtuelles identiques et les ID des machines virtuelles ? Par exemple :  0, 1, 3...
 
 Il existe des écarts entre les noms des machines virtuelles de votre groupe de machines virtuelles identiques et les ID des machines virtuelles, car la propriété **overprovision** de votre groupe de machines virtuelles identiques est définie sur la valeur par défaut **true**. Si le sur-approvisionnement est défini sur **true**, le nombre de machines virtuelles créées est supérieur à ce qui est demandé. Les machines virtuelles supplémentaires sont ensuite supprimées. Dans ce cas, vous obtenez une fiabilité de déploiement accrue aux dépens d’une affectation de noms contigus et de règles NAT contiguës.
 
@@ -701,8 +701,8 @@ La principale différence entre la suppression d’une machine virtuelle dans un
   - En relation avec ce scénario, vous avez peut-être créé votre propre moteur de mise à l’échelle automatique et souhaitez obtenir une mise à l’échelle de bout en bout plus rapide.
 - Vous avez un groupe de machines virtuelles identiques qui est distribué inégalement entre les domaines d’erreur ou les domaines de mise à jour. Cela peut être dû au fait que vous avez supprimé sélectivement des machines virtuelles, ou parce que des machines virtuelles ont été supprimées après le sur-approvisionnement. Exécutez `stop deallocate` suivi de `start` sur le groupe de machines virtuelles identiques pour distribuer uniformément les machines virtuelles entre les domaines d’erreur ou les domaines de mise à jour.
 
-### <a name="how-do-i-take-a-snapshot-of-a-virtual-machine-scale-set-instance"></a>Comment pour prendre un instantané d’une instance de jeu de mise à l’échelle de machine virtuelle ?
-Créer un instantané d’une instance d’un jeu de mise à l’échelle de machine virtuelle.
+### <a name="how-do-i-take-a-snapshot-of-a-virtual-machine-scale-set-instance"></a>Comment faire pour prendre une capture instantanée d’une instance d’un groupe de machines virtuelles identiques ?
+Créez une capture instantanée à partir d’une instance d’un groupe de machines virtuelles identiques.
 
 ```azurepowershell-interactive
 $rgname = "myResourceGroup"
@@ -715,7 +715,7 @@ $snapshotconfig = New-AzSnapshotConfig -Location $location -AccountType Standard
 New-AzSnapshot -ResourceGroupName $rgname -SnapshotName 'mySnapshot' -Snapshot $snapshotconfig
 ```
 
-Créer un disque géré à partir de l’instantané.
+Créez un disque managé à partir de la capture instantanée.
 
 ```azurepowershell-interactive
 $snapshotName = "myShapshot"

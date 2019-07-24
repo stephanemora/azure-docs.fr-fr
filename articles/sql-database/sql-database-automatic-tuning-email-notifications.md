@@ -13,10 +13,10 @@ ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 06/03/2019
 ms.openlocfilehash: 0050745ea9d624adb6b7a28d5db91924d1c54b0a
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66479450"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>Notifications par e-mail pour le réglage automatique
@@ -27,7 +27,7 @@ Les recommandations de réglage automatique Azure SQL Database peuvent être con
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont pour le module Az.Sql. Pour ces applets de commande, consultez [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments pour les commandes dans le module Az et dans les modules AzureRm sont sensiblement identiques.
+> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont destinés au module Az.Sql. Pour ces cmdlets, voir [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments des commandes dans le module Az sont sensiblement identiques à ceux des modules AzureRm.
 
 ## <a name="automate-email-notifications-for-automatic-tuning-recommendations"></a>Automatiser les notifications par e-mail pour les recommandations de réglage automatique
 
@@ -59,9 +59,9 @@ Si vous avez plusieurs abonnements Azure pour lesquels vous souhaitez générer 
 
 ## <a name="update-azure-automation-modules"></a>Mettre à jour les modules Azure Automation
 
-Le script PowerShell pour récupérer la recommandation de réglage automatique utilise [Get-AzResource](https://docs.microsoft.com/powershell/module/az.Resources/Get-azResource) et [Get-AzSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlDatabaseRecommendedAction) les commandes pour le Module Azure version 4 ou version ultérieure est requis.
+Le script PowerShell de récupération des suggestions de réglage automatique utilise les commandes [Get-AzResource](https://docs.microsoft.com/powershell/module/az.Resources/Get-azResource) et [Get-AzSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlDatabaseRecommendedAction), pour lesquelles le module Azure version 4 ou ultérieure est nécessaire.
 
-- Vos Modules Azure ont besoin de la mise à jour, consultez [prise en charge de modules Az dans Azure Automation](../automation/az-modules.md).
+- Si vos modules Azure doivent être mis à jour, voir [Prise en charge de modules Az dans Azure Automation](../automation/az-modules.md).
 
 ## <a name="create-azure-automation-runbook"></a>Créer un runbook Azure Automation
 

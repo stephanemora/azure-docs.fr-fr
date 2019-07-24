@@ -11,15 +11,15 @@ ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 85a4aca0c4b80eaab1f43bcbec33dc9cf37aa655
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65950102"
 ---
 # <a name="tasks-for-a-group-manager-on-a-data-science-team-project"></a>Tâches d’un responsable de groupe sur un projet d’équipe de science des données.
 
-Cette rubrique explique les tâches un responsable de groupe est prévu pour leur organisation de science des données. L’objectif est d’établir un environnement de collaboration en groupe standard conforme au processus [TDSP](overview.md) (Team Data Science Process). Pour obtenir une description des rôles des membres de l’équipe de science des données et des tâches qui leur incombent dans le cadre de ce processus, consultez [Rôles et tâches du processus TDSP](roles-tasks.md).
+Cette rubrique dresse la liste des tâches qui incombent à un responsable de groupe chargé d’une organisation de science des données. L’objectif est d’établir un environnement de collaboration en groupe standard conforme au processus [TDSP](overview.md) (Team Data Science Process). Pour obtenir une description des rôles des membres de l’équipe de science des données et des tâches qui leur incombent dans le cadre de ce processus, consultez [Rôles et tâches du processus TDSP](roles-tasks.md).
 
 Le **responsable de groupe** est le responsable de l’ensemble de l’unité de science des données dans une entreprise. Une unité de science des données peut avoir plusieurs équipes, chacune travaillant sur plusieurs projets de science des données dans différents secteurs d’activité. Un responsable de groupe peut déléguer ses tâches à un remplaçant, mais les tâches associées au rôle sont les mêmes. Il existe six tâches principales comme indiqué dans le diagramme suivant :
 
@@ -86,7 +86,7 @@ Après vous être connecté, cliquez sur **Créer un compte** dans le coin supé
 Renseignez les informations relatives aux Azure DevOps Services que vous souhaitez créer dans l’Assistant **Créer votre compte** avec les valeurs suivantes :
 
 - **URL du serveur** : remplacez *mysamplegroup* par le *nom de votre serveur*. L’URL de votre serveur sera *https://\<nom_serveur\>.visualstudio.com*.
-- **Gérer le code à l’aide de :** Sélectionnez **_Git_**.
+- **Gérer le code à l’aide de :** Sélectionnez **_Git_** .
 - **Nom du projet :** entrez *GroupCommon*.
 - **Organiser le travail via :** choisissez *Agile*.
 - **Héberger vos projets dans :** choisissez un emplacement géographique. Dans cet exemple, nous avons choisi *USA Centre Sud*.
@@ -96,7 +96,7 @@ Renseignez les informations relatives aux Azure DevOps Services que vous souhait
 > [!NOTE] 
 > Si la fenêtre indépendante suivante apparaît une fois que vous avez cliqué sur **Créer un compte**, vous devez cliquer sur **Changer les détails** pour afficher tous les champs détaillés.
 
-![5.](./media/group-manager-tasks/create-account-2.png)
+![5\.](./media/group-manager-tasks/create-account-2.png)
 
 
 Cliquez sur **Continuer**.
@@ -105,7 +105,7 @@ Cliquez sur **Continuer**.
 
 La page **GroupCommon** (*https://\<nom_serveur\>.visualstudio.com/GroupCommon*) s’ouvre une fois vos Azure DevOps Services créés.
 
-![6.](./media/group-manager-tasks/server-created-2.PNG)
+![6\.](./media/group-manager-tasks/server-created-2.PNG)
 
 ## <a name="3-create-the-grouputilities-r2-repository"></a>3. Créer le dépôt GroupUtilities (R2)
 

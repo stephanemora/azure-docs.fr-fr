@@ -4,7 +4,7 @@ description: Extension Microsoft Azure pour l’installation des pilotes GPU NVI
 services: virtual-machines-linux
 documentationcenter: ''
 author: vermagit
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/11/2019
 ms.author: roiyz
-ms.openlocfilehash: 5a184c72da8af0d451902a164c8b71a94a01883f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c15948fd9e9acc1e1efeb536939002f179402d5a
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64683166"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706713"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>Extension du pilote GPU NVIDIA pour Linux
 
@@ -27,6 +27,8 @@ ms.locfileid: "64683166"
 
 Cette extension installe des pilotes GPU NVIDIA sur des machines virtuelles Linux de gamme N. En fonction de la famille de machine virtuelle, l’extension installe des pilotes CUDA ou GRID. Lorsque vous installez des pilotes NVIDIA à l’aide de cette extension, vous acceptez les termes du [contrat de licence utilisateur final NVIDIA](https://go.microsoft.com/fwlink/?linkid=874330). Pendant le processus d’installation, la machine virtuelle peut redémarrer pour terminer l’installation du pilote.
 
+Des instructions sur l’installation manuelle des pilotes et les versions prises en charge actuelles sont disponibles [ici](
+https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup).
 Une extension est également disponible pour installer les pilotes GPU NVIDIA sur [des machines virtuelles de gamme N Windows](hpccompute-gpu-windows.md).
 
 ## <a name="prerequisites"></a>Prérequis
@@ -85,7 +87,7 @@ Tous les paramètres sont facultatifs. Le comportement par défaut consiste à n
 | Nom | Description | Valeur par défaut | Valeurs valides | Type de données |
 | ---- | ---- | ---- | ---- | ---- |
 | updateOS | Mettre à jour le noyau, même si cela n’est pas requis pour l’installation du pilote | false | true, false | boolean |
-| driverVersion | NV : version du pilote GRID<br> NC/ND : version du kit de ressources CUDA. Les derniers pilotes pour le kit de ressources CUDA choisi sont installés automatiquement. | latest | GRID: "418.70", "410.92", "410.71", "390.75", "390.57", "390.42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | string |
+| driverVersion | NV : version du pilote GRID<br> NC/ND : version du kit de ressources CUDA. Les derniers pilotes pour le kit de ressources CUDA choisi sont installés automatiquement. | latest | GRID: "430.30", "418.70", "410.92", "410.71", "390.75", "390.57", "390.42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | string |
 | installCUDA | Installer le kit de ressources CUDA. S’applique uniquement aux machines virtuelles de la série NC/ND. | true | true, false | boolean |
 
 

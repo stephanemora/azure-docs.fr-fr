@@ -7,15 +7,15 @@ author: kegodin
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: c6baa9f8330338c1e5fdc9ee0b5a8cc8b344e871
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6207808efb9bee327afd2de21ffa59535acf4e55
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61436020"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704789"
 ---
 # <a name="project-acoustics-unreal-and-wwise-integration"></a>Intégration de Project Acoustics Unreal et Wwise
 Cette procédure indique les étapes d’intégration détaillées du package de plug-in Project Acoustics dans votre projet de jeu Unreal et Wwise existant. 
@@ -26,7 +26,7 @@ Configuration logicielle requise :
 * [Plug-in Wwise pour Unreal](https://www.audiokinetic.com/library/?source=UE4&id=index.html)
   * Si vous utilisez une intégration directe du SDK Wwise au lieu d’utiliser les plug-ins Wwise Unreal, consultez le plug-in Project Acoustics Unreal et ajustez les appels de l’API Wwise.
 
-Si vous souhaitez utiliser Project Acoustics avec un moteur audio autre que Wwise, contactez-nous sur les [forums Project Acoustics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=projectacoustics). Vous pouvez utiliser le plug-in Project Acoustics Unreal pour interroger les données acoustiques et effectuer des appels d’API à votre moteur.
+Si vous souhaitez utiliser Project Acoustics avec un moteur audio autre que Wwise, faites une requête d’amélioration sur le [forum de discussion Project Acoustics](https://github.com/microsoft/ProjectAcoustics/issues). Vous pouvez utiliser le plug-in Project Acoustics Unreal pour interroger les données acoustiques et effectuer des appels d’API à votre moteur.
 
 ## <a name="download-project-acoustics"></a>Télécharger Project Acoustics
 Si ce n’est déjà fait, téléchargez le [package de plug-in Project Acoustics Unreal & Wwise](https://www.microsoft.com/download/details.aspx?id=58090)). 

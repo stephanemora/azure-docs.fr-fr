@@ -1,5 +1,5 @@
 ---
-title: Comment utiliser le stockage de file d’attente à partir de PHP - stockage Azure
+title: Utilisation du Stockage File d’attente à partir de PHP - Stockage Azure
 description: Découvrez comment utiliser le service de stockage de files d’attente Azure pour créer et supprimer des files d’attente, ainsi que pour insérer, récupérer et supprimer des messages. Les exemples sont écrits en PHP.
 services: storage
 author: mhopkins-msft
@@ -11,10 +11,10 @@ ms.author: mhopkins
 ms.reviewer: cbrooks
 ms.subservice: queues
 ms.openlocfilehash: 4ff54f9ca20c101de55bec2c7acf914c17bd7709
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65951197"
 ---
 # <a name="how-to-use-queue-storage-from-php"></a>Utilisation du stockage de files d'attente à partir de PHP
@@ -22,7 +22,7 @@ ms.locfileid: "65951197"
 
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 Ce guide décrit le déroulement de scénarios courants dans le cadre de l’utilisation du service Azure Stockage File d’attente. Les exemples ont été écrits avec des classes de la [bibliothèque de client Stockage Azure pour PHP][download]. Les scénarios traités incluent l’insertion, la lecture furtive, la récupération et la suppression des messages de file d’attente, ainsi que la création et suppression des files d’attente.
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
@@ -99,7 +99,7 @@ $connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>
 $queueClient = QueueRestProxy::createQueueService($connectionString);
 ```
 
-## <a name="create-a-queue"></a>Créer une file d'attente
+## <a name="create-a-queue"></a>Créer une file d’attente
 Un objet **QueueRestProxy** vous permet de créer une file d’attente avec la méthode **createQueue**. Lors de la création d'une file d'attente, vous pouvez définir des options sur cette dernière, mais vous n'y êtes pas obligé. L'exemple ci-dessous illustre comment définir des métadonnées dans une file d'attente.
 
 ```php

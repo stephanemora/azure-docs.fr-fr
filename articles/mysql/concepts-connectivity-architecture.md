@@ -1,30 +1,30 @@
 ---
 title: Architecture de connectivité dans Azure Database pour MySQL
-description: Décrit l’architecture de connectivité pour votre serveur Azure Database pour MySQL.
+description: Décrit l’architecture de connectivité pour le serveur Azure Database pour MySQL.
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: fa92c836fc967f67b46f0417ec5182b41e980b18
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
-ms.translationtype: MT
+ms.openlocfilehash: 7a7ac843960e253b3172d1ed22fe5b59633897dc
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66735405"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67062465"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mysql"></a>Architecture de connectivité dans Azure Database pour MySQL
-Cet article explique la base de données Azure pour MySQL architecture de connectivité, ainsi que la manière dont le trafic est dirigé vers votre base de données Azure pour l’instance MySQL à partir de clients au sein et en dehors d’Azure.
+Cet article présente l’architecture de connectivité d’Azure Database pour MySQL, ainsi que la façon dont le trafic est dirigé vers l’instance Azure Database pour MySQL des clients dans Azure et en dehors.
 
 ## <a name="connectivity-architecture"></a>Architecture de connectivité
-Connexion à votre base de données Azure pour MySQL SQL est établie via une passerelle qui est responsable de routage des connexions entrantes à l’emplacement physique de votre serveur dans nos clusters. Le diagramme suivant illustre le flux de trafic.
+La connexion à l’instance Azure Database pour MySQL est établie via une passerelle qui est responsable du routage des connexions entrantes vers l’emplacement physique de votre serveur dans nos clusters. Le schéma suivant illustre le flux de trafic.
 
 ![Vue d’ensemble de l’architecture de connectivité](./media/concepts-connectivity-architecture/connectivity-architecture-overview-proxy.png)
 
-Comme client de se connecter à la base de données, ils obtiennent une chaîne de connexion qui se connecte à la passerelle. Cette passerelle a une adresse IP publique qui écoute le port 3306. À l’intérieur du cluster de base de données, le trafic est transféré à la base de données Azure approprié pour MySQL. Par conséquent, pour vous connecter à votre serveur, comme à partir de réseaux d’entreprise, il est nécessaire ouvrir le pare-feu du côté client pour autoriser le trafic sortant être en mesure d’atteindre nos passerelles. Vous trouverez ci-dessous une liste complète des adresses IP utilisées par nos passerelles par région.
+Quand le client se connecte à la base de données, il obtient une chaîne de connexion qui se connecte à la passerelle. Cette passerelle a une adresse IP publique qui écoute le port 3306. À l’intérieur du cluster de bases de données, le trafic est transféré vers l’instance Azure Database pour MySQL appropriée. Par conséquent, pour vous connecter à votre serveur, notamment à partir de réseaux d’entreprise, il est nécessaire d’ouvrir le pare-feu côté client pour autoriser le trafic sortant à atteindre nos passerelles. Vous trouverez ci-dessous une liste complète des adresses IP utilisées par nos passerelles en fonction de la région.
 
-## <a name="azure-database-for-mysql-gateway-ip-addresses"></a>Base de données Azure pour les adresses IP de passerelle MySQL
-Le tableau suivant répertorie les adresses IP au principal et secondaire de la base de données Azure pour la passerelle de MySQL pour toutes les régions de données. L’adresse IP principale est l’adresse IP actuelle de la passerelle et la deuxième adresse IP est une adresse IP de basculement en cas de défaillance du principal. Comme mentionné, les clients doivent autoriser le trafic sortants vers les adresses IP. La deuxième adresse IP n’écoute pas sur tous les services jusqu'à ce qu’il est activé par base de données Azure pour MySQL à accepter les connexions.
+## <a name="azure-database-for-mysql-gateway-ip-addresses"></a>Adresses IP de passerelle Azure Database pour MySQL
+Le tableau suivant répertorie les adresses IP principales et secondaires de la passerelle Azure Database pour MySQL pour toutes les régions de données. L’adresse IP principale est l’adresse IP actuelle de la passerelle et l’adresse IP secondaire est une adresse IP de basculement en cas de défaillance de la première. Comme mentionné, les clients doivent autoriser le trafic sortant vers les deux adresses IP. La deuxième adresse IP n’écoute pas les services tant qu’elle n’est pas activée par Azure Database pour MySQL de manière à accepter les connexions.
 
 | **Nom de la région** | **Adresse IP principale** | **Adresse IP secondaire** |
 |:----------------|:-------------|:------------------------|
@@ -67,5 +67,5 @@ Le tableau suivant répertorie les adresses IP au principal et secondaire de la 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Créer et gérer des règles de pare-feu Base de données Azure pour MySQL à l’aide du portail Azure](./howto-manage-firewall-using-portal.md)
-* [Créer et gérer la base de données Azure pour les règles de pare-feu MySQL à l’aide d’Azure CLI](./howto-manage-firewall-using-cli.md)
+* [Créer et gérer des règles de pare-feu Azure Database pour MySQL à l’aide de l’interface de ligne de commande Azure](./howto-manage-firewall-using-cli.md)
 

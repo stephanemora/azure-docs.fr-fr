@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4afcbffa778c902c1b32979c69ca91ab0955f739
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: e50cc4ca9c98cb6a8e0f19cfcf6c1f86f1949beb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64682929"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107699"
 ---
 # <a name="azure-active-directory-risk-events"></a>Événements à risque dans Azure Active Directory
 
@@ -52,7 +52,7 @@ De plus, vous pouvez utiliser l’[API Identity Protection relative aux événem
 L’information que vous obtenez pour un événement à risque détecté est liée à votre abonnement Azure AD. 
 
 * Avec l’édition **Azure AD Premium P2**, vous obtenez des informations très détaillées sur toutes les détections sous-jacentes. 
-* Avec le **édition Azure AD Premium P1**avancées détections (telles que les propriétés de connexion inconnues) ne sont pas couvertes par la licence et s’affiche sous le nom **connectez-vous avec un risque supplémentaire détecté** . En outre, le niveau de risque et les champs de détail de risque sont masquées.
+* Avec **Azure AD Premium P1**, les détections avancées (comme les propriétés de connexion inhabituelles) ne sont pas couvertes par votre licence et apparaissent sous le nom **Connexion avec un risque supplémentaire détectée**. En outre, le niveau de risque et les champs de détail de risque sont masqués.
 
 Bien que la détection des événements à risque représente déjà un aspect important de la protection de vos identités, vous pouvez également les résoudre manuellement ou implémenter des réponses automatisées en configurant des stratégies d’accès conditionnel. Pour plus d’informations, consultez [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
 

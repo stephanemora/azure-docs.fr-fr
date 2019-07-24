@@ -9,10 +9,10 @@ ms.date: 05/20/2019
 ms.author: jaredro
 ms.custom: seodec18
 ms.openlocfilehash: 0fec7234d18659051c61fda593b1ba0fb846c220
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65964259"
 ---
 # <a name="how-to-configure-expressroute-direct"></a>Comment configurer ExpressRoute Direct
@@ -226,9 +226,9 @@ Par défaut, vous pouvez créer 10 circuits dans l’abonnement où se trouve la
 
 D’autres bandes passantes de circuit peuvent être utilisées sur ExpressRoute Direct, uniquement pour prendre en charge les scénarios décrits ci-dessus. Ces règles sont les suivantes : 40 Gbps et 100 Gbps.
 
-**SkuTier** peut être locale, Standard ou Premium.
+La valeur du paramètre **SkuTier** peut être locale, Standard ou Premium.
 
-**SkuFamily** doit être MeteredData uniquement comme étant illimité n’est pas pris en charge sur ExpressRoute Direct.
+Le paramètre **SkuFamily** ne peut avoir que la valeur MeteredData, car un nombre illimité n’est pas possible sur ExpressRoute Direct.
 
 Créez un circuit sur la ressource ExpressRoute Direct.
 

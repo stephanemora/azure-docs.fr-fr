@@ -8,14 +8,14 @@ manager: gwallace
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 02/25/2019
+ms.date: 07/08/2019
 ms.author: cshoe
-ms.openlocfilehash: 88ffd6ec24ed19dd3b1e57277884c8759cdac1f9
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 5969c3e0d270b45347f8132b2d655ba2e56cb2c0
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67480334"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67625897"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Inscrire des extensions de liaison Azure Functions
 
@@ -33,8 +33,8 @@ Le tableau suivant indique quand et comment vous inscrivez des liaisons.
 |-------------------------|------------------------------------|------------------------------------|
 |Portail Azure|Automatique|Automatique|
 |Langages non .NET ou développement Azure Core Tools local|Automatique|[Utiliser Azure Functions Core Tools et des offres groupées d’extension](#extension-bundles)|
-|Bibliothèque de classes C# avec Visual Studio 2019|[Utiliser les outils NuGet](#c-class-library-with-visual-studio-2019)|[Utiliser les outils NuGet](#c-class-library-with-visual-studio-2019)|
-|Bibliothèque de classes C# avec Visual Studio Code|N/A|[Utiliser CLI .NET Core](#c-class-library-with-visual-studio-code)|
+|Bibliothèque de classes C# avec Visual Studio|[Utiliser les outils NuGet](#vs)|[Utiliser les outils NuGet](#vs)|
+|Bibliothèque de classes C# avec Visual Studio Code|N/A|[Utiliser CLI .NET Core](#vs-code)|
 
 ## <a name="extension-bundles">Offres groupées d’extension pour développement local</a>
 
@@ -69,9 +69,9 @@ L’ensemble actuel d’extensions installées par l’offre groupée par défau
 
 <a name="local-csharp"></a>
 
-## <a name="c-class-library-with-visual-studio-2019"></a>Bibliothèque de classes C\# avec Visual Studio 2019
+## <a name="vs"></a> Bibliothèque de classes C\# avec Visual Studio
 
-Dans **Visual Studio 2019**, vous pouvez installer des packages à partir de la console du Gestionnaire de package avec la commande [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package), comme indiqué dans l’exemple suivant :
+Dans **Visual Studio**, vous pouvez installer des packages à partir de la console du Gestionnaire de package avec la commande [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package), comme indiqué dans l’exemple suivant :
 
 ```powershell
 Install-Package Microsoft.Azure.WebJobs.Extensions.ServiceBus -Version <TARGET_VERSION>
@@ -81,24 +81,25 @@ Le nom du package utilisé pour une liaison donnée est fourni dans l’article 
 
 Remplacez `<TARGET_VERSION>` dans l’exemple par une version spécifique du package, comme `3.0.0-beta5`. Les versions valides sont répertoriées sur les pages de chaque package sur [NuGet.org](https://nuget.org). Les versions majeures qui correspondent aux runtime Functions 1.x ou 2.x sont spécifiées dans l’article de référence pour la liaison.
 
-## <a name="c-class-library-with-visual-studio-code"></a>Bibliothèque de classes C# avec Visual Studio Code
+Si vous utilisez `Install-Package` pour faire référence à une liaison, vous n’avez pas besoin d’utiliser des [bundles d’extensions](#extension-bundles). Cette approche est spécifique aux bibliothèques de classes générées dans Visual Studio.
+
+## <a name="vs-code"></a> Bibliothèque de classes C# avec Visual Studio Code
 
 > [!NOTE]
 > Nous vous recommandons d’utiliser des [offres groupées d’extension](#extension-bundles) pour que Functions installe automatiquement un ensemble de packages d’extension de liaison compatible.
 
-Dans **Visual Studio Code**, installez des packages pour un projet de bibliothèque de classes C# à partir de l’invite de commandes avec la commande [dotnet add package](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) dans CLI .NET Core, comme indiqué dans l’exemple suivant :
+Dans **Visual Studio Code**, installez des packages pour un projet de bibliothèque de classes C# à partir de l’invite de commandes avec la commande [dotnet add package](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) dans CLI .NET Core. L’exemple suivant montre comment ajouter une liaison :
 
 ```terminal
-dotnet add package Microsoft.Azure.WebJobs.Extensions.ServiceBus --version <TARGET_VERSION>
+dotnet add package Microsoft.Azure.WebJobs.Extensions.<BINDING_TYPE_NAME> --version <TARGET_VERSION>
 ```
 
 CLI .NET Core peut être utilisé seulement pour le développement Azure Functions 2.x.
 
-Le nom du package à utiliser pour une liaison donnée est fourni dans l’article de référence pour cette liaison. Pour obtenir un exemple, consultez la [section Packages de l’article Informations de référence sur les liaisons Service Bus](functions-bindings-service-bus.md#packages---functions-1x).
+Remplacez `<BINDING_TYPE_NAME>` par le nom du package fourni dans l’article de référence pour la liaison souhaitée. Vous trouverez l’article de référence de la liaison souhaitée dans la [liste des liaisons prises en charge](./functions-triggers-bindings.md#supported-bindings).
 
 Remplacez `<TARGET_VERSION>` dans l’exemple par une version spécifique du package, comme `3.0.0-beta5`. Les versions valides sont répertoriées sur les pages de chaque package sur [NuGet.org](https://nuget.org). Les versions majeures qui correspondent aux runtime Functions 1.x ou 2.x sont spécifiées dans l’article de référence pour la liaison.
 
 ## <a name="next-steps"></a>Étapes suivantes
 > [!div class="nextstepaction"]
 > [Exemples de liaisons et de déclencheurs Azure Functions](./functions-bindings-example.md)
-

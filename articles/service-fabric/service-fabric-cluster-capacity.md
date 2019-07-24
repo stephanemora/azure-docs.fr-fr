@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/27/2018
+ms.date: 07/09/2019
 ms.author: chackdan
-ms.openlocfilehash: bd76658c939496f27bf3751060c18d17968acd15
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6b11a3ba4fbffe1d35b590f2e5c47f19b6fb028c
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60386792"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718118"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considérations en matière de planification de la capacité du cluster Service Fabric
 Pour un déploiement de production, la planification de la capacité est une étape importante. Voici certains éléments que vous devez prendre en compte dans ce processus.
@@ -77,8 +77,8 @@ Le niveau de durabilité est utilisé pour indiquer au système les privilèges 
 | Niveau de durabilité  | Nombre minimal de machines virtuelles exigées | Références SKU de machines virtuelles prises en charge                                                                  | Mises à jour que vous apportez à votre groupe de machines virtuelles identiques                               | Mises à jour et maintenance lancées par Azure                                                              | 
 | ---------------- |  ----------------------------  | ---------------------------------------------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
 | Gold             | 5\.                              | Références (SKU) de nœuds complets dédiées à un seul client (par exemple, L32s, GS5, G5, DS15_v2, D15_v2) | Peuvent être différées jusqu’à ce qu’elles soient approuvées par le cluster Service Fabric | Peuvent être suspendues pendant 2 heures par domaine de mise à niveau (UD) pour accorder du temps supplémentaire pour la récupération de réplicas à partir d’échecs précédents |
-| Silver           | 5\.                              | Machines virtuelles avec un seul cœur ou plus                                                        | Peuvent être différées jusqu’à ce qu’elles soient approuvées par le cluster Service Fabric | Ne peuvent pas être différées pour quelque durée que ce soit                                                    |
-| Bronze           | 1                              | Tous                                                                                | Ne sont pas différées par le cluster Service Fabric           | Ne peuvent pas être différées pour quelque durée que ce soit                                                    |
+| Silver           | 5\.                              | Machines virtuelles avec un seul cœur ou plus avec un disque SSD local d’au moins 50 Go                      | Peuvent être différées jusqu’à ce qu’elles soient approuvées par le cluster Service Fabric | Ne peuvent pas être différées pour quelque durée que ce soit                                                    |
+| Bronze           | 1                              | Machines virtuelles avec un disque SSD local d’au moins 50 Go                                              | Ne sont pas différées par le cluster Service Fabric           | Ne peuvent pas être différées pour quelque durée que ce soit                                                    |
 
 > [!WARNING]
 > Les types de nœud s’exécutant avec un niveau de durabilité Bronze n’obtiennent _aucun privilège_. Cela signifie que les travaux d’infrastructure qui affectent vos charges de travail sans état ne seront ni arrêtés ni différés. Utilisez Bronze uniquement pour les types de nœuds qui exécutent seulement des charges de travail sans état. Pour les charges de travail de production, il est recommandé d’exécuter Silver ou un niveau supérieur. 
@@ -108,10 +108,10 @@ Utilisez les niveaux de durabilité Silver ou Gold pour tous les types de nœuds
 ### <a name="operational-recommendations-for-the-node-type-that-you-have-set-to-silver-or-gold-durability-level"></a>Recommandations opérationnelles concernant le type de nœud que vous avez défini sur le niveau de durabilité Silver ou Gold.
 
 - Veillez à la permanence de l’intégrité de votre cluster et de vos applications, et assurez-vous que les applications répondent à tous les [événements de cycle de vie de réplica de service](service-fabric-reliable-services-lifecycle.md) (par exemple, le blocage de la création d’un réplica) en temps opportun.
-- Adoptez des méthodes plus sûres pour la modification des références (SKU) de machine virtuelle (augmentation ou réduction d’échelle) : La modification de la référence (SKU) de machine virtuelle d’un groupe de machines virtuelles identiques est intrinsèquement une opération risquée et doit donc être évitée dans la mesure du possible. Voici la procédure à suivre pour éviter les problèmes les plus courants.
+- Adoptez des méthodes plus sûres pour la modification des références (SKU) de machine virtuelle (augmentation ou réduction d’échelle) : La modification de la référence SKU des machines virtuelles d’un groupe de machines virtuelles identiques nécessite un certain nombre d’étapes et de considérations. Voici la procédure à suivre pour éviter les problèmes les plus courants.
     - **Pour les types de nœuds non principaux** : il est recommandé de créer un groupe de machines virtuelles identiques, de modifier la contrainte de positionnement de service pour inclure le nouveau groupe de machines virtuelles identiques/type de nœud, puis de réduire le nombre d’instances du groupe de machines virtuelles identiques à zéro, un nœud à la fois pour être certain que la suppression des nœuds n’affecte pas la fiabilité du cluster.
-    - **Pour les types de nœuds principaux** : notre recommandation est de ne pas modifier la référence SKU de machine virtuelle du type de nœud principal. La modification de la référence (SKU) du type de nœud principal n’est pas prise en charge. Si le motif d’adoption d’une nouvelle référence (SKU) est la capacité, nous vous recommandons d’ajouter des instances. Si cela n’est pas possible, créez un cluster et [restaurez l’état des applications](service-fabric-reliable-services-backup-restore.md) (le cas échéant) de votre ancien cluster. Vous n’avez pas besoin de restaurer l’état des services système ; ceux-ci sont recréés pendant le déploiement de vos applications sur le nouveau cluster. Si vous utilisez des applications sans état sur votre cluster, déployez-les vers le nouveau cluster.  Vous n’avez rien à restaurer. Si vous décidez de suivre la méthode non prise en charge et que vous voulez modifier la référence (SKU) des machines virtuelles, modifiez la définition du modèle de groupe de machines virtuelles identiques en fonction de la nouvelle référence. Si votre cluster n’a qu’un seul type de nœud, assurez-vous que toutes les applications avec état répondent à tous les [événements de cycle de vie de réplica de service](service-fabric-reliable-services-lifecycle.md) (par exemple, le blocage de la création d’un réplica) en temps opportun, et que la durée de recréation du réplica de service est inférieure à cinq minutes (pour le niveau de durabilité Silver). 
-    
+    - **Pour les types de nœuds principaux** : Si la référence SKU de machine virtuelle que vous avez sélectionnée a atteint sa capacité maximale et que vous souhaitez passer à une référence SKU de plus grande taille, suivez nos conseils de [mise à l’échelle verticale pour un type de nœud principal](https://docs.microsoft.com/azure/service-fabric/service-fabric-scale-up-node-type). 
+
 - Conservez au minimum cinq nœuds pour tout groupe de machines virtuelles identiques sur lequel le niveau de durabilité Gold ou Silver est activé.
 - Chaque groupe de machines virtuelles identiques avec le niveau de durabilité Silver ou Gold doit être mappé à son propre type de nœud dans le cluster Service Fabric. Le mappage de plusieurs groupes de machines virtuelles identiques à un type de nœud unique empêche le fonctionnement correct de la coordination entre le cluster Service Fabric et l’infrastructure Azure.
 - Ne supprimez pas d’instances de machine virtuelle aléatoires. Opérez toujours une descente en puissance du groupe de machines virtuelles identiques. La suppression d’instances de machine virtuelle aléatoires risque de créer des déséquilibres au sein de l’instance de machine virtuelle répartie sur UD et FD. Ce déséquilibre peut nuire à la capacité du système à équilibrer correctement la charge entre les instances de service/réplicas de service.
@@ -160,11 +160,11 @@ Les besoins en capacité d’un cluster sont déterminés par la charge de trava
 Pour les charges de travail de production : 
 
 - Il est recommandé de dédier le type de nœud principal de vos clusters aux services système et d’utiliser des contraintes de placement pour déployer votre application sur des types de nœuds secondaires.
-- La référence de machine virtuelle recommandée est Standard D3 ou Standard D3_V2 ou équivalent avec un minimum de 14 Go de mémoire sur disque SSD local.
-- La référence de machine virtuelle minimale prise en charge est Standard D1 ou Standard D1_V2 ou équivalent avec un minimum de 14 Go de mémoire sur disque SSD local. 
-- Le disque SSD local de 14 Go est une configuration minimale requise. Notre recommandation minimale est de 50 Go. Pour vos charges de travail, en particulier lors de l’exécution de conteneurs Windows, des disques plus volumineux sont requis. 
+- La référence de machine virtuelle recommandée est Standard V2_V2 ou équivalent avec un minimum de 50 Go de mémoire sur disque SSD local.
+- La référence de machine virtuelle minimale prise en charge est Standard_D2_V3 ou Standard D1_V2 ou équivalent avec un minimum de 50 Go de mémoire sur disque SSD local. 
+- Notre recommandation minimale est de 50 Go. Pour vos charges de travail, en particulier lors de l’exécution de conteneurs Windows, des disques plus volumineux sont requis. 
 - Les références de machine virtuelle à cœur partiel telles que Standard A0 ne sont pas prises en charge pour les charges de travail de production.
-- La référence Standard A1 n’est pas prise en charge pour les charges de production pour des raisons de performances.
+- Une série de références SKU de machines virtuelles n’est pas prise en charge pour les charges de production pour des raisons de performances.
 - Les machines virtuelles de faible priorité ne sont pas prises en charge.
 
 > [!WARNING]
@@ -182,10 +182,10 @@ Pour les charges de travail de production, la taille minimale recommandée pour 
 
 Pour les charges de travail de production 
 
-- La référence de machine virtuelle recommandée est Standard D3 ou Standard D3_V2 ou équivalent avec un minimum de 14 Go de mémoire sur disque SSD local.
-- La référence de machine virtuelle minimale prise en charge est Standard D1 ou Standard D1_V2 ou équivalent avec un minimum de 14 Go de mémoire sur disque SSD local. 
+- La référence de machine virtuelle recommandée est Standard V2_V2 ou équivalent avec un minimum de 50 Go de mémoire sur disque SSD local.
+- La référence de machine virtuelle minimale prise en charge est Standard_D2_V3 ou Standard D1_V2 ou équivalent avec un minimum de 50 Go de mémoire sur disque SSD local. 
 - Les références de machine virtuelle à cœur partiel telles que Standard A0 ne sont pas prises en charge pour les charges de travail de production.
-- La référence Standard A1 n’est pas prise en charge pour les charges de production pour des raisons de performances.
+- Une série de références SKU de machines virtuelles n’est pas prise en charge pour les charges de production pour des raisons de performances.
 
 ## <a name="non-primary-node-type---capacity-guidance-for-stateless-workloads"></a>Type de nœud non principal - Recommandations en matière de capacité pour les charges de travail sans état
 
@@ -197,10 +197,10 @@ Ces conseils sont donnés pour les charges de travail sans état qui sont en cou
 
 Pour les charges de travail de production 
 
-- La référence de machine virtuelle recommandée est Standard D3 ou Standard D3_V2 ou équivalent. 
+- La référence de machine virtuelle recommandée est Standard D2_V2 ou équivalent. 
 - La référence de machine virtuelle minimale prise en charge est Standard D1 ou Standard D1_V2 ou équivalent. 
 - Les références de machine virtuelle à cœur partiel telles que Standard A0 ne sont pas prises en charge pour les charges de travail de production.
-- La référence Standard A1 n’est pas prise en charge pour les charges de production pour des raisons de performances.
+- Une série de références SKU de machines virtuelles n’est pas prise en charge pour les charges de production pour des raisons de performances.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 

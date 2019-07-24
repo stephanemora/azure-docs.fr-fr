@@ -1,5 +1,5 @@
 ---
-title: Intégration de l’écriture différée de mot de passe local avec Azure AD SSPR - Azure Active Directory
+title: Intégration de la réécriture du mot de passe locale avec la réinitialisation de mot de passe en libre-service Azure AD - Azure Active Directory
 description: Obtenir les mots de passe réécrits au niveau de l’infrastructure AD sur site
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 749216d3fe9164857bd4abce7ba7c766e466e7d3
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
-ms.translationtype: MT
+ms.openlocfilehash: 2dbf27301e738978e7f03d2423a4d23fd63c97b5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823294"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113498"
 ---
 # <a name="what-is-password-writeback"></a>Qu’est-ce que la réécriture du mot de passe ?
 
@@ -152,7 +152,6 @@ Les mots de passe sont réécrits dans les situations suivantes :
    * Toute modification forcée du mot de passe en libre-service de l’administrateur (par exemple, expiration du mot de passe)
    * Toute réinitialisation du mot de passe en libre-service de l’administrateur émanant du [portail de réinitialisation du mot de passe](https://passwordreset.microsoftonline.com)
    * Toute réinitialisation du mot de passe de l’utilisateur final réalisée par l’administrateur depuis le [portail Azure](https://portal.azure.com)
-   * N’importe quel mot de passe initiée par l’administrateur de l’utilisateur final réinitialiser à partir de la [centre d’administration Microsoft 365](https://admin.microsoft.com)
 
 ## <a name="unsupported-writeback-operations"></a>Opérations de réécriture non prises en charge
 
@@ -162,9 +161,10 @@ Les mots de passe ne sont *pas* réécrits dans les situations suivantes :
    * Tout utilisateur final réinitialisant son mot de passe à l’aide de PowerShell (version 1 ou version 2) ou l’API Azure AD Graph
 * **Opérations de l’administrateur non prises en charge**
    * Toute réinitialisation du mot de passe de l’utilisateur final réalisée par l’administrateur à l’aide de PowerShell (version 1 ou version 2) ou l’API Azure AD Graph
+   * Toute réinitialisation du mot de passe de l’utilisateur final réalisée par l’administrateur depuis le [Centre d’administration Microsoft 365](https://admin.microsoft.com)
 
 > [!WARNING]
-> Utilisation de la case à cocher « utilisateur doit changer mot de passe à la prochaine ouverture de session » dans les outils d’administration Active Directory sur site telles que les utilisateurs Active Directory et les ordinateurs ou le centre d’administration d’Active Directory n’est pas prise en charge. Lorsque vous modifiez un mot de passe en local ne vérifie pas cette option.
+> L’utilisation de la case à cocher « L’utilisateur doit changer de mot de passe à la prochaine ouverture de session » dans les outils d’administration d’Active Directory locaux, comme Active Directory Users and Computers ou le Centre d’administration d’Active Directory, n’est pas prise en charge. Lorsque vous modifiez un mot de passe local, ne cochez pas cette option.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

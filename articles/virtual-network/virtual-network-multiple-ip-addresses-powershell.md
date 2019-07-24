@@ -1,6 +1,6 @@
 ---
 title: Plusieurs adresses IP pour les machines virtuelles Azure - PowerShell | Microsoft Docs
-description: Découvrez comment affecter plusieurs adresses IP à une machine virtuelle à l’aide de PowerShell. | Resource Manager
+description: Découvrez comment attribuer plusieurs adresses IP à une machine virtuelle à l’aide de PowerShell. | Resource Manager
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -14,13 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/24/2017
-ms.author: kumud;annahar
-ms.openlocfilehash: ee6a2d36d88d9a80ba7e64819344f6cca56e47cd
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.author: kumud
+ms.reviewer: annahar
+ms.openlocfilehash: e9bad6ad614855c543ee6d75d4e6f4dc8e2255aa
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64730431"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876227"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>Affecter plusieurs adresses IP à des machines virtuelles avec PowerShell
 
@@ -96,7 +97,7 @@ Les étapes qui suivent expliquent comment créer un exemple de machine virtuell
 
 6. Définissez la configuration IP principale de la carte réseau. Remplacez 10.0.0.4 par une adresse valide dans le sous-réseau que vous avez créé, si vous n’utilisez pas la valeur définie précédemment. Avant d’attribuer une adresse IP statique, il est recommandé de vérifier tout d’abord qu’elle n’est pas déjà utilisée. Entrez la commande `Test-AzPrivateIPAddressAvailability -IPAddress 10.0.0.4 -VirtualNetwork $VNet`. Si l’adresse est disponible, la sortie retourne *True*. S’il n’est pas disponible, la sortie retourne *False* et la liste des adresses disponibles. 
 
-    Dans les commandes suivantes, **remplacer \<replace-avec-your-unique-name > par le nom DNS unique à utiliser.** Le nom doit être unique sur toutes les adresses IP publiques au sein d’une région Azure. Paramètre facultatif. Il peut être supprimé si vous voulez uniquement vous connecter à la machine virtuelle à l’aide de l’adresse IP publique.
+    Dans les commandes suivantes, **remplacez \<<replace-with-your-unique-name> par le nom DNS unique à utiliser.** Le nom doit être unique sur toutes les adresses IP publiques au sein d’une région Azure. Paramètre facultatif. Il peut être supprimé si vous voulez uniquement vous connecter à la machine virtuelle à l’aide de l’adresse IP publique.
 
     ```powershell
     

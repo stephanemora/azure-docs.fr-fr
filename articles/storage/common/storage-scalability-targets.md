@@ -1,6 +1,6 @@
 ---
-title: Performances et évolutivité objectifs du stockage Azure - comptes de stockage
-description: En savoir plus sur les cibles d’évolutivité et les performances, y compris la capacité, le taux de demande et la bande passante entrante et sortante, pour les comptes de stockage Azure.
+title: Objectifs de performance et d’extensibilité du service Stockage Azure - Comptes de stockage
+description: Obtenez plus d’informations sur les objectifs d’extensibilité et de performance, y compris la capacité, le taux de demandes et la bande passante entrante et sortante pour les comptes de stockage Azure.
 services: storage
 author: roygara
 ms.service: storage
@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 03/23/2019
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: e3e0e9ae4a1939aad9ab2ae42a1b51b1b00e2462
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.openlocfilehash: 932d250d6685a1b905e4a03a0118d8c8f1f26418
+ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62101473"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151242"
 ---
-# <a name="azure-storage-scalability-and-performance-targets-for-storage-accounts"></a>Objectifs de performance et d’extensibilité stockage Azure pour les comptes de stockage
+# <a name="azure-storage-scalability-and-performance-targets-for-storage-accounts"></a>Objectifs de performance et d’extensibilité du service Stockage Azure pour les comptes de stockage
 
 Cet article présente les objectifs de performance et d’évolutivité pour les comptes de stockage Azure. Les objectifs d’extensibilité et de performances répertoriés ici sont des objectifs haut de gamme mais réalisables. Dans tous les cas, le taux de demande et la bande passante atteints par votre compte de stockage dépendent de la taille des objets stockés, des modèles d’accès utilisés et du type de charge de travail de votre application.
 
@@ -23,11 +23,11 @@ Veillez à tester votre service afin de déterminer si ses performances réponde
 
 Lorsque votre application atteint la limite de gestion d’une partition concernant la charge de travail, Stockage Azure commence à renvoyer des codes d’erreur 503 (Serveur occupé) ou 500 (Délai d’expiration de l’opération). Si vous rencontrez des erreurs 503, nous vous recommandons de modifier votre application pour utiliser une stratégie d’interruption exponentielle pour les nouvelles tentatives. L’interruption exponentielle diminue la charge sur la partition et atténue les pics de trafic pour cette partition.
 
-## <a name="storage-account-scale-limits"></a>Limites de mise à l’échelle de compte de stockage
+## <a name="storage-account-scale-limits"></a>Limites d’évolutivité d’un compte de stockage
 
 [!INCLUDE [azure-storage-limits](../../../includes/azure-storage-limits.md)]
 
-## <a name="premium-performance-storage-account-scale-limits"></a>Limites de mise à l’échelle du compte de stockage Premium performances
+## <a name="premium-performance-storage-account-scale-limits"></a>Limites d’évolutivité d’un compte de stockage Premium
 
 [!INCLUDE [azure-premium-limits](../../../includes/azure-storage-limits-premium.md)]
 
@@ -43,37 +43,23 @@ Lorsque votre application atteint la limite de gestion d’une partition concern
 
 Pour plus d’informations sur les objectifs de scalabilité et de performances des fichiers Azure et d’Azure File Sync, consultez [Objectifs de scalabilité et de performances des fichiers Azure](../files/storage-files-scale-targets.md).
 
+> [!IMPORTANT]
+> Les limites d’un compte de stockage s’appliquent à tous les partages. Vous pouvez scale up des comptes de stockage au maximum uniquement si vous disposez d’un seul partage par compte de stockage.
+>
+> Les partages de fichiers standard d’une taille supérieure à 5 Tio sont en préversion et présentent certaines limitations.
+> Pour obtenir la liste des limitations et s’inscrire à la préversion de ces tailles de partage de fichiers plus importantes, consultez la section [Partages de fichiers standard](../files/storage-files-planning.md#standard-file-shares) du guide de planification d’Azure Files.
+
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
-### <a name="premium-files-scale-targets"></a>Fichiers Premium mettre à l’échelle cibles
+### <a name="premium-files-scale-targets"></a>Objectifs de mise à l’échelle des fichiers Premium
 
-Il existe trois catégories de limitations à prendre en compte pour les fichiers de premium : comptes de stockage et partages de fichiers.
+Il existe trois catégories de limitations à prendre en compte pour les fichiers Premium : les comptes de stockage, les partages et les fichiers.
 
-Par exemple :  Un partage unique peut atteindre 100 000 e/s et un seul fichier peut évoluer jusqu'à 5 000 e/s. Par conséquent, par exemple, si vous avez trois fichiers dans un partage, l’IOPs maximum, vous pouvez obtenir à partir de ce partage est de 15 000.
+Par exemple :  Un partage unique peut atteindre 100 000 IOPS, et un seul fichier peut scale up jusqu’à 5 000 IOPS. Par exemple, si vous avez trois fichiers dans un partage, celui-ci peut vous permettre d’obtenir jusqu’à 15 000 IOPS.
 
 #### <a name="premium-file-share-limits"></a>Limites de partage de fichiers Premium
 
-> [!IMPORTANT]
-> Limites de compte de stockage s’appliquent à tous les partages. Mise à l’échelle jusqu'à la valeur maximale pour les comptes de stockage n’est réalisable s’il en existe qu’un seul partage par compte de stockage.
-
-|Domaine  |Cible  |
-|---------|---------|
-|Taille min configuré.                        |100 Gio      |
-|Nombre maximal configuré de taille                        |100 TiB      |
-|Augmenter/diminuer la taille minimale    |1 GiB      |
-|IOPS de base    |1 Go jusqu'à 100 000 par seconde|
-|E/s de rupture    |3 x IOPS par Gio jusqu'à 100 000|
-|Taux de sortie         |60 Mio/s + 0,06 * approvisionné Gio        |
-|Taux d’entrée| 40 Mio/s + 0.04 * approvisionné Gio |
-|Nombre maximal d’instantanés        |200       |
-
-#### <a name="premium-file-limits"></a>Limites du fichier Premium
-
-|Domaine  |Cible  |
-|---------|---------|
-|Taille                  |1 Tio         |
-|Max IOPS par fichier     |5 000         |
-|Handles simultanés    |2 000         |
+[!INCLUDE [storage-files-premium-scale-targets](../../../includes/storage-files-premium-scale-targets.md)]
 
 ### <a name="azure-file-sync-scale-targets"></a>Objectifs de mise à l’échelle d’Azure File Sync
 

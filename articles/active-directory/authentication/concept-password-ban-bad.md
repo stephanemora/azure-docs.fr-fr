@@ -1,5 +1,5 @@
 ---
-title: Interdits dynamiquement les mots de passe - Azure Active Directory
+title: Mots de passe interdits dynamiquement - Azure Active Directory
 description: Interdire les mots de passe faibles dans votre environnement via des mots de passe interdits dynamiquement dans Azure AD
 services: active-directory
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 50452dc5a0c2074c452878c890643f7b21591689
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65977308"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Éliminer les mots de passe incorrects de votre organisation
@@ -32,11 +32,11 @@ Il se peut que certaines organisations veulent pousser plus loin la sécurité e
 
 La liste de mots de passe interdits personnalisée et la capacité à activer l’intégration d’Active Directory localement sont gérées via le portail Azure.
 
-![Modifier la liste de mots de passe interdits personnalisé sous les méthodes d’authentification](./media/concept-password-ban-bad/authentication-methods-password-protection.png)
+![Modifier la liste de mots de passe interdits personnalisée sous Méthodes d’authentification](./media/concept-password-ban-bad/authentication-methods-password-protection.png)
 
 ## <a name="on-premises-hybrid-scenarios"></a>Scénarios hybrides locaux
 
-La protection des comptes cloud uniquement est utile, toutefois de nombreuses organisations conservent des scénarios hybrides incluant Windows Server Active Directory en local. Il est possible d’installer la protection de mot de passe Azure AD pour Windows Server Active Directory agents sur site étendre les listes de mots de passe interdits à votre infrastructure existante. Maintenant, les utilisateurs et les administrateurs qui modifient, définissent ou réinitialisent des mots de passe localement doivent se conformer à la même stratégie de mot de passe que les utilisateurs cloud uniquement.
+La protection des comptes cloud uniquement est utile, toutefois de nombreuses organisations conservent des scénarios hybrides incluant Windows Server Active Directory en local. Il est possible d’installer la protection de mot de passe Azure AD pour les agents Windows Server Active Directory en local afin d’étendre les listes de mots de passe interdits à votre infrastructure existante. Maintenant, les utilisateurs et les administrateurs qui modifient, définissent ou réinitialisent des mots de passe localement doivent se conformer à la même stratégie de mot de passe que les utilisateurs cloud uniquement.
 
 ## <a name="how-are-passwords-evaluated"></a>Évaluation des mots de passe
 
@@ -75,7 +75,7 @@ Aucun des mots de passe ci-dessus ne correspond précisément au mot de passe in
 
 La correspondance de sous-chaîne est utilisée sur le mot de passe normalisé pour rechercher le prénom et le nom de l'utilisateur, ainsi que le nom du locataire (notez que la correspondance du nom du locataire n'est pas utilisée lors de la validation des mots de passe sur un contrôleur de domaine Active Directory).
 
-Exemple : supposons que nous disposons d’un utilisateur, Pol, qui souhaite réinitialiser son mot de passe à « P0l123fb ». Après la normalisation, ce mot de passe deviendrait « pol123fb ». Correspondance de sous-chaîne détecte que le mot de passe contient le prénom de l’utilisateur « Pol ». Même si « P0l123fb » n’était pas spécifiquement sur une liste de mots de passe interdits, correspondance de sous-chaîne trouvée « Pol » dans le mot de passe. Par conséquent, ce mot de passe est rejeté.
+Exemple : supposons qu’un utilisateur, Pol, souhaite réinitialiser son mot de passe en le remplaçant par « P0l123fb ». Après la normalisation, ce mot de passe devient « pol123fb ». La correspondance de substring détecte que le mot de passe contient le prénom de l’utilisateur « Pol ». Même si « P0l123fb » ne figure pas spécifiquement dans la liste des mots de passe interdits, la correspondance de substring a trouvé « Pol » dans le mot de passe. Par conséquent, ce mot de passe est rejeté.
 
 #### <a name="score-calculation"></a>Calcul du score
 
@@ -91,7 +91,7 @@ Exemple : un utilisateur remplace son mot de passe par « C0ntos0Blank12 ».
 
 Après la normalisation, ce mot de passe devient « contosoblank12 ». Le processus de correspondance détecte que ce mot de passe contient deux mots interdits : contoso et blank. Le score obtenu par ce mot de passe est le suivant :
 
-[contoso] + [vide] + [1] + [2] = 4 points dans la mesure où ce mot de passe est sous 5 points, il est rejeté.
+[contoso] + [blank] + [1] + [2] = 4 points. Dans la mesure où ce mot de passe a obtenu moins de 5 points, il est rejeté.
 
 Exemple : un utilisateur remplace son mot de passe par « ContoS0Bl@nkf9! ».
 
@@ -100,7 +100,7 @@ Après la normalisation, ce mot de passe devient « contosoblankf9 ! ». Le p
 [contoso] + [blank] + [f] + [9] + [!] = 5 points. Dans la mesure où ce mot de passe a obtenu au moins 5 points, il est accepté.
 
    > [!IMPORTANT]
-   > Veuillez noter que la liste globale et l'algorithme des mots de passe interdits peuvent à tout moment changer dans Azure, en fonction des analyses et des recherches en cours sur la sécurité. Pour le service agent du contrôleur de domaine local, les algorithmes de mise à jour seront prendront effet qu’une fois que le logiciel de l’agent du contrôleur de domaine est installé.
+   > Veuillez noter que la liste globale et l'algorithme des mots de passe interdits peuvent à tout moment changer dans Azure, en fonction des analyses et des recherches en cours sur la sécurité. Pour le service d’agent DC local, les algorithmes mis à jour ne prennent effet qu’après la réinstallation du logiciel de l’agent DC.
 
 ## <a name="license-requirements"></a>Conditions de licence :
 
@@ -110,7 +110,7 @@ Après la normalisation, ce mot de passe devient « contosoblankf9 ! ». Le p
 | Utilisateurs synchronisés à partir de Windows Server Active Directory en local | Azure AD Premium P1 ou P2 | Azure AD Premium P1 ou P2 |
 
 > [!NOTE]
-> Utilisateurs de Windows Server Active Directory locaux pas synchronisent avec Azure Active Directory bénéficier également les avantages de la protection de mot de passe Azure AD basée sur les licences existantes pour les utilisateurs synchronisés.
+> Les utilisateurs Windows Server Active Directory locaux qui ne sont pas synchronisés avec Azure Active Directory bénéficient également des avantages de la protection par mot de passe Azure AD basée sur les licences existantes pour les utilisateurs synchronisés.
 
 Vous trouverez des informations de licence supplémentaires, notamment les prix, sur le [site de tarification Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 

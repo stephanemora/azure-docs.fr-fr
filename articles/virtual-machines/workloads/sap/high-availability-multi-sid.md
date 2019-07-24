@@ -4,7 +4,7 @@ description: Guide de configuration de haute disponibilité pour SAP NetWeaver m
 services: virtual-machines-windows, virtual-network, storage
 documentationcenter: saponazure
 author: goraco
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 12/09/2016
 ms.author: goraco
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1b27ea761d19eb494895daceff699b2b604eccea
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dadbfb138fb9e3e77cee265c008524b9c424a5dd
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66153866"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709622"
 ---
 # <a name="create-an-sap-netweaver-multi-sid-configuration"></a>Créer une configuration SAP NetWeaver multi-SID
 
@@ -445,7 +445,7 @@ ms.locfileid: "66153866"
 [xplat-cli-azure-resource-manager]:../../../xplat-cli-azure-resource-manager.md
 
 
-En septembre 2016, Microsoft a publié une fonctionnalité vous permettant de gérer plusieurs adresses IP virtuelles à l’aide d’un [équilibrage de charge interne Azure][load-balancer-multivip-overview]. Cette fonctionnalité existe déjà dans l’équilibrage de charge externe Azure.
+En septembre 2016, Microsoft a publié une fonctionnalité vous permettant de gérer plusieurs adresses IP virtuelles à l’aide d’un [équilibrage de charge interne Azure][load-balancer-multivip-overview]. Cette fonctionnalité existe déjà dans l’équilibrage de charge externe Azure.
 
 Dans le cas d’un déploiement SAP, vous pouvez utiliser un équilibrage de charge interne pour créer une configuration de cluster Windows pour SAP ASCS/SCS, comme indiqué dans le [Guide de haute disponibilité SAP NetWeaver sur machines virtuelles Windows][sap-ha-guide].
 
@@ -642,10 +642,10 @@ Le processus complet d’installation d’un deuxième système SAP SID2 est dé
 
 La procédure détaillée est la suivante :
 
-1. [Installez le premier nœud de cluster SAP][sap-ha-guide-9.1.2].  
+1. [Installer le premier nœud de cluster SAP][sap-ha-guide-9.1.2].  
  Dans cette étape, vous installez SAP avec une instance ASCS/SCS à haute disponibilité sur le **nœud de cluster WSFC existant 1**.
 
-2. [Modifiez le profil SAP de l’instance ASCS/SCS][sap-ha-guide-9.1.3].
+2. [Modifier le profil SAP de l’instance ASCS/SCS][sap-ha-guide-9.1.3].
 
 3. [Configurez un port de sonde][sap-ha-guide-9.1.4].  
  Dans cette étape, vous configurez le port de sonde SAP-SID2-IP d’une ressource de cluster SAP à l’aide de PowerShell. Exécutez cette configuration sur un des nœuds de cluster SAP ASCS/SCS.
@@ -660,7 +660,7 @@ La procédure détaillée est la suivante :
  Sur les deux nœuds de cluster utilisés pour l’instance SAP ASCS/SCS, vous ouvrez tous les ports du pare-feu Windows utilisés par SAP ASCS/SCS. Ces ports sont répertoriés dans le [guide de haute disponibilité SAP NetWeaver sur des machines virtuelles Windows][sap-ha-guide-8.8].  
  Ouvrez également le port de sonde de l’équilibrage de charge interne Azure, 62350 dans notre scénario.
 
-7. [Modifiez le type de démarrage de l’instance de service Windows SAP ERS][sap-ha-guide-9.4].
+7. [Modifier le type de démarrage de l’instance de service Windows SAP ERS][sap-ha-guide-9.4].
 
 8. [Installez le serveur d’applications principal SAP][sap-ha-guide-9.5] sur la nouvelle machine virtuelle dédiée.
 

@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 9b7bc043c748000f03a98a28f856299527015388
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e7a049c8def0a5014aeb8a0e7a16aaa8def28009
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66397829"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705698"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions-preview"></a>Utiliser des références Key Vault pour App Service et Azure Functions (préversion)
 
@@ -38,6 +38,8 @@ Pour pouvoir lire les secrets dans Key Vault, vous devez créer un coffre et don
    > Actuellement, les références Key Vault prennent uniquement en charge les identités managées affectées par le système. Vous ne pouvez pas utiliser d’identités affectées par l’utilisateur.
 
 1. Créez une [stratégie d’accès dans Key Vault](../key-vault/key-vault-secure-your-key-vault.md#key-vault-access-policies) pour l’identité d’application que vous avez créée précédemment. Activez l’autorisation de secret « Get » sur cette stratégie. Ne configurez pas les paramètres « application autorisée » ou `applicationId` car ils sont incompatibles avec une identité managée.
+
+    L’octroi de l’accès à une identité de l’application dans le coffre de clés est une seule opération qui reste la même pour tous les abonnements Azure. Vous pouvez l’utiliser pour déployer autant de certificats que vous le souhaitez. 
 
 ## <a name="reference-syntax"></a>Syntaxe de référence
 

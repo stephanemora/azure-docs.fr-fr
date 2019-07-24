@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 06/27/2019
-ms.openlocfilehash: 1eeb37ce74b3e2f57588197d6bb88f59944c61cf
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: f42d811a89f00fda19222ae088041330e4cf6264
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67460663"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67658041"
 ---
 # <a name="automated-backups"></a>Sauvegardes automatisées
 
@@ -109,7 +109,7 @@ Si votre base de données est chiffrée à l’aide de TDE, les sauvegardes sont
 
 ## <a name="how-does-microsoft-ensure-backup-integrity"></a>Comment Microsoft garantit l’intégrité de la sauvegarde ?
 
-L’équipe d’ingénieurs Azure SQL Database teste régulièrement et automatiquement la restauration des sauvegardes automatisées de bases de données au sein du service. Lors de la restauration, les bases de données subissent également des vérifications d’intégrité à l’aide de DBCC CHECKDB. Tout problème détecté lors de la vérification d’intégrité est traduit par une alerte envoyée à l’équipe d’ingénieurs. Pour plus d’informations sur l’intégrité des données dans Azure SQL Database, consultez l’article [Intégrité des données dans Azure SQL Database](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/).
+L’équipe d’ingénieurs Azure SQL Database teste régulièrement et automatiquement la restauration des sauvegardes automatisées de bases de données placées sur des serveurs logiques et dans des pools élastiques. Lors d’une restauration à un moment donné, les bases de données subissent également des vérifications d’intégrité à l’aide de DBCC CHECKDB. Managed Instance effectue une sauvegarde initiale automatique avec `CHECKSUM` des bases de données restaurées à l’aide de la commande `RESTORE` native ou du service de migration des données à l’issue de la migration. Tout problème détecté lors de la vérification d’intégrité est traduit par une alerte envoyée à l’équipe d’ingénieurs. Pour plus d’informations sur l’intégrité des données dans Azure SQL Database, consultez l’article [Intégrité des données dans Azure SQL Database](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/).
 
 ## <a name="how-do-automated-backups-impact-compliance"></a>Quel est l’impact des sauvegardes automatisées sur la conformité ?
 

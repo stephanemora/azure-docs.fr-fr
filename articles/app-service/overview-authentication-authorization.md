@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 08/24/2018
-ms.author: mahender,cephalin
+ms.author: cephalin
+ms.reviewer: mahender
 ms.custom: seodec18
-ms.openlocfilehash: d914e3ad3043b2671e154d1616c6800f34415c11
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1e8bd60eab5853b121b9c08622914b9c62449f8f
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60835576"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67618766"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Authentification et autorisation dans Azure App Service
 
@@ -150,12 +151,12 @@ Cette option assure un traitement plus souple des requêtes anonymes. Par exempl
 
 Guides pratiques propres à chaque fournisseur :
 
-* [Configurer votre application App Service pour utiliser la connexion Azure Active Directory][AAD]
-* [Comment configurer votre application App Service de manière à utiliser la connexion via Facebook][Facebook]
-* [Comment configurer votre application App Service de manière à utiliser la connexion via Google][Google]
-* [Comment configurer votre application App Service pour utiliser une connexion par compte Microsoft][MSA]
-* [Comment configurer votre application App Service de manière à utiliser la connexion via Twitter][Twitter]
-* [Guide pratique : Utiliser l’authentification personnalisée pour votre application][custom-auth]
+* [Comment configurer votre application pour utiliser une connexion Azure Active Directory][AAD]
+* [Comment configurer votre application pour utiliser une connexion Facebook][Facebook]
+* [Comment configurer votre application pour utiliser une connexion Google][Google]
+* [Comment configurer votre application pour utiliser une connexion par compte Microsoft][MSA]
+* [Comment configurer votre application pour utiliser une connexion Twitter][Twitter]
+* [Guide pratique pour Utiliser l’authentification personnalisée pour votre application][custom-auth]
 
 [AAD]: configure-authentication-provider-aad.md
 [Facebook]: configure-authentication-provider-facebook.md

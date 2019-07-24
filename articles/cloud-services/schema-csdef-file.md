@@ -14,10 +14,10 @@ author: jpconnock
 ms.author: jeconnoc
 manager: timlt
 ms.openlocfilehash: ea373c7b35ef82496690f213b92cc97f3536c57a
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66356149"
 ---
 # <a name="azure-cloud-services-definition-schema-csdef-file"></a>Schéma de définition Microsoft Azure Cloud Services (fichier .csdef)
@@ -72,4 +72,4 @@ Le tableau suivant décrit les attributs d’un de l’élément `ServiceDefinit
 | Nom                    |Requis. Nom du service. Ce nom doit être unique au sein du compte de service.|
 | topologyChangeDiscovery | facultatif. Spécifie le type de notification de modification de la topologie. Les valeurs possibles sont les suivantes :<br /><br /> -   `Blast` : envoie la mise à jour à toutes les instances de rôle, dès que possible. Si vous choisissez l’option, le rôle doit être en mesure de gérer la mise à jour de la topologie sans devoir redémarrer.<br />-   `UpgradeDomainWalk` : envoie la mise à jour à chaque instance de rôle, de manière séquentielle, une fois que l’instance précédente a accepté la mise à jour.|
 | schemaVersion           | facultatif. Spécifie la version du schéma de définition de service. La version du schéma permet à Visual Studio de sélectionner les outils du Kit de développement logiciel (SDK) appropriés à utiliser pour la validation du schéma, si plusieurs versions de ce Kit sont installées côte à côte.|
-| upgradeDomainCount      | facultatif. Spécifie le nombre de domaines de mise à niveau sur lesquels les rôles de ce service sont alloués. Les instances de rôle sont allouées à un domaine de mise à niveau lorsque le service est déployé. Pour plus d’informations, consultez [mettre à jour un rôle de service cloud ou d’un déploiement](cloud-services-how-to-manage-portal.md#update-a-cloud-service-role-or-deployment), [gérer la disponibilité des machines virtuelles](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability) et [qu’est un modèle de Service Cloud](https://docs.microsoft.com/azure/cloud-services/cloud-services-model-and-package).<br /><br /> Vous pouvez spécifier jusqu’à 20 domaines de mise à niveau. Si aucune valeur n’est spécifiée, le nombre de domaines de mise à niveau par défaut est de 5.|
+| upgradeDomainCount      | facultatif. Spécifie le nombre de domaines de mise à niveau sur lesquels les rôles de ce service sont alloués. Les instances de rôle sont allouées à un domaine de mise à niveau lorsque le service est déployé. Pour plus d’informations, consultez [Mise à jour d’un déploiement ou d’un rôle de service cloud](cloud-services-how-to-manage-portal.md#update-a-cloud-service-role-or-deployment), [Gestion de la disponibilité des machines virtuelles](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability) et [What is a Cloud Service Model (Qu’est-ce qu’un modèle Cloud Service ?)](https://docs.microsoft.com/azure/cloud-services/cloud-services-model-and-package).<br /><br /> Vous pouvez spécifier jusqu’à 20 domaines de mise à niveau. Si aucune valeur n’est spécifiée, le nombre de domaines de mise à niveau par défaut est de 5.|

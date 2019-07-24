@@ -1,6 +1,6 @@
 ---
-title: Terminaison SSL avec certificats Azure Key Vault
-description: Découvrez comment vous pouvez intégrer Azure Application Gateway Key Vault pour les certificats de serveur qui sont attachés aux écouteurs HTTPS activé.
+title: Arrêt SSL avec certificats Azure Key Vault
+description: Découvrez comment intégrer Azure Application Gateway avec Key Vault pour les certificats de serveur associés à des écouteurs HTTPS.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
@@ -8,53 +8,53 @@ ms.topic: article
 ms.date: 4/25/2019
 ms.author: victorh
 ms.openlocfilehash: 18af315c58c838a7237acfbcc32f622a0edbd3b3
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65827626"
 ---
-# <a name="ssl-termination-with-key-vault-certificates"></a>Terminaison SSL avec certificats Key Vault
+# <a name="ssl-termination-with-key-vault-certificates"></a>Arrêt SSL avec certificats Key Vault
 
-[Azure Key Vault](../key-vault/key-vault-whatis.md) est un secret de plateforme gérés stocker que vous pouvez utiliser pour protéger des secrets, clés et certificats SSL. Azure Application Gateway prend en charge l’intégration avec Key Vault (en préversion publique) pour les certificats de serveur qui sont attachés aux écouteurs HTTPS activé. Cette prise en charge est limitée à la référence (SKU) v2 d’Application Gateway.
+[Azure Key Vault](../key-vault/key-vault-whatis.md) est un magasin des secrets managé par une plateforme, que vous pouvez utiliser pour protéger des secrets, des clés et des certificats SSL. Azure Application Gateway prend en charge l’intégration dans Key Vault (préversion publique) des certificats de serveur associés à des écouteurs HTTPS. Cette prise en charge se limite à la référence SKU v2 d’Application Gateway.
 
 > [!IMPORTANT]
-> Intégration de la passerelle d’Application avec Key Vault est actuellement en version préliminaire publique. Cette préversion est fournie sans contrat de niveau de service (SLA) et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> L’intégration d’Application Gateway avec Key Vault est actuellement en préversion publique. Cette préversion est fournie sans contrat de niveau de service (SLA) et elle n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Cette version préliminaire publique propose deux modèles pour un arrêt SSL :
+Cette préversion publique propose deux modèles d’arrêt SSL :
 
-- Vous pouvez fournir explicitement des certificats SSL attachés à l’écouteur. Ce modèle est la façon traditionnelle de transmettre des certificats SSL pour la passerelle d’Application pour un arrêt SSL.
-- Vous pouvez éventuellement fournir une référence à un certificat Key Vault existant ou un secret lorsque vous créez un écouteur HTTPS activé.
+- Vous pouvez fournir explicitement des certificats SSL associés à l’écouteur. Ce modèle constitue la façon traditionnelle de transmettre des certificats SSL à Application Gateway pour un arrêt SSL.
+- Vous pouvez éventuellement fournir une référence à un certificat Key Vault existant ou un secret lorsque vous créez un écouteur HTTPS.
 
-Intégration d’application Gateway avec Key Vault offre de nombreux avantages, notamment :
+L’intégration d’Application Gateway avec Key Vault offre de nombreux avantages, notamment :
 
-- Renforcement de la sécurité, étant donné que les certificats SSL ne sont pas gérées directement par l’équipe de développement d’application. Intégration permet une équipe de sécurité distincts pour :
-  * Configurer les passerelles d’application.
-  * Contrôle passerelle leur cycle de vie.
-  * Accorder des autorisations à des passerelles d’application sélectionnée pour accéder aux certificats qui sont stockés dans votre coffre de clés.
-- Prise en charge pour l’importation de certificats existants dans votre coffre de clés. Ou utilisez l’API Key Vault pour créer et gérer de nouveaux certificats avec un des partenaires de coffre de clés approuvés.
-- Prise en charge du renouvellement automatique des certificats qui sont stockés dans votre coffre de clés.
+- Une sécurité renforcée, étant donné que les certificats SSL ne sont pas gérés directement par l’équipe de développement d’application. L’intégration permet à une équipe de sécurité distincte de :
+  * Configurer des passerelles d’application.
+  * Contrôler les cycles de vie des passerelles d’application.
+  * Accorder des autorisations à certaines passerelles d’application pour accéder aux certificats stockés dans votre coffre de clés.
+- Prendre en charge l’importation de certificats existants dans votre coffre de clés. Ou utiliser les API Key Vault pour créer et gérer de nouveaux certificats avec un partenaire Key Vault approuvé.
+- Prise en charge du renouvellement automatique des certificats stockés dans votre coffre de clés.
 
-Application Gateway prend en charge que les certificats validés de logiciels. Module de sécurité matériel (HSM)-certificats validés ne sont pas pris en charge. Une fois la passerelle d’Application est configurée pour utiliser des certificats de Key Vault, ses instances de récupérer le certificat dans Key Vault et les installer localement pour la terminaison SSL. Les instances interrogent également le coffre de clés à des intervalles de 24 heures pour récupérer une version de renouvellement du certificat, si elle existe. Si un certificat mis à jour est trouvé, le certificat SSL associé à l’écouteur HTTPS est automatiquement pivoter.
+À l’heure actuelle, Application Gateway prend uniquement en charge les certificats validés par logiciel. Les certificats validés par module de sécurité matériel ne sont pas pris en charge. Une fois qu’Application Gateway est configurée pour utiliser des certificats Key Vault, ses instances récupèrent le certificat dans Key Vault et l’installent localement pour l’arrêt SSL. Les instances interrogent également Key Vault à des intervalles de 24 heures pour récupérer une version renouvelée du certificat, le cas échéant. Si un certificat mis à jour est trouvé, le certificat SSL associé à l’écouteur HTTPS est automatiquement remplacé.
 
-## <a name="how-integration-works"></a>Comment fonctionne l’intégration
+## <a name="how-integration-works"></a>Fonctionnement de l’intégration
 
-Intégration d’application Gateway avec Key Vault nécessite un processus de configuration de trois étapes :
+L’intégration d’Application Gateway avec Key Vault nécessite un processus de configuration en trois étapes :
 
-1. **Créer une identité gérée affectée à l’utilisateur**
+1. **Créer une identité managée attribuée par l’utilisateur**
 
-   Vous créez ou réutilisez une affectée à l’utilisateur identité gérée existante, lequel Application Gateway utilise pour récupérer des certificats de Key Vault à votre place. Pour plus d’informations, consultez [Identités managées pour les ressources Azure](../active-directory/managed-identities-azure-resources/overview.md). Cette étape crée une nouvelle identité dans le locataire Azure Active Directory. L’identité est approuvée par l’abonnement qui est utilisé pour créer l’identité.
+   Vous créez ou réutilisez une identité managée existante affectée à l’utilisateur, qu’Application Gateway utilise pour récupérer les certificats de Key Vault à votre place. Pour plus d’informations, consultez [Identités managées pour les ressources Azure](../active-directory/managed-identities-azure-resources/overview.md). Cette étape crée une identité dans le tenant Azure Active Directory. L’identité est approuvée par l’abonnement utilisé pour créer l’identité.
 
 1. **Configurer votre coffre de clés**
 
-   Vous puis importez un certificat existant ou créez un dans votre coffre de clés. Le certificat sera utilisé par les applications qui s’exécutent via la passerelle d’application. Dans cette étape, vous pouvez également utiliser un secret de coffre de clés est stocké sous un sans mot de passe, base codé en base 64 de fichier PFX. Nous vous recommandons d’utiliser un type de certificat en raison de la fonctionnalité de renouvellement automatique est disponible avec les objets de type de certificat dans le coffre de clés. Une fois que vous avez créé un certificat ou une clé secrète, vous définissez des stratégies d’accès dans le coffre de clés pour autoriser l’identité qui auront *obtenir* accès à la clé secrète.
+   Vous importez ensuite un certificat existant ou vous en créez un dans votre coffre de clés. Ce certificat sera utilisé par les applications qui s’exécutent au moyen de la passerelle d’application. Dans cette étape, vous pouvez également utiliser un secret de coffre de clés, qui est stocké dans un fichier PFX en base 64 et sans mot de passe. Nous vous recommandons d’utiliser un type de certificat en raison de la fonctionnalité de renouvellement automatique disponible avec les objets de type de certificat dans le coffre de clés. Une fois que vous avez créé un certificat ou un secret, vous définissez des stratégies d’accès dans le coffre de clés pour autoriser l’identité qui disposera d’un accès *get* au secret.
 
 1. **Configurer la passerelle d’application**
 
-   Après avoir terminé les deux étapes précédentes, vous pouvez configurer ou modifier une passerelle d’application existante pour utiliser l’identité gérée affectée à l’utilisateur. Vous pouvez également configurer le certificat SSL de l’écouteur HTTP pour pointer vers l’URI complet du certificat de coffre de clés ou ID de secret.
+   Après avoir terminé les deux étapes précédentes, vous pouvez configurer ou modifier une passerelle d’application existante pour utiliser l’identité managée affectée à l’utilisateur. Vous pouvez également configurer le certificat SSL de l’écouteur HTTP pour pointer vers l’URI complet du certificat ou l’ID de secret Key Vault.
 
-   ![Certificats de coffre de clés](media/key-vault-certs/ag-kv.png)
+   ![Certificats Key Vault](media/key-vault-certs/ag-kv.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Configurez la terminaison SSL avec certificats Key Vault à l’aide d’Azure PowerShell](configure-keyvault-ps.md)
+[Configurer l’arrêt SSL avec les certificats Key Vault à l’aide d’Azure PowerShell](configure-keyvault-ps.md)

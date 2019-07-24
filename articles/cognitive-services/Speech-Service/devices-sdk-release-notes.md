@@ -8,17 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/22/2019
+ms.date: 07/10/2019
 ms.author: wellsi
-ms.openlocfilehash: 1c91cde45a6a420376af36f70487adf7fe0ee83a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1ca6b5265cf97ef551ec0b13b46ac934a372d2c7
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66751815"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797925"
 ---
 # <a name="release-notes-of-cognitive-services-speech-devices-sdk"></a>Notes de publication du Kit de développement logiciel (SDK) Speech Devices de Cognitive Services
 Les sections suivantes dressent la liste des modifications dans les versions les plus récentes.
+
+## <a name="speech-devices-sdk-160"></a>Kit de développement logiciel (SDK) Speech Devices 1.6.0 :
+
+*   Prise en charge de [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/) sur Windows et Linux avec un [exemple d’application](https://aka.ms/sdsdk-download) courant
+*   Mise à jour du composant [Kit de développement logiciel (SDK) Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) vers la version 1.6.0. Pour plus d’informations, consultez ses [notes de publication](https://aka.ms/csspeech/whatsnew).
 
 ## <a name="speech-devices-sdk-151"></a>Kit de développement logiciel (SDK) Speech Devices 1.5.1 :
 
@@ -37,17 +42,17 @@ Les sections suivantes dressent la liste des modifications dans les versions les
 *   En raison de la nouvelle technologie de mot déclencheur, tous les mots déclencheurs doivent être recréés sur notre portail de mots déclencheurs améliorés. Pour supprimer complètement les anciens mots-clés de l’appareil, désinstallez l’ancienne application.
     - adb uninstall com.microsoft.coginitiveservices.speech.samples.sdsdkstarterapp
 
-## <a name="cognitive-services-speech-devices-sdk-140-2019-apr-release"></a>Kit SDK Speech Devices de Cognitive Services version 1.4.0 : version d’avril 2019 
+## <a name="cognitive-services-speech-devices-sdk-140-2019-apr-release"></a>Kit SDK Speech Devices de Cognitive Services version 1.4.0 : version d’avril 2019
 
-* Mise à jour du composant [Kit de développement logiciel (SDK) Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) vers la version 1.4.0. Pour plus d’informations, consultez ses [notes de publication](https://aka.ms/csspeech/whatsnew). 
+* Mise à jour du composant [Kit de développement logiciel (SDK) Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) vers la version 1.4.0. Pour plus d’informations, consultez ses [notes de publication](https://aka.ms/csspeech/whatsnew).
 
-## <a name="cognitive-services-speech-devices-sdk-131-2019-mar-release"></a>Kit SDK Speech Devices de Cognitive Services version 1.3.1 : version de mars 2019 
+## <a name="cognitive-services-speech-devices-sdk-131-2019-mar-release"></a>Kit SDK Speech Devices de Cognitive Services version 1.3.1 : version de mars 2019
 
-* Mise à jour du composant [Kit de développement logiciel (SDK) Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) vers la version 1.3.1. Pour plus d’informations, consultez ses [notes de publication](https://aka.ms/csspeech/whatsnew). 
+* Mise à jour du composant [Kit de développement logiciel (SDK) Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) vers la version 1.3.1. Pour plus d’informations, consultez ses [notes de publication](https://aka.ms/csspeech/whatsnew).
 *   Gestion des mots déclencheurs mise à jour, voir Dernières modifications.
 *   L’exemple d’application ajoute le choix de la langue à la fois pour la reconnaissance vocale et la traduction.
 
-**Dernières modifications** 
+**Dernières modifications**
 
 *   [L’installation d’un mot déclencheur](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws) a été simplifiée. Elle fait désormais partie de l’application et n’a pas besoin d’une installation distincte sur l’appareil.
 *   La reconnaissance des mots déclencheurs a changé, et deux événements sont pris en charge.
@@ -55,22 +60,22 @@ Les sections suivantes dressent la liste des modifications dans les versions les
     - RecognizedKeyword indique que cette reconnaissance du mot-clé a terminé la reconnaissance du mot-clé donné.
 
 
-## <a name="cognitive-services-speech-devices-sdk-110-2018-nov-release"></a>Kit SDK Speech Devices de Cognitive Services version 1.1.0 : version de novembre 2018 
+## <a name="cognitive-services-speech-devices-sdk-110-2018-nov-release"></a>Kit SDK Speech Devices de Cognitive Services version 1.1.0 : version de novembre 2018
 
-* Mise à jour du composant [Kit de développement logiciel (SDK) Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) vers la version 1.1.0. Pour plus d’informations, consultez ses [notes de publication](https://aka.ms/csspeech/whatsnew). 
+* Mise à jour du composant [Kit de développement logiciel (SDK) Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) vers la version 1.1.0. Pour plus d’informations, consultez ses [notes de publication](https://aka.ms/csspeech/whatsnew).
 * Grâce à notre algorithme de traitement audio amélioré, la reconnaissance vocale en champ éloigné gagne en précision.
 * Exemple d’application avec ajout de la prise en charge de la reconnaissance vocale en chinois.
 
-## <a name="cognitive-services-speech-devices-sdk-101-2018-oct-release"></a>Kit SDK Speech Devices de Cognitive Services version 1.0.1 : version d’octobre 2018 
+## <a name="cognitive-services-speech-devices-sdk-101-2018-oct-release"></a>Kit SDK Speech Devices de Cognitive Services version 1.0.1 : version d’octobre 2018
 
-* Mise à jour du composant [Kit de développement logiciel (SDK) Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) vers la version 1.0.1. Pour plus d’informations, consultez ses [notes de publication](https://aka.ms/csspeech/whatsnew). 
+* Mise à jour du composant [Kit de développement logiciel (SDK) Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) vers la version 1.0.1. Pour plus d’informations, consultez ses [notes de publication](https://aka.ms/csspeech/whatsnew).
 * Notre nouvel algorithme de traitement audio améliore la précision de la reconnaissance vocale  
 * Un bogue de session audio de reconnaissance continue a été corrigé.
 
-**Dernières modifications** 
+**Dernières modifications**
 
-* Cette version contient plusieurs changements cassants. Pour plus d’informations concernant les API, consultez [cette page](https://aka.ms/csspeech/breakingchanges_1_0_0). 
-* Les fichiers de modèle KWS ne sont pas compatibles avec le Kit de développement logiciel (SDK) Speech Devices 1.0.1. Les fichiers Wake Word existants sont supprimés une fois les nouveaux fichiers Wake Word écrits sur l’appareil. 
+* Cette version contient plusieurs changements cassants. Pour plus d’informations concernant les API, consultez [cette page](https://aka.ms/csspeech/breakingchanges_1_0_0).
+* Les fichiers de modèle KWS ne sont pas compatibles avec le Kit de développement logiciel (SDK) Speech Devices 1.0.1. Les fichiers Wake Word existants sont supprimés une fois les nouveaux fichiers Wake Word écrits sur l’appareil.
 
 ## <a name="cognitive-services-speech-devices-sdk-050-2018-aug-release"></a>Kit SDK Speech Devices de Cognitive Services version 0.5.0 : Version d’août 2018
 

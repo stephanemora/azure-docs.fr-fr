@@ -1,5 +1,5 @@
 ---
-title: Accès conditionnel pour les utilisateurs de collaboration B2B - Azure Active Directory | Microsoft Docs
+title: Accès conditionnel pour les utilisateurs de B2B Collaboration - Azure Active Directory | Microsoft Docs
 description: Azure Active Directory B2B Collaboration prend en charge l’authentification multifacteur (MFA) pour un accès sélectif à vos applications d’entreprise
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f3bfe067b7a927f800f88958ee2ffca09711c10
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.openlocfilehash: c012ebfb00b57079e43b74b4f6570744db980860
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65812811"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113158"
 ---
 # <a name="conditional-access-for-b2b-collaboration-users"></a>Accès conditionnel pour les utilisateurs de B2B Collaboration
 
@@ -46,7 +46,7 @@ Regardez l’animation suivante pour découvrir comment utiliser l’invitation�
 ### <a name="mfa-reset-for-b2b-collaboration-users"></a>Réinitialisation de l'authentification MFA pour les utilisateurs de B2B de Collaboration
 Actuellement, l’administrateur peut exiger que les utilisateurs B2B Collaboration s’authentifient à nouveau uniquement par le biais des applets de commande PowerShell suivantes :
 
-1. Connexion à Azure AD
+1. Se connecter à Azure AD
 
    ```
    $cred = Get-Credential
@@ -57,7 +57,7 @@ Actuellement, l’administrateur peut exiger que les utilisateurs B2B Collaborat
    ```
    Get-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName, @{n="Methods";e={($_.StrongAuthenticationMethods).MethodType}}
    ```
-   Voici un exemple : 
+   Voici un exemple :
 
    ```
    Get-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName, @{n="Methods";e={($_.StrongAuthenticationMethods).MethodType}}
@@ -91,7 +91,7 @@ Par conséquent, la recommandation d’authentification MFA pour les utilisateur
 
 Lorsque Contoso active les stratégies d’accès conditionnel en fonction des appareils pour ses données d’entreprise, l’accès est protégé contre les appareils non gérés par Contoso et non conformes aux stratégies d’appareils de Contoso.
 
-Si l’appareil de l’utilisateur B2B n’est pas géré par Contoso, l’accès des utilisateurs B2B des organisations partenaires est bloqué quel que soit le contexte d’application de ces stratégies. Cependant, Contoso peut créer des listes d’exclusion contenant des utilisateurs spécifiques du partenaire afin d’exclure ces derniers de la stratégie d’accès conditionnel en fonction des appareils.
+Si l’appareil de l’utilisateur B2B n’est pas géré par Contoso, l’accès des utilisateurs B2B des organisations partenaires est bloqué quel que soit le contexte d’application de ces stratégies. Cependant, Contoso peut créer des listes d’exclusions contenant des utilisateurs partenaires spécifiques afin de les exclure de la stratégie d’accès conditionnel en fonction des appareils.
 
 #### <a name="location-based-conditional-access-for-b2b"></a>Accès conditionnel en fonction des emplacements pour B2B
 

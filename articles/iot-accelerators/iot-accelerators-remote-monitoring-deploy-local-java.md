@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 01/24/2019
 ms.topic: conceptual
 ms.openlocfilehash: 2b55fea69fe1affb6cab5d360f1e8355c3bb720d
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66015438"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---intellij"></a>Déployer localement l’accélérateur de solution de supervision à distance - IntelliJ
@@ -23,7 +23,7 @@ Cet article montre comment déployer l’accélérateur de solution de supervisi
 
 Si vous souhaitez exécuter l’accélérateur de solution de supervision à distance dans un Docker sur votre ordinateur local, consultez [Déployer localement l’accélérateur de solution de supervision à distance - Docker](iot-accelerators-remote-monitoring-deploy-local-docker.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour déployer les services Azure utilisés par l’accélérateur de solution de supervision à distance, vous avez besoin d’un abonnement Azure actif.
 
@@ -91,7 +91,7 @@ Si vous n’avez pas encore créé les ressources Azure nécessaires, procédez 
 
      Le script crée un groupe de ressources dans Azure avec le nom de votre solution. Ce groupe de ressources contient les ressources Azure qu’utilise l’accélérateur de solution. Vous pouvez supprimer ce groupe de ressources dès que vous n’avez plus besoin des ressources correspondantes.
 
-     Le script ajoute également un ensemble de variables d'environnement dotées du préfixe **PCS** sur votre ordinateur local. Ces variables d’environnement fournissent les détails de surveillance à distance être en mesure de lire à partir d’une ressource Azure Key Vault. Cette ressource Key Vault est où la surveillance à distance lira à partir de ses valeurs de configuration.
+     Le script ajoute également un ensemble de variables d'environnement dotées du préfixe **PCS** sur votre ordinateur local. Ces variables d’environnement fournissent les détails de supervision à distance nécessaires pour lire à partir d’une ressource Azure Key Vault. La supervision à distance lira ses valeurs de configuration à partir de cette ressource Key Vault.
 
      > [!TIP]
      > Quand le script s’exécute, il enregistre également les variables d’environnement dans un fichier appelé **\<votre dossier de base\>\\.pcs\\\<nom de la solution\>.env**. Vous pouvez les utiliser pour de futurs déploiements d’accélérateurs de solutions. Notez que l'ensemble de variables d'environnement de votre ordinateur local se substitue aux valeurs du fichier **services\\scripts\\local\\.env** lorsque vous exécutez **docker-compose**.
@@ -101,14 +101,14 @@ Si vous n’avez pas encore créé les ressources Azure nécessaires, procédez 
 ### <a name="use-existing-azure-resources"></a>Utiliser les ressources Azure existantes
 
 Si vous avez déjà créé les ressources Azure requises, créez les variables d'environnement correspondantes sur votre ordinateur local.
-Définissez les variables d’environnement pour les éléments suivants :
-* **PCS_KEYVAULT_NAME** -nom de la ressource Azure Key Vault
-* **PCS_AAD_APPID** -AAD de l’ID d’application
-* **PCS_AAD_APPSECRET** -clé secrète d’application le AAD
+Définissez les variables d’environnement suivantes :
+* **PCS_KEYVAULT_NAME** : nom de la ressource Azure Key Vault
+* **PCS_AAD_APPID** : ID d’application AAD
+* **PCS_AAD_APPSECRET** : secret d’application AAD
 
-Valeurs de configuration seront lue à partir de cette ressource Azure Key Vault. Ces variables d’environnement peuvent être enregistrées dans le  **\<votre dossier de base\>\\.pcs\\\<nom de la solution\>.env** fichier à partir du déploiement. Notez que l'ensemble de variables d'environnement de votre ordinateur local se substitue aux valeurs du fichier **services\\scripts\\local\\.env** lorsque vous exécutez **docker-compose**.
+Les valeurs de configuration seront lues à partir de cette ressource Azure Key Vault. Vous pouvez enregistrer ces variables d’environnement dans le fichier **\<votre dossier de base\>\\.pcs\\\<nom de la solution\>.env** à partir du déploiement. Notez que l'ensemble de variables d'environnement de votre ordinateur local se substitue aux valeurs du fichier **services\\scripts\\local\\.env** lorsque vous exécutez **docker-compose**.
 
-Certaines configurations requises par le microservice est stocké dans une instance de **Key Vault** qui a été créé sur le déploiement initial. Les variables correspondants dans le coffre de clés doivent être modifiés en fonction des besoins.
+Certaines configurations requises par le microservice sont stockées dans une instance de **Key Vault** qui a été créée lors du déploiement initial. Les variables correspondantes dans keyvault doivent être modifiées en fonction des besoins.
 
 ## <a name="run-the-microservices"></a>Exécuter les microservices
 
@@ -162,7 +162,7 @@ Les étapes suivantes vous montrent comment exécuter les microservices de super
     * WebService (services\iothub-manager)
     * WebService (services\storage-adapter)
 
-Par exemple, l’illustration suivante montre l’ajout de configuration pour un service :
+À titre d’exemple, l’image suivante illustre l’ajout d’une configuration pour un service :
 
 [![Add-Configuration](./media/deploy-locally-intellij/run-configurations.png)](./media/deploy-locally-intellij/run-configurations.png#lightbox)
 
@@ -173,7 +173,7 @@ Par exemple, l’illustration suivante montre l’ajout de configuration pour un
 1. Entrez le **nom** et **add sbt tasks (ajouter des tâches sbt)**
 1. Cliquez sur **Appliquer > OK** pour enregistrer vos choix.
 
-Par exemple, l’image suivante illustre l’ajout de toutes les tâches sbt à configuration unique :
+À titre d’exemple, l’image suivante illustre l’ajout de toutes les tâches sbt à une configuration unique :
 
 [![Add-All-Services](./media/deploy-locally-intellij/all-services.png)](./media/deploy-locally-intellij/all-services.png#lightbox)
 
@@ -207,7 +207,7 @@ npm install
 npm start
 ```
 
-Lorsque le démarrage est terminé, votre navigateur affiche la page **http :\//localhost:3000 / tableau de bord**. Les erreurs présentes sur cette page sont attendues. Pour afficher l’application sans erreur, procédez comme suit.
+Une fois le démarrage terminé, votre navigateur affiche la page **http:\//localhost:3000/dashboard**. Les erreurs présentes sur cette page sont attendues. Pour afficher l’application sans erreur, procédez comme suit.
 
 ### <a name="configure-and-run-nginx"></a>Configurer et exécuter NGINX
 
@@ -220,7 +220,7 @@ Pour plus d’informations sur l’exécution de **nginx**, consultez [nginx pou
 
 ### <a name="connect-to-the-dashboard"></a>Connexion au tableau de bord
 
-Pour accéder à du tableau de bord solution de surveillance à distance, accédez à http :\//localhost:9000 dans votre navigateur.
+Pour accéder au tableau de bord de la solution de supervision à distance, accédez à http:\//localhost:9000 dans votre navigateur.
 
 ## <a name="clean-up"></a>Nettoyer
 

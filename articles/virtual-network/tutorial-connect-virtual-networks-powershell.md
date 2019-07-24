@@ -18,10 +18,10 @@ ms.date: 03/13/2018
 ms.author: kumud
 ms.custom: ''
 ms.openlocfilehash: f5c90b7d79b31c321b00869c90b0261c0b4730d3
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66727750"
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-powershell"></a>Connecter des réseaux virtuels à l’aide de l’appairage de réseaux virtuels en utilisant PowerShell
@@ -59,7 +59,7 @@ $virtualNetwork1 = New-AzVirtualNetwork `
   -AddressPrefix 10.0.0.0/16
 ```
 
-Créer une configuration de sous-réseau [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). L’exemple suivant crée une configuration de sous-réseau avec un préfixe d’adresse 10.0.0.0/24 :
+Créez une configuration de sous-réseau à l’aide de la commande [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). L’exemple suivant crée une configuration de sous-réseau avec un préfixe d’adresse 10.0.0.0/24 :
 
 ```azurepowershell-interactive
 $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
@@ -68,7 +68,7 @@ $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
   -VirtualNetwork $virtualNetwork1
 ```
 
-Écrivez la configuration de sous-réseau dans le réseau virtuel avec [Set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork), ce qui crée le sous-réseau :
+Écrivez la configuration du sous-réseau dans le réseau virtuel à l’aide de la commande [Set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork), ce qui crée le sous-réseau :
 
 ```azurepowershell-interactive
 $virtualNetwork1 | Set-AzVirtualNetwork
@@ -96,7 +96,7 @@ $virtualNetwork2 | Set-AzVirtualNetwork
 
 ## <a name="peer-virtual-networks"></a>Appairer des réseaux virtuels
 
-Créer une homologation avec [Add-AzVirtualNetworkPeering](/powershell/module/az.network/add-azvirtualnetworkpeering). L’exemple suivant appaire *myVirtualNetwork1* avec *myVirtualNetwork2*.
+Créez un Peering [Add-AzVirtualNetworkPeering](/powershell/module/az.network/add-azvirtualnetworkpeering). L’exemple suivant appaire *myVirtualNetwork1* avec *myVirtualNetwork2*.
 
 ```azurepowershell-interactive
 Add-AzVirtualNetworkPeering `
@@ -114,7 +114,7 @@ Add-AzVirtualNetworkPeering `
   -RemoteVirtualNetworkId $virtualNetwork1.Id
 ```
 
-Dans la sortie obtenue après l’exécution de la commande ci-dessus, vous constatez que **PeeringState** (état de l’appairage) est *Connected*. Azure a également remplacé l’état de l’appairage *myVirtualNetwork1-myVirtualNetwork2* par *Connected*. Vérifiez que l’état d’homologation pour le *myVirtualNetwork1-myVirtualNetwork2* a été remplacé à *connecté* avec [Get-AzVirtualNetworkPeering](/powershell/module/az.network/get-azvirtualnetworkpeering).
+Dans la sortie obtenue après l’exécution de la commande ci-dessus, vous constatez que **PeeringState** (état de l’appairage) est *Connected*. Azure a également remplacé l’état de l’appairage *myVirtualNetwork1-myVirtualNetwork2* par *Connected*. Vérifiez que l’état du Peering *myVirtualNetwork1-myVirtualNetwork2* a été remplacé par *Connected* à l’aide de [Get-AzVirtualNetworkPeering](/powershell/module/az.network/get-azvirtualnetworkpeering).
 
 ```azurepowershell-interactive
 Get-AzVirtualNetworkPeering `
@@ -200,7 +200,7 @@ Vous recevez quatre réponses. Déconnectez vos sessions RDP sur *myVm1* et *myV
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Lorsque vous n’en avez plus besoin, utilisez [Remove-AzResourcegroup](/powershell/module/az.resources/remove-azresourcegroup) pour supprimer le groupe de ressources et toutes les ressources qu’il contient.
+Lorsque vous n’avez plus besoin d’un groupe de ressources, utilisez [Remove-AzResourcegroup](/powershell/module/az.resources/remove-azresourcegroup) pour le supprimer, ainsi que toutes les ressources qu’il contient.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroup -Force

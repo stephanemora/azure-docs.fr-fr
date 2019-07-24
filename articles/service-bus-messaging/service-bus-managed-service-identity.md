@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/01/2018
 ms.author: aschhab
 ms.openlocfilehash: 8477ff8c8ff0bc1629ff4cdc61f7c28c6eed778c
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65978796"
 ---
 # <a name="managed-identities-for-azure-resources-with-service-bus"></a>Identités managées pour les ressources Azure avec Service Bus 
@@ -29,23 +29,23 @@ Avec les identités managées, la plateforme Azure gère cette identité d’ex�
 
 ## <a name="service-bus-roles-and-permissions"></a>Rôles et autorisations Service Bus
 
-Vous pouvez ajouter une identité gérée pour le rôle « Propriétaire de données Service Bus » d’un espace de noms Service Bus. Elle accorde à l’identité, un contrôle total sur toutes les entités dans l’espace de noms (pour la gestion et opérations de données).
+Vous pouvez ajouter une identité managée au rôle « Propriétaire des données Service Bus » d’un espace de noms Service Bus. Cette identité bénéficie alors d’un contrôle complet sur l’ensemble des entités de cet espace de noms, à des fins de gestion ou d’exécution d’opérations sur les données.
 
 >[!IMPORTANT]
-> Nous avons pris en charge précédemment l’Ajout d’une identité gérée pour le **« Propriétaire »** ou **« Collaborateur »** rôle.
+> Auparavant, nous avons encouragé l’ajout d’une identité managée aux rôles **« Propriétaire »** et **« Contributeur »** .
 >
-> Toutefois, des privilèges d’accès aux données **« Propriétaire »** et **« Collaborateur »** rôle n’est plus sera honorée. Si vous utilisiez le **« Propriétaire »** ou **« Collaborateur »** rôle, puis ceux devra être adaptés pour utiliser le **« Service Bus de données propriétaire »** rôle.
+> Toutefois, des privilèges d’accès aux données pour les rôles **« Propriétaire »** et **« Contributeur »** ne seront plus respectés. Si vous utilisiez le rôle **« Propriétaire »** ou **« Contributeur »** , ces derniers devront être adaptés de manière à utiliser le rôle **« Propriétaire des données Service Bus »** .
 
-Pour utiliser le nouveau rôle intégré, veuillez remplir le ci-dessous comme suit :
+Pour utiliser le nouveau rôle intégré, procédez comme suit :
 
-1. Passez à la [portail Azure](https://portal.azure.com)
-2. Accédez à l’espace de noms Service Bus dans lequel vous avez actuellement le programme d’installation du rôle « Propriétaire » ou « Contributeur ».
-3. Cliquez sur « (IAM) accès » dans le menu du volet gauche.
-4. Ajouter une nouvelle attribution de rôle comme indiqué ci-dessous
+1. [Accédez au portail Microsoft Azure](https://portal.azure.com).
+2. Accédez à l’espace de noms Service Bus dans lequel vous avez actuellement configuré le rôle « Propriétaire » ou « Contributeur ».
+3. Dans le menu du volet de gauche, sélectionnez « Contrôle d’accès (IAM) ».
+4. Passez à l’ajout d’une nouvelle attribution de rôle, comme ci-dessous
 
     ![](./media/service-bus-role-based-access-control/ServiceBus_RBAC_SBDataOwner.png)
 
-5. Appuyez sur « Enregistrer » pour enregistrer la nouvelle attribution de rôle.
+5. Appuyez sur « Enregistrer » pour enregistrer la nouvelle attribution de rôle.
 
 ## <a name="use-service-bus-with-managed-identities-for-azure-resources"></a>Utiliser Service Bus avec des identités managées pour les ressources Azure
 
@@ -67,7 +67,7 @@ Une fois la fonctionnalité activée, une identité de service est créée dans 
 
 ### <a name="create-a-new-service-bus-messaging-namespace"></a>Créer un espace de noms Service Bus Messaging
 
-Ensuite, [créer un espace de noms Service Bus Messaging](service-bus-create-namespace-portal.md). 
+Ensuite, [créez un espace de noms Service Bus Messaging](service-bus-create-namespace-portal.md). 
 
 Accédez à la page **Contrôle d’accès (IAM)** de l’espace de noms sur le portail, puis cliquez sur **Ajouter une attribution de rôle** pour ajouter l’identité managée au rôle **Propriétaire**. Pour ce faire, recherchez le nom de l’application web dans le champ **Sélectionner** du panneau **Ajouter des autorisations**, puis cliquez sur l’entrée. Cliquez ensuite sur **Enregistrer**.
 

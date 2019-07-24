@@ -3,16 +3,15 @@ title: Dérive de schéma de la fonctionnalité de mappage de flux de données d
 description: Construire des flux de données résilients dans Azure Data Factory avec dérive de schéma
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: aadab68185347dc0a12e0802f675efe13ecea545
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6fd610afc0a21a97a8544b9e4b173f207f5fb50f
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61262110"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722884"
 ---
 # <a name="mapping-data-flow-schema-drift"></a>Dérive de schéma de mappage de flux de données
 
@@ -34,7 +33,7 @@ Afin de vous protéger contre la dérive de schéma, il est important de dispose
 
 * Lorsque vous avez sélectionné cette option, tous les champs entrants sont lus dans votre source à chaque exécution du flux de données et transmis au récepteur dans tout le flux.
 
-* Assurez-vous d’utiliser « Auto-Map » (« Mappage automatique ») pour mapper tous les nouveaux champs dans la transformation du récepteur afin que tous les nouveaux champs soient sélectionnés et dirigés dans votre destination :
+* Assurez-vous d’utiliser « Auto-Map » (« Mappage automatique ») pour mapper tous les nouveaux champs dans la transformation du récepteur afin que tous les nouveaux champs soient sélectionnés et dirigés dans votre destination.
 
 <img src="media/data-flow/automap.png" width="400">
 

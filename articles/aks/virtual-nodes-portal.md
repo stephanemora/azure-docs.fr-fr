@@ -2,17 +2,17 @@
 title: Créer des nœuds virtuels à l’aide du portail dans Azure Kubernetes Service (AKS)
 description: Découvrez comment utiliser le Portail Azure pour créer un cluster Azure Kubernetes Service (AKS) qui s’appuie sur des nœuds virtuels pour exécuter des pods.
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.topic: conceptual
 ms.service: container-service
 ms.date: 05/06/2019
-ms.author: iainfou
-ms.openlocfilehash: a82d9e6e1d5ffa9b97bb0c1a4272375d4a71863c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: 8752d888e24e7135d488be6d1b377070a30fe4eb
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66742811"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67613840"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Créer et configurer un cluster Azure Kubernetes Service (AKS) pour utiliser des nœuds virtuels sur le Portail Azure
 
@@ -130,7 +130,7 @@ aks-agentpool-14693408-0       Ready     agent     32m       v1.11.2
 
 ## <a name="deploy-a-sample-app"></a>Déployer un exemple d’application
 
-Dans Azure Cloud Shell, créez un fichier nommé `virtual-node.yaml` et copiez-y le code YAML suivant. Pour planifier le conteneur au niveau du nœud, [nodeSelector][node-selector] et [toleration][toleration] sont utilisés. Ces paramètres permettent de planifier le pod sur le nœud virtuel et de vérifier que la fonctionnalité est activée.
+Dans Azure Cloud Shell, créez un fichier nommé `virtual-node.yaml` et copiez-y le code YAML suivant. Pour planifier le conteneur au niveau du nœud, [nodeSelector][node-selector] and [toleration][toleration] sont définis. Ces paramètres permettent de planifier le pod sur le nœud virtuel et de vérifier que la fonctionnalité est activée.
 
 ```yaml
 apiVersion: apps/v1
@@ -221,12 +221,12 @@ Fermez la session de terminal sur votre pod de test avec `exit`. Une fois la ses
 
 Dans cet article, un pod a été planifié sur le nœud virtuel et a reçu une adresse IP interne privée. Vous auriez tout aussi bien pu créer un déploiement de service et router le trafic vers votre pod au moyen d’un équilibreur de charge ou d’un contrôleur d’entrée. Pour plus d’informations, consultez [Créer un contrôleur d’entrée de base dans AKS][aks-basic-ingress].
 
-Les nœuds virtuels constituent l’un des composants d’une solution de mise à l’échelle dans AKS. Pour plus d’informations sur ces solutions, voir les articles suivants :
+Les nœuds virtuels constituent l’un des composants d’une solution de mise à l’échelle dans AKS. Pour plus d’informations sur ces solutions, consultez les articles suivants :
 
 - [Utiliser l’autoscaler de pods élastique Kubernetes][aks-hpa]
 - [Utiliser l’autoscaler de cluster Kubernetes][aks-cluster-autoscaler]
 - [Consultez l’exemple de mise à l’échelle automatique pour les nœuds virtuels][virtual-node-autoscale]
-- [En savoir plus sur la bibliothèque open source de Virtual Kubelet][virtual-kubelet-repo]
+- [Découvrez-en plus sur la bibliothèque open source de Virtual Kubelet][virtual-kubelet-repo]
 
 <!-- LINKS - external -->
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/

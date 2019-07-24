@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/18/2019
 ms.author: haroldw
-ms.openlocfilehash: 664099322bef3ac85d980fbe5e43dcc49cba862b
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
-ms.translationtype: MT
+ms.openlocfilehash: 296bc42313ef80425004d3c9b43c6792cbaf97f4
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "65411563"
 ---
 # <a name="deploy-openshift-container-platform-in-azure"></a>Déployer OpenShift Container Platform dans Azure
@@ -38,15 +38,15 @@ Vérifiez que vous avez un nom d’utilisateur, un mot de passe et un ID de pool
 
 ### <a name="private-clusters"></a>Clusters privés
 
-Déploiement de clusters de OpenShift privés nécessite plus de simplement ne pas avoir une adresse IP publique, associée à l’équilibreur de charge master (console web) ou à l’infrastructure équilibreur (routeur) de charge.  En règle générale, un cluster privé utilise un serveur DNS personnalisé (et pas de la valeur par défaut Azure DNS), un nom de domaine personnalisé (par exemple, contoso.com) et prédéfinis ou des réseaux virtuels.  Pour les clusters privés, vous devez configurer votre réseau virtuel avec tous les sous-réseaux appropriés et les paramètres du serveur DNS à l’avance.  Utilisez ensuite **existingMasterSubnetReference**, **existingInfraSubnetReference**, **existingCnsSubnetReference**, et  **existingNodeSubnetReference** pour spécifier le sous-réseau existant pour une utilisation par le cluster.
+Le déploiement de clusters OpenShift privés nécessite plus que le simple fait de ne pas avoir d’adresse IP publique associée à l’équilibreur de charge principal (console web) ou à l’équilibreur de charge secondaire (routeur).  En règle générale, un cluster privé utilise un serveur DNS personnalisé (et pas le serveur Azure DNS par défaut), un nom de domaine personnalisé (par exemple, contoso.com) et un ou plusieurs réseaux virtuels prédéfinis.  Pour les clusters privés, vous devez configurer votre réseau virtuel avec tous les sous-réseaux appropriés et les paramètres du serveur DNS à l’avance.  Utilisez ensuite **existingMasterSubnetReference**, **existingInfraSubnetReference**, **existingCnsSubnetReference** et  **existingNodeSubnetReference** pour spécifier le sous-réseau existant dans l’optique d’une utilisation par le cluster.
 
-Si master privé est sélectionné (**masterClusterType**= privé), une adresse IP privée statique doit être spécifié pour **masterPrivateClusterIp**.  Cette adresse IP sera attribuée au composant frontal de l’équilibreur de charge principal.  L’adresse IP doit être dans la CIDR pour le sous-réseau principal et pas en cours d’utilisation.  **masterClusterDnsType** doit être définie sur « custom » et le maître de nom DNS doit être fourni pour **masterClusterDns**.  Le nom DNS doit correspondre à l’IP privée statique et servira à accéder à la console sur les nœuds principaux.
+Si un cluster principal privé est sélectionné (**masterClusterType**=private), une adresse IP privée statique doit être spécifiée pour **masterPrivateClusterIp**.  Cette adresse IP est attribuée au composant frontal de l’équilibreur de charge principal.  L’adresse IP doit se trouver dans la plage CIDR du sous-réseau principal et ne doit pas être utilisée.  **masterClusterDnsType** doit être défini sur « custom » et le nom DNS principal doit être fourni pour **masterClusterDns**.  Le nom DNS doit correspondre à l’adresse IP privée statique et permet d’accéder à la console sur les nœuds principaux.
 
-Si le routeur privé est sélectionné (**routerClusterType**= privé), une adresse IP privée statique doit être spécifié pour **routerPrivateClusterIp**.  Cette adresse IP est affectée à la partie frontale de l’équilibreur de charge infrarouge.  L’adresse IP doit se trouver dans la CIDR pour l’infrastructure sous-réseau et non utilisé.  **routingSubDomainType** doit avoir la valeur « custom » et le nom DNS générique de routage doit être assurée par le **routingSubDomain**.  
+Si un routeur privé est sélectionné (**routerClusterType**=private), une adresse IP privée statique doit être spécifiée pour **routerPrivateClusterIp**.  Cette adresse IP est attribuée au composant frontal de l’équilibreur de charge secondaire.  L’adresse IP doit se trouver dans la plage CIDR du sous-réseau secondaire et ne doit pas être utilisée.  **routingSubDomainType** doit avoir la valeur « custom » et le nom DNS générique de routage doit être fourni pour **routingSubDomain**.  
 
-Si maîtres privés et routeur privé sont sélectionnés, le nom de domaine personnalisé doit également être entré pour **domainName**
+Si des clusters principaux privés et un routeur privé sont sélectionnés, le nom de domaine personnalisé doit également être entré pour **domainName**
 
-Après un déploiement réussi, le nœud Bastion est le seul nœud avec une adresse IP publique que vous pouvez ssh dans.  Même si les nœuds principaux sont configurés pour l’accès public, ils ne sont pas exposés pour ssh accès.
+Après un déploiement réussi, le nœud Bastion est le seul nœud avec une adresse IP publique, auquel vous pouvez appliquer un protocole SSH.  Même si les nœuds principaux sont configurés pour l’accès public, ils ne sont pas exposés à un accès SSH.
 
 Pour effectuer le déploiement à l’aide du modèle Resource Manager, vous utilisez un fichier de paramètres qui fournit les paramètres d’entrée. Pour personnaliser davantage le déploiement, dupliquez (fork) le dépôt GitHub et changez les éléments appropriés.
 
@@ -66,7 +66,7 @@ L’exemple suivant montre un fichier de paramètres nommé azuredeploy.paramete
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "_artifactsLocation": {
@@ -247,66 +247,66 @@ Remplacez les paramètres par vos informations spécifiques.
 
 Les paramètres peuvent différer selon les versions. Vérifiez quels sont les paramètres nécessaires pour la branche que vous utilisez.
 
-### <a name="azuredeployparametersjson-file-explained"></a>azuredeploy. Expliqué du fichier Parameters.JSON
+### <a name="azuredeployparametersjson-file-explained"></a>Explication du fichier azuredeploy.Parameters.json
 
-| Propriété | Description  | Options valides | Valeur par défaut |
+| Propriété | Description | Options valides | Valeur par défaut |
 |----------|-------------|---------------|---------------|
-| `_artifactsLocation`  | URL pour les artefacts (json, scripts, etc.). |  |  https :\//raw.githubusercontent.com/Microsoft/openshift-container-platform/master  |
-| `location` | Région Azure pour déployer des ressources pour |  |  |
-| `masterVmSize` | Taille de la machine virtuelle principale. Sélectionnez une des tailles de machine virtuelle autorisées répertoriés dans le fichier azuredeploy.json |  | Standard_E2s_v3 |
-| `infraVmSize` | Taille de l’infrastructure machine virtuelle. Sélectionnez une des tailles de machine virtuelle autorisées répertoriés dans le fichier azuredeploy.json |  | Standard_D4s_v3 |
-| `nodeVmSize` | Taille de machine virtuelle du nœud d’application. Sélectionnez une des tailles de machine virtuelle autorisées répertoriés dans le fichier azuredeploy.json |  | Standard_D4s_v3 |
-| `cnsVmSize` | Taille de la machine virtuelle du nœud de stockage natif (CNS) de conteneur. Sélectionnez une des tailles de machine virtuelle autorisées répertoriés dans le fichier azuredeploy.json |  | Standard_E4s_v3 |
-| `osImageType` | L’image RHEL à utiliser. defaultgallery : À la demande ; place de marché : image tiers | defaultgallery <br> marketplace | defaultgallery |
-| `marketplaceOsImage` | Si `osImageType` est la place de marché, puis entrez les valeurs appropriées pour les « publisher » « offre », « sku », « version » de l’offre de la place de marché. Ce paramètre est un type d’objet |  |  |
-| `storageKind` | Le type de stockage à utiliser  | géré<br> non managé | géré |
-| `openshiftClusterPrefix` | Préfixe utilisé pour configurer les noms d’hôtes pour tous les nœuds du cluster.  Entre 1 et 20 caractères |  | MyCluster |
-| `minoVersion` | La version mineure de OpenShift Container Platform 3.11 à déployer |  | 69 |
-| `masterInstanceCount` | Nombre de nœuds maîtres à déployer | 1, 3, 5 | 3 |
-| `infraInstanceCount` | Nombre d’infrastructure nœuds à déployer | 1, 2, 3 | 3 |
+| `_artifactsLocation`  | URL pour les artefacts (json, scripts, etc.) |  |  https:\//raw.githubusercontent.com/Microsoft/openshift-container-platform/master  |
+| `location` | Région Azure dans laquelle déployer les ressources |  |  |
+| `masterVmSize` | Taille de la machine virtuelle principale. Sélectionnez l’une des tailles de machine virtuelle autorisées, qui sont répertoriées dans le fichier azuredeploy.json |  | Standard_E2s_v3 |
+| `infraVmSize` | Taille de la machine virtuelle secondaire. Sélectionnez l’une des tailles de machine virtuelle autorisées, qui sont répertoriées dans le fichier azuredeploy.json |  | Standard_D4s_v3 |
+| `nodeVmSize` | Taille de la machine virtuelle du nœud d’application. Sélectionnez l’une des tailles de machine virtuelle autorisées, qui sont répertoriées dans le fichier azuredeploy.json |  | Standard_D4s_v3 |
+| `cnsVmSize` | Taille de la machine virtuelle du nœud CNS (stockage natif de conteneurs). Sélectionnez l’une des tailles de machine virtuelle autorisées, qui sont répertoriées dans le fichier azuredeploy.json |  | Standard_E4s_v3 |
+| `osImageType` | Image RHEL à utiliser. defaultgallery: On-Demand; marketplace: third-party image | defaultgallery <br> place de marché | defaultgallery |
+| `marketplaceOsImage` | Si `osImageType` est marketplace, entrez les valeurs appropriées pour « publisher » « offer », « sku » et « version » de l’offre marketplace. Ce paramètre est un type d’objet |  |  |
+| `storageKind` | Type de stockage à utiliser  | géré<br> non managé | géré |
+| `openshiftClusterPrefix` | Préfixe de cluster utilisé pour configurer les noms d’hôtes de tous les nœuds.  Il doit contenir entre 1 et 20 caractères |  | mycluster |
+| `minoVersion` | Version mineure d’OpenShift Container Platform 3.11 à déployer |  | 69 |
+| `masterInstanceCount` | Nombre de nœuds principaux à déployer | 1, 3, 5 | 3 |
+| `infraInstanceCount` | Nombre de nœuds secondaires à déployer | 1, 2, 3 | 3 |
 | `nodeInstanceCount` | Nombre de nœuds à déployer | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30 | 2 |
-| `cnsInstanceCount` | Nombre de nœuds de noms communs à déployer | 3, 4 | 3 |
+| `cnsInstanceCount` | Nombre de nœuds CNS à déployer | 3, 4 | 3 |
 | `osDiskSize` | Taille du disque du système d’exploitation pour la machine virtuelle (en Go) | 64, 128, 256, 512, 1024, 2048 | 64 |
-| `dataDiskSize` | Taille du disque de données à attacher aux nœuds de volume Docker (en Go) | 32, 64, 128, 256, 512, 1024, 2048 | 64 |
-| `cnsGlusterDiskSize` | Taille du disque de données à attacher à des nœuds de noms communs pour une utilisation en glusterfs (en Go | 32, 64, 128, 256, 512, 1024, 2048 | 128 |
-| `adminUsername` | Nom d’utilisateur administrateur pour la connexion de système d’exploitation (VM) et OpenShift initial d’utilisateurs |  | ocpadmin |
-| `enableMetrics` | Activer les métriques. Mesures nécessitent que davantage de ressources sélectionnez donc une taille appropriée pour l’infrastructure de machine virtuelle | true <br> false | false |
-| `enableLogging` | Activer la journalisation. elasticsearch pod nécessite de 8 Go de RAM sélectionnez donc une taille appropriée pour l’infrastructure de machine virtuelle | true <br> false | false |
-| `enableCNS` | Activer le stockage natif de conteneur | true <br> false | false |
-| `rhsmUsernameOrOrgId` | ID de nom d’utilisateur du Gestionnaire d’abonnements Hat ou organisation rouge |  |  |
-| `rhsmPoolId` | L’ID du Pool Red Hat abonnement Manager qui contient vos droits OpenShift pour les nœuds de calcul |  |  |
-| `rhsmBrokerPoolId` | Le Red Hat abonnement Manager ID du Pool qui contient des nœuds de vos droits OpenShift maîtres et infrastructure. Si vous n’avez pas autre pool d’ID, entrez le même ID du pool en tant que « rhsmPoolId » |  |
+| `dataDiskSize` | Taille du disque de données à joindre aux nœuds pour le volume Docker (en Go) | 32, 64, 128, 256, 512, 1024, 2048 | 64 |
+| `cnsGlusterDiskSize` | Taille du disque de données à joindre aux nœuds CNS pour glusterfs (en Go) | 32, 64, 128, 256, 512, 1024, 2048 | 128 |
+| `adminUsername` | Nom d’utilisateur administrateur pour la connexion au système d’exploitation (machine virtuelle) et l’utilisateur initial OpenShift |  | ocpadmin |
+| `enableMetrics` | Activez les métriques. Les métriques nécessitent davantage de ressources : vous devez donc sélectionner une taille appropriée pour la machine virtuelle secondaire | true <br> false | false |
+| `enableLogging` | Activez la journalisation. Le pod elasticsearch nécessite 8 Go de RAM : vous devez donc sélectionner une taille appropriée pour la machine virtuelle secondaire | true <br> false | false |
+| `enableCNS` | Activer le CNS | true <br> false | false |
+| `rhsmUsernameOrOrgId` | ID d’organisation ou nom d’utilisateur du gestionnaire d’abonnements Red Hat |  |  |
+| `rhsmPoolId` | ID du pool du gestionnaire d’abonnements Red Hat qui contient vos droits OpenShift pour les nœuds de calcul |  |  |
+| `rhsmBrokerPoolId` | ID du pool du gestionnaire d’abonnements Red Hat qui contient vos droits OpenShift pour les nœuds principaux et secondaires. Si vous ne disposez pas de plusieurs ID de pool, entrez le même ID de pool « rhsmPoolId » |  |
 | `sshPublicKey` | Copiez votre clé publique SSH ici |  |  |
-| `keyVaultSubscriptionId` | L’ID d’abonnement de l’abonnement qui contient le coffre de clés |  |  |
-| `keyVaultResourceGroup` | Le nom du groupe de ressources qui contient le coffre de clés |  |  |
-| `keyVaultName` | Le nom du coffre de clés que vous avez créé |  |  |
-| `enableAzure` | Activer le fournisseur de Cloud Azure | true <br> false | true |
-| `aadClientId` | ID Azure Active Directory Client également connu en tant qu’ID d’Application pour le Principal de Service |  |  |
-| `domainName` | Nom du nom de domaine personnalisé à utiliser (le cas échéant). La valeur « none » si n’est pas le déploiement de cluster entièrement privé |  | Aucun |
-| `masterClusterDnsType` | Type de domaine pour la console web de OpenShift. 'default' utilisera étiquette DNS du maître d’infrastructure IP publique. « personnalisé » vous permet de définir votre propre nom | par défaut <br> personnalisé | par défaut |
-| `masterClusterDns` | Le nom DNS personnalisé à utiliser pour accéder à la console web de OpenShift si vous avez sélectionné 'personnalisé' pour `masterClusterDnsType` |  | console.contoso.com |
-| `routingSubDomainType` | Si la valeur est « nipio », `routingSubDomain` utilisera nip.io.  Utilisez 'custom' Si vous avez votre propre domaine que vous souhaitez utiliser pour le routage | nipio <br> personnalisé | nipio |
-| `routingSubDomain` | Le nom DNS générique à utiliser pour le routage si vous avez sélectionné 'personnalisé' pour `routingSubDomainType` |  | apps.contoso.com |
-| `virtualNetworkNewOrExisting` | Indiquez si vous souhaitez utiliser un réseau virtuel existant ou créez un réseau virtuel | Existant <br> nouveau | nouveau |
-| `virtualNetworkResourceGroupName` | Nom du groupe de ressources pour le nouveau réseau virtuel si vous avez sélectionné 'new' pour `virtualNetworkNewOrExisting` |  | resourceGroup().name |
-| `virtualNetworkName` | Le nom du nouveau réseau virtuel à créer si vous avez sélectionné 'new' pour `virtualNetworkNewOrExisting` |  | openshiftvnet |
+| `keyVaultSubscriptionId` | ID de l’abonnement contenant le Key Vault |  |  |
+| `keyVaultResourceGroup` | Nom du groupe de ressources qui contient le Key Vault |  |  |
+| `keyVaultName` | Nom du Key Vault que vous avez créé |  |  |
+| `enableAzure` | Activer le fournisseur de cloud Azure | true <br> false | true |
+| `aadClientId` | ID de client Azure Active Directory également connu en tant qu’ID d’application pour le principal de service |  |  |
+| `domainName` | Nom de domaine personnalisé à utiliser (le cas échéant). Défini sur « none » en l’absence de déploiement complet du cluster privé |  | Aucun |
+| `masterClusterDnsType` | Type de domaine pour la console web OpenShift. « default » utilise l’étiquette DNS des adresses IP publiques principales et secondaires. « custom » permet de définir votre propre nom | default <br> custom | default |
+| `masterClusterDns` | Nom DNS personnalisé à utiliser pour accéder à la console web OpenShift si vous avez sélectionné « custom » pour `masterClusterDnsType` |  | console.contoso.com |
+| `routingSubDomainType` | Si la valeur est « nipio », `routingSubDomain` utilise nip.io.  Utilisez « custom » si vous souhaitez vous servir de votre propre domaine pour le routage | nipio <br> custom | nipio |
+| `routingSubDomain` | Nom DNS générique à utiliser pour le routage si vous avez sélectionné « custom » pour `routingSubDomainType` |  | apps.contoso.com |
+| `virtualNetworkNewOrExisting` | Vous pouvez choisir entre créer ou sélectionner un réseau virtuel | existing <br> new | new |
+| `virtualNetworkResourceGroupName` | Nom du groupe de ressources pour le nouveau réseau virtuel si vous avez sélectionné « new » pour `virtualNetworkNewOrExisting` |  | resourceGroup().name |
+| `virtualNetworkName` | Nom du réseau virtuel à créer si vous avez sélectionné « new » pour `virtualNetworkNewOrExisting` |  | openshiftvnet |
 | `addressPrefixes` | Préfixe d’adresse du nouveau réseau virtuel |  | 10.0.0.0/14 |
-| `masterSubnetName` | Le nom du sous-réseau principal |  | mastersubnet |
-| `masterSubnetPrefix` | CIDR utilisé pour le sous-réseau principal - doit être un sous-ensemble du préfixe d’adresse |  | 10.1.0.0/16 |
-| `infraSubnetName` | Le nom de l’infrastructure sous-réseau |  | infrasubnet |
-| `infraSubnetPrefix` | CIDR utilisé pour l’infrastructure sous-réseau - doit être un sous-ensemble du préfixe d’adresse |  | 10.2.0.0/16 |
-| `nodeSubnetName` | Le nom du sous-réseau de nœud |  | nodesubnet |
-| `nodeSubnetPrefix` | CIDR utilisé pour le sous-réseau de nœud - doit être un sous-ensemble du préfixe d’adresse |  | 10.3.0.0/16 |
-| `existingMasterSubnetReference` | Référence complète à un sous-réseau existant pour les nœuds principaux. Ne pas nécessaire si la création du nouveau réseau virtuel / sous-réseau |  |  |
-| `existingInfraSubnetReference` | Référence complète à un sous-réseau existant pour infra nœuds. Ne pas nécessaire si la création du nouveau réseau virtuel / sous-réseau |  |  |
-| `existingCnsSubnetReference` | Référence complète à un sous-réseau existant pour les nœuds de noms communs. Ne pas nécessaire si la création du nouveau réseau virtuel / sous-réseau |  |  |
-| `existingNodeSubnetReference` | Référence complète à un sous-réseau existant pour les nœuds de calcul. Ne pas nécessaire si la création du nouveau réseau virtuel / sous-réseau |  |  |
-| `masterClusterType` | Spécifiez si le cluster utilise des nœuds principaux privés ou publics. Si vous choisissez privé, les nœuds principaux ne soient pas exposés à Internet via une adresse IP publique. Au lieu de cela, il utilisera l’adresse IP privée, spécifié dans le `masterPrivateClusterIp` | public <br> privé | public |
-| `masterPrivateClusterIp` | Si les nœuds principaux privés sont sélectionnées, une adresse IP privée doit être spécifiée pour une utilisation par l’équilibreur de charge interne pour les nœuds principaux. Cette adresse IP statique doit être dans le bloc CIDR pour le sous-réseau principal et n’est déjà en cours d’utilisation. Si les nœuds master publics sont sélectionnés, cette valeur ne sera pas utilisée mais doit toujours être spécifiée |  | 10.1.0.200 |
-| `routerClusterType` | Spécifiez si le cluster utilise public ou privé infra nœuds. Si vous choisissez privé, l’infrastructure nœuds ne soient pas exposés à Internet via une adresse IP publique. Au lieu de cela, il utilisera l’adresse IP privée, spécifié dans le `routerPrivateClusterIp` | public <br> privé | public |
-| `routerPrivateClusterIp` | S’ils sont privés infra nœuds sont sélectionnés, puis une adresse IP privée est obligatoire pour utiliser par l’équilibreur de charge interne pour infra nœuds. Cette adresse IP statique doit être dans le bloc CIDR pour le sous-réseau principal et n’est déjà en cours d’utilisation. S’ils sont publics infra nœuds sont sélectionnés, cette valeur ne sera pas utilisée mais doit toujours être spécifiée |  | 10.2.0.200 |
-| `routingCertType` | Utiliser un certificat personnalisé pour le domaine de routage ou le certificat auto-signé par défaut : suivez les instructions dans **certificats personnalisés** section | selfsigned <br> personnalisé | selfsigned |
-| `masterCertType` | Utiliser un certificat personnalisé pour le domaine principal ou le certificat auto-signé par défaut : suivez les instructions dans **certificats personnalisés** section | selfsigned <br> personnalisé | selfsigned |
+| `masterSubnetName` | Nom du sous-réseau principal |  | mastersubnet |
+| `masterSubnetPrefix` | Plage CIDR utilisée pour le sous-réseau principal : il doit s’agir d’un sous-ensemble d’addressPrefix |  | 10.1.0.0/16 |
+| `infraSubnetName` | Nom du sous-réseau secondaire |  | infrasubnet |
+| `infraSubnetPrefix` | Plage CIDR utilisée pour le sous-réseau secondaire : il doit s’agir d’un sous-ensemble d’addressPrefix |  | 10.2.0.0/16 |
+| `nodeSubnetName` | Nom du sous-réseau du nœud |  | nodesubnet |
+| `nodeSubnetPrefix` | Plage CIDR utilisée pour le sous-réseau du nœud : il doit s’agir d’un sous-ensemble d’addressPrefix |  | 10.3.0.0/16 |
+| `existingMasterSubnetReference` | Référence complète au sous-réseau existant pour les nœuds principaux. Inutile si vous créez un réseau virtuel/sous-réseau |  |  |
+| `existingInfraSubnetReference` | Référence complète au sous-réseau existant pour les nœuds secondaires. Inutile si vous créez un réseau virtuel/sous-réseau |  |  |
+| `existingCnsSubnetReference` | Référence complète au sous-réseau existant pour les nœuds CNS. Inutile si vous créez un réseau virtuel/sous-réseau |  |  |
+| `existingNodeSubnetReference` | Référence complète au sous-réseau existant pour les nœuds de calcul. Inutile si vous créez un réseau virtuel/sous-réseau |  |  |
+| `masterClusterType` | Indiquez si le cluster utilise des nœuds principaux privés ou publics. Si vous choisissez les nœuds privés, les nœuds principaux ne sont pas exposés sur Internet au travers d’une adresse IP publique. Au lieu de cela, une adresse IP privée, spécifiée dans `masterPrivateClusterIp`, est utilisée | public <br> private | public |
+| `masterPrivateClusterIp` | Si des nœuds principaux privés sont sélectionnés, une adresse IP privée doit être spécifiée pour l’équilibreur de charge interne dans le cas des nœuds principaux. L’adresse IP statique doit se trouver dans le bloc CIDR pour le sous-réseau principal et ne doit pas être déjà utilisée. Si des nœuds principaux publics sont sélectionnés, cette valeur ne sera pas utilisée mais elle doit toujours être spécifiée |  | 10.1.0.200 |
+| `routerClusterType` | Indiquez si le cluster utilise des nœuds secondaires privés ou publics. Si vous choisissez des nœuds privés, les nœuds secondaires ne sont pas exposés sur Internet au travers d’une adresse IP publique. Au lieu de cela, une adresse IP privée, spécifiée dans `routerPrivateClusterIp`, est utilisée | public <br> private | public |
+| `routerPrivateClusterIp` | Si des nœuds secondaires privés sont sélectionnés, une adresse IP privée doit être spécifiée pour l’équilibreur de charge interne dans le cas des nœuds secondaires. L’adresse IP statique doit se trouver dans le bloc CIDR pour le sous-réseau principal et ne doit pas être déjà utilisée. Si des nœuds secondaires publics sont sélectionnés, cette valeur ne sera pas utilisée mais elle doit toujours être spécifiée |  | 10.2.0.200 |
+| `routingCertType` | Utilisez un certificat personnalisé pour le domaine de routage ou le certificat autosigné par défaut : suivez les instructions dans la section **Certificats personnalisés** | selfsigned <br> custom | selfsigned |
+| `masterCertType` | Utilisez un certificat personnalisé pour le domaine principal ou le certificat autosigné par défaut : suivez les instructions dans la section **Certificats personnalisés** | selfsigned <br> custom | selfsigned |
 
 <br>
 
@@ -323,7 +323,7 @@ az group deployment create -g openshiftrg --name myOpenShiftCluster \
       --parameters @./azuredeploy.parameters.json
 ```
 
-Le déploiement prend au moins 60 minutes, selon le nombre total de nœuds déployés et les options configurées. Le nom de domaine complet du DNS Bastion et l’URL de la console OpenShift s’affichent dans le terminal à la fin du déploiement.
+La durée du déploiement varie en fonction du nombre total de nœuds déployés et des options configurées, avec un minimum de 60 minutes. Le nom de domaine complet du DNS Bastion et l’URL de la console OpenShift s’affichent dans le terminal à la fin du déploiement.
 
 ```json
 {
@@ -336,7 +336,7 @@ Si vous ne souhaitez pas lier la ligne de commande d’attente de la fin du dép
 
 ## <a name="connect-to-the-openshift-cluster"></a>Se connecter au cluster OpenShift
 
-Une fois le déploiement terminé, récupérez la connexion à partir de la section de sortie du déploiement. Se connecter à la console OpenShift dans votre navigateur à l’aide de la **URL de la Console OpenShift**. Vous pouvez également exécuter SSH à l’hôte Bastion. Dans l’exemple suivant, le nom d’utilisateur administrateur est clusteradmin et le nom de domaine complet du DNS d’adresses IP publiques Bastion est bastiondns4hawllzaavu6g.eastus.cloudapp.azure.com :
+Une fois le déploiement terminé, récupérez la connexion à partir de la section de sortie du déploiement. Connectez-vous à la console OpenShift dans un navigateur à l’aide de l’**URL de la console OpenShift**. Vous pouvez également établir une connexion SSH à l’hôte Bastion. Dans l’exemple suivant, le nom d’utilisateur administrateur est clusteradmin et le nom de domaine complet du DNS d’adresses IP publiques Bastion est bastiondns4hawllzaavu6g.eastus.cloudapp.azure.com :
 
 ```bash
 $ ssh clusteradmin@bastiondns4hawllzaavu6g.eastus.cloudapp.azure.com

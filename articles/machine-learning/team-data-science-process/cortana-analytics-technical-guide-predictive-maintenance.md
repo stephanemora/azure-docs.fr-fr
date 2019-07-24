@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: e2f0f1e7ac8f510c4ff5be7933c55278fef74694
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 37acd88dbfe8ed1790f1bfa68d5e9762a861ddc7
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60715524"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626402"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace"></a>Guide technique du modèle de solution Cortana Intelligence pour la maintenance prédictive dans l’industrie aérospatiale
 
@@ -88,7 +88,7 @@ Azure Event Hub est générique ; les données peuvent être publiées sur le hu
 
 Ce document ne décrit pas le mode de réception de vos données, mais vous pouvez facilement envoyer des événements ou des données vers un service Azure Event Hub à l’aide des API Event Hub.
 
-### <a name="azure-stream-analytics"></a>Azure Stream Analytics
+### <a name="azure-stream-analytics-1"></a>Azure Stream Analytics
 Utilisez le service Azure Stream Analytics pour fournir des analyses en temps quasi-réel grâce à une lecture des flux de données et à l’envoi de données vers diverses sources.
 
 Dans le cas du modèle de solution de maintenance prédictive pour le secteur aérospatial, la requête Azure Stream Analytics se compose de quatre sous-requêtes, chaque requête utilisant les événements dérivés du service Azure Event Hub, avec des sorties à quatre emplacements distincts. Ces sorties comprennent trois jeux de données Power BI et un emplacement Azure Storage.
@@ -103,7 +103,7 @@ Pour accéder à la requête Azure Stream Analytics :
   * ***QUERY*** pour afficher la requête elle-même
   * ***OUTPUTS*** pour afficher les différentes sorties
 
-Pour plus d’informations sur la construction des requêtes Azure Stream Analytics, consultez la [référence de requête Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx) sur MSDN.
+Pour plus d’informations sur la construction des requêtes Azure Stream Analytics, consultez la [référence de requête Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference) sur MSDN.
 
 Dans cette solution, les requêtes génèrent trois jeux de données avec des informations d’analyse en temps quasi-réel concernant le flux de données entrant dans un tableau de bord Power BI fourni dans le cadre de ce modèle de solution. Étant donné que le format des données entrantes est implicitement connu, ces requêtes doivent être modifiées en fonction de votre format de données.
 

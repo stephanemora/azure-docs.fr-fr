@@ -15,15 +15,15 @@ ms.workload: NA
 ms.date: 2/25/2019
 ms.author: srrengar
 ms.openlocfilehash: cde0464985f756132c60453c4e79ffefd4a1dd2c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "65788593"
 ---
 # <a name="list-of-service-fabric-events"></a>Liste des événements Service Fabric 
 
-Service Fabric expose un ensemble primaire d’événements de cluster pour vous informer de l’état de votre cluster en tant qu’[événements Service Fabric](service-fabric-diagnostics-events.md). Ils sont basés sur les actions effectuées par Service Fabric sur vos nœuds et votre cluster ou les décisions de gestion effectuées par un opérateur/propriétaire de cluster. Ces événements sont accessibles en configurant une de plusieurs façons y compris la configuration [Azure Monitor consigne avec votre cluster](service-fabric-diagnostics-oms-setup.md), ou l’interrogation de la [EventStore](service-fabric-diagnostics-eventstore.md). Sur les ordinateurs Windows, ces événements sont enregistrés dans l’EventLog afin de pouvoir voir les événements Service Fabric dans l’observateur d’événements. 
+Service Fabric expose un ensemble primaire d’événements de cluster pour vous informer de l’état de votre cluster en tant qu’[événements Service Fabric](service-fabric-diagnostics-events.md). Ils sont basés sur les actions effectuées par Service Fabric sur vos nœuds et votre cluster ou les décisions de gestion effectuées par un opérateur/propriétaire de cluster. Ces événements peuvent être accessibles de plusieurs façons, notamment en configurant les [journaux Azure Monitor avec votre cluster](service-fabric-diagnostics-oms-setup.md) ou en interrogeant l’[EventStore](service-fabric-diagnostics-eventstore.md). Sur les ordinateurs Windows, ces événements sont enregistrés dans l’EventLog afin de pouvoir voir les événements Service Fabric dans l’observateur d’événements. 
 
 Voici certaines caractéristiques de ces événements
 * Chaque événement est lié à une entité spécifique dans le cluster, par exemple une application, un service, un nœud ou un réplica.
@@ -106,37 +106,37 @@ Vous trouverez plus de détails sur les mises à niveau d’application [ici](se
 
 ## <a name="replica-events"></a>Événements de réplica
 
-**Événements de cycle de vie de réplica**
+**Événements de cycle de vie du réplica**
 
 | EventId | Nom | Catégorie | Description |Source (tâche) | Niveau |
 | --- | --- | ---| --- | --- | --- |
-| 61701 | ReliableDictionaryOpened | LifeCycle | Dictionnaire fiable a ouvert | DistributedDictionary | Informations |
-| 61702 | ReliableDictionaryClosed | LifeCycle | Dictionnaire fiable a fermé | DistributedDictionary | Informations |
-| 61703 | ReliableDictionaryCheckpointRecovered | LifeCycle | Dictionnaire fiable a récupéré son point de contrôle | DistributedDictionary | Informations |
-| 61704 | ReliableDictionaryCheckpointFilesSent | LifeCycle | Réplica a envoyé les fichiers de point de contrôle du dictionnaire fiable | DistributedDictionary | Informations |
-| 61705 | ReliableDictionaryCheckpointFilesReceived | LifeCycle | Réplica a reçu des fichiers de point de contrôle du dictionnaire fiable | DistributedDictionary | Informations |
-| 61963 | ReliableQueueOpened | LifeCycle | File d’attente fiable a ouvert | DistributedQueue | Informations |
-| 61964 | ReliableQueueClosed | LifeCycle | File d’attente fiable a fermé | DistributedQueue | Informations |
-| 61965 | ReliableQueueCheckpointRecovered | LifeCycle | File d’attente fiable a récupéré son point de contrôle | DistributedQueue | Informations |
-| 61966 | ReliableQueueCheckpointFilesSent | LifeCycle | Réplica a envoyé les fichiers de point de contrôle de la file d’attente fiable | DistributedQueue | Informations |
-| 63647 | ReliableQueueCheckpointFilesReceived | LifeCycle | Réplica a reçu des fichiers de point de contrôle de la file d’attente fiable | DistributedQueue | Informations |
-| 63648 | ReliableConcurrentQueueOpened | LifeCycle | File d’attente simultanée fiable a ouvert | ReliableConcurrentQueue | Informations |
-| 63649 | ReliableConcurrentQueueClosed | LifeCycle | File d’attente simultanée fiable a fermé | ReliableConcurrentQueue | Informations |
-| 63650 | ReliableConcurrentQueueCheckpointRecovered | LifeCycle | File d’attente simultanée fiable a récupéré son point de contrôle | ReliableConcurrentQueue | Informations |
-| 61687 | TStoreError | Échec | Collection fiable a reçu une erreur inattendue | TStore | Error |
-| 63831 | PrimaryFullCopyInitiated | LifeCycle | Réplica principal a lancé une copie complète | TReplicator | Informations |
-| 63832 | PrimaryPartialCopyInitiated | LifeCycle | Réplica principal a lancé une copie partielle | TReplicator | Informations |
-| 16831 | BuildIdleReplicaStarted | LifeCycle | Réplica principal a démarré la création de réplica inactif | Réplication | Informations |
-| 16832 | BuildIdleReplicaCompleted | LifeCycle | Réplica principal a terminé la création de réplica inactif | Réplication | Informations |
-| 16833 | BuildIdleReplicaFailed | LifeCycle | Réplica principal a échoué de création de réplica inactif | Réplication | Avertissement |
-| 16834 | PrimaryReplicationQueueFull | Intégrité | File d’attente de réplication du réplica principal est plein | Réplication | Avertissement |
-| 16835 | PrimaryReplicationQueueWarning | Intégrité | File d’attente de réplication du réplica principal est presque plein | Réplication | Avertissement |
-| 16836 | PrimaryReplicationQueueWarningMitigated | Intégrité | File d’attente de réplication du réplica principal est OK | Réplication | Informations |
-| 16837 | SecondaryReplicationQueueFull | Intégrité | File d’attente de réplication du réplica secondaire est plein | Réplication | Avertissement |
-| 16838 | SecondaryReplicationQueueWarning | Intégrité | File d’attente de réplication du réplica secondaire est presque plein | Réplication | Avertissement |
-| 16839 | SecondaryReplicationQueueWarningMitigated | Intégrité | File d’attente de réplication du réplica secondaire est OK | Réplication | Informations |
-| 16840 | PrimaryFaultedSlowSecondary | Intégrité | Réplica principal connaît un réplica secondaire lent | Réplication | Avertissement |
-| 16841 | ReplicatorFaulted | Intégrité | Réplica a généré une erreur. | Réplication | Avertissement |
+| 61701 | ReliableDictionaryOpened | LifeCycle | Le dictionnaire fiable s’est ouvert | DistributedDictionary | Informations |
+| 61702 | ReliableDictionaryClosed | LifeCycle | Le dictionnaire fiable s’est fermé | DistributedDictionary | Informations |
+| 61703 | ReliableDictionaryCheckpointRecovered | LifeCycle | Le dictionnaire fiable a récupéré son point de contrôle | DistributedDictionary | Informations |
+| 61704 | ReliableDictionaryCheckpointFilesSent | LifeCycle | Le réplica a envoyé les fichiers de point de contrôle du dictionnaire fiable | DistributedDictionary | Informations |
+| 61705 | ReliableDictionaryCheckpointFilesReceived | LifeCycle | Le réplica a reçu les fichiers de point de contrôle du dictionnaire fiable | DistributedDictionary | Informations |
+| 61963 | ReliableQueueOpened | LifeCycle | La file d’attente fiable s’est ouverte | DistributedQueue | Informations |
+| 61964 | ReliableQueueClosed | LifeCycle | La file d’attente fiable s’est fermée | DistributedQueue | Informations |
+| 61965 | ReliableQueueCheckpointRecovered | LifeCycle | La file d’attente fiable a récupéré son point de contrôle | DistributedQueue | Informations |
+| 61966 | ReliableQueueCheckpointFilesSent | LifeCycle | Le réplica a envoyé les fichiers de point de contrôle de la file d’attente fiable | DistributedQueue | Informations |
+| 63647 | ReliableQueueCheckpointFilesReceived | LifeCycle | Le réplica a reçu les fichiers de point de contrôle de la file d’attente fiable | DistributedQueue | Informations |
+| 63648 | ReliableConcurrentQueueOpened | LifeCycle | La file d’attente simultanée fiable s’est ouverte | ReliableConcurrentQueue | Informations |
+| 63649 | ReliableConcurrentQueueClosed | LifeCycle | La file d’attente simultanée fiable s’est fermée | ReliableConcurrentQueue | Informations |
+| 63650 | ReliableConcurrentQueueCheckpointRecovered | LifeCycle | La file d’attente simultanée fiable a récupéré son point de contrôle | ReliableConcurrentQueue | Informations |
+| 61687 | TStoreError | Échec | La collection fiable a reçu une erreur inattendue | TStore | Error |
+| 63831 | PrimaryFullCopyInitiated | LifeCycle | Le réplica principal a lancé une copie complète | TReplicator | Informations |
+| 63832 | PrimaryPartialCopyInitiated | LifeCycle | Le réplica principal a lancé une copie partielle | TReplicator | Informations |
+| 16831 | BuildIdleReplicaStarted | LifeCycle | Le réplica principal a lancé la création d’un réplica inactif | Réplication | Informations |
+| 16832 | BuildIdleReplicaCompleted | LifeCycle | Le réplica principal a terminé la création d’un réplica inactif | Réplication | Informations |
+| 16833 | BuildIdleReplicaFailed | LifeCycle | Le réplica principal n’a pas réussi à créer un réplica inactif | Réplication | Avertissement |
+| 16834 | PrimaryReplicationQueueFull | Intégrité | La file d’attente de réplication du réplica principal est pleine | Réplication | Avertissement |
+| 16835 | PrimaryReplicationQueueWarning | Intégrité | La file d’attente de réplication du réplica principal est presque pleine | Réplication | Avertissement |
+| 16836 | PrimaryReplicationQueueWarningMitigated | Intégrité | La file d’attente de réplication du réplica principal est correcte | Réplication | Informations |
+| 16837 | SecondaryReplicationQueueFull | Intégrité | La file d’attente de réplication du réplica secondaire est pleine | Réplication | Avertissement |
+| 16838 | SecondaryReplicationQueueWarning | Intégrité | La file d’attente de réplication du réplica secondaire est presque pleine | Réplication | Avertissement |
+| 16839 | SecondaryReplicationQueueWarningMitigated | Intégrité | La file d’attente de réplication du réplica secondaire est correcte | Réplication | Informations |
+| 16840 | PrimaryFaultedSlowSecondary | Intégrité | Le réplica principal n’a pas réussi à créer un réplica secondaire lent | Réplication | Avertissement |
+| 16841 | ReplicatorFaulted | Intégrité | Le réplica a subi une défaillance | Réplication | Avertissement |
 
 ## <a name="container-events"></a>Événements de conteneur
 
@@ -285,5 +285,5 @@ Voici la liste complète des événements fournis par Service Fabric avant la ve
 
 * Obtenir une vue d’ensemble des [diagnostics dans Service Fabric](service-fabric-diagnostics-overview.md)
 * En savoir plus sur le service EventStore dans [Vue d’ensemble du service EventStore Service Fabric](service-fabric-diagnostics-eventstore.md)
-* Modification de votre configuration [Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md) pour collecter davantage de journaux d’activité
-* [Configuration d’Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) pour voir les journaux de votre canal opérationnel
+* Modification de votre configuration [Diagnostics Azure](service-fabric-diagnostics-event-aggregation-wad.md) pour collecter davantage de journaux
+* [Configuration d’Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) pour voir les journaux d’activité de votre canal opérationnel

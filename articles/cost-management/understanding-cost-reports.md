@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
 ms.openlocfilehash: 91dc386641c758c42f64afff387d0463d1445f1d
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65969084"
 ---
 # <a name="understanding-cloudyn-cost-management-reports"></a>Compréhension des rapports de gestion des coûts Cloudyn
@@ -121,7 +121,7 @@ Chaque zone numérotée dans l’image précédente est décrite en détail dans
      - **Type d'utilisation**
        - Le type d’utilisation peut être à frais uniques ou à frais d’abonnement.
 
-5. **Les filtres**
+5. **Filtres**
 
     Utilisez des filtres uniques ou à sélection multiple pour définir des plages sur des valeurs sélectionnées. Pour définir un filtre, cliquez sur **Ajouter** puis sélectionnez des catégories et des valeurs de filtres.
 
@@ -144,10 +144,10 @@ Chaque zone numérotée dans l’image précédente est décrite en détail dans
 8. **Résolution :**
 
     Utilisez Résolution pour sélectionner la résolution de temps dans la plage de dates sélectionnée. Votre résolution de temps détermine le nombre d’unités affichées dans le rapport et peut être :
-    - Quotidienne
-    - Toutes les semaines
+    - Quotidien
+    - Hebdomadaire
     - Mensuelle
-    - Tous les trimestres
+    - Trimestrielle
     - Annuelle
 
 9. **Règles d'allocation**
@@ -191,7 +191,7 @@ Lorsque vous affichez un rapport, cliquez sur **Actions**, puis sélectionnez **
 
 ### <a name="save-a-report-to-cloud-provider-storage"></a>Enregistrer un rapport sur un stockage de fournisseur de cloud
 
-Pour enregistrer un rapport dans votre fournisseur de services cloud, vous devez avoir configuré un compte de stockage. Lorsque vous affichez un rapport, cliquez sur **Actions**, puis sélectionnez **Planifier le rapport**. Nommez le rapport, puis ajoutez votre propre URL ou utilisez l’URL créée automatiquement. Sélectionnez **Enregistrer sur un support de stockage**, puis sélectionnez le compte de stockage ou ajoutez-en un nouveau. Entrez un préfixe qui est ajouté au nom de fichier du rapport. Sélectionnez un format de fichier CSV ou JSON, puis enregistrez le rapport.
+Pour enregistrer un rapport dans votre fournisseur de services cloud, vous devez avoir configuré un compte de stockage. Lorsque vous affichez un rapport, cliquez sur **Actions**, puis sélectionnez **Planifier le rapport**. Nommez le rapport, puis ajoutez votre propre URL ou utilisez l’URL créée automatiquement. Sélectionnez **Enregistrer sur un support de stockage**, puis sélectionnez le compte de stockage ou ajoutez-en un nouveau. Entrez un préfixe qui est ajouté au nom de fichier du rapport. Sélectionnez le format de fichier CSV ou JSON, puis enregistrez le rapport.
 
 ### <a name="schedule-a-report"></a>Planifier un rapport
 

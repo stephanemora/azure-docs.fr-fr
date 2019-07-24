@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: a097539e51aa2a2130dead236d553d60f2ebb89d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d30cd92456218284326263d7bd3c9c7820fa435c
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65965650"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621289"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Compréhension de vos factures Azure Cosmos DB
 
@@ -21,6 +21,8 @@ Azure Cosmos DB est un service de base de données cloud natif entièrement gér
 Avec Azure Cosmos DB, vous êtes facturé à l’heure en fonction du débit fourni et du stockage consommé. Le débit fourni est facturé sur une base de 100 RU/s par heure, à un tarif de 0,008 $ de l’heure, en supposant une tarification publique standard. Voir la [page de tarification](https://azure.microsoft.com/pricing/details/cosmos-db/). Pour le stockage utilisé, vous êtes facturé à raison de 0,25 $ pour 1 Go de stockage par mois. Voir la [page de tarification](https://azure.microsoft.com/pricing/details/cosmos-db/). 
 
 Cet article s’appuie sur des exemples pour vous aider à comprendre les détails figurant sur la facture mensuelle. Les chiffres indiqués dans les exemples peuvent être différents si vos conteneurs Azure Cosmos fournissent une autre quantité de débit, s’ils s’étendent sur plusieurs régions ou s’ils sont exécutés sur une période supérieure à un mois.
+
+>! Remarque : La facturation concerne une partie d’une heure d’horloge, et non pas une durée de 60 minutes.
 
 ## <a name="billing-examples"></a>Exemples de facturation
 

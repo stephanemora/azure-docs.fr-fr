@@ -17,10 +17,10 @@ ms.date: 04/25/2019
 ms.author: akjosh; cynthn
 ms.custom: ''
 ms.openlocfilehash: 055242c3118ce9d972d55cdc6a21bf623679a0c1
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66242050"
 ---
 # <a name="create-and-use-shared-images-for-virtual-machine-scale-sets-with-the-azure-powershell"></a>Créer et utiliser des images partagées pour les groupe de machines virtuelles identiques avec Azure PowerShell
@@ -48,7 +48,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Les étapes ci-dessous expliquent comment prendre une machine virtuelle existante et la transformer en une image personnalisée réutilisable que vous pouvez utiliser pour créer de nouvelles instances de machines virtuelles.
 
-Pour suivre l’exemple de cet article, vous devez avoir l’image managée. Vous pouvez suivre le [Tutoriel : Créer et utiliser une image personnalisée pour des groupes de machines virtuelles identiques avec Azure PowerShell](tutorial-use-custom-image-powershell.md) si nécessaire. Si l’image managée contient un disque de données, la taille de disque de données ne peut pas être supérieur à 1 To.
+Pour suivre l’exemple de cet article, vous devez avoir l’image managée. Vous pouvez suivre le [Tutoriel : Créer et utiliser une image personnalisée pour des groupes de machines virtuelles identiques avec Azure PowerShell](tutorial-use-custom-image-powershell.md) si nécessaire. Si l’image managée contient un disque de données, la taille du disque de données ne peut pas être supérieure à 1 To.
 
 Au cours de cet article, remplacez les noms du groupe de ressources et de la machine virtuelle si nécessaire.
 
@@ -57,7 +57,7 @@ Au cours de cet article, remplacez les noms du groupe de ressources et de la mac
 
 ## <a name="create-a-scale-set-from-the-shared-image-version"></a>Créer un groupe identique à partir de la version d’image personnalisée
 
-Créez un groupe de machines virtuelles identiques avec [New-AzVmss](/powershell/module/az.compute/new-azvmss). L’exemple suivant crée un groupe identique à partir de la nouvelle version de l’image dans le *South Central US* centre de données. Quand vous y êtes invité, définissez vos propres informations d’identification d’administration pour les instances de machine virtuelle du groupe identique :
+Créez un groupe de machines virtuelles identiques avec [New-AzVmss](/powershell/module/az.compute/new-azvmss). L’exemple suivant crée un groupe identique à partir de la nouvelle version d’image dans le centre de données *USA Centre Sud*. Quand vous y êtes invité, définissez vos propres informations d’identification d’administration pour les instances de machine virtuelle du groupe identique :
 
 
 ```azurepowershell-interactive

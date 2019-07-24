@@ -19,10 +19,10 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9df592272b97bded9eba64249aa7608c72f8abdf
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66121539"
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>Autoriser l’accès aux applications web à l’aide d’OpenID Connect et d’Azure Active Directory
@@ -47,7 +47,7 @@ OpenID Connect décrit un document de métadonnées qui contient la plupart des 
 ```
 https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration
 ```
-Les métadonnées représentent un simple document JavaScript Objet Notation (JSON). Consultez l’extrait suivant pour obtenir un exemple. Le contenu de l'extrait de code est décrit en détail dans les [spécifications d’OpenID Connect](https://openid.net). Notez que la fourniture d’un ID de locataire au lieu de `common` en place de {tenant} ci-dessus entraîne URI spécifique au client dans l’objet JSON retourné.
+Les métadonnées représentent un simple document JavaScript Objet Notation (JSON). Consultez l’extrait suivant pour obtenir un exemple. Le contenu de l'extrait de code est décrit en détail dans les [spécifications d’OpenID Connect](https://openid.net). Le fait de fournir cet ID de locataire au lieu de `common` à la place de {tenant} ci-dessus génère des URI spécifiques du locataire dans l’objet JSON renvoyé.
 
 ```
 {
@@ -65,7 +65,7 @@ Les métadonnées représentent un simple document JavaScript Objet Notation (JS
 }
 ```
 
-Si votre application a des clés de signature personnalisées à la suite à l’aide de la [mappage de revendications](active-directory-claims-mapping.md) fonctionnalité, vous devez ajouter un `appid` interroger le paramètre qui contient l’ID d’application afin d’obtenir un `jwks_uri` pointant vers votre application de signature de la clé plus d’informations. Par exemple : `https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration?appid=6731de76-14a6-49ae-97bc-6eba6914391e` contient un `jwks_uri` de `https://login.microsoftonline.com/{tenant}/discovery/keys?appid=6731de76-14a6-49ae-97bc-6eba6914391e`.
+Si votre application dispose de clés de signature personnalisées après avoir utilisé la fonctionnalité [claims-mapping](active-directory-claims-mapping.md), vous devez ajouter un paramètre de requête `appid` contenant l’ID de l’application afin d’obtenir un `jwks_uri` qui redirige vers l’information de clé de signature de votre application. Par exemple : `https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration?appid=6731de76-14a6-49ae-97bc-6eba6914391e` contient un `jwks_uri` de `https://login.microsoftonline.com/{tenant}/discovery/keys?appid=6731de76-14a6-49ae-97bc-6eba6914391e`.
 
 ## <a name="send-the-sign-in-request"></a>Envoyer la requête de connexion
 
@@ -93,11 +93,11 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Paramètre |  | Description |
 | --- | --- | --- |
 | locataire |required |La valeur `{tenant}` dans le chemin d’accès de la requête peut être utilisée pour contrôler les utilisateurs qui peuvent se connecter à l’application. Les valeurs autorisées sont les identificateurs du client, par exemple `8eaef023-2b34-4da1-9baa-8bc8c9d6a490`, `contoso.onmicrosoft.com` ou `common` pour les jetons indépendants du client |
-| client_id |required |L’ID de l’application assignée à votre application lorsque vous l’avez inscrite auprès d’Azure AD. Vous le trouverez sur le portail Azure. Cliquez sur **Azure Active Directory**, cliquez sur **inscriptions**, choisissez l’application et recherchez l’ID d’Application sur la page d’application. |
+| client_id |required |L’ID de l’application assignée à votre application lorsque vous l’avez inscrite auprès d’Azure AD. Vous le trouverez sur le portail Azure. Cliquez sur **Azure Active Directory**, puis sur **Inscriptions des applications**. Sélectionnez ensuite l’application et recherchez son ID sur la page de l’application. |
 | response_type |required |Doit inclure `id_token` pour la connexion à OpenID Connect. Il peut inclure d’autres response_type, comme `code` ou `token`. |
-| portée | recommandé | La spécification OpenID Connect nécessite l’étendue `openid`, ce qui correspond à l’autorisation « Connexion vous » dans l’interface utilisateur de consentement. Cela et autres étendues OIDC sont ignorés sur le point de terminaison v1.0, mais sont toujours une bonne pratique pour les clients conformes aux normes. |
+| scope | recommandé | La spécification OpenID Connect requiert l’étendue `openid`, qui correspond à l’autorisation de connexion dans l’interface utilisateur de consentement. Cette étendue et d’autres étendues OIDC sont ignorées sur le point de terminaison v1.0, mais cela reste une meilleure pratique pour les clients respectant les normes. |
 | nonce |required |Valeur incluse dans la demande (générée par l’application) qui est intégrée au jeton `id_token` obtenu sous la forme d’une revendication. L’application peut ensuite vérifier cette valeur afin de contrer les attaques par relecture de jetons. La valeur est généralement une valeur unique et aléatoire ou un GUID pouvant être utilisé pour identifier l’origine de la requête. |
-| redirect_uri | recommandé |L’URI de redirection de votre application, vers lequel votre application peut envoyer et recevoir des réponses d’authentification. Il doit correspondre exactement à l’un des URI de redirection enregistrés dans le portail, auquel s’ajoute le codage dans une URL. S’il est manquant, l’agent utilisateur sera envoyé à un de l’URI est enregistré pour l’application, de manière aléatoire de redirection. La longueur maximale est de 255 octets |
+| redirect_uri | recommandé |L’URI de redirection de votre application, vers lequel votre application peut envoyer et recevoir des réponses d’authentification. Il doit correspondre exactement à l’un des URI de redirection enregistrés dans le portail, auquel s’ajoute le codage dans une URL. S’il est manquant, l’agent utilisateur est redirigé vers l’un des URI de redirection enregistrés pour l’application, de manière aléatoire. La longueur maximale est de 255 octets. |
 | response_mode |facultatif |Spécifie la méthode à utiliser pour envoyer le code d’autorisation résultant à votre application. Les valeurs prises en charge sont `form_post` pour une *requête HTTP POST de type formulaire* et `fragment` pour un *fragment d’URL*. Pour les applications web, nous vous recommandons d’utiliser `response_mode=form_post` pour garantir le transfert le plus sécurisé des jetons à votre application. La valeur par défaut pour n’importe quel flux, y compris id_token, est `fragment`.|
 | state |recommandé |Une valeur incluse dans la requête qui est également renvoyée dans la réponse de jeton. Il peut s’agir d’une chaîne du contenu de votre choix. Une valeur unique générée de manière aléatoire est généralement utilisée pour [empêcher les falsifications de requête intersite](https://tools.ietf.org/html/rfc6749#section-10.12). La valeur d’état est également utilisée pour coder les informations sur l’état de l’utilisateur dans l’application avant la requête d’authentification, comme la page ou l’écran sur lequel ou laquelle il était positionné. |
 | prompt |facultatif |Indique le type d’interaction utilisateur requis. Les seules valeurs valides pour l’instant sont « login », « none » et « consent ». `prompt=login` oblige l’utilisateur à saisir ses informations d’identification lors de cette requête, annulant de fait l’authentification unique. Avec `prompt=none`, c’est le comportement inverse. Cette valeur vous garantit qu’aucune invite interactive d’aucune sorte n’est présentée à l’utilisateur. Si la demande ne peut pas être exécutée en mode silencieux au moyen d’une authentification unique, le point de terminaison renvoie une erreur. `prompt=consent` déclenche l’affichage de la boîte de dialogue de consentement OAuth après la connexion de l’utilisateur, afin de lui demander d’octroyer des autorisations à l’application. |
@@ -107,7 +107,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 ### <a name="sample-response"></a>Exemple de réponse
 
-Un exemple de réponse envoyé à la `redirect_uri` spécifié dans la demande de connexion une fois que l’utilisateur est authentifié, pourrait ressembler à ceci :
+Voici un exemple de réponse envoyée au paramètre `redirect_uri` spécifié dans la requête de connexion une fois l’utilisateur authentifié :
 
 ```
 POST / HTTP/1.1
@@ -162,7 +162,7 @@ Vous pouvez décider de valider l’élément `id_token` dans le code du client,
 En fonction de votre scénario, vous pouvez également valider des revendications supplémentaires. Voici quelques validations courantes :
 
 * S’assurer que l’utilisateur/l’organisation s’est inscrit pour l’application.
-* S’assurer de l’utilisateur a l’autorisation/des privilèges appropriés à l’aide de la `wids` ou `roles` revendications. 
+* S’assurer que l’utilisateur dispose de l’autorisation/des privilèges appropriés à l’aide des revendications `wids` ou `roles`. 
 * S’assurer de l’utilisation d’une force certaine d’authentification, comme une authentification multifacteur.
 
 Une fois que vous avez validé le jeton `id_token`, vous pouvez démarrer une session avec l’utilisateur et utiliser les revendications du jeton `id_token` pour récupérer les informations sur l’utilisateur dans votre application. Ces informations peuvent être utilisées pour l’affichage, les enregistrements, la personnalisation, etc. Pour plus d’informations sur `id_tokens` et sur les revendications, reportez-vous à [AAD id_tokens](id-tokens.md) (id_tokens AAD).
@@ -181,7 +181,7 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 | Paramètre |  | Description |
 | --- | --- | --- |
-| post_logout_redirect_uri |recommandé |L’URL vers laquelle l’utilisateur doit être redirigé après déconnexion réussie. Si elle n’est pas incluse, l’utilisateur voit un message générique. |
+| post_logout_redirect_uri |recommandé |URL vers laquelle l’utilisateur doit être redirigé après la déconnexion. Si elle n’est pas incluse, l’utilisateur voit un message générique. |
 
 ## <a name="single-sign-out"></a>Authentification unique
 
@@ -214,9 +214,9 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e        // Your registered Applica
 
 En incluant des étendues d’autorisation dans la demande et en utilisant `response_type=code+id_token`, le point de terminaison `authorize` garantit que l’utilisateur a accepté les autorisations indiquées dans le paramètre de requête `scope` et renvoie un code d’autorisation à votre application afin de l’échanger contre un jeton d’accès.
 
-### <a name="successful-response"></a>Réponse réussie
+### <a name="successful-response"></a>Réponse correcte
 
-Une réponse correcte, envoyée à la `redirect_uri` à l’aide de `response_mode=form_post`, ressemble à :
+Une réponse correcte envoyée à `redirect_uri` avec `response_mode=form_post` se présente ainsi :
 
 ```
 POST /myapp/ HTTP/1.1

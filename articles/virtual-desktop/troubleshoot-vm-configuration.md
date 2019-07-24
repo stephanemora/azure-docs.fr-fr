@@ -4,15 +4,15 @@ description: Comment résoudre les problèmes lorsque vous configurez un locatai
 services: virtual-desktop
 author: ChJenk
 ms.service: virtual-desktop
-ms.topic: troubleshoot
-ms.date: 04/08/2019
+ms.topic: troubleshooting
+ms.date: 07/10/2019
 ms.author: v-chjenk
-ms.openlocfilehash: 38d59fb20776470cb683f2a2146838bb217addf7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 96a9d8fc7495ea473b0a3250b34251afc5f30c13
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64928121"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786710"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Création d’un pool de locataires et d’hôtes
 
@@ -284,6 +284,18 @@ Si vous utilisez Microsoft Windows 10, suivez les instructions ci-dessous :
     ```
 
 16. Une fois les cmdlets exécutées, redémarrez la machine virtuelle présentant un dysfonctionnement de pile côte à côte.
+
+## <a name="remote-licensing-model-is-not-configured"></a>Le modèle de gestion des licences à distance n’est pas configuré
+
+Si vous vous connectez à Windows 10 Entreprise multisession à l’aide d’un compte d’administrateur, vous pouvez recevoir une notification indiquant que, « Le mode de licence des services Bureau à distance n’est pas configuré, les services Bureau à distance cesseront de fonctionner dans X jours. Sur le serveur Broker pour les connexions, utilisez le gestionnaire de serveur pour spécifier le mode de licence des services Bureau à distance. » Si vous voyez ce message, cela signifie que vous devez configurer manuellement le mode de licence sur **Par utilisateur**.
+
+Pour configurer manuellement le mode de licence :  
+
+1. Accédez à la zone de recherche du **menu Démarrer**, puis recherchez et ouvrez **gpedit.msc** pour accéder à l’éditeur de stratégies de groupe local. 
+2. Accédez à **Configuration de l’ordinateur** > **Modèles d’administration** > **Composants Windows** > **Services Bureau à distance** > **Hôte de session Bureau à distance** > **Licences**. 
+3. Sélectionnez **Définir le mode de licence des services Bureau à distance** et choisissez **Par utilisateur**.
+
+Nous nous penchons actuellement sur les problèmes d’expiration de délai d’attente pour les notifications et la période de grâce, et prévoyons d’y remédier dans une prochaine mise à jour. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

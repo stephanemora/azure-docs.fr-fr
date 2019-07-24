@@ -2,28 +2,31 @@
 title: Fichier Include
 description: Fichier Include
 services: virtual-machines
-author: jonbeck7
+author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/02/2019
-ms.author: azcspmt;jonbeck;cynthn
+ms.date: 07/01/2019
+ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 24c2bfa4aae94642d3ed66f2cfa6e31ba1e6b19a
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 30d71ed54e490be8c3a4b36cedbc0eda634323a1
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67457327"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626470"
 ---
-Les disques de système d’exploitation éphémères sont créés sur le stockage local de la machine virtuelle (VM) et ne sont pas conservés dans le Stockage Azure à distance. Les disques de système d’exploitation éphémères conviennent particulièrement bien aux charges de travail sans état, car les applications tolèrent les défaillances individuelles des machines virtuelles mais se préoccupent davantage du temps nécessaire aux déploiements à grande échelle ou à la réinitialisation des instances de machine virtuelle individuelles. Ils conviennent également au transfert des applications déployées à l’aide du modèle de déploiement classique vers le modèle de déploiement Resource Manager. Comparé à un disque de système d’exploitation standard, un disque éphémère offre une latence plus faible pour les opérations de lecture/écriture et permet une réinitialisation plus rapide des machines virtuelles. De plus, le disque de système d’exploitation éphémère est gratuit ; autrement dit, aucun coût de stockage ne s’applique à l’utilisation de celui-ci. 
+Les disques de système d’exploitation éphémères sont créés sur le stockage local de la machine virtuelle (VM) et ne sont pas enregistrés dans le Stockage Azure à distance. Les disques de système d’exploitation éphémères conviennent particulièrement bien aux charges de travail sans état, car les applications tolèrent les défaillances individuelles des machines virtuelles, mais sont plus sensibles au temps de déploiement de machine virtuelle et de réinitialisation des instances de machines virtuelles individuelles. Comparé à un disque de système d’exploitation standard, un disque éphémère offre une latence plus faible pour les opérations de lecture/écriture et permet une réinitialisation plus rapide des machines virtuelles. 
  
 Les principales caractéristiques des disques éphémères sont les suivantes : 
-- Ils peuvent être utilisés avec des images de la Place de marché et des images personnalisées.
-- Vous pouvez déployer des images de machines virtuelles jusqu’à la taille du cache des machines virtuelles.
-- Capacité de réinitialisation rapide de leurs machines virtuelles à l’état de démarrage d’origine.  
-- Faible latence d’exécution, comparable à celle d’un disque temporaire. 
-- Aucun coût pour le disque de système d’exploitation. 
+- Idéal pour les applications sans état.
+- Ils peuvent être utilisés avec la Place de marché et des images personnalisées.
+- Capacité de réinitialisation rapide de leurs machines virtuelles et instances de groupe identique à l’état de démarrage d’origine.  
+- Faible latence, comparable à celle d’un disque temporaire. 
+- Le disque de système d’exploitation éphémère est gratuit ; autrement dit, aucun coût de stockage ne s’applique à l’utilisation de celui-ci.
+- Ils sont disponibles dans toutes les régions Azure. 
+- Le disque de système d’exploitation éphémère est pris en charge par la [Galerie d’images partagées](/azure/virtual-machines/linux/shared-image-galleries). 
  
+
  
 Différences clés entre les disques de système d’exploitation persistants et éphémères :
 
@@ -39,7 +42,57 @@ Différences clés entre les disques de système d’exploitation persistants et
 | Redimensionnement du disque de système d’exploitation              | Pris en charge durant la création de la machine virtuelle et une fois que la machine virtuelle est arrêtée-libérée                                | Prise en charge lors de la création d’une machine virtuelle uniquement                                                  |
 | Redimensionnement à une nouvelle taille de machine virtuelle   | Les données du disque de système d’exploitation sont conservées                                                                    | Les données sur le disque du système d’exploitation sont supprimées, le système d’exploitation est redéployé                                      |
 
-## <a name="scale-set-deployment"></a>Déploiement d’un groupe identique  
+## <a name="size-requirements"></a>Exigences de taille
+
+Vous pouvez déployer des machines virtuelles et images d’instance jusqu’à la taille du cache des machines virtuelles. Par exemple, les images Windows Server Standard de la place de marché sont d’environ 127 Go, ce qui signifie que vous avez besoin d’une taille de machine virtuelle qui a un cache supérieur à 127 Go. Dans ce cas, la référence [Standard_DS2_v2](/azure/virtual-machines/windows/sizes-general#dsv2-series) a une taille de cache de 86 Gio, ce qui n’est pas suffisant. La référence Standard_DS3_v2 a une taille de cache de 172 Gio, ce qui est suffisant. Dans ce cas, la référence Standard_DS3_v2 est la taille minimale de la série DSv2 que vous pouvez utiliser avec cette image. Les images Linux de base dans les images de la place de marché et Windows Server qui sont signalées par `[smallsize]` ont tendance à être d’environ 30 Gio et peuvent utiliser la plupart des tailles de machine virtuelle disponibles.
+
+Les disques éphémères nécessitent également que la taille de machine virtuelle prenne en charge le stockage Premium. Les tailles ont généralement (mais pas toujours) un `s` dans le nom, comme DSv2 et EsV3. Pour plus d’informations, consultez [Tailles de machine virtuelle Azure](../articles/virtual-machines/linux/sizes.md) pour plus d’informations sur les tailles prenant en charge le stockage Premium.
+
+## <a name="powershell"></a>PowerShell
+
+Pour utiliser un disque éphémère pour un déploiement de machine virtuelle avec PowerShell, utilisez [Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk) dans votre configuration de machine virtuelle. Définissez `-DiffDiskSetting` sur `Local` et `-Caching` sur `ReadOnly`.     
+
+```powershell
+Set-AzVMOSDisk -DiffDiskSetting Local -Caching ReadOnly
+```
+
+Pour les déploiements de groupes identiques, utilisez l’applet de commande [Set-AzVmssStorageProfile](/powershell/module/az.compute/set-azvmssstorageprofile) dans votre configuration. Définissez `-DiffDiskSetting` sur `Local` et `-Caching` sur `ReadOnly`.
+
+
+```powershell
+Set-AzVmssStorageProfile -DiffDiskSetting Local -OsDiskCaching ReadOnly
+```
+
+## <a name="cli"></a>Interface de ligne de commande
+
+Pour utiliser un disque éphémère pour un déploiement de machine virtuelle par CLI, définissez le paramètre `--ephemeral-os-disk` dans [az vm create](/cli/azure/vm#az-vm-create) sur `true` et le paramètre `--os-disk-caching` sur `ReadOnly`.
+
+```azurecli-interactive
+az vm create \
+  --resource-group myResourceGroup \
+  --name myVM \
+  --image UbuntuLTS \
+  --ephemeral-os-disk true \
+  --os-disk-caching ReadOnly \
+  --admin-username azureuser \
+  --generate-ssh-keys
+```
+
+Pour les groupes identiques, vous utilisez le même paramètre `--ephemeral-os-disk true` pour [az-vmss-create](/cli/azure/vmss#az-vmss-create) et définissez le paramètre `--os-disk-caching` sur `ReadOnly`.
+
+## <a name="portal"></a>Portail   
+
+Dans le portail Azure, vous pouvez choisir d’utiliser des disques éphémères lors du déploiement d’une machine virtuelle en ouvrant la section **Avancé** de l’onglet **Disques**. Pour **Utiliser un disque de système d’exploitation éphémère** sélectionnez **Oui**.
+
+![Capture d’écran montrant le bouton radio pour choisir d’utiliser un disque de système d’exploitation éphémère](./media/virtual-machines-common-ephemeral/ephemeral-portal.png)
+
+Si l’option pour l’utilisation d’un disque éphémère est grisée, vous avez peut-être sélectionné une taille de machine virtuelle qui n’a pas une taille de cache supérieure à l’image du système d’exploitation ou qui ne prend pas en charge le stockage Premium. Revenez à la page **Notions de base** et essayez de choisir une autre taille de machine virtuelle.
+
+Vous pouvez également créer des groupes identiques avec des disques de système d’exploitation éphémères en utilisant le portail. Veillez simplement à sélectionner une taille de machine virtuelle avec une taille de cache suffisamment grande, puis dans **Utiliser un disque du système d’exploitation éphémère**, sélectionnez **Oui**.
+
+![Capture d’écran montrant le bouton radio pour choisir d’utiliser un disque de système d’exploitation éphémère pour votre groupe identique](./media/virtual-machines-common-ephemeral/scale-set.png)
+
+## <a name="scale-set-template-deployment"></a>Déploiement de modèle de groupe identique  
 Le processus de création d’un groupe identique utilisant un disque de système d’exploitation éphémère consiste à ajouter la propriété `diffDiskSettings` au type de ressource `Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile` dans le modèle. En outre, la stratégie de mise en cache doit être définie sur `ReadOnly` pour le disque de système d’exploitation éphémère. 
 
 
@@ -83,7 +136,7 @@ Le processus de création d’un groupe identique utilisant un disque de systèm
 }  
 ```
 
-## <a name="vm-deployment"></a>Déploiement de machine virtuelle 
+## <a name="vm-template-deployment"></a>Déploiement de modèle de machine virtuelle 
 Vous pouvez déployer une machine virtuelle avec un disque de système d’exploitation éphémère à l’aide d’un modèle. Le processus de création d’une machine virtuelle utilisant des disques de système d’exploitation éphémères consiste à ajouter la propriété `diffDiskSettings` au type de ressource Microsoft.Compute/virtualMachines dans le modèle. En outre, la stratégie de mise en cache doit être définie sur `ReadOnly` pour le disque de système d’exploitation éphémère. 
 
 ```json
@@ -133,7 +186,7 @@ id}/resourceGroups/{rgName}/providers/Microsoft.Compute/VirtualMachines/{vmName}
 
 **Q : Quelle est la taille des disques de système d’exploitation locaux ?**
 
-R : Pour la préversion, nous prenons en charge des plateformes et/ou images atteignant la taille du cache de la machine virtuelle, dans lequel toutes les écritures/lecture sur le disque de système d’exploitation seront effectuées à un niveau local sur le même nœud que la machine virtuelle. 
+R : Nous prenons en charge des plateformes et/ou images personnalisées atteignant la taille du cache de la machine virtuelle, dans lequel toutes les écritures/lecture sur le disque de système d’exploitation seront effectuées à un niveau local sur le même nœud que la machine virtuelle. 
 
 **Q : Le disque de système d’exploitation éphémère peut-il être redimensionné ?**
 

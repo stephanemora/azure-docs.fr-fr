@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: reference
 ms.date: 05/23/2019
 ms.author: evansma
-ms.openlocfilehash: ecee1669c29d7b298741f9e5521de03da6dd7e3b
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 476aaacbe6f1bf6d1920df0f12599976bfcc27b7
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67331636"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67701133"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>API de traitement SaaS, version 2 
 
@@ -87,7 +87,7 @@ Le tableau suivant répertorie les définitions des entités et paramètres cour
 | `offerId`                | Identificateur de chaîne unique pour chaque offre (par exemple « offer1 »).  |
 | `planId`                 | Identificateur de chaîne unique pour chaque plan/référence SKU (par exemple « silver »). |
 | `operationId`            | Identificateur GUID d’une opération spécifique.  |
-|  `action`                | Action effectuée sur une ressource, `subscribe`, `unsubscribe`, `suspend`, `reinstate` ou `changePlan`, `changeQuantity`, `transfer`.  |
+|  `action`                | Action effectuée sur une ressource, `unsubscribe`, `suspend`, `reinstate`, `changePlan` ou `changeQuantity`, `transfer`.  |
 |   |   |
 
 Les identificateurs globaux uniques ([GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier)) sont des nombres de 128 bits (32 chiffres hexadécimaux) générés automatiquement. 
@@ -199,10 +199,16 @@ Charge utile de réponse :<br>
           "purchaser": { // Tenant that purchased the SaaS subscription. These could be different for reseller scenario
               "tenantId": "<guid>"
           },
+            "term": {
+                "startDate": "2019-05-31",
+                "endDate": "2019-06-29",
+                "termUnit": "P1M"
+          },
           "allowedCustomerOperations": [
               "Read" // Possible Values: Read, Update, Delete.
           ], // Indicates operations allowed on the SaaS subscription. For CSP-initiated purchases, this will always be Read.
           "sessionMode": "None", // Possible Values: None, DryRun (Dry Run indicates all transactions run as Test-Mode in the commerce stack)
+          "isFreeTrial": "true", // true – the customer subscription is currently in free trial, false – the customer subscription is not currently in free trial.
           "saasSubscriptionStatus": "Subscribed" // Indicates the status of the operation: [NotStarted, PendingFulfillmentStart, Subscribed, Suspended, Unsubscribed]
       }
   ],
@@ -271,7 +277,13 @@ Response Body:
           },
         "allowedCustomerOperations": ["Read"], // Indicates operations allowed on the SaaS subscription. For CSP-initiated purchases, this will always be Read.
         "sessionMode": "None", // Dry Run indicates all transactions run as Test-Mode in the commerce stack
+        "isFreeTrial": "true", // true – customer subscription is currently in free trial, false – customer subscription is not currently in free trial.
         "status": "Subscribed", // Indicates the status of the operation.
+          "term": { //This gives the free trial term start and end date
+            "startDate": "2019-05-31",
+            "endDate": "2019-06-29",
+            "termUnit": "P1M"
+        },
 }
 ```
 
@@ -794,7 +806,6 @@ L’éditeur doit implémenter un webhook dans ce service SaaS pour informer les
 }
 ```
 Il peut s’agir de l’une des actions suivantes : 
-- `subscribe` (lorsque la ressource a été activée)
 - `unsubscribe` (lorsque la ressource a été supprimée)
 - `changePlan` (lorsque l’opération de changement de plan est terminée)
 - `changeQuantity` (lorsque l’opération de changement de quantité est terminée)

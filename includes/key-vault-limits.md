@@ -5,40 +5,40 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
 ms.openlocfilehash: 0b9d87fd7929607da8407ae5bbfb2f6dd6d69dab
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66238658"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177468"
 ---
-#### <a name="key-transactions-maximum-transactions-allowed-in-10-seconds-per-vault-per-regionsup1sup"></a>Transactions de clé (transactions maximales autorisées dans les 10 secondes, par coffre par région<sup>1</sup>) :
+#### <a name="key-transactions-maximum-transactions-allowed-in-10-seconds-per-vault-per-regionsup1sup"></a>Transactions de clé (nombre maximal de transactions autorisées dans les 10 secondes, par coffre et par région<sup>1</sup>) :
 
-|Type de clé|Clé HSM<br>CRÉER la clé|Clé HSM<br>Toutes les autres transactions|Clé logicielle<br>CRÉER la clé|Clé logicielle<br>Toutes les autres transactions|
+|Type de clé|Clé HSM<br>Clé CREATE|Clé HSM<br>Toutes les autres transactions|Clé logicielle<br>Clé CREATE|Clé logicielle<br>Toutes les autres transactions|
 |:---|---:|---:|---:|---:|
-|RSA 2 048 bits|5.|1 000|10|2 000|
-|RSA 3 072 bits|5.|250|10|500|
-|RSA 4 096 bits|5.|125|10|250|
-|ECC P-256|5.|1 000|10|2 000|
-|ECC P-384|5.|1 000|10|2 000|
-|ECC P-521|5.|1 000|10|2 000|
-|ECC SECP256K1|5.|1 000|10|2 000|
+|RSA 2 048 bits|5\.|1 000|10|2 000|
+|RSA 3 072 bits|5\.|250|10|500|
+|RSA 4 096 bits|5\.|125|10|250|
+|ECC P-256|5\.|1 000|10|2 000|
+|ECC P-384|5\.|1 000|10|2 000|
+|ECC P-521|5\.|1 000|10|2 000|
+|ECC SECP256K1|5\.|1 000|10|2 000|
 
 > [!NOTE]
-> Dans le tableau précédent, nous voyons que pour les clés de logiciels de RSA 2 048 bits, 2 000 transactions GET toutes les 10 secondes sont autorisées. Des clés-RSA 2 048 bits HSM, toutes les 10 secondes de 1 000 transactions GET sont autorisées.
+> Dans la table ci-dessus, nous voyons que 2 000 transactions GET par tranche de 10 secondes sont autorisées pour des clés logicielles RSA 2 048 bits. Pour les clés HSM 2 048 bits RSA, 1 000 transactions GET par tranche de 10 secondes sont autorisées.
 >
-> Les seuils de limitation sont pondérées et l’application se trouve sur leur somme. Par exemple, comme indiqué dans le tableau précédent, lorsque vous effectuez des opérations GET sur les clés RSA HSM, il est huit fois plus coûteux d’utiliser des clés de 4 096 bits par rapport aux clés de 2 048 bits. C’est parce que 1 000/125 = 8.
+> Les seuils de limitation sont pondérés, et leur application correspond à leur somme. Par exemple, comme indiqué dans la table précédente, lorsque vous effectuez des opérations GET sur des clés HSM RSA, il est huit fois plus coûteux d’utiliser des clés de 4 096 bits par rapport aux clés de 2 048 bits. En effet, 1 000/125 = 8.
 >
-> Dans un intervalle de 10 secondes donné, un client Azure Key Vault faire *qu’une seule* des opérations suivantes avant qu’il rencontre un `429` la limitation de code d’état HTTP :
-> - 2 000 transactions de GET-clé logicielle RSA 2 048 bits
-> - 1 000 transactions de RSA 2 048 bits clé HSM GET
-> - Transactions de 4 096 RSA bits clé HSM GET 125
-> - Les transactions de 4 096 RSA bits de la clé HSM GET 124 et GET de clé HSM RSA 2 048 bits 8
+> Dans un intervalle de 10 secondes donné, un client Azure Key Vault peut exécuter *une seule* des opérations suivantes avant de rencontrer un code d’état HTTP de limitation `429` :
+> - 2 000 transactions GET de clé logicielle RSA 2 048 bits
+> - 1 000 transactions GET de clé HSM RSA 2 048 bits
+> - 125 transactions GET de clé HSM RSA 4 096 bits
+> - 124 transactions GET de clé HSM RSA 4 096 bits et 8 transactions GET de clé HSM RSA 2 048 bits
 
-#### <a name="secrets-managed-storage-account-keys-and-vault-transactions"></a>Secrets, les clés de compte de stockage géré et les transactions de coffre :
-| Type de transaction | Nombre maximal de transactions autorisé dans les 10 secondes, par coffre par région<sup>1</sup> |
+#### <a name="secrets-managed-storage-account-keys-and-vault-transactions"></a>Secrets, clés de compte de stockage managé et transactions de coffre :
+| Type de transaction | Nombre maximal de transactions autorisées dans les 10 secondes, par coffre et par région<sup>1</sup> |
 | --- | --- |
 | Toutes les transactions |2 000 |
 
-Pour plus d’informations sur la façon de gérer la limitation lorsque ces limites sont dépassées, consultez [Azure Key Vault aide sur la limitation](../articles/key-vault/key-vault-ovw-throttling.md).
+Pour en savoir plus sur la façon de gérer la limitation en cas de dépassement de ces limites, voir [Aide sur la limitation de requêtes Azure Key Vault](../articles/key-vault/key-vault-ovw-throttling.md).
 
-<sup>1</sup> une limite à l’échelle de l’abonnement pour tous les types de transaction est cinq fois par limite de coffre de clés. Par exemple, HSM-autres transactions par abonnement sont limitées à 5 000 transactions dans 10 secondes par abonnement.
+<sup>1</sup> La limite d’abonnement pour tous les types de transaction est fixée à 5 fois la limite des coffres de clés. Par exemple, le nombre de transactions autres que HSM par abonnement est limité à 5 000 en 10 secondes.

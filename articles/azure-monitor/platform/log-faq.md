@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.openlocfilehash: 08e915354df4f4aa1d9a183e78cbad47460b8d37
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66356224"
 ---
 # <a name="log-analytics-faq"></a>FAQ sur Log Analytics
@@ -42,7 +42,7 @@ La nouvelle expérience de journaux d’activité dans le portail Azure est bas�
 
 ### <a name="q-why-cant-i-see-query-explorer-and-save-buttons-in-the-new-logs-experience"></a>Q. Pourquoi ne puis-je pas voir les boutons Explorateur de requêtes et Enregistrer dans la nouvelle expérience de journaux d’activité ?
 
-Les boutons **Explorateur de requêtes**, **Enregistrer** et **Définir l’alerte** ne sont pas disponibles lorsque vous explorez des journaux dans le contexte d’une ressource spécifique. Pour créer des alertes, enregistrer ou charger une requête, l’étendue des journaux d’activité doit être un espace de travail. Pour ouvrir des journaux d’activité dans le contexte de l’espace de travail, sélectionnez **Tous les services** > **Surveiller** > **Journaux d’activité**. Le dernier espace de travail utilisée est sélectionné, mais vous pouvez sélectionner n’importe quel autre espace de travail. Consultez [Affichage et analyse de données dans Log Analytics](../log-query/portals.md) pour plus d’informations.
+Les boutons **Explorateur de requêtes**, **Enregistrer** et **Définir l’alerte** ne sont pas disponibles lorsque vous explorez des journaux d’activité dans le contexte d’une ressource spécifique. Pour créer des alertes, enregistrer ou charger une requête, l’étendue des journaux d’activité doit être un espace de travail. Pour ouvrir des journaux d’activité dans le contexte de l’espace de travail, sélectionnez **Tous les services** > **Surveiller** > **Journaux d’activité**. Le dernier espace de travail utilisée est sélectionné, mais vous pouvez sélectionner n’importe quel autre espace de travail. Consultez [Affichage et analyse de données dans Log Analytics](../log-query/portals.md) pour plus d’informations.
 
 ### <a name="q-how-do-i-extract-custom-fields-in-the-new-logs-experience"></a>Q. Comment extraire des champs personnalisés dans la nouvelle expérience de journaux d’activité ? 
 
@@ -72,7 +72,7 @@ R : Pour accéder à un espace de travail dans Azure, des autorisations Azure d
 R : Le Concepteur de vues est disponible dans les journaux d’activité seulement pour les utilisateurs auxquels des autorisations Contributeur ou supérieures ont été assignées.
 
 ### <a name="q-can-i-still-use-the-analytics-portal-outside-of-azure"></a>Q. Puis-je continuer à utiliser le portail Analytics en dehors d’Azure ?
-R. Oui, la page Journaux d’activité dans Azure et le portail Advanced Analytics reposent sur le même code. Log Analytics est intégré en tant que fonctionnalité dans Azure Monitor pour fournir une expérience de supervision plus uniforme. Vous pouvez toujours accéder à l’aide de l’URL du portail d’Analytique : https :\/\/portal.loganalytics.io/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/workspaces/{workspaceName}.
+R. Oui, la page Journaux d’activité dans Azure et le portail Advanced Analytics reposent sur le même code. Log Analytics est intégré en tant que fonctionnalité dans Azure Monitor pour fournir une expérience de supervision plus uniforme. Vous pouvez encore accéder au portail Analytics via l’URL : https:\/\/portal.loganalytics.io/subscriptions/{IDabonnement}/resourcegroups/{nomGroupeRessources}/workspaces/{nomEspaceTravail}.
 
 
 
@@ -84,7 +84,7 @@ R : Les listes des vues et des solutions installées sont disponibles dans le p
 
 ### <a name="q-why-i-cant-create-workspaces-in-west-central-us-region"></a>Q. Pourquoi ne puis-je pas créer des espaces de travail dans la région ouest USA Centre-Ouest ? 
 
-R : Cette région a une limite de capacité temporaire. Cette limite est prévue pour être traité par la fin de septembre, 2019.
+R : Cette région a une limite de capacité temporaire. Cette limite devrait être traitée d’ici à fin du mois de septembre 2019.
 
 
 ### <a name="q-does-log-analytics-use-the-same-agent-as-azure-security-center"></a>Q. Log Analytics utilise-t-il le même agent qu’Azure Security Center ?
@@ -109,7 +109,7 @@ La mise à jour de la chaîne de texte vers *OMS* est incluse dans un pack d’a
 
 ### <a name="q-is-there-an-on-premises-version-of-log-analytics"></a>Q : Existe-t-il une version locale de Log Analytics ?
 
-R : Non. Log Analytics est un service cloud évolutif qui traite et stocke d’importants volumes de données. 
+R :  Non. Log Analytics est un service cloud évolutif qui traite et stocke d’importants volumes de données. 
 
 ### <a name="q-how-do-i-troubleshoot-if-log-analytics-is-no-longer-collecting-data"></a>Q. Comment procéder au dépannage si Log Analytics ne collecte plus de données ?
 
@@ -171,7 +171,7 @@ Le trafic vers Log Analytics utilise le circuit ExpressRoute d’homologation pu
 
 ### <a name="q-is-there-a-simple-and-easy-way-to-move-an-existing-log-analytics-workspace-to-another-log-analytics-workspaceazure-subscription"></a>Q. Existe-t-il un moyen simple de déplacer un espace de travail Log Analytics existant vers un autre espace de travail Log Analytics ou un autre abonnement Azure ?
 
-R. La cmdlet `Move-AzResource` permet de déplacer un espace de travail Log Analytics ainsi qu’un compte Automation d’un abonnement Azure à un autre. Pour plus d’informations, consultez [Move-AzResource](https://msdn.microsoft.com/library/mt652516.aspx).
+R. La cmdlet `Move-AzResource` permet de déplacer un espace de travail Log Analytics ainsi qu’un compte Automation d’un abonnement Azure à un autre. Pour en savoir plus, voir [Move-AzResource](https://msdn.microsoft.com/library/mt652516.aspx).
 
 Cette modification peut également être effectuée dans le portail Azure.
 

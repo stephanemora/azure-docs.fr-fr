@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 2/7/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: fb7821b07e68459cb3d76812a12e85387b9f0f52
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 28dba8af059e24040abb254dd4ecd8e336d8221d
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295102"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594300"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>La gestion des alertes et la supervision unifiées dans Azure Monitor remplace la gestion des alertes et la supervision classiques
 
@@ -40,7 +40,7 @@ Les nouvelles supervision et gestion des alertes unifiées pour Application Insi
 - **Métriques de plateforme Application Insights** : fournit des métriques prédéfinies populaires à partir du produit Application Insights. Pour plus d’informations, consultez cet article relatif à l’utilisation de [métriques de plateforme pour Application Insights sur la nouvelle instance Azure Monitor](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics).
 - **Test web et de disponibilité d’Application Insights** : vous offre la possibilité d’évaluer la réactivité et la disponibilité de votre serveur ou application web. Pour plus d’informations, consultez cet article relatif à l’utilisation de [tests de disponibilité et d’alertes pour Application Insights sur la nouvelle instance Azure Monitor](../../azure-monitor/app/monitor-web-app-availability.md).
 - **Métriques personnalisées Application Insights** : vous permet de définir et d’émettre vos propres métriques pour la supervision et les alertes. Pour plus d’informations, consultez cet article relatif à l’utilisation d’une [métrique personnalisée pour Application Insights sur la nouvelle instance Azure Monitor](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
-- **Anomalies des échecs Application Insights (partie de la Détection intelligente)**  : vous avertit automatiquement en quasi temps réel si une augmentation anormale du taux des requêtes HTTP en échec ou des appels de dépendance est détectée dans votre application web. La fonctionnalité Anomalies des échecs Application Insights (partie de la Détection intelligente) sera bientôt disponible comme partie de la nouvelle instance Azure Monitor. Nous mettrons alors à jour ce document dans les prochains mois avec des liens sur la prochaine itération quand elle est sera développée.
+- **Anomalies des échecs Application Insights (partie de la Détection intelligente)**  : vous avertit automatiquement en quasi temps réel si une augmentation anormale du taux des requêtes HTTP en échec ou des appels de dépendance est détectée dans votre application web. Pour plus d’informations, consultez cet article sur l’utilisation de la [Détection intelligente des anomalies de type échec](https://docs.microsoft.com/azure/azure-monitor/app/proactive-failure-diagnostics).
 
 ## <a name="unified-metrics-and-alerts-for-other-azure-resources"></a>Métriques et alertes unifiées pour d'autres ressources Azure
 

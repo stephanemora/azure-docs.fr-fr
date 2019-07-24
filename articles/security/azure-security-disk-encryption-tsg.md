@@ -8,10 +8,10 @@ ms.author: mbaldwin
 ms.date: 03/12/2019
 ms.custom: seodec18
 ms.openlocfilehash: 35d494702673d59290a0073c55135138f533b8bf
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65956694"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Guide de rési=olution des problèmes Azure Disk Encryption
@@ -50,13 +50,13 @@ Après le redémarrage de la machine virtuelle dans le nouveau noyau, la nouvell
 uname -a
 ```
 
-## <a name="update-the-azure-virtual-machine-agent-and-extension-versions"></a>Mettre à jour l’Agent de Machine virtuelle Azure et les Versions d’Extension
+## <a name="update-the-azure-virtual-machine-agent-and-extension-versions"></a>Mettre à jour l’agent de machine virtuelle Azure et les versions d’extension
 
-Les opérations de chiffrement de disque Azure peuvent échouer sur les images de machine virtuelle à l’aide de versions non pris en charge de l’Agent de Machine virtuelle Azure. Les images Linux avec les versions antérieures à 2.2.38 de l’agent doivent être mis à jour avant l’activation du chiffrement. Pour plus d’informations, consultez [comment mettre à jour le Linux Agent Azure sur une machine virtuelle](../virtual-machines/extensions/update-linux-agent.md) et [prise en charge de la version minimale pour les agents de machine virtuelle dans Azure](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
+Les opérations Azure Disk Encryption peuvent échouer sur les images de machine virtuelle avec des versions non prises en charge de l’agent de machine virtuelle Azure. Les images Linux avec des versions d’agent antérieures à la version 2.2.38 doivent être mises à jour avant l’activation du chiffrement. Pour plus d’informations, consultez [Guide pratique pour mettre à jour l’agent Linux Azure sur une machine virtuelle](../virtual-machines/extensions/update-linux-agent.md) et [Prise en charge de version minimale pour les agents de machine virtuelle dans Azure](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
 
-La version correcte de l’extension de l’agent invité Microsoft.Azure.Security.AzureDiskEncryption ou Microsoft.Azure.Security.AzureDiskEncryptionForLinux est également requise. Versions d’extension sont conservées et mis à jour automatiquement par la plateforme lors de la configuration requise de l’agent de Machine virtuelle Azure est satisfaite et qu’une version prise en charge de l’agent de machine virtuelle est utilisée.
+La version correcte de l’extension de l’agent invité Microsoft.Azure.Security.AzureDiskEncryption ou Microsoft.Azure.Security.AzureDiskEncryptionForLinux est également requise. Les versions d’extension sont conservées et mises à jour automatiquement par la plateforme lorsque la configuration requise de l’agent de machine virtuelle Azure est satisfaite et qu’une version prise en charge de l’agent de machine virtuelle est utilisée.
 
-L’extension Microsoft.OSTCExtensions.AzureDiskEncryptionForLinux a été déconseillée et n’est plus pris en charge.  
+L’extension Microsoft.OSTCExtensions.AzureDiskEncryptionForLinux est déconseillée et n’est plus prise en charge.  
 
 ## <a name="unable-to-encrypt-linux-disks"></a>Impossible de chiffrer des disques Linux
 
@@ -64,7 +64,7 @@ Dans certains cas, le chiffrement de disque Linux semble être bloqué à l’é
 
 La séquence de chiffrement de disque du système d’exploitation Linux démonte le lecteur du système d’exploitation temporairement. Il effectue ensuite un chiffrement bloc par bloc de la totalité du disque du système d’exploitation avant de le remonter dans son état chiffré. Contrairement à Azure Disk Encryption sur Windows, le chiffrement de disque Linux n’autorise pas l’utilisation simultanée de la machine virtuelle pendant le chiffrement. Les caractéristiques de performances de la machine virtuelle peuvent faire la différence de façon significative dans le temps nécessaire pour exécuter le chiffrement. Ces caractéristiques incluent la taille du disque et si le compte de stockage est standard ou premium (SSD).
 
-Pour vérifier l’état de chiffrement, interroger la **ProgressMessage** champ renvoyé à partir de la [Get-AzVmDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) commande. Pendant le chiffrement du lecteur du système d’exploitation, la machine virtuelle passe en état de maintenance et SSH est également désactivé pour éviter toute interruption du processus en cours. Les rapports de message **EncryptionInProgress** pour la majorité du temps d’exécution du chiffrement. Plusieurs heures plus tard, un message **VMRestartPending** vous invite à redémarrer la machine virtuelle. Exemple :
+Pour vérifier l’état du chiffrement, vous pouvez interroger le champ **ProgressMessage** renvoyé à partir de la commande [Get-AzVmDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus). Pendant le chiffrement du lecteur du système d’exploitation, la machine virtuelle passe en état de maintenance et SSH est également désactivé pour éviter toute interruption du processus en cours. Les rapports de message **EncryptionInProgress** pour la majorité du temps d’exécution du chiffrement. Plusieurs heures plus tard, un message **VMRestartPending** vous invite à redémarrer la machine virtuelle. Par exemple :
 
 
 ```azurepowershell
@@ -130,7 +130,7 @@ Pour contourner ce problème, copiez les quatre fichiers suivants à partir d’
 
 1. Utilisez DiskPart pour vérifier les volumes, avant de continuer.  
 
-Exemple :
+Par exemple :
 
 ```
 DISKPART> list vol
@@ -148,11 +148,11 @@ If the expected encryption state does not match what is being reported in the po
 
 ## <a name="troubleshooting-encryption-status"></a>Résolution des problèmes de l’état de chiffrement 
 
-Le portail peut afficher un disque sous forme chiffrée, même après avoir été non chiffré au sein de la machine virtuelle.  Cela peut se produire lorsque des commandes de bas niveau sont utilisés pour déchiffrer directement le disque à partir de la machine virtuelle, au lieu d’utiliser les commandes de gestion Azure Disk Encryption au niveau supérieur.  Le niveau supérieur des commandes non seulement déchiffrer le disque à partir de la machine virtuelle, mais en dehors de la machine virtuelle ils également mettre à jour les paramètres de chiffrement au niveau importants pour les plateformes et les paramètres d’extension associés à la machine virtuelle.  Si ces ne sont pas conservées dans l’alignement, la plateforme ne sera pas en mesure de signaler l’état de chiffrement ou configurez la machine virtuelle correctement.   
+Le portail peut afficher un disque sous forme chiffrée, même après qu’il a été déchiffré au sein de la machine virtuelle.  Cela peut se produire lorsque des commandes de bas niveau sont utilisées pour déchiffrer directement le disque à partir de la machine virtuelle, au lieu des commandes de gestion Azure Disk Encryption de niveau supérieur.  Les commandes de niveau supérieur déchiffrent le disque à partir de la machine virtuelle. Toutefois, en dehors de la machine virtuelle, elles mettent aussi à jour les paramètres importants de chiffrement et d’extension au niveau de la plateforme, qui sont associés à la machine virtuelle.  S’ils ne sont pas alignés, la plateforme ne sera pas en mesure de rapporter l’état de chiffrement ou de configurer la machine virtuelle.   
 
-Pour désactiver le chiffrement de disque Azure avec PowerShell, utilisez [Disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) suivie [Remove-AzVMDiskEncryptionExtension](/powershell/module/az.compute/remove-azvmdiskencryptionextension). Remove-AzVMDiskEncryptionExtension en cours d’exécution avant la désactivation du chiffrement échoue.
+Pour désactiver Azure Disk Encryption avec PowerShell, utilisez [Disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption), puis [Remove-AzVMDiskEncryptionExtension](/powershell/module/az.compute/remove-azvmdiskencryptionextension). L’exécution de Remove-AzVMDiskEncryptionExtension en avant la désactivation du chiffrement échouera.
 
-Pour désactiver le chiffrement de disque Azure avec l’interface CLI, utilisez [désactiver le chiffrement de machine virtuelle az](/cli/azure/vm/encryption). 
+Pour désactiver Azure Disk Encryption avec l’interface CLI, utilisez [az vm encryption disable](/cli/azure/vm/encryption). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

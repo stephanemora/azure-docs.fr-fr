@@ -10,16 +10,16 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.openlocfilehash: ccafa3431e12b036346c4fd654b2978dc9021471
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65912396"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Surveiller, diagnostiquer et résoudre les problèmes liés à Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 Le diagnostic et la résolution des problèmes dans une application distribuée hébergée dans un environnement cloud peuvent s'avérer plus complexes que dans des environnements traditionnels. Les applications peuvent être déployées dans une infrastructure PaaS ou IaaS, localement, sur un appareil mobile ou dans une combinaison de ces environnements. Le trafic réseau de votre application traverse généralement des réseaux publics et privés, et votre application peut utiliser différentes technologies de stockage, comme Stockage Table, Stockage Blob, Stockage File d’attente ou Stockage Fichier de Microsoft Azure, en plus d’autres magasins de données, comme des bases de données relationnelles et de documents.
 
 Pour gérer avec succès de telles applications, vous devez les analyser de façon proactive et savoir comment diagnostiquer et résoudre n'importe quel problème associé à leur fonctionnement et leurs technologies associées. En tant qu'utilisateur des services Azure Storage, vous devez surveiller en permanence les services de stockage utilisés par votre application afin de détecter tout comportement imprévu (par ex., des temps de réponse plus lents que d'habitude), et utiliser la journalisation afin de collecter davantage de données détaillées et analyser chaque problème en profondeur. Les informations de diagnostic obtenues via l'analyse et la journalisation vous aideront à déterminer la cause première du problème rencontré par votre application. Vous pouvez alors résoudre le problème et déterminer la procédure appropriée pour y remédier. Azure Storage est l'un des principaux services de Azure et un élément essentiel de la plupart des solutions que les clients déploient dans l'infrastructure Azure. Azure Storage inclut des fonctionnalités qui permettent de simplifier l'analyse, le diagnostic et la résolution des problèmes de stockage rencontrés par vos applications sur le cloud.
@@ -247,7 +247,7 @@ La bibliothèque cliente de stockage génère automatiquement un ID de demande c
 >
 
 ### <a name="server-request-id"></a>ID de la demande serveur
-Le service de stockage génère automatiquement un ID de demande serveur.
+Le service de stockage génère automatiquement les ID de demande serveur.
 
 * Dans le journal de journalisation du stockage côté serveur, l'ID de demande serveur s'affiche dans la colonne **En-tête d’ID de demande**.
 * Dans un suivi réseau comme celui capturé par Fiddler, l'ID de demande serveur s'affiche dans les messages de réponse comme valeur d'en-tête HTTP **x-ms-request-id** .
@@ -426,7 +426,7 @@ Si la métrique **PercentThrottlingError** indique une augmentation du pourcenta
 Une augmentation de la valeur **PercentThrottlingError** se produit souvent en même temps qu'une augmentation du nombre de demandes de stockage, ou lors des tests initiaux de la charge de votre application. Elle peut également se manifester dans le client sous forme de messages d’état HTTP « 503 Server Busy » ou « 500 Operation Timeout » à partir des opérations de stockage.
 
 #### <a name="transient-increase-in-PercentThrottlingError"></a>Augmentation provisoire de la valeur PercentThrottlingError
-Si vous constatez des pics de la valeur **PercentThrottlingError** qui coïncident avec des périodes de forte activité de l’application, implémentez une stratégie d’interruption des nouvelles tentatives exponentielle (non linéaire) dans votre client. Les tentatives d’interruption réduisent la charge immédiate sur la partition et aident votre application à aplanir les pics de trafic. Pour plus d’informations sur la façon d’implémenter des stratégies de nouvelle tentative à l’aide de la bibliothèque cliente de stockage, consultez le [espace de noms Microsoft.Azure.Storage.RetryPolicies](/dotnet/api/microsoft.azure.storage.retrypolicies).
+Si vous constatez des pics de la valeur **PercentThrottlingError** qui coïncident avec des périodes de forte activité de l’application, implémentez une stratégie d’interruption des nouvelles tentatives exponentielle (non linéaire) dans votre client. Les tentatives d’interruption réduisent la charge immédiate sur la partition et aident votre application à aplanir les pics de trafic. Pour plus d’informations sur la façon d’implémenter des stratégies de nouvelle tentative à l’aide de la bibliothèque cliente de stockage, voir [Espace de noms Microsoft.Azure.Storage.RetryPolicies](/dotnet/api/microsoft.azure.storage.retrypolicies).
 
 > [!NOTE]
 > Vous pouvez également constater des pics de la valeur **PercentThrottlingError** qui ne coïncident pas avec des périodes de forte activité de l’application. La cause la plus probable est le déplacement de partitions, par le service de stockage, pour améliorer l’équilibrage de la charge.
@@ -810,14 +810,14 @@ Plus d’informations sont disponibles dans [Présentation d’Application Insig
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur analytique dans le stockage Azure, consultez ces ressources :
+Pour plus d’informations sur Analytics dans Stockage Azure, consultez ces ressources :
 
 * [Surveiller un compte de stockage dans le portail Azure](storage-monitor-storage-account.md)
-* [Analytique de stockage](storage-analytics.md)
-* [Métriques de stockage analytique](storage-analytics-metrics.md)
-* [Schéma de table de métriques Storage analytique](/rest/api/storageservices/storage-analytics-metrics-table-schema)
-* [Journaux d’analytique de stockage](storage-analytics-logging.md)
-* [Format de stockage de journal analytique](/rest/api/storageservices/storage-analytics-log-format)
+* [Storage Analytics](storage-analytics.md)
+* [Métriques de Storage Analytics](storage-analytics-metrics.md)
+* [Schéma de table de métriques Storage Analytics](/rest/api/storageservices/storage-analytics-metrics-table-schema)
+* [Journaux d’activité Storage Analytics](storage-analytics-logging.md)
+* [Format de journal d’activité Storage Analytics](/rest/api/storageservices/storage-analytics-log-format)
 
 <!--Anchors-->
 [Introduction]: #introduction

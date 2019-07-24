@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
-ms.openlocfilehash: b94d59b55a62797e142768dc84ec499d714bd067
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: a3cd1fe69a0d99f9faf3a451f76a3a420d713711
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67479138"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67795213"
 ---
 # <a name="adding-custom-resources-to-azure-rest-api"></a>Ajout de ressources personnalisées à l’API REST Azure
 
@@ -106,7 +106,7 @@ az resource create --is-full-object \
 
 Paramètre | Obligatoire | Description
 ---|---|---
-is-full-object | *Oui* | Indique que l’objet de propriétés inclut d’autres options telles que l’emplacement, des balises, une référence (SKU) et/ou un plan.
+is-full-object | *Oui* | Indique que l’objet properties inclut d’autres options telles que l’emplacement, les étiquettes, une référence SKU et/ou un plan.
 id | *Oui* | ID de ressource de la ressource personnalisée. Il doit provenir de **ResourceProvider**
 properties | *Oui* | Corps de la demande qui sera envoyé au **point de terminaison**.
 
@@ -185,7 +185,8 @@ customResourceName | *Oui* | Nom de la ressource personnalisée.
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Vue d’ensemble des fournisseurs de ressources personnalisées Azure](./custom-providers-overview.md)
-- [Tutoriel : Créer un fournisseur de ressources personnalisé Azure et déployer des ressources personnalisées](./create-custom-provider.md)
+- [Démarrage rapide : Créer un fournisseur de ressources personnalisées Azure et déployer des ressources personnalisées](./create-custom-provider.md)
+- [Tutoriel : Créer des actions et des ressources personnalisées dans Azure](./tutorial-custom-providers-101.md)
 - [Guide pratique pour Ajout d’actions personnalisées à l’API REST Azure](./custom-providers-action-endpoint-how-to.md)
 - [Reference : Informations de référence sur les proxys de ressources personnalisées](./custom-providers-proxy-resource-endpoint-reference.md)
 - [Reference : Informations de référence sur les caches de ressources personnalisées](./custom-providers-proxy-cache-resource-endpoint-reference.md)

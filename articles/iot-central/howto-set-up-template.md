@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 7fb0fba519a7833ac318c713dc9eb3c6ac7f8b5b
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: d27fd9460685c08a2b13936415935f5aaf893797
+ms.sourcegitcommit: dda9fc615db84e6849963b20e1dce74c9fe51821
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509550"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67622409"
 ---
 # <a name="set-up-a-device-template"></a>Configurer un modèle d’appareil
 
@@ -150,7 +150,7 @@ assetloc: {
 
 ## <a name="settings"></a>Paramètres
 
-Les paramètres contrôlent un appareil. Ils permettent aux opérateurs de fournir des entrées à l’appareil. Vous pouvez ajouter plusieurs paramètres à votre modèle d’appareil qui apparaissent sous forme de vignettes sous l’onglet **Paramètres**, que les opérateurs peuvent utiliser. Vous pouvez ajouter six types de paramètres : nombre, texte, date, bascule, liste de choix et étiquette de section.
+Les paramètres contrôlent un appareil. Ils permettent aux opérateurs de fournir des entrées à l’appareil. Vous pouvez ajouter plusieurs paramètres à votre modèle d’appareil qui apparaissent sous forme de vignettes sous l’onglet **Paramètres**, que les opérateurs peuvent utiliser. Vous pouvez ajouter six types de paramètres : nombre, texte, date, bascule et étiquette de section.
 
 Les paramètres peuvent avoir un parmi trois états. L’appareil signale ces états.
 

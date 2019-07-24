@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.service: cost-management
 ms.custom: seodec18
 ms.openlocfilehash: 6a4f7f5671562679a245d97ad8491764657cbb34
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66242464"
 ---
 # <a name="add-extended-metrics-for-azure-virtual-machines"></a>Ajouter des métriques étendues pour les machines virtuelles Azure
@@ -28,7 +28,7 @@ Une fois que vous avez activé la collecte de métriques, vous pouvez :
 - Contrôler les coûts en effectuant un redimensionnement en fonction de l’utilisation.
 - Obtenir des recommandations d’optimisation du dimensionnement à moindre frais provenant de Cloudyn.
 
-Par exemple, vous pouvez souhaiter surveiller les pourcentages d’utilisation de l’UC et de la mémoire de vos machines virtuelles Azure. Les métriques de machine virtuelle Azure correspondent aux _pourcentage d’UC_ et _\memory\\% d’octets dédiés utilisés_.
+Par exemple, vous pouvez souhaiter surveiller les pourcentages d’utilisation de l’UC et de la mémoire de vos machines virtuelles Azure. Les métriques des machines virtuelles Azure correspondent à _Pourcentage d’UC_ et _\Mémoire\% octets validés en cours d’utilisation_.
 
 > [!NOTE]
 > La collecte de données de métriques étendue est prise en charge uniquement avec la supervision d’invités Azure. Cloudyn n’est pas compatible avec l’extension de machine virtuelle de journaux Azure Monitor.
@@ -44,7 +44,7 @@ Dans l’exemple précédent, un ensemble limité de métriques standard est dis
 
 ## <a name="enable-extended-metrics-in-the-azure-portal"></a>Activer les métriques étendues dans le portail Azure
 
-Les métriques standard sont des métriques d’hôte. Le _pourcentage d’UC_ métrique est un exemple. Il existe également des métriques de base pour les machines virtuelles invitées ; elles sont également appelées « métriques étendues ». Exemples de métriques étendues _\memory\\% d’octets dédiés utilisés_ et _\Memory\Available_.
+Les métriques standard sont des métriques d’hôte. La métrique _Pourcentage d’UC_ en est un exemple. Il existe également des métriques de base pour les machines virtuelles invitées ; elles sont également appelées « métriques étendues ». Voici quelques exemples de métriques étendues : _\Mémoire\% octets validés en cours d’utilisation_ et _\Mémoire\Octets disponibles_.
 
 L’activation des métriques étendues est simple. Pour chaque machine virtuelle, activez la surveillance d’invités. Quand vous activez la surveillance d’invités, l’agent de diagnostics Azure est installé sur la machine virtuelle. Par défaut, un ensemble de métriques étendues de base est ajouté. Le processus suivant est le même pour les machines virtuelles classiques et normales et le même pour les machines virtuelles Windows et Linux.
 

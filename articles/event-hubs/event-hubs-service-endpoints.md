@@ -11,20 +11,20 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 03/12/2019
 ms.author: shvija
-ms.openlocfilehash: 7b5a62f81238d1ae2b627c395613066350b36efe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 15912ce2e100a4317e775d72972ca6eacfac0d42
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60343441"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080534"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Utiliser des points de terminaison de service de réseau virtuel avec Azure Event Hubs
 
 L’intégration d’Event Hubs à des [points de terminaison de service de réseau virtuel (VNet)][vnet-sep] permet de sécuriser l’accès aux fonctionnalités de messagerie à partir de charges de travail, notamment celles de machines virtuelles liées à des réseaux virtuels. Le chemin du trafic réseau est sécurisé aux deux extrémités.
 
-Une fois configuré pour lié au moins un point de terminaison de service sous-réseau réseau virtuel, les noms de Event Hubs respectifs ne sont plus accepte le trafic à partir de n’importe quel endroit mais autorisé de sous-réseaux de réseaux virtuels. Du point de vue du réseau virtuel, la liaison d’un espace de noms Event Hubs à un point de terminaison de service configure un tunnel de mise en réseau isolé allant du sous-réseau de réseau virtuel au service de messagerie. 
+Une fois configuré pour être lié à au moins un point de terminaison de service de sous-réseau de réseau virtuel, l’espace de noms Event Hubs respectif n’accepte que le trafic provenant de sous-réseaux autorisés dans les réseaux virtuels. Du point de vue du réseau virtuel, la liaison d’un espace de noms Event Hubs à un point de terminaison de service configure un tunnel de mise en réseau isolé allant du sous-réseau de réseau virtuel au service de messagerie. 
 
-Il en résulte une relation privée et isolée entre les charges de travail liées au sous-réseau et l’espace de noms Event Hubs respectif, et ce malgré le fait que l’adresse réseau observable du point de terminaison du service de messagerie figure dans une plage d’adresses IP publique. Il existe une exception à ce comportement. L’activation d’un point de terminaison de service, par défaut, permet à la règle denyall dans le pare-feu IP associée au réseau virtuel. Vous pouvez ajouter des adresses IP spécifiques dans le pare-feu IP pour permettre l’accès au point de terminaison public Event Hub. 
+Il en résulte une relation privée et isolée entre les charges de travail liées au sous-réseau et l’espace de noms Event Hubs respectif, et ce malgré le fait que l’adresse réseau observable du point de terminaison du service de messagerie figure dans une plage d’adresses IP publique. Toutefois, il existe une exception à ce comportement. Par défaut, l’activation d’un point de terminaison de service permet à la règle denyall du pare-feu IP associée au réseau virtuel. Vous pouvez ajouter des adresses IP spécifiques dans le pare-feu IP pour permettre l’accès au point de terminaison public Event Hub. 
 
 
 >[!WARNING]
@@ -41,7 +41,7 @@ Il en résulte une relation privée et isolée entre les charges de travail lié
 > - Explorateur de données Azure
 >
 > Les services Microsoft suivants doivent être sur un réseau virtuel
-> - Azure Web Apps 
+> - Azure Web Apps
 > - Azure Functions
 
 > [!IMPORTANT]
@@ -49,7 +49,7 @@ Il en résulte une relation privée et isolée entre les charges de travail lié
 
 ## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>Scénarios de sécurité avancés pris en charge par l’intégration à VNet 
 
-Solutions nécessitant une sécurité étroite et COMPARTIMENTEES et où les sous-réseaux du réseau virtuel fournissent la segmentation entre les services COMPARTIMENTEES, doivent toujours les voies de communication entre les services résidant dans ces compartiments.
+En général, les solutions nécessitant une sécurité étroite et compartimentée et dans lesquelles les sous-réseaux de réseau virtuel assurent la segmentation entre les services compartimentés ont encore besoin de chemins de communication entre les services résidant dans ces compartiments.
 
 Toute route IP immédiate entre les compartiments, notamment celles acheminant le trafic HTTPS sur TCP/IP, comporte un risque d’exploitation des vulnérabilités émanant de la couche réseau. Les services de messagerie fournissent des chemins de communication complètement isolés, les messages étant même écrits sur disque à mesure qu’ils passent d’une partie à une autre. Les charges de travail dans deux réseaux virtuels distincts qui sont tous les deux liés à la même instance d’Event Hubs peuvent communiquer de manière efficace et fiable au moyen de messages, sans aucun impact sur l’intégrité des limites d’isolement de chaque réseau.
  
@@ -71,7 +71,7 @@ Paramètres du modèle :
 
 * **namespaceName** : espace de noms Event Hubs.
 * **vnetRuleName** : nom de la règle de réseau virtuel à créer.
-* **virtualNetworkingSubnetId** : chemin complet de Resource Manager pour le sous-réseau de réseau virtuel, par exemple `subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` pour le sous-réseau par défaut d’un réseau virtuel.
+* **virtualNetworkingSubnetId** : chemin complet de Resource Manager pour le sous-réseau de réseau virtuel, par exemple `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` pour le sous-réseau par défaut d’un réseau virtuel.
 
 > [!NOTE]
 > Bien qu’il n’existe aucune règle de refus possible, l’action par défaut du modèle Azure Resource Manager est **Autoriser**, ce qui ne restreint pas les connexions.

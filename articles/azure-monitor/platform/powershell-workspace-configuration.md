@@ -1,6 +1,6 @@
 ---
 title: Utiliser PowerShell pour créer et configurer un espace de travail Log Analytics | Microsoft Docs
-description: Espaces de travail log Analytique dans Azure Monitor stockent des données à partir de serveurs dans votre réseau local ou d’infrastructure cloud. Vous pouvez collecter des données de la machine à partir du stockage Azure lorsqu’elles sont générées par les diagnostics Azure.
+description: Les espaces de travail Log Analytics dans Azure Monitor stockent les données des serveurs dans votre infrastructure locale ou dans le cloud. Vous pouvez collecter des données de la machine à partir du stockage Azure lorsqu’elles sont générées par les diagnostics Azure.
 services: log-analytics
 author: bwren
 ms.service: log-analytics
@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.date: 05/19/2019
 ms.author: bwren
 ms.openlocfilehash: 36cb2462a47f9d175ca25bbbde46a14009637db0
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65907882"
 ---
-# <a name="manage-log-analytics-workspace-in-azure-monitor-using-powershell"></a>Gérer l’espace de travail Analytique de journal dans Azure Monitor à l’aide de PowerShell
+# <a name="manage-log-analytics-workspace-in-azure-monitor-using-powershell"></a>Gérer un espace de travail Log Analytics dans Azure Monitor à l’aide de PowerShell
 
-Vous pouvez utiliser la [applets de commande PowerShell d’Analytique de journal](https://docs.microsoft.com/powershell/module/az.operationalinsights/) pour effectuer diverses fonctions sur un journal Analytique espace de travail dans Azure Monitor à partir d’une ligne de commande ou dans le cadre d’un script.  Voici quelques exemples des tâches que vous pouvez effectuer avec PowerShell :
+Vous pouvez utiliser les [cmdlets PowerShell Log Analytics](https://docs.microsoft.com/powershell/module/az.operationalinsights/) pour exécuter diverses fonctions au sein d’un espace de travail Log Analytics dans Azure Monitor à partir d’une ligne de commande ou dans le cadre d’un script.  Voici quelques exemples des tâches que vous pouvez effectuer avec PowerShell :
 
 * Créer un espace de travail
 * Ajouter ou supprimer une solution
@@ -38,7 +38,7 @@ Cet article fournit deux exemples de code qui illustrent quelques-unes des fonct
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Ces exemples fonctionnent avec la version 1.0.0 ou ultérieure du module Az.OperationalInsights.
 
 
@@ -194,29 +194,29 @@ Dans l’exemple ci-dessus regexDelimiter a été défini comme « \\n » pour
 | `dd/MMM/yyyy:HH:mm:ss +zzzz` <br> sachant que + est le signe + ou le signe - <br> sachant que zzzz est le décalage de temps | `(([0-2][1-9]\|[3][0-1])\\\\/(Jan\|Feb\|Mar\|Apr\|May\|Jun\|Jul\|Aug\|Sep\|Oct\|Nov\|Dec)\\\\/((19\|20)[0-9][0-9]):([0][0-9]\|[1][0-2]):([0-5][0-9]):([0-5][0-9])\\\\s[\\\\+\|\\\\-][0-9]{4})` | | |
 | `yyyy-MM-ddTHH:mm:ss` <br> Le T est la lettre T | `((\\\\d{2})\|(\\\\d{4}))-([0-1]\\\\d)-(([0-3]\\\\d)\|(\\\\d))T((\\\\d)\|([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9]` | | |
 
-## <a name="configuring-log-analytics-to-send-azure-diagnostics"></a>Configuration d’Analytique de journal à envoyer des diagnostics Azure
-Pour une analyse sans agent des ressources Azure, celles-ci doivent avoir les diagnostics Azure activés et configurés pour écrire dans un espace de travail Log Analytics. Cette approche envoie des données directement à l’espace de travail et ne nécessite pas de données à écrire dans un compte de stockage. Les ressources prises en charge sont les suivantes :
+## <a name="configuring-log-analytics-to-send-azure-diagnostics"></a>Configuration de Log Analytics pour envoyer les diagnostics Azure
+Pour une analyse sans agent des ressources Azure, celles-ci doivent avoir les diagnostics Azure activés et configurés pour écrire dans un espace de travail Log Analytics. Cette approche a pour effet d’envoyer des données directement dans l’espace de travail et ne nécessite pas d’écriture de données dans un compte de stockage. Les ressources prises en charge sont les suivantes :
 
 | Type de ressource | Journaux d’activité | Mesures |
 | --- | --- | --- |
-| Passerelles d’application    | Oui | Oui |
-| Comptes Automation     | Oui | |
-| Comptes Batch          | Oui | Oui |
-| Data Lake analytics     | Oui | |
-| Data Lake Store         | Oui | |
-| Pool élastique SQL        |     | Oui |
-| Espace de noms Event Hub     |     | Oui |
-| IoT Hubs                |     | Oui |
-| Key Vault               | Oui | |
-| Équilibreurs de charge          | Oui | |
-| Logic Apps              | Oui | Oui |
-| Network Security Group | Oui | |
-| Cache Azure pour Redis             |     | Oui |
-| Services de recherche         | Oui | Oui |
-| Espace de noms Service Bus   |     | Oui |
-| SQL (v12)               |     | Oui |
-| Sites web               |     | Oui |
-| Batteries de serveurs web        |     | Oui |
+| Passerelles d’application    | OUI | OUI |
+| Comptes Automation     | OUI | |
+| Comptes Batch          | OUI | OUI |
+| Data Lake analytics     | OUI | |
+| Data Lake Store         | OUI | |
+| Pool élastique SQL        |     | OUI |
+| Espace de noms Event Hub     |     | OUI |
+| IoT Hubs                |     | OUI |
+| Key Vault               | OUI | |
+| Équilibreurs de charge          | OUI | |
+| Logic Apps              | OUI | OUI |
+| Network Security Group | OUI | |
+| Cache Azure pour Redis             |     | OUI |
+| Services de recherche         | OUI | OUI |
+| Espace de noms Service Bus   |     | OUI |
+| SQL (v12)               |     | OUI |
+| Sites web               |     | OUI |
+| Batteries de serveurs web        |     | OUI |
 
 Pour plus d’informations sur les métriques disponibles, voir [Mesures prises en charge avec Azure Monitor](../../azure-monitor/platform/metrics-supported.md).
 
@@ -233,15 +233,15 @@ Set-AzDiagnosticSetting -ResourceId $resourceId -WorkspaceId $workspaceId -Ena
 Vous pouvez également utiliser l’applet de commande précédente pour collecter des journaux d’activité à partir de ressources qui se trouvent dans différents abonnements. La cmdlet peut fonctionner sur différents abonnements dans la mesure où vous fournissez les ID de la ressource qui crée les journaux d’activité et de l’espace de travail auquel les journaux d’activité sont envoyés.
 
 
-## <a name="configuring-log-analytics-workspace-to-collect-azure-diagnostics-from-storage"></a>Configuration d’espace de travail Analytique des journaux pour collecter des diagnostics Azure à partir du stockage
-Pour collecter des données de journal à partir d’une instance en cours d’exécution d’un service cloud classique ou d’un cluster Service Fabric, vous devez commencer par écrire les données dans le Stockage Azure. Un espace de travail Analytique de journal est ensuite configuré pour collecter les journaux à partir du compte de stockage. Les ressources prises en charge sont les suivantes :
+## <a name="configuring-log-analytics-workspace-to-collect-azure-diagnostics-from-storage"></a>Configuration de l’espace de travail Log Analytics pour collecter les diagnostics Azure à partir du stockage
+Pour collecter des données de journal à partir d’une instance en cours d’exécution d’un service cloud classique ou d’un cluster Service Fabric, vous devez commencer par écrire les données dans le Stockage Azure. Vous pouvez ensuite configurer un espace de travail Log Analytics pour collecter les journaux d’activité du compte de stockage. Les ressources prises en charge sont les suivantes :
 
 * Services cloud classiques (rôles de travail et web)
 * Clusters Service Fabric
 
 L’exemple suivant montre comment :
 
-1. Répertorier les comptes de stockage existants et les emplacements de l’espace de travail doit indexer les données à partir de
+1. Répertorier les emplacements et les comptes de stockage existants à partir desquels l’espace de travail indexe les données
 2. Créer une configuration pour lire à partir d’un compte de stockage
 3. Mettre à jour la configuration créée pour indexer les données à partir d’emplacements supplémentaires
 4. Supprimer la configuration créée

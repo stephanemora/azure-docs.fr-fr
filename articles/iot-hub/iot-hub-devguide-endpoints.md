@@ -7,13 +7,13 @@ ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 07/18/2018
-ms.openlocfilehash: 5854a795ba7ceeeb4512f1e2fd16d98826d55dd5
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.date: 06/10/2019
+ms.openlocfilehash: 50a1e0a6bfa6fe33f432548a4a0b485134a60c72
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66477992"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055342"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Référence - Points de terminaison IoT Hub
 
@@ -82,14 +82,14 @@ IoT Hub prend actuellement en charge les services Azure suivants en tant que poi
 
 Pour connaître les limites du nombre de points de terminaison que vous pouvez ajouter, consultez [Quotas et limitation](iot-hub-devguide-quotas-throttling.md).
 
-Vous pouvez utiliser l’API REST [obtenir de l’intégrité du point de terminaison](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) pour obtenir l’état d’intégrité des points de terminaison. Nous vous recommandons d’utiliser le [métriques IoT Hub](iot-hub-metrics.md) associées à la latence de message routage pour identifier et déboguer des erreurs lors de l’intégrité du point de terminaison est mort ou défectueux, comme nous l’attendions latence sont plus élevés lorsque le point de terminaison est dans un de ces États.
+Vous pouvez utiliser l’API REST [Get Endpoint Health](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) pour obtenir l’état d’intégrité des points de terminaison. Nous vous recommandons d’utiliser les [métriques IoT Hub](iot-hub-metrics.md) associées à la latence de routage des messages pour identifier et déboguer des erreurs lorsque le point de terminaison est inactif ou n’est pas sain, car nous nous attendons à ce que la latence soit plus élevée lorsque le point de terminaison se trouve dans l’un des états indiqués ci-dessous.
 
 |État d’intégrité|Description|
 |---|---|
 |healthy|Le point de terminaison accepte des messages comme prévu.|
-|défectueux|Le point de terminaison n’accepte pas les messages comme prévu et IoT Hub est une nouvelle tentative pour envoyer des données à ce point de terminaison. L’état d’un point de terminaison défectueux est être mis à jour intègre IoT Hub a établi un état cohérent d’intégrité.|
-|unknown|IoT Hub n’a pas établi une connexion avec le point de terminaison. Aucun message ont été remis à ou rejetée à partir de ce point de terminaison.|
-|lettres mortes|Le point de terminaison n’accepte pas les messages, après l’exécution de IoT Hub envoi de messages pour la période retrial.|
+|unhealthy|Le point de terminaison n’accepte pas les messages comme prévu, et IoT Hub réessaie d’envoyer des données à ce point de terminaison. L’état d’un point de terminaison non sain doit être mis à jour vers l’état sain si IoT Hub a établi un état cohérent d’intégrité.|
+|unknown|IoT Hub n’a pas établi une connexion avec le point de terminaison. Aucun message n’a été remis à ce point de terminaison ni rejeté par celui-ci.|
+|dead|Le point de terminaison n’accepte pas les messages une fois que IoT Hub a réessayé d’envoyer des messages pendant la nouvelle période d’essai.|
 
 ## <a name="field-gateways"></a>Passerelles de champ
 

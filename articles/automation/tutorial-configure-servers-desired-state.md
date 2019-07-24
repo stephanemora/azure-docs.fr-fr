@@ -9,12 +9,12 @@ ms.author: robreed
 manager: carmonm
 ms.topic: conceptual
 ms.date: 08/08/2018
-ms.openlocfilehash: 582533d23757de748b9cc7d40e45acc00240d384
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 3bcdb667ee649b9bbf32ad33e74e876cdd2b5cbf
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60599726"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67144196"
 ---
 # <a name="configure-servers-to-a-desired-state-and-manage-drift"></a>Configurer les serveurs à l’état souhaité et gérer la dérive
 
@@ -27,7 +27,7 @@ Azure Automation State Configuration vous permet de spécifier des configuration
 > - Attribuer une configuration de nœud à un nœud géré
 > - Vérifier l’état de conformité d’un nœud géré
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
@@ -145,6 +145,27 @@ $reports = Get-AzureRmAutomationDscNodeReport -ResourceGroupName 'MyResourceGrou
 # Display the most recent report
 $reports[0]
 ```
+
+## <a name="removing-nodes-from-service"></a>Suppression de nœuds d’un service
+
+Lorsque vous ajoutez un nœud dans Azure Automation State Configuration, les paramètres du Gestionnaire de configuration local sont définis de manière à être inscrits avec les configurations de service et d’extraction, et les modules requis pour configurer l’ordinateur.
+Si vous choisissez de supprimer le nœud à partir du service, vous pouvez le faire à l’aide du portail Microsoft Azure ou des cmdlets Az.
+
+> [!NOTE]
+> L’annulation de l’enregistrement d’un nœud à partir du service définit uniquement les paramètres du Gestionnaire de configuration local de sorte que le nœud ne se connecte plus au service.
+> Cela n’affecte pas la configuration actuellement appliquée au nœud.
+> Pour supprimer la configuration actuelle, utilisez [PowerShell](https://docs.microsoft.com/powershell/module/psdesiredstateconfiguration/remove-dscconfigurationdocument?view=powershell-5.1) ou supprimez le fichier de configuration local (il s’agit de la seule option pour les nœuds Linux).
+
+### <a name="azure-portal"></a>Portail Azure
+
+À partir d’Azure Automation, cliquez sur **Configuration d'état (DSC)** dans la table des matières.
+Cliquez ensuite sur **Nœuds** pour afficher la liste de nœuds qui sont inscrits auprès du service.
+Cliquez sur le nom du nœud que vous souhaitez supprimer.
+Dans la vue du nœud qui s’ouvre, cliquez sur **Annuler l’enregistrement**.
+
+### <a name="powershell"></a>PowerShell
+
+Pour annuler l’inscription d’un nœud à partir du service Azure Automation State Configuration à l’aide de PowerShell, consultez la documentation relative à la cmdlet [Unregister-AzAutomationDscNode](https://docs.microsoft.com/powershell/module/az.automation/unregister-azautomationdscnode?view=azps-2.0.0).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

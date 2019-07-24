@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 26935b53d8f852289513a5a7b5d31e3befe3e3b2
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66002250"
 ---
 # <a name="lucene-query-syntax-in-azure-search"></a>Syntaxe des requêtes Lucene dans Recherche Azure
@@ -79,7 +79,7 @@ L’exemple ci-dessus concerne le tilde (~), mais le même principe s’applique
  Les caractères spéciaux doivent être placés en échappement pour être utilisé comme partie du texte de recherche. Vous pouvez les placer en échappement en les préfixant d’une barre oblique inverse (\\). Les caractères spéciaux qui doivent être placés en échappement sont les suivants :  
 `+ - && || ! ( ) { } [ ] ^ " ~ * ? : \ /`  
 
- Par exemple, pour la séquence d’échappement de caractère générique, utilisez \\ \*.
+ Par exemple, pour placer en échappement un caractère générique, utilisez \\\*.
 
 ### <a name="encoding-unsafe-and-reserved-characters-in-urls"></a>Encodage de caractères dangereux et réservés dans les URL
 
@@ -121,8 +121,8 @@ L’utilisation de `searchMode=all` augmente la précision des requêtes en incl
 ##  <a name="bkmk_searchscoreforwildcardandregexqueries"></a> Scoring des requêtes avec des caractères génériques et des expressions régulières
  Recherche Azure utilise sur un scoring basé sur la fréquence ([TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)) pour les requêtes de texte. Cependant, pour les requêtes avec des caractères génériques et des expressions régulières où l’étendue des termes est potentiellement vaste, le facteur de fréquence est ignoré pour empêcher que le classement soit faussé par les correspondances avec des termes plus rares. Toutes les correspondances sont traitées de façon égale pour les recherches avec des caractères génériques et avec des expressions régulières.
 
-##  <a name="bkmk_fields"></a> Recherche portant sur un champ  
-Vous pouvez définir une opération de recherche portant sur un champ avec le `fieldName:searchExpression` syntaxe, où l’expression de recherche peut être un mot ou une expression ou une expression plus complexe entre parenthèses, éventuellement avec des opérateurs booléens. Voici quelques exemples :  
+##  <a name="bkmk_fields"></a> Recherche par champ  
+Vous pouvez définir une opération de recherche par champ avec la syntaxe `fieldName:searchExpression`, où l’expression de recherche peut être un mot ou une phrase, ou une expression plus complexe entre parenthèses, éventuellement avec des opérateurs booléens. Voici quelques exemples :  
 
 - genre:jazz NOT history  
 
@@ -133,14 +133,14 @@ Veillez à placer les chaînes multiples entre guillemets si vous voulez que les
 Le champ spécifié dans `fieldName:searchExpression` doit être un champ `searchable`.  Pour plus d’informations sur l’utilisation des attributs d’index dans les définitions de champs, consultez [Créer un index ](https://docs.microsoft.com/rest/api/searchservice/create-index).  
 
 > [!NOTE]
-> Lors de l’aide aucune question pourra traitée expressions de recherche, il est inutile d’utiliser le `searchFields` paramètre, car chacun aucune question pourra traitée d’expression de recherche a un nom de champ spécifié explicitement. Toutefois, vous pouvez toujours utiliser le `searchFields` paramètre si vous souhaitez exécuter une requête dans laquelle certaines parties sont limités à un champ spécifique, le reste peut s’appliquer à plusieurs champs. Par exemple, la requête `search=genre:jazz NOT history&searchFields=description` correspondrait à `jazz` uniquement à la `genre` champ, alors qu’elle correspondrait `NOT history` avec le `description` champ. Le nom de champ fourni dans `fieldName:searchExpression` a toujours priorité sur les `searchFields` paramètre, qui est la raison pour laquelle il est dans cet exemple, nous n’avez pas besoin d’inclure `genre` dans le `searchFields` paramètre.
+> Lorsque vous utilisez des expressions de recherche par champ, il est inutile d’utiliser le paramètre `searchFields`, car chaque expression de recherche par champ a un nom de champ spécifié explicitement. Cependant, vous pouvez toujours utiliser le paramètre `searchFields` si vous voulez exécuter une requête où certaines parties sont limitées à un champ spécifique, et le reste peut s’appliquer à plusieurs champs. Par exemple, la requête `search=genre:jazz NOT history&searchFields=description` ne correspondrait à `jazz` qu’au niveau du champ `genre`, alors qu’elle correspondrait au champ `NOT history` avec le champ `description`. Le nom du champ fourni dans `fieldName:searchExpression` a toujours priorité sur le paramètre `searchFields`, c’est pourquoi dans cet exemple, nous n’avons pas besoin d’inclure `genre` dans le paramètre `searchFields`.
 
 ##  <a name="bkmk_fuzzy"></a> Recherche approximative  
  Une recherche partielle recherche des correspondances dans les termes qui ont une construction similaire. D’après la [documentation Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), les recherches partielles sont basées sur la [Distance Levenshtein-Damerau](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance). Les recherches approximatives peuvent développer un terme jusqu’à un maximum de 50 termes qui répondent aux critères de distance. 
 
  Pour effectuer une recherche approximative, utilisez le symbole « ~ » (tilde) à la fin d’un mot avec un paramètre facultatif, un nombre compris entre 0 et 2 (la valeur par défaut), qui spécifie la distance de modification. Par exemple, « blue~ » ou « blue~1 » retournent « blue », « blues » et « glue ».
 
- La recherche partielle est applicable uniquement pour les termes du contrat, pas d’expressions, mais vous pouvez ajouter le tilde à chaque terme individuellement dans un nom en plusieurs parties ou d’une expression. Par exemple, « Unviersty ~ de ~ « Wshington ~ » correspondrait à sur « Université de Washington ».
+ La recherche partielle est applicable uniquement pour les termes, et non les expressions, mais vous pouvez ajouter le tilde à chaque terme individuel dans un nom en plusieurs parties ou une expression. Par exemple, « Unviersté~ de~ « Wshington~ » correspondrait à « Université de Washington ».
  
 
 ##  <a name="bkmk_proximity"></a> Recherche de proximité  

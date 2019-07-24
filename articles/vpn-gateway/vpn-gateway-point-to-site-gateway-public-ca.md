@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: cherylmc
 ms.openlocfilehash: 1d45e1a5e4053ead4330967c5e250c0797c19fe7
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65827466"
 ---
 # <a name="transition-to-a-public-ca-gateway-certificate-for-p2s"></a>Passer à un certificat de passerelle d’autorité de certification public pour P2S
@@ -29,7 +29,7 @@ Auparavant, un certificat auto-signé destiné à la passerelle (émis en arriè
 Seules les passerelles les plus anciennes sont concernées par ce changement. Si votre certificat de passerelle doit être remplacé, vous recevrez un message ou une notification toast sur le portail Azure. Pour savoir si votre passerelle est concernée, suivez les étapes décrites dans cet article.
 
 > [!IMPORTANT]
-> La transition vers les certificats d’autorité de certification publique a été effectuée sur le 12 mai 2019. **Ce document sera supprimé sur le 31 mai 2019.**
+> La transition vers les certificats d’autorité de certification publics a été effectuée le 12 mai 2019. **Ce document a été supprimé le 31 mai 2019.**
 
 ## <a name="1-verify-your-certificate"></a>1. Vérifiez votre certificat
 

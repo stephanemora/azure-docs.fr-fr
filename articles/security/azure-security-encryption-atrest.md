@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/07/2019
+ms.date: 07/02/2019
 ms.author: barclayn
-ms.openlocfilehash: d0974b98975b8f7d09760be964024f92e9690a4e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 60f3bedb86304bf7d407710b07d9732afb6e8b05
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65596386"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67566086"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Chiffrement des données au repos d’Azure
 
@@ -212,7 +212,7 @@ Les clients SaaS (Software as a Service) ont généralement le chiffrement au re
 
 ### <a name="encryption-at-rest-for-paas-customers"></a>Chiffrement au repos pour les clients PaaS
 
-Les données des clients PaaS (Platform as a Service) se trouvent généralement dans un environnement d’exécution d’applications et un des fournisseurs de ressources Azure est utilisé pour stocker les données du client. Pour connaître les options de chiffrement au repos disponibles, consultez le tableau ci-dessous pour les plateformes de stockage et d’applications que vous utilisez. Quand elles sont prises en charge, des liens vers des instructions sur l’activation du chiffrement au repos sont présents pour chaque fournisseur de ressources.
+Les données des clients PaaS (Platform as a Service) résident généralement dans un service de stockage tel que le Stockage Blob, mais peuvent également être mises en cache ou stockées dans l’environnement d’exécution des applications, par exemple, une machine virtuelle. Pour connaître les options de chiffrement au repos disponibles, consultez le tableau ci-dessous pour les plateformes de stockage et d’applications que vous utilisez.
 
 ### <a name="encryption-at-rest-for-iaas-customers"></a>Chiffrement au repos pour les clients IaaS
 
@@ -220,11 +220,11 @@ Les clients IaaS (Infrastructure as a Service) peuvent utiliser différents serv
 
 #### <a name="encrypted-storage"></a>Stockage chiffré
 
-Comme pour PaaS, les solutions IaaS peuvent tirer parti d’autres services Azure qui stockent les données chiffrées au repos. Dans ce cas, vous pouvez activer la prise en charge du chiffrement au repos telle qu’elle est fournie par chaque service Azure utilisé. Le tableau ci-dessous énumère les principales plateformes de stockage, de services et d’applications, avec le modèle de chiffrement au repos pris en charge. Quand il est pris en charge, des liens vers des instructions sur l’activation du chiffrement au repos sont présents.
+Comme pour PaaS, les solutions IaaS peuvent tirer parti d’autres services Azure qui stockent les données chiffrées au repos. Dans ce cas, vous pouvez activer la prise en charge du chiffrement au repos telle qu’elle est fournie par chaque service Azure utilisé. Le tableau ci-dessous énumère les principales plateformes de stockage, de services et d’applications, avec le modèle de chiffrement au repos pris en charge. 
 
 #### <a name="encrypted-compute"></a>Calcul chiffré
 
-Une solution complète de chiffrement au repos nécessite que les données ne soient jamais stockées sous une forme non chiffrée. Lors de leur utilisation, sur un serveur qui charge les données en mémoire, ces données peuvent être stockées localement de différentes façons, notamment dans le fichier d’échange Windows, dans un vidage sur incident et dans la journalisation que l’application peut effectuer. Pour garantir que ces données sont chiffrées au repos, les applications IaaS peuvent utiliser Azure Disk Encryption sur une machine virtuelle (Windows ou Linux) et sur un disque virtuel IaaS Azure.
+Tous les disques managés, instantanés et images sont chiffrés à l’aide de Storage Service Encryption au moyen d’une clé gérée par le service. Une solution plus complète de chiffrement au repos fait en sorte que les données ne soient jamais stockées sous une forme non chiffrée. Lors de leur traitement sur une machine virtuelle, les données peuvent être conservées dans le fichier d’échange Windows ou Linux, un vidage sur plantage ou le journal des applications. Pour garantir que ces données sont chiffrées au repos, les applications IaaS peuvent utiliser Azure Disk Encryption sur une machine virtuelle (Windows ou Linux) et sur un disque virtuel IaaS Azure.
 
 #### <a name="custom-encryption-at-rest"></a>Chiffrement au repos personnalisé
 
@@ -240,7 +240,7 @@ Tout client utilisant les fonctionnalités IaaS d’Azure peut effectuer le chif
 
 #### <a name="azure-storage"></a>Stockage Azure
 
-Tous les services Stockage Azure (Stockage Blob, Stockage File d’attente, Stockage Table et Azure Files) prennent en charge le chiffrement au repos côté serveur, et certains services prennent en charge les clés gérées par le client et le chiffrement côté client.  
+Tous les services Stockage Azure (Stockage Blob, Stockage File d’attente, Stockage Table et Azure Files) prennent en charge le chiffrement au repos côté serveur ; certains services prennent également en charge les clés gérées par le client et le chiffrement côté client. 
 
 - Côté serveur : Tous les services Stockage Azure permettent par défaut le chiffrement côté serveur avec des clés gérées par le service, une opération transparente pour l’application. Pour plus d’informations, consultez [Azure Storage Service Encryption pour les données au repos](https://docs.microsoft.com/azure/storage/storage-service-encryption). Azure Stockage Blob Azure et Azure Files prennent également en charge les clés RSA 2048 bits gérées par le client dans Azure Key Vault. Pour plus d’informations, consultez [Chiffrement du service de stockage à l’aide de clés gérées par le client dans Azure Key Vault](https://docs.microsoft.com/azure/storage/common/storage-service-encryption-customer-managed-keys).
 - Côté client : Les objets blob, les tables et les files d’attente Azure prennent en charge le chiffrement côté client. Lors de l’utilisation du chiffrement côté client, les clients chiffrent les données et les chargent sous la forme d’un objet blob chiffré. La gestion des clés est effectuée par le client. Pour plus d’informations, consultez [Chiffrement côté client et Azure Key Vault pour le stockage Microsoft Azure](https://docs.microsoft.com/azure/storage/storage-client-side-encryption).
@@ -255,12 +255,12 @@ Le chiffrement côté client des données Azure SQL Database est pris en charge 
 
 |                                  |                    | **Modèle de chiffrement et gestion des clés** |                    |
 |----------------------------------|--------------------|-----------------------------------------|--------------------|
-|                                  | **Côté serveur à l’aide d’une clé gérée par le service**     | **Côté serveur à l’aide d’un coffre de clés géré par le client**             | **Côté client à l’aide d’une gestion par le client**      |
+|                                  | **Côté serveur à l’aide d’une clé gérée par le service**     | **Côté serveur à l’aide d’une clé gérée par le client**             | **Côté client à l’aide d’une gestion par le client**      |
 | **IA et Machine Learning**      |                    |                    |                    |
 | Recherche Azure                     | OUI                | -                  | -                  |
 | Service Azure Machine Learning   | OUI                | -                  | -                  |
 | Azure Machine Learning Studio    | OUI                | Préversion, RSA 2048 bits | -               |
-| Power BI                         | OUI                | -                  | -                  |
+| Power BI                         | OUI                | Préversion, RSA 2048 bits | -                  |
 | **Analyse**                    |                    |                    |                    |
 | Azure Stream Analytics           | OUI                | -                  | -                  |
 | Event Hubs                       | OUI                | -                  | -                  |
@@ -269,12 +269,19 @@ Le chiffrement côté client des données Azure SQL Database est pris en charge 
 | HDInsight                        | OUI                | Préversion pour Apache Kafka, toutes les longueurs RSA | -                  |
 | Azure Data Factory               | OUI                | -                  | -                  |
 | Azure Data Lake Store            | OUI                | Oui, RSA 2048 bits  | -                  |
+| **Containers**                   |                    |                    |                    |
+| Azure Kubernetes Service         | OUI                | -                  | -                  |
+| Container Registry               | OUI                | -                  | -                  |
 | **Calcul**                      |                    |                    |                    |
-| Virtual Machines                 | -                  | Oui, RSA 2048 bits  | -                  |
-| Groupe de machines virtuelles identiques        | -                  | Oui, RSA 2048 bits  | -                  |
+| Virtual Machines                 | OUI                | Oui, RSA 2048 bits  | -                  |
+| Groupe de machines virtuelles identiques        | OUI                | Oui, RSA 2048 bits  | -                  |
+| SAP HANA                         | OUI                | Oui, RSA 2048 bits  | -                  |
 | **Bases de données**                    |                    |                    |                    |
 | SQL Server sur machines virtuelles   | OUI                | Oui, RSA 2048 bits  | OUI                |
 | Azure SQL Database               | OUI                | Oui, RSA 2048 bits  | OUI                |
+| Azure SQL Database pour MariaDB   | OUI                | -                  | -                  |
+| Azure SQL Database pour MySQL     | OUI                | -                  | -                  |
+| Azure SQL Database pour PostgreSQL | OUI                | -                  | -                  |
 | Azure SQL Data Warehouse         | OUI                | Oui, RSA 2048 bits  | OUI                |
 | SQL Server Stretch Database      | OUI                | Oui, RSA 2048 bits  | OUI                |
 | Stockage Table                    | OUI                | -                  | OUI                |
@@ -302,8 +309,9 @@ Le chiffrement côté client des données Azure SQL Database est pris en charge 
 | Stockage Fichier                     | OUI                | Oui, RSA 2048 bits  | -                  |
 | Stockage File d’attente                    | OUI                | -                  | OUI                |
 | Avere vFXT                       | OUI                | -                  | -                  |
+| Azure NetApp Files               | OUI                | -                  | -                  |
 | Stockage archive                  | OUI                | Oui, RSA 2048 bits  | -                  |
-| StorSimple                       | OUI                | -                  | OUI                |
+| StorSimple                       | OUI                | Oui, RSA 2048 bits  | OUI                |
 | Sauvegarde Azure                     | OUI                | -                  | OUI                |
 | Data Box                         | OUI                | -                  | OUI                |
 

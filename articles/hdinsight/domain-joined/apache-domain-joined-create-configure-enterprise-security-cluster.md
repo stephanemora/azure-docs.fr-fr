@@ -6,14 +6,14 @@ ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.topic: howto
+ms.topic: conceptual
 ms.date: 05/09/2019
-ms.openlocfilehash: e9cb9a902cf60fbd3b297a72a7dfa836ee18c835
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 98bd222212d616a5d2c608779c607bb431d184b9
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67484581"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657324"
 ---
 # <a name="create-and-configure-enterprise-security-package-clusters-in-azure-hdinsight"></a>Créer et configurer des clusters de Pack Sécurité Entreprise dans Azure HDInsight
 
@@ -304,14 +304,14 @@ Vérifiez que le certificat est installé dans la banque personnelle de l\'ordin
 
         | Propriété | Valeur |
         |---|---|
-        | Source | Quelconque |
-        | Plages de ports source | * |
-        | Destination | Quelconque |
-        | Plage de ports de destination | 636 |
-        | Protocole | Quelconque |
-        | Action | AUTORISER |
-        | Priorité | <Desired Number> |
-        | Nom | Port_LDAP_636 |
+        | Source | Any |
+        | Source port ranges | * |
+        | Destination | Any |
+        | Destination port range | 636 |
+        | Protocole | Any |
+        | Action | Allow |
+        | Priority | \<Nombre souhaité\> |
+        | Name | Port_LDAP_636 |
 
     ![règle de sécurité de trafic entrant](./media/apache-domain-joined-create-configure-enterprise-security-cluster/add-inbound-security-rule.png)
 

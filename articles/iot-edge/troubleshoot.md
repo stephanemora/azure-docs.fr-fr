@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 00147002317f15345f01c88e81973837d16e6669
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8eedea2e867dd2a5e2d9cf7e92f47c007bc48af1
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65797624"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707084"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Problèmes courants et résolutions pour Azure IoT Edge
 
@@ -343,6 +343,8 @@ Error: Time:Thu Jun  4 19:44:58 2018 File:/usr/sdk/src/c/provisioning_client/ada
 Pour des raisons de sécurité, le démon IoT Edge applique l’identification du processus à tous les modules se connectant à l’edgeHub. Il vérifie que tous les messages envoyés par un module proviennent de l’ID de processus principal du module. Si un message est envoyé par un module depuis un ID de processus différent de celui qui a été établi initialement, il rejette le message avec un message d’erreur 404.
 
 ### <a name="resolution"></a>Résolution :
+Depuis la version 1.0.7, tous les processus de module sont autorisés à se connecter. Si la mise à niveau vers la version 1.0.7 n’est pas possible, procédez comme suit. Pour plus d’informations, consultez les [Notes de version pour la version 1.0.7](https://github.com/Azure/iotedge/blob/master/CHANGELOG.md#iotedged-1).
+
 Assurez-vous que le même ID de processus est bien toujours utilisé par le module IoT Edge personnalisé pour envoyer des messages au hub de périphérie. Par exemple, veillez à utiliser `ENTRYPOINT` plutôt que la commande `CMD` dans votre fichier Docker, car `CMD` va générer un ID de processus pour le module et un autre pour la commande bash exécutant le programme principal, tandis que `ENTRYPOINT` génère un ID de processus unique.
 
 
@@ -380,7 +382,7 @@ L’exemple ci-dessus définit le serveur DNS sur un service DNS accessible publ
 
 Placez `daemon.json` au bon emplacement de votre plateforme : 
 
-| Plateforme | Lieu |
+| Plateforme | Location |
 | --------- | -------- |
 | Linux | `/etc/docker` |
 | Hôte Windows avec des conteneurs Windows | `C:\ProgramData\iotedge-moby\config` |

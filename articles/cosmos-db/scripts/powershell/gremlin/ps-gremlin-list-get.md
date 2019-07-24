@@ -1,19 +1,19 @@
 ---
-title: Script PowerShell Azure - Azure Cosmos DB répertorier et obtenir les opérations d’API Gremlin
-description: Script PowerShell Azure - Azure Cosmos DB répertorier et obtenir les opérations d’API Gremlin
+title: Script Azure PowerShell - Azure Cosmos DB - Répertorier et obtenir les opérations pour l’API Gremlin
+description: Script Azure PowerShell - Azure Cosmos DB - Répertorier et obtenir les opérations pour l’API Gremlin
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: samples
 ms.date: 05/18/2019
 ms.author: mjbrown
 ms.openlocfilehash: 507c17d62473ee8f9166ef822ef0f6fa4ae8008e
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66247498"
 ---
-# <a name="list-and-get-databases-and-graphs-for-azure-cosmos-db---gremlin-api"></a>Répertorier et obtenir des bases de données et des graphiques pour les API Azure Cosmos DB - Gremlin
+# <a name="list-and-get-databases-and-graphs-for-azure-cosmos-db---gremlin-api"></a>Répertorier et obtenir des bases de données et des graphiques Azure Cosmos DB - API Gremlin
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

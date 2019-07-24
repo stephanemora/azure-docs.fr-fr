@@ -9,26 +9,26 @@ ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: aec5632b5ea29d52426c5d065ca41e18573fd5b9
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66399383"
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>Préparer des serveurs Hyper-V locaux à la récupération d’urgence vers Azure
 
-Cet article explique comment préparer votre infrastructure de Hyper-V en local lorsque vous souhaitez configurer la récupération d’urgence de machines virtuelles Hyper-vers Azure, à l’aide de [Azure Site Recovery](site-recovery-overview.md).
+Cet article explique comment préparer votre infrastructure Hyper-V en local lorsque vous souhaitez configurer la récupération d’urgence de machines virtuelles Hyper-V vers Azure, à l’aide de [Microsoft Azure Site Recovery](site-recovery-overview.md).
 
 
-Ce didacticiel est le deuxième d’une série qui vous montre comment configurer la récupération d’urgence vers Azure pour les machines virtuelles de Hyper-V en local. Dans le premier didacticiel, nous [configurer les composants Azure](tutorial-prepare-azure.md) nécessaires à la récupération d’urgence de Hyper-V.
+Il s’agit du deuxième tutoriel dans une série qui vous montre comment configurer la récupération d’urgence sur Azure pour des machines virtuelles Hyper-V locales. Dans le premier tutoriel, nous avons [configuré les composants Azure](tutorial-prepare-azure.md) nécessaires pour la récupération d’urgence de Hyper-V.
 
 Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
-> * Passez en revue la configuration requise d’Hyper-V et configuration requise pour VMM si vos hôtes Hyper-V sont gérés par System Center VMM.
+> * Passez en revue la configuration Hyper-V requise, ainsi que celle de VMM si vos hôtes Hyper-V sont gérés par System Center VMM.
 > * Préparez VMM, le cas échéant.
-> * Vérifier l’accès internet aux emplacements Azure.
-> * Préparer des machines virtuelles afin que vous pouvez y accéder après le basculement vers Azure.
+> * Vérifiez l’accès Internet aux emplacements Azure.
+> * Préparez les machines virtuelles afin de pouvoir y accéder après le basculement vers Azure.
 
 > [!NOTE]
 > Les tutoriels vous montrent le chemin de déploiement le plus simple pour un scénario. Ils utilisent les options par défaut lorsque cela est possible et n’affichent pas tous les paramètres et chemins d’accès possibles. Pour obtenir des instructions détaillées, consultez l’article de la section Procédures dans la table des matières de Site Recovery.

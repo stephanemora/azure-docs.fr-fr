@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 225ac86efba8a32b085a5fb7fc41bed48c499eab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 41637fae5592ac292da22303071d51b43116c78b
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65022181"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671905"
 ---
 # <a name="documentation-resources-for-cognitive-search-workloads"></a>Ressources de documentation sur les charges de travail de recherche cognitive
 
@@ -27,7 +27,7 @@ Les articles suivants constituent la documentation complète de la recherche cog
 + [Qu’est-ce que la recherche cognitive ?](cognitive-search-concept-intro.md)
 + [Démarrage rapide : Essayer la recherche cognitive sur le portail](cognitive-search-quickstart-blob.md)
 + [Tutoriel : Découvrir les API de recherche cognitive](cognitive-search-tutorial-blob.md)
-+ [Exemple : Créer une compétence personnalisée](cognitive-search-create-custom-skill-example.md)
++ [Exemple : Création d’une compétence personnalisée pour la recherche cognitive](cognitive-search-create-custom-skill-example.md)
 
 ## <a name="how-to-guidance"></a>Guides pratiques
 + [Guide pratique pour définir un ensemble de compétences](cognitive-search-defining-skillset.md)

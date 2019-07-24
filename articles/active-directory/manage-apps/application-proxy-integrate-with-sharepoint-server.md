@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5eff7925599931104440213112ce288fd521b61
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.openlocfilehash: d15bb4a1cd19af70b29d1d74f43e137cf884c4db
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66473778"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164095"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Activer l’accès distant à SharePoint avec le proxy d’application Azure AD
 
@@ -129,7 +129,7 @@ Maintenant que vous avez configuré la délégation Kerberos contrainte, vous ê
    1. Dans la page de l’application dans le portail, sélectionnez **Authentification unique**.
    2. Pour le mode d’authentification unique, sélectionnez **Authentification Windows intégrée**.
    3. Définissez l’option SPN d’application interne sur la valeur que vous avez définie précédemment. Pour cet exemple, vous définiriez **HTTP/SharePoint**.
-   4. Dans « Identité de connexion déléguée », sélectionnez **Nom du compte SAM local**.
+   4. Dans « Identité de connexion déléguée », sélectionnez l’option la plus appropriée pour la configuration de votre forêt Active Directory. Par exemple, si vous avez un seul domaine Active Directory dans votre forêt, sélectionnez **Nom de compte SAM local** (comme illustré ci-dessous), mais si vos utilisateurs ne sont pas dans le même domaine que SharePoint et Application Proxy Connector, sélectionnez **Nom d’utilisateur principal local** (non illustré).
 
    ![Configurer l’authentification Windows intégrée pour l’authentification unique](./media/application-proxy-integrate-with-sharepoint-server/configure-iwa.png)
 

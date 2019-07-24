@@ -6,14 +6,14 @@ manager: philmea
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 1/7/2019
+ms.date: 07/09/2019
 ms.author: v-adgera
-ms.openlocfilehash: 1c5549b903e9a4768d81d601c42e621864522781
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: da1493d2d52f2c8a964df3b72c1622a9c6b66abf
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67462017"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67719854"
 ---
 # <a name="how-to-use-azure-digital-twins-management-apis"></a>Guide pratique pour utiliser les API de gestion Azure Digital Twins
 
@@ -113,4 +113,4 @@ La liste suivante présente quelques exemples de requêtes à l’aide des optio
 
 Pour découvrir quelques modèles de requête d’API courants, consultez [Guide pratique pour interroger des API Azure Digital Twins pour des tâches courantes](how-to-query-common-apis.md).
 
-
+Pour en savoir plus sur vos points de terminaison d’API, consultez [Comment utiliser Digital Twins Swagger](./how-to-use-swagger.md).

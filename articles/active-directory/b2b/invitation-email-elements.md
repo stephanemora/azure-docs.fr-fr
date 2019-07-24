@@ -1,5 +1,5 @@
 ---
-title: Éléments de l’e-mail d’invitation B2B - Azure Active Directory | Microsoft Docs
+title: Éléments de l’e-mail d’invitation de B2B - Azure Active Directory | Microsoft Docs
 description: Modèle d’e-mail d’invitation de collaboration d’Azure Active Directory B2B
 services: active-directory
 ms.service: active-directory
@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3f93586d46aa01116990f8f02f344c6952d3c1b1
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65768367"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Éléments de l’e-mail d’invitation de collaboration B2B - Azure Active Directory
@@ -28,13 +28,13 @@ Les e-mails d’invitation sont un composant essentiel pour intégrer des parten
 ## <a name="explaining-the-email"></a>Explication de l’e-mail
 Examinons quelques-uns des éléments de l’e-mail pour savoir comment utiliser au mieux ces fonctionnalités.
 
-### <a name="subject"></a>Subject
+### <a name="subject"></a>Objet
 L’objet de l’e-mail suit le modèle suivant : vous êtes invité à l’organisation &lt;nom_tenant&gt;.
 
-### <a name="from-address"></a>Adresse de l'expéditeur
-Nous utilisons un modèle similaire à LinkedIn pour l’adresse De.  Vous devez faire apparaître clairement qui est l’inviteur et à quelle entreprise il appartient, mais aussi indiquer que l’e-mail provient d’une adresse e-mail Microsoft. Le format est le suivant : Les Invitations Microsoft <invites@microsoft.com> ou &lt;nom d’affichage de l’inviteur&gt; de &lt;tenantname&gt; (via Microsoft) <invites@microsoft.com>.
+### <a name="from-address"></a>Adresse de l’expéditeur
+Nous utilisons un modèle similaire à LinkedIn pour l’adresse De.  Vous devez faire apparaître clairement qui est l’inviteur et à quelle entreprise il appartient, mais aussi indiquer que l’e-mail provient d’une adresse e-mail Microsoft. Le format est le suivant : Invitations Microsoft<invites@microsoft.com> ou &lt;nom d’affichage de l’inviteur&gt; de &lt;tenantname&gt; (par le biais de Microsoft) <invites@microsoft.com>.
 
-### <a name="reply-to"></a>Répondre à
+### <a name="reply-to"></a>Adresse de réponse
 L’adresse e-mail de réponse est définie sur l’adresse e-mail de l’inviteur quand elle est disponible : ainsi, répondre à l’e-mail envoie un e-mail en retour à l’inviteur.
 
 ### <a name="branding"></a>Personnalisation
@@ -51,12 +51,12 @@ Le nom d’affichage de l’inviteur est inclus dans l’e-mail. En outre, si vo
 
 Si vous n’avez pas encore configuré votre image de profil, une icône comportant les initiales de l’inviteur remplace l’image, comme ceci :
 
-  ![Capture d’écran montrant l’invitation avec l’inviteur initiales affichées](media/invitation-email-elements/inviters-initials.png)
+  ![Capture d’écran illustrant l’invitation avec l’affichage des initiales de l’inviteur](media/invitation-email-elements/inviters-initials.png)
 
 ### <a name="body"></a>body
 Le corps contient le message composé par l’inviteur pour [inviter un utilisateur invité dans un répertoire, un groupe ou une application](add-users-administrator.md) ou [avec l’API d’invitation](customize-invitation-api.md). Il s’agit d’une simple zone de texte qui ne traite pas les balises HTML pour des raisons de sécurité.
 
-  ![Capture d’écran montrant le corps de l’e-mail d’invitation](media/invitation-email-elements/invitation-email-body.png)
+  ![Capture d’écran illustrant le corps de l’e-mail d’invitation](media/invitation-email-elements/invitation-email-body.png)
 
 ### <a name="footer-section"></a>Section Pied de page
 Le pied de page contient la marque de la société Microsoft et permet au destinataire de savoir si l’e-mail a été envoyé à partir d’un alias non surveillé. 
@@ -65,12 +65,12 @@ Cas particuliers :
 
 - L’inviteur n’a pas d’adresse e-mail dans la location de l’inviteur
 
-  ![Capture d’écran lors de la messagerie n’a pas un inviteur dans la location d’invitation](media/invitation-email-elements/inviter-no-email.png)
+  ![Capture d’écran illustrant le cas où l’inviteur n’a pas l’e-mail dans la location de l’inviteur](media/invitation-email-elements/inviter-no-email.png)
 
 
 - Le destinataire n’a pas besoin de réclamer l’invitation
 
-  ![Capture d’écran lorsque le destinataire n’a pas besoin de réclamer l’invitation](media/invitation-email-elements/when-recipient-doesnt-redeem.png)
+  ![Capture d’écran illustrant le cas où le destinataire n’a pas besoin d’accepter l’invitation](media/invitation-email-elements/when-recipient-doesnt-redeem.png)
 
 ## <a name="how-the-language-is-determined"></a>Comment la langue est-elle déterminée ?
 Les paramètres suivants déterminent la langue présentée à l’utilisateur invité dans l’e-mail d’invitation. Ces paramètres sont répertoriés par ordre de priorité. Si un paramètre n’est pas configuré, le paramètre suivant de la liste détermine la langue. 

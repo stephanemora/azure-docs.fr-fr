@@ -1,6 +1,6 @@
 ---
-title: Chargement et stockage sur le cloud avec Azure Media Services | Microsoft Docs
-description: Cet article décrit les concepts de téléchargement et de stockage sur le cloud.
+title: Comptes de stockage avec des comptes Azure Media Services | Microsoft Docs
+description: Lorsque vous créez un compte Media Services, vous devez indiquer le nom d’une ressource de compte de stockage Azure. Le compte de stockage spécifié est lié à votre compte Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -9,16 +9,16 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 06/25/2019
+ms.date: 07/01/2019
 ms.author: juliako
-ms.openlocfilehash: fc5bf052a7677d76c7128404a420f8c886cf3fe1
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 5c5bfa224b87040f5142663e6adab01072c6e6ba
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67439105"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67619297"
 ---
-# <a name="cloud-upload-and-storage"></a>Chargement et stockage sur le cloud
+# <a name="azure-storage-accounts"></a>Comptes de stockage Azure
 
 Pour commencer à gérer, chiffrer, coder, analyser, gérer et diffuser en continu du contenu multimédia dans Azure, vous devez créer un compte Media Services. Lorsque vous créez un compte Media Services, vous devez indiquer le nom d’une ressource de compte de stockage Azure. Le compte de stockage spécifié est lié à votre compte Media Services. 
 

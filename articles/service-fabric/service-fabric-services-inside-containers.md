@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 5/23/2018
-ms.author: aljo, anmola
-ms.openlocfilehash: 147607bbea65199ff97459711ad6301a4ae93aa4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.author: anmola
+ms.openlocfilehash: 1210b34590484379ae487ad1b87e76a433e4582a
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60837519"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621821"
 ---
 # <a name="containerize-your-service-fabric-reliable-services-and-reliable-actors-on-windows"></a>Conteneuriser vos services Service Fabric Reliable Actors et Reliable Services sur Windows
 
@@ -119,6 +119,16 @@ Ce document fournit des conseils pour rendre votre service opérationnel à l’
    </ContainerHostPolicies>
    </Policies>
    ```
+
+> [!NOTE] 
+> Par défaut, les applications Service Fabric ont accès au runtime Service Fabric, sous la forme d’un point de terminaison acceptant les demandes propres à l’application. Pensez à désactiver cet accès si l’application héberge un code non fiable. Pour plus d’informations, consultez les [meilleures pratiques de sécurité dans Service Fabric](service-fabric-best-practices-security.md#platform-isolation). Pour désactiver l’accès au runtime Service Fabric, ajoutez le paramètre suivant dans la section Stratégies du manifeste de l’application correspondant au manifeste du service importé, comme suit :
+>
+```xml
+  <Policies>
+      <ServiceFabricRuntimeAccessPolicy RemoveServiceFabricRuntimeAccess="true"/>
+  </Policies>
+```
+>
 
 10. Pour tester cette application, vous devez la déployer sur un cluster qui exécute la version 5.7 ou plus. Pour les versions de runtime 6.1 ou inférieures, vous devez modifier et mettre à jour les paramètres de cluster pour activer cette fonctionnalité en préversion. Suivez les étapes de cet [article](service-fabric-cluster-fabric-settings.md) pour ajouter le paramètre représenté ensuite.
     ```

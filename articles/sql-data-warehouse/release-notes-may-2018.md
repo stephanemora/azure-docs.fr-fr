@@ -11,10 +11,10 @@ ms.date: 07/23/2018
 ms.author: anjangsh
 ms.reviewer: jrasnick
 ms.openlocfilehash: eb933e8085ec956be713a18602b8baff9c87084b
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65912205"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-may-2018"></a>Nouveautés dans Azure SQL Data Warehouse Mai 2018 
@@ -26,7 +26,7 @@ Azure SQL Data Warehouse reçoit continuellement des améliorations. Cet article
 Consultez l’annonce du blog [Turbocharge cloud analytics with Azure SQL Data Warehouse](https://azure.microsoft.com/blog/turbocharge-cloud-analytics-with-azure-sql-data-warehouse/) de Rohan Kumar, Vice-président corporate, Azure Data.
 
 ## <a name="auto-statistics"></a>Statistiques automatiques
-Les statistiques sont essentielles pour optimiser la génération de plan de requête dans des optimiseurs basés sur le coût modernes, comme le moteur de SQL Data Warehouse. Lorsque toutes les requêtes sont connues d’avance, déterminer quels objets statistiques doivent être créés est une tâche réalisable. Toutefois, lorsque le système est confronté à ad hoc et requêtes aléatoire qui est généralement utilisé pour les charges de travail d’entreposage de données, les administrateurs système peuvent rencontrer des problèmes prédire les statistiques doivent être créés aux plans d’exécution de requête potentiellement non optimal et de plus de temps temps de réponse de requête. L’une des façons d’atténuer ce problème consiste à créer des objets statistiques sur toutes les colonnes de la table à l’avance. Cependant, ce processus présente une altération car les objets statistiques doivent être conservés pendant le processus de chargement de la table, entraînant des temps de chargement plus longs.
+Les statistiques sont essentielles pour optimiser la génération de plan de requête dans des optimiseurs basés sur le coût modernes, comme le moteur de SQL Data Warehouse. Lorsque toutes les requêtes sont connues d’avance, déterminer quels objets statistiques doivent être créés est une tâche réalisable. Toutefois, lorsque le système est confronté à des requêtes ad hoc et aléatoires, ce qui est généralement le cas pour les charges de travail d’entreposage de données, les administrateurs système peuvent avoir du mal à prédire les statistiques qui doivent être créées. Cela peut entraîner des plans d’exécution de requête potentiellement non optimaux et des temps de réponse plus longs. L’une des façons d’atténuer ce problème consiste à créer des objets statistiques sur toutes les colonnes de la table à l’avance. Cependant, ce processus présente une altération car les objets statistiques doivent être conservés pendant le processus de chargement de la table, entraînant des temps de chargement plus longs.
 
 SQL Data Warehouse prend désormais en charge la création automatique d’objets statistiques pour une flexibilité, productivité et facilité d’utilisation optimales pour les administrateurs système et les développeurs, tout en garantissant que le système continue à offrir des plans d’exécution de qualité et de meilleurs temps de réponse.
 

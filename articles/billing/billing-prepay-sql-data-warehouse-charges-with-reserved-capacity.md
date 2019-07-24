@@ -1,19 +1,19 @@
 ---
-title: Prépayer SQL Data Warehouse avec une capacité réservée Azure | Microsoft Docs
+title: Prépayer SQL Data Warehouse avec une capacité réservée Azure
 description: Découvrez comment prépayer SQL Data Warehouse avec une capacité réservée pour économiser de l’argent.
 services: billing
 author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 04/13/2019
+ms.date: 07/03/2019
 ms.author: banders
-ms.openlocfilehash: 3d56ee99f8056139a234477b6eed93d9fcbe2bbb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cea2c8e6d476c3ea2799337ab2da1f9406731814
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60371187"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565361"
 ---
 # <a name="prepay-for-sql-data-warehouse-charges-with-reserved-capacity"></a>Prépayer SQL Data Warehouse avec une capacité réservée
 
@@ -43,14 +43,15 @@ Par exemple, supposons que votre consommation totale de SQL Data Warehouse est D
 
 ## <a name="buy-sql-data-warehouse-reserved-capacity"></a>Acheter de la capacité réservée SQL Data Warehouse
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 2. Sélectionnez **Tous les services** > **Réservations**.
 3. Sélectionnez un abonnement. Utilisez la liste Abonnement pour choisir l’abonnement à utiliser pour payer la capacité réservée. Les coûts initiaux de la capacité réservée sont facturés conformément au mode de paiement défini sur l’abonnement. Le type d’abonnement doit être Accord Entreprise (numéros de l’offre : MS-AZR-0017P ou MS-AZR-0148P) ou Paiement à l’utilisation (numéros de l’offre : MS-AZR-0003P ou MS-AZR-0023P).
   - Pour un abonnement Entreprise, les frais sont déduits du solde d’engagement monétaire de l’inscription ou facturés comme un dépassement.
   - Pour un abonnement Paiement à l’utilisation, les frais sont facturés sur le mode de paiement par carte de crédit ou par facture défini sur l’abonnement.
 4. Sélectionnez une étendue. Utilisez la liste Étendue pour choisir une étendue d’abonnement.
-  - Avec l’option **Unique**, la remise sur la réservation est appliquée au SQL Data Warehouse déployé dans l’abonnement sélectionné.
-  - Avec l’option **Partagée**, la remise sur la réservation est appliquée aux instances s’exécutant dans tous les abonnements s’inscrivant dans votre contexte de facturation.
+  - **Étendue de groupe de ressources unique** : applique la remise de réservation aux ressources correspondantes incluses dans le groupe de ressources sélectionné uniquement.
+  - **Étendue d’abonnement unique** : applique la remise de réservation aux ressources correspondantes incluses dans l’abonnement sélectionné.
+  - **Étendue partagée** : applique la remise de réservation aux ressources correspondantes dans les abonnements éligibles inclus dans le contexte de facturation. Pour les clients Contrat Entreprise, le contexte de facturation correspond à l’inscription. Pour les abonnements individuels utilisant les tarifs du paiement à l’utilisation, l’étendue de facturation correspond à tous les abonnements éligibles créés par l’administrateur de compte.
     - Pour les clients Entreprise, le contexte de facturation est défini par l’inscription EA.
     - Pour les clients Paiement à l’utilisation, l’étendue partagée correspond à tous les abonnements Paiement à l’utilisation créés par l’administrateur de compte.
 5. Sélectionnez une région éligible pour la capacité réservée.

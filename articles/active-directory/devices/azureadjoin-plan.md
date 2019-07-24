@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36429feed99c421984ed55d4e506954aa30f0040
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 4332c921af770cb47e9a9a779d0bd148153fcd31
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482129"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67666142"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Activation Planifier votre implémentation de la jointure d’Azure AD
 
@@ -70,7 +70,7 @@ Un environnement fédéré doit avoir un fournisseur d’identité qui prend en 
 - **WS-Fed :** ce protocole est nécessaire pour joindre un appareil à Azure AD.
 - **WS-Trust :** ce protocole est nécessaire pour se connecter à un appareil joint à Azure AD. 
 
-Si votre fournisseur d’identité ne prend pas en charge ces protocoles, la jonction Azure AD ne fonctionne pas en mode natif. À compter de Windows 10 1809, vos utilisateurs peuvent se connecter à un appareil joint à Azure AD avec un fournisseur d’identité SAML via la [connexion web sur Windows 10](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10). Actuellement, la connexion web est une fonctionnalité en préversion uniquement.
+Si votre fournisseur d’identité ne prend pas en charge ces protocoles, la jonction Azure AD ne fonctionne pas en mode natif. À compter de Windows 10 1809, vos utilisateurs peuvent se connecter à un appareil joint à Azure AD avec un fournisseur d’identité SAML via la [connexion web sur Windows 10](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10). Actuellement, la connexion web est une fonctionnalité d’évaluation et n’est pas recommandée pour les déploiements de production.
 
 ### <a name="smartcards-and-certificate-based-authentication"></a>Authentification basée sur les cartes à puce et les certificats
 

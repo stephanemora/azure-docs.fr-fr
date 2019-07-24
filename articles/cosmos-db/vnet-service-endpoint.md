@@ -8,10 +8,10 @@ ms.date: 05/23/2019
 ms.author: govindk
 ms.reviewer: sngun
 ms.openlocfilehash: dfc3ebc0274c87466d6dc27c93880483df023085
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66242470"
 ---
 # <a name="access-azure-cosmos-db-from-virtual-networks-vnet"></a>Accéder à Azure Cosmos DB à partir de réseaux virtuels (VNet)
@@ -36,7 +36,7 @@ Il existe deux étapes requises pour limiter l’accès au compte Azure Cosmos �
 
 Quand un pare-feu IP ou des règles d’accès à un réseau virtuel sont ajoutés, seules les requêtes provenant de sources autorisées obtiennent des réponses valides. Les autres requêtes sont rejetées avec une erreur 403 (Interdit). Il est important de distinguer le pare-feu du compte Azure Cosmos d’un pare-feu au niveau de la connexion. La source peut toujours se connecter au service et les connexions elles-mêmes ne sont pas rejetées.
 
-### <a name="my-requests-started-getting-blocked-when-i-enabled-service-endpoint-to-azure-cosmos-db-on-the-subnet-what-happened"></a>Mes requêtes ont été bloquées lorsque j’ai activé le point de terminaison de service dans Azure Cosmos DB sur le sous-réseau. Que s'est-il passé ?
+### <a name="my-requests-started-getting-blocked-when-i-enabled-service-endpoint-to-azure-cosmos-db-on-the-subnet-what-happened"></a>Mes requêtes ont été bloquées lorsque j’ai activé le point de terminaison de service dans Azure Cosmos DB sur le sous-réseau. Que s’est-il passé ?
 
 Une fois que le point de terminaison de service pour Azure Cosmos DB est activé sur un sous-réseau, la source du trafic qui atteint le compte bascule de l’adresse IP publique vers le réseau virtuel et le sous-réseau. Si votre compte Azure Cosmos est uniquement protégé par un pare-feu basé sur IP, le trafic provenant du sous-réseau avec service ne respecte plus les règles du pare-feu IP et, par conséquent, il sera rejeté. Passez en revue les étapes pour migrer en toute transparence d’un pare-feu basé sur IP à un contrôle d’accès basé sur un réseau virtuel.
 
@@ -47,7 +47,7 @@ Seuls le réseau virtuel et ses sous-réseaux ajoutés au compte Azure Cosmos y 
 Actuellement, vous pouvez avoir au maximum 64 sous-réseaux autorisés pour un compte Azure Cosmos.
 
 ### <a name="can-i-enable-access-from-vpn-and-express-route"></a>Puis-je activer l’accès à partir d’un VPN et d’Express Route ? 
-Pour accéder au compte Azure Cosmos via Express route à partir en local, vous devez activer l’homologation Microsoft. Lorsque vous activez un pare-feu IP ou définissez des règles d’accès à un réseau virtuel, vous pouvez ajouter les adresses IP publiques utilisées pour l’homologation Microsoft au pare-feu IP de votre compte Azure Cosmos afin d’autoriser l’accès des services locaux au compte Azure Cosmos. 
+Pour accéder localement au compte Azure Cosmos via ExpressRoute, vous devez activer le Peering Microsoft. Lorsque vous activez un pare-feu IP ou définissez des règles d’accès à un réseau virtuel, vous pouvez ajouter les adresses IP publiques utilisées pour l’homologation Microsoft au pare-feu IP de votre compte Azure Cosmos afin d’autoriser l’accès des services locaux au compte Azure Cosmos. 
 
 ### <a name="do-i-need-to-update-the-network-security-groups-nsg-rules"></a>Dois-je mettre à jour les règles des groupes de sécurité réseau (NSG) ? 
 Les règles des groupes de sécurité réseau permettent de limiter la connectivité vers et depuis un sous-réseau de réseau virtuel. Lorsque vous ajoutez un point de terminaison de service pour Azure Cosmos DB au sous-réseau, inutile d’ouvrir la connectivité sortante dans le groupe de sécurité réseau pour votre compte Azure Cosmos. 

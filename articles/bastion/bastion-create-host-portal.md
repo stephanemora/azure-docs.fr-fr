@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: cherylmc
-ms.openlocfilehash: 4a52383e6ab24c6ae1e2be0b67293d65dfa04466
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 65116ebbd6a66241a5b35a39f3dfb8f826a3745f
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477882"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594272"
 ---
 # <a name="create-an-azure-bastion-host-preview"></a>Créer un hôte Azure Bastion (préversion)
 
@@ -57,7 +57,7 @@ Cette section vous permet de créer une ressource Azure Bastion à partir du por
     * **Sous-réseau** : Sous-réseau dans votre réseau virtuel auquel la nouvelle ressource d’hôte Bastion est déployée. Vous devez créer un sous-réseau à l’aide de la valeur de nom **AzureBastionSubnet**. Cette valeur permet à Azure de savoir dans quel sous-réseau déployer les ressources Bastion. Ceci est différent d’un sous-réseau de passerelle. Nous vous recommandons vivement d’utiliser au moins/27 ou un sous-réseau plus vaste (/27, /26 et ainsi de suite). Créez le sous-réseau **AzureBastionSubnet** sans groupes de sécurité réseau, tables de routage ni délégations.
     * **Adresse IP publique** : Adresse IP publique de la ressource Bastion où RDP/SSH est accessible (sur le port 443). Créez une adresse IP publique ou utilisez-en une existante. L’adresse IP publique doit être située dans la même région que la ressource Bastion que vous créez.
     * **Nom de l’adresse IP publique** : Nom de la ressource de l’adresse IP publique.
-    * **Référence (SKU) d'adresse IP publique** : Défini par défaut sur **Standard**.
+    * **Référence (SKU) d'adresse IP publique** : Défini par défaut sur **Standard**. Azure Bastion utilise/prend en charge uniquement la référence (SKU) d’adresse IP publique standard.
     * **Attribution** : Défini par défaut sur **Statique**.
 
 1. Lorsque vous avez terminé de spécifier les paramètres, cliquez sur **Review + Create (Vérifier + créer)** . Cela valide les valeurs. Une fois que la validation a réussi, vous pouvez commencer le processus de création.

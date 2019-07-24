@@ -1,6 +1,6 @@
 ---
 title: Obtenir les changements des ressources
-description: Comprendre comment rechercher quand une ressource a été modifiée et obtenir une liste des propriétés modifiées.
+description: Découvrez comment savoir quand une ressource a été modifiée et obtenir une liste des propriétés modifiées.
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
@@ -9,42 +9,42 @@ ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
 ms.openlocfilehash: b6ef57a3f39c82be30d92aef72c1bbe03b653768
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66236504"
 ---
 # <a name="get-resource-changes"></a>Obtenir les changements des ressources
 
-Ressources obtient changés au cours du redéploiement même utilisation quotidienne et reconfiguration.
-Modification peut provenir d’une personne ou par un processus automatisé. La plupart des modifications sont par conception, mais parfois, il n’est pas. Avec les 14 derniers jours de l’historique des modifications, graphique des ressources Azure vous permet de :
+Les ressources se transforment au fil de l’utilisation quotidienne, de la reconfiguration et même du redéploiement.
+Ces modifications peuvent provenir d’une personne ou d’un processus automatisé. La plupart des modifications sont normales, mais ce n’est parfois pas le cas. Avec les 14 derniers jours d’historique des modifications, Azure Resource Graph vous permet de :
 
-- à quel moment des changements ont été détectés sur une propriété Azure Resource Manager ;
-- quelles propriétés ont changé dans le cadre de cet événement.
+- Savoir à quel moment des changements ont été détectés sur une propriété Azure Resource Manager.
+- Voir quelles propriétés ont changé dans le cadre de cet événement.
 
-Détection des modifications et les détails sont utiles pour les exemples de scénarios suivants :
+La détection des modifications et les détails sont utiles dans les scénarios suivants :
 
-- Au cours de la gestion des incidents pour comprendre _potentiellement_ les modifications associées. Interroger des événements de modification pendant une fenêtre de temps spécifique et évaluer les détails de la modification.
-- En conservant une base de données de gestion de Configuration, appelé une base de données, à jour. Au lieu de l’actualisation de toutes les ressources et leurs jeux de propriétés complet selon une fréquence planifiée, obtenir uniquement ce qui a changé.
-- Comprendre quelles autres propriétés ont été modifiées lorsqu’une ressource a changé d’état de conformité. Évaluation de ces propriétés supplémentaires peut fournir des informations dans les autres propriétés devant être gérés via une définition de stratégie de Azure.
+- Au cours de la gestion des incidents pour comprendre les modifications _potentiellement_ associées. Interrogez les événements de modification dans une fenêtre de temps spécifique et évaluez les détails des modifications.
+- Dans le maintien d’une base de données de gestion de la configuration (CMBD) à jour. Au lieu de l’actualisation de toutes les ressources et de leurs jeux de propriétés complets selon une fréquence planifiée, obtenez uniquement les informations relatives à ce qui a changé.
+- Pour la compréhension des autres propriétés modifiées lorsqu’une ressource a changé d’état de conformité. L’évaluation de ces propriétés supplémentaires peut fournir des insights sur les autres propriétés susceptibles de nécessiter une gestion par le biais d’une définition Azure Policy.
 
-Cet article montre comment rassembler ces informations via le kit SDK du graphique de la ressource. Pour obtenir ces informations dans le portail Azure, consultez de la stratégie Azure [l’historique des modifications](../../policy/how-to/determine-non-compliance.md#change-history-preview) ou le journal d’activité Azure [l’historique des modifications](../../../azure-monitor/platform/activity-log-view.md#azure-portal).
+Cet article montre comment rassembler ces informations au moyen du kit SDK Resource Graph. Pour obtenir ces informations dans le Portail Azure, voir [Historique des changements](../../policy/how-to/determine-non-compliance.md#change-history-preview) d’Azure Policy ou [Historique des changements](../../../azure-monitor/platform/activity-log-view.md#azure-portal) d’Azure Activity Log.
 
 > [!NOTE]
-> Détail des modifications dans le graphique des ressources est pour les propriétés de Resource Manager. Pour le suivi des modifications à l’intérieur d’une machine virtuelle, consultez d’Azure Automation [le suivi des modifications](../../../automation/automation-change-tracking.md) ou de la stratégie Azure [Configuration invité pour les machines virtuelles](../../policy/concepts/guest-configuration.md).
+> Les détails des modifications dans Resource Graph concernent les propriétés Resource Manager. Pour le suivi des modifications à l’intérieur d’une machine virtuelle, voir [Suivi des modifications](../../../automation/automation-change-tracking.md) d’Azure Automation ou [Guest Configuration for VMs (Configuration invitée pour les machines virtuelles)](../../policy/concepts/guest-configuration.md) d’Azure Policy.
 
 > [!IMPORTANT]
-> Historique des modifications dans le graphique des ressources Azure sont en version préliminaire publique.
+> L’historique des changements dans Azure Resource Graph est en préversion publique.
 
-## <a name="find-when-changes-were-detected"></a>Rechercher lorsque des modifications ont été détectées
+## <a name="find-when-changes-were-detected"></a>Découvrir quand des modifications ont été détectées
 
-La première étape pour voir ce qui a changé sur une ressource consiste à trouver les événements de modification associées à cette ressource au sein d’une fenêtre de temps. Cette étape s’effectue via le **resourceChanges** point de terminaison REST.
+La première étape pour voir ce qui a changé sur une ressource consiste à rechercher les événements de modification associés à cette ressource au sein d’une fenêtre de temps donnée. Cette étape s’effectue au moyen du point de terminaison REST **resourceChanges**.
 
-Le **resourceChanges** point de terminaison requiert deux paramètres dans le corps de la demande :
+Le point de terminaison **resourceChanges** requiert deux paramètres dans le corps de la requête :
 
-- **resourceId**: La ressource Azure pour rechercher des modifications à.
-- **Intervalle**: Une propriété avec _Démarrer_ et _fin_ dates de contrôle pour un événement de modification à l’aide de la **Zulu fuseau horaire (Z)** .
+- **resourceId** : ressource Azure sur laquelle rechercher des modifications.
+- **interval** : propriété avec dates de _début_ et de _fin_ pour le contrôle d’un événement de modification à l’aide de **Zulu fuseau horaire (Z)** .
 
 Exemple de corps de requête :
 
@@ -58,13 +58,13 @@ Exemple de corps de requête :
 }
 ```
 
-Avec le corps de la requête ci-dessus, l’URI d’API REST pour **resourceChanges** est :
+Avec le corps de la demande ci-dessus, l’URI d’API REST pour **resourceChanges** est :
 
 ```http
 POST https://management.azure.com/providers/Microsoft.ResourceGraph/resourceChanges?api-version=2018-09-01-preview
 ```
 
-La réponse ressemble à ceci :
+La réponse se présente ainsi :
 
 ```json
 {
@@ -90,17 +90,17 @@ La réponse ressemble à ceci :
 }
 ```
 
-Chaque détecté d’événement de modification pour le **resourceId** a un **changeId** qui est unique à cette ressource. Bien que le **changeId** chaîne peut-être parfois contenir d’autres propriétés, il a uniquement garanti pour être unique. L’enregistrement de modification inclut les heures qui l’avant et après les captures instantanées ont été effectuées.
-L’événement de modification s’est produite à un moment donné dans cette fenêtre de temps.
+Chaque événement de modification détecté pour **resourceId** a un **changeId** unique pour cette ressource. Bien que la chaîne **changeId** puisse parfois contenir d’autres propriétés, elle est uniquement garantie pour son unicité. L’enregistrement de modification inclut les heures avant et après lesquelles les captures instantanées ont été effectuées.
+L’événement de modification s’est produit à un moment donné dans cette fenêtre de temps.
 
-## <a name="see-what-properties-changed"></a>Consultez les propriétés modifiées
+## <a name="see-what-properties-changed"></a>Consulter les propriétés modifiées
 
-Avec le **changeId** à partir de la **resourceChanges** point de terminaison, le **resourceChangeDetails** point de terminaison REST est ensuite utilisé pour obtenir des détails de l’événement de modification.
+Avec **changeId** dans le point de terminaison **resourceChanges**, le point de terminaison REST **resourceChangeDetails** permet d’obtenir des détails de l’événement de modification.
 
-Le **resourceChangeDetails** point de terminaison requiert deux paramètres dans le corps de la demande :
+Le point de terminaison **resourceChangeDetails** requiert deux paramètres dans le corps de la demande :
 
-- **resourceId**: La ressource Azure pour rechercher des modifications à.
-- **changeId**: L’événement de modification unique pour le **resourceId** collectées à partir de **resourceChanges**.
+- **resourceId** : ressource Azure sur laquelle rechercher des modifications.
+- **changeId** : événement de modification unique pour le **resourceId** collecté à partir de **resourceChanges**.
 
 Exemple de corps de requête :
 
@@ -111,13 +111,13 @@ Exemple de corps de requête :
 }
 ```
 
-Avec le corps de la requête ci-dessus, l’URI d’API REST pour **resourceChangeDetails** est :
+Avec le corps de la demande ci-dessus, l’URI d’API REST pour **resourceChangeDetails** est :
 
 ```http
 POST https://management.azure.com/providers/Microsoft.ResourceGraph/resourceChangeDetails?api-version=2018-09-01-preview
 ```
 
-La réponse ressemble à ceci :
+La réponse se présente ainsi :
 
 ```json
 {
@@ -219,12 +219,12 @@ La réponse ressemble à ceci :
 }
 ```
 
-**beforeSnapshot** et **afterSnapshot** chacun donner à la durée de la capture instantanée et les propriétés à ce moment-là. La modification a eu lieu à un moment donné entre ces captures instantanées. En examinant l’exemple ci-dessus, nous pouvons voir que la propriété ayant changé a été **supportsHttpsTrafficOnly**.
+**beforeSnapshot** et **afterSnapshot** donnent chacun l’heure à laquelle la capture instantanée a été effectuée et les propriétés à ce moment-là. La modification a eu lieu à un moment donné entre ces captures instantanées. L’exemple ci-dessus montre que la propriété modifiée est **supportsHttpsTrafficOnly**.
 
-Pour comparer les résultats par programmation, comparer les **contenu** partie de chaque capture instantanée pour déterminer la différence. Si vous comparez l’intégralité de l’instantané, le **timestamp** affiche toujours sous forme de différence en dépit d’en cours attendu.
+Pour comparer les résultats par programmation, comparez la portion **content** de chaque capture instantanée. Si vous comparez l’intégralité de l’instantané, le **timestamp** s’affiche toujours sous forme de différence en dépit de ce qui est attendu.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Consultez le langage en cours d’utilisation dans [les requêtes de démarrage](../samples/starter.md).
-- Consultez avancée utilise dans [requêtes avancées](../samples/advanced.md).
-- Apprenez à [Explorez les ressources](../concepts/explore-resources.md).
+- Examinez le langage utilisé dans les [requêtes de démarrage](../samples/starter.md).
+- Examinez les utilisations avancées dans les [Requêtes avancées](../samples/advanced.md).
+- Apprenez à [explorer les ressources](../concepts/explore-resources.md).

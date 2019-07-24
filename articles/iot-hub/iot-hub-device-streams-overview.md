@@ -7,12 +7,12 @@ ms.service: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: robinsh
-ms.openlocfilehash: 6c0fa0a3166dce5aa6adc71a46555a24d899c96b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 86f8c6e527f58a7c4cfca6233165f0ab05426409
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441355"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672573"
 ---
 # <a name="iot-hub-device-streams-preview"></a>Flux d'appareils IoT Hub (préversion)
 
@@ -82,7 +82,7 @@ Les côtés appareil et service d'un flux d'appareil doivent tous deux pouvoir �
 
 ![« Points de terminaison des flux d'appareils »](./media/iot-hub-device-streams-overview/device-stream-in-portal.png)
 
-Les informations relatives aux points de terminaison peuvent également être obtenues à l'aide d'Azure CLI, sous la section portant sur les propriétés du hub, et plus particulièrement, les touches `property.hostname` et `property.deviceStreams`.
+Vous pouvez aussi récupérer les informations relatives aux points de terminaison en utilisant Azure CLI sous la section des propriétés du hub, dans les clés `property.hostname` et `property.deviceStreams`.
 
 ```azurecli-interactive
 az iot hub devicestream show --name <YourIoTHubName>

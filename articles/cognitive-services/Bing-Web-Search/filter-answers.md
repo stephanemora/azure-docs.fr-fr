@@ -9,14 +9,14 @@ ms.assetid: 8B837DC2-70F1-41C7-9496-11EDFD1A888D
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
-ms.date: 02/12/2019
+ms.date: 07/08/2019
 ms.author: scottwhi
-ms.openlocfilehash: 8d8fd03d9c3d912788e9893377bbab3efac86f8a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a89d73b63680415aa8e516926b8e1d6c59ffbbad
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66383832"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626023"
 ---
 # <a name="filtering-the-answers-that-the-search-response-includes"></a>Filtrage des correspondances contenues dans la réponse de recherche  
 
@@ -44,14 +44,20 @@ Lorsque vous interrogez le web, Bing renvoie tout le contenu qu’il juge pertin
     }
 }    
 ```
-Vous pouvez filtrer les types de contenu que vous recevez (images, vidéos, actualités, par exemple) à l’aide du paramètre de requête [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter). Bing renvoie le contenu qu’il juge pertinent pour les réponses spécifiées. Le filtre de réponse est une liste de correspondances séparées par des virgules. 
 
-Pour exclure de la réponse certains types de contenu, tels que des images, vous pouvez ajouter un caractère `-` au début de la valeur `responseFilter`. Vous pouvez séparer les types de contenu exclus par une virgule (`,`). Par exemple :
+## <a name="query-parameters"></a>Paramètres de requête
+
+Pour filtrer les réponses retournées par Bing, utilisez les paramètres de requête ci-dessous lors de l’appel à l’API.  
+
+### <a name="responsefilter"></a>ResponseFilter
+
+Vous pouvez filtrer les types de réponses que Bing inclut dans la réponse (par exemple des images, des vidéos et des actualités) à l’aide du paramètre de requête [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter), qui est une liste délimitée par des virgules de réponses. Une réponse figurera dans la réponse si Bing détecte que le contenu est pertinent. 
+
+Pour exclure des réponses spécifiques du résultat, comme des images, ajoutez un caractère `-` avant le type de réponse. Par exemple :
 
 ```
 &responseFilter=-images,-videos
 ```
-
 
 Le code suivant montre comment utiliser `responseFilter` pour demander des images, des vidéos et des actualités sur les dériveurs. Quand vous encodez la chaîne de requête, les virgules sont remplacées par %2C.  
 
@@ -94,7 +100,9 @@ Même si Bing n’a pas retourné de résultats en matière de vidéos et d’ac
 
 Il est déconseillé d’utiliser `responseFilter` pour obtenir les résultats à partir d’une seule API. Si vous souhaitez obtenir le contenu d’une seule API Bing, appelez cette API directement. Par exemple, pour recevoir uniquement des images, envoyez une demande au point de terminaison d’API Recherche d’images, `https://api.cognitive.microsoft.com/bing/v7.0/images/search` ou à l’un des autres points de terminaison [Images](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#endpoints). L’appel de l’API unique est important non seulement pour des raisons de performances, mais parce que les API spécifiques au contenu offrent des résultats plus riches. Par exemple, vous pouvez utiliser des filtres qui ne sont pas disponibles pour l’API Recherche web pour filtrer les résultats.  
 
-Pour obtenir des résultats de recherche à partir d’un domaine spécifique, ajoutez l’opérateur de requête `site:` dans la chaîne de requête.  
+### <a name="site"></a>Site
+
+Pour obtenir des résultats de recherche à partir d’un domaine spécifique, ajoutez le paramètre de requête `site:` dans la chaîne de requête.  
 
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us
@@ -103,9 +111,27 @@ https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies+site:con
 > [!NOTE]
 > En fonction de la requête, si vous utilisez l’opérateur de requête `site:`, il est possible que la réponse présente du contenu pour adultes, et ce quel que soit le paramètre [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#safesearch) défini. Utilisez `site:` uniquement si vous connaissez le contenu du site et si votre scénario prend en charge le contenu pour adultes.
 
+### <a name="freshness"></a>Actualisation
+
+Pour limiter les résultats de la réponse web vers des pages web que Bing a découvertes pendant une période spécifique, définissez le paramètre de requête [freshness](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#freshness) sur une des valeurs (non sensibles à la casse) suivantes :
+
+* `Day` : retourne les pages web que Bing a découvertes dans les dernières 24 heures
+* `Week` : retourne les pages web que Bing a découvertes dans les derniers 7 jours
+* `Month` : retourne les pages web que Bing a découvertes dans les derniers 30 jours
+
+Vous pouvez également définir ce paramètre sur une plage de dates personnalisée au format `YYYY-MM-DD..YYYY-MM-DD`. 
+
+`https://<host>/bing/v7.0/search?q=ipad+updates&freshness=2019-02-01..2019-05-30`
+
+Pour limiter les résultats à une date unique, définissez le paramètre freshness sur une date spécifique :
+
+`https://<host>/bing/v7.0/search?q=ipad+updates&freshness=2019-02-04`
+
+Les résultats peuvent inclure des pages web qui se situent en dehors de la période spécifiée si le nombre de pages web que Bing fait correspondre à vos critères de filtre est inférieur au nombre de pages web que vous avez demandé (ou le nombre par défaut que retourne Bing).
+
 ## <a name="limiting-the-number-of-answers-in-the-response"></a>Limitation du nombre de correspondances dans la réponse
 
-Bing inclut des correspondances dans la réponse en fonction du classement. Par exemple, si votre requête porte sur *sailing+dinghies*, Bing retourne `webpages`, `images`, `videos` et `relatedSearches`.
+Bing peut retourner plusieurs types de réponses dans la réponse JSON. Par exemple, si votre requête porte sur *sailing+dinghies*, Bing peut retourner `webpages`, `images`, `videos` et `relatedSearches`.
 
 ```json
 {

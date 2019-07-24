@@ -1,5 +1,5 @@
 ---
-title: Utiliser le Volume disque haut Service Fabric fiable dans une application Azure Service Fabric Mesh | Microsoft Docs
+title: Utiliser un volume Service Fabric Reliable Disk hautement disponible dans une application Azure Service Fabric Mesh | Microsoft Docs
 description: Découvrez comment stocker un état dans une application Azure Service Fabric Mesh en montant un volume basé sur Service Fabric Reliable Disk dans le conteneur avec Azure CLI.
 services: service-fabric-mesh
 documentationcenter: .net
@@ -16,10 +16,10 @@ ms.date: 12/03/2018
 ms.author: asnegi
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 9f760e7e693334475fb61ba9e5d44df019e78604
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66147491"
 ---
 # <a name="mount-highly-available-service-fabric-reliable-disk-based-volume-in-a-service-fabric-mesh-application"></a>Monter un volume basé sur Service Fabric Reliable Disk dans une application Azure Service Fabric Mesh 
@@ -32,7 +32,7 @@ Dans cet exemple, l’application de compteur dispose d’un service ASP.NET Cor
 
 `counterService` lit périodiquement une valeur de compteur dans un fichier, l’incrémente, puis la réécrit dans le fichier. Le fichier est stocké dans un dossier monté sur le volume soutenu par Service Fabric Reliable Disk.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour accomplir cette tâche, vous pouvez utiliser le service Azure Cloud Shell ou une installation locale d’Azure CLI. Pour utiliser Azure CLI avec cet article, vérifiez que `az --version` retourne au moins `azure-cli (2.0.43)`.  Installez (ou mettez à jour) le module d’extension Service Fabric Mesh CLI en suivant les [instructions](service-fabric-mesh-howto-setup-cli.md) ci-après.
 

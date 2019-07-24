@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
 ms.openlocfilehash: 57eeb9b6ac6eb826e2b371e6ff4dfd71f8cef49c
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66258983"
 ---
 # <a name="guidelines"></a>Instructions  
@@ -29,7 +29,7 @@ Si plusieurs personnes nécessite l’accès au même ID Microsoft que celui uti
 
 >[!IMPORTANT]
 >Pour autoriser plusieurs utilisateurs à accéder à votre compte Centre de développement Microsoft, Microsoft vous recommande d’utiliser Azure Active Directory (Azure AD) pour affecter des rôles aux utilisateurs individuels. Chaque utilisateur peut accéder au compte en se connectant avec des informations d’identification Azure AD individuelles. Créez votre ID Microsoft à l’aide d’une adresse e-mail dans un domaine enregistré auprès de votre société. Microsoft recommande que l’adresse e-mail ne soit pas assignée à une personne. Par exemple `windowsapps@fabrikam.com`.  
->*   Pour plus d’informations, visitez le [problème : ID Microsoft dans un compte Azure AD un domaine fédéré](#issue-microsoft-id-in-an-azure-ad-federated-domain) section.  
+>*   Pour plus d’informations, consultez la section [Problème : ID Microsoft dans un domaine fédéré Azure AD](#issue-microsoft-id-in-an-azure-ad-federated-domain).  
 
 *   Limitez l’accès à l’ID Microsoft au plus petit nombre possible de développeurs. 
 *   Configurez une liste de distribution électronique d’entreprise incluant tous les utilisateurs qui doivent accéder à votre compte Centre de développement. Ajoutez l’adresse e-mail de la liste de distribution à vos informations de sécurité. La liste de distribution permet à tous les employés sur la liste de recevoir les codes de sécurité si nécessaire, et gérer les informations de sécurité de votre ID Microsoft. Si la création d’une liste de distribution n’est pas possible, alors le détenteur du compte de messagerie doit être disponible pour accéder aux codes de sécurité et les partager quand cela est nécessaire.  

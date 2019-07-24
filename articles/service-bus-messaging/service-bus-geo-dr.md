@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: a0581ef43e8a3c02126612a21122db559a941370
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 24d6658733ea38c15f0673d10db3c0ff5ef51c23
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60311186"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190161"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Géorécupération d’urgence Azure Service Bus
 
@@ -62,6 +62,17 @@ Le processus est le suivant :
 2. Provisionnez un espace de noms ***Secondaire*** pour Service Bus Premium dans une région *différente de celle où est provisionné l’espace de noms principal*. Vous obtiendrez ainsi un isolement des pannes dans toutes les régions du centre de données.
 
 3. Créez une association entre l’espace de noms principal et l’espace de noms secondaire pour obtenir l’***alias***.
+
+    >[!NOTE] 
+    > Si vous avez [migré votre espace de noms Azure Service Bus Standard vers Azure Service Bus Premium](service-bus-migrate-standard-premium.md), vous devez utiliser l’alias préexistant (par exemple, la chaîne de connexion de l’espace de noms Service Bus Standard) pour créer la configuration de récupération d’urgence via **PS/CLI** ou **l’API REST**.
+    >
+    >
+    > Cela tient au fait que lors de la migration, le nom DNS/la chaîne de connexion de l’espace de noms Azure Service Bus Standard devient un alias pour l’espace de noms Azure Service Bus Premium.
+    >
+    > Vos applications clientes doivent utiliser cet alias (par exemple, la chaîne de connexion de l’espace de noms Azure Service Bus Standard) pour se connecter à l’espace de noms Premium là où le couplage de récupération d’urgence a été configuré.
+    >
+    > Si vous utilisez le portail pour la configuration de la récupération d’urgence, le portail extrait cette notification pour vous.
+
 
 4. Utilisez l’***alias*** obtenu à l’étape 3 pour connecter vos applications clientes à l’espace de noms principal où est activée la géo-reprise d’activité après sinistre. Initialement, l’alias pointe vers l’espace de noms principal.
 
@@ -120,7 +131,7 @@ Notez les points suivants pour cette version :
 
 2. Le fait qu’aucune donnée ne soit répliquée signifie que les sessions actuellement actives ne sont pas répliquées. En outre, la détection des doublons et les messages planifiés peuvent ne pas fonctionner. Les nouvelles sessions, les nouveaux messages planifiés et les nouveaux doublons fonctionneront. 
 
-3. Le basculement d’une infrastructure distribuée complexe doit être [répétée](/azure/architecture/resiliency/disaster-recovery-azure-applications#disaster-simulation) au moins une fois.
+3. Le basculement d’une infrastructure distribuée complexe doit être [répétée](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan) au moins une fois.
 
 4. La synchronisation des entités peut prendre un certain temps, à raison d’environ 50 à 100 entités par minute. Les abonnements et les règles comptent également comme des entités.
 

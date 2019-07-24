@@ -11,30 +11,30 @@ ms.date: 02/07/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: c15d315d186af5622d9fa988945750d93e8eb11f
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66507561"
 ---
 #  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Ajouter des revendications et personnaliser l’entrée utilisateur avec des stratégies personnalisées dans Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Dans le cadre de cet article, vous allez ajouter une nouvelle entrée fournie par l’utilisateur (une revendication) à votre parcours utilisateur d’inscription dans Azure Active Directory (Azure AD) B2C.  Vous configurez l’entrée comme une liste déroulante et définissez si ce champ est obligatoire.
+Dans le cadre de cet article, vous allez ajouter une nouvelle entrée fournie par l’utilisateur (une revendication) à votre parcours utilisateur d’inscription dans Azure Active Directory (Azure AD) B2C.  Vous allez configurer l’entrée sous forme de liste déroulante et définir si elle est requise.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Suivez les étapes de l’article [Bien démarrer avec les stratégies personnalisées](active-directory-b2c-get-started-custom.md). Testez le parcours utilisateur d’inscription ou de connexion pour inscrire un nouveau compte local avant de continuer.
 
 ## <a name="add-claims"></a>Ajouter des revendications
 
-La collecte initiale de données auprès des utilisateurs se fait par le biais du parcours utilisateur d’inscription ou de connexion. Des revendications supplémentaires peuvent être collectées par la suite au moyen des parcours utilisateur de modification de profil. Chaque fois qu’Azure AD B2C rassemble des informations directement à partir de l’utilisateur de manière interactive, l’infrastructure d’expérience d’identité utilise son fournisseur déclarée automatiquement.
+La collecte initiale de données auprès des utilisateurs se fait par le biais du parcours utilisateur d’inscription ou de connexion. Des revendications supplémentaires peuvent être collectées par la suite au moyen des parcours utilisateur de modification de profil. Chaque fois qu’Azure AD B2C rassemble de manière interactive des informations provenant directement de l’utilisateur, Identity Experience Framework utilise son fournisseur autodéclaré.
 
 
 ### <a name="define-the-claim"></a>Définir la revendication
 
-Nous allons demander à l’utilisateur pour leur ville. Ajoutez l’élément suivant à l’élément **ClaimsSchema** dans le fichier de stratégie TrustFrameworkBase :
+Demandons à l’utilisateur la ville où il vit. Ajoutez l’élément suivant à l’élément **ClaimsSchema** dans le fichier de stratégie TrustFrameworkBase :
 
 ```xml
 <ClaimType Id="city">

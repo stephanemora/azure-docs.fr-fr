@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 1bf42e5f418f99f5e5327d790c1adffe2357b84e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e181aab3d92d8111a0a7d1d41bbddac20687a547
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65021932"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67668876"
 ---
 # <a name="how-to-add-a-custom-skill-to-a-cognitive-search-pipeline"></a>Comment ajouter une compétence personnalisée à un pipeline de recherche cognitive
 
 Dans Recherche Azure, un [pipeline d'indexation de recherche cognitive](cognitive-search-concept-intro.md) peut être assemblé à partir de [compétences prédéfinies](cognitive-search-predefined-skills.md) ainsi que de [compétences personnalisées](cognitive-search-custom-skill-web-api.md) que vous avez personnellement créées et ajoutées au pipeline. Dans cet article, découvrez comment créer une compétence personnalisée qui présente une interface lui permettant de faire partie d’un pipeline de recherche cognitive. 
 
-Construire une compétence personnalisée vous donne un moyen d’insérer des transformations uniques dans votre contenu. Une compétence personnalisée s’exécute de façon indépendante, en appliquant l’étape d’enrichissement dont vous avez besoin. Par exemple, vous pouvez définir des entités personnalisées spécifiques de votre domaine, créer des modèles de classification personnalisés pour différencier des contrats et documents commerciaux et financiers, ou ajouter une compétence de reconnaissance vocale pour explorer plus profondément des fichiers audio afin d’en extraire du contenu pertinent. Pour un exemple pas à pas, voir [Exemple : création d’une compétence personnalisée](cognitive-search-create-custom-skill-example.md).
+Construire une compétence personnalisée vous donne un moyen d’insérer des transformations uniques dans votre contenu. Une compétence personnalisée s’exécute de façon indépendante, en appliquant l’étape d’enrichissement dont vous avez besoin. Par exemple, vous pouvez définir des entités personnalisées spécifiques de votre domaine, créer des modèles de classification personnalisés pour différencier des contrats et documents commerciaux et financiers, ou ajouter une compétence de reconnaissance vocale pour explorer plus profondément des fichiers audio afin d’en extraire du contenu pertinent. Pour obtenir un exemple pas à pas, consultez [Exemple : Création d’une compétence personnalisée pour la recherche cognitive](cognitive-search-create-custom-skill-example.md).
 
  Quelle que soit la capacité personnalisée dont vous avez besoin, il existe une interface simple et claire pour connecter une compétence personnalisée au reste du pipeline d’enrichissement. La seule exigence pour l’inclusion d’une capacité dans un [jeu de compétences](cognitive-search-defining-skillset.md) est la possibilité d’accepter des entrées et de générer des sorties de manières exploitables dans le jeu de compétences dans son ensemble. Cet article se concentre sur les formats d’entrée et de sortie que le pipeline d’enrichissement exige.
 
@@ -156,7 +156,7 @@ Lorsque vous créez un enrichisseur d’API web, vous pouvez décrire des en-tê
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-+ [Exemple : Création d’une compétence personnalisée pour l’API Traduire le texte](cognitive-search-create-custom-skill-example.md)
++ [Exemple : Création d’une compétence personnalisée pour la recherche cognitive](cognitive-search-create-custom-skill-example.md)
 + [Guide pratique pour définir un ensemble de compétences](cognitive-search-defining-skillset.md)
 + [Créer un jeu de compétences (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 + [Guide pratique pour mapper des champs enrichis](cognitive-search-output-field-mapping.md)

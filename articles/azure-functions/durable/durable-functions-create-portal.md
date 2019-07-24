@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: azfuncdf, glenga
 ms.openlocfilehash: 705a43f1ef35f953d1b87c7c44bbc45fcb4334be
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65872859"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>Créer des fonctions Durable Functions à l’aide du portail Azure
@@ -23,7 +23,7 @@ L’extension [Fonctions durables](durable-functions-overview.md) d’Azure Func
 
 > [!NOTE]
 > 
-> * Si vous développez des fonctions durables dans C#, vous devez plutôt envisager [développement de Visual Studio 2019](durable-functions-create-first-csharp.md).
+> * Si vous développez des fonctions durables dans C#, pensez plutôt à utiliser le [développement Visual Studio 2019](durable-functions-create-first-csharp.md).
 > * Si vous développez des fonctions durables dans JavaScript, pensez plutôt à utiliser le [développement Visual Studio Code](./quickstart-js-vscode.md).
 
 ## <a name="create-a-function-app"></a>Créer une application de fonction
@@ -38,7 +38,7 @@ Par défaut, l’application de fonction créée utilise la version 2.x du runt
 
 Si vous créez des fonctions Durable Functions JavaScript, vous devez installer le [package npm `durable-functions`](https://www.npmjs.com/package/durable-functions).
 
-1. Sélectionnez le nom de votre application de fonction, puis **Fonctionnalités de la plateforme** et enfin **Outils avancés (Kudu)**.
+1. Sélectionnez le nom de votre application de fonction, puis **Fonctionnalités de la plateforme** et enfin **Outils avancés (Kudu)** .
 
    ![Les fonctionnalités de la plateforme Functions choisissent Kudu](./media/durable-functions-create-portal/function-app-platform-features-choose-kudu.png)
 

@@ -1,6 +1,6 @@
 - name: Documentation Azure Databricks
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: Présentation d’Azure Databricks
       href: what-is-azure-databricks.md
@@ -17,6 +17,8 @@
   items:
     - name: Interroger SQL Server exécuté dans un conteneur Docker
       href: vnet-injection-sql-server.md
+    - name: Accéder au stockage à l’aide d’Azure Key Vault
+      href: store-secrets-azure-key-vault.md
     - name: Utiliser le point de terminaison de service Cosmos DB
       href: service-endpoint-cosmosdb.md
     - name: Effectuer des opérations ETL

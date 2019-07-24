@@ -11,10 +11,10 @@ ms.date: 07/23/2018
 ms.author: anjangsh
 ms.reviewer: jrasnick
 ms.openlocfilehash: 95c59d3e5504058e27cdb4eda311c3917d6c834a
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65912235"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-june-2018"></a>Nouveautés dans Azure SQL Data Warehouse Juin 2018
@@ -25,7 +25,7 @@ Azure SQL Data Warehouse reçoit continuellement des améliorations. Cet article
 ## <a name="user-defined-restore-points"></a>Points de restauration définis par l’utilisateur
 SQL Data Warehouse prend automatiquement des instantanés de votre entrepôt de données toutes les 8 heures pour respecter un objectif de point de récupération (RPO) de huit heures. Bien que ces instantanés automatisés facilitent l’administration liée à l’exécution de votre entrepôt de données, il est nécessaire de prendre des instantanés aux moments critiques en fonction des besoins de votre entreprise. Par exemple, prendre un instantané juste avant une charge importante de données ou le déploiement de nouveaux scripts dans l’entrepôt de données pour activer un point de restauration juste avant l’opération. 
 
-SQL Data Warehouse prend désormais en charge [points de restauration défini par l’utilisateur](https://azure.microsoft.com/blog/quick-recovery-time-with-sql-data-warehouse-using-user-defined-restore-points/) via la [New-AzSqlDatabaseRestorePoint](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaserestorepoint) applet de commande.
+SQL Data Warehouse prend désormais en charge les [points de restauration définis par l’utilisateur](https://azure.microsoft.com/blog/quick-recovery-time-with-sql-data-warehouse-using-user-defined-restore-points/) via la cmdlet [New-AzSqlDatabaseRestorePoint](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaserestorepoint).
 
 ```powershell
 New-AzSqlDatabaseRestorePoint

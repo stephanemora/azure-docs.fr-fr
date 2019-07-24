@@ -12,10 +12,10 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seoapril2019
 ms.openlocfilehash: 158b229c2c45a14ed0fd5433d1903eca92f32401
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65851646"
 ---
 # <a name="indexing-tables-in-sql-data-warehouse"></a>Indexation de tables dans SQL Data Warehouse
@@ -48,13 +48,13 @@ Il existe quelques scénarios où un columnstore en cluster peut ne pas être pa
 
 - Les tables columnstore ne prennent pas en charge varchar(max), nvarchar(max) et varbinary(max). Envisagez plutôt les segments de mémoire ou les index en cluster.
 - Les tables columnstore peuvent être moins efficaces pour les données temporaires. Envisagez les segments de mémoire, voire les tables temporaires.
-- Tables de petite taille avec moins de 60 millions de lignes. Envisagez les tables de segments de mémoire.
+- Petites tables avec moins de 60 millions de lignes. Envisagez les tables de segments de mémoire.
 
 ## <a name="heap-tables"></a>Tables de segments de mémoire
 
-Lorsque vous envoyez des données dans SQL Data Warehouse, vous pouvez trouver qu’à l’aide d’une table de segment de mémoire accélère le processus de global plus rapide. En effet, les charges sur les segments de mémoire sont plus rapides que sur les tables d’index et, dans certains cas, la lecture ultérieure peut être effectuée depuis le cache.  Si vous chargez des données uniquement pour les organiser avant d’exécuter d’autres transformations, le chargement de la table dans la table de segments de mémoire est beaucoup plus rapide que le chargement de données dans une table columnstore en cluster. En outre, le chargement des données dans une [table temporaire](sql-data-warehouse-tables-temporary.md) est plus rapide que le chargement d’une table dans un stockage permanent.  
+Lors de l’envoi temporaire de données dans SQL Data Warehouse, vous trouverez peut-être que l’utilisation d’une table de segments de mémoire accélère le processus global. En effet, les charges sur les segments de mémoire sont plus rapides que sur les tables d’index et, dans certains cas, la lecture ultérieure peut être effectuée depuis le cache.  Si vous chargez des données uniquement pour les organiser avant d’exécuter d’autres transformations, le chargement de la table dans la table de segments de mémoire est beaucoup plus rapide que le chargement de données dans une table columnstore en cluster. En outre, le chargement des données dans une [table temporaire](sql-data-warehouse-tables-temporary.md) est plus rapide que le chargement d’une table dans un stockage permanent.  
 
-Pour les petites tables de choix, 60 millions de lignes, souvent les tables de segments de mémoire sens.  Tables columnstore en cluster commencent à atteindre une compression optimale une fois plus de 60 millions de lignes.
+Pour les petites tables de choix de moins de 60 millions de lignes, l’utilisation de tables de segments de mémoire est souvent judicieuse.  Les tables columnstore en cluster commencent à atteindre une compression optimale une fois qu’elles comptent plus de 60 millions de lignes.
 
 Pour créer une table de segments de mémoire, spécifiez simplement HEAP dans la clause WITH :
 
@@ -84,7 +84,7 @@ CREATE TABLE myTable
 WITH ( CLUSTERED INDEX (id) );
 ```
 
-Pour ajouter un index non cluster sur une table, utilisez la syntaxe suivante :
+Pour ajouter un index non cluster sur une table, utilisez la syntaxe suivante :
 
 ```SQL
 CREATE INDEX zipCodeIndex ON myTable (zipCode);
@@ -200,7 +200,7 @@ Un volume élevé d’opérations DML qui mettent à jour et suppriment des lign
 - L’insertion d’une ligne ajoute cette dernière à une table de groupe de lignes interne appelée groupe de lignes delta. La ligne insérée n’est pas convertie en columnstore jusqu’à ce que le groupe de lignes delta soit rempli et marqué comme étant fermé. Les groupes de lignes sont fermés lorsqu’ils atteignent leur capacité maximale de 1 048 576 lignes.
 - La mise à jour d’une ligne au format columnstore est traitée en tant que suppression logique, puis en tant qu’insertion. La ligne insérée peut être stockée dans le deltastore.
 
-Les opérations de mise à jour par lot et d’insertion qui dépassent le seuil de 102 400 lignes par distribution alignée sur la partition vont directement au format columnstore. Toutefois, pour que cela se produise et en supposant que la répartition soit uniforme, vous devriez modifier plus de 6,144 millions de lignes en une seule opération. Si le nombre de lignes pour une distribution alignée sur la partition donnée est inférieur à 102 400 lignes vont vers le magasin delta et y restent jusqu'à ce que suffisamment de lignes ont été insérées ou modifiées pour fermer le groupe de lignes ou l’index a été reconstruit.
+Les opérations de mise à jour par lot et d’insertion qui dépassent le seuil de 102 400 lignes par distribution alignée sur la partition vont directement au format columnstore. Toutefois, pour que cela se produise et en supposant que la répartition soit uniforme, vous devriez modifier plus de 6,144 millions de lignes en une seule opération. Si le nombre de lignes d’une distribution alignée sur la partition donnée est inférieur à 102 400, les lignes sont transférées vers le deltastore et y restent jusqu’à ce que l’une des trois conditions suivantes ait été remplie : un nombre suffisant de lignes a été inséré ; un nombre suffisant de lignes a été modifié pour fermer le groupe de lignes ; l’index a été reconstruit.
 
 ### <a name="small-or-trickle-load-operations"></a>Opérations de chargement progressives ou légères
 
@@ -210,7 +210,7 @@ Dans ces situations, il est souvent préférable d’envoyer les données dans A
 
 ### <a name="too-many-partitions"></a>Nombre trop important de partitions
 
-Autre élément à prendre en compte : l’impact du partitionnement sur vos tables columnstore en cluster.  Avant de partitionner, SQL Data Warehouse divise déjà vos données en 60 bases de données.  Un partitionnement plus approfondi divise vos données.  Si vous partitionnez vos données, tenez compte du fait que **chaque** partition nécessite au moins 1 million de lignes pour bénéficier d’un index columnstore en cluster.  Si vous partitionnez votre table en 100 partitions, votre table doit être au moins 6 milliards de lignes pour bénéficier d’un index columnstore en cluster (60 distributions *100 partitions* 1 million de lignes). Si votre table de 100 partitions ne possède pas 6 milliards de lignes, réduisez le nombre de partitions, ou envisagez plutôt d’utiliser une table de segments de mémoire.
+Autre élément à prendre en compte : l’impact du partitionnement sur vos tables columnstore en cluster.  Avant de partitionner, SQL Data Warehouse divise déjà vos données en 60 bases de données.  Un partitionnement plus approfondi divise vos données.  Si vous partitionnez vos données, tenez compte du fait que **chaque** partition nécessite au moins 1 million de lignes pour bénéficier d’un index columnstore en cluster.  Si vous partitionnez votre table en 100 partitions, cette dernière doit compter au moins 6 milliards de lignes pour bénéficier d’un index columnstore en cluster (60 distributions *100 partitions* 1 million de lignes). Si votre table de 100 partitions ne possède pas 6 milliards de lignes, réduisez le nombre de partitions, ou envisagez plutôt d’utiliser une table de segments de mémoire.
 
 Une fois que les tables ont été chargées avec des données, suivez les étapes ci-dessous pour identifier et reconstruire des tables avec des index columnstore en cluster non optimaux.
 
@@ -228,7 +228,7 @@ EXEC sp_addrolemember 'xlargerc', 'LoadUser'
 
 ### <a name="step-2-rebuild-clustered-columnstore-indexes-with-higher-resource-class-user"></a>Étape 2 : Reconstruire les index columnstore en cluster avec un utilisateur de la classe de ressources la plus élevée
 
-Connectez-vous en tant qu’utilisateur à l’étape 1 (p. ex., LoadUser), qui est maintenant à l’aide d’une classe de ressources supérieure, et exécutez les instructions ALTER INDEX. N’oubliez pas que cet utilisateur possède l’autorisation ALTER sur les tables où l’index est reconstruit. Ces exemples illustrent comment reconstruire l’index columnstore entier ou comment reconstruire une partition unique. Sur des tables volumineuses, il est plus pratique de reconstruire les index une seule partition à la fois.
+Connectez-vous en tant qu’utilisateur à l’étape 1 (par exemple, LoadUser), qui utilise maintenant une classe de ressources supérieure, puis exécutez les instructions ALTER INDEX. N’oubliez pas que cet utilisateur possède l’autorisation ALTER sur les tables où l’index est reconstruit. Ces exemples illustrent comment reconstruire l’index columnstore entier ou comment reconstruire une partition unique. Sur des tables volumineuses, il est plus pratique de reconstruire les index une seule partition à la fois.
 
 Au lieu de reconstruire l’index, vous pouvez également copier la table dans une nouvelle table avec [CTAS](sql-data-warehouse-develop-ctas.md). Quelle méthode est la meilleure ? Pour les gros volumes de données, CTAS est généralement plus rapide qu’[ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql). Pour les volumes de données plus restreints, ALTER INDEX est plus facile à utiliser et ne vous oblige pas à permuter la table.
 

@@ -4,7 +4,7 @@ description: Préparation d’infrastructure Azure pour la haute disponibilité 
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e1c6b1d55a4fbc673980908a981a9a96c869bee9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b3577128e66112bda5a5e3e08097d14604043cbd
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65409611"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67708993"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>Préparation d’infrastructure Azure pour la haute disponibilité SAP à l’aide de cluster de basculement Windows et de partage de fichiers pour une instance SAP ASCS/SCS
 
@@ -263,7 +263,7 @@ Pour préparer l’infrastructure Azure, procédez comme suit :
 
 * [Définissez des règles d’équilibrage de charge ASCS/SCS par défaut pour l’équilibrage de charge interne Azure][sap-high-availability-infrastructure-wsfc-shared-disk-default-ascs-ilb-rules].
 
-* [Modifiez les règles d’équilibrage de charge ASCS/SCS par défaut pour l’équilibrage de charge interne Azure][sap-high-availability-infrastructure-wsfc-shared-disk-change-ascs-ilb-rules].
+* [Changer les règles d’équilibrage de charge ASCS/SCS par défaut pour l’équilibreur de charge interne Azure][sap-high-availability-infrastructure-wsfc-shared-disk-change-ascs-ilb-rules].
 
 * [Ajoutez des machines virtuelles Windows au domaine][sap-high-availability-infrastructure-wsfc-shared-disk-add-win-domain].
 

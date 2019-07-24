@@ -5,12 +5,12 @@ ms.date: 04/30/2019
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: jeconnoc
-ms.openlocfilehash: 6eedc095f155a77cddf48211dbc4a677bf188112
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.openlocfilehash: 55d73b2602a9a862375ca3e72dee4597c1d6f1d6
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509841"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67659802"
 ---
 Des images de machine virtuelle standardisées permettent aux organisations de migrer vers le cloud en veillant à la cohérence des déploiements. Les images incluent généralement des paramètres de sécurité et de configuration prédéfinis et les logiciels nécessaires. La mise en place de votre propre pipeline d’acquisition d’image nécessite du temps, une infrastructure et une configuration. En revanche, le Générateur d’images de machine virtuelle Azure génère une simple configuration décrivant votre image et l’envoie au service qui la produit et la distribue.
  
@@ -55,7 +55,7 @@ Le Générateur d’images Azure prendra en charge les images ISO Red Hat Enterp
 - RHEL 7.4
 - RHEL 7.5
 
-RHEL 7.6 n’est pas pris en charge, mais en cours de test.
+Les fichiers ISO RHEL 7.6 ne sont pas pris en charge, mais sont en cours de test.
 
 ## <a name="how-it-works"></a>Fonctionnement
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 398efd36e6c8d82a5090b7446c95abb2d1bfbca1
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 03c7be9112ed22bb43e259fa72581d382a276163
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67428757"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718186"
 ---
 # <a name="azure-policy-definition-structure"></a>Structure de définition Azure Policy
 
@@ -105,7 +105,7 @@ Les paramètres fonctionnent de manière identique durant la création de strat�
 Un paramètre possède les propriétés suivantes qui sont utilisées dans la définition de la stratégie :
 
 - **nom** : Nom de votre paramètre. Utilisé par la fonction de déploiement `parameters` dans le cadre de la règle de stratégie. Pour plus d’informations, consultez [Utilisation d’une valeur de paramètre](#using-a-parameter-value).
-- `type`: Détermine si le paramètre est une **chaîne** ou un **tableau**.
+- `type`: Détermine si le paramètre est une **chaîne**, un **tableau**, un **objet**, **booléen**, **entier**, **flottant**, ou **DateHeure**.
 - `metadata`: Définit les sous-propriétés utilisées principalement par le portail Azure pour afficher des informations conviviales :
   - `description`: Explication du rôle du paramètre. Utilisable pour fournir des exemples de valeurs acceptables.
   - `displayName`: Nom convivial du paramètre visible dans le portail.

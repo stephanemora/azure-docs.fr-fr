@@ -1,6 +1,6 @@
 ---
-title: Synchroniser les attributs à Azure AD pour le mappage | Microsoft Docs
-description: Découvrez comment synchroniser les attributs de votre annuaire local Active Directory à Azure AD. Lors de la configuration des utilisateurs pour les applications SaaS, utilisez la fonctionnalité d’extension de répertoire pour ajouter des attributs de source qui ne sont pas synchronisés par défaut.
+title: Synchroniser les attributs avec Azure AD pour le mappage | Microsoft Docs
+description: Découvrez comment synchroniser les attributs de votre répertoire local Active Directory avec Azure AD. Lors de la configuration des utilisateurs pour les applications SaaS, servez-vous de la fonctionnalité d’extension de répertoire pour ajouter des attributs sources qui ne sont pas synchronisés par défaut.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -16,47 +16,47 @@ ms.author: mimart
 ms.custom: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a9460bc924ea662646360d1a3f5087949a39a03f
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65806115"
 ---
-# <a name="sync-an-attribute-from-your-on-premises-active-directory-to-azure-ad-for-provisioning-to-an-application"></a>L’attribut d’Active Directory en local à Azure AD pour l’approvisionnement d’une application de synchronisation
+# <a name="sync-an-attribute-from-your-on-premises-active-directory-to-azure-ad-for-provisioning-to-an-application"></a>Synchronisez un attribut à partir d’un répertoire Active Directory local vers Azure AD pour la configuration vers une application donnée
 
-Lors de la personnalisation des mappages d’attributs pour l’approvisionnement, vous constaterez peut-être que l’attribut que vous souhaitez mapper n’apparaît pas dans le **attribut Source** liste. Cet article vous montre comment ajouter l’attribut manquant en synchronisant à partir de votre réseau local Active Directory (AD) à Azure Active Directory (Azure AD).
+Lors de la personnalisation des mappages d’attributs pour la configuration utilisateur, vous constaterez peut-être que l’attribut à mapper n’apparaît pas dans la liste **Attribut source**. Cet article vous montre comment ajouter l’attribut manquant en le synchronisant de votre répertoire Active Directory (AD) local vers Azure Active Directory (Azure AD).
 
-Azure AD doit contenir toutes les données requises pour créer un profil utilisateur lors de l’approvisionnement des comptes utilisateur d’Azure AD vers une application SaaS. Dans certains cas, pour rendre les données disponibles vous pouvez doivent synchroniser les attributs à partir de votre réseau local Active Directory à Azure AD. Azure AD Connect synchronise automatiquement certains attributs pour Azure AD, mais pas tous les attributs. En outre, certains attributs (par exemple, SAMAccountName) sont synchronisées par défaut ne peuvent pas être exposés via l’API Graph Azure AD. Dans ce cas, vous pouvez utiliser la fonctionnalité d’extension de répertoire Azure AD Connect pour synchroniser l’attribut à Azure AD. De cette façon, l’attribut sera visible pour l’API Graph Azure AD et le service d’approvisionnement AD Azure.
+Azure AD doit contenir toutes les données requises pour créer un profil utilisateur lors de la configuration des comptes utilisateur d’Azure AD vers une application SaaS. Pour rendre les données disponibles, vous devez parfois synchroniser les attributs de votre répertoire AD local vers Azure AD. Azure AD Connect synchronise automatiquement certains attributs avec Azure AD, mais pas tous. En outre, certains attributs (par exemple, SAMAccountName) synchronisés par défaut ne peuvent pas être exposés par le biais de l’API Graph Azure AD. Dans ce cas, vous pouvez utiliser la fonctionnalité d’extension de répertoire Azure AD Connect pour synchroniser l’attribut avec Azure AD. De cette façon, l’attribut est visible pour l’API Graph Azure AD et le service de configuration Azure AD.
 
-Si les données que vous avez besoin pour l’approvisionnement sont dans Active Directory, mais n’est pas disponibles pour l’approvisionnement pour les raisons décrites ci-dessus, procédez comme suit.
+Si les données dont vous avez besoin pour la configuration se trouvent dans Active Directory, mais ne sont pas disponibles pour la configuration à cause des raisons décrites ci-dessus, procédez comme suit.
  
 ## <a name="sync-an-attribute"></a>Synchroniser un attribut 
 
-1. Ouvrir l’Assistant Azure AD Connect, choisissez des tâches, puis **personnaliser les options de synchronisation**.
+1. Ouvrez l’Assistant Azure AD Connect et sélectionnez Tâches, puis **Personnaliser les options de synchronisation**.
 
-   ![Azure Active Directory Connect de page Assistant Tâches supplémentaires](media/user-provisioning-sync-attributes-for-mapping/active-directory-connect-customize.png)
+   ![Page Tâches supplémentaires de l’Assistant Azure Active Directory Connect](media/user-provisioning-sync-attributes-for-mapping/active-directory-connect-customize.png)
  
-2. Connectez-vous en tant qu’administrateur Global Azure AD. 
+2. Connectez-vous en tant qu’Administrateur général Azure AD. 
 
-3. Sur le **fonctionnalités facultatives** page, sélectionnez **synchronisation attribut extensions d’annuaire**.
+3. Sur la page **Fonctionnalités facultatives**, sélectionnez **Synchronisation des attributs des extensions d’annuaire**.
  
-   ![Azure Active Directory Connect de page Assistant fonctionnalités facultatives](media/user-provisioning-sync-attributes-for-mapping/active-directory-connect-directory-extension-attribute-sync.png)
+   ![Page Fonctionnalités facultatives de l’Assistant Azure Active Directory Connect](media/user-provisioning-sync-attributes-for-mapping/active-directory-connect-directory-extension-attribute-sync.png)
 
-4. Sélectionnez les attributs que vous souhaitez étendre à Azure AD.
+4. Sélectionnez le ou les attributs que vous souhaitez étendre à Azure AD.
    > [!NOTE]
-   > La recherche sous **attributs disponibles** respecte la casse.
+   > La recherche **Attributs disponibles** respecte la casse.
 
-   ![Azure Active Directory Connect répertoire extensions sélection page de l’Assistant](media/user-provisioning-sync-attributes-for-mapping/active-directory-connect-directory-extensions.png)
+   ![Page de sélection des extensions d’annuaire de l’Assistant Azure Active Directory Connect](media/user-provisioning-sync-attributes-for-mapping/active-directory-connect-directory-extensions.png)
 
-5. Terminez l’Assistant Azure AD Connect et autoriser un cycle de synchronisation complète pour s’exécuter. Lorsque le cycle est terminé, le schéma est étendu et les nouvelles valeurs sont synchronisés entre votre réseau local AD et Azure AD.
+5. Terminez l’Assistant Azure AD Connect et autorisez l’exécution d’un cycle de synchronisation complète. Lorsque le cycle est terminé, le schéma est étendu et les nouvelles valeurs sont synchronisées entre votre répertoire AD local et Azure AD.
  
-6. Dans le portail Azure, alors que vous êtes [modification des mappages d’attributs utilisateur](customize-application-attributes.md), le **attribut Source** liste contient maintenant l’attribut ajouté au format `<attributename> (extension_<appID>_<attributename>)`. Sélectionnez l’attribut et le mapper à l’application cible pour l’approvisionnement.
+6. Dans le Portail Azure, lorsque vous [modifiez des mappages d’attributs utilisateur](customize-application-attributes.md), la liste **Attribut source** contient désormais l’attribut ajouté au format `<attributename> (extension_<appID>_<attributename>)`. Sélectionnez l’attribut et mappez-le à l’application cible pour la configuration.
 
-   ![Azure Active Directory Connect répertoire extensions sélection page de l’Assistant](media/user-provisioning-sync-attributes-for-mapping/attribute-mapping-extensions.png)
+   ![Page de sélection des extensions d’annuaire de l’Assistant Azure Active Directory Connect](media/user-provisioning-sync-attributes-for-mapping/attribute-mapping-extensions.png)
 
 > [!NOTE]
-> Possibilité de configurer les attributs de référence à partir d’AD local, tel que **managedby** ou **DN/DistinguishedName**, n’est pas pris en charge dès aujourd'hui. Vous pouvez demander cette fonctionnalité sur [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory). 
+> À l’heure actuelle, il n’est pas possible de configurer les attributs de référence à partir du répertoire AD local, comme **managedby** ou **DN/DistinguishedName**. Vous pouvez demander cette fonctionnalité sur [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Définir des noms qui figurent dans l’étendue de l’approvisionnement](define-conditional-rules-for-provisioning-user-accounts.md)
+* [Définir qui est concerné par la configuration](define-conditional-rules-for-provisioning-user-accounts.md)

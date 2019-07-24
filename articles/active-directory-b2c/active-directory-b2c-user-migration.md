@@ -11,10 +11,10 @@ ms.date: 10/04/2017
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: 1e913b02f99095afb7ee1a3f2122e3c1fe1a60b5
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66507667"
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C : Migration utilisateur
@@ -63,7 +63,7 @@ Tout d’abord, inscrivez votre application de migration dans Azure AD. Ensuite,
 1. Créez une application en procédant comme suit :
    - Pour **Nom**, utilisez **B2CUserMigration** ou n’importe quel nom de votre choix.
    - Pour **Type d’application**, utilisez **Application/API web**.
-   - Pour **Sign-on URL**, utilisez `https://localhost` (car il n’est pas pertinent pour cette application).
+   - Pour **URL de connexion**, utilisez `https://localhost` (car cela n’est pas pertinent pour cette application).
    - Sélectionnez **Créer**.
    
 1. Une fois l’application créée, dans la liste **Applications**, sélectionnez l’application nouvellement créée **B2CUserMigration**.
@@ -94,7 +94,7 @@ Vous disposez maintenant d’une application autorisée à créer, lire et mettr
 Les autorisations Accéder en lecture et en écriture aux données de l’annuaire n’incluent *pas* le droit de supprimer des utilisateurs. Pour permettre à votre application de supprimer des utilisateurs (pour nettoyer votre environnement), vous devez effectuer une étape supplémentaire, qui implique d’exécuter PowerShell afin de définir des autorisations Administrateur des comptes d’utilisateur. Si vous n’en avez pas besoin, vous pouvez passer à la section suivante.
 
 > [!IMPORTANT]
-> Vous devez utiliser un compte d’administrateur de locataire B2C qui est *local* pour le locataire B2C. La syntaxe de nom de compte est *administrateur\@contosob2c.onmicrosoft.com*.
+> Vous devez utiliser un compte d’administrateur de locataire B2C qui est *local* pour le locataire B2C. La syntaxe du nom de compte est la suivante : *admin\@contosob2c.onmicrosoft.com*.
 
 >[!NOTE]
 > Le script PowerShell suivant nécessite [Azure Active Directory PowerShell version 2][AD-Powershell].
@@ -257,7 +257,7 @@ Pour suivre la modification de mot de passe, vous utilisez une table Azure. Quan
 ### <a name="41-update-your-application-setting"></a>4.1 : Mettre à jour le paramètre de votre application
 1. Pour tester la démonstration de l’API RESTful, ouvrez `AADB2C.UserMigration.sln` dans Visual Studio.
 
-1. Dans le `AADB2C.UserMigration.API` projet, ouvrez le *Web.config* fichier. Remplacez le paramètre par celui configuré à l’[étape 2.2](#step-22-configure-the-application-settings) :
+1. Dans le projet `AADB2C.UserMigration.API`, ouvrez le fichier *Web.config*. Remplacez le paramètre par celui configuré à l’[étape 2.2](#step-22-configure-the-application-settings) :
 
     ```json
     {

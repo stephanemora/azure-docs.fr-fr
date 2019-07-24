@@ -7,47 +7,47 @@ ms.topic: conceptual
 ms.date: 05/26/2019
 ms.author: tomfitz
 ms.openlocfilehash: 99ca319910be2cb20214172826eb40361abe72f0
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66257658"
 ---
-# <a name="test-your-portal-interface-for-azure-managed-applications"></a>Tester votre interface de portail pour les Applications gérées Azure
+# <a name="test-your-portal-interface-for-azure-managed-applications"></a>Tester votre interface de portail pour Applications managées Azure
 
-Après avoir [création du fichier createUiDefinition.json](create-uidefinition-overview.md) pour votre application gérée, vous devez tester l’expérience utilisateur. Pour simplifier les tests, utilisez un environnement de bac à sable qui charge votre fichier dans le portail. Vous n’avez pas besoin de déployer votre application managée. Le bac à sable présente votre interface utilisateur dans l’expérience du portail actuel et en plein écran. Ou bien, vous pouvez utiliser un script PowerShell pour tester l’interface, mais il utilise un affichage hérité du portail. Les deux approches sont présentées dans cet article. Le bac à sable est la méthode recommandée pour afficher un aperçu de l’interface.
+Après la [création du fichier createUiDefinition.json](create-uidefinition-overview.md) pour votre application managée, vous devez tester l’expérience utilisateur. Pour simplifier le test, utilisez un environnement de bac à sable qui charge votre fichier dans le portail. Vous n’avez pas besoin de déployer votre application managée. Le bac à sable présente votre interface utilisateur dans l’expérience portail actuelle et en plein écran. Vous pouvez aussi utiliser un script PowerShell pour tester l’interface, mais ce dernier utilise un affichage hérité du portail. Les deux approches sont présentées dans cet article. Le bac à sable constitue la méthode recommandée pour afficher un aperçu de l’interface.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-* Un fichier **createUiDefinition.json**. Si vous n’avez pas ce fichier, copiez le [exemple de fichier](https://github.com/Azure/azure-quickstart-templates/blob/master/100-marketplace-sample/createUiDefinition.json).
+* Un fichier **createUiDefinition.json**. Si vous n’avez pas ce fichier, copiez l’[exemple de fichier](https://github.com/Azure/azure-quickstart-templates/blob/master/100-marketplace-sample/createUiDefinition.json).
 
 * Un abonnement Azure. Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 ## <a name="use-sandbox"></a>Utiliser le bac à sable
 
-1. Ouvrez le [créer bac à sable de définition de l’interface utilisateur](https://portal.azure.com/?feature.customPortal=false&#blade/Microsoft_Azure_CreateUIDef/SandboxBlade).
+1. Ouvrez [Créer un bac à sable (sandbox) de définition d’interface utilisateur](https://portal.azure.com/?feature.customPortal=false&#blade/Microsoft_Azure_CreateUIDef/SandboxBlade).
 
    ![Afficher le bac à sable](./media/test-createuidefinition/show-sandbox.png)
 
-1. Remplacez la définition vide avec le contenu de votre fichier createUiDefinition.json. Sélectionnez **aperçu**.
+1. Remplacez la définition vide par le contenu de votre fichier createUiDefinition.json. Sélectionnez **Aperçu**.
 
-   ![Sélectionnez Aperçu](./media/test-createuidefinition/select-preview.png)
+   ![Sélectionner l’aperçu](./media/test-createuidefinition/select-preview.png)
 
-1. Le formulaire que vous avez créé s’affiche. Vous pouvez parcourir l’expérience utilisateur et renseignez les valeurs.
+1. Le formulaire que vous avez créé s’affiche. Vous pouvez parcourir l’expérience utilisateur et renseigner les valeurs.
 
    ![Afficher le formulaire](./media/test-createuidefinition/show-ui-form.png)
 
 ### <a name="troubleshooting"></a>Résolution de problèmes
 
-Si votre formulaire ne s’affiche après avoir sélectionné **aperçu**, vous devrez peut-être une erreur de syntaxe. Recherchez l’indicateur rouge dans la barre de défilement vers la droite et accédez à celui-ci.
+Si votre formulaire ne s’affiche après la sélection de l’option **Aperçu**, cela signifie peut-être que vous avez fait une erreur de syntaxe. Recherchez l’indicateur rouge dans la barre de défilement sur la droite et accédez à ce dernier.
 
-![Afficher l’erreur de syntaxe](./media/test-createuidefinition/show-syntax-error.png)
+![Afficher une erreur de syntaxe](./media/test-createuidefinition/show-syntax-error.png)
 
-Si votre formulaire n’affiche pas, et à la place, vous voyez une icône d’un cloud avec un dépôt de destruction, votre formulaire comporte une erreur, par exemple une propriété manquante. Ouvrir les outils de développement Web dans votre navigateur. La **Console** affiche des messages importants sur votre interface.
+Si votre formulaire ne s’affiche pas, et si à la place vous voyez une icône représentant un nuage avec une larme, cela signifie que votre formulaire comporte une erreur, comme une propriété manquante. Ouvrez Web Developer Tools dans votre navigateur. La **Console** affiche des messages importants sur votre interface.
 
 ![Afficher l’erreur](./media/test-createuidefinition/show-error.png)
 
-## <a name="use-test-script"></a>Utiliser un script de test
+## <a name="use-test-script"></a>Utiliser le script de test
 
 Pour tester votre interface dans le portail, copiez un des scripts suivants sur votre ordinateur local :
 
@@ -98,7 +98,7 @@ Donnez des valeurs aux champs. Lorsque vous avez terminé, vous voyez les valeur
 
 Vous pouvez utiliser ces valeurs en tant que fichier de paramètres pour tester votre modèle de déploiement.
 
-Si le portail se bloque à l’écran Résumé, il existe peut-être un bogue dans la section de sortie. Par exemple, vous avez référencé un contrôle inexistant. Si un paramètre dans la sortie est vide, le paramètre peut faire référence à une propriété qui n’existe pas. Par exemple, la référence au contrôle est valide, mais pas la référence à la propriété.
+Si le portail se bloque sur l’écran récapitulatif, cela signifie qu’il y a peut-être un bogue dans la section de sortie. Par exemple, vous avez référencé un contrôle inexistant. Si un paramètre de la sortie est vide, ce paramètre peut faire référence à une propriété inexistante. Par exemple, la référence au contrôle est valide, mais pas la référence à la propriété.
 
 ## <a name="test-your-solution-files"></a>Tester vos fichiers de solution
 

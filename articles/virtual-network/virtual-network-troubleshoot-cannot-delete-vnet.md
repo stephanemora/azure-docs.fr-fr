@@ -15,13 +15,13 @@ ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 5d2e10a4c5cd5b5dc1a8fe19cef7bc47f68d3fbe
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66235010"
 ---
-# <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>Résolution des problèmes : Impossible de supprimer un réseau virtuel dans Azure
+# <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>Résolution des problèmes : Échec de la suppression d’un réseau virtuel dans Azure
 
 Vous rencontrez peut-être des erreurs lors de vos tentatives de suppression de réseau virtuel dans Microsoft Azure. Cet article fournit les étapes requises pour vous aider à résoudre ce problème. 
 

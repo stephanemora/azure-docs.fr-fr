@@ -1,6 +1,6 @@
 ---
 title: Comment configurer une application du proxy d’application | Microsoft Docs
-description: Découvrez comment créer et configurer une application de Proxy d’APplication en quelques étapes simples
+description: Apprenez à configurer une application du proxy d’application en quelques étapes simples
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -17,15 +17,15 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fc9287aac567c8989564094564b92b82662e603f
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65825934"
 ---
 # <a name="how-to-configure-an-application-proxy-application"></a>Comment configurer une application du proxy d’application
 
-Cet article vous aide à comprendre comment configurer une application de Proxy d’Application dans Azure AD pour exposer vos applications locales vers le cloud.
+Cet article vous aide à comprendre comment configurer une application de proxy d’application dans Azure AD afin de rendre vos applications locales accessibles au cloud.
 
 ## <a name="recommended-documents"></a>Documents recommandés 
 
@@ -49,7 +49,7 @@ Si vous suivez les étapes décrites dans la documentation [Publier des applicat
 
 -   L’URL doit être un nom de domaine, et non une adresse IP
 
-Le message d’erreur doit afficher dans l’angle supérieur droit lorsque vous créez l’application. Vous pouvez également sélectionner l’icône de notification pour afficher les messages d’erreur.
+Le message d’erreur s’affiche en haut à droite lorsque vous créez l’application. Vous pouvez également sélectionner l’icône de notification pour afficher les messages d’erreur.
 
    ![Invite de notification](./media/application-proxy-config-how-to/error-message.png)
 
@@ -71,7 +71,7 @@ Si vous rencontrez des problèmes de chargement du certificat, recherchez les me
 
 -   Clé privée manquante pour le certificat
 
-Le message d’erreur s’affiche dans l’angle supérieur droit lorsque vous tentez de télécharger le certificat. Vous pouvez également sélectionner l’icône de notification pour afficher les messages d’erreur.
+Le message d’erreur s’affiche en haut à droite lorsque vous tentez de charger le certificat. Vous pouvez également sélectionner l’icône de notification pour afficher les messages d’erreur.
 
    ![Invite de notification](./media/application-proxy-config-how-to/error-message2.png)
 

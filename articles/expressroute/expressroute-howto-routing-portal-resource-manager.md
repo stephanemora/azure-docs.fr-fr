@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: mialdrid
 ms.custom: seodec18
-ms.openlocfilehash: 40ecdb3f83dba741d1430a912a3f17500a36da6e
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 08d8103c4b35148a87d347e31b11c7c8c968598b
+ms.sourcegitcommit: dda9fc615db84e6849963b20e1dce74c9fe51821
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67484331"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67622343"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit"></a>Créer et modifier l’homologation pour un circuit ExpressRoute
 
@@ -132,6 +132,7 @@ Cette section explique comment créer, obtenir, mettre à jour et supprimer la c
    * Un sous-réseau /30 pour le lien secondaire. Le sous-réseau ne doit faire partie d’aucun espace d’adressage réservé aux réseaux virtuels. À partir de ce sous-réseau, vous allez attribuer la première adresse IP utilisable à votre routeur. Microsoft utilise la deuxième adresse IP utilisable pour son routeur.
    * Un ID VLAN valide pour établir cette homologation. Assurez-vous qu'aucune autre homologation sur le circuit n'utilise le même ID VLAN. Vous devez utiliser le même ID VLAN pour le lien principal et pour le lien secondaire.
    * Un numéro AS pour l'homologation. Vous pouvez utiliser des numéros à 2 et 4 octets. Vous pouvez utiliser un numéro AS privé pour cette homologation, sauf pour les numéros 65515 à 65520 (inclus).
+   * Vous devez publier les itinéraires depuis votre routeur Edge local vers Azure via BGP quand vous configurez le peering privé.
    * **Facultatif :** un hachage MD5 si vous choisissez d’en utiliser un.
 3. Sélectionnez la ligne d’homologation privée Azure, comme indiqué dans l’exemple suivant :
 

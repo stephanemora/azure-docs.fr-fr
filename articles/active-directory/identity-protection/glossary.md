@@ -17,12 +17,12 @@ ms.date: 01/15/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5def46b6c12dc08c273ea7334516b63b7606477f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: c371254f344b321969dcc9b3c36212b7536aa95a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60452821"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67109005"
 ---
 # <a name="azure-active-directory-identity-protection-glossary"></a>Glossaire d’Azure Active Directory Identity Protection
 ### <a name="at-risk-user"></a>À risque (utilisateur)
@@ -35,7 +35,7 @@ Connexion effectuée depuis une zone géographique inhabituelle pour l’utilisa
 Module de sécurité d’Azure Active Directory offrant une vue consolidée des événements à risque et des vulnérabilités potentielles qui affectent les identités d’une organisation.
 
 ### <a name="conditional-access"></a>Accès conditionnel
-Stratégie de sécurisation des accès aux ressources. Les règles d’accès conditionnel sont stockées dans Azure Active Directory et sont évaluées par Azure AD avant tout octroi d’accès à la ressource.  Il existe, par exemple, des règles de restriction d’accès en fonction de l’emplacement de l’utilisateur, de l’intégrité de l’appareil ou de la méthode d’authentification de l’utilisateur.
+Stratégie de sécurisation des accès aux ressources. Les règles d’accès conditionnel sont stockées dans la solution Azure Active Directory et sont évaluées par cette dernière avant tout octroi d’accès à la ressource.  Il existe, par exemple, des règles de restriction d’accès en fonction de l’emplacement de l’utilisateur, de l’intégrité de l’appareil ou de la méthode d’authentification de l’utilisateur.
 
 ### <a name="credentials"></a>Informations d'identification
 Informations contenant à la fois une identification et une preuve d’identification et qui permettent l’accès aux ressources locales et réseau. Les noms d’utilisateur et mots de passe, les cartes à puce et les certificats sont des exemples d’informations d’identification.
@@ -146,7 +146,7 @@ Processus ou action d’authentification d’une identité dans Azure Active Dir
 Voir « Niveau de risque (connexion) »
 
 ### <a name="sign-in-risk-policy"></a>Stratégie en matière de risque à la connexion
-Stratégie d’accès conditionnel consistant à évaluer le risque associé à une connexion spécifique et qui applique des mesures d’atténuation à partir de règles et de conditions prédéfinies.
+Stratégie d’accès conditionnel qui évalue le risque associé à une connexion spécifique et applique des mesures d’atténuation basées sur des règles et des conditions prédéfinies.
 
 ### <a name="user-compromise-risk"></a>Risque de compromission de l’utilisateur
 Voir « Niveau de risque (compromission de l’utilisateur) »
@@ -155,7 +155,7 @@ Voir « Niveau de risque (compromission de l’utilisateur) »
 Voir « Niveau de risque (compromission de l’utilisateur) ».
 
 ### <a name="user-risk-policy"></a>Stratégie de risque d’utilisateur
-Stratégie d’accès conditionnel consistant à évaluer la connexion et qui applique des mesures d’atténuation à partir de règles et de conditions prédéfinies.
+Stratégie d’accès conditionnel qui évalue la connexion et applique des mesures d’atténuation basées sur des règles et des conditions prédéfinies.
 
 ### <a name="users-flagged-for-risk"></a>Utilisateurs associés à un indicateur de risque
 Utilisateurs associés à des événements à risque actifs ou corrigés

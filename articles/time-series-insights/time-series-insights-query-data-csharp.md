@@ -1,5 +1,5 @@
 ---
-title: Interroger des données à partir d’un environnement Azure temps série Insights GA à l’aide C# code | Microsoft Docs
+title: Interroger des données à partir d’un environnement CA Azure Time Series Insights à l’aide de code C# | Microsoft Docs
 description: Cet article décrit comment interroger des données à partir d’un environnement Azure Time Series Insights en codant une application personnalisée écrite en langage C# (C-sharp) .NET.
 ms.service: time-series-insights
 services: time-series-insights
@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 06/05/2019
 ms.custom: seodec18
 ms.openlocfilehash: 250dd691c3ef3146d6768123de52bf0628b10e42
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66728967"
 ---
-# <a name="query-data-from-the-azure-time-series-insights-ga-environment-using-c"></a>Interroger des données à partir de l’environnement Azure temps série Insights GA à l’aideC#
+# <a name="query-data-from-the-azure-time-series-insights-ga-environment-using-c"></a>Interroger des données à partir d’un environnement GA Azure Time Series Insights en utilisant C#
 
-Cela C# exemple montre comment interroger des données à partir de l’environnement Azure temps série Insights GA.
+Cet exemple de code C# montre comment interroger des données à partir d’un environnement GA Azure Time Series Insights.
 
 L’exemple montre plusieurs exemples de base de l’utilisation de l’API de requête :
 
@@ -31,11 +31,11 @@ L’exemple montre plusieurs exemples de base de l’utilisation de l’API de r
 1. Exemple de demande de socket web : les données d’agrégats d’évènement sont demandées pour l’environnement d’intérêt. Des données sont demandées pour l’intégralité de la période de disponibilité.
 
 > [!NOTE]
-> L’exemple de code est disponible à l’adresse [ https://github.com/Azure-Samples/Azure-Time-Series-Insights ](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample).
+> Cet exemple de code est disponible à l’adresse [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample).
 
 ## <a name="project-dependencies"></a>Dépendances du projet
 
-Ajout de packages NuGet `Microsoft.IdentityModel.Clients.ActiveDirectory` et `Newtonsoft.Json`.
+Ajoutez les packages NuGet `Microsoft.IdentityModel.Clients.ActiveDirectory` et `Newtonsoft.Json`.
 
 ## <a name="c-example"></a>Exemple en code C#
 
@@ -43,6 +43,6 @@ Ajout de packages NuGet `Microsoft.IdentityModel.Clients.ActiveDirectory` et `Ne
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour en savoir plus sur l’interrogation, le [référence de l’API de requête](/rest/api/time-series-insights/ga-query-api).
+- Pour en savoir plus sur l’interrogation, consultez les [informations de référence sur l’API de requête](/rest/api/time-series-insights/ga-query-api).
 
-- Lisez la rubrique à [connecter une application à page unique JavaScript](tutorial-create-tsi-sample-spa.md) à Time Series Insights.
+- Lisez la rubrique dédiée à la [connexion d’une application monopage JavaScript](tutorial-create-tsi-sample-spa.md) à Time Series Insights.

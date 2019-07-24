@@ -1,6 +1,6 @@
 ---
-title: Fonctions techniques de sécurité dans Azure - Microsoft Azure
-description: Introduction aux services de sécurité dans Azure qui vous aident à vous protéger des données, des ressources et des applications dans le cloud.
+title: Fonctionnalités techniques de la sécurité dans Azure - Microsoft Azure
+description: Introduction aux services de sécurité d’Azure qui vous aident à protéger vos données, ressources et applications dans le cloud.
 services: security
 documentationcenter: na
 author: UnifyCloud
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/31/2019
 ms.author: TomSh
-ms.openlocfilehash: 2dad1caeba8a0417b7ac16ebaa45f4f291f54495
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.openlocfilehash: c28c87339bbfda7cc47e329c8fe6cebdee4a7843
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480697"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67127191"
 ---
 # <a name="azure-security-technical-capabilities"></a>Fonctionnalités techniques de la sécurité Azure
-Cet article fournit une introduction à la sécurité dans Azure, les services qui vous aident à vous protéger les données, des ressources et des applications dans le cloud et répondre aux besoins de sécurité de votre entreprise.
+Cet article fournit une introduction aux services de sécurité d’Azure qui vous aident à protéger vos données, ressources et applications dans le cloud et à répondre aux besoins de sécurité de votre entreprise.
 
 ## <a name="azure-platform"></a>Plateforme Azure
 
@@ -40,9 +40,9 @@ Avec Microsoft Azure, vous pouvez :
 
 - Protéger vos activités.
 
-## <a name="security-technical-capabilities-to-fulfil-your-responsibility"></a>Fonctions techniques de sécurité de votre responsabilité de remplir
+## <a name="security-technical-capabilities-to-fulfil-your-responsibility"></a>Fonctionnalités techniques de sécurité permettant d’honorer vos responsabilités
 
-Microsoft Azure fournit des services qui vous aident à répondre à vos besoins de sécurité, confidentialité et de conformité. L’image suivante explique les divers services Azure disponibles pour vous permettre de créer une infrastructure d’applications sécurisée et conforme selon les normes du secteur.
+Microsoft Azure fournit des services qui vous permettent de répondre aux besoins de sécurité, de confidentialité et de conformité. L’illustration suivante explique les différents services Azure mis à votre disposition pour créer une infrastructure d’application sécurisée et conforme, s’appuyant sur des normes industrielles.
 
 ![Fonctionnalités techniques de sécurité disponibles - Vue d’ensemble](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig1.png)
 
@@ -52,7 +52,7 @@ Azure vous aide à protéger les informations professionnelles et personnelles e
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 
-Les solutions de gestion des identités et accès de Microsoft aident les services informatiques à protéger l’accès aux applications et ressources dans le centre de données d’entreprise comme dans le cloud, en activant des niveaux supplémentaires de validation telles que l’authentification multifacteur et les stratégies d’accès conditionnel. En surveillant les activités suspectes via les fonctions avancées de reporting, d’audit et d’alertes de sécurité, vous êtes en mesure de limiter les problèmes de sécurité potentiels. [Azure Active Directory Premium](https://docs.microsoft.com/azure/active-directory/active-directory-editions) fournit l’authentification unique à des milliers d’applications cloud et l’accès aux applications web que vous exécutez en local.
+Les solutions de gestion des identités et des accès de Microsoft aident les services informatiques à protéger l’accès aux applications et aux ressources dans le centre de données de l’entreprise, mais aussi dans le cloud. Elles activent des niveaux supplémentaires de validation comme l’authentification multifacteur et les stratégies d’accès conditionnel. En surveillant les activités suspectes via les fonctions avancées de reporting, d’audit et d’alertes de sécurité, vous êtes en mesure de limiter les problèmes de sécurité potentiels. [Azure Active Directory Premium](https://docs.microsoft.com/azure/active-directory/active-directory-editions) fournit une authentification unique à des milliers d’applications cloud et assure un accès aux applications web que vous exécutez en local.
 
 Azure Active Directory (Azure AD) présente de nombreux avantages en termes de sécurité :
 
@@ -64,11 +64,11 @@ Azure Active Directory (Azure AD) présente de nombreux avantages en termes de s
 
 - Accès à distance sécurisé aux applications web locales via le proxy d’application Azure AD
 
-Le [portail Azure Active Directory](https://aad.portal.azure.com/) est disponible dans le cadre du portail Azure. À partir de ce tableau de bord, vous pouvez obtenir une vue d’ensemble de l’état de votre organisation et gérer facilement l’annuaire, les utilisateurs ou les accès aux applications.
+Le [portail Azure Active Directory](https://aad.portal.azure.com/) fait partie du portail Azure. À partir de ce tableau de bord, vous pouvez obtenir une vue d’ensemble de l’état de votre organisation et gérer facilement l’accès aux annuaires, aux utilisateurs ou aux applications.
 
 ![Azure Active Directory](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig2.png)
 
-Voici les principales fonctionnalités de gestion des identités Azure :
+Voici les principales fonctionnalités de gestion des identités Azure :
 
 - Authentification unique
 
@@ -88,7 +88,7 @@ Voici les principales fonctionnalités de gestion des identités Azure :
 
 Avec l’[authentification unique (SSO)](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/), vous pouvez accéder à toutes les applications et à toutes les ressources dont vous avez besoin pour travailler, en vous connectant une seule fois avec un seul compte d’utilisateur. Une fois connecté, vous accédez à toutes les applications qui vous sont indispensables, sans avoir besoin de vous réauthentifier (par exemple, en tapant un mot de passe).
 
-De nombreuses organisations s’appuient sur une application de service (SaaS) tels que Office 365, Box et Salesforce pour la productivité des utilisateurs. Historiquement, le personnel informatique devait créer et mettre à jour chaque compte d’utilisateur dans chaque application SaaS et les utilisateurs devaient mémoriser un mot de passe pour chaque application SaaS.
+De nombreuses organisations s’appuient sur des applications SaaS, comme Office 365, Box et Salesforce, pour accroître la productivité des utilisateurs finaux. Historiquement, le personnel informatique devait créer et mettre à jour chaque compte d’utilisateur dans chaque application SaaS et les utilisateurs devaient mémoriser un mot de passe pour chaque application SaaS.
 
 [Azure AD étend Active Directory local dans le cloud](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis), ce qui permet aux utilisateurs d’utiliser leur compte professionnel principal, non seulement pour se connecter à leurs appareils liés au domaine et aux ressources de l’entreprise, mais aussi à toutes les applications SaaS et web nécessaires à leur travail.
 
@@ -96,7 +96,7 @@ Non seulement les utilisateurs n’ont plus besoin de gérer plusieurs noms d’
 
 #### <a name="multi-factor-authentication"></a>Authentification multifacteur
 
-[Azure multi-Factor Authentication (MFA)](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication) est une méthode d’authentification qui requiert l’utilisation de plusieurs méthodes de vérification et ajoute une deuxième couche critique de sécurité aux connexions utilisateur et des transactions. [MFA contribue à sécuriser](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-how-it-works) l’accès aux données et aux applications tout en répondant à la demande des utilisateurs souhaitant un processus d’authentification simple. Cette méthode fournit une authentification forte par le biais de diverses options de vérification : appel téléphonique, SMS, notification par application mobile ou code de vérification et jetons OAuth tiers.
+[Azure Multi-Factor Authentication (MFA)](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication) est une méthode d’authentification qui nécessite l’utilisation de plusieurs méthodes de vérification et ajoute une deuxième couche essentielle de sécurité aux connexions et transactions des utilisateurs. [MFA contribue à sécuriser](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-how-it-works) l’accès aux données et aux applications tout en répondant à la demande des utilisateurs souhaitant un processus d’authentification simple. Cette méthode fournit une authentification forte par le biais de diverses options de vérification : appel téléphonique, SMS, notification par application mobile ou code de vérification et jetons OAuth tiers.
 
 #### <a name="security-monitoring-alerts-and-machine-learning-based-reports"></a>Surveillance de la sécurité, alertes et rapports Machine Learning
 
@@ -106,11 +106,11 @@ Dans le portail Azure ou le [portail Azure Active Directory](https://aad.portal.
 
 - Rapports d’anomalies : contiennent les événements de connexion qui peuvent nous sembler anormaux. Notre objectif est de vous faire part de ces activités et de vous permettre de décider si un événement est suspect.
 
-- Rapports d’application intégrée : fournissent des informations sur l’utilisation des applications cloud dans votre organisation. Azure Active Directory permet d’intégrer des milliers d'applications du cloud.
+- Rapports d’application intégrée : fournissent des indications sur l’utilisation des applications cloud au sein de votre organisation. Azure Active Directory permet d’intégrer des milliers d'applications du cloud.
 
 - Rapports d’erreurs : indiquent les erreurs qui peuvent survenir lors de la configuration de comptes sur des applications externes.
 
-- Rapports propres aux utilisateurs – périphérique d’affichage et connectez-vous aux données d’activité pour un utilisateur spécifique.
+- Rapports propres à l’utilisateur : affichent les données d’activité relatives aux appareils et connexions d’un utilisateur spécifique.
 
 - Journaux d’activité : contiennent un enregistrement de tous les événements audités durant les dernières 24 heures, les derniers 7 jours ou les derniers 30 jours, des modifications d’activité de groupes, et des activités d’enregistrement et de réinitialisation de mot de passe.
 
@@ -124,7 +124,7 @@ Lorsque vous utilisez Azure Active Directory B2C, vos consommateurs peuvent s’
 
 #### <a name="device-registration"></a>Enregistrement de l’appareil
 
-[L’inscription d’appareil Azure AD](https://docs.microsoft.com/azure/active-directory/device-management-introduction) constitue la base des scénarios [d’accès conditionnel](https://docs.microsoft.com/azure/active-directory/active-directory-device-registration-on-premises-setup) basé sur les appareils. Lors de l’inscription d’un appareil, Azure AD Device Registration fournit une identité à l’appareil qui sera utilisée pour l’authentifier lors de la connexion de l’utilisateur. L’appareil authentifié et les attributs de l’appareil peuvent alors être utilisés pour appliquer des stratégies d’accès conditionnel pour les applications qui sont hébergées sur le cloud et localement.
+[L’inscription d’appareil Azure AD](https://docs.microsoft.com/azure/active-directory/device-management-introduction) constitue la base des scénarios [d’accès conditionnel](https://docs.microsoft.com/azure/active-directory/active-directory-device-registration-on-premises-setup) basé sur les appareils. Lors de l’inscription d’un appareil, Azure AD Device Registration fournit une identité à l’appareil qui sera utilisée pour l’authentifier lors de la connexion de l’utilisateur. L’appareil authentifié et ses attributs peuvent alors être utilisés pour appliquer des stratégies d’accès conditionnel pour les applications qui sont hébergées sur le cloud et localement.
 
 Quand ils sont associés à une solution de [gestion des appareils mobiles (MDM)](https://www.microsoft.com/itshowcase/Article/Content/588/Mobile-device-management-at-Microsoft) comme Intune, les attributs de l’appareil dans Azure Active Directory sont mis à jour avec des informations supplémentaires sur l’appareil. Cela vous permet de créer des règles d’accès conditionnel qui imposent que l’accès à partir des appareils réponde à vos critères de sécurité et de conformité.
 
@@ -170,7 +170,7 @@ Pour assurer la protection des données dans le cloud, l’un des facteurs clés
 
 - Au repos : Cela inclut tous les objets de stockage, conteneurs et types d’informations présents de manière statique sur un support physique, qu’il s’agisse d’un disque magnétique ou d’un disque optique.
 
-- En transit : Lorsque des données sont transférées entre des composants, des emplacements ou des programmes (sur le réseau, par exemple) via un bus de service (depuis un emplacement local vers le cloud, ou vice-versa, y compris via des connexions hybrides comme ExpressRoute), ou lors d’un processus d’entrée/sortie, on parle de données « en transit ».
+- En transit : Lorsque des données sont transférées entre des composants, des emplacements ou des programmes (sur le réseau, par exemple) via un bus de service (depuis un emplacement local vers le cloud, ou vice-versa, y compris via des connexions hybrides comme ExpressRoute), ou lors d’un processus d’entrée/sortie, on parle de données « en transit ».
 
 ### <a name="encryption-at-rest"></a>Chiffrement au repos
 
@@ -181,8 +181,8 @@ Prend en charge au moins un des modèles de chiffrement recommandés qui sont r�
 | Modèles de chiffrement |  |  |  |
 | ----------------  | ----------------- | ----------------- | --------------- |
 | Chiffrement serveur | Chiffrement serveur | Chiffrement serveur | Chiffrement client
-| Chiffrement côté serveur à l’aide de clés gérés par le service | Chiffrement côté serveur à l’aide de clés gérées par le client dans Azure Key Vault | Clés gérées par le chiffrement côté serveur à l’aide sur le client local |
-| • Les fournisseurs de ressources Azure effectuent les opérations de chiffrement et de déchiffrement <br> • Microsoft gère les clés <br>• Fonctionnalité cloud complète | • Les fournisseurs de ressources Azure effectuent les opérations de chiffrement et de déchiffrement<br>• Le client contrôle les clés par le biais d’Azure Key Vault<br>• Fonctionnalité cloud complète | • Les fournisseurs de ressources Azure effectuent les opérations de chiffrement et de déchiffrement <br>• Le client contrôle les clés en local <br> • Fonctionnalité cloud complète| • Les services Azure ne peuvent pas voir les données déchiffrées <br>• Les clients conservent les clés localement (ou dans d’autres banques d’informations sécurisées). Les clés ne sont pas disponibles pour les services Azure <br>• Fonctionnalité cloud réduite|
+| Chiffrement côté serveur à l’aide de clés gérés par le service | Chiffrement côté serveur à l’aide de clés gérées par le client dans Azure Key Vault | Chiffrement côté serveur à l’aide de clés gérées par le client local |
+| • Les fournisseurs de ressources Azure effectuent les opérations de chiffrement et de déchiffrement <br> • Microsoft gère les clés <br>• Fonctionnalité cloud complète | • Les fournisseurs de ressources Azure effectuent les opérations de chiffrement et de déchiffrement<br>• Le client contrôle les clés par le biais d’Azure Key Vault<br>• Fonctionnalité cloud complète | • Les fournisseurs de ressources Azure effectuent les opérations de chiffrement et de déchiffrement <br>• Le client contrôle les clés localement <br> • Fonctionnalité cloud complète| • Les services Azure ne peuvent pas voir les données déchiffrées <br>• Les clients conservent les clés localement (ou dans d’autres banques d’informations sécurisées). Les clés ne sont pas disponibles pour les services Azure <br>• Fonctionnalité cloud réduite|
 
 ### <a name="enabling-encryption-at-rest"></a>Activation du chiffrement au repos
 
@@ -203,7 +203,7 @@ Réfléchissez aux banques d’informations que vous utilisez pour stocker les d
 
 ### <a name="leverage-the-existing-encryption-at-rest-support-in-azure"></a>Optimiser la prise en charge existante du chiffrement au repos dans Azure
 
-Pour chaque magasin que vous utilisez, tirer parti du chiffrement existant sur le support technique de rest.
+Pour chaque banque d’informations que vous utilisez, tirez parti de la prise en charge existante du chiffrement au repos.
 
 - Stockage Azure : Consultez [Chiffrement du service Stockage Azure pour les données au repos](https://docs.microsoft.com/azure/storage/storage-service-encryption),
 
@@ -359,7 +359,7 @@ Microsoft Antimalware pour Azure Cloud Services et Machines virtuelles offre une
 
 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) aide à coordonner la réplication, le basculement et la récupération des charges de travail et des applications afin qu’elles soient disponibles à partir d’un site secondaire si votre site principal tombe en panne.
 
-## <a name="ensure-compliance-cloud-services-due-diligence-checklist"></a>Garantissez la conformité : Liste de vérification de diligence des services cloud
+## <a name="ensure-compliance-cloud-services-due-diligence-checklist"></a>Garantissez la conformité : Liste de vérification d’obligation de diligence des services cloud
 
 Microsoft a développé la [liste des points à vérifier avec une prudence mesurée pour les services cloud](https://aka.ms/cloudchecklist.download), afin d’aider les organisations à faire preuve d’une sage circonspection lorsqu’elles envisagent une migration vers le cloud. Cette liste fournit une structure à une organisation, quels que soient sa taille et son type — entreprises privées et organisations du secteur public, notamment tous les niveaux de l’administration et les associations —, en lui permettant d’identifier ses propres performances, services, gestion des données, de même que ses exigences et objectifs de gouvernance. L’organisation peut alors comparer les offres de divers fournisseurs de services cloud tout en jetant en définitive les bases d’un contrat de service cloud.
 
@@ -379,7 +379,7 @@ Par ailleurs, la liste de vérifications préalables :
 
 - Fournit une série logique de questions, avec les mêmes conditions, définitions, mesures et résultats pour chaque fournisseur, afin de simplifier le processus de comparaison des offres émanant de différents fournisseurs de services cloud
 
-## <a name="azure-infrastructure-and-application-security-validation"></a>Azure application et infrastructure de validation de la sécurité
+## <a name="azure-infrastructure-and-application-security-validation"></a>Validation de la sécurité des applications et de l’infrastructure Azure
 
 [Azure Operational Security](https://docs.microsoft.com/azure/security/azure-operational-security) comprend les services, contrôles et fonctionnalités auxquels les utilisateurs ont accès pour protéger leurs données, leurs applications et d’autres ressources dans Microsoft Azure.
 
@@ -389,15 +389,15 @@ Azure Operational Security repose sur un framework qui intègre les connaissance
 
 ### <a name="microsoft-azure-monitor"></a>Microsoft Azure Monitor
 
-[Azure Monitor](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) est la solution de gestion informatique pour le cloud hybride. Utilisé seul, ou pour étendre votre déploiement de System Center existant, des journaux d’Azure Monitor vous donne la flexibilité et le contrôle pour la gestion de votre infrastructure cloud.
+[Azure Monitor](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) est la solution de gestion informatique pour le cloud hybride. Utilisés seuls ou pour étendre votre déploiement System Center existant, les journaux Azure Monitor vous donnent le maximum de flexibilité et de contrôle pour gérer votre infrastructure sur le cloud.
 
 ![Azure Monitor](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig8.png)
 
-Avec Azure Monitor, vous pouvez gérer n’importe quelle instance dans n’importe quel cloud, notamment en local, Azure, AWS, Windows Server, Linux, VMware et OpenStack, à moindre coût que les solutions concurrentes. Conçu pour les environnements cloud, Azure Monitor offre une nouvelle approche de gestion de votre entreprise est le moyen le plus rapide, plus économique pour répondre aux nouveaux défis commerciaux et de prendre en charge de nouvelles charges de travail, applications et les environnements de cloud.
+Avec Azure Monitor, vous pouvez gérer n’importe quelle instance dans n’importe quel cloud, notamment local, Azure, AWS, Windows Server, Linux, VMware et OpenStack, à moindre coût par rapport aux solutions concurrentes. Conçu pour les environnements cloud, Azure Monitor offre une nouvelle approche de la gestion de votre entreprise, qui constitue le moyen le plus rapide et le plus économique pour répondre aux nouveaux défis métiers et pour gérer les nouvelles charges de travail, applications et environnements cloud.
 
 ### <a name="azure-monitor-logs"></a>Journaux d’activité Azure Monitor
 
-[Journaux d’analyse Azure](https://azure.microsoft.com/documentation/services/log-analytics) fournit des services de surveillance en collectant des données à partir de ressources managées dans un référentiel central. Ces données peuvent comprendre des événements, des données de performances ou des données personnalisées fournies par le biais de l’API. Une fois collectées, les données sont disponibles pour les fonctions de génération d’alertes, d’analyse et d’exportation.
+Les [journaux Azure Monitor](https://azure.microsoft.com/documentation/services/log-analytics) assurent des services de surveillance en collectant les données des ressources managées et en les regroupant dans un référentiel central. Ces données peuvent comprendre des événements, des données de performances ou des données personnalisées fournies par le biais de l’API. Une fois collectées, les données sont disponibles pour les fonctions de génération d’alertes, d’analyse et d’exportation.
 
 ![Journaux d’activité Azure Monitor](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig9.png)
 
@@ -471,7 +471,7 @@ Il analyse les éléments suivants :
 
 - **Diagnostics d’hébergement** de Docker ou Azure.
 
-- **Journaux de suivi des diagnostics** de votre application : pour pouvoir mettre en corrélation les événements de suivi avec les demandes.
+- **Journaux d’activité de suivi des diagnostics** de votre application : pour pouvoir mettre en corrélation les événements de suivi avec les demandes.
 
 - **Mesures et événements personnalisés**, vous les écrivez vous-même dans le code client ou serveur, pour effectuer le suivi des événements commerciaux, tels que les articles vendus ou les matchs gagnés.
 

@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73b832002d1c15505e8ae845ac2585548c8e080f
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 032cc0edaa140d82124a7369232cb82bf6c00c10
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482141"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67702703"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Autorisations et consentement dans le point de terminaison de la plateforme d’identités Microsoft
 
@@ -53,7 +53,7 @@ Cela s’applique également aux ressources tierces intégrées à la plateforme
 
 En définissant ces types d’autorisations, la ressource dispose d’un contrôle précis sur ses données et sur l’exposition de la fonctionnalité d’API. Une application tierce peut demander ces autorisations à des utilisateurs et des administrateurs. Ces derniers doivent approuver la requête avant que l’application puisse accéder aux données ou agir pour le compte d’un utilisateur. En fragmentant les fonctionnalités de la ressource en ensembles plus réduits d’autorisations, il est possible de créer des applications tierces pour qu’elles demandent uniquement les autorisations nécessaires à leur fonctionnement. Les utilisateurs et les administrateurs peuvent connaître avec précision les données auxquelles l’application a accès. Ainsi, ils seront moins inquiets quant à une éventuelle intention malveillante. Les développeurs doivent toujours respecter le concept de moindre privilège et demander uniquement les autorisations dont ils ont besoin pour faire fonctionner leurs applications.
 
-Dans OAuth 2.0, ces types d’autorisations sont appelés des *étendues*. On y fait également référence sous le nom d’*autorisations*. Une autorisation est représentée dans la plateforme d’identité Microsoft sous forme de valeur de chaîne. Toujours dans l’exemple Microsoft Graph, la valeur de chaîne pour chaque autorisation est la suivante :
+Dans OAuth 2.0, ces types d’autorisations sont appelés des *étendues*. Ils sont également souvent appelés *autorisations*. Une autorisation est représentée dans la plateforme d’identité Microsoft sous forme de valeur de chaîne. Toujours dans l’exemple Microsoft Graph, la valeur de chaîne pour chaque autorisation est la suivante :
 
 * Lire le calendrier d’un utilisateur en utilisant `Calendars.Read`
 * Écrire dans le calendrier d’un utilisateur en utilisant `Calendars.ReadWrite`
@@ -167,7 +167,8 @@ Le consentement de l’administrateur n’accepte de paramètre d’étendue. Ai
 #### <a name="to-configure-the-list-of-statically-requested-permissions-for-an-application"></a>Configuration de la liste des autorisations demandées de manière statique pour une application
 
 1. Accédez à votre application dans l’environnement [Inscriptions d’applications du portail Azure](https://go.microsoft.com/fwlink/?linkid=2083908) ou [créez une application](quickstart-register-app.md), si ce n’est pas déjà fait.
-2. Recherchez la section **Autorisations pour Microsoft Graph**, puis ajoutez les autorisations nécessaires à votre application.
+2. Recherchez la section **Autorisations des API** et, dans les autorisations des API, cliquez sur Ajouter une autorisation.
+3. Sélectionnez **Microsoft Graph** dans la liste des API disponibles, puis ajoutez les autorisations dont votre application a besoin.
 3. **Enregistrez** l’inscription de l’application.
 
 ### <a name="recommended-sign-the-user-into-your-app"></a>Recommandé : connecter l’utilisateur à votre application

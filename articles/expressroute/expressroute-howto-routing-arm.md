@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: d59a26184cac8df31fd16637d538c1eb45d947df
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: e2f38671910be2c7300f39fcbca32e8a1ccd9891
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "64716135"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-powershell"></a>Créer et modifier l’homologation d’un circuit ExpressRoute à l’aide de PowerShell
@@ -177,7 +177,7 @@ Cette section explique comment créer, obtenir, mettre à jour et supprimer la c
    Install-Module Az
    ```
 
-   Importer tous les en Arizona.\* modules dans la plage de version sémantique connue.
+   Importez tous les modules Az.\* dans la plage de version sémantique connue.
 
    ```azurepowershell-interactive
    Import-Module Az
@@ -303,7 +303,7 @@ Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 Cette section explique comment créer, obtenir, mettre à jour et supprimer la configuration d’homologation publique Azure pour un circuit ExpressRoute.
 
 > [!Note]
-> L’homologation publique Azure est déconseillée pour les circuits de nouveau. Pour plus d’informations, consultez [l’homologation ExpressRoute](expressroute-circuit-peerings.md).
+> Le peering public Azure est déprécié pour les nouveaux circuits. Pour plus d’informations, consultez [Peering ExpressRoute](expressroute-circuit-peerings.md).
 >
 
 ### <a name="to-create-azure-public-peering"></a>Pour créer une homologation publique Azure
@@ -316,7 +316,7 @@ Cette section explique comment créer, obtenir, mettre à jour et supprimer la c
    Install-Module Az
    ```
 
-   Importer tous les en Arizona.\* modules dans la plage de version sémantique connue.
+   Importez tous les modules Az.\* dans la plage de version sémantique connue.
 
    ```azurepowershell-interactive
    Import-Module Az

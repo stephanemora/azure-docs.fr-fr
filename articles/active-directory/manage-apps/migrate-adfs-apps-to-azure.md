@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 03/02/2018
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f77e322ffd7eec78fe13650f40c93f914706d557
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
-ms.translationtype: MT
+ms.openlocfilehash: 272d5194b2922e57aca0d63fd62c222e17a29c53
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65824623"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108251"
 ---
 # <a name="move-applications-from-ad-fs-to-azure-ad"></a>Déplacer des applications entre AD FS et Azure AD 
 
@@ -26,7 +26,7 @@ Cet article vous aidera à comprendre comment déplacer des applications entre A
 
 Il ne constitue pas un guide pas à pas. Il fournit des conseils conceptuels pour vous aider à réussir la migration, en comprenant comment se traduisent les configurations locales dans Azure AD. Il couvre également les scénarios courants.
 
-## <a name="introduction"></a>Présentation
+## <a name="introduction"></a>Introduction
 
 Si vous disposez d’un répertoire local contenant des comptes utilisateur, il est probable que vous disposiez d’au moins un ou deux applications. Ces dernières sont configurées pour que les utilisateurs y accèdent en s’authentifiant avec ces identités.
 
@@ -46,7 +46,7 @@ De nombreuses organisations disposent d’applications SaaS ou métiers personna
 Pour une organisation qui utilise déjà AD FS, Ping ou un autre fournisseur d’authentification locale, le déplacement d’applications vers Azure AD présente les avantages suivants :
 
 **Accès plus sécurisé**
-- Configurez des contrôles d’accès granulaires par application, incluant l’authentification multifacteur Azure, avec l’[Accès conditionnel Azure AD](../active-directory-conditional-access-azure-portal.md). Les stratégies peuvent être appliquées à des applications SaaS et personnalisées de la même façon que sur Office 365, si vous l’utilisez.
+- Configurez un contrôle d’accès granulaire par application, incluant l’authentification Multi-Factor Authentication, avec [l’accès conditionnel Azure AD](../active-directory-conditional-access-azure-portal.md). Les stratégies peuvent être appliquées à des applications SaaS et personnalisées de la même façon que sur Office 365, si vous l’utilisez.
 - Pour détecter des menaces et protéger l’authentification basée sur le Machine Learning et les heuristiques qui identifient le trafic à risque, profitez de la fonction [Azure AD Identity Protection](../active-directory-identityprotection.md).
 
 **Azure AD B2B Collaboration**
@@ -96,7 +96,7 @@ La migration commence par l’évaluation de la configuration locale de l’appl
 - Terme AD FS : partie de confiance ou approbation de partie de confiance.
 - Terme Azure AD : application d’entreprise ou inscription d’application (selon le type d’application).
 
-|Élément de configuration d’application|Description |Emplacement dans la configuration d’AD FS|Emplacement correspondant dans la configuration d’Azure AD|Élément de jeton SAML|
+|Élément de configuration d’application|Description|Emplacement dans la configuration d’AD FS|Emplacement correspondant dans la configuration d’Azure AD|Élément de jeton SAML|
 |-----|-----|-----|-----|-----|
 |URL d’authentification à une application|URL de la page de connexion de cette application. C’est ici que l’utilisateur entame sa connexion à un flux SAML initié du fournisseur de services.|N/A|Dans Azure AD, l’URL d’authentification est configurée au sein du portail Azure dans les propriétés d’**authentification unique** de l’application en tant qu’URL d’authentification.</br></br>(Il vous faudra peut-être cliquer sur **Afficher les paramètres d’URL avancés** pour voir l’URL d’authentification.)|N/A|
 |URL de réponse de l’application|URL de l’application du point de vue du fournisseur d’identité. C’est ici que l’utilisateur et le jeton sont envoyés lorsque l’utilisateur s’est authentifié auprès du fournisseur d’identité.</br></br> Parfois appelé « point de terminaison consommateur d’assertion SAML ».|Se trouve dans l’approbation de partie de confiance AD FS pour l’application. Cliquez avec le bouton droit sur la partie de confiance, choisissez **Propriétés**, puis sélectionnez l’onglet **Points de terminaison**.|Dans Azure AD, l’URL de réponse est configurée au sein du portail Azure dans les propriétés d’**authentification unique** de l’application en tant qu’URL de réponse.</br></br>(Il vous faudra peut-être cliquer sur **Afficher les paramètres d’URL avancés** pour voir l’URL de réponse.)|Cartes vers l’élément **Destination** dans le jeton SAML.</br></br> Exemple de valeur : `https://contoso.my.salesforce.com`|
@@ -119,11 +119,11 @@ Remplacez {tenant-id} par votre ID de locataire qui se trouve dans le portail Az
 
 Le tableau suivant décrit les éléments clés à la configuration des paramètres d’authentification unique dans l’application, ainsi que leurs valeurs et emplacements au sein d’AD FS et Azure AD. Le cadre de référence de ce tableau correspond à l’application SaaS, qui doit savoir où envoyer les requêtes d’authentification et comment valider les jetons ainsi reçus.
 
-|Élément de configuration|Description |ADFS|Azure AD|
+|Élément de configuration|Description|AD FS|Azure AD|
 |---|---|---|---|
 |Fournisseur d’identité (IdP) </br>URL de connexion </br>URL|URL de connexion du fournisseur d’identité depuis l’application (où l’utilisateur est redirigé pour s’identifier).|L’URL de connexion AD FS correspond au nom de service de fédération AD FS, suivi par « /adfs/ls/ ». Par exemple : https&#58;//fs.contoso.com/adfs/ls/|La valeur correspondante pour Azure AD suit le modèle dans lequel {tenant-id} est remplacé par votre ID de locataire. Il se trouve dans le portail Azure sous **Azure Active Directory** > **Propriétés**, **ID de répertoire**.</br></br>Pour les applications qui utilisent le protocole SAML-P : https&#58;//login.microsoftonline.com/{tenant-id}/saml2 </br></br>Pour les applications qui utilisent le protocole WS-Federation : https&#58;//login.microsoftonline.com/{tenant-id}/wsfed|
 |Fournisseur d’identité (IdP) </br>déconnexion </br>URL|URL de déconnexion du fournisseur d’identité depuis l’application (où l’utilisateur est redirigé lorsqu’il choisit de se déconnecter de l’application).|Pour AD FS, l’URL de déconnexion correspond soit à l’URL de connexion, soit à l’URL de connexion suivie de « wa=wsignout1.0 ». Par exemple : https&#58;//fs.contoso.com/adfs/ls /?wa=wsignout1.0|La valeur correspondante pour Azure AD dépend de la prise en charge d’une déconnexion SAML 2.0 par l’application.</br></br>Si l’application prend en charge la déconnexion SAML, la valeur suit le modèle dans lequel la valeur {tenant-id} est remplacée par l’ID de locataire. Il se trouve dans le portail Azure sous **Azure Active Directory** > **Propriétés**, **ID de répertoire** : https&#58;//login.microsoftonline.com/{tenant-id}/saml2</br></br>Si l’application ne prend pas en charge la déconnexion SAML : https&#58;//login.microsoftonline.com/common/wsfederation?wa=wsignout1.0|
-|Jeton </br>signature </br>certificat|Certificat dont la clé privée qu’utilise le fournisseur d’identité pour se connecter a émis des jetons. Il vérifie que le jeton provient du fournisseur d’identité auquel l’application fait confiance.|Le certificat de signature de jetons AD FS se situe dans Gestion AD FS sous **Certificats**.|Dans Azure AD, le certificat de signature de jetons se situe au sein du portail Azure dans les propriétés d’**authentification unique** de l’application, sous l’en-tête **Certificat de signature SAML**. Vous pouvez y télécharger le certificat pour le charger dans l’application.</br></br> Si l’application possède plus d’un certificat, vous pouvez tous les trouver dans le fichier XML des métadonnées de fédération.|
+|par jeton </br>signature </br>certificat|Certificat dont la clé privée qu’utilise le fournisseur d’identité pour se connecter a émis des jetons. Il vérifie que le jeton provient du fournisseur d’identité auquel l’application fait confiance.|Le certificat de signature de jetons AD FS se situe dans Gestion AD FS sous **Certificats**.|Dans Azure AD, le certificat de signature de jetons se situe au sein du portail Azure dans les propriétés d’**authentification unique** de l’application, sous l’en-tête **Certificat de signature SAML**. Vous pouvez y télécharger le certificat pour le charger dans l’application.</br></br> Si l’application possède plus d’un certificat, vous pouvez tous les trouver dans le fichier XML des métadonnées de fédération.|
 |Identificateur/</br>« émetteur »|Identificateur du fournisseur d’identité depuis l’application (parfois appelé « ID émetteur »).</br></br>Dans le jeton SAML, la valeur apparaît comme l’élément **Émetteur**.|L’identificateur pour AD FS correspond généralement à l’identificateur du service FS dans Gestion AD FS sous **Service** > **Modifier propriétés du service FS**. Par exemple : http&#58;//fs.contoso.com/adfs/services/trust|La valeur correspondante pour Azure AD suit le modèle dans lequel la valeur {tenant-id} est remplacée par l’ID de locataire. Il se trouve dans le portail Azure sous **Azure Active Directory** > **Propriétés**, **ID de répertoire** : https&#58;//sts.windows.net/{tenant-id}/|
 |Fournisseur d’identité (IdP) </br>fédération </br>metadata|Emplacement des métadonnées de fédération du fournisseur d’identité disponibles au public. (Certaines applications utilisent les métadonnées de fédération comme une alternative à l’administrateur pour configurer individuellement les URL, l’identificateur et le certificat de signature de jetons.)|L’URL des métadonnées de fédération AD FS se trouve dans Gestion AD FS sous **Service** > **Points de terminaison** > **Métadonnées** > **Type : métadonnées de fédération**. Par exemple : https&#58;//fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml|La valeur correspondante pour Azure AD suit le modèle https&#58;//login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml. La valeur {TenantDomainName} est remplacée par votre nom de locataire au format « contoso.onmicrosoft.com ». </br></br>Pour plus d’informations, consultez la section [Métadonnées de fédération](../develop/azure-ad-federation-metadata.md).
 

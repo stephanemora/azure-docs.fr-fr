@@ -15,16 +15,16 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8f54e08e6c3b7b673541f124a90f32dbc860fa44
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65859540"
 ---
 # <a name="application-proxy-and-qlik-sense"></a>Proxy d’application et Qlik Sens 
 Le proxy d’application Azure Active Directory et Qlik Sense se sont associés afin de vous permettre d’utiliser facilement le Proxy d’application pour fournir l’accès à distance à votre déploiement Qlik sens.  
 
-## <a name="prerequisites"></a>Conditions préalables 
+## <a name="prerequisites"></a>Prérequis 
 Le reste de ce scénario suppose que vous avez effectué les opérations suivantes :
  
 - Vous avez configuré [Qlik sens](https://community.qlik.com/docs/DOC-19822). 
@@ -38,14 +38,14 @@ Suivez ces étapes pour publier votre application. Pour obtenir plus de détails
 
 
 1. Connectez-vous au portail Azure en tant qu’administrateur général. 
-2. Sélectionnez **Azure Active Directory (Azure Active Directory)** > **Enterprise applications (Applications d’entreprise)**. 
+2. Sélectionnez **Azure Active Directory (Azure Active Directory)**  > **Enterprise applications (Applications d’entreprise)** . 
 3. Sélectionnez **Ajouter** en haut du panneau. 
-4. Sélectionnez **On-premises application (Application locale)**. 
+4. Sélectionnez **On-premises application (Application locale)** . 
 5. Saisissez les informations concernant votre nouvelle application dans les champs requis. Suivez les conseils ci-dessous pour les paramètres : 
    - **URL interne** : Cette application doit avoir une URL interne qui est l’URL QlikSense proprement dite. Par exemple, **https&#58;//demo.qlikemm.com:4244** 
    - **Méthode de pré-authentification** : Azure Active Directory (recommandée mais pas obligatoire) 
 1. Sélectionnez **Ajouter** en bas du panneau. Votre application est ajoutée et le menu de démarrage rapide s’ouvre. 
-2. Dans le menu de démarrage rapide, sélectionnez **Assign a user for testing (Attribuer un utilisateur à des fins de test)**, et ajoutez au moins un utilisateur à l’application. Vérifiez que ce compte de test a accès à l’application locale. 
+2. Dans le menu de démarrage rapide, sélectionnez **Assign a user for testing (Attribuer un utilisateur à des fins de test)** , et ajoutez au moins un utilisateur à l’application. Vérifiez que ce compte de test a accès à l’application locale. 
 3. Sélectionnez **Affecter** pour enregistrer l’affectation de l’utilisateur de test. 
 4. (Facultatif) Dans le panneau de gestion de l’application, sélectionnez Authentification unique. Choisissez **Délégation Kerberos contrainte** dans le menu déroulant et renseignez les champs obligatoires en fonction de votre configuration Qlik. Sélectionnez **Enregistrer**. 
 
@@ -60,9 +60,9 @@ Suivez les mêmes étapes que pour la 1ère application, avec les exceptions sui
 Votre application est maintenant prête à être testée. Accédez à l’URL externe utilisée pour publier QlikSense dans la 1ère application et connectez-vous en tant qu’utilisateur affecté aux deux applications.  
 
 ## <a name="additional-references"></a>Références supplémentaires
-Pour plus d’informations sur la publication Qlik Sense avec le Proxy d’Application, consultez les Articles de la Communauté Qlik qui suivent : 
-- [Azure AD avec l’authentification Windows intégrée à l’aide d’une délégation Kerberos contrainte avec Qlik Sense](https://community.qlik.com/docs/DOC-20183)
-- [Intégration de Qlik Sense avec Proxy d’Application Azure AD](https://community.qlik.com/t5/Technology-Partners-Ecosystem/Azure-AD-Application-Proxy/ta-p/1528396)
+Pour plus d’informations sur la publication Qlik Sense avec le proxy d’application, consultez les articles suivants sur la communauté Qlik : 
+- [Azure AD with Integrated Windows Authentication using a Kerberos Constrained Delegation with Qlik Sense (Azure Active Directory avec authentification Windows intégrée utilisant la délégation contrainte Kerberos avec Qlik Sense)](https://community.qlik.com/docs/DOC-20183)
+- [Qlik Sense integration with Azure AD Application Proxy (Intégration de Qlik Sense avec le proxy d’application Azure AD)](https://community.qlik.com/t5/Technology-Partners-Ecosystem/Azure-AD-Application-Proxy/ta-p/1528396)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

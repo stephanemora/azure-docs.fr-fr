@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 09/26/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: c1f40c62fce61ba16dfdf289d54cd19c3739ce21
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
-ms.translationtype: MT
+ms.openlocfilehash: 3fda34e46ddb7ea17c98795ad6632841b79764eb
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393764"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076908"
 ---
 # <a name="performance-guidelines-for-sql-server-in-azure-virtual-machines"></a>Recommandations de performances pour SQL Server dans les machines virtuelles Azure
 
@@ -55,7 +55,7 @@ Pour les applications sensibles aux performances, il est recommandé d’utilise
 * **SQL Server Édition Entreprise** : DS3_v2 ou ultérieur
 * **SQL Server Éditions Standard et Web** : DS2_v2 ou ultérieur
 
-Les machines virtuelles de la [série DSv2](../sizes-general.md#dsv2-series) prennent en charge le stockage premium, recommandé pour obtenir des performances optimales. Les tailles recommandées ici sont des bases de référence, mais la taille de machine que vous sélectionnez vraiment dépend des exigences de votre charge de travail. Les machines virtuelles de la série DSv2 sont des machines virtuelles universelles appropriées pour un large éventail de charges de travail, tandis que les tailles des autres machines sont optimisées pour des types de charge de travail spécifiques. Par exemple, la [série M](../sizes-memory.md#m-series) offre le nombre de processeurs virtuels et la quantité de mémoire les plus élevés pour les plus grandes charges de travail SQL Server. La [série GS](../sizes-memory.md#gs-series) et la [série DSv2-11-15](../sizes-memory.md#dsv2-series-11-15) conviennent si la mémoire requise est volumineuse. Ces deux séries sont également disponibles dans des [tailles de cœur restreintes](../../windows/constrained-vcpu.md), réduisant le coût des charges de travail ayant des exigences de calcul moindres. Les machines de la [série Ls](../sizes-storage.md) sont optimisées pour un débit et des E/S de disque élevés. Il est important d’évaluer votre charge de travail SQL Server et d’en tenir compte au moment de choisir une taille et une série de machines virtuelles.
+Les machines virtuelles de la [série DSv2](../sizes-general.md#dsv2-series) prennent en charge le stockage premium, recommandé pour obtenir des performances optimales. Les tailles recommandées ici sont des bases de référence, mais la taille de machine que vous sélectionnez vraiment dépend des exigences de votre charge de travail. Les machines virtuelles de la série DSv2 sont des machines virtuelles universelles appropriées pour un large éventail de charges de travail, tandis que les tailles des autres machines sont optimisées pour des types de charge de travail spécifiques. Par exemple, la [série M](../sizes-memory.md#m-series) offre le nombre de processeurs virtuels et la quantité de mémoire les plus élevés pour les plus grandes charges de travail SQL Server. La [série GS](../sizes-previous-gen.md#gs-series) et la [série DSv2-11-15](../sizes-memory.md#dsv2-series-11-15) conviennent si la mémoire requise est volumineuse. Ces deux séries sont également disponibles dans des [tailles de cœur restreintes](../../windows/constrained-vcpu.md), réduisant le coût des charges de travail ayant des exigences de calcul moindres. Les machines de la [série Ls](../sizes-storage.md) sont optimisées pour un débit et des E/S de disque élevés. Il est important d’évaluer votre charge de travail SQL Server et d’en tenir compte au moment de choisir une taille et une série de machines virtuelles.
 
 ## <a name="storage-guidance"></a>Conseils liés au stockage
 
@@ -179,7 +179,7 @@ Il existe une exception à cette recommandation : _si votre utilisation de TempD
 
 Certains déploiements peuvent bénéficier de plus grands avantages en termes de performances à l’aide de techniques de configuration avancées. La liste suivante présente certaines fonctionnalités SQL Server qui peuvent vous aider à améliorer les performances :
 
-### <a name="backup-to-azure-storage"></a>Sauvegarde vers le stockage Azure
+### <a name="backup-to-azure-storage"></a>Sauvegarde sur Stockage Azure
 Durant la création de sauvegardes pour un serveur SQL Server s’exécutant sur des machines virtuelles Azure, vous pouvez vous référer à [Sauvegarde de SQL Server vers une URL](https://msdn.microsoft.com/library/dn435916.aspx). Cette fonctionnalité est disponible à partir de SQL Server 2012 SP1 CU2, et recommandée pour la sauvegarde vers les disques de données attachés. Lors de la sauvegarde ou la restauration vers/depuis Azure Storage, suivez les recommandations indiquées dans [Meilleures pratiques et résolution des problèmes pour la sauvegarde de SQL Server vers une URL et Restauration à partir de sauvegardes stockées dans Azure Storage](https://msdn.microsoft.com/library/jj919149.aspx). Vous pouvez également automatiser ces sauvegardes en utilisant la [Sauvegarde automatisée pour SQL Server dans les machines virtuelles Azure](virtual-machines-windows-sql-automated-backup.md).
 
 Pour les versions antérieures à SQL Server 2012, vous pouvez utiliser l’ [outil de sauvegarde SQL Server vers Azure](https://www.microsoft.com/download/details.aspx?id=40740). Cet outil peut augmenter le débit de sauvegarde à l’aide de plusieurs cibles d’entrelacement de sauvegarde.
@@ -188,11 +188,11 @@ Pour les versions antérieures à SQL Server 2012, vous pouvez utiliser l’ [o
 
 Cette nouvelle fonctionnalité, [Fichiers de données SQL Server dans Azure](https://msdn.microsoft.com/library/dn385720.aspx), est disponible à partir de SQL Server 2014. L’exécution de SQL Server avec des fichiers de données dans Azure offre des caractéristiques de performances comparables à l’utilisation de disques de données Azure.
 
-### <a name="failover-cluster-instance-and-storage-spaces"></a>Instance de cluster de basculement et les espaces de stockage
+### <a name="failover-cluster-instance-and-storage-spaces"></a>Instance de cluster de basculement et espaces de stockage
 
-Si vous utilisez des espaces de stockage, lorsque vous ajoutez des nœuds au cluster sur le **Confirmation** page, désactivez la case à cocher **ajouter la totalité du stockage au cluster**. 
+Si vous utilisez des espaces de stockage, lors de l’ajout de nœuds dans le cluster sur la page **Confirmation**, désélectionnez la case à cocher **Ajouter la totalité du stockage disponible au cluster**. 
 
-![Désactivez la totalité du stockage](media/virtual-machines-windows-sql-performance/uncheck-eligible-cluster-storage.png)
+![Décochez la case du stockage éligible](media/virtual-machines-windows-sql-performance/uncheck-eligible-cluster-storage.png)
 
 Si vous utilisez des espaces de stockage et que vous ne désactivez pas la case à cocher **Ajouter la totalité du stockage disponible au cluster**, Windows détache les disques virtuels pendant le processus de mise en cluster. Par conséquent, ils n’apparaissent pas dans le Gestionnaire de disque ou dans l’Explorateur, jusqu’à ce que les espaces de stockage soient supprimés du cluster et rattachés à l’aide de PowerShell. Les espaces de stockage regroupent plusieurs disques dans des pools de stockage. Pour plus d’informations, consultez la page [Espaces de stockage](/windows-server/storage/storage-spaces/overview).
 

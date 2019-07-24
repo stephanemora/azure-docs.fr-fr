@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 09/24/2018
 ms.author: alkohli
 ms.openlocfilehash: d1bad50f2d97434865bb02ad54b1643c54e01790
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65953029"
 ---
 # <a name="safely-install-and-operate-your-azure-data-box"></a>Installer et utiliser en toute sécurité votre Azure Data Box
@@ -24,7 +24,7 @@ Lisez l’ensemble des informations de sécurité contenues dans cet article ava
 ## <a name="safety-icon-conventions"></a>Conventions des icônes de sécurité
 Voici les icônes utilisées dans les précautions de sécurité à observer lors de la configuration et de l’exécution de votre Data Box.
 
-| Icône | Description  |
+| Icône | Description |
 |:--- |:--- |
 | ![Icône Danger](./media/data-box-safety/warning_icon.png)**DANGER !** |Signale une situation dangereuse qui, si elle n’est pas évitée, entraînera la mort ou des blessures graves. Ce terme d’avertissement est réservé aux situations extrêmement dangereuses. |
 | ![Icône Avertissement](./media/data-box-safety/warning_icon.png)**AVERTISSEMENT !** |Signale une situation dangereuse qui, si elle n’est pas évitée, risque d’entraîner la mort ou des blessures graves. |
@@ -77,14 +77,14 @@ Voici les icônes utilisées dans les précautions de sécurité à observer lor
 * Débranchez l’unité de façon permanente avant de la déplacer ou si vous pensez qu’elle a été endommagée d’une quelconque façon.
 * Prévoyez une source d’alimentation appropriée offrant une protection contre les surcharges, conforme aux spécifications d’alimentation suivantes :
 
-    - Tension : 100 V AC à 240 V CA
-    - Actuel : 6 A, maximum
+    - Tension : 100 V CA à 240 V CA
+    - Intensité : 6 A maximum
     - Fréquence : 50 Hz à 60 Hz
 
 ![Icône Avertissement](./media/data-box-safety/warning_icon.png) **ATTENTION :**
 
 * Cet appareil contient des batteries boutons. N’essayez pas de réparer l’appareil. Les batteries de cet appareil ne sont pas remplaçables par l’utilisateur. 
-* **Pour le personnel de service uniquement**: Risque d’Explosion si la batterie est remplacée par un type incorrect. Éliminez les batteries usagées conformément aux instructions.
+* **Pour le personnel de maintenance uniquement** : risque d’explosion si la batterie est remplacée par une batterie de type incorrect. Éliminez les batteries usagées conformément aux instructions.
 
 ![Icône Avis](./media/data-box-safety/notice_icon.png)**AVIS :**
 
@@ -101,10 +101,10 @@ Cet appareil est :
 - Évalué en tant qu’équipement de traitement de l’information, conçu pour fonctionner dans un environnement de salle de données standard. L’adéquation de ce produit à un usage dans d’autres environnements peut nécessiter une évaluation supplémentaire.
 - Conçu pour être utilisé avec un équipement de traitement de l’information répertorié par un laboratoire d’essai reconnu nationalement (UL, CSA, ETL, etc.) et conforme à la norme CEI/EN 60950-1 ou CEI/EN 62368-1 (marquage CE).
 - Conçu pour fonctionner dans l’environnement suivant. 
-    - Température de fonctionnement : 50° à 95° F (10° à 35° C)
+    - Température de fonctionnement : 10° à 35° C
     - Température de stockage : 20 °C à 50 °C
-    - Humidité relative : 15 % à 85 % (sans condensation) 
-    - Altitude de fonctionnement : Testé jusqu'à 6500 mètres (0 à 2 000 mètres)
+    - Humidité relative : 15 % à 85 % (sans condensation) 
+    - Altitude de fonctionnement : testé de 0 à 2 000 mètres
 
 Pour les caractéristiques d’alimentation électrique, reportez-vous à la plaque signalétique de l’appareil fournie avec l’unité. 
 
@@ -116,9 +116,9 @@ Les changements ou modifications apportés à l’appareil qui ne sont pas expre
 
 ![Icône Avis](./media/data-box-safety/notice_icon.png)**AVIS :** 
 
-Cet équipement a été testé et déclaré conforme aux limites applicables aux appareils numériques de classe A, selon la section 15 des règlements de la FCC. Ces limites sont conçues pour offrir une protection raisonnable contre les interférences nuisibles lorsque l’équipement est utilisé dans un environnement commercial. Cet appareil génère, utilise et peut émettre une énergie de fréquence radio. S’il n’est pas installé et utilisé conformément au manuel d’instructions, il peut être source d’interférences nuisibles pour les communications radio. Utilisation de cet appareil dans une zone résidentielle est susceptible de causer des perturbations dans lequel des cas, l’utilisateur sera nécessaire pour corriger à leurs propres frais.
+Cet équipement a été testé et déclaré conforme aux limites applicables aux appareils numériques de classe A, selon la section 15 des règlements de la FCC. Ces limites sont conçues pour offrir une protection raisonnable contre les interférences nuisibles lorsque l’équipement est utilisé dans un environnement commercial. Cet appareil génère, utilise et peut émettre une énergie de fréquence radio. S’il n’est pas installé et utilisé conformément au manuel d’instructions, il peut être source d’interférences nuisibles pour les communications radio. L’utilisation de cet appareil dans une zone résidentielle est susceptible de causer des interférences nuisibles, auquel cas l’utilisateur sera tenu d’y remédier à ses propres frais.
 
-Cet appareil est conforme à la section 15 des règlements de la FCC et aux normes RSS d’Industrie Canada relatives à une utilisation sans licence. Opération est soumis aux deux conditions suivantes : (1) cet appareil ne peut pas provoquer de perturbations, et (2) cet appareil doit accepter toute interférence reçue, y compris les interférences peut engendrer un fonctionnement de l’appareil.
+Cet appareil est conforme à la section 15 des règlements de la FCC et aux normes RSS d’Industrie Canada relatives à une utilisation sans licence. L’utilisation de l’appareil est soumise aux deux conditions suivantes : (1) cet appareil ne peut pas provoquer d’interférences nuisibles et (2) cet appareil doit accepter toute interférence reçue, y compris les interférences pouvant engendrer un fonctionnement indésirable de l’appareil.
 
 ![Canada](./media/data-box-safety/canada.png)
 
@@ -126,9 +126,9 @@ CAN ICES-3(A)/NMB-3(A)
 
 Microsoft Corporation, One Microsoft Way, Redmond, WA 98052, États-Unis.
 
-États-Unis : (800) 426-9400
+États-Unis : (800) 426-9400
 
-Canada : (800) 933-4750
+Canada : (800) 933-4750
 
 **UNION EUROPÉENNE :**
 
@@ -142,7 +142,7 @@ Cet appareil est un produit de classe A. Dans un environnement domestique, ce pr
 
 ![Icône d’élimination des batteries](./media/data-box-safety/battery_disposal_icon.png)
 
-Ce symbole sur le produit, ses batteries ou son emballage signifie que ce produit et toute batterie qu’il peut contenir ne doivent pas être éliminés avec vos déchets ménagers. Il vous incombe de confier le recyclage des batteries et équipements électriques et électroniques à un point de collecte approprié. Ce processus de collecte et de recyclage spécifique contribue à préserver les ressources naturelles et à éviter les conséquences négatives potentielles sur la santé humaine et l’environnement que pourrait entraîner l’élimination inappropriée de batteries et d’équipements électriques et électroniques susceptibles de contenir des substances dangereuses. Pour plus d’informations sur les lieux où vous pouvez déposer vos batteries et déchets électriques et électroniques, contactez votre service municipal, votre service d’élimination des déchets ménagers ou le magasin dans lequel vous avez acheté ce produit. Contact *erecycle\@microsoft.com* pour plus d’informations sur DEEE.
+Ce symbole sur le produit, ses batteries ou son emballage signifie que ce produit et toute batterie qu’il peut contenir ne doivent pas être éliminés avec vos déchets ménagers. Il vous incombe de confier le recyclage des batteries et équipements électriques et électroniques à un point de collecte approprié. Ce processus de collecte et de recyclage spécifique contribue à préserver les ressources naturelles et à éviter les conséquences négatives potentielles sur la santé humaine et l’environnement que pourrait entraîner l’élimination inappropriée de batteries et d’équipements électriques et électroniques susceptibles de contenir des substances dangereuses. Pour plus d’informations sur les lieux où vous pouvez déposer vos batteries et déchets électriques et électroniques, contactez votre service municipal, votre service d’élimination des déchets ménagers ou le magasin dans lequel vous avez acheté ce produit. Contactez *erecycle\@microsoft.com* pour obtenir des informations supplémentaires sur les déchets d’équipements électriques et électroniques.
 
 Ce produit contient une ou plusieurs batteries boutons.
 

@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 06/26/2019
 ms.author: brendm
 ms.custom: seodec18
-ms.openlocfilehash: 51ca597208b582e95fd305886dcf163744825eee
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: af6fd7b99147396a70fccc7b2b11dfef3def15a8
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509649"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786293"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Configurer une application Java Linux pour Azure App Service
 
@@ -133,7 +133,7 @@ Les développeurs exécutant une seule application avec un seul emplacement de d
 
 Lors du réglage des paramètres de segment de mémoire de l’application, consultez les détails de votre plan App Service et prenez en compte qu’avec plusieurs applications et emplacements de déploiement, vous devez trouver l’allocation de mémoire optimale.
 
-Si vous déployez une application JAR, elle doit être nommée *app.jar* pour que l’image intégrée puisse identifier correctement votre application. (Le plug-in Maven la renomme automatiquement.) Si vous ne souhaitez pas renommer votre JAR en *app.jar*, vous pouvez charger un script d’interpréteur de commandes avec la commande pour exécuter votre JAR. Collez ensuite le chemin d’accès complet à ce script dans la zone de texte [Fichier de démarrage](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-faq#startup-file), dans la section Configuration du portail.
+Si vous déployez une application JAR, elle doit être nommée *app.jar* pour que l’image intégrée puisse identifier correctement votre application. (Le plug-in Maven la renomme automatiquement.) Si vous ne souhaitez pas renommer votre JAR en *app.jar*, vous pouvez charger un script d’interpréteur de commandes avec la commande pour exécuter votre JAR. Collez ensuite le chemin d’accès complet à ce script dans la zone de texte [Fichier de démarrage](app-service-linux-faq.md#built-in-images), dans la section Configuration du portail.
 
 ### <a name="turn-on-web-sockets"></a>Activer les sockets web
 
@@ -170,6 +170,10 @@ Vous pouvez aussi configurer le paramètre d’application à l’aide du plug-i
 ### <a name="adjust-startup-timeout"></a>Ajuster le délai de démarrage
 
 Si votre application Java est particulièrement volumineuse, vous devez augmenter la limite de durée de démarrage. Pour ce faire, créez un paramètre d’application, `WEBSITES_CONTAINER_START_TIME_LIMIT`, et définissez-le sur le nombre de secondes d’attente d’App Service avant d’arriver à expiration. La valeur maximale est `1800` secondes.
+
+### <a name="pre-compile-jsp-files"></a>Précompiler les fichiers JSP
+
+Pour améliorer les performances des applications Tomcat, vous pouvez compiler vos fichiers JSP avant le déploiement sur App Service. Vous pouvez utiliser le [plug-in Maven](https://sling.apache.org/components/jspc-maven-plugin/plugin-info.html) fourni par Apache Sling, ou ce [fichier de build Ant](https://tomcat.apache.org/tomcat-9.0-doc/jasper-howto.html#Web_Application_Compilation).
 
 ## <a name="secure-applications"></a>Sécuriser les applications
 

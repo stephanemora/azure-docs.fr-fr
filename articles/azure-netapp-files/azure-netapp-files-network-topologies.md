@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: b-juche
-ms.openlocfilehash: 207fb003eb1fdaafe4f43f7cd41dd4b7662eddf9
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 5b54d8f21f4cb1cdd7bb06871df6ac22d19d1ab6
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67331976"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705202"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Consignes pour planifier un réseau Azure NetApp Files
 
 La planification de l’architecture réseau est un élément clé dans la conception d’infrastructure d’application. Cet article vous aide à concevoir une architecture réseau efficace pour que vos charges de travail tirent parti des fonctionnalités enrichies d’Azure NetApp Files.
 
-Les volumes Azure NetApp Files sont conçus pour être contenus dans un sous-réseau à but précis appelé [sous-réseau délégué](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet), au sein de votre réseau virtuel Azure. Par conséquent, vous pouvez accéder aux volumes directement depuis votre réseau virtuel, depuis des réseaux virtuels homologués dans la même région ou en local via une passerelle de réseau virtuel (ExpressRoute ou passerelle VPN) en fonction des besoins. Le sous-réseau est dédié Azure NetApp Files et il n’y a aucune connectivité aux autres services Azure ou à internet.
+Les volumes Azure NetApp Files sont conçus pour être contenus dans un sous-réseau à but précis appelé [sous-réseau délégué](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet), au sein de votre réseau virtuel Azure. Par conséquent, vous pouvez accéder aux volumes directement depuis votre réseau virtuel, depuis des réseaux virtuels homologués dans la même région ou en local via une passerelle de réseau virtuel (ExpressRoute ou passerelle VPN) en fonction des besoins. Le sous-réseau est dédié à Azure NetApp Files et il n’y a aucune connectivité aux autres services Azure ni à internet.
 
 ## <a name="considerations"></a>Considérations  
 
@@ -35,7 +35,7 @@ Vous devez comprendre quelques considérations lorsque vous prévoyez d’utilis
 
 Les fonctionnalités ci-dessous ne sont actuellement pas prises en charge pour Azure NetApp Files : 
 
-* Groupes de sécurité réseau (NSG) sur sous-réseau
+* Groupes de sécurité réseau (NSG) appliqués au sous-réseau délégué
 * Itinéraires définis par l’utilisateur (UDR) avec un tronçon suivant comme sous-réseau Azure NetApp Files
 * Stratégies Azure (par exemple, des stratégies d’affectation de noms personnalisés) sur l’interface Azure NetApp Files
 * Équilibreurs de charge pour le trafic d’Azure NetApp Files
@@ -99,7 +99,7 @@ Un scénario de base consiste à créer ou à se connecter à un volume Azure Ne
 
 Si vous avez d’autres réseaux virtuels dans la même région qui ont besoin d’accéder aux ressources d’un autre, les réseaux virtuels peuvent être connectés à l’aide du [peering de réseau virtuel](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) pour activer la connectivité sécurisée via l’infrastructure Azure. 
 
-Prenez pour exemple les réseaux virtuels 2 et 3 dans le diagramme ci-dessus. Si la machine virtuelle 1 doit se connecter à la machine virtuelle 2 et au volume 2, ou si la machine virtuelle 2 doit se connecter à la machine virtuelle 1 ou au volume 1, vous devez activer le peering de réseau virtuel entre les réseaux virtuels 2 et 3. 
+Prenez pour exemple les réseaux virtuels 2 et 3 dans le diagramme ci-dessus. Si la machine virtuelle 2 doit se connecter à la machine virtuelle 3 ou au volume 2, ou si la machine virtuelle 3 doit se connecter à la machine virtuelle 2 ou au volume 1, vous devez activer l’appairage de réseaux virtuels entre les réseaux virtuels 2 et 3. 
 
 De plus, prenez pour exemple un scénario où le réseau virtuel 1 est appairé au réseau virtuel 2, et où le réseau virtuel 2 est appairé au réseau virtuel 3 dans la même région. Les ressources du réseau virtuel 1 peuvent se connecter aux ressources du réseau virtuel 2, mais pas aux ressources du réseau virtuel 3, sauf si les réseaux virtuels 1 et 3 sont appairés. 
 
@@ -111,17 +111,17 @@ Le diagramme suivant illustre un environnement hybride :
 
 ![Environnement de mise en réseau hybride](../media/azure-netapp-files/azure-netapp-files-network-hybrid-environment.png)
 
-Dans le scénario hybride, les applications de centres de données locaux ont besoin d’accéder aux ressources dans Azure.  C’est le cas que vous souhaitiez étendre votre centre de données à Azure, ou que vous souhaitiez utiliser les services Azure natifs ou pour la récupération d’urgence. Consultez [Options de planification de la passerelle VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json#planningtable) expliquant comment connecter plusieurs ressources locales à des ressources dans Azure via une passerelle VPN de site à site ou ExpressRoute.
+Dans le scénario hybride, les applications de centres de données locaux ont besoin d’accéder aux ressources dans Azure.  C’est le cas que vous souhaitiez étendre votre centre de données à Azure, ou que vous souhaitiez utiliser les services Azure natifs pour la reprise d’activité. Consultez [Options de planification de la passerelle VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json#planningtable) pour plus d’informations sur la façon de connecter plusieurs ressources locales à des ressources dans Azure via un réseau privé virtuel de site à site ou un circuit Express Route.
 
 Dans une topologie hub-and-spoke hybride, le hub du réseau virtuel dans Azure centralise la connectivité à votre réseau local. Les spokes sont des réseaux virtuels appairés avec le hub et qui peuvent être utilisés pour isoler les charges de travail.
 
-En fonction de la configuration. Vous pouvez connecter des ressources locales à des ressources dans le hub et les spokes.
+Selon la configuration, vous pouvez connecter des ressources locales à des ressources dans le hub et les spokes.
 
 Dans la topologie illustrée ci-dessus, le réseau local est connecté à un hub de réseau virtuel dans Azure et il y a 2 réseaux virtuels spoke dans la même région appairés au hub du réseau virtuel.  Dans ce scénario, les options de connectivité prises en charge pour les volumes Azure NetApp Files sont les suivantes :
 
-* Les ressources locales des machines virtuelles 1 et 2 peuvent se connecter au volume 1 dans le hub via une passerelle VPN site à site ou Express Route. 
+* Les ressources locales des machines virtuelles 1 et 2 peuvent se connecter au volume 1 dans le hub via un réseau privé virtuel de site à site ou un circuit Express Route. 
 * Les ressources locales des machines virtuelles 1 et 2 peuvent se connecter au volume 2 ou 3 via une passerelle VPN site à site et un peering du réseau virtuel régional.
-* La machine virtuelle 3 dans le réseau virtuel du hub peut se connecter au volume 2 dans le réseau virtuel 1 du spoke et au volume 3 dans le réseau virtuel 2 du spoke.
+* La machine virtuelle 3 dans le réseau virtuel du hub peut se connecter au volume 2 dans le réseau virtuel 1 du spoke et au volume 3 dans le réseau virtuel 2 du spoke.
 * La machine virtuelle 4 dans le réseau virtuel 1 du spoke et la machine virtuelle 5 dans le réseau virtuel 2 du spoke peuvent se connecter au volume 1 dans le réseau virtuel du hub.
 
 La machine virtuelle 4 dans le réseau virtuel 1 du spoke ne peut pas se connecter au volume 3 du réseau virtuel 2 du spoke. Aussi, la machine virtuelle 5 dans le réseau virtuel 2 du spoke ne peut pas se connecter au volume 2 du réseau virtuel 1 du spoke. Il en est ainsi car les réseaux virtuels spoke ne sont pas appairés, et _le routage de transit n’est pas pris en charge via le peering de réseau virtuel_.

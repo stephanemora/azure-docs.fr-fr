@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 010880304c5011bd5a767650aa0ae6b6103bdde2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e5d473cffeefe29febc4f0dfb2a620d917bf238d
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540855"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672109"
 ---
 # <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>Création d’un jeu de compétences dans un pipeline d’enrichissement
 
-La recherche cognitive extrait et enrichit les données pour qu’elles puissent faire l’objet de recherches dans Recherche Azure. Nous appelons les étapes d’extraction et d’enrichissement *compétences cognitives*. Elles sont combinées en un *jeu de compétences* référencé pendant l’indexation. Un ensemble de compétences peut utiliser des [compétences prédéfinies](cognitive-search-predefined-skills.md) ou des compétences personnalisées. Pour plus d’informations, consultez [Example: create a custom skill](cognitive-search-create-custom-skill-example.md) (Exemple : créer une compétence personnalisée).
+La recherche cognitive extrait et enrichit les données pour qu’elles puissent faire l’objet de recherches dans Recherche Azure. Nous appelons les étapes d’extraction et d’enrichissement *compétences cognitives*. Elles sont combinées en un *jeu de compétences* référencé pendant l’indexation. Un ensemble de qualifications peut contenir des [qualifications prédéfinies](cognitive-search-predefined-skills.md) ou des qualifications personnalisées (pour plus d’informations, consultez [Exemple : Création d’une compétence personnalisée pour la recherche cognitive](cognitive-search-create-custom-skill-example.md).
 
 Dans cet article, vous allez découvrir comment créer un pipeline d’enrichissement pour les compétences que vous souhaitez utiliser. Un jeu de compétences est attaché à un [indexeur](search-indexer-overview.md) Recherche Azure. Une partie de la conception du pipeline, traitée dans cet article, constitue le jeu de compétences proprement dit. 
 

@@ -10,17 +10,17 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 93386bd1fa3be88cbcdfab3d59ae07d3eb2b046d
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65911920"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Chiffrement côté client et Azure Key Vault pour Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
 
-## <a name="overview"></a>Présentation
-Le [bibliothèque cliente de stockage Azure pour .NET](/dotnet/api/overview/azure/storage/client) prend en charge le chiffrement des données dans les applications clientes avant le chargement vers Azure Storage et le déchiffrement des données pendant leur téléchargement vers le client. La bibliothèque prend également en charge l’intégration au [coffre de clés Azure](https://azure.microsoft.com/services/key-vault/) pour la gestion des clés de compte de stockage.
+## <a name="overview"></a>Vue d'ensemble
+La [bibliothèque cliente Stockage Azure pour .NET](/dotnet/api/overview/azure/storage/client) prend en charge le chiffrement des données au sein des applications clientes avant le chargement vers Stockage Azure, ainsi que le déchiffrement des données pendant leur téléchargement vers le client. La bibliothèque prend également en charge l’intégration au [coffre de clés Azure](https://azure.microsoft.com/services/key-vault/) pour la gestion des clés de compte de stockage.
 
 Pour obtenir une procédure pas à pas sur le processus de chiffrement des objets Blob à l’aide du chiffrement côté client et d’Azure Key Vault, consultez [Chiffrement et déchiffrement d’objets blob dans Microsoft Azure Storage à l'aide d'Azure Key Vault](../blobs/storage-encrypt-decrypt-blobs-key-vault.md).
 
@@ -52,7 +52,7 @@ Le déchiffrement via la technique d’enveloppe fonctionne de la façon suivant
 La bibliothèque cliente du stockage utilise [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) pour chiffrer les données utilisateur. Plus précisément, le mode [CBC (Cipher Block Chaining)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) avec AES. Chaque service fonctionnant un peu différemment, nous allons les étudier un par un ici.
 
 ### <a name="blobs"></a>Objets blob
-La bibliothèque cliente prend actuellement en charge le chiffrement des objets blob entiers uniquement. Plus précisément, le chiffrement est pris en charge lorsque les utilisateurs utilisent le **UploadFrom** méthodes ou les **OpenWrite** (méthode). Les téléchargements complets et de plages sont tous deux pris en charge.
+La bibliothèque cliente prend actuellement en charge le chiffrement des objets blob entiers uniquement. Plus précisément, le chiffrement est pris en charge lors de l’utilisation des méthodes **UploadFrom** ou de la méthode **OpenWrite**. Les téléchargements complets et de plages sont tous deux pris en charge.
 
 Au cours du chiffrement, la bibliothèque cliente génère un vecteur d’initialisation aléatoire (IV) de 16 octets avec une clé de chiffrement de contenu (CEK) aléatoire de 32 octets, puis effectue le chiffrement d’enveloppe des données d’objets blob à l’aide de ces informations. La clé de chiffrement de contenu encapsulée ainsi que des métadonnées de chiffrement supplémentaires sont ensuite stockées en tant que métadonnées d’objet blob en même temps que l’objet blob chiffré sur le service.
 
@@ -61,13 +61,13 @@ Au cours du chiffrement, la bibliothèque cliente génère un vecteur d’initia
 > 
 > 
 
-Le téléchargement d’un objet blob chiffré implique de récupérer le contenu de l’objet blob entier à l’aide de la **DownloadTo**/**BlobReadStream** des méthodes pratiques. La clé de chiffrement de contenu encapsulée est désencapsulée et utilisée en combinaison avec le vecteur d’initialisation (stocké en tant que métadonnées d’objet blob dans cet exemple) pour renvoyer les données déchiffrées aux utilisateurs.
+Le téléchargement d’un objet blob chiffré implique de récupérer le contenu de l’objet blob entier à l’aide des méthodes pratiques **DownloadTo**/**BlobReadStream**. La clé de chiffrement de contenu encapsulée est désencapsulée et utilisée en combinaison avec le vecteur d’initialisation (stocké en tant que métadonnées d’objet blob dans cet exemple) pour renvoyer les données déchiffrées aux utilisateurs.
 
-Le téléchargement d’une plage arbitraire (**DownloadRange** méthodes) dans l’objet blob chiffré implique d’ajuster la plage fournie par les utilisateurs pour obtenir une petite quantité de données supplémentaires qui peuvent être utilisées pour déchiffrer demandé plage.
+Le téléchargement d’une plage arbitraire (méthodes **DownloadRange**) dans l’objet blob chiffré implique d’ajuster la plage fournie par les utilisateurs pour obtenir une petite quantité de données supplémentaires susceptibles d’être utilisées pour déchiffrer la plage demandée.
 
 Tous les types d’objets blob (objets blob de blocs, objets blob de pages et objets blob d’ajouts) peuvent être chiffrés/déchiffrés à l’aide de ce schéma.
 
-### <a name="queues"></a>Files d'attente
+### <a name="queues"></a>Files d’attente
 Dans la mesure où les messages de la file d’attente peuvent avoir n’importe quel format, la bibliothèque cliente définit un format personnalisé qui inclut le vecteur d’initialisation (IV) et la clé de chiffrement de contenu (CEK) chiffrée dans le texte du message.
 
 Au cours du chiffrement, la bibliothèque cliente génère un vecteur d’initialisation aléatoire de 16 octets avec une clé de chiffrement de contenu aléatoire de 32 octets, puis effectue le chiffrement d’enveloppe du texte du message de la file d’attente à l’aide de ces informations. La clé de chiffrement de contenu encapsulée et les métadonnées de chiffrement supplémentaires sont ensuite ajoutées au message chiffré de la file d’attente. Ce message modifié (illustré ci-dessous) est stocké sur le service.

@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: 9dfa4b62f5cb79a5716f6f29651e85d0f8a3a409
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ddc7ae10581075127f72dd020c59cf28bbfc9ae2
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65787857"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606133"
 ---
 # <a name="sample-1---regression-predict-price"></a>Exemple 1 - Régression : Prédire le prix
 
@@ -87,4 +87,5 @@ Explorez les autres exemples disponibles pour l’interface visuelle :
 - [Exemple 2 - Régression : comparer des algorithmes pour prédire le prix de véhicules automobiles](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
 - [Exemple 3 - Classification : prédire le risque de crédit](ui-sample-classification-predict-credit-risk-basic.md)
 - [Exemple 4 - Classification : prédire le risque de crédit (sensible au coût)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
-- [Exemple 5 - Classification : prédire l’évolution](ui-sample-classification-predict-churn.md)
+- [Exemple 5 - Classification : Prédire l’évolution](ui-sample-classification-predict-churn.md)
+- [Exemple 6 - Classification : Prédire les retards de vols](ui-sample-classification-predict-flight-delay.md)

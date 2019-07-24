@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 01/24/2017
 ms.author: kasing
 ms.openlocfilehash: e9d2b518af50aaec43bc7075e51829e80cdeddf5
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66016142"
 ---
 # <a name="set-up-key-vault-for-virtual-machines-in-azure-resource-manager"></a>Configuration de Key Vault pour des machines virtuelles dans Azure Resource Manager
@@ -52,7 +52,7 @@ Pour l’interface de ligne de commande, vous devez créer d’abord le coffre d
 
     az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --location "EastAsia"
     
-Puis, pour activer le coffre de clés pour une utilisation avec le déploiement de modèle, exécutez la commande suivante :
+Puis, pour activer Key Vault dans le cadre du déploiement de modèle, exécutez la commande suivante :
 
     az keyvault update --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --enabled-for-deployment "true"
 

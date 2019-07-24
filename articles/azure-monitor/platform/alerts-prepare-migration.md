@@ -1,6 +1,6 @@
 ---
-title: Préparer la migration des alertes classiques Azure Monitor en mettant à jour vos applications logiques et les procédures opérationnelles
-description: Découvrez comment modifier les webhooks, des applications logiques et des runbooks pour préparer la migration volontaire.
+title: Préparer la migration des alertes classiques Azure Monitor en mettant à jour les applications logiques et les runbooks
+description: Découvrez comment modifier les webhooks, les applications logiques et les runbooks pour préparer la migration volontaire.
 author: snehithm
 ms.service: azure-monitor
 ms.topic: conceptual
@@ -8,53 +8,53 @@ ms.date: 03/19/2018
 ms.author: snmuvva
 ms.subservice: alerts
 ms.openlocfilehash: bdbd45c2b10dec8f1c0a85110747a470e818dbf9
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66015605"
 ---
-# <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>Préparer vos applications logiques et les procédures opérationnelles pour la migration classiques des règles d’alerte
+# <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>Préparer les applications logiques et les runbooks pour la migration des règles d’alerte classiques
 
-En tant que [précédemment annoncé](monitoring-classic-retirement.md), les alertes classiques dans Azure Monitor seront retirés en septembre 2019 (a été initialement juillet 2019). Un outil de migration est disponible dans le portail Azure pour les clients qui utilisent des règles d’alerte classiques qui souhaitent déclencher migration eux-mêmes.
+Comme [précédemment annoncé](monitoring-classic-retirement.md), les alertes classiques dans Azure Monitor seront mises hors service en septembre 2019 (c’était initialement prévu pour juillet 2019). Un outil de migration est disponible dans le Portail Azure pour les clients qui utilisent des règles d’alerte classiques et qui souhaitent déclencher la migration eux-mêmes.
 
 > [!NOTE]
-> En raison de retards dans le déploiement de l’outil de migration, la date de suppression pour la migration des alertes classiques a été étendue pour le 31 août 2019 à partir de la date annoncée à l’origine du 30 juin 2019.
+> En raison de retards dans le déploiement de l’outil de migration, la date de mise hors service des alertes classiques a été repoussée au 31 août 2019 (la date annoncée à l’origine était le 30 juin 2019).
 
-Si vous choisissez de migrer volontairement vos règles d’alerte classiques pour les nouvelles règles d’alerte, n’oubliez pas qu’il existe certaines différences entre les deux systèmes. Cet article explique ces différences et comment vous pouvez préparer pour la modification.
+Si vous choisissez de migrer volontairement vos règles d’alerte classiques vers de nouvelles règles d’alerte, n’oubliez pas qu’il existe certaines différences entre les deux systèmes. Cet article décrit ces différences et explique comment préparer la modification.
 
 ## <a name="api-changes"></a>Modifications d'API
 
-Les API qui créent et gèrent les règles d’alerte classiques (`microsoft.insights/alertrules`) diffère de l’API qui créent et gèrent les nouvelles alertes de métrique (`microsoft.insights/metricalerts`). Si vous créez et gérez des règles d’alerte classiques dès aujourd'hui, mettez à jour vos scripts de déploiement pour travailler avec les nouvelles API.
+Les API qui créent et gèrent les règles d’alerte classiques (`microsoft.insights/alertrules`) diffèrent des API qui créent et gèrent les nouvelles alertes de métrique (`microsoft.insights/metricalerts`). Si vous créez et gérez actuellement des règles d’alerte classiques par programmation, mettez à jour vos scripts de déploiement pour utiliser les nouvelles API.
 
-Le tableau suivant est une référence pour les interfaces de programmation pour les alertes classiques et nouveaux :
+Le tableau suivant référence les interfaces de programmation pour les alertes classiques et les nouvelles alertes :
 
 |         |Alertes classiques  |Nouvelles alertes de métrique |
 |---------|---------|---------|
 |API REST     | [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules)         | [microsoft.insights/metricalerts](https://docs.microsoft.com/rest/api/monitor/metricalerts)       |
-|Azure CLI     | [az monitor alert](https://docs.microsoft.com/cli/azure/monitor/alert?view=azure-cli-latest)        | [alerte de métriques de moniteur AZ](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest)        |
+|Azure CLI     | [az monitor alert](https://docs.microsoft.com/cli/azure/monitor/alert?view=azure-cli-latest)        | [az monitor metrics alert](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest)        |
 |PowerShell      | [Référence](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrule)       |  [Référence](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrulev2)    |
-| Modèle Azure Resource Manager | [Pour les alertes classiques](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-enable-template)|[Nouvelles alertes de métrique](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates)|
+| Modèle Azure Resource Manager | [Pour les alertes classiques](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-enable-template)|[Pour les nouvelles alertes de métrique](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates)|
 
 ## <a name="notification-payload-changes"></a>Modifications de charge utile de notification
 
-Le format de charge utile de notification est légèrement différent entre [des règles d’alerte classiques](alerts-webhooks.md) et [nouvelles alertes de métrique](alerts-metric-near-real-time.md#payload-schema). Si vous avez des webhook, application logique ou des actions de runbook qui sont déclenchées par des règles d’alerte classiques, vous devez mettre à jour ces points de terminaison de notification pour accepter le format de charge utile de nouvelles alertes de métrique.
+Le format de charge utile de notification est légèrement différent pour les [règles d’alerte classiques](alerts-webhooks.md) et les [nouvelles alertes de métrique](alerts-metric-near-real-time.md#payload-schema). Si des actions de webhook, d’application logique ou de runbook sont déclenchées par des règles d’alerte classiques, vous devez mettre à jour ces points de terminaison de notification pour accepter le format de charge utile des nouvelles alertes de métrique.
 
-Utilisez le tableau suivant pour mapper les champs de charge utile du webhook à partir du format classique vers le nouveau format :
+Utilisez le tableau suivant pour mapper les champs de charge utile de webhook du format classique vers le nouveau format :
 
 |  |Alertes classiques  |Nouvelles alertes de métrique |
 |---------|---------|---------|
-|L’alerte a été activée ou résolue ?    | **statut**       | **data.status** |
+|L’alerte a-t-elle été activée ou résolue ?    | **statut**       | **data.status** |
 |Informations contextuelles sur l’alerte     | **context**        | **data.context**        |
-|Date et heure à laquelle l’alerte a été activée ou résolue     | **context.timestamp**       | **data.context.timestamp**        |
-| ID de règle d’alerte | **context.id** | **data.context.id** |
-| Nom de la règle d'alerte | **context.name** | **data.context.name** |
+|Date et heure auxquelles l’alerte a été activée ou résolue     | **context.timestamp**       | **data.context.timestamp**        |
+| ID de la règle d’alerte | **context.id** | **data.context.id** |
+| Nom de la règle d’alerte | **context.name** | **data.context.name** |
 | Description de la règle d’alerte | **context.description** | **data.context.description** |
 | Condition de règle d’alerte | **context.condition** | **data.context.condition** |
-| Nom de la métrique | **context.condition.metricName** | **data.context.condition.allOf[0].metricName** |
-| Agrégation de temps (comment la métrique est agrégée sur la fenêtre d’évaluation)| **data.context.condition.timeAggregation** | **data.context.condition.timeAggregation** |
+| Nom de métrique | **context.condition.metricName** | **data.context.condition.allOf[0].metricName** |
+| Agrégation de temps (agrégation de la métrique sur la fenêtre d’évaluation)| **data.context.condition.timeAggregation** | **data.context.condition.timeAggregation** |
 | Période d’évaluation | **context.condition.windowSize** | **data.context.condition.windowSize** |
-| Opérateur (comment la valeur de métrique agrégée est comparée au seuil) | **context.condition.operator** | **data.context.condition.operator** |
+| Opérateur (comparaison entre la valeur de métrique agrégée et le seuil) | **context.condition.operator** | **data.context.condition.operator** |
 | Seuil | **context.condition.threshold** | **data.context.condition.allOf[0].threshold** |
 | Valeur de métrique | **context.condition.metricValue** | **data.context.condition.allOf[0].metricValue** |
 | Identifiant d’abonnement | **context.subscriptionId** | **data.context.subscriptionId** |
@@ -62,29 +62,29 @@ Utilisez le tableau suivant pour mapper les champs de charge utile du webhook à
 | Nom de la ressource affectée | **context.resourceName** | **data.context.resourceName** |
 | Type de la ressource affectée | **context.resourceType** | **data.context.resourceType** |
 | ID de ressource de la ressource affectée | **context.resourceId** | **data.context.resourceId** |
-| Lien direct vers la page de résumé des ressources du portail | **context.portalLink** | **data.context.portalLink** |
-| Champs de charge utile personnalisée à passer à l’application logique ou de webhook | **properties** | **data.properties** |
+| Lien direct vers la page de résumé de la ressource sur le Portail | **context.portalLink** | **data.context.portalLink** |
+| Champs de charge utile personnalisée à transmettre à l’application logique ou au webhook | **properties** | **data.properties** |
 
-Les charges utiles sont similaires, comme vous pouvez le voir. La section suivante propose :
+Les charges utiles sont similaires, comme vous pouvez le voir. La section suivante propose :
 
-- Détails sur la modification des applications logiques pour travailler avec le nouveau format.
-- Voici un exemple de runbook qui analyse la charge utile de notification pour les nouvelles alertes.
+- Des détails sur la modification des applications logiques pour utiliser le nouveau format.
+- Un exemple de runbook qui analyse la charge utile de notification pour les nouvelles alertes.
 
 ## <a name="modify-a-logic-app-to-receive-a-metric-alert-notification"></a>Modifier une application logique pour recevoir une notification d’alerte métrique
 
-Si vous utilisez des applications logiques avec les alertes classiques, vous devez modifier votre code d’application de la logique pour analyser la charge utile de nouvelles alertes de métrique. Procédez comme suit :
+Si vous utilisez des applications logiques avec les alertes classiques, vous devez modifier votre code d’application logique pour analyser la charge utile des nouvelles alertes de métrique. Procédez comme suit :
 
-1. Créer une application logique.
+1. Créez une application logique.
 
-1. Utilisez le modèle « Azure Monitor – métriques alerte gestionnaire ». Ce modèle a un **demande HTTP** déclencheur avec le schéma approprié défini.
+1. Utilisez le modèle « Azure Monitor - Metrics Alert Handler ». Ce modèle comporte un déclencheur de **requête HTTP** avec le schéma approprié défini.
 
-    ![modèle d’application logique](media/alerts-migration/logic-app-template.png "modèle d’alerte métrique")
+    ![logic-app-template](media/alerts-migration/logic-app-template.png "Modèle d’alerte métrique")
 
-1. Ajouter une action pour héberger votre logique de traitement.
+1. Ajoutez une action pour héberger votre logique de traitement.
 
-## <a name="use-an-automation-runbook-that-receives-a-metric-alert-notification"></a>Utiliser un runbook automation qui reçoit une notification d’alerte métrique
+## <a name="use-an-automation-runbook-that-receives-a-metric-alert-notification"></a>Utiliser un runbook d’automatisation qui reçoit une notification d’alerte de métrique
 
-L’exemple suivant fournit le code PowerShell à utiliser dans votre runbook. Ce code peut analyser les charges utiles pour les règles d’alerte de métrique classiques et de nouvelles règles d’alerte métrique.
+L’exemple suivant fournit le code PowerShell à utiliser dans votre runbook. Ce code peut analyser les charges utiles pour les règles d’alerte de métrique classiques et les nouvelles règles d’alerte de métrique.
 
 ```PowerShell
 ## Example PowerShell code to use in a runbook to handle parsing of both classic and new metric alerts.
@@ -151,11 +151,11 @@ else {
 
 ```
 
-Pour obtenir un exemple complet d’un runbook qui arrête un ordinateur virtuel lorsqu’une alerte est déclenchée, consultez le [documentation d’Azure Automation](https://docs.microsoft.com/azure/automation/automation-create-alert-triggered-runbook).
+Pour obtenir un exemple complet de runbook qui arrête une machine virtuelle lorsqu’une alerte est déclenchée, consultez la [documentation Azure Automation](https://docs.microsoft.com/azure/automation/automation-create-alert-triggered-runbook).
 
 ## <a name="partner-integration-via-webhooks"></a>Intégration des partenaires par le biais de webhooks
 
-La plupart des [nos partenaires qui s’intègrent avec les alertes classiques](https://docs.microsoft.com/azure/azure-monitor/platform/partners) prennent déjà en charge les alertes métriques plus récentes via leurs intégrations. Intégrations connues qui fonctionnent déjà avec les nouvelles alertes de métrique sont :
+La plupart de [nos partenaires qui s’intègrent avec les alertes classiques](https://docs.microsoft.com/azure/azure-monitor/platform/partners) prennent déjà en charge les nouvelles alertes de métrique. Voici quelques intégrations connues qui fonctionnent déjà avec les nouvelles alertes de métrique :
 
 - [PagerDuty](https://www.pagerduty.com/docs/guides/azure-integration-guide/)
 - [OpsGenie](https://docs.opsgenie.com/docs/microsoft-azure-integration)
@@ -165,5 +165,5 @@ Si vous utilisez une intégration des partenaires qui n’est pas répertoriée 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Comment utiliser l’outil de migration](alerts-using-migration-tool.md)
-- [Comprendre le fonctionne de l’outil de migration](alerts-understand-migration.md)
+- [Guide pratique pour utiliser l’outil de migration](alerts-using-migration-tool.md)
+- [Comprendre le fonctionnement de l’outil de migration](alerts-understand-migration.md)

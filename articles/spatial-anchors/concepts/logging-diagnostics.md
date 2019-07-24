@@ -1,6 +1,6 @@
 ---
-title: Journalisation et diagnostics dans Azure des ancres spatiales | Microsoft Docs
-description: Explication détaillée de la génération et de récupérer la journalisation et diagnostics dans Azure des ancres spatiale.
+title: Journalisation et diagnostics dans Azure Spatial Anchors | Microsoft Docs
+description: Explication détaillée de la méthode à suivre pour générer et récupérer des diagnostics et des journaux dans Azure Spatial Anchors.
 author: ramonarguelles
 manager: vicenterivera
 services: azure-spatial-anchors
@@ -9,21 +9,21 @@ ms.date: 02/22/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: b66dc7d6ec9d11fe645587fe791824009231b7c2
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65964740"
 ---
-# <a name="logging-and-diagnostics-in-azure-spatial-anchors"></a>Journalisation et diagnostics dans Azure des ancres Spatial
+# <a name="logging-and-diagnostics-in-azure-spatial-anchors"></a>Journalisation et diagnostics dans Azure Spatial Anchors
 
-Ancres Spatial Azure fournit un mécanisme de journalisation standard qui est utile pour le développement d’applications. Le mode de journalisation de diagnostics ancres Spatial est utile lorsque vous avez besoin de plus d’informations pour le débogage. Journalisation des diagnostics stocke les images de l’environnement.
+Azure Spatial Anchors fournit un mécanisme de journalisation standard, qui est utile pour le développement d’applications. Le mode de journalisation des diagnostics Azure Spatial Anchors fournit des informations supplémentaires pour le débogage. La fonction de journalisation des diagnostics stocke les images de l’environnement.
 
 ## <a name="standard-logging"></a>Journalisation standard
-Dans l’API ancres spatiale, vous pouvez vous abonner au mécanisme de journalisation pour obtenir des journaux utiles pour le développement d’applications et le débogage. Les API de journalisation standard ne stocker des photos de l’environnement sur le disque de l’appareil. Le SDK fournit ces journaux en tant que les rappels d’événement. C’est à vous permet d’intégrer ces journaux dans le mécanisme de journalisation de l’application.
+Dans l’API Spatial Anchors, vous pouvez vous abonner au mécanisme de journalisation pour obtenir des journaux utiles pour le développement d’applications et le débogage. Les API de journalisation standard ne stockent aucune image de l’environnement sur le disque de l’appareil. Le Kit de développement logiciel (SDK) fournit ces journaux en tant que rappels d’événement. Il vous incombe d’intégrer ces journaux dans le mécanisme de journalisation de l’application.
 
-### <a name="configuration-of-log-messages"></a>Configuration des messages de journal
-Il existe deux rappels d’intérêt pour l’utilisateur. L’exemple suivant montre comment configurer la session.
+### <a name="configuration-of-log-messages"></a>Configuration des messages des journaux
+Deux rappels sont particulièrement intéressants pour l’utilisateur. L’exemple suivant montre comment configurer la session.
 
 ```csharp
     cloudSpatialAnchorSession = new CloudSpatialAnchorSession();
@@ -38,27 +38,27 @@ Il existe deux rappels d’intérêt pour l’utilisateur. L’exemple suivant m
     cloudSpatialAnchorSession.Error += CloudSpatialAnchorSession_Error;
 ```
 
-### <a name="events-and-properties"></a>Propriétés et événements
+### <a name="events-and-properties"></a>Événements et propriétés
 
-Ces rappels d’événement sont fournis pour traiter les journaux et les erreurs de la session :
+Ces rappels d’événement sont fournis pour traiter les journaux et les erreurs de la session :
 
-- [LogLevel](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.loglevel): Spécifie le niveau de détail pour les événements à recevoir de l’exécution.
-- [OnLogDebug](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.onlogdebug): Fournit des événements de journal de débogage standard.
-- [Erreur](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.error) : Fournit des événements de journal que le runtime considère comme erreurs.
+- [LogLevel](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.loglevel) : spécifie le niveau de détail que le runtime doit envoyer en ce qui concerne les événements.
+- [OnLogDebug](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.onlogdebug) : fournit les événements de journalisation de débogage standard.
+- [Erreur](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.error) : fournit les événements de journalisation que le runtime considère comme des erreurs.
 
 ## <a name="diagnostics-logging"></a>Journalisation des diagnostics
 
-Outre le mode standard d’opération pour la journalisation, ancres Spatial a également un mode de diagnostic. Mode de diagnostics capture les images de l’environnement et les enregistre sur le disque. Vous pouvez utiliser ce mode pour déboguer certains types de problèmes, tels que la défaillance de manière prévisible localiser un point d’ancrage. Activer l’enregistrement des diagnostics uniquement pour reproduire un problème spécifique. Puis, désactivez-la. Ne pas activer les diagnostics lorsque vous exécutez vos applications normalement.
+Outre le mode standard de fonctionnement à des fins de journalisation, Spatial Anchors propose un mode de diagnostic. Ce mode capture les images de l’environnement et les enregistre sur le disque. Vous pouvez utiliser ce mode pour déboguer certains types de problèmes, par exemple lorsque vous ne parvenez pas à localiser une ancre de manière fiable. N’activez l’enregistrement des diagnostics que pour reproduire un problème spécifique. Ensuite, désactivez-le. Ne le démarrez pas lorsque les applications s’exécutent normalement.
 
-Pendant une interaction de la prise en charge avec Microsoft, un représentant Microsoft peut demander si vous êtes prêt à envoyer une offre groupée de diagnostics pour un examen approfondi. Dans ce cas, vous pouvez décider activer les diagnostics et de reproduire le problème permet d’envoyer le groupe de diagnostic. 
+Cependant, lorsque vous contactez le support de Microsoft, un représentant peut vous demander si vous voulez lui envoyer un ensemble de diagnostics à des fins d’enquête. Dans ce cas, vous pouvez activer les diagnostics, afin de reproduire le problème et d’envoyer ces informations au support. 
 
-Si vous envoyez un journal de diagnostic à Microsoft sans accusé de réception préalable d’un représentant de Microsoft, la demande sera transmise sans réponse.
+Si vous envoyez un journal de diagnostic à Microsoft sans avoir reçu l’accord préalable d’un représentant Microsoft, votre demande restera sans réponse.
 
-Les sections suivantes montrent comment activer le mode de diagnostics et également comment envoyer les journaux de diagnostic à Microsoft.
+Les sections suivantes indiquent comment activer le mode de diagnostic, et aussi comment envoyer des journaux de diagnostic à Microsoft.
 
 ### <a name="enable-diagnostics-logging"></a>Activer la journalisation des diagnostics
 
-Lorsque vous activez une session pour la journalisation des diagnostics, toutes les opérations dans la session ont correspondantes journalisation des diagnostics dans le système de fichiers local. Au cours de la journalisation, les images de l’environnement sont enregistrées sur le disque.
+Lorsque vous activez une session pour la journalisation des diagnostics, toutes les opérations de cette session sont associées à des journaux de diagnostics dans le système de fichiers local. Lors de la journalisation, les images de l’environnement sont enregistrées sur le disque.
 
 ```csharp
 private void ConfigureSession()
@@ -86,9 +86,9 @@ private void ConfigureSession()
 }
 ```
 
-### <a name="submit-the-diagnostics-bundle"></a>Envoyer le groupe de diagnostics
+### <a name="submit-the-diagnostics-bundle"></a>Envoyer un ensemble de diagnostics
 
-L’extrait de code suivant montre comment envoyer une offre groupée de diagnostic à Microsoft. Cette offre groupée inclut les images de l’environnement capturées par la session une fois que vous activez les diagnostics. 
+L’extrait de code suivant montre comment envoyer un ensemble de diagnostics à Microsoft. Cet ensemble inclut les images de l’environnement capturées par la session une fois que vous avez activé les diagnostics. 
 
 ```csharp
 // method to handle the diagnostics bundle submission
@@ -104,9 +104,9 @@ private async Task CreateAndSubmitBundle()
 }
 ```
 
-### <a name="parts-of-a-diagnostics-bundle"></a>Parties d’un ensemble de diagnostics
-Le groupe de diagnostics peut contenir les informations suivantes :
+### <a name="parts-of-a-diagnostics-bundle"></a>Contenu d’un ensemble de diagnostics
+L’ensemble de diagnostics peut contenir les informations suivantes :
 
-- **Images de l’image clé**: Images de l’environnement capturées pendant la session alors que les diagnostics ont été activés.
-- **Journaux** : Journaliser les événements enregistrés par le runtime.
-- **Métadonnées de session**: Métadonnées qui identifie la session.
+- **Images clés** : images de l’environnement capturées pendant la session une fois les diagnostics capturés.
+- **Journaux d’activité** : événements de journalisation enregistrés par le runtime.
+- **Métadonnées de session** : métadonnées qui identifient la session.

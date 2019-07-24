@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: 8cd76909c9ce15a97de4ea5af3b21ac120058dd3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d4ca08a7b757889f79fb7ea5b85d7bc5c1c72259
+ms.sourcegitcommit: 1e347ed89854dca2a6180106228bfafadc07c6e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60705875"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67569370"
 ---
 # <a name="azure-security-center-detection-capabilities"></a>Fonctionnalités de détection d’Azure Security Center
 Ce document aborde les fonctionnalités avancées de détection d’Azure Security Center, qui permet d’identifier les menaces actives ciblant vos ressources Microsoft Azure (aussi bien Windows que Linux) et fournit les informations nécessaires pour y répondre rapidement.
@@ -34,7 +34,7 @@ Cette approche a conduit à un niveau inédit de professionnalisme dans les rang
 
 Face au problème, les organisations déploient souvent plusieurs solutions, axées sur la défense du périmètre de l’entreprise ou de points de terminaison, en recherchant des signatures d’attaques connues. Ces solutions ont tendance à générer un volume élevé d’alertes basse fidélité, qui nécessitent qu’un analyste les trie et les examine. La plupart des organisations ne disposent pas du temps et de l’expertise nécessaires pour répondre à ces alertes, qui restent alors bien souvent sans réponse.  Parallèlement, les attaquants ont fait évoluer leurs méthodes pour compromettre les nombreuses défenses basées sur la signature et pour [s’adapter aux environnements de cloud](https://azure.microsoft.com/blog/detecting-threats-with-azure-security-center/). De nouvelles approches sont nécessaires pour identifier plus rapidement les nouvelles menaces, et accélérer la détection et la réaction.
 
-## <a name="how-azure-security-center-detects-and-responds-to-threats"></a>Comment Azure Security Center détecte et répond aux menaces
+## Comment Azure Security Center détecte les menaces et y répond <a name="asc-detects"></a>
 Les chercheurs en sécurité de Microsoft sont constamment à l’affût des nouvelles menaces. Ils ont accès à un vaste jeu de télémétrie acquis grâce à la présence globale de Microsoft sur le cloud et localement. Cette collection diverse et étendue de jeux de données permet à Microsoft de détecter de nouveaux modèles et de nouvelles tendances d’attaques dans ses produits locaux destinés au consommateur et aux entreprises, ainsi que dans ses services en ligne. Par conséquent, Azure Security Center peut rapidement mettre à jour ses algorithmes de détection, puisque les pirates sont à l’origine d’attaques innovantes de plus en plus sophistiquées. Cette approche permet de faire face à des menaces en pleine mutation.
 
 La détection des menaces d’Azure Security Center fonctionne en collectant automatiquement les informations de sécurité à partir de vos ressources Azure, du réseau et des solutions de partenaires connectées. Elle analyse ces informations, souvent issues de plusieurs sources, pour identifier les menaces. Les alertes de sécurité, ainsi que les recommandations sur la façon de répondre à la menace, sont hiérarchisées dans Azure Security Center.

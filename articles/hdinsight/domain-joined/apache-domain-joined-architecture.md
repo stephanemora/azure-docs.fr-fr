@@ -8,12 +8,12 @@ ms.reviewer: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/24/2019
-ms.openlocfilehash: c227abce5adcefd16a41c5590e3ff490d138c424
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 8b8c200979b70e145fca64746547b37dee558848
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441448"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67720438"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>Utiliser le pack Sécurité Entreprise dans HDInsight
 
@@ -37,7 +37,7 @@ Les éléments suivants sont créés automatiquement :
 
 Pour résumer, vous devez configurer un environnement avec :
 
-- Un domaine Active Directory (managé par Azure AD DS).
+- Un domaine Active Directory (managé par Azure AD DS). **Le nom de domaine doit comporter 39 caractères au maximum pour fonctionner avec Azure HDInsight.**
 - LDAP sécurisé (LDAPS) activé dans Azure AD DS.
 - Une connectivité réseau appropriée, du réseau virtuel HDInsight au réseau virtuel Azure AD DS, si vous choisissez des réseaux virtuels distincts pour ces services. Une machine virtuelle à l’intérieur du réseau virtuel HDInsight doit avoir une visibilité directe sur Azure AD DS via le peering de réseau virtuel. Si HDInsight et Azure AD DS sont déployés au sein du même réseau virtuel, la connectivité est automatiquement fournie et aucune action supplémentaire n'est nécessaire.
 

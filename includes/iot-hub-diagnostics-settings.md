@@ -9,11 +9,11 @@ ms.date: 02/20/2019
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: 3893b79cee96c3928897f64f3601ebe4c490ebdd
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66146316"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177171"
 ---
 ### <a name="enable-logging-with-diagnostics-settings"></a>Activer la journalisation avec les paramètres de diagnostic
 
@@ -50,7 +50,7 @@ ms.locfileid: "66146316"
    * Méthodes directes  
    * Traçage distribué (préversion)
    * Configurations
-   * Flux de l’appareil
+   * Flux d’appareil
    * Mesures de l’appareil
 
 6. Enregistrez les nouveaux paramètres. 

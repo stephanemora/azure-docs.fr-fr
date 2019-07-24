@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: tomfitz
-ms.openlocfilehash: a6c7983d22eed4a4232fbb2db490c1743684a04c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.openlocfilehash: 31d77b4ea6e7594cd3ed4dba264f9ea6db4ca290
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65813399"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155210"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Verrouiller les ressources pour empêcher les modifications inattendues 
 
@@ -28,55 +28,55 @@ Lorsque vous appliquez un verrou à une étendue parente, toutes les ressources 
 
 Contrairement au contrôle d'accès basé sur les rôles, vous utilisez des verrous de gestion pour appliquer une restriction à tous les utilisateurs et rôles. Pour en savoir plus sur la définition des autorisations pour les utilisateurs et les rôles, consultez [Contrôle d’accès en fonction du rôle Azure](../role-based-access-control/role-assignments-portal.md).
 
-Les verrous Resource Manager s'appliquent uniquement aux opérations qui se produisent dans le plan de gestion, c'est-à-dire les opérations envoyées à `https://management.azure.com`. Les verrous ne limitent pas la manière dont les ressources exécutent leurs propres fonctions. Les modifications des ressources sont limitées, mais pas les opérations sur les ressources. Par exemple, un verrou ReadOnly une base de données SQL empêche la suppression ou la modification de la base de données. Il ne vous empêche pas de créer, de mettre à jour ou de supprimer des données dans la base de données. Transactions de données sont autorisées, car ces opérations ne sont pas envoyées à `https://management.azure.com`.
+Les verrous Resource Manager s'appliquent uniquement aux opérations qui se produisent dans le plan de gestion, c'est-à-dire les opérations envoyées à `https://management.azure.com`. Les verrous ne limitent pas la manière dont les ressources exécutent leurs propres fonctions. Les modifications des ressources sont limitées, mais pas les opérations sur les ressources. Par exemple, un verrou ReadOnly une base de données SQL empêche la suppression ou la modification de la base de données. Il ne vous empêche pas de créer, de mettre à jour ou de supprimer des données dans la base de données. Les transactions de données sont autorisées, car ces opérations ne sont pas envoyées à `https://management.azure.com`.
 
-Application **ReadOnly** peut produire des résultats inattendus, car certaines opérations qui semblent ne pas modifier la ressource nécessitent en fait des actions qui sont bloquées par le verrou. Le **ReadOnly** verrou peut être appliqué à la ressource ou au groupe de ressources contenant la ressource. Voici quelques exemples courants des opérations qui sont bloquées par un **ReadOnly** verrou sont :
+Si vous appliquez le paramètre **ReadOnly**, il se peut que vous obteniez des résultats inattendus, car certaines opérations qui, en apparence, ne modifient pas la ressource nécessitent en réalité des actions qui sont bloquées par ce verrou. Le verrou **ReadOnly** peut être appliqué à la ressource ou au groupe de ressources qui la contient. Voici quelques exemples courants d’opérations bloquées par un verrou **ReadOnly** :
 
-* Un **ReadOnly** verrou sur un compte de stockage empêche tous les utilisateurs de répertorier les clés. L’opération de listage de clés est gérée via une demande POST, car les clés retournées sont disponibles pour les opérations d’écriture.
+* Un verrou **ReadOnly** appliqué à un compte de stockage empêche tous les utilisateurs de répertorier les clés. L’opération de listage de clés est gérée via une demande POST, car les clés retournées sont disponibles pour les opérations d’écriture.
 
 * Un verrou **ReadOnly** sur une ressource App Service empêche l’Explorateur de serveurs Visual Studio d’afficher les fichiers de la ressource, car cette interaction requiert un accès en écriture.
 
-* Un **ReadOnly** verrou sur un groupe de ressources qui contient une machine virtuelle empêche tous les utilisateurs de démarrer ou redémarrer l’ordinateur virtuel. Ces opérations nécessitent une demande POST.
+* Un verrou **ReadOnly** appliqué à un groupe de ressources contenant une machine virtuelle empêche tous les utilisateurs de démarrer ou de redémarrer cette dernière. Ces opérations nécessitent une demande POST.
 
-## <a name="who-can-create-or-delete-locks"></a>Qui peut créer ou supprimer des verrous
+## <a name="who-can-create-or-delete-locks"></a>Utilisateurs autorisés à créer ou à supprimer des verrous
 Pour créer ou supprimer des verrous de gestion, vous devez avoir accès à des actions `Microsoft.Authorization/*` ou `Microsoft.Authorization/locks/*`. Parmi les rôles prédéfinis, seuls les rôles **Propriétaire** et **Administrateur de l'accès utilisateur** peuvent effectuer ces actions.
 
-## <a name="managed-applications-and-locks"></a>Applications gérées et des verrous
+## <a name="managed-applications-and-locks"></a>Applications et verrous managés
 
-Certains services Azure, tels que Azure Databricks, utilisent [applications managées](../managed-applications/overview.md) pour implémenter le service. Dans ce cas, le service crée deux groupes de ressources. Un groupe de ressources contient une vue d’ensemble du service et n’est pas verrouillé. L’autre groupe de ressources contient l’infrastructure pour le service et est verrouillé.
+Certains services Azure, tels qu’Azure Databricks, utilisent des [applications managées](../managed-applications/overview.md) pour implémenter le service. Dans ce cas, le service crée deux groupes de ressources. Un groupe de ressources contient une vue d’ensemble du service et n’est pas verrouillé. L’autre groupe contient l’infrastructure du service et est verrouillé.
 
-Si vous essayez de supprimer le groupe de ressources d’infrastructure, vous obtenez une erreur indiquant que le groupe de ressources est verrouillé. Si vous essayez de supprimer le verrou pour le groupe de ressources d’infrastructure, vous obtenez une erreur indiquant que le verrou ne peut pas être supprimé, car il appartient à une application système.
+Si vous essayez de supprimer le groupe de ressources contenant l’infrastructure, vous obtenez une erreur, qui indique que le groupe de ressources est verrouillé. Si vous tentez de supprimer ce verrou, vous obtenez une erreur, qui indique que le verrou ne peut pas être supprimé, car il appartient à une application système.
 
-Au lieu de cela, supprimez le service, ce qui supprime également le groupe de ressources d’infrastructure.
+Au lieu de cela, supprimez le service, ce qui supprime également le groupe de ressources contenant l’infrastructure.
 
 Pour les applications managées, sélectionnez le service que vous avez déployé.
 
-![Sélectionnez le service](./media/resource-group-lock-resources/select-service.png)
+![Sélectionner un service](./media/resource-group-lock-resources/select-service.png)
 
-Notez que le service inclut un lien pour un **géré de groupe de ressources**. Ce groupe de ressources conserve l’infrastructure et est verrouillé. Elle ne peut pas être supprimée directement.
+Notez que le service inclut un lien vers un **groupe de ressources managé**. Ce groupe de ressources contient l’infrastructure et est verrouillé. Il ne peut pas être supprimé directement.
 
-![Afficher le groupe géré](./media/resource-group-lock-resources/show-managed-group.png)
+![Afficher un groupe managé](./media/resource-group-lock-resources/show-managed-group.png)
 
-Pour supprimer tous les éléments pour le service, y compris le groupe de ressources d’infrastructure verrouillé, sélectionnez **supprimer** pour le service.
+Pour supprimer tous les éléments associés au service, y compris le groupe de ressources contenant l’infrastructure (qui est donc verrouillé), sélectionnez l’option **Supprimer** relative au service.
 
-![Supprimer le service](./media/resource-group-lock-resources/delete-service.png)
+![Suppression du service](./media/resource-group-lock-resources/delete-service.png)
 
 ## <a name="portal"></a>Portail
 [!INCLUDE [resource-manager-lock-resources](../../includes/resource-manager-lock-resources.md)]
 
 ## <a name="template"></a>Modèle
 
-Lorsque vous utilisez un modèle Resource Manager pour déployer un verrou, vous utilisez des valeurs différentes pour le nom et le type en fonction de la portée du verrou.
+Lorsque vous utilisez un modèle Resource Manager pour déployer un verrou, vous utilisez des valeurs différentes pour le nom et le type, en fonction de la portée du verrou.
 
-Lorsque vous appliquez un verrou à un **ressource**, utiliser les formats suivants :
+Pour appliquer un verrou à une **ressource**, utilisez les formats suivants :
 
-* nom : `{resourceName}/Microsoft.Authorization/{lockName}`
-* type - `{resourceProviderNamespace}/{resourceType}/providers/locks`
+* nom : `{resourceName}/Microsoft.Authorization/{lockName}`
+* type : `{resourceProviderNamespace}/{resourceType}/providers/locks`
 
-Lorsque vous appliquez un verrou à un **groupe de ressources** ou **abonnement**, utiliser les formats suivants :
+Pour appliquer un verrou à un **groupe de ressources** ou à un **abonnement**, utilisez les formats suivants :
 
-* nom : `{lockName}`
-* type - `Microsoft.Authorization/locks`
+* nom : `{lockName}`
+* type : `Microsoft.Authorization/locks`
 
 L’exemple suivant représente un modèle créant un verrou sur un compte de stockage.plan App Service et un verrou sur le site web. Le type de ressource du verrou est le type de ressource de la ressource à verrouiller et **/providers/locks**. Le nom du verrou résulte de la concaténation du nom de la ressource avec **/Microsoft.Authorization/** et le nom du verrou.
 
@@ -135,7 +135,7 @@ L’exemple suivant représente un modèle créant un verrou sur un compte de st
 }
 ```
 
-Pour obtenir un exemple de la définition d’un verrou sur un groupe de ressources, consultez [créer un groupe de ressources et de le verrouiller](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments/create-rg-lock-role-assignment).
+Pour obtenir un exemple de définition d’un verrou pour un groupe de ressources, voir [Créer un groupe de ressources et de le verrouiller](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments/create-rg-lock-role-assignment) (Créer un groupe de ressources et le verrouiller).
 
 ## <a name="powershell"></a>PowerShell
 Vous pouvez verrouiller des ressources déployées avec Azure PowerShell en utilisant la commande [New-AzResourceLock](/powershell/module/az.resources/new-azresourcelock).
@@ -152,7 +152,7 @@ Pour verrouiller un groupe de ressources : indiquez le nom du groupe de ressour
 New-AzResourceLock -LockName LockGroup -LockLevel CanNotDelete -ResourceGroupName exampleresourcegroup
 ```
 
-Pour obtenir des informations sur un verrou, utilisez [Get-AzureRmResourceLock](/powershell/module/az.resources/get-azresourcelock). Pour obtenir tous les verrous de votre abonnement, utilisez :
+Pour obtenir des informations sur un verrou, utilisez [Get-AzResourceLock](/powershell/module/az.resources/get-azresourcelock). Pour obtenir tous les verrous de votre abonnement, utilisez :
 
 ```azurepowershell-interactive
 Get-AzResourceLock
@@ -225,7 +225,7 @@ Pour créer un verrou, exécutez :
 
     PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/locks/{lock-name}?api-version={api-version}
 
-Le verrou peut être appliqué à un abonnement, à un groupe de ressources ou à une ressource. Le nom du verrou est personnalisable. Pour la version de l’api, utilisez **2016-09-01**.
+Le verrou peut être appliqué à un abonnement, à un groupe de ressources ou à une ressource. Le nom du verrou est personnalisable. Pour la version de l’API, utilisez **2016-09-01**.
 
 Dans la demande, incluez un objet JSON spécifiant les propriétés du verrou.
 

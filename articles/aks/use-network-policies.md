@@ -2,17 +2,17 @@
 title: Sécuriser les pods avec des stratégies réseau dans Azure Kubernetes Service (AKS)
 description: Découvrez comment sécuriser le trafic qui transite par des pods à l’aide de stratégies réseau Kubernetes dans Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
-ms.author: iainfou
-ms.openlocfilehash: a0512806ec797f43fc54d8a28a7cbadf86faf1d9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: c9bf2c2c459999813c7fc30f95be653168d270ad
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65230011"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67613953"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Sécuriser le trafic entre les pods avec des stratégies réseau dans Azure Kubernetes Service (AKS)
 
@@ -22,7 +22,7 @@ Cet article vous explique comment installer le moteur de stratégie réseau et c
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-L’interface de ligne de commande Azure (Azure CLI) version 2.0.61 ou une version ultérieure doit avoir été installée et configurée. Exécutez  `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez  [Installation d’Azure CLI 2.0][install-azure-cli].
+L’interface de ligne de commande Azure (Azure CLI) version 2.0.61 ou une version ultérieure doit avoir été installée et configurée. Exécutez  `az --version` pour trouver la version. Si vous devez effectuer une installation ou une mise à niveau, consultez  [Installer Azure CLI][install-azure-cli].
 
 > [!TIP]
 > Si vous utilisiez la fonctionnalité de stratégie réseau disponible dans la préversion, nous vous recommandons de [créer un autre cluster](#create-an-aks-cluster-and-enable-network-policy).
@@ -76,7 +76,7 @@ Pour voir les stratégies réseau en action, nous allons créer, puis développe
 
 Commençons par créer un cluster AKS qui prend en charge les stratégies réseau. La fonctionnalité de stratégie réseau n’est activable qu’une fois le cluster créé. Vous ne pouvez pas activer une stratégie réseau sur un cluster AKS existant.
 
-Pour utiliser une stratégie réseau avec un cluster AKS, vous devez utiliser le [plug-in Azure CNI][azure-cni] et définir vos propre réseau et sous-réseaux virtuels. Pour de plus amples informations sur la façon de planifier les plages de sous-réseau nécessaires, consultez [Configurer le réseau avancé][use-advanced-networking].
+Pour utiliser une stratégie réseau avec un cluster AKS, vous devez utiliser le [plug-in Azure CNI][azure-cni] and define your own virtual network and subnets. For more detailed information on how to plan out the required subnet ranges, see [configure advanced networking][use-advanced-networking].
 
 L’exemple de script suivant :
 
@@ -138,7 +138,7 @@ az aks create \
     --network-policy azure
 ```
 
-La création du cluster ne prend que quelques minutes. Lorsque le cluster est prêt, configurez `kubectl` pour vous connecter à votre cluster Kubernetes au moyen de la commande [az aks get-credentials][az-aks-get-credentials]. Cette commande télécharge les informations d’identification et configure l’interface CLI Kubernetes pour les utiliser :
+La création du cluster ne prend que quelques minutes. Quand le cluster est prêt, configurez `kubectl` pour vous connecter à votre cluster Kubernetes au moyen de la commande [az aks get-credentials][az-aks-get-credentials]. Cette commande télécharge les informations d’identification et configure l’interface CLI Kubernetes pour les utiliser :
 
 ```azurecli-interactive
 az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAME
@@ -207,7 +207,7 @@ spec:
   ingress: []
 ```
 
-Appliquez la stratégie réseau à l’aide de la commande [kubectl apply][kubectl-apply] et précisez le nom de votre manifeste YAML :
+Appliquez la stratégie réseau à l’aide de la commande [kubectl apply][kubectl-apply] et précisez le nom de votre manifeste YAML :
 
 ```azurecli-interactive
 kubectl apply -f backend-policy.yaml
@@ -265,7 +265,7 @@ spec:
 > [!NOTE]
 > Cette stratégie de réseau utilise un élément *namespaceSelector* et un élément *podSelector* pour la règle d’entrée. Pour que les règles d’entrée soient additives, la syntaxe YAML a une grande importance. Dans cet exemple, les deux éléments doivent correspondre pour que la règle d’entrée soit appliquée. Les versions de Kubernetes antérieures à *1.12* risquent de ne pas interpréter correctement ces éléments et de ne pas limiter le trafic réseau comme vous le souhaitez. Pour plus d’informations sur ce comportement, consultez l’article [Behavior of to and from selectors][policy-rules] (Comportement des sélecteurs to et from).
 
-Appliquez la stratégie réseau mise à jour à l’aide de la commande [kubectl apply][kubectl-apply] et spécifiez le nom de votre manifeste YAML :
+Appliquez la stratégie réseau mise à jour à l’aide de la commande [kubectl apply][kubectl-apply] et spécifiez le nom de votre manifeste YAML :
 
 ```azurecli-interactive
 kubectl apply -f backend-policy.yaml
@@ -388,7 +388,7 @@ spec:
 
 Dans des exemples plus complexes, vous pourriez définir plusieurs règles d’entrée, par exemple un élément *namespaceSelector*, puis un élément *podSelector*.
 
-Appliquez la stratégie réseau mise à jour à l’aide de la commande [kubectl apply][kubectl-apply] et spécifiez le nom de votre manifeste YAML :
+Appliquez la stratégie réseau mise à jour à l’aide de la commande [kubectl apply][kubectl-apply] et spécifiez le nom de votre manifeste YAML :
 
 ```azurecli-interactive
 kubectl apply -f backend-policy.yaml
@@ -446,7 +446,7 @@ exit
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Dans cet article, nous avons créé deux espaces de noms et appliqué une stratégie réseau. Pour nettoyer ces ressources, utilisez la commande [kubectl delete][kubectl-delete] et spécifiez les noms des ressources :
+Dans cet article, nous avons créé deux espaces de noms et appliqué une stratégie réseau. Pour nettoyer ces ressources, utilisez la commande [kubectl delete][kubectl-delete] et spécifiez les noms des ressources :
 
 ```console
 kubectl delete namespace production

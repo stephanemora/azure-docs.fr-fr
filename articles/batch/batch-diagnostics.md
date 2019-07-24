@@ -16,10 +16,10 @@ ms.date: 12/05/2018
 ms.author: lahugh
 ms.custom: seodec18
 ms.openlocfilehash: e1fc405951789305b0df86fd0f7b91890fb45c06
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66242633"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Métriques, alertes et journaux d’activité Batch pour l’évaluation de diagnostic et la supervision
@@ -77,9 +77,9 @@ Vous pouvez également configurer une alerte en temps quasi-réel à l’aide de
 
 Les journaux de diagnostic contiennent des informations émises par les ressources Azure qui décrivent le fonctionnement de chaque ressource. Pour Batch, vous pouvez collecter les journaux d’activité suivants :
 
-* Les événements **Journaux de service** émis par le service Azure Batch pendant la durée de vie d’une ressource Batch individuelle telle qu’un pool ou une tâche. 
+* Les événements **Journaux d’activité de service** émis par le service Azure Batch pendant la durée de vie d’une ressource Batch individuelle telle qu’un pool ou une tâche. 
 
-* Les journaux **Métriques** au niveau du compte. 
+* Les journaux d’activité **Métriques** au niveau du compte. 
 
 Les paramètres pour autoriser la collecte des journaux de diagnostic ne sont pas activés par défaut. Activez explicitement les paramètres de diagnostic pour chaque compte Batch à surveiller.
 
@@ -91,7 +91,7 @@ Autres destinations facultatives pour les journaux de diagnostic :
 
 * Diffusez les événements du journal de diagnostic Batch vers un service [Azure Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md). Le service Event Hubs peut traiter à chaque seconde des millions d’événements que vous pouvez transformer et stocker à l’aide de tout fournisseur d’analyses en temps réel. 
 
-* Envoyer les journaux de diagnostic vers [Azure Monitor enregistre](../log-analytics/log-analytics-overview.md), où vous pouvez les analyser ou les exporter pour l’analyse dans Power BI ou Excel.
+* Envoyez les journaux de diagnostic aux [journaux Azure Monitor](../log-analytics/log-analytics-overview.md), où vous pouvez les analyser ou les importer pour analyse dans Power BI ou Excel.
 
 > [!NOTE]
 > Vous risquez de payer des frais supplémentaires pour stocker ou traiter les données de journal de diagnostics avec les services Azure. 
@@ -101,7 +101,7 @@ Autres destinations facultatives pour les journaux de diagnostic :
 
 1. Dans le portail, cliquez sur **Tous les services** > **Comptes Batch**, puis sur le nom de votre compte Batch.
 2. Sous **Supervision**, cliquez sur **Journaux de diagnostic** > **Activer les diagnostics**.
-3. Dans **les paramètres de Diagnostic**, entrez un nom pour le paramètre et choisir une destination de journal (compte de stockage, concentrateur d’événements ou journaux Azure Monitor). Sélectionnez **ServiceLog** et **AllMetrics**, ou l’un des deux.
+3. Dans **Paramètres de diagnostic**, entrez un nom pour le paramètre et choisissez une destination de journal (compte Stockage existant, Event Hub ou journaux Azure Monitor). Sélectionnez **ServiceLog** et **AllMetrics**, ou l’un des deux.
 
     Lorsque vous sélectionnez un compte de stockage, définissez éventuellement une stratégie de rétention. Si vous ne spécifiez pas de nombre de jours de rétention, les données sont conservées pendant la durée de vie du compte de stockage.
 

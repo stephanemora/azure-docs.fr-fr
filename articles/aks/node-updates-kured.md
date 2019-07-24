@@ -1,35 +1,35 @@
 ---
-title: Mettre à jour et redémarrer les nœuds Linux avec kured dans Azure Kubernetes Service (ACS)
-description: Découvrez comment mettre à jour des nœuds Linux et les redémarrer automatiquement avec kured dans Azure Kubernetes Service (ACS)
+title: Mettre à jour et redémarrer des nœuds Linux avec kured dans Azure Kubernetes Service (AKS)
+description: Découvrez comment mettre à jour des nœuds Linux et les redémarrer automatiquement avec kured (KUbernetes REboot Daemon) dans Azure Kubernetes Service (AKS)
 services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: 1702d9558e27452006a2f015fd3312ac19362871
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
-ms.translationtype: MT
+ms.openlocfilehash: aee793dcfc5040b4a5f0f29fdae3247a5647e257
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65849866"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055642"
 ---
-# <a name="apply-security-and-kernel-updates-to-linux-nodes-in-azure-kubernetes-service-aks"></a>Appliquer la sécurité et mises à jour du noyau à des nœuds Linux dans Azure Kubernetes Service (ACS)
+# <a name="apply-security-and-kernel-updates-to-linux-nodes-in-azure-kubernetes-service-aks"></a>Appliquer des mises à jour de sécurité et du noyau à des nœuds Linux dans Azure Kubernetes Service (AKS)
 
-Pour protéger vos clusters, les mises à jour de sécurité sont automatiquement appliquées à des nœuds Linux dans ACS. Ces mises à jour incluent des correctifs de sécurité ou des mises à jour du noyau. Certaines de ces mises à jour nécessitent un redémarrage du nœud pour terminer le processus. ACS ne redémarre pas automatiquement ces nœuds Linux pour terminer le processus de mise à jour.
+Pour protéger vos clusters, les mises à jour de sécurité sont appliquées automatiquement aux nœuds Linux dans AKS. Ces mises à jour incluent des correctifs de sécurité ou des mises à jour du noyau. Certaines de ces mises à jour nécessitent un redémarrage du nœud pour terminer le processus. AKS ne redémarre pas automatiquement ces nœuds Linux pour terminer le processus de mise à jour.
 
-Le processus de nœuds Windows Server (actuellement en version préliminaire dans ACS) mise à jour est un peu différent. Mises à jour quotidiennes ne reçoivent pas les nœuds Windows Server. Au lieu de cela, vous effectuez une mise à niveau AKS qui déploie les nouveaux nœuds à la dernière image de Windows Server de base et les correctifs. Pour les clusters AKS qui utilisent des nœuds de serveur Windows, consultez [mise à niveau d’un pool de nœuds dans ACS][nodepool-upgrade].
+Le processus de maintien à jour des nœuds Windows Server (actuellement en préversion dans ACS) est légèrement différent. Les nœuds Windows Server ne reçoivent pas les mises à jour quotidiennes. À la place, vous effectuez une mise à niveau AKS qui déploie les nouveaux nœuds avec les derniers correctifs et la dernière image Windows Server de base. Pour connaître les clusters AKS qui utilisent des nœuds Windows Server, consultez [Mettre à niveau un pool de nœuds dans AKS][nodepool-upgrade].
 
-Cet article vous montre comment utiliser l’open source [kured (KUbernetes redémarrer démon)] [ kured] à surveiller pour les nœuds Linux nécessitant un redémarrage, puis gérer automatiquement la replanification de pods et nœud en cours d’exécution Redémarrez le processus.
+Cet article vous montre comment utiliser le démon open source [kured (KUbernetes REboot Daemon)][kured] pour rechercher les nœuds Linux nécessitant un redémarrage, puis pour gérer automatiquement la replanification des pods en cours d’exécution et du processus de redémarrage des nœuds.
 
 > [!NOTE]
-> `Kured` est un projet open source par Weaveworks. La prise en charge de ce projet dans AKS est fournie dans la mesure du possible. Vous trouverez la prise en charge supplémentaire dans le canal slack #weave-Communauté.
+> `Kured` est un projet open source par Weaveworks. La prise en charge de ce projet dans AKS est fournie dans la mesure du possible. Vous pouvez obtenir un support supplémentaire dans le canal Slack #weave-community.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
 Cet article suppose que vous avez un cluster AKS existant. Si vous avez besoin d’un cluster AKS, consultez le guide de démarrage rapide d’AKS [avec Azure CLI][aks-quickstart-cli] ou [avec le portail Azure][aks-quickstart-portal].
 
-Vous également besoin d’Azure CLI version 2.0.59 ou ultérieur installé et configuré. Exécutez  `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez  [Installation d’Azure CLI 2.0][install-azure-cli].
+Azure CLI 2.0.59 (ou une version ultérieure) doit également être installé et configuré. Exécutez  `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez  [Installation d’Azure CLI 2.0][install-azure-cli].
 
 ## <a name="understand-the-aks-node-update-experience"></a>Comprendre l’expérience de mise à jour des nœuds AKS
 
@@ -37,9 +37,9 @@ Dans un cluster AKS, vos nœuds Kubernetes s’exécutent en tant que machines v
 
 ![Processus de mise à jour et de redémarrage des nœuds AKS avec kured](media/node-updates-kured/node-reboot-process.png)
 
-Certaines mises à jour de sécurité, comme des mises à jour du noyau, nécessitent un redémarrage du nœud pour finaliser le processus. Un nœud Linux nécessitant un redémarrage crée un fichier nommé */var/run/reboot-required*. Ce processus de redémarrage ne se produit pas automatiquement.
+Certaines mises à jour de sécurité, comme des mises à jour du noyau, nécessitent un redémarrage du nœud pour finaliser le processus. Un nœud Linux qui nécessite un redémarrage crée un fichier nommé */var/run/reboot-required*. Ce processus de redémarrage ne se produit pas automatiquement.
 
-Vous pouvez utiliser vos propres workflows et vos propres processus pour gère les redémarrages des nœuds, ou bien utiliser `kured` pour orchestrer le processus. Avec `kured`, un [DaemonSet] [ DaemonSet] est déployé qui exécute un pod sur chaque nœud du cluster Linux. Ces pods du DaemonSet recherchent l’existence du fichier */var/run/reboot-required*, puis lancent un processus pour redémarrer les nœuds.
+Vous pouvez utiliser vos propres workflows et vos propres processus pour gère les redémarrages des nœuds, ou bien utiliser `kured` pour orchestrer le processus. Avec `kured`, un [DaemonSet][DaemonSet] est déployé et exécute un pod sur chaque nœud Linux du cluster. Ces pods du DaemonSet recherchent l’existence du fichier */var/run/reboot-required*, puis lancent un processus pour redémarrer les nœuds.
 
 ### <a name="node-upgrades"></a>Mises à niveau de nœuds
 
@@ -58,12 +58,13 @@ Pour déployer le DaemonSet `kured`, appliquez l’exemple de manifeste YAML sui
 
 ```console
 kubectl apply -f https://github.com/weaveworks/kured/releases/download/1.2.0/kured-1.2.0-dockerhub.yaml
+```
 
-You can also configure additional parameters for `kured`, such as integration with Prometheus or Slack. For more information about additional configuration parameters, see the [kured installation docs][kured-install].
+Vous pouvez également configurer des paramètres supplémentaires pour `kured`, comme l’intégration à Prometheus ou Slack. Pour plus d’informations sur les paramètres de configuration supplémentaires, consultez les [documents d’installation de kured][kured-install].
 
-## Update cluster nodes
+## <a name="update-cluster-nodes"></a>Mettre à jour des nœuds de cluster
 
-By default, Linux nodes in AKS check for updates every evening. If you don't want to wait, you can manually perform an update to check that `kured` runs correctly. First, follow the steps to [SSH to one of your AKS nodes][aks-ssh]. Once you have an SSH connection to the Linux node, check for updates and apply them as follows:
+Par défaut, les nœuds Linux dans AKS recherchent les mises à jour tous les soirs. Si vous ne voulez pas attendre, vous pouvez effectuer manuellement une mise à jour pour vérifier que `kured` s’exécute correctement. Suivez d’abord les étapes pour [vous connecter avec SSH à un de vos nœuds AKS][aks-ssh]. Une fois que vous avez établi une connexion SSH avec le nœud Linux, recherchez les mises à jour et appliquez-les comme suit :
 
 ```console
 sudo apt-get update && sudo apt-get upgrade -y
@@ -82,7 +83,7 @@ NAME                       STATUS                     ROLES     AGE       VERSIO
 aks-nodepool1-28993262-0   Ready,SchedulingDisabled   agent     1h        v1.11.7
 ```
 
-Une fois que le processus de mise à jour est terminé, vous pouvez voir l’état des nœuds en utilisant la commande [kubectl get nodes][kubectl-get-nodes] avec le paramètre `--output wide`. Cette sortie supplémentaire vous permet de voir une différence dans *KERNEL-VERSION* des nœuds sous-jacents, comme le montre la sortie de l’exemple suivant. Le *aks-nodepool1-28993262-0* a été mis à jour dans une étape précédente et l’affiche la version du noyau *4.15.0-1039-azure*. Le nœud *aks-nodepool1-28993262-1* qui n’a pas été mis à jour affiche la version du noyau *4.15.0-1037-azure*.
+Une fois que le processus de mise à jour est terminé, vous pouvez voir l’état des nœuds en utilisant la commande [kubectl get nodes][kubectl-get-nodes] avec le paramètre `--output wide`. Cette sortie supplémentaire vous permet de voir une différence dans *KERNEL-VERSION* des nœuds sous-jacents, comme le montre la sortie de l’exemple suivant. Le nœud *aks-nodepool1-28993262-0* a été mis à jour dans une étape précédente et il indique la version du noyau *4.15.0-1039-azure*. Le nœud *aks-nodepool1-28993262-1*, qui n’a pas été mis à jour, indique la version du noyau *4.15.0-1037-azure*.
 
 ```
 NAME                       STATUS    ROLES     AGE       VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION      CONTAINER-RUNTIME
@@ -92,9 +93,9 @@ aks-nodepool1-28993262-1   Ready     agent     1h        v1.11.7   10.240.0.5   
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Cet article vous a appris à utiliser `kured` pour redémarrer automatiquement en tant que partie du processus de mise à jour de sécurité des nœuds Linux. Pour mettre à niveau vers la dernière version de Kubernetes, vous pouvez [mettre à niveau votre cluster AKS][aks-upgrade].
+Cet article vous a expliqué comment utiliser `kured` pour redémarrer automatiquement des nœuds Linux dans le cadre du processus des mises à jour de sécurité. Pour mettre à niveau vers la dernière version de Kubernetes, vous pouvez [mettre à niveau votre cluster AKS][aks-upgrade].
 
-Pour les clusters AKS qui utilisent des nœuds de serveur Windows, consultez [mise à niveau d’un pool de nœuds dans ACS][nodepool-upgrade].
+Pour connaître les clusters AKS qui utilisent des nœuds Windows Server, consultez [Mettre à niveau un pool de nœuds dans AKS][nodepool-upgrade].
 
 <!-- LINKS - external -->
 [kured]: https://github.com/weaveworks/kured

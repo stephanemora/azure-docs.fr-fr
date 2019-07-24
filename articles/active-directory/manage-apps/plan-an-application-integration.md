@@ -15,12 +15,12 @@ ms.date: 07/16/2018
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8db7ac63aaf9ae5b1b16bb233e87ace06867309
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
-ms.translationtype: MT
+ms.openlocfilehash: 11453ad9132664313df2b56cb3664512628a16ba
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65824316"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108237"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Guide de prise en main de l’intégration d’Azure Active Directory avec les applications
 
@@ -91,7 +91,7 @@ Les articles suivants décrivent des méthodes selon lesquelles vous pouvez gér
 * [Partage de comptes](../active-directory-sharing-accounts.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour obtenir des informations détaillées, vous pouvez télécharger des plans de déploiement d’Azure Active Directory à partir de [GitHub](https://aka.ms/deploymentplans). Pour des applications de galerie, vous pouvez télécharger des plans de déploiement pour l’authentification unique, l’accès conditionnel et l’approvisionnement d’utilisateur via le [portail Azure](https://portal.azure.com). 
+Pour obtenir des informations détaillées, vous pouvez télécharger des plans de déploiement d’Azure Active Directory à partir de [GitHub](https://aka.ms/deploymentplans). Pour des applications de galerie, vous pouvez télécharger des plans de déploiement pour l’authentification unique, l’accès conditionnel et l’approvisionnement d’utilisateur via le [portail Microsoft Azure](https://portal.azure.com). 
 
 Pour télécharger un plan de déploiement à partir du portail Azure :
 

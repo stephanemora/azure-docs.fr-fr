@@ -9,11 +9,11 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: e2e91dc91cf0fbe6827808785a4c3cc25b06542b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66151051"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176883"
 ---
 [!INCLUDE [P2S FAQ All](vpn-gateway-faq-p2s-all-include.md)]
 
@@ -27,11 +27,11 @@ Vous pouvez utiliser votre solution de PKI d’entreprise (votre PKI interne), A
 
 ### <a name="certsettings"></a>Y a-t-il des instructions pour les paramètres de certificat ?
 
-* **Solution d’infrastructure à clé publique/Enterprise PKI interne :** Consultez les étapes pour [générer des certificats](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert).
+* **Solution d’infrastructure à clé publique d’entreprise/interne :** Consultez la procédure permettant de [générer des certificats](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert).
 
-* **Azure PowerShell :** Consultez le [Azure PowerShell](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md) article pour obtenir des instructions.
+* **Azure PowerShell :** consultez l’article [Azure PowerShell](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md) pour connaître la procédure à suivre.
 
-* **MakeCert :** Consultez le [MakeCert](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-makecert.md) article pour obtenir des instructions.
+* **MakeCert :** consultez l’article [MakeCert](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-makecert.md) pour connaître la procédure à suivre.
 
 * **OpenSSL :** 
 

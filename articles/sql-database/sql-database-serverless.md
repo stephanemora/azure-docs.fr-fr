@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 06/12/2019
-ms.openlocfilehash: afa575c9015cbb21386d23101b74456822dfa33c
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.date: 07/05/2019
+ms.openlocfilehash: 5a1a5ea39c9c0ed8973e1ecfa46977d2d06f83e7
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275469"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603609"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>Azure SQL Database serverless (préversion)
 
@@ -166,7 +166,7 @@ La création d’une base de données ou le déplacement d’une base de donnée
    |Paramètre|Choix des valeurs|Valeur par défaut|
    |---|---|---|---|
    |Nombre minimal de vCores|Au choix, {0,5, 1, 2, 4} ne dépassant pas le nombre maximal de vCores|0,5 vCore|
-   |Délai de la mise en pause automatique|Minimum : 360 minutes (6 heures)<br>Maximum : 10 080 minutes (7 jours)<br>Incréments : 60 minutes<br>Désactiver la mise en pause automatique  -1|360 minutes|
+   |Délai de la mise en pause automatique|Minimum : 60 minutes (1 heure)<br>Maximum : 10 080 minutes (7 jours)<br>Incréments : 60 minutes<br>Désactiver la mise en pause automatique  -1|60 minutes|
 
 > [!NOTE]
 > Actuellement, l’utilisation de T-SQL pour déplacer une base de données existante dans le niveau serverless ou changer sa taille de calcul n’est pas prise en charge, mais vous pouvez effectuer ces opérations via le portail Azure ou PowerShell.

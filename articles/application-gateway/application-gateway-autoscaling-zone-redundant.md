@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 6/13/2019
 ms.author: victorh
-ms.openlocfilehash: 6aad0502b5739906d1fa8fa896f8d0af8cc38e30
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 8e79fd1a839113cad5a3a36c01855d98793d7032
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205008"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655306"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Application Gateway v2 avec mise à l’échelle automatique et redondance interzone 
 
@@ -35,7 +35,7 @@ La nouvelle référence SKU v2 inclut les améliorations suivantes :
 
 ## <a name="supported-regions"></a>Régions prises en charge
 
-La référence SKU Standard_v2 et WAF_v2 est disponible dans les régions suivantes : USA Centre Nord, USA Centre Sud, USA Ouest, USA Ouest 2, USA Est, USA Est 2, USA Centre, Europe Nord, Europe Ouest, Asie Sud-Est, France Centre, Royaume-Uni Ouest, Japon Est, Japon Ouest. Des régions supplémentaires seront ajoutées par la suite.
+La référence SKU Standard_v2 et WAF_v2 est disponible dans les régions suivantes : USA Centre Nord, USA Centre Sud, USA Ouest, USA Ouest 2, USA Est, USA Est 2, USA Centre, Europe Nord, Europe Ouest, Asie Sud-Est, France Centre, Royaume-Uni Ouest, Japon Est, Japon Ouest, Australie Est, Australie Sud-Est, Canada Centre, Canada Est, Asie Est, Corée Centre, Corée Sud, Inde Sud, Royaume-Uni Sud, Inde Centre, Inde Ouest, Inde Sud.
 
 ## <a name="pricing"></a>Tarifs
 

@@ -11,10 +11,10 @@ ms.date: 09/20/2017
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: e1abdfa8bc47f42f7373760370588c0bc41fc1dc
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66507776"
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C : configurer l’interface utilisateur avec du contenu dynamique à l’aide de stratégies personnalisées
@@ -23,7 +23,7 @@ ms.locfileid: "66507776"
 
 À l’aide de stratégies personnalisées Azure Active Directory B2C (Azure AD B2C), vous pouvez envoyer un paramètre dans une chaîne de requête. En transmettant le paramètre à votre point de terminaison HTML, vous pouvez changer le contenu de la page de façon dynamique. Par exemple, vous pouvez changer l’image d’arrière-plan dans la page de connexion ou d’inscription Azure AD B2C en fonction d’un paramètre que vous transmettez depuis votre application web ou mobile. 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Cet article se concentre sur la façon de personnaliser l’interface utilisateur Azure AD B2C avec du *contenu dynamique* à l’aide de stratégies personnalisées. Pour commencer, consultez [Personnalisation de l’interface utilisateur dans une stratégie personnalisée](active-directory-b2c-ui-customization-custom.md). 
 
 >[!NOTE]
@@ -196,7 +196,7 @@ Votre modèle HTML5 est prêt à être utilisé. Toutefois, il n’est pas dispo
     >Pour vérifier que le site où vous hébergez votre contenu a activé CORS et qu’il peut tester des demandes CORS, accédez au site web [test-cors.org](https://test-cors.org/). 
 
 * Votre contenu utilisé est sécurisé via **HTTPS**.
-* Vous utilisez *URL absolues*, tel que `https://yourdomain/content`, pour tous les liens contenu CSS et images.
+* Vous utilisez des *URL absolues* comme `https://yourdomain/content` pour l’ensemble des liens, images et contenu CSS.
 
 ## <a name="step-5-configure-your-content-definition"></a>Étape 5 : Configurer votre définition de contenu
 Pour configurer `ContentDefinition`, effectuez les opérations suivantes :

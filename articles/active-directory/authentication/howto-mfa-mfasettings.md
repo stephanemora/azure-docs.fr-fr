@@ -1,5 +1,5 @@
 ---
-title: Configurer Azure multi-Factor Authentication - Azure Active Directory
+title: Configurer Microsoft Azure Multi-Factor Authentication - Azure Active Directory
 description: Cet article explique comment configurer les paramètres Azure Multi-Factor Authentication sur le portail Azure.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6a74548d0dc965127c5568708155341f60dbc65
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
-ms.translationtype: MT
+ms.openlocfilehash: 618377d532dc932eb21f282ac8ba7f6c07df16f2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66496744"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113438"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurer les paramètres d’Azure Multi-Factor Authentication
 
-Cet article vous explique comment gérer les paramètres d’Azure Multi-Factor Authentication dans le portail Azure. Il aborde divers sujets qui vous permettent de tirer le meilleur parti d’Azure Multi-Factor Authentication. Toutes les fonctionnalités sont disponibles dans toutes les versions d’Azure multi-Factor Authentication.
+Cet article vous explique comment gérer les paramètres d’Azure Multi-Factor Authentication dans le portail Azure. Il aborde divers sujets qui vous permettent de tirer le meilleur parti d’Azure Multi-Factor Authentication. Toutes les fonctionnalités ne sont pas disponibles dans chaque version d’Azure Multi-Factor Authentication.
 
-Vous pouvez accéder à des paramètres liés à l’authentification multifacteur Azure à partir du portail Azure en accédant à **Azure Active Directory** > **MFA**.
+Vous pouvez accéder aux paramètres liés à Azure Multi-Factor Authentication à partir du portail Azure en accédant à **Azure Active Directory** > **MFA**.
 
 ![Portail Azure - Paramètres d’Azure AD Multi-Factor Authentication](./media/howto-mfa-mfasettings/multi-factor-authentication-settings-portal.png)
 
@@ -33,8 +33,8 @@ Certains de ces paramètres s’appliquent à MFA Server, à Azure MFA ou aux de
 | Fonctionnalité | Description |
 | ------- | ----------- |
 | Verrouillage de compte | Verrouille temporairement les comptes dans le service Multi-Factor Authentication si de trop nombreuses tentatives d’authentification sont refusées à la suite. Cette fonctionnalité s’applique seulement aux utilisateurs qui entrent un code PIN pour s’authentifier. (MFA Server) |
-| [Blocage/déblocage des utilisateurs](#block-and-unblock-users) | Utilisé pour empêcher des utilisateurs spécifiques d’être en mesure de recevoir des demandes d’authentification multifacteur. Toutes les tentatives d’authentification des utilisateurs bloqués sont automatiquement refusées. La durée de blocage de ces utilisateurs est de 90 jours à partir du moment où ils sont bloqués. |
-| [Alerte de fraude](#fraud-alert) | Configurer les paramètres liés à la capacité des utilisateurs à signaler les demandes de vérification frauduleuse |
+| [Blocage/déblocage des utilisateurs](#block-and-unblock-users) | Utilisé pour empêcher des utilisateurs spécifiques de recevoir des demandes d’authentification multifacteur. Toutes les tentatives d’authentification des utilisateurs bloqués sont automatiquement refusées. La durée de blocage de ces utilisateurs est de 90 jours à partir du moment où ils sont bloqués. |
+| [Alerte de fraude](#fraud-alert) | Configurez les paramètres liés à la possibilité pour les utilisateurs de signaler des demandes de vérification frauduleuses. |
 | Notifications | Activez les notifications des événements provenant de MFA Server. |
 | [Jetons OATH](concept-authentication-methods.md#oath-hardware-tokens-public-preview) | Utilisé dans les environnements Azure MFA cloud afin de gérer les jetons OATH pour les utilisateurs. |
 | [Paramètres de l’appel téléphonique](#phone-call-settings) | Configurez les paramètres liés aux appels téléphoniques et aux messages d’accueil pour les environnements cloud et locaux. |
@@ -64,7 +64,7 @@ Utilisez la fonctionnalité de _blocage/déblocage_ pour empêcher les utilisate
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur.
 2. Accédez à **Azure Active Directory** > **MFA** > **Bloquer/débloquer des utilisateurs**.
 3. Sélectionnez **Ajouter** pour bloquer un utilisateur.
-4. Sélectionnez le **Groupe de réplication**. Entrez le nom d’utilisateur de l’utilisateur bloqué en tant que **nom d’utilisateur\@domaine.com**. Entrez un commentaire dans le champ **Motif**.
+4. Sélectionnez le **Groupe de réplication**. Entrez le nom d’utilisateur de l’utilisateur bloqué sous la forme **nom_utilisateur\@domain.com**. Entrez un commentaire dans le champ **Motif**.
 5. Sélectionnez **Ajouter** pour achever de bloquer l’utilisateur.
 
 ### <a name="unblock-a-user"></a>Débloquer un utilisateur
@@ -154,7 +154,7 @@ La fonctionnalité de _contournement à usage unique_ permet à un utilisateur d
 2. Accédez à **Azure Active Directory** > **MFA** > **Contournement à usage unique**.
 3. Sélectionnez **Ajouter**.
 4. Si nécessaire, sélectionnez le groupe de réplication de ce contournement.
-5. Entrez le nom d’utilisateur en tant que **nom d’utilisateur\@domaine.com**. Entrez la durée du contournement en secondes. Entrez le motif du contournement.
+5. Entrez le nom d’utilisateur **nom_utilisateur\@domain.com**. Entrez la durée du contournement en secondes. Entrez le motif du contournement.
 6. Sélectionnez **Ajouter**. La limite de temps entre immédiatement en vigueur. L’utilisateur doit se connecter avant que le délai de contournement à usage unique ne soit écoulé.
 
 ### <a name="view-the-one-time-bypass-report"></a>Afficher le rapport de contournement à usage unique
@@ -191,7 +191,7 @@ Certaines applications, comme Office 2010 ou antérieur, et Apple Mail avant iOS
 L’authentification moderne est prise en charge pour les clients Microsoft Office 2013 et versions ultérieures. Les clients Office 2013, y compris Outlook, prennent en charge des protocoles d’authentification moderne et peuvent être activés pour fonctionner dans le cadre de la vérification en deux étapes. Une fois le client activé, les mots de passe d’application ne sont pas requis par le client.
 
 >[!NOTE]
->Les mots de passe d’application ne fonctionnent pas avec l’accès conditionnel basé sur des stratégies d’authentification multifacteur et sur l’authentification moderne.
+>Les mots de passe d’application ne fonctionnent pas avec les stratégies d’authentification multifacteur basées sur l’accès conditionnel ni avec l’authentification moderne.
 
 ### <a name="considerations-about-app-passwords"></a>Considérations sur les mots de passe d’application
 
@@ -259,7 +259,7 @@ Les utilisateurs peuvent aussi créer des mots de passe d’application après l
 La fonctionnalité d’_adresses IP approuvées_ d’Azure Multi-Factor Authentication est utilisée par les administrateurs d’un locataire géré ou fédéré. Elle contourne la vérification en deux étapes des utilisateurs qui se connectent à partir de l’intranet d’entreprise. Cette fonctionnalité est disponible dans la version complète d’Azure Multi-Factor Authentication, mais pas dans la version gratuite pour les administrateurs. Pour plus d’informations sur l’obtention de la version complète d’Azure Multi-Factor Authentication, consultez [Présentation d’Azure Multi-Factor Authentication](multi-factor-authentication.md).
 
 > [!NOTE]
-> Les adresses IP MFA de confiance et les emplacements nommés avec accès conditionnel fonctionnent uniquement avec les adresses IPV4.
+> Les adresses IP approuvées MFA et les emplacements nommés avec accès conditionnel fonctionnent uniquement avec les adresses IPV4.
 
 Si votre organisation déploie l’extension de serveur NPS pour fournir l’authentification multifacteur aux applications locales, notez que l’adresse IP source apparaît toujours comme étant le serveur NPS qu’emprunte la tentative d’authentification.
 

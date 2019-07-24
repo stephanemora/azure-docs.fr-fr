@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 3/20/2018
 ms.author: v-mohabe
 ms.openlocfilehash: 4592caacf7f73e4bce9f974fb3bb2ab3ed1a89ff
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65968366"
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Présentation des alertes de sécurité dans Azure Security Center
@@ -93,7 +93,7 @@ Security Center utilise une analyse avancée pour identifier les ressources comp
 * **Tous les clichés instantanés de fichiers ont été supprimés** : cette alerte indique que les clichés instantanés ont été supprimés.
 * **Commandes suspectes de nettoyage de fichier** : cette alerte indique une combinaison de commandes systeminfo utilisées pour effectuer une activité de nettoyage automatique après compromission.  Alors que *systeminfo.exe* est un outil Windows légitime, une exécution deux fois de suite, suivie d’une commande de suppression comme survenue ici est rare.
 * **Création de compte suspecte** : cette alerte indique qu’un compte a été créé avec une proche ressemblance avec un compte de privilège Administrateur intégré. Cette technique peut être utilisée par des pirates pour créer un compte non autorisé sans être détecté.
-* **Activité suspecte de copie de clichés instantanés de volume** : cette alerte indique une activité de suppression de copie de cliché instantané sur la ressource. Le cliché instantané de volume (VSC) est un artefact important qui stocke des clichés instantanés de données. Cette activité est associée aux Ransomware, mais il peut aussi être légitime.
+* **Activité suspecte de copie de clichés instantanés de volume** : cette alerte indique une activité de suppression de copie de cliché instantané sur la ressource. Le cliché instantané de volume (VSC) est un artefact important qui stocke des clichés instantanés de données. Cette activité est associée aux rançongiciels, mais elle peut aussi être légitime.
 * **Méthode de persistance du registre Windows** : cette alerte indique une tentative de conservation d’un fichier exécutable dans le Registre Windows. Les logiciels malveillants utilisent souvent cette technique pour survivre à un démarrage.
 * **Nouvelle règle de pare-feu suspecte** : cette alerte indique qu’une règle de pare-feu a été ajoutée via *netsh.exe* pour autoriser un trafic à partir d’un exécutable situé dans un emplacement suspect.
 * **Exécutions suspectes de XCOPY** : cette alerte indique une série d’exécutions de XCOPY pouvant signaler la compromission d’une de vos machines et son utilisation pour propager des logiciels malveillants.

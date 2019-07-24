@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
 ms.openlocfilehash: d9cc5da0cd2936c1ac79a308366b8164548cb202
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66241721"
 ---
 # <a name="how-to-manage-user-accounts-in-azure-api-management"></a>Gestion des comptes d’utilisateur dans Gestion des API Azure
@@ -26,9 +26,9 @@ Dans Gestion des API Azure, les développeurs sont les utilisateurs des API que 
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-Effectuer des tâches dans cet article : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
+Effectuez les tâches indiquées dans cet article : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -69,7 +69,7 @@ Pour bloquer un utilisateur, procédez comme suit.
 
 ## <a name="reset-a-user-password"></a>Réinitialiser le mot de passe d’un utilisateur
 
-Pour travailler par programmation avec les comptes d’utilisateur, consultez la documentation de l’entité utilisateur dans le [API REST de gestion des API](/rest/api/apimanagement/) référence. Pour réinitialiser le mot de passe d’un compte d’utilisateur sur une valeur spécifique, vous pouvez utiliser l’opération [Mettre à jour un utilisateur](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity#UpdateUser) et spécifier le mot de passe nécessaire.
+Pour utiliser les comptes d’utilisateur par programme, consultez la documentation Entité utilisateur dans la référence [API REST Gestion des API](/rest/api/apimanagement/). Pour réinitialiser le mot de passe d’un compte d’utilisateur sur une valeur spécifique, vous pouvez utiliser l’opération [Mettre à jour un utilisateur](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity#UpdateUser) et spécifier le mot de passe nécessaire.
 
 ## <a name="next-steps"> </a>Étapes suivantes
 Une fois le compte de développeur créé, vous pouvez l'associer à des rôles et l'abonner à des produits et des API. Pour plus d’informations, consultez la page [Création et utilisation de groupes][How to create and use groups].

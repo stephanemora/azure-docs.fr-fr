@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect : Migrer à partir de la fédération à PTA pour Azure AD'
+title: 'Azure AD Connect : Migrer depuis la fédération vers PTA pour Azure AD'
 description: Cet article contient des informations sur le déplacement d’un environnement d’identité hybride de la fédération à l’authentification directe.
 services: active-directory
 author: billmath
@@ -12,12 +12,12 @@ ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb421442a7b45f3cd5925fd1475a0a69053c3113
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.openlocfilehash: 27f5a7d8bb6dc347414d84d8cf536f1c2d7a9910
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66473378"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67109352"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-active-directory"></a>Migrer de la fédération à l’authentification directe pour Azure Active Directory
 

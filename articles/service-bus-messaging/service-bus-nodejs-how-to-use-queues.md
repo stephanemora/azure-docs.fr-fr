@@ -1,5 +1,5 @@
 ---
-title: Comment utiliser les files d’attente Azure Service Bus dans Node.js | Microsoft Docs
+title: Utilisation des files d’attente Azure Service Bus dans Node.js | Microsoft Docs
 description: Découvrez comment utiliser les files d’attente Service Bus dans Azure à partir d’une application Node.js.
 services: service-bus-messaging
 documentationcenter: nodejs
@@ -15,30 +15,30 @@ ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
 ms.openlocfilehash: 1426b3d31159280ad9aac2dd240a5f083c40752d
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65988304"
 ---
 # <a name="how-to-use-service-bus-queues-with-nodejs-and-the-azure-sb-package"></a>Comment utiliser les files d’attente Service Bus avec Node.js et le package azure-sb
-> [!div class="op_multi_selector" title1="Programming language" title2="Node.js pacakge"]
+> [!div class="op_multi_selector" title1="Langage de programmation" title2="Package Node.js"]
 > - [(Node.js | azure-sb)](service-bus-nodejs-how-to-use-queues.md)
 > - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-queues-new-package.md)
 
-Dans ce didacticiel, vous allez apprendre à créer des applications Node.js à envoyer des messages à et de recevoir des messages à partir d’une file d’attente Service Bus à l’aide du [azure-sb](https://www.npmjs.com/package/azure-sb) package. Les exemples sont écrits en JavaScript et utiliser le Node.js [module Azure](https://www.npmjs.com/package/azure) qui utilise en interne le `azure-sb` package.
+Dans ce tutoriel, vous allez apprendre à créer des applications Node.js afin d’envoyer des messages à une file d’attente Service Bus et en recevoir à l’aide du package [azure-sb](https://www.npmjs.com/package/azure-sb). Les exemples sont écrits en JavaScript et utilisent le [module Azure Node.js](https://www.npmjs.com/package/azure), qui utilise en interne le package `azure-sb`.
 
-Le [azure-sb](https://www.npmjs.com/package/azure-sb) package utilise [API d’exécution REST Service Bus](/rest/api/servicebus/service-bus-runtime-rest). Vous pouvez obtenir une expérience plus rapide à l’aide de la nouvelle [ @azure/service-bus ](https://www.npmjs.com/package/@azure/service-bus) package qui utilise le plus rapide [protocole AMQP 1.0](service-bus-amqp-overview.md). Pour en savoir plus sur le nouveau package, consultez [comment utiliser les files d’attente Service Bus avec Node.js et @azure/service-bus package](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues-new-package), sinon poursuivez votre lecture pour voir comment utiliser le [azure](https://www.npmjs.com/package/azure) package.
+Le package [azure-sb](https://www.npmjs.com/package/azure-sb) utilise les [API d’exécution REST Service Bus](/rest/api/servicebus/service-bus-runtime-rest). Le nouveau package [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) utilisant le [protocole AMQP 1.0](service-bus-amqp-overview.md) plus rapide permet d’accélérer l’expérience. Pour en savoir plus sur le nouveau package, consultez [Comment utiliser les files d’attente Service Bus avec Node.js et le @azure/service-buspackage](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues-new-package), sinon poursuivez votre lecture pour savoir comment utiliser le package [azure](https://www.npmjs.com/package/azure).
 
-## <a name="prerequisites"></a>Conditions préalables
-- Un abonnement Azure. Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Vous pouvez activer votre [avantages pour les abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou vous inscrire pour un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-- Si vous n’avez pas une file d’attente pour travailler avec, suivez les étapes de la [utiliser le portail Azure pour créer une file d’attente Service Bus](service-bus-quickstart-portal.md) article pour créer une file d’attente.
-    1. Lire le plus rapide pour **vue d’ensemble** de Service Bus **files d’attente**. 
-    2. Créer un Service Bus **espace de noms**. 
-    3. Obtenir le **chaîne de connexion**. 
+## <a name="prerequisites"></a>Prérequis
+- Un abonnement Azure. Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Vous pouvez [activer les avantages de votre abonnement MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou [vous inscrire pour obtenir un compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+- Si vous n’avez pas de file d’attente avec laquelle travailler, suivez les étapes de l’article [Utiliser le Portail Azure pour créer une file d’attente Service Bus](service-bus-quickstart-portal.md) pour créer une file d’attente.
+    1. Lisez la **vue d’ensemble** des **files d’attente** Service Bus. 
+    2. Créez un **espace de noms** Service Bus. 
+    3. Obtenez la **chaîne de connexion**. 
 
         > [!NOTE]
-        > Vous allez créer un **file d’attente** dans l’espace de noms Service Bus à l’aide de Node.js dans ce didacticiel. 
+        > Grâce à ce tutoriel, vous allez créer une **file d’attente** dans l’espace de noms Service Bus à l’aide de Node.js. 
  
 
 ## <a name="create-a-nodejs-application"></a>Création d’une application Node.js
@@ -49,7 +49,7 @@ Pour utiliser Azure Service Bus, téléchargez et utilisez le package Azure Node
 
 ### <a name="use-node-package-manager-npm-to-obtain-the-package"></a>Utilisation de Node Package Manager (NPM) pour obtenir le package
 1. Utilisez la fenêtre de commande **Windows PowerShell for Node.js** pour accéder au dossier **c:\\node\\sbqueues\\WebRole1** dans lequel vous avez créé votre exemple d’application.
-2. Type **npm installer azure** dans la fenêtre de commande, ce qui génère une sortie similaire à l’exemple suivant :
+2. Entrez **npm install azure** dans la fenêtre de commande, ce qui génère un résultat du type :
 
     ```
     azure@0.7.5 node_modules\azure
@@ -64,7 +64,7 @@ Pour utiliser Azure Service Bus, téléchargez et utilisez le package Azure Node
         ├── xml2js@0.2.7 (sax@0.5.2)
         └── request@2.21.0 (json-stringify-safe@4.0.0, forever-agent@0.5.0, aws-sign@0.3.0, tunnel-agent@0.3.0, oauth-sign@0.3.0, qs@0.6.5, cookie-jar@0.3.0, node-uuid@1.4.0, http-signature@0.9.11, form-data@0.0.8, hawk@0.13.1)
     ```
-3. Vous pouvez exécuter manuellement la commande **ls** pour vérifier que le dossier **node_modules** a été créé. Dans ce dossier, recherchez le **azure** package qui contient les bibliothèques que vous avez besoin pour accéder aux files d’attente Service Bus.
+3. Vous pouvez exécuter manuellement la commande **ls** pour vérifier que le dossier **node_modules** a été créé. Dans ce dossier, recherchez le package **azure**, qui contient les bibliothèques nécessaires pour accéder aux files d’attente Service Bus.
 
 ### <a name="import-the-module"></a>Importation du module
 À l’aide d’un éditeur de texte, comme le Bloc-notes, ajoutez la commande suivante au début du fichier **server.js** de l’application :
@@ -74,11 +74,11 @@ var azure = require('azure');
 ```
 
 ### <a name="set-up-an-azure-service-bus-connection"></a>Configuration d’une connexion Service Bus Azure
-Le module Azure lit la variable d’environnement `AZURE_SERVICEBUS_CONNECTION_STRING` pour obtenir les informations nécessaires pour se connecter à Service Bus. Si cette variable d’environnement n’est pas définie, vous devez spécifier les informations de compte lors de l’appel `createServiceBusService`.
+Le module Azure lit la variable d’environnement `AZURE_SERVICEBUS_CONNECTION_STRING` pour obtenir les informations nécessaires pour se connecter à Service Bus. Si cette variable d’environnement n’est pas définie, vous devez spécifier les informations de compte lors de l’appel de `createServiceBusService`.
 
 Pour un exemple de configuration des variables d’environnement dans le [portail Azure][Azure portal] pour un site web Azure, consultez [Application web Node.js avec stockage][Node.js Web Application with Storage].
 
-## <a name="create-a-queue"></a>Créer une file d'attente
+## <a name="create-a-queue"></a>Créer une file d’attente
 L’objet **ServiceBusService** permet d’utiliser des files d’attente Service Bus. Le code suivant crée un objet **ServiceBusService**. Ajoutez-le vers le début du fichier **server.js**, après l’instruction relative à l’importation du module Azure :
 
 ```javascript
@@ -123,7 +123,7 @@ Après le prétraitement des options de la requête, la méthode doit appeler `n
 function (returnObject, finalCallback, next)
 ```
 
-Dans ce rappel et après le traitement de la `returnObject` (la réponse de la demande au serveur), le rappel doit appeler `next` si elle existe, pour continuer à traiter d’autres filtres ou appeler `finalCallback`, ce qui met fin à l’appel du service .
+Dans ce rappel, et après le traitement de `returnObject` (réponse à la requête du serveur), le rappel doit appeler `next`, s’il existe, pour continuer à traiter d’autres filtres, ou appeler `finalCallback` pour terminer l’appel du service.
 
 Deux filtres, `ExponentialRetryPolicyFilter` et `LinearRetryPolicyFilter`, implémentant une logique de nouvelle tentative sont inclus avec le kit de développement logiciel (SDK) Azure pour Node.js. Le code suivant permet de créer un objet `ServiceBusService` utilisant `ExponentialRetryPolicyFilter` :
 
@@ -150,14 +150,14 @@ serviceBusService.sendQueueMessage('myqueue', message, function(error){
 });
 ```
 
-Les files d’attente Service Bus prennent en charge une taille de message maximale de 256 Ko dans le [niveau Standard](service-bus-premium-messaging.md) et de 1 Mo dans le [niveau Premium](service-bus-premium-messaging.md). L’en-tête, qui comprend les propriétés d’application standard et personnalisées, peut avoir une taille maximale de 64 Ko. Il n’existe aucune limite sur le nombre de messages contenus dans une file d’attente, mais il existe une limite sur la taille totale des messages détenues par une file d’attente. Cette taille de file d'attente est définie au moment de la création. La limite maximale est de 5 Go. Pour plus d’informations sur les quotas, consultez [Quotas Service Bus][Service Bus quotas].
+Les files d’attente Service Bus prennent en charge une taille de message maximale de 256 Ko dans le [niveau Standard](service-bus-premium-messaging.md) et de 1 Mo dans le [niveau Premium](service-bus-premium-messaging.md). L’en-tête, qui comprend les propriétés d’application standard et personnalisées, peut avoir une taille maximale de 64 Ko. Si une file d’attente n’est pas limitée par le nombre de messages qu’elle peut contenir, elle l’est en revanche par la taille totale des messages qu’elle contient. Cette taille de file d'attente est définie au moment de la création. La limite maximale est de 5 Go. Pour plus d’informations sur les quotas, consultez [Quotas Service Bus][Service Bus quotas].
 
 ## <a name="receive-messages-from-a-queue"></a>Réception des messages d'une file d'attente
 La méthode `receiveQueueMessage` de l’objet **ServiceBusService** permet de recevoir les messages d’une file d’attente. Par défaut, les messages sont supprimés de la file d’attente au fur et à mesure de leur lecture. Cependant, vous pouvez lire et verrouiller le message sans le supprimer de la file d’attente en définissant le paramètre facultatif `isPeekLock` sur **true**.
 
-Le comportement par défaut de lecture et de suppression du message dans le cadre de l’opération de réception est le modèle le plus simple et mieux adapté aux scénarios dans lesquels une application peut tolérer de ne pas traiter un message lorsqu’une défaillance se produit. Pour mieux comprendre ce comportement, imaginez un scénario dans lequel le consommateur émet la demande de réception et subit un incident avant de la traiter. Étant donné que Service Bus a marqué le message comme étant consommé, puis lorsque l’application redémarre et recommence à consommer des messages, elle aura manqué le message qui a été consommé avant l’incident.
+Le comportement de lecture et de suppression du message par défaut dans le cadre de l’opération de réception est le modèle le plus simple et le mieux adapté aux scénarios dans lesquels une application peut tolérer le non-traitement d’un message après un échec. Pour mieux comprendre ce comportement, imaginez un scénario dans lequel le consommateur émet la demande de réception et subit un incident avant de la traiter. Puisque Service Bus a marqué le message comme étant consommé, lorsque l’application redémarre et recommence à consommer des messages, elle manque le message consommé avant l’incident.
 
-Si le `isPeekLock` paramètre est défini sur **true**, la réception devient une opération en deux étapes, qui autorise une prise en charge des applications qui ne peut pas tolérer les messages manquants. Lorsque Service Bus reçoit une demande, il recherche le prochain message à consommer, le verrouille pour empêcher d'autres consommateurs de le recevoir, puis le renvoie à l'application. Dès lors que l’application a terminé le traitement du message (ou qu’elle l’a stocké de manière fiable pour un traitement ultérieur), elle accomplit la deuxième étape du processus de réception en appelant la méthode `deleteMessage` et en fournissant le message à supprimer sous la forme d’un paramètre. La méthode `deleteMessage` marque le message comme étant utilisé et le supprime de la file d’attente.
+Si le paramètre `isPeekLock` est défini sur **true**, la réception devient une opération en deux étapes, qui autorise une prise en charge des applications incapables de tolérer des messages manquants. Lorsque Service Bus reçoit une demande, il recherche le prochain message à consommer, le verrouille pour empêcher d'autres consommateurs de le recevoir, puis le renvoie à l'application. Dès lors que l’application a terminé le traitement du message (ou qu’elle l’a stocké de manière fiable pour un traitement ultérieur), elle accomplit la deuxième étape du processus de réception en appelant la méthode `deleteMessage` et en fournissant le message à supprimer sous la forme d’un paramètre. La méthode `deleteMessage` marque le message comme étant utilisé et le supprime de la file d’attente.
 
 L’exemple suivant montre comment recevoir et traiter des messages à l’aide de la méthode `receiveQueueMessage`. L’exemple reçoit et supprime un message, reçoit un message en utilisant la méthode `isPeekLock` définie sur **true**, puis supprime le message à l’aide de la méthode `deleteMessage` :
 
@@ -180,14 +180,14 @@ serviceBusService.receiveQueueMessage('myqueue', { isPeekLock: true }, function(
 ```
 
 ## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Gestion des blocages d’application et des messages illisibles
-Service Bus intègre des fonctionnalités destinées à faciliter la récupération à la suite d’erreurs survenues dans votre application ou de difficultés à traiter un message. Si une application réceptrice ne parvient pas à traiter le message pour une raison quelconque, elle appelle la méthode `unlockMessage` pour l’objet **ServiceBusService**. Cela entraînera le Service Bus à déverrouiller le message dans la file d’attente et le rendre disponible pour être à nouveau, reçu par la même application consommatrice ou par une autre application consommatrice.
+Service Bus intègre des fonctionnalités destinées à faciliter la récupération à la suite d’erreurs survenues dans votre application ou de difficultés à traiter un message. Si une application réceptrice ne parvient pas à traiter le message pour une raison quelconque, elle appelle la méthode `unlockMessage` pour l’objet **ServiceBusService**. Service Bus déverrouille alors le message dans la file d’attente et le rend à nouveau disponible en réception, pour la même application consommatrice ou pour une autre.
 
-Il existe également un délai d’expiration associé à un message verrouillé dans la file d’attente et si l’application ne parvient pas à traiter le message avant le délai d’attente de verrou expire (par exemple, si l’application se bloque), Service Bus déverrouille le message automatiquement et le rendre disponible pour être de nouveau reçu.
+De même, il faut savoir qu’un message verrouillé dans une file d’attente est assorti d’un délai d’expiration et que si l’application ne parvient pas à traiter le message dans le temps imparti (par exemple, si l’application subit un incident), Service Bus déverrouille le message automatiquement et le rend à nouveau disponible en réception.
 
-Si l’application subit un incident après le traitement du message, mais avant l’appel de la méthode `deleteMessage`, le message est à nouveau remis à l’application lorsqu’elle redémarre. Cette approche est souvent appelée *au moins une fois traitement*, autrement dit, chaque message est traité au moins une fois, mais dans certaines situations le même message peut être redistribué. Si le scénario ne peut pas tolérer un traitement dupliqué, les développeurs d’applications doivent ensuite ajouter une logique supplémentaire à leur application pour traiter la remise de messages en double. Il est souvent obtenu grâce à l’aide de la **MessageId** propriété du message, qui reste constante pendant les tentatives de remise.
+Si l’application subit un incident après le traitement du message, mais avant l’appel de la méthode `deleteMessage`, le message est à nouveau remis à l’application lorsqu’elle redémarre. Dans ce type d’approche, souvent appelée *Au moins une fois*, chaque message est traité au moins une fois. Toutefois, dans certaines circonstances, un même message peut être remis une nouvelle fois. Si le scénario ne peut pas tolérer le traitement en double, l’ajout d’une logique supplémentaire à vos applications pour traiter la remise de messages en double est recommandé. Pour ce faire, il suffit souvent d’utiliser la propriété **MessageId** du message, qui reste constante pendant les tentatives de remise.
 
 > [!NOTE]
-> Vous pouvez gérer les ressources de Service Bus avec [Explorateur Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/). L’Explorateur Service Bus permet aux utilisateurs de se connecter à un espace de noms Service Bus et administrer les entités de messagerie de manière simple. L’outil fournit des fonctionnalités avancées telles que la fonctionnalité d’importation/exportation ou de la possibilité de tester une rubrique, files d’attente, abonnements, services de relais, hubs de notification et hubs d’événements. 
+> Vous pouvez gérer les ressources Service Bus à l'aide de [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer permet aux utilisateurs de se connecter à un espace de noms Service Bus et de gérer les entités de messagerie en toute simplicité. L’outil fournit des fonctionnalités avancées telles que la fonction d’importation/exportation ou la possibilité de tester une rubrique, des files d’attente, des abonnements, des services de relais, des hubs de notification et des hubs d’événements. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur les files d’attente, consultez les ressources suivantes :

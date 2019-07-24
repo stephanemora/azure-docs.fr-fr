@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: d2daafa6bf5f9a28ad2b61a97e7a8bd2246ae18d
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.openlocfilehash: 4abf50e11070f2060309ae9b9cd045c874a2c52e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66147806"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133142"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Quels sont les types de disque disponibles dans Azure ?
 
@@ -33,7 +33,7 @@ Le tableau suivant offre une comparaison des niveaux SSD Ultra (préversion), SS
 
 ## <a name="ultra-ssd-preview"></a>SSD Ultra (préversion)
 
-Les disques Ultra SSD d’Azure (préversion) fournissent un stockage de disque avec un haut débit, un nombre d’IOPS élevé et une faible latence homogène pour les machines virtuelles IaaS Azure. Entre autres avantages, Ultra SSD permet de changer dynamiquement les performances de disque en fonction de vos charges de travail sans avoir à redémarrer les machines virtuelles. Les disques SSD Ultra sont adaptés aux charges de travail qui consomment beaucoup de données comme SAP HANA, les bases de données de niveau supérieur et les charges de travail avec un grand nombre de transactions. Les disques SSD Ultra peuvent uniquement être utilisés en tant que disques de données. Nous vous recommandons d’utiliser des disques SSD Premium comme disques de système d’exploitation.
+Les disques SSD Ultra d’Azure (en préversion) fournissent un stockage de disque avec un haut débit, un nombre d’IOPS élevé et une faible latence homogène pour les machines virtuelles IaaS Azure. Entre autres avantages, Ultra SSD permet de changer dynamiquement les performances de disque en fonction de vos charges de travail sans avoir à redémarrer les machines virtuelles. Les disques Ultra SSD sont adaptés aux charges de travail qui consomment beaucoup de données, comme SAP HANA, les bases de données de niveau supérieur et les charges de travail avec un grand nombre de transactions. Les disques SSD Ultra peuvent uniquement être utilisés en tant que disques de données. Nous vous recommandons d’utiliser des disques SSD Premium comme disques de système d’exploitation.
 
 ### <a name="performance"></a>Performances
 
@@ -43,12 +43,12 @@ Voici certaines fonctionnalités clés des disques Ultra SSD :
 
 - Capacité du disque : La capacité des disques SSD Ultra s'échelonne de 4 Gio 64 Tio.
 - IOPS du disque : Les disques SSD Ultra prennent en charge des limites d’IOPS de 300 IOPS/Gio, avec un maximum de 160 000 IOPS par disque. Pour atteindre le nombre d’IOPS provisionné, vérifiez que le nombre d’IOPS du disque sélectionné est inférieur au nombre d’IOPS de la machine virtuelle. Le nombre minimal d’IOPS du disque est 100.
-- Débit du disque : Avec les disques SSD Ultra, la limite de débit d’un seul disque est de 256 Kio/s pour chaque IOPS approvisionnée, avec un maximum de 2000 Mo/s par disque (où 1 Mbit/s = 10^6 octets par seconde). Le débit minimal du disque est 1 Mio.
-- SSDs ultra prend en charge ajuster les attributs de performances de disque (IOPS et débit) lors de l’exécution sans détacher le disque à partir de la machine virtuelle. Une fois qu’une opération de redimensionnement de performances de disque est émise sur un disque, elle peut mettre jusqu’à une heure à être appliquée.
+- Débit du disque : Avec les disques SSD Ultra, la limite de débit d’un seul disque est de 256 Kio/s pour chaque IOPS approvisionnée, avec un maximum de 2000 Mbits/s par disque (où 1 Mbit/s = 10^6 octets par seconde). Le débit minimal du disque est 1 Mio.
+- Les disques SSD Ultra permettent la modification des attributs de performances des disques (IOPS et débit) lors de l’exécution, sans détacher le disque de la machine virtuelle. Une fois qu’une opération de redimensionnement de performances de disque est émise sur un disque, elle peut mettre jusqu’à une heure à être appliquée.
 
 ### <a name="disk-size"></a>Taille du disque
 
-|Taille de disque (Gio)  |Nombre limite d’IOPS  |Débit limite (Mo/s)  |
+|Taille de disque (Gio)  |Nombre limite d’IOPS  |Débit limite (Mbits/s)  |
 |---------|---------|---------|
 |4     |1,200         |300         |
 |8     |2 400         |600         |
@@ -62,7 +62,7 @@ Voici certaines fonctionnalités clés des disques Ultra SSD :
 
 ### <a name="transactions"></a>Transactions
 
-Pour les disques SSD ultra, chaque opération d’e/s inférieure ou égale à 256 Kio du débit est considéré comme une seule opération d’e/s. Plus de 256 Kio des opérations d’e/s de débit sont considérés comme plusieurs e/s de taille 256 Kio.
+Pour les disques SSD ultra, chaque opération d’E/S présentant un débit inférieur ou égal à 256 Kio est considérée comme une seule opération d’E/S. Les opérations d’E/S dont le débit est supérieur à 256 Kio sont considérées comme des opérations d’E/S distinctes, de 256 Kio chacune.
 
 ### <a name="preview-scope-and-limitations"></a>Limitations et étendue de la préversion
 
@@ -73,7 +73,8 @@ Dans la préversion, les disques Ultra SSD présentent les caractéristiques sui
 - Ils sont pris en charge seulement sur les machines virtuelles ES/DS v3
 - Ils sont disponibles seulement comme des disques de données et prennent en charge uniquement une taille de secteur physique de 4 k  
 - Ils peuvent être créés seulement comme des disques vides  
-- Actuellement, ils peuvent être déployés uniquement à l’aide de modèles Azure Resource Manager, de l’interface CLI et du SDK Python.
+- Actuellement, ils peuvent être déployés uniquement à l’aide de modèles Azure Resource Manager, de l’interface CLI, de PowerShell et du Kit de développement logiciel (SDK) Python.
+- Ils ne peuvent pas être déployés avec le portail Azure (pour l’instant).
 - Ils ne prennent pas encore en charge les instantanés de disque, les images de machine virtuelle, les groupes à haute disponibilité, les groupes de machines virtuelles identiques et Azure Disk Encryption.
 - Ils ne prennent pas encore en charge l’intégration à la Sauvegarde Azure ou à Azure Site Recovery.
 - Comme pour la  [plupart des préversions](https://azure.microsoft.com/support/legal/preview-supplemental-terms/), cette fonctionnalité ne doit pas être utilisée pour les charges de travail de production avant la mise en disponibilité générale.

@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.date: 03/08/2019
+ms.date: 06/10/2019
 ms.author: dobett
-ms.openlocfilehash: 25812e10b4c2b90aa4f40c38610c30a26ab11d9d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 2a11640959a8c7fdd0d238aba92698eb47934969
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61449993"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080447"
 ---
 # <a name="what-is-connected-factory-iot-solution-accelerator"></a>Qu’est-ce que l’accélérateur de solution IoT Usine connectée ?
 
@@ -65,7 +65,4 @@ Usine connectée propose les fonctionnalités suivantes :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur la solution préconfigurée Usine connectée, consultez les articles suivants :
-
-* [Procédure pas à pas de la solution préconfigurée Usine connectée](iot-accelerators-connected-factory-sample-walkthrough.md)
-* [Déployer une passerelle pour l’Usine connectée]( iot-accelerators-connected-factory-gateway-deployment.md)
+Pour en savoir plus sur l’accélérateur de solution de la fabrique connectée, consultez le guide de démarrage rapide [Essayer une solution cloud pour gérer mes appareils IoT industriels](quickstart-connected-factory-deploy.md).

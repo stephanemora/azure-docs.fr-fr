@@ -2,17 +2,17 @@
 title: Bonnes pratiques de l’opérateur - Isolation de clusters dans Azure Kubernetes Service (AKS)
 description: Découvrir les bonnes pratiques de l’opérateur relatives à l’isolation de clusters dans Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.author: iainfou
-ms.openlocfilehash: 94aaa72497a8a5f171d6b42f59a3c5b507c71492
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: mlearned
+ms.openlocfilehash: 8150e184f0c7533d5a6e7e4847bf126206f5e6c6
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60465316"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614928"
 ---
 # <a name="best-practices-for-cluster-isolation-in-azure-kubernetes-service-aks"></a>Bonnes pratiques relatives à l’isolation de clusters dans Azure Kubernetes Service (AKS)
 

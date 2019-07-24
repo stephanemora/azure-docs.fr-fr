@@ -16,10 +16,10 @@ ms.date: 05/28/2019
 ms.author: barclayn
 ms.custom: azlog
 ms.openlocfilehash: 9f7d482b088003e3800debb2db9f6f26bda1672a
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66298187"
 ---
 # <a name="azure-log-integration-faq"></a>Forum aux questions sur l’intégration des journaux Azure
@@ -27,7 +27,7 @@ ms.locfileid: "66298187"
 Cet article contient les réponses à certaines questions fréquemment posées sur l’intégration des journaux Azure.
 
 >[!IMPORTANT]
-> La fonctionnalité d’intégration Azure journal sera obsolète à 15/06/2019. Les téléchargements AzLog ont été désactivés le 27 juin 2018. Pour obtenir des conseils pour évoluer, consultez la publication [Utiliser Azure Monitor pour intégrer avec des outils SIEM](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/). 
+> La fonctionnalité d’intégration des journaux Azure sera déconseillée à partir du 15 juin 2019. Les téléchargements AzLog ont été désactivés le 27 juin 2018. Pour obtenir des conseils pour évoluer, consultez la publication [Utiliser Azure Monitor pour intégrer avec des outils SIEM](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/). 
 
 Azure Log Integration est un service du système d’exploitation Windows que vous pouvez utiliser pour intégrer des journaux d’activité bruts de vos ressources Azure dans vos systèmes SIEM (Security Information and Event Management) locaux. Cette intégration offre un tableau de bord unifié pour toutes vos ressources, en local ou dans le cloud, pour vous permettre d’agréger, de mettre en corrélation, d’analyser et d’alerter en cas d’événements de sécurité associés à vos applications.
 
@@ -49,7 +49,7 @@ Exécutez la commande **AzLlog source list**.
 
 ## <a name="how-can-i-tell-which-subscription-the-azure-log-integration-logs-are-from"></a>Comment puis-je savoir de quel abonnement proviennent les journaux d’activité d’intégration Azure ?
 
-Dans le cas des journaux d’audit qui sont placés dans les répertoires **AzureResourcemanagerJson**, l’ID d’abonnement figure dans le nom du fichier journal. Il en va de même pour les journaux d’activité dans le dossier **AzureSecurityCenterJson**. Par exemple : 
+Dans le cas des journaux d’audit qui sont placés dans les répertoires **AzureResourcemanagerJson**, l’ID d’abonnement figure dans le nom du fichier journal. Il en va de même pour les journaux d’activité dans le dossier **AzureSecurityCenterJson**. Par exemple :
 
 20170407T070805_2768037.0000000023.**1111e5ee-1111-111b-a11e-1e111e1111dc**.json
 
@@ -99,7 +99,7 @@ La commande **Azlog createazureid** tente de créer un principal du service dans
 
 Error:
 
-  *Avertissement de création d’attribution de rôle - AuthorizationFailed : Le client janedo\@microsoft.com » avec l’objet id 'fe9e03e4-4dad-4328-910f-fd24a9660bd2' n’a pas autorisé à effectuer l’action « Microsoft.Authorization/roleAssignments/write » sur l’étendue ' /subscriptions/ 70d 95299-d689-4c 97-b971-0d8ff0000000 ».*
+  *Avertissement de création d’attribution de rôle - AuthorizationFailed : Le client janedo\@microsoft.com avec l’ID d’objet « fe9e03e4-4dad-4328-910f-fd24a9660bd2 » n’est pas autorisé à effectuer l’action « Microsoft.Authorization/roleAssignments/write » sur l’étendue « /subscriptions/70d95299-d689-4c97-b971-0d8ff0000000 ».*
 
 La commande **Azlog authorize** attribue le rôle de lecteur au principal du service Azure AD (créé avec **Azlog createazureid**) dans les abonnements fournis. Si la connexion Azure n’a pas le rôle Coadministrateur ou un Propriétaire de l’abonnement, elle échoue avec le message d’erreur « Échec de l’autorisation ». Le contrôle d’accès en fonction du rôle (RBAC) d’Azure du Coadministrateur ou du Propriétaire est nécessaire pour effectuer cette action.
 

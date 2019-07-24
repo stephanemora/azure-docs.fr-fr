@@ -12,12 +12,12 @@ author: jaredmoo
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 59e0e4cf82af9851dacf3ec030575ed392571331
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 683297e32c40f73c64dc40b18f279d92e2396e8d
+ms.sourcegitcommit: 3107874d7559ea975e4d55ae33cdf45f4b5485e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61475811"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67568273"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Utiliser Transact-SQL (T-SQL) pour créer et gérer des travaux de base de données élastique
 
@@ -426,7 +426,7 @@ Les procédures stockées suivantes se trouvent dans la [base de données des tr
 
 
 
-### <a name="spaddjob"></a>sp_add_job
+### <a name="sp_add_job"></a>sp_add_job
 
 Ajoute un nouveau travail. 
   
@@ -492,7 +492,7 @@ Par défaut, les membres du rôle serveur fixe sysadmin peuvent exécuter cette 
 
 Pour plus d’informations sur les autorisations de ces rôles, consultez la section Autorisations dans ce document. Seuls des membres de sysadmin peuvent utiliser cette procédure stockée pour modifier les attributs des travaux qui appartiennent à d’autres utilisateurs.
 
-### <a name="spupdatejob"></a>sp_update_job
+### <a name="sp_update_job"></a>sp_update_job
 
 Met à jour un travail existant.
 
@@ -555,7 +555,7 @@ Pour plus d’informations sur les autorisations de ces rôles, consultez la sec
 
 
 
-### <a name="spdeletejob"></a>sp_delete_job
+### <a name="sp_delete_job"></a>sp_delete_job
 
 Supprime un travail existant.
 
@@ -587,7 +587,7 @@ Pour plus d’informations sur les autorisations de ces rôles, consultez la sec
 
 
 
-### <a name="spaddjobstep"></a>sp_add_jobstep
+### <a name="sp_add_jobstep"></a>sp_add_jobstep
 
 Ajoute une étape à un travail.
 
@@ -713,7 +713,7 @@ Pour plus d’informations sur les autorisations de ces rôles, consultez la sec
 
 
 
-### <a name="spupdatejobstep"></a>sp_update_jobstep
+### <a name="sp_update_jobstep"></a>sp_update_jobstep
 
 Met à jour une étape de travail.
 
@@ -838,7 +838,7 @@ Pour plus d’informations sur les autorisations de ces rôles, consultez la sec
 
 
 
-### <a name="spdeletejobstep"></a>sp_delete_jobstep
+### <a name="sp_delete_jobstep"></a>sp_delete_jobstep
 
 Supprime une étape de travail d’un travail.
 
@@ -884,7 +884,7 @@ Pour plus d’informations sur les autorisations de ces rôles, consultez la sec
 
 
 
-### <a name="spstartjob"></a>sp_start_job
+### <a name="sp_start_job"></a>sp_start_job
 
 Démarre l’exécution d’un travail.
 
@@ -915,7 +915,7 @@ Par défaut, les membres du rôle serveur fixe sysadmin peuvent exécuter cette 
 
 Pour plus d’informations sur les autorisations de ces rôles, consultez la section Autorisations dans ce document. Seuls des membres de sysadmin peuvent utiliser cette procédure stockée pour modifier les attributs des travaux qui appartiennent à d’autres utilisateurs.
 
-### <a name="spstopjob"></a>sp_stop_job
+### <a name="sp_stop_job"></a>sp_stop_job
 
 Arrête l’exécution d’un travail.
 
@@ -944,7 +944,7 @@ Par défaut, les membres du rôle serveur fixe sysadmin peuvent exécuter cette 
 Pour plus d’informations sur les autorisations de ces rôles, consultez la section Autorisations dans ce document. Seuls des membres de sysadmin peuvent utiliser cette procédure stockée pour modifier les attributs des travaux qui appartiennent à d’autres utilisateurs.
 
 
-### <a name="spaddtargetgroup"></a>sp_add_target_group
+### <a name="sp_add_target_group"></a>sp_add_target_group
 
 Ajoute un groupe cible.
 
@@ -975,7 +975,7 @@ Par défaut, les membres du rôle serveur fixe sysadmin peuvent exécuter cette 
 
 Pour plus d’informations sur les autorisations de ces rôles, consultez la section Autorisations dans ce document. Seuls des membres de sysadmin peuvent utiliser cette procédure stockée pour modifier les attributs des travaux qui appartiennent à d’autres utilisateurs.
 
-### <a name="spdeletetargetgroup"></a>sp_delete_target_group
+### <a name="sp_delete_target_group"></a>sp_delete_target_group
 
 Supprime un groupe cible.
 
@@ -1003,7 +1003,7 @@ Par défaut, les membres du rôle serveur fixe sysadmin peuvent exécuter cette 
 
 Pour plus d’informations sur les autorisations de ces rôles, consultez la section Autorisations dans ce document. Seuls des membres de sysadmin peuvent utiliser cette procédure stockée pour modifier les attributs des travaux qui appartiennent à d’autres utilisateurs.
 
-### <a name="spaddtargetgroupmember"></a>sp_add_target_group_member
+### <a name="sp_add_target_group_member"></a>sp_add_target_group_member
 
 Ajoute une base de données ou un groupe de bases de données à un groupe cible.
 
@@ -1092,7 +1092,7 @@ SELECT * FROM [jobs].target_group_members WHERE target_group_name= N'Servers Mai
 GO
 ```
 
-### <a name="spdeletetargetgroupmember"></a>sp_delete_target_group_member
+### <a name="sp_delete_target_group_member"></a>sp_delete_target_group_member
 
 Supprime un membre du groupe cible d’un groupe cible.
 
@@ -1143,7 +1143,7 @@ EXEC jobs.sp_delete_target_group_member
 GO
 ```
 
-### <a name="sppurgejobhistory"></a>sp_purge_jobhistory
+### <a name="sp_purge_jobhistory"></a>sp_purge_jobhistory
 
 Supprime les enregistrements d’historique d’un travail.
 
@@ -1204,7 +1204,7 @@ Les vues suivantes sont disponibles dans la [base de données des travaux](sql-d
 |[target_group_members](#target_groups_members-view)     |   Affiche tous les membres de tous les groupes cibles.      |
 
 
-### <a name="jobsexecutions-view"></a>affichage jobs_executions
+### <a name="jobs_executions-view"></a>affichage de jobs_executions
 
 [jobs].[jobs_executions]
 
@@ -1251,7 +1251,7 @@ Afficher tous les travaux.
 |**schedule_end_time**| datetime2(7)|   Date et heure de la dernière exécution du travail terminé.|
 
 
-### <a name="jobversions-view"></a>affichage de job_versions
+### <a name="job_versions-view"></a>affichage de job_versions
 
 [jobs].[job_versions]
 
@@ -1299,13 +1299,13 @@ Affiche toutes les étapes dans la version actuelle de chaque travail.
 |**max_parallelism**|   int|    Le nombre maximal de bases de données par pool élastique sur lesquelles l’étape de travail sera exécutée simultanément. La valeur par défaut est NULL, ce qui signifie qu’il n’y a aucune limite. |
 
 
-### <a name="jobstepversions-view"></a>affichage de jobstep_versions
+### <a name="jobstep_versions-view"></a>affichage de jobstep_versions
 
 [jobs].[jobstep_versions]
 
 Affiche toutes les étapes dans toutes les versions de chaque travail. Le schéma est identique à [jobsteps](#jobsteps-view).
 
-### <a name="targetgroups-view"></a>affichage de target_groups
+### <a name="target_groups-view"></a>affichage de target_groups
 
 [jobs].[target_groups]
 
@@ -1316,7 +1316,7 @@ Répertorie tous les groupes cibles.
 |**target_group_name**| nvarchar(128)   |Le nom du groupe cible, une collection de bases de données. 
 |**target_group_id**    |uniqueidentifier   |ID unique du groupe cible.
 
-### <a name="targetgroupsmembers-view"></a>affichage de target_groups_members
+### <a name="target_groups_members-view"></a>affichage de target_groups_members
 
 [jobs].[target_groups_members]
 

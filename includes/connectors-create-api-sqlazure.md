@@ -9,11 +9,11 @@ ms.date: 05/15/2018
 ms.author: estfan
 ms.custom: include file
 ms.openlocfilehash: da03c5247b8ebe0a3305b08a05d661264497663f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60540967"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177316"
 ---
 * Si vous utilisez Azure SQL Database, suivez les étapes décrites dans [Connexion à Azure SQL Database](#connect-azure-sql-db). 
 
@@ -41,13 +41,13 @@ ms.locfileid: "60540967"
 
    Cet exemple montre les informations de connexion d’un déclencheur, mais ces étapes peuvent également être appliquées aux actions.
 
-   ![Créer une connexion à la base de données SQL Azure](./media/connectors-create-api-sqlazure/azure-sql-database-create-connection.png)
+   ![Créer une connexion à Azure SQL Database](./media/connectors-create-api-sqlazure/azure-sql-database-create-connection.png)
    <br>
    Les astérisques (*) indiquent des valeurs requises.
 
    | Propriété | Valeur | Détails | 
    |----------|-------|---------| 
-   | Nom de connexion | <*ma-connexion-sql-*> | Nom de votre connexion | 
+   | Nom de connexion | <*ma-connexion-sql-* > | Nom de votre connexion | 
    | Nom du serveur SQL Server | <*mon-serveur-sql*> | Nom de votre serveur SQL |
    | Nom de la base de données SQL | <*ma-base-de-données-sql*>  | Nom de votre base de données SQL | 
    | Nom d’utilisateur | <*mon-nom-utilisateur-sql*> | Nom d’utilisateur pour accéder à votre base de données |
@@ -99,12 +99,12 @@ Avant de pouvoir sélectionner votre passerelle, assurez-vous d’avoir [configu
    | Propriété | Valeur | Détails | 
    |----------|-------|---------| 
    | Se connecter via une passerelle locale | Sélectionnez tout d’abord cette option pour les paramètres SQL Server. | | 
-   | Nom de connexion | <*ma-connexion-sql-*> | Nom de votre connexion | 
+   | Nom de connexion | <*ma-connexion-sql-* > | Nom de votre connexion | 
    | Nom du serveur SQL Server | <*mon-serveur-sql*> | Nom de votre serveur SQL |
    | Nom de la base de données SQL | <*ma-base-de-données-sql*>  | Nom de votre base de données SQL |
    | Nom d’utilisateur | <*mon-nom-utilisateur-sql*> | Nom d’utilisateur pour accéder à votre base de données |
    | Mot de passe | <*mon-mot-de-depasse-sql*> | Mot de passe pour accéder à votre base de données | 
-   | Type d’authentification | Windows ou De base | Facultatif : Le type d’authentification utilisé par votre serveur SQL server | 
+   | Type d’authentification | Windows ou De base | Facultatif : type d’authentification utilisé par votre serveur SQL Server | 
    | Passerelles | <*ma-passerelle-de-données*> | Nom de votre passerelle de données locale | 
    |||| 
 

@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: kgremban
-ms.openlocfilehash: 6195c37780acaf8c8f432fa09c5ac01a75363c04
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 23b0a2ac8e0264ddc1592479759cc8398d9ef5f8
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61441280"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621260"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Charger des fichiers sur le cloud à partir d’un appareil avec IoT Hub
 
@@ -26,7 +26,7 @@ Cet article explique comment utiliser les [fonctionnalités de chargement d’Io
 
 * Utiliser le client Python pour charger un fichier par le biais de votre hub IoT
 
-Le démarrage rapide [Envoyer les données de télémétrie à IoT Hub](quickstart-send-telemetry-python.md) présente les fonctionnalités de messagerie de base appareil-à-cloud d’IoT Hub. Toutefois, dans certains scénarios, vous ne pouvez pas facilement mapper les données que vos appareils envoient dans des messages appareil-à-cloud relativement petits et acceptés par IoT Hub. Lorsque vous avez besoin de charger des fichiers à partir d’un appareil, vous pouvez quand même exploiter la sécurité et la fiabilité d’IoT Hub.
+Le guide de démarrage rapide [Envoyer des données de télémétrie d’un appareil à un hub IoT](quickstart-send-telemetry-python.md) présente les fonctionnalités de messagerie de base appareil-à-cloud d’IoT Hub. Toutefois, dans certains scénarios, vous ne pouvez pas facilement mapper les données que vos appareils envoient dans des messages appareil-à-cloud relativement petits et acceptés par IoT Hub. Lorsque vous avez besoin de charger des fichiers à partir d’un appareil, vous pouvez quand même exploiter la sécurité et la fiabilité d’IoT Hub.
 
 > [!NOTE]
 > À l’heure actuelle, le kit IoT Hub Python SDK prend uniquement en charge le chargement de fichiers basés sur des caractères, tels que les fichiers **.txt**.

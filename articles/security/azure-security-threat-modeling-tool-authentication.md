@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: 3b170a214c7c3c464f7ea645fa1dc42cce0a0580
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65951716"
 ---
 # <a name="security-frame-authentication--mitigations"></a>Infrastructure de sécurité : Authentification | Mesures de correction 
@@ -37,7 +37,7 @@ ms.locfileid: "65951716"
 | **Azure AD** | <ul><li>[Utiliser des scénarios d’authentification standard pris en charge par Azure Active Directory](#authn-aad)</li><li>[Remplacer le cache de jetons ADAL par défaut par une solution évolutive](#adal-scalable)</li><li>[Garantir que TokenReplayCache est utilisé pour empêcher la relecture de jetons d’authentification ADAL](#tokenreplaycache-adal)</li><li>[Utiliser les bibliothèques ADAL pour gérer les demandes de jeton des clients OAuth2 vers AAD (ou Active Directory local)](#adal-oauth2)</li></ul> |
 | **Passerelle de champ IoT** | <ul><li>[Authentifier les appareils se connectant à la passerelle de champ](#authn-devices-field)</li></ul> |
 | **Passerelle de cloud IoT** | <ul><li>[Garantir que les appareils se connectant à la passerelle de cloud sont authentifiés](#authn-devices-cloud)</li><li>[Utiliser les informations d’authentification par appareil](#authn-cred)</li></ul> |
-| **Azure Storage** | <ul><li>[Garantir que seuls les conteneurs et blobs requis disposent d’un accès en lecture anonyme](#req-containers-anon)</li><li>[Accorder un accès limité aux objets dans le stockage Azure à l’aide de SAS ou SAP](#limited-access-sas)</li></ul> |
+| **Stockage Azure** | <ul><li>[Garantir que seuls les conteneurs et blobs requis disposent d’un accès en lecture anonyme](#req-containers-anon)</li><li>[Accorder un accès limité aux objets dans le stockage Azure à l’aide de SAS ou SAP](#limited-access-sas)</li></ul> |
 
 ## <a id="standard-authn-web-app"></a>Envisager d’utiliser un mécanisme d’authentification standard pour l’application web
 
@@ -50,7 +50,7 @@ ms.locfileid: "65951716"
 | **Informations de référence**              | N/A  |
 | Détails | <p>L’authentification désigne le processus dans lequel une entité prouve son identité, généralement par le biais d’informations d’identification, comme le nom d’utilisateur et le mot de passe. Il existe plusieurs protocoles d’authentification disponibles qui peuvent vous être utiles. Certains d’entre eux sont répertoriés ci-dessous :</p><ul><li>Certificats clients</li><li>Basé sur Windows</li><li>Basé sur des formulaires</li><li>Fédération - ADFS</li><li>Fédération - Azure AD</li><li>Fédération - IdentityServer</li></ul><p>Envisagez d’utiliser un mécanisme d’authentification standard pour identifier le processus source.</p>|
 
-## <a id="handle-failed-authn"></a>Les applications doivent gérer les scénarios d’authentification ayant échoué en toute sécurité 
+## <a id="handle-failed-authn"></a>Les applications doivent gérer les scénarios d’authentification ayant échoué en toute sécurité
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
@@ -103,7 +103,7 @@ ms.locfileid: "65951716"
 | **Technologies applicables** | Générique |
 | **Attributs**              | N/A  |
 | **Informations de référence**              | N/A  |
-| Détails | <p>Une stratégie de compte et de mot de passe conforme à la stratégie et aux bonnes pratiques de l’organisation doit être implémentée.</p><p>Pour se défendre contre les attaques en force brute et les vols basés sur le dictionnaire : une stratégie de mot de passe forte doit être implémentée pour garantir que les utilisateurs créent des mots de passe complexes (par exemple, longueur minimale de 12 caractères, caractères spéciaux et alphanumériques).</p><p>Les stratégies de verrouillage de compte peuvent être implémentées de la manière suivante :</p><ul><li>**Verrouillage léger :** il peut s’agir d’une bonne option pour protéger vos utilisateurs des attaques en force brute. Par exemple, chaque fois que l’utilisateur entre un mot de passe incorrect trois fois l’application peut verrouiller le compte pendant une minute pour ralentir le processus de type leur mot de passe, moins le champ d’action du pirate de force brute. Si vous deviez implémenter des contre-mesures de verrouillage durs pour cet exemple, vous obtenez un « DoS » en verrouillant définitivement les comptes. Une application peut également générer un OTP (mot de passe à usage unique) et l’envoyer hors bande (par e-mail, sms, etc.) à l’utilisateur. Une autre approche peut consister à implémenter CAPTCHA après qu’un nombre maximum de tentatives est atteint.</li><li>**Verrouillage fort :** Ce type de verrouillage doit être appliqué chaque fois que vous détectez un utilisateur attaque votre application et le compteur les au moyen de verrouillage permanent de son compte jusqu'à ce que d’une équipe de réponse eu le temps de faire leur investigation. Après ce processus, que vous pouvez décider de donner à l’utilisateur nouveau leur compte ou entamer des poursuites contre elles. Ce type d’approche empêche le pirate de pénétrer davantage dans votre application et infrastructure.</li></ul><p>Pour se défendre contre les attaques sur les comptes par défaut et prévisibles, vérifiez que toutes les clés et que tous les mots de passe sont remplaçables et qu’ils sont générés ou remplacés après l’installation.</p><p>Si l’application doit générer automatiquement des mots de passe, assurez-vous que les mots de passe générés sont aléatoires et ont une entropie élevée.</p>|
+| Détails | <p>Une stratégie de compte et de mot de passe conforme à la stratégie et aux bonnes pratiques de l’organisation doit être implémentée.</p><p>Pour se défendre contre les attaques en force brute et les vols basés sur le dictionnaire : une stratégie de mot de passe forte doit être implémentée pour garantir que les utilisateurs créent des mots de passe complexes (par exemple, longueur minimale de 12 caractères, caractères spéciaux et alphanumériques).</p><p>Les stratégies de verrouillage de compte peuvent être implémentées de la manière suivante :</p><ul><li>**Verrouillage léger :** il peut s’agir d’une bonne option pour protéger vos utilisateurs des attaques en force brute. Par exemple, lorsque l’utilisateur entre un mot de passe incorrect trois fois de suite, l’application peut verrouiller le compte pendant une minute pour ralentir le processus d’attaque en force brute de son mot de passe, réduisant le champ d’action de l’attaquant. Si vous souhaitez implémenter des contre-mesures de verrouillage fort pour cet exemple, vous obtenez une « attaque DoS » en verrouillant les comptes de manière permanente. Une application peut également générer un OTP (mot de passe à usage unique) et l’envoyer hors bande (par e-mail, sms, etc.) à l’utilisateur. Une autre approche peut consister à implémenter CAPTCHA après qu’un nombre maximum de tentatives est atteint.</li><li>**Verrouillage fort :** ce type de verrouillage doit être appliqué lorsque vous détectez un utilisateur qui attaque votre application. Il est contré au moyen d’un verrouillage permanent de son compte jusqu’à ce qu’une équipe de réponse ait le temps de traiter le problème. Après ce processus, vous pouvez décider de rendre son compte à l’utilisateur ou d’entamer des poursuites contre lui. Ce type d’approche empêche le pirate de pénétrer davantage dans votre application et infrastructure.</li></ul><p>Pour se défendre contre les attaques sur les comptes par défaut et prévisibles, vérifiez que toutes les clés et que tous les mots de passe sont remplaçables et qu’ils sont générés ou remplacés après l’installation.</p><p>Si l’application doit générer automatiquement des mots de passe, assurez-vous que les mots de passe générés sont aléatoires et ont une entropie élevée.</p>|
 
 ## <a id="controls-username-enum"></a>Implémenter des contrôles pour empêcher l’énumération de nom d’utilisateur
 
@@ -455,7 +455,7 @@ Notez que pour tester l’efficacité de cette configuration, vous devez vous co
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique, C#, Node.JS  |
 | **Attributs**              | N/A, choix de passerelle - Azure IoT Hub |
-| **Informations de référence**              | N/a, [Azure IoT hub avec .NET](https://azure.microsoft.com/documentation/articles/iot-hub-csharp-csharp-getstarted/), [bien démarrer avec IoT hub et nœud JS](https://azure.microsoft.com/documentation/articles/iot-hub-node-node-getstarted), [IoT de sécurisation des associations de sécurité et des certificats](https://azure.microsoft.com/documentation/articles/iot-hub-sas-tokens/), [référentiel Git](https://github.com/Azure/azure-iot-sdks/tree/master/node) |
+| **Informations de référence**              | N/A, [Mise en route d’Azure IoT Hub (.NET)](https://azure.microsoft.com/documentation/articles/iot-hub-csharp-csharp-getstarted/), [Mise en route d’Azure IoT Hub (Node)](https://azure.microsoft.com/documentation/articles/iot-hub-node-node-getstarted), [Contrôler l’accès à IoT Hub](https://azure.microsoft.com/documentation/articles/iot-hub-sas-tokens/), [référentiel Git](https://github.com/Azure/azure-iot-sdks/tree/master/node) |
 | **Étapes** | <ul><li>**Générique :** authentifiez l’appareil à l’aide du protocole TLS (Transport Layer Security) ou IPSec. L’infrastructure doit prendre en charge l’utilisation d’une clé prépartagée (PSK) sur les périphériques qui ne peuvent pas gérer le chiffrement asymétrique complet. Utilisez Azure AD, OAuth.</li><li>**C# :** par défaut, la méthode de création Create crée une instance DeviceClient qui utilise le protocole AMQP pour communiquer avec IoT Hub. Pour utiliser le protocole HTTPS, remplacez la méthode Create afin de pouvoir spécifier le protocole. Si vous utilisez le protocole HTTPS, vous devez également ajouter le package NuGet `Microsoft.AspNet.WebApi.Client` à votre projet de manière à inclure l’espace de noms `System.Net.Http.Formatting`.</li></ul>|
 
 ### <a name="example"></a>Exemples
@@ -476,7 +476,7 @@ await deviceClient.SendEventAsync(message);
 ### <a name="example"></a>Exemples
 **Node.JS : Authentification**
 #### <a name="symmetric-key"></a>Clé symétrique
-* Créer un IoT hub sur azure
+* Créer un hub IoT sur Azure
 * Créez une entrée dans le registre des identités de l’appareil.
     ```javascript
     var device = new iothub.Device(null);

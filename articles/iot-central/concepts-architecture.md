@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: 4bc9a79576c3165585a4a2c897bd41bfb77c080c
-ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66693133"
 ---
 # <a name="azure-iot-central-architecture"></a>Architecture d’Azure IoT Central
@@ -79,13 +79,13 @@ Dans un modèle d’appareil :
 
 Une application peut avoir un ou plusieurs appareils simulés et réels basés sur chaque modèle d’appareil.
 
-## <a name="data-export"></a>Exportation des données
+## <a name="data-export"></a>Exportation de données
 
-Dans une application Azure IoT Central, vous pouvez [exporter en continu de vos données](howto-export-data-event-hubs-service-bus.md) vers votre propre Azure Event Hubs et les instances Azure Service Bus. Vous pouvez également régulièrement exporter vos données vers votre compte de stockage d’objets Blob Azure. IoT Central peut exporter des mesures, des appareils et des modèles de périphériques.
+Dans une application Azure IoT Central, vous pouvez [exporter en continu vos données](howto-export-data-event-hubs-service-bus.md) vers votre propre Azure Event Hubs et vers les instances Azure Service Bus. Vous pouvez également régulièrement exporter vos données vers votre compte de stockage d’objets blob Azure. IoT Central peut exporter des mesures, des appareils et des modèles d’appareil.
 
-## <a name="batch-device-updates"></a>Mises à jour des appareils de traitement par lots
+## <a name="batch-device-updates"></a>Mises à jour d’appareils par lots
 
-Dans une application Azure IoT Central, vous pouvez [créer et exécuter des travaux](howto-run-a-job.md) pour gérer les appareils connectés. Ces tâches vous permettent d’effectuer en bloc des mises à jour des propriétés de l’appareil ou des paramètres ou exécuter des commandes. Par exemple, vous pouvez créer un travail pour augmenter la vitesse de ventilateur pour plusieurs distributeurs réfrigérés.
+Dans une application Azure IoT Central, vous pouvez [créer et exécuter des travaux](howto-run-a-job.md) pour gérer des appareils connectés. Ces travaux vous permettent d’effectuer des mises à jour en bloc sur les propriétés ou les paramètres des appareils, ou d’exécuter des commandes. Par exemple, vous pouvez créer un travail pour augmenter la vitesse du ventilateur pour plusieurs distributeurs réfrigérés.
 
 ## <a name="role-based-access-control-rbac"></a>Contrôle d’accès en fonction du rôle
 
@@ -103,10 +103,10 @@ Les fonctionnalités de sécurité dans Azure IoT Central sont les suivantes :
 ## <a name="ui-shell"></a>Le shell d’interface utilisateur
 
 Le shell d’interface utilisateur est une application moderne et réactive, basée sur un navigateur HTML 5.
-Un administrateur peut personnaliser l’interface utilisateur de l’application en appliquant des thèmes personnalisés et en modifiant les liens d’aide pour pointer vers vos propres ressources d’aide personnalisée. Pour en savoir plus sur la personnalisation de l’interface utilisateur, consultez [personnaliser Azure IoT Central UI](howto-customize-ui.md) article.
+Un administrateur peut personnaliser l’interface utilisateur de l’application en appliquant des thèmes personnalisés et en modifiant les liens d’aide pour pointer vers vos propres ressources d’aide personnalisée. Pour en savoir plus sur la personnalisation de l’interface utilisateur, consultez l’article [Personnaliser l’interface utilisateur d’Azure IoT Central](howto-customize-ui.md).
 
-Un opérateur peut créer des tableaux de bord des applications personnalisées. Vous pouvez avoir plusieurs tableaux de bord qui affichent des données différentes et basculer entre elles.
+Un opérateur peut créer des tableaux de bord des applications personnalisées. Vous pouvez disposer de plusieurs tableaux de bord, qui affichent différentes informations, et basculer de l’un à l’autre.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez appris sur l’architecture d’Azure IoT Central, l’étape suivante suggérée consiste à en savoir plus sur [connectivité des appareils](concepts-connectivity.md) dans Azure IoT Central.
+Maintenant que vous avez découvert l’architecture d’Azure IoT Central, l’étape suivante suggérée est de découvrir la [connectivité des appareils](concepts-connectivity.md) dans Azure IoT Central.

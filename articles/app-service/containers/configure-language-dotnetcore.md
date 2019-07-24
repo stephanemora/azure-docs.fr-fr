@@ -1,6 +1,6 @@
 ---
 title: Configurer des applications ASP.NET Core - Azure App Service | Microsoft Docs
-description: Découvrez comment configurer les applications ASP.NET Core fonctionne dans Azure App Service
+description: Découvrir la configuration d’applications ASP.NET Core dans Azure App Service
 services: app-service
 documentationcenter: ''
 author: cephalin
@@ -14,35 +14,35 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
 ms.openlocfilehash: f2781e3cc2433f73ba7ff33e5c452e29de746adf
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65956206"
 ---
-# <a name="configure-a-linux-aspnet-core-app-for-azure-app-service"></a>Configurer une Linux application ASP.NET Core pour Azure App Service
+# <a name="configure-a-linux-aspnet-core-app-for-azure-app-service"></a>Configurer une application ASP.NET Core pour Azure App Service
 
-Les applications ASP.NET Core doivent être déployées en tant que fichiers binaires compilés. L’outil de publication de Visual Studio génère la solution et déploie les fichiers binaires compilés directement, alors que le moteur de déploiement App Service déploie en premier le référentiel de code et compile ensuite les fichiers binaires.
+Les applications ASP.NET Core doivent être déployées en tant que fichiers binaires compilés. L’outil de publication de Visual Studio génère la solution, puis déploie directement les fichiers binaires compilés, alors que le moteur de déploiement d’App Service déploie en premier le référentiel de code, puis compile les fichiers binaires.
 
-Ce guide fournit des concepts clés et des instructions pour ASP.NET Core les développeurs qui utilisent un conteneur Linux intégré dans App Service. Si vous n’avez jamais utilisé Azure App Service, suivez les [Guide de démarrage rapide ASP.NET Core](quickstart-dotnetcore.md) et [ASP.NET Core avec le didacticiel de base de données SQL](tutorial-dotnetcore-sqldb-app.md) première.
+Ce guide fournit des concepts et des instructions clés aux développeurs ASP.NET Core qui utilisent un conteneur Linux intégré dans App Service. Si vous n’avez jamais utilisé Azure App Service, suivez au préalable le [Guide de démarrage rapide d’ASP.NET Core](quickstart-dotnetcore.md) et le [didacticiel sur ASP.NET Core avec SQL Database](tutorial-dotnetcore-sqldb-app.md).
 
-## <a name="show-net-core-version"></a>Affiche la version de .NET Core
+## <a name="show-net-core-version"></a>Afficher la version de .NET Core
 
-Pour afficher la version actuelle de .NET Core, exécutez la commande suivante le [Cloud Shell](https://shell.azure.com):
+Pour afficher la version actuelle de .NET Core, exécutez la commande suivante dans [Cloud Shell](https://shell.azure.com) :
 
 ```azurecli-interactive
 az webapp config show --resource-group <resource-group-name> --name <app-name> --query linuxFxVersion
 ```
 
-Pour afficher la prise en charge toutes les versions de .NET Core, exécutez la commande suivante le [Cloud Shell](https://shell.azure.com):
+Pour afficher toutes les versions de .NET Core prises en charge, exécutez la commande suivante dans [Cloud Shell](https://shell.azure.com) :
 
 ```azurecli-interactive
 az webapp list-runtimes --linux | grep DOTNETCORE
 ```
 
-## <a name="set-net-core-version"></a>Définir la version .NET Core
+## <a name="set-net-core-version"></a>Définir la version de .NET Core
 
-Exécutez la commande suivante le [Cloud Shell](https://shell.azure.com) pour définir la version de .NET Core 2.1 :
+Exécutez la commande suivante dans [Cloud Shell](https://shell.azure.com) pour définir la version 2.1 de .NET Core :
 
 ```azurecli-interactive
 az webapp config set --name <app-name> --resource-group <resource-group-name> --linux-fx-version "DOTNETCORE|2.1"
@@ -50,7 +50,7 @@ az webapp config set --name <app-name> --resource-group <resource-group-name> --
 
 ## <a name="access-environment-variables"></a>Accéder aux variables d’environnement
 
-Dans App Service, vous pouvez [définir les paramètres de l’application](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) en dehors de votre code d’application. Vous pouvez ensuite accéder à l’aide du modèle ASP.NET standard :
+Dans App Service, vous pouvez [définir les paramètres de l’application](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) en dehors de votre code d’application. Vous pouvez ensuite y accéder à l’aide du modèle ASP.NET standard :
 
 ```csharp
 include Microsoft.Extensions.Configuration;
@@ -60,11 +60,11 @@ System.Configuration.ConfigurationManager.AppSettings["MySetting"]
 Configuration.GetConnectionString("MyDbConnection")
 ```
 
-Si vous configurez un paramètre d’application portant le même nom dans App Service et dans *Web.config*, la valeur de l’App Service est prioritaire sur la valeur de Web.config. La valeur de Web.config vous permet de déboguer l’application localement, mais la valeur de l’App Service permet à votre série de l’application dans le produit avec les paramètres de production. Chaînes de connexion fonctionnent de la même façon. De cette façon, vous pouvez conserver les secrets de votre application en dehors de votre référentiel de code et les valeurs appropriées d’accès sans modifier votre code.
+Si vous configurez un paramètre d’application portant le même nom dans App Service et dans *Web.config*, la valeur d’App Service est prioritaire sur la valeur de Web.config. La valeur de Web.config vous permet de déboguer l’application localement, tandis que la valeur d’App Service vous permet d’exécuter l’application dans le produit avec les paramètres de production. Les chaînes de connexion fonctionnent de la même façon. De cette façon, vous pouvez conserver les secrets de votre application en dehors de votre référentiel de code et accéder aux valeurs appropriées sans modifier votre code.
 
-## <a name="get-detailed-exceptions-page"></a>Obtenir la page des exceptions détaillées
+## <a name="get-detailed-exceptions-page"></a>Accéder à la page d’exceptions détaillées
 
-Lorsque votre application ASP.NET génère une exception dans le débogueur Visual Studio, le navigateur affiche une page d’exception détaillées, mais dans App Service est remplacée par un générique **HTTP 500** erreur ou **une erreur s’est produite lors traitement de votre demande.** . Pour afficher la page d’exception détaillées dans App Service, ajoutez le `ASPNETCORE_ENVIRONMENT` paramètre d’application à votre application en exécutant la commande suivante dans le <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>.
+Lorsque votre application ASP.NET génère une exception dans le débogueur Visual Studio, le navigateur affiche une page d’exceptions détaillées, mais dans App Service, cette page est remplacée par une erreur **HTTP 500** générique : **Une erreur s’est produite lors du traitement de votre demande**. . Pour afficher la page d’exceptions détaillées dans App Service, ajoutez le paramètre d’application `ASPNETCORE_ENVIRONMENT` à l’application en exécutant la commande suivante dans <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings ASPNETCORE_ENVIRONMENT="Development"
@@ -72,13 +72,13 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 ## <a name="detect-https-session"></a>Détecter une session HTTPS
 
-Dans App Service, une [terminaison SSL](https://wikipedia.org/wiki/TLS_termination_proxy) se produit au niveau des équilibreurs de charge réseau. Toutes les requêtes HTTPS accèdent donc à votre application en tant que requêtes HTTP non chiffrées. Si votre logique d’application a besoin de savoir si l’utilisateur demande sont chiffrés ou non, configurez l’intergiciel des en-têtes transférés dans *Startup.cs*:
+Dans App Service, une [terminaison SSL](https://wikipedia.org/wiki/TLS_termination_proxy) se produit au niveau des équilibreurs de charge réseau. Toutes les requêtes HTTPS accèdent donc à votre application en tant que requêtes HTTP non chiffrées. Si votre logique d’application doit savoir si les demandes utilisateur sont chiffrées ou non, configurez l’intergiciel Forwarded Headers dans *Startup.cs* :
 
-- Configurer l’intergiciel (middleware) avec [ForwardedHeadersOptions](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) pour transférer le `X-Forwarded-For` et `X-Forwarded-Proto` en-têtes dans `Startup.ConfigureServices`.
-- Ajouter des plages d’adresses IP privées pour les réseaux connus, afin que l’intergiciel (middleware) peut faire confiance à l’équilibreur de charge App Service.
-- Appeler le [UseForwardedHeaders](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders) méthode dans `Startup.Configure` avant d’appeler d’autres intergiciels.
+- Configurez l’intergiciel avec [ForwardedHeadersOptions](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) pour transférer les en-têtes `X-Forwarded-For` et `X-Forwarded-Proto` dans `Startup.ConfigureServices`.
+- Ajoutez des plages d’adresses IP privées aux réseaux connus afin que l’intergiciel puisse approuver l’équilibreur de charge d’App Service.
+- Appelez la méthode [UseForwardedHeaders](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders) dans `Startup.Configure` avant les autres intergiciels.
 
-Assembler les trois éléments, votre code ressemble à l’exemple suivant :
+Assemblez les trois éléments ; le code ressemble à l’exemple suivant :
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -105,26 +105,26 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 }
 ```
 
-Pour plus d’informations, consultez [configurer ASP.NET Core pour travailler avec des serveurs proxy et équilibreurs de charge](https://docs.microsoft.com/aspnet/core/host-and-deploy/proxy-load-balancer).
+Pour plus d’informations, consultez l’article [Configurer ASP.NET Core pour l’utilisation de serveurs proxy et d’équilibreurs de charge](https://docs.microsoft.com/aspnet/core/host-and-deploy/proxy-load-balancer).
 
 ## <a name="deploy-multi-project-solutions"></a>Déployer des solutions à projets multiples
 
-Lorsque vous déployez un référentiel ASP.NET sur le moteur de déploiement avec un *.csproj* fichier dans le répertoire racine, le moteur déploie le projet. Lorsque vous déployez un référentiel ASP.NET avec un *.sln* fichier dans le répertoire racine, le moteur récupère le premier Site Web ou un projet d’Application Web qu’il trouve que l’application App Service. Il est possible pour le moteur ne pas à choisir le projet.
+Lorsque vous déployez un référentiel ASP.NET vers le moteur de déploiement avec un fichier *.csproj* contenu dans le répertoire racine, le moteur déploie le projet. Lorsque vous déployez un référentiel ASP.NET avec un fichier *.sln* contenu dans le répertoire racine, le moteur sélectionne le premier site web ou le premier projet d’application web qu’il trouve comme application App Service. Il se peut que le moteur ne sélectionne pas le projet de votre choix.
 
-Pour déployer une solution à projets multiples, vous pouvez spécifier le projet à utiliser dans App Service de deux manières différentes :
+Pour déployer une solution à projets multiples, vous pouvez spécifier le projet à utiliser dans App Service de deux manières différentes :
 
-### <a name="using-deployment-file"></a>À l’aide du fichier .deployment
+### <a name="using-deployment-file"></a>Utilisation d’un fichier .deployment
 
-Ajouter un *.deployment* fichier à la racine du référentiel, puis ajoutez le code suivant :
+Ajoutez un fichier *.deployment* à la racine du référentiel, puis ajoutez le code suivant :
 
 ```
 [config]
 project = <project-name>/<project-name>.csproj
 ```
 
-### <a name="using-app-settings"></a>À l’aide des paramètres de l’application
+### <a name="using-app-settings"></a>Utilisation des paramètres d’application
 
-Dans le <a target="_blank" href="https://shell.azure.com">Azure Cloud Shell</a>, ajoutez un paramètre d’application à votre application app Service en exécutant la commande CLI suivante. Remplacez  *\<nom de l’application >*,  *\<resource-group-name >*, et  *\<nom_projet >* avec les valeurs appropriées .
+Dans <a target="_blank" href="https://shell.azure.com">Azure Cloud Shell</a>, ajoutez un paramètre d’application à l’application App Service en exécutant la commande CLI suivante. Remplacez *\<app-name>* , *\<resource-group-name>* et *\<project-name>* par les valeurs appropriées.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PROJECT="<project-name>/<project-name>.csproj"

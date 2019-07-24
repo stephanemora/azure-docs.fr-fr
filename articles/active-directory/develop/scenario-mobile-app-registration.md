@@ -1,6 +1,6 @@
 ---
-title: Application mobile par appels web API - configuration d’application code | Plateforme d’identité Microsoft
-description: Découvrez comment créer une application mobile par appels web API (configuration de code de l’application)
+title: Application mobile appelant des API web - configuration du code de l’application | Plateforme d’identités Microsoft
+description: Découvrez comment créer une application mobile qui appelle des API web (configuration du code de l’application)
 services: active-directory
 documentationcenter: dev-center-name
 author: danieldobalian
@@ -17,37 +17,37 @@ ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2b6ebab0eeca6895e1c7a0f6008972030d81da42
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65962408"
 ---
-# <a name="mobile-app-that-calls-web-apis---app-registration"></a>Application mobile par appels web API - inscription de l’application
+# <a name="mobile-app-that-calls-web-apis---app-registration"></a>Application mobile qui appelle des API web - inscription d’application
 
-Cet article contient les instructions de l’inscription d’application pour la création d’une application mobile.
+Cet article contient les instructions d’inscription d’application pour la création d’une application mobile.
 
 ## <a name="supported-account-types"></a>Types de comptes pris en charge
 
-Les types de compte pris en charge dans les applications mobiles dépendent de l’expérience que vous souhaitez activer et les utilisateurs de que votre application cible.
+Les types de comptes pris en charge dans les applications mobiles dépendent de l’expérience que vous souhaitez activer et des utilisateurs ciblés par votre application.
 
-## <a name="platform-configuration-and-redirect-uris"></a>Configuration de la plateforme et l’URI de redirection  
+## <a name="platform-configuration-and-redirect-uris"></a>Configuration de la plateforme et URI de redirection  
 
-Lorsque vous générez une application mobile, l’étape d’inscription les plus critiques est l’URI de redirection. Cela peut être défini via la [configuration de plateforme dans le panneau d’authentification](https://aka.ms/MobileAppReg).
+Lorsque vous générez une application mobile, l’étape d’inscription la plus critique concerne l’URI de redirection. Il peut être défini par le biais de la [configuration de plateforme dans le panneau Authentification](https://aka.ms/MobileAppReg).
 
-Cette expérience permettra à votre application obtenir l’authentification unique (SSO) via le Microsoft Authenticator (et le portail d’entreprise Intune sur Android), ainsi que la prise en charge des stratégies de gestion des appareils.
+Cette expérience permet à votre application d’obtenir une authentification unique (SSO) au moyen de Microsoft Authenticator (et du portail d’entreprise Intune sur Android), ainsi que la prise en charge des stratégies de gestion des appareils.
 
-Si vous préférez configurer manuellement l’URI de redirection, vous pouvez le faire via le manifeste d’Application. Le format recommandé est le suivant :
+Si vous préférez configurer manuellement l’URI de redirection, vous pouvez le faire au moyen du manifeste de l’application. Le format recommandé est le suivant :
 
-- ***iOS***: `msauth.<BUNDLE_ID>://auth`
-- ***Android***: `msauth://<PACKAGE_NAME>/<SIGNATURE_HASH>`
-  - Le hachage de signature Android peut être généré à l’aide des clés via la commande KeyTool debug ou release.
+- ***iOS*** : `msauth.<BUNDLE_ID>://auth`
+- ***Android*** : `msauth://<PACKAGE_NAME>/<SIGNATURE_HASH>`
+  - Le hachage de signature Android peut être généré à l’aide des clés de mise en production ou de débogage par le biais de la commande KeyTool.
 
-## <a name="api-permissions"></a>API autorisées
+## <a name="api-permissions"></a>Autorisations des API
 
-Les applications mobiles appeler des API pour le compte de l’utilisateur connecté. Votre application doit demander des autorisations déléguées, également appelées étendues. En fonction de l’expérience souhaitée, cela est possible statiquement via le portail Azure ou dynamiquement au moment de l’exécution. Statiquement l’inscription d’autorisations permet aux administrateurs d’approuver facilement votre application et est recommandée.
+Les applications mobiles appellent des API pour le compte de l’utilisateur connecté. Votre application doit demander des permissions déléguées, également appelées « étendues ». En fonction de l’expérience souhaitée, il est possible de le faire de manière statique sur le Portail Azure, ou de manière dynamique au moment de l’exécution. Grâce à l’inscription statique des permissions, les administrateurs peuvent approuver facilement votre application. Cette méthode est recommandée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [L’acquisition d’un jeton](scenario-mobile-acquire-token.md)
+> [Acquisition d’un jeton](scenario-mobile-acquire-token.md)
