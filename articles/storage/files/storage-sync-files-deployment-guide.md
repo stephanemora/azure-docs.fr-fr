@@ -9,10 +9,10 @@ ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 0913e1877c63ed1a8e960676be02a12b45a34a7d
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66240091"
 ---
 # <a name="deploy-azure-file-sync"></a>Déployer Azure File Sync
@@ -20,12 +20,12 @@ Utilisez Azure File Sync pour centraliser les partages de fichiers de votre orga
 
 Nous vous recommandons fortement de lire les articles [Planification d’un déploiement Azure Files](storage-files-planning.md) et [Planification d’un déploiement de synchronisation de fichiers Azure](storage-sync-files-planning.md) avant d’effectuer les étapes décrites dans cet article.
 
-## <a name="prerequisites"></a>Conditions préalables
-* Un partage de fichiers Azure dans la même région que vous souhaitez déployer Azure File Sync. Pour plus d'informations, consultez les pages suivantes :
+## <a name="prerequisites"></a>Prérequis
+* Un partage de fichiers Azure situé dans la région où vous souhaitez déployer Azure File Sync. Pour plus d'informations, consultez les pages suivantes :
     - [Disponibilité des régions](storage-sync-files-planning.md#region-availability) pour Azure File Sync.
     - [Créer un partage de fichiers](storage-how-to-create-file-share.md) pour obtenir une procédure pas à pas de la création d’un partage de fichiers.
 * Avoir au moins une instance de Windows Server ou d’un cluster Windows Server prise en charge pour la synchronisation avec Azure File Sync. Pour plus d’informations sur les versions de Windows Server prises en charge, consultez [Interopérabilité avec Windows Server](storage-sync-files-planning.md#azure-file-sync-system-requirements-and-interoperability).
-* Le module PowerShell de Az peut être utilisé avec PowerShell 5.1 ou PowerShell 6 et versions ultérieures. Vous pouvez utiliser le module PowerShell de Az pour Azure File Sync sur n’importe quel système pris en charge, y compris aux systèmes non Windows, mais l’applet de commande de l’inscription de serveur doit toujours être exécuté directement sur l’instance de Windows Server que vous inscrivez. Sur Windows Server 2012 R2, vous pouvez vérifier que vous exécutez au moins PowerShell 5.1. \* en examinant la valeur de la **PSVersion** propriété de la **$PSVersionTable** objet :
+* Le module Az PowerShell peut être utilisé avec PowerShell 5.1 ou PowerShell 6+. Vous pouvez utiliser le module Az PowerShell pour Azure File Sync sur n’importe quel système pris en charge, y compris les systèmes non Windows, mais la cmdlet d’enregistrement du serveur doit toujours être exécutée directement sur l’instance Windows Server que vous enregistrez. Sur Windows Server 2012 R2, vous pouvez vérifier que vous exécutez au moins PowerShell 5.1.\* en regardant la valeur de la propriété **PSVersion** de l’objet **$PSVersionTable** :
 
     ```powershell
     $PSVersionTable.PSVersion
@@ -33,13 +33,13 @@ Nous vous recommandons fortement de lire les articles [Planification d’un dép
 
     Si la valeur PSVersion est inférieure à 5.1.\*, comme cela est le cas avec la plupart des nouvelles installations de Windows Server 2012 R2, vous pouvez facilement effectuer la mise à niveau en téléchargeant et en installant [Windows Management Framework (WMF) 5.1](https://www.microsoft.com/download/details.aspx?id=54616). Le package correct à télécharger et à installer pour Windows Server 2012 R2 est **Win8.1AndW2K12R2-KB\*\*\*\*\*\*\*-x64.msu**. 
 
-    PowerShell 6 et versions ultérieures peut être utilisé avec n’importe quel système pris en charge et peut être téléchargé via son [page GitHub](https://github.com/PowerShell/PowerShell#get-powershell). 
+    PowerShell 6+ peut être utilisé avec n’importe quel système pris en charge, et peut être téléchargé via sa page [GitHub](https://github.com/PowerShell/PowerShell#get-powershell). 
 
     > [!Important]  
-    > Si vous envisagez d’utiliser l’interface utilisateur d’inscription de serveur, au lieu de l’inscription directement à partir de PowerShell, vous devez utiliser PowerShell 5.1.
+    > Si vous prévoyez d’utiliser l’interface d’enregistrement du serveur, plutôt que de vous enregistrer directement depuis PowerShell, vous devez utiliser PowerShell 5.1.
 
-* Si vous avez choisi de les utiliser PowerShell 5.1, vérifiez qu’au moins .NET 4.7.2 est installé. En savoir plus sur [versions du .NET Framework et les dépendances](https://docs.microsoft.com/dotnet/framework/migration-guide/versions-and-dependencies) sur votre système.
-* Le module PowerShell de Az, qui peut être installé en suivant les instructions fournies ici : [Installez et configurez Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). 
+* Si vous avez choisi d’utiliser PowerShell 5.1, assurez-vous qu’au moins .NET 4.7.2 est installé. En savoir plus sur les [Versions et dépendances .NET Framework](https://docs.microsoft.com/dotnet/framework/migration-guide/versions-and-dependencies) sur votre système.
+* Le module Az PowerShell, qui peut être installé en suivant les instructions ici : [Installez et configurez Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). 
 * Le module Az.StorageSync, qui est actuellement installé indépendamment du module Az :
 
     ```PowerShell
@@ -85,7 +85,7 @@ Le déploiement de Azure File Sync commence par le placement d’une ressource *
 > Le service de synchronisation de stockage a hérité des autorisations d’accès de l’abonnement et du groupe de ressources dans lequel il a été déployé. Nous vous recommandons de vérifier soigneusement les personnes qui y ont accès. Les entités avec un accès en écriture peuvent démarrer la synchronisation de nouveaux ensembles de fichiers à partir des serveurs inscrits dans ce service de synchronisation de stockage et permettre le flux de données vers le stockage Azure qui leur est accessible.
 
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
-Pour déployer un Service de synchronisation de stockage, accédez à la [Azure portal](https://portal.azure.com/), cliquez sur *créer une ressource* , puis recherchez Azure File Sync. Dans les résultats de la recherche, sélectionnez **Azure File Sync**, puis sélectionnez **Créer** pour ouvrir l’onglet **Déployer la synchronisation du stockage**.
+Pour déployer un service de synchronisation de stockage, accédez au [Portail Microsoft Azure](https://portal.azure.com/), cliquez sur *Créer une ressource*, puis recherchez Azure File Sync. Dans les résultats de la recherche, sélectionnez **Azure File Sync**, puis sélectionnez **Créer** pour ouvrir l’onglet **Déployer la synchronisation du stockage**.
 
 Dans le volet qui s’ouvre, entrez les informations suivantes :
 
@@ -97,7 +97,7 @@ Dans le volet qui s’ouvre, entrez les informations suivantes :
 Quand vous avez terminé, sélectionnez **Créer** pour déployer le service de synchronisation de stockage.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
-Remplacez **< Az_Region >** , **< RG_Name >** , et **< my_storage_sync_service >** avec vos propres valeurs, puis utiliser les commandes suivantes pour créer et déployer un Service de synchronisation de stockage :
+Remplacez **<Az_Region>** , **<RG_Name>** , et **<my_storage_sync_service>** par vos propres valeurs, puis utilisez les cmds suivantes pour créer et déployer un service Synchronisation de stockage :
 
 ```powershell
 Connect-AzAccount

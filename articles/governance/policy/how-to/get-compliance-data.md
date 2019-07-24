@@ -9,15 +9,15 @@ ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 428a1614889409300064420e1d3d4fbc0423a0ec
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66237527"
 ---
-# <a name="get-compliance-data-of-azure-resources"></a>Obtenir des données de conformité des ressources Azure
+# <a name="get-compliance-data-of-azure-resources"></a>Obtenir les données de conformité des ressources Azure
 
-Azure Policy offre, entre autres avantages, un insight et des contrôles sur les ressources d’un abonnement ou un [groupe d’administration](../../management-groups/overview.md) d’abonnements. Ce contrôle peut être effectué de différentes façons, notamment en empêchant la création de ressources au mauvais emplacement, en appliquant une utilisation commune et cohérente des balises ou en auditant les ressources existantes pour vérifier l’adéquation des configurations et paramètres. Dans tous les cas, les données sont générées par la stratégie Azure pour vous permettre de comprendre l’état de conformité de votre environnement.
+Azure Policy offre, entre autres avantages, un insight et des contrôles sur les ressources d’un abonnement ou un [groupe d’administration](../../management-groups/overview.md) d’abonnements. Ce contrôle peut être effectué de différentes façons, notamment en empêchant la création de ressources au mauvais emplacement, en appliquant une utilisation commune et cohérente des balises ou en auditant les ressources existantes pour vérifier l’adéquation des configurations et paramètres. Dans tous les cas, les données générées par Azure Policy vous permettent de comprendre l’état de conformité de votre environnement.
 
 Il existe plusieurs façons d’accéder aux informations de conformité générées par votre stratégie et vos affectations initiatives :
 
@@ -27,13 +27,13 @@ Il existe plusieurs façons d’accéder aux informations de conformité génér
 Avant d’examiner les méthodes de rapport sur la conformité, voyons à quel moment les informations de conformité sont mises à jour et passons en revue la fréquence et les événements qui déclenchent un cycle d’évaluation.
 
 > [!WARNING]
-> Si l’état de conformité est signalé comme **ne pas inscrit**, vérifiez que le **Microsoft.PolicyInsights** (de contrôle de fournisseur de ressources est inscrit et que l’utilisateur dispose de l’accès approprié en fonction du rôle Les autorisations RBAC) comme décrit dans [RBAC dans Azure Policy](../overview.md#rbac-permissions-in-azure-policy).
+> Si l’état de conformité indiqué est **Non inscrit**, vérifiez que le fournisseur de ressources **Microsoft.PolicyInsights** est inscrit et que l’utilisateur dispose d’autorisations de contrôle d’accès en fonction du rôle (RBAC) appropriées, comme décrit dans [Contrôle d’accès en fonction du rôle (RBAC) dans Azure Policy](../overview.md#rbac-permissions-in-azure-policy).
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 ## <a name="evaluation-triggers"></a>Déclencheurs d’évaluation
 
-Les résultats d’un cycle d’évaluation terminé sont disponibles dans le fournisseur de ressources `Microsoft.PolicyInsights` via les opérations `PolicyStates` et `PolicyEvents`. Pour plus d’informations sur les opérations de l’API REST Azure Policy Insights, consultez [Azure Policy Insights](/rest/api/policy-insights/).
+Les résultats d’un cycle d’évaluation terminé sont disponibles dans le fournisseur de ressources `Microsoft.PolicyInsights` via les opérations `PolicyStates` et `PolicyEvents`. Pour plus d’informations sur les opérations de l’API REST Azure Policy Insights, consultez la page [Azure Policy Insights](/rest/api/policy-insights/).
 
 Différents événements permettent d’évaluer les stratégies et initiatives assignées :
 
@@ -60,13 +60,13 @@ Dans chaque URI d’API REST, vous devez remplacer les variables utilisées par 
 
 L’analyse prend en charge l’évaluation des ressources dans un abonnement ou dans un groupe de ressources. Lancez une analyse pour une étendue avec une commande **POST** d’API REST en utilisant les structures d’URI suivantes :
 
-- Abonnement
+- Subscription
 
   ```http
   POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2018-07-01-preview
   ```
 
-- Groupe de ressources
+- Resource group
 
   ```http
   POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{YourRG}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2018-07-01-preview
@@ -115,41 +115,41 @@ Outre les états **Conforme** et **Non conforme**, les stratégies et les ressou
 - **Non démarré** : Le cycle d’évaluation n’a pas démarré pour la stratégie ou la ressource.
 - **Non inscrit** : Le fournisseur de ressources Azure Policy n’a pas été inscrit ou le compte connecté n’est pas autorisé à lire les données de conformité.
 
-Azure Policy utilise le **type** et **nom** champs dans la définition pour déterminer si une ressource est une correspondance. Lorsque la ressource correspond, elle est considérée comme applicable et présente l’état **Conforme** ou **Non conforme**. Si le champ **type** ou **nom** est la seule propriété dans la définition de règle de stratégie, toutes les ressources sont considérées comme applicables et sont évaluées.
+La Azure Policy utilise les champs **type** et **nom** de la définition pour déterminer si une ressource correspond. Lorsque la ressource correspond, elle est considérée comme applicable et présente l’état **Conforme** ou **Non conforme**. Si le champ **type** ou **nom** est la seule propriété dans la définition de règle de stratégie, toutes les ressources sont considérées comme applicables et sont évaluées.
 
 Le pourcentage de conformité est déterminé en divisant le nombre de ressources **conformes** par le _nombre total de ressources_.
 Le _nombre total de ressources_ est défini comme étant la somme des ressources **conformes**, **non conformes** et **en conflit**. La conformité globale est la somme des ressources distinctes **conformes** divisée par la somme de toutes les ressources distinctes. Dans l’image ci-dessous, il y a 20 ressources distinctes applicables et une seule **non conforme**. La conformité globale des ressources est égale à 95 % (soit 19 sur 20).
 
-![Exemple de conformité à la stratégie à partir de la page de conformité](../media/getting-compliance-data/simple-compliance.png)
+![Exemple de conformité à la stratégie à partir de la page Conformité](../media/getting-compliance-data/simple-compliance.png)
 
 ## <a name="portal"></a>Portail
 
 Le portail Azure permet de visualiser et comprendre l’état de conformité de votre environnement selon une représentation graphique. Sur la page **Stratégie**, l’option **Vue d’ensemble** fournit des détails sur les étendues disponibles pour la conformité des stratégies et des initiatives. En complément de l’état de conformité et du nombre par affectation, elle contient un graphique retraçant la conformité au cours des sept derniers jours. La page **Conformité** regroupe essentiellement les mêmes informations (à l’exception du graphique), mais avec également des options de tri et de filtrage supplémentaires.
 
-![Exemple de page de conformité à la stratégie Azure](../media/getting-compliance-data/compliance-page.png)
+![Exemple de page de conformité à Azure Policy](../media/getting-compliance-data/compliance-page.png)
 
 Comme une stratégie ou une initiative peut être affectée à différentes étendues, le tableau comprend l’étendue pour chaque affectation et le type de définition qui a été affecté. Le nombre de ressources et de stratégies non conformes est aussi indiqué pour chaque affectation. En cliquant sur une stratégie ou une initiative dans le tableau, vous obtenez davantage de détails sur la conformité de l’affectation concernée.
 
-![Exemple de page de détails de conformité la stratégie Azure](../media/getting-compliance-data/compliance-details.png)
+![Exemple de page de détails de la conformité à Azure Policy](../media/getting-compliance-data/compliance-details.png)
 
 La liste des ressources dans l’onglet **Resource compliance (Conformité des ressources)** affiche l’état de l’évaluation des ressources existantes pour l’affectation actuelle. Par défaut, l’onglet est défini sur **Non conforme**, mais un filtre peut être appliqué.
 Les événements (ajouter, effectuer un audit, refuser, déployer) déclenchés par la requête pour créer une ressource sont affichés dans l’onglet **Événements**.
 
-![Exemple d’événements de la conformité à la stratégie Azure](../media/getting-compliance-data/compliance-events.png)
+![Exemple d’événements de conformité à Azure Policy](../media/getting-compliance-data/compliance-events.png)
 
 Cliquez avec le bouton droit sur la ligne de l’événement pour lequel vous souhaitez obtenir plus de détails et sélectionnez **Afficher les journaux d’activité**. La page Journal d’activité s’ouvre et les critères de recherche sont préfiltrés pour montrer les détails de l’affectation et des événements. Le journal d’activité fournit davantage de contexte ainsi que des informations supplémentaires sur ces événements.
 
-![Exemple de journal d’activité de conformité de stratégie Azure](../media/getting-compliance-data/compliance-activitylog.png)
+![Exemple de journal d’activité de conformité à Azure Policy](../media/getting-compliance-data/compliance-activitylog.png)
 
 ### <a name="understand-non-compliance"></a>Comprendre la non-conformité
 
 <a name="change-history-preview"></a>
 
-Lorsqu’une ressource est déterminé comme étant **non conformes**, il existe plusieurs raisons. Pour déterminer la cause est une ressource **non conformes** ou pour rechercher la responsable de la modification, consultez [déterminer une non-conformité](./determine-non-compliance.md).
+Lorsque le système détermine qu’une ressource est **non conforme**, plusieurs raisons justifient cela. Pour déterminer la raison d’une **non conformité** d’une ressource ou pour rechercher le ou la responsable de la modification, veuillez consulter [Déterminer une non-conformité](./determine-non-compliance.md).
 
 ## <a name="command-line"></a>Ligne de commande
 
-Les informations disponibles dans le portail peuvent être récupérées à l’aide de l’API REST (y compris avec [ARMClient](https://github.com/projectkudu/ARMClient)) ou à l’aide d’Azure PowerShell. Pour plus d’informations sur l’API REST, consultez le [Azure Policy Insights](/rest/api/policy-insights/) référence. Les pages de référence de l’API REST contiennent, pour chaque opération, un bouton vert qui vous permet de la tester directement dans votre navigateur.
+Les informations disponibles dans le portail peuvent être récupérées à l’aide de l’API REST (y compris avec [ARMClient](https://github.com/projectkudu/ARMClient)) ou à l’aide d’Azure PowerShell. Pour plus d’informations sur l’API REST, consultez la référence [Azure Policy Insights](/rest/api/policy-insights/). Les pages de référence de l’API REST contiennent, pour chaque opération, un bouton vert qui vous permet de la tester directement dans votre navigateur.
 
 Pour utiliser les exemples suivants dans Azure PowerShell, créez un jeton d’authentification avec cet exemple de code. Remplacez ensuite le $restUri par la chaîne de votre choix dans les exemples pour récupérer un objet JSON pouvant être analysé.
 
@@ -178,7 +178,7 @@ $response
 
 ### <a name="summarize-results"></a>Synthétiser les résultats
 
-Avec l’API REST, la synthèse peut être effectuée par conteneur, par définition ou par affectation. Voici un exemple de synthèse au niveau de l’abonnement à l’aide d’Azure stratégie Insight [résumer pour l’abonnement](/rest/api/policy-insights/policystates/summarizeforsubscription):
+Avec l’API REST, la synthèse peut être effectuée par conteneur, par définition ou par affectation. Voici un exemple de synthèse obtenu au niveau de l’abonnement à l’aide de la fonction de [résumé de l’abonnement](/rest/api/policy-insights/policystates/summarizeforsubscription) de Azure Policy Insights :
 
 ```http
 POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/summarize?api-version=2018-04-04
@@ -288,11 +288,11 @@ Vos résultats doivent ressembler à l’exemple suivant :
 }
 ```
 
-Pour plus d’informations sur l’interrogation des événements de stratégie, consultez le [les événements de stratégie Azure](/rest/api/policy-insights/policyevents) article de référence.
+Pour plus d’informations sur l’interrogation des événements de stratégie, consultez l’article de référence intitulé [Événements Azure Policy](/rest/api/policy-insights/policyevents).
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Le module Azure PowerShell pour Azure Policy est disponible dans la galerie PowerShell en tant que [Az.PolicyInsights](https://www.powershellgallery.com/packages/Az.PolicyInsights).
+Le module Azure PowerShell d’Azure Policy est disponible dans PowerShell Gallery sous le nom [Az.PolicyInsights](https://www.powershellgallery.com/packages/Az.PolicyInsights).
 Vous pouvez utiliser PowerShellGet pour installer le module à l’aide de `Install-Module -Name Az.PolicyInsights` (vérifiez que vous disposez de la dernière version [d’Azure PowerShell](/powershell/azure/install-az-ps)) :
 
 ```azurepowershell-interactive
@@ -416,16 +416,16 @@ Trent Baker
 
 ## <a name="azure-monitor-logs"></a>Journaux d’activité Azure Monitor
 
-Si vous avez un [espace de travail Analytique de journal](../../../log-analytics/log-analytics-overview.md) avec `AzureActivity` à partir de la [solution d’Analytique de journal d’activité](../../../azure-monitor/platform/activity-log-collect.md) liée à votre abonnement, vous pouvez également afficher les résultats de non-conformité du cycle d’évaluation à l’aide requêtes Kusto simples et `AzureActivity` table. Grâce aux informations des journaux d’activité Azure Monitor, des alertes peuvent être configurées de manière à signaler les problèmes de non-conformité.
+Si vous avez un espace de travail [Log Analytics](../../../log-analytics/log-analytics-overview.md) dans lequel `AzureActivity` de la solution [Activity Log Analytics](../../../azure-monitor/platform/activity-log-collect.md) est liée à votre abonnement, vous pouvez également afficher les résultats non conformes à partir du cycle d’évaluation en utilisant de simples Kusto et la table `AzureActivity`. Grâce aux informations des journaux d’activité Azure Monitor, des alertes peuvent être configurées de manière à signaler les problèmes de non-conformité.
 
 
-![Conformité à la stratégie Azure à l’aide des journaux Azure Monitor](../media/getting-compliance-data/compliance-loganalytics.png)
+![Conformité à Azure Policy à l’aide des journaux d’activité Azure Monitor](../media/getting-compliance-data/compliance-loganalytics.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Passez en revue les exemples à l’adresse [exemples Azure Policy](../samples/index.md).
+- Consultez des exemples à la page [Exemples Azure Policy](../samples/index.md).
 - Consultez la [Structure de définition Azure Policy](../concepts/definition-structure.md).
 - Consultez la page [Compréhension des effets de Policy](../concepts/effects.md).
-- Comprendre comment [créer par programmation des stratégies](programmatically-create.md).
-- Découvrez comment [corriger les ressources non conformes](remediate-resources.md).
+- Découvrez comment [créer des stratégies par programmation](programmatically-create.md).
+- Découvrez comment [corriger des ressources non conformes](remediate-resources.md).
 - Pour en savoir plus sur les groupes d’administration, consultez [Organiser vos ressources avec des groupes d’administration Azure](../../management-groups/overview.md).

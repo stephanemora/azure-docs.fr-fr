@@ -10,10 +10,10 @@ ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
 ms.openlocfilehash: 7bc7f3631748f4ac74a76e9e67aa2aef2c8f9a71
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66480306"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Résoudre les problèmes liés à Azure Files sous Windows
@@ -64,7 +64,7 @@ Une erreur système 53 ou 67 peut se produire si la communication sortante du 
 
 Pour vérifier si votre pare-feu ou votre ISP bloque le port 445, utilisez l’outil [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) ou l’applet de commande `Test-NetConnection`. 
 
-Pour utiliser le `Test-NetConnection` applet de commande Azure PowerShell module doit être installé, consultez [installer Azure PowerShell module](/powershell/azure/install-Az-ps) pour plus d’informations. N’oubliez pas de remplacer `<your-storage-account-name>` et `<your-resource-group-name>` avec les noms appropriés de votre compte de stockage.
+Pour utiliser la cmdlet `Test-NetConnection`, vous devez avoir installé le module Azure PowerShell. Pour en savoir plus, veuillez consulter [Installer un module Azure PowerShell](/powershell/azure/install-Az-ps). N’oubliez pas de remplacer `<your-storage-account-name>` et `<your-resource-group-name>` avec les noms appropriés de votre compte de stockage.
 
    
     $resourceGroupName = "<your-resource-group-name>"
@@ -95,18 +95,18 @@ Si la connexion a réussi, vous devez voir la sortie suivante :
 
 ### <a name="solution-for-cause-1"></a>Solution pour la cause 1
 
-#### <a name="solution-1---use-azure-file-sync"></a>Solution 1 - utiliser Azure File Sync
-Azure File Sync peut transforme votre serveur de Windows en local dans un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Azure File Sync fonctionne sur le port 443 et peut donc être utilisé comme solution de contournement pour accéder Azure Files à partir de clients qui ont le port 445 bloqué. [Découvrez comment configurer Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-extend-servers).
+#### <a name="solution-1---use-azure-file-sync"></a>Solution 1 - Utiliser Azure File Sync
+Azure File Sync peut transformer vos instances Windows Server locales en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Azure File Sync fonctionne sur le port 443 et peut donc être utilisé comme une solution de contournement pour accéder à Azure Files à partir de clients dont le port 445 est bloqué. [Découvrez comment configurer Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-extend-servers).
 
-#### <a name="solution-2---use-vpn"></a>Solution 2 : utilisation VPN
-En configurant un VPN à votre compte de stockage spécifique, le trafic passe par un tunnel sécurisé par opposition à via internet. Suivez le [obtenir des instructions sur la configuration du VPN](https://github.com/Azure-Samples/azure-files-samples/tree/master/point-to-site-vpn-azure-files
-) pour accéder aux fichiers Azure à partir de Windows.
+#### <a name="solution-2---use-vpn"></a>Solution 2 - Utiliser un VPN
+En configurant un VPN pour votre compte de stockage spécifique, le trafic passera par un tunnel sécurisé plutôt que par Internet. Suivez les [instructions pour configurer un VPN](https://github.com/Azure-Samples/azure-files-samples/tree/master/point-to-site-vpn-azure-files
+) pour accéder à Azure Files depuis Windows.
 
-#### <a name="solution-3---unblock-port-445-with-help-of-your-ispit-admin"></a>Solution 3 : débloquer le port 445 à l’aide de votre fournisseur de services / administrateur informatique
-Travailler avec votre service informatique ou le fournisseur de services Internet pour ouvrir le port 445 sortant aux [plages IP Azure](https://www.microsoft.com/download/details.aspx?id=41653).
+#### <a name="solution-3---unblock-port-445-with-help-of-your-ispit-admin"></a>Solution 3 - Débloquer le port 445 avec l’aide de votre ISP/administrateur informatique
+Contactez votre service informatique ou ISP pour ouvrir le port 445 sortant aux [plages IP Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 
-#### <a name="solution-4---use-rest-api-based-tools-like-storage-explorerpowershell"></a>Solution 4 : utiliser l’API REST en fonction des outils tels que Storage Explorer ou de Powershell
-Azure Files prend également en charge REST en plus de SMB. L’accès REST fonctionne sur le port 443 (tcp standard). Il existe différents outils qui sont écrits à l’aide de l’API REST qui permettent l’expérience d’interface utilisateur riche. [Explorateur de stockage](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) est un d’eux. [Télécharger et installer l’Explorateur de stockage](https://azure.microsoft.com/features/storage-explorer/) et connectez-vous à votre partage de fichiers grâce à Azure Files. Vous pouvez également utiliser [PowerShell](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-powershell) qui également utilisateur API REST.
+#### <a name="solution-4---use-rest-api-based-tools-like-storage-explorerpowershell"></a>Solution 4 - Utiliser les outils basés sur l’API REST, par exemple l’Explorateur Stockage/PowerShell
+Azure Files prend également en charge REST en plus de SMB. L’accès REST fonctionne sur le port 443 (tcp standard). Il existe divers outils écrits à l’aide de l’API REST qui permettent une expérience d’interface utilisateur riche. L’[Explorateur Stockage](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) est l’un d’eux. [Téléchargez et installez l’Explorateur Stockage](https://azure.microsoft.com/features/storage-explorer/), puis connectez-vous à votre partage de fichiers grâce à Azure Files. Vous pouvez aussi utiliser [PowerShell](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-powershell) qui utilise également API REST.
 
 
 ### <a name="cause-2-ntlmv1-is-enabled"></a>Cause 2 : NTLMv1 est activé
@@ -137,7 +137,7 @@ L’erreur 1816 se produit lorsque vous atteignez la limite autorisée de descri
 Réduisez le nombre de handles ouverts simultanément en fermant certains d’entre eux, puis réessayez. Pour plus d’informations, consultez [Liste de contrôle des performances et de l’extensibilité de Microsoft Azure Storage](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 <a id="authorizationfailureportal"></a>
-## <a name="error-authorization-failure-when-browsing-to-an-azure-file-share-in-the-portal"></a>Erreur « Échec de l’autorisation » lorsque vous accédez à un partage de fichiers Azure dans le portail
+## <a name="error-authorization-failure-when-browsing-to-an-azure-file-share-in-the-portal"></a>Erreur « Échec de l’autorisation » quand vous accédez à un partage de fichiers Azure dans le portail
 
 Quand vous accédez à un partage de fichiers Azure dans le portail, vous pouvez recevoir l’erreur suivante :
 

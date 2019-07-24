@@ -9,14 +9,14 @@ ms.date: 05/20/2019
 ms.author: mialdrid
 ms.custom: seodec18
 ms.openlocfilehash: 18615cf737eedcd188fd59d2aa98482210b9333a
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65991585"
 ---
 # <a name="expressroute-virtual-network-gateway-and-fastpath"></a>Passerelle de réseau virtuel ExpressRoute et FastPath
-Pour connecter votre réseau virtuel Azure et votre réseau local via ExpressRoute, vous devez d’abord créer une passerelle de réseau virtuel. Une passerelle de réseau virtuel a deux objectifs : exchange IP itinéraires entre les réseaux et acheminer le trafic réseau. Cet article explique les types de passerelle, les références SKU de passerelle et les performances estimé par référence (SKU). Cet article explique également ExpressRoute [chemin d’accès rapide](#fastpath), une fonctionnalité qui permet le trafic réseau à partir de votre réseau local de contourner la passerelle de réseau virtuel pour améliorer les performances.
+Pour connecter votre réseau virtuel Azure et votre réseau local via ExpressRoute, vous devez d’abord créer une passerelle réseau virtuelle. Une passerelle réseau virtuelle a deux objectifs : échanger des itinéraires IP entre les réseaux et acheminer le trafic du réseau. Cet article contient des informations sur les références (SKU) de passerelle, les performances estimées par référence (SKU) et les types de passerelle. Cet article présente également ExpressRoute [FastPath](#fastpath), une fonctionnalité qui permet au trafic réseau de votre réseau local de contourner la passerelle réseau virtuelle pour améliorer les performances.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -33,7 +33,7 @@ Chaque réseau virtuel ne peut posséder qu’une seule passerelle de réseau vi
 ## <a name="gwsku"></a>SKU de passerelle
 [!INCLUDE [expressroute-gwsku-include](../../includes/expressroute-gwsku-include.md)]
 
-Si vous souhaitez mettre à niveau votre passerelle vers une référence (SKU) de passerelle plus puissante, dans la plupart des cas, vous pouvez utiliser l’applet de commande PowerShell de « Resize-AzVirtualNetworkGateway ». Cela fonctionne pour les mises à niveau vers les références (SKU) Standard HighPerformance. Toutefois, pour mettre à niveau vers la référence (SKU) UltraPerformance, vous devez recréer la passerelle. La recréation d’une passerelle entraîne un temps d’arrêt.
+Si vous souhaitez mettre à niveau votre passerelle vers une référence (SKU) de passerelle plus puissante, dans la plupart des cas, vous pouvez utiliser la cmdlet PowerShell « Resize-AzVirtualNetworkGateway ». Cela fonctionne pour les mises à niveau vers les références (SKU) Standard HighPerformance. Toutefois, pour mettre à niveau vers la référence (SKU) UltraPerformance, vous devez recréer la passerelle. La recréation d’une passerelle entraîne un temps d’arrêt.
 
 ### <a name="aggthroughput"></a>Performances estimées par référence (SKU) de passerelle
 Le tableau ci-dessous présente les types de passerelle et les performances estimées. Cette table s’applique aux modèles de déploiement classique et Resource Manager.
@@ -60,13 +60,13 @@ Les passerelles redondantes interzone utilisent de nouvelles références SKU sp
 Les nouvelles références SKU de passerelle prennent également en charge les autres options de déploiement pour mieux répondre à vos besoins. Lorsque vous créez une passerelle de réseau virtuel avec les nouvelles références SKU de passerelle, vous avez également la possibilité de déployer la passerelle dans une zone spécifique. Il s’agit alors d’une passerelle zonale. Lorsque vous déployez une passerelle zonale, les deux instances de la passerelle sont déployées dans la même zone de disponibilité.
 
 ## <a name="fastpath"></a>FastPath
-Passerelle de réseau virtuel ExpressRoute est conçue pour échanger des itinéraires de réseau et acheminer le trafic réseau. Chemin d’accès rapide est conçu pour améliorer les performances de chemin d’accès des données entre votre réseau local et votre réseau virtuel. Lorsque l’option est activée, chemin d’accès rapide envoie le trafic réseau directement aux machines virtuelles dans le réseau virtuel, en ignorant la passerelle. 
+La passerelle de réseau virtuel ExpressRoute est conçue pour échanger des routages réseau et acheminer le trafic du réseau. FastPath est conçu pour améliorer les performances du chemin d’accès aux données entre votre réseau local et votre réseau virtuel. Lorsqu’il est activé, FastPath envoie le trafic réseau directement vers les machines virtuelles du réseau virtuel, en contournant la passerelle. 
 
-Chemin d’accès rapide est disponible sur [ExpressRoute Direct](expressroute-erdirect-about.md) uniquement. En d’autres termes, vous pouvez activer cette fonctionnalité uniquement vous [connecter votre réseau virtuel](expressroute-howto-linkvnet-arm.md) à un circuit ExpressRoute créé sur un port Direct d’ExpressRoute. Chemin d’accès rapide nécessite toujours une passerelle de réseau virtuel doivent être créés pour échanger des itinéraires entre le réseau virtuel et le réseau local. La passerelle de réseau virtuel doit être très hautes performances ou ErGw3AZ.
+FastPath est uniquement disponible sur [ExpressRoute Direct](expressroute-erdirect-about.md). En d’autres termes, vous ne pouvez activer cette fonctionnalité que si vous [connectez votre réseau virtuel](expressroute-howto-linkvnet-arm.md) à un circuit ExpressRoute créé sur un port ExpressRoute Direct. FastPath nécessite toujours la création d’une passerelle réseau virtuelle pour échanger des routages entre le réseau virtuel et le réseau local. La passerelle réseau virtuelle doit être Ultra-Performance ou ErGw3AZ.
 
-Chemin d’accès rapide ne prend pas en charge les fonctionnalités suivantes :
-* UDR sur le sous-réseau de passerelle : Si vous appliquez un UDR au sous-réseau de passerelle de votre réseau virtuel, le trafic réseau à partir de votre réseau local continueront à être envoyées à la passerelle de réseau virtuel.
-* L’homologation de réseau virtuel : Si vous disposez d’autres réseaux virtuels homologués avec celui qui est connecté à ExpressRoute, le trafic réseau à partir de votre réseau local pour les autres réseaux virtuels (par exemple, les soi-disant « Spoke » réseaux virtuels) continueront à être envoyées sur le réseau virtuel passerelle. La solution de contournement consiste à connecter tous les réseaux virtuels au circuit ExpressRoute directement.
+FastPath ne prend pas en charge les fonctionnalités suivantes :
+* Routage défini par l’utilisateur sur le sous-réseau de la passerelle : si vous appliquez un routage défini par l’utilisateur (UDR) au sous-réseau de la passerelle de votre réseau virtuel, le trafic réseau de votre réseau local continuera à être envoyé vers la passerelle du réseau virtuel.
+* VNet Peering : si vous avez d’autres réseaux virtuels appairés avec celui qui est connecté à ExpressRoute, le trafic réseau de votre réseau local vers les autres réseaux virtuels (c’est-à-dire les réseaux virtuels ou VNets dits « en rayon ») sera toujours envoyé vers la passerelle réseau virtuelle. La solution de contournement consiste à connecter tous les réseaux virtuels directement au circuit ExpressRoute.
 
 ## <a name="resources"></a>API REST et applets de commande PowerShell
 Pour accéder à des ressources techniques supplémentaires et connaître les exigences spécifiques en matière de syntaxe lors de l’utilisation d’API REST et d’applets de commande PowerShell pour les configurations de passerelles de réseau virtuel, consultez les pages suivantes :
@@ -83,4 +83,4 @@ Consultez [Créer une passerelle de réseau virtuel pour ExpressRoute](expressro
 
 Pour plus d'informations sur la configuration des passerelles redondantes interzone, consultez [Créer une passerelle de réseau virtuel redondante interzone](../../articles/vpn-gateway/create-zone-redundant-vnet-gateway.md).
 
-Consultez [réseau virtuel pour ExpressRoute à liaison](expressroute-howto-linkvnet-arm.md) pour plus d’informations sur l’activation de chemin d’accès rapide. 
+Pour en savoir plus sur la façon d’activer FastPath, veuillez consulter [Relier le réseau virtuel à ExpressRoute](expressroute-howto-linkvnet-arm.md). 
