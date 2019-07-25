@@ -218,7 +218,7 @@ Lors de la copie de données à partir d’Amazon Redshift, les mappages suivant
 | INTEGER |Int32 |
 | REAL |Single |
 | SMALLINT |Int16 |
-| TEXT |String |
+| TEXTE |String |
 | TIMESTAMP |DateTime |
 | VARCHAR |String |
 
