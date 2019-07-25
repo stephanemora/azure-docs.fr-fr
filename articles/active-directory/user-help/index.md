@@ -1,7 +1,7 @@
 ---
 layout: LandingPage
 title: Aide utilisateur relative à la gestion de l’authentification, des applications et des appareils dans Azure Active Directory | Microsoft Docs
-description: Cette aide s’adresse aux personnes cherchant à configurer et utiliser les informations de sécurité, ainsi que les fonctions de vérification en deux étapes, de réinitialisation de mot de passe en libre-service et de gestion des appareils, l’application Microsoft Authenticator et le portail MyApps.
+description: Cette aide s’adresse aux personnes cherchant à configurer et utiliser les informations de sécurité, ainsi que les fonctions de vérification en deux étapes, de réinitialisation de mot de passe en libre-service et de gestion des appareils, l’application Microsoft Authenticator et le portail Mes applications.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -11,16 +11,16 @@ ms.topic: landing-page
 ms.date: 07/30/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e73e089f0753f49233c75a5e55513ebaf7bf9c9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5a6908a26e1d513261094be28620c3c9a2d86b48
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60861801"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68383097"
 ---
 # <a name="user-help-for-authentication-apps-and-device-management"></a>Aide utilisateur relative à la gestion de l’authentification, des applications et des appareils
 
-Nous avons créé ce contenu pour vous aider à configurer et utiliser les informations de sécurité et la fonction de vérification en deux étapes, mais aussi à réinitialiser votre propre mot de passe, configurer et joindre vos appareils Azure Active Directory et configurer et utiliser l’application Microsoft Authenticator et le portail MyApps.
+Nous avons créé ce contenu pour vous aider à configurer et utiliser les informations de sécurité et la fonction de vérification en deux étapes, réinitialiser vos propres mots de passe, configurer et joindre vos appareils Azure Active Directory et configurer et utiliser l’application Microsoft Authenticator et le portail Mes applications.
 
 |  |
 |--|
@@ -77,6 +77,7 @@ Nous avons créé ce contenu pour vous aider à configurer et utiliser les infor
                         <a href="/azure/active-directory/user-help/security-info-setup-auth-app">Configurer une application d’authentification</a><br/>
                         <a href="/azure/active-directory/user-help/security-info-setup-text-msg">Configurer la messagerie au format texte</a><br/>
                         <a href="/azure/active-directory/user-help/security-info-setup-phone-number">Configurer les appels téléphoniques</a><br/>
+                        <a href="/azure/active-directory/user-help/security-info-setup-security-key">Configurer une clé de sécurité</a><br/>
                         <a href="/azure/active-directory/user-help/user-help-sign-in">Comment se connecter</a>
                         </p>
                     </div>
