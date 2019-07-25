@@ -95,7 +95,7 @@ Pour copier des données d’Amazon Redshift, affectez la valeur **RelationalTab
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur : **RelationalTable** | OUI |
+| type | La propriété type du jeu de données doit être définie sur : **RelationalTable** | OUI |
 | tableName | Nom de la table dans Amazon Redshift. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
@@ -125,7 +125,7 @@ Pour copier des données d’Amazon Redshift, définissez **AmazonRedshiftSource
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur : **AmazonRedshiftSource** | OUI |
+| type | La propriété type de la source d’activité de copie doit être définie sur : **AmazonRedshiftSource** | OUI |
 | query |Utilise la requête personnalisée pour lire des données. Par exemple : select * from MyTable. |Non (si « tableName » est spécifié dans dataset) |
 | redshiftUnloadSettings | Groupe de propriétés lors de l’utilisation du mécanisme UNLOAD d’Amazon Redshift. | Non |
 | s3LinkedServiceName | Fait référence à un service Amazon S3 à utiliser comme magasin temporaire en spécifiant un nom de service lié de type « AmazonS3 ». | Oui, en cas d’utilisation de UNLOAD |
@@ -210,17 +210,17 @@ Lors de la copie de données à partir d’Amazon Redshift, les mappages suivant
 | Type de données d’Amazon Redshift | Type de données intermédiaires de Data Factory |
 |:--- |:--- |
 | BIGINT |Int64 |
-| BOOLEAN |Chaîne |
-| CHAR |Chaîne |
-| DATE |Datetime |
-| DÉCIMAL |Decimal |
+| BOOLEAN |String |
+| CHAR |String |
+| DATE |DateTime |
+| DECIMAL |Decimal |
 | DOUBLE PRECISION |Double |
 | INTEGER |Int32 |
 | REAL |Single |
 | SMALLINT |Int16 |
-| TEXTE |Chaîne |
-| TIMESTAMP |Datetime |
-| VARCHAR |Chaîne |
+| TEXT |String |
+| TIMESTAMP |DateTime |
+| VARCHAR |String |
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md##supported-data-stores-and-formats).
