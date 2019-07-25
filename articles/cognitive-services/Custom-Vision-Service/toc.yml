@@ -6,6 +6,12 @@
       href: home.md
 - name: Démarrages rapides
   items:
+    - name: Utilisation du portail web
+      items:
+        - name: Créer un classifieur
+          href: getting-started-build-a-classifier.md
+        - name: Créer un détecteur d’objet
+          href: get-started-build-detector.md
     - name: Utilisation du kit de développement logiciel (SDK) .NET
       items:
         - name: Classification d’image
@@ -42,8 +48,6 @@
       href: logo-detector-mobile.md
 - name: Guides pratiques
   items:
-    - name: Créer un classifieur
-      href: getting-started-build-a-classifier.md
     - name: Tester votre modèle
       href: test-your-model.md
     - name: Améliorer votre classifieur

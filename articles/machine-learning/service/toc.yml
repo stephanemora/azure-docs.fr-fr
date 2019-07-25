@@ -56,6 +56,11 @@
         - name: Déployer un modèle de régression
           displayName: experiment drag-and-drop visual interface Tutorial 2
           href: ui-tutorial-automobile-price-deploy.md
+    - name: Machine learning automatisé
+      items:
+        - name: Classification (données bancaires)
+          displayName: 'automl, automated, auto ml, portal, ui'
+          href: tutorial-first-experiment-automated-ml.md
 - name: Exemples
   items:
     - name: Notebooks
