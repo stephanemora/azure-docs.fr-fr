@@ -11,14 +11,14 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 06/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 137ef1ad78548053f3c5b8f30b7d83f2370f62da
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: c563278a9d23810a5e6f0adc8082c8cfc5a0510c
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442434"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68358855"
 ---
-# <a name="what-is-automated-machine-learning"></a>Qu’est-ce que le Machine Learning automatisé ?
+# <a name="what-is-automated-machine-learning"></a>Qu’est-ce que le machine learning automatisé ?
 
 Le Machine Learning automatisé, également appelé autoML, est le processus d’automatisation des tâches fastidieuses et itératives de développement de modèle Machine Learning. Il permet aux chercheurs de données, analystes et développeurs de créer des modèles ML à grande échelle, efficaces et productifs, tout en maintenant la qualité du modèle.
 
@@ -55,7 +55,7 @@ Les scientifiques des données, analystes et développeurs de différents secteu
 
 Pendant l’apprentissage, Azure Machine Learning service crée un certain nombre de pipelines parallèles qui testent différents algorithmes et paramètres. Il s’arrête une fois qu’il réunit les critères de sortie définis dans l’expérience.
 
-Vous pouvez également inspecter les informations d’exécution journalisées qui [contiennent les métriques collectées](how-to-understand-accuracy-metrics.md) pendant l’exécution. L’exécution de l’apprentissage produit un objet sérialisé Python (fichier `.pkl`) contenant le modèle et le prétraitement des données.
+Vous pouvez également inspecter les informations d’exécution journalisées qui [contiennent les métriques collectées](how-to-understand-automated-ml.md) pendant l’exécution. L’exécution de l’apprentissage produit un objet sérialisé Python (fichier `.pkl`) contenant le modèle et le prétraitement des données.
 
 Bien que la création de modèles soit automatisée, vous pouvez également [découvrir l’importance ou la pertinence des fonctionnalités](how-to-configure-auto-train.md#explain) pour les modèles générés.
 
@@ -113,7 +113,7 @@ Le Machine Learning automatisé est également disponible dans d’autres soluti
 |------------|-----------|
 |[ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview)|Sélection et apprentissage automatiques d’un modèle dans les applications .NET en utilisant Visual Studio et Visual Studio Code avec Machine Learning automatisé ML.NET (préversion).|
 |[HDInsight](../../hdinsight/spark/apache-spark-run-machine-learning-automl.md)|Augmentation de l’échelle de vos travaux d’apprentissage par Machine Learning automatisé sur Spark dans des clusters HDInsight en parallèle.|
-|[PowerBI](https://docs.microsoft.com/power-bi/service-machine-learning-automated)|Appel de modèles Machine Learning directement dans Power BI (préversion).|
+|[Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-automated)|Appel de modèles Machine Learning directement dans Power BI (préversion).|
 |[SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/)|Création de modèles Machine Learning sur vos données dans des clusters de Big Data SQL Server 2019.|
 
 ## <a name="next-steps"></a>Étapes suivantes

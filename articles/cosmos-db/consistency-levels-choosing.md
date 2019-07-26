@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 05/22/2019
 ms.reviewer: sngun
 ms.openlocfilehash: b08f9a85b8c9f52724e2cd08eaf13eb1faae0977
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66243559"
 ---
 # <a name="choose-the-right-consistency-level"></a>Choisir le bon niveau de cohérence 
 
-Les bases de données distribuées qui reposent sur la réplication afin d’offrir une haute disponibilité, une faible latence ou les deux, constituent le compromis fondamental entre la cohérence de la lecture et la disponibilité, la latence et le débit. La plupart des bases de données distribuées commercialisés demandent aux développeurs de choisir entre les deux modèles de cohérence extrême : *fort* cohérence et *éventuelle* cohérence. Azure Cosmos DB permet aux développeurs de choisir parmi les cinq modèles de cohérence bien définis : *fort*, *obsolescence*, *session*, *cohérente préfixe* et *éventuelle*. Chacun de ces modèles de cohérence est bien défini, intuitif, et peut être utilisé pour des scénarios réels spécifiques. Chacun des modèles de cinq cohérence fournir précise [compromis entre disponibilité et performances](consistency-levels-tradeoffs.md) et sont soutenus par des contrats SLA complets. Les simples considérations suivantes vous aideront à faire le bon choix dans de nombreux scénarios courants.
+Les bases de données distribuées qui reposent sur la réplication afin d’offrir une haute disponibilité, une faible latence ou les deux, constituent le compromis fondamental entre la cohérence de la lecture et la disponibilité, la latence et le débit. La plupart des bases de données distribuées qui sont commercialisées demandent aux développeurs de choisir entre les deux modèles de cohérence extrêmes : une cohérence *forte* et une cohérence *éventuelle*. Azure Cosmos DB permet aux développeurs de choisir parmi les cinq modèles de cohérence bien définis : *fort*, *obsolescence limitée*, *session*, *préfixe cohérent* et *éventuel*. Chacun de ces modèles de cohérence est bien défini, intuitif, et peut être utilisé pour des scénarios réels spécifiques. Chacun des cinq modèles de cohérence propose des [compromis clairs et précis entre disponibilité et performances](consistency-levels-tradeoffs.md) et est appuyé par des contrats de niveau de service complets. Les simples considérations suivantes vous aideront à faire le bon choix dans de nombreux scénarios courants.
 
 ## <a name="sql-api-and-table-api"></a>API SQL et API Table
 
-Si votre application est générée à l’aide d’API SQL ou l’API Table, tenez compte des points suivants :
+Tenez compte des points suivants si votre application est construite à l’aide de l’API SQL ou de l’API Table :
 
 - Pour de nombreux scénarios réels, la cohérence de session est optimale et constitue l’option recommandée. Pour plus d’informations, consultez [Gestion du jeton de session pour votre application](how-to-manage-consistency.md#utilize-session-tokens).
 
@@ -32,11 +32,11 @@ Si votre application est générée à l’aide d’API SQL ou l’API Table, te
 
 - Si vous avez besoin de garanties de cohérence moins strictes que celles fournies par la cohérence de session, il est recommandé d’utiliser le niveau de cohérence à préfixe cohérent.
 
-- Si vous avez besoin de la haute disponibilité et latence la plus faible, utilisez le niveau de cohérence éventuelle.
+- Si vous avez besoin de la disponibilité la plus élevée et de la latence la plus faible, utilisez le niveau de cohérence éventuelle.
 
 - Si vous avez besoin d'une plus grande durabilité des données sans sacrifier les performances, vous pouvez créer un niveau de cohérence personnalisé au niveau de la couche Application. Pour plus d'informations, consultez [Guide pratique sur l'implémentation de la synchronisation personnalisée dans vos applications](how-to-custom-synchronization.md).
 
-## <a name="cassandra-mongodb-and-gremlin-apis"></a>Cassandra, MongoDB et des API Gremlin
+## <a name="cassandra-mongodb-and-gremlin-apis"></a>API Cassandra, MongoDB et Gremlin
 
 - Pour plus d’informations sur le mappage entre le « niveau de cohérence de lecture » et les niveaux de cohérence offerts par Apache Cassandra et Cosmos DB, consultez [Niveaux de cohérence et API Cosmos DB](consistency-levels-across-apis.md#cassandra-mapping).
 
@@ -44,7 +44,7 @@ Si votre application est générée à l’aide d’API SQL ou l’API Table, te
 
 ## <a name="consistency-guarantees-in-practice"></a>Garanties de cohérence en pratique
 
-Dans la pratique, vous pouvez souvent obtenir de meilleures garanties de cohérence. Les garanties de cohérence pour une opération de lecture correspondent à l’actualisation et au classement de l’état de la base de données que vous demandez. La cohérence de lecture est liée au classement et à la propagation des opérations d’écriture/mise à jour.  
+En pratique, vous pouvez obtenir de meilleures garanties de cohérence. Les garanties de cohérence pour une opération de lecture correspondent à l’actualisation et au classement de l’état de la base de données que vous demandez. La cohérence de lecture est liée au classement et à la propagation des opérations d’écriture/mise à jour.  
 
 * Lorsque le niveau de cohérence est défini sur **Obsolescence limitée**, Cosmos DB garantit que les clients pourront toujours lire la valeur de l’écriture précédente, avec un décalage limité par la fenêtre d’obsolescence.
 
@@ -52,9 +52,9 @@ Dans la pratique, vous pouvez souvent obtenir de meilleures garanties de cohére
 
 * Pour les trois niveaux de cohérence restants, la fenêtre d’obsolescence dépend en grande partie de votre charge de travail. Par exemple, si aucune opération d’écriture n’est effectuée sur la base de données, une opération de lecture avec un niveau de cohérence **éventuelle**, **session** ou **préfixe cohérent** risque de produire les mêmes résultats qu’une opération de lecture avec un niveau de cohérence forte.
 
-Si votre compte Azure Cosmos est configuré avec un niveau de cohérence autre que la cohérence forte, vous trouverez la probabilité que vos clients peuvent obtenir forts et des lectures cohérentes pour vos charges de travail en examinant le *PROBABILISTE Obsolescence* métrique de (PBS). Cette métrique est exposée dans le portail Azure. Pour en savoir plus, consultez [Surveiller la métrique de probabilités en fonction de l’obsolescence limitée (PBS)](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric).
+Si votre compte Azure Cosmos est configuré avec un niveau de cohérence autre que la cohérence forte, vous pouvez déterminer la probabilité que vos clients bénéficieront de lectures fortes et cohérentes pour vos charges de travail en examinant la métrique *Probabilistically Bounded Staleness* (PBS). Cette métrique est exposée dans le portail Azure. Pour en savoir plus, consultez [Surveiller la métrique de probabilités en fonction de l’obsolescence limitée (PBS)](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric).
 
-La métrique de probabilités en fonction de l’obsolescence limitée montre comment la valeur éventuelle représente la cohérence éventuelle. Cette métrique fournit une idée de la fréquence à laquelle vous pouvez obtenir une cohérence plus forte que le niveau de cohérence que vous avez actuellement configurée sur votre compte Azure Cosmos. En d’autres termes, vous pouvez voir la probabilité (mesurée en millisecondes) d’obtenir des lectures fortement cohérentes pour une combinaison de régions d’écriture et de lecture.
+La métrique de probabilités en fonction de l’obsolescence limitée montre comment la valeur éventuelle représente la cohérence éventuelle. Cette métrique fournit une idée de la fréquence à laquelle vous pouvez obtenir une cohérence plus forte que le niveau de cohérence que vous avez configuré sur votre compte Azure Cosmos. En d’autres termes, vous pouvez voir la probabilité (mesurée en millisecondes) d’obtenir des lectures fortement cohérentes pour une combinaison de régions d’écriture et de lecture.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

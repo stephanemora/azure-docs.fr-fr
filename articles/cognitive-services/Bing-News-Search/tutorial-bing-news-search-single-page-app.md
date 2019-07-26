@@ -1,6 +1,6 @@
 ---
 title: "Didacticiel : Créer une application web monopage - API Recherche d'actualités Bing"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Utilisez ce tutoriel pour créer une application web monopage qui peut envoyer des requêtes à l’API Recherche d'actualités Bing et afficher les résultats dans la page web.
 services: cognitive-services
 author: aahill
@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 07/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 10798b471012d53b5820b078b4be7c9c648d3233
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 424fdc9fa0f31b3de664945ff49b119939488fed
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868358"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423609"
 ---
 # <a name="tutorial-create-a-single-page-web-app"></a>Tutoriel : Créer une application web monopage
 

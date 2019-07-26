@@ -11,15 +11,15 @@ ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: eb52169fc522ba323f82c42d9505571b18f49f1b
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66244475"
 ---
 # <a name="load-contoso-retail-data-to-azure-sql-data-warehouse"></a>Chargement des données de Contoso Retail dans Azure SQL Data Warehouse
 
-Dans ce didacticiel, vous apprenez à utiliser des commandes PolyBase et T-SQL pour charger les deux tables de données Contoso Retail dans Azure SQL Data Warehouse. 
+Dans ce didacticiel, vous allez apprendre à utiliser des commandes PolyBase et T-SQL pour charger deux tables de données Contoso Retail dans Azure SQL Data Warehouse. 
 
 Ce didacticiel vous apprendra à effectuer les opérations suivantes :
 
@@ -28,13 +28,13 @@ Ce didacticiel vous apprendra à effectuer les opérations suivantes :
 3. Procéder à des optimisations une fois le chargement terminé
 
 ## <a name="before-you-begin"></a>Avant de commencer
-Pour exécuter ce didacticiel, vous avez besoin d’un compte Azure qui possède déjà un entrepôt de données SQL. Si vous n’avez pas configuré un entrepôt de données, consultez [créer un entrepôt de données SQL et de définir la règle de pare-feu au niveau du serveur][Create a SQL Data Warehouse].
+Pour exécuter ce didacticiel, vous avez besoin d’un compte Azure qui possède déjà un entrepôt de données SQL Data Warehouse. Si vous n’avez pas d’entrepôt de données provisionné, consultez [Créer un entrepôt de données SQL et définir une règle de pare-feu au niveau du serveur][Create a SQL Data Warehouse].
 
 ## <a name="1-configure-the-data-source"></a>1. Configurer la source de données
 PolyBase utilise des objets externes T-SQL pour définir l’emplacement et les attributs des données externes. Les définitions d’objet externe sont stockées dans SQL Data Warehouse. Les données sont stockées en externe.
 
 ### <a name="11-create-a-credential"></a>1.1. Créer des informations d’identification
-**Ignorez cette étape** si vous chargez les données publiques de Contoso. Vous n’avez pas besoin un accès sécurisé aux données publiques dans la mesure où il est déjà accessible à toute personne.
+**Ignorez cette étape** si vous chargez les données publiques de Contoso. Vous n’avez pas besoin d’un accès sécurisé aux données publiques, car ces dernières sont accessibles à tous.
 
 **N’ignorez pas cette étape** si vous utilisez ce didacticiel comme modèle pour le chargement de vos propres données. Pour accéder aux données par le biais d’informations d’identification, utilisez le script suivant afin de créer des informations d’identification de niveau base de données, puis définissez l’emplacement de la source de données.
 
@@ -89,7 +89,7 @@ WITH
 > 
 
 ## <a name="2-configure-data-format"></a>2. Configurer le format des données
-Les données sont stockées dans des fichiers texte dans le stockage d’objets blob Azure, et chaque champ est séparé par un délimiteur. Dans SSMS, exécutez la commande suivante [CREATE EXTERNAL FILE FORMAT] [ CREATE EXTERNAL FILE FORMAT] commande pour spécifier le format des données dans les fichiers texte. Les données Contoso ne sont pas compressées et elles sont séparées par des barres verticales.
+Les données sont stockées dans des fichiers texte dans le stockage d’objets blob Azure, et chaque champ est séparé par un délimiteur. Dans SSMS, exécutez la commande [CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT] suivante pour spécifier le format des données dans les fichiers texte. Les données Contoso ne sont pas compressées et elles sont séparées par des barres verticales.
 
 ```sql
 CREATE EXTERNAL FILE FORMAT TextFileFormat 
@@ -104,7 +104,7 @@ WITH
 ``` 
 
 ## <a name="3-create-the-external-tables"></a>3. Créer les tables externes
-Maintenant que vous avez spécifié le format source et le fichier de données, vous êtes prêt à créer les tables externes. 
+Maintenant que vous avez spécifié la source des données et le format de fichier, vous êtes prêt à créer les tables externes. 
 
 ### <a name="31-create-a-schema-for-the-data"></a>3.1. Créez un schéma pour les données.
 Pour créer un emplacement de stockage des données Contoso dans votre base de données, créez un schéma.
@@ -115,7 +115,7 @@ GO
 ```
 
 ### <a name="32-create-the-external-tables"></a>3.2. Créez les tables externes.
-Exécutez le script suivant pour créer les tables externes DimProduct et FactOnlineSales. Vous autorisez simplement ici est définition des noms de colonnes et types de données et les lier à l’emplacement et le format des fichiers de stockage d’objets blob Azure. La définition est stockée dans SQL Data Warehouse et les données se trouvent toujours dans le stockage d’objets blob Azure.
+Exécutez le script suivant pour créer les tables externes DimProduct et FactOnlineSales. Vous essayez ici de définir les noms de colonnes et les types de données, et de les lier à l’emplacement et au format des fichiers de stockage d’objets blob Azure. La définition est stockée dans SQL Data Warehouse et les données se trouvent toujours dans le stockage d’objets blob Azure.
 
 Le paramètre **LOCATION** désigne le dossier qui se situe sous le dossier racine du stockage d’objets blob Azure. Chaque table se trouve dans un dossier spécifique.
 
@@ -202,7 +202,7 @@ WITH
 ```
 
 ## <a name="4-load-the-data"></a>4. Chargement des données
-Il existe différentes façons d’accéder aux données externes.  Vous pouvez interroger des données directement à partir des tables externes, charger les données dans de nouvelles tables dans l’entrepôt de données ou ajouter des données externes aux tables de l’entrepôt de données existant.  
+Il existe plusieurs façons d’accéder aux données externes.  Vous pouvez interroger les données directement à partir des tables externes, charger les données dans de nouvelles tables de l’entrepôt de données, ou ajouter des données externes à des tables de l’entrepôt de données existantes.  
 
 ### <a name="41-create-a-new-schema"></a>4.1. Créer un schéma
 CTAS crée une table qui contient des données.  Commencez par créer un schéma pour les données Contoso.
@@ -213,7 +213,7 @@ GO
 ```
 
 ### <a name="42-load-the-data-into-new-tables"></a>4.2. Charger les données dans de nouvelles tables
-Pour charger des données depuis le stockage blob Azure dans la table de l’entrepôt de données, utilisez le [CREATE TABLE AS SELECT (Transact-SQL)] [ CREATE TABLE AS SELECT (Transact-SQL)] instruction. Le chargement avec CTAS s’appuie sur les tables externes fortement typées que vous avez créé. Pour charger les données dans de nouvelles tables, utilisez une [CTAS] [ CTAS] instruction par table. 
+Pour charger des données à partir d’Azure Blob Storage dans la table de l’entrepôt de données, utilisez l’instruction [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)]. Le chargement avec CTAS s’appuie sur les tables externes fortement typées que vous venez de créer. Pour charger les données dans de nouvelles tables, utilisez une instruction [CTAS][CTAS] par table. 
  
 CTAS crée une table et la remplit avec les résultats d’une instruction select. CTAS définit la nouvelle table de manière à proposer les mêmes colonnes et les mêmes types de données que les résultats de l’instruction select. Si vous sélectionnez toutes les colonnes d’une table externe, la nouvelle table est un réplica des colonnes et des types de données dans la table externe.
 
@@ -264,7 +264,7 @@ ORDER BY
 ```
 
 ## <a name="5-optimize-columnstore-compression"></a>5. Optimiser la compression columnstore
-Par défaut, SQL Data Warehouse stocke la table comme un index columnstore en cluster. Après un chargement, certaines lignes de données peuvent ne pas être compressées dans le columnstore.  Il existe différentes raisons pourquoi cela peut se produire. Pour plus d’informations, consultez [Gérer les index Columnstore][manage columnstore indexes].
+Par défaut, SQL Data Warehouse stocke la table comme un index columnstore en cluster. Après un chargement, certaines lignes de données peuvent ne pas être compressées dans le columnstore.  Cette situation peut se produire pour différentes raisons. Pour plus d’informations, consultez [Gérer les index Columnstore][manage columnstore indexes].
 
 Pour optimiser les performances des requêtes et la compression du columnstore après un chargement, reconstruisez la table afin de forcer l’index columnstore à compresser toutes les lignes. 
 
@@ -279,7 +279,7 @@ ALTER INDEX ALL ON [cso].[FactOnlineSales]          REBUILD;
 Pour plus d’informations sur la maintenance des index Columnstore, consultez l’article [Gérer les index Columnstore][manage columnstore indexes].
 
 ## <a name="6-optimize-statistics"></a>6. Optimiser les statistiques
-Il est préférable de créer des statistiques de colonnes uniques immédiatement après un chargement. Si vous connaissez que certaines colonnes ne vont pas être dans les prédicats de requête, vous pouvez ignorer la création des statistiques sur ces colonnes. Si vous créez des statistiques de colonnes uniques sur chaque colonne, il peut prendre beaucoup de temps pour reconstruire toutes les statistiques. 
+Il est préférable de créer des statistiques sur une colonne immédiatement après un chargement. S’il est certain que des colonnes ne se trouveront pas dans les prédicats de requête, vous pouvez ignorer la création des statistiques sur ces colonnes. Si vous créez des statistiques sur une colonne pour chaque colonne, il faudra peut-être beaucoup de temps pour reconstruire toutes les statistiques. 
 
 Si vous décidez de créer des statistiques sur une colonne pour chaque colonne de chaque table, vous pouvez utiliser l’exemple de code de procédure stockée `prc_sqldw_create_stats` dans l’article portant sur les [statistiques][statistics].
 
@@ -330,7 +330,7 @@ CREATE STATISTICS [stat_cso_FactOnlineSales_StoreKey] ON [cso].[FactOnlineSales]
 ## <a name="achievement-unlocked"></a>Et voilà !
 Vous avez correctement chargé les données publiques dans Azure SQL Data Warehouse. Bon travail !
 
-Vous pouvez maintenant commencer à interroger les tables pour Explorer vos données. Exécutez la requête suivante pour connaître le total des ventes par marque :
+Vous pouvez maintenant interroger les tables pour explorer vos données. Exécutez la requête suivante pour connaître le total des ventes par marque :
 
 ```sql
 SELECT  SUM(f.[SalesAmount]) AS [sales_by_brand_amount]
@@ -341,7 +341,7 @@ GROUP BY p.[BrandName]
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour charger le jeu de données, exécutez l’exemple [charger l’entrepôt de données Contoso Retail complète](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md) à partir du référentiel d’exemples Microsoft SQL Server.
+Pour charger le jeu de données complet, exécutez l’exemple [Charger l’ensemble de l’entrepôt de données Contoso Retail](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md) à partir du référentiel d’exemples Microsoft SQL Server.
 
 Pour obtenir des conseils supplémentaires en matière de développement, consultez l’article [Vue d’ensemble sur le développement SQL Data Warehouse][SQL Data Warehouse development overview].
 

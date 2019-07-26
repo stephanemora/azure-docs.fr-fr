@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2018
 ms.author: monhaber
-ms.openlocfilehash: 16548ae75567fa3ba6f8c9135d61945bd28d2db8
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
-ms.translationtype: MT
+ms.openlocfilehash: a30bc55c564f852a5fef6e71aad9e607e6aa1065
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66428420"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67083669"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Surveiller l’identité et l’accès dans Azure Security Center (Préversion)
 Cet article vous aide à utiliser Azure Security Center pour surveiller l’identité et l’activité d’accès d’un utilisateur.
 
 > [!NOTE]
-> La « vue *classic* identité et accès « lien sera supprimé le 31 juillet 2019. Cliquez sur [ici](security-center-features-retirement-july2019.md#menu_classicidentity) pour en savoir plus sur les autres services.
+> Le lien « Afficher *l’ancienne* version de la page Identité et Accès » sera supprimé le 31 juillet 2019. Cliquez [ici](security-center-features-retirement-july2019.md#menu_classicidentity)pour en savoir plus sur les autres services.
 
 > [!NOTE]
 > La surveillance de l’identité et de l’accès est uniquement disponible en préversion, au niveau Standard du Security Center. Consultez [Tarification](security-center-pricing.md) pour en savoir plus sur les niveaux tarifaires de Security Center.
@@ -110,20 +110,20 @@ Utilisez le tableau ci-dessous pour mieux comprendre les recommandations Identit
 
 |Type de ressource|Degré de sécurisation|Recommandation|Description|
 |----|----|----|----|
-|Abonnement|50|MFA doit être activée sur les comptes disposant d’autorisations de propriétaire sur votre abonnement|Activez Multi-Factor Authentication (MFA) pour tous les comptes de l’abonnement disposant de privilèges Administrateur, afin d’éviter toute violation de comptes ou de ressources.|
-|Abonnement|40|Authentification Multifacteur doit être activée sur vos comptes d’abonnement avec des autorisations d’écriture|Activez Multi-Factor Authentication (MFA) pour tous les comptes de l’abonnement disposant de privilèges d’accès en écriture, afin d’éviter toute violation de comptes ou de ressources.|
-|Abonnement|30|Les comptes externes avec les autorisations de propriétaire doivent être supprimés de votre abonnement|Supprimez de votre abonnement les comptes externes disposant d’autorisations de type propriétaire afin d’empêcher tout accès non contrôlé.|
-|Abonnement|30|Authentification Multifacteur doit être activée sur vos comptes d’abonnement avec les autorisations de lecture|Activez Multi-Factor Authentication (MFA) pour tous les comptes de l’abonnement disposant de privilèges d’accès en lecture, afin d’éviter toute violation de comptes ou de ressources.|
-|Abonnement|25|Comptes externes avec l’écriture des autorisations doivent être supprimées de votre abonnement|Supprimez de votre abonnement les comptes externes disposant d’autorisations d’accès en écriture afin d’empêcher tout accès non contrôlé. |
-|Abonnement|20|Les comptes obsolètes disposant d’autorisations de propriétaire doivent être retirés de votre abonnement|Supprimez de vos abonnements les comptes déconseillés disposant d’autorisations de type propriétaire.|
-|Abonnement|5.|Les comptes obsolètes doivent être supprimés de votre abonnement|Supprimez de vos abonnements les comptes déconseillés afin de restreindre l’accès aux utilisateurs actuels. |
-|Abonnement|5.|Il doit y avoir plusieurs propriétaires affectés à votre abonnement|Désignez plusieurs propriétaires d’abonnement pour assurer une redondance de l’accès administrateur.|
-|Abonnement|5.|Un maximum de 3 propriétaires doit être désigné pour votre abonnement|Désignez moins de trois propriétaires d’abonnement afin de réduire le risque de violation par un propriétaire compromis.|
-|Coffre de clés|5.|Journaux de diagnostic dans le coffre de clés doivent être activés.|Activez les journaux d’activité et conservez-les un an maximum. Permet de recréer les pistes d’activité à des fins d’investigation en cas d’incident de sécurité ou de compromission du réseau. |
-|Abonnement|15|Les comptes externes avec les autorisations de lecture doivent être supprimés de votre abonnement|Supprimez de votre abonnement les comptes externes disposant de privilèges d’accès en lecture afin d’empêcher tout accès non contrôlé.| 
+|Abonnement|50|L’authentification multifacteur doit être activée sur les comptes disposant d’autorisations de propriétaire sur votre abonnement|Activez Multi-Factor Authentication (MFA) pour tous les comptes de l’abonnement disposant de privilèges Administrateur, afin d’éviter toute violation de comptes ou de ressources.|
+|Abonnement|40|L’authentification multifacteur doit être activée sur les comptes d’abonnement disposant d’autorisations d’écriture|Activez Multi-Factor Authentication (MFA) pour tous les comptes de l’abonnement disposant de privilèges d’accès en écriture, afin d’éviter toute violation de comptes ou de ressources.|
+|Abonnement|30|Les comptes externes disposant d’autorisations de propriétaire doivent être supprimés de votre abonnement|Supprimez de votre abonnement les comptes externes disposant d’autorisations de type propriétaire afin d’empêcher tout accès non contrôlé.|
+|Abonnement|30|L’authentification multifacteur doit être activée sur les comptes d’abonnement disposant d’autorisations de lecture|Activez Multi-Factor Authentication (MFA) pour tous les comptes de l’abonnement disposant de privilèges d’accès en lecture, afin d’éviter toute violation de comptes ou de ressources.|
+|Abonnement|25|Les comptes externes disposant d’autorisations d’écriture doivent être supprimés de votre abonnement|Supprimez de votre abonnement les comptes externes disposant d’autorisations d’accès en écriture afin d’empêcher tout accès non contrôlé. |
+|Abonnement|20|Les comptes déconseillés disposant d’autorisations de propriétaire doivent être supprimés de votre abonnement|Supprimez de vos abonnements les comptes déconseillés disposant d’autorisations de type propriétaire.|
+|Abonnement|5\.|Les comptes déconseillés doivent être supprimés de votre abonnement|Supprimez de vos abonnements les comptes déconseillés afin de restreindre l’accès aux utilisateurs actuels. |
+|Abonnement|5\.|Plusieurs propriétaires doivent être attribués à votre abonnement|Désignez plusieurs propriétaires d’abonnement pour assurer une redondance de l’accès administrateur.|
+|Abonnement|5\.|Trois propriétaires maximum doivent être désignés pour votre abonnement|Désignez moins de trois propriétaires d’abonnement afin de réduire le risque de violation par un propriétaire compromis.|
+|Coffre de clés|5\.|Les journaux de diagnostic doivent être activés dans Key Vault|Activez les journaux d’activité et conservez-les un an maximum. Permet de recréer les pistes d’activité à des fins d’investigation en cas d’incident de sécurité ou de compromission du réseau. |
+|Abonnement|15|Les comptes externes disposant d’autorisations de lecture doivent être supprimés de votre abonnement|Supprimez de votre abonnement les comptes externes disposant de privilèges d’accès en lecture afin d’empêcher tout accès non contrôlé.| 
 
 > [!NOTE]
-> Si vous avez créé une stratégie d’accès conditionnel qui nécessite l’authentification Multifacteur, mais a des exclusions définie, l’évaluation de recommandation de Security Center MFA considère que la stratégie non conforme, car elle permet à certains utilisateurs à se connecter à Azure sans authentification Multifacteur.
+> Si vous avez créé une stratégie d’accès conditionnel impliquant l’authentification MFA mais comportant des exclusions, l’évaluation faite par la recommandation MFA de Security Center considère la stratégie comme non conforme, car elle permet à certains utilisateurs de se connecter à Azure sans authentification MFA.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur les recommandations qui s’appliquent à d’autres types de ressources Azure, consultez les rubriques suivantes :

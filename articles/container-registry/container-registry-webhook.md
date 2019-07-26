@@ -8,24 +8,24 @@ ms.topic: article
 ms.date: 05/24/2019
 ms.author: danlep
 ms.openlocfilehash: 18ac3fcb2797b24c9d5e5f05968eed4bf8732af7
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66389447"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Utilisation de webhooks Azure Container Registry
 
-Un registre Azure Container Registry stocke et gère des images conteneurs Docker privé, de la même manière qu’un Hub Docker stocke des images de Docker public. Il peut également héberger des référentiels pour [Helm graphiques](container-registry-helm-repos.md) mettre en forme un empaquetage (version préliminaire), pour déployer des applications sur Kubernetes. Vous pouvez utiliser des webhooks pour déclencher des événements quand certaines actions sont exécutées dans l’un des dépôts de votre registre. Les webhooks peuvent répondre à des événements au niveau du registre ou être réduits à une balise de dépôt spécifique. Avec un [géorépliqué](container-registry-geo-replication.md) Registre, vous configurez chaque webhook pour répondre aux événements dans un réplica régional spécifique.
+Un registre Azure Container Registry stocke et gère des images conteneurs Docker privé, de la même manière qu’un Hub Docker stocke des images de Docker public. Il peut également héberger des référentiels pour [graphiques Helm](container-registry-helm-repos.md) (en préversion), un format d’empaquetage pour le déploiement des applications pour Kubernetes. Vous pouvez utiliser des webhooks pour déclencher des événements quand certaines actions sont exécutées dans l’un des dépôts de votre registre. Les webhooks peuvent répondre à des événements au niveau du registre ou être réduits à une balise de dépôt spécifique. Avec un registre [géo-repliqué](container-registry-geo-replication.md), vous configurez chaque webhook pour répondre aux événements d’un réplica régional spécifique.
 
 Pour plus d’informations sur les requêtes de webhook, consultez la [référence de schéma du webhook Azure Container Registry](container-registry-webhook-reference.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-* Azure Container Registry : créez un Registre de conteneur dans votre abonnement Azure. Par exemple, utilisez le [portail Azure](container-registry-get-started-portal.md) ou [Azure CLI](container-registry-get-started-azure-cli.md). Le [références SKU Azure Container Registry](container-registry-skus.md) possèdent des quotas différents webhooks.
+* Azure Container Registry : créez un Registre de conteneur dans votre abonnement Azure. Par exemple, utilisez le [portail Azure](container-registry-get-started-portal.md) ou [Azure CLI](container-registry-get-started-azure-cli.md). Les [références (SKU) Azure Container Registry](container-registry-skus.md) ont des quotas de webhooks différents.
 * Interface CLI Docker : pour configurer votre ordinateur local comme hôte Docker et accéder aux commandes de l’interface CLI Docker, installez le [moteur Docker](https://docs.docker.com/engine/installation/).
 
-## <a name="create-webhook---azure-portal"></a>Créer un webhook - portail Azure
+## <a name="create-webhook---azure-portal"></a>Créer un webhook - Portail Azure
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 1. Accédez au registre de conteneurs dans lequel vous souhaitez créer un webhook.
@@ -35,13 +35,13 @@ Pour plus d’informations sur les requêtes de webhook, consultez la [référen
 
 | Valeur | Description |
 |---|---|
-| Nom de Webhook | Nom que vous voulez donner au webhook. Il peut contenir uniquement des lettres et des chiffres et doit être de 5 à 50 caractères. |
-| Lieu | Pour un [géorépliqué](container-registry-geo-replication.md) Registre, spécifiez la région Azure du réplica du Registre. 
+| Nom de webhook | Nom que vous voulez donner au webhook. Il peut contenir uniquement des lettres et des chiffres, et doit comporter de 5 à 50 caractères. |
+| Lieu | Pour un registre [géorépliqué](container-registry-geo-replication.md), spécifiez la région Azure du réplica du Registre. 
 | URI de service | URI auquel le webhook doit envoyer des notifications POST. |
 | En-têtes personnalisés | En-têtes que vous souhaitez passer avec la demande POST. Ils doivent être au format « clé : valeur ». |
-| Actions de déclencheur | Actions qui déclenchent le webhook. Les actions incluent des push de l’image, suppression de l’image, push de graphique Helm, suppression du graphique Helm et mise en quarantaine de l’image. Vous pouvez choisir une ou plusieurs actions pour déclencher le webhook. |
+| Actions de déclencheur | Actions qui déclenchent le webhook. Les actions incluent l’envoi push d’image, la suppression d’image, l’envoi push de graphique Helm, la suppression du graphique Helm et la mise en quarantaine de d’image. Vous pouvez choisir une ou plusieurs actions pour déclencher le webhook. |
 | Statut | État du webhook après sa création. Il est activé par défaut. |
-| Scope | Étendue à laquelle le webhook fonctionne. Si non spécifié, l’étendue concerne tous les événements dans le Registre. Il peut être spécifié pour un dépôt ou une balise en utilisant le format « dépôt : balise » ou « dépôt : * » pour toutes les balises sous un référentiel. |
+| Scope | Étendue à laquelle le webhook fonctionne. Si elle n’est pas spécifiée, l’étendue couvre tous les événements dans le registre. Vous pouvez la spécifier pour un référentiel ou une balise en utilisant le format « référentiel:balise » ou « référentiel:*» pour toutes les balises sous un référentiel. |
 
 Exemple de formulaire webhook :
 
@@ -49,7 +49,7 @@ Exemple de formulaire webhook :
 
 ## <a name="create-webhook---azure-cli"></a>Créer un webhook - Azure CLI
 
-Pour créer un webhook à l’aide d’Azure CLI, utilisez la commande [az acr webhook create](/cli/azure/acr/webhook#az-acr-webhook-create). La commande suivante crée un webhook pour tous les événements de suppression dans le Registre d’images *mycontainerregistry*:
+Pour créer un webhook à l’aide d’Azure CLI, utilisez la commande [az acr webhook create](/cli/azure/acr/webhook#az-acr-webhook-create). La commande suivante crée un webhook pour tous les événements de suppression d’images dans le registre *mycontainerregistry* :
 
 ```azurecli-interactive
 az acr webhook create --registry mycontainerregistry --name myacrwebhook01 --actions delete --uri http://webhookuri.com
@@ -59,7 +59,7 @@ az acr webhook create --registry mycontainerregistry --name myacrwebhook01 --act
 
 ### <a name="azure-portal"></a>Portail Azure
 
-Avant d’utiliser le webhook, vous pouvez la tester avec le **Ping** bouton. La commande Ping envoie une demande POST générique au point de terminaison spécifié et enregistre la réponse. Cette fonctionnalité peut vous aider à vérifier que vous avez correctement configuré le webhook.
+Avant d’utiliser le webhook, vous pouvez le tester à l’aide du bouton **Ping**. La commande Ping envoie une demande POST générique au point de terminaison spécifié et enregistre la réponse. Cette fonctionnalité peut vous aider à vérifier que vous avez correctement configuré le webhook.
 
 1. Sélectionnez le webhook à tester.
 2. Dans la barre d’outils supérieure, sélectionnez **Ping**.
@@ -105,4 +105,4 @@ Pour plus d’informations sur le format et les propriétés des charges utiles 
 
 Outre les événements de webhook du registre natif abordés dans cet article, Azure Container Registry peut émettre des événements vers Event Grid :
 
-[Démarrage rapide : Envoyer des événements de registre de conteneurs à Event Grid](container-registry-event-grid-quickstart.md)
+[Démarrage rapide : Envoyer des événements de registre de conteneurs à Event Grid](container-registry-event-grid-quickstart.md)

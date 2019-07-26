@@ -1,6 +1,6 @@
 ---
-title: Gérer Azure Data Box, lourd boîte de données Azure via le portail Azure | Microsoft Docs
-description: Décrit comment utiliser le portail Azure pour gérer votre Azure Data Box et lourdes de zone de données Azure.
+title: Gérer Azure Data Box, Azure Data Box Heavy par le biais du Portail Azure| Microsoft Docs
+description: Décrit comment utiliser le Portail Azure pour administrer votre Azure Data Box et Azure Data Box Heavy.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,22 +9,22 @@ ms.topic: article
 ms.date: 05/30/2019
 ms.author: alkohli
 ms.openlocfilehash: 5ece12e117db7b334bce8edfd49a5a622e46e13c
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66427723"
 ---
-# <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>Utiliser le portail Azure pour gérer votre Azure Data Box et lourdes de zone de données Azure
+# <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>Utiliser le Portail Azure pour administrer votre Azure Data Box et Azure Data Box Heavy
 
-Cet article s’applique à Azure Data Box et lourdes de zone de données Azure. Cet article décrit certains des flux de travail complexes et des tâches de gestion qui peuvent être effectuées sur l’appareil Azure Data Box. Vous pouvez gérer l’appareil Data Box via le portail Azure ou par le biais de l’ordinateur local de l’interface utilisateur web.
+Cet article s’applique à Azure Data Box et à Azure Data Box Heavy. Cet article décrit certains des flux de travail et tâches de gestion complexes qui peuvent être effectués sur l’appareil Azure Data Box. Vous pouvez gérer l’appareil Data Box via le portail Azure ou via l’interface utilisateur web locale.
 
-Cet article se concentre sur les tâches que vous pouvez effectuer à l’aide du portail Azure. Utiliser le portail Azure pour gérer les commandes, gérer l’appareil Data Box et suivre l’état de la commande comme il se poursuit jusqu'à la fin.
+Cet article se concentre sur les tâches que vous pouvez effectuer à l’aide du portail Azure. Utilisez le Portail Azure pour gérer les commandes et l’appareil Data Box, et suivre l’état des commandes jusqu’à l’étape terminale.
 
 
 ## <a name="cancel-an-order"></a>Annuler une commande
 
-Il peut vous arriver de devoir annuler, pour diverses raisons, une commande que vous avez passée. Vous pouvez uniquement annuler la commande tant qu’elle n’a pas été traitée. Une fois la commande est traitée et appareil Data Box est prêt, il n’est pas possible d’annuler la commande.
+Il peut vous arriver de devoir annuler, pour diverses raisons, une commande que vous avez passée. Vous pouvez uniquement annuler la commande tant qu’elle n’a pas été traitée. Une fois la commande traitée et l’appareil Data Box préparé, il n’est plus possible d’annuler la commande.
 
 Pour annuler une commande, procédez comme suit.
 
@@ -40,7 +40,7 @@ Pour annuler une commande, procédez comme suit.
 
 ## <a name="clone-an-order"></a>Cloner une commande
 
-Le clonage est utile dans certaines situations. Par exemple, un utilisateur a utilisé Data Box pour transférer des données. Comme plus de données sont générés, il est nécessaire pour un autre appareil Data Box transférer ces données dans Azure. Dans ce cas, la commande initiale peut simplement être clonée.
+Le clonage est utile dans certaines situations. Par exemple, un utilisateur a utilisé Data Box pour transférer des données. À mesure qu’il génère de nouvelles données, il a besoin d’un autre appareil Data Box pour transférer ces données vers Azure. Dans ce cas, la commande initiale peut simplement être clonée.
 
 Effectuez les opérations suivantes pour cloner une commande.
 
@@ -69,7 +69,7 @@ Vous pouvez uniquement supprimer des commandes qui sont terminées ou annulées.
 
 ## <a name="download-shipping-label"></a>Télécharger une étiquette d’expédition
 
-Vous devrez peut-être télécharger l’étiquette d’expédition si l’écran E-ink de votre Data Box ne fonctionne pas et n’affiche pas l’étiquette de retour. N’affiche aucun E-l’encre sur le lourd de zone de données et par conséquent, ce flux de travail ne s’applique pas aux lourd de zone de données.
+Vous devrez peut-être télécharger l’étiquette d’expédition si l’écran E-ink de votre Data Box ne fonctionne pas et n’affiche pas l’étiquette de retour. Ce flux de travail ne s’applique pas aux Data Box Heavy, car ces appareils ne possèdent pas d’écran E-ink.
 
 Procédez comme suit pour télécharger une étiquette d’expédition.
 
@@ -120,7 +120,7 @@ Procédez comme suit pour télécharger l’historique des commandes.
 
     ![Télécharger l’historique des commandes](media/data-box-portal-admin/download-order-history-1.png)
 
-2. Cliquez sur **Télécharger l’historique des commandes**. Dans l’historique téléchargé, vous verrez un enregistrement des journaux d’activité de suivi de l’opérateur. Il y aura deux ensembles de journal correspondant aux deux nœuds sur un lourd de zone de données. Si vous faites défiler jusqu’en bas de ce journal, vous pouvez voir des liens vers :
+2. Cliquez sur **Télécharger l’historique des commandes**. Dans l’historique téléchargé, vous verrez un enregistrement des journaux d’activité de suivi de l’opérateur. Il existe deux ensembles de journaux correspondant aux deux nœuds présents sur un Data Box Heavy. Si vous faites défiler jusqu’en bas de ce journal, vous pouvez voir des liens vers :
     
    - **Copier les journaux d’activité** - affiche la liste des fichiers en erreur pendant la copie des données entre la zone de données et votre compte de stockage Azure.
    - **Journaux d’audit** - contiennent des informations sur la mise sous tension et l’accès au partage sur la Data Box lorsqu’elle est hors du centre de données Azure.
@@ -215,4 +215,4 @@ Vous êtes informé par courrier électronique dès que l’état de l’apparei
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez comment [problèmes lourd de zone de données et de résoudre les problèmes de zone de données](data-box-troubleshoot.md).
+- Découvrez comment [résoudre les problèmes de votre Data Box et de votre Data Box Heavy](data-box-troubleshoot.md).

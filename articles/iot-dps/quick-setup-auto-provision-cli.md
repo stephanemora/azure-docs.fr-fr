@@ -10,10 +10,10 @@ services: iot-dps
 manager: timlt
 ms.custom: mvc
 ms.openlocfilehash: 3062fb640985498ba35e23f6310828a2bd59bfed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "60363714"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-azure-cli"></a>Configurer le service IoT Hub Device Provisioning avec Azure CLI
@@ -26,6 +26,8 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 > Le hub IoT et le service d’approvisionnement que vous créez dans ce guide de démarrage rapide seront détectables publiquement comme points de terminaison DNS. Veillez à éviter toute information sensible si vous décidez de modifier les noms utilisés pour ces ressources.
 >
 
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
