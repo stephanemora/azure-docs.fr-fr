@@ -5,18 +5,17 @@ services: storage
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
-ms.topic: quickstart
-ms.date: 12/06/2018
+ms.topic: article
+ms.date: 07/19/2019
 ms.author: normesta
-ms.reviewer: jamesbak
-ms.openlocfilehash: 18132ac4c218c766efdc9a9afae2cc3508c4f732
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 297ab5971fdf60ce260808cb4864621ec1188b5e
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939419"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360770"
 ---
-# <a name="quickstart-create-an-azure-data-lake-storage-gen2-storage-account"></a>Démarrage rapide : Créer un compte de stockage Azure Data Lake Storage Gen2
+# <a name="create-an-azure-data-lake-storage-gen2-storage-account"></a>Créer un compte de stockage Azure Data Lake Storage Gen2
 
 Azure Data Lake Storage Gen2 [prend en charge un espace de noms hiérarchique](data-lake-storage-introduction.md) qui fournit un système de fichiers basé sur les répertoires conçu spécifiquement pour fonctionner avec le système de fichiers DFS hadoop (HDFS). L’accès aux données Data Lake Storage Gen2 à partir du HDFS est disponible via le [pilote ABFS](data-lake-storage-abfs-driver.md).
 

@@ -3,16 +3,17 @@ title: Référence de schéma de webhook Azure Container Registry
 description: Référence de charge utile JSON de requête de Webhook pour Azure Container Registry.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: danlep
-ms.openlocfilehash: 4c0845b9cf5194ecbd0ab813997e17e070840f44
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fcdee2be92f2a3052e2ebbfaab3a2f9cb96e0125
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61331339"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311596"
 ---
 # <a name="azure-container-registry-webhook-reference"></a>Référence de webhook Azure Container Registry
 
@@ -43,7 +44,7 @@ Webhook déclenché lorsqu’une image conteneur est envoyée vers un référent
 |Élément|Type|Description|
 |-------------|----------|-----------|
 |`id`|Chaîne|ID de l’événement de webhook.|
-|`timestamp`|Datetime|Heure à laquelle l’événement de webhook a été déclenché.|
+|`timestamp`|DateTime|Heure à laquelle l’événement de webhook a été déclenché.|
 |`action`|Chaîne|Action qui a déclenché l’événement de webhook.|
 |[cible](#target)|Type complexe|Cible de l’événement qui a déclenché l’événement de webhook.|
 |[requête](#request)|Type complexe|Requête qui a généré l’événement de webhook.|
@@ -107,7 +108,7 @@ Webhook déclenché quand un graphique Helm est envoyé vers un référentiel.
 |Élément|Type|Description|
 |-------------|----------|-----------|
 |`id`|Chaîne|ID de l’événement de webhook.|
-|`timestamp`|Datetime|Heure à laquelle l’événement de webhook a été déclenché.|
+|`timestamp`|DateTime|Heure à laquelle l’événement de webhook a été déclenché.|
 |`action`|Chaîne|Action qui a déclenché l’événement de webhook.|
 |[cible](#helm_target)|Type complexe|Cible de l’événement qui a déclenché l’événement de webhook.|
 
@@ -157,7 +158,7 @@ Webhook déclenché quand un référentiel d’image sou un manifeste est suppri
 |Élément|Type|Description|
 |-------------|----------|-----------|
 |`id`|Chaîne|ID de l’événement de webhook.|
-|`timestamp`|Datetime|Heure à laquelle l’événement de webhook a été déclenché.|
+|`timestamp`|DateTime|Heure à laquelle l’événement de webhook a été déclenché.|
 |`action`|Chaîne|Action qui a déclenché l’événement de webhook.|
 |[cible](#delete_target)|Type complexe|Cible de l’événement qui a déclenché l’événement de webhook.|
 |[requête](#delete_request)|Type complexe|Requête qui a généré l’événement de webhook.|
@@ -219,7 +220,7 @@ Webhook déclenché quand un graphique Helm ou un référentiel est supprimé.
 |Élément|Type|Description|
 |-------------|----------|-----------|
 |`id`|Chaîne|ID de l’événement de webhook.|
-|`timestamp`|Datetime|Heure à laquelle l’événement de webhook a été déclenché.|
+|`timestamp`|DateTime|Heure à laquelle l’événement de webhook a été déclenché.|
 |`action`|Chaîne|Action qui a déclenché l’événement de webhook.|
 |[cible](#chart_delete_target)|Type complexe|Cible de l’événement qui a déclenché l’événement de webhook.|
 

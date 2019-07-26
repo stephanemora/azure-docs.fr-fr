@@ -10,12 +10,12 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: larryfr
 ms.date: 06/21/2019
-ms.openlocfilehash: cba46a277dfce93d0080d8f04a26fd135407de15
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 1e742c278b9356c7501964541802e0c96dc74b09
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67536744"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68358643"
 ---
 # <a name="model-interpretability-with-azure-machine-learning-service"></a>Interprétabilité de modèles avec Azure Machine Learning service
 
@@ -361,7 +361,6 @@ clf = Pipeline(steps=[('preprocessor', preprocessor),
                       ('classifier', LogisticRegression(solver='lbfgs'))])
 
 
-
 # append classifier to preprocessing pipeline.
 # now we have a full prediction pipeline.
 clf = Pipeline(steps=[('preprocessor', preprocessor),
@@ -371,11 +370,11 @@ clf = Pipeline(steps=[('preprocessor', preprocessor),
 # clf.steps[-1][1] returns the trained classification model
 # pass transformation as an input to create the explanation object
 # "features" and "classes" fields are optional
-tabular_explainer = TabularExplainer(clf.steps[-1][1], 
-                                    initialization_examples=x_train, 
-                                    features=dataset_feature_names, 
-                                    classes=dataset_classes, 
-                                    transformations=preprocessor) 
+tabular_explainer = TabularExplainer(clf.steps[-1][1],
+                                     initialization_examples=x_train,
+                                     features=dataset_feature_names,
+                                     classes=dataset_classes,
+                                     transformations=preprocessor)
 ```
 
 Si vous souhaitez exécuter l’exemple avec la liste de tuples de transformateur adaptés, utilisez le code suivant : 
@@ -388,24 +387,26 @@ from sklearn_pandas import DataFrameMapper
 
 # assume that we have created two arrays, numerical and categorical, which holds the numerical and categorical feature names
 
-numeric_transformations = [([f], Pipeline(steps=[('imputer', SimpleImputer(strategy='median')), ('scaler', StandardScaler())])) for f in numerical]
+numeric_transformations = [([f], Pipeline(steps=[('imputer', SimpleImputer(
+    strategy='median')), ('scaler', StandardScaler())])) for f in numerical]
 
-categorical_transformations = [([f], OneHotEncoder(handle_unknown='ignore', sparse=False)) for f in categorical]
+categorical_transformations = [([f], OneHotEncoder(
+    handle_unknown='ignore', sparse=False)) for f in categorical]
 
 transformations = numeric_transformations + categorical_transformations
 
 # append model to preprocessing pipeline.
 # now we have a full prediction pipeline.
 clf = Pipeline(steps=[('preprocessor', DataFrameMapper(transformations)),
-                    ('classifier', LogisticRegression(solver='lbfgs'))])
+                      ('classifier', LogisticRegression(solver='lbfgs'))])
 
 # clf.steps[-1][1] returns the trained classification model
 # pass transformation as an input to create the explanation object
 # "features" and "classes" fields are optional
-tabular_explainer = TabularExplainer(clf.steps[-1][1], 
-                                     initialization_examples=x_train, 
-                                     features=dataset_feature_names, 
-                                     classes=dataset_classes, 
+tabular_explainer = TabularExplainer(clf.steps[-1][1],
+                                     initialization_examples=x_train,
+                                     features=dataset_feature_names,
+                                     classes=dataset_classes,
                                      transformations=transformations)
 ```
 
@@ -595,29 +596,8 @@ L’explicatif peut être déployé avec le modèle d’origine et peut être ut
 
 1. Nettoyer : Pour supprimer un service web déployé, utilisez `service.delete()`.
 
-## <a name="interpretability-in-automated-ml"></a>Interprétabilité dans Machine Learning automatisé
 
-Machine Learning automatisé contient des packages permettant d’interpréter l’importance de fonctionnalité dans des modèles auto-formés. En outre, des scénarios de classification vous permettent de récupérer l’importance de fonctionnalité au niveau de la classe. Deux méthodes permettent d’activer ce comportement dans Machine Learning automatisé :
 
-* Pour activer l’importance de fonctionnalité pour un modèle entier formé, utilisez la fonction [`explain_model()`](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlexplainer?view=azure-ml-py).
-
-    ```python
-    from azureml.train.automl.automlexplainer import explain_model
-
-    shap_values, expected_values, overall_summary, overall_imp, \
-        per_class_summary, per_class_imp = explain_model(fitted_model, X_train, X_test)
-    ```
-
-* Pour activer l’importance de fonctionnalité pour chaque exécution avant la formation, définissez le paramètre `model_explainability` dans `True` de l’objet `AutoMLConfig`, et fournissez des données de validation. Utilisez ensuite la fonction [`retrieve_model_explanation()`](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlexplainer?view=azure-ml-py).
-
-    ```python
-    from azureml.train.automl.automlexplainer import retrieve_model_explanation
-
-    shap_values, expected_values, overall_summary, overall_imp, per_class_summary, \
-        per_class_imp = retrieve_model_explanation(best_run)
-    ```
-
-Pour plus d’informations, consultez la [procédure](how-to-configure-auto-train.md#explain-the-model-interpretability) d’activation des fonctionnalités d’interprétabilité dans Machine Learning automatisé.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

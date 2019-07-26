@@ -4,12 +4,12 @@ ms.author: dapine
 ms.date: 06/25/2019
 ms.service: cognitive-services
 ms.topic: include
-ms.openlocfilehash: 7b0059dbaafe42200ebfa8dc65ea585a49c5b83f
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 873fd8cbc211f098c93b8fb3fbe701e4a34d8487
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67712582"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68320512"
 ---
 Les paramètres `Logging` gèrent la prise en charge de la journalisation ASP.NET Core pour votre conteneur. Vous pouvez utiliser pour votre conteneur les mêmes paramètres et valeurs de configuration que ceux d’une application ASP.NET Core. 
 
@@ -29,7 +29,7 @@ docker run --rm -it -p 5000:5000 \
 --mount type=bind,src=/home/azureuser/output,target=/output \
 <registry-location>/<image-name> \
 Eula=accept \
-Billing=<billing-endpoint> \
+Billing=<endpoint> \
 ApiKey=<api-key> \
 Logging:Disk:Format=json
 ```
@@ -41,14 +41,14 @@ docker run --rm -it -p 5000:5000 \
 --memory 2g --cpus 1 \
 <registry-location>/<image-name> \
 Eula=accept \
-Billing=<billing-endpoint> \
+Billing=<endpoint> \
 ApiKey=<api-key> \
 Logging:Console:LogLevel:Default=Debug
 ```
 
 ### <a name="disk-logging"></a>Journalisation Disk
 
-Le fournisseur de journalisation `Disk` prend en charge les paramètres de configuration suivants :  
+Le fournisseur de journalisation `Disk` prend en charge les paramètres de configuration suivants :
 
 | Nom | Type de données | Description |
 |------|-----------|-------------|

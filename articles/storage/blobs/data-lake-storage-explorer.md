@@ -1,22 +1,22 @@
 ---
-title: 'Démarrage rapide : Utiliser l’Explorateur Stockage Azure pour gérer les données dans Azure Data Lake Storage Gen2 '
+title: 'Utiliser l’Explorateur Stockage Azure pour gérer les données dans Azure Data Lake Storage Gen2 '
 description: Dans ce guide de démarrage rapide, vous allez apprendre à utiliser l’Explorateur Stockage Azure pour créer un système de fichiers dans un compte Azure Data Lake Storage Gen2, ainsi qu’un répertoire et un fichier. Vous apprenez ensuite à télécharger le fichier sur votre ordinateur local, et à afficher tout le fichier dans un répertoire.
 services: storage
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.custom: mvc
 ms.service: storage
-ms.topic: quickstart
-ms.date: 12/05/2018
+ms.topic: article
+ms.date: 07/19/2019
 ms.author: normesta
-ms.openlocfilehash: 01743eb7ec7f6650a0fd28fd9c4f090bebd524b3
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 38cc0533d3e993dd90a037ee6a504c2dcd575e6f
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939339"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360862"
 ---
-# <a name="quickstart-use-azure-storage-explorer-to-manage-data-in-an-azure-data-lake-storage-gen2-account"></a>Démarrage rapide : Utiliser l’Explorateur Stockage Azure pour gérer les données dans un compte Azure Data Lake Storage Gen2
+# <a name="use-azure-storage-explorer-to-manage-data-in-an-azure-data-lake-storage-gen2-account"></a>Utiliser l’Explorateur Stockage Azure pour gérer les données dans un compte Azure Data Lake Storage Gen2
 
 Dans le cadre de ce démarrage rapide, vous apprenez à utiliser l’[Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/) pour créer un répertoire et un objet blob. Vous apprenez ensuite à télécharger l’objet blob sur votre ordinateur local, et à afficher tous les objets blob dans un répertoire. Vous découvrez également comment créer une capture instantanée d’objet blob, gérer les stratégies d’accès de répertoire et créer une signature d’accès partagé.
 
@@ -34,7 +34,7 @@ Au premier lancement, la fenêtre **Explorateur Stockage Microsoft Azure - Se co
 |---|---|
 |Ajouter un compte Azure | Vous redirige vers votre page de connexion aux organisations afin de vous authentifier sur Azure. Il s’agit actuellement de la seule méthode d’authentification prise en charge si vous souhaitez gérer et définir des ACL. |
 
-Sélectionnez **Ajouter un compte Azure**, puis cliquez sur **Connexion..**. Suivez les instructions de connexion à votre compte Azure qui s’affichent à l’écran.
+Sélectionnez **Ajouter un compte Azure**, puis cliquez sur **Connexion..** . Suivez les instructions de connexion à votre compte Azure qui s’affichent à l’écran.
 
 ![Fenêtre de connexion à l’Explorateur Stockage Microsoft Azure](media/storage-quickstart-blobs-storage-explorer/connect.png)
 
@@ -58,7 +58,7 @@ Dans le ruban du répertoire, sélectionnez **Charger**. Ce faisant, vous avez l
 
 Choisissez les fichiers ou le dossier à télécharger. Sélectionnez le **type d’objet blob**. Les choix acceptables sont **Ajout**, **Page** ou **Bloc**.
 
-Si vous téléchargez un fichier .vhd or .vhdx, sélectionnez **Charger les fichiers .vhd/.vhdx en tant qu'objets blob de pages (recommandé)**.
+Si vous téléchargez un fichier .vhd or .vhdx, sélectionnez **Charger les fichiers .vhd/.vhdx en tant qu'objets blob de pages (recommandé)** .
 
 Dans le champ **Charger dans le dossier** (facultatif), sélectionnez un nom de dossier dans lequel stocker les fichiers ou de sous-dossiers, sous le répertoire. Si aucun dossier n’est sélectionné, les fichiers sont chargés automatiquement dans le répertoire.
 

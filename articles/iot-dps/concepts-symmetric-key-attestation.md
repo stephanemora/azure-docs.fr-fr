@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
-ms.openlocfilehash: 2f6e1e1a27e32e567cf0eaa8ff7a99046ed81bbe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b1a849732539dbc9e066bee7cc20141f56ffe10c
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60746098"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348358"
 ---
 # <a name="symmetric-key-attestation"></a>Attestation de clé symétrique
 
@@ -75,7 +75,7 @@ Cet exemple est utilisé tel quel dans l’article [Guide pratique pour provisio
 
 Une fois qu’un ID d’inscription a été défini pour l’appareil, la clé symétrique pour le groupe d’inscription est utilisée pour calculer un hachage [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) de l’ID d’inscription, pour produire une clé d’appareil dérivée. Le hachage de l’ID d’inscription peut être effectué avec le code C# suivant :
 
-```C#
+```csharp
 using System; 
 using System.Security.Cryptography; 
 using System.Text;  
@@ -92,7 +92,7 @@ public static class Utils
 } 
 ```
 
-```C#
+```csharp
 String deviceKey = Utils.ComputeDerivedSymmetricKey(Convert.FromBase64String(masterKey), registrationId);
 ```
 

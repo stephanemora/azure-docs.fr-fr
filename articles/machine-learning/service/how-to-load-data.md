@@ -12,12 +12,12 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 07/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0fa60198af66154e0ddc703f90224adf5be89447
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: bd60d9f9bee55ef1342fe344e8b4f2f64e313331
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876405"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360972"
 ---
 # <a name="load-and-read-data-with-the-azure-machine-learning-data-prep-sdk"></a>Charger et lire des données avec le kit SDK Azure Machine Learning Data Prep
 Dans cet article, vous découvrez les différentes méthodes de chargement de données à l’aide du kit SDK de préparation de données Azure Machine Learning.  Le SDK prend en charge plusieurs fonctionnalités d’ingestion des données, notamment :
@@ -101,7 +101,7 @@ Pour exclure des lignes pendant le chargement, définissez le paramètre `skip_r
 
 ```python
 dflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv',
-                          skip_rows=1)
+                       skip_rows=1)
 dflow.head(5)
 ```
 
@@ -168,7 +168,8 @@ dflow.head(5)
 La sortie indique que les données de la deuxième feuille avaient trois lignes vides avant les en-têtes. La fonction `read_excel()` contient des paramètres facultatifs qui permettent d’ignorer des lignes et d’utiliser les en-têtes. Exécutez le code suivant pour ignorer les trois premières lignes et utiliser la quatrième ligne comme en-têtes.
 
 ```python
-dflow = dprep.read_excel(path='./data/excel.xlsx', sheet_name='Sheet2', use_column_headers=True, skip_rows=3)
+dflow = dprep.read_excel(path='./data/excel.xlsx',
+                         sheet_name='Sheet2', use_column_headers=True, skip_rows=3)
 ```
 
 ||RANK|Intitulé|Studio|Mondial|National / %|Colonne1|À l’étranger / %|Colonne2|Année^|
@@ -181,7 +182,8 @@ dflow = dprep.read_excel(path='./data/excel.xlsx', sheet_name='Sheet2', use_colu
 Pour charger des fichiers de données de largeur fixe, vous spécifiez une liste de décalages de caractères. La première colonne est toujours supposée démarrer au décalage zéro.
 
 ```python
-dflow = dprep.read_fwf('./data/fixed_width_file.txt', offsets=[7, 13, 43, 46, 52, 58, 65, 73])
+dflow = dprep.read_fwf('./data/fixed_width_file.txt',
+                       offsets=[7, 13, 43, 46, 52, 58, 65, 73])
 dflow.head(5)
 ```
 
@@ -195,8 +197,8 @@ Pour éviter la détection d’en-têtes et analyser les données correctes, pas
 
 ```python
 dflow = dprep.read_fwf('./data/fixed_width_file.txt',
-                          offsets=[7, 13, 43, 46, 52, 58, 65, 73],
-                          header=dprep.PromoteHeadersMode.NONE)
+                       offsets=[7, 13, 43, 46, 52, 58, 65, 73],
+                       header=dprep.PromoteHeadersMode.NONE)
 ```
 
 ||Colonne1|Colonne2|Colonne3|Colonne4|Colonne5|Colonne6|Colonne7|Colonne8|Colonne9|
@@ -230,8 +232,8 @@ dflow.head(5)
 
 | |IDProduit|Nom|RéférenceProduit|Couleur|CoûtStandard|ListPrice|Size|Poids|IDCatégorieProduit|IDModèleProduit|DateDébutVente|DateFinVente|DateInterruption|PhotoMiniature|NomFichierPhotoMiniature|GuidLigne|DateModification| |
 |-|---------|----|-------------|-----|------------|---------|----|------|-----------------|--------------|-------------|-----------|----------------|--------------|----------------------|-------|------------|-|
-|0|680|Cadre route HL - Noir, 58|FR-R92B-58|Noir|1059,3100|1431,50|58|1016,04|18|6\.|01-06-2002 00:00:00+00:00|Aucun|Aucun|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|43dd68d6-14a4-461f-9069-55309d90ea7e|03-11-2008 |0:01:36.827000+00:00|
-|1|706|Cadre route HL - Rouge, 58|FR-R92R-58|Rouge|1059,3100|1431,50|58|1016,04|18|6\.|01-06-2002 00:00:00+00:00|Aucun|Aucun|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|9540ff17-2712-4c90-a3d1-8ce5568b2462|03-11-2008 |10:01:36.827000+00:00|
+|0|680|Cadre route HL - Noir, 58|FR-R92B-58|Noir|1059,3100|1431,50|58|1016,04|18|6|01-06-2002 00:00:00+00:00|Aucun|Aucun|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|43dd68d6-14a4-461f-9069-55309d90ea7e|03-11-2008 |0:01:36.827000+00:00|
+|1|706|Cadre route HL - Rouge, 58|FR-R92R-58|Rouge|1059,3100|1431,50|58|1016,04|18|6|01-06-2002 00:00:00+00:00|Aucun|Aucun|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|9540ff17-2712-4c90-a3d1-8ce5568b2462|03-11-2008 |10:01:36.827000+00:00|
 |2|707|Casque Sport-100, Rouge|HL-U509-R|Rouge|13,0863|34,99|Aucun|Aucun|35|33|01-07-2005 00:00:00+00:00|Aucun|Aucun|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|2e1ef41a-c08a-4ff6-8ada-bde58b64a712|03-11-2008 |10:01:36.827000+00:00|
 
 
@@ -300,9 +302,12 @@ Utilisez le package `adal` (`pip install adal`) pour créer un contexte d’auth
 import adal
 from azureml.dataprep.api.datasources import DataLakeDataSource
 
-ctx = adal.AuthenticationContext('https://login.microsoftonline.com/microsoft.onmicrosoft.com')
-token = ctx.acquire_token_with_client_certificate('https://datalake.azure.net/', servicePrincipalAppId, certificate, certThumbprint)
-dflow = dprep.read_csv(path = DataLakeDataSource(path='adl://dpreptestfiles.azuredatalakestore.net/farmers-markets.csv', accessToken=token['accessToken']))
+ctx = adal.AuthenticationContext(
+    'https://login.microsoftonline.com/microsoft.onmicrosoft.com')
+token = ctx.acquire_token_with_client_certificate(
+    'https://datalake.azure.net/', servicePrincipalAppId, certificate, certThumbprint)
+dflow = dprep.read_csv(path=DataLakeDataSource(
+    path='adl://dpreptestfiles.azuredatalakestore.net/farmers-markets.csv', accessToken=token['accessToken']))
 dflow.to_pandas_dataframe().head()
 ```
 

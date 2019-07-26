@@ -3,7 +3,7 @@ title: 'Didacticiel : utiliser la bibliothèque cliente Azure Batch pour Node.
 description: Découvrez les concepts de base d’Azure Batch et créez une solution simple à l’aide de Node.js.
 services: batch
 author: shwetams
-manager: jeconnoc
+manager: gwallace
 ms.assetid: ''
 ms.service: batch
 ms.devlang: nodejs
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: shg
-ms.openlocfilehash: 890e26d21b46fbf24e205fb8e4c8e32e09bf5cb9
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: a6895773e0109aa0fb643e4fadf8a31ac5b1a33a
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67704812"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323398"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Bien démarrer avec le Kit de développement logiciel (SDK) Batch pour Node.js
 

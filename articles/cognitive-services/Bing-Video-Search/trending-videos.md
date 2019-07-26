@@ -1,6 +1,6 @@
 ---
 title: Recherche de vidéos populaires sur le web à l’aide de l’API Recherche de vidéos Bing
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Apprenez à utiliser l’API Recherche de vidéos Bing pour rechercher des vidéos populaires sur le web.
 services: cognitive-services
 author: swhite-msft
@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: scottwhi
-ms.openlocfilehash: 486cf2e3bcf851f23011bb2fb8d91691d6190698
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ea6f79bf6c305ecc07b3e684ede15ad439039e7e
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61431919"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68500615"
 ---
 # <a name="get-trending-videos-with-the-bing-video-search-api"></a>Obtenir des vidéos tendance avec l’API Recherche de vidéos Bing 
 

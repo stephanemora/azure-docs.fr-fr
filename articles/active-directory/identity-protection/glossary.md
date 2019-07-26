@@ -2,29 +2,24 @@
 title: Glossaire d’Azure Active Directory Identity Protection | Microsoft Docs
 description: Glossaire d’Azure Active Directory Identity Protection
 services: active-directory
-keywords: azure active directory identity protection, cloud app discovery, gestion d’applications, sécurité, risque, niveau de risque, vulnérabilité, stratégie de sécurité, glossaire
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: 833119a5-33d6-4482-adda-fa35218c72c3
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.date: 01/15/2018
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c371254f344b321969dcc9b3c36212b7536aa95a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6751fe74bfd9b8a07aec2263582d9f1a4bc0b2ac
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67109005"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68333981"
 ---
 # <a name="azure-active-directory-identity-protection-glossary"></a>Glossaire d’Azure Active Directory Identity Protection
+
 ### <a name="at-risk-user"></a>À risque (utilisateur)
 Utilisateur associé à un ou plusieurs événements à risque actifs. 
 
@@ -165,4 +160,3 @@ Configuration ou condition dans Azure Active Directory qui rend l’annuaire vul
 
 ## <a name="see-also"></a>Voir aussi
 * [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)
-

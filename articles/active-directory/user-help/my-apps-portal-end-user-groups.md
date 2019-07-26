@@ -13,14 +13,15 @@ ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 578ca5fa1de338a92280e2dc7cc252fb616e2111
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a11b43d040dec838de350c23614ae42b6756ec6e
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64706682"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68383169"
 ---
 # <a name="update-your-groups-info-from-the-my-apps-portal"></a>Mettre à jour les informations relatives à vos groupes sur le portail Mes applications
+
 Vous pouvez utiliser votre compte professionnel ou scolaire avec le portail web **Mes applications** pour voir et démarrer la plupart des applications cloud de votre organisation, mettre à jour votre profil et vos informations de compte, consulter les informations de vos **groupes** et effectuer des **révisions d’accès** pour vos applications et vos groupes. Si vous n’avez pas accès au portail **Mes applications**, contactez le support technique pour obtenir l’autorisation.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
@@ -29,6 +30,7 @@ Vous pouvez utiliser votre compte professionnel ou scolaire avec le portail web 
 >Ce contenu est destiné aux utilisateurs. Si vous êtes administrateur, vous trouverez des informations sur la configuration et la gestion de vos applications cloud dans la [documentation sur la gestion des applications](https://docs.microsoft.com/azure/active-directory/manage-apps).
 
 ## <a name="view-your-groups-information"></a>Afficher les informations relatives à vos groupes
+
 Si votre administrateur vous a donné l'autorisation d'afficher la vignette **Groupes**, vous pouvez :
 
 - **En tant que membre d'un groupe.** Afficher les informations relatives à un groupe ou quitter celui-ci.
@@ -37,9 +39,9 @@ Si votre administrateur vous a donné l'autorisation d'afficher la vignette **Gr
 
 ### <a name="to-view-your-groups-information"></a>Pour afficher les informations relatives à vos groupes
 
-1.  Connectez-vous à votre compte professionnel ou scolaire.
+1. Connectez-vous à votre compte professionnel ou scolaire.
 
-2.  Ouvrez votre navigateur web et accédez à https://myapps.microsoft.com, ou utilisez le lien fourni par votre organisation. Par exemple, vous pouvez être dirigé vers une page personnalisée de votre organisation, comme https://myapps.microsoft.com/contoso.com.
+2. Ouvrez votre navigateur web et accédez à https://myapps.microsoft.com, ou utilisez le lien fourni par votre organisation. Par exemple, vous pouvez être dirigé vers une page personnalisée de votre organisation, comme https://myapps.microsoft.com/contoso.com.
 
     La page **Applications** s'affiche, avec toutes les applications cloud de votre organisation que vous pouvez utiliser.
 
@@ -68,6 +70,7 @@ Si votre administrateur vous a donné l'autorisation d'afficher la vignette **Gr
     - **Rejoindre un groupe.** Rejoignez un groupe existant, dont vous n'êtes pas membre, à partir de la zone **Groupes dont je suis membre**. Pour obtenir des instructions spécifiques, consultez la section [Rejoindre un groupe existant](#join-an-existing-group).
 
 ## <a name="create-a-new-group"></a>Créer un groupe
+
 1. Sur la page **Groupes**, sélectionnez **Créer un groupe** à partir de la zone **Groupes dont je suis propriétaire**.
 
     La boîte de dialogue **Créer un groupe** s'affiche.
@@ -77,7 +80,7 @@ Si votre administrateur vous a donné l'autorisation d'afficher la vignette **Gr
 2. Entrez les informations requises :
 
     - **Type du groupe :**
-        
+
         - **Sécurité.** Utilisé pour gérer l’accès de membres et d’ordinateurs aux ressources partagées d’un groupe d’utilisateurs. Par exemple, vous pouvez créer un groupe de sécurité pour une stratégie de sécurité particulière. En procédant ainsi, vous pouvez donner un ensemble d’autorisations à tous les membres à la fois, au lieu de devoir ajouter des autorisations individuellement à chaque membre.
 
         - **Office 365.** Fournit des opportunités de collaboration en donnant aux membres l’accès à des éléments partagés : une boîte aux lettres, un calendrier, des fichiers, un site SharePoint et bien plus encore. Cette option vous permet également de donner à des personnes extérieures à votre organisation un accès au groupe.
@@ -93,9 +96,11 @@ Si votre administrateur vous a donné l'autorisation d'afficher la vignette **Gr
     Votre nouveau groupe est créé. Il apparaît alors dans votre liste **Groupes dont je suis propriétaire**. Comme vous en êtes le propriétaire, ce groupe apparaît également dans la liste **Groupes dont je suis membre**.
 
 ## <a name="edit-an-existing-group"></a>Modifier un groupe existant
+
 Après avoir créé un groupe, vous pouvez modifier les détails de celui-ci, y compris mettre à jour des informations existantes.
 
 ### <a name="to-edit-your-details"></a>Pour modifier vos détails
+
 1. Sélectionnez le groupe que vous souhaitez modifier sur la page **Groupes**, puis choisissez **Modifier les détails** sur la page *&lt;nom_groupe&gt;* .
 
     La boîte de dialogue **Modifier les détails** s'affiche et vous pouvez mettre à jour les informations que vous avez ajoutées lors de la création du groupe.
@@ -103,9 +108,11 @@ Après avoir créé un groupe, vous pouvez modifier les détails de celui-ci, y 
 2. Apportez vos modifications, puis sélectionnez **Mettre à jour**.
 
 ## <a name="add-or-remove-a-member"></a>Ajouter ou supprimer un membre
+
 Vous pouvez ajouter ou supprimer des membres des groupes dont vous êtes propriétaire.
 
 ### <a name="to-add-or-remove-a-member"></a>Pour ajouter ou supprimer un membre
+
 1. Sélectionnez le groupe auquel vous souhaitez ajouter des membres, puis choisissez **+** sur la page *&lt;nom_groupe&gt;* .
 
     ![Ajouter un membre au groupe, avec le signe + mis en évidence](media/my-apps-portal/my-apps-portal-add-member-link.png)
@@ -121,9 +128,11 @@ Vous pouvez ajouter ou supprimer des membres des groupes dont vous êtes propri�
     ![Supprimer un membre, avec le lien de suppression mis en évidence](media/my-apps-portal/my-apps-portal-remove-member-link.png)
 
 ## <a name="renew-an-office-365-group"></a>Renouveler un groupe Office 365
+
 Si votre organisation l'autorise, vous pouvez renouveler un groupe Office 365 en repoussant la date d'expiration.
 
 ### <a name="to-renew-a-group"></a>Pour renouveler un groupe
+
 1. Sélectionnez le groupe Office 365 que vous souhaitez renouveler, puis choisissez **Renouveler un groupe**.
 
     ![Renouveler un groupe Office 365, en repoussant la date d'expiration](media/my-apps-portal/my-apps-portal-renew-group-link.png)
@@ -133,18 +142,21 @@ Si votre organisation l'autorise, vous pouvez renouveler un groupe Office 365 e
     Une fois la page actualisée, les dates de **Dernier renouvellement** et d'**Expiration du groupe** s'affichent.
 
 ## <a name="delete-a-group"></a>Supprimer un groupe
+
 Vous pouvez à tout moment supprimer un groupe dont vous êtes propriétaire. Toutefois, si vous supprimez un groupe par erreur, vous devrez à nouveau le créer et y ajouter des membres.
 
 ### <a name="to-delete-the-group"></a>Pour supprimer le groupe
+
 1. Sélectionnez le groupe que vous souhaitez définitivement supprimer, puis choisissez **Supprimer le groupe** sur la page *&lt;nom_groupe&gt;* .
 
     ![Page <nom_groupe> avec le lien Supprimer le groupe mis en évidence](media/my-apps-portal/my-apps-portal-delete-group-link.png)
 
 2. Sélectionnez **Oui** sur le message de confirmation.
 
-    Le groupe est définitivement supprimé. 
-    
+    Le groupe est définitivement supprimé.
+
 ## <a name="join-an-existing-group"></a>Rejoindre un groupe existant
+
 Vous pouvez rejoindre un groupe existant à partir de la page **Groupes**.
 
 ### <a name="to-join-or-leave-a-group"></a>Pour rejoindre ou quitter un groupe

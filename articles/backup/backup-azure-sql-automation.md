@@ -1,7 +1,6 @@
 ---
 title: 'Sauvegarde Azure : Sauvegarder et restaurer des bases de données SQL dans des machines virtuelles Azure à l’aide de Sauvegarde Azure et PowerShell'
 description: Sauvegardez et restaurez des bases de données SQL dans des machines virtuelles Azure à l’aide de Sauvegarde Azure et PowerShell.
-services: backup
 author: pvrk
 manager: vijayts
 keywords: Azure Backup ; SQL ;
@@ -10,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: pullabhk
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: 6a2e065466ab4426a6472b64fae19d264ff8dd81
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9d3f71eb83609d09d6e4f42b15163dbfae4fca32
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66734218"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465389"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure--vms-with-powershell"></a>Sauvegarder et restaurer des bases de données SQL dans des machines virtuelles Azure à l’aide de PowerShell
 

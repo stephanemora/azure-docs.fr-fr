@@ -1,5 +1,5 @@
 ---
-title: Utiliser les limites géographiques pour filtrer les résultats de l’API Recherche d’entreprises locales Bing | Microsoft Docs
+title: Utiliser les limites géographiques pour filtrer les résultats de l’API Recherche d’entreprises locales Bing
 titleSuffix: Azure Cognitive Services
 description: Lisez cet article pour apprendre à filtrer les résultats de recherche de l’API Recherche d’entreprises locales Bing.
 services: cognitive-services
@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh
-ms.openlocfilehash: 6da8e9e08f84fa16f22d2a061be28398d064dc8c
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: e47a2ab8db17089773fd9a439b6dff225d6a8a29
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592695"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423299"
 ---
 # <a name="use-geographic-boundaries-to-filter-results-from-the-bing-local-business-search-api"></a>Utiliser les limites géographiques pour filtrer les résultats de l’API Recherche d’entreprises locales Bing
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: apimpm
-ms.openlocfilehash: 08b6f803d6994015432bf68c7b3edae14af8f976
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2b74c0d8dc0daa7bb86c2884f5e574fdc579ba44
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61095439"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442375"
 ---
 # <a name="api-management-caching-policies"></a>Stratégies de mise en cache dans Gestion des API
 Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -122,7 +122,7 @@ Pour plus d’informations, consultez les pages [Expressions de stratégie](api-
 Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
 
 - **Sections de la stratégie :** inbound
-- **Étendues de la stratégie :** API, operation, product (API, opération, produit)
+- **Étendues de la stratégie :** toutes les étendues
 
 ## <a name="StoreToCache"></a> Store to cache
 La stratégie `cache-store` met en cache la réponse en fonction des paramètres de cache spécifiés. Cette stratégie peut être appliquée dans les cas où le contenu de la réponse reste statique pendant un certain temps. La mise en cache de la réponse réduit les besoins en bande passante et en calcul imposés par le serveur web principal et limite la latence perçue par les consommateurs de l’API.
@@ -194,7 +194,7 @@ Pour plus d’informations, consultez les pages [Expressions de stratégie](api-
 Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) suivantes.
 
 - **Sections de la stratégie :** outbound (sortant)
-- **Étendues de la stratégie :** API, operation, product (API, opération, produit)
+- **Étendues de la stratégie :** toutes les étendues
 
 ## <a name="GetFromCacheByKey"></a> Get value from cache
 La stratégie `cache-lookup-value` permet d’effectuer une recherche dans le cache par clé et de renvoyer une valeur mise en cache. La clé peut avoir une valeur de chaîne arbitraire ; elle est généralement fournie par le biais d’une expression de stratégie.
@@ -240,7 +240,7 @@ Pour plus d’informations et d’exemples sur cette stratégie, consultez [Mise
 Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
 
 - **Sections de la stratégie :** inbound, outbound, backend, on-error
-- **Étendues de la stratégie :** global, API, opération, produit (global, API, opération, produit)
+- **Étendues de la stratégie :** toutes les étendues
 
 ## <a name="StoreToCacheByKey"></a> Store value in cache
 La stratégie `cache-store-value` effectue le stockage du cache par clé. La clé peut avoir une valeur de chaîne arbitraire ; elle est généralement fournie par le biais d’une expression de stratégie.
@@ -282,7 +282,7 @@ Pour plus d’informations et d’exemples sur cette stratégie, consultez [Mise
 Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
 
 - **Sections de la stratégie :** inbound, outbound, backend, on-error
-- **Étendues de la stratégie :** global, API, opération, produit (global, API, opération, produit)
+- **Étendues de la stratégie :** toutes les étendues
 
 ### <a name="RemoveCacheByKey"></a> Remove value from cache
 `cache-remove-value` supprime un élément en cache identifié par sa clé. La clé peut avoir une valeur de chaîne arbitraire ; elle est généralement fournie par le biais d’une expression de stratégie.
@@ -320,7 +320,7 @@ Cette stratégie peut être utilisée dans les [sections](https://azure.microsof
 Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
 
 - **Sections de la stratégie :** inbound, outbound, backend, on-error
-- **Étendues de la stratégie :** global, API, opération, produit (global, API, opération, produit)
+- **Étendues de la stratégie :** toutes les étendues
 
 ## <a name="next-steps"></a>Étapes suivantes
 

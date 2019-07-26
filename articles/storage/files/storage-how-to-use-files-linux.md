@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e9363f88db4fa44879eb8f6a6a04e23563c5ba44
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 06df5d403ba10489ea9a36a79a94f4b94782e4ef
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67125735"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501326"
 ---
 # <a name="use-azure-files-with-linux"></a>Utiliser Azure Files avec Linux
 
@@ -132,7 +132,7 @@ uname -r
 1. **Utilisez la commande suivante pour ajouter la ligne suivante à `/etc/fstab`**  : Veillez à remplacer **<storage_account_name>** (nom du compte de stockage), **<share_name>** (nom du partage), **<smb_version>** (version de SMB) et **<mount_point>** (point de montage) par les informations adéquates pour votre environnement. Si votre distribution Linux prend en charge SMB 3.0 avec chiffrement (pour plus d’informations, consultez [Comprendre les exigences du client SMB](#smb-client-reqs)), remplacez **<smb_version>** par **3.0**. Pour les distributions Linux qui ne prennent pas en charge SMB 3.0 avec chiffrement, remplacez **<smb_version>** par **2.1**. Un partage de fichiers Azure peut uniquement être monté en dehors d’une région Azure (notamment en local ou dans une région Azure différente) avec SMB 3.0.
 
     ```bash
-    sudo bash -c 'echo "//<STORAGE ACCOUNT NAME>.file.core.windows.net/<FILE SHARE NAME> /mount/<STORAGE ACCOUNT NAME>/<FILE SHARE NAME> cifs nofail,vers=3.0,credentials=/etc/smbcredentials/<STORAGE ACCOUNT NAME>.cred,dir_mode=0777,file_mode=0777,serverino" >> /etc/fstab'
+    sudo bash -c 'echo "//<STORAGE ACCOUNT NAME>.file.core.windows.net/<FILE SHARE NAME> /mount/<STORAGE ACCOUNT NAME>/<FILE SHARE NAME> cifs _netdev,nofail,vers=3.0,credentials=/etc/smbcredentials/<STORAGE ACCOUNT NAME>.cred,dir_mode=0777,file_mode=0777,serverino" >> /etc/fstab'
 
     sudo mount /mount/<STORAGE ACCOUNT NAME>/<FILE SHARE NAME>
     ```

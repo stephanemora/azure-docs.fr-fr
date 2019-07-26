@@ -1,7 +1,6 @@
 ---
 title: 'Démarrage rapide d’Azure : Sauvegarder une machine virtuelle avec le portail Azure'
 description: Découvrez comment sauvegarder vos machines virtuelles avec le portail Azure
-services: backup
 author: saurabhsensharma
 manager: shivamg
 tags: azure-resource-manager, virtual-machine-backup
@@ -11,12 +10,12 @@ ms.topic: quickstart
 ms.date: 7/17/2018
 ms.author: saurse
 ms.custom: mvc
-ms.openlocfilehash: d167ed012e3f0e45988c88b64040208d87623518
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 926859ffbeaf429df60e8f478e15e41ca70e23a6
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59275480"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467196"
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>Sauvegarder une machine virtuelle dans Azure
 Les sauvegardes Azure peuvent être créées via le portail Azure. Cette méthode fournit une interface utilisateur basée sur un navigateur permettant de créer et configurer les sauvegardes Azure et toutes les ressources associées. Vous pouvez protéger vos données en effectuant des sauvegardes à intervalles réguliers. La sauvegarde Azure crée des points de récupération pouvant être stockés dans des coffres de récupération géo-redondants. Cet article explique comment sauvegarder une machine virtuelle (VM) avec le portail Azure. 

@@ -3,7 +3,7 @@ title: Événement de début de redimensionnement de pool Azure Batch | Microsof
 description: Référence pour l’événement de début de redimensionnement de pool Batch.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.assetid: ''
 ms.service: batch
 ms.devlang: multiple
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: lahugh
-ms.openlocfilehash: 63abeaca5a9c87945671e79a9c8d7a2512d0d777
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c7ef6bb9550b7398a10f5b57e6009d896256666b
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60774231"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323177"
 ---
 # <a name="pool-resize-start-event"></a>Événement de début de redimensionnement de pool
 

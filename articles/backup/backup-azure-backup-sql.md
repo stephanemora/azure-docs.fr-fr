@@ -1,19 +1,18 @@
 ---
 title: Sauvegarde Azure pour les charges de travail SQL Server à l'aide de DPM
 description: Présentation de la sauvegarde de bases de données SQL Server à l'aide du service Azure Backup
-services: backup
 author: kasinh
 manager: vvithal
 ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: kasinh
-ms.openlocfilehash: d7d94c7b238f8d413d8837c3c34468c6cd653fe3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 60afba5d094d730aab20f2a7d50206c063f390ff
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60643970"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466627"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>Sauvegarde de SQL Server sur Azure en tant que charge de travail DPM
 Cet article vous guide tout au long des étapes de configuration de la sauvegarde des bases de données SQL Server à l’aide de la Sauvegarde Azure.

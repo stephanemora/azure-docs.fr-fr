@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2019
 ms.author: spelluru
-ms.openlocfilehash: f761af3a5a3f08e4da89d8869aea5d666ecd69d0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9180c29b807ef26c6426aab75fe74870fef9669a
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60868250"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68318161"
 ---
 # <a name="track-costs-associated-with-a-lab-in-azure-devtest-labs"></a>Suivre les coûts associés à un laboratoire dans Azure DevTest Labs
 Cet article fournit des informations sur la façon de suivre le coût de votre laboratoire. Il vous montre comment afficher la tendance des coûts estimés du laboratoire pour le mois en cours. L’article vous montre également comment afficher le coût du mois en cours par ressource du laboratoire.
@@ -95,7 +95,7 @@ La fonctionnalité de tendance de coût mensuel des laboratoires permet de voir 
 
 Cette fonctionnalité aide à identifier facilement les ressources les plus onéreuses, donc à prendre des mesures pour réduire les dépenses de laboratoire. Par exemple, le coût d’une machine virtuelle est basé sur sa taille. Plus la machine virtuelle est grande, plus elle coûte cher. Vous pouvez facilement trouver la taille d’une machine virtuelle et son propriétaire, puis vous adresser à lui pour comprendre pourquoi il a besoin d’une machine virtuelle de cette taille et s’il est possible de la réduire.
 
-Une [stratégie d’arrêt automatique](devtest-lab-get-started-with-lab-policies.md#set-auto-shutdown) aide à réduire le coût en arrêtant les machines virtuelles du laboratoire à une heure précise de la journée. Toutefois, un utilisateur de laboratoire peut refuser de la stratégie d’arrêt, ce qui augmente le coût d’exécution de la machine virtuelle. Vous pouvez sélectionner une machine virtuelle dans le tableau pour voir si elle a été exclue de la stratégie d’arrêt automatique. Le cas échéant, vous pouvez communiquer avec son propriétaire afin de savoir pourquoi la machine virtuelle a été exclue de la stratégie.
+Une [stratégie d’arrêt automatique](devtest-lab-set-lab-policy.md?#set-auto-shutdown-policy) aide à réduire le coût en arrêtant les machines virtuelles du laboratoire à une heure précise de la journée. Toutefois, un utilisateur de laboratoire peut refuser de la stratégie d’arrêt, ce qui augmente le coût d’exécution de la machine virtuelle. Vous pouvez sélectionner une machine virtuelle dans le tableau pour voir si elle a été exclue de la stratégie d’arrêt automatique. Le cas échéant, vous pouvez communiquer avec son propriétaire afin de savoir pourquoi la machine virtuelle a été exclue de la stratégie.
  
 ## <a name="next-steps"></a>Étapes suivantes
 Voici quelques possibilités d’opérations pour la suite :

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 8bea47467d141869b1a668668bc57451a882a54b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 589f8c8f11138b4fb5c3c3096229e28c633efb0d
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448448"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423008"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Comment traiter et extraire des informations d’images dans des scénarios de recherche cognitive
 
@@ -102,8 +102,6 @@ La [compétence d’analyse d’image](cognitive-search-skill-image-analysis.md)
 ### <a name="ocr-skill"></a>Compétence de reconnaissance optique des caractères
 
 La [compétence de reconnaissance optique des caractères](cognitive-search-skill-ocr.md) extrait du texte de fichiers image, par exemple, aux formats JPG, PNG et bitmap. Elle peut extraire du texte ainsi que des informations de disposition. Les informations de disposition fournissent des rectangles englobants pour chacune des chaînes identifiées.
-
-La compétence de reconnaissance optique des caractères vous permet de sélectionner l’algorithme à utiliser pour détecter le texte dans vos images. Elle prend actuellement en charge deux algorithmes, l’un pour le texte imprimé et l’autre pour le texte manuscrit.
 
 ## <a name="embedded-image-scenario"></a>Scénario d’image incorporée
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/21/2019
 ms.author: apimpm
-ms.openlocfilehash: 73dd46d1ca0a20748d7a3a7838c499f0c659253d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 72cffea3e5d42210bffbdbeef94c475cc8bdebf4
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66241676"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68312097"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Guide pratique pour protéger une API à l’aide d’OAuth 2.0 avec Azure Active Directory et Gestion des API
 
@@ -122,9 +122,6 @@ Dans cet exemple, la console de développeur est l’application cliente. Les é
 5. Sélectionnez **Code d’autorisation** comme **Types d’octroi d’autorisation**.
 
 6. Spécifiez l’**URL de point de terminaison d’autorisation** et l’**URL de point de terminaison de jeton**. Récupérez ces valeurs à partir de la page **Points de terminaison** dans votre locataire Azure AD. Accédez à nouveau à la page **Inscriptions des applications** puis sélectionnez **Points de terminaison**.
-
-    >[!NOTE]
-    > Utilisez ici les points de terminaison **v1**.
 
 7. Copiez la valeur de **Point de terminaison d’autorisation OAuth 2.0** et collez-la dans la zone de texte **URL de point de terminaison d’autorisation**.
 

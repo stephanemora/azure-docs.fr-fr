@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 4b2763629a3036551cb3d362e609c72737436f4a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f53d3bd64b4f837fe29baa338cd338158d59d95d
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61424701"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466951"
 ---
 # <a name="work-with-strings-in-azure-monitor-log-queries"></a>Utilisation de chaînes dans des requêtes de journal Azure Monitor
 
@@ -38,6 +38,10 @@ Les valeurs de chaîne sont entourées de guillemets simples ou doubles. La barr
 
 ```Kusto
 print "this is a 'string' literal in double \" quotes"
+```
+
+```Kusto
+print 'this is a "string" literal in single \' quotes'
 ```
 
 Pour empêcher « \\ » d’agir comme un caractère d’échappement, ajoutez « \@ » en tant que préfixe à la chaîne :

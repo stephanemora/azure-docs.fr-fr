@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 03/07/2019
 ms.author: bfung
-ms.openlocfilehash: 5ac1d1339cb8a26cc86157d4d2aa664517418095
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 5a6cf763ae16b55806df2acaf2e03fd8c13d1e76
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67617793"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359277"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-service-fabric-cloud-service-and-virtual-machines"></a>Activer le Débogueur de capture instantanée pour les applications .NET dans Azure Service Fabric, le service cloud et les machines virtuelles
 
@@ -87,15 +87,7 @@ Si votre application s’exécute dans Azure Service Fabric, le service cloud, d
        Ajoutez ce qui suit à la fin de la méthode ConfigureServices dans la classe `Startup` dans `Startup.cs`.
 
        ```csharp
-            services.AddSnapshotCollector((configuration) =>
-            {
-                IConfigurationSection section = Configuration.GetSection(nameof(SnapshotCollectorConfiguration));
-                if (section.Value != null)
-                {
-                    section.Bind(configuration);
-                }
-            });
-
+            services.AddSnapshotCollector((configuration) => Configuration.Bind(nameof(SnapshotCollectorConfiguration), configuration));
        ```
     2. Si le package NuGet [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) version 1.3.4 ou antérieure est utilisée, ajoutez les instructions suivantes à `Startup.cs`.
 

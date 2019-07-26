@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: fe0af4ca7b6860fff19f4df3165a975c42b54a03
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: d4daa7ae9c7e58c1949dfbe4427a154c389100d4
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277777"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348376"
 ---
 # <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Planification et mise à l’échelle de la capacité pour Azure Service Fabric
 
@@ -92,7 +92,7 @@ Vous pouvez effectuer une mise à l’échelle horizontale [manuellement](https:
 
 Montez en charge un cluster Service Fabric en augmentant le nombre d’instances d’un groupe de machines virtuelles identiques donné. Cette montée en charge peut se faire par programmation, à l’aide d`AzureClient` et de l’ID du groupe de machines virtuelles souhaité.
 
-```c#
+```csharp
 var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
 var newCapacity = (int)Math.Min(MaximumNodeCount, scaleSet.Capacity + 1);
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
@@ -134,7 +134,7 @@ Pour une mise à l’échelle manuelle, mettez à jour la capacité dans la prop
 
 Vous devez préparer le nœud à l’arrêt pour une mise à l’échelle par programmation. Recherchez le nœud à supprimer (le nœud de l’instance la plus élevée). Par exemple :
 
-```c#
+```csharp
 using (var client = new FabricClient())
 {
     var mostRecentLiveNode = (await client.QueryManager.GetNodeListAsync())
@@ -151,7 +151,7 @@ using (var client = new FabricClient())
 
 Désactivez et supprimez le nœud en utilisant la même instance `FabricClient` (`client` dans le cas présent) et la même instance de nœud (`instanceIdString` dans le cas présent) utilisés dans le code précédent :
 
-```c#
+```csharp
 var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
 
 // Remove the node from the Service Fabric cluster

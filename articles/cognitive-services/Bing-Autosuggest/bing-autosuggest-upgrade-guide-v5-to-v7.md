@@ -1,6 +1,6 @@
 ---
 title: Mise à niveau de l’API Suggestion automatique Bing de la version 5 à la version 7
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Permet d’identifier les parties de votre application que vous devez mettre à jour pour utiliser la version 7.
 services: cognitive-services
 author: swhite-msft
@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: scottwhi
-ms.openlocfilehash: 51f057a1dd0da866a50a0219574c70c3c805882e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5249a3a1f51eea2ecd0999d71c6b08fdacf37a34
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60549646"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405417"
 ---
 # <a name="autosuggest-api-upgrade-guide"></a>Guide de mise à niveau de l’API Suggestion automatique Bing
 

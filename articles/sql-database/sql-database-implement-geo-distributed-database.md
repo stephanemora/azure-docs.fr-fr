@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 6022c016b83ffe1362db4d826a5ee4397afd4128
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a5be3efa5544e47f40ab9f0a31f6658b134977e2
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60338965"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68444523"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database"></a>Didacticiel : Implémenter une base de données géo-distribuée
 
@@ -34,12 +34,12 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont destinés au module Az.Sql. Pour ces cmdlets, consultez [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments des commandes dans le module Az et dans les modules AzureRm sont sensiblement identiques.
+> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont destinés au module Az.Sql. Pour ces cmdlets, voir [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments des commandes dans le module Az et dans les modules AzureRm sont sensiblement identiques.
 
 Pour suivre le tutoriel, vérifiez que les éléments suivants sont installés :
 
 - [Azure PowerShell](/powershell/azureps-cmdlets-docs)
-- base de données Azure SQL. Pour en créer une :
+- Une base de données unique dans Azure SQL Database Pour en créer une :
   - [Portal](sql-database-single-database-get-started.md)
   - [INTERFACE DE LIGNE DE COMMANDE](sql-database-cli-samples.md)
   - [PowerShell](sql-database-powershell-samples.md)

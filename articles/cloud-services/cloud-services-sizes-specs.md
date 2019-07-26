@@ -3,23 +3,17 @@ title: Tailles des machines virtuelles pour Azure Cloud services | Microsoft Doc
 description: Répertorie les différentes tailles de machines virtuelles (et les identifiants) des rôles web et de travail des services cloud Azure.
 services: cloud-services
 documentationcenter: ''
-author: jpconnock
-manager: jpconnock
-editor: ''
-ms.assetid: 1127c23e-106a-47c1-a2e9-40e6dda640f6
+author: georgewallace
 ms.service: cloud-services
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: tbd
 ms.date: 07/18/2017
-ms.author: jeconnoc
-ms.openlocfilehash: 21fbfe22901de677209b55639cd8871ab408375b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: gwallace
+ms.openlocfilehash: 0df9ee859ae8e341537f5e832d9ff90e9736cb0c
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64719019"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443017"
 ---
 # <a name="sizes-for-cloud-services"></a>Tailles de services cloud
 Cette rubrique décrit les tailles et options disponibles pour les instances de rôle de Cloud Services (rôles web et rôles de travail). Il expose également les points à prendre en considération pour le déploiement quand vous planifiez l'utilisation de ces ressources. Chaque taille a un identifiant que vous placez dans votre [fichier de définition de service](cloud-services-model-and-package.md#csdef). Les prix pour chaque taille sont disponibles sur la page de [tarification des Services Cloud](https://azure.microsoft.com/pricing/details/cloud-services/).
@@ -68,7 +62,6 @@ Nous avons créé le concept d’unité de calcul Azure (ACU) pour pouvoir compa
 | [D v2](#dv2-series) |160 - 190* |
 | [D v3](#dv3-series) |160 - 190* |
 | [E v3](#ev3-series) |160 - 190* |
-| [F](#f-series) |210 - 250*|
 | [G](#g-series) |180 - 240* |
 | [H](#h-series) |290 - 300* |
 
@@ -166,17 +159,6 @@ Pour plus d’informations et pour connaître les éléments à prendre en consi
 | Standard_E16_v3 | 16        | 128           | 400                  | 8 / Extrêmement élevée |
 | Standard_E32_v3 | 32        | 256           | 800                  | 8 / Extrêmement élevée |
 | Standard_E64_v3 | 64        | 432           | 1 600                 | 8 / Extrêmement élevée |
-
-## <a name="f-series"></a>Série F
-
-
-| Taille            | Cœurs d’unité centrale | Mémoire : Gio   | Stockage temporaire (SSD) : Gio       | Cartes réseau (max)/Bande passante réseau |
-|---------------- | --------- | ------------- | -------------------- | ---------------------------- |
-| Standard_F1     | 1         | 2             | 16                   | 2 / 750  |
-| Standard_F2     | 2         | 4             | 32                   | 2 / 1 500 |
-| Standard_F4     | 4         | 8             | 64                   | 4 / 3 000 |
-| Standard_F8     | 8         | 16            | 128                  | 8 / 6 000 |
-| Standard_F16    | 16        | 32            | 256                  | 8 / 12000|
 
 
 ## <a name="g-series"></a>Série G

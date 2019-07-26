@@ -11,12 +11,12 @@ ms.author: andrela
 ms.reviewer: v-masebo
 manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 2d9ce34d52d08b4dd38caaadfab48b7a69870e9a
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: fcc1a093f8df87da24f9d7f7945c490d7b58c9bd
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447920"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68320583"
 ---
 # <a name="quickstart-use-java-to-query-an-azure-sql-database"></a>Démarrage rapide : Utilisation de Java pour interroger une base de données Azure SQL
 
@@ -37,8 +37,7 @@ Pour suivre cet exemple, vérifiez que les conditions préalables ci-dessous son
   |||[Connectivité à partir d’une machine locale](sql-database-managed-instance-configure-p2s.md)
   |Charger des données|Adventure Works chargé dans le cadre du guide de démarrage rapide|[Restaurer Wide World Importers](sql-database-managed-instance-get-started-restore.md)
   |||Restaurer ou importer Adventure Works à partir du fichier [BACPAC](sql-database-import.md) disponible sur [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
-  |||
-
+  
   > [!IMPORTANT]
   > Les scripts fournis dans cet article utilisent la base de données Adventure Works. Avec une instance managée, vous devez importer la base de données Adventure Works dans une base de données d’instance, ou modifier les scripts fournis dans cet article pour utiliser la base de données Wide World Importers.
 
@@ -168,7 +167,7 @@ Procurez-vous les informations de connexion dont vous avez besoin pour vous conn
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Concevoir votre première base de données SQL Azure](sql-database-design-first-database.md)  
+- [Concevoir votre première base de données Azure SQL](sql-database-design-first-database.md)  
 
 - [Pilote JDBC Microsoft pour SQL Server](https://github.com/microsoft/mssql-jdbc)  
 

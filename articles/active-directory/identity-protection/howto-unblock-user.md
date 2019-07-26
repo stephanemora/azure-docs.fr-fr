@@ -2,33 +2,28 @@
 title: Comment débloquer des utilisateurs avec Azure Active Directory Identity Protection | Microsoft Docs
 description: Découvrez comment débloquer les utilisateurs bloqués par une stratégie Azure Active Directory Identity Protection.
 services: active-directory
-keywords: azure active directory identity protection, déblocage des utilisateurs
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: a953d425-a3ef-41f8-a55d-0202c3f250a7
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d22fa7fd3964f99c426e8e21d34dcfdea6d1b36
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c28e30b8e44b6888cdb7416b9c7b563b955a68ce
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60294405"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335379"
 ---
 # <a name="how-to-unblock-users"></a>Procédure : Débloquer des utilisateurs
 
 Avec Azure Active Directory Identity Protection, vous pouvez configurer des stratégies pour bloquer les utilisateurs si les conditions configurées sont remplies. En règle générale, un utilisateur bloqué contacte le support technique pour pouvoir être débloqué. Cet article explique les étapes à suivre pour débloquer un utilisateur bloqué.
 
 ## <a name="determine-the-reason-for-blocking"></a>Déterminer la raison du blocage
+
 Dans un premier temps, pour débloquer un utilisateur, vous devez déterminer le type de stratégie qui l’a bloqué, car les étapes suivantes en dépendent.
 Avec Azure Active Directory Identity Protection, un utilisateur peut être bloqué par une stratégie en matière de risque à la connexion ou par une stratégie de risque d’utilisateur.
 
@@ -45,6 +40,7 @@ Un utilisateur qui est bloqué par :
 * Une stratégie de risque d’utilisateur, également appelé compte à risque
 
 ## <a name="unblocking-suspicious-sign-ins"></a>Déblocage des connexions suspectes
+
 Pour débloquer une connexion suspecte, vous disposez des options suivantes :
 
 1. **Connexion à partir d’un emplacement ou d’un appareil connu** : les connexions suspectes bloquées sont généralement des tentatives de connexion effectuées à partir d’un emplacement ou d’un appareil inconnu. Vos utilisateurs peuvent déterminer rapidement s’il s’agit bien de la raison du blocage en essayant de se connecter depuis un appareil ou un emplacement connu.
@@ -52,6 +48,7 @@ Pour débloquer une connexion suspecte, vous disposez des options suivantes :
 3. **Désactiver la stratégie** : si vous pensez que votre configuration de la stratégie est à l’origine des problèmes pour tous vos utilisateurs, vous pouvez désactiver la stratégie. Pour plus d’informations, consultez [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
 
 ## <a name="unblocking-accounts-at-risk"></a>Déblocage des comptes à risque
+
 Pour débloquer un compte à risque, vous disposez des options suivantes :
 
 1. **Réinitialiser le mot de passe réinitialisé** : vous pouvez réinitialiser le mot de passe de l’utilisateur. 

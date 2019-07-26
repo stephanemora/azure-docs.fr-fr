@@ -12,14 +12,15 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 696b6b14b2a369e8b80ac615fc77fa7f48f51c57
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7f2145811338200b38e84766459844b4c83e5a80
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60474289"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382760"
 ---
 # <a name="manually-add-an-account-to-the-app"></a>Ajout manuel d’un compte à l’application
+
 Si la caméra ne peut pas capturer le code QR, vous pouvez ajouter manuellement les informations de votre compte à l’application Microsoft Authenticator pour la vérification en deux étapes. Cela fonctionne pour les comptes professionnels ou scolaires et les comptes autres que Microsoft.
 
 Les codes fournis pour vos comptes ne respectent pas la casse et ne nécessitent pas d’espaces lors de l’ajout dans l’application Microsoft Authenticator.
@@ -30,7 +31,7 @@ Les codes fournis pour vos comptes ne respectent pas la casse et ne nécessitent
 ## <a name="add-your-work-or-school-account"></a>Ajout de votre compte professionnel ou scolaire
 
 1. Sur votre ordinateur, prenez note des informations **Code** et **URL** figurant sur la page **Configurer l’application mobile**. Ne fermez pas cette page afin de voir le code et l’URL.
-    
+
     ![Écran qui fournit le code QR](./media/user-help-auth-app-add-account-manual/auth-app-barcode.png)
 
 2. Ouvrez l’application Microsoft Authenticator, sélectionnez **Ajouter un compte** grâce à l’icône **Personnaliser et contrôler** dans l’angle supérieur droit, puis sélectionnez **Compte professionnel ou scolaire**.
@@ -38,7 +39,7 @@ Les codes fournis pour vos comptes ne respectent pas la casse et ne nécessitent
 3. Sélectionnez **OU ENTREZ LE CODE MANUELLEMENT**.
 
     ![Écran pour scanner un code QR](./media/user-help-auth-app-add-account-manual/auth-app-manual-code.png)
-   
+
 4. Entrez les informations **Code** et **URL** de l’étape 1, puis sélectionnez **Terminer**.
 
     ![Écran pour saisir le code et de l’URL](./media/user-help-auth-app-add-account-manual/auth-app-code-url.png)
@@ -78,6 +79,7 @@ Les codes fournis pour vos comptes ne respectent pas la casse et ne nécessitent
     >Pour plus d’informations sur la vérification en deux étapes et votre compte Facebook, consultez [Présentation et fonctionnement de l’authentification à deux facteurs](https://www.facebook.com/help/148233965247823).
 
 ## <a name="add-your-amazon-account"></a>Ajout de votre compte Amazon
+
 Vous pouvez ajouter votre compte Amazon en activant la vérification en deux étapes, puis en ajoutant le compte à l’application.
 
 1. Sur votre ordinateur, sélectionnez **Can’t scan the barcode** (Impossible de scanner le code-barres) dans la page **Choisir comment recevoir les codes** avec le code QR.

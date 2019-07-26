@@ -2,40 +2,31 @@
 title: FAQ et problèmes connus liés à Identity Protection (version actualisée) dans Azure Active Directory | Microsoft Docs
 description: FAQ et problèmes connus liés à Identity Protection (version actualisée) dans Azure Active Directory.
 services: active-directory
-keywords: azure active directory identity protection, cloud app discovery, gestion d’applications, sécurité, risque, niveau de risque, vulnérabilité, stratégie de sécurité
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 01/24/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 392b7a08d9422658c5620f60e9c1caca074bc85e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5d5aa50aec98b3944aed92b9da49182f0608f34c
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60452675"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68333888"
 ---
 # <a name="faqs-and-known-issues-with-identity-protection-refreshed-in-azure-active-directory"></a>FAQ et problèmes connus liés à Identity Protection (version actualisée) dans Azure Active Directory
-
 
 ## <a name="dismiss-user-risk-known-issues"></a>Faire disparaître les problèmes connus liés aux risques de l’utilisateur
 
 **Ignorer le risque lié à l’utilisateur** dans la version classique d’Identity Protection définit l’acteur dans l’historique des risques utilisateur d’Identity Protection (version actualisée) sur **Azure AD**.
 
-
 **Ignorer le risque lié à l’utilisateur** dans Identity Protection (version actualisée) définit l’acteur dans l’historique des risques utilisateur d’Identity Protection (version actualisée) sur le **\<nom de l’administrateur avec un lien hypertexte pointant vers le panneau de l’utilisateur\>** .
 
 Un problème connu provoque actuellement des latences dans le flux de rejet du risque utilisateur. Si vous disposez d'une « Stratégie de risque utilisateur », celle-ci cessera de s'appliquer aux utilisateurs ignorés quelques minutes après un clic sur « Ignorer le risque lié à l'utilisateur ». Cela dit, des retards d'actualisation de l'« état de risque » des utilisateurs ignorés ont été identifiés. Pour contourner ce problème, actualisez la page au niveau du navigateur afin d'afficher le dernier « État de risque » de l'utilisateur.
-
 
 ## <a name="risky-users-report-known-issues"></a>Les utilisateurs à risque signalent les problèmes connus
 
@@ -45,11 +36,9 @@ Désactivez **Show dates as** (Afficher les dates en tant que) pour masquer la c
 
 **Ignorer tous les événements** dans la version classique d’Identity Protection définit l’état des événements à risque sur **Closed (resolved)** (Fermé (résolu)).
 
-
 ## <a name="risky-sign-ins-report-known-issues"></a>Problèmes connus du rapport sur les connexions à risque
 
 **Résoudre** sur un événement à risque définit l’état sur **Users passed MFA driven by risk-based policy** (Les utilisateurs ont passé la MFA pilotée par une stratégie basée sur les risques).
-
 
 ## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 
@@ -57,11 +46,9 @@ Désactivez **Show dates as** (Afficher les dates en tant que) pour masquer la c
 
 Les niveaux de risque dans Identity Protection sont basés sur la précision de la détection et développés par notre Machine Learning supervisé. Pour personnaliser l’expérience présentée aux utilisateurs, l’administrateur peut inclure/exclure certains utilisateurs/groupes des stratégies de risque de l’utilisateur et de risque de connexion.
 
-
 ### <a name="why-does-the-location-of-a-sign-in-not-match-where-the-user-truly-signed-in-from"></a>Pourquoi l’emplacement d’une connexion ne correspond pas à l’emplacement à partir duquel l’utilisateur s’est réellement connecté ?
 
 Le mappage de géolocalisation IP est un défi à l’échelle du secteur. Si vous pensez que l’emplacement indiqué dans le rapport de connexions ne correspond pas à l’emplacement réel, veuillez contacter le support. 
-
 
 ### <a name="how-do-the-feedback-mechanisms-in-identity-protection-work"></a>Comment les mécanismes de commentaires fonctionnent-ils dans Identity Protection ?
 
@@ -82,8 +69,6 @@ Le mappage de géolocalisation IP est un défi à l’échelle du secteur. Si vo
 
     > [!NOTE]
     > Si vous pensez que l’utilisateur n’est pas compromis, utilisez **Ignorer le risque lié à l’utilisateur** au niveau de l’utilisateur plutôt que d’utiliser **Sécurité confirmée** au niveau de la connexion. **Ignorer le risque lié à l’utilisateur** au niveau de l’utilisateur ferme le risque de l’utilisateur, ainsi que toutes les connexions à risque et tous les événements à risque antérieurs.
-
-
 
 ### <a name="why-am-i-seeing-a-user-with-a-low-or-above-risk-score-even-if-no-risky-sign-ins-or-risk-events-are-shown-in-identity-protection"></a>Pourquoi un utilisateur avec un faible indice de risque (ou supérieur) s’affiche-t-il même si aucune connexion à risque ni aucun événement à risque n’apparaît dans Identity Protection ?
 

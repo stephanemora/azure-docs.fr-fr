@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 06/05/2019
 ms.openlocfilehash: 0122f952e586d0535fc2e482c7b78266f8809272
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 07/25/2019
 ms.locfileid: "67062439"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>Monitoring dans Azure Database pour MySQL
@@ -33,9 +33,9 @@ Ces métriques sont disponibles pour Azure Database pour MySQL :
 |serverlog_storage_usage|Stockage du journal du serveur utilisé|Octets|Quantité de stockage du journal du serveur en cours d’utilisation.|
 |serverlog_storage_limit|Limite de stockage du journal du serveur|Octets|Stockage du journal du serveur maximal défini pour ce serveur.|
 |storage_limit|Limite de stockage|Octets|Stockage maximal pour ce serveur.|
-|active_connections|Connexions actives|Nombre|Nombre de connexions actives sur le serveur.|
-|connections_failed|Connexions ayant échoué|Nombre|Nombre de connexions au serveur ayant échoué.|
-|seconds_behind_master|Décalage de la réplication en secondes|Nombre|Nombre de secondes de latence du serveur réplica par rapport au serveur maître.|
+|active_connections|Connexions actives|Count|Nombre de connexions actives sur le serveur.|
+|connections_failed|Connexions ayant échoué|Count|Nombre de connexions au serveur ayant échoué.|
+|seconds_behind_master|Décalage de la réplication en secondes|Count|Nombre de secondes de latence du serveur réplica par rapport au serveur maître.|
 |network_bytes_egress|Network Out|Octets|Sortie réseau entre connexions actives.|
 |network_bytes_ingress|Network In|Octets|Entrée réseau entre connexions actives.|
 |backup_storage_used|Stockage de sauvegarde utilisé|Octets|Quantité de stockage de sauvegarde utilisée.|

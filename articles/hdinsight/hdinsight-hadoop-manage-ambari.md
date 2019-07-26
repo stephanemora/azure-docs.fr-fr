@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: hrasheed
-ms.openlocfilehash: 49e8fbef7af16e109c1e9f1e0d8c9aab1a008e21
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d0641a1c058db59acd5e9a64b10bb57b334f82bd
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66257993"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442068"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Gérer des clusters HDInsight à l’aide de l’interface utilisateur web d’Apache Ambari
 
@@ -133,7 +133,7 @@ La sélection de l’un de ces liens ouvre un nouvel onglet dans votre navigateu
 
 ### <a name="ambari-users-groups-and-permissions"></a>Utilisateurs d'Ambari, groupes et autorisations
 
-Il est possible de travailler avec des utilisateurs, des groupes et des autorisations lorsque vous utilisez un cluster HDInsight [joint au domaine](./domain-joined/apache-domain-joined-introduction.md). Pour plus d’informations sur l’utilisation de l’interface utilisateur de gestion Ambari sur un cluster joint à un domaine, consultez [Gestion des clusters HDInsight joints à un domaine](./domain-joined/apache-domain-joined-introduction.md).
+Il est possible de travailler avec des utilisateurs, des groupes et des autorisations lorsque vous utilisez un cluster HDInsight [joint au domaine](./domain-joined/hdinsight-security-overview.md). Pour plus d’informations sur l’utilisation de l’interface utilisateur de gestion Ambari sur un cluster joint à un domaine, consultez [Gestion des clusters HDInsight joints à un domaine](./domain-joined/hdinsight-security-overview.md).
 
 > [!WARNING]  
 > Ne modifiez pas le mot de passe pour l’agent de surveillance Ambari (hdinsightwatchdog) sur votre cluster HDInsight basé sur Linux. La modification du mot de passe élimine la possibilité d’utiliser les actions de script ou d’effectuer des opérations de mise à l’échelle sur votre cluster.
@@ -159,7 +159,7 @@ La page **Hôtes** répertorie tous les hôtes du cluster. Pour gérer des hôte
     |Activer le mode Maintenance|Supprime les alertes de l’hôte. Ce mode doit être activé si vous effectuez des actions qui génèrent des alertes. Par exemple, l’arrêt et le démarrage d’un service.|
     |Désactiver le mode Maintenance|Rétablit les alertes normales de l’hôte.|
     |Arrêter|Arrête DataNode ou NodeManagers sur l’hôte.|
-    |Démarrer|Démarre DataNode ou NodeManagers sur l’hôte.|
+    |Start|Démarre DataNode ou NodeManagers sur l’hôte.|
     |Redémarrer|Arrête et redémarre DataNode ou NodeManagers sur l’hôte.|
     |Désactiver|Supprime un hôte du cluster. **N’utilisez pas cette action sur les clusters HDInsight.**|
     |Réactiver|Ajoute un hôte préalablement désactivé au cluster. **N’utilisez pas cette action sur les clusters HDInsight.**|

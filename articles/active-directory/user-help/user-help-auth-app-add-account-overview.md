@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 01/24/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34455cac61dd3b1f1251d4bc2003bd8b029de031
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d16699729e62953cb2369f39ecfe759aab663caf
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58014959"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382654"
 ---
 # <a name="overview-about-adding-accounts-to-the-microsoft-authenticator-app"></a>Vue d’ensemble de l’ajout de comptes à l’application Microsoft Authenticator
 
@@ -25,7 +25,7 @@ L’application Microsoft Authenticator vous aide à vous connecter à vos compt
 
 > [!Important]
 > L’application Microsoft Authenticator fonctionne avec n’importe quelle application qui utilise la vérification à deux facteurs et n’importe quel compte qui prend en charge les standards des mots de passe à usage unique et durée définie (standards TOTP).
-> 
+>
 > Ce contenu est destiné aux utilisateurs. Si vous êtes un administrateur, vous trouverez plus d’informations sur la méthode à suivre pour configurer et gérer votre environnement Azure Active Directory (Azure AD) dans le [documentation relative à Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
 
 Vous pouvez utiliser l’application Microsoft Authenticator de plusieurs manières, notamment :
@@ -35,22 +35,19 @@ Vous pouvez utiliser l’application Microsoft Authenticator de plusieurs maniè
 - En fournissant une connexion sans mot de passe, en utilisant votre nom d’utilisateur et votre appareil mobile avec votre empreinte digitale, votre visage ou votre code PIN.
 
 ## <a name="what-account-types-can-i-add"></a>Les types de comptes que vous pouvez ajouter
+
 Vous pouvez activer la vérification à deux facteurs pour de nombreux comptes que vous utilisez chaque jour, notamment :
 
-|Type de compte|Description|
-|------------|-----------|
-|Comptes professionnels ou scolaires|Le compte que votre organisation professionnelle ou scolaire vous a donné, par exemple alain@contoso.com.|
-|Comptes personnels|Les comptes Microsoft et non-Microsoft que vous avez ouverts à titre personnel, par exemple pour Outlook.com, Xbox LIVE, Google, Facebook, etc.|
+| Type de compte | Description |
+| ------------ | ----------- |
+| Comptes professionnels ou scolaires | Le compte que votre organisation professionnelle ou scolaire vous a donné, par exemple alain@contoso.com. |
+| Comptes personnels | Les comptes Microsoft et non-Microsoft que vous avez ouverts à titre personnel, par exemple pour Outlook.com, Xbox LIVE, Google, Facebook, etc. |
 
 ## <a name="in-this-section"></a>Dans cette section
 
-|Article |Description |
-|------|------------|
-|[Ajouter votre compte professionnel ou scolaire](user-help-auth-app-add-work-school-account.md)|Décrit comment ajouter vos comptes professionnels ou scolaires à l’application Microsoft Authenticator pour la vérification à deux facteurs.|
-|[Ajouter votre compte Microsoft personnel](user-help-auth-app-add-personal-ms-account.md)|Décrit comment ajouter vos comptes personnels Microsoft pour la vérification à deux facteurs et vous connecter via un téléphone (ceci est également appelé « connexion sans mot de passe »).|
-|[Ajouter un compte non-Microsoft](user-help-auth-app-add-non-ms-account.md)|Décrit comment ajouter vos comptes personnels non-Microsoft pour la vérification à deux facteurs.|
-|[Ajouter votre compte manuellement](user-help-auth-app-add-account-manual.md)|Décrit comment ajouter manuellement votre compte à l’application Microsoft Authenticator si votre appareil photo ne peut pas capturer le code QR.|
-
-
-
-
+| Article |Description |
+| ------|------------|
+| [Ajouter votre compte professionnel ou scolaire](user-help-auth-app-add-work-school-account.md) | Décrit comment ajouter vos comptes professionnels ou scolaires à l’application Microsoft Authenticator pour la vérification à deux facteurs. |
+| [Ajouter votre compte Microsoft personnel](user-help-auth-app-add-personal-ms-account.md) | Décrit comment ajouter vos comptes personnels Microsoft pour la vérification à deux facteurs et vous connecter via un téléphone (ceci est également appelé « connexion sans mot de passe »). |
+| [Ajouter un compte non-Microsoft](user-help-auth-app-add-non-ms-account.md) | Décrit comment ajouter vos comptes personnels non-Microsoft pour la vérification à deux facteurs. |
+| [Ajouter votre compte manuellement](user-help-auth-app-add-account-manual.md) | Décrit comment ajouter manuellement votre compte à l’application Microsoft Authenticator si votre appareil photo ne peut pas capturer le code QR. |

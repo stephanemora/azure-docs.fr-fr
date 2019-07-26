@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: b-juche
-ms.openlocfilehash: 5b54d8f21f4cb1cdd7bb06871df6ac22d19d1ab6
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 087ecee053069a02e4d4dd6f636d05ea15269e2e
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705202"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68383491"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Consignes pour planifier un réseau Azure NetApp Files
 
@@ -56,7 +56,7 @@ Le tableau suivant décrit les topologies de réseau prises en charge par Azure 
 |    Connectivité à un volume dans un réseau virtuel homologué (même région)    |    OUI    |         |
 |    Connectivité à un volume dans un réseau virtuel homologué (entre région ou peering mondial)    |    Non    |    Aucun    |
 |    Connectivité à un volume via la passerelle ExpressRoute    |    OUI    |         |
-|    Connectivité locale à un volume dans un réseau virtuel spoke via la passerelle ExpressRoute et le peering du réseau avec transit de passerelle    |    Non    |    Créer un sous-réseau délégué dans le réseau virtuel du hub (réseau virtuel Azure avec la passerelle)    |
+|    Connectivité locale à un volume dans un réseau virtuel spoke via la passerelle ExpressRoute et le peering du réseau avec transit de passerelle    |    OUI    |        |
 |    Connectivité locale à un volume dans un réseau virtuel spoke via la passerelle VPN    |    OUI    |         |
 |    Connectivité locale à un volume dans un réseau virtuel spoke via la passerelle VPN et le peering du réseau avec transit de passerelle    |    OUI    |         |
 

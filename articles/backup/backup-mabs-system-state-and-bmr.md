@@ -1,7 +1,6 @@
 ---
 title: Le serveur de sauvegarde Azure protège l’état du système et effectue une récupération complète de celui-ci
 description: Utilisez le Serveur de sauvegarde Azure pour sauvegarder l’état de votre système et fournir une protection de récupération complète.
-services: backup
 author: rayne-wiselman
 manager: carmonm
 keywords: ''
@@ -9,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: raynew
-ms.openlocfilehash: 35ab150670cdc27efcedca233928e0c2184aeca6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a21169a5d9da7c9f1baf8a7d1e7365348860fca1
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62116173"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465033"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-with-azure-backup-server"></a>Sauvegarder l’état du système et effectuer une récupération complète avec le Serveur de sauvegarde Azure
 

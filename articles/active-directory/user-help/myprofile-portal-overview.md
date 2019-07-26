@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 05/08/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c686dc0af893259d942527d318f3dd7d98fd752d
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: d72cc4360025d50c6db55bf3029d1edeb538a040
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65470736"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382955"
 ---
 # <a name="my-profile-preview-portal-overview"></a>Vue d’ensemble du portail Mon profil (préversion)
 
@@ -46,7 +46,7 @@ Pour obtenir des informations détaillées et des instructions sur les opératio
 
 |Article |Description |
 |------|------------|
-|[Ajouter vos informations de sécurité](user-help-security-info-overview.md)| Plusieurs articles contenant des instructions sur la façon de configurer l’application Microsoft Authenticator, la messagerie texte ou les appels téléphoniques comme méthode de vérification. Inclut également des articles sur l’ajout d’une adresse e-mail ou de questions de sécurité prédéfinies pour que vous puissiez réinitialiser votre mot de passe oublié, si nécessaire.|
-|[Afficher ou quitter vos organisations connectées](myprofile-portal-organizations-page.md)| Instructions sur la façon d’afficher ou de quitter des organisations connectées à votre compte professionnel ou scolaire.|
-|[Afficher ou désactiver vos appareils connectés](myprofile-portal-devices-page.md)| Instructions sur la façon d’afficher ou de désactiver des appareils que vous avez connectés à votre compte professionnel ou scolaire.|
-|[Afficher vos informations de confidentialité](myprofile-portal-privacy-page.md)| Instructions sur la façon d’afficher les services en ligne qui sont connectés à votre compte professionnel ou scolaire, ainsi que la déclaration des conditions d’utilisation de votre organisation.|
+| [Ajouter vos informations de sécurité](user-help-security-info-overview.md) | Plusieurs articles contenant des instructions sur la façon de configurer l’application Microsoft Authenticator, la messagerie texte ou les appels téléphoniques comme méthode de vérification. Inclut également des articles sur l’ajout d’une adresse e-mail ou de questions de sécurité prédéfinies pour que vous puissiez réinitialiser votre mot de passe oublié, si nécessaire.|
+| [Afficher ou quitter vos organisations connectées](myprofile-portal-organizations-page.md) | Instructions sur la façon d’afficher ou de quitter des organisations connectées à votre compte professionnel ou scolaire.|
+| [Afficher ou désactiver vos appareils connectés](myprofile-portal-devices-page.md) | Instructions sur la façon d’afficher ou de désactiver des appareils que vous avez connectés à votre compte professionnel ou scolaire.|
+| [Afficher vos informations de confidentialité](myprofile-portal-privacy-page.md) | Instructions sur la façon d’afficher les services en ligne qui sont connectés à votre compte professionnel ou scolaire, ainsi que la déclaration des conditions d’utilisation de votre organisation.|

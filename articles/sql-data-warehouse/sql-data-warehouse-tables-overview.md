@@ -2,7 +2,7 @@
 title: Conception de tables - Azure SQL Data Warehouse | Microsoft Docs
 description: Présentation de la conception de tables dans Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 03/15/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: c22caa4b3da69d46241dfbaa7556d0209130415c
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.openlocfilehash: d97326430eebcaea64770e99c26ab593b51d5847
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67626128"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68476746"
 ---
 # <a name="designing-tables-in-azure-sql-data-warehouse"></a>Conception de tables dans Azure SQL Data Warehouse
 

@@ -2,7 +2,7 @@
 title: Instructions T-SQL - Azure SQL Data Warehouse | Microsoft Docs
 description: Liens vers la documentation des instructions T-SQL prises en charge dans Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.subservice: query
 ms.date: 05/01/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: af8aa85488240dbbe4a07811d73ebdbaafefcfef
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 5704ee4bf84b396dcef5a4f9edd887128ba95fb1
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67588610"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479393"
 ---
 # <a name="t-sql-statements-supported-in-azure-sql-data-warehouse"></a>Instructions T-SQL prises en charge dans Azure SQL Data Warehouse
 Liens vers la documentation des instructions T-SQL prises en charge dans Azure SQL Data Warehouse.

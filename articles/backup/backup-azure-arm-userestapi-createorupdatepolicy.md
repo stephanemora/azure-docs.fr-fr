@@ -1,7 +1,6 @@
 ---
 title: 'Sauvegarde Azure : créer des stratégies de sauvegarde à l’aide de l’API REST'
 description: Gérer les stratégies de sauvegarde (planification et rétention) à l’aide de l’API REST
-services: backup
 author: pvrk
 manager: shivamg
 keywords: API REST ; sauvegarde de machine virtuelle Azure ; restauration de machine virtuelle Azure ;
@@ -10,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: pullabhk
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
-ms.openlocfilehash: 657a777da0e984a145c1c617a6194bf4ef56306e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f0729a49c3dc72a28431d711e6783abda96d2ce3
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60648803"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466816"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>Créer des stratégies de sauvegarde Azure Recovery Services à l’aide de l’API REST
 

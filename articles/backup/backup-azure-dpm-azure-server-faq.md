@@ -1,19 +1,18 @@
 ---
 title: Forum aux questions sur le serveur de sauvegarde Azure et DPM
 description: 'Réponses aux questions courantes sur : le serveur de sauvegarde Azure et DPM.'
-services: backup
 author: srinathvasireddy
 manager: sivan
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: srinathv
-ms.openlocfilehash: 7a598038ee435b67b9ad8f06bdec2490bc1c53c3
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 54727daa158172ae44379b847c70602ca998c65d
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705101"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466411"
 ---
 # <a name="azure-backup-server-and-dpm---faq"></a>Serveur de sauvegarde Azure et DPM - Forum aux questions
 Cet article répond aux questions fréquentes sur le serveur de sauvegarde Azure et DPM.

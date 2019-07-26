@@ -2,7 +2,7 @@
 title: Utilisation des boucles T-SQL dans Azure SQL Data Warehouse | Microsoft Docs
 description: Conseils relatifs à l’utilisation de boucles T-SQL et au remplacement de curseurs dans Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: c321bc4e493799a50ada4dd91faf2d2ebdee8aba
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e27edcc1383a235fbdb9513066e69e2f680ea2f9
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65850457"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479621"
 ---
 # <a name="using-t-sql-loops-in-sql-data-warehouse"></a>Utilisation de boucles T-SQL dans SQL Data Warehouse
 Conseils relatifs à l’utilisation de boucles T-SQL et au remplacement de curseurs dans Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions.

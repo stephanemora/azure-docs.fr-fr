@@ -3,8 +3,8 @@ title: Créer et gérer un catalogue dans la gestion des droits d’utilisation 
 description: Découvrez comment créer un nouveau conteneur de ressources et de packages d’accès dans la gestion des droits d’utilisation Azure Active Directory (préversion).
 services: active-directory
 documentationCenter: ''
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: HANKI
 ms.service: active-directory
 ms.workload: identity
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 05/29/2019
-ms.author: rolyon
+ms.date: 07/23/2019
+ms.author: ajburnle
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5988f4723f1ef73cf0767ef8ac1b9adf3c1435d
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 0e563d86abe3817e4c77cc0d5c8df928e41563f8
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190238"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489082"
 ---
 # <a name="create-and-manage-a-catalog-in-azure-ad-entitlement-management-preview"></a>Créer et gérer un catalogue dans la gestion des droits d’utilisation Azure AD (préversion)
 

@@ -3,7 +3,7 @@ title: Exécuter des tâches sous des comptes d’utilisateur - Azure Batch | Mi
 description: Configurer des comptes d’utilisateur pour exécuter des tâches dans Azure Batch
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: ''
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: bd5c16d755ef9b71f36b3d499838b12e6099ba6d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 93b3004303dd1587340b467c2fd52cb7233c95fd
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65595384"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68322703"
 ---
 > [!NOTE] 
 > Pour des raisons de sécurité, les comptes d’utilisateur décrits dans cet article sont différents des comptes d’utilisateur utilisés pour le protocole RDP (Remote Desktop) ou le protocole SSH (Secure Shell). 

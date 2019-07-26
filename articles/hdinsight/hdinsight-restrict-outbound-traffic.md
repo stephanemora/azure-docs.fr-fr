@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 8bb077242c0a989e100c81d4dfefeb53f4bc90c4
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 63e23275a68ddde9385bb252dcb872d02c5cea08
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620687"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405974"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall-preview"></a>Configurer le trafic réseau sortant pour les clusters Azure HDInsight à l’aide du pare-feu (préversion)
 
@@ -23,7 +23,7 @@ Cet article décrit les étapes de sécurisation du trafic sortant de votre clus
 
 Les clusters Azure HDInsight sont normalement déployés dans votre propre réseau virtuel. Le cluster a des dépendances sur des services hors de ce réseau virtuel qui nécessitent un accès réseau fonctionnel.
 
-Plusieurs dépendances requièrent un trafic entrant. Le trafic de gestion entrant ne peut pas être envoyé via un dispositif de pare-feu. Les adresses sources de ce trafic sont connues et publiées [ici](hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip). Vous pouvez également créer des règles de groupe de sécurité réseau (NSG) avec ces informations pour sécuriser le trafic entrant dans les clusters.
+Plusieurs dépendances requièrent un trafic entrant. Le trafic de gestion entrant ne peut pas être envoyé via un dispositif de pare-feu. Les adresses sources de ce trafic sont connues et publiées [ici](hdinsight-management-ip-addresses.md). Vous pouvez également créer des règles de groupe de sécurité réseau (NSG) avec ces informations pour sécuriser le trafic entrant dans les clusters.
 
 Les dépendances de trafic sortant HDInsight sont presque entièrement définies avec des noms FQDN, qui n’ont pas d’adresses IP statiques sous-jacentes. L’absence d’adresses statiques signifie que les groupes de sécurité réseau (NSG) ne peuvent pas être utilisés pour verrouiller le trafic sortant d’un cluster. Les adresses changent assez souvent et il n’est donc pas possible de définir des règles basées sur la résolution de noms actuelle et de les utiliser pour configurer des règles NSG.
 
@@ -99,7 +99,7 @@ Créez les règles de réseau pour configurer correctement votre cluster HDInsig
 
 Créez une table de routage avec les entrées suivantes :
 
-1. Six adresses de [cette liste d’adresses IP de gestion HDInsight requises](../hdinsight/hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip) avec comme tronçon suivant **Internet** :
+1. Six adresses de [cette liste d’adresses IP de gestion HDInsight requises](../hdinsight/hdinsight-management-ip-addresses.md) avec comme tronçon suivant **Internet** :
     1. Quatre adresses IP pour les clusters de toutes les régions
     1. Deux adresses IP propres à la région où le cluster a été créé
 1. Une route d’appliance virtuelle pour l’adresse IP 0.0.0.0/0 avec comme tronçon suivant l’adresse IP privée de votre pare-feu Azure.
@@ -179,7 +179,7 @@ Les instructions précédentes vous aideront à configurer le pare-feu Azure pou
 | **Point de terminaison** | **Détails** |
 |---|---|
 | \*:123 | Vérification de l’horloge NTP. Le trafic est vérifié à plusieurs points de terminaison sur le port 123 |
-| Adresses IP publiées [ici](hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip) | Elles sont associées au service HDInsight |
+| Adresses IP publiées [ici](hdinsight-management-ip-addresses.md) | Elles sont associées au service HDInsight |
 | Adresses IP privées AAD-DS pour les clusters ESP |
 | \*:16800 pour KMS Windows Activation |
 | \*12000 pour Log Analytics |

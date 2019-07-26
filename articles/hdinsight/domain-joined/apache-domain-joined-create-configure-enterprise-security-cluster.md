@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 05/09/2019
-ms.openlocfilehash: 98bd222212d616a5d2c608779c607bb431d184b9
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 8da50757182609402ecb035b6f3e92959758ef46
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67657324"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442294"
 ---
 # <a name="create-and-configure-enterprise-security-package-clusters-in-azure-hdinsight"></a>Créer et configurer des clusters de Pack Sécurité Entreprise dans Azure HDInsight
 
@@ -304,14 +304,14 @@ Vérifiez que le certificat est installé dans la banque personnelle de l\'ordin
 
         | Propriété | Valeur |
         |---|---|
-        | Source | Any |
-        | Source port ranges | * |
-        | Destination | Any |
-        | Destination port range | 636 |
-        | Protocole | Any |
-        | Action | Allow |
-        | Priority | \<Nombre souhaité\> |
-        | Name | Port_LDAP_636 |
+        | Source | Quelconque |
+        | Plages de ports source | * |
+        | Destination | Quelconque |
+        | Plage de ports de destination | 636 |
+        | Protocole | Quelconque |
+        | Action | AUTORISER |
+        | Priorité | \<Nombre souhaité\> |
+        | Nom | Port_LDAP_636 |
 
     ![règle de sécurité de trafic entrant](./media/apache-domain-joined-create-configure-enterprise-security-cluster/add-inbound-security-rule.png)
 
@@ -380,4 +380,4 @@ Si vous parvenez à vous connecter avec ce compte, c’est que vous avez configu
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Introduction à la sécurité Apache Hadoop avec le Pack Sécurité Entreprise](apache-domain-joined-introduction.md)
+* [Introduction à la sécurité Apache Hadoop avec le Pack Sécurité Entreprise](hdinsight-security-overview.md)

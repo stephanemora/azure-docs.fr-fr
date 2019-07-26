@@ -3,16 +3,17 @@ title: Planifier des tâches Azure Container Registry
 description: Configurer des minuteurs pour exécuter une tâche Azure Container Registry selon une planification définie.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 06/27/2019
 ms.author: danlep
-ms.openlocfilehash: a1123a30025f9be6e994e69703f5ee1aa05d1b49
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 680f0268e85d41f8061dc96db1779ab6c22b944a
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509665"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310541"
 ---
 # <a name="run-an-acr-task-on-a-defined-schedule"></a>Exécuter une tâche ACR selon une planification définie
 

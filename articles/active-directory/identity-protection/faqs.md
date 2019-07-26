@@ -2,31 +2,25 @@
 title: Azure Active Directory Identity Protection | Microsoft Docs
 description: Forum Aux Questions relatif à Azure AD Identity Protection
 services: active-directory
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: 14f7fc83-f4bb-41bf-b6f1-a9bb97717c34
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 11/03/2017
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1bea455371938ccc4d512bdb7ffddd72eb9508da
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cc02b8b5dccbec106e90430fc1714253df6ad847
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60454507"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68334021"
 ---
 # <a name="azure-active-directory-identity-protection-faq"></a>FAQ Azure Active Directory Identity Protection
 
 Cet article répond aux questions fréquemment posées sur Azure Active Directory (Azure AD) Identity Protection. Pour plus d’informations, consultez [Azure Active Directory Identity Protection](../active-directory-identityprotection.md). 
-
 
 ## <a name="why-do-some-risk-events-have-closed-system-status"></a>Pourquoi certains événements à risque ont-ils le statut de « Clôturé (système) » ?
 

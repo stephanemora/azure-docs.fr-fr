@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 8058246ea5f4ac87c24fab8c5ec64032eb8a1f0b
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: ebe6f27818df8407504e4254f16d952aa298b6cc
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710642"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348323"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Concevoir et implémenter une base de données Oracle dans Azure
 
@@ -52,7 +52,7 @@ Le tableau suivant liste certaines des différences qui existent entre une impl�
 > | **Résilience** |MTBF (temps moyen entre les défaillances) |MTTR (temps moyen de récupération)|
 > | **Maintenance planifiée** |Correctifs/mises à niveau|[Groupes à haute disponibilité](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) (correctifs/mises à niveau gérés par Azure) |
 > | **Ressource** |Dédié  |Partagée avec d’autres clients|
-> | **Régions** |Centres de données |[Paires de régions](https://docs.microsoft.com/azure/virtual-machines/windows/regions-and-availability)|
+> | **Régions** |Centres de données |[Paires de régions](https://docs.microsoft.com/azure/virtual-machines/windows/regions#region-pairs)|
 > | **Stockage** |SAN/disques physiques |[Stockage géré par Azure](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
 > | **Mettre à l'échelle** |Mise à l’échelle verticale |Mise à l’échelle horizontale|
 

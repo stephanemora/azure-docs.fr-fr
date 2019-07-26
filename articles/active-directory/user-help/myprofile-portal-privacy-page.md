@@ -12,19 +12,21 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dbfcab7900a1552a46341ec71b8b0ea4b41b0bce
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 31847f3cc47ddf1ed784263a543e94ebca454222
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60474731"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382968"
 ---
 # <a name="view-your-privacy-related-info-from-the-my-profile-preview-portal"></a>Afficher vos informations relatives à la confidentialité à partir du portail Mon profil (préversion)
+
 Vous pouvez afficher la façon dont votre organisation utilise vos données à partir de la page **Confidentialité** du portail **Mon profil**.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-myprofile.md)]
 
 ## <a name="view-your-privacy-related-info"></a>Afficher vos informations de confidentialité
+
 1. Connectez-vous à votre compte professionnel ou scolaire, puis accédez à votre page https://myprofile.microsoft.com/.
 
 2. Sélectionnez **Confidentialité** dans le volet de navigation gauche ou sélectionnez le lien **Vérifier la déclaration de confidentialité** à partir du bloc **Confidentialité**.

@@ -1,19 +1,18 @@
 ---
 title: Mettre à jour le pack de contenu de rapports centraux de Sauvegarde Azure
 description: Informations sur les mises à jour du pack de contenu Sauvegarde Azure dans Power BI
-services: backup
 author: kasinh
 manager: vvithal
 ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: kasinh
-ms.openlocfilehash: 87bc7ed3bb59266484858f534080fa87a7230981
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 984f87a514aa55fc18a92c6912145bc65cf21f4c
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60641917"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466600"
 ---
 # <a name="update-the-azure-backup-central-reporting-content-pack"></a>Mettre à jour le pack de contenu de rapports centraux de Sauvegarde Azure 
 

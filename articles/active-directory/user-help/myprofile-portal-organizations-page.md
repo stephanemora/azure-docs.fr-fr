@@ -12,14 +12,15 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6053313c6971f1bcf66bc447b4f4f5fe5817666
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6a0ff4190a1712b91bf58fafd80a03fc2737e7a4
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60475534"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68383003"
 ---
 # <a name="manage-your-organizations-from-the-my-profile-preview-portal"></a>Gérer vos organisations à partir du portail Mon profil (préversion)
+
 Vous pouvez gérer vos organisations à partir de la page **Organisations** page du portail **Mon profil**.
 
 Il existe deux types d’organisations, indiqués à la page **Organisations** :
@@ -31,6 +32,7 @@ Il existe deux types d’organisations, indiqués à la page **Organisations** 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-myprofile.md)]
 
 ## <a name="view-your-organizations"></a>Afficher vos organisations
+
 1. Connectez-vous à votre compte professionnel ou scolaire, puis accédez à votre page https://myprofile.microsoft.com/.
 
 2. Sélectionnez **Organisations** à partir du volet de navigation gauche, ou sélectionnez le lien **Gérer les organisations** à partir du bloc **Organisations**.
@@ -41,9 +43,10 @@ Il existe deux types d’organisations, indiqués à la page **Organisations** 
 
     ![Page Organisations](media/myprofile-portal/myprofile-portal-organization-page.png)
 
-3. Vérifiez vos autres organisations associées en vous assurant que vous reconnaissez toutes les organisations connectées à votre compte.
+4. Vérifiez vos autres organisations associées en vous assurant que vous reconnaissez toutes les organisations connectées à votre compte.
 
 ## <a name="leave-an-organization"></a>Quitter une organisation
+
 Vous pouvez quitter toute organisation qui n’est pas votre organisation d’origine.
 
 >[!Important]

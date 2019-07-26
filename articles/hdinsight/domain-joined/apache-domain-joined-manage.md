@@ -8,19 +8,19 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/24/2018
-ms.openlocfilehash: 951bd74c67c77c944a17e41646c4fe49ef46b33f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7fa215f843fd025d26ba0f583b96f3bb7e63c9ed
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64725676"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68488720"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>Gérer des clusters HDInsight avec le pack Sécurité Entreprise
 Découvrez les utilisateurs et les rôles du pack Sécurité Entreprise (ESP) HDInsight et apprenez à gérer des clusters ESP.
 
 ## <a name="use-vscode-to-link-to-domain-joined-cluster"></a>Utiliser VSCode pour établir un lien avec un cluster joint à un domaine
 
-Vous pouvez lier un cluster normal à l’aide du nom d’utilisateur Apache Ambari managé, mais également lier un cluster de sécurité Apache Hadoop à l’aide du nom d’utilisateur de domaine (par exemple : user1@contoso.com).
+Vous pouvez lier un cluster normal à l’aide du nom d’utilisateur Apache Ambari managé, mais également lier un cluster de sécurité Apache Hadoop à l’aide du nom d’utilisateur de domaine (par exemple : `user1@contoso.com`).
 1. Ouvrez la palette de commandes en appuyant sur **Ctrl+Maj+P**, puis entrez **HDInsight : Link a cluster**.
 
    ![commande de lien du cluster](./media/apache-domain-joined-manage/link-cluster-command.png)
@@ -40,7 +40,7 @@ Vous pouvez lier un cluster normal à l’aide du nom d’utilisateur Apache Am
 
 ## <a name="use-intellij-to-link-to-domain-joined-cluster"></a>Utiliser IntelliJ pour établir un lien avec un cluster joint à un domaine
 
-Vous pouvez lier un cluster normal à l’aide du nom d’utilisateur Ambari managé, mais également lier un cluster de sécurité Hadoop à l’aide du nom d’utilisateur de domaine (par exemple : user1@contoso.com). 
+Vous pouvez lier un cluster normal à l’aide du nom d’utilisateur Ambari managé, mais également lier un cluster de sécurité Hadoop à l’aide du nom d’utilisateur de domaine (par exemple : `user1@contoso.com`). 
 1. Cliquez sur **Lier un cluster** dans **Azure Explorer**.
 
    ![menu contextuel de lien du cluster](./media/apache-domain-joined-manage/link-a-cluster-context-menu.png)
@@ -64,7 +64,7 @@ Vous pouvez lier un cluster normal à l’aide du nom d’utilisateur Ambari man
 
 ## <a name="use-eclipse-to-link-to-domain-joined-cluster"></a>Utiliser Eclipse pour établir un lien avec un cluster joint à un domaine
 
-Vous pouvez lier un cluster normal à l’aide du nom d’utilisateur Ambari managé, mais également lier un cluster de sécurité Hadoop à l’aide du nom d’utilisateur de domaine (par exemple : user1@contoso.com).
+Vous pouvez lier un cluster normal à l’aide du nom d’utilisateur Ambari managé, mais également lier un cluster de sécurité Hadoop à l’aide du nom d’utilisateur de domaine (par exemple : `user1@contoso.com`).
 1. Cliquez sur **Lier un cluster** dans **Azure Explorer**.
 
    ![menu contextuel de lien du cluster](./media/apache-domain-joined-manage/link-a-cluster-context-menu.png)

@@ -9,12 +9,12 @@ ms.service: logic-apps
 ms.suite: integration
 ms.topic: article
 ms.date: 03/29/2019
-ms.openlocfilehash: 65fe89bf775a649d5654ce739d8d18e05d3048ca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b157db5032bd62ab443209f201b4ceded6e44cb5
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65416110"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385568"
 ---
 # <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>S’authentifier et accéder aux ressources avec des identités managées dans Azure Logic Apps
 
@@ -68,7 +68,7 @@ Pour activer une identité managée attribuée par le système pour votre applic
 
 ### <a name="azure-resource-manager-template"></a>Modèle Azure Resource Manager
 
-Lorsque vous souhaitez automatiser la création et le déploiement des ressources Azure telles que les applications logiques, vous pouvez utiliser des modèles [Azure Resource Manager](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md). Pour créer une identité managée attribuée par le système pour votre application logique via un modèle, ajoutez l’élément `"identity"` et la propriété `"type"` à la définition de flux de travail d’application logique dans votre modèle de déploiement : 
+Lorsque vous souhaitez automatiser la création et le déploiement des ressources Azure telles que les applications logiques, vous pouvez utiliser des modèles [Azure Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md). Pour créer une identité managée attribuée par le système pour votre application logique via un modèle, ajoutez l’élément `"identity"` et la propriété `"type"` à la définition de flux de travail d’application logique dans votre modèle de déploiement : 
 
 ```json
 "identity": {

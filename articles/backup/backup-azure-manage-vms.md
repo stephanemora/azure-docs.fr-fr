@@ -1,19 +1,18 @@
 ---
 title: Gérer et superviser les sauvegardes de machine virtuelle Azure à l’aide du service Sauvegarde Azure
 description: Découvrez comment gérer et superviser les sauvegardes de machine virtuelle Azure à l’aide du service Sauvegarde Azure.
-services: backup
 author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: sogup
-ms.openlocfilehash: add2c72535b5be0edcbc00c077dfe20a6deaa3e0
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 3a958e2397071407f6283938382ad7dd8c07bc09
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67434177"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466254"
 ---
 # <a name="manage-azure-vm-backups"></a>Gérer les sauvegardes de machines virtuelles Azure
 

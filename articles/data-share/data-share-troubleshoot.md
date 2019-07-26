@@ -4,15 +4,15 @@ description: Découvrez comment résoudre les problèmes liés à Azure Data Sha
 services: data-share
 author: joannapea
 ms.service: data-share
-ms.topic: overview
+ms.topic: troubleshooting
 ms.date: 07/10/2019
 ms.author: joanpo
-ms.openlocfilehash: c02f72d6a327c4dcb94ac8844005613cfe316986
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 386a5e34dccafa61859cd13c3e0ad88cd3a7ffac
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67838379"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68421469"
 ---
 # <a name="troubleshoot-common-issues-in-azure-data-share-preview"></a>Résoudre les problèmes courants dans Azure Data Share Preview
 
@@ -49,7 +49,7 @@ Si vous ne parvenez toujours pas à voir une invitation de partage de données, 
 
 ![Erreur de privilège](media/error-write-privilege.png)
 
-Si vous recevez une des erreurs ci-dessus lors de la création d’un nouveau partage de données ou lors de la réception d’un nouveau partage de données, la raison en est que les autorisations sont insuffisantes pour le compte de stockage. L’autorisation requise est *Microsoft.Authorization/attributions de rôle/écrire*, qui existe dans le rôle de propriétaire du stockage ou qui peut être attribuée à un rôle personnalisé. Même si vous avez créé le compte de stockage, cela ne fait PAS automatiquement de vous le propriétaire du compte de stockage. Suivez ces étapes pour vous accorder à vous-même la propriété du compte de stockage. Une autre possibilité est de créer un rôle personnalisé avec cette autorisation et de vous y ajouter vous-même.  
+Si vous recevez une des erreurs ci-dessus lors de la création d’un nouveau partage de données ou lors de la réception d’un nouveau partage de données, la raison en est que les autorisations sont insuffisantes pour le compte de stockage. L’autorisation requise est *Microsoft.Authorization/attributions de rôle/écrire*, qui existe dans le rôle de propriétaire du stockage ou qui peut être attribuée à un rôle personnalisé. Même si vous avez créé le compte de stockage, cela ne fait PAS automatiquement de vous le propriétaire de celui-ci. Suivez ces étapes pour vous accorder à vous-même la propriété du compte de stockage. Une autre possibilité est de créer un rôle personnalisé avec cette autorisation et de vous y ajouter vous-même.  
 
 1. Accéder à un compte de stockage dans le portail Azure
 1. Sélectionnez **Contrôle d’accès (IAM)**

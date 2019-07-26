@@ -1,19 +1,18 @@
 ---
 title: Modèle de données des journaux Azure Monitor pour Sauvegarde Azure
 description: Cet article présente des informations détaillées sur le modèle de données des journaux Azure Monitor pour les données de Sauvegarde Azure.
-services: backup
 author: adigan
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: adigan
-ms.openlocfilehash: 801516ae2cfad891098c16f8cd6e9a4c7f157a93
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 6563eefffee0ed8d9ce94c3e0a1e24b0d32314f0
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342010"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466160"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Modèle de données Log Analytics pour les données de sauvegarde Azure
 
@@ -160,7 +159,7 @@ Ce tableau fournit plus d’informations sur les champs liés aux travaux.
 | DataTransferredInMB_s | Number |Données transférées en Mo pour ce travail|
 | JobUniqueId_g |Texte |ID unique d’identification du travail |
 | RecoveryJobDestination_s |Texte | Destination d’un travail de récupération, où les données sont récupérées |
-| RecoveryJobRPDateTime_s |Datetime | Date et heure de la création du point de récupération en cours de récupération |
+| RecoveryJobRPDateTime_s |DateTime | Date et heure de la création du point de récupération en cours de récupération |
 | RecoveryJobRPLocation_s |Texte | Emplacement auquel a été stocké le point de récupération en cours de récupération|
 | SourceSystem |Texte |Système source des données actuelles - Azure |
 | ResourceId |Texte |Identificateur de ressource des données collectées. Par exemple, id de ressource du coffre Recovery Services|

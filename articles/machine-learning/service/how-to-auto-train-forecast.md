@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 06/20/2019
-ms.openlocfilehash: 4a3ab9094080ab257a885bb7a745fc83948327c2
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 34902aa23339b62920f918ae19b410a99e226a0e
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67331680"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68358797"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Entraîner automatiquement un modèle de prévision de série chronologique
 
@@ -27,7 +27,7 @@ Dans cet article, vous allez apprendre à former un modèle de régression de pr
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GW]
 
-Vous pouvez utiliser ML automatisé pour combiner des techniques et des approches afin d’obtenir des prévisions de séries chronologiques recommandées et de qualité. Une expérience de séries chronologiques automatisée est traitée comme un problème de régression multivariable. Les précédentes valeurs de séries chronologiques « pivotent » pour devenir des dimensions supplémentaires pour le régresseur, avec les autres prédicteurs. 
+Vous pouvez utiliser ML automatisé pour combiner des techniques et des approches afin d’obtenir des prévisions de séries chronologiques recommandées et de qualité. Une expérience de série chronologique automatisée est traitée comme un problème de régression multivariable. Les valeurs de série chronologique passées « pivotent » pour devenir des dimensions supplémentaires pour le régresseur, avec d’autres prédicteurs. 
 
 Contrairement aux méthodes de séries chronologiques classique, cette méthode présente l’avantage d’incorporer naturellement plusieurs variables contextuelles et leurs relations entre elles pendant l’apprentissage. Dans les applications de prévisions du monde réel, plusieurs facteurs peuvent influencer une prévision. Par exemple, lors de la prévision des ventes, les interactions des tendances historiques, des taux de change et des prix déterminent conjointement le résultat de ventes. Un autre avantage est que toutes les innovations récentes dans les modèles de régression appliquent immédiatement aux prévisions.
 
@@ -167,7 +167,8 @@ Vous pouvez également utiliser le paramètre `forecast_destination` dans la fon
 ```python
 y_query = y_test.copy().astype(np.float)
 y_query.fill(np.nan)
-y_fcst, X_trans = fitted_pipeline.forecast(X_test, y_query, forecast_destination=pd.Timestamp(2019, 1, 8))
+y_fcst, X_trans = fitted_pipeline.forecast(
+    X_test, y_query, forecast_destination=pd.Timestamp(2019, 1, 8))
 ```
 
 Calculez la racine carrée de l’erreur quadratique moyenne (REQM) entre les valeurs `y_test` réelles et les valeurs prédites dans `y_pred`.

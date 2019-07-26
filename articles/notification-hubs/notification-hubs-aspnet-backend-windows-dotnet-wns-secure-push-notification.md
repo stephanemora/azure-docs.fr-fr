@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: cf23ef5df3bdcaad23841da111fa06cc36b4cd57
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2f18b4793d205cfa019f501549dedfcd62f501e7
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61459240"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348596"
 ---
 # <a name="securely-push-notifications-from-azure-notification-hubs"></a>Envoi de notifications Push de manière sécurisée à partir d’Azure Notification Hubs
 
@@ -57,12 +57,12 @@ Ce didacticiel sur les notifications Push sécurisées montre comment envoyer un
 
 1. Dans le projet **NotifyUserWindowsPhone** , ajoutez le code suivant à App.xaml.cs afin d'enregistrer la tâche en arrière-plan pour les notifications Push. Ajoutez la ligne de code ci-après à la fin de la méthode `OnLaunched()` :
 
-    ```c#
+    ```csharp
     RegisterBackgroundTask();
     ```
 2. Toujours dans App.xaml.cs, ajoutez le code ci-dessous juste après la méthode `OnLaunched()` :
 
-    ```c#
+    ```csharp
     private async void RegisterBackgroundTask()
     {
         if (!Windows.ApplicationModel.Background.BackgroundTaskRegistration.AllTasks.Any(i => i.Value.Name == "PushBackgroundTask"))
@@ -79,7 +79,7 @@ Ce didacticiel sur les notifications Push sécurisées montre comment envoyer un
     ```
 3. Ajoutez les instructions `using` suivantes au début du fichier App.xaml.cs :
 
-    ```c#
+    ```csharp
     using Windows.Networking.PushNotifications;
     using Windows.ApplicationModel.Background;
     ```
@@ -147,7 +147,7 @@ L’étape suivante consiste à créer le composant en arrière-plan pour les no
 9. De retour dans la zone **Recherche** NuGet, tapez **Json.net**. Installez le package **Json.NET** , puis fermez la fenêtre du Gestionnaire de package NuGet.
 10. Ajoutez les instructions `using` suivantes au début du fichier `PushBackgroundTask.cs` :
 
-    ```c#
+    ```csharp
     using Windows.ApplicationModel.Background;
     using Windows.Networking.PushNotifications;
     using System.Net.Http;

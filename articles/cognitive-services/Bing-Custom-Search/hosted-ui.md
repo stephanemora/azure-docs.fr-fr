@@ -1,6 +1,6 @@
 ---
 title: Configurer une interface utilisateur hébergée pour le service Recherche personnalisée Bing | Microsoft Docs
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Cet article vous explique comment configurer et intégrer une interface utilisateur hébergée pour le service Recherche personnalisée Bing.
 services: cognitive-services
 author: aahill
@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: 17c0d19ad0c4a846d5f75905fe9072f2fe0e0f78
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae073e10331f07d9863da1d4ed97533f95b87c86
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66386764"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405052"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>Configurer votre expérience d’interface utilisateur hébergée
 

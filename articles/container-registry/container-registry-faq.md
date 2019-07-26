@@ -3,17 +3,17 @@ title: Azure Container Registry - Forum aux questions
 description: Réponses aux questions fréquemment posées sur le service Azure Container Registry
 services: container-registry
 author: sajayantony
-manager: jeconnoc
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: sajaya
-ms.openlocfilehash: c32d7342aaf1c4cce52ce14abe48ea1bc347fdb3
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: 2b835765bbd40ffbd4a5117f767a7ba163e41dda
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67551586"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68309285"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Forum aux questions sur Azure Container Registry
 

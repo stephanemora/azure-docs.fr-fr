@@ -13,14 +13,15 @@ ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 551bbe4e994e15688c59fd395ab762e14927dfda
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6681720fc7c0fe04c99bf7957be14865c663dd67
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60482850"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68383148"
 ---
 # <a name="perform-an-access-review-from-the-my-apps-portal"></a>Effectuer une révision d’accès à partir du portail Mes applications
+
 Vous pouvez utiliser votre compte professionnel ou scolaire avec le portail web **Mes applications** pour voir et démarrer la plupart des applications cloud de votre organisation, mettre à jour votre profil et vos informations de compte, consulter les informations de vos **groupes** et effectuer des **révisions d’accès** pour vos applications et vos groupes. Si vous n’avez pas accès au portail **Mes applications**, contactez le support technique pour obtenir l’autorisation.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
@@ -29,6 +30,7 @@ Vous pouvez utiliser votre compte professionnel ou scolaire avec le portail web 
 >Ce contenu est destiné aux utilisateurs. Si vous êtes administrateur, vous trouverez des informations sur la configuration et la gestion de vos applications cloud dans la [documentation sur la gestion des applications](https://docs.microsoft.com/azure/active-directory/manage-apps).
 
 ## <a name="manage-access-reviews"></a>Gérer les révisions d’accès
+
 Si votre administrateur vous a autorisé à effectuer vos propres révisions d’accès, vous pouvez gérer l’accès à vos groupes ou applications à partir de la vignette **Révisions d’accès** sur la page du portail **Mes applications**.
 
 >[!Note]
@@ -36,9 +38,9 @@ Si votre administrateur vous a autorisé à effectuer vos propres révisions d�
 
 ### <a name="to-perform-your-access-reviews"></a>Pour effectuer vos révisions d’accès
 
-1.  Connectez-vous à votre compte professionnel ou scolaire.
+1. Connectez-vous à votre compte professionnel ou scolaire.
 
-2.  Ouvrez votre navigateur web et accédez à https://myapps.microsoft.com, ou utilisez le lien fourni par votre organisation. Par exemple, vous pouvez être dirigé vers une page personnalisée de votre organisation, comme https://myapps.microsoft.com/contoso.com.
+2. Ouvrez votre navigateur web et accédez à https://myapps.microsoft.com, ou utilisez le lien fourni par votre organisation. Par exemple, vous pouvez être dirigé vers une page personnalisée de votre organisation, comme https://myapps.microsoft.com/contoso.com.
 
     La page **Applications** s'affiche, avec toutes les applications cloud de votre organisation que vous pouvez utiliser.
 
@@ -68,7 +70,7 @@ Si votre administrateur vous a autorisé à effectuer vos propres révisions d�
     Votre révision d’accès est terminée et vous revenez au portail **Mes applications**.
 
     >[!Note]
-    >Vous pouvez modifier votre accès à tout moment jusqu’à la fin de votre période de révision d’accès. Si vous supprimez votre accès à une application ou à un groupe, cet accès n’est pas supprimé immédiatement. La suppression se produit à la fin de la période de révision d’accès ou quand un administrateur ferme la révision. 
+    >Vous pouvez modifier votre accès à tout moment jusqu’à la fin de votre période de révision d’accès. Si vous supprimez votre accès à une application ou à un groupe, cet accès n’est pas supprimé immédiatement. La suppression se produit à la fin de la période de révision d’accès ou quand un administrateur ferme la révision.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

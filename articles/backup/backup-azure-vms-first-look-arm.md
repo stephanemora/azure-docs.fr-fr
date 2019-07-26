@@ -1,19 +1,18 @@
 ---
 title: Sauvegarder une machine virtuelle Azure à partir des paramètres de la machine virtuelle avec le service Sauvegarde Azure
 description: Découvrir comment sauvegarder une machine virtuelle Azure avec le service Sauvegarde Azure
-services: backup
 author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: raynew
-ms.openlocfilehash: 80739fac8317014c74c6a86cef9aa23696cfb42e
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 994762098027f7051591b8bf89bfa5cb7c380373
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442995"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465277"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>Sauvegarder une machine virtuelle Azure à partir des paramètres de la machine virtuelle
 

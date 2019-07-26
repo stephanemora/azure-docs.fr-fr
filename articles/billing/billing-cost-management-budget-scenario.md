@@ -3,7 +3,7 @@ title: Scénario de budget de facturation et de gestion des coûts Azure | Micro
 description: Découvrez comment utiliser Azure automation pour arrêter les machines virtuelles en fonction de seuils de budget spécifiques.
 services: billing
 documentationcenter: ''
-author: Erikre
+author: bandersmsft
 manager: dougeby
 editor: ''
 tags: billing
@@ -14,13 +14,13 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 03/13/2019
-ms.author: erikre
-ms.openlocfilehash: 4bf76ac0bdd59764815f18a40a3e243d7cf9d920
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: banders
+ms.openlocfilehash: 37f129526cb184a2eeee9e36028e8f00b5bbc247
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60617118"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443478"
 ---
 # <a name="manage-costs-with-azure-budgets"></a>Gérer les coûts avec Azure Budgets
 
@@ -277,8 +277,8 @@ Lorsque vous créez le groupe d’actions, vous pointez vers l’application log
 4.  Ajoutez et vérifiez les éléments suivants :
     - Nom du groupe d’actions
     - Nom court
-    - Abonnement
-    - Groupe de ressources
+    - Subscription
+    - Resource group
 
     ![Azure - Application logique - Ajouter un groupe d’actions](./media/billing-cost-management-budget-scenario/billing-cost-management-budget-scenario-26.png)
 

@@ -12,14 +12,15 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bcb49048fa9200b8970f37a4f187ca995d208cc2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 502407bbf1cdb47fc8105ed0220babcd9f292faa
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60474102"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382700"
 ---
 # <a name="add-your-personal-microsoft-accounts"></a>Ajout de vos comptes Microsoft personnels
+
 Ajoutez vos comptes Microsoft personnels, par exemple vos comptes Outlook.com et Xbox LIVE, à l’application Microsoft Authenticator pour le processus de vérification en deux étapes standard et la méthode de connexion par téléphone sans mot de passe.
 
 - **Méthode de vérification en deux étapes standard.** Entrez votre nom d’utilisateur et votre mot de passe sur l’appareil sur lequel vous vous connectez, puis indiquez si l’application Microsoft Authenticator envoie une notification ou si vous préférez copier le code de vérification associé à partir de l’écran **Comptes** de l’application Microsoft Authenticator.
@@ -30,6 +31,7 @@ Ajoutez vos comptes Microsoft personnels, par exemple vos comptes Outlook.com et
 >Avant de pouvoir ajouter votre compte, vous devez télécharger et installer l’application Microsoft Authenticator. Si ce n’est pas déjà fait, suivez la procédure décrite dans l’article [Télécharger et installer l’application](user-help-auth-app-download-install.md).
 
 ## <a name="add-your-personal-microsoft-account"></a>Ajout de votre compte Microsoft personnel
+
 Vous pouvez ajouter votre compte Microsoft personnel en activant d’abord la vérification en deux étapes, puis en ajoutant le compte à l’application.
 
 >[!Note]
@@ -68,6 +70,6 @@ Vous pouvez ajouter votre compte Microsoft personnel en activant d’abord la v�
 
 - Après avoir ajouté vos comptes à l’application, vous pouvez vous connecter à l’aide de l’application Authenticator sur votre appareil. Pour plus d’informations, consultez l’article [Se connecter à l’aide de l’application Microsoft Authenticator](user-help-auth-app-sign-in.md).
 
-- Si vous ne parvenez pas à obtenir le code de vérification de votre compte Microsoft personnel, consultez la section **Résolution des problèmes de code de vérification** de l'article [Informations de sécurité et codes de vérification des comptes Microsoft](https://support.microsoft.com/en-us/help/12428/microsoft-account-security-info-verification-codes).
+- Si vous ne parvenez pas à obtenir le code de vérification de votre compte Microsoft personnel, voir la section **Résolution des problèmes de code de vérification** de l’article [Informations de sécurité et codes de vérification des comptes Microsoft](https://support.microsoft.com/en-us/help/12428/microsoft-account-security-info-verification-codes).
 
 - Pour les appareils exécutant iOS, vous pouvez également sauvegarder les informations d’identification de votre compte et les paramètres de l’application associée, comme l’ordre de vos comptes, dans le cloud. Pour plus d’informations, consultez l’article [Sauvegarder et récupérer des informations d’authentification de compte avec l’application Microsoft Authenticator](user-help-auth-app-backup-recovery.md).

@@ -1,6 +1,6 @@
 ---
 title: Obtenir des vidéos à partir de votre vue personnalisée – Recherche personnalisée Bing
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Présentation générale de l’utilisation de la Recherche personnalisée Bing pour obtenir des vidéos à partir d’une vue personnalisée du web.
 services: cognitive-services
 author: swhite-msft
@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: 9ddf89ab0c4c14743206b2baf207ec10fee033b4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 222256036a59c7df302546bbf82648c4d524d43f
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66390315"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405091"
 ---
 # <a name="get-videos-from-your-custom-view"></a>Obtenir des vidéos à partir d’une vue personnalisée
 

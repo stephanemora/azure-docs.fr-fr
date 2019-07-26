@@ -1,6 +1,6 @@
 ---
 title: Obtenir des insights vidéo à l’aide de l’API Recherche de vidéos Bing
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Apprenez à utiliser l’API Recherche de vidéos Bing pour obtenir plus d’informations sur des vidéos, telles que des vidéos connexes.
 services: cognitive-services
 author: swhite-msft
@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: scottwhi
-ms.openlocfilehash: c5f3a43a6c48714566b5c53b33fe541b50d61589
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7683930af1de0fc4e4d112c1e559358d5d5d5609
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66383891"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68500590"
 ---
 # <a name="get-insights-about-a-video"></a>Obtenir des informations sur une vidéo
 

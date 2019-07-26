@@ -3,20 +3,20 @@ title: Développer des applications avec le kit SDK Speech - Services Speech
 titleSuffix: Azure Cognitive Services
 description: Apprenez à créer des applications à l’aide du kit SDK Speech.
 services: cognitive-services
-author: wolfma61
+author: jhakulin
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
-ms.author: wolfma
+ms.date: 07/23/2019
+ms.author: jhakulin
 ms.custom: seodec18
-ms.openlocfilehash: 7c698abb133c14f32b60b22acbbccc37a191a02e
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 8fc27002af4ebef0825b23c806cfedbe7adf9642
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604861"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68404816"
 ---
 # <a name="ship-an-application"></a>Délivrer une application
 

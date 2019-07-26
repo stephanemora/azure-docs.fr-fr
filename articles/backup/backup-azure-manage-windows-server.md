@@ -1,19 +1,18 @@
 ---
 title: Gérer les serveurs et les coffres Azure Recovery Services
 description: Gérez les travaux et les alertes dans un coffre Azure Recovery Services.
-services: backup
 author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: raynew
-ms.openlocfilehash: b447290a6910d144703bb796290908d0fc21b924
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 5876ce4a511617d8465cdf008ea0ce14b3ad15d4
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705134"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466367"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Surveiller et gérer les coffres Recovery Services
 

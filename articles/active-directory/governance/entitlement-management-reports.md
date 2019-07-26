@@ -3,8 +3,8 @@ title: Afficher les rapports et les journaux dans la gestion des droits d’util
 description: Découvrez comment afficher le rapport d’affectations d’utilisateur et les journaux d’audit dans la gestion des droits d’utilisation Azure Active Directory (préversion).
 services: active-directory
 documentationCenter: ''
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: jocastel-MSFT
 ms.service: active-directory
 ms.workload: identity
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 04/19/2019
-ms.author: rolyon
+ms.author: ajburnle
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60a61a581574c77a57939ea23fdadc7b060b82af
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d33b4751b421f5af1536af9a88d15e060ab59bdb
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64541539"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489056"
 ---
 # <a name="view-reports-and-logs-in-azure-ad-entitlement-management-preview"></a>Afficher les rapports et les journaux dans la gestion des droits d’utilisation Azure AD (préversion)
 

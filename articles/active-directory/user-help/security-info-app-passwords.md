@@ -12,14 +12,15 @@ ms.topic: conceptual
 ms.date: 02/13/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55dfab0c60e77b86157a005db34c37917a5e08d2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d599607da6653d088f53490ea4d4b5f7f6d0f236
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60475082"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382926"
 ---
 # <a name="manage-app-passwords-from-your-security-info-preview-page"></a>Gérer les mots de passe d’application à partir de votre page Informations de sécurité (préversion)
+
 Certaines applications, telles qu’Outlook 2010, ne prennent pas en charge la vérification en deux étapes. Cela signifie que si vous utilisez la vérification en deux étapes dans votre organisation, l’application ne fonctionnera pas. Pour contourner ce problème, vous pouvez créer un mot de passe généré automatiquement, distinct de votre mot de passe normal, que vous devrez utiliser avec chaque application sans navigateur.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
@@ -39,12 +40,14 @@ Lorsque vous utilisez des mots de passe d’application, gardez à l’esprit le
     >Les clients Office 2013 (y compris Outlook) prennent en charge de nouveaux protocoles d’authentification et peuvent être utilisés dans le cadre de la vérification en deux étapes. Cela signifie qu’après l’activation de la vérification en deux étapes, vous n’aurez plus besoin de mots de passe d’application pour les clients Office 2013. Pour plus d’informations, consultez l’article [Fonctionnement de l’authentification moderne pour les applications clientes Office 2013 et Office 2016](https://support.office.com/article/how-modern-authentication-works-for-office-2013-and-office-2016-client-apps-e4c45989-4b1a-462e-a81b-2a13191cf517).
 
 ## <a name="create-new-app-passwords"></a>Créer de nouveaux mots de passe d’application
+
 Si vous utilisez la vérification en deux étapes avec votre compte professionnel ou scolaire et que votre administrateur a activé la fonctionnalité d’informations de sécurité, vous pouvez créer et supprimer des mots de passe d’application à l’aide de la page **Informations de sécurité**.
 
 >[!Note]
 >Si votre administrateur n’a pas activé la fonctionnalité d’informations de sécurité, vous devez suivre les instructions et les informations contenues dans la section [Gérer les mots de passe pour la vérification en deux étapes](multi-factor-authentication-end-user-app-passwords.md).
 
 ### <a name="to-create-a-new-app-password"></a>Pour créer un nouveau mot de passe d’application
+
 1. Connectez-vous à votre compte professionnel ou scolaire, puis accédez à votre page https://myprofile.microsoft.com/.
 
     ![Page Mon profil, avec les liens des informations de sécurité mis en évidence](media/security-info/securityinfo-myprofile-page.png)
@@ -64,10 +67,11 @@ Si vous utilisez la vérification en deux étapes avec votre compte professionne
 5. Copiez le texte à partir de la zone **Mot de passe**, collez le mot de passe dans la zone de mot de passe de l’application (dans cet exemple, Outlook 2010), puis sélectionnez **Terminé**.
 
     ![Page Mot de passe d’application, avec le nom de l’application](media/security-info/securityinfo-myprofile-password-copytext.png)
-    
+
     Le mot de passe est ajouté et vous pourrez vous connecter correctement à votre application à l’avenir.
 
 ## <a name="delete-your-app-passwords"></a>Supprimer vos mots de passe d’application
+
 Si vous n’avez plus besoin d’utiliser une application qui requiert un mot de passe d’application, vous pouvez supprimer le mot de passe d’application associé. Le fait de supprimer le mot de passe d’application libère l’un des emplacements de mot de passe d’application disponibles pour une utilisation ultérieure.
 
 >[!Important]
@@ -82,4 +86,5 @@ Si vous n’avez plus besoin d’utiliser une application qui requiert un mot de
 2. Sélectionnez **Oui** dans la zone de confirmation pour supprimer le **Mot de passe d’application**. Une fois le mot de passe d’application supprimé, celui-ci disparaît de vos informations de sécurité et de la page **Informations de sécurité**.
 
 ## <a name="for-more-information"></a>Pour plus d’informations
+
 - Pour plus d’informations sur la page **Informations de sécurité** et sur sa configuration, consultez [Vue d’ensemble des informations de sécurité](user-help-security-info-overview.md)

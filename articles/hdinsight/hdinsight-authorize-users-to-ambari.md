@@ -1,23 +1,23 @@
 ---
 title: Autoriser les utilisateurs pour Ambari Views - Azure HDInsight
 description: Guide pratique pour gérer les autorisations des utilisateurs et des groupes pour les clusters HDInsight avec le Pack Sécurité Entreprise activé.
-author: maxluk
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/26/2017
-ms.author: maxluk
-ms.openlocfilehash: 69ae1bd05b64912b3d53ca88b468a72a90ff5a74
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: hrasheed
+ms.openlocfilehash: 28f30270ab0a6c057ee583ccebc2a8540980c6cc
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64718311"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442187"
 ---
 # <a name="authorize-users-for-apache-ambari-views"></a>Autoriser les utilisateurs à accéder à Apache Ambari Views
 
-Les [clusters HDInsight avec le Pack Sécurité Entreprise (PSE) activé](./domain-joined/apache-domain-joined-introduction.md) offrent des fonctionnalités d’entreprise, notamment l’authentification par le biais d’Azure Active Directory. Vous pouvez synchroniser [de nouveaux utilisateurs](hdinsight-sync-aad-users-to-cluster.md) ajoutés aux groupes Azure AD qui ont accès au cluster, permettant ainsi à ces utilisateurs d’effectuer certaines actions. L’utilisation d’utilisateurs, de groupes et d’autorisations dans [Apache Ambari](https://ambari.apache.org/) est prise en charge à la fois pour les clusters HDInsight Pack Sécurité Entreprise et pour les clusters HDInsight standard.
+Les [clusters HDInsight avec le Pack Sécurité Entreprise (PSE) activé](./domain-joined/hdinsight-security-overview.md) offrent des fonctionnalités d’entreprise, notamment l’authentification par le biais d’Azure Active Directory. Vous pouvez synchroniser [de nouveaux utilisateurs](hdinsight-sync-aad-users-to-cluster.md) ajoutés aux groupes Azure AD qui ont accès au cluster, permettant ainsi à ces utilisateurs d’effectuer certaines actions. L’utilisation d’utilisateurs, de groupes et d’autorisations dans [Apache Ambari](https://ambari.apache.org/) est prise en charge à la fois pour les clusters HDInsight Pack Sécurité Entreprise et pour les clusters HDInsight standard.
 
 Les utilisateurs Active Directory peuvent se connecter aux nœuds de cluster à l’aide de leurs informations d’identification de domaine. Ils ont également la possibilité d’utiliser ces identifiants pour authentifier les interactions du cluster auprès d’autres points de terminaison approuvés, comme [Hue](https://gethue.com/), Ambari Views, ODBC, JDBC, PowerShell et les API REST.
 

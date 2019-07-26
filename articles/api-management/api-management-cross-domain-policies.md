@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 871294703a4be36e274df1e34b9cc9bee7d19783
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 86c61679a73f03f7e54bba746107685796ec07c9
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071952"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442312"
 ---
 # <a name="api-management-cross-domain-policies"></a>Gestion des API dans les stratégies de domaine
 Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -46,9 +46,9 @@ La stratégie `cross-domain` rend l’API accessible depuis les navigateurs clie
 
 ```xml
 <cross-domain>
-    <cross-domain-policy>
+    <cross-domain>
         <allow-http-request-headers-from domain='*' headers='*' />
-    </cross-domain-policy>
+    </cross-domain>
 </cross-domain>
 ```
 
@@ -62,7 +62,7 @@ La stratégie `cross-domain` rend l’API accessible depuis les navigateurs clie
 Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
 
 - **Sections de la stratégie :** inbound
-- **Étendues de la stratégie :** globale (globale)
+- **Étendues de la stratégie :** toutes les étendues
 
 ## <a name="CORS"></a> CORS
 La stratégie `cors` ajoute la prise en charge du partage des ressources cross-origin (CORS) à une opération ou une API afin de permettre les appels inter-domaines à partir des navigateurs clients.
@@ -145,7 +145,7 @@ Cet exemple montre comment prendre en charge les demandes en amont, telles que c
 Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
 
 - **Sections de la stratégie :** inbound
-- **Étendues de la stratégie :** global, product, API, operation
+- **Étendues de la stratégie :** toutes les étendues
 
 ## <a name="JSONP"></a> JSONP
 La stratégie `jsonp` ajoute la prise en charge de JSON avec remplissage (JSONP) à une opération ou une API afin de permettre les appels inter-domaines à partir des navigateurs clients utilisant JavaScript. JSONP est une méthode utilisée par les programmes JavaScript pour demander des données à un serveur se trouvant dans un autre domaine. JSONP passe outre la limite appliquée par la plupart des navigateurs web, selon laquelle l'accès aux pages web doit se trouver dans le même domaine.
@@ -182,7 +182,7 @@ Si vous ajoutez le paramètre de rappel `?cb=XXX`, il renvoie un résultat JSONP
 Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) suivantes.
 
 - **Sections de la stratégie :** outbound (sortant)
-- **Étendues de la stratégie :** global, product, API, operation (global, produit, API, opération)
+- **Étendues de la stratégie :** toutes les étendues
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -191,4 +191,4 @@ Pour plus d’informations sur l’utilisation de stratégies, consultez les pag
 + [Stratégies dans Gestion des API](api-management-howto-policies.md)
 + [Transform and protect your API](transform-api.md) (Transformer et protéger votre API)
 + [Référence de stratégie](api-management-policy-reference.md) pour obtenir la liste complète des instructions et des paramètres de stratégie
-+ [API Management policy samples](policy-samples.md) (Exemples de stratégie de gestion d’API)   
++ [API Management policy samples](policy-samples.md) (Exemples de stratégie de gestion d’API)

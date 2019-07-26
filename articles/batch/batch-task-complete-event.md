@@ -3,7 +3,7 @@ title: Événement de fin de tâche Azure Batch | Microsoft Docs
 description: Référence pour l’événement de fin de tâche Batch.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.assetid: ''
 ms.service: batch
 ms.devlang: multiple
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: lahugh
-ms.openlocfilehash: b5fd1a8020c8e95323bc2333c0583dafe58e8456
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 60e5e6cc6fdd839c8bbe44d8e1d2e794e7afb34d
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60549969"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323059"
 ---
 # <a name="task-complete-event"></a>Événement de fin de tâche
 
@@ -86,8 +86,8 @@ ms.locfileid: "60549969"
 
 |Nom de l'élément|Type|Notes|
 |------------------|----------|-----------|
-|startTime|Datetime|Heure à laquelle l’exécution de la tâche a commencé. « Running » correspond à l’état **en cours d’exécution**. Ainsi, si la tâche spécifie des fichiers de ressources ou des packages d’applications, l’heure de début est l’heure à laquelle la tâche a commencé à télécharger et à déployer ces éléments.  Si la tâche a été redémarrée ou retentée, il s’agit de la dernière heure à laquelle l’exécution de la tâche a commencé.|
-|endTime|Datetime|Heure à laquelle la tâche s’est terminée.|
+|startTime|DateTime|Heure à laquelle l’exécution de la tâche a commencé. « Running » correspond à l’état **en cours d’exécution**. Ainsi, si la tâche spécifie des fichiers de ressources ou des packages d’applications, l’heure de début est l’heure à laquelle la tâche a commencé à télécharger et à déployer ces éléments.  Si la tâche a été redémarrée ou retentée, il s’agit de la dernière heure à laquelle l’exécution de la tâche a commencé.|
+|endTime|DateTime|Heure à laquelle la tâche s’est terminée.|
 |exitCode|Int32|Code de sortie de la tâche.|
 |retryCount|Int32|Nombre de fois que le service Batch a réessayé d’exécuter la tâche. Si la tâche se termine avec un code de sortie autre que zéro, elle est retentée le nombre de fois spécifié par la valeur MaxTaskRetryCount.|
 |requeueCount|Int32|Nombre de fois que la tâche a été replacée en file d’attente par le service Batch à la suite d’une demande de l’utilisateur.<br /><br /> Lorsque l’utilisateur supprime des nœuds d’un pool (en redimensionnant ou en réduisant le pool), ou quand le travail est désactivé, l’utilisateur peut spécifier que les tâches en cours d’exécution sur les nœuds doivent être replacée en file d’attente pour exécution. Ce nombre reflète le nombre de fois que la tâche a été replacée en file d’attente pour ces raisons.|

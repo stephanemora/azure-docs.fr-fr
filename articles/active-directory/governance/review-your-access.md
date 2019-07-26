@@ -2,8 +2,8 @@
 title: Réviser votre accès à des groupes ou des applications dans les révisions d’accès - Azure Active Directory | Microsoft Docs
 description: Découvrez comment réviser votre propre accès à des groupes ou applications dans les révisions d’accès Azure Active Directory.
 services: active-directory
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 05/21/2019
-ms.author: rolyon
+ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22f12255bf14ca424a8a79107e7ca8e403552b62
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: d4b48e035476e5381104b442f87dcac03ac11778
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67471738"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68499678"
 ---
 # <a name="review-access-for-yourself-to-groups-or-applications-in-azure-ad-access-reviews"></a>Réviser votre accès à des groupes ou applications dans Azure AD
 

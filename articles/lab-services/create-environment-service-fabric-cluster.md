@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: enewman
-ms.openlocfilehash: 9848f197800c391285c4065685b910685f0ac64b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1e192a2b27c9d617e43a56766431a0f40e87a752
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60312077"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325252"
 ---
 # <a name="create-an-environment-with-self-contained-service-fabric-cluster-in-azure-devtest-labs"></a>Créer un environnement avec un cluster Service Fabric autonome dans Azure DevTest Labs
 Cet article fournit des informations sur la création d’un environnement avec un cluster Service Fabric autonome dans Azure DevTest Labs. 
@@ -87,7 +87,7 @@ Il existe une autre méthode pour démarrer ou arrêter le cluster.
     ![Commandes de démarrage et d’arrêt sur la page de cluster Service Fabric](./media/create-environment-service-fabric-cluster/start-stop-on-cluster-page.png)
 
 ## <a name="configure-auto-startup-and-auto-shutdown-schedule"></a>Configurer le démarrage automatique et l’arrêt automatique
-Les clusters Service Fabric peuvent également être démarrés ou arrêtés en fonction d’une planification. Cette expérience est similaire à l’expérience des machines virtuelles dans un labo. Pour réaliser des économies, par défaut, chaque cluster créé automatiquement dans un labo s’arrête automatiquement au moment défini par la [stratégie d’arrêt](devtest-lab-get-started-with-lab-policies.md#set-auto-shutdown) du labo. Vous pouvez remplacer cette configuration en spécifiant si le cluster doit être arrêté ou en spécifiant l’heure à laquelle le cluster est arrêté. 
+Les clusters Service Fabric peuvent également être démarrés ou arrêtés en fonction d’une planification. Cette expérience est similaire à l’expérience des machines virtuelles dans un labo. Pour réaliser des économies, par défaut, chaque cluster créé automatiquement dans un labo s’arrête automatiquement au moment défini par la [stratégie d’arrêt](devtest-lab-set-lab-policy.md?#set-auto-shutdown-policy) du labo. Vous pouvez remplacer cette configuration en spécifiant si le cluster doit être arrêté ou en spécifiant l’heure à laquelle le cluster est arrêté. 
 
 ![Planifications existantes pour le démarrage automatique et l’arrêt automatique](./media/create-environment-service-fabric-cluster/existing-schedules.png)
 
@@ -128,7 +128,7 @@ La page du cluster Service Fabric que vous avez vue précédemment dans la proc�
     ![Page d’accueil du cluster Service Fabric](./media/create-environment-service-fabric-cluster/service-fabric-cluster-page.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour obtenir des instructions détaillées sur les environnements, consultez les articles suivants : 
+Pour obtenir des instructions détaillées sur les environnements, consultez les articles suivants : 
 
 - [Créer des environnements de plusieurs machines virtuelles et des ressources PaaS avec les modèles Azure Resource Manager](devtest-lab-create-environment-from-arm.md)
 - [Configurer et utiliser des environnements publics dans Azure DevTest Labs](devtest-lab-configure-use-public-environments.md)

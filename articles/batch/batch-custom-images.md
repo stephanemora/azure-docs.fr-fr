@@ -3,17 +3,17 @@ title: Approvisionner un pool Azure Batch à partir d’une image personnalisée
 description: Créez un pool Batch à partir d’une image personnalisée pour approvisionner les nœuds qui contiennent les logiciels et les données dont vous avez besoin pour votre application. Les images personnalisées sont un moyen efficace de configurer les nœuds de calcul pour exécuter vos charges de travail Batch.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.service: batch
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: lahugh
-ms.openlocfilehash: 80cba5e1b5e38e31dea2272cc4e33b4a95940e41
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: 54456ff48ca7104cc1ba10ddc47cec1bc364ddf6
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67565608"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323684"
 ---
 # <a name="use-a-custom-image-to-create-a-pool-of-virtual-machines"></a>Utiliser une image personnalisée pour créer un pool de machines virtuelles 
 

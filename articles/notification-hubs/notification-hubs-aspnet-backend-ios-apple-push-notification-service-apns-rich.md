@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: dd808a04dff77388248bf7309f5ff804e6dd065c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7fcb4a1db62abfc04d2b0c60488d35393d98c57e
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60873057"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348482"
 ---
 # <a name="azure-notification-hubs-rich-push"></a>Notifications Push enrichies avec Azure Notification Hubs
 
@@ -50,12 +50,12 @@ Ce didacticiel est compatible avec iOS 7 et 8.
     ![][IOS2]
 5. Dans `Notifications.cs`, ajoutez les instructions using suivantes :
 
-    ```c#
+    ```csharp
     using System.Reflection;
     ```
 6. Mettez à jour l’ensemble de la classe `Notifications` avec le code suivant. Veillez à remplacer les espaces réservés par les informations d’identification de votre hub de notification et le nom du fichier image.
 
-    ```c#
+    ```csharp
     public class Notification {
         public int Id { get; set; }
         // Initial notification message to display to users
@@ -105,7 +105,7 @@ Ce didacticiel est compatible avec iOS 7 et 8.
 
 7. Dans `NotificationsController.cs`, redéfinissez `NotificationsController avec les extraits de code suivants. Ceci envoie un ID de notification enrichi sans assistance initial à l’appareil et permet l’extraction de l’image sur le client :
 
-    ```c#
+    ```csharp
     // Return http response with image binary
     public HttpResponseMessage Get(int id) {
         var stream = Notifications.Instance.ReadImage(id);

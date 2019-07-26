@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: e5d473cffeefe29febc4f0dfb2a620d917bf238d
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: eb85c4c56d8464d4078564c707efabf60dc5aa99
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672109"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501455"
 ---
 # <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>Création d’un jeu de compétences dans un pipeline d’enrichissement
 
@@ -212,7 +212,7 @@ Rappelez la structure de l’enrichisseur personnalisé Recherche d’entités B
       "uri": "https://indexer-e2e-webskill.azurewebsites.net/api/InvokeTextAnalyticsV3?code=foo",
       "httpHeaders": {
           "Ocp-Apim-Subscription-Key": "foobar"
-      }
+      },
       "context": "/document/organizations/*",
       "inputs": [
         {

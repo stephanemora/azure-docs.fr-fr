@@ -3,7 +3,7 @@ title: Événement de début de tâche Azure Batch | Microsoft Docs
 description: Référence pour l’événement de début de tâche Batch.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.assetid: ''
 ms.service: batch
 ms.devlang: multiple
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: lahugh
-ms.openlocfilehash: d50a0a7082e409084fd966370934a638ca9bb013
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 76100f1457123ac88055fddd55eb22a102201adf
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60549867"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68322799"
 ---
 # <a name="task-start-event"></a>Événement de début de tâche
 

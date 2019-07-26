@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ae5e16aa00147d6ea434090720b51af06e8e0c5
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 764c7c048dd0398b495ee31421a8e2bc9f8169ee
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807565"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68477193"
 ---
 # <a name="view-your-azure-active-directory-tenant-applications"></a>Afficher les application du tenant Azure Active Directory
 
@@ -79,4 +79,4 @@ Dans ce guide de démarrage rapide, vous avez appris à voir les applications da
 Maintenant que vous avez trouvé l’application dont vous avez besoin, vous pouvez [ajouter d’autres applications à votre locataire](add-application-portal.md). Ou bien, vous pouvez sélectionner l’application pour voir ou modifier les propriétés et les options de configuration. Vous pouvez par exemple configurer l’authentification unique.
 
 > [!div class="nextstepaction"]
-> [Configurer l’authentification unique](configure-single-sign-on-portal.md)
+> [Configurer l’authentification unique](configure-single-sign-on-non-gallery-applications.md)

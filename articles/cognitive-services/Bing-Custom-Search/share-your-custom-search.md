@@ -1,6 +1,6 @@
 ---
 title: Partager votre recherche personnalisée - Recherche personnalisée Bing
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Explique comment partager une instance de recherche personnalisée.
 services: cognitive-services
 author: aahill
@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: dc4ab9237929df3610d4dd53786bb98903fa5593
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d016fbed07fa31ac92ac804d6b4d63692834b42c
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61067357"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68404975"
 ---
 # <a name="share-your-custom-search-instance"></a>Partager votre instance de Recherche personnalisée
 

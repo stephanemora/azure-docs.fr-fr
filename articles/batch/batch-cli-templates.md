@@ -3,7 +3,7 @@ title: Exécuter des travaux de bout en bout à l’aide de modèles - Azure Bat
 description: Créez des pools, travails et tâches Batch avec des modèles de fichier et l’interface de ligne de commande Azure.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.assetid: ''
 ms.service: batch
 ms.devlang: na
@@ -12,12 +12,12 @@ ms.workload: big-compute
 ms.date: 12/07/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 80d2e995a18a2d6dafbb8d92fdd5996b10eab17c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5e5ed8a69d5140814899c24e96eded6dc61e5908
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60783722"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323670"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Utiliser des modèles d’interface de ligne de commande Azure Batch et le transfert de fichiers
 

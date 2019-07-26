@@ -1,19 +1,18 @@
 ---
 title: Utiliser Sauvegarde Azure pour restaurer des bases de données SQL Server sauvegardées sur une machine virtuelle Azure | Microsoft Docs
 description: Cet article explique comment restaurer des bases de données SQL Server exécutées sur une machine virtuelle Azure et sauvegardées avec Sauvegarde Azure.
-services: backup
 author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: raynew
-ms.openlocfilehash: 856f45f448aa843e9dc04ec3b6a60841cfe33227
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: f6bd9ea70a3334fbf3843a6b5d44d10a929e20ae
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67704859"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467218"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Restaurer des bases de données SQL Server sur des machines virtuelles Azure
 

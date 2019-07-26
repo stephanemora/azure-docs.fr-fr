@@ -3,19 +3,19 @@ title: Démarrage rapide Azure - Exécution d’un travail Batch - .NET
 description: Exécution rapide d’un travail Batch et de tâches avec la bibliothèque cliente .NET de Batch.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.service: batch
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 11/29/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: b8d7556607cdb73c3e3ae19109bcbf34b72b0915
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 37cd6fdd2f82af581e27f9341292c484b1cc601e
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595348"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68322324"
 ---
 # <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>Démarrage rapide : exécution de votre premier travail Microsoft Azure Batch avec l’API .NET
 
@@ -47,7 +47,7 @@ git clone https://github.com/Azure-Samples/batch-dotnet-quickstart.git
 
 Naviguez vers le répertoire qui contient le fichier de la solution Visual Studio `BatchDotNetQuickstart.sln`.
 
-Ouvrez le fichier de la solution dans Visual Studio et mettez à jour les chaînes d’informations d’identification dans `Program.cs` avec les valeurs obtenues pour vos comptes. Par exemple : 
+Ouvrez le fichier de la solution dans Visual Studio et mettez à jour les chaînes d’informations d’identification dans `Program.cs` avec les valeurs obtenues pour vos comptes. Par exemple :
 
 ```csharp
 // Batch account credentials

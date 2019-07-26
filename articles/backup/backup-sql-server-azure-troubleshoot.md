@@ -1,19 +1,18 @@
 ---
 title: Résoudre les problèmes de sauvegarde des bases de données SQL Server avec Sauvegarde Azure | Microsoft Docs
 description: Informations de résolution des problèmes de sauvegarde de bases de données SQL Server exécutées sur des machines virtuelles Azure avec Sauvegarde Azure.
-services: backup
 author: anuragm
 manager: sivan
 ms.service: backup
 ms.topic: article
 ms.date: 06/18/2019
 ms.author: anuragm
-ms.openlocfilehash: b2822a3c7dfa23065f2cbd35ef4e506efae026f2
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: c601ecb6997834aa216de094e2809670833dd9cb
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67704846"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68464918"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Résoudre les problèmes de sauvegarde des bases de données SQL Server avec Sauvegarde Azure
 
@@ -25,11 +24,11 @@ Pour plus d’informations sur le processus et les limitations de la sauvegarde,
 
 Pour configurer la protection d’une base de données SQL Server sur une machine virtuelle, vous devez installer l’extension **AzureBackupWindowsWorkload** sur cette machine virtuelle. Si vous recevez l’erreur **UserErrorSQLNoSysadminMembership**, cela signifie que votre instance SQL Server n’a pas les autorisations de sauvegarde nécessaires. Pour corriger cette erreur, suivez les étapes décrites dans [Définir des autorisations de machine virtuelle](backup-azure-sql-database.md#set-vm-permissions).
 
-## <a name="error-messages"></a>Messages d'erreur
+## <a name="error-messages"></a>messages d'erreur
 
 ### <a name="backup-type-unsupported"></a>Type de sauvegarde non pris en charge
 
-| Sévérité | Description | Causes possibles | Action recommandée |
+| severity | Description | Causes possibles | Action recommandée |
 |---|---|---|---|
 | Avertissement | Les paramètres actuels de cette base de données ne prennent pas en charge certains types de sauvegarde présents dans la stratégie associée. | <li>Seule une opération de sauvegarde complète de base de données peut être effectuée sur la base de données master. Ni une sauvegarde différentielle ni une sauvegarde du journal des transactions n’est possible. </li> <li>Aucune base de données en mode de récupération simple n’autorise la sauvegarde des journaux des transactions.</li> | Modifiez les paramètres de la base de données de manière à ce que tous les types de sauvegarde de la stratégie soient pris en charge. Vous pouvez aussi changer la stratégie actuelle pour y inclure seulement les types de sauvegarde pris en charge. Sinon, les types de sauvegarde non pris en charge seront ignorés lors de la sauvegarde planifiée ou le travail de sauvegarde échouera pour une sauvegarde ad hoc.
 
@@ -51,13 +50,13 @@ Pour configurer la protection d’une base de données SQL Server sur une machin
 
 | Message d’erreur | Causes possibles | Action recommandée |
 |---|---|---|
-| La séquence de journaux de transactions consécutifs est rompue. | La base de données ou la machine virtuelle est sauvegardée via une autre solution de sauvegarde, ce qui tronque la séquence de journaux de transactions consécutifs.|<ul><li>Vérifiez si un autre script ou une autre solution de sauvegarde est en cours d’utilisation. Si c’est le cas, arrêtez l’autre solution de sauvegarde. </li><li>Si la sauvegarde était de type sauvegarde de fichier journal ad hoc, déclenchez une sauvegarde complète pour commencer une nouvelle séquence de journaux de transactions consécutifs. Pour les sauvegardes de fichier journal planifiées, aucune action n’est nécessaire, car le service Sauvegarde Azure va déclencher automatiquement une sauvegarde complète pour corriger ce problème.</li>|
+| Log chain is broken. (La séquence de journaux de transactions consécutifs est altérée.) | La base de données ou la machine virtuelle est sauvegardée via une autre solution de sauvegarde, ce qui tronque la séquence de journaux de transactions consécutifs.|<ul><li>Vérifiez si un autre script ou une autre solution de sauvegarde est en cours d’utilisation. Si c’est le cas, arrêtez l’autre solution de sauvegarde. </li><li>Si la sauvegarde était de type sauvegarde de fichier journal ad hoc, déclenchez une sauvegarde complète pour commencer une nouvelle séquence de journaux de transactions consécutifs. Pour les sauvegardes de fichier journal planifiées, aucune action n’est nécessaire, car le service Sauvegarde Azure va déclencher automatiquement une sauvegarde complète pour corriger ce problème.</li>|
 
 ### <a name="usererroropeningsqlconnection"></a>UserErrorOpeningSQLConnection
 
 | Message d’erreur | Causes possibles | Action recommandée |
 |---|---|---|
-| Le service Sauvegarde Azure ne peut pas se connecter à l’instance SQL. | Sauvegarde Azure ne peut pas se connecter à l’instance SQL Server. | Utilisez les informations supplémentaires disponibles sur le menu des erreurs du portail Azure pour déterminer les causes racines. Consultez [Résoudre les problèmes de connexion au moteur de base de données SQL Server](https://docs.microsoft.com/sql/database-engine/configure-windows/troubleshoot-connecting-to-the-sql-server-database-engine) pour corriger l’erreur.<br/><ul><li>Si les paramètres SQL par défaut n’autorisent pas les connexions à distance, modifiez les paramètres. Pour plus d’informations sur le changement des paramètres, consultez les articles suivants :<ul><li>[MSSQLSERVER_-1](/previous-versions/sql/sql-server-2016/bb326495(v=sql.130))</li><li>[MSSQLSERVER_2](/sql/relational-databases/errors-events/mssqlserver-2-database-engine-error)</li><li>[MSSQLSERVER_53](/sql/relational-databases/errors-events/mssqlserver-53-database-engine-error)</li></ul></li></ul><ul><li>En cas de problème de connexion, utilisez les liens suivants pour les corriger :<ul><li>[MSSQLSERVER_18456](/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error)</li><li>[MSSQLSERVER_18452](/sql/relational-databases/errors-events/mssqlserver-18452-database-engine-error)</li></ul></li></ul> |
+| Azure Backup is not able to connect to the SQL instance. (Sauvegarde Azure n’est pas en mesure de se connecter à l’instance SQL.) | Sauvegarde Azure ne peut pas se connecter à l’instance SQL Server. | Utilisez les informations supplémentaires disponibles sur le menu des erreurs du portail Azure pour déterminer les causes racines. Consultez [Résoudre les problèmes de connexion au moteur de base de données SQL Server](https://docs.microsoft.com/sql/database-engine/configure-windows/troubleshoot-connecting-to-the-sql-server-database-engine) pour corriger l’erreur.<br/><ul><li>Si les paramètres SQL par défaut n’autorisent pas les connexions à distance, modifiez les paramètres. Pour plus d’informations sur le changement des paramètres, consultez les articles suivants :<ul><li>[MSSQLSERVER_-1](/previous-versions/sql/sql-server-2016/bb326495(v=sql.130))</li><li>[MSSQLSERVER_2](/sql/relational-databases/errors-events/mssqlserver-2-database-engine-error)</li><li>[MSSQLSERVER_53](/sql/relational-databases/errors-events/mssqlserver-53-database-engine-error)</li></ul></li></ul><ul><li>En cas de problème de connexion, utilisez les liens suivants pour les corriger :<ul><li>[MSSQLSERVER_18456](/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error)</li><li>[MSSQLSERVER_18452](/sql/relational-databases/errors-events/mssqlserver-18452-database-engine-error)</li></ul></li></ul> |
 
 ### <a name="usererrorparentfullbackupmissing"></a>UserErrorParentFullBackupMissing
 

@@ -3,16 +3,17 @@ title: Vérifier l’intégrité d’un registre dans Azure Container Registry
 description: Découvrez comment exécuter une commande de diagnostic rapide pour identifier des problèmes courants lors de l’utilisation d’un registre de conteneurs Azure, notamment la configuration locale de Docker et la connectivité au registre
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: danlep
-ms.openlocfilehash: 3e5b5467f9fa25e23f6661c6630d346aa85e2205
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: 3511655d220ee85ce6b5744612e5d6fddafbe877
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67552431"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68309729"
 ---
 # <a name="check-the-health-of-an-azure-container-registry"></a>Vérifier l’intégrité d’un registre de conteneurs Azure
 

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 357be801914017aceb7e827a3b49960cf7c3e386
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: ebb1723a9a2b2d069a1766d4f78151f2b684c5b9
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67565402"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68464675"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Migrer vers un accès en fonction du rôle granulaire pour les configurations de cluster
 
@@ -159,7 +159,7 @@ Un utilisateur disposant du rôle [Contributeur](https://docs.microsoft.com/azur
 
 ### <a name="using-the-azure-cli"></a>Utilisation de l’interface de ligne de commande Azure (CLI)
 
-La façon la plus simple pour ajouter cette attribution de rôle consiste à utiliser la commande `az role assignemnt create` dans Azure CLI.
+La façon la plus simple pour ajouter cette attribution de rôle consiste à utiliser la commande `az role assignment create` dans Azure CLI.
 
 > [!NOTE]
 > Cette commande doit être exécutée par un utilisateur avec les rôles Contributeur ou Propriétaire, car ils sont les seuls à pouvoir accorder ces autorisations. Le `--assignee` correspond à l’adresse e-mail de l’utilisateur à qui vous souhaitez attribuer le rôle Opérateur de cluster HDInsight.

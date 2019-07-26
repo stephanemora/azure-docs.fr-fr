@@ -3,16 +3,17 @@ title: Supprimer des ressources d’images dans Azure Container Registry
 description: Explique en détail comment gérer efficacement la taille du registre en supprimant les données d’image conteneur.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 06/17/2019
 ms.author: danlep
-ms.openlocfilehash: c603afa61499a615a0882cef06f14fd3d080a9ef
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: eaf3b3e591ca2ddbd29fd5547d334ef90b24fc5e
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67797764"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68309643"
 ---
 # <a name="delete-container-images-in-azure-container-registry"></a>Supprimer des images conteneur dans Azure Container Registry
 

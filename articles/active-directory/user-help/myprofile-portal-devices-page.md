@@ -12,19 +12,21 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b303a1cd3da7010573ce34dd4762616f4b6581d0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c9035d68e95798eb238c1836e617e485c39194c4
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60475861"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68383039"
 ---
 # <a name="manage-your-connected-devices-from-the-my-profile-preview-portal"></a>Gérer vos appareils connectés à partir du portail Mon profil (préversion)
+
 Vous pouvez gérer les appareils auxquels vous êtes connecté à l’aide de votre compte professionnel ou scolaire, en désactivant ceux que vous ne possédez plus, à partir de la page **Appareils** du portail **Mon profil**.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-myprofile.md)]
 
 ## <a name="view-your-connected-devices"></a>Afficher vos appareils connectés
+
 1. Connectez-vous à votre compte professionnel ou scolaire, puis accédez à votre page https://myprofile.microsoft.com/.
 
 2. Sélectionnez **Appareils** dans le volet de navigation gauche ou sélectionnez le lien **Gérer les appareils** à partir du bloc **Appareils**.
@@ -36,6 +38,7 @@ Vous pouvez gérer les appareils auxquels vous êtes connecté à l’aide de vo
     ![Page Appareils, montrant les appareils connectés](media/myprofile-portal/myprofile-portal-devices-page.png)
 
 ## <a name="disable-a-device"></a>Désactiver un appareil
+
 À tout moment, vous pouvez désactiver l’un de vos appareils connectés. Cela est particulièrement important si vous ne connaissez pas un appareil particulier ou si un appareil est perdu ou volé. Après que vous avez désactivé un appareil, votre organisation ne peut plus l’authentifier et il n’est plus possible d’accéder aux ressources de votre organisation.
 
 >[!Important]

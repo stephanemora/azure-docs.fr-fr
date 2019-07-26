@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/05/2019
 ms.author: bwren
-ms.openlocfilehash: c2babb5a86d69881b6a76c6dceae80a24a891f6c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae423b6fb141cab4038e65ba85c6067f1c23aee0
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60740922"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68320687"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Groupes d’ordinateurs dans les requêtes de journal Azure Monitor
 Les groupes d’ordinateurs d’Azure Monitor permettent de formuler des [requêtes de journal](../log-query/log-query-overview.md) portant sur un ensemble spécifique d’ordinateurs.  Vous peuplez chaque groupe d’ordinateurs soit à l’aide d’une requête que vous définissez, soit en important des groupes à partir de différentes sources.  Quand le groupe est inclus dans une requête de journal, les résultats sont limités aux enregistrements correspondant aux ordinateurs du groupe.
@@ -84,7 +84,7 @@ Une fois des groupes importés, le menu répertorie le nombre d’ordinateurs d�
 ### <a name="system-center-configuration-manager"></a>System Center Configuration Manager
 Si Azure Monitor est configuré de façon à importer les adhésions aux regroupements Configuration Manager, il crée un groupe d’ordinateurs pour chaque regroupement.  Les informations d’appartenance au regroupement sont récupérées toutes les 3 heures pour tenir les groupes d’ordinateurs à jour. 
 
-Pour pouvoir importer des regroupements Configuration Manager, vous devez [connecter Configuration Manager à Azure Monitor](collect-sccm.md).  Vous pourrez alors configurer l’importation dans **Paramètres avancés** dans votre espace de travail Log Analytics sur le Portail Azure.  Sélectionnez **Groupes d’ordinateurs**, **SCCM**, puis **Importer les appartenances aux regroupements Configuration Manager**.  Aucune configuration supplémentaire n’est requise.
+Pour pouvoir importer des regroupements Configuration Manager, vous devez [connecter Configuration Manager à Azure Monitor](collect-sccm.md).  
 
 ![Groupes d’ordinateurs à partir de SCCM](media/computer-groups/configure-sccm.png)
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 6/27/2019
 ms.author: sutalasi
-ms.openlocfilehash: 4b4edec43d01878bbc5899487f6ee1d2816eb135
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: bc6d9e7214d2b7cd009e7562357bed420e49f185
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67491830"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325108"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Configurer la reprise d’activité pour une application SharePoint multiniveau à l’aide d’Azure Site Recovery
 
@@ -196,7 +196,7 @@ Suivez [ce guide](site-recovery-test-failover-to-azure.md) pour effectuer un tes
 
 Pour obtenir des conseils sur la réalisation du test de basculement pour Active Directory et DNS, consultez le document [Considérations relatives au test de basculement pour Active Directory et DNS](site-recovery-active-directory.md#test-failover-considerations).
 
-Pour obtenir des conseils sur la réalisation du test de basculement pour les groupes de disponibilité SQL AlwaysOn, consultez le document [Performing Application DR with Azure Site Recovery and doing Test failover (Récupération d’urgence d’application avec Azure Site Recovery et basculement de test)](site-recovery-sql.md#disaster-recovery-of-application).
+Pour obtenir des conseils sur la réalisation du test de basculement pour les groupes de disponibilité SQL AlwaysOn, consultez le document [Performing Application DR with Azure Site Recovery and doing Test failover (Récupération d’urgence d’application avec Azure Site Recovery et basculement de test)](site-recovery-sql.md#disaster-recovery-of-an-application).
 
 ## <a name="doing-a-failover"></a>Exécution d’un basculement
 Suivez [ce guide](site-recovery-failover.md) pour réaliser un basculement.

@@ -12,14 +12,15 @@ ms.topic: overview
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9c6faff10f68d720bc3c86a191e4cd1b1f9abdc
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c20256fb712d9381ba2adc90e2e68ce4fdc8911a
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58123604"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382783"
 ---
 # <a name="set-up-your-security-info-preview-from-the-sign-in-page-prompt"></a>Configurer des informations de sécurité (préversion) à partir de l’invite de la page de connexion
+
 Vous pouvez suivre ces étapes si vous êtes invité à définir des informations de sécurité immédiatement après vous être connecté à votre compte professionnel ou scolaire.
 
 Cette invite apparaît uniquement si vous n’avez pas configuré les informations de sécurité demandées par votre organisation. Si vous avez déjà configuré vos informations de sécurité et que vous souhaitez les changer, suivez les étapes décrites dans les différents articles de procédure fondés sur une méthode. Pour plus d’informations, consultez la [vue d’ensemble décrivant comment ajouter ou mettre à jour vos informations de sécurité](security-info-add-update-methods-overview.md).
@@ -27,11 +28,13 @@ Cette invite apparaît uniquement si vous n’avez pas configuré les informatio
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 ## <a name="sign-in-to-your-work-or-school-account"></a>Se connecter à votre compte professionnel ou scolaire
+
 Une fois connecté à votre compte professionnel ou scolaire, vous êtes invité à fournir plus d’informations avant de pouvoir accéder à votre compte.
 
 ![Invite demandant des informations supplémentaires](media/security-info/securityinfo-prompt.png)
 
 ## <a name="set-up-your-security-info-using-the-wizard"></a>Configurer des informations de sécurité à l’aide de l’Assistant
+
 Suivez ces étapes pour configurer les informations de sécurité de votre compte professionnel ou scolaire à partir de l’invite.
 
 >[!Important]
@@ -41,7 +44,7 @@ Suivez ces étapes pour configurer les informations de sécurité de votre compt
 
    > [!Note]
    > Si vous souhaitez utiliser une application d’authentification autre que Microsoft Authenticator, sélectionnez le lien **Je souhaite utiliser une autre application d’authentification**.
-   > 
+   >
    > Si votre organisation vous permet de choisir une autre méthode en plus de l’application d’authentification, vous pouvez sélectionner **Je veux configurer une autre méthode**.
 
     ![Page de téléchargement de l’application Authenticator dans l’Assistant Protéger votre compte](media/security-info/securityinfo-prompt-get-auth-app.png)
