@@ -7,12 +7,12 @@ ms.service: governance
 ms.date: 04/22/2019
 ms.author: rithorn
 ms.topic: overview
-ms.openlocfilehash: 1958a829df2643bd218d4e8d7f6dd563b5b395e8
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 6ca8351e7294c5a9cdd9f594eb4524d04a27b5c1
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66237174"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516989"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organiser vos ressources avec des groupes d’administration Azure
 
@@ -98,7 +98,7 @@ Le graphique suivant montre la liste des rôles, ainsi que les actions prises en
 |Lecteur                      |        |        |        |        |               |               | X     |
 |Lecteur MG*                  |        |        |        |        |               |               | X     |
 |Contributeur de la stratégie de ressource |        |        |        |        |               | X             |       |
-|Administrateur de l'accès utilisateur   |        |        |        |        | X             |               |       |
+|Administrateur de l'accès utilisateur   |        |        |        |        | X             | X             |       |
 
 * : Contributeur MG et lecteur MG autorisent uniquement les utilisateurs à effectuer ces actions sur l’étendue du groupe d’administration.  
 ** : Les attributions de rôles sur le groupe d’administration racine ne sont pas nécessaires pour déplacer un abonnement ou un groupe d’administration.  Consultez [Gérer vos ressources avec des groupes d’administration](manage.md) pour des détails sur le déplacement d’éléments dans la hiérarchie.

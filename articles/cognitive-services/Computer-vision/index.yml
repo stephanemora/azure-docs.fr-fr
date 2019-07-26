@@ -6,7 +6,7 @@ metadata:
   description: Découvrez comment utiliser la Vision par ordinateur pour traiter des images et renvoyer des informations. Ces tutoriels vous montrent comment créer des applications qui utilisent l’API.
   services: cognitive-services
   author: nitinme
-  manager: cgronlun
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: computer-vision
   ms.tgt_pltfrm: na

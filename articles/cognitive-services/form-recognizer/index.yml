@@ -6,7 +6,7 @@ metadata:
   description: Découvrez comment utiliser Form Recognizer pour extraire intelligemment des données clé-valeur de vos documents de formulaire.
   services: cognitive-services
   author: PatrickFarley
-  manager: cgronlun
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: forms-recognizer
   ms.tgt_pltfrm: na

@@ -3,16 +3,17 @@ title: Webhooks Azure Container Registry
 description: Découvrez comment utiliser des webhooks pour déclencher des événements quand certaines actions sont exécutées dans l’un des dépôts de votre registre.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 05/24/2019
 ms.author: danlep
-ms.openlocfilehash: 18ac3fcb2797b24c9d5e5f05968eed4bf8732af7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 59e8d4979e7be02d6097e1c3eccc44e64da87e95
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389447"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311585"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Utilisation de webhooks Azure Container Registry
 
@@ -36,7 +37,7 @@ Pour plus d’informations sur les requêtes de webhook, consultez la [référen
 | Valeur | Description |
 |---|---|
 | Nom de webhook | Nom que vous voulez donner au webhook. Il peut contenir uniquement des lettres et des chiffres, et doit comporter de 5 à 50 caractères. |
-| Lieu | Pour un registre [géorépliqué](container-registry-geo-replication.md), spécifiez la région Azure du réplica du Registre. 
+| Location | Pour un registre [géorépliqué](container-registry-geo-replication.md), spécifiez la région Azure du réplica du Registre. 
 | URI de service | URI auquel le webhook doit envoyer des notifications POST. |
 | En-têtes personnalisés | En-têtes que vous souhaitez passer avec la demande POST. Ils doivent être au format « clé : valeur ». |
 | Actions de déclencheur | Actions qui déclenchent le webhook. Les actions incluent l’envoi push d’image, la suppression d’image, l’envoi push de graphique Helm, la suppression du graphique Helm et la mise en quarantaine de d’image. Vous pouvez choisir une ou plusieurs actions pour déclencher le webhook. |
@@ -67,7 +68,7 @@ Avant d’utiliser le webhook, vous pouvez le tester à l’aide du bouton **Pin
 
 ![Interface utilisateur de création de webhook ACR dans le portail Azure](./media/container-registry-webhook/webhook-02.png)
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>D’Azure CLI
 
 Pour tester un webhook d’ACR avec Azure CLI, utilisez la commande [az acr webhook ping](/cli/azure/acr/webhook#az-acr-webhook-ping).
 
@@ -87,7 +88,7 @@ az acr webhook list-events --registry mycontainerregistry08 --name myacrwebhook0
 
 Vous pouvez supprimer chaque webhook en le sélectionnant, puis en appuyant sur le bouton **Supprimer** dans le portail Azure.
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>D’Azure CLI
 
 ```azurecli-interactive
 az acr webhook delete --registry mycontainerregistry --name myacrwebhook01

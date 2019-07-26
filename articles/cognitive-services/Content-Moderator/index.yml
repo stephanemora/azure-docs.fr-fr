@@ -6,7 +6,7 @@ metadata:
   description: 'Découvrez comment utiliser Content Moderator pour vérifier du texte, des images et du contenu vidéo à la recherche d’éléments potentiellement dangereux, offensants ou indésirables.'
   services: cognitive-services
   author: nitinme
-  manager: cgronlun
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: content-moderator
   ms.tgt_pltfrm: na

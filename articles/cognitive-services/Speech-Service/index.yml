@@ -7,7 +7,7 @@ metadata:
   description: 'Speech Services offre aux développeurs un moyen simple d’ajouter de puissantes fonctionnalités de reconnaissance vocale à leurs applications. Citons en exemple le contrôle des commandes vocales et les dialogues vocaux, la conversation en langage naturel, la transcription de la parole et la dictée ainsi que la traduction vocale.'
   services: cognitive-services
   author: nitinme
-  manager: cgronlun
+  manager: nitinme
   layout: LandingPage
   ms.service: cognitive-services
   ms.subservice: speech-service

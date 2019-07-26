@@ -6,7 +6,7 @@ metadata:
   description: "L’API Analyse de texte est un service cloud qui fournit un traitement en langage naturel avancé de texte brut. Elle inclut quatre fonctions principales\_: analyse des sentiments, extraction de phrases clés, reconnaissance des entités nommées et détection de la langue."
   services: cognitive-services
   author: nitinme
-  manager: cgronlun
+  manager: nitinme
   layout: LandingPage
   ms.service: cognitive-services
   ms.subservice: text-analytics

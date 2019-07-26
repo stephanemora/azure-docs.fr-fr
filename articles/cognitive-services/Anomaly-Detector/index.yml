@@ -6,7 +6,7 @@ metadata:
   description: 'Utilisez l’API Détecteur d’anomalies pour superviser les données dans le temps et détecter les anomalies concernant le Machine Learning. Obtenez des insights sur vos données, quels que soient leur volume, le secteur ou le scénario.'
   services: cognitive-services
   author: aahill
-  manager: cgronlun
+  manager: nitinme
   layout: LandingPage
   ms.service: cognitive-services
   ms.tgt_pltfrm: na

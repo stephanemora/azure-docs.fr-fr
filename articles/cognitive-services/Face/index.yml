@@ -6,7 +6,7 @@ metadata:
   description: Découvrez comment utiliser l’API Visage pour détecter et identifier les visages sur les images et retourner des informations les concernant. Ces tutoriels vous montrent comment créer des applications qui utilisent l’API.
   services: cognitive-services
   author: PatrickFarley
-  manager: cgronlun
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: face-api
   ms.tgt_pltfrm: na

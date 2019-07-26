@@ -10,63 +10,63 @@ ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
 ms.openlocfilehash: d58c596421cec2e69210dd39a5d4a9708c154b44
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66492757"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>Stocker des données vitales pour l’entreprise dans le stockage Blob Azure
 
-Stockage immuable pour stockage Blob Azure permet aux utilisateurs de stocker des objets de données critiques dans un état WORM (Write Once, Read Many). Cet état les rend non effaçables et immuables pour une durée spécifiée par l’utilisateur. Objets BLOB peuvent être créés et lues, mais pas modifiées ou supprimés pendant la durée de l’intervalle de rétention. Stockage immuable est activé pour un usage général v2 et comptes de stockage d’objets Blob dans toutes les régions Azure.
+Le stockage immuable pour le Stockage Blob Azure permet aux utilisateurs de stocker des objets de données critiques pour l’entreprise dans un état WORM (disque optique non réinscriptible). Cet état les rend non effaçables et immuables pour une durée spécifiée par l’utilisateur. Au cours de cette période de conservation, il est possible de créer et de lire des objets blob, mais non de les modifier ou de les supprimer. Le stockage immuable est activé pour les comptes de stockage Blob et comptes de stockage Usage général v2 dans toutes les région Azure.
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
-Stockage immuable permet l’établissement de santé, les institutions financières et des industries connexes--particulièrement courtier les organisations--pour stocker les données en toute sécurité. Elle peut également être exploitée dans n’importe quel scénario pour protéger les données stratégiques contre toute modification ou suppression. 
+Le stockage immuable permet aux établissements de santé, aux institutions financières et aux secteurs associés, en particulier les organisations de courtage, de stocker des données en toute sécurité. Il peut également être utilisé dans n’importe quel scénario pour protéger les données vitales contre la modification ou la suppression. 
 
 Les applications typiques incluent :
 
-- **Conformité réglementaire** : Le stockage immuable pour le Stockage Blob Azure permet aux organisations de respecter entre autres les réglementations SEC 17a-4(f), CFTC 1.31(d) et FINRA. Un livre blanc technique par Cohasset Associates décrit en détail comment immuable adresses de stockage de ces réglementations peut être téléchargé via le [portail Microsoft Service Trust](https://aka.ms/AzureWormStorage). Le [centre de confidentialité Azure](https://www.microsoft.com/trustcenter/compliance/compliance-overview) contient des informations détaillées sur nos certifications de conformité.
+- **Conformité réglementaire** : Le stockage immuable pour le Stockage Blob Azure permet aux organisations de respecter entre autres les réglementations SEC 17a-4(f), CFTC 1.31(d) et FINRA. Un livre blanc technique de Cohasset Associates qui décrit en détail la manière dont le stockage immuable répond à ces exigences réglementaires est maintenant téléchargeable via le [Portail d’approbation de services Microsoft](https://aka.ms/AzureWormStorage). Le [Centre de confidentialité Azure](https://www.microsoft.com/trustcenter/compliance/compliance-overview) contient des informations détaillées sur nos certifications de conformité.
 
-- **Conservation sécurisée des documents** : Stockage immuable pour stockage Blob Azure permet de s’assurer que les données ne peut pas être modifiées ou supprimées par n’importe quel utilisateur, y compris les utilisateurs avec des privilèges d’administrateur de compte.
+- **Conservation sécurisée des documents** : avec le stockage immuable pour le Stockage Blob, les données ne sont ni modifiables ni supprimables par les utilisateurs, même s’ils disposent d’un compte avec privilèges administratifs.
 
-- **Conservation légale** : Stockage immuable pour stockage Blob Azure permet aux utilisateurs de stocker des informations sensibles qui doivent impérativement à utiliser en cas de litige ou d’entreprise dans un état infalsifiable pour la durée souhaitée jusqu'à ce que le. Cette fonctionnalité n’est pas limitée aux cas d’usage légal, mais peut également être imaginée comme une attente basée sur un événement ou un verrou de l’entreprise, où la nécessité de protéger les données en fonction de déclencheurs d’événements ou de la stratégie d’entreprise est requise.
+- **Conservation légale** : le stockage immuable pour le Stockage Blob Azure permet aux utilisateurs de stocker dans un état de protection inviolable des informations sensibles critiques dans le cadre d’une utilisation professionnelle ou portant sur un litige, pour la durée souhaitée jusqu’à ce que la conservation prenne fin. Cette fonctionnalité n’est pas limitée aux seuls cas d’utilisation légale, mais peut également être considérée comme une conservation basée sur un événement ou un verrou de l’entreprise, lorsqu’il est nécessaire de protéger les données sur la base de déclencheurs d’événements ou d’une stratégie d’entreprise.
 
-Stockage immuable prend en charge les éléments suivants :
+L’espace de stockage immuable prend en charge les éléments suivants :
 
-- **[Prise en charge de stratégie de rétention temporelle](#time-based-retention)** : Les utilisateurs peuvent définir des stratégies pour stocker les données pendant un intervalle spécifié. Quand une stratégie de rétention temporelle est définie, objets BLOB peut être créé et lire, mais pas modifié ou supprimé. Une fois la période de rétention a expiré, les objets BLOB peut être supprimé, mais ne pas remplacé.
+- **[Prise en charge de la stratégie de conservation limitée dans le temps](#time-based-retention)**  : les utilisateurs peuvent définir des stratégies pour stocker les données pendant une période donnée. Lorsqu’une stratégie de conservation limitée dans le temps est définie, des objets Blob peuvent être créés et lus, mais ils ne peuvent pas être modifiés ni supprimés. Après l’expiration de la période de conservation, les tâches peuvent être effacées, mais pas remplacées.
 
-- **[Prise en charge de la stratégie de conservation légale](#legal-holds)** : Si l’intervalle de rétention n’est pas connu, les utilisateurs peuvent définir légale pour stocker les données immuable jusqu'à ce que la conservation légale est désactivée.  Quand une stratégie de conservation légale est définie, objets BLOB peut être créé et lire, mais pas modifié ou supprimé. Chaque légale est associé à une défini par l’utilisateur alphanumériques balise (par exemple, un ID de cas, nom de l’événement, etc.) qui est utilisée comme une chaîne d’identificateur. 
+- **[Prise en charge de la stratégie de conservation légale](#legal-holds)**  : si la période de conservation est inconnue, les utilisateurs peuvent définir des stratégies de conservation légale pour stocker les données de telle sorte qu’elles ne soient pas modifiables tant que les stratégies n’ont pas été levées.  Lorsqu’une stratégie de conservation légale est définie, des objets Blob peuvent être créés et lus, mais ils ne peuvent pas être modifiés ni supprimés. Chaque archivage juridique est associé à une balise alphanumérique définie par l’utilisateur (comme pour l’ID d’un cas, un nom d’événement), utilisée comme chaîne d’identificateur (comme pour l’ID d’un cas). 
 
 - **Prise en charge de tous les niveaux d’objets blob** : Les stratégies WORM sont indépendantes du niveau de Stockage Blob Azure et s’appliquent à tous les niveaux (chaud, froid et archive). Les clients peuvent transférer les données au niveau ayant le coût le plus adapté à leurs charges de travail tout en conservant l’immuabilité des données.
 
-- **Configuration au niveau du conteneur** : Les utilisateurs peuvent configurer des stratégies de conservation limitée dans le temps et des balises de conservation légale au niveau du conteneur. À l’aide des paramètres au niveau du conteneur simples, les utilisateurs peuvent créer et verrouiller des stratégies de rétention temporelle, étendre les intervalles de rétention, set et légale pour effacer et bien plus encore. Ces stratégies s’appliquent à tous les objets blob du conteneur, anciens ou nouveaux.
+- **Configuration au niveau du conteneur** : Les utilisateurs peuvent configurer des stratégies de conservation limitée dans le temps et des balises de conservation légale au niveau du conteneur. Grâce à de simples paramètres au niveau du conteneur, ils ont la possibilité de créer et verrouiller des stratégies de conservation limitée dans le temps, d’étendre les périodes de conservation, de définir et supprimer des archivages juridiques, etc. Ces stratégies s’appliquent à tous les objets blob du conteneur, anciens ou nouveaux.
 
-- **Prise en charge des enregistrements d’audit** : Chaque conteneur comprend un journal d’audit de stratégie. Il indique à sept temporels rétention commandes pour les stratégies de rétention temporelle de verrouillé et contient l’ID utilisateur, type de commande, date et heure indiquées et intervalle de rétention. En ce qui concerne les stratégies d’archivage juridique, il comporte l’identifiant utilisateur, le type de commande, les timestamps et les balises d’archivage juridique. Ce journal est conservé pour la durée de vie de la stratégie, conformément aux directives réglementaires 17a-4(f) s. Le [journal d’activité Azure](../../azure-monitor/platform/activity-logs-overview.md) montre un journal plus complète de toutes les activités de plan de contrôle ; lors de l’activation [journaux de Diagnostic Azure](../../azure-monitor/platform/diagnostic-logs-overview.md) conserve et affiche les opérations de plan de données. Il est de la responsabilité de l’utilisateur de stocker ces journaux d’activité de manière persistante, car ceux-ci peuvent être nécessaires à des fins réglementaires ou autres.
+- **Prise en charge des enregistrements d’audit** : chaque conteneur comprend un journal d’audit de stratégie. Il présente jusqu’à sept commandes pour les stratégies de conservation limitée dans le temps verrouillées, et contient l’ID utilisateur, le type commande, les valeurs d’horodatage et l’intervalle de rétention. En ce qui concerne les stratégies d’archivage juridique, il comporte l’identifiant utilisateur, le type de commande, les timestamps et les balises d’archivage juridique. Ce journal est conservé pendant toute la durée de vie de la stratégie, conformément aux instructions réglementaires SEC 17a-4(f). Le [Journal d’activité Azure](../../azure-monitor/platform/activity-logs-overview.md) est un journal plus complet de toutes les activités du plan de contrôle tandis que les [journaux de diagnostic Azure](../../azure-monitor/platform/diagnostic-logs-overview.md) mémorisent et affichent les opérations du plan de données. Il est de la responsabilité de l’utilisateur de stocker ces journaux d’activité de manière persistante, car ceux-ci peuvent être nécessaires à des fins réglementaires ou autres.
 
 ## <a name="how-it-works"></a>Fonctionnement
 
-Le stockage immuable du Stockage Blob Azure prend en charge deux types de stratégies WORM ou immuables : la conservation limitée dans le temps et l’archivage juridique. Lorsqu’une stratégie de rétention temporelle ou la conservation légale est appliquée sur un conteneur, tous les objets BLOB existants déplacement dans un état immuable de ver en moins de 30 secondes. Tous les nouveaux objets BLOB qui sont chargés dans ce conteneur seront également déplacés dans l’état immuable. Une fois que tous les objets BLOB ont déplacé dans l’état immuable, la stratégie immuable est confirmée et toutes les remplacent ou supprimer les opérations pour les objets nouveaux et existants dans le conteneur immuable ne sont pas autorisées.
+Le stockage immuable du Stockage Blob Azure prend en charge deux types de stratégies WORM ou immuables : la conservation limitée dans le temps et l’archivage juridique. Lorsqu’une stratégie de conservation limitée dans le temps ou d’archivage juridique est appliquée sur un conteneur, tous les objets blob existants prennent l’état WORM immuable en moins de 30 secondes. Tous les nouveaux objets blob chargés dans ce conteneur auront également cet état. Une fois que tous les blobs sont passés à l’état immuable, la stratégie immuable est confirmée et aucune opération d’écrasement ou de suppression des objets existants et nouveaux n’est autorisée dans le conteneur immuable.
 
-Conteneur et suppression du compte ne sont également pas autorisées s’il existe des objets BLOB protégés par une stratégie immuable. L’opération Supprimer le conteneur échoue s’il existe un ou plusieurs objets blob ayant une stratégie de conservation limitée dans le temps verrouillée ou un archivage juridique. La suppression du compte de stockage échoue s’il s’agit d’un conteneur WORM disposant d’une stratégie de rétention basée sur le temps verrouillée ou d’une conservation juridique. 
+La suppression de conteneurs et de comptes n’est pas non plus autorisée s’il existe des objets blobs protégés par une stratégie immuable. L’opération Supprimer le conteneur échoue s’il existe un ou plusieurs objets blob ayant une stratégie de conservation limitée dans le temps verrouillée ou un archivage juridique. La suppression du compte de stockage échoue s’il s’agit d’un conteneur WORM disposant d’une stratégie de rétention basée sur le temps verrouillée ou d’une conservation juridique. 
 
-### <a name="time-based-retention"></a>Rétention temporelle
+### <a name="time-based-retention"></a>Conservation limitée dans le temps
 
 > [!IMPORTANT]
-> Une stratégie de rétention temporelle doit être *verrouillé* pour l’objet blob dans un conforme immuable (écriture et protégé contre les suppressions) état s 17a-4(f) et autres données de conformité aux réglementations. Nous vous recommandons de verrouiller la stratégie dans un délai raisonnable, généralement moins de 24 heures. L’état initial d’une stratégie de rétention temporelle est *déverrouillé*, ce qui vous permet de tester la fonctionnalité et d’apporter des modifications à la stratégie avant que vous la verrouiller. Alors que le *déverrouillé* état offre une protection de l’immuabilité, nous déconseillons d’utiliser le *déverrouillé* état à des fins autres que des versions d’évaluation de fonction à court terme. 
+> Une stratégie de rétention limitée dans le temps doit être *verrouillée* pour que l’objet blob ait un état immuable conforme (protégé contre l’écriture et la suppression) conformément entre autres à la réglementation SEC 17a-4(f). Il est recommandé de verrouiller la stratégie au bout d’un délai raisonnable, en général en moins de 24 heures. L’état initial de la stratégie de rétention définie dans le temps est *déverrouillé*, ce qui vous permet de tester la fonctionnalité et d’apporter des modifications à la stratégie avant de la verrouiller. Tant que l’état *déverrouillé* protège l’immuabilité du conteneur, nous conseillons de ne pas utiliser l’état *déverrouillé* pour d’autres raisons que des évaluations de fonctionnalités à court terme. 
 
-Lorsqu’une stratégie de conservation limitée dans le temps est appliquée à un conteneur, tous les objets blob de ce conteneur conserveront l’état immuable pendant la période de conservation *effective*. La période de rétention efficace pour les objets BLOB existants est égale à la différence entre l’heure de modification d’objets blob et l’intervalle de rétention spécifiée par l’utilisateur.
+Lorsqu’une stratégie de conservation limitée dans le temps est appliquée à un conteneur, tous les objets blob de ce conteneur conserveront l’état immuable pendant la période de conservation *effective*. La durée de rétention effective pour les objets Blob existants est égale à la différence entre le temps de modification de l’objet Blob et l’intervalle de rétention spécifié par l’utilisateur.
 
 Pour les nouveaux objets Blob, la durée de rétention effective est égale à l’intervalle de rétention spécifié par l’utilisateur. Dans la mesure où les utilisateurs peuvent étendre la période de conservation, le stockage immuable utilise la valeur la plus récente de la période de conservation spécifiée par l’utilisateur pour calculer la durée de conservation effective.
 
 > [!TIP]
 > **Exemple :** Un utilisateur crée une stratégie de conservation limitée dans le temps avec une période de conservation de cinq ans.
 >
-> L’objet blob existant dans ce conteneur, _testblob1_, a été créé il y a un an. La période de rétention efficace pour _testblob1_ est de quatre ans.
+> L’objet blob qui se trouve dans ce conteneur, _testblob1_, a été créé un an plus tôt. La période de conservation effective de _testblob1_ est de quatre ans.
 >
-> Un nouvel objet blob, _testblob2_, est maintenant téléchargé vers le conteneur. La période de conservation effective de ce nouvel objet blob est de cinq ans.
+> Un nouvel objet blob, _testblob2_, est maintenant chargé dans le conteneur. La période de conservation effective de ce nouvel objet blob est de cinq ans.
 
-Une stratégie de rétention temporelle de déverrouillé est recommandée uniquement pour des tests des fonctionnalités et une stratégie doit être verrouillée pour être conforme avec s 17a-4(f) et autres données de conformité aux réglementations. Une fois une stratégie de rétention temporelle est verrouillée, la stratégie ne peut pas être supprimée et un maximum de 5 augmente à la période de rétention est autorisé. Pour plus d’informations sur la façon de définir et de verrouiller des stratégies de rétention temporelle, consultez le [mise en route](#getting-started) section.
+Une stratégie de rétention limitée dans le temps et déverrouillée est recommandée à des fins de test uniquement et une stratégie doit être verrouillée conformément à la réglementation SEC 17a-4(f) et à d’autres réglementations. Une fois verrouillée, une stratégie de rétention à durée limitée ne peut plus être supprimée ; seul un maximum de cinq prolongations effectives de la période de rétention est autorisé. Pour savoir comment définir et verrouiller des stratégies de rétention légale à durée limitée, voir la section [Bien démarrer](#getting-started).
 
 ### <a name="legal-holds"></a>Conservation juridique
 
@@ -78,35 +78,35 @@ Le tableau suivant montre les types d’opérations blob désactivées dans chaq
 
 |Scénario  |État des objets blob  |Opérations blob non autorisées  |
 |---------|---------|---------|
-|L’intervalle de rétention effective sur l’objet Blob n’a pas encore expiré et/ou une conservation juridique est définie     |Immuable : non modifiable et non supprimable         | Placer l’objet Blob<sup>1</sup>, placez le bloc<sup>1</sup>, Put Block List<sup>1</sup>, supprimer les métadonnées d’objets Blob du conteneur, supprimer l’objet Blob, ensemble, Put Page, définissez les propriétés d’objet Blob, Snapshot Blob, copie incrémentielle d’objets Blob, Ajoutez le bloc         |
+|L’intervalle de rétention effective sur l’objet Blob n’a pas encore expiré et/ou une conservation juridique est définie     |Immuable : non modifiable et non supprimable         | Put Blob<sup>1</sup>, Put Block<sup>1</sup>, Put Block List<sup>1</sup>, Delete Container, Delete Blob, Set Blob Metadata, Put Page, Set Blob Properties, Snapshot Blob, Incremental Copy Blob, Append Block         |
 |L’intervalle de rétention effective sur l’objet Blob a expiré     |Non modifiable seulement (suppressions autorisées)         |Put Blob<sup>1</sup>, Put Block<sup>1</sup>, Put Block List<sup>1</sup>, Set Blob Metadata, Put Page, Set Blob Properties, Snapshot Blob, Incremental Copy Blob, Append Block         |
 |Stratégies d’archivage juridique levées ; aucune stratégie de conservation limitée dans le temps dans le conteneur     |Mutable         |Aucun         |
 |Aucune stratégie WORM créée (conservation limitée dans le temps ou archivage juridique)     |Mutable         |Aucun         |
 
-<sup>1</sup> l’application permet de créer un nouvel objet blob une fois ces opérations. Toutes les remplacer les opérations sur un chemin d’objet blob existant dans un conteneur immuable ne sont pas autorisées.
+<sup>1</sup> L’application permet à ces opérations de créer un seul objet blob à la fois. Toutes les opérations d’écrasement ultérieures sur un chemin d’objets blob existant dans un conteneur immuable ne sont pas autorisées.
 
 ## <a name="supported-values"></a>Valeurs prises en charge
 
-### <a name="time-based-retention"></a>Rétention temporelle
-- Pour un compte de stockage, le nombre maximal de conteneurs avec verrouillé immuables stratégies basées sur le temps est 1 000.
-- L’intervalle de rétention minimale est 1 jour. La valeur maximale est 146,000 jours (400 ans).
-- Pour un conteneur, le nombre maximal de modifications pour étendre un intervalle de rétention pour verrouillé immuables stratégies basées sur le temps est 5.
-- Pour un conteneur, un maximum de journaux d’audit de stratégie de rétention temporelle 7 sont conservés pendant la durée de la stratégie.
+### <a name="time-based-retention"></a>Rétention limitée dans le temps
+- Le nombre maximal par compte de stockage de conteneurs avec stratégies immuables limitées dans le temps verrouillées est fixé à 1 000.
+- La période de rétention minimale est de 1 jour. Le maximum est de 146 000 jours (400 ans).
+- Pour un conteneur, il est possible de modifier jusqu’à cinq fois la période de rétention définie dans des stratégies immuables verrouillées limitées dans le temps.
+- Pour un conteneur, 7 journaux d’activité de stratégie de rétention au maximum sont conservés pour la durée de la stratégie.
 
-### <a name="legal-hold"></a>Légale
+### <a name="legal-hold"></a>Conservation légale
 - Le nombre maximal par compte de stockage de conteneurs avec paramètre d’archivage juridique est de 1 000.
 - Le nombre maximal par conteneur de balises d’archivage juridique est de 10.
-- La longueur d’une balise légale minimale est de 3 caractères alphanumériques. La longueur maximale est de 23 caractères alphanumériques.
-- Pour un conteneur, un maximum de 10 juridique contenir les journaux sont conservés pendant la durée de la stratégie d’audit des stratégies.
+- La longueur minimale d’une balise d’archivage légal est de 3 caractères alphanumériques. La longueur maximale est de 23 caractères alphanumériques.
+- Pour un conteneur, 10 journaux d’activité de stratégie de rétention légale au maximum sont conservés pour la durée de la stratégie.
 
 ## <a name="pricing"></a>Tarifs
 
 L’utilisation de cette fonctionnalité n’entraîne aucun coût supplémentaire. Les données immuables sont facturées au même tarif que les données modifiables classiques. Pour plus d’informations sur les prix du stockage Blob Azure, consultez la [page des tarifs du stockage Azure](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## <a name="getting-started"></a>Prise en main
-Stockage immuable est disponible uniquement pour les comptes de stockage d’objets Blob et usage général v2. Ces comptes doivent être gérés via [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). Pour plus d’informations sur la mise à niveau d’un compte de stockage v1 à usage général, consultez [mise à niveau d’un compte de stockage](../common/storage-account-upgrade.md).
+Le stockage immuable est disponible uniquement pour les comptes de stockage Blob et comptes de stockage Usage général v2. Ces comptes doivent être gérés par le biais d’[Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). Pour plus d’informations sur la mise à niveau d’un compte de stockage Usage général V1, consultez [Mettre à niveau un compte de stockage](../common/storage-account-upgrade.md).
 
-Les versions les plus récentes de la [Azure portal](https://portal.azure.com), [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), et [Azure PowerShell](https://github.com/Azure/azure-powershell/releases) prennent en charge le stockage immuable pour stockage Blob Azure. [Prise en charge de la bibliothèque client](#client-libraries) est également fourni.
+Les dernières versions du [Portail Azure](https://portal.azure.com), [d’Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) et [d’Azure PowerShell](https://github.com/Azure/azure-powershell/releases) prennent en charge le stockage immuable pour le Stockage Blob Azure. Le [support de la bibliothèque client](#client-libraries) est également fourni.
 
 ### <a name="azure-portal"></a>Portail Azure
 
@@ -120,19 +120,19 @@ Les versions les plus récentes de la [Azure portal](https://portal.azure.com), 
 
     ![Sélection de « Conservation limitée dans le temps » sous « Type de stratégie »](media/storage-blob-immutable-storage/portal-image-2.png)
 
-4. Entrez l’intervalle de rétention en jours (valeurs acceptables de 1 à 146000 jours).
+4. Entrez la période de rétention en jours (les valeurs acceptées sont comprise entre 1 et 146000 jours).
 
     ![Zone « Mettre à jour la période de conservation »](media/storage-blob-immutable-storage/portal-image-5-retention-interval.png)
 
-    L’état initial de la stratégie est déverrouillé, ce qui vous permet de tester la fonctionnalité et d’apporter des modifications à la stratégie avant que vous la verrouiller. La stratégie de verrouillage est essentielle pour la conformité aux réglementations telles que SEC 17 a-4.
+    L’état initial de la stratégie est déverrouillé, ce qui vous permet de tester la fonctionnalité et d’apporter des modifications à la stratégie avant de la verrouiller. Le verrouillage de la stratégie est essentiel pour la conformité à la réglementation SEC 17a-4 notamment.
 
-5. Verrouillez la stratégie. Cliquez sur le bouton de sélection ( **...** ), et le menu suivant s’affiche avec des actions supplémentaires :
+5. Verrouillez la stratégie. Cliquez avec le bouton droit sur les points de suspension ( **…** ) ; le menu suivant s’affiche avec des actions supplémentaires :
 
     ![« Verrouiller la stratégie » dans le menu](media/storage-blob-immutable-storage/portal-image-4-lock-policy.png)
 
-6. Sélectionnez **stratégie de verrouillage** et confirmez le verrou. La stratégie est désormais verrouillée et ne peut pas être supprimée, seules les extensions de l’intervalle de rétention seront autorisées. Supprime des objets BLOB et les substitutions ne sont pas autorisées. 
+6. Sélectionnez **Verrouiller la stratégie** et confirmez le verrouillage. La stratégie est à présent verrouillée, sa suppression n’est plus possible ; seules les extensions de la période de conservation seront autorisées. Les suppressions et les remplacements d’objets blob ne sont pas autorisés. 
 
-    ![Confirmer la « Stratégie de verrouillage » dans le menu](media/storage-blob-immutable-storage/portal-image-5-lock-policy.png)
+    ![Confirmer « Verrouiller la stratégie » dans le menu](media/storage-blob-immutable-storage/portal-image-5-lock-policy.png)
 
 7. Pour activer l’archivage juridique, sélectionnez **+ Ajouter une stratégie**. Sélectionnez **Archivage juridique** dans le menu déroulant.
 
@@ -142,7 +142,7 @@ Les versions les plus récentes de la [Azure portal](https://portal.azure.com), 
 
     ![Zone « Nom de balise » sous le type de stratégie](media/storage-blob-immutable-storage/portal-image-set-legal-hold-tags.png)
 
-9. Pour effacer un légale, supprimez simplement la balise d’identificateur appliqué légale.
+9. Pour supprimer une conservation légale, supprimez simplement la balise de conservation légale associée.
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -169,29 +169,29 @@ Les bibliothèques de client suivantes prennent en charge le stockage immuable p
 
 ## <a name="faq"></a>Forum Aux Questions
 
-**Pourrez vous fournir une documentation de la conformité du ver ?**
+**Pouvez-vous fournir de la documentation sur la conformité WORM ?**
 
-Oui. Conformité du document, Microsoft conservées un cabinet d’évaluation indépendante spécialisée dans les enregistrements gestion et les informations de gouvernance, Cohasset Associates, à évaluer sa conformité aux exigences spécifiques et stockage d’objets Blob Azure immuable pour le secteur des services financiers. Cohasset validé qu’immuable stockage Blob Azure, lorsqu’il est utilisé pour conserver temporels les objets BLOB dans un état ver, remplit les conditions de stockage qui vous intéressent CFTC règle 1.31(c)-(d) FINRA règle 4511 et règle SEC 17 a-4. Microsoft ciblé cet ensemble de règles, car ils représentent les recommandations plus dans le monde entier pour la rétention des enregistrements pour les institutions financières. Le rapport Cohasset est disponible dans le [Microsoft Service Trust Center](https://aka.ms/AzureWormStorage). Pour demander une lettre de l’attestation de Microsoft concernant la conformité du ver, veuillez contacter le support Azure.
+Oui. Pour documenter la conformité, Microsoft a choisi les services de Cohasset Associates, une importante société d’évaluation indépendante spécialisée dans la gestion des dossiers et la gouvernance de l’information, afin d’évaluer Azure Immutable Blob Storage et sa conformité aux exigences propres au secteur des services financiers. Cohasset a confirmé que Azure Immutable Blob Storage, lorsqu’il est utilisé pour conserver les objets blobs temporels dans un état WORM, répond aux exigences de stockage appropriées décrites par la réglementation Fina 4511, au paragraphe 1.31(c)-(d) de la réglementation CFTC et au paragraphe 17a-4 de la réglementation SEC. Microsoft a opté pour cet ensemble de règles, car elles représentent les recommandations les plus normatives au monde en matière de rétention des enregistrements pour les institutions financières. Le rapport Cohasset est disponible dans le [Centre de gestion de la confidentialité des services Microsoft](https://aka.ms/AzureWormStorage). Pour demander une lettre d’attestation de Microsoft concernant la conformité WORM, veuillez contacter le support Azure.
 
 **Cette fonctionnalité s’applique-t-elle uniquement aux objets blob de blocs, ou aussi aux objets blob de page et d’ajout ?**
 
-Le stockage immuable peut être utilisé avec n’importe quel type d’objet blob, mais nous recommandons de l’utiliser principalement pour les objets blob de blocs. Contrairement aux objets blob de blocs, les objets blob de page et d’ajout doivent être créés hors d’un conteneur WORM, avant d’y être copiés. Après avoir copié ces objets BLOB dans un conteneur ver, ne plus *ajoute* à un ajout blob ou les modifications apportées à un objet blob de pages sont autorisées.
+Le stockage immuable peut être utilisé avec n’importe quel type d’objet blob, mais nous recommandons de l’utiliser principalement pour les objets blob de blocs. Contrairement aux objets blob de blocs, les objets blob de page et d’ajout doivent être créés hors d’un conteneur WORM, avant d’y être copiés. Une fois la copie faite, il n’est plus possible de faire des *ajouts* à un objet blob d’ajout ni de modifier un objet blob de pages.
 
-**Je dois créer un compte de stockage pour utiliser cette fonctionnalité ?**
+**Dois-je créer un compte de stockage pour utiliser cette fonctionnalité ?**
 
-Non, vous pouvez utiliser stockage immuable avec n’importe quel existant ou nouvellement créé usage général v2 ou les comptes de stockage d’objets Blob. Cette fonctionnalité est destinée à une utilisation avec les objets BLOB de blocs dans les comptes GPv2 et de stockage d’objets Blob. Comptes stockage v1 à usage générales ne sont pas pris en charge, mais peuvent être facilement mis à niveau à usage général v2. Pour plus d’informations sur la mise à niveau d’un compte de stockage v1 à usage général, consultez [mise à niveau d’un compte de stockage](../common/storage-account-upgrade.md).
+Non. Vous pouvez utiliser le stockage immuable avec tous les comptes de stockage Usage général v2 ou comptes Stockage Blob, qu’ils soient nouveaux ou existants. Cette fonctionnalité est destinée à être utilisée avec des objets blob de blocs dans les comptes GPv2 et Stockage Blob. Les comptes de stockage Usage général v1 ne sont pas pris en charge mais peuvent être facilement mis à niveau vers la version 2. Pour plus d’informations sur la mise à niveau d’un compte de stockage Usage général v1, consultez [Mettre à niveau un compte de stockage](../common/storage-account-upgrade.md).
 
-**Puis-je appliquer une conservation légale et la stratégie de rétention temporelle ?**
+**Puis-je appliquer à la fois une conservation légale et une stratégie de rétention à durée définie ?**
 
-Oui, un conteneur peut avoir un légale et une stratégie de rétention temporelle en même temps. Tous les objets blob de ce conteneur conservent l’état immuable jusqu’à ce que toutes les stratégies d’archivage juridique aient été levées, même si leur période de conservation effective est écoulée. À l’inverse, un objet blob demeure dans un état immuable jusqu’à expiration de la période de conservation effective, même si toutes les stratégies d’archivage juridique ont été levées.
+Oui, un conteneur peut avoir à la fois une conservation légale et une stratégie de rétention limitée dans le temps. Tous les objets blob de ce conteneur conservent l’état immuable jusqu’à ce que toutes les stratégies d’archivage juridique aient été levées, même si leur période de conservation effective est écoulée. À l’inverse, un objet blob demeure dans un état immuable jusqu’à expiration de la période de conservation effective, même si toutes les stratégies d’archivage juridique ont été levées.
 
-**Sont des stratégies de conservation légale uniquement pour des poursuites judiciaires ou existe-t-il d’autres scénarios d’utilisation ?**
+**Les stratégies de conservation légale s’appliquent-elles uniquement aux procédures judiciaires ou existe-t-il d’autres scénarios d’utilisation ?**
 
-Non, le gel est simplement le terme général utilisé pour une stratégie de rétention temporelle non. Il est inutile être utilisé uniquement pour les litiges liés d’une procédure. Les stratégies de blocage légales sont utiles pour la désactivation de remplacement et suppressions pour protéger l’entreprise importante données ver, où la période de rétention est inconnue. Vous pouvez l’utiliser en tant qu’une stratégie d’entreprise à protéger votre ver charges de travail critiques ou utilisez-la comme une stratégie intermédiaire avant un déclencheur d’événement personnalisé nécessite l’utilisation d’une stratégie de rétention temporelle. 
+Non, « conservation légale » est l’expression générale désignant une stratégie de rétention limitée dans le temps. Il n’est pas nécessaire de l’utiliser uniquement dans le cadre de procédures contentieuses. Les stratégies de conservation légale sont utiles pour désactiver le remplacement et les suppressions pour protéger les données WORM importantes de l’entreprise, lorsque la période de conservation est inconnue. Vous pouvez utiliser la période de conservation en tant que stratégie d’entreprise pour protéger vos charges de travail WORM stratégiques ou en tant que stratégie intermédiaire avant qu’un événement personnalisé ne nécessite une stratégie de rétention limitée dans le temps. 
 
-**Puis-je supprimer un *verrouillé* stratégie de rétention temporelle ou légale ?**
+**Puis-je supprimer une stratégie de rétention à durée définie *verrouillée* ou une conservation légale ?**
 
-Uniquement déverrouillé basée sur la durée de rétention peut être supprimée d’un conteneur. Une fois une stratégie de rétention temporelle est verrouillée, il ne peut pas être supprimé ; période de rétention efficace extensions sont admises. Les balises légale peuvent être supprimés. Lorsque toutes les balises légales sont supprimées, la conservation légale est supprimé.
+Seules les stratégies de rétention à durée définie non verrouillées peuvent être supprimées d’un conteneur. Une fois verrouillée, une stratégie de rétention à durée définie ne peut plus être supprimée ; seules les prolongations effectives de la période de conservation sont autorisées. Les balises de conservation légale peuvent être supprimées. Lorsque toutes les balises légales sont supprimées, la conservation légale l’est également.
 
 **Que se passe-t-il si j’essaie de supprimer un conteneur avec une stratégie de rétention basée sur le temps *verrouillée* ou une conservation juridique ?**
 
@@ -203,7 +203,7 @@ La suppression du compte de stockage échoue s’il s’agit d’un conteneur WO
 
 **Puis-je déplacer les données sur différents niveaux d’objets blob (chaud, froid, archive) lorsque l’objet blob est dans l’état immuable ?**
 
-Oui, vous pouvez utiliser la commande de définir le niveau objet Blob pour déplacer des données tout en conservant les données dans un état immuable conforme au sein des niveaux d’objets blob. Le stockage immuable est pris en charge sur les niveaux d’objets blob chaud, froid et archive.
+Oui, vous pouvez utiliser la commande Set Blob Tier pour déplacer des données sur d’autres niveaux d’objets blob tant en conservant leur état immuable conforme. Le stockage immuable est pris en charge sur les niveaux d’objets blob chaud, froid et archive.
 
 **Que se passe-t-il si je ne paie pas et que mon intervalle de rétention n’a pas expiré ?**
 
@@ -211,15 +211,15 @@ En cas de défaut de paiement, les stratégies de conservation des données norm
 
 **Proposez-vous une période d’essai ou de grâce pour essayer la fonctionnalité ?**
 
-Oui. Création d’une stratégie de rétention temporelle est tout d’abord, il est dans un *déverrouillé* état. Dans cet état, vous pouvez apporter les modifications souhaitées à la période de conservation, par exemple, l’augmenter, la diminuer ou même supprimer la stratégie. Une fois que la stratégie est verrouillée, elle reste verrouillée jusqu’à l’expiration de l’intervalle de rétention. Cette stratégie verrouillée empêche la suppression et modification de l’intervalle de rétention. Il est vivement recommandé de n’utiliser l’état *déverrouillé* qu’à des fins d’évaluation et de verrouiller la stratégie dans les 24 heures. Ces pratiques permettent de respecter entre autres la réglementation SEC 17a-4(f).
+Oui. Lors de la définition initiale d’une stratégie de conservation limitée dans le temps, celle-ci a pour état *déverrouillé*. Dans cet état, vous pouvez apporter les modifications souhaitées à la période de conservation, par exemple, l’augmenter, la diminuer ou même supprimer la stratégie. Une fois que la stratégie est verrouillée, elle reste verrouillée jusqu’à l’expiration de l’intervalle de rétention. Cette stratégie verrouillée empêche la suppression et la modification de l’intervalle de rétention. Il est vivement recommandé de n’utiliser l’état *déverrouillé* qu’à des fins d’évaluation et de verrouiller la stratégie dans les 24 heures. Ces pratiques permettent de respecter entre autres la réglementation SEC 17a-4(f).
 
-**Puis-je utiliser la suppression réversible en même temps que les stratégies de blob non modifiable ?**
+**Puis-je utiliser la suppression réversible en même temps que les stratégies de blob immuable ?**
 
-Oui. [Suppression réversible pour le stockage Blob Azure](storage-blob-soft-delete.md) s’applique à tous les conteneurs au sein d’un compte de stockage, quel que soit un légale ou d’une stratégie de rétention temporelle. Nous vous recommandons d’activer la suppression réversible pour une protection supplémentaire avant que toutes les stratégies ver immuables soient appliqués et confirmés. 
+Oui. [La suppression réversible pour le Stockage Blob Azure](storage-blob-soft-delete.md) s’applique à tous les conteneurs d’un compte de stockage, indépendamment de la conservation légale ou d’une stratégie de rétention limitée dans le temps. Nous recommandons d’activer la suppression réversible pour une protection supplémentaire avant d’appliquer et de confirmer toutes les stratégies WORM immuables. 
 
 **Où se trouve la fonctionnalité disponible ?**
 
-Le stockage immuable est disponible dans les régions Azure publiques, Chine et Administration. Si immuable stockage n’est pas disponible dans votre région, contactez le support et messagerie azurestoragefeedback@microsoft.com.
+Le stockage immuable est disponible dans les régions Azure publiques, Chine et Administration. Si le stockage immuable n’est pas disponible dans votre région, contactez le support à l’adresse azurestoragefeedback@microsoft.com.
 
 ## <a name="sample-powershell-code"></a>Exemple de code PowerShell
 
@@ -381,7 +381,7 @@ $policy = Set-AzRmStorageContainerImmutabilityPolicy -Container `
     $containerObject -ImmutabilityPeriod 13 -Etag $policy.Etag -ExtendPolicy
 ```
 
-Supprimer une stratégie d’immuabilité déverrouillé (ajouter - Force pour ignorer l’invite) :
+Supprimer une stratégie d’immuabilité déverrouillée (ajouter - Force pour ignorer l’invite) :
 ```powershell
 # with an immutability policy object
 $policy = Get-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName `
