@@ -13,12 +13,12 @@ ms.date: 08/10/2018
 ms.author: routlaw
 ms.reviewer: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: fcbf181601230493dc52bde06e4f35db062f9a32
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 20327e64080182518fd28b1d367ffe37be5ce9a4
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807165"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323961"
 ---
 # <a name="create-your-first-function-with-java-and-maven"></a>Créer votre première fonction avec Java et Maven
 
@@ -26,7 +26,7 @@ Cet article vous guide pendant l’utilisation de l’outil en ligne de commande
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour développer des fonctions avec Java, les éléments suivants doivent être installés :
 
@@ -125,7 +125,7 @@ public class Function {
 
 Accédez au dossier du projet nouvellement créé, puis générez et exécutez la fonction avec Maven :
 
-```
+```CMD
 cd fabrikam-function
 mvn clean package 
 mvn azure-functions:run
@@ -147,7 +147,7 @@ Http Functions:
 
 Déclenchez la fonction à partir de la ligne de commande en utilisant cURL dans une nouvelle fenêtre de terminal :
 
-```
+```CMD
 curl -w "\n" http://localhost:7071/api/hello -d LocalFunction
 ```
 
@@ -170,7 +170,7 @@ Déployez votre code dans une nouvelle application de fonction en utilisant la c
 > [!NOTE]
 > Quand vous utilisez Visual Studio Code pour déployer votre application de fonction, n’oubliez pas de choisir un abonnement payant, sinon vous obtenez une erreur. Votre abonnement est indiqué sur le côté gauche de l’IDE.
 
-```
+```azurecli
 mvn azure-functions:deploy
 ```
 
@@ -189,7 +189,7 @@ Testez l’application de fonction en cours d’exécution sur Azure avec `cURL`
 > [!NOTE]
 > Veillez à définir les **Droits d’accès** sur `Anonymous`. Lorsque vous choisissez le niveau par défaut de `Function`, vous êtes invité à présenter la [clé de fonction](../azure-functions/functions-bindings-http-webhook.md#authorization-keys) dans les demandes d’accès à votre point de terminaison de fonction.
 
-```
+```azurecli
 curl -w "\n" https://fabrikam-function-20170920120101928.azurewebsites.net/api/hello -d AzureFunctions
 ```
 

@@ -1,19 +1,18 @@
 ---
 title: Tableau de prise en charge de la sauvegarde de machines exécutant l’agent MARS (Microsoft Azure Recovery Services) avec Sauvegarde Azure
 description: Cet article décrit la prise en charge de Sauvegarde Azure quand vous sauvegardez des machines qui exécutent l’agent MARS (Microsoft Azure Recovery Services).
-services: backup
 author: rayne-wiselman
 ms.service: backup
 ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
-ms.openlocfilehash: 9799914cdabf1f64fccfd6bfd891f9498b860e39
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d9f3c9b94a093df539a6ca4660383837becf1709
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64922998"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68464840"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Tableau de prise en charge de la sauvegarde avec l’agent MARS (Microsoft Azure Recovery Services)
 
@@ -45,8 +44,8 @@ Quand vous utilisez l’agent MARS pour sauvegarder des données, l’agent pren
 
 **Cache** | **Détails**
 --- | ---
-Taille |  L’espace disponible dans le dossier de cache doit représenter au moins 5 à 10 % de la taille globale de vos données de sauvegarde.
-Lieu | Le dossier de cache doit être stocké en local sur la machine en cours de sauvegarde et il doit être en ligne. Le dossier de cache ne doit pas se trouver sur un partage réseau, sur un média amovible ou sur un volume hors connexion.
+Size |  L’espace disponible dans le dossier de cache doit représenter au moins 5 à 10 % de la taille globale de vos données de sauvegarde.
+Location | Le dossier de cache doit être stocké en local sur la machine en cours de sauvegarde et il doit être en ligne. Le dossier de cache ne doit pas se trouver sur un partage réseau, sur un média amovible ou sur un volume hors connexion.
 Dossier | Le dossier de cache doit être chiffré sur un volume dédupliqué ou dans un dossier compressé, partiellement alloué ou contenant un point d’analyse.
 Changements d’emplacement | Vous pouvez modifier l’emplacement du cache en arrêtant le moteur de sauvegarde (`net stop bengine`) et en copiant le dossier de cache sur un nouveau lecteur. (Assurez-vous que le nouveau lecteur possède suffisamment d’espace.) Remplacez ensuite les deux entrées de Registre sous **HKLM\SOFTWARE\Microsoft\Windows Azure Backup** (**Config/ScratchLocation** et **Config/CloudBackupProvider/ScratchLocation**) par le nouvel emplacement et redémarrez le moteur.
 

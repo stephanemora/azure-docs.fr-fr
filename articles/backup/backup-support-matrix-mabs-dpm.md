@@ -1,19 +1,18 @@
 ---
 title: Tableau de prise en charge pour le serveur de sauvegarde Microsoft Azure et System Center DPM
 description: Cet article décrit la prise en charge de Sauvegarde Azure quand vous utilisez un serveur de sauvegarde Microsoft Azure ou System Center DPM pour sauvegarder des ressources locales et celles de machines virtuelles Azure.
-services: backup
 author: rayne-wiselman
 ms.service: backup
 ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
-ms.openlocfilehash: 85e65c36a0d636d94a9ef9070c21ab047542d8f4
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 777d2286ed24123011e06edfb468d0f2db61715f
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67594256"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68464881"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Tableau de prise en charge pour la sauvegarde avec un serveur de sauvegarde Microsoft Azure ou System Center DPM
 

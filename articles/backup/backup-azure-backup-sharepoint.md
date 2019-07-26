@@ -1,19 +1,18 @@
 ---
 title: Protection du serveur DPM/Sauvegarde Azure d’une batterie de serveurs SharePoint sur Azure
 description: Cet article fournit une vue d’ensemble de la protection du serveur DPM/Azure Backup Server d’une batterie de serveurs SharePoint sur Azure
-services: backup
 author: kasinh
 manager: vvithal
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: kasinh
-ms.openlocfilehash: dd38ed8119e2879c4a1e4c6a52ad283043f067bf
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 91b3105bc2aafba10f4bf105bee851743dcf5282
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705233"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466669"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure"></a>Sauvegarder une batterie de serveurs SharePoint dans Azure
 Vous sauvegardez une batterie de serveurs SharePoint sur Microsoft Azure à l’aide de System Center Data Protection Manager (DPM) de la même façon que vous sauvegardez d’autres sources de données. Azure Backup offre une flexibilité dans la planification d’une sauvegarde pour créer des points de sauvegarde quotidiens, hebdomadaires, mensuels ou annuels, et vous offre des options de stratégie de conservation pour les différents points de sauvegarde. DPM vous permet de stocker des copies sur disque local pour bénéficier d’objectifs de temps de récupération (RTO) rapides, ainsi que de stocker des copies sur Azure pour une conservation à long terme économique.

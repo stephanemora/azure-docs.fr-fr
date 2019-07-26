@@ -321,6 +321,18 @@
     - name: Référence de domaine prédéfini
       href: luis-reference-prebuilt-domains.md
       displayName: 'Calendar, Communication,Email,HomeAutomation,Note,Places, RestaurantReservation,ToDo,Utilities,Weather,Web'
+    - name: Informations de référence sur les entités personnalisées
+      items:
+        - name: Entité composite
+          href: reference-entity-composite.md
+        - name: Entité de liste
+          href: reference-entity-list.md
+        - name: Entité Pattern.any
+          href: reference-entity-pattern-any.md
+        - name: Entité d’expression régulière
+          href: reference-entity-regular-expression.md
+        - name: Entité simple
+          href: reference-entity-simple.md
     - name: D’Azure CLI
       href: 'https://go.microsoft.com/fwlink/?linkid=2092156'
     - name: Azure RM PowerShell

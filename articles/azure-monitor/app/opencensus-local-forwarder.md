@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.reviewer: nimolnar
 ms.author: mbullwin
-ms.openlocfilehash: a7efe663a75fa29a31e7157c5eab24c2973a3758
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: aa64755b636005f4ed8ea5c074ffaada51fb8dd9
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60699324"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348153"
 ---
 # <a name="local-forwarder-preview"></a>Redirecteur local (préversion)
 
@@ -154,7 +154,7 @@ Le redirecteur local peut fonctionner avec macOS, mais il n’est pas officielle
 ### <a name="self-hosting"></a>Auto-hébergement
 Le redirecteur local est également distribué sous forme de package NuGet .NET Standard, ce qui vous permet de l’héberger au sein de votre propre application .NET.
 
-```C#
+```csharp
 using Library;
 ...
 Host host = new Host();

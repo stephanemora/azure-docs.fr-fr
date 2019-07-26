@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 03/27/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3253cc7e379ae63880d533f14bc76e7af5a4425a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 94ef85836ef524b34cd1c51e4eda83695bc70507
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67050559"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443955"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Échelle et hébergement dans Azure Functions
 
@@ -51,7 +51,7 @@ Le tableau suivant indique le niveau actuel de prise en charge pour les trois pl
 | | Plan de consommation | Plan Premium | Plan dédié |
 |-|:----------------:|:------------:|:----------------:|
 | Windows | GA | preview | GA |
-| Linux | preview | N/A | GA |
+| Linux | preview | preview | GA |
 
 ## <a name="consumption-plan"></a>Plan de consommation
 
@@ -87,9 +87,6 @@ Envisagez le plan Premium d’Azure Functions dans les situations suivantes :
 * Vous avez besoin de plus d’options de mémoire ou de processeur que celles qui sont proposées dans le plan Consommation.
 * Votre code exige une [durée d’exécution supérieure à celle qui est autorisée](#timeout) dans le plan Consommation.
 * Vous avez besoin des fonctionnalités qui sont uniquement disponibles dans le plan Premium, notamment la connectivité des réseaux virtuels/VPN.
-
-> [!NOTE]
-> Actuellement, le plan Premium en préversion prend uniquement en charge Azure Functions sur Windows.
 
 Lorsque vous exécutez des fonctions JavaScript dans un plan Premium, vous devez choisir une instance qui comporte moins de processeurs virtuels. Pour plus d’informations, consultez [Choisir des plans Premium à cœur unique](functions-reference-node.md#considerations-for-javascript-functions).  
 

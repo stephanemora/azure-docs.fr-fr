@@ -101,6 +101,8 @@
           href: container-registry-tasks-scheduled.md
         - name: Tâches multiétapes
           href: container-registry-tasks-multi-step.md
+        - name: Créer une image avec Buildpacks (préversion)
+          href: container-registry-tasks-pack-build.md
         - name: Utiliser avec une identité managée
           href: container-registry-tasks-authentication-managed-identity.md
     - name: Registres et autres services Azure

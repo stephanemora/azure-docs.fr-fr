@@ -1,19 +1,18 @@
 ---
 title: Utiliser le serveur de sauvegarde Azure pour sauvegarder une batterie de serveurs SharePoint sur Azure
 description: Le serveur de sauvegarde Azure vous permet de sauvegarder et de restaurer vos données SharePoint. Cet article fournit des informations vous permettant de configurer votre batterie de serveurs SharePoint, afin de pouvoir stocker les données souhaitées dans Azure. Vous pouvez restaurer des données SharePoint protégées à partir d’un disque ou d’Azure.
-services: backup
 author: kasinh
 manager: vvithal
 ms.service: backup
 ms.topic: conceptual
 ms.date: 6/8/2018
 ms.author: kasinh
-ms.openlocfilehash: 7c0a39ab09a52d61e51d297c5018eac6b00d7ad4
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.openlocfilehash: cc7a5f6703d8d6fcec800071e75b7ca42c8f1cef
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67625169"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466703"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure"></a>Sauvegarder une batterie de serveurs SharePoint dans Azure
 Les batteries de serveurs SharePoint peuvent être sauvegardées sur Microsoft Azure à l’aide du serveur de sauvegarde Azure et ce, de la même façon que d’autres sources de données. Azure Backup offre une flexibilité dans la planification d’une sauvegarde pour créer des points de sauvegarde quotidiens, hebdomadaires, mensuels ou annuels, et vous offre des options de stratégie de conservation pour les différents points de sauvegarde. Le serveur de sauvegarde Azure vous permet de stocker des copies sur disque local pour bénéficier d’objectifs de délai de récupération (RTO) rapides, ainsi que de stocker des copies sur Azure pour bénéficier d’une conservation à long terme économique.

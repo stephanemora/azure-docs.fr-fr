@@ -1,5 +1,10 @@
 - name: Documentation sur le développement sécurisé
   href: index.yml
+- name: Exemples d’application
+  expanded: true
+  items:
+    - name: Application web dans un conteneur Linux
+      href: secure-web-app.md
 - name: Concepts
   expanded: true
   items:
