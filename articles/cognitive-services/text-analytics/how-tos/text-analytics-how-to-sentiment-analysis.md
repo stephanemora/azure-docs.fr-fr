@@ -1,5 +1,5 @@
 ---
-title: Analyse des sentiments à l’aide de l’Analyse de texte dans Azure Cognitive Services | Microsoft Docs
+title: Analyse des sentiments à l’aide de l’API REST Analyse de texte dans Azure Cognitive Services | Microsoft Docs
 description: Découvrez comment détecter des sentiments à l’aide de l’API REST Analyse de texte.
 services: cognitive-services
 author: aahill
@@ -9,37 +9,37 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 02/26/2019
 ms.author: aahi
-ms.openlocfilehash: e17b68dfd63952d0c8c81415b090b047c5808e2e
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: c3004dd3910dd5fdafc933efa213c9f097310e87
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67797806"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68001708"
 ---
-# <a name="example-how-to-detect-sentiment-with-text-analytics"></a>Exemple : Comment détecter les sentiments dans l’Analyse de texte
+# <a name="example-detect-sentiment-with-text-analytics"></a>Exemple : Détecter les sentiments avec Analyse de texte
 
-L’[API Analyse des sentiments](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) évalue le texte en entrée et retourne un score de sentiment pour chaque document, entre 0 (négatif) et 1 (positif).
+L’[API Azure Analyse des sentiments](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) évalue le texte en entrée et retourne un score de sentiment pour chaque document. Les scores sont compris entre 0 (négatif) et 1 (positif).
 
 Cette fonctionnalité est utile pour détecter des sentiments positifs ou négatifs dans les réseaux sociaux, les avis client et les forums de discussion. Le contenu est fourni par vous. Les modèles et les données d’entraînement sont fournis par le service.
 
 Actuellement, l’API Analyse des sentiments prend en charge l’anglais, l’allemand, l’espagnol et le français. D’autres langues sont en préversion. Pour en savoir plus, consultez [Langages pris en charge](../text-analytics-supported-languages.md).
 
 > [!TIP]
-> Analyse de texte fournit également une image conteneur Docker basée sur Linux pour l’analyse des sentiments. Vous pouvez ainsi [installer et exécuter le conteneur Analyse de texte](text-analytics-how-to-install-containers.md) à proximité de vos données.
+> L’API Azure Analyse de texte fournit également une image conteneur Docker basée sur Linux pour l’analyse des sentiments. Vous pouvez ainsi [installer et exécuter le conteneur Analyse de texte](text-analytics-how-to-install-containers.md) à proximité de vos données.
 
 ## <a name="concepts"></a>Concepts
 
-L’API Analyse de texte utilise un algorithme de classification d’apprentissage automatique pour générer un score de sentiment compris entre 0 et 1. Les scores proches de 1 indiquent un sentiment positif, tandis que les scores proches de 0 dénotent un sentiment négatif. Le modèle est pré-entraîné avec un corps de texte complet contenant des associations de sentiments. Actuellement, vous ne pouvez pas fournir vos propres données d’entraînement. Le modèle utilise une combinaison de techniques lors de l’analyse de texte, y compris le traitement de texte, l’analyse morphosyntaxique, le positionnement des mots et les associations de mots. Pour plus d’informations sur l’algorithme, consultez [Présentation d’Analyse de texte](https://blogs.technet.microsoft.com/machinelearning/2015/04/08/introducing-text-analytics-in-the-azure-ml-marketplace/).
+L’API Analyse de texte utilise un algorithme de classification d’apprentissage automatique pour générer un score de sentiment compris entre 0 et 1. Les scores proches de 1 indiquent un sentiment positif, tandis que les scores proches de 0 dénotent un sentiment négatif. Le modèle est pré-entraîné avec un corps de texte complet contenant des associations de sentiments. Actuellement, vous ne pouvez pas fournir vos propres données d’entraînement. Le modèle utilise une combinaison de différentes techniques lors de l’analyse de texte, telles que le traitement du texte, l’analyse de la parole, l’emplacement des mots et les associations de mots. Pour plus d’informations sur l’algorithme, consultez [Présentation d’Analyse de texte](https://blogs.technet.microsoft.com/machinelearning/2015/04/08/introducing-text-analytics-in-the-azure-ml-marketplace/).
 
-L’analyse des sentiments est effectuée sur l’ensemble du document, par opposition à l’extraction de sentiments pour une entité particulière dans le texte. Dans la pratique, la précision des scores a tendance à augmenter lorsque les documents contiennent une ou deux phrases au lieu d’un grand bloc de texte. Lors d’une phase d’évaluation d’objectivité, le modèle détermine si un document dans son ensemble est objectif ou s’il contient des sentiments. Un document principalement objectif n’évolue pas vers une phase de détection de sentiments et obtient au final un score de 0,50, sans traitement supplémentaire. Pour les documents qui continuent dans le pipeline, la phase suivante génère un score supérieur ou inférieur à 0,50, selon le degré de sentiments détecté dans le document.
+L’analyse des sentiments est effectuée sur l’ensemble du document, par opposition à l’extraction de sentiments pour une entité particulière dans le texte. Dans la pratique, la précision des scores a tendance à augmenter quand les documents contiennent une ou deux phrases plutôt qu’un grand bloc de texte. Lors d’une phase d’évaluation d’objectivité, le modèle détermine si un document dans son ensemble est objectif ou s’il contient des sentiments. Un document principalement objectif n’évolue pas vers la phase de détection de sentiments, ce qui génère un score de 0,50 sans traitement supplémentaire. Pour les documents qui se poursuivent dans le pipeline, la phase suivante génère un score supérieur ou inférieur à 0,50. Le score dépend du degré de sentiment détecté dans le document.
 
 ## <a name="preparation"></a>Préparation
 
-L’analyse des sentiments produit un résultat de meilleure qualité lorsque vous lui donnez de petits segments de texte à analyser. Au contraire, l’extraction d’expressions clés fonctionne mieux sur de plus grands blocs de texte. Pour obtenir des résultats optimaux pour ces deux opérations, envisagez de restructurer les entrées en conséquence.
+L’analyse des sentiments produit un résultat de meilleure qualité quand vous lui donnez de petits segments de texte à analyser. Au contraire, l’extraction d’expressions clés fonctionne mieux sur de plus grands blocs de texte. Pour obtenir des résultats optimaux pour ces deux opérations, envisagez de restructurer les entrées en conséquence.
 
-Vous devez disposer des documents JSON dans ce format : ID, texte, langue
+Vous devez disposer des documents JSON dans ce format : ID, texte et langue.
 
-La taille des documents doit être inférieure à 5 120 caractères par document et vous pouvez avoir jusqu’à 1 000 éléments (ID) par collection. La collection est soumise dans le corps de la demande. Voici un exemple de contenu que vous pouvez soumettre pour analyse des sentiments.
+La taille du document doit être inférieure à 5 120 caractères par document. Vous pouvez avoir jusqu’à 1000 éléments (ID) par collection. La collection est soumise dans le corps de la requête. Voici un exemple de contenu que vous pouvez soumettre pour analyse des sentiments :
 
 ```
     {
@@ -75,33 +75,33 @@ La taille des documents doit être inférieure à 5 120 caractères par docume
 
 ## <a name="step-1-structure-the-request"></a>Étape 1 : Structurer la requête
 
-Vous trouverez plus d’informations sur la définition d’une demande dans [Guide pratique pour appeler l’API Analyse de texte](text-analytics-how-to-call-api.md). Les points suivants sont réaffirmés pour des raisons pratiques :
+Pour plus d’informations sur la définition de la requête, consultez [Appeler l’API Analyse de texte](text-analytics-how-to-call-api.md). Les points suivants sont réaffirmés pour des raisons pratiques :
 
-+ Créez une demande **POST**. Passez en revue la documentation de l’API pour cette requête : [API Analyse des sentiments](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)
++ Créez une requête POST. Pour passer en revue la documentation de l’API pour cette requête, consultez [API Analyse des sentiments](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9).
 
-+ Définissez le point de terminaison HTTP pour l’analyse des sentiments à l’aide d’une ressource Analyse de texte sur Azure ou d’un [conteneur Analyse de texte](text-analytics-how-to-install-containers.md) instancié. Il doit inclure la ressource `/sentiment` : `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/sentiment`
++ Définissez le point de terminaison HTTP pour l’analyse des sentiments à l’aide d’une ressource Analyse de texte sur Azure ou d’un [conteneur Analyse de texte](text-analytics-how-to-install-containers.md) instancié. Il doit inclure la ressource `/sentiment` : `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/sentiment`.
 
-+ Définissez un en-tête de demande pour inclure la clé d’accès pour les opérations d’Analyse de texte. Pour plus d’informations, consultez [Guide pratique pour rechercher des points de terminaison et des clés d’accès](text-analytics-how-to-access-key.md).
++ Définissez un en-tête de requête pour inclure la clé d’accès pour les opérations d’Analyse de texte. Pour plus d’informations, consultez [Rechercher des points de terminaison et des clés d’accès](text-analytics-how-to-access-key.md).
 
-+ Dans le corps de la demande, fournissez la collection de documents JSON que vous avez préparée pour cette analyse.
++ Dans le corps de la requête, fournissez la collection de documents JSON que vous avez préparée pour cette analyse.
 
 > [!Tip]
-> Utilisez [Postman](text-analytics-how-to-call-api.md) ou ouvrez la **console de test d’API** dans la [documentation](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) pour structurer la demande et la publier (POST) dans le service.
+> Utilisez [Postman](text-analytics-how-to-call-api.md) ou ouvrez la **console de test d’API** dans la [documentation](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) pour structurer la requête et la publier sur le service.
 
 ## <a name="step-2-post-the-request"></a>Étape 2 : Publier la requête
 
-L’analyse est effectuée à la réception de la demande. Consultez la section [Limites de données](../overview.md#data-limits) dans la vue d’ensemble pour plus d’informations sur la taille et le nombre de demandes que vous pouvez envoyer par minute et seconde.
+L’analyse est effectuée à la réception de la requête. Pour connaître la taille et le nombre de requêtes que vous pouvez envoyer par minute et seconde, consultez la section [Limites de données](../overview.md#data-limits) dans la vue d’ensemble.
 
 Rappelez-vous que le service est sans état. Aucune donnée n’est stockée dans votre compte. Les résultats sont retournés immédiatement dans la réponse.
 
 
-## <a name="step-3-view-results"></a>Étape 3 : Afficher les résultats
+## <a name="step-3-view-the-results"></a>Étape 3 : View the results
 
-L’analyseur de sentiments classifie le texte comme principalement positif ou négatif, en affectant un score compris entre 0 et 1. Les valeurs proches de 0,5 sont neutres ou indéterminées. Un score de 0,5 indique la neutralité. Quand une chaîne ne peut pas être analysée en ce qui concerne les sentiments ou ne présente pas de sentiments, le score est toujours exactement 0,5. Par exemple, si vous traitez une chaîne espagnole avec un code de langue anglaise, le score obtenu est 0,5.
+L’analyseur de sentiments classifie le texte comme principalement positif ou négatif. Il attribue un score compris entre 0 et 1. Les valeurs proches de 0,5 sont neutres ou indéterminées. Un score de 0,5 indique la neutralité. Quand une chaîne ne peut pas être analysée en ce qui concerne les sentiments ou ne présente pas de sentiments, le score est toujours exactement 0,5. Par exemple, si vous traitez une chaîne espagnole avec un code de langue anglaise, le score obtenu est 0,5.
 
-La sortie est retournée immédiatement. Vous pouvez diffuser en continu les résultats dans une application qui accepte le code JSON ou enregistrer la sortie dans un fichier sur le système local, puis l’importer dans une application qui vous permet de trier, rechercher et manipuler les données.
+La sortie est retournée immédiatement. Vous pouvez diffuser les résultats vers une application qui accepte JSON ou enregistrer la sortie dans un fichier sur le système local. Ensuite, importez la sortie dans une application que vous pouvez utiliser pour trier, rechercher et manipuler les données.
 
-L’exemple suivant montre la réponse pour la collection de documents dans cet article.
+L’exemple suivant montre la réponse pour la collection de documents dans cet article :
 
 ```json
 {
@@ -131,26 +131,26 @@ L’exemple suivant montre la réponse pour la collection de documents dans cet 
 }
 ```
 
-## <a name="sentiment-analysis-v3-public-preview"></a>Analyse des sentiments V3 - Préversion publique
+## <a name="sentiment-analysis-v3-public-preview"></a>Analyse des sentiments v3 - Préversion publique
 
-La [version suivante d’Analyse des sentiments](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-preview/operations/56f30ceeeda5650db055a3c9) est maintenant disponible en préversion publique, et fournit des améliorations significatives dans la précision et les détails de catégorisation et de scoring de texte de l’API. 
+La [prochaine version d’Analyse des sentiments](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-preview/operations/56f30ceeeda5650db055a3c9) est désormais disponible en préversion publique. Elle apporte des améliorations significatives en matière de précision et de détail du score et de la catégorisation du texte de l’API. 
 
 > [!NOTE]
-> * Analyse des sentiments v3 nécessite le même format et les mêmes [limites de données](../overview.md#data-limits) que la version précédente.
-> * Pour l’instant, Analyse des sentiments V3 : 
->    * Prend en charge seulement la langue anglaise.  
->    * Est disponible dans les régions suivantes : `Central US`, `Central Canada` et `East Asia` 
+> * Analyse des sentiments v3 nécessite le même format de requête et les mêmes [limites de données](../overview.md#data-limits) que la version précédente.
+> * À l’heure actuelle, Analyse des sentiments v3 : 
+>    * Prend en charge uniquement la langue anglaise.  
+>    * Est disponible dans les régions suivantes : `Central US`, `Central Canada` et `East Asia`.
 
 |Fonctionnalité |Description  |
 |---------|---------|
 |Précision accrue     | Amélioration significative de la détection des sentiments positifs, neutres, négatifs et mixtes dans des documents texte par rapport aux versions précédentes.           |
 |Score de sentiment au niveau du document et des phrases     | Détection du sentiment exprimé dans un document et dans ses différentes phrases. Si le document comprend plusieurs phrases, un score de sentiment est également attribué à chacune d’elles.         |
-|Catégorie et score de sentiment     | En plus d’un score de sentiment, l’API retourne désormais des catégories de sentiments (`positive`, `negative`, `neutral` et `mixed`) pour le texte.        |
-| Sortie améliorée | Analyse des sentiments retourne désormais des informations à la fois pour un document texte entier et pour ses phrases individuelles. |
+|Catégorie et score de sentiment     | En plus d’un score de sentiment, l’API retourne désormais des catégories de sentiments pour le texte. Les catégories sont `positive`, `negative`, `neutral` et `mixed`.       |
+| Sortie améliorée | Analyse des sentiments retourne désormais des informations à la fois pour un document texte entier et pour ses différentes phrases. |
 
 ### <a name="sentiment-labeling"></a>Étiquetage des sentiments
 
-Analyse des sentiments V3 peut retourner des scores et des étiquettes (`positive`, `negative` et `neutral`) au niveau du document et des phrases. Au niveau du document, l’étiquette (pas le score) de sentiment `mixed` peut également être retournée. Le sentiment du document est déterminé en agrégeant les scores de ses phrases.
+Analyse des sentiments v3 peut retourner des scores et des étiquettes au niveau du document et des phrases. Les scores et les étiquettes sont `positive`, `negative` et `neutral`. Au niveau du document, l’étiquette (pas le score) de sentiment `mixed` peut également être retournée. Le sentiment du document est déterminé en agrégeant les scores des phrases.
 
 | Sentiment des phrases                                                        | Étiquette de document retournée |
 |---------------------------------------------------------------------------|----------------|
@@ -159,9 +159,9 @@ Analyse des sentiments V3 peut retourner des scores et des étiquettes (`positiv
 | Au moins une phrase négative et au moins une phrase positive.         | `mixed`        |
 | Toutes les phrases sont neutres.                                                 | `neutral`      |
 
-### <a name="sentiment-analysis-v3-example-request"></a>Exemple de demande d’Analyse des sentiments V3
+### <a name="sentiment-analysis-v3-example-request"></a>Exemple de requête d’Analyse des sentiments v3
 
-Le JSON suivant est un exemple d’une demande adressée à la nouvelle version d’Analyse des sentiments. Notez que la mise en forme de la demande est identique à celle de la version précédente :
+Le JSON suivant est un exemple de requête adressée à la nouvelle version d’Analyse des sentiments. Notez que la mise en forme de la requête est identique à celle de la version précédente :
 
 ```json
 {
@@ -180,9 +180,9 @@ Le JSON suivant est un exemple d’une demande adressée à la nouvelle version 
 }
 ```
 
-### <a name="sentiment-analysis-v3-example-response"></a>Exemple de réponse d’Analyse des sentiments V3
+### <a name="sentiment-analysis-v3-example-response"></a>Exemple de réponse d’Analyse des sentiments v3
 
-Alors que le format de la demande est identique à celui de la version précédente, le format de la réponse a changé. Le JSON suivant est un exemple de réponse de la nouvelle version de l’API :
+Alors que le format de la requête est identique à celui de la version précédente, le format de la réponse a changé. Le JSON suivant est un exemple de réponse de la nouvelle version de l’API :
 
 ```json
 {
@@ -260,12 +260,12 @@ Vous trouverez un exemple d’application C# qui appelle cette version d’Analy
 
 ## <a name="summary"></a>Résumé
 
-Dans cet article, vous avez vu les concepts et le flux de travail d’analyse des sentiments à l’aide de l’API Analyse de texte dans Cognitive Services. En résumé :
+Dans cet article, vous avez vu les concepts et le flux de travail d’analyse des sentiments à l’aide de l’API Analyse de texte dans Azure Cognitive Services. En résumé :
 
-+ L’[API Analyse des sentiments](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) est disponible pour les langues sélectionnées.
-+ Les documents JSON figurant dans le corps de la demande incluent un ID, un texte et un code de langue.
-+ La demande POST s’effectue sur un point de terminaison `/sentiment`, à l’aide [d’une clé d’accès et d’un point de terminaison](text-analytics-how-to-access-key.md) personnalisés valides pour votre abonnement.
-+ La sortie de réponse, qui se compose d’un score de sentiment pour chaque ID de document, peut être diffusée vers n’importe quelle application qui accepte JSON, y compris Excel et Power BI, pour n’en citer que quelques-unes.
++ L’[API Analyse des sentiments](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) est disponible pour certaines langues.
++ Les documents JSON figurant dans le corps de la requête incluent un ID, un texte et un code de langue.
++ La requête POST s’effectue sur un point de terminaison `/sentiment`, à l’aide [d’une clé d’accès et d’un point de terminaison](text-analytics-how-to-access-key.md) personnalisés valides pour votre abonnement.
++ La sortie de réponse, qui se compose d’un score de sentiment pour chaque ID de document, peut être diffusée vers n’importe quelle application qui accepte JSON, par exemple Excel et Power BI, pour n’en citer que quelques-unes.
 
 ## <a name="see-also"></a>Voir aussi 
 

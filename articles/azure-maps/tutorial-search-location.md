@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 21c7e996cfe2f07d9a5b056d8cbc22f238bb48fd
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.openlocfilehash: e787366694b55d3dcd61eec2c5a5b42dd187ec55
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66357617"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68226849"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>Rechercher des points d’intérêt de proximité à l’aide d’Azure Maps
 
@@ -239,9 +239,9 @@ La carte développée jusqu’à présent produit des résultats de recherche co
     map.events.add('mouseover', resultLayer, showPopup);
     ```
 
-    L’API `sup` fournit une fenêtre d’informations ancrée à la position exigée sur la carte. 
+    L’API `*atlas.Popup` fournit une fenêtre d’informations ancrée à la position exigée sur la carte. 
 
-2. Dans la balise *script*, après la fonction `GetMap`, ajoutez le code suivant pour afficher les informations de résultat de l’événement mouseover dans la fenêtre contextuelle.
+2. Ajoutez le code suivant dans la fonction `GetMap` pour afficher les informations de résultat de l’événement mouseover dans la fenêtre contextuelle.
 
     ```JavaScript
     function showPopup(e) {

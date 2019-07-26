@@ -8,14 +8,14 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.date: 06/04/2019
+ms.date: 07/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: 40132f67b135b0dc081180c34361047e59776b81
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
+ms.openlocfilehash: 0e2e161c22ee87d11156c4818bd689c316799e87
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66688566"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305614"
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Applications gérées Azure sur la Place de marché
 
@@ -27,7 +27,7 @@ Cet article explique comment publier une application sur la Place de marché et 
 
 Pour suivre cet article, vous devez déjà disposer du fichier .zip pour votre définition d’application managée. Pour plus d’informations, consultez [Créer l’application de catalogue de services](publish-service-catalog-app.md).
 
-Il existe également plusieurs prérequis métier. Il s'agit de :
+Il existe plusieurs prérequis métier. Il s'agit de :
 
 * Votre entreprise ou sa filiale doit être située dans un pays ou une région où les ventes sont prises en charge par la Place de marché.
 * Votre produit doit être concédé sous licence de manière à être compatible avec les modèles de facturation pris en charge par la Place de marché.
@@ -37,14 +37,7 @@ Il existe également plusieurs prérequis métier. Il s'agit de :
 * Acceptez les termes de la Stratégie de participation et du Contrat d’éditeur de la Place de Marché Microsoft Azure.
 * Engagez-vous à respecter les Conditions d’utilisation, la Déclaration de confidentialité Microsoft et le Contrat relatif au programme Microsoft Azure Certified.
 
-## <a name="become-a-publisher"></a>Devenir éditeur
-
-Pour devenir éditeur sur la Place de marché Azure, vous devez :
-
-1. Créer un identifiant Microsoft - Créez votre compte Microsoft avec une adresse e-mail qui appartient au domaine de votre entreprise, mais pas à une seule personne. Cette adresse e-mail est utilisée pour le Portail Cloud Partner et pour le Centre de développement Microsoft. Pour plus d’informations, consultez le [Guide pour les éditeurs de la Place de marché Azure](https://aka.ms/sellerguide).
-1. Envoyer le [formulaire de candidature pour la Place de marché Azure](https://aka.ms/ampnomination) - Pour **Solution that you intend to publish?** (Quelle solution avez-vous l’intention de publier ?), sélectionnez **Managed Application** (Application managée). Une fois le formulaire envoyé, l’équipe d’intégration de la Place de marché examine la candidature et valide la demande. Le processus d’approbation peut prendre un à trois jours. Une fois votre candidature approuvée, vous recevez un code promotionnel vous dispensant des frais d’inscription au Centre de développement. Si vous ne remplissez **pas** le formulaire de candidature pour la Place de marché, vous devez payer des frais d’inscription de 99 $.
-1. Vous inscrire auprès du [Centre de développement](https://dev.windows.com/registration?accountprogram=azure) : Microsoft vérifie que votre organisation est une entité juridique valide avec un numéro d’identification du contribuable valide dans le pays ou la région où elle est enregistrée. Le processus d’approbation peut prendre de cinq à dix jours. Pour éviter les frais d’inscription, utilisez le code promotionnel que vous avez reçu par e-mail suite à la procédure de candidature. Pour plus d’informations, consultez le [Guide pour les éditeurs de la Place de marché Azure](https://aka.ms/sellerguide).
-1. Vous connecter au [Portail Cloud Partner](https://cloudpartner.azure.com) : dans le profil d’éditeur, associez votre compte du Centre de développement au profil d’éditeur de la Place de marché. Pour plus d’informations, consultez le [Guide pour les éditeurs de la Place de marché Azure](https://aka.ms/sellerguide).
+Vous devez également disposer d’un compte Place de marché. Pour créer un compte, consultez [Guide pratique pour créer un compte Place de marché commerciale dans l’Espace partenaires](..//marketplace/partner-center-portal/create-account.md).
 
 ## <a name="create-a-new-azure-application-offer"></a>Création d’une offre d’application Azure
 
@@ -105,6 +98,10 @@ Une référence (SKU) s’affiche sous l’offre parente dans la Place de march�
    * **Fichier de package (.zip)**  : Ce package contient deux fichiers nécessaires qui sont compressés dans un package .zip. L’un des fichiers est un modèle Resource Manager, qui définit les ressources à déployer pour l’application gérée. L’autre fichier définit [l’interface utilisateur](create-uidefinition-overview.md) pour les consommateurs qui déploient l’application gérée via le portail. Dans l’interface utilisateur, vous spécifiez les éléments qui permettent aux consommateurs de fournir des valeurs de paramètre.
    * **ID du locataire** : ID du locataire du compte pour lequel obtenir un accès.
    * **Activer l’accès JIT** : Sélectionnez **Oui** afin d’activer le [contrôle d’accès juste-à-temps](request-just-in-time-access.md) pour le compte. Lorsqu’il est activé, vous demandez à accéder au compte de l’utilisateur pendant une période spécifiée. Pour exiger que les utilisateurs de votre application managée accordent à votre compte un accès permanent, sélectionnez **Non**.
+   * **Personnaliser les actions des clients autorisées ?**  : sélectionnez **Oui** pour spécifier les actions que les consommateurs peuvent effectuer sur les ressources managées.
+   * **Actions des clients autorisées** : si vous sélectionnez **oui** pour le paramètre précédent, vous pouvez spécifier les actions que les consommateurs sont autorisés à effectuer à l’aide d’[affectations de refus relatives aux ressources Azure](../role-based-access-control/deny-assignments.md).
+
+     Pour obtenir la liste des actions disponibles, consultez [Opérations du fournisseur de ressources Azure Resource Manager](../role-based-access-control/resource-provider-operations.md). Par exemple, pour permettre aux consommateurs de redémarrer des machines virtuelles, ajoutez `Microsoft.Compute/virtualMachines/restart/action` aux actions autorisées. L’action `*/read` est automatiquement autorisée ; vous n’avez donc pas besoin d’inclure ce paramètre.
    * **PrincipalId** : Cette propriété représente l’identificateur Azure Active Directory (Azure AD) d’un utilisateur, d’un groupe d’utilisateurs ou d’une application auxquels l’accès aux ressources de l’abonnement du client a été accordé. La définition de rôle décrit les autorisations.
    * **Définition de rôle** : Cette propriété dresse une liste de tous les rôles RBAC intégrés qui sont fournis par Azure AD. Vous pouvez sélectionner le rôle le mieux adapté pour gérer les ressources pour le compte du client.
    * **Paramètres de stratégie** : Appliquez une stratégie [Azure Policy](../governance/policy/overview.md) à votre application managée afin de spécifier des exigences de conformité pour les solutions déployées. Parmi les options disponibles, sélectionnez les stratégies à appliquer. Pour **Paramètres de stratégie**, indiquez une chaîne JSON avec les valeurs de paramètre. Pour les définitions de stratégie et le format des valeurs de paramètre, consultez [Exemples Azure Policy](../governance/policy/samples/index.md).

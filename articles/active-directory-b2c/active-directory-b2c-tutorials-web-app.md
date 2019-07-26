@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: e9e497c8f10108b8e05314f35546345f7f812524
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 041bcf32035ab6cdc3ee4df06050f75186759f5e
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66507803"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835649"
 ---
 # <a name="tutorial-enable-authentication-in-a-web-application-using-azure-active-directory-b2c"></a>Didacticiel : Activer l’authentification dans une application web à l’aide d’Azure Active Directory B2C
 
@@ -32,7 +32,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 
-- [Créer des flux d’utilisateur](tutorial-create-user-flows.md) pour activer les expériences utilisateur dans votre application 
+- [Créer des flux d’utilisateur](tutorial-create-user-flows.md) pour activer les expériences utilisateur dans votre application
 - Installer [Visual Studio 2019](https://www.visualstudio.com/downloads/) avec la charge de travail **Développement ASP.NET et web**.
 
 ## <a name="update-the-application"></a>Mettre à jour l’application
@@ -76,9 +76,9 @@ Vous devez modifier l’exemple pour qu’il utilise l’application qui est ins
 
 1. Cliquez sur **S’inscrire/Se connecter** pour vous inscrire en tant qu’utilisateur de l’application. Le flux d’utilisateur **b2c_1_signupsignin1** est utilisé.
 2. Azure AD B2C présente une page de connexion avec un lien pour l’abonnement. Si vous ne disposez pas encore d’un compte, sélectionnez **Inscrivez-vous maintenant**. Le flux de travail d’abonnement présente une page pour collecter et vérifier l’identité de l’utilisateur à l’aide d’une adresse e-mail. Le flux de travail d’inscription collecte également le mot de passe et les attributs demandés, qui sont définis dans le flux d’utilisateur.
-3. Utilisez une adresse e-mail valide et validez à l’aide d’un code de vérification. Définissez un mot de passe. Entrez des valeurs pour les attributs requis. 
+3. Utilisez une adresse e-mail valide et validez à l’aide d’un code de vérification. Définissez un mot de passe. Entrez des valeurs pour les attributs requis.
 
-    ![Flux de travail d’abonnement](media/active-directory-b2c-tutorials-web-app/sign-up-workflow.png)
+    ![Page d’inscription affichée dans le cadre du flux de travail de connexion/inscription](media/active-directory-b2c-tutorials-web-app/sign-up-workflow.PNG)
 
 4. Cliquez sur **Créer** pour créer un compte local dans le locataire Azure AD B2C.
 

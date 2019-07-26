@@ -8,20 +8,17 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/22/2018
 ms.author: sngun
-ms.openlocfilehash: 24de1fe0695d0f7634d8f20f1876b5000496dbea
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 55bdcf9847f2194f269b92aed830a66c79c4d337
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66475781"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67985663"
 ---
 # <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>Tutoriel NoSQL : Créer une application console Java avec l’API SQL
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
-> * [.NET (préversion)](sql-api-dotnet-get-started-preview.md)
-> * [.NET Core](sql-api-dotnetcore-get-started.md)
-> * [.NET Core (préversion)](sql-api-dotnet-core-get-started-preview.md)
 > * [Java](sql-api-java-get-started.md)
 > * [Java asynchrone](sql-api-async-java-get-started.md)
 > * [Node.JS](sql-api-nodejs-get-started.md)
@@ -77,7 +74,7 @@ Le répertoire contient un fichier `pom.xml` pour le projet et un dossier `src` 
     </dependency>
 
 ## <a id="Connect"></a>Étape 3 : Se connecter à un compte Azure Cosmos DB
-Ensuite, revenez au [portail Azure](https://portal.azure.com) pour récupérer votre point de terminaison et votre clé primaire. Le point de terminaison et la clé primaire Azure Cosmos DB sont nécessaires pour que votre application sache où se connecter et qu’Azure Cosmos DB approuve la connexion de votre application.
+Ensuite, revenez au [Portail Azure](https://portal.azure.com) pour récupérer votre point de terminaison et votre clé primaire. Le point de terminaison et la clé primaire Azure Cosmos DB sont nécessaires pour que votre application sache où se connecter et qu’Azure Cosmos DB approuve la connexion de votre application.
 
 Dans le portail Azure, accédez à votre compte Azure Cosmos DB, puis cliquez sur **Clés**. Copiez l’URI à partir du portail et collez-le dans `https://FILLME.documents.azure.com` dans le fichier Program.java. Ensuite, copiez la clé primaire à partir du portail, puis collez-la dans `FILLME`.
 
@@ -87,7 +84,7 @@ Dans le portail Azure, accédez à votre compte Azure Cosmos DB, puis cliquez su
         , new ConnectionPolicy(),
         ConsistencyLevel.Session);
 
-![Capture d’écran du portail Azure utilisé par le didacticiel NoSQL pour créer une application console Java. Présente un compte Azure Cosmos DB, avec le hub ACTIF et le bouton CLÉS mis en surbrillance dans le panneau du compte Azure Cosmos DB, et les valeurs d’URI, de CLÉ PRIMAIRE et de CLÉ SECONDAIRE mises en surbrillance dans le panneau Clés][keys]
+![Capture d’écran du portail Azure utilisé par le tutoriel NoSQL pour créer une application console Java. Présente un compte Azure Cosmos DB, avec le hub ACTIF et le bouton CLÉS mis en surbrillance dans le panneau du compte Azure Cosmos DB, et les valeurs d’URI, de CLÉ PRIMAIRE et de CLÉ SECONDAIRE mises en surbrillance dans le panneau Clés][keys]
 
 ## <a name="step-4-create-a-database"></a>Étape 4 : Créer une base de données
 Pour créer votre [base de données](databases-containers-items.md#azure-cosmos-databases) Azure Cosmos DB, utilisez la méthode [createDatabase](/java/api/com.microsoft.azure.documentdb.documentclient.createdatabase) de la classe **DocumentClient**. Une base de données est le conteneur logique de stockage de documents JSON partitionné entre les collections.

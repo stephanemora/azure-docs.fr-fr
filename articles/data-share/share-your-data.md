@@ -6,12 +6,12 @@ ms.service: data-share
 ms.topic: tutorial
 ms.date: 07/10/2019
 ms.author: joanpo
-ms.openlocfilehash: ebd60607f9a24074e0fa985973dfc35674f0d66c
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: 01888f3656765b922c1b646e7ca8e07d81e799f3
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67788451"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67838420"
 ---
 # <a name="tutorial-share-your-data-using-azure-data-share-preview"></a>Didacticiel : Partager vos données avec Azure Data Share Preview
 
@@ -29,6 +29,8 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 * Abonnement Azure : Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 * Compte Stockage Azure : Si vous n’en avez pas déjà, vous pouvez créer un [compte Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
+* Autorisation d’ajouter l’attribution de rôle au compte de stockage, qui est présente dans l’autorisation *Microsoft. Authorization/Role Assignments/Write*. Cette autorisation existe dans le rôle propriétaire. 
+* L’adresse e-mail de connexion Azure de vos destinataires (l’utilisation de leur alias de courrier ne fonctionnera pas).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 

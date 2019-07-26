@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 06/14/2019
 ms.author: thweiss
-ms.openlocfilehash: 07ca6278da6dd1f50f017f389c2c1389a42196f4
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 96c36067456a49a5760d6fde488dcb4ad8311a90
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67163840"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68356466"
 ---
 # <a name="find-the-request-unit-charge-in-azure-cosmos-db"></a>Rechercher les frais d’unités de requête dans Azure Cosmos DB
 
@@ -39,7 +39,8 @@ Actuellement, vous pouvez trouver les frais de requête sur le portail Azure uni
 
 ![Capture d’écran des frais de demande de requête SQL sur le portail Azure](./media/find-request-unit-charge/portal-sql-query.png)
 
-### <a name="use-the-net-sdk-v2"></a>Utiliser le SDK .NET V2
+### <a name="use-the-net-sdk"></a>Utiliser le kit de développement logiciel (SDK) .NET
+### <a name="net-v2-sdk"></a>SDK .Net v2
 
 Les objets retournés à partir du [Kit de développement logiciel (SDK) .NET v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) exposent une propriété `RequestCharge` :
 
@@ -73,6 +74,12 @@ while (query.HasMoreResults)
     requestCharge = queryResponse.RequestCharge;
 }
 ```
+
+### <a name="net-v3-sdk"></a>SDK .Net v3
+
+Les objets retournés à partir du [SDK .NET v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) exposent une propriété `RequestCharge` :
+
+[!code-csharp[](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/CustomDocsSampleCode.cs?name=GetRequestCharge)]
 
 Pour plus d’informations, consultez [Démarrage rapide : Générer une application web .NET à l’aide d’un compte d’API SQL dans Azure Cosmos DB](create-sql-api-dotnet.md).
 
@@ -146,10 +153,12 @@ Pour plus d’informations, consultez [Démarrage rapide : Générer une applica
 L’objet `CosmosClient` retourné à partir du [Kit de développement logiciel (SDK) Python](https://pypi.org/project/azure-cosmos/) expose un dictionnaire `last_response_headers` qui mappe tous les en-têtes retournés par l’API HTTP sous-jacente pour la dernière opération exécutée. Les frais de demande sont disponibles sous la clé `x-ms-request-charge` :
 
 ```python
-response = client.ReadItem('dbs/database/colls/container/docs/itemId', { 'partitionKey': 'partitionKey' })
+response = client.ReadItem(
+    'dbs/database/colls/container/docs/itemId', {'partitionKey': 'partitionKey'})
 request_charge = client.last_response_headers['x-ms-request-charge']
 
-response = client.ExecuteStoredProcedure('dbs/database/colls/container/sprocs/storedProcedureId', None, { 'partitionKey': 'partitionKey' })
+response = client.ExecuteStoredProcedure(
+    'dbs/database/colls/container/sprocs/storedProcedureId', None, {'partitionKey': 'partitionKey'})
 request_charge = client.last_response_headers['x-ms-request-charge']
 ```
 

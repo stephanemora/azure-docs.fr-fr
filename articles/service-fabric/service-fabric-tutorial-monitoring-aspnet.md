@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 3/21/2019
+ms.date: 07/10/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 9de11c0049cf3db3feea311a2541640437ba8632
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 1f18aef12978b3df1ba1fd654ea4a0e9548a4b46
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665200"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68228093"
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>Didacticiel : Surveiller et diagnostiquer une application ASP.NET Core dans Service Fabric à l’aide d’Application Insights
 
@@ -46,7 +46,7 @@ Cette série de tutoriels vous montre comment effectuer les opérations suivante
 Avant de commencer ce tutoriel :
 
 * Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Installez Visual Studio 2017](https://www.visualstudio.com/) et les charges de travail **Développement Azure** et **Développement web et ASP.NET**.
+* [Installez Visual Studio 2019](https://www.visualstudio.com/) et les charges de travail **Développement Azure** et **Développement web et ASP.NET**.
 * [Installez le Kit de développement logiciel (SDK) Service Fabric](service-fabric-get-started.md)
 
 ## <a name="download-the-voting-sample-application"></a>Télécharger l’exemple d’application de vote
@@ -74,7 +74,7 @@ Une fois que vous avez rempli les informations requises, cliquez sur **Créer** 
 
 ## <a name="add-application-insights-to-the-applications-services"></a>Ajouter Application Insights aux services de l’application
 
-Lancez Visual Studio 2017 avec des privilèges élevés en cliquant avec le bouton droit sur l’icône Visual Studio dans le menu Démarrer et en choisissant **Exécuter en tant qu’administrateur**. Cliquez sur **Fichier** > **Ouvrir** > **Projet/Solution** et accédez à l’application de vote (créée dans la première partie du didacticiel ou clonée à partir de git). Ouvrez *Voting.sln*. Si vous êtes invité à restaurer les packages NuGet de l’application, cliquez sur **Oui**.
+Lancez Visual Studio 2019 avec des privilèges élevés en cliquant avec le bouton droit sur l’icône Visual Studio dans le menu Démarrer et en choisissant **Exécuter en tant qu’administrateur**. Cliquez sur **Fichier** > **Ouvrir** > **Projet/Solution** et accédez à l’application de vote (créée dans la première partie du didacticiel ou clonée à partir de git). Ouvrez *Voting.sln*. Si vous êtes invité à restaurer les packages NuGet de l’application, cliquez sur **Oui**.
 
 Suivez ces étapes pour configurer Application Insights pour les services VotingWeb et VotingData :
 
@@ -101,7 +101,7 @@ Application Insights a deux packages NuGet spécifiques à Service Fabric qui pe
 
 Voici les étapes de configuration du package NuGet :
 
-1. Cliquez avec le bouton droit sur **Solution 'Voting'** (Solution de vote) tout en haut de l’Explorateur de solutions et cliquez sur **Gérer les packages NuGet pour la solution...**.
+1. Cliquez avec le bouton droit sur **Solution 'Voting'** (Solution de vote) tout en haut de l’Explorateur de solutions et cliquez sur **Gérer les packages NuGet pour la solution...** .
 2. Cliquez sur **Parcourir** dans le menu de navigation supérieur dans la fenêtre « NuGet – Solution » et cochez la case **Inclure la préversion** en regard de la barre de recherche.
 >[!NOTE]
 >Vous devrez peut-être installer le package Microsoft.ServiceFabric.Diagnostics.Internal de la même manière s’il n’est pas préinstallé avant d’installer le package Application Insights.
@@ -118,7 +118,7 @@ Voici les étapes de configuration du package NuGet :
     using Microsoft.ApplicationInsights.ServiceFabric;
     ```
 
-    2. Dans les deux fichiers, dans l’instruction *return* imbriquée de *CreateServiceInstanceListeners()* ou *CreateServiceReplicaListeners()*, sous *ConfigureServices* > *services*, avec les autres services Singleton déclarés, ajoutez :
+    2. Dans les deux fichiers, dans l’instruction *return* imbriquée de *CreateServiceInstanceListeners()* ou *CreateServiceReplicaListeners()* , sous *ConfigureServices* > *services*, avec les autres services Singleton déclarés, ajoutez :
     ```csharp
     .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext))
     ```
@@ -212,8 +212,8 @@ Ajoutons des événements personnalisés à *VoteDataController.cs* (sous *Votin
 
 1. Ajoutez `using Microsoft.ApplicationInsights;` à la fin de l’autre à l’aide d’instructions.
 2. Déclarez un nouveau *TelemetryClient* au début de la classe, sous la création de *IReliableStateManager* : `private TelemetryClient telemetry = new TelemetryClient();`.
-3. Dans la fonction *Put()*, ajoutez un événement qui confirme qu’un vote a été ajouté. Ajoutez `telemetry.TrackEvent($"Added a vote for {name}");` une fois la transaction terminée, juste avant l’instruction *OkResult* retournée.
-4. Dans *Delete()*, il existe un élément « if/else » basé sur la condition que *votesDictionary* contient des votes pour une option de vote donnée.
+3. Dans la fonction *Put()* , ajoutez un événement qui confirme qu’un vote a été ajouté. Ajoutez `telemetry.TrackEvent($"Added a vote for {name}");` une fois la transaction terminée, juste avant l’instruction *OkResult* retournée.
+4. Dans *Delete()* , il existe un élément « if/else » basé sur la condition que *votesDictionary* contient des votes pour une option de vote donnée.
     1. Ajoutez un événement qui confirme la suppression d’un vote dans l’instruction *if*, après *await tx.CommitAsync()* : `telemetry.TrackEvent($"Deleted votes for {name}");`
     2. Ajoutez un événement pour indiquer que la suppression n’a pas eu lieu dans l’instruction *else*, avant l’instruction retournée : `telemetry.TrackEvent($"Unable to delete votes for {name}, voting option not found");`
 

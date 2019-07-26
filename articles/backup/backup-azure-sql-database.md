@@ -1,19 +1,18 @@
 ---
 title: Sauvegarder des bases de données SQL Server dans Azure | Microsoft Docs
 description: Ce tutoriel explique comment sauvegarder SQL Server avec Azure, ainsi que la récupération de SQL Server.
-services: backup
 author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: raynew
-ms.openlocfilehash: 5dbdeeba68ae75069b61bd6dc069279ec3c5e5de
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 42a99c1be348a24a9325173dc275d0c416b975a2
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443012"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465424"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>À propos de la sauvegarde SQL Server sur des machines virtuelles Azure
 
@@ -48,7 +47,7 @@ Avant de commencer, contrôlez les points suivants :
 **Déploiements pris en charge** | Les machines virtuelles Azure de la Place de marché SQL et les machines virtuelles autres que celles de la Place de marché (sur lesquelles SQL Server est installé manuellement) sont prises en charge.
 **Zones géographiques prises en charge** | Australie Sud-Est (ASE), Australie Est (AE) <br> Brésil Sud (BRS)<br> Canada Centre (CNC), Canada Est (CE)<br> Asie Sud-Est (SEA), Asie Est (EA) <br> USA Est (EUS), USA Est 2 (EUS2), West Central US (WCUS), USA Ouest (WUS), USA Ouest 2 (WUS 2), USA Centre Nord (NCUS), USA Centre (CUS), USA Centre Sud (SCUS) <br> Inde Centre (INC), Inde Sud (INS) <br> Japon Est (JPE), Japon Ouest (JPW) <br> Corée Centre (KRC), Corée Sud (KRS) <br> Europe Nord (NE), Europe Ouest (WE) <br> Royaume-Uni Sud (UKS), Royaume-Uni Ouest (UKW)
 **Systèmes d’exploitation pris en charge** | Windows Server 2016, Windows Server 2012 R2, Windows Server 2012<br/><br/> Linux n’est pas actuellement pris en charge.
-**Versions de SQL Server prises en charge** | SQL Server 2017 ; SQL Server 2016, SQL Server 2014, SQL Server 2012.<br/><br/> Enterprise, Standard, Web, Developer, Express.
+**Versions de SQL Server prises en charge** | SQL Server 2017 comme indiqué [ici](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202017), SQL Server 2016 et Service Packs comme indiqué [ici](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack), SQL Server 2014, SQL Server 2012.<br/><br/> Enterprise, Standard, Web, Developer, Express.
 **Versions .NET prises en charge** | .NET Framework 4.5.2 et versions ultérieures installées sur la machine virtuelle
 
 ### <a name="support-for-sql-server-2008-and-sql-server-2008-r2"></a>Prise en charge pour SQL Server 2008 et SQL Server 2008 R2
@@ -76,7 +75,7 @@ Les utilisateurs ne seront pas facturés pour cette fonctionnalité tant qu’el
 - Vous pouvez sauvegarder jusqu’à **environ 2 000** bases de données SQL Server dans un coffre. Vous pouvez créer plusieurs coffres au cas où vous auriez un plus grand nombre de bases de données.
 - Vous pouvez configurer la sauvegarde pour au maximum **50** bases de données en une seule fois. Cette restriction permet d’optimiser les charges de sauvegardes.
 - Nous prenons en charge une taille maximale de **2 To**. Pour les tailles supérieures, des problèmes de performance peuvent survenir.
-- Pour avoir une idée du nombre de bases de données qui peuvent être protégées par serveur, nous devons tenir compte de facteurs tels que la bande passante, la taille de la machine virtuelle, la fréquence des sauvegardes, la taille des bases de données, etc. Nous travaillons actuellement sur un planificateur ayant pour but de vous aider à calculer vous-mêmes ces valeurs. Nous le publierons prochainement.
+- Pour avoir une idée du nombre de bases de données qui peuvent être protégées par serveur, nous devons tenir compte de facteurs tels que la bande passante, la taille de la machine virtuelle, la fréquence des sauvegardes, la taille des bases de données, etc. [Téléchargez](http://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) le planificateur de ressources qui donne le nombre approximatif de bases de données que vous pouvez avoir par serveur en fonction des ressources de la machine virtuelle et de la stratégie de sauvegarde.
 - Dans le cas des groupes de disponibilité, les sauvegardes sont effectuées à partir des différents nœuds en fonction de plusieurs facteurs. Le comportement des sauvegardes pour un groupe de disponibilité est récapitulé ci-dessous.
 
 ### <a name="back-up-behavior-in-case-of-always-on-availability-groups"></a>Comportement des sauvegardes dans le cas des groupes de disponibilité AlwaysOn

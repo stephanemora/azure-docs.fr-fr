@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: e5781af44732782936e1e1a87bf70bd4a9d4804d
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 286a19207236392367b924bea7e26e90fd0db8d5
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722308"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68253464"
 ---
 # <a name="what-is-personalizer"></a>Qu’est-ce que Personalizer ?
 
@@ -29,14 +29,14 @@ Azure Personalizer est un service d’API cloud qui vous permet de choisir la me
 
 ## <a name="how-does-personalizer-work"></a>Fonctionnement de Personalizer
 
-Personalizer utilise des modèles Machine Learning pour découvrir quelle action classer en premier dans un contexte donné. Votre application cliente fournit une liste d’actions possibles, avec des informations sur celles-ci, et des informations sur le contexte, qui peuvent inclure des informations sur l’utilisateur, l’appareil, etc. Personalizer détermine l’action à effectuer. Une fois que votre application cliente utilise l’action choisie, elle fournit un feedback à Personalizer sous la forme d’un score de récompense. Une fois la boucle de rétroaction terminée, Personalizer met automatiquement à jour son propre modèle utilisé pour les classements futurs.
+Personalizer utilise des modèles Machine Learning pour découvrir quelle action classer en premier dans un contexte donné. Votre application cliente fournit une liste d’actions possibles, avec des informations sur celles-ci, et des informations sur le contexte, qui peuvent inclure des informations sur l’utilisateur, l’appareil, etc. Personalizer détermine l’action à effectuer. Une fois que votre application cliente utilise l’action choisie, elle fournit un feedback à Personalizer sous la forme d’un score de récompense. Une fois le feedback reçu, Personalizer met automatiquement à jour son propre modèle utilisé pour les classements ultérieurs.
 
 ## <a name="how-do-i-use-the-personalizer"></a>Comment utiliser Personalizer ?
 
 ![Utilisation de Personalizer pour choisir quelle vidéo montrer à un utilisateur](media/what-is-personalizer/personalizer-example-highlevel.png)
 
 1. Choisissez une expérience dans votre application à personnaliser.
-1. Créer et configurer le service de personnalisation dans le portail Azure
+1. Créez et configurez une instance du service de personnalisation dans le portail Azure. Chaque instance est une boucle Personalizer.
 1. Utilisez le SDK pour appeler Personalizer avec des informations (_caractéristiques_) sur vos utilisateurs et le contenu (_actions_). Vous n’avez pas besoin de fournir des données nettoyées et étiquetées avant d’utiliser Personalizer. 
 1. Dans l’application cliente, montrez à l’utilisateur l’action sélectionnée par Personalizer.
 1. Utilisez le SDK pour fournir un feedback à Personalizer indiquant si l’utilisateur a sélectionné l’action de Personalizer. Il s’agit d’un _score de récompense_, généralement compris entre -1 et 1.

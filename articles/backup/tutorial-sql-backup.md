@@ -1,19 +1,18 @@
 ---
 title: Sauvegarder des bases de données SQL Server dans Azure | Microsoft Docs
 description: Ce tutoriel explique comment sauvegarder SQL Server avec Azure,
-services: backup
 author: dcurwin
 manager: ''
 ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 5fbbd2cf999ab8ba3183879bd9b417353aa5edd0
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 31549ddbc0fbe237b9cca1b2b7a4893bc98abaf9
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203493"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467100"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Sauvegarder des bases de données SQL Server sur des machines virtuelles Azure
 
@@ -143,19 +142,19 @@ Configurez la sauvegarde de la façon suivante :
 
     ![Activer la protection automatique sur le groupe de disponibilité Always On](./media/backup-azure-sql-database/enable-auto-protection.png)
 
-5. Dans  **Choisir une stratégie de sauvegarde**, sélectionnez une stratégie, puis cliquez sur  **OK**.
+5. Dans **Choisir une stratégie de sauvegarde**, sélectionnez une stratégie, puis cliquez sur **OK**.
 
-   - Sélectionner la stratégie par défaut : HourlyLogBackup.
+   - Sélectionner la stratégie par défaut : HourlyLogBackup.
    - Choisir une stratégie de sauvegarde existante créée précédemment pour SQL.
    - Définir une nouvelle stratégie selon votre RPO et la durée de rétention.
 
      ![Sélectionner la stratégie de sauvegarde](./media/backup-azure-sql-database/select-backup-policy.png)
 
-6. Dans le menu  **Sauvegarder**, sélectionnez  **Activer la sauvegarde**.
+6. Dans le menu **Sauvegarder**, sélectionnez **Activer la sauvegarde**.
 
     ![Activer la stratégie de sauvegarde choisie](./media/backup-azure-sql-database/enable-backup-button.png)
 
-7. Vous pouvez suivre la progression de la configuration dans la zone  **Notifications**  du portail.
+7. Vous pouvez suivre la progression de la configuration dans la zone **Notifications** du portail.
 
     ![Zone Notifications](./media/backup-azure-sql-database/notifications-area.png)
 
@@ -245,5 +244,5 @@ Passez au didacticiel suivant pour restaurer une machine virtuelle Azure à part
 
 > [!div class="nextstepaction"]
 > [Restaurer des bases de données SQL Server sur des machines virtuelles Azure](./restore-sql-database-azure-vm.md)
- 
+ 
 

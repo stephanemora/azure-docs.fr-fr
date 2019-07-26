@@ -10,12 +10,12 @@ ms.date: 03/24/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 6ec429bc7c1598e947b798c30e7992e3d357d00c
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: d75e4c3e2b6f28dfbde670406854ac87790dd090
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66303813"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67850119"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-for-linux-devices"></a>Didacticiel : Développer et déployer un module IoT Edge Python pour des appareils Linux
 
@@ -40,7 +40,7 @@ Ce tutoriel montre comment développer un module en **Python** à l’aide de **
 
 Utilisez le tableau suivant afin de comprendre les options dont vous disposez pour développer et déployer des modules en Python sur des appareils Linux : 
 
-| Python | Visual Studio Code | Visual Studio 2017/2019 | 
+| Python | Visual Studio Code | Visual Studio 2017/2019 | 
 | - | ------------------ | ------------------ |
 | **Linux AMD64** | ![Utilisez VS Code pour modules Python sur Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
 | **Linux ARM32** | ![Utilisez VS Code pour modules Python sur Linux ARM32](./media/tutorial-c-module/green-check.png) |  |
@@ -69,25 +69,15 @@ Les étapes suivantes permettent de créer un module IoT Edge Python à l’aide
 
 ### <a name="create-a-new-project"></a>Création d'un projet
 
-Utilisez le package Python **cookiecutter** pour créer un modèle de solution Python sur lequel vous pouvez générer. 
+Utilisez VS Code pour créer un modèle de solution Python sur lequel vous pouvez générer. 
 
 1. Dans Visual Studio Code, sélectionnez **Affichage** > **Terminal** pour ouvrir le terminal intégré VS Code.
 
-2. Dans le terminal, entrez la commande suivante pour installer (ou mettre à jour) le modèle **cookiecutter** que vous utilisez pour créer le modèle de solution IoT Edge :
+1. Sélectionnez **Affichage** > **Palette de commandes** pour ouvrir la palette de commandes VS Code. 
 
-    ```cmd/sh
-    pip install --upgrade --user cookiecutter
-    ```
-   >[!Note]
-   >Vérifiez que le répertoire d’installation de cookiecutter se trouve sur le chemin de votre environnement, afin de pouvoir l’appeler à partir d’une invite de commandes. Le répertoire est compris dans la sortie du script d’installation, par exemple `C:\Users\{user}\AppData\Roaming\Python\Python{version}\Scripts`.
-   >
-   >Redémarrez Visual Studio Code pour noter les modifications apportées au chemin. 
+1. Dans la palette de commandes, entrez et exécutez la commande **Azure: Sign in** et suivez les instructions pour vous connecter à votre compte Azure. Si vous êtes déjà connecté, vous pouvez ignorer cette étape.
 
-3. Sélectionnez **Affichage** > **Palette de commandes** pour ouvrir la palette de commandes VS Code. 
-
-4. Dans la palette de commandes, entrez et exécutez la commande **Azure: Sign in** et suivez les instructions pour vous connecter à votre compte Azure. Si vous êtes déjà connecté, vous pouvez ignorer cette étape.
-
-5. Dans la palette de commandes, entrez et exécutez la commande **Azure IoT Edge: New IoT Edge solution**. Suivez les invites et spécifiez les informations suivantes pour créer votre solution :
+1. Dans la palette de commandes, entrez et exécutez la commande **Azure IoT Edge: New IoT Edge solution**. Suivez les invites et spécifiez les informations suivantes pour créer votre solution :
 
    | Champ | Valeur |
    | ----- | ----- |

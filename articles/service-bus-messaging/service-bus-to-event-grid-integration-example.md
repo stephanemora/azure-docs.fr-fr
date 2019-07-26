@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: tutorial
 ms.date: 05/14/2019
 ms.author: spelluru
-ms.openlocfilehash: b7dbc7dbc0b670de81a3f4603b0d52bce7559af8
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: f31e014cf242675577bedd29a3a79332ede32bf5
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66428320"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68304237"
 ---
 # <a name="respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions-and-azure-logic-apps"></a>Répondre aux événements Azure Service Bus reçus via Azure Event Grid à l’aide d’Azure Functions et d’Azure Logic Apps
 Dans ce tutoriel, vous allez apprendre à répondre aux événements Azure Service Bus qui sont reçus via Azure Event Grid à l’aide d’Azure Functions et d’Azure Logic Apps. Vous allez effectuer les étapes suivantes :
@@ -235,7 +235,7 @@ Dans cette section, vous allez apprendre comment recevoir et traiter des message
         ![Obtenir le profil de publication pour la fonction](./media/service-bus-to-event-grid-integration-example/function-download-publish-profile.png)
     4. Enregistrez le fichier dans le dossier de votre projet. 
 4. Dans Visual Studio, cliquez avec le bouton droit sur **SBEventGridIntegration** et sélectionnez **Publier**. 
-5. Sélectionnez *Démarrer** dans la page **Publier**. 
+5. Sélectionnez **Démarrer** dans la page **Publier**. 
 6. Dans la page **Choisir une cible de publication**, effectuez les étapes suivantes, sélectionnez **Importer le profil**. 
 
     ![Visual Studio - bouton Importer le profil](./media/service-bus-to-event-grid-integration-example/visual-studio-import-profile-button.png)

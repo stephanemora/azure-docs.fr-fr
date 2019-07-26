@@ -14,17 +14,16 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 964e6235923402814879fe59a204985b8aaac2b4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2a7e2f9e5018bdad2a1ed2c6edcb727a2ffdcddd
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64573828"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839113"
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Didacticiel : Créer votre première fabrique de données à l’aide du portail Azure
 > [!div class="op_single_selector"]
 > * [Vue d’ensemble et composants requis](data-factory-build-your-first-pipeline.md)
-> * [Azure portal](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Modèle Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
@@ -33,6 +32,9 @@ ms.locfileid: "64573828"
 
 > [!NOTE]
 > Cet article s’applique à la version 1 d’Azure Data Factory, qui est mise à la disposition générale. Si vous utilisez la version actuelle du service Data Factory, consultez [Démarrage rapide : créer une fabrique de données à l’aide de Data Factory](../quickstart-create-data-factory-dot-net.md).
+
+> [!WARNING]
+> L’éditeur JSON dans le portail Azure pour la création et le déploiement de pipelines ADF v1 sera désactivé le 31 juillet 2019. Après le 31 juillet 2019, vous pourrez continuer à utiliser les [applets de commande PowerShell ADF v1](https://docs.microsoft.com/powershell/module/az.datafactory/?view=azps-2.4.0&viewFallbackFrom=azps-2.3.2), le [kit SDK .net ADF v1](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.datafactories.models?view=azure-dotnet) et les [API REST ADF v1](https://docs.microsoft.com/rest/api/datafactory/) pour créer et déployer vos pipelines ADF v1.
 
 Dans cet article, vous allez utiliser le [portail Azure](https://portal.azure.com/) pour créer votre première fabrique de données. Pour suivre le didacticiel avec d’autres outils/kits de développement logiciel (SDK), sélectionnez une des options dans la liste déroulante. 
 

@@ -6,12 +6,12 @@ ms.service: data-share
 ms.topic: tutorial
 ms.date: 07/10/2019
 ms.author: joanpo
-ms.openlocfilehash: 2dc4994d88fc03c23a6d5722d6018c926e7d6b8c
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: fc63c1a0b3b496de8e5ecea58f79f1db9d872e80
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67788361"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67838445"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share-preview"></a>Didacticiel : Accepter et recevoir des données avec Azure Data Share Preview
 
@@ -31,6 +31,8 @@ Vérifiez que tous les prérequis sont remplis avant d’accepter une invitation
 * Abonnement Azure : Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 * Compte Stockage Azure : Si vous n’en avez pas déjà, vous pouvez créer un [compte Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account). 
 * Invitation Data Share : Invitation de Microsoft Azure dont l’objet est « Invitation Azure Data Share de **<yourdataprovider@domain.com>**  ».
+* Autorisation d’ajouter l’attribution de rôle au compte de stockage, qui est présente dans l’autorisation *Microsoft. Authorization/Role Assignments/Write*. Cette autorisation existe dans le rôle propriétaire. 
+* Inscription du fournisseur de ressources pour Microsoft. DataShare. Pour plus d’informations sur la façon de procéder, consultez la documentation sur les [fournisseurs de ressources Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 
 > [!IMPORTANT]
 > Pour recevoir et accepter une invitation Azure Data Share, vous devez d’abord vous inscrire auprès du fournisseur de ressources Microsoft.DataShare et être le propriétaire du compte de stockage dans lequel vous acceptez des données. Suivez les instructions décrites dans [Résoudre les problèmes liés à Azure Data Share Preview](data-share-troubleshoot.md) pour inscrire le fournisseur de ressources de partage de données et vous-même en tant que propriétaires du compte de stockage. 

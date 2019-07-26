@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
-ms.openlocfilehash: b48ecce1c87c0a29996e437d621c3ce396a84856
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 2b28c38d2444f227d26df1f9ca2d70876ff41064
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232662"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68260596"
 ---
 # <a name="manage-mailing-list-requests-with-azure-logic-apps"></a>Gérer les requêtes de liste de diffusion avec Azure Logic Apps
 
@@ -79,7 +79,7 @@ Chaque application logique doit démarrer avec un déclencheur, qui s’active l
 
 1. Dans le concepteur, entrez « à la réception d’un e-mail » dans la zone de recherche. Sélectionnez le déclencheur pour votre fournisseur de messagerie : **<*votre-fournisseur-de-messagerie*> - À la réception d’un e-mail**
    
-   ![Sélectionner ce déclencheur pour le fournisseur de messagerie : « À la réception d’un e-mail »](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-new-email.png)
+   ![Sélectionnez ce déclencheur pour votre fournisseur de messagerie : « When a new email arrives » (Quand un nouvel e-mail arrive)](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-new-email.png)
 
    * Pour les comptes Azure professionnels ou scolaires, sélectionnez Office 365 Outlook.
    * Pour les comptes Microsoft personnels, sélectionnez Outlook.com.
@@ -128,7 +128,7 @@ Maintenant que vous disposez d’un déclencheur, ajoutez une [action](../logic-
    | ------- | ----- | ----------- | 
    | **To** | <*approver-email-address*> | Adresse e-mail de l’approbateur. À des fins de test, vous pouvez utiliser votre propre adresse. | 
    | **Options utilisateur** | Approuver, Rejeter | Les options de réponse que l’approbateur peut choisir. Par défaut, l’approbateur peut choisir « Approuver » ou « Rejeter » comme réponse. | 
-   | **Objet** | Approve member request for test-members-ML (Approuver la requête d’abonnement pour test-members-ML) | Un objet d’e-mail descriptif | 
+   | **Subject** | Approve member request for test-members-ML (Approuver la requête d’abonnement pour test-members-ML) | Un objet d’e-mail descriptif | 
    |  |  |  | 
 
    Pour l’instant, ignorez la liste de contenu dynamique ou la liste de paramètres incluse qui s’affiche lorsque vous cliquez à l’intérieur de zones de modification spécifiques. 
@@ -147,7 +147,7 @@ Ensuite, ajoutez une condition pour vérifier la réponse choisie par l’approb
 
 2. Renommez la condition en utilisant une meilleure description.
 
-   1. Dans la barre de titre de la condition, choisissez le bouton représentant des **points de suspension** (**...**) > **Renommer**.
+   1. Dans la barre de titre de la condition, choisissez le bouton représentant des **points de suspension** ( **...** ) > **Renommer**.
 
       Par exemple, si le navigateur est défini sur l’affichage étroit :
 
@@ -183,7 +183,7 @@ Ensuite, spécifiez l’action que votre application logique effectue lorsque le
 Ajoutez maintenant une action qui ajoute le membre approuvé à votre liste de diffusion.
 
 1. Dans la branche **Si true** de la condition, choisissez **Ajouter une action**.
-Recherchez « mailchimp » et sélectionnez cette action : **MailChimp - Ajouter un membre à la liste**
+Recherchez « mailchimp », puis sélectionnez cette action : **MailChimp - Ajouter un membre à la liste**
 
    ![Sélectionner « MailChimp - Ajouter un membre à la liste »](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-mailchimp-add-member.png)
 
@@ -206,7 +206,7 @@ Ensuite, ajoutez une condition afin que vous puissiez vérifier si le nouveau me
 
 ## <a name="check-for-success-or-failure"></a>Vérifier la réussite ou l’échec
 
-1. Dans la branche **Si true**, sous l’action **Ajouter un membre à la liste**, choisissez **Plus...** > **Ajouter une condition**.
+1. Dans la branche **Si true**, sous l’action **Ajouter un membre à la liste**, choisissez **Plus...**  > **Ajouter une condition**.
 
 2. Renommez la condition à l’aide de cette description : ```If add member succeeded```
 
@@ -248,8 +248,8 @@ Ensuite, configurez les e-mails à envoyer lorsque le membre approuvé parvient 
    | Paramètre | Valeur | Description | 
    | ------- | ----- | ----------- | 
    | **To** | <*your-email-address*> | Adresse e-mail à laquelle envoyer l’e-mail de réussite. À des fins de test, vous pouvez utiliser votre propre adresse e-mail. | 
-   | **Objet** | <*subject-for-success-email*> | Objet de l’e-mail de réussite. Pour ce didacticiel, entrez ce texte, puis sélectionnez le champ spécifié sous **Ajouter un membre à la liste** à partir de la liste des paramètres ou de la liste de contenu dynamique : <p>« Success! Member added to ’test-members-ML’: **Email Address** » (Bravo ! Le membre a été ajouté à « test-members-ML » : Adresse e-mail) | 
-   | **Corps** | <*body-for-success-email*> | Contenu du corps de l’e-mail de réussite. Pour ce didacticiel, entrez ce texte, puis sélectionnez les champs spécifiés sous **Ajouter un membre à la liste** à partir de la liste des paramètres ou de la liste de contenu dynamique :  <p>"New member has joined ’test-members-ML’: **Email Address**" (Un nouveau membre a rejoint « test-members-ML » : Adresse e-mail)</br>"Member opt-in status: **Status**" (État de l’abonnement du membre : État) | 
+   | **Subject** | <*subject-for-success-email*> | Objet de l’e-mail de réussite. Pour ce didacticiel, entrez ce texte, puis sélectionnez le champ spécifié sous **Ajouter un membre à la liste** à partir de la liste des paramètres ou de la liste de contenu dynamique : <p>« Success! Member added to ’test-members-ML’: **Email Address** » (Bravo ! Le membre a été ajouté à « test-members-ML » : Adresse e-mail) | 
+   | **Corps** | <*body-for-success-email*> | Contenu du corps de l’e-mail de réussite. Pour ce didacticiel, entrez ce texte, puis sélectionnez les champs spécifiés sous **Ajouter un membre à la liste** à partir de la liste des paramètres ou de la liste de contenu dynamique :  <p>« New member has joined 'test-members-ML': **Email Address** » (Bravo ! Le membre a été ajouté à « test-members-ML » : Adresse e-mail)</br>« Member opt-in status: **Status** » (État de l’abonnement du membre : État) | 
    | | | | 
 
 5. Enregistrez votre application logique.
@@ -273,7 +273,7 @@ Ensuite, configurez les e-mails à envoyer lorsque le membre approuvé parvient 
    | Paramètre | Valeur | Description | 
    | ------- | ----- | ----------- | 
    | **To** | <*your-email-address*> | Adresse e-mail à laquelle envoyer l’e-mail d’échec. À des fins de test, vous pouvez utiliser votre propre adresse e-mail. | 
-   | **Objet** | <*subject-for-failure-email*> | Objet de l’e-mail d’échec. Pour ce didacticiel, entrez ce texte, puis sélectionnez le champ spécifié sous **Ajouter un membre à la liste** à partir de la liste des paramètres ou de la liste de contenu dynamique : <p>« Failed, member not added to ’test-members-ML’: **Email Address** » (Échec, le membre n’a pas été ajouté à « test-members-ML » : Adresse e-mail) | 
+   | **Subject** | <*subject-for-failure-email*> | Objet de l’e-mail d’échec. Pour ce didacticiel, entrez ce texte, puis sélectionnez le champ spécifié sous **Ajouter un membre à la liste** à partir de la liste des paramètres ou de la liste de contenu dynamique : <p>« Failed, member not added to ’test-members-ML’: **Email Address** » (Échec, le membre n’a pas été ajouté à « test-members-ML » : Adresse e-mail) | 
    | **Corps** | <*body-for-failure-email*> | Contenu du corps de l’e-mail d’échec. Pour ce didacticiel, entrez le texte suivant : <p>« Member might already exist. Check your MailChimp account. » (Le membre existe peut-être déjà. Vérifiez votre compte MailChimp.) | 
    | | | | 
 
