@@ -8,18 +8,18 @@ ms.author: tarcher
 manager: jeconnoc
 ms.topic: tutorial
 ms.date: 11/15/2018
-ms.openlocfilehash: 90f89f9ffb1d55e7621c87f168375251c78d9730
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 019c4a8f77f2664c68dcc6499fb2f27cc0d1447c
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533491"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326925"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-app-service-with-jenkins-continuous-integration-and-deployment"></a>Didacticiel : Effectuer un déploiement sur Azure App Service à partir de GitHub avec l’intégration continue et le déploiement continu Jenkins
 
 Ce tutoriel explique comment déployer un exemple d’application web Java de GitHub sur [Azure App Service sur Linux](/azure/app-service/containers/app-service-linux-intro), en configurant l’intégration continue (CI) et le déploiement continu (CD) dans Jenkins. Lorsque vous mettez à jour l’application en envoyant (push) des validations à GitHub, Jenkins génère et republie automatiquement votre application dans Azure App Service. L’exemple d’application de ce tutoriel a été développé avec le framework [Spring Boot](https://projects.spring.io/spring-boot/). 
 
-![Vue d’ensemble](media/tutorial-jenkins-deploy-web-app-azure-app-service/overview.png)
+![Vue d'ensemble](media/tutorial-jenkins-deploy-web-app-azure-app-service/overview.png)
 
 Dans ce tutoriel, vous allez effectuer les tâches suivantes :
 
@@ -122,7 +122,7 @@ Ensuite, créez le principal de service Azure que Jenkins utilise pour l’authe
 
 ## <a name="create-service-principal"></a>Créer un principal du service
 
-Dans une prochaine section, vous créerez un travail de pipeline Jenkins pour générer votre application à partir de GitHub et déployer votre application dans Azure App Service. Pour permettre à Jenkins d’accéder à Azure sans entrer vos informations d’identification, créez un [principal de service](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) dans Azure Active Directory pour Jenkins. Un principal de service est une identité distincte que Jenkins peut utiliser pour authentifier l’accès aux ressources Azure. Pour créer ce principal de service, exécutez la commande Azure CLI [**`az ad sp create-for-rbac`**](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest) à partir de votre ligne de commande locale ou d’Azure Cloud Shell. Par exemple : 
+Dans une prochaine section, vous créerez un travail de pipeline Jenkins pour générer votre application à partir de GitHub et déployer votre application dans Azure App Service. Pour permettre à Jenkins d’accéder à Azure sans entrer vos informations d’identification, créez un [principal de service](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) dans Azure Active Directory pour Jenkins. Un principal de service est une identité distincte que Jenkins peut utiliser pour authentifier l’accès aux ressources Azure. Pour créer ce principal de service, exécutez la commande Azure CLI [ **`az ad sp create-for-rbac`** ](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest) à partir de votre ligne de commande locale ou d’Azure Cloud Shell. Par exemple : 
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "yourAzureServicePrincipalName" --password yourSecurePassword
@@ -150,7 +150,7 @@ Voici la sortie générée par la commande **`create-for-rbac`**  :
 
 ## <a name="add-service-principal-to-jenkins"></a>Ajouter un principal de service dans Jenkins
 
-1. Dans la page principale de Jenkins, sélectionnez **Credentials (Informations d’identification)** > **System**. 
+1. Dans la page principale de Jenkins, sélectionnez **Credentials (Informations d’identification)**  > **System**. 
 
 1. Dans la page **System** sous **Domain**, sélectionnez **Global credentials (unrestricted)** (Informations d’identification globales (sans restrictions)).
 
@@ -169,7 +169,6 @@ Voici la sortie générée par la commande **`create-for-rbac`**  :
    | **Clé secrète client** | <*yourSecurePassword*> | Valeur ou « secret » `password` que vous avez fourni(e) pour votre principal de service Azure | 
    | **Tenant ID** | <*yourAzureActiveDirectoryTenant-ID*> | Valeur GUID `tenant` de votre locataire Azure Active Directory | 
    | **Identifiant** | <*yourAzureServicePrincipalName*> | Valeur `displayName` de votre principal de service Azure | 
-   |||| 
 
 1. Pour vérifier que votre principal de service fonctionne, choisissez **Verify Service Principal**. Une fois que vous avez terminé, sélectionnez **OK**.
 

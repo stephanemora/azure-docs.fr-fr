@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/13/2019
+ms.date: 07/22/2019
 ms.author: srrengar
 ms.custom: mvc
-ms.openlocfilehash: 9838c6e31e3bb7031d98e615fd96049f22dd8d30
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 63069dcdebf19c64d7bcde298fa234622a6d9a2b
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66158065"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385281"
 ---
 # <a name="tutorial-monitor-a-service-fabric-cluster-in-azure"></a>Didacticiel : Superviser un cluster Service Fabric dans Azure
 
@@ -62,7 +62,7 @@ Les journaux Azure Monitor collectent et analysent les données de télémétrie
 
 Pour accéder à la solution Service Fabric Analytics, accédez au [portail Azure](https://portal.azure.com) et sélectionnez le groupe de ressources dans lequel vous avez créé la solution Service Fabric Analytics.
 
-Sélectionnez la ressource **ServiceFabric(mysfomsworkspace)**.
+Sélectionnez la ressource **ServiceFabric(mysfomsworkspace)** .
 
 Dans **Vue d’ensemble**, des vignettes de type graphe s’affichent pour chacune des solutions activées, y compris pour Service Fabric. Cliquez sur le graphique **Service Fabric** pour accéder à la solution Service Fabric Analytics.
 
@@ -236,7 +236,7 @@ Pour configurer des événements plus détaillés pour des acteurs fiables, vous
 ## <a name="view-performance-counters-with-azure-monitor-logs"></a>Afficher les compteurs de performances avec les journaux Azure Monitor
 Pour afficher les compteurs de performances, ouvrez le [portail Azure](https://portal.azure.com) et accédez au groupe de ressources dans lequel vous avez créé la solution Service Fabric Analytics. 
 
-Sélectionnez la ressource **ServiceFabric(mysfomsworkspace)**, puis **espace de travail Log Analytics**, puis **Paramètres avancés**.
+Sélectionnez la ressource **ServiceFabric(mysfomsworkspace)** , puis **espace de travail Log Analytics**, puis **Paramètres avancés**.
 
 Cliquez sur **Données**, puis sur **Compteurs de performances Windows**. Une liste des compteurs par défaut que vous pouvez choisir d’activer s’affiche, et vous pouvez également définir l’intervalle de collecte. En outre, vous pouvez ajouter [d’autres compteurs de performances](service-fabric-diagnostics-event-generation-perf.md) à collecter. Le format approprié est référencé dans cet [article](/windows/desktop/PerfCtrs/specifying-a-counter-path). Cliquez sur **Enregistrer**, puis sur **OK**.
 

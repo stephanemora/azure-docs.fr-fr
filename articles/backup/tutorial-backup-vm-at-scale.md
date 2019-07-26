@@ -1,7 +1,6 @@
 ---
 title: Sauvegarder des machines virtuelles Azure à grande échelle
 description: Sauvegarder simultanément plusieurs machines virtuelles dans Azure
-services: backup
 keywords: sauvegarde de machine virtuelle ; sauvegarder une machine virtuelle ; sauvegarde de MV ; sauvegarder une MV ; sauvegarde de MV Azure ; sauvegarde et récupération d’urgence
 author: rayne-wiselman
 ms.author: raynew
@@ -9,12 +8,12 @@ ms.date: 01/31/2019
 ms.topic: tutorial
 ms.service: backup
 ms.custom: mvc
-ms.openlocfilehash: 99f5b09d0b5dfc144dca7f19efff3f0656a82b35
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: da2a9e634567dbe657410a61e5bfe0526197309d
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58093243"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467131"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Utiliser le portail Azure pour sauvegarder plusieurs machines virtuelles
 
@@ -66,7 +65,7 @@ Une fois le coffre Recovery Services créé, l’étape suivante consiste à con
 
 2. Dans le menu du tableau de bord du coffre, cliquez sur **Sauvegarder** pour ouvrir le panneau Sauvegarder.
 
-3. Dans le menu Objectif de sauvegarde, dans le menu déroulant **Où s’exécute votre charge de travail ?**, choisissez *Azure*. Dans le menu déroulant **Que voulez-vous sauvegarder ?**, choisissez *Machine virtuelle*, puis cliquez sur **Sauvegarder**.
+3. Dans le menu Objectif de sauvegarde, dans le menu déroulant **Où s’exécute votre charge de travail ?** , choisissez *Azure*. Dans le menu déroulant **Que voulez-vous sauvegarder ?** , choisissez *Machine virtuelle*, puis cliquez sur **Sauvegarder**.
 
     Ces actions préparent le coffre Recovery Services à interagir avec une machine virtuelle. Les coffres Recovery Services ont une stratégie par défaut qui crée un point de restauration quotidiennement, et conserve les points de restauration pendant 30 jours.
 

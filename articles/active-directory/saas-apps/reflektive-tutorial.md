@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: ca2a7edff4b8c06b2838474449360b4b14b3e393
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d26e8a21865304b2065a28da5e241f58cb5ab34c
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67092967"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68383221"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reflektive"></a>Didacticiel : Intégration d'Azure Active Directory à Reflektive
 
@@ -138,7 +138,7 @@ Pour configurer l’authentification unique Azure AD avec Reflektive, effectuez 
 
 ### <a name="configure-reflektive-single-sign-on"></a>Configurer l’authentification unique Reflektive
 
-Pour configurer l’authentification unique côté **Reflektive**, vous devez envoyer le **XML des métadonnées de fédération** téléchargé et les URL copiées dans le portail Azure à l’[équipe du support technique Reflektive](mailto: https://support@reflektive.com/). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique côté **Reflektive**, vous devez envoyer le **XML des métadonnées de fédération** téléchargé et les URL copiées dans le portail Azure à l’[équipe du support technique Reflektive](mailto:support@reflektive.com/). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD 
 
@@ -192,7 +192,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 ### <a name="create-reflektive-test-user"></a>Créer un utilisateur de test Reflektive
 
-Dans cette section, vous créez un utilisateur nommé Britta Simon dans Reflektive. Collaborez avec l’ [équipe du support technique de Reflektive](mailto: https://support@reflektive.com/) pour ajouter des utilisateurs à la plateforme Reflektive. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous créez un utilisateur nommé Britta Simon dans Reflektive. Collaborez avec l’ [équipe du support technique de Reflektive](mailto:support@reflektive.com/) pour ajouter des utilisateurs à la plateforme Reflektive. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique 
 

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 03/28/2019
 ms.author: aahi
-ms.openlocfilehash: b319abf22f9aa4cdd9a5fef91be0628672d47bd4
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: c24979d9aef74b6cc840427a010b9ce70f2c0b8a
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66297786"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68356958"
 ---
 # <a name="quickstart-call-the-text-analytics-service-using-the-python-sdk"></a>Démarrage rapide : Appeler le service Analyse de texte à l'aide du kit de développement logiciel (SDK) Python 
 <a name="HOLTop"></a>
@@ -71,26 +71,26 @@ La charge utile de l’API se compose d’une liste de `documents`, correspondan
 
 ```python
 documents = [
-  {
-    "id": "1", 
-    "language": "en", 
-    "text": "I had the best day of my life."
-  },
-  {
-    "id": "2", 
-    "language": "en", 
-    "text": "This was a waste of my time. The speaker put me to sleep."
-  },  
-  {
-    "id": "3", 
-    "language": "es", 
-    "text": "No tengo dinero ni nada que dar..."
-  },  
-  {
-    "id": "4", 
-    "language": "it", 
-    "text": "L'hotel veneziano era meraviglioso. È un bellissimo pezzo di architettura."
-  }
+    {
+        "id": "1",
+        "language": "en",
+        "text": "I had the best day of my life."
+    },
+    {
+        "id": "2",
+        "language": "en",
+        "text": "This was a waste of my time. The speaker put me to sleep."
+    },
+    {
+        "id": "3",
+        "language": "es",
+        "text": "No tengo dinero ni nada que dar..."
+    },
+    {
+        "id": "4",
+        "language": "it",
+        "text": "L'hotel veneziano era meraviglioso. È un bellissimo pezzo di architettura."
+    }
 ]
 ```
 
@@ -99,10 +99,11 @@ Appelez la fonction `sentiment()` et obtenez le résultat. Effectuez ensuite une
 ```python
 response = text_analytics.sentiment(documents=documents)
 for document in response.documents:
-     print("Document Id: ", document.id, ", Sentiment Score: ", "{:.2f}".format(document.score))
+    print("Document Id: ", document.id, ", Sentiment Score: ",
+          "{:.2f}".format(document.score))
 ```
 
-### <a name="output"></a>Sortie
+### <a name="output"></a>Output
 
 ```console
 Document Id:  1 , Sentiment Score:  0.87
@@ -117,30 +118,31 @@ Créez une liste de dictionnaires, chacun contenant les documents que vous souha
 
 ```python
 documents = [
-    { 
-        'id': '1', 
-        'text': 'This is a document written in English.' 
+    {
+        'id': '1',
+        'text': 'This is a document written in English.'
     },
     {
-        'id': '2', 
-        'text': 'Este es un document escrito en Español.' 
+        'id': '2',
+        'text': 'Este es un document escrito en Español.'
     },
-    { 
-        'id': '3', 
-        'text': '这是一个用中文写的文件' 
+    {
+        'id': '3',
+        'text': '这是一个用中文写的文件'
     }
 ]
-``` 
+```
 
 À l’aide du client créé précédemment, appelez `detect_language()` et obtenez le résultat. Effectuez ensuite une itération dans les résultats, puis imprimez l’ID de chaque document et le premier langage retourné.
 
 ```python
 response = text_analytics.detect_language(documents=documents)
 for document in response.documents:
-    print("Document Id: ", document.id , ", Language: ", document.detected_languages[0].name)
+    print("Document Id: ", document.id, ", Language: ",
+          document.detected_languages[0].name)
 ```
 
-### <a name="output"></a>Sortie
+### <a name="output"></a>Output
 
 ```console
 Document Id:  1 , Language:  English
@@ -157,12 +159,12 @@ Créez une liste de dictionnaires, contenant les documents que vous souhaitez an
 documents = [
     {
         "id": "1",
-        "language": "en", 
+        "language": "en",
         "text": "Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800."
     },
     {
         "id": "2",
-        "language": "es", 
+        "language": "es",
         "text": "La sede principal de Microsoft se encuentra en la ciudad de Redmond, a 21 kilómetros de Seattle."
     }
 ]
@@ -177,14 +179,15 @@ for document in response.documents:
     print("Document Id: ", document.id)
     print("\tKey Entities:")
     for entity in document.entities:
-        print("\t\t", "NAME: ",entity.name, "\tType: ", entity.type, "\tSub-type: ", entity.sub_type)
+        print("\t\t", "NAME: ", entity.name, "\tType: ",
+              entity.type, "\tSub-type: ", entity.sub_type)
         for match in entity.matches:
             print("\t\t\tOffset: ", match.offset, "\tLength: ", match.length, "\tScore: ",
                   "{:.2f}".format(match.entity_type_score))
 ```
 
 
-### <a name="output"></a>Sortie
+### <a name="output"></a>Output
 
 ```console
 Document Id:  1
@@ -223,23 +226,23 @@ Créez une liste de dictionnaires, contenant les documents que vous souhaitez an
 ```python
 documents = [
     {
-        "id": "1", 
-        "language": "ja", 
+        "id": "1",
+        "language": "ja",
         "text": "猫は幸せ"
     },
     {
-        "id": "2", 
-        "language": "de", 
+        "id": "2",
+        "language": "de",
         "text": "Fahrt nach Stuttgart und dann zum Hotel zu Fu."
     },
     {
-        "id": "3", 
+        "id": "3",
         "language": "en",
         "text": "My cat might need to see a veterinarian."
     },
     {
-        "id": "4", 
-        "language": "es", 
+        "id": "4",
+        "language": "es",
         "text": "A mi me encanta el fútbol!"
     }
 ]
@@ -254,10 +257,10 @@ for document in response.documents:
     print("Document Id: ", document.id)
     print("\tKey Phrases:")
     for phrase in document.key_phrases:
-        print("\t\t",phrase)
+        print("\t\t", phrase)
 ```
 
-### <a name="output"></a>Sortie
+### <a name="output"></a>Output
 
 ```console
 Document Id:  1

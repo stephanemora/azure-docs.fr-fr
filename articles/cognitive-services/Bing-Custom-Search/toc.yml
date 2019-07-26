@@ -25,7 +25,7 @@
               href: call-endpoint-nodejs.md
             - name: Utilisation de Python
               href: call-endpoint-python.md
-        - name: 'Kit SDK '
+        - name: Kit SDK
           items:
             - name: 'Utilisation de C#'
               href: sdk-csharp-quick-start.md
@@ -77,9 +77,9 @@
         - name: .NET
           href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingcustomsearch?view=azure-dotnet'
         - name: Java - Recherche personnalisée
-          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/customsearch?view=azure-java-stable'
+          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingcustomsearch?view=azure-java-stable'
         - name: Java - Recherche d’images personnalisée
-          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/customimagesearch?view=azure-java-stable'
+          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingcustomimagesearch?view=azure-java-stable'
         - name: Python
           href: 'https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/customsearch?view=azure-python'
         - name: Node.js

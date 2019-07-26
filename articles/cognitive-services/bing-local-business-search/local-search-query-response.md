@@ -1,20 +1,20 @@
 ---
-title: Envoyer et utiliser les requêtes et les réponses de l’API Recherche d’entreprises locales Bing | Microsoft Docs
+title: Envoyer et utiliser les requêtes et les réponses de l’API Recherche d’entreprises locales Bing
 titleSuffix: Azure Cognitive Services
 description: Lisez cet article pour apprendre à envoyer et à utiliser les résultats de recherche de l’API Recherche d’entreprises locales Bing.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: article
+ms.topic: quickstart
 ms.date: 06/26/2018
 ms.author: rosh
-ms.openlocfilehash: cf622f658208ab85fe0a0670a0e034bd58a5047d
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 5a26324f22ed46d0c06ecb0eb7ecaf74f589051e
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849936"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423446"
 ---
 # <a name="sending-and-using-bing-local-business-search-api-queries-and-responses"></a>Envoyer et utiliser les requêtes et les réponses de l’API Recherche d’entreprises locales Bing
 

@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: overview
-ms.date: 05/02/2019
+ms.date: 07/24/2019
 ms.author: erhopf
-ms.openlocfilehash: 95121523c510e72894086740ad340bdfd33f3c32
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: c90d656539a2ed64b416dc9b8e7e11e205b98ee6
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67721406"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68478374"
 ---
 # <a name="what-is-the-ink-recognizer-api"></a>Qu’est-ce que l’API Ink Recognizer ?
 
 
 Le service cognitif Ink Recognizer propose une API REST cloud pour analyser et reconnaître le contenu d’une entrée manuscrite numérique. Contrairement aux services qui utilisent la reconnaissance optique de caractères (OCR), l’API a besoin de données de trait d’encre numérique en tant qu’entrée. Les traits d’encre numériques sont des jeux chronologiques de points 2D (coordonnées X,Y) qui représentent le mouvement des outils d’entrée comme les stylets numériques ou les doigts. Le service reconnaît ensuite les formes et le contenu manuscrit d’après l’entrée, puis retourne une réponse JSON contenant toutes les entités reconnues.
 
-![Organigramme décrivant l’envoi d’une entrée de trait d’encre à l’API](media/ink-recognizer-pen-graph.png)
+![Organigramme décrivant l’envoi d’une entrée de trait d’encre à l’API](media/ink-recognizer-pen-graph.svg)
 
 ## <a name="features"></a>Caractéristiques
 

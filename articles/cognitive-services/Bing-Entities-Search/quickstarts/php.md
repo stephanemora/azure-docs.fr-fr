@@ -1,6 +1,6 @@
 ---
 title: 'Démarrage rapide : Envoyer une requête de recherche à l’API REST Recherche d’entités Bing en PHP'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Utilisez ce guide de démarrage rapide pour envoyer une requête en PHP à l’API REST Recherche d’entités Bing et recevoir une réponse JSON.
 services: cognitive-services
 author: aahill
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 02/01/2019
+ms.date: 07/24/2019
 ms.author: aahi
-ms.openlocfilehash: 69624f7383b37b9d23f3fb8879f804e7169c1c29
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 5d57924a22ee097cfe7f492d18b8f84e7e658f41
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66384554"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68478954"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-php"></a>Démarrage rapide : Envoyer une requête de recherche à l’API REST Recherche d’entités Bing en PHP
 
