@@ -1,5 +1,5 @@
 ---
-title: Développement avec des API v3 - Azure | Microsoft Docs
+title: Développement avec les API v3 - Azure | Microsoft Docs
 description: Cet article décrit les règles qui s’appliquent aux entités et API lors du développement avec Media Services v3.
 services: media-services
 documentationcenter: ''
@@ -13,47 +13,47 @@ ms.date: 05/02/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: ca4e343ea4774bbe4ff992ad671575b150b3c045
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65890969"
 ---
-# <a name="developing-with-media-services-v3-apis"></a>Développement avec Media Services v3 API
+# <a name="developing-with-media-services-v3-apis"></a>Développement avec des API Media Services v3
 
 En tant que développeur, vous pouvez utiliser [l’API REST](https://aka.ms/ams-v3-rest-ref) ou les bibliothèques clientes de Media Services qui vous permettent d’interagir avec l’API REST afin de créer, gérer et mettre à jour facilement les workflows multimédias personnalisés. L’API [Media Services v3](https://aka.ms/ams-v3-rest-sdk) s’appuie sur la spécification OpenAPI (anciennement appelée Swagger).
 
 Cet article décrit les règles qui s’appliquent aux entités et API lors du développement avec Media Services v3.
 
-## <a name="accessing-the-azure-media-services-api"></a>L’accès à l’API Azure Media Services
+## <a name="accessing-the-azure-media-services-api"></a>Accéder à l'API Azure Media Services
 
-Pour être autorisé à accéder aux ressources Media Services et à l’API Media Services, vous devez tout d’abord être authentifié. Media Services prend en charge [Azure Active Directory (Azure AD)-basé](../../active-directory/fundamentals/active-directory-whatis.md) l’authentification. Deux options d’authentification courantes sont :
+Pour être autorisé à accéder aux ressources Media Services et à l’API Media Services, vous devez tout d’abord être authentifié. Media Services prend en charge l’[authentification avec Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md). Parmi les options d’authentification courantes figurent les suivantes :
  
-* **Authentification de principal du service** : utilisé pour authentifier un service (par exemple : applications web, applications de fonction, applications logiques, API et microservices). Les applications qui utilisent généralement cette méthode d’authentification sont des applications qui exécutent des services démon, des services de niveau intermédiaire ou des travaux planifiés, Par exemple, pour le Web applications il doivent toujours être un niveau intermédiaire qui se connecte à Media Services avec un Principal de Service.
-* **Authentification utilisateur** : utilisé pour authentifier une personne qui est à l’aide de l’application pour interagir avec les ressources Media Services. L’application interactive invite tout d’abord l’utilisateur à entrer ses informations d’identification. Par exemple, une application de console de gestion peut être utilisée par les utilisateurs autorisés pour contrôler les travaux d’encodage ou de streaming en direct.
+* **Authentification d’un principal du service** - Utilisée pour authentifier un service (applications web, applications de fonction, applications logiques, API et microservices, par exemple). Les applications qui utilisent généralement cette méthode d’authentification sont des applications qui exécutent des services démon, des services de niveau intermédiaire ou des travaux planifiés, Par exemple, pour les applications web, un niveau intermédiaire devrait toujours se connecter à Media Services avec un principal de service.
+* **Authentification utilisateur** - Utilisée pour authentifier une personne qui utilise l’application pour interagir avec les ressources Media Services. L’application interactive invite tout d’abord l’utilisateur à entrer ses informations d’identification. Par exemple, une application de console de gestion peut être utilisée par les utilisateurs autorisés pour contrôler les travaux d’encodage ou de streaming en direct.
 
-L’API Media Services nécessite que l’utilisateur ou une application qui effectue l’API REST demande ont accès à la ressource du compte Media Services et d’utiliser un **contributeur** ou **propriétaire** rôle. L’API est accessible avec la **lecteur** , mais uniquement le rôle **obtenir** ou **liste**   opérations seront disponibles. Pour plus d’informations, consultez [le contrôle d’accès en fonction du rôle pour les comptes Media Services](rbac-overview.md).
+L’API Media Services implique que l’utilisateur ou l'application à l'origine des requêtes API REST ait accès à la ressource de compte Media Services et utilise un rôle **Contributeur** ou **Propriétaire**. L’API est accessible avec le rôle **Lecteur**, mais seules les opérations **Get** ou **List**   seront disponibles. Pour plus d'informations, consultez [Contrôle d’accès en fonction du rôle pour les comptes Media Services](rbac-overview.md).
 
-Au lieu de créer un principal de service, envisagez d’utiliser des identités gérées pour les ressources Azure à accéder à l’API Media Services via Azure Resource Manager. Pour en savoir plus sur les identités pour les ressources Azure, consultez [What ' s des identités gérées pour les ressources Azure](../../active-directory/managed-identities-azure-resources/overview.md).
+Au lieu de créer un principal de service, envisagez d’utiliser des identités gérées pour permettre aux ressources Azure d'accéder à l’API Media Services via Azure Resource Manager. Pour en savoir plus sur les identités managées pour les ressources Azure, consultez [Que sont les identités managées pour les ressources Azure ?](../../active-directory/managed-identities-azure-resources/overview.md)
 
-### <a name="azure-ad-service-principal"></a>Principal de service Azure AD 
+### <a name="azure-ad-service-principal"></a>Principal du service Azure AD 
 
-Si vous créez une application Azure AD et un service principal, l’application doit se trouver dans son propre client. Après avoir créé l’application, donnez à l’application **contributeur** ou **propriétaire** rôle d’accéder au compte Media Services. 
+Si vous créez une application Azure AD et un principal de service, l’application doit se trouver dans son propre client. Après avoir créé l’application, attribuez à l'application le rôle **Contributeur** ou **Propriétaire** pour accéder au compte Media Services. 
 
-Si vous ne savez pas si vous disposez d’autorisations pour créer une application Azure AD, consultez [autorisations requises](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
+Si vous ne savez pas si vous disposez des autorisations pour créer une application Azure AD, consultez [Autorisations requises](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
 
-Dans la figure suivante, les nombres représentent le flux de requêtes dans l’ordre chronologique :
+Dans la figure suivante, les nombres représentent le flux des requêtes dans l’ordre chronologique :
 
 ![Applications de niveau intermédiaire](./media/use-aad-auth-to-access-ams-api/media-services-principal-service-aad-app1.png)
 
-1. Une application de niveau intermédiaire demande un jeton d’accès Azure AD qui possède les paramètres suivants :  
+1. Une application de niveau intermédiaire nécessite un jeton d’accès Azure AD qui possède les paramètres suivants :  
 
    * Point de terminaison de locataire Azure AD.
    * URI de ressource Media Services.
    * URI de ressource pour REST Media Services.
    * Valeurs de l’application Azure AD : ID client et clé secrète client.
    
-   Pour obtenir toutes les valeurs nécessaires, consultez [API Access Azure Media Services avec Azure CLI](access-api-cli-how-to.md)
+   Pour obtenir toutes les valeurs nécessaires, consultez [Accéder à l’API Azure Media Services avec Azure CLI](access-api-cli-how-to.md).
 
 2. Le jeton d’accès Azure AD est envoyé au niveau intermédiaire.
 4. Le niveau intermédiaire envoie une requête à l’API REST Azure Media avec le jeton Azure AD.
@@ -61,7 +61,7 @@ Dans la figure suivante, les nombres représentent le flux de requêtes dans l�
 
 ### <a name="samples"></a>Exemples
 
-Consultez les exemples qui montrent comment se connecter avec un principal de service Azure AD :
+Les exemples suivants montrent comment se connecter à un principal de service Azure AD :
 
 * [Se connecter avec REST](media-rest-apis-with-postman.md)  
 * [Se connecter avec Java](configure-connect-java-howto.md)
@@ -77,28 +77,28 @@ Les noms de ressources Media Services ne peuvent pas contenir : '<', '>', '%', '
 
 Pour plus d'informations sur l'affectation de noms dans Azure Resource Manager, consultez : [Exigences en matière d'affectation de noms](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource) et [Conventions d'affectation de noms](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
 
-## <a name="long-running-operations"></a>Opérations à long terme
+## <a name="long-running-operations"></a>Opérations de longue durée
 
-Les opérations marquées avec `x-ms-long-running-operation` dans les Services de média Azure [swagger fichiers](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/streamingservice.json) sont longues opérations en cours d’exécution. 
+Les opérations marquées par `x-ms-long-running-operation` dans les [fichiers swagger](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/streamingservice.json) Azure Media Services exécutent des opérations de longue durée. 
 
-Pour plus d’informations sur le suivi des opérations asynchrones Azure, consultez [les opérations asynchrones](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations#monitor-status-of-operation).
+Pour plus d’informations sur le suivi des opérations asynchrones Azure, consultez [Opérations asynchrones](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations#monitor-status-of-operation).
 
-Media Services a les opérations de longue suivantes :
+Media Services propose les opérations de longue durée suivantes :
 
-* Créer l’événement en direct
-* Événement en direct de la mise à jour
-* Supprimer l’événement en direct
-* Démarrer l’événement en direct
-* Arrêter l’événement en direct
-* Réinitialisation d’événement en direct
-* Créer LiveOutput
-* Supprimer LiveOutput
-* Créer StreamingEndpoint
-* Mise à jour StreamingEndpoint
-* Supprimer StreamingEndpoint
-* Démarrer StreamingEndpoint
-* Arrêter StreamingEndpoint
-* Mise à l’échelle StreamingEndpoint
+* Create LiveEvent
+* Update LiveEvent
+* Delete LiveEvent
+* Start LiveEvent
+* Stop LiveEvent
+* Reset LiveEvent
+* Create LiveOutput
+* Delete LiveOutput
+* Create StreamingEndpoint
+* Update StreamingEndpoint
+* Delete StreamingEndpoint
+* Start StreamingEndpoint
+* Stop StreamingEndpoint
+* Start StreamingEndpoint
 
 
 ## <a name="sdks"></a>Kits SDK
@@ -106,7 +106,7 @@ Media Services a les opérations de longue suivantes :
 > [!NOTE]
 > Les kits SDK Azure Media Services v3 ne sont pas garantis thread-safe. Lorsque vous développez une application multithread, vous devez ajouter votre propre logique de synchronisation de thread pour protéger le client, ou utiliser un objet AzureMediaServicesClient différent pour chaque thread. Vous devez également faire attention aux problèmes liés au multithreading provoqués par les objets facultatifs qui sont fournis au client par votre code (comme une instance HttpClient dans .NET, par exemple).
 
-|Kit SDK |Référence|
+|Kit SDK|Informations de référence|
 |---|---|
 |[Kit de développement logiciel (SDK) .NET](https://aka.ms/ams-v3-dotnet-sdk)|[Ref de .NET](https://aka.ms/ams-v3-dotnet-ref)|
 |[Kit SDK Java](https://aka.ms/ams-v3-java-sdk)|[Ref de Java](https://aka.ms/ams-v3-java-ref)|
@@ -128,7 +128,7 @@ AMSE est un projet Open Source, son support est assuré par la Communauté (les 
 
 ## <a name="filtering-ordering-paging-of-media-services-entities"></a>Filtrage, classement et pagination d’entités Media Services
 
-Consultez [filtrage, classement, la pagination des entités Azure Media Services](entities-overview.md)
+Consultez [Filtrage, tri et pagination des entités Azure Media Services](entities-overview.md).
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Poser des questions, envoyer des commentaires, obtenir des mises à jour
 

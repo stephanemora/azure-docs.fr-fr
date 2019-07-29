@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/08/2019
 ms.custom: seodec18
 ms.openlocfilehash: af540267e4afc1b248b66b1c6f4989b832c38b58
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66237581"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>Meilleures pratiques pour choisir un ID de série chronologique
@@ -42,13 +42,13 @@ En outre, vous pouvez sélectionner jusqu’à *trois* (3) propriétés de clé 
 
 Les scénarios suivants décrivent la sélection de plusieurs propriétés de clé en tant qu’ID de série chronologique :  
 
-### <a name="scenario-one"></a>Scénario n° 1
+### <a name="scenario-one"></a>Scénario 1
 
 * Vous avez des parcs hérités d’actifs, chacun avec une clé unique.
 * Par exemple, un parc est identifié de façon unique par la propriété *deviceId* et un autre par la propriété unique *objectId*. Aucun des parcs ne contient la propriété unique de l’autre parc. Dans cet exemple, vous sélectionnez deux clés, deviceId et objectID, comme clés uniques.
 * Nous acceptons les valeurs null, et l’absence d’une propriété dans la charge utile d’événement est comptabilisée comme une valeur `null`. Il s’agit également de la méthode appropriée pour gérer l’envoi de données à deux différentes sources d’événements, où les données de chaque source d’événement ont un ID unique de série chronologique.
 
-### <a name="scenario-two"></a>Scénario n ° 2
+### <a name="scenario-two"></a>Scénario 2
 
 * Plusieurs propriétés doivent être uniques au sein du même parc d’actifs. 
 * Par exemple, supposons que vous êtes un constructeur de bâtiments intelligents et que vous déployez des capteurs dans chaque pièce. Dans chaque pièce, vous avez généralement les mêmes valeurs pour *sensorId*, telles que *sensor1*, *sensor2* et *sensor3*.

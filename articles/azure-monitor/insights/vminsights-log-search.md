@@ -1,6 +1,6 @@
 ---
 title: Comment interroger des journaux d’activité des requête à partir d’Azure Monitor pour machines virtuelles (préversion) | Microsoft Docs
-description: Azure Monitor pour les machines virtuelles solution collecte les mesures et les données de journal et de cet article décrit les enregistrements et inclut des exemples de requêtes.
+description: Azure Monitor pour machines virtuelles collecte des métriques et des données de journal. Cet article décrit les enregistrements correspondants et inclut des exemples de requêtes.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -14,14 +14,14 @@ ms.workload: infrastructure-services
 ms.date: 04/10/2019
 ms.author: magoedte
 ms.openlocfilehash: 23ce57add0d55ba5901e2f5fcf82b3279d349cdc
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66472579"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Comment interroger des journaux d’activité des requête à partir d’Azure Monitor pour machines virtuelles (préversion)
-Azure Monitor pour les machines virtuelles collecte des performances et métriques de connexion, ordinateur et traiter les données de l’inventaire et informations d’état d’intégrité et la transfère à l’espace de travail Analytique de journal dans Azure Monitor.  Ces données sont disponibles pour [requête](../../azure-monitor/log-query/log-query-overview.md) dans Azure Monitor. Vous pouvez appliquer ces données à divers scénarios tels que la planification de la migration, l’analyse de la capacité, la détection et la résolution de problèmes de performances à la demande.
+Azure Monitor pour machines virtuelles collecte des métriques de performances et de connexion, les données d’inventaire des ordinateurs et processus et des informations concernant l’état d’intégrité, puis les transfère à l'espace de travail Log Analytics dans Azure Monitor.  Ces données sont disponibles pour la [requête](../../azure-monitor/log-query/log-query-overview.md) dans Azure Monitor. Vous pouvez appliquer ces données à divers scénarios tels que la planification de la migration, l’analyse de la capacité, la détection et la résolution de problèmes de performances à la demande.
 
 ## <a name="map-records"></a>Mapper des enregistrements
 Un enregistrement est généré par heure pour chaque ordinateur et processus, en plus des enregistrements générés lorsqu’un processus ou un ordinateur démarre ou est intégré à la fonctionnalité Map d’Azure Monitor pour les machines virtuelles. Les propriétés de ces enregistrements sont décrites dans les tableaux suivants. Les champs et les valeurs des événements ServiceMapComputer_CL sont mappés aux champs de la ressource Machine dans l’API Azure Resource Manager ServiceMap. Les champs et les valeurs des événements ServiceMapProcess_CL sont mappés aux champs de la ressource Processus dans l’API Azure Resource Manager ServiceMap. Le champ ResourceName_s correspond au champ de nom dans la ressource Azure Resource Manager correspondante. 
@@ -33,18 +33,18 @@ Il existe des propriétés générées en interne que vous pouvez utiliser pour 
 
 Étant donné que plusieurs enregistrements peuvent exister pour un processus et un ordinateur donnés au cours d’une période spécifique, les requêtes peuvent renvoyer plusieurs enregistrements pour un même ordinateur ou processus. Pour inclure uniquement l’enregistrement le plus récent, ajoutez "| dedup ResourceId" à la requête.
 
-### <a name="connections-and-ports"></a>Connexions et les ports
-La fonctionnalité de métriques de connexion introduit deux nouvelles tables dans les journaux d’Azure Monitor - VMConnection et VMBoundPort. Ces tables fournissent des informations sur les connexions pour un ordinateur (trafic entrant et sortant), ainsi que le serveur de ports qui sont open/actif sur ces derniers. ConnectionMetrics sont également exposées via les API qui fournissent les moyens d’obtenir une métrique spécifique pendant un laps de temps. Connexions TCP résultant *acceptant* sur un socket d’écoute sont entrants, tandis que ceux créés par *connexion* à une adresse IP et un port donné sont émises. La direction d’une connexion est représentée par la propriété Direction, qui peut être définie avec la valeur **inbound** ou **outbound**. 
+### <a name="connections-and-ports"></a>Connexions et ports
+La fonctionnalité Métriques de connexion introduit deux nouvelles tables dans les journaux d'activité Azure Monitor - VMConnection et VMBoundPort. Ces tables fournissent des informations sur les connexions d'une machine (trafic entrant et sortant), ainsi que sur les ports de serveur ouverts/actifs. Les métriques de connexion sont également exposées via des API permettant d’obtenir une métrique spécifique dans une fenêtre de temps. Les connexions TCP résultant de l’acceptation (*accept*) sur un socket d’écoute sont des connexions entrantes, tandis que celles créées par le biais d’une connexion (*connect*) à une adresse IP et un port spécifiques sont des connexions sortantes. La direction d’une connexion est représentée par la propriété Direction, qui peut être définie avec la valeur **inbound** ou **outbound**. 
 
-Enregistrements dans ces tables sont générées à partir des données signalées par l’Agent de dépendances. Chaque enregistrement représente une observation sur un intervalle de temps de 1 minute. La propriété TimeGenerated indique le début de l’intervalle de temps. Chaque enregistrement contient des informations identifiant l’entité respective (à savoir la connexion ou le port), ainsi que des métriques associées à cette entité. Actuellement, seule l’activité réseau utilisant TCP sur IPv4 est rapportée. 
+Les enregistrements inclus dans ces tables sont générés à partir des données rapportées par l'agent de dépendances. Chaque enregistrement représente une observation sur un intervalle de temps d’une minute. La propriété TimeGenerated indique le début de l’intervalle de temps. Chaque enregistrement contient des informations identifiant l’entité respective (à savoir la connexion ou le port), ainsi que des métriques associées à cette entité. Actuellement, seule l’activité réseau utilisant TCP sur IPv4 est rapportée. 
 
-#### <a name="common-fields-and-conventions"></a>Champs et des conventions courantes 
-Les champs et les conventions suivantes s’appliquent à VMConnection et VMBoundPort : 
+#### <a name="common-fields-and-conventions"></a>Champs et conventions courants 
+Les champs et les conventions suivants s’appliquent à VMConnection et VMBoundPort : 
 
-- Ordinateur : Nom de domaine complet de l’ordinateur de création de rapports 
-- ID de l’agent : L’identificateur unique pour un ordinateur avec l’agent d’Analytique de journal  
-- Machine : Nom de la ressource Azure Resource Manager pour la machine exposée par ServiceMap. Il est au format *m-{GUID}* , où *GUID* est le même GUID que l’ID de l’agent  
-- Processus : Nom de la ressource Azure Resource Manager pour le processus exposé par ServiceMap. Il est au format *p-{chaîne hexadécimale}* . Processus est unique au sein d’une étendue de l’ordinateur et pour générer un ID de processus unique sur plusieurs ordinateurs, combiner des champs de processus et de la Machine. 
+- Ordinateur : Nom de domaine complet de la machine qui rend compte 
+- AgentID : Identificateur unique de la machine hébergeant l'agent Log Analytics  
+- Machine : Nom de la ressource Azure Resource Manager pour la machine exposée par ServiceMap. Il se présente au format *m-{GUID}* , où *GUID* correspond au même GUID que l’ID d'agent  
+- Processus : Nom de la ressource Azure Resource Manager pour le processus exposé par ServiceMap. Il se présente au format *p-{chaîne hexadécimale}* . Le processus est unique au sein d’une étendue de machine et pour générer un ID de processus unique sur plusieurs machines, combinez des champs de machine et de processus. 
 - ProcessName : Nom de l’exécutable du processus de création de rapports.
 - Toutes les adresses IP sont des chaînes au format canonique IPv4, par exemple *13.107.3.160* 
 
@@ -53,12 +53,12 @@ Les champs et les conventions suivantes s’appliquent à VMConnection et VMBoun
 | Propriété | Description |
 |:--|:--|
 |Direction |Direction de la connexion (valeur *inbound* ou *outbound*) |
-|Machine |Nom de domaine complet (FQDN) de l’ordinateur |
+|Ordinateur |Nom de domaine complet (FQDN) de l’ordinateur |
 |Process |Identité du processus ou de groupes de processus initialisant/acceptant la connexion |
 |SourceIp |Adresse IP de la source |
 |DestinationIp |Adresse IP de la destination |
 |DestinationPort |Numéro de port de la destination |
-|Protocol |Protocole utilisé pour la connexion.  La valeur est *tcp*. |
+|Protocole |Protocole utilisé pour la connexion.  La valeur est *tcp*. |
 
 Pour prendre en compte l’impact du regroupement, les informations sur le nombre de connexions physiques groupées sont fournies dans les propriétés suivantes de l’enregistrement :
 
@@ -91,7 +91,7 @@ Voici quelques points importants à prendre en compte :
 1. Si un processus accepte des connexions sur la même adresse IP mais sur plusieurs interfaces réseau, un enregistrement distinct pour chaque interface est rapporté. 
 2. Les enregistrements avec une adresse IP générique ne contiennent aucune activité. Ils sont inclus pour représenter le fait qu’un port de la machine est ouvert pour le trafic entrant.
 3. Pour réduire le niveau de détail et le volume de données, les enregistrements avec IP générique sont omis en présence d’un enregistrement correspondant (pour le même processus, le même port et le même protocole) avec une adresse IP spécifique. Lorsqu’un enregistrement IP générique est omis, la propriété d’enregistrement IsWildcardBind avec l’adresse IP spécifique a la valeur « True » pour indiquer que le port est exposé sur toutes les interfaces de la machine à l’origine du rapport.
-4. Les ports qui sont liés uniquement sur une interface spécifique ont IsWildcardBind défini sur *False*.
+4. Pour les ports liés à une interface spécifique uniquement, IsWildcardBind a la valeur *False*.
 
 #### <a name="naming-and-classification"></a>Affectation de noms et classification
 Pour plus de commodité, l’adresse IP de l’extrémité distante d’une connexion est incluse dans la propriété RemoteIp. Pour les connexions entrantes, RemoteIp est identique à SourceIp, tandis que pour les connexions sortantes, elle est identique à DestinationIp. La propriété RemoteDnsCanonicalNames représente les noms canoniques DNS rapportés par la machine pour RemoteIp. Les propriétés RemoteDnsQuestions et RemoteClassification sont réservées en vue d’une utilisation ultérieure. 
@@ -101,7 +101,7 @@ Pour plus de commodité, l’adresse IP de l’extrémité distante d’une conn
 
 | Propriété | Description |
 |:--|:--|
-|RemoteCountry |Le nom de pays/région RemoteIp d’hébergement.  Par exemple, *États-Unis* |
+|RemoteCountry |Nom du pays/de la région hébergeant RemoteIp.  Par exemple, *États-Unis* |
 |RemoteLatitude |Latitude de géolocalisation. Par exemple, *47,68*. |
 |RemoteLongitude |Longitude de géolocalisation. Par exemple, *-122,12*. |
 
@@ -123,23 +123,23 @@ Chaque propriété RemoteIp de la table *VMConnection* est comparée à un ensem
 |AdditionalInformation |Fournit des informations supplémentaires, s’il y a lieu, sur la menace observée. |
 
 ### <a name="ports"></a>Ports 
-Ports sur un ordinateur qui activement accepteront le trafic entrant ou pourraient potentiellement accepter le trafic, mais sont inactives pendant la fenêtre de temps de création de rapports, sont écrites dans la table VMBoundPort.  
+Les ports d'une machine acceptant activement le trafic entrant ou susceptible de l'accepter, mais inactifs dans la fenêtre de temps de rapport, sont consignés dans la table VMBoundPort.  
 
-Chaque enregistrement dans VMBoundPort est identifiée par les champs suivants : 
+Chaque enregistrement de VMBoundPort est identifié par les champs suivants : 
 
 | Propriété | Description |
 |:--|:--|
-|Process | Identité de processus (ou groupes de processus) avec laquelle le port est associé.|
-|Ip | L’adresse IP du port (peut être l’adresse IP de caractère générique, *0.0.0.0*) |
-|Port |Le numéro de Port |
-|Protocol | Le protocole.  Exemple, *tcp* ou *udp* (uniquement *tcp* est actuellement pris en charge).|
+|Process | Identité du processus (ou groupes de processus) auquel le port est associé.|
+|IP | Adresse IP du port (peut correspondre à une adresse IP générique, *0.0.0.0*) |
+|Port |Numéro de port |
+|Protocole | Protocole.  Exemple, *tcp* ou *udp* (actuellement, seul *tcp* est pris en charge).|
  
-L’identité un port est dérivé de cinq champs ci-dessus et est stocké dans la propriété ID de port. Cette propriété peut être utilisée pour rechercher rapidement des enregistrements pour un port spécifique dans le temps. 
+Identité d'un port dérivée des cinq champs ci-dessus et stockée dans la propriété PortId. Cette propriété peut être utilisée pour rapidement rechercher les enregistrements d'un port spécifique au fil du temps. 
 
 #### <a name="metrics"></a>Mesures 
-Les enregistrements de port incluent des métriques représentant les connexions qui s’y rapportent. Actuellement, les mesures suivantes sont signalés (les détails pour chaque métrique sont décrits dans la section précédente) : 
+Les enregistrements de port incluent des métriques représentant les connexions qui s’y rapportent. Actuellement, les métriques suivantes sont signalées (les détails de chaque métrique sont décrits dans la section précédente) : 
 
-- Octets envoyés et BytesReceived 
+- BytesSent et BytesReceived 
 - LinksEstablished, LinksTerminated, LinksLive 
 - ResposeTime, ResponseTimeMin, ResponseTimeMax, ResponseTimeSum 
 
@@ -147,8 +147,8 @@ Voici quelques points importants à prendre en compte :
 
 - Si un processus accepte des connexions sur la même adresse IP mais sur plusieurs interfaces réseau, un enregistrement distinct pour chaque interface est rapporté.  
 - Les enregistrements avec une adresse IP générique ne contiennent aucune activité. Ils sont inclus pour représenter le fait qu’un port de la machine est ouvert pour le trafic entrant. 
-- Pour réduire le niveau de détail et le volume de données, les enregistrements avec IP générique sont omis en présence d’un enregistrement correspondant (pour le même processus, le même port et le même protocole) avec une adresse IP spécifique. Lorsqu’un enregistrement d’adresse IP de caractère générique est omis, le *IsWildcardBind* propriété pour l’enregistrement avec l’adresse IP spécifique, être la valeur *True*.  Cela indique que le port est exposé via toutes les interfaces de l’ordinateur de création de rapports. 
-- Les ports qui sont liés uniquement sur une interface spécifique ont IsWildcardBind défini sur *False*. 
+- Pour réduire le niveau de détail et le volume de données, les enregistrements avec IP générique sont omis en présence d’un enregistrement correspondant (pour le même processus, le même port et le même protocole) avec une adresse IP spécifique. Lorsqu’un enregistrement d’adresse IP générique est omis, la propriété *IsWildcardBind* de l’enregistrement avec l’adresse IP spécifique est définie sur *True*.  Cela indique que le port est exposé via toutes les interfaces de la machine qui rend compte. 
+- Pour les ports liés à une interface spécifique uniquement, IsWildcardBind a la valeur *False*. 
 
 ### <a name="servicemapcomputercl-records"></a>Enregistrements ServiceMapComputer_CL
 Les enregistrements de type *ServiceMapComputer_CL* ont des données d’inventaire pour les serveurs avec Dependency Agent. Les propriétés de ces enregistrements sont décrites dans le tableau suivant :
@@ -197,7 +197,7 @@ Les enregistrements de type *ServiceMapProcess_CL* ont des données d’inventai
 | CommandLine_s | Ligne de commande |
 | ExecutablePath_s | Chemin d’accès du fichier exécutable |
 | WorkingDirectory_s | Le répertoire de travail |
-| UserName | Compte sous lequel le processus s’exécute |
+| Nom d’utilisateur | Compte sous lequel le processus s’exécute |
 | UserDomain | Domaine sous lequel le processus s’exécute |
 
 ## <a name="sample-log-searches"></a>Exemples de recherches dans les journaux
@@ -282,7 +282,7 @@ VMConnection | where TimeGenerated >= ago(24hr) | where Computer == "acme-demo" 
 VMConnection | where Computer == "acme-demo" | extend bythehour = datetime_part("hour", TimeGenerated) | project bythehour, LinksFailed | summarize failCount = count() by bythehour | sort by bythehour asc | render timechart`
 ```
 
-### <a name="bound-ports"></a>Ports à liaison
+### <a name="bound-ports"></a>Ports liés
 ```kusto
 VMBoundPort
 | where TimeGenerated >= ago(24hr)
@@ -290,7 +290,7 @@ VMBoundPort
 | distinct Port, ProcessName
 ```
 
-### <a name="number-of-open-ports-across-machines"></a>Nombre de ports ouverts sur plusieurs ordinateurs
+### <a name="number-of-open-ports-across-machines"></a>Nombre de ports ouverts sur différentes machines
 ```kusto
 VMBoundPort
 | where Ip != "127.0.0.1"
@@ -299,7 +299,7 @@ VMBoundPort
 | order by OpenPorts desc
 ```
 
-### <a name="score-processes-in-your-workspace-by-the-number-of-ports-they-have-open"></a>Noter les processus dans votre espace de travail par le nombre de ports que sont-ils open
+### <a name="score-processes-in-your-workspace-by-the-number-of-ports-they-have-open"></a>Noter les processus dans votre espace de travail en fonction du nombre de ports qu'ils ont ouvert
 ```kusto
 VMBoundPort
 | where Ip != "127.0.0.1"
@@ -308,8 +308,8 @@ VMBoundPort
 | order by OpenPorts desc
 ```
 
-### <a name="aggregate-behavior-for-each-port"></a>Comportement d’agrégat pour chaque port
-Cette requête peut ensuite servir à noter les ports par activité, par exemple, les ports avec plus de trafic entrant et sortant, les ports avec la plupart des connexions
+### <a name="aggregate-behavior-for-each-port"></a>Agréger le comportement de chaque port
+Cette requête permet ensuite de noter les ports par activité (par exemple, les ports avec le plus de trafic entrant/sortant, les ports avec le plus de connexions)
 ```kusto
 // 
 VMBoundPort
@@ -362,5 +362,5 @@ let remoteMachines = remote | summarize by RemoteMachine;
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Si vous ne savez pas comment rédiger des requêtes de journal dans Azure Monitor, consultez [comment utiliser l’Analytique de journal](../../azure-monitor/log-query/get-started-portal.md) dans le portail Azure pour écrire des requêtes de journal.
+* Si vous débutez dans l’écriture de requêtes de journal dans Azure Monitor, consultez [Comment utiliser Log Analytics](../../azure-monitor/log-query/get-started-portal.md) dans le portail Azure pour en savoir plus.
 * Découvrez [l’écriture de requêtes de recherche](../../azure-monitor/log-query/search-queries.md).

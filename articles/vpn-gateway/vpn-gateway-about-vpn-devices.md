@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/29/2019
 ms.author: yushwang
 ms.openlocfilehash: 6535949767999e04b11106ff8a294e912a6d0fb8
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66388851"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>À propos des périphériques VPN et des paramètres IPsec/IKE pour les connexions de passerelle VPN site à site
@@ -68,7 +68,7 @@ Pour configurer plus facilement votre périphérique VPN, reportez-vous aux lien
 | Synology | MR2200ac <br>RT2600ac <br>RT1900ac | SRM1.1.5/VpnPlusServer-1.2.0 |  | [Guide de configuration](https://www.synology.com/en-global/knowledgebase/SRM/tutorial/VPN/How_to_set_up_Site_to_Site_VPN_between_Synology_Router_and_MS_Azure) |
 | Ubiquiti | EdgeRouter | Version 1.10 d’EdgeOS |  | [Protocole BGP sur IKEv2/IPsec](https://help.ubnt.com/hc/en-us/articles/115012374708)<br><br>[Protocole VTI sur IKEv2/IPsec](https://help.ubnt.com/hc/en-us/articles/115012305347)
 | WatchGuard |Tous |Fireware XTM<br> PolicyBased: v11.11.x<br>RouteBased: v11.12.x |[Guide de configuration](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA2F00000000LI7KAM&lang=en_US) |[Guide de configuration](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA22A000000XZogSAG&lang=en_US)|
-| Zyxel |Série de ZyWALL USG<br>Série de ZyWALL ATP<br>Série de ZyWALL VPN | ZLD v4.32 + | | [Protocole VTI sur IKEv2/IPsec](https://businessforum.zyxel.com/discussion/2648/)<br>[Protocole BGP sur IKEv2/IPsec](https://businessforum.zyxel.com/discussion/2650/)|
+| Zyxel |Série ZyWALL USG<br>Série ZyWALL ATP<br>Série ZyWALL VPN | ZLD v4.32 + | | [Protocole VTI sur IKEv2/IPsec](https://businessforum.zyxel.com/discussion/2648/)<br>[Protocole BGP sur IKEv2/IPsec](https://businessforum.zyxel.com/discussion/2650/)|
 
 > [!NOTE]
 >
@@ -159,8 +159,8 @@ Le tableau suivant répertorie les offres d’association de sécurité IPsec (I
 | 2 |AES256        |SHA1              |Aucun         |
 | 3 |3DES          |SHA1              |Aucun         |
 | 4 |AES256        |SHA256            |Aucun         |
-| 5. |AES128        |SHA1              |Aucun         |
-| 6. |3DES          |SHA256            |Aucun         |
+| 5\. |AES128        |SHA1              |Aucun         |
+| 6\. |3DES          |SHA256            |Aucun         |
 
 #### <a name="azure-gateway-as-responder"></a>Passerelle Azure en tant que répondeur
 
@@ -170,8 +170,8 @@ Le tableau suivant répertorie les offres d’association de sécurité IPsec (I
 | 2 |AES256        |SHA1              |Aucun         |
 | 3 |3DES          |SHA1              |Aucun         |
 | 4 |AES256        |SHA256            |Aucun         |
-| 5. |AES128        |SHA1              |Aucun         |
-| 6. |3DES          |SHA256            |Aucun         |
+| 5\. |AES128        |SHA1              |Aucun         |
+| 6\. |3DES          |SHA256            |Aucun         |
 | 7 |DES           |SHA1              |Aucun         |
 | 8 |AES256        |SHA1              |1            |
 | 9 |AES256        |SHA1              |2            |

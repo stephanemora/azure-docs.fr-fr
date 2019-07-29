@@ -1,19 +1,19 @@
 ---
-title: Opérations d’un compte Azure Cosmos de chaîne de script Azure PowerShell - clé de compte et de connexion
-description: Exemple de script PowerShell - opérations de chaînes des connexions et la clé de compte pour un compte Azure Cosmos
+title: Script Azure PowerShell - Opérations de clé de compte et de chaîne de connexion pour un compte Azure Cosmos
+description: Exemple de script Azure PowerShell - Opérations de clé de compte et de chaîne de connexion pour un compte Azure Cosmos
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: samples
 ms.date: 05/20/2019
 ms.author: mjbrown
 ms.openlocfilehash: a7f86bfee0ee2472260b622dc709dc437e53414c
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66247858"
 ---
-# <a name="connection-string-and-account-key-operations-for-an-azure-cosmos-account-using-powershell"></a>Opérations d’un compte Azure Cosmos à l’aide de PowerShell de clé de chaîne de connexion et de compte
+# <a name="connection-string-and-account-key-operations-for-an-azure-cosmos-account-using-powershell"></a>Opérations de clé de compte et de chaîne de connexion pour un compte Cosmos à l’aide de PowerShell
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -21,7 +21,7 @@ ms.locfileid: "66247858"
 
 ## <a name="sample-script"></a>Exemple de script
 
-Cet exemple nécessite le groupe de ressources et le compte existe. Utilisez une session PowerShell existante création d’exemple pour approvisionner un compte tout d’abord.
+Ces exemples requièrent le groupe de ressources et le compte. Utilisez un exemple de création PowerShell existant pour approvisionner d'abord un compte.
 
 [!code-powershell[main](../../../../../powershell_scripts/cosmosdb/common/ps-account-keys-connection-strings.ps1 "Connection strings and account keys for Azure Cosmos account")]
 

@@ -9,10 +9,10 @@ ms.date: 05/20/2019
 ms.reviewer: sngun
 ms.custom: seodec18
 ms.openlocfilehash: 51a554586c67842ead40cd4a1bfaaa51bbdd8a18
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65954402"
 ---
 # <a name="change-feed-in-azure-cosmos-db---overview"></a>Flux de modification dans Azure Cosmos DB - Vue d'ensemble
@@ -35,10 +35,10 @@ Cette fonctionnalité est prise en charge par les API et les SDK clients Azure C
 
 | **Pilotes clients** | **Interface de ligne de commande Azure** | **API SQL** | **API Cassandra** | **API pour MongoDB d’Azure Cosmos DB** | **API Gremlin**|**API de table** |
 | --- | --- | --- | --- | --- | --- | --- |
-| .NET | N/D | Oui | Non  | Non  | Oui | Non |
-|Java|N/D|Oui|Non |Non |Oui|Non|
-|Python|N/D|Oui|Non |Non |Oui|Non|
-|Node/JS|N/D|Oui|Non |Non |Oui|Non|
+| .NET | N/D | OUI | Non | Non | OUI | Non |
+|Java|N/D|OUI|Non|Non|OUI|Non|
+|Python|N/D|OUI|Non|Non|OUI|Non|
+|Node/JS|N/D|OUI|Non|Non|OUI|Non|
 
 ## <a name="change-feed-and-different-operations"></a>Flux de modification et différentes opérations
 
@@ -58,7 +58,7 @@ Si une propriété de durée de vie (TTL) est définie sur -1 pour un élément,
 
 ### <a name="change-feed-and-etag-lsn-or-ts"></a>Flux de modification et formats _etag, _lsn ou _ts
 
-Le format _etag est un format interne. Vous ne devez pas vous y fier, car il peut être modifié à tout moment. Le format _ts correspond à un horodatage de modification ou de création. Vous pouvez utiliser les données _ts à des fins de comparaison chronologique. _lsn est un ID de lot est ajouté pour la modification de flux uniquement ; Il représente l’ID de transaction. De nombreux éléments peuvent avoir un même _lsn. L’étiquette d’entité (ETag) de FeedResponse est différente du _etag que vous voyez dans l’élément. _etag est un identificateur interne utilisé pour le contrôle de l’accès concurrentiel, qui indique la version du document, alors que l’ETag est utilisé pour le séquencement du flux.
+Le format _etag est un format interne. Vous ne devez pas vous y fier, car il peut être modifié à tout moment. Le format _ts correspond à un horodatage de modification ou de création. Vous pouvez utiliser les données _ts à des fins de comparaison chronologique. Le format _lsn est un ID de lot qui est ajouté uniquement pour le flux de modification. Il représente l’ID de transaction. De nombreux éléments peuvent avoir un même _lsn. L’étiquette d’entité (ETag) de FeedResponse est différente du _etag que vous voyez dans l’élément. _etag est un identificateur interne utilisé pour le contrôle de l’accès concurrentiel, qui indique la version du document, alors que l’ETag est utilisé pour le séquencement du flux.
 
 ## <a name="change-feed-use-cases-and-scenarios"></a>Cas d’utilisation et scénarios du flux de modification
 
@@ -118,7 +118,7 @@ Le flux de modification est disponible pour chacune des clés de partition logiq
 
 * Les modifications sont disponibles en parallèle pour toutes les clés de partition logique d’un conteneur Azure Cosmos. Cette fonctionnalité permet à plusieurs consommateurs de traiter en parallèle les modifications de grands conteneurs.
 
-* Les applications peuvent demander plusieurs flux de modification sur le même conteneur simultanément. ChangeFeedOptions.StartTime peut être utilisé pour fournir un point de départ. Par exemple, pour rechercher le jeton de continuation correspondant à une heure donnée. S’il est spécifié, ContinuationToken l’emporte sur les valeurs StartTime et StartFromBeginning. La précision de ChangeFeedOptions.StartTime est ’environ 5 secondes. 
+* Les applications peuvent demander plusieurs flux de modification simultanément pour un même conteneur. ChangeFeedOptions.StartTime peut être utilisé pour fournir un point de départ. Par exemple, pour rechercher le jeton de continuation correspondant à une heure donnée. S’il est spécifié, ContinuationToken l’emporte sur les valeurs StartTime et StartFromBeginning. La précision de ChangeFeedOptions.StartTime est ’environ 5 secondes. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

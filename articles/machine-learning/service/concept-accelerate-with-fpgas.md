@@ -1,5 +1,5 @@
 ---
-title: Quelles sont les tableaux de portes à champ programmable (FPGA)
+title: Présentation des FPGA (Field Programmable Gate Arrays)
 titleSuffix: Azure Machine Learning service
 description: Découvrez comment accélérer des modèles et des réseaux neuronaux profonds avec des FPGA sur Azure. Cet article présente les FGPA (Field-Programmable Gate Array) et explique comment le service Azure Machine Learning fournit l’intelligence artificielle (IA) en temps réel quand vous déployez votre modèle sur un FPGA Azure.
 services: machine-learning
@@ -12,13 +12,13 @@ ms.reviewer: jmartens
 ms.date: 04/24/2019
 ms.custom: seodec18
 ms.openlocfilehash: 9204b0d8513d4adbb9c93be94284d7d46de41e06
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66479564"
 ---
-# <a name="what-are-field-programmable-gate-arrays-fpga"></a>Quelles sont les tableaux de portes à champ programmable (FPGA)
+# <a name="what-are-field-programmable-gate-arrays-fpga"></a>Présentation des FPGA (Field Programmable Gate Arrays)
 
 Cet article présente les FGPA (Field-Programmable Gate Array) et explique comment le service Azure Machine Learning fournit l’intelligence artificielle (IA) en temps réel quand vous déployez votre modèle sur un FPGA Azure.
 
@@ -37,28 +37,28 @@ Le diagramme et le tableau qui suivent comparent les FPGA et les autres processe
 |GPU (Graphics Processing Unit, Unité de traitement graphique)|GPU|Un choix courant pour les calculs en intelligence artificielle. Les GPU offrent des fonctionnalités de traitement parallèle qui les rendent plus rapides que les UC pour le rendu des images.|
 |UC (Unité centrale)|UC|Processeurs à usage général dont les performances ne sont pas idéales pour le traitement des images et de la vidéo.|
 
-Des FPGA sur Azure sont basées sur les appareils FPGA d’Intel, les scientifiques des données et les développeurs utilisent pour accélérer les calculs d’intelligence artificielle en temps réel. Cette architecture compatible avec les FPGA offre performances, flexibilité et scalabilité, et est disponible sur Azure.
+Les FPGA sur Azure sont basés sur les FPGA d’Intel, que les scientifiques des données et les développeurs utilisent pour accélérer les calculs d’intelligence artificielle en temps réel. Cette architecture compatible avec les FPGA offre performances, flexibilité et scalabilité, et est disponible sur Azure.
 
-Des FPGA permettent d’atteindre de requêtes à faible latence de l’inférence en temps réel (ou d’évaluation de modèle). Les requêtes asynchrones (traitement par lot) ne sont pas nécessaires. Le traitement par lots peut entraîner une latence, car davantage de données doivent être traitées. Les implémentations des unités de traitement neuronaux ne nécessitent pas de traitement par lot ; la latence peut donc être autant de fois inférieure, par rapport aux processeurs GPU et UC.
+Les FPGA permettent d’obtenir une latence faible pour les requêtes d’inférence en temps réel (ou notation de modèle). Les requêtes asynchrones (traitement par lot) ne sont pas nécessaires. Le traitement par lots peut entraîner une latence, car davantage de données doivent être traitées. Les implémentations des unités de traitement neuronal ne nécessitent pas de traitement par lots. Ainsi, la latence peut être plusieurs fois inférieure à celle des UC et des GPU.
 
 ### <a name="reconfigurable-power"></a>Puissance reconfigurable
 Vous pouvez reconfigurer les FGPA pour différents types de modèles Machine Learning. Cette souplesse permet d’accélérer les applications basées sur la précision numérique la plus optimale et le modèle de mémoire utilisé. Étant donné que les FPGA sont reconfigurables, vous pouvez suivre l’évolution des besoins des algorithmes d’intelligence artificielle.
 
 ### <a name="whats-supported-on-azure"></a>Ce qui est pris en charge sur Azure
-Microsoft Azure constitue le plus important investissement cloud au monde en matière de FPGA. FPGA sur Azure prend en charge :
+Microsoft Azure constitue le plus important investissement cloud au monde en matière de FPGA. Les FPGA sur Azure prennent en charge :
 
 + Les scénarios de classification et de reconnaissance d’images
 + Le déploiement de TensorFlow
 + Réseaux neuronaux profonds : ResNet 50, ResNet 152, VGG-16, SSD-VGG et DenseNet-121
 + Le matériel FPGA d’Intel 
 
-En utilisant cette architecture matérielle compatible avec les FPGA, les réseaux neuronaux entraînés s’exécutent rapidement et avec une latence plus faible. Azure peut paralléliser préformé les réseaux neuronaux profonds (DNN) sur des FPGA faire évoluer votre service. Les réseaux neuronaux profonds peuvent être préentraînés, en tant que caractériseurs profonds pour l’apprentissage du transfert, ou optimisés avec des pondérations mises à jour.
+En utilisant cette architecture matérielle compatible avec les FPGA, les réseaux neuronaux entraînés s’exécutent rapidement et avec une latence plus faible. Azure peut mettre en parallèle des réseaux neuronaux profonds préentraînés sur des FPGA pour faire monter en charge votre service. Les réseaux neuronaux profonds peuvent être préentraînés, en tant que caractériseurs profonds pour l’apprentissage du transfert, ou optimisés avec des pondérations mises à jour.
 
 ### <a name="scenarios-and-applications"></a>Scénarios et applications
 
-Des FPGA Azure sont intégrés à Azure Machine Learning. Microsoft utilise des FPGA pour l’évaluation des réseaux neuronaux profonds, le classement des recherches Bing et l’accélération réseau définie par logiciel pour réduire la latence, tout en libérant les UC pour d’autres tâches.
+Les FPGA Azure ne sont pas intégrés à Azure Machine Learning. Microsoft utilise des FPGA pour l’évaluation des réseaux neuronaux profonds, le classement des recherches Bing et l’accélération réseau définie par logiciel pour réduire la latence, tout en libérant les UC pour d’autres tâches.
 
-Les scénarios suivants utilisent des FPGA :
+Les scénarios suivants utilisent les FPGA :
 + [Système d’inspection optique automatisé](https://blogs.microsoft.com/ai/build-2018-project-brainwave/)
 
 + [Cartographie de couverture terrestre](https://blogs.technet.microsoft.com/machinelearning/2018/05/29/how-to-use-fpgas-for-deep-learning-inference-to-perform-land-cover-mapping-on-terabytes-of-aerial-images/)
@@ -67,7 +67,7 @@ Les scénarios suivants utilisent des FPGA :
 
 Pour créer un service de reconnaissance d’images dans Azure, vous pouvez utiliser les réseaux neuronaux profonds pris en charge comme caractériseurs pour le déploiement sur les FPGA Azure :
 
-1. Utilisez le [SDK Azure Machine Learning pour Python](https://aka.ms/aml-sdk) pour créer une définition de service. Une définition de service est un fichier décrivant un pipeline de graphes (entrée, caractériseur et classifieur) basé sur TensorFlow. La commande de déploiement compresse automatiquement la définition et les graphes dans un fichier ZIP, puis charge ce fichier dans Stockage Blob Azure. Le réseau de neurones profond est déjà déployé pour s’exécuter sur le FPGA.
+1. Utilisez le [SDK Azure Machine Learning pour Python](https://aka.ms/aml-sdk) pour créer une définition de service. Une définition de service est un fichier décrivant un pipeline de graphes (entrée, caractériseur et classifieur) basé sur TensorFlow. La commande de déploiement compresse automatiquement la définition et les graphes dans un fichier ZIP, puis charge ce fichier dans Stockage Blob Azure. Le réseau neuronal profond est déjà déployé pour s’exécuter sur le FPGA.
 
 1. Inscrivez le modèle en utilisant le SDK avec le fichier ZIP dans Stockage Blob Azure.
 

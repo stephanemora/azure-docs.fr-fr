@@ -1,7 +1,7 @@
 ---
 title: Créer un espace de travail
 titleSuffix: Azure Machine Learning service
-description: Utilisez le portail Azure, le Kit de développement, un modèle ou l’interface CLI pour créer votre espace de travail du service Azure Machine Learning. Cet espace de travail fournit un emplacement centralisé pour travailler avec tous les artefacts que vous créez lorsque vous utilisez le service Azure Machine Learning.
+description: Utilisez le portail Azure, le kit de développement logiciel (SDK), un modèle ou l'interface CLI pour créer votre espace de travail Azure Machine Learning service. Cet espace de travail fournit un emplacement centralisé dans lequel utiliser tous les artefacts que vous créez lorsque vous utilisez Azure Machine Learning service.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,30 +11,30 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 05/21/2019
 ms.openlocfilehash: 36f3d421ee0b41a0ff71b549a4d4b5646188c3fa
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66417355"
 ---
-# <a name="create-an-azure-machine-learning-service-workspace"></a>Créer un espace de travail du service Azure Machine Learning
+# <a name="create-an-azure-machine-learning-service-workspace"></a>Créer un espace de travail Azure Machine Learning service
 
-Pour utiliser le service Azure Machine Learning, vous devez un [ **espace de travail de service Azure Machine Learning**](concept-workspace.md).  Cet espace de travail est la ressource de niveau supérieur pour le service et vous fournit un emplacement centralisé pour travailler avec tous les artefacts que vous créez. 
+Pour utiliser Azure Machine Learning service, vous devez disposer d’un [**espace de travail Azure Machine Learning service**](concept-workspace.md).  Cet espace de travail correspond à la ressource de niveau supérieur du service, et vous offre un emplacement centralisé où utiliser tous les artefacts que vous créez. 
 
 Dans cet article, vous allez apprendre à créer un espace de travail en utilisant l’une des méthodes suivantes : 
-* Le [Azure portal](#portal) interface
-* Le [Azure Machine Learning SDK pour Python](#sdk)
-* Un modèle Azure Resource Manager
-* Le [Azure Machine Learning CLI](#cli)
+* L'interface du [portail Azure](#portal)
+* Le [kit de développement logiciel (SDK) Azure Machine Learning pour Python](#sdk)
+* Un modèle Azure Resource Manager
+* L'[interface CLI Azure Machine Learning](#cli)
 
-L’espace de travail que vous créez à l’aide de la procédure décrite ici dans peut être utilisé comme condition préalable à d’autres didacticiels et les articles de savoir-faire.
+L’espace de travail que vous créez à l’aide de la procédure décrite ici peut faire office de prérequis à d'autres tutoriels et guides pratiques.
 
-Si vous souhaitez utiliser un script pour le programme d’installation automatisée de machine learning dans un environnement Python local, consultez le [Azure/MachineLearningNotebooks GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning) pour obtenir des instructions.  
+Si vous souhaitez utiliser un script pour configurer Machine Learning automatisé dans un environnement Python local, consultez le [GitHub Azure/MachineLearningNoteboo](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning) afin d'obtenir des instructions.  
 
-Lorsque vous créez un espace de travail les ressources Azure suivantes sont ajoutées automatiquement (si elles sont disponibles au niveau régional) :
+Lorsque vous créez un espace de travail, les ressources Azure suivantes sont automatiquement ajoutées (lorsqu’elles sont disponibles au niveau régional) :
  
-- [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) : Pour réduire les coûts, ACR est **chargées en différé** jusqu'à ce que les images de déploiement sont créés.
-- [Azure Storage](https://azure.microsoft.com/services/storage/)
+- [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) : Pour réduire les coûts, ACR est **chargé en différé** jusqu’à la création des images de déploiement.
+- [Stockage Azure](https://azure.microsoft.com/services/storage/)
 - [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) 
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
 
@@ -42,30 +42,30 @@ Lorsque vous créez un espace de travail les ressources Azure suivantes sont ajo
 >À l’instar des autres services Azure, certains quotas et limites sont associés au Machine Learning. [En savoir plus sur les quotas et comment demander à les relever.](how-to-manage-quotas.md)
 
 
-## <a name="prerequisites"></a>Conditions préalables
-Pour créer un espace de travail, vous avez besoin d’un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning service](https://aka.ms/AMLFree) dès aujourd’hui.
+## <a name="prerequisites"></a>Prérequis
+Pour créer un espace de travail, vous avez besoin d’un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez dès aujourd'hui la [version gratuite ou payante d’Azure Machine Learning service](https://aka.ms/AMLFree).
 
 ## <a name="portal"></a> Portail Azure
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-Quelle que soit la façon dont il a été créé, vous pouvez afficher votre espace de travail dans le [Azure portal](https://portal.azure.com/).  Consultez [afficher un espace de travail](how-to-manage-workspace.md#view) pour plus d’informations.
+Quelle que soit la manière dont il a été créé, vous pouvez afficher votre espace de travail dans le [portail Azure](https://portal.azure.com/).  Pour plus d'informations, consulter [Afficher un espace de travail](how-to-manage-workspace.md#view).
 
-## <a name="sdk"></a> SDK Python
+## <a name="sdk"></a> Kit de développement logiciel (SDK) Python
 
-Créer votre espace de travail à l’aide du Kit de développement Python. Vous devez d’abord installer le Kit de développement.
+Créez votre espace de travail à l’aide du kit de développement logiciel (SDK) Python. Vous devez d’abord installer le kit de développement logiciel (SDK).
 
 > [!IMPORTANT]
-> Ignorer l’installation du SDK si vous utilisez une Machine virtuelle de science des données Azure ou le Azure Databricks.
-> * Le kit SDK Python est préinstallé sur les machines Azure DSVM créées après le 27 septembre 2018. Ignorer l’installation et commencer par [créer un espace de travail avec le SDK](#sdk-create).
+> Ignorez l'installation du kit de développement logiciel (SDK) si vous utilisez une machine virtuelle Azure DSVM (Data Science Virtual Machine) ou Azure Databricks.
+> * Le kit SDK Python est préinstallé sur les machines Azure DSVM créées après le 27 septembre 2018. Ignorez l’installation et consultez [Créer un espace de travail avec le kit de développement logiciel (SDK)](#sdk-create).
 > * Dans l’environnement Azure Databricks, suivez à la place les [étapes d’installation pour Databricks](how-to-configure-environment.md#azure-databricks).
 
 >[!NOTE]
-> Utilisez ces instructions pour installer et utiliser le SDK à partir de votre ordinateur local. Pour utiliser Jupyter sur une machine virtuelle à distance, configurez un référentiel distant ou bureau X session Terminal Server.
+> Utilisez ces instructions pour installer et utiliser le kit de développement logiciel (SDK) à partir de votre ordinateur local. Pour utiliser Jupyter sur une machine virtuelle distante, configurez une session Bureau à distance ou de terminal X.
 
 Avant d’installer le Kit de développement logiciel (SDK), nous vous recommandons de créer un environnement Python isolé. Bien que cet article utilise [Miniconda](https://docs.conda.io/en/latest/miniconda.html), vous pouvez également utiliser [Anaconda](https://www.anaconda.com/) complet installé ou un [environnement virtuel Python](https://virtualenv.pypa.io/en/stable/).
 
-Les instructions fournies dans cet article va installer tous les packages que vous devez exécuter les blocs-notes de démarrage rapide et le didacticiel.  D’autres exemples de notebooks peuvent nécessiter l’installation de composants supplémentaires.  Pour plus d’informations sur ces composants, consultez [Installer le kit SDK Azure Machine Learning pour Python](https://docs.microsoft.com/python/api/overview/azure/ml/install).
+Les instructions contenues dans cet article permettent d’installer tous les packages nécessaires à l’exécution des notebooks de démarrage rapide et de tutoriel.  D’autres exemples de notebooks peuvent nécessiter l’installation de composants supplémentaires.  Pour plus d’informations sur ces composants, consultez [Installer le kit SDK Azure Machine Learning pour Python](https://docs.microsoft.com/python/api/overview/azure/ml/install).
 
 ### <a name="install-miniconda"></a>Installation de Miniconda
 
@@ -73,7 +73,7 @@ Les instructions fournies dans cet article va installer tous les packages que vo
 
 ### <a name="create-an-isolated-python-environment"></a>Création d’un environnement isolé de Python
 
-1. Ouvrez Anaconda invite de commandes, puis créez un nouvel environnement conda nommé *myenv* et installer Python 3.6.5. Le kit SDK Azure Machine Learning fonctionne avec Python 3.5.2 ou ultérieur, mais les composants du machine learning automatisé ne sont pas entièrement fonctionnels sur Python 3.7.  La création de l’environnement prend plusieurs minutes, le temps que les composants et les packages soient téléchargés. 
+1. Ouvrez une invite Anaconda, puis créez un environnement conda nommé *myenv* et installez Python 3.6.5. Le kit SDK Azure Machine Learning fonctionne avec Python 3.5.2 ou ultérieur, mais les composants du machine learning automatisé ne sont pas entièrement fonctionnels sur Python 3.7.  La création de l’environnement prend plusieurs minutes, le temps que les composants et les packages soient téléchargés. 
 
     ```shell
     conda create -n myenv python=3.6.5
@@ -123,7 +123,7 @@ Les instructions fournies dans cet article va installer tous les packages que vo
 > * 'azureml-sdk[automl]'
 >
 
-### <a name='sdk-create'></a> Créer un espace de travail avec le Kit de développement
+### <a name='sdk-create'></a> Créer un espace de travail avec le kit de développement logiciel (SDK)
 
 Créez votre espace de travail dans un notebook Jupyter à l’aide du kit SDK Python.
 
@@ -141,7 +141,7 @@ Créez votre espace de travail dans un notebook Jupyter à l’aide du kit SDK P
 
    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=import)]
 
-1. Recherchez une valeur pour le paramètre `<azure-subscription-id>` dans la [liste des abonnements dans le Portail Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Utilisez n’importe quel abonnement dans lequel votre rôle est propriétaire ou contributeur. Pour plus d’informations sur les rôles, consultez [gérer l’accès à un espace de travail Azure Machine Learning](how-to-assign-roles.md) article.
+1. Recherchez une valeur pour le paramètre `<azure-subscription-id>` dans la [liste des abonnements dans le Portail Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Utilisez n’importe quel abonnement dans lequel votre rôle est propriétaire ou contributeur. Pour plus d'informations sur les rôles, consultez l'article [Gérer l'accès à un espace de travail Azure Machine Learning](how-to-assign-roles.md).
 
    ```python
    from azureml.core import Workspace
@@ -162,13 +162,13 @@ Créez votre espace de travail dans un notebook Jupyter à l’aide du kit SDK P
 
 ### <a name="write-a-configuration-file"></a>Création d’un fichier de configuration
 
-Enregistrez les détails de votre espace de travail dans un fichier de configuration se trouvant dans le répertoire courant. Ce fichier est appelé *.azureml/config.json*.  
+Enregistrez les détails de votre espace de travail dans un fichier de configuration se trouvant dans le répertoire courant. Ce fichier s’appelle *.azureml/config.json*.  
 
-Ce fichier de configuration de l’espace de travail facilite son chargement ultérieur. Vous pouvez le charger avec d’autres ordinateurs portables et les scripts dans le même répertoire ou un sous-répertoire en utilisant le code `ws=Workspace.from_config()` . 
+Ce fichier de configuration de l’espace de travail facilite son chargement ultérieur. Vous pouvez le charger avec d’autres blocs-notes et scripts dans le même répertoire ou dans un sous répertoire à l'aide du code `ws=Workspace.from_config()`. 
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=writeConfig)]
 
-L’appel d’API `write_config()` crée le fichier de configuration dans le répertoire actif. Le *.azureml/config.json* fichier contient les éléments suivants :
+L’appel d’API `write_config()` crée le fichier de configuration dans le répertoire actif. Le fichier *.azureml/config.json* contient le code suivant :
 
 ```json
 {
@@ -179,16 +179,16 @@ L’appel d’API `write_config()` crée le fichier de configuration dans le ré
 ```
 
 > [!TIP]
-> Pour utiliser votre espace de travail dans les scripts Python ou les blocs-notes Jupyter situés dans d’autres répertoires, copiez ce fichier à ce répertoire. Le fichier peut être dans le même répertoire, un sous-répertoire nommé *.azureml*, ou dans un répertoire parent.
+> Pour utiliser votre espace de travail dans des scripts Python ou Jupyter Notebooks situés dans d’autres répertoires, copiez ce fichier dans le répertoire en question. Le fichier peut se trouver dans le même répertoire, dans un sous-répertoire nommé *.azureml* ou dans un répertoire parent.
 
-## <a name="resource-manager-template"></a>Modèle resource manager
+## <a name="resource-manager-template"></a>Modèle Azure Resource Manager
 
-Pour créer un espace de travail avec un modèle, consultez [créer un espace de travail du service Azure Machine Learning à l’aide d’un modèle](how-to-create-workspace-template.md)
+Pour créer un espace de travail à l'aide d'un modèle, consultez [Créer un espace de travail Azure Machine Learning service à l’aide d’un modèle](how-to-create-workspace-template.md)
 
 <a name="cli"></a>
 ## <a name="command-line-interface"></a>Interface de ligne de commande
 
-Pour créer un espace de travail avec l’interface CLI, consultez [utiliser l’extension CLI pour le service Azure Machine Learning](reference-azure-machine-learning-cli.md).
+Pour créer un espace de travail avec l’interface CLI, consultez [Utiliser l’extension CLI pour Azure Machine Learning service](reference-azure-machine-learning-cli.md).
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources 
 
@@ -196,15 +196,15 @@ Pour créer un espace de travail avec l’interface CLI, consultez [utiliser l�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Quelle que soit la façon dont il a été créé, vous pouvez afficher votre espace de travail dans le [Azure portal](https://portal.azure.com/).  Consultez [afficher un espace de travail](how-to-manage-workspace.md#view) pour plus d’informations.
+* Quelle que soit la manière dont il a été créé, vous pouvez afficher votre espace de travail dans le [portail Azure](https://portal.azure.com/).  Pour plus d'informations, consulter [Afficher un espace de travail](how-to-manage-workspace.md#view).
 
-* Tester votre espace de travail avec ces Démarrages rapides et des didacticiels.
+* Essayez votre espace de travail avec ces démarrages rapides et tutoriels.
 
-    * Démarrage rapide : [Exécuter le bloc-notes Jupyter dans le cloud](quickstart-run-cloud-notebook.md).
-    * Démarrage rapide : [Exécutez le bloc-notes Jupyter sur votre propre serveur](quickstart-run-local-notebook.md).
-    * Didacticiel de deux parties : [Train](tutorial-train-models-with-aml.md) et [déployer](tutorial-deploy-models-with-aml.md) un mode de classification d’image.
-    * Didacticiel de deux parties : [Préparer des données](tutorial-data-prep.md) et [utiliser l’apprentissage automatique](tutorial-auto-train-models.md) pour générer un modèle de régression.
+    * Démarrage rapide : [Exécutez Jupyter Notebook dans le cloud](quickstart-run-cloud-notebook.md).
+    * Démarrage rapide : [Exécutez Jupyter Notebook sur votre propre serveur](quickstart-run-local-notebook.md).
+    * Tutoriel en deux parties : [Effectuez l'apprentissage](tutorial-train-models-with-aml.md) et [déployez](tutorial-deploy-models-with-aml.md) un modèle de classification d'images.
+    * Tutoriel en deux parties : [Préparez les données](tutorial-data-prep.md) et [utilisez le Machine Learning automatisé](tutorial-auto-train-models.md) pour générer automatiquement un modèle de régression.
 
-* En savoir plus sur comment [configurer un environnement de développement](how-to-configure-environment.md).
+* En savoir plus sur la [configuration d'un environnement de développement](how-to-configure-environment.md).
 
-* En savoir plus sur la [Azure Machine Learning SDK pour Python](https://aka.ms/aml-sdk).
+* En savoir plus sur le [Kit de développement logiciel (SDK) Azure Machine Learning pour Python](https://aka.ms/aml-sdk).

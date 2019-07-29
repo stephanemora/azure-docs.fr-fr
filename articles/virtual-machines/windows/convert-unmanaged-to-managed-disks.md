@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: rogarana
 ms.openlocfilehash: 9cbee4f9f4f694510e852fe3790c8242ef346576
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66416057"
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Convertir les disques non managés d’une machine virtuelle Windows en disques managés
@@ -37,7 +37,7 @@ Si vos machines virtuelles Windows existantes utilisent des disques non managés
 
 [!INCLUDE [virtual-machines-common-convert-disks-considerations](../../../includes/virtual-machines-common-convert-disks-considerations.md)]
 
-* Les disques durs virtuels et le compte de stockage d’origine utilisé par la machine virtuelle avant la conversion ne sont pas supprimés. Ils continuent à être facturés. Pour éviter la facturation de ces artefacts, supprimez les objets BLOB du disque dur virtuel d’origine après avoir vérifié que la conversion est terminée. Si vous devez rechercher ces disques non attachés afin de les supprimer, consultez notre article [rechercher et supprimer des disques managés et non managés Azure non attachés](find-unattached-disks.md).
+* Les disques durs virtuels et le compte de stockage d’origine utilisé par la machine virtuelle avant la conversion ne sont pas supprimés. Ils continuent à être facturés. Pour éviter la facturation de ces artefacts, supprimez les objets BLOB du disque dur virtuel d’origine après avoir vérifié que la conversion est terminée. Si vous avez besoin de trouver ces disques libres afin de les supprimer, consultez notre article [Rechercher et supprimer les disques managés et non managés Azure non attachés](find-unattached-disks.md).
 
 
 ## <a name="convert-single-instance-vms"></a>Convertir des machines virtuelles à instance unique
@@ -113,7 +113,7 @@ Lorsque la migration est terminée, la machine virtuelle est arrêtée, puis red
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Convertir des disques gérés standard en premium](convert-disk-storage.md)
+[Convertir des disques managés standard en premium](convert-disk-storage.md)
 
 Créez une copie en lecture seule d’une machine virtuelle en utilisant des [captures instantanées](snapshot-copy-managed-disk.md).
 

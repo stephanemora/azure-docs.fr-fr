@@ -1,6 +1,6 @@
 ---
-title: Éviter les rechargements de page (bibliothèque d’authentification Microsoft pour JavaScript) | Azure
-description: Découvrez comment éviter les rechargements de page lors de l’acquisition et le renouvellement de jetons en mode silencieux à l’aide de la bibliothèque d’authentification Microsoft pour JavaScript (MSAL.js).
+title: Éviter les rechargements de page (Microsoft Authentication Library pour JavaScript) | Azure
+description: Découvrez comment éviter les rechargements de page lors de l’acquisition et du renouvellement de jetons en mode silencieux à l’aide de Microsoft Authentication Library pour JavaScript (MSAL.js).
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
@@ -18,28 +18,28 @@ ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 162811221e6dde89ad11f358b2ec8f32f3c82522
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66420467"
 ---
-# <a name="avoid-page-reloads-when-acquiring-and-renewing-tokens-silently-using-msaljs"></a>Éviter les rechargements de page lors de l’acquisition et le renouvellement de jetons en mode silencieux en utilisant MSAL.js
-Bibliothèque d’authentification Microsoft pour les utilisations de JavaScript (MSAL.js) masquées `iframe` éléments à acquérir et renouveler les jetons en mode silencieux en arrière-plan. Azure AD retourne le jeton au redirect_uri inscrites que spécifié dans la demande de jeton (par défaut il s’agit de page racine de l’application). Dans la mesure où la réponse est un message 302, il en résulte le HTML correspondant à la `redirect_uri` chargées dans le `iframe`. Généralement l’application `redirect_uri` est la page racine et qui le force à recharger.
+# <a name="avoid-page-reloads-when-acquiring-and-renewing-tokens-silently-using-msaljs"></a>Éviter les rechargements de page lors de l’acquisition et du renouvellement de jetons en mode silencieux à l'aide de MSAL.js
+Microsoft Authentication Library pour JavaScript (MSAL.js) utilise des éléments `iframe` masqués pour acquérir et renouveler des jetons en mode silencieux en arrière-plan. Azure AD renvoie le jeton à l'URI redirect_uri spécifié dans la requête de jeton (par défaut, il s'agit de la page racine de l’application). La réponse étant une réponse 302, le HTML correspondant à `redirect_uri` est chargé dans `iframe`. En règle générale, l'URI `redirect_uri` de l'application correspond à la page racine, ce qui permet son rechargement.
 
-Dans d’autres cas, si la navigation vers la page racine de l’application nécessite une authentification, peut donner lieu à imbriquée `iframe` éléments ou `X-Frame-Options: deny` erreur.
+Mais parfois, l'accès à la page racine de l’application requiert une authentification, ce qui peut donner lieu à des éléments `iframe` imbriqués ou à une erreur `X-Frame-Options: deny`.
 
-Étant donné que MSAL.js ne peut pas faire disparaître la 302 émis par Azure AD et est nécessaire pour traiter le jeton retourné, il ne peut pas empêcher le `redirect_uri` de chargées dans le `iframe`.
+MSAL.js n'étant pas en mesure de faire disparaître la réponse 302 émise par Azure AD et devant traiter le jeton renvoyé, il n'est pas en mesure d'empêcher le chargement de `redirect_uri` dans `iframe`.
 
-Pour éviter toute l’application recharger à nouveau ou autres erreurs provoquées pour cette raison, suivez ces solutions de contournement.
+Pour éviter le rechargement de l'application toute entière et des autres erreurs qui en résultent, suivez ces solutions de contournement.
 
-## <a name="specify-different-html-for-the-iframe"></a>Spécifier différentes HTML pour l’iframe
+## <a name="specify-different-html-for-the-iframe"></a>Spécifier un HTML différent pour l'iframe
 
-Définir le `redirect_uri` propriété sur la configuration pour une page simple, qui ne nécessite pas d’authentification. Vous devez vous assurer qu’il correspond à la `redirect_uri` inscrit dans le portail Azure. Cela affectera pas expérience de connexion de l’utilisateur comme MSAL enregistre la page de démarrage lorsque l’utilisateur commence le processus de connexion et redirige vers l’emplacement exact, une fois que la connexion soit terminée.
+Définissez la propriété `redirect_uri` sur une seule page, ce qui ne requiert pas d’authentification. Vous devez vous assurer qu’elle correspond à l'URI `redirect_uri` inscrit dans le portail Azure. Cela n'affecte pas l'expérience de connexion de l’utilisateur car MSAL enregistre la page de démarrage lorsque l’utilisateur entame le processus de connexion, et redirige vers l’emplacement exact une fois la connexion établie.
 
-## <a name="initialization-in-your-main-app-file"></a>Initialisation dans votre fichier d’application principale
+## <a name="initialization-in-your-main-app-file"></a>Initialisation dans votre fichier d’application principal
 
-Si votre application est structurée tel qu’il existe un fichier Javascript central qui définit l’initialisation de l’application, de routage et d’autres choses, vous pouvez charger conditionnelle de vos modules de l’application selon si l’application est chargé dans un `iframe` ou non. Exemple :
+Si votre application est structurée de telle manière qu'un fichier Javascript central définit l’initialisation, le routage, etc. de l'application, vous pouvez charger de manière conditionnelle les modules de votre application selon que l'application se charge dans un `iframe` ou non. Par exemple :
 
 Dans AngularJS : app.js
 
@@ -78,7 +78,7 @@ else {
 }
 ```
 
-Dans Angular : app.module.TS
+Dans Angular : app.module.ts
 
 ```javascript
 // Imports...
@@ -150,4 +150,4 @@ export class MsalComponent {
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-En savoir plus sur [création d’une application monopage (SPA)](scenario-spa-overview.md) utilisant MSAL.js.
+En savoir plus sur la [création d’une application monopage (SPA)](scenario-spa-overview.md) à l'aide de MSAL.js.

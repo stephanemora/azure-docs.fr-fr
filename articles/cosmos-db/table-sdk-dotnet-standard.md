@@ -9,10 +9,10 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/18/2019
 ms.openlocfilehash: 1c9894772f440a568cbc08890feb961471d84137
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66480219"
 ---
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>API .NET Standard Table Azure Cosmos DB : Téléchargement et notes de publication
@@ -27,7 +27,7 @@ ms.locfileid: "66480219"
 |   |   |
 |---|---|
 |**Téléchargement du Kit de développement logiciel (SDK)**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table)|
-|**Exemple**|[Exemple de COSMOS DB Table API .NET](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started)|
+|**Exemple**|[Exemple .NET d'API Table Cosmos DB](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started)|
 |**Démarrage rapide**|[Démarrage rapide](create-table-dotnet.md)|
 |**Didacticiel**|[Didacticiel](tutorial-develop-table-dotnet.md)|
 |**Infrastructure actuellement prise en charge**|[Microsoft .NET Standard 2.0](https://www.nuget.org/packages/NETStandard.Library)|
@@ -40,10 +40,10 @@ ms.locfileid: "66480219"
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 * Version en disponibilité générale
 
-### <a name="a-name0110-preview0110-preview"></a><a name="0.11.0-preview"/>0.11.0-Preview
-* Modifications apportées à la configuration de CloudTableClient. Il accepte désormais un un objet TableClientConfiguration pendant la construction. TableClientConfiguration fournit différentes propriétés pour configurer le comportement du client selon que le point de terminaison cible est l’API de Table Cosmos DB ou l’API de Table de stockage Azure.
-* Prise en charge de TableQuery pour retourner des résultats dans l’ordre de tri sur une colonne personnalisée. Cette fonctionnalité est uniquement pris en charge sur les points de terminaison Cosmos DB Table.
-* Prise en charge ajoutée pour exposer RequestCharges sur différents types de résultats. Cette fonctionnalité est uniquement pris en charge sur les points de terminaison Cosmos DB Table.
+### <a name="a-name0110-preview0110-preview"></a><a name="0.11.0-preview"/>0.11.0-preview
+* Des modifications ont été apportées à la configuration de CloudTableClient. Elle accepte désormais un objet TableClientConfiguration pendant la construction. TableClientConfiguration propose différentes propriétés pour configurer le comportement du client selon que le point de terminaison cible est API Table Cosmos DB ou API Table Stockage Azure.
+* Ajout de la prise en charge de TableQuery pour renvoyer des résultats triés dans une colonne personnalisée. Cette fonctionnalité est uniquement prise en charge sur les points de terminaison Table Cosmos DB.
+* Ajout de la prise en charge d'exposition de RequestCharges sur différents types de résultats. Cette fonctionnalité est uniquement prise en charge sur les points de terminaison Table Cosmos DB.
 
 ### <a name="a-name0101-preview0101-preview"></a><a name="0.10.1-preview"/>0.10.1-preview
 * Ajout de la prise en charge du jeton SAS et des opérations de TablePermissions, ServiceProperties et ServiceStats par rapport à des points de terminaison Table de stockage Azure. 
@@ -63,13 +63,13 @@ ms.locfileid: "66480219"
 ## <a name="release-and-retirement-dates"></a>Dates de publication et de retrait
 Microsoft envoie une notification au moins **12 mois** avant le retrait d’un Kit de développement logiciel (SDK) pour faciliter la transition vers une version plus récente/prise en charge.
 
-Cette bibliothèque .NET Standard inter-plateformes [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) remplacera la bibliothèque .NET Framework [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table).
+Cette bibliothèque .NET Standard multiplateforme [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) remplacera la bibliothèque .NET Framework [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table).
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
-| [1.0.1](#1.0.1) |19 avril 2019 |--- |
+| [1.0.1](#1.0.1) |19 avril 2019 |--- |
 | [1.0.0](#1.0.0) |13 mars 2019 |--- |
-| [0.11.0-preview](#0.11.0-preview) |5 mars 2019 |--- |
+| [0.11.0-preview](#0.11.0-preview) |5 mars 2019 |--- |
 | [0.10.1-preview](#0.10.1-preview) |22 janvier 2019 |--- |
 | [0.10.0-preview](#0.10.0-preview) |18 décembre 2018 |--- |
 | [0.9.1-preview](#0.9.1-preview) |18 octobre 2018 |--- |

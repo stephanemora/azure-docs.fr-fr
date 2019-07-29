@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 01/29/2019
 ms.author: kasparks
 ms.openlocfilehash: fef7b82e6969de16d1815250d2373c99021b0e86
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66254720"
 ---
 # <a name="reduce-service-costs-using-azure-advisor"></a>Réduire les coûts de service grâce à Azure Advisor
@@ -21,7 +21,7 @@ Le conseiller vous aide à optimiser et à réduire votre dépense Azure globale
 
 ## <a name="optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances"></a>Optimiser le coût de la machine virtuelle en redimensionnant ou en arrêtant les instances sous-utilisées 
 
-Alors que certains scénarios d’application peuvent par définition entraîner une faible utilisation, vous pouvez souvent faire des économies grâce à la gestion de la taille de vos machines virtuelles et de leur nombre. Advisor surveille votre utilisation des ordinateurs virtuels des 7 derniers jours et identifie ensuite les machines virtuelles de faible utilisation. Virtual machines sont considérés comme faible utilisation si leur utilisation du processeur est de 5 % ou moins et leur utilisation du réseau est inférieure à 2 % ou si la charge de travail en cours peut être prise en charge par une plus petite taille de machine virtuelle.
+Alors que certains scénarios d’application peuvent par définition entraîner une faible utilisation, vous pouvez souvent faire des économies grâce à la gestion de la taille de vos machines virtuelles et de leur nombre. Advisor surveille l’utilisation de votre machine virtuelle pendant 7 jours et identifie les machines virtuelles faiblement utilisées. Les machines virtuelles sont considérées de faible utilisation si l’utilisation de leur processeur est inférieure ou égale à 5 % et l’utilisation de leur réseau est inférieure ou égale à 2 %, ou si la charge de travail actuelle peut être prise en charge par une taille de machine virtuelle plus petite.
 
 Advisor vous présente une estimation du coût de l’exécution de votre machine virtuelle, pour que vous puissiez choisir de l’arrêter ou de la redimensionner.
 
@@ -39,18 +39,18 @@ Advisor identifie les passerelles de réseau virtuel qui sont restées inactives
 
 Advisor examinera votre utilisation des machines virtuelles sur les 30 derniers jours pour déterminer si vous pouvez faire des économies en achetant une réservation Azure. Advisor vous montrera les régions et les tailles où vous pouvez potentiellement réaliser le plus d’économies et vous présentera une estimation des économies générées grâce à l’achat de réservations. Avec les réservations Azure, vous pouvez acheter au préalable les coûts de base de vos machines virtuelles. Des remises seront automatiquement appliquées aux machines virtuelles nouvelles ou existantes ayant la même taille et la même région que vos réservations. [En savoir plus sur Azure Reserved VM Instances.](https://azure.microsoft.com/pricing/reserved-vm-instances/)
 
-Advisor vous informera également des instances réservées que vous avez qui va expirer au cours des 30 prochains jours. Il pourra vous recommander que vous achetez des instances réservées pour éviter de payer le paiement.
+Advisor vous informera également des instances réservées dont vous disposez et qui arriveront à expiration au cours des 30 prochains jours. Il vous recommandera d'acheter de nouvelles instances réservées pour vous éviter les tarifs du paiement à l'utilisation.
 
-## <a name="delete-unassociated-public-ip-addresses-to-save-money"></a>Supprimer des adresses IP publiques non associées pour réaliser des économies
+## <a name="delete-unassociated-public-ip-addresses-to-save-money"></a>Supprimer les adresses IP publiques non associées pour réaliser des économies
 
-Le conseiller identifie les adresses IP publiques qui ne sont pas actuellement associés à des ressources Azure telles que les équilibreurs de charge ou des machines virtuelles. Ces adresses IP publiques adresses sont fournis avec un coût nominal. Si vous ne souhaitez pas les utiliser, leur suppression peut entraîner des économies de coût.
+Advisor identifie les adresses IP publiques non associées à des ressources Azure telles que les équilibreurs de charge ou machines virtuelles. Ces adresses IP publiques sont fournies pour une somme modique. Si vous n'envisagez pas de les utiliser, vous pouvez les supprimer pour réaliser des économies.
 
-## <a name="delete-azure-data-factory-pipelines-that-are-failing"></a>Supprimer les pipelines Azure Data Factory qui échouent
+## <a name="delete-azure-data-factory-pipelines-that-are-failing"></a>Supprimer les pipelines Azure Data Factory en échec
 
-Azure Advisor détectera les pipelines Azure Data Factory qui échouent et vous recommandons de résolvez les problèmes ou supprimez les pipelines ayant échoué si elles ne sont plus nécessaires. Vous êtes facturé pour ces pipelines même si toutefois ils ne traitent pas de vous pendant qu’ils échouent. 
+Azure Advisor détectera les pipelines Azure Data Factory en échec de manière répétée et vous recommandera de corriger les problèmes ou de supprimer les pipelines en échec dont vous n'avez plus besoin. Vous serez facturé pour ces pipelines même s'ils sont en échec et ne vous sont dès lors d'aucune utilité. 
 
-## <a name="use-standard-snapshots-for-managed-disks"></a>Utilisation d’instantanés Standard pour des disques gérés
-Pour enregistrer les 60 % du coût, nous vous recommandons de stocker de vos captures instantanées dans le stockage Standard, quel que soit le type de stockage du disque parent. Il s’agit de l’option par défaut pour les captures instantanées de disques gérés. Azure Advisor identifie les instantanés sont stockés le stockage Premium et il est recommandé de la migration de votre instantané à partir de Premium vers le stockage Standard. [En savoir plus sur la tarification des disques gérés](https://aka.ms/aa_manageddisksnapshot_learnmore)
+## <a name="use-standard-snapshots-for-managed-disks"></a>Utiliser des instantanés Standard pour les disques managés
+Pour économiser jusqu'à 60 %, nous vous recommandons de stocker vos instantanés dans Stockage Standard, quel que soit le type de stockage du disque parent. Il s’agit de l’option par défaut pour les instantanés de disques managés. Azure Advisor identifiera les instantanés stockés dans Stockage Premium et vous recommandera de les migrer de Stockage Premium vers Stockage Standard. [En savoir plus sur la tarification des disques managés](https://aka.ms/aa_manageddisksnapshot_learnmore)
 
 ## <a name="how-to-access-cost-recommendations-in-azure-advisor"></a>Accès aux recommandations de coût dans Azure Advisor
 

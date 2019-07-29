@@ -3,17 +3,17 @@ title: Gérer les appareils dans votre application Azure IoT Central | Microsoft
 description: En tant qu’opérateur, apprenez à gérer des appareils dans votre application Azure IoT Central.
 author: ellenfosborne
 ms.author: elfarber
-ms.date: 01/30/2019
+ms.date: 06/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: e4746620f083996bf64e77617ec472c3d3894d91
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
-ms.translationtype: MT
+ms.openlocfilehash: a4a22cc2161af444ba2169cc2f83124e80c7ec11
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65464293"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052996"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Gérer les appareils dans votre application Azure IoT Central
 
@@ -36,7 +36,7 @@ Pour voir un appareil particulier :
 
     ![Page Détails de l’appareil](./media/howto-manage-devices/devicelist.png)
 
-## <a name="add-a-device"></a>Ajouter un appareil
+## <a name="add-a-device"></a>Ajout d’un appareil
 
 Pour ajouter un appareil à votre application Azure IoT Central :
 
@@ -90,11 +90,11 @@ Si vous enregistrez des appareils en démarrant l’importation sous **Appareils
 
 1. Sélectionnez les appareils que vous souhaitez associer à un modèle :
 
-1. Sélectionnez **associer**:
+1. Sélectionnez **Associer** :
 
     ![Associer des appareils](./media/howto-manage-devices/unassociateddevices2a.png)
 
-1. Cliquez sur le modèle à partir de la liste des modèles disponibles et sélectionnez **associer**.
+1. Choisissez le modèle à partir de la liste des modèles disponibles, puis sélectionnez **Associer**.
 
 1. Les appareils sélectionnés sont associés au modèle d’appareil que vous avez choisi.
 
@@ -103,7 +103,7 @@ Si vous enregistrez des appareils en démarrant l’importation sous **Appareils
 
 ## <a name="export-devices"></a>Exporter des appareils
 
-Pour connecter un appareil réel à IoT Central, vous avez besoin de sa chaîne de connexion. Vous pouvez exporter les détails de l’appareil en bloc pour obtenir les informations que vous avez besoin créer des chaînes de connexion de périphérique. Le processus d’exportation crée un fichier CSV avec l’identité d’appareil, nom de l’appareil et les clés pour tous les périphériques sélectionnés.
+Pour connecter un appareil réel à IoT Central, vous avez besoin de sa chaîne de connexion. Vous pouvez exporter en bloc les détails de l’appareil pour obtenir les informations dont vous avez besoin afin de créer les chaînes de connexion de l'appareil. Le processus d’exportation crée un fichier CSV avec l’identité de l’appareil, le nom de l’appareil et les clés pour tous les appareils sélectionnés.
 
 Pour exporter en bloc des appareils à partir de votre application :
 
@@ -111,7 +111,7 @@ Pour exporter en bloc des appareils à partir de votre application :
 
 1. Dans le volet gauche, choisissez le modèle d’appareil à partir duquel vous souhaitez exporter les appareils.
 
-1. Sélectionnez les appareils que vous souhaitez exporter, puis sélectionnez le **exporter** action.
+1. Sélectionnez les appareils que vous souhaitez exporter, puis l’action **Exporter**.
 
     ![Exportation](./media/howto-manage-devices/export1a.png)
 
@@ -119,7 +119,7 @@ Pour exporter en bloc des appareils à partir de votre application :
 
 1. Une fois l’exportation terminée, un message de réussite s’affiche avec un lien pour télécharger le fichier généré.
 
-1. Sélectionnez le **message de réussite** pour télécharger le fichier vers un dossier local sur le disque.
+1. Cliquez sur le **message de réussite** pour télécharger le fichier vers un dossier local sur le disque.
 
     ![Exportation réussie](./media/howto-manage-devices/export2a.png)
 
@@ -132,7 +132,7 @@ Pour exporter en bloc des appareils à partir de votre application :
     * IOTC_X509THUMBPRINT_PRIMARY
     * IOTC_X509THUMBPRINT_SECONDARY
 
-Consultez [connectivité des appareils dans Azure IoT Central](concepts-connectivity.md), pour plus d’informations sur les chaînes de connexion et des appareils réels qui se connectés à votre application IoT Central.
+Pour plus d'informations sur les chaînes de connexion et la connexion d'appareils réels à votre application IoT Central, consultez [Connectivité des appareils dans Azure IoT Central](concepts-connectivity.md).
 
 ## <a name="delete-a-device"></a>Suppression d’un appareil
 

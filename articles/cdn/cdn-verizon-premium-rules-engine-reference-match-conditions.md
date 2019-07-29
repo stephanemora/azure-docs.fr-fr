@@ -1,6 +1,6 @@
 ---
-title: Conditions de correspondance de moteur de règles Azure CDN de Verizon Premium | Microsoft Docs
-description: Documentation de référence pour Azure Content Delivery Network de Verizon Premium les conditions de correspondance de moteur de règles.
+title: Conditions de correspondance du moteur de règles Azure CDN de Verizon Premium | Microsoft Docs
+description: Documentation de référence des conditions de correspondance du moteur de règles Azure Content Delivery Network de Verizon Premium.
 services: cdn
 author: mdgattuso
 ms.service: cdn
@@ -8,22 +8,22 @@ ms.topic: article
 ms.date: 05/31/2019
 ms.author: magattus
 ms.openlocfilehash: 5197fdfe78b1b091de713754967f58157cc4a1b3
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66481653"
 ---
-# <a name="azure-cdn-from-verizon-premium-rules-engine-match-conditions"></a>Conditions de correspondance CDN Azure à partir du moteur de règles Premium de Verizon
+# <a name="azure-cdn-from-verizon-premium-rules-engine-match-conditions"></a>Conditions de correspondance du moteur de règles Azure CDN de Verizon Premium
 
-Cet article répertorie les descriptions détaillées des conditions de correspondance disponibles pour le Azure Content Delivery Network (CDN) à partir de Verizon Premium [moteur de règles](cdn-verizon-premium-rules-engine.md).
+Cet article fournit les descriptions détaillées des conditions de correspondance disponibles pour le [moteur de règles](cdn-verizon-premium-rules-engine.md) Azure Content Delivery Network (CDN) de Verizon Premium.
 
 La deuxième partie d’une règle est la condition de correspondance. Une condition de correspondance identifie des types spécifiques de requêtes pour lesquelles un ensemble de fonctionnalités est exécuté.
 
 Par exemple, vous pouvez utiliser une condition de correspondance pour les tâches suivantes :
 
 - Filtrer les requêtes ciblant le contenu dans un emplacement particulier.
-- Filtrer les requêtes générées à partir d’une adresse IP particulière ou d’un pays/région.
+- Filtrer les requêtes générées à partir d’une adresse IP ou d’un pays/d'une région en particulier.
 - Filtrer les requêtes d’après les informations d’en-tête.
 
 ## <a name="always-match-condition"></a>Condition de correspondance Toujours
@@ -49,7 +49,7 @@ Les conditions de correspondance Emplacement identifient les requêtes selon l�
 Nom | Objectif
 -----|--------
 [Numéro AS](#as-number) | Identifie les requêtes issues d’un réseau particulier.
-[Pays](#country) | Identifie les requêtes qui sont issus les pays/régions spécifiées.
+[Pays](#country) | Identifie les requêtes provenant des pays/régions spécifiés.
 
 ## <a name="origin-match-conditions"></a>Conditions de correspondance Origine
 
@@ -165,10 +165,10 @@ L’option **Correspond**/**Ne correspond pas** détermine les conditions sous l
 Informations essentielles :
 
 - Utilisez la notation CIDR.
-- Spécifiez plusieurs adresses IP et/ou blocs d’adresses IP en les séparant par un espace. Exemple :
+- Spécifiez plusieurs adresses IP et/ou blocs d’adresses IP en les séparant par un espace. Par exemple :
   - **Exemple IPv4** : 1.2.3.4 10.20.30.40 correspond aux requêtes qui proviennent de l’adresse 1.2.3.4 ou 10.20.30.40.
   - **Exemple IPv6** : 1:2:3:4:5:6:7:8 10:20:30:40:50:60:70:80 correspond aux requêtes qui proviennent de l’adresse 1:2:3:4:5:6:7:8 ou 10:20:30:40:50:60:70:80.
-- La syntaxe d’un bloc d’adresses IP est l’adresse IP de base suivie d’une barre oblique et de la taille de préfixe. Exemple :
+- La syntaxe d’un bloc d’adresses IP est l’adresse IP de base suivie d’une barre oblique et de la taille de préfixe. Par exemple :
   - **Exemple IPv4** : 5.5.5.64/26 correspond aux requêtes qui proviennent des adresses 5.5.5.64 à 5.5.5.127.
   - **Exemple IPv6** : 1:2:3:/48 correspond aux requêtes qui proviennent des adresses 1:2:3:0:0:0:0:0 à 1:2:3:ffff:ffff:ffff:ffff:ffff.
 - En raison du type de suivi des paramètres de cache, cette condition de correspondance est incompatible avec les fonctionnalités suivantes :
@@ -519,7 +519,7 @@ La condition de correspondance Méthode de requête est respectée uniquement qu
 - POST
 - OPTIONS
 - PUT
-- Suppression
+- SUPPRIMER
 - TRACE
 - CONNECT
 
@@ -804,7 +804,7 @@ Informations essentielles :
 - Une URL CNAME de périmètre est réécrite sur une URL CDN avant la comparaison d’URL.
 
     Par exemple, les deux URL suivantes pointent vers la même ressource et ont donc le même chemin d’URL :
-     - CDN URL: http://wpc.0001.&lt;domain&gt;/800001/CustomerOrigin/path/asset.htm
+     - CDN URL: http://wpc.0001.&lt ;domain&gt; /800001/CustomerOrigin/path/asset.htm
      - URL CNAME de périmètre : http:\//&lt;endpoint&gt;.azureedge.net/path/asset.htm
     
     Informations supplémentaires :
@@ -993,7 +993,7 @@ Informations essentielles :
 
 - Placez les caractères d’expression régulière spéciaux dans une double séquence d’échappement (par exemple, \^$. +) pour inclure une barre oblique inverse dans l’expression régulière.
 
-   Exemple :
+   Par exemple :
 
    Valeur | Interprété comme 
    ------|---------------
@@ -1036,7 +1036,7 @@ Informations essentielles :
 
 - Spécifiez plusieurs valeurs en les séparant par un espace.
 
-   Exemple : *Parameter1=ValueA* *ValueB* *Parameter1=ValueC&Parameter2=ValueD*
+   Par exemple :  *Parameter1=ValueA* *ValueB* *Parameter1=ValueC&Parameter2=ValueD*
 
 - Seules les correspondances exactes à au moins un des modèles de chaîne de requête spécifiés satisfont cette condition de correspondance.
     

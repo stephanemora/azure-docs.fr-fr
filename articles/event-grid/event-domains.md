@@ -8,10 +8,10 @@ ms.author: babanisa
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.openlocfilehash: 61821caa2450096bdbdde3461316ad21a82f6f18
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66304296"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Comprendre les domaines d’événements pour gérer les rubriques Event Grid
@@ -47,7 +47,7 @@ Le contrôle d’accès en fonction du rôle (RBAC) dans les domaines d’évén
 
 ### <a name="built-in-roles"></a>Vérification d’accès par rôle : rôles intégrés
 
-Event Grid possède deux définitions de rôles intégrées pour faciliter l’utilisation du contrôle d’accès en fonction du rôle (RBAC) avec des domaines d’événements. Ces rôles sont **EventGrid EventSubscription Contributor (préversion)** et **EventGrid EventSubscription Reader (préversion)** . Vous affectez ces rôles aux utilisateurs qui doivent s’abonner à des rubriques dans votre domaine d’événements. Portée de la rubrique uniquement que les utilisateurs doivent s’abonner à l’attribution de rôle.
+Event Grid possède deux définitions de rôles intégrées pour faciliter l’utilisation du contrôle d’accès en fonction du rôle (RBAC) avec des domaines d’événements. Ces rôles sont **EventGrid EventSubscription Contributor (préversion)** et **EventGrid EventSubscription Reader (préversion)** . Vous affectez ces rôles aux utilisateurs qui doivent s’abonner à des rubriques dans votre domaine d’événements. Vous étendez l’attribution de rôle uniquement à la rubrique à laquelle les utilisateurs doivent s’abonner.
 
 Pour plus d’informations sur ces rôles, voir [Rôles intégrés pour Event Grid](security-authentication.md#built-in-roles).
 
@@ -97,18 +97,18 @@ Par exemple, publier le tableau d’événements suivant enverrait les événeme
 Les domaines d’événements gèrent la publication des rubriques à votre place. Au lieu de publier vos événements un par un dans chaque rubrique que vous gérez, vous pouvez les publier tous dans le point de terminaison du domaine. Event Grid s’assure que chaque événement est envoyé à la rubrique appropriée.
 
 ## <a name="limits-and-quotas"></a>Limites et quotas
-Voici les limites et les quotas associés à des domaines de l’événement :
+Voici les limites et quotas liés aux domaines d'événements :
 
-- rubriques de 100 000 par domaine d’événements 
-- domaines d’événement 100 par abonnement Azure 
-- abonnements aux événements 500 par rubrique dans un domaine de l’événement
-- 50 abonnements d’étendue de domaine 
-- 5 000 événements par seconde taux d’ingestion (dans un domaine)
+- 100 000 rubriques par domaine d’événements 
+- 100 domaines d’événements par abonnement Azure 
+- 500 abonnements à des événements par rubrique dans un domaine d’événements
+- 50 abonnements à l’étendue de domaine 
+- Taux d'ingestion de 5 000 événements par seconde (dans un domaine)
 
-Si ces limites ne répondent pas à vous, contactez l’équipe de produit en ouvrant un ticket de support ou en envoyant un e-mail à [ askgrid@microsoft.com ](mailto:askgrid.microsoft.com). 
+Si ces limites ne répondent pas à vos besoins, contactez l’équipe produit en ouvrant un ticket de support ou en envoyant un e-mail à [askgrid@microsoft.com](mailto:askgrid.microsoft.com). 
 
 ## <a name="pricing"></a>Tarifs
-Domaines d’événements utilisent le même [opérations tarification](https://azure.microsoft.com/pricing/details/event-grid/) qui utilisent toutes les autres fonctionnalités dans Event Grid.
+Les domaines d’événements utilisent la même [tarification des opérations](https://azure.microsoft.com/pricing/details/event-grid/) que toutes les autres fonctionnalités dans Event Grid.
 
 Les opérations fonctionnent de la même manière dans des domaines d’événements que dans des rubriques personnalisées. Chaque entrée d’un événement dans un domaine d’événements est une opération, tout comme chaque tentative de livraison d’un événement.
 

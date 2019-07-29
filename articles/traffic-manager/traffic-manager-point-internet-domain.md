@@ -1,21 +1,21 @@
 ---
-title: Pointer un domaine Internet d’entreprise vers un nom de domaine Azure Traffic Manager
+title: Rediriger un domaine Internet d’entreprise vers un nom de domaine Azure Traffic Manager
 description: Cet article vous aide à rediriger votre nom de domaine d’entreprise vers un nom de domaine Traffic Manager.
 services: traffic-manager
-author: kumudd
+author: asudbring
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
-ms.author: kumud
-ms.openlocfilehash: 77a5fbab6ecda910750ab2b8bae987e77607223a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.author: allensu
+ms.openlocfilehash: cd99d8829a8a7bb57b6affe98c1257eaa3ea8ce7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60329698"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070962"
 ---
 # <a name="point-a-company-internet-domain-to-an-azure-traffic-manager-domain"></a>Redirection d’un domaine Internet d’entreprise vers un domaine Azure Traffic Manager
 
@@ -25,7 +25,7 @@ Par exemple, pour pointer le nom `www.contoso.com` vers le nom DNS de Traffic Ma
 
     www.contoso.com IN CNAME contoso.trafficmanager.net
 
-Demandes de tout le trafic à *www\.contoso.com* sont dirigés vers *contoso.trafficmanager.net*.
+L’intégralité des requêtes de trafic pour *www\.contoso.com* est redirigée vers *contoso.trafficmanager.net*.
 
 > [!IMPORTANT]
 > Vous ne pouvez pas rediriger un domaine de second niveau tel que *contoso.com*vers le domaine Traffic Manager. Les normes de protocole DNS n’autorisent pas les enregistrements CNAME pour les noms de domaine de second niveau.

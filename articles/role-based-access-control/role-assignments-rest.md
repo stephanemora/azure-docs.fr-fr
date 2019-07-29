@@ -1,5 +1,5 @@
 ---
-title: Gérer l’accès aux ressources Azure à l’aide de RBAC et l’API REST - Azure | Microsoft Docs
+title: Gérer l'accès aux ressources Azure à l'aide du contrôle d'accès en fonction du rôle (RBAC) et de l'API REST - Azure | Microsoft Docs
 description: Apprenez à gérer la façon dont les utilisateurs, les groupes et les applications accèdent aux ressources Azure à l'aide du contrôle d'accès en fonction du rôle (RBAC) et de l'API REST. Apprenez notamment à lister, à accorder et à supprimer des accès.
 services: active-directory
 documentationcenter: na
@@ -16,10 +16,10 @@ ms.date: 05/28/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 3602e4ca83e828270ebef56c688670b896ca58a4
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66472734"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-the-rest-api"></a>Gérer l'accès aux ressources Azure à l'aide du contrôle d'accès en fonction du rôle (RBAC) et de l'API REST
@@ -38,7 +38,7 @@ Dans le contrôle d’accès en fonction du rôle, vous répertoriez les attribu
 
 1. Dans l’URI, remplacez *{scope}* par l’étendue dont vous souhaitez lister les attributions de rôle.
 
-    | `Scope` | Type |
+    | Étendue | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonnement |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Groupe de ressources |
@@ -46,15 +46,15 @@ Dans le contrôle d’accès en fonction du rôle, vous répertoriez les attribu
     
        
      > [!NOTE]
-     > Dans l’exemple ci-dessus que Microsoft.Web est que le fournisseur de ressources est utilisé, qui fait référence à l’instance de service d’application. De même, vous pouvez utiliser n’importe quel autre fournisseur de ressources et générer l’URI de portée. Pour comprendre plus d’informations, consultez [des fournisseurs de ressources Azure et types](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services) et prise en charge [opérations du fournisseur de ressources Azure RM](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations).  
+     > Dans l’exemple ci-dessus, Microsoft.web correspond au fournisseur de ressources et fait référence à l'instance App Service. Vous pouvez utiliser n'importe quel autre fournisseur de ressources et générer l’URI d'étendue. Pour plus d'informations, reportez-vous aux [fournisseurs et types de ressources Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services), ainsi qu'aux [opérations de fournisseur de ressources Azure RM](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations) prises en charge.  
      
 1. Remplacez *{filter}* par la condition que vous voulez appliquer pour filtrer la liste des attributions de rôle.
 
     | Filtrer | Description |
     | --- | --- |
-    | `$filter=atScope()` | Répertorie les attributions de rôle pour la portée spécifiée seulement, sans compter les attributions de rôles à des étendues secondaires. |
-    | `$filter=principalId%20eq%20'{objectId}'` | Liste des attributions de rôles pour un utilisateur spécifié, un groupe ou un principal de service. |
-    | `$filter=assignedTo('{objectId}')` | Répertorie les attributions de rôles pour un utilisateur spécifié ou le principal du service. Si l’utilisateur est membre d’un groupe qui a une attribution de rôle, cette attribution de rôle est également répertoriée. Ce filtre est transitif pour les groupes, ce qui signifie que si l’utilisateur est un membre d’un groupe et ce groupe est membre d’un autre groupe qui a une attribution de rôle, cette attribution de rôle est également répertoriée. Ce filtre accepte uniquement un id d’objet pour un utilisateur ou un principal de service. Vous ne pouvez pas passer un id d’objet pour un groupe. |
+    | `$filter=atScope()` | Répertorie les attributions de rôles pour l’étendue spécifiée seulement, sans y inclure les attributions de rôles à des étendues secondaires. |
+    | `$filter=principalId%20eq%20'{objectId}'` | Répertorie les attributions de rôles pour un utilisateur, un groupe ou un principal de service spécifié. |
+    | `$filter=assignedTo('{objectId}')` | Répertorie les attributions de rôles pour un utilisateur ou un principal de service spécifié. Si l’utilisateur est membre d’un groupe auquel un rôle a été attribué, cette attribution de rôle est également répertoriée. Ce filtre est transitif pour les groupes, ce qui signifie que si l’utilisateur est membre d’un groupe et que ce groupe est membre d’un autre groupe auquel un rôle a été attribué, cette attribution de rôle est également répertoriée. Ce filtre accepte uniquement un ID d'objet pour un utilisateur ou principal de service. Vous ne pouvez pas transmettre un ID d'objet pour un groupe. |
 
 ## <a name="grant-access"></a>Accorder l'accès
 
@@ -81,7 +81,7 @@ Dans le contrôle d’accès en fonction du rôle, vous créez une attribution d
     
 1. Dans l’URI, remplacez *{scope}* par l’étendue de l’attribution de rôle.
 
-    | `Scope` | Type |
+    | Étendue | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonnement |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Groupe de ressources |
@@ -109,7 +109,7 @@ Dans le RBAC, vous supprimez une attribution de rôle pour supprimer un accès. 
 
 1. Dans l’URI, remplacez *{scope}* par l’étendue de suppression de l’attribution de rôle.
 
-    | `Scope` | Type |
+    | Étendue | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonnement |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Groupe de ressources |

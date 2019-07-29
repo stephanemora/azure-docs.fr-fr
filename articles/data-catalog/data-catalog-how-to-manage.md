@@ -9,14 +9,14 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
 ms.openlocfilehash: 407e25b7bb1a2220448c9701bbef208195c50b63
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65953116"
 ---
 # <a name="manage-data-assets-in-azure-data-catalog"></a>Gérer les ressources de données dans Azure Data Catalog
-## <a name="introduction"></a>Présentation
+## <a name="introduction"></a>Introduction
 Azure Data Catalog est conçu pour la détection des sources de données. Il permet de détecter facilement les sources de données dont vous avez besoin pour effectuer des analyses et prendre des décisions. Ces fonctionnalités de détection se révèlent très utiles, car elles vous permettent d’effectuer des recherches sur les nombreuses sources de données disponibles et de les comprendre. Par conséquent, le comportement par défaut de Data Catalog consiste à rendre visibles et détectables l’ensemble des sources de données inscrites pour tous les utilisateurs du catalogue.
 
 Data Catalog ne permet pas d’accéder aux données proprement dites. L’accès aux données est contrôlé par le propriétaire de la source de données. Data Catalog vous permet de détecter les sources de données et d’afficher les métadonnées relatives aux sources inscrites dans le catalogue.
@@ -52,7 +52,7 @@ Si une ressource de données est déjà la propriété d’un utilisateur, les a
 ### <a name="remove-owners"></a>Supprimer des propriétaires
 De la même manière que n’importe quel propriétaire de ressources peut ajouter des copropriétaires, n’importe quel propriétaire de ressource a la possibilité de supprimer des copropriétaires.
 
-Propriétaire d’une ressource se supprime eux-mêmes en tant que propriétaire ne peut plus gérer l’élément multimédia. Si le propriétaire de la ressource se supprime en tant que propriétaire et qu’aucun copropriétaire, la ressource revient à un état sans propriétaire.
+Si le propriétaire d’une ressource se supprime lui-même en tant que propriétaire, il n’aura plus aucun contrôle sur la ressource. Si le propriétaire d’une ressource se supprime lui-même en tant que propriétaire alors qu’il n’a désigné aucun copropriétaire, la ressource de données redevient sans propriétaire.
 
 ## <a name="control-visibility"></a>Contrôler la visibilité
 Les propriétaires de ressources de données peuvent contrôler la visibilité des ressources qu’ils détiennent. Pour définir une visibilité plus restreinte que celle du paramètre par défaut (où tous les utilisateurs de Data Catalog ont la possibilité de détecter et d’afficher la ressource de données), le propriétaire de la ressource peut modifier le paramètre de visibilité dans les propriétés de la ressource en remplaçant l’option **Tout le monde** par l’option **Propriétaires et ces utilisateurs**. Les propriétaires peuvent ensuite ajouter des utilisateurs et groupes de sécurité spécifiques.

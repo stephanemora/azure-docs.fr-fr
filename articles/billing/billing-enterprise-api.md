@@ -16,10 +16,10 @@ ms.workload: billing
 ms.date: 04/25/2017
 ms.author: erikre
 ms.openlocfilehash: 5722e05e5a5e3a57b4d12b70b14f8674364f824b
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66244818"
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Vue d’ensemble des API de création de rapports pour les clients Enterprise
@@ -44,7 +44,7 @@ Un point de terminaison Swagger est disponible [ici](https://consumption.azure.c
 
 * **Price Sheet** (Grille tarifaire) : l’[API Price Sheet](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) fournit les tarifs applicables pour chaque compteur selon l’abonnement et la période de facturation donnés.
 
-* **Réservé les détails de l’Instance** - le [API d’Instance réservée utilisation](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) retourne les achats de l’utilisation de l’Instance réservée. Le [Instance réservée facture API](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) montre les facturation transactions effectuées. 
+* **Informations détaillées sur les instances réservées** - L'[API Utilisation des instances réservées](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) renvoie l'utilisation des instances réservées achetées. L'[API Frais des instances réservées](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) affiche les transactions de facturation effectuées. 
 
 ## <a name="data-freshness"></a>Actualisation des données
 Les Etags s’afficheront dans la réponse de toutes les API ci-dessus. Une modification de l’ETag indique que les données ont été actualisées.  Dans les appels suivants à la même API utilisant les mêmes paramètres, passez l’ETag capturée avec la clé « If-None-Match » dans l’en-tête de requête http. Le code d’état de réponse est « NotModified » si les données n’a plus été actualisées et qu’aucune donnée n’est retournée. L’API retourne le jeu de données complet pour la période demandée chaque fois qu’il y a une modification de l’ETag.

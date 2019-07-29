@@ -11,10 +11,10 @@ ms.topic: landing-page
 ms.date: 01/15/2019
 ms.author: mbullwin
 ms.openlocfilehash: 451a2d6e658c08823d1629270bb7503ebd236c02
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66255693"
 ---
 <div id="main" class="v2">
@@ -66,8 +66,8 @@ ms.locfileid: "66255693"
                                                     <div class="cardText">
                                                         <h3>Nouveautés</h3>
                                                         <p>
-                                                            <a href="./app/kubernetes.md">Surveiller des applications Kubernetes</a><br>
-                                                            <a href="./app/status-monitor-v2-overview.md">V2 de moniteur d’état pour les applications IIS</a><br>
+                                                            <a href="./app/kubernetes.md">Superviser les applications Kubernetes</a><br>
+                                                            <a href="./app/status-monitor-v2-overview.md">Status Monitor v2 pour applications IIS</a><br>
                                                         </p>
                                                         <br><br>
                                                         <h3>Démarrages rapides</h3>
@@ -110,7 +110,7 @@ ms.locfileid: "66255693"
                                                             <a href="./app/proactive-arm-config.md">Gérer la détection intelligente à l'aide de modèles</a>
                                                         </p>
                                                         <br><br>
-                                                        <h3>Référence</h3>
+                                                        <h3>Informations de référence</h3>
                                                         <p>
                                                             <a href="./app/auto-collect-dependencies.md">Collecte automatique de dépendance</a><br>
                                                             <a href="./app/correlation.md">Corrélation des données de télémétrie</a><br>
@@ -183,7 +183,7 @@ ms.locfileid: "66255693"
                                                     <div class="cardText">
                                                         <h3>Analytique du comportement des utilisateurs</h3>
                                                         <p>
-                                                            <a href="./app/usage-overview.md">Vue d’ensemble</a><br>
+                                                            <a href="./app/usage-overview.md">Vue d'ensemble</a><br>
                                                             <a href="./app/usage-send-user-context.md">Envoyer des ID de contexte utilisateur</a><br>
                                                             <a href="./app/usage-segmentation.md">Utilisateurs, Sessions et Événements</a><br>
                                                             <a href="./app/usage-funnels.md">Entonnoirs</a><br>
@@ -216,7 +216,7 @@ ms.locfileid: "66255693"
                                                         <br><br>
                                                         <h3>Modèle de données</h3>
                                                         <p>
-                                                            <a href="./app/data-model.md">Vue d’ensemble</a><br>
+                                                            <a href="./app/data-model.md">Vue d'ensemble</a><br>
                                                             <a href="./app/data-model-request-telemetry.md">Requête</a><br>
                                                             <a href="./app/data-model-dependency-telemetry.md">Dépendance</a><br>
                                                             <a href="./app/data-model-exception-telemetry.md">Exception</a><br>

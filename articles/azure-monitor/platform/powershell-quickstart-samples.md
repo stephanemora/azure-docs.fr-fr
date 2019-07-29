@@ -9,10 +9,10 @@ ms.date: 2/14/2018
 ms.author: robb
 ms.subservice: ''
 ms.openlocfilehash: ada62fbfa51604a6b3188c27d5c14da40c8ac116
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66400204"
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Exemples de démarrage rapide Azure Monitor PowerShell
@@ -42,7 +42,7 @@ Un écran de connexion apparaît. Dès que vous vous connectez à votre compte, 
 Get-AzSubscription
 ```
 
-Pour afficher votre contexte de travail (quel abonnement vos commandes sont exécutées sur), utilisez la commande suivante :
+Pour afficher votre contexte de travail (les commandes exécutées sur votre abonnement), utilisez la commande suivante :
 
 ```powershell
 Get-AzContext
@@ -55,9 +55,9 @@ Set-AzContext -SubscriptionId <subscriptionid>
 
 
 ## <a name="retrieve-activity-log-for-a-subscription"></a>Récupérer le journal d’activité d’un abonnement
-Utilisez le [Get-AzLog](https://docs.microsoft.com/powershell/module/az.monitor/get-azlog) applet de commande.  Voici quelques exemples courants. Le journal d’activité contient les 90 derniers jours d’opérations. Utilisation de dates avant les résultats de l’exécution dans un message d’erreur.  
+Utilisez la cmdlet [Get-AzLog](https://docs.microsoft.com/powershell/module/az.monitor/get-azlog).  Voici quelques exemples courants. Le journal d’activité contient les 90 derniers jours d’opérations. L'utilisation de dates antérieures génère un message d'erreur.  
 
-Voir quels sont la date/heure actuelle pour vérifier ce qui arrive à utiliser dans les commandes ci-dessous :
+Consultez la date/heure actuelle pour vérifier les valeurs à utiliser dans les commandes ci-dessous :
 ```powershell
 Get-Date
 ```
@@ -101,7 +101,7 @@ Get-AzLog -MaxRecord 10
 `Get-AzLog` prend en charge de nombreux autres paramètres. Pour plus d'informations, consultez `Get-AzLog` .
 
 > [!NOTE]
-> `Get-AzLog` fournit uniquement 15 jours d'historique. À l’aide de la **- MaxRecords** paramètre vous permet d’interroger les N derniers événements, au-delà de 15 jours. Pour accéder aux événements antérieurs à 15 jours, utilisez l'API REST ou le Kit SDK (exemple de code C# à l'aide du SDK). Si vous n'incluez pas **StartTime**, la valeur par défaut est **EndTime** moins une heure. Si vous n'incluez pas **EndTime**, la valeur par défaut est l'heure actuelle. Toutes les heures sont exprimées en heure UTC.
+> `Get-AzLog` fournit uniquement 15 jours d'historique. Le paramètre **-MaxRecords** vous permet d'interroger les N derniers événements, au-delà de 15 jours. Pour accéder aux événements antérieurs à 15 jours, utilisez l'API REST ou le Kit SDK (exemple de code C# à l'aide du SDK). Si vous n'incluez pas **StartTime**, la valeur par défaut est **EndTime** moins une heure. Si vous n'incluez pas **EndTime**, la valeur par défaut est l'heure actuelle. Toutes les heures sont exprimées en heure UTC.
 > 
 > 
 
@@ -153,14 +153,14 @@ Le tableau suivant décrit les paramètres et les valeurs utilisés pour créer 
 | paramètre | value |
 | --- | --- |
 | Nom |simpletestdiskwrite |
-| Emplacement de cette règle d'alerte |East US |
+| Emplacement de cette règle d'alerte |USA Est |
 | ResourceGroup |montest |
 | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
-| MetricName de l'alerte créée |\PhysicalDisk(_Total)\Disk Writes/sec. See the `Get-MetricDefinitions` cmdlet about how to retrieve the exact metric names |
+| MetricName de l'alerte créée |\PhysicalDisk(_Total)\Disk Writes/sec. Pour savoir comment récupérer le nom exact des métriques, consultez l’applet de commande `Get-MetricDefinitions`. |
 | operator |GreaterThan |
 | Valeur de seuil (nombre/s pour cette métrique) |1 |
 | WindowSize (format hh:mm:ss) |00:05:00 |
-| agrégation (statistique de la métrique, qui utilise la valeur Average dans ce cas) |Average |
+| agrégation (statistique de la métrique, qui utilise la valeur Average dans ce cas) |Moyenne |
 | courriers électroniques personnalisés (tableau de chaînes) |'foo@example.com','bar@example.com' |
 | envoyer un courrier électronique aux propriétaires, contributeurs et lecteurs |-SendToServiceOwners |
 

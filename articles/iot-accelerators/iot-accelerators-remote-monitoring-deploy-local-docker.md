@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 10/25/2018
 ms.topic: conceptual
 ms.openlocfilehash: db934725fe91a142c43ba66701919e9d5a70a4b2
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65967543"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---docker"></a>Déployer localement l’accélérateur de solution de supervision à distance - Docker
@@ -23,7 +23,7 @@ Cet article montre comment déployer l’accélérateur de solution de supervisi
 
 Si vous souhaitez exécuter l’accélérateur de solution de supervision à distance dans un IDE sur votre ordinateur local, consultez [Déployer localement l’accélérateur de solution de supervision à distance - Visual Studio](iot-accelerators-remote-monitoring-deploy-local.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour déployer les services Azure utilisés par l’accélérateur de solution de supervision à distance, vous avez besoin d’un abonnement Azure actif.
 
@@ -96,7 +96,7 @@ Suivez ces étapes pour démarrer la tâche Stream Analytics :
 
 ### <a name="connect-to-the-dashboard"></a>Connexion au tableau de bord
 
-Pour accéder à du tableau de bord solution de surveillance à distance, accédez à `http://localhost:8080` dans votre navigateur. Vous pouvez maintenant utiliser l’interface utilisateur web et les microservices locaux.
+Pour accéder au tableau de bord de la solution de supervision à distance, accédez à `http://localhost:8080` dans votre navigateur. Vous pouvez maintenant utiliser l’interface utilisateur web et les microservices locaux.
 
 ## <a name="clean-up"></a>Nettoyer
 

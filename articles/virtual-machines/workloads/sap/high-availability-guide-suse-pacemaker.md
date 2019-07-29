@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
 ms.openlocfilehash: 9a23f13947c4c7a77460ff389861e1dcc1de3c7f
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65992120"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configuration de Pacemaker sur SUSE Linux Enterprise Server dans Azure
@@ -84,7 +84,7 @@ Exécutez les commandes suivantes sur toutes les **machines virtuelles cibles iS
 
 Exécutez les commandes suivantes sur toutes les **machines virtuelles cibles iSCSI** pour créer les disques iSCSI des clusters utilisés par vos systèmes SAP. Dans l’exemple suivant, des appareils SBD sont créés pour plusieurs clusters. Il vous montre comment utiliser un serveur cible iSCSI pour plusieurs clusters. Les appareils SBD sont placés sur le disque de système d’exploitation. Assurez-vous d’avoir suffisamment d’espace.
 
-**`nfs`** est utilisé pour identifier le cluster NFS, **ascsnw1** est utilisé pour identifier le cluster ASCS de **NW1**, **dbnw1** est utilisé pour identifier le cluster de base de données de **NW1** , **nfs-0** et **nfs-1** sont les noms d’hôtes des nœuds du cluster NFS, **nw1-xscs-0** et **nw1-xscs-1**sont les noms d’hôte de le **NW1** nœuds, de cluster ASCS et **nw1-db-0** et **nw1-db-1** sont les noms d’hôte de la base de données des nœuds de cluster. Remplacez-les par les noms d’hôte de vos nœuds de cluster, et par le SID de votre système SAP.
+**`nfs`** est utilisé pour identifier le cluster NFS, **ascsnw1** est utilisé pour identifier le cluster ASCS de **NW1**, **dbnw1** est utilisé pour identifier le cluster de base de données de **NW1** ; **nfs-0** et **nfs-1** sont les noms d’hôte des nœuds du cluster NFS, **nw1-xscs-0** et **nw1-xscs-1** sont les noms d’hôte des nœuds du cluster ASCS **NW1** et **nw1-db-0** et **nw1-db-1** sont les noms d’hôte des nœuds du cluster de base de données. Remplacez-les par les noms d’hôte de vos nœuds de cluster, et par le SID de votre système SAP.
 
 <pre><code># Create the root folder for all SBD devices
 sudo mkdir /sbd
@@ -302,7 +302,7 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
    <b>SBD_WATCHDOG="yes"</b>
    </code></pre>
 
-   Créer le `softdog` fichier de configuration
+   Créez le fichier de configuration `softdog`
 
    <pre><code>echo softdog | sudo tee /etc/modules-load.d/softdog.conf
    </code></pre>
@@ -321,7 +321,7 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
    <pre><code>sudo zypper update
    </code></pre>
 
-1. **[A]**  Configurer le système d’exploitation
+1. **[A]** Configurer le système d’exploitation
 
    Dans certains cas, Pacemaker crée de nombreux processus, et de ce fait dépasse le nombre autorisé de processus. Dans ce genre de situation, une pulsation entre les nœuds du cluster peut échouer et entraîner le basculement de vos ressources. Nous vous recommandons d’augmenter le nombre maximal autorisé de processus en définissant le paramètre suivant.
 
@@ -348,9 +348,9 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
    vm.dirty_background_bytes = 314572800
    </code></pre>
 
-1. **[A]**  Configurer netconfig de cloud computing azure pour le Cluster à haute disponibilité
+1. **[A]**  Configurer cloud-netconfig-azure pour un cluster haute disponibilité
 
-   Modifiez le fichier de configuration pour l’interface réseau comme indiqué ci-dessous pour empêcher le plug-in du réseau cloud à partir de la suppression de l’adresse IP virtuelle (Pacemaker doit contrôler l’attribution d’adresses IP virtuelles). Pour plus d’informations, consultez [SUSE Ko 7023633](https://www.suse.com/support/kb/doc/?id=7023633). 
+   Modifiez le fichier de configuration de l’interface réseau comme illustré ci-dessous pour empêcher le plug-in du réseau cloud de supprimer l'adresse IP virtuelle (Pacemaker doit contrôler l’attribution des adresses IP virtuelles). Pour plus d’informations, consultez [SUSE KB 7023633](https://www.suse.com/support/kb/doc/?id=7023633). 
 
    <pre><code># Edit the configuration file
    sudo vi /etc/sysconfig/network/ifcfg-eth0 
@@ -576,16 +576,16 @@ sudo crm configure primitive <b>stonith-sbd</b> stonith:external/sbd \
    op monitor interval="15" timeout="15"
 </code></pre>
 
-## <a name="pacemaker-configuration-for-azure-scheduled-events"></a>Configuration de pacemaker pour les événements planifiés Azure
+## <a name="pacemaker-configuration-for-azure-scheduled-events"></a>Configuration Pacemaker pour les événements planifiés Azure
 
-Offres Azure [événements planifiés](https://docs.microsoft.com/azure/virtual-machines/linux/scheduled-events). Événements planifiés sont fournies via le service de métadonnées et attendez que l’application pour vous préparer à des événements tels que l’arrêt de la machine virtuelle, redéploiement des machines virtuelles, etc. Agent de ressource **[azure-événements](https://github.com/ClusterLabs/resource-agents/pull/1161)** les moniteurs d’événements Azure planifiés. Si des événements sont détectées, l’agent va tenter d’arrêter toutes les ressources sur la machine virtuelle concernée et de les déplacer vers un autre nœud du cluster. Pour atteindre ces ressources Pacemaker supplémentaires doit être configurés. 
+Azure propose des [événements planifiés](https://docs.microsoft.com/azure/virtual-machines/linux/scheduled-events). Les événements planifiés sont fournis via le service de métadonnées et permettent à l'application de préparer des événements tels que l'arrêt d'une machine virtuelle, le redéploiement d'une machine virtuelle, etc. L'agent de ressource **[azure-events](https://github.com/ClusterLabs/resource-agents/pull/1161)** supervise les événements planifiés Azure. Si des événements sont détectés, l’agent tente d'arrêter toutes les ressources sur la machine virtuelle concernée et de les déplacer vers un autre nœud du cluster. Pour y parvenir, des ressources Pacemaker supplémentaires doivent être configurées. 
 
-1. **[A]**  Installer le **azure-événements** agent. 
+1. **[A]**  Installez l'agent **azure-events**. 
 
 <pre><code>sudo zypper install resource-agents
 </code></pre>
 
-2. **[1]**  Configurer les ressources dans Pacemaker. 
+2. **[1]**  Configurez les ressources dans Pacemaker. 
 
 <pre><code>
 #Place the cluster in maintenance mode
@@ -600,10 +600,10 @@ sudo crm configure property maintenance-mode=false
 </code></pre>
 
    > [!NOTE]
-   > Après avoir configuré les ressources Pacemaker pour l’agent d’événements d’azure, lorsque vous placez le cluster dans ou hors du mode de maintenance, vous pouvez recevoir des messages d’avertissement comme :  
-     Avertissement : cib-bootstrap-options : attribut inconnu ' hostName_  <strong>nom d’hôte</strong>'  
-     Avertissement : cib-bootstrap-options : attribut inconnu 'azure-events_globalPullState'  
-     Avertissement : cib-bootstrap-options : attribut inconnu ' hostName_ <strong>nom d’hôte</strong>'  
+   > Une fois les ressources configurées pour l'agent azure-events, lorsque vous placez le cluster à l'intérieur ou à l'extérieur du mode de maintenance, des messages d'avertissement comme les suivants peuvent s'afficher :  
+     WARNING: cib-bootstrap-options: unknown attribute 'hostName_  <strong>hostname</strong>'  
+     WARNING: cib-bootstrap-options: unknown attribute 'azure-events_globalPullState'  
+     WARNING: cib-bootstrap-options: unknown attribute 'hostName_ <strong>hostname</strong>'  
    > Ces messages d’avertissement peuvent être ignorés.
 
 ## <a name="next-steps"></a>Étapes suivantes

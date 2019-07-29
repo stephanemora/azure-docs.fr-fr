@@ -11,10 +11,10 @@ ms.date: 04/26/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: ac0f8cb4d9069d2ef7ce48939ad2dd1c92732d1a
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66242961"
 ---
 # <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Didacticiel : Chargement des données de New York Taxicab dans Azure SQL Data Warehouse
@@ -67,7 +67,7 @@ Suivez ces étapes pour créer un entrepôt de données SQL vide.
 
 4. Cliquez sur **Serveur** pour créer et configurer un serveur pour votre nouvelle base de données. Remplissez le **formulaire de nouveau serveur** avec les informations suivantes : 
 
-    | Paramètre | Valeur suggérée |  Description | 
+    | Paramètre | Valeur suggérée | DESCRIPTION | 
     | ------- | --------------- | ----------- |
     | **Nom du serveur** | Nom globalement unique | Pour les noms de serveur valides, consultez [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Conventions d’affectation de nom). | 
     | **Connexion d’administrateur du serveur** | Nom valide | Pour les noms de connexion valides, consultez [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificateurs de base de données).|
@@ -80,7 +80,7 @@ Suivez ces étapes pour créer un entrepôt de données SQL vide.
 
 6. Cliquez sur **Niveau de performance** pour spécifier si l’entrepôt de données est de type Gen1 ou Gen2, et indiquer le nombre d’unités d’entrepôt de données. 
 
-7. Pour ce didacticiel, sélectionnez **Gen2** de SQL Data Warehouse. Le curseur est défini sur **DW1000c** par défaut.  Déplacez-le vers le haut et le bas pour voir son fonctionnement. 
+7. Pour ce tutoriel, sélectionnez **Gen2** de SQL Data Warehouse. Par défaut, le curseur est défini sur **DW1000c**.  Déplacez-le vers le haut et le bas pour voir son fonctionnement. 
 
     ![configurer les performances](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
@@ -561,10 +561,10 @@ Le script utilise l’instruction T-SQL [CREATE TABLE AS SELECT (CTAS)](/sql/t-s
 
     ![Afficher les tables chargées](media/load-data-from-azure-blob-storage-using-polybase/view-loaded-tables.png)
 
-## <a name="authenticate-using-managed-identities-to-load-optional"></a>S’authentifier à l’aide d’identités gérées pour charger (facultatif)
-Le chargement à l’aide de PolyBase et l’authentification via des identités gérées est le mécanisme le plus sécurisé et vous permet de tirer parti des points de terminaison de Service réseau virtuel avec stockage Azure. 
+## <a name="authenticate-using-managed-identities-to-load-optional"></a>S’authentifier à l’aide d’identités managées à charger (facultatif)
+Charger avec PolyBase et s'authentifier via des identités managées est le mécanisme le plus sécurisé et vous permet de tirer parti des points de terminaison de service de réseau virtuel avec Stockage Azure. 
 
-### <a name="prerequisites"></a>Conditions préalables
+### <a name="prerequisites"></a>Prérequis
 1.  Installez Azure PowerShell en vous aidant de ce [guide](https://docs.microsoft.com/powershell/azure/install-az-ps).
 2.  Si vous disposez d’un compte de stockage d’objets blob ou v1 universel, vous devez commencer par le mettre à niveau avec un compte v2 universel en vous aidant de ce [guide](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
 3.  Vous devez avoir activé **Autoriser les services Microsoft approuvés à accéder à ce compte de stockage** sous le menu de paramètres **Pare-feux et réseaux virtuels** du compte Stockage Azure. Pour plus d’informations, consultez ce [guide](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
@@ -583,27 +583,27 @@ Le chargement à l’aide de PolyBase et l’authentification via des identités
    > [!NOTE]
    > - Si vous disposez d’un compte de stockage d’objets blob ou v1 universel, vous devez **d’abord le mettre à niveau avec v2** en vous aidant de ce [guide](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
     
-1. Sous votre compte de stockage, accédez à **Contrôle d’accès (IAM)** , puis cliquez sur **Ajouter une attribution de rôle**. Affecter **contributeur aux données stockage Blob** rôle RBAC à votre serveur de base de données SQL.
+1. Sous votre compte de stockage, accédez à **Contrôle d’accès (IAM)** , puis cliquez sur **Ajouter une attribution de rôle**. Attribuez le rôle RBAC **Contributeur aux données Blob de stockage** à votre serveur SQL Database.
 
    > [!NOTE] 
    > Seuls les membres dotés du privilège Propriétaire peuvent effectuer cette étape. Pour découvrir les divers rôles intégrés pour les ressources Azure, consultez ce [guide](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
   
 1. **Connectivité PolyBase au compte Stockage Azure :**
     
-   1. Créer vos informations d’identification de niveau base de données avec **identité = 'Managed Service Identity'** :
+   1. Créez vos informations d’identification incluses dans l’étendue de la base de données avec **IDENTITY = 'Managed Service Identity'**  :
 
        ```SQL
        CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
        ```
        > [!NOTE] 
        > - Il est inutile de spécifier SECRET avec la clé d’accès Stockage Azure, car ce mécanisme utilise l’[identité managée](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) en arrière-plan.
-       > - Nom de l’identité doit être **'Managed Service Identity'** pour la connectivité de PolyBase travailler avec le compte de stockage Azure.
+       > - Le nom d’IDENTITY doit être **'Managed Service Identity'** pour que la connectivité PolyBase entre le compte Stockage Azure.
     
-   1. Créer la Source de données externe en spécifiant les informations d’identification de niveau de base de données avec l’identité du Service administré.
+   1. Créer la source de données externe en spécifiant les informations d'identification incluses dans l'étendue de la base de données avec Managed Service Identity.
         
    1. Exécutez des requêtes comme vous le faites habituellement en utilisant des [tables externes](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql).
 
-Reportez-vous à ce qui suit [documentation] (https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview ) si vous souhaitez définir des points de terminaison de service réseau virtuel pour SQL Data Warehouse. 
+Reportez-vous à la [documentation] suivante (https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview ) si vous souhaitez définir des points de terminaison de service de réseau virtuel pour SQL Data Warehouse. 
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

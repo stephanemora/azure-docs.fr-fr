@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/30/2019
 ms.author: raynew
 ms.openlocfilehash: 866374df7d3a6973cfc5995afd5cc3c4b0145c48
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66400002"
 ---
 # <a name="create-and-customize-recovery-plans"></a>Créer et personnaliser des plans de récupération
@@ -70,7 +70,7 @@ Vous pouvez personnaliser un plan de récupération en ajoutant un script ou une
     Entre un site Hyper-V et Microsoft Azure | Runbook | N/D
     Site VMM vers site VMM secondaire | Script | Script
 
-1. Dans le plan de récupération, cliquez sur l’étape à laquelle l’action doit être ajouté et spécifiez quand l’action doit se produire :
+1. Dans le plan de récupération, cliquez sur l’étape à laquelle l’action doit être ajoutée et spécifiez quand l’action doit se produire :
     1. Si vous souhaitez que l’action se produise avant que les ordinateurs du groupe démarrent après le basculement, sélectionnez **Ajouter une action préalable**.
     1. Si vous souhaitez que l’action se produise après que les ordinateurs du groupe démarrent après le basculement, sélectionnez **Ajouter une action postérieure**. Pour déplacer l’action dans la liste, utilisez les boutons **Monter** et **Descendre**.
 2. Dans **Insérer une action**, sélectionnez **Script** ou **Action manuelle**.
@@ -78,7 +78,7 @@ Vous pouvez personnaliser un plan de récupération en ajoutant un script ou une
     1. Tapez un nom pour l’action, ainsi que les instructions de l’action. La personne qui exécute le basculement verra ces instructions.
     1. Spécifiez si vous souhaitez ajouter l’action manuelle pour tous les types de basculement (Test, Basculement, Basculement planifié (le cas échéant)). Cliquez ensuite sur **OK**.
 4. Si vous souhaitez ajouter un script, procédez comme suit :
-    1. Si vous ajoutez un script VMM, sélectionnez **Basculement vers script VMM**, puis dans **Chemin du script**, entrez le chemin d’accès relatif au partage. Par exemple, si le partage se trouve dans \\ \<VMMServerName > \MSSCVMMLibrary\RPScripts, spécifiez le chemin d’accès : \RPScripts\RPScript.PS1.
+    1. Si vous ajoutez un script VMM, sélectionnez **Basculement vers script VMM**, puis dans **Chemin du script**, entrez le chemin d’accès relatif au partage. Par exemple, si le partage est situé à l’emplacement \\\<VMMServerName>\MSSCVMMLibrary\RPScripts, specify the path: \RPScripts\RPScript.PS1.
     1. Si vous ajoutez un Runbook Azure Automation, spécifiez le **Compte Azure Automation** dans lequel se trouve le Runbook, puis sélectionnez le **Script Runbook Azure** approprié.
 5. Afin de vous assurer du bon fonctionnement du script, effectuez un test de basculement du plan de récupération.
 

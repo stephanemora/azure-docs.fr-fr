@@ -12,27 +12,27 @@ ms.author: martinle
 ms.reviewer: igorstan
 mscustom: sqlfreshmay19
 ms.openlocfilehash: d20a600951a0fe586e981adf12127072df1b744c
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66428016"
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Data Warehouse Units (DWU) et Data Warehouse Units de calcul (cDWU)
 
 Recommandations concernant le choix du nombre idéal de Data Warehouse Units (DWU, cDWU) pour optimiser le prix et la performance ainsi que la manière de modifier leur nombre.
 
-## <a name="what-are-data-warehouse-units"></a>Quelles sont les unités Data Warehouse
+## <a name="what-are-data-warehouse-units"></a>Que sont les Data Warehouse Units ?
 
-Azure SQL Data Warehouse, l’UC, mémoire et e/s sont regroupées dans des unités d’échelle de calcul appelées Data Warehouse Units (Dwu). Une DWU représente une mesure abstraite et standardisée des ressources de calcul et de performances. Une modification apportée à votre niveau de service modifie le nombre de Dwu sont disponibles sur le système, qui à son tour ajuste les performances et le coût de votre système.
+Azure SQL Data Warehouse, l’UC, la mémoire et les E/S sont regroupés dans des unités d’échelle de calcul appelées Data Warehouse Units (DWU). Une DWU représente une mesure abstraite et standardisée des ressources de calcul et de performances. Une modification de votre niveau de service change le nombre de DWU disponibles sur le système, qui à son tour ajuste le niveau de performance et le coût de votre système.
 
-Pour augmenter les performances, vous pouvez augmenter le nombre d’unités de l’entrepôt de données. Pour moins les performances, réduire les unités d’entrepôt de données. Les coûts de stockage et de calcul sont facturés séparément. Ainsi, la modification des DWU n’a pas d’effet sur les coûts de stockage.
+Pour un meilleur niveau de performance, vous pouvez augmenter le nombre de DWU. Pour un niveau de performance inférieur, vous pouvez diminuer le nombre de DWU. Les coûts de stockage et de calcul sont facturés séparément. Ainsi, la modification des DWU n’a pas d’effet sur les coûts de stockage.
 
 Les performances des DWU sont basées sur les métriques de charge de travail d’entrepôt de données suivantes :
 
-- À quelle vitesse une requête d’entreposage de données standards peuvent analyser un grand nombre de lignes et puis effectuer une agrégation complexe. C’est une opération très gourmande en E/S et en UC.
-- La vitesse à laquelle l’entrepôt de données peut recevoir des données à partir d’objets BLOB Azure Storage ou Azure Data Lake. C’est une opération très gourmande en réseau et en UC.
-- La rapidité du [ `CREATE TABLE AS SELECT` ](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) commande T-SQL peut copier une table. Cette opération implique la lecture des données sur le système de stockage, leur distribution entre les nœuds de l’appliance et la réécriture dans le système de stockage. Cette opération est très gourmande en UC, E/S et réseau.
+- À quelle vitesse une requête d’entreposage de données standard peut-t-elle analyser un grand nombre de lignes avant d’effectuer une agrégation complexe ? C’est une opération très gourmande en E/S et en UC.
+- À quelle vitesse un entrepôt de données peut-il traiter des données provenant du stockage d'objets blob Azure ou d’Azure Data Lake ? C’est une opération très gourmande en réseau et en UC.
+- Rapidité avec laquelle la commande T-SQL [`CREATE TABLE AS SELECT`](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) peut copier une table. Cette opération implique la lecture des données sur le système de stockage, leur distribution entre les nœuds de l’appliance et la réécriture dans le système de stockage. Cette opération est très gourmande en UC, E/S et réseau.
 
 Augmentation du nombre de DWU :
 
@@ -46,7 +46,7 @@ L’Objectif de niveau de service (SLO) est le paramètre d’extensibilité qui
   > [!NOTE]
   > Azure SQL Data Warehouse Gen2 a récemment ajouté des fonctionnalités de mise à l'échelle supplémentaires pour la prise en charge des niveaux de calcul inférieurs à 100 cDWU. Les entrepôts de données Gen1 existants qui ont besoin des niveaux de calcul inférieurs peuvent désormais être mis à niveau vers Gen2 dans les régions actuellement disponibles sans aucun coût supplémentaire.  Si votre région n'est pas encore prise en charge, vous pouvez procéder à une mise à niveau vers une région qui l'est. Pour plus d’informations, consultez [Mettre à niveau vers Gen2](upgrade-to-latest-generation.md).
 
-Dans T-SQL, le paramètre SERVICE_OBJECTIVE détermine le niveau de service et le niveau de performances pour votre entrepôt de données.
+Dans T-SQL, le paramètre SERVICE_OBJECTIVE détermine les niveaux de service et de performance de votre entrepôt de données.
 
 ```sql
 --Gen1
@@ -73,13 +73,13 @@ Chaque niveau de performances utilise une unité de mesure légèrement différe
 
 Les DWU et les cDWU prennent en charge la mise à l’échelle du calcul (augmentation ou réduction) et la suspension du calcul lorsque vous n’avez pas besoin d’utiliser l’entrepôt de données. Ces opérations se font toutes à la demande. Gen2 utilise un cache sur disque local sur les nœuds de calcul pour améliorer les performances. Lorsque vous mettez à l’échelle ou suspendez le système, le cache est invalidé, et une période de préchauffage du cache est nécessaire pour pouvoir bénéficier de performances optimales.  
 
-Lorsque vous augmentez les DWU, vous augmentez de façon linéaire le nombre de ressources de calcul. Gen2 fournit les meilleures performances de requête et de la mise à l’échelle la plus élevée. Les systèmes de génération 2 également exploitent au maximum du cache.
+Lorsque vous augmentez les DWU, vous augmentez de façon linéaire le nombre de ressources de calcul. Gen2 offre les meilleures performances de requête et la plus grande échelle. Les systèmes Gen2 exploitent aussi au maximum le cache.
 
 ### <a name="capacity-limits"></a>Limites de capacité
 
 Chaque serveur SQL (par exemple, myserver.database.windows.net) a un quota de [d’unités de transaction de base de données (DTU)](../sql-database/sql-database-what-is-a-dtu.md) qui autorise un nombre spécifique d’unités d’entrepôt de données. Pour plus d’informations, consultez les [limites de capacité de gestion de la charge de travail](sql-data-warehouse-service-capacity-limits.md#workload-management).
 
-## <a name="how-many-data-warehouse-units-do-i-need"></a>Nombre d’unités l’entrepôt de données ai-je besoin
+## <a name="how-many-data-warehouse-units-do-i-need"></a>De combien de DWU ai-je besoin ?
 
 Le nombre idéal de DWU dépend en grande partie de votre charge de travail et de la quantité de données que vous avez chargées dans le système.
 
@@ -87,7 +87,7 @@ Le nombre idéal de DWU dépend en grande partie de votre charge de travail et d
 
 1. Commencez par sélectionner une DWU plus petite.
 2. Surveillez les performances de votre application pendant le test des charges de données dans le système, en observant notamment le nombre de DWU sélectionné.
-3. Identifiez des besoins supplémentaires pour les périodes ponctuelles de pics d’activité. Pics de charges de travail qui montrent significatives et creux dans l’activité peut devoir être mis à l’échelle fréquemment.
+3. Identifiez des besoins supplémentaires pour les périodes ponctuelles de pics d’activité. Les charges de travail présentant d'importantes variations d'activité doivent être fréquemment mises à l’échelle.
 
 SQL Data Warehouse est un système de montée en puissance parallèle qui peut fournir des quantités importantes de calcul et lancer des requêtes sur une grande quantité de données. Pour tester ses capacités de mise à l’échelle, surtout avec un nombre élevé de DWU, nous vous recommandons d’effectuer la mise à l’échelle de l’ensemble de données en vous assurant que vous disposez de suffisamment de données pour alimenter les UC. Pour le test de mise à l’échelle, nous recommandons d’utiliser au moins 1 To.
 
@@ -134,7 +134,7 @@ Pour modifier les DWU ou les cDWU :
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Pour modifier les Dwu ou les Cdwu, utilisez le [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) applet de commande PowerShell. L'exemple suivant définit l'objectif de niveau de service sur DW1000 pour la base de données MySQLDW hébergée sur le serveur MyServer.
+Pour modifier les DWU ou les cDWU, utilisez la cmdlet PowerShell [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase). L'exemple suivant définit l'objectif de niveau de service sur DW1000 pour la base de données MySQLDW hébergée sur le serveur MyServer.
 
 ```Powershell
 Set-AzSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000"
@@ -159,7 +159,7 @@ MODIFY (SERVICE_OBJECTIVE = 'DW1000')
 
 ### <a name="rest-apis"></a>API REST
 
-Pour modifier les DWU, utilisez l’API REST [Créer ou mettre à jour une base de données](/rest/api/sql/databases/createorupdate). L’exemple suivant définit l’objectif de niveau de service sur DW1000 pour la base de données MySQLDW hébergée sur le serveur MyServer. Le serveur est un groupe de ressources Azure appelé ResourceGroup1.
+Pour modifier les DWU, utilisez l’API REST [Créer ou mettre à jour une base de données](/rest/api/sql/databases/createorupdate). L'exemple suivant définit l'objectif de niveau de service sur DW1000 pour la base de données MySQLDW hébergée sur le serveur MyServer. Le serveur est un groupe de ressources Azure appelé ResourceGroup1.
 
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}?api-version=2014-04-01-preview HTTP/1.1
@@ -203,14 +203,14 @@ AND       major_resource_id = 'MySQLDW'
 ;
 ```
 
-Cette vue de gestion dynamique retourne des informations sur les diverses opérations de gestion sur votre SQL Data Warehouse, comme l’opération et l’état de l’opération, qui est soit IN_PROGRESS ou COMPLETED.
+Cette vue de gestion dynamique renvoie des informations sur diverses opérations de gestion de votre SQL Data Warehouse, comme l’opération et l’état de l’opération, qui a la valeur IN_PROGRESS ou COMPLETED.
 
 ## <a name="the-scaling-workflow"></a>Flux de travail de mise à l’échelle
 
-Lorsque vous démarrez une opération de mise à l’échelle, le système arrête tout d’abord toutes les sessions ouvertes, annulation de toutes les transactions ouvertes pour garantir un état cohérent. La mise à l’échelle intervient uniquement une fois la restauration des transactions effectuée.  
+Lorsque vous démarrez une opération de mise à l’échelle, le système arrête tout d’abord toutes les sessions ouvertes, ce qui annule toutes les transactions en cours pour garantir un état cohérent. La mise à l’échelle intervient uniquement une fois la restauration des transactions effectuée.  
 
-- Pour une opération de montée en charge, le système détache de tous les nœuds de calcul, configure les nœuds de calcul supplémentaires et puis le réassocie à la couche de stockage.
-- Pour une opération de mise à l’échelle vers le bas, le système détache de tous les nœuds de calcul et puis rattache uniquement les nœuds nécessaires à la couche de stockage.
+- Pour une opération de montée en puissance, le système détache tous les nœuds de calcul, approvisionne le calcul supplémentaire, puis le réassocie à la couche de stockage.
+- Pour une opération de descente en puissance, le système détache tous les nœuds de calcul, puis rattache uniquement les nœuds nécessaire à la couche de stockage.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

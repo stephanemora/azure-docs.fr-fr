@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 11/07/2018
 ms.openlocfilehash: b1b281c7beac6b6cb48834e636edff818f89bf12
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66304134"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Déployer et explorer une application à client unique autonome qui utilise Azure SQL Database
@@ -25,9 +25,9 @@ Ce didacticiel décrit comment déployer et explorer l’exemple d’application
 
 Le modèle application autonome ou d’application par client déploie une instance d’application pour chaque client.  Chaque application est configurée pour un client spécifique, et déployée dans un groupe de ressources Azure distinct. Plusieurs instances de l’application sont approvisionnées pour fournir une solution mutualisée. Ce modèle convient parfaitement pour des nombres restreints de clients où l’isolation des clients est une priorité de premier plan. Azure disposent de programmes partenaires qui permettent le déploiement de ressources dans un abonnement du client et leur gestion par un fournisseur de services pour le compte du client. 
 
-Dans ce didacticiel, vous allez déployer trois applications autonomes pour trois clients dans votre abonnement Azure.  Vous avez un accès complet pour explorer et utiliser les composants d’application individuels.
+Dans le cadre de ce didacticiel, vous allez déployer trois applications autonomes pour trois clients dans votre abonnement Azure.  Vous avez un accès complet pour explorer et utiliser les composants d’application individuels.
 
-Le code source de l’application et les scripts de gestion sont disponibles dans le référentiel GitHub [WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp). L’application a été créée à l’aide de Visual Studio 2015 et n’a été ouvrez et compilez dans Visual Studio 2019 sans mettre à jour.
+Le code source de l’application et les scripts de gestion sont disponibles dans le référentiel GitHub [WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp). L’application a été créée à l’aide de Visual Studio 2015. Il est impossible de l’ouvrir ou de la compiler correctement dans Visual Studio 2019 sans mise à jour.
 
 
 Ce didacticiel vous apprend à effectuer les opérations suivantes :
@@ -37,7 +37,7 @@ Ce didacticiel vous apprend à effectuer les opérations suivantes :
 > * Obtenir le code source de l’application et les scripts de gestion.
 > * Explorer les serveurs et les bases de données qui composent l’application.
 
-D’autres didacticiels seront publiés. Ils vous permettrons Explorer un éventail de scénarios de gestion basé sur ce modèle d’application.   
+D’autres didacticiels seront publiés. Ils vous permettront d’explorer un éventail de scénarios de gestion basés sur ce modèle d’application.   
 
 ## <a name="deploy-the-wingtip-tickets-saas-standalone-application"></a>Déployer l’exemple d’application autonome SaaS Wingtip Tickets
 
@@ -56,7 +56,7 @@ Déployez l’application pour les trois clients fournis :
     > Certaines authentifications et pare-feu de serveur sont volontairement non sécurisés à des fins de démonstration. **Créez un groupe de ressources** pour chaque déploiement d’application.  N’utilisez pas un groupe de ressources existant. N’utilisez pas cette application, ni les ressources qu’elle crée, pour la production. Supprimez tous les groupes de ressources lorsque vous en avez terminé avec les applications pour interrompre la facturation associée.
 
     Il est préférable d’utiliser uniquement des lettres minuscules, des chiffres et des traits d’union dans les noms de ressource.
-    * Pour **Groupe de ressources**, sélectionnez Création et indiquez un nom en minuscules pour le groupe de ressources. **wingtip-sa-\<venueName\>-\<user\>** est le modèle recommandé.  Pour \<venueName\>, remplacez le nom du lieu sans espaces. Pour \<utilisateur\>, remplacez la valeur de l’utilisateur ci-dessous.  Avec ce modèle, des noms de groupes de ressources pourraient être *wingtip-sa-contosoconcerthall-af1*, *wingtip-sa-dogwooddojo-af1*, *wingtip-sa-fabrikamjazzclub-af1*.
+    * Pour **Groupe de ressources**, sélectionnez Création et indiquez un nom en minuscules pour le groupe de ressources. **wingtip-sa-\<venueName\>-\<user\>** est le modèle recommandé.  Pour \<venueName\>, entrez le nom du lieu sans espaces. Pour \<user\>, entrez la valeur de l’utilisateur ci-dessous.  Avec ce modèle, des noms de groupes de ressources pourraient être *wingtip-sa-contosoconcerthall-af1*, *wingtip-sa-dogwooddojo-af1*, *wingtip-sa-fabrikamjazzclub-af1*.
     * Sélectionnez un **Emplacement** dans la liste déroulante.
 
     * Pour **Utilisateur**, nous vous recommandons de choisir une valeur d’utilisateur courte, comme vos initiales plus un chiffre : par exemple, *af1*.
@@ -76,16 +76,16 @@ L’application présente les lieux qui hébergent des événements.  Les lieux 
 
 1. Ouvrez la page d’événements pour chacun des trois clients dans des onglets de navigateur distincts :
 
-   - http://events.contosoconcerthall.&lt;user&gt;.trafficmanager.net
-   - http://events.dogwooddojo.&lt;user&gt;.trafficmanager.net
-   - http://events.fabrikamjazzclub.&lt;user&gt;.trafficmanager.net
+   - http://events.contosoconcerthall.&lt ;user&gt;.trafficmanager.net
+   - http://events.dogwooddojo.&lt ;user&gt;.trafficmanager.net
+   - http://events.fabrikamjazzclub.&lt ;user&gt;.trafficmanager.net
 
      (Dans chaque URL, remplacez &lt;user&gt; par la valeur d’utilisateur de votre déploiement.)
 
    ![Événements](./media/saas-standaloneapp-get-started-deploy/fabrikam.png)
 
 Pour contrôler la distribution des demandes entrantes, l’application utilise [*Azure Traffic Manager*](../traffic-manager/traffic-manager-overview.md). Chaque instance d’application propre au locataire comprend le nom du locataire en tant que partie du nom de domaine dans l’URL. Toutes les URL de locataire comprennent votre valeur **Utilisateur** spécifique. Les URL respectent le format suivant :
-- http://events.&lt;nomsalle&gt;.&lt;utilisateur&gt;.trafficmanager.net
+- http://events.&lt ;nomsalle&gt;.&lt; utilisateur&gt;.trafficmanager.net
 
 **L’emplacement** de base de données de chaque locataire est inclus dans les paramètres d’application de l’application déployée correspondante.
 
@@ -126,6 +126,6 @@ Dans ce didacticiel, vous avez appris à effectuer les opérations suivantes :
 > * Explorer les serveurs et les bases de données qui composent l’application.
 > * Comment supprimer les exemples de ressources pour arrêter la facturation associée.
 
-Ensuite, essayez le [approvisionner et cataloguer](saas-standaloneapp-provision-and-catalog.md) didacticiel dans lequel vous allez explorer l’utilisation d’un catalogue de locataires qui offre un éventail de scénarios inter-clients tels qu’analytique de gestion et des clients de schéma.
+Essayez ensuite le didacticiel [Approvisionnement et catalogue](saas-standaloneapp-provision-and-catalog.md) dans lequel vous allez explorer l’utilisation d’un catalogue de clients qui active un éventail de scénarios inter-clients tels que la gestion des schémas et l’analyse des clients.
  
 

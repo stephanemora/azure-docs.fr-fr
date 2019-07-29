@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: mayg
 ms.openlocfilehash: efb49db6cce7ba238d40bf80ddf87b2a1a83834f
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66479993"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Installer un serveur cible maître Linux pour la restauration automatique
@@ -24,7 +24,7 @@ Si votre machine virtuelle protégée est de type Windows, vous avez besoin d’
 > À partir de la version 9.10.0, le serveur cible maître le plus récent ne peut être installé que sur un serveur Ubuntu 16.04. Les nouvelles installations ne sont pas autorisées sur les serveurs de CentOS6.6. Toutefois, vous pouvez continuer la mise à niveau de vos anciens serveurs cible maître à l’aide de la version 9.10.0.
 > Un serveur cible maître sur une machine virtuelle Linux n’est pas pris en charge.
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 Cet article fournit la marche à suivre pour installer un serveur cible maître Linux.
 
 Publiez vos commentaires ou vos questions en bas de cet article ou sur le [Forum Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
@@ -62,7 +62,7 @@ Les noyaux Ubuntu suivants sont pris en charge.
 
 Procédez comme suit pour installer le système d’exploitation Ubuntu 16.04.2 64 bits.
 
-1.   Accédez à la [lien de téléchargement](http://old-releases.ubuntu.com/releases/16.04.2/ubuntu-16.04.2-server-amd64.iso), choisissez le miroir le plus proche et télécharger un ISO Ubuntu 16.04.2 minimal 64 bits.
+1.   Accédez au [lien de téléchargement](http://old-releases.ubuntu.com/releases/16.04.2/ubuntu-16.04.2-server-amd64.iso) et choisissez le miroir le plus proche et téléchargez un fichier ISO Ubuntu 16.04.2 Minimal 64 bits.
 Conservez le fichier ISO Ubuntu 16.04.2 Minimal 64 bits dans le lecteur DVD et démarrez le système.
 
 1.  Sélectionnez **French** (Français) comme langue par défaut, puis appuyez sur **Entrée**.
@@ -83,7 +83,7 @@ Conservez le fichier ISO Ubuntu 16.04.2 Minimal 64 bits dans le lecteur DVD et 
 1. Sélectionnez **No** (Non) (option par défaut), puis appuyez sur **Entrée**.
 
      ![Configurer le clavier](./media/vmware-azure-install-linux-master-target/image5.png)
-1. Sélectionnez **anglais (États-Unis)** en tant que le pays/région d’origine pour le clavier, puis sélectionnez **entrée**.
+1. Sélectionnez **French** (France) (Français (France)) comme pays/région d’origine pour le clavier, puis appuyez sur **Entrée**.
 
 1. Sélectionnez **French (France)** (Français (France)) comme disposition du clavier, puis appuyez sur **Entrée**.
 
@@ -262,7 +262,7 @@ Pour créer un disque de rétention, procédez comme suit :
     
     Appuyez sur **Inser** pour commencer à modifier le fichier. Créez une ligne, puis insérez-y le texte suivant. Modifiez l’ID multichemin du disque en fonction de l’ID multichemin de la commande précédente.
 
-    **dev/mapper/\<id multichemin de rétention des disques >/mnt/retention ext4 rw 0 0**
+    **/dev/mapper/\<Retention disks multipath id> /mnt/retention ext4 rw 0 0**
 
     Appuyez sur la touche **Echap** et saisissez **:wq** (écrire et quitter) pour fermer la fenêtre de l’éditeur.
 

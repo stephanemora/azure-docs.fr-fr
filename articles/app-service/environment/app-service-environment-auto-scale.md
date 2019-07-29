@@ -16,10 +16,10 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 6660aa4e21aa36dc94c4ed9201fecb5637dddb3a
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65955969"
 ---
 # <a name="autoscaling-and-app-service-environment-v1"></a>Mise à l’échelle automatique et environnement App Service v1
@@ -63,7 +63,7 @@ La mise à l’échelle automatique d’un environnement App Service est mieux i
 Cet article décrit tous les éléments à prendre en compte lorsque vous configurez la mise à l’échelle. L’article vous guide tout au long des interactions qui ont lieu lorsque vous réalisez une mise à l’échelle automatique d’environnements App Service hébergés dans un environnement App Service.
 
 ### <a name="scenario-introduction"></a>Présentation du scénario
-Frank est administrateur système pour une entreprise qui a migré une partie des charges de travail qu’ils gèrent un environnement App Service.
+Frank est administrateur système pour une entreprise. Il a migré une partie des charges de travail qu’il gère vers un environnement App Service.
 
 L’environnement App Service est configuré sur mise à l’échelle manuelle, comme suit :
 
@@ -76,7 +76,7 @@ Le pool de Workers 1 est utilisé pour les charges de travail, tandis que le poo
 
 Les plans App Service pour l’assurance qualité et le développement sont configurés pour la mise à l’échelle manuelle. Le plan App Service de production est configuré pour la mise à l’échelle automatique afin de gérer les variations de charge et de trafic.
 
-Frank connaît bien l’application. Ils savent que les heures de pointe de charge sont entre 9 h 00 et 18 h 00 comme il s’agit d’une application (LOB large) line of business par les employés lorsqu’ils sont au bureau. Le taux d’utilisation chute une fois que les utilisateurs ont fini leur journée de travail. En dehors des heures de pointe, il existe toujours une charge, car les utilisateurs peuvent accéder à distance à l’application via leurs appareils mobiles ou leurs ordinateurs personnels. Le plan App Service de production est déjà configuré sur la mise à l’échelle automatique basée sur le taux d’utilisation du processeur avec les règles suivantes :
+Frank connaît bien l’application. Il sait que les heures de pointe de charge se situent entre 9 h et 18 h, car il s’agit d’une application métier (LOB) utilisée par les employés lorsqu’ils sont au bureau. Le taux d’utilisation chute une fois que les utilisateurs ont fini leur journée de travail. En dehors des heures de pointe, il existe toujours une charge, car les utilisateurs peuvent accéder à distance à l’application via leurs appareils mobiles ou leurs ordinateurs personnels. Le plan App Service de production est déjà configuré sur la mise à l’échelle automatique basée sur le taux d’utilisation du processeur avec les règles suivantes :
 
 ![Paramètres spécifiques pour une application métier.][asp-scale]
 
@@ -84,7 +84,7 @@ Frank connaît bien l’application. Ils savent que les heures de pointe de char
 | --- | --- |
 | **Nom :** Profil jour de semaine |**Nom :** Profil week-end |
 | **Mise à l’échelle par :** Règles de planification et de performance |**Mise à l’échelle par :** Règles de planification et de performance |
-| **Profil :** Jours de la semaine |**Profil :** Week-end |
+| **Profil :** Les jours de la semaine |**Profil :** Week-end |
 | **Type :** Périodicité |**Type :** Périodicité |
 | **Plage cible :** Entre 5 et 20 instances |**Plage cible :** Entre 3 et 10 instances |
 | **Jours :** Lundi, mardi, mercredi, jeudi, vendredi |**Jours :** Samedi, dimanche |
@@ -155,7 +155,7 @@ Grâce à ces informations, Frank peut définir le profil et les règles de mise
 | --- | --- |
 | **Nom :** Profil jour de semaine |**Nom :** Profil week-end |
 | **Mise à l’échelle par :** Règles de planification et de performance |**Mise à l’échelle par :** Règles de planification et de performance |
-| **Profil :** Jours de la semaine |**Profil :** Week-end |
+| **Profil :** Les jours de la semaine |**Profil :** Week-end |
 | **Type :** Périodicité |**Type :** Périodicité |
 | **Plage cible :** Entre 13 et 25 instances |**Plage cible :** Entre 6 et 15 instances |
 | **Jours :** Lundi, mardi, mercredi, jeudi, vendredi |**Jours :** Samedi, dimanche |
@@ -166,7 +166,7 @@ Grâce à ces informations, Frank peut définir le profil et les règles de mise
 | **Ressource :** Pool de Workers 1 |**Ressource :** Pool de Workers 1 |
 | **Mesure :** WorkersAvailable |**Mesure :** WorkersAvailable |
 | **Opération :** Inférieur à 8 |**Opération :** Inférieur à 3 |
-| **Durée :** 20 minutes |**Durée :** 30 minutes |
+| **Durée :** 20 minutes |**Durée :** 30 minutes |
 | **Agrégation de temps :** Moyenne |**Agrégation de temps :** Moyenne |
 | **Action :** Augmenter le nombre de 8 |**Action :** Augmenter le nombre de 3 |
 | **Refroidissement (minutes) :** 180 |**Refroidissement (minutes) :** 180 |
@@ -175,7 +175,7 @@ Grâce à ces informations, Frank peut définir le profil et les règles de mise
 | **Ressource :** Pool de Workers 1 |**Ressource :** Pool de Workers 1 |
 | **Mesure :** WorkersAvailable |**Mesure :** WorkersAvailable |
 | **Opération :** Supérieur à 8 |**Opération :** Supérieur à 3 |
-| **Durée :** 20 minutes |**Durée :** 15 minutes |
+| **Durée :** 20 minutes |**Durée :** 15 minutes |
 | **Agrégation de temps :** Moyenne |**Agrégation de temps :** Moyenne |
 | **Action :** Diminuer le nombre de 2 |**Action :** Diminuer le nombre de 3 |
 | **Refroidissement (minutes) :** 120 |**Refroidissement (minutes) :** 120 |
@@ -211,7 +211,7 @@ Pour ce scénario, Frank sait que le taux d’erreur augmente après que les fro
 | **Ressource :** Nom du pool frontal |
 | **Mesure :** % d’UC |
 | **Opération :** Supérieur à 60 % |
-| **Durée :** 20 minutes |
+| **Durée :** 20 minutes |
 | **Agrégation de temps :** Moyenne |
 | **Action :** Augmenter le nombre de 3 |
 | **Refroidissement (minutes) :** 120 |

@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
 ms.openlocfilehash: 5044f8b85e59911633a4ffab509efc000948144a
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65832576"
 ---
 # <a name="create-and-test-a-new-simulated-device"></a>Créer et tester un appareil simulé
@@ -40,7 +40,7 @@ Dans le deuxième scénario, Contoso souhaite tester un nouvel appareil d’écl
 
 Le tableau suivant présente les données que l’appareil d’éclairage communique au cloud sous la forme d’un flux de données :
 
-| Name   | Valeurs      |
+| Nom   | Valeurs      |
 | ------ | ----------- |
 | Statut | « on » (allumé), « off » (éteint) |
 | Température | Degrés F |
@@ -76,7 +76,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer les procédures de ce guide, vous avez besoin des éléments suivants :
 
@@ -107,11 +107,11 @@ Téléchargez et décompressez le [microservice de simulation d’appareil](http
 
 Ouvrez le dossier **remote-monitoring-services-dotnet-master\storage-adapter** dans Visual Studio Code. Cliquez sur les boutons **Restaurer** pour corriger les éventuelles dépendances non résolues.
 
-Ouvrez le **storage-adapter/WebService/appsettings.ini** de fichiers et d’affecter votre chaîne de connexion Cosmos DB à le **documentDBConnectionString** variable.
+Ouvrez le fichier **storage-adapter/WebService/appsettings.ini** et attribuez votre chaîne de connexion Cosmos DB à la variable **documentDBConnectionString**.
 
 Pour exécuter le microservice localement, cliquez sur **Déboguer > Démarrer le débogage**.
 
-La fenêtre **Terminal** dans Visual Studio Code affiche la sortie du microservice en cours d’exécution, y compris une URL pour la vérification d’intégrité du service web : [http://127.0.0.1:9022/v1/status](http://127.0.0.1:9022/v1/status). Lorsque vous accédez à cette adresse, l’état doit être « OK : Alive and well ».
+La fenêtre **Terminal** dans Visual Studio Code affiche la sortie du microservice en cours d’exécution, y compris une URL pour la vérification d’intégrité du service web : [http://127.0.0.1:9022/v1/status](http://127.0.0.1:9022/v1/status). Lorsque vous accédez à cette adresse, vous devez voir l’état « OK: Alive and well ».
 
 Laissez le microservice d’adaptateur de stockage s’exécuter dans cette instance de Visual Studio Code pendant que vous effectuez les étapes suivantes.
 
@@ -424,7 +424,7 @@ Dans cette section, vous testez les types d’appareils que vous avez créés lo
 
 Ouvrez le dossier **device-simulation-dotnet-master** que vous avez téléchargé à partir de GitHub dans une nouvelle instance de Visual Studio Code. Cliquez sur les boutons **Restaurer** pour corriger les éventuelles dépendances non résolues.
 
-Ouvrez le **WebService/appsettings.ini** de fichiers et d’affecter votre chaîne de connexion Cosmos DB à le **documentdb_connstring** variable et également modifier les paramètres comme suit :
+Ouvrez le fichier **WebService/appsettings.ini**, attribuez votre chaîne de connexion Cosmos DB à la variable **documentdb_connstring** et modifiez les paramètres comme suit :
 
 ```ini
 device_models_folder = C:\temp\devicemodels\

@@ -11,10 +11,10 @@ ms.date: 04/01/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: 5ffe75a58a8cfb2409af3a65ff822023d7ccf5d4
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66508468"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-linkedin-account-using-azure-active-directory-b2c"></a>Configurer l’inscription et la connexion avec un compte LinkedIn à l’aide d’Azure Active Directory B2C
@@ -41,6 +41,6 @@ Pour utiliser un compte LinkedIn en tant que [fournisseur d'identité](active-di
 7. Sélectionnez **Configurer ce fournisseur d’identité**, entrez l’ID client enregistré précédemment en tant **qu’ID Client** et entrez le secret client enregistré en tant que **Secret client** de l’application de compte LinkedIn créée précédemment.
 8. Cliquez sur **OK**, puis sur **Créer** pour enregistrer votre configuration de compte LinkedIn.
 
-## <a name="migration-from-v10-to-v20"></a>Migration à partir de la version 1.0 vers v2.0
+## <a name="migration-from-v10-to-v20"></a>Migration de v1.0 vers v2.0
 
-LinkedIn récemment [mis à jour leurs API à partir de la version 1.0 pour v2.0](https://engineering.linkedin.com/blog/2018/12/developer-program-updates). Dans le cadre de la migration, Azure AD B2C n’est en mesure d’obtenir le nom complet de l’utilisateur LinkedIn pendant l’inscription. Si une adresse de messagerie est un des attributs qui sont collectées au cours d’inscription, l’utilisateur doit manuellement entrer l’adresse de messagerie et validez-le.
+Dernièrement, LinkedIn a [mis à jour son API de v1.0 vers v2.0](https://engineering.linkedin.com/blog/2018/12/developer-program-updates). Dans le cadre de la migration, Azure AD B2C n’est en mesure d’obtenir le nom complet de l’utilisateur LinkedIn lors du processus d'inscription. Si une adresse e-mail figure parmi les attributs collectés au moment de l'inscription, l’utilisateur doit manuellement entrer l’adresse e-mail et la valider.

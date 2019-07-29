@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: seodec18
 ms.openlocfilehash: bbf682df2df7a8cdc9fedb36aa4244fc5c0e9488
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66243999"
 ---
 # <a name="data-querying"></a>Interrogation de données
@@ -35,7 +35,7 @@ Le [langage Expression de série chronologique (TSX)](https://docs.microsoft.com
 
 Les API principales suivantes sont prises en charge.
 
-[![Vue d’ensemble de la requête de série heure](media/v2-update-tsq/tsq.png)](media/v2-update-tsq/tsq.png#lightbox)
+[![Vue d'ensemble de la requête de série chronologique](media/v2-update-tsq/tsq.png)](media/v2-update-tsq/tsq.png#lightbox)
 
 ## <a name="environment-apis"></a>API d’environnement
 
@@ -75,8 +75,8 @@ Les API de requête de série chronologique suivantes sont disponibles :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur [entrée et stockage](./time-series-insights-update-storage-ingress.md) dans la version préliminaire d’Azure temps série Insights.
+- En savoir plus sur l'[entrée et le stockage](./time-series-insights-update-storage-ingress.md) dans Azure Time Series Insights en préversion.
 
-- Lire la version préliminaire de temps série Insights [modélisation des données](./time-series-insights-update-tsm.md) article.
+- Consultez l'article [Azure Time Series Insights (préversion) - Modélisation de données](./time-series-insights-update-tsm.md).
 
-- Découvrir [meilleures pratiques lors du choix d’un ID de série de temps](./time-series-insights-update-how-to-id.md).
+- Découvrez les [meilleures pratiques pour choisir un ID Time Series](./time-series-insights-update-how-to-id.md).

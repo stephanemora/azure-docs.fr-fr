@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 05/24/2019
 ms.author: alkohli
 ms.openlocfilehash: acba9d2c87d2fb23e48ac24cec22388044702bac
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66240145"
 ---
 # <a name="open-a-support-ticket-for-azure-data-box"></a>Ouvrir un ticket de support pour Azure Data Box 
 
-Cet article s’applique à Azure Data Box lourd de zone de données Azure et disques Azure Data Box, qui sont gérés par le service Azure Data Box. Si vous rencontrez des problèmes avec votre service Azure Data Box, vous pouvez créer une demande de service pour obtenir un support technique. Cet article vous guide tout au long des procédures suivantes :
+Cet article s’applique aux services Azure Data Box, Azure Data Box Heavy et Azure Data Box Disk, qui sont tous managés par le service Azure Data Box. Si vous rencontrez des problèmes avec votre service Azure Data Box, vous pouvez créer une demande de service pour obtenir un support technique. Cet article vous guide tout au long des procédures suivantes :
 
 * Création d’une demande de support
 * Gestion du cycle de vie d’une demande de support à partir du portail
@@ -56,7 +56,7 @@ Procédez comme suit pour créer une demande de support.
 4. Dans le panneau **Nouvelle demande de support**, cliquez sur **3 Informations de contact**. Dans le panneau **Informations de contact**, procédez comme suit :
 
    1. Dans la section **Options de contact**, fournissez votre méthode de contact préférée (téléphone ou e-mail) et votre langue. Le temps de réponse est automatiquement sélectionné en fonction de votre plan d’abonnement.
-   2. Dans le **informations de Contact**, fournir votre nom, le courrier électronique, le contact facultatif, le pays/région. Sélectionnez **Enregistrer les modifications de contact pour les futures demandes de support**.
+   2. Dans **Informations de contact**, fournissez votre nom, votre adresse e-mail, un contact secondaire (facultatif) et votre pays/région. Sélectionnez **Enregistrer les modifications de contact pour les futures demandes de support**.
    3. Cliquez sur **Créer**.
    
        ![Informations de contact](./media/data-box-disk-contact-microsoft-support/data-box-disk-support3.png)   
@@ -84,5 +84,5 @@ Après avoir créé un ticket de support, vous pouvez gérer son cycle de vie de
 ## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez comment [résoudre les problèmes liés au service Data Box Disk](data-box-disk-troubleshoot.md).
-Découvrez comment [résoudre les problèmes liés à la zone de données](data-box-troubleshoot.md).
-Découvrez comment [résoudre les problèmes liés au stockage d’objets Blob de données boîte](data-box-troubleshoot-rest.md).
+Découvrez comment [résoudre les problèmes liés au Data Box](data-box-troubleshoot.md).
+Découvrez comment [résoudre les problèmes liés au service Stockage Blob Data Box](data-box-troubleshoot-rest.md).

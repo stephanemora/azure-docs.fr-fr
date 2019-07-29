@@ -19,10 +19,10 @@ ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ed4e7559ff6c3b76bbdf49b538ffebf3ad09cc58
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66001229"
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>Informations d’identification de certificat pour l’authentification d’application
@@ -98,10 +98,10 @@ Vous pouvez associer les informations d’identification du certificat à l’ap
 ### <a name="uploading-the-certificate-file"></a>Chargement du fichier de certificat
 
 Dans l’inscription d’application Azure pour l’application cliente :
-1. Sélectionnez **certificats et clés secrètes**. 
-2. Cliquez sur **télécharger un certificat** et sélectionnez le fichier de certificat à charger.
+1. Cliquez sur **Certificats et secrets**. 
+2. Cliquez sur **Charger un certificat** et sélectionnez le fichier de certificat à charger.
 3. Cliquez sur **Add**.
-  Une fois que le certificat est chargé, l’empreinte numérique, date de début et les valeurs d’expiration sont affichés. 
+  Une fois le certificat chargé, les valeurs d'empreinte numérique, de date de début et d’expiration s'affichent. 
 
 ### <a name="updating-the-application-manifest"></a>Mise à jour du manifeste d’application
 
@@ -113,7 +113,7 @@ Sur la base de votre certificat, vous devez calculer :
 Vous devez également fournir un GUID pour identifier la clé dans le manifeste de l’application (`$keyId`).
 
 Dans l’inscription d’application Azure pour l’application cliente :
-1. Sélectionnez **manifeste** pour ouvrir le manifeste d’application.
+1. Sélectionnez **Manifeste** pour ouvrir le manifeste d’application.
 2. Remplacez la propriété *keyCredentials* par les nouvelles informations de votre certificat, en utilisant le schéma suivant.
 
    ```

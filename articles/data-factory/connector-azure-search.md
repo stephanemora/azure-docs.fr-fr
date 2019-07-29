@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: jingwang
 ms.openlocfilehash: faf0cab55ec0cef034638d218f2172f3676ff39b
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66245108"
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Copier des données vers un index de recherche Azure à l’aide d’Azure Data Factory
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version 1](v1/data-factory-azure-search-connector.md)
 > * [Version actuelle](connector-azure-search.md)
 
@@ -43,13 +43,13 @@ Les propriétés prises en charge pour le service lié Recherche Azure sont les 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type doit être définie sur : **AzureSearch** | Oui |
-| url | URL du service Recherche Azure. | Oui |
+| type | La propriété type doit être définie sur : **AzureSearch** | OUI |
+| URL | URL du service Recherche Azure. | OUI |
 | key | Clé d’administration du service Recherche Azure. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
-| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser runtime d’intégration Azure ou un runtime d’intégration auto-hébergé (si votre banque de données se trouve dans un réseau privé). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non  |
+| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser runtime d’intégration Azure ou un runtime d’intégration auto-hébergé (si votre banque de données se trouve dans un réseau privé). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non |
 
 > [!IMPORTANT]
-> Lors de la copie de données à partir d’un magasin de données cloud dans des index de recherche Azure, dans la recherche Azure, service lié, vous devez faire référence à un Runtime d’intégration Azure avec une région explicite dans connactVia. Définissez la région comme celle dans laquelle votre Recherche Azure réside. En savoir plus dans [Integration Runtime Azure](concepts-integration-runtime.md#azure-integration-runtime).
+> Lors de la copie de données d’une banque de données cloud vers l’index Recherche Azure, dans un service lié Recherche Azure, vous devez référencer un runtime d’intégration Azure avec une région explicite dans connactVia. Définissez la région comme celle dans laquelle votre Recherche Azure réside. En savoir plus dans [Integration Runtime Azure](concepts-integration-runtime.md#azure-integration-runtime).
 
 **Exemple :**
 
@@ -77,12 +77,12 @@ Les propriétés prises en charge pour le service lié Recherche Azure sont les 
 
 Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article sur les jeux de données. Cette section fournit la liste des propriétés prises en charge par le jeu de données de Recherche Azure.
 
-Pour copier des données dans Azure Search, les propriétés suivantes sont prises en charge :
+Pour copier des données dans Recherche Azure, les propriétés suivantes sont prises en charge :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type du jeu de données doit être définie sur : **AzureSearchIndex** | Oui |
-| indexName | Nom de l’index Recherche Azure. Data Factory ne crée pas l’index. L’index doit exister dans Recherche Azure. | Oui |
+| Type | La propriété type du jeu de données doit être définie sur : **AzureSearchIndex** | OUI |
+| indexName | Nom de l’index Recherche Azure. Data Factory ne crée pas l’index. L’index doit exister dans Recherche Azure. | OUI |
 
 **Exemple :**
 
@@ -112,9 +112,9 @@ Pour copier des données vers Recherche Azure, définissez **AzureSearchIndexSin
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type de la source d’activité de copie doit être définie sur : **AzureSearchIndexSink** | Oui |
-| writeBehavior | Indique s’il convient de procéder à une fusion ou à un remplacement lorsqu’un document existe déjà dans l’index. Voir la [propriété WriteBehavior](#writebehavior-property).<br/><br/>Les valeurs autorisées sont les suivantes : **Merge** (par défaut) et **Upload**. | Non  |
-| writeBatchSize | Charge des données dans l’index Recherche Azure lorsque la taille du tampon atteint writeBatchSize. Pour plus d’informations, voir la [propriété WriteBatchSize](#writebatchsize-property).<br/><br/>Valeurs autorisées : entier de 1 à 1000 ; la valeur par défaut est 1000. | Non  |
+| Type | La propriété type de la source d’activité de copie doit être définie sur : **AzureSearchIndexSink** | OUI |
+| writeBehavior | Indique s’il convient de procéder à une fusion ou à un remplacement lorsqu’un document existe déjà dans l’index. Voir la [propriété WriteBehavior](#writebehavior-property).<br/><br/>Les valeurs autorisées sont les suivantes : **Merge** (par défaut) et **Upload**. | Non |
+| writeBatchSize | Charge des données dans l’index Recherche Azure lorsque la taille du tampon atteint writeBatchSize. Pour plus d’informations, voir la [propriété WriteBatchSize](#writebatchsize-property).<br/><br/>Valeurs autorisées : entier de 1 à 1000 ; la valeur par défaut est 1000. | Non |
 
 ### <a name="writebehavior-property"></a>Propriété WriteBehavior
 
@@ -169,13 +169,13 @@ Le tableau suivant indique si un type de données Recherche Azure est pris en c
 
 | Type de données Recherche Azure | Pris en charge dans le récepteur de l’index Recherche Azure |
 | ---------------------- | ------------------------------ |
-| String | O |
+| Chaîne | O |
 | Int32 | O |
 | Int64 | O |
 | Double | O |
 | Boolean | O |
 | DataTimeOffset | O |
-| String Array | N |
+| Tableau de chaînes | N |
 | GeographyPoint | N |
 
 ## <a name="next-steps"></a>Étapes suivantes

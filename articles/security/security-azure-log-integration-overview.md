@@ -16,16 +16,16 @@ ms.date: 05/28/2019
 ms.author: TomSh
 ms.custom: azlog
 ms.openlocfilehash: 65e256b476c1e459ae937d9f6cbb43e0020fd9fe
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66298132"
 ---
 # <a name="introduction-to-azure-log-integration"></a>Présentation d’Azure Log Integration
 
 >[!IMPORTANT]
-> La fonctionnalité d’intégration Azure journal sera obsolète à 15/06/2019. Les téléchargements AzLog ont été désactivés le 27 juin 2018. Pour obtenir des conseils pour évoluer, consultez la publication [Utiliser Azure Monitor pour intégrer avec des outils SIEM](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/). 
+> La fonctionnalité d’intégration des journaux Azure sera déconseillée à partir du 15/06/2019. Les téléchargements AzLog ont été désactivés le 27 juin 2018. Pour obtenir des conseils pour évoluer, consultez la publication [Utiliser Azure Monitor pour intégrer avec des outils SIEM](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/). 
 
 Azure Log Integration a été rendu disponible pour simplifier la tâche d’intégration des journaux d’activité Azure avec votre système local SIEM (Security Information and Event Management).
 
@@ -38,7 +38,7 @@ La documentation sur la fonctionnalité d’intégration des journaux Azure est 
 
 Pour en savoir plus sur la fonctionnalité d’intégration des journaux Azure :
 
-Azure Log Integration collecte les événements Windows à partir des journaux d’activité de l’Observateur d’événements, des [journaux d’activité Azure](../azure-monitor/platform/activity-logs-overview.md), des [alertes Azure Security Center](../security-center/security-center-intro.md) et des [journaux d’activité Azure Diagnostics](../azure-monitor/platform/diagnostic-logs-overview.md) des ressources Azure. Azure Log Integration permet à votre solution SIEM d’offrir un tableau de bord unifié pour toutes vos ressources, qu’elles soient locales ou dans le cloud. Vous pouvez utiliser un tableau de bord pour recevoir, agréger, mettre en corrélation et analyser des alertes pour des événements de sécurité.
+Azure Log Integration collecte les événements Windows à partir des journaux de l’observateur d’événements, des [journaux d’activité Azure](../azure-monitor/platform/activity-logs-overview.md), des [alertes Azure Security Center](../security-center/security-center-intro.md) et des [journaux Diagnostics Azure](../azure-monitor/platform/diagnostic-logs-overview.md) des ressources Azure. Azure Log Integration permet à votre solution SIEM d’offrir un tableau de bord unifié pour toutes vos ressources, qu’elles soient locales ou dans le cloud. Vous pouvez utiliser un tableau de bord pour recevoir, agréger, mettre en corrélation et analyser des alertes pour des événements de sécurité.
 
 > [!NOTE]
 > Actuellement, Azure Log Integration prend uniquement en charge les clouds Azure Government et commerciaux Azure. Les autres clouds ne sont pas pris en charge.
@@ -49,8 +49,8 @@ Azure Log Integration collecte les événements Windows à partir des journaux d
 
 Azure génère une journalisation complète pour chaque service Azure. Les journaux d’activité sont de trois types :
 
-* **Journaux de contrôle/gestion** : Fournissent une visibilité sur les opérations CREATE, UPDATE et DELETE [d’Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). Un journal d’activité Azure est un exemple de ce type de journal.
-* **Journaux de plan de données** : Fournissent une visibilité sur les événements qui sont déclenchés quand vous utilisez une ressource Azure. Les chaînes **Système**, **Sécurité** et **Application** de l’Observateur d’événements Windows sont des exemples de ce type de journal, dans une machine virtuelle Windows. La journalisation Diagnostics Azure, configurée via Azure Monitor, en est un autre exemple.
+* **Journaux d’activité de contrôle/gestion** : Fournissent une visibilité sur les opérations CREATE, UPDATE et DELETE [d’Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). Un journal d’activité Azure est un exemple de ce type de journal.
+* **Journaux d’activité de plan de données** : Fournissent une visibilité sur les événements qui sont déclenchés quand vous utilisez une ressource Azure. Les chaînes **Système**, **Sécurité** et **Application** de l’Observateur d’événements Windows sont des exemples de ce type de journal, dans une machine virtuelle Windows. La journalisation Diagnostics Azure, configurée via Azure Monitor, en est un autre exemple.
 * **Événements traités** : Fournissent des informations sur les alertes et les événements traités pour vous. Les alertes Azure Security Center sont un exemple de ce type d’événement. Azure Security Center traite et analyse votre abonnement, afin de proposer des alertes pertinentes pour votre niveau de sécurité actuel.
 
 Azure Log Integration prend en charge ArcSight, QRadar et Splunk. Renseignez-vous auprès de votre fournisseur SIEM pour déterminer s’il dispose d’un connecteur natif. N’utilisez pas Azure Log Integration si un connecteur natif est disponible.
@@ -61,7 +61,7 @@ Si aucune autre option n’est disponible, envisagez d’utiliser Azure Log Inte
 |---------|--------------------------|-------------------------------------------|
 |**Splunk** | Commencez à effectuer une migration vers le [module complémentaire Azure Monitor pour Splunk](https://splunkbase.splunk.com/app/3534/). | Utilisez le [connecteur Splunk](https://splunkbase.splunk.com/app/3534/). |
 |**QRadar** | Effectuez une migration vers le connecteur QRadar documenté dans la dernière section de [Diffuser des données de surveillance Azure vers un hub d’événements pour les utiliser dans un outil externe](../azure-monitor/platform/stream-monitoring-data-event-hubs.md) ou commencez à l’utiliser. | Utilisez le connecteur QRadar documenté dans la dernière section de [Diffuser des données de surveillance Azure vers un hub d’événements pour les utiliser dans un outil externe](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). |
-|**ArcSight** | Continuez à utiliser l’intégrateur de journaux Azure jusqu’à ce qu’un connecteur soit disponible, puis effectuez la migration vers la solution basée sur le connecteur.  | Envisagez d’utiliser des journaux Azure Monitor en guise d’alternative. Ne recourez à Azure Log Integration que si vous êtes disposé à exécuter le processus de migration une fois que le connecteur deviendra disponible. |
+|**ArcSight** | Continuez à utiliser l’intégrateur de journaux Azure jusqu’à ce qu’un connecteur soit disponible, puis effectuez la migration vers la solution basée sur le connecteur.  | Envisagez d’utiliser les journaux d'activité Azure Monitor en guise d'alternative. Ne recourez à Azure Log Integration que si vous êtes disposé à exécuter le processus de migration une fois que le connecteur deviendra disponible. |
 
 > [!NOTE]
 > Bien qu’Azure Log Integration soit une solution gratuite, le stockage des informations des fichiers de journaux est facturé, via Stockage Azure.
@@ -72,7 +72,7 @@ Si vous avez besoin d’une assistance, vous pouvez ouvrir une [demande de suppo
 
 Cet article vous a présenté Azure Log Integration. Pour plus d’informations sur Azure Log Integration et les types de journaux d’activité pris en charge, consultez les articles suivants :
 
-* [Intégration des journaux Azure avec Azure Diagnostics Logging et Windows Event Forwarding](security-azure-log-integration-get-started.md). Ce didacticiel vous guide tout au long de l’installation d’Azure Log Integration. Il décrit également comment intégrer des journaux d’activité du stockage Windows Azure Diagnostics, des journaux d’activité Azure, des alertes Azure Security Center et des journaux d’audit Azure Active Directory.
+* [Intégration des journaux Azure avec Azure Diagnostics Logging et Windows Event Forwarding](security-azure-log-integration-get-started.md). Ce didacticiel vous guide tout au long de l’installation d’Azure Log Integration. Il décrit également comment intégrer des journaux du stockage Diagnostics Azure pour Windows (WAD), des journaux d’activité Azure, des alertes Azure Security Center et des journaux d’audit Azure Active Directory.
 * [Forum aux questions sur l’intégration des journaux Azure](security-azure-log-integration-faq.md). Ce FAQ répond aux questions courantes sur Azure Log Integration.
 * Découvrez comment [diffuser des données de surveillance Azure vers un hub d’événements pour les utiliser dans un outil externe](../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
 
