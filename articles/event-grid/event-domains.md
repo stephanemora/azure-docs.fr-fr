@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: 61821caa2450096bdbdde3461316ad21a82f6f18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ef0a9213d095d0b7ae4343e2af145236a7e005a1
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304296"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305405"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Comprendre les domaines d’événements pour gérer les rubriques Event Grid
 
@@ -105,7 +105,7 @@ Voici les limites et quotas liés aux domaines d'événements :
 - 50 abonnements à l’étendue de domaine 
 - Taux d'ingestion de 5 000 événements par seconde (dans un domaine)
 
-Si ces limites ne répondent pas à vos besoins, contactez l’équipe produit en ouvrant un ticket de support ou en envoyant un e-mail à [askgrid@microsoft.com](mailto:askgrid.microsoft.com). 
+Si ces limites ne répondent pas à vos besoins, contactez l’équipe produit en ouvrant un ticket de support ou en envoyant un e-mail à [askgrid@microsoft.com](mailto:askgrid@microsoft.com). 
 
 ## <a name="pricing"></a>Tarifs
 Les domaines d’événements utilisent la même [tarification des opérations](https://azure.microsoft.com/pricing/details/event-grid/) que toutes les autres fonctionnalités dans Event Grid.

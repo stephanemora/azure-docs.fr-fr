@@ -24,7 +24,7 @@ Le tableau suivant liste les régions prises en charge disponibles pour les fonc
 | Europe | France Centre, France Sud, Europe Nord, Europe Ouest, Royaume-Uni Ouest, Royaume-Uni Sud |
 | Asie | Asie Est, Asie Sud-Est |
 | Japon  | Japon Ouest, Japon Est |
-| Australie | Australie Sud-Est | Australie Est | 
+| Australie | Australie Sud-Est, Australie Est | 
 | Gouvernement australien | Australie Centre, Australie Centre 2 |
 | Inde | Inde Ouest, Inde Centre, Inde Sud |
 | Corée du Sud | Centre de la Corée, Corée du Sud |
