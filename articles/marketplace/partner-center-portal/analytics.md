@@ -7,12 +7,12 @@ ms.author: shthota
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/31/2019
-ms.openlocfilehash: 0da95dbdca52232b4b24ad921bf2d9c78dc76d56
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e467def33eb2980e58611d50c314a1206877e3b0
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66247723"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67619683"
 ---
 # <a name="analytics-for-the-commercial-marketplace-in-partner-center"></a>Analytics pour la Place de marché commerciale dans l’Espace partenaires
 
@@ -138,7 +138,7 @@ Le graphique **Commandes par type de licence de Place de marché** affiche un no
 
 - **facturé via Azure** : Microsoft facture les clients pour votre compte lorsque vous choisissez de [vendre votre offre via Microsoft](./create-new-saas-offer.md#sell-through-microsoft) avec ce type de licence. Les modes de paiement incluent le paiement à l’utilisation par carte de crédit ou facturation d'entreprise.
 - **BYOL (apportez votre propre licence)**  : Microsoft ne facture rien aux clients qui utilisent ce type d'offre de Place de marché. Répertorié en tant que **[Obtenez-en une maintenant (gratuit)](./create-new-saas-offer.md#get-it-now-free)** dans la Place de marché.
-- **Gratuit** : Microsoft ne facture rien aux clients qui utilisent ce type d'offre de Place de marché. Répertorié en tant que **[Version d’évaluation gratuite](./create-new-saas-offer.md#free-trial)** dans la Place de marché.
+- **Gratuit** : Microsoft ne facture rien aux clients qui utilisent ce type d'offre de Place de marché. Répertorié en tant que **[Version d’évaluation gratuite](./create-new-saas-offer.md##free-trial-listing)** dans la Place de marché.
 - **Microsoft en tant que revendeur** : Représente des offres vendues par des revendeurs Microsoft dans le cadre du **[programme Fournisseur de solutions cloud (CSP)](./create-new-saas-offer.md#csp-program-opt-in)** .
 
 ![Commandes par type de licence du menu Analyser de l'Espace partenaires](./media/analyze-license-type.png)

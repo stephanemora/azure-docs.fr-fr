@@ -49,7 +49,7 @@ sudo apt-get install -y maven
 
 Les informations d’identification Azure sont nécessaires pour exécuter l’interface CLI Azure.
 
-* Dans le tableau de bord Jenkins, cliquez sur **Informations d’identification > Système**. Cliquez sur **Informations d’identification globales (sans restriction)**.
+* Dans le tableau de bord Jenkins, cliquez sur **Informations d’identification > Système**. Cliquez sur **Informations d’identification globales (sans restriction)** .
 * Cliquez sur **Ajouter des informations d’identification** pour ajouter un [principal de service Microsoft Azure](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) en renseignant les valeurs suivantes : ID d’abonnement, ID de client, secret client et point de terminaison de jeton OAuth 2.0. Fournissez un ID qui sera utilisé dans une étape ultérieure.
 
 ![Ajout d’informations d'identification](./media/execute-cli-jenkins-pipeline/add-credentials.png)

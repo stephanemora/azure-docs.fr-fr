@@ -195,7 +195,7 @@ Copiez la valeur de `primaryMasterKey`. Vous aurez besoin de ces informations da
 <a name="devconfig"></a>
 ### <a name="configure-the-connection-string-in-your-nodejs-application"></a>Configurer la chaîne de connexion dans votre application Node.js
 
-Dans votre référentiel MEAN.js local, dans le dossier _config/env/_, créez un fichier nommé _local-production.js_. Par défaut, _.gitignore_ est configuré pour conserver ce fichier en dehors du référentiel. 
+Dans votre référentiel MEAN.js local, dans le dossier _config/env/_ , créez un fichier nommé _local-production.js_. Par défaut, _.gitignore_ est configuré pour conserver ce fichier en dehors du référentiel. 
 
 Copiez-y le code ci-après. Veillez à remplacer les deux espaces réservés *\<nom_cosmosdb>* par le nom de votre base de données Cosmos DB, et remplacez l’espace réservé *\<clé_primaire_principale>* par la clé que vous avez copiée à l’étape précédente.
 
@@ -272,7 +272,7 @@ Par défaut, le projet MEAN.js conserve _config/env/local-production.js_ hors du
 
 Pour définir les paramètres de l’application, utilisez la commande [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) dans Cloud Shell. 
 
-L’exemple suivant configure un paramètre d’application `MONGODB_URI` dans votre application Azure. Remplacez les espaces réservés *\<app_name>*, *\<cosmosdb_name>*, et *\<primary_master_key>*.
+L’exemple suivant configure un paramètre d’application `MONGODB_URI` dans votre application Azure. Remplacez les espaces réservés *\<app_name>* , *\<cosmosdb_name>* , et *\<primary_master_key>* .
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings MONGODB_URI="mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean?ssl=true"
@@ -447,7 +447,7 @@ node server.js
 
 Accédez à `http://localhost:8443` dans un navigateur et assurez-vous que vous êtes connecté.
 
-Sélectionnez **Admin > Manage Articles** (Administrateur > Gérer les articles), puis ajoutez un article en cliquant sur le bouton **+**.
+Sélectionnez **Admin > Manage Articles** (Administrateur > Gérer les articles), puis ajoutez un article en cliquant sur le bouton **+** .
 
 Vous voyez maintenant la nouvelle zone de texte `Comment`.
 
