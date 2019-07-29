@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 07/23/2019
 ms.author: kirankk
-ms.openlocfilehash: 36d172daed487372401691c7046215fb6c4a63ee
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 37b6a9947d3cabe1f566f842e321229efe9d03b6
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68384942"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598515"
 ---
 # <a name="build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>Créer une application console .NET pour gérer des données dans le compte de l’API SQL Azure Cosmos DB
 
@@ -261,7 +261,7 @@ Félicitations ! Vous avez créé une base de données Azure Cosmos DB.
 >
 >
 
-Vous pouvez créer un conteneur en utilisant la fonction [**CreateContainerIfNotExistsAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosdatabase) ou [**CreateContainerAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosdatabase) dans la classe **CosmosDatabase**. Un conteneur est composé d’éléments (documents JSON dans le cas de l’API SQL) et d’une logique d’application côté serveur en JavaScript, par exemple des procédures stockées, des fonctions définies par l’utilisateur et des déclencheurs.
+Vous pouvez créer un conteneur en utilisant la fonction [**CreateContainerIfNotExistsAsync**](/dotnet/api/microsoft.azure.cosmos.database.createcontainerifnotexistsasync?view=azure-dotnet#Microsoft_Azure_Cosmos_Database_CreateContainerIfNotExistsAsync_Microsoft_Azure_Cosmos_ContainerProperties_System_Nullable_System_Int32__Microsoft_Azure_Cosmos_RequestOptions_System_Threading_CancellationToken_) ou [**CreateContainerAsync**](/dotnet/api/microsoft.azure.cosmos.database.createcontainerasync?view=azure-dotnet#Microsoft_Azure_Cosmos_Database_CreateContainerAsync_Microsoft_Azure_Cosmos_ContainerProperties_System_Nullable_System_Int32__Microsoft_Azure_Cosmos_RequestOptions_System_Threading_CancellationToken_) dans la classe **CosmosDatabase**. Un conteneur est composé d’éléments (documents JSON dans le cas de l’API SQL) et d’une logique d’application côté serveur en JavaScript, par exemple des procédures stockées, des fonctions définies par l’utilisateur et des déclencheurs.
 
 1. Copiez et collez la méthode **CreateContainerAsync** sous votre méthode **CreateDatabaseAsync**. **CreateContainerAsync** crée un conteneur avec l’ID ``FamilyContainer`` s’il n’existe pas, avec l’ID spécifié dans le champ ``containerId`` partitionné par la propriété ``LastName``.
 
@@ -286,7 +286,7 @@ Vous pouvez créer un conteneur en utilisant la fonction [**CreateContainerIfNot
 Félicitations ! Vous avez créé un conteneur Azure Cosmos DB.  
 
 ## <a id="CreateDoc"></a>Étape 6 : Ajouter des éléments au conteneur
-Un élément peut être créé à l’aide de la fonction [**CreateItemAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmoscontainer) de la classe **CosmosContainer**. Lorsque vous utilisez l’API SQL, les éléments sont projetés sous forme de documents, à savoir du contenu JSON (arbitraire) défini par l’utilisateur. Vous pouvez maintenant insérer un élément dans votre conteneur Azure Cosmos DB.
+Un élément peut être créé à l’aide de la fonction [**CreateItemAsync**](/dotnet/api/microsoft.azure.cosmos.container.createitemasync?view=azure-dotnet#Microsoft_Azure_Cosmos_Container_CreateItemAsync__1___0_System_Nullable_Microsoft_Azure_Cosmos_PartitionKey__Microsoft_Azure_Cosmos_ItemRequestOptions_System_Threading_CancellationToken_) de la classe **CosmosContainer**. Lorsque vous utilisez l’API SQL, les éléments sont projetés sous forme de documents, à savoir du contenu JSON (arbitraire) défini par l’utilisateur. Vous pouvez maintenant insérer un élément dans votre conteneur Azure Cosmos DB.
 
 Tout d’abord, nous allons créer une classe **Family** représentant les objets stockés dans Azure Cosmos DB dans cet exemple. Nous allons également créer les sous-classes **Parent**, **Child**, **Pet** et **Address** qui seront utilisées dans **Family**. Notez que l’élément doit avoir une propriété **Id** sérialisée comme **id** dans JSON.
 

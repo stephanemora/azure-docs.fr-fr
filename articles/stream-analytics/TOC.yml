@@ -148,6 +148,8 @@
               href: stream-analytics-scale-jobs.md
         - name: Mettre à l’échelle avec des fonctions ML
           href: stream-analytics-scale-with-machine-learning-functions.md
+        - name: Mettre à l'échelle avec le repartitionnement
+          href: repartition.md
     - name: Automatisation
       items:
         - name: Utilisation du kit de développement logiciel (SDK) .NET

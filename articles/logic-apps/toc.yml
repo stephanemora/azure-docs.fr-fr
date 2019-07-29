@@ -155,6 +155,8 @@
           href: logic-apps-enterprise-integration-b2b-business-continuity.md
     - name: Se connecter à des réseaux virtuels avec des environnements isolés
       href: connect-virtual-network-vnet-isolated-environment.md
+    - name: Ajouter des artefacts à des environnements de service d’intégration
+      href: add-artifacts-integration-service-environment-ise.md
     - name: Accès aux données locales
       items:
         - name: Installer une passerelle de données
@@ -295,6 +297,8 @@
           href: manage-logic-apps-with-visual-studio.md
         - name: Gérer les comptes d’intégration
           href: logic-apps-enterprise-integration-accounts.md
+        - name: Gérer les environnements de service d’intégration
+          href: ise-manage-integration-service-environment.md
         - name: Migrer vers le schéma le plus récent
           href: ../connectors/connectors-schema-migration.md
     - name: Test

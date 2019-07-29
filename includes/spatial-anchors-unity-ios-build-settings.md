@@ -4,12 +4,12 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 1/29/2019
 ms.author: rgarcia
-ms.openlocfilehash: f66a3653bc85925349dde84551310fd24f4c9336
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: cfd5cf77b9df8cdd5b856a0b36b9010077a7078a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67176748"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562469"
 ---
 Ouvrez **Build Settings** (Paramètres de build) en sélectionnant **File** (Fichier) > **Build Settings** (Paramètres de build).
 
@@ -21,8 +21,3 @@ Sélectionnez **Switch Platform** (Changer de plateforme) pour passer à la plat
 
 Fermez la fenêtre **Build Settings**.
 
-### <a name="download-and-import-the-unity-arkit-plugin"></a>Télécharger et importer le plug-in Unity ARKit
-
-Téléchargez [le plug-in Unity ARKit version 2.0.0](https://bitbucket.org/Unity-Technologies/unity-arkit-plugin/get/v2.0.0.zip) et extrayez l’archive.
-
-Copiez le contenu du dossier `Assets`, depuis le dossier du plug-in Unity ARKit extrait, dans le dossier `Assets` de l’exemple.

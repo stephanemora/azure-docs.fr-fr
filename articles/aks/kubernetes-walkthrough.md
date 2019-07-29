@@ -100,12 +100,12 @@ aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.12.8
 
 ## <a name="run-the-application"></a>Exécution de l'application
 
-Un fichier manifeste Kubernetes définit un état souhaité pour le cluster, notamment les images conteneur à exécuter. Dans ce guide de démarrage rapide, un manifeste est utilisé afin de créer tous les objets nécessaires pour l’exécution de l’application Azure Vote. Ce manifeste contient deux [déploiements de Kubernetes][kubernetes-deployment] - one for the sample Azure Vote Python applications, and the other for a Redis instance. Two [Kubernetes Services][kubernetes-service] sont également créés : un service interne pour l’instance Redis et un service externe pour accéder à l’application Azure Vote à partir d’Internet.
+Un fichier manifeste Kubernetes définit un état souhaité pour le cluster, notamment les images conteneur à exécuter. Dans ce guide de démarrage rapide, un manifeste est utilisé afin de créer tous les objets nécessaires pour l’exécution de l’application Azure Vote. Ce manifeste contient deux [déploiements de Kubernetes][kubernetes-deployment] - one for the sample Azure Vote Python applications, and the other for a Redis instance. Two [Kubernetes Services][kubernetes-service] sont également créés : un service interne pour l’instance Redis et un service externe pour accéder à l’application Azure Vote à partir d’Internet. Dans ce guide de démarrage rapide, vous créez et déployez manuellement vos manifestes d’application sur le cluster AKS.
 
 > [!TIP]
-> Dans ce guide de démarrage rapide, vous créez et déployez manuellement vos manifestes d’application sur le cluster AKS. Dans des scénarios plus probables, vous pouvez utiliser [Azure Dev Spaces][azure-dev-spaces] pour itérer et déboguer votre code rapidement, directement dans le cluster AKS. Vous pouvez utiliser les espaces Dev Spaces sur des plateformes de système d’exploitation ainsi que des environnements de développement et collaborer avec les autres personnes de votre équipe.
+> Dans des scénarios plus probables, vous pouvez utiliser [Azure Dev Spaces][azure-dev-spaces] pour itérer et déboguer votre code rapidement, directement dans le cluster AKS. Vous pouvez utiliser les espaces Dev Spaces sur des plateformes de système d’exploitation ainsi que des environnements de développement et collaborer avec les autres personnes de votre équipe. Créez un fichier nommé `azure-vote.yaml`, et copiez-y la définition YAML suivante.
 
-Créez un fichier nommé `azure-vote.yaml`, et copiez-y la définition YAML suivante. Si vous utilisez Azure Cloud Shell, vous pouvez créer ce fichier à l’aide de `vi` ou de `nano` comme si vous travailliez sur un système virtuel ou physique :
+Si vous utilisez Azure Cloud Shell, vous pouvez créer ce fichier à l’aide de `vi` ou de `nano` comme si vous travailliez sur un système virtuel ou physique : Déployez l’application à l’aide de la commande [kubectl apply][kubectl-apply] et spécifiez le nom de votre manifeste YAML :
 
 ```yaml
 apiVersion: apps/v1
@@ -192,13 +192,13 @@ spec:
     app: azure-vote-front
 ```
 
-Déployez l’application à l’aide de la commande [kubectl apply][kubectl-apply] et spécifiez le nom de votre manifeste YAML :
+L’exemple de sortie suivant montre que les déploiements et les ressources ont été créés correctement :
 
 ```azurecli-interactive
 kubectl apply -f azure-vote.yaml
 ```
 
-L’exemple de sortie suivant montre que les déploiements et les ressources ont été créés correctement :
+Test de l’application
 
 ```output
 deployment "azure-vote-back" created
@@ -207,79 +207,79 @@ deployment "azure-vote-front" created
 service "azure-vote-front" created
 ```
 
-## <a name="test-the-application"></a>Test de l’application
+## <a name="test-the-application"></a>Quand l’application s’exécute, un service Kubernetes expose le front-end de l’application sur Internet.
 
-Quand l’application s’exécute, un service Kubernetes expose le front-end de l’application sur Internet. L’exécution de ce processus peut prendre plusieurs minutes.
+L’exécution de ce processus peut prendre plusieurs minutes. Pour surveiller la progression, utilisez la commande [kubectl get service][kubectl-get] avec l’argument `--watch`.
 
-Pour surveiller la progression, utilisez la commande [kubectl get service][kubectl-get] avec l’argument `--watch`.
+Dans un premier temps, la valeur *EXTERNAL-IP* du service *azure-vote-front* apparaît comme étant en attente (*pending*).
 
 ```azurecli-interactive
 kubectl get service azure-vote-front --watch
 ```
 
-Dans un premier temps, la valeur *EXTERNAL-IP* du service *azure-vote-front* apparaît comme étant en attente (*pending*).
+Quand l’adresse *EXTERNAL-IP* passe de l’état *pending* à une adresse IP publique réelle, utilisez `CTRL-C` pour arrêter le processus de surveillance `kubectl`.
 
 ```output
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
 azure-vote-front   LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 ```
 
-Quand l’adresse *EXTERNAL-IP* passe de l’état *pending* à une adresse IP publique réelle, utilisez `CTRL-C` pour arrêter le processus de surveillance `kubectl`. L’exemple de sortie suivant montre une adresse IP publique valide affectée au service :
+L’exemple de sortie suivant montre une adresse IP publique valide affectée au service : Pour voir l’application Azure Vote en action, ouvrez un navigateur web en utilisant l’adresse IP externe de votre service.
 
 ```output
 azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 
-Pour voir l’application Azure Vote en action, ouvrez un navigateur web en utilisant l’adresse IP externe de votre service.
+Image de la navigation vers Azure Vote
 
-![Image de la navigation vers Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
+![Analyser le fonctionnement et les journaux d’activité](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
-## <a name="monitor-health-and-logs"></a>Analyser le fonctionnement et les journaux d’activité
+## <a name="monitor-health-and-logs"></a>Au moment de la création du cluster AKS, Azure Monitor pour conteneurs a été activé afin de capturer les métriques d’intégrité pour les nœuds de cluster et les pods.
 
-Au moment de la création du cluster AKS, Azure Monitor pour conteneurs a été activé afin de capturer les métriques d’intégrité pour les nœuds de cluster et les pods. Ces mesures sont disponibles dans le portail Azure.
+Ces mesures sont disponibles dans le portail Azure. Pour afficher l’état, la durée de fonctionnement et l’utilisation des ressources actuels pour les pods Azure Vote, procédez comme suit :
 
-Pour afficher l’état, la durée de fonctionnement et l’utilisation des ressources actuels pour les pods Azure Vote, procédez comme suit :
+Ouvrez le portail Azure avec un navigateur web [https://portal.azure.com][azure-portal].
 
-1. Ouvrez le portail Azure avec un navigateur web [https://portal.azure.com][azure-portal].
 1. Sélectionnez votre groupe de ressources, par exemple *myResourceGroup*, puis sélectionnez votre cluster AKS, tel que *myAKSCluster*.
 1. Sous **Supervision** à gauche, choisissez **Insights**.
 1. Dans la partie supérieure, choisissez **+ Ajouter un filtre**.
 1. Sélectionnez *Espace de noms* en guise de propriété, puis choisissez *\<Tout sauf kube-system\>* .
 1. Choisissez de visualiser les **Conteneurs**.
+1. Les conteneurs *azure-vote-back* et *azure-vote-front* s’affichent, comme illustré dans l’exemple suivant :
 
-Les conteneurs *azure-vote-back* et *azure-vote-front* s’affichent, comme illustré dans l’exemple suivant :
+Afficher l’intégrité des conteneurs en cours d’exécution dans AKS
 
-![Afficher l’intégrité des conteneurs en cours d’exécution dans AKS](media/kubernetes-walkthrough/monitor-containers.png)
+![Pour consulter les journaux du pod `azure-vote-back`, choisissez l'option **Afficher dans Analyses**, puis cliquez sur le lien **Afficher les journaux du conteneur** à droite de la liste des conteneurs.](media/kubernetes-walkthrough/monitor-containers.png)
 
-Pour consulter les journaux du pod `azure-vote-back`, choisissez l'option **Afficher dans Analyses**, puis cliquez sur le lien **Afficher les journaux du conteneur** à droite de la liste des conteneurs. Vous pourrez voir les flux *stdout* et *stderr* du conteneur.
+Vous pourrez voir les flux *stdout* et *stderr* du conteneur. Afficher les journaux d’activité de conteneurs dans AKS
 
-![Afficher les journaux d’activité de conteneurs dans AKS](media/kubernetes-walkthrough/monitor-container-logs.png)
+![Supprimer le cluster](media/kubernetes-walkthrough/monitor-container-logs.png)
 
-## <a name="delete-the-cluster"></a>Supprimer le cluster
+## <a name="delete-the-cluster"></a>Lorsque vous n’avez plus besoin du cluster, utilisez la commande [az group delete][az-group-delete] pour supprimer le groupe de ressources, le service conteneur et toutes les ressources associées.
 
-Lorsque vous n’avez plus besoin du cluster, utilisez la commande [az group delete][az-group-delete] pour supprimer le groupe de ressources, le service conteneur et toutes les ressources associées.
+Lorsque vous supprimez le cluster, le principal de service Azure Active Directory utilisé par le cluster AKS n’est pas supprimé.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
 ```
 
 > [!NOTE]
-> Lorsque vous supprimez le cluster, le principal de service Azure Active Directory utilisé par le cluster AKS n’est pas supprimé. Pour obtenir des instructions sur la façon de supprimer le principal de service, consultez [Considérations principales et suppression du principal de service AKS][sp-delete].
+> Pour obtenir des instructions sur la façon de supprimer le principal de service, consultez [Considérations principales et suppression du principal de service AKS][sp-delete]. Obtenir le code
 
-## <a name="get-the-code"></a>Obtenir le code
+## <a name="get-the-code"></a>Dans ce guide de démarrage rapide, des images conteneur créées au préalable ont été utilisées pour créer un déploiement Kubernetes.
 
-Dans ce guide de démarrage rapide, des images conteneur créées au préalable ont été utilisées pour créer un déploiement Kubernetes. Le code de l’application associé, Dockerfile, et le fichier manifeste Kubernetes sont disponibles sur GitHub.
+Le code de l’application associé, Dockerfile, et le fichier manifeste Kubernetes sont disponibles sur GitHub. Étapes suivantes
 
 [https://github.com/Azure-Samples/azure-voting-app-redis][azure-vote-app]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>Dans ce Démarrage rapide, vous avez déployé un cluster Kubernetes dans lequel vous avez déployé une application de plusieurs conteneurs.
 
-Dans ce Démarrage rapide, vous avez déployé un cluster Kubernetes dans lequel vous avez déployé une application de plusieurs conteneurs. Vous pouvez également [accéder au tableau de bord web Kubernetes][kubernetes-dashboard] pour votre cluster AKS.
+Vous pouvez également [accéder au tableau de bord web Kubernetes][kubernetes-dashboard] pour votre cluster AKS. Pour en savoir plus sur ACS et parcourir le code complet de l’exemple de déploiement, passez au tutoriel sur le cluster Kubernetes.
 
-Pour en savoir plus sur ACS et parcourir le code complet de l’exemple de déploiement, passez au tutoriel sur le cluster Kubernetes.
+[Tutoriel AKS][aks-tutorial]
 
 > [!div class="nextstepaction"]
-> [Tutoriel AKS][aks-tutorial]
+> <bpt id="p1">[</bpt>AKS tutorial<ept id="p1">][aks-tutorial]</ept>
 
 <!-- LINKS - external -->
 [azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git

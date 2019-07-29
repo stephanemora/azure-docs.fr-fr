@@ -3,7 +3,7 @@ title: Déployer une application conteneur avec intégration et déploiement con
 description: Dans ce tutoriel, vous allez apprendre à configurer l’intégration et le déploiement continus pour une application conteneur Azure Service Fabric à l’aide de Visual Studio et d’Azure DevOps.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/29/2018
-ms.author: aljo
+ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 37305f27203986ce2e3d06276b5169ffd9b41287
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: b686ceace3679d1541e8f1a74bca7e99b81ba932
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668804"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598899"
 ---
 # <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>Didacticiel : Déployer une application conteneur avec intégration et déploiement continus sur un cluster Service Fabric
 
@@ -43,7 +43,7 @@ Avant de commencer ce tutoriel :
 
 ## <a name="prepare-a-publish-profile"></a>Préparer un profil de publication
 
-Maintenant que vous avez [déployé une application conteneur](service-fabric-host-app-in-a-container.md), vous pouvez configurer l’intégration continue.  Tout d’abord, préparez au sein de votre application un profil de publication destiné au processus de déploiement qui s’exécute dans Azure DevOps.  Le profil de publication doit être configuré pour cibler le cluster que vous avez précédemment créé.  Démarrez Visual Studio et ouvrez un projet d’application Service Fabric existant.  Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur l’application, puis sélectionnez **Publier...**.
+Maintenant que vous avez [déployé une application conteneur](service-fabric-host-app-in-a-container.md), vous pouvez configurer l’intégration continue.  Tout d’abord, préparez au sein de votre application un profil de publication destiné au processus de déploiement qui s’exécute dans Azure DevOps.  Le profil de publication doit être configuré pour cibler le cluster que vous avez précédemment créé.  Démarrez Visual Studio et ouvrez un projet d’application Service Fabric existant.  Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur l’application, puis sélectionnez **Publier...** .
 
 Choisissez au sein de votre projet d’application un profil cible à utiliser pour votre flux de travail d’intégration continue (Cloud, par exemple).  Spécifiez le point de terminaison de connexion du cluster.  Cochez la case **Mettre à niveau l’application** pour que votre application soit mise à niveau pour chaque déploiement dans Azure DevOps.  Cliquez sur le lien hypertexte **Enregistrer** pour enregistrer les paramètres dans le profil de publication, puis cliquez sur **Annuler** pour fermer la boîte de dialogue.
 
@@ -137,7 +137,7 @@ Cliquez sur **Paramètres Docker**, puis sur **Configurer les paramètres Docker
 
 ![Agent du pipeline de mise en production][release-pipeline-agent]
 
-Ensuite, ajoutez un artefact de build au pipeline afin de permettre à la définition de mise en production de trouver la sortie de la build. Sélectionnez **Pipeline** et **Artefacts**->**+ Ajouter**.  Dans **Source (définition de build)**, sélectionnez la définition de build que vous avez créée précédemment.  Cliquez sur **Ajouter** pour enregistrer l’artefact de la build.
+Ensuite, ajoutez un artefact de build au pipeline afin de permettre à la définition de mise en production de trouver la sortie de la build. Sélectionnez **Pipeline** et **Artefacts**-> **+ Ajouter**.  Dans **Source (définition de build)** , sélectionnez la définition de build que vous avez créée précédemment.  Cliquez sur **Ajouter** pour enregistrer l’artefact de la build.
 
 ![Ajoutez un artefact][add-artifact]
 

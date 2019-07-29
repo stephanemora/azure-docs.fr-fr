@@ -82,7 +82,7 @@ Maintenant que vous disposez d’une zone DNS test avec un enregistrement « A
    nslookup www.contoso.xyz <name server name>
    ```
 
-   Par exemple : 
+   Par exemple :
 
    ```
    nslookup www.contoso.xyz ns1-08.azure-dns.com.
