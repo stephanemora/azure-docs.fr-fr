@@ -114,9 +114,9 @@ Si un profil de journal existe déjà, vous devez tout d’abord le supprimer, p
     | Name |OUI |Nom de votre profil de journal. |
     | StorageAccountId |Non |ID de ressource du compte de stockage dans lequel le journal d’activité doit être enregistré. |
     | serviceBusRuleId |Non |ID de règle Service Bus pour l’espace de noms Service Bus dans lequel vous souhaitez que des concentrateurs d’événements soient créés. Il s'agit d'une chaîne au format `{service bus resource ID}/authorizationrules/{key name}`. |
-    | Lieu |OUI |Liste séparée par des virgules des régions pour lesquelles vous souhaitez collecter les événements du journal d’activité. |
+    | Location |OUI |Liste séparée par des virgules des régions pour lesquelles vous souhaitez collecter les événements du journal d’activité. |
     | RetentionInDays |OUI |Nombre de jours pendant lesquels les événements doivent être conservés dans le compte de stockage, compris entre 1 et 2147483647. Une valeur de zéro signifie que les journaux d’activité seront stockés pour une durée indéfinie. |
-    | Catégorie |Non |Liste séparée par des virgules des catégories d’événements qui doivent être collectées. Les valeurs possibles sont _Write_, _Delete_ et _Action_. |
+    | Category |Non |Liste séparée par des virgules des catégories d’événements qui doivent être collectées. Les valeurs possibles sont _Write_, _Delete_ et _Action_. |
 
 ### <a name="example-script"></a>Exemple de script
 Vous trouverez ci-dessous un exemple de script PowerShell pour créer un profil de journal qui écrit le journal d’activité dans un compte de stockage et un Event Hub.
@@ -154,12 +154,12 @@ Si un profil de journal existe déjà, vous devez tout d’abord le supprimer, p
 
     | Propriété | Obligatoire | Description |
     | --- | --- | --- |
-    | Nom |OUI |Nom de votre profil de journal. |
+    | name |OUI |Nom de votre profil de journal. |
     | storage-account-id |OUI |ID de ressource du compte de stockage dans lequel les journaux d’activité doivent être enregistrés. |
-    | Emplacements |OUI |Liste, séparée par des espaces, des régions pour lesquelles vous souhaitez collecter les événements du journal d’activité. Vous pouvez voir une liste de toutes les régions pour votre abonnement à l’aide de `az account list-locations --query [].name`. |
+    | locations |OUI |Liste, séparée par des espaces, des régions pour lesquelles vous souhaitez collecter les événements du journal d’activité. Vous pouvez voir une liste de toutes les régions pour votre abonnement à l’aide de `az account list-locations --query [].name`. |
     | days |OUI |Nombre de jours pendant lesquels les événements doivent être conservés, compris entre 1 et 365. Une valeur de zéro signifie que les journaux d’activité seront stockés pour une durée indéfinie (pour toujours).  Si zéro est spécifié, le paramètre activé doit être défini sur true. |
     |Activé | OUI |True ou False.  Utilisée pour activer ou désactiver la stratégie de rétention.  Si la valeur est True, le paramètre days doit être une valeur supérieure à 0.
-    | Catégories |OUI |Liste, séparée par des espaces, des catégories d’événements qui doivent être collectées. Les valeurs possibles sont Write, Delete et Action. |
+    | categories |OUI |Liste, séparée par des espaces, des catégories d’événements qui doivent être collectées. Les valeurs possibles sont Write, Delete et Action. |
 
 
 

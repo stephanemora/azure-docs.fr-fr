@@ -153,14 +153,14 @@ Le tableau suivant décrit les paramètres et les valeurs utilisés pour créer 
 | paramètre | value |
 | --- | --- |
 | Nom |simpletestdiskwrite |
-| Emplacement de cette règle d'alerte |USA Est |
+| Emplacement de cette règle d'alerte |East US |
 | ResourceGroup |montest |
 | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
 | MetricName de l'alerte créée |\PhysicalDisk(_Total)\Disk Writes/sec. Pour savoir comment récupérer le nom exact des métriques, consultez l’applet de commande `Get-MetricDefinitions`. |
 | operator |GreaterThan |
 | Valeur de seuil (nombre/s pour cette métrique) |1 |
 | WindowSize (format hh:mm:ss) |00:05:00 |
-| agrégation (statistique de la métrique, qui utilise la valeur Average dans ce cas) |Moyenne |
+| agrégation (statistique de la métrique, qui utilise la valeur Average dans ce cas) |Average |
 | courriers électroniques personnalisés (tableau de chaînes) |'foo@example.com','bar@example.com' |
 | envoyer un courrier électronique aux propriétaires, contributeurs et lecteurs |-SendToServiceOwners |
 
